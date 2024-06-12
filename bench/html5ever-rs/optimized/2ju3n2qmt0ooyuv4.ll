@@ -292,4 +292,4 @@ attributes #7 = { noreturn }
 !29 = !{!30, !22, !19, !26}
 !30 = distinct !{!30, !31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E: argument 0"}
 !31 = distinct !{!31, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hce4cd945c2c90319E"}
-!32 = !{!"branch_weights", i32 2000, i32 1}
+!32 = !{!"branch_weights", !"expected", i32 2000, i32 1}

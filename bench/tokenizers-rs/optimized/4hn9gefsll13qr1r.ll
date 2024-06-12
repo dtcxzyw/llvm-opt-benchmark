@@ -31258,7 +31258,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !1644 = distinct !{!1644, !1645, !"_ZN80_$LT$rayon..slice..IterMut$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h63a5617c1771d841E.llvm.14172520758739148588: argument 0"}
 !1645 = distinct !{!1645, !"_ZN80_$LT$rayon..slice..IterMut$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h63a5617c1771d841E.llvm.14172520758739148588"}
 !1646 = distinct !{!1646, !1645, !"_ZN80_$LT$rayon..slice..IterMut$LT$T$GT$$u20$as$u20$rayon..iter..ParallelIterator$GT$15drive_unindexed17h63a5617c1771d841E.llvm.14172520758739148588: argument 1"}
-!1647 = !{!"branch_weights", i32 1, i32 2000}
+!1647 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !1648 = !{!1649, !1651, !1652, !1654, !1655, !1657, !1658, !1660, !1661, !1663}
 !1649 = distinct !{!1649, !1650, !"_ZN5rayon4iter8plumbing24bridge_producer_consumer17h4ea2c29cc03b0dfcE.llvm.15403311311865522351: argument 0"}
 !1650 = distinct !{!1650, !"_ZN5rayon4iter8plumbing24bridge_producer_consumer17h4ea2c29cc03b0dfcE.llvm.15403311311865522351"}
@@ -31454,7 +31454,7 @@ attributes #48 = { "function-inline-cost-multiplier"="2" }
 !1840 = !{!1841}
 !1841 = distinct !{!1841, !1842, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.llvm.14172520758739148588: argument 0"}
 !1842 = distinct !{!1842, !"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h18827e038e7b6ccdE.llvm.14172520758739148588"}
-!1843 = !{!"branch_weights", i32 2000, i32 1}
+!1843 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1844 = !{!1845, !1847, !1848, !1850, !1851, !1853, !1854, !1856}
 !1845 = distinct !{!1845, !1846, !"_ZN5rayon4iter8plumbing24bridge_producer_consumer17h008dbf02d3f04db6E.llvm.15403311311865522351: argument 0"}
 !1846 = distinct !{!1846, !"_ZN5rayon4iter8plumbing24bridge_producer_consumer17h008dbf02d3f04db6E.llvm.15403311311865522351"}

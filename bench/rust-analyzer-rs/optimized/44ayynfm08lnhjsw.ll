@@ -67243,7 +67243,7 @@ attributes #64 = { "function-inline-cost-multiplier"="2" }
 !11521 = distinct !{!11521, !11522, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.16532663377229269005: argument 0"}
 !11522 = distinct !{!11522, !"_ZN67_$LT$rowan..cursor..SyntaxNode$u20$as$u20$core..ops..drop..Drop$GT$4drop17h84df092f97193438E.llvm.16532663377229269005"}
 !11523 = !{!11521, !11518, !11515, !11512}
-!11524 = !{!"branch_weights", i32 2000, i32 1}
+!11524 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !11525 = !{!11526}
 !11526 = distinct !{!11526, !11527, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17h6e96e3069107cf15E: argument 0"}
 !11527 = distinct !{!11527, !"_ZN4core3ptr63drop_in_place$LT$syntax..ast..generated..nodes..RecordField$GT$17h6e96e3069107cf15E"}
@@ -68743,7 +68743,7 @@ attributes #64 = { "function-inline-cost-multiplier"="2" }
 !13021 = distinct !{!13021, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17ha4776cc4b4415857E"}
 !13022 = distinct !{!13022, !13021, !"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_string17ha4776cc4b4415857E: argument 1"}
 !13023 = !{!13022}
-!13024 = !{!"branch_weights", i32 1, i32 2000}
+!13024 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !13025 = !{!13020}
 !13026 = !{!13027}
 !13027 = distinct !{!13027, !13028, !"_ZN5rowan3api19SyntaxNode$LT$L$GT$10text_range17h5d235cb5c3c57f6bE: argument 0"}

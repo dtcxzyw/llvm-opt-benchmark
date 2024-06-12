@@ -202547,7 +202547,7 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !5397 = distinct !{!5397, !5398, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7fc92e4ff34cba6eE: argument 0"}
 !5398 = distinct !{!5398, !"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h7fc92e4ff34cba6eE"}
 !5399 = !{!5397, !5393, !5390}
-!5400 = !{!"branch_weights", i32 1, i32 2000}
+!5400 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !5401 = !{!5402}
 !5402 = distinct !{!5402, !5403, !"_ZN9hayagriva3csl9rendering5names26renders_given_special_form28_$u7b$$u7b$closure$u7d$$u7d$17hba3e2a670d045c9dE.llvm.13383457361836014260: argument 0"}
 !5403 = distinct !{!5403, !"_ZN9hayagriva3csl9rendering5names26renders_given_special_form28_$u7b$$u7b$closure$u7d$$u7d$17hba3e2a670d045c9dE.llvm.13383457361836014260"}
@@ -209820,7 +209820,7 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !12670 = !{!12671}
 !12671 = distinct !{!12671, !12672, !"_ZN4core6option15Option$LT$T$GT$6map_or17h8d4a427cac4ec68bE.llvm.13383457361836014260: argument 0"}
 !12672 = distinct !{!12672, !"_ZN4core6option15Option$LT$T$GT$6map_or17h8d4a427cac4ec68bE.llvm.13383457361836014260"}
-!12673 = !{!"branch_weights", i32 3935085, i32 2143548563}
+!12673 = !{!"branch_weights", !"expected", i32 3935085, i32 2143548563}
 !12674 = !{!12671, !12658}
 !12675 = !{!12676}
 !12676 = distinct !{!12676, !12677, !"_ZN5typst6layout4page90_$LT$impl$u20$typst..foundations..content..Packed$LT$typst..layout..page..PageElem$GT$$GT$6layout28_$u7b$$u7b$closure$u7d$$u7d$17h24e66d89381da40aE.llvm.13383457361836014260: argument 0"}
@@ -219611,7 +219611,7 @@ attributes #69 = { "function-inline-cost-multiplier"="2" }
 !22461 = distinct !{!22461, !"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hd37a57e129905962E"}
 !22462 = !{!22463}
 !22463 = distinct !{!22463, !22461, !"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$3get17hd37a57e129905962E: argument 1"}
-!22464 = !{!"branch_weights", i32 2000, i32 1}
+!22464 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !22465 = !{!22466}
 !22466 = distinct !{!22466, !22467, !"_ZN5typst5model4cite1_46_$LT$impl$u20$typst..model..cite..CiteElem$GT$10supplement17h655490e56048c081E: argument 0"}
 !22467 = distinct !{!22467, !"_ZN5typst5model4cite1_46_$LT$impl$u20$typst..model..cite..CiteElem$GT$10supplement17h655490e56048c081E"}

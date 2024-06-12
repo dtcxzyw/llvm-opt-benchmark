@@ -172,4 +172,4 @@ attributes #11 = { noreturn }
 !6 = !{}
 !7 = !{i64 8}
 !8 = !{i64 0, i64 6}
-!9 = !{!"branch_weights", i32 1, i32 2000}
+!9 = !{!"branch_weights", !"expected", i32 1, i32 2000}

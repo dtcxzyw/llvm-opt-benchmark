@@ -138787,7 +138787,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !924 = distinct !{!924, !925, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$24canonical_var_kinds_data17h5e50511a6aa6b881E: argument 0"}
 !925 = distinct !{!925, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$24canonical_var_kinds_data17h5e50511a6aa6b881E"}
 !926 = !{!924, !921}
-!927 = !{!"branch_weights", i32 2000, i32 1}
+!927 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !928 = !{!929}
 !929 = distinct !{!929, !930, !"_ZN7tracing4span4Span7do_exit17hfcc8b8049e62ba6aE: argument 0"}
 !930 = distinct !{!930, !"_ZN7tracing4span4Span7do_exit17hfcc8b8049e62ba6aE"}
@@ -146772,7 +146772,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !8909 = distinct !{!8909, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h5f98c52d5d044dc6E.llvm.10169251571672223956"}
 !8910 = !{!8911, !8904, !8901, !8865}
 !8911 = distinct !{!8911, !8909, !"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h5f98c52d5d044dc6E.llvm.10169251571672223956: argument 0"}
-!8912 = !{!"branch_weights", i32 1, i32 2000}
+!8912 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !8913 = !{!8914, !8916}
 !8914 = distinct !{!8914, !8915, !"_ZN8chalk_ir19GenericArg$LT$I$GT$2ty17he8aa2e699cb496cfE: argument 0"}
 !8915 = distinct !{!8915, !"_ZN8chalk_ir19GenericArg$LT$I$GT$2ty17he8aa2e699cb496cfE"}
@@ -152328,7 +152328,7 @@ attributes #58 = { "function-inline-cost-multiplier"="2" }
 !14465 = !{!14466}
 !14466 = distinct !{!14466, !14467, !"_ZN6hir_ty11CallableSig3ret17h34bf06f30d0a786dE: argument 0"}
 !14467 = distinct !{!14467, !"_ZN6hir_ty11CallableSig3ret17h34bf06f30d0a786dE"}
-!14468 = !{!"branch_weights", i32 4292828, i32 2143190820}
+!14468 = !{!"branch_weights", !"expected", i32 4292828, i32 2143190820}
 !14469 = !{!14470}
 !14470 = distinct !{!14470, !14471, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$7ty_data17hfa777cd36a100c6bE: argument 0"}
 !14471 = distinct !{!14471, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$7ty_data17hfa777cd36a100c6bE"}

@@ -292,4 +292,4 @@ attributes #6 = { noreturn }
 !14 = distinct !{!14, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h0bc9a7b88b0e86bcE"}
 !15 = !{!16}
 !16 = distinct !{!16, !14, !"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h0bc9a7b88b0e86bcE: argument 0"}
-!17 = !{!"branch_weights", i32 2000, i32 1}
+!17 = !{!"branch_weights", !"expected", i32 2000, i32 1}

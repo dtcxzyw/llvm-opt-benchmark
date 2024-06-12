@@ -10217,5 +10217,5 @@ attributes #12 = { cold noreturn nounwind }
 !4 = !{i64 8}
 !5 = !{i64 1}
 !6 = !{i64 2}
-!7 = !{!"branch_weights", i32 1, i32 2000}
-!8 = !{!"branch_weights", i32 2000, i32 1}
+!7 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!8 = !{!"branch_weights", !"expected", i32 2000, i32 1}

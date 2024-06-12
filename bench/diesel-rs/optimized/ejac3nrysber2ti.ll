@@ -6721,7 +6721,7 @@ attributes #24 = { "function-inline-cost-multiplier"="2" }
 !1371 = !{!1372}
 !1372 = distinct !{!1372, !1373, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he1fc9d5493af1833E: argument 0"}
 !1373 = distinct !{!1373, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17he1fc9d5493af1833E"}
-!1374 = !{!"branch_weights", i32 2000, i32 1}
+!1374 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1375 = !{!1376}
 !1376 = distinct !{!1376, !1377, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3f01389d94555c2E.llvm.5761680391814234304: argument 0"}
 !1377 = distinct !{!1377, !"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hf3f01389d94555c2E.llvm.5761680391814234304"}

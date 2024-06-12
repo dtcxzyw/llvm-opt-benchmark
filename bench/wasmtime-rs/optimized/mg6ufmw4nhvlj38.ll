@@ -174,6 +174,6 @@ attributes #9 = { cold noreturn nounwind }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
-!3 = !{!"branch_weights", i32 2000, i32 1}
+!3 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !4 = !{}
 !5 = !{i64 8}

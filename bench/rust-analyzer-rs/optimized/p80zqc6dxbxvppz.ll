@@ -134993,7 +134993,7 @@ attributes #52 = { "function-inline-cost-multiplier"="2" }
 !2676 = !{!2677}
 !2677 = distinct !{!2677, !2463, !"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha927ac0beeca2246E: argument 1:h.rot"}
 !2678 = !{!2455, !2119, !2117}
-!2679 = !{!"branch_weights", i32 2000, i32 1}
+!2679 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !2680 = !{!2681}
 !2681 = distinct !{!2681, !2682, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE: argument 0"}
 !2682 = distinct !{!2682, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE"}
@@ -135862,7 +135862,7 @@ attributes #52 = { "function-inline-cost-multiplier"="2" }
 !3545 = !{!3546}
 !3546 = distinct !{!3546, !3547, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$7ty_data17hfa777cd36a100c6bE: argument 0"}
 !3547 = distinct !{!3547, !"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$7ty_data17hfa777cd36a100c6bE"}
-!3548 = !{!"branch_weights", i32 1, i32 2000}
+!3548 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !3549 = !{!3550}
 !3550 = distinct !{!3550, !3551, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE: argument 0"}
 !3551 = distinct !{!3551, !"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd73aa5496cf3ecdfE"}

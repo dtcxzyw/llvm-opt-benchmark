@@ -176288,7 +176288,7 @@ attributes #45 = { "function-inline-cost-multiplier"="2" }
 !17220 = distinct !{!17220, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc49c23bcc9516319E"}
 !17221 = !{!17222}
 !17222 = distinct !{!17222, !17220, !"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hc49c23bcc9516319E: argument 1"}
-!17223 = !{!"branch_weights", i32 2000, i32 1}
+!17223 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !17224 = !{!17225}
 !17225 = distinct !{!17225, !17226, !"_ZN4core3ptr149drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$core..option..Option$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h28bd259eec520de2E: argument 0"}
 !17226 = distinct !{!17226, !"_ZN4core3ptr149drop_in_place$LT$tokio..loom..std..unsafe_cell..UnsafeCell$LT$core..option..Option$LT$ockam_api..ui..terminal..notification..Notification$GT$$GT$$GT$17h28bd259eec520de2E"}

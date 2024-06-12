@@ -26603,7 +26603,7 @@ attributes #59 = { "function-inline-cost-multiplier"="2" }
 !1877 = distinct !{!1877, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E"}
 !1878 = distinct !{!1878, !1877, !"_ZN5alloc3fmt6format17h7ead8f60e83381d7E: argument 1"}
 !1879 = !{!1869, !1872, !1874, !1876}
-!1880 = !{!"branch_weights", i32 2000, i32 1}
+!1880 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !1881 = !{!1861, !1864, !1865, !1867}
 !1882 = !{i64 0, i64 3}
 !1883 = !{!1865, !1867}

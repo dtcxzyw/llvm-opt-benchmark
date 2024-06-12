@@ -3038,4 +3038,4 @@ attributes #23 = { cold noreturn nounwind }
 !253 = distinct !{!253, !254, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc7b0ba3dd384c21eE.llvm.14976363794789945401: argument 0"}
 !254 = distinct !{!254, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc7b0ba3dd384c21eE.llvm.14976363794789945401"}
 !255 = distinct !{!255, !254, !"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17hc7b0ba3dd384c21eE.llvm.14976363794789945401: argument 1"}
-!256 = !{!"branch_weights", i32 2000, i32 1}
+!256 = !{!"branch_weights", !"expected", i32 2000, i32 1}

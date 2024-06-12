@@ -3445,7 +3445,7 @@ attributes #21 = { "function-inline-cost-multiplier"="2" }
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !4 = !{}
-!5 = !{!"branch_weights", i32 1, i32 2000}
+!5 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !6 = !{!7, !9, !10, !12, !13}
 !7 = distinct !{!7, !8, !"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0231eaaac5bb522aE.llvm.6093752533286553222: argument 0"}
 !8 = distinct !{!8, !"_ZN98_$LT$core..slice..iter..ChunksExact$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0231eaaac5bb522aE.llvm.6093752533286553222"}

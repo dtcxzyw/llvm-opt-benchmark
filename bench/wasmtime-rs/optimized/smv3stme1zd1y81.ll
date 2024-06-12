@@ -47,4 +47,4 @@ attributes #2 = { noreturn }
 !2 = !{!"rustc version 1.77.2 (25ef9e3d8 2024-04-09)"}
 !3 = !{}
 !4 = !{i64 8}
-!5 = !{!"branch_weights", i32 2000, i32 1}
+!5 = !{!"branch_weights", !"expected", i32 2000, i32 1}

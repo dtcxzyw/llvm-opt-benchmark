@@ -36,4 +36,4 @@ attributes #2 = { noreturn }
 !0 = !{i32 8, !"PIC Level", i32 2}
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{!"rustc version 1.77.1 (7cf61ebde 2024-03-27)"}
-!3 = !{!"branch_weights", i32 1, i32 2000}
+!3 = !{!"branch_weights", !"expected", i32 1, i32 2000}

@@ -125462,7 +125462,7 @@ attributes #61 = { "function-inline-cost-multiplier"="2" }
 !70 = distinct !{!70, !"_ZN14kafka_protocol8protocol3buf7ByteBuf17try_copy_to_slice17hea2d377e06df598dE"}
 !71 = !{!72}
 !72 = distinct !{!72, !70, !"_ZN14kafka_protocol8protocol3buf7ByteBuf17try_copy_to_slice17hea2d377e06df598dE: argument 1"}
-!73 = !{!"branch_weights", i32 1, i32 2000}
+!73 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !74 = !{!75}
 !75 = distinct !{!75, !76, !"_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_i1617h5ba887fd2f28174dE: argument 0"}
 !76 = distinct !{!76, !"_ZN14kafka_protocol8protocol3buf7ByteBuf11try_get_i1617h5ba887fd2f28174dE"}
@@ -140411,7 +140411,7 @@ attributes #61 = { "function-inline-cost-multiplier"="2" }
 !15019 = distinct !{!15019, !"_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE"}
 !15020 = !{!15021}
 !15021 = distinct !{!15021, !15019, !"_ZN4core3str7pattern14small_slice_eq17h1dcd84671adb41cdE: argument 1"}
-!15022 = !{!"branch_weights", i32 2000, i32 1}
+!15022 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !15023 = !{!15024}
 !15024 = distinct !{!15024, !15025, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17hd9c5757641615910E: argument 0"}
 !15025 = distinct !{!15025, !"_ZN84_$LT$core..str..pattern..MatchOnly$u20$as$u20$core..str..pattern..TwoWayStrategy$GT$8matching17hd9c5757641615910E"}

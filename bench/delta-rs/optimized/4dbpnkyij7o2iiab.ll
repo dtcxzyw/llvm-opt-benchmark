@@ -4257,6 +4257,6 @@ attributes #21 = { noreturn }
 !443 = distinct !{!443, !444, !"_ZN60_$LT$$RF$mut$u20$T$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hafb1326727307d53E.llvm.12862495042339831644: argument 0"}
 !444 = distinct !{!444, !"_ZN60_$LT$$RF$mut$u20$T$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hafb1326727307d53E.llvm.12862495042339831644"}
 !445 = !{i64 0, i64 3}
-!446 = !{!"branch_weights", i32 2000, i32 1}
+!446 = !{!"branch_weights", !"expected", i32 2000, i32 1}
 !447 = !{i64 0, i64 2}
 !448 = !{i8 0, i8 8}

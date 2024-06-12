@@ -473,4 +473,4 @@ attributes #5 = { noreturn }
 !1 = !{i32 2, !"RtLibUseGOT", i32 1}
 !2 = !{i32 1, !"LTOPostLink", i32 1}
 !3 = !{!"rustc version 1.78.0 (9b00956e5 2024-04-29)"}
-!4 = !{!"branch_weights", i32 1, i32 2000}
+!4 = !{!"branch_weights", !"expected", i32 1, i32 2000}
