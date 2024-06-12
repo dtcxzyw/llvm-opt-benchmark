@@ -1848,8 +1848,8 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   %.not34120.i = icmp eq ptr %44, null
   br i1 %.not34120.i, label %check_test.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %43, %check_relation_LHS_FIELD.specialized.3.exit.i
-  %.0121.i = phi ptr [ %203, %check_relation_LHS_FIELD.specialized.3.exit.i ], [ %44, %43 ]
+.lr.ph.i:                                         ; preds = %43, %check_relation_LHS_FIELD.specialized.2.exit.i
+  %.0121.i = phi ptr [ %203, %check_relation_LHS_FIELD.specialized.2.exit.i ], [ %44, %43 ]
   %45 = load ptr, ptr %.0121.i, align 8
   %46 = call i32 @stnode_type_id(ptr noundef %45) #6
   %47 = icmp eq i32 %46, 10
@@ -1870,9 +1870,9 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   br i1 %.not35.i, label %57, label %56
 
 56:                                               ; preds = %52
-  call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 9, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
-  call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 11, ptr noundef nonnull @ftype_can_cmp, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef nonnull %55)
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  call fastcc void @check_relation_LHS_FIELD.specialized.3(ptr noundef %0, i32 noundef 9, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef %45)
+  call fastcc void @check_relation_LHS_FIELD.specialized.3(ptr noundef %0, i32 noundef 11, i1 noundef zeroext false, ptr noundef %1, ptr noundef %28, ptr noundef nonnull %55)
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 57:                                               ; preds = %52
   %58 = call i32 @stnode_type_id(ptr noundef %28) #6
@@ -1939,13 +1939,13 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   unreachable
 
 96:                                               ; preds = %88
-  br i1 %78, label %97, label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br i1 %78, label %97, label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 97:                                               ; preds = %96
   %98 = load i32, ptr %6, align 8
   %99 = add i32 %98, 1
   store i32 %99, ptr %6, align 8
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 100:                                              ; preds = %75
   %101 = icmp eq i32 %77, 5
@@ -1956,7 +1956,7 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
     i32 7, label %128
     i32 10, label %129
     i32 11, label %161
-    i32 13, label %check_relation_LHS_FIELD.specialized.3.exit.i
+    i32 13, label %check_relation_LHS_FIELD.specialized.2.exit.i
     i32 14, label %181
     i32 2, label %198
   ]
@@ -2015,25 +2015,25 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
   %.0.lcssa46.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.split.us.i.i ]
   %.0160.lcssa45.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.split.us.i.i ]
   %124 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i.i, ptr noundef %45, ptr noundef nonnull %.0.lcssa46.i.i)
-  br i1 %124, label %126, label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br i1 %124, label %126, label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 .critedge.thread47.i.i:                           ; preds = %.critedge.i.i, %.lr.ph.split.us.i.i
   %.0.lcssa51.i.i = phi ptr [ %.0.lcssa.i.i, %.critedge.i.i ], [ %64, %.lr.ph.split.us.i.i ]
   %.0160.lcssa50.i.i = phi i32 [ %.0160.lcssa.i.i, %.critedge.i.i ], [ %76, %.lr.ph.split.us.i.i ]
   %125 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i.i, ptr noundef %45, i1 noundef zeroext false, ptr noundef nonnull %.0.lcssa51.i.i)
-  br i1 %125, label %126, label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br i1 %125, label %126, label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 126:                                              ; preds = %.critedge.thread47.i.i, %.critedge.thread.i.i
   call void @sttype_field_set_value_string(ptr noundef %28, i1 noundef zeroext true) #6
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 127:                                              ; preds = %100
   call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %76, ptr noundef %45)
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 128:                                              ; preds = %100
   call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %76, ptr noundef %45)
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 129:                                              ; preds = %100
   %130 = call i32 @check_slice(ptr noundef %0, ptr noundef %45, i32 noundef %76)
@@ -2064,17 +2064,17 @@ resolve_unparsed.exit.i:                          ; preds = %37, %36, %27
 
 146:                                              ; preds = %138
   switch i32 %76, label %149 [
-    i32 39, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 40, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 44, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 29, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 30, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 31, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 33, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 36, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 37, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 41, label %check_relation_LHS_FIELD.specialized.3.exit.i
-    i32 42, label %check_relation_LHS_FIELD.specialized.3.exit.i
+    i32 39, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 40, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 44, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 29, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 30, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 31, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 33, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 36, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 37, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 41, label %check_relation_LHS_FIELD.specialized.2.exit.i
+    i32 42, label %check_relation_LHS_FIELD.specialized.2.exit.i
     i32 0, label %is_bytes_type.exit.i.i
     i32 1, label %is_bytes_type.exit.i.i
     i32 22, label %is_bytes_type.exit.i.i
@@ -2144,7 +2144,7 @@ is_bytes_type.exit.i.i:                           ; preds = %146, %146, %146, %1
   call void @drange_node_set_to_the_end(ptr noundef %160) #6
   call void @stnode_replace(ptr noundef %28, i32 noundef 10, ptr noundef null) #6
   call void @sttype_slice_set1(ptr noundef %28, ptr noundef %159, ptr noundef %160) #6
-  br label %check_relation_LHS_FIELD.specialized.3.exit.i
+  br label %check_relation_LHS_FIELD.specialized.2.exit.i
 
 161:                                              ; preds = %100
   %162 = call i32 @check_function(ptr noundef %0, ptr noundef %45, i32 noundef %76)
@@ -2165,7 +2165,7 @@ is_bytes_type.exit.i.i:                           ; preds = %146, %146, %146, %1
 
 173:                                              ; preds = %161
   %174 = call zeroext i1 @ftype_can_eq(i32 noundef %162) #6
-  br i1 %174, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %175
+  br i1 %174, label %check_relation_LHS_FIELD.specialized.2.exit.i, label %175
 
 175:                                              ; preds = %173
   %176 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
@@ -2192,7 +2192,7 @@ is_bytes_type.exit.i.i:                           ; preds = %146, %146, %146, %1
 
 190:                                              ; preds = %181
   %191 = call zeroext i1 @ftype_can_eq(i32 noundef %182) #6
-  br i1 %191, label %check_relation_LHS_FIELD.specialized.3.exit.i, label %192
+  br i1 %191, label %check_relation_LHS_FIELD.specialized.2.exit.i, label %192
 
 192:                                              ; preds = %190
   %193 = call { i64, i64 } @stnode_location(ptr noundef %45) #6
@@ -2214,7 +2214,7 @@ is_bytes_type.exit.i.i:                           ; preds = %146, %146, %146, %1
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %201) #7
   unreachable
 
-check_relation_LHS_FIELD.specialized.3.exit.i:    ; preds = %190, %173, %158, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %128, %127, %126, %.critedge.thread47.i.i, %.critedge.thread.i.i, %100, %97, %96, %56
+check_relation_LHS_FIELD.specialized.2.exit.i:    ; preds = %190, %173, %158, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %146, %128, %127, %126, %.critedge.thread47.i.i, %.critedge.thread.i.i, %100, %97, %96, %56
   %202 = getelementptr inbounds i8, ptr %54, i64 8
   %203 = load ptr, ptr %202, align 8
   %.not34.i = icmp eq ptr %203, null
@@ -2225,7 +2225,7 @@ check_relation_LHS_FIELD.specialized.3.exit.i:    ; preds = %190, %173, %158, %1
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1719, ptr noundef nonnull @__func__.check_test, ptr noundef nonnull @.str.19, ptr noundef %205) #7
   unreachable
 
-check_test.exit:                                  ; preds = %check_relation_LHS_FIELD.specialized.3.exit.i, %43, %8, %10, %12, %15, %18, %21, %24
+check_test.exit:                                  ; preds = %check_relation_LHS_FIELD.specialized.2.exit.i, %43, %8, %10, %12, %15, %18, %21, %24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
@@ -3214,403 +3214,60 @@ resolve_unparsed.exit:                            ; preds = %4, %11, %12
 
 check_warning_contains_RHS_FIELD.exit:            ; preds = %21, %17, %15, %resolve_unparsed.exit
   %29 = tail call i32 @stnode_type_id(ptr noundef %2) #6
-  switch i32 %29, label %195 [
+  switch i32 %29, label %45 [
     i32 8, label %30
     i32 4, label %30
     i32 2, label %30
-    i32 11, label %181
-    i32 10, label %188
+    i32 11, label %31
+    i32 10, label %38
   ]
 
 30:                                               ; preds = %check_warning_contains_RHS_FIELD.exit, %check_warning_contains_RHS_FIELD.exit, %check_warning_contains_RHS_FIELD.exit
-  %31 = tail call i32 @stnode_type_id(ptr noundef %2) #6
-  %32 = icmp eq i32 %31, 8
-  br i1 %32, label %33, label %37
+  tail call fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3)
+  br label %51
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %35 = load i32, ptr %34, align 8
-  %36 = add i32 %35, 1
-  store i32 %36, ptr %34, align 8
-  br label %37
+31:                                               ; preds = %check_warning_contains_RHS_FIELD.exit
+  %32 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
+  %33 = icmp eq i32 %32, 0
+  br i1 %33, label %34, label %find_logical_ftype.exit
 
-37:                                               ; preds = %33, %30
-  %38 = tail call ptr @sttype_field_hfinfo(ptr noundef %2) #6
-  %39 = tail call i32 @sttype_field_ftenum(ptr noundef %2) #6
-  %40 = tail call zeroext i1 @ftype_can_contains(i32 noundef %39) #6
-  br i1 %40, label %49, label %41
+34:                                               ; preds = %31
+  %35 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
+  %36 = extractvalue { i64, i64 } %35, 0
+  %37 = extractvalue { i64, i64 } %35, 1
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %36, i64 %37, ptr noundef nonnull @.str.41) #7
+  unreachable
 
-41:                                               ; preds = %37
-  %42 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
+find_logical_ftype.exit:                          ; preds = %31
+  tail call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %32)
+  br label %51
+
+38:                                               ; preds = %check_warning_contains_RHS_FIELD.exit
+  %39 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %find_logical_ftype.exit32
+
+41:                                               ; preds = %38
+  %42 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
   %43 = extractvalue { i64, i64 } %42, 0
   %44 = extractvalue { i64, i64 } %42, 1
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @ftype_pretty_name(i32 noundef %39) #6
-  %48 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %43, i64 %44, ptr noundef nonnull @.str.33, ptr noundef %46, ptr noundef %47, ptr noundef %48) #7
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %43, i64 %44, ptr noundef nonnull @.str.41) #7
   unreachable
 
-49:                                               ; preds = %37
-  %50 = tail call i32 @sttype_field_ftenum(ptr noundef %2) #6
-  %51 = tail call i32 @stnode_type_id(ptr noundef %3) #6
-  %52 = icmp eq i32 %51, 8
-  switch i32 %51, label %75 [
-    i32 8, label %53
-    i32 4, label %53
-  ]
+find_logical_ftype.exit32:                        ; preds = %38
+  tail call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %39)
+  br label %51
 
-53:                                               ; preds = %49, %49
-  %54 = tail call i32 @sttype_field_ftenum(ptr noundef %3) #6
-  %55 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %54)
-  br i1 %55, label %62, label %56
-
-56:                                               ; preds = %53
-  %57 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %58 = extractvalue { i64, i64 } %57, 0
-  %59 = extractvalue { i64, i64 } %57, 1
-  %60 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %61 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %58, i64 %59, ptr noundef nonnull @.str.34, ptr noundef %60, ptr noundef %61) #7
+45:                                               ; preds = %check_warning_contains_RHS_FIELD.exit
+  %46 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
+  %49 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
+  %50 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %47, i64 %48, ptr noundef nonnull @.str.50, ptr noundef %49, ptr noundef %50) #7
   unreachable
 
-62:                                               ; preds = %53
-  %63 = tail call zeroext i1 @ftype_can_contains(i32 noundef %54) #6
-  br i1 %63, label %70, label %64
-
-64:                                               ; preds = %62
-  %65 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %66 = extractvalue { i64, i64 } %65, 0
-  %67 = extractvalue { i64, i64 } %65, 1
-  %68 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %69 = tail call ptr @ftype_pretty_name(i32 noundef %54) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %66, i64 %67, ptr noundef nonnull @.str.35, ptr noundef %68, ptr noundef %69) #7
-  unreachable
-
-70:                                               ; preds = %62
-  br i1 %52, label %71, label %check_relation_LHS_FIELD.specialized.1.exit
-
-71:                                               ; preds = %70
-  %72 = getelementptr inbounds i8, ptr %0, i64 24
-  %73 = load i32, ptr %72, align 8
-  %74 = add i32 %73, 1
-  store i32 %74, ptr %72, align 8
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-75:                                               ; preds = %49
-  %76 = icmp eq i32 %51, 5
-  switch i32 %51, label %179 [
-    i32 5, label %.preheader.i
-    i32 3, label %.preheader.i
-    i32 6, label %106
-    i32 7, label %107
-    i32 10, label %108
-    i32 11, label %140
-    i32 13, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 14, label %160
-    i32 2, label %177
-  ]
-
-.preheader.i:                                     ; preds = %75, %75
-  %77 = getelementptr inbounds i8, ptr %38, i64 60
-  %78 = load i32, ptr %77, align 4
-  %.not23.i = icmp eq i32 %78, -1
-  br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.preheader.i
-  br i1 %76, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
-
-.lr.ph.split.us.i:                                ; preds = %.lr.ph.i
-  %79 = and i32 %50, -2
-  %80 = icmp eq i32 %79, 26
-  br i1 %80, label %.critedge9.us.i, label %.critedge.thread47.i
-
-.critedge9.us.i:                                  ; preds = %.lr.ph.split.us.i, %.critedge9.us.i
-  %81 = phi i32 [ %86, %.critedge9.us.i ], [ %78, %.lr.ph.split.us.i ]
-  %82 = tail call ptr @proto_registrar_get_nth(i32 noundef %81) #6
-  %83 = getelementptr inbounds i8, ptr %82, i64 16
-  %84 = load i32, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 60
-  %86 = load i32, ptr %85, align 4
-  %.not2.us.i = icmp ne i32 %86, -1
-  %87 = and i32 %84, -2
-  %88 = icmp eq i32 %87, 26
-  %or.cond38.i = select i1 %.not2.us.i, i1 %88, i1 false
-  br i1 %or.cond38.i, label %.critedge9.us.i, label %.critedge.i, !llvm.loop !10
-
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i
-  %89 = add i32 %50, -28
-  %90 = icmp ult i32 %89, -2
-  br i1 %90, label %.critedge9.us16.i, label %.critedge.thread.i
-
-.critedge9.us16.i:                                ; preds = %.lr.ph.split.split.us.i, %.critedge9.us16.i
-  %91 = phi i32 [ %96, %.critedge9.us16.i ], [ %78, %.lr.ph.split.split.us.i ]
-  %92 = tail call ptr @proto_registrar_get_nth(i32 noundef %91) #6
-  %93 = getelementptr inbounds i8, ptr %92, i64 16
-  %94 = load i32, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %92, i64 60
-  %96 = load i32, ptr %95, align 4
-  %.not2.us17.i = icmp ne i32 %96, -1
-  %97 = add i32 %94, -28
-  %98 = icmp ult i32 %97, -2
-  %or.cond.i = select i1 %.not2.us17.i, i1 %98, i1 false
-  br i1 %or.cond.i, label %.critedge9.us16.i, label %.critedge.i, !llvm.loop !10
-
-.critedge.i:                                      ; preds = %.critedge9.us.i, %.critedge9.us16.i, %.preheader.i
-  %.0160.lcssa.i = phi i32 [ %50, %.preheader.i ], [ %94, %.critedge9.us16.i ], [ %84, %.critedge9.us.i ]
-  %.0.lcssa.i = phi ptr [ %38, %.preheader.i ], [ %92, %.critedge9.us16.i ], [ %82, %.critedge9.us.i ]
-  br i1 %76, label %.critedge.thread.i, label %.critedge.thread47.i
-
-.critedge.thread.i:                               ; preds = %.critedge.i, %.lr.ph.split.split.us.i
-  %.0.lcssa46.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.split.us.i ]
-  %.0160.lcssa45.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.split.us.i ]
-  %99 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa46.i)
-  br i1 %99, label %101, label %check_relation_LHS_FIELD.specialized.1.exit
-
-.critedge.thread47.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
-  %.0.lcssa51.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %38, %.lr.ph.split.us.i ]
-  %.0160.lcssa50.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %50, %.lr.ph.split.us.i ]
-  %100 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa51.i)
-  br i1 %100, label %101, label %check_relation_LHS_FIELD.specialized.1.exit
-
-101:                                              ; preds = %.critedge.thread47.i, %.critedge.thread.i
-  tail call void @sttype_field_set_value_string(ptr noundef %2, i1 noundef zeroext true) #6
-  %102 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %103 = extractvalue { i64, i64 } %102, 0
-  %104 = extractvalue { i64, i64 } %102, 1
-  %105 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %103, i64 %104, ptr noundef nonnull @.str.36, ptr noundef %105) #7
-  unreachable
-
-106:                                              ; preds = %75
-  tail call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %50, ptr noundef %3)
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-107:                                              ; preds = %75
-  tail call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %50, ptr noundef %3)
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-108:                                              ; preds = %75
-  %109 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %50)
-  %110 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %109)
-  br i1 %110, label %117, label %111
-
-111:                                              ; preds = %108
-  %112 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %113 = extractvalue { i64, i64 } %112, 0
-  %114 = extractvalue { i64, i64 } %112, 1
-  %115 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %116 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %113, i64 %114, ptr noundef nonnull @.str.34, ptr noundef %115, ptr noundef %116) #7
-  unreachable
-
-117:                                              ; preds = %108
-  %118 = tail call zeroext i1 @ftype_can_contains(i32 noundef %109) #6
-  br i1 %118, label %125, label %119
-
-119:                                              ; preds = %117
-  %120 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %121 = extractvalue { i64, i64 } %120, 0
-  %122 = extractvalue { i64, i64 } %120, 1
-  %123 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %124 = tail call ptr @ftype_pretty_name(i32 noundef %109) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %121, i64 %122, ptr noundef nonnull @.str.35, ptr noundef %123, ptr noundef %124) #7
-  unreachable
-
-125:                                              ; preds = %117
-  switch i32 %50, label %128 [
-    i32 39, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 40, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 44, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 29, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 30, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 31, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 33, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 36, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 37, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 41, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 42, label %check_relation_LHS_FIELD.specialized.1.exit
-    i32 0, label %is_bytes_type.exit.i
-    i32 1, label %is_bytes_type.exit.i
-    i32 22, label %is_bytes_type.exit.i
-    i32 23, label %is_bytes_type.exit.i
-    i32 20, label %is_bytes_type.exit.i
-    i32 21, label %is_bytes_type.exit.i
-    i32 24, label %is_bytes_type.exit.i
-    i32 25, label %is_bytes_type.exit.i
-    i32 32, label %is_bytes_type.exit.i
-    i32 34, label %is_bytes_type.exit.i
-    i32 26, label %is_bytes_type.exit.i
-    i32 27, label %is_bytes_type.exit.i
-    i32 28, label %is_bytes_type.exit.i
-    i32 43, label %is_bytes_type.exit.i
-    i32 45, label %is_bytes_type.exit.i
-    i32 2, label %is_bytes_type.exit.i
-    i32 35, label %is_bytes_type.exit.i
-    i32 3, label %is_bytes_type.exit.i
-    i32 4, label %is_bytes_type.exit.i
-    i32 5, label %is_bytes_type.exit.i
-    i32 6, label %is_bytes_type.exit.i
-    i32 7, label %is_bytes_type.exit.i
-    i32 8, label %is_bytes_type.exit.i
-    i32 9, label %is_bytes_type.exit.i
-    i32 10, label %is_bytes_type.exit.i
-    i32 11, label %is_bytes_type.exit.i
-    i32 12, label %is_bytes_type.exit.i
-    i32 13, label %is_bytes_type.exit.i
-    i32 14, label %is_bytes_type.exit.i
-    i32 15, label %is_bytes_type.exit.i
-    i32 16, label %is_bytes_type.exit.i
-    i32 17, label %is_bytes_type.exit.i
-    i32 18, label %is_bytes_type.exit.i
-    i32 19, label %is_bytes_type.exit.i
-    i32 38, label %is_bytes_type.exit.i
-    i32 46, label %126
-    i32 47, label %126
-  ]
-
-126:                                              ; preds = %125, %125
-  %127 = tail call ptr @ftype_name(i32 noundef %50) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %127) #7
-  unreachable
-
-128:                                              ; preds = %125
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
-  unreachable
-
-is_bytes_type.exit.i:                             ; preds = %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125
-  %129 = tail call zeroext i1 @ftype_can_slice(i32 noundef %50) #6
-  br i1 %129, label %137, label %130
-
-130:                                              ; preds = %is_bytes_type.exit.i
-  %131 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %132 = extractvalue { i64, i64 } %131, 0
-  %133 = extractvalue { i64, i64 } %131, 1
-  %134 = getelementptr inbounds i8, ptr %38, i64 8
-  %135 = load ptr, ptr %134, align 8
-  %136 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %132, i64 %133, ptr noundef nonnull @.str.37, ptr noundef %135, ptr noundef %136) #7
-  unreachable
-
-137:                                              ; preds = %is_bytes_type.exit.i
-  %138 = tail call ptr @stnode_dup(ptr noundef %2) #6
-  %139 = tail call ptr @drange_node_new() #6
-  tail call void @drange_node_set_start_offset(ptr noundef %139, i32 noundef 0) #6
-  tail call void @drange_node_set_to_the_end(ptr noundef %139) #6
-  tail call void @stnode_replace(ptr noundef %2, i32 noundef 10, ptr noundef null) #6
-  tail call void @sttype_slice_set1(ptr noundef %2, ptr noundef %138, ptr noundef %139) #6
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-140:                                              ; preds = %75
-  %141 = tail call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %50)
-  %142 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %141)
-  br i1 %142, label %152, label %143
-
-143:                                              ; preds = %140
-  %144 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %145 = extractvalue { i64, i64 } %144, 0
-  %146 = extractvalue { i64, i64 } %144, 1
-  %147 = getelementptr inbounds i8, ptr %38, i64 8
-  %148 = load ptr, ptr %147, align 8
-  %149 = tail call ptr @ftype_pretty_name(i32 noundef %50) #6
-  %150 = tail call ptr @sttype_function_name(ptr noundef %3) #6
-  %151 = tail call ptr @ftype_pretty_name(i32 noundef %141) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %145, i64 %146, ptr noundef nonnull @.str.38, ptr noundef %148, ptr noundef %149, ptr noundef %150, ptr noundef %151) #7
-  unreachable
-
-152:                                              ; preds = %140
-  %153 = tail call zeroext i1 @ftype_can_contains(i32 noundef %141) #6
-  br i1 %153, label %check_relation_LHS_FIELD.specialized.1.exit, label %154
-
-154:                                              ; preds = %152
-  %155 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %156 = extractvalue { i64, i64 } %155, 0
-  %157 = extractvalue { i64, i64 } %155, 1
-  %158 = tail call ptr @sttype_function_name(ptr noundef %3) #6
-  %159 = tail call ptr @ftype_pretty_name(i32 noundef %141) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %156, i64 %157, ptr noundef nonnull @.str.39, ptr noundef %158, ptr noundef %159) #7
-  unreachable
-
-160:                                              ; preds = %75
-  %161 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %3, i32 noundef %50)
-  %162 = tail call zeroext i1 @compatible_ftypes(i32 noundef %50, i32 noundef %161)
-  br i1 %162, label %169, label %163
-
-163:                                              ; preds = %160
-  %164 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %165 = extractvalue { i64, i64 } %164, 0
-  %166 = extractvalue { i64, i64 } %164, 1
-  %167 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  %168 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %165, i64 %166, ptr noundef nonnull @.str.34, ptr noundef %167, ptr noundef %168) #7
-  unreachable
-
-169:                                              ; preds = %160
-  %170 = tail call zeroext i1 @ftype_can_contains(i32 noundef %161) #6
-  br i1 %170, label %check_relation_LHS_FIELD.specialized.1.exit, label %171
-
-171:                                              ; preds = %169
-  %172 = tail call { i64, i64 } @stnode_location(ptr noundef %3) #6
-  %173 = extractvalue { i64, i64 } %172, 0
-  %174 = extractvalue { i64, i64 } %172, 1
-  %175 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
-  %176 = tail call ptr @ftype_pretty_name(i32 noundef %161) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %173, i64 %174, ptr noundef nonnull @.str.35, ptr noundef %175, ptr noundef %176) #7
-  unreachable
-
-177:                                              ; preds = %75
-  tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %3, i1 noundef zeroext true)
-  %178 = tail call ptr @sttype_name(i32 noundef 2) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %178) #7
-  unreachable
-
-179:                                              ; preds = %75
-  %180 = tail call ptr @sttype_name(i32 noundef %51) #6
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %180) #7
-  unreachable
-
-181:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %182 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
-  %183 = icmp eq i32 %182, 0
-  br i1 %183, label %184, label %find_logical_ftype.exit
-
-184:                                              ; preds = %181
-  %185 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %186 = extractvalue { i64, i64 } %185, 0
-  %187 = extractvalue { i64, i64 } %185, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %186, i64 %187, ptr noundef nonnull @.str.41) #7
-  unreachable
-
-find_logical_ftype.exit:                          ; preds = %181
-  tail call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %182)
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-188:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %189 = tail call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %1)
-  %190 = icmp eq i32 %189, 0
-  br i1 %190, label %191, label %find_logical_ftype.exit32
-
-191:                                              ; preds = %188
-  %192 = tail call { i64, i64 } @stnode_location(ptr noundef %1) #6
-  %193 = extractvalue { i64, i64 } %192, 0
-  %194 = extractvalue { i64, i64 } %192, 1
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %193, i64 %194, ptr noundef nonnull @.str.41) #7
-  unreachable
-
-find_logical_ftype.exit32:                        ; preds = %188
-  tail call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_contains, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %189)
-  br label %check_relation_LHS_FIELD.specialized.1.exit
-
-195:                                              ; preds = %check_warning_contains_RHS_FIELD.exit
-  %196 = tail call { i64, i64 } @stnode_location(ptr noundef %2) #6
-  %197 = extractvalue { i64, i64 } %196, 0
-  %198 = extractvalue { i64, i64 } %196, 1
-  %199 = tail call ptr @stnode_tostr(ptr noundef %1, i1 noundef zeroext true) #6
-  %200 = tail call ptr @stnode_tostr(ptr noundef %2, i1 noundef zeroext true) #6
-  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %197, i64 %198, ptr noundef nonnull @.str.50, ptr noundef %199, ptr noundef %200) #7
-  unreachable
-
-check_relation_LHS_FIELD.specialized.1.exit:      ; preds = %169, %152, %137, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %125, %107, %106, %.critedge.thread47.i, %.critedge.thread.i, %75, %71, %70, %find_logical_ftype.exit32, %find_logical_ftype.exit
+51:                                               ; preds = %find_logical_ftype.exit32, %find_logical_ftype.exit, %30
   ret void
 }
 
@@ -3743,14 +3400,14 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   unreachable
 
 73:                                               ; preds = %65
-  br i1 %55, label %74, label %check_relation_LHS_FIELD.specialized.2.exit
+  br i1 %55, label %74, label %check_relation_LHS_FIELD.specialized.1.exit
 
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %0, i64 24
   %76 = load i32, ptr %75, align 8
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 8
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 78:                                               ; preds = %52
   %79 = icmp eq i32 %54, 5
@@ -3761,7 +3418,7 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
     i32 7, label %110
     i32 10, label %111
     i32 11, label %143
-    i32 13, label %check_relation_LHS_FIELD.specialized.2.exit
+    i32 13, label %check_relation_LHS_FIELD.specialized.1.exit
     i32 14, label %163
     i32 2, label %180
   ]
@@ -3820,13 +3477,13 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
   %.0.lcssa46.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.split.us.i ]
   %.0160.lcssa45.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.split.us.i ]
   %102 = call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45.i, ptr noundef %3, ptr noundef nonnull %.0.lcssa46.i)
-  br i1 %102, label %104, label %check_relation_LHS_FIELD.specialized.2.exit
+  br i1 %102, label %104, label %check_relation_LHS_FIELD.specialized.1.exit
 
 .critedge.thread47.i:                             ; preds = %.critedge.i, %.lr.ph.split.us.i
   %.0.lcssa51.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %34, %.lr.ph.split.us.i ]
   %.0160.lcssa50.i = phi i32 [ %.0160.lcssa.i, %.critedge.i ], [ %53, %.lr.ph.split.us.i ]
   %103 = call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50.i, ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %.0.lcssa51.i)
-  br i1 %103, label %104, label %check_relation_LHS_FIELD.specialized.2.exit
+  br i1 %103, label %104, label %check_relation_LHS_FIELD.specialized.1.exit
 
 104:                                              ; preds = %.critedge.thread47.i, %.critedge.thread.i
   call void @sttype_field_set_value_string(ptr noundef %2, i1 noundef zeroext true) #6
@@ -3839,11 +3496,11 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
 
 109:                                              ; preds = %78
   call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %53, ptr noundef %3)
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 110:                                              ; preds = %78
   call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %53, ptr noundef %3)
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 111:                                              ; preds = %78
   %112 = call i32 @check_slice(ptr noundef %0, ptr noundef %3, i32 noundef %53)
@@ -3874,17 +3531,17 @@ define internal fastcc void @check_relation_matches(ptr noundef %0, ptr noundef 
 
 128:                                              ; preds = %120
   switch i32 %53, label %131 [
-    i32 39, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 40, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 44, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 29, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 30, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 31, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 33, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 36, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 37, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 41, label %check_relation_LHS_FIELD.specialized.2.exit
-    i32 42, label %check_relation_LHS_FIELD.specialized.2.exit
+    i32 39, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 40, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 44, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 29, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 30, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 31, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 33, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 36, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 37, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 41, label %check_relation_LHS_FIELD.specialized.1.exit
+    i32 42, label %check_relation_LHS_FIELD.specialized.1.exit
     i32 0, label %is_bytes_type.exit.i
     i32 1, label %is_bytes_type.exit.i
     i32 22, label %is_bytes_type.exit.i
@@ -3954,7 +3611,7 @@ is_bytes_type.exit.i:                             ; preds = %128, %128, %128, %1
   call void @drange_node_set_to_the_end(ptr noundef %142) #6
   call void @stnode_replace(ptr noundef %2, i32 noundef 10, ptr noundef null) #6
   call void @sttype_slice_set1(ptr noundef %2, ptr noundef %141, ptr noundef %142) #6
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 143:                                              ; preds = %78
   %144 = call i32 @check_function(ptr noundef %0, ptr noundef %3, i32 noundef %53)
@@ -3975,7 +3632,7 @@ is_bytes_type.exit.i:                             ; preds = %128, %128, %128, %1
 
 155:                                              ; preds = %143
   %156 = call zeroext i1 @ftype_can_matches(i32 noundef %144) #6
-  br i1 %156, label %check_relation_LHS_FIELD.specialized.2.exit, label %157
+  br i1 %156, label %check_relation_LHS_FIELD.specialized.1.exit, label %157
 
 157:                                              ; preds = %155
   %158 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
@@ -4002,7 +3659,7 @@ is_bytes_type.exit.i:                             ; preds = %128, %128, %128, %1
 
 172:                                              ; preds = %163
   %173 = call zeroext i1 @ftype_can_matches(i32 noundef %164) #6
-  br i1 %173, label %check_relation_LHS_FIELD.specialized.2.exit, label %174
+  br i1 %173, label %check_relation_LHS_FIELD.specialized.1.exit, label %174
 
 174:                                              ; preds = %172
   %175 = call { i64, i64 } @stnode_location(ptr noundef %3) #6
@@ -4038,7 +3695,7 @@ is_bytes_type.exit.i:                             ; preds = %128, %128, %128, %1
 
 find_logical_ftype.exit:                          ; preds = %184
   call fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %185)
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 191:                                              ; preds = %24
   %192 = call i32 @get_logical_ftype(ptr noundef %0, ptr noundef %2)
@@ -4054,7 +3711,7 @@ find_logical_ftype.exit:                          ; preds = %184
 
 find_logical_ftype.exit38:                        ; preds = %191
   call fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr noundef nonnull @ftype_can_matches, i1 noundef zeroext true, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %192)
-  br label %check_relation_LHS_FIELD.specialized.2.exit
+  br label %check_relation_LHS_FIELD.specialized.1.exit
 
 198:                                              ; preds = %24
   %199 = call { i64, i64 } @stnode_location(ptr noundef %2) #6
@@ -4065,7 +3722,7 @@ find_logical_ftype.exit38:                        ; preds = %191
   call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %200, i64 %201, ptr noundef nonnull @.str.50, ptr noundef %202, ptr noundef %203) #7
   unreachable
 
-check_relation_LHS_FIELD.specialized.2.exit:      ; preds = %172, %155, %140, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %110, %109, %.critedge.thread47.i, %.critedge.thread.i, %78, %74, %73, %find_logical_ftype.exit38, %find_logical_ftype.exit
+check_relation_LHS_FIELD.specialized.1.exit:      ; preds = %172, %155, %140, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %128, %110, %109, %.critedge.thread47.i, %.critedge.thread.i, %78, %74, %73, %find_logical_ftype.exit38, %find_logical_ftype.exit
   ret void
 }
 
@@ -4085,7 +3742,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
 14:                                               ; preds = %10, %7
   %15 = tail call ptr @sttype_field_hfinfo(ptr noundef %5) #6
   %16 = tail call i32 @sttype_field_ftenum(ptr noundef %5) #6
-  %17 = tail call zeroext i1 %2(i32 noundef %16) #6, !callees !12
+  %17 = tail call zeroext i1 %2(i32 noundef %16) #6, !callees !13
   br i1 %17, label %35, label %18
 
 18:                                               ; preds = %14
@@ -4143,7 +3800,7 @@ define internal fastcc void @check_relation_LHS_FIELD(ptr noundef %0, i32 nounde
   unreachable
 
 48:                                               ; preds = %39
-  %49 = tail call zeroext i1 %2(i32 noundef %40) #6, !callees !12
+  %49 = tail call zeroext i1 %2(i32 noundef %40) #6, !callees !13
   br i1 %49, label %56, label %50
 
 50:                                               ; preds = %48
@@ -4283,7 +3940,7 @@ op_is_equality.exit:                              ; preds = %87
   unreachable
 
 103:                                              ; preds = %94
-  %104 = tail call zeroext i1 %2(i32 noundef %95) #6, !callees !12
+  %104 = tail call zeroext i1 %2(i32 noundef %95) #6, !callees !13
   br i1 %104, label %111, label %105
 
 105:                                              ; preds = %103
@@ -4397,7 +4054,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 138:                                              ; preds = %126
-  %139 = tail call zeroext i1 %2(i32 noundef %127) #6, !callees !12
+  %139 = tail call zeroext i1 %2(i32 noundef %127) #6, !callees !13
   br i1 %139, label %op_is_equality.exit.thread, label %140
 
 140:                                              ; preds = %138
@@ -4424,7 +4081,7 @@ is_bytes_type.exit:                               ; preds = %111, %111, %111, %1
   unreachable
 
 155:                                              ; preds = %146
-  %156 = tail call zeroext i1 %2(i32 noundef %147) #6, !callees !12
+  %156 = tail call zeroext i1 %2(i32 noundef %147) #6, !callees !13
   br i1 %156, label %op_is_equality.exit.thread, label %157
 
 157:                                              ; preds = %155
@@ -4454,7 +4111,7 @@ op_is_equality.exit.thread:                       ; preds = %111, %111, %111, %1
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_relation_LHS_SLICE(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %4, i32 noundef %6)
-  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !13
+  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !14
   br i1 %9, label %16, label %10
 
 10:                                               ; preds = %7
@@ -4608,7 +4265,7 @@ is_bytes_type.exit.thread:                        ; preds = %19, %19, %19, %19, 
   unreachable
 
 53:                                               ; preds = %44
-  %54 = tail call zeroext i1 %1(i32 noundef %45) #6, !callees !13
+  %54 = tail call zeroext i1 %1(i32 noundef %45) #6, !callees !14
   br i1 %54, label %is_bytes_type.exit101.thread, label %55
 
 55:                                               ; preds = %53
@@ -4719,7 +4376,7 @@ is_bytes_type.exit101:                            ; preds = %61, %61, %61, %61, 
   unreachable
 
 85:                                               ; preds = %76
-  %86 = tail call zeroext i1 %1(i32 noundef %77) #6, !callees !13
+  %86 = tail call zeroext i1 %1(i32 noundef %77) #6, !callees !14
   br i1 %86, label %is_bytes_type.exit101.thread, label %87
 
 87:                                               ; preds = %85
@@ -4749,7 +4406,7 @@ is_bytes_type.exit101.thread:                     ; preds = %61, %61, %61, %61, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr nocapture noundef readonly %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = tail call i32 @check_function(ptr noundef %0, ptr noundef %4, i32 noundef %6)
-  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !13
+  %9 = tail call zeroext i1 %1(i32 noundef %8) #6, !callees !14
   br i1 %9, label %17, label %10
 
 10:                                               ; preds = %7
@@ -4794,7 +4451,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   unreachable
 
 29:                                               ; preds = %20
-  %30 = tail call zeroext i1 %1(i32 noundef %21) #6, !callees !13
+  %30 = tail call zeroext i1 %1(i32 noundef %21) #6, !callees !14
   br i1 %30, label %37, label %31
 
 31:                                               ; preds = %29
@@ -4847,7 +4504,7 @@ define internal fastcc void @check_relation_LHS_FUNCTION(ptr noundef %0, ptr noc
   unreachable
 
 57:                                               ; preds = %48
-  %58 = tail call zeroext i1 %1(i32 noundef %49) #6, !callees !13
+  %58 = tail call zeroext i1 %1(i32 noundef %49) #6, !callees !14
   br i1 %58, label %65, label %59
 
 59:                                               ; preds = %57
@@ -4959,7 +4616,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 90:                                               ; preds = %79
-  %91 = tail call zeroext i1 %1(i32 noundef %80) #6, !callees !13
+  %91 = tail call zeroext i1 %1(i32 noundef %80) #6, !callees !14
   br i1 %91, label %is_bytes_type.exit.thread, label %92
 
 92:                                               ; preds = %90
@@ -4986,7 +4643,7 @@ is_bytes_type.exit:                               ; preds = %65, %65, %65, %65, 
   unreachable
 
 107:                                              ; preds = %98
-  %108 = tail call zeroext i1 %1(i32 noundef %99) #6, !callees !13
+  %108 = tail call zeroext i1 %1(i32 noundef %99) #6, !callees !14
   br i1 %108, label %is_bytes_type.exit.thread, label %109
 
 109:                                              ; preds = %107
@@ -5041,6 +4698,388 @@ declare zeroext i1 @ftype_can_matches(i32 noundef) #1
 
 declare zeroext i1 @ftype_can_is_zero(i32 noundef) local_unnamed_addr #1
 
+; Function Attrs: nounwind uwtable
+define internal fastcc void @check_relation_LHS_FIELD.specialized.3(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+  %7 = tail call i32 @stnode_type_id(ptr noundef %4) #6
+  %8 = icmp eq i32 %7, 8
+  br i1 %8, label %9, label %13
+
+9:                                                ; preds = %6
+  %10 = getelementptr inbounds i8, ptr %0, i64 24
+  %11 = load i32, ptr %10, align 8
+  %12 = add i32 %11, 1
+  store i32 %12, ptr %10, align 8
+  br label %13
+
+13:                                               ; preds = %9, %6
+  %14 = tail call ptr @sttype_field_hfinfo(ptr noundef %4) #6
+  %15 = tail call i32 @sttype_field_ftenum(ptr noundef %4) #6
+  %16 = tail call zeroext i1 @ftype_can_cmp(i32 noundef %15) #6
+  br i1 %16, label %34, label %17
+
+17:                                               ; preds = %13
+  %18 = icmp eq i32 %1, 13
+  br i1 %18, label %19, label %26
+
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds i8, ptr %14, i64 24
+  %21 = load ptr, ptr %20, align 8
+  %.not = icmp eq ptr %21, null
+  br i1 %.not, label %26, label %22
+
+22:                                               ; preds = %19
+  %23 = getelementptr inbounds i8, ptr %14, i64 16
+  %24 = load i32, ptr %23, align 8
+  %.not1 = icmp eq i32 %24, 35
+  br i1 %.not1, label %26, label %25
+
+25:                                               ; preds = %22
+  tail call void @sttype_field_set_value_string(ptr noundef %4, i1 noundef zeroext true) #6
+  br label %34
+
+26:                                               ; preds = %22, %19, %17
+  %27 = tail call { i64, i64 } @stnode_location(ptr noundef %4) #6
+  %28 = extractvalue { i64, i64 } %27, 0
+  %29 = extractvalue { i64, i64 } %27, 1
+  %30 = getelementptr inbounds i8, ptr %14, i64 8
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call ptr @ftype_pretty_name(i32 noundef %15) #6
+  %33 = tail call ptr @stnode_tostr(ptr noundef %3, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %28, i64 %29, ptr noundef nonnull @.str.33, ptr noundef %31, ptr noundef %32, ptr noundef %33) #7
+  unreachable
+
+34:                                               ; preds = %25, %13
+  %35 = tail call i32 @sttype_field_ftenum(ptr noundef %4) #6
+  %36 = tail call i32 @stnode_type_id(ptr noundef %5) #6
+  %37 = icmp eq i32 %36, 8
+  switch i32 %36, label %60 [
+    i32 8, label %38
+    i32 4, label %38
+  ]
+
+38:                                               ; preds = %34, %34
+  %39 = tail call i32 @sttype_field_ftenum(ptr noundef %5) #6
+  %40 = tail call zeroext i1 @compatible_ftypes(i32 noundef %35, i32 noundef %39)
+  br i1 %40, label %47, label %41
+
+41:                                               ; preds = %38
+  %42 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %43 = extractvalue { i64, i64 } %42, 0
+  %44 = extractvalue { i64, i64 } %42, 1
+  %45 = tail call ptr @stnode_tostr(ptr noundef %4, i1 noundef zeroext true) #6
+  %46 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %43, i64 %44, ptr noundef nonnull @.str.34, ptr noundef %45, ptr noundef %46) #7
+  unreachable
+
+47:                                               ; preds = %38
+  %48 = tail call zeroext i1 @ftype_can_cmp(i32 noundef %39) #6
+  br i1 %48, label %55, label %49
+
+49:                                               ; preds = %47
+  %50 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %51 = extractvalue { i64, i64 } %50, 0
+  %52 = extractvalue { i64, i64 } %50, 1
+  %53 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  %54 = tail call ptr @ftype_pretty_name(i32 noundef %39) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %51, i64 %52, ptr noundef nonnull @.str.35, ptr noundef %53, ptr noundef %54) #7
+  unreachable
+
+55:                                               ; preds = %47
+  br i1 %37, label %56, label %op_is_equality.exit.thread
+
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds i8, ptr %0, i64 24
+  %58 = load i32, ptr %57, align 8
+  %59 = add i32 %58, 1
+  store i32 %59, ptr %57, align 8
+  br label %op_is_equality.exit.thread
+
+60:                                               ; preds = %34
+  %61 = icmp eq i32 %36, 5
+  switch i32 %36, label %164 [
+    i32 5, label %.preheader
+    i32 3, label %.preheader
+    i32 6, label %91
+    i32 7, label %92
+    i32 10, label %93
+    i32 11, label %125
+    i32 13, label %op_is_equality.exit.thread
+    i32 14, label %145
+    i32 2, label %162
+  ]
+
+.preheader:                                       ; preds = %60, %60
+  %62 = getelementptr inbounds i8, ptr %14, i64 60
+  %63 = load i32, ptr %62, align 4
+  %.not23 = icmp eq i32 %63, -1
+  br i1 %.not23, label %.critedge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
+  br i1 %61, label %.lr.ph.split.split.us, label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph
+  %64 = and i32 %35, -2
+  %65 = icmp eq i32 %64, 26
+  br i1 %65, label %.critedge9.us, label %.critedge.thread47
+
+.critedge9.us:                                    ; preds = %.lr.ph.split.us, %.critedge9.us
+  %66 = phi i32 [ %71, %.critedge9.us ], [ %63, %.lr.ph.split.us ]
+  %67 = tail call ptr @proto_registrar_get_nth(i32 noundef %66) #6
+  %68 = getelementptr inbounds i8, ptr %67, i64 16
+  %69 = load i32, ptr %68, align 8
+  %70 = getelementptr inbounds i8, ptr %67, i64 60
+  %71 = load i32, ptr %70, align 4
+  %.not2.us = icmp ne i32 %71, -1
+  %72 = and i32 %69, -2
+  %73 = icmp eq i32 %72, 26
+  %or.cond38 = select i1 %.not2.us, i1 %73, i1 false
+  br i1 %or.cond38, label %.critedge9.us, label %.critedge, !llvm.loop !10
+
+.lr.ph.split.split.us:                            ; preds = %.lr.ph
+  %74 = add i32 %35, -28
+  %75 = icmp ult i32 %74, -2
+  br i1 %75, label %.critedge9.us16, label %.critedge.thread
+
+.critedge9.us16:                                  ; preds = %.lr.ph.split.split.us, %.critedge9.us16
+  %76 = phi i32 [ %81, %.critedge9.us16 ], [ %63, %.lr.ph.split.split.us ]
+  %77 = tail call ptr @proto_registrar_get_nth(i32 noundef %76) #6
+  %78 = getelementptr inbounds i8, ptr %77, i64 16
+  %79 = load i32, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %77, i64 60
+  %81 = load i32, ptr %80, align 4
+  %.not2.us17 = icmp ne i32 %81, -1
+  %82 = add i32 %79, -28
+  %83 = icmp ult i32 %82, -2
+  %or.cond = select i1 %.not2.us17, i1 %83, i1 false
+  br i1 %or.cond, label %.critedge9.us16, label %.critedge, !llvm.loop !10
+
+.critedge:                                        ; preds = %.critedge9.us, %.critedge9.us16, %.preheader
+  %.0160.lcssa = phi i32 [ %35, %.preheader ], [ %79, %.critedge9.us16 ], [ %69, %.critedge9.us ]
+  %.0.lcssa = phi ptr [ %14, %.preheader ], [ %77, %.critedge9.us16 ], [ %67, %.critedge9.us ]
+  br i1 %61, label %.critedge.thread, label %.critedge.thread47
+
+.critedge.thread:                                 ; preds = %.lr.ph.split.split.us, %.critedge
+  %.0.lcssa46 = phi ptr [ %.0.lcssa, %.critedge ], [ %14, %.lr.ph.split.split.us ]
+  %.0160.lcssa45 = phi i32 [ %.0160.lcssa, %.critedge ], [ %35, %.lr.ph.split.split.us ]
+  %84 = tail call zeroext i1 @dfilter_fvalue_from_string(ptr noundef %0, i32 noundef %.0160.lcssa45, ptr noundef %5, ptr noundef nonnull %.0.lcssa46)
+  br i1 %84, label %86, label %op_is_equality.exit.thread
+
+.critedge.thread47:                               ; preds = %.lr.ph.split.us, %.critedge
+  %.0.lcssa51 = phi ptr [ %.0.lcssa, %.critedge ], [ %14, %.lr.ph.split.us ]
+  %.0160.lcssa50 = phi i32 [ %.0160.lcssa, %.critedge ], [ %35, %.lr.ph.split.us ]
+  %85 = tail call zeroext i1 @dfilter_fvalue_from_literal(ptr noundef %0, i32 noundef %.0160.lcssa50, ptr noundef %5, i1 noundef zeroext %2, ptr noundef nonnull %.0.lcssa51)
+  br i1 %85, label %86, label %op_is_equality.exit.thread
+
+86:                                               ; preds = %.critedge.thread, %.critedge.thread47
+  tail call void @sttype_field_set_value_string(ptr noundef %4, i1 noundef zeroext true) #6
+  switch i32 %1, label %op_is_equality.exit [
+    i32 4, label %op_is_equality.exit.thread
+    i32 5, label %op_is_equality.exit.thread
+    i32 6, label %op_is_equality.exit.thread
+    i32 7, label %op_is_equality.exit.thread
+    i32 14, label %op_is_equality.exit.thread
+    i32 15, label %op_is_equality.exit.thread
+  ]
+
+op_is_equality.exit:                              ; preds = %86
+  %87 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %88 = extractvalue { i64, i64 } %87, 0
+  %89 = extractvalue { i64, i64 } %87, 1
+  %90 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %88, i64 %89, ptr noundef nonnull @.str.36, ptr noundef %90) #7
+  unreachable
+
+91:                                               ; preds = %60
+  tail call void @dfilter_fvalue_from_charconst(ptr noundef %0, i32 noundef %35, ptr noundef %5)
+  br label %op_is_equality.exit.thread
+
+92:                                               ; preds = %60
+  tail call void @dfilter_fvalue_from_number(ptr noundef %0, i32 noundef %35, ptr noundef %5)
+  br label %op_is_equality.exit.thread
+
+93:                                               ; preds = %60
+  %94 = tail call i32 @check_slice(ptr noundef %0, ptr noundef %5, i32 noundef %35)
+  %95 = tail call zeroext i1 @compatible_ftypes(i32 noundef %35, i32 noundef %94)
+  br i1 %95, label %102, label %96
+
+96:                                               ; preds = %93
+  %97 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %98 = extractvalue { i64, i64 } %97, 0
+  %99 = extractvalue { i64, i64 } %97, 1
+  %100 = tail call ptr @stnode_tostr(ptr noundef %4, i1 noundef zeroext true) #6
+  %101 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %98, i64 %99, ptr noundef nonnull @.str.34, ptr noundef %100, ptr noundef %101) #7
+  unreachable
+
+102:                                              ; preds = %93
+  %103 = tail call zeroext i1 @ftype_can_cmp(i32 noundef %94) #6
+  br i1 %103, label %110, label %104
+
+104:                                              ; preds = %102
+  %105 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %106 = extractvalue { i64, i64 } %105, 0
+  %107 = extractvalue { i64, i64 } %105, 1
+  %108 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  %109 = tail call ptr @ftype_pretty_name(i32 noundef %94) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %106, i64 %107, ptr noundef nonnull @.str.35, ptr noundef %108, ptr noundef %109) #7
+  unreachable
+
+110:                                              ; preds = %102
+  switch i32 %35, label %113 [
+    i32 39, label %op_is_equality.exit.thread
+    i32 40, label %op_is_equality.exit.thread
+    i32 44, label %op_is_equality.exit.thread
+    i32 29, label %op_is_equality.exit.thread
+    i32 30, label %op_is_equality.exit.thread
+    i32 31, label %op_is_equality.exit.thread
+    i32 33, label %op_is_equality.exit.thread
+    i32 36, label %op_is_equality.exit.thread
+    i32 37, label %op_is_equality.exit.thread
+    i32 41, label %op_is_equality.exit.thread
+    i32 42, label %op_is_equality.exit.thread
+    i32 0, label %is_bytes_type.exit
+    i32 1, label %is_bytes_type.exit
+    i32 22, label %is_bytes_type.exit
+    i32 23, label %is_bytes_type.exit
+    i32 20, label %is_bytes_type.exit
+    i32 21, label %is_bytes_type.exit
+    i32 24, label %is_bytes_type.exit
+    i32 25, label %is_bytes_type.exit
+    i32 32, label %is_bytes_type.exit
+    i32 34, label %is_bytes_type.exit
+    i32 26, label %is_bytes_type.exit
+    i32 27, label %is_bytes_type.exit
+    i32 28, label %is_bytes_type.exit
+    i32 43, label %is_bytes_type.exit
+    i32 45, label %is_bytes_type.exit
+    i32 2, label %is_bytes_type.exit
+    i32 35, label %is_bytes_type.exit
+    i32 3, label %is_bytes_type.exit
+    i32 4, label %is_bytes_type.exit
+    i32 5, label %is_bytes_type.exit
+    i32 6, label %is_bytes_type.exit
+    i32 7, label %is_bytes_type.exit
+    i32 8, label %is_bytes_type.exit
+    i32 9, label %is_bytes_type.exit
+    i32 10, label %is_bytes_type.exit
+    i32 11, label %is_bytes_type.exit
+    i32 12, label %is_bytes_type.exit
+    i32 13, label %is_bytes_type.exit
+    i32 14, label %is_bytes_type.exit
+    i32 15, label %is_bytes_type.exit
+    i32 16, label %is_bytes_type.exit
+    i32 17, label %is_bytes_type.exit
+    i32 18, label %is_bytes_type.exit
+    i32 19, label %is_bytes_type.exit
+    i32 38, label %is_bytes_type.exit
+    i32 46, label %111
+    i32 47, label %111
+  ]
+
+111:                                              ; preds = %110, %110
+  %112 = tail call ptr @ftype_name(i32 noundef %35) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 666, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.2, ptr noundef %112) #7
+  unreachable
+
+113:                                              ; preds = %110
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 669, ptr noundef nonnull @__func__.is_bytes_type, ptr noundef nonnull @.str.3) #7
+  unreachable
+
+is_bytes_type.exit:                               ; preds = %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110
+  %114 = tail call zeroext i1 @ftype_can_slice(i32 noundef %35) #6
+  br i1 %114, label %122, label %115
+
+115:                                              ; preds = %is_bytes_type.exit
+  %116 = tail call { i64, i64 } @stnode_location(ptr noundef %4) #6
+  %117 = extractvalue { i64, i64 } %116, 0
+  %118 = extractvalue { i64, i64 } %116, 1
+  %119 = getelementptr inbounds i8, ptr %14, i64 8
+  %120 = load ptr, ptr %119, align 8
+  %121 = tail call ptr @ftype_pretty_name(i32 noundef %35) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %117, i64 %118, ptr noundef nonnull @.str.37, ptr noundef %120, ptr noundef %121) #7
+  unreachable
+
+122:                                              ; preds = %is_bytes_type.exit
+  %123 = tail call ptr @stnode_dup(ptr noundef %4) #6
+  %124 = tail call ptr @drange_node_new() #6
+  tail call void @drange_node_set_start_offset(ptr noundef %124, i32 noundef 0) #6
+  tail call void @drange_node_set_to_the_end(ptr noundef %124) #6
+  tail call void @stnode_replace(ptr noundef %4, i32 noundef 10, ptr noundef null) #6
+  tail call void @sttype_slice_set1(ptr noundef %4, ptr noundef %123, ptr noundef %124) #6
+  br label %op_is_equality.exit.thread
+
+125:                                              ; preds = %60
+  %126 = tail call i32 @check_function(ptr noundef %0, ptr noundef %5, i32 noundef %35)
+  %127 = tail call zeroext i1 @compatible_ftypes(i32 noundef %35, i32 noundef %126)
+  br i1 %127, label %137, label %128
+
+128:                                              ; preds = %125
+  %129 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %130 = extractvalue { i64, i64 } %129, 0
+  %131 = extractvalue { i64, i64 } %129, 1
+  %132 = getelementptr inbounds i8, ptr %14, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call ptr @ftype_pretty_name(i32 noundef %35) #6
+  %135 = tail call ptr @sttype_function_name(ptr noundef %5) #6
+  %136 = tail call ptr @ftype_pretty_name(i32 noundef %126) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %130, i64 %131, ptr noundef nonnull @.str.38, ptr noundef %133, ptr noundef %134, ptr noundef %135, ptr noundef %136) #7
+  unreachable
+
+137:                                              ; preds = %125
+  %138 = tail call zeroext i1 @ftype_can_cmp(i32 noundef %126) #6
+  br i1 %138, label %op_is_equality.exit.thread, label %139
+
+139:                                              ; preds = %137
+  %140 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %141 = extractvalue { i64, i64 } %140, 0
+  %142 = extractvalue { i64, i64 } %140, 1
+  %143 = tail call ptr @sttype_function_name(ptr noundef %5) #6
+  %144 = tail call ptr @ftype_pretty_name(i32 noundef %126) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %141, i64 %142, ptr noundef nonnull @.str.39, ptr noundef %143, ptr noundef %144) #7
+  unreachable
+
+145:                                              ; preds = %60
+  %146 = tail call i32 @check_arithmetic(ptr noundef %0, ptr noundef %5, i32 noundef %35)
+  %147 = tail call zeroext i1 @compatible_ftypes(i32 noundef %35, i32 noundef %146)
+  br i1 %147, label %154, label %148
+
+148:                                              ; preds = %145
+  %149 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %150 = extractvalue { i64, i64 } %149, 0
+  %151 = extractvalue { i64, i64 } %149, 1
+  %152 = tail call ptr @stnode_tostr(ptr noundef %4, i1 noundef zeroext true) #6
+  %153 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %150, i64 %151, ptr noundef nonnull @.str.34, ptr noundef %152, ptr noundef %153) #7
+  unreachable
+
+154:                                              ; preds = %145
+  %155 = tail call zeroext i1 @ftype_can_cmp(i32 noundef %146) #6
+  br i1 %155, label %op_is_equality.exit.thread, label %156
+
+156:                                              ; preds = %154
+  %157 = tail call { i64, i64 } @stnode_location(ptr noundef %5) #6
+  %158 = extractvalue { i64, i64 } %157, 0
+  %159 = extractvalue { i64, i64 } %157, 1
+  %160 = tail call ptr @stnode_tostr(ptr noundef %5, i1 noundef zeroext true) #6
+  %161 = tail call ptr @ftype_pretty_name(i32 noundef %146) #6
+  tail call void (ptr, i32, i64, i64, ptr, ...) @dfilter_fail_throw(ptr noundef %0, i32 noundef -1, i64 %158, i64 %159, ptr noundef nonnull @.str.35, ptr noundef %160, ptr noundef %161) #7
+  unreachable
+
+162:                                              ; preds = %60
+  tail call void @resolve_unparsed(ptr noundef %0, ptr noundef %5, i1 noundef zeroext true)
+  %163 = tail call ptr @sttype_name(i32 noundef 2) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1048, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %163) #7
+  unreachable
+
+164:                                              ; preds = %60
+  %165 = tail call ptr @sttype_name(i32 noundef %36) #6
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 1051, ptr noundef nonnull @__func__.check_relation_LHS_FIELD, ptr noundef nonnull @.str.6, ptr noundef %165) #7
+  unreachable
+
+op_is_equality.exit.thread:                       ; preds = %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %110, %86, %86, %86, %86, %86, %86, %.critedge.thread, %60, %154, %137, %122, %92, %91, %.critedge.thread47, %56, %55
+  ret void
+}
+
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #5
 
@@ -5072,4 +5111,5 @@ attributes #8 = { nounwind returns_twice }
 !10 = distinct !{!10, !5}
 !11 = distinct !{!11, !5}
 !12 = !{ptr @ftype_can_cmp, ptr @ftype_can_eq}
-!13 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
+!13 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq}
+!14 = !{ptr @ftype_can_cmp, ptr @ftype_can_contains, ptr @ftype_can_eq, ptr @ftype_can_matches}
