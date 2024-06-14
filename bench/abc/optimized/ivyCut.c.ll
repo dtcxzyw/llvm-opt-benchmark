@@ -3122,14 +3122,14 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
   %12 = getelementptr i8, ptr %0, i64 24
   br label %13
 
-13:                                               ; preds = %.lr.ph158, %231
-  %14 = phi i32 [ 1, %.lr.ph158 ], [ %232, %231 ]
-  %indvars.iv172 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next173, %231 ]
+13:                                               ; preds = %.lr.ph158, %234
+  %14 = phi i32 [ 1, %.lr.ph158 ], [ %235, %234 ]
+  %indvars.iv172 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next173, %234 ]
   %15 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv172
   %16 = getelementptr inbounds i8, ptr %15, i64 4
   %17 = load i16, ptr %16, align 4
   %18 = icmp eq i16 %17, 0
-  br i1 %18, label %231, label %.preheader
+  br i1 %18, label %234, label %.preheader
 
 .preheader:                                       ; preds = %13
   %19 = icmp sgt i16 %17, 0
@@ -3141,10 +3141,10 @@ define noundef nonnull ptr @Ivy_NodeFindCutsAll(ptr nocapture noundef readonly %
   br label %22
 
 22:                                               ; preds = %.lr.ph, %Ivy_NodeCutPrescreen.exit.thread
-  %23 = phi i32 [ %14, %.lr.ph ], [ %224, %Ivy_NodeCutPrescreen.exit.thread ]
+  %23 = phi i32 [ %14, %.lr.ph ], [ %227, %Ivy_NodeCutPrescreen.exit.thread ]
   %.pr175 = phi i16 [ %17, %.lr.ph ], [ %.pr, %Ivy_NodeCutPrescreen.exit.thread ]
-  %24 = phi i32 [ %14, %.lr.ph ], [ %225, %Ivy_NodeCutPrescreen.exit.thread ]
-  %25 = phi i32 [ %14, %.lr.ph ], [ %226, %Ivy_NodeCutPrescreen.exit.thread ]
+  %24 = phi i32 [ %14, %.lr.ph ], [ %228, %Ivy_NodeCutPrescreen.exit.thread ]
+  %25 = phi i32 [ %14, %.lr.ph ], [ %229, %Ivy_NodeCutPrescreen.exit.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Ivy_NodeCutPrescreen.exit.thread ]
   %26 = getelementptr inbounds [6 x i32], ptr %20, i64 0, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
@@ -3246,7 +3246,7 @@ Ivy_ObjRealFanin.exit62:                          ; preds = %tailrecurse.i57, %I
 Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFanin.exit62
   %68 = icmp sgt i32 %.val43, %.val44
   %69 = icmp sgt i16 %.pr175, 0
-  br i1 %68, label %70, label %115
+  br i1 %68, label %70, label %117
 
 70:                                               ; preds = %Ivy_NodeCutPrescreen.exit
   br i1 %69, label %.lr.ph.i72.preheader, label %._crit_edge.i69.thread
@@ -3353,371 +3353,367 @@ Ivy_NodeCutPrescreen.exit:                        ; preds = %63, %Ivy_ObjRealFan
   br i1 %.not67.i, label %Ivy_NodeCutDeriveNew.exit, label %110
 
 110:                                              ; preds = %109
-  %111 = sext i32 %.6.i to i64
-  %112 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %111
-  store i32 %.059.lcssa.i135, ptr %112, align 4
-  %113 = srem i32 %.059.lcssa.i135, 31
-  %114 = shl nuw nsw i32 1, %113
-  br label %Ivy_NodeCutDeriveNew.exit.sink.split
-
-115:                                              ; preds = %Ivy_NodeCutPrescreen.exit
-  br i1 %69, label %.lr.ph.i86.preheader, label %._crit_edge.i75
-
-.lr.ph.i86.preheader:                             ; preds = %115
-  %116 = zext nneg i16 %.pr175 to i64
-  br label %.lr.ph.i86
-
-.lr.ph.i86:                                       ; preds = %.lr.ph.i86.preheader, %147
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i105, %147 ], [ 0, %.lr.ph.i86.preheader ]
-  %.074.i88 = phi i32 [ %.5.i104, %147 ], [ 0, %.lr.ph.i86.preheader ]
-  %.05172.i89 = phi i32 [ %.556.i103, %147 ], [ 0, %.lr.ph.i86.preheader ]
-  %.05971.i90 = phi i32 [ %.261.i102, %147 ], [ %.val44, %.lr.ph.i86.preheader ]
-  %.06270.i91 = phi i32 [ %.264.i101, %147 ], [ %.val43, %.lr.ph.i86.preheader ]
-  %117 = getelementptr inbounds [6 x i32], ptr %20, i64 0, i64 %indvars.iv.i87
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %118, %27
-  br i1 %119, label %147, label %120
-
-120:                                              ; preds = %.lr.ph.i86
-  %.not68.i92 = icmp sgt i32 %.06270.i91, %118
-  br i1 %.not68.i92, label %130, label %121
-
-121:                                              ; preds = %120
-  %122 = icmp slt i32 %.06270.i91, %118
-  br i1 %122, label %123, label %130
-
-123:                                              ; preds = %121
-  %124 = add nsw i32 %.074.i88, 1
-  %125 = sext i32 %.074.i88 to i64
-  %126 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %125
-  store i32 %.06270.i91, ptr %126, align 4
-  %127 = srem i32 %.06270.i91, 31
-  %128 = shl nuw nsw i32 1, %127
-  %129 = or i32 %128, %.05172.i89
-  br label %130
-
-130:                                              ; preds = %123, %121, %120
-  %.163.i93 = phi i32 [ %.06270.i91, %120 ], [ 2147483647, %123 ], [ 2147483647, %121 ]
-  %.253.i94 = phi i32 [ %.05172.i89, %120 ], [ %129, %123 ], [ %.05172.i89, %121 ]
-  %.2.i95 = phi i32 [ %.074.i88, %120 ], [ %124, %123 ], [ %.074.i88, %121 ]
-  %.not69.i96 = icmp sgt i32 %.05971.i90, %118
-  br i1 %.not69.i96, label %140, label %131
-
-131:                                              ; preds = %130
-  %132 = icmp slt i32 %.05971.i90, %118
-  br i1 %132, label %133, label %140
-
-133:                                              ; preds = %131
-  %134 = add nsw i32 %.2.i95, 1
-  %135 = sext i32 %.2.i95 to i64
-  %136 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %135
-  store i32 %.05971.i90, ptr %136, align 4
-  %137 = srem i32 %.05971.i90, 31
-  %138 = shl nuw nsw i32 1, %137
-  %139 = or i32 %.253.i94, %138
-  br label %140
-
-140:                                              ; preds = %133, %131, %130
-  %.160.i97 = phi i32 [ %.05971.i90, %130 ], [ 2147483647, %133 ], [ 2147483647, %131 ]
-  %.455.i98 = phi i32 [ %.253.i94, %130 ], [ %139, %133 ], [ %.253.i94, %131 ]
-  %.4.i99 = phi i32 [ %.2.i95, %130 ], [ %134, %133 ], [ %.2.i95, %131 ]
-  %141 = add nsw i32 %.4.i99, 1
-  %142 = sext i32 %.4.i99 to i64
-  %143 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %142
-  store i32 %118, ptr %143, align 4
-  %144 = srem i32 %118, 31
-  %145 = shl nuw nsw i32 1, %144
-  %146 = or i32 %.455.i98, %145
-  br label %147
-
-147:                                              ; preds = %140, %.lr.ph.i86
-  %.264.i101 = phi i32 [ %.06270.i91, %.lr.ph.i86 ], [ %.163.i93, %140 ]
-  %.261.i102 = phi i32 [ %.05971.i90, %.lr.ph.i86 ], [ %.160.i97, %140 ]
-  %.556.i103 = phi i32 [ %.05172.i89, %.lr.ph.i86 ], [ %146, %140 ]
-  %.5.i104 = phi i32 [ %.074.i88, %.lr.ph.i86 ], [ %141, %140 ]
-  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i87, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next.i105, %116
-  br i1 %exitcond.not, label %._crit_edge.i75, label %.lr.ph.i86, !llvm.loop !32
-
-._crit_edge.i75:                                  ; preds = %147, %115
-  %.062.lcssa.i76 = phi i32 [ %.val43, %115 ], [ %.264.i101, %147 ]
-  %.059.lcssa.i77 = phi i32 [ %.val44, %115 ], [ %.261.i102, %147 ]
-  %.051.lcssa.i78 = phi i32 [ 0, %115 ], [ %.556.i103, %147 ]
-  %.0.lcssa.i79 = phi i32 [ 0, %115 ], [ %.5.i104, %147 ]
-  %.not.i80 = icmp eq i32 %.062.lcssa.i76, 2147483647
-  br i1 %.not.i80, label %155, label %148
-
-148:                                              ; preds = %._crit_edge.i75
-  %149 = add nsw i32 %.0.lcssa.i79, 1
-  %150 = sext i32 %.0.lcssa.i79 to i64
-  %151 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %150
-  store i32 %.062.lcssa.i76, ptr %151, align 4
-  %152 = srem i32 %.062.lcssa.i76, 31
-  %153 = shl nuw nsw i32 1, %152
-  %154 = or i32 %.051.lcssa.i78, %153
-  br label %155
-
-155:                                              ; preds = %148, %._crit_edge.i75
-  %.657.i81 = phi i32 [ %154, %148 ], [ %.051.lcssa.i78, %._crit_edge.i75 ]
-  %.6.i82 = phi i32 [ %149, %148 ], [ %.0.lcssa.i79, %._crit_edge.i75 ]
-  %.not67.i83 = icmp eq i32 %.059.lcssa.i77, 2147483647
-  br i1 %.not67.i83, label %Ivy_NodeCutDeriveNew.exit, label %156
-
-156:                                              ; preds = %155
-  %157 = sext i32 %.6.i82 to i64
-  %158 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %157
-  store i32 %.059.lcssa.i77, ptr %158, align 4
-  %159 = srem i32 %.059.lcssa.i77, 31
-  %160 = shl nuw nsw i32 1, %159
-  br label %Ivy_NodeCutDeriveNew.exit.sink.split
-
-Ivy_NodeCutDeriveNew.exit.sink.split:             ; preds = %110, %156
-  %.sink = phi i32 [ %160, %156 ], [ %.657.i, %110 ]
-  %.657.i81.sink = phi i32 [ %.657.i81, %156 ], [ %114, %110 ]
-  %storemerge142.in.ph.in = phi i32 [ %.6.i82, %156 ], [ %.6.i, %110 ]
-  %storemerge142.in.ph = add nsw i32 %storemerge142.in.ph.in, 1
-  %161 = or i32 %.657.i81.sink, %.sink
+  %111 = add nsw i32 %.6.i, 1
+  %112 = sext i32 %.6.i to i64
+  %113 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %112
+  store i32 %.059.lcssa.i135, ptr %113, align 4
+  %114 = srem i32 %.059.lcssa.i135, 31
+  %115 = shl nuw nsw i32 1, %114
+  %116 = or i32 %115, %.657.i
   br label %Ivy_NodeCutDeriveNew.exit
 
-Ivy_NodeCutDeriveNew.exit:                        ; preds = %Ivy_NodeCutDeriveNew.exit.sink.split, %155, %109
-  %storemerge142.in = phi i32 [ %.6.i, %109 ], [ %.6.i82, %155 ], [ %storemerge142.in.ph, %Ivy_NodeCutDeriveNew.exit.sink.split ]
-  %162 = phi i32 [ %.657.i, %109 ], [ %.657.i81, %155 ], [ %161, %Ivy_NodeCutDeriveNew.exit.sink.split ]
+117:                                              ; preds = %Ivy_NodeCutPrescreen.exit
+  br i1 %69, label %.lr.ph.i86.preheader, label %._crit_edge.i75
+
+.lr.ph.i86.preheader:                             ; preds = %117
+  %118 = zext nneg i16 %.pr175 to i64
+  br label %.lr.ph.i86
+
+.lr.ph.i86:                                       ; preds = %.lr.ph.i86.preheader, %149
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i105, %149 ], [ 0, %.lr.ph.i86.preheader ]
+  %.074.i88 = phi i32 [ %.5.i104, %149 ], [ 0, %.lr.ph.i86.preheader ]
+  %.05172.i89 = phi i32 [ %.556.i103, %149 ], [ 0, %.lr.ph.i86.preheader ]
+  %.05971.i90 = phi i32 [ %.261.i102, %149 ], [ %.val44, %.lr.ph.i86.preheader ]
+  %.06270.i91 = phi i32 [ %.264.i101, %149 ], [ %.val43, %.lr.ph.i86.preheader ]
+  %119 = getelementptr inbounds [6 x i32], ptr %20, i64 0, i64 %indvars.iv.i87
+  %120 = load i32, ptr %119, align 4
+  %121 = icmp eq i32 %120, %27
+  br i1 %121, label %149, label %122
+
+122:                                              ; preds = %.lr.ph.i86
+  %.not68.i92 = icmp sgt i32 %.06270.i91, %120
+  br i1 %.not68.i92, label %132, label %123
+
+123:                                              ; preds = %122
+  %124 = icmp slt i32 %.06270.i91, %120
+  br i1 %124, label %125, label %132
+
+125:                                              ; preds = %123
+  %126 = add nsw i32 %.074.i88, 1
+  %127 = sext i32 %.074.i88 to i64
+  %128 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %127
+  store i32 %.06270.i91, ptr %128, align 4
+  %129 = srem i32 %.06270.i91, 31
+  %130 = shl nuw nsw i32 1, %129
+  %131 = or i32 %130, %.05172.i89
+  br label %132
+
+132:                                              ; preds = %125, %123, %122
+  %.163.i93 = phi i32 [ %.06270.i91, %122 ], [ 2147483647, %125 ], [ 2147483647, %123 ]
+  %.253.i94 = phi i32 [ %.05172.i89, %122 ], [ %131, %125 ], [ %.05172.i89, %123 ]
+  %.2.i95 = phi i32 [ %.074.i88, %122 ], [ %126, %125 ], [ %.074.i88, %123 ]
+  %.not69.i96 = icmp sgt i32 %.05971.i90, %120
+  br i1 %.not69.i96, label %142, label %133
+
+133:                                              ; preds = %132
+  %134 = icmp slt i32 %.05971.i90, %120
+  br i1 %134, label %135, label %142
+
+135:                                              ; preds = %133
+  %136 = add nsw i32 %.2.i95, 1
+  %137 = sext i32 %.2.i95 to i64
+  %138 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %137
+  store i32 %.05971.i90, ptr %138, align 4
+  %139 = srem i32 %.05971.i90, 31
+  %140 = shl nuw nsw i32 1, %139
+  %141 = or i32 %.253.i94, %140
+  br label %142
+
+142:                                              ; preds = %135, %133, %132
+  %.160.i97 = phi i32 [ %.05971.i90, %132 ], [ 2147483647, %135 ], [ 2147483647, %133 ]
+  %.455.i98 = phi i32 [ %.253.i94, %132 ], [ %141, %135 ], [ %.253.i94, %133 ]
+  %.4.i99 = phi i32 [ %.2.i95, %132 ], [ %136, %135 ], [ %.2.i95, %133 ]
+  %143 = add nsw i32 %.4.i99, 1
+  %144 = sext i32 %.4.i99 to i64
+  %145 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %144
+  store i32 %120, ptr %145, align 4
+  %146 = srem i32 %120, 31
+  %147 = shl nuw nsw i32 1, %146
+  %148 = or i32 %.455.i98, %147
+  br label %149
+
+149:                                              ; preds = %142, %.lr.ph.i86
+  %.264.i101 = phi i32 [ %.06270.i91, %.lr.ph.i86 ], [ %.163.i93, %142 ]
+  %.261.i102 = phi i32 [ %.05971.i90, %.lr.ph.i86 ], [ %.160.i97, %142 ]
+  %.556.i103 = phi i32 [ %.05172.i89, %.lr.ph.i86 ], [ %148, %142 ]
+  %.5.i104 = phi i32 [ %.074.i88, %.lr.ph.i86 ], [ %143, %142 ]
+  %indvars.iv.next.i105 = add nuw nsw i64 %indvars.iv.i87, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next.i105, %118
+  br i1 %exitcond.not, label %._crit_edge.i75, label %.lr.ph.i86, !llvm.loop !32
+
+._crit_edge.i75:                                  ; preds = %149, %117
+  %.062.lcssa.i76 = phi i32 [ %.val43, %117 ], [ %.264.i101, %149 ]
+  %.059.lcssa.i77 = phi i32 [ %.val44, %117 ], [ %.261.i102, %149 ]
+  %.051.lcssa.i78 = phi i32 [ 0, %117 ], [ %.556.i103, %149 ]
+  %.0.lcssa.i79 = phi i32 [ 0, %117 ], [ %.5.i104, %149 ]
+  %.not.i80 = icmp eq i32 %.062.lcssa.i76, 2147483647
+  br i1 %.not.i80, label %157, label %150
+
+150:                                              ; preds = %._crit_edge.i75
+  %151 = add nsw i32 %.0.lcssa.i79, 1
+  %152 = sext i32 %.0.lcssa.i79 to i64
+  %153 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %152
+  store i32 %.062.lcssa.i76, ptr %153, align 4
+  %154 = srem i32 %.062.lcssa.i76, 31
+  %155 = shl nuw nsw i32 1, %154
+  %156 = or i32 %.051.lcssa.i78, %155
+  br label %157
+
+157:                                              ; preds = %150, %._crit_edge.i75
+  %.657.i81 = phi i32 [ %156, %150 ], [ %.051.lcssa.i78, %._crit_edge.i75 ]
+  %.6.i82 = phi i32 [ %151, %150 ], [ %.0.lcssa.i79, %._crit_edge.i75 ]
+  %.not67.i83 = icmp eq i32 %.059.lcssa.i77, 2147483647
+  br i1 %.not67.i83, label %Ivy_NodeCutDeriveNew.exit, label %158
+
+158:                                              ; preds = %157
+  %159 = add nsw i32 %.6.i82, 1
+  %160 = sext i32 %.6.i82 to i64
+  %161 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %160
+  store i32 %.059.lcssa.i77, ptr %161, align 4
+  %162 = srem i32 %.059.lcssa.i77, 31
+  %163 = shl nuw nsw i32 1, %162
+  %164 = or i32 %.657.i81, %163
+  br label %Ivy_NodeCutDeriveNew.exit
+
+Ivy_NodeCutDeriveNew.exit:                        ; preds = %158, %157, %110, %109
+  %storemerge142.in = phi i32 [ %111, %110 ], [ %.6.i, %109 ], [ %159, %158 ], [ %.6.i82, %157 ]
+  %165 = phi i32 [ %116, %110 ], [ %.657.i, %109 ], [ %164, %158 ], [ %.657.i81, %157 ]
   %storemerge142 = trunc i32 %storemerge142.in to i16
   store i16 %storemerge142, ptr %5, align 4
-  store i32 %162, ptr %4, align 4
-  %163 = icmp sgt i32 %25, 0
-  br i1 %163, label %.lr.ph86.i, label %._crit_edge87.i
+  store i32 %165, ptr %4, align 4
+  %166 = icmp sgt i32 %25, 0
+  br i1 %166, label %.lr.ph86.i, label %._crit_edge87.i
 
 .lr.ph86.i:                                       ; preds = %Ivy_NodeCutDeriveNew.exit
   %wide.trip.count99.i = zext nneg i32 %25 to i64
   %wide.trip.count30.i45.i = sext i16 %storemerge142 to i64
-  %164 = icmp sgt i16 %storemerge142, 0
+  %167 = icmp sgt i16 %storemerge142, 0
   %sext = shl i32 %storemerge142.in, 16
-  %165 = ashr exact i32 %sext, 16
-  %wide.trip.count.i.i = zext nneg i32 %165 to i64
-  br label %166
+  %168 = ashr exact i32 %sext, 16
+  %wide.trip.count.i.i = zext nneg i32 %168 to i64
+  br label %169
 
-166:                                              ; preds = %Ivy_CutCheckDominance.exit60.i, %.lr.ph86.i
+169:                                              ; preds = %Ivy_CutCheckDominance.exit60.i, %.lr.ph86.i
   %indvars.iv96.i = phi i64 [ 0, %.lr.ph86.i ], [ %indvars.iv.next97.i, %Ivy_CutCheckDominance.exit60.i ]
-  %167 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv96.i
-  %168 = getelementptr inbounds i8, ptr %167, i64 4
-  %169 = load i16, ptr %168, align 4
-  %170 = icmp eq i16 %169, 0
-  br i1 %170, label %Ivy_CutCheckDominance.exit60.i, label %171
+  %170 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv96.i
+  %171 = getelementptr inbounds i8, ptr %170, i64 4
+  %172 = load i16, ptr %171, align 4
+  %173 = icmp eq i16 %172, 0
+  br i1 %173, label %Ivy_CutCheckDominance.exit60.i, label %174
 
-171:                                              ; preds = %166
-  %172 = icmp eq i16 %169, %storemerge142
-  br i1 %172, label %173, label %185
+174:                                              ; preds = %169
+  %175 = icmp eq i16 %172, %storemerge142
+  br i1 %175, label %176, label %188
 
-173:                                              ; preds = %171
-  %174 = getelementptr inbounds i8, ptr %167, i64 32
-  %175 = load i32, ptr %174, align 4
-  %176 = icmp eq i32 %175, %162
-  br i1 %176, label %.preheader.i110, label %Ivy_CutCheckDominance.exit60.i
+176:                                              ; preds = %174
+  %177 = getelementptr inbounds i8, ptr %170, i64 32
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp eq i32 %178, %165
+  br i1 %179, label %.preheader.i110, label %Ivy_CutCheckDominance.exit60.i
 
-.preheader.i110:                                  ; preds = %173
-  %177 = getelementptr inbounds i8, ptr %167, i64 8
-  br i1 %164, label %.lr.ph.i115, label %._crit_edge.i111
+.preheader.i110:                                  ; preds = %176
+  %180 = getelementptr inbounds i8, ptr %170, i64 8
+  br i1 %167, label %.lr.ph.i115, label %._crit_edge.i111
 
-.lr.ph.i115:                                      ; preds = %.preheader.i110, %182
-  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i118, %182 ], [ 0, %.preheader.i110 ]
-  %178 = getelementptr inbounds [6 x i32], ptr %177, i64 0, i64 %indvars.iv.i116
-  %179 = load i32, ptr %178, align 4
-  %180 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i116
-  %181 = load i32, ptr %180, align 4
-  %.not44.i = icmp eq i32 %179, %181
-  br i1 %.not44.i, label %182, label %._crit_edge.loopexit.i117
+.lr.ph.i115:                                      ; preds = %.preheader.i110, %185
+  %indvars.iv.i116 = phi i64 [ %indvars.iv.next.i118, %185 ], [ 0, %.preheader.i110 ]
+  %181 = getelementptr inbounds [6 x i32], ptr %180, i64 0, i64 %indvars.iv.i116
+  %182 = load i32, ptr %181, align 4
+  %183 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i116
+  %184 = load i32, ptr %183, align 4
+  %.not44.i = icmp eq i32 %182, %184
+  br i1 %.not44.i, label %185, label %._crit_edge.loopexit.i117
 
-182:                                              ; preds = %.lr.ph.i115
+185:                                              ; preds = %.lr.ph.i115
   %indvars.iv.next.i118 = add nuw nsw i64 %indvars.iv.i116, 1
   %exitcond.not.i119 = icmp eq i64 %indvars.iv.next.i118, %wide.trip.count.i.i
   br i1 %exitcond.not.i119, label %Ivy_NodeCutFindOrAddFilter.exit, label %.lr.ph.i115, !llvm.loop !24
 
 ._crit_edge.loopexit.i117:                        ; preds = %.lr.ph.i115
-  %183 = trunc nuw nsw i64 %indvars.iv.i116 to i32
+  %186 = trunc nuw nsw i64 %indvars.iv.i116 to i32
   br label %._crit_edge.i111
 
 ._crit_edge.i111:                                 ; preds = %._crit_edge.loopexit.i117, %.preheader.i110
-  %.0.lcssa.i112 = phi i32 [ 0, %.preheader.i110 ], [ %183, %._crit_edge.loopexit.i117 ]
-  %184 = icmp eq i32 %.0.lcssa.i112, %165
-  br i1 %184, label %Ivy_NodeCutFindOrAddFilter.exit, label %Ivy_CutCheckDominance.exit60.i
+  %.0.lcssa.i112 = phi i32 [ 0, %.preheader.i110 ], [ %186, %._crit_edge.loopexit.i117 ]
+  %187 = icmp eq i32 %.0.lcssa.i112, %168
+  br i1 %187, label %Ivy_NodeCutFindOrAddFilter.exit, label %Ivy_CutCheckDominance.exit60.i
 
-185:                                              ; preds = %171
-  %186 = icmp slt i16 %169, %storemerge142
-  %187 = getelementptr inbounds i8, ptr %167, i64 32
-  %188 = load i32, ptr %187, align 4
-  %189 = and i32 %162, %188
-  br i1 %186, label %190, label %204
+188:                                              ; preds = %174
+  %189 = icmp slt i16 %172, %storemerge142
+  %190 = getelementptr inbounds i8, ptr %170, i64 32
+  %191 = load i32, ptr %190, align 4
+  %192 = and i32 %165, %191
+  br i1 %189, label %193, label %207
 
-190:                                              ; preds = %185
-  %.not42.i = icmp eq i32 %189, %188
-  br i1 %.not42.i, label %191, label %Ivy_CutCheckDominance.exit60.i
+193:                                              ; preds = %188
+  %.not42.i = icmp eq i32 %192, %191
+  br i1 %.not42.i, label %194, label %Ivy_CutCheckDominance.exit60.i
 
-191:                                              ; preds = %190
-  %wide.trip.count30.i.i = sext i16 %169 to i64
-  %192 = icmp sgt i16 %169, 0
-  br i1 %192, label %.preheader.lr.ph.i.i, label %Ivy_NodeCutFindOrAddFilter.exit
+194:                                              ; preds = %193
+  %wide.trip.count30.i.i = sext i16 %172 to i64
+  %195 = icmp sgt i16 %172, 0
+  br i1 %195, label %.preheader.lr.ph.i.i, label %Ivy_NodeCutFindOrAddFilter.exit
 
-.preheader.lr.ph.i.i:                             ; preds = %191
-  %193 = getelementptr inbounds i8, ptr %167, i64 8
+.preheader.lr.ph.i.i:                             ; preds = %194
+  %196 = getelementptr inbounds i8, ptr %170, i64 8
   br label %.preheader.us.i.i
 
-.preheader.us.i.i:                                ; preds = %203, %.preheader.lr.ph.i.i
-  %indvars.iv27.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next28.i.i, %203 ]
-  %194 = getelementptr inbounds [6 x i32], ptr %193, i64 0, i64 %indvars.iv27.i.i
-  %195 = load i32, ptr %194, align 4
-  br label %196
-
-196:                                              ; preds = %200, %.preheader.us.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %200 ]
-  %197 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i.i
+.preheader.us.i.i:                                ; preds = %206, %.preheader.lr.ph.i.i
+  %indvars.iv27.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next28.i.i, %206 ]
+  %197 = getelementptr inbounds [6 x i32], ptr %196, i64 0, i64 %indvars.iv27.i.i
   %198 = load i32, ptr %197, align 4
-  %199 = icmp eq i32 %195, %198
-  br i1 %199, label %._crit_edge.us.i.i, label %200
+  br label %199
 
-200:                                              ; preds = %196
+199:                                              ; preds = %203, %.preheader.us.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %203 ]
+  %200 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv.i.i
+  %201 = load i32, ptr %200, align 4
+  %202 = icmp eq i32 %198, %201
+  br i1 %202, label %._crit_edge.us.i.i, label %203
+
+203:                                              ; preds = %199
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Ivy_CutCheckDominance.exit60.i, label %196, !llvm.loop !25
+  br i1 %exitcond.not.i.i, label %Ivy_CutCheckDominance.exit60.i, label %199, !llvm.loop !25
 
-._crit_edge.us.i.i:                               ; preds = %196
-  %201 = trunc nuw nsw i64 %indvars.iv.i.i to i32
-  %202 = icmp eq i32 %165, %201
-  br i1 %202, label %Ivy_CutCheckDominance.exit60.i, label %203
+._crit_edge.us.i.i:                               ; preds = %199
+  %204 = trunc nuw nsw i64 %indvars.iv.i.i to i32
+  %205 = icmp eq i32 %168, %204
+  br i1 %205, label %Ivy_CutCheckDominance.exit60.i, label %206
 
-203:                                              ; preds = %._crit_edge.us.i.i
+206:                                              ; preds = %._crit_edge.us.i.i
   %indvars.iv.next28.i.i = add nuw nsw i64 %indvars.iv27.i.i, 1
   %exitcond31.not.i.i = icmp eq i64 %indvars.iv.next28.i.i, %wide.trip.count30.i.i
   br i1 %exitcond31.not.i.i, label %Ivy_NodeCutFindOrAddFilter.exit, label %.preheader.us.i.i, !llvm.loop !26
 
-204:                                              ; preds = %185
-  %.not.i109 = icmp eq i32 %189, %162
-  br i1 %.not.i109, label %205, label %Ivy_CutCheckDominance.exit60.i
+207:                                              ; preds = %188
+  %.not.i109 = icmp eq i32 %192, %165
+  br i1 %.not.i109, label %208, label %Ivy_CutCheckDominance.exit60.i
 
-205:                                              ; preds = %204
-  br i1 %164, label %.preheader.lr.ph.i47.i, label %.loopexit.i
+208:                                              ; preds = %207
+  br i1 %167, label %.preheader.lr.ph.i47.i, label %.loopexit.i
 
-.preheader.lr.ph.i47.i:                           ; preds = %205
-  %206 = sext i16 %169 to i32
-  %207 = getelementptr inbounds i8, ptr %167, i64 8
-  %wide.trip.count.i51.i = zext nneg i32 %206 to i64
+.preheader.lr.ph.i47.i:                           ; preds = %208
+  %209 = sext i16 %172 to i32
+  %210 = getelementptr inbounds i8, ptr %170, i64 8
+  %wide.trip.count.i51.i = zext nneg i32 %209 to i64
   br label %.preheader.us.i52.i
 
-.preheader.us.i52.i:                              ; preds = %217, %.preheader.lr.ph.i47.i
-  %indvars.iv27.i53.i = phi i64 [ 0, %.preheader.lr.ph.i47.i ], [ %indvars.iv.next28.i58.i, %217 ]
-  %208 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv27.i53.i
-  %209 = load i32, ptr %208, align 4
-  br label %210
-
-210:                                              ; preds = %214, %.preheader.us.i52.i
-  %indvars.iv.i54.i = phi i64 [ 0, %.preheader.us.i52.i ], [ %indvars.iv.next.i55.i, %214 ]
-  %211 = getelementptr inbounds [6 x i32], ptr %207, i64 0, i64 %indvars.iv.i54.i
+.preheader.us.i52.i:                              ; preds = %220, %.preheader.lr.ph.i47.i
+  %indvars.iv27.i53.i = phi i64 [ 0, %.preheader.lr.ph.i47.i ], [ %indvars.iv.next28.i58.i, %220 ]
+  %211 = getelementptr inbounds [6 x i32], ptr %9, i64 0, i64 %indvars.iv27.i53.i
   %212 = load i32, ptr %211, align 4
-  %213 = icmp eq i32 %209, %212
-  br i1 %213, label %._crit_edge.us.i57.i, label %214
+  br label %213
 
-214:                                              ; preds = %210
+213:                                              ; preds = %217, %.preheader.us.i52.i
+  %indvars.iv.i54.i = phi i64 [ 0, %.preheader.us.i52.i ], [ %indvars.iv.next.i55.i, %217 ]
+  %214 = getelementptr inbounds [6 x i32], ptr %210, i64 0, i64 %indvars.iv.i54.i
+  %215 = load i32, ptr %214, align 4
+  %216 = icmp eq i32 %212, %215
+  br i1 %216, label %._crit_edge.us.i57.i, label %217
+
+217:                                              ; preds = %213
   %indvars.iv.next.i55.i = add nuw nsw i64 %indvars.iv.i54.i, 1
   %exitcond.not.i56.i = icmp eq i64 %indvars.iv.next.i55.i, %wide.trip.count.i51.i
-  br i1 %exitcond.not.i56.i, label %Ivy_CutCheckDominance.exit60.i, label %210, !llvm.loop !25
+  br i1 %exitcond.not.i56.i, label %Ivy_CutCheckDominance.exit60.i, label %213, !llvm.loop !25
 
-._crit_edge.us.i57.i:                             ; preds = %210
-  %215 = trunc nuw nsw i64 %indvars.iv.i54.i to i32
-  %216 = icmp eq i32 %215, %206
-  br i1 %216, label %Ivy_CutCheckDominance.exit60.i, label %217
+._crit_edge.us.i57.i:                             ; preds = %213
+  %218 = trunc nuw nsw i64 %indvars.iv.i54.i to i32
+  %219 = icmp eq i32 %218, %209
+  br i1 %219, label %Ivy_CutCheckDominance.exit60.i, label %220
 
-217:                                              ; preds = %._crit_edge.us.i57.i
+220:                                              ; preds = %._crit_edge.us.i57.i
   %indvars.iv.next28.i58.i = add nuw nsw i64 %indvars.iv27.i53.i, 1
   %exitcond31.not.i59.i = icmp eq i64 %indvars.iv.next28.i58.i, %wide.trip.count30.i45.i
   br i1 %exitcond31.not.i59.i, label %.loopexit.i, label %.preheader.us.i52.i, !llvm.loop !26
 
-.loopexit.i:                                      ; preds = %217, %205
-  store i16 0, ptr %168, align 4
+.loopexit.i:                                      ; preds = %220, %208
+  store i16 0, ptr %171, align 4
   br label %Ivy_CutCheckDominance.exit60.i
 
-Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.i, %._crit_edge.us.i.i, %214, %200, %.loopexit.i, %204, %190, %._crit_edge.i111, %173, %166
+Ivy_CutCheckDominance.exit60.i:                   ; preds = %._crit_edge.us.i57.i, %._crit_edge.us.i.i, %217, %203, %.loopexit.i, %207, %193, %._crit_edge.i111, %176, %169
   %indvars.iv.next97.i = add nuw nsw i64 %indvars.iv96.i, 1
   %exitcond100.not.i = icmp eq i64 %indvars.iv.next97.i, %wide.trip.count99.i
-  br i1 %exitcond100.not.i, label %._crit_edge87.i, label %166, !llvm.loop !27
+  br i1 %exitcond100.not.i, label %._crit_edge87.i, label %169, !llvm.loop !27
 
 ._crit_edge87.i:                                  ; preds = %Ivy_CutCheckDominance.exit60.i, %Ivy_NodeCutDeriveNew.exit
-  %218 = add nsw i32 %25, 1
-  store i32 %218, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  %219 = sext i32 %25 to i64
-  %220 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %219
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %220, ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false)
+  %221 = add nsw i32 %25, 1
+  store i32 %221, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
+  %222 = sext i32 %25 to i64
+  %223 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %222
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %223, ptr noundef nonnull align 4 dereferenceable(36) %3, i64 36, i1 false)
   %.pre = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   br label %Ivy_NodeCutFindOrAddFilter.exit
 
-Ivy_NodeCutFindOrAddFilter.exit:                  ; preds = %._crit_edge.i111, %191, %203, %182, %._crit_edge87.i
-  %221 = phi i32 [ %.pre, %._crit_edge87.i ], [ %23, %182 ], [ %23, %203 ], [ %23, %191 ], [ %23, %._crit_edge.i111 ]
-  %222 = phi i32 [ %.pre, %._crit_edge87.i ], [ %24, %182 ], [ %24, %203 ], [ %24, %191 ], [ %24, %._crit_edge.i111 ]
-  %223 = icmp eq i32 %222, 256
-  br i1 %223, label %.lr.ph.i122.preheader, label %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge
+Ivy_NodeCutFindOrAddFilter.exit:                  ; preds = %._crit_edge.i111, %194, %206, %185, %._crit_edge87.i
+  %224 = phi i32 [ %.pre, %._crit_edge87.i ], [ %23, %185 ], [ %23, %206 ], [ %23, %194 ], [ %23, %._crit_edge.i111 ]
+  %225 = phi i32 [ %.pre, %._crit_edge87.i ], [ %24, %185 ], [ %24, %206 ], [ %24, %194 ], [ %24, %._crit_edge.i111 ]
+  %226 = icmp eq i32 %225, 256
+  br i1 %226, label %.lr.ph.i122.preheader, label %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge
 
 Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge: ; preds = %Ivy_NodeCutFindOrAddFilter.exit
   %.pr.pre = load i16, ptr %16, align 4
   br label %Ivy_NodeCutPrescreen.exit.thread
 
 Ivy_NodeCutPrescreen.exit.thread:                 ; preds = %62, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge, %22, %22, %.preheader.i63
-  %224 = phi i32 [ %23, %22 ], [ %23, %22 ], [ %23, %.preheader.i63 ], [ %221, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %23, %62 ]
+  %227 = phi i32 [ %23, %22 ], [ %23, %22 ], [ %23, %.preheader.i63 ], [ %224, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %23, %62 ]
   %.pr = phi i16 [ %.pr175, %22 ], [ %.pr175, %22 ], [ %.pr175, %.preheader.i63 ], [ %.pr.pre, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %.pr175, %62 ]
-  %225 = phi i32 [ %24, %22 ], [ %24, %22 ], [ %24, %.preheader.i63 ], [ %222, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %24, %62 ]
-  %226 = phi i32 [ %25, %22 ], [ %25, %22 ], [ %25, %.preheader.i63 ], [ %222, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %25, %62 ]
+  %228 = phi i32 [ %24, %22 ], [ %24, %22 ], [ %24, %.preheader.i63 ], [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %24, %62 ]
+  %229 = phi i32 [ %25, %22 ], [ %25, %22 ], [ %25, %.preheader.i63 ], [ %225, %Ivy_NodeCutFindOrAddFilter.exit.Ivy_NodeCutPrescreen.exit.thread_crit_edge ], [ %25, %62 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %227 = sext i16 %.pr to i64
-  %228 = icmp slt i64 %indvars.iv.next, %227
-  br i1 %228, label %22, label %._crit_edge, !llvm.loop !33
+  %230 = sext i16 %.pr to i64
+  %231 = icmp slt i64 %indvars.iv.next, %230
+  br i1 %231, label %22, label %._crit_edge, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %Ivy_NodeCutPrescreen.exit.thread, %.preheader
-  %229 = phi i32 [ %14, %.preheader ], [ %224, %Ivy_NodeCutPrescreen.exit.thread ]
-  %.pr138 = phi i32 [ %14, %.preheader ], [ %225, %Ivy_NodeCutPrescreen.exit.thread ]
-  %230 = icmp eq i32 %.pr138, 256
-  br i1 %230, label %.lr.ph.i122.preheader, label %231
+  %232 = phi i32 [ %14, %.preheader ], [ %227, %Ivy_NodeCutPrescreen.exit.thread ]
+  %.pr138 = phi i32 [ %14, %.preheader ], [ %228, %Ivy_NodeCutPrescreen.exit.thread ]
+  %233 = icmp eq i32 %.pr138, 256
+  br i1 %233, label %.lr.ph.i122.preheader, label %234
 
-231:                                              ; preds = %._crit_edge, %13
-  %232 = phi i32 [ %229, %._crit_edge ], [ %14, %13 ]
+234:                                              ; preds = %._crit_edge, %13
+  %235 = phi i32 [ %232, %._crit_edge ], [ %14, %13 ]
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
-  %233 = sext i32 %232 to i64
-  %234 = icmp slt i64 %indvars.iv.next173, %233
-  br i1 %234, label %13, label %._crit_edge159, !llvm.loop !34
+  %236 = sext i32 %235 to i64
+  %237 = icmp slt i64 %indvars.iv.next173, %236
+  br i1 %237, label %13, label %._crit_edge159, !llvm.loop !34
 
-._crit_edge159:                                   ; preds = %231
-  %235 = icmp sgt i32 %232, 0
-  br i1 %235, label %.lr.ph.i122.preheader, label %Ivy_NodeCompactCuts.exit
+._crit_edge159:                                   ; preds = %234
+  %238 = icmp sgt i32 %235, 0
+  br i1 %238, label %.lr.ph.i122.preheader, label %Ivy_NodeCompactCuts.exit
 
 .lr.ph.i122.preheader:                            ; preds = %._crit_edge, %Ivy_NodeCutFindOrAddFilter.exit, %._crit_edge159
-  %.ph = phi i32 [ %232, %._crit_edge159 ], [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ 256, %._crit_edge ]
+  %.ph = phi i32 [ %235, %._crit_edge159 ], [ 256, %Ivy_NodeCutFindOrAddFilter.exit ], [ 256, %._crit_edge ]
   br label %.lr.ph.i122
 
-.lr.ph.i122:                                      ; preds = %.lr.ph.i122.preheader, %245
-  %236 = phi i32 [ %246, %245 ], [ %.ph, %.lr.ph.i122.preheader ]
-  %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i125, %245 ], [ 0, %.lr.ph.i122.preheader ]
-  %.012.i = phi i32 [ %.1.i, %245 ], [ 0, %.lr.ph.i122.preheader ]
-  %237 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv.i123
-  %238 = getelementptr inbounds i8, ptr %237, i64 4
-  %239 = load i16, ptr %238, align 4
-  %240 = icmp eq i16 %239, 0
-  br i1 %240, label %245, label %241
+.lr.ph.i122:                                      ; preds = %.lr.ph.i122.preheader, %248
+  %239 = phi i32 [ %249, %248 ], [ %.ph, %.lr.ph.i122.preheader ]
+  %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i125, %248 ], [ 0, %.lr.ph.i122.preheader ]
+  %.012.i = phi i32 [ %.1.i, %248 ], [ 0, %.lr.ph.i122.preheader ]
+  %240 = getelementptr inbounds %struct.Ivy_Cut_t_, ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 %indvars.iv.i123
+  %241 = getelementptr inbounds i8, ptr %240, i64 4
+  %242 = load i16, ptr %241, align 4
+  %243 = icmp eq i16 %242, 0
+  br i1 %243, label %248, label %244
 
-241:                                              ; preds = %.lr.ph.i122
-  %242 = add nsw i32 %.012.i, 1
-  %243 = sext i32 %.012.i to i64
-  %244 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 0, i64 %243
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %244, ptr noundef nonnull align 4 dereferenceable(36) %237, i64 36, i1 false)
+244:                                              ; preds = %.lr.ph.i122
+  %245 = add nsw i32 %.012.i, 1
+  %246 = sext i32 %.012.i to i64
+  %247 = getelementptr inbounds [256 x %struct.Ivy_Cut_t_], ptr getelementptr inbounds (i8, ptr @Ivy_NodeFindCutsAll.CutStore, i64 16), i64 0, i64 %246
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %247, ptr noundef nonnull align 4 dereferenceable(36) %240, i64 36, i1 false)
   %.pre.i124 = load i32, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
-  br label %245
+  br label %248
 
-245:                                              ; preds = %241, %.lr.ph.i122
-  %246 = phi i32 [ %236, %.lr.ph.i122 ], [ %.pre.i124, %241 ]
-  %.1.i = phi i32 [ %.012.i, %.lr.ph.i122 ], [ %242, %241 ]
+248:                                              ; preds = %244, %.lr.ph.i122
+  %249 = phi i32 [ %239, %.lr.ph.i122 ], [ %.pre.i124, %244 ]
+  %.1.i = phi i32 [ %.012.i, %.lr.ph.i122 ], [ %245, %244 ]
   %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i123, 1
-  %247 = sext i32 %246 to i64
-  %248 = icmp slt i64 %indvars.iv.next.i125, %247
-  br i1 %248, label %.lr.ph.i122, label %Ivy_NodeCompactCuts.exit, !llvm.loop !28
+  %250 = sext i32 %249 to i64
+  %251 = icmp slt i64 %indvars.iv.next.i125, %250
+  br i1 %251, label %.lr.ph.i122, label %Ivy_NodeCompactCuts.exit, !llvm.loop !28
 
-Ivy_NodeCompactCuts.exit:                         ; preds = %245, %._crit_edge159
-  %.0.lcssa.i121 = phi i32 [ 0, %._crit_edge159 ], [ %.1.i, %245 ]
+Ivy_NodeCompactCuts.exit:                         ; preds = %248, %._crit_edge159
+  %.0.lcssa.i121 = phi i32 [ 0, %._crit_edge159 ], [ %.1.i, %248 ]
   store i32 %.0.lcssa.i121, ptr @Ivy_NodeFindCutsAll.CutStore, align 4
   ret ptr @Ivy_NodeFindCutsAll.CutStore
 }

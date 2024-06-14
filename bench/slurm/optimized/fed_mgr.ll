@@ -4390,12 +4390,12 @@ define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr nocapture noundef re
   %3 = getelementptr inbounds i8, ptr %0, i64 4
   %4 = load i16, ptr %3, align 4
   %5 = icmp eq i16 %4, 5
-  br i1 %5, label %6, label %26
+  br i1 %5, label %6, label %27
 
 6:                                                ; preds = %2
   %7 = load i8, ptr @disable_remote_singleton, align 1
   %8 = trunc i8 %7 to i1
-  br i1 %8, label %26, label %9
+  br i1 %8, label %27, label %9
 
 9:                                                ; preds = %6
   %10 = load ptr, ptr @fed_mgr_fed_rec, align 8
@@ -4435,41 +4435,41 @@ define internal range(i32 -1, 1) i32 @_add_to_send_list(ptr nocapture noundef re
 _get_all_sibling_bits.exit:                       ; preds = %9, %11, %._crit_edge.i
   %.1.i = phi i64 [ %.0.lcssa.i, %._crit_edge.i ], [ 0, %11 ], [ 0, %9 ]
   %25 = load i64, ptr %1, align 8
+  %26 = or i64 %25, %.1.i
   br label %.sink.split
 
-26:                                               ; preds = %6, %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 6
-  %28 = load i16, ptr %27, align 2
-  %29 = and i16 %28, 2
-  %.not = icmp eq i16 %29, 0
-  br i1 %.not, label %42, label %30
+27:                                               ; preds = %6, %2
+  %28 = getelementptr inbounds i8, ptr %0, i64 6
+  %29 = load i16, ptr %28, align 2
+  %30 = and i16 %29, 2
+  %.not = icmp eq i16 %30, 0
+  br i1 %.not, label %43, label %31
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load i32, ptr %31, align 8
-  %.not9 = icmp eq i32 %32, 0
-  br i1 %.not9, label %33, label %42
+31:                                               ; preds = %27
+  %32 = getelementptr inbounds i8, ptr %0, i64 8
+  %33 = load i32, ptr %32, align 8
+  %.not9 = icmp eq i32 %33, 0
+  br i1 %.not9, label %34, label %43
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds i8, ptr %0, i64 16
-  %35 = load i32, ptr %34, align 8
-  %36 = lshr i32 %35, 26
-  %37 = add nsw i32 %36, -1
-  %38 = zext nneg i32 %37 to i64
-  %39 = shl nuw i64 1, %38
-  %40 = load i64, ptr %1, align 8
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds i8, ptr %0, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = lshr i32 %36, 26
+  %38 = add nsw i32 %37, -1
+  %39 = zext nneg i32 %38 to i64
+  %40 = shl nuw i64 1, %39
+  %41 = load i64, ptr %1, align 8
+  %42 = or i64 %40, %41
   br label %.sink.split
 
-.sink.split:                                      ; preds = %_get_all_sibling_bits.exit, %33
-  %.sink11 = phi i64 [ %40, %33 ], [ %.1.i, %_get_all_sibling_bits.exit ]
-  %.sink10 = phi i64 [ %39, %33 ], [ %25, %_get_all_sibling_bits.exit ]
-  %.0.ph = phi i32 [ 0, %33 ], [ -1, %_get_all_sibling_bits.exit ]
-  %41 = or i64 %.sink10, %.sink11
-  store i64 %41, ptr %1, align 8
-  br label %42
+.sink.split:                                      ; preds = %_get_all_sibling_bits.exit, %34
+  %.sink = phi i64 [ %42, %34 ], [ %26, %_get_all_sibling_bits.exit ]
+  %.0.ph = phi i32 [ 0, %34 ], [ -1, %_get_all_sibling_bits.exit ]
+  store i64 %.sink, ptr %1, align 8
+  br label %43
 
-42:                                               ; preds = %.sink.split, %26, %30
-  %.0 = phi i32 [ 0, %30 ], [ 0, %26 ], [ %.0.ph, %.sink.split ]
+43:                                               ; preds = %.sink.split, %27, %31
+  %.0 = phi i32 [ 0, %31 ], [ 0, %27 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

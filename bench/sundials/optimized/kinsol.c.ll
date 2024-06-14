@@ -532,6 +532,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %192 = load ptr, ptr %150, align 8
   call void @N_VDestroy(ptr noundef %192) #14
   %193 = load i64, ptr %62, align 8
+  %.neg417.i = mul i64 %193, -5
   br label %.sink.split
 
 194:                                              ; preds = %182, %178
@@ -562,6 +563,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %208 = load ptr, ptr %179, align 8
   call void @free(ptr noundef %208) #14
   %209 = load i64, ptr %62, align 8
+  %.neg415.i = mul i64 %209, -5
   br label %.sink.split
 
 210:                                              ; preds = %198, %194
@@ -594,6 +596,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %225 = load ptr, ptr %195, align 8
   call void @free(ptr noundef %225) #14
   %226 = load i64, ptr %62, align 8
+  %.neg413.i = mul i64 %226, -5
   br label %.sink.split
 
 227:                                              ; preds = %214, %210
@@ -629,6 +632,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %244 = load ptr, ptr %211, align 8
   call void @free(ptr noundef %244) #14
   %245 = load i64, ptr %62, align 8
+  %.neg411.i = mul i64 %245, -5
   br label %.sink.split
 
 246:                                              ; preds = %231, %227
@@ -666,6 +670,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %264 = load ptr, ptr %228, align 8
   call void @free(ptr noundef %264) #14
   %265 = load i64, ptr %62, align 8
+  %.neg409.i = mul i64 %265, -5
   br label %.sink.split
 
 266:                                              ; preds = %250, %246
@@ -1053,6 +1058,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %.neg397.i = mul i64 %507, -3
   %.neg398.i = add i64 %.neg397.i, -7
   %508 = load i64, ptr %62, align 8
+  %.neg399.i = mul i64 %.neg398.i, %508
   br label %.sink.split
 
 509:                                              ; preds = %482
@@ -1218,6 +1224,7 @@ KINCheckNvector.exit.thread:                      ; preds = %11, %16, %20, %24, 
   %.neg.i = mul i64 %603, -3
   %.neg386.i = add i64 %.neg.i, -8
   %604 = load i64, ptr %62, align 8
+  %.neg387.i = mul i64 %.neg386.i, %604
   br label %.sink.split
 
 KINAllocVectors.exit:                             ; preds = %529, %432, %381, %340, %305, %273, %156, %131, %107, %85, %66
@@ -1226,13 +1233,11 @@ KINAllocVectors.exit:                             ; preds = %529, %432, %381, %3
   br label %674
 
 .sink.split:                                      ; preds = %579, %485, %255, %236, %218, %202, %187
-  %.sink92 = phi i64 [ %604, %579 ], [ %508, %485 ], [ -5, %255 ], [ -5, %236 ], [ -5, %218 ], [ -5, %202 ], [ -5, %187 ]
-  %.neg386.i.sink91 = phi i64 [ %.neg386.i, %579 ], [ %.neg398.i, %485 ], [ %265, %255 ], [ %245, %236 ], [ %226, %218 ], [ %209, %202 ], [ %193, %187 ]
+  %.neg387.i.sink = phi i64 [ %.neg387.i, %579 ], [ %.neg399.i, %485 ], [ %.neg409.i, %255 ], [ %.neg411.i, %236 ], [ %.neg413.i, %218 ], [ %.neg415.i, %202 ], [ %.neg417.i, %187 ]
   %.neg386.i.sink = phi i64 [ %.neg386.i, %579 ], [ %.neg398.i, %485 ], [ -5, %255 ], [ -5, %236 ], [ -5, %218 ], [ -5, %202 ], [ -5, %187 ]
-  %.neg387.i = mul i64 %.neg386.i.sink91, %.sink92
   %605 = getelementptr inbounds i8, ptr %0, i64 536
   %606 = load i64, ptr %605, align 8
-  %607 = add i64 %.neg387.i, %606
+  %607 = add i64 %.neg387.i.sink, %606
   store i64 %607, ptr %605, align 8
   %608 = load i64, ptr %61, align 8
   %.neg390.i = mul i64 %608, %.neg386.i.sink

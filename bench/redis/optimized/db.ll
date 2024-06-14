@@ -812,6 +812,7 @@ if.then36:                                        ; preds = %if.then33
   %bf.load.i = load i32, ptr %call1, align 8
   %bf.value.i = shl i32 %conv4.i, 8
   %bf.clear.i = and i32 %bf.load.i, 255
+  %bf.set.i = or disjoint i32 %bf.value.i, %bf.clear.i
   br label %if.end39.sink.split
 
 if.else:                                          ; preds = %if.then33
@@ -819,13 +820,12 @@ if.else:                                          ; preds = %if.then33
   %bf.load = load i32, ptr %call1, align 8
   %bf.value = shl i32 %call37, 8
   %bf.clear = and i32 %bf.load, 255
+  %bf.set = or disjoint i32 %bf.clear, %bf.value
   br label %if.end39.sink.split
 
 if.end39.sink.split:                              ; preds = %if.else, %if.then36
-  %bf.clear.i.sink = phi i32 [ %bf.clear.i, %if.then36 ], [ %bf.value, %if.else ]
-  %bf.value.i.sink = phi i32 [ %bf.value.i, %if.then36 ], [ %bf.clear, %if.else ]
-  %bf.set.i = or disjoint i32 %bf.value.i.sink, %bf.clear.i.sink
-  store i32 %bf.set.i, ptr %call1, align 8
+  %bf.set.i.sink = phi i32 [ %bf.set.i, %if.then36 ], [ %bf.set, %if.else ]
+  store i32 %bf.set.i.sink, ptr %call1, align 8
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %if.end27

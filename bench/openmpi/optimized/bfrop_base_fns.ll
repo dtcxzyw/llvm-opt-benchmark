@@ -5866,31 +5866,31 @@ define i32 @PMIx_Info_get_size(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %3 = getelementptr inbounds i8, ptr %0, i64 520
   %4 = tail call i32 @PMIx_Value_get_size(ptr noundef nonnull %3, ptr noundef %1)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %16
+  br i1 %.not, label %5, label %17
 
 5:                                                ; preds = %2
   %6 = tail call i64 @strnlen(ptr noundef nonnull dereferenceable(1) %0, i64 noundef 511) #23
   %7 = icmp eq i64 %6, 511
-  br i1 %7, label %8, label %10
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %5
   %9 = load i64, ptr %1, align 8
-  br label %13
+  %10 = add i64 %9, 511
+  br label %15
 
-10:                                               ; preds = %5
-  %11 = add i64 %6, 1
-  %12 = load i64, ptr %1, align 8
-  br label %13
+11:                                               ; preds = %5
+  %12 = add i64 %6, 1
+  %13 = load i64, ptr %1, align 8
+  %14 = add i64 %12, %13
+  br label %15
 
-13:                                               ; preds = %10, %8
-  %.sink12 = phi i64 [ %12, %10 ], [ 511, %8 ]
-  %.sink = phi i64 [ %11, %10 ], [ %9, %8 ]
-  %14 = add i64 %.sink, %.sink12
-  %15 = add i64 %14, 552
-  store i64 %15, ptr %1, align 8
-  br label %16
+15:                                               ; preds = %11, %8
+  %storemerge = phi i64 [ %14, %11 ], [ %10, %8 ]
+  %16 = add i64 %storemerge, 552
+  store i64 %16, ptr %1, align 8
+  br label %17
 
-16:                                               ; preds = %2, %13
+17:                                               ; preds = %2, %15
   ret i32 %4
 }
 

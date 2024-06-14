@@ -54693,7 +54693,11 @@ _ZN3fmt2v96detail12needs_escapeEj.exit.i.i64:     ; preds = %switch.early.test.i
   br i1 %call.i.i.i65, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread: ; preds = %for.body.i.i, %switch.early.test.i.i.i59, %switch.early.test.i.i.i59, %switch.early.test.i.i.i59, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i64
+  %sub.ptr.lhs.cast.i54.le = ptrtoint ptr %add.ptr2.i.i17 to i64
   %sub.ptr.rhs.cast.i55.le = ptrtoint ptr %p.0.i.i81 to i64
+  %sub.ptr.sub.i56.le = sub i64 %sub.ptr.lhs.cast.i54.le, %sub.ptr.rhs.cast.i55.le
+  %cond7.i57.le = select i1 %tobool.not.i52, i64 %sub.ptr.sub.i56.le, i64 1
+  %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %p.0.i.i81, i64 %cond7.i57.le
   br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i64
@@ -54783,18 +54787,25 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt2v96detail1
   %cond.i = select i1 %tobool.not.i, i32 %shr.i.i, i32 -1
   %sub.ptr.rhs.cast.i11 = ptrtoint ptr %buf_ptr.0.i.i to i64
   %cmp.i.i.i = icmp ult i32 %cond.i, 32
-  br i1 %cmp.i.i.i, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split, label %switch.early.test.i.i.i
+  br i1 %cmp.i.i.i, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread, label %switch.early.test.i.i.i
 
 switch.early.test.i.i.i:                          ; preds = %do.body.i.i
   switch i32 %cond.i, label %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i [
-    i32 127, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
-    i32 92, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
-    i32 34, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
+    i32 127, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+    i32 92, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+    i32 34, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
   ]
 
 _ZN3fmt2v96detail12needs_escapeEj.exit.i.i:       ; preds = %switch.early.test.i.i.i
   %call.i.i.i = call noundef zeroext i1 @_ZN3fmt2v96detail12is_printableEj(i32 noundef %cond.i)
-  br i1 %call.i.i.i, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
+  br i1 %call.i.i.i, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+
+_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread: ; preds = %do.body.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i
+  %sub.ptr.lhs.cast.i10.le = ptrtoint ptr %add.ptr2.i.i to i64
+  %sub.ptr.sub.i12.le = sub i64 %sub.ptr.lhs.cast.i10.le, %sub.ptr.rhs.cast.i11
+  %cond7.i.le = select i1 %tobool.not.i, i64 %sub.ptr.sub.i12.le, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.2.i.i, i64 %cond7.i.le
+  br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i
   %cond158.i = select i1 %tobool.not.i, ptr %add.ptr2.i.i, ptr %arrayidx5.i.i
@@ -54805,18 +54816,12 @@ _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_
   %cmp30.i.i = icmp slt i64 %sub.ptr.sub29.i.i, %sub.ptr.sub.i.pre-phi.i
   br i1 %cmp30.i.i, label %do.body.i.i, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit, !llvm.loop !537
 
-_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %do.body.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread
-  %sub.ptr.rhs.cast.i55.le.sink = phi i64 [ %sub.ptr.rhs.cast.i55.le, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ], [ %sub.ptr.rhs.cast.i11, %do.body.i.i ], [ %sub.ptr.rhs.cast.i11, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i11, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i11, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i11, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %sub.ptr.lhs.cast.i54.le.sink.in = phi ptr [ %add.ptr2.i.i17, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ], [ %add.ptr2.i.i, %do.body.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %tobool.not.i52.sink = phi i1 [ %tobool.not.i52, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ], [ %tobool.not.i, %do.body.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %p.0.i.i81.sink = phi ptr [ %p.0.i.i81, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ], [ %p.2.i.i, %do.body.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %cond.i.lcssa.sink = phi i32 [ %cond.i53, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ], [ %cond.i, %do.body.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %sub.ptr.lhs.cast.i54.le.sink = ptrtoint ptr %sub.ptr.lhs.cast.i54.le.sink.in to i64
-  %sub.ptr.sub.i56.le = sub i64 %sub.ptr.lhs.cast.i54.le.sink, %sub.ptr.rhs.cast.i55.le.sink
-  %cond7.i57.le = select i1 %tobool.not.i52.sink, i64 %sub.ptr.sub.i56.le, i64 1
-  %add.ptr.i.i.i61 = getelementptr inbounds i8, ptr %p.0.i.i81.sink, i64 %cond7.i57.le
-  store ptr %p.0.i.i81.sink, ptr %escape, align 8
-  store ptr %add.ptr.i.i.i61, ptr %end2.i, align 8
+_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split: ; preds = %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+  %storemerge = phi ptr [ %p.2.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %p.0.i.i81, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ]
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %add.ptr.i.i.i61, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ]
+  %cond.i.lcssa.sink = phi i32 [ %cond.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %cond.i53, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit67.thread ]
+  store ptr %storemerge, ptr %escape, align 8
+  store ptr %add.ptr.i.i.i.sink, ptr %end2.i, align 8
   store i32 %cond.i.lcssa.sink, ptr %cp.i, align 8
   br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit
 
@@ -55550,7 +55555,11 @@ _ZN3fmt2v96detail12needs_escapeEj.exit.i.i85:     ; preds = %switch.early.test.i
   br i1 %call.i.i.i86, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread: ; preds = %for.body.i.i, %switch.early.test.i.i.i80, %switch.early.test.i.i.i80, %switch.early.test.i.i.i80, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i85
+  %sub.ptr.lhs.cast.i75.le = ptrtoint ptr %add.ptr2.i.i38 to i64
   %sub.ptr.rhs.cast.i76.le = ptrtoint ptr %p.0.i.i99 to i64
+  %sub.ptr.sub.i77.le = sub i64 %sub.ptr.lhs.cast.i75.le, %sub.ptr.rhs.cast.i76.le
+  %cond7.i78.le = select i1 %tobool.not.i73, i64 %sub.ptr.sub.i77.le, i64 1
+  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %p.0.i.i99, i64 %cond7.i78.le
   br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i85
@@ -55640,18 +55649,25 @@ do.body.i.i:                                      ; preds = %_ZZN3fmt2v96detail1
   %cond.i = select i1 %tobool.not.i, i32 %shr.i.i, i32 -1
   %sub.ptr.rhs.cast.i31 = ptrtoint ptr %buf_ptr.0.i.i to i64
   %cmp.i.i.i33 = icmp ult i32 %cond.i, 32
-  br i1 %cmp.i.i.i33, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split, label %switch.early.test.i.i.i
+  br i1 %cmp.i.i.i33, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread, label %switch.early.test.i.i.i
 
 switch.early.test.i.i.i:                          ; preds = %do.body.i.i
   switch i32 %cond.i, label %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i [
-    i32 127, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
-    i32 92, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
-    i32 34, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
+    i32 127, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+    i32 92, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+    i32 34, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
   ]
 
 _ZN3fmt2v96detail12needs_escapeEj.exit.i.i:       ; preds = %switch.early.test.i.i.i
   %call.i.i.i = call noundef zeroext i1 @_ZN3fmt2v96detail12is_printableEj(i32 noundef %cond.i)
-  br i1 %call.i.i.i, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
+  br i1 %call.i.i.i, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit, label %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+
+_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread: ; preds = %do.body.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i
+  %sub.ptr.lhs.cast.i30.le = ptrtoint ptr %add.ptr2.i.i to i64
+  %sub.ptr.sub.i32.le = sub i64 %sub.ptr.lhs.cast.i30.le, %sub.ptr.rhs.cast.i31
+  %cond7.i.le = select i1 %tobool.not.i, i64 %sub.ptr.sub.i32.le, i64 1
+  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %p.2.i.i, i64 %cond7.i.le
+  br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split
 
 _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i
   %cond158.i = select i1 %tobool.not.i, ptr %add.ptr2.i.i, ptr %arrayidx5.i.i
@@ -55662,18 +55678,12 @@ _ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_
   %cmp30.i.i = icmp slt i64 %sub.ptr.sub29.i.i, %sub.ptr.sub.i.pre-phi.i
   br i1 %cmp30.i.i, label %do.body.i.i, label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit, !llvm.loop !537
 
-_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split: ; preds = %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %switch.early.test.i.i.i, %do.body.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread
-  %sub.ptr.rhs.cast.i76.le.sink = phi i64 [ %sub.ptr.rhs.cast.i76.le, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ], [ %sub.ptr.rhs.cast.i31, %do.body.i.i ], [ %sub.ptr.rhs.cast.i31, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i31, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i31, %switch.early.test.i.i.i ], [ %sub.ptr.rhs.cast.i31, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %sub.ptr.lhs.cast.i75.le.sink.in = phi ptr [ %add.ptr2.i.i38, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ], [ %add.ptr2.i.i, %do.body.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %switch.early.test.i.i.i ], [ %add.ptr2.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %tobool.not.i73.sink = phi i1 [ %tobool.not.i73, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ], [ %tobool.not.i, %do.body.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %switch.early.test.i.i.i ], [ %tobool.not.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %p.0.i.i99.sink = phi ptr [ %p.0.i.i99, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ], [ %p.2.i.i, %do.body.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %switch.early.test.i.i.i ], [ %p.2.i.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %cond.i.lcssa.sink = phi i32 [ %cond.i74, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ], [ %cond.i, %do.body.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %switch.early.test.i.i.i ], [ %cond.i, %_ZN3fmt2v96detail12needs_escapeEj.exit.i.i ]
-  %sub.ptr.lhs.cast.i75.le.sink = ptrtoint ptr %sub.ptr.lhs.cast.i75.le.sink.in to i64
-  %sub.ptr.sub.i77.le = sub i64 %sub.ptr.lhs.cast.i75.le.sink, %sub.ptr.rhs.cast.i76.le.sink
-  %cond7.i78.le = select i1 %tobool.not.i73.sink, i64 %sub.ptr.sub.i77.le, i64 1
-  %add.ptr.i.i.i82 = getelementptr inbounds i8, ptr %p.0.i.i99.sink, i64 %cond7.i78.le
-  store ptr %p.0.i.i99.sink, ptr %escape, align 8
-  store ptr %add.ptr.i.i.i82, ptr %end2.i, align 8
+_ZN3fmt2v96detail11find_escapeEPKcS3_.exit.sink.split: ; preds = %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread
+  %storemerge = phi ptr [ %p.2.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %p.0.i.i99, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ]
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %add.ptr.i.i.i82, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ]
+  %cond.i.lcssa.sink = phi i32 [ %cond.i, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit.thread ], [ %cond.i74, %_ZZN3fmt2v96detail18for_each_codepointIZNS1_11find_escapeEPKcS4_EUljNS0_17basic_string_viewIcEEE_EEvS6_T_ENKUlS4_S4_E_clES4_S4_.exit88.thread ]
+  store ptr %storemerge, ptr %escape, align 8
+  store ptr %add.ptr.i.i.i.sink, ptr %end2.i, align 8
   store i32 %cond.i.lcssa.sink, ptr %cp.i, align 8
   br label %_ZN3fmt2v96detail11find_escapeEPKcS3_.exit
 

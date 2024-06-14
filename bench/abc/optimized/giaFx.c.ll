@@ -17,82 +17,83 @@ target triple = "x86_64-pc-linux-gnu"
 define i32 @Gia_ManGraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %6, label %3
+  br i1 %.not, label %7, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr i8, ptr %1, i64 24
   %.val26 = load i32, ptr %4, align 8
   %5 = and i32 %.val26, 1
-  br label %47
+  %6 = xor i32 %5, 1
+  br label %50
 
-6:                                                ; preds = %2
-  %7 = getelementptr i8, ptr %1, i64 4
-  %.val29 = load i32, ptr %7, align 4
-  %8 = getelementptr i8, ptr %1, i64 24
-  %.val30 = load i32, ptr %8, align 8
-  %9 = lshr i32 %.val30, 1
-  %10 = and i32 %9, 1073741823
-  %.not36 = icmp ult i32 %10, %.val29
-  br i1 %.not36, label %16, label %.preheader
+7:                                                ; preds = %2
+  %8 = getelementptr i8, ptr %1, i64 4
+  %.val29 = load i32, ptr %8, align 4
+  %9 = getelementptr i8, ptr %1, i64 24
+  %.val30 = load i32, ptr %9, align 8
+  %10 = lshr i32 %.val30, 1
+  %11 = and i32 %10, 1073741823
+  %.not36 = icmp ult i32 %11, %.val29
+  br i1 %.not36, label %17, label %.preheader
 
-.preheader:                                       ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i32, ptr %11, align 8
-  %13 = icmp slt i32 %.val29, %12
-  tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr i8, ptr %1, i64 16
-  %15 = zext nneg i32 %.val29 to i64
-  br label %22
+.preheader:                                       ; preds = %7
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  %13 = load i32, ptr %12, align 8
+  %14 = icmp slt i32 %.val29, %13
+  tail call void @llvm.assume(i1 %14)
+  %15 = getelementptr i8, ptr %1, i64 16
+  %16 = zext nneg i32 %.val29 to i64
+  br label %24
 
-16:                                               ; preds = %6
-  %17 = getelementptr i8, ptr %1, i64 16
-  %.val34 = load ptr, ptr %17, align 8
-  %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %18, i32 2
-  %20 = load i32, ptr %19, align 8
-  %21 = and i32 %.val30, 1
-  br label %47
+17:                                               ; preds = %7
+  %18 = getelementptr i8, ptr %1, i64 16
+  %.val34 = load ptr, ptr %18, align 8
+  %19 = zext nneg i32 %11 to i64
+  %20 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %19, i32 2
+  %21 = load i32, ptr %20, align 8
+  %22 = and i32 %.val30, 1
+  %23 = xor i32 %21, %22
+  br label %50
 
-22:                                               ; preds = %.preheader, %22
-  %indvars.iv = phi i64 [ %15, %.preheader ], [ %indvars.iv.next, %22 ]
-  %.val31 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %indvars.iv
-  %24 = load i32, ptr %23, align 8
-  %25 = lshr i32 %24, 1
-  %26 = and i32 %25, 1073741823
-  %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %27, i32 2
-  %29 = load i32, ptr %28, align 8
-  %30 = and i32 %24, 1
-  %31 = xor i32 %30, %29
-  %32 = getelementptr inbounds i8, ptr %23, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = lshr i32 %33, 1
-  %35 = and i32 %34, 1073741823
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %36, i32 2
-  %38 = load i32, ptr %37, align 8
-  %39 = and i32 %33, 1
-  %40 = xor i32 %39, %38
-  %41 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %31, i32 noundef %40) #17
-  %42 = getelementptr inbounds i8, ptr %23, i64 8
-  store i32 %41, ptr %42, align 8
+24:                                               ; preds = %.preheader, %24
+  %indvars.iv = phi i64 [ %16, %.preheader ], [ %indvars.iv.next, %24 ]
+  %.val31 = load ptr, ptr %15, align 8
+  %25 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %indvars.iv
+  %26 = load i32, ptr %25, align 8
+  %27 = lshr i32 %26, 1
+  %28 = and i32 %27, 1073741823
+  %29 = zext nneg i32 %28 to i64
+  %30 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %29, i32 2
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %26, 1
+  %33 = xor i32 %32, %31
+  %34 = getelementptr inbounds i8, ptr %25, i64 4
+  %35 = load i32, ptr %34, align 4
+  %36 = lshr i32 %35, 1
+  %37 = and i32 %36, 1073741823
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31, i64 %38, i32 2
+  %40 = load i32, ptr %39, align 8
+  %41 = and i32 %35, 1
+  %42 = xor i32 %41, %40
+  %43 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %33, i32 noundef %42) #17
+  %44 = getelementptr inbounds i8, ptr %25, i64 8
+  store i32 %43, ptr %44, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %11, align 8
-  %44 = sext i32 %43 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %22, label %.critedge, !llvm.loop !4
+  %45 = load i32, ptr %12, align 8
+  %46 = sext i32 %45 to i64
+  %47 = icmp slt i64 %indvars.iv.next, %46
+  br i1 %47, label %24, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %22
-  %.val28 = load i32, ptr %8, align 8
-  %46 = and i32 %.val28, 1
-  br label %47
+.critedge:                                        ; preds = %24
+  %.val28 = load i32, ptr %9, align 8
+  %48 = and i32 %.val28, 1
+  %49 = xor i32 %48, %43
+  br label %50
 
-47:                                               ; preds = %.critedge, %16, %3
-  %.lcssa.sink = phi i32 [ %41, %.critedge ], [ %21, %16 ], [ 1, %3 ]
-  %.sink = phi i32 [ %46, %.critedge ], [ %20, %16 ], [ %5, %3 ]
-  %48 = xor i32 %.sink, %.lcssa.sink
-  ret i32 %48
+50:                                               ; preds = %.critedge, %17, %3
+  %.0 = phi i32 [ %6, %3 ], [ %23, %17 ], [ %49, %.critedge ]
+  ret i32 %.0
 }
 
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
@@ -206,76 +207,77 @@ define i32 @Gia_ManFactorGraph(ptr noundef %0, ptr nocapture noundef readonly %1
   %.not.i = icmp eq i32 %.val.i, 0
   %16 = getelementptr i8, ptr %1, i64 24
   %.val30.i = load i32, ptr %16, align 8
-  br i1 %.not.i, label %19, label %17
+  br i1 %.not.i, label %20, label %17
 
 17:                                               ; preds = %.critedge
   %18 = and i32 %.val30.i, 1
+  %19 = xor i32 %18, 1
   br label %Gia_ManGraphToAig.exit
 
-19:                                               ; preds = %.critedge
-  %20 = lshr i32 %.val30.i, 1
-  %21 = and i32 %20, 1073741823
-  %.not36.i = icmp ult i32 %21, %.lcssa11
-  br i1 %.not36.i, label %27, label %.preheader.i
+20:                                               ; preds = %.critedge
+  %21 = lshr i32 %.val30.i, 1
+  %22 = and i32 %21, 1073741823
+  %.not36.i = icmp ult i32 %22, %.lcssa11
+  br i1 %.not36.i, label %28, label %.preheader.i
 
-.preheader.i:                                     ; preds = %19
-  %22 = getelementptr inbounds i8, ptr %1, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = icmp slt i32 %.lcssa11, %23
-  tail call void @llvm.assume(i1 %24)
-  %25 = getelementptr i8, ptr %1, i64 16
-  %26 = zext nneg i32 %.lcssa11 to i64
-  br label %33
+.preheader.i:                                     ; preds = %20
+  %23 = getelementptr inbounds i8, ptr %1, i64 8
+  %24 = load i32, ptr %23, align 8
+  %25 = icmp slt i32 %.lcssa11, %24
+  tail call void @llvm.assume(i1 %25)
+  %26 = getelementptr i8, ptr %1, i64 16
+  %27 = zext nneg i32 %.lcssa11 to i64
+  br label %35
 
-27:                                               ; preds = %19
-  %28 = getelementptr i8, ptr %1, i64 16
-  %.val34.i = load ptr, ptr %28, align 8
-  %29 = zext nneg i32 %21 to i64
-  %30 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %29, i32 2
-  %31 = load i32, ptr %30, align 8
-  %32 = and i32 %.val30.i, 1
+28:                                               ; preds = %20
+  %29 = getelementptr i8, ptr %1, i64 16
+  %.val34.i = load ptr, ptr %29, align 8
+  %30 = zext nneg i32 %22 to i64
+  %31 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %30, i32 2
+  %32 = load i32, ptr %31, align 8
+  %33 = and i32 %.val30.i, 1
+  %34 = xor i32 %32, %33
   br label %Gia_ManGraphToAig.exit
 
-33:                                               ; preds = %33, %.preheader.i
-  %indvars.iv.i = phi i64 [ %26, %.preheader.i ], [ %indvars.iv.next.i, %33 ]
-  %.val31.i = load ptr, ptr %25, align 8
-  %34 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %indvars.iv.i
-  %35 = load i32, ptr %34, align 8
-  %36 = lshr i32 %35, 1
-  %37 = and i32 %36, 1073741823
-  %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %38, i32 2
-  %40 = load i32, ptr %39, align 8
-  %41 = and i32 %35, 1
-  %42 = xor i32 %41, %40
-  %43 = getelementptr inbounds i8, ptr %34, i64 4
-  %44 = load i32, ptr %43, align 4
-  %45 = lshr i32 %44, 1
-  %46 = and i32 %45, 1073741823
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %47, i32 2
-  %49 = load i32, ptr %48, align 8
-  %50 = and i32 %44, 1
-  %51 = xor i32 %50, %49
-  %52 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %42, i32 noundef %51) #17
-  %53 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 %52, ptr %53, align 8
+35:                                               ; preds = %35, %.preheader.i
+  %indvars.iv.i = phi i64 [ %27, %.preheader.i ], [ %indvars.iv.next.i, %35 ]
+  %.val31.i = load ptr, ptr %26, align 8
+  %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %indvars.iv.i
+  %37 = load i32, ptr %36, align 8
+  %38 = lshr i32 %37, 1
+  %39 = and i32 %38, 1073741823
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %40, i32 2
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %37, 1
+  %44 = xor i32 %43, %42
+  %45 = getelementptr inbounds i8, ptr %36, i64 4
+  %46 = load i32, ptr %45, align 4
+  %47 = lshr i32 %46, 1
+  %48 = and i32 %47, 1073741823
+  %49 = zext nneg i32 %48 to i64
+  %50 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i, i64 %49, i32 2
+  %51 = load i32, ptr %50, align 8
+  %52 = and i32 %46, 1
+  %53 = xor i32 %52, %51
+  %54 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %44, i32 noundef %53) #17
+  %55 = getelementptr inbounds i8, ptr %36, i64 8
+  store i32 %54, ptr %55, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %54 = load i32, ptr %22, align 8
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next.i, %55
-  br i1 %56, label %33, label %.critedge.i, !llvm.loop !4
+  %56 = load i32, ptr %23, align 8
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next.i, %57
+  br i1 %58, label %35, label %.critedge.i, !llvm.loop !4
 
-.critedge.i:                                      ; preds = %33
+.critedge.i:                                      ; preds = %35
   %.val28.i = load i32, ptr %16, align 8
-  %57 = and i32 %.val28.i, 1
+  %59 = and i32 %.val28.i, 1
+  %60 = xor i32 %59, %54
   br label %Gia_ManGraphToAig.exit
 
-Gia_ManGraphToAig.exit:                           ; preds = %17, %27, %.critedge.i
-  %.lcssa.sink.i = phi i32 [ %52, %.critedge.i ], [ %32, %27 ], [ 1, %17 ]
-  %.sink.i = phi i32 [ %57, %.critedge.i ], [ %31, %27 ], [ %18, %17 ]
-  %58 = xor i32 %.sink.i, %.lcssa.sink.i
-  ret i32 %58
+Gia_ManGraphToAig.exit:                           ; preds = %17, %28, %.critedge.i
+  %.0.i = phi i32 [ %19, %17 ], [ %34, %28 ], [ %60, %.critedge.i ]
+  ret i32 %.0.i
 }
 
 ; Function Attrs: nounwind uwtable
@@ -288,138 +290,40 @@ define i32 @Gia_ManFactorNode(ptr noundef %0, ptr noundef %1, ptr nocapture noun
   %7 = tail call i32 @Kit_PlaIsConst0(ptr noundef %1) #17
   %8 = icmp slt i32 %7, 1
   %9 = zext i1 %8 to i32
-  br label %78
+  br label %24
 
 10:                                               ; preds = %3
   %11 = tail call i32 @Kit_PlaGetVarNum(ptr noundef %1) #17
   %12 = icmp sgt i32 %11, 2
-  br i1 %12, label %13, label %76
+  br i1 %12, label %13, label %22
 
 13:                                               ; preds = %10
   %14 = tail call i32 @Kit_PlaGetCubeNum(ptr noundef %1) #17
   %15 = icmp sgt i32 %14, 1
-  br i1 %15, label %16, label %76
+  br i1 %15, label %16, label %22
 
 16:                                               ; preds = %13
   %17 = tail call ptr @Dec_Factor(ptr noundef %1) #17
-  %18 = getelementptr inbounds i8, ptr %17, i64 4
-  %19 = load i32, ptr %18, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph.i, label %.critedge.i
+  %18 = tail call i32 @Gia_ManFactorGraph(ptr noundef %0, ptr noundef %17, ptr noundef %2)
+  %19 = getelementptr inbounds i8, ptr %17, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %Dec_GraphFree.exit, label %21
 
-.lr.ph.i:                                         ; preds = %16
-  %21 = getelementptr i8, ptr %17, i64 16
-  %22 = getelementptr i8, ptr %2, i64 8
-  br label %23
-
-23:                                               ; preds = %23, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %.val.i = load ptr, ptr %21, align 8
-  %.val10.i = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds i32, ptr %.val10.i, i64 %indvars.iv.i
-  %25 = load i32, ptr %24, align 4
-  %26 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val.i, i64 %indvars.iv.i, i32 2
-  store i32 %25, ptr %26, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %27 = load i32, ptr %18, align 4
-  %28 = sext i32 %27 to i64
-  %29 = icmp slt i64 %indvars.iv.next.i, %28
-  br i1 %29, label %23, label %.critedge.i, !llvm.loop !8
-
-.critedge.i:                                      ; preds = %23, %16
-  %.lcssa11.i = phi i32 [ %19, %16 ], [ %27, %23 ]
-  %.val.i.i = load i32, ptr %17, align 8
-  %.not.i.i = icmp eq i32 %.val.i.i, 0
-  %30 = getelementptr i8, ptr %17, i64 24
-  %.val30.i.i = load i32, ptr %30, align 8
-  br i1 %.not.i.i, label %33, label %31
-
-31:                                               ; preds = %.critedge.i
-  %32 = and i32 %.val30.i.i, 1
-  br label %Gia_ManFactorGraph.exit
-
-33:                                               ; preds = %.critedge.i
-  %34 = lshr i32 %.val30.i.i, 1
-  %35 = and i32 %34, 1073741823
-  %.not36.i.i = icmp ult i32 %35, %.lcssa11.i
-  br i1 %.not36.i.i, label %41, label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %17, i64 8
-  %37 = load i32, ptr %36, align 8
-  %38 = icmp slt i32 %.lcssa11.i, %37
-  tail call void @llvm.assume(i1 %38)
-  %39 = getelementptr i8, ptr %17, i64 16
-  %40 = zext nneg i32 %.lcssa11.i to i64
-  br label %47
-
-41:                                               ; preds = %33
-  %42 = getelementptr i8, ptr %17, i64 16
-  %.val34.i.i = load ptr, ptr %42, align 8
-  %43 = zext nneg i32 %35 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i.i, i64 %43, i32 2
-  %45 = load i32, ptr %44, align 8
-  %46 = and i32 %.val30.i.i, 1
-  br label %Gia_ManFactorGraph.exit
-
-47:                                               ; preds = %47, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ %40, %.preheader.i.i ], [ %indvars.iv.next.i.i, %47 ]
-  %.val31.i.i = load ptr, ptr %39, align 8
-  %48 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i.i, i64 %indvars.iv.i.i
-  %49 = load i32, ptr %48, align 8
-  %50 = lshr i32 %49, 1
-  %51 = and i32 %50, 1073741823
-  %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i.i, i64 %52, i32 2
-  %54 = load i32, ptr %53, align 8
-  %55 = and i32 %49, 1
-  %56 = xor i32 %55, %54
-  %57 = getelementptr inbounds i8, ptr %48, i64 4
-  %58 = load i32, ptr %57, align 4
-  %59 = lshr i32 %58, 1
-  %60 = and i32 %59, 1073741823
-  %61 = zext nneg i32 %60 to i64
-  %62 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val31.i.i, i64 %61, i32 2
-  %63 = load i32, ptr %62, align 8
-  %64 = and i32 %58, 1
-  %65 = xor i32 %64, %63
-  %66 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %56, i32 noundef %65) #17
-  %67 = getelementptr inbounds i8, ptr %48, i64 8
-  store i32 %66, ptr %67, align 8
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %68 = load i32, ptr %36, align 8
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next.i.i, %69
-  br i1 %70, label %47, label %.critedge.i.i, !llvm.loop !4
-
-.critedge.i.i:                                    ; preds = %47
-  %.val28.i.i = load i32, ptr %30, align 8
-  %71 = and i32 %.val28.i.i, 1
-  br label %Gia_ManFactorGraph.exit
-
-Gia_ManFactorGraph.exit:                          ; preds = %31, %41, %.critedge.i.i
-  %.lcssa.sink.i.i = phi i32 [ %66, %.critedge.i.i ], [ %46, %41 ], [ 1, %31 ]
-  %.sink.i.i = phi i32 [ %71, %.critedge.i.i ], [ %45, %41 ], [ %32, %31 ]
-  %72 = xor i32 %.sink.i.i, %.lcssa.sink.i.i
-  %73 = getelementptr inbounds i8, ptr %17, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %.not.i = icmp eq ptr %74, null
-  br i1 %.not.i, label %Dec_GraphFree.exit, label %75
-
-75:                                               ; preds = %Gia_ManFactorGraph.exit
-  tail call void @free(ptr noundef nonnull %74) #17
+21:                                               ; preds = %16
+  tail call void @free(ptr noundef nonnull %20) #17
   br label %Dec_GraphFree.exit
 
-Dec_GraphFree.exit:                               ; preds = %Gia_ManFactorGraph.exit, %75
+Dec_GraphFree.exit:                               ; preds = %16, %21
   tail call void @free(ptr noundef nonnull %17) #17
-  br label %78
+  br label %24
 
-76:                                               ; preds = %13, %10
-  %77 = tail call i32 @Gia_ManSopToAig(ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  br label %78
+22:                                               ; preds = %13, %10
+  %23 = tail call i32 @Gia_ManSopToAig(ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  br label %24
 
-78:                                               ; preds = %76, %Dec_GraphFree.exit, %6
-  %.0 = phi i32 [ %9, %6 ], [ %72, %Dec_GraphFree.exit ], [ %77, %76 ]
+24:                                               ; preds = %22, %Dec_GraphFree.exit, %6
+  %.0 = phi i32 [ %9, %6 ], [ %18, %Dec_GraphFree.exit ], [ %23, %22 ]
   ret i32 %.0
 }
 

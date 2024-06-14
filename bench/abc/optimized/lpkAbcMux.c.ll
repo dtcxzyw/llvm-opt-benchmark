@@ -489,7 +489,7 @@ Kit_TruthIthVar.exit:                             ; preds = %54, %52
   %83 = lshr i32 %80, 12
   %84 = and i32 %83, 15
   %.not76 = icmp ugt i32 %82, %84
-  br i1 %.not76, label %92, label %85
+  br i1 %.not76, label %93, label %85
 
 85:                                               ; preds = %60
   %86 = and i32 %80, -1073676289
@@ -499,77 +499,79 @@ Kit_TruthIthVar.exit:                             ; preds = %54, %52
   %89 = add i32 %88, 1073676288
   %90 = and i32 %89, 1073676288
   %91 = and i32 %88, -1073676289
-  br label %137
+  %92 = or disjoint i32 %90, %91
+  br label %141
 
-92:                                               ; preds = %60
-  %93 = load i32, ptr %6, align 8
-  %94 = lshr i32 %93, 7
-  %95 = and i32 %94, 31
-  %96 = lshr i32 %93, 12
-  %97 = and i32 %96, 15
-  %.not77 = icmp ugt i32 %95, %97
-  br i1 %.not77, label %105, label %98
+93:                                               ; preds = %60
+  %94 = load i32, ptr %6, align 8
+  %95 = lshr i32 %94, 7
+  %96 = and i32 %95, 31
+  %97 = lshr i32 %94, 12
+  %98 = and i32 %97, 15
+  %.not77 = icmp ugt i32 %96, %98
+  br i1 %.not77, label %107, label %99
 
-98:                                               ; preds = %92
-  %99 = add i32 %93, 1073676288
-  %100 = and i32 %99, 1073676288
-  %101 = and i32 %80, -1073676289
-  %102 = or disjoint i32 %100, %101
-  store i32 %102, ptr %61, align 8
-  %103 = load i32, ptr %6, align 8
-  %104 = and i32 %103, -1073676289
-  br label %137
+99:                                               ; preds = %93
+  %100 = add i32 %94, 1073676288
+  %101 = and i32 %100, 1073676288
+  %102 = and i32 %80, -1073676289
+  %103 = or disjoint i32 %101, %102
+  store i32 %103, ptr %61, align 8
+  %104 = load i32, ptr %6, align 8
+  %105 = and i32 %104, -1073676289
+  %106 = or disjoint i32 %105, 65536
+  br label %141
 
-105:                                              ; preds = %92
-  %106 = icmp ult i32 %95, %82
-  br i1 %106, label %107, label %122
+107:                                              ; preds = %93
+  %108 = icmp ult i32 %96, %82
+  br i1 %108, label %109, label %125
 
-107:                                              ; preds = %105
-  %108 = lshr i32 %93, 1
-  %109 = and i32 %108, 536805376
-  %.mask78 = and i32 %93, 65536
-  %110 = add nuw nsw i32 %109, %.mask78
-  %111 = and i32 %80, -1073676289
-  %112 = or disjoint i32 %110, %111
-  store i32 %112, ptr %61, align 8
-  %113 = load i32, ptr %6, align 8
-  %114 = lshr i32 %113, 17
-  %115 = and i32 %114, 8191
-  %116 = shl i32 %113, 15
-  %117 = ashr i32 %116, 31
-  %118 = add nsw i32 %117, %115
-  %119 = shl nsw i32 %118, 16
-  %120 = and i32 %119, 1073676288
-  %121 = and i32 %113, -1073676289
-  br label %137
+109:                                              ; preds = %107
+  %110 = lshr i32 %94, 1
+  %111 = and i32 %110, 536805376
+  %.mask78 = and i32 %94, 65536
+  %112 = add nuw nsw i32 %111, %.mask78
+  %113 = and i32 %80, -1073676289
+  %114 = or disjoint i32 %112, %113
+  store i32 %114, ptr %61, align 8
+  %115 = load i32, ptr %6, align 8
+  %116 = lshr i32 %115, 17
+  %117 = and i32 %116, 8191
+  %118 = shl i32 %115, 15
+  %119 = ashr i32 %118, 31
+  %120 = add nsw i32 %119, %117
+  %121 = shl nsw i32 %120, 16
+  %122 = and i32 %121, 1073676288
+  %123 = and i32 %115, -1073676289
+  %124 = or disjoint i32 %122, %123
+  br label %141
 
-122:                                              ; preds = %105
-  %123 = lshr i32 %93, 17
-  %124 = and i32 %123, 8191
-  %125 = shl i32 %93, 15
-  %126 = ashr i32 %125, 31
-  %127 = add nsw i32 %126, %124
-  %128 = shl nsw i32 %127, 16
-  %129 = and i32 %128, 1073676288
-  %130 = and i32 %80, -1073676289
-  %131 = or disjoint i32 %129, %130
-  store i32 %131, ptr %61, align 8
-  %132 = load i32, ptr %6, align 8
-  %133 = lshr i32 %132, 1
-  %134 = and i32 %133, 536805376
-  %.mask = and i32 %132, 65536
-  %135 = add nuw nsw i32 %134, %.mask
-  %136 = and i32 %132, -1073676289
-  br label %137
+125:                                              ; preds = %107
+  %126 = lshr i32 %94, 17
+  %127 = and i32 %126, 8191
+  %128 = shl i32 %94, 15
+  %129 = ashr i32 %128, 31
+  %130 = add nsw i32 %129, %127
+  %131 = shl nsw i32 %130, 16
+  %132 = and i32 %131, 1073676288
+  %133 = and i32 %80, -1073676289
+  %134 = or disjoint i32 %132, %133
+  store i32 %134, ptr %61, align 8
+  %135 = load i32, ptr %6, align 8
+  %136 = lshr i32 %135, 1
+  %137 = and i32 %136, 536805376
+  %.mask = and i32 %135, 65536
+  %138 = add nuw nsw i32 %137, %.mask
+  %139 = and i32 %135, -1073676289
+  %140 = or disjoint i32 %138, %139
+  br label %141
 
-137:                                              ; preds = %98, %122, %107, %85
-  %.sink85 = phi i32 [ 65536, %98 ], [ %136, %122 ], [ %121, %107 ], [ %91, %85 ]
-  %.sink84 = phi i32 [ %104, %98 ], [ %135, %122 ], [ %120, %107 ], [ %90, %85 ]
-  %138 = or disjoint i32 %.sink84, %.sink85
-  store i32 %138, ptr %6, align 8
-  %139 = load i32, ptr %61, align 8
-  %140 = or i32 %139, -2147483648
-  store i32 %140, ptr %61, align 8
+141:                                              ; preds = %99, %125, %109, %85
+  %.sink = phi i32 [ %106, %99 ], [ %140, %125 ], [ %124, %109 ], [ %92, %85 ]
+  store i32 %.sink, ptr %6, align 8
+  %142 = load i32, ptr %61, align 8
+  %143 = or i32 %142, -2147483648
+  store i32 %143, ptr %61, align 8
   ret ptr %23
 }
 

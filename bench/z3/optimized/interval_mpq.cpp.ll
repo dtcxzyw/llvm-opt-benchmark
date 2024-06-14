@@ -9074,6 +9074,8 @@ if.then60:                                        ; preds = %land.lhs.true, %_Z5
   %bf.clear.i.i302 = shl i8 %bf.load.i.i301, 1
   %bf.shl.i.i306 = and i8 %bf.clear.i.i302, 2
   %bf.clear.i.i307 = and i8 %bf.set.i.i299, -3
+  %bf.set.i.i308 = or disjoint i8 %bf.shl.i.i306, %bf.clear.i.i307
+  store i8 %bf.set.i.i308, ptr %m_upper_inf.i.i295, align 8
   br label %if.end70
 
 if.else65:                                        ; preds = %if.then.i.i.i.i, %_ZN11mpq_managerILb0EE2eqERK3mpzS3_.exit.i.i, %if.then.i239, %if.then.i.i16.i.i, %if.else.i, %land.lhs.true, %_Z2eqI11mpq_managerILb0EEEbRT_RKNS2_7numeralE16ext_numeral_kindS6_S7_.exit
@@ -9153,14 +9155,11 @@ if.else65:                                        ; preds = %if.then.i.i.i.i, %_
   %bf.load.i.i361 = load i8, ptr %m_lower_inf.i.i.i, align 8
   %57 = and i8 %bf.load.i.i361, 2
   %bf.clear.i.i366 = and i8 %bf.set.i.i359, -3
+  %bf.set.i.i367 = or disjoint i8 %bf.clear.i.i366, %57
+  store i8 %bf.set.i.i367, ptr %m_upper_inf.i.i355, align 8
   br label %if.end70
 
 if.end70:                                         ; preds = %if.else65, %if.then60
-  %.sink = phi i8 [ %57, %if.else65 ], [ %bf.clear.i.i307, %if.then60 ]
-  %bf.clear.i.i366.sink = phi i8 [ %bf.clear.i.i366, %if.else65 ], [ %bf.shl.i.i306, %if.then60 ]
-  %m_upper_inf.i.i355.sink = phi ptr [ %m_upper_inf.i.i355, %if.else65 ], [ %m_upper_inf.i.i295, %if.then60 ]
-  %bf.set.i.i367 = or disjoint i8 %bf.clear.i.i366.sink, %.sink
-  store i8 %bf.set.i.i367, ptr %m_upper_inf.i.i355.sink, align 8
   %58 = load ptr, ptr %m_c.i181, align 8
   tail call void @_ZN11mpz_managerILb0EE5resetER3mpz(ptr noundef nonnull align 8 dereferenceable(600) %58, ptr noundef nonnull align 8 dereferenceable(16) %b)
   %m_den.i.i369 = getelementptr inbounds i8, ptr %b, i64 16

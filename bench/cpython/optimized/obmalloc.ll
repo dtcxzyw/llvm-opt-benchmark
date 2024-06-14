@@ -28595,6 +28595,7 @@ if.then.i.i.i.i.i.i.thread.i:                     ; preds = %while.body.i.i.i.i
   %capacity.i.i.i26.i = getelementptr inbounds i8, ptr %page.0.i.i38.i.i, i64 10
   %16 = load i16, ptr %capacity.i.i.i26.i, align 2
   %conv4.i.i.i27.i = zext i16 %16 to i64
+  %mul5.i.i.i28.i = mul nuw i64 %mul.i.i.i.i.i.i.i, %conv4.i.i.i27.i
   br label %if.end.i.i9.i
 
 mi_page_usable_block_size.exit.i.i.i.i:           ; preds = %while.body.i.i.i.i
@@ -28606,14 +28607,13 @@ mi_page_usable_block_size.exit.i.i.i.i:           ; preds = %while.body.i.i.i.i
   %capacity.i.i.i.i = getelementptr inbounds i8, ptr %page.0.i.i38.i.i, i64 10
   %18 = load i16, ptr %capacity.i.i.i.i, align 2
   %conv4.i.i.i.i = zext i16 %18 to i64
+  %mul5.i.i.i.i = mul nuw nsw i64 %conv4.i.i.i.i, %conv.i.i.i.i.i
   br label %if.end.i.i9.i
 
 if.end.i.i9.i:                                    ; preds = %mi_page_usable_block_size.exit.i.i.i.i, %if.then.i.i.i.i.i.i.thread.i
-  %conv.i.i.i.i.sink.i = phi i64 [ %conv.i.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ], [ %conv4.i.i.i27.i, %if.then.i.i.i.i.i.i.thread.i ]
-  %conv4.i.i.i.sink.i = phi i64 [ %conv4.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.thread.i ]
-  %mul.i.i.i33.i = phi i64 [ %mul.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ], [ %mul.i.i.i25.i, %if.then.i.i.i.i.i.i.thread.i ]
-  %retval.0.i16.i.i.i31.i = phi i64 [ %conv.i.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ], [ %mul.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.thread.i ]
-  %mul5.i.i.i.i = mul nuw i64 %conv4.i.i.i.sink.i, %conv.i.i.i.i.sink.i
+  %mul5.i.i.i35.i = phi i64 [ %mul5.i.i.i28.i, %if.then.i.i.i.i.i.i.thread.i ], [ %mul5.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ]
+  %mul.i.i.i33.i = phi i64 [ %mul.i.i.i25.i, %if.then.i.i.i.i.i.i.thread.i ], [ %mul.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ]
+  %retval.0.i16.i.i.i31.i = phi i64 [ %mul.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.thread.i ], [ %conv.i.i.i.i.i, %mi_page_usable_block_size.exit.i.i.i.i ]
   %used.i.i.i.i = getelementptr inbounds i8, ptr %page.0.i.i38.i.i, i64 24
   %19 = load i32, ptr %used.i.i.i.i, align 8
   %conv10.i.i.i.i = zext i32 %19 to i64
@@ -28622,7 +28622,7 @@ if.end.i.i9.i:                                    ; preds = %mi_page_usable_bloc
   %add3.i.i = add i64 %mul.i.i, %stats.sroa.4.1.i
   %add6.i.i = add i64 %mul.i.i, %stats.sroa.7.1.i
   %add7.i.i = add i64 %mul.i.i.i33.i, %stats.sroa.10.1.i
-  %add8.i.i = add i64 %mul5.i.i.i.i, %stats.sroa.13.1.i
+  %add8.i.i = add i64 %mul5.i.i.i35.i, %stats.sroa.13.1.i
   %cmp3.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp3.not.i.i.i.i, label %for.inc.i.i.i.i, label %while.body.i.i.i.i, !llvm.loop !66
 

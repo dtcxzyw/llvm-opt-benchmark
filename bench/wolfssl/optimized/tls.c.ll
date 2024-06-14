@@ -7156,8 +7156,9 @@ if.then26.i:                                      ; preds = %if.end21.i
 if.end33.i:                                       ; preds = %if.then26.i, %if.end21.i, %if.then10.i, %if.end.i68
   %50 = phi i8 [ %.pre34.pre.i, %if.end21.i ], [ %.pre33.i, %if.then26.i ], [ %46, %if.end.i68 ], [ %46, %if.then10.i ]
   %conv34.i = zext i8 %50 to i16
-  %add35.i = add nuw nsw i16 %conv34.i, 1
-  br label %if.end57.i
+  %add35.i = add i16 %offset.0.ph, 5
+  %add39.i = add i16 %add35.i, %conv34.i
+  br label %sw.epilog
 
 if.else.i65:                                      ; preds = %do.end131
   br i1 %or.cond.i66, label %if.then47.i, label %sw.epilog
@@ -7170,12 +7171,7 @@ if.then47.i:                                      ; preds = %if.else.i65
   %52 = load i8, ptr %minor.i, align 1
   %arrayidx51.i = getelementptr inbounds i8, ptr %add.ptr135, i64 1
   store i8 %52, ptr %arrayidx51.i, align 1
-  br label %if.end57.i
-
-if.end57.i:                                       ; preds = %if.then47.i, %if.end33.i
-  %.sink39.i = phi i16 [ 2, %if.then47.i ], [ %add, %if.end33.i ]
-  %.sink.i = phi i16 [ %add, %if.then47.i ], [ %add35.i, %if.end33.i ]
-  %add53.i = add i16 %.sink.i, %.sink39.i
+  %add53.i = add i16 %offset.0.ph, 6
   br label %sw.epilog
 
 do.end139:                                        ; preds = %if.end19
@@ -7335,9 +7331,9 @@ TLSX_KeyShare_Write.exit:                         ; preds = %while.end.i, %retur
   %add159 = add i16 %retval.0.i83, %add
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %do.end126, %if.end57.i, %if.else.i65, %sw.bb, %if.end19, %TLSX_SNI_Write.exit, %TLSX_KeyShare_Write.exit, %do.end139, %TLSX_SignatureAlgorithms_Write.exit, %TLSX_PointFormat_Write.exit, %TLSX_SupportedCurve_Write.exit
-  %offset.2 = phi i16 [ %add122, %TLSX_SignatureAlgorithms_Write.exit ], [ %add80, %TLSX_PointFormat_Write.exit ], [ %add68, %TLSX_SupportedCurve_Write.exit ], [ %add147, %do.end139 ], [ %add159, %TLSX_KeyShare_Write.exit ], [ %add, %sw.bb ], [ %add34, %TLSX_SNI_Write.exit ], [ %add53.i, %if.end57.i ], [ %add, %if.else.i65 ], [ %add, %if.end19 ], [ %add, %do.end126 ]
-  %ret.1 = phi i32 [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %do.end139 ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %sw.bb ], [ 0, %TLSX_SNI_Write.exit ], [ 0, %if.end57.i ], [ -394, %if.else.i65 ], [ 0, %if.end19 ], [ %spec.select, %do.end126 ]
+sw.epilog:                                        ; preds = %do.end126, %if.else.i65, %if.then47.i, %if.end33.i, %sw.bb, %if.end19, %TLSX_SNI_Write.exit, %TLSX_KeyShare_Write.exit, %do.end139, %TLSX_SignatureAlgorithms_Write.exit, %TLSX_PointFormat_Write.exit, %TLSX_SupportedCurve_Write.exit
+  %offset.2 = phi i16 [ %add122, %TLSX_SignatureAlgorithms_Write.exit ], [ %add80, %TLSX_PointFormat_Write.exit ], [ %add68, %TLSX_SupportedCurve_Write.exit ], [ %add147, %do.end139 ], [ %add159, %TLSX_KeyShare_Write.exit ], [ %add, %sw.bb ], [ %add34, %TLSX_SNI_Write.exit ], [ %add, %if.else.i65 ], [ %add53.i, %if.then47.i ], [ %add39.i, %if.end33.i ], [ %add, %if.end19 ], [ %add, %do.end126 ]
+  %ret.1 = phi i32 [ 0, %TLSX_SignatureAlgorithms_Write.exit ], [ 0, %TLSX_PointFormat_Write.exit ], [ 0, %TLSX_SupportedCurve_Write.exit ], [ 0, %do.end139 ], [ 0, %TLSX_KeyShare_Write.exit ], [ 0, %sw.bb ], [ 0, %TLSX_SNI_Write.exit ], [ -394, %if.else.i65 ], [ 0, %if.then47.i ], [ 0, %if.end33.i ], [ 0, %if.end19 ], [ %spec.select, %do.end126 ]
   %sub = sub i16 %offset.2, %add
   %idx.ext165 = zext i16 %add to i64
   %add.ptr166 = getelementptr inbounds i8, ptr %output, i64 %idx.ext165

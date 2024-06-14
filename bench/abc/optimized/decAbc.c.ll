@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @Abc_AigConst1(ptr noundef %0) #7
@@ -20,88 +20,89 @@ define ptr @Dec_GraphToNetwork(ptr noundef %0, ptr nocapture noundef readonly %1
   %6 = and i32 %.val27, 1
   %7 = ptrtoint ptr %4 to i64
   %8 = zext nneg i32 %6 to i64
-  br label %62
+  %9 = xor i64 %8, %7
+  br label %65
 
-9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %1, i64 4
-  %.val30 = load i32, ptr %10, align 4
-  %11 = getelementptr i8, ptr %1, i64 24
-  %.val31 = load i32, ptr %11, align 8
-  %12 = lshr i32 %.val31, 1
-  %13 = and i32 %12, 1073741823
-  %.not37 = icmp ult i32 %13, %.val30
-  br i1 %.not37, label %20, label %.preheader
+10:                                               ; preds = %2
+  %11 = getelementptr i8, ptr %1, i64 4
+  %.val30 = load i32, ptr %11, align 4
+  %12 = getelementptr i8, ptr %1, i64 24
+  %.val31 = load i32, ptr %12, align 8
+  %13 = lshr i32 %.val31, 1
+  %14 = and i32 %13, 1073741823
+  %.not37 = icmp ult i32 %14, %.val30
+  br i1 %.not37, label %21, label %.preheader
 
-.preheader:                                       ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp slt i32 %.val30, %15
-  tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr i8, ptr %1, i64 16
-  %18 = getelementptr inbounds i8, ptr %0, i64 256
-  %19 = zext nneg i32 %.val30 to i64
-  br label %28
+.preheader:                                       ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp slt i32 %.val30, %16
+  tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr i8, ptr %1, i64 16
+  %19 = getelementptr inbounds i8, ptr %0, i64 256
+  %20 = zext nneg i32 %.val30 to i64
+  br label %30
 
-20:                                               ; preds = %9
-  %21 = getelementptr i8, ptr %1, i64 16
-  %.val35 = load ptr, ptr %21, align 8
-  %22 = zext nneg i32 %13 to i64
-  %23 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %22, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = and i32 %.val31, 1
-  %26 = ptrtoint ptr %24 to i64
-  %27 = zext nneg i32 %25 to i64
-  br label %62
+21:                                               ; preds = %10
+  %22 = getelementptr i8, ptr %1, i64 16
+  %.val35 = load ptr, ptr %22, align 8
+  %23 = zext nneg i32 %14 to i64
+  %24 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %23, i32 2
+  %25 = load ptr, ptr %24, align 8
+  %26 = and i32 %.val31, 1
+  %27 = ptrtoint ptr %25 to i64
+  %28 = zext nneg i32 %26 to i64
+  %29 = xor i64 %27, %28
+  br label %65
 
-28:                                               ; preds = %.preheader, %28
-  %indvars.iv = phi i64 [ %19, %.preheader ], [ %indvars.iv.next, %28 ]
-  %.val32 = load ptr, ptr %17, align 8
-  %29 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %indvars.iv
-  %30 = load i32, ptr %29, align 8
-  %31 = lshr i32 %30, 1
-  %32 = and i32 %31, 1073741823
-  %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %33, i32 2
-  %35 = load ptr, ptr %34, align 8
-  %36 = and i32 %30, 1
-  %37 = ptrtoint ptr %35 to i64
-  %38 = zext nneg i32 %36 to i64
-  %39 = xor i64 %38, %37
-  %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds i8, ptr %29, i64 4
-  %42 = load i32, ptr %41, align 4
-  %43 = lshr i32 %42, 1
-  %44 = and i32 %43, 1073741823
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %45, i32 2
-  %47 = load ptr, ptr %46, align 8
-  %48 = and i32 %42, 1
-  %49 = ptrtoint ptr %47 to i64
-  %50 = zext nneg i32 %48 to i64
-  %51 = xor i64 %50, %49
-  %52 = inttoptr i64 %51 to ptr
-  %53 = load ptr, ptr %18, align 8
-  %54 = tail call ptr @Abc_AigAnd(ptr noundef %53, ptr noundef %40, ptr noundef %52) #7
-  %55 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %54, ptr %55, align 8
+30:                                               ; preds = %.preheader, %30
+  %indvars.iv = phi i64 [ %20, %.preheader ], [ %indvars.iv.next, %30 ]
+  %.val32 = load ptr, ptr %18, align 8
+  %31 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %indvars.iv
+  %32 = load i32, ptr %31, align 8
+  %33 = lshr i32 %32, 1
+  %34 = and i32 %33, 1073741823
+  %35 = zext nneg i32 %34 to i64
+  %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %35, i32 2
+  %37 = load ptr, ptr %36, align 8
+  %38 = and i32 %32, 1
+  %39 = ptrtoint ptr %37 to i64
+  %40 = zext nneg i32 %38 to i64
+  %41 = xor i64 %40, %39
+  %42 = inttoptr i64 %41 to ptr
+  %43 = getelementptr inbounds i8, ptr %31, i64 4
+  %44 = load i32, ptr %43, align 4
+  %45 = lshr i32 %44, 1
+  %46 = and i32 %45, 1073741823
+  %47 = zext nneg i32 %46 to i64
+  %48 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32, i64 %47, i32 2
+  %49 = load ptr, ptr %48, align 8
+  %50 = and i32 %44, 1
+  %51 = ptrtoint ptr %49 to i64
+  %52 = zext nneg i32 %50 to i64
+  %53 = xor i64 %52, %51
+  %54 = inttoptr i64 %53 to ptr
+  %55 = load ptr, ptr %19, align 8
+  %56 = tail call ptr @Abc_AigAnd(ptr noundef %55, ptr noundef %42, ptr noundef %54) #7
+  %57 = getelementptr inbounds i8, ptr %31, i64 8
+  store ptr %56, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %56 = load i32, ptr %14, align 8
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %28, label %.critedge, !llvm.loop !4
+  %58 = load i32, ptr %15, align 8
+  %59 = sext i32 %58 to i64
+  %60 = icmp slt i64 %indvars.iv.next, %59
+  br i1 %60, label %30, label %.critedge, !llvm.loop !4
 
-.critedge:                                        ; preds = %28
-  %.val29 = load i32, ptr %11, align 8
-  %59 = and i32 %.val29, 1
-  %60 = ptrtoint ptr %54 to i64
-  %61 = zext nneg i32 %59 to i64
-  br label %62
+.critedge:                                        ; preds = %30
+  %.val29 = load i32, ptr %12, align 8
+  %61 = and i32 %.val29, 1
+  %62 = ptrtoint ptr %56 to i64
+  %63 = zext nneg i32 %61 to i64
+  %64 = xor i64 %63, %62
+  br label %65
 
-62:                                               ; preds = %.critedge, %20, %3
-  %.sink40 = phi i64 [ %60, %.critedge ], [ %27, %20 ], [ %7, %3 ]
-  %.sink = phi i64 [ %61, %.critedge ], [ %26, %20 ], [ %8, %3 ]
-  %63 = xor i64 %.sink, %.sink40
-  %.025 = inttoptr i64 %63 to ptr
+65:                                               ; preds = %.critedge, %21, %3
+  %.025.in = phi i64 [ %9, %3 ], [ %29, %21 ], [ %64, %.critedge ]
+  %.025 = inttoptr i64 %.025.in to ptr
   ret ptr %.025
 }
 
@@ -137,110 +138,19 @@ define ptr @Dec_SopToAig(ptr noundef %0, ptr noundef %1, ptr nocapture noundef r
   br i1 %16, label %10, label %.critedge, !llvm.loop !6
 
 .critedge:                                        ; preds = %10, %3
-  %.lcssa14 = phi i32 [ %6, %3 ], [ %14, %10 ]
-  %.val.i = load i32, ptr %4, align 8
-  %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %23, label %17
+  %17 = tail call ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef nonnull %4)
+  %18 = getelementptr inbounds i8, ptr %4, i64 16
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %19, null
+  br i1 %.not.i, label %Dec_GraphFree.exit, label %20
 
-17:                                               ; preds = %.critedge
-  %18 = tail call ptr @Abc_AigConst1(ptr noundef %0) #7
-  %19 = getelementptr i8, ptr %4, i64 24
-  %.val27.i = load i32, ptr %19, align 8
-  %20 = and i32 %.val27.i, 1
-  %21 = ptrtoint ptr %18 to i64
-  %22 = zext nneg i32 %20 to i64
-  br label %Dec_GraphToNetwork.exit
-
-23:                                               ; preds = %.critedge
-  %24 = getelementptr i8, ptr %4, i64 24
-  %.val31.i = load i32, ptr %24, align 8
-  %25 = lshr i32 %.val31.i, 1
-  %26 = and i32 %25, 1073741823
-  %.not37.i = icmp ult i32 %26, %.lcssa14
-  br i1 %.not37.i, label %33, label %.preheader.i
-
-.preheader.i:                                     ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %4, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = icmp slt i32 %.lcssa14, %28
-  tail call void @llvm.assume(i1 %29)
-  %30 = getelementptr i8, ptr %4, i64 16
-  %31 = getelementptr inbounds i8, ptr %0, i64 256
-  %32 = zext nneg i32 %.lcssa14 to i64
-  br label %41
-
-33:                                               ; preds = %23
-  %34 = getelementptr i8, ptr %4, i64 16
-  %.val35.i = load ptr, ptr %34, align 8
-  %35 = zext nneg i32 %26 to i64
-  %36 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35.i, i64 %35, i32 2
-  %37 = load ptr, ptr %36, align 8
-  %38 = and i32 %.val31.i, 1
-  %39 = ptrtoint ptr %37 to i64
-  %40 = zext nneg i32 %38 to i64
-  br label %Dec_GraphToNetwork.exit
-
-41:                                               ; preds = %41, %.preheader.i
-  %indvars.iv.i = phi i64 [ %32, %.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %.val32.i = load ptr, ptr %30, align 8
-  %42 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %indvars.iv.i
-  %43 = load i32, ptr %42, align 8
-  %44 = lshr i32 %43, 1
-  %45 = and i32 %44, 1073741823
-  %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %46, i32 2
-  %48 = load ptr, ptr %47, align 8
-  %49 = and i32 %43, 1
-  %50 = ptrtoint ptr %48 to i64
-  %51 = zext nneg i32 %49 to i64
-  %52 = xor i64 %51, %50
-  %53 = inttoptr i64 %52 to ptr
-  %54 = getelementptr inbounds i8, ptr %42, i64 4
-  %55 = load i32, ptr %54, align 4
-  %56 = lshr i32 %55, 1
-  %57 = and i32 %56, 1073741823
-  %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %58, i32 2
-  %60 = load ptr, ptr %59, align 8
-  %61 = and i32 %55, 1
-  %62 = ptrtoint ptr %60 to i64
-  %63 = zext nneg i32 %61 to i64
-  %64 = xor i64 %63, %62
-  %65 = inttoptr i64 %64 to ptr
-  %66 = load ptr, ptr %31, align 8
-  %67 = tail call ptr @Abc_AigAnd(ptr noundef %66, ptr noundef %53, ptr noundef %65) #7
-  %68 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr %67, ptr %68, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %69 = load i32, ptr %27, align 8
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %indvars.iv.next.i, %70
-  br i1 %71, label %41, label %.critedge.i, !llvm.loop !4
-
-.critedge.i:                                      ; preds = %41
-  %.val29.i = load i32, ptr %24, align 8
-  %72 = and i32 %.val29.i, 1
-  %73 = ptrtoint ptr %67 to i64
-  %74 = zext nneg i32 %72 to i64
-  br label %Dec_GraphToNetwork.exit
-
-Dec_GraphToNetwork.exit:                          ; preds = %17, %33, %.critedge.i
-  %.sink40.i = phi i64 [ %73, %.critedge.i ], [ %40, %33 ], [ %21, %17 ]
-  %.sink.i = phi i64 [ %74, %.critedge.i ], [ %39, %33 ], [ %22, %17 ]
-  %75 = getelementptr inbounds i8, ptr %4, i64 16
-  %76 = load ptr, ptr %75, align 8
-  %.not.i13 = icmp eq ptr %76, null
-  br i1 %.not.i13, label %Dec_GraphFree.exit, label %77
-
-77:                                               ; preds = %Dec_GraphToNetwork.exit
-  tail call void @free(ptr noundef nonnull %76) #7
+20:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %19) #7
   br label %Dec_GraphFree.exit
 
-Dec_GraphFree.exit:                               ; preds = %Dec_GraphToNetwork.exit, %77
-  %78 = xor i64 %.sink.i, %.sink40.i
-  %.025.i = inttoptr i64 %78 to ptr
+Dec_GraphFree.exit:                               ; preds = %.critedge, %20
   tail call void @free(ptr noundef nonnull %4) #7
-  ret ptr %.025.i
+  ret ptr %17
 }
 
 declare ptr @Dec_Factor(ptr noundef) local_unnamed_addr #1
@@ -272,106 +182,15 @@ define ptr @Dec_GraphToAig(ptr noundef %0, ptr nocapture noundef readonly %1, pt
   br i1 %15, label %9, label %.critedge, !llvm.loop !7
 
 .critedge:                                        ; preds = %9, %3
-  %.lcssa11 = phi i32 [ %5, %3 ], [ %13, %9 ]
-  %.val.i = load i32, ptr %1, align 8
-  %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %22, label %16
-
-16:                                               ; preds = %.critedge
-  %17 = tail call ptr @Abc_AigConst1(ptr noundef %0) #7
-  %18 = getelementptr i8, ptr %1, i64 24
-  %.val27.i = load i32, ptr %18, align 8
-  %19 = and i32 %.val27.i, 1
-  %20 = ptrtoint ptr %17 to i64
-  %21 = zext nneg i32 %19 to i64
-  br label %Dec_GraphToNetwork.exit
-
-22:                                               ; preds = %.critedge
-  %23 = getelementptr i8, ptr %1, i64 24
-  %.val31.i = load i32, ptr %23, align 8
-  %24 = lshr i32 %.val31.i, 1
-  %25 = and i32 %24, 1073741823
-  %.not37.i = icmp ult i32 %25, %.lcssa11
-  br i1 %.not37.i, label %32, label %.preheader.i
-
-.preheader.i:                                     ; preds = %22
-  %26 = getelementptr inbounds i8, ptr %1, i64 8
-  %27 = load i32, ptr %26, align 8
-  %28 = icmp slt i32 %.lcssa11, %27
-  tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr i8, ptr %1, i64 16
-  %30 = getelementptr inbounds i8, ptr %0, i64 256
-  %31 = zext nneg i32 %.lcssa11 to i64
-  br label %40
-
-32:                                               ; preds = %22
-  %33 = getelementptr i8, ptr %1, i64 16
-  %.val35.i = load ptr, ptr %33, align 8
-  %34 = zext nneg i32 %25 to i64
-  %35 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35.i, i64 %34, i32 2
-  %36 = load ptr, ptr %35, align 8
-  %37 = and i32 %.val31.i, 1
-  %38 = ptrtoint ptr %36 to i64
-  %39 = zext nneg i32 %37 to i64
-  br label %Dec_GraphToNetwork.exit
-
-40:                                               ; preds = %40, %.preheader.i
-  %indvars.iv.i = phi i64 [ %31, %.preheader.i ], [ %indvars.iv.next.i, %40 ]
-  %.val32.i = load ptr, ptr %29, align 8
-  %41 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %indvars.iv.i
-  %42 = load i32, ptr %41, align 8
-  %43 = lshr i32 %42, 1
-  %44 = and i32 %43, 1073741823
-  %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %45, i32 2
-  %47 = load ptr, ptr %46, align 8
-  %48 = and i32 %42, 1
-  %49 = ptrtoint ptr %47 to i64
-  %50 = zext nneg i32 %48 to i64
-  %51 = xor i64 %50, %49
-  %52 = inttoptr i64 %51 to ptr
-  %53 = getelementptr inbounds i8, ptr %41, i64 4
-  %54 = load i32, ptr %53, align 4
-  %55 = lshr i32 %54, 1
-  %56 = and i32 %55, 1073741823
-  %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %57, i32 2
-  %59 = load ptr, ptr %58, align 8
-  %60 = and i32 %54, 1
-  %61 = ptrtoint ptr %59 to i64
-  %62 = zext nneg i32 %60 to i64
-  %63 = xor i64 %62, %61
-  %64 = inttoptr i64 %63 to ptr
-  %65 = load ptr, ptr %30, align 8
-  %66 = tail call ptr @Abc_AigAnd(ptr noundef %65, ptr noundef %52, ptr noundef %64) #7
-  %67 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %66, ptr %67, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %68 = load i32, ptr %26, align 8
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next.i, %69
-  br i1 %70, label %40, label %.critedge.i, !llvm.loop !4
-
-.critedge.i:                                      ; preds = %40
-  %.val29.i = load i32, ptr %23, align 8
-  %71 = and i32 %.val29.i, 1
-  %72 = ptrtoint ptr %66 to i64
-  %73 = zext nneg i32 %71 to i64
-  br label %Dec_GraphToNetwork.exit
-
-Dec_GraphToNetwork.exit:                          ; preds = %16, %32, %.critedge.i
-  %.sink40.i = phi i64 [ %72, %.critedge.i ], [ %39, %32 ], [ %20, %16 ]
-  %.sink.i = phi i64 [ %73, %.critedge.i ], [ %38, %32 ], [ %21, %16 ]
-  %74 = xor i64 %.sink.i, %.sink40.i
-  %.025.i = inttoptr i64 %74 to ptr
-  ret ptr %.025.i
+  %16 = tail call ptr @Dec_GraphToNetwork(ptr noundef %0, ptr noundef nonnull %1)
+  ret ptr %16
 }
 
 ; Function Attrs: nounwind uwtable
 define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr nocapture noundef readonly %1) local_unnamed_addr #0 {
   %.val = load i32, ptr %1, align 8
   %.not = icmp eq i32 %.val, 0
-  br i1 %.not, label %9, label %3
+  br i1 %.not, label %10, label %3
 
 3:                                                ; preds = %2
   %4 = tail call ptr @Abc_AigConst1(ptr noundef %0) #7
@@ -380,88 +199,89 @@ define ptr @Dec_GraphToNetworkNoStrash(ptr noundef %0, ptr nocapture noundef rea
   %6 = and i32 %.val32, 1
   %7 = ptrtoint ptr %4 to i64
   %8 = zext nneg i32 %6 to i64
-  br label %60
+  %9 = xor i64 %8, %7
+  br label %63
 
-9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %1, i64 4
-  %.val33 = load i32, ptr %10, align 4
-  %11 = getelementptr i8, ptr %1, i64 24
-  %.val34 = load i32, ptr %11, align 8
-  %12 = lshr i32 %.val34, 1
-  %13 = and i32 %12, 1073741823
-  %.not40 = icmp ult i32 %13, %.val33
-  br i1 %.not40, label %19, label %.preheader
+10:                                               ; preds = %2
+  %11 = getelementptr i8, ptr %1, i64 4
+  %.val33 = load i32, ptr %11, align 4
+  %12 = getelementptr i8, ptr %1, i64 24
+  %.val34 = load i32, ptr %12, align 8
+  %13 = lshr i32 %.val34, 1
+  %14 = and i32 %13, 1073741823
+  %.not40 = icmp ult i32 %14, %.val33
+  br i1 %.not40, label %20, label %.preheader
 
-.preheader:                                       ; preds = %9
-  %14 = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load i32, ptr %14, align 8
-  %16 = icmp slt i32 %.val33, %15
-  tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr i8, ptr %1, i64 16
-  %18 = zext nneg i32 %.val33 to i64
-  br label %27
+.preheader:                                       ; preds = %10
+  %15 = getelementptr inbounds i8, ptr %1, i64 8
+  %16 = load i32, ptr %15, align 8
+  %17 = icmp slt i32 %.val33, %16
+  tail call void @llvm.assume(i1 %17)
+  %18 = getelementptr i8, ptr %1, i64 16
+  %19 = zext nneg i32 %.val33 to i64
+  br label %29
 
-19:                                               ; preds = %9
-  %20 = getelementptr i8, ptr %1, i64 16
-  %.val38 = load ptr, ptr %20, align 8
-  %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val38, i64 %21, i32 2
-  %23 = load ptr, ptr %22, align 8
-  %24 = and i32 %.val34, 1
-  %25 = ptrtoint ptr %23 to i64
-  %26 = zext nneg i32 %24 to i64
-  br label %60
+20:                                               ; preds = %10
+  %21 = getelementptr i8, ptr %1, i64 16
+  %.val38 = load ptr, ptr %21, align 8
+  %22 = zext nneg i32 %14 to i64
+  %23 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val38, i64 %22, i32 2
+  %24 = load ptr, ptr %23, align 8
+  %25 = and i32 %.val34, 1
+  %26 = ptrtoint ptr %24 to i64
+  %27 = zext nneg i32 %25 to i64
+  %28 = xor i64 %26, %27
+  br label %63
 
-27:                                               ; preds = %.preheader, %27
-  %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %27 ]
-  %.val37 = load ptr, ptr %17, align 8
-  %28 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %indvars.iv
-  %29 = load i32, ptr %28, align 8
-  %30 = lshr i32 %29, 1
-  %31 = and i32 %30, 1073741823
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %32, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = and i32 %29, 1
-  %36 = ptrtoint ptr %34 to i64
-  %37 = zext nneg i32 %35 to i64
-  %38 = xor i64 %37, %36
-  %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds i8, ptr %28, i64 4
-  %41 = load i32, ptr %40, align 4
-  %42 = lshr i32 %41, 1
-  %43 = and i32 %42, 1073741823
-  %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %44, i32 2
-  %46 = load ptr, ptr %45, align 8
-  %47 = and i32 %41, 1
-  %48 = ptrtoint ptr %46 to i64
-  %49 = zext nneg i32 %47 to i64
-  %50 = xor i64 %49, %48
-  %51 = inttoptr i64 %50 to ptr
-  %52 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #7
-  tail call void @Abc_ObjAddFanin(ptr noundef %52, ptr noundef %39) #7
-  tail call void @Abc_ObjAddFanin(ptr noundef %52, ptr noundef %51) #7
-  %53 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr %52, ptr %53, align 8
+29:                                               ; preds = %.preheader, %29
+  %indvars.iv = phi i64 [ %19, %.preheader ], [ %indvars.iv.next, %29 ]
+  %.val37 = load ptr, ptr %18, align 8
+  %30 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %indvars.iv
+  %31 = load i32, ptr %30, align 8
+  %32 = lshr i32 %31, 1
+  %33 = and i32 %32, 1073741823
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %34, i32 2
+  %36 = load ptr, ptr %35, align 8
+  %37 = and i32 %31, 1
+  %38 = ptrtoint ptr %36 to i64
+  %39 = zext nneg i32 %37 to i64
+  %40 = xor i64 %39, %38
+  %41 = inttoptr i64 %40 to ptr
+  %42 = getelementptr inbounds i8, ptr %30, i64 4
+  %43 = load i32, ptr %42, align 4
+  %44 = lshr i32 %43, 1
+  %45 = and i32 %44, 1073741823
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val37, i64 %46, i32 2
+  %48 = load ptr, ptr %47, align 8
+  %49 = and i32 %43, 1
+  %50 = ptrtoint ptr %48 to i64
+  %51 = zext nneg i32 %49 to i64
+  %52 = xor i64 %51, %50
+  %53 = inttoptr i64 %52 to ptr
+  %54 = tail call ptr @Abc_NtkCreateObj(ptr noundef %0, i32 noundef 7) #7
+  tail call void @Abc_ObjAddFanin(ptr noundef %54, ptr noundef %41) #7
+  tail call void @Abc_ObjAddFanin(ptr noundef %54, ptr noundef %53) #7
+  %55 = getelementptr inbounds i8, ptr %30, i64 8
+  store ptr %54, ptr %55, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %54 = load i32, ptr %14, align 8
-  %55 = sext i32 %54 to i64
-  %56 = icmp slt i64 %indvars.iv.next, %55
-  br i1 %56, label %27, label %.critedge, !llvm.loop !8
+  %56 = load i32, ptr %15, align 8
+  %57 = sext i32 %56 to i64
+  %58 = icmp slt i64 %indvars.iv.next, %57
+  br i1 %58, label %29, label %.critedge, !llvm.loop !8
 
-.critedge:                                        ; preds = %27
-  %.val30 = load i32, ptr %11, align 8
-  %57 = and i32 %.val30, 1
-  %58 = ptrtoint ptr %52 to i64
-  %59 = zext nneg i32 %57 to i64
-  br label %60
+.critedge:                                        ; preds = %29
+  %.val30 = load i32, ptr %12, align 8
+  %59 = and i32 %.val30, 1
+  %60 = ptrtoint ptr %54 to i64
+  %61 = zext nneg i32 %59 to i64
+  %62 = xor i64 %61, %60
+  br label %63
 
-60:                                               ; preds = %.critedge, %19, %3
-  %.sink43 = phi i64 [ %58, %.critedge ], [ %26, %19 ], [ %7, %3 ]
-  %.sink = phi i64 [ %59, %.critedge ], [ %25, %19 ], [ %8, %3 ]
-  %61 = xor i64 %.sink, %.sink43
-  %.028 = inttoptr i64 %61 to ptr
+63:                                               ; preds = %.critedge, %20, %3
+  %.028.in = phi i64 [ %9, %3 ], [ %28, %20 ], [ %62, %.critedge ]
+  %.028 = inttoptr i64 %.028.in to ptr
   ret ptr %.028
 }
 
@@ -771,103 +591,11 @@ declare ptr @Abc_AigAndLookup(ptr noundef, ptr noundef, ptr noundef) local_unnam
 ; Function Attrs: nounwind uwtable
 define i32 @Dec_GraphUpdateNetwork(ptr noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
-  %.val.i = load i32, ptr %1, align 8
-  %.not.i = icmp eq i32 %.val.i, 0
-  br i1 %.not.i, label %12, label %6
-
-6:                                                ; preds = %4
-  %7 = tail call ptr @Abc_AigConst1(ptr noundef %5) #7
-  %8 = getelementptr i8, ptr %1, i64 24
-  %.val27.i = load i32, ptr %8, align 8
-  %9 = and i32 %.val27.i, 1
-  %10 = ptrtoint ptr %7 to i64
-  %11 = zext nneg i32 %9 to i64
-  br label %Dec_GraphToNetwork.exit
-
-12:                                               ; preds = %4
-  %13 = getelementptr i8, ptr %1, i64 4
-  %.val30.i = load i32, ptr %13, align 4
-  %14 = getelementptr i8, ptr %1, i64 24
-  %.val31.i = load i32, ptr %14, align 8
-  %15 = lshr i32 %.val31.i, 1
-  %16 = and i32 %15, 1073741823
-  %.not37.i = icmp ult i32 %16, %.val30.i
-  br i1 %.not37.i, label %23, label %.preheader.i
-
-.preheader.i:                                     ; preds = %12
-  %17 = getelementptr inbounds i8, ptr %1, i64 8
-  %18 = load i32, ptr %17, align 8
-  %19 = icmp slt i32 %.val30.i, %18
-  tail call void @llvm.assume(i1 %19)
-  %20 = getelementptr i8, ptr %1, i64 16
-  %21 = getelementptr inbounds i8, ptr %5, i64 256
-  %22 = zext nneg i32 %.val30.i to i64
-  br label %31
-
-23:                                               ; preds = %12
-  %24 = getelementptr i8, ptr %1, i64 16
-  %.val35.i = load ptr, ptr %24, align 8
-  %25 = zext nneg i32 %16 to i64
-  %26 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35.i, i64 %25, i32 2
-  %27 = load ptr, ptr %26, align 8
-  %28 = and i32 %.val31.i, 1
-  %29 = ptrtoint ptr %27 to i64
-  %30 = zext nneg i32 %28 to i64
-  br label %Dec_GraphToNetwork.exit
-
-31:                                               ; preds = %31, %.preheader.i
-  %indvars.iv.i = phi i64 [ %22, %.preheader.i ], [ %indvars.iv.next.i, %31 ]
-  %.val32.i = load ptr, ptr %20, align 8
-  %32 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %indvars.iv.i
-  %33 = load i32, ptr %32, align 8
-  %34 = lshr i32 %33, 1
-  %35 = and i32 %34, 1073741823
-  %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %36, i32 2
-  %38 = load ptr, ptr %37, align 8
-  %39 = and i32 %33, 1
-  %40 = ptrtoint ptr %38 to i64
-  %41 = zext nneg i32 %39 to i64
-  %42 = xor i64 %41, %40
-  %43 = inttoptr i64 %42 to ptr
-  %44 = getelementptr inbounds i8, ptr %32, i64 4
-  %45 = load i32, ptr %44, align 4
-  %46 = lshr i32 %45, 1
-  %47 = and i32 %46, 1073741823
-  %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val32.i, i64 %48, i32 2
-  %50 = load ptr, ptr %49, align 8
-  %51 = and i32 %45, 1
-  %52 = ptrtoint ptr %50 to i64
-  %53 = zext nneg i32 %51 to i64
-  %54 = xor i64 %53, %52
-  %55 = inttoptr i64 %54 to ptr
-  %56 = load ptr, ptr %21, align 8
-  %57 = tail call ptr @Abc_AigAnd(ptr noundef %56, ptr noundef %43, ptr noundef %55) #7
-  %58 = getelementptr inbounds i8, ptr %32, i64 8
-  store ptr %57, ptr %58, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = load i32, ptr %17, align 8
-  %60 = sext i32 %59 to i64
-  %61 = icmp slt i64 %indvars.iv.next.i, %60
-  br i1 %61, label %31, label %.critedge.i, !llvm.loop !4
-
-.critedge.i:                                      ; preds = %31
-  %.val29.i = load i32, ptr %14, align 8
-  %62 = and i32 %.val29.i, 1
-  %63 = ptrtoint ptr %57 to i64
-  %64 = zext nneg i32 %62 to i64
-  br label %Dec_GraphToNetwork.exit
-
-Dec_GraphToNetwork.exit:                          ; preds = %6, %23, %.critedge.i
-  %.sink40.i = phi i64 [ %63, %.critedge.i ], [ %30, %23 ], [ %10, %6 ]
-  %.sink.i = phi i64 [ %64, %.critedge.i ], [ %29, %23 ], [ %11, %6 ]
-  %65 = xor i64 %.sink.i, %.sink40.i
-  %.025.i = inttoptr i64 %65 to ptr
-  %66 = getelementptr inbounds i8, ptr %5, i64 256
-  %67 = load ptr, ptr %66, align 8
-  %68 = tail call i32 @Abc_AigReplace(ptr noundef %67, ptr noundef nonnull %0, ptr noundef %.025.i, i32 noundef %2) #7
-  ret i32 %68
+  %6 = tail call ptr @Dec_GraphToNetwork(ptr noundef %5, ptr noundef %1)
+  %7 = getelementptr inbounds i8, ptr %5, i64 256
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call i32 @Abc_AigReplace(ptr noundef %8, ptr noundef nonnull %0, ptr noundef %6, i32 noundef %2) #7
+  ret i32 %9
 }
 
 declare i32 @Abc_AigReplace(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -878,7 +606,7 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr nocapture noundef readonly
   %.not = icmp eq i32 %.val, 0
   %3 = getelementptr i8, ptr %1, i64 24
   %.val31 = load i32, ptr %3, align 8
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 24
@@ -886,84 +614,85 @@ define ptr @Dec_GraphToNetworkAig(ptr noundef %0, ptr nocapture noundef readonly
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val37 to i64
   %8 = zext nneg i32 %6 to i64
-  br label %59
+  %9 = xor i64 %8, %7
+  br label %62
 
-9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %1, i64 4
-  %.val30 = load i32, ptr %10, align 4
-  %11 = lshr i32 %.val31, 1
-  %12 = and i32 %11, 1073741823
-  %.not38 = icmp ult i32 %12, %.val30
-  br i1 %.not38, label %18, label %.preheader
+10:                                               ; preds = %2
+  %11 = getelementptr i8, ptr %1, i64 4
+  %.val30 = load i32, ptr %11, align 4
+  %12 = lshr i32 %.val31, 1
+  %13 = and i32 %12, 1073741823
+  %.not38 = icmp ult i32 %13, %.val30
+  br i1 %.not38, label %19, label %.preheader
 
-.preheader:                                       ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %.val30, %14
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr i8, ptr %1, i64 16
-  %17 = zext nneg i32 %.val30 to i64
-  br label %26
+.preheader:                                       ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp slt i32 %.val30, %15
+  tail call void @llvm.assume(i1 %16)
+  %17 = getelementptr i8, ptr %1, i64 16
+  %18 = zext nneg i32 %.val30 to i64
+  br label %28
 
-18:                                               ; preds = %9
-  %19 = getelementptr i8, ptr %1, i64 16
-  %.val35 = load ptr, ptr %19, align 8
-  %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %20, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = and i32 %.val31, 1
-  %24 = ptrtoint ptr %22 to i64
-  %25 = zext nneg i32 %23 to i64
-  br label %59
+19:                                               ; preds = %10
+  %20 = getelementptr i8, ptr %1, i64 16
+  %.val35 = load ptr, ptr %20, align 8
+  %21 = zext nneg i32 %13 to i64
+  %22 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %21, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = and i32 %.val31, 1
+  %25 = ptrtoint ptr %23 to i64
+  %26 = zext nneg i32 %24 to i64
+  %27 = xor i64 %25, %26
+  br label %62
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv = phi i64 [ %17, %.preheader ], [ %indvars.iv.next, %26 ]
-  %.val34 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 8
-  %29 = lshr i32 %28, 1
-  %30 = and i32 %29, 1073741823
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %31, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = and i32 %28, 1
-  %35 = ptrtoint ptr %33 to i64
-  %36 = zext nneg i32 %34 to i64
-  %37 = xor i64 %36, %35
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = lshr i32 %40, 1
-  %42 = and i32 %41, 1073741823
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %43, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = and i32 %40, 1
-  %47 = ptrtoint ptr %45 to i64
-  %48 = zext nneg i32 %46 to i64
-  %49 = xor i64 %48, %47
-  %50 = inttoptr i64 %49 to ptr
-  %51 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %38, ptr noundef %50) #7
-  %52 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %51, ptr %52, align 8
+28:                                               ; preds = %.preheader, %28
+  %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %28 ]
+  %.val34 = load ptr, ptr %17, align 8
+  %29 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 8
+  %31 = lshr i32 %30, 1
+  %32 = and i32 %31, 1073741823
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %33, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = and i32 %30, 1
+  %37 = ptrtoint ptr %35 to i64
+  %38 = zext nneg i32 %36 to i64
+  %39 = xor i64 %38, %37
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds i8, ptr %29, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = lshr i32 %42, 1
+  %44 = and i32 %43, 1073741823
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %45, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = and i32 %42, 1
+  %49 = ptrtoint ptr %47 to i64
+  %50 = zext nneg i32 %48 to i64
+  %51 = xor i64 %50, %49
+  %52 = inttoptr i64 %51 to ptr
+  %53 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %40, ptr noundef %52) #7
+  %54 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %53, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %13, align 8
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %26, label %.critedge, !llvm.loop !12
+  %55 = load i32, ptr %14, align 8
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %28, label %.critedge, !llvm.loop !12
 
-.critedge:                                        ; preds = %26
+.critedge:                                        ; preds = %28
   %.val27 = load i32, ptr %3, align 8
-  %56 = and i32 %.val27, 1
-  %57 = ptrtoint ptr %51 to i64
-  %58 = zext nneg i32 %56 to i64
-  br label %59
+  %58 = and i32 %.val27, 1
+  %59 = ptrtoint ptr %53 to i64
+  %60 = zext nneg i32 %58 to i64
+  %61 = xor i64 %60, %59
+  br label %62
 
-59:                                               ; preds = %.critedge, %18, %4
-  %.sink41 = phi i64 [ %57, %.critedge ], [ %25, %18 ], [ %7, %4 ]
-  %.sink = phi i64 [ %58, %.critedge ], [ %24, %18 ], [ %8, %4 ]
-  %60 = xor i64 %.sink, %.sink41
-  %.024 = inttoptr i64 %60 to ptr
+62:                                               ; preds = %.critedge, %19, %4
+  %.024.in = phi i64 [ %9, %4 ], [ %27, %19 ], [ %61, %.critedge ]
+  %.024 = inttoptr i64 %.024.in to ptr
   ret ptr %.024
 }
 
@@ -1000,7 +729,7 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %.not.i = icmp eq i32 %.val.i, 0
   %15 = getelementptr i8, ptr %3, i64 24
   %.val31.i = load i32, ptr %15, align 8
-  br i1 %.not.i, label %21, label %16
+  br i1 %.not.i, label %22, label %16
 
 16:                                               ; preds = %.critedge
   %17 = getelementptr i8, ptr %0, i64 24
@@ -1008,92 +737,93 @@ define ptr @Dec_GraphFactorSop(ptr noundef %0, ptr noundef %1) local_unnamed_add
   %18 = and i32 %.val31.i, 1
   %19 = ptrtoint ptr %.val37.i to i64
   %20 = zext nneg i32 %18 to i64
+  %21 = xor i64 %19, %20
   br label %Dec_GraphToNetworkAig.exit
 
-21:                                               ; preds = %.critedge
-  %22 = lshr i32 %.val31.i, 1
-  %23 = and i32 %22, 1073741823
-  %.not38.i = icmp ult i32 %23, %.lcssa13
-  br i1 %.not38.i, label %29, label %.preheader.i
+22:                                               ; preds = %.critedge
+  %23 = lshr i32 %.val31.i, 1
+  %24 = and i32 %23, 1073741823
+  %.not38.i = icmp ult i32 %24, %.lcssa13
+  br i1 %.not38.i, label %30, label %.preheader.i
 
-.preheader.i:                                     ; preds = %21
-  %24 = getelementptr inbounds i8, ptr %3, i64 8
-  %25 = load i32, ptr %24, align 8
-  %26 = icmp slt i32 %.lcssa13, %25
-  tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr i8, ptr %3, i64 16
-  %28 = zext nneg i32 %.lcssa13 to i64
-  br label %37
+.preheader.i:                                     ; preds = %22
+  %25 = getelementptr inbounds i8, ptr %3, i64 8
+  %26 = load i32, ptr %25, align 8
+  %27 = icmp slt i32 %.lcssa13, %26
+  tail call void @llvm.assume(i1 %27)
+  %28 = getelementptr i8, ptr %3, i64 16
+  %29 = zext nneg i32 %.lcssa13 to i64
+  br label %39
 
-29:                                               ; preds = %21
-  %30 = getelementptr i8, ptr %3, i64 16
-  %.val35.i = load ptr, ptr %30, align 8
-  %31 = zext nneg i32 %23 to i64
-  %32 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35.i, i64 %31, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = and i32 %.val31.i, 1
-  %35 = ptrtoint ptr %33 to i64
-  %36 = zext nneg i32 %34 to i64
+30:                                               ; preds = %22
+  %31 = getelementptr i8, ptr %3, i64 16
+  %.val35.i = load ptr, ptr %31, align 8
+  %32 = zext nneg i32 %24 to i64
+  %33 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35.i, i64 %32, i32 2
+  %34 = load ptr, ptr %33, align 8
+  %35 = and i32 %.val31.i, 1
+  %36 = ptrtoint ptr %34 to i64
+  %37 = zext nneg i32 %35 to i64
+  %38 = xor i64 %36, %37
   br label %Dec_GraphToNetworkAig.exit
 
-37:                                               ; preds = %37, %.preheader.i
-  %indvars.iv.i = phi i64 [ %28, %.preheader.i ], [ %indvars.iv.next.i, %37 ]
-  %.val34.i = load ptr, ptr %27, align 8
-  %38 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %indvars.iv.i
-  %39 = load i32, ptr %38, align 8
-  %40 = lshr i32 %39, 1
-  %41 = and i32 %40, 1073741823
-  %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %42, i32 2
-  %44 = load ptr, ptr %43, align 8
-  %45 = and i32 %39, 1
-  %46 = ptrtoint ptr %44 to i64
-  %47 = zext nneg i32 %45 to i64
-  %48 = xor i64 %47, %46
-  %49 = inttoptr i64 %48 to ptr
-  %50 = getelementptr inbounds i8, ptr %38, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = lshr i32 %51, 1
-  %53 = and i32 %52, 1073741823
-  %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %54, i32 2
-  %56 = load ptr, ptr %55, align 8
-  %57 = and i32 %51, 1
-  %58 = ptrtoint ptr %56 to i64
-  %59 = zext nneg i32 %57 to i64
-  %60 = xor i64 %59, %58
-  %61 = inttoptr i64 %60 to ptr
-  %62 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %49, ptr noundef %61) #7
-  %63 = getelementptr inbounds i8, ptr %38, i64 8
-  store ptr %62, ptr %63, align 8
+39:                                               ; preds = %39, %.preheader.i
+  %indvars.iv.i = phi i64 [ %29, %.preheader.i ], [ %indvars.iv.next.i, %39 ]
+  %.val34.i = load ptr, ptr %28, align 8
+  %40 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %indvars.iv.i
+  %41 = load i32, ptr %40, align 8
+  %42 = lshr i32 %41, 1
+  %43 = and i32 %42, 1073741823
+  %44 = zext nneg i32 %43 to i64
+  %45 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %44, i32 2
+  %46 = load ptr, ptr %45, align 8
+  %47 = and i32 %41, 1
+  %48 = ptrtoint ptr %46 to i64
+  %49 = zext nneg i32 %47 to i64
+  %50 = xor i64 %49, %48
+  %51 = inttoptr i64 %50 to ptr
+  %52 = getelementptr inbounds i8, ptr %40, i64 4
+  %53 = load i32, ptr %52, align 4
+  %54 = lshr i32 %53, 1
+  %55 = and i32 %54, 1073741823
+  %56 = zext nneg i32 %55 to i64
+  %57 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34.i, i64 %56, i32 2
+  %58 = load ptr, ptr %57, align 8
+  %59 = and i32 %53, 1
+  %60 = ptrtoint ptr %58 to i64
+  %61 = zext nneg i32 %59 to i64
+  %62 = xor i64 %61, %60
+  %63 = inttoptr i64 %62 to ptr
+  %64 = tail call ptr @Hop_And(ptr noundef %0, ptr noundef %51, ptr noundef %63) #7
+  %65 = getelementptr inbounds i8, ptr %40, i64 8
+  store ptr %64, ptr %65, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %64 = load i32, ptr %24, align 8
-  %65 = sext i32 %64 to i64
-  %66 = icmp slt i64 %indvars.iv.next.i, %65
-  br i1 %66, label %37, label %.critedge.i, !llvm.loop !12
+  %66 = load i32, ptr %25, align 8
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next.i, %67
+  br i1 %68, label %39, label %.critedge.i, !llvm.loop !12
 
-.critedge.i:                                      ; preds = %37
+.critedge.i:                                      ; preds = %39
   %.val27.i = load i32, ptr %15, align 8
-  %67 = and i32 %.val27.i, 1
-  %68 = ptrtoint ptr %62 to i64
-  %69 = zext nneg i32 %67 to i64
+  %69 = and i32 %.val27.i, 1
+  %70 = ptrtoint ptr %64 to i64
+  %71 = zext nneg i32 %69 to i64
+  %72 = xor i64 %71, %70
   br label %Dec_GraphToNetworkAig.exit
 
-Dec_GraphToNetworkAig.exit:                       ; preds = %16, %29, %.critedge.i
-  %.sink41.i = phi i64 [ %68, %.critedge.i ], [ %36, %29 ], [ %19, %16 ]
-  %.sink.i = phi i64 [ %69, %.critedge.i ], [ %35, %29 ], [ %20, %16 ]
-  %70 = getelementptr inbounds i8, ptr %3, i64 16
-  %71 = load ptr, ptr %70, align 8
-  %.not.i12 = icmp eq ptr %71, null
-  br i1 %.not.i12, label %Dec_GraphFree.exit, label %72
+Dec_GraphToNetworkAig.exit:                       ; preds = %16, %30, %.critedge.i
+  %.024.in.i = phi i64 [ %21, %16 ], [ %38, %30 ], [ %72, %.critedge.i ]
+  %73 = getelementptr inbounds i8, ptr %3, i64 16
+  %74 = load ptr, ptr %73, align 8
+  %.not.i12 = icmp eq ptr %74, null
+  br i1 %.not.i12, label %Dec_GraphFree.exit, label %75
 
-72:                                               ; preds = %Dec_GraphToNetworkAig.exit
-  tail call void @free(ptr noundef nonnull %71) #7
+75:                                               ; preds = %Dec_GraphToNetworkAig.exit
+  tail call void @free(ptr noundef nonnull %74) #7
   br label %Dec_GraphFree.exit
 
-Dec_GraphFree.exit:                               ; preds = %Dec_GraphToNetworkAig.exit, %72
-  %73 = xor i64 %.sink.i, %.sink41.i
-  %.024.i = inttoptr i64 %73 to ptr
+Dec_GraphFree.exit:                               ; preds = %Dec_GraphToNetworkAig.exit, %75
+  %.024.i = inttoptr i64 %.024.in.i to ptr
   tail call void @free(ptr noundef nonnull %3) #7
   ret ptr %.024.i
 }
@@ -1106,7 +836,7 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr nocapture noundef readonly
   %.not = icmp eq i32 %.val, 0
   %3 = getelementptr i8, ptr %1, i64 24
   %.val31 = load i32, ptr %3, align 8
-  br i1 %.not, label %9, label %4
+  br i1 %.not, label %10, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr i8, ptr %0, i64 32
@@ -1114,84 +844,85 @@ define ptr @Dec_GraphToNetworkIvy(ptr noundef %0, ptr nocapture noundef readonly
   %6 = and i32 %.val31, 1
   %7 = ptrtoint ptr %.val37 to i64
   %8 = zext nneg i32 %6 to i64
-  br label %59
+  %9 = xor i64 %8, %7
+  br label %62
 
-9:                                                ; preds = %2
-  %10 = getelementptr i8, ptr %1, i64 4
-  %.val30 = load i32, ptr %10, align 4
-  %11 = lshr i32 %.val31, 1
-  %12 = and i32 %11, 1073741823
-  %.not38 = icmp ult i32 %12, %.val30
-  br i1 %.not38, label %18, label %.preheader
+10:                                               ; preds = %2
+  %11 = getelementptr i8, ptr %1, i64 4
+  %.val30 = load i32, ptr %11, align 4
+  %12 = lshr i32 %.val31, 1
+  %13 = and i32 %12, 1073741823
+  %.not38 = icmp ult i32 %13, %.val30
+  br i1 %.not38, label %19, label %.preheader
 
-.preheader:                                       ; preds = %9
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = icmp slt i32 %.val30, %14
-  tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr i8, ptr %1, i64 16
-  %17 = zext nneg i32 %.val30 to i64
-  br label %26
+.preheader:                                       ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %1, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = icmp slt i32 %.val30, %15
+  tail call void @llvm.assume(i1 %16)
+  %17 = getelementptr i8, ptr %1, i64 16
+  %18 = zext nneg i32 %.val30 to i64
+  br label %28
 
-18:                                               ; preds = %9
-  %19 = getelementptr i8, ptr %1, i64 16
-  %.val35 = load ptr, ptr %19, align 8
-  %20 = zext nneg i32 %12 to i64
-  %21 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %20, i32 2
-  %22 = load ptr, ptr %21, align 8
-  %23 = and i32 %.val31, 1
-  %24 = ptrtoint ptr %22 to i64
-  %25 = zext nneg i32 %23 to i64
-  br label %59
+19:                                               ; preds = %10
+  %20 = getelementptr i8, ptr %1, i64 16
+  %.val35 = load ptr, ptr %20, align 8
+  %21 = zext nneg i32 %13 to i64
+  %22 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val35, i64 %21, i32 2
+  %23 = load ptr, ptr %22, align 8
+  %24 = and i32 %.val31, 1
+  %25 = ptrtoint ptr %23 to i64
+  %26 = zext nneg i32 %24 to i64
+  %27 = xor i64 %25, %26
+  br label %62
 
-26:                                               ; preds = %.preheader, %26
-  %indvars.iv = phi i64 [ %17, %.preheader ], [ %indvars.iv.next, %26 ]
-  %.val34 = load ptr, ptr %16, align 8
-  %27 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 8
-  %29 = lshr i32 %28, 1
-  %30 = and i32 %29, 1073741823
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %31, i32 2
-  %33 = load ptr, ptr %32, align 8
-  %34 = and i32 %28, 1
-  %35 = ptrtoint ptr %33 to i64
-  %36 = zext nneg i32 %34 to i64
-  %37 = xor i64 %36, %35
-  %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds i8, ptr %27, i64 4
-  %40 = load i32, ptr %39, align 4
-  %41 = lshr i32 %40, 1
-  %42 = and i32 %41, 1073741823
-  %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %43, i32 2
-  %45 = load ptr, ptr %44, align 8
-  %46 = and i32 %40, 1
-  %47 = ptrtoint ptr %45 to i64
-  %48 = zext nneg i32 %46 to i64
-  %49 = xor i64 %48, %47
-  %50 = inttoptr i64 %49 to ptr
-  %51 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %38, ptr noundef %50) #7
-  %52 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr %51, ptr %52, align 8
+28:                                               ; preds = %.preheader, %28
+  %indvars.iv = phi i64 [ %18, %.preheader ], [ %indvars.iv.next, %28 ]
+  %.val34 = load ptr, ptr %17, align 8
+  %29 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %indvars.iv
+  %30 = load i32, ptr %29, align 8
+  %31 = lshr i32 %30, 1
+  %32 = and i32 %31, 1073741823
+  %33 = zext nneg i32 %32 to i64
+  %34 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %33, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = and i32 %30, 1
+  %37 = ptrtoint ptr %35 to i64
+  %38 = zext nneg i32 %36 to i64
+  %39 = xor i64 %38, %37
+  %40 = inttoptr i64 %39 to ptr
+  %41 = getelementptr inbounds i8, ptr %29, i64 4
+  %42 = load i32, ptr %41, align 4
+  %43 = lshr i32 %42, 1
+  %44 = and i32 %43, 1073741823
+  %45 = zext nneg i32 %44 to i64
+  %46 = getelementptr inbounds %struct.Dec_Node_t_, ptr %.val34, i64 %45, i32 2
+  %47 = load ptr, ptr %46, align 8
+  %48 = and i32 %42, 1
+  %49 = ptrtoint ptr %47 to i64
+  %50 = zext nneg i32 %48 to i64
+  %51 = xor i64 %50, %49
+  %52 = inttoptr i64 %51 to ptr
+  %53 = tail call ptr @Ivy_And(ptr noundef %0, ptr noundef %40, ptr noundef %52) #7
+  %54 = getelementptr inbounds i8, ptr %29, i64 8
+  store ptr %53, ptr %54, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %53 = load i32, ptr %13, align 8
-  %54 = sext i32 %53 to i64
-  %55 = icmp slt i64 %indvars.iv.next, %54
-  br i1 %55, label %26, label %.critedge, !llvm.loop !14
+  %55 = load i32, ptr %14, align 8
+  %56 = sext i32 %55 to i64
+  %57 = icmp slt i64 %indvars.iv.next, %56
+  br i1 %57, label %28, label %.critedge, !llvm.loop !14
 
-.critedge:                                        ; preds = %26
+.critedge:                                        ; preds = %28
   %.val27 = load i32, ptr %3, align 8
-  %56 = and i32 %.val27, 1
-  %57 = ptrtoint ptr %51 to i64
-  %58 = zext nneg i32 %56 to i64
-  br label %59
+  %58 = and i32 %.val27, 1
+  %59 = ptrtoint ptr %53 to i64
+  %60 = zext nneg i32 %58 to i64
+  %61 = xor i64 %60, %59
+  br label %62
 
-59:                                               ; preds = %.critedge, %18, %4
-  %.sink41 = phi i64 [ %57, %.critedge ], [ %25, %18 ], [ %7, %4 ]
-  %.sink = phi i64 [ %58, %.critedge ], [ %24, %18 ], [ %8, %4 ]
-  %60 = xor i64 %.sink, %.sink41
-  %.024 = inttoptr i64 %60 to ptr
+62:                                               ; preds = %.critedge, %19, %4
+  %.024.in = phi i64 [ %9, %4 ], [ %27, %19 ], [ %61, %.critedge ]
+  %.024 = inttoptr i64 %.024.in to ptr
   ret ptr %.024
 }
 

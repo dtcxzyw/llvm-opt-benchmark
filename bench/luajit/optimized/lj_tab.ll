@@ -1014,8 +1014,6 @@ if.then6.i:                                       ; preds = %if.end
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
-  %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
-  %28 = load i32, ptr %hmask.i42.i, align 4
   br label %hashkey.exit
 
 if.else9.i:                                       ; preds = %if.else19
@@ -1026,38 +1024,35 @@ if.else9.i:                                       ; preds = %if.else19
 if.then18.i:                                      ; preds = %if.else9.i
   %conv20.i = trunc nsw i64 %shr to i32
   %sub.i = sub nuw nsw i32 -2, %conv20.i
-  %hmask.i34.i = getelementptr inbounds i8, ptr %t, i64 52
-  %29 = load i32, ptr %hmask.i34.i, align 4
   br label %hashkey.exit
 
 if.else22.i:                                      ; preds = %if.else9.i
-  %30 = lshr i64 %0, 32
-  %31 = trunc nuw i64 %30 to i32
-  %xor.i41.i = xor i64 %30, %0
+  %28 = lshr i64 %0, 32
+  %29 = trunc nuw i64 %28 to i32
+  %xor.i41.i = xor i64 %28, %0
   %xor.i.i44 = trunc i64 %xor.i41.i to i32
-  %or.i.i45 = tail call i32 @llvm.fshl.i32(i32 %31, i32 %31, i32 14)
+  %or.i.i45 = tail call i32 @llvm.fshl.i32(i32 %29, i32 %29, i32 14)
   %sub.i.i46 = sub i32 %xor.i.i44, %or.i.i45
   %or3.i.i47 = tail call i32 @llvm.fshl.i32(i32 %or.i.i45, i32 %or.i.i45, i32 5)
   %xor4.i.i48 = xor i32 %or3.i.i47, %sub.i.i46
   %or7.i.i49 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i46, i32 %sub.i.i46, i32 13)
   %sub8.i.i50 = sub i32 %xor4.i.i48, %or7.i.i49
-  %hmask.i.i51 = getelementptr inbounds i8, ptr %t, i64 52
-  %32 = load i32, ptr %hmask.i.i51, align 4
   br label %hashkey.exit
 
 hashkey.exit:                                     ; preds = %if.then6.i, %if.then18.i, %if.else22.i
-  %sub8.i.sink.i = phi i32 [ %sub8.i.i50, %if.else22.i ], [ %sub.i, %if.then18.i ], [ %28, %if.then6.i ]
-  %.sink42.i = phi i32 [ %32, %if.else22.i ], [ %29, %if.then18.i ], [ %sub8.i68.i, %if.then6.i ]
+  %sub8.i68.i.sink = phi i32 [ %sub8.i68.i, %if.then6.i ], [ %sub.i, %if.then18.i ], [ %sub8.i.i50, %if.else22.i ]
+  %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
+  %30 = load i32, ptr %hmask.i42.i, align 4
+  %and.i43.i = and i32 %30, %sub8.i68.i.sink
   %.sink.in.in.i = getelementptr inbounds i8, ptr %t, i64 40
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
-  %and.i.i52 = and i32 %.sink42.i, %sub8.i.sink.i
-  %idxprom.i.i53 = zext i32 %and.i.i52 to i64
+  %idxprom.i.i53 = zext i32 %and.i43.i to i64
   %arrayidx.i.i54 = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i53
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %hashkey.exit
-  %n.0 = phi ptr [ %arrayidx.i.i54, %hashkey.exit ], [ %34, %do.cond ]
+  %n.0 = phi ptr [ %arrayidx.i.i54, %hashkey.exit ], [ %32, %do.cond ]
   %key27 = getelementptr inbounds i8, ptr %n.0, i64 8
   %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #10
   %tobool.not = icmp eq i32 %call28, 0
@@ -1065,9 +1060,9 @@ do.body:                                          ; preds = %do.cond, %hashkey.e
 
 do.cond:                                          ; preds = %do.body
   %next = getelementptr inbounds i8, ptr %n.0, i64 16
-  %33 = load i64, ptr %next, align 8
-  %34 = inttoptr i64 %33 to ptr
-  %tobool32.not = icmp eq i64 %33, 0
+  %31 = load i64, ptr %next, align 8
+  %32 = inttoptr i64 %31 to ptr
+  %tobool32.not = icmp eq i64 %31, 0
   br i1 %tobool32.not, label %do.end, label %do.body, !llvm.loop !13
 
 do.end:                                           ; preds = %do.cond
@@ -1539,8 +1534,6 @@ if.then6.i:                                       ; preds = %if.then7
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
-  %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
-  %25 = load i32, ptr %hmask.i42.i, align 4
   br label %hashkey.exit
 
 if.else9.i:                                       ; preds = %if.else22
@@ -1551,38 +1544,35 @@ if.else9.i:                                       ; preds = %if.else22
 if.then18.i:                                      ; preds = %if.else9.i
   %conv20.i = trunc nsw i64 %shr to i32
   %sub.i = sub nuw nsw i32 -2, %conv20.i
-  %hmask.i34.i = getelementptr inbounds i8, ptr %t, i64 52
-  %26 = load i32, ptr %hmask.i34.i, align 4
   br label %hashkey.exit
 
 if.else22.i:                                      ; preds = %if.else9.i
-  %27 = lshr i64 %0, 32
-  %28 = trunc nuw i64 %27 to i32
-  %xor.i41.i = xor i64 %27, %0
+  %25 = lshr i64 %0, 32
+  %26 = trunc nuw i64 %25 to i32
+  %xor.i41.i = xor i64 %25, %0
   %xor.i.i34 = trunc i64 %xor.i41.i to i32
-  %or.i.i35 = tail call i32 @llvm.fshl.i32(i32 %28, i32 %28, i32 14)
+  %or.i.i35 = tail call i32 @llvm.fshl.i32(i32 %26, i32 %26, i32 14)
   %sub.i.i36 = sub i32 %xor.i.i34, %or.i.i35
   %or3.i.i37 = tail call i32 @llvm.fshl.i32(i32 %or.i.i35, i32 %or.i.i35, i32 5)
   %xor4.i.i38 = xor i32 %or3.i.i37, %sub.i.i36
   %or7.i.i39 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i36, i32 %sub.i.i36, i32 13)
   %sub8.i.i40 = sub i32 %xor4.i.i38, %or7.i.i39
-  %hmask.i.i41 = getelementptr inbounds i8, ptr %t, i64 52
-  %29 = load i32, ptr %hmask.i.i41, align 4
   br label %hashkey.exit
 
 hashkey.exit:                                     ; preds = %if.then6.i, %if.then18.i, %if.else22.i
-  %sub8.i.sink.i = phi i32 [ %sub8.i.i40, %if.else22.i ], [ %sub.i, %if.then18.i ], [ %25, %if.then6.i ]
-  %.sink42.i = phi i32 [ %29, %if.else22.i ], [ %26, %if.then18.i ], [ %sub8.i68.i, %if.then6.i ]
+  %sub8.i68.i.sink = phi i32 [ %sub8.i68.i, %if.then6.i ], [ %sub.i, %if.then18.i ], [ %sub8.i.i40, %if.else22.i ]
+  %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
+  %27 = load i32, ptr %hmask.i42.i, align 4
+  %and.i43.i = and i32 %27, %sub8.i68.i.sink
   %.sink.in.in.i = getelementptr inbounds i8, ptr %t, i64 40
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
-  %and.i.i42 = and i32 %.sink42.i, %sub8.i.sink.i
-  %idxprom.i.i43 = zext i32 %and.i.i42 to i64
+  %idxprom.i.i43 = zext i32 %and.i43.i to i64
   %arrayidx.i.i44 = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i43
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %hashkey.exit
-  %n.0 = phi ptr [ %arrayidx.i.i44, %hashkey.exit ], [ %31, %do.cond ]
+  %n.0 = phi ptr [ %arrayidx.i.i44, %hashkey.exit ], [ %29, %do.cond ]
   %key27 = getelementptr inbounds i8, ptr %n.0, i64 8
   %call28 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key27, ptr noundef nonnull %key) #10
   %tobool29.not = icmp eq i32 %call28, 0
@@ -1590,16 +1580,16 @@ do.body:                                          ; preds = %do.cond, %hashkey.e
 
 do.cond:                                          ; preds = %do.body
   %next = getelementptr inbounds i8, ptr %n.0, i64 16
-  %30 = load i64, ptr %next, align 8
-  %31 = inttoptr i64 %30 to ptr
-  %tobool33.not = icmp eq i64 %30, 0
+  %28 = load i64, ptr %next, align 8
+  %29 = inttoptr i64 %28 to ptr
+  %tobool33.not = icmp eq i64 %28, 0
   br i1 %tobool33.not, label %if.end36, label %do.body, !llvm.loop !20
 
 if.end36:                                         ; preds = %do.cond, %do.cond.i28, %do.cond.i, %cond.end, %if.else22
   %glref = getelementptr inbounds i8, ptr %L, i64 16
-  %32 = load i64, ptr %glref, align 8
-  %33 = inttoptr i64 %32 to ptr
-  %nilnode = getelementptr inbounds i8, ptr %33, i64 248
+  %30 = load i64, ptr %glref, align 8
+  %31 = inttoptr i64 %30 to ptr
+  %nilnode = getelementptr inbounds i8, ptr %31, i64 248
   br label %return
 
 return:                                           ; preds = %do.body, %do.body.i24, %do.body.i, %cond.end, %if.end36
@@ -1627,6 +1617,7 @@ if.then.i:                                        ; preds = %entry
   %5 = load i32, ptr %sid.i, align 4
   %hmask.i50.i = getelementptr inbounds i8, ptr %t, i64 52
   %6 = load i32, ptr %hmask.i50.i, align 4
+  %and.i51.i = and i32 %6, %5
   br label %hashkey.exit
 
 if.else.i:                                        ; preds = %entry
@@ -1646,6 +1637,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
   %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
   %7 = load i32, ptr %hmask.i42.i, align 4
+  %and.i43.i = and i32 %7, %sub8.i68.i
   br label %hashkey.exit
 
 if.else9.i:                                       ; preds = %if.else.i
@@ -1658,6 +1650,7 @@ if.then18.i:                                      ; preds = %if.else9.i
   %sub.i = sub nuw nsw i32 -2, %conv20.i
   %hmask.i34.i = getelementptr inbounds i8, ptr %t, i64 52
   %8 = load i32, ptr %hmask.i34.i, align 4
+  %and.i35.i = and i32 %8, %sub.i
   br label %hashkey.exit
 
 if.else22.i:                                      ; preds = %if.else9.i
@@ -1671,23 +1664,22 @@ if.else22.i:                                      ; preds = %if.else9.i
   %sub8.i.i = sub i32 %xor4.i.i, %or7.i.i
   %hmask.i.i = getelementptr inbounds i8, ptr %t, i64 52
   %9 = load i32, ptr %hmask.i.i, align 4
+  %and.i.i = and i32 %9, %sub8.i.i
   br label %hashkey.exit
 
 hashkey.exit:                                     ; preds = %if.then.i, %if.then6.i, %if.then18.i, %if.else22.i
   %10 = phi i32 [ %9, %if.else22.i ], [ %8, %if.then18.i ], [ %7, %if.then6.i ], [ %6, %if.then.i ]
-  %sub8.i.sink.i = phi i32 [ %sub8.i.i, %if.else22.i ], [ %sub.i, %if.then18.i ], [ %7, %if.then6.i ], [ %5, %if.then.i ]
-  %.sink42.i = phi i32 [ %9, %if.else22.i ], [ %8, %if.then18.i ], [ %sub8.i68.i, %if.then6.i ], [ %6, %if.then.i ]
+  %and.i.sink.i = phi i32 [ %and.i.i, %if.else22.i ], [ %and.i35.i, %if.then18.i ], [ %and.i43.i, %if.then6.i ], [ %and.i51.i, %if.then.i ]
   %.sink.in.in.i = getelementptr inbounds i8, ptr %t, i64 40
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
-  %and.i.i = and i32 %.sink42.i, %sub8.i.sink.i
-  %idxprom.i.i = zext i32 %and.i.i to i64
+  %idxprom.i.i = zext i32 %and.i.sink.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i
   %11 = load i64, ptr %arrayidx.i.i, align 8
   %cmp = icmp ne i64 %11, -1
   %cmp1 = icmp eq i32 %10, 0
-  %or.cond238 = select i1 %cmp, i1 true, i1 %cmp1
-  br i1 %or.cond238, label %if.then, label %if.end82
+  %or.cond244 = select i1 %cmp, i1 true, i1 %cmp1
+  br i1 %or.cond244, label %if.then, label %if.end82
 
 if.then:                                          ; preds = %hashkey.exit
   %freetop = getelementptr inbounds i8, ptr %t, i64 56
@@ -1723,14 +1715,14 @@ do.end:                                           ; preds = %do.cond
   %17 = trunc i64 %16 to i32
   %18 = lshr i64 %16, 32
   %19 = trunc nuw i64 %18 to i32
-  br i1 %cmp.i75, label %if.then.i115, label %if.else.i76
+  br i1 %cmp.i75, label %if.then.i116, label %if.else.i76
 
-if.then.i115:                                     ; preds = %do.end
-  %and.i116 = and i64 %16, 140737488355327
-  %20 = inttoptr i64 %and.i116 to ptr
-  %sid.i117 = getelementptr inbounds i8, ptr %20, i64 12
-  %21 = load i32, ptr %sid.i117, align 4
-  br label %hashkey.exit119
+if.then.i116:                                     ; preds = %do.end
+  %and.i117 = and i64 %16, 140737488355327
+  %20 = inttoptr i64 %and.i117 to ptr
+  %sid.i118 = getelementptr inbounds i8, ptr %20, i64 12
+  %21 = load i32, ptr %sid.i118, align 4
+  br label %hashkey.exit121
 
 if.else.i76:                                      ; preds = %do.end
   %cmp4.i77 = icmp ult i64 %shr.i74, -14
@@ -1747,17 +1739,17 @@ if.then6.i103:                                    ; preds = %if.else.i76
   %xor4.i64.i111 = xor i32 %or3.i63.i110, %sub.i60.i109
   %or7.i67.i112 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i109, i32 %sub.i60.i109, i32 13)
   %sub8.i68.i113 = sub i32 %xor4.i64.i111, %or7.i67.i112
-  br label %hashkey.exit119
+  br label %hashkey.exit121
 
 if.else9.i78:                                     ; preds = %if.else.i76
   %shr.off.i79 = add nsw i64 %shr.i74, 3
   %switch.i80 = icmp ult i64 %shr.off.i79, 2
-  br i1 %switch.i80, label %if.then18.i99, label %if.else22.i81
+  br i1 %switch.i80, label %if.then18.i98, label %if.else22.i81
 
-if.then18.i99:                                    ; preds = %if.else9.i78
-  %conv20.i100 = trunc nsw i64 %shr.i74 to i32
-  %sub.i101 = sub nuw nsw i32 -2, %conv20.i100
-  br label %hashkey.exit119
+if.then18.i98:                                    ; preds = %if.else9.i78
+  %conv20.i99 = trunc nsw i64 %shr.i74 to i32
+  %sub.i100 = sub nuw nsw i32 -2, %conv20.i99
+  br label %hashkey.exit121
 
 if.else22.i81:                                    ; preds = %if.else9.i78
   %xor.i41.i82 = xor i64 %18, %16
@@ -1768,22 +1760,21 @@ if.else22.i81:                                    ; preds = %if.else9.i78
   %xor4.i.i87 = xor i32 %or3.i.i86, %sub.i.i85
   %or7.i.i88 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i85, i32 %sub.i.i85, i32 13)
   %sub8.i.i89 = sub i32 %xor4.i.i87, %or7.i.i88
-  br label %hashkey.exit119
+  br label %hashkey.exit121
 
-hashkey.exit119:                                  ; preds = %if.then.i115, %if.then6.i103, %if.then18.i99, %if.else22.i81
-  %sub8.i.sink.i91 = phi i32 [ %sub8.i.i89, %if.else22.i81 ], [ %sub.i101, %if.then18.i99 ], [ %10, %if.then6.i103 ], [ %21, %if.then.i115 ]
-  %.sink42.i92 = phi i32 [ %10, %if.else22.i81 ], [ %10, %if.then18.i99 ], [ %sub8.i68.i113, %if.then6.i103 ], [ %10, %if.then.i115 ]
-  %and.i.i96 = and i32 %.sink42.i92, %sub8.i.sink.i91
-  %cmp12.not = icmp eq i32 %and.i.i96, %and.i.i
+hashkey.exit121:                                  ; preds = %if.then.i116, %if.then6.i103, %if.then18.i98, %if.else22.i81
+  %sub8.i.i89.pn = phi i32 [ %sub8.i.i89, %if.else22.i81 ], [ %sub.i100, %if.then18.i98 ], [ %sub8.i68.i113, %if.then6.i103 ], [ %21, %if.then.i116 ]
+  %and.i.sink.i92 = and i32 %10, %sub8.i.i89.pn
+  %cmp12.not = icmp eq i32 %and.i.sink.i92, %and.i.sink.i
   br i1 %cmp12.not, label %if.else74, label %while.cond.preheader
 
-while.cond.preheader:                             ; preds = %hashkey.exit119
-  %idxprom.i.i97 = zext i32 %and.i.i96 to i64
-  %arrayidx.i.i98 = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i97
+while.cond.preheader:                             ; preds = %hashkey.exit121
+  %idxprom.i.i96 = zext i32 %and.i.sink.i92 to i64
+  %arrayidx.i.i97 = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i96
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.preheader, %while.cond
-  %collide.0 = phi ptr [ %23, %while.cond ], [ %arrayidx.i.i98, %while.cond.preheader ]
+  %collide.0 = phi ptr [ %23, %while.cond ], [ %arrayidx.i.i97, %while.cond.preheader ]
   %next = getelementptr inbounds i8, ptr %collide.0, i64 16
   %22 = load i64, ptr %next, align 8
   %23 = inttoptr i64 %22 to ptr
@@ -1804,16 +1795,16 @@ while.end:                                        ; preds = %while.cond
   store i64 0, ptr %next25, align 8
   store i64 -1, ptr %arrayidx.i.i, align 8
   %27 = load i64, ptr %next24, align 8
-  %tobool.not220 = icmp eq i64 %27, 0
-  br i1 %tobool.not220, label %if.end82, label %while.body32.lr.ph
+  %tobool.not226 = icmp eq i64 %27, 0
+  br i1 %tobool.not226, label %if.end82, label %while.body32.lr.ph
 
 while.body32.lr.ph:                               ; preds = %while.end
-  %hmask.i.i136 = getelementptr inbounds i8, ptr %t, i64 52
+  %hmask.i.i138 = getelementptr inbounds i8, ptr %t, i64 52
   br label %while.body32
 
 while.body32:                                     ; preds = %while.body32.lr.ph, %if.else71
-  %28 = phi i64 [ %27, %while.body32.lr.ph ], [ %60, %if.else71 ]
-  %freenode.1221 = phi ptr [ %incdec.ptr, %while.body32.lr.ph ], [ %29, %if.else71 ]
+  %28 = phi i64 [ %27, %while.body32.lr.ph ], [ %54, %if.else71 ]
+  %freenode.1227 = phi ptr [ %incdec.ptr, %while.body32.lr.ph ], [ %29, %if.else71 ]
   %29 = inttoptr i64 %28 to ptr
   %30 = load i64, ptr %29, align 8
   %cmp36 = icmp eq i64 %30, -1
@@ -1822,222 +1813,214 @@ while.body32:                                     ; preds = %while.body32.lr.ph,
 land.lhs.true:                                    ; preds = %while.body32
   %key37 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = load i64, ptr %key37, align 8
-  %shr.i120 = ashr i64 %31, 47
-  %cmp.i121 = icmp eq i64 %shr.i120, -5
+  %shr.i122 = ashr i64 %31, 47
+  %cmp.i123 = icmp eq i64 %shr.i122, -5
   %32 = trunc i64 %31 to i32
   %33 = lshr i64 %31, 32
   %34 = trunc nuw i64 %33 to i32
-  br i1 %cmp.i121, label %if.then.i161, label %if.else.i122
+  br i1 %cmp.i123, label %if.then.i164, label %if.else.i124
 
-if.then.i161:                                     ; preds = %land.lhs.true
-  %and.i162 = and i64 %31, 140737488355327
-  %35 = inttoptr i64 %and.i162 to ptr
-  %sid.i163 = getelementptr inbounds i8, ptr %35, i64 12
-  %36 = load i32, ptr %sid.i163, align 4
-  %37 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit165
+if.then.i164:                                     ; preds = %land.lhs.true
+  %and.i165 = and i64 %31, 140737488355327
+  %35 = inttoptr i64 %and.i165 to ptr
+  %sid.i166 = getelementptr inbounds i8, ptr %35, i64 12
+  %36 = load i32, ptr %sid.i166, align 4
+  br label %hashkey.exit169
 
-if.else.i122:                                     ; preds = %land.lhs.true
-  %cmp4.i123 = icmp ult i64 %shr.i120, -14
-  br i1 %cmp4.i123, label %if.then6.i149, label %if.else9.i124
+if.else.i124:                                     ; preds = %land.lhs.true
+  %cmp4.i125 = icmp ult i64 %shr.i122, -14
+  br i1 %cmp4.i125, label %if.then6.i151, label %if.else9.i126
 
-if.then6.i149:                                    ; preds = %if.else.i122
-  %shl.i150 = shl i32 %34, 1
-  %xor.i56.i151 = xor i32 %shl.i150, %32
-  %shl.i57.i152 = shl i32 %34, 15
-  %shr.i58.i153 = lshr i32 %shl.i150, 18
-  %or.i59.i154 = or disjoint i32 %shr.i58.i153, %shl.i57.i152
-  %sub.i60.i155 = sub i32 %xor.i56.i151, %or.i59.i154
-  %or3.i63.i156 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i154, i32 %or.i59.i154, i32 5)
-  %xor4.i64.i157 = xor i32 %or3.i63.i156, %sub.i60.i155
-  %or7.i67.i158 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i155, i32 %sub.i60.i155, i32 13)
-  %sub8.i68.i159 = sub i32 %xor4.i64.i157, %or7.i67.i158
-  %38 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit165
+if.then6.i151:                                    ; preds = %if.else.i124
+  %shl.i152 = shl i32 %34, 1
+  %xor.i56.i153 = xor i32 %shl.i152, %32
+  %shl.i57.i154 = shl i32 %34, 15
+  %shr.i58.i155 = lshr i32 %shl.i152, 18
+  %or.i59.i156 = or disjoint i32 %shr.i58.i155, %shl.i57.i154
+  %sub.i60.i157 = sub i32 %xor.i56.i153, %or.i59.i156
+  %or3.i63.i158 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i156, i32 %or.i59.i156, i32 5)
+  %xor4.i64.i159 = xor i32 %or3.i63.i158, %sub.i60.i157
+  %or7.i67.i160 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i157, i32 %sub.i60.i157, i32 13)
+  %sub8.i68.i161 = sub i32 %xor4.i64.i159, %or7.i67.i160
+  br label %hashkey.exit169
 
-if.else9.i124:                                    ; preds = %if.else.i122
-  %shr.off.i125 = add nsw i64 %shr.i120, 3
-  %switch.i126 = icmp ult i64 %shr.off.i125, 2
-  br i1 %switch.i126, label %if.then18.i145, label %if.else22.i127
+if.else9.i126:                                    ; preds = %if.else.i124
+  %shr.off.i127 = add nsw i64 %shr.i122, 3
+  %switch.i128 = icmp ult i64 %shr.off.i127, 2
+  br i1 %switch.i128, label %if.then18.i146, label %if.else22.i129
 
-if.then18.i145:                                   ; preds = %if.else9.i124
-  %conv20.i146 = trunc nsw i64 %shr.i120 to i32
-  %sub.i147 = sub nuw nsw i32 -2, %conv20.i146
-  %39 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit165
+if.then18.i146:                                   ; preds = %if.else9.i126
+  %conv20.i147 = trunc nsw i64 %shr.i122 to i32
+  %sub.i148 = sub nuw nsw i32 -2, %conv20.i147
+  br label %hashkey.exit169
 
-if.else22.i127:                                   ; preds = %if.else9.i124
-  %xor.i41.i128 = xor i64 %33, %31
-  %xor.i.i129 = trunc i64 %xor.i41.i128 to i32
-  %or.i.i130 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 14)
-  %sub.i.i131 = sub i32 %xor.i.i129, %or.i.i130
-  %or3.i.i132 = tail call i32 @llvm.fshl.i32(i32 %or.i.i130, i32 %or.i.i130, i32 5)
-  %xor4.i.i133 = xor i32 %or3.i.i132, %sub.i.i131
-  %or7.i.i134 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i131, i32 %sub.i.i131, i32 13)
-  %sub8.i.i135 = sub i32 %xor4.i.i133, %or7.i.i134
-  %40 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit165
+if.else22.i129:                                   ; preds = %if.else9.i126
+  %xor.i41.i130 = xor i64 %33, %31
+  %xor.i.i131 = trunc i64 %xor.i41.i130 to i32
+  %or.i.i132 = tail call i32 @llvm.fshl.i32(i32 %34, i32 %34, i32 14)
+  %sub.i.i133 = sub i32 %xor.i.i131, %or.i.i132
+  %or3.i.i134 = tail call i32 @llvm.fshl.i32(i32 %or.i.i132, i32 %or.i.i132, i32 5)
+  %xor4.i.i135 = xor i32 %or3.i.i134, %sub.i.i133
+  %or7.i.i136 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i133, i32 %sub.i.i133, i32 13)
+  %sub8.i.i137 = sub i32 %xor4.i.i135, %or7.i.i136
+  br label %hashkey.exit169
 
-hashkey.exit165:                                  ; preds = %if.then.i161, %if.then6.i149, %if.then18.i145, %if.else22.i127
-  %sub8.i.sink.i137 = phi i32 [ %sub8.i.i135, %if.else22.i127 ], [ %sub.i147, %if.then18.i145 ], [ %38, %if.then6.i149 ], [ %36, %if.then.i161 ]
-  %.sink42.i138 = phi i32 [ %40, %if.else22.i127 ], [ %39, %if.then18.i145 ], [ %sub8.i68.i159, %if.then6.i149 ], [ %37, %if.then.i161 ]
-  %.sink.in.i140 = load i64, ptr %.sink.in.in.i, align 8
-  %.sink.i141 = inttoptr i64 %.sink.in.i140 to ptr
-  %and.i.i142 = and i32 %.sink42.i138, %sub8.i.sink.i137
-  %idxprom.i.i143 = zext i32 %and.i.i142 to i64
-  %arrayidx.i.i144 = getelementptr inbounds %struct.Node, ptr %.sink.i141, i64 %idxprom.i.i143
-  %cmp39 = icmp eq ptr %arrayidx.i.i144, %arrayidx.i.i
+hashkey.exit169:                                  ; preds = %if.then.i164, %if.then6.i151, %if.then18.i146, %if.else22.i129
+  %.sink245 = phi i32 [ %36, %if.then.i164 ], [ %sub8.i68.i161, %if.then6.i151 ], [ %sub.i148, %if.then18.i146 ], [ %sub8.i.i137, %if.else22.i129 ]
+  %37 = load i32, ptr %hmask.i.i138, align 4
+  %and.i51.i168 = and i32 %37, %.sink245
+  %.sink.in.i142 = load i64, ptr %.sink.in.in.i, align 8
+  %.sink.i143 = inttoptr i64 %.sink.in.i142 to ptr
+  %idxprom.i.i144 = zext i32 %and.i51.i168 to i64
+  %arrayidx.i.i145 = getelementptr inbounds %struct.Node, ptr %.sink.i143, i64 %idxprom.i.i144
+  %cmp39 = icmp eq ptr %arrayidx.i.i145, %arrayidx.i.i
   br i1 %cmp39, label %if.then40, label %if.else71
 
-if.then40:                                        ; preds = %hashkey.exit165
-  %next30.le = getelementptr inbounds i8, ptr %freenode.1221, i64 16
+if.then40:                                        ; preds = %hashkey.exit169
+  %next30.le = getelementptr inbounds i8, ptr %freenode.1227, i64 16
   %next42 = getelementptr inbounds i8, ptr %29, i64 16
-  %41 = load i64, ptr %next42, align 8
-  store i64 %41, ptr %next30.le, align 8
-  %42 = load i64, ptr %next25, align 8
-  store i64 %42, ptr %next42, align 8
+  %38 = load i64, ptr %next42, align 8
+  store i64 %38, ptr %next30.le, align 8
+  %39 = load i64, ptr %next25, align 8
+  store i64 %39, ptr %next42, align 8
   store i64 %28, ptr %next25, align 8
-  %43 = load i64, ptr %next30.le, align 8
-  %tobool50.not223 = icmp eq i64 %43, 0
-  br i1 %tobool50.not223, label %if.end82, label %while.body51
+  %40 = load i64, ptr %next30.le, align 8
+  %tobool50.not229 = icmp eq i64 %40, 0
+  br i1 %tobool50.not229, label %if.end82, label %while.body51
 
 while.body51:                                     ; preds = %if.then40, %if.end69
-  %44 = phi i64 [ %59, %if.end69 ], [ %43, %if.then40 ]
-  %next48225 = phi ptr [ %next48, %if.end69 ], [ %next30.le, %if.then40 ]
-  %freenode.2224 = phi ptr [ %freenode.3, %if.end69 ], [ %freenode.1221, %if.then40 ]
-  %45 = inttoptr i64 %44 to ptr
-  %46 = load i64, ptr %45, align 8
-  %cmp53 = icmp eq i64 %46, -1
+  %41 = phi i64 [ %53, %if.end69 ], [ %40, %if.then40 ]
+  %next48231 = phi ptr [ %next48, %if.end69 ], [ %next30.le, %if.then40 ]
+  %freenode.2230 = phi ptr [ %freenode.3, %if.end69 ], [ %freenode.1227, %if.then40 ]
+  %42 = inttoptr i64 %41 to ptr
+  %43 = load i64, ptr %42, align 8
+  %cmp53 = icmp eq i64 %43, -1
   br i1 %cmp53, label %if.end69, label %if.then54
 
 if.then54:                                        ; preds = %while.body51
-  %key55 = getelementptr inbounds i8, ptr %45, i64 8
-  %47 = load i64, ptr %key55, align 8
-  %shr.i166 = ashr i64 %47, 47
-  %cmp.i167 = icmp eq i64 %shr.i166, -5
-  %48 = trunc i64 %47 to i32
-  %49 = lshr i64 %47, 32
-  %50 = trunc nuw i64 %49 to i32
-  br i1 %cmp.i167, label %if.then.i207, label %if.else.i168
+  %key55 = getelementptr inbounds i8, ptr %42, i64 8
+  %44 = load i64, ptr %key55, align 8
+  %shr.i170 = ashr i64 %44, 47
+  %cmp.i171 = icmp eq i64 %shr.i170, -5
+  %45 = trunc i64 %44 to i32
+  %46 = lshr i64 %44, 32
+  %47 = trunc nuw i64 %46 to i32
+  br i1 %cmp.i171, label %if.then.i212, label %if.else.i172
 
-if.then.i207:                                     ; preds = %if.then54
-  %and.i208 = and i64 %47, 140737488355327
-  %51 = inttoptr i64 %and.i208 to ptr
-  %sid.i209 = getelementptr inbounds i8, ptr %51, i64 12
-  %52 = load i32, ptr %sid.i209, align 4
-  %53 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit211
+if.then.i212:                                     ; preds = %if.then54
+  %and.i213 = and i64 %44, 140737488355327
+  %48 = inttoptr i64 %and.i213 to ptr
+  %sid.i214 = getelementptr inbounds i8, ptr %48, i64 12
+  %49 = load i32, ptr %sid.i214, align 4
+  br label %hashkey.exit217
 
-if.else.i168:                                     ; preds = %if.then54
-  %cmp4.i169 = icmp ult i64 %shr.i166, -14
-  br i1 %cmp4.i169, label %if.then6.i195, label %if.else9.i170
+if.else.i172:                                     ; preds = %if.then54
+  %cmp4.i173 = icmp ult i64 %shr.i170, -14
+  br i1 %cmp4.i173, label %if.then6.i199, label %if.else9.i174
 
-if.then6.i195:                                    ; preds = %if.else.i168
-  %shl.i196 = shl i32 %50, 1
-  %xor.i56.i197 = xor i32 %shl.i196, %48
-  %shl.i57.i198 = shl i32 %50, 15
-  %shr.i58.i199 = lshr i32 %shl.i196, 18
-  %or.i59.i200 = or disjoint i32 %shr.i58.i199, %shl.i57.i198
-  %sub.i60.i201 = sub i32 %xor.i56.i197, %or.i59.i200
-  %or3.i63.i202 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i200, i32 %or.i59.i200, i32 5)
-  %xor4.i64.i203 = xor i32 %or3.i63.i202, %sub.i60.i201
-  %or7.i67.i204 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i201, i32 %sub.i60.i201, i32 13)
-  %sub8.i68.i205 = sub i32 %xor4.i64.i203, %or7.i67.i204
-  %54 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit211
+if.then6.i199:                                    ; preds = %if.else.i172
+  %shl.i200 = shl i32 %47, 1
+  %xor.i56.i201 = xor i32 %shl.i200, %45
+  %shl.i57.i202 = shl i32 %47, 15
+  %shr.i58.i203 = lshr i32 %shl.i200, 18
+  %or.i59.i204 = or disjoint i32 %shr.i58.i203, %shl.i57.i202
+  %sub.i60.i205 = sub i32 %xor.i56.i201, %or.i59.i204
+  %or3.i63.i206 = tail call i32 @llvm.fshl.i32(i32 %or.i59.i204, i32 %or.i59.i204, i32 5)
+  %xor4.i64.i207 = xor i32 %or3.i63.i206, %sub.i60.i205
+  %or7.i67.i208 = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i205, i32 %sub.i60.i205, i32 13)
+  %sub8.i68.i209 = sub i32 %xor4.i64.i207, %or7.i67.i208
+  br label %hashkey.exit217
 
-if.else9.i170:                                    ; preds = %if.else.i168
-  %shr.off.i171 = add nsw i64 %shr.i166, 3
-  %switch.i172 = icmp ult i64 %shr.off.i171, 2
-  br i1 %switch.i172, label %if.then18.i191, label %if.else22.i173
+if.else9.i174:                                    ; preds = %if.else.i172
+  %shr.off.i175 = add nsw i64 %shr.i170, 3
+  %switch.i176 = icmp ult i64 %shr.off.i175, 2
+  br i1 %switch.i176, label %if.then18.i194, label %if.else22.i177
 
-if.then18.i191:                                   ; preds = %if.else9.i170
-  %conv20.i192 = trunc nsw i64 %shr.i166 to i32
-  %sub.i193 = sub nuw nsw i32 -2, %conv20.i192
-  %55 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit211
+if.then18.i194:                                   ; preds = %if.else9.i174
+  %conv20.i195 = trunc nsw i64 %shr.i170 to i32
+  %sub.i196 = sub nuw nsw i32 -2, %conv20.i195
+  br label %hashkey.exit217
 
-if.else22.i173:                                   ; preds = %if.else9.i170
-  %xor.i41.i174 = xor i64 %49, %47
-  %xor.i.i175 = trunc i64 %xor.i41.i174 to i32
-  %or.i.i176 = tail call i32 @llvm.fshl.i32(i32 %50, i32 %50, i32 14)
-  %sub.i.i177 = sub i32 %xor.i.i175, %or.i.i176
-  %or3.i.i178 = tail call i32 @llvm.fshl.i32(i32 %or.i.i176, i32 %or.i.i176, i32 5)
-  %xor4.i.i179 = xor i32 %or3.i.i178, %sub.i.i177
-  %or7.i.i180 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i177, i32 %sub.i.i177, i32 13)
-  %sub8.i.i181 = sub i32 %xor4.i.i179, %or7.i.i180
-  %56 = load i32, ptr %hmask.i.i136, align 4
-  br label %hashkey.exit211
+if.else22.i177:                                   ; preds = %if.else9.i174
+  %xor.i41.i178 = xor i64 %46, %44
+  %xor.i.i179 = trunc i64 %xor.i41.i178 to i32
+  %or.i.i180 = tail call i32 @llvm.fshl.i32(i32 %47, i32 %47, i32 14)
+  %sub.i.i181 = sub i32 %xor.i.i179, %or.i.i180
+  %or3.i.i182 = tail call i32 @llvm.fshl.i32(i32 %or.i.i180, i32 %or.i.i180, i32 5)
+  %xor4.i.i183 = xor i32 %or3.i.i182, %sub.i.i181
+  %or7.i.i184 = tail call i32 @llvm.fshl.i32(i32 %sub.i.i181, i32 %sub.i.i181, i32 13)
+  %sub8.i.i185 = sub i32 %xor4.i.i183, %or7.i.i184
+  br label %hashkey.exit217
 
-hashkey.exit211:                                  ; preds = %if.then.i207, %if.then6.i195, %if.then18.i191, %if.else22.i173
-  %sub8.i.sink.i183 = phi i32 [ %sub8.i.i181, %if.else22.i173 ], [ %sub.i193, %if.then18.i191 ], [ %54, %if.then6.i195 ], [ %52, %if.then.i207 ]
-  %.sink42.i184 = phi i32 [ %56, %if.else22.i173 ], [ %55, %if.then18.i191 ], [ %sub8.i68.i205, %if.then6.i195 ], [ %53, %if.then.i207 ]
-  %.sink.in.i186 = load i64, ptr %.sink.in.in.i, align 8
-  %.sink.i187 = inttoptr i64 %.sink.in.i186 to ptr
-  %and.i.i188 = and i32 %.sink42.i184, %sub8.i.sink.i183
-  %idxprom.i.i189 = zext i32 %and.i.i188 to i64
-  %arrayidx.i.i190 = getelementptr inbounds %struct.Node, ptr %.sink.i187, i64 %idxprom.i.i189
-  %cmp57.not = icmp eq ptr %arrayidx.i.i190, %freenode.2224
-  %cmp59.not = icmp eq ptr %arrayidx.i.i190, %45
+hashkey.exit217:                                  ; preds = %if.then.i212, %if.then6.i199, %if.then18.i194, %if.else22.i177
+  %.sink246 = phi i32 [ %49, %if.then.i212 ], [ %sub8.i68.i209, %if.then6.i199 ], [ %sub.i196, %if.then18.i194 ], [ %sub8.i.i185, %if.else22.i177 ]
+  %50 = load i32, ptr %hmask.i.i138, align 4
+  %and.i51.i216 = and i32 %50, %.sink246
+  %.sink.in.i190 = load i64, ptr %.sink.in.in.i, align 8
+  %.sink.i191 = inttoptr i64 %.sink.in.i190 to ptr
+  %idxprom.i.i192 = zext i32 %and.i51.i216 to i64
+  %arrayidx.i.i193 = getelementptr inbounds %struct.Node, ptr %.sink.i191, i64 %idxprom.i.i192
+  %cmp57.not = icmp eq ptr %arrayidx.i.i193, %freenode.2230
+  %cmp59.not = icmp eq ptr %arrayidx.i.i193, %42
   %or.cond = or i1 %cmp57.not, %cmp59.not
   br i1 %or.cond, label %if.end69, label %if.then60
 
-if.then60:                                        ; preds = %hashkey.exit211
-  %next62 = getelementptr inbounds i8, ptr %45, i64 16
-  %57 = load i64, ptr %next62, align 8
-  store i64 %57, ptr %next48225, align 8
-  %next64 = getelementptr inbounds i8, ptr %arrayidx.i.i190, i64 16
-  %58 = load i64, ptr %next64, align 8
-  store i64 %58, ptr %next62, align 8
-  store i64 %44, ptr %next64, align 8
+if.then60:                                        ; preds = %hashkey.exit217
+  %next62 = getelementptr inbounds i8, ptr %42, i64 16
+  %51 = load i64, ptr %next62, align 8
+  store i64 %51, ptr %next48231, align 8
+  %next64 = getelementptr inbounds i8, ptr %arrayidx.i.i193, i64 16
+  %52 = load i64, ptr %next64, align 8
+  store i64 %52, ptr %next62, align 8
+  store i64 %41, ptr %next64, align 8
   br label %if.end69
 
-if.end69:                                         ; preds = %while.body51, %hashkey.exit211, %if.then60
-  %freenode.3 = phi ptr [ %freenode.2224, %if.then60 ], [ %45, %hashkey.exit211 ], [ %45, %while.body51 ]
+if.end69:                                         ; preds = %while.body51, %hashkey.exit217, %if.then60
+  %freenode.3 = phi ptr [ %freenode.2230, %if.then60 ], [ %42, %hashkey.exit217 ], [ %42, %while.body51 ]
   %next48 = getelementptr inbounds i8, ptr %freenode.3, i64 16
-  %59 = load i64, ptr %next48, align 8
-  %tobool50.not = icmp eq i64 %59, 0
+  %53 = load i64, ptr %next48, align 8
+  %tobool50.not = icmp eq i64 %53, 0
   br i1 %tobool50.not, label %if.end82, label %while.body51, !llvm.loop !23
 
-if.else71:                                        ; preds = %hashkey.exit165, %while.body32
+if.else71:                                        ; preds = %hashkey.exit169, %while.body32
   %next30 = getelementptr inbounds i8, ptr %29, i64 16
-  %60 = load i64, ptr %next30, align 8
-  %tobool.not = icmp eq i64 %60, 0
+  %54 = load i64, ptr %next30, align 8
+  %tobool.not = icmp eq i64 %54, 0
   br i1 %tobool.not, label %if.end82, label %while.body32, !llvm.loop !24
 
-if.else74:                                        ; preds = %hashkey.exit119
+if.else74:                                        ; preds = %hashkey.exit121
   %next75 = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 16
-  %61 = load i64, ptr %next75, align 8
+  %55 = load i64, ptr %next75, align 8
   %next77 = getelementptr inbounds i8, ptr %freenode.0, i64 -8
-  store i64 %61, ptr %next77, align 8
+  store i64 %55, ptr %next77, align 8
   store i64 %15, ptr %next75, align 8
   br label %if.end82
 
 if.end82:                                         ; preds = %if.else71, %if.end69, %hashkey.exit, %while.end, %if.then40, %if.else74
   %n.0 = phi ptr [ %incdec.ptr, %if.else74 ], [ %arrayidx.i.i, %if.then40 ], [ %arrayidx.i.i, %while.end ], [ %arrayidx.i.i, %hashkey.exit ], [ %arrayidx.i.i, %if.end69 ], [ %arrayidx.i.i, %if.else71 ]
-  %62 = load i64, ptr %key, align 8
+  %56 = load i64, ptr %key, align 8
   %key83 = getelementptr inbounds i8, ptr %n.0, i64 8
-  %cmp85 = icmp eq i64 %62, -9223372036854775808
-  %spec.select = select i1 %cmp85, i64 0, i64 %62
+  %cmp85 = icmp eq i64 %56, -9223372036854775808
+  %spec.select = select i1 %cmp85, i64 0, i64 %56
   store i64 %spec.select, ptr %key83, align 8
   %marked = getelementptr inbounds i8, ptr %t, i64 8
-  %63 = load i8, ptr %marked, align 8
-  %64 = and i8 %63, 4
-  %tobool93.not = icmp eq i8 %64, 0
+  %57 = load i8, ptr %marked, align 8
+  %58 = and i8 %57, 4
+  %tobool93.not = icmp eq i8 %58, 0
   br i1 %tobool93.not, label %return, label %if.then100
 
 if.then100:                                       ; preds = %if.end82
   %glref = getelementptr inbounds i8, ptr %L, i64 16
-  %65 = load i64, ptr %glref, align 8
-  %66 = inttoptr i64 %65 to ptr
-  %and.i = and i8 %63, -5
+  %59 = load i64, ptr %glref, align 8
+  %60 = inttoptr i64 %59 to ptr
+  %and.i = and i8 %57, -5
   store i8 %and.i, ptr %marked, align 8
-  %grayagain.i = getelementptr inbounds i8, ptr %66, i64 64
-  %67 = load i64, ptr %grayagain.i, align 8
+  %grayagain.i = getelementptr inbounds i8, ptr %60, i64 64
+  %61 = load i64, ptr %grayagain.i, align 8
   %gclist.i = getelementptr inbounds i8, ptr %t, i64 24
-  store i64 %67, ptr %gclist.i, align 8
-  %68 = ptrtoint ptr %t to i64
-  store i64 %68, ptr %grayagain.i, align 8
+  store i64 %61, ptr %gclist.i, align 8
+  %62 = ptrtoint ptr %t to i64
+  store i64 %62, ptr %grayagain.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end82, %if.then100, %if.then4
@@ -2131,8 +2114,6 @@ if.then.i:                                        ; preds = %if.then12
   %6 = inttoptr i64 %and.i to ptr
   %sid.i = getelementptr inbounds i8, ptr %6, i64 12
   %7 = load i32, ptr %sid.i, align 4
-  %hmask.i50.i = getelementptr inbounds i8, ptr %t, i64 52
-  %8 = load i32, ptr %hmask.i50.i, align 4
   br label %hashkey.exit
 
 if.else.i:                                        ; preds = %if.then12
@@ -2150,8 +2131,6 @@ if.then6.i:                                       ; preds = %if.else.i
   %xor4.i64.i = xor i32 %or3.i63.i, %sub.i60.i
   %or7.i67.i = tail call i32 @llvm.fshl.i32(i32 %sub.i60.i, i32 %sub.i60.i, i32 13)
   %sub8.i68.i = sub i32 %xor4.i64.i, %or7.i67.i
-  %hmask.i42.i = getelementptr inbounds i8, ptr %t, i64 52
-  %9 = load i32, ptr %hmask.i42.i, align 4
   br label %hashkey.exit
 
 if.else9.i:                                       ; preds = %if.else.i
@@ -2162,8 +2141,6 @@ if.else9.i:                                       ; preds = %if.else.i
 if.then18.i:                                      ; preds = %if.else9.i
   %conv20.i = trunc nsw i64 %shr.i to i32
   %sub.i = sub nuw nsw i32 -2, %conv20.i
-  %hmask.i34.i = getelementptr inbounds i8, ptr %t, i64 52
-  %10 = load i32, ptr %hmask.i34.i, align 4
   br label %hashkey.exit
 
 if.else22.i:                                      ; preds = %if.else9.i
@@ -2175,23 +2152,22 @@ if.else22.i:                                      ; preds = %if.else9.i
   %xor4.i.i = xor i32 %or3.i.i, %sub.i.i
   %or7.i.i = tail call i32 @llvm.fshl.i32(i32 %sub.i.i, i32 %sub.i.i, i32 13)
   %sub8.i.i = sub i32 %xor4.i.i, %or7.i.i
-  %hmask.i.i = getelementptr inbounds i8, ptr %t, i64 52
-  %11 = load i32, ptr %hmask.i.i, align 4
   br label %hashkey.exit
 
 hashkey.exit:                                     ; preds = %if.then.i, %if.then6.i, %if.then18.i, %if.else22.i
-  %sub8.i.sink.i = phi i32 [ %sub8.i.i, %if.else22.i ], [ %sub.i, %if.then18.i ], [ %9, %if.then6.i ], [ %7, %if.then.i ]
-  %.sink42.i = phi i32 [ %11, %if.else22.i ], [ %10, %if.then18.i ], [ %sub8.i68.i, %if.then6.i ], [ %8, %if.then.i ]
+  %.sink19 = phi i32 [ %7, %if.then.i ], [ %sub8.i68.i, %if.then6.i ], [ %sub.i, %if.then18.i ], [ %sub8.i.i, %if.else22.i ]
+  %hmask.i50.i = getelementptr inbounds i8, ptr %t, i64 52
+  %8 = load i32, ptr %hmask.i50.i, align 4
+  %and.i51.i = and i32 %8, %.sink19
   %.sink.in.in.i = getelementptr inbounds i8, ptr %t, i64 40
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = inttoptr i64 %.sink.in.i to ptr
-  %and.i.i = and i32 %.sink42.i, %sub8.i.sink.i
-  %idxprom.i.i = zext i32 %and.i.i to i64
+  %idxprom.i.i = zext i32 %and.i51.i to i64
   %arrayidx.i.i = getelementptr inbounds %struct.Node, ptr %.sink.i, i64 %idxprom.i.i
   br label %do.body
 
 do.body:                                          ; preds = %do.cond, %hashkey.exit
-  %n.0 = phi ptr [ %arrayidx.i.i, %hashkey.exit ], [ %15, %do.cond ]
+  %n.0 = phi ptr [ %arrayidx.i.i, %hashkey.exit ], [ %12, %do.cond ]
   %key13 = getelementptr inbounds i8, ptr %n.0, i64 8
   %call14 = tail call i32 @lj_obj_equal(ptr noundef nonnull %key13, ptr noundef nonnull %key) #10
   %tobool.not = icmp eq i32 %call14, 0
@@ -2199,35 +2175,35 @@ do.body:                                          ; preds = %do.cond, %hashkey.e
 
 if.then15:                                        ; preds = %do.body
   %asize16 = getelementptr inbounds i8, ptr %t, i64 48
-  %12 = load i32, ptr %asize16, align 8
+  %9 = load i32, ptr %asize16, align 8
   %add.ptr = getelementptr inbounds i8, ptr %n.0, i64 24
-  %13 = load i64, ptr %.sink.in.in.i, align 8
+  %10 = load i64, ptr %.sink.in.in.i, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %add.ptr to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %13
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %10
   %sub.ptr.div = sdiv exact i64 %sub.ptr.sub, 24
   %conv17 = trunc i64 %sub.ptr.div to i32
-  %add18 = add i32 %12, %conv17
+  %add18 = add i32 %9, %conv17
   br label %return
 
 do.cond:                                          ; preds = %do.body
   %next = getelementptr inbounds i8, ptr %n.0, i64 16
-  %14 = load i64, ptr %next, align 8
-  %15 = inttoptr i64 %14 to ptr
-  %tobool21.not = icmp eq i64 %14, 0
+  %11 = load i64, ptr %next, align 8
+  %12 = inttoptr i64 %11 to ptr
+  %tobool21.not = icmp eq i64 %11, 0
   br i1 %tobool21.not, label %do.end, label %do.body, !llvm.loop !25
 
 do.end:                                           ; preds = %do.cond
   %hi = getelementptr inbounds i8, ptr %key, i64 4
-  %16 = load i32, ptr %hi, align 4
-  %cmp22 = icmp eq i32 %16, -98305
+  %13 = load i32, ptr %hi, align 4
+  %cmp22 = icmp eq i32 %13, -98305
   br i1 %cmp22, label %if.then24, label %return
 
 if.then24:                                        ; preds = %do.end
-  %17 = load i32, ptr %key, align 8
+  %14 = load i32, ptr %key, align 8
   br label %return
 
 return:                                           ; preds = %if.end9, %do.end, %if.then24, %if.then15, %if.then8
-  %retval.0 = phi i32 [ %add, %if.then8 ], [ %add18, %if.then15 ], [ %17, %if.then24 ], [ -1, %do.end ], [ 0, %if.end9 ]
+  %retval.0 = phi i32 [ %add, %if.then8 ], [ %add18, %if.then15 ], [ %14, %if.then24 ], [ -1, %do.end ], [ 0, %if.end9 ]
   ret i32 %retval.0
 }
 

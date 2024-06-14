@@ -501,6 +501,7 @@ if.then96:                                        ; preds = %dictGetKey.exit
   %notmask74 = shl nsw i64 -1, %sh_prom115
   %sub = xor i64 %notmask74, -1
   %cond120 = select i1 %cmp101, i64 0, i64 %sub
+  %and = and i64 %cond120, %call97
   br label %if.end147
 
 if.else:                                          ; preds = %dictGetKey.exit
@@ -511,12 +512,11 @@ if.else:                                          ; preds = %dictGetKey.exit
   %notmask = shl nsw i64 -1, %sh_prom139
   %sub143 = xor i64 %notmask, -1
   %cond145 = select i1 %cmp125, i64 0, i64 %sub143
+  %and146 = and i64 %18, %cond145
   br label %if.end147
 
 if.end147:                                        ; preds = %if.else, %if.then96
-  %cond145.sink = phi i64 [ %cond145, %if.else ], [ %call97, %if.then96 ]
-  %.sink = phi i64 [ %18, %if.else ], [ %cond120, %if.then96 ]
-  %and146 = and i64 %.sink, %cond145.sink
+  %h.0 = phi i64 [ %and, %if.then96 ], [ %and146, %if.else ]
   %19 = load ptr, ptr %d, align 8
   %no_value = getelementptr inbounds i8, ptr %19, i64 80
   %bf.load = load i8, ptr %no_value, align 8
@@ -531,7 +531,7 @@ if.then150:                                       ; preds = %if.end147
 
 land.lhs.true156:                                 ; preds = %if.then150
   %21 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx159 = getelementptr inbounds ptr, ptr %21, i64 %and146
+  %arrayidx159 = getelementptr inbounds ptr, ptr %21, i64 %h.0
   %22 = load ptr, ptr %arrayidx159, align 8
   %tobool160.not = icmp eq ptr %22, null
   br i1 %tobool160.not, label %if.then161, label %if.else178
@@ -561,7 +561,7 @@ if.else178:                                       ; preds = %land.lhs.true156, %
 
 if.then181:                                       ; preds = %if.else178
   %25 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx184 = getelementptr inbounds ptr, ptr %25, i64 %and146
+  %arrayidx184 = getelementptr inbounds ptr, ptr %25, i64 %h.0
   %26 = load ptr, ptr %arrayidx184, align 8
   %call.i = tail call noalias dereferenceable_or_null(16) ptr @zmalloc(i64 noundef 16) #23
   store ptr %retval.0.i76, ptr %call.i, align 8
@@ -584,7 +584,7 @@ cond.false196:                                    ; preds = %if.else186
 
 dictSetNext.exit:                                 ; preds = %if.else186
   %29 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx200 = getelementptr inbounds ptr, ptr %29, i64 %and146
+  %arrayidx200 = getelementptr inbounds ptr, ptr %29, i64 %h.0
   %30 = load ptr, ptr %arrayidx200, align 8
   %and.i.i.i91 = and i64 %9, -8
   %31 = inttoptr i64 %and.i.i.i91 to ptr
@@ -602,7 +602,7 @@ cond.false.i94:                                   ; preds = %if.else203
 
 dictSetNext.exit101:                              ; preds = %if.else203
   %32 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx206 = getelementptr inbounds ptr, ptr %32, i64 %and146
+  %arrayidx206 = getelementptr inbounds ptr, ptr %32, i64 %h.0
   %33 = load ptr, ptr %arrayidx206, align 8
   %and.i.i95 = and i64 %9, 6
   %cmp.i.not.i96 = icmp eq i64 %and.i.i95, 2
@@ -617,7 +617,7 @@ dictSetNext.exit101:                              ; preds = %if.else203
 if.end207:                                        ; preds = %cond.end172, %decodeMaskedPtr.exit, %dictSetNext.exit, %if.then181, %dictSetNext.exit101
   %de.1 = phi ptr [ %28, %if.then181 ], [ %de.0115, %dictSetNext.exit ], [ %de.0115, %dictSetNext.exit101 ], [ %retval.0.i76, %decodeMaskedPtr.exit ], [ %retval.0.i76, %cond.end172 ]
   %35 = load ptr, ptr %arrayidx158, align 8
-  %arrayidx210 = getelementptr inbounds ptr, ptr %35, i64 %and146
+  %arrayidx210 = getelementptr inbounds ptr, ptr %35, i64 %h.0
   store ptr %de.1, ptr %arrayidx210, align 8
   %36 = load <2 x i64>, ptr %ht_used, align 8
   %37 = add <2 x i64> %36, <i64 -1, i64 1>

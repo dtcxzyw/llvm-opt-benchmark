@@ -950,7 +950,7 @@ define i32 @Iso_ManNegEdgeNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds i8, ptr %0, i64 480
   %3 = load i32, ptr %2, align 8
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %38, label %.preheader
+  br i1 %4, label %39, label %.preheader
 
 .preheader:                                       ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -966,13 +966,13 @@ define i32 @Iso_ManNegEdgeNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %wide.trip.count = zext nneg i32 %.val25 to i64
   br label %10
 
-10:                                               ; preds = %.lr.ph, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.030 = phi i32 [ 0, %.lr.ph ], [ %.1, %37 ]
+10:                                               ; preds = %.lr.ph, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
+  %.030 = phi i32 [ 0, %.lr.ph ], [ %.1, %38 ]
   %11 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %37, label %14
+  br i1 %13, label %38, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr i8, ptr %12, i64 24
@@ -981,7 +981,7 @@ define i32 @Iso_ManNegEdgeNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %17 = and i32 %16, 7
   %18 = add nsw i32 %17, -7
   %narrow.i = icmp ult i32 %18, -2
-  br i1 %narrow.i, label %29, label %19
+  br i1 %narrow.i, label %30, label %19
 
 19:                                               ; preds = %14
   %20 = getelementptr i8, ptr %12, i64 8
@@ -995,39 +995,35 @@ define i32 @Iso_ManNegEdgeNum(ptr nocapture noundef %0) local_unnamed_addr #4 {
   %26 = ptrtoint ptr %.val27 to i64
   %27 = trunc i64 %26 to i32
   %28 = and i32 %27, 1
-  br label %.sink.split
+  %29 = add nsw i32 %24, %28
+  br label %38
 
-29:                                               ; preds = %14
-  %30 = and i64 %.val26, 7
-  %.not = icmp eq i64 %30, 3
-  br i1 %.not, label %31, label %37
+30:                                               ; preds = %14
+  %31 = and i64 %.val26, 7
+  %.not = icmp eq i64 %31, 3
+  br i1 %.not, label %32, label %38
 
-31:                                               ; preds = %29
-  %32 = getelementptr i8, ptr %12, i64 8
-  %.val23 = load ptr, ptr %32, align 8
-  %33 = ptrtoint ptr %.val23 to i64
-  %34 = trunc i64 %33 to i32
-  %35 = and i32 %34, 1
-  br label %.sink.split
+32:                                               ; preds = %30
+  %33 = getelementptr i8, ptr %12, i64 8
+  %.val23 = load ptr, ptr %33, align 8
+  %34 = ptrtoint ptr %.val23 to i64
+  %35 = trunc i64 %34 to i32
+  %36 = and i32 %35, 1
+  %37 = add nsw i32 %36, %.030
+  br label %38
 
-.sink.split:                                      ; preds = %19, %31
-  %.030.sink = phi i32 [ %.030, %31 ], [ %28, %19 ]
-  %.sink = phi i32 [ %35, %31 ], [ %24, %19 ]
-  %36 = add nsw i32 %.sink, %.030.sink
-  br label %37
-
-37:                                               ; preds = %.sink.split, %10, %29
-  %.1 = phi i32 [ %.030, %10 ], [ %.030, %29 ], [ %36, %.sink.split ]
+38:                                               ; preds = %10, %30, %32, %19
+  %.1 = phi i32 [ %.030, %10 ], [ %29, %19 ], [ %37, %32 ], [ %.030, %30 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !13
 
-.critedge:                                        ; preds = %37, %.preheader
-  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %37 ]
+.critedge:                                        ; preds = %38, %.preheader
+  %.0.lcssa = phi i32 [ 0, %.preheader ], [ %.1, %38 ]
   store i32 %.0.lcssa, ptr %2, align 8
-  br label %38
+  br label %39
 
-38:                                               ; preds = %1, %.critedge
+39:                                               ; preds = %1, %.critedge
   %.019 = phi i32 [ %.0.lcssa, %.critedge ], [ %3, %1 ]
   ret i32 %.019
 }

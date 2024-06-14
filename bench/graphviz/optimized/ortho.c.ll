@@ -2480,7 +2480,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_np_edges(ptr noundef %0) unname
   br i1 %.not19, label %.loopexit, label %.lr.ph22
 
 .lr.ph22:                                         ; preds = %1, %._crit_edge
-  %.01120 = phi ptr [ %43, %._crit_edge ], [ %2, %1 ]
+  %.01120 = phi ptr [ %48, %._crit_edge ], [ %2, %1 ]
   %3 = getelementptr inbounds i8, ptr %.01120, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @dtflatten(ptr noundef %4) #17
@@ -2488,7 +2488,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_np_edges(ptr noundef %0) unname
   br i1 %.not1217, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph22, %add_edges_in_G.exit.thread
-  %.01018 = phi ptr [ %42, %add_edges_in_G.exit.thread ], [ %5, %.lr.ph22 ]
+  %.01018 = phi ptr [ %47, %add_edges_in_G.exit.thread ], [ %5, %.lr.ph22 ]
   %6 = getelementptr inbounds i8, ptr %.01018, i64 32
   %7 = load i32, ptr %6, align 8
   %.not13 = icmp eq i32 %7, 0
@@ -2508,7 +2508,7 @@ define internal fastcc range(i32 -1, 1) i32 @add_np_edges(ptr noundef %0) unname
   %wide.trip.count.i = zext nneg i32 %7 to i64
   br label %.preheader.i
 
-.loopexit.i:                                      ; preds = %40
+.loopexit.i:                                      ; preds = %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %indvars.iv.next37.i = add nuw nsw i64 %indvars.iv36.i, 1
   %exitcond42.not.i = icmp eq i64 %indvars.iv.next37.i, %wide.trip.count41.i
@@ -2518,74 +2518,77 @@ define internal fastcc range(i32 -1, 1) i32 @add_np_edges(ptr noundef %0) unname
   %indvars.iv36.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next37.i, %.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.preheader.preheader.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %15 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv36.i
-  br label %16
+  %16 = trunc nuw nsw i64 %indvars.iv36.i to i32
+  br label %17
 
-16:                                               ; preds = %40, %.preheader.i
-  %indvars.iv33.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %indvars.iv.next34.i, %40 ]
-  %17 = load ptr, ptr %15, align 8
-  %18 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv33.i
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i8, ptr %17, align 8
-  %21 = trunc i8 %20 to i1
-  %22 = load i8, ptr %19, align 8
-  %23 = xor i8 %22, %20
-  %24 = and i8 %23, 1
-  %.not.i.i = icmp eq i8 %24, 0
-  br i1 %.not.i.i, label %25, label %add_edges_in_G.exit
+17:                                               ; preds = %45, %.preheader.i
+  %indvars.iv33.i = phi i64 [ %indvars.iv.i, %.preheader.i ], [ %indvars.iv.next34.i, %45 ]
+  %18 = load ptr, ptr %15, align 8
+  %19 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv33.i
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i8, ptr %18, align 8
+  %22 = trunc i8 %21 to i1
+  %23 = load i8, ptr %20, align 8
+  %24 = xor i8 %23, %21
+  %25 = and i8 %24, 1
+  %.not.i.i = icmp eq i8 %25, 0
+  br i1 %.not.i.i, label %26, label %add_edges_in_G.exit
 
-25:                                               ; preds = %16
-  %26 = getelementptr inbounds i8, ptr %17, i64 8
-  %27 = load double, ptr %26, align 8
-  %28 = getelementptr inbounds i8, ptr %19, i64 8
-  %29 = load double, ptr %28, align 8
-  %30 = fcmp une double %27, %29
-  br i1 %30, label %add_edges_in_G.exit, label %31
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds i8, ptr %18, i64 8
+  %28 = load double, ptr %27, align 8
+  %29 = getelementptr inbounds i8, ptr %20, i64 8
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp une double %28, %30
+  br i1 %31, label %add_edges_in_G.exit, label %32
 
-31:                                               ; preds = %25
-  br i1 %21, label %32, label %34
+32:                                               ; preds = %26
+  br i1 %22, label %33, label %35
 
-32:                                               ; preds = %31
-  %33 = tail call fastcc i32 @segCmp(ptr noundef nonnull %17, ptr noundef nonnull %19, i32 noundef 4, i32 noundef 2)
-  br label %36
+33:                                               ; preds = %32
+  %34 = tail call fastcc i32 @segCmp(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef 4, i32 noundef 2)
+  br label %37
 
-34:                                               ; preds = %31
-  %35 = tail call fastcc i32 @segCmp(ptr noundef nonnull %17, ptr noundef nonnull %19, i32 noundef 3, i32 noundef 1)
-  br label %36
+35:                                               ; preds = %32
+  %36 = tail call fastcc i32 @segCmp(ptr noundef nonnull %18, ptr noundef nonnull %20, i32 noundef 3, i32 noundef 1)
+  br label %37
 
-36:                                               ; preds = %34, %32
-  %.0.i.ph.i = phi i32 [ %35, %34 ], [ %33, %32 ]
-  %37 = icmp sgt i32 %.0.i.ph.i, 0
-  br i1 %37, label %.sink.split.i, label %38
+37:                                               ; preds = %35, %33
+  %.0.i.ph.i = phi i32 [ %36, %35 ], [ %34, %33 ]
+  %38 = icmp sgt i32 %.0.i.ph.i, 0
+  br i1 %38, label %39, label %41
 
-38:                                               ; preds = %36
-  %39 = icmp eq i32 %.0.i.ph.i, -1
-  br i1 %39, label %.sink.split.i, label %40
+39:                                               ; preds = %37
+  %40 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  tail call void @insert_edge(ptr noundef %12, i32 noundef %16, i32 noundef %40) #17
+  br label %45
 
-.sink.split.i:                                    ; preds = %38, %36
-  %.sink43.in.i = phi i64 [ %indvars.iv33.i, %36 ], [ %indvars.iv36.i, %38 ]
-  %.sink.in.i = phi i64 [ %indvars.iv36.i, %36 ], [ %indvars.iv33.i, %38 ]
-  %.sink.i = trunc i64 %.sink.in.i to i32
-  %.sink43.i = trunc i64 %.sink43.in.i to i32
-  tail call void @insert_edge(ptr noundef %12, i32 noundef %.sink.i, i32 noundef %.sink43.i) #17
-  br label %40
+41:                                               ; preds = %37
+  %42 = icmp eq i32 %.0.i.ph.i, -1
+  br i1 %42, label %43, label %45
 
-40:                                               ; preds = %.sink.split.i, %38
+43:                                               ; preds = %41
+  %44 = trunc nuw nsw i64 %indvars.iv33.i to i32
+  tail call void @insert_edge(ptr noundef %12, i32 noundef %44, i32 noundef %16) #17
+  br label %45
+
+45:                                               ; preds = %43, %41, %39
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit.i, label %16
+  br i1 %exitcond.not.i, label %.loopexit.i, label %17
 
-add_edges_in_G.exit:                              ; preds = %16, %25
-  %41 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.4) #17
+add_edges_in_G.exit:                              ; preds = %17, %26
+  %46 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.4) #17
   br label %.loopexit
 
 add_edges_in_G.exit.thread:                       ; preds = %.loopexit.i, %8, %.lr.ph
-  %42 = load ptr, ptr %.01018, align 8
-  %.not12 = icmp eq ptr %42, null
+  %47 = load ptr, ptr %.01018, align 8
+  %.not12 = icmp eq ptr %47, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %add_edges_in_G.exit.thread, %.lr.ph22
-  %43 = load ptr, ptr %.01120, align 8
-  %.not = icmp eq ptr %43, null
+  %48 = load ptr, ptr %.01120, align 8
+  %.not = icmp eq ptr %48, null
   br i1 %.not, label %.loopexit, label %.lr.ph22
 
 .loopexit:                                        ; preds = %._crit_edge, %1, %add_edges_in_G.exit

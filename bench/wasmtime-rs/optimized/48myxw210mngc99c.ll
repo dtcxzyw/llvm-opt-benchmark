@@ -2475,17 +2475,16 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %., ptr %.sroa.43.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %.0.lcssa.i, ptr %.sroa.5.0..sroa_idx, align 8
   br label %14
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %13, ptr %0, align 8
   br label %14
 
 14:                                               ; preds = %12, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hf7922cd6a15c69a6E.exit"
-  %.sink14 = phi ptr [ %0, %12 ], [ %.sroa.5.0..sroa_idx, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hf7922cd6a15c69a6E.exit" ]
-  %.sink13 = phi ptr [ %13, %12 ], [ %.0.lcssa.i, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hf7922cd6a15c69a6E.exit" ]
   %.sink = phi i64 [ 8, %12 ], [ 24, %"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hf7922cd6a15c69a6E.exit" ]
-  store ptr %.sink13, ptr %.sink14, align 8
   %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 %.sink
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.46.0..sroa_idx, i8 0, i64 16, i1 false)
   ret void

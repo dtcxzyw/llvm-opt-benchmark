@@ -3230,7 +3230,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_possessives(ptr nou
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8
   %.not = icmp sgt i32 %3, %5
-  br i1 %.not, label %6, label %46
+  br i1 %.not, label %6, label %47
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %0, align 8
@@ -3241,19 +3241,19 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_possessives(ptr nou
   %12 = zext i8 %11 to i32
   %.mask = and i32 %12, 224
   %.not12 = icmp eq i32 %.mask, 96
-  br i1 %.not12, label %13, label %46
+  br i1 %.not12, label %13, label %47
 
 13:                                               ; preds = %6
   %14 = and i32 %12, 31
   %15 = lshr i32 67133440, %14
   %16 = and i32 %15, 1
   %.not13 = icmp eq i32 %16, 0
-  br i1 %.not13, label %46, label %17
+  br i1 %.not13, label %47, label %17
 
 17:                                               ; preds = %13
   %18 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_0, i32 noundef 10) #2
   %.not14 = icmp eq i32 %18, 0
-  br i1 %.not14, label %46, label %19
+  br i1 %.not14, label %47, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds i8, ptr %0, i64 12
@@ -3262,57 +3262,57 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_mark_possessives(ptr nou
   %.neg37.i = sub i32 %22, %21
   %23 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_U, i32 noundef 105, i32 noundef 305, i32 noundef 0) #2
   %.not.i = icmp eq i32 %23, 0
-  br i1 %.not.i, label %24, label %30
+  br i1 %.not.i, label %24, label %31
 
 24:                                               ; preds = %19
   %25 = load i32, ptr %20, align 4
   %26 = load i32, ptr %2, align 8
   %27 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 305, i32 noundef 0) #2
   %.not36.i = icmp eq i32 %27, 0
-  br i1 %.not36.i, label %28, label %30
+  br i1 %.not36.i, label %28, label %31
 
 28:                                               ; preds = %24
   %.neg.i = sub i32 %26, %25
   %29 = load i32, ptr %20, align 4
+  %30 = add i32 %.neg.i, %29
   br label %r_mark_suffix_with_optional_U_vowel.exit
 
-30:                                               ; preds = %24, %19
-  %31 = load i32, ptr %20, align 4
-  %32 = add i32 %31, %.neg37.i
-  store i32 %32, ptr %2, align 8
-  %33 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_U, i32 noundef 105, i32 noundef 305, i32 noundef 0) #2
-  %.not38.i = icmp eq i32 %33, 0
-  %34 = load i32, ptr %20, align 4
-  %35 = add i32 %34, %.neg37.i
-  store i32 %35, ptr %2, align 8
-  br i1 %.not38.i, label %46, label %36
+31:                                               ; preds = %24, %19
+  %32 = load i32, ptr %20, align 4
+  %33 = add i32 %32, %.neg37.i
+  store i32 %33, ptr %2, align 8
+  %34 = tail call i32 @in_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_U, i32 noundef 105, i32 noundef 305, i32 noundef 0) #2
+  %.not38.i = icmp eq i32 %34, 0
+  %35 = load i32, ptr %20, align 4
+  %36 = add i32 %35, %.neg37.i
+  store i32 %36, ptr %2, align 8
+  br i1 %.not38.i, label %47, label %37
 
-36:                                               ; preds = %30
-  %37 = load ptr, ptr %0, align 8
-  %38 = load i32, ptr %4, align 8
-  %39 = tail call i32 @skip_b_utf8(ptr noundef %37, i32 noundef %35, i32 noundef %38, i32 noundef 1) #2
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %46, label %41
+37:                                               ; preds = %31
+  %38 = load ptr, ptr %0, align 8
+  %39 = load i32, ptr %4, align 8
+  %40 = tail call i32 @skip_b_utf8(ptr noundef %38, i32 noundef %36, i32 noundef %39, i32 noundef 1) #2
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %47, label %42
 
-41:                                               ; preds = %36
-  store i32 %39, ptr %2, align 8
-  %42 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 305, i32 noundef 0) #2
-  %.not39.i = icmp eq i32 %42, 0
-  br i1 %.not39.i, label %43, label %46
+42:                                               ; preds = %37
+  store i32 %40, ptr %2, align 8
+  %43 = tail call i32 @out_grouping_b_U(ptr noundef nonnull %0, ptr noundef nonnull @g_vowel, i32 noundef 97, i32 noundef 305, i32 noundef 0) #2
+  %.not39.i = icmp eq i32 %43, 0
+  br i1 %.not39.i, label %44, label %47
 
-43:                                               ; preds = %41
-  %44 = load i32, ptr %20, align 4
+44:                                               ; preds = %42
+  %45 = load i32, ptr %20, align 4
+  %46 = add i32 %45, %.neg37.i
   br label %r_mark_suffix_with_optional_U_vowel.exit
 
-r_mark_suffix_with_optional_U_vowel.exit:         ; preds = %28, %43
-  %.neg37.sink.i = phi i32 [ %.neg37.i, %43 ], [ %29, %28 ]
-  %.sink.i = phi i32 [ %44, %43 ], [ %.neg.i, %28 ]
-  %45 = add i32 %.sink.i, %.neg37.sink.i
-  store i32 %45, ptr %2, align 8
-  br label %46
+r_mark_suffix_with_optional_U_vowel.exit:         ; preds = %28, %44
+  %storemerge.i = phi i32 [ %30, %28 ], [ %46, %44 ]
+  store i32 %storemerge.i, ptr %2, align 8
+  br label %47
 
-46:                                               ; preds = %r_mark_suffix_with_optional_U_vowel.exit, %36, %41, %30, %17, %1, %6, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %6 ], [ 0, %1 ], [ 0, %17 ], [ 1, %r_mark_suffix_with_optional_U_vowel.exit ], [ 0, %36 ], [ 0, %41 ], [ 0, %30 ]
+47:                                               ; preds = %r_mark_suffix_with_optional_U_vowel.exit, %37, %42, %31, %17, %1, %6, %13
+  %.0 = phi i32 [ 0, %13 ], [ 0, %6 ], [ 0, %1 ], [ 0, %17 ], [ 1, %r_mark_suffix_with_optional_U_vowel.exit ], [ 0, %37 ], [ 0, %42 ], [ 0, %31 ]
   ret i32 %.0
 }
 

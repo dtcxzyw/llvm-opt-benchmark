@@ -1804,7 +1804,9 @@ if.then22:                                        ; preds = %for.body
   %shr.i57 = lshr i64 %5, 8
   %add24 = add nuw nsw i64 %shr.i57, 1
   %7 = load i64, ptr %str_sum, align 8
-  br label %if.end34.sink.split
+  %add25 = add i64 %add24, %7
+  store i64 %add25, ptr %str_sum, align 8
+  br label %if.end34
 
 if.else:                                          ; preds = %for.body
   %and.i = and i32 %conv.i, 6
@@ -1814,17 +1816,11 @@ if.else:                                          ; preds = %for.body
 if.then33:                                        ; preds = %if.else
   tail call fastcc void @yyjson_mut_stat(ptr noundef nonnull %child.027, ptr noundef nonnull %val_sum, ptr noundef %str_sum)
   %8 = load i64, ptr %val_sum, align 8
-  br label %if.end34.sink.split
-
-if.end34.sink.split:                              ; preds = %if.then22, %if.then33
-  %.sink28 = phi i64 [ -1, %if.then33 ], [ %7, %if.then22 ]
-  %.sink = phi i64 [ %8, %if.then33 ], [ %add24, %if.then22 ]
-  %val_sum.sink = phi ptr [ %val_sum, %if.then33 ], [ %str_sum, %if.then22 ]
-  %sub = add i64 %.sink, %.sink28
-  store i64 %sub, ptr %val_sum.sink, align 8
+  %sub = add i64 %8, -1
+  store i64 %sub, ptr %val_sum, align 8
   br label %if.end34
 
-if.end34:                                         ; preds = %if.end34.sink.split, %if.else
+if.end34:                                         ; preds = %if.then33, %if.else, %if.then22
   %next = getelementptr inbounds i8, ptr %child.027, i64 16
   %9 = load ptr, ptr %next, align 8
   %inc = add nuw nsw i64 %i.026, 1

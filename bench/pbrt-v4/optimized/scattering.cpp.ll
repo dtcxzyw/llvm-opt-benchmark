@@ -100,6 +100,7 @@ if.then:                                          ; preds = %entry
   %mul8 = fmul float %mul2, 0x3FB42E33E0000000
   %add9 = fadd float %sub7, %mul8
   %mul10 = fmul float %mul3, 0x3FA8E21960000000
+  %add11 = fadd float %add9, %mul10
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -121,13 +122,12 @@ if.else:                                          ; preds = %entry
   %mul26 = fmul float %mul2, 0x4022031660000000
   %sub27 = fsub float %add25, %mul26
   %mul28 = fmul float %mul3, 0x3FE47620E0000000
+  %add29 = fadd float %mul28, %sub27
   br label %return
 
 return:                                           ; preds = %if.else, %if.then
-  %sub27.sink = phi float [ %sub27, %if.else ], [ %mul10, %if.then ]
-  %mul28.sink = phi float [ %mul28, %if.else ], [ %add9, %if.then ]
-  %add29 = fadd float %mul28.sink, %sub27.sink
-  ret float %add29
+  %retval.0 = phi float [ %add11, %if.then ], [ %add29, %if.else ]
+  ret float %retval.0
 }
 
 ; Function Attrs: mustprogress uwtable

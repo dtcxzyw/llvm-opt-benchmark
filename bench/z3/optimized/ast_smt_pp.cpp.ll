@@ -4486,6 +4486,7 @@ if.end16:                                         ; preds = %if.then14, %sw.bb9
 
 if.then18:                                        ; preds = %if.end16
   %8 = load i32, ptr %sz, align 4
+  %add19 = add i32 %8, 7
   br label %if.end27.sink.split
 
 if.else:                                          ; preds = %if.end16
@@ -4497,13 +4498,12 @@ if.then21:                                        ; preds = %if.else
   %conv = trunc i64 %call23 to i32
   %add24 = add i32 %conv, 3
   %9 = load i32, ptr %sz, align 4
+  %add25 = add i32 %add24, %9
   br label %if.end27.sink.split
 
 if.end27.sink.split:                              ; preds = %if.then18, %if.then21
-  %.sink = phi i32 [ %9, %if.then21 ], [ 7, %if.then18 ]
-  %add24.sink = phi i32 [ %add24, %if.then21 ], [ %8, %if.then18 ]
-  %add25 = add i32 %add24.sink, %.sink
-  store i32 %add25, ptr %sz, align 4
+  %add25.sink = phi i32 [ %add25, %if.then21 ], [ %add19, %if.then18 ]
+  store i32 %add25.sink, ptr %sz, align 4
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.sink.split, %if.else

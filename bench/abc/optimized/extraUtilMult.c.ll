@@ -292,7 +292,7 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %44 = getelementptr inbounds i8, ptr %.val, i64 %43
   %45 = load i8, ptr %44, align 1
   %46 = icmp ult i8 %41, %45
-  br i1 %46, label %47, label %60
+  br i1 %46, label %47, label %61
 
 47:                                               ; preds = %Abc_BddCacheLookup.exit.thread
   %48 = getelementptr i8, ptr %0, i64 40
@@ -309,102 +309,103 @@ Abc_BddCacheLookup.exit.thread:                   ; preds = %13, %30, %Abc_BddCa
   %57 = getelementptr inbounds i32, ptr %.val78, i64 %50
   %58 = load i32, ptr %57, align 4
   %59 = xor i32 %58, %54
-  br label %97
+  %60 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %59, i32 noundef %.tr83)
+  br label %100
 
-60:                                               ; preds = %Abc_BddCacheLookup.exit.thread
-  %61 = icmp ugt i8 %41, %45
-  %62 = getelementptr i8, ptr %0, i64 40
-  %.val75 = load ptr, ptr %62, align 8
-  br i1 %61, label %63, label %75
+61:                                               ; preds = %Abc_BddCacheLookup.exit.thread
+  %62 = icmp ugt i8 %41, %45
+  %63 = getelementptr i8, ptr %0, i64 40
+  %.val75 = load ptr, ptr %63, align 8
+  br i1 %62, label %64, label %77
 
-63:                                               ; preds = %60
-  %64 = and i32 %.tr83, -2
-  %65 = sext i32 %64 to i64
-  %66 = getelementptr i32, ptr %.val75, i64 %65
-  %67 = getelementptr i8, ptr %66, i64 4
-  %68 = load i32, ptr %67, align 4
-  %69 = and i32 %.tr83, 1
-  %70 = xor i32 %68, %69
-  %71 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82, i32 noundef %70)
-  %.val79 = load ptr, ptr %62, align 8
-  %72 = getelementptr inbounds i32, ptr %.val79, i64 %65
-  %73 = load i32, ptr %72, align 4
-  %74 = xor i32 %73, %69
-  br label %97
+64:                                               ; preds = %61
+  %65 = and i32 %.tr83, -2
+  %66 = sext i32 %65 to i64
+  %67 = getelementptr i32, ptr %.val75, i64 %66
+  %68 = getelementptr i8, ptr %67, i64 4
+  %69 = load i32, ptr %68, align 4
+  %70 = and i32 %.tr83, 1
+  %71 = xor i32 %69, %70
+  %72 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82, i32 noundef %71)
+  %.val79 = load ptr, ptr %63, align 8
+  %73 = getelementptr inbounds i32, ptr %.val79, i64 %66
+  %74 = load i32, ptr %73, align 4
+  %75 = xor i32 %74, %70
+  %76 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82, i32 noundef %75)
+  br label %100
 
-75:                                               ; preds = %60
-  %76 = and i32 %.tr82, -2
-  %77 = sext i32 %76 to i64
-  %78 = getelementptr i32, ptr %.val75, i64 %77
-  %79 = getelementptr i8, ptr %78, i64 4
-  %80 = load i32, ptr %79, align 4
-  %81 = and i32 %.tr82, 1
-  %82 = xor i32 %80, %81
-  %83 = and i32 %.tr83, -2
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr i32, ptr %.val75, i64 %84
-  %86 = getelementptr i8, ptr %85, i64 4
-  %87 = load i32, ptr %86, align 4
-  %88 = and i32 %.tr83, 1
-  %89 = xor i32 %87, %88
-  %90 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %82, i32 noundef %89)
-  %.val80 = load ptr, ptr %62, align 8
-  %91 = getelementptr inbounds i32, ptr %.val80, i64 %77
-  %92 = load i32, ptr %91, align 4
-  %93 = xor i32 %92, %81
-  %94 = getelementptr inbounds i32, ptr %.val80, i64 %84
-  %95 = load i32, ptr %94, align 4
-  %96 = xor i32 %95, %88
-  br label %97
+77:                                               ; preds = %61
+  %78 = and i32 %.tr82, -2
+  %79 = sext i32 %78 to i64
+  %80 = getelementptr i32, ptr %.val75, i64 %79
+  %81 = getelementptr i8, ptr %80, i64 4
+  %82 = load i32, ptr %81, align 4
+  %83 = and i32 %.tr82, 1
+  %84 = xor i32 %82, %83
+  %85 = and i32 %.tr83, -2
+  %86 = sext i32 %85 to i64
+  %87 = getelementptr i32, ptr %.val75, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 4
+  %89 = load i32, ptr %88, align 4
+  %90 = and i32 %.tr83, 1
+  %91 = xor i32 %89, %90
+  %92 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %84, i32 noundef %91)
+  %.val80 = load ptr, ptr %63, align 8
+  %93 = getelementptr inbounds i32, ptr %.val80, i64 %79
+  %94 = load i32, ptr %93, align 4
+  %95 = xor i32 %94, %83
+  %96 = getelementptr inbounds i32, ptr %.val80, i64 %86
+  %97 = load i32, ptr %96, align 4
+  %98 = xor i32 %97, %90
+  %99 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %95, i32 noundef %98)
+  br label %100
 
-97:                                               ; preds = %63, %75, %47
-  %.sink = phi i32 [ %74, %63 ], [ %96, %75 ], [ %.tr83, %47 ]
-  %.tr82.lcssa89.sink = phi i32 [ %.tr82, %63 ], [ %93, %75 ], [ %59, %47 ]
-  %.063 = phi i32 [ %71, %63 ], [ %90, %75 ], [ %56, %47 ]
-  %98 = tail call i32 @Abc_BddAnd(ptr noundef nonnull %0, i32 noundef %.tr82.lcssa89.sink, i32 noundef %.sink)
+100:                                              ; preds = %64, %77, %47
+  %.063 = phi i32 [ %56, %47 ], [ %72, %64 ], [ %92, %77 ]
+  %.0 = phi i32 [ %60, %47 ], [ %76, %64 ], [ %99, %77 ]
   %.val72 = load ptr, ptr %37, align 8
-  %99 = getelementptr inbounds i8, ptr %.val72, i64 %39
-  %100 = load i8, ptr %99, align 1
-  %101 = getelementptr inbounds i8, ptr %.val72, i64 %43
+  %101 = getelementptr inbounds i8, ptr %.val72, i64 %39
   %102 = load i8, ptr %101, align 1
-  %103 = tail call i8 @llvm.umin.i8(i8 %100, i8 %102)
-  %104 = zext i8 %103 to i32
-  %105 = icmp eq i32 %98, %.063
-  br i1 %105, label %Abc_BddUniqueCreate.exit, label %106
+  %103 = getelementptr inbounds i8, ptr %.val72, i64 %43
+  %104 = load i8, ptr %103, align 1
+  %105 = tail call i8 @llvm.umin.i8(i8 %102, i8 %104)
+  %106 = zext i8 %105 to i32
+  %107 = icmp eq i32 %.0, %.063
+  br i1 %107, label %Abc_BddUniqueCreate.exit, label %108
 
-106:                                              ; preds = %97
-  %107 = and i32 %.063, 1
-  %.not.i = icmp eq i32 %107, 0
-  br i1 %.not.i, label %108, label %110
+108:                                              ; preds = %100
+  %109 = and i32 %.063, 1
+  %.not.i = icmp eq i32 %109, 0
+  br i1 %.not.i, label %110, label %112
 
-108:                                              ; preds = %106
-  %109 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %0, i32 noundef %104, i32 noundef %98, i32 noundef %.063)
+110:                                              ; preds = %108
+  %111 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %0, i32 noundef %106, i32 noundef %.0, i32 noundef %.063)
   br label %Abc_BddUniqueCreate.exit
 
-110:                                              ; preds = %106
-  %111 = xor i32 %98, 1
-  %112 = and i32 %.063, -2
-  %113 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %0, i32 noundef %104, i32 noundef %111, i32 noundef %112)
-  %114 = xor i32 %113, 1
+112:                                              ; preds = %108
+  %113 = xor i32 %.0, 1
+  %114 = and i32 %.063, -2
+  %115 = tail call fastcc i32 @Abc_BddUniqueCreateInt(ptr noundef nonnull %0, i32 noundef %106, i32 noundef %113, i32 noundef %114)
+  %116 = xor i32 %115, 1
   br label %Abc_BddUniqueCreate.exit
 
-Abc_BddUniqueCreate.exit:                         ; preds = %97, %108, %110
-  %.0.i = phi i32 [ %114, %110 ], [ %109, %108 ], [ %.063, %97 ]
-  %115 = load ptr, ptr %14, align 8
-  %116 = load i32, ptr %19, align 4
-  %117 = and i32 %116, %18
-  %118 = mul i32 %117, 3
-  %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %115, i64 %119
-  store i32 %.tr82, ptr %120, align 4
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
-  store i32 %.tr83, ptr %121, align 4
-  %122 = getelementptr inbounds i8, ptr %120, i64 8
-  store i32 %.0.i, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 76
-  %124 = load i32, ptr %123, align 4
-  %125 = add nsw i32 %124, 1
-  store i32 %125, ptr %123, align 4
+Abc_BddUniqueCreate.exit:                         ; preds = %100, %110, %112
+  %.0.i = phi i32 [ %116, %112 ], [ %111, %110 ], [ %.063, %100 ]
+  %117 = load ptr, ptr %14, align 8
+  %118 = load i32, ptr %19, align 4
+  %119 = and i32 %118, %18
+  %120 = mul i32 %119, 3
+  %121 = zext i32 %120 to i64
+  %122 = getelementptr inbounds i32, ptr %117, i64 %121
+  store i32 %.tr82, ptr %122, align 4
+  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  store i32 %.tr83, ptr %123, align 4
+  %124 = getelementptr inbounds i8, ptr %122, i64 8
+  store i32 %.0.i, ptr %124, align 4
+  %125 = getelementptr inbounds i8, ptr %0, i64 76
+  %126 = load i32, ptr %125, align 4
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %125, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %8, %6, %tailrecurse, %Abc_BddCacheLookup.exit, %Abc_BddUniqueCreate.exit

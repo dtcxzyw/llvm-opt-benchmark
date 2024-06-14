@@ -2309,6 +2309,7 @@ if.then13:                                        ; preds = %if.end
   %user_line_stride = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %15 = load i32, ptr %user_line_stride, align 4
   %conv16 = sext i32 %15 to i64
+  %mul = mul nsw i64 %conv16, %conv15
   br label %if.end35
 
 if.else:                                          ; preds = %if.end
@@ -2325,6 +2326,7 @@ if.then24:                                        ; preds = %if.else22
   %user_line_stride26 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %16 = load i32, ptr %user_line_stride26, align 4
   %conv27 = sext i32 %16 to i64
+  %mul28 = mul nsw i64 %indvars.iv215, %conv27
   br label %if.end35
 
 if.else30:                                        ; preds = %if.else22
@@ -2334,10 +2336,8 @@ if.else30:                                        ; preds = %if.else22
   br label %for.inc182
 
 if.end35:                                         ; preds = %if.then24, %if.then13
-  %conv27.sink = phi i64 [ %conv27, %if.then24 ], [ %conv15, %if.then13 ]
-  %indvars.iv215.sink = phi i64 [ %indvars.iv215, %if.then24 ], [ %conv16, %if.then13 ]
-  %mul28 = mul nsw i64 %indvars.iv215.sink, %conv27.sink
-  %cdata.0 = getelementptr inbounds i8, ptr %10, i64 %mul28
+  %mul.pn = phi i64 [ %mul, %if.then13 ], [ %mul28, %if.then24 ]
+  %cdata.0 = getelementptr inbounds i8, ptr %10, i64 %mul.pn
   %data_type = getelementptr inbounds i8, ptr %add.ptr, i64 26
   %17 = load i16, ptr %data_type, align 2
   switch i16 %17, label %return [

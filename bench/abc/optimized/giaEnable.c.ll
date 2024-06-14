@@ -4187,7 +4187,7 @@ Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPo.exit.th
   %745 = getelementptr inbounds ptr, ptr %.val192, i64 %indvars.iv321
   %746 = load ptr, ptr %745, align 8
   %747 = icmp eq ptr %746, null
-  br i1 %747, label %748, label %757
+  br i1 %747, label %748, label %758
 
 748:                                              ; preds = %744
   %749 = load i64, ptr %743, align 4
@@ -4198,49 +4198,49 @@ Gia_ObjIsPo.exit.thread:                          ; preds = %Gia_ObjIsPo.exit.th
   %754 = trunc i64 %749 to i32
   %755 = lshr i32 %754, 29
   %756 = and i32 %755, 1
+  %757 = xor i32 %756, %753
   br label %.critedge2
 
-757:                                              ; preds = %744
-  %758 = ptrtoint ptr %746 to i64
-  %759 = and i64 %758, -2
-  %760 = inttoptr i64 %759 to ptr
-  %761 = getelementptr inbounds i8, ptr %760, i64 8
-  %762 = load i32, ptr %761, align 4
-  %763 = trunc i64 %758 to i32
-  %764 = and i32 %763, 1
+758:                                              ; preds = %744
+  %759 = ptrtoint ptr %746 to i64
+  %760 = and i64 %759, -2
+  %761 = inttoptr i64 %760 to ptr
+  %762 = getelementptr inbounds i8, ptr %761, i64 8
+  %763 = load i32, ptr %762, align 4
+  %764 = trunc i64 %759 to i32
+  %765 = and i32 %764, 1
+  %766 = xor i32 %763, %765
   br label %.critedge2
 
-.critedge2:                                       ; preds = %748, %757
-  %.sink329 = phi i32 [ %753, %748 ], [ %764, %757 ]
-  %.sink = phi i32 [ %756, %748 ], [ %762, %757 ]
-  %765 = xor i32 %.sink, %.sink329
-  %766 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %534, i32 noundef %765)
-  %767 = getelementptr inbounds i8, ptr %743, i64 8
-  store i32 %766, ptr %767, align 4
+.critedge2:                                       ; preds = %748, %758
+  %.sink328 = phi i32 [ %757, %748 ], [ %766, %758 ]
+  %767 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef nonnull %534, i32 noundef %.sink328)
+  %768 = getelementptr inbounds i8, ptr %743, i64 8
+  store i32 %767, ptr %768, align 4
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %.val176 = load i32, ptr %5, align 8
-  %768 = sext i32 %.val176 to i64
-  %769 = icmp slt i64 %indvars.iv.next322, %768
-  br i1 %769, label %.lr.ph316, label %.critedge4, !llvm.loop !37
+  %769 = sext i32 %.val176 to i64
+  %770 = icmp slt i64 %indvars.iv.next322, %769
+  br i1 %770, label %.lr.ph316, label %.critedge4, !llvm.loop !37
 
 .critedge4:                                       ; preds = %.lr.ph316, %.critedge2, %.critedge2.preheader
   %.val176.lcssa = phi i32 [ %.val176313, %.critedge2.preheader ], [ %.val176, %.critedge2 ], [ %.val176315, %.lr.ph316 ]
   tail call void @Gia_ManSetRegNum(ptr noundef nonnull %534, i32 noundef %.val176.lcssa) #15
-  %770 = load ptr, ptr %14, align 8
-  %.not.i292 = icmp eq ptr %770, null
-  br i1 %.not.i292, label %Vec_PtrFree.exit293, label %771
+  %771 = load ptr, ptr %14, align 8
+  %.not.i292 = icmp eq ptr %771, null
+  br i1 %.not.i292, label %Vec_PtrFree.exit293, label %772
 
-771:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %770) #15
+772:                                              ; preds = %.critedge4
+  tail call void @free(ptr noundef nonnull %771) #15
   br label %Vec_PtrFree.exit293
 
-Vec_PtrFree.exit293:                              ; preds = %.critedge4, %771
+Vec_PtrFree.exit293:                              ; preds = %.critedge4, %772
   tail call void @free(ptr noundef nonnull %6) #15
-  %772 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %534) #15
+  %773 = tail call ptr @Gia_ManCleanup(ptr noundef nonnull %534) #15
   tail call void @Gia_ManStop(ptr noundef nonnull %534) #15
-  %773 = getelementptr inbounds i8, ptr %772, i64 440
-  store ptr %15, ptr %773, align 8
-  ret ptr %772
+  %774 = getelementptr inbounds i8, ptr %773, i64 440
+  store ptr %15, ptr %774, align 8
+  ret ptr %773
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)

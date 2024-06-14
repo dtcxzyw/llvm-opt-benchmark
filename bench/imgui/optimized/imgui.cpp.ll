@@ -40643,11 +40643,11 @@ if.then87:                                        ; preds = %cond.end
 if.end.i:                                         ; preds = %if.then87
   %ItemSpacing.i = getelementptr inbounds i8, ptr %0, i64 14652
   %19 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %17, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %17, i64 280
   %20 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %17, i64 272
   %add25.i = fadd float %19, %20
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %17, i64 284
   %21 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %17, i64 276
@@ -51478,11 +51478,14 @@ if.then1:                                         ; preds = %if.end
   %sub = fsub float %3, %4
   %add = fadd float %sub, %offset_from_start_x
   %add6 = fadd float %spacing_w.addr.0, %add
+  %DC = getelementptr inbounds i8, ptr %1, i64 272
   %GroupOffset = getelementptr inbounds i8, ptr %1, i64 348
   %5 = load float, ptr %GroupOffset, align 4
   %add8 = fadd float %5, %add6
   %ColumnsOffset = getelementptr inbounds i8, ptr %1, i64 344
   %6 = load float, ptr %ColumnsOffset, align 8
+  %add11 = fadd float %6, %add8
+  store float %add11, ptr %DC, align 8
   br label %if.end35
 
 if.else:                                          ; preds = %if.end
@@ -51495,16 +51498,14 @@ if.then19:                                        ; preds = %if.else
 
 if.end21:                                         ; preds = %if.then19, %if.else
   %spacing_w.addr.1 = phi float [ %7, %if.then19 ], [ %spacing_w, %if.else ]
+  %DC22 = getelementptr inbounds i8, ptr %1, i64 272
   %CursorPosPrevLine23 = getelementptr inbounds i8, ptr %1, i64 280
   %8 = load float, ptr %CursorPosPrevLine23, align 8
+  %add25 = fadd float %spacing_w.addr.1, %8
+  store float %add25, ptr %DC22, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end21, %if.then1
-  %.sink = phi float [ %8, %if.end21 ], [ %add8, %if.then1 ]
-  %spacing_w.addr.1.sink = phi float [ %spacing_w.addr.1, %if.end21 ], [ %6, %if.then1 ]
-  %DC22.sink = getelementptr inbounds i8, ptr %1, i64 272
-  %add25 = fadd float %spacing_w.addr.1.sink, %.sink
-  store float %add25, ptr %DC22.sink, align 8
   %y31 = getelementptr inbounds i8, ptr %1, i64 284
   %9 = load float, ptr %y31, align 4
   %y34 = getelementptr inbounds i8, ptr %1, i64 276
@@ -57820,11 +57821,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %ItemSpacing.i = getelementptr inbounds i8, ptr %1, i64 14652
   %4 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %2, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %2, i64 280
   %5 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %2, i64 272
   %add25.i = fadd float %4, %5
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %2, i64 284
   %6 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %2, i64 276
@@ -57855,11 +57856,11 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %entry, %if.end.i
 if.end.i5:                                        ; preds = %_ZN5ImGui8SameLineEff.exit
   %ItemSpacing.i6 = getelementptr inbounds i8, ptr %9, i64 14652
   %12 = load float, ptr %ItemSpacing.i6, align 4
-  %CursorPosPrevLine23.i7 = getelementptr inbounds i8, ptr %10, i64 280
-  %13 = load float, ptr %CursorPosPrevLine23.i7, align 8
-  %DC22.sink.i8 = getelementptr inbounds i8, ptr %10, i64 272
+  %DC22.i7 = getelementptr inbounds i8, ptr %10, i64 272
+  %CursorPosPrevLine23.i8 = getelementptr inbounds i8, ptr %10, i64 280
+  %13 = load float, ptr %CursorPosPrevLine23.i8, align 8
   %add25.i9 = fadd float %12, %13
-  store float %add25.i9, ptr %DC22.sink.i8, align 8
+  store float %add25.i9, ptr %DC22.i7, align 8
   %y31.i10 = getelementptr inbounds i8, ptr %10, i64 284
   %14 = load float, ptr %y31.i10, align 4
   %y34.i11 = getelementptr inbounds i8, ptr %10, i64 276
@@ -57890,11 +57891,11 @@ _ZN5ImGui8SameLineEff.exit17:                     ; preds = %_ZN5ImGui8SameLineE
 if.end.i22:                                       ; preds = %_ZN5ImGui8SameLineEff.exit17
   %ItemSpacing.i23 = getelementptr inbounds i8, ptr %17, i64 14652
   %20 = load float, ptr %ItemSpacing.i23, align 4
-  %CursorPosPrevLine23.i24 = getelementptr inbounds i8, ptr %18, i64 280
-  %21 = load float, ptr %CursorPosPrevLine23.i24, align 8
-  %DC22.sink.i25 = getelementptr inbounds i8, ptr %18, i64 272
+  %DC22.i24 = getelementptr inbounds i8, ptr %18, i64 272
+  %CursorPosPrevLine23.i25 = getelementptr inbounds i8, ptr %18, i64 280
+  %21 = load float, ptr %CursorPosPrevLine23.i25, align 8
   %add25.i26 = fadd float %20, %21
-  store float %add25.i26, ptr %DC22.sink.i25, align 8
+  store float %add25.i26, ptr %DC22.i24, align 8
   %y31.i27 = getelementptr inbounds i8, ptr %18, i64 284
   %22 = load float, ptr %y31.i27, align 4
   %y34.i28 = getelementptr inbounds i8, ptr %18, i64 276
@@ -60010,11 +60011,11 @@ if.then9:                                         ; preds = %for.body7
 if.end.i:                                         ; preds = %if.then9
   %ItemSpacing.i = getelementptr inbounds i8, ptr %1, i64 14652
   %4 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %2, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %2, i64 280
   %5 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %2, i64 272
   %add25.i = fadd float %4, %5
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %2, i64 284
   %6 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %2, i64 276
@@ -60240,11 +60241,11 @@ entry:
 if.end.i:                                         ; preds = %entry
   %ItemSpacing.i = getelementptr inbounds i8, ptr %4, i64 14652
   %7 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %5, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %5, i64 280
   %8 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %5, i64 272
   %add25.i = fadd float %7, %8
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %5, i64 284
   %9 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %5, i64 276
@@ -60392,11 +60393,11 @@ _ZN5ImGui7PopFontEv.exit:                         ; preds = %cond.end.i, %cond.t
 if.end.i79:                                       ; preds = %_ZN5ImGui7PopFontEv.exit
   %ItemSpacing.i80 = getelementptr inbounds i8, ptr %39, i64 14652
   %42 = load float, ptr %ItemSpacing.i80, align 4
-  %CursorPosPrevLine23.i81 = getelementptr inbounds i8, ptr %40, i64 280
-  %43 = load float, ptr %CursorPosPrevLine23.i81, align 8
-  %DC22.sink.i82 = getelementptr inbounds i8, ptr %40, i64 272
+  %DC22.i81 = getelementptr inbounds i8, ptr %40, i64 272
+  %CursorPosPrevLine23.i82 = getelementptr inbounds i8, ptr %40, i64 280
+  %43 = load float, ptr %CursorPosPrevLine23.i82, align 8
   %add25.i83 = fadd float %42, %43
-  store float %add25.i83, ptr %DC22.sink.i82, align 8
+  store float %add25.i83, ptr %DC22.i81, align 8
   %y31.i84 = getelementptr inbounds i8, ptr %40, i64 284
   %44 = load float, ptr %y31.i84, align 4
   %y34.i85 = getelementptr inbounds i8, ptr %40, i64 276
@@ -60978,11 +60979,11 @@ if.then25:                                        ; preds = %if.end23
 if.end.i:                                         ; preds = %if.then25
   %ItemSpacing.i = getelementptr inbounds i8, ptr %15, i64 14652
   %18 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %16, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %16, i64 280
   %19 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %16, i64 272
   %add25.i = fadd float %18, %19
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %16, i64 284
   %20 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %16, i64 276
@@ -61056,11 +61057,11 @@ if.end39:                                         ; preds = %if.end34.if.end39_c
 if.end.i376:                                      ; preds = %if.end39
   %ItemSpacing.i377 = getelementptr inbounds i8, ptr %27, i64 14652
   %30 = load float, ptr %ItemSpacing.i377, align 4
-  %CursorPosPrevLine23.i378 = getelementptr inbounds i8, ptr %28, i64 280
-  %31 = load float, ptr %CursorPosPrevLine23.i378, align 8
-  %DC22.sink.i379 = getelementptr inbounds i8, ptr %28, i64 272
+  %DC22.i378 = getelementptr inbounds i8, ptr %28, i64 272
+  %CursorPosPrevLine23.i379 = getelementptr inbounds i8, ptr %28, i64 280
+  %31 = load float, ptr %CursorPosPrevLine23.i379, align 8
   %add25.i380 = fadd float %30, %31
-  store float %add25.i380, ptr %DC22.sink.i379, align 8
+  store float %add25.i380, ptr %DC22.i378, align 8
   %y31.i381 = getelementptr inbounds i8, ptr %28, i64 284
   %32 = load float, ptr %y31.i381, align 4
   %y34.i382 = getelementptr inbounds i8, ptr %28, i64 276
@@ -61091,11 +61092,11 @@ _ZN5ImGui8SameLineEff.exit388:                    ; preds = %if.end39, %if.end.i
 if.end.i392:                                      ; preds = %_ZN5ImGui8SameLineEff.exit388
   %ItemSpacing.i393 = getelementptr inbounds i8, ptr %35, i64 14652
   %38 = load float, ptr %ItemSpacing.i393, align 4
-  %CursorPosPrevLine23.i394 = getelementptr inbounds i8, ptr %36, i64 280
-  %39 = load float, ptr %CursorPosPrevLine23.i394, align 8
-  %DC22.sink.i395 = getelementptr inbounds i8, ptr %36, i64 272
+  %DC22.i394 = getelementptr inbounds i8, ptr %36, i64 272
+  %CursorPosPrevLine23.i395 = getelementptr inbounds i8, ptr %36, i64 280
+  %39 = load float, ptr %CursorPosPrevLine23.i395, align 8
   %add25.i396 = fadd float %38, %39
-  store float %add25.i396, ptr %DC22.sink.i395, align 8
+  store float %add25.i396, ptr %DC22.i394, align 8
   %y31.i397 = getelementptr inbounds i8, ptr %36, i64 284
   %40 = load float, ptr %y31.i397, align 4
   %y34.i398 = getelementptr inbounds i8, ptr %36, i64 276
@@ -61126,11 +61127,11 @@ _ZN5ImGui8SameLineEff.exit404:                    ; preds = %_ZN5ImGui8SameLineE
 if.end.i408:                                      ; preds = %_ZN5ImGui8SameLineEff.exit404
   %ItemSpacing.i409 = getelementptr inbounds i8, ptr %43, i64 14652
   %46 = load float, ptr %ItemSpacing.i409, align 4
-  %CursorPosPrevLine23.i410 = getelementptr inbounds i8, ptr %44, i64 280
-  %47 = load float, ptr %CursorPosPrevLine23.i410, align 8
-  %DC22.sink.i411 = getelementptr inbounds i8, ptr %44, i64 272
+  %DC22.i410 = getelementptr inbounds i8, ptr %44, i64 272
+  %CursorPosPrevLine23.i411 = getelementptr inbounds i8, ptr %44, i64 280
+  %47 = load float, ptr %CursorPosPrevLine23.i411, align 8
   %add25.i412 = fadd float %46, %47
-  store float %add25.i412, ptr %DC22.sink.i411, align 8
+  store float %add25.i412, ptr %DC22.i410, align 8
   %y31.i413 = getelementptr inbounds i8, ptr %44, i64 284
   %48 = load float, ptr %y31.i413, align 4
   %y34.i414 = getelementptr inbounds i8, ptr %44, i64 276
@@ -61164,11 +61165,11 @@ _ZN5ImGui8SameLineEff.exit420:                    ; preds = %_ZN5ImGui8SameLineE
 if.end.i424:                                      ; preds = %_ZN5ImGui8SameLineEff.exit420
   %ItemSpacing.i425 = getelementptr inbounds i8, ptr %51, i64 14652
   %54 = load float, ptr %ItemSpacing.i425, align 4
-  %CursorPosPrevLine23.i426 = getelementptr inbounds i8, ptr %52, i64 280
-  %55 = load float, ptr %CursorPosPrevLine23.i426, align 8
-  %DC22.sink.i427 = getelementptr inbounds i8, ptr %52, i64 272
+  %DC22.i426 = getelementptr inbounds i8, ptr %52, i64 272
+  %CursorPosPrevLine23.i427 = getelementptr inbounds i8, ptr %52, i64 280
+  %55 = load float, ptr %CursorPosPrevLine23.i427, align 8
   %add25.i428 = fadd float %54, %55
-  store float %add25.i428, ptr %DC22.sink.i427, align 8
+  store float %add25.i428, ptr %DC22.i426, align 8
   %y31.i429 = getelementptr inbounds i8, ptr %52, i64 284
   %56 = load float, ptr %y31.i429, align 4
   %y34.i430 = getelementptr inbounds i8, ptr %52, i64 276
@@ -61382,11 +61383,11 @@ if.end76:                                         ; preds = %for.end, %land.lhs.
 if.end.i453:                                      ; preds = %if.end76
   %ItemSpacing.i454 = getelementptr inbounds i8, ptr %102, i64 14652
   %105 = load float, ptr %ItemSpacing.i454, align 4
-  %CursorPosPrevLine23.i455 = getelementptr inbounds i8, ptr %103, i64 280
-  %106 = load float, ptr %CursorPosPrevLine23.i455, align 8
-  %DC22.sink.i456 = getelementptr inbounds i8, ptr %103, i64 272
+  %DC22.i455 = getelementptr inbounds i8, ptr %103, i64 272
+  %CursorPosPrevLine23.i456 = getelementptr inbounds i8, ptr %103, i64 280
+  %106 = load float, ptr %CursorPosPrevLine23.i456, align 8
   %add25.i457 = fadd float %105, %106
-  store float %add25.i457, ptr %DC22.sink.i456, align 8
+  store float %add25.i457, ptr %DC22.i455, align 8
   %y31.i458 = getelementptr inbounds i8, ptr %103, i64 284
   %107 = load float, ptr %y31.i458, align 4
   %y34.i459 = getelementptr inbounds i8, ptr %103, i64 276
@@ -62053,11 +62054,11 @@ if.end227:                                        ; preds = %for.inc224, %for.co
 if.end.i690:                                      ; preds = %if.end227
   %ItemSpacing.i692 = getelementptr inbounds i8, ptr %243, i64 14652
   %246 = load float, ptr %ItemSpacing.i692, align 4
-  %CursorPosPrevLine23.i694 = getelementptr inbounds i8, ptr %244, i64 280
-  %247 = load float, ptr %CursorPosPrevLine23.i694, align 8
-  %DC22.sink.i695 = getelementptr inbounds i8, ptr %244, i64 272
+  %DC22.i694 = getelementptr inbounds i8, ptr %244, i64 272
+  %CursorPosPrevLine23.i695 = getelementptr inbounds i8, ptr %244, i64 280
+  %247 = load float, ptr %CursorPosPrevLine23.i695, align 8
   %add25.i696 = fadd float %246, %247
-  store float %add25.i696, ptr %DC22.sink.i695, align 8
+  store float %add25.i696, ptr %DC22.i694, align 8
   %y31.i697 = getelementptr inbounds i8, ptr %244, i64 284
   %248 = load float, ptr %y31.i697, align 4
   %y34.i698 = getelementptr inbounds i8, ptr %244, i64 276
@@ -62811,11 +62812,11 @@ if.end416:                                        ; preds = %for.inc.i, %_ZN15Im
 if.end.i839:                                      ; preds = %if.end416
   %ItemSpacing.i841 = getelementptr inbounds i8, ptr %394, i64 14652
   %397 = load float, ptr %ItemSpacing.i841, align 4
-  %CursorPosPrevLine23.i843 = getelementptr inbounds i8, ptr %395, i64 280
-  %398 = load float, ptr %CursorPosPrevLine23.i843, align 8
-  %DC22.sink.i844 = getelementptr inbounds i8, ptr %395, i64 272
+  %DC22.i843 = getelementptr inbounds i8, ptr %395, i64 272
+  %CursorPosPrevLine23.i844 = getelementptr inbounds i8, ptr %395, i64 280
+  %398 = load float, ptr %CursorPosPrevLine23.i844, align 8
   %add25.i845 = fadd float %397, %398
-  store float %add25.i845, ptr %DC22.sink.i844, align 8
+  store float %add25.i845, ptr %DC22.i843, align 8
   %y31.i846 = getelementptr inbounds i8, ptr %395, i64 284
   %399 = load float, ptr %y31.i846, align 4
   %y34.i847 = getelementptr inbounds i8, ptr %395, i64 276
@@ -62902,11 +62903,11 @@ if.end420:                                        ; preds = %for.body.i862, %_ZN
 if.end.i873:                                      ; preds = %if.end420
   %ItemSpacing.i875 = getelementptr inbounds i8, ptr %411, i64 14652
   %414 = load float, ptr %ItemSpacing.i875, align 4
-  %CursorPosPrevLine23.i877 = getelementptr inbounds i8, ptr %412, i64 280
-  %415 = load float, ptr %CursorPosPrevLine23.i877, align 8
-  %DC22.sink.i878 = getelementptr inbounds i8, ptr %412, i64 272
+  %DC22.i877 = getelementptr inbounds i8, ptr %412, i64 272
+  %CursorPosPrevLine23.i878 = getelementptr inbounds i8, ptr %412, i64 280
+  %415 = load float, ptr %CursorPosPrevLine23.i878, align 8
   %add25.i879 = fadd float %414, %415
-  store float %add25.i879, ptr %DC22.sink.i878, align 8
+  store float %add25.i879, ptr %DC22.i877, align 8
   %y31.i880 = getelementptr inbounds i8, ptr %412, i64 284
   %416 = load float, ptr %y31.i880, align 4
   %y34.i881 = getelementptr inbounds i8, ptr %412, i64 276
@@ -62945,11 +62946,11 @@ if.end424:                                        ; preds = %if.then422, %_ZN5Im
 if.end.i891:                                      ; preds = %if.end424
   %ItemSpacing.i893 = getelementptr inbounds i8, ptr %420, i64 14652
   %423 = load float, ptr %ItemSpacing.i893, align 4
-  %CursorPosPrevLine23.i895 = getelementptr inbounds i8, ptr %421, i64 280
-  %424 = load float, ptr %CursorPosPrevLine23.i895, align 8
-  %DC22.sink.i896 = getelementptr inbounds i8, ptr %421, i64 272
+  %DC22.i895 = getelementptr inbounds i8, ptr %421, i64 272
+  %CursorPosPrevLine23.i896 = getelementptr inbounds i8, ptr %421, i64 280
+  %424 = load float, ptr %CursorPosPrevLine23.i896, align 8
   %add25.i897 = fadd float %423, %424
-  store float %add25.i897, ptr %DC22.sink.i896, align 8
+  store float %add25.i897, ptr %DC22.i895, align 8
   %y31.i898 = getelementptr inbounds i8, ptr %421, i64 284
   %425 = load float, ptr %y31.i898, align 4
   %y34.i899 = getelementptr inbounds i8, ptr %421, i64 276
@@ -63213,11 +63214,11 @@ if.end531:                                        ; preds = %lor.lhs.false528
 if.end.i957:                                      ; preds = %if.end531
   %ItemSpacing.i959 = getelementptr inbounds i8, ptr %465, i64 14652
   %468 = load float, ptr %ItemSpacing.i959, align 4
-  %CursorPosPrevLine23.i961 = getelementptr inbounds i8, ptr %466, i64 280
-  %469 = load float, ptr %CursorPosPrevLine23.i961, align 8
-  %DC22.sink.i962 = getelementptr inbounds i8, ptr %466, i64 272
+  %DC22.i961 = getelementptr inbounds i8, ptr %466, i64 272
+  %CursorPosPrevLine23.i962 = getelementptr inbounds i8, ptr %466, i64 280
+  %469 = load float, ptr %CursorPosPrevLine23.i962, align 8
   %add25.i963 = fadd float %468, %469
-  store float %add25.i963, ptr %DC22.sink.i962, align 8
+  store float %add25.i963, ptr %DC22.i961, align 8
   %y31.i964 = getelementptr inbounds i8, ptr %466, i64 284
   %470 = load float, ptr %y31.i964, align 4
   %y34.i965 = getelementptr inbounds i8, ptr %466, i64 276
@@ -63311,11 +63312,11 @@ _ZN5ImGui10GetKeyNameE8ImGuiKey.exit:             ; preds = %if.then.i975, %if.e
 if.end.i982:                                      ; preds = %_ZN5ImGui10GetKeyNameE8ImGuiKey.exit
   %ItemSpacing.i984 = getelementptr inbounds i8, ptr %482, i64 14652
   %485 = load float, ptr %ItemSpacing.i984, align 4
-  %CursorPosPrevLine23.i986 = getelementptr inbounds i8, ptr %483, i64 280
-  %486 = load float, ptr %CursorPosPrevLine23.i986, align 8
-  %DC22.sink.i987 = getelementptr inbounds i8, ptr %483, i64 272
+  %DC22.i986 = getelementptr inbounds i8, ptr %483, i64 272
+  %CursorPosPrevLine23.i987 = getelementptr inbounds i8, ptr %483, i64 280
+  %486 = load float, ptr %CursorPosPrevLine23.i987, align 8
   %add25.i988 = fadd float %485, %486
-  store float %add25.i988, ptr %DC22.sink.i987, align 8
+  store float %add25.i988, ptr %DC22.i986, align 8
   %y31.i989 = getelementptr inbounds i8, ptr %483, i64 284
   %487 = load float, ptr %y31.i989, align 4
   %y34.i990 = getelementptr inbounds i8, ptr %483, i64 276
@@ -63392,11 +63393,11 @@ if.end548:                                        ; preds = %lor.lhs.false545
 if.end.i1015:                                     ; preds = %if.end548
   %ItemSpacing.i1017 = getelementptr inbounds i8, ptr %495, i64 14652
   %498 = load float, ptr %ItemSpacing.i1017, align 4
-  %CursorPosPrevLine23.i1019 = getelementptr inbounds i8, ptr %496, i64 280
-  %499 = load float, ptr %CursorPosPrevLine23.i1019, align 8
-  %DC22.sink.i1020 = getelementptr inbounds i8, ptr %496, i64 272
+  %DC22.i1019 = getelementptr inbounds i8, ptr %496, i64 272
+  %CursorPosPrevLine23.i1020 = getelementptr inbounds i8, ptr %496, i64 280
+  %499 = load float, ptr %CursorPosPrevLine23.i1020, align 8
   %add25.i1021 = fadd float %498, %499
-  store float %add25.i1021, ptr %DC22.sink.i1020, align 8
+  store float %add25.i1021, ptr %DC22.i1019, align 8
   %y31.i1022 = getelementptr inbounds i8, ptr %496, i64 284
   %500 = load float, ptr %y31.i1022, align 4
   %y34.i1023 = getelementptr inbounds i8, ptr %496, i64 276
@@ -63520,11 +63521,11 @@ if.end563:                                        ; preds = %lor.lhs.false560
 if.end.i1064:                                     ; preds = %if.end563
   %ItemSpacing.i1066 = getelementptr inbounds i8, ptr %515, i64 14652
   %518 = load float, ptr %ItemSpacing.i1066, align 4
-  %CursorPosPrevLine23.i1068 = getelementptr inbounds i8, ptr %516, i64 280
-  %519 = load float, ptr %CursorPosPrevLine23.i1068, align 8
-  %DC22.sink.i1069 = getelementptr inbounds i8, ptr %516, i64 272
+  %DC22.i1068 = getelementptr inbounds i8, ptr %516, i64 272
+  %CursorPosPrevLine23.i1069 = getelementptr inbounds i8, ptr %516, i64 280
+  %519 = load float, ptr %CursorPosPrevLine23.i1069, align 8
   %add25.i1070 = fadd float %518, %519
-  store float %add25.i1070, ptr %DC22.sink.i1069, align 8
+  store float %add25.i1070, ptr %DC22.i1068, align 8
   %y31.i1071 = getelementptr inbounds i8, ptr %516, i64 284
   %520 = load float, ptr %y31.i1071, align 4
   %y34.i1072 = getelementptr inbounds i8, ptr %516, i64 276
@@ -63658,11 +63659,11 @@ for.body581:                                      ; preds = %for.body581.lr.ph, 
 if.end.i1109:                                     ; preds = %for.body581
   %ItemSpacing.i1111 = getelementptr inbounds i8, ptr %539, i64 14652
   %542 = load float, ptr %ItemSpacing.i1111, align 4
-  %CursorPosPrevLine23.i1113 = getelementptr inbounds i8, ptr %540, i64 280
-  %543 = load float, ptr %CursorPosPrevLine23.i1113, align 8
-  %DC22.sink.i1114 = getelementptr inbounds i8, ptr %540, i64 272
+  %DC22.i1113 = getelementptr inbounds i8, ptr %540, i64 272
+  %CursorPosPrevLine23.i1114 = getelementptr inbounds i8, ptr %540, i64 280
+  %543 = load float, ptr %CursorPosPrevLine23.i1114, align 8
   %add25.i1115 = fadd float %542, %543
-  store float %add25.i1115, ptr %DC22.sink.i1114, align 8
+  store float %add25.i1115, ptr %DC22.i1113, align 8
   %y31.i1116 = getelementptr inbounds i8, ptr %540, i64 284
   %544 = load float, ptr %y31.i1116, align 4
   %y34.i1117 = getelementptr inbounds i8, ptr %540, i64 276
@@ -63809,11 +63810,11 @@ if.then619:                                       ; preds = %if.end.i.i1160
 if.end.i1166:                                     ; preds = %if.then619
   %ItemSpacing.i1168 = getelementptr inbounds i8, ptr %574, i64 14652
   %581 = load float, ptr %ItemSpacing.i1168, align 4
-  %CursorPosPrevLine23.i1170 = getelementptr inbounds i8, ptr %579, i64 280
-  %582 = load float, ptr %CursorPosPrevLine23.i1170, align 8
-  %DC22.sink.i1171 = getelementptr inbounds i8, ptr %579, i64 272
+  %DC22.i1170 = getelementptr inbounds i8, ptr %579, i64 272
+  %CursorPosPrevLine23.i1171 = getelementptr inbounds i8, ptr %579, i64 280
+  %582 = load float, ptr %CursorPosPrevLine23.i1171, align 8
   %add25.i1172 = fadd float %581, %582
-  store float %add25.i1172, ptr %DC22.sink.i1171, align 8
+  store float %add25.i1172, ptr %DC22.i1170, align 8
   %y31.i1173 = getelementptr inbounds i8, ptr %579, i64 284
   %583 = load float, ptr %y31.i1173, align 4
   %y34.i1174 = getelementptr inbounds i8, ptr %579, i64 276
@@ -63887,11 +63888,11 @@ if.then632:                                       ; preds = %if.end.i1.i
 if.end.i1209:                                     ; preds = %if.then632
   %ItemSpacing.i1211 = getelementptr inbounds i8, ptr %589, i64 14652
   %597 = load float, ptr %ItemSpacing.i1211, align 4
-  %CursorPosPrevLine23.i1213 = getelementptr inbounds i8, ptr %595, i64 280
-  %598 = load float, ptr %CursorPosPrevLine23.i1213, align 8
-  %DC22.sink.i1214 = getelementptr inbounds i8, ptr %595, i64 272
+  %DC22.i1213 = getelementptr inbounds i8, ptr %595, i64 272
+  %CursorPosPrevLine23.i1214 = getelementptr inbounds i8, ptr %595, i64 280
+  %598 = load float, ptr %CursorPosPrevLine23.i1214, align 8
   %add25.i1215 = fadd float %597, %598
-  store float %add25.i1215, ptr %DC22.sink.i1214, align 8
+  store float %add25.i1215, ptr %DC22.i1213, align 8
   %y31.i1216 = getelementptr inbounds i8, ptr %595, i64 284
   %599 = load float, ptr %y31.i1216, align 4
   %y34.i1217 = getelementptr inbounds i8, ptr %595, i64 276
@@ -63957,11 +63958,11 @@ if.then645:                                       ; preds = %if.end.i.i1231
 if.end.i1253:                                     ; preds = %if.then645
   %ItemSpacing.i1255 = getelementptr inbounds i8, ptr %605, i64 14652
   %612 = load float, ptr %ItemSpacing.i1255, align 4
-  %CursorPosPrevLine23.i1257 = getelementptr inbounds i8, ptr %610, i64 280
-  %613 = load float, ptr %CursorPosPrevLine23.i1257, align 8
-  %DC22.sink.i1258 = getelementptr inbounds i8, ptr %610, i64 272
+  %DC22.i1257 = getelementptr inbounds i8, ptr %610, i64 272
+  %CursorPosPrevLine23.i1258 = getelementptr inbounds i8, ptr %610, i64 280
+  %613 = load float, ptr %CursorPosPrevLine23.i1258, align 8
   %add25.i1259 = fadd float %612, %613
-  store float %add25.i1259, ptr %DC22.sink.i1258, align 8
+  store float %add25.i1259, ptr %DC22.i1257, align 8
   %y31.i1260 = getelementptr inbounds i8, ptr %610, i64 284
   %614 = load float, ptr %y31.i1260, align 4
   %y34.i1261 = getelementptr inbounds i8, ptr %610, i64 276
@@ -65404,11 +65405,11 @@ if.end4:                                          ; preds = %lor.lhs.false
 if.end.i:                                         ; preds = %if.end4
   %ItemSpacing.i = getelementptr inbounds i8, ptr %7, i64 14652
   %10 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %8, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %8, i64 280
   %11 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %8, i64 272
   %add25.i = fadd float %10, %11
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %8, i64 284
   %12 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %8, i64 276
@@ -65438,11 +65439,11 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %if.end4, %if.end.i
 if.end.i47:                                       ; preds = %_ZN5ImGui8SameLineEff.exit
   %ItemSpacing.i48 = getelementptr inbounds i8, ptr %15, i64 14652
   %18 = load float, ptr %ItemSpacing.i48, align 4
-  %CursorPosPrevLine23.i49 = getelementptr inbounds i8, ptr %16, i64 280
-  %19 = load float, ptr %CursorPosPrevLine23.i49, align 8
-  %DC22.sink.i50 = getelementptr inbounds i8, ptr %16, i64 272
+  %DC22.i49 = getelementptr inbounds i8, ptr %16, i64 272
+  %CursorPosPrevLine23.i50 = getelementptr inbounds i8, ptr %16, i64 280
+  %19 = load float, ptr %CursorPosPrevLine23.i50, align 8
   %add25.i51 = fadd float %18, %19
-  store float %add25.i51, ptr %DC22.sink.i50, align 8
+  store float %add25.i51, ptr %DC22.i49, align 8
   %y31.i52 = getelementptr inbounds i8, ptr %16, i64 284
   %20 = load float, ptr %y31.i52, align 4
   %y34.i53 = getelementptr inbounds i8, ptr %16, i64 276
@@ -65472,11 +65473,11 @@ _ZN5ImGui8SameLineEff.exit59:                     ; preds = %_ZN5ImGui8SameLineE
 if.end.i63:                                       ; preds = %_ZN5ImGui8SameLineEff.exit59
   %ItemSpacing.i64 = getelementptr inbounds i8, ptr %23, i64 14652
   %26 = load float, ptr %ItemSpacing.i64, align 4
-  %CursorPosPrevLine23.i65 = getelementptr inbounds i8, ptr %24, i64 280
-  %27 = load float, ptr %CursorPosPrevLine23.i65, align 8
-  %DC22.sink.i66 = getelementptr inbounds i8, ptr %24, i64 272
+  %DC22.i65 = getelementptr inbounds i8, ptr %24, i64 272
+  %CursorPosPrevLine23.i66 = getelementptr inbounds i8, ptr %24, i64 280
+  %27 = load float, ptr %CursorPosPrevLine23.i66, align 8
   %add25.i67 = fadd float %26, %27
-  store float %add25.i67, ptr %DC22.sink.i66, align 8
+  store float %add25.i67, ptr %DC22.i65, align 8
   %y31.i68 = getelementptr inbounds i8, ptr %24, i64 284
   %28 = load float, ptr %y31.i68, align 4
   %y34.i69 = getelementptr inbounds i8, ptr %24, i64 276
@@ -65506,11 +65507,11 @@ _ZN5ImGui8SameLineEff.exit75:                     ; preds = %_ZN5ImGui8SameLineE
 if.end.i79:                                       ; preds = %_ZN5ImGui8SameLineEff.exit75
   %ItemSpacing.i80 = getelementptr inbounds i8, ptr %31, i64 14652
   %34 = load float, ptr %ItemSpacing.i80, align 4
-  %CursorPosPrevLine23.i81 = getelementptr inbounds i8, ptr %32, i64 280
-  %35 = load float, ptr %CursorPosPrevLine23.i81, align 8
-  %DC22.sink.i82 = getelementptr inbounds i8, ptr %32, i64 272
+  %DC22.i81 = getelementptr inbounds i8, ptr %32, i64 272
+  %CursorPosPrevLine23.i82 = getelementptr inbounds i8, ptr %32, i64 280
+  %35 = load float, ptr %CursorPosPrevLine23.i82, align 8
   %add25.i83 = fadd float %34, %35
-  store float %add25.i83, ptr %DC22.sink.i82, align 8
+  store float %add25.i83, ptr %DC22.i81, align 8
   %y31.i84 = getelementptr inbounds i8, ptr %32, i64 284
   %36 = load float, ptr %y31.i84, align 4
   %y34.i85 = getelementptr inbounds i8, ptr %32, i64 276
@@ -65540,11 +65541,11 @@ _ZN5ImGui8SameLineEff.exit91:                     ; preds = %_ZN5ImGui8SameLineE
 if.end.i95:                                       ; preds = %_ZN5ImGui8SameLineEff.exit91
   %ItemSpacing.i96 = getelementptr inbounds i8, ptr %39, i64 14652
   %42 = load float, ptr %ItemSpacing.i96, align 4
-  %CursorPosPrevLine23.i97 = getelementptr inbounds i8, ptr %40, i64 280
-  %43 = load float, ptr %CursorPosPrevLine23.i97, align 8
-  %DC22.sink.i98 = getelementptr inbounds i8, ptr %40, i64 272
+  %DC22.i97 = getelementptr inbounds i8, ptr %40, i64 272
+  %CursorPosPrevLine23.i98 = getelementptr inbounds i8, ptr %40, i64 280
+  %43 = load float, ptr %CursorPosPrevLine23.i98, align 8
   %add25.i99 = fadd float %42, %43
-  store float %add25.i99, ptr %DC22.sink.i98, align 8
+  store float %add25.i99, ptr %DC22.i97, align 8
   %y31.i100 = getelementptr inbounds i8, ptr %40, i64 284
   %44 = load float, ptr %y31.i100, align 4
   %y34.i101 = getelementptr inbounds i8, ptr %40, i64 276
@@ -65590,11 +65591,11 @@ if.end20:                                         ; preds = %if.then19, %if.end1
 if.end.i111:                                      ; preds = %if.end20
   %ItemSpacing.i112 = getelementptr inbounds i8, ptr %47, i64 14652
   %50 = load float, ptr %ItemSpacing.i112, align 4
-  %CursorPosPrevLine23.i113 = getelementptr inbounds i8, ptr %48, i64 280
-  %51 = load float, ptr %CursorPosPrevLine23.i113, align 8
-  %DC22.sink.i114 = getelementptr inbounds i8, ptr %48, i64 272
+  %DC22.i113 = getelementptr inbounds i8, ptr %48, i64 272
+  %CursorPosPrevLine23.i114 = getelementptr inbounds i8, ptr %48, i64 280
+  %51 = load float, ptr %CursorPosPrevLine23.i114, align 8
   %add25.i115 = fadd float %50, %51
-  store float %add25.i115, ptr %DC22.sink.i114, align 8
+  store float %add25.i115, ptr %DC22.i113, align 8
   %y31.i116 = getelementptr inbounds i8, ptr %48, i64 284
   %52 = load float, ptr %y31.i116, align 4
   %y34.i117 = getelementptr inbounds i8, ptr %48, i64 276
@@ -65755,11 +65756,11 @@ if.end25:                                         ; preds = %_ZN14ImGuiTextIndex
 if.end.i154:                                      ; preds = %if.end25
   %ItemSpacing.i155 = getelementptr inbounds i8, ptr %75, i64 14652
   %78 = load float, ptr %ItemSpacing.i155, align 4
-  %CursorPosPrevLine23.i156 = getelementptr inbounds i8, ptr %76, i64 280
-  %79 = load float, ptr %CursorPosPrevLine23.i156, align 8
-  %DC22.sink.i157 = getelementptr inbounds i8, ptr %76, i64 272
+  %DC22.i156 = getelementptr inbounds i8, ptr %76, i64 272
+  %CursorPosPrevLine23.i157 = getelementptr inbounds i8, ptr %76, i64 280
+  %79 = load float, ptr %CursorPosPrevLine23.i157, align 8
   %add25.i158 = fadd float %78, %79
-  store float %add25.i158, ptr %DC22.sink.i157, align 8
+  store float %add25.i158, ptr %DC22.i156, align 8
   %y31.i159 = getelementptr inbounds i8, ptr %76, i64 284
   %80 = load float, ptr %y31.i159, align 4
   %y34.i160 = getelementptr inbounds i8, ptr %76, i64 276
@@ -66654,11 +66655,11 @@ if.end4:                                          ; preds = %lor.lhs.false
 if.end.i:                                         ; preds = %if.end4
   %ItemSpacing.i = getelementptr inbounds i8, ptr %9, i64 14652
   %12 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %10, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %10, i64 280
   %13 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %10, i64 272
   %add25.i = fadd float %12, %13
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %10, i64 284
   %14 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %10, i64 276
@@ -66696,11 +66697,11 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %if.end4, %if.end.i
 if.end.i50:                                       ; preds = %_ZN5ImGui8SameLineEff.exit
   %ItemSpacing.i51 = getelementptr inbounds i8, ptr %19, i64 14652
   %22 = load float, ptr %ItemSpacing.i51, align 4
-  %CursorPosPrevLine23.i52 = getelementptr inbounds i8, ptr %20, i64 280
-  %23 = load float, ptr %CursorPosPrevLine23.i52, align 8
-  %DC22.sink.i53 = getelementptr inbounds i8, ptr %20, i64 272
+  %DC22.i52 = getelementptr inbounds i8, ptr %20, i64 272
+  %CursorPosPrevLine23.i53 = getelementptr inbounds i8, ptr %20, i64 280
+  %23 = load float, ptr %CursorPosPrevLine23.i53, align 8
   %add25.i54 = fadd float %22, %23
-  store float %add25.i54, ptr %DC22.sink.i53, align 8
+  store float %add25.i54, ptr %DC22.i52, align 8
   %y31.i55 = getelementptr inbounds i8, ptr %20, i64 284
   %24 = load float, ptr %y31.i55, align 4
   %y34.i56 = getelementptr inbounds i8, ptr %20, i64 276
@@ -67565,11 +67566,11 @@ if.then13:                                        ; preds = %if.end
 if.end.i:                                         ; preds = %if.then13
   %ItemSpacing.i = getelementptr inbounds i8, ptr %10, i64 14652
   %15 = load float, ptr %ItemSpacing.i, align 4
+  %DC22.i = getelementptr inbounds i8, ptr %12, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %12, i64 280
   %16 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %12, i64 272
   %add25.i = fadd float %15, %16
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %12, i64 284
   %17 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %12, i64 276
@@ -68500,11 +68501,11 @@ if.end72:                                         ; preds = %if.then71, %for.bod
   br i1 %tobool.i, label %_ZN5ImGui8SameLineEff.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end72
+  %DC22.i = getelementptr inbounds i8, ptr %37, i64 272
   %CursorPosPrevLine23.i = getelementptr inbounds i8, ptr %37, i64 280
   %39 = load float, ptr %CursorPosPrevLine23.i, align 8
-  %DC22.sink.i = getelementptr inbounds i8, ptr %37, i64 272
   %add25.i = fadd float %39, 2.000000e+00
-  store float %add25.i, ptr %DC22.sink.i, align 8
+  store float %add25.i, ptr %DC22.i, align 8
   %y31.i = getelementptr inbounds i8, ptr %37, i64 284
   %40 = load float, ptr %y31.i, align 4
   %y34.i = getelementptr inbounds i8, ptr %37, i64 276
@@ -68541,11 +68542,11 @@ if.end75:                                         ; preds = %if.then74, %_ZN5ImG
 if.end.i72:                                       ; preds = %if.end75
   %ItemSpacing.i = getelementptr inbounds i8, ptr %43, i64 14652
   %46 = load float, ptr %ItemSpacing.i, align 4
-  %CursorPosPrevLine23.i73 = getelementptr inbounds i8, ptr %44, i64 280
-  %47 = load float, ptr %CursorPosPrevLine23.i73, align 8
-  %DC22.sink.i74 = getelementptr inbounds i8, ptr %44, i64 272
+  %DC22.i73 = getelementptr inbounds i8, ptr %44, i64 272
+  %CursorPosPrevLine23.i74 = getelementptr inbounds i8, ptr %44, i64 280
+  %47 = load float, ptr %CursorPosPrevLine23.i74, align 8
   %add25.i75 = fadd float %46, %47
-  store float %add25.i75, ptr %DC22.sink.i74, align 8
+  store float %add25.i75, ptr %DC22.i73, align 8
   %y31.i76 = getelementptr inbounds i8, ptr %44, i64 284
   %48 = load float, ptr %y31.i76, align 4
   %y34.i77 = getelementptr inbounds i8, ptr %44, i64 276

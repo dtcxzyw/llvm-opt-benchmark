@@ -4645,8 +4645,8 @@ Vec_WrdStart.exit:                                ; preds = %4, %10
 define void @Ifd_ComputeSignature(i64 noundef %0, ptr nocapture noundef %1) local_unnamed_addr #14 {
   br label %3
 
-3:                                                ; preds = %2, %3
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+3:                                                ; preds = %2, %76
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %76 ]
   %4 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8
   %6 = and i64 %5, %0
@@ -4712,48 +4712,59 @@ define void @Ifd_ComputeSignature(i64 noundef %0, ptr nocapture noundef %1) loca
   %66 = extractelement <2 x i32> %45, i64 0
   %67 = extractelement <2 x i32> %45, i64 1
   %.not = icmp ugt i32 %66, %67
-  %.sink28.v = select i1 %.not, i32 20, i32 10
-  %.sink28 = shl nuw nsw i32 %67, %.sink28.v
-  %.sink27.v = select i1 %.not, i32 10, i32 20
-  %.sink27 = shl nuw nsw i32 %66, %.sink27.v
-  %68 = or disjoint i32 %.sink27, %.sink28
-  %.sink = or disjoint i32 %68, %65
-  %69 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
-  store i32 %.sink, ptr %69, align 4
+  br i1 %.not, label %72, label %68
+
+68:                                               ; preds = %3
+  %69 = shl nuw nsw i32 %66, 20
+  %70 = shl nuw nsw i32 %67, 10
+  %71 = or disjoint i32 %69, %70
+  br label %76
+
+72:                                               ; preds = %3
+  %73 = shl nuw nsw i32 %67, 20
+  %74 = shl nuw nsw i32 %66, 10
+  %75 = or disjoint i32 %74, %73
+  br label %76
+
+76:                                               ; preds = %68, %72
+  %.pn = phi i32 [ %75, %72 ], [ %71, %68 ]
+  %.sink = or disjoint i32 %.pn, %65
+  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  store i32 %.sink, ptr %77, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %.lr.ph.preheader.i, label %3, !llvm.loop !46
 
-.lr.ph.preheader.i:                               ; preds = %3, %._crit_edge.i
-  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %._crit_edge.i ], [ 0, %3 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 1, %3 ]
-  %70 = trunc nuw nsw i64 %indvars.iv29.i to i32
+.lr.ph.preheader.i:                               ; preds = %76, %._crit_edge.i
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %._crit_edge.i ], [ 0, %76 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 1, %76 ]
+  %78 = trunc nuw nsw i64 %indvars.iv29.i to i32
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.next27.i, %.lr.ph.i ]
-  %.024.i = phi i32 [ %70, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %71 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv26.i
-  %72 = load i32, ptr %71, align 4
-  %73 = sext i32 %.024.i to i64
-  %74 = getelementptr inbounds i32, ptr %1, i64 %73
-  %75 = load i32, ptr %74, align 4
-  %76 = icmp slt i32 %72, %75
-  %77 = trunc nuw nsw i64 %indvars.iv26.i to i32
-  %spec.select.i = select i1 %76, i32 %77, i32 %.024.i
+  %.024.i = phi i32 [ %78, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
+  %79 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv26.i
+  %80 = load i32, ptr %79, align 4
+  %81 = sext i32 %.024.i to i64
+  %82 = getelementptr inbounds i32, ptr %1, i64 %81
+  %83 = load i32, ptr %82, align 4
+  %84 = icmp slt i32 %80, %83
+  %85 = trunc nuw nsw i64 %indvars.iv26.i to i32
+  %spec.select.i = select i1 %84, i32 %85, i32 %.024.i
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next27.i, 6
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !47
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
-  %78 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv29.i
-  %79 = load i32, ptr %78, align 4
-  %80 = sext i32 %spec.select.i to i64
-  %81 = getelementptr inbounds i32, ptr %1, i64 %80
-  %82 = load i32, ptr %81, align 4
-  store i32 %82, ptr %78, align 4
-  store i32 %79, ptr %81, align 4
+  %86 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv29.i
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %spec.select.i to i64
+  %89 = getelementptr inbounds i32, ptr %1, i64 %88
+  %90 = load i32, ptr %89, align 4
+  store i32 %90, ptr %86, align 4
+  store i32 %87, ptr %89, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond32.not.i = icmp eq i64 %indvars.iv.next30.i, 5
   br i1 %exitcond32.not.i, label %Vec_IntSelectSort.exit, label %.lr.ph.preheader.i, !llvm.loop !48

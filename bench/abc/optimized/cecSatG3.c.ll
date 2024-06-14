@@ -12755,132 +12755,143 @@ define i32 @Cec5_ManSolveTwoCbs(ptr nocapture noundef %0, ptr noundef %1, i32 no
   %19 = and i64 %.val114, 2305843005455597567
   %narrow.i.not = icmp eq i64 %19, 2305843005455597567
   %20 = ptrtoint ptr %15 to i64
-  %21 = sext i32 %4 to i64
-  %22 = ptrtoint ptr %13 to i64
-  %23 = sext i32 %4 to i64
-  %24 = xor i64 %22, %23
-  %25 = inttoptr i64 %24 to ptr
-  %.sink118 = select i1 %narrow.i.not, ptr null, ptr %25
-  %.pn = select i1 %narrow.i.not, i64 %21, i64 1
-  %.sink.in = xor i64 %.pn, %20
-  %.sink = inttoptr i64 %.sink.in to ptr
-  %26 = tail call i32 @CbsP_ManSolve2(ptr noundef %1, ptr noundef %.sink, ptr noundef %.sink118) #24
-  %27 = getelementptr inbounds i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8
-  %.not110 = icmp eq i32 %6, 0
-  br i1 %.not110, label %56, label %29
+  br i1 %narrow.i.not, label %29, label %21
+
+21:                                               ; preds = %8
+  %22 = xor i64 %20, 1
+  %23 = inttoptr i64 %22 to ptr
+  %24 = ptrtoint ptr %13 to i64
+  %25 = sext i32 %4 to i64
+  %26 = xor i64 %24, %25
+  %27 = inttoptr i64 %26 to ptr
+  %28 = tail call i32 @CbsP_ManSolve2(ptr noundef %1, ptr noundef %23, ptr noundef %27) #24
+  br label %34
 
 29:                                               ; preds = %8
-  switch i32 %26, label %.thread [
-    i32 0, label %30
-    i32 1, label %42
+  %30 = sext i32 %4 to i64
+  %31 = xor i64 %20, %30
+  %32 = inttoptr i64 %31 to ptr
+  %33 = tail call i32 @CbsP_ManSolve2(ptr noundef %1, ptr noundef %32, ptr noundef null) #24
+  br label %34
+
+34:                                               ; preds = %29, %21
+  %.0 = phi i32 [ %33, %29 ], [ %28, %21 ]
+  %35 = getelementptr inbounds i8, ptr %1, i64 8
+  %36 = load i32, ptr %35, align 8
+  %.not110 = icmp eq i32 %6, 0
+  br i1 %.not110, label %64, label %37
+
+37:                                               ; preds = %34
+  switch i32 %.0, label %.thread [
+    i32 0, label %38
+    i32 1, label %50
   ]
 
-30:                                               ; preds = %29
-  %31 = icmp eq i32 %28, 0
-  %32 = zext i1 %31 to i32
-  %33 = getelementptr inbounds i8, ptr %0, i64 212
-  %34 = load i32, ptr %33, align 4
-  %35 = add nsw i32 %34, %32
-  store i32 %35, ptr %33, align 4
-  %36 = getelementptr inbounds i8, ptr %0, i64 216
-  %37 = load i32, ptr %36, align 4
-  %38 = add nsw i32 %37, %28
-  store i32 %38, ptr %36, align 4
-  %39 = getelementptr inbounds i8, ptr %0, i64 220
-  %40 = load i32, ptr %39, align 4
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %40, i32 %28)
-  store i32 %41, ptr %39, align 4
-  br label %.thread.sink.split
-
-42:                                               ; preds = %29
-  %43 = icmp sgt i32 %spec.select112, 0
-  %44 = icmp eq i32 %28, 0
-  %45 = zext i1 %44 to i32
-  br i1 %43, label %56, label %46
-
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 224
+38:                                               ; preds = %37
+  %39 = icmp eq i32 %36, 0
+  %40 = zext i1 %39 to i32
+  %41 = getelementptr inbounds i8, ptr %0, i64 212
+  %42 = load i32, ptr %41, align 4
+  %43 = add nsw i32 %42, %40
+  store i32 %43, ptr %41, align 4
+  %44 = getelementptr inbounds i8, ptr %0, i64 216
+  %45 = load i32, ptr %44, align 4
+  %46 = add nsw i32 %45, %36
+  store i32 %46, ptr %44, align 4
+  %47 = getelementptr inbounds i8, ptr %0, i64 220
   %48 = load i32, ptr %47, align 4
-  %49 = add nsw i32 %48, %45
+  %49 = tail call noundef i32 @llvm.smax.i32(i32 %48, i32 %36)
   store i32 %49, ptr %47, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 228
-  %51 = load i32, ptr %50, align 4
-  %52 = add nsw i32 %51, %28
-  store i32 %52, ptr %50, align 4
-  %53 = getelementptr inbounds i8, ptr %0, i64 232
-  %54 = load i32, ptr %53, align 4
-  %55 = tail call noundef i32 @llvm.smax.i32(i32 %54, i32 %28)
-  store i32 %55, ptr %53, align 4
   br label %.thread.sink.split
 
-56:                                               ; preds = %42, %8
-  %.sroa.0.0 = phi i32 [ 0, %8 ], [ %45, %42 ]
-  %.sroa.6.0 = phi i32 [ 0, %8 ], [ %28, %42 ]
-  %57 = icmp eq i32 %26, 1
-  %58 = icmp sgt i32 %spec.select112, 0
-  %or.cond = and i1 %58, %57
-  br i1 %or.cond, label %59, label %.thread
+50:                                               ; preds = %37
+  %51 = icmp sgt i32 %spec.select112, 0
+  %52 = icmp eq i32 %36, 0
+  %53 = zext i1 %52 to i32
+  br i1 %51, label %64, label %54
 
-59:                                               ; preds = %56
+54:                                               ; preds = %50
+  %55 = getelementptr inbounds i8, ptr %0, i64 224
+  %56 = load i32, ptr %55, align 4
+  %57 = add nsw i32 %56, %53
+  store i32 %57, ptr %55, align 4
+  %58 = getelementptr inbounds i8, ptr %0, i64 228
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %59, %36
+  store i32 %60, ptr %58, align 4
+  %61 = getelementptr inbounds i8, ptr %0, i64 232
+  %62 = load i32, ptr %61, align 4
+  %63 = tail call noundef i32 @llvm.smax.i32(i32 %62, i32 %36)
+  store i32 %63, ptr %61, align 4
+  br label %.thread.sink.split
+
+64:                                               ; preds = %50, %34
+  %.sroa.0.0 = phi i32 [ 0, %34 ], [ %53, %50 ]
+  %.sroa.6.0 = phi i32 [ 0, %34 ], [ %36, %50 ]
+  %65 = icmp eq i32 %.0, 1
+  %66 = icmp sgt i32 %spec.select112, 0
+  %or.cond = and i1 %66, %65
+  br i1 %or.cond, label %67, label %.thread
+
+67:                                               ; preds = %64
   %.not111 = icmp eq i32 %4, 0
-  %60 = ptrtoint ptr %13 to i64
-  %61 = zext i1 %.not111 to i64
-  %62 = xor i64 %60, %61
-  %63 = inttoptr i64 %62 to ptr
-  %64 = tail call i32 @CbsP_ManSolve2(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef %63) #24
-  %65 = load i32, ptr %27, align 8
-  br i1 %.not110, label %.thread, label %66
+  %68 = ptrtoint ptr %13 to i64
+  %69 = zext i1 %.not111 to i64
+  %70 = xor i64 %68, %69
+  %71 = inttoptr i64 %70 to ptr
+  %72 = tail call i32 @CbsP_ManSolve2(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef %71) #24
+  %73 = load i32, ptr %35, align 8
+  br i1 %.not110, label %.thread, label %74
 
-66:                                               ; preds = %59
-  switch i32 %64, label %.thread [
-    i32 0, label %67
-    i32 1, label %79
+74:                                               ; preds = %67
+  switch i32 %72, label %.thread [
+    i32 0, label %75
+    i32 1, label %87
   ]
 
-67:                                               ; preds = %66
-  %68 = icmp eq i32 %65, 0
-  %69 = zext i1 %68 to i32
-  %70 = getelementptr inbounds i8, ptr %0, i64 212
-  %71 = load i32, ptr %70, align 4
-  %72 = add nsw i32 %71, %69
-  store i32 %72, ptr %70, align 4
-  %73 = getelementptr inbounds i8, ptr %0, i64 216
-  %74 = load i32, ptr %73, align 4
-  %75 = add nsw i32 %74, %65
-  store i32 %75, ptr %73, align 4
-  %76 = getelementptr inbounds i8, ptr %0, i64 220
-  %77 = load i32, ptr %76, align 4
-  %78 = tail call noundef i32 @llvm.smax.i32(i32 %77, i32 %65)
-  store i32 %78, ptr %76, align 4
-  br label %.thread.sink.split
-
-79:                                               ; preds = %66
-  %80 = icmp eq i32 %65, 0
-  %81 = select i1 %80, i32 %.sroa.0.0, i32 0
-  %82 = add nsw i32 %65, %.sroa.6.0
-  %83 = getelementptr inbounds i8, ptr %0, i64 224
-  %84 = getelementptr inbounds i8, ptr %0, i64 232
+75:                                               ; preds = %74
+  %76 = icmp eq i32 %73, 0
+  %77 = zext i1 %76 to i32
+  %78 = getelementptr inbounds i8, ptr %0, i64 212
+  %79 = load i32, ptr %78, align 4
+  %80 = add nsw i32 %79, %77
+  store i32 %80, ptr %78, align 4
+  %81 = getelementptr inbounds i8, ptr %0, i64 216
+  %82 = load i32, ptr %81, align 4
+  %83 = add nsw i32 %82, %73
+  store i32 %83, ptr %81, align 4
+  %84 = getelementptr inbounds i8, ptr %0, i64 220
   %85 = load i32, ptr %84, align 4
-  %86 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 %65)
-  %87 = load i32, ptr %83, align 4
-  %88 = add nsw i32 %87, %81
-  store i32 %88, ptr %83, align 4
-  %89 = getelementptr inbounds i8, ptr %0, i64 228
-  %90 = load i32, ptr %89, align 4
-  %91 = add nsw i32 %82, %90
-  store i32 %91, ptr %89, align 4
+  %86 = tail call noundef i32 @llvm.smax.i32(i32 %85, i32 %73)
   store i32 %86, ptr %84, align 4
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %67, %79, %30, %46
-  %.sink119 = phi i32 [ %45, %46 ], [ %32, %30 ], [ %81, %79 ], [ %69, %67 ]
-  %.1.ph = phi i32 [ 1, %46 ], [ 0, %30 ], [ 1, %79 ], [ 0, %67 ]
-  store i32 %.sink119, ptr %5, align 4
+87:                                               ; preds = %74
+  %88 = icmp eq i32 %73, 0
+  %89 = select i1 %88, i32 %.sroa.0.0, i32 0
+  %90 = add nsw i32 %73, %.sroa.6.0
+  %91 = getelementptr inbounds i8, ptr %0, i64 224
+  %92 = getelementptr inbounds i8, ptr %0, i64 232
+  %93 = load i32, ptr %92, align 4
+  %94 = tail call noundef i32 @llvm.smax.i32(i32 %93, i32 %73)
+  %95 = load i32, ptr %91, align 4
+  %96 = add nsw i32 %95, %89
+  store i32 %96, ptr %91, align 4
+  %97 = getelementptr inbounds i8, ptr %0, i64 228
+  %98 = load i32, ptr %97, align 4
+  %99 = add nsw i32 %90, %98
+  store i32 %99, ptr %97, align 4
+  store i32 %94, ptr %92, align 4
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %75, %87, %38, %54
+  %.sink = phi i32 [ %53, %54 ], [ %40, %38 ], [ %89, %87 ], [ %77, %75 ]
+  %.1.ph = phi i32 [ 1, %54 ], [ 0, %38 ], [ 1, %87 ], [ 0, %75 ]
+  store i32 %.sink, ptr %5, align 4
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %29, %66, %59, %56
-  %.1 = phi i32 [ %64, %59 ], [ %26, %56 ], [ %64, %66 ], [ %26, %29 ], [ %.1.ph, %.thread.sink.split ]
+.thread:                                          ; preds = %.thread.sink.split, %37, %74, %67, %64
+  %.1 = phi i32 [ %72, %67 ], [ %.0, %64 ], [ %72, %74 ], [ %.0, %37 ], [ %.1.ph, %.thread.sink.split ]
   ret i32 %.1
 }
 

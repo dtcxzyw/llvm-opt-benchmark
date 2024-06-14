@@ -404,7 +404,7 @@ if.then26.i.i.i.i:                                ; preds = %for.end.i.i.i.i
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i, %if.then26.i.i.i.i, %for.end.i.i.i.i, %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i
-  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ 257, %for.end.i.i.i.i ], [ %16, %if.then26.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
+  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i ], [ 257, %land.rhs.i.i ], [ %16, %if.then26.i.i.i.i ], [ 257, %for.end.i.i.i.i ], [ 256, %for.body.i.i.i.i ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i, align 4
   %17 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -4698,60 +4698,60 @@ if.else:                                          ; preds = %entry
 cond.true.i.i:                                    ; preds = %if.else
   %data_.i.i.i = getelementptr inbounds i8, ptr %5, i64 16
   %6 = load ptr, ptr %data_.i.i.i, align 8
-  %cmp.not.i.i.i.i.i.i = icmp sgt i32 %4, 0
-  br i1 %cmp.not.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i, label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i
+  %cmp.not.i.i.i.i.i = icmp sgt i32 %4, 0
+  br i1 %cmp.not.i.i.i.i.i, label %if.end.i.i.i.i.i, label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i
 
-if.end.i.i.i.i.i.i:                               ; preds = %cond.true.i.i
+if.end.i.i.i.i.i:                                 ; preds = %cond.true.i.i
   %7 = and i32 %4, 2147483584
-  %cmp15.not54.i.i.i.i.i.i = icmp eq i32 %7, 0
-  br i1 %cmp15.not54.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i, label %for.body.i.i.i.i.i.preheader.i
+  %cmp15.not54.i.i.i.i.i = icmp eq i32 %7, 0
+  br i1 %cmp15.not54.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.preheader.i
 
-for.body.i.i.i.i.i.preheader.i:                   ; preds = %if.end.i.i.i.i.i.i
+for.body.i.i.i.i.preheader.i:                     ; preds = %if.end.i.i.i.i.i
   %8 = zext nneg i32 %7 to i64
-  br label %for.body.i.i.i.i.i.i
+  br label %for.body.i.i.i.i.i
 
-for.body.i.i.i.i.i.i:                             ; preds = %for.body.i.i.i.i.i.i, %for.body.i.i.i.i.i.preheader.i
-  %indvars.iv1.i = phi i64 [ 0, %for.body.i.i.i.i.i.preheader.i ], [ %indvars.iv.next2.i, %for.body.i.i.i.i.i.i ]
-  %indvars.iv.i = phi i64 [ 64, %for.body.i.i.i.i.i.preheader.i ], [ %indvars.iv.next.i, %for.body.i.i.i.i.i.i ]
-  %add.i4057.i.i.i.i.i.i = phi i32 [ 0, %for.body.i.i.i.i.i.preheader.i ], [ %add.i40.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
+for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %for.body.i.i.i.i.preheader.i
+  %indvars.iv1.i = phi i64 [ 0, %for.body.i.i.i.i.preheader.i ], [ %indvars.iv.next2.i, %for.body.i.i.i.i.i ]
+  %indvars.iv.i = phi i64 [ 64, %for.body.i.i.i.i.preheader.i ], [ %indvars.iv.next.i, %for.body.i.i.i.i.i ]
+  %add.i4057.i.i.i.i.i = phi i32 [ 0, %for.body.i.i.i.i.preheader.i ], [ %add.i40.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %9 = lshr exact i64 %indvars.iv1.i, 6
-  %arrayidx.i38.i.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %9
-  %10 = load i64, ptr %arrayidx.i38.i.i.i.i.i.i, align 8
+  %arrayidx.i38.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %9
+  %10 = load i64, ptr %arrayidx.i38.i.i.i.i.i, align 8
   %11 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %10)
-  %cast.i39.i.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
-  %add.i40.i.i.i.i.i.i = add nuw nsw i32 %add.i4057.i.i.i.i.i.i, %cast.i39.i.i.i.i.i.i
+  %cast.i39.i.i.i.i.i = trunc nuw nsw i64 %11 to i32
+  %add.i40.i.i.i.i.i = add nuw nsw i32 %add.i4057.i.i.i.i.i, %cast.i39.i.i.i.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 64
-  %cmp15.not.i.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i, %8
+  %cmp15.not.i.i.i.i.i = icmp ugt i64 %indvars.iv.next.i, %8
   %indvars.iv.next2.i = add nuw nsw i64 %indvars.iv1.i, 64
-  br i1 %cmp15.not.i.i.i.i.i.i, label %for.end.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !76
+  br i1 %cmp15.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i, !llvm.loop !76
 
-for.end.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i.i.i.i, %if.end.i.i.i.i.i.i
-  %count.1.i.i.i.i.i = phi i32 [ 0, %if.end.i.i.i.i.i.i ], [ %add.i40.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
-  %cmp18.not.i.i.i.i.i.i = icmp eq i32 %7, %4
-  br i1 %cmp18.not.i.i.i.i.i.i, label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i, label %if.then19.i.i.i.i.i.i
+for.end.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i, %if.end.i.i.i.i.i
+  %count.1.i.i.i.i = phi i32 [ 0, %if.end.i.i.i.i.i ], [ %add.i40.i.i.i.i.i, %for.body.i.i.i.i.i ]
+  %cmp18.not.i.i.i.i.i = icmp eq i32 %7, %4
+  br i1 %cmp18.not.i.i.i.i.i, label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i, label %if.then19.i.i.i.i.i
 
-if.then19.i.i.i.i.i.i:                            ; preds = %for.end.i.i.i.i.i.i
-  %div20.i.i.i.i.i.i = lshr i32 %4, 6
-  %sub21.i.i.i.i.i.i = and i32 %4, 63
-  %sh_prom.i41.i.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i.i to i64
-  %notmask.i42.i.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i41.i.i.i.i.i.i
-  %sub.i43.i.i.i.i.i.i = xor i64 %notmask.i42.i.i.i.i.i.i, -1
-  %idxprom.i44.i.i.i.i.i.i = zext nneg i32 %div20.i.i.i.i.i.i to i64
-  %arrayidx.i45.i.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idxprom.i44.i.i.i.i.i.i
-  %12 = load i64, ptr %arrayidx.i45.i.i.i.i.i.i, align 8
-  %and.i46.i.i.i.i.i.i = and i64 %12, %sub.i43.i.i.i.i.i.i
-  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i.i.i.i)
-  %cast.i47.i.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
-  %add.i48.i.i.i.i.i.i = add nsw i32 %count.1.i.i.i.i.i, %cast.i47.i.i.i.i.i.i
-  br label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i
+if.then19.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
+  %div20.i.i.i.i.i = lshr i32 %4, 6
+  %sub21.i.i.i.i.i = and i32 %4, 63
+  %sh_prom.i41.i.i.i.i.i = zext nneg i32 %sub21.i.i.i.i.i to i64
+  %notmask.i42.i.i.i.i.i = shl nsw i64 -1, %sh_prom.i41.i.i.i.i.i
+  %sub.i43.i.i.i.i.i = xor i64 %notmask.i42.i.i.i.i.i, -1
+  %idxprom.i44.i.i.i.i.i = zext nneg i32 %div20.i.i.i.i.i to i64
+  %arrayidx.i45.i.i.i.i.i = getelementptr inbounds i64, ptr %6, i64 %idxprom.i44.i.i.i.i.i
+  %12 = load i64, ptr %arrayidx.i45.i.i.i.i.i, align 8
+  %and.i46.i.i.i.i.i = and i64 %12, %sub.i43.i.i.i.i.i
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %and.i46.i.i.i.i.i)
+  %cast.i47.i.i.i.i.i = trunc nuw nsw i64 %13 to i32
+  %add.i48.i.i.i.i.i = add nsw i32 %count.1.i.i.i.i, %cast.i47.i.i.i.i.i
+  br label %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i
 
-_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i: ; preds = %if.then19.i.i.i.i.i.i, %for.end.i.i.i.i.i.i, %cond.true.i.i
-  %count.3.i.i.i.i.i = phi i32 [ %add.i48.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i ], [ %count.1.i.i.i.i.i, %for.end.i.i.i.i.i.i ], [ 0, %cond.true.i.i ]
-  %sub1.i.i.i = sub i32 %4, %count.3.i.i.i.i.i
+_ZN8facebook5velox4bits10countNullsEPKmii.exit.i: ; preds = %if.then19.i.i.i.i.i, %for.end.i.i.i.i.i, %cond.true.i.i
+  %count.3.i.i.i.i = phi i32 [ %add.i48.i.i.i.i.i, %if.then19.i.i.i.i.i ], [ %count.1.i.i.i.i, %for.end.i.i.i.i.i ], [ 0, %cond.true.i.i ]
+  %sub1.i.i = sub i32 %4, %count.3.i.i.i.i
   br label %if.end10
 
-if.end10:                                         ; preds = %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i, %if.then5
-  %nullCount.0 = phi i32 [ %3, %if.then5 ], [ %sub1.i.i.i, %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i.i ]
+if.end10:                                         ; preds = %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i, %if.then5
+  %nullCount.0 = phi i32 [ %3, %if.then5 ], [ %sub1.i.i, %_ZN8facebook5velox4bits10countNullsEPKmii.exit.i ]
   %cmp = icmp sgt i32 %nullCount.0, 0
   br i1 %cmp, label %if.then11, label %if.else14
 

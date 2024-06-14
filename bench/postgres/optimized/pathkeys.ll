@@ -2456,303 +2456,314 @@ define dso_local ptr @truncate_useless_pathkeys(ptr noundef %0, ptr noundef %1, 
   br i1 %10, label %.lr.ph, label %pathkeys_useful_for_merging.exit
 
 .lr.ph:                                           ; preds = %.lr.ph71.i, %.loopexit.i
-  %.068.i56 = phi i32 [ %81, %.loopexit.i ], [ 0, %.lr.ph71.i ]
+  %indvars.iv81.i55 = phi i64 [ %indvars.iv.next82.i, %.loopexit.i ], [ 0, %.lr.ph71.i ]
   %11 = load ptr, ptr %5, align 8
-  %12 = zext nneg i32 %.068.i56 to i64
-  %13 = getelementptr %union.ListCell, ptr %11, i64 %12
-  %14 = load ptr, ptr %13, align 8
+  %12 = getelementptr %union.ListCell, ptr %11, i64 %indvars.iv81.i55
+  %13 = load ptr, ptr %12, align 8
   %.val.i = load ptr, ptr %6, align 8
   %.not.i.i = icmp eq ptr %.val.i, null
   br i1 %.not.i.i, label %right_merge_direction.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
-  %15 = getelementptr inbounds i8, ptr %.val.i, i64 4
-  %16 = load i32, ptr %15, align 4
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
-  %18 = icmp sgt i32 %16, 0
-  br i1 %18, label %.lr.ph6.i.i, label %right_merge_direction.exit.i
+  %14 = getelementptr inbounds i8, ptr %.val.i, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %13, i64 16
+  %17 = icmp sgt i32 %15, 0
+  br i1 %17, label %.lr.ph6.i.i, label %right_merge_direction.exit.i
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph.i.i
-  %19 = getelementptr inbounds i8, ptr %14, i64 8
-  %20 = getelementptr inbounds i8, ptr %.val.i, i64 16
-  %21 = load ptr, ptr %20, align 8
-  %22 = load ptr, ptr %19, align 8
-  %wide.trip.count.i.i = zext nneg i32 %16 to i64
-  br label %23
+  %18 = getelementptr inbounds i8, ptr %13, i64 8
+  %19 = getelementptr inbounds i8, ptr %.val.i, i64 16
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %18, align 8
+  %wide.trip.count.i.i = zext nneg i32 %15 to i64
+  br label %22
 
-23:                                               ; preds = %36, %.lr.ph6.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph6.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %24 = getelementptr %union.ListCell, ptr %21, i64 %indvars.iv.i.i
-  %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %28 = icmp eq ptr %22, %27
-  br i1 %28, label %29, label %36
+22:                                               ; preds = %38, %.lr.ph6.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph6.i.i ], [ %indvars.iv.next.i.i, %38 ]
+  %23 = getelementptr %union.ListCell, ptr %20, i64 %indvars.iv.i.i
+  %24 = load ptr, ptr %23, align 8
+  %25 = getelementptr inbounds i8, ptr %24, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %27 = icmp eq ptr %21, %26
+  br i1 %27, label %28, label %38
 
-29:                                               ; preds = %23
-  %30 = load i32, ptr %17, align 8
-  %31 = getelementptr inbounds i8, ptr %25, i64 16
-  %32 = load i32, ptr %31, align 8
-  %33 = icmp eq i32 %30, %32
-  br i1 %33, label %.split.i.i, label %36
+28:                                               ; preds = %22
+  %29 = load i32, ptr %16, align 8
+  %30 = getelementptr inbounds i8, ptr %24, i64 16
+  %31 = load i32, ptr %30, align 8
+  %32 = icmp eq i32 %29, %31
+  br i1 %32, label %.split.i.i, label %38
 
-.split.i.i:                                       ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %25, i64 20
-  %35 = load i32, ptr %34, align 4
-  br label %right_merge_direction.exit.i
+.split.i.i:                                       ; preds = %28
+  %33 = getelementptr inbounds i8, ptr %13, i64 20
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds i8, ptr %24, i64 20
+  %36 = load i32, ptr %35, align 4
+  %37 = icmp eq i32 %34, %36
+  br i1 %37, label %42, label %.critedge.loopexit86.i.loopexit
 
-36:                                               ; preds = %29, %23
+38:                                               ; preds = %28, %22
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %right_merge_direction.exit.i, label %23
+  br i1 %exitcond.not.i.i, label %right_merge_direction.exit.i, label %22
 
-right_merge_direction.exit.i:                     ; preds = %36, %.split.i.i, %.lr.ph.i.i, %.lr.ph
-  %.sink10.i.i = phi i32 [ %35, %.split.i.i ], [ 1, %.lr.ph.i.i ], [ 1, %.lr.ph ], [ 1, %36 ]
-  %.sink.in.i.i = getelementptr inbounds i8, ptr %14, i64 20
-  %.sink.i.i = load i32, ptr %.sink.in.i.i, align 4
-  %37 = icmp eq i32 %.sink.i.i, %.sink10.i.i
-  br i1 %37, label %38, label %pathkeys_useful_for_merging.exit
+right_merge_direction.exit.i:                     ; preds = %38, %.lr.ph.i.i, %.lr.ph
+  %39 = getelementptr inbounds i8, ptr %13, i64 20
+  %40 = load i32, ptr %39, align 4
+  %41 = icmp eq i32 %40, 1
+  br i1 %41, label %42, label %.critedge.loopexit86.i.loopexit
 
-38:                                               ; preds = %right_merge_direction.exit.i
-  %39 = load i8, ptr %7, align 8
-  %40 = trunc i8 %39 to i1
-  br i1 %40, label %41, label %45
+42:                                               ; preds = %right_merge_direction.exit.i, %.split.i.i
+  %43 = load i8, ptr %7, align 8
+  %44 = trunc i8 %43 to i1
+  br i1 %44, label %45, label %49
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %14, i64 8
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call zeroext i1 @eclass_useful_for_merging(ptr noundef %0, ptr noundef %43, ptr noundef nonnull %1) #10
-  br i1 %44, label %.loopexit.i, label %45
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %13, i64 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = tail call zeroext i1 @eclass_useful_for_merging(ptr noundef %0, ptr noundef %47, ptr noundef nonnull %1) #10
+  br i1 %48, label %.loopexit.i, label %49
 
-45:                                               ; preds = %41, %38
-  %46 = load ptr, ptr %8, align 8
-  %.not36.i = icmp eq ptr %46, null
-  br i1 %.not36.i, label %pathkeys_useful_for_merging.exit, label %.lr.ph.i
+49:                                               ; preds = %45, %42
+  %50 = load ptr, ptr %8, align 8
+  %.not36.i = icmp eq ptr %50, null
+  br i1 %.not36.i, label %.critedge.loopexit86.i.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %45
-  %47 = getelementptr inbounds i8, ptr %46, i64 4
-  %48 = getelementptr inbounds i8, ptr %46, i64 16
-  %49 = getelementptr inbounds i8, ptr %14, i64 8
-  %50 = load i32, ptr %47, align 4
-  %51 = icmp sgt i32 %50, 0
-  br i1 %51, label %.lr.ph64.i, label %pathkeys_useful_for_merging.exit
+.lr.ph.i:                                         ; preds = %49
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  %52 = getelementptr inbounds i8, ptr %50, i64 16
+  %53 = getelementptr inbounds i8, ptr %13, i64 8
+  %54 = load i32, ptr %51, align 4
+  %55 = icmp sgt i32 %54, 0
+  br i1 %55, label %.lr.ph64.i, label %.critedge.loopexit86.i.loopexit
 
-.lr.ph64.i:                                       ; preds = %.lr.ph.i, %77
-  %52 = phi i32 [ %78, %77 ], [ %50, %.lr.ph.i ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %77 ], [ 0, %.lr.ph.i ]
-  %53 = load ptr, ptr %48, align 8
-  %54 = getelementptr %union.ListCell, ptr %53, i64 %indvars.iv.i
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 144
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %77, label %59
+.lr.ph64.i:                                       ; preds = %.lr.ph.i, %81
+  %56 = phi i32 [ %82, %81 ], [ %54, %.lr.ph.i ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %81 ], [ 0, %.lr.ph.i ]
+  %57 = load ptr, ptr %52, align 8
+  %58 = getelementptr %union.ListCell, ptr %57, i64 %indvars.iv.i
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 144
+  %61 = load ptr, ptr %60, align 8
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %81, label %63
 
-59:                                               ; preds = %.lr.ph64.i
-  %60 = getelementptr inbounds i8, ptr %55, i64 152
-  %.promoted.i.i = load ptr, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %.promoted.i.i, i64 72
-  %62 = load ptr, ptr %61, align 8
-  %.not8.i.i = icmp eq ptr %62, null
+63:                                               ; preds = %.lr.ph64.i
+  %64 = getelementptr inbounds i8, ptr %59, i64 152
+  %.promoted.i.i = load ptr, ptr %64, align 8
+  %65 = getelementptr inbounds i8, ptr %.promoted.i.i, i64 72
+  %66 = load ptr, ptr %65, align 8
+  %.not8.i.i = icmp eq ptr %66, null
   br i1 %.not8.i.i, label %.preheader.i.i, label %.lr.ph.i38.i
 
-.preheader.i.i:                                   ; preds = %.lr.ph.i38.i, %59
-  %63 = phi ptr [ %.promoted.i.i, %59 ], [ %67, %.lr.ph.i38.i ]
-  %64 = getelementptr inbounds i8, ptr %55, i64 160
-  %.promoted9.i.i = load ptr, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %.promoted9.i.i, i64 72
-  %66 = load ptr, ptr %65, align 8
-  %.not710.i.i = icmp eq ptr %66, null
+.preheader.i.i:                                   ; preds = %.lr.ph.i38.i, %63
+  %67 = phi ptr [ %.promoted.i.i, %63 ], [ %71, %.lr.ph.i38.i ]
+  %68 = getelementptr inbounds i8, ptr %59, i64 160
+  %.promoted9.i.i = load ptr, ptr %68, align 8
+  %69 = getelementptr inbounds i8, ptr %.promoted9.i.i, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %.not710.i.i = icmp eq ptr %70, null
   br i1 %.not710.i.i, label %update_mergeclause_eclasses.exit.i, label %.lr.ph11.i.i
 
-.lr.ph.i38.i:                                     ; preds = %59, %.lr.ph.i38.i
-  %67 = phi ptr [ %69, %.lr.ph.i38.i ], [ %62, %59 ]
-  store ptr %67, ptr %60, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %.not.i39.i = icmp eq ptr %69, null
+.lr.ph.i38.i:                                     ; preds = %63, %.lr.ph.i38.i
+  %71 = phi ptr [ %73, %.lr.ph.i38.i ], [ %66, %63 ]
+  store ptr %71, ptr %64, align 8
+  %72 = getelementptr inbounds i8, ptr %71, i64 72
+  %73 = load ptr, ptr %72, align 8
+  %.not.i39.i = icmp eq ptr %73, null
   br i1 %.not.i39.i, label %.preheader.i.i, label %.lr.ph.i38.i, !llvm.loop !12
 
 .lr.ph11.i.i:                                     ; preds = %.preheader.i.i, %.lr.ph11.i.i
-  %70 = phi ptr [ %72, %.lr.ph11.i.i ], [ %66, %.preheader.i.i ]
-  store ptr %70, ptr %64, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 72
-  %72 = load ptr, ptr %71, align 8
-  %.not7.i.i = icmp eq ptr %72, null
+  %74 = phi ptr [ %76, %.lr.ph11.i.i ], [ %70, %.preheader.i.i ]
+  store ptr %74, ptr %68, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 72
+  %76 = load ptr, ptr %75, align 8
+  %.not7.i.i = icmp eq ptr %76, null
   br i1 %.not7.i.i, label %update_mergeclause_eclasses.exit.i, label %.lr.ph11.i.i, !llvm.loop !13
 
 update_mergeclause_eclasses.exit.i:               ; preds = %.lr.ph11.i.i, %.preheader.i.i
-  %73 = phi ptr [ %.promoted9.i.i, %.preheader.i.i ], [ %70, %.lr.ph11.i.i ]
-  %74 = load ptr, ptr %49, align 8
-  %75 = icmp eq ptr %74, %63
-  %76 = icmp eq ptr %74, %73
-  %or.cond.i = or i1 %75, %76
+  %77 = phi ptr [ %.promoted9.i.i, %.preheader.i.i ], [ %74, %.lr.ph11.i.i ]
+  %78 = load ptr, ptr %53, align 8
+  %79 = icmp eq ptr %78, %67
+  %80 = icmp eq ptr %78, %77
+  %or.cond.i = or i1 %79, %80
   br i1 %or.cond.i, label %.loopexit.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %update_mergeclause_eclasses.exit.i
-  %.pre.i = load i32, ptr %47, align 4
-  br label %77
+  %.pre.i = load i32, ptr %51, align 4
+  br label %81
 
-77:                                               ; preds = %._crit_edge.i, %.lr.ph64.i
-  %78 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %52, %.lr.ph64.i ]
+81:                                               ; preds = %._crit_edge.i, %.lr.ph64.i
+  %82 = phi i32 [ %.pre.i, %._crit_edge.i ], [ %56, %.lr.ph64.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %79 = sext i32 %78 to i64
-  %80 = icmp slt i64 %indvars.iv.next.i, %79
-  br i1 %80, label %.lr.ph64.i, label %pathkeys_useful_for_merging.exit
+  %83 = sext i32 %82 to i64
+  %84 = icmp slt i64 %indvars.iv.next.i, %83
+  br i1 %84, label %.lr.ph64.i, label %.critedge.loopexit.i
 
-.loopexit.i:                                      ; preds = %update_mergeclause_eclasses.exit.i, %41
-  %81 = add nuw nsw i32 %.068.i56, 1
-  %82 = load i32, ptr %4, align 4
-  %83 = icmp slt i32 %81, %82
-  br i1 %83, label %.lr.ph, label %pathkeys_useful_for_merging.exit
+.loopexit.i:                                      ; preds = %update_mergeclause_eclasses.exit.i, %45
+  %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i55, 1
+  %85 = load i32, ptr %4, align 4
+  %86 = sext i32 %85 to i64
+  %87 = icmp slt i64 %indvars.iv.next82.i, %86
+  br i1 %87, label %.lr.ph, label %.critedge.loopexit86.i.loopexit
 
-pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph.i, %45, %right_merge_direction.exit.i, %.loopexit.i, %77, %.lr.ph71.i, %3
-  %.050.i = phi i32 [ 0, %3 ], [ 0, %.lr.ph71.i ], [ %.068.i56, %77 ], [ %.068.i56, %.lr.ph.i ], [ %.068.i56, %45 ], [ %.068.i56, %right_merge_direction.exit.i ], [ %81, %.loopexit.i ]
-  %84 = getelementptr i8, ptr %0, i64 312
-  %.val = load ptr, ptr %84, align 8
-  %85 = icmp eq ptr %.val, %2
+.critedge.loopexit.i:                             ; preds = %81
+  %indvars83.le.i = trunc i64 %indvars.iv81.i55 to i32
+  br label %pathkeys_useful_for_merging.exit
+
+.critedge.loopexit86.i.loopexit:                  ; preds = %.lr.ph.i, %49, %right_merge_direction.exit.i, %.split.i.i, %.loopexit.i
+  %indvars.iv81.i.lcssa.ph = phi i64 [ %indvars.iv.next82.i, %.loopexit.i ], [ %indvars.iv81.i55, %.split.i.i ], [ %indvars.iv81.i55, %right_merge_direction.exit.i ], [ %indvars.iv81.i55, %49 ], [ %indvars.iv81.i55, %.lr.ph.i ]
+  %88 = trunc i64 %indvars.iv81.i.lcssa.ph to i32
+  br label %pathkeys_useful_for_merging.exit
+
+pathkeys_useful_for_merging.exit:                 ; preds = %.lr.ph71.i, %.critedge.loopexit86.i.loopexit, %3, %.critedge.loopexit.i
+  %.050.i = phi i32 [ 0, %3 ], [ %indvars83.le.i, %.critedge.loopexit.i ], [ 0, %.lr.ph71.i ], [ %88, %.critedge.loopexit86.i.loopexit ]
+  %89 = getelementptr i8, ptr %0, i64 312
+  %.val = load ptr, ptr %89, align 8
+  %90 = icmp eq ptr %.val, %2
   %.not.i.i.i = icmp eq ptr %.val, null
-  br i1 %85, label %86, label %90
+  br i1 %90, label %91, label %95
 
-86:                                               ; preds = %pathkeys_useful_for_merging.exit
-  br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.exit, label %87
+91:                                               ; preds = %pathkeys_useful_for_merging.exit
+  br i1 %.not.i.i.i, label %pathkeys_useful_for_ordering.exit, label %92
 
-87:                                               ; preds = %86
-  %88 = getelementptr inbounds i8, ptr %.val, i64 4
-  %89 = load i32, ptr %88, align 4
+92:                                               ; preds = %91
+  %93 = getelementptr inbounds i8, ptr %.val, i64 4
+  %94 = load i32, ptr %93, align 4
   br label %pathkeys_useful_for_ordering.exit
 
-90:                                               ; preds = %pathkeys_useful_for_merging.exit
+95:                                               ; preds = %pathkeys_useful_for_merging.exit
   %or.cond.i23 = or i1 %.not.i, %.not.i.i.i
   br i1 %or.cond.i23, label %pathkeys_useful_for_ordering.exit, label %.preheader.i.i24
 
-.preheader.i.i24:                                 ; preds = %90
-  %91 = getelementptr inbounds i8, ptr %.val, i64 4
-  %92 = load i32, ptr %91, align 4
-  %93 = getelementptr inbounds i8, ptr %2, i64 4
-  %94 = load i32, ptr %93, align 4
-  %95 = getelementptr inbounds i8, ptr %.val, i64 16
-  %96 = getelementptr inbounds i8, ptr %2, i64 16
-  %97 = sext i32 %92 to i64
-  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %94, i32 0)
+.preheader.i.i24:                                 ; preds = %95
+  %96 = getelementptr inbounds i8, ptr %.val, i64 4
+  %97 = load i32, ptr %96, align 4
+  %98 = getelementptr inbounds i8, ptr %2, i64 4
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i8, ptr %.val, i64 16
+  %101 = getelementptr inbounds i8, ptr %2, i64 16
+  %102 = sext i32 %97 to i64
+  %smax.i.i = tail call i32 @llvm.smax.i32(i32 %99, i32 0)
   %wide.trip.count.i.i25 = zext nneg i32 %smax.i.i to i64
-  br label %98
-
-98:                                               ; preds = %115, %.preheader.i.i24
-  %indvars.iv.i.i26 = phi i64 [ 0, %.preheader.i.i24 ], [ %indvars.iv.next.i.i29, %115 ]
-  %99 = icmp slt i64 %indvars.iv.i.i26, %97
-  br i1 %99, label %100, label %103
-
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %95, align 8
-  %102 = getelementptr %union.ListCell, ptr %101, i64 %indvars.iv.i.i26
   br label %103
 
-103:                                              ; preds = %100, %98
-  %104 = phi ptr [ %102, %100 ], [ null, %98 ]
-  %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.i.i26, %wide.trip.count.i.i25
-  br i1 %exitcond.not.i.i27, label %pathkeys_useful_for_ordering.exit, label %105
+103:                                              ; preds = %120, %.preheader.i.i24
+  %indvars.iv.i.i26 = phi i64 [ 0, %.preheader.i.i24 ], [ %indvars.iv.next.i.i29, %120 ]
+  %104 = icmp slt i64 %indvars.iv.i.i26, %102
+  br i1 %104, label %105, label %108
 
 105:                                              ; preds = %103
-  %106 = load ptr, ptr %96, align 8
+  %106 = load ptr, ptr %100, align 8
   %107 = getelementptr %union.ListCell, ptr %106, i64 %indvars.iv.i.i26
-  %108 = icmp ne ptr %104, null
-  %109 = icmp ne ptr %107, null
-  %110 = select i1 %108, i1 %109, i1 false
-  br i1 %110, label %111, label %.thread.split.loop.exit44.i.i
+  br label %108
 
-111:                                              ; preds = %105
-  %112 = load ptr, ptr %104, align 8
-  %113 = load ptr, ptr %107, align 8
-  %.not.i.i28 = icmp eq ptr %112, %113
-  br i1 %.not.i.i28, label %115, label %114
+108:                                              ; preds = %105, %103
+  %109 = phi ptr [ %107, %105 ], [ null, %103 ]
+  %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.i.i26, %wide.trip.count.i.i25
+  br i1 %exitcond.not.i.i27, label %pathkeys_useful_for_ordering.exit, label %110
 
-114:                                              ; preds = %111
+110:                                              ; preds = %108
+  %111 = load ptr, ptr %101, align 8
+  %112 = getelementptr %union.ListCell, ptr %111, i64 %indvars.iv.i.i26
+  %113 = icmp ne ptr %109, null
+  %114 = icmp ne ptr %112, null
+  %115 = select i1 %113, i1 %114, i1 false
+  br i1 %115, label %116, label %.thread.split.loop.exit44.i.i
+
+116:                                              ; preds = %110
+  %117 = load ptr, ptr %109, align 8
+  %118 = load ptr, ptr %112, align 8
+  %.not.i.i28 = icmp eq ptr %117, %118
+  br i1 %.not.i.i28, label %120, label %119
+
+119:                                              ; preds = %116
   %indvars41.le47.i.i = trunc i64 %indvars.iv.i.i26 to i32
   br label %pathkeys_useful_for_ordering.exit
 
-115:                                              ; preds = %111
+120:                                              ; preds = %116
   %indvars.iv.next.i.i29 = add nuw nsw i64 %indvars.iv.i.i26, 1
-  br label %98, !llvm.loop !9
+  br label %103, !llvm.loop !9
 
-.thread.split.loop.exit44.i.i:                    ; preds = %105
+.thread.split.loop.exit44.i.i:                    ; preds = %110
   %indvars41.le.i.i = trunc i64 %indvars.iv.i.i26 to i32
   br label %pathkeys_useful_for_ordering.exit
 
-pathkeys_useful_for_ordering.exit:                ; preds = %103, %86, %87, %90, %114, %.thread.split.loop.exit44.i.i
-  %.0.i = phi i32 [ %indvars41.le47.i.i, %114 ], [ %89, %87 ], [ 0, %86 ], [ 0, %90 ], [ %indvars41.le.i.i, %.thread.split.loop.exit44.i.i ], [ %smax.i.i, %103 ]
+pathkeys_useful_for_ordering.exit:                ; preds = %108, %91, %92, %95, %119, %.thread.split.loop.exit44.i.i
+  %.0.i = phi i32 [ %indvars41.le47.i.i, %119 ], [ %94, %92 ], [ 0, %91 ], [ 0, %95 ], [ %indvars41.le.i.i, %.thread.split.loop.exit44.i.i ], [ %smax.i.i, %108 ]
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.0.i, i32 %.050.i)
-  %116 = getelementptr inbounds i8, ptr %0, i64 320
-  %117 = load ptr, ptr %116, align 8
-  %118 = icmp eq ptr %117, null
-  br i1 %118, label %pathkeys_useful_for_grouping.exit, label %.preheader.i
+  %121 = getelementptr inbounds i8, ptr %0, i64 320
+  %122 = load ptr, ptr %121, align 8
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %pathkeys_useful_for_grouping.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %pathkeys_useful_for_ordering.exit
-  %119 = getelementptr inbounds i8, ptr %2, i64 4
+  %124 = getelementptr inbounds i8, ptr %2, i64 4
   br i1 %.not.i, label %pathkeys_useful_for_grouping.exit.thread42, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %.preheader.i
-  %120 = getelementptr inbounds i8, ptr %2, i64 16
-  %121 = load i32, ptr %119, align 4
-  %122 = icmp sgt i32 %121, 0
-  br i1 %122, label %.lr.ph27.i, label %pathkeys_useful_for_grouping.exit.thread
+  %125 = getelementptr inbounds i8, ptr %2, i64 16
+  %126 = load i32, ptr %124, align 4
+  %127 = icmp sgt i32 %126, 0
+  br i1 %127, label %.lr.ph27.i, label %pathkeys_useful_for_grouping.exit.thread
 
-.lr.ph27.i:                                       ; preds = %.lr.ph.i31, %128
-  %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %128 ], [ 0, %.lr.ph.i31 ]
-  %123 = load ptr, ptr %120, align 8
-  %124 = getelementptr %union.ListCell, ptr %123, i64 %indvars.iv.i33
-  %125 = load ptr, ptr %124, align 8
-  %126 = load ptr, ptr %116, align 8
-  %127 = tail call zeroext i1 @list_member_ptr(ptr noundef %126, ptr noundef %125) #10
-  br i1 %127, label %128, label %.thread.loopexit.i
+.lr.ph27.i:                                       ; preds = %.lr.ph.i31, %133
+  %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %133 ], [ 0, %.lr.ph.i31 ]
+  %128 = load ptr, ptr %125, align 8
+  %129 = getelementptr %union.ListCell, ptr %128, i64 %indvars.iv.i33
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %121, align 8
+  %132 = tail call zeroext i1 @list_member_ptr(ptr noundef %131, ptr noundef %130) #10
+  br i1 %132, label %133, label %.thread.loopexit.i
 
-128:                                              ; preds = %.lr.ph27.i
+133:                                              ; preds = %.lr.ph27.i
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i33, 1
-  %129 = load i32, ptr %119, align 4
-  %130 = sext i32 %129 to i64
-  %131 = icmp slt i64 %indvars.iv.next.i34, %130
-  br i1 %131, label %.lr.ph27.i, label %.thread.loopexit.i
+  %134 = load i32, ptr %124, align 4
+  %135 = sext i32 %134 to i64
+  %136 = icmp slt i64 %indvars.iv.next.i34, %135
+  br i1 %136, label %.lr.ph27.i, label %.thread.loopexit.i
 
-.thread.loopexit.i:                               ; preds = %128, %.lr.ph27.i
-  %.0.ph.in.i = phi i64 [ %indvars.iv.next.i34, %128 ], [ %indvars.iv.i33, %.lr.ph27.i ]
+.thread.loopexit.i:                               ; preds = %133, %.lr.ph27.i
+  %.0.ph.in.i = phi i64 [ %indvars.iv.next.i34, %133 ], [ %indvars.iv.i33, %.lr.ph27.i ]
   %.0.ph.i = trunc i64 %.0.ph.in.i to i32
   br label %pathkeys_useful_for_grouping.exit
 
 pathkeys_useful_for_grouping.exit:                ; preds = %pathkeys_useful_for_ordering.exit, %.thread.loopexit.i
   %.0.i32 = phi i32 [ 0, %pathkeys_useful_for_ordering.exit ], [ %.0.ph.i, %.thread.loopexit.i ]
   %.1 = tail call i32 @llvm.smax.i32(i32 %.0.i32, i32 %spec.select)
-  %132 = icmp eq i32 %.1, 0
-  br i1 %132, label %139, label %135
+  %137 = icmp eq i32 %.1, 0
+  br i1 %137, label %144, label %140
 
 pathkeys_useful_for_grouping.exit.thread42:       ; preds = %.preheader.i
-  %133 = icmp slt i32 %spec.select, 1
-  br i1 %133, label %139, label %list_length.exit.thread
+  %138 = icmp slt i32 %spec.select, 1
+  br i1 %138, label %144, label %list_length.exit.thread
 
 pathkeys_useful_for_grouping.exit.thread:         ; preds = %.lr.ph.i31
-  %134 = icmp slt i32 %spec.select, 1
-  br i1 %134, label %139, label %list_length.exit
+  %139 = icmp slt i32 %spec.select, 1
+  br i1 %139, label %144, label %list_length.exit
 
-135:                                              ; preds = %pathkeys_useful_for_grouping.exit
+140:                                              ; preds = %pathkeys_useful_for_grouping.exit
   br i1 %.not.i, label %list_length.exit.thread, label %.list_length.exit_crit_edge
 
-.list_length.exit_crit_edge:                      ; preds = %135
+.list_length.exit_crit_edge:                      ; preds = %140
   %.phi.trans.insert = getelementptr inbounds i8, ptr %2, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   br label %list_length.exit
 
 list_length.exit:                                 ; preds = %.list_length.exit_crit_edge, %pathkeys_useful_for_grouping.exit.thread
-  %136 = phi i32 [ %.pre, %.list_length.exit_crit_edge ], [ %121, %pathkeys_useful_for_grouping.exit.thread ]
+  %141 = phi i32 [ %.pre, %.list_length.exit_crit_edge ], [ %126, %pathkeys_useful_for_grouping.exit.thread ]
   %.13840 = phi i32 [ %.1, %.list_length.exit_crit_edge ], [ %spec.select, %pathkeys_useful_for_grouping.exit.thread ]
-  %137 = icmp eq i32 %.13840, %136
-  br i1 %137, label %139, label %list_length.exit.thread
+  %142 = icmp eq i32 %.13840, %141
+  br i1 %142, label %144, label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %pathkeys_useful_for_grouping.exit.thread42, %135, %list_length.exit
-  %.1384148 = phi i32 [ %.13840, %list_length.exit ], [ %.1, %135 ], [ %spec.select, %pathkeys_useful_for_grouping.exit.thread42 ]
-  %138 = tail call ptr @list_copy_head(ptr noundef %2, i32 noundef %.1384148) #10
-  br label %139
+list_length.exit.thread:                          ; preds = %pathkeys_useful_for_grouping.exit.thread42, %140, %list_length.exit
+  %.1384148 = phi i32 [ %.13840, %list_length.exit ], [ %.1, %140 ], [ %spec.select, %pathkeys_useful_for_grouping.exit.thread42 ]
+  %143 = tail call ptr @list_copy_head(ptr noundef %2, i32 noundef %.1384148) #10
+  br label %144
 
-139:                                              ; preds = %pathkeys_useful_for_grouping.exit.thread42, %pathkeys_useful_for_grouping.exit.thread, %list_length.exit, %pathkeys_useful_for_grouping.exit, %list_length.exit.thread
-  %.019 = phi ptr [ %138, %list_length.exit.thread ], [ null, %pathkeys_useful_for_grouping.exit ], [ %2, %list_length.exit ], [ null, %pathkeys_useful_for_grouping.exit.thread ], [ null, %pathkeys_useful_for_grouping.exit.thread42 ]
+144:                                              ; preds = %pathkeys_useful_for_grouping.exit.thread42, %pathkeys_useful_for_grouping.exit.thread, %list_length.exit, %pathkeys_useful_for_grouping.exit, %list_length.exit.thread
+  %.019 = phi ptr [ %143, %list_length.exit.thread ], [ null, %pathkeys_useful_for_grouping.exit ], [ %2, %list_length.exit ], [ null, %pathkeys_useful_for_grouping.exit.thread ], [ null, %pathkeys_useful_for_grouping.exit.thread42 ]
   ret ptr %.019
 }
 

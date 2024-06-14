@@ -270,7 +270,7 @@ define range(i32 0, 4) i32 @Pdr_ManExtendOneEval(ptr nocapture noundef readonly 
   %.val23 = load i64, ptr %18, align 8
   %19 = and i64 %.val23, 7
   %.not39 = icmp eq i64 %19, 3
-  br i1 %.not39, label %20, label %30
+  br i1 %.not39, label %20, label %33
 
 20:                                               ; preds = %2
   %21 = getelementptr i8, ptr %1, i64 36
@@ -283,62 +283,61 @@ define range(i32 0, 4) i32 @Pdr_ManExtendOneEval(ptr nocapture noundef readonly 
   %27 = and i32 %26, 30
   %28 = lshr i32 %25, %27
   %29 = and i32 %28, 3
-  br label %58
+  %30 = xor i32 %29, %.020
+  %31 = shl nuw i32 %30, %27
+  %32 = xor i32 %31, %25
+  store i32 %32, ptr %24, align 4
+  br label %64
 
-30:                                               ; preds = %2
-  %31 = getelementptr i8, ptr %1, i64 16
-  %.val24 = load ptr, ptr %31, align 8
-  %32 = ptrtoint ptr %.val24 to i64
-  %33 = and i64 %32, -2
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr i8, ptr %34, i64 36
-  %.val28 = load i32, ptr %35, align 4
-  %36 = ashr i32 %.val28, 4
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %.val25, i64 %37
-  %39 = load i32, ptr %38, align 4
-  %40 = shl i32 %.val28, 1
-  %41 = and i32 %40, 30
-  %42 = lshr i32 %39, %41
-  %43 = and i32 %42, 3
-  %44 = and i64 %32, 1
-  %.not22 = icmp eq i64 %44, 0
-  %switch.selectcmp.i35 = icmp eq i32 %43, 2
+33:                                               ; preds = %2
+  %34 = getelementptr i8, ptr %1, i64 16
+  %.val24 = load ptr, ptr %34, align 8
+  %35 = ptrtoint ptr %.val24 to i64
+  %36 = and i64 %35, -2
+  %37 = inttoptr i64 %36 to ptr
+  %38 = getelementptr i8, ptr %37, i64 36
+  %.val28 = load i32, ptr %38, align 4
+  %39 = ashr i32 %.val28, 4
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds i32, ptr %.val25, i64 %40
+  %42 = load i32, ptr %41, align 4
+  %43 = shl i32 %.val28, 1
+  %44 = and i32 %43, 30
+  %45 = lshr i32 %42, %44
+  %46 = and i32 %45, 3
+  %47 = and i64 %35, 1
+  %.not22 = icmp eq i64 %47, 0
+  %switch.selectcmp.i35 = icmp eq i32 %46, 2
   %switch.select.i36 = select i1 %switch.selectcmp.i35, i32 1, i32 3
-  %switch.selectcmp4.i37 = icmp eq i32 %43, 1
+  %switch.selectcmp4.i37 = icmp eq i32 %46, 1
   %switch.select5.i38 = select i1 %switch.selectcmp4.i37, i32 2, i32 %switch.select.i36
-  %.019 = select i1 %.not22, i32 %43, i32 %switch.select5.i38
-  %45 = icmp eq i32 %.020, 1
-  %46 = icmp eq i32 %.019, 1
-  %or.cond.i = or i1 %45, %46
-  %47 = icmp eq i32 %.020, 2
-  %48 = icmp eq i32 %.019, 2
-  %or.cond3.i = and i1 %47, %48
+  %.019 = select i1 %.not22, i32 %46, i32 %switch.select5.i38
+  %48 = icmp eq i32 %.020, 1
+  %49 = icmp eq i32 %.019, 1
+  %or.cond.i = or i1 %48, %49
+  %50 = icmp eq i32 %.020, 2
+  %51 = icmp eq i32 %.019, 2
+  %or.cond3.i = and i1 %50, %51
   %..i = select i1 %or.cond3.i, i32 2, i32 3
   %.0.i = select i1 %or.cond.i, i32 1, i32 %..i
-  %49 = getelementptr i8, ptr %1, i64 36
-  %.val33 = load i32, ptr %49, align 4
-  %50 = ashr i32 %.val33, 4
-  %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %.val25, i64 %51
-  %53 = load i32, ptr %52, align 4
-  %54 = shl i32 %.val33, 1
-  %55 = and i32 %54, 30
-  %56 = lshr i32 %53, %55
-  %57 = and i32 %56, 3
-  br label %58
+  %52 = getelementptr i8, ptr %1, i64 36
+  %.val33 = load i32, ptr %52, align 4
+  %53 = ashr i32 %.val33, 4
+  %54 = sext i32 %53 to i64
+  %55 = getelementptr inbounds i32, ptr %.val25, i64 %54
+  %56 = load i32, ptr %55, align 4
+  %57 = shl i32 %.val33, 1
+  %58 = and i32 %57, 30
+  %59 = lshr i32 %56, %58
+  %60 = and i32 %59, 3
+  %61 = xor i32 %.0.i, %60
+  %62 = shl nuw i32 %61, %58
+  %63 = xor i32 %62, %56
+  store i32 %63, ptr %55, align 4
+  br label %64
 
-58:                                               ; preds = %30, %20
-  %.sink44 = phi i32 [ %57, %30 ], [ %.020, %20 ]
-  %.0.i.sink = phi i32 [ %.0.i, %30 ], [ %29, %20 ]
-  %.sink43 = phi i32 [ %55, %30 ], [ %27, %20 ]
-  %.sink42 = phi i32 [ %53, %30 ], [ %25, %20 ]
-  %.sink40 = phi ptr [ %52, %30 ], [ %24, %20 ]
-  %.0 = phi i32 [ %.0.i, %30 ], [ %.020, %20 ]
-  %59 = xor i32 %.0.i.sink, %.sink44
-  %60 = shl nuw i32 %59, %.sink43
-  %61 = xor i32 %60, %.sink42
-  store i32 %61, ptr %.sink40, align 4
+64:                                               ; preds = %33, %20
+  %.0 = phi i32 [ %.020, %20 ], [ %.0.i, %33 ]
   ret i32 %.0
 }
 

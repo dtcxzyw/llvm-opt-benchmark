@@ -298,13 +298,25 @@ entry:
   %fn2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %fn2, align 8
   %2 = load ptr, ptr %arg, align 8
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  %name = getelementptr inbounds i8, ptr %nm, i64 8
+  %3 = load ptr, ptr %name, align 8
+  %data = getelementptr inbounds i8, ptr %nm, i64 16
+  %4 = load ptr, ptr %data, align 8
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %2) #3
+  br label %if.end
+
+if.else:                                          ; preds = %entry
   %data3 = getelementptr inbounds i8, ptr %nm, i64 16
-  %3 = load ptr, ptr %data3, align 8
-  %. = select i1 %tobool.not, ptr null, ptr %3
-  %.10 = select i1 %tobool.not, ptr %3, ptr null
-  %.sink8.in = getelementptr inbounds i8, ptr %nm, i64 8
-  %.sink8 = load ptr, ptr %.sink8.in, align 8
-  tail call void %1(ptr noundef %.10, ptr noundef %.sink8, ptr noundef %., ptr noundef %2) #3
+  %5 = load ptr, ptr %data3, align 8
+  %name4 = getelementptr inbounds i8, ptr %nm, i64 8
+  %6 = load ptr, ptr %name4, align 8
+  tail call void %1(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %2) #3
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 
@@ -343,13 +355,25 @@ entry:
   %fn2 = getelementptr inbounds i8, ptr %arg, i64 8
   %1 = load ptr, ptr %fn2, align 8
   %2 = load ptr, ptr %arg, align 8
+  br i1 %tobool.not, label %if.else, label %if.then
+
+if.then:                                          ; preds = %entry
+  %name = getelementptr inbounds i8, ptr %nm, i64 8
+  %3 = load ptr, ptr %name, align 8
+  %data = getelementptr inbounds i8, ptr %nm, i64 16
+  %4 = load ptr, ptr %data, align 8
+  tail call void %1(ptr noundef null, ptr noundef %3, ptr noundef %4, ptr noundef %2) #3
+  br label %if.end
+
+if.else:                                          ; preds = %entry
   %data3 = getelementptr inbounds i8, ptr %nm, i64 16
-  %3 = load ptr, ptr %data3, align 8
-  %. = select i1 %tobool.not, ptr null, ptr %3
-  %.10 = select i1 %tobool.not, ptr %3, ptr null
-  %.sink8.in = getelementptr inbounds i8, ptr %nm, i64 8
-  %.sink8 = load ptr, ptr %.sink8.in, align 8
-  tail call void %1(ptr noundef %.10, ptr noundef %.sink8, ptr noundef %., ptr noundef %2) #3
+  %5 = load ptr, ptr %data3, align 8
+  %name4 = getelementptr inbounds i8, ptr %nm, i64 8
+  %6 = load ptr, ptr %name4, align 8
+  tail call void %1(ptr noundef %5, ptr noundef %6, ptr noundef null, ptr noundef %2) #3
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then
   ret void
 }
 

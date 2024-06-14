@@ -4927,16 +4927,16 @@ base_decompress.exit:                             ; preds = %base_decompress.exi
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @unpack_one_large(ptr nocapture noundef readonly %0, ptr nocapture noundef %1, ptr nocapture noundef %2, ptr nocapture noundef %3, ptr nocapture noundef %4, ptr nocapture noundef readonly %5, ptr nocapture noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, i32 noundef %10) unnamed_addr #7 {
-  switch i32 %10, label %49 [
+  switch i32 %10, label %53 [
     i32 0, label %12
-    i32 1, label %25
+    i32 1, label %27
   ]
 
 12:                                               ; preds = %11
   %13 = getelementptr inbounds i8, ptr %0, i64 32
   %14 = load ptr, ptr %13, align 8
   %.not = icmp eq ptr %14, null
-  br i1 %.not, label %49, label %15
+  br i1 %.not, label %53, label %15
 
 15:                                               ; preds = %12
   %16 = load i32, ptr %1, align 4
@@ -4946,107 +4946,110 @@ define internal fastcc void @unpack_one_large(ptr nocapture noundef readonly %0,
   %20 = load <2 x i32>, ptr %5, align 4
   %21 = add nsw <2 x i32> %20, %19
   %22 = getelementptr i8, ptr %18, i64 8
-  %23 = getelementptr inbounds i8, ptr %5, i64 8
-  %24 = load i32, ptr %23, align 4
+  %23 = load i32, ptr %22, align 4
+  %24 = getelementptr inbounds i8, ptr %5, i64 8
+  %25 = load i32, ptr %24, align 4
+  %26 = add nsw i32 %25, %23
   br label %.sink.split
 
-25:                                               ; preds = %11
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8
-  %.not54 = icmp eq ptr %27, null
-  br i1 %.not54, label %49, label %28
+27:                                               ; preds = %11
+  %28 = getelementptr inbounds i8, ptr %0, i64 48
+  %29 = load ptr, ptr %28, align 8
+  %.not54 = icmp eq ptr %29, null
+  br i1 %.not54, label %53, label %30
 
-28:                                               ; preds = %25
-  %29 = load i32, ptr %2, align 4
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %27, i64 %30
-  %32 = load <2 x i32>, ptr %31, align 4
-  %33 = add nsw <2 x i32> %32, <i32 1, i32 1>
-  %34 = sdiv <2 x i32> %33, <i32 2, i32 2>
-  %35 = and <2 x i32> %32, <i32 1, i32 1>
-  %36 = icmp eq <2 x i32> %35, zeroinitializer
-  %37 = sub nsw <2 x i32> zeroinitializer, %34
-  %38 = select <2 x i1> %36, <2 x i32> %37, <2 x i32> %34
-  %39 = load <2 x i32>, ptr %4, align 4
-  %40 = add nsw <2 x i32> %38, %39
-  %41 = getelementptr i8, ptr %31, i64 8
-  %42 = load i32, ptr %41, align 4
-  %43 = add nsw i32 %42, 1
-  %44 = sdiv i32 %43, 2
-  %45 = and i32 %42, 1
-  %46 = icmp eq i32 %45, 0
-  %47 = sub nsw i32 0, %44
-  %spec.select.i57 = select i1 %46, i32 %47, i32 %44
-  %48 = getelementptr inbounds i8, ptr %4, i64 8
+30:                                               ; preds = %27
+  %31 = load i32, ptr %2, align 4
+  %32 = sext i32 %31 to i64
+  %33 = getelementptr inbounds i32, ptr %29, i64 %32
+  %34 = load <2 x i32>, ptr %33, align 4
+  %35 = add nsw <2 x i32> %34, <i32 1, i32 1>
+  %36 = sdiv <2 x i32> %35, <i32 2, i32 2>
+  %37 = and <2 x i32> %34, <i32 1, i32 1>
+  %38 = icmp eq <2 x i32> %37, zeroinitializer
+  %39 = sub nsw <2 x i32> zeroinitializer, %36
+  %40 = select <2 x i1> %38, <2 x i32> %39, <2 x i32> %36
+  %41 = load <2 x i32>, ptr %4, align 4
+  %42 = add nsw <2 x i32> %40, %41
+  %43 = getelementptr i8, ptr %33, i64 8
+  %44 = load i32, ptr %43, align 4
+  %45 = add nsw i32 %44, 1
+  %46 = sdiv i32 %45, 2
+  %47 = and i32 %44, 1
+  %48 = icmp eq i32 %47, 0
+  %49 = sub nsw i32 0, %46
+  %spec.select.i57 = select i1 %48, i32 %49, i32 %46
+  %50 = getelementptr inbounds i8, ptr %4, i64 8
+  %51 = load i32, ptr %50, align 4
+  %52 = add nsw i32 %spec.select.i57, %51
   br label %.sink.split
 
-49:                                               ; preds = %12, %11, %25
-  %50 = getelementptr inbounds i8, ptr %0, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %.not55 = icmp eq ptr %51, null
-  br i1 %.not55, label %89, label %52
+53:                                               ; preds = %12, %11, %27
+  %54 = getelementptr inbounds i8, ptr %0, i64 64
+  %55 = load ptr, ptr %54, align 8
+  %.not55 = icmp eq ptr %55, null
+  br i1 %.not55, label %94, label %56
 
-52:                                               ; preds = %49
-  %53 = load i32, ptr %3, align 4
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %51, i64 %54
+56:                                               ; preds = %53
+  %57 = load i32, ptr %3, align 4
+  %58 = sext i32 %57 to i64
+  %59 = getelementptr inbounds i32, ptr %55, i64 %58
   %.neg = mul i32 %9, -3
-  %56 = add i32 %.neg, %7
-  %57 = mul nuw nsw i32 %8, 3
-  %58 = add i32 %56, %57
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i32, ptr %6, i64 %59
-  %61 = load i32, ptr %60, align 4
-  %62 = load <2 x i32>, ptr %55, align 4
-  %63 = add nsw <2 x i32> %62, <i32 1, i32 1>
-  %64 = sdiv <2 x i32> %63, <i32 2, i32 2>
-  %65 = and <2 x i32> %62, <i32 1, i32 1>
-  %66 = icmp eq <2 x i32> %65, zeroinitializer
-  %67 = sub nsw <2 x i32> zeroinitializer, %64
-  %68 = select <2 x i1> %66, <2 x i32> %67, <2 x i32> %64
-  %69 = add i32 %58, 1
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %6, i64 %70
-  %72 = load i32, ptr %71, align 4
-  %73 = insertelement <2 x i32> poison, i32 %61, i64 0
-  %74 = insertelement <2 x i32> %73, i32 %72, i64 1
-  %75 = add nsw <2 x i32> %68, %74
-  %76 = getelementptr i8, ptr %55, i64 8
-  %77 = load i32, ptr %76, align 4
-  %78 = add nsw i32 %77, 1
-  %79 = sdiv i32 %78, 2
-  %80 = and i32 %77, 1
-  %81 = icmp eq i32 %80, 0
-  %82 = sub nsw i32 0, %79
-  %spec.select.i60 = select i1 %81, i32 %82, i32 %79
-  %83 = add i32 %58, 2
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %6, i64 %84
+  %60 = add i32 %.neg, %7
+  %61 = mul nuw nsw i32 %8, 3
+  %62 = add i32 %60, %61
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i32, ptr %6, i64 %63
+  %65 = load i32, ptr %64, align 4
+  %66 = load <2 x i32>, ptr %59, align 4
+  %67 = add nsw <2 x i32> %66, <i32 1, i32 1>
+  %68 = sdiv <2 x i32> %67, <i32 2, i32 2>
+  %69 = and <2 x i32> %66, <i32 1, i32 1>
+  %70 = icmp eq <2 x i32> %69, zeroinitializer
+  %71 = sub nsw <2 x i32> zeroinitializer, %68
+  %72 = select <2 x i1> %70, <2 x i32> %71, <2 x i32> %68
+  %73 = add i32 %62, 1
+  %74 = sext i32 %73 to i64
+  %75 = getelementptr inbounds i32, ptr %6, i64 %74
+  %76 = load i32, ptr %75, align 4
+  %77 = insertelement <2 x i32> poison, i32 %65, i64 0
+  %78 = insertelement <2 x i32> %77, i32 %76, i64 1
+  %79 = add nsw <2 x i32> %72, %78
+  %80 = getelementptr i8, ptr %59, i64 8
+  %81 = load i32, ptr %80, align 4
+  %82 = add nsw i32 %81, 1
+  %83 = sdiv i32 %82, 2
+  %84 = and i32 %81, 1
+  %85 = icmp eq i32 %84, 0
+  %86 = sub nsw i32 0, %83
+  %spec.select.i60 = select i1 %85, i32 %86, i32 %83
+  %87 = add i32 %62, 2
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i32, ptr %6, i64 %88
+  %90 = load i32, ptr %89, align 4
+  %91 = add nsw i32 %spec.select.i60, %90
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %52, %28
-  %.sink.in = phi ptr [ %48, %28 ], [ %85, %52 ], [ %22, %15 ]
-  %spec.select.i57.sink = phi i32 [ %spec.select.i57, %28 ], [ %spec.select.i60, %52 ], [ %24, %15 ]
-  %.sink62 = phi i32 [ %29, %28 ], [ %53, %52 ], [ %16, %15 ]
-  %.sink61 = phi ptr [ %2, %28 ], [ %3, %52 ], [ %1, %15 ]
-  %86 = phi <2 x i32> [ %40, %28 ], [ %75, %52 ], [ %21, %15 ]
-  %.sink = load i32, ptr %.sink.in, align 4
-  %87 = add nsw i32 %spec.select.i57.sink, %.sink
-  %88 = add nsw i32 %.sink62, 3
-  store i32 %88, ptr %.sink61, align 4
-  br label %89
+.sink.split:                                      ; preds = %15, %56, %30
+  %.sink62 = phi i32 [ %31, %30 ], [ %57, %56 ], [ %16, %15 ]
+  %.sink61 = phi ptr [ %2, %30 ], [ %3, %56 ], [ %1, %15 ]
+  %.sroa.10.0.ph = phi i32 [ %52, %30 ], [ %91, %56 ], [ %26, %15 ]
+  %92 = phi <2 x i32> [ %42, %30 ], [ %79, %56 ], [ %21, %15 ]
+  %93 = add nsw i32 %.sink62, 3
+  store i32 %93, ptr %.sink61, align 4
+  br label %94
 
-89:                                               ; preds = %.sink.split, %49
-  %.sroa.10.0 = phi i32 [ 0, %49 ], [ %87, %.sink.split ]
-  %90 = phi <2 x i32> [ zeroinitializer, %49 ], [ %86, %.sink.split ]
-  store <2 x i32> %90, ptr %4, align 4
+94:                                               ; preds = %.sink.split, %53
+  %.sroa.10.0 = phi i32 [ 0, %53 ], [ %.sroa.10.0.ph, %.sink.split ]
+  %95 = phi <2 x i32> [ zeroinitializer, %53 ], [ %92, %.sink.split ]
+  store <2 x i32> %95, ptr %4, align 4
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %.sroa.10.0, ptr %.sroa.10.0..sroa_idx, align 4
-  %91 = sext i32 %7 to i64
-  %92 = getelementptr inbounds i32, ptr %6, i64 %91
-  store <2 x i32> %90, ptr %92, align 4
-  %93 = getelementptr i8, ptr %92, i64 8
-  store i32 %.sroa.10.0, ptr %93, align 4
+  %96 = sext i32 %7 to i64
+  %97 = getelementptr inbounds i32, ptr %6, i64 %96
+  store <2 x i32> %95, ptr %97, align 4
+  %98 = getelementptr i8, ptr %97, i64 8
+  store i32 %.sroa.10.0, ptr %98, align 4
   ret void
 }
 

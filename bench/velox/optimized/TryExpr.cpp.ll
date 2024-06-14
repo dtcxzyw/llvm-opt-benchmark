@@ -613,7 +613,7 @@ if.then26.i.i.i.i.i:                              ; preds = %for.end.i.i.i.i.i
   br label %land.end.i.i.i
 
 land.end.i.i.i:                                   ; preds = %for.body.i.i.i.i.i, %if.then26.i.i.i.i.i, %for.end.i.i.i.i.i, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %if.end.i.i3.i
-  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i3.i ], [ 257, %land.rhs.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ %24, %if.then26.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
+  %frombool.i.i.i = phi i16 [ 256, %land.lhs.true.i.i.i ], [ 256, %if.end.i.i3.i ], [ 257, %land.rhs.i.i.i ], [ %24, %if.then26.i.i.i.i.i ], [ 257, %for.end.i.i.i.i.i ], [ 256, %for.body.i.i.i.i.i ]
   store i16 %frombool.i.i.i, ptr %allSelected_.i.i.i, align 4
   %25 = trunc i16 %frombool.i.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i.i
@@ -1719,7 +1719,7 @@ if.then26.i.i.i.i98:                              ; preds = %for.end.i.i.i.i96
   br label %land.end.i.i
 
 land.end.i.i:                                     ; preds = %for.body.i.i.i.i95, %if.then26.i.i.i.i98, %for.end.i.i.i.i96, %land.rhs.i.i, %land.lhs.true.i.i, %if.end.i.i66
-  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i66 ], [ 257, %land.rhs.i.i ], [ 257, %for.end.i.i.i.i96 ], [ %193, %if.then26.i.i.i.i98 ], [ 256, %for.body.i.i.i.i95 ]
+  %frombool.i.i = phi i16 [ 256, %land.lhs.true.i.i ], [ 256, %if.end.i.i66 ], [ 257, %land.rhs.i.i ], [ %193, %if.then26.i.i.i.i98 ], [ 257, %for.end.i.i.i.i96 ], [ 256, %for.body.i.i.i.i95 ]
   store i16 %frombool.i.i, ptr %allSelected_.i.i.i, align 4
   %194 = trunc i16 %frombool.i.i to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i
@@ -2767,7 +2767,7 @@ if.then26.i.i.i.i473:                             ; preds = %for.end.i.i.i.i471
   br label %land.end.i.i295
 
 land.end.i.i295:                                  ; preds = %for.body.i.i.i.i468, %if.then26.i.i.i.i473, %for.end.i.i.i.i471, %land.rhs.i.i461, %land.lhs.true.i.i457, %if.end.i.i292
-  %frombool.i.i296 = phi i16 [ 256, %land.lhs.true.i.i457 ], [ 256, %if.end.i.i292 ], [ 257, %land.rhs.i.i461 ], [ 257, %for.end.i.i.i.i471 ], [ %349, %if.then26.i.i.i.i473 ], [ 256, %for.body.i.i.i.i468 ]
+  %frombool.i.i296 = phi i16 [ 256, %land.lhs.true.i.i457 ], [ 256, %if.end.i.i292 ], [ 257, %land.rhs.i.i461 ], [ %349, %if.then26.i.i.i.i473 ], [ 257, %for.end.i.i.i.i471 ], [ 256, %for.body.i.i.i.i468 ]
   store i16 %frombool.i.i296, ptr %allSelected_.i.i.i, align 4
   %350 = trunc i16 %frombool.i.i296 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i297
@@ -3425,7 +3425,7 @@ if.then26.i.i.i.i720:                             ; preds = %for.end.i.i.i.i718
   br label %land.end.i.i575
 
 land.end.i.i575:                                  ; preds = %for.body.i.i.i.i715, %if.then26.i.i.i.i720, %for.end.i.i.i.i718, %land.rhs.i.i708, %land.lhs.true.i.i704, %if.end.i.i572
-  %frombool.i.i576 = phi i16 [ 256, %land.lhs.true.i.i704 ], [ 256, %if.end.i.i572 ], [ 257, %land.rhs.i.i708 ], [ 257, %for.end.i.i.i.i718 ], [ %446, %if.then26.i.i.i.i720 ], [ 256, %for.body.i.i.i.i715 ]
+  %frombool.i.i576 = phi i16 [ 256, %land.lhs.true.i.i704 ], [ 256, %if.end.i.i572 ], [ 257, %land.rhs.i.i708 ], [ %446, %if.then26.i.i.i.i720 ], [ 257, %for.end.i.i.i.i718 ], [ 256, %for.body.i.i.i.i715 ]
   store i16 %frombool.i.i576, ptr %allSelected_.i.i.i, align 4
   %447 = trunc i16 %frombool.i.i576 to i8
   br label %_ZNK8facebook5velox17SelectivityVector13isAllSelectedEv.exit.i577

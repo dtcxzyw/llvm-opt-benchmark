@@ -1749,6 +1749,8 @@ if.then79:                                        ; preds = %for.body65
   %div = fdiv float %mul109, %88
   %m_rotation = getelementptr inbounds i8, ptr %arrayidx.i67, i64 240
   %89 = load float, ptr %m_rotation, align 8
+  %add = fadd float %89, %div
+  store float %add, ptr %m_rotation, align 8
   br label %if.end114
 
 if.else:                                          ; preds = %for.body65
@@ -1756,15 +1758,12 @@ if.else:                                          ; preds = %for.body65
   %90 = load float, ptr %m_deltaRotation111, align 4
   %m_rotation112 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 240
   %91 = load float, ptr %m_rotation112, align 8
+  %add113 = fadd float %90, %91
+  store float %add113, ptr %m_rotation112, align 8
   br label %if.end114
 
 if.end114:                                        ; preds = %if.else, %if.then79
-  %.sink149 = phi float [ %91, %if.else ], [ %div, %if.then79 ]
-  %.sink = phi float [ %90, %if.else ], [ %89, %if.then79 ]
-  %m_rotation112.sink = phi ptr [ %m_rotation112, %if.else ], [ %m_rotation, %if.then79 ]
   %92 = phi float [ %90, %if.else ], [ %div, %if.then79 ]
-  %add113 = fadd float %.sink, %.sink149
-  store float %add113, ptr %m_rotation112.sink, align 8
   %m_deltaRotation115 = getelementptr inbounds i8, ptr %arrayidx.i67, i64 244
   %mul116 = fmul float %92, 0x3FEFAE1480000000
   store float %mul116, ptr %m_deltaRotation115, align 4

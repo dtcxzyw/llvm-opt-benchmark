@@ -149,11 +149,11 @@ define internal fastcc ptr @eval(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %176, %3
-  %.tr1902 = phi ptr [ %1, %3 ], [ %181, %176 ]
+  %.tr1900 = phi ptr [ %1, %3 ], [ %181, %176 ]
   %ret.tr = phi ptr [ poison, %3 ], [ %current.ret.tr, %176 ]
   %ret.known.tr = phi i1 [ false, %3 ], [ true, %176 ]
   store ptr null, ptr %.sroa.067, align 8
-  %.not1210 = icmp eq ptr %.tr1902, null
+  %.not1210 = icmp eq ptr %.tr1900, null
   br i1 %.not1210, label %common.ret, label %.lr.ph
 
 .lr.ph:                                           ; preds = %tailrecurse
@@ -161,7 +161,7 @@ tailrecurse:                                      ; preds = %176, %3
   br label %11
 
 11:                                               ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr10051211 = phi ptr [ %.tr1902, %.lr.ph ], [ %.tr1005.be, %tailrecurse.backedge ]
+  %.tr10051211 = phi ptr [ %.tr1900, %.lr.ph ], [ %.tr1005.be, %tailrecurse.backedge ]
   %12 = load i64, ptr %10, align 8
   %.not915 = icmp eq i64 %12, 0
   br i1 %.not915, label %13, label %common.ret
@@ -220,14 +220,14 @@ tailrecurse:                                      ; preds = %176, %3
   %.not1302 = icmp eq ptr %.21220, null
   br i1 %.not1302, label %._crit_edge1224, label %.lr.ph1223
 
-common.ret1907:                                   ; preds = %590, %19, %common.ret
-  %common.ret1907.op = phi ptr [ %current.ret.tr1904, %common.ret ], [ %current.ret.tr1905, %19 ], [ %current.ret.tr1906, %590 ]
-  ret ptr %common.ret1907.op
+common.ret1905:                                   ; preds = %590, %19, %common.ret
+  %common.ret1905.op = phi ptr [ %current.ret.tr1902, %common.ret ], [ %current.ret.tr1903, %19 ], [ %current.ret.tr1904, %590 ]
+  ret ptr %common.ret1905.op
 
-common.ret:                                       ; preds = %13, %817, %821, %11, %tailrecurse.backedge, %794, %.critedge3, %798, %.lr.ph1245, %423, %419, %421, %388, %384, %386, %339, %335, %337, %304, %300, %302, %.thread, %195, %197, %203, %133, %1197, %1202, %._crit_edge1443, %1196, %1183, %1177, %._crit_edge1445, %1044, %1057, %._crit_edge1453, %860, %872, %._crit_edge1449, %438, %442, %396, %348, %312, %264, %182, %tailrecurse, %1123, %1124, %1115, %1116, %946, %947, %938, %939, %._crit_edge1290, %257, %253, %245, %.thread1458, %137, %139, %141, %143, %145, %147, %159, %160, %425, %431, %._crit_edge1224, %._crit_edge1218, %575, %584, %586, %596, %619, %847, %853, %887, %888, %893, %904, %907, %911, %918, %925, %932, %953, %957, %961, %965, %969, %973, %977, %982, %989, %991, %993, %995, %998, %1010, %1013, %1017, %1021, %1025, %1031, %1077, %1078, %1081, %1085, %1088, %1093, %1098, %1103, %1108, %1129, %1133, %1137, %1142, %1147, %1151, %1155, %1159, %1165, %1218, %1227, %1235, %1238, %1240, %1242, %1244, %1246, %1253, %1256, %1260, %1264, %1296
-  %common.ret.op = phi ptr [ %1299, %1296 ], [ %1162, %1159 ], [ %1158, %1155 ], [ %1154, %1151 ], [ %1150, %1147 ], [ %1146, %1142 ], [ %1141, %1137 ], [ %1136, %1133 ], [ %1132, %1129 ], [ %1112, %1108 ], [ %1107, %1103 ], [ %1102, %1098 ], [ %1097, %1093 ], [ %1092, %1088 ], [ %storemerge984, %1085 ], [ %1084, %1081 ], [ %1080, %1078 ], [ %.sroa.0837.0.copyload849, %1077 ], [ %1038, %1031 ], [ %.sroa.0837.0.copyload847, %1010 ], [ %.sroa.0837.0.copyload846, %998 ], [ %.sroa.0837.0.copyload845, %995 ], [ %.sroa.0837.0.copyload844, %993 ], [ %.sroa.0837.0.copyload843, %991 ], [ %.sroa.0837.0.copyload842, %989 ], [ %1267, %1264 ], [ %1263, %1260 ], [ %1259, %1256 ], [ %1255, %1253 ], [ %1248, %1246 ], [ %1245, %1244 ], [ %1243, %1242 ], [ %1241, %1240 ], [ %1239, %1238 ], [ %1237, %1235 ], [ %1234, %1227 ], [ %.sroa.0837.0.copyload852, %1218 ], [ %1169, %1165 ], [ %1028, %1025 ], [ %1024, %1021 ], [ %1020, %1017 ], [ %1016, %1013 ], [ %986, %982 ], [ %981, %977 ], [ %976, %973 ], [ %972, %969 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %956, %953 ], [ %935, %932 ], [ %931, %925 ], [ %924, %918 ], [ %917, %911 ], [ %910, %907 ], [ %906, %904 ], [ %898, %893 ], [ %892, %888 ], [ %.sroa.0837.0.copyload841, %887 ], [ %855, %853 ], [ %.sroa.0837.0.copyload839, %847 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload255, %619 ], [ %599, %596 ], [ %589, %586 ], [ null, %584 ], [ %583, %575 ], [ %557, %._crit_edge1218 ], [ %537, %._crit_edge1224 ], [ %434, %431 ], [ %430, %425 ], [ %163, %160 ], [ %151, %159 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %503, %.thread1458 ], [ %242, %245 ], [ %254, %253 ], [ %254, %257 ], [ %.lcssa1283, %._crit_edge1290 ], [ %942, %939 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload286.pre, %938 ], [ %952, %947 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload287.pre, %946 ], [ %1120, %1116 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload332.pre, %1115 ], [ %1128, %1124 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload334.pre, %1123 ], [ inttoptr (i64 1 to ptr), %tailrecurse ], [ %spec.select, %133 ], [ inttoptr (i64 1 to ptr), %182 ], [ null, %264 ], [ null, %312 ], [ null, %348 ], [ %storemerge9311249, %396 ], [ null, %442 ], [ %441, %438 ], [ %.sroa.0837.0.copyload840.pre, %._crit_edge1449 ], [ %875, %872 ], [ %865, %860 ], [ %.sroa.0837.0.copyload848.pre, %._crit_edge1453 ], [ %1064, %1057 ], [ %1050, %1044 ], [ %.sroa.0837.0.copyload850.pre, %._crit_edge1445 ], [ %1182, %1177 ], [ %1188, %1183 ], [ %.sroa.0837.0.copyload851.pre, %._crit_edge1443 ], [ %1206, %1202 ], [ %1201, %1197 ], [ null, %1196 ], [ inttoptr (i64 1 to ptr), %203 ], [ null, %197 ], [ null, %195 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %386 ], [ null, %384 ], [ %365, %388 ], [ null, %421 ], [ null, %419 ], [ %storemerge931, %423 ], [ %503, %.lr.ph1245 ], [ %806, %798 ], [ %806, %.critedge3 ], [ inttoptr (i64 1 to ptr), %tailrecurse.backedge ], [ inttoptr (i64 1 to ptr), %11 ], [ %822, %821 ], [ null, %817 ], [ %15, %13 ], [ %795, %794 ]
-  %current.ret.tr1904 = select i1 %ret.known.tr, ptr %ret.tr, ptr %common.ret.op
-  br label %common.ret1907
+common.ret:                                       ; preds = %13, %817, %821, %11, %tailrecurse.backedge, %794, %.critedge3, %798, %.lr.ph1245, %423, %419, %421, %388, %384, %386, %339, %335, %337, %304, %300, %302, %.thread, %195, %197, %203, %133, %1203, %1208, %._crit_edge1443, %1202, %1189, %1183, %._crit_edge1445, %1044, %1057, %._crit_edge1453, %860, %872, %._crit_edge1449, %438, %442, %396, %348, %312, %264, %182, %tailrecurse, %1129, %1130, %1121, %1122, %946, %947, %938, %939, %._crit_edge1290, %257, %253, %245, %.thread1458, %137, %139, %141, %143, %145, %147, %159, %160, %425, %431, %._crit_edge1224, %._crit_edge1218, %575, %584, %586, %596, %619, %847, %853, %887, %888, %893, %904, %907, %911, %918, %925, %932, %953, %957, %961, %965, %969, %973, %977, %982, %989, %991, %993, %995, %998, %1010, %1013, %1017, %1021, %1025, %1031, %1077, %1078, %1081, %1093, %1094, %1099, %1104, %1109, %1114, %1135, %1139, %1143, %1148, %1153, %1157, %1161, %1165, %1171, %1224, %1233, %1241, %1244, %1246, %1248, %1250, %1252, %1259, %1262, %1266, %1270, %1302
+  %common.ret.op = phi ptr [ %1305, %1302 ], [ %1168, %1165 ], [ %1164, %1161 ], [ %1160, %1157 ], [ %1156, %1153 ], [ %1152, %1148 ], [ %1147, %1143 ], [ %1142, %1139 ], [ %1138, %1135 ], [ %1118, %1114 ], [ %1113, %1109 ], [ %1108, %1104 ], [ %1103, %1099 ], [ %1098, %1094 ], [ %storemerge984, %1093 ], [ %1084, %1081 ], [ %1080, %1078 ], [ %.sroa.0837.0.copyload849, %1077 ], [ %1038, %1031 ], [ %.sroa.0837.0.copyload847, %1010 ], [ %.sroa.0837.0.copyload846, %998 ], [ %.sroa.0837.0.copyload845, %995 ], [ %.sroa.0837.0.copyload844, %993 ], [ %.sroa.0837.0.copyload843, %991 ], [ %.sroa.0837.0.copyload842, %989 ], [ %1273, %1270 ], [ %1269, %1266 ], [ %1265, %1262 ], [ %1261, %1259 ], [ %1254, %1252 ], [ %1251, %1250 ], [ %1249, %1248 ], [ %1247, %1246 ], [ %1245, %1244 ], [ %1243, %1241 ], [ %1240, %1233 ], [ %.sroa.0837.0.copyload852, %1224 ], [ %1175, %1171 ], [ %1028, %1025 ], [ %1024, %1021 ], [ %1020, %1017 ], [ %1016, %1013 ], [ %986, %982 ], [ %981, %977 ], [ %976, %973 ], [ %972, %969 ], [ %968, %965 ], [ %964, %961 ], [ %960, %957 ], [ %956, %953 ], [ %935, %932 ], [ %931, %925 ], [ %924, %918 ], [ %917, %911 ], [ %910, %907 ], [ %906, %904 ], [ %898, %893 ], [ %892, %888 ], [ %.sroa.0837.0.copyload841, %887 ], [ %855, %853 ], [ %.sroa.0837.0.copyload839, %847 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload255, %619 ], [ %599, %596 ], [ %589, %586 ], [ null, %584 ], [ %583, %575 ], [ %557, %._crit_edge1218 ], [ %537, %._crit_edge1224 ], [ %434, %431 ], [ %430, %425 ], [ %163, %160 ], [ %151, %159 ], [ %148, %147 ], [ %146, %145 ], [ %144, %143 ], [ %142, %141 ], [ %140, %139 ], [ %138, %137 ], [ %503, %.thread1458 ], [ %242, %245 ], [ %254, %253 ], [ %254, %257 ], [ %.lcssa1283, %._crit_edge1290 ], [ %942, %939 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload286.pre, %938 ], [ %952, %947 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload287.pre, %946 ], [ %1126, %1122 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload332.pre, %1121 ], [ %1134, %1130 ], [ %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload334.pre, %1129 ], [ inttoptr (i64 1 to ptr), %tailrecurse ], [ %spec.select, %133 ], [ inttoptr (i64 1 to ptr), %182 ], [ null, %264 ], [ null, %312 ], [ null, %348 ], [ %storemerge9311249, %396 ], [ null, %442 ], [ %441, %438 ], [ %.sroa.0837.0.copyload840.pre, %._crit_edge1449 ], [ %875, %872 ], [ %865, %860 ], [ %.sroa.0837.0.copyload848.pre, %._crit_edge1453 ], [ %1064, %1057 ], [ %1050, %1044 ], [ %.sroa.0837.0.copyload850.pre, %._crit_edge1445 ], [ %1188, %1183 ], [ %1194, %1189 ], [ %.sroa.0837.0.copyload851.pre, %._crit_edge1443 ], [ %1212, %1208 ], [ %1207, %1203 ], [ null, %1202 ], [ inttoptr (i64 1 to ptr), %203 ], [ null, %197 ], [ null, %195 ], [ inttoptr (i64 1 to ptr), %.thread ], [ null, %302 ], [ null, %300 ], [ %281, %304 ], [ null, %337 ], [ null, %335 ], [ %341, %339 ], [ null, %386 ], [ null, %384 ], [ %365, %388 ], [ null, %421 ], [ null, %419 ], [ %storemerge931, %423 ], [ %503, %.lr.ph1245 ], [ %806, %798 ], [ %806, %.critedge3 ], [ inttoptr (i64 1 to ptr), %tailrecurse.backedge ], [ inttoptr (i64 1 to ptr), %11 ], [ %822, %821 ], [ null, %817 ], [ %15, %13 ], [ %795, %794 ]
+  %current.ret.tr1902 = select i1 %ret.known.tr, ptr %ret.tr, ptr %common.ret.op
+  br label %common.ret1905
 
 19:                                               ; preds = %13, %13
   %20 = getelementptr inbounds i8, ptr %.tr10051211, i64 4
@@ -238,8 +238,8 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %23 = load i32, ptr %20, align 4
   %24 = getelementptr inbounds i8, ptr %0, i64 880
   store i32 %23, ptr %24, align 8
-  %current.ret.tr1905 = select i1 %ret.known.tr, ptr %ret.tr, ptr %21
-  br label %common.ret1907
+  %current.ret.tr1903 = select i1 %ret.known.tr, ptr %ret.tr, ptr %21
+  br label %common.ret1905
 
 .loopexit1013.loopexit:                           ; preds = %13
   br label %.loopexit1013
@@ -303,7 +303,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   store ptr %storemerge962, ptr %.sroa.0157, align 8
   %59 = load i32, ptr %15, align 8
   %60 = ptrtoint ptr %storemerge962 to i64
-  switch i32 %59, label %1268 [
+  switch i32 %59, label %1274 [
     i32 262, label %61
     i32 259, label %67
     i32 260, label %67
@@ -1299,8 +1299,8 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %594 = load i32, ptr %591, align 4
   %595 = getelementptr inbounds i8, ptr %0, i64 880
   store i32 %594, ptr %595, align 8
-  %current.ret.tr1906 = select i1 %ret.known.tr, ptr %ret.tr, ptr %593
-  br label %common.ret1907
+  %current.ret.tr1904 = select i1 %ret.known.tr, ptr %ret.tr, ptr %593
+  br label %common.ret1905
 
 596:                                              ; preds = %13, %13
   %597 = tail call fastcc i32 @scan(ptr noundef nonnull %0, ptr noundef nonnull %.tr10051211, ptr noundef %2)
@@ -1421,7 +1421,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   %664 = load i32, ptr %15, align 8
   %665 = ptrtoint ptr %storemerge924 to i64
   %666 = bitcast i64 %665 to double
-  switch i32 %664, label %1268 [
+  switch i32 %664, label %1274 [
     i32 262, label %667
     i32 259, label %733
     i32 260, label %733
@@ -1430,7 +1430,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
 
 667:                                              ; preds = %663
   %668 = load i32, ptr %627, align 8
-  switch i32 %668, label %1268 [
+  switch i32 %668, label %1274 [
     i32 43, label %669
     i32 45, label %673
     i32 42, label %677
@@ -1549,7 +1549,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
 
 733:                                              ; preds = %663, %663
   %734 = load i32, ptr %627, align 8
-  switch i32 %734, label %1268 [
+  switch i32 %734, label %1274 [
     i32 43, label %735
     i32 45, label %738
     i32 42, label %741
@@ -1640,7 +1640,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
 
 771:                                              ; preds = %663
   %772 = load i32, ptr %627, align 8
-  switch i32 %772, label %1268 [
+  switch i32 %772, label %1274 [
     i32 43, label %773
     i32 124, label %776
     i32 38, label %778
@@ -1703,16 +1703,16 @@ common.ret:                                       ; preds = %13, %817, %821, %11
   store ptr %795, ptr %.sroa.0157, align 8
   %796 = getelementptr inbounds i8, ptr %.tr10051211, i64 40
   %797 = load ptr, ptr %796, align 8
-  %.not9191732 = icmp eq ptr %797, null
-  br i1 %.not9191732, label %common.ret, label %.lr.ph1733
+  %.not9191730 = icmp eq ptr %797, null
+  br i1 %.not9191730, label %common.ret, label %.lr.ph1731
 
 798:                                              ; preds = %.critedge3
   %799 = getelementptr inbounds i8, ptr %801, i64 40
   %800 = load ptr, ptr %799, align 8
   %.not919 = icmp eq ptr %800, null
-  br i1 %.not919, label %common.ret, label %.lr.ph1733
+  br i1 %.not919, label %common.ret, label %.lr.ph1731
 
-.lr.ph1733:                                       ; preds = %794, %798
+.lr.ph1731:                                       ; preds = %794, %798
   %801 = phi ptr [ %800, %798 ], [ %797, %794 ]
   %802 = getelementptr inbounds i8, ptr %801, i64 4
   %803 = load i32, ptr %802, align 4
@@ -1721,7 +1721,7 @@ common.ret:                                       ; preds = %13, %817, %821, %11
     i32 44, label %.critedge3
   ]
 
-.critedge3:                                       ; preds = %.lr.ph1733, %.lr.ph1733
+.critedge3:                                       ; preds = %.lr.ph1731, %.lr.ph1731
   %804 = getelementptr inbounds i8, ptr %801, i64 32
   %805 = load ptr, ptr %804, align 8
   %806 = tail call fastcc ptr @eval(ptr noundef nonnull %0, ptr noundef %805, ptr noundef %2)
@@ -1747,8 +1747,8 @@ tailrecurse.backedge.sink.split:                  ; preds = %823, %819, %815, %8
   %814 = load ptr, ptr %.sink1635, align 8
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %.lr.ph1733, %tailrecurse.backedge.sink.split
-  %.tr1005.be = phi ptr [ %814, %tailrecurse.backedge.sink.split ], [ %801, %.lr.ph1733 ]
+tailrecurse.backedge:                             ; preds = %.lr.ph1731, %tailrecurse.backedge.sink.split
+  %.tr1005.be = phi ptr [ %814, %tailrecurse.backedge.sink.split ], [ %801, %.lr.ph1731 ]
   store ptr null, ptr %.sroa.067, align 8
   %.not = icmp eq ptr %.tr1005.be, null
   br i1 %.not, label %common.ret, label %11
@@ -1827,12 +1827,12 @@ tailrecurse.backedge:                             ; preds = %.lr.ph1733, %tailre
     i32 262, label %851
     i32 260, label %1011
     i32 259, label %thread-pre-split
-    i32 263, label %1163
+    i32 263, label %1169
   ]
 
 851:                                              ; preds = %848
   %852 = load i32, ptr %827, align 4
-  switch i32 %852, label %1268 [
+  switch i32 %852, label %1274 [
     i32 308, label %853
     i32 309, label %856
     i32 315, label %876
@@ -2237,28 +2237,28 @@ thread-pre-split:                                 ; preds = %1004, %848
 
 1029:                                             ; preds = %thread-pre-split, %1011
   %1030 = phi i32 [ %.pr, %thread-pre-split ], [ %1012, %1011 ]
-  switch i32 %1030, label %1268 [
+  switch i32 %1030, label %1274 [
     i32 310, label %1031
     i32 311, label %1039
     i32 316, label %1065
     i32 33, label %1078
     i32 126, label %1081
     i32 45, label %1085
-    i32 43, label %1088
-    i32 38, label %1093
-    i32 124, label %1098
-    i32 94, label %1103
-    i32 42, label %1108
-    i32 47, label %1113
-    i32 37, label %1121
-    i32 325, label %1129
-    i32 326, label %1133
-    i32 329, label %1137
-    i32 330, label %1142
-    i32 60, label %1147
-    i32 327, label %1151
-    i32 328, label %1155
-    i32 62, label %1159
+    i32 43, label %1094
+    i32 38, label %1099
+    i32 124, label %1104
+    i32 94, label %1109
+    i32 42, label %1114
+    i32 47, label %1119
+    i32 37, label %1127
+    i32 325, label %1135
+    i32 326, label %1139
+    i32 329, label %1143
+    i32 330, label %1148
+    i32 60, label %1153
+    i32 327, label %1157
+    i32 328, label %1161
+    i32 62, label %1165
   ]
 
 1031:                                             ; preds = %1029
@@ -2317,8 +2317,8 @@ thread-pre-split:                                 ; preds = %1004, %848
   %1062 = load ptr, ptr %1061, align 8
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.311 = load ptr, ptr %.sroa.0157, align 8
   %1063 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.311 to i64
-  %.str.12..str.131639 = select i1 %1060, ptr @.str.12, ptr @.str.13
-  %1064 = call ptr (ptr, ptr, ...) @exprintf(ptr noundef %1062, ptr noundef nonnull %.str.12..str.131639, i64 noundef %1063)
+  %.str.12..str.131637 = select i1 %1060, ptr @.str.12, ptr @.str.13
+  %1064 = call ptr (ptr, ptr, ...) @exprintf(ptr noundef %1062, ptr noundef nonnull %.str.12..str.131637, i64 noundef %1063)
   br label %common.ret
 
 1065:                                             ; preds = %1029
@@ -2361,440 +2361,451 @@ thread-pre-split:                                 ; preds = %1004, %848
   br label %common.ret
 
 1085:                                             ; preds = %1029
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.319 = load ptr, ptr %.sroa.0157, align 8
+  br i1 %.not968, label %1090, label %1086
+
+1086:                                             ; preds = %1085
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.139 = load ptr, ptr %.sroa.067, align 8
-  %1086 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.319 to i64
-  %.sink1638.v = select i1 %.not968, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.319, ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.139
-  %.sink1638 = ptrtoint ptr %.sink1638.v to i64
-  %.sink1637 = select i1 %.not968, i64 0, i64 %1086
-  %1087 = sub nsw i64 %.sink1637, %.sink1638
-  %storemerge984 = inttoptr i64 %1087 to ptr
+  %1087 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.139 to i64
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.318 = load ptr, ptr %.sroa.0157, align 8
+  %1088 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.318 to i64
+  %1089 = sub nsw i64 %1088, %1087
+  br label %1093
+
+1090:                                             ; preds = %1085
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.319 = load ptr, ptr %.sroa.0157, align 8
+  %1091 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.319 to i64
+  %1092 = sub nsw i64 0, %1091
+  br label %1093
+
+1093:                                             ; preds = %1090, %1086
+  %storemerge984.in = phi i64 [ %1092, %1090 ], [ %1089, %1086 ]
+  %storemerge984 = inttoptr i64 %storemerge984.in to ptr
   br label %common.ret
 
-1088:                                             ; preds = %1029
+1094:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.140 = load ptr, ptr %.sroa.067, align 8
-  %1089 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.140 to i64
+  %1095 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.140 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.321 = load ptr, ptr %.sroa.0157, align 8
-  %1090 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.321 to i64
-  %1091 = add nsw i64 %1090, %1089
-  %1092 = inttoptr i64 %1091 to ptr
+  %1096 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.321 to i64
+  %1097 = add nsw i64 %1096, %1095
+  %1098 = inttoptr i64 %1097 to ptr
   br label %common.ret
 
-1093:                                             ; preds = %1029
+1099:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.141 = load ptr, ptr %.sroa.067, align 8
-  %1094 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.141 to i64
+  %1100 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.141 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.323 = load ptr, ptr %.sroa.0157, align 8
-  %1095 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.323 to i64
-  %1096 = and i64 %1095, %1094
-  %1097 = inttoptr i64 %1096 to ptr
+  %1101 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.323 to i64
+  %1102 = and i64 %1101, %1100
+  %1103 = inttoptr i64 %1102 to ptr
   br label %common.ret
 
-1098:                                             ; preds = %1029
+1104:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.142 = load ptr, ptr %.sroa.067, align 8
-  %1099 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.142 to i64
+  %1105 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.142 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.325 = load ptr, ptr %.sroa.0157, align 8
-  %1100 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.325 to i64
-  %1101 = or i64 %1100, %1099
-  %1102 = inttoptr i64 %1101 to ptr
+  %1106 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.325 to i64
+  %1107 = or i64 %1106, %1105
+  %1108 = inttoptr i64 %1107 to ptr
   br label %common.ret
 
-1103:                                             ; preds = %1029
+1109:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.143 = load ptr, ptr %.sroa.067, align 8
-  %1104 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.143 to i64
+  %1110 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.143 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.327 = load ptr, ptr %.sroa.0157, align 8
-  %1105 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.327 to i64
-  %1106 = xor i64 %1105, %1104
-  %1107 = inttoptr i64 %1106 to ptr
+  %1111 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.327 to i64
+  %1112 = xor i64 %1111, %1110
+  %1113 = inttoptr i64 %1112 to ptr
   br label %common.ret
 
-1108:                                             ; preds = %1029
+1114:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.144 = load ptr, ptr %.sroa.067, align 8
-  %1109 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.144 to i64
+  %1115 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.144 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.329 = load ptr, ptr %.sroa.0157, align 8
-  %1110 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.329 to i64
-  %1111 = mul nsw i64 %1110, %1109
-  %1112 = inttoptr i64 %1111 to ptr
+  %1116 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.329 to i64
+  %1117 = mul nsw i64 %1116, %1115
+  %1118 = inttoptr i64 %1117 to ptr
   br label %common.ret
 
-1113:                                             ; preds = %1029
+1119:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.145 = load ptr, ptr %.sroa.067, align 8
-  %1114 = icmp eq ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.145, null
-  br i1 %1114, label %1115, label %1116
+  %1120 = icmp eq ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.145, null
+  br i1 %1120, label %1121, label %1122
 
-1115:                                             ; preds = %1113
+1121:                                             ; preds = %1119
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.8) #21
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload332.pre = load ptr, ptr %.sroa.0157, align 8
   br label %common.ret
 
-1116:                                             ; preds = %1113
-  %1117 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.145 to i64
+1122:                                             ; preds = %1119
+  %1123 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.145 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.331 = load ptr, ptr %.sroa.0157, align 8
-  %1118 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.331 to i64
-  %1119 = sdiv i64 %1118, %1117
-  %1120 = inttoptr i64 %1119 to ptr
+  %1124 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.331 to i64
+  %1125 = sdiv i64 %1124, %1123
+  %1126 = inttoptr i64 %1125 to ptr
   br label %common.ret
 
-1121:                                             ; preds = %1029
+1127:                                             ; preds = %1029
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.147 = load ptr, ptr %.sroa.067, align 8
-  %1122 = icmp eq ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.147, null
-  br i1 %1122, label %1123, label %1124
+  %1128 = icmp eq ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.147, null
+  br i1 %1128, label %1129, label %1130
 
-1123:                                             ; preds = %1121
+1129:                                             ; preds = %1127
   call void (ptr, ...) @exerror(ptr noundef nonnull @.str.9) #21
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload334.pre = load ptr, ptr %.sroa.0157, align 8
   br label %common.ret
 
-1124:                                             ; preds = %1121
-  %1125 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.147 to i64
+1130:                                             ; preds = %1127
+  %1131 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.147 to i64
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.333 = load ptr, ptr %.sroa.0157, align 8
-  %1126 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.333 to i64
-  %1127 = srem i64 %1126, %1125
-  %1128 = inttoptr i64 %1127 to ptr
+  %1132 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.333 to i64
+  %1133 = srem i64 %1132, %1131
+  %1134 = inttoptr i64 %1133 to ptr
   br label %common.ret
 
-1129:                                             ; preds = %1029
+1135:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.335 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.149 = load ptr, ptr %.sroa.067, align 8
-  %1130 = icmp eq ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.335, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.149
-  %1131 = zext i1 %1130 to i64
-  %1132 = inttoptr i64 %1131 to ptr
+  %1136 = icmp eq ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.335, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.149
+  %1137 = zext i1 %1136 to i64
+  %1138 = inttoptr i64 %1137 to ptr
   br label %common.ret
 
-1133:                                             ; preds = %1029
+1139:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.337 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.150 = load ptr, ptr %.sroa.067, align 8
-  %1134 = icmp ne ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.337, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.150
-  %1135 = zext i1 %1134 to i64
-  %1136 = inttoptr i64 %1135 to ptr
+  %1140 = icmp ne ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.337, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.150
+  %1141 = zext i1 %1140 to i64
+  %1142 = inttoptr i64 %1141 to ptr
   br label %common.ret
 
-1137:                                             ; preds = %1029
+1143:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.339 = load ptr, ptr %.sroa.0157, align 8
-  %1138 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.339 to i64
+  %1144 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.339 to i64
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.151 = load ptr, ptr %.sroa.067, align 8
-  %1139 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.151 to i64
-  %1140 = shl i64 %1138, %1139
-  %1141 = inttoptr i64 %1140 to ptr
+  %1145 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.151 to i64
+  %1146 = shl i64 %1144, %1145
+  %1147 = inttoptr i64 %1146 to ptr
   br label %common.ret
 
-1142:                                             ; preds = %1029
+1148:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.341 = load ptr, ptr %.sroa.0157, align 8
-  %1143 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.341 to i64
+  %1149 = ptrtoint ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.341 to i64
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.152 = load ptr, ptr %.sroa.067, align 8
-  %1144 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.152 to i64
-  %1145 = lshr i64 %1143, %1144
-  %1146 = inttoptr i64 %1145 to ptr
+  %1150 = ptrtoint ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.152 to i64
+  %1151 = lshr i64 %1149, %1150
+  %1152 = inttoptr i64 %1151 to ptr
   br label %common.ret
 
-1147:                                             ; preds = %1029
+1153:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.343 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.153 = load ptr, ptr %.sroa.067, align 8
-  %1148 = icmp slt ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.343, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.153
-  %1149 = zext i1 %1148 to i64
-  %1150 = inttoptr i64 %1149 to ptr
+  %1154 = icmp slt ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.343, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.153
+  %1155 = zext i1 %1154 to i64
+  %1156 = inttoptr i64 %1155 to ptr
   br label %common.ret
 
-1151:                                             ; preds = %1029
+1157:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.345 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.154 = load ptr, ptr %.sroa.067, align 8
-  %1152 = icmp sle ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.345, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.154
-  %1153 = zext i1 %1152 to i64
-  %1154 = inttoptr i64 %1153 to ptr
+  %1158 = icmp sle ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.345, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.154
+  %1159 = zext i1 %1158 to i64
+  %1160 = inttoptr i64 %1159 to ptr
   br label %common.ret
 
-1155:                                             ; preds = %1029
+1161:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.347 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.155 = load ptr, ptr %.sroa.067, align 8
-  %1156 = icmp sge ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.347, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.155
-  %1157 = zext i1 %1156 to i64
-  %1158 = inttoptr i64 %1157 to ptr
+  %1162 = icmp sge ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.347, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.155
+  %1163 = zext i1 %1162 to i64
+  %1164 = inttoptr i64 %1163 to ptr
   br label %common.ret
 
-1159:                                             ; preds = %1029
+1165:                                             ; preds = %1029
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.349 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.156 = load ptr, ptr %.sroa.067, align 8
-  %1160 = icmp sgt ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.349, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.156
-  %1161 = zext i1 %1160 to i64
-  %1162 = inttoptr i64 %1161 to ptr
+  %1166 = icmp sgt ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.349, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.156
+  %1167 = zext i1 %1166 to i64
+  %1168 = inttoptr i64 %1167 to ptr
   br label %common.ret
 
-1163:                                             ; preds = %848
-  %1164 = load i32, ptr %827, align 4
-  switch i32 %1164, label %1249 [
-    i32 312, label %1165
-    i32 313, label %1170
-    i32 314, label %1189
-    i32 317, label %1207
-    i32 325, label %1219
-    i32 326, label %1219
-    i32 43, label %1235
-    i32 124, label %1238
-    i32 38, label %1240
-    i32 94, label %1242
-    i32 37, label %1244
-    i32 42, label %1246
+1169:                                             ; preds = %848
+  %1170 = load i32, ptr %827, align 4
+  switch i32 %1170, label %1255 [
+    i32 312, label %1171
+    i32 313, label %1176
+    i32 314, label %1195
+    i32 317, label %1213
+    i32 325, label %1225
+    i32 326, label %1225
+    i32 43, label %1241
+    i32 124, label %1244
+    i32 38, label %1246
+    i32 94, label %1248
+    i32 37, label %1250
+    i32 42, label %1252
   ]
 
-1165:                                             ; preds = %1163
+1171:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.208 = load ptr, ptr %.sroa.0157, align 8
-  %1166 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.208, align 1
-  %1167 = icmp ne i8 %1166, 0
-  %1168 = zext i1 %1167 to i64
-  %1169 = inttoptr i64 %1168 to ptr
+  %1172 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.208, align 1
+  %1173 = icmp ne i8 %1172, 0
+  %1174 = zext i1 %1173 to i64
+  %1175 = inttoptr i64 %1174 to ptr
   br label %common.ret
 
-1170:                                             ; preds = %1163
+1176:                                             ; preds = %1169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %849, i64 72, i1 false)
-  %1171 = getelementptr inbounds i8, ptr %5, i64 32
+  %1177 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload352 = load ptr, ptr %.sroa.0157, align 8
-  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload352, ptr %1171, align 8
-  %1172 = getelementptr inbounds i8, ptr %0, i64 160
-  %1173 = load ptr, ptr %1172, align 8
-  %1174 = getelementptr inbounds i8, ptr %1173, i64 56
-  %1175 = load ptr, ptr %1174, align 8
-  %1176 = call i32 %1175(ptr noundef nonnull %5, i32 noundef 262, i32 noundef 0) #21
-  %.not975 = icmp eq i32 %1176, 0
-  br i1 %.not975, label %._crit_edge1445, label %1177
+  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload352, ptr %1177, align 8
+  %1178 = getelementptr inbounds i8, ptr %0, i64 160
+  %1179 = load ptr, ptr %1178, align 8
+  %1180 = getelementptr inbounds i8, ptr %1179, i64 56
+  %1181 = load ptr, ptr %1180, align 8
+  %1182 = call i32 %1181(ptr noundef nonnull %5, i32 noundef 262, i32 noundef 0) #21
+  %.not975 = icmp eq i32 %1182, 0
+  br i1 %.not975, label %._crit_edge1445, label %1183
 
-._crit_edge1445:                                  ; preds = %1170
-  %.sroa.0837.0.copyload850.pre = load ptr, ptr %1171, align 8
+._crit_edge1445:                                  ; preds = %1176
+  %.sroa.0837.0.copyload850.pre = load ptr, ptr %1177, align 8
   br label %common.ret
 
-1177:                                             ; preds = %1170
+1183:                                             ; preds = %1176
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.209 = load ptr, ptr %.sroa.0157, align 8
-  %1178 = call double @strtod(ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.209, ptr noundef nonnull %4) #21
-  store double %1178, ptr %1171, align 8
-  %1179 = load ptr, ptr %4, align 8
-  %1180 = load i8, ptr %1179, align 1
-  %.not976 = icmp eq i8 %1180, 0
-  %1181 = bitcast double %1178 to i64
-  %1182 = inttoptr i64 %1181 to ptr
-  br i1 %.not976, label %common.ret, label %1183
-
-1183:                                             ; preds = %1177
-  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.210 = load ptr, ptr %.sroa.0157, align 8
-  %1184 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.210, align 1
-  %1185 = icmp ne i8 %1184, 0
-  %1186 = uitofp i1 %1185 to double
-  %1187 = bitcast double %1186 to i64
+  %1184 = call double @strtod(ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.209, ptr noundef nonnull %4) #21
+  store double %1184, ptr %1177, align 8
+  %1185 = load ptr, ptr %4, align 8
+  %1186 = load i8, ptr %1185, align 1
+  %.not976 = icmp eq i8 %1186, 0
+  %1187 = bitcast double %1184 to i64
   %1188 = inttoptr i64 %1187 to ptr
+  br i1 %.not976, label %common.ret, label %1189
+
+1189:                                             ; preds = %1183
+  %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.210 = load ptr, ptr %.sroa.0157, align 8
+  %1190 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.210, align 1
+  %1191 = icmp ne i8 %1190, 0
+  %1192 = uitofp i1 %1191 to double
+  %1193 = bitcast double %1192 to i64
+  %1194 = inttoptr i64 %1193 to ptr
   br label %common.ret
 
-1189:                                             ; preds = %1163
+1195:                                             ; preds = %1169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %849, i64 72, i1 false)
-  %1190 = getelementptr inbounds i8, ptr %5, i64 32
+  %1196 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload353 = load ptr, ptr %.sroa.0157, align 8
-  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload353, ptr %1190, align 8
-  %1191 = getelementptr inbounds i8, ptr %0, i64 160
-  %1192 = load ptr, ptr %1191, align 8
-  %1193 = getelementptr inbounds i8, ptr %1192, i64 56
-  %1194 = load ptr, ptr %1193, align 8
-  %1195 = call i32 %1194(ptr noundef nonnull %5, i32 noundef 259, i32 noundef 0) #21
-  %.not972 = icmp eq i32 %1195, 0
-  br i1 %.not972, label %._crit_edge1443, label %1196
+  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload353, ptr %1196, align 8
+  %1197 = getelementptr inbounds i8, ptr %0, i64 160
+  %1198 = load ptr, ptr %1197, align 8
+  %1199 = getelementptr inbounds i8, ptr %1198, i64 56
+  %1200 = load ptr, ptr %1199, align 8
+  %1201 = call i32 %1200(ptr noundef nonnull %5, i32 noundef 259, i32 noundef 0) #21
+  %.not972 = icmp eq i32 %1201, 0
+  br i1 %.not972, label %._crit_edge1443, label %1202
 
-._crit_edge1443:                                  ; preds = %1189
-  %.sroa.0837.0.copyload851.pre = load ptr, ptr %1190, align 8
+._crit_edge1443:                                  ; preds = %1195
+  %.sroa.0837.0.copyload851.pre = load ptr, ptr %1196, align 8
   br label %common.ret
 
-1196:                                             ; preds = %1189
+1202:                                             ; preds = %1195
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.211 = load ptr, ptr %.sroa.0157, align 8
   %.not973 = icmp eq ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.211, null
-  br i1 %.not973, label %common.ret, label %1197
+  br i1 %.not973, label %common.ret, label %1203
 
-1197:                                             ; preds = %1196
-  %1198 = call i64 @strtoll(ptr noundef nonnull %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.211, ptr noundef nonnull %4, i32 noundef 0) #21
-  store i64 %1198, ptr %1190, align 8
-  %1199 = load ptr, ptr %4, align 8
-  %1200 = load i8, ptr %1199, align 1
-  %.not974 = icmp eq i8 %1200, 0
-  %1201 = inttoptr i64 %1198 to ptr
-  br i1 %.not974, label %common.ret, label %1202
+1203:                                             ; preds = %1202
+  %1204 = call i64 @strtoll(ptr noundef nonnull %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.211, ptr noundef nonnull %4, i32 noundef 0) #21
+  store i64 %1204, ptr %1196, align 8
+  %1205 = load ptr, ptr %4, align 8
+  %1206 = load i8, ptr %1205, align 1
+  %.not974 = icmp eq i8 %1206, 0
+  %1207 = inttoptr i64 %1204 to ptr
+  br i1 %.not974, label %common.ret, label %1208
 
-1202:                                             ; preds = %1197
+1208:                                             ; preds = %1203
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.213 = load ptr, ptr %.sroa.0157, align 8
-  %1203 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.213, align 1
-  %1204 = icmp ne i8 %1203, 0
-  %1205 = zext i1 %1204 to i64
-  %1206 = inttoptr i64 %1205 to ptr
+  %1209 = load i8, ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.213, align 1
+  %1210 = icmp ne i8 %1209, 0
+  %1211 = zext i1 %1210 to i64
+  %1212 = inttoptr i64 %1211 to ptr
   br label %common.ret
 
-1207:                                             ; preds = %1163
+1213:                                             ; preds = %1169
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %849, i64 72, i1 false)
-  %1208 = getelementptr inbounds i8, ptr %5, i64 32
+  %1214 = getelementptr inbounds i8, ptr %5, i64 32
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload354 = load ptr, ptr %.sroa.0157, align 8
-  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload354, ptr %1208, align 8
-  %1209 = getelementptr inbounds i8, ptr %0, i64 160
-  %1210 = load ptr, ptr %1209, align 8
-  %1211 = getelementptr inbounds i8, ptr %1210, i64 56
-  %1212 = load ptr, ptr %1211, align 8
-  %1213 = load i32, ptr %.tr10051211, align 8
-  %1214 = call i32 %1212(ptr noundef nonnull %5, i32 noundef %1213, i32 noundef 0) #21
-  %.not971 = icmp eq i32 %1214, 0
-  br i1 %.not971, label %1218, label %1215
+  store ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.copyload354, ptr %1214, align 8
+  %1215 = getelementptr inbounds i8, ptr %0, i64 160
+  %1216 = load ptr, ptr %1215, align 8
+  %1217 = getelementptr inbounds i8, ptr %1216, i64 56
+  %1218 = load ptr, ptr %1217, align 8
+  %1219 = load i32, ptr %.tr10051211, align 8
+  %1220 = call i32 %1218(ptr noundef nonnull %5, i32 noundef %1219, i32 noundef 0) #21
+  %.not971 = icmp eq i32 %1220, 0
+  br i1 %.not971, label %1224, label %1221
 
-1215:                                             ; preds = %1207
-  %1216 = load ptr, ptr %1208, align 8
-  %1217 = getelementptr inbounds i8, ptr %1216, i64 80
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.15, ptr noundef nonnull %1217) #21
-  br label %1218
+1221:                                             ; preds = %1213
+  %1222 = load ptr, ptr %1214, align 8
+  %1223 = getelementptr inbounds i8, ptr %1222, i64 80
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.15, ptr noundef nonnull %1223) #21
+  br label %1224
 
-1218:                                             ; preds = %1215, %1207
-  %.sroa.0837.0.copyload852 = load ptr, ptr %1208, align 8
+1224:                                             ; preds = %1221, %1213
+  %.sroa.0837.0.copyload852 = load ptr, ptr %1214, align 8
   br label %common.ret
 
-1219:                                             ; preds = %1163, %1163
+1225:                                             ; preds = %1169, %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214 = load ptr, ptr %.sroa.0157, align 8
-  %1220 = icmp ne ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, null
+  %1226 = icmp ne ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, null
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110 = load ptr, ptr %.sroa.067, align 8
-  %1221 = icmp ne ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110, null
-  %or.cond5 = select i1 %1220, i1 %1221, i1 false
-  br i1 %or.cond5, label %1222, label %1224
+  %1227 = icmp ne ptr %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110, null
+  %or.cond5 = select i1 %1226, i1 %1227, i1 false
+  br i1 %or.cond5, label %1228, label %1230
 
-1222:                                             ; preds = %1219
-  %1223 = call i32 @strmatch(ptr noundef nonnull %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, ptr noundef nonnull %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110) #21
+1228:                                             ; preds = %1225
+  %1229 = call i32 @strmatch(ptr noundef nonnull %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, ptr noundef nonnull %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110) #21
   %.pre1442 = load i32, ptr %827, align 4
-  br label %1227
+  br label %1233
 
-1224:                                             ; preds = %1219
-  %1225 = icmp eq ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110
-  %1226 = zext i1 %1225 to i32
-  br label %1227
+1230:                                             ; preds = %1225
+  %1231 = icmp eq ptr %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.214, %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.110
+  %1232 = zext i1 %1231 to i32
+  br label %1233
 
-1227:                                             ; preds = %1224, %1222
-  %1228 = phi i32 [ %.pre1442, %1222 ], [ %1164, %1224 ]
-  %1229 = phi i32 [ %1223, %1222 ], [ %1226, %1224 ]
-  %1230 = icmp eq i32 %1228, 325
-  %1231 = zext i1 %1230 to i32
-  %1232 = icmp eq i32 %1229, %1231
-  %1233 = zext i1 %1232 to i64
-  %1234 = inttoptr i64 %1233 to ptr
+1233:                                             ; preds = %1230, %1228
+  %1234 = phi i32 [ %.pre1442, %1228 ], [ %1170, %1230 ]
+  %1235 = phi i32 [ %1229, %1228 ], [ %1232, %1230 ]
+  %1236 = icmp eq i32 %1234, 325
+  %1237 = zext i1 %1236 to i32
+  %1238 = icmp eq i32 %1235, %1237
+  %1239 = zext i1 %1238 to i64
+  %1240 = inttoptr i64 %1239 to ptr
   br label %common.ret
 
-1235:                                             ; preds = %1163
+1241:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.217 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.103 = load ptr, ptr %.sroa.067, align 8
-  %1236 = getelementptr i8, ptr %0, i64 104
-  %.val994 = load ptr, ptr %1236, align 8
-  %1237 = call fastcc ptr @str_add(ptr %.val994, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.217, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.103)
+  %1242 = getelementptr i8, ptr %0, i64 104
+  %.val994 = load ptr, ptr %1242, align 8
+  %1243 = call fastcc ptr @str_add(ptr %.val994, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.217, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.103)
   br label %common.ret
 
-1238:                                             ; preds = %1163
+1244:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.218 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.104 = load ptr, ptr %.sroa.067, align 8
-  %1239 = call fastcc ptr @str_ior(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.218, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.104)
+  %1245 = call fastcc ptr @str_ior(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.218, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.104)
   br label %common.ret
 
-1240:                                             ; preds = %1163
+1246:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.219 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.105 = load ptr, ptr %.sroa.067, align 8
-  %1241 = call fastcc ptr @str_and(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.219, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.105)
+  %1247 = call fastcc ptr @str_and(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.219, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.105)
   br label %common.ret
 
-1242:                                             ; preds = %1163
+1248:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.220 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.106 = load ptr, ptr %.sroa.067, align 8
-  %1243 = call fastcc ptr @str_xor(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.220, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.106)
+  %1249 = call fastcc ptr @str_xor(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.220, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.106)
   br label %common.ret
 
-1244:                                             ; preds = %1163
+1250:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.221 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.107 = load ptr, ptr %.sroa.067, align 8
-  %1245 = call fastcc ptr @str_mod(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.221, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.107)
+  %1251 = call fastcc ptr @str_mod(ptr noundef nonnull %0, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.221, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.107)
   br label %common.ret
 
-1246:                                             ; preds = %1163
+1252:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.222 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.108 = load ptr, ptr %.sroa.067, align 8
-  %1247 = getelementptr i8, ptr %0, i64 104
-  %.val996 = load ptr, ptr %1247, align 8
-  %1248 = call fastcc ptr @str_mpy(ptr %.val996, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.222, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.108)
+  %1253 = getelementptr i8, ptr %0, i64 104
+  %.val996 = load ptr, ptr %1253, align 8
+  %1254 = call fastcc ptr @str_mpy(ptr %.val996, ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.222, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.108)
   br label %common.ret
 
-1249:                                             ; preds = %1163
+1255:                                             ; preds = %1169
   %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.223 = load ptr, ptr %.sroa.0157, align 8
   %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.109 = load ptr, ptr %.sroa.067, align 8
-  %1250 = call i32 @strcoll(ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.223, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.109) #26
-  %1251 = sext i32 %1250 to i64
-  %1252 = inttoptr i64 %1251 to ptr
-  store ptr %1252, ptr %.sroa.0157, align 8
-  switch i32 %1164, label %1268 [
-    i32 60, label %1253
-    i32 327, label %1256
-    i32 328, label %1260
-    i32 62, label %1264
+  %1256 = call i32 @strcoll(ptr noundef %.sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0..sroa.0157.0.223, ptr noundef %.sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0..sroa.067.0.109) #26
+  %1257 = sext i32 %1256 to i64
+  %1258 = inttoptr i64 %1257 to ptr
+  store ptr %1258, ptr %.sroa.0157, align 8
+  switch i32 %1170, label %1274 [
+    i32 60, label %1259
+    i32 327, label %1262
+    i32 328, label %1266
+    i32 62, label %1270
   ]
 
-1253:                                             ; preds = %1249
-  %.lobit = lshr i32 %1250, 31
-  %1254 = zext nneg i32 %.lobit to i64
-  %1255 = inttoptr i64 %1254 to ptr
+1259:                                             ; preds = %1255
+  %.lobit = lshr i32 %1256, 31
+  %1260 = zext nneg i32 %.lobit to i64
+  %1261 = inttoptr i64 %1260 to ptr
   br label %common.ret
 
-1256:                                             ; preds = %1249
-  %1257 = icmp slt i32 %1250, 1
-  %1258 = zext i1 %1257 to i64
-  %1259 = inttoptr i64 %1258 to ptr
+1262:                                             ; preds = %1255
+  %1263 = icmp slt i32 %1256, 1
+  %1264 = zext i1 %1263 to i64
+  %1265 = inttoptr i64 %1264 to ptr
   br label %common.ret
 
-1260:                                             ; preds = %1249
-  %1261 = icmp sgt i32 %1250, -1
-  %1262 = zext i1 %1261 to i64
-  %1263 = inttoptr i64 %1262 to ptr
+1266:                                             ; preds = %1255
+  %1267 = icmp sgt i32 %1256, -1
+  %1268 = zext i1 %1267 to i64
+  %1269 = inttoptr i64 %1268 to ptr
   br label %common.ret
 
-1264:                                             ; preds = %1249
-  %1265 = icmp sgt i32 %1250, 0
-  %1266 = zext i1 %1265 to i64
-  %1267 = inttoptr i64 %1266 to ptr
+1270:                                             ; preds = %1255
+  %1271 = icmp sgt i32 %1256, 0
+  %1272 = zext i1 %1271 to i64
+  %1273 = inttoptr i64 %1272 to ptr
   br label %common.ret
 
-1268:                                             ; preds = %851, %1029, %1249, %663, %771, %733, %667, %58
-  %1269 = phi ptr [ %826, %851 ], [ %826, %1029 ], [ %826, %1249 ], [ %622, %663 ], [ %622, %771 ], [ %622, %733 ], [ %622, %667 ], [ %25, %58 ]
-  %1270 = phi ptr [ %827, %851 ], [ %827, %1029 ], [ %827, %1249 ], [ %623, %663 ], [ %623, %771 ], [ %623, %733 ], [ %623, %667 ], [ %26, %58 ]
-  %1271 = getelementptr inbounds i8, ptr %.tr10051211, i64 8
-  %1272 = load i32, ptr %1271, align 8
-  %.not991 = icmp eq i32 %1272, 0
-  br i1 %.not991, label %1288, label %1273
+1274:                                             ; preds = %851, %1029, %1255, %663, %771, %733, %667, %58
+  %1275 = phi ptr [ %826, %851 ], [ %826, %1029 ], [ %826, %1255 ], [ %622, %663 ], [ %622, %771 ], [ %622, %733 ], [ %622, %667 ], [ %25, %58 ]
+  %1276 = phi ptr [ %827, %851 ], [ %827, %1029 ], [ %827, %1255 ], [ %623, %663 ], [ %623, %771 ], [ %623, %733 ], [ %623, %667 ], [ %26, %58 ]
+  %1277 = getelementptr inbounds i8, ptr %.tr10051211, i64 8
+  %1278 = load i32, ptr %1277, align 8
+  %.not991 = icmp eq i32 %1278, 0
+  br i1 %.not991, label %1294, label %1279
 
-1273:                                             ; preds = %1268
-  %1274 = load ptr, ptr %1269, align 8
-  %1275 = load i32, ptr %1274, align 8
-  %1276 = call fastcc ptr @lexname(i32 noundef %1275, i32 noundef -1)
-  %1277 = load i32, ptr %1270, align 4
-  %1278 = getelementptr inbounds i8, ptr %.tr10051211, i64 64
-  %1279 = load i32, ptr %1278, align 8
-  %1280 = call fastcc ptr @lexname(i32 noundef %1277, i32 noundef %1279)
-  %1281 = getelementptr inbounds i8, ptr %.tr10051211, i64 40
-  %1282 = load ptr, ptr %1281, align 8
-  %.not992 = icmp eq ptr %1282, null
-  br i1 %.not992, label %1286, label %1283
+1279:                                             ; preds = %1274
+  %1280 = load ptr, ptr %1275, align 8
+  %1281 = load i32, ptr %1280, align 8
+  %1282 = call fastcc ptr @lexname(i32 noundef %1281, i32 noundef -1)
+  %1283 = load i32, ptr %1276, align 4
+  %1284 = getelementptr inbounds i8, ptr %.tr10051211, i64 64
+  %1285 = load i32, ptr %1284, align 8
+  %1286 = call fastcc ptr @lexname(i32 noundef %1283, i32 noundef %1285)
+  %1287 = getelementptr inbounds i8, ptr %.tr10051211, i64 40
+  %1288 = load ptr, ptr %1287, align 8
+  %.not992 = icmp eq ptr %1288, null
+  br i1 %.not992, label %1292, label %1289
 
-1283:                                             ; preds = %1273
-  %1284 = load i32, ptr %1282, align 8
-  %1285 = call fastcc ptr @lexname(i32 noundef %1284, i32 noundef -1)
-  br label %1286
+1289:                                             ; preds = %1279
+  %1290 = load i32, ptr %1288, align 8
+  %1291 = call fastcc ptr @lexname(i32 noundef %1290, i32 noundef -1)
+  br label %1292
 
-1286:                                             ; preds = %1273, %1283
-  %1287 = phi ptr [ %1285, %1283 ], [ @.str.17, %1273 ]
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.16, ptr noundef %1276, ptr noundef %1280, ptr noundef %1287) #21
-  br label %1296
+1292:                                             ; preds = %1279, %1289
+  %1293 = phi ptr [ %1291, %1289 ], [ @.str.17, %1279 ]
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.16, ptr noundef %1282, ptr noundef %1286, ptr noundef %1293) #21
+  br label %1302
 
-1288:                                             ; preds = %1268
-  %1289 = load i32, ptr %1270, align 4
-  %1290 = getelementptr inbounds i8, ptr %.tr10051211, i64 64
-  %1291 = load i32, ptr %1290, align 8
-  %1292 = call fastcc ptr @lexname(i32 noundef %1289, i32 noundef %1291)
-  %1293 = load ptr, ptr %1269, align 8
-  %1294 = load i32, ptr %1293, align 8
-  %1295 = call fastcc ptr @lexname(i32 noundef %1294, i32 noundef -1)
-  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.18, ptr noundef %1292, ptr noundef %1295) #21
-  br label %1296
+1294:                                             ; preds = %1274
+  %1295 = load i32, ptr %1276, align 4
+  %1296 = getelementptr inbounds i8, ptr %.tr10051211, i64 64
+  %1297 = load i32, ptr %1296, align 8
+  %1298 = call fastcc ptr @lexname(i32 noundef %1295, i32 noundef %1297)
+  %1299 = load ptr, ptr %1275, align 8
+  %1300 = load i32, ptr %1299, align 8
+  %1301 = call fastcc ptr @lexname(i32 noundef %1300, i32 noundef -1)
+  call void (ptr, ...) @exerror(ptr noundef nonnull @.str.18, ptr noundef %1298, ptr noundef %1301) #21
+  br label %1302
 
-1296:                                             ; preds = %1288, %1286
-  %1297 = load i32, ptr %.tr10051211, align 8
-  %1298 = sext i32 %1297 to i64
-  %1299 = call ptr @exzero(i64 noundef %1298) #21
+1302:                                             ; preds = %1294, %1292
+  %1303 = load i32, ptr %.tr10051211, align 8
+  %1304 = sext i32 %1303 to i64
+  %1305 = call ptr @exzero(i64 noundef %1304) #21
   br label %common.ret
 }
 
@@ -5882,6 +5893,7 @@ define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %
   %21 = getelementptr inbounds i8, ptr %20, i64 56
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %22, i64 32
+  store ptr %23, ptr %0, align 8
   br label %84
 
 24:                                               ; preds = %6, %6
@@ -5933,6 +5945,7 @@ define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %
   %55 = getelementptr inbounds i8, ptr %54, i64 56
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 32
+  store ptr %52, ptr %57, align 8
   br label %84
 
 58:                                               ; preds = %6
@@ -5955,6 +5968,7 @@ define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %
   %68 = getelementptr inbounds i8, ptr %67, i64 56
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds i8, ptr %69, i64 32
+  store ptr %70, ptr %0, align 8
   br label %84
 
 71:                                               ; preds = %6
@@ -5978,12 +5992,10 @@ define internal range(i32 -1, 1) i32 @scformat(ptr nocapture noundef writeonly %
   %81 = getelementptr inbounds i8, ptr %80, i64 56
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 32
+  store ptr %83, ptr %0, align 8
   br label %84
 
 84:                                               ; preds = %77, %64, %37, %17
-  %.sink46 = phi ptr [ %0, %77 ], [ %0, %64 ], [ %57, %37 ], [ %0, %17 ]
-  %.sink = phi ptr [ %83, %77 ], [ %70, %64 ], [ %52, %37 ], [ %23, %17 ]
-  store ptr %.sink, ptr %.sink46, align 8
   %85 = load ptr, ptr %3, align 8
   %86 = getelementptr inbounds i8, ptr %85, i64 40
   %87 = load ptr, ptr %86, align 8

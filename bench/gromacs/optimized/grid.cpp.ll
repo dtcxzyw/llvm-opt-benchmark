@@ -1028,135 +1028,143 @@ _ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPoli
   %232 = load i32, ptr %146, align 8
   %233 = load i32, ptr %148, align 4
   %234 = icmp eq i32 %232, %233
-  br i1 %234, label %235, label %241
+  br i1 %234, label %235, label %244
 
 235:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit
   %236 = getelementptr inbounds i8, ptr %0, i64 224
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds i8, ptr %0, i64 232
   %239 = load ptr, ptr %238, align 8
-  %240 = ptrtoint ptr %237 to i64
-  br label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
+  %240 = ptrtoint ptr %239 to i64
+  %241 = ptrtoint ptr %237 to i64
+  %242 = sub i64 %240, %241
+  %243 = getelementptr inbounds i8, ptr %237, i64 %242
+  br label %269
 
-241:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit
-  %242 = getelementptr inbounds i8, ptr %0, i64 248
-  %243 = mul nsw i32 %233, %.0.i
-  %244 = sdiv i32 %243, %232
-  %245 = sext i32 %244 to i64
-  %246 = getelementptr inbounds i8, ptr %0, i64 256
-  %247 = load ptr, ptr %246, align 8
-  %248 = load ptr, ptr %242, align 8
-  %249 = ptrtoint ptr %247 to i64
-  %250 = ptrtoint ptr %248 to i64
-  %251 = sub i64 %249, %250
-  %252 = ashr exact i64 %251, 5
-  %253 = icmp ult i64 %252, %245
-  br i1 %253, label %254, label %256
+244:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit
+  %245 = getelementptr inbounds i8, ptr %0, i64 248
+  %246 = mul nsw i32 %233, %.0.i
+  %247 = sdiv i32 %246, %232
+  %248 = sext i32 %247 to i64
+  %249 = getelementptr inbounds i8, ptr %0, i64 256
+  %250 = load ptr, ptr %249, align 8
+  %251 = load ptr, ptr %245, align 8
+  %252 = ptrtoint ptr %250 to i64
+  %253 = ptrtoint ptr %251 to i64
+  %254 = sub i64 %252, %253
+  %255 = ashr exact i64 %254, 5
+  %256 = icmp ult i64 %255, %248
+  br i1 %256, label %257, label %259
 
-254:                                              ; preds = %241
-  %255 = sub nsw i64 %245, %252
-  tail call void @_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %242, i64 noundef %255)
-  %.pre77 = load ptr, ptr %242, align 8
-  %.pre78 = load ptr, ptr %246, align 8
+257:                                              ; preds = %244
+  %258 = sub nsw i64 %248, %255
+  tail call void @_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %245, i64 noundef %258)
+  %.pre77 = load ptr, ptr %245, align 8
+  %.pre78 = load ptr, ptr %249, align 8
   %.pre82 = ptrtoint ptr %.pre77 to i64
   br label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
 
-256:                                              ; preds = %241
-  %257 = icmp ugt i64 %252, %245
-  br i1 %257, label %258, label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
+259:                                              ; preds = %244
+  %260 = icmp ugt i64 %255, %248
+  br i1 %260, label %261, label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
 
-258:                                              ; preds = %256
-  %259 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %248, i64 %245
-  %.not.i.i47 = icmp eq ptr %247, %259
-  br i1 %.not.i.i47, label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48, label %260
+261:                                              ; preds = %259
+  %262 = getelementptr inbounds %"struct.Nbnxm::BoundingBox", ptr %251, i64 %248
+  %.not.i.i47 = icmp eq ptr %250, %262
+  br i1 %.not.i.i47, label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48, label %263
 
-260:                                              ; preds = %258
-  store ptr %259, ptr %246, align 8
+263:                                              ; preds = %261
+  store ptr %262, ptr %249, align 8
   br label %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
 
-_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48: ; preds = %260, %258, %256, %254, %235
-  %.pre-phi83.sink = phi i64 [ %240, %235 ], [ %.pre82, %254 ], [ %250, %256 ], [ %250, %258 ], [ %250, %260 ]
-  %.sink93.in = phi ptr [ %239, %235 ], [ %.pre78, %254 ], [ %247, %256 ], [ %247, %258 ], [ %259, %260 ]
-  %.sink91 = phi ptr [ %237, %235 ], [ %.pre77, %254 ], [ %248, %256 ], [ %248, %258 ], [ %248, %260 ]
-  %.sink93 = ptrtoint ptr %.sink93.in to i64
-  %261 = sub i64 %.sink93, %.pre-phi83.sink
-  %262 = getelementptr inbounds i8, ptr %.sink91, i64 %261
-  %263 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr %.sink91, ptr %263, align 8
+_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48: ; preds = %257, %259, %261, %263
+  %.pre-phi83 = phi i64 [ %.pre82, %257 ], [ %253, %259 ], [ %253, %261 ], [ %253, %263 ]
+  %264 = phi ptr [ %.pre78, %257 ], [ %250, %259 ], [ %250, %261 ], [ %262, %263 ]
+  %265 = phi ptr [ %.pre77, %257 ], [ %251, %259 ], [ %251, %261 ], [ %251, %263 ]
+  %266 = ptrtoint ptr %264 to i64
+  %267 = sub i64 %266, %.pre-phi83
+  %268 = getelementptr inbounds i8, ptr %265, i64 %267
+  br label %269
+
+269:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48, %235
+  %.sink89 = phi ptr [ %265, %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48 ], [ %237, %235 ]
+  %.sink88 = phi ptr [ %268, %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48 ], [ %243, %235 ]
+  %270 = getelementptr inbounds i8, ptr %0, i64 272
+  store ptr %.sink89, ptr %270, align 8
   %.sroa.2.0..sroa_idx52 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr %262, ptr %.sroa.2.0..sroa_idx52, align 8
-  %264 = getelementptr inbounds i8, ptr %0, i64 320
-  %265 = getelementptr inbounds i8, ptr %0, i64 328
-  %266 = load ptr, ptr %265, align 8
-  %267 = load ptr, ptr %264, align 8
-  %268 = ptrtoint ptr %266 to i64
-  %269 = ptrtoint ptr %267 to i64
-  %270 = sub i64 %268, %269
-  %271 = ashr exact i64 %270, 2
-  %272 = icmp ult i64 %271, %.pre-phi85
-  br i1 %272, label %273, label %275
+  store ptr %.sink88, ptr %.sroa.2.0..sroa_idx52, align 8
+  %271 = getelementptr inbounds i8, ptr %0, i64 320
+  %272 = getelementptr inbounds i8, ptr %0, i64 328
+  %273 = load ptr, ptr %272, align 8
+  %274 = load ptr, ptr %271, align 8
+  %275 = ptrtoint ptr %273 to i64
+  %276 = ptrtoint ptr %274 to i64
+  %277 = sub i64 %275, %276
+  %278 = ashr exact i64 %277, 2
+  %279 = icmp ult i64 %278, %.pre-phi85
+  br i1 %279, label %280, label %282
 
-273:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
-  %274 = sub nsw i64 %.pre-phi85, %271
-  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %264, i64 noundef %274)
+280:                                              ; preds = %269
+  %281 = sub nsw i64 %.pre-phi85, %278
+  tail call void @_ZNSt6vectorIiSaIiEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %271, i64 noundef %281)
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
 
-275:                                              ; preds = %_ZNSt6vectorIN5Nbnxm11BoundingBoxEN3gmx9AllocatorIS1_NS2_23AlignedAllocationPolicyEEEE6resizeEm.exit48
-  %276 = icmp ugt i64 %271, %.pre-phi85
-  br i1 %276, label %277, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
+282:                                              ; preds = %269
+  %283 = icmp ugt i64 %278, %.pre-phi85
+  br i1 %283, label %284, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
 
-277:                                              ; preds = %275
-  %278 = getelementptr inbounds i32, ptr %267, i64 %.pre-phi85
-  %.not.i.i49 = icmp eq ptr %266, %278
-  br i1 %.not.i.i49, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50, label %279
+284:                                              ; preds = %282
+  %285 = getelementptr inbounds i32, ptr %274, i64 %.pre-phi85
+  %.not.i.i49 = icmp eq ptr %273, %285
+  br i1 %.not.i.i49, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50, label %286
 
-279:                                              ; preds = %277
-  store ptr %278, ptr %265, align 8
+286:                                              ; preds = %284
+  store ptr %285, ptr %272, align 8
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
 
-_ZNSt6vectorIiSaIiEE6resizeEm.exit50:             ; preds = %273, %275, %277, %279
-  %280 = getelementptr inbounds i8, ptr %0, i64 312
-  %281 = load ptr, ptr %280, align 8
-  %282 = load i8, ptr %281, align 1
-  %283 = trunc i8 %282 to i1
-  br i1 %283, label %284, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+_ZNSt6vectorIiSaIiEE6resizeEm.exit50:             ; preds = %280, %282, %284, %286
+  %287 = getelementptr inbounds i8, ptr %0, i64 312
+  %288 = load ptr, ptr %287, align 8
+  %289 = load i8, ptr %288, align 1
+  %290 = trunc i8 %289 to i1
+  br i1 %290, label %291, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-284:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
-  %285 = getelementptr inbounds i8, ptr %0, i64 344
-  %286 = load i32, ptr %48, align 4
-  %287 = mul nsw i32 %286, %.0.i
-  %288 = load i32, ptr %148, align 4
-  %289 = sdiv i32 %287, %288
-  %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds i8, ptr %0, i64 352
-  %292 = load ptr, ptr %291, align 8
-  %293 = load ptr, ptr %285, align 8
-  %294 = ptrtoint ptr %292 to i64
-  %295 = ptrtoint ptr %293 to i64
-  %296 = sub i64 %294, %295
-  %297 = ashr exact i64 %296, 2
-  %298 = icmp ult i64 %297, %290
-  br i1 %298, label %299, label %301
+291:                                              ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
+  %292 = getelementptr inbounds i8, ptr %0, i64 344
+  %293 = load i32, ptr %48, align 4
+  %294 = mul nsw i32 %293, %.0.i
+  %295 = load i32, ptr %148, align 4
+  %296 = sdiv i32 %294, %295
+  %297 = sext i32 %296 to i64
+  %298 = getelementptr inbounds i8, ptr %0, i64 352
+  %299 = load ptr, ptr %298, align 8
+  %300 = load ptr, ptr %292, align 8
+  %301 = ptrtoint ptr %299 to i64
+  %302 = ptrtoint ptr %300 to i64
+  %303 = sub i64 %301, %302
+  %304 = ashr exact i64 %303, 2
+  %305 = icmp ult i64 %304, %297
+  br i1 %305, label %306, label %308
 
-299:                                              ; preds = %284
-  %300 = sub nsw i64 %290, %297
-  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %285, i64 noundef %300)
+306:                                              ; preds = %291
+  %307 = sub nsw i64 %297, %304
+  tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %292, i64 noundef %307)
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-301:                                              ; preds = %284
-  %302 = icmp ugt i64 %297, %290
-  br i1 %302, label %303, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+308:                                              ; preds = %291
+  %309 = icmp ugt i64 %304, %297
+  br i1 %309, label %310, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-303:                                              ; preds = %301
-  %304 = getelementptr inbounds i32, ptr %293, i64 %290
-  %.not.i.i51 = icmp eq ptr %292, %304
-  br i1 %.not.i.i51, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %305
+310:                                              ; preds = %308
+  %311 = getelementptr inbounds i32, ptr %300, i64 %297
+  %.not.i.i51 = icmp eq ptr %299, %311
+  br i1 %.not.i.i51, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %312
 
-305:                                              ; preds = %303
-  store ptr %304, ptr %291, align 8
+312:                                              ; preds = %310
+  store ptr %311, ptr %298, align 8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
-_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %305, %303, %301, %299, %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
+_ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %312, %310, %308, %306, %_ZNSt6vectorIiSaIiEE6resizeEm.exit50
   ret void
 }
 

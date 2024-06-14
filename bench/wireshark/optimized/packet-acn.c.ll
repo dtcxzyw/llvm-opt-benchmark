@@ -6299,7 +6299,7 @@ define internal fastcc void @begin_dissect_acn_pdu(ptr nocapture noundef writeon
   %21 = zext i8 %20 to i32
   %22 = load i8, ptr %6, align 1
   %.not.i = icmp sgt i8 %22, -1
-  br i1 %.not.i, label %32, label %23
+  br i1 %.not.i, label %33, label %23
 
 23:                                               ; preds = %11
   %24 = load i32, ptr %5, align 4
@@ -6311,60 +6311,60 @@ define internal fastcc void @begin_dissect_acn_pdu(ptr nocapture noundef writeon
   %29 = shl nuw nsw i32 %21, 8
   %30 = or disjoint i32 %29, %26
   %31 = shl nuw nsw i32 %17, 16
+  %32 = or disjoint i32 %30, %31
   br label %dissect_pdu_bit_flag_l.exit
 
-32:                                               ; preds = %11
-  %33 = shl nuw nsw i32 %17, 8
+33:                                               ; preds = %11
+  %34 = shl nuw nsw i32 %17, 8
+  %35 = or disjoint i32 %34, %21
   br label %dissect_pdu_bit_flag_l.exit
 
-dissect_pdu_bit_flag_l.exit:                      ; preds = %23, %32
-  %.sink20.i = phi i32 [ %21, %32 ], [ %31, %23 ]
-  %.sink.i = phi i32 [ %33, %32 ], [ %30, %23 ]
-  %storemerge.i = phi i32 [ 2, %32 ], [ 3, %23 ]
-  %34 = or disjoint i32 %.sink.i, %.sink20.i
-  store i32 %34, ptr %7, align 4
+dissect_pdu_bit_flag_l.exit:                      ; preds = %23, %33
+  %storemerge19.i = phi i32 [ %35, %33 ], [ %32, %23 ]
+  %storemerge.i = phi i32 [ 2, %33 ], [ 3, %23 ]
+  store i32 %storemerge19.i, ptr %7, align 4
   store i32 %storemerge.i, ptr %8, align 4
   %.not = icmp eq i32 %10, 0
-  %35 = load i32, ptr %4, align 4
-  %36 = load i32, ptr %7, align 4
+  %36 = load i32, ptr %4, align 4
+  %37 = load i32, ptr %7, align 4
   %hf_rdmnet_pdu.val = load i32, ptr @hf_rdmnet_pdu, align 4
   %hf_acn_pdu.val = load i32, ptr @hf_acn_pdu, align 4
-  %37 = select i1 %.not, i32 %hf_rdmnet_pdu.val, i32 %hf_acn_pdu.val
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %37, ptr noundef %1, i32 noundef %35, i32 noundef %36, i32 noundef 0) #6
-  store ptr %38, ptr %2, align 8
-  %39 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %9) #6
-  store ptr %39, ptr %0, align 8
+  %38 = select i1 %.not, i32 %hf_rdmnet_pdu.val, i32 %hf_acn_pdu.val
+  %39 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %38, ptr noundef %1, i32 noundef %36, i32 noundef %37, i32 noundef 0) #6
+  store ptr %39, ptr %2, align 8
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %9) #6
+  store ptr %40, ptr %0, align 8
   %hf_rdmnet_pdu_flags.val = load i32, ptr @hf_rdmnet_pdu_flags, align 4
   %hf_acn_pdu_flags.val = load i32, ptr @hf_acn_pdu_flags, align 4
-  %40 = select i1 %.not, i32 %hf_rdmnet_pdu_flags.val, i32 %hf_acn_pdu_flags.val
-  %41 = load i32, ptr %4, align 4
-  %42 = load i8, ptr %6, align 1
-  %43 = zext i8 %42 to i32
-  %44 = tail call ptr @proto_tree_add_uint(ptr noundef %39, i32 noundef %40, ptr noundef %1, i32 noundef %41, i32 noundef 1, i32 noundef %43) #6
+  %41 = select i1 %.not, i32 %hf_rdmnet_pdu_flags.val, i32 %hf_acn_pdu_flags.val
+  %42 = load i32, ptr %4, align 4
+  %43 = load i8, ptr %6, align 1
+  %44 = zext i8 %43 to i32
+  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %41, ptr noundef %1, i32 noundef %42, i32 noundef 1, i32 noundef %44) #6
   %ett_rdmnet_pdu_flags.val = load i32, ptr @ett_rdmnet_pdu_flags, align 4
   %ett_acn_pdu_flags.val = load i32, ptr @ett_acn_pdu_flags, align 4
-  %45 = select i1 %.not, i32 %ett_rdmnet_pdu_flags.val, i32 %ett_acn_pdu_flags.val
-  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #6
+  %46 = select i1 %.not, i32 %ett_rdmnet_pdu_flags.val, i32 %ett_acn_pdu_flags.val
+  %47 = tail call ptr @proto_item_add_subtree(ptr noundef %45, i32 noundef %46) #6
   %hf_rdmnet_pdu_flag_l.val = load i32, ptr @hf_rdmnet_pdu_flag_l, align 4
   %hf_acn_pdu_flag_l.val = load i32, ptr @hf_acn_pdu_flag_l, align 4
-  %47 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_l.val, i32 %hf_acn_pdu_flag_l.val
-  %48 = load i32, ptr %4, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %1, i32 noundef %48, i32 noundef 1, i32 noundef 0) #6
+  %48 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_l.val, i32 %hf_acn_pdu_flag_l.val
+  %49 = load i32, ptr %4, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %48, ptr noundef %1, i32 noundef %49, i32 noundef 1, i32 noundef 0) #6
   %hf_rdmnet_pdu_flag_v.val = load i32, ptr @hf_rdmnet_pdu_flag_v, align 4
   %hf_acn_pdu_flag_v.val = load i32, ptr @hf_acn_pdu_flag_v, align 4
-  %50 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_v.val, i32 %hf_acn_pdu_flag_v.val
-  %51 = load i32, ptr %4, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %50, ptr noundef %1, i32 noundef %51, i32 noundef 1, i32 noundef 0) #6
+  %51 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_v.val, i32 %hf_acn_pdu_flag_v.val
+  %52 = load i32, ptr %4, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 1, i32 noundef 0) #6
   %hf_rdmnet_pdu_flag_h.val = load i32, ptr @hf_rdmnet_pdu_flag_h, align 4
   %hf_acn_pdu_flag_h.val = load i32, ptr @hf_acn_pdu_flag_h, align 4
-  %53 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_h.val, i32 %hf_acn_pdu_flag_h.val
-  %54 = load i32, ptr %4, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %53, ptr noundef %1, i32 noundef %54, i32 noundef 1, i32 noundef 0) #6
+  %54 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_h.val, i32 %hf_acn_pdu_flag_h.val
+  %55 = load i32, ptr %4, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %54, ptr noundef %1, i32 noundef %55, i32 noundef 1, i32 noundef 0) #6
   %hf_rdmnet_pdu_flag_d.val = load i32, ptr @hf_rdmnet_pdu_flag_d, align 4
   %hf_acn_pdu_flag_d.val = load i32, ptr @hf_acn_pdu_flag_d, align 4
-  %56 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_d.val, i32 %hf_acn_pdu_flag_d.val
-  %57 = load i32, ptr %4, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %56, ptr noundef %1, i32 noundef %57, i32 noundef 1, i32 noundef 0) #6
+  %57 = select i1 %.not, i32 %hf_rdmnet_pdu_flag_d.val, i32 %hf_acn_pdu_flag_d.val
+  %58 = load i32, ptr %4, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %57, ptr noundef %1, i32 noundef %58, i32 noundef 1, i32 noundef 0) #6
   ret void
 }
 

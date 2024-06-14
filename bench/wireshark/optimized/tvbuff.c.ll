@@ -3367,6 +3367,7 @@ define double @tvb_get_ieee_double(ptr noundef %0, i32 noundef %1, i32 noundef %
   %9 = load i32, ptr %8, align 1
   %.sroa.0.4.insert.ext.i = zext i32 %9 to i64
   %.sroa.0.4.insert.shift.i = shl nuw i64 %.sroa.0.4.insert.ext.i, 32
+  %.sroa.0.4.insert.insert.i = or disjoint i64 %.sroa.0.4.insert.shift.i, %.sroa.0.0.insert.ext.i
   br label %46
 
 10:                                               ; preds = %3
@@ -3408,13 +3409,12 @@ define double @tvb_get_ieee_double(ptr noundef %0, i32 noundef %1, i32 noundef %
   %45 = zext i8 %44 to i64
   %.sroa.0.4.insert.ext.i6 = or disjoint i64 %42, %45
   %.sroa.0.4.insert.shift.i7 = shl nuw i64 %.sroa.0.4.insert.ext.i6, 32
+  %.sroa.0.4.insert.insert.i8 = or disjoint i64 %.sroa.0.0.insert.ext.i5, %.sroa.0.4.insert.shift.i7
   br label %46
 
 46:                                               ; preds = %10, %4
-  %.sroa.0.4.insert.shift.i7.sink = phi i64 [ %.sroa.0.4.insert.shift.i7, %10 ], [ %.sroa.0.0.insert.ext.i, %4 ]
-  %.sroa.0.0.insert.ext.i5.sink = phi i64 [ %.sroa.0.0.insert.ext.i5, %10 ], [ %.sroa.0.4.insert.shift.i, %4 ]
-  %.sroa.0.4.insert.insert.i8 = or disjoint i64 %.sroa.0.0.insert.ext.i5.sink, %.sroa.0.4.insert.shift.i7.sink
-  %.0 = bitcast i64 %.sroa.0.4.insert.insert.i8 to double
+  %.0.in = phi i64 [ %.sroa.0.4.insert.insert.i, %4 ], [ %.sroa.0.4.insert.insert.i8, %10 ]
+  %.0 = bitcast i64 %.0.in to double
   ret double %.0
 }
 

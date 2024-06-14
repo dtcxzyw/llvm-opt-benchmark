@@ -1147,45 +1147,46 @@ if.then24:                                        ; preds = %if.end5, %lor.lhs.f
   %sub.ptr.lhs.cast = ptrtoint ptr %7 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %8 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
+  %pos25 = getelementptr inbounds i8, ptr %other, i64 400
+  %9 = load ptr, ptr %pos25, align 8
   %rawStart26 = getelementptr inbounds i8, ptr %other, i64 416
-  %9 = load ptr, ptr %rawStart26, align 8
-  br label %return.sink.split
+  %10 = load ptr, ptr %rawStart26, align 8
+  %sub.ptr.lhs.cast27 = ptrtoint ptr %9 to i64
+  %sub.ptr.rhs.cast28 = ptrtoint ptr %10 to i64
+  %sub.ptr.sub29 = sub i64 %sub.ptr.lhs.cast27, %sub.ptr.rhs.cast28
+  %cmp31 = icmp eq i64 %sub.ptr.sub, %sub.ptr.sub29
+  br label %return
 
 if.else:                                          ; preds = %lor.lhs.false
   %rawStart33 = getelementptr inbounds i8, ptr %this, i64 416
-  %10 = load ptr, ptr %rawStart33, align 8
+  %11 = load ptr, ptr %rawStart33, align 8
   %sub.ptr.lhs.cast34 = ptrtoint ptr %3 to i64
-  %sub.ptr.rhs.cast35 = ptrtoint ptr %10 to i64
+  %sub.ptr.rhs.cast35 = ptrtoint ptr %11 to i64
   %sub.ptr.sub36 = sub i64 %sub.ptr.lhs.cast34, %sub.ptr.rhs.cast35
   %rawStart39 = getelementptr inbounds i8, ptr %other, i64 416
-  %11 = load ptr, ptr %rawStart39, align 8
+  %12 = load ptr, ptr %rawStart39, align 8
   %sub.ptr.lhs.cast40 = ptrtoint ptr %5 to i64
-  %sub.ptr.rhs.cast41 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast41 = ptrtoint ptr %12 to i64
   %sub.ptr.sub42 = sub i64 %sub.ptr.lhs.cast40, %sub.ptr.rhs.cast41
   %cmp44 = icmp eq i64 %sub.ptr.sub36, %sub.ptr.sub42
   br i1 %cmp44, label %land.rhs, label %return
 
 land.rhs:                                         ; preds = %if.else
   %pos45 = getelementptr inbounds i8, ptr %this, i64 400
-  %12 = load ptr, ptr %pos45, align 8
-  %sub.ptr.lhs.cast47 = ptrtoint ptr %12 to i64
+  %13 = load ptr, ptr %pos45, align 8
+  %sub.ptr.lhs.cast47 = ptrtoint ptr %13 to i64
   %sub.ptr.rhs.cast48 = ptrtoint ptr %2 to i64
   %sub.ptr.sub49 = sub i64 %sub.ptr.lhs.cast47, %sub.ptr.rhs.cast48
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then24, %land.rhs
-  %.sink = phi ptr [ %4, %land.rhs ], [ %9, %if.then24 ]
-  %sub.ptr.sub49.sink = phi i64 [ %sub.ptr.sub49, %land.rhs ], [ %sub.ptr.sub, %if.then24 ]
-  %.sink11.in = getelementptr inbounds i8, ptr %other, i64 400
-  %.sink11 = load ptr, ptr %.sink11.in, align 8
-  %sub.ptr.lhs.cast53 = ptrtoint ptr %.sink11 to i64
-  %sub.ptr.rhs.cast54 = ptrtoint ptr %.sink to i64
+  %pos51 = getelementptr inbounds i8, ptr %other, i64 400
+  %14 = load ptr, ptr %pos51, align 8
+  %sub.ptr.lhs.cast53 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast54 = ptrtoint ptr %4 to i64
   %sub.ptr.sub55 = sub i64 %sub.ptr.lhs.cast53, %sub.ptr.rhs.cast54
-  %cmp57 = icmp eq i64 %sub.ptr.sub49.sink, %sub.ptr.sub55
+  %cmp57 = icmp eq i64 %sub.ptr.sub49, %sub.ptr.sub55
   br label %return
 
-return:                                           ; preds = %return.sink.split, %if.else, %land.lhs.true, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ false, %if.end ], [ false, %land.lhs.true ], [ false, %if.else ], [ %cmp57, %return.sink.split ]
+return:                                           ; preds = %if.else, %land.rhs, %land.lhs.true, %if.end, %entry, %if.then24
+  %retval.0 = phi i1 [ %cmp31, %if.then24 ], [ false, %entry ], [ false, %if.end ], [ false, %land.lhs.true ], [ false, %if.else ], [ %cmp57, %land.rhs ]
   ret i1 %retval.0
 }
 

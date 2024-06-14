@@ -3969,6 +3969,7 @@ sw.bb2:                                           ; preds = %entry
   store i32 %inc.i.i81, ptr %m_setElemOperations.i.i, align 8
   %13 = load i32, ptr %m_cols.i.i, align 4
   %mul.i.i = shl nsw i32 %13, 1
+  %add.i.i83 = add nsw i32 %mul.i.i, %10
   br label %sw.epilog.sink.split
 
 sw.bb9:                                           ; preds = %entry
@@ -4038,6 +4039,7 @@ sw.bb9:                                           ; preds = %entry
   store i32 %inc.i.i129, ptr %m_setElemOperations.i.i94, align 8
   %47 = load i32, ptr %m_cols.i.i96, align 4
   %mul.i.i131 = shl nsw i32 %47, 1
+  %add.i.i132 = add nsw i32 %mul.i.i131, %37
   br label %sw.epilog.sink.split
 
 sw.bb49:                                          ; preds = %entry
@@ -4187,6 +4189,7 @@ sw.bb49:                                          ; preds = %entry
   store i32 %inc.i.i243, ptr %m_setElemOperations.i.i162, align 8
   %105 = load i32, ptr %m_cols.i.i164, align 4
   %mul.i.i245 = shl nsw i32 %105, 1
+  %add.i.i246 = add nsw i32 %add86, %mul.i.i245
   br label %sw.epilog.sink.split
 
 sw.bb90:                                          ; preds = %entry
@@ -4219,16 +4222,15 @@ sw.bb90:                                          ; preds = %entry
   store i32 %inc.i.i267, ptr %m_setElemOperations.i.i250, align 8
   %115 = load i32, ptr %m_cols.i.i252, align 4
   %mul.i.i269 = shl nsw i32 %115, 1
+  %add.i.i270 = add nsw i32 %add95, %mul.i.i269
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb2, %sw.bb9, %sw.bb49, %sw.bb90
-  %mul.i.i269.sink = phi i32 [ %mul.i.i269, %sw.bb90 ], [ %mul.i.i245, %sw.bb49 ], [ %37, %sw.bb9 ], [ %10, %sw.bb2 ]
-  %add95.sink = phi i32 [ %add95, %sw.bb90 ], [ %add86, %sw.bb49 ], [ %mul.i.i131, %sw.bb9 ], [ %mul.i.i, %sw.bb2 ]
   %m_data.i.i.i255.sink = phi ptr [ %m_data.i.i.i255, %sw.bb90 ], [ %m_data.i.i.i167, %sw.bb49 ], [ %m_data.i.i.i99, %sw.bb9 ], [ %m_data.i.i.i, %sw.bb2 ]
+  %add.i.i270.sink = phi i32 [ %add.i.i270, %sw.bb90 ], [ %add.i.i246, %sw.bb49 ], [ %add.i.i132, %sw.bb9 ], [ %add.i.i83, %sw.bb2 ]
   %.sink = phi float [ 1.000000e+00, %sw.bb90 ], [ %103, %sw.bb49 ], [ %45, %sw.bb9 ], [ %11, %sw.bb2 ]
-  %add.i.i270 = add nsw i32 %add95.sink, %mul.i.i269.sink
   %116 = load ptr, ptr %m_data.i.i.i255.sink, align 8
-  %idxprom.i.i.i272 = sext i32 %add.i.i270 to i64
+  %idxprom.i.i.i272 = sext i32 %add.i.i270.sink to i64
   %arrayidx.i.i.i273 = getelementptr inbounds float, ptr %116, i64 %idxprom.i.i.i272
   store float %.sink, ptr %arrayidx.i.i.i273, align 4
   br label %sw.epilog

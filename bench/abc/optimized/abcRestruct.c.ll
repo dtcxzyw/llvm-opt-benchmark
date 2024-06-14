@@ -5581,7 +5581,7 @@ define noalias noundef ptr @Abc_NodeMffcDoubleNode(ptr nocapture noundef readnon
 define noalias noundef ptr @Abc_NodeResubEval(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, ptr nocapture noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Abc_Abc_NodeResubCollectDivs(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %50, label %5
+  br i1 %.not, label %52, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -5627,53 +5627,54 @@ Abc_NodeMffcConstants.exit:                       ; preds = %5
   store i32 1, ptr %calloc.i10.i.sink, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 132
   %28 = load i32, ptr %27, align 4
+  %29 = add nsw i32 %28, %10
+  store i32 %29, ptr %27, align 4
   br label %.sink.split
 
 Abc_NodeMffcConstants.exit.thread:                ; preds = %5
-  %29 = sub nsw i32 %.val.i, %10
-  %30 = getelementptr inbounds i8, ptr %0, i64 88
-  %31 = load ptr, ptr %30, align 8
-  %32 = tail call ptr @Abc_NodeMffcSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %29, ptr noundef %31)
-  %.not57 = icmp eq ptr %32, null
-  br i1 %.not57, label %36, label %33
+  %30 = sub nsw i32 %.val.i, %10
+  %31 = getelementptr inbounds i8, ptr %0, i64 88
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call ptr @Abc_NodeMffcSingleVar(ptr noundef nonnull %0, ptr noundef nonnull %18, i32 noundef %30, ptr noundef %32)
+  %.not57 = icmp eq ptr %33, null
+  br i1 %.not57, label %38, label %34
 
-33:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
-  %34 = getelementptr inbounds i8, ptr %0, i64 132
-  %35 = load i32, ptr %34, align 4
+34:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
+  %35 = getelementptr inbounds i8, ptr %0, i64 132
+  %36 = load i32, ptr %35, align 4
+  %37 = add nsw i32 %36, %10
+  store i32 %37, ptr %35, align 4
   br label %.sink.split
 
-36:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
-  %37 = icmp eq i32 %10, 1
-  br i1 %37, label %50, label %38
+38:                                               ; preds = %Abc_NodeMffcConstants.exit.thread
+  %39 = icmp eq i32 %10, 1
+  br i1 %39, label %52, label %40
 
-38:                                               ; preds = %36
-  %39 = load ptr, ptr %16, align 8
-  %40 = load ptr, ptr %30, align 8
-  %41 = tail call ptr @Abc_NodeMffcSingleNode(ptr noundef nonnull %0, ptr noundef %39, i32 poison, ptr noundef %40)
-  %.not58 = icmp eq ptr %41, null
-  br i1 %.not58, label %50, label %42
+40:                                               ; preds = %38
+  %41 = load ptr, ptr %16, align 8
+  %42 = load ptr, ptr %31, align 8
+  %43 = tail call ptr @Abc_NodeMffcSingleNode(ptr noundef nonnull %0, ptr noundef %41, i32 poison, ptr noundef %42)
+  %.not58 = icmp eq ptr %43, null
+  br i1 %.not58, label %52, label %44
 
-42:                                               ; preds = %38
-  %43 = add nsw i32 %10, -1
-  %44 = getelementptr inbounds i8, ptr %0, i64 132
-  %45 = load i32, ptr %44, align 4
+44:                                               ; preds = %40
+  %45 = add nsw i32 %10, -1
+  %46 = getelementptr inbounds i8, ptr %0, i64 132
+  %47 = load i32, ptr %46, align 4
+  %48 = add nsw i32 %45, %47
+  store i32 %48, ptr %46, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %26, %33, %42
-  %.sink72 = phi i32 [ %10, %26 ], [ %10, %33 ], [ %45, %42 ]
-  %.sink71 = phi i32 [ %28, %26 ], [ %35, %33 ], [ %43, %42 ]
-  %.sink70 = phi ptr [ %27, %26 ], [ %34, %33 ], [ %44, %42 ]
-  %.0.ph = phi ptr [ %.07.ph.i67, %26 ], [ %32, %33 ], [ %41, %42 ]
-  %46 = add nsw i32 %.sink71, %.sink72
-  store i32 %46, ptr %.sink70, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 128
-  %48 = load i32, ptr %47, align 8
-  %49 = add nsw i32 %48, 1
-  store i32 %49, ptr %47, align 8
-  br label %50
+.sink.split:                                      ; preds = %26, %34, %44
+  %.0.ph = phi ptr [ %43, %44 ], [ %33, %34 ], [ %.07.ph.i67, %26 ]
+  %49 = getelementptr inbounds i8, ptr %0, i64 128
+  %50 = load i32, ptr %49, align 8
+  %51 = add nsw i32 %50, 1
+  store i32 %51, ptr %49, align 8
+  br label %52
 
-50:                                               ; preds = %.sink.split, %38, %36, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %36 ], [ null, %38 ], [ %.0.ph, %.sink.split ]
+52:                                               ; preds = %.sink.split, %40, %38, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %38 ], [ null, %40 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

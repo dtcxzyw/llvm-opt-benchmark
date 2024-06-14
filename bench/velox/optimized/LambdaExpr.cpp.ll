@@ -3031,6 +3031,7 @@ if.then3.i.i:                                     ; preds = %if.end.i.i
   %idxprom.i.i.i = sext i32 %div.i.i to i64
   %arrayidx.i.i.i = getelementptr inbounds i64, ptr %7, i64 %idxprom.i.i.i
   %10 = load i64, ptr %arrayidx.i.i.i, align 8
+  %and.i.i.i = and i64 %and7.i.i, %10
   br label %_ZN8facebook5velox4bits15hasIntersectionEPKmS3_ii.exit
 
 if.end9.i.i:                                      ; preds = %if.end.i.i
@@ -3089,16 +3090,15 @@ if.then26.i.i:                                    ; preds = %for.end.i.i
   %idxprom.i45.i.i = sext i32 %div27.i.i to i64
   %arrayidx.i46.i.i = getelementptr inbounds i64, ptr %7, i64 %idxprom.i45.i.i
   %15 = load i64, ptr %arrayidx.i46.i.i, align 8
+  %and.i47.i.i = and i64 %15, %sub.i44.i.i
   br label %_ZN8facebook5velox4bits15hasIntersectionEPKmS3_ii.exit
 
 _ZN8facebook5velox4bits15hasIntersectionEPKmS3_ii.exit: ; preds = %if.then3.i.i, %if.then26.i.i
-  %sub.i44.sink.i.i = phi i64 [ %sub.i44.i.i, %if.then26.i.i ], [ %10, %if.then3.i.i ]
-  %.sink.i.i = phi i64 [ %15, %if.then26.i.i ], [ %and7.i.i, %if.then3.i.i ]
   %idxprom.i45.sink.i.i = phi i64 [ %idxprom.i45.i.i, %if.then26.i.i ], [ %idxprom.i.i.i, %if.then3.i.i ]
-  %and.i47.i.i = and i64 %.sink.i.i, %sub.i44.sink.i.i
+  %and.i47.sink.i.i = phi i64 [ %and.i47.i.i, %if.then26.i.i ], [ %and.i.i.i, %if.then3.i.i ]
   %arrayidx3.i48.i.i = getelementptr inbounds i64, ptr %4, i64 %idxprom.i45.sink.i.i
   %16 = load i64, ptr %arrayidx3.i48.i.i, align 8
-  %and4.i49.i.i = and i64 %and.i47.i.i, %16
+  %and4.i49.i.i = and i64 %16, %and.i47.sink.i.i
   %cmp.i50.i.i.not = icmp eq i64 %and4.i49.i.i, 0
   br i1 %cmp.i50.i.i.not, label %for.inc, label %if.then
 

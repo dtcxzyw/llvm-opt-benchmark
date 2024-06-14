@@ -535,19 +535,19 @@ if.end38:                                         ; preds = %if.then33
   %user_line_stride = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %22 = load i32, ptr %user_line_stride, align 4
   %conv41 = sext i32 %22 to i64
+  %mul42 = mul nsw i64 %conv41, %conv40
   br label %if.end49
 
 if.else:                                          ; preds = %if.end30
   %user_line_stride45 = getelementptr inbounds i8, ptr %add.ptr, i64 36
   %23 = load i32, ptr %user_line_stride45, align 4
   %conv46 = sext i32 %23 to i64
+  %mul47 = mul nsw i64 %indvars.iv49, %conv46
   br label %if.end49
 
 if.end49:                                         ; preds = %if.else, %if.end38
-  %conv46.sink = phi i64 [ %conv46, %if.else ], [ %conv40, %if.end38 ]
-  %indvars.iv49.sink = phi i64 [ %indvars.iv49, %if.else ], [ %conv41, %if.end38 ]
-  %mul47 = mul nsw i64 %indvars.iv49.sink, %conv46.sink
-  %cdata.0 = getelementptr inbounds i8, ptr %17, i64 %mul47
+  %mul42.pn = phi i64 [ %mul42, %if.end38 ], [ %mul47, %if.else ]
+  %cdata.0 = getelementptr inbounds i8, ptr %17, i64 %mul42.pn
   %24 = load ptr, ptr %do_read, align 8
   %call50 = call i32 %24(ptr noundef nonnull %0, ptr noundef %cdata.0, i64 noundef %mul, ptr noundef nonnull %dataoffset, ptr noundef null, i32 noundef 0) #4
   %cmp51.not = icmp eq i32 %call50, 0

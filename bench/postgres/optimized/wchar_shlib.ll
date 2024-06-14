@@ -382,11 +382,11 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr nocapture noundef readonly %0, 
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit
 
-.lr.ph.i:                                         ; preds = %3, %37
-  %.042.i = phi i32 [ %40, %37 ], [ 0, %3 ]
-  %.03441.i = phi i32 [ %38, %37 ], [ %2, %3 ]
-  %.03540.i = phi ptr [ %39, %37 ], [ %1, %3 ]
-  %.03639.i = phi ptr [ %.137.i, %37 ], [ %0, %3 ]
+.lr.ph.i:                                         ; preds = %3, %39
+  %.042.i = phi i32 [ %42, %39 ], [ 0, %3 ]
+  %.03441.i = phi i32 [ %40, %39 ], [ %2, %3 ]
+  %.03540.i = phi ptr [ %41, %39 ], [ %1, %3 ]
+  %.03639.i = phi ptr [ %.137.i, %39 ], [ %0, %3 ]
   %5 = load i8, ptr %.03639.i, align 1
   %6 = zext i8 %5 to i32
   %.not.i = icmp eq i8 %5, 0
@@ -396,70 +396,65 @@ define internal i32 @pg_eucjp2wchar_with_len(ptr nocapture noundef readonly %0, 
   %8 = icmp eq i8 %5, -114
   %9 = icmp ne i32 %.03441.i, 1
   %or.cond.i = and i1 %9, %8
-  br i1 %or.cond.i, label %10, label %15
+  br i1 %or.cond.i, label %10, label %16
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %.03639.i, i64 1
   %12 = getelementptr i8, ptr %.03639.i, i64 2
   %13 = load i8, ptr %11, align 1
   %14 = zext i8 %13 to i32
-  br label %.sink.split.i
+  %15 = or disjoint i32 %14, 36352
+  br label %39
 
-15:                                               ; preds = %7
-  %16 = icmp eq i8 %5, -113
-  %17 = icmp ugt i32 %.03441.i, 2
-  %or.cond3.i = and i1 %17, %16
-  br i1 %or.cond3.i, label %18, label %28
+16:                                               ; preds = %7
+  %17 = icmp eq i8 %5, -113
+  %18 = icmp ugt i32 %.03441.i, 2
+  %or.cond3.i = and i1 %18, %17
+  br i1 %or.cond3.i, label %19, label %30
 
-18:                                               ; preds = %15
-  %19 = getelementptr i8, ptr %.03639.i, i64 1
-  %20 = getelementptr i8, ptr %.03639.i, i64 2
-  %21 = load i8, ptr %19, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, 9371648
-  store i32 %24, ptr %.03540.i, align 4
-  %25 = getelementptr i8, ptr %.03639.i, i64 3
-  %26 = load i8, ptr %20, align 1
-  %27 = zext i8 %26 to i32
-  br label %.sink.split.i
+19:                                               ; preds = %16
+  %20 = getelementptr i8, ptr %.03639.i, i64 1
+  %21 = getelementptr i8, ptr %.03639.i, i64 2
+  %22 = load i8, ptr %20, align 1
+  %23 = zext i8 %22 to i32
+  %24 = shl nuw nsw i32 %23, 8
+  %25 = or disjoint i32 %24, 9371648
+  store i32 %25, ptr %.03540.i, align 4
+  %26 = getelementptr i8, ptr %.03639.i, i64 3
+  %27 = load i8, ptr %21, align 1
+  %28 = zext i8 %27 to i32
+  %29 = or disjoint i32 %25, %28
+  br label %39
 
-28:                                               ; preds = %15
-  %29 = icmp slt i8 %5, 0
-  %or.cond5.i = and i1 %9, %29
-  %30 = getelementptr i8, ptr %.03639.i, i64 1
-  br i1 %or.cond5.i, label %31, label %37
+30:                                               ; preds = %16
+  %31 = icmp slt i8 %5, 0
+  %or.cond5.i = and i1 %9, %31
+  %32 = getelementptr i8, ptr %.03639.i, i64 1
+  br i1 %or.cond5.i, label %33, label %39
 
-31:                                               ; preds = %28
-  %32 = shl nuw nsw i32 %6, 8
-  store i32 %32, ptr %.03540.i, align 4
-  %33 = getelementptr i8, ptr %.03639.i, i64 2
-  %34 = load i8, ptr %30, align 1
-  %35 = zext i8 %34 to i32
-  br label %.sink.split.i
+33:                                               ; preds = %30
+  %34 = shl nuw nsw i32 %6, 8
+  store i32 %34, ptr %.03540.i, align 4
+  %35 = getelementptr i8, ptr %.03639.i, i64 2
+  %36 = load i8, ptr %32, align 1
+  %37 = zext i8 %36 to i32
+  %38 = or disjoint i32 %34, %37
+  br label %39
 
-.sink.split.i:                                    ; preds = %31, %18, %10
-  %.sink49.i = phi i32 [ %27, %18 ], [ %35, %31 ], [ 36352, %10 ]
-  %.sink48.i = phi i32 [ %24, %18 ], [ %32, %31 ], [ %14, %10 ]
-  %.sink.ph.i = phi i32 [ -3, %18 ], [ -2, %31 ], [ -2, %10 ]
-  %.137.ph.i = phi ptr [ %25, %18 ], [ %33, %31 ], [ %12, %10 ]
-  %36 = or disjoint i32 %.sink48.i, %.sink49.i
-  br label %37
-
-37:                                               ; preds = %.sink.split.i, %28
-  %.sink47.i = phi i32 [ %6, %28 ], [ %36, %.sink.split.i ]
-  %.sink.i = phi i32 [ -1, %28 ], [ %.sink.ph.i, %.sink.split.i ]
-  %.137.i = phi ptr [ %30, %28 ], [ %.137.ph.i, %.sink.split.i ]
+39:                                               ; preds = %33, %30, %19, %10
+  %.sink47.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
+  %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
+  %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
   store i32 %.sink47.i, ptr %.03540.i, align 4
-  %38 = add nsw i32 %.sink.i, %.03441.i
-  %39 = getelementptr i8, ptr %.03540.i, i64 4
-  %40 = add i32 %.042.i, 1
-  %41 = icmp sgt i32 %38, 0
-  br i1 %41, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
+  %40 = add nsw i32 %.sink.i, %.03441.i
+  %41 = getelementptr i8, ptr %.03540.i, i64 4
+  %42 = add i32 %.042.i, 1
+  %43 = icmp sgt i32 %40, 0
+  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
 
-pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %37, %3
-  %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %39, %37 ]
-  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %.042.i, %.lr.ph.i ], [ %40, %37 ]
+pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
+  %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %41, %39 ]
+  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %.042.i, %.lr.ph.i ], [ %42, %39 ]
   store i32 0, ptr %.035.lcssa.i, align 4
   ret i32 %.0.lcssa.i
 }
@@ -929,11 +924,11 @@ define internal i32 @pg_euckr2wchar_with_len(ptr nocapture noundef readonly %0, 
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit
 
-.lr.ph.i:                                         ; preds = %3, %37
-  %.042.i = phi i32 [ %40, %37 ], [ 0, %3 ]
-  %.03441.i = phi i32 [ %38, %37 ], [ %2, %3 ]
-  %.03540.i = phi ptr [ %39, %37 ], [ %1, %3 ]
-  %.03639.i = phi ptr [ %.137.i, %37 ], [ %0, %3 ]
+.lr.ph.i:                                         ; preds = %3, %39
+  %.042.i = phi i32 [ %42, %39 ], [ 0, %3 ]
+  %.03441.i = phi i32 [ %40, %39 ], [ %2, %3 ]
+  %.03540.i = phi ptr [ %41, %39 ], [ %1, %3 ]
+  %.03639.i = phi ptr [ %.137.i, %39 ], [ %0, %3 ]
   %5 = load i8, ptr %.03639.i, align 1
   %6 = zext i8 %5 to i32
   %.not.i = icmp eq i8 %5, 0
@@ -943,70 +938,65 @@ define internal i32 @pg_euckr2wchar_with_len(ptr nocapture noundef readonly %0, 
   %8 = icmp eq i8 %5, -114
   %9 = icmp ne i32 %.03441.i, 1
   %or.cond.i = and i1 %9, %8
-  br i1 %or.cond.i, label %10, label %15
+  br i1 %or.cond.i, label %10, label %16
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %.03639.i, i64 1
   %12 = getelementptr i8, ptr %.03639.i, i64 2
   %13 = load i8, ptr %11, align 1
   %14 = zext i8 %13 to i32
-  br label %.sink.split.i
+  %15 = or disjoint i32 %14, 36352
+  br label %39
 
-15:                                               ; preds = %7
-  %16 = icmp eq i8 %5, -113
-  %17 = icmp ugt i32 %.03441.i, 2
-  %or.cond3.i = and i1 %17, %16
-  br i1 %or.cond3.i, label %18, label %28
+16:                                               ; preds = %7
+  %17 = icmp eq i8 %5, -113
+  %18 = icmp ugt i32 %.03441.i, 2
+  %or.cond3.i = and i1 %18, %17
+  br i1 %or.cond3.i, label %19, label %30
 
-18:                                               ; preds = %15
-  %19 = getelementptr i8, ptr %.03639.i, i64 1
-  %20 = getelementptr i8, ptr %.03639.i, i64 2
-  %21 = load i8, ptr %19, align 1
-  %22 = zext i8 %21 to i32
-  %23 = shl nuw nsw i32 %22, 8
-  %24 = or disjoint i32 %23, 9371648
-  store i32 %24, ptr %.03540.i, align 4
-  %25 = getelementptr i8, ptr %.03639.i, i64 3
-  %26 = load i8, ptr %20, align 1
-  %27 = zext i8 %26 to i32
-  br label %.sink.split.i
+19:                                               ; preds = %16
+  %20 = getelementptr i8, ptr %.03639.i, i64 1
+  %21 = getelementptr i8, ptr %.03639.i, i64 2
+  %22 = load i8, ptr %20, align 1
+  %23 = zext i8 %22 to i32
+  %24 = shl nuw nsw i32 %23, 8
+  %25 = or disjoint i32 %24, 9371648
+  store i32 %25, ptr %.03540.i, align 4
+  %26 = getelementptr i8, ptr %.03639.i, i64 3
+  %27 = load i8, ptr %21, align 1
+  %28 = zext i8 %27 to i32
+  %29 = or disjoint i32 %25, %28
+  br label %39
 
-28:                                               ; preds = %15
-  %29 = icmp slt i8 %5, 0
-  %or.cond5.i = and i1 %9, %29
-  %30 = getelementptr i8, ptr %.03639.i, i64 1
-  br i1 %or.cond5.i, label %31, label %37
+30:                                               ; preds = %16
+  %31 = icmp slt i8 %5, 0
+  %or.cond5.i = and i1 %9, %31
+  %32 = getelementptr i8, ptr %.03639.i, i64 1
+  br i1 %or.cond5.i, label %33, label %39
 
-31:                                               ; preds = %28
-  %32 = shl nuw nsw i32 %6, 8
-  store i32 %32, ptr %.03540.i, align 4
-  %33 = getelementptr i8, ptr %.03639.i, i64 2
-  %34 = load i8, ptr %30, align 1
-  %35 = zext i8 %34 to i32
-  br label %.sink.split.i
+33:                                               ; preds = %30
+  %34 = shl nuw nsw i32 %6, 8
+  store i32 %34, ptr %.03540.i, align 4
+  %35 = getelementptr i8, ptr %.03639.i, i64 2
+  %36 = load i8, ptr %32, align 1
+  %37 = zext i8 %36 to i32
+  %38 = or disjoint i32 %34, %37
+  br label %39
 
-.sink.split.i:                                    ; preds = %31, %18, %10
-  %.sink49.i = phi i32 [ %27, %18 ], [ %35, %31 ], [ 36352, %10 ]
-  %.sink48.i = phi i32 [ %24, %18 ], [ %32, %31 ], [ %14, %10 ]
-  %.sink.ph.i = phi i32 [ -3, %18 ], [ -2, %31 ], [ -2, %10 ]
-  %.137.ph.i = phi ptr [ %25, %18 ], [ %33, %31 ], [ %12, %10 ]
-  %36 = or disjoint i32 %.sink48.i, %.sink49.i
-  br label %37
-
-37:                                               ; preds = %.sink.split.i, %28
-  %.sink47.i = phi i32 [ %6, %28 ], [ %36, %.sink.split.i ]
-  %.sink.i = phi i32 [ -1, %28 ], [ %.sink.ph.i, %.sink.split.i ]
-  %.137.i = phi ptr [ %30, %28 ], [ %.137.ph.i, %.sink.split.i ]
+39:                                               ; preds = %33, %30, %19, %10
+  %.sink47.i = phi i32 [ %29, %19 ], [ %38, %33 ], [ %15, %10 ], [ %6, %30 ]
+  %.sink.i = phi i32 [ -3, %19 ], [ -2, %33 ], [ -2, %10 ], [ -1, %30 ]
+  %.137.i = phi ptr [ %26, %19 ], [ %35, %33 ], [ %12, %10 ], [ %32, %30 ]
   store i32 %.sink47.i, ptr %.03540.i, align 4
-  %38 = add nsw i32 %.sink.i, %.03441.i
-  %39 = getelementptr i8, ptr %.03540.i, i64 4
-  %40 = add i32 %.042.i, 1
-  %41 = icmp sgt i32 %38, 0
-  br i1 %41, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
+  %40 = add nsw i32 %.sink.i, %.03441.i
+  %41 = getelementptr i8, ptr %.03540.i, i64 4
+  %42 = add i32 %.042.i, 1
+  %43 = icmp sgt i32 %40, 0
+  br i1 %43, label %.lr.ph.i, label %pg_euc2wchar_with_len.exit, !llvm.loop !7
 
-pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %37, %3
-  %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %39, %37 ]
-  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %.042.i, %.lr.ph.i ], [ %40, %37 ]
+pg_euc2wchar_with_len.exit:                       ; preds = %.lr.ph.i, %39, %3
+  %.035.lcssa.i = phi ptr [ %1, %3 ], [ %.03540.i, %.lr.ph.i ], [ %41, %39 ]
+  %.0.lcssa.i = phi i32 [ 0, %3 ], [ %.042.i, %.lr.ph.i ], [ %42, %39 ]
   store i32 0, ptr %.035.lcssa.i, align 4
   ret i32 %.0.lcssa.i
 }

@@ -3030,6 +3030,7 @@ for.end:                                          ; preds = %for.body, %if.then
 if.then9:                                         ; preds = %for.end
   tail call void @udata_writePadding(ptr noundef %mem, i32 noundef 2)
   %11 = load i32, ptr %byteOffset, align 4
+  %add10 = add i32 %11, 2
   br label %if.end24.sink.split
 
 if.else:                                          ; preds = %_ZN17ContainerResource11writeAllResEP14UNewDataMemoryPj.exit
@@ -3053,17 +3054,16 @@ for.end19:                                        ; preds = %for.body16, %if.els
   %add21 = shl i32 %13, 2
   %mul22 = add i32 %add21, 4
   %14 = load i32, ptr %byteOffset, align 4
+  %add23 = add i32 %mul22, %14
   br label %if.end24.sink.split
 
 if.end24.sink.split:                              ; preds = %for.end19, %if.then9
-  %.sink = phi i32 [ %14, %for.end19 ], [ 2, %if.then9 ]
-  %mul22.sink = phi i32 [ %mul22, %for.end19 ], [ %11, %if.then9 ]
-  %add23 = add i32 %mul22.sink, %.sink
-  store i32 %add23, ptr %byteOffset, align 4
+  %add10.sink = phi i32 [ %add10, %if.then9 ], [ %add23, %for.end19 ]
+  store i32 %add10.sink, ptr %byteOffset, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %for.end
-  %15 = phi i32 [ %add6, %for.end ], [ %add23, %if.end24.sink.split ]
+  %15 = phi i32 [ %add6, %for.end ], [ %add10.sink, %if.end24.sink.split ]
   %current.03.i16 = load ptr, ptr %fFirst.i, align 8
   %cmp.not4.i17 = icmp eq ptr %current.03.i16, null
   br i1 %cmp.not4.i17, label %_ZN17ContainerResource13writeAllRes32EP14UNewDataMemoryPj.exit, label %for.body.i18

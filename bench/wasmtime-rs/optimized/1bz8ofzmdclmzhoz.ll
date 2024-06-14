@@ -19813,13 +19813,12 @@ define hidden i64 @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT
 16:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha19bb05af078f906E.exit"
   %17 = load i8, ptr %.sroa.0.0.copyload, align 1, !range !95, !noundef !11
   %.sroa.07.0.insert.ext = zext nneg i8 %17 to i64
+  %.sroa.07.0.insert.insert = or disjoint i64 %.sroa.07.0.insert.ext, 36028779839094784
   br label %18
 
 18:                                               ; preds = %19, %16
-  %.sroa.08.0.insert.ext.sink = phi i64 [ %.sroa.08.0.insert.ext, %19 ], [ 36028779839094784, %16 ]
-  %.sroa.49.0.insert.shift.sink = phi i64 [ %.sroa.49.0.insert.shift, %19 ], [ %.sroa.07.0.insert.ext, %16 ]
-  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.49.0.insert.shift.sink, %.sroa.08.0.insert.ext.sink
-  ret i64 %.sroa.08.0.insert.insert
+  %.sroa.0.0 = phi i64 [ %.sroa.08.0.insert.insert, %19 ], [ %.sroa.07.0.insert.insert, %16 ]
+  ret i64 %.sroa.0.0
 
 19:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha19bb05af078f906E.exit"
   %20 = load i8, ptr %.sroa.0.0.copyload, align 1, !range !95, !noundef !11
@@ -19829,6 +19828,7 @@ define hidden i64 @"_ZN17cranelift_codegen8machinst5vcode22VRegAllocator$LT$I$GT
   %.sroa.49.0.insert.ext = zext nneg i8 %23 to i64
   %.sroa.49.0.insert.shift = shl nuw nsw i64 %.sroa.49.0.insert.ext, 32
   %.sroa.08.0.insert.ext = zext nneg i8 %20 to i64
+  %.sroa.08.0.insert.insert = or disjoint i64 %.sroa.49.0.insert.shift, %.sroa.08.0.insert.ext
   br label %18
 
 24:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17ha19bb05af078f906E.exit"

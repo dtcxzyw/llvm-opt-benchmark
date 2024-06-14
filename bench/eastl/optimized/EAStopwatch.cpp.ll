@@ -318,19 +318,28 @@ cond.end:                                         ; preds = %_ZN2EA4StdC9Stopwat
   %sub = sub i64 %cond, %5
   %6 = load i64, ptr @_ZN12_GLOBAL__N_131mnStopwatchCycleReadingOverheadE, align 8
   %cmp4 = icmp ugt i64 %sub, %6
-  %mnTotalElapsedTime7 = getelementptr inbounds i8, ptr %this, i64 8
-  %7 = load i64, ptr %mnTotalElapsedTime7, align 8
+  br i1 %cmp4, label %if.then5, label %if.else
+
+if.then5:                                         ; preds = %cond.end
   %sub6 = sub i64 %sub, %6
   %mnTotalElapsedTime = getelementptr inbounds i8, ptr %this, i64 8
-  %.sink2 = select i1 %cmp4, i64 %7, i64 1
-  %.sink = select i1 %cmp4, i64 %sub6, i64 %7
-  %mnTotalElapsedTime7.sink = select i1 %cmp4, ptr %mnTotalElapsedTime, ptr %mnTotalElapsedTime7
-  %add8 = add i64 %.sink, %.sink2
-  store i64 %add8, ptr %mnTotalElapsedTime7.sink, align 8
+  %7 = load i64, ptr %mnTotalElapsedTime, align 8
+  %add = add i64 %sub6, %7
+  store i64 %add, ptr %mnTotalElapsedTime, align 8
+  br label %if.end
+
+if.else:                                          ; preds = %cond.end
+  %mnTotalElapsedTime7 = getelementptr inbounds i8, ptr %this, i64 8
+  %8 = load i64, ptr %mnTotalElapsedTime7, align 8
+  %add8 = add i64 %8, 1
+  store i64 %add8, ptr %mnTotalElapsedTime7, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.else, %if.then5
   store i64 0, ptr %this, align 8
   br label %if.end10
 
-if.end10:                                         ; preds = %cond.end, %entry
+if.end10:                                         ; preds = %if.end, %entry
   ret void
 }
 

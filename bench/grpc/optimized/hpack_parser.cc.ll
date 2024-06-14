@@ -18079,8 +18079,8 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %buffer_len_.i = getelementptr inbounds i8, ptr %this, i64 32
-  %end_.i105.i = getelementptr inbounds i8, ptr %this, i64 16
-  %begin_.i106.i = getelementptr inbounds i8, ptr %this, i64 8
+  %end_.i110.i = getelementptr inbounds i8, ptr %this, i64 16
+  %begin_.i111.i = getelementptr inbounds i8, ptr %this, i64 8
   %buffer_.i37.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %ok_40.i.i = getelementptr inbounds i8, ptr %this, i64 36
   br label %while.body
@@ -18106,8 +18106,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb.i:                                          ; preds = %while.body
-  %2 = load ptr, ptr %end_.i105.i, align 8
-  %3 = load ptr, ptr %begin_.i106.i, align 8
+  %2 = load ptr, ptr %end_.i110.i, align 8
+  %3 = load ptr, ptr %begin_.i111.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %2 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -18128,6 +18128,7 @@ sw.bb2.i.i:                                       ; preds = %sw.bb.i
   %5 = load i8, ptr %3, align 1
   %conv.i.i.i = zext i8 %5 to i64
   %shl2.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
+  %or.i.i.i = or disjoint i64 %shl2.i.i.i, %shl.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb3.i.i:                                       ; preds = %sw.bb.i
@@ -18141,6 +18142,7 @@ sw.bb3.i.i:                                       ; preds = %sw.bb.i
   %8 = load i8, ptr %arrayidx4.i7.i.i, align 1
   %conv5.i8.i.i = zext i8 %8 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i8.i.i, 8
+  %or7.i9.i.i = or disjoint i64 %or.i6.i.i, %shl6.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb4.i.i:                                       ; preds = %sw.bb.i
@@ -18159,6 +18161,7 @@ sw.bb4.i.i:                                       ; preds = %sw.bb.i
   %12 = load i8, ptr %arrayidx9.i23.i.i, align 1
   %conv10.i24.i.i = zext i8 %12 to i64
   %shl11.i.i.i = shl nuw nsw i64 %conv10.i24.i.i, 8
+  %or12.i25.i.i = or disjoint i64 %or7.i22.i.i, %shl11.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb5.i.i:                                       ; preds = %sw.bb.i
@@ -18182,6 +18185,7 @@ sw.bb5.i.i:                                       ; preds = %sw.bb.i
   %17 = load i8, ptr %arrayidx14.i43.i.i, align 1
   %conv15.i44.i.i = zext i8 %17 to i64
   %shl16.i.i.i = shl nuw nsw i64 %conv15.i44.i.i, 8
+  %or17.i45.i.i = or disjoint i64 %or12.i42.i.i, %shl16.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb6.i.i:                                       ; preds = %sw.bb.i
@@ -18210,6 +18214,7 @@ sw.bb6.i.i:                                       ; preds = %sw.bb.i
   %23 = load i8, ptr %arrayidx19.i67.i.i, align 1
   %conv20.i68.i.i = zext i8 %23 to i64
   %shl21.i.i.i = shl nuw nsw i64 %conv20.i68.i.i, 8
+  %or22.i69.i.i = or disjoint i64 %or17.i66.i.i, %shl21.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb7.i.i:                                       ; preds = %sw.bb.i
@@ -18243,6 +18248,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb.i
   %30 = load i8, ptr %arrayidx24.i95.i.i, align 1
   %conv25.i96.i.i = zext i8 %30 to i64
   %shl26.i.i.i = shl nuw nsw i64 %conv25.i96.i.i, 8
+  %or27.i97.i.i = or i64 %or22.i94.i.i, %shl26.i.i.i
   br label %return.sink.split.i.i
 
 sw.default.i.i:                                   ; preds = %sw.bb.i
@@ -18278,79 +18284,81 @@ sw.default.i.i:                                   ; preds = %sw.bb.i
   %37 = load i8, ptr %arrayidx28.i.i.i, align 1
   %conv29.i.i.i = zext i8 %37 to i64
   %shl30.i.i.i = shl nuw nsw i64 %conv29.i.i.i, 8
+  %or31.i.i.i = or i64 %or26.i.i.i, %shl30.i.i.i
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %sw.default.i.i, %sw.bb7.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i
-  %shl30.i.i.i.sink = phi i64 [ %shl30.i.i.i, %sw.default.i.i ], [ %shl26.i.i.i, %sw.bb7.i.i ], [ %shl21.i.i.i, %sw.bb6.i.i ], [ %shl16.i.i.i, %sw.bb5.i.i ], [ %shl11.i.i.i, %sw.bb4.i.i ], [ %shl6.i.i.i, %sw.bb3.i.i ], [ %shl.i.i.i, %sw.bb2.i.i ]
-  %or26.i.i.i.sink = phi i64 [ %or26.i.i.i, %sw.default.i.i ], [ %or22.i94.i.i, %sw.bb7.i.i ], [ %or17.i66.i.i, %sw.bb6.i.i ], [ %or12.i42.i.i, %sw.bb5.i.i ], [ %or7.i22.i.i, %sw.bb4.i.i ], [ %or.i6.i.i, %sw.bb3.i.i ], [ %shl2.i.i.i, %sw.bb2.i.i ]
   %.sink = phi i64 [ 7, %sw.default.i.i ], [ 6, %sw.bb7.i.i ], [ 5, %sw.bb6.i.i ], [ 4, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 2, %sw.bb3.i.i ], [ 1, %sw.bb2.i.i ]
+  %or31.i.i.i.sink = phi i64 [ %or31.i.i.i, %sw.default.i.i ], [ %or27.i97.i.i, %sw.bb7.i.i ], [ %or22.i69.i.i, %sw.bb6.i.i ], [ %or17.i45.i.i, %sw.bb5.i.i ], [ %or12.i25.i.i, %sw.bb4.i.i ], [ %or7.i9.i.i, %sw.bb3.i.i ], [ %or.i.i.i, %sw.bb2.i.i ]
   %.sink.i.i = phi i64 [ 8, %sw.default.i.i ], [ 7, %sw.bb7.i.i ], [ 6, %sw.bb6.i.i ], [ 5, %sw.bb5.i.i ], [ 4, %sw.bb4.i.i ], [ 3, %sw.bb3.i.i ], [ 2, %sw.bb2.i.i ]
   %.sink108.i.i = phi i32 [ 64, %sw.default.i.i ], [ 56, %sw.bb7.i.i ], [ 48, %sw.bb6.i.i ], [ 40, %sw.bb5.i.i ], [ 32, %sw.bb4.i.i ], [ 24, %sw.bb3.i.i ], [ 16, %sw.bb2.i.i ]
-  %or31.i.i.i = or i64 %or26.i.i.i.sink, %shl30.i.i.i.sink
   %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.sink
   %38 = load i8, ptr %arrayidx33.i.i.i, align 1
   %conv34.i.i.i = zext i8 %38 to i64
-  %or36.i.i.i = or i64 %or31.i.i.i, %conv34.i.i.i
+  %or36.i.i.i = or i64 %or31.i.i.i.sink, %conv34.i.i.i
   store i64 %or36.i.i.i, ptr %buffer_.i37.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 %.sink.i.i
-  store ptr %add.ptr.i.i.i, ptr %begin_.i106.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %begin_.i111.i, align 8
   store i32 %.sink108.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
 
 sw.bb2.i:                                         ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %39 = load ptr, ptr %end_.i105.i, align 8
-  %40 = load ptr, ptr %begin_.i106.i, align 8
+  %39 = load ptr, ptr %end_.i110.i, align 8
+  %40 = load ptr, ptr %begin_.i111.i, align 8
   %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %39 to i64
   %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %40 to i64
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i4.i
-  switch i64 %sub.ptr.sub.i5.i, label %sw.default.i80.i [
+  switch i64 %sub.ptr.sub.i5.i, label %sw.default.i84.i [
     i64 0, label %if.then
     i64 1, label %if.then
-    i64 2, label %sw.bb2.i75.i
-    i64 3, label %sw.bb3.i66.i
-    i64 4, label %sw.bb4.i53.i
+    i64 2, label %sw.bb2.i78.i
+    i64 3, label %sw.bb3.i68.i
+    i64 4, label %sw.bb4.i54.i
     i64 5, label %sw.bb5.i36.i
     i64 6, label %sw.bb6.i6.i
   ]
 
-sw.bb2.i75.i:                                     ; preds = %sw.bb2.i
+sw.bb2.i78.i:                                     ; preds = %sw.bb2.i
   %41 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i.i77.i = shl i64 %41, 16
+  %shl.i.i80.i = shl i64 %41, 16
   %42 = load i8, ptr %40, align 1
-  %conv.i.i78.i = zext i8 %42 to i64
-  %shl2.i.i79.i = shl nuw nsw i64 %conv.i.i78.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i.i81.i = zext i8 %42 to i64
+  %shl2.i.i82.i = shl nuw nsw i64 %conv.i.i81.i, 8
+  %or.i.i83.i = or disjoint i64 %shl2.i.i82.i, %shl.i.i80.i
+  br label %return.sink.split.i28.i
 
-sw.bb3.i66.i:                                     ; preds = %sw.bb2.i
+sw.bb3.i68.i:                                     ; preds = %sw.bb2.i
   %43 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i2.i68.i = shl i64 %43, 24
+  %shl.i2.i70.i = shl i64 %43, 24
   %44 = load i8, ptr %40, align 1
-  %conv.i4.i69.i = zext i8 %44 to i64
-  %shl2.i5.i70.i = shl nuw nsw i64 %conv.i4.i69.i, 16
-  %or.i6.i71.i = or disjoint i64 %shl2.i5.i70.i, %shl.i2.i68.i
-  %arrayidx4.i7.i72.i = getelementptr inbounds i8, ptr %40, i64 1
-  %45 = load i8, ptr %arrayidx4.i7.i72.i, align 1
-  %conv5.i8.i73.i = zext i8 %45 to i64
-  %shl6.i.i74.i = shl nuw nsw i64 %conv5.i8.i73.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i4.i71.i = zext i8 %44 to i64
+  %shl2.i5.i72.i = shl nuw nsw i64 %conv.i4.i71.i, 16
+  %or.i6.i73.i = or disjoint i64 %shl2.i5.i72.i, %shl.i2.i70.i
+  %arrayidx4.i7.i74.i = getelementptr inbounds i8, ptr %40, i64 1
+  %45 = load i8, ptr %arrayidx4.i7.i74.i, align 1
+  %conv5.i8.i75.i = zext i8 %45 to i64
+  %shl6.i.i76.i = shl nuw nsw i64 %conv5.i8.i75.i, 8
+  %or7.i9.i77.i = or disjoint i64 %or.i6.i73.i, %shl6.i.i76.i
+  br label %return.sink.split.i28.i
 
-sw.bb4.i53.i:                                     ; preds = %sw.bb2.i
+sw.bb4.i54.i:                                     ; preds = %sw.bb2.i
   %46 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i14.i55.i = shl i64 %46, 32
+  %shl.i14.i56.i = shl i64 %46, 32
   %47 = load i8, ptr %40, align 1
-  %conv.i16.i56.i = zext i8 %47 to i64
-  %shl2.i17.i57.i = shl nuw nsw i64 %conv.i16.i56.i, 24
-  %or.i18.i58.i = or disjoint i64 %shl2.i17.i57.i, %shl.i14.i55.i
-  %arrayidx4.i19.i59.i = getelementptr inbounds i8, ptr %40, i64 1
-  %48 = load i8, ptr %arrayidx4.i19.i59.i, align 1
-  %conv5.i20.i60.i = zext i8 %48 to i64
-  %shl6.i21.i61.i = shl nuw nsw i64 %conv5.i20.i60.i, 16
-  %or7.i22.i62.i = or disjoint i64 %or.i18.i58.i, %shl6.i21.i61.i
-  %arrayidx9.i23.i63.i = getelementptr inbounds i8, ptr %40, i64 2
-  %49 = load i8, ptr %arrayidx9.i23.i63.i, align 1
-  %conv10.i24.i64.i = zext i8 %49 to i64
-  %shl11.i.i65.i = shl nuw nsw i64 %conv10.i24.i64.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i16.i57.i = zext i8 %47 to i64
+  %shl2.i17.i58.i = shl nuw nsw i64 %conv.i16.i57.i, 24
+  %or.i18.i59.i = or disjoint i64 %shl2.i17.i58.i, %shl.i14.i56.i
+  %arrayidx4.i19.i60.i = getelementptr inbounds i8, ptr %40, i64 1
+  %48 = load i8, ptr %arrayidx4.i19.i60.i, align 1
+  %conv5.i20.i61.i = zext i8 %48 to i64
+  %shl6.i21.i62.i = shl nuw nsw i64 %conv5.i20.i61.i, 16
+  %or7.i22.i63.i = or disjoint i64 %or.i18.i59.i, %shl6.i21.i62.i
+  %arrayidx9.i23.i64.i = getelementptr inbounds i8, ptr %40, i64 2
+  %49 = load i8, ptr %arrayidx9.i23.i64.i, align 1
+  %conv10.i24.i65.i = zext i8 %49 to i64
+  %shl11.i.i66.i = shl nuw nsw i64 %conv10.i24.i65.i, 8
+  %or12.i25.i67.i = or disjoint i64 %or7.i22.i63.i, %shl11.i.i66.i
+  br label %return.sink.split.i28.i
 
 sw.bb5.i36.i:                                     ; preds = %sw.bb2.i
   %50 = load i64, ptr %buffer_.i37.i.i, align 8
@@ -18373,7 +18381,8 @@ sw.bb5.i36.i:                                     ; preds = %sw.bb2.i
   %54 = load i8, ptr %arrayidx14.i43.i50.i, align 1
   %conv15.i44.i51.i = zext i8 %54 to i64
   %shl16.i.i52.i = shl nuw nsw i64 %conv15.i44.i51.i, 8
-  br label %return.sink.split.i27.i
+  %or17.i45.i53.i = or disjoint i64 %or12.i42.i49.i, %shl16.i.i52.i
+  br label %return.sink.split.i28.i
 
 sw.bb6.i6.i:                                      ; preds = %sw.bb2.i
   %55 = load i64, ptr %buffer_.i37.i.i, align 8
@@ -18401,90 +18410,90 @@ sw.bb6.i6.i:                                      ; preds = %sw.bb2.i
   %60 = load i8, ptr %arrayidx19.i67.i24.i, align 1
   %conv20.i68.i25.i = zext i8 %60 to i64
   %shl21.i.i26.i = shl nuw nsw i64 %conv20.i68.i25.i, 8
-  br label %return.sink.split.i27.i
+  %or22.i69.i27.i = or disjoint i64 %or17.i66.i23.i, %shl21.i.i26.i
+  br label %return.sink.split.i28.i
 
-sw.default.i80.i:                                 ; preds = %sw.bb2.i
+sw.default.i84.i:                                 ; preds = %sw.bb2.i
   %61 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i74.i82.i = shl i64 %61, 56
+  %shl.i74.i86.i = shl i64 %61, 56
   %62 = load i8, ptr %40, align 1
-  %conv.i76.i83.i = zext i8 %62 to i64
-  %shl2.i77.i84.i = shl nuw nsw i64 %conv.i76.i83.i, 48
-  %or.i78.i85.i = or disjoint i64 %shl2.i77.i84.i, %shl.i74.i82.i
-  %arrayidx4.i79.i86.i = getelementptr inbounds i8, ptr %40, i64 1
-  %63 = load i8, ptr %arrayidx4.i79.i86.i, align 1
-  %conv5.i80.i87.i = zext i8 %63 to i64
-  %shl6.i81.i88.i = shl nuw nsw i64 %conv5.i80.i87.i, 40
-  %or7.i82.i89.i = or disjoint i64 %or.i78.i85.i, %shl6.i81.i88.i
-  %arrayidx9.i83.i90.i = getelementptr inbounds i8, ptr %40, i64 2
-  %64 = load i8, ptr %arrayidx9.i83.i90.i, align 1
-  %conv10.i84.i91.i = zext i8 %64 to i64
-  %shl11.i85.i92.i = shl nuw nsw i64 %conv10.i84.i91.i, 32
-  %or12.i86.i93.i = or disjoint i64 %or7.i82.i89.i, %shl11.i85.i92.i
-  %arrayidx14.i87.i94.i = getelementptr inbounds i8, ptr %40, i64 3
-  %65 = load i8, ptr %arrayidx14.i87.i94.i, align 1
-  %conv15.i88.i95.i = zext i8 %65 to i64
-  %shl16.i89.i96.i = shl nuw nsw i64 %conv15.i88.i95.i, 24
-  %or17.i90.i97.i = or disjoint i64 %or12.i86.i93.i, %shl16.i89.i96.i
-  %arrayidx19.i91.i98.i = getelementptr inbounds i8, ptr %40, i64 4
-  %66 = load i8, ptr %arrayidx19.i91.i98.i, align 1
-  %conv20.i92.i99.i = zext i8 %66 to i64
-  %shl21.i93.i100.i = shl nuw nsw i64 %conv20.i92.i99.i, 16
-  %or22.i94.i101.i = or disjoint i64 %or17.i90.i97.i, %shl21.i93.i100.i
-  %arrayidx24.i95.i102.i = getelementptr inbounds i8, ptr %40, i64 5
-  %67 = load i8, ptr %arrayidx24.i95.i102.i, align 1
-  %conv25.i96.i103.i = zext i8 %67 to i64
-  %shl26.i.i104.i = shl nuw nsw i64 %conv25.i96.i103.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i76.i87.i = zext i8 %62 to i64
+  %shl2.i77.i88.i = shl nuw nsw i64 %conv.i76.i87.i, 48
+  %or.i78.i89.i = or disjoint i64 %shl2.i77.i88.i, %shl.i74.i86.i
+  %arrayidx4.i79.i90.i = getelementptr inbounds i8, ptr %40, i64 1
+  %63 = load i8, ptr %arrayidx4.i79.i90.i, align 1
+  %conv5.i80.i91.i = zext i8 %63 to i64
+  %shl6.i81.i92.i = shl nuw nsw i64 %conv5.i80.i91.i, 40
+  %or7.i82.i93.i = or disjoint i64 %or.i78.i89.i, %shl6.i81.i92.i
+  %arrayidx9.i83.i94.i = getelementptr inbounds i8, ptr %40, i64 2
+  %64 = load i8, ptr %arrayidx9.i83.i94.i, align 1
+  %conv10.i84.i95.i = zext i8 %64 to i64
+  %shl11.i85.i96.i = shl nuw nsw i64 %conv10.i84.i95.i, 32
+  %or12.i86.i97.i = or disjoint i64 %or7.i82.i93.i, %shl11.i85.i96.i
+  %arrayidx14.i87.i98.i = getelementptr inbounds i8, ptr %40, i64 3
+  %65 = load i8, ptr %arrayidx14.i87.i98.i, align 1
+  %conv15.i88.i99.i = zext i8 %65 to i64
+  %shl16.i89.i100.i = shl nuw nsw i64 %conv15.i88.i99.i, 24
+  %or17.i90.i101.i = or disjoint i64 %or12.i86.i97.i, %shl16.i89.i100.i
+  %arrayidx19.i91.i102.i = getelementptr inbounds i8, ptr %40, i64 4
+  %66 = load i8, ptr %arrayidx19.i91.i102.i, align 1
+  %conv20.i92.i103.i = zext i8 %66 to i64
+  %shl21.i93.i104.i = shl nuw nsw i64 %conv20.i92.i103.i, 16
+  %or22.i94.i105.i = or disjoint i64 %or17.i90.i101.i, %shl21.i93.i104.i
+  %arrayidx24.i95.i106.i = getelementptr inbounds i8, ptr %40, i64 5
+  %67 = load i8, ptr %arrayidx24.i95.i106.i, align 1
+  %conv25.i96.i107.i = zext i8 %67 to i64
+  %shl26.i.i108.i = shl nuw nsw i64 %conv25.i96.i107.i, 8
+  %or27.i97.i109.i = or i64 %or22.i94.i105.i, %shl26.i.i108.i
+  br label %return.sink.split.i28.i
 
-return.sink.split.i27.i:                          ; preds = %sw.default.i80.i, %sw.bb6.i6.i, %sw.bb5.i36.i, %sw.bb4.i53.i, %sw.bb3.i66.i, %sw.bb2.i75.i
-  %shl.i.sink.i.i = phi i64 [ %shl.i.i77.i, %sw.bb2.i75.i ], [ %shl6.i.i74.i, %sw.bb3.i66.i ], [ %shl11.i.i65.i, %sw.bb4.i53.i ], [ %shl16.i.i52.i, %sw.bb5.i36.i ], [ %shl21.i.i26.i, %sw.bb6.i6.i ], [ %shl26.i.i104.i, %sw.default.i80.i ]
-  %shl2.i.sink.i.i = phi i64 [ %shl2.i.i79.i, %sw.bb2.i75.i ], [ %or.i6.i71.i, %sw.bb3.i66.i ], [ %or7.i22.i62.i, %sw.bb4.i53.i ], [ %or12.i42.i49.i, %sw.bb5.i36.i ], [ %or17.i66.i23.i, %sw.bb6.i6.i ], [ %or22.i94.i101.i, %sw.default.i80.i ]
-  %.sink104.i.i = phi i64 [ 1, %sw.bb2.i75.i ], [ 2, %sw.bb3.i66.i ], [ 3, %sw.bb4.i53.i ], [ 4, %sw.bb5.i36.i ], [ 5, %sw.bb6.i6.i ], [ 6, %sw.default.i80.i ]
-  %.sink.i28.i = phi i64 [ 2, %sw.bb2.i75.i ], [ 3, %sw.bb3.i66.i ], [ 4, %sw.bb4.i53.i ], [ 5, %sw.bb5.i36.i ], [ 6, %sw.bb6.i6.i ], [ 7, %sw.default.i80.i ]
-  %.sink101.i.i = phi i32 [ 16, %sw.bb2.i75.i ], [ 24, %sw.bb3.i66.i ], [ 32, %sw.bb4.i53.i ], [ 40, %sw.bb5.i36.i ], [ 48, %sw.bb6.i6.i ], [ 56, %sw.default.i80.i ]
-  %or.i.i29.i = or i64 %shl2.i.sink.i.i, %shl.i.sink.i.i
+return.sink.split.i28.i:                          ; preds = %sw.default.i84.i, %sw.bb6.i6.i, %sw.bb5.i36.i, %sw.bb4.i54.i, %sw.bb3.i68.i, %sw.bb2.i78.i
+  %.sink104.i.i = phi i64 [ 1, %sw.bb2.i78.i ], [ 2, %sw.bb3.i68.i ], [ 3, %sw.bb4.i54.i ], [ 4, %sw.bb5.i36.i ], [ 5, %sw.bb6.i6.i ], [ 6, %sw.default.i84.i ]
+  %or.i.sink.i.i = phi i64 [ %or.i.i83.i, %sw.bb2.i78.i ], [ %or7.i9.i77.i, %sw.bb3.i68.i ], [ %or12.i25.i67.i, %sw.bb4.i54.i ], [ %or17.i45.i53.i, %sw.bb5.i36.i ], [ %or22.i69.i27.i, %sw.bb6.i6.i ], [ %or27.i97.i109.i, %sw.default.i84.i ]
+  %.sink.i29.i = phi i64 [ 2, %sw.bb2.i78.i ], [ 3, %sw.bb3.i68.i ], [ 4, %sw.bb4.i54.i ], [ 5, %sw.bb5.i36.i ], [ 6, %sw.bb6.i6.i ], [ 7, %sw.default.i84.i ]
+  %.sink101.i.i = phi i32 [ 16, %sw.bb2.i78.i ], [ 24, %sw.bb3.i68.i ], [ 32, %sw.bb4.i54.i ], [ 40, %sw.bb5.i36.i ], [ 48, %sw.bb6.i6.i ], [ 56, %sw.default.i84.i ]
   %arrayidx4.i.i30.i = getelementptr inbounds i8, ptr %40, i64 %.sink104.i.i
   %68 = load i8, ptr %arrayidx4.i.i30.i, align 1
   %conv5.i.i31.i = zext i8 %68 to i64
-  %or7.i.i32.i = or i64 %or.i.i29.i, %conv5.i.i31.i
+  %or7.i.i32.i = or i64 %or.i.sink.i.i, %conv5.i.i31.i
   store i64 %or7.i.i32.i, ptr %buffer_.i37.i.i, align 8
-  %add.ptr.i.i33.i = getelementptr inbounds i8, ptr %40, i64 %.sink.i28.i
-  store ptr %add.ptr.i.i33.i, ptr %begin_.i106.i, align 8
+  %add.ptr.i.i33.i = getelementptr inbounds i8, ptr %40, i64 %.sink.i29.i
+  store ptr %add.ptr.i.i33.i, ptr %begin_.i111.i, align 8
   %add.i100.i.i = add nuw nsw i32 %.sink101.i.i, %1
   store i32 %add.i100.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
 
 sw.bb6.i:                                         ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %69 = load ptr, ptr %end_.i105.i, align 8
-  %70 = load ptr, ptr %begin_.i106.i, align 8
-  %sub.ptr.lhs.cast.i107.i = ptrtoint ptr %69 to i64
-  %sub.ptr.rhs.cast.i108.i = ptrtoint ptr %70 to i64
-  %sub.ptr.sub.i109.i = sub i64 %sub.ptr.lhs.cast.i107.i, %sub.ptr.rhs.cast.i108.i
-  switch i64 %sub.ptr.sub.i109.i, label %sw.default.i137.i [
+  %69 = load ptr, ptr %end_.i110.i, align 8
+  %70 = load ptr, ptr %begin_.i111.i, align 8
+  %sub.ptr.lhs.cast.i112.i = ptrtoint ptr %69 to i64
+  %sub.ptr.rhs.cast.i113.i = ptrtoint ptr %70 to i64
+  %sub.ptr.sub.i114.i = sub i64 %sub.ptr.lhs.cast.i112.i, %sub.ptr.rhs.cast.i113.i
+  switch i64 %sub.ptr.sub.i114.i, label %sw.default.i141.i [
     i64 0, label %if.then
-    i64 1, label %sw.bb2.i134.i
-    i64 2, label %sw.bb3.i128.i
-    i64 3, label %sw.bb4.i125.i
-    i64 4, label %sw.bb5.i122.i
-    i64 5, label %sw.bb6.i110.i
+    i64 1, label %sw.bb2.i138.i
+    i64 2, label %sw.bb3.i132.i
+    i64 3, label %sw.bb4.i129.i
+    i64 4, label %sw.bb5.i126.i
+    i64 5, label %sw.bb6.i115.i
   ]
 
-sw.bb2.i134.i:                                    ; preds = %sw.bb6.i
+sw.bb2.i138.i:                                    ; preds = %sw.bb6.i
   %71 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i.i136.i = shl i64 %71, 8
-  br label %return.sink.split.i113.i
+  %shl.i.i140.i = shl i64 %71, 8
+  br label %return.sink.split.i118.i
 
-sw.bb3.i128.i:                                    ; preds = %sw.bb6.i
+sw.bb3.i132.i:                                    ; preds = %sw.bb6.i
   %72 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i2.i130.i = shl i64 %72, 16
+  %shl.i2.i134.i = shl i64 %72, 16
   %73 = load i8, ptr %70, align 1
-  %conv.i4.i131.i = zext i8 %73 to i64
-  %shl2.i.i132.i = shl nuw nsw i64 %conv.i4.i131.i, 8
-  %or.i5.i.i = or disjoint i64 %shl2.i.i132.i, %shl.i2.i130.i
-  %arrayidx4.i.i133.i = getelementptr inbounds i8, ptr %70, i64 1
-  br label %return.sink.split.i113.i
+  %conv.i4.i135.i = zext i8 %73 to i64
+  %shl2.i.i136.i = shl nuw nsw i64 %conv.i4.i135.i, 8
+  %or.i5.i.i = or disjoint i64 %shl2.i.i136.i, %shl.i2.i134.i
+  %arrayidx4.i.i137.i = getelementptr inbounds i8, ptr %70, i64 1
+  br label %return.sink.split.i118.i
 
-sw.bb4.i125.i:                                    ; preds = %sw.bb6.i
+sw.bb4.i129.i:                                    ; preds = %sw.bb6.i
   %74 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i10.i.i = shl i64 %74, 24
   %75 = load i8, ptr %70, align 1
@@ -18494,12 +18503,12 @@ sw.bb4.i125.i:                                    ; preds = %sw.bb6.i
   %arrayidx4.i15.i.i = getelementptr inbounds i8, ptr %70, i64 1
   %76 = load i8, ptr %arrayidx4.i15.i.i, align 1
   %conv5.i16.i.i = zext i8 %76 to i64
-  %shl6.i.i126.i = shl nuw nsw i64 %conv5.i16.i.i, 8
-  %or7.i17.i.i = or disjoint i64 %or.i14.i.i, %shl6.i.i126.i
-  %arrayidx9.i.i127.i = getelementptr inbounds i8, ptr %70, i64 2
-  br label %return.sink.split.i113.i
+  %shl6.i.i130.i = shl nuw nsw i64 %conv5.i16.i.i, 8
+  %or7.i17.i.i = or disjoint i64 %or.i14.i.i, %shl6.i.i130.i
+  %arrayidx9.i.i131.i = getelementptr inbounds i8, ptr %70, i64 2
+  br label %return.sink.split.i118.i
 
-sw.bb5.i122.i:                                    ; preds = %sw.bb6.i
+sw.bb5.i126.i:                                    ; preds = %sw.bb6.i
   %77 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i22.i.i = shl i64 %77, 32
   %78 = load i8, ptr %70, align 1
@@ -18514,12 +18523,12 @@ sw.bb5.i122.i:                                    ; preds = %sw.bb6.i
   %arrayidx9.i31.i.i = getelementptr inbounds i8, ptr %70, i64 2
   %80 = load i8, ptr %arrayidx9.i31.i.i, align 1
   %conv10.i32.i.i = zext i8 %80 to i64
-  %shl11.i.i123.i = shl nuw nsw i64 %conv10.i32.i.i, 8
-  %or12.i33.i.i = or disjoint i64 %or7.i30.i.i, %shl11.i.i123.i
-  %arrayidx14.i.i124.i = getelementptr inbounds i8, ptr %70, i64 3
-  br label %return.sink.split.i113.i
+  %shl11.i.i127.i = shl nuw nsw i64 %conv10.i32.i.i, 8
+  %or12.i33.i.i = or disjoint i64 %or7.i30.i.i, %shl11.i.i127.i
+  %arrayidx14.i.i128.i = getelementptr inbounds i8, ptr %70, i64 3
+  br label %return.sink.split.i118.i
 
-sw.bb6.i110.i:                                    ; preds = %sw.bb6.i
+sw.bb6.i115.i:                                    ; preds = %sw.bb6.i
   %81 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i38.i.i = shl i64 %81, 40
   %82 = load i8, ptr %70, align 1
@@ -18539,12 +18548,12 @@ sw.bb6.i110.i:                                    ; preds = %sw.bb6.i
   %arrayidx14.i51.i.i = getelementptr inbounds i8, ptr %70, i64 3
   %85 = load i8, ptr %arrayidx14.i51.i.i, align 1
   %conv15.i52.i.i = zext i8 %85 to i64
-  %shl16.i.i111.i = shl nuw nsw i64 %conv15.i52.i.i, 8
-  %or17.i53.i.i = or disjoint i64 %or12.i50.i.i, %shl16.i.i111.i
-  %arrayidx19.i.i112.i = getelementptr inbounds i8, ptr %70, i64 4
-  br label %return.sink.split.i113.i
+  %shl16.i.i116.i = shl nuw nsw i64 %conv15.i52.i.i, 8
+  %or17.i53.i.i = or disjoint i64 %or12.i50.i.i, %shl16.i.i116.i
+  %arrayidx19.i.i117.i = getelementptr inbounds i8, ptr %70, i64 4
+  br label %return.sink.split.i118.i
 
-sw.default.i137.i:                                ; preds = %sw.bb6.i
+sw.default.i141.i:                                ; preds = %sw.bb6.i
   %86 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i58.i.i = shl i64 %86, 48
   %87 = load i8, ptr %70, align 1
@@ -18569,22 +18578,22 @@ sw.default.i137.i:                                ; preds = %sw.bb6.i
   %arrayidx19.i75.i.i = getelementptr inbounds i8, ptr %70, i64 4
   %91 = load i8, ptr %arrayidx19.i75.i.i, align 1
   %conv20.i76.i.i = zext i8 %91 to i64
-  %shl21.i.i138.i = shl nuw nsw i64 %conv20.i76.i.i, 8
-  %or22.i77.i.i = or disjoint i64 %or17.i74.i.i, %shl21.i.i138.i
-  %arrayidx24.i.i139.i = getelementptr inbounds i8, ptr %70, i64 5
-  br label %return.sink.split.i113.i
+  %shl21.i.i142.i = shl nuw nsw i64 %conv20.i76.i.i, 8
+  %or22.i77.i.i = or disjoint i64 %or17.i74.i.i, %shl21.i.i142.i
+  %arrayidx24.i.i143.i = getelementptr inbounds i8, ptr %70, i64 5
+  br label %return.sink.split.i118.i
 
-return.sink.split.i113.i:                         ; preds = %sw.default.i137.i, %sw.bb6.i110.i, %sw.bb5.i122.i, %sw.bb4.i125.i, %sw.bb3.i128.i, %sw.bb2.i134.i
-  %.sink84.i.i = phi ptr [ %70, %sw.bb2.i134.i ], [ %arrayidx4.i.i133.i, %sw.bb3.i128.i ], [ %arrayidx9.i.i127.i, %sw.bb4.i125.i ], [ %arrayidx14.i.i124.i, %sw.bb5.i122.i ], [ %arrayidx19.i.i112.i, %sw.bb6.i110.i ], [ %arrayidx24.i.i139.i, %sw.default.i137.i ]
-  %shl.i.sink.i114.i = phi i64 [ %shl.i.i136.i, %sw.bb2.i134.i ], [ %or.i5.i.i, %sw.bb3.i128.i ], [ %or7.i17.i.i, %sw.bb4.i125.i ], [ %or12.i33.i.i, %sw.bb5.i122.i ], [ %or17.i53.i.i, %sw.bb6.i110.i ], [ %or22.i77.i.i, %sw.default.i137.i ]
-  %.sink.i116.i = phi i64 [ 1, %sw.bb2.i134.i ], [ 2, %sw.bb3.i128.i ], [ 3, %sw.bb4.i125.i ], [ 4, %sw.bb5.i122.i ], [ 5, %sw.bb6.i110.i ], [ 6, %sw.default.i137.i ]
-  %.sink81.i.i = phi i32 [ 8, %sw.bb2.i134.i ], [ 16, %sw.bb3.i128.i ], [ 24, %sw.bb4.i125.i ], [ 32, %sw.bb5.i122.i ], [ 40, %sw.bb6.i110.i ], [ 48, %sw.default.i137.i ]
+return.sink.split.i118.i:                         ; preds = %sw.default.i141.i, %sw.bb6.i115.i, %sw.bb5.i126.i, %sw.bb4.i129.i, %sw.bb3.i132.i, %sw.bb2.i138.i
+  %.sink84.i.i = phi ptr [ %70, %sw.bb2.i138.i ], [ %arrayidx4.i.i137.i, %sw.bb3.i132.i ], [ %arrayidx9.i.i131.i, %sw.bb4.i129.i ], [ %arrayidx14.i.i128.i, %sw.bb5.i126.i ], [ %arrayidx19.i.i117.i, %sw.bb6.i115.i ], [ %arrayidx24.i.i143.i, %sw.default.i141.i ]
+  %shl.i.sink.i.i = phi i64 [ %shl.i.i140.i, %sw.bb2.i138.i ], [ %or.i5.i.i, %sw.bb3.i132.i ], [ %or7.i17.i.i, %sw.bb4.i129.i ], [ %or12.i33.i.i, %sw.bb5.i126.i ], [ %or17.i53.i.i, %sw.bb6.i115.i ], [ %or22.i77.i.i, %sw.default.i141.i ]
+  %.sink.i120.i = phi i64 [ 1, %sw.bb2.i138.i ], [ 2, %sw.bb3.i132.i ], [ 3, %sw.bb4.i129.i ], [ 4, %sw.bb5.i126.i ], [ 5, %sw.bb6.i115.i ], [ 6, %sw.default.i141.i ]
+  %.sink81.i.i = phi i32 [ 8, %sw.bb2.i138.i ], [ 16, %sw.bb3.i132.i ], [ 24, %sw.bb4.i129.i ], [ 32, %sw.bb5.i126.i ], [ 40, %sw.bb6.i115.i ], [ 48, %sw.default.i141.i ]
   %92 = load i8, ptr %.sink84.i.i, align 1
-  %conv.i.i117.i = zext i8 %92 to i64
-  %or.i.i118.i = or i64 %shl.i.sink.i114.i, %conv.i.i117.i
-  store i64 %or.i.i118.i, ptr %buffer_.i37.i.i, align 8
-  %add.ptr.i.i119.i = getelementptr inbounds i8, ptr %70, i64 %.sink.i116.i
-  store ptr %add.ptr.i.i119.i, ptr %begin_.i106.i, align 8
+  %conv.i.i121.i = zext i8 %92 to i64
+  %or.i.i122.i = or i64 %shl.i.sink.i.i, %conv.i.i121.i
+  store i64 %or.i.i122.i, ptr %buffer_.i37.i.i, align 8
+  %add.ptr.i.i123.i = getelementptr inbounds i8, ptr %70, i64 %.sink.i120.i
+  store ptr %add.ptr.i.i123.i, ptr %begin_.i111.i, align 8
   %add.i80.i.i = add nuw nsw i32 %.sink81.i.i, %1
   store i32 %add.i80.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
@@ -18598,8 +18607,8 @@ return.sink.split.i113.i:                         ; preds = %sw.default.i137.i, 
   br label %if.end
 
 "_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.then_crit_edge": ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit"
-  %.pre = load ptr, ptr %end_.i105.i, align 8
-  %.pre345 = load ptr, ptr %begin_.i106.i, align 8
+  %.pre = load ptr, ptr %end_.i110.i, align 8
+  %.pre345 = load ptr, ptr %begin_.i111.i, align 8
   br label %if.then
 
 if.then:                                          ; preds = %sw.bb6.i, %sw.bb2.i, %sw.bb2.i, %sw.bb.i, %sw.bb.i, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.then_crit_edge"
@@ -18624,7 +18633,7 @@ sw.bb.i20:                                        ; preds = %if.then
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   store i64 %or.i.i, ptr %buffer_.i37.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %93, i64 1
-  store ptr %add.ptr.i.i, ptr %begin_.i106.i, align 8
+  store ptr %add.ptr.i.i, ptr %begin_.i111.i, align 8
   %97 = load i32, ptr %buffer_len_.i, align 8
   %add.i.i = add nsw i32 %97, 8
   store i32 %add.i.i, ptr %buffer_len_.i, align 8
@@ -19360,8 +19369,8 @@ sw.bb210.i:                                       ; preds = %sw.bb190.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String5ParseEPNS0_5InputEbmENK3$_0clEh"(ptr %this.val59.i, i8 noundef zeroext %193)
   br label %while.end
 
-if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i113.i, %return.sink.split.i27.i, %return.sink.split.i.i, %while.body
-  %194 = phi i32 [ %.pre346, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i113.i ], [ %add.i100.i.i, %return.sink.split.i27.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %1, %while.body ]
+if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i118.i, %return.sink.split.i28.i, %return.sink.split.i.i, %while.body
+  %194 = phi i32 [ %.pre346, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String5ParseEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i118.i ], [ %add.i100.i.i, %return.sink.split.i28.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %1, %while.body ]
   %195 = load i64, ptr %buffer_.i37.i.i, align 8
   %sub = add nsw i32 %194, -15
   %sh_prom = zext nneg i32 %sub to i64
@@ -22773,8 +22782,8 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %sw.epilog
 
 sw.bb11.i1004.i:                                  ; preds = %if.end.i993.i
-  %528 = load ptr, ptr %end_.i105.i, align 8
-  store ptr %528, ptr %begin_.i106.i, align 8
+  %528 = load ptr, ptr %end_.i110.i, align 8
+  store ptr %528, ptr %begin_.i111.i, align 8
   store i32 0, ptr %buffer_len_.i, align 8
   br label %sw.epilog
 
@@ -23317,8 +23326,8 @@ entry:
 
 while.body.lr.ph:                                 ; preds = %entry
   %buffer_len_.i = getelementptr inbounds i8, ptr %this, i64 40
-  %end_.i105.i = getelementptr inbounds i8, ptr %this, i64 24
-  %begin_.i106.i = getelementptr inbounds i8, ptr %this, i64 16
+  %end_.i110.i = getelementptr inbounds i8, ptr %this, i64 24
+  %begin_.i111.i = getelementptr inbounds i8, ptr %this, i64 16
   %buffer_.i37.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %ok_40.i.i = getelementptr inbounds i8, ptr %this, i64 44
@@ -23345,8 +23354,8 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   ]
 
 sw.bb.i:                                          ; preds = %while.body
-  %3 = load ptr, ptr %end_.i105.i, align 8
-  %4 = load ptr, ptr %begin_.i106.i, align 8
+  %3 = load ptr, ptr %end_.i110.i, align 8
+  %4 = load ptr, ptr %begin_.i111.i, align 8
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %3 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %4 to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -23367,6 +23376,7 @@ sw.bb2.i.i:                                       ; preds = %sw.bb.i
   %6 = load i8, ptr %4, align 1
   %conv.i.i.i = zext i8 %6 to i64
   %shl2.i.i.i = shl nuw nsw i64 %conv.i.i.i, 8
+  %or.i.i.i = or disjoint i64 %shl2.i.i.i, %shl.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb3.i.i:                                       ; preds = %sw.bb.i
@@ -23380,6 +23390,7 @@ sw.bb3.i.i:                                       ; preds = %sw.bb.i
   %9 = load i8, ptr %arrayidx4.i7.i.i, align 1
   %conv5.i8.i.i = zext i8 %9 to i64
   %shl6.i.i.i = shl nuw nsw i64 %conv5.i8.i.i, 8
+  %or7.i9.i.i = or disjoint i64 %or.i6.i.i, %shl6.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb4.i.i:                                       ; preds = %sw.bb.i
@@ -23398,6 +23409,7 @@ sw.bb4.i.i:                                       ; preds = %sw.bb.i
   %13 = load i8, ptr %arrayidx9.i23.i.i, align 1
   %conv10.i24.i.i = zext i8 %13 to i64
   %shl11.i.i.i = shl nuw nsw i64 %conv10.i24.i.i, 8
+  %or12.i25.i.i = or disjoint i64 %or7.i22.i.i, %shl11.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb5.i.i:                                       ; preds = %sw.bb.i
@@ -23421,6 +23433,7 @@ sw.bb5.i.i:                                       ; preds = %sw.bb.i
   %18 = load i8, ptr %arrayidx14.i43.i.i, align 1
   %conv15.i44.i.i = zext i8 %18 to i64
   %shl16.i.i.i = shl nuw nsw i64 %conv15.i44.i.i, 8
+  %or17.i45.i.i = or disjoint i64 %or12.i42.i.i, %shl16.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb6.i.i:                                       ; preds = %sw.bb.i
@@ -23449,6 +23462,7 @@ sw.bb6.i.i:                                       ; preds = %sw.bb.i
   %24 = load i8, ptr %arrayidx19.i67.i.i, align 1
   %conv20.i68.i.i = zext i8 %24 to i64
   %shl21.i.i.i = shl nuw nsw i64 %conv20.i68.i.i, 8
+  %or22.i69.i.i = or disjoint i64 %or17.i66.i.i, %shl21.i.i.i
   br label %return.sink.split.i.i
 
 sw.bb7.i.i:                                       ; preds = %sw.bb.i
@@ -23482,6 +23496,7 @@ sw.bb7.i.i:                                       ; preds = %sw.bb.i
   %31 = load i8, ptr %arrayidx24.i95.i.i, align 1
   %conv25.i96.i.i = zext i8 %31 to i64
   %shl26.i.i.i = shl nuw nsw i64 %conv25.i96.i.i, 8
+  %or27.i97.i.i = or i64 %or22.i94.i.i, %shl26.i.i.i
   br label %return.sink.split.i.i
 
 sw.default.i.i:                                   ; preds = %sw.bb.i
@@ -23517,79 +23532,81 @@ sw.default.i.i:                                   ; preds = %sw.bb.i
   %38 = load i8, ptr %arrayidx28.i.i.i, align 1
   %conv29.i.i.i = zext i8 %38 to i64
   %shl30.i.i.i = shl nuw nsw i64 %conv29.i.i.i, 8
+  %or31.i.i.i = or i64 %or26.i.i.i, %shl30.i.i.i
   br label %return.sink.split.i.i
 
 return.sink.split.i.i:                            ; preds = %sw.default.i.i, %sw.bb7.i.i, %sw.bb6.i.i, %sw.bb5.i.i, %sw.bb4.i.i, %sw.bb3.i.i, %sw.bb2.i.i
-  %shl30.i.i.i.sink = phi i64 [ %shl30.i.i.i, %sw.default.i.i ], [ %shl26.i.i.i, %sw.bb7.i.i ], [ %shl21.i.i.i, %sw.bb6.i.i ], [ %shl16.i.i.i, %sw.bb5.i.i ], [ %shl11.i.i.i, %sw.bb4.i.i ], [ %shl6.i.i.i, %sw.bb3.i.i ], [ %shl.i.i.i, %sw.bb2.i.i ]
-  %or26.i.i.i.sink = phi i64 [ %or26.i.i.i, %sw.default.i.i ], [ %or22.i94.i.i, %sw.bb7.i.i ], [ %or17.i66.i.i, %sw.bb6.i.i ], [ %or12.i42.i.i, %sw.bb5.i.i ], [ %or7.i22.i.i, %sw.bb4.i.i ], [ %or.i6.i.i, %sw.bb3.i.i ], [ %shl2.i.i.i, %sw.bb2.i.i ]
   %.sink = phi i64 [ 7, %sw.default.i.i ], [ 6, %sw.bb7.i.i ], [ 5, %sw.bb6.i.i ], [ 4, %sw.bb5.i.i ], [ 3, %sw.bb4.i.i ], [ 2, %sw.bb3.i.i ], [ 1, %sw.bb2.i.i ]
+  %or31.i.i.i.sink = phi i64 [ %or31.i.i.i, %sw.default.i.i ], [ %or27.i97.i.i, %sw.bb7.i.i ], [ %or22.i69.i.i, %sw.bb6.i.i ], [ %or17.i45.i.i, %sw.bb5.i.i ], [ %or12.i25.i.i, %sw.bb4.i.i ], [ %or7.i9.i.i, %sw.bb3.i.i ], [ %or.i.i.i, %sw.bb2.i.i ]
   %.sink.i.i = phi i64 [ 8, %sw.default.i.i ], [ 7, %sw.bb7.i.i ], [ 6, %sw.bb6.i.i ], [ 5, %sw.bb5.i.i ], [ 4, %sw.bb4.i.i ], [ 3, %sw.bb3.i.i ], [ 2, %sw.bb2.i.i ]
   %.sink108.i.i = phi i32 [ 64, %sw.default.i.i ], [ 56, %sw.bb7.i.i ], [ 48, %sw.bb6.i.i ], [ 40, %sw.bb5.i.i ], [ 32, %sw.bb4.i.i ], [ 24, %sw.bb3.i.i ], [ 16, %sw.bb2.i.i ]
-  %or31.i.i.i = or i64 %or26.i.i.i.sink, %shl30.i.i.i.sink
   %arrayidx33.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.sink
   %39 = load i8, ptr %arrayidx33.i.i.i, align 1
   %conv34.i.i.i = zext i8 %39 to i64
-  %or36.i.i.i = or i64 %or31.i.i.i, %conv34.i.i.i
+  %or36.i.i.i = or i64 %or31.i.i.i.sink, %conv34.i.i.i
   store i64 %or36.i.i.i, ptr %buffer_.i37.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %4, i64 %.sink.i.i
-  store ptr %add.ptr.i.i.i, ptr %begin_.i106.i, align 8
+  store ptr %add.ptr.i.i.i, ptr %begin_.i111.i, align 8
   store i32 %.sink108.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
 
 sw.bb2.i:                                         ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %40 = load ptr, ptr %end_.i105.i, align 8
-  %41 = load ptr, ptr %begin_.i106.i, align 8
+  %40 = load ptr, ptr %end_.i110.i, align 8
+  %41 = load ptr, ptr %begin_.i111.i, align 8
   %sub.ptr.lhs.cast.i3.i = ptrtoint ptr %40 to i64
   %sub.ptr.rhs.cast.i4.i = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %sub.ptr.rhs.cast.i4.i
-  switch i64 %sub.ptr.sub.i5.i, label %sw.default.i80.i [
+  switch i64 %sub.ptr.sub.i5.i, label %sw.default.i84.i [
     i64 0, label %if.then
     i64 1, label %if.then
-    i64 2, label %sw.bb2.i75.i
-    i64 3, label %sw.bb3.i66.i
-    i64 4, label %sw.bb4.i53.i
+    i64 2, label %sw.bb2.i78.i
+    i64 3, label %sw.bb3.i68.i
+    i64 4, label %sw.bb4.i54.i
     i64 5, label %sw.bb5.i36.i
     i64 6, label %sw.bb6.i6.i
   ]
 
-sw.bb2.i75.i:                                     ; preds = %sw.bb2.i
+sw.bb2.i78.i:                                     ; preds = %sw.bb2.i
   %42 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i.i77.i = shl i64 %42, 16
+  %shl.i.i80.i = shl i64 %42, 16
   %43 = load i8, ptr %41, align 1
-  %conv.i.i78.i = zext i8 %43 to i64
-  %shl2.i.i79.i = shl nuw nsw i64 %conv.i.i78.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i.i81.i = zext i8 %43 to i64
+  %shl2.i.i82.i = shl nuw nsw i64 %conv.i.i81.i, 8
+  %or.i.i83.i = or disjoint i64 %shl2.i.i82.i, %shl.i.i80.i
+  br label %return.sink.split.i28.i
 
-sw.bb3.i66.i:                                     ; preds = %sw.bb2.i
+sw.bb3.i68.i:                                     ; preds = %sw.bb2.i
   %44 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i2.i68.i = shl i64 %44, 24
+  %shl.i2.i70.i = shl i64 %44, 24
   %45 = load i8, ptr %41, align 1
-  %conv.i4.i69.i = zext i8 %45 to i64
-  %shl2.i5.i70.i = shl nuw nsw i64 %conv.i4.i69.i, 16
-  %or.i6.i71.i = or disjoint i64 %shl2.i5.i70.i, %shl.i2.i68.i
-  %arrayidx4.i7.i72.i = getelementptr inbounds i8, ptr %41, i64 1
-  %46 = load i8, ptr %arrayidx4.i7.i72.i, align 1
-  %conv5.i8.i73.i = zext i8 %46 to i64
-  %shl6.i.i74.i = shl nuw nsw i64 %conv5.i8.i73.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i4.i71.i = zext i8 %45 to i64
+  %shl2.i5.i72.i = shl nuw nsw i64 %conv.i4.i71.i, 16
+  %or.i6.i73.i = or disjoint i64 %shl2.i5.i72.i, %shl.i2.i70.i
+  %arrayidx4.i7.i74.i = getelementptr inbounds i8, ptr %41, i64 1
+  %46 = load i8, ptr %arrayidx4.i7.i74.i, align 1
+  %conv5.i8.i75.i = zext i8 %46 to i64
+  %shl6.i.i76.i = shl nuw nsw i64 %conv5.i8.i75.i, 8
+  %or7.i9.i77.i = or disjoint i64 %or.i6.i73.i, %shl6.i.i76.i
+  br label %return.sink.split.i28.i
 
-sw.bb4.i53.i:                                     ; preds = %sw.bb2.i
+sw.bb4.i54.i:                                     ; preds = %sw.bb2.i
   %47 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i14.i55.i = shl i64 %47, 32
+  %shl.i14.i56.i = shl i64 %47, 32
   %48 = load i8, ptr %41, align 1
-  %conv.i16.i56.i = zext i8 %48 to i64
-  %shl2.i17.i57.i = shl nuw nsw i64 %conv.i16.i56.i, 24
-  %or.i18.i58.i = or disjoint i64 %shl2.i17.i57.i, %shl.i14.i55.i
-  %arrayidx4.i19.i59.i = getelementptr inbounds i8, ptr %41, i64 1
-  %49 = load i8, ptr %arrayidx4.i19.i59.i, align 1
-  %conv5.i20.i60.i = zext i8 %49 to i64
-  %shl6.i21.i61.i = shl nuw nsw i64 %conv5.i20.i60.i, 16
-  %or7.i22.i62.i = or disjoint i64 %or.i18.i58.i, %shl6.i21.i61.i
-  %arrayidx9.i23.i63.i = getelementptr inbounds i8, ptr %41, i64 2
-  %50 = load i8, ptr %arrayidx9.i23.i63.i, align 1
-  %conv10.i24.i64.i = zext i8 %50 to i64
-  %shl11.i.i65.i = shl nuw nsw i64 %conv10.i24.i64.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i16.i57.i = zext i8 %48 to i64
+  %shl2.i17.i58.i = shl nuw nsw i64 %conv.i16.i57.i, 24
+  %or.i18.i59.i = or disjoint i64 %shl2.i17.i58.i, %shl.i14.i56.i
+  %arrayidx4.i19.i60.i = getelementptr inbounds i8, ptr %41, i64 1
+  %49 = load i8, ptr %arrayidx4.i19.i60.i, align 1
+  %conv5.i20.i61.i = zext i8 %49 to i64
+  %shl6.i21.i62.i = shl nuw nsw i64 %conv5.i20.i61.i, 16
+  %or7.i22.i63.i = or disjoint i64 %or.i18.i59.i, %shl6.i21.i62.i
+  %arrayidx9.i23.i64.i = getelementptr inbounds i8, ptr %41, i64 2
+  %50 = load i8, ptr %arrayidx9.i23.i64.i, align 1
+  %conv10.i24.i65.i = zext i8 %50 to i64
+  %shl11.i.i66.i = shl nuw nsw i64 %conv10.i24.i65.i, 8
+  %or12.i25.i67.i = or disjoint i64 %or7.i22.i63.i, %shl11.i.i66.i
+  br label %return.sink.split.i28.i
 
 sw.bb5.i36.i:                                     ; preds = %sw.bb2.i
   %51 = load i64, ptr %buffer_.i37.i.i, align 8
@@ -23612,7 +23629,8 @@ sw.bb5.i36.i:                                     ; preds = %sw.bb2.i
   %55 = load i8, ptr %arrayidx14.i43.i50.i, align 1
   %conv15.i44.i51.i = zext i8 %55 to i64
   %shl16.i.i52.i = shl nuw nsw i64 %conv15.i44.i51.i, 8
-  br label %return.sink.split.i27.i
+  %or17.i45.i53.i = or disjoint i64 %or12.i42.i49.i, %shl16.i.i52.i
+  br label %return.sink.split.i28.i
 
 sw.bb6.i6.i:                                      ; preds = %sw.bb2.i
   %56 = load i64, ptr %buffer_.i37.i.i, align 8
@@ -23640,90 +23658,90 @@ sw.bb6.i6.i:                                      ; preds = %sw.bb2.i
   %61 = load i8, ptr %arrayidx19.i67.i24.i, align 1
   %conv20.i68.i25.i = zext i8 %61 to i64
   %shl21.i.i26.i = shl nuw nsw i64 %conv20.i68.i25.i, 8
-  br label %return.sink.split.i27.i
+  %or22.i69.i27.i = or disjoint i64 %or17.i66.i23.i, %shl21.i.i26.i
+  br label %return.sink.split.i28.i
 
-sw.default.i80.i:                                 ; preds = %sw.bb2.i
+sw.default.i84.i:                                 ; preds = %sw.bb2.i
   %62 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i74.i82.i = shl i64 %62, 56
+  %shl.i74.i86.i = shl i64 %62, 56
   %63 = load i8, ptr %41, align 1
-  %conv.i76.i83.i = zext i8 %63 to i64
-  %shl2.i77.i84.i = shl nuw nsw i64 %conv.i76.i83.i, 48
-  %or.i78.i85.i = or disjoint i64 %shl2.i77.i84.i, %shl.i74.i82.i
-  %arrayidx4.i79.i86.i = getelementptr inbounds i8, ptr %41, i64 1
-  %64 = load i8, ptr %arrayidx4.i79.i86.i, align 1
-  %conv5.i80.i87.i = zext i8 %64 to i64
-  %shl6.i81.i88.i = shl nuw nsw i64 %conv5.i80.i87.i, 40
-  %or7.i82.i89.i = or disjoint i64 %or.i78.i85.i, %shl6.i81.i88.i
-  %arrayidx9.i83.i90.i = getelementptr inbounds i8, ptr %41, i64 2
-  %65 = load i8, ptr %arrayidx9.i83.i90.i, align 1
-  %conv10.i84.i91.i = zext i8 %65 to i64
-  %shl11.i85.i92.i = shl nuw nsw i64 %conv10.i84.i91.i, 32
-  %or12.i86.i93.i = or disjoint i64 %or7.i82.i89.i, %shl11.i85.i92.i
-  %arrayidx14.i87.i94.i = getelementptr inbounds i8, ptr %41, i64 3
-  %66 = load i8, ptr %arrayidx14.i87.i94.i, align 1
-  %conv15.i88.i95.i = zext i8 %66 to i64
-  %shl16.i89.i96.i = shl nuw nsw i64 %conv15.i88.i95.i, 24
-  %or17.i90.i97.i = or disjoint i64 %or12.i86.i93.i, %shl16.i89.i96.i
-  %arrayidx19.i91.i98.i = getelementptr inbounds i8, ptr %41, i64 4
-  %67 = load i8, ptr %arrayidx19.i91.i98.i, align 1
-  %conv20.i92.i99.i = zext i8 %67 to i64
-  %shl21.i93.i100.i = shl nuw nsw i64 %conv20.i92.i99.i, 16
-  %or22.i94.i101.i = or disjoint i64 %or17.i90.i97.i, %shl21.i93.i100.i
-  %arrayidx24.i95.i102.i = getelementptr inbounds i8, ptr %41, i64 5
-  %68 = load i8, ptr %arrayidx24.i95.i102.i, align 1
-  %conv25.i96.i103.i = zext i8 %68 to i64
-  %shl26.i.i104.i = shl nuw nsw i64 %conv25.i96.i103.i, 8
-  br label %return.sink.split.i27.i
+  %conv.i76.i87.i = zext i8 %63 to i64
+  %shl2.i77.i88.i = shl nuw nsw i64 %conv.i76.i87.i, 48
+  %or.i78.i89.i = or disjoint i64 %shl2.i77.i88.i, %shl.i74.i86.i
+  %arrayidx4.i79.i90.i = getelementptr inbounds i8, ptr %41, i64 1
+  %64 = load i8, ptr %arrayidx4.i79.i90.i, align 1
+  %conv5.i80.i91.i = zext i8 %64 to i64
+  %shl6.i81.i92.i = shl nuw nsw i64 %conv5.i80.i91.i, 40
+  %or7.i82.i93.i = or disjoint i64 %or.i78.i89.i, %shl6.i81.i92.i
+  %arrayidx9.i83.i94.i = getelementptr inbounds i8, ptr %41, i64 2
+  %65 = load i8, ptr %arrayidx9.i83.i94.i, align 1
+  %conv10.i84.i95.i = zext i8 %65 to i64
+  %shl11.i85.i96.i = shl nuw nsw i64 %conv10.i84.i95.i, 32
+  %or12.i86.i97.i = or disjoint i64 %or7.i82.i93.i, %shl11.i85.i96.i
+  %arrayidx14.i87.i98.i = getelementptr inbounds i8, ptr %41, i64 3
+  %66 = load i8, ptr %arrayidx14.i87.i98.i, align 1
+  %conv15.i88.i99.i = zext i8 %66 to i64
+  %shl16.i89.i100.i = shl nuw nsw i64 %conv15.i88.i99.i, 24
+  %or17.i90.i101.i = or disjoint i64 %or12.i86.i97.i, %shl16.i89.i100.i
+  %arrayidx19.i91.i102.i = getelementptr inbounds i8, ptr %41, i64 4
+  %67 = load i8, ptr %arrayidx19.i91.i102.i, align 1
+  %conv20.i92.i103.i = zext i8 %67 to i64
+  %shl21.i93.i104.i = shl nuw nsw i64 %conv20.i92.i103.i, 16
+  %or22.i94.i105.i = or disjoint i64 %or17.i90.i101.i, %shl21.i93.i104.i
+  %arrayidx24.i95.i106.i = getelementptr inbounds i8, ptr %41, i64 5
+  %68 = load i8, ptr %arrayidx24.i95.i106.i, align 1
+  %conv25.i96.i107.i = zext i8 %68 to i64
+  %shl26.i.i108.i = shl nuw nsw i64 %conv25.i96.i107.i, 8
+  %or27.i97.i109.i = or i64 %or22.i94.i105.i, %shl26.i.i108.i
+  br label %return.sink.split.i28.i
 
-return.sink.split.i27.i:                          ; preds = %sw.default.i80.i, %sw.bb6.i6.i, %sw.bb5.i36.i, %sw.bb4.i53.i, %sw.bb3.i66.i, %sw.bb2.i75.i
-  %shl.i.sink.i.i = phi i64 [ %shl.i.i77.i, %sw.bb2.i75.i ], [ %shl6.i.i74.i, %sw.bb3.i66.i ], [ %shl11.i.i65.i, %sw.bb4.i53.i ], [ %shl16.i.i52.i, %sw.bb5.i36.i ], [ %shl21.i.i26.i, %sw.bb6.i6.i ], [ %shl26.i.i104.i, %sw.default.i80.i ]
-  %shl2.i.sink.i.i = phi i64 [ %shl2.i.i79.i, %sw.bb2.i75.i ], [ %or.i6.i71.i, %sw.bb3.i66.i ], [ %or7.i22.i62.i, %sw.bb4.i53.i ], [ %or12.i42.i49.i, %sw.bb5.i36.i ], [ %or17.i66.i23.i, %sw.bb6.i6.i ], [ %or22.i94.i101.i, %sw.default.i80.i ]
-  %.sink104.i.i = phi i64 [ 1, %sw.bb2.i75.i ], [ 2, %sw.bb3.i66.i ], [ 3, %sw.bb4.i53.i ], [ 4, %sw.bb5.i36.i ], [ 5, %sw.bb6.i6.i ], [ 6, %sw.default.i80.i ]
-  %.sink.i28.i = phi i64 [ 2, %sw.bb2.i75.i ], [ 3, %sw.bb3.i66.i ], [ 4, %sw.bb4.i53.i ], [ 5, %sw.bb5.i36.i ], [ 6, %sw.bb6.i6.i ], [ 7, %sw.default.i80.i ]
-  %.sink101.i.i = phi i32 [ 16, %sw.bb2.i75.i ], [ 24, %sw.bb3.i66.i ], [ 32, %sw.bb4.i53.i ], [ 40, %sw.bb5.i36.i ], [ 48, %sw.bb6.i6.i ], [ 56, %sw.default.i80.i ]
-  %or.i.i29.i = or i64 %shl2.i.sink.i.i, %shl.i.sink.i.i
+return.sink.split.i28.i:                          ; preds = %sw.default.i84.i, %sw.bb6.i6.i, %sw.bb5.i36.i, %sw.bb4.i54.i, %sw.bb3.i68.i, %sw.bb2.i78.i
+  %.sink104.i.i = phi i64 [ 1, %sw.bb2.i78.i ], [ 2, %sw.bb3.i68.i ], [ 3, %sw.bb4.i54.i ], [ 4, %sw.bb5.i36.i ], [ 5, %sw.bb6.i6.i ], [ 6, %sw.default.i84.i ]
+  %or.i.sink.i.i = phi i64 [ %or.i.i83.i, %sw.bb2.i78.i ], [ %or7.i9.i77.i, %sw.bb3.i68.i ], [ %or12.i25.i67.i, %sw.bb4.i54.i ], [ %or17.i45.i53.i, %sw.bb5.i36.i ], [ %or22.i69.i27.i, %sw.bb6.i6.i ], [ %or27.i97.i109.i, %sw.default.i84.i ]
+  %.sink.i29.i = phi i64 [ 2, %sw.bb2.i78.i ], [ 3, %sw.bb3.i68.i ], [ 4, %sw.bb4.i54.i ], [ 5, %sw.bb5.i36.i ], [ 6, %sw.bb6.i6.i ], [ 7, %sw.default.i84.i ]
+  %.sink101.i.i = phi i32 [ 16, %sw.bb2.i78.i ], [ 24, %sw.bb3.i68.i ], [ 32, %sw.bb4.i54.i ], [ 40, %sw.bb5.i36.i ], [ 48, %sw.bb6.i6.i ], [ 56, %sw.default.i84.i ]
   %arrayidx4.i.i30.i = getelementptr inbounds i8, ptr %41, i64 %.sink104.i.i
   %69 = load i8, ptr %arrayidx4.i.i30.i, align 1
   %conv5.i.i31.i = zext i8 %69 to i64
-  %or7.i.i32.i = or i64 %or.i.i29.i, %conv5.i.i31.i
+  %or7.i.i32.i = or i64 %or.i.sink.i.i, %conv5.i.i31.i
   store i64 %or7.i.i32.i, ptr %buffer_.i37.i.i, align 8
-  %add.ptr.i.i33.i = getelementptr inbounds i8, ptr %41, i64 %.sink.i28.i
-  store ptr %add.ptr.i.i33.i, ptr %begin_.i106.i, align 8
+  %add.ptr.i.i33.i = getelementptr inbounds i8, ptr %41, i64 %.sink.i29.i
+  store ptr %add.ptr.i.i33.i, ptr %begin_.i111.i, align 8
   %add.i100.i.i = add nuw nsw i32 %.sink101.i.i, %2
   store i32 %add.i100.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
 
 sw.bb6.i:                                         ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
-  %70 = load ptr, ptr %end_.i105.i, align 8
-  %71 = load ptr, ptr %begin_.i106.i, align 8
-  %sub.ptr.lhs.cast.i107.i = ptrtoint ptr %70 to i64
-  %sub.ptr.rhs.cast.i108.i = ptrtoint ptr %71 to i64
-  %sub.ptr.sub.i109.i = sub i64 %sub.ptr.lhs.cast.i107.i, %sub.ptr.rhs.cast.i108.i
-  switch i64 %sub.ptr.sub.i109.i, label %sw.default.i137.i [
+  %70 = load ptr, ptr %end_.i110.i, align 8
+  %71 = load ptr, ptr %begin_.i111.i, align 8
+  %sub.ptr.lhs.cast.i112.i = ptrtoint ptr %70 to i64
+  %sub.ptr.rhs.cast.i113.i = ptrtoint ptr %71 to i64
+  %sub.ptr.sub.i114.i = sub i64 %sub.ptr.lhs.cast.i112.i, %sub.ptr.rhs.cast.i113.i
+  switch i64 %sub.ptr.sub.i114.i, label %sw.default.i141.i [
     i64 0, label %if.then
-    i64 1, label %sw.bb2.i134.i
-    i64 2, label %sw.bb3.i128.i
-    i64 3, label %sw.bb4.i125.i
-    i64 4, label %sw.bb5.i122.i
-    i64 5, label %sw.bb6.i110.i
+    i64 1, label %sw.bb2.i138.i
+    i64 2, label %sw.bb3.i132.i
+    i64 3, label %sw.bb4.i129.i
+    i64 4, label %sw.bb5.i126.i
+    i64 5, label %sw.bb6.i115.i
   ]
 
-sw.bb2.i134.i:                                    ; preds = %sw.bb6.i
+sw.bb2.i138.i:                                    ; preds = %sw.bb6.i
   %72 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i.i136.i = shl i64 %72, 8
-  br label %return.sink.split.i113.i
+  %shl.i.i140.i = shl i64 %72, 8
+  br label %return.sink.split.i118.i
 
-sw.bb3.i128.i:                                    ; preds = %sw.bb6.i
+sw.bb3.i132.i:                                    ; preds = %sw.bb6.i
   %73 = load i64, ptr %buffer_.i37.i.i, align 8
-  %shl.i2.i130.i = shl i64 %73, 16
+  %shl.i2.i134.i = shl i64 %73, 16
   %74 = load i8, ptr %71, align 1
-  %conv.i4.i131.i = zext i8 %74 to i64
-  %shl2.i.i132.i = shl nuw nsw i64 %conv.i4.i131.i, 8
-  %or.i5.i.i = or disjoint i64 %shl2.i.i132.i, %shl.i2.i130.i
-  %arrayidx4.i.i133.i = getelementptr inbounds i8, ptr %71, i64 1
-  br label %return.sink.split.i113.i
+  %conv.i4.i135.i = zext i8 %74 to i64
+  %shl2.i.i136.i = shl nuw nsw i64 %conv.i4.i135.i, 8
+  %or.i5.i.i = or disjoint i64 %shl2.i.i136.i, %shl.i2.i134.i
+  %arrayidx4.i.i137.i = getelementptr inbounds i8, ptr %71, i64 1
+  br label %return.sink.split.i118.i
 
-sw.bb4.i125.i:                                    ; preds = %sw.bb6.i
+sw.bb4.i129.i:                                    ; preds = %sw.bb6.i
   %75 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i10.i.i = shl i64 %75, 24
   %76 = load i8, ptr %71, align 1
@@ -23733,12 +23751,12 @@ sw.bb4.i125.i:                                    ; preds = %sw.bb6.i
   %arrayidx4.i15.i.i = getelementptr inbounds i8, ptr %71, i64 1
   %77 = load i8, ptr %arrayidx4.i15.i.i, align 1
   %conv5.i16.i.i = zext i8 %77 to i64
-  %shl6.i.i126.i = shl nuw nsw i64 %conv5.i16.i.i, 8
-  %or7.i17.i.i = or disjoint i64 %or.i14.i.i, %shl6.i.i126.i
-  %arrayidx9.i.i127.i = getelementptr inbounds i8, ptr %71, i64 2
-  br label %return.sink.split.i113.i
+  %shl6.i.i130.i = shl nuw nsw i64 %conv5.i16.i.i, 8
+  %or7.i17.i.i = or disjoint i64 %or.i14.i.i, %shl6.i.i130.i
+  %arrayidx9.i.i131.i = getelementptr inbounds i8, ptr %71, i64 2
+  br label %return.sink.split.i118.i
 
-sw.bb5.i122.i:                                    ; preds = %sw.bb6.i
+sw.bb5.i126.i:                                    ; preds = %sw.bb6.i
   %78 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i22.i.i = shl i64 %78, 32
   %79 = load i8, ptr %71, align 1
@@ -23753,12 +23771,12 @@ sw.bb5.i122.i:                                    ; preds = %sw.bb6.i
   %arrayidx9.i31.i.i = getelementptr inbounds i8, ptr %71, i64 2
   %81 = load i8, ptr %arrayidx9.i31.i.i, align 1
   %conv10.i32.i.i = zext i8 %81 to i64
-  %shl11.i.i123.i = shl nuw nsw i64 %conv10.i32.i.i, 8
-  %or12.i33.i.i = or disjoint i64 %or7.i30.i.i, %shl11.i.i123.i
-  %arrayidx14.i.i124.i = getelementptr inbounds i8, ptr %71, i64 3
-  br label %return.sink.split.i113.i
+  %shl11.i.i127.i = shl nuw nsw i64 %conv10.i32.i.i, 8
+  %or12.i33.i.i = or disjoint i64 %or7.i30.i.i, %shl11.i.i127.i
+  %arrayidx14.i.i128.i = getelementptr inbounds i8, ptr %71, i64 3
+  br label %return.sink.split.i118.i
 
-sw.bb6.i110.i:                                    ; preds = %sw.bb6.i
+sw.bb6.i115.i:                                    ; preds = %sw.bb6.i
   %82 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i38.i.i = shl i64 %82, 40
   %83 = load i8, ptr %71, align 1
@@ -23778,12 +23796,12 @@ sw.bb6.i110.i:                                    ; preds = %sw.bb6.i
   %arrayidx14.i51.i.i = getelementptr inbounds i8, ptr %71, i64 3
   %86 = load i8, ptr %arrayidx14.i51.i.i, align 1
   %conv15.i52.i.i = zext i8 %86 to i64
-  %shl16.i.i111.i = shl nuw nsw i64 %conv15.i52.i.i, 8
-  %or17.i53.i.i = or disjoint i64 %or12.i50.i.i, %shl16.i.i111.i
-  %arrayidx19.i.i112.i = getelementptr inbounds i8, ptr %71, i64 4
-  br label %return.sink.split.i113.i
+  %shl16.i.i116.i = shl nuw nsw i64 %conv15.i52.i.i, 8
+  %or17.i53.i.i = or disjoint i64 %or12.i50.i.i, %shl16.i.i116.i
+  %arrayidx19.i.i117.i = getelementptr inbounds i8, ptr %71, i64 4
+  br label %return.sink.split.i118.i
 
-sw.default.i137.i:                                ; preds = %sw.bb6.i
+sw.default.i141.i:                                ; preds = %sw.bb6.i
   %87 = load i64, ptr %buffer_.i37.i.i, align 8
   %shl.i58.i.i = shl i64 %87, 48
   %88 = load i8, ptr %71, align 1
@@ -23808,22 +23826,22 @@ sw.default.i137.i:                                ; preds = %sw.bb6.i
   %arrayidx19.i75.i.i = getelementptr inbounds i8, ptr %71, i64 4
   %92 = load i8, ptr %arrayidx19.i75.i.i, align 1
   %conv20.i76.i.i = zext i8 %92 to i64
-  %shl21.i.i138.i = shl nuw nsw i64 %conv20.i76.i.i, 8
-  %or22.i77.i.i = or disjoint i64 %or17.i74.i.i, %shl21.i.i138.i
-  %arrayidx24.i.i139.i = getelementptr inbounds i8, ptr %71, i64 5
-  br label %return.sink.split.i113.i
+  %shl21.i.i142.i = shl nuw nsw i64 %conv20.i76.i.i, 8
+  %or22.i77.i.i = or disjoint i64 %or17.i74.i.i, %shl21.i.i142.i
+  %arrayidx24.i.i143.i = getelementptr inbounds i8, ptr %71, i64 5
+  br label %return.sink.split.i118.i
 
-return.sink.split.i113.i:                         ; preds = %sw.default.i137.i, %sw.bb6.i110.i, %sw.bb5.i122.i, %sw.bb4.i125.i, %sw.bb3.i128.i, %sw.bb2.i134.i
-  %.sink84.i.i = phi ptr [ %71, %sw.bb2.i134.i ], [ %arrayidx4.i.i133.i, %sw.bb3.i128.i ], [ %arrayidx9.i.i127.i, %sw.bb4.i125.i ], [ %arrayidx14.i.i124.i, %sw.bb5.i122.i ], [ %arrayidx19.i.i112.i, %sw.bb6.i110.i ], [ %arrayidx24.i.i139.i, %sw.default.i137.i ]
-  %shl.i.sink.i114.i = phi i64 [ %shl.i.i136.i, %sw.bb2.i134.i ], [ %or.i5.i.i, %sw.bb3.i128.i ], [ %or7.i17.i.i, %sw.bb4.i125.i ], [ %or12.i33.i.i, %sw.bb5.i122.i ], [ %or17.i53.i.i, %sw.bb6.i110.i ], [ %or22.i77.i.i, %sw.default.i137.i ]
-  %.sink.i116.i = phi i64 [ 1, %sw.bb2.i134.i ], [ 2, %sw.bb3.i128.i ], [ 3, %sw.bb4.i125.i ], [ 4, %sw.bb5.i122.i ], [ 5, %sw.bb6.i110.i ], [ 6, %sw.default.i137.i ]
-  %.sink81.i.i = phi i32 [ 8, %sw.bb2.i134.i ], [ 16, %sw.bb3.i128.i ], [ 24, %sw.bb4.i125.i ], [ 32, %sw.bb5.i122.i ], [ 40, %sw.bb6.i110.i ], [ 48, %sw.default.i137.i ]
+return.sink.split.i118.i:                         ; preds = %sw.default.i141.i, %sw.bb6.i115.i, %sw.bb5.i126.i, %sw.bb4.i129.i, %sw.bb3.i132.i, %sw.bb2.i138.i
+  %.sink84.i.i = phi ptr [ %71, %sw.bb2.i138.i ], [ %arrayidx4.i.i137.i, %sw.bb3.i132.i ], [ %arrayidx9.i.i131.i, %sw.bb4.i129.i ], [ %arrayidx14.i.i128.i, %sw.bb5.i126.i ], [ %arrayidx19.i.i117.i, %sw.bb6.i115.i ], [ %arrayidx24.i.i143.i, %sw.default.i141.i ]
+  %shl.i.sink.i.i = phi i64 [ %shl.i.i140.i, %sw.bb2.i138.i ], [ %or.i5.i.i, %sw.bb3.i132.i ], [ %or7.i17.i.i, %sw.bb4.i129.i ], [ %or12.i33.i.i, %sw.bb5.i126.i ], [ %or17.i53.i.i, %sw.bb6.i115.i ], [ %or22.i77.i.i, %sw.default.i141.i ]
+  %.sink.i120.i = phi i64 [ 1, %sw.bb2.i138.i ], [ 2, %sw.bb3.i132.i ], [ 3, %sw.bb4.i129.i ], [ 4, %sw.bb5.i126.i ], [ 5, %sw.bb6.i115.i ], [ 6, %sw.default.i141.i ]
+  %.sink81.i.i = phi i32 [ 8, %sw.bb2.i138.i ], [ 16, %sw.bb3.i132.i ], [ 24, %sw.bb4.i129.i ], [ 32, %sw.bb5.i126.i ], [ 40, %sw.bb6.i115.i ], [ 48, %sw.default.i141.i ]
   %93 = load i8, ptr %.sink84.i.i, align 1
-  %conv.i.i117.i = zext i8 %93 to i64
-  %or.i.i118.i = or i64 %shl.i.sink.i114.i, %conv.i.i117.i
-  store i64 %or.i.i118.i, ptr %buffer_.i37.i.i, align 8
-  %add.ptr.i.i119.i = getelementptr inbounds i8, ptr %71, i64 %.sink.i116.i
-  store ptr %add.ptr.i.i119.i, ptr %begin_.i106.i, align 8
+  %conv.i.i121.i = zext i8 %93 to i64
+  %or.i.i122.i = or i64 %shl.i.sink.i.i, %conv.i.i121.i
+  store i64 %or.i.i122.i, ptr %buffer_.i37.i.i, align 8
+  %add.ptr.i.i123.i = getelementptr inbounds i8, ptr %71, i64 %.sink.i120.i
+  store ptr %add.ptr.i.i123.i, ptr %begin_.i111.i, align 8
   %add.i80.i.i = add nuw nsw i32 %.sink81.i.i, %2
   store i32 %add.i80.i.i, ptr %buffer_len_.i, align 8
   br label %if.end
@@ -23837,8 +23855,8 @@ return.sink.split.i113.i:                         ; preds = %sw.default.i137.i, 
   br label %if.end
 
 "_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.then_crit_edge": ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit"
-  %.pre = load ptr, ptr %end_.i105.i, align 8
-  %.pre378 = load ptr, ptr %begin_.i106.i, align 8
+  %.pre = load ptr, ptr %end_.i110.i, align 8
+  %.pre378 = load ptr, ptr %begin_.i111.i, align 8
   br label %if.then
 
 if.then:                                          ; preds = %sw.bb6.i, %sw.bb2.i, %sw.bb2.i, %sw.bb.i, %sw.bb.i, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.then_crit_edge"
@@ -23863,7 +23881,7 @@ sw.bb.i15:                                        ; preds = %if.then
   %or.i.i = or disjoint i64 %shl.i.i, %conv.i.i
   store i64 %or.i.i, ptr %buffer_.i37.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %94, i64 1
-  store ptr %add.ptr.i.i, ptr %begin_.i106.i, align 8
+  store ptr %add.ptr.i.i, ptr %begin_.i111.i, align 8
   %98 = load i32, ptr %buffer_len_.i, align 8
   %add.i.i = add nsw i32 %98, 8
   store i32 %add.i.i, ptr %buffer_len_.i, align 8
@@ -24674,8 +24692,8 @@ sw.bb210.i:                                       ; preds = %sw.bb190.i
   tail call fastcc void @"_ZZN9grpc_core11HPackParser6String11ParseBinaryEPNS0_5InputEbmENK3$_0clEh"(ptr noundef nonnull align 8 dereferenceable(16) %this, i8 noundef zeroext %209)
   br label %while.end
 
-if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i113.i, %return.sink.split.i27.i, %return.sink.split.i.i, %while.body
-  %210 = phi i32 [ %.pre379, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i113.i ], [ %add.i100.i.i, %return.sink.split.i27.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %2, %while.body ]
+if.end:                                           ; preds = %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge", %return.sink.split.i118.i, %return.sink.split.i28.i, %return.sink.split.i.i, %while.body
+  %210 = phi i32 [ %.pre379, %"_ZN9grpc_core11HuffDecoderIZNS_11HPackParser6String11ParseBinaryEPNS1_5InputEbmE3$_0E10RefillTo15Ev.exit.if.end_crit_edge" ], [ %add.i80.i.i, %return.sink.split.i118.i ], [ %add.i100.i.i, %return.sink.split.i28.i ], [ %.sink108.i.i, %return.sink.split.i.i ], [ %2, %while.body ]
   %211 = load i64, ptr %buffer_.i37.i.i, align 8
   %sub = add nsw i32 %210, -15
   %sh_prom = zext nneg i32 %sub to i64
@@ -28575,8 +28593,8 @@ _ZNSt6vectorIhSaIhEE17_M_realloc_insertIJRKhEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %sw.epilog
 
 sw.bb11.i1057.i:                                  ; preds = %if.end.i1046.i
-  %652 = load ptr, ptr %end_.i105.i, align 8
-  store ptr %652, ptr %begin_.i106.i, align 8
+  %652 = load ptr, ptr %end_.i110.i, align 8
+  store ptr %652, ptr %begin_.i111.i, align 8
   store i32 0, ptr %buffer_len_.i, align 8
   br label %sw.epilog
 

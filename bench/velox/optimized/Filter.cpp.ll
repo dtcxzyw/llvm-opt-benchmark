@@ -40103,6 +40103,7 @@ invoke.cont24:                                    ; preds = %_ZNK5folly3f146deta
   %rawItems_.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
   %arrayidx.i.i.i.i.i = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 16>::type"], ptr %rawItems_.i.i.i, i64 0, i64 %and.i2.i.i
   %16 = ptrtoint ptr %arrayidx.i.i.i.i.i to i64
+  %or.i.i = or i64 %and.i2.i.i, %16
   br label %if.end
 
 if.else:                                          ; preds = %_ZNK5folly3f146detail8F14TableINS1_20ValueContainerPolicyInvvvvEEE9itemCountEv.exit35
@@ -40217,14 +40218,13 @@ invoke.cont78:                                    ; preds = %for.end
   %rawItems_.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr68, i64 16
   %arrayidx.i.i.i.i.i62 = getelementptr inbounds [15 x %"union.std::aligned_storage<16, 16>::type"], ptr %rawItems_.i.i.i61, i64 0, i64 %conv77
   %42 = ptrtoint ptr %arrayidx.i.i.i.i.i62 to i64
+  %or.i.i67 = or i64 %42, %conv77
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont78, %invoke.cont24
-  %conv77.sink = phi i64 [ %conv77, %invoke.cont78 ], [ %16, %invoke.cont24 ]
-  %.sink = phi i64 [ %42, %invoke.cont78 ], [ %and.i2.i.i, %invoke.cont24 ]
-  %or.i.i67 = or i64 %.sink, %conv77.sink
+  %or.i.i67.sink = phi i64 [ %or.i.i67, %invoke.cont78 ], [ %or.i.i, %invoke.cont24 ]
   %packedBegin_.i68 = getelementptr inbounds i8, ptr %this, i64 24
-  store i64 %or.i.i67, ptr %packedBegin_.i68, align 8
+  store i64 %or.i.i67.sink, ptr %packedBegin_.i68, align 8
   ret void
 }
 

@@ -1877,6 +1877,7 @@ if.then5:                                         ; preds = %entry
   %call6 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %ob, i32 noundef 1) #6
   %stop = getelementptr inbounds i8, ptr %r, i64 24
   %2 = load ptr, ptr %stop, align 8
+  %call7 = tail call i32 @PyObject_RichCompareBool(ptr noundef %ob, ptr noundef %2, i32 noundef 0) #6
   br label %if.end12
 
 if.else:                                          ; preds = %entry
@@ -1885,21 +1886,20 @@ if.else:                                          ; preds = %entry
   %call9 = tail call i32 @PyObject_RichCompareBool(ptr noundef %ob, ptr noundef %3, i32 noundef 1) #6
   %stop10 = getelementptr inbounds i8, ptr %r, i64 24
   %4 = load ptr, ptr %stop10, align 8
+  %call11 = tail call i32 @PyObject_RichCompareBool(ptr noundef %4, ptr noundef %ob, i32 noundef 0) #6
   br label %if.end12
 
 if.end12:                                         ; preds = %if.else, %if.then5
-  %ob.sink = phi ptr [ %ob, %if.else ], [ %2, %if.then5 ]
-  %.sink = phi ptr [ %4, %if.else ], [ %ob, %if.then5 ]
-  %cmp2.0 = phi i32 [ %call9, %if.else ], [ %call6, %if.then5 ]
-  %call11 = tail call i32 @PyObject_RichCompareBool(ptr noundef %.sink, ptr noundef %ob.sink, i32 noundef 0) #6
+  %cmp2.0 = phi i32 [ %call6, %if.then5 ], [ %call9, %if.else ]
+  %cmp3.0 = phi i32 [ %call7, %if.then5 ], [ %call11, %if.else ]
   %cmp13 = icmp eq i32 %cmp2.0, -1
-  %cmp14 = icmp eq i32 %call11, -1
+  %cmp14 = icmp eq i32 %cmp3.0, -1
   %or.cond = select i1 %cmp13, i1 true, i1 %cmp14
   br i1 %or.cond, label %Py_XDECREF.exit27, label %if.end16
 
 if.end16:                                         ; preds = %if.end12
   %cmp17 = icmp eq i32 %cmp2.0, 0
-  %cmp19 = icmp eq i32 %call11, 0
+  %cmp19 = icmp eq i32 %cmp3.0, 0
   %or.cond1 = select i1 %cmp17, i1 true, i1 %cmp19
   br i1 %or.cond1, label %Py_XDECREF.exit27, label %if.end21
 
