@@ -2196,7 +2196,7 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef %1, p
 
 59:                                               ; preds = %51, %._crit_edge
   %.not74 = icmp eq i8 %18, 0
-  br i1 %.not74, label %75, label %60
+  br i1 %.not74, label %73, label %60
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2209,19 +2209,17 @@ define internal fastcc void @x25_toa(ptr noundef %0, ptr nocapture noundef %1, p
   %67 = add nuw nsw i32 %19, 1
   %68 = lshr i32 %67, 1
   %69 = and i32 %12, 1
-  %70 = and i32 %67, 1
-  %71 = add nuw nsw i32 %70, %69
-  %72 = lshr i32 %71, 1
-  %73 = add nuw nsw i32 %72, %68
-  %74 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %63, ptr noundef %2, i32 noundef %66, i32 noundef %73, ptr noundef %9) #4
-  br label %75
+  %70 = and i32 %69, %67
+  %71 = add nuw nsw i32 %70, %68
+  %72 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %63, ptr noundef %2, i32 noundef %66, i32 noundef %71, ptr noundef %9) #4
+  br label %73
 
-75:                                               ; preds = %60, %59
-  %76 = add nuw nsw i32 %26, 1
-  %77 = lshr i32 %76, 1
-  %78 = load i32, ptr %1, align 4
-  %79 = add i32 %78, %77
-  store i32 %79, ptr %1, align 4
+73:                                               ; preds = %60, %59
+  %74 = add nuw nsw i32 %26, 1
+  %75 = lshr i32 %74, 1
+  %76 = load i32, ptr %1, align 4
+  %77 = add i32 %76, %75
+  store i32 %77, ptr %1, align 4
   ret void
 }
 
@@ -2343,7 +2341,7 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef %1, 
 
 61:                                               ; preds = %51, %._crit_edge
   %.not87 = icmp ult i8 %12, 16
-  br i1 %.not87, label %79, label %62
+  br i1 %.not87, label %77, label %62
 
 62:                                               ; preds = %61
   %63 = getelementptr inbounds i8, ptr %3, i64 8
@@ -2359,19 +2357,17 @@ define internal fastcc void @x25_ntoa(ptr noundef %0, ptr nocapture noundef %1, 
   %71 = add nuw nsw i32 %15, 1
   %72 = lshr i32 %71, 1
   %73 = and i32 %13, 1
-  %74 = and i32 %71, 1
-  %75 = add nuw nsw i32 %74, %73
-  %76 = lshr i32 %75, 1
-  %77 = add nuw nsw i32 %76, %72
-  %78 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef %70, i32 noundef %77, ptr noundef %10) #4
-  br label %79
+  %74 = and i32 %73, %71
+  %75 = add nuw nsw i32 %74, %72
+  %76 = tail call ptr @proto_tree_add_string(ptr noundef %0, i32 noundef %67, ptr noundef %2, i32 noundef %70, i32 noundef %75, ptr noundef %10) #4
+  br label %77
 
-79:                                               ; preds = %62, %61
-  %80 = add nuw nsw i32 %26, 1
-  %81 = lshr i32 %80, 1
-  %82 = load i32, ptr %1, align 4
-  %83 = add i32 %82, %81
-  store i32 %83, ptr %1, align 4
+77:                                               ; preds = %62, %61
+  %78 = add nuw nsw i32 %26, 1
+  %79 = lshr i32 %78, 1
+  %80 = load i32, ptr %1, align 4
+  %81 = add i32 %80, %79
+  store i32 %81, ptr %1, align 4
   ret void
 }
 
