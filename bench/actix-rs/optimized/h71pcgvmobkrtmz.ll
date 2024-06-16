@@ -6800,39 +6800,32 @@ define internal noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !align !21, !noundef !5
   %6 = load i8, ptr %5, align 8, !range !563, !noalias !564, !noundef !5
-  %7 = add nsw i8 %6, -3
-  %8 = icmp ult i8 %7, 3
-  %narrow.i = select i1 %8, i8 %7, i8 1
-  switch i8 %narrow.i, label %9 [
-    i8 0, label %10
-    i8 1, label %12
-    i8 2, label %14
+  switch i8 %6, label %9 [
+    i8 3, label %7
+    i8 5, label %11
   ]
 
-9:                                                ; preds = %2
-  unreachable
-
-10:                                               ; preds = %2
-  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.125, i64 noundef 9)
+7:                                                ; preds = %2
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.125, i64 noundef 9)
   br label %"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit"
 
-12:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !564
   store ptr %5, ptr %4, align 8, !noalias !564
-  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.106, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.126)
+  %10 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.106, i64 noundef 5, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.126)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !564
   br label %"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit"
 
-14:                                               ; preds = %2
+11:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !564
-  %15 = getelementptr inbounds i8, ptr %5, i64 4
-  store ptr %15, ptr %3, align 8, !noalias !564
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.127, i64 noundef 21, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.128)
+  %12 = getelementptr inbounds i8, ptr %5, i64 4
+  store ptr %12, ptr %3, align 8, !noalias !564
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.127, i64 noundef 21, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.2b0c5bb9e4da75e92d1032ce1d5fad40.128)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !564
   br label %"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit"
 
-"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit": ; preds = %10, %12, %14
-  %.0.in.i = phi i1 [ %16, %14 ], [ %13, %12 ], [ %11, %10 ]
+"_ZN69_$LT$h2..proto..streams..state..Cause$u20$as$u20$core..fmt..Debug$GT$3fmt17hc615786c3823fbc9E.exit": ; preds = %7, %9, %11
+  %.0.in.i = phi i1 [ %13, %11 ], [ %10, %9 ], [ %8, %7 ]
   ret i1 %.0.in.i
 }
 

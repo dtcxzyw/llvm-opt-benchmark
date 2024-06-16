@@ -134,67 +134,65 @@ common.resume:                                    ; preds = %36, %27
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr36drop_in_place$LT$syn..attr..Meta$GT$17he69ec93073de272cE"(ptr noalias noundef align 8 dereferenceable(232) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !36, !noundef !5
-  %3 = add nsw i64 %2, -39
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %5 [
-    i64 0, label %11
-    i64 1, label %13
+  switch i64 %2, label %3 [
+    i64 39, label %9
+    i64 40, label %11
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 176
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
-          to label %"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit" unwind label %7
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 176
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
+          to label %"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit" unwind label %5
+
+5:                                                ; preds = %3
+  %6 = landingpad { ptr, i32 }
+          cleanup
+  invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0) #9
+          to label %common.resume unwind label %7
 
 7:                                                ; preds = %5
   %8 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0) #9
-          to label %common.resume unwind label %9
-
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
-common.resume:                                    ; preds = %15, %7
-  %common.resume.op = phi { ptr, i32 } [ %8, %7 ], [ %16, %15 ]
+common.resume:                                    ; preds = %13, %5
+  %common.resume.op = phi { ptr, i32 } [ %6, %5 ], [ %14, %13 ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit": ; preds = %5
+"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit": ; preds = %3
   tail call void @"_ZN4core3ptr36drop_in_place$LT$syn..expr..Expr$GT$17hb71af4bc0e982411E.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(176) %0)
-  br label %21
+  br label %19
+
+9:                                                ; preds = %1
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %10)
+  br label %19
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
-  br label %21
+  invoke void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %12)
+          to label %"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit" unwind label %13
 
-13:                                               ; preds = %1
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  invoke void @"_ZN4core3ptr100drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..PathSegment$C$syn..token..PathSep$GT$$GT$17hf230c4a469f3d58dE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14)
-          to label %"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit" unwind label %15
-
-15:                                               ; preds = %13
-  %16 = landingpad { ptr, i32 }
+13:                                               ; preds = %11
+  %14 = landingpad { ptr, i32 }
           cleanup
-  %17 = getelementptr inbounds i8, ptr %0, i64 56
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h1cb7222f4e0857acE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %17)
-          to label %common.resume unwind label %18
+  %15 = getelementptr inbounds i8, ptr %0, i64 56
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h1cb7222f4e0857acE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %15)
+          to label %common.resume unwind label %16
 
-18:                                               ; preds = %15
-  %19 = landingpad { ptr, i32 }
+16:                                               ; preds = %13
+  %17 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #8
   unreachable
 
-"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit": ; preds = %13
-  %20 = getelementptr inbounds i8, ptr %0, i64 56
-  tail call void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h1cb7222f4e0857acE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %20)
-  br label %21
+"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit": ; preds = %11
+  %18 = getelementptr inbounds i8, ptr %0, i64 56
+  tail call void @"_ZN4core3ptr50drop_in_place$LT$proc_macro2..imp..TokenStream$GT$17h1cb7222f4e0857acE.llvm.14510580911666860995"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
+  br label %19
 
-21:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit", %11, %"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit"
+19:                                               ; preds = %"_ZN4core3ptr40drop_in_place$LT$syn..attr..MetaList$GT$17h8c1964a1c17df21eE.exit", %9, %"_ZN4core3ptr45drop_in_place$LT$syn..attr..MetaNameValue$GT$17h427b7b0c0ca78bf4E.exit"
   ret void
 }
 

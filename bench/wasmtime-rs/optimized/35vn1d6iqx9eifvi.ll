@@ -1263,63 +1263,57 @@ define hidden void @"_ZN22cranelift_codegen_meta12gen_settings15gen_descriptors2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %14)
   %28 = load i64, ptr %21, align 8, !range !7, !noundef !3
   %29 = xor i64 %28, -9223372036854775808
-  %30 = icmp ult i64 %29, 3
-  %31 = select i1 %30, i64 %29, i64 1
-  switch i64 %31, label %32 [
-    i64 0, label %33
-    i64 1, label %37
-    i64 2, label %49
+  switch i64 %29, label %34 [
+    i64 0, label %30
+    i64 2, label %46
   ]
 
-32:                                               ; preds = %2
-  unreachable
-
-33:                                               ; preds = %2
-  %34 = getelementptr inbounds i8, ptr %21, i64 9
-  %35 = load i8, ptr %34, align 1, !noundef !3
-  store i8 %35, ptr %11, align 1
+30:                                               ; preds = %2
+  %31 = getelementptr inbounds i8, ptr %21, i64 9
+  %32 = load i8, ptr %31, align 1, !noundef !3
+  store i8 %32, ptr %11, align 1
   store ptr %11, ptr %8, align 8
-  %36 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17hb99cca6bfc1c662aE", ptr %36, align 8
+  %33 = getelementptr inbounds i8, ptr %8, i64 8
+  store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17hb99cca6bfc1c662aE", ptr %33, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.c160ce05be1254bab33d8aa99a7c1e66.100, i64 2, ptr nonnull align 8 %8, i64 1)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %10, ptr nonnull align 8 %9)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %10)
-  br label %50
+  br label %47
 
-37:                                               ; preds = %2
-  %38 = getelementptr inbounds i8, ptr %0, i64 8
-  %39 = load ptr, ptr %38, align 8, !nonnull !3, !align !4, !noundef !3
-  %40 = getelementptr inbounds i8, ptr %21, i64 8
-  %41 = load ptr, ptr %40, align 8, !nonnull !3, !noundef !3
-  %42 = getelementptr inbounds i8, ptr %21, i64 16
-  %43 = load i64, ptr %42, align 8, !noundef !3
-  %44 = call i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT$T$GT$3add17h8eb5ecd6ad1b8289E"(ptr nonnull align 8 %39, ptr nonnull align 8 %41, i64 %43)
-  store i64 %44, ptr %7, align 8
-  %45 = add i64 %43, -1
-  store i64 %45, ptr %3, align 8
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds i8, ptr %0, i64 8
+  %36 = load ptr, ptr %35, align 8, !nonnull !3, !align !4, !noundef !3
+  %37 = getelementptr inbounds i8, ptr %21, i64 8
+  %38 = load ptr, ptr %37, align 8, !nonnull !3, !noundef !3
+  %39 = getelementptr inbounds i8, ptr %21, i64 16
+  %40 = load i64, ptr %39, align 8, !noundef !3
+  %41 = call i64 @"_ZN22cranelift_codegen_meta12unique_table23UniqueSeqTable$LT$T$GT$3add17h8eb5ecd6ad1b8289E"(ptr nonnull align 8 %36, ptr nonnull align 8 %38, i64 %40)
+  store i64 %41, ptr %7, align 8
+  %42 = add i64 %40, -1
+  store i64 %42, ptr %3, align 8
   store ptr %3, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %7, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %4, i64 24
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %48, align 8
+  %43 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %7, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %4, i64 24
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %45, align 8
   call void @_ZN4core3fmt9Arguments6new_v117h8f7516983d0c178cE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %5, ptr nonnull align 8 @anon.c160ce05be1254bab33d8aa99a7c1e66.103, i64 3, ptr nonnull align 8 %4, i64 2)
   call void @_ZN5alloc3fmt6format17h8d9274f217220247E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %6, ptr nonnull align 8 %5)
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17hd1c6755992e40c56E(ptr align 8 %1, ptr nonnull align 8 %6)
-  br label %50
+  br label %47
 
-49:                                               ; preds = %2
+46:                                               ; preds = %2
   call void @_ZN22cranelift_codegen_meta6srcgen9Formatter4line17ha2341ca5e7893398E(ptr align 8 %1, ptr nonnull align 1 @anon.c160ce05be1254bab33d8aa99a7c1e66.104, i64 28)
-  br label %50
+  br label %47
 
-50:                                               ; preds = %49, %37, %33
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load ptr, ptr %51, align 8, !nonnull !3, !align !4, !noundef !3
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8, !nonnull !3, !align !4, !noundef !3
-  %55 = load i64, ptr %54, align 8, !noundef !3
-  %56 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcfe648cf74d5b86cE"(ptr nonnull align 8 %52, i64 0, ptr nonnull %21, i64 %55)
+47:                                               ; preds = %46, %34, %30
+  %48 = getelementptr inbounds i8, ptr %0, i64 16
+  %49 = load ptr, ptr %48, align 8, !nonnull !3, !align !4, !noundef !3
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8, !nonnull !3, !align !4, !noundef !3
+  %52 = load i64, ptr %51, align 8, !noundef !3
+  %53 = call { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hcfe648cf74d5b86cE"(ptr nonnull align 8 %49, i64 0, ptr nonnull %21, i64 %52)
   ret void
 }
 

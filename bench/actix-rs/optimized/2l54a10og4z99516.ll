@@ -3589,41 +3589,34 @@ define hidden { ptr, ptr } @_ZN4core5error5Error5cause17ha5bb816645a51034E(ptr n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17hfe81b32da5e3aacdE(ptr noundef nonnull align 8 %0) unnamed_addr #11 {
   %2 = load i8, ptr %0, align 8, !range !419, !noundef !4
-  %3 = add nsw i8 %2, -5
-  %4 = icmp ult i8 %3, 6
-  %narrow.i = select i1 %4, i8 %3, i8 4
-  switch i8 %narrow.i, label %5 [
-    i8 0, label %6
-    i8 1, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
-    i8 2, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
-    i8 3, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
-    i8 4, label %10
-    i8 5, label %11
+  switch i8 %2, label %7 [
+    i8 5, label %3
+    i8 6, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
+    i8 7, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
+    i8 8, label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
+    i8 10, label %8
   ]
 
-5:                                                ; preds = %1
-  unreachable
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !noundef !4
-  %9 = icmp eq ptr %8, null
-  %..i = select i1 %9, ptr null, ptr %7
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = icmp eq ptr %5, null
+  %..i = select i1 %6, ptr null, ptr %4
   br label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
 
-10:                                               ; preds = %1
+7:                                                ; preds = %1
   br label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
   br label %"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit"
 
-"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit": ; preds = %1, %1, %1, %6, %10, %11
-  %.sroa.8.0.i = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %11 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %10 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0.i = phi ptr [ %12, %11 ], [ %0, %10 ], [ %..i, %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %13 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %14 = insertvalue { ptr, ptr } %13, ptr %.sroa.8.0.i, 1
-  ret { ptr, ptr } %14
+"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E.exit": ; preds = %1, %1, %1, %3, %7, %8
+  %.sroa.8.0.i = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %8 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %7 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0.i = phi ptr [ %9, %8 ], [ %0, %7 ], [ %..i, %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.8.0.i, 1
+  ret { ptr, ptr } %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -191,82 +191,75 @@ define internal noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Displ
   %10 = load ptr, ptr %0, align 8, !nonnull !7, !align !9, !noundef !7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   %11 = load i64, ptr %10, align 8, !range !29, !alias.scope !26, !noalias !30, !noundef !7
-  %12 = add i64 %11, 9223372036854775804
-  %13 = icmp ult i64 %12, 3
-  %14 = select i1 %13, i64 %12, i64 1
-  switch i64 %14, label %15 [
-    i64 0, label %16
-    i64 1, label %24
-    i64 2, label %31
+  switch i64 %11, label %20 [
+    i64 -9223372036854775804, label %12
+    i64 -9223372036854775802, label %27
   ]
 
-15:                                               ; preds = %2
-  unreachable
-
-16:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !32
-  %17 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr %17, ptr %9, align 8, !noalias !32
+  %13 = getelementptr inbounds i8, ptr %10, i64 8
+  store ptr %13, ptr %9, align 8, !noalias !32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8), !noalias !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7), !noalias !32
   store ptr %9, ptr %7, align 8, !noalias !32
-  %18 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h04d76a2f82bfbc6bE", ptr %18, align 8, !noalias !32
+  %14 = getelementptr inbounds i8, ptr %7, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h04d76a2f82bfbc6bE", ptr %14, align 8, !noalias !32
   store ptr @anon.cfcd690bf99c4be79acf5d9f5695bafa.40, ptr %8, align 8, !alias.scope !33, !noalias !36
-  %19 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 1, ptr %19, align 8, !alias.scope !33, !noalias !36
-  %20 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr null, ptr %20, align 8, !alias.scope !33, !noalias !36
-  %21 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr %7, ptr %21, align 8, !alias.scope !33, !noalias !36
-  %22 = getelementptr inbounds i8, ptr %8, i64 24
-  store i64 1, ptr %22, align 8, !alias.scope !33, !noalias !36
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
+  %15 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 1, ptr %15, align 8, !alias.scope !33, !noalias !36
+  %16 = getelementptr inbounds i8, ptr %8, i64 32
+  store ptr null, ptr %16, align 8, !alias.scope !33, !noalias !36
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  store ptr %7, ptr %17, align 8, !alias.scope !33, !noalias !36
+  %18 = getelementptr inbounds i8, ptr %8, i64 24
+  store i64 1, ptr %18, align 8, !alias.scope !33, !noalias !36
+  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %8)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8), !noalias !32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7), !noalias !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !32
   br label %"_ZN77_$LT$actix_multipart..form..text..TextError$u20$as$u20$core..fmt..Display$GT$3fmt17hf44a97224f0e8329E.exit"
 
-24:                                               ; preds = %2
+20:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !32
   store ptr %10, ptr %6, align 8, !noalias !32
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !32
   store ptr %6, ptr %4, align 8, !noalias !32
-  %25 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h9601904e0a7a8a86E", ptr %25, align 8, !noalias !32
+  %21 = getelementptr inbounds i8, ptr %4, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h9601904e0a7a8a86E", ptr %21, align 8, !noalias !32
   store ptr @anon.cfcd690bf99c4be79acf5d9f5695bafa.42, ptr %5, align 8, !alias.scope !39, !noalias !42
-  %26 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 1, ptr %26, align 8, !alias.scope !39, !noalias !42
-  %27 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr null, ptr %27, align 8, !alias.scope !39, !noalias !42
-  %28 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr %4, ptr %28, align 8, !alias.scope !39, !noalias !42
-  %29 = getelementptr inbounds i8, ptr %5, i64 24
-  store i64 1, ptr %29, align 8, !alias.scope !39, !noalias !42
-  %30 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
+  %22 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 1, ptr %22, align 8, !alias.scope !39, !noalias !42
+  %23 = getelementptr inbounds i8, ptr %5, i64 32
+  store ptr null, ptr %23, align 8, !alias.scope !39, !noalias !42
+  %24 = getelementptr inbounds i8, ptr %5, i64 16
+  store ptr %4, ptr %24, align 8, !alias.scope !39, !noalias !42
+  %25 = getelementptr inbounds i8, ptr %5, i64 24
+  store i64 1, ptr %25, align 8, !alias.scope !39, !noalias !42
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !32
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4), !noalias !32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !32
   br label %"_ZN77_$LT$actix_multipart..form..text..TextError$u20$as$u20$core..fmt..Display$GT$3fmt17hf44a97224f0e8329E.exit"
 
-31:                                               ; preds = %2
+27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !32
   store ptr @anon.cfcd690bf99c4be79acf5d9f5695bafa.44, ptr %3, align 8, !noalias !32
-  %32 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 1, ptr %32, align 8, !noalias !32
-  %33 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr null, ptr %33, align 8, !noalias !32
-  %34 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @anon.cfcd690bf99c4be79acf5d9f5695bafa.2.llvm.17229325763486607172, ptr %34, align 8, !noalias !32
-  %35 = getelementptr inbounds i8, ptr %3, i64 24
-  store i64 0, ptr %35, align 8, !noalias !32
-  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !26
+  %28 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 1, ptr %28, align 8, !noalias !32
+  %29 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr null, ptr %29, align 8, !noalias !32
+  %30 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @anon.cfcd690bf99c4be79acf5d9f5695bafa.2.llvm.17229325763486607172, ptr %30, align 8, !noalias !32
+  %31 = getelementptr inbounds i8, ptr %3, i64 24
+  store i64 0, ptr %31, align 8, !noalias !32
+  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17ha383391698d817f8E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %3), !noalias !26
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3), !noalias !32
   br label %"_ZN77_$LT$actix_multipart..form..text..TextError$u20$as$u20$core..fmt..Display$GT$3fmt17hf44a97224f0e8329E.exit"
 
-"_ZN77_$LT$actix_multipart..form..text..TextError$u20$as$u20$core..fmt..Display$GT$3fmt17hf44a97224f0e8329E.exit": ; preds = %16, %24, %31
-  %.0.in.i = phi i1 [ %36, %31 ], [ %30, %24 ], [ %23, %16 ]
+"_ZN77_$LT$actix_multipart..form..text..TextError$u20$as$u20$core..fmt..Display$GT$3fmt17hf44a97224f0e8329E.exit": ; preds = %12, %20, %27
+  %.0.in.i = phi i1 [ %26, %20 ], [ %32, %27 ], [ %19, %12 ]
   ret i1 %.0.in.i
 }
 

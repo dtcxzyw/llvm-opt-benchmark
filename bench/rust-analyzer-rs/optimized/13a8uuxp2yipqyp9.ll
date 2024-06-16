@@ -4351,25 +4351,23 @@ default.unreachable193:                           ; preds = %.lr.ph
   br i1 %36, label %37, label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
 37:                                               ; preds = %27
-  switch i32 %narrow.i.i, label %38 [
-    i32 0, label %39
-    i32 1, label %41
-    i32 2, label %44
-    i32 3, label %46
-    i32 4, label %48
-    i32 5, label %50
-    i32 6, label %52
-    i32 7, label %54
+  switch i32 %.val.i, label %40 [
+    i32 3, label %38
+    i32 10, label %54
+    i32 5, label %44
+    i32 6, label %46
+    i32 7, label %48
+    i32 8, label %50
+    i32 9, label %52
   ]
 
 38:                                               ; preds = %37
-  unreachable
-
-39:                                               ; preds = %37
-  %40 = icmp eq i32 %.val1.i, %.val3.i
+  %39 = icmp eq i32 %.val1.i, %.val3.i
   br label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
-41:                                               ; preds = %37
+40:                                               ; preds = %37
+  %41 = icmp eq i32 %narrow.i.i, 1
+  tail call void @llvm.assume(i1 %41)
   %42 = icmp eq i32 %.val.i, %.val2.i
   %43 = icmp eq i32 %.val1.i, %.val3.i
   %spec.select.i.i.i = select i1 %42, i1 %43, i1 false
@@ -4399,8 +4397,8 @@ default.unreachable193:                           ; preds = %.lr.ph
   %55 = icmp eq i32 %.val1.i, %.val3.i
   br label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
-"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit": ; preds = %27, %39, %41, %44, %46, %48, %50, %52, %54
-  %.0.shrunk.i.i = phi i1 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %spec.select.i.i.i, %41 ], [ %40, %39 ], [ false, %27 ]
+"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit": ; preds = %27, %38, %40, %44, %46, %48, %50, %52, %54
+  %.0.shrunk.i.i = phi i1 [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %spec.select.i.i.i, %40 ], [ %39, %38 ], [ false, %27 ]
   %56 = getelementptr inbounds i8, ptr %.tr143, i64 12
   %57 = load i32, ptr %56, align 4, !alias.scope !468, !noalias !471
   %58 = getelementptr inbounds i8, ptr %.tr94144, i64 12

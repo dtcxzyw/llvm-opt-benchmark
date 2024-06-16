@@ -25363,49 +25363,43 @@ define noundef i64 @"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20
   %3 = alloca i8, align 1
   %4 = load i64, ptr %0, align 8, !range !5936, !noundef !7
   %5 = xor i64 %4, -9223372036854775808
-  %6 = icmp ult i64 %5, 5
-  %7 = select i1 %6, i64 %5, i64 3
-  switch i64 %7, label %8 [
-    i64 0, label %9
-    i64 1, label %10
-    i64 2, label %20
-    i64 3, label %11
-    i64 4, label %12
+  switch i64 %5, label %8 [
+    i64 0, label %6
+    i64 1, label %7
+    i64 2, label %17
+    i64 4, label %9
   ]
 
-8:                                                ; preds = %2
-  unreachable
-
-9:                                                ; preds = %2
+6:                                                ; preds = %2
   %..i = select i1 %1, i64 4, i64 2
-  br label %20
+  br label %17
 
-10:                                               ; preds = %2
+7:                                                ; preds = %2
   %..i1 = select i1 %1, i64 3, i64 2
-  br label %20
+  br label %17
 
-11:                                               ; preds = %2
+8:                                                ; preds = %2
   %.0.in.v.i = select i1 %1, i64 104, i64 96
   %.0.in.i = getelementptr inbounds i8, ptr %0, i64 %.0.in.v.i
   %.0.i = load i64, ptr %.0.in.i, align 8, !alias.scope !5937, !noundef !7
-  br label %20
+  br label %17
 
-12:                                               ; preds = %2
+9:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5940)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
-  %13 = zext i1 %1 to i8
-  store i8 %13, ptr %3, align 1, !noalias !5940
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !alias.scope !5943, !nonnull !7, !noundef !7
-  %16 = getelementptr inbounds i8, ptr %0, i64 24
-  %17 = load i64, ptr %16, align 8, !alias.scope !5943, !noundef !7
-  %18 = getelementptr inbounds { i64, [13 x i64] }, ptr %15, i64 %17
-  %19 = call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he18c01bd50ee3236E.llvm.14140520316429159617"(ptr noundef nonnull %15, ptr noundef nonnull %18, i64 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3), !noalias !5940
+  %10 = zext i1 %1 to i8
+  store i8 %10, ptr %3, align 1, !noalias !5940
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %12 = load ptr, ptr %11, align 8, !alias.scope !5943, !nonnull !7, !noundef !7
+  %13 = getelementptr inbounds i8, ptr %0, i64 24
+  %14 = load i64, ptr %13, align 8, !alias.scope !5943, !noundef !7
+  %15 = getelementptr inbounds { i64, [13 x i64] }, ptr %12, i64 %14
+  %16 = call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he18c01bd50ee3236E.llvm.14140520316429159617"(ptr noundef nonnull %12, ptr noundef nonnull %15, i64 noundef 0, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %3), !noalias !5940
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %20
+  br label %17
 
-20:                                               ; preds = %2, %12, %11, %10, %9
-  %.0 = phi i64 [ %19, %12 ], [ %.0.i, %11 ], [ %..i1, %10 ], [ %..i, %9 ], [ 0, %2 ]
+17:                                               ; preds = %2, %9, %8, %7, %6
+  %.0 = phi i64 [ %.0.i, %8 ], [ %16, %9 ], [ %..i1, %7 ], [ %..i, %6 ], [ 0, %2 ]
   ret i64 %.0
 }
 
@@ -25413,44 +25407,38 @@ define noundef i64 @"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20
 define void @"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h1551f423512b34c1E"(ptr noalias nocapture noundef sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(112) %1, ptr noalias nocapture noundef align 8 dereferenceable(24) %2, i1 noundef zeroext %3) unnamed_addr #5 {
   %5 = load i64, ptr %1, align 8, !range !5936, !noundef !7
   %6 = xor i64 %5, -9223372036854775808
-  %7 = icmp ult i64 %6, 5
-  %8 = select i1 %7, i64 %6, i64 3
-  switch i64 %8, label %9 [
-    i64 0, label %10
-    i64 1, label %12
-    i64 2, label %14
-    i64 3, label %16
-    i64 4, label %17
+  switch i64 %6, label %13 [
+    i64 0, label %7
+    i64 1, label %9
+    i64 2, label %11
+    i64 4, label %14
   ]
 
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h40606487dcb0ac69E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %8, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  br label %16
+
 9:                                                ; preds = %4
-  unreachable
+  %10 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @"_ZN101_$LT$tokenizers..processors..bert..BertProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h56487a3edb6d6b59E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %10, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  br label %16
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @"_ZN107_$LT$tokenizers..processors..roberta..RobertaProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h40606487dcb0ac69E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %11, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
-  br label %19
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds i8, ptr %1, i64 8
+  tail call void @"_ZN106_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h2425614bd7d60b88E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %12, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  br label %16
 
-12:                                               ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @"_ZN101_$LT$tokenizers..processors..bert..BertProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h56487a3edb6d6b59E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
-  br label %19
+13:                                               ; preds = %4
+  tail call void @"_ZN109_$LT$tokenizers..processors..template..TemplateProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17hda75b38967c1e018E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  br label %16
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @"_ZN106_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h2425614bd7d60b88E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
-  br label %19
+  tail call void @"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h317a433afe66a569E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %15, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
+  br label %16
 
-16:                                               ; preds = %4
-  tail call void @"_ZN109_$LT$tokenizers..processors..template..TemplateProcessing$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17hda75b38967c1e018E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
-  br label %19
-
-17:                                               ; preds = %4
-  %18 = getelementptr inbounds i8, ptr %1, i64 8
-  tail call void @"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$17process_encodings17h317a433afe66a569E"(ptr noalias nocapture noundef nonnull sret([24 x i8]) align 8 dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %18, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3)
-  br label %19
-
-19:                                               ; preds = %17, %16, %14, %12, %10
+16:                                               ; preds = %14, %13, %11, %9, %7
   ret void
 }
 

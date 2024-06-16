@@ -63,42 +63,36 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %7 = load i64, ptr %6, align 8, !range !9, !alias.scope !6, !noalias !10, !noundef !4
   %8 = xor i64 %7, -9223372036854775808
-  %9 = icmp ult i64 %8, 3
-  %10 = select i1 %9, i64 %8, i64 1
-  switch i64 %10, label %11 [
-    i64 0, label %12
-    i64 1, label %15
-    i64 2, label %17
+  switch i64 %8, label %12 [
+    i64 0, label %9
+    i64 2, label %14
   ]
 
-11:                                               ; preds = %2
-  unreachable
-
-12:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !12
-  %13 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %13, ptr %5, align 8, !noalias !12
-  %14 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.44, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.45)
+  %10 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %10, ptr %5, align 8, !noalias !12
+  %11 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.44, i64 noundef 6, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.45)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !12
   br label %"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit"
 
-15:                                               ; preds = %2
+12:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !12
   store ptr %6, ptr %4, align 8, !noalias !12
-  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.46, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.47)
+  %13 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.46, i64 noundef 6, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.47)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !12
   br label %"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit"
 
-17:                                               ; preds = %2
+14:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !12
-  %18 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr %18, ptr %3, align 8, !noalias !12
-  %19 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.48, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.49)
+  %15 = getelementptr inbounds i8, ptr %6, i64 8
+  store ptr %15, ptr %3, align 8, !noalias !12
+  %16 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.b5eaccad2b457188d5b5c3735fa567fa.48, i64 noundef 7, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.b5eaccad2b457188d5b5c3735fa567fa.49)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !12
   br label %"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit"
 
-"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit": ; preds = %12, %15, %17
-  %.0.in.i = phi i1 [ %19, %17 ], [ %16, %15 ], [ %14, %12 ]
+"_ZN90_$LT$deltalake_core..kernel..models..schema..MetadataValue$u20$as$u20$core..fmt..Debug$GT$3fmt17ha1d6421d23eabbe6E.exit": ; preds = %9, %12, %14
+  %.0.in.i = phi i1 [ %13, %12 ], [ %16, %14 ], [ %11, %9 ]
   ret i1 %.0.in.i
 }
 

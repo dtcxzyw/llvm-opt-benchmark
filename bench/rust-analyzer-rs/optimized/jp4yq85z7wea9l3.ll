@@ -2643,100 +2643,93 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %9 = load ptr, ptr %0, align 8, !nonnull !16, !align !794, !noundef !16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !795)
   %10 = load i32, ptr %9, align 4, !range !798, !alias.scope !795, !noalias !799, !noundef !16
-  %11 = add nsw i32 %10, -3
-  %12 = icmp ult i32 %11, 12
-  %narrow.i = select i1 %12, i32 %11, i32 6
-  switch i32 %narrow.i, label %13 [
-    i32 0, label %14
-    i32 1, label %16
-    i32 2, label %18
-    i32 3, label %20
-    i32 4, label %22
-    i32 5, label %25
-    i32 6, label %28
-    i32 7, label %30
-    i32 8, label %33
-    i32 9, label %36
-    i32 10, label %38
-    i32 11, label %40
+  switch i32 %10, label %25 [
+    i32 3, label %11
+    i32 4, label %13
+    i32 5, label %15
+    i32 6, label %17
+    i32 7, label %19
+    i32 8, label %22
+    i32 14, label %37
+    i32 10, label %27
+    i32 11, label %30
+    i32 12, label %33
+    i32 13, label %35
   ]
 
+11:                                               ; preds = %2
+  %12 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.125, i64 noundef 3), !noalias !795
+  br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
+
 13:                                               ; preds = %2
-  unreachable
-
-14:                                               ; preds = %2
-  %15 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.125, i64 noundef 3), !noalias !795
+  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.126, i64 noundef 5), !noalias !795
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-16:                                               ; preds = %2
-  %17 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.126, i64 noundef 5), !noalias !795
+15:                                               ; preds = %2
+  %16 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.127, i64 noundef 5), !noalias !795
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-18:                                               ; preds = %2
-  %19 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.127, i64 noundef 5), !noalias !795
+17:                                               ; preds = %2
+  %18 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.128, i64 noundef 5), !noalias !795
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-20:                                               ; preds = %2
-  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.128, i64 noundef 5), !noalias !795
-  br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
-
-22:                                               ; preds = %2
+19:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !801
-  %23 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %23, ptr %8, align 8, !noalias !801
-  %24 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.129, i64 noundef 6, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.130)
+  %20 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %20, ptr %8, align 8, !noalias !801
+  %21 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.129, i64 noundef 6, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.130)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-25:                                               ; preds = %2
+22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !801
-  %26 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %26, ptr %7, align 8, !noalias !801
-  %27 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.131, i64 noundef 6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.132)
+  %23 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %23, ptr %7, align 8, !noalias !801
+  %24 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.131, i64 noundef 6, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.132)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-28:                                               ; preds = %2
+25:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !801
   store ptr %9, ptr %6, align 8, !noalias !801
-  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.133, i64 noundef 3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.134)
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.133, i64 noundef 3, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.134)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-30:                                               ; preds = %2
+27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !801
-  %31 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %31, ptr %5, align 8, !noalias !801
-  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.135, i64 noundef 3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.136)
+  %28 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %28, ptr %5, align 8, !noalias !801
+  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.135, i64 noundef 3, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.136)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-33:                                               ; preds = %2
+30:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !801
-  %34 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %34, ptr %4, align 8, !noalias !801
-  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.137, i64 noundef 11, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.138)
+  %31 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %31, ptr %4, align 8, !noalias !801
+  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.137, i64 noundef 11, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.138)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-36:                                               ; preds = %2
-  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.139, i64 noundef 4), !noalias !795
+33:                                               ; preds = %2
+  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.139, i64 noundef 4), !noalias !795
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-38:                                               ; preds = %2
-  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.140, i64 noundef 10), !noalias !795
+35:                                               ; preds = %2
+  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.140, i64 noundef 10), !noalias !795
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-40:                                               ; preds = %2
+37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !801
-  %41 = getelementptr inbounds i8, ptr %9, i64 4
-  store ptr %41, ptr %3, align 8, !noalias !801
-  %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.70, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.30)
+  %38 = getelementptr inbounds i8, ptr %9, i64 4
+  store ptr %38, ptr %3, align 8, !noalias !801
+  %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2963dbee503a3d8bE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.70, i64 noundef 8, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.61dd31c3d5d8d95f6e25ff7178ee5fad.30)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !801
   br label %"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit"
 
-"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit": ; preds = %14, %16, %18, %20, %22, %25, %28, %30, %33, %36, %38, %40
-  %.0.in.i = phi i1 [ %42, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %33 ], [ %32, %30 ], [ %29, %28 ], [ %27, %25 ], [ %24, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ]
+"_ZN77_$LT$hir_ty..method_resolution..TyFingerprint$u20$as$u20$core..fmt..Debug$GT$3fmt17h166f94aff37f87ceE.exit": ; preds = %11, %13, %15, %17, %19, %22, %25, %27, %30, %33, %35, %37
+  %.0.in.i = phi i1 [ %39, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %25 ], [ %24, %22 ], [ %21, %19 ], [ %18, %17 ], [ %16, %15 ], [ %14, %13 ], [ %12, %11 ]
   ret i1 %.0.in.i
 }
 

@@ -7599,101 +7599,100 @@ define internal fastcc void @"_ZN4core3ptr87drop_in_place$LT$core..option..Optio
   %3 = icmp eq i64 %2, -9223372036854775806
   br i1 %3, label %"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit", label %4
 
-"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit": ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i", %7, %1
+"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit": ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i", %6, %1
   ret void
 
 4:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1214)
   %5 = xor i64 %2, -9223372036854775808
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 2)
-  switch i64 %6, label %7 [
-    i64 0, label %8
-    i64 1, label %13
+  switch i64 %5, label %6 [
+    i64 0, label %7
+    i64 1, label %12
   ]
 
-7:                                                ; preds = %4
+6:                                                ; preds = %4
   tail call void @"_ZN4core3ptr69drop_in_place$LT$jpeg_decoder..worker..immediate..ImmediateWorker$GT$17h7aeed85b17c3fb38E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %0)
   br label %"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit"
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val.i = load ptr, ptr %9, align 8, !alias.scope !1214, !noundef !4
+7:                                                ; preds = %4
+  %8 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val.i = load ptr, ptr %8, align 8, !alias.scope !1214, !noundef !4
   invoke void @"_ZN4core3ptr65drop_in_place$LT$jpeg_decoder..worker..rayon..ImmediateWorker$GT$17hd1c55f9e968fd3c3E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(320) %.val.i)
-          to label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i" unwind label %10, !noalias !1214
+          to label %"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i" unwind label %9, !noalias !1214
 
-common.resume.i:                                  ; preds = %26, %10
-  %common.resume.op.i = phi { ptr, i32 } [ %11, %10 ], [ %29, %26 ]
+common.resume.i:                                  ; preds = %25, %9
+  %common.resume.op.i = phi { ptr, i32 } [ %10, %9 ], [ %28, %25 ]
   resume { ptr, i32 } %common.resume.op.i
 
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
+9:                                                ; preds = %7
+  %10 = landingpad { ptr, i32 }
           cleanup
-  %12 = icmp ne ptr %.val.i, null
-  tail call void @llvm.assume(i1 %12)
+  %11 = icmp ne ptr %.val.i, null
+  tail call void @llvm.assume(i1 %11)
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef 320, i64 noundef 8) #32, !noalias !1214
   br label %common.resume.i
 
-"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i": ; preds = %8
+"_ZN4core3ptr81drop_in_place$LT$alloc..boxed..Box$LT$jpeg_decoder..worker..rayon..Scoped$GT$$GT$17h1b2bad9598fbef5cE.exit.i": ; preds = %7
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i, i64 noundef 320, i64 noundef 8) #32, !noalias !1214
   br label %"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit"
 
-13:                                               ; preds = %4
-  %14 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %15
+12:                                               ; preds = %4
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %14
 
-15:                                               ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", %13
-  %.09.i.i.i = phi i64 [ 0, %13 ], [ %17, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" ]
-  %16 = getelementptr inbounds [4 x { i64, ptr }], ptr %14, i64 0, i64 %.09.i.i.i
-  %17 = add nuw nsw i64 %.09.i.i.i, 1
-  %18 = load i64, ptr %16, align 8, !range !778, !alias.scope !1217, !noundef !4
-  %19 = icmp eq i64 %18, 3
-  br i1 %19, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", label %20
+14:                                               ; preds = %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", %12
+  %.09.i.i.i = phi i64 [ 0, %12 ], [ %16, %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" ]
+  %15 = getelementptr inbounds [4 x { i64, ptr }], ptr %13, i64 0, i64 %.09.i.i.i
+  %16 = add nuw nsw i64 %.09.i.i.i, 1
+  %17 = load i64, ptr %15, align 8, !range !778, !alias.scope !1217, !noundef !4
+  %18 = icmp eq i64 %17, 3
+  br i1 %18, label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i", label %19
 
-20:                                               ; preds = %15
-  %21 = getelementptr inbounds i8, ptr %16, i64 8
-  switch i64 %18, label %default.unreachable.i.i.i.i.i [
-    i64 0, label %22
-    i64 1, label %23
-    i64 2, label %24
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %15, i64 8
+  switch i64 %17, label %default.unreachable.i.i.i.i.i [
+    i64 0, label %21
+    i64 1, label %22
+    i64 2, label %23
   ]
 
-default.unreachable.i.i.i.i.i:                    ; preds = %20
+default.unreachable.i.i.i.i.i:                    ; preds = %19
   unreachable
 
-22:                                               ; preds = %20
-  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17h7fd5a5d51df787a2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %28
+21:                                               ; preds = %19
+  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17h7fd5a5d51df787a2E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
+          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %27
 
-23:                                               ; preds = %20
-  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17hebb73a02b57e5428E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %28
+22:                                               ; preds = %19
+  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17hebb73a02b57e5428E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
+          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %27
 
-24:                                               ; preds = %20
-  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17haf3ca72fcb53c7f1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %21)
-          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %28
+23:                                               ; preds = %19
+  invoke void @"_ZN3std4sync4mpmc7counter15Sender$LT$C$GT$7release17haf3ca72fcb53c7f1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %20)
+          to label %"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i" unwind label %27
 
-"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i": ; preds = %24, %23, %22, %15
-  %25 = icmp eq i64 %17, 4
-  br i1 %25, label %"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit", label %15
+"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033.exit.i.i.i": ; preds = %23, %22, %21, %14
+  %24 = icmp eq i64 %16, 4
+  br i1 %24, label %"_ZN4core3ptr59drop_in_place$LT$jpeg_decoder..worker..WorkerScopeInner$GT$17h3abfdce7ccb1bdceE.exit", label %14
 
-26:                                               ; preds = %30, %28
-  %.1.i.i.i = phi i64 [ %17, %28 ], [ %32, %30 ]
-  %27 = icmp eq i64 %.1.i.i.i, 4
-  br i1 %27, label %common.resume.i, label %30
+25:                                               ; preds = %29, %27
+  %.1.i.i.i = phi i64 [ %16, %27 ], [ %31, %29 ]
+  %26 = icmp eq i64 %.1.i.i.i, 4
+  br i1 %26, label %common.resume.i, label %29
 
-28:                                               ; preds = %24, %23, %22
-  %29 = landingpad { ptr, i32 }
+27:                                               ; preds = %23, %22, %21
+  %28 = landingpad { ptr, i32 }
           cleanup
-  br label %26
+  br label %25
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds [4 x { i64, ptr }], ptr %14, i64 0, i64 %.1.i.i.i
-  %32 = add nuw nsw i64 %.1.i.i.i, 1
-  invoke void @"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #34
-          to label %26 unwind label %33
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds [4 x { i64, ptr }], ptr %13, i64 0, i64 %.1.i.i.i
+  %31 = add nuw nsw i64 %.1.i.i.i, 1
+  invoke void @"_ZN4core3ptr126drop_in_place$LT$core..option..Option$LT$std..sync..mpsc..Sender$LT$jpeg_decoder..worker..multithreaded..WorkerMsg$GT$$GT$$GT$17h085d58f3975d5ec3E.llvm.9832446184049035033"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30) #34
+          to label %25 unwind label %32
 
-33:                                               ; preds = %30
-  %34 = landingpad { ptr, i32 }
+32:                                               ; preds = %29
+  %33 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #31
   unreachable

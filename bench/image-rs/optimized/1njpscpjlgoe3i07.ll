@@ -2824,139 +2824,133 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
   %16 = load i64, ptr %15, align 8, !range !516, !alias.scope !513, !noalias !517, !noundef !5
   %17 = xor i64 %16, -9223372036854775808
-  %18 = icmp ult i64 %17, 15
-  %19 = select i1 %18, i64 %17, i64 3
-  switch i64 %19, label %20 [
-    i64 0, label %21
-    i64 1, label %24
-    i64 2, label %27
-    i64 3, label %30
-    i64 4, label %33
-    i64 5, label %35
-    i64 6, label %37
-    i64 7, label %40
-    i64 8, label %43
-    i64 9, label %46
-    i64 10, label %49
-    i64 11, label %52
-    i64 12, label %55
-    i64 13, label %57
-    i64 14, label %60
+  switch i64 %17, label %27 [
+    i64 0, label %18
+    i64 1, label %21
+    i64 2, label %24
+    i64 14, label %57
+    i64 4, label %30
+    i64 5, label %32
+    i64 6, label %34
+    i64 7, label %37
+    i64 8, label %40
+    i64 9, label %43
+    i64 10, label %46
+    i64 11, label %49
+    i64 12, label %52
+    i64 13, label %54
   ]
 
-20:                                               ; preds = %2
-  unreachable
-
-21:                                               ; preds = %2
+18:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14), !noalias !519
-  %22 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %22, ptr %14, align 8, !noalias !519
-  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.254, i64 noundef 22, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
+  %19 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %19, ptr %14, align 8, !noalias !519
+  %20 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.254, i64 noundef 22, ptr noundef nonnull align 1 %14, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-24:                                               ; preds = %2
+21:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13), !noalias !519
-  %25 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %25, ptr %13, align 8, !noalias !519
-  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.256, i64 noundef 19, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
+  %22 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %22, ptr %13, align 8, !noalias !519
+  %23 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.256, i64 noundef 19, ptr noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-27:                                               ; preds = %2
+24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12), !noalias !519
-  %28 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %28, ptr %12, align 8, !noalias !519
-  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.257, i64 noundef 25, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.258)
+  %25 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %25, ptr %12, align 8, !noalias !519
+  %26 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.257, i64 noundef 25, ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.258)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-30:                                               ; preds = %2
+27:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11), !noalias !519
   store ptr %15, ptr %11, align 8, !noalias !519
-  %31 = getelementptr inbounds i8, ptr %15, i64 24
-  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17hfb9e7ebe7ba6a1ceE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.259, i64 noundef 22, ptr noundef nonnull align 1 %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.260, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.258)
+  %28 = getelementptr inbounds i8, ptr %15, i64 24
+  %29 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field2_finish17hfb9e7ebe7ba6a1ceE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.259, i64 noundef 22, ptr noundef nonnull align 1 %28, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.260, ptr noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.258)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-33:                                               ; preds = %2
-  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.261, i64 noundef 21), !noalias !513
+30:                                               ; preds = %2
+  %31 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.261, i64 noundef 21), !noalias !513
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-35:                                               ; preds = %2
-  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.262, i64 noundef 24), !noalias !513
+32:                                               ; preds = %2
+  %33 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.262, i64 noundef 24), !noalias !513
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-37:                                               ; preds = %2
+34:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !519
-  %38 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %38, ptr %10, align 8, !noalias !519
-  %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.263, i64 noundef 28, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.264)
+  %35 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %35, ptr %10, align 8, !noalias !519
+  %36 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.263, i64 noundef 28, ptr noundef nonnull align 1 %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.264)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-40:                                               ; preds = %2
+37:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !519
-  %41 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %41, ptr %9, align 8, !noalias !519
-  %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.265, i64 noundef 22, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.141)
+  %38 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %38, ptr %9, align 8, !noalias !519
+  %39 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.265, i64 noundef 22, ptr noundef nonnull align 1 %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-43:                                               ; preds = %2
+40:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8), !noalias !519
-  %44 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %44, ptr %8, align 8, !noalias !519
-  %45 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.266, i64 noundef 23, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.267)
+  %41 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %41, ptr %8, align 8, !noalias !519
+  %42 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.266, i64 noundef 23, ptr noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.267)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-46:                                               ; preds = %2
+43:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7), !noalias !519
-  %47 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %47, ptr %7, align 8, !noalias !519
-  %48 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.268, i64 noundef 20, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
+  %44 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %44, ptr %7, align 8, !noalias !519
+  %45 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.268, i64 noundef 20, ptr noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.255)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-49:                                               ; preds = %2
+46:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !519
-  %50 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %50, ptr %6, align 8, !noalias !519
-  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.269, i64 noundef 25, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.141)
+  %47 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %47, ptr %6, align 8, !noalias !519
+  %48 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.269, i64 noundef 25, ptr noundef nonnull align 1 %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.141)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-52:                                               ; preds = %2
+49:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !519
-  %53 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %53, ptr %5, align 8, !noalias !519
-  %54 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.270, i64 noundef 23, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.271)
+  %50 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %50, ptr %5, align 8, !noalias !519
+  %51 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.270, i64 noundef 23, ptr noundef nonnull align 1 %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.271)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-55:                                               ; preds = %2
-  %56 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.272, i64 noundef 19), !noalias !513
+52:                                               ; preds = %2
+  %53 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.272, i64 noundef 19), !noalias !513
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-57:                                               ; preds = %2
+54:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4), !noalias !519
-  %58 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %58, ptr %4, align 8, !noalias !519
-  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.273, i64 noundef 25, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.274)
+  %55 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %55, ptr %4, align 8, !noalias !519
+  %56 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.273, i64 noundef 25, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.274)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-60:                                               ; preds = %2
+57:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !519
-  %61 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %61, ptr %3, align 8, !noalias !519
-  %62 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.275, i64 noundef 22, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.276)
+  %58 = getelementptr inbounds i8, ptr %15, i64 8
+  store ptr %58, ptr %3, align 8, !noalias !519
+  %59 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17h2aec415592a2774eE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.1fb7ff8ae5a2b866dafd4482df872917.275, i64 noundef 22, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1fb7ff8ae5a2b866dafd4482df872917.276)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !519
   br label %"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit"
 
-"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit": ; preds = %21, %24, %27, %30, %33, %35, %37, %40, %43, %46, %49, %52, %55, %57, %60
-  %.0.in.i = phi i1 [ %62, %60 ], [ %59, %57 ], [ %56, %55 ], [ %54, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ]
+"_ZN70_$LT$tiff..error..TiffUnsupportedError$u20$as$u20$core..fmt..Debug$GT$3fmt17h1ae5bf5a3be3fb67E.exit": ; preds = %18, %21, %24, %27, %30, %32, %34, %37, %40, %43, %46, %49, %52, %54, %57
+  %.0.in.i = phi i1 [ %29, %27 ], [ %56, %54 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ], [ %42, %40 ], [ %39, %37 ], [ %36, %34 ], [ %33, %32 ], [ %31, %30 ], [ %59, %57 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ]
   ret i1 %.0.in.i
 }
 
@@ -34087,35 +34081,35 @@ declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec.
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hf4f32fe31282d782E.llvm.17224713629878502917"(ptr noalias nocapture noundef sret({ { i64, ptr }, i64 }) align 8 dereferenceable(24), ptr noundef nonnull, ptr noundef) unnamed_addr #1
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #34
-
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #35
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #34
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #34
+declare i64 @llvm.umax.i64(i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i8 @llvm.umin.i8(i8, i8) #34
+declare i8 @llvm.umin.i8(i8, i8) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i16 @llvm.smin.i16(i16, i16) #34
+declare i16 @llvm.smin.i16(i16, i16) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #34
+declare i32 @llvm.umax.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #34
+declare i32 @llvm.umin.i32(i32, i32) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #34
+declare i64 @llvm.fshl.i64(i64, i64, i64) #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #34
+declare i64 @llvm.usub.sat.i64(i64, i64) #35
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -34151,8 +34145,8 @@ attributes #30 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #31 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #32 = { cold nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #33 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #35 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #34 = { nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #35 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #36 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #37 = { noreturn }
 attributes #38 = { cold noreturn nounwind }

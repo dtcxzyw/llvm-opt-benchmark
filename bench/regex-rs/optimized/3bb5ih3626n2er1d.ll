@@ -4763,7 +4763,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
   call void @llvm.experimental.noalias.scope.decl(metadata !929)
   %227 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !932, !noalias !824, !nonnull !20, !noundef !20
   %228 = load i64, ptr %.sroa.33.0..sroa_idx.i, align 8, !alias.scope !932, !noalias !824, !noundef !20
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h70a1d6ff6a8943cbE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 %227, i64 noundef %228)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h70a1d6ff6a8943cbE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 %227, i64 noundef %228) #56
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h590bb358993fd72dE.llvm.17425413886787028408.exit.i.i" unwind label %229, !noalias !935
 
 229:                                              ; preds = %226
@@ -4980,7 +4980,7 @@ define void @_ZN14regex_automata4meta5regex7Builder5build17h95d9f52de86b9271E(pt
   call void @llvm.experimental.noalias.scope.decl(metadata !957)
   %281 = load ptr, ptr %.sroa.22.0..sroa_idx.i, align 8, !alias.scope !960, !noalias !824, !nonnull !20, !noundef !20
   %282 = load i64, ptr %.sroa.33.0..sroa_idx.i, align 8, !alias.scope !960, !noalias !824, !noundef !20
-  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h70a1d6ff6a8943cbE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 %281, i64 noundef %282)
+  invoke void @"_ZN4core3ptr53drop_in_place$LT$$u5b$regex_syntax..hir..Hir$u5d$$GT$17h70a1d6ff6a8943cbE.llvm.17425413886787028408"(ptr noalias noundef nonnull align 8 %281, i64 noundef %282) #56
           to label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h590bb358993fd72dE.llvm.17425413886787028408.exit.i98.i" unwind label %283, !noalias !963
 
 283:                                              ; preds = %280
@@ -12122,11 +12122,11 @@ declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #48
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.cttz.i32(i32, i1 immarg) #49
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #49
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #50
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #49
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #51
@@ -12187,6 +12187,7 @@ attributes #52 = { noreturn }
 attributes #53 = { cold noreturn nounwind }
 attributes #54 = { cold }
 attributes #55 = { nounwind }
+attributes #56 = { "function-inline-cost-multiplier"="2" }
 
 !llvm.module.flags = !{!0, !1, !2}
 !llvm.ident = !{!3}

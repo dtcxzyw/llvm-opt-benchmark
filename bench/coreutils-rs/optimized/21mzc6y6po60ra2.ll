@@ -2438,57 +2438,51 @@ define { ptr, i64 } @_ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E(ptr noa
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8, !range !801, !noundef !5
   %4 = xor i64 %3, -9223372036854775808
-  %5 = icmp ult i64 %4, 5
-  %6 = select i1 %5, i64 %4, i64 3
-  switch i64 %6, label %7 [
+  switch i64 %4, label %13 [
     i64 0, label %switch.lookup
-    i64 1, label %22
+    i64 1, label %19
     i64 2, label %switch.lookup7
-    i64 3, label %16
-    i64 4, label %21
+    i64 4, label %18
   ]
 
-7:                                                ; preds = %1
-  unreachable
-
 switch.lookup:                                    ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 40
-  %9 = load i8, ptr %8, align 8, !range !802, !noundef !5
-  %10 = zext nneg i8 %9 to i64
-  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E, i64 0, i64 %10
+  %5 = getelementptr inbounds i8, ptr %0, i64 40
+  %6 = load i8, ptr %5, align 8, !range !802, !noundef !5
+  %7 = zext nneg i8 %6 to i64
+  %switch.gep = getelementptr inbounds [5 x i64], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E, i64 0, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
-  %11 = zext nneg i8 %9 to i64
-  %switch.gep5 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.5, i64 0, i64 %11
+  %8 = zext nneg i8 %6 to i64
+  %switch.gep5 = getelementptr inbounds [5 x ptr], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.5, i64 0, i64 %8
   %switch.load6 = load ptr, ptr %switch.gep5, align 8
-  br label %22
+  br label %19
 
 switch.lookup7:                                   ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 40
-  %13 = load i8, ptr %12, align 8, !range !803, !noundef !5
-  %14 = zext nneg i8 %13 to i64
-  %switch.gep8 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.6, i64 0, i64 %14
+  %9 = getelementptr inbounds i8, ptr %0, i64 40
+  %10 = load i8, ptr %9, align 8, !range !803, !noundef !5
+  %11 = zext nneg i8 %10 to i64
+  %switch.gep8 = getelementptr inbounds [3 x i64], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.6, i64 0, i64 %11
   %switch.load9 = load i64, ptr %switch.gep8, align 8
-  %15 = zext nneg i8 %13 to i64
-  %switch.gep10 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.7, i64 0, i64 %15
+  %12 = zext nneg i8 %10 to i64
+  %switch.gep10 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN7uu_date18make_format_string17ha7c5bc2f75cd1b70E.7, i64 0, i64 %12
   %switch.load11 = load ptr, ptr %switch.gep10, align 8
-  br label %22
+  br label %19
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds i8, ptr %0, i64 48
-  %20 = load i64, ptr %19, align 8, !noundef !5
-  br label %22
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %0, i64 40
+  %15 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = load i64, ptr %16, align 8, !noundef !5
+  br label %19
 
-21:                                               ; preds = %1
-  br label %22
+18:                                               ; preds = %1
+  br label %19
 
-22:                                               ; preds = %switch.lookup7, %switch.lookup, %1, %21, %16
-  %.sroa.12.0 = phi i64 [ 2, %21 ], [ %20, %16 ], [ 18, %1 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ]
-  %.sroa.0.0 = phi ptr [ @anon.e757aea1808e252d06bcdd209b6ae9a2.61, %21 ], [ %18, %16 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.58, %1 ], [ %switch.load6, %switch.lookup ], [ %switch.load11, %switch.lookup7 ]
-  %23 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
-  %24 = insertvalue { ptr, i64 } %23, i64 %.sroa.12.0, 1
-  ret { ptr, i64 } %24
+19:                                               ; preds = %switch.lookup7, %switch.lookup, %1, %18, %13
+  %.sroa.12.0 = phi i64 [ %17, %13 ], [ 2, %18 ], [ 18, %1 ], [ %switch.load, %switch.lookup ], [ %switch.load9, %switch.lookup7 ]
+  %.sroa.0.0 = phi ptr [ %15, %13 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.61, %18 ], [ @anon.e757aea1808e252d06bcdd209b6ae9a2.58, %1 ], [ %switch.load6, %switch.lookup ], [ %switch.load11, %switch.lookup7 ]
+  %20 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
+  %21 = insertvalue { ptr, i64 } %20, i64 %.sroa.12.0, 1
+  ret { ptr, i64 } %21
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -18011,110 +18011,108 @@ default.unreachable5:                             ; preds = %1
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Value$GT$17hef11246a6afccea8E.llvm.12836552674783018658"(ptr noalias noundef align 8 dereferenceable(32) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !5500, !noundef !4
-  %3 = add nsw i64 %2, -4
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 4)
-  switch i64 %4, label %5 [
-    i64 0, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
-    i64 1, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
-    i64 2, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
-    i64 3, label %24
+  switch i64 %2, label %3 [
+    i64 4, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
+    i64 5, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
+    i64 6, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
+    i64 7, label %22
   ]
 
-5:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5501)
   switch i64 %2, label %default.unreachable5.i [
-    i64 0, label %8
-    i64 1, label %12
-    i64 2, label %18
-    i64 3, label %6
+    i64 0, label %6
+    i64 1, label %10
+    i64 2, label %16
+    i64 3, label %4
   ]
 
-default.unreachable5.i:                           ; preds = %5
+default.unreachable5.i:                           ; preds = %3
   unreachable
 
-6:                                                ; preds = %5
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$opentelemetry..common..StringValue$GT$$GT$17h0fc39550083afc32E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
+4:                                                ; preds = %3
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr78drop_in_place$LT$alloc..vec..Vec$LT$opentelemetry..common..StringValue$GT$$GT$17h0fc39550083afc32E.llvm.12836552674783018658"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5)
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-8:                                                ; preds = %5
+6:                                                ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5504)
-  %9 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val3.i.i = load i64, ptr %9, align 8, !alias.scope !5507, !noalias !5510, !noundef !4
-  %10 = icmp eq i64 %.val3.i.i, 0
-  br i1 %10, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i"
+  %7 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val3.i.i = load i64, ptr %7, align 8, !alias.scope !5507, !noalias !5510, !noundef !4
+  %8 = icmp eq i64 %.val3.i.i, 0
+  br i1 %8, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i": ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val2.i.i = load ptr, ptr %11, align 8, !alias.scope !5512, !nonnull !4, !noundef !4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i": ; preds = %6
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val2.i.i = load ptr, ptr %9, align 8, !alias.scope !5512, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i.i, i64 noundef %.val3.i.i, i64 noundef 1) #26, !noalias !5512
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-12:                                               ; preds = %5
+10:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5513)
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val3.i1.i = load i64, ptr %13, align 8, !alias.scope !5516, !noalias !5519, !noundef !4
-  %14 = icmp eq i64 %.val3.i1.i, 0
-  br i1 %14, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %15
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val3.i1.i = load i64, ptr %11, align 8, !alias.scope !5516, !noalias !5519, !noundef !4
+  %12 = icmp eq i64 %.val3.i1.i, 0
+  br i1 %12, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %13
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val2.i2.i = load ptr, ptr %16, align 8, !alias.scope !5521, !nonnull !4, !noundef !4
-  %17 = shl nuw i64 %.val3.i1.i, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i2.i, i64 noundef %17, i64 noundef 8) #26, !noalias !5521
+13:                                               ; preds = %10
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val2.i2.i = load ptr, ptr %14, align 8, !alias.scope !5521, !nonnull !4, !noundef !4
+  %15 = shl nuw i64 %.val3.i1.i, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i2.i, i64 noundef %15, i64 noundef 8) #26, !noalias !5521
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-18:                                               ; preds = %5
+16:                                               ; preds = %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5522)
-  %19 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val3.i3.i = load i64, ptr %19, align 8, !alias.scope !5525, !noalias !5528, !noundef !4
-  %20 = icmp eq i64 %.val3.i3.i, 0
-  br i1 %20, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %21
+  %17 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val3.i3.i = load i64, ptr %17, align 8, !alias.scope !5525, !noalias !5528, !noundef !4
+  %18 = icmp eq i64 %.val3.i3.i, 0
+  br i1 %18, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %19
 
-21:                                               ; preds = %18
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val2.i4.i = load ptr, ptr %22, align 8, !alias.scope !5530, !nonnull !4, !noundef !4
-  %23 = shl nuw i64 %.val3.i3.i, 3
-  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i4.i, i64 noundef %23, i64 noundef 8) #26, !noalias !5530
+19:                                               ; preds = %16
+  %20 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val2.i4.i = load ptr, ptr %20, align 8, !alias.scope !5530, !nonnull !4, !noundef !4
+  %21 = shl nuw i64 %.val3.i3.i, 3
+  tail call void @__rust_dealloc(ptr noundef nonnull %.val2.i4.i, i64 noundef %21, i64 noundef 8) #26, !noalias !5530
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1", %33, %32, %27, %24, %21, %18, %15, %12, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i", %8, %6, %1, %1, %1
+"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1", %31, %30, %25, %22, %19, %16, %13, %10, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i", %6, %4, %1, %1, %1
   ret void
 
-24:                                               ; preds = %1
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
+22:                                               ; preds = %1
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5531)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5534)
-  %26 = load i64, ptr %25, align 8, !range !515, !alias.scope !5537, !noundef !4
-  switch i64 %26, label %27 [
-    i64 0, label %33
+  %24 = load i64, ptr %23, align 8, !range !515, !alias.scope !5537, !noundef !4
+  switch i64 %24, label %25 [
+    i64 0, label %31
     i64 1, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
   ]
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds i8, ptr %0, i64 16
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5538)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5541)
-  %29 = load ptr, ptr %28, align 8, !alias.scope !5544, !nonnull !4, !noundef !4
-  %30 = atomicrmw sub ptr %29, i64 1 release, align 8, !noalias !5544
-  %31 = icmp eq i64 %30, 1
-  br i1 %31, label %32, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
+  %27 = load ptr, ptr %26, align 8, !alias.scope !5544, !nonnull !4, !noundef !4
+  %28 = atomicrmw sub ptr %27, i64 1 release, align 8, !noalias !5544
+  %29 = icmp eq i64 %28, 1
+  br i1 %29, label %30, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-32:                                               ; preds = %27
+30:                                               ; preds = %25
   fence acquire
-  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h154f6ca210f3efcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %28)
+  tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h154f6ca210f3efcdE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %26)
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 
-33:                                               ; preds = %24
+31:                                               ; preds = %22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5545)
-  %34 = getelementptr inbounds i8, ptr %0, i64 24
-  %.val1.i.i.i = load i64, ptr %34, align 8, !alias.scope !5548, !noundef !4
-  %35 = icmp eq i64 %.val1.i.i.i, 0
-  br i1 %35, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1"
+  %32 = getelementptr inbounds i8, ptr %0, i64 24
+  %.val1.i.i.i = load i64, ptr %32, align 8, !alias.scope !5548, !noundef !4
+  %33 = icmp eq i64 %.val1.i.i.i, 0
+  br i1 %33, label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit", label %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1"
 
-"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1": ; preds = %33
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
-  %.val.i.i.i = load ptr, ptr %36, align 8, !alias.scope !5548, !nonnull !4, !noundef !4
+"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17h6940b36ff7ab085dE.llvm.12836552674783018658.exit.i.i.i.i1": ; preds = %31
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
+  %.val.i.i.i = load ptr, ptr %34, align 8, !alias.scope !5548, !nonnull !4, !noundef !4
   tail call void @__rust_dealloc(ptr noundef nonnull %.val.i.i.i, i64 noundef %.val1.i.i.i, i64 noundef 1) #26, !noalias !5548
   br label %"_ZN4core3ptr49drop_in_place$LT$opentelemetry..common..Array$GT$17hfa9e4bb1b086c958E.llvm.12836552674783018658.exit"
 }
@@ -39378,9 +39376,6 @@ declare hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden void @"_ZN5alloc11collections5btree3map25IntoIter$LT$K$C$V$C$A$GT$10dying_next17hcc8fd44fbd8aff67E"(ptr noalias nocapture noundef sret({ ptr, [2 x i64] }) align 8 dereferenceable(24), ptr noalias noundef align 8 dereferenceable(72)) unnamed_addr #1
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #22

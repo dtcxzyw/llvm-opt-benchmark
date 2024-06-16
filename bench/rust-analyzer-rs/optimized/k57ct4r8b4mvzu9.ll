@@ -33070,132 +33070,125 @@ define internal fastcc { i8, i8 } @"_ZN6syntax3ast4prec53_$LT$impl$u20$syntax..a
   %2 = alloca { [9 x i8], i8, [6 x i8] }, align 8
   %3 = load i64, ptr %0, align 8, !range !230, !noundef !4
   switch i64 %3, label %default.unreachable12 [
-    i64 0, label %28
-    i64 1, label %5
-    i64 2, label %6
-    i64 3, label %5
-    i64 4, label %7
-    i64 5, label %28
-    i64 6, label %5
-    i64 7, label %6
-    i64 8, label %20
-    i64 9, label %5
-    i64 10, label %28
-    i64 11, label %21
-    i64 12, label %28
-    i64 13, label %5
-    i64 14, label %28
-    i64 15, label %6
-    i64 16, label %22
-    i64 17, label %28
-    i64 18, label %28
-    i64 19, label %6
-    i64 20, label %28
-    i64 21, label %6
-    i64 22, label %5
-    i64 23, label %28
-    i64 24, label %28
-    i64 25, label %22
-    i64 26, label %23
-    i64 27, label %28
-    i64 28, label %22
-    i64 29, label %5
-    i64 30, label %6
-    i64 31, label %28
-    i64 32, label %28
-    i64 33, label %28
-    i64 34, label %5
-    i64 35, label %5
+    i64 0, label %25
+    i64 1, label %4
+    i64 2, label %5
+    i64 3, label %4
+    i64 4, label %6
+    i64 5, label %25
+    i64 6, label %4
+    i64 7, label %5
+    i64 8, label %17
+    i64 9, label %4
+    i64 10, label %25
+    i64 11, label %18
+    i64 12, label %25
+    i64 13, label %4
+    i64 14, label %25
+    i64 15, label %5
+    i64 16, label %19
+    i64 17, label %25
+    i64 18, label %25
+    i64 19, label %5
+    i64 20, label %25
+    i64 21, label %5
+    i64 22, label %4
+    i64 23, label %25
+    i64 24, label %25
+    i64 25, label %19
+    i64 26, label %20
+    i64 27, label %25
+    i64 28, label %19
+    i64 29, label %4
+    i64 30, label %5
+    i64 31, label %25
+    i64 32, label %25
+    i64 33, label %25
+    i64 34, label %4
+    i64 35, label %4
   ]
 
 default.unreachable12:                            ; preds = %1
   unreachable
 
-4:                                                ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
-  unreachable
+4:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
+  br label %25
 
-5:                                                ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1
-  br label %28
+5:                                                ; preds = %1, %1, %1, %1, %1, %1
+  br label %25
 
-6:                                                ; preds = %1, %1, %1, %1, %1, %1
-  br label %28
-
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2), !noalias !9741
-  call void @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$10op_details17hf8d70f90c380f2d0E"(ptr noalias nocapture noundef nonnull sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
-  %9 = getelementptr inbounds i8, ptr %2, i64 9
-  %10 = load i8, ptr %9, align 1, !range !94, !noalias !9741, !noundef !4
-  %11 = icmp eq i8 %10, 7
-  br i1 %11, label %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread", label %12
+  call void @"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$10op_details17hf8d70f90c380f2d0E"(ptr noalias nocapture noundef nonnull sret({ [9 x i8], i8, [6 x i8] }) align 8 dereferenceable(16) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  %8 = getelementptr inbounds i8, ptr %2, i64 9
+  %9 = load i8, ptr %8, align 1, !range !94, !noalias !9741, !noundef !4
+  %10 = icmp eq i8 %9, 7
+  br i1 %10, label %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread", label %11
 
-"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread": ; preds = %7
+"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread": ; preds = %6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !9741
-  br label %28
+  br label %25
 
-12:                                               ; preds = %7
+11:                                               ; preds = %6
   %.sroa.04.0.copyload.i = load ptr, ptr %2, align 8, !noalias !9741, !nonnull !4, !noundef !4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %2, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !9741
-  %13 = getelementptr inbounds i8, ptr %.sroa.04.0.copyload.i, i64 48
-  %14 = load i32, ptr %13, align 4, !noalias !9744, !noundef !4
-  %15 = add i32 %14, -1
-  store i32 %15, ptr %13, align 4, !noalias !9744
-  %16 = icmp eq i32 %15, 0
-  br i1 %16, label %17, label %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
+  %12 = getelementptr inbounds i8, ptr %.sroa.04.0.copyload.i, i64 48
+  %13 = load i32, ptr %12, align 4, !noalias !9744, !noundef !4
+  %14 = add i32 %13, -1
+  store i32 %14, ptr %12, align 4, !noalias !9744
+  %15 = icmp eq i32 %14, 0
+  br i1 %15, label %16, label %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
 
-17:                                               ; preds = %12
+16:                                               ; preds = %11
   tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.sroa.04.0.copyload.i), !noalias !9744
   br label %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
 
-"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit": ; preds = %12, %17
+"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit": ; preds = %11, %16
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2), !noalias !9741
-  %18 = add nsw i8 %10, -3
-  %19 = icmp ult i8 %18, 4
-  %narrow = select i1 %19, i8 %18, i8 2
-  switch i8 %narrow, label %4 [
-    i8 0, label %24
-    i8 1, label %switch.lookup
-    i8 2, label %28
-    i8 3, label %25
+  switch i8 %9, label %25 [
+    i8 3, label %21
+    i8 4, label %switch.lookup
+    i8 6, label %22
   ]
 
+17:                                               ; preds = %1
+  br label %25
+
+18:                                               ; preds = %1
+  br label %25
+
+19:                                               ; preds = %1, %1, %1
+  br label %25
+
 20:                                               ; preds = %1
-  br label %28
+  br label %25
 
-21:                                               ; preds = %1
-  br label %28
-
-22:                                               ; preds = %1, %1, %1
-  br label %28
-
-23:                                               ; preds = %1
-  br label %28
-
-24:                                               ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
+21:                                               ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
   %trunc7 = trunc i8 %.sroa.2.0.copyload.i to i1
   %. = select i1 %trunc7, i8 8, i8 10
   %.8 = select i1 %trunc7, i8 7, i8 9
-  br label %28
+  br label %25
 
-25:                                               ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
-  br label %28
+22:                                               ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
+  br label %25
 
 switch.lookup:                                    ; preds = %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit"
-  %26 = sext i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %26
+  %23 = sext i8 %.sroa.2.0.copyload.i to i64
+  %switch.gep = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E", i64 0, i64 %23
   %switch.load = load i8, ptr %switch.gep, align 1
-  %27 = sext i8 %.sroa.2.0.copyload.i to i64
-  %switch.gep13 = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %27
+  %24 = sext i8 %.sroa.2.0.copyload.i to i64
+  %switch.gep13 = getelementptr inbounds [10 x i8], ptr @"switch.table._ZN6syntax3ast4prec53_$LT$impl$u20$syntax..ast..generated..nodes..Expr$GT$13binding_power17h185c880a6d3fffc0E.191", i64 0, i64 %24
   %switch.load14 = load i8, ptr %switch.gep13, align 1
-  br label %28
+  br label %25
 
-28:                                               ; preds = %switch.lookup, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread", %25, %24, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %23, %22, %21, %20, %6, %5
-  %.sroa.20.3 = phi i8 [ 5, %23 ], [ 27, %22 ], [ 32, %21 ], [ 26, %20 ], [ 0, %6 ], [ 1, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 3, %25 ], [ %., %24 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load, %switch.lookup ]
-  %.sroa.0.3 = phi i8 [ 5, %23 ], [ 0, %22 ], [ 31, %21 ], [ 25, %20 ], [ 29, %6 ], [ 0, %5 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 4, %25 ], [ %.8, %24 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load14, %switch.lookup ]
-  %29 = insertvalue { i8, i8 } poison, i8 %.sroa.0.3, 0
-  %30 = insertvalue { i8, i8 } %29, i8 %.sroa.20.3, 1
-  ret { i8, i8 } %30
+25:                                               ; preds = %switch.lookup, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread", %22, %21, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit", %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %20, %19, %18, %17, %5, %4
+  %.sroa.20.3 = phi i8 [ 5, %20 ], [ 27, %19 ], [ 32, %18 ], [ 26, %17 ], [ 0, %5 ], [ 1, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 3, %22 ], [ %., %21 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load, %switch.lookup ]
+  %.sroa.0.3 = phi i8 [ 5, %20 ], [ 0, %19 ], [ 31, %18 ], [ 25, %17 ], [ 29, %5 ], [ 0, %4 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 0, %1 ], [ 4, %22 ], [ %.8, %21 ], [ 11, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit" ], [ 0, %"_ZN6syntax3ast8expr_ext56_$LT$impl$u20$syntax..ast..generated..nodes..BinExpr$GT$7op_kind17h2450c3baa4babd9fE.exit.thread" ], [ %switch.load14, %switch.lookup ]
+  %26 = insertvalue { i8, i8 } poison, i8 %.sroa.0.3, 0
+  %27 = insertvalue { i8, i8 } %26, i8 %.sroa.20.3, 1
+  ret { i8, i8 } %27
 }
 
 ; Function Attrs: nonlazybind uwtable

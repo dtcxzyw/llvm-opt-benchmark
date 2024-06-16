@@ -2049,18 +2049,14 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h49bbea5df8fc04e8E
   %11 = load i64, ptr %6, align 8, !range !666, !alias.scope !667, !noalias !664, !noundef !9
   %12 = add nsw i64 %11, -2
   %13 = icmp ult i64 %12, 4
-  %14 = select i1 %13, i64 %12, i64 1
-  %15 = mul nuw i64 %14, 5871781006564002453
+  %14 = mul nuw i64 %12, 5871781006564002453
+  %15 = select i1 %13, i64 %14, i64 5871781006564002453
   store i64 %15, ptr %3, align 8, !alias.scope !668, !noalias !667
-  switch i64 %14, label %.unreachabledefault.i.i [
-    i64 0, label %16
-    i64 1, label %25
-    i64 2, label %56
-    i64 3, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h273817668dd23865E.exit.i"
+  switch i64 %11, label %25 [
+    i64 2, label %16
+    i64 5, label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h273817668dd23865E.exit.i"
+    i64 4, label %56
   ]
-
-.unreachabledefault.i.i:                          ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5c8171189ebf94caE.exit.i"
-  unreachable
 
 16:                                               ; preds = %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5c8171189ebf94caE.exit.i"
   %17 = getelementptr inbounds i8, ptr %5, i64 16
@@ -2140,7 +2136,7 @@ _ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit.i.i: ; preds = %"_ZN59_$
   %58 = load i8, ptr %57, align 8, !range !291, !alias.scope !715, !noalias !718, !noundef !9
   %59 = icmp eq i8 %58, 26
   %60 = zext i1 %59 to i64
-  %61 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %15, i64 5)
+  %61 = tail call i64 @llvm.fshl.i64(i64 %14, i64 %14, i64 5)
   %62 = xor i64 %61, %60
   %63 = mul i64 %62, 5871781006564002453
   br i1 %59, label %111, label %64
@@ -2266,7 +2262,7 @@ _ZN4core4hash6Hasher9write_str17h2fa84d2c908ea84eE.exit.i.i.i: ; preds = %103, %
   br label %"_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h273817668dd23865E.exit.i"
 
 "_ZN70_$LT$hir_def..hir..type_ref..TypeBound$u20$as$u20$core..hash..Hash$GT$4hash17h273817668dd23865E.exit.i": ; preds = %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h428f1e113237a3ecE.exit.i.i", %_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit.i.i, %16, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5c8171189ebf94caE.exit.i"
-  %116 = phi i64 [ -831401054017544257, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5c8171189ebf94caE.exit.i" ], [ %24, %16 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit.i.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h428f1e113237a3ecE.exit.i.i" ]
+  %116 = phi i64 [ %15, %"_ZN3std4sync9once_lock17OnceLock$LT$T$GT$15get_or_try_init17h5c8171189ebf94caE.exit.i" ], [ %24, %16 ], [ %.pre.i, %_ZN4core4hash4Hash10hash_slice17h1fe7ab736ec2e69aE.exit.i.i ], [ %storemerge.i.i.i, %"_ZN59_$LT$hir_expand..name..Repr$u20$as$u20$core..hash..Hash$GT$4hash17h428f1e113237a3ecE.exit.i.i" ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !658
   %117 = shl i64 %116, 7
   %118 = getelementptr inbounds i8, ptr %7, i64 16

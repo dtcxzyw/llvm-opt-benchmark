@@ -3275,21 +3275,21 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17h69af0d6a5d069019
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !range !996, !alias.scope !997, !noundef !4
-  %5 = add nsw i64 %4, -3
-  %switch.i.i.i.i.i.i = icmp ult i64 %5, 2
-  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit", label %6
+  %.off.i.i.i.i.i.i = add nsw i64 %4, -3
+  %switch.i.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i.i, 2
+  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit", label %5
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   invoke void @"_ZN4core3ptr137drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$$u5b$la_arena..Idx$LT$base_db..input..CrateData$GT$$u5d$$GT$$GT$$GT$17h5c8bc438ad45d08cE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
-          to label %"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit" unwind label %7
+          to label %"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit" unwind label %6
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 80, i64 noundef 8) #36
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
-"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit": ; preds = %1, %6
+"_ZN4core3ptr178drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..SourceRootCratesQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17ha59c1502ace6f054E.exit": ; preds = %1, %5
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 80, i64 noundef 8) #36
   ret void
 }
@@ -3356,21 +3356,21 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb764380797a2ddff
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !range !996, !alias.scope !1017, !noundef !4
-  %5 = add nsw i64 %4, -3
-  %switch.i.i.i.i.i.i = icmp ult i64 %5, 2
-  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit", label %6
+  %.off.i.i.i.i.i.i = add nsw i64 %4, -3
+  %switch.i.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i.i, 2
+  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit", label %5
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   invoke void @"_ZN4core3ptr117drop_in_place$LT$salsa..derived..slot..Memo$LT$syntax..Parse$LT$syntax..ast..generated..nodes..SourceFile$GT$$GT$$GT$17hbfb77be9acd826ddE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
-          to label %"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit" unwind label %7
+          to label %"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit" unwind label %6
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 88, i64 noundef 8) #36
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
-"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit": ; preds = %1, %6
+"_ZN4core3ptr167drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..ParseQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17h889cf351485af753E.exit": ; preds = %1, %5
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 88, i64 noundef 8) #36
   ret void
 }
@@ -3538,21 +3538,21 @@ define hidden void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hfd9721621470f378
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   %4 = load i64, ptr %3, align 8, !range !996, !alias.scope !1043, !noundef !4
-  %5 = add nsw i64 %4, -3
-  %switch.i.i.i.i.i.i = icmp ult i64 %5, 2
-  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit", label %6
+  %.off.i.i.i.i.i.i = add nsw i64 %4, -3
+  %switch.i.i.i.i.i.i = icmp ult i64 %.off.i.i.i.i.i.i, 2
+  br i1 %switch.i.i.i.i.i.i, label %"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit", label %5
 
-6:                                                ; preds = %1
+5:                                                ; preds = %1
   invoke void @"_ZN4core3ptr84drop_in_place$LT$salsa..derived..slot..Memo$LT$triomphe..arc..Arc$LT$str$GT$$GT$$GT$17h8fc6008f89881eb3E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %3)
-          to label %"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit" unwind label %7
+          to label %"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit" unwind label %6
 
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
+6:                                                ; preds = %5
+  %7 = landingpad { ptr, i32 }
           cleanup
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 80, i64 noundef 8) #36
-  resume { ptr, i32 } %8
+  resume { ptr, i32 } %7
 
-"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit": ; preds = %1, %6
+"_ZN4core3ptr170drop_in_place$LT$alloc..boxed..Box$LT$triomphe..arc..ArcInner$LT$salsa..derived..slot..Slot$LT$base_db..FileTextQuery$C$salsa..derived..AlwaysMemoizeValue$GT$$GT$$GT$$GT$17hd21a63aa4bae3affE.exit": ; preds = %1, %5
   tail call void @__rust_dealloc(ptr noundef nonnull %2, i64 noundef 80, i64 noundef 8) #36
   ret void
 }
@@ -4977,11 +4977,11 @@ declare i8 @llvm.umin.i8(i8, i8) #30
 ; Function Attrs: nofree nounwind nonlazybind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #31
 
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
-
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #32
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #30

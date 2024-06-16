@@ -1118,25 +1118,23 @@ default.unreachable15.i:                          ; preds = %19
   br i1 %130, label %131, label %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit"
 
 131:                                              ; preds = %121
-  switch i32 %narrow.i.i, label %132 [
-    i32 0, label %133
-    i32 1, label %135
-    i32 2, label %138
-    i32 3, label %140
-    i32 4, label %142
-    i32 5, label %144
-    i32 6, label %146
-    i32 7, label %148
+  switch i32 %.val.i10, label %134 [
+    i32 3, label %132
+    i32 10, label %148
+    i32 5, label %138
+    i32 6, label %140
+    i32 7, label %142
+    i32 8, label %144
+    i32 9, label %146
   ]
 
 132:                                              ; preds = %131
-  unreachable
-
-133:                                              ; preds = %131
-  %134 = icmp eq i32 %.val1.i, %.val3.i11
+  %133 = icmp eq i32 %.val1.i, %.val3.i11
   br label %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit"
 
-135:                                              ; preds = %131
+134:                                              ; preds = %131
+  %135 = icmp eq i32 %narrow.i.i, 1
+  tail call void @llvm.assume(i1 %135)
   %136 = icmp eq i32 %.val.i10, %.val2.i
   %137 = icmp eq i32 %.val1.i, %.val3.i11
   %spec.select.i.i.i = select i1 %136, i1 %137, i1 false
@@ -1166,8 +1164,8 @@ default.unreachable15.i:                          ; preds = %19
   %149 = icmp eq i32 %.val1.i, %.val3.i11
   br label %"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit"
 
-"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit": ; preds = %121, %133, %135, %138, %140, %142, %144, %146, %148
-  %.0.shrunk.i.i = phi i1 [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %spec.select.i.i.i, %135 ], [ %134, %133 ], [ false, %121 ]
+"_ZN61_$LT$hir_def..TypeParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h35ba72042c4f67e6E.exit": ; preds = %121, %132, %134, %138, %140, %142, %144, %146, %148
+  %.0.shrunk.i.i = phi i1 [ %149, %148 ], [ %147, %146 ], [ %145, %144 ], [ %143, %142 ], [ %141, %140 ], [ %139, %138 ], [ %spec.select.i.i.i, %134 ], [ %133, %132 ], [ false, %121 ]
   %150 = getelementptr inbounds i8, ptr %0, i64 12
   %151 = load i32, ptr %150, align 4, !alias.scope !105, !noalias !108
   %152 = getelementptr inbounds i8, ptr %1, i64 12
@@ -1197,25 +1195,23 @@ default.unreachable15.i:                          ; preds = %19
   br i1 %164, label %165, label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
 165:                                              ; preds = %155
-  switch i32 %narrow.i.i16, label %166 [
-    i32 0, label %167
-    i32 1, label %169
-    i32 2, label %172
-    i32 3, label %174
-    i32 4, label %176
-    i32 5, label %178
-    i32 6, label %180
-    i32 7, label %182
+  switch i32 %.val.i12, label %168 [
+    i32 3, label %166
+    i32 10, label %182
+    i32 5, label %172
+    i32 6, label %174
+    i32 7, label %176
+    i32 8, label %178
+    i32 9, label %180
   ]
 
 166:                                              ; preds = %165
-  unreachable
-
-167:                                              ; preds = %165
-  %168 = icmp eq i32 %.val1.i13, %.val3.i15
+  %167 = icmp eq i32 %.val1.i13, %.val3.i15
   br label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
-169:                                              ; preds = %165
+168:                                              ; preds = %165
+  %169 = icmp eq i32 %narrow.i.i16, 1
+  tail call void @llvm.assume(i1 %169)
   %170 = icmp eq i32 %.val.i12, %.val2.i14
   %171 = icmp eq i32 %.val1.i13, %.val3.i15
   %spec.select.i.i.i20 = select i1 %170, i1 %171, i1 false
@@ -1245,8 +1241,8 @@ default.unreachable15.i:                          ; preds = %19
   %183 = icmp eq i32 %.val1.i13, %.val3.i15
   br label %"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit"
 
-"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit": ; preds = %155, %167, %169, %172, %174, %176, %178, %180, %182
-  %.0.shrunk.i.i18 = phi i1 [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %spec.select.i.i.i20, %169 ], [ %168, %167 ], [ false, %155 ]
+"_ZN62_$LT$hir_def..ConstParamId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h91b49e9fd9fdac97E.exit": ; preds = %155, %166, %168, %172, %174, %176, %178, %180, %182
+  %.0.shrunk.i.i18 = phi i1 [ %183, %182 ], [ %181, %180 ], [ %179, %178 ], [ %177, %176 ], [ %175, %174 ], [ %173, %172 ], [ %spec.select.i.i.i20, %168 ], [ %167, %166 ], [ false, %155 ]
   %184 = getelementptr inbounds i8, ptr %0, i64 12
   %185 = load i32, ptr %184, align 4, !alias.scope !111, !noalias !114
   %186 = getelementptr inbounds i8, ptr %1, i64 12

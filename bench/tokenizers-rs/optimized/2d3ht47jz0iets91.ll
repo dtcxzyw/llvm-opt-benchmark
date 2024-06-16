@@ -20250,64 +20250,58 @@ define internal fastcc noundef i64 @"_ZN99_$LT$tokenizers..processors..sequence.
   %7 = trunc nuw i8 %6 to i1
   %8 = load i64, ptr %1, align 8, !range !4311, !alias.scope !4312, !noundef !4
   %9 = xor i64 %8, -9223372036854775808
-  %10 = icmp ult i64 %9, 5
-  %11 = select i1 %10, i64 %9, i64 3
-  switch i64 %11, label %12 [
-    i64 0, label %13
-    i64 1, label %14
+  switch i64 %9, label %12 [
+    i64 0, label %10
+    i64 1, label %11
     i64 2, label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
-    i64 3, label %15
-    i64 4, label %16
+    i64 4, label %13
   ]
 
-12:                                               ; preds = %2
-  unreachable
-
-13:                                               ; preds = %2
+10:                                               ; preds = %2
   %..i2 = select i1 %7, i64 4, i64 2
   br label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
 
-14:                                               ; preds = %2
+11:                                               ; preds = %2
   %..i = select i1 %7, i64 3, i64 2
   br label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
 
-15:                                               ; preds = %2
+12:                                               ; preds = %2
   %.0.in.v.i = select i1 %7, i64 104, i64 96
   %.0.in.i = getelementptr inbounds i8, ptr %1, i64 %.0.in.v.i
   %.0.i1 = load i64, ptr %.0.in.i, align 8, !alias.scope !4315, !noundef !4
   br label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
 
-16:                                               ; preds = %2
+13:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4318)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 %6, ptr %4, align 1, !noalias !4318
-  %17 = getelementptr inbounds i8, ptr %1, i64 16
-  %18 = load ptr, ptr %17, align 8, !alias.scope !4321, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = load i64, ptr %19, align 8, !alias.scope !4321, !noundef !4
+  %14 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = load ptr, ptr %14, align 8, !alias.scope !4321, !nonnull !4, !noundef !4
+  %16 = getelementptr inbounds i8, ptr %1, i64 24
+  %17 = load i64, ptr %16, align 8, !alias.scope !4321, !noundef !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !4318
   store ptr %4, ptr %3, align 8, !noalias !4324
-  %21 = icmp eq i64 %20, 0
-  br i1 %21, label %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit", label %.preheader
+  %18 = icmp eq i64 %17, 0
+  br i1 %18, label %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit", label %.preheader
 
-.preheader:                                       ; preds = %16, %.preheader
-  %.018.i.i = phi i64 [ %24, %.preheader ], [ 0, %16 ]
-  %.017.i.i = phi i64 [ %25, %.preheader ], [ 0, %16 ]
-  %22 = getelementptr inbounds { i64, [13 x i64] }, ptr %18, i64 %.017.i.i
-  %23 = call fastcc noundef i64 @"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens28_$u7b$$u7b$closure$u7d$$u7d$17h7b8fde258492d6cdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %22)
-  %24 = add i64 %23, %.018.i.i
-  %25 = add nuw i64 %.017.i.i, 1
-  %26 = icmp eq i64 %25, %20
-  br i1 %26, label %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit", label %.preheader
+.preheader:                                       ; preds = %13, %.preheader
+  %.018.i.i = phi i64 [ %21, %.preheader ], [ 0, %13 ]
+  %.017.i.i = phi i64 [ %22, %.preheader ], [ 0, %13 ]
+  %19 = getelementptr inbounds { i64, [13 x i64] }, ptr %15, i64 %.017.i.i
+  %20 = call fastcc noundef i64 @"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens28_$u7b$$u7b$closure$u7d$$u7d$17h7b8fde258492d6cdE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(112) %19)
+  %21 = add i64 %20, %.018.i.i
+  %22 = add nuw i64 %.017.i.i, 1
+  %23 = icmp eq i64 %22, %17
+  br i1 %23, label %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit", label %.preheader
 
-"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit": ; preds = %.preheader, %16
-  %.016.i.i = phi i64 [ 0, %16 ], [ %24, %.preheader ]
+"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit": ; preds = %.preheader, %13
+  %.016.i.i = phi i64 [ 0, %13 ], [ %21, %.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4318
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   br label %"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit"
 
-"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit": ; preds = %2, %13, %14, %15, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit"
-  %.0.i = phi i64 [ %.016.i.i, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit" ], [ %.0.i1, %15 ], [ %..i, %14 ], [ %..i2, %13 ], [ 0, %2 ]
+"_ZN101_$LT$tokenizers..processors..PostProcessorWrapper$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h3867bf99c9a6948dE.exit": ; preds = %2, %10, %11, %12, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit"
+  %.0.i = phi i64 [ %.0.i1, %12 ], [ %.016.i.i, %"_ZN99_$LT$tokenizers..processors..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PostProcessor$GT$12added_tokens17h299a165c73877079E.exit" ], [ %..i, %11 ], [ %..i2, %10 ], [ 0, %2 ]
   ret i64 %.0.i
 }
 

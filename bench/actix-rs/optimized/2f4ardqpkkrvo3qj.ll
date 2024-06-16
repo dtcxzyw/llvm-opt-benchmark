@@ -5731,41 +5731,34 @@ define noundef nonnull align 8 ptr @"_ZN101_$LT$actix_http..error..Error$u20$as$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN70_$LT$actix_http..error..PayloadError$u20$as$u20$core..error..Error$GT$6source17hc79c15ec605b7cc1E"(ptr noundef nonnull align 8 %0) unnamed_addr #17 {
   %2 = load i8, ptr %0, align 8, !range !278, !noundef !4
-  %3 = add nsw i8 %2, -5
-  %4 = icmp ult i8 %3, 6
-  %narrow = select i1 %4, i8 %3, i8 4
-  switch i8 %narrow, label %5 [
-    i8 0, label %6
-    i8 1, label %13
-    i8 2, label %13
-    i8 3, label %13
-    i8 4, label %10
-    i8 5, label %11
+  switch i8 %2, label %7 [
+    i8 5, label %3
+    i8 6, label %10
+    i8 7, label %10
+    i8 8, label %10
+    i8 10, label %8
   ]
 
-5:                                                ; preds = %1
-  unreachable
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !noundef !4
+  %6 = icmp eq ptr %5, null
+  %. = select i1 %6, ptr null, ptr %4
+  br label %10
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load ptr, ptr %7, align 8, !noundef !4
-  %9 = icmp eq ptr %8, null
-  %. = select i1 %9, ptr null, ptr %7
-  br label %13
+7:                                                ; preds = %1
+  br label %10
 
-10:                                               ; preds = %1
-  br label %13
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %10
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %13
-
-13:                                               ; preds = %1, %1, %1, %6, %11, %10
-  %.sroa.8.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %11 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %10 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %6 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
-  %.sroa.0.0 = phi ptr [ %12, %11 ], [ %0, %10 ], [ %., %6 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
-  %14 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %15 = insertvalue { ptr, ptr } %14, ptr %.sroa.8.0, 1
-  ret { ptr, ptr } %15
+10:                                               ; preds = %1, %1, %1, %3, %8, %7
+  %.sroa.8.0 = phi ptr [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %8 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.109.llvm.18353199392063854698, %7 ], [ @anon.00b28e0f3c0f469f196e1cba87ef1ba3.107.llvm.18353199392063854698, %3 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ %9, %8 ], [ %0, %7 ], [ %., %3 ], [ null, %1 ], [ null, %1 ], [ null, %1 ]
+  %11 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %12 = insertvalue { ptr, ptr } %11, ptr %.sroa.8.0, 1
+  ret { ptr, ptr } %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

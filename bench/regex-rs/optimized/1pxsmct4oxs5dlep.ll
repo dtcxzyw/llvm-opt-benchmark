@@ -5291,103 +5291,96 @@ define noundef zeroext i1 @"_ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u2
   %trunc = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !align !34, !noundef !5
-  br i1 %trunc, label %switch.lookup, label %10
+  br i1 %trunc, label %switch.lookup, label %9
 
-9:                                                ; preds = %10
-  unreachable
-
-10:                                               ; preds = %2
-  %11 = getelementptr inbounds i8, ptr %8, i64 152
-  %12 = load i32, ptr %11, align 8, !range !36, !noundef !5
-  %13 = add nsw i32 %12, -1114112
-  %14 = icmp ult i32 %13, 8
-  %narrow = select i1 %14, i32 %13, i32 2
-  %15 = getelementptr inbounds i8, ptr %5, i64 8
-  switch i32 %narrow, label %9 [
-    i32 0, label %21
-    i32 1, label %22
-    i32 2, label %23
-    i32 3, label %24
-    i32 4, label %25
-    i32 5, label %26
-    i32 6, label %27
-    i32 7, label %28
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %8, i64 152
+  %11 = load i32, ptr %10, align 8, !range !36, !noundef !5
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  switch i32 %11, label %20 [
+    i32 1114112, label %18
+    i32 1114113, label %19
+    i32 1114119, label %25
+    i32 1114115, label %21
+    i32 1114116, label %22
+    i32 1114117, label %23
+    i32 1114118, label %24
   ]
 
 switch.lookup:                                    ; preds = %2
-  %16 = getelementptr inbounds i8, ptr %8, i64 64
-  %17 = load i8, ptr %16, align 8, !range !53, !noundef !5
-  %18 = zext nneg i8 %17 to i64
-  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E", i64 0, i64 %18
+  %13 = getelementptr inbounds i8, ptr %8, i64 64
+  %14 = load i8, ptr %13, align 8, !range !53, !noundef !5
+  %15 = zext nneg i8 %14 to i64
+  %switch.gep = getelementptr inbounds [3 x i64], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E", i64 0, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
-  %19 = zext nneg i8 %17 to i64
-  %switch.gep4 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E.33", i64 0, i64 %19
+  %16 = zext nneg i8 %14 to i64
+  %switch.gep4 = getelementptr inbounds [3 x ptr], ptr @"switch.table._ZN76_$LT$regex_syntax..ast..visitor..ClassInduct$u20$as$u20$core..fmt..Debug$GT$3fmt17h094f9aa4aef584d6E.33", i64 0, i64 %16
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   store ptr %switch.load5, ptr %5, align 8
-  %20 = getelementptr inbounds i8, ptr %5, i64 8
-  store i64 %switch.load, ptr %20, align 8
-  br label %29
+  %17 = getelementptr inbounds i8, ptr %5, i64 8
+  store i64 %switch.load, ptr %17, align 8
+  br label %26
 
-21:                                               ; preds = %10
+18:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.42, ptr %5, align 8
-  store i64 11, ptr %15, align 8
-  br label %29
+  store i64 11, ptr %12, align 8
+  br label %26
 
-22:                                               ; preds = %10
+19:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.43, ptr %5, align 8
-  store i64 13, ptr %15, align 8
-  br label %29
+  store i64 13, ptr %12, align 8
+  br label %26
 
-23:                                               ; preds = %10
+20:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.44, ptr %5, align 8
-  store i64 11, ptr %15, align 8
-  br label %29
+  store i64 11, ptr %12, align 8
+  br label %26
 
-24:                                               ; preds = %10
+21:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.45, ptr %5, align 8
-  store i64 11, ptr %15, align 8
-  br label %29
+  store i64 11, ptr %12, align 8
+  br label %26
 
-25:                                               ; preds = %10
+22:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.46, ptr %5, align 8
-  store i64 13, ptr %15, align 8
-  br label %29
+  store i64 13, ptr %12, align 8
+  br label %26
 
-26:                                               ; preds = %10
+23:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.47, ptr %5, align 8
-  store i64 10, ptr %15, align 8
-  br label %29
+  store i64 10, ptr %12, align 8
+  br label %26
 
-27:                                               ; preds = %10
+24:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.48, ptr %5, align 8
-  store i64 15, ptr %15, align 8
-  br label %29
+  store i64 15, ptr %12, align 8
+  br label %26
 
-28:                                               ; preds = %10
+25:                                               ; preds = %9
   store ptr @anon.ee024262027212e939cdd9996d089225.49, ptr %5, align 8
-  store i64 11, ptr %15, align 8
-  br label %29
+  store i64 11, ptr %12, align 8
+  br label %26
 
-29:                                               ; preds = %21, %22, %23, %24, %25, %26, %27, %28, %switch.lookup
+26:                                               ; preds = %18, %19, %20, %21, %22, %23, %24, %25, %switch.lookup
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %30 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf863358259092866E", ptr %30, align 8
+  %27 = getelementptr inbounds i8, ptr %3, i64 8
+  store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17hf863358259092866E", ptr %27, align 8
   store ptr @anon.ee024262027212e939cdd9996d089225.41, ptr %4, align 8, !alias.scope !54, !noalias !57
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  %28 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 1, ptr %28, align 8, !alias.scope !54, !noalias !57
+  %29 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr null, ptr %29, align 8, !alias.scope !54, !noalias !57
+  %30 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr %3, ptr %30, align 8, !alias.scope !54, !noalias !57
+  %31 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 1, ptr %31, align 8, !alias.scope !54, !noalias !57
-  %32 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr null, ptr %32, align 8, !alias.scope !54, !noalias !57
-  %33 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr %3, ptr %33, align 8, !alias.scope !54, !noalias !57
-  %34 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 1, ptr %34, align 8, !alias.scope !54, !noalias !57
-  %35 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
+  %32 = call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_fmt17heacf5dba8c40948fE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  ret i1 %35
+  ret i1 %32
 }
 
 ; Function Attrs: nonlazybind uwtable

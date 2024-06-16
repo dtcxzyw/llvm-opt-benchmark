@@ -269,60 +269,59 @@ define internal void @"_ZN4core3ptr37drop_in_place$LT$core..fmt..Error$GT$17h2b8
 define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$syn..path..PathArguments$GT$17h402399897b188fb9E"(ptr noalias noundef align 8 dereferenceable(64) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !77, !noundef !5
   %3 = xor i64 %2, -9223372036854775808
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %5 [
+  switch i64 %3, label %4 [
     i64 0, label %"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit"
-    i64 1, label %18
+    i64 1, label %17
   ]
 
-5:                                                ; preds = %1
+4:                                                ; preds = %1
   invoke void @"_ZN4core3ptr89drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..ty..Type$C$syn..token..Comma$GT$$GT$17hf4a5b63f2cfde73cE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0)
-          to label %9 unwind label %6
+          to label %8 unwind label %5
 
-6:                                                ; preds = %5
-  %7 = landingpad { ptr, i32 }
+5:                                                ; preds = %4
+  %6 = landingpad { ptr, i32 }
           cleanup
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  invoke void @"_ZN4core3ptr40drop_in_place$LT$syn..ty..ReturnType$GT$17hc0b4200bee4e7a77E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #18
-          to label %common.resume.i unwind label %16
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  invoke void @"_ZN4core3ptr40drop_in_place$LT$syn..ty..ReturnType$GT$17hc0b4200bee4e7a77E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #18
+          to label %common.resume.i unwind label %15
 
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds i8, ptr %0, i64 32
+8:                                                ; preds = %4
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
-  %11 = load ptr, ptr %10, align 8, !alias.scope !81, !noundef !5
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit", label %13
+  %10 = load ptr, ptr %9, align 8, !alias.scope !81, !noundef !5
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit", label %12
 
-13:                                               ; preds = %9
-  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(232) %11) #16
-          to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i" unwind label %14, !noalias !84
+12:                                               ; preds = %8
+  invoke void @"_ZN4core3ptr34drop_in_place$LT$syn..ty..Type$GT$17h7d8a65c57c57c176E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(232) %10) #16
+          to label %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i" unwind label %13, !noalias !84
 
-common.resume.i:                                  ; preds = %14, %6
-  %common.resume.op.i = phi { ptr, i32 } [ %15, %14 ], [ %7, %6 ]
+common.resume.i:                                  ; preds = %13, %5
+  %common.resume.op.i = phi { ptr, i32 } [ %14, %13 ], [ %6, %5 ]
   resume { ptr, i32 } %common.resume.op.i
 
-14:                                               ; preds = %13
-  %15 = landingpad { ptr, i32 }
+13:                                               ; preds = %12
+  %14 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef 232, i64 noundef 8) #17, !noalias !87
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef 232, i64 noundef 8) #17, !noalias !87
   br label %common.resume.i
 
-"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i": ; preds = %13
-  tail call void @__rust_dealloc(ptr noundef nonnull %11, i64 noundef 232, i64 noundef 8) #17, !noalias !90
+"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i": ; preds = %12
+  tail call void @__rust_dealloc(ptr noundef nonnull %10, i64 noundef 232, i64 noundef 8) #17, !noalias !90
   br label %"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit"
 
-16:                                               ; preds = %6
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %5
+  %16 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #19
   unreachable
 
-"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i", %9, %18, %1
+"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit": ; preds = %"_ZN4core3ptr59drop_in_place$LT$alloc..boxed..Box$LT$syn..ty..Type$GT$$GT$17h1a1c04b2866a2f02E.llvm.566609780180471337.exit.i.i", %8, %17, %1
   ret void
 
-18:                                               ; preds = %1
-  %19 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h6ca78ddba36a527bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %19)
+17:                                               ; preds = %1
+  %18 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @"_ZN4core3ptr102drop_in_place$LT$syn..punctuated..Punctuated$LT$syn..path..GenericArgument$C$syn..token..Comma$GT$$GT$17h6ca78ddba36a527bE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %18)
   br label %"_ZN4core3ptr61drop_in_place$LT$syn..path..ParenthesizedGenericArguments$GT$17hb4edc341e2990673E.exit"
 }
 

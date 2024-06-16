@@ -89,35 +89,28 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6)
   %5 = load i8, ptr %4, align 1, !range !9, !alias.scope !6, !noalias !10, !noundef !4
-  %6 = add nsw i8 %5, -5
-  %7 = icmp ult i8 %6, 3
-  %narrow.i = select i1 %7, i8 %6, i8 1
-  switch i8 %narrow.i, label %8 [
-    i8 0, label %9
-    i8 1, label %11
-    i8 2, label %13
+  switch i8 %5, label %8 [
+    i8 5, label %6
+    i8 7, label %10
   ]
 
-8:                                                ; preds = %2
-  unreachable
-
-9:                                                ; preds = %2
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.29, i64 noundef 13), !noalias !6
+6:                                                ; preds = %2
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.29, i64 noundef 13), !noalias !6
   br label %"_ZN72_$LT$grep_cli..human..ParseSizeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3f925fe786247ceE.exit"
 
-11:                                               ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !12
   store ptr %4, ptr %3, align 8, !noalias !12
-  %12 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hfe85b0e3bfc75452E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.30, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d89d2df19bf58477f93bbf4ad7736d96.31)
+  %9 = call noundef zeroext i1 @_ZN4core3fmt9Formatter25debug_tuple_field1_finish17hfe85b0e3bfc75452E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.30, i64 noundef 10, ptr noundef nonnull align 1 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.d89d2df19bf58477f93bbf4ad7736d96.31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !12
   br label %"_ZN72_$LT$grep_cli..human..ParseSizeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3f925fe786247ceE.exit"
 
-13:                                               ; preds = %2
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.32, i64 noundef 8), !noalias !6
+10:                                               ; preds = %2
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h614ed3390cd2c9c4E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.d89d2df19bf58477f93bbf4ad7736d96.32, i64 noundef 8), !noalias !6
   br label %"_ZN72_$LT$grep_cli..human..ParseSizeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3f925fe786247ceE.exit"
 
-"_ZN72_$LT$grep_cli..human..ParseSizeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3f925fe786247ceE.exit": ; preds = %9, %11, %13
-  %.0.in.i = phi i1 [ %14, %13 ], [ %12, %11 ], [ %10, %9 ]
+"_ZN72_$LT$grep_cli..human..ParseSizeErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17hf3f925fe786247ceE.exit": ; preds = %6, %8, %10
+  %.0.in.i = phi i1 [ %11, %10 ], [ %9, %8 ], [ %7, %6 ]
   ret i1 %.0.in.i
 }
 

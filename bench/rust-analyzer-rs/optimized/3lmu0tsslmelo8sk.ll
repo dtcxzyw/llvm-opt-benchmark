@@ -5193,128 +5193,121 @@ define noundef zeroext i1 @"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$c
 define noundef zeroext i1 @"_ZN71_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha5a186102eff449aE"(ptr noalias nocapture noundef readonly align 1 dereferenceable(2) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !range !1266, !noundef !4
-  %5 = add nsw i8 %4, -3
-  %6 = icmp ult i8 %5, 4
-  %narrow = select i1 %6, i8 %5, i8 2
-  switch i8 %narrow, label %7 [
-    i8 0, label %8
-    i8 1, label %switch.lookup
-    i8 2, label %15
-    i8 3, label %25
+  switch i8 %4, label %12 [
+    i8 3, label %5
+    i8 4, label %switch.lookup
+    i8 6, label %22
   ]
 
-7:                                                ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1267)
-  %9 = load i8, ptr %0, align 1, !range !11, !alias.scope !1267, !noalias !1270, !noundef !4
-  %trunc.i = trunc nuw i8 %9 to i1
+  %6 = load i8, ptr %0, align 1, !range !11, !alias.scope !1267, !noalias !1270, !noundef !4
+  %trunc.i = trunc nuw i8 %6 to i1
   %anon.68008816c5562f0b0c54f5318ddb9058.75.anon.68008816c5562f0b0c54f5318ddb9058.76.i = select i1 %trunc.i, ptr @anon.68008816c5562f0b0c54f5318ddb9058.76, ptr @anon.68008816c5562f0b0c54f5318ddb9058.75
-  %10 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.68008816c5562f0b0c54f5318ddb9058.75.anon.68008816c5562f0b0c54f5318ddb9058.76.i, i64 noundef 2), !noalias !1267
-  br label %27
+  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %anon.68008816c5562f0b0c54f5318ddb9058.75.anon.68008816c5562f0b0c54f5318ddb9058.76.i, i64 noundef 2), !noalias !1267
+  br label %24
 
 switch.lookup:                                    ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1272)
-  %11 = load i8, ptr %0, align 1, !range !1264, !alias.scope !1272, !noalias !1275, !noundef !4
-  %12 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN71_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha5a186102eff449aE", i64 0, i64 %12
+  %8 = load i8, ptr %0, align 1, !range !1264, !alias.scope !1272, !noalias !1275, !noundef !4
+  %9 = zext nneg i8 %8 to i64
+  %switch.gep = getelementptr inbounds [10 x i64], ptr @"switch.table._ZN71_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha5a186102eff449aE", i64 0, i64 %9
   %switch.load = load i64, ptr %switch.gep, align 8
-  %13 = zext nneg i8 %11 to i64
-  %switch.gep15 = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN71_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha5a186102eff449aE.63", i64 0, i64 %13
+  %10 = zext nneg i8 %8 to i64
+  %switch.gep15 = getelementptr inbounds [10 x ptr], ptr @"switch.table._ZN71_$LT$syntax..ast..operators..BinaryOp$u20$as$u20$core..fmt..Display$GT$3fmt17ha5a186102eff449aE.63", i64 0, i64 %10
   %switch.load16 = load ptr, ptr %switch.gep15, align 8
-  %14 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load16, i64 noundef %switch.load), !noalias !1272
-  br label %27
+  %11 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load16, i64 noundef %switch.load), !noalias !1272
+  br label %24
 
-default.unreachable:                              ; preds = %25
+default.unreachable:                              ; preds = %22
   unreachable
 
-15:                                               ; preds = %2
+12:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1277)
-  %16 = icmp eq i8 %4, 2
-  %17 = load i8, ptr %0, align 1, !range !11, !alias.scope !1277, !noalias !1280, !noundef !4
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %16, label %19, label %20
+  %13 = icmp eq i8 %4, 2
+  %14 = load i8, ptr %0, align 1, !range !11, !alias.scope !1277, !noalias !1280, !noundef !4
+  %15 = trunc nuw i8 %14 to i1
+  br i1 %13, label %16, label %17
 
-19:                                               ; preds = %15
-  %anon.68008816c5562f0b0c54f5318ddb9058.88.anon.68008816c5562f0b0c54f5318ddb9058.87.i = select i1 %18, ptr @anon.68008816c5562f0b0c54f5318ddb9058.88, ptr @anon.68008816c5562f0b0c54f5318ddb9058.87
+16:                                               ; preds = %12
+  %anon.68008816c5562f0b0c54f5318ddb9058.88.anon.68008816c5562f0b0c54f5318ddb9058.87.i = select i1 %15, ptr @anon.68008816c5562f0b0c54f5318ddb9058.88, ptr @anon.68008816c5562f0b0c54f5318ddb9058.87
   br label %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit"
 
-20:                                               ; preds = %15
-  %21 = trunc nuw i8 %4 to i1
-  %.1.i = select i1 %21, i64 1, i64 2
-  br i1 %18, label %23, label %22
+17:                                               ; preds = %12
+  %18 = trunc nuw i8 %4 to i1
+  %.1.i = select i1 %18, i64 1, i64 2
+  br i1 %15, label %20, label %19
 
-22:                                               ; preds = %20
-  %anon.68008816c5562f0b0c54f5318ddb9058.90.anon.68008816c5562f0b0c54f5318ddb9058.89.i = select i1 %21, ptr @anon.68008816c5562f0b0c54f5318ddb9058.90, ptr @anon.68008816c5562f0b0c54f5318ddb9058.89
+19:                                               ; preds = %17
+  %anon.68008816c5562f0b0c54f5318ddb9058.90.anon.68008816c5562f0b0c54f5318ddb9058.89.i = select i1 %18, ptr @anon.68008816c5562f0b0c54f5318ddb9058.90, ptr @anon.68008816c5562f0b0c54f5318ddb9058.89
   br label %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit"
 
-23:                                               ; preds = %20
-  %anon.68008816c5562f0b0c54f5318ddb9058.92.anon.68008816c5562f0b0c54f5318ddb9058.91.i = select i1 %21, ptr @anon.68008816c5562f0b0c54f5318ddb9058.92, ptr @anon.68008816c5562f0b0c54f5318ddb9058.91
+20:                                               ; preds = %17
+  %anon.68008816c5562f0b0c54f5318ddb9058.92.anon.68008816c5562f0b0c54f5318ddb9058.91.i = select i1 %18, ptr @anon.68008816c5562f0b0c54f5318ddb9058.92, ptr @anon.68008816c5562f0b0c54f5318ddb9058.91
   br label %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit"
 
-"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit": ; preds = %19, %22, %23
-  %.sroa.7.0.i = phi i64 [ 2, %19 ], [ %.1.i, %22 ], [ %.1.i, %23 ]
-  %.sroa.0.0.i10 = phi ptr [ %anon.68008816c5562f0b0c54f5318ddb9058.88.anon.68008816c5562f0b0c54f5318ddb9058.87.i, %19 ], [ %anon.68008816c5562f0b0c54f5318ddb9058.90.anon.68008816c5562f0b0c54f5318ddb9058.89.i, %22 ], [ %anon.68008816c5562f0b0c54f5318ddb9058.92.anon.68008816c5562f0b0c54f5318ddb9058.91.i, %23 ]
-  %24 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i10, i64 noundef %.sroa.7.0.i), !noalias !1277
-  br label %27
+"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit": ; preds = %16, %19, %20
+  %.sroa.7.0.i = phi i64 [ 2, %16 ], [ %.1.i, %19 ], [ %.1.i, %20 ]
+  %.sroa.0.0.i10 = phi ptr [ %anon.68008816c5562f0b0c54f5318ddb9058.88.anon.68008816c5562f0b0c54f5318ddb9058.87.i, %16 ], [ %anon.68008816c5562f0b0c54f5318ddb9058.90.anon.68008816c5562f0b0c54f5318ddb9058.89.i, %19 ], [ %anon.68008816c5562f0b0c54f5318ddb9058.92.anon.68008816c5562f0b0c54f5318ddb9058.91.i, %20 ]
+  %21 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i10, i64 noundef %.sroa.7.0.i), !noalias !1277
+  br label %24
 
-25:                                               ; preds = %2
-  %26 = load i8, ptr %0, align 1, !range !1282, !noundef !4
-  switch i8 %26, label %default.unreachable [
-    i8 10, label %38
+22:                                               ; preds = %2
+  %23 = load i8, ptr %0, align 1, !range !1282, !noundef !4
+  switch i8 %23, label %default.unreachable [
+    i8 10, label %35
     i8 0, label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
-    i8 1, label %28
-    i8 2, label %29
-    i8 3, label %30
-    i8 4, label %31
-    i8 5, label %32
-    i8 6, label %33
-    i8 7, label %34
-    i8 8, label %35
-    i8 9, label %36
+    i8 1, label %25
+    i8 2, label %26
+    i8 3, label %27
+    i8 4, label %28
+    i8 5, label %29
+    i8 6, label %30
+    i8 7, label %31
+    i8 8, label %32
+    i8 9, label %33
   ]
 
-27:                                               ; preds = %38, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14", %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit", %switch.lookup, %8
-  %.0.shrunk = phi i1 [ %24, %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit" ], [ %14, %switch.lookup ], [ %10, %8 ], [ true, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14" ], [ %39, %38 ]
+24:                                               ; preds = %35, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14", %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit", %switch.lookup, %5
+  %.0.shrunk = phi i1 [ %21, %"_ZN68_$LT$syntax..ast..operators..CmpOp$u20$as$u20$core..fmt..Display$GT$3fmt17h61e247f67a78d96aE.exit" ], [ %11, %switch.lookup ], [ %7, %5 ], [ true, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14" ], [ %36, %35 ]
   ret i1 %.0.shrunk
 
-28:                                               ; preds = %25
+25:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-29:                                               ; preds = %25
+26:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-30:                                               ; preds = %25
+27:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-31:                                               ; preds = %25
+28:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-32:                                               ; preds = %25
+29:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-33:                                               ; preds = %25
+30:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-34:                                               ; preds = %25
+31:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-35:                                               ; preds = %25
+32:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-36:                                               ; preds = %25
+33:                                               ; preds = %22
   br label %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
 
-"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14": ; preds = %25, %28, %29, %30, %31, %32, %33, %34, %35, %36
-  %.sroa.11.0.i11 = phi i64 [ 1, %36 ], [ 1, %35 ], [ 1, %34 ], [ 2, %33 ], [ 2, %32 ], [ 1, %31 ], [ 1, %30 ], [ 1, %29 ], [ 1, %28 ], [ 1, %25 ]
-  %.sroa.0.0.i12 = phi ptr [ @anon.68008816c5562f0b0c54f5318ddb9058.86, %36 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.85, %35 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.84, %34 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.83, %33 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.82, %32 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.81, %31 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.80, %30 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.79, %29 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.78, %28 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.77, %25 ]
-  %37 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i12, i64 noundef %.sroa.11.0.i11), !noalias !1283
-  br i1 %37, label %27, label %38
+"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14": ; preds = %22, %25, %26, %27, %28, %29, %30, %31, %32, %33
+  %.sroa.11.0.i11 = phi i64 [ 1, %33 ], [ 1, %32 ], [ 1, %31 ], [ 2, %30 ], [ 2, %29 ], [ 1, %28 ], [ 1, %27 ], [ 1, %26 ], [ 1, %25 ], [ 1, %22 ]
+  %.sroa.0.0.i12 = phi ptr [ @anon.68008816c5562f0b0c54f5318ddb9058.86, %33 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.85, %32 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.84, %31 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.83, %30 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.82, %29 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.81, %28 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.80, %27 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.79, %26 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.78, %25 ], [ @anon.68008816c5562f0b0c54f5318ddb9058.77, %22 ]
+  %34 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i12, i64 noundef %.sroa.11.0.i11), !noalias !1283
+  br i1 %34, label %24, label %35
 
-38:                                               ; preds = %25, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
-  %39 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.68008816c5562f0b0c54f5318ddb9058.93, i64 noundef 1)
-  br label %27
+35:                                               ; preds = %22, %"_ZN70_$LT$syntax..ast..operators..ArithOp$u20$as$u20$core..fmt..Display$GT$3fmt17h86f3f8619420d851E.exit14"
+  %36 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.68008816c5562f0b0c54f5318ddb9058.93, i64 noundef 1)
+  br label %24
 }
 
 ; Function Attrs: nonlazybind uwtable

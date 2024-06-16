@@ -8003,87 +8003,74 @@ define hidden void @"_ZN95_$LT$object_store..path..Path$u20$as$u20$core..iter..t
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, ptr } @"_ZN68_$LT$deltalake_azure..error..Error$u20$as$u20$core..error..Error$GT$6source17hddf3bc24aed87446E"(ptr noalias noundef readonly align 8 dereferenceable(80) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !1293, !noundef !8
-  %3 = icmp eq i64 %2, 16
-  br i1 %3, label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit", label %4
-
-4:                                                ; preds = %1
-  %5 = add nsw i64 %2, -6
-  %6 = icmp ult i64 %5, 10
-  %7 = select i1 %6, i64 %5, i64 2
-  switch i64 %7, label %8 [
-    i64 0, label %9
-    i64 1, label %14
-    i64 2, label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
-    i64 3, label %19
-    i64 4, label %21
-    i64 5, label %26
-    i64 6, label %31
-    i64 7, label %36
-    i64 8, label %41
-    i64 9, label %42
+  switch i64 %2, label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit" [
+    i64 16, label %35
+    i64 6, label %3
+    i64 7, label %8
+    i64 15, label %35
+    i64 9, label %13
+    i64 10, label %15
+    i64 11, label %20
+    i64 12, label %25
+    i64 13, label %30
+    i64 14, label %35
   ]
 
-8:                                                ; preds = %4
-  unreachable
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 24
+  %5 = load ptr, ptr %4, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %6 = getelementptr inbounds i8, ptr %0, i64 32
+  %7 = load ptr, ptr %6, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-9:                                                ; preds = %4
-  %10 = getelementptr inbounds i8, ptr %0, i64 24
-  %11 = load ptr, ptr %10, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %12 = getelementptr inbounds i8, ptr %0, i64 32
-  %13 = load ptr, ptr %12, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+8:                                                ; preds = %1
+  %9 = getelementptr inbounds i8, ptr %0, i64 32
+  %10 = load ptr, ptr %9, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %11 = getelementptr inbounds i8, ptr %0, i64 40
+  %12 = load ptr, ptr %11, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %17 = getelementptr inbounds i8, ptr %0, i64 40
-  %18 = load ptr, ptr %17, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds i8, ptr %0, i64 8
+  br label %35
 
-19:                                               ; preds = %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+15:                                               ; preds = %1
+  %16 = getelementptr inbounds i8, ptr %0, i64 8
+  %17 = load ptr, ptr %16, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %18 = getelementptr inbounds i8, ptr %0, i64 16
+  %19 = load ptr, ptr %18, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-21:                                               ; preds = %4
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  %23 = load ptr, ptr %22, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 32
+  %22 = load ptr, ptr %21, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %23 = getelementptr inbounds i8, ptr %0, i64 40
+  %24 = load ptr, ptr %23, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-26:                                               ; preds = %4
-  %27 = getelementptr inbounds i8, ptr %0, i64 32
-  %28 = load ptr, ptr %27, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %29 = getelementptr inbounds i8, ptr %0, i64 40
-  %30 = load ptr, ptr %29, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+25:                                               ; preds = %1
+  %26 = getelementptr inbounds i8, ptr %0, i64 32
+  %27 = load ptr, ptr %26, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %28 = getelementptr inbounds i8, ptr %0, i64 40
+  %29 = load ptr, ptr %28, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-31:                                               ; preds = %4
-  %32 = getelementptr inbounds i8, ptr %0, i64 32
-  %33 = load ptr, ptr %32, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %34 = getelementptr inbounds i8, ptr %0, i64 40
-  %35 = load ptr, ptr %34, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+30:                                               ; preds = %1
+  %31 = getelementptr inbounds i8, ptr %0, i64 32
+  %32 = load ptr, ptr %31, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
+  %33 = getelementptr inbounds i8, ptr %0, i64 40
+  %34 = load ptr, ptr %33, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
+  br label %35
 
-36:                                               ; preds = %4
-  %37 = getelementptr inbounds i8, ptr %0, i64 32
-  %38 = load ptr, ptr %37, align 8, !alias.scope !1341, !nonnull !8, !align !292, !noundef !8
-  %39 = getelementptr inbounds i8, ptr %0, i64 40
-  %40 = load ptr, ptr %39, align 8, !alias.scope !1341, !nonnull !8, !align !9, !noundef !8
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %1
+  br label %35
 
-41:                                               ; preds = %4
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
-
-42:                                               ; preds = %4
-  br label %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
-
-"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit": ; preds = %42, %41, %36, %31, %26, %21, %19, %14, %9, %4, %1
-  %.sroa.3.0 = phi ptr [ undef, %1 ], [ undef, %42 ], [ undef, %41 ], [ %40, %36 ], [ %35, %31 ], [ %30, %26 ], [ %25, %21 ], [ @anon.bcb33ca473573c9a2800c6755135ab0f.86, %19 ], [ %18, %14 ], [ %13, %9 ], [ @anon.bcb33ca473573c9a2800c6755135ab0f.84, %4 ]
-  %.sroa.0.0 = phi ptr [ null, %1 ], [ null, %42 ], [ null, %41 ], [ %38, %36 ], [ %33, %31 ], [ %28, %26 ], [ %23, %21 ], [ %20, %19 ], [ %16, %14 ], [ %11, %9 ], [ %0, %4 ]
-  %43 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %44 = insertvalue { ptr, ptr } %43, ptr %.sroa.3.0, 1
-  ret { ptr, ptr } %44
+35:                                               ; preds = %1, %1, %30, %25, %20, %15, %13, %8, %3, %1, %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit"
+  %.sroa.3.0 = phi ptr [ undef, %1 ], [ %34, %30 ], [ %29, %25 ], [ %24, %20 ], [ %19, %15 ], [ @anon.bcb33ca473573c9a2800c6755135ab0f.86, %13 ], [ %12, %8 ], [ %7, %3 ], [ @anon.bcb33ca473573c9a2800c6755135ab0f.84, %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit" ], [ undef, %1 ], [ undef, %1 ]
+  %.sroa.0.0 = phi ptr [ null, %1 ], [ %32, %30 ], [ %27, %25 ], [ %22, %20 ], [ %17, %15 ], [ %14, %13 ], [ %10, %8 ], [ %5, %3 ], [ %0, %"_ZN58_$LT$object_store..Error$u20$as$u20$core..error..Error$GT$6source17hc743c76994604126E.exit" ], [ null, %1 ], [ null, %1 ]
+  %36 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %37 = insertvalue { ptr, ptr } %36, ptr %.sroa.3.0, 1
+  ret { ptr, ptr } %37
 }
 
 ; Function Attrs: nonlazybind uwtable

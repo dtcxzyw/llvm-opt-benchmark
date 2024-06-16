@@ -4069,53 +4069,51 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$syntax..ast..generated..node
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr68drop_in_place$LT$ide_assists..handlers..extract_variable..Anchor$GT$17hb1ffdc635a8c98b1E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !range !2144, !noundef !4
-  %3 = add nsw i64 %2, -36
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %5 [
-    i64 0, label %6
-    i64 1, label %14
+  switch i64 %2, label %3 [
+    i64 36, label %4
+    i64 37, label %12
   ]
 
-5:                                                ; preds = %1
+3:                                                ; preds = %1
   tail call void @"_ZN4core3ptr56drop_in_place$LT$syntax..ast..generated..nodes..Expr$GT$17h87baedda7c371808E.llvm.18082005449963326646"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0)
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2145)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2148)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2151)
-  %8 = load ptr, ptr %7, align 8, !alias.scope !2154, !nonnull !4, !noundef !4
-  %9 = getelementptr inbounds i8, ptr %8, i64 48
-  %10 = load i32, ptr %9, align 4, !noalias !2154, !noundef !4
-  %11 = add i32 %10, -1
-  store i32 %11, ptr %9, align 4, !noalias !2154
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
+  %6 = load ptr, ptr %5, align 8, !alias.scope !2154, !nonnull !4, !noundef !4
+  %7 = getelementptr inbounds i8, ptr %6, i64 48
+  %8 = load i32, ptr %7, align 4, !noalias !2154, !noundef !4
+  %9 = add i32 %8, -1
+  store i32 %9, ptr %7, align 4, !noalias !2154
+  %10 = icmp eq i32 %9, 0
+  br i1 %10, label %11, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
 
-13:                                               ; preds = %6
-  tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %8), !noalias !2154
+11:                                               ; preds = %4
+  tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %6), !noalias !2154
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
 
-14:                                               ; preds = %1
-  %15 = getelementptr inbounds i8, ptr %0, i64 8
+12:                                               ; preds = %1
+  %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2155)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2158)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2161)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2164)
-  %16 = load ptr, ptr %15, align 8, !alias.scope !2167, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i8, ptr %16, i64 48
-  %18 = load i32, ptr %17, align 4, !noalias !2167, !noundef !4
-  %19 = add i32 %18, -1
-  store i32 %19, ptr %17, align 4, !noalias !2167
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %21, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
+  %14 = load ptr, ptr %13, align 8, !alias.scope !2167, !nonnull !4, !noundef !4
+  %15 = getelementptr inbounds i8, ptr %14, i64 48
+  %16 = load i32, ptr %15, align 4, !noalias !2167, !noundef !4
+  %17 = add i32 %16, -1
+  store i32 %17, ptr %15, align 4, !noalias !2167
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %19, label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
 
-21:                                               ; preds = %14
-  tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %16), !noalias !2167
+19:                                               ; preds = %12
+  tail call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %14), !noalias !2167
   br label %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit"
 
-"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit": ; preds = %21, %14, %13, %6, %5
+"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h96e144ffb0f33c83E.exit": ; preds = %19, %12, %11, %4, %3
   ret void
 }
 
@@ -78370,9 +78368,6 @@ declare hidden noundef ptr @_ZN6syntax4algo19find_node_at_offset17ha463dbfda3e0d
 
 ; Function Attrs: nonlazybind uwtable
 declare hidden noundef ptr @_ZN6syntax4algo19find_node_at_offset17heb3433d3a13b4011E(ptr noalias noundef readonly align 8 dereferenceable(8), i32 noundef) unnamed_addr #6
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #30
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umin.i8(i8, i8) #30

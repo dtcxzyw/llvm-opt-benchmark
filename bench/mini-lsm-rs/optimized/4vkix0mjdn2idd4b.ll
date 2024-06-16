@@ -619,164 +619,162 @@ define hidden void @"_ZN4core3ptr452drop_in_place$LT$alloc..boxed..Box$LT$moka..
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN4core3ptr456drop_in_place$LT$moka..cht..map..bucket..InsertOrModifyState$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4fdeb5869d019873E.llvm.3266194154532769905"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !266, !noundef !14
-  %3 = add nsw i64 %2, -2
-  %4 = tail call i64 @llvm.umin.i64(i64 %3, i64 2)
-  switch i64 %4, label %5 [
-    i64 0, label %16
-    i64 1, label %22
+  switch i64 %2, label %3 [
+    i64 2, label %14
+    i64 3, label %20
   ]
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
+3:                                                ; preds = %1
+  %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !267)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !270)
-  %7 = load i64, ptr %6, align 8, !alias.scope !273, !noundef !14
-  %8 = and i64 %7, -8
-  %9 = inttoptr i64 %8 to ptr
-  %10 = icmp ne i64 %8, 0
-  tail call void @llvm.assume(i1 %10)
+  %5 = load i64, ptr %4, align 8, !alias.scope !273, !noundef !14
+  %6 = and i64 %5, -8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = icmp ne i64 %6, 0
+  tail call void @llvm.assume(i1 %8)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !274)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
-  %11 = load ptr, ptr %9, align 8, !alias.scope !283, !noalias !284, !nonnull !14, !noundef !14
-  %12 = atomicrmw sub ptr %11, i64 1 release, align 8, !noalias !287
-  %13 = icmp eq i64 %12, 1
-  br i1 %13, label %14, label %52
+  %9 = load ptr, ptr %7, align 8, !alias.scope !283, !noalias !284, !nonnull !14, !noundef !14
+  %10 = atomicrmw sub ptr %9, i64 1 release, align 8, !noalias !287
+  %11 = icmp eq i64 %10, 1
+  br i1 %11, label %12, label %50
 
-14:                                               ; preds = %5
+12:                                               ; preds = %3
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %52 unwind label %.body, !noalias !284
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %7)
+          to label %50 unwind label %.body, !noalias !284
 
-.body:                                            ; preds = %14
-  %15 = landingpad { ptr, i32 }
+.body:                                            ; preds = %12
+  %13 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 16, i64 noundef 8) #24, !noalias !288
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 16, i64 noundef 8) #24, !noalias !288
   invoke fastcc void @"_ZN4core3ptr404drop_in_place$LT$moka..cht..map..bucket..ValueOrFunction$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$C$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4229836201d6485cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %0) #22
-          to label %common.resume unwind label %50
+          to label %common.resume unwind label %48
 
-16:                                               ; preds = %1
-  %17 = getelementptr inbounds i8, ptr %0, i64 8
+14:                                               ; preds = %1
+  %15 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
-  %18 = load ptr, ptr %17, align 8, !alias.scope !297, !nonnull !14, !noundef !14
-  %19 = atomicrmw sub ptr %18, i64 1 release, align 8, !noalias !297
-  %20 = icmp eq i64 %19, 1
-  br i1 %20, label %21, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit"
+  %16 = load ptr, ptr %15, align 8, !alias.scope !297, !nonnull !14, !noundef !14
+  %17 = atomicrmw sub ptr %16, i64 1 release, align 8, !noalias !297
+  %18 = icmp eq i64 %17, 1
+  br i1 %18, label %19, label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit"
 
-21:                                               ; preds = %16
+19:                                               ; preds = %14
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %17)
-          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit" unwind label %34
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %15)
+          to label %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit" unwind label %32
 
-22:                                               ; preds = %1
-  %23 = getelementptr inbounds i8, ptr %0, i64 8
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !301)
-  %24 = load i64, ptr %23, align 8, !alias.scope !304, !noundef !14
-  %25 = and i64 %24, -8
-  %26 = inttoptr i64 %25 to ptr
-  %27 = icmp ne i64 %25, 0
-  tail call void @llvm.assume(i1 %27)
+  %22 = load i64, ptr %21, align 8, !alias.scope !304, !noundef !14
+  %23 = and i64 %22, -8
+  %24 = inttoptr i64 %23 to ptr
+  %25 = icmp ne i64 %23, 0
+  tail call void @llvm.assume(i1 %25)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !305)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !308)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !311)
-  %28 = load ptr, ptr %26, align 8, !alias.scope !314, !noalias !315, !nonnull !14, !noundef !14
-  %29 = atomicrmw sub ptr %28, i64 1 release, align 8, !noalias !318
-  %30 = icmp eq i64 %29, 1
-  br i1 %30, label %31, label %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2"
+  %26 = load ptr, ptr %24, align 8, !alias.scope !314, !noalias !315, !nonnull !14, !noundef !14
+  %27 = atomicrmw sub ptr %26, i64 1 release, align 8, !noalias !318
+  %28 = icmp eq i64 %27, 1
+  br i1 %28, label %29, label %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2"
 
-31:                                               ; preds = %22
+29:                                               ; preds = %20
   fence acquire
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26)
-          to label %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2" unwind label %32, !noalias !315
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hc23d70e9a50fcb78E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %24)
+          to label %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2" unwind label %30, !noalias !315
 
-common.resume:                                    ; preds = %.body, %40, %34, %32
-  %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %15, %.body ], [ %35, %40 ], [ %35, %34 ]
+common.resume:                                    ; preds = %.body, %38, %32, %30
+  %common.resume.op = phi { ptr, i32 } [ %31, %30 ], [ %13, %.body ], [ %33, %38 ], [ %33, %32 ]
   resume { ptr, i32 } %common.resume.op
 
-32:                                               ; preds = %31
-  %33 = landingpad { ptr, i32 }
+30:                                               ; preds = %29
+  %31 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef 16, i64 noundef 8) #24, !noalias !319
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef 16, i64 noundef 8) #24, !noalias !319
   br label %common.resume
 
-"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2": ; preds = %22, %31
-  tail call void @__rust_dealloc(ptr noundef nonnull %26, i64 noundef 16, i64 noundef 8) #24, !noalias !322
+"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2": ; preds = %20, %29
+  tail call void @__rust_dealloc(ptr noundef nonnull %24, i64 noundef 16, i64 noundef 8) #24, !noalias !322
   br label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 
-34:                                               ; preds = %21
-  %35 = landingpad { ptr, i32 }
+32:                                               ; preds = %19
+  %33 = landingpad { ptr, i32 }
           cleanup
-  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %34 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !328)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !331)
-  %37 = load ptr, ptr %36, align 8, !alias.scope !334, !nonnull !14, !noundef !14
-  %38 = atomicrmw sub ptr %37, i64 1 release, align 8, !noalias !334
-  %39 = icmp eq i64 %38, 1
-  br i1 %39, label %40, label %common.resume
+  %35 = load ptr, ptr %34, align 8, !alias.scope !334, !nonnull !14, !noundef !14
+  %36 = atomicrmw sub ptr %35, i64 1 release, align 8, !noalias !334
+  %37 = icmp eq i64 %36, 1
+  br i1 %37, label %38, label %common.resume
 
-40:                                               ; preds = %34
-  %41 = load ptr, ptr %36, align 8, !alias.scope !334, !nonnull !14, !noundef !14
-  %42 = load atomic i64, ptr %41 acquire, align 8, !noalias !334
-  invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36)
-          to label %common.resume unwind label %50
+38:                                               ; preds = %32
+  %39 = load ptr, ptr %34, align 8, !alias.scope !334, !nonnull !14, !noundef !14
+  %40 = load atomic i64, ptr %39 acquire, align 8, !noalias !334
+  invoke void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %34)
+          to label %common.resume unwind label %48
 
-"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit": ; preds = %16, %21
-  %43 = getelementptr inbounds i8, ptr %0, i64 16
+"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit": ; preds = %14, %19
+  %41 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !335)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !338)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !341)
-  %44 = load ptr, ptr %43, align 8, !alias.scope !344, !nonnull !14, !noundef !14
-  %45 = atomicrmw sub ptr %44, i64 1 release, align 8, !noalias !344
-  %46 = icmp eq i64 %45, 1
-  br i1 %46, label %47, label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
+  %42 = load ptr, ptr %41, align 8, !alias.scope !344, !nonnull !14, !noundef !14
+  %43 = atomicrmw sub ptr %42, i64 1 release, align 8, !noalias !344
+  %44 = icmp eq i64 %43, 1
+  br i1 %44, label %45, label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 
-47:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit"
-  %48 = load ptr, ptr %43, align 8, !alias.scope !344, !nonnull !14, !noundef !14
-  %49 = load atomic i64, ptr %48 acquire, align 8, !noalias !344
-  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %43)
+45:                                               ; preds = %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit"
+  %46 = load ptr, ptr %41, align 8, !alias.scope !344, !nonnull !14, !noundef !14
+  %47 = load atomic i64, ptr %46 acquire, align 8, !noalias !344
+  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %41)
   br label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 
-"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4": ; preds = %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", %60, %56, %47, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit", %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2"
+"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4": ; preds = %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", %58, %54, %45, %"_ZN4core3ptr66drop_in_place$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$GT$17ha404b2c984e46edaE.llvm.3266194154532769905.exit", %"_ZN4core3ptr244drop_in_place$LT$crossbeam_epoch..atomic..Owned$LT$moka..cht..map..bucket..Bucket$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17hecdd68cfdf08391aE.exit2"
   ret void
 
-50:                                               ; preds = %40, %.body
-  %51 = landingpad { ptr, i32 }
+48:                                               ; preds = %38, %.body
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #23
   unreachable
 
-52:                                               ; preds = %14, %5
-  tail call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 16, i64 noundef 8) #24, !noalias !345
+50:                                               ; preds = %12, %3
+  tail call void @__rust_dealloc(ptr noundef nonnull %7, i64 noundef 16, i64 noundef 8) #24, !noalias !345
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
-  %53 = load i64, ptr %0, align 8, !range !147, !alias.scope !348, !noundef !14
-  %54 = icmp eq i64 %53, 0
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %54, label %56, label %60
+  %51 = load i64, ptr %0, align 8, !range !147, !alias.scope !348, !noundef !14
+  %52 = icmp eq i64 %51, 0
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %52, label %54, label %58
 
-56:                                               ; preds = %52
+54:                                               ; preds = %50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
-  %57 = load ptr, ptr %55, align 8, !alias.scope !357, !nonnull !14, !noundef !14
-  %58 = atomicrmw sub ptr %57, i64 1 release, align 8, !noalias !357
-  %59 = icmp eq i64 %58, 1
-  br i1 %59, label %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
+  %55 = load ptr, ptr %53, align 8, !alias.scope !357, !nonnull !14, !noundef !14
+  %56 = atomicrmw sub ptr %55, i64 1 release, align 8, !noalias !357
+  %57 = icmp eq i64 %56, 1
+  br i1 %57, label %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 
-60:                                               ; preds = %52
+58:                                               ; preds = %50
   tail call void @llvm.experimental.noalias.scope.decl(metadata !358)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !364)
-  %61 = load ptr, ptr %55, align 8, !alias.scope !367, !nonnull !14, !noundef !14
-  %62 = atomicrmw sub ptr %61, i64 1 release, align 8, !noalias !367
-  %63 = icmp eq i64 %62, 1
-  br i1 %63, label %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
+  %59 = load ptr, ptr %53, align 8, !alias.scope !367, !nonnull !14, !noundef !14
+  %60 = atomicrmw sub ptr %59, i64 1 release, align 8, !noalias !367
+  %61 = icmp eq i64 %60, 1
+  br i1 %61, label %"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i", label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 
-"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i": ; preds = %60, %56
-  %64 = load ptr, ptr %55, align 8, !alias.scope !348, !nonnull !14, !noundef !14
-  %65 = load atomic i64, ptr %64 acquire, align 8, !noalias !348
-  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %55)
+"_ZN4core3ptr120drop_in_place$LT$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$17h28f72991f1717fc8E.exit.sink.split.i": ; preds = %58, %54
+  %62 = load ptr, ptr %53, align 8, !alias.scope !348, !nonnull !14, !noundef !14
+  %63 = load atomic i64, ptr %62 acquire, align 8, !noalias !348
+  tail call void @"_ZN8triomphe3arc12Arc$LT$T$GT$9drop_slow17hb4e53cf9fc58c957E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
   br label %"_ZN4core3ptr255drop_in_place$LT$moka..cht..segment..HashMap$LT$alloc..sync..Arc$LT$$LP$usize$C$usize$RP$$GT$$C$triomphe..arc..Arc$LT$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$$LP$$RP$$GT$$GT$$GT$..insert_if_not_present..$u7b$$u7b$closure$u7d$$u7d$$GT$17h8eb3e9884077192aE.exit4"
 }
 

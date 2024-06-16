@@ -147,7 +147,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.2a96bd4dd818a19cee4438642de1cd2a.46.llvm.12663281897316000666 = external hidden unnamed_addr constant <{ [51 x i8] }>, align 1
 @anon.2a96bd4dd818a19cee4438642de1cd2a.48.llvm.12663281897316000666 = external hidden unnamed_addr constant <{ ptr, [16 x i8] }>, align 8
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h48f96c40e9c80142E = external global { i64 }
-@"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E" = private unnamed_addr constant [12 x i8] c"\04\04\0D\04\0A\0C\01\0B\10\09\11\09", align 1
+@"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E" = private unnamed_addr constant [12 x i8] c"\04\04\0D\11\0A\0C\01\0B\10\09\11\09", align 1
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN106_$LT$futures_util..stream..stream..split..SplitStream$LT$S$GT$$u20$as$u20$futures_core..stream..Stream$GT$9poll_next17h02132f7f7dd67b4aE.llvm.17971264473161138775"(ptr noalias nocapture noundef sret({ i64, [16 x i64] }) align 8 dereferenceable(136) %0, ptr noalias noundef align 8 dereferenceable(8) %1, ptr noalias noundef align 8 dereferenceable(8) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -12473,15 +12473,20 @@ define noundef zeroext i1 @"_ZN87_$LT$ockam_transport_websocket..error..WebSocke
 
 ; Function Attrs: nonlazybind uwtable
 define noundef range(i8 1, 18) i8 @"_ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E"(ptr noalias nocapture noundef align 8 dereferenceable(136) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 {
-switch.lookup:
-  %2 = load i64, ptr %0, align 8, !range !1092, !noundef !7
-  %3 = add nsw i64 %2, -3
-  %4 = icmp ult i64 %3, 12
-  %5 = select i1 %4, i64 %3, i64 10
-  %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E", i64 0, i64 %5
+  %3 = load i64, ptr %0, align 8, !range !1092, !noundef !7
+  %switch.tableidx = add nsw i64 %3, -3
+  %4 = icmp ult i64 %switch.tableidx, 12
+  br i1 %4, label %switch.lookup, label %5
+
+switch.lookup:                                    ; preds = %2
+  %switch.gep = getelementptr inbounds [12 x i8], ptr @"switch.table._ZN121_$LT$ockam_transport_websocket..error..WebSocketError$u20$as$u20$core..convert..From$LT$tungstenite..error..Error$GT$$GT$4from17h6b3f324def24eb74E", i64 0, i64 %switch.tableidx
   %switch.load = load i8, ptr %switch.gep, align 1
+  br label %5
+
+5:                                                ; preds = %2, %switch.lookup
+  %.0 = phi i8 [ %switch.load, %switch.lookup ], [ 17, %2 ]
   tail call void @"_ZN4core3ptr46drop_in_place$LT$tungstenite..error..Error$GT$17h6ccc3988f8a6b40dE.llvm.17971264473161138775"(ptr noalias noundef nonnull align 8 dereferenceable(136) %0)
-  ret i8 %switch.load
+  ret i8 %.0
 }
 
 ; Function Attrs: nonlazybind uwtable

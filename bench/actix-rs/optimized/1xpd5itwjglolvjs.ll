@@ -883,19 +883,29 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   %25 = getelementptr inbounds i8, ptr %11, i64 16
   %26 = load i64, ptr %25, align 8, !range !216, !alias.scope !217, !noalias !218, !noundef !4
   %27 = xor i64 %26, -9223372036854775808
-  %28 = icmp ult i64 %27, 3
-  %29 = select i1 %28, i64 %27, i64 1
-  %switch.i.i = icmp eq i64 %29, 1
-  %30 = getelementptr inbounds i8, ptr %11, i64 48
-  %31 = getelementptr inbounds i8, ptr %11, i64 24
-  %32 = load ptr, ptr %31, align 8, !alias.scope !217, !noalias !218, !nonnull !4
-  %33 = getelementptr inbounds i8, ptr %11, i64 32
-  %34 = load i64, ptr %33, align 8, !alias.scope !217, !noalias !218
-  %35 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %32, i64 %34
-  %.sroa.42.0.i.i = select i1 %switch.i.i, ptr %30, ptr undef
-  %.sroa.5.0.i.i = select i1 %switch.i.i, ptr %32, ptr undef
-  %.sroa.6.0.i.i = select i1 %switch.i.i, ptr %35, ptr undef
-  store i64 %29, ptr %5, align 8, !alias.scope !211, !noalias !219
+  switch i64 %27, label %28 [
+    i64 0, label %_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i
+    i64 2, label %35
+  ]
+
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds i8, ptr %11, i64 48
+  %30 = getelementptr inbounds i8, ptr %11, i64 24
+  %31 = load ptr, ptr %30, align 8, !alias.scope !217, !noalias !218, !nonnull !4, !noundef !4
+  %32 = getelementptr inbounds i8, ptr %11, i64 32
+  %33 = load i64, ptr %32, align 8, !alias.scope !217, !noalias !218, !noundef !4
+  %34 = getelementptr inbounds { { i64, i64 }, { i64, i64 } }, ptr %31, i64 %33
+  br label %_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i
+
+35:                                               ; preds = %24
+  br label %_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i
+
+_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i: ; preds = %35, %28, %24
+  %.sroa.42.0.i.i = phi ptr [ %29, %28 ], [ undef, %35 ], [ undef, %24 ]
+  %.sroa.01.0.i.i = phi i64 [ 1, %28 ], [ 2, %35 ], [ %27, %24 ]
+  %.sroa.5.0.i.i = phi ptr [ %31, %28 ], [ undef, %35 ], [ undef, %24 ]
+  %.sroa.6.0.i.i = phi ptr [ %34, %28 ], [ undef, %35 ], [ undef, %24 ]
+  store i64 %.sroa.01.0.i.i, ptr %5, align 8, !alias.scope !211, !noalias !219
   %.sroa.42.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %.sroa.42.0.i.i, ptr %.sroa.42.0..sroa_idx.i.i, align 8, !alias.scope !211, !noalias !219
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %5, i64 16
@@ -906,7 +916,7 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
   invoke void @"_ZN71_$LT$mime..Params$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2c743eb7055390c3E.llvm.1214063349730439972"(ptr noalias nocapture noundef nonnull sret({ [16 x i8], i8, [31 x i8] }) align 8 dereferenceable(48) %4, ptr noalias noundef nonnull align 8 dereferenceable(32) %5)
           to label %.noexc unwind label %.loopexit.split-lp
 
-.noexc:                                           ; preds = %24
+.noexc:                                           ; preds = %_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i
   %36 = getelementptr inbounds i8, ptr %4, i64 16
   %37 = load i8, ptr %36, align 8, !range !225, !noalias !220, !noundef !4
   %.not9.i.i = icmp eq i8 %37, 2
@@ -972,7 +982,7 @@ define void @_ZN15actix_multipart6server9Multipart8boundary17h4a7f5a09292cb55eE(
           cleanup
   br label %44
 
-.loopexit.split-lp:                               ; preds = %47, %55, %24
+.loopexit.split-lp:                               ; preds = %47, %55, %_ZN4mime4Mime6params17hc7d0d510e8c8bf4aE.llvm.1214063349730439972.exit.i
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %44

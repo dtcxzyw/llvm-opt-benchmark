@@ -30372,192 +30372,185 @@ define { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = load i64, ptr %0, align 8, !range !8097, !noundef !4
-  %13 = add nsw i64 %12, -2
-  %14 = icmp ult i64 %13, 11
-  %15 = select i1 %14, i64 %13, i64 6
-  switch i64 %15, label %16 [
-    i64 0, label %17
-    i64 1, label %26
-    i64 2, label %36
-    i64 3, label %39
-    i64 4, label %42
-    i64 5, label %46
-    i64 6, label %64
-    i64 7, label %72
-    i64 8, label %75
-    i64 9, label %77
-    i64 10, label %85
+  switch i64 %12, label %60 [
+    i64 2, label %13
+    i64 3, label %22
+    i64 4, label %32
+    i64 5, label %35
+    i64 6, label %38
+    i64 7, label %42
+    i64 12, label %81
+    i64 9, label %68
+    i64 10, label %71
+    i64 11, label %73
   ]
 
-16:                                               ; preds = %2
-  unreachable
+13:                                               ; preds = %2
+  %14 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hc416bddf16bbce3aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+  %15 = extractvalue { ptr, ptr } %14, 0
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %17, label %19
 
-17:                                               ; preds = %2
-  %18 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hc416bddf16bbce3aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  %19 = extractvalue { ptr, ptr } %18, 0
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %23
-
-21:                                               ; preds = %17
-  %22 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h50dabca46d39d26dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+17:                                               ; preds = %13
+  %18 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h50dabca46d39d26dE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-23:                                               ; preds = %17
-  %24 = extractvalue { ptr, ptr } %18, 1
-  %25 = icmp ne ptr %24, null
-  tail call void @llvm.assume(i1 %25)
+19:                                               ; preds = %13
+  %20 = extractvalue { ptr, ptr } %14, 1
+  %21 = icmp ne ptr %20, null
+  tail call void @llvm.assume(i1 %21)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-26:                                               ; preds = %2
-  %27 = getelementptr inbounds i8, ptr %0, i64 8
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
-  store ptr %27, ptr %11, align 8, !noalias !8098
+  store ptr %23, ptr %11, align 8, !noalias !8098
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !8098
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9), !noalias !8098
   store ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", ptr %9, align 8, !noalias !8098
   call void @_ZN3std4sync4once4Once9call_once17h8f7cbf5a623be17cE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", i64 16), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8102
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9), !noalias !8098
   store ptr getelementptr inbounds (i8, ptr @"_ZN86_$LT$tokenizers..pre_tokenizers..byte_level..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hb6b9de11416bacacE.llvm.14160285242575610615", i64 8), ptr %10, align 8, !noalias !8098
-  %28 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h36cf8d78806e395aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
-  %29 = extractvalue { ptr, ptr } %28, 0
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %31, label %33
+  %24 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h36cf8d78806e395aE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10)
+  %25 = extractvalue { ptr, ptr } %24, 0
+  %26 = icmp eq ptr %25, null
+  br i1 %26, label %27, label %29
 
-31:                                               ; preds = %26
-  %32 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString9normalize17h6671801282e94163E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+27:                                               ; preds = %22
+  %28 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString9normalize17h6671801282e94163E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !8098
   br label %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
 
-33:                                               ; preds = %26
-  %34 = extractvalue { ptr, ptr } %28, 1
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
+29:                                               ; preds = %22
+  %30 = extractvalue { ptr, ptr } %24, 1
+  %31 = icmp ne ptr %30, null
+  call void @llvm.assume(i1 %31)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10), !noalias !8098
   br label %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
 
-"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit": ; preds = %31, %33
-  %.merged.i2 = phi { ptr, ptr } [ %32, %31 ], [ %28, %33 ]
+"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit": ; preds = %27, %29
+  %.merged.i2 = phi { ptr, ptr } [ %28, %27 ], [ %24, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-36:                                               ; preds = %2
-  %37 = getelementptr inbounds i8, ptr %0, i64 8
+32:                                               ; preds = %2
+  %33 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store ptr %37, ptr %8, align 8, !noalias !8103
-  %38 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb7f0e1afa1841a13E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
+  store ptr %33, ptr %8, align 8, !noalias !8103
+  %34 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb7f0e1afa1841a13E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-39:                                               ; preds = %2
-  %40 = getelementptr inbounds i8, ptr %0, i64 8
+35:                                               ; preds = %2
+  %36 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  store ptr %40, ptr %7, align 8, !noalias !8107
-  %41 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h9a0529febc48ad60E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
+  store ptr %36, ptr %7, align 8, !noalias !8107
+  %37 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h9a0529febc48ad60E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-42:                                               ; preds = %2
+38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6), !noalias !8111
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5), !noalias !8111
   store ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", ptr %5, align 8, !noalias !8111
   call void @_ZN3std4sync4once4Once9call_once17hbd3b2c65d9b8064eE.llvm.14160285242575610615(ptr noundef nonnull align 4 getelementptr inbounds (i8, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", i64 32), ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.bc29ea270c7cb723c25a24faa4c0614a.12.llvm.14160285242575610615), !noalias !8111
-  %43 = load ptr, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", align 8, !noalias !8111, !noundef !4
-  %44 = icmp ne ptr %43, null
-  call void @llvm.assume(i1 %44)
+  %39 = load ptr, ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", align 8, !noalias !8111, !noundef !4
+  %40 = icmp ne ptr %39, null
+  call void @llvm.assume(i1 %40)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !8111
   store ptr @"_ZN167_$LT$$LT$tokenizers..pre_tokenizers..whitespace..Whitespace$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$..pre_tokenize..RE$u20$as$u20$core..ops..deref..Deref$GT$5deref11__stability4LAZY17hd967860289d6f2e4E.llvm.14160285242575610615", ptr %6, align 8, !noalias !8111
-  %45 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17he12614941846baa2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
+  %41 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17he12614941846baa2E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6), !noalias !8111
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-46:                                               ; preds = %2
-  %47 = getelementptr inbounds i8, ptr %0, i64 16
-  %48 = load ptr, ptr %47, align 8, !alias.scope !8114, !noalias !8119, !nonnull !4, !noundef !4
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8, !alias.scope !8114, !noalias !8119, !noundef !4
-  %51 = getelementptr inbounds { i64, [5 x i64] }, ptr %48, i64 %50
-  br label %52
+42:                                               ; preds = %2
+  %43 = getelementptr inbounds i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8, !alias.scope !8114, !noalias !8119, !nonnull !4, !noundef !4
+  %45 = getelementptr inbounds i8, ptr %0, i64 24
+  %46 = load i64, ptr %45, align 8, !alias.scope !8114, !noalias !8119, !noundef !4
+  %47 = getelementptr inbounds { i64, [5 x i64] }, ptr %44, i64 %46
+  br label %48
 
-52:                                               ; preds = %54, %46
-  %.sroa.0.0 = phi ptr [ %48, %46 ], [ %55, %54 ]
-  %53 = icmp eq ptr %.sroa.0.0, %51
-  br i1 %53, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %54
+48:                                               ; preds = %50, %42
+  %.sroa.0.0 = phi ptr [ %44, %42 ], [ %51, %50 ]
+  %49 = icmp eq ptr %.sroa.0.0, %47
+  br i1 %49, label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", label %50
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 48
-  %56 = tail call { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h3dc2169f03a01c15E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
-  %57 = extractvalue { ptr, ptr } %56, 0
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %52, label %59
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 48
+  %52 = tail call { ptr, ptr } @"_ZN103_$LT$tokenizers..pre_tokenizers..PreTokenizerWrapper$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h3dc2169f03a01c15E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.0.0, ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+  %53 = extractvalue { ptr, ptr } %52, 0
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %48, label %55
 
-59:                                               ; preds = %54
-  %60 = extractvalue { ptr, ptr } %56, 1
-  %61 = icmp ne ptr %60, null
-  tail call void @llvm.assume(i1 %61)
+55:                                               ; preds = %50
+  %56 = extractvalue { ptr, ptr } %52, 1
+  %57 = icmp ne ptr %56, null
+  tail call void @llvm.assume(i1 %57)
   br label %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit"
 
-"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit": ; preds = %52, %59
-  %.sroa.3.0.i = phi ptr [ %60, %59 ], [ undef, %52 ]
-  %.sroa.0.0.i = phi ptr [ %57, %59 ], [ null, %52 ]
-  %62 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %63 = insertvalue { ptr, ptr } %62, ptr %.sroa.3.0.i, 1
+"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit": ; preds = %48, %55
+  %.sroa.3.0.i = phi ptr [ %56, %55 ], [ undef, %48 ]
+  %.sroa.0.0.i = phi ptr [ %53, %55 ], [ null, %48 ]
+  %58 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %59 = insertvalue { ptr, ptr } %58, ptr %.sroa.3.0.i, 1
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-64:                                               ; preds = %2
+60:                                               ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8122)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !noalias !8125
-  %65 = getelementptr inbounds i8, ptr %0, i64 40
-  %66 = load i8, ptr %65, align 8, !range !7749, !alias.scope !8122, !noalias !8127, !noundef !4
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %70, label %68
+  %61 = getelementptr inbounds i8, ptr %0, i64 40
+  %62 = load i8, ptr %61, align 8, !range !7749, !alias.scope !8122, !noalias !8127, !noundef !4
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %66, label %64
 
-68:                                               ; preds = %64
-  %69 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h5c353eec1464086bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
+64:                                               ; preds = %60
+  %65 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h5c353eec1464086bE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   br label %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit"
 
-70:                                               ; preds = %64
-  %71 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb0096316446f32d8E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
+66:                                               ; preds = %60
+  %67 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hb0096316446f32d8E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4)
   br label %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit"
 
-"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit": ; preds = %68, %70
-  %.pn.i = phi { ptr, ptr } [ %71, %70 ], [ %69, %68 ]
+"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit": ; preds = %64, %66
+  %.pn.i = phi { ptr, ptr } [ %67, %66 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-72:                                               ; preds = %2
-  %73 = getelementptr inbounds i8, ptr %0, i64 8
+68:                                               ; preds = %2
+  %69 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  store ptr %73, ptr %3, align 8, !noalias !8128
-  %74 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h624d00daad7da6b4E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
+  store ptr %69, ptr %3, align 8, !noalias !8128
+  %70 = call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h624d00daad7da6b4E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-75:                                               ; preds = %2
-  %76 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h70a72c3d6d61b5deE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+71:                                               ; preds = %2
+  %72 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h70a72c3d6d61b5deE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-77:                                               ; preds = %2
-  %78 = getelementptr inbounds i8, ptr %0, i64 8
+73:                                               ; preds = %2
+  %74 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8132)
-  %79 = load i8, ptr %78, align 8, !range !7749, !alias.scope !8132, !noalias !8135, !noundef !4
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %83, label %81
+  %75 = load i8, ptr %74, align 8, !range !7749, !alias.scope !8132, !noalias !8135, !noundef !4
+  %76 = trunc nuw i8 %75 to i1
+  br i1 %76, label %79, label %77
 
-81:                                               ; preds = %77
-  %82 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hc9fdf9d3f92ca02fE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !8132
+77:                                               ; preds = %73
+  %78 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hc9fdf9d3f92ca02fE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !8132
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-83:                                               ; preds = %77
-  %84 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h3492a5dc1a256cfbE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !8132
+79:                                               ; preds = %73
+  %80 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17h3492a5dc1a256cfbE(ptr noalias noundef nonnull align 8 dereferenceable(48) %1), !noalias !8132
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-85:                                               ; preds = %2
-  %86 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hd6f84caffc2a0043E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
+81:                                               ; preds = %2
+  %82 = tail call { ptr, ptr } @_ZN10tokenizers9tokenizer13pre_tokenizer18PreTokenizedString5split17hd6f84caffc2a0043E(ptr noalias noundef nonnull align 8 dereferenceable(48) %1)
   br label %"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit"
 
-"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit": ; preds = %83, %81, %23, %21, %85, %75, %72, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit", %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", %42, %39, %36, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
-  %.pn = phi { ptr, ptr } [ %86, %85 ], [ %76, %75 ], [ %74, %72 ], [ %.pn.i, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit" ], [ %63, %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit" ], [ %45, %42 ], [ %41, %39 ], [ %38, %36 ], [ %.merged.i2, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit" ], [ %22, %21 ], [ %18, %23 ], [ %84, %83 ], [ %82, %81 ]
+"_ZN106_$LT$tokenizers..pre_tokenizers..bert..BertPreTokenizer$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h8a3e051e8afb2459E.exit": ; preds = %79, %77, %19, %17, %81, %71, %68, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit", %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit", %38, %35, %32, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit"
+  %.pn = phi { ptr, ptr } [ %.pn.i, %"_ZN96_$LT$tokenizers..pre_tokenizers..split..Split$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17hab0053601988f715E.exit" ], [ %72, %71 ], [ %70, %68 ], [ %82, %81 ], [ %59, %"_ZN102_$LT$tokenizers..pre_tokenizers..sequence..Sequence$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h947de2a0f23ac281E.exit" ], [ %41, %38 ], [ %37, %35 ], [ %34, %32 ], [ %.merged.i2, %"_ZN105_$LT$tokenizers..pre_tokenizers..byte_level..ByteLevel$u20$as$u20$tokenizers..tokenizer..PreTokenizer$GT$12pre_tokenize17h4e78d0d077c79be2E.exit" ], [ %18, %17 ], [ %14, %19 ], [ %80, %79 ], [ %78, %77 ]
   ret { ptr, ptr } %.pn
 }
 

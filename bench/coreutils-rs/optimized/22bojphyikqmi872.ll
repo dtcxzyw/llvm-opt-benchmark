@@ -1917,7 +1917,7 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6417h43
   %10 = icmp sgt i64 %.sroa.0.0.copyload, -1
   %11 = icmp ult i64 %.sroa.0.0.copyload, -9223372036854775807
   %.sroa.0.1.in.i = select i1 %9, i1 %11, i1 %10
-  br i1 %.sroa.0.1.in.i, label %24, label %27
+  br i1 %.sroa.0.1.in.i, label %21, label %24
 
 12:                                               ; preds = %3
   %.sroa.03.0.copyload = load ptr, ptr %4, align 8
@@ -1925,38 +1925,31 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6417h43
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8
   %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.35.0.copyload = load i64, ptr %.sroa.35.0..sroa_idx, align 8
-  %13 = add nsw i8 %6, -2
-  %14 = icmp ult i8 %13, 3
-  %narrow.i = select i1 %14, i8 %13, i8 1
-  switch i8 %narrow.i, label %15 [
-    i8 0, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
-    i8 1, label %16
-    i8 2, label %23
+  switch i8 %6, label %13 [
+    i8 2, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
+    i8 4, label %20
   ]
 
-15:                                               ; preds = %12
-  unreachable
+13:                                               ; preds = %12
+  %14 = icmp ne ptr %.sroa.03.0.copyload, null
+  tail call void @llvm.assume(i1 %14)
+  %15 = trunc nuw i8 %6 to i1
+  %16 = icmp sgt i64 %.sroa.35.0.copyload, -1
+  %17 = icmp ult i64 %.sroa.35.0.copyload, -9223372036854775807
+  %.sroa.0.1.in.i.i.i = select i1 %15, i1 %17, i1 %16
+  br i1 %.sroa.0.1.in.i.i.i, label %18, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
 
-16:                                               ; preds = %12
-  %17 = icmp ne ptr %.sroa.03.0.copyload, null
-  tail call void @llvm.assume(i1 %17)
-  %18 = trunc nuw i8 %6 to i1
-  %19 = icmp sgt i64 %.sroa.35.0.copyload, -1
-  %20 = icmp ult i64 %.sroa.35.0.copyload, -9223372036854775807
-  %.sroa.0.1.in.i.i.i = select i1 %18, i1 %20, i1 %19
-  br i1 %.sroa.0.1.in.i.i.i, label %21, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
-
-21:                                               ; preds = %16
-  %22 = sub i64 0, %.sroa.35.0.copyload
-  %.sroa.5.1.i.i.i = select i1 %18, i64 %22, i64 %.sroa.35.0.copyload
+18:                                               ; preds = %13
+  %19 = sub i64 0, %.sroa.35.0.copyload
+  %.sroa.5.1.i.i.i = select i1 %15, i64 %19, i64 %.sroa.35.0.copyload
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
 
-23:                                               ; preds = %12
+20:                                               ; preds = %12
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
 
-"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit": ; preds = %12, %16, %21, %23
-  %.sroa.07.0 = phi i64 [ 2, %23 ], [ 1, %21 ], [ 2, %16 ], [ 0, %12 ]
-  %.sroa.7.0 = phi i64 [ undef, %23 ], [ %.sroa.5.1.i.i.i, %21 ], [ undef, %16 ], [ undef, %12 ]
+"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit": ; preds = %12, %13, %18, %20
+  %.sroa.07.0 = phi i64 [ 1, %18 ], [ 2, %13 ], [ 2, %20 ], [ 0, %12 ]
+  %.sroa.7.0 = phi i64 [ %.sroa.5.1.i.i.i, %18 ], [ undef, %13 ], [ undef, %20 ], [ undef, %12 ]
   store i64 %.sroa.07.0, ptr %0, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 8
@@ -1964,21 +1957,21 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6417h43
   store ptr %.sroa.03.0.copyload, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.9.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 24
   store i64 %.sroa.24.0.copyload, ptr %.sroa.9.0..sroa_idx, align 8
-  br label %28
+  br label %25
 
-24:                                               ; preds = %8
-  %25 = sub i64 0, %.sroa.0.0.copyload
-  %.sroa.5.1.i = select i1 %9, i64 %25, i64 %.sroa.0.0.copyload
-  %26 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.5.1.i, ptr %26, align 8
-  br label %27
+21:                                               ; preds = %8
+  %22 = sub i64 0, %.sroa.0.0.copyload
+  %.sroa.5.1.i = select i1 %9, i64 %22, i64 %.sroa.0.0.copyload
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.5.1.i, ptr %23, align 8
+  br label %24
 
-27:                                               ; preds = %8, %24
-  %storemerge = phi i64 [ 3, %24 ], [ 2, %8 ]
+24:                                               ; preds = %8, %21
+  %storemerge = phi i64 [ 3, %21 ], [ 2, %8 ]
   store i64 %storemerge, ptr %0, align 8
-  br label %28
+  br label %25
 
-28:                                               ; preds = %27, %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
+25:                                               ; preds = %24, %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE.exit"
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   ret void
 }
@@ -2031,27 +2024,21 @@ define void @_ZN6uucore8features6format10num_parser12ParsedNumber9parse_u6417h79
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 16
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
-  %25 = icmp ult i8 %13, 3
-  %narrow.i = select i1 %25, i8 %13, i8 1
-  switch i8 %narrow.i, label %26 [
-    i8 0, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
-    i8 1, label %27
-    i8 2, label %29
+  switch i8 %6, label %25 [
+    i8 2, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
+    i8 4, label %27
   ]
 
-26:                                               ; preds = %24
-  unreachable
+25:                                               ; preds = %24
+  %26 = icmp ne ptr %.sroa.0.0.copyload, null
+  tail call void @llvm.assume(i1 %26)
+  br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
 
 27:                                               ; preds = %24
-  %28 = icmp ne ptr %.sroa.0.0.copyload, null
-  tail call void @llvm.assume(i1 %28)
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
 
-29:                                               ; preds = %24
-  br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit"
-
-"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit": ; preds = %24, %27, %29
-  %.sink.i = phi i64 [ 1, %27 ], [ 2, %29 ], [ 0, %24 ]
+"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE.exit": ; preds = %24, %25, %27
+  %.sink.i = phi i64 [ 1, %25 ], [ 2, %27 ], [ 0, %24 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.3.0.copyload, ptr %.sroa.45.0..sroa_idx, align 8
@@ -2287,19 +2274,10 @@ _ZN6uucore8features6format10num_parser12ParsedNumber24parse_f64_special_values17
   %.sroa.02.0.copyload = load ptr, ptr %8, align 8
   %.sroa.23.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
-  %70 = add nsw i8 %10, -2
-  %71 = icmp ult i8 %70, 3
-  %narrow.i = select i1 %71, i8 %70, i8 1
-  switch i8 %narrow.i, label %72 [
-    i8 0, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit"
-    i8 1, label %73
-    i8 2, label %84
-  ]
+  %cond = icmp eq i8 %10, 4
+  br i1 %cond, label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit", label %70
 
-72:                                               ; preds = %69
-  unreachable
-
-73:                                               ; preds = %69
+70:                                               ; preds = %69
   %.sroa.67.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 40
   %.sroa.67.0.copyload = load i8, ptr %.sroa.67.0..sroa_idx, align 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 32
@@ -2308,26 +2286,23 @@ _ZN6uucore8features6format10num_parser12ParsedNumber24parse_f64_special_values17
   %.sroa.45.0.copyload = load i64, ptr %.sroa.45.0..sroa_idx, align 8
   %.sroa.34.0..sroa_idx = getelementptr inbounds i8, ptr %8, i64 16
   %.sroa.34.0.copyload = load i64, ptr %.sroa.34.0..sroa_idx, align 8
-  %74 = icmp ne ptr %.sroa.02.0.copyload, null
-  tail call void @llvm.assume(i1 %74)
-  %75 = uitofp i64 %.sroa.34.0.copyload to double
-  %76 = uitofp i64 %.sroa.45.0.copyload to double
-  %77 = uitofp nneg i8 %.sroa.67.0.copyload to double
-  %78 = uitofp i64 %.sroa.56.0.copyload to double
-  %79 = tail call double @llvm.pow.f64(double %77, double %78)
-  %80 = fdiv double %76, %79
-  %81 = fadd double %80, %75
-  %82 = trunc nuw i8 %10 to i1
-  %83 = fneg double %81
-  %.0.i.i.i = select i1 %82, double %83, double %81
+  %71 = icmp ne ptr %.sroa.02.0.copyload, null
+  tail call void @llvm.assume(i1 %71)
+  %72 = uitofp i64 %.sroa.34.0.copyload to double
+  %73 = uitofp i64 %.sroa.45.0.copyload to double
+  %74 = uitofp nneg i8 %.sroa.67.0.copyload to double
+  %75 = uitofp i64 %.sroa.56.0.copyload to double
+  %76 = tail call double @llvm.pow.f64(double %74, double %75)
+  %77 = fdiv double %73, %76
+  %78 = fadd double %77, %72
+  %79 = trunc nuw i8 %10 to i1
+  %80 = fneg double %78
+  %.0.i.i.i = select i1 %79, double %80, double %78
   br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit"
 
-84:                                               ; preds = %69
-  br label %"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit"
-
-"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit": ; preds = %69, %73, %84
-  %.sroa.49.0 = phi double [ undef, %84 ], [ %.0.i.i.i, %73 ], [ undef, %69 ]
-  %.sink.i = phi i64 [ 2, %84 ], [ 1, %73 ], [ 0, %69 ]
+"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE.exit": ; preds = %69, %70
+  %.sroa.49.0 = phi double [ %.0.i.i.i, %70 ], [ undef, %69 ]
+  %.sink.i = phi i64 [ 1, %70 ], [ 2, %69 ]
   store i64 %.sink.i, ptr %0, align 8
   %.sroa.49.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
   store double %.sroa.49.0, ptr %.sroa.49.0..sroa_idx, align 8

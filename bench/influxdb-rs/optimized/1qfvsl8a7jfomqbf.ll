@@ -12422,83 +12422,79 @@ define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN6schema7builde
   %4 = alloca { ptr, i64 }, align 8
   %5 = alloca { i8, [23 x i8] }, align 8
   %6 = alloca { ptr, [1 x i64] }, align 8
-  %7 = add i8 %2, -5
-  %8 = icmp ult i8 %7, 3
-  %narrow = select i1 %8, i8 %7, i8 1
-  switch i8 %narrow, label %9 [
-    i8 0, label %10
-    i8 1, label %12
-    i8 2, label %13
+  switch i8 %2, label %10 [
+    i8 5, label %8
+    i8 7, label %11
   ]
 
-9:                                                ; preds = %12, %3
+7:                                                ; preds = %10
   unreachable
 
-10:                                               ; preds = %3
-  %11 = tail call noundef align 8 dereferenceable(56) ptr @_ZN6schema7builder13SchemaBuilder3tag17h917a0a1c42eac4afE.llvm.12936710431969675094(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  br label %29
+8:                                                ; preds = %3
+  %9 = tail call noundef align 8 dereferenceable(56) ptr @_ZN6schema7builder13SchemaBuilder3tag17h917a0a1c42eac4afE.llvm.12936710431969675094(ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  br label %27
 
-12:                                               ; preds = %3
+10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
-  switch i8 %2, label %9 [
-    i8 0, label %15
-    i8 1, label %16
-    i8 2, label %17
-    i8 3, label %18
-    i8 4, label %19
+  switch i8 %2, label %7 [
+    i8 0, label %13
+    i8 1, label %14
+    i8 2, label %15
+    i8 3, label %16
+    i8 4, label %17
   ]
 
-13:                                               ; preds = %3
-  %14 = tail call noundef align 8 dereferenceable(56) ptr @_ZN6schema7builder13SchemaBuilder9timestamp17hb2d8ffb0dd862bc0E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
-  br label %29
+11:                                               ; preds = %3
+  %12 = tail call noundef align 8 dereferenceable(56) ptr @_ZN6schema7builder13SchemaBuilder9timestamp17hb2d8ffb0dd862bc0E(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
+  br label %27
 
-15:                                               ; preds = %12
+13:                                               ; preds = %10
   store i8 12, ptr %5, align 8
-  br label %20
+  br label %18
 
-16:                                               ; preds = %12
+14:                                               ; preds = %10
   store i8 5, ptr %5, align 8
-  br label %20
+  br label %18
 
-17:                                               ; preds = %12
+15:                                               ; preds = %10
   store i8 9, ptr %5, align 8
-  br label %20
+  br label %18
 
-18:                                               ; preds = %12
+16:                                               ; preds = %10
   store i8 23, ptr %5, align 8
-  br label %20
+  br label %18
 
-19:                                               ; preds = %12
+17:                                               ; preds = %10
   store i8 1, ptr %5, align 8
-  br label %20
+  br label %18
 
-20:                                               ; preds = %19, %18, %17, %16, %15
+18:                                               ; preds = %17, %16, %15, %14, %13
   call void @_ZN6schema7builder13SchemaBuilder5field17h919f15d59c737b81E.llvm.12936710431969675094(ptr noalias nocapture noundef nonnull sret({ ptr, [1 x i64] }) align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(56) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1959)
-  %21 = load ptr, ptr %6, align 8, !alias.scope !1959, !noalias !1962, !noundef !4
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit", label %23
+  %19 = load ptr, ptr %6, align 8, !alias.scope !1959, !noalias !1962, !noundef !4
+  %20 = icmp eq ptr %19, null
+  br i1 %20, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit", label %21
 
-23:                                               ; preds = %20
+21:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1965
-  %24 = getelementptr inbounds i8, ptr %6, i64 8
-  %25 = load i64, ptr %24, align 8, !alias.scope !1959, !noalias !1962, !noundef !4
-  store ptr %21, ptr %4, align 8, !noalias !1965
-  %26 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %25, ptr %26, align 8, !noalias !1965
+  %22 = getelementptr inbounds i8, ptr %6, i64 8
+  %23 = load i64, ptr %22, align 8, !alias.scope !1959, !noalias !1962, !noundef !4
+  store ptr %19, ptr %4, align 8, !noalias !1965
+  %24 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %23, ptr %24, align 8, !noalias !1965
   call void @_ZN4core6result13unwrap_failed17hddb4fea594200c52E(ptr noalias noundef nonnull readonly align 1 @anon.3a573e31fa13f546b6d503667aff8f01.124.llvm.12936710431969675094, i64 noundef 37, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a573e31fa13f546b6d503667aff8f01.103.llvm.12936710431969675094, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.3a573e31fa13f546b6d503667aff8f01.126.llvm.12936710431969675094) #32, !noalias !1959
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit": ; preds = %20
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = load ptr, ptr %27, align 8, !alias.scope !1959, !noalias !1962, !nonnull !4, !align !829, !noundef !4
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit": ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %6, i64 8
+  %26 = load ptr, ptr %25, align 8, !alias.scope !1959, !noalias !1962, !nonnull !4, !align !829, !noundef !4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
-  br label %29
+  br label %27
 
-29:                                               ; preds = %10, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit", %13
-  %.0 = phi ptr [ %14, %13 ], [ %28, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit" ], [ %0, %10 ]
+27:                                               ; preds = %8, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit", %11
+  %.0 = phi ptr [ %12, %11 ], [ %26, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1cd849d4e368f52bE.llvm.12936710431969675094.exit" ], [ %0, %8 ]
   ret ptr %.0
 }
 

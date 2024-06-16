@@ -6974,52 +6974,45 @@ define hidden void @"_ZN86_$LT$core..slice..sort..merge..MergeHole$LT$T$GT$$u20$
 define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h598f1423c621e76aE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !range !3159, !noundef !4
-  %5 = add nsw i8 %4, -2
-  %6 = icmp ult i8 %5, 3
-  %narrow = select i1 %6, i8 %5, i8 1
-  switch i8 %narrow, label %7 [
-    i8 0, label %8
-    i8 1, label %9
-    i8 2, label %19
+  switch i8 %4, label %6 [
+    i8 2, label %5
+    i8 4, label %16
   ]
 
-7:                                                ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
+5:                                                ; preds = %2
   store i64 0, ptr %0, align 8
   br label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit"
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.03.0.copyload = load i64, ptr %10, align 8
-  %11 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
-  %12 = getelementptr inbounds i8, ptr %1, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !4
-  %14 = trunc nuw i8 %4 to i1
-  %15 = icmp sgt i64 %.sroa.03.0.copyload, -1
-  %16 = icmp ult i64 %.sroa.03.0.copyload, -9223372036854775807
-  %.sroa.0.1.in.i.i = select i1 %14, i1 %16, i1 %15
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.03.0.copyload = load i64, ptr %7, align 8
+  %8 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
+  %9 = getelementptr inbounds i8, ptr %1, i64 8
+  %10 = load i64, ptr %9, align 8, !noundef !4
+  %11 = trunc nuw i8 %4 to i1
+  %12 = icmp sgt i64 %.sroa.03.0.copyload, -1
+  %13 = icmp ult i64 %.sroa.03.0.copyload, -9223372036854775807
+  %.sroa.0.1.in.i.i = select i1 %11, i1 %13, i1 %12
   store i64 2, ptr %0, align 8, !alias.scope !3160, !noalias !3163
-  br i1 %.sroa.0.1.in.i.i, label %17, label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit"
+  br i1 %.sroa.0.1.in.i.i, label %14, label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit"
 
-17:                                               ; preds = %9
-  %18 = sub i64 0, %.sroa.03.0.copyload
-  %.sroa.5.1.i.i = select i1 %14, i64 %18, i64 %.sroa.03.0.copyload
+14:                                               ; preds = %6
+  %15 = sub i64 0, %.sroa.03.0.copyload
+  %.sroa.5.1.i.i = select i1 %11, i64 %15, i64 %.sroa.03.0.copyload
   store i64 1, ptr %0, align 8, !alias.scope !3160, !noalias !3163
   %.sroa.6.0..sroa_idx2.i = getelementptr inbounds i8, ptr %0, i64 8
   store i64 %.sroa.5.1.i.i, ptr %.sroa.6.0..sroa_idx2.i, align 8, !alias.scope !3160, !noalias !3163
   %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %11, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !alias.scope !3160, !noalias !3163
+  store ptr %8, ptr %.sroa.6.sroa.4.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !alias.scope !3160, !noalias !3163
   %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %13, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !alias.scope !3160, !noalias !3163
+  store i64 %10, ptr %.sroa.6.sroa.5.0..sroa.6.0..sroa_idx2.sroa_idx.i, align 8, !alias.scope !3160, !noalias !3163
   br label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit"
 
-19:                                               ; preds = %2
+16:                                               ; preds = %2
   store i64 2, ptr %0, align 8
   br label %"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit"
 
-"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit": ; preds = %17, %9, %8, %19
+"_ZN6uucore8features6format10num_parser12ParsedNumber9parse_i6428_$u7b$$u7b$closure$u7d$$u7d$17h494c7243cb16155cE.llvm.3307611119196902081.exit": ; preds = %14, %6, %5, %16
   ret void
 }
 
@@ -7027,53 +7020,46 @@ define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$
 define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h8619dcdd993f175fE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !range !3159, !noundef !4
-  %5 = add nsw i8 %4, -2
-  %6 = icmp ult i8 %5, 3
-  %narrow = select i1 %6, i8 %5, i8 1
-  switch i8 %narrow, label %7 [
-    i8 0, label %26
-    i8 1, label %8
-    i8 2, label %25
+  switch i8 %4, label %5 [
+    i8 2, label %23
+    i8 4, label %22
   ]
 
-7:                                                ; preds = %2
-  unreachable
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.02.0.copyload = load i64, ptr %9, align 8
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.02.0.copyload = load i64, ptr %6, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.43.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
   %.sroa.43.0.copyload = load i8, ptr %.sroa.43.0..sroa_idx, align 8
-  %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = uitofp i64 %.sroa.02.0.copyload to double
-  %14 = uitofp i64 %.sroa.2.0.copyload to double
-  %15 = uitofp nneg i8 %.sroa.43.0.copyload to double
-  %16 = uitofp i64 %.sroa.3.0.copyload to double
-  %17 = tail call double @llvm.pow.f64(double %15, double %16)
-  %18 = fdiv double %14, %17
-  %19 = fadd double %18, %13
-  %20 = trunc nuw i8 %4 to i1
-  %21 = fneg double %19
-  %.0.i.i = select i1 %20, double %21, double %19
-  %22 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %.0.i.i, ptr %22, align 8, !alias.scope !3166, !noalias !3169
-  %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %10, ptr %23, align 8, !alias.scope !3166, !noalias !3169
-  %24 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %12, ptr %24, align 8, !alias.scope !3166, !noalias !3169
-  br label %26
+  %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = uitofp i64 %.sroa.02.0.copyload to double
+  %11 = uitofp i64 %.sroa.2.0.copyload to double
+  %12 = uitofp nneg i8 %.sroa.43.0.copyload to double
+  %13 = uitofp i64 %.sroa.3.0.copyload to double
+  %14 = tail call double @llvm.pow.f64(double %12, double %13)
+  %15 = fdiv double %11, %14
+  %16 = fadd double %15, %10
+  %17 = trunc nuw i8 %4 to i1
+  %18 = fneg double %16
+  %.0.i.i = select i1 %17, double %18, double %16
+  %19 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %.0.i.i, ptr %19, align 8, !alias.scope !3166, !noalias !3169
+  %20 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %7, ptr %20, align 8, !alias.scope !3166, !noalias !3169
+  %21 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %9, ptr %21, align 8, !alias.scope !3166, !noalias !3169
+  br label %23
 
-25:                                               ; preds = %2
-  br label %26
+22:                                               ; preds = %2
+  br label %23
 
-26:                                               ; preds = %2, %8, %25
-  %.sink = phi i64 [ 1, %8 ], [ 2, %25 ], [ 0, %2 ]
+23:                                               ; preds = %2, %5, %22
+  %.sink = phi i64 [ 1, %5 ], [ 2, %22 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
@@ -7082,37 +7068,30 @@ define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$
 define hidden void @"_ZN6uucore8features6format10num_parser19ParseError$LT$T$GT$3map17h9abb361f7507e3ccE"(ptr noalias nocapture noundef writeonly sret({ i64, [3 x i64] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 8 dereferenceable(48) %1) unnamed_addr #7 {
   %3 = getelementptr inbounds i8, ptr %1, i64 41
   %4 = load i8, ptr %3, align 1, !range !3159, !noundef !4
-  %5 = add nsw i8 %4, -2
-  %6 = icmp ult i8 %5, 3
-  %narrow = select i1 %6, i8 %5, i8 1
-  switch i8 %narrow, label %7 [
-    i8 0, label %17
-    i8 1, label %8
-    i8 2, label %16
+  switch i8 %4, label %5 [
+    i8 2, label %14
+    i8 4, label %13
   ]
 
-7:                                                ; preds = %2
-  unreachable
+5:                                                ; preds = %2
+  %6 = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.02.0.copyload = load i64, ptr %6, align 8
+  %7 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
+  %8 = getelementptr inbounds i8, ptr %1, i64 8
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = getelementptr inbounds i8, ptr %0, i64 8
+  store i64 %.sroa.02.0.copyload, ptr %10, align 8, !alias.scope !3172, !noalias !3175
+  %11 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %7, ptr %11, align 8, !alias.scope !3172, !noalias !3175
+  %12 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 %9, ptr %12, align 8, !alias.scope !3172, !noalias !3175
+  br label %14
 
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.02.0.copyload = load i64, ptr %9, align 8
-  %10 = load ptr, ptr %1, align 8, !nonnull !4, !align !2800, !noundef !4
-  %11 = getelementptr inbounds i8, ptr %1, i64 8
-  %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
-  store i64 %.sroa.02.0.copyload, ptr %13, align 8, !alias.scope !3172, !noalias !3175
-  %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %10, ptr %14, align 8, !alias.scope !3172, !noalias !3175
-  %15 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 %12, ptr %15, align 8, !alias.scope !3172, !noalias !3175
-  br label %17
+13:                                               ; preds = %2
+  br label %14
 
-16:                                               ; preds = %2
-  br label %17
-
-17:                                               ; preds = %2, %8, %16
-  %.sink = phi i64 [ 1, %8 ], [ 2, %16 ], [ 0, %2 ]
+14:                                               ; preds = %2, %5, %13
+  %.sink = phi i64 [ 1, %5 ], [ 2, %13 ], [ 0, %2 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }
