@@ -59,29 +59,26 @@ for.body.split:                                   ; preds = %for.body
   %call.i7 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   %next.i = getelementptr inbounds i8, ptr %call.i7, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call.i7, i8 0, i64 16, i1 false)
-  %0 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i7, i64 16
-  store ptr %0, ptr %tql_prev4.i, align 8
-  store ptr %call.i7, ptr %0, align 8
   br label %cond.end
 
 qobject_ref_impl.exit:                            ; preds = %for.body
   %refcnt.i = getelementptr inbounds i8, ptr %entry1.0.val, i64 8
-  %1 = load i64, ptr %refcnt.i, align 8
-  %inc.i = add i64 %1, 1
+  %0 = load i64, ptr %refcnt.i, align 8
+  %inc.i = add i64 %0, 1
   store i64 %inc.i, ptr %refcnt.i, align 8
   %call.i9 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc(i64 noundef 24) #9
   store ptr %entry1.0.val, ptr %call.i9, align 8
   %next.i10 = getelementptr inbounds i8, ptr %call.i9, i64 8
   store ptr null, ptr %next.i10, align 8
-  %2 = load ptr, ptr %tql_prev.i, align 8
-  %tql_prev4.i12 = getelementptr inbounds i8, ptr %call.i9, i64 16
-  store ptr %2, ptr %tql_prev4.i12, align 8
-  store ptr %call.i9, ptr %2, align 8
   br label %cond.end
 
 cond.end:                                         ; preds = %for.body.split, %qobject_ref_impl.exit
-  %storemerge = phi ptr [ %next.i10, %qobject_ref_impl.exit ], [ %next.i, %for.body.split ]
+  %call.i7.sink17 = phi ptr [ %call.i7, %for.body.split ], [ %call.i9, %qobject_ref_impl.exit ]
+  %storemerge = phi ptr [ %next.i, %for.body.split ], [ %next.i10, %qobject_ref_impl.exit ]
+  %1 = load ptr, ptr %tql_prev.i, align 8
+  %tql_prev4.i = getelementptr inbounds i8, ptr %call.i7.sink17, i64 16
+  store ptr %1, ptr %tql_prev4.i, align 8
+  store ptr %call.i7.sink17, ptr %1, align 8
   store ptr %storemerge, ptr %tql_prev.i, align 8
   %next = getelementptr inbounds i8, ptr %entry1.015, i64 8
   %entry1.0 = load ptr, ptr %next, align 8

@@ -1108,93 +1108,84 @@ define internal void @__clockevents_unbind(ptr nocapture noundef %0) #0 align 16
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %7, label %13
+  br i1 %6, label %.thread.sink.split, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %2, i64 184
-  %9 = getelementptr inbounds i8, ptr %2, i64 192
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %10, ptr %12, align 8
-  store volatile ptr %11, ptr %10, align 8
-  store volatile ptr %8, ptr %8, align 8
-  store volatile ptr %8, ptr %9, align 8
-  br label %.thread
-
-13:                                               ; preds = %1
-  %14 = sext i32 %3 to i64
-  %15 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %14
-  %16 = load i64, ptr %15, align 8
-  %17 = add i64 %16, ptrtoint (ptr @tick_cpu_device to i64)
-  %18 = inttoptr i64 %17 to ptr
-  %19 = load ptr, ptr %18, align 8
-  %20 = icmp ne ptr %19, %2
-  %21 = load ptr, ptr @clockevent_devices, align 8
-  %22 = icmp eq ptr %21, @clockevent_devices
-  %or.cond = select i1 %20, i1 true, i1 %22
+  %8 = sext i32 %3 to i64
+  %9 = getelementptr [64 x i64], ptr @__per_cpu_offset, i64 0, i64 %8
+  %10 = load i64, ptr %9, align 8
+  %11 = add i64 %10, ptrtoint (ptr @tick_cpu_device to i64)
+  %12 = inttoptr i64 %11 to ptr
+  %13 = load ptr, ptr %12, align 8
+  %14 = icmp ne ptr %13, %2
+  %15 = load ptr, ptr @clockevent_devices, align 8
+  %16 = icmp eq ptr %15, @clockevent_devices
+  %or.cond = select i1 %14, i1 true, i1 %16
   br i1 %or.cond, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %13, %42
-  %23 = phi ptr [ %44, %42 ], [ %21, %13 ]
-  %24 = phi ptr [ %43, %42 ], [ null, %13 ]
-  %25 = getelementptr i8, ptr %23, i64 -184
-  %26 = icmp eq ptr %25, %2
-  br i1 %26, label %42, label %27
+.preheader:                                       ; preds = %7, %36
+  %17 = phi ptr [ %38, %36 ], [ %15, %7 ]
+  %18 = phi ptr [ %37, %36 ], [ null, %7 ]
+  %19 = getelementptr i8, ptr %17, i64 -184
+  %20 = icmp eq ptr %19, %2
+  br i1 %20, label %36, label %21
 
-27:                                               ; preds = %.preheader
-  %28 = getelementptr i8, ptr %23, i64 -128
-  %29 = load i32, ptr %28, align 8
-  %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %42
+21:                                               ; preds = %.preheader
+  %22 = getelementptr i8, ptr %17, i64 -128
+  %23 = load i32, ptr %22, align 8
+  %24 = icmp eq i32 %23, 0
+  br i1 %24, label %25, label %36
+
+25:                                               ; preds = %21
+  %26 = tail call zeroext i1 @tick_check_replacement(ptr noundef %18, ptr noundef %19) #11
+  br i1 %26, label %27, label %36
+
+27:                                               ; preds = %25
+  %28 = getelementptr i8, ptr %17, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call zeroext i1 @try_module_get(ptr noundef %29) #11
+  br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
-  %32 = tail call zeroext i1 @tick_check_replacement(ptr noundef %24, ptr noundef %25) #11
-  br i1 %32, label %33, label %42
+  %32 = icmp eq ptr %18, null
+  br i1 %32, label %36, label %33
 
 33:                                               ; preds = %31
-  %34 = getelementptr i8, ptr %23, i64 16
+  %34 = getelementptr inbounds i8, ptr %18, i64 200
   %35 = load ptr, ptr %34, align 8
-  %36 = tail call zeroext i1 @try_module_get(ptr noundef %35) #11
-  br i1 %36, label %37, label %42
+  tail call void @module_put(ptr noundef %35) #11
+  br label %36
 
-37:                                               ; preds = %33
-  %38 = icmp eq ptr %24, null
-  br i1 %38, label %42, label %39
+36:                                               ; preds = %33, %31, %27, %25, %21, %.preheader
+  %37 = phi ptr [ %18, %.preheader ], [ %18, %27 ], [ %18, %25 ], [ %18, %21 ], [ %19, %33 ], [ %19, %31 ]
+  %38 = load ptr, ptr %17, align 8
+  %39 = icmp eq ptr %38, @clockevent_devices
+  br i1 %39, label %40, label %.preheader, !llvm.loop !55
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %24, i64 200
-  %41 = load ptr, ptr %40, align 8
-  tail call void @module_put(ptr noundef %41) #11
-  br label %42
+40:                                               ; preds = %36
+  %41 = icmp eq ptr %37, null
+  br i1 %41, label %.thread, label %42
 
-42:                                               ; preds = %39, %37, %33, %31, %27, %.preheader
-  %43 = phi ptr [ %24, %.preheader ], [ %24, %33 ], [ %24, %31 ], [ %24, %27 ], [ %25, %39 ], [ %25, %37 ]
-  %44 = load ptr, ptr %23, align 8
-  %45 = icmp eq ptr %44, @clockevent_devices
-  br i1 %45, label %46, label %.preheader, !llvm.loop !55
+42:                                               ; preds = %40
+  tail call void @tick_install_replacement(ptr noundef nonnull %37) #11
+  br label %.thread.sink.split
 
-46:                                               ; preds = %42
-  %47 = icmp eq ptr %43, null
-  br i1 %47, label %.thread, label %48
-
-48:                                               ; preds = %46
-  tail call void @tick_install_replacement(ptr noundef nonnull %43) #11
-  %49 = getelementptr inbounds i8, ptr %2, i64 184
-  %50 = getelementptr inbounds i8, ptr %2, i64 192
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %49, align 8
-  %53 = getelementptr inbounds i8, ptr %52, i64 8
-  store ptr %51, ptr %53, align 8
-  store volatile ptr %52, ptr %51, align 8
-  store volatile ptr %49, ptr %49, align 8
-  store volatile ptr %49, ptr %50, align 8
+.thread.sink.split:                               ; preds = %1, %42
+  %43 = getelementptr inbounds i8, ptr %2, i64 184
+  %44 = getelementptr inbounds i8, ptr %2, i64 192
+  %45 = load ptr, ptr %44, align 8
+  %46 = load ptr, ptr %43, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 8
+  store ptr %45, ptr %47, align 8
+  store volatile ptr %46, ptr %45, align 8
+  store volatile ptr %43, ptr %43, align 8
+  store volatile ptr %43, ptr %44, align 8
   br label %.thread
 
-.thread:                                          ; preds = %13, %7, %48, %46
-  %54 = phi i32 [ 0, %48 ], [ -16, %46 ], [ -16, %13 ], [ 0, %7 ]
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %54, ptr %55, align 8
+.thread:                                          ; preds = %.thread.sink.split, %7, %40
+  %48 = phi i32 [ -16, %40 ], [ -16, %7 ], [ 0, %.thread.sink.split ]
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  store i32 %48, ptr %49, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @clockevents_lock) #11
   ret void
 }

@@ -3686,7 +3686,7 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1207 = load ptr, ptr %8, align 8
   %1208 = tail call ptr @realloc(ptr noundef %1207, i64 noundef %1206) #23
   %1209 = icmp eq ptr %1208, null
-  br i1 %1209, label %.critedge, label %add_op.exit115.i.sink.split
+  br i1 %1209, label %.critedge, label %add_op.exit115.sink.split.i
 
 1210:                                             ; preds = %1189, %1186
   %1211 = load i32, ptr %6, align 8
@@ -3717,25 +3717,25 @@ onig_positive_int_multiply.exit.thread277:        ; preds = %816
   %1226 = load ptr, ptr %8, align 8
   %1227 = tail call ptr @realloc(ptr noundef %1226, i64 noundef %1225) #23
   %1228 = icmp eq ptr %1227, null
-  br i1 %1228, label %.critedge, label %add_op.exit115.i.sink.split
+  br i1 %1228, label %.critedge, label %add_op.exit115.sink.split.i
 
-add_op.exit115.i.sink.split:                      ; preds = %1224, %1205
-  %.sink858 = phi ptr [ %1208, %1205 ], [ %1227, %1224 ]
-  %.sink = phi i32 [ %1195, %1205 ], [ %1214, %1224 ]
-  %.sink.i.ph = phi i32 [ 52, %1205 ], [ 51, %1224 ]
-  store ptr %.sink858, ptr %8, align 8
-  store i32 %.sink, ptr %7, align 4
+add_op.exit115.sink.split.i:                      ; preds = %1224, %1205
+  %storemerge772 = phi ptr [ %1208, %1205 ], [ %1227, %1224 ]
+  %storemerge = phi i32 [ %1195, %1205 ], [ %1214, %1224 ]
+  %.sink.ph.i = phi i32 [ 52, %1205 ], [ 51, %1224 ]
+  store ptr %storemerge772, ptr %8, align 8
+  store i32 %storemerge, ptr %7, align 4
   %1229 = load i32, ptr %6, align 8
   br label %add_op.exit115.i
 
-add_op.exit115.i:                                 ; preds = %add_op.exit115.i.sink.split, %1210, %1213, %1191, %1194
-  %.sink857 = phi i32 [ %1192, %1194 ], [ %1192, %1191 ], [ %1211, %1213 ], [ %1211, %1210 ], [ %1229, %add_op.exit115.i.sink.split ]
-  %.sink.i = phi i32 [ 52, %1194 ], [ 52, %1191 ], [ 51, %1213 ], [ 51, %1210 ], [ %.sink.i.ph, %add_op.exit115.i.sink.split ]
+add_op.exit115.i:                                 ; preds = %add_op.exit115.sink.split.i, %1213, %1210, %1194, %1191
+  %.sink156.i = phi i32 [ %1192, %1194 ], [ %1192, %1191 ], [ %1211, %1213 ], [ %1211, %1210 ], [ %1229, %add_op.exit115.sink.split.i ]
+  %.sink.i = phi i32 [ 52, %1194 ], [ 52, %1191 ], [ 51, %1213 ], [ 51, %1210 ], [ %.sink.ph.i, %add_op.exit115.sink.split.i ]
   %1230 = load ptr, ptr %1, align 8
-  %1231 = zext i32 %.sink857 to i64
+  %1231 = zext i32 %.sink156.i to i64
   %1232 = getelementptr inbounds %struct.Operation, ptr %1230, i64 %1231
   store ptr %1232, ptr %5, align 8
-  %1233 = add i32 %.sink857, 1
+  %1233 = add i32 %.sink156.i, 1
   store i32 %1233, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1232, i8 0, i64 24, i1 false)
   %1234 = load ptr, ptr %8, align 8
@@ -3847,22 +3847,22 @@ add_op.exit115.i:                                 ; preds = %add_op.exit115.i.si
   br i1 %1301, label %.critedge, label %add_op.exit123.sink.split.i
 
 add_op.exit123.sink.split.i:                      ; preds = %1297, %1275
-  %storemerge772 = phi ptr [ %1278, %1275 ], [ %1300, %1297 ]
-  %storemerge = phi i32 [ %1265, %1275 ], [ %1287, %1297 ]
-  %.sink152.ph.i = phi i32 [ %1261, %1275 ], [ %1283, %1297 ]
-  store ptr %storemerge772, ptr %8, align 8
-  store i32 %storemerge, ptr %7, align 4
+  %storemerge774 = phi ptr [ %1278, %1275 ], [ %1300, %1297 ]
+  %storemerge773 = phi i32 [ %1265, %1275 ], [ %1287, %1297 ]
+  %.sink157.ph.i = phi i32 [ %1261, %1275 ], [ %1283, %1297 ]
+  store ptr %storemerge774, ptr %8, align 8
+  store i32 %storemerge773, ptr %7, align 4
   %1302 = load i32, ptr %6, align 8
   br label %add_op.exit123.i
 
 add_op.exit123.i:                                 ; preds = %add_op.exit123.sink.split.i, %1286, %1280, %1264, %1258
-  %.sink169.i = phi i32 [ %1262, %1264 ], [ %1262, %1258 ], [ %1284, %1286 ], [ %1284, %1280 ], [ %1302, %add_op.exit123.sink.split.i ]
-  %.sink152.i = phi i32 [ %1261, %1264 ], [ %1261, %1258 ], [ %1283, %1286 ], [ %1283, %1280 ], [ %.sink152.ph.i, %add_op.exit123.sink.split.i ]
+  %.sink174.i = phi i32 [ %1262, %1264 ], [ %1262, %1258 ], [ %1284, %1286 ], [ %1284, %1280 ], [ %1302, %add_op.exit123.sink.split.i ]
+  %.sink157.i = phi i32 [ %1261, %1264 ], [ %1261, %1258 ], [ %1283, %1286 ], [ %1283, %1280 ], [ %.sink157.ph.i, %add_op.exit123.sink.split.i ]
   %1303 = load ptr, ptr %1, align 8
-  %1304 = zext i32 %.sink169.i to i64
+  %1304 = zext i32 %.sink174.i to i64
   %1305 = getelementptr inbounds %struct.Operation, ptr %1303, i64 %1304
   store ptr %1305, ptr %5, align 8
-  %1306 = add i32 %.sink169.i, 1
+  %1306 = add i32 %.sink174.i, 1
   store i32 %1306, ptr %6, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1305, i8 0, i64 24, i1 false)
   %1307 = load ptr, ptr %8, align 8
@@ -3873,7 +3873,7 @@ add_op.exit123.i:                                 ; preds = %add_op.exit123.sink
   %1312 = sub i64 %1310, %1311
   %1313 = sdiv exact i64 %1312, 24
   %1314 = getelementptr inbounds i32, ptr %1307, i64 %1313
-  store i32 %.sink152.i, ptr %1314, align 4
+  store i32 %.sink157.i, ptr %1314, align 4
   %1315 = load i32, ptr %1181, align 8
   %1316 = load ptr, ptr %5, align 8
   %1317 = getelementptr inbounds i8, ptr %1316, i64 8
@@ -5124,81 +5124,72 @@ ops_calc_size_of_string_pool.exit:                ; preds = %30
   %35 = icmp eq ptr %34, null
   br i1 %35, label %ops_calc_size_of_string_pool.exit.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %32, %67
-  %indvars.iv = phi i64 [ %indvars.iv.next, %67 ], [ 0, %32 ]
-  %.03944 = phi ptr [ %.1, %67 ], [ %34, %32 ]
+.lr.ph:                                           ; preds = %32, %62
+  %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %32 ]
+  %.03944 = phi ptr [ %.1, %62 ], [ %34, %32 ]
   %36 = load ptr, ptr %0, align 8
   %37 = getelementptr inbounds %struct.Operation, ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %7, align 8
   %39 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4
-  switch i32 %40, label %67 [
+  switch i32 %40, label %62 [
     i32 13, label %41
-    i32 7, label %50
-    i32 11, label %57
-    i32 12, label %61
+    i32 7, label %47
+    i32 11, label %50
+    i32 12, label %54
   ]
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %37, i64 8
-  %43 = getelementptr inbounds i8, ptr %37, i64 20
-  %44 = load i32, ptr %43, align 4
-  %45 = getelementptr inbounds i8, ptr %37, i64 16
-  %46 = load i32, ptr %45, align 8
-  %47 = mul nsw i32 %46, %44
-  %48 = load ptr, ptr %42, align 8
-  %49 = sext i32 %47 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03944, ptr align 1 %48, i64 %49, i1 false)
+  %42 = getelementptr inbounds i8, ptr %37, i64 20
+  %43 = load i32, ptr %42, align 4
+  %44 = getelementptr inbounds i8, ptr %37, i64 16
+  %45 = load i32, ptr %44, align 8
+  %46 = mul nsw i32 %45, %43
+  br label %.sink.split
+
+47:                                               ; preds = %.lr.ph
+  %48 = getelementptr inbounds i8, ptr %37, i64 16
+  %49 = load i32, ptr %48, align 8
   br label %.sink.split
 
 50:                                               ; preds = %.lr.ph
   %51 = getelementptr inbounds i8, ptr %37, i64 16
   %52 = load i32, ptr %51, align 8
-  br label %53
-
-53:                                               ; preds = %61, %57, %50
-  %.040 = phi i32 [ %64, %61 ], [ %60, %57 ], [ %52, %50 ]
-  %54 = getelementptr inbounds i8, ptr %37, i64 8
-  %55 = load ptr, ptr %54, align 8
-  %56 = sext i32 %.040 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03944, ptr align 1 %55, i64 %56, i1 false)
+  %53 = shl nsw i32 %52, 1
   br label %.sink.split
 
-57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds i8, ptr %37, i64 16
-  %59 = load i32, ptr %58, align 8
-  %60 = shl nsw i32 %59, 1
-  br label %53
+54:                                               ; preds = %.lr.ph
+  %55 = getelementptr inbounds i8, ptr %37, i64 16
+  %56 = load i32, ptr %55, align 8
+  %57 = mul nsw i32 %56, 3
+  br label %.sink.split
 
-61:                                               ; preds = %.lr.ph
-  %62 = getelementptr inbounds i8, ptr %37, i64 16
-  %63 = load i32, ptr %62, align 8
-  %64 = mul nsw i32 %63, 3
-  br label %53
+.sink.split:                                      ; preds = %47, %50, %54, %41
+  %.sink52 = phi i32 [ %46, %41 ], [ %57, %54 ], [ %53, %50 ], [ %49, %47 ]
+  %.sink = getelementptr inbounds i8, ptr %37, i64 8
+  %58 = load ptr, ptr %.sink, align 8
+  %59 = sext i32 %.sink52 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.03944, ptr align 1 %58, i64 %59, i1 false)
+  %60 = load ptr, ptr %.sink, align 8
+  tail call void @free(ptr noundef %60) #22
+  store ptr %.03944, ptr %.sink, align 8
+  %61 = getelementptr inbounds i8, ptr %.03944, i64 %59
+  br label %62
 
-.sink.split:                                      ; preds = %53, %41
-  %.sink49 = phi ptr [ %42, %41 ], [ %54, %53 ]
-  %.sink = phi i64 [ %49, %41 ], [ %56, %53 ]
-  %65 = load ptr, ptr %.sink49, align 8
-  tail call void @free(ptr noundef %65) #22
-  store ptr %.03944, ptr %.sink49, align 8
-  %66 = getelementptr inbounds i8, ptr %.03944, i64 %.sink
-  br label %67
-
-67:                                               ; preds = %.sink.split, %.lr.ph
-  %.1 = phi ptr [ %.03944, %.lr.ph ], [ %66, %.sink.split ]
+62:                                               ; preds = %.sink.split, %.lr.ph
+  %.1 = phi ptr [ %.03944, %.lr.ph ], [ %61, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %68 = load i32, ptr %4, align 8
-  %69 = sext i32 %68 to i64
-  %70 = icmp slt i64 %indvars.iv.next, %69
-  br i1 %70, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %63 = load i32, ptr %4, align 8
+  %64 = sext i32 %63 to i64
+  %65 = icmp slt i64 %indvars.iv.next, %64
+  br i1 %65, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %67
-  %71 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %34, ptr %71, align 8
-  %72 = getelementptr inbounds i8, ptr %34, i64 %33
-  %73 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %72, ptr %73, align 8
+._crit_edge:                                      ; preds = %62
+  %66 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %34, ptr %66, align 8
+  %67 = getelementptr inbounds i8, ptr %34, i64 %33
+  %68 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %67, ptr %68, align 8
   br label %ops_calc_size_of_string_pool.exit.thread
 
 ops_calc_size_of_string_pool.exit.thread:         ; preds = %.preheader.i, %1, %32, %ops_calc_size_of_string_pool.exit, %._crit_edge
@@ -14314,10 +14305,10 @@ concat_opt_exact.exit88:                          ; preds = %._crit_edge.i62, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %concat_opt_exact.exit88, %concat_opt_exact.exit
-  %.sink = phi i64 [ 72, %concat_opt_exact.exit88 ], [ 24, %concat_opt_exact.exit ]
-  %.sink110 = phi i64 [ 76, %concat_opt_exact.exit88 ], [ 28, %concat_opt_exact.exit ]
-  %.fr.i.sink = phi i32 [ %.fr.i66, %concat_opt_exact.exit88 ], [ %.fr.i, %concat_opt_exact.exit ]
-  %120 = getelementptr inbounds i8, ptr %1, i64 %.sink
+  %.sink113 = phi i64 [ 24, %concat_opt_exact.exit ], [ 72, %concat_opt_exact.exit88 ]
+  %.sink110 = phi i64 [ 28, %concat_opt_exact.exit ], [ 76, %concat_opt_exact.exit88 ]
+  %.fr.i.sink = phi i32 [ %.fr.i, %concat_opt_exact.exit ], [ %.fr.i66, %concat_opt_exact.exit88 ]
+  %120 = getelementptr inbounds i8, ptr %1, i64 %.sink113
   %121 = load i32, ptr %120, align 4
   %122 = getelementptr inbounds i8, ptr %2, i64 28
   %123 = load i32, ptr %122, align 4

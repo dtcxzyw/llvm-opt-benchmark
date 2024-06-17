@@ -477,10 +477,10 @@ if.then8.i:                                       ; preds = %if.end.i
 return.sink.split.i:                              ; preds = %if.then8.i, %if.end.i
   %retval.0.ph.i = phi i32 [ %call.i, %if.then8.i ], [ 1, %if.end.i ]
   %8 = load ptr, ptr %s3.i4, align 8
-  %write_buffer.i.i = getelementptr inbounds i8, ptr %8, i64 104
-  %9 = load ptr, ptr %write_buffer.i.i, align 8
+  %write_buffer.i10.i = getelementptr inbounds i8, ptr %8, i64 104
+  %9 = load ptr, ptr %write_buffer.i10.i, align 8
   tail call void @free(ptr noundef %9) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i.i, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i10.i, i8 0, i64 16, i1 false)
   br label %return
 
 if.else:                                          ; preds = %if.end
@@ -509,8 +509,8 @@ while.body.i:                                     ; preds = %consume_buffer.exit
   br i1 %cmp6.i13, label %if.then.i, label %if.end.i14
 
 if.then.i:                                        ; preds = %while.body.i
-  %rwstate.i17 = getelementptr inbounds i8, ptr %ssl, i64 144
-  store i32 2, ptr %rwstate.i17, align 8
+  %rwstate.i16 = getelementptr inbounds i8, ptr %ssl, i64 144
+  store i32 2, ptr %rwstate.i16, align 8
   br label %return
 
 if.end.i14:                                       ; preds = %while.body.i
@@ -542,10 +542,10 @@ while.end.loopexit.i:                             ; preds = %consume_buffer.exit
 
 while.end.i:                                      ; preds = %while.end.loopexit.i, %if.else
   %19 = phi ptr [ %.pre14.i, %while.end.loopexit.i ], [ %3, %if.else ]
-  %write_buffer.i.i15 = getelementptr inbounds i8, ptr %19, i64 104
-  %20 = load ptr, ptr %write_buffer.i.i15, align 8
+  %write_buffer.i.i = getelementptr inbounds i8, ptr %19, i64 104
+  %20 = load ptr, ptr %write_buffer.i.i, align 8
   tail call void @free(ptr noundef %20) #8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i.i15, i8 0, i64 16, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %write_buffer.i.i, i8 0, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %while.end.i, %if.then.i, %return.sink.split.i, %if.then1, %if.then

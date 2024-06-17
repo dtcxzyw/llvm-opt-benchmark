@@ -1490,11 +1490,11 @@ define internal void @storeGettuple(ptr nocapture noundef %0, ptr nocapture noun
   br label %51
 
 51:                                               ; preds = %42, %47
-  %.sink55 = phi double [ %50, %47 ], [ 0.000000e+00, %42 ]
+  %.sink50 = phi double [ %50, %47 ], [ 0.000000e+00, %42 ]
   %.sink = phi i8 [ 0, %47 ], [ 1, %42 ]
   %52 = getelementptr %struct.IndexOrderByDistance, ptr %38, i64 %indvars.iv
-  store double %.sink55, ptr %52, align 8
-  %53 = getelementptr %struct.IndexOrderByDistance, ptr %38, i64 %indvars.iv, i32 1
+  store double %.sink50, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
   store i8 %.sink, ptr %53, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i32, ptr %27, align 8
@@ -1503,12 +1503,12 @@ define internal void @storeGettuple(ptr nocapture noundef %0, ptr nocapture noun
   br i1 %56, label %42, label %.sink.split, !llvm.loop !21
 
 .sink.split:                                      ; preds = %51, %35, %30, %31
-  %.sink50 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
+  %.sink52 = phi ptr [ null, %31 ], [ null, %30 ], [ %38, %35 ], [ %38, %51 ]
   %57 = getelementptr inbounds i8, ptr %0, i64 6856
   %58 = load i32, ptr %15, align 8
   %59 = sext i32 %58 to i64
   %60 = getelementptr [408 x ptr], ptr %57, i64 0, i64 %59
-  store ptr %.sink50, ptr %60, align 8
+  store ptr %.sink52, ptr %60, align 8
   br label %61
 
 61:                                               ; preds = %.sink.split, %8

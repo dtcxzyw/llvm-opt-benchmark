@@ -631,28 +631,6 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit: ; preds =
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !9
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !9
-  %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 16
-  %m_scale.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 24
-  %m_offset.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 28
-  %m_lowerBound.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 32
-  %m_upperBound.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 36
-  %m_scale.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 200
-  %10 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %conv.i.i.i.i.i.i.i.i.i = fptrunc double %10 to float
-  store float %conv.i.i.i.i.i.i.i.i.i, ptr %m_scale.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %m_offset.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 208
-  %11 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %conv7.i.i.i.i.i.i.i.i.i = fptrunc double %11 to float
-  store float %conv7.i.i.i.i.i.i.i.i.i, ptr %m_offset.i.i.i.i.i.i.i.i.i, align 4, !noalias !9
-  %m_minOutValue.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 184
-  %12 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %conv12.i.i.i.i.i.i.i.i.i = fptrunc double %12 to float
-  store float %conv12.i.i.i.i.i.i.i.i.i, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 192
-  %13 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
-  %conv17.i.i.i.i.i.i.i.i.i = fptrunc double %13 to float
-  store float %conv17.i.i.i.i.i.i.i.i.i, ptr %m_upperBound.i.i.i.i.i.i.i.i.i, align 4, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
   br label %cleanup
 
 if.else:                                          ; preds = %invoke.cont4
@@ -672,28 +650,6 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit: ; preds =
   %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15, align 4, !noalias !12
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !12
-  %_M_impl.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 16
-  %m_scale.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 24
-  %m_offset.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 28
-  %m_lowerBound.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 32
-  %m_upperBound.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 36
-  %m_scale.i.i.i.i.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %9, i64 200
-  %14 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i21, align 8, !noalias !12
-  %conv.i.i.i.i.i.i.i.i.i22 = fptrunc double %14 to float
-  store float %conv.i.i.i.i.i.i.i.i.i22, ptr %m_scale.i.i.i.i.i.i.i.i.i17, align 8, !noalias !12
-  %m_offset.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %9, i64 208
-  %15 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i23, align 8, !noalias !12
-  %conv7.i.i.i.i.i.i.i.i.i24 = fptrunc double %15 to float
-  store float %conv7.i.i.i.i.i.i.i.i.i24, ptr %m_offset.i.i.i.i.i.i.i.i.i18, align 4, !noalias !12
-  %m_minOutValue.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %9, i64 184
-  %16 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i25, align 8, !noalias !12
-  %conv12.i.i.i.i.i.i.i.i.i26 = fptrunc double %16 to float
-  store float %conv12.i.i.i.i.i.i.i.i.i26, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i19, align 8, !noalias !12
-  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i27 = getelementptr inbounds i8, ptr %9, i64 192
-  %17 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i27, align 8, !noalias !12
-  %conv17.i.i.i.i.i.i.i.i.i28 = fptrunc double %17 to float
-  store float %conv17.i.i.i.i.i.i.i.i.i28, ptr %m_upperBound.i.i.i.i.i.i.i.i.i20, align 4, !noalias !12
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i16, align 8, !noalias !12
   br label %cleanup
 
 if.end15:                                         ; preds = %invoke.cont9
@@ -713,28 +669,6 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit: ; pred
   %_M_weak_count.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i65, align 4, !noalias !15
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i79, align 8, !noalias !15
-  %_M_impl.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 16
-  %m_scale.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 24
-  %m_offset.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 28
-  %m_lowerBound.i.i.i.i.i.i.i.i.i69 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 32
-  %m_upperBound.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 36
-  %m_scale.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %9, i64 200
-  %18 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i71, align 8, !noalias !15
-  %conv.i.i.i.i.i.i.i.i.i72 = fptrunc double %18 to float
-  store float %conv.i.i.i.i.i.i.i.i.i72, ptr %m_scale.i.i.i.i.i.i.i.i.i67, align 8, !noalias !15
-  %m_offset.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %9, i64 208
-  %19 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i73, align 8, !noalias !15
-  %conv7.i.i.i.i.i.i.i.i.i74 = fptrunc double %19 to float
-  store float %conv7.i.i.i.i.i.i.i.i.i74, ptr %m_offset.i.i.i.i.i.i.i.i.i68, align 4, !noalias !15
-  %m_minOutValue.i.i.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %9, i64 184
-  %20 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i75, align 8, !noalias !15
-  %conv12.i.i.i.i.i.i.i.i.i76 = fptrunc double %20 to float
-  store float %conv12.i.i.i.i.i.i.i.i.i76, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i69, align 8, !noalias !15
-  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %9, i64 192
-  %21 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i77, align 8, !noalias !15
-  %conv17.i.i.i.i.i.i.i.i.i78 = fptrunc double %21 to float
-  store float %conv17.i.i.i.i.i.i.i.i.i78, ptr %m_upperBound.i.i.i.i.i.i.i.i.i70, align 4, !noalias !15
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i66, align 8, !noalias !15
   br label %cleanup
 
 if.end22:                                         ; preds = %invoke.cont17
@@ -747,106 +681,106 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit: ;
   %_M_weak_count.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i115, align 4, !noalias !18
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i129, align 8, !noalias !18
-  %_M_impl.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 16
-  %m_scale.i.i.i.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 24
-  %m_offset.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 28
-  %m_lowerBound.i.i.i.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 32
-  %m_upperBound.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 36
-  %m_scale.i.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %9, i64 200
-  %22 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i121, align 8, !noalias !18
-  %conv.i.i.i.i.i.i.i.i.i122 = fptrunc double %22 to float
-  store float %conv.i.i.i.i.i.i.i.i.i122, ptr %m_scale.i.i.i.i.i.i.i.i.i117, align 8, !noalias !18
-  %m_offset.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %9, i64 208
-  %23 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i123, align 8, !noalias !18
-  %conv7.i.i.i.i.i.i.i.i.i124 = fptrunc double %23 to float
-  store float %conv7.i.i.i.i.i.i.i.i.i124, ptr %m_offset.i.i.i.i.i.i.i.i.i118, align 4, !noalias !18
-  %m_minOutValue.i.i.i.i.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %9, i64 184
-  %24 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i125, align 8, !noalias !18
-  %conv12.i.i.i.i.i.i.i.i.i126 = fptrunc double %24 to float
-  store float %conv12.i.i.i.i.i.i.i.i.i126, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i119, align 8, !noalias !18
-  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %9, i64 192
-  %25 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127, align 8, !noalias !18
-  %conv17.i.i.i.i.i.i.i.i.i128 = fptrunc double %25 to float
-  store float %conv17.i.i.i.i.i.i.i.i.i128, ptr %m_upperBound.i.i.i.i.i.i.i.i.i120, align 4, !noalias !18
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 16), ptr %_M_impl.i.i.i.i.i.i116, align 8, !noalias !18
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit
-  %_M_impl.i.i.i.i.i.i116.sink = phi ptr [ %_M_impl.i.i.i.i.i.i116, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i66, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i16, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ %_M_impl.i.i.i.i.i.i, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
-  %call5.i.i.i3.i.i.i.i129.sink = phi ptr [ %call5.i.i.i3.i.i.i.i129, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i79, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i29, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i3, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
-  store ptr %_M_impl.i.i.i.i.i.i116.sink, ptr %agg.result, align 8
+  %call5.i.i.i3.i.i.i.i129.sink207 = phi ptr [ %call5.i.i.i3.i.i.i.i129, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i79, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i29, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ %call5.i.i.i3.i.i.i.i3, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit ], [ getelementptr inbounds (i8, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 16), %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit ]
+  %_M_impl.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 16
+  %m_scale.i.i.i.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 24
+  %m_offset.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 28
+  %m_lowerBound.i.i.i.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 32
+  %m_upperBound.i.i.i.i.i.i.i.i.i120 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129.sink207, i64 36
+  %m_scale.i.i.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %9, i64 200
+  %10 = load double, ptr %m_scale.i.i.i.i.i.i.i.i.i.i121, align 8, !noalias !21
+  %conv.i.i.i.i.i.i.i.i.i122 = fptrunc double %10 to float
+  store float %conv.i.i.i.i.i.i.i.i.i122, ptr %m_scale.i.i.i.i.i.i.i.i.i117, align 8, !noalias !21
+  %m_offset.i.i.i.i.i.i.i.i.i.i123 = getelementptr inbounds i8, ptr %9, i64 208
+  %11 = load double, ptr %m_offset.i.i.i.i.i.i.i.i.i.i123, align 8, !noalias !21
+  %conv7.i.i.i.i.i.i.i.i.i124 = fptrunc double %11 to float
+  store float %conv7.i.i.i.i.i.i.i.i.i124, ptr %m_offset.i.i.i.i.i.i.i.i.i118, align 4, !noalias !21
+  %m_minOutValue.i.i.i.i.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %9, i64 184
+  %12 = load double, ptr %m_minOutValue.i.i.i.i.i.i.i.i.i.i125, align 8, !noalias !21
+  %conv12.i.i.i.i.i.i.i.i.i126 = fptrunc double %12 to float
+  store float %conv12.i.i.i.i.i.i.i.i.i126, ptr %m_lowerBound.i.i.i.i.i.i.i.i.i119, align 8, !noalias !21
+  %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127 = getelementptr inbounds i8, ptr %9, i64 192
+  %13 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127, align 8, !noalias !21
+  %conv17.i.i.i.i.i.i.i.i.i128 = fptrunc double %13 to float
+  store float %conv17.i.i.i.i.i.i.i.i.i128, ptr %m_upperBound.i.i.i.i.i.i.i.i.i120, align 4, !noalias !21
+  store ptr %.sink, ptr %_M_impl.i.i.i.i.i.i116, align 8, !noalias !21
+  store ptr %_M_impl.i.i.i.i.i.i116, ptr %agg.result, align 8
   %_M_refcount.i.i130 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr %call5.i.i.i3.i.i.i.i129.sink, ptr %_M_refcount.i.i130, align 8
-  %26 = load ptr, ptr %_M_refcount.i.i, align 8
-  %cmp.not.i.i.i164 = icmp eq ptr %26, null
+  store ptr %call5.i.i.i3.i.i.i.i129.sink207, ptr %_M_refcount.i.i130, align 8
+  %14 = load ptr, ptr %_M_refcount.i.i, align 8
+  %cmp.not.i.i.i164 = icmp eq ptr %14, null
   br i1 %cmp.not.i.i.i164, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit, label %if.then.i.i.i165
 
 if.then.i.i.i165:                                 ; preds = %cleanup
-  %_M_use_count.i.i.i.i166 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load atomic i64, ptr %_M_use_count.i.i.i.i166 acquire, align 8
-  %cmp.i.i.i.i167 = icmp eq i64 %27, 4294967297
-  %28 = trunc i64 %27 to i32
+  %_M_use_count.i.i.i.i166 = getelementptr inbounds i8, ptr %14, i64 8
+  %15 = load atomic i64, ptr %_M_use_count.i.i.i.i166 acquire, align 8
+  %cmp.i.i.i.i167 = icmp eq i64 %15, 4294967297
+  %16 = trunc i64 %15 to i32
   br i1 %cmp.i.i.i.i167, label %if.then.i.i.i.i190, label %if.end.i.i.i.i168
 
 if.then.i.i.i.i190:                               ; preds = %if.then.i.i.i165
   store i32 0, ptr %_M_use_count.i.i.i.i166, align 8
-  %_M_weak_count.i.i.i.i191 = getelementptr inbounds i8, ptr %26, i64 12
+  %_M_weak_count.i.i.i.i191 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 0, ptr %_M_weak_count.i.i.i.i191, align 4
-  %vtable.i.i.i.i192 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i192 = load ptr, ptr %14, align 8
   %vfn.i.i.i.i193 = getelementptr inbounds i8, ptr %vtable.i.i.i.i192, i64 16
-  %29 = load ptr, ptr %vfn.i.i.i.i193, align 8
-  tail call void %29(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
+  %17 = load ptr, ptr %vfn.i.i.i.i193, align 8
+  tail call void %17(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %if.end8.sink.split.i.i.i.i185
 
 if.end.i.i.i.i168:                                ; preds = %if.then.i.i.i165
-  %30 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i169 = icmp eq i8 %30, 0
+  %18 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i169 = icmp eq i8 %18, 0
   br i1 %tobool.i.i.not.i.i.i.i169, label %if.else.i.i.i.i.i189, label %if.then.i.i.i.i.i170
 
 if.then.i.i.i.i.i170:                             ; preds = %if.end.i.i.i.i168
-  %add.i.i.i.i.i171 = add nsw i32 %28, -1
+  %add.i.i.i.i.i171 = add nsw i32 %16, -1
   store i32 %add.i.i.i.i.i171, ptr %_M_use_count.i.i.i.i166, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172
 
 if.else.i.i.i.i.i189:                             ; preds = %if.end.i.i.i.i168
-  %31 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i166, i32 -1 acq_rel, align 4
+  %19 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i166, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172: ; preds = %if.else.i.i.i.i.i189, %if.then.i.i.i.i.i170
-  %retval.i.0.i.i.i.i173 = phi i32 [ %28, %if.then.i.i.i.i.i170 ], [ %31, %if.else.i.i.i.i.i189 ]
+  %retval.i.0.i.i.i.i173 = phi i32 [ %16, %if.then.i.i.i.i.i170 ], [ %19, %if.else.i.i.i.i.i189 ]
   %cmp6.i.i.i.i174 = icmp eq i32 %retval.i.0.i.i.i.i173, 1
   br i1 %cmp6.i.i.i.i174, label %if.then7.i.i.i.i175, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit
 
 if.then7.i.i.i.i175:                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172
-  %vtable.i.i.i.i.i.i176 = load ptr, ptr %26, align 8
+  %vtable.i.i.i.i.i.i176 = load ptr, ptr %14, align 8
   %vfn.i.i.i.i.i.i177 = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i.i176, i64 16
-  %32 = load ptr, ptr %vfn.i.i.i.i.i.i177, align 8
-  tail call void %32(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
-  %_M_weak_count.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %26, i64 12
-  %33 = load i8, ptr @__libc_single_threaded, align 1
-  %tobool.i.i.not.i.i.i.i.i.i179 = icmp eq i8 %33, 0
+  %20 = load ptr, ptr %vfn.i.i.i.i.i.i177, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
+  %_M_weak_count.i.i.i.i.i.i178 = getelementptr inbounds i8, ptr %14, i64 12
+  %21 = load i8, ptr @__libc_single_threaded, align 1
+  %tobool.i.i.not.i.i.i.i.i.i179 = icmp eq i8 %21, 0
   br i1 %tobool.i.i.not.i.i.i.i.i.i179, label %if.else.i.i.i.i.i.i.i188, label %if.then.i.i.i.i.i.i.i180
 
 if.then.i.i.i.i.i.i.i180:                         ; preds = %if.then7.i.i.i.i175
-  %34 = load i32, ptr %_M_weak_count.i.i.i.i.i.i178, align 4
-  %add.i.i.i.i.i.i.i181 = add nsw i32 %34, -1
+  %22 = load i32, ptr %_M_weak_count.i.i.i.i.i.i178, align 4
+  %add.i.i.i.i.i.i.i181 = add nsw i32 %22, -1
   store i32 %add.i.i.i.i.i.i.i181, ptr %_M_weak_count.i.i.i.i.i.i178, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182
 
 if.else.i.i.i.i.i.i.i188:                         ; preds = %if.then7.i.i.i.i175
-  %35 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i178, i32 -1 acq_rel, align 4
+  %23 = atomicrmw volatile add ptr %_M_weak_count.i.i.i.i.i.i178, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182
 
 _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182: ; preds = %if.else.i.i.i.i.i.i.i188, %if.then.i.i.i.i.i.i.i180
-  %retval.i.0.i.i.i.i.i.i183 = phi i32 [ %34, %if.then.i.i.i.i.i.i.i180 ], [ %35, %if.else.i.i.i.i.i.i.i188 ]
+  %retval.i.0.i.i.i.i.i.i183 = phi i32 [ %22, %if.then.i.i.i.i.i.i.i180 ], [ %23, %if.else.i.i.i.i.i.i.i188 ]
   %cmp.i.i.i.i.i.i184 = icmp eq i32 %retval.i.0.i.i.i.i.i.i183, 1
   br i1 %cmp.i.i.i.i.i.i184, label %if.end8.sink.split.i.i.i.i185, label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit
 
 if.end8.sink.split.i.i.i.i185:                    ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182, %if.then.i.i.i.i190
-  %vtable2.i.i.i.i.i.i186 = load ptr, ptr %26, align 8
+  %vtable2.i.i.i.i.i.i186 = load ptr, ptr %14, align 8
   %vfn3.i.i.i.i.i.i187 = getelementptr inbounds i8, ptr %vtable2.i.i.i.i.i.i186, i64 24
-  %36 = load ptr, ptr %vfn3.i.i.i.i.i.i187, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(16) %26) #14
+  %24 = load ptr, ptr %vfn3.i.i.i.i.i.i187, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(16) %14) #14
   br label %_ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit
 
 _ZNSt10shared_ptrIKN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit: ; preds = %cleanup, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i172, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i182, %if.end8.sink.split.i.i.i.i185
@@ -1342,3 +1276,4 @@ attributes #18 = { noreturn nounwind }
 !18 = !{!19}
 !19 = distinct !{!19, !20, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEJRSt10shared_ptrIKNS0_11RangeOpDataEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_: %agg.result"}
 !20 = distinct !{!20, !"_ZSt11make_sharedIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEJRSt10shared_ptrIKNS0_11RangeOpDataEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_"}
+!21 = !{}

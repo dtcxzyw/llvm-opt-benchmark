@@ -716,40 +716,40 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %93, %_ZN9QtPrivate8
 114:                                              ; preds = %17, %6
   %115 = landingpad { ptr, i32 }
           cleanup
-  br label %264
+  br label %267
 
 116:                                              ; preds = %21
   %117 = landingpad { ptr, i32 }
           cleanup
-  br label %263
+  br label %266
 
 118:                                              ; preds = %27
   %119 = landingpad { ptr, i32 }
           cleanup
-  br label %262
+  br label %265
 
-120:                                              ; preds = %.invoke, %219, %191, %160, %107, %101, %190, %186, %185, %179, %173, %167, %_ZN7QWidget8setFocusEv.exit, %154, %150, %148, %140, %129, %_ZN7QStringD2Ev.exit52, %_ZN7QStringD2Ev.exit46, %_ZN7QStringD2Ev.exit, %64, %59
+120:                                              ; preds = %.invoke, %222, %194, %163, %107, %101, %193, %189, %188, %182, %176, %170, %_ZN7QWidget8setFocusEv.exit, %154, %150, %148, %140, %129, %_ZN7QStringD2Ev.exit52, %_ZN7QStringD2Ev.exit46, %_ZN7QStringD2Ev.exit, %64, %59
   %121 = landingpad { ptr, i32 }
           cleanup
-  br label %261
+  br label %264
 
 122:                                              ; preds = %68
   %123 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #18
-  br label %261
+  br label %264
 
 124:                                              ; preds = %80
   %125 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #18
-  br label %261
+  br label %264
 
 126:                                              ; preds = %92
   %127 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #18
-  br label %261
+  br label %264
 
 128:                                              ; preds = %.noexc54
   store ptr %4, ptr %60, align 8
@@ -790,7 +790,7 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %93, %_ZN9QtPrivate8
 
 147:                                              ; preds = %140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %60, i8 0, i64 24, i1 false)
-  br label %160
+  br label %163
 
 148:                                              ; preds = %136
   %149 = load i32, ptr %22, align 8
@@ -812,190 +812,190 @@ _ZN7QStringD2Ev.exit52:                           ; preds = %93, %_ZN9QtPrivate8
 
 156:                                              ; preds = %154
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #18
-  br label %160
+  br label %163
 
 .invoke:                                          ; preds = %128, %.noexc54, %.noexc
-  %.pn77 = load ptr, ptr %15, align 8
-  %.sink.in = getelementptr inbounds i8, ptr %.pn77, i64 104
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %157 = load ptr, ptr %.sink, align 8
+  %157 = load ptr, ptr %15, align 8
   %158 = getelementptr inbounds i8, ptr %157, i64 104
   %159 = load ptr, ptr %158, align 8
-  invoke void %159(ptr noundef nonnull align 8 dereferenceable(48) %.sink, i1 noundef zeroext false)
-          to label %160 unwind label %120
+  %160 = load ptr, ptr %159, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 104
+  %162 = load ptr, ptr %161, align 8
+  invoke void %162(ptr noundef nonnull align 8 dereferenceable(48) %159, i1 noundef zeroext false)
+          to label %163 unwind label %120
 
-160:                                              ; preds = %.invoke, %156, %147
-  %161 = load ptr, ptr %15, align 8
-  %162 = getelementptr inbounds i8, ptr %161, i64 48
-  %163 = load ptr, ptr %162, align 8
-  invoke void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(48) %163, i32 noundef 7)
-          to label %_ZN7QWidget8setFocusEv.exit unwind label %120
-
-_ZN7QWidget8setFocusEv.exit:                      ; preds = %160
+163:                                              ; preds = %.invoke, %156, %147
   %164 = load ptr, ptr %15, align 8
   %165 = getelementptr inbounds i8, ptr %164, i64 48
   %166 = load ptr, ptr %165, align 8
-  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(48) %166, i1 noundef zeroext true)
-          to label %167 unwind label %120
+  invoke void @_ZN7QWidget8setFocusEN2Qt11FocusReasonE(ptr noundef nonnull align 8 dereferenceable(48) %166, i32 noundef 7)
+          to label %_ZN7QWidget8setFocusEv.exit unwind label %120
 
-167:                                              ; preds = %_ZN7QWidget8setFocusEv.exit
-  %168 = load ptr, ptr %15, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 32
-  %170 = load ptr, ptr %169, align 8
-  %171 = getelementptr inbounds i8, ptr %168, i64 40
-  %172 = load ptr, ptr %171, align 8
-  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %170, ptr noundef %172)
-          to label %173 unwind label %120
+_ZN7QWidget8setFocusEv.exit:                      ; preds = %163
+  %167 = load ptr, ptr %15, align 8
+  %168 = getelementptr inbounds i8, ptr %167, i64 48
+  %169 = load ptr, ptr %168, align 8
+  invoke void @_ZN11QPushButton10setDefaultEb(ptr noundef nonnull align 8 dereferenceable(48) %169, i1 noundef zeroext true)
+          to label %170 unwind label %120
 
-173:                                              ; preds = %167
-  %174 = load ptr, ptr %15, align 8
-  %175 = getelementptr inbounds i8, ptr %174, i64 40
-  %176 = load ptr, ptr %175, align 8
-  %177 = getelementptr inbounds i8, ptr %174, i64 56
-  %178 = load ptr, ptr %177, align 8
-  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %176, ptr noundef %178)
-          to label %179 unwind label %120
+170:                                              ; preds = %_ZN7QWidget8setFocusEv.exit
+  %171 = load ptr, ptr %15, align 8
+  %172 = getelementptr inbounds i8, ptr %171, i64 32
+  %173 = load ptr, ptr %172, align 8
+  %174 = getelementptr inbounds i8, ptr %171, i64 40
+  %175 = load ptr, ptr %174, align 8
+  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %173, ptr noundef %175)
+          to label %176 unwind label %120
 
-179:                                              ; preds = %173
-  %180 = load ptr, ptr %15, align 8
-  %181 = getelementptr inbounds i8, ptr %180, i64 56
-  %182 = load ptr, ptr %181, align 8
-  %183 = getelementptr inbounds i8, ptr %180, i64 48
-  %184 = load ptr, ptr %183, align 8
-  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %182, ptr noundef %184)
-          to label %185 unwind label %120
+176:                                              ; preds = %170
+  %177 = load ptr, ptr %15, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 40
+  %179 = load ptr, ptr %178, align 8
+  %180 = getelementptr inbounds i8, ptr %177, i64 56
+  %181 = load ptr, ptr %180, align 8
+  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %179, ptr noundef %181)
+          to label %182 unwind label %120
 
-185:                                              ; preds = %179
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %15, align 8
+  %184 = getelementptr inbounds i8, ptr %183, i64 56
+  %185 = load ptr, ptr %184, align 8
+  %186 = getelementptr inbounds i8, ptr %183, i64 48
+  %187 = load ptr, ptr %186, align 8
+  invoke void @_ZN7QWidget11setTabOrderEPS_S0_(ptr noundef %185, ptr noundef %187)
+          to label %188 unwind label %120
+
+188:                                              ; preds = %182
   invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-          to label %186 unwind label %120
+          to label %189 unwind label %120
 
-186:                                              ; preds = %185
-  %187 = load ptr, ptr %15, align 8
-  %188 = getelementptr inbounds i8, ptr %187, i64 96
-  %189 = load ptr, ptr %188, align 8
-  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %189)
-          to label %190 unwind label %120
+189:                                              ; preds = %188
+  %190 = load ptr, ptr %15, align 8
+  %191 = getelementptr inbounds i8, ptr %190, i64 96
+  %192 = load ptr, ptr %191, align 8
+  invoke void @_ZN7QWidget10adjustSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %192)
+          to label %193 unwind label %120
 
-190:                                              ; preds = %186
+193:                                              ; preds = %189
   invoke void @_ZN7QWidget14updateGeometryEv(ptr noundef nonnull align 8 dereferenceable(48) %0)
-          to label %191 unwind label %120
+          to label %194 unwind label %120
 
-191:                                              ; preds = %190
-  %192 = getelementptr inbounds i8, ptr %0, i64 40
-  %193 = load ptr, ptr %192, align 8
-  %194 = getelementptr inbounds i8, ptr %193, i64 20
-  %195 = getelementptr inbounds i8, ptr %193, i64 28
-  %196 = load i32, ptr %195, align 4
-  %197 = load i32, ptr %194, align 4
-  %198 = add i32 %196, 1
-  %199 = sub i32 %198, %197
-  %200 = getelementptr inbounds i8, ptr %193, i64 32
-  %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds i8, ptr %193, i64 24
-  %203 = load i32, ptr %202, align 4
-  %204 = load ptr, ptr %15, align 8
-  %205 = getelementptr inbounds i8, ptr %204, i64 96
-  %206 = load ptr, ptr %205, align 8
-  %207 = getelementptr inbounds i8, ptr %206, i64 40
-  %208 = load ptr, ptr %207, align 8
-  %209 = getelementptr inbounds i8, ptr %208, i64 32
-  %210 = load i32, ptr %209, align 4
-  %211 = getelementptr inbounds i8, ptr %208, i64 24
-  %212 = load i32, ptr %211, align 4
-  %213 = add i32 %201, -58
-  %214 = add i32 %213, %210
-  %215 = add i32 %203, %212
-  %216 = sub i32 %214, %215
+194:                                              ; preds = %193
+  %195 = getelementptr inbounds i8, ptr %0, i64 40
+  %196 = load ptr, ptr %195, align 8
+  %197 = getelementptr inbounds i8, ptr %196, i64 20
+  %198 = getelementptr inbounds i8, ptr %196, i64 28
+  %199 = load i32, ptr %198, align 4
+  %200 = load i32, ptr %197, align 4
+  %201 = add i32 %199, 1
+  %202 = sub i32 %201, %200
+  %203 = getelementptr inbounds i8, ptr %196, i64 32
+  %204 = load i32, ptr %203, align 4
+  %205 = getelementptr inbounds i8, ptr %196, i64 24
+  %206 = load i32, ptr %205, align 4
+  %207 = load ptr, ptr %15, align 8
+  %208 = getelementptr inbounds i8, ptr %207, i64 96
+  %209 = load ptr, ptr %208, align 8
+  %210 = getelementptr inbounds i8, ptr %209, i64 40
+  %211 = load ptr, ptr %210, align 8
+  %212 = getelementptr inbounds i8, ptr %211, i64 32
+  %213 = load i32, ptr %212, align 4
+  %214 = getelementptr inbounds i8, ptr %211, i64 24
+  %215 = load i32, ptr %214, align 4
+  %216 = add i32 %204, -58
+  %217 = add i32 %216, %213
+  %218 = add i32 %206, %215
+  %219 = sub i32 %217, %218
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
-  store i32 %199, ptr %8, align 4
-  %217 = getelementptr inbounds i8, ptr %8, i64 4
-  store i32 %216, ptr %217, align 4
+  store i32 %202, ptr %8, align 4
+  %220 = getelementptr inbounds i8, ptr %8, i64 4
+  store i32 %219, ptr %220, align 4
   invoke void @_ZN7QWidget6resizeERK5QSize(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %8)
-          to label %218 unwind label %120
+          to label %221 unwind label %120
 
-218:                                              ; preds = %191
+221:                                              ; preds = %194
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   %.not32 = icmp eq ptr %4, null
-  br i1 %.not32, label %260, label %219
+  br i1 %.not32, label %263, label %222
 
-219:                                              ; preds = %218
-  %220 = getelementptr inbounds i8, ptr %4, i64 40
-  %221 = load ptr, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %221, i64 20
-  %223 = load i32, ptr %222, align 4
-  %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds i8, ptr %221, i64 28
+222:                                              ; preds = %221
+  %223 = getelementptr inbounds i8, ptr %4, i64 40
+  %224 = load ptr, ptr %223, align 8
+  %225 = getelementptr inbounds i8, ptr %224, i64 20
   %226 = load i32, ptr %225, align 4
   %227 = sext i32 %226 to i64
-  %228 = add nsw i64 %227, %224
-  %229 = sdiv i64 %228, 2
-  %230 = getelementptr inbounds i8, ptr %221, i64 24
-  %231 = load i32, ptr %230, align 4
-  %232 = sext i32 %231 to i64
-  %233 = getelementptr inbounds i8, ptr %221, i64 32
+  %228 = getelementptr inbounds i8, ptr %224, i64 28
+  %229 = load i32, ptr %228, align 4
+  %230 = sext i32 %229 to i64
+  %231 = add nsw i64 %230, %227
+  %232 = sdiv i64 %231, 2
+  %233 = getelementptr inbounds i8, ptr %224, i64 24
   %234 = load i32, ptr %233, align 4
   %235 = sext i32 %234 to i64
-  %236 = add nsw i64 %235, %232
-  %237 = sdiv i64 %236, 2
-  %.sroa.066.0.extract.trunc = trunc nsw i64 %229 to i32
-  %.sroa.2.0.extract.trunc = trunc nsw i64 %237 to i32
-  %238 = load ptr, ptr %192, align 8
-  %239 = getelementptr inbounds i8, ptr %238, i64 20
-  %240 = getelementptr inbounds i8, ptr %238, i64 28
-  %241 = load i32, ptr %240, align 4
-  %242 = load i32, ptr %239, align 4
-  %243 = add i32 %241, 1
-  %244 = sub i32 %243, %242
-  %245 = getelementptr inbounds i8, ptr %238, i64 32
-  %246 = load i32, ptr %245, align 4
-  %247 = getelementptr inbounds i8, ptr %238, i64 24
-  %248 = load i32, ptr %247, align 4
-  %249 = add i32 %246, 1
-  %250 = sub i32 %249, %248
-  %.neg = sdiv i32 %244, -2
-  %251 = add i32 %.neg, %.sroa.066.0.extract.trunc
-  %.neg33 = sdiv i32 %250, -2
-  %252 = add i32 %.neg33, %.sroa.2.0.extract.trunc
+  %236 = getelementptr inbounds i8, ptr %224, i64 32
+  %237 = load i32, ptr %236, align 4
+  %238 = sext i32 %237 to i64
+  %239 = add nsw i64 %238, %235
+  %240 = sdiv i64 %239, 2
+  %.sroa.066.0.extract.trunc = trunc nsw i64 %232 to i32
+  %.sroa.2.0.extract.trunc = trunc nsw i64 %240 to i32
+  %241 = load ptr, ptr %195, align 8
+  %242 = getelementptr inbounds i8, ptr %241, i64 20
+  %243 = getelementptr inbounds i8, ptr %241, i64 28
+  %244 = load i32, ptr %243, align 4
+  %245 = load i32, ptr %242, align 4
+  %246 = add i32 %244, 1
+  %247 = sub i32 %246, %245
+  %248 = getelementptr inbounds i8, ptr %241, i64 32
+  %249 = load i32, ptr %248, align 4
+  %250 = getelementptr inbounds i8, ptr %241, i64 24
+  %251 = load i32, ptr %250, align 4
+  %252 = add i32 %249, 1
+  %253 = sub i32 %252, %251
+  %.neg = sdiv i32 %247, -2
+  %254 = add i32 %.neg, %.sroa.066.0.extract.trunc
+  %.neg33 = sdiv i32 %253, -2
+  %255 = add i32 %.neg33, %.sroa.2.0.extract.trunc
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
-  store i32 %251, ptr %7, align 4
-  %253 = getelementptr inbounds i8, ptr %7, i64 4
-  store i32 %252, ptr %253, align 4
-  %254 = getelementptr inbounds i8, ptr %7, i64 8
-  %255 = add i32 %244, -1
-  %256 = add i32 %255, %251
-  store i32 %256, ptr %254, align 4
-  %257 = getelementptr inbounds i8, ptr %7, i64 12
-  %258 = add i32 %250, -1
-  %259 = add i32 %258, %252
+  store i32 %254, ptr %7, align 4
+  %256 = getelementptr inbounds i8, ptr %7, i64 4
+  store i32 %255, ptr %256, align 4
+  %257 = getelementptr inbounds i8, ptr %7, i64 8
+  %258 = add i32 %247, -1
+  %259 = add i32 %258, %254
   store i32 %259, ptr %257, align 4
+  %260 = getelementptr inbounds i8, ptr %7, i64 12
+  %261 = add i32 %253, -1
+  %262 = add i32 %261, %255
+  store i32 %262, ptr %260, align 4
   invoke void @_ZN7QWidget11setGeometryERK5QRect(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(16) %7)
           to label %_ZN7QWidget11setGeometryEiiii.exit unwind label %120
 
-_ZN7QWidget11setGeometryEiiii.exit:               ; preds = %219
+_ZN7QWidget11setGeometryEiiii.exit:               ; preds = %222
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  br label %260
-
-260:                                              ; preds = %_ZN7QWidget11setGeometryEiiii.exit, %218
-  ret void
-
-261:                                              ; preds = %126, %124, %122, %120
-  %.pn = phi { ptr, i32 } [ %121, %120 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ]
-  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #18
-  br label %262
-
-262:                                              ; preds = %261, %118
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %261 ], [ %119, %118 ]
-  call void @_ZN14MeshModelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %44) #18
-  call void @_ZN14MeshModelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %30) #18
   br label %263
 
-263:                                              ; preds = %262, %116
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %262 ], [ %117, %116 ]
-  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
-  br label %264
+263:                                              ; preds = %_ZN7QWidget11setGeometryEiiii.exit, %221
+  ret void
 
-264:                                              ; preds = %263, %114
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %263 ], [ %115, %114 ]
+264:                                              ; preds = %126, %124, %122, %120
+  %.pn = phi { ptr, i32 } [ %121, %120 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ]
+  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %58) #18
+  br label %265
+
+265:                                              ; preds = %264, %118
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %264 ], [ %119, %118 ]
+  call void @_ZN14MeshModelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %44) #18
+  call void @_ZN14MeshModelStateD2Ev(ptr noundef nonnull align 8 dereferenceable(436) %30) #18
+  br label %266
+
+266:                                              ; preds = %265, %116
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %265 ], [ %117, %116 ]
+  call void @_ZN17RichParameterListD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #18
+  br label %267
+
+267:                                              ; preds = %266, %114
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %266 ], [ %115, %114 ]
   call void @_ZN11QDockWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) #18
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }

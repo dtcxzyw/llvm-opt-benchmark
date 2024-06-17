@@ -5571,8 +5571,8 @@ do.end12:                                         ; preds = %do.body
   br label %_ZN5arrow8internal15MemoryPoolStats20UpdateAllocatedBytesElb.exit
 
 land.lhs.true.i:                                  ; preds = %_ZN5arrow6StatusD2Ev.exit, %do.end12.thread56
-  %stats_57.sink = getelementptr inbounds i8, ptr %this, i64 8
-  %1 = atomicrmw add ptr %stats_57.sink, i64 %size seq_cst, align 8
+  %stats_57 = getelementptr inbounds i8, ptr %this, i64 8
+  %1 = atomicrmw add ptr %stats_57, i64 %size seq_cst, align 8
   %add.i55 = add nsw i64 %1, %size
   %max_memory_.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load atomic i64, ptr %max_memory_.i seq_cst, align 8

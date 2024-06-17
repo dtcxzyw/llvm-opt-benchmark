@@ -108,14 +108,14 @@ define hidden void @rtppacket_analyse(ptr noundef %0, ptr noundef %1, ptr nocapt
   store i16 %42, ptr %39, align 2
   %43 = load i32, ptr %27, align 8
   %44 = icmp eq i32 %43, 3
+  %.sink351 = select i1 %44, i32 48, i32 28
   %45 = getelementptr inbounds i8, ptr %2, i64 44
   %46 = load i32, ptr %45, align 4
-  %47 = getelementptr inbounds i8, ptr %0, i64 4844
-  %48 = load i32, ptr %47, align 4
-  %.357 = select i1 %44, i32 48, i32 28
-  %49 = add i32 %46, %.357
-  %50 = add i32 %49, %48
-  store i32 %50, ptr %47, align 4
+  %47 = add i32 %46, %.sink351
+  %48 = getelementptr inbounds i8, ptr %0, i64 4844
+  %49 = load i32, ptr %48, align 4
+  %50 = add i32 %47, %49
+  store i32 %50, ptr %48, align 4
   %51 = shl i32 %50, 3
   %52 = uitofp i32 %51 to double
   %53 = fdiv double %52, 1.000000e+03
@@ -508,8 +508,8 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
   %254 = load i16, ptr %253, align 2
   %255 = zext i16 %254 to i64
   %256 = getelementptr [300 x %struct._bw_history_item], ptr %252, i64 0, i64 %255, i32 1
-  %.350 = select i1 %249, i32 48, i32 28
-  %257 = add i32 %251, %.350
+  %.356 = select i1 %249, i32 48, i32 28
+  %257 = add i32 %251, %.356
   store i32 %257, ptr %256, align 8
   %258 = getelementptr inbounds i8, ptr %0, i64 40
   %259 = getelementptr inbounds i8, ptr %0, i64 4842
@@ -555,8 +555,8 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
   %284 = load i32, ptr %283, align 4
   %285 = getelementptr inbounds i8, ptr %0, i64 4844
   %286 = load i32, ptr %285, align 4
-  %.353 = select i1 %282, i32 48, i32 28
-  %287 = add i32 %284, %.353
+  %.357 = select i1 %282, i32 48, i32 28
+  %287 = add i32 %284, %.357
   %288 = add i32 %287, %286
   store i32 %288, ptr %285, align 4
   %289 = shl i32 %288, 3
@@ -607,8 +607,8 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
   %315 = load double, ptr %314, align 8
   %316 = fcmp oeq double %315, -1.000000e+00
   %317 = fcmp olt double %305, %315
-  %or.cond354 = or i1 %316, %317
-  br i1 %or.cond354, label %.sink.split, label %318
+  %or.cond358 = or i1 %316, %317
+  br i1 %or.cond358, label %.sink.split, label %318
 
 .sink.split:                                      ; preds = %313
   store double %305, ptr %314, align 8
@@ -649,14 +649,14 @@ get_clock_rate.exit.thread:                       ; preds = %184, %168, %170, %1
   %341 = load double, ptr %340, align 8
   %342 = fcmp oeq double %341, -1.000000e+00
   %343 = fcmp olt double %330, %341
-  %or.cond355 = or i1 %342, %343
-  br i1 %or.cond355, label %.sink.split349, label %344
+  %or.cond359 = or i1 %342, %343
+  br i1 %or.cond359, label %.sink.split355, label %344
 
-.sink.split349:                                   ; preds = %335
+.sink.split355:                                   ; preds = %335
   store double %330, ptr %340, align 8
   br label %344
 
-344:                                              ; preds = %335, %.sink.split349, %318, %300
+344:                                              ; preds = %335, %.sink.split355, %318, %300
   %345 = and i32 %301, 17
   %or.cond314 = icmp eq i32 %345, 0
   br i1 %or.cond314, label %346, label %353

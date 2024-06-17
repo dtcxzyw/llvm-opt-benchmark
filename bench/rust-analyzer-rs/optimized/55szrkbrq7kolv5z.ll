@@ -52247,7 +52247,7 @@ _ZN7hir_def6per_ns5PerNs7is_none17hf62513b789ec99e1E.exit.thread101: ; preds = %
   br label %_ZN7hir_def6per_ns5PerNs7is_none17hf62513b789ec99e1E.exit.thread.sink.split
 
 _ZN7hir_def6per_ns5PerNs7is_none17hf62513b789ec99e1E.exit.thread.sink.split: ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit60", %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit56
-  %.sink109 = phi i64 [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit60" ], [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit56 ]
+  %.sink109 = phi i64 [ 1, %_ZN5alloc6string6String4push17h1a3e9179dd826612E.exit56 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17h2ab3091f63a659baE.exit60" ]
   %203 = load i64, ptr %59, align 8, !noundef !25
   %204 = add i64 %203, %.sink109
   store i64 %204, ptr %59, align 8

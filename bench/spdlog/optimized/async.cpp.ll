@@ -6336,11 +6336,11 @@ _ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse
 
 sw.epilog.i.sink.split:                           ; preds = %if.end16.i, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit94
   %.sink = phi i16 [ 48, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit94 ], [ 16, %_ZN3fmt2v96detail13specs_checkerINS1_21dynamic_specs_handlerINS1_21compile_parse_contextIcNS1_13error_handlerEEEEEE7on_signENS0_4sign4typeE.exit84 ], [ 32, %if.end16.i ]
-  %sign.i.i = getelementptr inbounds i8, ptr %this, i64 9
-  %bf.load.i.i89 = load i16, ptr %sign.i.i, align 1
+  %sign.i.i88 = getelementptr inbounds i8, ptr %this, i64 9
+  %bf.load.i.i89 = load i16, ptr %sign.i.i88, align 1
   %bf.clear.i.i90 = and i16 %bf.load.i.i89, -113
   %bf.set.i.i91 = or disjoint i16 %bf.clear.i.i90, %.sink
-  store i16 %bf.set.i.i91, ptr %sign.i.i, align 1
+  store i16 %bf.set.i.i91, ptr %sign.i.i88, align 1
   %incdec.ptr23.i = getelementptr inbounds i8, ptr %retval.0.i, i64 1
   br label %sw.epilog.i
 

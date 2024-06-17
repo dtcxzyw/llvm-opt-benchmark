@@ -1889,10 +1889,10 @@ sw.default:                                       ; preds = %if.end
 
 sw.epilog.sink.split:                             ; preds = %if.then33, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit111, %sw.bb, %if.end77
   %154 = load ptr, ptr %m_todo, align 8
-  %arrayidx.i49 = getelementptr inbounds i8, ptr %154, i64 -4
-  %155 = load i32, ptr %arrayidx.i49, align 4
+  %arrayidx.i216 = getelementptr inbounds i8, ptr %154, i64 -4
+  %155 = load i32, ptr %arrayidx.i216, align 4
   %dec.i217 = add i32 %155, -1
-  store i32 %dec.i217, ptr %arrayidx.i49, align 4
+  store i32 %dec.i217, ptr %arrayidx.i216, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end.i.i.i.i.i.i.i, %invoke.cont5.i.i, %for.end

@@ -5531,13 +5531,13 @@ if.end22.i.sink.split:                            ; preds = %if.else16.i, %if.th
   %.sink = phi i8 [ 2, %if.then6.i ], [ 1, %if.then11.i ], [ 0, %if.else16.i ]
   %ReferenceQualifier19.i = getelementptr inbounds i8, ptr %State, i64 8
   store i8 %.sink, ptr %ReferenceQualifier19.i, align 8
-  %.pre1198 = load ptr, ptr %this, align 16
-  %.pre1199 = load ptr, ptr %Last.i, align 8
+  %.pre1199 = load ptr, ptr %this, align 16
+  %.pre1200 = load ptr, ptr %Last.i, align 8
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end22.i.sink.split, %if.else16.i, %if.then11.i, %if.then6.i
-  %14 = phi ptr [ %.pre1199, %if.end22.i.sink.split ], [ %11, %if.else16.i ], [ %11, %if.then11.i ], [ %11, %if.then6.i ]
-  %15 = phi ptr [ %.pre1198, %if.end22.i.sink.split ], [ %12, %if.else16.i ], [ %incdec.ptr.i628, %if.then11.i ], [ %incdec.ptr.i636, %if.then6.i ]
+  %14 = phi ptr [ %.pre1200, %if.end22.i.sink.split ], [ %11, %if.else16.i ], [ %11, %if.then11.i ], [ %11, %if.then6.i ]
+  %15 = phi ptr [ %.pre1199, %if.end22.i.sink.split ], [ %12, %if.else16.i ], [ %incdec.ptr.i628, %if.then11.i ], [ %incdec.ptr.i636, %if.then6.i ]
   %sub.ptr.lhs.cast.i2.i.i = ptrtoint ptr %14 to i64
   %sub.ptr.rhs.cast.i3.i.i = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i4.i.i = sub i64 %sub.ptr.lhs.cast.i2.i.i, %sub.ptr.rhs.cast.i3.i.i
@@ -6410,16 +6410,16 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i: ; preds = %if.th
   br label %if.then3.i162.sink.split
 
 if.then3.i162.sink.split:                         ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i
-  %call.i6.i.i.i152.i.sink1076 = phi ptr [ %call.i6.i.i.i152.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i ], [ %call.i6.i.i.i83.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
+  %call.i6.i.i.i152.i.sink1077 = phi ptr [ %call.i6.i.i.i152.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i ], [ %call.i6.i.i.i83.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
   %.sink1063.ph = phi i8 [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
   %sub.i.sink.ph = phi i32 [ %sub61.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i154.i ], [ %sub.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i85.i ]
-  %Current.i8.i.i.i155.i = getelementptr inbounds i8, ptr %call.i6.i.i.i152.i.sink1076, i64 8
+  %Current.i8.i.i.i155.i = getelementptr inbounds i8, ptr %call.i6.i.i.i152.i.sink1077, i64 8
   store i64 0, ptr %Current.i8.i.i.i155.i, align 8
-  store ptr %call.i6.i.i.i152.i.sink1076, ptr %BlockList.i.i.i.i304, align 16
+  store ptr %call.i6.i.i.i152.i.sink1077, ptr %BlockList.i.i.i.i304, align 16
   br label %if.then3.i162
 
 if.then3.i162:                                    ; preds = %if.then3.i162.sink.split, %if.end66.i, %if.end36.i222
-  %.sink1075 = phi ptr [ %95, %if.end36.i222 ], [ %99, %if.end66.i ], [ %call.i6.i.i.i152.i.sink1076, %if.then3.i162.sink.split ]
+  %.sink1075 = phi ptr [ %95, %if.end36.i222 ], [ %99, %if.end66.i ], [ %call.i6.i.i.i152.i.sink1077, %if.then3.i162.sink.split ]
   %.sink1074 = phi i64 [ %96, %if.end36.i222 ], [ %100, %if.end66.i ], [ 0, %if.then3.i162.sink.split ]
   %.sink1063 = phi i8 [ 0, %if.end36.i222 ], [ 1, %if.end66.i ], [ %.sink1063.ph, %if.then3.i162.sink.split ]
   %sub.i.sink = phi i32 [ %sub.i, %if.end36.i222 ], [ %sub61.i, %if.end66.i ], [ %sub.i.sink.ph, %if.then3.i162.sink.split ]
@@ -6764,48 +6764,48 @@ if.end30.i:                                       ; preds = %if.end26.i
 
 _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split: ; preds = %if.end20.i, %if.end30.i, %if.then7.i
   %139 = phi ptr [ %call10.i39, %if.then7.i ], [ %call27.i, %if.end30.i ], [ %call21.i, %if.end20.i ]
-  %BlockList.i.i.i1077 = getelementptr inbounds i8, ptr %this, i64 4848
-  %140 = load ptr, ptr %BlockList.i.i.i1077, align 16
-  %Current.i.i.i1078 = getelementptr inbounds i8, ptr %140, i64 8
-  %141 = load i64, ptr %Current.i.i.i1078, align 8
+  %BlockList.i.i.i1078 = getelementptr inbounds i8, ptr %this, i64 4848
+  %140 = load ptr, ptr %BlockList.i.i.i1078, align 16
+  %Current.i.i.i1079 = getelementptr inbounds i8, ptr %140, i64 8
+  %141 = load i64, ptr %Current.i.i.i1079, align 8
   %142 = add i64 %141, -4048
-  %cmp.i.i.i1079 = icmp ult i64 %142, -4080
-  br i1 %cmp.i.i.i1079, label %if.then.i.i.i1090, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
+  %cmp.i.i.i1080 = icmp ult i64 %142, -4080
+  br i1 %cmp.i.i.i1080, label %if.then.i.i.i1091, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
-if.then.i.i.i1090:                                ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split
-  %call.i6.i.i.i1091 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #19
-  %cmp.i7.i.i.i1092 = icmp eq ptr %call.i6.i.i.i1091, null
-  br i1 %cmp.i7.i.i.i1092, label %if.then.i9.i.i.i1095, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1093
+if.then.i.i.i1091:                                ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split
+  %call.i6.i.i.i1092 = tail call noalias dereferenceable_or_null(4096) ptr @malloc(i64 noundef 4096) #19
+  %cmp.i7.i.i.i1093 = icmp eq ptr %call.i6.i.i.i1092, null
+  br i1 %cmp.i7.i.i.i1093, label %if.then.i9.i.i.i1096, label %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094
 
-if.then.i9.i.i.i1095:                             ; preds = %if.then.i.i.i1090
+if.then.i9.i.i.i1096:                             ; preds = %if.then.i.i.i1091
   tail call void @_ZSt9terminatev() #22
   unreachable
 
-_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1093: ; preds = %if.then.i.i.i1090
-  store ptr %140, ptr %call.i6.i.i.i1091, align 8
-  %Current.i8.i.i.i1094 = getelementptr inbounds i8, ptr %call.i6.i.i.i1091, i64 8
-  store i64 0, ptr %Current.i8.i.i.i1094, align 8
-  store ptr %call.i6.i.i.i1091, ptr %BlockList.i.i.i1077, align 16
+_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094: ; preds = %if.then.i.i.i1091
+  store ptr %140, ptr %call.i6.i.i.i1092, align 8
+  %Current.i8.i.i.i1095 = getelementptr inbounds i8, ptr %call.i6.i.i.i1092, i64 8
+  store i64 0, ptr %Current.i8.i.i.i1095, align 8
+  store ptr %call.i6.i.i.i1092, ptr %BlockList.i.i.i1078, align 16
   br label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit
 
-_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1093
-  %143 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1093 ], [ %141, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
-  %144 = phi ptr [ %call.i6.i.i.i1091, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1093 ], [ %140, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
-  %Current7.i.i.i1080 = getelementptr inbounds i8, ptr %144, i64 8
-  %add8.i.i.i1081 = add nsw i64 %143, 32
-  store i64 %add8.i.i.i1081, ptr %Current7.i.i.i1080, align 8
-  %145 = load ptr, ptr %BlockList.i.i.i1077, align 16
-  %add.ptr.i.i.i1082 = getelementptr inbounds i8, ptr %145, i64 16
-  %Current11.i.i.i1083 = getelementptr inbounds i8, ptr %145, i64 8
-  %146 = load i64, ptr %Current11.i.i.i1083, align 8
-  %add.ptr12.i.i.i1084 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1082, i64 %146
-  %add.ptr13.i.i.i1085 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1084, i64 -32
-  %K.i.i.i.i1086 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1084, i64 -24
-  store <4 x i8> <i8 24, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i1086, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i64 16), ptr %add.ptr13.i.i.i1085, align 8
-  %Encoding.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1084, i64 -16
+_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit: ; preds = %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094
+  %143 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094 ], [ %141, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
+  %144 = phi ptr [ %call.i6.i.i.i1092, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i1094 ], [ %140, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE14parseLocalNameEPNS4_9NameStateE.exit.sink.split ]
+  %Current7.i.i.i1081 = getelementptr inbounds i8, ptr %144, i64 8
+  %add8.i.i.i1082 = add nsw i64 %143, 32
+  store i64 %add8.i.i.i1082, ptr %Current7.i.i.i1081, align 8
+  %145 = load ptr, ptr %BlockList.i.i.i1078, align 16
+  %add.ptr.i.i.i1083 = getelementptr inbounds i8, ptr %145, i64 16
+  %Current11.i.i.i1084 = getelementptr inbounds i8, ptr %145, i64 8
+  %146 = load i64, ptr %Current11.i.i.i1084, align 8
+  %add.ptr12.i.i.i1085 = getelementptr inbounds i8, ptr %add.ptr.i.i.i1083, i64 %146
+  %add.ptr13.i.i.i1086 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -32
+  %K.i.i.i.i1087 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -24
+  store <4 x i8> <i8 24, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i1087, align 8
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i64 16), ptr %add.ptr13.i.i.i1086, align 8
+  %Encoding.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -16
   store ptr %call2.i35, ptr %Encoding.i.i.i, align 8
-  %Entity.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1084, i64 -8
+  %Entity.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1085, i64 -8
   store ptr %139, ptr %Entity.i.i.i, align 8
   br label %return
 
@@ -6874,8 +6874,8 @@ _ZNK10StringView10startsWithES_.exit.i723:        ; preds = %_ZNK10StringView10s
   br i1 %tobool1.not.i.i.i.i.i.i725, label %if.then.i69, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit
 
 if.then.i69:                                      ; preds = %_ZNK10StringView10startsWithES_.exit.i723, %_ZNK10StringView10startsWithES_.exit.i742
-  %.sink1070 = phi i64 [ 3, %_ZNK10StringView10startsWithES_.exit.i742 ], [ 2, %_ZNK10StringView10startsWithES_.exit.i723 ]
-  %add.ptr.i728 = getelementptr inbounds i8, ptr %3, i64 %.sink1070
+  %.sink1076 = phi i64 [ 3, %_ZNK10StringView10startsWithES_.exit.i742 ], [ 2, %_ZNK10StringView10startsWithES_.exit.i723 ]
+  %add.ptr.i728 = getelementptr inbounds i8, ptr %3, i64 %.sink1076
   store ptr %add.ptr.i728, ptr %this, align 16
   %call4.i = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE20parseUnqualifiedNameEPNS4_9NameStateE(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef %State)
   %cmp.i70 = icmp eq ptr %call4.i, null
@@ -7065,7 +7065,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   br label %return
 
 return:                                           ; preds = %if.end5.i195, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit38.i, %if.end116.i, %if.then109.i, %if.then48.i, %if.then39.i, %if.then74.i, %if.then88.i, %if.then31.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit94.i, %if.end122.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit101.i, %if.end26.i, %if.end20.i, %if.end.i34, %land.lhs.true.i680, %lor.lhs.false.i, %land.lhs.true.i656, %if.then16.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit, %while.end.i.thread, %if.then33.i.us, %if.end38, %if.then.i69, %if.end20, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit80, %if.end133.i, %lor.lhs.false129.i, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit, %if.end25, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit62, %if.then16, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit, %if.end32
-  %retval.0 = phi ptr [ %call33, %if.end32 ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit ], [ null, %if.then16 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit62 ], [ null, %if.end25 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit ], [ null, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %SoFar.i.1.ph, %if.end133.i ], [ null, %lor.lhs.false129.i ], [ %retval.0.i68906, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit80 ], [ null, %if.end20 ], [ null, %if.then.i69 ], [ %retval.0.i68906, %if.end38 ], [ null, %if.then33.i.us ], [ null, %while.end.i.thread ], [ null, %if.end.i34 ], [ null, %if.end20.i ], [ null, %if.end26.i ], [ null, %land.lhs.true.i680 ], [ null, %lor.lhs.false.i ], [ null, %land.lhs.true.i656 ], [ null, %if.then16.i ], [ %add.ptr13.i.i.i1085, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit101.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i ], [ null, %if.end122.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit94.i ], [ null, %if.then31.i ], [ null, %if.then88.i ], [ null, %if.then74.i ], [ null, %if.then39.i ], [ null, %if.then48.i ], [ null, %if.then109.i ], [ null, %if.end116.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit38.i ], [ null, %if.end5.i195 ]
+  %retval.0 = phi ptr [ %call33, %if.end32 ], [ %add.ptr13.i.i.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20NameWithTemplateArgsEJRPNS0_4NodeES9_EEES8_DpOT0_.exit ], [ null, %if.then16 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit62 ], [ null, %if.end25 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscopedNameEPNS4_9NameStateE.exit ], [ null, %_ZN4llvh16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit ], [ %SoFar.i.1.ph, %if.end133.i ], [ null, %lor.lhs.false129.i ], [ %retval.0.i68906, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit80 ], [ null, %if.end20 ], [ null, %if.then.i69 ], [ %retval.0.i68906, %if.end38 ], [ null, %if.then33.i.us ], [ null, %while.end.i.thread ], [ null, %if.end.i34 ], [ null, %if.end20.i ], [ null, %if.end26.i ], [ null, %land.lhs.true.i680 ], [ null, %lor.lhs.false.i ], [ null, %land.lhs.true.i656 ], [ null, %if.then16.i ], [ %add.ptr13.i.i.i1086, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9LocalNameEJRPNS0_4NodeES9_EEES8_DpOT0_.exit ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit101.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i ], [ null, %if.end122.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit94.i ], [ null, %if.then31.i ], [ null, %if.then88.i ], [ null, %if.then74.i ], [ null, %if.then39.i ], [ null, %if.then48.i ], [ null, %if.then109.i ], [ null, %if.end116.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE9consumeIfEc.exit38.i ], [ null, %if.end5.i195 ]
   ret ptr %retval.0
 }
 
@@ -8579,12 +8579,12 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117: ; preds = %if.then
   br label %if.end35
 
 if.end35:                                         ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117, %sw.bb28, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96, %sw.bb23, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75, %sw.bb18, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54, %sw.bb13, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33, %sw.bb8, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %sw.bb
-  %.sink173 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %sw.bb ], [ %call.i6.i.i.i31, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %7, %sw.bb8 ], [ %call.i6.i.i.i52, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %10, %sw.bb13 ], [ %call.i6.i.i.i73, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %13, %sw.bb18 ], [ %call.i6.i.i.i94, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %16, %sw.bb23 ], [ %call.i6.i.i.i115, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %19, %sw.bb28 ]
-  %.sink172 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %5, %sw.bb ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %8, %sw.bb8 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %11, %sw.bb13 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %14, %sw.bb18 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %17, %sw.bb23 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %20, %sw.bb28 ]
+  %.sink174 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %4, %sw.bb ], [ %call.i6.i.i.i31, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %7, %sw.bb8 ], [ %call.i6.i.i.i52, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %10, %sw.bb13 ], [ %call.i6.i.i.i73, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %13, %sw.bb18 ], [ %call.i6.i.i.i94, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %16, %sw.bb23 ], [ %call.i6.i.i.i115, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %19, %sw.bb28 ]
+  %.sink173 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %5, %sw.bb ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %8, %sw.bb8 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %11, %sw.bb13 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %14, %sw.bb18 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %17, %sw.bb23 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %20, %sw.bb28 ]
   %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %sw.bb ], [ %BlockList.i.i.i16, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ %BlockList.i.i.i16, %sw.bb8 ], [ %BlockList.i.i.i37, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ %BlockList.i.i.i37, %sw.bb13 ], [ %BlockList.i.i.i58, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ %BlockList.i.i.i58, %sw.bb18 ], [ %BlockList.i.i.i79, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ %BlockList.i.i.i79, %sw.bb23 ], [ %BlockList.i.i.i100, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ %BlockList.i.i.i100, %sw.bb28 ]
   %.sink = phi i32 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ 0, %sw.bb ], [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i33 ], [ 1, %sw.bb8 ], [ 2, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i54 ], [ 2, %sw.bb13 ], [ 3, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i75 ], [ 3, %sw.bb18 ], [ 4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i96 ], [ 4, %sw.bb23 ], [ 5, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i117 ], [ 5, %sw.bb28 ]
-  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink173, i64 8
-  %add8.i.i.i = add nsw i64 %.sink172, 16
+  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink174, i64 8
+  %add8.i.i.i = add nsw i64 %.sink173, 16
   store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
   %22 = load ptr, ptr %BlockList.i.i.i.sink, align 16
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %22, i64 16
@@ -12933,12 +12933,12 @@ lor.lhs.false.i37:                                ; preds = %if.then10
   br i1 %isdigit.i40, label %land.rhs.i45.preheader, label %return
 
 land.rhs.i45.preheader:                           ; preds = %lor.lhs.false.i37
-  %this.val1012.i46.ptr177 = getelementptr inbounds i8, ptr %0, i64 2
-  %16 = load i8, ptr %this.val1012.i46.ptr177, align 1
-  %conv11.i47178 = sext i8 %16 to i32
-  %isdigittmp1.i48179 = add nsw i32 %conv11.i47178, -48
-  %isdigit2.i49180 = icmp ult i32 %isdigittmp1.i48179, 10
-  br i1 %isdigit2.i49180, label %while.body.i50, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56
+  %this.val1012.i46.ptr180 = getelementptr inbounds i8, ptr %0, i64 2
+  %16 = load i8, ptr %this.val1012.i46.ptr180, align 1
+  %conv11.i47181 = sext i8 %16 to i32
+  %isdigittmp1.i48182 = add nsw i32 %conv11.i47181, -48
+  %isdigit2.i49183 = icmp ult i32 %isdigittmp1.i48182, 10
+  br i1 %isdigit2.i49183, label %while.body.i50, label %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56
 
 land.rhs.i45:                                     ; preds = %while.body.i50
   %this.val1012.i46.ptr = getelementptr inbounds i8, ptr %0, i64 %this.val1012.i46.add
@@ -12949,8 +12949,8 @@ land.rhs.i45:                                     ; preds = %while.body.i50
   br i1 %isdigit2.i49, label %while.body.i50, label %land.rhs.i45._ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56_crit_edge, !llvm.loop !8
 
 while.body.i50:                                   ; preds = %land.rhs.i45.preheader, %land.rhs.i45
-  %this.val1012.i46.idx181 = phi i64 [ %this.val1012.i46.add, %land.rhs.i45 ], [ 2, %land.rhs.i45.preheader ]
-  %this.val1012.i46.add = add nuw i64 %this.val1012.i46.idx181, 1
+  %this.val1012.i46.idx184 = phi i64 [ %this.val1012.i46.add, %land.rhs.i45 ], [ 2, %land.rhs.i45.preheader ]
+  %this.val1012.i46.add = add nuw i64 %this.val1012.i46.idx184, 1
   %incdec.ptr.i51.ptr = getelementptr inbounds i8, ptr %0, i64 %this.val1012.i46.add
   store ptr %incdec.ptr.i51.ptr, ptr %this, align 16
   %exitcond = icmp eq i64 %this.val1012.i46.add, %sub.ptr.sub.i4.i.i
@@ -12967,11 +12967,11 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb
   br i1 %this.val1012.i46.idx.lcssa, label %return, label %if.end14
 
 if.end14.loopexit:                                ; preds = %while.body.i50
-  %incdec.ptr.i51.ptr.le190 = getelementptr inbounds i8, ptr %0, i64 %this.val1012.i46.add
+  %incdec.ptr.i51.ptr.le191 = getelementptr inbounds i8, ptr %0, i64 %this.val1012.i46.add
   br label %if.end14
 
 if.end14:                                         ; preds = %if.end14.loopexit, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56
-  %19 = phi ptr [ %.lcssa, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56 ], [ %incdec.ptr.i51.ptr.le190, %if.end14.loopexit ]
+  %19 = phi ptr [ %.lcssa, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56 ], [ %incdec.ptr.i51.ptr.le191, %if.end14.loopexit ]
   %cmp.not.i60 = icmp eq ptr %19, %1
   br i1 %cmp.not.i60, label %return, label %land.lhs.true.i61
 
@@ -13092,31 +13092,31 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144: ; preds = %if.then
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144, %if.end23, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %if.end
-  %.sink184 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %12, %if.end ], [ %call.i6.i.i.i142, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %31, %if.end23 ]
+  %.sink176 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %12, %if.end ], [ %call.i6.i.i.i142, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %31, %if.end23 ]
   %.sink = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %13, %if.end ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %32, %if.end23 ]
-  %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.end ], [ %BlockList.i.i.i123, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %BlockList.i.i.i123, %if.end23 ]
+  %BlockList.i.i.i123.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.end ], [ %BlockList.i.i.i123, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %BlockList.i.i.i123, %if.end23 ]
   %retval.sroa.0.0.i99.sink = phi ptr [ %retval.sroa.0.0.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %retval.sroa.0.0.i, %if.end ], [ %retval.sroa.0.0.i99, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %retval.sroa.0.0.i99, %if.end23 ]
   %retval.sroa.3.0.i100.sink = phi ptr [ %retval.sroa.3.0.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %retval.sroa.3.0.i, %if.end ], [ %retval.sroa.3.0.i100, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i144 ], [ %retval.sroa.3.0.i100, %if.end23 ]
-  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink184, i64 8
-  %add8.i.i.i = add nsw i64 %.sink, 32
-  store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
-  %34 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
-  %Current11.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
-  %35 = load i64, ptr %Current11.i.i.i, align 8
-  %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %35
-  %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
-  %K.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
+  %Current7.i.i.i126 = getelementptr inbounds i8, ptr %.sink176, i64 8
+  %add8.i.i.i127 = add nsw i64 %.sink, 32
+  store i64 %add8.i.i.i127, ptr %Current7.i.i.i126, align 8
+  %34 = load ptr, ptr %BlockList.i.i.i123.sink, align 16
+  %add.ptr.i.i.i128 = getelementptr inbounds i8, ptr %34, i64 16
+  %Current11.i.i.i129 = getelementptr inbounds i8, ptr %34, i64 8
+  %35 = load i64, ptr %Current11.i.i.i129, align 8
+  %add.ptr12.i.i.i130 = getelementptr inbounds i8, ptr %add.ptr.i.i.i128, i64 %35
+  %add.ptr13.i.i.i131 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -32
+  %K.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -24
   store <4 x i8> <i8 54, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i135, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i64 16), ptr %add.ptr13.i.i.i, align 8
-  %Number.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i64 16), ptr %add.ptr13.i.i.i131, align 8
+  %Number.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -16
   store ptr %retval.sroa.0.0.i99.sink, ptr %Number.i.i.i139, align 8
-  %Number_.sroa.2.0.Number.sroa_idx.i.i.i140 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
+  %Number_.sroa.2.0.Number.sroa_idx.i.i.i140 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i130, i64 -8
   store ptr %retval.sroa.3.0.i100.sink, ptr %Number_.sroa.2.0.Number.sroa_idx.i.i.i140, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit114, %land.lhs.true.i117, %if.end14, %land.lhs.true.i61, %if.then10, %lor.lhs.false.i37, %_ZNK10StringView10startsWithES_.exit.i26, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit, %land.lhs.true.i, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56
-  %retval.0 = phi ptr [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56 ], [ null, %land.lhs.true.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ null, %_ZNK10StringView10startsWithES_.exit.i26 ], [ null, %lor.lhs.false.i37 ], [ null, %if.then10 ], [ null, %land.lhs.true.i61 ], [ null, %if.end14 ], [ null, %land.lhs.true.i117 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit114 ], [ null, %entry ], [ %add.ptr13.i.i.i, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit56 ], [ null, %land.lhs.true.i ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit ], [ null, %_ZNK10StringView10startsWithES_.exit.i26 ], [ null, %lor.lhs.false.i37 ], [ null, %if.then10 ], [ null, %land.lhs.true.i61 ], [ null, %if.end14 ], [ null, %land.lhs.true.i117 ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE11parseNumberEb.exit114 ], [ null, %entry ], [ %add.ptr13.i.i.i131, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -13876,33 +13876,33 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67: ; preds = %if.then.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %while.end
-  %.sink98 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %21, %while.end ], [ %call.i6.i.i.i65, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %32, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
-  %.sink97 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %22, %while.end ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %33, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
-  %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %while.end ], [ %BlockList.i.i.i28, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %BlockList.i.i.i28, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
+  %.sink96 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %21, %while.end ], [ %call.i6.i.i.i65, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %32, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
+  %.sink95 = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %22, %while.end ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %33, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
+  %BlockList.i.i.i28.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %while.end ], [ %BlockList.i.i.i28, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %BlockList.i.i.i28, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %add.ptr13.i.i.i36.sink = phi ptr [ %19, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %19, %while.end ], [ %add.ptr13.i.i.i36, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ %add.ptr13.i.i.i36, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
   %.sink = phi i64 [ %20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %20, %while.end ], [ 1, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i67 ], [ 1, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE13makeNodeArrayIPPNS0_4NodeEEENS0_9NodeArrayET_SA_.exit ]
-  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink98, i64 8
-  %add8.i.i.i = add nsw i64 %.sink97, 48
-  store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
-  %35 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
-  %Current11.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load i64, ptr %Current11.i.i.i, align 8
-  %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %36
-  %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
-  %K.i.i.i.i57 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
+  %Current7.i.i.i48 = getelementptr inbounds i8, ptr %.sink96, i64 8
+  %add8.i.i.i49 = add nsw i64 %.sink95, 48
+  store i64 %add8.i.i.i49, ptr %Current7.i.i.i48, align 8
+  %35 = load ptr, ptr %BlockList.i.i.i28.sink, align 16
+  %add.ptr.i.i.i50 = getelementptr inbounds i8, ptr %35, i64 16
+  %Current11.i.i.i51 = getelementptr inbounds i8, ptr %35, i64 8
+  %36 = load i64, ptr %Current11.i.i.i51, align 8
+  %add.ptr12.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr.i.i.i50, i64 %36
+  %add.ptr13.i.i.i53 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -48
+  %K.i.i.i.i57 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -40
   store <4 x i8> <i8 55, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i57, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i64 16), ptr %add.ptr13.i.i.i, align 8
-  %Type.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i64 16), ptr %add.ptr13.i.i.i53, align 8
+  %Type.i.i.i61 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -32
   store ptr %call2, ptr %Type.i.i.i61, align 8
-  %Expressions.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
+  %Expressions.i.i.i62 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -24
   store ptr %add.ptr13.i.i.i36.sink, ptr %Expressions.i.i.i62, align 8
-  %Expressions_.sroa.2.0.Expressions.sroa_idx.i.i.i63 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
+  %Expressions_.sroa.2.0.Expressions.sroa_idx.i.i.i63 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i52, i64 -16
   store i64 %.sink, ptr %Expressions_.sroa.2.0.Expressions.sroa_idx.i.i.i63, align 8
   br label %return
 
 return:                                           ; preds = %while.body, %return.sink.split, %entry, %_ZNK10StringView10startsWithES_.exit.i, %if.end16, %_ZN14SwapAndRestoreIbED2Ev.exit
-  %retval.0 = phi ptr [ null, %_ZN14SwapAndRestoreIbED2Ev.exit ], [ null, %if.end16 ], [ null, %_ZNK10StringView10startsWithES_.exit.i ], [ null, %entry ], [ %add.ptr13.i.i.i, %return.sink.split ], [ null, %while.body ]
+  %retval.0 = phi ptr [ null, %_ZN14SwapAndRestoreIbED2Ev.exit ], [ null, %if.end16 ], [ null, %_ZNK10StringView10startsWithES_.exit.i ], [ null, %entry ], [ %add.ptr13.i.i.i53, %return.sink.split ], [ null, %while.body ]
   ret ptr %retval.0
 }
 
@@ -20093,31 +20093,31 @@ _ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22: ; preds = %if.then.
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22, %if.end12, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i, %if.then10
-  %.sink18 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %7, %if.then10 ], [ %call.i6.i.i.i20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %10, %if.end12 ]
+  %.sink19 = phi ptr [ %call.i6.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %7, %if.then10 ], [ %call.i6.i.i.i20, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %10, %if.end12 ]
   %.sink = phi i64 [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %8, %if.then10 ], [ 0, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %11, %if.end12 ]
-  %BlockList.i.i.i.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.then10 ], [ %BlockList.i.i.i4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %BlockList.i.i.i4, %if.end12 ]
+  %BlockList.i.i.i4.sink = phi ptr [ %BlockList.i.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ %BlockList.i.i.i, %if.then10 ], [ %BlockList.i.i.i4, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %BlockList.i.i.i4, %if.end12 ]
   %.lcssa.sink = phi ptr [ @.str.142, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ @.str.142, %if.then10 ], [ %incdec.ptr.i.i, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %incdec.ptr.i.i, %if.end12 ]
   %add.ptr.sink = phi ptr [ getelementptr inbounds (i8, ptr @.str.142, i64 21), %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i ], [ getelementptr inbounds (i8, ptr @.str.142, i64 21), %if.then10 ], [ %add.ptr, %_ZN12_GLOBAL__N_120BumpPointerAllocator4growEv.exit.i.i.i22 ], [ %add.ptr, %if.end12 ]
-  %Current7.i.i.i = getelementptr inbounds i8, ptr %.sink18, i64 8
-  %add8.i.i.i = add nsw i64 %.sink, 32
-  store i64 %add8.i.i.i, ptr %Current7.i.i.i, align 8
-  %13 = load ptr, ptr %BlockList.i.i.i.sink, align 16
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %Current11.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i64, ptr %Current11.i.i.i, align 8
-  %add.ptr12.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 %14
-  %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
-  %K.i.i.i.i13 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
+  %Current7.i.i.i7 = getelementptr inbounds i8, ptr %.sink19, i64 8
+  %add8.i.i.i8 = add nsw i64 %.sink, 32
+  store i64 %add8.i.i.i8, ptr %Current7.i.i.i7, align 8
+  %13 = load ptr, ptr %BlockList.i.i.i4.sink, align 16
+  %add.ptr.i.i.i9 = getelementptr inbounds i8, ptr %13, i64 16
+  %Current11.i.i.i10 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i64, ptr %Current11.i.i.i10, align 8
+  %add.ptr12.i.i.i11 = getelementptr inbounds i8, ptr %add.ptr.i.i.i9, i64 %14
+  %add.ptr13.i.i.i12 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -32
+  %K.i.i.i.i13 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i13, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i, align 8
-  %Name.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 16), ptr %add.ptr13.i.i.i12, align 8
+  %Name.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -16
   store ptr %.lcssa.sink, ptr %Name.i.i.i17, align 8
-  %Name_.sroa.2.0.Name.sroa_idx.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
+  %Name_.sroa.2.0.Name.sroa_idx.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i11, i64 -8
   store ptr %add.ptr.sink, ptr %Name_.sroa.2.0.Name.sroa_idx.i.i.i18, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i, %if.end
-  %retval.0 = phi ptr [ null, %if.end ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i ], [ null, %entry ], [ %add.ptr13.i.i.i, %return.sink.split ]
+  %retval.0 = phi ptr [ null, %if.end ], [ null, %_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4lookEj.exit.i ], [ null, %entry ], [ %add.ptr13.i.i.i12, %return.sink.split ]
   ret ptr %retval.0
 }
 

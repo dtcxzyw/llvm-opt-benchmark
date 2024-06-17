@@ -284,108 +284,101 @@ define void @_ZN16EditorFileDialog13applyFilenameEv(ptr noundef nonnull align 8 
   %7 = icmp eq i32 %6, 1
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   %9 = getelementptr inbounds i8, ptr %0, i64 104
-  br i1 %7, label %10, label %26
+  %.sink22.sroa.gep = getelementptr inbounds i8, ptr %4, i64 8
+  %.sink22.sroa.gep23 = getelementptr inbounds i8, ptr %3, i64 8
+  %.sink22.sroa.gep25 = getelementptr inbounds i8, ptr %4, i64 16
+  %.sink22.sroa.gep26 = getelementptr inbounds i8, ptr %3, i64 16
+  br i1 %7, label %10, label %20
 
 10:                                               ; preds = %1
   %11 = getelementptr inbounds i8, ptr %0, i64 152
   %.sroa.01.0.copyload = load i32, ptr %11, align 8
   invoke void @_ZN19WiresharkFileDialog20getExistingDirectoryEP7QWidgetRK7QStringS4_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %3, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 %.sroa.01.0.copyload)
-          to label %12 unwind label %20
+          to label %12 unwind label %14
 
 12:                                               ; preds = %10
   %13 = load ptr, ptr %3, align 8
   store ptr %13, ptr %2, align 8
   store ptr null, ptr %3, align 8
-  %14 = getelementptr inbounds i8, ptr %2, i64 8
-  %15 = getelementptr inbounds i8, ptr %3, i64 8
-  %16 = load ptr, ptr %15, align 8
-  store ptr %16, ptr %14, align 8
-  store ptr null, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 16
-  %18 = getelementptr inbounds i8, ptr %3, i64 16
-  %19 = load i64, ptr %18, align 8
-  store i64 %19, ptr %17, align 8
   br label %_ZN7QStringD2Ev.exit
 
-20:                                               ; preds = %41, %40, %26, %10
-  %21 = landingpad { ptr, i32 }
+14:                                               ; preds = %32, %31, %20, %10
+  %15 = landingpad { ptr, i32 }
           cleanup
-  %22 = load ptr, ptr %2, align 8
-  %.not.i.i.i3 = icmp eq ptr %22, null
+  %16 = load ptr, ptr %2, align 8
+  %.not.i.i.i3 = icmp eq ptr %16, null
   br i1 %.not.i.i.i3, label %_ZN7QStringD2Ev.exit6, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4:     ; preds = %20
-  %23 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
-  %.not.i.i5 = icmp eq i32 %23, 1
-  br i1 %.not.i.i5, label %24, label %_ZN7QStringD2Ev.exit6
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4:     ; preds = %14
+  %17 = atomicrmw sub ptr %16, i32 1 seq_cst, align 4
+  %.not.i.i5 = icmp eq i32 %17, 1
+  br i1 %.not.i.i5, label %18, label %_ZN7QStringD2Ev.exit6
 
-24:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4
-  %25 = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %25, i64 noundef 2, i64 noundef 8) #12
+18:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4
+  %19 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %19, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit6
 
-_ZN7QStringD2Ev.exit6:                            ; preds = %20, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4, %24
-  resume { ptr, i32 } %21
+_ZN7QStringD2Ev.exit6:                            ; preds = %14, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i4, %18
+  resume { ptr, i32 } %15
 
-26:                                               ; preds = %1
-  %27 = getelementptr inbounds i8, ptr %0, i64 128
-  %28 = getelementptr inbounds i8, ptr %0, i64 152
-  %.sroa.0.0.copyload = load i32, ptr %28, align 8
-  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef null, i32 %.sroa.0.0.copyload)
-          to label %29 unwind label %20
+20:                                               ; preds = %1
+  %21 = getelementptr inbounds i8, ptr %0, i64 128
+  %22 = getelementptr inbounds i8, ptr %0, i64 152
+  %.sroa.0.0.copyload = load i32, ptr %22, align 8
+  invoke void @_ZN19WiresharkFileDialog15getOpenFileNameEP7QWidgetRK7QStringS4_S4_PS2_6QFlagsIN11QFileDialog6OptionEE(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %4, ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef null, i32 %.sroa.0.0.copyload)
+          to label %23 unwind label %14
 
-29:                                               ; preds = %26
-  %30 = load ptr, ptr %4, align 8
-  store ptr %30, ptr %2, align 8
+23:                                               ; preds = %20
+  %24 = load ptr, ptr %4, align 8
+  store ptr %24, ptr %2, align 8
   store ptr null, ptr %4, align 8
-  %31 = getelementptr inbounds i8, ptr %2, i64 8
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  %33 = load ptr, ptr %32, align 8
-  store ptr %33, ptr %31, align 8
-  store ptr null, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %2, i64 16
-  %35 = getelementptr inbounds i8, ptr %4, i64 16
-  %36 = load i64, ptr %35, align 8
-  store i64 %36, ptr %34, align 8
   br label %_ZN7QStringD2Ev.exit
 
-_ZN7QStringD2Ev.exit:                             ; preds = %29, %12
-  %.sink = phi ptr [ %35, %29 ], [ %18, %12 ]
-  %37 = phi ptr [ %30, %29 ], [ %13, %12 ]
-  %38 = phi i64 [ %36, %29 ], [ %19, %12 ]
-  store i64 0, ptr %.sink, align 8
-  %39 = icmp eq i64 %38, 0
-  br i1 %39, label %43, label %40
+_ZN7QStringD2Ev.exit:                             ; preds = %23, %12
+  %.sink22.sroa.phi = phi ptr [ %.sink22.sroa.gep, %23 ], [ %.sink22.sroa.gep23, %12 ]
+  %.sink22.sroa.phi24 = phi ptr [ %.sink22.sroa.gep25, %23 ], [ %.sink22.sroa.gep26, %12 ]
+  %25 = phi ptr [ %24, %23 ], [ %13, %12 ]
+  %26 = getelementptr inbounds i8, ptr %2, i64 8
+  %27 = load ptr, ptr %.sink22.sroa.phi, align 8
+  store ptr %27, ptr %26, align 8
+  store ptr null, ptr %.sink22.sroa.phi, align 8
+  %28 = getelementptr inbounds i8, ptr %2, i64 16
+  %29 = load i64, ptr %.sink22.sroa.phi24, align 8
+  store i64 %29, ptr %28, align 8
+  store i64 0, ptr %.sink22.sroa.phi24, align 8
+  %30 = icmp eq i64 %29, 0
+  br i1 %30, label %34, label %31
 
-40:                                               ; preds = %_ZN7QStringD2Ev.exit
+31:                                               ; preds = %_ZN7QStringD2Ev.exit
   invoke void @_ZN9QLineEdit7setTextERK7QString(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-          to label %41 unwind label %20
+          to label %32 unwind label %14
 
-41:                                               ; preds = %40
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  invoke void @_ZN16EditorFileDialog10acceptEditERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %42)
-          to label %._crit_edge unwind label %20
+32:                                               ; preds = %31
+  %33 = getelementptr inbounds i8, ptr %0, i64 48
+  invoke void @_ZN16EditorFileDialog10acceptEditERK11QModelIndex(ptr noundef nonnull align 8 dereferenceable(156) %0, ptr noundef nonnull align 8 dereferenceable(24) %33)
+          to label %._crit_edge unwind label %14
 
-._crit_edge:                                      ; preds = %41
+._crit_edge:                                      ; preds = %32
   %.pre = load ptr, ptr %2, align 8
-  br label %43
+  br label %34
 
-43:                                               ; preds = %._crit_edge, %_ZN7QStringD2Ev.exit
-  %44 = phi ptr [ %.pre, %._crit_edge ], [ %37, %_ZN7QStringD2Ev.exit ]
-  %.not.i.i.i11 = icmp eq ptr %44, null
+34:                                               ; preds = %._crit_edge, %_ZN7QStringD2Ev.exit
+  %35 = phi ptr [ %.pre, %._crit_edge ], [ %25, %_ZN7QStringD2Ev.exit ]
+  %.not.i.i.i11 = icmp eq ptr %35, null
   br i1 %.not.i.i.i11, label %_ZN7QStringD2Ev.exit14, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12:    ; preds = %43
-  %45 = atomicrmw sub ptr %44, i32 1 seq_cst, align 4
-  %.not.i.i13 = icmp eq i32 %45, 1
-  br i1 %.not.i.i13, label %46, label %_ZN7QStringD2Ev.exit14
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12:    ; preds = %34
+  %36 = atomicrmw sub ptr %35, i32 1 seq_cst, align 4
+  %.not.i.i13 = icmp eq i32 %36, 1
+  br i1 %.not.i.i13, label %37, label %_ZN7QStringD2Ev.exit14
 
-46:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12
-  %47 = load ptr, ptr %2, align 8
-  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %47, i64 noundef 2, i64 noundef 8) #12
+37:                                               ; preds = %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12
+  %38 = load ptr, ptr %2, align 8
+  call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %38, i64 noundef 2, i64 noundef 8) #12
   br label %_ZN7QStringD2Ev.exit14
 
-_ZN7QStringD2Ev.exit14:                           ; preds = %43, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12, %46
+_ZN7QStringD2Ev.exit14:                           ; preds = %34, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i12, %37
   ret void
 }
 

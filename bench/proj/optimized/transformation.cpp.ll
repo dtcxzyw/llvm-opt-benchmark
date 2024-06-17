@@ -14804,12 +14804,12 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
 46:                                               ; preds = %44, %42
   %.pn = phi { ptr, i32 } [ %45, %44 ], [ %43, %42 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #21
-  br label %229
+  br label %231
 
-47:                                               ; preds = %.invoke, %149, %223, %218, %215, %212, %203, %197, %184, %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit, %141, %140, %139, %119, %114, %98, %88, %73, %72, %56, %55, %50, %49, %41
+47:                                               ; preds = %.invoke, %151, %225, %220, %217, %214, %205, %199, %186, %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit, %143, %142, %141, %119, %114, %98, %88, %73, %72, %56, %55, %50, %49, %41
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %229
+  br label %231
 
 49:                                               ; preds = %34
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter3AddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %39)
@@ -14898,7 +14898,7 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
 94:                                               ; preds = %88
   %95 = load ptr, ptr %93, align 8
   %.not = icmp eq ptr %95, null
-  br i1 %.not, label %137, label %96
+  br i1 %.not, label %139, label %96
 
 96:                                               ; preds = %94
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
@@ -14929,7 +14929,7 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
 103:                                              ; preds = %101, %99
   %.pn55 = phi { ptr, i32 } [ %102, %101 ], [ %100, %99 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #21
-  br label %229
+  br label %231
 
 104:                                              ; preds = %70
   %105 = landingpad { ptr, i32 }
@@ -14945,7 +14945,7 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
 108:                                              ; preds = %106, %104
   %.pn57 = phi { ptr, i32 } [ %107, %106 ], [ %105, %104 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #21
-  br label %229
+  br label %231
 
 109:                                              ; preds = %96
   %110 = landingpad { ptr, i32 }
@@ -14961,23 +14961,23 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
 113:                                              ; preds = %111, %109
   %.pn59 = phi { ptr, i32 } [ %112, %111 ], [ %110, %109 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %11) #21
-  br label %229
+  br label %231
 
 114:                                              ; preds = %52
   %115 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter36abridgedTransformationWriteSourceCRSEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %116 unwind label %47
 
 116:                                              ; preds = %114
-  br i1 %115, label %117, label %137
+  br i1 %115, label %117, label %139
 
 117:                                              ; preds = %116
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %13)
-          to label %118 unwind label %132
+          to label %118 unwind label %134
 
 118:                                              ; preds = %117
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter9AddObjKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %12)
-          to label %119 unwind label %134
+          to label %119 unwind label %136
 
 119:                                              ; preds = %118
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
@@ -14997,262 +14997,262 @@ define hidden void @_ZNK5osgeo4proj9operation14Transformation13_exportToJSONEPNS
   br label %.invoke
 
 .invoke:                                          ; preds = %98, %120
-  %.pn78.in = phi ptr [ %128, %120 ], [ %93, %98 ]
-  %.pn78 = load ptr, ptr %.pn78.in, align 8
-  %.sink = getelementptr inbounds i8, ptr %.pn78, i64 48
+  %.sink = phi ptr [ %128, %120 ], [ %93, %98 ]
   %129 = load ptr, ptr %.sink, align 8
-  %130 = getelementptr inbounds i8, ptr %129, i64 16
+  %130 = getelementptr inbounds i8, ptr %129, i64 48
   %131 = load ptr, ptr %130, align 8
-  invoke void %131(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull %1)
-          to label %137 unwind label %47
+  %132 = getelementptr inbounds i8, ptr %131, i64 16
+  %133 = load ptr, ptr %132, align 8
+  invoke void %133(ptr noundef nonnull align 8 dereferenceable(8) %130, ptr noundef nonnull %1)
+          to label %139 unwind label %47
 
-132:                                              ; preds = %117
-  %133 = landingpad { ptr, i32 }
-          cleanup
-  br label %136
-
-134:                                              ; preds = %118
+134:                                              ; preds = %117
   %135 = landingpad { ptr, i32 }
           cleanup
+  br label %138
+
+136:                                              ; preds = %118
+  %137 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #21
-  br label %136
+  br label %138
 
-136:                                              ; preds = %134, %132
-  %.pn61 = phi { ptr, i32 } [ %135, %134 ], [ %133, %132 ]
+138:                                              ; preds = %136, %134
+  %.pn61 = phi { ptr, i32 } [ %137, %136 ], [ %135, %134 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #21
-  br label %229
+  br label %231
 
-137:                                              ; preds = %.invoke, %116, %94
+139:                                              ; preds = %.invoke, %116, %94
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %15)
-          to label %138 unwind label %167
+          to label %140 unwind label %169
 
-138:                                              ; preds = %137
+140:                                              ; preds = %139
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter9AddObjKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %14)
-          to label %139 unwind label %169
+          to label %141 unwind label %171
 
-139:                                              ; preds = %138
+141:                                              ; preds = %140
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
   invoke void @_ZN5osgeo4proj2io13JSONFormatter27setOmitTypeInImmediateChildEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %140 unwind label %47
+          to label %142 unwind label %47
 
-140:                                              ; preds = %139
+142:                                              ; preds = %141
   invoke void @_ZN5osgeo4proj2io13JSONFormatter26setAllowIDInImmediateChildEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %141 unwind label %47
+          to label %143 unwind label %47
 
-141:                                              ; preds = %140
-  %142 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %143 = load ptr, ptr %142, align 8
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %144, i64 40
+143:                                              ; preds = %142
+  %144 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj9operation15SingleOperation6methodEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
+  %145 = load ptr, ptr %144, align 8
   %146 = load ptr, ptr %145, align 8
-  invoke void %146(ptr noundef nonnull align 8 dereferenceable(56) %143, ptr noundef nonnull %1)
-          to label %147 unwind label %47
+  %147 = getelementptr inbounds i8, ptr %146, i64 40
+  %148 = load ptr, ptr %147, align 8
+  invoke void %148(ptr noundef nonnull align 8 dereferenceable(56) %145, ptr noundef nonnull %1)
+          to label %149 unwind label %47
 
-147:                                              ; preds = %141
+149:                                              ; preds = %143
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %17)
-          to label %148 unwind label %172
+          to label %150 unwind label %174
 
-148:                                              ; preds = %147
+150:                                              ; preds = %149
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter9AddObjKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %16)
-          to label %149 unwind label %174
+          to label %151 unwind label %176
 
-149:                                              ; preds = %148
+151:                                              ; preds = %150
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   store ptr %21, ptr %18, align 8, !alias.scope !70
-  %150 = getelementptr inbounds i8, ptr %18, i64 8
-  store i8 0, ptr %150, align 8, !alias.scope !70
-  %151 = getelementptr inbounds i8, ptr %18, i64 9
-  %152 = getelementptr inbounds i8, ptr %21, i64 124
-  %153 = load i8, ptr %152, align 4, !noalias !70
-  %154 = and i8 %153, 1
-  store i8 %154, ptr %151, align 1, !alias.scope !70
+  %152 = getelementptr inbounds i8, ptr %18, i64 8
+  store i8 0, ptr %152, align 8, !alias.scope !70
+  %153 = getelementptr inbounds i8, ptr %18, i64 9
+  %154 = getelementptr inbounds i8, ptr %21, i64 124
+  %155 = load i8, ptr %154, align 4, !noalias !70
+  %156 = and i8 %155, 1
+  store i8 %156, ptr %153, align 1, !alias.scope !70
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter10StartArrayEv(ptr noundef nonnull align 8 dereferenceable(153) %21)
           to label %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit unwind label %47
 
-_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit: ; preds = %149
-  %155 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
-  %156 = load ptr, ptr %155, align 8
-  %157 = getelementptr inbounds i8, ptr %155, i64 8
+_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit: ; preds = %151
+  %157 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation15SingleOperation15parameterValuesEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
   %158 = load ptr, ptr %157, align 8
-  %.not7475 = icmp eq ptr %156, %158
+  %159 = getelementptr inbounds i8, ptr %157, i64 8
+  %160 = load ptr, ptr %159, align 8
+  %.not7475 = icmp eq ptr %158, %160
   br i1 %.not7475, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit, %165
-  %.sroa.071.076 = phi ptr [ %166, %165 ], [ %156, %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit ]
+.lr.ph:                                           ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit, %167
+  %.sroa.071.076 = phi ptr [ %168, %167 ], [ %158, %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit ]
   invoke void @_ZN5osgeo4proj2io13JSONFormatter26setAllowIDInImmediateChildEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %159 unwind label %177
+          to label %161 unwind label %179
 
-159:                                              ; preds = %.lr.ph
+161:                                              ; preds = %.lr.ph
   invoke void @_ZN5osgeo4proj2io13JSONFormatter27setOmitTypeInImmediateChildEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %160 unwind label %177
+          to label %162 unwind label %179
 
-160:                                              ; preds = %159
-  %161 = load ptr, ptr %.sroa.071.076, align 8
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 24
+162:                                              ; preds = %161
+  %163 = load ptr, ptr %.sroa.071.076, align 8
   %164 = load ptr, ptr %163, align 8
-  invoke void %164(ptr noundef nonnull align 8 dereferenceable(48) %161, ptr noundef nonnull %1)
-          to label %165 unwind label %177
+  %165 = getelementptr inbounds i8, ptr %164, i64 24
+  %166 = load ptr, ptr %165, align 8
+  invoke void %166(ptr noundef nonnull align 8 dereferenceable(48) %163, ptr noundef nonnull %1)
+          to label %167 unwind label %179
 
-165:                                              ; preds = %160
-  %166 = getelementptr inbounds i8, ptr %.sroa.071.076, i64 16
-  %.not74 = icmp eq ptr %166, %158
+167:                                              ; preds = %162
+  %168 = getelementptr inbounds i8, ptr %.sroa.071.076, i64 16
+  %.not74 = icmp eq ptr %168, %160
   br i1 %.not74, label %._crit_edge, label %.lr.ph
 
-167:                                              ; preds = %137
-  %168 = landingpad { ptr, i32 }
-          cleanup
-  br label %171
-
-169:                                              ; preds = %138
+169:                                              ; preds = %139
   %170 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
-  br label %171
+  br label %173
 
-171:                                              ; preds = %169, %167
-  %.pn63 = phi { ptr, i32 } [ %170, %169 ], [ %168, %167 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
-  br label %229
-
-172:                                              ; preds = %147
-  %173 = landingpad { ptr, i32 }
+171:                                              ; preds = %140
+  %172 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #21
+  br label %173
 
-174:                                              ; preds = %148
+173:                                              ; preds = %171, %169
+  %.pn63 = phi { ptr, i32 } [ %172, %171 ], [ %170, %169 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #21
+  br label %231
+
+174:                                              ; preds = %149
   %175 = landingpad { ptr, i32 }
           cleanup
+  br label %178
+
+176:                                              ; preds = %150
+  %177 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #21
-  br label %176
+  br label %178
 
-176:                                              ; preds = %174, %172
-  %.pn65 = phi { ptr, i32 } [ %175, %174 ], [ %173, %172 ]
+178:                                              ; preds = %176, %174
+  %.pn65 = phi { ptr, i32 } [ %177, %176 ], [ %175, %174 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #21
-  br label %229
+  br label %231
 
-177:                                              ; preds = %160, %159, %.lr.ph
-  %178 = landingpad { ptr, i32 }
+179:                                              ; preds = %162, %161, %.lr.ph
+  %180 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev(ptr noundef nonnull align 8 dereferenceable(10) %18) #21
-  br label %229
+  br label %231
 
-._crit_edge:                                      ; preds = %165, %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit
+._crit_edge:                                      ; preds = %167, %_ZN5osgeo4proj22CPLJSonStreamingWriter16MakeArrayContextEb.exit
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter8EndArrayEv(ptr noundef nonnull align 8 dereferenceable(153) %21)
-          to label %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit unwind label %179
+          to label %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit unwind label %181
 
-179:                                              ; preds = %._crit_edge
-  %180 = landingpad { ptr, i32 }
+181:                                              ; preds = %._crit_edge
+  %182 = landingpad { ptr, i32 }
           catch ptr null
-  %181 = extractvalue { ptr, i32 } %180, 0
-  call void @__clang_call_terminate(ptr %181) #24
+  %183 = extractvalue { ptr, i32 } %182, 0
+  call void @__clang_call_terminate(ptr %183) #24
   unreachable
 
 _ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit: ; preds = %._crit_edge
-  %182 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter22abridgedTransformationEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %183 unwind label %47
+  %184 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter22abridgedTransformationEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %185 unwind label %47
 
-183:                                              ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit
-  br i1 %182, label %212, label %184
+185:                                              ; preds = %_ZN5osgeo4proj22CPLJSonStreamingWriter12ArrayContextD2Ev.exit
+  br i1 %184, label %214, label %186
 
-184:                                              ; preds = %183
-  %185 = load ptr, ptr %0, align 8
-  %186 = getelementptr i8, ptr %185, i64 -24
-  %187 = load i64, ptr %186, align 8
-  %188 = getelementptr inbounds i8, ptr %0, i64 %187
-  %189 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %188)
-          to label %190 unwind label %47
+186:                                              ; preds = %185
+  %187 = load ptr, ptr %0, align 8
+  %188 = getelementptr i8, ptr %187, i64 -24
+  %189 = load i64, ptr %188, align 8
+  %190 = getelementptr inbounds i8, ptr %0, i64 %189
+  %191 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %190)
+          to label %192 unwind label %47
 
-190:                                              ; preds = %184
-  %191 = load ptr, ptr %189, align 8
-  %192 = getelementptr inbounds i8, ptr %189, i64 8
-  %193 = load ptr, ptr %192, align 8
-  %194 = icmp eq ptr %191, %193
-  br i1 %194, label %212, label %195
+192:                                              ; preds = %186
+  %193 = load ptr, ptr %191, align 8
+  %194 = getelementptr inbounds i8, ptr %191, i64 8
+  %195 = load ptr, ptr %194, align 8
+  %196 = icmp eq ptr %193, %195
+  br i1 %196, label %214, label %197
 
-195:                                              ; preds = %190
+197:                                              ; preds = %192
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %20)
-          to label %196 unwind label %207
+          to label %198 unwind label %209
 
-196:                                              ; preds = %195
+198:                                              ; preds = %197
   invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter9AddObjKeyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
-          to label %197 unwind label %209
+          to label %199 unwind label %211
 
-197:                                              ; preds = %196
+199:                                              ; preds = %198
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21
-  %198 = load ptr, ptr %0, align 8
-  %199 = getelementptr i8, ptr %198, i64 -24
-  %200 = load i64, ptr %199, align 8
-  %201 = getelementptr inbounds i8, ptr %0, i64 %200
-  %202 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %201)
-          to label %203 unwind label %47
+  %200 = load ptr, ptr %0, align 8
+  %201 = getelementptr i8, ptr %200, i64 -24
+  %202 = load i64, ptr %201, align 8
+  %203 = getelementptr inbounds i8, ptr %0, i64 %202
+  %204 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj9operation19CoordinateOperation29coordinateOperationAccuraciesEv(ptr noundef nonnull align 8 dereferenceable(72) %203)
+          to label %205 unwind label %47
 
-203:                                              ; preds = %197
-  %204 = load ptr, ptr %202, align 8
-  %205 = load ptr, ptr %204, align 8
-  %206 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %205) #25
-  invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter3AddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %206)
-          to label %212 unwind label %47
-
-207:                                              ; preds = %195
-  %208 = landingpad { ptr, i32 }
-          cleanup
-  br label %211
-
-209:                                              ; preds = %196
-  %210 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
-  br label %211
-
-211:                                              ; preds = %209, %207
-  %.pn67 = phi { ptr, i32 } [ %210, %209 ], [ %208, %207 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21
-  br label %229
-
-212:                                              ; preds = %190, %203, %183
-  %213 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter22abridgedTransformationEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+205:                                              ; preds = %199
+  %206 = load ptr, ptr %204, align 8
+  %207 = load ptr, ptr %206, align 8
+  %208 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata18PositionalAccuracy5valueB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %207) #25
+  invoke void @_ZN5osgeo4proj22CPLJSonStreamingWriter3AddERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(153) %21, ptr noundef nonnull align 8 dereferenceable(32) %208)
           to label %214 unwind label %47
 
-214:                                              ; preds = %212
-  br i1 %213, label %215, label %223
+209:                                              ; preds = %197
+  %210 = landingpad { ptr, i32 }
+          cleanup
+  br label %213
 
-215:                                              ; preds = %214
-  %216 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter8outputIdEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %217 unwind label %47
+211:                                              ; preds = %198
+  %212 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #21
+  br label %213
 
-217:                                              ; preds = %215
-  br i1 %216, label %218, label %228
+213:                                              ; preds = %211, %209
+  %.pn67 = phi { ptr, i32 } [ %212, %211 ], [ %210, %209 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #21
+  br label %231
 
-218:                                              ; preds = %217
-  %219 = load ptr, ptr %0, align 8
-  %220 = getelementptr i8, ptr %219, i64 -24
-  %221 = load i64, ptr %220, align 8
-  %222 = getelementptr inbounds i8, ptr %0, i64 %221
-  invoke void @_ZNK5osgeo4proj6common16IdentifiedObject8formatIDEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(40) %222, ptr noundef nonnull %1)
-          to label %228 unwind label %47
+214:                                              ; preds = %192, %205, %185
+  %215 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter22abridgedTransformationEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %216 unwind label %47
 
-223:                                              ; preds = %214
-  %224 = load ptr, ptr %0, align 8
-  %225 = getelementptr i8, ptr %224, i64 -24
-  %226 = load i64, ptr %225, align 8
-  %227 = getelementptr inbounds i8, ptr %0, i64 %226
-  invoke void @_ZNK5osgeo4proj6common11ObjectUsage16baseExportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(48) %227, ptr noundef nonnull %1)
-          to label %228 unwind label %47
+216:                                              ; preds = %214
+  br i1 %215, label %217, label %225
 
-228:                                              ; preds = %223, %217, %218
+217:                                              ; preds = %216
+  %218 = invoke noundef zeroext i1 @_ZNK5osgeo4proj2io13JSONFormatter8outputIdEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
+          to label %219 unwind label %47
+
+219:                                              ; preds = %217
+  br i1 %218, label %220, label %230
+
+220:                                              ; preds = %219
+  %221 = load ptr, ptr %0, align 8
+  %222 = getelementptr i8, ptr %221, i64 -24
+  %223 = load i64, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %0, i64 %223
+  invoke void @_ZNK5osgeo4proj6common16IdentifiedObject8formatIDEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(40) %224, ptr noundef nonnull %1)
+          to label %230 unwind label %47
+
+225:                                              ; preds = %216
+  %226 = load ptr, ptr %0, align 8
+  %227 = getelementptr i8, ptr %226, i64 -24
+  %228 = load i64, ptr %227, align 8
+  %229 = getelementptr inbounds i8, ptr %0, i64 %228
+  invoke void @_ZNK5osgeo4proj6common11ObjectUsage16baseExportToJSONEPNS0_2io13JSONFormatterE(ptr noundef nonnull align 8 dereferenceable(48) %229, ptr noundef nonnull %1)
+          to label %230 unwind label %47
+
+230:                                              ; preds = %225, %219, %220
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   ret void
 
-229:                                              ; preds = %211, %177, %176, %171, %136, %113, %108, %103, %47, %46
-  %.pn69 = phi { ptr, i32 } [ %178, %177 ], [ %48, %47 ], [ %.pn67, %211 ], [ %.pn65, %176 ], [ %.pn63, %171 ], [ %.pn61, %136 ], [ %.pn59, %113 ], [ %.pn57, %108 ], [ %.pn55, %103 ], [ %.pn, %46 ]
+231:                                              ; preds = %213, %179, %178, %173, %138, %113, %108, %103, %47, %46
+  %.pn69 = phi { ptr, i32 } [ %180, %179 ], [ %48, %47 ], [ %.pn67, %213 ], [ %.pn65, %178 ], [ %.pn63, %173 ], [ %.pn61, %138 ], [ %.pn59, %113 ], [ %.pn57, %108 ], [ %.pn55, %103 ], [ %.pn, %46 ]
   call void @_ZN5osgeo4proj2io13JSONFormatter13ObjectContextD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #21
   resume { ptr, i32 } %.pn69
 }

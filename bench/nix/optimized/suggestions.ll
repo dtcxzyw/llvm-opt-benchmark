@@ -3489,14 +3489,14 @@ _ZN7testing15AssertionResultD2Ev.exit107:         ; preds = %229, %_ZNKSt14defau
 
 _ZN3nix11SuggestionsD2Ev.exit.sink.split.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i
   %.sink118 = phi ptr [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i80 ], [ %173, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i82 ]
-  %.sink117.ph = phi ptr [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %157, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i80 ], [ %157, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i82 ]
+  %.sink.ph = phi ptr [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ], [ %104, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i ], [ %157, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i80 ], [ %157, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i82 ]
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink118) #23
   call void @_ZdlPv(ptr noundef nonnull %.sink118) #25
   br label %_ZN3nix11SuggestionsD2Ev.exit.sink.split
 
 _ZN3nix11SuggestionsD2Ev.exit.sink.split:         ; preds = %_ZN3nix11SuggestionsD2Ev.exit.sink.split.sink.split, %_ZN7testing7MessageD2Ev.exit78, %_ZN7testing7MessageD2Ev.exit
-  %.sink117 = phi ptr [ %104, %_ZN7testing7MessageD2Ev.exit ], [ %157, %_ZN7testing7MessageD2Ev.exit78 ], [ %.sink117.ph, %_ZN3nix11SuggestionsD2Ev.exit.sink.split.sink.split ]
-  store ptr null, ptr %.sink117, align 8
+  %.sink = phi ptr [ %104, %_ZN7testing7MessageD2Ev.exit ], [ %157, %_ZN7testing7MessageD2Ev.exit78 ], [ %.sink.ph, %_ZN3nix11SuggestionsD2Ev.exit.sink.split.sink.split ]
+  store ptr null, ptr %.sink, align 8
   br label %_ZN3nix11SuggestionsD2Ev.exit
 
 _ZN3nix11SuggestionsD2Ev.exit:                    ; preds = %_ZN3nix11SuggestionsD2Ev.exit.sink.split, %_ZN7testing15AssertionResultD2Ev.exit107

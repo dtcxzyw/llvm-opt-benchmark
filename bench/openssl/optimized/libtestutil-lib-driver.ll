@@ -137,13 +137,13 @@ if.else10:                                        ; preds = %if.else
   br label %if.end12.sink.split
 
 if.end12.sink.split:                              ; preds = %if.then8, %if.then5, %if.else10
-  %call.i10 = tail call i64 @time(ptr noundef null) #13
-  %conv.i11 = trunc i64 %call.i10 to i32
-  store i32 %conv.i11, ptr @seed, align 4
+  %call.i6 = tail call i64 @time(ptr noundef null) #13
+  %conv.i7 = trunc i64 %call.i6 to i32
+  store i32 %conv.i7, ptr @seed, align 4
   br label %if.end12
 
 if.end12:                                         ; preds = %if.end12.sink.split, %if.then8, %if.then5
-  %.sink = phi i32 [ %call6, %if.then5 ], [ %call9, %if.then8 ], [ %conv.i11, %if.end12.sink.split ]
+  %.sink = phi i32 [ %call6, %if.then5 ], [ %call9, %if.then8 ], [ %conv.i7, %if.end12.sink.split ]
   tail call void @test_random_seed(i32 noundef %.sink) #13
   %call13 = tail call ptr @test_get_options() #13
   %call14 = tail call ptr @opt_init(i32 noundef %argc, ptr noundef %argv, ptr noundef %call13) #13

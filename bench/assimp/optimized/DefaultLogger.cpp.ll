@@ -268,14 +268,14 @@ lpad9:                                            ; preds = %cond.true
 
 return.sink.split:                                ; preds = %entry, %sw.bb2
   %_ZSt4cout.sink = phi ptr [ @_ZSt4cout, %sw.bb2 ], [ @_ZSt4cerr, %entry ]
-  %call = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 16), ptr %call, align 8
-  %mOstream.i3 = getelementptr inbounds i8, ptr %call, i64 8
+  %call3 = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 16), ptr %call3, align 8
+  %mOstream.i3 = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %_ZSt4cout.sink, ptr %mOstream.i3, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %cond.true, %land.lhs.true, %sw.bb6
-  %retval.0 = phi ptr [ %call8, %cond.true ], [ null, %land.lhs.true ], [ null, %sw.bb6 ], [ null, %entry ], [ %call, %return.sink.split ]
+  %retval.0 = phi ptr [ %call8, %cond.true ], [ null, %land.lhs.true ], [ null, %sw.bb6 ], [ null, %entry ], [ %call3, %return.sink.split ]
   ret ptr %retval.0
 }
 
@@ -362,8 +362,8 @@ entry:
   %0 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
   %tobool.not = icmp eq ptr %0, null
   %cmp.i = icmp eq ptr %0, @_ZN6Assimp13DefaultLogger13s_pNullLoggerE
-  %or.cond7 = or i1 %tobool.not, %cmp.i
-  br i1 %or.cond7, label %if.end, label %delete.notnull
+  %or.cond8 = or i1 %tobool.not, %cmp.i
+  br i1 %or.cond8, label %if.end, label %delete.notnull
 
 delete.notnull:                                   ; preds = %entry
   %vtable = load ptr, ptr %0, align 8
@@ -425,14 +425,14 @@ if.end16:                                         ; preds = %if.then11, %if.end8
 
 if.then19:                                        ; preds = %if.end16
   %6 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
-  %call.i = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 16), ptr %call.i, align 8
-  %mOstream.i3.i6 = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr @_ZSt4cerr, ptr %mOstream.i3.i6, align 8
+  %call3.i6 = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 16), ptr %call3.i6, align 8
+  %mOstream.i3.i7 = getelementptr inbounds i8, ptr %call3.i6, i64 8
+  store ptr @_ZSt4cerr, ptr %mOstream.i3.i7, align 8
   %vtable21 = load ptr, ptr %6, align 8
   %vfn22 = getelementptr inbounds i8, ptr %vtable21, i64 16
   %7 = load ptr, ptr %vfn22, align 8
-  %call23 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull %call.i, i32 noundef 15)
+  %call23 = tail call noundef zeroext i1 %7(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull %call3.i6, i32 noundef 15)
   br label %if.end24
 
 if.end24:                                         ; preds = %if.then19, %if.end16

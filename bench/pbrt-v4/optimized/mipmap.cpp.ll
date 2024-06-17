@@ -523,94 +523,44 @@ land.end:                                         ; preds = %land.lhs.true
   %2 = load i64, ptr %nStored.i.i, align 8
   %conv.i = trunc i64 %2 to i32
   switch i32 %conv.i, label %sw.default [
-    i32 1, label %sw.bb
+    i32 1, label %return.sink.split
     i32 3, label %sw.bb15
     i32 4, label %sw.bb26
   ]
 
-sw.bb:                                            ; preds = %land.end
-  %wrapMode = getelementptr inbounds i8, ptr %this, i64 40
-  %3 = load i32, ptr %wrapMode, align 8
-  %agg.tmp10.sroa.2.0.insert.ext = zext i32 %3 to i64
-  %agg.tmp10.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp10.sroa.2.0.insert.ext, 32
-  %agg.tmp10.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp10.sroa.2.0.insert.shift, %agg.tmp10.sroa.2.0.insert.ext
-  %resolution.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %4 = load <2 x i32>, ptr %resolution.i, align 4
-  %5 = sitofp <2 x i32> %4 to <2 x float>
-  %6 = fmul <2 x float> %5, %st.coerce
-  %7 = fadd <2 x float> %6, <float -5.000000e-01, float -5.000000e-01>
-  %8 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %7)
-  %9 = fptosi <2 x float> %8 to <2 x i32>
-  %10 = extractelement <2 x i32> %9, i64 1
-  %agg.tmp19.sroa.2.0.insert.ext.i = zext i32 %10 to i64
-  %agg.tmp19.sroa.2.0.insert.shift.i = shl nuw i64 %agg.tmp19.sroa.2.0.insert.ext.i, 32
-  %11 = extractelement <2 x i32> %9, i64 0
-  %agg.tmp19.sroa.0.0.insert.ext.i = zext i32 %11 to i64
-  %agg.tmp19.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i, %agg.tmp19.sroa.0.0.insert.ext.i
-  %call24.i = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp19.sroa.0.0.insert.insert.i, i32 noundef 0, i64 %agg.tmp10.sroa.0.0.insert.insert)
-  %add.i = add nsw i32 %11, 1
-  %agg.tmp25.sroa.0.0.insert.ext.i = zext i32 %add.i to i64
-  %agg.tmp25.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i, %agg.tmp25.sroa.0.0.insert.ext.i
-  %call30.i = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp25.sroa.0.0.insert.insert.i, i32 noundef 0, i64 %agg.tmp10.sroa.0.0.insert.insert)
-  %add33.i = add nsw i32 %10, 1
-  %agg.tmp32.sroa.2.0.insert.ext.i = zext i32 %add33.i to i64
-  %agg.tmp32.sroa.2.0.insert.shift.i = shl nuw i64 %agg.tmp32.sroa.2.0.insert.ext.i, 32
-  %agg.tmp32.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i, %agg.tmp19.sroa.0.0.insert.ext.i
-  %call38.i = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp32.sroa.0.0.insert.insert.i, i32 noundef 0, i64 %agg.tmp10.sroa.0.0.insert.insert)
-  %agg.tmp40.sroa.0.0.insert.insert.i = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i, %agg.tmp25.sroa.0.0.insert.ext.i
-  %call47.i = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp40.sroa.0.0.insert.insert.i, i32 noundef 0, i64 %agg.tmp10.sroa.0.0.insert.insert)
-  %12 = sitofp <2 x i32> %9 to <2 x float>
-  %13 = fsub <2 x float> %7, %12
-  %14 = extractelement <2 x float> %13, i64 0
-  %sub48.i = fsub float 1.000000e+00, %14
-  %15 = extractelement <2 x float> %13, i64 1
-  %sub49.i = fsub float 1.000000e+00, %15
-  %mul50.i = fmul float %sub48.i, %sub49.i
-  %mul52.i = fmul float %call24.i, %mul50.i
-  %mul54.i = fmul float %14, %sub49.i
-  %mul56.i = fmul float %call30.i, %mul54.i
-  %add57.i = fadd float %mul52.i, %mul56.i
-  %mul59.i = fmul float %sub48.i, %15
-  %mul61.i = fmul float %call38.i, %mul59.i
-  %add62.i = fadd float %mul61.i, %add57.i
-  %mul63.i = fmul float %14, %15
-  %mul65.i = fmul float %call47.i, %mul63.i
-  %add66.i = fadd float %mul65.i, %add62.i
-  br label %return
-
 sw.bb15:                                          ; preds = %land.end
   %wrapMode21 = getelementptr inbounds i8, ptr %this, i64 40
-  %16 = load i32, ptr %wrapMode21, align 8
-  %agg.tmp20.sroa.2.0.insert.ext = zext i32 %16 to i64
+  %3 = load i32, ptr %wrapMode21, align 8
+  %agg.tmp20.sroa.2.0.insert.ext = zext i32 %3 to i64
   %agg.tmp20.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp20.sroa.2.0.insert.ext, 32
   %agg.tmp20.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp20.sroa.2.0.insert.shift, %agg.tmp20.sroa.2.0.insert.ext
   call void @_ZNK4pbrt5Image6BilerpENS_6Point2IfEENS_10WrapMode2DE(ptr nonnull sret(%"struct.pbrt::ImageChannelValues") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, <2 x float> %st.coerce, i64 %agg.tmp20.sroa.0.0.insert.insert)
   %nStored.i.i15 = getelementptr inbounds i8, ptr %ref.tmp, i64 40
-  %17 = load i64, ptr %nStored.i.i15, align 8
-  %cmp5.not.i = icmp eq i64 %17, 0
+  %4 = load i64, ptr %nStored.i.i15, align 8
+  %cmp5.not.i = icmp eq i64 %4, 0
   %ptr.i.i.phi.trans.insert = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %.pre = load ptr, ptr %ptr.i.i.phi.trans.insert, align 8
   br i1 %cmp5.not.i, label %invoke.cont, label %for.body.lr.ph.i
 
 for.body.lr.ph.i:                                 ; preds = %sw.bb15
   %tobool.not.i.i.i = icmp eq ptr %.pre, null
-  %18 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %18, ptr %.pre
+  %5 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %cond.i.i.i = select i1 %tobool.not.i.i.i, ptr %5, ptr %.pre
   br label %for.body.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
   %sum.06.i = phi float [ 0.000000e+00, %for.body.lr.ph.i ], [ %add.i16, %for.body.i ]
   %arrayidx.i.i = getelementptr inbounds float, ptr %cond.i.i.i, i64 %indvars.iv.i
-  %19 = load float, ptr %arrayidx.i.i, align 4
-  %add.i16 = fadd float %sum.06.i, %19
+  %6 = load float, ptr %arrayidx.i.i, align 4
+  %add.i16 = fadd float %sum.06.i, %6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %17
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %4
   br i1 %exitcond.not.i, label %invoke.cont, label %for.body.i, !llvm.loop !7
 
 invoke.cont:                                      ; preds = %for.body.i, %sw.bb15
   %sum.0.lcssa.i = phi float [ 0.000000e+00, %sw.bb15 ], [ %add.i16, %for.body.i ]
-  %conv5.i = uitofp nneg i64 %17 to float
+  %conv5.i = uitofp nneg i64 %4 to float
   %div.i = fdiv float %sum.0.lcssa.i, %conv5.i
   store i64 0, ptr %nStored.i.i15, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %.pre, null
@@ -618,79 +568,83 @@ invoke.cont:                                      ; preds = %for.body.i, %sw.bb1
 
 if.end.i.i.i.i.i:                                 ; preds = %invoke.cont
   %nAlloc.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
-  %20 = load i64, ptr %nAlloc.i.i, align 8
-  %mul.i.i.i = shl i64 %20, 2
-  %21 = load ptr, ptr %ref.tmp, align 8
-  %vtable.i.i.i.i.i = load ptr, ptr %21, align 8
+  %7 = load i64, ptr %nAlloc.i.i, align 8
+  %mul.i.i.i = shl i64 %7, 2
+  %8 = load ptr, ptr %ref.tmp, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %8, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 24
-  %22 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  invoke void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull %.pre, i64 noundef %mul.i.i.i, i64 noundef 4)
+  %9 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  invoke void %9(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %.pre, i64 noundef %mul.i.i.i, i64 noundef 4)
           to label %return unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %10 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #19
+  %11 = extractvalue { ptr, i32 } %10, 0
+  call void @__clang_call_terminate(ptr %11) #19
   unreachable
 
 sw.bb26:                                          ; preds = %land.end
-  %wrapMode32 = getelementptr inbounds i8, ptr %this, i64 40
-  %25 = load i32, ptr %wrapMode32, align 8
-  %agg.tmp31.sroa.2.0.insert.ext = zext i32 %25 to i64
-  %agg.tmp31.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp31.sroa.2.0.insert.ext, 32
-  %agg.tmp31.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp31.sroa.2.0.insert.shift, %agg.tmp31.sroa.2.0.insert.ext
-  %resolution.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
-  %26 = load <2 x i32>, ptr %resolution.i21, align 4
-  %27 = sitofp <2 x i32> %26 to <2 x float>
-  %28 = fmul <2 x float> %27, %st.coerce
-  %29 = fadd <2 x float> %28, <float -5.000000e-01, float -5.000000e-01>
-  %30 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %29)
-  %31 = fptosi <2 x float> %30 to <2 x i32>
-  %32 = extractelement <2 x i32> %31, i64 1
-  %agg.tmp19.sroa.2.0.insert.ext.i32 = zext i32 %32 to i64
-  %agg.tmp19.sroa.2.0.insert.shift.i33 = shl nuw i64 %agg.tmp19.sroa.2.0.insert.ext.i32, 32
-  %33 = extractelement <2 x i32> %31, i64 0
-  %agg.tmp19.sroa.0.0.insert.ext.i34 = zext i32 %33 to i64
-  %agg.tmp19.sroa.0.0.insert.insert.i35 = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i33, %agg.tmp19.sroa.0.0.insert.ext.i34
-  %call24.i36 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp19.sroa.0.0.insert.insert.i35, i32 noundef 3, i64 %agg.tmp31.sroa.0.0.insert.insert)
-  %add.i37 = add nsw i32 %33, 1
-  %agg.tmp25.sroa.0.0.insert.ext.i38 = zext i32 %add.i37 to i64
-  %agg.tmp25.sroa.0.0.insert.insert.i39 = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i33, %agg.tmp25.sroa.0.0.insert.ext.i38
-  %call30.i40 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp25.sroa.0.0.insert.insert.i39, i32 noundef 3, i64 %agg.tmp31.sroa.0.0.insert.insert)
-  %add33.i41 = add nsw i32 %32, 1
-  %agg.tmp32.sroa.2.0.insert.ext.i42 = zext i32 %add33.i41 to i64
-  %agg.tmp32.sroa.2.0.insert.shift.i43 = shl nuw i64 %agg.tmp32.sroa.2.0.insert.ext.i42, 32
-  %agg.tmp32.sroa.0.0.insert.insert.i44 = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i43, %agg.tmp19.sroa.0.0.insert.ext.i34
-  %call38.i45 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp32.sroa.0.0.insert.insert.i44, i32 noundef 3, i64 %agg.tmp31.sroa.0.0.insert.insert)
-  %agg.tmp40.sroa.0.0.insert.insert.i46 = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i43, %agg.tmp25.sroa.0.0.insert.ext.i38
-  %call47.i47 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp40.sroa.0.0.insert.insert.i46, i32 noundef 3, i64 %agg.tmp31.sroa.0.0.insert.insert)
-  %34 = sitofp <2 x i32> %31 to <2 x float>
-  %35 = fsub <2 x float> %29, %34
-  %36 = extractelement <2 x float> %35, i64 0
-  %sub48.i52 = fsub float 1.000000e+00, %36
-  %37 = extractelement <2 x float> %35, i64 1
-  %sub49.i53 = fsub float 1.000000e+00, %37
-  %mul50.i54 = fmul float %sub48.i52, %sub49.i53
-  %mul52.i55 = fmul float %call24.i36, %mul50.i54
-  %mul54.i56 = fmul float %36, %sub49.i53
-  %mul56.i57 = fmul float %call30.i40, %mul54.i56
-  %add57.i58 = fadd float %mul52.i55, %mul56.i57
-  %mul59.i59 = fmul float %sub48.i52, %37
-  %mul61.i60 = fmul float %call38.i45, %mul59.i59
-  %add62.i61 = fadd float %mul61.i60, %add57.i58
-  %mul63.i62 = fmul float %36, %37
-  %mul65.i63 = fmul float %call47.i47, %mul63.i62
-  %add66.i64 = fadd float %mul65.i63, %add62.i61
-  br label %return
+  br label %return.sink.split
 
 sw.default:                                       ; preds = %land.end
   store i32 %conv.i, ptr %ref.tmp37, align 4
   call void @_ZN4pbrt8LogFatalIJiEEEvNS_8LogLevelEPKciS3_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.6, i32 noundef 407, ptr noundef nonnull @.str.20, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp37) #18
   unreachable
 
-return:                                           ; preds = %if.end.i.i.i.i.i, %invoke.cont, %sw.bb26, %sw.bb
-  %retval.0 = phi float [ %add66.i64, %sw.bb26 ], [ %add66.i, %sw.bb ], [ %div.i, %invoke.cont ], [ %div.i, %if.end.i.i.i.i.i ]
+return.sink.split:                                ; preds = %land.end, %sw.bb26
+  %.sink83 = phi i32 [ 3, %sw.bb26 ], [ 0, %land.end ]
+  %wrapMode32 = getelementptr inbounds i8, ptr %this, i64 40
+  %12 = load i32, ptr %wrapMode32, align 8
+  %agg.tmp31.sroa.2.0.insert.ext = zext i32 %12 to i64
+  %agg.tmp31.sroa.2.0.insert.shift = shl nuw i64 %agg.tmp31.sroa.2.0.insert.ext, 32
+  %agg.tmp31.sroa.0.0.insert.insert = or disjoint i64 %agg.tmp31.sroa.2.0.insert.shift, %agg.tmp31.sroa.2.0.insert.ext
+  %resolution.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  %13 = load <2 x i32>, ptr %resolution.i21, align 4
+  %14 = sitofp <2 x i32> %13 to <2 x float>
+  %15 = fmul <2 x float> %14, %st.coerce
+  %16 = fadd <2 x float> %15, <float -5.000000e-01, float -5.000000e-01>
+  %17 = tail call <2 x float> @llvm.floor.v2f32(<2 x float> %16)
+  %18 = fptosi <2 x float> %17 to <2 x i32>
+  %19 = extractelement <2 x i32> %18, i64 1
+  %agg.tmp19.sroa.2.0.insert.ext.i32 = zext i32 %19 to i64
+  %agg.tmp19.sroa.2.0.insert.shift.i33 = shl nuw i64 %agg.tmp19.sroa.2.0.insert.ext.i32, 32
+  %20 = extractelement <2 x i32> %18, i64 0
+  %agg.tmp19.sroa.0.0.insert.ext.i34 = zext i32 %20 to i64
+  %agg.tmp19.sroa.0.0.insert.insert.i35 = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i33, %agg.tmp19.sroa.0.0.insert.ext.i34
+  %call24.i36 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp19.sroa.0.0.insert.insert.i35, i32 noundef %.sink83, i64 %agg.tmp31.sroa.0.0.insert.insert)
+  %add.i37 = add nsw i32 %20, 1
+  %agg.tmp25.sroa.0.0.insert.ext.i38 = zext i32 %add.i37 to i64
+  %agg.tmp25.sroa.0.0.insert.insert.i39 = or disjoint i64 %agg.tmp19.sroa.2.0.insert.shift.i33, %agg.tmp25.sroa.0.0.insert.ext.i38
+  %call30.i40 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp25.sroa.0.0.insert.insert.i39, i32 noundef %.sink83, i64 %agg.tmp31.sroa.0.0.insert.insert)
+  %add33.i41 = add nsw i32 %19, 1
+  %agg.tmp32.sroa.2.0.insert.ext.i42 = zext i32 %add33.i41 to i64
+  %agg.tmp32.sroa.2.0.insert.shift.i43 = shl nuw i64 %agg.tmp32.sroa.2.0.insert.ext.i42, 32
+  %agg.tmp32.sroa.0.0.insert.insert.i44 = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i43, %agg.tmp19.sroa.0.0.insert.ext.i34
+  %call38.i45 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp32.sroa.0.0.insert.insert.i44, i32 noundef %.sink83, i64 %agg.tmp31.sroa.0.0.insert.insert)
+  %agg.tmp40.sroa.0.0.insert.insert.i46 = or disjoint i64 %agg.tmp32.sroa.2.0.insert.shift.i43, %agg.tmp25.sroa.0.0.insert.ext.i38
+  %call47.i47 = tail call noundef float @_ZNK4pbrt5Image10GetChannelENS_6Point2IiEEiNS_10WrapMode2DE(ptr noundef nonnull align 8 dereferenceable(152) %arrayidx.i, i64 %agg.tmp40.sroa.0.0.insert.insert.i46, i32 noundef %.sink83, i64 %agg.tmp31.sroa.0.0.insert.insert)
+  %21 = sitofp <2 x i32> %18 to <2 x float>
+  %22 = fsub <2 x float> %16, %21
+  %23 = extractelement <2 x float> %22, i64 0
+  %sub48.i52 = fsub float 1.000000e+00, %23
+  %24 = extractelement <2 x float> %22, i64 1
+  %sub49.i53 = fsub float 1.000000e+00, %24
+  %mul50.i54 = fmul float %sub48.i52, %sub49.i53
+  %mul52.i55 = fmul float %call24.i36, %mul50.i54
+  %mul54.i56 = fmul float %23, %sub49.i53
+  %mul56.i57 = fmul float %call30.i40, %mul54.i56
+  %add57.i58 = fadd float %mul52.i55, %mul56.i57
+  %mul59.i59 = fmul float %sub48.i52, %24
+  %mul61.i60 = fmul float %call38.i45, %mul59.i59
+  %add62.i61 = fadd float %mul61.i60, %add57.i58
+  %mul63.i62 = fmul float %23, %24
+  %mul65.i63 = fmul float %call47.i47, %mul63.i62
+  %add66.i64 = fadd float %mul65.i63, %add62.i61
+  br label %return
+
+return:                                           ; preds = %return.sink.split, %if.end.i.i.i.i.i, %invoke.cont
+  %retval.0 = phi float [ %div.i, %invoke.cont ], [ %div.i, %if.end.i.i.i.i.i ], [ %add66.i64, %return.sink.split ]
   ret float %retval.0
 }
 

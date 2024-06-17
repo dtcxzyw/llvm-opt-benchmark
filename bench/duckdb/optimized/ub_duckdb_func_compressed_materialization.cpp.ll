@@ -59829,19 +59829,19 @@ for.body14.i.i.i.epil:                            ; preds = %for.body14.i.i.i.pr
   br label %invoke.cont22.i.i.sink.split
 
 invoke.cont22.i.i.sink.split:                     ; preds = %invoke.cont22.i.i.loopexit.unr-lcssa, %for.body14.us.i.i.i.preheader, %for.body14.i.i.i.epil
-  %i10.05.us.i.i.i.unr16.sink35 = phi i64 [ %conv.i55.i.i.i.epil, %for.body14.i.i.i.epil ], [ %unroll_iter42, %invoke.cont22.i.i.loopexit.unr-lcssa ], [ 0, %for.body14.us.i.i.i.preheader ]
-  %i10.05.us.i.i.i.unr16.sink = phi i64 [ %i10.05.i.i.i.unr19, %for.body14.i.i.i.epil ], [ %unroll_iter42, %invoke.cont22.i.i.loopexit.unr-lcssa ], [ 0, %for.body14.us.i.i.i.preheader ]
-  %arrayidx18.us.i.i.i.epil = getelementptr inbounds i16, ptr %45, i64 %i10.05.us.i.i.i.unr16.sink35
-  %81 = load i16, ptr %arrayidx18.us.i.i.i.epil, align 2, !tbaa !172, !alias.scope !1919, !noalias !1928
-  %input.addr.sroa.2.0.extract.shift.i58.us.i.i.i.epil = lshr i16 %81, 8
-  %input.addr.sroa.2.0.extract.trunc.i59.us.i.i.i.epil = zext nneg i16 %input.addr.sroa.2.0.extract.shift.i58.us.i.i.i.epil to i64
-  %retval.sroa.0.sroa.2.0.insert.shift.i.i.i60.us.i.i.i.epil = shl nuw nsw i64 %input.addr.sroa.2.0.extract.trunc.i59.us.i.i.i.epil, 32
+  %conv.i55.i.i.i.epil.sink = phi i64 [ %conv.i55.i.i.i.epil, %for.body14.i.i.i.epil ], [ %unroll_iter42, %invoke.cont22.i.i.loopexit.unr-lcssa ], [ 0, %for.body14.us.i.i.i.preheader ]
+  %i10.05.i.i.i.unr19.sink = phi i64 [ %i10.05.i.i.i.unr19, %for.body14.i.i.i.epil ], [ %unroll_iter42, %invoke.cont22.i.i.loopexit.unr-lcssa ], [ 0, %for.body14.us.i.i.i.preheader ]
+  %arrayidx18.i.i.i.epil = getelementptr inbounds i16, ptr %45, i64 %conv.i55.i.i.i.epil.sink
+  %81 = load i16, ptr %arrayidx18.i.i.i.epil, align 2, !tbaa !172, !alias.scope !1919, !noalias !1928
+  %input.addr.sroa.2.0.extract.shift.i58.i.i.i.epil = lshr i16 %81, 8
+  %input.addr.sroa.2.0.extract.trunc.i59.i.i.i.epil = zext nneg i16 %input.addr.sroa.2.0.extract.shift.i58.i.i.i.epil to i64
+  %retval.sroa.0.sroa.2.0.insert.shift.i.i.i60.i.i.i.epil = shl nuw nsw i64 %input.addr.sroa.2.0.extract.trunc.i59.i.i.i.epil, 32
   %82 = and i16 %81, 255
-  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i61.us.i.i.i.epil = zext nneg i16 %82 to i64
-  %retval.sroa.0.sroa.0.0.insert.insert.i.i.i62.us.i.i.i.epil = or disjoint i64 %retval.sroa.0.sroa.2.0.insert.shift.i.i.i60.us.i.i.i.epil, %retval.sroa.0.sroa.0.0.insert.ext.i.i.i61.us.i.i.i.epil
-  %arrayidx22.us.i.i.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %i10.05.us.i.i.i.unr16.sink
-  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i62.us.i.i.i.epil, ptr %arrayidx22.us.i.i.i.epil, align 8, !alias.scope !1922, !noalias !1929
-  %ref.tmp17.sroa.4.0.arrayidx22.sroa_idx.i.i.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %i10.05.us.i.i.i.unr16.sink, i32 0, i32 0, i32 2
+  %retval.sroa.0.sroa.0.0.insert.ext.i.i.i61.i.i.i.epil = zext nneg i16 %82 to i64
+  %retval.sroa.0.sroa.0.0.insert.insert.i.i.i62.i.i.i.epil = or disjoint i64 %retval.sroa.0.sroa.2.0.insert.shift.i.i.i60.i.i.i.epil, %retval.sroa.0.sroa.0.0.insert.ext.i.i.i61.i.i.i.epil
+  %arrayidx22.i.i.i.epil = getelementptr inbounds %"struct.duckdb::string_t", ptr %44, i64 %i10.05.i.i.i.unr19.sink
+  store i64 %retval.sroa.0.sroa.0.0.insert.insert.i.i.i62.i.i.i.epil, ptr %arrayidx22.i.i.i.epil, align 8, !alias.scope !1922, !noalias !1929
+  %ref.tmp17.sroa.4.0.arrayidx22.sroa_idx.i.i.i.epil = getelementptr inbounds i8, ptr %arrayidx22.i.i.i.epil, i64 8
   store ptr null, ptr %ref.tmp17.sroa.4.0.arrayidx22.sroa_idx.i.i.i.epil, align 8, !tbaa !41, !alias.scope !1922, !noalias !1929
   br label %invoke.cont22.i.i
 

@@ -540,33 +540,26 @@ for.body:                                         ; preds = %for.body.preheader,
 
 if.then22:                                        ; preds = %for.body
   %call26 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem.sroa.0.1, ptr %file.coerce1)
-  br i1 %call26, label %if.then27, label %for.inc
-
-if.then27:                                        ; preds = %if.then22
-  %vlog_level = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 36
-  %5 = load i32, ptr %vlog_level, align 4
-  %cmp28 = icmp eq i32 %5, -32768
-  %current_global_v. = select i1 %cmp28, i32 %current_global_v, i32 %5
-  br label %return
+  br i1 %call26, label %return.sink.split, label %for.inc
 
 if.else:                                          ; preds = %for.body
   %call35 = tail call noundef zeroext i1 @_ZN4absl12log_internal7FNMatchESt17basic_string_viewIcSt11char_traitsIcEES4_(i64 %3, ptr %4, i64 %stem_basename.sroa.0.151, ptr %basename.sroa.5.05772)
-  br i1 %call35, label %if.then36, label %for.inc
-
-if.then36:                                        ; preds = %if.else
-  %vlog_level37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 36
-  %6 = load i32, ptr %vlog_level37, align 4
-  %cmp38 = icmp eq i32 %6, -32768
-  %current_global_v.19 = select i1 %cmp38, i32 %current_global_v, i32 %6
-  br label %return
+  br i1 %call35, label %return.sink.split, label %for.inc
 
 for.inc:                                          ; preds = %if.then22, %if.else
   %incdec.ptr.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 40
   %cmp.i37.not = icmp eq ptr %incdec.ptr.i, %infos.val22
   br i1 %cmp.i37.not, label %return, label %for.body
 
-return:                                           ; preds = %for.inc, %entry, %lor.lhs.false, %if.then36, %if.then27
-  %retval.0 = phi i32 [ %current_global_v., %if.then27 ], [ %current_global_v.19, %if.then36 ], [ %current_global_v, %lor.lhs.false ], [ %current_global_v, %entry ], [ %current_global_v, %for.inc ]
+return.sink.split:                                ; preds = %if.else, %if.then22
+  %vlog_level37 = getelementptr inbounds i8, ptr %__begin2.sroa.0.064, i64 36
+  %5 = load i32, ptr %vlog_level37, align 4
+  %cmp38 = icmp eq i32 %5, -32768
+  %current_global_v.19 = select i1 %cmp38, i32 %current_global_v, i32 %5
+  br label %return
+
+return:                                           ; preds = %for.inc, %return.sink.split, %entry, %lor.lhs.false
+  %retval.0 = phi i32 [ %current_global_v, %lor.lhs.false ], [ %current_global_v, %entry ], [ %current_global_v.19, %return.sink.split ], [ %current_global_v, %for.inc ]
   ret i32 %retval.0
 }
 

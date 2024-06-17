@@ -14492,10 +14492,10 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i: ; preds = %_ZN13sentencepiece
   br i1 %129, label %61, label %.backedge, !llvm.loop !31
 
 .backedge.sink.split:                             ; preds = %305, %258, %211, %164
-  %.sink128 = phi i32 [ %157, %164 ], [ %204, %211 ], [ %251, %258 ], [ %298, %305 ]
+  %.sink129 = phi i32 [ %157, %164 ], [ %204, %211 ], [ %251, %258 ], [ %298, %305 ]
   %.082.be.ph = phi ptr [ %162, %164 ], [ %209, %211 ], [ %256, %258 ], [ %303, %305 ]
   %130 = load i32, ptr %5, align 4
-  %131 = add nsw i32 %130, %.sink128
+  %131 = add nsw i32 %130, %.sink129
   store i32 %131, ptr %5, align 4
   %132 = load ptr, ptr %4, align 8
   %.sroa.speculated.i5.i33 = tail call i32 @llvm.smin.i32(i32 %131, i32 0)

@@ -305,7 +305,7 @@ _ZN16ProbabilityTableIj14eVariableScopeE9get_valueEj.exit: ; preds = %.lr.ph.i.i
 define dso_local void @_ZN16VariableSelector14InitScopeTableEv() local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %1 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
   %2 = icmp eq ptr %1, null
-  br i1 %2, label %3, label %27
+  br i1 %2, label %3, label %21
 
 3:                                                ; preds = %0
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
@@ -317,7 +317,7 @@ define dso_local void @_ZN16VariableSelector14InitScopeTableEv() local_unnamed_a
   %7 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
   %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
   %9 = getelementptr inbounds i8, ptr %8, i64 4
-  br i1 %6, label %10, label %20
+  br i1 %6, label %10, label %14
 
 10:                                               ; preds = %3
   store i32 35, ptr %8, align 4
@@ -329,39 +329,30 @@ define dso_local void @_ZN16VariableSelector14InitScopeTableEv() local_unnamed_a
   %13 = getelementptr inbounds i8, ptr %12, i64 4
   store i32 1, ptr %13, align 4
   tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull %12)
-  %14 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
-  %15 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store i32 95, ptr %15, align 4
-  %16 = getelementptr inbounds i8, ptr %15, i64 4
-  store i32 2, ptr %16, align 4
-  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull %15)
-  %17 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
-  %18 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store i32 100, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %18, i64 4
-  store i32 3, ptr %19, align 4
-  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull %18)
-  br label %27
+  br label %.sink.split
 
-20:                                               ; preds = %3
+14:                                               ; preds = %3
   store i32 50, ptr %8, align 4
   store i32 1, ptr %9, align 4
   tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull %8)
-  %21 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
-  %22 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store i32 95, ptr %22, align 4
-  %23 = getelementptr inbounds i8, ptr %22, i64 4
-  store i32 2, ptr %23, align 4
-  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull %22)
-  %24 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
-  %25 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
-  store i32 100, ptr %25, align 4
-  %26 = getelementptr inbounds i8, ptr %25, i64 4
-  store i32 3, ptr %26, align 4
-  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull %25)
-  br label %27
+  br label %.sink.split
 
-27:                                               ; preds = %10, %20, %0
+.sink.split:                                      ; preds = %14, %10
+  %15 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
+  %16 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  store i32 95, ptr %16, align 4
+  %17 = getelementptr inbounds i8, ptr %16, i64 4
+  store i32 2, ptr %17, align 4
+  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull %16)
+  %18 = load ptr, ptr @_ZN16VariableSelector11scopeTable_E, align 8
+  %19 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20
+  store i32 100, ptr %19, align 4
+  %20 = getelementptr inbounds i8, ptr %19, i64 4
+  store i32 3, ptr %20, align 4
+  tail call void @_ZN16ProbabilityTableIj14eVariableScopeE13sorted_insertEP10TableEntryIjS0_E(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull %19)
+  br label %21
+
+21:                                               ; preds = %.sink.split, %0
   ret void
 }
 

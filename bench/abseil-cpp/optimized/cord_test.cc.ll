@@ -9732,12 +9732,12 @@ lpad255:                                          ; preds = %if.else259
 
 if.else259.sink.split:                            ; preds = %if.end15.i.i.i.i390, %if.then6.i.i.i.i400
   store i8 0, ptr %gtest_ar_249, align 8
-  %message_.i405705 = getelementptr inbounds i8, ptr %gtest_ar_249, i64 8
-  store ptr null, ptr %message_.i405705, align 8
+  %message_.i405759 = getelementptr inbounds i8, ptr %gtest_ar_249, i64 8
+  store ptr null, ptr %message_.i405759, align 8
   br label %if.else259
 
 if.else259:                                       ; preds = %if.else259.sink.split, %invoke.cont251
-  %message_.i405707 = phi ptr [ %message_.i405, %invoke.cont251 ], [ %message_.i405705, %if.else259.sink.split ]
+  %message_.i405707 = phi ptr [ %message_.i405, %invoke.cont251 ], [ %message_.i405759, %if.else259.sink.split ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp260)
           to label %invoke.cont261 unwind label %lpad255
 
@@ -106209,12 +106209,12 @@ ehcleanup213.i:                                   ; preds = %_ZN7testing7Message
 
 if.else222.sink.split.i:                          ; preds = %if.end15.i.i.i.i349.i, %if.then6.i.i.i.i359.i
   store i8 0, ptr %gtest_ar_214.i, align 8
-  %message_.i365818.i = getelementptr inbounds i8, ptr %gtest_ar_214.i, i64 8
-  store ptr null, ptr %message_.i365818.i, align 8
+  %message_.i365917.i = getelementptr inbounds i8, ptr %gtest_ar_214.i, i64 8
+  store ptr null, ptr %message_.i365917.i, align 8
   br label %if.else222.i
 
 if.else222.i:                                     ; preds = %if.else222.sink.split.i, %invoke.cont216.i
-  %message_.i365820.i = phi ptr [ %message_.i365.i, %invoke.cont216.i ], [ %message_.i365818.i, %if.else222.sink.split.i ]
+  %message_.i365820.i = phi ptr [ %message_.i365.i, %invoke.cont216.i ], [ %message_.i365917.i, %if.else222.sink.split.i ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp223.i)
           to label %invoke.cont225.i unwind label %lpad224.i
 

@@ -1439,10 +1439,10 @@ if.then166:                                       ; preds = %land.lhs.true157
   %buf175 = getelementptr inbounds i8, ptr %opaque, i64 408
   %42 = load ptr, ptr %buf175, align 8
   %. = select i1 %cmp172, i64 2, i64 3
-  %arrayidx176 = getelementptr i8, ptr %42, i64 %.
-  %43 = load i8, ptr %arrayidx176, align 1
+  %arrayidx181 = getelementptr i8, ptr %42, i64 %.
+  %43 = load i8, ptr %arrayidx181, align 1
   %44 = or i8 %43, -128
-  store i8 %44, ptr %arrayidx176, align 1
+  store i8 %44, ptr %arrayidx181, align 1
   br label %if.end186thread-pre-split
 
 if.end186thread-pre-split:                        ; preds = %if.then166, %land.lhs.true137, %land.lhs.true157, %if.end126

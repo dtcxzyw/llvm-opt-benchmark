@@ -4571,9 +4571,9 @@ _ZN6Gluco23vecINS_6Solver7WatcherEE4pushERKS2_.exit31: ; preds = %._ZN6Gluco23ve
   %144 = load i96, ptr %6, align 4
   %145 = and i96 %144, 4
   %.not = icmp eq i96 %145, 0
+  %. = select i1 %.not, i64 408, i64 416
   %146 = trunc i96 %144 to i64
   %147 = ashr i64 %146, 32
-  %. = select i1 %.not, i64 408, i64 416
   %148 = getelementptr inbounds i8, ptr %0, i64 %.
   %149 = load i64, ptr %148, align 8
   %150 = add nsw i64 %149, %147
@@ -11266,7 +11266,7 @@ _ZN6Gluco26Solver13pushJustQueueEii.exit:         ; preds = %65, %.sink.split.i
   br i1 %93, label %30, label %.preheader, !llvm.loop !80
 
 94:                                               ; preds = %.lr.ph52, %.backedge
-  %95 = phi i32 [ %20, %.lr.ph52 ], [ %208, %.backedge ]
+  %95 = phi i32 [ %20, %.lr.ph52 ], [ %206, %.backedge ]
   %96 = load ptr, ptr %22, align 8
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds i8, ptr %96, i64 8
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
@@ -11426,46 +11426,44 @@ _ZNK6Gluco26Solver13gateJustFaninEi.exit.thread.thread40: ; preds = %133
   %183 = load i32, ptr %182, align 4
   %184 = icmp slt i32 %181, %183
   %185 = select i1 %184, i32 %118, i32 %126
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %179, i64 %186, i32 1
   br label %_ZN6Gluco26Solver13gateAddJwatchEii.exit
 
 .thread42:                                        ; preds = %_ZNK6Gluco26Solver13gateJustFaninEi.exit.thread.thread40, %178, %176
-  %188 = phi i1 [ true, %178 ], [ false, %176 ], [ true, %_ZNK6Gluco26Solver13gateJustFaninEi.exit.thread.thread40 ]
-  %189 = and i8 %122, 2
-  %.not26.i = icmp ne i8 %189, 0
-  %.not.i24 = or i1 %.not26.i, %188
-  %190 = select i1 %.not.i24, i32 %126, i32 %118
-  %191 = load ptr, ptr %28, align 8
-  %192 = sext i32 %190 to i64
-  %193 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %191, i64 %192, i32 1
+  %186 = phi i1 [ true, %178 ], [ false, %176 ], [ true, %_ZNK6Gluco26Solver13gateJustFaninEi.exit.thread.thread40 ]
+  %187 = and i8 %122, 2
+  %.not26.i = icmp ne i8 %187, 0
+  %.not.i24 = or i1 %.not26.i, %186
+  %188 = select i1 %.not.i24, i32 %126, i32 %118
+  %189 = load ptr, ptr %28, align 8
   br label %_ZN6Gluco26Solver13gateAddJwatchEii.exit
 
 _ZN6Gluco26Solver13gateAddJwatchEii.exit:         ; preds = %.thread, %.thread42
-  %.sink.i = phi ptr [ %193, %.thread42 ], [ %187, %.thread ]
-  %.sink31.i = phi i64 [ %192, %.thread42 ], [ %186, %.thread ]
-  %194 = load i32, ptr %.sink.i, align 4
-  %195 = load ptr, ptr %.sink40.i, align 8
-  %196 = sext i32 %194 to i64
-  %197 = getelementptr inbounds i32, ptr %195, i64 %196
-  %198 = load i32, ptr %197, align 4
-  %199 = load ptr, ptr %29, align 8
-  %200 = sext i32 %.sroa.3.0.copyload.i to i64
-  %201 = getelementptr inbounds i32, ptr %199, i64 %200
-  store i32 %198, ptr %201, align 4
-  %202 = load ptr, ptr %28, align 8
-  %203 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %202, i64 %.sink31.i, i32 1
-  %204 = load i32, ptr %203, align 4
-  %205 = load ptr, ptr %.sink40.i, align 8
-  %206 = sext i32 %204 to i64
-  %207 = getelementptr inbounds i32, ptr %205, i64 %206
-  store i32 %.sroa.3.0.copyload.i, ptr %207, align 4
+  %.sink.i = phi i32 [ %188, %.thread42 ], [ %185, %.thread ]
+  %.sink41.i = phi ptr [ %189, %.thread42 ], [ %179, %.thread ]
+  %190 = sext i32 %.sink.i to i64
+  %191 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %.sink41.i, i64 %190, i32 1
+  %192 = load i32, ptr %191, align 4
+  %193 = load ptr, ptr %.sink40.i, align 8
+  %194 = sext i32 %192 to i64
+  %195 = getelementptr inbounds i32, ptr %193, i64 %194
+  %196 = load i32, ptr %195, align 4
+  %197 = load ptr, ptr %29, align 8
+  %198 = sext i32 %.sroa.3.0.copyload.i to i64
+  %199 = getelementptr inbounds i32, ptr %197, i64 %198
+  store i32 %196, ptr %199, align 4
+  %200 = load ptr, ptr %28, align 8
+  %201 = getelementptr inbounds %"struct.Gluco2::Solver::VarData", ptr %200, i64 %190, i32 1
+  %202 = load i32, ptr %201, align 4
+  %203 = load ptr, ptr %.sink40.i, align 8
+  %204 = sext i32 %202 to i64
+  %205 = getelementptr inbounds i32, ptr %203, i64 %204
+  store i32 %.sroa.3.0.copyload.i, ptr %205, align 4
   br label %.backedge
 
 .backedge:                                        ; preds = %_ZN6Gluco26Solver13gateAddJwatchEii.exit, %_ZN6Gluco25Heap2INS_6Solver12JustOrderLt2ENS1_7JustKeyEE9removeMinERi.exit
-  %208 = load i32, ptr %19, align 8
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %_ZNK6Gluco26Solver13gateJustFaninEi.exit._crit_edge, label %94, !llvm.loop !81
+  %206 = load i32, ptr %19, align 8
+  %207 = icmp eq i32 %206, 0
+  br i1 %207, label %_ZNK6Gluco26Solver13gateJustFaninEi.exit._crit_edge, label %94, !llvm.loop !81
 
 _ZNK6Gluco26Solver13gateJustFaninEi.exit._crit_edge: ; preds = %.backedge, %_ZNK6Gluco26Solver13gateJustFaninEi.exit, %.preheader
   %.sroa.014.1 = phi i32 [ -2, %.preheader ], [ %.sroa.022.0.i, %_ZNK6Gluco26Solver13gateJustFaninEi.exit ], [ -2, %.backedge ]
@@ -11654,9 +11652,9 @@ _ZN6Gluco26Solver13ResetJustDataEb.exit:          ; preds = %11, %1
   %87 = call i8 @_ZN6Gluco26Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 poison)
   %88 = load i8, ptr %78, align 8
   %89 = trunc i8 %88 to i1
-  br i1 %89, label %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, label %.lr.ph125
+  br i1 %89, label %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, label %.lr.ph124
 
-.lr.ph125:                                        ; preds = %77, %.backedge
+.lr.ph124:                                        ; preds = %77, %.backedge
   %90 = phi i8 [ %121, %.backedge ], [ %87, %77 ]
   %91 = load i64, ptr %79, align 8
   %92 = icmp slt i64 %91, 0
@@ -11665,7 +11663,7 @@ _ZN6Gluco26Solver13ResetJustDataEb.exit:          ; preds = %11, %1
   %or.cond.i = select i1 %92, i1 true, i1 %94
   br i1 %or.cond.i, label %95, label %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread
 
-95:                                               ; preds = %.lr.ph125
+95:                                               ; preds = %.lr.ph124
   %96 = load i64, ptr %81, align 8
   %97 = icmp slt i64 %96, 0
   %98 = load i64, ptr %82, align 8
@@ -11726,10 +11724,10 @@ _ZL9Abc_Clockv.exit:                              ; preds = %108, %111
   %121 = call i8 @_ZN6Gluco26Solver6searchEi(ptr noundef nonnull align 8 dereferenceable(1416) %0, i32 poison)
   %122 = load i8, ptr %78, align 8
   %123 = trunc i8 %122 to i1
-  br i1 %123, label %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, label %.lr.ph125, !llvm.loop !83
+  br i1 %123, label %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread, label %.lr.ph124, !llvm.loop !83
 
-_ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %120, %104, %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread85, %_ZL9Abc_Clockv.exit, %.backedge, %.lr.ph125, %95, %77
-  %.lcssa = phi i8 [ %87, %77 ], [ %90, %120 ], [ %90, %104 ], [ %90, %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread85 ], [ %90, %_ZL9Abc_Clockv.exit ], [ %121, %.backedge ], [ %90, %.lr.ph125 ], [ %90, %95 ]
+_ZNK6Gluco26Solver12withinBudgetEv.exit.thread:   ; preds = %120, %104, %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread85, %_ZL9Abc_Clockv.exit, %.backedge, %.lr.ph124, %95, %77
+  %.lcssa = phi i8 [ %87, %77 ], [ %90, %120 ], [ %90, %104 ], [ %90, %_ZNK6Gluco26Solver12withinBudgetEv.exit.thread85 ], [ %90, %_ZL9Abc_Clockv.exit ], [ %121, %.backedge ], [ %90, %.lr.ph124 ], [ %90, %95 ]
   %124 = load i32, ptr %21, align 4
   %.not49 = icmp eq i32 %124, 0
   %125 = load i32, ptr %46, align 8
@@ -12015,10 +12013,10 @@ _ZN6Gluco23vecINS_3LitEE4pushERKS1_.exit63:       ; preds = %._ZN6Gluco23vecINS_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %267, %.thread
-  %.sink123 = phi i64 [ 1168, %267 ], [ 1160, %.thread ]
-  %not..ph = phi i32 [ 0, %267 ], [ -1, %.thread ]
+  %.sink120 = phi i64 [ 1160, %.thread ], [ 1168, %267 ]
+  %not..ph = phi i32 [ -1, %.thread ], [ 0, %267 ]
   %271 = fsub double %261, %41
-  %272 = getelementptr inbounds i8, ptr %0, i64 %.sink123
+  %272 = getelementptr inbounds i8, ptr %0, i64 %.sink120
   %273 = load double, ptr %272, align 8
   %274 = fadd double %271, %273
   store double %274, ptr %272, align 8

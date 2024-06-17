@@ -505,11 +505,11 @@ define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef %0
   %3 = getelementptr i8, ptr %0, i64 16
   %.val6 = load ptr, ptr %3, align 8
   %.not = icmp ult ptr %.val, %.val6
-  br i1 %.not, label %4, label %25
+  br i1 %.not, label %4, label %26
 
 4:                                                ; preds = %1
   %5 = load i8, ptr %.val, align 1
-  switch i8 %5, label %25 [
+  switch i8 %5, label %26 [
     i8 42, label %6
     i8 43, label %6
     i8 63, label %6
@@ -525,7 +525,7 @@ define internal fastcc void @pm_regexp_parse_quantifier(ptr nocapture noundef %0
   br label %10
 
 10:                                               ; preds = %24, %8
-  %11 = phi ptr [ %9, %8 ], [ %.sink.i, %24 ]
+  %11 = phi ptr [ %9, %8 ], [ %25, %24 ]
   %.0.i = phi i32 [ 0, %8 ], [ %.1.i, %24 ]
   store ptr %11, ptr %2, align 8
   %12 = load i8, ptr %11, align 1
@@ -603,17 +603,17 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %24
 
-24:                                               ; preds = %switch.lookup, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %19, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15, %16
+24:                                               ; preds = %switch.lookup, %20, %20, %20, %20, %20, %20, %20, %20, %20, %20, %19, %16, %15, %15, %15, %15, %15, %15, %15, %15, %15, %15
   %.1.i = phi i32 [ 2, %16 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 1, %15 ], [ 2, %19 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ 2, %20 ], [ %switch.load, %switch.lookup ]
-  %.sink.i = getelementptr i8, ptr %11, i64 1
+  %25 = getelementptr i8, ptr %11, i64 1
   br label %10
 
 .sink.split:                                      ; preds = %20, %19, %15, %13, %switch.hole_check, %21, %17, %6
-  %.sink36.i.sink = phi ptr [ %7, %6 ], [ %22, %21 ], [ %18, %17 ], [ %9, %switch.hole_check ], [ %9, %13 ], [ %9, %15 ], [ %9, %19 ], [ %9, %20 ]
-  store ptr %.sink36.i.sink, ptr %2, align 8
-  br label %25
+  %.sink.i.sink = phi ptr [ %7, %6 ], [ %22, %21 ], [ %18, %17 ], [ %9, %switch.hole_check ], [ %9, %13 ], [ %9, %15 ], [ %9, %19 ], [ %9, %20 ]
+  store ptr %.sink.i.sink, ptr %2, align 8
+  br label %26
 
-25:                                               ; preds = %.sink.split, %4, %1
+26:                                               ; preds = %.sink.split, %4, %1
   ret void
 }
 

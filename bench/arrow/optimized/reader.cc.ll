@@ -100311,10 +100311,10 @@ sw.bb10:                                          ; preds = %do.end6
 
 sw.epilog.sink.split:                             ; preds = %do.end6, %sw.bb10
   %.sink = phi i64 [ 232, %sw.bb10 ], [ 224, %do.end6 ]
-  %num_dictionary_deltas = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %65 = load i64, ptr %num_dictionary_deltas, align 8
+  %num_replaced_dictionaries = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %65 = load i64, ptr %num_replaced_dictionaries, align 8
   %inc12 = add nsw i64 %65, 1
-  store i64 %inc12, ptr %num_dictionary_deltas, align 8
+  store i64 %inc12, ptr %num_replaced_dictionaries, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %do.end6

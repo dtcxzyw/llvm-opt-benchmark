@@ -5935,9 +5935,6 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_uint8_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %and = and i32 %flags, 1
-  %cmp.not = icmp eq i32 %and, 0
-  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint8_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
   %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
@@ -5945,13 +5942,24 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
   tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
   unreachable
 
-object_class_property_add.exit:                   ; preds = %if.end.split
+if.then3.split:                                   ; preds = %entry
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i6
+
+if.else.i6:                                       ; preds = %if.then3.split
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  unreachable
+
+if.end4:                                          ; preds = %if.then3.split, %if.end.split
+  %.sink = phi ptr [ null, %if.end.split ], [ @property_set_uint8_ptr, %if.then3.split ]
+  %and = and i32 %flags, 1
+  %cmp.not = icmp eq i32 %and, 0
+  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint8_ptr
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call2.i, ptr %call1.i, align 8
@@ -5961,7 +5969,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %spec.select, ptr %get6.i, align 8
   %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  store ptr null, ptr %set7.i, align 8
+  store ptr %.sink, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
@@ -5969,38 +5977,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
   %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit17, label %if.else.i6
-
-if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
-  unreachable
-
-object_class_property_add.exit17:                 ; preds = %if.then3.split
-  %call1.i7 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i8 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
-  store ptr %call2.i8, ptr %call1.i7, align 8
-  %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.44) #19
-  %type5.i10 = getelementptr inbounds i8, ptr %call1.i7, i64 8
-  store ptr %call4.i9, ptr %type5.i10, align 8
-  %get6.i11 = getelementptr inbounds i8, ptr %call1.i7, i64 24
-  store ptr %spec.select, ptr %get6.i11, align 8
-  %set7.i12 = getelementptr inbounds i8, ptr %call1.i7, i64 32
-  store ptr @property_set_uint8_ptr, ptr %set7.i12, align 8
-  %release8.i13 = getelementptr inbounds i8, ptr %call1.i7, i64 48
-  store ptr null, ptr %release8.i13, align 8
-  %opaque9.i14 = getelementptr inbounds i8, ptr %call1.i7, i64 64
-  store ptr %v, ptr %opaque9.i14, align 8
-  %properties.i15 = getelementptr inbounds i8, ptr %klass, i64 88
-  %1 = load ptr, ptr %properties.i15, align 8
-  %call11.i16 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call2.i8, ptr noundef nonnull %call1.i7) #19
-  br label %if.end4
-
-if.end4:                                          ; preds = %object_class_property_add.exit, %object_class_property_add.exit17
-  %phi.call = phi ptr [ %call1.i7, %object_class_property_add.exit17 ], [ %call1.i, %object_class_property_add.exit ]
-  ret ptr %phi.call
+  ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6055,9 +6032,6 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_uint16_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %and = and i32 %flags, 1
-  %cmp.not = icmp eq i32 %and, 0
-  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint16_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
   %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
@@ -6065,13 +6039,24 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
   tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
   unreachable
 
-object_class_property_add.exit:                   ; preds = %if.end.split
+if.then3.split:                                   ; preds = %entry
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i6
+
+if.else.i6:                                       ; preds = %if.then3.split
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  unreachable
+
+if.end4:                                          ; preds = %if.then3.split, %if.end.split
+  %.sink = phi ptr [ null, %if.end.split ], [ @property_set_uint16_ptr, %if.then3.split ]
+  %and = and i32 %flags, 1
+  %cmp.not = icmp eq i32 %and, 0
+  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint16_ptr
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call2.i, ptr %call1.i, align 8
@@ -6081,7 +6066,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %spec.select, ptr %get6.i, align 8
   %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  store ptr null, ptr %set7.i, align 8
+  store ptr %.sink, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
@@ -6089,38 +6074,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
   %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit17, label %if.else.i6
-
-if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
-  unreachable
-
-object_class_property_add.exit17:                 ; preds = %if.then3.split
-  %call1.i7 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i8 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
-  store ptr %call2.i8, ptr %call1.i7, align 8
-  %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.45) #19
-  %type5.i10 = getelementptr inbounds i8, ptr %call1.i7, i64 8
-  store ptr %call4.i9, ptr %type5.i10, align 8
-  %get6.i11 = getelementptr inbounds i8, ptr %call1.i7, i64 24
-  store ptr %spec.select, ptr %get6.i11, align 8
-  %set7.i12 = getelementptr inbounds i8, ptr %call1.i7, i64 32
-  store ptr @property_set_uint16_ptr, ptr %set7.i12, align 8
-  %release8.i13 = getelementptr inbounds i8, ptr %call1.i7, i64 48
-  store ptr null, ptr %release8.i13, align 8
-  %opaque9.i14 = getelementptr inbounds i8, ptr %call1.i7, i64 64
-  store ptr %v, ptr %opaque9.i14, align 8
-  %properties.i15 = getelementptr inbounds i8, ptr %klass, i64 88
-  %1 = load ptr, ptr %properties.i15, align 8
-  %call11.i16 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call2.i8, ptr noundef nonnull %call1.i7) #19
-  br label %if.end4
-
-if.end4:                                          ; preds = %object_class_property_add.exit, %object_class_property_add.exit17
-  %phi.call = phi ptr [ %call1.i7, %object_class_property_add.exit17 ], [ %call1.i, %object_class_property_add.exit ]
-  ret ptr %phi.call
+  ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6175,9 +6129,6 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_uint32_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %and = and i32 %flags, 1
-  %cmp.not = icmp eq i32 %and, 0
-  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint32_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
   %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
@@ -6185,13 +6136,24 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
   tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
   unreachable
 
-object_class_property_add.exit:                   ; preds = %if.end.split
+if.then3.split:                                   ; preds = %entry
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i6
+
+if.else.i6:                                       ; preds = %if.then3.split
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  unreachable
+
+if.end4:                                          ; preds = %if.then3.split, %if.end.split
+  %.sink = phi ptr [ null, %if.end.split ], [ @property_set_uint32_ptr, %if.then3.split ]
+  %and = and i32 %flags, 1
+  %cmp.not = icmp eq i32 %and, 0
+  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint32_ptr
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call2.i, ptr %call1.i, align 8
@@ -6201,7 +6163,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %spec.select, ptr %get6.i, align 8
   %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  store ptr null, ptr %set7.i, align 8
+  store ptr %.sink, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
@@ -6209,38 +6171,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
   %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit17, label %if.else.i6
-
-if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
-  unreachable
-
-object_class_property_add.exit17:                 ; preds = %if.then3.split
-  %call1.i7 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i8 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
-  store ptr %call2.i8, ptr %call1.i7, align 8
-  %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.46) #19
-  %type5.i10 = getelementptr inbounds i8, ptr %call1.i7, i64 8
-  store ptr %call4.i9, ptr %type5.i10, align 8
-  %get6.i11 = getelementptr inbounds i8, ptr %call1.i7, i64 24
-  store ptr %spec.select, ptr %get6.i11, align 8
-  %set7.i12 = getelementptr inbounds i8, ptr %call1.i7, i64 32
-  store ptr @property_set_uint32_ptr, ptr %set7.i12, align 8
-  %release8.i13 = getelementptr inbounds i8, ptr %call1.i7, i64 48
-  store ptr null, ptr %release8.i13, align 8
-  %opaque9.i14 = getelementptr inbounds i8, ptr %call1.i7, i64 64
-  store ptr %v, ptr %opaque9.i14, align 8
-  %properties.i15 = getelementptr inbounds i8, ptr %klass, i64 88
-  %1 = load ptr, ptr %properties.i15, align 8
-  %call11.i16 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call2.i8, ptr noundef nonnull %call1.i7) #19
-  br label %if.end4
-
-if.end4:                                          ; preds = %object_class_property_add.exit, %object_class_property_add.exit17
-  %phi.call = phi ptr [ %call1.i7, %object_class_property_add.exit17 ], [ %call1.i, %object_class_property_add.exit ]
-  ret ptr %phi.call
+  ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
@@ -6295,9 +6226,6 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local noundef ptr @object_class_property_add_uint64_ptr(ptr nocapture noundef readonly %klass, ptr noundef %name, ptr noundef %v, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
-  %and = and i32 %flags, 1
-  %cmp.not = icmp eq i32 %and, 0
-  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint64_ptr
   %and1 = and i32 %flags, 2
   %cmp2.not = icmp eq i32 %and1, 0
   %call.i = tail call ptr @object_class_property_find(ptr noundef %klass, ptr noundef %name)
@@ -6305,13 +6233,24 @@ entry:
   br i1 %cmp2.not, label %if.end.split, label %if.then3.split
 
 if.end.split:                                     ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit, label %if.else.i
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i
 
 if.else.i:                                        ; preds = %if.end.split
   tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
   unreachable
 
-object_class_property_add.exit:                   ; preds = %if.end.split
+if.then3.split:                                   ; preds = %entry
+  br i1 %tobool.not.i, label %if.end4, label %if.else.i6
+
+if.else.i6:                                       ; preds = %if.then3.split
+  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
+  unreachable
+
+if.end4:                                          ; preds = %if.then3.split, %if.end.split
+  %.sink = phi ptr [ null, %if.end.split ], [ @property_set_uint64_ptr, %if.then3.split ]
+  %and = and i32 %flags, 1
+  %cmp.not = icmp eq i32 %and, 0
+  %spec.select = select i1 %cmp.not, ptr null, ptr @property_get_uint64_ptr
   %call1.i = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
   %call2.i = tail call noalias ptr @g_strdup(ptr noundef %name) #19
   store ptr %call2.i, ptr %call1.i, align 8
@@ -6321,7 +6260,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %get6.i = getelementptr inbounds i8, ptr %call1.i, i64 24
   store ptr %spec.select, ptr %get6.i, align 8
   %set7.i = getelementptr inbounds i8, ptr %call1.i, i64 32
-  store ptr null, ptr %set7.i, align 8
+  store ptr %.sink, ptr %set7.i, align 8
   %release8.i = getelementptr inbounds i8, ptr %call1.i, i64 48
   store ptr null, ptr %release8.i, align 8
   %opaque9.i = getelementptr inbounds i8, ptr %call1.i, i64 64
@@ -6329,38 +6268,7 @@ object_class_property_add.exit:                   ; preds = %if.end.split
   %properties.i = getelementptr inbounds i8, ptr %klass, i64 88
   %0 = load ptr, ptr %properties.i, align 8
   %call11.i = tail call i32 @g_hash_table_insert(ptr noundef %0, ptr noundef %call2.i, ptr noundef nonnull %call1.i) #19
-  br label %if.end4
-
-if.then3.split:                                   ; preds = %entry
-  br i1 %tobool.not.i, label %object_class_property_add.exit17, label %if.else.i6
-
-if.else.i6:                                       ; preds = %if.then3.split
-  tail call void @__assert_fail(ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.1, i32 noundef 1294, ptr noundef nonnull @__PRETTY_FUNCTION__.object_class_property_add) #18
-  unreachable
-
-object_class_property_add.exit17:                 ; preds = %if.then3.split
-  %call1.i7 = tail call noalias dereferenceable_or_null(80) ptr @g_malloc0(i64 noundef 80) #22
-  %call2.i8 = tail call noalias ptr @g_strdup(ptr noundef %name) #19
-  store ptr %call2.i8, ptr %call1.i7, align 8
-  %call4.i9 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.47) #19
-  %type5.i10 = getelementptr inbounds i8, ptr %call1.i7, i64 8
-  store ptr %call4.i9, ptr %type5.i10, align 8
-  %get6.i11 = getelementptr inbounds i8, ptr %call1.i7, i64 24
-  store ptr %spec.select, ptr %get6.i11, align 8
-  %set7.i12 = getelementptr inbounds i8, ptr %call1.i7, i64 32
-  store ptr @property_set_uint64_ptr, ptr %set7.i12, align 8
-  %release8.i13 = getelementptr inbounds i8, ptr %call1.i7, i64 48
-  store ptr null, ptr %release8.i13, align 8
-  %opaque9.i14 = getelementptr inbounds i8, ptr %call1.i7, i64 64
-  store ptr %v, ptr %opaque9.i14, align 8
-  %properties.i15 = getelementptr inbounds i8, ptr %klass, i64 88
-  %1 = load ptr, ptr %properties.i15, align 8
-  %call11.i16 = tail call i32 @g_hash_table_insert(ptr noundef %1, ptr noundef %call2.i8, ptr noundef nonnull %call1.i7) #19
-  br label %if.end4
-
-if.end4:                                          ; preds = %object_class_property_add.exit, %object_class_property_add.exit17
-  %phi.call = phi ptr [ %call1.i7, %object_class_property_add.exit17 ], [ %call1.i, %object_class_property_add.exit ]
-  ret ptr %phi.call
+  ret ptr %call1.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

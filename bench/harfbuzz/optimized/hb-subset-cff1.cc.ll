@@ -23366,13 +23366,13 @@ if.end.i.i96:                                     ; preds = %sw.default
   br label %for.inc59.sink.split
 
 for.inc59.sink.split:                             ; preds = %if.end.i.i96, %sw.default, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94
-  %.sink = phi ptr [ %36, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit ], [ %53, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94 ], [ %.pre126, %sw.default ], [ %.pre, %if.end.i.i96 ]
-  %conv57.sink.in = phi i8 [ %31, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit ], [ %48, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94 ], [ %54, %sw.default ], [ %54, %if.end.i.i96 ]
+  %.sink = phi ptr [ %53, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94 ], [ %36, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit ], [ %.pre126, %sw.default ], [ %.pre, %if.end.i.i96 ]
+  %conv57.sink.in = phi i8 [ %48, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit94 ], [ %31, %_ZN3CFF13str_encoder_t8copy_strEPKhj.exit ], [ %54, %sw.default ], [ %54, %if.end.i.i96 ]
   %conv57.sink = zext i8 %conv57.sink.in to i32
-  %length5.i = getelementptr inbounds i8, ptr %.sink, i64 4
-  %58 = load i32, ptr %length5.i, align 4
+  %length5.i102 = getelementptr inbounds i8, ptr %.sink, i64 4
+  %58 = load i32, ptr %length5.i102, align 4
   %add.i103 = add i32 %58, %conv57.sink
-  store i32 %add.i103, ptr %length5.i, align 4
+  store i32 %add.i103, ptr %length5.i102, align 4
   br label %for.inc59
 
 for.inc59:                                        ; preds = %for.inc59.sink.split, %lor.lhs.false38

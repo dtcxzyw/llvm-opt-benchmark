@@ -3855,9 +3855,9 @@ _ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i313.i: ; preds
   br label %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit316.thread.i
 
 _ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit316.thread.i: ; preds = %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i313.i, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit310.i, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit.thread.i
-  %.sink340.i = phi i64 [ 4, %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i313.i ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit310.i ], [ 4, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit.thread.i ]
+  %.sink339.i = phi i64 [ 4, %_ZN5gimli5write6writer6Writer9write_u3217hd7638480a7c6ed16E.exit.i313.i ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit310.i ], [ 4, %_ZN5gimli5write6writer6Writer11write_udata17h62d321d5f774c2caE.exit.thread.i ]
   %394 = load i64, ptr %32, align 8, !alias.scope !815, !noalias !821, !noundef !4
-  %395 = add i64 %394, %.sink340.i
+  %395 = add i64 %394, %.sink339.i
   store i64 %395, ptr %32, align 8, !alias.scope !815, !noalias !821
   %396 = getelementptr inbounds i8, ptr %.0.i54, i64 67
   %397 = load i8, ptr %396, align 1, !alias.scope !817, !noalias !819, !noundef !4
@@ -4267,9 +4267,9 @@ _ZN5gimli5write6writer6Writer8write_u817h5f1ba26d8ada0dafE.exit.i: ; preds = %.n
   br i1 %564, label %.sink.split.i.sink.split.i, label %.sink.split.i.i
 
 .sink.split.i.sink.split.i:                       ; preds = %556, %503
-  %.sink338.i = phi i64 [ %506, %503 ], [ %561, %556 ]
+  %.sink.i = phi i64 [ %506, %503 ], [ %561, %556 ]
   %.sink179.i.ph.i = phi i8 [ %505, %503 ], [ %562, %556 ]
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0f7eec1faf94e15E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.sink338.i, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0f7eec1faf94e15E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %.sink.i, i64 noundef 1)
           to label %.noexc106 unwind label %.loopexit.split-lp.loopexit
 
 .noexc106:                                        ; preds = %.sink.split.i.sink.split.i
@@ -5480,9 +5480,9 @@ _ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i325.i: ; preds
   br label %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit328.thread.i
 
 _ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit328.thread.i: ; preds = %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i325.i, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit322.i, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit.thread.i
-  %.sink352.i = phi i64 [ 4, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i325.i ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit322.i ], [ 4, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit.thread.i ]
+  %.sink351.i = phi i64 [ 4, %_ZN5gimli5write6writer6Writer9write_u3217h828145f091d49137E.exit.i325.i ], [ 8, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit322.i ], [ 4, %_ZN5gimli5write6writer6Writer11write_udata17h6ff989db23e3858bE.exit.thread.i ]
   %422 = load i64, ptr %28, align 8, !alias.scope !1309, !noalias !1315, !noundef !4
-  %423 = add i64 %422, %.sink352.i
+  %423 = add i64 %422, %.sink351.i
   store i64 %423, ptr %28, align 8, !alias.scope !1309, !noalias !1315
   %424 = getelementptr inbounds i8, ptr %.0.i54, i64 67
   %425 = load i8, ptr %424, align 1, !alias.scope !1311, !noalias !1313, !noundef !4
@@ -5921,9 +5921,9 @@ _ZN5gimli5write6writer6Writer8write_u817hc32e236117abdfc9E.exit.i: ; preds = %.n
   br i1 %603, label %.sink.split.i.sink.split.i, label %.sink.split.i.i
 
 .sink.split.i.sink.split.i:                       ; preds = %595, %542
-  %.sink350.i = phi i64 [ %545, %542 ], [ %600, %595 ]
+  %.sink.i = phi i64 [ %545, %542 ], [ %600, %595 ]
   %.sink179.i.ph.i = phi i8 [ %544, %542 ], [ %601, %595 ]
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0f7eec1faf94e15E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %.sink350.i, i64 noundef 1)
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17hd0f7eec1faf94e15E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %30, i64 noundef %.sink.i, i64 noundef 1)
           to label %.noexc109 unwind label %.loopexit.split-lp.loopexit
 
 .noexc109:                                        ; preds = %.sink.split.i.sink.split.i

@@ -3790,17 +3790,17 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.critedge
-  %10 = phi i8 [ %4, %.preheader.lr.ph ], [ %43, %.critedge ]
-  %.060 = phi ptr [ %1, %.preheader.lr.ph ], [ %42, %.critedge ]
+  %10 = phi i8 [ %4, %.preheader.lr.ph ], [ %35, %.critedge ]
+  %.060 = phi ptr [ %1, %.preheader.lr.ph ], [ %34, %.critedge ]
   %.02859 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %.critedge ]
   %.03358 = phi i32 [ 0, %.preheader.lr.ph ], [ %.134, %.critedge ]
   br label %11
 
-11:                                               ; preds = %.preheader, %40
-  %12 = phi i8 [ %10, %.preheader ], [ %.pre, %40 ]
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %40 ]
-  %.036 = phi i32 [ 1, %.preheader ], [ %.137, %40 ]
-  %.029 = phi i32 [ 0, %.preheader ], [ %.130, %40 ]
+11:                                               ; preds = %.preheader, %32
+  %12 = phi i8 [ %10, %.preheader ], [ %.pre, %32 ]
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %32 ]
+  %.036 = phi i32 [ 1, %.preheader ], [ %.137, %32 ]
+  %.029 = phi i32 [ 0, %.preheader ], [ %.130, %32 ]
   switch i8 %12, label %13 [
     i8 32, label %.critedge
     i8 0, label %.critedge
@@ -3818,47 +3818,36 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds ptr, ptr %.val53.val.val, i64 %18
   %20 = load ptr, ptr %19, align 8
-  switch i8 %12, label %40 [
-    i8 48, label %21
-    i8 49, label %28
+  switch i8 %12, label %32 [
+    i8 48, label %22
+    i8 49, label %21
   ]
 
 21:                                               ; preds = %13
-  %22 = load ptr, ptr %7, align 8
-  %23 = getelementptr i8, ptr %20, i64 16
-  %.val52 = load i32, ptr %23, align 8
-  %24 = zext i32 %.val52 to i64
-  %25 = getelementptr inbounds %struct.Flow_Data_t_, ptr %22, i64 %24
-  %26 = load i16, ptr %25, align 8
-  %27 = lshr i16 %26, 5
-  br label %35
+  br label %22
 
-28:                                               ; preds = %13
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr i8, ptr %20, i64 16
-  %.val51 = load i32, ptr %30, align 8
-  %31 = zext i32 %.val51 to i64
-  %32 = getelementptr inbounds %struct.Flow_Data_t_, ptr %29, i64 %31
-  %33 = load i16, ptr %32, align 8
-  %34 = lshr i16 %33, 6
-  br label %35
+22:                                               ; preds = %13, %21
+  %.sink64 = phi i16 [ 6, %21 ], [ 5, %13 ]
+  %23 = load ptr, ptr %7, align 8
+  %24 = getelementptr i8, ptr %20, i64 16
+  %.val51 = load i32, ptr %24, align 8
+  %25 = zext i32 %.val51 to i64
+  %26 = getelementptr inbounds %struct.Flow_Data_t_, ptr %23, i64 %25
+  %27 = load i16, ptr %26, align 8
+  %28 = and i16 %27, 96
+  %.not49 = icmp eq i16 %28, 0
+  br i1 %.not49, label %32, label %29
 
-35:                                               ; preds = %28, %21
-  %36 = phi i16 [ %33, %28 ], [ %26, %21 ]
-  %.032.in.in = phi i16 [ %34, %28 ], [ %27, %21 ]
-  %37 = and i16 %36, 96
-  %.not49 = icmp eq i16 %37, 0
-  br i1 %.not49, label %40, label %38
-
-38:                                               ; preds = %35
-  %.032.in = and i16 %.032.in.in, 1
+29:                                               ; preds = %22
+  %30 = lshr i16 %27, %.sink64
+  %.032.in = and i16 %30, 1
   %.032 = zext nneg i16 %.032.in to i32
-  %39 = and i32 %.036, %.032
-  br label %40
+  %31 = and i32 %.036, %.032
+  br label %32
 
-40:                                               ; preds = %35, %13, %38
-  %.137 = phi i32 [ %39, %38 ], [ %.036, %13 ], [ %.036, %35 ]
-  %.130 = phi i32 [ %.029, %38 ], [ %.029, %13 ], [ 1, %35 ]
+32:                                               ; preds = %22, %13, %29
+  %.137 = phi i32 [ %31, %29 ], [ %.036, %13 ], [ %.036, %22 ]
+  %.130 = phi i32 [ %.029, %29 ], [ %.029, %13 ], [ 1, %22 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.060, i64 %indvars.iv.next
   %.pre = load i8, ptr %.phi.trans.insert, align 1
@@ -3868,50 +3857,50 @@ define internal fastcc void @Abc_FlowRetime_SimulateSop(ptr nocapture noundef re
   %.not44 = icmp eq i32 %.036, 0
   %.not4555 = icmp eq i32 %.029, 0
   %.not45 = select i1 %.not44, i1 true, i1 %.not4555
-  %41 = select i1 %.not45, i32 %.036, i32 0
-  %.134 = or i32 %41, %.03358
+  %33 = select i1 %.not45, i32 %.036, i32 0
+  %.134 = or i32 %33, %.03358
   %.1 = select i1 %.not45, i32 %.02859, i32 1
-  %42 = getelementptr inbounds i8, ptr %.060, i64 %9
-  %43 = load i8, ptr %42, align 1
-  %.not = icmp eq i8 %43, 0
+  %34 = getelementptr inbounds i8, ptr %.060, i64 %9
+  %35 = load i8, ptr %34, align 1
+  %.not = icmp eq i8 %35, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.preheader, !llvm.loop !36
 
 ._crit_edge.loopexit:                             ; preds = %.critedge
-  %44 = icmp eq i32 %.1, 0
+  %36 = icmp eq i32 %.1, 0
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %.033.lcssa = phi i32 [ 0, %2 ], [ %.134, %._crit_edge.loopexit ]
-  %.028.lcssa = phi i1 [ true, %2 ], [ %44, %._crit_edge.loopexit ]
+  %.028.lcssa = phi i1 [ true, %2 ], [ %36, %._crit_edge.loopexit ]
   %.not40 = icmp ne i32 %.033.lcssa, 0
-  %45 = tail call i32 @Abc_SopGetPhase(ptr noundef nonnull %1) #17
-  %46 = load ptr, ptr @pManMR, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 112
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr i8, ptr %0, i64 16
-  %.val6.i = load i32, ptr %49, align 8
-  %50 = zext i32 %.val6.i to i64
-  %51 = getelementptr inbounds %struct.Flow_Data_t_, ptr %48, i64 %50
-  %52 = load i16, ptr %51, align 8
-  %53 = and i16 %52, -97
-  store i16 %53, ptr %51, align 8
+  %37 = tail call i32 @Abc_SopGetPhase(ptr noundef nonnull %1) #17
+  %38 = load ptr, ptr @pManMR, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 112
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr i8, ptr %0, i64 16
+  %.val6.i = load i32, ptr %41, align 8
+  %42 = zext i32 %.val6.i to i64
+  %43 = getelementptr inbounds %struct.Flow_Data_t_, ptr %40, i64 %42
+  %44 = load i16, ptr %43, align 8
+  %45 = and i16 %44, -97
+  store i16 %45, ptr %43, align 8
   %.not.i = select i1 %.not40, i1 true, i1 %.028.lcssa
   br i1 %.not.i, label %.sink.split.i, label %Abc_FlowRetime_SetInitValue.exit
 
 .sink.split.i:                                    ; preds = %._crit_edge
-  %.not41 = icmp eq i32 %45, 0
-  %54 = zext i1 %.not41 to i32
-  %.not4.i = icmp eq i32 %.033.lcssa, %54
-  %55 = load ptr, ptr @pManMR, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 112
-  %57 = load ptr, ptr %56, align 8
-  %.val.i = load i32, ptr %49, align 8
-  %58 = zext i32 %.val.i to i64
-  %59 = getelementptr inbounds %struct.Flow_Data_t_, ptr %57, i64 %58
-  %60 = load i16, ptr %59, align 8
+  %.not41 = icmp eq i32 %37, 0
+  %46 = zext i1 %.not41 to i32
+  %.not4.i = icmp eq i32 %.033.lcssa, %46
+  %47 = load ptr, ptr @pManMR, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 112
+  %49 = load ptr, ptr %48, align 8
+  %.val.i = load i32, ptr %41, align 8
+  %50 = zext i32 %.val.i to i64
+  %51 = getelementptr inbounds %struct.Flow_Data_t_, ptr %49, i64 %50
+  %52 = load i16, ptr %51, align 8
   %..i = select i1 %.not4.i, i16 32, i16 64
-  %61 = or i16 %60, %..i
-  store i16 %61, ptr %59, align 8
+  %53 = or i16 %52, %..i
+  store i16 %53, ptr %51, align 8
   br label %Abc_FlowRetime_SetInitValue.exit
 
 Abc_FlowRetime_SetInitValue.exit:                 ; preds = %._crit_edge, %.sink.split.i

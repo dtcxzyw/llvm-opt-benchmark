@@ -2656,8 +2656,8 @@ define dso_local noundef zeroext i1 @_ZNK20cmConditionEvaluator18GetBooleanValue
   br label %_Z7cmIsOff7cmValue.exit.sink.split
 
 _Z7cmIsOff7cmValue.exit.sink.split:               ; preds = %17, %11, %8
-  %.sink = phi ptr [ %9, %8 ], [ %18, %17 ], [ %12, %11 ]
-  %19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #18
+  %.sroa.011.0.ph.sink = phi ptr [ %9, %8 ], [ %18, %17 ], [ %12, %11 ]
+  %19 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.011.0.ph.sink) #18
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   %22 = tail call noundef zeroext i1 @_ZN7cmValue5IsOffESt17basic_string_viewIcSt11char_traitsIcEE(i64 %20, ptr %21) #18

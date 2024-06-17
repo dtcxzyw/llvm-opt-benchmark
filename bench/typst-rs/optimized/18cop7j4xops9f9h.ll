@@ -5302,25 +5302,22 @@ _ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread: ; pred
   %.sroa.5.0.extract.trunc.i = trunc i64 %57 to i56
   %.sroa.5.15.extract.shift.i = lshr i64 %57, 56
   %.sroa.5.15.extract.trunc.i = trunc nuw i64 %.sroa.5.15.extract.shift.i to i8
-  store ptr %56, ptr %5, align 8, !alias.scope !1053
-  %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i133 = getelementptr inbounds i8, ptr %5, i64 8
-  store i56 %.sroa.5.0.extract.trunc.i, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i133, align 8, !alias.scope !1053
-  %.sroa.0.sroa.5.0..sroa_idx4.i134 = getelementptr inbounds i8, ptr %5, i64 15
-  store i8 %.sroa.5.15.extract.trunc.i, ptr %.sroa.0.sroa.5.0..sroa_idx4.i134, align 1, !alias.scope !1053
   br label %.lr.ph
 
 _ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit: ; preds = %.lr.ph.i.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
-  store ptr null, ptr %5, align 8, !alias.scope !1053
-  %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
-  store i56 0, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1053
-  %.sroa.0.sroa.5.0..sroa_idx4.i = getelementptr inbounds i8, ptr %5, i64 15
-  store i8 -128, ptr %.sroa.0.sroa.5.0..sroa_idx4.i, align 1, !alias.scope !1053
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread
-  %.sroa.0.sroa.5.0..sroa_idx4.i135 = phi ptr [ %.sroa.0.sroa.5.0..sroa_idx4.i134, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread ], [ %.sroa.0.sroa.5.0..sroa_idx4.i, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit ]
+  %storemerge = phi ptr [ %56, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread ], [ null, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit ]
+  %.sink136 = phi i56 [ %.sroa.5.0.extract.trunc.i, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread ], [ 0, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit ]
+  %.sink = phi i8 [ %.sroa.5.15.extract.trunc.i, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit.thread ], [ -128, %_ZN4ecow6string9EcoString13with_capacity17h064d69ef17c7e44dE.exit ]
+  store ptr %storemerge, ptr %5, align 8, !alias.scope !1053
+  %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %5, i64 8
+  store i56 %.sink136, ptr %.sroa.0.sroa.0.sroa.5.0..sroa_idx.i, align 8, !alias.scope !1053
+  %.sroa.0.sroa.5.0..sroa_idx4.i = getelementptr inbounds i8, ptr %5, i64 15
+  store i8 %.sink, ptr %.sroa.0.sroa.5.0..sroa_idx4.i, align 1, !alias.scope !1053
   %58 = getelementptr inbounds i8, ptr %26, i64 %34
   %59 = ptrtoint ptr %26 to i64
   br label %61
@@ -5399,7 +5396,7 @@ _ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.i: ; preds = %_ZN8unsc
 102:                                              ; preds = %.invoke, %.loopexit, %.loopexit123, %274, %_ZN8unscanny7Scanner6eat_if17h2e8b568420fc68f7E.exit65, %131
   %103 = landingpad { ptr, i32 }
           cleanup
-  %104 = load i8, ptr %.sroa.0.sroa.5.0..sroa_idx4.i135, align 1, !alias.scope !1069, !noundef !15
+  %104 = load i8, ptr %.sroa.0.sroa.5.0..sroa_idx4.i, align 1, !alias.scope !1069, !noundef !15
   %105 = icmp sgt i8 %104, -1
   br i1 %105, label %106, label %common.resume
 

@@ -6891,20 +6891,11 @@ FSEv06_initDState.exit152.thread332.i:            ; preds = %if.end.i.i117.i
   store i32 %and.i.i127.i, ptr %72, align 8
   %add.ptr7.val.i.i131335.i = load i64, ptr %add.ptr7.i.i126.i, align 1
   store i64 %add.ptr7.val.i.i131335.i, ptr %seqState.i, align 8
-  %add.ptr.i132336.i = getelementptr inbounds i8, ptr %dctx, i64 3084
-  %table.i133337.i = getelementptr inbounds i8, ptr %seqState.i, i64 72
-  store ptr %add.ptr.i132336.i, ptr %table.i133337.i, align 8
-  br label %if.end.i155.lr.ph.i
+  br label %if.end.i155.lr.ph.sink.split.i
 
 if.end10.i.i134.i:                                ; preds = %if.end.i.i117.i
   %cmp13.i.i135.i = icmp eq ptr %75, %add.ptr62.i.i
-  br i1 %cmp13.i.i135.i, label %FSEv06_initDState.exit152.thread327.i, label %FSEv06_initDState.exit152.i
-
-FSEv06_initDState.exit152.thread327.i:            ; preds = %if.end10.i.i134.i
-  %add.ptr.i132328.i = getelementptr inbounds i8, ptr %dctx, i64 3084
-  %table.i133329.i = getelementptr inbounds i8, ptr %seqState.i, i64 72
-  store ptr %add.ptr.i132328.i, ptr %table.i133329.i, align 8
-  br label %if.end.i155.lr.ph.i
+  br i1 %cmp13.i.i135.i, label %if.end.i155.lr.ph.sink.split.i, label %FSEv06_initDState.exit152.i
 
 FSEv06_initDState.exit152.i:                      ; preds = %if.end10.i.i134.i
   %shr24.i.i137.i = lshr i32 %add.i.i.i115.i, 3
@@ -6931,9 +6922,16 @@ FSEv06_initDState.exit152.i:                      ; preds = %if.end10.i.i134.i
   %cmp.i154296.i = icmp ugt i32 %sub.i.i151.i, 64
   br i1 %cmp.i154296.i, label %ZSTDv06_decompressSequences.exit, label %if.end.i155.lr.ph.i
 
-if.end.i155.lr.ph.i:                              ; preds = %FSEv06_initDState.exit152.i, %FSEv06_initDState.exit152.thread327.i, %FSEv06_initDState.exit152.thread332.i
-  %table.i133331.i = phi ptr [ %table.i133329.i, %FSEv06_initDState.exit152.thread327.i ], [ %table.i133.i, %FSEv06_initDState.exit152.i ], [ %table.i133337.i, %FSEv06_initDState.exit152.thread332.i ]
-  %77 = phi i32 [ %add.i.i.i115.i, %FSEv06_initDState.exit152.thread327.i ], [ %sub.i.i151.i, %FSEv06_initDState.exit152.i ], [ %and.i.i127.i, %FSEv06_initDState.exit152.thread332.i ]
+if.end.i155.lr.ph.sink.split.i:                   ; preds = %if.end10.i.i134.i, %FSEv06_initDState.exit152.thread332.i
+  %.ph.i = phi i32 [ %and.i.i127.i, %FSEv06_initDState.exit152.thread332.i ], [ %add.i.i.i115.i, %if.end10.i.i134.i ]
+  %add.ptr.i132336.i = getelementptr inbounds i8, ptr %dctx, i64 3084
+  %table.i133337.i = getelementptr inbounds i8, ptr %seqState.i, i64 72
+  store ptr %add.ptr.i132336.i, ptr %table.i133337.i, align 8
+  br label %if.end.i155.lr.ph.i
+
+if.end.i155.lr.ph.i:                              ; preds = %if.end.i155.lr.ph.sink.split.i, %FSEv06_initDState.exit152.i
+  %table.i133331.i = phi ptr [ %table.i133.i, %FSEv06_initDState.exit152.i ], [ %table.i133337.i, %if.end.i155.lr.ph.sink.split.i ]
+  %77 = phi i32 [ %sub.i.i151.i, %FSEv06_initDState.exit152.i ], [ %.ph.i, %if.end.i155.lr.ph.sink.split.i ]
   %arrayidx52.i.i = getelementptr inbounds i8, ptr %seqState.i, i64 88
   %arrayidx54.i.i = getelementptr inbounds i8, ptr %seqState.i, i64 96
   %add.ptr3.i219.i = getelementptr inbounds i8, ptr %add.ptr1.i, i64 -8

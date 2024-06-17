@@ -1649,14 +1649,14 @@ float8_gt.exit17.i301:                            ; preds = %float8_lt.exit16.th
   br label %adjustBox.exit278
 
 adjustBox.exit278:                                ; preds = %596, %float8_lt.exit16.thread.i300, %float8_gt.exit17.i301, %595, %560, %float8_lt.exit16.thread.i292, %float8_gt.exit17.i293, %559, %520, %float8_lt.exit16.thread.i284, %float8_gt.exit17.i285, %519, %482, %float8_lt.exit16.thread.i276, %float8_gt.exit17.i277, %481
-  %.sink397 = phi ptr [ %8, %481 ], [ %8, %float8_gt.exit17.i277 ], [ %8, %float8_lt.exit16.thread.i276 ], [ %8, %482 ], [ %281, %519 ], [ %281, %float8_gt.exit17.i285 ], [ %281, %float8_lt.exit16.thread.i284 ], [ %281, %520 ], [ %8, %559 ], [ %8, %float8_gt.exit17.i293 ], [ %8, %float8_lt.exit16.thread.i292 ], [ %8, %560 ], [ %281, %595 ], [ %281, %float8_gt.exit17.i301 ], [ %281, %float8_lt.exit16.thread.i300 ], [ %281, %596 ]
-  %.sink396 = phi ptr [ %282, %481 ], [ %282, %float8_gt.exit17.i277 ], [ %282, %float8_lt.exit16.thread.i276 ], [ %282, %482 ], [ %283, %519 ], [ %283, %float8_gt.exit17.i285 ], [ %283, %float8_lt.exit16.thread.i284 ], [ %283, %520 ], [ %282, %559 ], [ %282, %float8_gt.exit17.i293 ], [ %282, %float8_lt.exit16.thread.i292 ], [ %282, %560 ], [ %283, %595 ], [ %283, %float8_gt.exit17.i301 ], [ %283, %float8_lt.exit16.thread.i300 ], [ %283, %596 ]
+  %.sink395 = phi ptr [ %8, %481 ], [ %8, %float8_gt.exit17.i277 ], [ %8, %float8_lt.exit16.thread.i276 ], [ %8, %482 ], [ %281, %519 ], [ %281, %float8_gt.exit17.i285 ], [ %281, %float8_lt.exit16.thread.i284 ], [ %281, %520 ], [ %8, %559 ], [ %8, %float8_gt.exit17.i293 ], [ %8, %float8_lt.exit16.thread.i292 ], [ %8, %560 ], [ %281, %595 ], [ %281, %float8_gt.exit17.i301 ], [ %281, %float8_lt.exit16.thread.i300 ], [ %281, %596 ]
+  %.sink394 = phi ptr [ %282, %481 ], [ %282, %float8_gt.exit17.i277 ], [ %282, %float8_lt.exit16.thread.i276 ], [ %282, %482 ], [ %283, %519 ], [ %283, %float8_gt.exit17.i285 ], [ %283, %float8_lt.exit16.thread.i284 ], [ %283, %520 ], [ %282, %559 ], [ %282, %float8_gt.exit17.i293 ], [ %282, %float8_lt.exit16.thread.i292 ], [ %282, %560 ], [ %283, %595 ], [ %283, %float8_gt.exit17.i301 ], [ %283, %float8_lt.exit16.thread.i300 ], [ %283, %596 ]
   %597 = load i32, ptr %439, align 8
   %598 = trunc i32 %597 to i16
-  %599 = load ptr, ptr %.sink397, align 8
-  %600 = load i32, ptr %.sink396, align 8
+  %599 = load ptr, ptr %.sink395, align 8
+  %600 = load i32, ptr %.sink394, align 8
   %601 = add i32 %600, 1
-  store i32 %601, ptr %.sink396, align 8
+  store i32 %601, ptr %.sink394, align 8
   %602 = sext i32 %600 to i64
   %603 = getelementptr i16, ptr %599, i64 %602
   store i16 %598, ptr %603, align 2
@@ -1673,9 +1673,9 @@ adjustBox.exit278:                                ; preds = %596, %float8_lt.exi
   br label %610
 
 610:                                              ; preds = %.loopexit, %fallbackSplit.exit
-  %.sink394 = phi i64 [ %609, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
+  %.sink = phi i64 [ %609, %.loopexit ], [ %.037.lcssa.i, %fallbackSplit.exit ]
   %611 = getelementptr inbounds i8, ptr %8, i64 48
-  store i64 %.sink394, ptr %611, align 8
+  store i64 %.sink, ptr %611, align 8
   ret i64 %7
 }
 

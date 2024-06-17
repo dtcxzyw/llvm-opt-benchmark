@@ -1153,19 +1153,19 @@ if.then6.i62:                                     ; preds = %if.end.i60
   br i1 %cmp8.not.i67, label %return.sink.split, label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.then6.i62, %if.then6.i19
-  %and.i23.sink = phi i64 [ %and.i23, %if.then6.i19 ], [ %and.i66, %if.then6.i62 ]
-  %.pre90.sink = phi i32 [ %.pre90, %if.then6.i19 ], [ %.pre86, %if.then6.i62 ]
+  %and.i66.sink = phi i64 [ %and.i23, %if.then6.i19 ], [ %and.i66, %if.then6.i62 ]
+  %.pre86.sink = phi i32 [ %.pre90, %if.then6.i19 ], [ %.pre86, %if.then6.i62 ]
   %.sink = phi ptr [ %11, %if.then6.i19 ], [ %27, %if.then6.i62 ]
-  %31 = trunc nuw nsw i64 %and.i23.sink to i16
-  %sh_prom.i26 = sub nuw nsw i16 8, %31
-  %shr.i = lshr i16 255, %sh_prom.i26
-  %32 = sext i32 %.pre90.sink to i64
+  %31 = trunc nuw nsw i64 %and.i66.sink to i16
+  %sh_prom.i69 = sub nuw nsw i16 8, %31
+  %shr.i70 = lshr i16 255, %sh_prom.i69
+  %32 = sext i32 %.pre86.sink to i64
   %33 = getelementptr i8, ptr %max, i64 %32
-  %arrayidx28.i = getelementptr i8, ptr %33, i64 -1
-  %34 = load i8, ptr %arrayidx28.i, align 1
-  %35 = trunc nuw nsw i16 %shr.i to i8
+  %arrayidx28.i71 = getelementptr i8, ptr %33, i64 -1
+  %34 = load i8, ptr %arrayidx28.i71, align 1
+  %35 = trunc nuw nsw i16 %shr.i70 to i8
   %conv30.i72 = or i8 %34, %35
-  store i8 %conv30.i72, ptr %arrayidx28.i, align 1
+  store i8 %conv30.i72, ptr %arrayidx28.i71, align 1
   %.pre85 = load i32, ptr %.sink, align 8
   br label %return.sink.split
 

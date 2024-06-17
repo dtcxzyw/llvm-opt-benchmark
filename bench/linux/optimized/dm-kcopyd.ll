@@ -981,7 +981,7 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %3, %50
+.split.us:                                        ; preds = %3, %43
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #9
   %7 = load volatile ptr, ptr %0, align 8
   %8 = icmp eq ptr %7, %0
@@ -997,14 +997,14 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %13 = getelementptr i8, ptr %10, i64 32
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %38, label %16
+  br i1 %15, label %.loopexit69, label %16
 
 16:                                               ; preds = %12
   %17 = getelementptr i8, ptr %10, i64 16
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 4
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %38, label %21
+  br i1 %20, label %.loopexit69, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr i8, ptr %10, i64 336
@@ -1022,129 +1022,119 @@ define internal fastcc void @process_jobs(ptr noundef %0, ptr noundef %1, ptr no
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %23
   store i64 %33, ptr %30, align 8
+  br label %.loopexit69
+
+.loopexit69:                                      ; preds = %12, %16, %29
   %34 = getelementptr inbounds i8, ptr %10, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %10, align 8
   %37 = getelementptr inbounds i8, ptr %36, i64 8
   store ptr %35, ptr %37, align 8
   store volatile ptr %36, ptr %35, align 8
-  br label %43
-
-38:                                               ; preds = %16, %12
-  %39 = getelementptr inbounds i8, ptr %10, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  store ptr %40, ptr %42, align 8
-  store volatile ptr %41, ptr %40, align 8
-  br label %43
-
-43:                                               ; preds = %38, %29
-  %44 = phi ptr [ %39, %38 ], [ %34, %29 ]
-  %45 = getelementptr i8, ptr %10, i64 -8
+  %38 = getelementptr i8, ptr %10, i64 -8
   store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %10, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %44, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %34, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %4) #9
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %.loopexit, label %47
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.loopexit, label %40
 
-47:                                               ; preds = %43
-  %48 = tail call i32 %2(ptr noundef nonnull %45) #9, !callees !29
-  %49 = icmp slt i32 %48, 0
-  br i1 %49, label %.split17.us, label %50
+40:                                               ; preds = %.loopexit69
+  %41 = tail call i32 %2(ptr noundef nonnull %38) #9, !callees !29
+  %42 = icmp slt i32 %41, 0
+  br i1 %42, label %.split17.us, label %43
 
-50:                                               ; preds = %47
-  %51 = icmp eq i32 %48, 0
-  br i1 %51, label %.split.us, label %.split20.us, !llvm.loop !30
+43:                                               ; preds = %40
+  %44 = icmp eq i32 %41, 0
+  br i1 %44, label %.split.us, label %.split20.us, !llvm.loop !30
 
-.split:                                           ; preds = %3, %84
+.split:                                           ; preds = %3, %77
   tail call void @_raw_spin_lock_irq(ptr noundef %4) #9
-  %52 = load volatile ptr, ptr %0, align 8
-  %53 = icmp eq ptr %52, %0
-  br i1 %53, label %.thread, label %54
+  %45 = load volatile ptr, ptr %0, align 8
+  %46 = icmp eq ptr %45, %0
+  br i1 %46, label %.thread, label %47
 
-54:                                               ; preds = %.split
-  %55 = getelementptr inbounds i8, ptr %52, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = load ptr, ptr %52, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 8
-  store ptr %56, ptr %58, align 8
-  store volatile ptr %57, ptr %56, align 8
-  %59 = getelementptr i8, ptr %52, i64 -8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %52, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %55, align 8
+47:                                               ; preds = %.split
+  %48 = getelementptr inbounds i8, ptr %45, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %50 = load ptr, ptr %45, align 8
+  %51 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %49, ptr %51, align 8
+  store volatile ptr %50, ptr %49, align 8
+  %52 = getelementptr i8, ptr %45, i64 -8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %45, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %48, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef %4) #9
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %.loopexit, label %61
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.loopexit, label %54
 
 .thread:                                          ; preds = %.split, %.split.us, %.preheader.us
   tail call void @_raw_spin_unlock_irq(ptr noundef %4) #9
   br label %.loopexit
 
-61:                                               ; preds = %54
-  %62 = tail call i32 %2(ptr noundef nonnull %59) #9, !callees !29
-  %63 = icmp slt i32 %62, 0
-  br i1 %63, label %.split17.us, label %84
+54:                                               ; preds = %47
+  %55 = tail call i32 %2(ptr noundef nonnull %52) #9, !callees !29
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %.split17.us, label %77
 
-.split17.us:                                      ; preds = %61, %47
-  %.us-phi = phi ptr [ %10, %47 ], [ %52, %61 ]
-  %.us-phi18 = phi ptr [ %45, %47 ], [ %59, %61 ]
-  %64 = getelementptr i8, ptr %.us-phi, i64 32
-  %65 = load i32, ptr %64, align 8
-  %66 = and i32 %65, 1
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %70, label %68
+.split17.us:                                      ; preds = %54, %40
+  %.us-phi = phi ptr [ %10, %40 ], [ %45, %54 ]
+  %.us-phi18 = phi ptr [ %38, %40 ], [ %52, %54 ]
+  %57 = getelementptr i8, ptr %.us-phi, i64 32
+  %58 = load i32, ptr %57, align 8
+  %59 = and i32 %58, 1
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %63, label %61
 
-68:                                               ; preds = %.split17.us
-  %69 = getelementptr i8, ptr %.us-phi, i64 24
-  store i64 -1, ptr %69, align 8
-  br label %72
+61:                                               ; preds = %.split17.us
+  %62 = getelementptr i8, ptr %.us-phi, i64 24
+  store i64 -1, ptr %62, align 8
+  br label %65
 
-70:                                               ; preds = %.split17.us
-  %71 = getelementptr i8, ptr %.us-phi, i64 20
-  store i32 1, ptr %71, align 4
-  br label %72
+63:                                               ; preds = %.split17.us
+  %64 = getelementptr i8, ptr %.us-phi, i64 20
+  store i32 1, ptr %64, align 4
+  br label %65
 
-72:                                               ; preds = %70, %68
-  %73 = getelementptr inbounds i8, ptr %1, i64 200
-  %74 = load ptr, ptr %.us-phi18, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 180
-  %76 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %75) #9
-  %77 = getelementptr inbounds i8, ptr %1, i64 208
-  %78 = load ptr, ptr %77, align 8
-  store ptr %.us-phi, ptr %77, align 8
-  store ptr %73, ptr %.us-phi, align 8
-  %79 = getelementptr i8, ptr %.us-phi, i64 8
-  store ptr %78, ptr %79, align 8
-  store volatile ptr %.us-phi, ptr %78, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %75, i64 noundef %76) #9
-  %80 = getelementptr inbounds i8, ptr %1, i64 128
-  %81 = load ptr, ptr %80, align 8
-  %82 = getelementptr inbounds i8, ptr %1, i64 136
-  %83 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %81, ptr noundef %82) #9
+65:                                               ; preds = %63, %61
+  %66 = getelementptr inbounds i8, ptr %1, i64 200
+  %67 = load ptr, ptr %.us-phi18, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 180
+  %69 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %68) #9
+  %70 = getelementptr inbounds i8, ptr %1, i64 208
+  %71 = load ptr, ptr %70, align 8
+  store ptr %.us-phi, ptr %70, align 8
+  store ptr %66, ptr %.us-phi, align 8
+  %72 = getelementptr i8, ptr %.us-phi, i64 8
+  store ptr %71, ptr %72, align 8
+  store volatile ptr %.us-phi, ptr %71, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %68, i64 noundef %69) #9
+  %73 = getelementptr inbounds i8, ptr %1, i64 128
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 136
+  %76 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %74, ptr noundef %75) #9
   br label %.loopexit
 
-84:                                               ; preds = %61
-  %85 = icmp eq i32 %62, 0
-  br i1 %85, label %.split, label %.split20.us, !llvm.loop !30
+77:                                               ; preds = %54
+  %78 = icmp eq i32 %55, 0
+  br i1 %78, label %.split, label %.split20.us, !llvm.loop !30
 
-.split20.us:                                      ; preds = %84, %50
-  %.us-phi21 = phi ptr [ %10, %50 ], [ %52, %84 ]
-  %.us-phi22 = phi ptr [ %45, %50 ], [ %59, %84 ]
-  %86 = load ptr, ptr %.us-phi22, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 180
-  tail call void @_raw_spin_lock_irq(ptr noundef %87) #9
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  store ptr %.us-phi21, ptr %89, align 8
-  store ptr %88, ptr %.us-phi21, align 8
-  %90 = getelementptr i8, ptr %.us-phi21, i64 8
-  store ptr %0, ptr %90, align 8
+.split20.us:                                      ; preds = %77, %43
+  %.us-phi21 = phi ptr [ %10, %43 ], [ %45, %77 ]
+  %.us-phi22 = phi ptr [ %38, %43 ], [ %52, %77 ]
+  %79 = load ptr, ptr %.us-phi22, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 180
+  tail call void @_raw_spin_lock_irq(ptr noundef %80) #9
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 8
+  store ptr %.us-phi21, ptr %82, align 8
+  store ptr %81, ptr %.us-phi21, align 8
+  %83 = getelementptr i8, ptr %.us-phi21, i64 8
+  store ptr %0, ptr %83, align 8
   store volatile ptr %.us-phi21, ptr %0, align 8
-  tail call void @_raw_spin_unlock_irq(ptr noundef %87) #9
+  tail call void @_raw_spin_unlock_irq(ptr noundef %80) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %54, %43, %.thread, %.split20.us, %72
+.loopexit:                                        ; preds = %47, %.loopexit69, %.thread, %.split20.us, %65
   ret void
 }
 
@@ -1586,92 +1576,63 @@ define internal void @complete_io(i64 noundef %0, ptr noundef %1) #2 align 16 {
   %32 = icmp eq i64 %0, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %1, i64 40
   %.pre = load i32, ptr %.phi.trans.insert, align 8
+  %.old = and i32 %.pre, 1
+  %.old16 = icmp eq i32 %.old, 0
   br i1 %32, label %._crit_edge, label %33
 
 33:                                               ; preds = %31
-  %34 = and i32 %.pre, 1
-  %35 = icmp eq i32 %34, 0
-  br i1 %35, label %40, label %36
+  br i1 %.old16, label %38, label %34
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds i8, ptr %1, i64 32
-  %38 = load i64, ptr %37, align 8
-  %39 = or i64 %38, %0
-  store i64 %39, ptr %37, align 8
-  br label %42
+34:                                               ; preds = %33
+  %35 = getelementptr inbounds i8, ptr %1, i64 32
+  %36 = load i64, ptr %35, align 8
+  %37 = or i64 %36, %0
+  store i64 %37, ptr %35, align 8
+  br label %40
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds i8, ptr %1, i64 28
-  store i32 1, ptr %41, align 4
-  br label %42
+38:                                               ; preds = %33
+  %39 = getelementptr inbounds i8, ptr %1, i64 28
+  store i32 1, ptr %39, align 4
+  br label %40
 
-42:                                               ; preds = %40, %36
-  %43 = getelementptr inbounds i8, ptr %1, i64 24
-  %44 = load i32, ptr %43, align 8
-  %45 = and i32 %44, 2
+40:                                               ; preds = %38, %34
+  %41 = getelementptr inbounds i8, ptr %1, i64 24
+  %42 = load i32, ptr %41, align 8
+  %43 = and i32 %42, 2
+  %44 = icmp ne i32 %43, 0
+  %45 = and i32 %.pre, 1
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %._crit_edge
+  %or.cond = select i1 %44, i1 %46, i1 false
+  br i1 %or.cond, label %47, label %49
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds i8, ptr %3, i64 200
-  %49 = load ptr, ptr %1, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 180
-  %51 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %50) #9
-  %52 = getelementptr inbounds i8, ptr %1, i64 8
-  %53 = getelementptr inbounds i8, ptr %3, i64 208
-  %54 = load ptr, ptr %53, align 8
-  store ptr %52, ptr %53, align 8
-  store ptr %48, ptr %52, align 8
-  %55 = getelementptr inbounds i8, ptr %1, i64 16
+._crit_edge:                                      ; preds = %31
+  br i1 %.old16, label %47, label %49
+
+47:                                               ; preds = %40, %._crit_edge
+  %48 = getelementptr inbounds i8, ptr %1, i64 40
+  store i32 1, ptr %48, align 8
+  br label %49
+
+49:                                               ; preds = %._crit_edge, %40, %47
+  %.sink = phi i64 [ 216, %47 ], [ 200, %40 ], [ 200, %._crit_edge ]
+  %.sink13 = phi i64 [ 224, %47 ], [ 208, %40 ], [ 208, %._crit_edge ]
+  %50 = getelementptr inbounds i8, ptr %3, i64 %.sink
+  %51 = load ptr, ptr %1, align 8
+  %52 = getelementptr inbounds i8, ptr %51, i64 180
+  %53 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %52) #9
+  %54 = getelementptr inbounds i8, ptr %1, i64 8
+  %55 = getelementptr inbounds i8, ptr %3, i64 %.sink13
+  %56 = load ptr, ptr %55, align 8
   store ptr %54, ptr %55, align 8
-  store volatile ptr %52, ptr %54, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %50, i64 noundef %51) #9
-  br label %77
-
-._crit_edge:                                      ; preds = %31, %42
-  %56 = and i32 %.pre, 1
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %67, label %58
-
-58:                                               ; preds = %._crit_edge
-  %59 = getelementptr inbounds i8, ptr %3, i64 200
-  %60 = load ptr, ptr %1, align 8
-  %61 = getelementptr inbounds i8, ptr %60, i64 180
-  %62 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %61) #9
-  %63 = getelementptr inbounds i8, ptr %1, i64 8
-  %64 = getelementptr inbounds i8, ptr %3, i64 208
-  %65 = load ptr, ptr %64, align 8
-  store ptr %63, ptr %64, align 8
-  store ptr %59, ptr %63, align 8
-  %66 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %65, ptr %66, align 8
-  store volatile ptr %63, ptr %65, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %61, i64 noundef %62) #9
-  br label %77
-
-67:                                               ; preds = %._crit_edge
-  %68 = getelementptr inbounds i8, ptr %1, i64 40
-  store i32 1, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %3, i64 216
-  %70 = load ptr, ptr %1, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 180
-  %72 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %71) #9
-  %73 = getelementptr inbounds i8, ptr %1, i64 8
-  %74 = getelementptr inbounds i8, ptr %3, i64 224
-  %75 = load ptr, ptr %74, align 8
-  store ptr %73, ptr %74, align 8
-  store ptr %69, ptr %73, align 8
-  %76 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %75, ptr %76, align 8
-  store volatile ptr %73, ptr %75, align 8
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %71, i64 noundef %72) #9
-  br label %77
-
-77:                                               ; preds = %67, %58, %47
-  %78 = getelementptr inbounds i8, ptr %3, i64 128
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %3, i64 136
-  %81 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %79, ptr noundef %80) #9
+  store ptr %50, ptr %54, align 8
+  %57 = getelementptr inbounds i8, ptr %1, i64 16
+  store ptr %56, ptr %57, align 8
+  store volatile ptr %54, ptr %56, align 8
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef %52, i64 noundef %53) #9
+  %58 = getelementptr inbounds i8, ptr %3, i64 128
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %3, i64 136
+  %61 = tail call zeroext i1 @queue_work_on(i32 noundef 64, ptr noundef %59, ptr noundef %60) #9
   ret void
 }
 

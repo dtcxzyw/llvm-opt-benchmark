@@ -1629,6 +1629,8 @@ define internal fastcc range(i32 0, 2) i32 @blf_read_ethernetframe(ptr nocapture
   %reass.sub = sub i64 %4, %3
   %11 = add i64 %reass.sub, 32
   %12 = icmp sgt i64 %11, %5
+  %.sink52.sroa.gep = getelementptr inbounds i8, ptr %10, i64 13
+  %.sink52.sroa.gep54 = getelementptr inbounds i8, ptr %10, i64 17
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %8
@@ -1681,7 +1683,7 @@ blf_read_bytes.exit:                              ; preds = %15
   %41 = load i16, ptr %40, align 4
   %42 = icmp ne i16 %41, 0
   %or.cond = select i1 %39, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %67
+  br i1 %or.cond, label %43, label %59
 
 43:                                               ; preds = %blf_read_bytes.exit
   %44 = lshr i16 %38, 8
@@ -1704,98 +1706,86 @@ blf_read_bytes.exit:                              ; preds = %15
   %57 = trunc nuw i16 %56 to i8
   %58 = getelementptr inbounds i8, ptr %10, i64 16
   store i8 %57, ptr %58, align 16
-  %59 = trunc i16 %55 to i8
-  %60 = getelementptr inbounds i8, ptr %10, i64 17
-  store i8 %59, ptr %60, align 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 16
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds i8, ptr %9, i64 22
-  %64 = load i16, ptr %63, align 2
-  %65 = zext i16 %64 to i64
-  %66 = add nuw nsw i64 %65, 18
-  tail call void @ws_buffer_assure_space(ptr noundef %62, i64 noundef %66) #14
-  br label %81
+  br label %65
 
-67:                                               ; preds = %blf_read_bytes.exit
-  %68 = getelementptr inbounds i8, ptr %9, i64 16
-  %69 = load i16, ptr %68, align 8
-  %70 = lshr i16 %69, 8
-  %71 = trunc nuw i16 %70 to i8
-  %72 = getelementptr inbounds i8, ptr %10, i64 12
-  store i8 %71, ptr %72, align 4
-  %73 = trunc i16 %69 to i8
-  %74 = getelementptr inbounds i8, ptr %10, i64 13
-  store i8 %73, ptr %74, align 1
+59:                                               ; preds = %blf_read_bytes.exit
+  %60 = getelementptr inbounds i8, ptr %9, i64 16
+  %61 = load i16, ptr %60, align 8
+  %62 = lshr i16 %61, 8
+  %63 = trunc nuw i16 %62 to i8
+  %64 = getelementptr inbounds i8, ptr %10, i64 12
+  store i8 %63, ptr %64, align 4
+  br label %65
+
+65:                                               ; preds = %59, %43
+  %.sink53 = phi i16 [ %61, %59 ], [ %55, %43 ]
+  %.sink52.sroa.phi = phi ptr [ %.sink52.sroa.gep, %59 ], [ %.sink52.sroa.gep54, %43 ]
+  %.sink47 = phi i64 [ 14, %59 ], [ 18, %43 ]
+  %.sink41 = phi i32 [ 14, %59 ], [ 18, %43 ]
+  %66 = trunc i16 %.sink53 to i8
+  store i8 %66, ptr %.sink52.sroa.phi, align 1
+  %67 = getelementptr inbounds i8, ptr %0, i64 16
+  %68 = load ptr, ptr %67, align 8
+  %69 = getelementptr inbounds i8, ptr %9, i64 22
+  %70 = load i16, ptr %69, align 2
+  %71 = zext i16 %70 to i64
+  %72 = add nuw nsw i64 %.sink47, %71
+  tail call void @ws_buffer_assure_space(ptr noundef %68, i64 noundef %72) #14
+  %73 = load ptr, ptr %67, align 8
+  call void @ws_buffer_append(ptr noundef %73, ptr noundef nonnull %10, i64 noundef %.sink47) #14
+  %74 = add i64 %4, 32
   %75 = getelementptr inbounds i8, ptr %0, i64 16
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds i8, ptr %9, i64 22
-  %78 = load i16, ptr %77, align 2
-  %79 = zext i16 %78 to i64
-  %80 = add nuw nsw i64 %79, 14
-  tail call void @ws_buffer_assure_space(ptr noundef %76, i64 noundef %80) #14
-  br label %81
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %76, i64 24
+  %79 = load i64, ptr %78, align 8
+  %80 = getelementptr i8, ptr %77, i64 %79
+  %81 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %74, ptr noundef %80, i64 noundef %71, ptr noundef %1, ptr noundef %2)
+  %.not.i33 = icmp eq i32 %81, 0
+  br i1 %.not.i33, label %82, label %blf_read_bytes.exit35
 
-81:                                               ; preds = %67, %43
-  %.sink44 = phi ptr [ %75, %67 ], [ %61, %43 ]
-  %.sink43 = phi i64 [ 14, %67 ], [ 18, %43 ]
-  %.sink42 = phi i16 [ %78, %67 ], [ %64, %43 ]
-  %.sink41 = phi i32 [ 14, %67 ], [ 18, %43 ]
-  %.pre-phi = phi i64 [ %79, %67 ], [ %65, %43 ]
-  %82 = load ptr, ptr %.sink44, align 8
-  call void @ws_buffer_append(ptr noundef %82, ptr noundef nonnull %10, i64 noundef %.sink43) #14
-  %83 = add i64 %4, 32
-  %84 = getelementptr inbounds i8, ptr %0, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %85, i64 24
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr i8, ptr %86, i64 %88
-  %90 = call fastcc i32 @blf_read_bytes_or_eof(ptr noundef nonnull %0, i64 noundef %83, ptr noundef %89, i64 noundef %.pre-phi, ptr noundef %1, ptr noundef %2)
-  %.not.i33 = icmp eq i32 %90, 0
-  br i1 %.not.i33, label %91, label %blf_read_bytes.exit35
+82:                                               ; preds = %65
+  %83 = load i32, ptr %1, align 4
+  %84 = icmp eq i32 %83, 0
+  br i1 %84, label %85, label %blf_read_bytes.exit.thread
 
-91:                                               ; preds = %81
-  %92 = load i32, ptr %1, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %94, label %blf_read_bytes.exit.thread
-
-94:                                               ; preds = %91
+85:                                               ; preds = %82
   store i32 -12, ptr %1, align 4
   br label %blf_read_bytes.exit.thread
 
-blf_read_bytes.exit35:                            ; preds = %81
-  %95 = zext i16 %.sink42 to i32
-  %96 = add nuw nsw i32 %.sink41, %95
-  %97 = load ptr, ptr %84, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 24
-  %99 = load i64, ptr %98, align 8
-  %100 = add i64 %99, %.pre-phi
-  store i64 %100, ptr %98, align 8
-  %101 = getelementptr inbounds i8, ptr %9, i64 6
-  %102 = load i16, ptr %101, align 2
-  call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %6, i64 noundef %7, i32 noundef 1, i16 noundef zeroext %102, i16 noundef zeroext -1, i32 noundef %96, i32 noundef %96)
-  %103 = getelementptr inbounds i8, ptr %9, i64 14
-  %104 = load i16, ptr %103, align 2
-  %105 = icmp ult i16 %104, 3
-  br i1 %105, label %switch.lookup, label %blf_add_direction_option.exit
+blf_read_bytes.exit35:                            ; preds = %65
+  %86 = zext i16 %70 to i32
+  %87 = add nuw nsw i32 %.sink41, %86
+  %88 = load ptr, ptr %75, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 24
+  %90 = load i64, ptr %89, align 8
+  %91 = add i64 %90, %71
+  store i64 %91, ptr %89, align 8
+  %92 = getelementptr inbounds i8, ptr %9, i64 6
+  %93 = load i16, ptr %92, align 2
+  call fastcc void @blf_init_rec(ptr noundef nonnull %0, i32 noundef %6, i64 noundef %7, i32 noundef 1, i16 noundef zeroext %93, i16 noundef zeroext -1, i32 noundef %87, i32 noundef %87)
+  %94 = getelementptr inbounds i8, ptr %9, i64 14
+  %95 = load i16, ptr %94, align 2
+  %96 = icmp ult i16 %95, 3
+  br i1 %96, label %switch.lookup, label %blf_add_direction_option.exit
 
 switch.lookup:                                    ; preds = %blf_read_bytes.exit35
-  %106 = zext nneg i16 %104 to i64
-  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %106
+  %97 = zext nneg i16 %95 to i64
+  %switch.gep = getelementptr inbounds [3 x i32], ptr @switch.table.blf_read_lincrcerror2, i64 0, i64 %97
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %blf_add_direction_option.exit
 
 blf_add_direction_option.exit:                    ; preds = %switch.lookup, %blf_read_bytes.exit35
   %.0.i36 = phi i32 [ 0, %blf_read_bytes.exit35 ], [ %switch.load, %switch.lookup ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 8
-  %108 = load ptr, ptr %107, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 232
-  %110 = load ptr, ptr %109, align 8
-  %111 = call i32 @wtap_block_add_uint32_option(ptr noundef %110, i32 noundef 2, i32 noundef %.0.i36) #14
+  %98 = getelementptr inbounds i8, ptr %0, i64 8
+  %99 = load ptr, ptr %98, align 8
+  %100 = getelementptr inbounds i8, ptr %99, i64 232
+  %101 = load ptr, ptr %100, align 8
+  %102 = call i32 @wtap_block_add_uint32_option(ptr noundef %101, i32 noundef 2, i32 noundef %.0.i36) #14
   br label %blf_read_bytes.exit.thread
 
-blf_read_bytes.exit.thread:                       ; preds = %91, %94, %17, %20, %blf_add_direction_option.exit, %13
-  %.030 = phi i32 [ 0, %13 ], [ 1, %blf_add_direction_option.exit ], [ 0, %20 ], [ 0, %17 ], [ 0, %94 ], [ 0, %91 ]
+blf_read_bytes.exit.thread:                       ; preds = %82, %85, %17, %20, %blf_add_direction_option.exit, %13
+  %.030 = phi i32 [ 0, %13 ], [ 1, %blf_add_direction_option.exit ], [ 0, %20 ], [ 0, %17 ], [ 0, %85 ], [ 0, %82 ]
   ret i32 %.030
 }
 

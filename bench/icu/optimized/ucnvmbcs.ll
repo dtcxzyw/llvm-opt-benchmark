@@ -5769,10 +5769,10 @@ lor.lhs.false63:                                  ; preds = %if.else59
 
 if.end73.sink.split:                              ; preds = %if.else59, %lor.lhs.false63, %if.else48, %lor.lhs.false52, %if.else, %lor.lhs.false41, %if.then28, %lor.lhs.false
   %.sink34 = phi i32 [ 32768, %lor.lhs.false ], [ 32768, %if.then28 ], [ 4096, %lor.lhs.false41 ], [ 4096, %if.else ], [ 8192, %lor.lhs.false52 ], [ 8192, %if.else48 ], [ 16384, %lor.lhs.false63 ], [ 16384, %if.else59 ]
-  %options36 = getelementptr inbounds i8, ptr %cnv, i64 56
-  %40 = load i32, ptr %options36, align 8
+  %options46 = getelementptr inbounds i8, ptr %cnv, i64 56
+  %40 = load i32, ptr %options46, align 8
   %or47 = or i32 %40, %.sink34
-  store i32 %or47, ptr %options36, align 8
+  store i32 %or47, ptr %options46, align 8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end73.sink.split, %lor.lhs.false63, %lor.lhs.false

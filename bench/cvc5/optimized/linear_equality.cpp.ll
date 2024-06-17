@@ -7023,10 +7023,10 @@ if.else.i.i:                                      ; preds = %if.then.i
 if.end13.sink.split.i.i:                          ; preds = %if.else.i.i, %if.then.i
   %bc.sroa.5.0.extract.trunc.sink.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i, %if.then.i ], [ %bc.sroa.5.0.extract.trunc.i.i, %if.else.i.i ]
   %bc.sroa.0.0.extract.trunc.sink.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i, %if.then.i ], [ %bc.sroa.0.0.extract.trunc.i.i, %if.else.i.i ]
-  %d_upperBoundCount.i7.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %7 = load i32, ptr %d_upperBoundCount.i7.i, align 4
+  %d_upperBoundCount8.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %7 = load i32, ptr %d_upperBoundCount8.i.i, align 4
   %sub9.i.i = sub i32 %7, %bc.sroa.5.0.extract.trunc.sink.i.i
-  store i32 %sub9.i.i, ptr %d_upperBoundCount.i7.i, align 4
+  store i32 %sub9.i.i, ptr %d_upperBoundCount8.i.i, align 4
   %8 = load i32, ptr %add.ptr.i.i, align 4
   %sub12.i.i = sub i32 %8, %bc.sroa.0.0.extract.trunc.sink.i.i
   store i32 %sub12.i.i, ptr %add.ptr.i.i, align 4
@@ -7043,10 +7043,10 @@ if.else21.i.i:                                    ; preds = %if.end13.i.i
 if.end31.sink.split.i.i:                          ; preds = %if.else21.i.i, %if.end13.i.i
   %bc.sroa.5.0.extract.trunc.sink11.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i, %if.end13.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i, %if.else21.i.i ]
   %bc.sroa.0.0.extract.trunc.sink10.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i, %if.end13.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i, %if.else21.i.i ]
-  %d_upperBoundCount17.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
-  %9 = load i32, ptr %d_upperBoundCount17.i.i, align 4
+  %d_upperBoundCount25.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 4
+  %9 = load i32, ptr %d_upperBoundCount25.i.i, align 4
   %add26.i.i = add i32 %9, %bc.sroa.5.0.extract.trunc.sink11.i.i
-  store i32 %add26.i.i, ptr %d_upperBoundCount17.i.i, align 4
+  store i32 %add26.i.i, ptr %d_upperBoundCount25.i.i, align 4
   %10 = load i32, ptr %add.ptr.i.i, align 4
   %add29.i.i = add i32 %10, %bc.sroa.0.0.extract.trunc.sink10.i.i
   store i32 %add29.i.i, ptr %add.ptr.i.i, align 4
@@ -7058,49 +7058,49 @@ if.end.i:                                         ; preds = %if.end31.sink.split
 
 if.then5.i:                                       ; preds = %if.end.i
   %d_hasBounds6.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  %bc.sroa.0.0.extract.trunc.i11.i = trunc i64 %3 to i32
-  %bc.sroa.5.0.extract.shift.i12.i = lshr i64 %3, 32
-  %bc.sroa.5.0.extract.trunc.i13.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i12.i to i32
-  %cmp.i14.i = icmp slt i32 %oldSgn, 0
-  br i1 %cmp.i14.i, label %if.end13.sink.split.i17.i, label %if.else.i15.i
+  %bc.sroa.0.0.extract.trunc.i10.i = trunc i64 %3 to i32
+  %bc.sroa.5.0.extract.shift.i11.i = lshr i64 %3, 32
+  %bc.sroa.5.0.extract.trunc.i12.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i11.i to i32
+  %cmp.i13.i = icmp slt i32 %oldSgn, 0
+  br i1 %cmp.i13.i, label %if.end13.sink.split.i16.i, label %if.else.i14.i
 
-if.else.i15.i:                                    ; preds = %if.then5.i
-  %cmp5.not.i16.i = icmp eq i32 %oldSgn, 0
-  br i1 %cmp5.not.i16.i, label %if.end13.i23.i, label %if.end13.sink.split.i17.i
+if.else.i14.i:                                    ; preds = %if.then5.i
+  %cmp5.not.i15.i = icmp eq i32 %oldSgn, 0
+  br i1 %cmp5.not.i15.i, label %if.end13.i22.i, label %if.end13.sink.split.i16.i
 
-if.end13.sink.split.i17.i:                        ; preds = %if.else.i15.i, %if.then5.i
-  %bc.sroa.5.0.extract.trunc.sink.i18.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i, %if.then5.i ], [ %bc.sroa.5.0.extract.trunc.i13.i, %if.else.i15.i ]
-  %bc.sroa.0.0.extract.trunc.sink.i19.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i, %if.then5.i ], [ %bc.sroa.0.0.extract.trunc.i11.i, %if.else.i15.i ]
-  %d_upperBoundCount.i20.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %12 = load i32, ptr %d_upperBoundCount.i20.i, align 4
-  %sub9.i21.i = sub i32 %12, %bc.sroa.5.0.extract.trunc.sink.i18.i
-  store i32 %sub9.i21.i, ptr %d_upperBoundCount.i20.i, align 4
+if.end13.sink.split.i16.i:                        ; preds = %if.else.i14.i, %if.then5.i
+  %bc.sroa.5.0.extract.trunc.sink.i17.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i10.i, %if.then5.i ], [ %bc.sroa.5.0.extract.trunc.i12.i, %if.else.i14.i ]
+  %bc.sroa.0.0.extract.trunc.sink.i18.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i12.i, %if.then5.i ], [ %bc.sroa.0.0.extract.trunc.i10.i, %if.else.i14.i ]
+  %d_upperBoundCount8.i19.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
+  %12 = load i32, ptr %d_upperBoundCount8.i19.i, align 4
+  %sub9.i20.i = sub i32 %12, %bc.sroa.5.0.extract.trunc.sink.i17.i
+  store i32 %sub9.i20.i, ptr %d_upperBoundCount8.i19.i, align 4
   %13 = load i32, ptr %d_hasBounds6.i, align 4
-  %sub12.i22.i = sub i32 %13, %bc.sroa.0.0.extract.trunc.sink.i19.i
-  store i32 %sub12.i22.i, ptr %d_hasBounds6.i, align 4
-  br label %if.end13.i23.i
+  %sub12.i21.i = sub i32 %13, %bc.sroa.0.0.extract.trunc.sink.i18.i
+  store i32 %sub12.i21.i, ptr %d_hasBounds6.i, align 4
+  br label %if.end13.i22.i
 
-if.end13.i23.i:                                   ; preds = %if.end13.sink.split.i17.i, %if.else.i15.i
-  %cmp14.i24.i = icmp slt i32 %currSgn, 0
-  br i1 %cmp14.i24.i, label %if.end31.sink.split.i27.i, label %if.else21.i25.i
+if.end13.i22.i:                                   ; preds = %if.end13.sink.split.i16.i, %if.else.i14.i
+  %cmp14.i23.i = icmp slt i32 %currSgn, 0
+  br i1 %cmp14.i23.i, label %if.end31.sink.split.i26.i, label %if.else21.i24.i
 
-if.else21.i25.i:                                  ; preds = %if.end13.i23.i
-  %cmp22.not.i26.i = icmp eq i32 %currSgn, 0
-  br i1 %cmp22.not.i26.i, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %if.end31.sink.split.i27.i
+if.else21.i24.i:                                  ; preds = %if.end13.i22.i
+  %cmp22.not.i25.i = icmp eq i32 %currSgn, 0
+  br i1 %cmp22.not.i25.i, label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit, label %if.end31.sink.split.i26.i
 
-if.end31.sink.split.i27.i:                        ; preds = %if.else21.i25.i, %if.end13.i23.i
-  %bc.sroa.5.0.extract.trunc.sink11.i28.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i, %if.end13.i23.i ], [ %bc.sroa.5.0.extract.trunc.i13.i, %if.else21.i25.i ]
-  %bc.sroa.0.0.extract.trunc.sink10.i29.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i, %if.end13.i23.i ], [ %bc.sroa.0.0.extract.trunc.i11.i, %if.else21.i25.i ]
-  %d_upperBoundCount17.i30.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  %14 = load i32, ptr %d_upperBoundCount17.i30.i, align 4
-  %add26.i31.i = add i32 %14, %bc.sroa.5.0.extract.trunc.sink11.i28.i
-  store i32 %add26.i31.i, ptr %d_upperBoundCount17.i30.i, align 4
+if.end31.sink.split.i26.i:                        ; preds = %if.else21.i24.i, %if.end13.i22.i
+  %bc.sroa.5.0.extract.trunc.sink11.i27.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i10.i, %if.end13.i22.i ], [ %bc.sroa.5.0.extract.trunc.i12.i, %if.else21.i24.i ]
+  %bc.sroa.0.0.extract.trunc.sink10.i28.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i12.i, %if.end13.i22.i ], [ %bc.sroa.0.0.extract.trunc.i10.i, %if.else21.i24.i ]
+  %d_upperBoundCount25.i29.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
+  %14 = load i32, ptr %d_upperBoundCount25.i29.i, align 4
+  %add26.i30.i = add i32 %14, %bc.sroa.5.0.extract.trunc.sink11.i27.i
+  store i32 %add26.i30.i, ptr %d_upperBoundCount25.i29.i, align 4
   %15 = load i32, ptr %d_hasBounds6.i, align 4
-  %add29.i32.i = add i32 %15, %bc.sroa.0.0.extract.trunc.sink10.i29.i
-  store i32 %add29.i32.i, ptr %d_hasBounds6.i, align 4
+  %add29.i31.i = add i32 %15, %bc.sroa.0.0.extract.trunc.sink10.i28.i
+  store i32 %add29.i31.i, ptr %d_hasBounds6.i, align 4
   br label %_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit
 
-_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit: ; preds = %if.end.i, %if.else21.i25.i, %if.end31.sink.split.i27.i
+_ZN4cvc58internal6theory5arith6linear10BoundsInfo8addInSgnERKS4_ii.exit: ; preds = %if.end.i, %if.else21.i24.i, %if.end31.sink.split.i26.i
   ret void
 }
 
@@ -7440,10 +7440,10 @@ _ZNK4cvc58internal13DeltaRational3sgnEv.exit.i205: ; preds = %if.then.i3.i211, %
 
 if.end80.sink.split:                              ; preds = %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i205, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i
   %.sink = phi i64 [ 84, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i ], [ 140, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i205 ]
-  %d_numZeroes.i = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %32 = load i32, ptr %d_numZeroes.i, align 4
+  %d_numZeroes.i209 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %32 = load i32, ptr %d_numZeroes.i209, align 4
   %inc3.i210 = add nsw i32 %32, 1
-  store i32 %inc3.i210, ptr %d_numZeroes.i, align 4
+  store i32 %inc3.i210, ptr %d_numZeroes.i209, align 4
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end80.sink.split, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i205, %if.then.i3.i211, %_ZNK4cvc58internal13DeltaRational3sgnEv.exit.i, %if.then.i3.i
@@ -10327,10 +10327,10 @@ if.else.i.i.i:                                    ; preds = %if.then.i.i
 if.end13.sink.split.i.i.i:                        ; preds = %if.else.i.i.i, %if.then.i.i
   %bc.sroa.5.0.extract.trunc.sink.i.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.then.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.else.i.i.i ]
   %bc.sroa.0.0.extract.trunc.sink.i.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.then.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.else.i.i.i ]
-  %d_upperBoundCount.i7.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
-  %8 = load i32, ptr %d_upperBoundCount.i7.i.i, align 4
+  %d_upperBoundCount8.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %8 = load i32, ptr %d_upperBoundCount8.i.i.i, align 4
   %sub9.i.i.i = sub i32 %8, %bc.sroa.5.0.extract.trunc.sink.i.i.i
-  store i32 %sub9.i.i.i, ptr %d_upperBoundCount.i7.i.i, align 4
+  store i32 %sub9.i.i.i, ptr %d_upperBoundCount8.i.i.i, align 4
   %9 = load i32, ptr %add.ptr.i.i.i, align 4
   %sub12.i.i.i = sub i32 %9, %bc.sroa.0.0.extract.trunc.sink.i.i.i
   store i32 %sub12.i.i.i, ptr %add.ptr.i.i.i, align 4
@@ -10347,10 +10347,10 @@ if.else21.i.i.i:                                  ; preds = %if.end13.i.i.i
 if.end31.sink.split.i.i.i:                        ; preds = %if.else21.i.i.i, %if.end13.i.i.i
   %bc.sroa.5.0.extract.trunc.sink11.i.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.end13.i.i.i ], [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.else21.i.i.i ]
   %bc.sroa.0.0.extract.trunc.sink10.i.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i.i.i, %if.end13.i.i.i ], [ %bc.sroa.0.0.extract.trunc.i.i.i, %if.else21.i.i.i ]
-  %d_upperBoundCount17.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
-  %10 = load i32, ptr %d_upperBoundCount17.i.i.i, align 4
+  %d_upperBoundCount25.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 4
+  %10 = load i32, ptr %d_upperBoundCount25.i.i.i, align 4
   %add26.i.i.i = add i32 %10, %bc.sroa.5.0.extract.trunc.sink11.i.i.i
-  store i32 %add26.i.i.i, ptr %d_upperBoundCount17.i.i.i, align 4
+  store i32 %add26.i.i.i, ptr %d_upperBoundCount25.i.i.i, align 4
   %11 = load i32, ptr %add.ptr.i.i.i, align 4
   %add29.i.i.i = add i32 %11, %bc.sroa.0.0.extract.trunc.sink10.i.i.i
   store i32 %add29.i.i.i, ptr %add.ptr.i.i.i, align 4
@@ -10362,49 +10362,49 @@ if.end.i.i:                                       ; preds = %if.end31.sink.split
 
 if.then5.i.i:                                     ; preds = %if.end.i.i
   %d_hasBounds6.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  %bc.sroa.0.0.extract.trunc.i11.i.i = trunc i64 %4 to i32
-  %bc.sroa.5.0.extract.shift.i12.i.i = lshr i64 %4, 32
-  %bc.sroa.5.0.extract.trunc.i13.i.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i12.i.i to i32
-  %cmp.i14.i.i = icmp slt i32 %oldSgn, 0
-  br i1 %cmp.i14.i.i, label %if.end13.sink.split.i17.i.i, label %if.else.i15.i.i
+  %bc.sroa.0.0.extract.trunc.i10.i.i = trunc i64 %4 to i32
+  %bc.sroa.5.0.extract.shift.i11.i.i = lshr i64 %4, 32
+  %bc.sroa.5.0.extract.trunc.i12.i.i = trunc nuw i64 %bc.sroa.5.0.extract.shift.i11.i.i to i32
+  %cmp.i13.i.i = icmp slt i32 %oldSgn, 0
+  br i1 %cmp.i13.i.i, label %if.end13.sink.split.i16.i.i, label %if.else.i14.i.i
 
-if.else.i15.i.i:                                  ; preds = %if.then5.i.i
-  %cmp5.not.i16.i.i = icmp eq i32 %oldSgn, 0
-  br i1 %cmp5.not.i16.i.i, label %if.end13.i23.i.i, label %if.end13.sink.split.i17.i.i
+if.else.i14.i.i:                                  ; preds = %if.then5.i.i
+  %cmp5.not.i15.i.i = icmp eq i32 %oldSgn, 0
+  br i1 %cmp5.not.i15.i.i, label %if.end13.i22.i.i, label %if.end13.sink.split.i16.i.i
 
-if.end13.sink.split.i17.i.i:                      ; preds = %if.else.i15.i.i, %if.then5.i.i
-  %bc.sroa.5.0.extract.trunc.sink.i18.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.then5.i.i ], [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.else.i15.i.i ]
-  %bc.sroa.0.0.extract.trunc.sink.i19.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.then5.i.i ], [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.else.i15.i.i ]
-  %d_upperBoundCount.i20.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
-  %13 = load i32, ptr %d_upperBoundCount.i20.i.i, align 4
-  %sub9.i21.i.i = sub i32 %13, %bc.sroa.5.0.extract.trunc.sink.i18.i.i
-  store i32 %sub9.i21.i.i, ptr %d_upperBoundCount.i20.i.i, align 4
+if.end13.sink.split.i16.i.i:                      ; preds = %if.else.i14.i.i, %if.then5.i.i
+  %bc.sroa.5.0.extract.trunc.sink.i17.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i10.i.i, %if.then5.i.i ], [ %bc.sroa.5.0.extract.trunc.i12.i.i, %if.else.i14.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink.i18.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i12.i.i, %if.then5.i.i ], [ %bc.sroa.0.0.extract.trunc.i10.i.i, %if.else.i14.i.i ]
+  %d_upperBoundCount8.i19.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
+  %13 = load i32, ptr %d_upperBoundCount8.i19.i.i, align 4
+  %sub9.i20.i.i = sub i32 %13, %bc.sroa.5.0.extract.trunc.sink.i17.i.i
+  store i32 %sub9.i20.i.i, ptr %d_upperBoundCount8.i19.i.i, align 4
   %14 = load i32, ptr %d_hasBounds6.i.i, align 4
-  %sub12.i22.i.i = sub i32 %14, %bc.sroa.0.0.extract.trunc.sink.i19.i.i
-  store i32 %sub12.i22.i.i, ptr %d_hasBounds6.i.i, align 4
-  br label %if.end13.i23.i.i
+  %sub12.i21.i.i = sub i32 %14, %bc.sroa.0.0.extract.trunc.sink.i18.i.i
+  store i32 %sub12.i21.i.i, ptr %d_hasBounds6.i.i, align 4
+  br label %if.end13.i22.i.i
 
-if.end13.i23.i.i:                                 ; preds = %if.end13.sink.split.i17.i.i, %if.else.i15.i.i
-  %cmp14.i24.i.i = icmp slt i32 %currSgn, 0
-  br i1 %cmp14.i24.i.i, label %if.end31.sink.split.i27.i.i, label %if.else21.i25.i.i
+if.end13.i22.i.i:                                 ; preds = %if.end13.sink.split.i16.i.i, %if.else.i14.i.i
+  %cmp14.i23.i.i = icmp slt i32 %currSgn, 0
+  br i1 %cmp14.i23.i.i, label %if.end31.sink.split.i26.i.i, label %if.else21.i24.i.i
 
-if.else21.i25.i.i:                                ; preds = %if.end13.i23.i.i
-  %cmp22.not.i26.i.i = icmp eq i32 %currSgn, 0
-  br i1 %cmp22.not.i26.i.i, label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit, label %if.end31.sink.split.i27.i.i
+if.else21.i24.i.i:                                ; preds = %if.end13.i22.i.i
+  %cmp22.not.i25.i.i = icmp eq i32 %currSgn, 0
+  br i1 %cmp22.not.i25.i.i, label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit, label %if.end31.sink.split.i26.i.i
 
-if.end31.sink.split.i27.i.i:                      ; preds = %if.else21.i25.i.i, %if.end13.i23.i.i
-  %bc.sroa.5.0.extract.trunc.sink11.i28.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.end13.i23.i.i ], [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.else21.i25.i.i ]
-  %bc.sroa.0.0.extract.trunc.sink10.i29.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i13.i.i, %if.end13.i23.i.i ], [ %bc.sroa.0.0.extract.trunc.i11.i.i, %if.else21.i25.i.i ]
-  %d_upperBoundCount17.i30.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
-  %15 = load i32, ptr %d_upperBoundCount17.i30.i.i, align 4
-  %add26.i31.i.i = add i32 %15, %bc.sroa.5.0.extract.trunc.sink11.i28.i.i
-  store i32 %add26.i31.i.i, ptr %d_upperBoundCount17.i30.i.i, align 4
+if.end31.sink.split.i26.i.i:                      ; preds = %if.else21.i24.i.i, %if.end13.i22.i.i
+  %bc.sroa.5.0.extract.trunc.sink11.i27.i.i = phi i32 [ %bc.sroa.0.0.extract.trunc.i10.i.i, %if.end13.i22.i.i ], [ %bc.sroa.5.0.extract.trunc.i12.i.i, %if.else21.i24.i.i ]
+  %bc.sroa.0.0.extract.trunc.sink10.i28.i.i = phi i32 [ %bc.sroa.5.0.extract.trunc.i12.i.i, %if.end13.i22.i.i ], [ %bc.sroa.0.0.extract.trunc.i10.i.i, %if.else21.i24.i.i ]
+  %d_upperBoundCount25.i29.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 12
+  %15 = load i32, ptr %d_upperBoundCount25.i29.i.i, align 4
+  %add26.i30.i.i = add i32 %15, %bc.sroa.5.0.extract.trunc.sink11.i27.i.i
+  store i32 %add26.i30.i.i, ptr %d_upperBoundCount25.i29.i.i, align 4
   %16 = load i32, ptr %d_hasBounds6.i.i, align 4
-  %add29.i32.i.i = add i32 %16, %bc.sroa.0.0.extract.trunc.sink10.i29.i.i
-  store i32 %add29.i32.i.i, ptr %d_hasBounds6.i.i, align 4
+  %add29.i31.i.i = add i32 %16, %bc.sroa.0.0.extract.trunc.sink10.i28.i.i
+  store i32 %add29.i31.i.i, ptr %d_hasBounds6.i.i, align 4
   br label %_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit
 
-_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit: ; preds = %if.end.i.i, %if.else21.i25.i.i, %if.end31.sink.split.i27.i.i
+_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule25trackingCoefficientChangeEjjii.exit: ; preds = %if.end.i.i, %if.else21.i24.i.i, %if.end31.sink.split.i26.i.i
   ret void
 }
 

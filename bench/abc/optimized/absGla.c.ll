@@ -246,10 +246,10 @@ define i32 @Ga2_ManBreakTree_rec(ptr noundef %0, ptr noundef %1, i32 noundef %2,
   %.not = icmp slt i32 %12, %18
   %24 = load i64, ptr %1, align 4
   %25 = lshr i64 %24, 32
-  %.sink44 = select i1 %.not, i64 %25, i64 %24
+  %.sink42 = select i1 %.not, i64 %25, i64 %24
   %.031 = select i1 %.not, i32 %12, i32 1
   %.0 = select i1 %.not, i32 1, i32 %18
-  %26 = and i64 %.sink44, 536870911
+  %26 = and i64 %.sink42, 536870911
   %27 = sub nsw i64 0, %26
   %28 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %1, i64 %27
   %29 = load i64, ptr %28, align 4

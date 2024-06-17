@@ -5173,26 +5173,26 @@ lor.lhs.false.i149:                               ; preds = %if.then28
   br i1 %cmp5.i152, label %if.end32.sink.split.sink.split, label %if.end32.sink.split
 
 if.end32.sink.split.sink.split:                   ; preds = %if.then28, %lor.lhs.false.i149, %if.then, %lor.lhs.false.i122
-  %arrayidx.i120.sink.ph = phi ptr [ %arrayidx.i120, %lor.lhs.false.i122 ], [ %arrayidx.i120, %if.then ], [ %arrayidx.i147, %lor.lhs.false.i149 ], [ %arrayidx.i147, %if.then28 ]
+  %arrayidx.i147.sink.ph = phi ptr [ %arrayidx.i120, %lor.lhs.false.i122 ], [ %arrayidx.i120, %if.then ], [ %arrayidx.i147, %lor.lhs.false.i149 ], [ %arrayidx.i147, %if.then28 ]
   call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %out)
-  %.pre.i132 = load ptr, ptr %out, align 8
-  %arrayidx8.phi.trans.insert.i160 = getelementptr inbounds i8, ptr %.pre.i132, i64 -4
+  %.pre.i159 = load ptr, ptr %out, align 8
+  %arrayidx8.phi.trans.insert.i160 = getelementptr inbounds i8, ptr %.pre.i159, i64 -4
   %.pre1.i161 = load i32, ptr %arrayidx8.phi.trans.insert.i160, align 4
   br label %if.end32.sink.split
 
 if.end32.sink.split:                              ; preds = %if.end32.sink.split.sink.split, %lor.lhs.false.i149, %lor.lhs.false.i122
   %.sink175 = phi i32 [ %67, %lor.lhs.false.i122 ], [ %73, %lor.lhs.false.i149 ], [ %.pre1.i161, %if.end32.sink.split.sink.split ]
-  %.sink = phi ptr [ %66, %lor.lhs.false.i122 ], [ %72, %lor.lhs.false.i149 ], [ %.pre.i132, %if.end32.sink.split.sink.split ]
-  %arrayidx.i120.sink = phi ptr [ %arrayidx.i120, %lor.lhs.false.i122 ], [ %arrayidx.i147, %lor.lhs.false.i149 ], [ %arrayidx.i120.sink.ph, %if.end32.sink.split.sink.split ]
-  %idx.ext.i127 = zext i32 %.sink175 to i64
-  %add.ptr.i128 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i127
-  %75 = load ptr, ptr %arrayidx.i120.sink, align 8
-  store ptr %75, ptr %add.ptr.i128, align 8
+  %.sink = phi ptr [ %66, %lor.lhs.false.i122 ], [ %72, %lor.lhs.false.i149 ], [ %.pre.i159, %if.end32.sink.split.sink.split ]
+  %arrayidx.i147.sink = phi ptr [ %arrayidx.i120, %lor.lhs.false.i122 ], [ %arrayidx.i147, %lor.lhs.false.i149 ], [ %arrayidx.i147.sink.ph, %if.end32.sink.split.sink.split ]
+  %idx.ext.i154 = zext i32 %.sink175 to i64
+  %add.ptr.i155 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i154
+  %75 = load ptr, ptr %arrayidx.i147.sink, align 8
+  store ptr %75, ptr %add.ptr.i155, align 8
   %76 = load ptr, ptr %out, align 8
-  %arrayidx10.i129 = getelementptr inbounds i8, ptr %76, i64 -4
-  %77 = load i32, ptr %arrayidx10.i129, align 4
+  %arrayidx10.i156 = getelementptr inbounds i8, ptr %76, i64 -4
+  %77 = load i32, ptr %arrayidx10.i156, align 4
   %inc.i157 = add i32 %77, 1
-  store i32 %inc.i157, ptr %arrayidx10.i129, align 4
+  store i32 %inc.i157, ptr %arrayidx10.i156, align 4
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit145

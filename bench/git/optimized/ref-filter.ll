@@ -8514,41 +8514,36 @@ land.lhs.true8.i:                                 ; preds = %land.lhs.true.i
 if.then20.i:                                      ; preds = %for.body.i
   %19 = load i64, ptr %sb.i, align 8
   %tobool.not.i.i.i = icmp eq i64 %19, 0
-  br i1 %tobool.not.i.i.i, label %if.then.i.i, label %strbuf_avail.exit.i.i
+  br i1 %tobool.not.i.i.i, label %for.inc.sink.split.sink.split.i, label %strbuf_avail.exit.i.i
 
 strbuf_avail.exit.i.i:                            ; preds = %if.then20.i
   %20 = load i64, ptr %len.i.i.i, align 8
   %.neg.i.i = add i64 %20, 1
   %tobool.not.i.i = icmp eq i64 %19, %.neg.i.i
-  br i1 %tobool.not.i.i, label %if.then.i.i, label %for.inc.sink.split.i
-
-if.then.i.i:                                      ; preds = %strbuf_avail.exit.i.i, %if.then20.i
-  call void @strbuf_grow(ptr noundef nonnull %sb.i, i64 noundef 1) #22
-  %.pre.i.i = load i64, ptr %len.i.i.i, align 8
-  %.pre8.i.i = add i64 %.pre.i.i, 1
-  br label %for.inc.sink.split.i
+  br i1 %tobool.not.i.i, label %for.inc.sink.split.sink.split.i, label %for.inc.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true8.i, %land.lhs.true.i, %for.body.i
   %21 = load i64, ptr %sb.i, align 8
   %tobool.not.i.i11.i = icmp eq i64 %21, 0
-  br i1 %tobool.not.i.i11.i, label %if.then.i21.i, label %strbuf_avail.exit.i12.i
+  br i1 %tobool.not.i.i11.i, label %for.inc.sink.split.sink.split.i, label %strbuf_avail.exit.i12.i
 
 strbuf_avail.exit.i12.i:                          ; preds = %if.else.i
   %22 = load i64, ptr %len.i.i.i, align 8
   %.neg.i14.i = add i64 %22, 1
   %tobool.not.i15.i = icmp eq i64 %21, %.neg.i14.i
-  br i1 %tobool.not.i15.i, label %if.then.i21.i, label %for.inc.sink.split.i
+  br i1 %tobool.not.i15.i, label %for.inc.sink.split.sink.split.i, label %for.inc.sink.split.i
 
-if.then.i21.i:                                    ; preds = %strbuf_avail.exit.i12.i, %if.else.i
+for.inc.sink.split.sink.split.i:                  ; preds = %strbuf_avail.exit.i12.i, %if.else.i, %strbuf_avail.exit.i.i, %if.then20.i
+  %.sink.ph.i = phi i8 [ 32, %strbuf_avail.exit.i.i ], [ 32, %if.then20.i ], [ %16, %strbuf_avail.exit.i12.i ], [ %16, %if.else.i ]
   call void @strbuf_grow(ptr noundef nonnull %sb.i, i64 noundef 1) #22
   %.pre.i23.i = load i64, ptr %len.i.i.i, align 8
   %.pre8.i24.i = add i64 %.pre.i23.i, 1
   br label %for.inc.sink.split.i
 
-for.inc.sink.split.i:                             ; preds = %if.then.i21.i, %strbuf_avail.exit.i12.i, %if.then.i.i, %strbuf_avail.exit.i.i
-  %inc.pre-phi.i.sink.i = phi i64 [ %.pre8.i.i, %if.then.i.i ], [ %.neg.i.i, %strbuf_avail.exit.i.i ], [ %.pre8.i24.i, %if.then.i21.i ], [ %.neg.i14.i, %strbuf_avail.exit.i12.i ]
-  %.sink34.i = phi i64 [ %.pre.i.i, %if.then.i.i ], [ %20, %strbuf_avail.exit.i.i ], [ %.pre.i23.i, %if.then.i21.i ], [ %22, %strbuf_avail.exit.i12.i ]
-  %.sink.i = phi i8 [ 32, %if.then.i.i ], [ 32, %strbuf_avail.exit.i.i ], [ %16, %if.then.i21.i ], [ %16, %strbuf_avail.exit.i12.i ]
+for.inc.sink.split.i:                             ; preds = %for.inc.sink.split.sink.split.i, %strbuf_avail.exit.i12.i, %strbuf_avail.exit.i.i
+  %inc.pre-phi.i.sink.i = phi i64 [ %.neg.i.i, %strbuf_avail.exit.i.i ], [ %.neg.i14.i, %strbuf_avail.exit.i12.i ], [ %.pre8.i24.i, %for.inc.sink.split.sink.split.i ]
+  %.sink34.i = phi i64 [ %20, %strbuf_avail.exit.i.i ], [ %22, %strbuf_avail.exit.i12.i ], [ %.pre.i23.i, %for.inc.sink.split.sink.split.i ]
+  %.sink.i = phi i8 [ 32, %strbuf_avail.exit.i.i ], [ %16, %strbuf_avail.exit.i12.i ], [ %.sink.ph.i, %for.inc.sink.split.sink.split.i ]
   %23 = load ptr, ptr %buf.i.i, align 8
   store i64 %inc.pre-phi.i.sink.i, ptr %len.i.i.i, align 8
   %arrayidx.i.i = getelementptr inbounds i8, ptr %23, i64 %.sink34.i

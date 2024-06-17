@@ -776,7 +776,7 @@ define i32 @removeOverlapWith(ptr noundef %0, ptr nocapture noundef readonly %1)
   %3 = alloca %struct.pointf_s, align 8
   %4 = tail call i32 @agnnodes(ptr noundef %0) #18
   %5 = icmp slt i32 %4, 2
-  br i1 %5, label %395, label %6
+  br i1 %5, label %390, label %6
 
 6:                                                ; preds = %2
   %7 = tail call i32 @normalize(ptr noundef %0)
@@ -861,7 +861,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
   %49 = add nuw nsw i32 %.0.i, %7
   %50 = load i32, ptr %1, align 8
   %51 = icmp eq i32 %50, 0
-  br i1 %51, label %395, label %52
+  br i1 %51, label %390, label %52
 
 52:                                               ; preds = %simpleScale.exit
   %53 = load i8, ptr @Verbose, align 1
@@ -897,7 +897,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
     i32 9, label %68
     i32 10, label %68
     i32 15, label %70
-    i32 17, label %395
+    i32 17, label %390
     i32 16, label %72
   ]
 
@@ -930,7 +930,7 @@ simpleScale.exit:                                 ; preds = %.lr.ph.i, %6, %9, %
 77:                                               ; preds = %63, %63, %73, %72, %70, %68, %66, %64
   %.0 = phi i32 [ 0, %73 ], [ 0, %72 ], [ %71, %70 ], [ 0, %68 ], [ %67, %66 ], [ %65, %64 ], [ 0, %63 ], [ 0, %63 ]
   %78 = add nsw i32 %.0, %49
-  br label %395
+  br label %390
 
 79:                                               ; preds = %60
   %80 = call i32 @agnnodes(ptr noundef %0) #18
@@ -1021,7 +1021,7 @@ freeNodes.exit:                                   ; preds = %.lr.ph.i37, %114
   %123 = load ptr, ptr @sites, align 8
   call void @free(ptr noundef %123) #18
   store ptr null, ptr @sites, align 8
-  br label %395
+  br label %390
 
 124:                                              ; preds = %106
   %.not50.i = icmp eq i64 %112, 0
@@ -1129,12 +1129,12 @@ rePos.exit.i:                                     ; preds = %.lr.ph.i.i, %165
 177:                                              ; preds = %rePos.exit.i
   %178 = load i8, ptr @Verbose, align 1
   %.not.i40 = icmp eq i8 %178, 0
-  br i1 %.not.i40, label %364, label %179
+  br i1 %.not.i40, label %359, label %179
 
 179:                                              ; preds = %177
   %180 = load ptr, ptr @stderr, align 8
   %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %180, ptr noundef nonnull @.str.49, i32 noundef %174) #21
-  br label %364
+  br label %359
 
 182:                                              ; preds = %chkBoundBox.exit
   br i1 %162, label %sAdjust.exitthread-pre-split, label %183
@@ -1176,22 +1176,23 @@ geomUpdate.exit.i:                                ; preds = %._crit_edge.loopexi
   %199 = load double, ptr %198, align 8
   store double %199, ptr @ymin, align 8
   %200 = getelementptr ptr, ptr %.pre.pre.i.i, i64 %184
-  %201 = getelementptr i8, ptr %200, i64 -8
-  %202 = load ptr, ptr %201, align 8
-  %203 = getelementptr inbounds i8, ptr %202, i64 8
-  %204 = load double, ptr %203, align 8
-  store double %204, ptr @ymax, align 8
-  %205 = fsub double %204, %199
-  br label %206
+  br label %201
 
-206:                                              ; preds = %geomUpdate.exit33.i, %geomUpdate.exit.i
-  %.sink58.i = phi double [ %355, %geomUpdate.exit33.i ], [ %205, %geomUpdate.exit.i ]
+201:                                              ; preds = %geomUpdate.exit33.i, %geomUpdate.exit.i
+  %.sink65.i = phi ptr [ %350, %geomUpdate.exit33.i ], [ %200, %geomUpdate.exit.i ]
+  %.sink60.i = phi double [ %349, %geomUpdate.exit33.i ], [ %199, %geomUpdate.exit.i ]
   %.sink.i = phi double [ %346, %geomUpdate.exit33.i ], [ %196, %geomUpdate.exit.i ]
   %.018.i = phi i32 [ %292, %geomUpdate.exit33.i ], [ 0, %geomUpdate.exit.i ]
   %.017.i = phi i32 [ %293, %geomUpdate.exit33.i ], [ %161, %geomUpdate.exit.i ]
   %.015.i = phi i32 [ %.116.i, %geomUpdate.exit33.i ], [ 0, %geomUpdate.exit.i ]
   %.014.i = phi i32 [ %.1.i, %geomUpdate.exit33.i ], [ 0, %geomUpdate.exit.i ]
-  store double %.sink58.i, ptr @deltay, align 8
+  %202 = getelementptr i8, ptr %.sink65.i, i64 -8
+  %203 = load ptr, ptr %202, align 8
+  %204 = getelementptr inbounds i8, ptr %203, i64 8
+  %205 = load double, ptr %204, align 8
+  store double %205, ptr @ymax, align 8
+  %206 = fsub double %205, %.sink60.i
+  store double %206, ptr @deltay, align 8
   store double %.sink.i, ptr @deltax, align 8
   call void @voronoi(ptr noundef nonnull @nextOne) #18
   %207 = load ptr, ptr @nodeInfo, align 8
@@ -1204,16 +1205,16 @@ geomUpdate.exit.i:                                ; preds = %._crit_edge.loopexi
   %214 = icmp ugt i64 %213, 1
   br i1 %214, label %.lr.ph.i.i.i, label %addCorners.exit.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %206, %.lr.ph.i.i.i
-  %.061.i.i.i = phi i64 [ %226, %.lr.ph.i.i.i ], [ 1, %206 ]
-  %.03460.i.i.i = phi double [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %212, %206 ]
-  %.03559.i.i.i = phi double [ %.136.i.i.i, %.lr.ph.i.i.i ], [ %211, %206 ]
-  %.03758.i.i.i = phi double [ %.138.i.i.i, %.lr.ph.i.i.i ], [ %210, %206 ]
-  %.03957.i.i.i = phi double [ %.140.i.i.i, %.lr.ph.i.i.i ], [ %209, %206 ]
-  %.04156.i.i.i = phi ptr [ %.142.i.i.i, %.lr.ph.i.i.i ], [ %207, %206 ]
-  %.04355.i.i.i = phi ptr [ %.144.i.i.i, %.lr.ph.i.i.i ], [ %207, %206 ]
-  %.04554.i.i.i = phi ptr [ %.146.i.i.i, %.lr.ph.i.i.i ], [ %207, %206 ]
-  %.04753.i.i.i = phi ptr [ %.148.i.i.i, %.lr.ph.i.i.i ], [ %207, %206 ]
+.lr.ph.i.i.i:                                     ; preds = %201, %.lr.ph.i.i.i
+  %.061.i.i.i = phi i64 [ %226, %.lr.ph.i.i.i ], [ 1, %201 ]
+  %.03460.i.i.i = phi double [ %.1.i.i.i, %.lr.ph.i.i.i ], [ %212, %201 ]
+  %.03559.i.i.i = phi double [ %.136.i.i.i, %.lr.ph.i.i.i ], [ %211, %201 ]
+  %.03758.i.i.i = phi double [ %.138.i.i.i, %.lr.ph.i.i.i ], [ %210, %201 ]
+  %.03957.i.i.i = phi double [ %.140.i.i.i, %.lr.ph.i.i.i ], [ %209, %201 ]
+  %.04156.i.i.i = phi ptr [ %.142.i.i.i, %.lr.ph.i.i.i ], [ %207, %201 ]
+  %.04355.i.i.i = phi ptr [ %.144.i.i.i, %.lr.ph.i.i.i ], [ %207, %201 ]
+  %.04554.i.i.i = phi ptr [ %.146.i.i.i, %.lr.ph.i.i.i ], [ %207, %201 ]
+  %.04753.i.i.i = phi ptr [ %.148.i.i.i, %.lr.ph.i.i.i ], [ %207, %201 ]
   %215 = load ptr, ptr @nodeInfo, align 8
   %216 = getelementptr inbounds %struct.Info_t, ptr %215, i64 %.061.i.i.i
   %217 = getelementptr inbounds i8, ptr %216, i64 8
@@ -1238,11 +1239,11 @@ geomUpdate.exit.i:                                ; preds = %._crit_edge.loopexi
   %228 = icmp ult i64 %226, %227
   br i1 %228, label %.lr.ph.i.i.i, label %addCorners.exit.i.i
 
-addCorners.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %206
-  %.047.lcssa.i.i.i = phi ptr [ %207, %206 ], [ %.148.i.i.i, %.lr.ph.i.i.i ]
-  %.045.lcssa.i.i.i = phi ptr [ %207, %206 ], [ %.146.i.i.i, %.lr.ph.i.i.i ]
-  %.043.lcssa.i.i.i = phi ptr [ %207, %206 ], [ %.144.i.i.i, %.lr.ph.i.i.i ]
-  %.041.lcssa.i.i.i = phi ptr [ %207, %206 ], [ %.142.i.i.i, %.lr.ph.i.i.i ]
+addCorners.exit.i.i:                              ; preds = %.lr.ph.i.i.i, %201
+  %.047.lcssa.i.i.i = phi ptr [ %207, %201 ], [ %.148.i.i.i, %.lr.ph.i.i.i ]
+  %.045.lcssa.i.i.i = phi ptr [ %207, %201 ], [ %.146.i.i.i, %.lr.ph.i.i.i ]
+  %.043.lcssa.i.i.i = phi ptr [ %207, %201 ], [ %.144.i.i.i, %.lr.ph.i.i.i ]
+  %.041.lcssa.i.i.i = phi ptr [ %207, %201 ], [ %.142.i.i.i, %.lr.ph.i.i.i ]
   %229 = getelementptr inbounds i8, ptr %.047.lcssa.i.i.i, i64 8
   %230 = load double, ptr @sw, align 16
   %231 = load double, ptr getelementptr inbounds (i8, ptr @sw, i64 8), align 8
@@ -1351,7 +1352,7 @@ newPos.exit.i:                                    ; preds = %287, %addCorners.ex
   %292 = add nuw nsw i32 %.018.i, 1
   %293 = call fastcc i32 @countOverlap(i32 noundef %292)
   %294 = icmp eq i32 %293, 0
-  br i1 %294, label %356, label %295
+  br i1 %294, label %351, label %295
 
 295:                                              ; preds = %newPos.exit.i
   %.not.i44 = icmp slt i32 %293, %.017.i
@@ -1468,98 +1469,92 @@ geomUpdate.exit33.i:                              ; preds = %._crit_edge.loopexi
   %349 = load double, ptr %348, align 8
   store double %349, ptr @ymin, align 8
   %350 = getelementptr ptr, ptr %333, i64 %334
-  %351 = getelementptr i8, ptr %350, i64 -8
-  %352 = load ptr, ptr %351, align 8
-  %353 = getelementptr inbounds i8, ptr %352, i64 8
-  %354 = load double, ptr %353, align 8
-  store double %354, ptr @ymax, align 8
-  %355 = fsub double %354, %349
-  br label %206
+  br label %201
 
-356:                                              ; preds = %newPos.exit.i
-  %357 = load i8, ptr @Verbose, align 1
-  %.not21.i = icmp eq i8 %357, 0
-  br i1 %.not21.i, label %363, label %358
+351:                                              ; preds = %newPos.exit.i
+  %352 = load i8, ptr @Verbose, align 1
+  %.not21.i = icmp eq i8 %352, 0
+  br i1 %.not21.i, label %358, label %353
 
-358:                                              ; preds = %356
-  %359 = load ptr, ptr @stderr, align 8
-  %360 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %359, ptr noundef nonnull @.str.49, i32 noundef %292) #21
-  %361 = load ptr, ptr @stderr, align 8
-  %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %361, ptr noundef nonnull @.str.51, i32 noundef %.014.i) #21
-  br label %363
+353:                                              ; preds = %351
+  %354 = load ptr, ptr @stderr, align 8
+  %355 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %354, ptr noundef nonnull @.str.49, i32 noundef %292) #21
+  %356 = load ptr, ptr @stderr, align 8
+  %357 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %356, ptr noundef nonnull @.str.51, i32 noundef %.014.i) #21
+  br label %358
 
-363:                                              ; preds = %358, %356
+358:                                              ; preds = %353, %351
   call void @PQcleanup() #18
   call void @ELcleanup() #18
   call void @siteinit() #18
   call void @edgeinit() #18
-  br label %364
+  br label %359
 
-364:                                              ; preds = %179, %177, %363
-  %365 = load i64, ptr @nsites, align 8
-  %.not.i46 = icmp eq i64 %365, 0
+359:                                              ; preds = %179, %177, %358
+  %360 = load i64, ptr @nsites, align 8
+  %.not.i46 = icmp eq i64 %360, 0
   br i1 %.not.i46, label %freeNodes.exit53, label %.lr.ph.i47
 
-.lr.ph.i47:                                       ; preds = %364, %.lr.ph.i47
-  %.06.i = phi i64 [ %383, %.lr.ph.i47 ], [ 0, %364 ]
-  %366 = load ptr, ptr @nodeInfo, align 8
-  %367 = getelementptr inbounds %struct.Info_t, ptr %366, i64 %.06.i
-  %368 = getelementptr inbounds i8, ptr %367, i64 8
-  %369 = load double, ptr %368, align 8
-  %370 = load ptr, ptr %367, align 8
-  %371 = getelementptr inbounds i8, ptr %370, i64 16
-  %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr inbounds i8, ptr %372, i64 176
+.lr.ph.i47:                                       ; preds = %359, %.lr.ph.i47
+  %.06.i = phi i64 [ %378, %.lr.ph.i47 ], [ 0, %359 ]
+  %361 = load ptr, ptr @nodeInfo, align 8
+  %362 = getelementptr inbounds %struct.Info_t, ptr %361, i64 %.06.i
+  %363 = getelementptr inbounds i8, ptr %362, i64 8
+  %364 = load double, ptr %363, align 8
+  %365 = load ptr, ptr %362, align 8
+  %366 = getelementptr inbounds i8, ptr %365, i64 16
+  %367 = load ptr, ptr %366, align 8
+  %368 = getelementptr inbounds i8, ptr %367, i64 176
+  %369 = load ptr, ptr %368, align 8
+  store double %364, ptr %369, align 8
+  %370 = getelementptr inbounds i8, ptr %362, i64 16
+  %371 = load double, ptr %370, align 8
+  %372 = load ptr, ptr %362, align 8
+  %373 = getelementptr inbounds i8, ptr %372, i64 16
   %374 = load ptr, ptr %373, align 8
-  store double %369, ptr %374, align 8
-  %375 = getelementptr inbounds i8, ptr %367, i64 16
-  %376 = load double, ptr %375, align 8
-  %377 = load ptr, ptr %367, align 8
-  %378 = getelementptr inbounds i8, ptr %377, i64 16
-  %379 = load ptr, ptr %378, align 8
-  %380 = getelementptr inbounds i8, ptr %379, i64 176
-  %381 = load ptr, ptr %380, align 8
-  %382 = getelementptr inbounds i8, ptr %381, i64 8
-  store double %376, ptr %382, align 8
-  %383 = add nuw i64 %.06.i, 1
-  %384 = load i64, ptr @nsites, align 8
-  %385 = icmp ult i64 %383, %384
-  br i1 %385, label %.lr.ph.i47, label %sAdjust.exit
+  %375 = getelementptr inbounds i8, ptr %374, i64 176
+  %376 = load ptr, ptr %375, align 8
+  %377 = getelementptr inbounds i8, ptr %376, i64 8
+  store double %371, ptr %377, align 8
+  %378 = add nuw i64 %.06.i, 1
+  %379 = load i64, ptr @nsites, align 8
+  %380 = icmp ult i64 %378, %379
+  br i1 %380, label %.lr.ph.i47, label %sAdjust.exit
 
 sAdjust.exitthread-pre-split:                     ; preds = %182, %163
   %.pr61 = load i64, ptr @nsites, align 8
   br label %sAdjust.exit
 
 sAdjust.exit:                                     ; preds = %.lr.ph.i47, %sAdjust.exitthread-pre-split
-  %386 = phi i64 [ %.pr61, %sAdjust.exitthread-pre-split ], [ %384, %.lr.ph.i47 ]
+  %381 = phi i64 [ %.pr61, %sAdjust.exitthread-pre-split ], [ %379, %.lr.ph.i47 ]
   %.160 = phi i32 [ 0, %sAdjust.exitthread-pre-split ], [ 1, %.lr.ph.i47 ]
-  %.not.i49 = icmp eq i64 %386, 0
+  %.not.i49 = icmp eq i64 %381, 0
   br i1 %.not.i49, label %freeNodes.exit53, label %.lr.ph.i50
 
 .lr.ph.i50:                                       ; preds = %sAdjust.exit, %.lr.ph.i50
-  %.03.i51 = phi i64 [ %389, %.lr.ph.i50 ], [ 0, %sAdjust.exit ]
-  %387 = load ptr, ptr @nodeInfo, align 8
-  %388 = getelementptr inbounds %struct.Info_t, ptr %387, i64 %.03.i51, i32 3
-  call void @breakPoly(ptr noundef nonnull %388) #18
-  %389 = add nuw i64 %.03.i51, 1
-  %390 = load i64, ptr @nsites, align 8
-  %391 = icmp ult i64 %389, %390
-  br i1 %391, label %.lr.ph.i50, label %freeNodes.exit53
+  %.03.i51 = phi i64 [ %384, %.lr.ph.i50 ], [ 0, %sAdjust.exit ]
+  %382 = load ptr, ptr @nodeInfo, align 8
+  %383 = getelementptr inbounds %struct.Info_t, ptr %382, i64 %.03.i51, i32 3
+  call void @breakPoly(ptr noundef nonnull %383) #18
+  %384 = add nuw i64 %.03.i51, 1
+  %385 = load i64, ptr @nsites, align 8
+  %386 = icmp ult i64 %384, %385
+  br i1 %386, label %.lr.ph.i50, label %freeNodes.exit53
 
-freeNodes.exit53:                                 ; preds = %.lr.ph.i50, %364, %sAdjust.exit
-  %.16065 = phi i32 [ %.160, %sAdjust.exit ], [ 1, %364 ], [ %.160, %.lr.ph.i50 ]
+freeNodes.exit53:                                 ; preds = %.lr.ph.i50, %359, %sAdjust.exit
+  %.16065 = phi i32 [ %.160, %sAdjust.exit ], [ 1, %359 ], [ %.160, %.lr.ph.i50 ]
   call void @polyFree() #18
   call void @infoinit() #18
-  %392 = load ptr, ptr @nodeInfo, align 8
-  call void @free(ptr noundef %392) #18
-  %393 = load ptr, ptr @sites, align 8
-  call void @free(ptr noundef %393) #18
+  %387 = load ptr, ptr @nodeInfo, align 8
+  call void @free(ptr noundef %387) #18
+  %388 = load ptr, ptr @sites, align 8
+  call void @free(ptr noundef %388) #18
   store ptr null, ptr @sites, align 8
-  %394 = add nuw nsw i32 %.16065, %49
-  br label %395
+  %389 = add nuw nsw i32 %.16065, %49
+  br label %390
 
-395:                                              ; preds = %63, %simpleScale.exit, %2, %freeNodes.exit53, %freeNodes.exit, %77
-  %.029 = phi i32 [ %78, %77 ], [ %49, %freeNodes.exit ], [ %394, %freeNodes.exit53 ], [ 0, %2 ], [ %49, %simpleScale.exit ], [ %49, %63 ]
+390:                                              ; preds = %63, %simpleScale.exit, %2, %freeNodes.exit53, %freeNodes.exit, %77
+  %.029 = phi i32 [ %78, %77 ], [ %49, %freeNodes.exit ], [ %389, %freeNodes.exit53 ], [ 0, %2 ], [ %49, %simpleScale.exit ], [ %49, %63 ]
   ret i32 %.029
 }
 

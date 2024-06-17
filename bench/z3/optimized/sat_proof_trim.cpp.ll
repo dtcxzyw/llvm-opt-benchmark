@@ -2780,25 +2780,25 @@ sw.default:                                       ; preds = %_ZN6vectorIN3sat7li
   unreachable
 
 sw.epilog.sink.split.sink.split:                  ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit30, %lor.lhs.false.i32, %if.then, %lor.lhs.false.i
-  %conv.i.i.sink.ph = phi i32 [ %l.coerce, %lor.lhs.false.i ], [ %l.coerce, %if.then ], [ %conv.i.i, %lor.lhs.false.i32 ], [ %conv.i.i, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit30 ]
+  %l.coerce.sink.ph = phi i32 [ %l.coerce, %lor.lhs.false.i ], [ %l.coerce, %if.then ], [ %conv.i.i, %lor.lhs.false.i32 ], [ %conv.i.i, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit30 ]
   tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_clause)
-  %.pre.i = load ptr, ptr %m_clause, align 8
-  %arrayidx8.phi.trans.insert.i42 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %.pre.i41 = load ptr, ptr %m_clause, align 8
+  %arrayidx8.phi.trans.insert.i42 = getelementptr inbounds i8, ptr %.pre.i41, i64 -4
   %.pre1.i43 = load i32, ptr %arrayidx8.phi.trans.insert.i42, align 4
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %lor.lhs.false.i32, %lor.lhs.false.i
   %.sink147 = phi i32 [ %4, %lor.lhs.false.i ], [ %15, %lor.lhs.false.i32 ], [ %.pre1.i43, %sw.epilog.sink.split.sink.split ]
-  %.sink = phi ptr [ %3, %lor.lhs.false.i ], [ %14, %lor.lhs.false.i32 ], [ %.pre.i, %sw.epilog.sink.split.sink.split ]
-  %conv.i.i.sink = phi i32 [ %l.coerce, %lor.lhs.false.i ], [ %conv.i.i, %lor.lhs.false.i32 ], [ %conv.i.i.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %idx.ext.i36 = zext i32 %.sink147 to i64
-  %add.ptr.i37 = getelementptr inbounds %"class.sat::literal", ptr %.sink, i64 %idx.ext.i36
-  store i32 %conv.i.i.sink, ptr %add.ptr.i37, align 4
+  %.sink = phi ptr [ %3, %lor.lhs.false.i ], [ %14, %lor.lhs.false.i32 ], [ %.pre.i41, %sw.epilog.sink.split.sink.split ]
+  %l.coerce.sink = phi i32 [ %l.coerce, %lor.lhs.false.i ], [ %conv.i.i, %lor.lhs.false.i32 ], [ %l.coerce.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %idx.ext.i = zext i32 %.sink147 to i64
+  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %.sink, i64 %idx.ext.i
+  store i32 %l.coerce.sink, ptr %add.ptr.i, align 4
   %30 = load ptr, ptr %m_clause, align 8
-  %arrayidx10.i38 = getelementptr inbounds i8, ptr %30, i64 -4
-  %31 = load i32, ptr %arrayidx10.i38, align 4
+  %arrayidx10.i = getelementptr inbounds i8, ptr %30, i64 -4
+  %31 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %31, 1
-  store i32 %inc.i, ptr %arrayidx10.i38, align 4
+  store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit61, %sw.epilog.sink.split, %sw.bb12, %sw.bb

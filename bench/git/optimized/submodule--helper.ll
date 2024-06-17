@@ -1672,9 +1672,9 @@ if.end12.i:                                       ; preds = %if.end.i49
   %82 = load ptr, ptr %6, align 8
   %call.i.i52 = call i32 @is_writing_gitmodules_ok() #19
   %tobool.not.i.i53 = icmp eq i32 %call.i.i52, 0
-  br i1 %tobool.not.i.i53, label %if.then.i.i56, label %config_submodule_in_gitmodules.exit.i
+  br i1 %tobool.not.i.i53, label %if.then.i.i57, label %config_submodule_in_gitmodules.exit.i
 
-if.then.i.i56:                                    ; preds = %if.end12.i
+if.then.i.i57:                                    ; preds = %if.end12.i
   %call1.i.i = call fastcc ptr @_(ptr noundef nonnull @.str.87)
   call void (ptr, ...) @die(ptr noundef %call1.i.i) #20
   unreachable
@@ -1768,9 +1768,9 @@ if.then48.i:                                      ; preds = %if.end45.i
 
 if.end60.sink.split.i:                            ; preds = %if.then48.i, %if.end45.i
   %92 = load ptr, ptr %sm_name, align 8
-  %call58.i = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.135, ptr noundef %92) #19
-  %call55.i = call i32 @git_config_set_gently(ptr noundef %call58.i, ptr noundef nonnull @.str.136) #19
-  call void @free(ptr noundef %call58.i) #19
+  %call54.i56 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.135, ptr noundef %92) #19
+  %call55.i = call i32 @git_config_set_gently(ptr noundef %call54.i56, ptr noundef nonnull @.str.136) #19
+  call void @free(ptr noundef %call54.i56) #19
   br label %configure_added_submodule.exit
 
 configure_added_submodule.exit:                   ; preds = %if.then48.i, %if.end60.sink.split.i

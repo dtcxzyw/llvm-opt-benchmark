@@ -1401,7 +1401,7 @@ define internal fastcc void @dissect_rf4ce_nwk_common_app_capabilities(ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %17
-  %.sink77 = phi i32 [ 15, %50 ], [ 1, %17 ]
+  %.sink77 = phi i32 [ 1, %17 ], [ 15, %50 ]
   %53 = load i32, ptr %2, align 4
   %54 = add i32 %53, %.sink77
   store i32 %54, ptr %2, align 4

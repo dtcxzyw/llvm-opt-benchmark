@@ -7117,14 +7117,14 @@ do.cond.i31:                                      ; preds = %do.body.i27
   br i1 %cmp.i34, label %do.body.i27, label %if.end36, !llvm.loop !5
 
 if.end36.sink.split:                              ; preds = %do.body.i, %do.body.i27
-  %scevgep52.sink = phi ptr [ %scevgep52, %do.body.i27 ], [ %scevgep, %do.body.i ]
+  %scevgep.sink = phi ptr [ %scevgep52, %do.body.i27 ], [ %scevgep, %do.body.i ]
   %author.sink = phi ptr [ %committer, %do.body.i27 ], [ %author, %do.body.i ]
   %len.sink = phi ptr [ %len34, %do.body.i27 ], [ %len, %do.body.i ]
-  %sub.ptr.lhs.cast24 = ptrtoint ptr %scevgep52.sink to i64
-  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast24, %sub.ptr.rhs.cast25
+  %sub.ptr.lhs.cast = ptrtoint ptr %scevgep.sink to i64
+  %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast25
   store i64 %sub.ptr.sub, ptr %author.sink, align 8
   %sub.ptr.lhs.cast15 = ptrtoint ptr %arrayidx3.le to i64
-  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.lhs.cast24
+  %sub.ptr.sub17 = sub i64 %sub.ptr.lhs.cast15, %sub.ptr.lhs.cast
   store i64 %sub.ptr.sub17, ptr %len.sink, align 8
   br label %if.end36
 

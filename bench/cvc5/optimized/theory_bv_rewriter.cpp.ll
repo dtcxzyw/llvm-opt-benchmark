@@ -41072,10 +41072,10 @@ cond.false83:                                     ; preds = %invoke.cont73, %inv
 
 cond.end85:                                       ; preds = %cond.false83, %invoke.cont79
   %call2.i.i.i274281.sink = phi i32 [ %call2.i.i.i259266, %invoke.cont79 ], [ %call2.i.i.i274281, %cond.false83 ]
-  %.sink368 = phi ptr [ %18, %invoke.cont79 ], [ %20, %cond.false83 ]
+  %.sink = phi ptr [ %18, %invoke.cont79 ], [ %20, %cond.false83 ]
   %cmp.i.i275 = icmp eq i32 %call2.i.i.i274281.sink, 2
   %spec.select.i.i277 = select i1 %cmp.i.i275, i64 3, i64 2
-  %d_children.i.i278 = getelementptr inbounds i8, ptr %.sink368, i64 16
+  %d_children.i.i278 = getelementptr inbounds i8, ptr %.sink, i64 16
   %arrayidx.i.i280 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i278, i64 0, i64 %spec.select.i.i277
   %ref.tmp56.sroa.0.0 = load ptr, ptr %arrayidx.i.i280, align 8, !noalias !619
   store ptr %ref.tmp56.sroa.0.0, ptr %e1, align 8

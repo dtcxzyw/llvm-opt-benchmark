@@ -17350,10 +17350,10 @@ if.end:                                           ; preds = %if.then
   %. = select i1 %cmp, i64 4, i64 28
   %.82 = select i1 %cmp, i64 16, i64 40
   store i32 0, ptr %r_i.m_upper.i, align 8
-  %m_kind.i.i.i40 = getelementptr inbounds i8, ptr %r_i, i64 %.
-  %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i40, align 4
+  %m_kind.i.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.
+  %bf.load.i.i.i = load i8, ptr %m_kind.i.i.i, align 4
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, -2
-  store i8 %bf.clear.i.i.i, ptr %m_kind.i.i.i40, align 4
+  store i8 %bf.clear.i.i.i, ptr %m_kind.i.i.i, align 4
   %m_k3.i.i = getelementptr inbounds i8, ptr %r_i, i64 %.82
   store i32 0, ptr %m_k3.i.i, align 8
   br label %if.end15

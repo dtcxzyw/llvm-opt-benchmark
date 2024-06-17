@@ -1961,30 +1961,24 @@ if.then:                                          ; preds = %entry
   %3 = load i32, ptr %sock, align 8
   %call = call i32 @getsockname(i32 noundef %3, ptr noundef nonnull %ssloc, ptr noundef nonnull %slen) #13
   %tobool2.not = icmp eq i32 %call, 0
-  br i1 %tobool2.not, label %if.end, label %if.then3
-
-if.then3:                                         ; preds = %if.then
-  %call4 = tail call ptr @__errno_location() #14
-  %4 = load i32, ptr %call4, align 4
-  %call5 = call ptr @Curl_strerror(i32 noundef %4, ptr noundef nonnull %buffer, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.26, i32 noundef %4, ptr noundef %call5) #13
-  br label %return
+  br i1 %tobool2.not, label %if.end, label %return.sink.split
 
 if.end:                                           ; preds = %if.then
-  %5 = load i32, ptr %slen, align 4
+  %4 = load i32, ptr %slen, align 4
   %l_ip = getelementptr inbounds i8, ptr %cf.16.val, i64 276
   %l_port = getelementptr inbounds i8, ptr %cf.16.val, i64 324
-  %call7 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssloc, i32 noundef %5, ptr noundef nonnull %l_ip, ptr noundef nonnull %l_port) #13
-  br i1 %call7, label %return, label %if.then8
+  %call7 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssloc, i32 noundef %4, ptr noundef nonnull %l_ip, ptr noundef nonnull %l_port) #13
+  br i1 %call7, label %return, label %return.sink.split
 
-if.then8:                                         ; preds = %if.end
+return.sink.split:                                ; preds = %if.end, %if.then
+  %.str.52.sink = phi ptr [ @.str.26, %if.then ], [ @.str.52, %if.end ]
   %call9 = tail call ptr @__errno_location() #14
-  %6 = load i32, ptr %call9, align 4
-  %call12 = call ptr @Curl_strerror(i32 noundef %6, ptr noundef nonnull %buffer, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull @.str.52, i32 noundef %6, ptr noundef %call12) #13
+  %5 = load i32, ptr %call9, align 4
+  %call12 = call ptr @Curl_strerror(i32 noundef %5, ptr noundef nonnull %buffer, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %data, ptr noundef nonnull %.str.52.sink, i32 noundef %5, ptr noundef %call12) #13
   br label %return
 
-return:                                           ; preds = %entry, %if.end, %if.then8, %if.then3
+return:                                           ; preds = %return.sink.split, %entry, %if.end
   ret void
 }
 
@@ -2054,28 +2048,22 @@ socket_close.exit:                                ; preds = %if.then.i, %if.end7
   %8 = load i32, ptr %sock.i, align 8
   %call.i26 = call i32 @getpeername(i32 noundef %8, ptr noundef nonnull %ssrem.i, ptr noundef nonnull %plen.i) #13
   %tobool.not.i = icmp eq i32 %call.i26, 0
-  br i1 %tobool.not.i, label %if.end.i28, label %if.then.i27
+  br i1 %tobool.not.i, label %if.end.i27, label %if.end13.sink.split.i
 
-if.then.i27:                                      ; preds = %socket_close.exit
-  %call2.i = tail call ptr @__errno_location() #14
-  %9 = load i32, ptr %call2.i, align 4
-  %call3.i = call ptr @Curl_strerror(i32 noundef %9, ptr noundef nonnull %buffer.i, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.53, i32 noundef %9, ptr noundef %call3.i) #13
-  br label %set_accepted_remote_ip.exit
+if.end.i27:                                       ; preds = %socket_close.exit
+  %9 = load i32, ptr %plen.i, align 4
+  %call7.i = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssrem.i, i32 noundef %9, ptr noundef nonnull %r_ip.i, ptr noundef nonnull %r_port.i) #13
+  br i1 %call7.i, label %set_accepted_remote_ip.exit, label %if.end13.sink.split.i
 
-if.end.i28:                                       ; preds = %socket_close.exit
-  %10 = load i32, ptr %plen.i, align 4
-  %call7.i = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %ssrem.i, i32 noundef %10, ptr noundef nonnull %r_ip.i, ptr noundef nonnull %r_port.i) #13
-  br i1 %call7.i, label %set_accepted_remote_ip.exit, label %if.then8.i
-
-if.then8.i:                                       ; preds = %if.end.i28
+if.end13.sink.split.i:                            ; preds = %if.end.i27, %socket_close.exit
+  %.str.54.sink.i = phi ptr [ @.str.53, %socket_close.exit ], [ @.str.54, %if.end.i27 ]
   %call9.i = tail call ptr @__errno_location() #14
-  %11 = load i32, ptr %call9.i, align 4
-  %call12.i = call ptr @Curl_strerror(i32 noundef %11, ptr noundef nonnull %buffer.i, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull @.str.54, i32 noundef %11, ptr noundef %call12.i) #13
+  %10 = load i32, ptr %call9.i, align 4
+  %call12.i = call ptr @Curl_strerror(i32 noundef %10, ptr noundef nonnull %buffer.i, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %data, ptr noundef nonnull %.str.54.sink.i, i32 noundef %10, ptr noundef %call12.i) #13
   br label %set_accepted_remote_ip.exit
 
-set_accepted_remote_ip.exit:                      ; preds = %if.then.i27, %if.end.i28, %if.then8.i
+set_accepted_remote_ip.exit:                      ; preds = %if.end.i27, %if.end13.sink.split.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %buffer.i)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %ssrem.i)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %plen.i)
@@ -2087,11 +2075,11 @@ set_accepted_remote_ip.exit:                      ; preds = %if.then.i27, %if.en
   store i8 %bf.set10, ptr %active, align 4
   %connected_at = getelementptr inbounds i8, ptr %2, i64 344
   %call11 = call { i64, i32 } @Curl_now() #13
-  %12 = extractvalue { i64, i32 } %call11, 0
-  %13 = extractvalue { i64, i32 } %call11, 1
-  store i64 %12, ptr %connected_at, align 8
+  %11 = extractvalue { i64, i32 } %call11, 0
+  %12 = extractvalue { i64, i32 } %call11, 1
+  store i64 %11, ptr %connected_at, align 8
   %tmp.sroa.2.0.connected_at.sroa_idx = getelementptr inbounds i8, ptr %2, i64 352
-  store i32 %13, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
+  store i32 %12, ptr %tmp.sroa.2.0.connected_at.sroa_idx, align 8
   %connected = getelementptr inbounds i8, ptr %0, i64 36
   %bf.load12 = load i8, ptr %connected, align 4
   %bf.set14 = or i8 %bf.load12, 1
@@ -2102,23 +2090,23 @@ set_accepted_remote_ip.exit:                      ; preds = %if.then.i27, %if.en
 land.lhs.true:                                    ; preds = %set_accepted_remote_ip.exit
   %verbose = getelementptr inbounds i8, ptr %data, i64 2706
   %bf.load16 = load i64, ptr %verbose, align 2
-  %14 = and i64 %bf.load16, 536870912
-  %tobool18.not = icmp eq i64 %14, 0
+  %13 = and i64 %bf.load16, 536870912
+  %tobool18.not = icmp eq i64 %13, 0
   br i1 %tobool18.not, label %return, label %land.lhs.true21
 
 land.lhs.true21:                                  ; preds = %land.lhs.true
-  %15 = load ptr, ptr %0, align 8
-  %log_level = getelementptr inbounds i8, ptr %15, i64 12
-  %16 = load i32, ptr %log_level, align 4
-  %cmp23 = icmp sgt i32 %16, 0
+  %14 = load ptr, ptr %0, align 8
+  %log_level = getelementptr inbounds i8, ptr %14, i64 12
+  %15 = load i32, ptr %log_level, align 4
+  %cmp23 = icmp sgt i32 %15, 0
   br i1 %cmp23, label %if.then24, label %return
 
 if.then24:                                        ; preds = %land.lhs.true21
-  %17 = load i32, ptr %sock, align 8
+  %16 = load i32, ptr %sock, align 8
   %r_ip = getelementptr inbounds i8, ptr %2, i64 224
   %r_port = getelementptr inbounds i8, ptr %2, i64 272
-  %18 = load i32, ptr %r_port, align 8
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %17, ptr noundef nonnull %r_ip, i32 noundef %18) #13
+  %17 = load i32, ptr %r_port, align 8
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %data, ptr noundef nonnull %0, ptr noundef nonnull @.str.5, i32 noundef %16, ptr noundef nonnull %r_ip, i32 noundef %17) #13
   br label %return
 
 return:                                           ; preds = %if.then24, %land.lhs.true21, %land.lhs.true, %set_accepted_remote_ip.exit, %entry, %lor.lhs.false

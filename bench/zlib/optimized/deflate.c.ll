@@ -2867,13 +2867,6 @@ if.then712:                                       ; preds = %if.end708
   store i8 %conv761, ptr %arrayidx765, align 1
   %273 = load i64, ptr %total_in, align 8
   %shr767 = lshr i64 %273, 24
-  %conv769 = trunc i64 %shr767 to i8
-  %274 = load ptr, ptr %pending_buf716, align 8
-  %275 = load i64, ptr %pending, align 8
-  %inc772 = add i64 %275, 1
-  store i64 %inc772, ptr %pending, align 8
-  %arrayidx773 = getelementptr inbounds i8, ptr %274, i64 %275
-  store i8 %conv769, ptr %arrayidx773, align 1
   br label %if.end781
 
 if.else774:                                       ; preds = %if.end708
@@ -2881,51 +2874,53 @@ if.else774:                                       ; preds = %if.end708
   %shr.i432473 = lshr i64 %252, 24
   %conv.i433 = trunc i64 %shr.i432473 to i8
   %pending_buf.i434 = getelementptr inbounds i8, ptr %2, i64 16
-  %276 = load ptr, ptr %pending_buf.i434, align 8
-  %277 = load i64, ptr %pending, align 8
-  %inc.i436 = add i64 %277, 1
+  %274 = load ptr, ptr %pending_buf.i434, align 8
+  %275 = load i64, ptr %pending, align 8
+  %inc.i436 = add i64 %275, 1
   store i64 %inc.i436, ptr %pending, align 8
-  %arrayidx.i437 = getelementptr inbounds i8, ptr %276, i64 %277
+  %arrayidx.i437 = getelementptr inbounds i8, ptr %274, i64 %275
   store i8 %conv.i433, ptr %arrayidx.i437, align 1
   %conv1.i438 = trunc i64 %shr776 to i8
-  %278 = load ptr, ptr %pending_buf.i434, align 8
-  %279 = load i64, ptr %pending, align 8
-  %inc4.i439 = add i64 %279, 1
+  %276 = load ptr, ptr %pending_buf.i434, align 8
+  %277 = load i64, ptr %pending, align 8
+  %inc4.i439 = add i64 %277, 1
   store i64 %inc4.i439, ptr %pending, align 8
-  %arrayidx5.i440 = getelementptr inbounds i8, ptr %278, i64 %279
+  %arrayidx5.i440 = getelementptr inbounds i8, ptr %276, i64 %277
   store i8 %conv1.i438, ptr %arrayidx5.i440, align 1
-  %280 = load i64, ptr %adler713, align 8
-  %281 = trunc i64 %280 to i8
-  %shr.i441474 = lshr i64 %280, 8
+  %278 = load i64, ptr %adler713, align 8
+  %shr.i441474 = lshr i64 %278, 8
   %conv.i442 = trunc i64 %shr.i441474 to i8
-  %282 = load ptr, ptr %pending_buf.i434, align 8
-  %283 = load i64, ptr %pending, align 8
-  %inc.i445 = add i64 %283, 1
+  %279 = load ptr, ptr %pending_buf.i434, align 8
+  %280 = load i64, ptr %pending, align 8
+  %inc.i445 = add i64 %280, 1
   store i64 %inc.i445, ptr %pending, align 8
-  %arrayidx.i446 = getelementptr inbounds i8, ptr %282, i64 %283
+  %arrayidx.i446 = getelementptr inbounds i8, ptr %279, i64 %280
   store i8 %conv.i442, ptr %arrayidx.i446, align 1
-  %284 = load ptr, ptr %pending_buf.i434, align 8
-  %285 = load i64, ptr %pending, align 8
-  %inc4.i448 = add i64 %285, 1
-  store i64 %inc4.i448, ptr %pending, align 8
-  %arrayidx5.i449 = getelementptr inbounds i8, ptr %284, i64 %285
-  store i8 %281, ptr %arrayidx5.i449, align 1
   br label %if.end781
 
 if.end781:                                        ; preds = %if.else774, %if.then712
+  %pending_buf.i434.sink = phi ptr [ %pending_buf.i434, %if.else774 ], [ %pending_buf716, %if.then712 ]
+  %.sink.in = phi i64 [ %278, %if.else774 ], [ %shr767, %if.then712 ]
+  %.sink = trunc i64 %.sink.in to i8
+  %281 = load ptr, ptr %pending_buf.i434.sink, align 8
+  %282 = load i64, ptr %pending, align 8
+  %inc4.i448 = add i64 %282, 1
+  store i64 %inc4.i448, ptr %pending, align 8
+  %arrayidx5.i449 = getelementptr inbounds i8, ptr %281, i64 %282
+  store i8 %.sink, ptr %arrayidx5.i449, align 1
   tail call fastcc void @flush_pending(ptr noundef nonnull %strm)
-  %286 = load i32, ptr %wrap704, align 8
-  %cmp783 = icmp sgt i32 %286, 0
+  %283 = load i32, ptr %wrap704, align 8
+  %cmp783 = icmp sgt i32 %283, 0
   br i1 %cmp783, label %if.then785, label %if.end789
 
 if.then785:                                       ; preds = %if.end781
-  %sub787 = sub nsw i32 0, %286
+  %sub787 = sub nsw i32 0, %283
   store i32 %sub787, ptr %wrap704, align 8
   br label %if.end789
 
 if.end789:                                        ; preds = %if.then785, %if.end781
-  %287 = load i64, ptr %pending, align 8
-  %cmp791.not = icmp eq i64 %287, 0
+  %284 = load i64, ptr %pending, align 8
+  %cmp791.not = icmp eq i64 %284, 0
   %cond793 = zext i1 %cmp791.not to i32
   br label %return
 

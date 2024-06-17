@@ -180,7 +180,7 @@ net_checksum_finish.exit:                         ; preds = %while.body.i, %net_
   ret i16 %conv.i
 }
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local void @net_checksum_calculate(ptr nocapture noundef %data, i32 noundef %length, i32 noundef %csum_flag) local_unnamed_addr #2 {
 entry:
   %cmp = icmp ult i32 %length, 14
@@ -329,38 +329,26 @@ sw.bb47:                                          ; preds = %if.end40
   %tobool49.not = icmp eq i32 %and48, 0
   %cmp54 = icmp ult i32 %sub45, 20
   %or.cond = select i1 %tobool49.not, i1 true, i1 %cmp54
-  br i1 %or.cond, label %sw.epilog81, label %if.end57
-
-if.end57:                                         ; preds = %sw.bb47
-  %add.ptr52 = getelementptr i8, ptr %add.ptr14, i64 20
-  %th_sum = getelementptr i8, ptr %add.ptr14, i64 36
-  store i16 0, ptr %th_sum, align 1
-  %conv58 = trunc i32 %sub45 to i16
-  %ip_src = getelementptr inbounds i8, ptr %add.ptr14, i64 12
-  %call61 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv58, i16 noundef zeroext 6, ptr noundef nonnull %ip_src, ptr noundef %add.ptr52)
-  br label %sw.epilog81.sink.split
+  br i1 %or.cond, label %sw.epilog81, label %sw.epilog81.sink.split
 
 sw.bb63:                                          ; preds = %if.end40
   %and64 = and i32 %csum_flag, 4
   %tobool65.not = icmp eq i32 %and64, 0
   %cmp70 = icmp ult i32 %sub45, 8
   %or.cond34 = select i1 %tobool65.not, i1 true, i1 %cmp70
-  br i1 %or.cond34, label %sw.epilog81, label %if.end73
+  br i1 %or.cond34, label %sw.epilog81, label %sw.epilog81.sink.split
 
-if.end73:                                         ; preds = %sw.bb63
+sw.epilog81.sink.split:                           ; preds = %sw.bb63, %sw.bb47
+  %.sink40 = phi i64 [ 36, %sw.bb47 ], [ 26, %sw.bb63 ]
+  %.sink = phi i16 [ 6, %sw.bb47 ], [ 17, %sw.bb63 ]
   %add.ptr68 = getelementptr i8, ptr %add.ptr14, i64 20
-  %uh_sum = getelementptr i8, ptr %add.ptr14, i64 26
+  %uh_sum = getelementptr i8, ptr %add.ptr14, i64 %.sink40
   store i16 0, ptr %uh_sum, align 1
   %conv74 = trunc i32 %sub45 to i16
   %ip_src77 = getelementptr inbounds i8, ptr %add.ptr14, i64 12
-  %call78 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv74, i16 noundef zeroext 17, ptr noundef nonnull %ip_src77, ptr noundef %add.ptr68)
-  br label %sw.epilog81.sink.split
-
-sw.epilog81.sink.split:                           ; preds = %if.end57, %if.end73
-  %call78.sink = phi i16 [ %call78, %if.end73 ], [ %call61, %if.end57 ]
-  %uh_sum.sink = phi ptr [ %uh_sum, %if.end73 ], [ %th_sum, %if.end57 ]
-  %14 = tail call i16 @llvm.bswap.i16(i16 %call78.sink)
-  store i16 %14, ptr %uh_sum.sink, align 1
+  %call78 = tail call zeroext i16 @net_checksum_tcpudp(i16 noundef zeroext %conv74, i16 noundef zeroext %.sink, ptr noundef nonnull %ip_src77, ptr noundef %add.ptr68)
+  %14 = tail call i16 @llvm.bswap.i16(i16 %call78)
+  store i16 %14, ptr %uh_sum, align 1
   br label %sw.epilog81
 
 sw.epilog81:                                      ; preds = %sw.epilog81.sink.split, %if.end40, %sw.bb63, %sw.bb47, %if.end34, %if.end27, %if.end13, %sw.epilog, %entry
@@ -485,7 +473,7 @@ declare i64 @llvm.umin.i64(i64, i64) #5
 
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind sspstrong memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

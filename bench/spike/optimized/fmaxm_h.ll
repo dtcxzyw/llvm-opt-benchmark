@@ -288,8 +288,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fmaxm_hP11
   %119 = icmp eq i64 %.sroa.233.0.copyload, -1
   %120 = icmp ugt i64 %.sroa.032.0.copyload, -65537
   %121 = and i64 %.sroa.032.0.copyload, 1023
-  %.not234 = icmp eq i64 %121, 0
-  %122 = and i1 %120, %.not234
+  %.not235 = icmp eq i64 %121, 0
+  %122 = and i1 %120, %.not235
   %.not = select i1 %119, i1 %122, i1 false
   br i1 %.not, label %.thread208, label %.critedge
 
@@ -326,8 +326,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fmaxm_hP11
   %142 = icmp eq i64 %.sroa.227.0.copyload, -1
   %143 = icmp ugt i64 %.sroa.026.0.copyload, -65537
   %144 = and i64 %.sroa.026.0.copyload, 1023
-  %.not114235 = icmp eq i64 %144, 0
-  %145 = and i1 %143, %.not114235
+  %.not114236 = icmp eq i64 %144, 0
+  %145 = and i1 %143, %.not114236
   %.not114 = select i1 %142, i1 %145, i1 false
   br i1 %.not114, label %.critedge2, label %.critedge
 
@@ -668,8 +668,8 @@ define noundef i64 @_Z18fast_rv64i_fmaxm_hP11processor_t6insn_tm(ptr nocapture n
   %119 = icmp eq i64 %.sroa.233.0.copyload, -1
   %120 = icmp ugt i64 %.sroa.032.0.copyload, -65537
   %121 = and i64 %.sroa.032.0.copyload, 1023
-  %.not234 = icmp eq i64 %121, 0
-  %122 = and i1 %120, %.not234
+  %.not235 = icmp eq i64 %121, 0
+  %122 = and i1 %120, %.not235
   %.not = select i1 %119, i1 %122, i1 false
   br i1 %.not, label %.thread208, label %.critedge
 
@@ -706,8 +706,8 @@ define noundef i64 @_Z18fast_rv64i_fmaxm_hP11processor_t6insn_tm(ptr nocapture n
   %142 = icmp eq i64 %.sroa.227.0.copyload, -1
   %143 = icmp ugt i64 %.sroa.026.0.copyload, -65537
   %144 = and i64 %.sroa.026.0.copyload, 1023
-  %.not114235 = icmp eq i64 %144, 0
-  %145 = and i1 %143, %.not114235
+  %.not114236 = icmp eq i64 %144, 0
+  %145 = and i1 %143, %.not114236
   %.not114 = select i1 %142, i1 %145, i1 false
   br i1 %.not114, label %.critedge2, label %.critedge
 
@@ -2193,8 +2193,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fmaxm_hP11
   %119 = icmp eq i64 %.sroa.236.0.copyload, -1
   %120 = icmp ugt i64 %.sroa.035.0.copyload, -65537
   %121 = and i64 %.sroa.035.0.copyload, 1023
-  %.not242 = icmp eq i64 %121, 0
-  %122 = and i1 %120, %.not242
+  %.not243 = icmp eq i64 %121, 0
+  %122 = and i1 %120, %.not243
   %.not = select i1 %119, i1 %122, i1 false
   br i1 %.not, label %.thread216, label %.critedge
 
@@ -2231,8 +2231,8 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fmaxm_hP11
   %142 = icmp eq i64 %.sroa.230.0.copyload, -1
   %143 = icmp ugt i64 %.sroa.029.0.copyload, -65537
   %144 = and i64 %.sroa.029.0.copyload, 1023
-  %.not118243 = icmp eq i64 %144, 0
-  %145 = and i1 %143, %.not118243
+  %.not118244 = icmp eq i64 %144, 0
+  %145 = and i1 %143, %.not118244
   %.not118 = select i1 %142, i1 %145, i1 false
   br i1 %.not118, label %.critedge2, label %.critedge
 
@@ -2580,8 +2580,8 @@ define noundef i64 @_Z18fast_rv64e_fmaxm_hP11processor_t6insn_tm(ptr nocapture n
   %119 = icmp eq i64 %.sroa.236.0.copyload, -1
   %120 = icmp ugt i64 %.sroa.035.0.copyload, -65537
   %121 = and i64 %.sroa.035.0.copyload, 1023
-  %.not242 = icmp eq i64 %121, 0
-  %122 = and i1 %120, %.not242
+  %.not243 = icmp eq i64 %121, 0
+  %122 = and i1 %120, %.not243
   %.not = select i1 %119, i1 %122, i1 false
   br i1 %.not, label %.thread216, label %.critedge
 
@@ -2618,8 +2618,8 @@ define noundef i64 @_Z18fast_rv64e_fmaxm_hP11processor_t6insn_tm(ptr nocapture n
   %142 = icmp eq i64 %.sroa.230.0.copyload, -1
   %143 = icmp ugt i64 %.sroa.029.0.copyload, -65537
   %144 = and i64 %.sroa.029.0.copyload, 1023
-  %.not118243 = icmp eq i64 %144, 0
-  %145 = and i1 %143, %.not118243
+  %.not118244 = icmp eq i64 %144, 0
+  %145 = and i1 %143, %.not118244
   %.not118 = select i1 %142, i1 %145, i1 false
   br i1 %.not118, label %.critedge2, label %.critedge
 

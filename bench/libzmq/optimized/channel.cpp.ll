@@ -309,14 +309,7 @@ if.then6:                                         ; preds = %do.end
   %call7 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp9.not = icmp eq i32 %call7, 0
   %.pre = tail call ptr @__errno_location() #15
-  br i1 %cmp9.not, label %return.sink.split, label %if.then11
-
-if.then11:                                        ; preds = %if.then6
-  %4 = load i32, ptr %.pre, align 4
-  %call14 = tail call ptr @strerror(i32 noundef %4) #12
-  %5 = load ptr, ptr @stderr, align 8
-  %call15 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.4, ptr noundef %call14, ptr noundef nonnull @.str.2, i32 noundef 87) #11
-  br label %return.sink.split.sink.split
+  br i1 %cmp9.not, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end20:                                         ; preds = %do.end
   %call22 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %3, ptr noundef nonnull %msg_)
@@ -324,21 +317,21 @@ if.end20:                                         ; preds = %do.end
 
 land.rhs:                                         ; preds = %if.end20, %if.then42
   %call24 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %6 = and i8 %call24, 1
-  %tobool25.not = icmp eq i8 %6, 0
+  %4 = and i8 %call24, 1
+  %tobool25.not = icmp eq i8 %4, 0
   br i1 %tobool25.not, label %return, label %while.body
 
 while.body:                                       ; preds = %land.rhs
-  %7 = load ptr, ptr %_pipe, align 8
-  %call27 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %msg_)
+  %5 = load ptr, ptr %_pipe, align 8
+  %call27 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %5, ptr noundef nonnull %msg_)
   br i1 %call27, label %land.rhs31, label %if.then49
 
 land.rhs31:                                       ; preds = %while.body, %while.body37
   %call32 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %8 = and i8 %call32, 1
-  %tobool35.not = icmp eq i8 %8, 0
-  %9 = load ptr, ptr %_pipe, align 8
-  %call44 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %9, ptr noundef nonnull %msg_)
+  %6 = and i8 %call32, 1
+  %tobool35.not = icmp eq i8 %6, 0
+  %7 = load ptr, ptr %_pipe, align 8
+  %call44 = tail call noundef zeroext i1 @_ZN3zmq6pipe_t4readEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(328) %7, ptr noundef nonnull %msg_)
   br i1 %tobool35.not, label %if.then42, label %while.body37
 
 while.body37:                                     ; preds = %land.rhs31
@@ -351,25 +344,22 @@ if.then49:                                        ; preds = %while.body, %if.the
   %call50 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp52.not = icmp eq i32 %call50, 0
   %.pre18 = tail call ptr @__errno_location() #15
-  br i1 %cmp52.not, label %return.sink.split, label %if.then55
+  br i1 %cmp52.not, label %return.sink.split, label %return.sink.split.sink.split
 
-if.then55:                                        ; preds = %if.then49
-  %10 = load i32, ptr %.pre18, align 4
-  %call58 = tail call ptr @strerror(i32 noundef %10) #12
-  %11 = load ptr, ptr @stderr, align 8
-  %call59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.4, ptr noundef %call58, ptr noundef nonnull @.str.2, i32 noundef 109) #11
-  br label %return.sink.split.sink.split
-
-return.sink.split.sink.split:                     ; preds = %if.then11, %if.then55
-  %call58.sink = phi ptr [ %call58, %if.then55 ], [ %call14, %if.then11 ]
-  %.pre18.sink.ph = phi ptr [ %.pre18, %if.then55 ], [ %.pre, %if.then11 ]
-  %12 = load ptr, ptr @stderr, align 8
-  %call60 = tail call i32 @fflush(ptr noundef %12)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call58.sink)
+return.sink.split.sink.split:                     ; preds = %if.then49, %if.then6
+  %.pre18.sink22 = phi ptr [ %.pre, %if.then6 ], [ %.pre18, %if.then49 ]
+  %.sink21 = phi i32 [ 87, %if.then6 ], [ 109, %if.then49 ]
+  %8 = load i32, ptr %.pre18.sink22, align 4
+  %call58 = tail call ptr @strerror(i32 noundef %8) #12
+  %9 = load ptr, ptr @stderr, align 8
+  %call59 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %call58, ptr noundef nonnull @.str.2, i32 noundef %.sink21) #11
+  %10 = load ptr, ptr @stderr, align 8
+  %call60 = tail call i32 @fflush(ptr noundef %10)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call58)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then49, %if.then6
-  %.pre18.sink = phi ptr [ %.pre, %if.then6 ], [ %.pre18, %if.then49 ], [ %.pre18.sink.ph, %return.sink.split.sink.split ]
+  %.pre18.sink = phi ptr [ %.pre, %if.then6 ], [ %.pre18, %if.then49 ], [ %.pre18.sink22, %return.sink.split.sink.split ]
   store i32 11, ptr %.pre18.sink, align 4
   br label %return
 

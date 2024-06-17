@@ -3324,8 +3324,8 @@ proto_item_set_generated.exit69.i:                ; preds = %91, %88, %83
   br i1 %.not5.i71.i, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %99, %80
-  %.sink44 = phi ptr [ %82, %80 ], [ %101, %99 ]
-  %102 = getelementptr inbounds i8, ptr %.sink44, i64 28
+  %.sink40 = phi ptr [ %82, %80 ], [ %101, %99 ]
+  %102 = getelementptr inbounds i8, ptr %.sink40, i64 28
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, 2
   store i32 %104, ptr %102, align 4

@@ -4904,66 +4904,50 @@ land.lhs.true:                                    ; preds = %if.then
   %7 = inttoptr i64 %6 to ptr
   %8 = load ptr, ptr %mtv23, align 8
   %cmp6 = icmp eq ptr %8, %7
-  br i1 %cmp6, label %if.then8, label %if.else35
-
-if.then8:                                         ; preds = %land.lhs.true
-  %9 = load i32, ptr %key36, align 4
-  %conv9 = trunc i32 %9 to i16
-  %fold.i91 = getelementptr inbounds i8, ptr %J, i64 184
-  %ot1.i92 = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 17675, ptr %ot1.i92, align 4
-  store i16 %conv9, ptr %fold.i91, align 8
-  %op2.i95 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 5, ptr %op2.i95, align 2
-  br label %if.end48.sink.split
+  br i1 %cmp6, label %if.end48.sink.split, label %if.else35
 
 land.lhs.true18:                                  ; preds = %if.then
   %and20 = and i64 %4, 140737488355327
-  %10 = inttoptr i64 %and20 to ptr
-  %metatable21 = getelementptr inbounds i8, ptr %10, i64 32
-  %11 = load i64, ptr %metatable21, align 8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = load ptr, ptr %mtv23, align 8
-  %cmp24 = icmp eq ptr %13, %12
-  br i1 %cmp24, label %if.then26, label %if.else35
-
-if.then26:                                        ; preds = %land.lhs.true18
-  %14 = load i32, ptr %key36, align 4
-  %conv29 = trunc i32 %14 to i16
-  %fold.i73 = getelementptr inbounds i8, ptr %J, i64 184
-  %ot1.i74 = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 17675, ptr %ot1.i74, align 4
-  store i16 %conv29, ptr %fold.i73, align 8
-  %op2.i77 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 11, ptr %op2.i77, align 2
-  br label %if.end48.sink.split
+  %9 = inttoptr i64 %and20 to ptr
+  %metatable21 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = load i64, ptr %metatable21, align 8
+  %11 = inttoptr i64 %10 to ptr
+  %12 = load ptr, ptr %mtv23, align 8
+  %cmp24 = icmp eq ptr %12, %11
+  br i1 %cmp24, label %if.end48.sink.split, label %if.else35
 
 if.else35:                                        ; preds = %if.then, %land.lhs.true, %land.lhs.true18
-  %15 = load i32, ptr %key36, align 4
-  store i32 %15, ptr %tab, align 8
+  %13 = load i32, ptr %key36, align 4
+  store i32 %13, ptr %tab, align 8
   store i64 %4, ptr %ix, align 8
   %call40 = call i32 @lj_record_mm_lookup(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef %cond)
   %tobool41.not = icmp eq i32 %call40, 0
   br i1 %tobool41.not, label %nomatch, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else35
-  %16 = load i32, ptr %mobj, align 8
-  %call44 = call i32 @lj_record_objcmp(ptr noundef %J, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %mo1v, ptr noundef nonnull %mobjv)
+  %14 = load i32, ptr %mobj, align 8
+  %call44 = call i32 @lj_record_objcmp(ptr noundef %J, i32 noundef %2, i32 noundef %14, ptr noundef nonnull %mo1v, ptr noundef nonnull %mobjv)
   %tobool45.not = icmp eq i32 %call44, 0
   br i1 %tobool45.not, label %if.end48, label %nomatch
 
-if.end48.sink.split:                              ; preds = %if.then8, %if.then26
-  %ot1.i74.sink = phi ptr [ %ot1.i74, %if.then26 ], [ %ot1.i92, %if.then8 ]
-  %fold.i73.sink = phi ptr [ %fold.i73, %if.then26 ], [ %fold.i91, %if.then8 ]
-  %op2.i77.sink = phi ptr [ %op2.i77, %if.then26 ], [ %op2.i95, %if.then8 ]
+if.end48.sink.split:                              ; preds = %land.lhs.true18, %land.lhs.true
+  %.sink = phi i16 [ 5, %land.lhs.true ], [ 11, %land.lhs.true18 ]
+  %15 = load i32, ptr %key36, align 4
+  %conv29 = trunc i32 %15 to i16
+  %fold.i73 = getelementptr inbounds i8, ptr %J, i64 184
+  %ot1.i74 = getelementptr inbounds i8, ptr %J, i64 188
+  store i16 17675, ptr %ot1.i74, align 4
+  store i16 %conv29, ptr %fold.i73, align 8
+  %op2.i77 = getelementptr inbounds i8, ptr %J, i64 186
+  store i16 %.sink, ptr %op2.i77, align 2
   %call30 = call i32 @lj_opt_fold(ptr noundef %J) #7
   %conv31 = trunc i32 %call30 to i16
   %mt32 = getelementptr inbounds i8, ptr %ix, i64 60
-  %17 = load i32, ptr %mt32, align 4
-  %conv33 = trunc i32 %17 to i16
-  store i16 2187, ptr %ot1.i74.sink, align 4
-  store i16 %conv31, ptr %fold.i73.sink, align 8
-  store i16 %conv33, ptr %op2.i77.sink, align 2
+  %16 = load i32, ptr %mt32, align 4
+  %conv33 = trunc i32 %16 to i16
+  store i16 2187, ptr %ot1.i74, align 4
+  store i16 %conv31, ptr %fold.i73, align 8
+  store i16 %conv33, ptr %op2.i77, align 2
   %call34 = call i32 @lj_opt_fold(ptr noundef %J) #7
   br label %if.end48
 
@@ -4975,14 +4959,14 @@ nomatch:                                          ; preds = %while.body, %if.els
   br i1 %tobool.not, label %while.end, label %if.end53
 
 if.end53:                                         ; preds = %nomatch
-  %18 = load <2 x i32>, ptr %key36, align 4
-  store <2 x i32> %18, ptr %tab, align 8
-  %19 = extractelement <2 x i32> %18, i64 0
-  store i32 %19, ptr %val, align 8
-  %20 = load <2 x i64>, ptr %keyv, align 8
-  store <2 x i64> %20, ptr %ix, align 8
-  %21 = extractelement <2 x i64> %20, i64 0
-  store i64 %21, ptr %valv, align 8
+  %17 = load <2 x i32>, ptr %key36, align 4
+  store <2 x i32> %17, ptr %tab, align 8
+  %18 = extractelement <2 x i32> %17, i64 0
+  store i32 %18, ptr %val, align 8
+  %19 = load <2 x i64>, ptr %keyv, align 8
+  store <2 x i64> %19, ptr %ix, align 8
+  %20 = extractelement <2 x i64> %19, i64 0
+  store i64 %20, ptr %valv, align 8
   %xor = xor i32 %op.addr.0, 3
   br label %while.body
 
@@ -5028,70 +5012,53 @@ land.lhs.true:                                    ; preds = %if.then
   %mtv = getelementptr inbounds i8, ptr %ix, i64 32
   %8 = load ptr, ptr %mtv, align 8
   %cmp4 = icmp eq ptr %8, %7
-  br i1 %cmp4, label %if.then6, label %if.else33
-
-if.then6:                                         ; preds = %land.lhs.true
-  %key = getelementptr inbounds i8, ptr %ix, i64 52
-  %9 = load i32, ptr %key, align 4
-  %conv7 = trunc i32 %9 to i16
-  %fold.i70 = getelementptr inbounds i8, ptr %J, i64 184
-  %ot1.i71 = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 17675, ptr %ot1.i71, align 4
-  store i16 %conv7, ptr %fold.i70, align 8
-  %op2.i74 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 5, ptr %op2.i74, align 2
-  br label %if.end46.sink.split
+  br i1 %cmp4, label %if.end46.sink.split, label %if.else33
 
 land.lhs.true16:                                  ; preds = %if.then
   %and18 = and i64 %4, 140737488355327
-  %10 = inttoptr i64 %and18 to ptr
-  %metatable19 = getelementptr inbounds i8, ptr %10, i64 32
-  %11 = load i64, ptr %metatable19, align 8
-  %12 = inttoptr i64 %11 to ptr
+  %9 = inttoptr i64 %and18 to ptr
+  %metatable19 = getelementptr inbounds i8, ptr %9, i64 32
+  %10 = load i64, ptr %metatable19, align 8
+  %11 = inttoptr i64 %10 to ptr
   %mtv21 = getelementptr inbounds i8, ptr %ix, i64 32
-  %13 = load ptr, ptr %mtv21, align 8
-  %cmp22 = icmp eq ptr %13, %12
-  br i1 %cmp22, label %if.then24, label %if.else33
-
-if.then24:                                        ; preds = %land.lhs.true16
-  %key26 = getelementptr inbounds i8, ptr %ix, i64 52
-  %14 = load i32, ptr %key26, align 4
-  %conv27 = trunc i32 %14 to i16
-  %fold.i52 = getelementptr inbounds i8, ptr %J, i64 184
-  %ot1.i53 = getelementptr inbounds i8, ptr %J, i64 188
-  store i16 17675, ptr %ot1.i53, align 4
-  store i16 %conv27, ptr %fold.i52, align 8
-  %op2.i56 = getelementptr inbounds i8, ptr %J, i64 186
-  store i16 11, ptr %op2.i56, align 2
-  br label %if.end46.sink.split
+  %12 = load ptr, ptr %mtv21, align 8
+  %cmp22 = icmp eq ptr %12, %11
+  br i1 %cmp22, label %if.end46.sink.split, label %if.else33
 
 if.else33:                                        ; preds = %if.then, %land.lhs.true, %land.lhs.true16
   %key34 = getelementptr inbounds i8, ptr %ix, i64 52
-  %15 = load i32, ptr %key34, align 4
-  store i32 %15, ptr %tab, align 8
+  %13 = load i32, ptr %key34, align 4
+  store i32 %13, ptr %tab, align 8
   store i64 %4, ptr %ix, align 8
   %call38 = tail call i32 @lj_record_mm_lookup(ptr noundef %J, ptr noundef nonnull %ix, i32 noundef 4)
   %tobool39.not = icmp eq i32 %call38, 0
   br i1 %tobool39.not, label %if.end47, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.else33
-  %16 = load i32, ptr %mobj, align 8
-  %call42 = call i32 @lj_record_objcmp(ptr noundef %J, i32 noundef %2, i32 noundef %16, ptr noundef nonnull %mo1v, ptr noundef nonnull %mobjv)
+  %14 = load i32, ptr %mobj, align 8
+  %call42 = call i32 @lj_record_objcmp(ptr noundef %J, i32 noundef %2, i32 noundef %14, ptr noundef nonnull %mo1v, ptr noundef nonnull %mobjv)
   %tobool43.not = icmp eq i32 %call42, 0
   br i1 %tobool43.not, label %if.end46, label %if.end47
 
-if.end46.sink.split:                              ; preds = %if.then6, %if.then24
-  %ot1.i53.sink = phi ptr [ %ot1.i53, %if.then24 ], [ %ot1.i71, %if.then6 ]
-  %fold.i52.sink = phi ptr [ %fold.i52, %if.then24 ], [ %fold.i70, %if.then6 ]
-  %op2.i56.sink = phi ptr [ %op2.i56, %if.then24 ], [ %op2.i74, %if.then6 ]
+if.end46.sink.split:                              ; preds = %land.lhs.true16, %land.lhs.true
+  %.sink = phi i16 [ 5, %land.lhs.true ], [ 11, %land.lhs.true16 ]
+  %key26 = getelementptr inbounds i8, ptr %ix, i64 52
+  %15 = load i32, ptr %key26, align 4
+  %conv27 = trunc i32 %15 to i16
+  %fold.i52 = getelementptr inbounds i8, ptr %J, i64 184
+  %ot1.i53 = getelementptr inbounds i8, ptr %J, i64 188
+  store i16 17675, ptr %ot1.i53, align 4
+  store i16 %conv27, ptr %fold.i52, align 8
+  %op2.i56 = getelementptr inbounds i8, ptr %J, i64 186
+  store i16 %.sink, ptr %op2.i56, align 2
   %call28 = tail call i32 @lj_opt_fold(ptr noundef %J) #7
   %conv29 = trunc i32 %call28 to i16
   %mt30 = getelementptr inbounds i8, ptr %ix, i64 60
-  %17 = load i32, ptr %mt30, align 4
-  %conv31 = trunc i32 %17 to i16
-  store i16 2187, ptr %ot1.i53.sink, align 4
-  store i16 %conv29, ptr %fold.i52.sink, align 8
-  store i16 %conv31, ptr %op2.i56.sink, align 2
+  %16 = load i32, ptr %mt30, align 4
+  %conv31 = trunc i32 %16 to i16
+  store i16 2187, ptr %ot1.i53, align 4
+  store i16 %conv29, ptr %fold.i52, align 8
+  store i16 %conv31, ptr %op2.i56, align 2
   %call32 = tail call i32 @lj_opt_fold(ptr noundef %J) #7
   br label %if.end46
 

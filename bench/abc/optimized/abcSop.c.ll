@@ -663,12 +663,12 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
 12:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !14
+  br i1 %exitcond.not, label %Abc_SopComplement.exit.sink.split, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = icmp eq i32 %8, %13
-  br i1 %14, label %._crit_edge.thread, label %.preheader33
+  br i1 %14, label %Abc_SopComplement.exit.sink.split, label %.preheader33
 
 .preheader33:                                     ; preds = %._crit_edge
   br i1 %9, label %.lr.ph38.preheader, label %._crit_edge39.thread
@@ -677,171 +677,167 @@ define ptr @Abc_SopCreateFromTruthIsop(ptr noundef %0, i32 noundef %1, ptr nound
   %wide.trip.count47 = zext nneg i32 %8 to i64
   br label %.lr.ph38
 
-._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %15 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 4) #19
-  store i32 667680, ptr %15, align 1
-  br label %Abc_SopComplement.exit
+.lr.ph38:                                         ; preds = %.lr.ph38.preheader, %17
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next45, %17 ]
+  %15 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv44
+  %16 = load i64, ptr %15, align 8
+  %.not28 = icmp eq i64 %16, -1
+  br i1 %.not28, label %17, label %._crit_edge39
 
-.lr.ph38:                                         ; preds = %.lr.ph38.preheader, %18
-  %indvars.iv44 = phi i64 [ 0, %.lr.ph38.preheader ], [ %indvars.iv.next45, %18 ]
-  %16 = getelementptr inbounds i64, ptr %2, i64 %indvars.iv44
-  %17 = load i64, ptr %16, align 8
-  %.not28 = icmp eq i64 %17, -1
-  br i1 %.not28, label %18, label %._crit_edge39
-
-18:                                               ; preds = %.lr.ph38
+17:                                               ; preds = %.lr.ph38
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next45, %wide.trip.count47
-  br i1 %exitcond48.not, label %._crit_edge39.thread53, label %.lr.ph38, !llvm.loop !15
+  br i1 %exitcond48.not, label %Abc_SopComplement.exit.sink.split, label %.lr.ph38, !llvm.loop !15
 
 ._crit_edge39:                                    ; preds = %.lr.ph38
-  %19 = trunc nuw nsw i64 %indvars.iv44 to i32
-  %20 = icmp eq i32 %8, %19
-  br i1 %20, label %._crit_edge39.thread53, label %._crit_edge39.thread
-
-._crit_edge39.thread53:                           ; preds = %18, %._crit_edge39
-  %21 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 4) #19
-  store i32 667936, ptr %21, align 1
-  br label %Abc_SopComplement.exit
+  %18 = trunc nuw nsw i64 %indvars.iv44 to i32
+  %19 = icmp eq i32 %8, %18
+  br i1 %19, label %Abc_SopComplement.exit.sink.split, label %._crit_edge39.thread
 
 ._crit_edge39.thread:                             ; preds = %4, %.preheader33, %._crit_edge39
-  %22 = tail call i32 @Kit_TruthIsop(ptr noundef %2, i32 noundef %1, ptr noundef %3, i32 noundef 1) #19
-  %23 = getelementptr i8, ptr %3, i64 4
-  %.val.i = load i32, ptr %23, align 4
-  %24 = icmp eq i32 %.val.i, 0
-  br i1 %24, label %Abc_SopCreateFromIsop.exit, label %25
+  %20 = tail call i32 @Kit_TruthIsop(ptr noundef %2, i32 noundef %1, ptr noundef %3, i32 noundef 1) #19
+  %21 = getelementptr i8, ptr %3, i64 4
+  %.val.i = load i32, ptr %21, align 4
+  %22 = icmp eq i32 %.val.i, 0
+  br i1 %22, label %Abc_SopCreateFromIsop.exit, label %23
 
-25:                                               ; preds = %._crit_edge39.thread
-  %26 = add nsw i32 %1, 3
-  %27 = mul nsw i32 %.val.i, %26
-  %28 = add nsw i32 %27, 1
-  %29 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef %28) #19
-  %30 = sext i32 %27 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 45, i64 %30, i1 false)
-  %31 = getelementptr inbounds i8, ptr %29, i64 %30
-  store i8 0, ptr %31, align 1
-  %32 = icmp sgt i32 %.val.i, 0
-  br i1 %32, label %.lr.ph.i.i, label %Abc_SopStart.exit.i
+23:                                               ; preds = %._crit_edge39.thread
+  %24 = add nsw i32 %1, 3
+  %25 = mul nsw i32 %.val.i, %24
+  %26 = add nsw i32 %25, 1
+  %27 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef %26) #19
+  %28 = sext i32 %25 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 45, i64 %28, i1 false)
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  store i8 0, ptr %29, align 1
+  %30 = icmp sgt i32 %.val.i, 0
+  br i1 %30, label %.lr.ph.i.i, label %Abc_SopStart.exit.i
 
-.lr.ph.i.i:                                       ; preds = %25
-  %33 = sext i32 %1 to i64
-  %invariant.gep.i.i = getelementptr i8, ptr %29, i64 %33
-  %34 = sext i32 %26 to i64
+.lr.ph.i.i:                                       ; preds = %23
+  %31 = sext i32 %1 to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %27, i64 %31
+  %32 = sext i32 %24 to i64
   %wide.trip.count.i.i = zext nneg i32 %.val.i to i64
-  br label %35
+  br label %33
 
-35:                                               ; preds = %35, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %35 ]
-  %36 = mul nsw i64 %indvars.iv.i.i, %34
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %36
+33:                                               ; preds = %33, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %33 ]
+  %34 = mul nsw i64 %indvars.iv.i.i, %32
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %34
   store i8 32, ptr %gep.i.i, align 1
-  %37 = getelementptr i8, ptr %gep.i.i, i64 1
-  store i8 49, ptr %37, align 1
-  %38 = getelementptr i8, ptr %gep.i.i, i64 2
-  store i8 10, ptr %38, align 1
+  %35 = getelementptr i8, ptr %gep.i.i, i64 1
+  store i8 49, ptr %35, align 1
+  %36 = getelementptr i8, ptr %gep.i.i, i64 2
+  store i8 10, ptr %36, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Abc_SopStart.exit.i, label %35, !llvm.loop !4
+  br i1 %exitcond.not.i.i, label %Abc_SopStart.exit.i, label %33, !llvm.loop !4
 
-Abc_SopStart.exit.i:                              ; preds = %35, %25
-  %.val2932.i = load i32, ptr %23, align 4
-  %39 = icmp sgt i32 %.val2932.i, 0
-  br i1 %39, label %.lr.ph34.i, label %Abc_SopCreateFromIsop.exit
+Abc_SopStart.exit.i:                              ; preds = %33, %23
+  %.val2932.i = load i32, ptr %21, align 4
+  %37 = icmp sgt i32 %.val2932.i, 0
+  br i1 %37, label %.lr.ph34.i, label %Abc_SopCreateFromIsop.exit
 
 .lr.ph34.i:                                       ; preds = %Abc_SopStart.exit.i
-  %40 = getelementptr i8, ptr %3, i64 8
-  %41 = icmp sgt i32 %1, 0
-  br i1 %41, label %.lr.ph.us.preheader.i, label %Abc_SopCreateFromIsop.exit
+  %38 = getelementptr i8, ptr %3, i64 8
+  %39 = icmp sgt i32 %1, 0
+  br i1 %39, label %.lr.ph.us.preheader.i, label %Abc_SopCreateFromIsop.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph34.i
-  %42 = zext nneg i32 %26 to i64
+  %40 = zext nneg i32 %24 to i64
   %wide.trip.count.i = zext nneg i32 %1 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next38.i, %._crit_edge.us.i ]
-  %.val30.us.i = load ptr, ptr %40, align 8
-  %43 = getelementptr inbounds i32, ptr %.val30.us.i, i64 %indvars.iv37.i
-  %44 = load i32, ptr %43, align 4
-  %45 = mul nuw nsw i64 %indvars.iv37.i, %42
-  %46 = getelementptr inbounds i8, ptr %29, i64 %45
-  br label %47
+  %.val30.us.i = load ptr, ptr %38, align 8
+  %41 = getelementptr inbounds i32, ptr %.val30.us.i, i64 %indvars.iv37.i
+  %42 = load i32, ptr %41, align 4
+  %43 = mul nuw nsw i64 %indvars.iv37.i, %40
+  %44 = getelementptr inbounds i8, ptr %27, i64 %43
+  br label %45
 
-47:                                               ; preds = %53, %.lr.ph.us.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %53 ]
+45:                                               ; preds = %51, %.lr.ph.us.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %51 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %48 = shl i32 %indvars.iv.tr.i, 1
-  %49 = ashr i32 %44, %48
-  %50 = and i32 %49, 3
-  switch i32 %50, label %53 [
-    i32 1, label %51
+  %46 = shl i32 %indvars.iv.tr.i, 1
+  %47 = ashr i32 %42, %46
+  %48 = and i32 %47, 3
+  switch i32 %48, label %51 [
+    i32 1, label %49
     i32 2, label %.sink.split.i
   ]
 
-51:                                               ; preds = %47
+49:                                               ; preds = %45
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %51, %47
-  %.sink.i = phi i8 [ 48, %51 ], [ 49, %47 ]
-  %52 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.i
-  store i8 %.sink.i, ptr %52, align 1
-  br label %53
+.sink.split.i:                                    ; preds = %49, %45
+  %.sink.i = phi i8 [ 48, %49 ], [ 49, %45 ]
+  %50 = getelementptr inbounds i8, ptr %44, i64 %indvars.iv.i
+  store i8 %.sink.i, ptr %50, align 1
+  br label %51
 
-53:                                               ; preds = %.sink.split.i, %47
+51:                                               ; preds = %.sink.split.i, %45
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !12
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %45, !llvm.loop !12
 
-._crit_edge.us.i:                                 ; preds = %53
+._crit_edge.us.i:                                 ; preds = %51
   %indvars.iv.next38.i = add nuw nsw i64 %indvars.iv37.i, 1
-  %.val29.us.i = load i32, ptr %23, align 4
-  %54 = sext i32 %.val29.us.i to i64
-  %55 = icmp slt i64 %indvars.iv.next38.i, %54
-  br i1 %55, label %.lr.ph.us.i, label %Abc_SopCreateFromIsop.exit, !llvm.loop !13
+  %.val29.us.i = load i32, ptr %21, align 4
+  %52 = sext i32 %.val29.us.i to i64
+  %53 = icmp slt i64 %indvars.iv.next38.i, %52
+  br i1 %53, label %.lr.ph.us.i, label %Abc_SopCreateFromIsop.exit, !llvm.loop !13
 
 Abc_SopCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %._crit_edge39.thread, %Abc_SopStart.exit.i, %.lr.ph34.i
-  %.0.i = phi ptr [ null, %._crit_edge39.thread ], [ %29, %Abc_SopStart.exit.i ], [ %29, %.lr.ph34.i ], [ %29, %._crit_edge.us.i ]
-  %.not29 = icmp eq i32 %22, 0
+  %.0.i = phi ptr [ null, %._crit_edge39.thread ], [ %27, %Abc_SopStart.exit.i ], [ %27, %.lr.ph34.i ], [ %27, %._crit_edge.us.i ]
+  %.not29 = icmp eq i32 %20, 0
   br i1 %.not29, label %Abc_SopComplement.exit, label %.preheader
 
-.preheader:                                       ; preds = %Abc_SopCreateFromIsop.exit, %63
-  %.0.i30 = phi ptr [ %64, %63 ], [ %.0.i, %Abc_SopCreateFromIsop.exit ]
-  %56 = load i8, ptr %.0.i30, align 1
-  switch i8 %56, label %63 [
+.preheader:                                       ; preds = %Abc_SopCreateFromIsop.exit, %61
+  %.0.i30 = phi ptr [ %62, %61 ], [ %.0.i, %Abc_SopCreateFromIsop.exit ]
+  %54 = load i8, ptr %.0.i30, align 1
+  switch i8 %54, label %61 [
     i8 0, label %Abc_SopComplement.exit
-    i8 10, label %57
+    i8 10, label %55
   ]
 
-57:                                               ; preds = %.preheader
-  %58 = getelementptr inbounds i8, ptr %.0.i30, i64 -1
-  %59 = load i8, ptr %58, align 1
-  switch i8 %59, label %63 [
+55:                                               ; preds = %.preheader
+  %56 = getelementptr inbounds i8, ptr %.0.i30, i64 -1
+  %57 = load i8, ptr %56, align 1
+  switch i8 %57, label %61 [
     i8 48, label %.sink.split.i31
-    i8 49, label %60
-    i8 120, label %61
-    i8 110, label %62
+    i8 49, label %58
+    i8 120, label %59
+    i8 110, label %60
   ]
 
-60:                                               ; preds = %57
+58:                                               ; preds = %55
   br label %.sink.split.i31
 
-61:                                               ; preds = %57
+59:                                               ; preds = %55
   br label %.sink.split.i31
 
-62:                                               ; preds = %57
+60:                                               ; preds = %55
   br label %.sink.split.i31
 
-.sink.split.i31:                                  ; preds = %62, %61, %60, %57
-  %.sink.i32 = phi i8 [ 48, %60 ], [ 120, %62 ], [ 110, %61 ], [ 49, %57 ]
-  store i8 %.sink.i32, ptr %58, align 1
-  br label %63
+.sink.split.i31:                                  ; preds = %60, %59, %58, %55
+  %.sink.i32 = phi i8 [ 48, %58 ], [ 120, %60 ], [ 110, %59 ], [ 49, %55 ]
+  store i8 %.sink.i32, ptr %56, align 1
+  br label %61
 
-63:                                               ; preds = %.sink.split.i31, %57, %.preheader
-  %64 = getelementptr inbounds i8, ptr %.0.i30, i64 1
+61:                                               ; preds = %.sink.split.i31, %55, %.preheader
+  %62 = getelementptr inbounds i8, ptr %.0.i30, i64 1
   br label %.preheader, !llvm.loop !16
 
-Abc_SopComplement.exit:                           ; preds = %.preheader, %Abc_SopCreateFromIsop.exit, %._crit_edge39.thread53, %._crit_edge.thread
-  %.0 = phi ptr [ %15, %._crit_edge.thread ], [ %21, %._crit_edge39.thread53 ], [ %.0.i, %Abc_SopCreateFromIsop.exit ], [ %.0.i, %.preheader ]
+Abc_SopComplement.exit.sink.split:                ; preds = %12, %17, %._crit_edge39, %._crit_edge
+  %.sink = phi i32 [ 667680, %._crit_edge ], [ 667936, %._crit_edge39 ], [ 667936, %17 ], [ 667680, %12 ]
+  %63 = tail call ptr @Mem_FlexEntryFetch(ptr noundef %0, i32 noundef 4) #19
+  store i32 %.sink, ptr %63, align 1
+  br label %Abc_SopComplement.exit
+
+Abc_SopComplement.exit:                           ; preds = %.preheader, %Abc_SopComplement.exit.sink.split, %Abc_SopCreateFromIsop.exit
+  %.0 = phi ptr [ %.0.i, %Abc_SopCreateFromIsop.exit ], [ %63, %Abc_SopComplement.exit.sink.split ], [ %.0.i, %.preheader ]
   ret ptr %.0
 }
 

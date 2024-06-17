@@ -85445,15 +85445,15 @@ invoke.cont48:                                    ; preds = %invoke.cont45
   br i1 %tobool.not.i38, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %invoke.cont48, %invoke.cont36
-  %call37.sink = phi ptr [ %call37, %invoke.cont36 ], [ %call49, %invoke.cont48 ]
-  %m_ref_count.i.i.i27 = getelementptr inbounds i8, ptr %call37.sink, i64 8
-  %29 = load i32, ptr %m_ref_count.i.i.i27, align 4
+  %call49.sink = phi ptr [ %call37, %invoke.cont36 ], [ %call49, %invoke.cont48 ]
+  %m_ref_count.i.i.i40 = getelementptr inbounds i8, ptr %call49.sink, i64 8
+  %29 = load i32, ptr %m_ref_count.i.i.i40, align 4
   %inc.i.i.i41 = add i32 %29, 1
-  store i32 %inc.i.i.i41, ptr %m_ref_count.i.i.i27, align 4
+  store i32 %inc.i.i.i41, ptr %m_ref_count.i.i.i40, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %invoke.cont48, %invoke.cont36
-  %30 = phi ptr [ null, %invoke.cont36 ], [ null, %invoke.cont48 ], [ %call37.sink, %if.end.sink.split ]
+  %30 = phi ptr [ null, %invoke.cont36 ], [ null, %invoke.cont48 ], [ %call49.sink, %if.end.sink.split ]
   store ptr %30, ptr %bv_srt, align 8
   %31 = load ptr, ptr %m, align 8
   store ptr null, ptr %wrap_fd, align 8

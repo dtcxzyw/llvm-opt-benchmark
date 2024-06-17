@@ -9215,42 +9215,36 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit: ; preds = %entry, %if.then.i,
 
 if.then:                                          ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
   %call1 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor12message_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %f)
-  %all_names_.i = getelementptr inbounds i8, ptr %call1, i64 8
-  %6 = load ptr, ptr %all_names_.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %6, i64 32
-  %call3 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i) #24
-  %7 = extractvalue { i64, ptr } %call3, 0
-  %8 = extractvalue { i64, ptr } %call3, 1
-  br label %return
+  br label %return.sink.split
 
 if.end:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit
-  %9 = load ptr, ptr %type_once_.i, align 8
-  %tobool.not.i5 = icmp eq ptr %9, null
+  %6 = load ptr, ptr %type_once_.i, align 8
+  %tobool.not.i5 = icmp eq ptr %6, null
   br i1 %tobool.not.i5, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17, label %if.then.i6
 
 if.then.i6:                                       ; preds = %if.end
-  %10 = load atomic i32, ptr %9 acquire, align 4
-  %cmp.not.i.i7 = icmp eq i32 %10, 221
+  %7 = load atomic i32, ptr %6 acquire, align 4
+  %cmp.not.i.i7 = icmp eq i32 %7, 221
   br i1 %cmp.not.i.i7, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split, label %if.then.i.i8
 
 if.then.i.i8:                                     ; preds = %if.then.i6
-  %11 = cmpxchg ptr %9, i32 0, i32 1707250555 monotonic monotonic, align 4
-  %12 = extractvalue { i32, i1 } %11, 1
-  br i1 %12, label %if.then.i.i.i14, label %lor.lhs.false.i.i.i9
+  %8 = cmpxchg ptr %6, i32 0, i32 1707250555 monotonic monotonic, align 4
+  %9 = extractvalue { i32, i1 } %8, 1
+  br i1 %9, label %if.then.i.i.i14, label %lor.lhs.false.i.i.i9
 
 lor.lhs.false.i.i.i9:                             ; preds = %if.then.i.i8
-  %call1.i.i.i10 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %9, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
+  %call1.i.i.i10 = tail call noundef i32 @_ZN4absl12lts_2023080213base_internal12SpinLockWaitEPSt6atomicIjEiPKNS1_22SpinLockWaitTransitionENS1_14SchedulingModeE(ptr noundef nonnull %6, i32 noundef 3, ptr noundef nonnull @_ZZN4absl12lts_2023080213base_internal12CallOnceImplIPFvPKN6google8protobuf15FieldDescriptorEEJS7_EEEvPSt6atomicIjENS1_14SchedulingModeEOT_DpOT0_E5trans, i32 noundef 1)
   %cmp.i.i.i11 = icmp eq i32 %call1.i.i.i10, 0
   br i1 %cmp.i.i.i11, label %if.then.i.i.i14, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split
 
 if.then.i.i.i14:                                  ; preds = %lor.lhs.false.i.i.i9, %if.then.i.i8
   tail call void @_ZN6google8protobuf15FieldDescriptor12TypeOnceInitEPKS1_(ptr noundef nonnull %f)
-  %13 = atomicrmw xchg ptr %9, i32 221 release, align 4
-  %cmp4.i.i.i15 = icmp eq i32 %13, 94570706
+  %10 = atomicrmw xchg ptr %6, i32 221 release, align 4
+  %cmp4.i.i.i15 = icmp eq i32 %10, 94570706
   br i1 %cmp4.i.i.i15, label %if.then5.i.i.i16, label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split
 
 if.then5.i.i.i16:                                 ; preds = %if.then.i.i.i14
-  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %9, i1 noundef zeroext true)
+  tail call void @AbslInternalSpinLockWake_lts_20230802(ptr noundef nonnull %6, i1 noundef zeroext true)
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split: ; preds = %if.then5.i.i.i16, %if.then.i.i.i14, %lor.lhs.false.i.i.i9, %if.then.i6
@@ -9258,23 +9252,27 @@ _ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split: ; preds = %
   br label %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17
 
 _ZNK6google8protobuf15FieldDescriptor4typeEv.exit17: ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split, %if.end
-  %14 = phi i8 [ %.pr, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split ], [ %5, %if.end ]
-  %cmp5 = icmp eq i8 %14, 14
+  %11 = phi i8 [ %.pr, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17thread-pre-split ], [ %5, %if.end ]
+  %cmp5 = icmp eq i8 %11, 14
   br i1 %cmp5, label %if.then6, label %return
 
 if.then6:                                         ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17
   %call7 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %f)
-  %all_names_.i18 = getelementptr inbounds i8, ptr %call7, i64 8
-  %15 = load ptr, ptr %all_names_.i18, align 8
-  %arrayidx.i19 = getelementptr inbounds i8, ptr %15, i64 32
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.then, %if.then6
+  %call7.sink = phi ptr [ %call7, %if.then6 ], [ %call1, %if.then ]
+  %all_names_.i18 = getelementptr inbounds i8, ptr %call7.sink, i64 8
+  %12 = load ptr, ptr %all_names_.i18, align 8
+  %arrayidx.i19 = getelementptr inbounds i8, ptr %12, i64 32
   %call9 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx.i19) #24
-  %16 = extractvalue { i64, ptr } %call9, 0
-  %17 = extractvalue { i64, ptr } %call9, 1
+  %13 = extractvalue { i64, ptr } %call9, 0
+  %14 = extractvalue { i64, ptr } %call9, 1
   br label %return
 
-return:                                           ; preds = %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17, %if.then6, %if.then
-  %retval.sroa.4.0 = phi ptr [ %8, %if.then ], [ %17, %if.then6 ], [ @.str.40, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17 ]
-  %retval.sroa.0.0 = phi i64 [ %7, %if.then ], [ %16, %if.then6 ], [ 0, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17 ]
+return:                                           ; preds = %return.sink.split, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17
+  %retval.sroa.4.0 = phi ptr [ @.str.40, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17 ], [ %14, %return.sink.split ]
+  %retval.sroa.0.0 = phi i64 [ 0, %_ZNK6google8protobuf15FieldDescriptor4typeEv.exit17 ], [ %13, %return.sink.split ]
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
   ret { i64, ptr } %.fca.1.insert

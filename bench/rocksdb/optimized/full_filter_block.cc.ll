@@ -560,10 +560,10 @@ cleanup.sink.split:                               ; preds = %cleanup.sink.split.
   %.sink14 = phi i64 [ 536, %if.then14 ], [ 544, %if.then18 ], [ %.sink14.ph, %cleanup.sink.split.sink.split ]
   %retval.0.ph = phi i1 [ true, %if.then14 ], [ false, %if.then18 ], [ %call12, %cleanup.sink.split.sink.split ]
   %13 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %bloom_sst_hit_count = getelementptr inbounds i8, ptr %13, i64 %.sink14
-  %14 = load i64, ptr %bloom_sst_hit_count, align 8
+  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %13, i64 %.sink14
+  %14 = load i64, ptr %bloom_sst_miss_count, align 8
   %add19 = add i64 %14, 1
-  store i64 %add19, ptr %bloom_sst_hit_count, align 8
+  store i64 %add19, ptr %bloom_sst_miss_count, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.end, %_ZTWN7rocksdb10perf_levelE.exit5, %_ZTWN7rocksdb10perf_levelE.exit, %invoke.cont4

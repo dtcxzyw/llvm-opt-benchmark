@@ -11845,30 +11845,30 @@ define linkonce_odr dso_local void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7
           to label %17 unwind label %13
 
 17:                                               ; preds = %11, %15
-  %.sink42.i = phi ptr [ %12, %11 ], [ %16, %15 ]
+  %.sink43.i = phi ptr [ %12, %11 ], [ %16, %15 ]
   %.sink34.i = phi ptr [ %1, %11 ], [ null, %15 ]
   %18 = ptrtoint ptr %2 to i64
   %19 = ptrtoint ptr %1 to i64
   %20 = sub i64 %18, %19
-  %21 = getelementptr inbounds i8, ptr %.sink42.i, i64 8
+  %21 = getelementptr inbounds i8, ptr %.sink43.i, i64 8
   store i32 1, ptr %21, align 8, !noalias !364
-  %22 = getelementptr inbounds i8, ptr %.sink42.i, i64 12
+  %22 = getelementptr inbounds i8, ptr %.sink43.i, i64 12
   store i32 1, ptr %22, align 4, !noalias !364
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink42.i, align 8, !noalias !364
-  %23 = getelementptr inbounds i8, ptr %.sink42.i, i64 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink43.i, align 8, !noalias !364
+  %23 = getelementptr inbounds i8, ptr %.sink43.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail20input_buffer_adapterE, i64 16), ptr %23, align 8, !noalias !364
-  %24 = getelementptr inbounds i8, ptr %.sink42.i, i64 24
+  %24 = getelementptr inbounds i8, ptr %.sink43.i, i64 24
   store ptr %.sink34.i, ptr %24, align 8, !noalias !364
-  %25 = getelementptr inbounds i8, ptr %.sink42.i, i64 32
+  %25 = getelementptr inbounds i8, ptr %.sink43.i, i64 32
   %26 = getelementptr inbounds i8, ptr %.sink34.i, i64 %20
   store ptr %26, ptr %25, align 8, !noalias !364
   store ptr %23, ptr %8, align 8
   %27 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr %.sink42.i, ptr %27, align 8
+  store ptr %.sink43.i, ptr %27, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !365)
   store ptr %23, ptr %7, align 8, !alias.scope !365
   %28 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr %.sink42.i, ptr %28, align 8, !alias.scope !365
+  store ptr %.sink43.i, ptr %28, align 8, !alias.scope !365
   %29 = load i8, ptr @__libc_single_threaded, align 1, !noalias !365
   %.not.i.i.i.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i.i.i.i, label %31, label %30
@@ -16648,16 +16648,16 @@ _ZN8nlohmann6detail9iter_implIKNS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic
   br i1 %347, label %.loopexit6.i, label %.lr.ph.i.i, !llvm.loop !497
 
 .loopexit.sink.split.i.i:                         ; preds = %327, %294, %281, %268
-  %.sink62.i.i = phi ptr [ %29, %268 ], [ %31, %281 ], [ %33, %294 ], [ %37, %327 ]
-  %.sink61.i.i = phi ptr [ %30, %268 ], [ %32, %281 ], [ %34, %294 ], [ %38, %327 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink62.i.i) #30
+  %.sink61.i.i = phi ptr [ %29, %268 ], [ %31, %281 ], [ %33, %294 ], [ %37, %327 ]
+  %.sink.i.i = phi ptr [ %30, %268 ], [ %32, %281 ], [ %34, %294 ], [ %38, %327 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink61.i.i) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink.i.i) #30
   br label %.loopexit6.i
 
 348:                                              ; preds = %331, %329, %298, %296, %285, %283, %278, %269
-  %.sink63.i.i = phi ptr [ %30, %278 ], [ %30, %269 ], [ %32, %285 ], [ %32, %283 ], [ %34, %298 ], [ %34, %296 ], [ %38, %331 ], [ %38, %329 ]
+  %.sink62.i.i = phi ptr [ %30, %278 ], [ %30, %269 ], [ %32, %285 ], [ %32, %283 ], [ %34, %298 ], [ %34, %296 ], [ %38, %331 ], [ %38, %329 ]
   %.pn50.pn.i.i = phi { ptr, i32 } [ %.pn46.pn.i.i, %278 ], [ %270, %269 ], [ %286, %285 ], [ %284, %283 ], [ %299, %298 ], [ %297, %296 ], [ %332, %331 ], [ %330, %329 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink63.i.i) #30
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink62.i.i) #30
   br label %.body.i
 
 .loopexit6.i:                                     ; preds = %.noexc59.i, %.loopexit.sink.split.i.i, %324, %.noexc52.i, %291, %257
@@ -20856,9 +20856,9 @@ _ZN8tinygltfL19ParseExtrasPropertyEPNS_5ValueERKN8nlohmann10basic_jsonISt3mapSt6
   ret void
 
 .body:                                            ; preds = %128, %126, %142, %144, %174, %216
-  %.sink112 = phi ptr [ %15, %216 ], [ %14, %174 ], [ %14, %144 ], [ %14, %142 ], [ %14, %126 ], [ %14, %128 ]
+  %.sink = phi ptr [ %15, %216 ], [ %14, %174 ], [ %14, %144 ], [ %14, %142 ], [ %14, %126 ], [ %14, %128 ]
   %.pn = phi { ptr, i32 } [ %217, %216 ], [ %175, %174 ], [ %.pn9.i25, %144 ], [ %143, %142 ], [ %127, %126 ], [ %.pn9.i, %128 ]
-  call void @_ZN8tinygltf9ParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.sink112) #30
+  call void @_ZN8tinygltf9ParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %.sink) #30
   resume { ptr, i32 } %.pn
 }
 

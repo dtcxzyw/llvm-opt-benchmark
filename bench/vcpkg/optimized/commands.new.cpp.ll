@@ -1041,8 +1041,8 @@ define dso_local void @_ZN5vcpkg20command_new_and_exitERKNS_17VcpkgCmdArgumentsE
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %3, i64 8
   %.not10.i.i.i.i = icmp eq ptr %28, null
-  %.sink230.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
-  %.sink230.sroa.gep239 = getelementptr inbounds i8, ptr %10, i64 8
+  %.sink229.sroa.gep = getelementptr inbounds i8, ptr %9, i64 8
+  %.sink229.sroa.gep238 = getelementptr inbounds i8, ptr %10, i64 8
   br i1 %.not10.i.i.i.i, label %.thread177, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %2, %.lr.ph.i.i.i.i
@@ -1299,16 +1299,16 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br label %.invoke
 
 .invoke:                                          ; preds = %77, %91
-  %.sink230.sroa.phi = phi ptr [ %.sink230.sroa.gep, %77 ], [ %.sink230.sroa.gep239, %91 ]
-  %.sink230 = phi ptr [ %9, %77 ], [ %10, %91 ]
+  %.sink229.sroa.phi = phi ptr [ %.sink229.sroa.gep, %77 ], [ %.sink229.sroa.gep238, %91 ]
+  %.sink229 = phi ptr [ %9, %77 ], [ %10, %91 ]
   %_ZN5vcpkg27msgNewManifestAlreadyExistsE.sink = phi ptr [ @_ZN5vcpkg27msgNewManifestAlreadyExistsE, %77 ], [ @_ZN5vcpkg32msgNewConfigurationAlreadyExistsE, %91 ]
-  %.sink = phi ptr [ %7, %77 ], [ %8, %91 ]
-  store ptr @.str.3, ptr %.sink230.sroa.phi, align 8
+  %.sink228 = phi ptr [ %7, %77 ], [ %8, %91 ]
+  store ptr @.str.3, ptr %.sink229.sroa.phi, align 8
   %.sroa.013.0.copyload = load i64, ptr %_ZN5vcpkg27msgNewManifestAlreadyExistsE.sink, align 8
-  %92 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
+  %92 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink228) #16
   %93 = extractvalue { ptr, i64 } %92, 0
   %94 = extractvalue { ptr, i64 } %92, 1
-  invoke void @_ZN5vcpkg6Checks19msg_exit_with_errorIJNS_3msg6path_tEEJNS_10StringViewEEEEvRKNS_8LineInfoENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS9_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(16) %.sink230, i64 %.sroa.013.0.copyload, ptr %93, i64 %94) #18
+  invoke void @_ZN5vcpkg6Checks19msg_exit_with_errorIJNS_3msg6path_tEEJNS_10StringViewEEEEvRKNS_8LineInfoENS2_8MessageTIJDpT_EEEDpNS2_6TagArgINS_8identityIS9_E4typeET0_EE(ptr noundef nonnull align 8 dereferenceable(16) %.sink229, i64 %.sroa.013.0.copyload, ptr %93, i64 %94) #18
           to label %.cont unwind label %86
 
 .cont:                                            ; preds = %.invoke
@@ -1549,8 +1549,8 @@ _ZNKSt8_Rb_treeIN5vcpkg13StringLiteralES1_St9_IdentityIS1_ESt4lessIvESaIS1_EE14_
   br label %202
 
 192:                                              ; preds = %176, %186
-  %.sink228 = phi ptr [ %21, %186 ], [ %18, %176 ]
-  call void @_ZN5vcpkg4Json6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink228) #16
+  %.sink = phi ptr [ %21, %186 ], [ %18, %176 ]
+  call void @_ZN5vcpkg4Json6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %.sink) #16
   invoke void @_ZN5vcpkg4Json9stringifyB5cxx11ERKNS0_6ObjectE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %23, ptr noundef nonnull align 8 dereferenceable(24) %71)
           to label %193 unwind label %102
 

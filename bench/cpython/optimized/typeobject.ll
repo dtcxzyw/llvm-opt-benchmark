@@ -27522,13 +27522,13 @@ if.else83.i:                                      ; preds = %for.cond.i, %if.end
   br i1 %tobool85.not.i, label %if.end96.i, label %if.end96.sink.split.i
 
 if.end96.sink.split.i:                            ; preds = %for.body.i.i, %for.body.i52.i, %for.body.i74.i, %for.body.i96.i, %for.body.i81, %for.body.i59, %for.body.i, %do.body.i.i.i, %do.body.i.i59.i, %do.body.i.i81.i, %do.body.i.i103.i, %do.body.i.i88, %do.body.i.i66, %do.body.i.i, %if.else83.i, %PyType_IsSubtype.exit.i
-  %.sink = phi i64 [ 1073741824, %PyType_IsSubtype.exit.i ], [ 536870912, %if.else83.i ], [ 33554432, %do.body.i.i ], [ 67108864, %do.body.i.i66 ], [ 268435456, %do.body.i.i88 ], [ 134217728, %do.body.i.i103.i ], [ 16777216, %do.body.i.i81.i ], [ 2147483648, %do.body.i.i59.i ], [ 1073741824, %do.body.i.i.i ], [ 33554432, %for.body.i ], [ 67108864, %for.body.i59 ], [ 268435456, %for.body.i81 ], [ 134217728, %for.body.i96.i ], [ 16777216, %for.body.i74.i ], [ 2147483648, %for.body.i52.i ], [ 1073741824, %for.body.i.i ]
-  %or88.i = or i64 %or23.i, %.sink
-  store i64 %or88.i, ptr %tp_flags.i, align 8
+  %.sink.i = phi i64 [ 1073741824, %PyType_IsSubtype.exit.i ], [ 536870912, %if.else83.i ], [ 33554432, %do.body.i.i ], [ 67108864, %do.body.i.i66 ], [ 268435456, %do.body.i.i88 ], [ 134217728, %do.body.i.i103.i ], [ 16777216, %do.body.i.i81.i ], [ 2147483648, %do.body.i.i59.i ], [ 1073741824, %do.body.i.i.i ], [ 33554432, %for.body.i ], [ 67108864, %for.body.i59 ], [ 268435456, %for.body.i81 ], [ 134217728, %for.body.i96.i ], [ 16777216, %for.body.i74.i ], [ 2147483648, %for.body.i52.i ], [ 1073741824, %for.body.i.i ]
+  %or52.i = or i64 %.sink.i, %or23.i
+  store i64 %or52.i, ptr %tp_flags.i, align 8
   br label %if.end96.i
 
 if.end96.i:                                       ; preds = %if.end96.sink.split.i, %if.else83.i
-  %34 = phi i64 [ %or23.i, %if.else83.i ], [ %or88.i, %if.end96.sink.split.i ]
+  %34 = phi i64 [ %or23.i, %if.else83.i ], [ %or52.i, %if.end96.sink.split.i ]
   %base.val44.i = load i64, ptr %tp_flags20.i, align 8
   %35 = and i64 %base.val44.i, 4194304
   %tobool98.not.i = icmp eq i64 %35, 0
@@ -27557,8 +27557,8 @@ if.end:                                           ; preds = %if.then105.i, %if.e
   %type.val = load ptr, ptr %38, align 8
   %39 = getelementptr i8, ptr %type.val, i64 16
   %call.val = load i64, ptr %39, align 8
-  %cmp2113 = icmp sgt i64 %call.val, 1
-  br i1 %cmp2113, label %for.body.lr.ph, label %for.end
+  %cmp2119 = icmp sgt i64 %call.val, 1
+  br i1 %cmp2119, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %if.end
   %ob_item = getelementptr inbounds i8, ptr %type.val, i64 24
@@ -27595,8 +27595,8 @@ for.body.lr.ph:                                   ; preds = %if.end
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.0114 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.0114
+  %i.0120 = phi i64 [ 1, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %arrayidx = getelementptr [1 x ptr], ptr %ob_item, i64 0, i64 %i.0120
   %42 = load ptr, ptr %arrayidx, align 8
   %43 = getelementptr i8, ptr %42, i64 8
   %.val = load ptr, ptr %43, align 8
@@ -29791,7 +29791,7 @@ if.then.i34:                                      ; preds = %if.end8
   br label %for.inc
 
 for.inc:                                          ; preds = %if.then.i34, %if.end8, %for.body
-  %inc = add nuw nsw i64 %i.0114, 1
+  %inc = add nuw nsw i64 %i.0120, 1
   %exitcond.not = icmp eq i64 %inc, %call.val
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !88
 

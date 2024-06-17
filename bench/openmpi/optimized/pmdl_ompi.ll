@@ -5334,8 +5334,8 @@ pmix_obj_run_destructors.exit318:                 ; preds = %.lr.ph.i315, %436
 
 468:                                              ; preds = %460, %318, %169
   %.sink426 = phi ptr [ %181, %460 ], [ %181, %318 ], [ %33, %169 ]
-  %.sink = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.sink) #15
+  %.sink427 = load ptr, ptr %4, align 8
+  call void @free(ptr noundef %.sink427) #15
   %469 = load ptr, ptr %22, align 8
   %470 = getelementptr inbounds i8, ptr %.sink426, i64 128
   store ptr %469, ptr %470, align 8

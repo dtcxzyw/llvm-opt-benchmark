@@ -303,10 +303,10 @@ if.then62.invoke:                                 ; preds = %if.then52, %if.then
           to label %cleanup unwind label %lpad
 
 cleanup.sink.split:                               ; preds = %invoke.cont58, %invoke.cont
-  %m_miss = getelementptr inbounds i8, ptr %this, i64 792
-  %34 = load i32, ptr %m_miss, align 8
+  %m_miss67 = getelementptr inbounds i8, ptr %this, i64 792
+  %34 = load i32, ptr %m_miss67, align 8
   %inc68 = add i32 %34, 1
-  store i32 %inc68, ptr %m_miss, align 8
+  store i32 %inc68, ptr %m_miss67, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %if.then62.invoke
@@ -3651,13 +3651,13 @@ terminate.lpad.i141:                              ; preds = %if.then9.i.i140
   unreachable
 
 return.sink.split:                                ; preds = %for.cond.i.i.i137, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i130, %if.end.i.i127, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit, %_ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit
-  %lits.sink = phi ptr [ %units, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %clauses, %_ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit ], [ %lits, %if.end.i.i127 ], [ %lits, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i130 ], [ %lits, %for.cond.i.i.i137 ]
-  %.sink148 = phi i32 [ 1, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ 1, %_ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit ], [ -1, %if.end.i.i127 ], [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i130 ], [ -1, %for.cond.i.i.i137 ]
-  %71 = load ptr, ptr %lits.sink, align 8
-  %arrayidx.i144 = getelementptr inbounds i8, ptr %71, i64 -4
-  %72 = load i32, ptr %arrayidx.i144, align 4
+  %clauses.sink = phi ptr [ %clauses, %_ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit ], [ %units, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ %lits, %if.end.i.i127 ], [ %lits, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i130 ], [ %lits, %for.cond.i.i.i137 ]
+  %.sink148 = phi i32 [ 1, %_ZN6vectorIPN3sat6clauseELb0EjE9push_backERKS2_.exit ], [ 1, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ], [ -1, %if.end.i.i127 ], [ -1, %_ZNK6vectorIjLb0EjE3endEv.exit.i.i.i130 ], [ -1, %for.cond.i.i.i137 ]
+  %71 = load ptr, ptr %clauses.sink, align 8
+  %arrayidx10.i = getelementptr inbounds i8, ptr %71, i64 -4
+  %72 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %72, %.sink148
-  store i32 %inc.i, ptr %arrayidx.i144, align 4
+  store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

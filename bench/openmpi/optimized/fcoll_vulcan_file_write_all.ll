@@ -1894,8 +1894,8 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br label %.loopexit569.sink.split
 
 97:                                               ; preds = %.loopexit570, %91
-  %.sink768 = phi i64 [ %94, %91 ], [ %82, %.loopexit570 ]
-  %98 = trunc i64 %.sink768 to i32
+  %.sink764 = phi i64 [ %94, %91 ], [ %82, %.loopexit570 ]
+  %98 = trunc i64 %.sink764 to i32
   %99 = getelementptr inbounds i8, ptr %3, i64 144
   store i32 %98, ptr %99, align 8
   %100 = getelementptr inbounds i8, ptr %3, i64 144
@@ -2169,7 +2169,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %295 = load i32, ptr %294, align 4
   %296 = icmp eq i32 %295, %2
   %297 = select i1 %296, i32 %.pre697, i32 0
-  %spec.select765 = add nsw i32 %.0483592, %297
+  %spec.select766 = add nsw i32 %.0483592, %297
   %298 = load i32, ptr %107, align 4
   %299 = sub nsw i32 %298, %.pre697
   store i32 %299, ptr %107, align 4
@@ -2245,7 +2245,7 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   %354 = load i32, ptr %353, align 4
   %355 = icmp eq i32 %354, %2
   %356 = select i1 %355, i32 %.pre718, i32 0
-  %spec.select766 = add nsw i32 %.0483592, %356
+  %spec.select767 = add nsw i32 %.0483592, %356
   %357 = load ptr, ptr %109, align 8
   %358 = load ptr, ptr %104, align 8
   %359 = load i32, ptr %105, align 8
@@ -2415,9 +2415,9 @@ define internal fastcc void @shuffle_init(i32 noundef %0, i32 noundef %1, i32 no
   br i1 %.not544, label %.loopexit569, label %113, !llvm.loop !40
 
 .loopexit569.sink.split:                          ; preds = %290, %349, %.thread
-  %.sink767 = phi ptr [ %96, %.thread ], [ %100, %349 ], [ %100, %290 ]
-  %.6.ph = phi i32 [ 0, %.thread ], [ %spec.select766, %349 ], [ %spec.select765, %290 ]
-  store i32 0, ptr %.sink767, align 8
+  %.sink = phi ptr [ %96, %.thread ], [ %100, %349 ], [ %100, %290 ]
+  %.6.ph = phi i32 [ 0, %.thread ], [ %spec.select767, %349 ], [ %spec.select766, %290 ]
+  store i32 0, ptr %.sink, align 8
   br label %.loopexit569
 
 .loopexit569:                                     ; preds = %481, %.loopexit569.sink.split, %97

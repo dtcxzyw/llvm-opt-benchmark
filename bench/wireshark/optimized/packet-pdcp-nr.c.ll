@@ -1348,9 +1348,9 @@ define internal i32 @dissect_pdcp_nr(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %83
 
 83:                                               ; preds = %77, %81
-  %.sink591 = phi i32 [ 1, %81 ], [ 0, %77 ]
+  %.sink590 = phi i32 [ 1, %81 ], [ 0, %77 ]
   %84 = load ptr, ptr %25, align 8
-  tail call void @col_set_writable(ptr noundef %84, i32 noundef 25, i32 noundef %.sink591) #13
+  tail call void @col_set_writable(ptr noundef %84, i32 noundef 25, i32 noundef %.sink590) #13
   %85 = getelementptr inbounds i8, ptr %.0325, i64 12
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, 1
@@ -2132,9 +2132,9 @@ proto_item_set_generated.exit426:                 ; preds = %proto_item_set_gene
 
 509:                                              ; preds = %503, %507, %497, %501
   %hf_pdcp_nr_seq_num_18.sink = phi ptr [ @hf_pdcp_nr_seq_num_12, %501 ], [ @hf_pdcp_nr_seq_num_12, %497 ], [ @hf_pdcp_nr_seq_num_18, %507 ], [ @hf_pdcp_nr_seq_num_18, %503 ]
-  %.sink593 = phi i32 [ 2, %501 ], [ 2, %497 ], [ 3, %507 ], [ 3, %503 ]
+  %.sink591 = phi i32 [ 2, %501 ], [ 2, %497 ], [ 3, %507 ], [ 3, %503 ]
   %510 = load i32, ptr %hf_pdcp_nr_seq_num_18.sink, align 4
-  %511 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0322513, i32 noundef %510, ptr noundef %0, i32 noundef 0, i32 noundef %.sink593, i32 noundef 0, ptr noundef nonnull %14) #13
+  %511 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %.0322513, i32 noundef %510, ptr noundef %0, i32 noundef 0, i32 noundef %.sink591, i32 noundef 0, ptr noundef nonnull %14) #13
   %512 = load i32, ptr %14, align 4
   call void (ptr, ptr, ptr, ...) @write_pdu_label_and_info(ptr noundef %.0323512, ptr noundef nonnull %1, ptr noundef nonnull @.str.281, i32 noundef %512)
   br label %578
@@ -2285,7 +2285,7 @@ proto_item_set_generated.exit426:                 ; preds = %proto_item_set_gene
   br label %1448
 
 578:                                              ; preds = %484, %509
-  %.0504 = phi i32 [ %.sink593, %509 ], [ 2, %484 ]
+  %.0504 = phi i32 [ %.sink591, %509 ], [ 2, %484 ]
   %579 = load i32, ptr @global_pdcp_check_sequence_numbers, align 4
   switch i32 %579, label %.critedge [
     i32 2, label %587
@@ -3431,8 +3431,8 @@ addBearerSequenceInfo.exit:                       ; preds = %1012, %898, %.prehe
   br i1 %.not69.i, label %1166, label %decipher_payload.exit.thread
 
 decipher_payload.exit.thread.sink.split:          ; preds = %1148, %1154
-  %.sink594 = phi ptr [ %1155, %1154 ], [ %1151, %1148 ]
-  call void @gcry_cipher_close(ptr noundef %.sink594) #13
+  %.sink = phi ptr [ %1155, %1154 ], [ %1151, %1148 ]
+  call void @gcry_cipher_close(ptr noundef %.sink) #13
   br label %decipher_payload.exit.thread
 
 decipher_payload.exit.thread:                     ; preds = %decipher_payload.exit.thread.sink.split, %1122, %1128, %1156, %1132, %1131, %1117, %1113, %1112, %1111, %1111

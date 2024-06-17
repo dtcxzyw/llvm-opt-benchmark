@@ -1960,7 +1960,7 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
 
 847:                                              ; preds = %.lr.ph1133, %._crit_edge1127
   %848 = phi i32 [ %821, %.lr.ph1133 ], [ %1185, %._crit_edge1127 ]
-  %.06521131 = phi i64 [ 0, %.lr.ph1133 ], [ %1245, %._crit_edge1127 ]
+  %.06521131 = phi i64 [ 0, %.lr.ph1133 ], [ %1227, %._crit_edge1127 ]
   %.06631130 = phi i64 [ -1, %.lr.ph1133 ], [ %.1664, %._crit_edge1127 ]
   %.06661129 = phi i64 [ -1, %.lr.ph1133 ], [ %.1667, %._crit_edge1127 ]
   %.06851128 = phi i64 [ 0, %.lr.ph1133 ], [ %1174, %._crit_edge1127 ]
@@ -2573,109 +2573,81 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %1189 = zext nneg i32 %1185 to i64
   br label %1190
 
-1190:                                             ; preds = %.lr.ph1126, %1241
-  %indvars.iv1368 = phi i64 [ %1189, %.lr.ph1126 ], [ %1191, %1241 ]
+1190:                                             ; preds = %.lr.ph1126, %1223
+  %indvars.iv1368 = phi i64 [ %1189, %.lr.ph1126 ], [ %1191, %1223 ]
   %1191 = add nsw i64 %indvars.iv1368, -1
   %1192 = getelementptr inbounds [32 x i64], ptr %21, i64 0, i64 %1191
   %1193 = load i64, ptr %1192, align 8
-  br i1 %.not868, label %1207, label %1194
+  br i1 %.not868, label %1200, label %1194
 
 1194:                                             ; preds = %1190
   %1195 = getelementptr inbounds [32 x i64], ptr %19, i64 0, i64 %1191
   %1196 = load i64, ptr %1195, align 8
   %.not869 = icmp ult i64 %1193, %1196
-  br i1 %.not869, label %1201, label %1197
+  br i1 %.not869, label %1197, label %1200
 
 1197:                                             ; preds = %1194
-  %1198 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
+  %1198 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %1191
   %1199 = load i64, ptr %1198, align 8
-  %1200 = add i64 %1199, %1193
-  store i64 %1200, ptr %1198, align 8
-  br label %1211
+  br label %1200
 
-1201:                                             ; preds = %1194
-  %1202 = getelementptr inbounds [32 x i64], ptr %20, i64 0, i64 %1191
-  %1203 = load i64, ptr %1202, align 8
-  %1204 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
+1200:                                             ; preds = %1190, %1194, %1197
+  %.sink1480 = phi i64 [ %1199, %1197 ], [ %1193, %1194 ], [ %1193, %1190 ]
+  %1201 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
+  %1202 = load i64, ptr %1201, align 8
+  %1203 = add i64 %1202, %.sink1480
+  store i64 %1203, ptr %1201, align 8
+  %1204 = getelementptr inbounds [32 x i64], ptr %515, i64 0, i64 %1191
   %1205 = load i64, ptr %1204, align 8
-  %1206 = add i64 %1205, %1203
-  store i64 %1206, ptr %1204, align 8
-  br label %1211
+  %.not870 = icmp uge i64 %1203, %1205
+  br i1 %.not870, label %1206, label %1208
 
-1207:                                             ; preds = %1190
-  %1208 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
-  %1209 = load i64, ptr %1208, align 8
-  %1210 = add i64 %1209, %1193
-  store i64 %1210, ptr %1208, align 8
-  br label %1211
+1206:                                             ; preds = %1200
+  %1207 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
+  store i64 0, ptr %1207, align 8
+  br label %1208
 
-1211:                                             ; preds = %1197, %1201, %1207
-  %1212 = phi i64 [ %1200, %1197 ], [ %1206, %1201 ], [ %1210, %1207 ]
-  %1213 = getelementptr inbounds [32 x i64], ptr %515, i64 0, i64 %1191
-  %1214 = load i64, ptr %1213, align 8
-  %.not870 = icmp uge i64 %1212, %1214
-  br i1 %.not870, label %1215, label %1217
+1208:                                             ; preds = %1200, %1206
+  %1209 = getelementptr inbounds [32 x i64], ptr %26, i64 0, i64 %1191
+  %1210 = load i64, ptr %1209, align 8
+  br i1 %.not871, label %1217, label %1211
 
-1215:                                             ; preds = %1211
-  %1216 = getelementptr inbounds [32 x i64], ptr %17, i64 0, i64 %1191
-  store i64 0, ptr %1216, align 8
+1211:                                             ; preds = %1208
+  %1212 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %1191
+  %1213 = load i64, ptr %1212, align 8
+  %.not872 = icmp ult i64 %1210, %1213
+  br i1 %.not872, label %1214, label %1217
+
+1214:                                             ; preds = %1211
+  %1215 = getelementptr inbounds [32 x i64], ptr %25, i64 0, i64 %1191
+  %1216 = load i64, ptr %1215, align 8
   br label %1217
 
-1217:                                             ; preds = %1211, %1215
-  %1218 = getelementptr inbounds [32 x i64], ptr %26, i64 0, i64 %1191
+1217:                                             ; preds = %1208, %1211, %1214
+  %.sink1483 = phi i64 [ %1216, %1214 ], [ %1210, %1211 ], [ %1210, %1208 ]
+  %1218 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
   %1219 = load i64, ptr %1218, align 8
-  br i1 %.not871, label %1233, label %1220
+  %1220 = add i64 %1219, %.sink1483
+  store i64 %1220, ptr %1218, align 8
+  %.not873 = icmp ult i64 %1220, %1205
+  br i1 %.not873, label %1223, label %1221
 
-1220:                                             ; preds = %1217
-  %1221 = getelementptr inbounds [32 x i64], ptr %24, i64 0, i64 %1191
-  %1222 = load i64, ptr %1221, align 8
-  %.not872 = icmp ult i64 %1219, %1222
-  br i1 %.not872, label %1227, label %1223
+1221:                                             ; preds = %1217
+  %1222 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
+  store i64 0, ptr %1222, align 8
+  br label %1223
 
-1223:                                             ; preds = %1220
-  %1224 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
-  %1225 = load i64, ptr %1224, align 8
-  %1226 = add i64 %1225, %1219
-  store i64 %1226, ptr %1224, align 8
-  br label %1237
+1223:                                             ; preds = %1217, %1221
+  %1224 = icmp sgt i64 %indvars.iv1368, 1
+  %1225 = and i1 %1224, %.not870
+  br i1 %1225, label %1190, label %._crit_edge1127
 
-1227:                                             ; preds = %1220
-  %1228 = getelementptr inbounds [32 x i64], ptr %25, i64 0, i64 %1191
-  %1229 = load i64, ptr %1228, align 8
-  %1230 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
-  %1231 = load i64, ptr %1230, align 8
-  %1232 = add i64 %1231, %1229
-  store i64 %1232, ptr %1230, align 8
-  br label %1237
-
-1233:                                             ; preds = %1217
-  %1234 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
-  %1235 = load i64, ptr %1234, align 8
-  %1236 = add i64 %1235, %1219
-  store i64 %1236, ptr %1234, align 8
-  br label %1237
-
-1237:                                             ; preds = %1223, %1227, %1233
-  %1238 = phi i64 [ %1226, %1223 ], [ %1232, %1227 ], [ %1236, %1233 ]
-  %.not873 = icmp ult i64 %1238, %1214
-  br i1 %.not873, label %1241, label %1239
-
-1239:                                             ; preds = %1237
-  %1240 = getelementptr inbounds [32 x i64], ptr %22, i64 0, i64 %1191
-  store i64 0, ptr %1240, align 8
-  br label %1241
-
-1241:                                             ; preds = %1237, %1239
-  %1242 = icmp sgt i64 %indvars.iv1368, 1
-  %1243 = and i1 %1242, %.not870
-  br i1 %1243, label %1190, label %._crit_edge1127
-
-._crit_edge1127:                                  ; preds = %1241, %1182
-  %1244 = load i64, ptr %492, align 8
-  %1245 = add i64 %1244, %.06521131
-  %1246 = load i64, ptr %491, align 8
-  %1247 = icmp ult i64 %1245, %1246
-  br i1 %1247, label %847, label %.loopexit
+._crit_edge1127:                                  ; preds = %1223, %1182
+  %1226 = load i64, ptr %492, align 8
+  %1227 = add i64 %1226, %.06521131
+  %1228 = load i64, ptr %491, align 8
+  %1229 = icmp ult i64 %1227, %1228
+  br i1 %1229, label %847, label %.loopexit
 
 .loopexit:                                        ; preds = %._crit_edge1127, %.loopexit955, %1157, %1169, %1165, %1134, %1146, %1142, %1114, %1126, %1122, %1094, %1106, %1102, %1075, %1087, %1083, %1056, %1068, %1064, %1037, %1049, %1045, %1011, %1023, %1019, %983, %995, %991, %964, %976, %972, %945, %957, %953, %926, %938, %934, %900, %912, %908, %870, %882, %878, %851, %863, %859, %780, %792, %788, %670, %682, %678, %565, %577, %573, %540, %552, %548, %440, %452, %448, %385, %397, %393, %366, %378, %374, %343, %355, %351, %324, %336, %332, %247, %259, %255, %228, %240, %236, %208, %220, %216, %189, %201, %197, %170, %182, %178, %151, %163, %159, %132, %144, %140, %113, %125, %121, %94, %106, %102, %75, %87, %83, %56, %68, %64, %37, %49, %45, %424, %589
   %.0693 = phi i64 [ %226, %589 ], [ %226, %424 ], [ -1, %45 ], [ -1, %49 ], [ -1, %37 ], [ -1, %64 ], [ -1, %68 ], [ -1, %56 ], [ -1, %83 ], [ -1, %87 ], [ -1, %75 ], [ -1, %102 ], [ -1, %106 ], [ -1, %94 ], [ -1, %121 ], [ -1, %125 ], [ -1, %113 ], [ -1, %140 ], [ -1, %144 ], [ -1, %132 ], [ -1, %159 ], [ -1, %163 ], [ -1, %151 ], [ -1, %178 ], [ -1, %182 ], [ -1, %170 ], [ -1, %197 ], [ -1, %201 ], [ -1, %189 ], [ -1, %216 ], [ -1, %220 ], [ -1, %208 ], [ %226, %236 ], [ %226, %240 ], [ %226, %228 ], [ %226, %255 ], [ %226, %259 ], [ %226, %247 ], [ %226, %332 ], [ %226, %336 ], [ %226, %324 ], [ %226, %351 ], [ %226, %355 ], [ %226, %343 ], [ %226, %374 ], [ %226, %378 ], [ %226, %366 ], [ %226, %393 ], [ %226, %397 ], [ %226, %385 ], [ %226, %448 ], [ %226, %452 ], [ %226, %440 ], [ %226, %548 ], [ %226, %552 ], [ %226, %540 ], [ %226, %573 ], [ %226, %577 ], [ %226, %565 ], [ %226, %678 ], [ %226, %682 ], [ %226, %670 ], [ %226, %788 ], [ %226, %792 ], [ %226, %780 ], [ %226, %859 ], [ %226, %863 ], [ %226, %851 ], [ %226, %878 ], [ %226, %882 ], [ %226, %870 ], [ %226, %908 ], [ %226, %912 ], [ %226, %900 ], [ %226, %934 ], [ %226, %938 ], [ %226, %926 ], [ %226, %953 ], [ %226, %957 ], [ %226, %945 ], [ %226, %972 ], [ %226, %976 ], [ %226, %964 ], [ %226, %991 ], [ %226, %995 ], [ %226, %983 ], [ %226, %1019 ], [ %226, %1023 ], [ %226, %1011 ], [ %226, %1045 ], [ %226, %1049 ], [ %226, %1037 ], [ %226, %1064 ], [ %226, %1068 ], [ %226, %1056 ], [ %226, %1083 ], [ %226, %1087 ], [ %226, %1075 ], [ %226, %1102 ], [ %226, %1106 ], [ %226, %1094 ], [ %226, %1122 ], [ %226, %1126 ], [ %226, %1114 ], [ %226, %1142 ], [ %226, %1146 ], [ %226, %1134 ], [ %226, %1165 ], [ %226, %1169 ], [ %226, %1157 ], [ %226, %.loopexit955 ], [ %226, %._crit_edge1127 ]
@@ -2693,138 +2665,138 @@ define i64 @diff_datasetid(i64 noundef %0, i64 noundef %1, ptr noundef %2, ptr n
   %.1657.shrunk = phi i1 [ %.not839.not.not, %589 ], [ %.not839.not.not, %424 ], [ false, %45 ], [ false, %49 ], [ false, %37 ], [ false, %64 ], [ false, %68 ], [ false, %56 ], [ false, %83 ], [ false, %87 ], [ false, %75 ], [ false, %102 ], [ false, %106 ], [ false, %94 ], [ false, %121 ], [ false, %125 ], [ false, %113 ], [ false, %140 ], [ false, %144 ], [ false, %132 ], [ false, %159 ], [ false, %163 ], [ false, %151 ], [ false, %178 ], [ false, %182 ], [ false, %170 ], [ false, %197 ], [ false, %201 ], [ false, %189 ], [ false, %216 ], [ false, %220 ], [ false, %208 ], [ false, %236 ], [ false, %240 ], [ false, %228 ], [ false, %255 ], [ false, %259 ], [ false, %247 ], [ false, %332 ], [ false, %336 ], [ false, %324 ], [ false, %351 ], [ false, %355 ], [ false, %343 ], [ false, %374 ], [ false, %378 ], [ false, %366 ], [ false, %393 ], [ false, %397 ], [ false, %385 ], [ %.not839.not.not, %448 ], [ %.not839.not.not, %452 ], [ %.not839.not.not, %440 ], [ %.not839.not.not, %548 ], [ %.not839.not.not, %552 ], [ %.not839.not.not, %540 ], [ %.not839.not.not, %573 ], [ %.not839.not.not, %577 ], [ %.not839.not.not, %565 ], [ %.not839.not.not, %678 ], [ %.not839.not.not, %682 ], [ %.not839.not.not, %670 ], [ %.not839.not.not, %788 ], [ %.not839.not.not, %792 ], [ %.not839.not.not, %780 ], [ %.not839.not.not, %859 ], [ %.not839.not.not, %863 ], [ %.not839.not.not, %851 ], [ %.not839.not.not, %878 ], [ %.not839.not.not, %882 ], [ %.not839.not.not, %870 ], [ %.not839.not.not, %908 ], [ %.not839.not.not, %912 ], [ %.not839.not.not, %900 ], [ %.not839.not.not, %934 ], [ %.not839.not.not, %938 ], [ %.not839.not.not, %926 ], [ %.not839.not.not, %953 ], [ %.not839.not.not, %957 ], [ %.not839.not.not, %945 ], [ %.not839.not.not, %972 ], [ %.not839.not.not, %976 ], [ %.not839.not.not, %964 ], [ %.not839.not.not, %991 ], [ %.not839.not.not, %995 ], [ %.not839.not.not, %983 ], [ %.not839.not.not, %1019 ], [ %.not839.not.not, %1023 ], [ %.not839.not.not, %1011 ], [ %.not839.not.not, %1045 ], [ %.not839.not.not, %1049 ], [ %.not839.not.not, %1037 ], [ %.not839.not.not, %1064 ], [ %.not839.not.not, %1068 ], [ %.not839.not.not, %1056 ], [ %.not839.not.not, %1083 ], [ %.not839.not.not, %1087 ], [ %.not839.not.not, %1075 ], [ %.not839.not.not, %1102 ], [ %.not839.not.not, %1106 ], [ %.not839.not.not, %1094 ], [ %.not839.not.not, %1122 ], [ %.not839.not.not, %1126 ], [ %.not839.not.not, %1114 ], [ %.not839.not.not, %1142 ], [ %.not839.not.not, %1146 ], [ %.not839.not.not, %1134 ], [ %.not839.not.not, %1165 ], [ %.not839.not.not, %1169 ], [ %.not839.not.not, %1157 ], [ %.not839.not.not, %.loopexit955 ], [ %.not839.not.not, %._crit_edge1127 ]
   %.1655.shrunk = phi i1 [ %.not841.not.not, %589 ], [ %.not841.not.not, %424 ], [ false, %45 ], [ false, %49 ], [ false, %37 ], [ false, %64 ], [ false, %68 ], [ false, %56 ], [ false, %83 ], [ false, %87 ], [ false, %75 ], [ false, %102 ], [ false, %106 ], [ false, %94 ], [ false, %121 ], [ false, %125 ], [ false, %113 ], [ false, %140 ], [ false, %144 ], [ false, %132 ], [ false, %159 ], [ false, %163 ], [ false, %151 ], [ false, %178 ], [ false, %182 ], [ false, %170 ], [ false, %197 ], [ false, %201 ], [ false, %189 ], [ false, %216 ], [ false, %220 ], [ false, %208 ], [ false, %236 ], [ false, %240 ], [ false, %228 ], [ false, %255 ], [ false, %259 ], [ false, %247 ], [ false, %332 ], [ false, %336 ], [ false, %324 ], [ false, %351 ], [ false, %355 ], [ false, %343 ], [ false, %374 ], [ false, %378 ], [ false, %366 ], [ false, %393 ], [ false, %397 ], [ false, %385 ], [ %.not841.not.not, %448 ], [ %.not841.not.not, %452 ], [ %.not841.not.not, %440 ], [ %.not841.not.not, %548 ], [ %.not841.not.not, %552 ], [ %.not841.not.not, %540 ], [ %.not841.not.not, %573 ], [ %.not841.not.not, %577 ], [ %.not841.not.not, %565 ], [ %.not841.not.not, %678 ], [ %.not841.not.not, %682 ], [ %.not841.not.not, %670 ], [ %.not841.not.not, %788 ], [ %.not841.not.not, %792 ], [ %.not841.not.not, %780 ], [ %.not841.not.not, %859 ], [ %.not841.not.not, %863 ], [ %.not841.not.not, %851 ], [ %.not841.not.not, %878 ], [ %.not841.not.not, %882 ], [ %.not841.not.not, %870 ], [ %.not841.not.not, %908 ], [ %.not841.not.not, %912 ], [ %.not841.not.not, %900 ], [ %.not841.not.not, %934 ], [ %.not841.not.not, %938 ], [ %.not841.not.not, %926 ], [ %.not841.not.not, %953 ], [ %.not841.not.not, %957 ], [ %.not841.not.not, %945 ], [ %.not841.not.not, %972 ], [ %.not841.not.not, %976 ], [ %.not841.not.not, %964 ], [ %.not841.not.not, %991 ], [ %.not841.not.not, %995 ], [ %.not841.not.not, %983 ], [ %.not841.not.not, %1019 ], [ %.not841.not.not, %1023 ], [ %.not841.not.not, %1011 ], [ %.not841.not.not, %1045 ], [ %.not841.not.not, %1049 ], [ %.not841.not.not, %1037 ], [ %.not841.not.not, %1064 ], [ %.not841.not.not, %1068 ], [ %.not841.not.not, %1056 ], [ %.not841.not.not, %1083 ], [ %.not841.not.not, %1087 ], [ %.not841.not.not, %1075 ], [ %.not841.not.not, %1102 ], [ %.not841.not.not, %1106 ], [ %.not841.not.not, %1094 ], [ %.not841.not.not, %1122 ], [ %.not841.not.not, %1126 ], [ %.not841.not.not, %1114 ], [ %.not841.not.not, %1142 ], [ %.not841.not.not, %1146 ], [ %.not841.not.not, %1134 ], [ %.not841.not.not, %1165 ], [ %.not841.not.not, %1169 ], [ %.not841.not.not, %1157 ], [ %.not841.not.not, %.loopexit955 ], [ %.not841.not.not, %._crit_edge1127 ]
   %.0653 = phi i32 [ %34, %589 ], [ %34, %424 ], [ 2, %45 ], [ 2, %49 ], [ 2, %37 ], [ 2, %64 ], [ 2, %68 ], [ 2, %56 ], [ 2, %83 ], [ 2, %87 ], [ 2, %75 ], [ 2, %102 ], [ 2, %106 ], [ 2, %94 ], [ 2, %121 ], [ 2, %125 ], [ 2, %113 ], [ 2, %140 ], [ 2, %144 ], [ 2, %132 ], [ 2, %159 ], [ 2, %163 ], [ 2, %151 ], [ 2, %178 ], [ 2, %182 ], [ 2, %170 ], [ 2, %197 ], [ 2, %201 ], [ 2, %189 ], [ 2, %216 ], [ 2, %220 ], [ 2, %208 ], [ 2, %236 ], [ 2, %240 ], [ 2, %228 ], [ 2, %255 ], [ 2, %259 ], [ 2, %247 ], [ 2, %332 ], [ 2, %336 ], [ 2, %324 ], [ 2, %351 ], [ 2, %355 ], [ 2, %343 ], [ 2, %374 ], [ 2, %378 ], [ 2, %366 ], [ 2, %393 ], [ 2, %397 ], [ 2, %385 ], [ 2, %448 ], [ 2, %452 ], [ 2, %440 ], [ 2, %548 ], [ 2, %552 ], [ 2, %540 ], [ 2, %573 ], [ 2, %577 ], [ 2, %565 ], [ 2, %678 ], [ 2, %682 ], [ 2, %670 ], [ 2, %788 ], [ 2, %792 ], [ 2, %780 ], [ 2, %859 ], [ 2, %863 ], [ 2, %851 ], [ 2, %878 ], [ 2, %882 ], [ 2, %870 ], [ 2, %908 ], [ 2, %912 ], [ 2, %900 ], [ 2, %934 ], [ 2, %938 ], [ 2, %926 ], [ 2, %953 ], [ 2, %957 ], [ 2, %945 ], [ 2, %972 ], [ 2, %976 ], [ 2, %964 ], [ 2, %991 ], [ 2, %995 ], [ 2, %983 ], [ 2, %1019 ], [ 2, %1023 ], [ 2, %1011 ], [ 2, %1045 ], [ 2, %1049 ], [ 2, %1037 ], [ 2, %1064 ], [ 2, %1068 ], [ 2, %1056 ], [ 2, %1083 ], [ 2, %1087 ], [ 2, %1075 ], [ 2, %1102 ], [ 2, %1106 ], [ 2, %1094 ], [ 2, %1122 ], [ 2, %1126 ], [ 2, %1114 ], [ 2, %1142 ], [ 2, %1146 ], [ 2, %1134 ], [ 2, %1165 ], [ 2, %1169 ], [ 2, %1157 ], [ %34, %.loopexit955 ], [ %34, %._crit_edge1127 ]
-  %1248 = load i32, ptr %33, align 8
-  %1249 = or i32 %1248, %.0653
-  store i32 %1249, ptr %33, align 8
-  %1250 = getelementptr inbounds i8, ptr %4, i64 1720
-  %1251 = load ptr, ptr %1250, align 8
-  %.not907 = icmp eq ptr %1251, null
-  br i1 %.not907, label %1253, label %1252
+  %1230 = load i32, ptr %33, align 8
+  %1231 = or i32 %1230, %.0653
+  store i32 %1231, ptr %33, align 8
+  %1232 = getelementptr inbounds i8, ptr %4, i64 1720
+  %1233 = load ptr, ptr %1232, align 8
+  %.not907 = icmp eq ptr %1233, null
+  br i1 %.not907, label %1235, label %1234
 
-1252:                                             ; preds = %.loopexit
-  call void @free(ptr noundef nonnull %1251) #12
-  br label %1253
+1234:                                             ; preds = %.loopexit
+  call void @free(ptr noundef nonnull %1233) #12
+  br label %1235
 
-1253:                                             ; preds = %1252, %.loopexit
-  store ptr null, ptr %1250, align 8
-  %1254 = getelementptr inbounds i8, ptr %4, i64 1728
-  %1255 = load ptr, ptr %1254, align 8
-  %.not908 = icmp eq ptr %1255, null
-  br i1 %.not908, label %1257, label %1256
+1235:                                             ; preds = %1234, %.loopexit
+  store ptr null, ptr %1232, align 8
+  %1236 = getelementptr inbounds i8, ptr %4, i64 1728
+  %1237 = load ptr, ptr %1236, align 8
+  %.not908 = icmp eq ptr %1237, null
+  br i1 %.not908, label %1239, label %1238
 
-1256:                                             ; preds = %1253
-  call void @free(ptr noundef nonnull %1255) #12
+1238:                                             ; preds = %1235
+  call void @free(ptr noundef nonnull %1237) #12
+  br label %1239
+
+1239:                                             ; preds = %1238, %1235
+  store ptr null, ptr %1236, align 8
+  %.not909 = icmp eq ptr %.3681, null
+  br i1 %.not909, label %1245, label %1240
+
+1240:                                             ; preds = %1239
+  br i1 %.1657.shrunk, label %1241, label %1244
+
+1241:                                             ; preds = %1240
+  %1242 = load i64, ptr %6, align 8
+  %1243 = call i32 @H5Treclaim(i64 noundef %1242, i64 noundef %35, i64 noundef 0, ptr noundef nonnull %.3681) #12
+  br label %1244
+
+1244:                                             ; preds = %1241, %1240
+  call void @free(ptr noundef nonnull %.3681) #12
+  br label %1245
+
+1245:                                             ; preds = %1244, %1239
+  %.not911 = icmp eq ptr %.2677, null
+  br i1 %.not911, label %1251, label %1246
+
+1246:                                             ; preds = %1245
+  br i1 %.1655.shrunk, label %1247, label %1250
+
+1247:                                             ; preds = %1246
+  %1248 = load i64, ptr %7, align 8
+  %1249 = call i32 @H5Treclaim(i64 noundef %1248, i64 noundef %.0687, i64 noundef 0, ptr noundef nonnull %.2677) #12
+  br label %1250
+
+1250:                                             ; preds = %1247, %1246
+  call void @free(ptr noundef nonnull %.2677) #12
+  br label %1251
+
+1251:                                             ; preds = %1250, %1245
+  %.not913 = icmp eq ptr %.2674, null
+  br i1 %.not913, label %1257, label %1252
+
+1252:                                             ; preds = %1251
+  br i1 %.1657.shrunk, label %1253, label %1256
+
+1253:                                             ; preds = %1252
+  %1254 = load i64, ptr %6, align 8
+  %1255 = call i32 @H5Treclaim(i64 noundef %1254, i64 noundef %.2668, i64 noundef 0, ptr noundef nonnull %.2674) #12
+  br label %1256
+
+1256:                                             ; preds = %1253, %1252
+  call void @free(ptr noundef nonnull %.2674) #12
   br label %1257
 
-1257:                                             ; preds = %1256, %1253
-  store ptr null, ptr %1254, align 8
-  %.not909 = icmp eq ptr %.3681, null
-  br i1 %.not909, label %1263, label %1258
+1257:                                             ; preds = %1256, %1251
+  %.not915 = icmp eq ptr %.2671, null
+  br i1 %.not915, label %1263, label %1258
 
 1258:                                             ; preds = %1257
-  br i1 %.1657.shrunk, label %1259, label %1262
+  br i1 %.1655.shrunk, label %1259, label %1262
 
 1259:                                             ; preds = %1258
-  %1260 = load i64, ptr %6, align 8
-  %1261 = call i32 @H5Treclaim(i64 noundef %1260, i64 noundef %35, i64 noundef 0, ptr noundef nonnull %.3681) #12
+  %1260 = load i64, ptr %7, align 8
+  %1261 = call i32 @H5Treclaim(i64 noundef %1260, i64 noundef %.2665, i64 noundef 0, ptr noundef nonnull %.2671) #12
   br label %1262
 
 1262:                                             ; preds = %1259, %1258
-  call void @free(ptr noundef nonnull %.3681) #12
+  call void @free(ptr noundef nonnull %.2671) #12
   br label %1263
 
 1263:                                             ; preds = %1262, %1257
-  %.not911 = icmp eq ptr %.2677, null
-  br i1 %.not911, label %1269, label %1264
+  %1264 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %30) #12
+  %1265 = load i32, ptr %30, align 4
+  %.not917 = icmp eq i32 %1265, 0
+  br i1 %.not917, label %1269, label %1266
 
-1264:                                             ; preds = %1263
-  br i1 %.1655.shrunk, label %1265, label %1268
+1266:                                             ; preds = %1263
+  %1267 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %31, ptr noundef nonnull %32) #12
+  %1268 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #12
+  br label %1272
 
-1265:                                             ; preds = %1264
-  %1266 = load i64, ptr %7, align 8
-  %1267 = call i32 @H5Treclaim(i64 noundef %1266, i64 noundef %.0687, i64 noundef 0, ptr noundef nonnull %.2677) #12
-  br label %1268
+1269:                                             ; preds = %1263
+  %1270 = call i32 @H5Eget_auto1(ptr noundef nonnull %31, ptr noundef nonnull %32) #12
+  %1271 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #12
+  br label %1272
 
-1268:                                             ; preds = %1265, %1264
-  call void @free(ptr noundef nonnull %.2677) #12
-  br label %1269
+1272:                                             ; preds = %1269, %1266
+  %1273 = call i32 @H5Sclose(i64 noundef %35) #12
+  %1274 = call i32 @H5Sclose(i64 noundef %.0687) #12
+  %1275 = call i32 @H5Sclose(i64 noundef %.2668) #12
+  %1276 = call i32 @H5Sclose(i64 noundef %.2665) #12
+  %1277 = call i32 @H5Pclose(i64 noundef %.0692) #12
+  %1278 = call i32 @H5Pclose(i64 noundef %.0693) #12
+  %1279 = call i32 @H5Tclose(i64 noundef %.0688) #12
+  %1280 = call i32 @H5Tclose(i64 noundef %.0691) #12
+  %1281 = load i64, ptr %6, align 8
+  %1282 = call i32 @H5Tclose(i64 noundef %1281) #12
+  %1283 = load i64, ptr %7, align 8
+  %1284 = call i32 @H5Tclose(i64 noundef %1283) #12
+  %1285 = load i32, ptr %30, align 4
+  %.not918 = icmp eq i32 %1285, 0
+  %1286 = load ptr, ptr %31, align 8
+  %1287 = load ptr, ptr %32, align 8
+  br i1 %.not918, label %1290, label %1288
 
-1269:                                             ; preds = %1268, %1263
-  %.not913 = icmp eq ptr %.2674, null
-  br i1 %.not913, label %1275, label %1270
+1288:                                             ; preds = %1272
+  %1289 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %1286, ptr noundef %1287) #12
+  br label %1292
 
-1270:                                             ; preds = %1269
-  br i1 %.1657.shrunk, label %1271, label %1274
+1290:                                             ; preds = %1272
+  %1291 = call i32 @H5Eset_auto1(ptr noundef %1286, ptr noundef %1287) #12
+  br label %1292
 
-1271:                                             ; preds = %1270
-  %1272 = load i64, ptr %6, align 8
-  %1273 = call i32 @H5Treclaim(i64 noundef %1272, i64 noundef %.2668, i64 noundef 0, ptr noundef nonnull %.2674) #12
-  br label %1274
-
-1274:                                             ; preds = %1271, %1270
-  call void @free(ptr noundef nonnull %.2674) #12
-  br label %1275
-
-1275:                                             ; preds = %1274, %1269
-  %.not915 = icmp eq ptr %.2671, null
-  br i1 %.not915, label %1281, label %1276
-
-1276:                                             ; preds = %1275
-  br i1 %.1655.shrunk, label %1277, label %1280
-
-1277:                                             ; preds = %1276
-  %1278 = load i64, ptr %7, align 8
-  %1279 = call i32 @H5Treclaim(i64 noundef %1278, i64 noundef %.2665, i64 noundef 0, ptr noundef nonnull %.2671) #12
-  br label %1280
-
-1280:                                             ; preds = %1277, %1276
-  call void @free(ptr noundef nonnull %.2671) #12
-  br label %1281
-
-1281:                                             ; preds = %1280, %1275
-  %1282 = call i32 @H5Eauto_is_v2(i64 noundef 0, ptr noundef nonnull %30) #12
-  %1283 = load i32, ptr %30, align 4
-  %.not917 = icmp eq i32 %1283, 0
-  br i1 %.not917, label %1287, label %1284
-
-1284:                                             ; preds = %1281
-  %1285 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %31, ptr noundef nonnull %32) #12
-  %1286 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #12
-  br label %1290
-
-1287:                                             ; preds = %1281
-  %1288 = call i32 @H5Eget_auto1(ptr noundef nonnull %31, ptr noundef nonnull %32) #12
-  %1289 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #12
-  br label %1290
-
-1290:                                             ; preds = %1287, %1284
-  %1291 = call i32 @H5Sclose(i64 noundef %35) #12
-  %1292 = call i32 @H5Sclose(i64 noundef %.0687) #12
-  %1293 = call i32 @H5Sclose(i64 noundef %.2668) #12
-  %1294 = call i32 @H5Sclose(i64 noundef %.2665) #12
-  %1295 = call i32 @H5Pclose(i64 noundef %.0692) #12
-  %1296 = call i32 @H5Pclose(i64 noundef %.0693) #12
-  %1297 = call i32 @H5Tclose(i64 noundef %.0688) #12
-  %1298 = call i32 @H5Tclose(i64 noundef %.0691) #12
-  %1299 = load i64, ptr %6, align 8
-  %1300 = call i32 @H5Tclose(i64 noundef %1299) #12
-  %1301 = load i64, ptr %7, align 8
-  %1302 = call i32 @H5Tclose(i64 noundef %1301) #12
-  %1303 = load i32, ptr %30, align 4
-  %.not918 = icmp eq i32 %1303, 0
-  %1304 = load ptr, ptr %31, align 8
-  %1305 = load ptr, ptr %32, align 8
-  br i1 %.not918, label %1308, label %1306
-
-1306:                                             ; preds = %1290
-  %1307 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef %1304, ptr noundef %1305) #12
-  br label %1310
-
-1308:                                             ; preds = %1290
-  %1309 = call i32 @H5Eset_auto1(ptr noundef %1304, ptr noundef %1305) #12
-  br label %1310
-
-1310:                                             ; preds = %1308, %1306
+1292:                                             ; preds = %1290, %1288
   ret i64 %.1686
 }
 

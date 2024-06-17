@@ -6275,8 +6275,8 @@ if.then.i.i.i:                                    ; preds = %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
-  %spec.select66 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
-  store ptr %spec.select66, ptr %_M_reason.i.i.i.i.i.i, align 8
+  %spec.select73 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
+  store ptr %spec.select73, ptr %_M_reason.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
           to label %if.then.i.i.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6335,10 +6335,10 @@ if.end.i.i.i:                                     ; preds = %_ZN5arrow8internal2
   br i1 %cmp71.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc5, %if.end32.i.i.i.i
-  %out_writer.sroa.33.0 = phi i8 [ %out_writer.sroa.33.8, %if.end32.i.i.i.i ], [ %4, %.noexc5 ]
-  %out_writer.sroa.6.0 = phi i64 [ %out_writer.sroa.6.6, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
-  %out_writer.sroa.49.0 = phi i64 [ %out_writer.sroa.49.8, %if.end32.i.i.i.i ], [ %div.i, %.noexc5 ]
-  %out_writer.sroa.18.0 = phi i8 [ %out_writer.sroa.18.9, %if.end32.i.i.i.i ], [ %storemerge.i, %.noexc5 ]
+  %out_writer.sroa.46.0 = phi i64 [ %out_writer.sroa.46.7, %if.end32.i.i.i.i ], [ %div.i, %.noexc5 ]
+  %out_writer.sroa.5.0 = phi i64 [ %out_writer.sroa.5.6, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
+  %out_writer.sroa.30.0 = phi i8 [ %out_writer.sroa.30.7, %if.end32.i.i.i.i ], [ %4, %.noexc5 ]
+  %out_writer.sroa.17.0 = phi i8 [ %out_writer.sroa.17.10, %if.end32.i.i.i.i ], [ %storemerge.i, %.noexc5 ]
   %position.072.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
   %call.i.i.i.i6 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -6356,13 +6356,13 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.i.noexc
   br i1 %cmp367.i.i.i.i, label %for.body.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %for.cond.preheader.i.i.i.i
-  %12 = add i64 %out_writer.sroa.6.0, %conv.i.i.i.i
+  %12 = add i64 %out_writer.sroa.5.0, %conv.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
-  %out_writer.sroa.33.1 = phi i8 [ %out_writer.sroa.33.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.33.0, %for.body.i.i.i.i.preheader ]
-  %out_writer.sroa.49.1 = phi i64 [ %out_writer.sroa.49.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.49.0, %for.body.i.i.i.i.preheader ]
-  %out_writer.sroa.18.1 = phi i8 [ %out_writer.sroa.18.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.18.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.46.1 = phi i64 [ %out_writer.sroa.46.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.46.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.30.1 = phi i8 [ %out_writer.sroa.30.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.30.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.17.1 = phi i8 [ %out_writer.sroa.17.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.17.0, %for.body.i.i.i.i.preheader ]
   %i.069.i.i.i.i = phi i64 [ %inc.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.preheader ]
   %position.168.i.i.i.i = phi i64 [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %position.072.i.i.i.i, %for.body.i.i.i.i.preheader ]
   %arrayidx.i.i7.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 %position.168.i.i.i.i
@@ -6377,22 +6377,22 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
-  %or1.i.i.i.i.i.i.i.i = select i1 %call.i.i.i.i.i.i.i7, i8 %out_writer.sroa.33.1, i8 0
-  %spec.select = or i8 %or1.i.i.i.i.i.i.i.i, %out_writer.sroa.18.1
-  %shl.i.i.i.i.i.i.i.i = shl i8 %out_writer.sroa.33.1, 1
+  %or1.i.i.i.i.i.i.i.i = select i1 %call.i.i.i.i.i.i.i7, i8 %out_writer.sroa.30.1, i8 0
+  %spec.select = or i8 %or1.i.i.i.i.i.i.i.i, %out_writer.sroa.17.1
+  %shl.i.i.i.i.i.i.i.i = shl i8 %out_writer.sroa.30.1, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %shl.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.i.i.i.i.i.noexc
-  %inc7.i.i.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.49.1, 1
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.1
+  %inc7.i.i.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.46.1, 1
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.1
   store i8 %spec.select, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc
-  %out_writer.sroa.33.2 = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ]
-  %out_writer.sroa.49.2 = phi i64 [ %inc7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %out_writer.sroa.49.1, %call.i.i.i.i.i.i.i.noexc ]
-  %out_writer.sroa.18.3 = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i ], [ %spec.select, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.46.2 = phi i64 [ %inc7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %out_writer.sroa.46.1, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.30.2 = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.17.3 = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i ], [ %spec.select, %call.i.i.i.i.i.i.i.noexc ]
   %inc.i.i.i.i = add nuw nsw i64 %i.069.i.i.i.i, 1
   %inc4.i.i.i.i = add nsw i64 %position.168.i.i.i.i, 1
   %exitcond76.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %conv.i.i.i.i
@@ -6410,7 +6410,6 @@ for.body23.preheader.i.i.i.i:                     ; preds = %for.cond19.preheade
   %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i6, 32767
   %conv21.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %15 = add i64 %position.072.i.i.i.i, %conv21.i.i.i.i
-  %16 = add i64 %out_writer.sroa.6.0, %conv21.i.i.i.i
   br label %for.body23.i.i.i.i
 
 for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i4
@@ -6419,150 +6418,155 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i4
   br i1 %cmp1163.i.i.i.i, label %for.body12.i.i.i.i, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i:                               ; preds = %for.cond8.preheader.i.i.i.i, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
-  %out_writer.sroa.33.3 = phi i8 [ %out_writer.sroa.33.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond8.preheader.i.i.i.i ]
-  %out_writer.sroa.49.3 = phi i64 [ %out_writer.sroa.49.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond8.preheader.i.i.i.i ]
-  %out_writer.sroa.18.4 = phi i8 [ %out_writer.sroa.18.5, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.46.3 = phi i64 [ %out_writer.sroa.46.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.30.3 = phi i8 [ %out_writer.sroa.30.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.17.4 = phi i8 [ %out_writer.sroa.17.5, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond8.preheader.i.i.i.i ]
   %i7.065.i.i.i.i = phi i64 [ %inc14.i.i.i.i, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ 0, %for.cond8.preheader.i.i.i.i ]
-  %shl.i.i.i.i.i.i = shl i8 %out_writer.sroa.33.3, 1
+  %shl.i.i.i.i.i.i = shl i8 %out_writer.sroa.30.3, 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %shl.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body12.i.i.i.i
-  %inc7.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.49.3, 1
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.3
-  store i8 %out_writer.sroa.18.4, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %inc7.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.46.3, 1
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.3
+  store i8 %out_writer.sroa.17.4, ptr %arrayidx.i.i.i.i.i.i, align 1
   br label %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
 
 _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body12.i.i.i.i
-  %out_writer.sroa.33.4 = phi i8 [ 1, %if.then.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i, %for.body12.i.i.i.i ]
-  %out_writer.sroa.49.4 = phi i64 [ %inc7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.49.3, %for.body12.i.i.i.i ]
-  %out_writer.sroa.18.5 = phi i8 [ 0, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.18.4, %for.body12.i.i.i.i ]
+  %out_writer.sroa.46.4 = phi i64 [ %inc7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.46.3, %for.body12.i.i.i.i ]
+  %out_writer.sroa.30.4 = phi i8 [ 1, %if.then.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i, %for.body12.i.i.i.i ]
+  %out_writer.sroa.17.5 = phi i8 [ 0, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.17.4, %for.body12.i.i.i.i ]
   %inc14.i.i.i.i = add nuw nsw i64 %i7.065.i.i.i.i, 1
   %exitcond75.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, %conv10.i.i.i.i
   br i1 %exitcond75.not.i.i.i.i, label %if.end32.loopexit73.i.i.i.i, label %for.body12.i.i.i.i, !llvm.loop !122
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_writer.sroa.33.5 = phi i8 [ %out_writer.sroa.33.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.33.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.49.5 = phi i64 [ %out_writer.sroa.49.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.49.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.18.6 = phi i8 [ %out_writer.sroa.18.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.18.8, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.46.5 = phi i64 [ %out_writer.sroa.46.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.46.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.5.3 = phi i64 [ %out_writer.sroa.5.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.5.5, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.30.5 = phi i8 [ %out_writer.sroa.30.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.30.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.17.6 = phi i8 [ %out_writer.sroa.17.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.17.9, %for.inc27.i.i.i.i ]
   %position.361.i.i.i.i = phi i64 [ %position.072.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.361.i.i.i.i, %8
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
   %arrayidx.i17.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %shr.i.i.i.i.i
-  %17 = load i8, ptr %arrayidx.i17.i.i.i.i, align 1
-  %conv.i18.i.i.i.i = zext i8 %17 to i32
-  %18 = trunc i64 %add.i.i.i.i to i32
-  %sh_prom.i.i.i.i.i = and i32 %18, 7
-  %19 = shl nuw nsw i32 1, %sh_prom.i.i.i.i.i
-  %20 = and i32 %19, %conv.i18.i.i.i.i
-  %tobool.i.not.i.i.i.i = icmp eq i32 %20, 0
+  %16 = load i8, ptr %arrayidx.i17.i.i.i.i, align 1
+  %conv.i18.i.i.i.i = zext i8 %16 to i32
+  %17 = trunc i64 %add.i.i.i.i to i32
+  %sh_prom.i.i.i.i.i = and i32 %17, 7
+  %18 = shl nuw nsw i32 1, %sh_prom.i.i.i.i.i
+  %19 = and i32 %18, %conv.i18.i.i.i.i
+  %tobool.i.not.i.i.i.i = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else26.i.i.i.i, label %if.then25.i.i.i.i
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %arrayidx.i19.i.i.i.i = getelementptr inbounds i32, ptr %add.ptr.i.i.i.i.i, i64 %position.361.i.i.i.i
-  %21 = load i32, ptr %arrayidx.i19.i.i.i.i, align 4
-  %idx.ext.i20.i.i.i.i = sext i32 %21 to i64
+  %20 = load i32, ptr %arrayidx.i19.i.i.i.i, align 4
+  %idx.ext.i20.i.i.i.i = sext i32 %20 to i64
   %add.ptr.i21.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %idx.ext.i20.i.i.i.i
   %arrayidx2.i22.i.i.i.i = getelementptr i8, ptr %arrayidx.i19.i.i.i.i, i64 4
-  %22 = load i32, ptr %arrayidx2.i22.i.i.i.i, align 4
-  %sub.i23.i.i.i.i = sub nsw i32 %22, %21
+  %21 = load i32, ptr %arrayidx2.i22.i.i.i.i, align 4
+  %sub.i23.i.i.i.i = sub nsw i32 %21, %20
   %conv.i24.i.i.i.i = sext i32 %sub.i23.i.i.i.i to i64
   %call.i.i.i26.i.i.i.i8 = invoke noundef zeroext i1 @_ZN5arrow7compute8internal18ParseBooleanString4CallIbSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef %ctx, i64 %conv.i24.i.i.i.i, ptr nonnull %add.ptr.i21.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %call.i.i.i26.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i26.i.i.i.i.noexc:                       ; preds = %if.then25.i.i.i.i
-  %or1.i.i.i.i41.i.i.i.i = select i1 %call.i.i.i26.i.i.i.i8, i8 %out_writer.sroa.33.5, i8 0
-  %spec.select54 = or i8 %or1.i.i.i.i41.i.i.i.i, %out_writer.sroa.18.6
-  %shl.i.i.i.i29.i.i.i.i = shl i8 %out_writer.sroa.33.5, 1
+  %or1.i.i.i.i41.i.i.i.i = select i1 %call.i.i.i26.i.i.i.i8, i8 %out_writer.sroa.30.5, i8 0
+  %spec.select61 = or i8 %or1.i.i.i.i41.i.i.i.i, %out_writer.sroa.17.6
+  %shl.i.i.i.i29.i.i.i.i = shl i8 %out_writer.sroa.30.5, 1
+  %inc.i.i.i.i31.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i.i.i32.i.i.i.i = icmp eq i8 %shl.i.i.i.i29.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i32.i.i.i.i, label %for.inc27.i.i.i.i.sink.split, label %for.inc27.i.i.i.i
+  br i1 %cmp.i.i.i.i32.i.i.i.i, label %for.inc27.sink.split.i.i.i.i, label %for.inc27.i.i.i.i
 
 if.else26.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
-  %shl.i.i44.i.i.i.i = shl i8 %out_writer.sroa.33.5, 1
+  %shl.i.i44.i.i.i.i = shl i8 %out_writer.sroa.30.5, 1
+  %inc.i.i46.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i47.i.i.i.i = icmp eq i8 %shl.i.i44.i.i.i.i, 0
-  br i1 %cmp.i.i47.i.i.i.i, label %for.inc27.i.i.i.i.sink.split, label %for.inc27.i.i.i.i
+  br i1 %cmp.i.i47.i.i.i.i, label %for.inc27.sink.split.i.i.i.i, label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i.sink.split:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc
-  %spec.select54.sink = phi i8 [ %spec.select54, %call.i.i.i26.i.i.i.i.noexc ], [ %out_writer.sroa.18.6, %if.else26.i.i.i.i ]
-  %inc7.i.i.i.i36.i.i.i.i = add nsw i64 %out_writer.sroa.49.5, 1
-  %arrayidx.i.i.i.i37.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.5
-  store i8 %spec.select54.sink, ptr %arrayidx.i.i.i.i37.i.i.i.i, align 1
+for.inc27.sink.split.i.i.i.i:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc
+  %out_writer.sroa.5.4 = phi i64 [ %inc.i.i46.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i31.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ]
+  %out_writer.sroa.17.8 = phi i8 [ %out_writer.sroa.17.6, %if.else26.i.i.i.i ], [ %spec.select61, %call.i.i.i26.i.i.i.i.noexc ]
+  %inc7.i.i51.i.i.i.i = add nsw i64 %out_writer.sroa.46.5, 1
+  %arrayidx.i.i52.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.5
+  store i8 %out_writer.sroa.17.8, ptr %arrayidx.i.i52.i.i.i.i, align 1
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.inc27.i.i.i.i.sink.split, %if.else26.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc
-  %out_writer.sroa.33.7 = phi i8 [ %shl.i.i44.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i29.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ], [ 1, %for.inc27.i.i.i.i.sink.split ]
-  %out_writer.sroa.49.7 = phi i64 [ %out_writer.sroa.49.5, %if.else26.i.i.i.i ], [ %out_writer.sroa.49.5, %call.i.i.i26.i.i.i.i.noexc ], [ %inc7.i.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i.sink.split ]
-  %out_writer.sroa.18.8 = phi i8 [ %out_writer.sroa.18.6, %if.else26.i.i.i.i ], [ %spec.select54, %call.i.i.i26.i.i.i.i.noexc ], [ 0, %for.inc27.i.i.i.i.sink.split ]
+for.inc27.i.i.i.i:                                ; preds = %for.inc27.sink.split.i.i.i.i, %if.else26.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc
+  %out_writer.sroa.46.6 = phi i64 [ %inc7.i.i51.i.i.i.i, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.46.5, %if.else26.i.i.i.i ], [ %out_writer.sroa.46.5, %call.i.i.i26.i.i.i.i.noexc ]
+  %out_writer.sroa.5.5 = phi i64 [ %out_writer.sroa.5.4, %for.inc27.sink.split.i.i.i.i ], [ %inc.i.i46.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i31.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ]
+  %out_writer.sroa.30.6 = phi i8 [ 1, %for.inc27.sink.split.i.i.i.i ], [ %shl.i.i44.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i29.i.i.i.i, %call.i.i.i26.i.i.i.i.noexc ]
+  %out_writer.sroa.17.9 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.6, %if.else26.i.i.i.i ], [ %spec.select61, %call.i.i.i26.i.i.i.i.noexc ]
   %inc29.i.i.i.i = add i64 %position.361.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %15
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !123
 
 if.end32.loopexit73.i.i.i.i:                      ; preds = %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_10BinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
-  %23 = add i64 %out_writer.sroa.6.0, %conv10.i.i.i.i
-  %24 = add i64 %position.072.i.i.i.i, %conv10.i.i.i.i
+  %22 = add i64 %out_writer.sroa.5.0, %conv10.i.i.i.i
+  %23 = add i64 %position.072.i.i.i.i, %conv10.i.i.i.i
   br label %if.end32.i.i.i.i
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i, %if.end32.loopexit73.i.i.i.i, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_writer.sroa.33.8 = phi i8 [ %out_writer.sroa.33.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.33.4, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.33.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.33.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.6.6 = phi i64 [ %out_writer.sroa.6.0, %for.cond.preheader.i.i.i.i ], [ %23, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.6.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.6.0, %for.cond19.preheader.i.i.i.i ], [ %12, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %16, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.49.8 = phi i64 [ %out_writer.sroa.49.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.49.4, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.49.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.49.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.18.9 = phi i8 [ %out_writer.sroa.18.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.18.5, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.18.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.18.8, %for.inc27.i.i.i.i ]
-  %position.4.i.i.i.i = phi i64 [ %position.072.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %24, %if.end32.loopexit73.i.i.i.i ], [ %position.072.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.072.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %15, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.46.7 = phi i64 [ %out_writer.sroa.46.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.46.4, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.46.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.46.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.5.6 = phi i64 [ %out_writer.sroa.5.0, %for.cond.preheader.i.i.i.i ], [ %22, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.5.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.5.0, %for.cond19.preheader.i.i.i.i ], [ %12, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.5.5, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.30.7 = phi i8 [ %out_writer.sroa.30.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.30.4, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.30.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.30.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.17.10 = phi i8 [ %out_writer.sroa.17.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.17.5, %if.end32.loopexit73.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.17.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.17.9, %for.inc27.i.i.i.i ]
+  %position.4.i.i.i.i = phi i64 [ %position.072.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %23, %if.end32.loopexit73.i.i.i.i ], [ %position.072.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.072.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %15, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %7
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !124
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i: ; preds = %if.end32.i.i.i.i, %.noexc5
-  %out_writer.sroa.33.9 = phi i8 [ %4, %.noexc5 ], [ %out_writer.sroa.33.8, %if.end32.i.i.i.i ]
-  %out_writer.sroa.6.7 = phi i64 [ 0, %.noexc5 ], [ %out_writer.sroa.6.6, %if.end32.i.i.i.i ]
-  %out_writer.sroa.49.9 = phi i64 [ %div.i, %.noexc5 ], [ %out_writer.sroa.49.8, %if.end32.i.i.i.i ]
-  %out_writer.sroa.18.10 = phi i8 [ %storemerge.i, %.noexc5 ], [ %out_writer.sroa.18.9, %if.end32.i.i.i.i ]
+  %out_writer.sroa.46.8 = phi i64 [ %div.i, %.noexc5 ], [ %out_writer.sroa.46.7, %if.end32.i.i.i.i ]
+  %out_writer.sroa.5.7 = phi i64 [ 0, %.noexc5 ], [ %out_writer.sroa.5.6, %if.end32.i.i.i.i ]
+  %out_writer.sroa.30.8 = phi i8 [ %4, %.noexc5 ], [ %out_writer.sroa.30.7, %if.end32.i.i.i.i ]
+  %out_writer.sroa.17.11 = phi i8 [ %storemerge.i, %.noexc5 ], [ %out_writer.sroa.17.10, %if.end32.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
-  %out_writer.sroa.33.10 = phi i8 [ %4, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.33.9, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.6.8 = phi i64 [ 0, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.6.7, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.49.10 = phi i64 [ %div.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.49.9, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.18.11 = phi i8 [ %storemerge.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.18.10, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.46.9 = phi i64 [ %div.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.46.8, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.5.8 = phi i64 [ 0, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.5.7, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.30.9 = phi i8 [ %4, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.30.8, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.17.12 = phi i8 [ %storemerge.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.17.11, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10BinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %empty_value.i.i.i)
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 land.lhs.true.i:                                  ; preds = %invoke.cont3
-  %cmp2.not.i = icmp ne i8 %out_writer.sroa.33.10, 1
-  %cmp4.i = icmp slt i64 %out_writer.sroa.6.8, %3
+  %cmp2.not.i = icmp ne i8 %out_writer.sroa.30.9, 1
+  %cmp4.i = icmp slt i64 %out_writer.sroa.5.8, %3
   %or.cond.i = select i1 %cmp2.not.i, i1 true, i1 %cmp4.i
   br i1 %or.cond.i, label %if.then.i13, label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 if.then.i13:                                      ; preds = %land.lhs.true.i
-  %arrayidx.i16 = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.10
-  store i8 %out_writer.sroa.18.11, ptr %arrayidx.i16, align 1
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.9
+  store i8 %out_writer.sroa.17.12, ptr %arrayidx.i16, align 1
   br label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 _ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit: ; preds = %invoke.cont3, %land.lhs.true.i, %if.then.i13
   ret void
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit55 = landingpad { ptr, i32 }
+  %lpad.loopexit62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit57 = landingpad { ptr, i32 }
+  %lpad.loopexit64 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit61 = landingpad { ptr, i32 }
+  %lpad.loopexit68 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit55, %lpad.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit62, %lpad.loopexit ], [ %lpad.loopexit64, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit68, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #17
   resume { ptr, i32 } %lpad.phi
 }
@@ -6969,8 +6973,8 @@ if.then.i.i.i:                                    ; preds = %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #17
   store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i.i, i64 8
-  %spec.select66 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
-  store ptr %spec.select66, ptr %_M_reason.i.i.i.i.i.i, align 8
+  %spec.select73 = select i1 %cmp.i.not.i.i.i.i, ptr @.str.2, ptr @.str.3
+  store ptr %spec.select73, ptr %_M_reason.i.i.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
           to label %if.then.i.i.i.i.cont unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -7029,10 +7033,10 @@ if.end.i.i.i:                                     ; preds = %_ZN5arrow8internal2
   br i1 %cmp68.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc5, %if.end32.i.i.i.i
-  %out_writer.sroa.33.0 = phi i8 [ %out_writer.sroa.33.8, %if.end32.i.i.i.i ], [ %4, %.noexc5 ]
-  %out_writer.sroa.6.0 = phi i64 [ %out_writer.sroa.6.6, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
-  %out_writer.sroa.49.0 = phi i64 [ %out_writer.sroa.49.8, %if.end32.i.i.i.i ], [ %div.i, %.noexc5 ]
-  %out_writer.sroa.18.0 = phi i8 [ %out_writer.sroa.18.9, %if.end32.i.i.i.i ], [ %storemerge.i, %.noexc5 ]
+  %out_writer.sroa.46.0 = phi i64 [ %out_writer.sroa.46.7, %if.end32.i.i.i.i ], [ %div.i, %.noexc5 ]
+  %out_writer.sroa.5.0 = phi i64 [ %out_writer.sroa.5.6, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
+  %out_writer.sroa.30.0 = phi i8 [ %out_writer.sroa.30.7, %if.end32.i.i.i.i ], [ %4, %.noexc5 ]
+  %out_writer.sroa.17.0 = phi i8 [ %out_writer.sroa.17.10, %if.end32.i.i.i.i ], [ %storemerge.i, %.noexc5 ]
   %position.069.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc5 ]
   %call.i.i.i.i6 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -7050,13 +7054,13 @@ for.cond.preheader.i.i.i.i:                       ; preds = %call.i.i.i.i.noexc
   br i1 %cmp364.i.i.i.i, label %for.body.i.i.i.i.preheader, label %if.end32.i.i.i.i
 
 for.body.i.i.i.i.preheader:                       ; preds = %for.cond.preheader.i.i.i.i
-  %12 = add i64 %out_writer.sroa.6.0, %conv.i.i.i.i
+  %12 = add i64 %out_writer.sroa.5.0, %conv.i.i.i.i
   br label %for.body.i.i.i.i
 
 for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.preheader, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
-  %out_writer.sroa.33.1 = phi i8 [ %out_writer.sroa.33.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.33.0, %for.body.i.i.i.i.preheader ]
-  %out_writer.sroa.49.1 = phi i64 [ %out_writer.sroa.49.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.49.0, %for.body.i.i.i.i.preheader ]
-  %out_writer.sroa.18.1 = phi i8 [ %out_writer.sroa.18.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.18.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.46.1 = phi i64 [ %out_writer.sroa.46.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.46.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.30.1 = phi i8 [ %out_writer.sroa.30.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.30.0, %for.body.i.i.i.i.preheader ]
+  %out_writer.sroa.17.1 = phi i8 [ %out_writer.sroa.17.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.17.0, %for.body.i.i.i.i.preheader ]
   %i.066.i.i.i.i = phi i64 [ %inc.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ 0, %for.body.i.i.i.i.preheader ]
   %position.165.i.i.i.i = phi i64 [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %position.069.i.i.i.i, %for.body.i.i.i.i.preheader ]
   %arrayidx.i.i7.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i, i64 %position.165.i.i.i.i
@@ -7069,22 +7073,22 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i.pr
           to label %call.i.i.i.i.i.i.i.noexc unwind label %lpad.loopexit
 
 call.i.i.i.i.i.i.i.noexc:                         ; preds = %for.body.i.i.i.i
-  %or1.i.i.i.i.i.i.i.i = select i1 %call.i.i.i.i.i.i.i7, i8 %out_writer.sroa.33.1, i8 0
-  %spec.select = or i8 %or1.i.i.i.i.i.i.i.i, %out_writer.sroa.18.1
-  %shl.i.i.i.i.i.i.i.i = shl i8 %out_writer.sroa.33.1, 1
+  %or1.i.i.i.i.i.i.i.i = select i1 %call.i.i.i.i.i.i.i7, i8 %out_writer.sroa.30.1, i8 0
+  %spec.select = or i8 %or1.i.i.i.i.i.i.i.i, %out_writer.sroa.17.1
+  %shl.i.i.i.i.i.i.i.i = shl i8 %out_writer.sroa.30.1, 1
   %cmp.i.i.i.i.i.i.i.i = icmp eq i8 %shl.i.i.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i, label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i:                          ; preds = %call.i.i.i.i.i.i.i.noexc
-  %inc7.i.i.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.49.1, 1
-  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.1
+  %inc7.i.i.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.46.1, 1
+  %arrayidx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.1
   store i8 %spec.select, ptr %arrayidx.i.i.i.i.i.i.i.i, align 1
   br label %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i
 
 _ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc
-  %out_writer.sroa.33.2 = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ]
-  %out_writer.sroa.49.2 = phi i64 [ %inc7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %out_writer.sroa.49.1, %call.i.i.i.i.i.i.i.noexc ]
-  %out_writer.sroa.18.3 = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i ], [ %spec.select, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.46.2 = phi i64 [ %inc7.i.i.i.i.i.i.i.i, %if.then.i.i.i.i.i.i.i.i ], [ %out_writer.sroa.46.1, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.30.2 = phi i8 [ 1, %if.then.i.i.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ]
+  %out_writer.sroa.17.3 = phi i8 [ 0, %if.then.i.i.i.i.i.i.i.i ], [ %spec.select, %call.i.i.i.i.i.i.i.noexc ]
   %inc.i.i.i.i = add nuw nsw i64 %i.066.i.i.i.i, 1
   %inc4.i.i.i.i = add nsw i64 %position.165.i.i.i.i, 1
   %exitcond73.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, %conv.i.i.i.i
@@ -7102,7 +7106,6 @@ for.body23.preheader.i.i.i.i:                     ; preds = %for.cond19.preheade
   %block.sroa.0.0.extract.trunc.mask.i.i.i.i = and i32 %call.i.i.i.i6, 32767
   %conv21.i.i.i.i = zext nneg i32 %block.sroa.0.0.extract.trunc.mask.i.i.i.i to i64
   %15 = add i64 %position.069.i.i.i.i, %conv21.i.i.i.i
-  %16 = add i64 %out_writer.sroa.6.0, %conv21.i.i.i.i
   br label %for.body23.i.i.i.i
 
 for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i4
@@ -7111,148 +7114,153 @@ for.cond8.preheader.i.i.i.i:                      ; preds = %if.else.i.i.i.i4
   br i1 %cmp1160.i.i.i.i, label %for.body12.i.i.i.i, label %if.end32.i.i.i.i
 
 for.body12.i.i.i.i:                               ; preds = %for.cond8.preheader.i.i.i.i, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
-  %out_writer.sroa.33.3 = phi i8 [ %out_writer.sroa.33.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond8.preheader.i.i.i.i ]
-  %out_writer.sroa.49.3 = phi i64 [ %out_writer.sroa.49.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond8.preheader.i.i.i.i ]
-  %out_writer.sroa.18.4 = phi i8 [ %out_writer.sroa.18.5, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.46.3 = phi i64 [ %out_writer.sroa.46.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.30.3 = phi i8 [ %out_writer.sroa.30.4, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond8.preheader.i.i.i.i ]
+  %out_writer.sroa.17.4 = phi i8 [ %out_writer.sroa.17.5, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond8.preheader.i.i.i.i ]
   %i7.062.i.i.i.i = phi i64 [ %inc14.i.i.i.i, %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i ], [ 0, %for.cond8.preheader.i.i.i.i ]
-  %shl.i.i.i.i.i.i = shl i8 %out_writer.sroa.33.3, 1
+  %shl.i.i.i.i.i.i = shl i8 %out_writer.sroa.30.3, 1
   %cmp.i.i.i.i.i.i = icmp eq i8 %shl.i.i.i.i.i.i, 0
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body12.i.i.i.i
-  %inc7.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.49.3, 1
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.3
-  store i8 %out_writer.sroa.18.4, ptr %arrayidx.i.i.i.i.i.i, align 1
+  %inc7.i.i.i.i.i.i = add nsw i64 %out_writer.sroa.46.3, 1
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.3
+  store i8 %out_writer.sroa.17.4, ptr %arrayidx.i.i.i.i.i.i, align 1
   br label %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
 
 _ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body12.i.i.i.i
-  %out_writer.sroa.33.4 = phi i8 [ 1, %if.then.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i, %for.body12.i.i.i.i ]
-  %out_writer.sroa.49.4 = phi i64 [ %inc7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.49.3, %for.body12.i.i.i.i ]
-  %out_writer.sroa.18.5 = phi i8 [ 0, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.18.4, %for.body12.i.i.i.i ]
+  %out_writer.sroa.46.4 = phi i64 [ %inc7.i.i.i.i.i.i, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.46.3, %for.body12.i.i.i.i ]
+  %out_writer.sroa.30.4 = phi i8 [ 1, %if.then.i.i.i.i.i.i ], [ %shl.i.i.i.i.i.i, %for.body12.i.i.i.i ]
+  %out_writer.sroa.17.5 = phi i8 [ 0, %if.then.i.i.i.i.i.i ], [ %out_writer.sroa.17.4, %for.body12.i.i.i.i ]
   %inc14.i.i.i.i = add nuw nsw i64 %i7.062.i.i.i.i, 1
   %exitcond72.not.i.i.i.i = icmp eq i64 %inc14.i.i.i.i, %conv10.i.i.i.i
   br i1 %exitcond72.not.i.i.i.i, label %if.end32.loopexit70.i.i.i.i, label %for.body12.i.i.i.i, !llvm.loop !133
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_writer.sroa.33.5 = phi i8 [ %out_writer.sroa.33.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.33.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.49.5 = phi i64 [ %out_writer.sroa.49.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.49.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.18.6 = phi i8 [ %out_writer.sroa.18.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.18.8, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.46.5 = phi i64 [ %out_writer.sroa.46.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.46.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.5.3 = phi i64 [ %out_writer.sroa.5.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.5.5, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.30.5 = phi i8 [ %out_writer.sroa.30.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.30.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.17.6 = phi i8 [ %out_writer.sroa.17.0, %for.body23.preheader.i.i.i.i ], [ %out_writer.sroa.17.9, %for.inc27.i.i.i.i ]
   %position.358.i.i.i.i = phi i64 [ %position.069.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.358.i.i.i.i, %8
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
   %arrayidx.i17.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %shr.i.i.i.i.i
-  %17 = load i8, ptr %arrayidx.i17.i.i.i.i, align 1
-  %conv.i.i.i.i.i = zext i8 %17 to i32
-  %18 = trunc i64 %add.i.i.i.i to i32
-  %sh_prom.i.i.i.i.i = and i32 %18, 7
-  %19 = shl nuw nsw i32 1, %sh_prom.i.i.i.i.i
-  %20 = and i32 %19, %conv.i.i.i.i.i
-  %tobool.i.not.i.i.i.i = icmp eq i32 %20, 0
+  %16 = load i8, ptr %arrayidx.i17.i.i.i.i, align 1
+  %conv.i.i.i.i.i = zext i8 %16 to i32
+  %17 = trunc i64 %add.i.i.i.i to i32
+  %sh_prom.i.i.i.i.i = and i32 %17, 7
+  %18 = shl nuw nsw i32 1, %sh_prom.i.i.i.i.i
+  %19 = and i32 %18, %conv.i.i.i.i.i
+  %tobool.i.not.i.i.i.i = icmp eq i32 %19, 0
   br i1 %tobool.i.not.i.i.i.i, label %if.else26.i.i.i.i, label %if.then25.i.i.i.i
 
 if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %arrayidx.i18.i.i.i.i = getelementptr inbounds i64, ptr %add.ptr.i.i.i.i.i, i64 %position.358.i.i.i.i
-  %21 = load i64, ptr %arrayidx.i18.i.i.i.i, align 8
-  %add.ptr.i19.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %21
+  %20 = load i64, ptr %arrayidx.i18.i.i.i.i, align 8
+  %add.ptr.i19.i.i.i.i = getelementptr inbounds i8, ptr %storemerge.i.i.i, i64 %20
   %arrayidx2.i20.i.i.i.i = getelementptr i8, ptr %arrayidx.i18.i.i.i.i, i64 8
-  %22 = load i64, ptr %arrayidx2.i20.i.i.i.i, align 8
-  %sub.i21.i.i.i.i = sub nsw i64 %22, %21
+  %21 = load i64, ptr %arrayidx2.i20.i.i.i.i, align 8
+  %sub.i21.i.i.i.i = sub nsw i64 %21, %20
   %call.i.i.i23.i.i.i.i8 = invoke noundef zeroext i1 @_ZN5arrow7compute8internal18ParseBooleanString4CallIbSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef %ctx, i64 %sub.i21.i.i.i.i, ptr nonnull %add.ptr.i19.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %call.i.i.i23.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit
 
 call.i.i.i23.i.i.i.i.noexc:                       ; preds = %if.then25.i.i.i.i
-  %or1.i.i.i.i38.i.i.i.i = select i1 %call.i.i.i23.i.i.i.i8, i8 %out_writer.sroa.33.5, i8 0
-  %spec.select54 = or i8 %or1.i.i.i.i38.i.i.i.i, %out_writer.sroa.18.6
-  %shl.i.i.i.i26.i.i.i.i = shl i8 %out_writer.sroa.33.5, 1
+  %or1.i.i.i.i38.i.i.i.i = select i1 %call.i.i.i23.i.i.i.i8, i8 %out_writer.sroa.30.5, i8 0
+  %spec.select61 = or i8 %or1.i.i.i.i38.i.i.i.i, %out_writer.sroa.17.6
+  %shl.i.i.i.i26.i.i.i.i = shl i8 %out_writer.sroa.30.5, 1
+  %inc.i.i.i.i28.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i.i.i29.i.i.i.i = icmp eq i8 %shl.i.i.i.i26.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i29.i.i.i.i, label %for.inc27.i.i.i.i.sink.split, label %for.inc27.i.i.i.i
+  br i1 %cmp.i.i.i.i29.i.i.i.i, label %for.inc27.sink.split.i.i.i.i, label %for.inc27.i.i.i.i
 
 if.else26.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
-  %shl.i.i41.i.i.i.i = shl i8 %out_writer.sroa.33.5, 1
+  %shl.i.i41.i.i.i.i = shl i8 %out_writer.sroa.30.5, 1
+  %inc.i.i43.i.i.i.i = add nsw i64 %out_writer.sroa.5.3, 1
   %cmp.i.i44.i.i.i.i = icmp eq i8 %shl.i.i41.i.i.i.i, 0
-  br i1 %cmp.i.i44.i.i.i.i, label %for.inc27.i.i.i.i.sink.split, label %for.inc27.i.i.i.i
+  br i1 %cmp.i.i44.i.i.i.i, label %for.inc27.sink.split.i.i.i.i, label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i.sink.split:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc
-  %spec.select54.sink = phi i8 [ %spec.select54, %call.i.i.i23.i.i.i.i.noexc ], [ %out_writer.sroa.18.6, %if.else26.i.i.i.i ]
-  %inc7.i.i.i.i33.i.i.i.i = add nsw i64 %out_writer.sroa.49.5, 1
-  %arrayidx.i.i.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.5
-  store i8 %spec.select54.sink, ptr %arrayidx.i.i.i.i34.i.i.i.i, align 1
+for.inc27.sink.split.i.i.i.i:                     ; preds = %if.else26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc
+  %out_writer.sroa.5.4 = phi i64 [ %inc.i.i43.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i28.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ]
+  %out_writer.sroa.17.8 = phi i8 [ %out_writer.sroa.17.6, %if.else26.i.i.i.i ], [ %spec.select61, %call.i.i.i23.i.i.i.i.noexc ]
+  %inc7.i.i48.i.i.i.i = add nsw i64 %out_writer.sroa.46.5, 1
+  %arrayidx.i.i49.i.i.i.i = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.5
+  store i8 %out_writer.sroa.17.8, ptr %arrayidx.i.i49.i.i.i.i, align 1
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.inc27.i.i.i.i.sink.split, %if.else26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc
-  %out_writer.sroa.33.7 = phi i8 [ %shl.i.i41.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ], [ 1, %for.inc27.i.i.i.i.sink.split ]
-  %out_writer.sroa.49.7 = phi i64 [ %out_writer.sroa.49.5, %if.else26.i.i.i.i ], [ %out_writer.sroa.49.5, %call.i.i.i23.i.i.i.i.noexc ], [ %inc7.i.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i.sink.split ]
-  %out_writer.sroa.18.8 = phi i8 [ %out_writer.sroa.18.6, %if.else26.i.i.i.i ], [ %spec.select54, %call.i.i.i23.i.i.i.i.noexc ], [ 0, %for.inc27.i.i.i.i.sink.split ]
+for.inc27.i.i.i.i:                                ; preds = %for.inc27.sink.split.i.i.i.i, %if.else26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc
+  %out_writer.sroa.46.6 = phi i64 [ %inc7.i.i48.i.i.i.i, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.46.5, %if.else26.i.i.i.i ], [ %out_writer.sroa.46.5, %call.i.i.i23.i.i.i.i.noexc ]
+  %out_writer.sroa.5.5 = phi i64 [ %out_writer.sroa.5.4, %for.inc27.sink.split.i.i.i.i ], [ %inc.i.i43.i.i.i.i, %if.else26.i.i.i.i ], [ %inc.i.i.i.i28.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ]
+  %out_writer.sroa.30.6 = phi i8 [ 1, %for.inc27.sink.split.i.i.i.i ], [ %shl.i.i41.i.i.i.i, %if.else26.i.i.i.i ], [ %shl.i.i.i.i26.i.i.i.i, %call.i.i.i23.i.i.i.i.noexc ]
+  %out_writer.sroa.17.9 = phi i8 [ 0, %for.inc27.sink.split.i.i.i.i ], [ %out_writer.sroa.17.6, %if.else26.i.i.i.i ], [ %spec.select61, %call.i.i.i23.i.i.i.i.noexc ]
   %inc29.i.i.i.i = add i64 %position.358.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %15
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !134
 
 if.end32.loopexit70.i.i.i.i:                      ; preds = %_ZZN5arrow7compute8internal10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeENS_15LargeBinaryTypeENS1_18ParseBooleanStringEE9ArrayExecIS4_vE4ExecERKS7_PNS0_13KernelContextERKNS_9ArraySpanEPNS0_10ExecResultEENKUlvE_clEv.exit.i.i.i.i
-  %23 = add i64 %out_writer.sroa.6.0, %conv10.i.i.i.i
-  %24 = add i64 %position.069.i.i.i.i, %conv10.i.i.i.i
+  %22 = add i64 %out_writer.sroa.5.0, %conv10.i.i.i.i
+  %23 = add i64 %position.069.i.i.i.i, %conv10.i.i.i.i
   br label %if.end32.i.i.i.i
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i, %if.end32.loopexit70.i.i.i.i, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_writer.sroa.33.8 = phi i8 [ %out_writer.sroa.33.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.33.4, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.33.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.33.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.33.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.6.6 = phi i64 [ %out_writer.sroa.6.0, %for.cond.preheader.i.i.i.i ], [ %23, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.6.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.6.0, %for.cond19.preheader.i.i.i.i ], [ %12, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %16, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.49.8 = phi i64 [ %out_writer.sroa.49.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.49.4, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.49.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.49.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.49.7, %for.inc27.i.i.i.i ]
-  %out_writer.sroa.18.9 = phi i8 [ %out_writer.sroa.18.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.18.5, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.18.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.18.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.18.8, %for.inc27.i.i.i.i ]
-  %position.4.i.i.i.i = phi i64 [ %position.069.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %24, %if.end32.loopexit70.i.i.i.i ], [ %position.069.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.069.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %15, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.46.7 = phi i64 [ %out_writer.sroa.46.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.46.4, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.46.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.46.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.46.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.5.6 = phi i64 [ %out_writer.sroa.5.0, %for.cond.preheader.i.i.i.i ], [ %22, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.5.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.5.0, %for.cond19.preheader.i.i.i.i ], [ %12, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.5.5, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.30.7 = phi i8 [ %out_writer.sroa.30.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.30.4, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.30.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.30.2, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.30.6, %for.inc27.i.i.i.i ]
+  %out_writer.sroa.17.10 = phi i8 [ %out_writer.sroa.17.0, %for.cond.preheader.i.i.i.i ], [ %out_writer.sroa.17.5, %if.end32.loopexit70.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond8.preheader.i.i.i.i ], [ %out_writer.sroa.17.0, %for.cond19.preheader.i.i.i.i ], [ %out_writer.sroa.17.3, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %out_writer.sroa.17.9, %for.inc27.i.i.i.i ]
+  %position.4.i.i.i.i = phi i64 [ %position.069.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %23, %if.end32.loopexit70.i.i.i.i ], [ %position.069.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.069.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZZN5arrow8internal22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS2_ZNS6_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES2_NS6_18ParseBooleanStringEE9ArrayExecISA_vE4ExecERKSC_PNS5_13KernelContextERKNS_9ArraySpanEPNS5_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSE_4ExecESG_SI_SL_SN_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESL_OSV_OT1_EUlSR_E_ST_EEvSL_OT_SZ_ENKUllE_clEl.exit.i.i.i.i ], [ %15, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %7
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !135
 
 _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i: ; preds = %if.end32.i.i.i.i, %.noexc5
-  %out_writer.sroa.33.9 = phi i8 [ %4, %.noexc5 ], [ %out_writer.sroa.33.8, %if.end32.i.i.i.i ]
-  %out_writer.sroa.6.7 = phi i64 [ 0, %.noexc5 ], [ %out_writer.sroa.6.6, %if.end32.i.i.i.i ]
-  %out_writer.sroa.49.9 = phi i64 [ %div.i, %.noexc5 ], [ %out_writer.sroa.49.8, %if.end32.i.i.i.i ]
-  %out_writer.sroa.18.10 = phi i8 [ %storemerge.i, %.noexc5 ], [ %out_writer.sroa.18.9, %if.end32.i.i.i.i ]
+  %out_writer.sroa.46.8 = phi i64 [ %div.i, %.noexc5 ], [ %out_writer.sroa.46.7, %if.end32.i.i.i.i ]
+  %out_writer.sroa.5.7 = phi i64 [ 0, %.noexc5 ], [ %out_writer.sroa.5.6, %if.end32.i.i.i.i ]
+  %out_writer.sroa.30.8 = phi i8 [ %4, %.noexc5 ], [ %out_writer.sroa.30.7, %if.end32.i.i.i.i ]
+  %out_writer.sroa.17.11 = phi i8 [ %storemerge.i, %.noexc5 ], [ %out_writer.sroa.17.10, %if.end32.i.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %bit_counter.i.i.i.i)
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit
-  %out_writer.sroa.33.10 = phi i8 [ %4, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.33.9, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.6.8 = phi i64 [ 0, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.6.7, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.49.10 = phi i64 [ %div.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.49.9, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
-  %out_writer.sroa.18.11 = phi i8 [ %storemerge.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.18.10, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.46.9 = phi i64 [ %div.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.46.8, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.5.8 = phi i64 [ 0, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.5.7, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.30.9 = phi i8 [ %4, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.30.8, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
+  %out_writer.sroa.17.12 = phi i8 [ %storemerge.i, %_ZN5arrow8internal21FirstTimeBitmapWriterC2EPhll.exit ], [ %out_writer.sroa.17.11, %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeBinaryTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_11BooleanTypeES3_NS7_18ParseBooleanStringEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %empty_value.i.i.i)
   br i1 %cmp.i, label %land.lhs.true.i, label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 land.lhs.true.i:                                  ; preds = %invoke.cont3
-  %cmp2.not.i = icmp ne i8 %out_writer.sroa.33.10, 1
-  %cmp4.i = icmp slt i64 %out_writer.sroa.6.8, %3
+  %cmp2.not.i = icmp ne i8 %out_writer.sroa.30.9, 1
+  %cmp4.i = icmp slt i64 %out_writer.sroa.5.8, %3
   %or.cond.i = select i1 %cmp2.not.i, i1 true, i1 %cmp4.i
   br i1 %or.cond.i, label %if.then.i13, label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 if.then.i13:                                      ; preds = %land.lhs.true.i
-  %arrayidx.i16 = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.49.10
-  store i8 %out_writer.sroa.18.11, ptr %arrayidx.i16, align 1
+  %arrayidx.i16 = getelementptr inbounds i8, ptr %1, i64 %out_writer.sroa.46.9
+  store i8 %out_writer.sroa.17.12, ptr %arrayidx.i16, align 1
   br label %_ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit
 
 _ZN5arrow8internal21FirstTimeBitmapWriter6FinishEv.exit: ; preds = %invoke.cont3, %land.lhs.true.i, %if.then.i13
   ret void
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit55 = landingpad { ptr, i32 }
+  %lpad.loopexit62 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit57 = landingpad { ptr, i32 }
+  %lpad.loopexit64 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit61 = landingpad { ptr, i32 }
+  %lpad.loopexit68 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp69 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit55, %lpad.loopexit ], [ %lpad.loopexit57, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit61, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp62, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit62, %lpad.loopexit ], [ %lpad.loopexit64, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit68, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp69, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #17
   resume { ptr, i32 } %lpad.phi
 }

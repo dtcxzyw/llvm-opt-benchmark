@@ -2605,15 +2605,15 @@ invoke.cont123:                                   ; preds = %_ZNK15ref_vector_co
   br i1 %tobool.not.i156, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %invoke.cont123, %invoke.cont114
-  %call115.sink = phi ptr [ %call115, %invoke.cont114 ], [ %call.i155, %invoke.cont123 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call115.sink, i64 8
-  %81 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i155.sink = phi ptr [ %call115, %invoke.cont114 ], [ %call.i155, %invoke.cont123 ]
+  %m_ref_count.i.i.i158 = getelementptr inbounds i8, ptr %call.i155.sink, i64 8
+  %81 = load i32, ptr %m_ref_count.i.i.i158, align 4
   %inc.i.i.i159 = add i32 %81, 1
-  store i32 %inc.i.i.i159, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i159, ptr %m_ref_count.i.i.i158, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %invoke.cont123, %invoke.cont114
-  %82 = phi ptr [ null, %invoke.cont114 ], [ null, %invoke.cont123 ], [ %call115.sink, %if.end.sink.split ]
+  %82 = phi ptr [ null, %invoke.cont114 ], [ null, %invoke.cont123 ], [ %call.i155.sink, %if.end.sink.split ]
   store ptr %82, ptr %n3, align 8
   %83 = load ptr, ptr %m, align 8
   %m_expr.i = getelementptr inbounds i8, ptr %e, i64 24

@@ -820,15 +820,15 @@ invoke.cont26:                                    ; preds = %_ZNK15ref_vector_co
   br i1 %tobool.not.i8, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %invoke.cont26, %invoke.cont18
-  %call19.sink = phi ptr [ %call19, %invoke.cont18 ], [ %12, %invoke.cont26 ]
-  %m_ref_count.i.i = getelementptr inbounds i8, ptr %call19.sink, i64 48
-  %13 = load i32, ptr %m_ref_count.i.i, align 8
+  %.sink = phi ptr [ %call19, %invoke.cont18 ], [ %12, %invoke.cont26 ]
+  %m_ref_count.i.i10 = getelementptr inbounds i8, ptr %.sink, i64 48
+  %13 = load i32, ptr %m_ref_count.i.i10, align 8
   %inc.i.i11 = add i32 %13, 1
-  store i32 %inc.i.i11, ptr %m_ref_count.i.i, align 8
+  store i32 %inc.i.i11, ptr %m_ref_count.i.i10, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %invoke.cont26, %invoke.cont18
-  %14 = phi ptr [ null, %invoke.cont18 ], [ null, %invoke.cont26 ], [ %call19.sink, %if.end.sink.split ]
+  %14 = phi ptr [ null, %invoke.cont18 ], [ null, %invoke.cont26 ], [ %.sink, %if.end.sink.split ]
   store ptr %14, ptr %base_solver, align 8
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %name)
           to label %invoke.cont30 unwind label %lpad

@@ -1812,10 +1812,10 @@ if.then80:                                        ; preds = %if.then60
 
 if.end85.sink.split:                              ; preds = %if.then60, %if.then60, %if.then80
   %.sink = phi i64 [ 2552, %if.then80 ], [ 2544, %if.then60 ], [ 2544, %if.then60 ]
-  %num_merge_operands = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %75 = load i64, ptr %num_merge_operands, align 8
+  %num_deletions = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %75 = load i64, ptr %num_deletions, align 8
   %inc75 = add i64 %75, 1
-  store i64 %inc75, ptr %num_merge_operands, align 8
+  store i64 %inc75, ptr %num_deletions, align 8
   br label %if.end85
 
 if.end85:                                         ; preds = %if.end85.sink.split, %if.end31, %if.end46, %if.then60, %if.end57

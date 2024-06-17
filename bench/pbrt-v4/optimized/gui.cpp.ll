@@ -470,10 +470,10 @@ if.then12:                                        ; preds = %_ZNSt3setIcSt4lessI
 
 if.end20.sink.split:                              ; preds = %if.then12, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i
   %.sink11 = phi i64 [ 1, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE10_M_insert_IRKcNS5_11_Alloc_nodeEEESt17_Rb_tree_iteratorIcEPSt18_Rb_tree_node_baseSD_OT_RT0_.exit.i.i ], [ -1, %if.then12 ]
-  %_M_node_count.i.i.i7 = getelementptr inbounds i8, ptr %1, i64 48
-  %15 = load i64, ptr %_M_node_count.i.i.i7, align 8
+  %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %1, i64 48
+  %15 = load i64, ptr %_M_node_count.i.i.i, align 8
   %inc.i.i.i = add i64 %15, %.sink11
-  store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i7, align 8
+  store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.end20.sink.split, %if.end12.i.i.i, %if.then5, %_ZNSt8_Rb_treeIccSt9_IdentityIcESt4lessIcESaIcEE14_M_lower_boundEPSt13_Rb_tree_nodeIcEPSt18_Rb_tree_node_baseRKc.exit.i.i, %if.then, %_ZNSt3setIcSt4lessIcESaIcEE4findERKc.exit, %entry

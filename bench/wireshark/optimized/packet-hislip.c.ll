@@ -660,9 +660,9 @@ search_for_retransmission.exit:                   ; preds = %94
   br i1 %.not5.i99, label %proto_item_set_generated.exit97, label %proto_item_set_generated.exit97.sink.split
 
 proto_item_set_generated.exit97.sink.split:       ; preds = %119, %102
-  %.sink276 = phi ptr [ %104, %102 ], [ %121, %119 ]
+  %.sink275 = phi ptr [ %104, %102 ], [ %121, %119 ]
   %.0.ph = phi i8 [ 0, %102 ], [ %115, %119 ]
-  %122 = getelementptr inbounds i8, ptr %.sink276, i64 28
+  %122 = getelementptr inbounds i8, ptr %.sink275, i64 28
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, 2
   store i32 %124, ptr %122, align 4
@@ -850,8 +850,8 @@ decode_controlcode.exit.thread272:                ; preds = %proto_item_set_gene
   br label %decode_controlcode.exit
 
 decode_controlcode.exit.thread:                   ; preds = %158, %165, %175, %181
-  %.sink275 = phi ptr [ %164, %158 ], [ %171, %165 ], [ %180, %175 ], [ %186, %181 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sroa.91176.0, ptr noundef nonnull @.str.242, ptr noundef %.sink275) #2
+  %.sink = phi ptr [ %164, %158 ], [ %171, %165 ], [ %180, %175 ], [ %186, %181 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.sroa.91176.0, ptr noundef nonnull @.str.242, ptr noundef %.sink) #2
   %223 = load i32, ptr @hf_hislip_messageparameter, align 4
   %224 = tail call ptr @proto_tree_add_item(ptr noundef %.075, i32 noundef %223, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0) #2
   %225 = load i32, ptr @ett_hislip_msgpara, align 4

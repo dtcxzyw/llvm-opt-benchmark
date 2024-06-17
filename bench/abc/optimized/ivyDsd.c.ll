@@ -776,16 +776,16 @@ Vec_IntGrow.exit.i119:                            ; preds = %229, %227
   br label %Ivy_TruthRecognizeMuxMaj.exit.sink.split
 
 Ivy_TruthRecognizeMuxMaj.exit.sink.split:         ; preds = %242, %Vec_IntGrow.exit.i119, %.Vec_IntGrow.exit10_crit_edge.i114, %146, %Vec_IntGrow.exit.i132, %.Vec_IntGrow.exit10_crit_edge.i127
-  %.sink = phi ptr [ %122, %.Vec_IntGrow.exit10_crit_edge.i127 ], [ %122, %Vec_IntGrow.exit.i132 ], [ %122, %146 ], [ %218, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %218, %Vec_IntGrow.exit.i119 ], [ %218, %242 ]
+  %.sink258 = phi ptr [ %122, %.Vec_IntGrow.exit10_crit_edge.i127 ], [ %122, %Vec_IntGrow.exit.i132 ], [ %122, %146 ], [ %218, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %218, %Vec_IntGrow.exit.i119 ], [ %218, %242 ]
   %.sink252 = phi ptr [ %.pre.i129, %.Vec_IntGrow.exit10_crit_edge.i127 ], [ %135, %Vec_IntGrow.exit.i132 ], [ %147, %146 ], [ %.pre.i116, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %231, %Vec_IntGrow.exit.i119 ], [ %243, %242 ]
   %.sink250 = phi i32 [ %121, %.Vec_IntGrow.exit10_crit_edge.i127 ], [ %121, %Vec_IntGrow.exit.i132 ], [ %121, %146 ], [ %217, %.Vec_IntGrow.exit10_crit_edge.i114 ], [ %217, %Vec_IntGrow.exit.i119 ], [ %217, %242 ]
-  %244 = load i32, ptr %.sink, align 4
+  %244 = load i32, ptr %.sink258, align 4
   %245 = add nsw i32 %244, 1
-  store i32 %245, ptr %.sink, align 4
+  store i32 %245, ptr %.sink258, align 4
   %246 = sext i32 %244 to i64
   %247 = getelementptr inbounds i32, ptr %.sink252, i64 %246
   store i32 %.sink250, ptr %247, align 4
-  %.val69.i = load i32, ptr %.sink, align 4
+  %.val69.i = load i32, ptr %.sink258, align 4
   %248 = shl i32 %.val69.i, 1
   %249 = add i32 %248, -2
   br label %Ivy_TruthRecognizeMuxMaj.exit
@@ -826,8 +826,8 @@ Ivy_TruthRecognizeMuxMaj.exit:                    ; preds = %Ivy_TruthRecognizeM
   %263 = shl i32 %262, 5
   %264 = and i32 %263, 224
   %265 = or disjoint i32 %264, %.sroa.0.0
-  %.not258 = icmp eq i32 %.083, 0
-  br i1 %.not258, label %._crit_edge, label %.lr.ph.preheader
+  %.not259 = icmp eq i32 %.083, 0
+  br i1 %.not259, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %259
   %wide.trip.count = zext nneg i32 %.083 to i64

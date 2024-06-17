@@ -431,12 +431,12 @@ define internal ptr @H5HG__cache_heap_deserialize(ptr nocapture noundef readonly
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %241, %206
-  %.sink285 = phi i64 [ 9, %241 ], [ 11, %206 ]
-  %.sink283 = phi i64 [ 8, %241 ], [ 24, %206 ]
-  %246 = getelementptr inbounds i8, ptr %.0199266, i64 %.sink285
+  %.sink287 = phi i64 [ 11, %206 ], [ 9, %241 ]
+  %.sink284 = phi i64 [ 24, %206 ], [ 8, %241 ]
+  %246 = getelementptr inbounds i8, ptr %.0199266, i64 %.sink287
   %247 = load i8, ptr %246, align 1
   %248 = zext i8 %247 to i64
-  %249 = shl nuw nsw i64 %248, %.sink283
+  %249 = shl nuw nsw i64 %248, %.sink284
   %250 = load ptr, ptr %68, align 8
   %251 = getelementptr inbounds %struct.H5HG_obj_t, ptr %250, i64 %133, i32 1
   %252 = load i64, ptr %251, align 8

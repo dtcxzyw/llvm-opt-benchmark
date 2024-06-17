@@ -722,8 +722,8 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
   %11 = getelementptr inbounds i8, ptr %0, i64 32
   br label %12
 
-12:                                               ; preds = %.lr.ph, %33
-  %.035 = phi ptr [ %9, %.lr.ph ], [ %18, %33 ]
+12:                                               ; preds = %.lr.ph, %31
+  %.035 = phi ptr [ %9, %.lr.ph ], [ %18, %31 ]
   %13 = load ptr, ptr %.035, align 8
   %14 = getelementptr inbounds i8, ptr %.035, i64 8
   %15 = load ptr, ptr %14, align 8
@@ -732,7 +732,7 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
   %18 = load ptr, ptr %17, align 8
   %.not33 = icmp eq ptr %16, null
   %19 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %13, ptr noundef nonnull %7)
-  br i1 %.not33, label %28, label %20
+  br i1 %.not33, label %27, label %20
 
 20:                                               ; preds = %12
   %21 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %16, ptr noundef nonnull %7)
@@ -743,103 +743,100 @@ define internal fastcc void @gen_relation_in(ptr noundef %0, i32 noundef %1, i32
   %25 = call ptr @dfvm_value_ref(ptr noundef %21) #9
   %26 = getelementptr inbounds i8, ptr %22, i64 16
   store ptr %25, ptr %26, align 8
-  %27 = load i32, ptr %10, align 8
-  store i32 %27, ptr %22, align 8
-  br label %33
+  br label %31
 
-28:                                               ; preds = %12
-  %29 = call ptr @dfvm_insn_new(i32 noundef 32) #9
-  %30 = call ptr @dfvm_value_ref(ptr noundef %19) #9
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %30, ptr %31, align 8
+27:                                               ; preds = %12
+  %28 = call ptr @dfvm_insn_new(i32 noundef 32) #9
+  %29 = call ptr @dfvm_value_ref(ptr noundef %19) #9
+  %30 = getelementptr inbounds i8, ptr %28, i64 8
+  store ptr %29, ptr %30, align 8
+  br label %31
+
+31:                                               ; preds = %27, %20
+  %.sink38 = phi ptr [ %28, %27 ], [ %22, %20 ]
   %32 = load i32, ptr %10, align 8
-  store i32 %32, ptr %29, align 8
-  br label %33
-
-33:                                               ; preds = %28, %20
-  %.sink37 = phi i32 [ %32, %28 ], [ %27, %20 ]
-  %.sink36 = phi ptr [ %29, %28 ], [ %22, %20 ]
-  %34 = add i32 %.sink37, 1
-  store i32 %34, ptr %10, align 8
-  %35 = load ptr, ptr %11, align 8
-  call void @g_ptr_array_add(ptr noundef %35, ptr noundef nonnull %.sink36) #9
+  store i32 %32, ptr %.sink38, align 8
+  %33 = add i32 %32, 1
+  store i32 %33, ptr %10, align 8
+  %34 = load ptr, ptr %11, align 8
+  call void @g_ptr_array_add(ptr noundef %34, ptr noundef nonnull %.sink38) #9
+  %35 = load ptr, ptr %7, align 8
+  call void @g_slist_foreach(ptr noundef %35, ptr noundef nonnull @fixup_jumps, ptr noundef nonnull %0) #9
   %36 = load ptr, ptr %7, align 8
-  call void @g_slist_foreach(ptr noundef %36, ptr noundef nonnull @fixup_jumps, ptr noundef nonnull %0) #9
-  %37 = load ptr, ptr %7, align 8
-  call void @g_slist_free(ptr noundef %37) #9
+  call void @g_slist_free(ptr noundef %36) #9
   store ptr null, ptr %7, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %12, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %33, %5
+._crit_edge:                                      ; preds = %31, %5
   call void @set_nodelist_free(ptr noundef %9) #9
-  %38 = icmp eq i32 %2, 0
-  br i1 %38, label %select_opcode.exit, label %39
+  %37 = icmp eq i32 %2, 0
+  br i1 %37, label %select_opcode.exit, label %38
 
-39:                                               ; preds = %._crit_edge
+38:                                               ; preds = %._crit_edge
   switch i32 %1, label %default.unreachable.i [
-    i32 12, label %40
-    i32 14, label %40
-    i32 16, label %40
-    i32 18, label %40
-    i32 20, label %40
-    i32 22, label %40
-    i32 24, label %40
-    i32 26, label %40
-    i32 28, label %40
-    i32 30, label %40
-    i32 13, label %44
-    i32 15, label %44
-    i32 17, label %44
-    i32 19, label %44
-    i32 21, label %44
-    i32 23, label %44
-    i32 25, label %44
-    i32 27, label %44
-    i32 29, label %44
-    i32 31, label %44
+    i32 12, label %39
+    i32 14, label %39
+    i32 16, label %39
+    i32 18, label %39
+    i32 20, label %39
+    i32 22, label %39
+    i32 24, label %39
+    i32 26, label %39
+    i32 28, label %39
+    i32 30, label %39
+    i32 13, label %43
+    i32 15, label %43
+    i32 17, label %43
+    i32 19, label %43
+    i32 21, label %43
+    i32 23, label %43
+    i32 25, label %43
+    i32 27, label %43
+    i32 29, label %43
+    i32 31, label %43
   ]
 
-40:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
-  %41 = icmp ne i32 %2, 2
-  %42 = zext i1 %41 to i32
-  %43 = add nuw nsw i32 %42, %1
+39:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
+  %40 = icmp ne i32 %2, 2
+  %41 = zext i1 %40 to i32
+  %42 = add nuw nsw i32 %41, %1
   br label %select_opcode.exit
 
-44:                                               ; preds = %39, %39, %39, %39, %39, %39, %39, %39, %39, %39
-  %45 = icmp ne i32 %2, 1
-  %46 = sext i1 %45 to i32
-  %47 = add nsw i32 %46, %1
+43:                                               ; preds = %38, %38, %38, %38, %38, %38, %38, %38, %38, %38
+  %44 = icmp ne i32 %2, 1
+  %45 = sext i1 %44 to i32
+  %46 = add nsw i32 %45, %1
   br label %select_opcode.exit
 
-default.unreachable.i:                            ; preds = %39
+default.unreachable.i:                            ; preds = %38
   unreachable
 
-select_opcode.exit:                               ; preds = %._crit_edge, %40, %44
-  %.0.i = phi i32 [ %47, %44 ], [ %43, %40 ], [ %1, %._crit_edge ]
-  %48 = call ptr @dfvm_insn_new(i32 noundef %.0.i) #9
-  %49 = call ptr @dfvm_value_ref(ptr noundef %8) #9
-  %50 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr %49, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 64
-  %52 = load i32, ptr %51, align 8
-  store i32 %52, ptr %48, align 8
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 32
-  %55 = load ptr, ptr %54, align 8
-  call void @g_ptr_array_add(ptr noundef %55, ptr noundef nonnull %48) #9
-  %56 = call ptr @dfvm_insn_new(i32 noundef 34) #9
-  %57 = load i32, ptr %51, align 8
-  store i32 %57, ptr %56, align 8
-  %58 = add i32 %57, 1
-  store i32 %58, ptr %51, align 8
-  %59 = load ptr, ptr %54, align 8
-  call void @g_ptr_array_add(ptr noundef %59, ptr noundef nonnull %56) #9
+select_opcode.exit:                               ; preds = %._crit_edge, %39, %43
+  %.0.i = phi i32 [ %46, %43 ], [ %42, %39 ], [ %1, %._crit_edge ]
+  %47 = call ptr @dfvm_insn_new(i32 noundef %.0.i) #9
+  %48 = call ptr @dfvm_value_ref(ptr noundef %8) #9
+  %49 = getelementptr inbounds i8, ptr %47, i64 8
+  store ptr %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %0, i64 64
+  %51 = load i32, ptr %50, align 8
+  store i32 %51, ptr %47, align 8
+  %52 = add i32 %51, 1
+  store i32 %52, ptr %50, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 32
+  %54 = load ptr, ptr %53, align 8
+  call void @g_ptr_array_add(ptr noundef %54, ptr noundef nonnull %47) #9
+  %55 = call ptr @dfvm_insn_new(i32 noundef 34) #9
+  %56 = load i32, ptr %50, align 8
+  store i32 %56, ptr %55, align 8
+  %57 = add i32 %56, 1
+  store i32 %57, ptr %50, align 8
+  %58 = load ptr, ptr %53, align 8
+  call void @g_ptr_array_add(ptr noundef %58, ptr noundef nonnull %55) #9
+  %59 = load ptr, ptr %6, align 8
+  call void @g_slist_foreach(ptr noundef %59, ptr noundef nonnull @fixup_jumps, ptr noundef %0) #9
   %60 = load ptr, ptr %6, align 8
-  call void @g_slist_foreach(ptr noundef %60, ptr noundef nonnull @fixup_jumps, ptr noundef %0) #9
-  %61 = load ptr, ptr %6, align 8
-  call void @g_slist_free(ptr noundef %61) #9
+  call void @g_slist_free(ptr noundef %60) #9
   ret void
 }
 
@@ -852,7 +849,7 @@ define internal fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %1, ptr nound
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
   %8 = tail call i32 @stnode_type_id(ptr noundef %1) #9
-  switch i32 %8, label %329 [
+  switch i32 %8, label %320 [
     i32 8, label %9
     i32 4, label %101
     i32 9, label %179
@@ -986,7 +983,7 @@ dfw_append_read_tree.exit:                        ; preds = %56, %42
 
 72:                                               ; preds = %62, %dfw_append_read_tree.exit
   %73 = tail call zeroext i1 @sttype_field_value_string(ptr noundef %1) #9
-  br i1 %73, label %74, label %common.ret87
+  br i1 %73, label %74, label %common.ret97
 
 74:                                               ; preds = %72
   %75 = tail call ptr @dfvm_insn_new(i32 noundef 37) #9
@@ -1012,7 +1009,7 @@ dfw_append_read_tree.exit:                        ; preds = %56, %42
   store i32 %89, ptr %50, align 8
   %90 = load ptr, ptr %53, align 8
   tail call void @g_ptr_array_add(ptr noundef %90, ptr noundef nonnull %75) #9
-  br i1 %.not60, label %common.ret87, label %91
+  br i1 %.not60, label %common.ret97, label %91
 
 91:                                               ; preds = %74
   %92 = load ptr, ptr %2, align 8
@@ -1029,7 +1026,7 @@ dfw_append_read_tree.exit:                        ; preds = %56, %42
   tail call void @g_ptr_array_add(ptr noundef %99, ptr noundef nonnull %93) #9
   %100 = tail call ptr @g_slist_prepend(ptr noundef %92, ptr noundef %94) #9
   store ptr %100, ptr %2, align 8
-  br label %common.ret87
+  br label %common.ret97
 
 101:                                              ; preds = %3
   %102 = tail call ptr @sttype_field_hfinfo(ptr noundef %1) #9
@@ -1125,7 +1122,7 @@ dfw_append_read_reference.exit:                   ; preds = %135
 
 151:                                              ; preds = %141, %dfw_append_read_reference.exit
   %152 = tail call zeroext i1 @sttype_field_value_string(ptr noundef %1) #9
-  br i1 %152, label %153, label %common.ret87
+  br i1 %152, label %153, label %common.ret97
 
 153:                                              ; preds = %151
   %154 = tail call ptr @dfvm_insn_new(i32 noundef 37) #9
@@ -1150,7 +1147,7 @@ dfw_append_read_reference.exit:                   ; preds = %135
   store i32 %167, ptr %125, align 8
   %168 = load ptr, ptr %128, align 8
   tail call void @g_ptr_array_add(ptr noundef %168, ptr noundef nonnull %154) #9
-  br i1 %.not, label %common.ret87, label %169
+  br i1 %.not, label %common.ret97, label %169
 
 169:                                              ; preds = %153
   %170 = load ptr, ptr %2, align 8
@@ -1167,16 +1164,16 @@ dfw_append_read_reference.exit:                   ; preds = %135
   tail call void @g_ptr_array_add(ptr noundef %177, ptr noundef nonnull %171) #9
   %178 = tail call ptr @g_slist_prepend(ptr noundef %170, ptr noundef %172) #9
   store ptr %178, ptr %2, align 8
-  br label %common.ret87
+  br label %common.ret97
 
 179:                                              ; preds = %3
   %180 = tail call ptr @stnode_steal_data(ptr noundef %1) #9
   %181 = tail call ptr @dfvm_value_new_fvalue(ptr noundef %180) #9
-  br label %common.ret87
+  br label %common.ret97
 
-common.ret87:                                     ; preds = %153, %169, %151, %278, %gen_arithmetic.exit, %dfw_append_function.exit, %179, %72, %91, %74, %182
-  %common.ret87.op = phi ptr [ %191, %182 ], [ %85, %91 ], [ %85, %74 ], [ %39, %72 ], [ %163, %169 ], [ %163, %153 ], [ %115, %151 ], [ %181, %179 ], [ %.0.i, %dfw_append_function.exit ], [ %280, %278 ], [ %.018.i, %gen_arithmetic.exit ]
-  ret ptr %common.ret87.op
+common.ret97:                                     ; preds = %153, %169, %151, %278, %gen_arithmetic.exit, %dfw_append_function.exit, %179, %72, %91, %74, %182
+  %common.ret97.op = phi ptr [ %191, %182 ], [ %85, %91 ], [ %85, %74 ], [ %39, %72 ], [ %163, %169 ], [ %163, %153 ], [ %115, %151 ], [ %181, %179 ], [ %.0.i, %dfw_append_function.exit ], [ %280, %278 ], [ %.018.i, %gen_arithmetic.exit ]
+  ret ptr %common.ret97.op
 
 182:                                              ; preds = %3
   %183 = tail call ptr @sttype_slice_entity(ptr noundef %1) #9
@@ -1207,7 +1204,7 @@ common.ret87:                                     ; preds = %153, %169, %151, %2
   %201 = getelementptr inbounds i8, ptr %0, i64 32
   %202 = load ptr, ptr %201, align 8
   tail call void @g_ptr_array_add(ptr noundef %202, ptr noundef nonnull %184) #9
-  br label %common.ret87
+  br label %common.ret97
 
 203:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -1337,12 +1334,12 @@ common.ret87:                                     ; preds = %153, %169, %151, %2
 dfw_append_function.exit:                         ; preds = %208, %._crit_edge
   %.0.i = phi ptr [ %218, %208 ], [ %234, %._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br label %common.ret87
+  br label %common.ret97
 
 278:                                              ; preds = %3
   %279 = tail call ptr @stnode_steal_data(ptr noundef %1) #9
   %280 = tail call ptr @dfvm_value_new_pcre(ptr noundef %279) #9
-  br label %common.ret87
+  br label %common.ret97
 
 281:                                              ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
@@ -1408,7 +1405,7 @@ dfw_append_function.exit:                         ; preds = %208, %._crit_edge
   %294 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef %293, ptr noundef %2)
   %295 = load ptr, ptr %5, align 8
   %296 = icmp eq ptr %295, null
-  br i1 %296, label %297, label %311
+  br i1 %296, label %297, label %302
 
 297:                                              ; preds = %292
   %298 = getelementptr inbounds i8, ptr %0, i64 68
@@ -1416,61 +1413,47 @@ dfw_append_function.exit:                         ; preds = %208, %._crit_edge
   %300 = add i32 %299, 1
   store i32 %300, ptr %298, align 4
   %301 = call ptr @dfvm_value_new_register(i32 noundef %299) #9
-  %302 = call ptr @dfvm_insn_new(i32 noundef %.0.i68) #9
-  %303 = call ptr @dfvm_value_ref(ptr noundef %294) #9
-  %304 = getelementptr inbounds i8, ptr %302, i64 8
-  store ptr %303, ptr %304, align 8
-  %305 = call ptr @dfvm_value_ref(ptr noundef %301) #9
-  %306 = getelementptr inbounds i8, ptr %302, i64 16
-  store ptr %305, ptr %306, align 8
-  %307 = call ptr @dfvm_value_ref(ptr noundef null) #9
-  %308 = getelementptr inbounds i8, ptr %302, i64 24
-  store ptr %307, ptr %308, align 8
-  %309 = getelementptr inbounds i8, ptr %0, i64 64
-  %310 = load i32, ptr %309, align 8
-  store i32 %310, ptr %302, align 8
   br label %gen_arithmetic.exit
 
-311:                                              ; preds = %292
-  %312 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %295, ptr noundef %2)
-  %313 = getelementptr inbounds i8, ptr %0, i64 68
-  %314 = load i32, ptr %313, align 4
-  %315 = add i32 %314, 1
-  store i32 %315, ptr %313, align 4
-  %316 = call ptr @dfvm_value_new_register(i32 noundef %314) #9
-  %317 = call ptr @dfvm_insn_new(i32 noundef %.0.i68) #9
-  %318 = call ptr @dfvm_value_ref(ptr noundef %294) #9
-  %319 = getelementptr inbounds i8, ptr %317, i64 8
-  store ptr %318, ptr %319, align 8
-  %320 = call ptr @dfvm_value_ref(ptr noundef %312) #9
-  %321 = getelementptr inbounds i8, ptr %317, i64 16
-  store ptr %320, ptr %321, align 8
-  %322 = call ptr @dfvm_value_ref(ptr noundef %316) #9
-  %323 = getelementptr inbounds i8, ptr %317, i64 24
-  store ptr %322, ptr %323, align 8
-  %324 = getelementptr inbounds i8, ptr %0, i64 64
-  %325 = load i32, ptr %324, align 8
-  store i32 %325, ptr %317, align 8
+302:                                              ; preds = %292
+  %303 = call fastcc ptr @gen_entity(ptr noundef %0, ptr noundef nonnull %295, ptr noundef %2)
+  %304 = getelementptr inbounds i8, ptr %0, i64 68
+  %305 = load i32, ptr %304, align 4
+  %306 = add i32 %305, 1
+  store i32 %306, ptr %304, align 4
+  %307 = call ptr @dfvm_value_new_register(i32 noundef %305) #9
   br label %gen_arithmetic.exit
 
-gen_arithmetic.exit:                              ; preds = %297, %311
-  %.sink80 = phi i32 [ %310, %297 ], [ %325, %311 ]
-  %.sink79 = phi ptr [ %309, %297 ], [ %324, %311 ]
-  %.sink77 = phi ptr [ %302, %297 ], [ %317, %311 ]
-  %.018.i = phi ptr [ %301, %297 ], [ %316, %311 ]
-  %326 = add i32 %.sink80, 1
-  store i32 %326, ptr %.sink79, align 8
-  %327 = getelementptr inbounds i8, ptr %0, i64 32
-  %328 = load ptr, ptr %327, align 8
-  call void @g_ptr_array_add(ptr noundef %328, ptr noundef nonnull %.sink77) #9
+gen_arithmetic.exit:                              ; preds = %297, %302
+  %.sink88 = phi ptr [ %301, %297 ], [ %303, %302 ]
+  %.sink85 = phi ptr [ null, %297 ], [ %307, %302 ]
+  %.018.i = phi ptr [ %301, %297 ], [ %307, %302 ]
+  %308 = call ptr @dfvm_insn_new(i32 noundef %.0.i68) #9
+  %309 = call ptr @dfvm_value_ref(ptr noundef %294) #9
+  %310 = getelementptr inbounds i8, ptr %308, i64 8
+  store ptr %309, ptr %310, align 8
+  %311 = call ptr @dfvm_value_ref(ptr noundef %.sink88) #9
+  %312 = getelementptr inbounds i8, ptr %308, i64 16
+  store ptr %311, ptr %312, align 8
+  %313 = call ptr @dfvm_value_ref(ptr noundef %.sink85) #9
+  %314 = getelementptr inbounds i8, ptr %308, i64 24
+  store ptr %313, ptr %314, align 8
+  %315 = getelementptr inbounds i8, ptr %0, i64 64
+  %316 = load i32, ptr %315, align 8
+  store i32 %316, ptr %308, align 8
+  %317 = add i32 %316, 1
+  store i32 %317, ptr %315, align 8
+  %318 = getelementptr inbounds i8, ptr %0, i64 32
+  %319 = load ptr, ptr %318, align 8
+  call void @g_ptr_array_add(ptr noundef %319, ptr noundef nonnull %308) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %common.ret87
+  br label %common.ret97
 
-329:                                              ; preds = %3
-  %330 = tail call ptr @stnode_type_name(ptr noundef %1) #9
-  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 615, ptr noundef nonnull @__func__.gen_entity, ptr noundef nonnull @.str.4, ptr noundef %330) #10
+320:                                              ; preds = %3
+  %321 = tail call ptr @stnode_type_name(ptr noundef %1) #9
+  tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.1, i64 noundef 615, ptr noundef nonnull @__func__.gen_entity, ptr noundef nonnull @.str.4, ptr noundef %321) #10
   unreachable
 }
 

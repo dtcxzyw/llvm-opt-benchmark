@@ -2574,238 +2574,227 @@ define internal fastcc noundef i32 @url_get_host(ptr nocapture noundef %0, ptr n
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
-  %.not = icmp eq i32 %2, 0
-  %.idx = select i1 %.not, i64 24, i64 0
+  %.not = icmp ne i32 %2, 0
+  %.idx = select i1 %.not, i64 0, i64 24
   %12 = getelementptr inbounds i8, ptr %1, i64 %.idx
-  br i1 %.not, label %.split31, label %.split
-
-.split:                                           ; preds = %4
-  %13 = getelementptr inbounds i8, ptr %0, i64 8
+  %. = select i1 %.not, i64 8, i64 32
+  %.62 = zext i1 %.not to i32
+  %13 = getelementptr inbounds i8, ptr %0, i64 %.
   %14 = load ptr, ptr %13, align 8
-  call fastcc void @get_host(ptr noundef %14, i32 noundef 1, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br label %17
+  call fastcc void @get_host(ptr noundef %14, i32 noundef %.62, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %15 = load ptr, ptr %10, align 8
+  %16 = icmp ne ptr %15, null
+  %17 = load ptr, ptr %11, align 8
+  %18 = icmp ne ptr %17, null
+  %or.cond = select i1 %16, i1 %18, i1 false
+  br i1 %or.cond, label %31, label %19
 
-.split31:                                         ; preds = %4
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load ptr, ptr %15, align 8
-  call fastcc void @get_host(ptr noundef %16, i32 noundef 0, ptr noundef %3, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  br label %17
-
-17:                                               ; preds = %.split, %.split31
-  %18 = phi ptr [ %14, %.split ], [ %16, %.split31 ]
-  %19 = load ptr, ptr %10, align 8
-  %20 = icmp ne ptr %19, null
-  %21 = load ptr, ptr %11, align 8
-  %22 = icmp ne ptr %21, null
-  %or.cond = select i1 %20, i1 %22, i1 false
-  br i1 %or.cond, label %35, label %23
-
-23:                                               ; preds = %17
+19:                                               ; preds = %4
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.string_assign_null.exit_crit_edge, label %.preheader.i
 
-.string_assign_null.exit_crit_edge:               ; preds = %23
+.string_assign_null.exit_crit_edge:               ; preds = %19
   %.phi.trans.insert = getelementptr inbounds i8, ptr %12, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %string_assign_null.exit
 
-.preheader.i:                                     ; preds = %23, %27
-  %.0.i.i = phi ptr [ %28, %27 ], [ %12, %23 ]
-  %24 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
-  %25 = load i32, ptr %24, align 8
-  %26 = add nsw i32 %25, -1
-  store i32 %26, ptr %24, align 8
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %27, label %string_free.exit.i
+.preheader.i:                                     ; preds = %19, %23
+  %.0.i.i = phi ptr [ %24, %23 ], [ %12, %19 ]
+  %20 = getelementptr inbounds i8, ptr %.0.i.i, i64 16
+  %21 = load i32, ptr %20, align 8
+  %22 = add nsw i32 %21, -1
+  store i32 %22, ptr %20, align 8
+  %.not.i.i = icmp eq i32 %22, 0
+  br i1 %.not.i.i, label %23, label %string_free.exit.i
 
-27:                                               ; preds = %.preheader.i
-  %28 = load ptr, ptr %.0.i.i, align 8
-  %.not8.i.i = icmp eq ptr %28, null
-  br i1 %.not8.i.i, label %29, label %.preheader.i
+23:                                               ; preds = %.preheader.i
+  %24 = load ptr, ptr %.0.i.i, align 8
+  %.not8.i.i = icmp eq ptr %24, null
+  br i1 %.not8.i.i, label %25, label %.preheader.i
 
-29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
-  %31 = load ptr, ptr %30, align 8
-  %.not9.i.i = icmp eq ptr %31, null
-  br i1 %.not9.i.i, label %string_free.exit.i, label %32
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds i8, ptr %.0.i.i, i64 8
+  %27 = load ptr, ptr %26, align 8
+  %.not9.i.i = icmp eq ptr %27, null
+  br i1 %.not9.i.i, label %string_free.exit.i, label %28
 
-32:                                               ; preds = %29
-  tail call void @free(ptr noundef nonnull %31) #18
+28:                                               ; preds = %25
+  tail call void @free(ptr noundef nonnull %27) #18
   br label %string_free.exit.i
 
-string_free.exit.i:                               ; preds = %.preheader.i, %32, %29
-  %33 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr @empty_string, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 -1, ptr %34, align 8
+string_free.exit.i:                               ; preds = %.preheader.i, %28, %25
+  %29 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr @empty_string, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 -1, ptr %30, align 8
   store ptr null, ptr %12, align 8
   br label %string_assign_null.exit
 
-35:                                               ; preds = %17
-  %36 = getelementptr inbounds i8, ptr %21, i64 1
-  %37 = ptrtoint ptr %36 to i64
-  %38 = ptrtoint ptr %19 to i64
-  %39 = sub i64 %37, %38
-  %40 = add nsw i64 %39, 1
-  %41 = tail call ptr @cli_max_malloc(i64 noundef %40) #18
-  %.not.i43 = icmp eq ptr %41, null
-  br i1 %.not.i43, label %string_assign_concatenated.exit, label %42
+31:                                               ; preds = %4
+  %32 = getelementptr inbounds i8, ptr %17, i64 1
+  %33 = ptrtoint ptr %32 to i64
+  %34 = ptrtoint ptr %15 to i64
+  %35 = sub i64 %33, %34
+  %36 = add nsw i64 %35, 1
+  %37 = tail call ptr @cli_max_malloc(i64 noundef %36) #18
+  %.not.i43 = icmp eq ptr %37, null
+  br i1 %.not.i43, label %string_assign_concatenated.exit, label %38
 
-42:                                               ; preds = %35
-  %43 = tail call ptr @strncpy(ptr noundef nonnull %41, ptr noundef nonnull dereferenceable(2) @.str.326, i64 noundef %40) #18
-  %44 = getelementptr inbounds i8, ptr %41, i64 1
-  %45 = ptrtoint ptr %21 to i64
-  %46 = sub i64 %45, %38
-  %47 = tail call ptr @strncpy(ptr noundef nonnull %44, ptr noundef nonnull %19, i64 noundef %46) #18
-  %48 = getelementptr inbounds i8, ptr %41, i64 %39
-  store i8 0, ptr %48, align 1
-  br label %49
+38:                                               ; preds = %31
+  %39 = tail call ptr @strncpy(ptr noundef nonnull %37, ptr noundef nonnull dereferenceable(2) @.str.326, i64 noundef %36) #18
+  %40 = getelementptr inbounds i8, ptr %37, i64 1
+  %41 = ptrtoint ptr %17 to i64
+  %42 = sub i64 %41, %34
+  %43 = tail call ptr @strncpy(ptr noundef nonnull %40, ptr noundef nonnull %15, i64 noundef %42) #18
+  %44 = getelementptr inbounds i8, ptr %37, i64 %35
+  store i8 0, ptr %44, align 1
+  br label %45
 
-49:                                               ; preds = %53, %42
-  %.0.i.i44 = phi ptr [ %12, %42 ], [ %54, %53 ]
-  %50 = getelementptr inbounds i8, ptr %.0.i.i44, i64 16
-  %51 = load i32, ptr %50, align 8
-  %52 = add nsw i32 %51, -1
-  store i32 %52, ptr %50, align 8
-  %.not.i.i45 = icmp eq i32 %52, 0
-  br i1 %.not.i.i45, label %53, label %string_assign_concatenated.exit.thread
+45:                                               ; preds = %49, %38
+  %.0.i.i44 = phi ptr [ %12, %38 ], [ %50, %49 ]
+  %46 = getelementptr inbounds i8, ptr %.0.i.i44, i64 16
+  %47 = load i32, ptr %46, align 8
+  %48 = add nsw i32 %47, -1
+  store i32 %48, ptr %46, align 8
+  %.not.i.i45 = icmp eq i32 %48, 0
+  br i1 %.not.i.i45, label %49, label %string_assign_concatenated.exit.thread
 
-53:                                               ; preds = %49
-  %54 = load ptr, ptr %.0.i.i44, align 8
-  %.not8.i.i47 = icmp eq ptr %54, null
-  br i1 %.not8.i.i47, label %55, label %49
+49:                                               ; preds = %45
+  %50 = load ptr, ptr %.0.i.i44, align 8
+  %.not8.i.i47 = icmp eq ptr %50, null
+  br i1 %.not8.i.i47, label %51, label %45
 
-55:                                               ; preds = %53
-  %56 = getelementptr inbounds i8, ptr %.0.i.i44, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %.not9.i.i48 = icmp eq ptr %57, null
-  br i1 %.not9.i.i48, label %string_assign_concatenated.exit.thread, label %58
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds i8, ptr %.0.i.i44, i64 8
+  %53 = load ptr, ptr %52, align 8
+  %.not9.i.i48 = icmp eq ptr %53, null
+  br i1 %.not9.i.i48, label %string_assign_concatenated.exit.thread, label %54
 
-58:                                               ; preds = %55
-  tail call void @free(ptr noundef nonnull %57) #18
+54:                                               ; preds = %51
+  tail call void @free(ptr noundef nonnull %53) #18
   br label %string_assign_concatenated.exit.thread
 
-string_assign_concatenated.exit.thread:           ; preds = %49, %55, %58
-  %59 = getelementptr inbounds i8, ptr %12, i64 16
-  store i32 1, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %12, i64 8
-  store ptr %41, ptr %60, align 8
+string_assign_concatenated.exit.thread:           ; preds = %45, %51, %54
+  %55 = getelementptr inbounds i8, ptr %12, i64 16
+  store i32 1, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %12, i64 8
+  store ptr %37, ptr %56, align 8
   store ptr null, ptr %12, align 8
   br label %string_assign_null.exit
 
-string_assign_concatenated.exit:                  ; preds = %35
+string_assign_concatenated.exit:                  ; preds = %31
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.333) #18
-  br label %107
+  br label %103
 
 string_assign_null.exit:                          ; preds = %.string_assign_null.exit_crit_edge, %string_assign_concatenated.exit.thread, %string_free.exit.i
-  %61 = phi ptr [ %.pre, %.string_assign_null.exit_crit_edge ], [ %41, %string_assign_concatenated.exit.thread ], [ @empty_string, %string_free.exit.i ]
-  %62 = getelementptr inbounds i8, ptr %12, i64 8
-  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.327, ptr noundef %61) #18
-  %63 = load ptr, ptr %62, align 8
-  %.not38 = icmp eq ptr %63, null
-  br i1 %.not38, label %75, label %64
+  %57 = phi ptr [ %.pre, %.string_assign_null.exit_crit_edge ], [ %37, %string_assign_concatenated.exit.thread ], [ @empty_string, %string_free.exit.i ]
+  %58 = getelementptr inbounds i8, ptr %12, i64 8
+  tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.327, ptr noundef %57) #18
+  %59 = load ptr, ptr %58, align 8
+  %.not38 = icmp eq ptr %59, null
+  br i1 %.not38, label %71, label %60
 
-64:                                               ; preds = %string_assign_null.exit
-  br i1 %.not, label %70, label %65
+60:                                               ; preds = %string_assign_null.exit
+  br i1 %.not, label %61, label %66
 
-65:                                               ; preds = %64
-  %66 = load i8, ptr %63, align 1
-  %67 = icmp eq i8 %66, 0
-  br i1 %67, label %75, label %68
+61:                                               ; preds = %60
+  %62 = load i8, ptr %59, align 1
+  %63 = icmp eq i8 %62, 0
+  br i1 %63, label %71, label %64
 
-68:                                               ; preds = %65
-  %69 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(1) @.str.328) #17
-  %.not39 = icmp eq ptr %69, null
-  br i1 %.not39, label %70, label %75
+64:                                               ; preds = %61
+  %65 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %59, ptr noundef nonnull dereferenceable(1) @.str.328) #17
+  %.not39 = icmp eq ptr %65, null
+  br i1 %.not39, label %66, label %71
 
-70:                                               ; preds = %68, %64
-  %71 = load i32, ptr %3, align 4
-  %72 = and i32 %71, 4
-  %.not40 = icmp eq i32 %72, 0
-  br i1 %.not40, label %73, label %75
+66:                                               ; preds = %64, %60
+  %67 = load i32, ptr %3, align 4
+  %68 = and i32 %67, 4
+  %.not40 = icmp eq i32 %68, 0
+  br i1 %.not40, label %69, label %71
 
-73:                                               ; preds = %70
-  %74 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %63, i32 noundef 32) #17
-  %.not41 = icmp eq ptr %74, null
-  br i1 %.not41, label %76, label %75
+69:                                               ; preds = %66
+  %70 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %59, i32 noundef 32) #17
+  %.not41 = icmp eq ptr %70, null
+  br i1 %.not41, label %72, label %71
 
-75:                                               ; preds = %73, %70, %68, %65, %string_assign_null.exit
+71:                                               ; preds = %69, %66, %64, %61, %string_assign_null.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.329) #18
-  br label %107
+  br label %103
 
-76:                                               ; preds = %73
+72:                                               ; preds = %69
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %77 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %63) #17
-  %78 = trunc i64 %77 to i32
+  %73 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %59) #17
+  %74 = trunc i64 %73 to i32
   store i32 0, ptr %9, align 4
-  %79 = add i32 %78, -16
-  %or.cond.i = icmp ult i32 %79, -9
-  br i1 %or.cond.i, label %isNumeric.exit.thread, label %80
+  %75 = add i32 %74, -16
+  %or.cond.i = icmp ult i32 %75, -9
+  br i1 %or.cond.i, label %isNumeric.exit.thread, label %76
+
+76:                                               ; preds = %72
+  %77 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %59, ptr noundef nonnull @.str.334, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
+  %78 = load i32, ptr %9, align 4
+  %79 = icmp eq i32 %78, %74
+  br i1 %79, label %80, label %isNumeric.exit.thread
 
 80:                                               ; preds = %76
-  %81 = call i32 (ptr, ptr, ...) @sscanf(ptr noundef nonnull %63, ptr noundef nonnull @.str.334, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #18
-  %82 = load i32, ptr %9, align 4
-  %83 = icmp eq i32 %82, %78
-  br i1 %83, label %84, label %isNumeric.exit.thread
-
-84:                                               ; preds = %80
-  %85 = load i32, ptr %5, align 4
-  %or.cond3.i = icmp ult i32 %85, 257
-  %86 = load i32, ptr %6, align 4
+  %81 = load i32, ptr %5, align 4
+  %or.cond3.i = icmp ult i32 %81, 257
+  %82 = load i32, ptr %6, align 4
+  %83 = icmp ult i32 %82, 257
+  %or.cond7.i = select i1 %or.cond3.i, i1 %83, i1 false
+  %84 = load i32, ptr %7, align 4
+  %85 = icmp ult i32 %84, 257
+  %or.cond11.i = select i1 %or.cond7.i, i1 %85, i1 false
+  %86 = load i32, ptr %8, align 4
   %87 = icmp ult i32 %86, 257
-  %or.cond7.i = select i1 %or.cond3.i, i1 %87, i1 false
-  %88 = load i32, ptr %7, align 4
-  %89 = icmp ult i32 %88, 257
-  %or.cond11.i = select i1 %or.cond7.i, i1 %89, i1 false
-  %90 = load i32, ptr %8, align 4
-  %91 = icmp ult i32 %90, 257
-  %or.cond15.i = select i1 %or.cond11.i, i1 %91, i1 false
-  br i1 %or.cond15.i, label %92, label %isNumeric.exit.thread
+  %or.cond15.i = select i1 %or.cond11.i, i1 %87, i1 false
+  br i1 %or.cond15.i, label %88, label %isNumeric.exit.thread
 
-isNumeric.exit.thread:                            ; preds = %76, %84, %80
+isNumeric.exit.thread:                            ; preds = %72, %80, %76
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  br label %95
+  br label %91
 
-92:                                               ; preds = %84
+88:                                               ; preds = %80
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %93 = load i32, ptr %3, align 4
-  %94 = or i32 %93, 2
-  store i32 %94, ptr %3, align 4
-  br label %95
+  %89 = load i32, ptr %3, align 4
+  %90 = or i32 %89, 2
+  store i32 %90, ptr %3, align 4
+  br label %91
 
-95:                                               ; preds = %isNumeric.exit.thread, %92
-  br i1 %.not, label %96, label %107
+91:                                               ; preds = %isNumeric.exit.thread, %88
+  br i1 %.not, label %103, label %92
 
-96:                                               ; preds = %95
-  %97 = ptrtoint ptr %19 to i64
-  %98 = ptrtoint ptr %18 to i64
-  %99 = sub i64 %97, %98
-  %100 = getelementptr inbounds i8, ptr %0, i64 72
-  store i64 %99, ptr %100, align 8
-  %101 = ptrtoint ptr %21 to i64
-  %102 = sub i64 %101, %98
-  %103 = getelementptr inbounds i8, ptr %0, i64 80
-  store i64 %102, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 56
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %105, i64 %102
-  store i8 0, ptr %106, align 1
-  br label %107
+92:                                               ; preds = %91
+  %93 = ptrtoint ptr %15 to i64
+  %94 = ptrtoint ptr %14 to i64
+  %95 = sub i64 %93, %94
+  %96 = getelementptr inbounds i8, ptr %0, i64 72
+  store i64 %95, ptr %96, align 8
+  %97 = ptrtoint ptr %17 to i64
+  %98 = sub i64 %97, %94
+  %99 = getelementptr inbounds i8, ptr %0, i64 80
+  store i64 %98, ptr %99, align 8
+  %100 = getelementptr inbounds i8, ptr %0, i64 56
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %101, i64 %98
+  store i8 0, ptr %102, align 1
+  br label %103
 
-107:                                              ; preds = %string_assign_concatenated.exit, %95, %96, %75
-  %.0 = phi i32 [ 100, %75 ], [ 20, %string_assign_concatenated.exit ], [ 0, %96 ], [ 0, %95 ]
+103:                                              ; preds = %string_assign_concatenated.exit, %91, %92, %71
+  %.0 = phi i32 [ 100, %71 ], [ 20, %string_assign_concatenated.exit ], [ 0, %92 ], [ 0, %91 ]
   ret i32 %.0
 }
 

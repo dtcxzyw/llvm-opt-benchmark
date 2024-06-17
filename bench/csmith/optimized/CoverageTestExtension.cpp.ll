@@ -348,9 +348,9 @@ define dso_local void @_ZN21CoverageTestExtension17output_array_initERSoi(ptr no
   br label %39
 
 39:                                               ; preds = %._crit_edge, %._crit_edge.thread, %3
-  %.sink32 = phi i32 [ %2, %3 ], [ %9, %._crit_edge.thread ], [ %9, %._crit_edge ]
+  %.sink = phi i32 [ %2, %3 ], [ %9, %._crit_edge.thread ], [ %9, %._crit_edge ]
   %40 = getelementptr inbounds i8, ptr %0, i64 40
-  %41 = sext i32 %.sink32 to i64
+  %41 = sext i32 %.sink to i64
   %42 = load ptr, ptr %40, align 8
   %43 = getelementptr inbounds ptr, ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8

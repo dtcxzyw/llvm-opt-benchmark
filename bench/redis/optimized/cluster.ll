@@ -1466,19 +1466,19 @@ for.inc.sink.split:                               ; preds = %if.then17, %if.end3
   %.sink479 = phi i32 [ 2, %if.end34 ], [ 1, %if.then17 ]
   %.sink = phi ptr [ %10, %if.end34 ], [ %3, %if.then17 ]
   %username.1.ph = phi ptr [ %9, %if.end34 ], [ %username.0358, %if.then17 ]
-  %inc41 = add nsw i32 %j.0359, %.sink479
-  %idxprom21 = sext i32 %inc41 to i64
+  %inc = add nsw i32 %j.0359, %.sink479
+  %idxprom21 = sext i32 %inc to i64
   %arrayidx22 = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom21
   %19 = load ptr, ptr %arrayidx22, align 8
   %ptr23 = getelementptr inbounds i8, ptr %19, i64 8
   %20 = load ptr, ptr %ptr23, align 8
-  tail call void @redactClientCommandArgument(ptr noundef nonnull %c, i32 noundef %inc41) #16
+  tail call void @redactClientCommandArgument(ptr noundef nonnull %c, i32 noundef %inc) #16
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else, %for.body
   %password.1 = phi ptr [ %password.0357, %for.body ], [ %password.0357, %if.else ], [ %20, %for.inc.sink.split ]
   %username.1 = phi ptr [ %username.0358, %for.body ], [ %username.0358, %if.else ], [ %username.1.ph, %for.inc.sink.split ]
-  %j.1 = phi i32 [ %j.0359, %for.body ], [ %j.0359, %if.else ], [ %inc41, %for.inc.sink.split ]
+  %j.1 = phi i32 [ %j.0359, %for.body ], [ %j.0359, %if.else ], [ %inc, %for.inc.sink.split ]
   %replace.1 = phi i32 [ %replace.0360, %for.body ], [ 1, %if.else ], [ %replace.0360, %for.inc.sink.split ]
   %copy.1 = phi i32 [ 1, %for.body ], [ %copy.0361, %if.else ], [ %copy.0361, %for.inc.sink.split ]
   %inc68 = add nsw i32 %j.1, 1

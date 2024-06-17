@@ -9842,7 +9842,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16:       ; preds = %if.end.i.i.i.i.i.i.
   %10 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i19, align 8
   %11 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i18, align 8
   %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20 = icmp ult i64 %10, %11
-  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20, label %if.then12, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21
+  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i20, label %if.end62, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i21:         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16
   %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i22 = icmp ult i64 %11, %10
@@ -9876,22 +9876,7 @@ for.inc.i.i.i.i.i.i.i36:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44: ; preds = %for.inc.i.i.i.i.i.i.i36, %if.then
   %__first2.addr.0.lcssa.i.i.i.i.i.i.i41 = phi ptr [ %8, %if.then ], [ %incdec.ptr6.i.i.i.i.i.i.i38, %for.inc.i.i.i.i.i.i.i36 ]
   %cmp9.i.i.i.i.i.i.i42.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i41, %9
-  br i1 %cmp9.i.i.i.i.i.i.i42.not, label %if.else, label %if.then12
-
-if.then12:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44
-  %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %14 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  %_M_end_of_storage.i4.i.i.i.i = getelementptr inbounds i8, ptr %__b.coerce, i64 16
-  %15 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %2, ptr %__result.coerce, align 8
-  %16 = load ptr, ptr %_M_finish.i3.i.i, align 8
-  store ptr %16, ptr %_M_finish.i.i.i.i.i, align 8
-  %17 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  store ptr %17, ptr %_M_end_of_storage.i.i.i.i.i, align 8
-  store <2 x ptr> %15, ptr %__b.coerce, align 8
-  store ptr %14, ptr %_M_end_of_storage.i4.i.i.i.i, align 8
-  br label %if.end62
+  br i1 %cmp9.i.i.i.i.i.i.i42.not, label %if.else, label %if.end62
 
 if.else:                                          ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44
   %cmp.i.i.i.i.i.i.i.i53 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i8, %sub.ptr.sub.i.i.i.i.i.i.i.i
@@ -9909,13 +9894,13 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60:       ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i61 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i67, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65 ], [ 0, %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i57 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i58, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i61
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i63 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i59, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i61
-  %18 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i63, align 8
-  %19 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i62, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64 = icmp ult i64 %18, %19
-  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, label %if.then22, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65
+  %14 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i63, align 8
+  %15 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i62, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64 = icmp ult i64 %14, %15
+  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i64, label %if.end62, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65:         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60
-  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i66 = icmp ult i64 %19, %18
+  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i66 = icmp ult i64 %15, %14
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i67 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i61, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i68 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i67, 32
   %or.cond.i.i.i.i.i.i.i.i.i.i.i69 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i66, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i68
@@ -9925,13 +9910,13 @@ for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i70:     ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i71 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i77, %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i75 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i65 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i59, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i71
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i58, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i71
-  %20 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i73, align 8
-  %21 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i72, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i74 = icmp ult i64 %20, %21
+  %16 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i73, align 8
+  %17 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i72, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i74 = icmp ult i64 %16, %17
   br i1 %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i74, label %if.else27, label %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i75
 
 if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i75:       ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i70
-  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i76 = icmp ult i64 %21, %20
+  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i76 = icmp ult i64 %17, %16
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i77 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i71, 8
   %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i78 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i77, 32
   %or.cond.i.i.i.i24.i.i.i.i.i.i.i79 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i76, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i78
@@ -9946,44 +9931,17 @@ for.inc.i.i.i.i.i.i.i80:                          ; preds = %if.end.i.i.i.i.i.i.
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88: ; preds = %for.inc.i.i.i.i.i.i.i80, %if.else
   %__first2.addr.0.lcssa.i.i.i.i.i.i.i85 = phi ptr [ %8, %if.else ], [ %incdec.ptr6.i.i.i.i.i.i.i82, %for.inc.i.i.i.i.i.i.i80 ]
   %cmp9.i.i.i.i.i.i.i86.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i85, %9
-  br i1 %cmp9.i.i.i.i.i.i.i86.not, label %if.else27, label %if.then22
-
-if.then22:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88
-  %_M_finish.i.i.i.i.i89 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i90 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %22 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i90, align 8
-  %_M_end_of_storage.i4.i.i.i.i92 = getelementptr inbounds i8, ptr %__c.coerce, i64 16
-  %23 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %8, ptr %__result.coerce, align 8
-  %24 = load ptr, ptr %_M_finish.i3.i.i2, align 8
-  store ptr %24, ptr %_M_finish.i.i.i.i.i89, align 8
-  %25 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i92, align 8
-  store ptr %25, ptr %_M_end_of_storage.i.i.i.i.i90, align 8
-  store <2 x ptr> %23, ptr %__c.coerce, align 8
-  store ptr %22, ptr %_M_end_of_storage.i4.i.i.i.i92, align 8
-  br label %if.end62
+  br i1 %cmp9.i.i.i.i.i.i.i86.not, label %if.else27, label %if.end62
 
 if.else27:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i70, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88
-  %_M_finish.i.i.i.i.i93 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i94 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %26 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i94, align 8
-  %_M_end_of_storage.i4.i.i.i.i96 = getelementptr inbounds i8, ptr %__a.coerce, i64 16
-  %27 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %0, ptr %__result.coerce, align 8
-  %28 = load ptr, ptr %_M_finish.i.i.i, align 8
-  store ptr %28, ptr %_M_finish.i.i.i.i.i93, align 8
-  %29 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i96, align 8
-  store ptr %29, ptr %_M_end_of_storage.i.i.i.i.i94, align 8
-  store <2 x ptr> %27, ptr %__a.coerce, align 8
-  store ptr %26, ptr %_M_end_of_storage.i4.i.i.i.i96, align 8
   br label %if.end62
 
 if.else33:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit
-  %30 = load ptr, ptr %__c.coerce, align 8
+  %18 = load ptr, ptr %__c.coerce, align 8
   %_M_finish.i3.i.i98 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
-  %31 = load ptr, ptr %_M_finish.i3.i.i98, align 8
-  %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i102 = ptrtoint ptr %31 to i64
-  %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i103 = ptrtoint ptr %30 to i64
+  %19 = load ptr, ptr %_M_finish.i3.i.i98, align 8
+  %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i102 = ptrtoint ptr %19 to i64
+  %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i103 = ptrtoint ptr %18 to i64
   %sub.ptr.sub3.i.i.i.i.i.i.i.i104 = sub i64 %sub.ptr.lhs.cast1.i.i.i.i.i.i.i.i102, %sub.ptr.rhs.cast2.i.i.i.i.i.i.i.i103
   %cmp.i.i.i.i.i.i.i.i105 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i104, %sub.ptr.sub.i.i.i.i.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %0, i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i104
@@ -9992,7 +9950,7 @@ if.else33:                                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not29.i.i.i.i.i.i.i108, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140, label %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i109
 
 for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i109: ; preds = %if.else33, %for.inc.i.i.i.i.i.i.i132
-  %__first2.addr.031.i.i.i.i.i.i.i110 = phi ptr [ %incdec.ptr6.i.i.i.i.i.i.i134, %for.inc.i.i.i.i.i.i.i132 ], [ %30, %if.else33 ]
+  %__first2.addr.031.i.i.i.i.i.i.i110 = phi ptr [ %incdec.ptr6.i.i.i.i.i.i.i134, %for.inc.i.i.i.i.i.i.i132 ], [ %18, %if.else33 ]
   %__first1.addr.030.i.i.i.i.i.i.i111 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i133, %for.inc.i.i.i.i.i.i.i132 ], [ %0, %if.else33 ]
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112
 
@@ -10000,13 +9958,13 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112:      ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i113 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i119, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i117 ], [ 0, %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i109 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i114 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i110, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i113
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i111, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i113
-  %32 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i115, align 8
-  %33 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i114, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i116 = icmp ult i64 %32, %33
-  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i116, label %if.then39, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i117
+  %20 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i115, align 8
+  %21 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i114, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i116 = icmp ult i64 %20, %21
+  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i116, label %if.end62, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i117
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i117:        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112
-  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i118 = icmp ult i64 %33, %32
+  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i118 = icmp ult i64 %21, %20
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i119 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i113, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i120 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i119, 32
   %or.cond.i.i.i.i.i.i.i.i.i.i.i121 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i118, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i120
@@ -10016,13 +9974,13 @@ for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i122:    ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i123 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i129, %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i127 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i117 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i111, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i123
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i125 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i110, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i123
-  %34 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i125, align 8
-  %35 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i124, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i126 = icmp ult i64 %34, %35
+  %22 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i125, align 8
+  %23 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i124, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i126 = icmp ult i64 %22, %23
   br i1 %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i126, label %if.else44, label %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i127
 
 if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i127:      ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i122
-  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i128 = icmp ult i64 %35, %34
+  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i128 = icmp ult i64 %23, %22
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i129 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i123, 8
   %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i130 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i129, 32
   %or.cond.i.i.i.i24.i.i.i.i.i.i.i131 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i128, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i130
@@ -10035,24 +9993,9 @@ for.inc.i.i.i.i.i.i.i132:                         ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i135, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140, label %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i109, !llvm.loop !487
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140: ; preds = %for.inc.i.i.i.i.i.i.i132, %if.else33
-  %__first2.addr.0.lcssa.i.i.i.i.i.i.i137 = phi ptr [ %30, %if.else33 ], [ %incdec.ptr6.i.i.i.i.i.i.i134, %for.inc.i.i.i.i.i.i.i132 ]
-  %cmp9.i.i.i.i.i.i.i138.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i137, %31
-  br i1 %cmp9.i.i.i.i.i.i.i138.not, label %if.else44, label %if.then39
-
-if.then39:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140
-  %_M_finish.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i142 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %36 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i142, align 8
-  %_M_end_of_storage.i4.i.i.i.i144 = getelementptr inbounds i8, ptr %__a.coerce, i64 16
-  %37 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %0, ptr %__result.coerce, align 8
-  %38 = load ptr, ptr %_M_finish.i.i.i, align 8
-  store ptr %38, ptr %_M_finish.i.i.i.i.i141, align 8
-  %39 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i144, align 8
-  store ptr %39, ptr %_M_end_of_storage.i.i.i.i.i142, align 8
-  store <2 x ptr> %37, ptr %__a.coerce, align 8
-  store ptr %36, ptr %_M_end_of_storage.i4.i.i.i.i144, align 8
-  br label %if.end62
+  %__first2.addr.0.lcssa.i.i.i.i.i.i.i137 = phi ptr [ %18, %if.else33 ], [ %incdec.ptr6.i.i.i.i.i.i.i134, %for.inc.i.i.i.i.i.i.i132 ]
+  %cmp9.i.i.i.i.i.i.i138.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i137, %19
+  br i1 %cmp9.i.i.i.i.i.i.i138.not, label %if.else44, label %if.end62
 
 if.else44:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i122, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140
   %cmp.i.i.i.i.i.i.i.i153 = icmp slt i64 %sub.ptr.sub3.i.i.i.i.i.i.i.i104, %sub.ptr.sub3.i.i.i.i.i.i.i.i
@@ -10062,7 +10005,7 @@ if.else44:                                        ; preds = %for.body.i.i.i.i.i.
   br i1 %cmp.not29.i.i.i.i.i.i.i156, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188, label %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i157
 
 for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i157: ; preds = %if.else44, %for.inc.i.i.i.i.i.i.i180
-  %__first2.addr.031.i.i.i.i.i.i.i158 = phi ptr [ %incdec.ptr6.i.i.i.i.i.i.i182, %for.inc.i.i.i.i.i.i.i180 ], [ %30, %if.else44 ]
+  %__first2.addr.031.i.i.i.i.i.i.i158 = phi ptr [ %incdec.ptr6.i.i.i.i.i.i.i182, %for.inc.i.i.i.i.i.i.i180 ], [ %18, %if.else44 ]
   %__first1.addr.030.i.i.i.i.i.i.i159 = phi ptr [ %incdec.ptr.i.i.i.i.i.i.i181, %for.inc.i.i.i.i.i.i.i180 ], [ %2, %if.else44 ]
   br label %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160
 
@@ -10070,13 +10013,13 @@ for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160:      ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i161 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i167, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i165 ], [ 0, %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i157 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i162 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i158, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i161
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i163 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i159, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i161
-  %40 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i163, align 8
-  %41 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i162, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164 = icmp ult i64 %40, %41
-  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164, label %if.then50, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i165
+  %24 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i163, align 8
+  %25 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i.i.i.i.i.i.i.i162, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164 = icmp ult i64 %24, %25
+  br i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i164, label %if.end62, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i165
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i165:        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160
-  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i166 = icmp ult i64 %41, %40
+  %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i166 = icmp ult i64 %25, %24
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i167 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i.i.i.i.i.i.i.i161, 8
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i168 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i.i.i.i.i.i.i.i167, 32
   %or.cond.i.i.i.i.i.i.i.i.i.i.i169 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i166, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i168
@@ -10086,13 +10029,13 @@ for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i170:    ; preds = %if.end.i.i.i.i.i.i.
   %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i171 = phi i64 [ %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i177, %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i175 ], [ 0, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i165 ]
   %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i172 = getelementptr inbounds i8, ptr %__first1.addr.030.i.i.i.i.i.i.i159, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i171
   %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i173 = getelementptr inbounds i8, ptr %__first2.addr.031.i.i.i.i.i.i.i158, i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i171
-  %42 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i173, align 8
-  %43 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i172, align 8
-  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i174 = icmp ult i64 %42, %43
+  %26 = load i64, ptr %__first1.addr.019.i.i.i.i.i.ptr.i.i.i.i18.i.i.i.i.i.i.i173, align 8
+  %27 = load i64, ptr %__first2.addr.020.i.i.i.i.i.ptr.i.i.i.i17.i.i.i.i.i.i.i172, align 8
+  %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i174 = icmp ult i64 %26, %27
   br i1 %cmp.i15.i.i.i.i.i.i.i.i.i19.i.i.i.i.i.i.i174, label %if.else55, label %if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i175
 
 if.end.i.i.i.i.i.i.i.i.i20.i.i.i.i.i.i.i175:      ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i170
-  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i176 = icmp ult i64 %43, %42
+  %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i176 = icmp ult i64 %27, %26
   %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i177 = add nuw nsw i64 %__first2.addr.020.i.i.i.i.i.idx.i.i.i.i16.i.i.i.i.i.i.i171, 8
   %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i178 = icmp eq i64 %__first2.addr.020.i.i.i.i.i.add.i.i.i.i22.i.i.i.i.i.i.i177, 32
   %or.cond.i.i.i.i24.i.i.i.i.i.i.i179 = select i1 %cmp.i16.i.i.i.i.i.i.i.i.i21.i.i.i.i.i.i.i176, i1 true, i1 %cmp.not.i.i.i.i.i.i.i.i.i23.i.i.i.i.i.i.i178
@@ -10105,41 +10048,31 @@ for.inc.i.i.i.i.i.i.i180:                         ; preds = %if.end.i.i.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i.i183, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188, label %for.body.i.i.i.i.i.i.i.i.i.preheader.i.i.i.i.i.i.i157, !llvm.loop !487
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188: ; preds = %for.inc.i.i.i.i.i.i.i180, %if.else44
-  %__first2.addr.0.lcssa.i.i.i.i.i.i.i185 = phi ptr [ %30, %if.else44 ], [ %incdec.ptr6.i.i.i.i.i.i.i182, %for.inc.i.i.i.i.i.i.i180 ]
-  %cmp9.i.i.i.i.i.i.i186.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i185, %31
-  br i1 %cmp9.i.i.i.i.i.i.i186.not, label %if.else55, label %if.then50
-
-if.then50:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188
-  %_M_finish.i.i.i.i.i189 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i190 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %44 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i190, align 8
-  %_M_end_of_storage.i4.i.i.i.i192 = getelementptr inbounds i8, ptr %__c.coerce, i64 16
-  %45 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %30, ptr %__result.coerce, align 8
-  %46 = load ptr, ptr %_M_finish.i3.i.i98, align 8
-  store ptr %46, ptr %_M_finish.i.i.i.i.i189, align 8
-  %47 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i192, align 8
-  store ptr %47, ptr %_M_end_of_storage.i.i.i.i.i190, align 8
-  store <2 x ptr> %45, ptr %__c.coerce, align 8
-  store ptr %44, ptr %_M_end_of_storage.i4.i.i.i.i192, align 8
-  br label %if.end62
+  %__first2.addr.0.lcssa.i.i.i.i.i.i.i185 = phi ptr [ %18, %if.else44 ], [ %incdec.ptr6.i.i.i.i.i.i.i182, %for.inc.i.i.i.i.i.i.i180 ]
+  %cmp9.i.i.i.i.i.i.i186.not = icmp eq ptr %__first2.addr.0.lcssa.i.i.i.i.i.i.i185, %19
+  br i1 %cmp9.i.i.i.i.i.i.i186.not, label %if.else55, label %if.end62
 
 if.else55:                                        ; preds = %for.body.i.i.i.i.i.i.i.i.i15.i.i.i.i.i.i.i170, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188
-  %_M_finish.i.i.i.i.i193 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
-  %_M_end_of_storage.i.i.i.i.i194 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %48 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i194, align 8
-  %_M_end_of_storage.i4.i.i.i.i196 = getelementptr inbounds i8, ptr %__b.coerce, i64 16
-  %49 = load <2 x ptr>, ptr %__result.coerce, align 8
-  store ptr %2, ptr %__result.coerce, align 8
-  %50 = load ptr, ptr %_M_finish.i3.i.i, align 8
-  store ptr %50, ptr %_M_finish.i.i.i.i.i193, align 8
-  %51 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i196, align 8
-  store ptr %51, ptr %_M_end_of_storage.i.i.i.i.i194, align 8
-  store <2 x ptr> %49, ptr %__b.coerce, align 8
-  store ptr %48, ptr %_M_end_of_storage.i4.i.i.i.i196, align 8
   br label %if.end62
 
-if.end62:                                         ; preds = %if.then39, %if.else55, %if.then50, %if.then12, %if.else27, %if.then22
+if.end62:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44, %if.else55, %if.else27
+  %.sink219 = phi ptr [ %2, %if.else55 ], [ %0, %if.else27 ], [ %2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44 ], [ %8, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88 ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140 ], [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188 ], [ %18, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160 ], [ %0, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112 ], [ %8, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60 ], [ %2, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16 ]
+  %_M_finish.i.i.i.sink218 = phi ptr [ %_M_finish.i3.i.i, %if.else55 ], [ %_M_finish.i.i.i, %if.else27 ], [ %_M_finish.i3.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44 ], [ %_M_finish.i3.i.i2, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88 ], [ %_M_finish.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140 ], [ %_M_finish.i3.i.i98, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188 ], [ %_M_finish.i3.i.i98, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160 ], [ %_M_finish.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112 ], [ %_M_finish.i3.i.i2, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60 ], [ %_M_finish.i3.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16 ]
+  %__a.coerce.sink216 = phi ptr [ %__b.coerce, %if.else55 ], [ %__a.coerce, %if.else27 ], [ %__b.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit44 ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit88 ], [ %__a.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit140 ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt6vectorIN3ue29CharReachESaIS6_EES4_IS8_SaIS8_EEEESC_EEbT_T0_.exit188 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i160 ], [ %__a.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i112 ], [ %__c.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i60 ], [ %__b.coerce, %for.body.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i16 ]
+  %28 = load ptr, ptr %__result.coerce, align 8
+  %_M_finish.i.i.i.i.i141 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
+  %29 = load ptr, ptr %_M_finish.i.i.i.i.i141, align 8
+  %_M_end_of_storage.i.i.i.i.i142 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
+  %30 = load ptr, ptr %_M_end_of_storage.i.i.i.i.i142, align 8
+  store ptr %.sink219, ptr %__result.coerce, align 8
+  %31 = load ptr, ptr %_M_finish.i.i.i.sink218, align 8
+  store ptr %31, ptr %_M_finish.i.i.i.i.i141, align 8
+  %_M_end_of_storage.i4.i.i.i.i144 = getelementptr inbounds i8, ptr %__a.coerce.sink216, i64 16
+  %32 = load ptr, ptr %_M_end_of_storage.i4.i.i.i.i144, align 8
+  store ptr %32, ptr %_M_end_of_storage.i.i.i.i.i142, align 8
+  store ptr %28, ptr %__a.coerce.sink216, align 8
+  store ptr %29, ptr %_M_finish.i.i.i.sink218, align 8
+  store ptr %30, ptr %_M_end_of_storage.i4.i.i.i.i144, align 8
   ret void
 }
 

@@ -8339,10 +8339,10 @@ land.lhs.true61:                                  ; preds = %if.end59
   br i1 %tobool63.not, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.then5.i, %if.then5.i47, %if.then5.i70, %land.lhs.true61, %if.then.i, %if.then35, %if.then20, %land.lhs.true
-  %recursion_depth = getelementptr inbounds i8, ptr %st, i64 72
-  %34 = load i32, ptr %recursion_depth, align 8
+  %recursion_depth.i80 = getelementptr inbounds i8, ptr %st, i64 72
+  %34 = load i32, ptr %recursion_depth.i80, align 8
   %dec.i81 = add i32 %34, -1
-  store i32 %dec.i81, ptr %recursion_depth, align 8
+  store i32 %dec.i81, ptr %recursion_depth.i80, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end59, %land.lhs.true61

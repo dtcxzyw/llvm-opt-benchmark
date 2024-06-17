@@ -106294,18 +106294,18 @@ _ZN10TestObjectD2Ev.exit2017:                     ; preds = %_ZN10TestObjectD2Ev
   br label %_ZN10TestObjectD2Ev.exit2031
 
 _ZN10TestObjectD2Ev.exit2031:                     ; preds = %_ZN10TestObjectD2Ev.exit9.i, %_ZN10TestObjectD2Ev.exit9.i64, %_ZN10TestObjectD2Ev.exit2017, %_ZN10TestObjectD2Ev.exit1821, %_ZN10TestObjectD2Ev.exit1814
-  %inc3.i8.i.sink.in = phi i64 [ %10, %_ZN10TestObjectD2Ev.exit9.i ], [ %25, %_ZN10TestObjectD2Ev.exit9.i64 ], [ %454, %_ZN10TestObjectD2Ev.exit2017 ], [ %355, %_ZN10TestObjectD2Ev.exit1821 ], [ %352, %_ZN10TestObjectD2Ev.exit1814 ]
+  %.sink = phi i64 [ %10, %_ZN10TestObjectD2Ev.exit9.i ], [ %25, %_ZN10TestObjectD2Ev.exit9.i64 ], [ %454, %_ZN10TestObjectD2Ev.exit2017 ], [ %355, %_ZN10TestObjectD2Ev.exit1821 ], [ %352, %_ZN10TestObjectD2Ev.exit1814 ]
   %456 = phi i64 [ %dec.i7.i, %_ZN10TestObjectD2Ev.exit9.i ], [ %dec.i7.i65, %_ZN10TestObjectD2Ev.exit9.i64 ], [ %dec.i2015, %_ZN10TestObjectD2Ev.exit2017 ], [ %dec.i1819, %_ZN10TestObjectD2Ev.exit1821 ], [ %dec.i1812, %_ZN10TestObjectD2Ev.exit1814 ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %6, %_ZN10TestObjectD2Ev.exit9.i ], [ %21, %_ZN10TestObjectD2Ev.exit9.i64 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %_ZN10TestObjectD2Ev.exit2017 ], [ %353, %_ZN10TestObjectD2Ev.exit1821 ], [ %350, %_ZN10TestObjectD2Ev.exit1814 ]
-  %inc3.i8.i.sink = add nsw i64 %inc3.i8.i.sink.in, 1
-  store i64 %inc3.i8.i.sink, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i8.i = add nsw i64 %.sink, 1
+  store i64 %inc3.i8.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %dec.i2022 = add nsw i64 %456, -1
   store i64 %dec.i2022, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i2023 = add nsw i64 %inc3.i8.i.sink.in, 2
+  %inc3.i2023 = add nsw i64 %.sink, 2
   store i64 %inc3.i2023, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %dec.i2029 = add nsw i64 %456, -2
   store i64 %dec.i2029, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i2030 = add nsw i64 %inc3.i8.i.sink.in, 3
+  %inc3.i2030 = add nsw i64 %.sink, 3
   store i64 %inc3.i2030, ptr @_ZN10TestObject12sTODtorCountE, align 8
   call void @_ZN5eastl15vector_multisetI10TestObjectNS_4lessIS1_EENS_9allocatorENS_6vectorIS1_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %toSet) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn
@@ -109093,16 +109093,16 @@ _ZN10TestObjectD2Ev.exit1564:                     ; preds = %lpad.i40, %if.then.
   %538 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i7.i = add nsw i64 %538, -1
   store i64 %dec.i7.i, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i8.i.sink.in = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
-  %inc3.i8.i.sink = add nsw i64 %inc3.i8.i.sink.in, 1
-  store i64 %inc3.i8.i.sink, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %539 = load i64, ptr @_ZN10TestObject12sTODtorCountE, align 8
+  %inc3.i8.i = add nsw i64 %539, 1
+  store i64 %inc3.i8.i, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %dec.i1555 = add nsw i64 %538, -2
   store i64 %dec.i1555, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i1556 = add nsw i64 %inc3.i8.i.sink.in, 2
+  %inc3.i1556 = add nsw i64 %539, 2
   store i64 %inc3.i1556, ptr @_ZN10TestObject12sTODtorCountE, align 8
   %dec.i1562 = add nsw i64 %538, -3
   store i64 %dec.i1562, ptr @_ZN10TestObject8sTOCountE, align 8
-  %inc3.i1563 = add nsw i64 %inc3.i8.i.sink.in, 3
+  %inc3.i1563 = add nsw i64 %539, 3
   store i64 %inc3.i1563, ptr @_ZN10TestObject12sTODtorCountE, align 8
   call void @_ZN5eastl15vector_multisetI10TestObjectNS_4lessIS1_EENS_9allocatorENS_5dequeIS1_S4_Lj8EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %toSet) #15
   resume { ptr, i32 } %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn

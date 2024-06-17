@@ -7258,20 +7258,20 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %wrapS46 = getelementptr inbounds i8, ptr %17, i64 80
   %switch.selectcmp = icmp eq i32 %9, 1
   %switch.select = select i1 %switch.selectcmp, i32 33071, i32 10497
-  %switch.selectcmp89 = icmp eq i32 %9, 2
-  %switch.select90 = select i1 %switch.selectcmp89, i32 33648, i32 %switch.select
-  store i32 %switch.select90, ptr %wrapS46, align 8
+  %switch.selectcmp92 = icmp eq i32 %9, 2
+  %switch.select93 = select i1 %switch.selectcmp92, i32 33648, i32 %switch.select
+  store i32 %switch.select93, ptr %wrapS46, align 8
   %18 = load i32, ptr %mapV, align 4
+  %switch.selectcmp94 = icmp eq i32 %18, 1
+  %switch.select95 = select i1 %switch.selectcmp94, i32 33071, i32 10497
+  %switch.selectcmp96 = icmp eq i32 %18, 2
+  %switch.select97 = select i1 %switch.selectcmp96, i32 33648, i32 %switch.select95
   %19 = load ptr, ptr %prop, align 8
   %20 = load i32, ptr %index.i, align 8
   %conv.i65 = zext i32 %20 to i64
   %21 = load ptr, ptr %19, align 8
   %add.ptr.i.i66 = getelementptr inbounds ptr, ptr %21, i64 %conv.i65
   %22 = load ptr, ptr %add.ptr.i.i66, align 8
-  %switch.selectcmp91 = icmp eq i32 %18, 1
-  %switch.select92 = select i1 %switch.selectcmp91, i32 33071, i32 10497
-  %switch.selectcmp93 = icmp eq i32 %18, 2
-  %switch.select94 = select i1 %switch.selectcmp93, i32 33648, i32 %switch.select92
   %sampler75 = getelementptr inbounds i8, ptr %22, i64 72
   %23 = load ptr, ptr %sampler75, align 8
   %index.i67 = getelementptr inbounds i8, ptr %22, i64 80
@@ -7281,7 +7281,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %add.ptr.i.i69 = getelementptr inbounds ptr, ptr %25, i64 %conv.i68
   %26 = load ptr, ptr %add.ptr.i.i69, align 8
   %wrapT78 = getelementptr inbounds i8, ptr %26, i64 84
-  store i32 %switch.select94, ptr %wrapT78, align 4
+  store i32 %switch.select97, ptr %wrapT78, align 4
   %27 = load ptr, ptr %prop, align 8
   %28 = load i32, ptr %index.i, align 8
   %conv.i71 = zext i32 %28 to i64
@@ -13572,18 +13572,6 @@ _ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBu
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %6, i64 1
   store ptr %add.ptr.i.i.i, ptr %stackTop_.i.i.i1, align 8
   store i8 116, ptr %6, align 1
-  %8 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i2 = getelementptr inbounds i8, ptr %8, i64 24
-  %9 = load ptr, ptr %stackTop_.i.i.i2, align 8
-  %add.ptr.i.i.i3 = getelementptr inbounds i8, ptr %9, i64 1
-  store ptr %add.ptr.i.i.i3, ptr %stackTop_.i.i.i2, align 8
-  store i8 114, ptr %9, align 1
-  %10 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i4 = getelementptr inbounds i8, ptr %10, i64 24
-  %11 = load ptr, ptr %stackTop_.i.i.i4, align 8
-  %add.ptr.i.i.i5 = getelementptr inbounds i8, ptr %11, i64 1
-  store ptr %add.ptr.i.i.i5, ptr %stackTop_.i.i.i4, align 8
-  store i8 117, ptr %11, align 1
   br label %if.end
 
 if.else:                                          ; preds = %entry
@@ -13592,13 +13580,13 @@ if.else:                                          ; preds = %entry
 
 if.then.i.i.i14:                                  ; preds = %if.else
   %stack_.i.i.i15 = getelementptr inbounds i8, ptr %0, i64 16
-  %12 = load ptr, ptr %stack_.i.i.i15, align 8
-  %cmp.i2.i.i16 = icmp eq ptr %12, null
+  %8 = load ptr, ptr %stack_.i.i.i15, align 8
+  %cmp.i2.i.i16 = icmp eq ptr %8, null
   br i1 %cmp.i2.i.i16, label %if.then.i3.i.i37, label %if.else.i.i.i17
 
 if.then.i3.i.i37:                                 ; preds = %if.then.i.i.i14
-  %13 = load ptr, ptr %0, align 8
-  %tobool.not.i.i.i38 = icmp eq ptr %13, null
+  %9 = load ptr, ptr %0, align 8
+  %tobool.not.i.i.i38 = icmp eq ptr %9, null
   br i1 %tobool.not.i.i.i38, label %if.then2.i.i.i41, label %if.end.i.i.i39
 
 if.then2.i.i.i41:                                 ; preds = %if.then.i3.i.i37
@@ -13610,11 +13598,11 @@ if.then2.i.i.i41:                                 ; preds = %if.then.i3.i.i37
 
 if.end.i.i.i39:                                   ; preds = %if.then2.i.i.i41, %if.then.i3.i.i37
   %initialCapacity_.i.i.i40 = getelementptr inbounds i8, ptr %0, i64 40
-  %14 = load i64, ptr %initialCapacity_.i.i.i40, align 8
+  %10 = load i64, ptr %initialCapacity_.i.i.i40, align 8
   br label %if.end6.i.i.i23
 
 if.else.i.i.i17:                                  ; preds = %if.then.i.i.i14
-  %sub.ptr.rhs.cast.i.i.i.i18 = ptrtoint ptr %12 to i64
+  %sub.ptr.rhs.cast.i.i.i.i18 = ptrtoint ptr %8 to i64
   %sub.ptr.sub.i.i.i.i19 = sub i64 %sub.ptr.lhs.cast.i.i.i, %sub.ptr.rhs.cast.i.i.i.i18
   %add.i.i.i20 = add i64 %sub.ptr.sub.i.i.i.i19, 1
   %div5.i.i.i21 = lshr i64 %add.i.i.i20, 1
@@ -13623,7 +13611,7 @@ if.else.i.i.i17:                                  ; preds = %if.then.i.i.i14
 
 if.end6.i.i.i23:                                  ; preds = %if.else.i.i.i17, %if.end.i.i.i39
   %sub.ptr.rhs.cast.i8.pre-phi.i.i.i24 = phi i64 [ %sub.ptr.rhs.cast.i.i.i.i18, %if.else.i.i.i17 ], [ 0, %if.end.i.i.i39 ]
-  %newCapacity.0.i.i.i25 = phi i64 [ %add5.i.i.i22, %if.else.i.i.i17 ], [ %14, %if.end.i.i.i39 ]
+  %newCapacity.0.i.i.i25 = phi i64 [ %add5.i.i.i22, %if.else.i.i.i17 ], [ %10, %if.end.i.i.i39 ]
   %sub.ptr.sub.i9.i.i.i26 = sub i64 %sub.ptr.rhs.cast.i.i.i, %sub.ptr.rhs.cast.i8.pre-phi.i.i.i24
   %add8.i.i.i27 = add i64 %sub.ptr.sub.i9.i.i.i26, 5
   %spec.select.i.i.i28 = tail call i64 @llvm.umax.i64(i64 %newCapacity.0.i.i.i25, i64 %add8.i.i.i27)
@@ -13631,11 +13619,11 @@ if.end6.i.i.i23:                                  ; preds = %if.else.i.i.i17, %i
   br i1 %cmp.i.i.i.i.i29, label %if.then.i.i.i.i.i36, label %if.end.i.i.i.i.i30
 
 if.then.i.i.i.i.i36:                              ; preds = %if.end6.i.i.i23
-  tail call void @free(ptr noundef %12) #25
+  tail call void @free(ptr noundef %8) #25
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32
 
 if.end.i.i.i.i.i30:                               ; preds = %if.end6.i.i.i23
-  %call.i.i.i.i.i31 = tail call ptr @realloc(ptr noundef %12, i64 noundef %spec.select.i.i.i28) #30
+  %call.i.i.i.i.i31 = tail call ptr @realloc(ptr noundef %8, i64 noundef %spec.select.i.i.i28) #30
   br label %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32
 
 _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32: ; preds = %if.end.i.i.i.i.i30, %if.then.i.i.i.i.i36
@@ -13651,39 +13639,41 @@ _ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32: ; pred
   br label %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit44
 
 _ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit44: ; preds = %if.else, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32
-  %15 = phi ptr [ %2, %if.else ], [ %.pre55, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32 ]
-  %16 = phi ptr [ %0, %if.else ], [ %.pre, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32 ]
-  %stackTop_.i.i.i45 = getelementptr inbounds i8, ptr %16, i64 24
-  %add.ptr.i.i.i46 = getelementptr inbounds i8, ptr %15, i64 1
+  %11 = phi ptr [ %2, %if.else ], [ %.pre55, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32 ]
+  %12 = phi ptr [ %0, %if.else ], [ %.pre, %_ZN9rapidjson8internal5StackINS_12CrtAllocatorEE6ExpandIcEEvm.exit.i.i32 ]
+  %stackTop_.i.i.i45 = getelementptr inbounds i8, ptr %12, i64 24
+  %add.ptr.i.i.i46 = getelementptr inbounds i8, ptr %11, i64 1
   store ptr %add.ptr.i.i.i46, ptr %stackTop_.i.i.i45, align 8
-  store i8 102, ptr %15, align 1
-  %17 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i47 = getelementptr inbounds i8, ptr %17, i64 24
-  %18 = load ptr, ptr %stackTop_.i.i.i47, align 8
-  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %18, i64 1
+  store i8 102, ptr %11, align 1
+  %13 = load ptr, ptr %this, align 8
+  %stackTop_.i.i.i47 = getelementptr inbounds i8, ptr %13, i64 24
+  %14 = load ptr, ptr %stackTop_.i.i.i47, align 8
+  %add.ptr.i.i.i48 = getelementptr inbounds i8, ptr %14, i64 1
   store ptr %add.ptr.i.i.i48, ptr %stackTop_.i.i.i47, align 8
-  store i8 97, ptr %18, align 1
-  %19 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i49 = getelementptr inbounds i8, ptr %19, i64 24
-  %20 = load ptr, ptr %stackTop_.i.i.i49, align 8
-  %add.ptr.i.i.i50 = getelementptr inbounds i8, ptr %20, i64 1
-  store ptr %add.ptr.i.i.i50, ptr %stackTop_.i.i.i49, align 8
-  store i8 108, ptr %20, align 1
-  %21 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i51 = getelementptr inbounds i8, ptr %21, i64 24
-  %22 = load ptr, ptr %stackTop_.i.i.i51, align 8
-  %add.ptr.i.i.i52 = getelementptr inbounds i8, ptr %22, i64 1
-  store ptr %add.ptr.i.i.i52, ptr %stackTop_.i.i.i51, align 8
-  store i8 115, ptr %22, align 1
+  store i8 97, ptr %14, align 1
   br label %if.end
 
 if.end:                                           ; preds = %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit44, %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit
-  %23 = load ptr, ptr %this, align 8
-  %stackTop_.i.i.i53 = getelementptr inbounds i8, ptr %23, i64 24
-  %24 = load ptr, ptr %stackTop_.i.i.i53, align 8
-  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %24, i64 1
+  %.sink64 = phi i8 [ 108, %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit44 ], [ 114, %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit ]
+  %.sink = phi i8 [ 115, %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit44 ], [ 117, %_ZN9rapidjson10PutReserveINS_4UTF8IcEENS_12CrtAllocatorEEEvRNS_19GenericStringBufferIT_T0_EEm.exit ]
+  %15 = load ptr, ptr %this, align 8
+  %stackTop_.i.i.i49 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %stackTop_.i.i.i49, align 8
+  %add.ptr.i.i.i50 = getelementptr inbounds i8, ptr %16, i64 1
+  store ptr %add.ptr.i.i.i50, ptr %stackTop_.i.i.i49, align 8
+  store i8 %.sink64, ptr %16, align 1
+  %17 = load ptr, ptr %this, align 8
+  %stackTop_.i.i.i51 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %stackTop_.i.i.i51, align 8
+  %add.ptr.i.i.i52 = getelementptr inbounds i8, ptr %18, i64 1
+  store ptr %add.ptr.i.i.i52, ptr %stackTop_.i.i.i51, align 8
+  store i8 %.sink, ptr %18, align 1
+  %19 = load ptr, ptr %this, align 8
+  %stackTop_.i.i.i53 = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load ptr, ptr %stackTop_.i.i.i53, align 8
+  %add.ptr.i.i.i54 = getelementptr inbounds i8, ptr %20, i64 1
   store ptr %add.ptr.i.i.i54, ptr %stackTop_.i.i.i53, align 8
-  store i8 101, ptr %24, align 1
+  store i8 101, ptr %20, align 1
   ret i1 true
 }
 
@@ -37395,9 +37385,9 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit199:      ; preds = %if.else56, %if.then
   br label %for.inc67
 
 for.inc67:                                        ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161
-  %.sink790 = phi ptr [ %123, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %112, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %104, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
+  %.sink787 = phi ptr [ %123, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %112, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %104, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
   %.sink = phi i64 [ %113, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit199 ], [ %add54, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit180 ], [ %96, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit161 ]
-  %arrayidx.i186 = getelementptr i8, ptr %.sink790, i64 -8
+  %arrayidx.i186 = getelementptr i8, ptr %.sink787, i64 -8
   store i64 %.sink, ptr %arrayidx.i186, align 8
   %124 = load ptr, ptr %m_sizeTFAN.i, align 8
   %125 = load i64, ptr %m_numTFANs.i, align 8
@@ -38219,10 +38209,10 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit528:      ; preds = %if.else234, %if.the
   br label %for.inc245
 
 for.inc245:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490
-  %.sink795 = phi ptr [ %350, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %339, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %331, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
-  %.sink794 = phi i64 [ %340, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %add231, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %323, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
-  %arrayidx.i515 = getelementptr i8, ptr %.sink795, i64 -8
-  store i64 %.sink794, ptr %arrayidx.i515, align 8
+  %.sink794 = phi ptr [ %350, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %339, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %331, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
+  %.sink793 = phi i64 [ %340, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit528 ], [ %add231, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit509 ], [ %323, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit490 ]
+  %arrayidx.i515 = getelementptr i8, ptr %.sink794, i64 -8
+  store i64 %.sink793, ptr %arrayidx.i515, align 8
   %351 = load ptr, ptr %m_sizeTFAN.i, align 8
   %352 = load i64, ptr %m_numTFANs.i, align 8
   %353 = getelementptr i64, ptr %351, i64 %352
@@ -38408,10 +38398,10 @@ _ZN5o3dgc12TriangleFans9AddVertexEl.exit610:      ; preds = %if.else278, %if.the
   br label %for.inc289
 
 for.inc289:                                       ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572
-  %.sink800 = phi ptr [ %399, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %388, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %380, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
-  %.sink799 = phi i64 [ %389, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %add275, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %372, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
-  %arrayidx.i597 = getelementptr i8, ptr %.sink800, i64 -8
-  store i64 %.sink799, ptr %arrayidx.i597, align 8
+  %.sink801 = phi ptr [ %399, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %388, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %380, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
+  %.sink800 = phi i64 [ %389, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit610 ], [ %add275, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit591 ], [ %372, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit572 ]
+  %arrayidx.i597 = getelementptr i8, ptr %.sink801, i64 -8
+  store i64 %.sink800, ptr %arrayidx.i597, align 8
   %400 = load ptr, ptr %m_sizeTFAN.i, align 8
   %401 = load i64, ptr %m_numTFANs.i, align 8
   %402 = getelementptr i64, ptr %400, i64 %401
@@ -38424,17 +38414,17 @@ for.inc289:                                       ; preds = %_ZN5o3dgc12Triangle
   br i1 %exitcond.not, label %sw.epilog, label %for.body256, !llvm.loop !325
 
 sw.epilog.sink.split:                             ; preds = %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547
-  %.sink805 = phi ptr [ %73, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ], [ %137, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %162, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %187, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %300, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %364, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ]
-  %.sink804 = phi i64 [ %65, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ], [ %129, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %154, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %179, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %292, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %356, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ]
-  %arrayidx.i106 = getelementptr i8, ptr %.sink805, i64 -8
-  store i64 %.sink804, ptr %arrayidx.i106, align 8
+  %.sink808 = phi ptr [ %364, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %300, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %187, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %162, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %137, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %73, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
+  %.sink807 = phi i64 [ %356, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit547 ], [ %292, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit446 ], [ %179, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit294 ], [ %154, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit256 ], [ %129, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit218 ], [ %65, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit119 ]
+  %arrayidx.i534 = getelementptr i8, ptr %.sink808, i64 -8
+  store i64 %.sink807, ptr %arrayidx.i534, align 8
   %404 = load ptr, ptr %m_sizeTFAN.i, align 8
   %405 = load i64, ptr %m_numTFANs.i, align 8
   %406 = getelementptr i64, ptr %404, i64 %405
-  %arrayidx12.i109 = getelementptr i8, ptr %406, i64 -8
-  %407 = load i64, ptr %arrayidx12.i109, align 8
+  %arrayidx12.i537 = getelementptr i8, ptr %406, i64 -8
+  %407 = load i64, ptr %arrayidx12.i537, align 8
   %inc13.i538 = add nsw i64 %407, 1
-  store i64 %inc13.i538, ptr %arrayidx12.i109, align 8
+  store i64 %inc13.i538, ptr %arrayidx12.i537, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %for.inc289, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit389, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit370, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit332, %sw.epilog.sink.split, %for.cond254.preheader, %for.cond162.preheader, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit351, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit313, %_ZN5o3dgc12TriangleFans9AddVertexEl.exit

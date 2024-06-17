@@ -3662,12 +3662,12 @@ land.lhs.true76:                                  ; preds = %_ZN8facebook5velox9
 
 if.end82.sink.split:                              ; preds = %land.lhs.true76, %land.lhs.true67
   %negative.0.ph = phi i1 [ true, %land.lhs.true67 ], [ false, %land.lhs.true76 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %0, i64 1
-  store ptr %incdec.ptr, ptr %cur, align 8
+  %incdec.ptr80 = getelementptr inbounds i8, ptr %0, i64 1
+  store ptr %incdec.ptr80, ptr %cur, align 8
   br label %if.end82
 
 if.end82:                                         ; preds = %if.end82.sink.split, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit, %land.lhs.true72, %if.else63, %land.lhs.true76
-  %cur.promoted26 = phi ptr [ %0, %land.lhs.true76 ], [ %0, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ %0, %if.else63 ], [ %0, %land.lhs.true72 ], [ %incdec.ptr, %if.end82.sink.split ]
+  %cur.promoted26 = phi ptr [ %0, %land.lhs.true76 ], [ %0, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ %0, %if.else63 ], [ %0, %land.lhs.true72 ], [ %incdec.ptr80, %if.end82.sink.split ]
   %negative.0 = phi i1 [ false, %land.lhs.true76 ], [ false, %_ZN8facebook5velox9functions12_GLOBAL__N_118specAllowsPlusSignENS1_23DateTimeFormatSpecifierEb.exit ], [ false, %if.else63 ], [ false, %land.lhs.true72 ], [ %negative.0.ph, %if.end82.sink.split ]
   switch i8 %curPattern.coerce0, label %_ZN8facebook5velox9functions12_GLOBAL__N_118getMaxDigitConsumeENS1_13FormatPatternEbNS1_21DateTimeFormatterTypeE.exit [
     i8 1, label %sw.bb.i

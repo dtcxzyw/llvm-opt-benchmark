@@ -14150,24 +14150,24 @@ while.body.i.i.i313:                              ; preds = %_ZN2EA4StdC9Stopwat
 while.end.i.i.i312:                               ; preds = %while.body.i.i.i313
   %first1.addr.1.i.i.i.ptr = getelementptr inbounds i8, ptr %call.i.i.i.i.i112118, i64 %first1.addr.025.i.i.i.add
   %cmp4.i.i.i = icmp eq i64 %first1.addr.025.i.i.i.add, 40000
-  br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.sink.split.i
+  br i1 %cmp4.i.i.i, label %if.then5.i.i.i, label %return.sink.split.i.i.i
 
 if.then5.i.i.i:                                   ; preds = %while.end.i.i.i312
   %first2.addr.1.i.i.i.ptr.le = getelementptr inbounds i8, ptr %call.i.i.i.i.i120126, i64 %first2.addr.026.i.i.i.add
   %cmp.i.i.i.i.i.i.i = icmp eq i64 %first2.addr.026.i.i.i.add, 40000
-  br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i, label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.sink.split.i
+  br i1 %cmp.i.i.i.i.i.i.i, label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i, label %return.sink.split.i.i.i
 
-_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.sink.split.i: ; preds = %if.then5.i.i.i, %while.end.i.i.i312
+return.sink.split.i.i.i:                          ; preds = %if.then5.i.i.i, %while.end.i.i.i312
   %call.i.i.i.i.i120126.pn = phi ptr [ %call.i.i.i.i.i120126, %if.then5.i.i.i ], [ %call.i.i.i.i.i112118, %while.end.i.i.i312 ]
-  %first2.addr.0.lcssa.i.i.sink7.i = phi ptr [ %first2.addr.1.i.i.i.ptr.le, %if.then5.i.i.i ], [ %first1.addr.1.i.i.i.ptr, %while.end.i.i.i312 ]
-  %lastIn2.sink.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i120126.pn, i64 40000
-  %63 = ptrtoint ptr %lastIn2.sink.i to i64
-  %64 = ptrtoint ptr %first2.addr.0.lcssa.i.i.sink7.i to i64
+  %first2.addr.0.lcssa.sink33.i.i.i = phi ptr [ %first2.addr.1.i.i.i.ptr.le, %if.then5.i.i.i ], [ %first1.addr.1.i.i.i.ptr, %while.end.i.i.i312 ]
+  %last2.sink.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i120126.pn, i64 40000
+  %63 = ptrtoint ptr %last2.sink.i.i.i to i64
+  %64 = ptrtoint ptr %first2.addr.0.lcssa.sink33.i.i.i to i64
   %sub.i.i.i.i.i.i.i = sub i64 %63, %64
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr3.i.i.i, ptr nonnull align 4 %first2.addr.0.lcssa.i.i.sink7.i, i64 %sub.i.i.i.i.i.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %incdec.ptr3.i.i.i, ptr nonnull align 4 %first2.addr.0.lcssa.sink33.i.i.i, i64 %sub.i.i.i.i.i.i.i, i1 false)
   br label %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i
 
-_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i: ; preds = %_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.sink.split.i, %if.then5.i.i.i
+_ZN5eastl5mergeIPiS1_S1_EET1_T_S3_T0_S4_S2_.exit.i: ; preds = %return.sink.split.i.i.i, %if.then5.i.i.i
   invoke void @_ZN2EA4StdC9Stopwatch4StopEv(ptr noundef nonnull align 8 dereferenceable(24) %stopwatch2)
           to label %invoke.cont132 unwind label %lpad47.loopexit.loopexit
 

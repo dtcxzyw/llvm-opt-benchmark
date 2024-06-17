@@ -1025,11 +1025,11 @@ invoke.cont48:                                    ; preds = %_ZNK15ref_vector_co
   br i1 %tobool.not.i.i50, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont48, %if.then33
-  %.sink = phi ptr [ %38, %if.then33 ], [ %call49, %invoke.cont48 ]
-  %m_ref_count.i.i.i.i43 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %43 = load i32, ptr %m_ref_count.i.i.i.i43, align 4
+  %call49.sink = phi ptr [ %38, %if.then33 ], [ %call49, %invoke.cont48 ]
+  %m_ref_count.i.i.i.i52 = getelementptr inbounds i8, ptr %call49.sink, i64 8
+  %43 = load i32, ptr %m_ref_count.i.i.i.i52, align 4
   %inc.i.i.i.i53 = add i32 %43, 1
-  store i32 %inc.i.i.i.i53, ptr %m_ref_count.i.i.i.i43, align 4
+  store i32 %inc.i.i.i.i53, ptr %m_ref_count.i.i.i.i52, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont48, %if.then33
@@ -16585,18 +16585,18 @@ lpad78:                                           ; preds = %_ZN7obj_refI4sort11
   br label %eh.resume
 
 return.sink.split:                                ; preds = %for.cond72, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit, %if.end69, %_ZNK8datatype4util11is_datatypeEPK4sort.exit, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i, %_ZNK8datatype4util3fidEv.exit.i
-  %.pn189 = phi ptr [ %5, %_ZNK8datatype4util3fidEv.exit.i ], [ %5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %5, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %55, %if.end69 ], [ %55, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %55, %for.cond72 ]
-  %call.i = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  %m_num_elements.i.i151.sink = getelementptr inbounds i8, ptr %.pn189, i64 24
-  %m_ref.i.i.i153 = getelementptr inbounds i8, ptr %call.i, i64 8
+  %.sink = phi ptr [ %5, %_ZNK8datatype4util3fidEv.exit.i ], [ %5, %_ZNK4decl13get_family_idEv.exit.thread.i.i.i ], [ %5, %_ZNK8datatype4util11is_datatypeEPK4sort.exit ], [ %55, %if.end69 ], [ %55, %_ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit ], [ %55, %for.cond72 ]
+  %m_num_elements.i.i151 = getelementptr inbounds i8, ptr %.sink, i64 24
+  %call.i152 = call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
+  %m_ref.i.i.i153 = getelementptr inbounds i8, ptr %call.i152, i64 8
   store i32 0, ptr %m_ref.i.i.i153, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype10param_size6offsetE, i64 16), ptr %call.i, align 8
-  %m_offset.i.i154 = getelementptr inbounds i8, ptr %call.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i154, ptr noundef nonnull align 8 dereferenceable(16) %m_num_elements.i.i151.sink, i64 16, i1 false)
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN8datatype10param_size6offsetE, i64 16), ptr %call.i152, align 8
+  %m_offset.i.i154 = getelementptr inbounds i8, ptr %call.i152, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_offset.i.i154, ptr noundef nonnull align 8 dereferenceable(16) %m_num_elements.i.i151, i64 16, i1 false)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %for.cond.preheader.i.i.i.i, %cleanup, %call.i142.noexc, %if.then2.i.i.i, %if.then.i.i.i147, %if.then.i.i.i135, %invoke.cont66
-  %retval.1 = phi ptr [ %call.i131133, %invoke.cont66 ], [ %call.i131133, %if.then.i.i.i135 ], [ %call.i142145, %if.then.i.i.i147 ], [ %call.i142145, %if.then2.i.i.i ], [ %call.i142145, %call.i142.noexc ], [ %retval.0, %cleanup ], [ %retval.0, %for.cond.preheader.i.i.i.i ], [ %call.i, %return.sink.split ]
+  %retval.1 = phi ptr [ %call.i131133, %invoke.cont66 ], [ %call.i131133, %if.then.i.i.i135 ], [ %call.i142145, %if.then.i.i.i147 ], [ %call.i142145, %if.then2.i.i.i ], [ %call.i142145, %call.i142.noexc ], [ %retval.0, %cleanup ], [ %retval.0, %for.cond.preheader.i.i.i.i ], [ %call.i152, %return.sink.split ]
   ret ptr %retval.1
 
 eh.resume:                                        ; preds = %lpad78, %lpad50, %lpad

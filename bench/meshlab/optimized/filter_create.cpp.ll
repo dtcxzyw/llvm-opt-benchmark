@@ -36031,8 +36031,8 @@ _ZN3vcg4face16WedgeTexCoordOcfINS_9TexCoord2IfLi1EEENS_7Arity10INS_8FaceBaseI11C
   br i1 %.not.i171, label %_ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerFaceAttributeINS0_15RefinedFaceDataIP8CVertexOEEEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfIS6_EENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESI_SI_E22PerFaceAttributeHandleIT_EE.exit, label %.lr.ph.i169, !llvm.loop !432
 
 _ZN3vcg3tri9AllocatorI6CMeshOE22DeletePerFaceAttributeINS0_15RefinedFaceDataIP8CVertexOEEEEvRS2_RNS0_7TriMeshINS_6vertex10vector_ocfIS6_EENS_4face10vector_ocfI6CFaceOEENS0_14DummyContainerESI_SI_E22PerFaceAttributeHandleIT_EE.exit.sink.split: ; preds = %195, %687
-  %.sink380 = phi ptr [ %196, %195 ], [ %688, %687 ]
-  %.ph = phi i1 [ false, %195 ], [ %182, %687 ]
+  %.sink380 = phi ptr [ %688, %687 ], [ %196, %195 ]
+  %.ph = phi i1 [ %182, %687 ], [ false, %195 ]
   %691 = getelementptr inbounds i8, ptr %.sink380, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %691) #26
   call void @_ZdlPv(ptr noundef nonnull %.sink380) #25
@@ -41752,9 +41752,9 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split
 
 _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split: ; preds = %120, %118
-  %.sink99 = phi ptr [ %129, %120 ], [ %119, %118 ]
-  %.sink97 = phi ptr [ %122, %120 ], [ null, %118 ]
-  %.sink = phi i8 [ %97, %120 ], [ -1, %118 ]
+  %.sink99 = phi ptr [ %119, %118 ], [ %129, %120 ]
+  %.sink97 = phi ptr [ null, %118 ], [ %122, %120 ]
+  %.sink = phi i8 [ -1, %118 ], [ %97, %120 ]
   %130 = getelementptr inbounds [3 x ptr], ptr %.sink99, i64 0, i64 %indvars.iv74
   store ptr %.sink97, ptr %130, align 8
   %131 = load ptr, ptr %2, align 8

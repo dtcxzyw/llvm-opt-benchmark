@@ -1555,7 +1555,7 @@ for.body.lr.ph:                                   ; preds = %_ZNK4pugi8xml_node8
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %nd.0412 = phi i32 [ 0, %for.body.lr.ph ], [ %nd.3, %for.inc ]
   %cnt.0411 = phi i32 [ 0, %for.body.lr.ph ], [ %cnt.3, %for.inc ]
-  %__begin1.sroa.0.0409 = phi ptr [ %1, %for.body.lr.ph ], [ %63, %for.inc ]
+  %__begin1.sroa.0.0409 = phi ptr [ %1, %for.body.lr.ph ], [ %61, %for.inc ]
   %2 = ptrtoint ptr %__begin1.sroa.0.0409 to i64
   store i64 %2, ptr %child, align 8
   %name3.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0409, i64 8
@@ -1995,12 +1995,6 @@ if.then220:                                       ; preds = %if.then218
 
 if.end.i285:                                      ; preds = %if.then220
   %call2.i286 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %conv.i287 = trunc i64 %call2.i286 to i32
-  store i32 %conv.i287, ptr %s, align 4
-  %call3.i289 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %50 = load i32, ptr %s, align 4
-  %conv5.i290 = zext i32 %50 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i289, i64 %conv5.i290, i1 false)
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split
 
 if.else226:                                       ; preds = %if.then218
@@ -2015,24 +2009,24 @@ if.then229:                                       ; preds = %if.else226
 
 if.end.i295:                                      ; preds = %if.then229
   %call2.i296 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %conv.i297 = trunc i64 %call2.i296 to i32
-  store i32 %conv.i297, ptr %s, align 4
-  %call3.i299 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %51 = load i32, ptr %s, align 4
-  %conv5.i300 = zext i32 %51 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i299, i64 %conv5.i300, i1 false)
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split: ; preds = %if.end.i285, %if.end.i295
-  %conv5.i300.sink = phi i64 [ %conv5.i300, %if.end.i295 ], [ %conv5.i290, %if.end.i285 ]
-  %.ph = phi i32 [ 6, %if.end.i295 ], [ 10, %if.end.i285 ]
-  %arrayidx.i301 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i300.sink
+  %storemerge.in = phi i64 [ %call2.i286, %if.end.i285 ], [ %call2.i296, %if.end.i295 ]
+  %.ph = phi i32 [ 10, %if.end.i285 ], [ 6, %if.end.i295 ]
+  %storemerge = trunc i64 %storemerge.in to i32
+  store i32 %storemerge, ptr %s, align 4
+  %call3.i289 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
+  %.sink = load i32, ptr %s, align 4
+  %conv5.i300 = zext i32 %.sink to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i289, i64 %conv5.i300, i1 false)
+  %arrayidx.i301 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i300
   store i8 0, ptr %arrayidx.i301, align 1
   br label %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke
 
 _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke: ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split, %if.then229, %if.then220
-  %52 = phi i32 [ 10, %if.then220 ], [ 6, %if.then229 ], [ %.ph, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split ]
-  %53 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull %s, ptr noundef nonnull @.str.45, i32 noundef %52, i32 noundef 0)
+  %50 = phi i32 [ 10, %if.then220 ], [ 6, %if.then229 ], [ %.ph, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke.sink.split ]
+  %51 = invoke noundef i32 @_ZN10aiMaterial11AddPropertyEPK8aiStringPKcjj(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull %s, ptr noundef nonnull @.str.45, i32 noundef %50, i32 noundef 0)
           to label %if.end282.sink.split unwind label %lpad101
 
 if.else236:                                       ; preds = %if.else226
@@ -2050,8 +2044,8 @@ if.end.i305:                                      ; preds = %if.then239
   %conv.i307 = trunc i64 %call2.i306 to i32
   store i32 %conv.i307, ptr %s, align 4
   %call3.i309 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %54 = load i32, ptr %s, align 4
-  %conv5.i310 = zext i32 %54 to i64
+  %52 = load i32, ptr %s, align 4
+  %conv5.i310 = zext i32 %52 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i309, i64 %conv5.i310, i1 false)
   %arrayidx.i311 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i310
   store i8 0, ptr %arrayidx.i311, align 1
@@ -2090,8 +2084,8 @@ if.end.i317:                                      ; preds = %if.then260
   %conv.i319 = trunc i64 %call2.i318 to i32
   store i32 %conv.i319, ptr %s, align 4
   %call3.i321 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %55 = load i32, ptr %s, align 4
-  %conv5.i322 = zext i32 %55 to i64
+  %53 = load i32, ptr %s, align 4
+  %conv5.i322 = zext i32 %53 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i321, i64 %conv5.i322, i1 false)
   %arrayidx.i323 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i322
   store i8 0, ptr %arrayidx.i323, align 1
@@ -2119,8 +2113,8 @@ if.end.i329:                                      ; preds = %if.then272
   %conv.i331 = trunc i64 %call2.i330 to i32
   store i32 %conv.i331, ptr %s, align 4
   %call3.i333 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %value.i) #18
-  %56 = load i32, ptr %s, align 4
-  %conv5.i334 = zext i32 %56 to i64
+  %54 = load i32, ptr %s, align 4
+  %conv5.i334 = zext i32 %54 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %data.i, ptr align 1 %call3.i333, i64 %conv5.i334, i1 false)
   %arrayidx.i335 = getelementptr inbounds [1024 x i8], ptr %data.i, i64 0, i64 %conv5.i334
   store i8 0, ptr %arrayidx.i335, align 1
@@ -2133,8 +2127,8 @@ _ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit336:
 
 if.end282.sink.split:                             ; preds = %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke, %invoke.cont243
   %nd.1.ph = phi i32 [ %inc245, %invoke.cont243 ], [ %nd.0412, %_ZN8aiString3SetERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit302.invoke ]
-  %57 = load i32, ptr %matFlags, align 4
-  %or235 = or i32 %57, 1048576
+  %55 = load i32, ptr %matFlags, align 4
+  %or235 = or i32 %55, 1048576
   store i32 %or235, ptr %matFlags, align 4
   br label %if.end282
 
@@ -2185,8 +2179,8 @@ if.else.i350:                                     ; preds = %if.then302
 invoke.cont305:                                   ; preds = %if.else.i350, %if.then302
   %retval.0.i354 = phi i32 [ 0, %if.then302 ], [ %..i353, %if.else.i350 ]
   store i32 %retval.0.i354, ptr %map303, align 4
-  %58 = load i32, ptr %matFlags, align 4
-  %and307 = and i32 %58, 2
+  %56 = load i32, ptr %matFlags, align 4
+  %and307 = and i32 %56, 2
   %tobool308.not = icmp eq i32 %and307, 0
   br i1 %tobool308.not, label %if.else314, label %if.then309
 
@@ -2195,7 +2189,7 @@ if.then309:                                       ; preds = %invoke.cont305
           to label %invoke.cont362.invoke unwind label %lpad101
 
 if.else314:                                       ; preds = %invoke.cont305
-  %and315 = and i32 %58, 256
+  %and315 = and i32 %56, 256
   %tobool316.not = icmp eq i32 %and315, 0
   br i1 %tobool316.not, label %if.else322, label %if.then317
 
@@ -2204,7 +2198,7 @@ if.then317:                                       ; preds = %if.else314
           to label %invoke.cont362.invoke unwind label %lpad101
 
 if.else322:                                       ; preds = %if.else314
-  %and323 = and i32 %58, 65536
+  %and323 = and i32 %56, 65536
   %tobool324.not = icmp eq i32 %and323, 0
   br i1 %tobool324.not, label %if.end371, label %if.then325
 
@@ -2263,10 +2257,10 @@ invoke.cont359:                                   ; preds = %if.else.i394, %if.t
           to label %invoke.cont362.invoke unwind label %lpad101
 
 invoke.cont362.invoke:                            ; preds = %invoke.cont359, %invoke.cont342, %if.then325, %if.then317, %if.then309, %invoke.cont290
-  %59 = phi ptr [ %map, %invoke.cont290 ], [ %map303, %if.then309 ], [ %map303, %if.then317 ], [ %map303, %if.then325 ], [ %map340, %invoke.cont342 ], [ %map357, %invoke.cont359 ]
-  %60 = phi i32 [ 1, %invoke.cont290 ], [ 10, %if.then309 ], [ 6, %if.then317 ], [ 1, %if.then325 ], [ 1, %invoke.cont342 ], [ 1, %invoke.cont359 ]
-  %61 = phi i32 [ 0, %invoke.cont290 ], [ 0, %if.then309 ], [ 0, %if.then317 ], [ 1, %if.then325 ], [ %add344, %invoke.cont342 ], [ %add361, %invoke.cont359 ]
-  %62 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull %59, i32 noundef 4, ptr noundef nonnull @.str.52, i32 noundef %60, i32 noundef %61, i32 noundef 4)
+  %57 = phi ptr [ %map, %invoke.cont290 ], [ %map303, %if.then309 ], [ %map303, %if.then317 ], [ %map303, %if.then325 ], [ %map340, %invoke.cont342 ], [ %map357, %invoke.cont359 ]
+  %58 = phi i32 [ 1, %invoke.cont290 ], [ 10, %if.then309 ], [ 6, %if.then317 ], [ 1, %if.then325 ], [ 1, %invoke.cont342 ], [ 1, %invoke.cont359 ]
+  %59 = phi i32 [ 0, %invoke.cont290 ], [ 0, %if.then309 ], [ 0, %if.then317 ], [ 1, %if.then325 ], [ %add344, %invoke.cont342 ], [ %add361, %invoke.cont359 ]
+  %60 = invoke noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull %57, i32 noundef 4, ptr noundef nonnull @.str.52, i32 noundef %58, i32 noundef %59, i32 noundef 4)
           to label %if.end371 unwind label %lpad101
 
 if.end371:                                        ; preds = %invoke.cont362.invoke, %if.else350, %if.else322, %invoke.cont102
@@ -2286,8 +2280,8 @@ for.inc:                                          ; preds = %for.inc.sink.split,
   %cnt.3 = phi i32 [ %cnt.0411, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit238 ], [ %cnt.3.ph, %for.inc.sink.split ]
   %nd.3 = phi i32 [ %nd.0412, %_ZN6Assimp14ASSIMP_stricmpEPKcS1_.exit238 ], [ %nd.3.ph, %for.inc.sink.split ]
   %next_sibling.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0409, i64 48
-  %63 = load ptr, ptr %next_sibling.i, align 8
-  %cmp.not.i.not = icmp eq ptr %63, null
+  %61 = load ptr, ptr %next_sibling.i, align 8
+  %cmp.not.i.not = icmp eq ptr %61, null
   br i1 %cmp.not.i.not, label %for.end, label %for.body
 
 for.end:                                          ; preds = %for.inc, %invoke.cont, %_ZNK4pugi8xml_node8childrenEv.exit

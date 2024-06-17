@@ -577,8 +577,8 @@ if.else:                                          ; preds = %if.then
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end, %if.else
-  %constructed_obj.sink = phi ptr [ %constructed_obj, %if.end ], [ %keydata11, %if.else ]
-  %6 = load ptr, ptr %constructed_obj.sink, align 8
+  %keydata11.sink = phi ptr [ %keydata11, %if.else ], [ %constructed_obj, %if.end ]
+  %6 = load ptr, ptr %keydata11.sink, align 8
   store ptr %6, ptr %obj, align 8
   br label %return
 

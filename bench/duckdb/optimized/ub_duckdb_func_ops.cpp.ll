@@ -88655,12 +88655,12 @@ for.body15.epil:                                  ; preds = %for.body15.preheade
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us100.epil, %for.body15.epil
-  %conv.i86.us.epil.sink = phi i64 [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %conv.i86.epil, %for.body15.epil ]
-  %.sink21.in = phi ptr [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us102.epil, %for.body15.us100.epil ], [ %arrayidx18.epil, %for.body15.epil ]
-  %i11.099.unr15.sink = phi i64 [ %i11.099.us.unr9, %for.body15.us.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %i11.099.unr15, %for.body15.epil ]
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink21.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us102.epil, %for.body15.us100.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
+  %i11.099.unr15.sink = phi i64 [ %i11.099.unr15, %for.body15.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %i11.099.us.unr9, %for.body15.us.epil ]
   %.sink21 = load i8, ptr %.sink21.in, align 1, !tbaa !24
-  %arrayidx21.us.epil = getelementptr inbounds i8, ptr %rdata, i64 %conv.i86.us.epil.sink
-  %82 = load i8, ptr %arrayidx21.us.epil, align 1, !tbaa !24
+  %arrayidx21.epil = getelementptr inbounds i8, ptr %rdata, i64 %conv.i86.epil.sink
+  %82 = load i8, ptr %arrayidx21.epil, align 1, !tbaa !24
   %83 = icmp ult i8 %82, 8
   %conv.i.i89.epil = sext i8 %.sink21 to i32
   %conv14.i.i90.epil = zext nneg i8 %82 to i32
@@ -90313,12 +90313,12 @@ for.body15.epil:                                  ; preds = %for.body15.preheade
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us100.epil, %for.body15.epil
-  %conv.i86.us.epil.sink = phi i64 [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %conv.i86.epil, %for.body15.epil ]
-  %.sink21.in = phi ptr [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us102.epil, %for.body15.us100.epil ], [ %arrayidx18.epil, %for.body15.epil ]
-  %i11.099.unr15.sink = phi i64 [ %i11.099.us.unr9, %for.body15.us.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %i11.099.unr15, %for.body15.epil ]
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink21.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us102.epil, %for.body15.us100.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
+  %i11.099.unr15.sink = phi i64 [ %i11.099.unr15, %for.body15.epil ], [ %i11.099.us101.unr12, %for.body15.us100.epil ], [ %i11.099.us.unr9, %for.body15.us.epil ]
   %.sink21 = load i16, ptr %.sink21.in, align 2, !tbaa !559
-  %arrayidx21.us.epil = getelementptr inbounds i16, ptr %rdata, i64 %conv.i86.us.epil.sink
-  %72 = load i16, ptr %arrayidx21.us.epil, align 2, !tbaa !559
+  %arrayidx21.epil = getelementptr inbounds i16, ptr %rdata, i64 %conv.i86.epil.sink
+  %72 = load i16, ptr %arrayidx21.epil, align 2, !tbaa !559
   %73 = icmp ult i16 %72, 16
   %conv.i.i89.epil = sext i16 %.sink21 to i32
   %conv14.i.i90.epil = zext nneg i16 %72 to i32
@@ -91603,7 +91603,7 @@ for.body15.us.preheader.new:                      ; preds = %for.body15.us.prehe
 
 for.body15.us.us.preheader:                       ; preds = %for.body15.lr.ph.split.us
   %min.iters.check = icmp ult i64 %count, 4
-  br i1 %min.iters.check, label %for.body15.us.us.preheader20, label %vector.ph
+  br i1 %min.iters.check, label %for.body15.us.us.preheader23, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body15.us.us.preheader
   %n.vec = and i64 %count, -4
@@ -91626,14 +91626,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %n.vec, %count
-  br i1 %cmp.n, label %if.end28, label %for.body15.us.us.preheader20
+  br i1 %cmp.n, label %if.end28, label %for.body15.us.us.preheader23
 
-for.body15.us.us.preheader20:                     ; preds = %middle.block, %for.body15.us.us.preheader
+for.body15.us.us.preheader23:                     ; preds = %middle.block, %for.body15.us.us.preheader
   %i11.097.us.us.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body15.us.us.preheader ]
   br label %for.body15.us.us
 
-for.body15.us.us:                                 ; preds = %for.body15.us.us.preheader20, %for.body15.us.us
-  %i11.097.us.us = phi i64 [ %inc26.us.us, %for.body15.us.us ], [ %i11.097.us.us.ph, %for.body15.us.us.preheader20 ]
+for.body15.us.us:                                 ; preds = %for.body15.us.us.preheader23, %for.body15.us.us
+  %i11.097.us.us = phi i64 [ %inc26.us.us, %for.body15.us.us ], [ %i11.097.us.us.ph, %for.body15.us.us.preheader23 ]
   %arrayidx18.us.us = getelementptr inbounds i32, ptr %ldata, i64 %i11.097.us.us
   %14 = load i32, ptr %arrayidx18.us.us, align 4, !tbaa !65
   %arrayidx21.us.us = getelementptr inbounds i32, ptr %rdata, i64 %i11.097.us.us
@@ -91863,15 +91863,9 @@ if.end28.loopexit127.unr-lcssa:                   ; preds = %for.body15.us
 for.body15.us.epil:                               ; preds = %for.body15.us.preheader, %if.end28.loopexit127.unr-lcssa
   %i11.097.us.unr9 = phi i64 [ %unroll_iter137, %if.end28.loopexit127.unr-lcssa ], [ 0, %for.body15.us.preheader ]
   %arrayidx18.us.epil = getelementptr inbounds i32, ptr %ldata, i64 %i11.097.us.unr9
-  %57 = load i32, ptr %arrayidx18.us.epil, align 4, !tbaa !65
   %arrayidx.i85.us.epil = getelementptr inbounds i32, ptr %5, i64 %i11.097.us.unr9
-  %58 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
-  %conv.i86.us.epil = zext i32 %58 to i64
-  %arrayidx21.us.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.us.epil
-  %59 = load i32, ptr %arrayidx21.us.epil, align 4, !tbaa !65
-  %60 = icmp ult i32 %59, 32
-  %shr.i.i89.us.epil = ashr i32 %57, %59
-  %cond.i.i90.us.epil = select i1 %60, i32 %shr.i.i89.us.epil, i32 0
+  %57 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
+  %conv.i86.us.epil = zext i32 %57 to i64
   br label %if.end28.sink.split
 
 if.end28.loopexit128.unr-lcssa:                   ; preds = %for.body15.us98
@@ -91881,15 +91875,9 @@ if.end28.loopexit128.unr-lcssa:                   ; preds = %for.body15.us98
 for.body15.us98.epil:                             ; preds = %for.body15.us98.preheader, %if.end28.loopexit128.unr-lcssa
   %i11.097.us99.unr12 = phi i64 [ %unroll_iter133, %if.end28.loopexit128.unr-lcssa ], [ 0, %for.body15.us98.preheader ]
   %arrayidx.i79.us.epil = getelementptr inbounds i32, ptr %4, i64 %i11.097.us99.unr12
-  %61 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
-  %conv.i80.us.epil = zext i32 %61 to i64
+  %58 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
+  %conv.i80.us.epil = zext i32 %58 to i64
   %arrayidx18.us100.epil = getelementptr inbounds i32, ptr %ldata, i64 %conv.i80.us.epil
-  %62 = load i32, ptr %arrayidx18.us100.epil, align 4, !tbaa !65
-  %arrayidx21.us103.epil = getelementptr inbounds i32, ptr %rdata, i64 %i11.097.us99.unr12
-  %63 = load i32, ptr %arrayidx21.us103.epil, align 4, !tbaa !65
-  %64 = icmp ult i32 %63, 32
-  %shr.i.i89.us104.epil = ashr i32 %62, %63
-  %cond.i.i90.us105.epil = select i1 %64, i32 %shr.i.i89.us104.epil, i32 0
   br label %if.end28.sink.split
 
 if.end28.loopexit129.unr-lcssa:                   ; preds = %for.body15
@@ -91899,25 +91887,26 @@ if.end28.loopexit129.unr-lcssa:                   ; preds = %for.body15
 for.body15.epil:                                  ; preds = %for.body15.preheader, %if.end28.loopexit129.unr-lcssa
   %i11.097.unr15 = phi i64 [ %unroll_iter, %if.end28.loopexit129.unr-lcssa ], [ 0, %for.body15.preheader ]
   %arrayidx.i79.epil = getelementptr inbounds i32, ptr %4, i64 %i11.097.unr15
-  %65 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
-  %conv.i80.epil = zext i32 %65 to i64
+  %59 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
+  %conv.i80.epil = zext i32 %59 to i64
   %arrayidx18.epil = getelementptr inbounds i32, ptr %ldata, i64 %conv.i80.epil
-  %66 = load i32, ptr %arrayidx18.epil, align 4, !tbaa !65
   %arrayidx.i85.epil = getelementptr inbounds i32, ptr %5, i64 %i11.097.unr15
-  %67 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
-  %conv.i86.epil = zext i32 %67 to i64
-  %arrayidx21.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.epil
-  %68 = load i32, ptr %arrayidx21.epil, align 4, !tbaa !65
-  %69 = icmp ult i32 %68, 32
-  %shr.i.i89.epil = ashr i32 %66, %68
-  %cond.i.i90.epil = select i1 %69, i32 %shr.i.i89.epil, i32 0
+  %60 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
+  %conv.i86.epil = zext i32 %60 to i64
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us98.epil, %for.body15.epil
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.097.us99.unr12, %for.body15.us98.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink19.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us100.epil, %for.body15.us98.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
   %i11.097.unr15.sink = phi i64 [ %i11.097.unr15, %for.body15.epil ], [ %i11.097.us99.unr12, %for.body15.us98.epil ], [ %i11.097.us.unr9, %for.body15.us.epil ]
-  %cond.i.i90.epil.sink = phi i32 [ %cond.i.i90.epil, %for.body15.epil ], [ %cond.i.i90.us105.epil, %for.body15.us98.epil ], [ %cond.i.i90.us.epil, %for.body15.us.epil ]
+  %.sink19 = load i32, ptr %.sink19.in, align 4, !tbaa !65
+  %arrayidx21.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.epil.sink
+  %61 = load i32, ptr %arrayidx21.epil, align 4, !tbaa !65
+  %62 = icmp ult i32 %61, 32
+  %shr.i.i89.epil = ashr i32 %.sink19, %61
+  %cond.i.i90.epil = select i1 %62, i32 %shr.i.i89.epil, i32 0
   %arrayidx24.epil = getelementptr inbounds i32, ptr %result_data, i64 %i11.097.unr15.sink
-  store i32 %cond.i.i90.epil.sink, ptr %arrayidx24.epil, align 4, !tbaa !65
+  store i32 %cond.i.i90.epil, ptr %arrayidx24.epil, align 4, !tbaa !65
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end, %for.body15.us.us, %if.end28.sink.split, %if.end28.loopexit129.unr-lcssa, %if.end28.loopexit128.unr-lcssa, %if.end28.loopexit127.unr-lcssa, %middle.block, %for.cond12.preheader, %for.cond.preheader
@@ -93440,12 +93429,6 @@ if.end28.loopexit.unr-lcssa:                      ; preds = %for.body15.us.us
 for.body15.us.us.epil:                            ; preds = %for.body15.us.us.preheader, %if.end28.loopexit.unr-lcssa
   %i11.097.us.us.unr9 = phi i64 [ %unroll_iter139, %if.end28.loopexit.unr-lcssa ], [ 0, %for.body15.us.us.preheader ]
   %arrayidx18.us.us.epil = getelementptr inbounds i64, ptr %ldata, i64 %i11.097.us.us.unr9
-  %52 = load i64, ptr %arrayidx18.us.us.epil, align 8, !tbaa !62
-  %arrayidx21.us.us.epil = getelementptr inbounds i64, ptr %rdata, i64 %i11.097.us.us.unr9
-  %53 = load i64, ptr %arrayidx21.us.us.epil, align 8, !tbaa !62
-  %54 = icmp ult i64 %53, 64
-  %shr.i.i89.us.us.epil = ashr i64 %52, %53
-  %cond.i.i90.us.us.epil = select i1 %54, i64 %shr.i.i89.us.us.epil, i64 0
   br label %if.end28.sink.split
 
 if.end28.loopexit125.unr-lcssa:                   ; preds = %for.body15.us
@@ -93455,15 +93438,9 @@ if.end28.loopexit125.unr-lcssa:                   ; preds = %for.body15.us
 for.body15.us.epil:                               ; preds = %for.body15.us.preheader, %if.end28.loopexit125.unr-lcssa
   %i11.097.us.unr12 = phi i64 [ %unroll_iter135, %if.end28.loopexit125.unr-lcssa ], [ 0, %for.body15.us.preheader ]
   %arrayidx18.us.epil = getelementptr inbounds i64, ptr %ldata, i64 %i11.097.us.unr12
-  %55 = load i64, ptr %arrayidx18.us.epil, align 8, !tbaa !62
   %arrayidx.i85.us.epil = getelementptr inbounds i32, ptr %5, i64 %i11.097.us.unr12
-  %56 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
-  %conv.i86.us.epil = zext i32 %56 to i64
-  %arrayidx21.us.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.us.epil
-  %57 = load i64, ptr %arrayidx21.us.epil, align 8, !tbaa !62
-  %58 = icmp ult i64 %57, 64
-  %shr.i.i89.us.epil = ashr i64 %55, %57
-  %cond.i.i90.us.epil = select i1 %58, i64 %shr.i.i89.us.epil, i64 0
+  %52 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
+  %conv.i86.us.epil = zext i32 %52 to i64
   br label %if.end28.sink.split
 
 if.end28.loopexit126.unr-lcssa:                   ; preds = %for.body15.us98
@@ -93473,15 +93450,9 @@ if.end28.loopexit126.unr-lcssa:                   ; preds = %for.body15.us98
 for.body15.us98.epil:                             ; preds = %for.body15.us98.preheader, %if.end28.loopexit126.unr-lcssa
   %i11.097.us99.unr15 = phi i64 [ %unroll_iter131, %if.end28.loopexit126.unr-lcssa ], [ 0, %for.body15.us98.preheader ]
   %arrayidx.i79.us.epil = getelementptr inbounds i32, ptr %4, i64 %i11.097.us99.unr15
-  %59 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
-  %conv.i80.us.epil = zext i32 %59 to i64
+  %53 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
+  %conv.i80.us.epil = zext i32 %53 to i64
   %arrayidx18.us100.epil = getelementptr inbounds i64, ptr %ldata, i64 %conv.i80.us.epil
-  %60 = load i64, ptr %arrayidx18.us100.epil, align 8, !tbaa !62
-  %arrayidx21.us103.epil = getelementptr inbounds i64, ptr %rdata, i64 %i11.097.us99.unr15
-  %61 = load i64, ptr %arrayidx21.us103.epil, align 8, !tbaa !62
-  %62 = icmp ult i64 %61, 64
-  %shr.i.i89.us104.epil = ashr i64 %60, %61
-  %cond.i.i90.us105.epil = select i1 %62, i64 %shr.i.i89.us104.epil, i64 0
   br label %if.end28.sink.split
 
 if.end28.loopexit127.unr-lcssa:                   ; preds = %for.body15
@@ -93491,25 +93462,26 @@ if.end28.loopexit127.unr-lcssa:                   ; preds = %for.body15
 for.body15.epil:                                  ; preds = %for.body15.preheader, %if.end28.loopexit127.unr-lcssa
   %i11.097.unr18 = phi i64 [ %unroll_iter, %if.end28.loopexit127.unr-lcssa ], [ 0, %for.body15.preheader ]
   %arrayidx.i79.epil = getelementptr inbounds i32, ptr %4, i64 %i11.097.unr18
-  %63 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
-  %conv.i80.epil = zext i32 %63 to i64
+  %54 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
+  %conv.i80.epil = zext i32 %54 to i64
   %arrayidx18.epil = getelementptr inbounds i64, ptr %ldata, i64 %conv.i80.epil
-  %64 = load i64, ptr %arrayidx18.epil, align 8, !tbaa !62
   %arrayidx.i85.epil = getelementptr inbounds i32, ptr %5, i64 %i11.097.unr18
-  %65 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
-  %conv.i86.epil = zext i32 %65 to i64
-  %arrayidx21.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.epil
-  %66 = load i64, ptr %arrayidx21.epil, align 8, !tbaa !62
-  %67 = icmp ult i64 %66, 64
-  %shr.i.i89.epil = ashr i64 %64, %66
-  %cond.i.i90.epil = select i1 %67, i64 %shr.i.i89.epil, i64 0
+  %55 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
+  %conv.i86.epil = zext i32 %55 to i64
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.us.epil, %for.body15.us.epil, %for.body15.us98.epil, %for.body15.epil
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.097.us99.unr15, %for.body15.us98.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.097.us.us.unr9, %for.body15.us.us.epil ]
+  %.sink19.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us100.epil, %for.body15.us98.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us.us.epil, %for.body15.us.us.epil ]
   %i11.097.unr18.sink = phi i64 [ %i11.097.unr18, %for.body15.epil ], [ %i11.097.us99.unr15, %for.body15.us98.epil ], [ %i11.097.us.unr12, %for.body15.us.epil ], [ %i11.097.us.us.unr9, %for.body15.us.us.epil ]
-  %cond.i.i90.epil.sink = phi i64 [ %cond.i.i90.epil, %for.body15.epil ], [ %cond.i.i90.us105.epil, %for.body15.us98.epil ], [ %cond.i.i90.us.epil, %for.body15.us.epil ], [ %cond.i.i90.us.us.epil, %for.body15.us.us.epil ]
+  %.sink19 = load i64, ptr %.sink19.in, align 8, !tbaa !62
+  %arrayidx21.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.epil.sink
+  %56 = load i64, ptr %arrayidx21.epil, align 8, !tbaa !62
+  %57 = icmp ult i64 %56, 64
+  %shr.i.i89.epil = ashr i64 %.sink19, %56
+  %cond.i.i90.epil = select i1 %57, i64 %shr.i.i89.epil, i64 0
   %arrayidx24.epil = getelementptr inbounds i64, ptr %result_data, i64 %i11.097.unr18.sink
-  store i64 %cond.i.i90.epil.sink, ptr %arrayidx24.epil, align 8, !tbaa !62
+  store i64 %cond.i.i90.epil, ptr %arrayidx24.epil, align 8, !tbaa !62
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end, %if.end28.sink.split, %if.end28.loopexit127.unr-lcssa, %if.end28.loopexit126.unr-lcssa, %if.end28.loopexit125.unr-lcssa, %if.end28.loopexit.unr-lcssa, %for.cond12.preheader, %for.cond.preheader
@@ -95387,12 +95359,12 @@ for.body15.epil:                                  ; preds = %for.body15.preheade
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us101.epil, %for.body15.epil
-  %conv.i86.us.epil.sink = phi i64 [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %conv.i86.epil, %for.body15.epil ]
-  %.sink19.in = phi ptr [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us103.epil, %for.body15.us101.epil ], [ %arrayidx18.epil, %for.body15.epil ]
-  %i11.0100.unr15.sink = phi i64 [ %i11.0100.us.unr9, %for.body15.us.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %i11.0100.unr15, %for.body15.epil ]
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink19.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us103.epil, %for.body15.us101.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
+  %i11.0100.unr15.sink = phi i64 [ %i11.0100.unr15, %for.body15.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %i11.0100.us.unr9, %for.body15.us.epil ]
   %.sink19 = load i8, ptr %.sink19.in, align 1, !tbaa !24
-  %arrayidx21.us.epil = getelementptr inbounds i8, ptr %rdata, i64 %conv.i86.us.epil.sink
-  %74 = load i8, ptr %arrayidx21.us.epil, align 1, !tbaa !24
+  %arrayidx21.epil = getelementptr inbounds i8, ptr %rdata, i64 %conv.i86.epil.sink
+  %74 = load i8, ptr %arrayidx21.epil, align 1, !tbaa !24
   %cmp2.i.i.i89.epil = icmp ult i8 %74, 8
   %conv.i.i90.epil = zext i8 %.sink19 to i32
   %conv1.i.i91.epil = zext nneg i8 %74 to i32
@@ -97045,12 +97017,12 @@ for.body15.epil:                                  ; preds = %for.body15.preheade
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us101.epil, %for.body15.epil
-  %conv.i86.us.epil.sink = phi i64 [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %conv.i86.epil, %for.body15.epil ]
-  %.sink19.in = phi ptr [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us103.epil, %for.body15.us101.epil ], [ %arrayidx18.epil, %for.body15.epil ]
-  %i11.0100.unr15.sink = phi i64 [ %i11.0100.us.unr9, %for.body15.us.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %i11.0100.unr15, %for.body15.epil ]
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink19.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us103.epil, %for.body15.us101.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
+  %i11.0100.unr15.sink = phi i64 [ %i11.0100.unr15, %for.body15.epil ], [ %i11.0100.us102.unr12, %for.body15.us101.epil ], [ %i11.0100.us.unr9, %for.body15.us.epil ]
   %.sink19 = load i16, ptr %.sink19.in, align 2, !tbaa !559
-  %arrayidx21.us.epil = getelementptr inbounds i16, ptr %rdata, i64 %conv.i86.us.epil.sink
-  %64 = load i16, ptr %arrayidx21.us.epil, align 2, !tbaa !559
+  %arrayidx21.epil = getelementptr inbounds i16, ptr %rdata, i64 %conv.i86.epil.sink
+  %64 = load i16, ptr %arrayidx21.epil, align 2, !tbaa !559
   %cmp2.i.i.i89.epil = icmp ult i16 %64, 16
   %conv.i.i90.epil = zext i16 %.sink19 to i32
   %conv1.i.i91.epil = zext nneg i16 %64 to i32
@@ -98335,7 +98307,7 @@ for.body15.us.preheader.new:                      ; preds = %for.body15.us.prehe
 
 for.body15.us.us.preheader:                       ; preds = %for.body15.lr.ph.split.us
   %min.iters.check = icmp ult i64 %count, 4
-  br i1 %min.iters.check, label %for.body15.us.us.preheader20, label %vector.ph
+  br i1 %min.iters.check, label %for.body15.us.us.preheader22, label %vector.ph
 
 vector.ph:                                        ; preds = %for.body15.us.us.preheader
   %n.vec = and i64 %count, -4
@@ -98358,14 +98330,14 @@ vector.body:                                      ; preds = %vector.body, %vecto
 
 middle.block:                                     ; preds = %vector.body
   %cmp.n = icmp eq i64 %n.vec, %count
-  br i1 %cmp.n, label %if.end28, label %for.body15.us.us.preheader20
+  br i1 %cmp.n, label %if.end28, label %for.body15.us.us.preheader22
 
-for.body15.us.us.preheader20:                     ; preds = %middle.block, %for.body15.us.us.preheader
+for.body15.us.us.preheader22:                     ; preds = %middle.block, %for.body15.us.us.preheader
   %i11.098.us.us.ph = phi i64 [ %n.vec, %middle.block ], [ 0, %for.body15.us.us.preheader ]
   br label %for.body15.us.us
 
-for.body15.us.us:                                 ; preds = %for.body15.us.us.preheader20, %for.body15.us.us
-  %i11.098.us.us = phi i64 [ %inc26.us.us, %for.body15.us.us ], [ %i11.098.us.us.ph, %for.body15.us.us.preheader20 ]
+for.body15.us.us:                                 ; preds = %for.body15.us.us.preheader22, %for.body15.us.us
+  %i11.098.us.us = phi i64 [ %inc26.us.us, %for.body15.us.us ], [ %i11.098.us.us.ph, %for.body15.us.us.preheader22 ]
   %arrayidx18.us.us = getelementptr inbounds i32, ptr %ldata, i64 %i11.098.us.us
   %14 = load i32, ptr %arrayidx18.us.us, align 4, !tbaa !65
   %arrayidx21.us.us = getelementptr inbounds i32, ptr %rdata, i64 %i11.098.us.us
@@ -98595,15 +98567,9 @@ if.end28.loopexit129.unr-lcssa:                   ; preds = %for.body15.us
 for.body15.us.epil:                               ; preds = %for.body15.us.preheader, %if.end28.loopexit129.unr-lcssa
   %i11.098.us.unr9 = phi i64 [ %unroll_iter139, %if.end28.loopexit129.unr-lcssa ], [ 0, %for.body15.us.preheader ]
   %arrayidx18.us.epil = getelementptr inbounds i32, ptr %ldata, i64 %i11.098.us.unr9
-  %49 = load i32, ptr %arrayidx18.us.epil, align 4, !tbaa !65
   %arrayidx.i85.us.epil = getelementptr inbounds i32, ptr %5, i64 %i11.098.us.unr9
-  %50 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
-  %conv.i86.us.epil = zext i32 %50 to i64
-  %arrayidx21.us.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.us.epil
-  %51 = load i32, ptr %arrayidx21.us.epil, align 4, !tbaa !65
-  %cmp1.i.i.i89.us.epil = icmp ult i32 %51, 32
-  %shr.i.i90.us.epil = lshr i32 %49, %51
-  %cond.i.i91.us.epil = select i1 %cmp1.i.i.i89.us.epil, i32 %shr.i.i90.us.epil, i32 0
+  %49 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
+  %conv.i86.us.epil = zext i32 %49 to i64
   br label %if.end28.sink.split
 
 if.end28.loopexit130.unr-lcssa:                   ; preds = %for.body15.us99
@@ -98613,15 +98579,9 @@ if.end28.loopexit130.unr-lcssa:                   ; preds = %for.body15.us99
 for.body15.us99.epil:                             ; preds = %for.body15.us99.preheader, %if.end28.loopexit130.unr-lcssa
   %i11.098.us100.unr12 = phi i64 [ %unroll_iter135, %if.end28.loopexit130.unr-lcssa ], [ 0, %for.body15.us99.preheader ]
   %arrayidx.i79.us.epil = getelementptr inbounds i32, ptr %4, i64 %i11.098.us100.unr12
-  %52 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
-  %conv.i80.us.epil = zext i32 %52 to i64
+  %50 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
+  %conv.i80.us.epil = zext i32 %50 to i64
   %arrayidx18.us101.epil = getelementptr inbounds i32, ptr %ldata, i64 %conv.i80.us.epil
-  %53 = load i32, ptr %arrayidx18.us101.epil, align 4, !tbaa !65
-  %arrayidx21.us104.epil = getelementptr inbounds i32, ptr %rdata, i64 %i11.098.us100.unr12
-  %54 = load i32, ptr %arrayidx21.us104.epil, align 4, !tbaa !65
-  %cmp1.i.i.i89.us105.epil = icmp ult i32 %54, 32
-  %shr.i.i90.us106.epil = lshr i32 %53, %54
-  %cond.i.i91.us107.epil = select i1 %cmp1.i.i.i89.us105.epil, i32 %shr.i.i90.us106.epil, i32 0
   br label %if.end28.sink.split
 
 if.end28.loopexit131.unr-lcssa:                   ; preds = %for.body15
@@ -98631,25 +98591,26 @@ if.end28.loopexit131.unr-lcssa:                   ; preds = %for.body15
 for.body15.epil:                                  ; preds = %for.body15.preheader, %if.end28.loopexit131.unr-lcssa
   %i11.098.unr15 = phi i64 [ %unroll_iter, %if.end28.loopexit131.unr-lcssa ], [ 0, %for.body15.preheader ]
   %arrayidx.i79.epil = getelementptr inbounds i32, ptr %4, i64 %i11.098.unr15
-  %55 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
-  %conv.i80.epil = zext i32 %55 to i64
+  %51 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
+  %conv.i80.epil = zext i32 %51 to i64
   %arrayidx18.epil = getelementptr inbounds i32, ptr %ldata, i64 %conv.i80.epil
-  %56 = load i32, ptr %arrayidx18.epil, align 4, !tbaa !65
   %arrayidx.i85.epil = getelementptr inbounds i32, ptr %5, i64 %i11.098.unr15
-  %57 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
-  %conv.i86.epil = zext i32 %57 to i64
-  %arrayidx21.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.epil
-  %58 = load i32, ptr %arrayidx21.epil, align 4, !tbaa !65
-  %cmp1.i.i.i89.epil = icmp ult i32 %58, 32
-  %shr.i.i90.epil = lshr i32 %56, %58
-  %cond.i.i91.epil = select i1 %cmp1.i.i.i89.epil, i32 %shr.i.i90.epil, i32 0
+  %52 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
+  %conv.i86.epil = zext i32 %52 to i64
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.epil, %for.body15.us99.epil, %for.body15.epil
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.098.us100.unr12, %for.body15.us99.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ]
+  %.sink.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us101.epil, %for.body15.us99.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ]
   %i11.098.unr15.sink = phi i64 [ %i11.098.unr15, %for.body15.epil ], [ %i11.098.us100.unr12, %for.body15.us99.epil ], [ %i11.098.us.unr9, %for.body15.us.epil ]
-  %cond.i.i91.epil.sink = phi i32 [ %cond.i.i91.epil, %for.body15.epil ], [ %cond.i.i91.us107.epil, %for.body15.us99.epil ], [ %cond.i.i91.us.epil, %for.body15.us.epil ]
+  %.sink = load i32, ptr %.sink.in, align 4, !tbaa !65
+  %arrayidx21.epil = getelementptr inbounds i32, ptr %rdata, i64 %conv.i86.epil.sink
+  %53 = load i32, ptr %arrayidx21.epil, align 4, !tbaa !65
+  %cmp1.i.i.i89.epil = icmp ult i32 %53, 32
+  %shr.i.i90.epil = lshr i32 %.sink, %53
+  %cond.i.i91.epil = select i1 %cmp1.i.i.i89.epil, i32 %shr.i.i90.epil, i32 0
   %arrayidx24.epil = getelementptr inbounds i32, ptr %result_data, i64 %i11.098.unr15.sink
-  store i32 %cond.i.i91.epil.sink, ptr %arrayidx24.epil, align 4, !tbaa !65
+  store i32 %cond.i.i91.epil, ptr %arrayidx24.epil, align 4, !tbaa !65
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end, %for.body15.us.us, %if.end28.sink.split, %if.end28.loopexit131.unr-lcssa, %if.end28.loopexit130.unr-lcssa, %if.end28.loopexit129.unr-lcssa, %middle.block, %for.cond12.preheader, %for.cond.preheader
@@ -100172,12 +100133,6 @@ if.end28.loopexit.unr-lcssa:                      ; preds = %for.body15.us.us
 for.body15.us.us.epil:                            ; preds = %for.body15.us.us.preheader, %if.end28.loopexit.unr-lcssa
   %i11.098.us.us.unr9 = phi i64 [ %unroll_iter141, %if.end28.loopexit.unr-lcssa ], [ 0, %for.body15.us.us.preheader ]
   %arrayidx18.us.us.epil = getelementptr inbounds i64, ptr %ldata, i64 %i11.098.us.us.unr9
-  %43 = load i64, ptr %arrayidx18.us.us.epil, align 8, !tbaa !62
-  %arrayidx21.us.us.epil = getelementptr inbounds i64, ptr %rdata, i64 %i11.098.us.us.unr9
-  %44 = load i64, ptr %arrayidx21.us.us.epil, align 8, !tbaa !62
-  %cmp1.i.i.i89.us.us.epil = icmp ult i64 %44, 64
-  %shr.i.i90.us.us.epil = lshr i64 %43, %44
-  %cond.i.i91.us.us.epil = select i1 %cmp1.i.i.i89.us.us.epil, i64 %shr.i.i90.us.us.epil, i64 0
   br label %if.end28.sink.split
 
 if.end28.loopexit127.unr-lcssa:                   ; preds = %for.body15.us
@@ -100187,15 +100142,9 @@ if.end28.loopexit127.unr-lcssa:                   ; preds = %for.body15.us
 for.body15.us.epil:                               ; preds = %for.body15.us.preheader, %if.end28.loopexit127.unr-lcssa
   %i11.098.us.unr12 = phi i64 [ %unroll_iter137, %if.end28.loopexit127.unr-lcssa ], [ 0, %for.body15.us.preheader ]
   %arrayidx18.us.epil = getelementptr inbounds i64, ptr %ldata, i64 %i11.098.us.unr12
-  %45 = load i64, ptr %arrayidx18.us.epil, align 8, !tbaa !62
   %arrayidx.i85.us.epil = getelementptr inbounds i32, ptr %5, i64 %i11.098.us.unr12
-  %46 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
-  %conv.i86.us.epil = zext i32 %46 to i64
-  %arrayidx21.us.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.us.epil
-  %47 = load i64, ptr %arrayidx21.us.epil, align 8, !tbaa !62
-  %cmp1.i.i.i89.us.epil = icmp ult i64 %47, 64
-  %shr.i.i90.us.epil = lshr i64 %45, %47
-  %cond.i.i91.us.epil = select i1 %cmp1.i.i.i89.us.epil, i64 %shr.i.i90.us.epil, i64 0
+  %43 = load i32, ptr %arrayidx.i85.us.epil, align 4, !tbaa !65
+  %conv.i86.us.epil = zext i32 %43 to i64
   br label %if.end28.sink.split
 
 if.end28.loopexit128.unr-lcssa:                   ; preds = %for.body15.us99
@@ -100205,15 +100154,9 @@ if.end28.loopexit128.unr-lcssa:                   ; preds = %for.body15.us99
 for.body15.us99.epil:                             ; preds = %for.body15.us99.preheader, %if.end28.loopexit128.unr-lcssa
   %i11.098.us100.unr15 = phi i64 [ %unroll_iter133, %if.end28.loopexit128.unr-lcssa ], [ 0, %for.body15.us99.preheader ]
   %arrayidx.i79.us.epil = getelementptr inbounds i32, ptr %4, i64 %i11.098.us100.unr15
-  %48 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
-  %conv.i80.us.epil = zext i32 %48 to i64
+  %44 = load i32, ptr %arrayidx.i79.us.epil, align 4, !tbaa !65
+  %conv.i80.us.epil = zext i32 %44 to i64
   %arrayidx18.us101.epil = getelementptr inbounds i64, ptr %ldata, i64 %conv.i80.us.epil
-  %49 = load i64, ptr %arrayidx18.us101.epil, align 8, !tbaa !62
-  %arrayidx21.us104.epil = getelementptr inbounds i64, ptr %rdata, i64 %i11.098.us100.unr15
-  %50 = load i64, ptr %arrayidx21.us104.epil, align 8, !tbaa !62
-  %cmp1.i.i.i89.us105.epil = icmp ult i64 %50, 64
-  %shr.i.i90.us106.epil = lshr i64 %49, %50
-  %cond.i.i91.us107.epil = select i1 %cmp1.i.i.i89.us105.epil, i64 %shr.i.i90.us106.epil, i64 0
   br label %if.end28.sink.split
 
 if.end28.loopexit129.unr-lcssa:                   ; preds = %for.body15
@@ -100223,25 +100166,26 @@ if.end28.loopexit129.unr-lcssa:                   ; preds = %for.body15
 for.body15.epil:                                  ; preds = %for.body15.preheader, %if.end28.loopexit129.unr-lcssa
   %i11.098.unr18 = phi i64 [ %unroll_iter, %if.end28.loopexit129.unr-lcssa ], [ 0, %for.body15.preheader ]
   %arrayidx.i79.epil = getelementptr inbounds i32, ptr %4, i64 %i11.098.unr18
-  %51 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
-  %conv.i80.epil = zext i32 %51 to i64
+  %45 = load i32, ptr %arrayidx.i79.epil, align 4, !tbaa !65
+  %conv.i80.epil = zext i32 %45 to i64
   %arrayidx18.epil = getelementptr inbounds i64, ptr %ldata, i64 %conv.i80.epil
-  %52 = load i64, ptr %arrayidx18.epil, align 8, !tbaa !62
   %arrayidx.i85.epil = getelementptr inbounds i32, ptr %5, i64 %i11.098.unr18
-  %53 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
-  %conv.i86.epil = zext i32 %53 to i64
-  %arrayidx21.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.epil
-  %54 = load i64, ptr %arrayidx21.epil, align 8, !tbaa !62
-  %cmp1.i.i.i89.epil = icmp ult i64 %54, 64
-  %shr.i.i90.epil = lshr i64 %52, %54
-  %cond.i.i91.epil = select i1 %cmp1.i.i.i89.epil, i64 %shr.i.i90.epil, i64 0
+  %46 = load i32, ptr %arrayidx.i85.epil, align 4, !tbaa !65
+  %conv.i86.epil = zext i32 %46 to i64
   br label %if.end28.sink.split
 
 if.end28.sink.split:                              ; preds = %for.body15.us.us.epil, %for.body15.us.epil, %for.body15.us99.epil, %for.body15.epil
+  %conv.i86.epil.sink = phi i64 [ %conv.i86.epil, %for.body15.epil ], [ %i11.098.us100.unr15, %for.body15.us99.epil ], [ %conv.i86.us.epil, %for.body15.us.epil ], [ %i11.098.us.us.unr9, %for.body15.us.us.epil ]
+  %.sink.in = phi ptr [ %arrayidx18.epil, %for.body15.epil ], [ %arrayidx18.us101.epil, %for.body15.us99.epil ], [ %arrayidx18.us.epil, %for.body15.us.epil ], [ %arrayidx18.us.us.epil, %for.body15.us.us.epil ]
   %i11.098.unr18.sink = phi i64 [ %i11.098.unr18, %for.body15.epil ], [ %i11.098.us100.unr15, %for.body15.us99.epil ], [ %i11.098.us.unr12, %for.body15.us.epil ], [ %i11.098.us.us.unr9, %for.body15.us.us.epil ]
-  %cond.i.i91.epil.sink = phi i64 [ %cond.i.i91.epil, %for.body15.epil ], [ %cond.i.i91.us107.epil, %for.body15.us99.epil ], [ %cond.i.i91.us.epil, %for.body15.us.epil ], [ %cond.i.i91.us.us.epil, %for.body15.us.us.epil ]
+  %.sink = load i64, ptr %.sink.in, align 8, !tbaa !62
+  %arrayidx21.epil = getelementptr inbounds i64, ptr %rdata, i64 %conv.i86.epil.sink
+  %47 = load i64, ptr %arrayidx21.epil, align 8, !tbaa !62
+  %cmp1.i.i.i89.epil = icmp ult i64 %47, 64
+  %shr.i.i90.epil = lshr i64 %.sink, %47
+  %cond.i.i91.epil = select i1 %cmp1.i.i.i89.epil, i64 %shr.i.i90.epil, i64 0
   %arrayidx24.epil = getelementptr inbounds i64, ptr %result_data, i64 %i11.098.unr18.sink
-  store i64 %cond.i.i91.epil.sink, ptr %arrayidx24.epil, align 8, !tbaa !62
+  store i64 %cond.i.i91.epil, ptr %arrayidx24.epil, align 8, !tbaa !62
   br label %if.end28
 
 if.end28:                                         ; preds = %if.end, %if.end28.sink.split, %if.end28.loopexit129.unr-lcssa, %if.end28.loopexit128.unr-lcssa, %if.end28.loopexit127.unr-lcssa, %if.end28.loopexit.unr-lcssa, %for.cond12.preheader, %for.cond.preheader

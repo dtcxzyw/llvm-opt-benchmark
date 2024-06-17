@@ -6102,29 +6102,29 @@ thread-pre-split:                                 ; preds = %90, %95, %100, %91
 
 .sink.split:                                      ; preds = %114, %117
   %.sink = phi i32 [ %121, %117 ], [ %112, %114 ]
-  %.sink301 = phi ptr [ %119, %117 ], [ %109, %114 ]
+  %.sink298 = phi ptr [ %119, %117 ], [ %109, %114 ]
   %123 = and i32 %.sink, 65280
   %124 = icmp ne i32 %123, 0
   call void @llvm.assume(i1 %124)
-  %125 = load ptr, ptr %.sink301, align 8
+  %125 = load ptr, ptr %.sink298, align 8
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 4
   br label %128
 
 128:                                              ; preds = %.sink.split, %110, %117
-  %.0204 = phi ptr [ %119, %117 ], [ %109, %110 ], [ %.sink301, %.sink.split ]
+  %.0204 = phi ptr [ %119, %117 ], [ %109, %110 ], [ %.sink298, %.sink.split ]
   %129 = getelementptr inbounds i8, ptr %.0204, i64 8
   %130 = load i32, ptr %129, align 8
   br label %131
 
 131:                                              ; preds = %107, %128
-  %.sink300.in = phi ptr [ %.0204, %128 ], [ @zend_empty_string, %107 ]
-  %.sink298 = phi i32 [ %130, %128 ], [ 6, %107 ]
-  %.sink300 = load ptr, ptr %.sink300.in, align 8
-  store ptr %.sink300, ptr %1, align 8
+  %.sink302.in = phi ptr [ %.0204, %128 ], [ @zend_empty_string, %107 ]
+  %.sink300 = phi i32 [ %130, %128 ], [ 6, %107 ]
+  %.sink302 = load ptr, ptr %.sink302.in, align 8
+  store ptr %.sink302, ptr %1, align 8
   %132 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %.sink298, ptr %132, align 8
+  store i32 %.sink300, ptr %132, align 8
   call void @zval_ptr_dtor(ptr noundef nonnull %4) #28
   br label %133
 

@@ -6662,11 +6662,11 @@ if.then58.i.i:                                    ; preds = %do.body42.i.i
   br label %if.end63.sink.split.i.i
 
 if.end63.sink.split.i.i:                          ; preds = %if.then58.i.i, %if.then53.i.i, %do.body42.i.i
-  %.sink9.i.i = phi i64 [ 80, %if.then58.i.i ], [ 72, %if.then53.i.i ], [ 64, %do.body42.i.i ]
-  %num_ready_50.i.i = getelementptr inbounds i8, ptr %this.val3.i, i64 %.sink9.i.i
-  %27 = load i64, ptr %num_ready_50.i.i, align 8
+  %.sink9.i.i = phi i64 [ 72, %if.then53.i.i ], [ 80, %if.then58.i.i ], [ 64, %do.body42.i.i ]
+  %num_connecting_54.i.i = getelementptr inbounds i8, ptr %this.val3.i, i64 %.sink9.i.i
+  %27 = load i64, ptr %num_connecting_54.i.i, align 8
   %inc55.i.i = add i64 %27, 1
-  store i64 %inc55.i.i, ptr %num_ready_50.i.i, align 8
+  store i64 %inc55.i.i, ptr %num_connecting_54.i.i, align 8
   br label %_ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelList25UpdateStateCountersLockedESt8optionalI23grpc_connectivity_stateES4_.exit.i
 
 _ZN9grpc_core12_GLOBAL__N_121OldWeightedRoundRobin32WeightedRoundRobinSubchannelList25UpdateStateCountersLockedESt8optionalI23grpc_connectivity_stateES4_.exit.i: ; preds = %if.end63.sink.split.i.i, %do.body42.i.i
@@ -14905,10 +14905,10 @@ if.else60.i:                                      ; preds = %if.else53.i
 
 if.end67.sink.split.i:                            ; preds = %if.else60.i, %if.else53.i, %do.body44.i
   %.sink11.i = phi i64 [ 56, %do.body44.i ], [ 64, %if.else53.i ], [ 72, %if.else60.i ]
-  %num_ready_52.i = getelementptr inbounds i8, ptr %this.val11, i64 %.sink11.i
-  %13 = load i64, ptr %num_ready_52.i, align 8
+  %num_connecting_58.i = getelementptr inbounds i8, ptr %this.val11, i64 %.sink11.i
+  %13 = load i64, ptr %num_connecting_58.i, align 8
   %inc59.i = add i64 %13, 1
-  store i64 %inc59.i, ptr %num_ready_52.i, align 8
+  store i64 %inc59.i, ptr %num_connecting_58.i, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %land.rhs, %if.end25, %if.end67.sink.split.i, %if.else60.i

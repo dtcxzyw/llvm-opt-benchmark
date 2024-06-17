@@ -1793,10 +1793,10 @@ if.end:                                           ; preds = %riscv_aplic_idc_top
 
 if.end16.sink.split:                              ; preds = %if.end
   %17 = load ptr, ptr %state.i, align 8
-  %arrayidx.i25 = getelementptr i32, ptr %17, i64 %idxprom1
-  %18 = load i32, ptr %arrayidx.i25, align 4
+  %arrayidx.i29 = getelementptr i32, ptr %17, i64 %idxprom1
+  %18 = load i32, ptr %arrayidx.i29, align 4
   %and.sink.i31 = or i32 %18, 1
-  store i32 %and.sink.i31, ptr %arrayidx.i25, align 4
+  store i32 %and.sink.i31, ptr %arrayidx.i29, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end, %if.end16.sink.split

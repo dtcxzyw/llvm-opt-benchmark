@@ -400,7 +400,7 @@ _ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit.lr.ph: ; preds = %while.cond.pre
   br label %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit
 
 _ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit:  ; preds = %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit.lr.ph, %sw.epilog
-  %1 = phi ptr [ %0, %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit.lr.ph ], [ %21, %sw.epilog ]
+  %1 = phi ptr [ %0, %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit.lr.ph ], [ %20, %sw.epilog ]
   %arrayidx.i = getelementptr inbounds i8, ptr %1, i64 -4
   %2 = load i32, ptr %arrayidx.i, align 4
   %cmp3.i = icmp eq i32 %2, 0
@@ -490,31 +490,19 @@ while.body23:                                     ; preds = %while.cond20
 if.else.i:                                        ; preds = %while.body23
   %15 = load i32, ptr %m_num_patterns.i.i15, align 8
   %cmp3.not.i = icmp ult i32 %15, %14
-  br i1 %cmp3.not.i, label %if.else6.i, label %if.then4.i
-
-if.then4.i:                                       ; preds = %if.else.i
-  %sub.i = add i32 %14, -1
-  %16 = load i32, ptr %m_num_decls.i.i.i.i, align 4
-  %idx.ext.i.i.i.i = zext i32 %16 to i64
+  %16 = xor i32 %15, -1
+  %.sink = select i1 %cmp3.not.i, i32 %16, i32 -1
+  %sub.i = add i32 %14, %.sink
+  %17 = load i32, ptr %m_num_decls.i.i.i.i, align 4
+  %idx.ext.i.i.i.i = zext i32 %17 to i64
   %add.ptr.i.i.i.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i.i
   %add.ptr.i.i.i = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i.i, i64 %idx.ext.i.i.i.i
   %idxprom.i.i = zext i32 %sub.i to i64
   %arrayidx.i.i16 = getelementptr inbounds ptr, ptr %add.ptr.i.i.i, i64 %idxprom.i.i
   br label %_ZNK10quantifier9get_childEj.exit
 
-if.else6.i:                                       ; preds = %if.else.i
-  %17 = xor i32 %15, -1
-  %sub9.i = add i32 %14, %17
-  %18 = load i32, ptr %m_num_decls.i.i.i.i, align 4
-  %idx.ext.i.i.i7.i = zext i32 %18 to i64
-  %add.ptr.i.i.i8.i = getelementptr inbounds ptr, ptr %m_patterns_decls.i.i.i.i.i, i64 %idx.ext.i.i.i7.i
-  %add.ptr.i.i9.i = getelementptr inbounds %class.symbol, ptr %add.ptr.i.i.i8.i, i64 %idx.ext.i.i.i7.i
-  %idxprom.i10.i = zext i32 %sub9.i to i64
-  %arrayidx.i11.i = getelementptr inbounds ptr, ptr %add.ptr.i.i9.i, i64 %idxprom.i10.i
-  br label %_ZNK10quantifier9get_childEj.exit
-
-_ZNK10quantifier9get_childEj.exit:                ; preds = %while.body23, %if.then4.i, %if.else6.i
-  %retval.0.in.i = phi ptr [ %arrayidx.i.i16, %if.then4.i ], [ %arrayidx.i11.i, %if.else6.i ], [ %m_expr.i.i, %while.body23 ]
+_ZNK10quantifier9get_childEj.exit:                ; preds = %if.else.i, %while.body23
+  %retval.0.in.i = phi ptr [ %m_expr.i.i, %while.body23 ], [ %arrayidx.i.i16, %if.else.i ]
   %retval.0.i = load ptr, ptr %retval.0.in.i, align 8
   %inc28 = add nuw i32 %14, 1
   store i32 %inc28, ptr %second21, align 8
@@ -527,13 +515,13 @@ sw.default:                                       ; preds = %_ZN6vectorISt4pairI
   unreachable
 
 sw.epilog:                                        ; preds = %while.cond20, %while.cond8
-  %19 = load ptr, ptr %m_stack, align 8
-  %arrayidx.i17 = getelementptr inbounds i8, ptr %19, i64 -4
-  %20 = load i32, ptr %arrayidx.i17, align 4
-  %dec.i = add i32 %20, -1
+  %18 = load ptr, ptr %m_stack, align 8
+  %arrayidx.i17 = getelementptr inbounds i8, ptr %18, i64 -4
+  %19 = load i32, ptr %arrayidx.i17, align 4
+  %dec.i = add i32 %19, -1
   store i32 %dec.i, ptr %arrayidx.i17, align 4
-  %21 = load ptr, ptr %m_stack, align 8
-  %cmp.i = icmp eq ptr %21, null
+  %20 = load ptr, ptr %m_stack, align 8
+  %cmp.i = icmp eq ptr %20, null
   br i1 %cmp.i, label %while.end34, label %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit, !llvm.loop !8
 
 while.end34:                                      ; preds = %_ZNK6vectorISt4pairIP4exprjELb0EjE5emptyEv.exit, %sw.epilog, %while.cond.preheader, %entry

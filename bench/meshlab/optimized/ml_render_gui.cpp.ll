@@ -5065,9 +5065,9 @@ _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN9QtPrivate8RefCo
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN31MLRenderingSolidParametersFrame16setTextureActionEN3vcg20GLMeshAttributesInfo9ATT_NAMESE(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  switch i32 %1, label %22 [
+  switch i32 %1, label %17 [
     i32 6, label %3
-    i32 5, label %13
+    i32 5, label %9
   ]
 
 3:                                                ; preds = %2
@@ -5075,52 +5075,41 @@ define void @_ZN31MLRenderingSolidParametersFrame16setTextureActionEN3vcg20GLMes
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = load i32, ptr %5, align 8
   invoke void @_ZN34MLRenderingPerWedgeTextCoordActionC1EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %4, i32 noundef %6, ptr noundef nonnull %0)
-          to label %7 unwind label %11
+          to label %.sink.split unwind label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 112
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 56
-  store ptr %4, ptr %10, align 8
-  br label %.sink.split
+  %8 = landingpad { ptr, i32 }
+          cleanup
+  br label %18
 
-11:                                               ; preds = %3
+9:                                                ; preds = %2
+  %10 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
+  invoke void @_ZN33MLRenderingPerVertTextCoordActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef 3, ptr noundef nonnull %0)
+          to label %.sink.split unwind label %11
+
+11:                                               ; preds = %9
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %23
+  br label %18
 
-13:                                               ; preds = %2
-  %14 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
-  invoke void @_ZN33MLRenderingPerVertTextCoordActionC1EN3vcg20GLMeshAttributesInfo18PRIMITIVE_MODALITYEP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %14, i32 noundef 3, ptr noundef nonnull %0)
-          to label %15 unwind label %19
+.sink.split:                                      ; preds = %9, %3
+  %.sink8 = phi ptr [ %4, %3 ], [ %10, %9 ]
+  %13 = getelementptr inbounds i8, ptr %0, i64 112
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 56
+  store ptr %.sink8, ptr %15, align 8
+  tail call void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %.sink8, i1 noundef zeroext false)
+  %16 = load ptr, ptr %15, align 8
+  tail call void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %16, i1 noundef zeroext true)
+  br label %17
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds i8, ptr %0, i64 112
-  %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds i8, ptr %17, i64 56
-  store ptr %14, ptr %18, align 8
-  br label %.sink.split
-
-19:                                               ; preds = %13
-  %20 = landingpad { ptr, i32 }
-          cleanup
-  br label %23
-
-.sink.split:                                      ; preds = %7, %15
-  %.sink = phi ptr [ %14, %15 ], [ %4, %7 ]
-  %.sink7 = phi ptr [ %18, %15 ], [ %10, %7 ]
-  tail call void @_ZN7QAction10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i1 noundef zeroext false)
-  %21 = load ptr, ptr %.sink7, align 8
-  tail call void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %21, i1 noundef zeroext true)
-  br label %22
-
-22:                                               ; preds = %.sink.split, %2
+17:                                               ; preds = %.sink.split, %2
   ret void
 
-23:                                               ; preds = %19, %11
-  %.sink8 = phi ptr [ %14, %19 ], [ %4, %11 ]
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %12, %11 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink8) #24
+18:                                               ; preds = %11, %7
+  %.sink12 = phi ptr [ %10, %11 ], [ %4, %7 ]
+  %.pn = phi { ptr, i32 } [ %12, %11 ], [ %8, %7 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink12) #24
   resume { ptr, i32 } %.pn
 }
 

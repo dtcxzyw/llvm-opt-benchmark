@@ -7757,8 +7757,8 @@ define linkonce_odr void @_ZN3vcg3tri22TriEdgeCollapseQuadricI6CMeshONS0_15Basic
   br label %33
 
 33:                                               ; preds = %.lr.ph263, %.loopexit255
-  %34 = phi ptr [ %30, %.lr.ph263 ], [ %315, %.loopexit255 ]
-  %.sroa.0217.0261 = phi ptr [ %28, %.lr.ph263 ], [ %316, %.loopexit255 ]
+  %34 = phi ptr [ %30, %.lr.ph263 ], [ %317, %.loopexit255 ]
+  %.sroa.0217.0261 = phi ptr [ %28, %.lr.ph263 ], [ %318, %.loopexit255 ]
   %35 = getelementptr inbounds i8, ptr %.sroa.0217.0261, i64 32
   %36 = load i32, ptr %35, align 8
   %37 = and i32 %36, 3
@@ -7934,8 +7934,8 @@ _ZN3vcg6Plane3IfLb0EE9NormalizeEv.exit:           ; preds = %104, %97, %59
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %141, !llvm.loop !109
 
-172:                                              ; preds = %.preheader, %314
-  %indvars.iv270 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next271.pre-phi, %314 ]
+172:                                              ; preds = %.preheader, %316
+  %indvars.iv270 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next271.pre-phi, %316 ]
   %173 = load i32, ptr %35, align 8
   %174 = trunc nuw nsw i64 %indvars.iv270 to i32
   %175 = shl nuw nsw i32 64, %174
@@ -7950,7 +7950,7 @@ _ZN3vcg6Plane3IfLb0EE9NormalizeEv.exit:           ; preds = %104, %97, %59
 
 ._crit_edge283:                                   ; preds = %177
   %.pre284 = add nuw nsw i64 %indvars.iv270, 1
-  br label %314
+  br label %316
 
 _ZNK3vcg6Point3IfE10normalizedEv.exit:            ; preds = %177, %172
   %180 = add nuw nsw i64 %indvars.iv270, 1
@@ -7989,359 +7989,359 @@ _ZNK3vcg6Point3IfE10normalizedEv.exit:            ; preds = %177, %172
   %209 = tail call float @llvm.fmuladd.f32(float %109, float %.sroa.6.0.i, float %208)
   %..idx = select i1 %.not253, i64 88, i64 0
   %. = getelementptr inbounds i8, ptr %1, i64 %..idx
-  %.sink.in = load double, ptr %., align 8
-  %.sink = fptrunc double %.sink.in to float
-  %210 = fmul float %209, %.sink
-  %211 = fpext float %210 to double
-  %212 = fmul double %211, %211
-  %213 = shufflevector <2 x float> %.sroa.0.0.i, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
-  %214 = insertelement <2 x float> %213, float %.sroa.6.0.i, i64 0
-  %215 = fmul <2 x float> %214, %138
-  %216 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %140, <2 x float> %.sroa.0.0.i, <2 x float> %215)
-  %217 = insertelement <2 x float> poison, float %.sink, i64 0
-  %218 = shufflevector <2 x float> %217, <2 x float> poison, <2 x i32> zeroinitializer
-  %219 = fmul <2 x float> %216, %218
+  %210 = load double, ptr %., align 8
+  %211 = fptrunc double %210 to float
+  %212 = fmul float %209, %211
+  %213 = fpext float %212 to double
+  %214 = fmul double %213, %213
+  %215 = shufflevector <2 x float> %.sroa.0.0.i, <2 x float> poison, <2 x i32> <i32 poison, i32 0>
+  %216 = insertelement <2 x float> %215, float %.sroa.6.0.i, i64 0
+  %217 = fmul <2 x float> %216, %138
+  %218 = tail call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %140, <2 x float> %.sroa.0.0.i, <2 x float> %217)
+  %219 = insertelement <2 x float> poison, float %211, i64 0
+  %220 = shufflevector <2 x float> %219, <2 x float> poison, <2 x i32> zeroinitializer
+  %221 = fmul <2 x float> %218, %220
   %shift = shufflevector <2 x float> %190, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %220 = fmul <2 x float> %shift, %219
-  %221 = extractelement <2 x float> %220, i64 0
-  %222 = extractelement <2 x float> %190, i64 0
-  %223 = tail call float @llvm.fmuladd.f32(float %210, float %222, float %221)
-  %224 = extractelement <2 x float> %219, i64 1
-  %225 = tail call noundef float @llvm.fmuladd.f32(float %224, float %195, float %223)
-  %226 = fpext <2 x float> %219 to <2 x double>
-  %227 = insertelement <2 x double> poison, double %211, i64 0
-  %228 = shufflevector <2 x double> %227, <2 x double> poison, <2 x i32> zeroinitializer
-  %229 = fmul <2 x double> %228, %226
-  %230 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> zeroinitializer
-  %231 = fmul <2 x double> %230, %226
-  %232 = fpext float %225 to double
-  %233 = fmul double %232, -2.000000e+00
-  %234 = shufflevector <2 x double> %226, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %235 = insertelement <2 x double> %234, double %233, i64 1
-  %236 = insertelement <2 x double> %234, double %211, i64 1
-  %237 = fmul <2 x double> %235, %236
-  %238 = insertelement <2 x double> poison, double %233, i64 0
-  %239 = shufflevector <2 x double> %238, <2 x double> poison, <2 x i32> zeroinitializer
-  %240 = fmul <2 x double> %239, %226
-  %241 = fmul double %232, %232
-  %242 = getelementptr inbounds i8, ptr %187, i64 20
-  %243 = load i32, ptr %242, align 4
-  %244 = and i32 %243, 4
-  %245 = icmp eq i32 %244, 0
-  br i1 %245, label %246, label %279
+  %222 = fmul <2 x float> %shift, %221
+  %223 = extractelement <2 x float> %222, i64 0
+  %224 = extractelement <2 x float> %190, i64 0
+  %225 = tail call float @llvm.fmuladd.f32(float %212, float %224, float %223)
+  %226 = extractelement <2 x float> %221, i64 1
+  %227 = tail call noundef float @llvm.fmuladd.f32(float %226, float %195, float %225)
+  %228 = fpext <2 x float> %221 to <2 x double>
+  %229 = insertelement <2 x double> poison, double %213, i64 0
+  %230 = shufflevector <2 x double> %229, <2 x double> poison, <2 x i32> zeroinitializer
+  %231 = fmul <2 x double> %230, %228
+  %232 = shufflevector <2 x double> %228, <2 x double> poison, <2 x i32> zeroinitializer
+  %233 = fmul <2 x double> %232, %228
+  %234 = fpext float %227 to double
+  %235 = fmul double %234, -2.000000e+00
+  %236 = shufflevector <2 x double> %228, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %237 = insertelement <2 x double> %236, double %235, i64 1
+  %238 = insertelement <2 x double> %236, double %213, i64 1
+  %239 = fmul <2 x double> %237, %238
+  %240 = insertelement <2 x double> poison, double %235, i64 0
+  %241 = shufflevector <2 x double> %240, <2 x double> poison, <2 x i32> zeroinitializer
+  %242 = fmul <2 x double> %241, %228
+  %243 = fmul double %234, %234
+  %244 = getelementptr inbounds i8, ptr %187, i64 20
+  %245 = load i32, ptr %244, align 4
+  %246 = and i32 %245, 4
+  %247 = icmp eq i32 %246, 0
+  br i1 %247, label %248, label %281
 
-246:                                              ; preds = %_ZNK3vcg6Point3IfE10normalizedEv.exit
-  %247 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
-  %248 = getelementptr inbounds i8, ptr %247, i64 16
-  %249 = getelementptr inbounds i8, ptr %247, i64 8
-  %250 = load ptr, ptr %249, align 8
-  %251 = load ptr, ptr %250, align 8
-  %252 = ptrtoint ptr %187 to i64
-  %253 = ptrtoint ptr %251 to i64
-  %254 = sub i64 %252, %253
-  %255 = sdiv exact i64 %254, 48
-  %256 = load ptr, ptr %248, align 8
-  %257 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %256, i64 %255
-  %258 = load <2 x double>, ptr %257, align 8
-  %259 = shufflevector <2 x double> %229, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
-  %260 = insertelement <2 x double> %259, double %212, i64 0
-  %261 = fadd <2 x double> %260, %258
-  store <2 x double> %261, ptr %257, align 8
-  %262 = getelementptr inbounds i8, ptr %257, i64 16
-  %263 = load <2 x double>, ptr %262, align 8
-  %264 = shufflevector <2 x double> %229, <2 x double> %231, <2 x i32> <i32 1, i32 2>
-  %265 = fadd <2 x double> %264, %263
-  store <2 x double> %265, ptr %262, align 8
-  %266 = getelementptr inbounds i8, ptr %257, i64 32
-  %267 = load <2 x double>, ptr %266, align 8
-  %268 = shufflevector <2 x double> %231, <2 x double> %237, <2 x i32> <i32 1, i32 2>
-  %269 = fadd <2 x double> %268, %267
-  store <2 x double> %269, ptr %266, align 8
-  %270 = getelementptr inbounds i8, ptr %257, i64 48
-  %271 = load <2 x double>, ptr %270, align 8
-  %272 = shufflevector <2 x double> %237, <2 x double> %240, <2 x i32> <i32 1, i32 2>
-  %273 = fadd <2 x double> %272, %271
-  store <2 x double> %273, ptr %270, align 8
-  %274 = getelementptr inbounds i8, ptr %257, i64 64
-  %275 = load <2 x double>, ptr %274, align 8
-  %276 = shufflevector <2 x double> %240, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %277 = insertelement <2 x double> %276, double %241, i64 1
-  %278 = fadd <2 x double> %277, %275
-  store <2 x double> %278, ptr %274, align 8
+248:                                              ; preds = %_ZNK3vcg6Point3IfE10normalizedEv.exit
+  %249 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
+  %250 = getelementptr inbounds i8, ptr %249, i64 16
+  %251 = getelementptr inbounds i8, ptr %249, i64 8
+  %252 = load ptr, ptr %251, align 8
+  %253 = load ptr, ptr %252, align 8
+  %254 = ptrtoint ptr %187 to i64
+  %255 = ptrtoint ptr %253 to i64
+  %256 = sub i64 %254, %255
+  %257 = sdiv exact i64 %256, 48
+  %258 = load ptr, ptr %250, align 8
+  %259 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %258, i64 %257
+  %260 = load <2 x double>, ptr %259, align 8
+  %261 = shufflevector <2 x double> %231, <2 x double> poison, <2 x i32> <i32 poison, i32 0>
+  %262 = insertelement <2 x double> %261, double %214, i64 0
+  %263 = fadd <2 x double> %262, %260
+  store <2 x double> %263, ptr %259, align 8
+  %264 = getelementptr inbounds i8, ptr %259, i64 16
+  %265 = load <2 x double>, ptr %264, align 8
+  %266 = shufflevector <2 x double> %231, <2 x double> %233, <2 x i32> <i32 1, i32 2>
+  %267 = fadd <2 x double> %266, %265
+  store <2 x double> %267, ptr %264, align 8
+  %268 = getelementptr inbounds i8, ptr %259, i64 32
+  %269 = load <2 x double>, ptr %268, align 8
+  %270 = shufflevector <2 x double> %233, <2 x double> %239, <2 x i32> <i32 1, i32 2>
+  %271 = fadd <2 x double> %270, %269
+  store <2 x double> %271, ptr %268, align 8
+  %272 = getelementptr inbounds i8, ptr %259, i64 48
+  %273 = load <2 x double>, ptr %272, align 8
+  %274 = shufflevector <2 x double> %239, <2 x double> %242, <2 x i32> <i32 1, i32 2>
+  %275 = fadd <2 x double> %274, %273
+  store <2 x double> %275, ptr %272, align 8
+  %276 = getelementptr inbounds i8, ptr %259, i64 64
+  %277 = load <2 x double>, ptr %276, align 8
+  %278 = shufflevector <2 x double> %242, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %279 = insertelement <2 x double> %278, double %243, i64 1
+  %280 = fadd <2 x double> %279, %277
+  store <2 x double> %280, ptr %276, align 8
   %.pre274 = load ptr, ptr %183, align 8
-  br label %279
+  br label %281
 
-279:                                              ; preds = %246, %_ZNK3vcg6Point3IfE10normalizedEv.exit
-  %280 = phi ptr [ %.pre274, %246 ], [ %184, %_ZNK3vcg6Point3IfE10normalizedEv.exit ]
-  %281 = getelementptr inbounds i8, ptr %280, i64 20
-  %282 = load i32, ptr %281, align 4
-  %283 = and i32 %282, 4
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %285, label %314
+281:                                              ; preds = %248, %_ZNK3vcg6Point3IfE10normalizedEv.exit
+  %282 = phi ptr [ %.pre274, %248 ], [ %184, %_ZNK3vcg6Point3IfE10normalizedEv.exit ]
+  %283 = getelementptr inbounds i8, ptr %282, i64 20
+  %284 = load i32, ptr %283, align 4
+  %285 = and i32 %284, 4
+  %286 = icmp eq i32 %285, 0
+  br i1 %286, label %287, label %316
 
-285:                                              ; preds = %279
-  %286 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
-  %287 = getelementptr inbounds i8, ptr %286, i64 16
-  %288 = getelementptr inbounds i8, ptr %286, i64 8
-  %289 = load ptr, ptr %288, align 8
-  %290 = load ptr, ptr %289, align 8
-  %291 = ptrtoint ptr %280 to i64
-  %292 = ptrtoint ptr %290 to i64
-  %293 = sub i64 %291, %292
-  %294 = sdiv exact i64 %293, 48
-  %295 = load ptr, ptr %287, align 8
-  %296 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %295, i64 %294
-  %297 = load double, ptr %296, align 8
-  %298 = fadd double %212, %297
-  store double %298, ptr %296, align 8
-  %299 = getelementptr inbounds i8, ptr %296, i64 8
-  %300 = load <2 x double>, ptr %299, align 8
-  %301 = fadd <2 x double> %229, %300
-  store <2 x double> %301, ptr %299, align 8
-  %302 = getelementptr inbounds i8, ptr %296, i64 24
-  %303 = load <2 x double>, ptr %302, align 8
-  %304 = fadd <2 x double> %231, %303
-  store <2 x double> %304, ptr %302, align 8
-  %305 = getelementptr inbounds i8, ptr %296, i64 40
-  %306 = load <2 x double>, ptr %305, align 8
-  %307 = fadd <2 x double> %237, %306
-  store <2 x double> %307, ptr %305, align 8
-  %308 = getelementptr inbounds i8, ptr %296, i64 56
-  %309 = load <2 x double>, ptr %308, align 8
-  %310 = fadd <2 x double> %240, %309
-  store <2 x double> %310, ptr %308, align 8
-  %311 = getelementptr inbounds i8, ptr %296, i64 72
-  %312 = load double, ptr %311, align 8
-  %313 = fadd double %241, %312
-  store double %313, ptr %311, align 8
-  br label %314
+287:                                              ; preds = %281
+  %288 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
+  %289 = getelementptr inbounds i8, ptr %288, i64 16
+  %290 = getelementptr inbounds i8, ptr %288, i64 8
+  %291 = load ptr, ptr %290, align 8
+  %292 = load ptr, ptr %291, align 8
+  %293 = ptrtoint ptr %282 to i64
+  %294 = ptrtoint ptr %292 to i64
+  %295 = sub i64 %293, %294
+  %296 = sdiv exact i64 %295, 48
+  %297 = load ptr, ptr %289, align 8
+  %298 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %297, i64 %296
+  %299 = load double, ptr %298, align 8
+  %300 = fadd double %214, %299
+  store double %300, ptr %298, align 8
+  %301 = getelementptr inbounds i8, ptr %298, i64 8
+  %302 = load <2 x double>, ptr %301, align 8
+  %303 = fadd <2 x double> %231, %302
+  store <2 x double> %303, ptr %301, align 8
+  %304 = getelementptr inbounds i8, ptr %298, i64 24
+  %305 = load <2 x double>, ptr %304, align 8
+  %306 = fadd <2 x double> %233, %305
+  store <2 x double> %306, ptr %304, align 8
+  %307 = getelementptr inbounds i8, ptr %298, i64 40
+  %308 = load <2 x double>, ptr %307, align 8
+  %309 = fadd <2 x double> %239, %308
+  store <2 x double> %309, ptr %307, align 8
+  %310 = getelementptr inbounds i8, ptr %298, i64 56
+  %311 = load <2 x double>, ptr %310, align 8
+  %312 = fadd <2 x double> %242, %311
+  store <2 x double> %312, ptr %310, align 8
+  %313 = getelementptr inbounds i8, ptr %298, i64 72
+  %314 = load double, ptr %313, align 8
+  %315 = fadd double %243, %314
+  store double %315, ptr %313, align 8
+  br label %316
 
-314:                                              ; preds = %._crit_edge283, %285, %279
-  %indvars.iv.next271.pre-phi = phi i64 [ %.pre284, %._crit_edge283 ], [ %180, %285 ], [ %180, %279 ]
+316:                                              ; preds = %._crit_edge283, %287, %281
+  %indvars.iv.next271.pre-phi = phi i64 [ %.pre284, %._crit_edge283 ], [ %180, %287 ], [ %180, %281 ]
   %exitcond273.not = icmp eq i64 %indvars.iv.next271.pre-phi, 3
   br i1 %exitcond273.not, label %.loopexit255.loopexit, label %172, !llvm.loop !110
 
-.loopexit255.loopexit:                            ; preds = %314
+.loopexit255.loopexit:                            ; preds = %316
   %.pre275 = load ptr, ptr %29, align 8
   br label %.loopexit255
 
 .loopexit255:                                     ; preds = %.loopexit255.loopexit, %33, %52, %45, %38
-  %315 = phi ptr [ %.pre275, %.loopexit255.loopexit ], [ %34, %33 ], [ %34, %52 ], [ %34, %45 ], [ %34, %38 ]
-  %316 = getelementptr inbounds i8, ptr %.sroa.0217.0261, i64 48
-  %.not251 = icmp eq ptr %316, %315
+  %317 = phi ptr [ %.pre275, %.loopexit255.loopexit ], [ %34, %33 ], [ %34, %52 ], [ %34, %45 ], [ %34, %38 ]
+  %318 = getelementptr inbounds i8, ptr %.sroa.0217.0261, i64 48
+  %.not251 = icmp eq ptr %318, %317
   br i1 %.not251, label %._crit_edge264, label %33, !llvm.loop !111
 
 ._crit_edge264:                                   ; preds = %.loopexit255, %._crit_edge
-  %317 = getelementptr inbounds i8, ptr %1, i64 120
-  %318 = load i8, ptr %317, align 8
-  %319 = trunc i8 %318 to i1
-  br i1 %319, label %320, label %387
+  %319 = getelementptr inbounds i8, ptr %1, i64 120
+  %320 = load i8, ptr %319, align 8
+  %321 = trunc i8 %320 to i1
+  br i1 %321, label %322, label %389
 
-320:                                              ; preds = %._crit_edge264
-  %321 = getelementptr inbounds i8, ptr %0, i64 652
-  %322 = getelementptr inbounds i8, ptr %0, i64 664
-  %323 = getelementptr inbounds i8, ptr %0, i64 656
-  %324 = getelementptr inbounds i8, ptr %0, i64 668
-  %325 = getelementptr inbounds i8, ptr %0, i64 660
-  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr %321, align 4
-  %326 = getelementptr inbounds i8, ptr %0, i64 672
-  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %324, align 4
-  %327 = load ptr, ptr %3, align 8
-  %328 = load ptr, ptr %5, align 8
-  %.not9.i = icmp eq ptr %327, %328
+322:                                              ; preds = %._crit_edge264
+  %323 = getelementptr inbounds i8, ptr %0, i64 652
+  %324 = getelementptr inbounds i8, ptr %0, i64 664
+  %325 = getelementptr inbounds i8, ptr %0, i64 656
+  %326 = getelementptr inbounds i8, ptr %0, i64 668
+  %327 = getelementptr inbounds i8, ptr %0, i64 660
+  store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float -1.000000e+00>, ptr %323, align 4
+  %328 = getelementptr inbounds i8, ptr %0, i64 672
+  store <2 x float> <float -1.000000e+00, float -1.000000e+00>, ptr %326, align 4
+  %329 = load ptr, ptr %3, align 8
+  %330 = load ptr, ptr %5, align 8
+  %.not9.i = icmp eq ptr %329, %330
   br i1 %.not9.i, label %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %320, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
-  %.sroa.04.010.i = phi ptr [ %370, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i ], [ %327, %320 ]
-  %329 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 20
-  %330 = load i32, ptr %329, align 4
-  %331 = and i32 %330, 1
-  %.not8.i = icmp eq i32 %331, 0
-  br i1 %.not8.i, label %332, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
+.lr.ph.i:                                         ; preds = %322, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
+  %.sroa.04.010.i = phi ptr [ %372, %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i ], [ %329, %322 ]
+  %331 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 20
+  %332 = load i32, ptr %331, align 4
+  %333 = and i32 %332, 1
+  %.not8.i = icmp eq i32 %333, 0
+  br i1 %.not8.i, label %334, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
 
-332:                                              ; preds = %.lr.ph.i
-  %333 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 8
-  %334 = load float, ptr %321, align 4
-  %335 = load float, ptr %322, align 8
-  %336 = fcmp ogt float %334, %335
-  br i1 %336, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %337
+334:                                              ; preds = %.lr.ph.i
+  %335 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 8
+  %336 = load float, ptr %323, align 4
+  %337 = load float, ptr %324, align 8
+  %338 = fcmp ogt float %336, %337
+  br i1 %338, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %339
 
-337:                                              ; preds = %332
-  %338 = load float, ptr %323, align 8
-  %339 = load float, ptr %324, align 4
-  %340 = fcmp ogt float %338, %339
-  br i1 %340, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i
+339:                                              ; preds = %334
+  %340 = load float, ptr %325, align 8
+  %341 = load float, ptr %326, align 4
+  %342 = fcmp ogt float %340, %341
+  br i1 %342, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i
 
-_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i:               ; preds = %337
-  %341 = load float, ptr %325, align 4
-  %342 = load float, ptr %326, align 8
-  %343 = fcmp ogt float %341, %342
-  br i1 %343, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %344
+_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i:               ; preds = %339
+  %343 = load float, ptr %327, align 4
+  %344 = load float, ptr %328, align 8
+  %345 = fcmp ogt float %343, %344
+  br i1 %345, label %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, label %346
 
-_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i, %337, %332
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %322, ptr noundef nonnull align 4 dereferenceable(12) %333, i64 12, i1 false)
-  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %321, ptr noundef nonnull align 4 dereferenceable(12) %333, i64 12, i1 false)
+_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i:        ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i, %339, %334
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %324, ptr noundef nonnull align 4 dereferenceable(12) %335, i64 12, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %323, ptr noundef nonnull align 4 dereferenceable(12) %335, i64 12, i1 false)
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
 
-344:                                              ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i
-  %345 = load float, ptr %333, align 4
-  %346 = fcmp ogt float %334, %345
-  br i1 %346, label %347, label %348
+346:                                              ; preds = %_ZNK3vcg4Box3IfE6IsNullEv.exit.i.i
+  %347 = load float, ptr %335, align 4
+  %348 = fcmp ogt float %336, %347
+  br i1 %348, label %349, label %350
 
-347:                                              ; preds = %344
-  store float %345, ptr %321, align 4
-  br label %348
+349:                                              ; preds = %346
+  store float %347, ptr %323, align 4
+  br label %350
 
-348:                                              ; preds = %347, %344
-  %349 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 12
-  %350 = load float, ptr %349, align 4
-  %351 = fcmp ogt float %338, %350
-  br i1 %351, label %352, label %353
+350:                                              ; preds = %349, %346
+  %351 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 12
+  %352 = load float, ptr %351, align 4
+  %353 = fcmp ogt float %340, %352
+  br i1 %353, label %354, label %355
 
-352:                                              ; preds = %348
-  store float %350, ptr %323, align 8
-  br label %353
+354:                                              ; preds = %350
+  store float %352, ptr %325, align 8
+  br label %355
 
-353:                                              ; preds = %352, %348
-  %354 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 16
-  %355 = load float, ptr %354, align 4
-  %356 = fcmp ogt float %341, %355
-  br i1 %356, label %357, label %358
+355:                                              ; preds = %354, %350
+  %356 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 16
+  %357 = load float, ptr %356, align 4
+  %358 = fcmp ogt float %343, %357
+  br i1 %358, label %359, label %360
 
-357:                                              ; preds = %353
-  store float %355, ptr %325, align 4
-  br label %358
+359:                                              ; preds = %355
+  store float %357, ptr %327, align 4
+  br label %360
 
-358:                                              ; preds = %357, %353
-  %359 = load float, ptr %333, align 4
-  %360 = fcmp olt float %335, %359
-  br i1 %360, label %361, label %362
+360:                                              ; preds = %359, %355
+  %361 = load float, ptr %335, align 4
+  %362 = fcmp olt float %337, %361
+  br i1 %362, label %363, label %364
 
-361:                                              ; preds = %358
-  store float %359, ptr %322, align 8
-  br label %362
+363:                                              ; preds = %360
+  store float %361, ptr %324, align 8
+  br label %364
 
-362:                                              ; preds = %361, %358
-  %363 = load float, ptr %349, align 4
-  %364 = fcmp olt float %339, %363
-  br i1 %364, label %365, label %366
+364:                                              ; preds = %363, %360
+  %365 = load float, ptr %351, align 4
+  %366 = fcmp olt float %341, %365
+  br i1 %366, label %367, label %368
 
-365:                                              ; preds = %362
-  store float %363, ptr %324, align 4
-  br label %366
+367:                                              ; preds = %364
+  store float %365, ptr %326, align 4
+  br label %368
 
-366:                                              ; preds = %365, %362
-  %367 = load float, ptr %354, align 4
-  %368 = fcmp olt float %342, %367
-  br i1 %368, label %369, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
+368:                                              ; preds = %367, %364
+  %369 = load float, ptr %356, align 4
+  %370 = fcmp olt float %344, %369
+  br i1 %370, label %371, label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
 
-369:                                              ; preds = %366
-  store float %367, ptr %326, align 8
+371:                                              ; preds = %368
+  store float %369, ptr %328, align 8
   br label %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
 
-_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i:      ; preds = %369, %366, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, %.lr.ph.i
-  %370 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 48
-  %.not.i = icmp eq ptr %370, %328
+_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i:      ; preds = %371, %368, %_ZNK3vcg4Box3IfE6IsNullEv.exit.thread.i.i, %.lr.ph.i
+  %372 = getelementptr inbounds i8, ptr %.sroa.04.010.i, i64 48
+  %.not.i = icmp eq ptr %372, %330
   br i1 %.not.i, label %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit, label %.lr.ph.i, !llvm.loop !112
 
 _ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit: ; preds = %_ZN3vcg4Box3IfE3AddERKNS_6Point3IfEE.exit.i
-  %.pre276 = load float, ptr %321, align 4
-  %.pre277 = load float, ptr %322, align 8
-  %371 = load <2 x float>, ptr %323, align 8
-  %372 = load <2 x float>, ptr %324, align 4
-  %373 = fsub float %.pre276, %.pre277
-  %374 = fsub <2 x float> %371, %372
+  %.pre276 = load float, ptr %323, align 4
+  %.pre277 = load float, ptr %324, align 8
+  %373 = load <2 x float>, ptr %325, align 8
+  %374 = load <2 x float>, ptr %326, align 4
+  %375 = fsub float %.pre276, %.pre277
+  %376 = fsub <2 x float> %373, %374
   br label %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit
 
-_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit: ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit, %320
-  %375 = phi float [ %373, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit ], [ 2.000000e+00, %320 ]
-  %376 = phi <2 x float> [ %374, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit ], [ <float 2.000000e+00, float 2.000000e+00>, %320 ]
-  %377 = fmul <2 x float> %376, %376
-  %378 = extractelement <2 x float> %377, i64 0
-  %379 = tail call float @llvm.fmuladd.f32(float %375, float %375, float %378)
-  %380 = extractelement <2 x float> %376, i64 1
-  %381 = tail call float @llvm.fmuladd.f32(float %380, float %380, float %379)
-  %sqrt.i.i.i90 = tail call noundef float @llvm.sqrt.f32(float %381)
-  %382 = fpext float %sqrt.i.i.i90 to double
-  %383 = fdiv double 1.000000e+00, %382
-  %384 = tail call noundef double @pow(double noundef %383, double noundef 6.000000e+00) #20
-  %385 = fmul double %384, 1.000000e+08
-  %386 = getelementptr inbounds i8, ptr %1, i64 112
-  store double %385, ptr %386, align 8
-  br label %387
+_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit: ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit, %322
+  %377 = phi float [ %375, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit ], [ 2.000000e+00, %322 ]
+  %378 = phi <2 x float> [ %376, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit.loopexit ], [ <float 2.000000e+00, float 2.000000e+00>, %322 ]
+  %379 = fmul <2 x float> %378, %378
+  %380 = extractelement <2 x float> %379, i64 0
+  %381 = tail call float @llvm.fmuladd.f32(float %377, float %377, float %380)
+  %382 = extractelement <2 x float> %378, i64 1
+  %383 = tail call float @llvm.fmuladd.f32(float %382, float %382, float %381)
+  %sqrt.i.i.i90 = tail call noundef float @llvm.sqrt.f32(float %383)
+  %384 = fpext float %sqrt.i.i.i90 to double
+  %385 = fdiv double 1.000000e+00, %384
+  %386 = tail call noundef double @pow(double noundef %385, double noundef 6.000000e+00) #20
+  %387 = fmul double %386, 1.000000e+08
+  %388 = getelementptr inbounds i8, ptr %1, i64 112
+  store double %387, ptr %388, align 8
+  br label %389
 
-387:                                              ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit, %._crit_edge264
-  %388 = getelementptr inbounds i8, ptr %1, i64 96
-  %389 = load i8, ptr %388, align 8
-  %390 = trunc i8 %389 to i1
-  br i1 %390, label %391, label %.loopexit
+389:                                              ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit, %._crit_edge264
+  %390 = getelementptr inbounds i8, ptr %1, i64 96
+  %391 = load i8, ptr %390, align 8
+  %392 = trunc i8 %391 to i1
+  br i1 %392, label %393, label %.loopexit
 
-391:                                              ; preds = %387
-  %392 = getelementptr inbounds i8, ptr %0, i64 264
-  %393 = load i32, ptr %392, align 8
-  %394 = load ptr, ptr %5, align 8
-  %395 = load ptr, ptr %3, align 8
-  %396 = ptrtoint ptr %394 to i64
-  %397 = ptrtoint ptr %395 to i64
-  %398 = sub i64 %396, %397
-  %399 = sdiv exact i64 %398, 48
-  %400 = trunc i64 %399 to i32
-  %401 = icmp eq i32 %393, %400
-  %.not2025.i.i.i = icmp eq ptr %395, %394
-  br i1 %401, label %.preheader.i.i.i, label %.preheader21.i.i.i
+393:                                              ; preds = %389
+  %394 = getelementptr inbounds i8, ptr %0, i64 264
+  %395 = load i32, ptr %394, align 8
+  %396 = load ptr, ptr %5, align 8
+  %397 = load ptr, ptr %3, align 8
+  %398 = ptrtoint ptr %396 to i64
+  %399 = ptrtoint ptr %397 to i64
+  %400 = sub i64 %398, %399
+  %401 = sdiv exact i64 %400, 48
+  %402 = trunc i64 %401 to i32
+  %403 = icmp eq i32 %395, %402
+  %.not2025.i.i.i = icmp eq ptr %397, %396
+  br i1 %403, label %.preheader.i.i.i, label %.preheader21.i.i.i
 
-.preheader21.i.i.i:                               ; preds = %391
+.preheader21.i.i.i:                               ; preds = %393
   br i1 %.not2025.i.i.i, label %.loopexit, label %.lr.ph.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %391
+.preheader.i.i.i:                                 ; preds = %393
   br i1 %.not2025.i.i.i, label %.loopexit, label %.lr.ph27.i.i.i
 
 .lr.ph27.i.i.i:                                   ; preds = %.preheader.i.i.i, %.lr.ph27.i.i.i
   %.sroa.0.0.i.i = phi <2 x float> [ %.sroa.0.2.i.i, %.lr.ph27.i.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader.i.i.i ]
-  %402 = phi float [ %406, %.lr.ph27.i.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i.i ]
-  %.sroa.014.026.i.i.i = phi ptr [ %408, %.lr.ph27.i.i.i ], [ %395, %.preheader.i.i.i ]
-  %403 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i.i, i64 36
-  %404 = load float, ptr %403, align 4
-  %405 = fcmp olt float %404, %402
-  %.sroa.0.0.vec.insert8.i.i = insertelement <2 x float> %.sroa.0.0.i.i, float %404, i64 0
-  %.sroa.0.1.i.i = select i1 %405, <2 x float> %.sroa.0.0.vec.insert8.i.i, <2 x float> %.sroa.0.0.i.i
-  %406 = select i1 %405, float %404, float %402
+  %404 = phi float [ %408, %.lr.ph27.i.i.i ], [ 0x47EFFFFFE0000000, %.preheader.i.i.i ]
+  %.sroa.014.026.i.i.i = phi ptr [ %410, %.lr.ph27.i.i.i ], [ %397, %.preheader.i.i.i ]
+  %405 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i.i, i64 36
+  %406 = load float, ptr %405, align 4
+  %407 = fcmp olt float %406, %404
+  %.sroa.0.0.vec.insert8.i.i = insertelement <2 x float> %.sroa.0.0.i.i, float %406, i64 0
+  %.sroa.0.1.i.i = select i1 %407, <2 x float> %.sroa.0.0.vec.insert8.i.i, <2 x float> %.sroa.0.0.i.i
+  %408 = select i1 %407, float %406, float %404
   %.sroa.0.4.vec.extract11.i.i = extractelement <2 x float> %.sroa.0.1.i.i, i64 1
-  %407 = fcmp ogt float %404, %.sroa.0.4.vec.extract11.i.i
-  %.sroa.0.4.vec.insert13.i.i = insertelement <2 x float> %.sroa.0.1.i.i, float %404, i64 1
-  %.sroa.0.2.i.i = select i1 %407, <2 x float> %.sroa.0.4.vec.insert13.i.i, <2 x float> %.sroa.0.1.i.i
-  %408 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i.i, i64 48
-  %.not20.i.i.i = icmp eq ptr %408, %394
+  %409 = fcmp ogt float %406, %.sroa.0.4.vec.extract11.i.i
+  %.sroa.0.4.vec.insert13.i.i = insertelement <2 x float> %.sroa.0.1.i.i, float %406, i64 1
+  %.sroa.0.2.i.i = select i1 %409, <2 x float> %.sroa.0.4.vec.insert13.i.i, <2 x float> %.sroa.0.1.i.i
+  %410 = getelementptr inbounds i8, ptr %.sroa.014.026.i.i.i, i64 48
+  %.not20.i.i.i = icmp eq ptr %410, %396
   br i1 %.not20.i.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit, label %.lr.ph27.i.i.i, !llvm.loop !113
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader21.i.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
   %.sroa.0.3.i.i = phi <2 x float> [ %.sroa.0.5.i.i, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ], [ <float 0x47EFFFFFE0000000, float 0xC7EFFFFFE0000000>, %.preheader21.i.i.i ]
-  %.sroa.09.024.i.i.i = phi ptr [ %418, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ], [ %395, %.preheader21.i.i.i ]
-  %409 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 20
-  %410 = load i32, ptr %409, align 4
-  %411 = and i32 %410, 1
-  %.not19.i.i.i = icmp eq i32 %411, 0
-  br i1 %.not19.i.i.i, label %412, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
+  %.sroa.09.024.i.i.i = phi ptr [ %420, %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i ], [ %397, %.preheader21.i.i.i ]
+  %411 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 20
+  %412 = load i32, ptr %411, align 4
+  %413 = and i32 %412, 1
+  %.not19.i.i.i = icmp eq i32 %413, 0
+  br i1 %.not19.i.i.i, label %414, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
 
-412:                                              ; preds = %.lr.ph.i.i.i
-  %413 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 36
-  %414 = load float, ptr %413, align 4
+414:                                              ; preds = %.lr.ph.i.i.i
+  %415 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 36
+  %416 = load float, ptr %415, align 4
   %.sroa.0.0.vec.extract.i.i = extractelement <2 x float> %.sroa.0.3.i.i, i64 0
-  %415 = fcmp olt float %414, %.sroa.0.0.vec.extract.i.i
-  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> %.sroa.0.3.i.i, float %414, i64 0
-  %.sroa.0.4.i.i = select i1 %415, <2 x float> %.sroa.0.0.vec.insert.i.i, <2 x float> %.sroa.0.3.i.i
+  %417 = fcmp olt float %416, %.sroa.0.0.vec.extract.i.i
+  %.sroa.0.0.vec.insert.i.i = insertelement <2 x float> %.sroa.0.3.i.i, float %416, i64 0
+  %.sroa.0.4.i.i = select i1 %417, <2 x float> %.sroa.0.0.vec.insert.i.i, <2 x float> %.sroa.0.3.i.i
   %.sroa.0.4.vec.extract.i.i = extractelement <2 x float> %.sroa.0.4.i.i, i64 1
-  %416 = fcmp ogt float %414, %.sroa.0.4.vec.extract.i.i
-  br i1 %416, label %417, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
+  %418 = fcmp ogt float %416, %.sroa.0.4.vec.extract.i.i
+  br i1 %418, label %419, label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
 
-417:                                              ; preds = %412
-  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.4.i.i, float %414, i64 1
+419:                                              ; preds = %414
+  %.sroa.0.4.vec.insert.i.i = insertelement <2 x float> %.sroa.0.4.i.i, float %416, i64 1
   br label %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i
 
-_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i: ; preds = %417, %412, %.lr.ph.i.i.i
-  %.sroa.0.5.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %417 ], [ %.sroa.0.4.i.i, %412 ], [ %.sroa.0.3.i.i, %.lr.ph.i.i.i ]
-  %418 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 48
-  %.not.i.i.i = icmp eq ptr %418, %394
+_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i: ; preds = %419, %414, %.lr.ph.i.i.i
+  %.sroa.0.5.i.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i, %419 ], [ %.sroa.0.4.i.i, %414 ], [ %.sroa.0.3.i.i, %.lr.ph.i.i.i ]
+  %420 = getelementptr inbounds i8, ptr %.sroa.09.024.i.i.i, i64 48
+  %.not.i.i.i = icmp eq ptr %420, %396
   br i1 %.not.i.i.i, label %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit, label %.lr.ph.i.i.i, !llvm.loop !114
 
 _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit: ; preds = %_ZZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_ENKUlRK8CVertexOE_clES8_.exit8.i.i.i, %.lr.ph27.i.i.i
@@ -8350,73 +8350,73 @@ _ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit: ; pred
   br i1 %.not2025.i.i.i, label %.loopexit, label %.lr.ph267
 
 .lr.ph267:                                        ; preds = %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit
-  %shift291 = shufflevector <2 x float> %.sroa.0.6.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %419 = fsub <2 x float> %shift291, %.sroa.0.6.i.i
-  %420 = extractelement <2 x float> %419, i64 0
-  %421 = getelementptr inbounds i8, ptr %1, i64 104
-  %422 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
-  %423 = getelementptr inbounds i8, ptr %422, i64 16
-  %424 = getelementptr inbounds i8, ptr %422, i64 8
-  br label %425
+  %shift292 = shufflevector <2 x float> %.sroa.0.6.i.i, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %421 = fsub <2 x float> %shift292, %.sroa.0.6.i.i
+  %422 = extractelement <2 x float> %421, i64 0
+  %423 = getelementptr inbounds i8, ptr %1, i64 104
+  %424 = load ptr, ptr @_ZZN3vcg3tri7QHelper3TDpEvE2td, align 8
+  %425 = getelementptr inbounds i8, ptr %424, i64 16
+  %426 = getelementptr inbounds i8, ptr %424, i64 8
+  br label %427
 
-425:                                              ; preds = %.lr.ph267, %463
-  %426 = phi ptr [ %394, %.lr.ph267 ], [ %464, %463 ]
-  %.sroa.0102.0266 = phi ptr [ %395, %.lr.ph267 ], [ %465, %463 ]
-  %427 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 20
-  %428 = load i32, ptr %427, align 4
-  %429 = and i32 %428, 5
-  %or.cond250 = icmp eq i32 %429, 0
-  br i1 %or.cond250, label %430, label %463
+427:                                              ; preds = %.lr.ph267, %465
+  %428 = phi ptr [ %396, %.lr.ph267 ], [ %466, %465 ]
+  %.sroa.0102.0266 = phi ptr [ %397, %.lr.ph267 ], [ %467, %465 ]
+  %429 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 20
+  %430 = load i32, ptr %429, align 4
+  %431 = and i32 %430, 5
+  %or.cond250 = icmp eq i32 %431, 0
+  br i1 %or.cond250, label %432, label %465
 
-430:                                              ; preds = %425
-  %431 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 36
-  %432 = load float, ptr %431, align 4
-  %433 = fsub float %432, %.sroa.0.0.vec.extract.i91
-  %434 = fdiv float %433, %420
-  %435 = fpext float %434 to double
-  %square = fmul double %435, %435
-  %436 = load double, ptr %421, align 8
-  %437 = fadd double %436, -1.000000e+00
-  %438 = tail call double @llvm.fmuladd.f64(double %square, double %437, double 1.000000e+00)
-  %439 = load ptr, ptr %424, align 8
-  %440 = load ptr, ptr %439, align 8
-  %441 = ptrtoint ptr %.sroa.0102.0266 to i64
-  %442 = ptrtoint ptr %440 to i64
-  %443 = sub i64 %441, %442
-  %444 = sdiv exact i64 %443, 48
-  %445 = load ptr, ptr %423, align 8
-  %446 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %445, i64 %444
-  %447 = load <2 x double>, ptr %446, align 8
-  %448 = insertelement <2 x double> poison, double %438, i64 0
-  %449 = shufflevector <2 x double> %448, <2 x double> poison, <2 x i32> zeroinitializer
-  %450 = fmul <2 x double> %449, %447
-  store <2 x double> %450, ptr %446, align 8
-  %451 = getelementptr inbounds i8, ptr %446, i64 16
-  %452 = load <2 x double>, ptr %451, align 8
-  %453 = fmul <2 x double> %449, %452
-  store <2 x double> %453, ptr %451, align 8
-  %454 = getelementptr inbounds i8, ptr %446, i64 32
-  %455 = load <2 x double>, ptr %454, align 8
-  %456 = fmul <2 x double> %449, %455
-  store <2 x double> %456, ptr %454, align 8
-  %457 = getelementptr inbounds i8, ptr %446, i64 48
-  %458 = load <2 x double>, ptr %457, align 8
-  %459 = fmul <2 x double> %449, %458
-  store <2 x double> %459, ptr %457, align 8
-  %460 = getelementptr inbounds i8, ptr %446, i64 64
-  %461 = load <2 x double>, ptr %460, align 8
-  %462 = fmul <2 x double> %449, %461
-  store <2 x double> %462, ptr %460, align 8
+432:                                              ; preds = %427
+  %433 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 36
+  %434 = load float, ptr %433, align 4
+  %435 = fsub float %434, %.sroa.0.0.vec.extract.i91
+  %436 = fdiv float %435, %422
+  %437 = fpext float %436 to double
+  %square = fmul double %437, %437
+  %438 = load double, ptr %423, align 8
+  %439 = fadd double %438, -1.000000e+00
+  %440 = tail call double @llvm.fmuladd.f64(double %square, double %439, double 1.000000e+00)
+  %441 = load ptr, ptr %426, align 8
+  %442 = load ptr, ptr %441, align 8
+  %443 = ptrtoint ptr %.sroa.0102.0266 to i64
+  %444 = ptrtoint ptr %442 to i64
+  %445 = sub i64 %443, %444
+  %446 = sdiv exact i64 %445, 48
+  %447 = load ptr, ptr %425, align 8
+  %448 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %447, i64 %446
+  %449 = load <2 x double>, ptr %448, align 8
+  %450 = insertelement <2 x double> poison, double %440, i64 0
+  %451 = shufflevector <2 x double> %450, <2 x double> poison, <2 x i32> zeroinitializer
+  %452 = fmul <2 x double> %451, %449
+  store <2 x double> %452, ptr %448, align 8
+  %453 = getelementptr inbounds i8, ptr %448, i64 16
+  %454 = load <2 x double>, ptr %453, align 8
+  %455 = fmul <2 x double> %451, %454
+  store <2 x double> %455, ptr %453, align 8
+  %456 = getelementptr inbounds i8, ptr %448, i64 32
+  %457 = load <2 x double>, ptr %456, align 8
+  %458 = fmul <2 x double> %451, %457
+  store <2 x double> %458, ptr %456, align 8
+  %459 = getelementptr inbounds i8, ptr %448, i64 48
+  %460 = load <2 x double>, ptr %459, align 8
+  %461 = fmul <2 x double> %451, %460
+  store <2 x double> %461, ptr %459, align 8
+  %462 = getelementptr inbounds i8, ptr %448, i64 64
+  %463 = load <2 x double>, ptr %462, align 8
+  %464 = fmul <2 x double> %451, %463
+  store <2 x double> %464, ptr %462, align 8
   %.pre282 = load ptr, ptr %5, align 8
-  br label %463
+  br label %465
 
-463:                                              ; preds = %425, %430
-  %464 = phi ptr [ %426, %425 ], [ %.pre282, %430 ]
-  %465 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 48
-  %.not252 = icmp eq ptr %465, %464
-  br i1 %.not252, label %.loopexit, label %425, !llvm.loop !115
+465:                                              ; preds = %427, %432
+  %466 = phi ptr [ %428, %427 ], [ %.pre282, %432 ]
+  %467 = getelementptr inbounds i8, ptr %.sroa.0102.0266, i64 48
+  %.not252 = icmp eq ptr %467, %466
+  br i1 %.not252, label %.loopexit, label %427, !llvm.loop !115
 
-.loopexit:                                        ; preds = %463, %.preheader.i.i.i, %.preheader21.i.i.i, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit, %387
+.loopexit:                                        ; preds = %465, %.preheader.i.i.i, %.preheader21.i.i.i, %_ZN3vcg3tri4StatI6CMeshOE29ComputePerVertexQualityMinMaxERKS2_RfS6_.exit, %389
   ret void
 }
 
@@ -13632,10 +13632,10 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit101.thread206: ; preds = %_ZNSt12_Vector
   br i1 %206, label %.loopexit230.sink.split, label %198
 
 .loopexit230.sink.split:                          ; preds = %204, %200
-  %.sink392 = phi i64 [ %191, %200 ], [ %196, %204 ]
+  %.sink387 = phi i64 [ %191, %200 ], [ %196, %204 ]
   %207 = srem i32 %187, 3
   %208 = sext i32 %207 to i64
-  %209 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI6CMeshONS0_15BasicVertexPairI8CVertexOEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %208, i64 %.sink392
+  %209 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI6CMeshONS0_15BasicVertexPairI8CVertexOEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %208, i64 %.sink387
   %210 = load i32, ptr %209, align 4
   %211 = shl i32 32768, %210
   %212 = getelementptr inbounds i8, ptr %185, i64 32
@@ -13794,10 +13794,10 @@ _ZNSt6vectorIP8CVertexOSaIS1_EED2Ev.exit101.thread206: ; preds = %_ZNSt12_Vector
   br i1 %326, label %..loopexit_crit_edge.us.sink.split, label %318
 
 ..loopexit_crit_edge.us.sink.split:               ; preds = %320, %324
-  %.sink395 = phi i64 [ %316, %324 ], [ %311, %320 ]
+  %.sink393 = phi i64 [ %316, %324 ], [ %311, %320 ]
   %327 = srem i32 %307, 3
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI6CMeshONS0_15BasicVertexPairI8CVertexOEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %328, i64 %.sink395
+  %329 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI6CMeshONS0_15BasicVertexPairI8CVertexOEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %328, i64 %.sink393
   %330 = load i32, ptr %329, align 4
   %331 = shl i32 32768, %330
   %332 = getelementptr inbounds i8, ptr %305, i64 32
@@ -17618,51 +17618,49 @@ define linkonce_odr void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixI
   %30 = getelementptr inbounds i8, ptr %1, i64 73
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
-  %35 = load i64, ptr %3, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef 1, i64 noundef %35)
-  br label %44
+  %34 = getelementptr inbounds i8, ptr %1, i64 74
+  %35 = load i8, ptr %34, align 2
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 74
-  %38 = load i8, ptr %37, align 2
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 88
+  br label %.sink.split
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 184
+.sink.split:                                      ; preds = %29, %37
+  %.sink14 = phi ptr [ %38, %37 ], [ %3, %29 ]
+  %.sink = getelementptr inbounds i8, ptr %0, i64 184
+  %39 = load i64, ptr %.sink14, align 8
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 noundef %39, i64 noundef 1, i64 noundef %39)
+  br label %40
+
+40:                                               ; preds = %.sink.split, %33
+  %41 = load i64, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 88
   %43 = load i64, ptr %42, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef 1, i64 noundef %43)
-  br label %44
+  %44 = icmp eq i64 %41, 0
+  %45 = icmp eq i64 %43, 0
+  %or.cond.i = or i1 %44, %45
+  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, label %46
 
-44:                                               ; preds = %36, %40, %33
-  %45 = load i64, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 88
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp eq i64 %45, 0
-  %49 = icmp eq i64 %47, 0
-  %or.cond.i = or i1 %48, %49
-  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit, label %50
+46:                                               ; preds = %40
+  %47 = sdiv i64 9223372036854775807, %43
+  %48 = icmp slt i64 %47, %41
+  br i1 %48, label %49, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
 
-50:                                               ; preds = %44
-  %51 = sdiv i64 9223372036854775807, %47
-  %52 = icmp slt i64 %51, %45
-  br i1 %52, label %53, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__cxa_allocate_exception(i64 8) #20
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %54, align 8
-  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
+49:                                               ; preds = %46
+  %50 = tail call ptr @__cxa_allocate_exception(i64 8) #20
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %50, align 8
+  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #32
   unreachable
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %44, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 160
-  %56 = mul nsw i64 %47, %45
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %56, i64 noundef %45, i64 noundef %47)
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit: ; preds = %40, %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 160
+  %52 = mul nsw i64 %43, %41
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52, i64 noundef %41, i64 noundef %43)
   ret void
 }
 
@@ -17714,28 +17712,26 @@ define linkonce_odr void @_ZN5Eigen8internal22qr_preconditioner_implINS_6MatrixI
   %30 = getelementptr inbounds i8, ptr %1, i64 71
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 160
-  %35 = load i64, ptr %3, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef %35, i64 noundef 1)
-  br label %44
+  %34 = getelementptr inbounds i8, ptr %1, i64 72
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 96
+  br label %.sink.split
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
-  %42 = getelementptr inbounds i8, ptr %1, i64 96
-  %43 = load i64, ptr %42, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef %43, i64 noundef 1)
-  br label %44
+.sink.split:                                      ; preds = %29, %37
+  %.sink12 = phi ptr [ %38, %37 ], [ %3, %29 ]
+  %.sink = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = load i64, ptr %.sink12, align 8
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 noundef %39, i64 noundef %39, i64 noundef 1)
+  br label %40
 
-44:                                               ; preds = %36, %40, %33
+40:                                               ; preds = %.sink.split, %33
   ret void
 }
 
@@ -41348,30 +41344,30 @@ _ZN3vcg3tri16QuadricTexHelperI6CMeshOE8ContainsEP8CVertexORNS_9TexCoord2IfLi1EEE
   br i1 %exitcond.not.i73, label %_ZN3vcg3tri16QuadricTexHelperI6CMeshOE8ContainsEP8CVertexORNS_9TexCoord2IfLi1EEE.exit68.thread.sink.split, label %.lr.ph.i70, !llvm.loop !947
 
 _ZN3vcg3tri16QuadricTexHelperI6CMeshOE8ContainsEP8CVertexORNS_9TexCoord2IfLi1EEE.exit68.thread.sink.split: ; preds = %259, %263, %290, %294
-  %.pn.i.ph.sink553 = phi ptr [ %270, %294 ], [ %287, %290 ], [ %239, %263 ], [ %256, %259 ]
+  %.pn.i74.ph.sink553 = phi ptr [ %270, %294 ], [ %287, %290 ], [ %239, %263 ], [ %256, %259 ]
   %.sink526 = phi i64 [ %25, %294 ], [ %25, %290 ], [ %31, %263 ], [ %31, %259 ]
-  %.0.i61 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 16
-  %296 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 32
+  %.0.i75 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 16
+  %296 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 32
   %297 = load double, ptr %296, align 8
-  %298 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 40
+  %298 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 40
   %299 = load <2 x double>, ptr %298, align 8
-  %300 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 56
-  %301 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 72
+  %300 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 56
+  %301 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 72
   %302 = load <2 x double>, ptr %301, align 8
-  %303 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 88
+  %303 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 88
   %304 = load double, ptr %303, align 8
-  %305 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 96
+  %305 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 96
   %306 = load <2 x double>, ptr %305, align 8
-  %307 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 112
+  %307 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 112
   %308 = load double, ptr %307, align 8
-  %309 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 120
+  %309 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 120
   %310 = load double, ptr %309, align 8
-  %311 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 128
+  %311 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 128
   %312 = load <2 x double>, ptr %311, align 8
-  %313 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 144
-  %314 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 160
+  %313 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 144
+  %314 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 160
   %315 = load <2 x double>, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %.pn.i.ph.sink553, i64 176
+  %316 = getelementptr inbounds i8, ptr %.pn.i74.ph.sink553, i64 176
   %317 = load double, ptr %316, align 8
   %318 = load ptr, ptr @_ZZN3vcg3tri16QuadricTexHelperI6CMeshOE4TDp3EvE3td3, align 8
   %319 = getelementptr inbounds i8, ptr %318, i64 16
@@ -41383,7 +41379,7 @@ _ZN3vcg3tri16QuadricTexHelperI6CMeshOE8ContainsEP8CVertexORNS_9TexCoord2IfLi1EEE
   %325 = sdiv exact i64 %324, 48
   %326 = load ptr, ptr %319, align 8
   %327 = getelementptr inbounds %"class.vcg::math::Quadric", ptr %326, i64 %325
-  %328 = load <2 x double>, ptr %.0.i61, align 8
+  %328 = load <2 x double>, ptr %.0.i75, align 8
   %329 = load <2 x double>, ptr %327, align 8
   %330 = fadd <2 x double> %328, %329
   %331 = getelementptr inbounds i8, ptr %327, i64 16

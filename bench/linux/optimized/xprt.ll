@@ -2629,7 +2629,7 @@ define dso_local void @xprt_request_enqueue_transmit(ptr noundef %0) local_unnam
   %6 = load volatile i64, ptr %5, align 8
   %7 = and i64 %6, 8
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %9, label %112
+  br i1 %8, label %9, label %109
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds i8, ptr %4, i64 8
@@ -2648,7 +2648,7 @@ define dso_local void @xprt_request_enqueue_transmit(ptr noundef %0) local_unnam
 19:                                               ; preds = %15
   %20 = getelementptr inbounds i8, ptr %0, i64 4
   store i32 %17, ptr %20, align 4
-  br label %112
+  br label %109
 
 .thread:                                          ; preds = %9, %15
   %21 = getelementptr inbounds i8, ptr %3, i64 420
@@ -2658,7 +2658,7 @@ define dso_local void @xprt_request_enqueue_transmit(ptr noundef %0) local_unnam
   %23 = getelementptr inbounds i8, ptr %3, i64 172
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 0
-  br i1 %25, label %76, label %26
+  br i1 %25, label %75, label %26
 
 26:                                               ; preds = %.thread
   %27 = getelementptr inbounds i8, ptr %4, i64 1032
@@ -2744,76 +2744,72 @@ define dso_local void @xprt_request_enqueue_transmit(ptr noundef %0) local_unnam
   %74 = getelementptr inbounds i8, ptr %3, i64 232
   store ptr %73, ptr %74, align 8
   store volatile ptr %71, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %3, i64 240
-  store volatile ptr %75, ptr %75, align 8
-  br label %107
+  br label %104
 
-76:                                               ; preds = %.thread
-  %77 = getelementptr inbounds i8, ptr %3, i64 176
-  %78 = load i32, ptr %77, align 8
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %80, label %.loopexit
+75:                                               ; preds = %.thread
+  %76 = getelementptr inbounds i8, ptr %3, i64 176
+  %77 = load i32, ptr %76, align 8
+  %78 = icmp eq i32 %77, 0
+  br i1 %78, label %79, label %.loopexit
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %4, i64 1240
-  %82 = getelementptr inbounds i8, ptr %0, i64 208
-  br label %83
+79:                                               ; preds = %75
+  %80 = getelementptr inbounds i8, ptr %4, i64 1240
+  %81 = getelementptr inbounds i8, ptr %0, i64 208
+  br label %82
 
-83:                                               ; preds = %87, %80
-  %84 = phi ptr [ %81, %80 ], [ %85, %87 ]
-  %85 = load ptr, ptr %84, align 8
-  %86 = icmp eq ptr %85, %81
-  br i1 %86, label %.loopexit, label %87
+82:                                               ; preds = %86, %79
+  %83 = phi ptr [ %80, %79 ], [ %84, %86 ]
+  %84 = load ptr, ptr %83, align 8
+  %85 = icmp eq ptr %84, %80
+  br i1 %85, label %.loopexit, label %86
 
-87:                                               ; preds = %83
-  %88 = getelementptr i8, ptr %85, i64 -72
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 208
-  %91 = load i32, ptr %90, align 8
-  %92 = load i32, ptr %82, align 8
-  %93 = icmp eq i32 %91, %92
-  br i1 %93, label %94, label %83, !llvm.loop !76
+86:                                               ; preds = %82
+  %87 = getelementptr i8, ptr %84, i64 -72
+  %88 = load ptr, ptr %87, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 208
+  %90 = load i32, ptr %89, align 8
+  %91 = load i32, ptr %81, align 8
+  %92 = icmp eq i32 %90, %91
+  br i1 %92, label %93, label %82, !llvm.loop !76
 
-94:                                               ; preds = %87
-  %95 = getelementptr inbounds i8, ptr %3, i64 240
-  %96 = getelementptr i8, ptr %85, i64 16
-  %97 = getelementptr i8, ptr %85, i64 24
-  %98 = load ptr, ptr %97, align 8
-  store ptr %95, ptr %97, align 8
-  store ptr %96, ptr %95, align 8
-  %99 = getelementptr inbounds i8, ptr %3, i64 248
-  store ptr %98, ptr %99, align 8
-  store volatile ptr %95, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %3, i64 224
-  store volatile ptr %100, ptr %100, align 8
-  br label %107
+93:                                               ; preds = %86
+  %94 = getelementptr inbounds i8, ptr %3, i64 240
+  %95 = getelementptr i8, ptr %84, i64 16
+  %96 = getelementptr i8, ptr %84, i64 24
+  %97 = load ptr, ptr %96, align 8
+  store ptr %94, ptr %96, align 8
+  store ptr %95, ptr %94, align 8
+  %98 = getelementptr inbounds i8, ptr %3, i64 248
+  store ptr %97, ptr %98, align 8
+  store volatile ptr %94, ptr %97, align 8
+  br label %104
 
-.loopexit:                                        ; preds = %62, %83, %76
-  %101 = getelementptr inbounds i8, ptr %3, i64 224
-  %102 = getelementptr inbounds i8, ptr %4, i64 1240
-  %103 = getelementptr inbounds i8, ptr %4, i64 1248
-  %104 = load ptr, ptr %103, align 8
-  store ptr %101, ptr %103, align 8
-  store ptr %102, ptr %101, align 8
-  %105 = getelementptr inbounds i8, ptr %3, i64 232
-  store ptr %104, ptr %105, align 8
-  store volatile ptr %101, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %3, i64 240
+.loopexit:                                        ; preds = %62, %82, %75
+  %99 = getelementptr inbounds i8, ptr %3, i64 224
+  %100 = getelementptr inbounds i8, ptr %4, i64 1240
+  %101 = getelementptr inbounds i8, ptr %4, i64 1248
+  %102 = load ptr, ptr %101, align 8
+  store ptr %99, ptr %101, align 8
+  store ptr %100, ptr %99, align 8
+  %103 = getelementptr inbounds i8, ptr %3, i64 232
+  store ptr %102, ptr %103, align 8
+  store volatile ptr %99, ptr %102, align 8
+  br label %104
+
+104:                                              ; preds = %.loopexit, %93, %70
+  %.sink14 = phi i64 [ 240, %.loopexit ], [ 224, %93 ], [ 240, %70 ]
+  %105 = phi i64 [ 248, %.loopexit ], [ 232, %93 ], [ 248, %70 ]
+  %106 = getelementptr inbounds i8, ptr %3, i64 %.sink14
   store volatile ptr %106, ptr %106, align 8
-  br label %107
-
-107:                                              ; preds = %.loopexit, %94, %70
-  %108 = phi i64 [ 248, %.loopexit ], [ 232, %94 ], [ 248, %70 ]
-  %109 = phi ptr [ %106, %.loopexit ], [ %100, %94 ], [ %75, %70 ]
-  %110 = getelementptr inbounds i8, ptr %3, i64 %108
-  store volatile ptr %109, ptr %110, align 8
-  %111 = getelementptr inbounds i8, ptr %4, i64 1256
-  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %111, ptr elementtype(i64) %111) #17, !srcloc !77
+  %107 = getelementptr inbounds i8, ptr %3, i64 %105
+  store volatile ptr %106, ptr %107, align 8
+  %108 = getelementptr inbounds i8, ptr %4, i64 1256
+  tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incq $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %108, ptr elementtype(i64) %108) #17, !srcloc !77
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %5, i32 8, ptr elementtype(i8) %5) #17, !srcloc !40
   tail call void @_raw_spin_unlock(ptr noundef %22) #17
-  br label %112
+  br label %109
 
-112:                                              ; preds = %107, %19, %1
+109:                                              ; preds = %104, %19, %1
   ret void
 }
 

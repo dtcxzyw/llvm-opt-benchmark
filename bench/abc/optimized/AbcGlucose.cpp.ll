@@ -3255,7 +3255,7 @@ _ZL12Vec_IntStarti.exit:                          ; preds = %_ZL12Vec_IntAlloci.
   br label %.sink.split
 
 .sink.split:                                      ; preds = %32, %30
-  %.sink69 = phi i64 [ %34, %32 ], [ %31, %30 ]
+  %.sink69 = phi i64 [ %31, %30 ], [ %34, %32 ]
   %35 = getelementptr inbounds i32, ptr %.val46, i64 %.sink69
   %36 = load i32, ptr %35, align 4
   %37 = add nsw i32 %36, 1

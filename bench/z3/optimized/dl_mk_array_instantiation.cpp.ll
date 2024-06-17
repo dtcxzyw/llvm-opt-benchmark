@@ -2665,22 +2665,22 @@ if.then.i.i169.invoke:                            ; preds = %_ZN15ref_vector_cor
           to label %for.inc82.sink.split.sink.split unwind label %lpad.loopexit.split-lp387.loopexit
 
 for.inc82.sink.split.sink.split:                  ; preds = %if.then.i.i169.invoke
-  %.pre.i.i149 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx8.phi.trans.insert.i.i171 = getelementptr inbounds i8, ptr %.pre.i.i149, i64 -4
+  %.pre.i.i170 = load ptr, ptr %m_nodes.i.i, align 8
+  %arrayidx8.phi.trans.insert.i.i171 = getelementptr inbounds i8, ptr %.pre.i.i170, i64 -4
   %.pre1.i.i172 = load i32, ptr %arrayidx8.phi.trans.insert.i.i171, align 4
   br label %for.inc82.sink.split
 
 for.inc82.sink.split:                             ; preds = %for.inc82.sink.split.sink.split, %lor.lhs.false.i.i161, %lor.lhs.false.i.i140
   %.sink507 = phi i32 [ %94, %lor.lhs.false.i.i140 ], [ %98, %lor.lhs.false.i.i161 ], [ %.pre1.i.i172, %for.inc82.sink.split.sink.split ]
-  %.sink = phi ptr [ %93, %lor.lhs.false.i.i140 ], [ %97, %lor.lhs.false.i.i161 ], [ %.pre.i.i149, %for.inc82.sink.split.sink.split ]
-  %idx.ext.i.i144 = zext i32 %.sink507 to i64
-  %add.ptr.i.i145 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i144
-  store ptr %3, ptr %add.ptr.i.i145, align 8
+  %.sink = phi ptr [ %93, %lor.lhs.false.i.i140 ], [ %97, %lor.lhs.false.i.i161 ], [ %.pre.i.i170, %for.inc82.sink.split.sink.split ]
+  %idx.ext.i.i165 = zext i32 %.sink507 to i64
+  %add.ptr.i.i166 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i165
+  store ptr %3, ptr %add.ptr.i.i166, align 8
   %100 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx10.i.i146 = getelementptr inbounds i8, ptr %100, i64 -4
-  %101 = load i32, ptr %arrayidx10.i.i146, align 4
+  %arrayidx10.i.i167 = getelementptr inbounds i8, ptr %100, i64 -4
+  %101 = load i32, ptr %arrayidx10.i.i167, align 4
   %inc.i.i168 = add i32 %101, 1
-  store i32 %inc.i.i168, ptr %arrayidx10.i.i146, align 4
+  store i32 %inc.i.i168, ptr %arrayidx10.i.i167, align 4
   br label %for.inc82
 
 for.inc82:                                        ; preds = %for.inc82.sink.split, %invoke.cont74

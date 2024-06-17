@@ -3649,9 +3649,9 @@ _ZN5Gluco3vecINS_6Solver7WatcherEE4pushERKS2_.exit31: ; preds = %._ZN5Gluco3vecI
   %144 = load i96, ptr %6, align 4
   %145 = and i96 %144, 4
   %.not = icmp eq i96 %145, 0
+  %. = select i1 %.not, i64 408, i64 416
   %146 = trunc i96 %144 to i64
   %147 = ashr i64 %146, 32
-  %. = select i1 %.not, i64 408, i64 416
   %148 = getelementptr inbounds i8, ptr %0, i64 %.
   %149 = load i64, ptr %148, align 8
   %150 = add nsw i64 %149, %147
@@ -9290,8 +9290,8 @@ _ZNK5Gluco6Solver12withinBudgetEv.exit.thread:    ; preds = %109, %93, %_ZNK5Glu
   br label %.sink.split
 
 .sink.split:                                      ; preds = %166, %.thread
-  %.sink88 = phi i64 [ 1168, %166 ], [ 1160, %.thread ]
-  %not..ph = phi i32 [ 0, %166 ], [ -1, %.thread ]
+  %.sink88 = phi i64 [ 1160, %.thread ], [ 1168, %166 ]
+  %not..ph = phi i32 [ -1, %.thread ], [ 0, %166 ]
   %170 = fsub double %160, %30
   %171 = getelementptr inbounds i8, ptr %0, i64 %.sink88
   %172 = load double, ptr %171, align 8

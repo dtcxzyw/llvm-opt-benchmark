@@ -41862,12 +41862,7 @@ if.then.i:                                        ; preds = %if.then
   %arrayidx.i.i.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.383"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %return, label %if.then6.i
-
-if.then6.i:                                       ; preds = %if.then.i
-  %10 = load ptr, ptr %mPrev.i, align 8
-  store ptr %9, ptr %10, align 8
-  br label %return.sink.split
+  br i1 %tobool.not.i, label %return, label %return.sink.split
 
 while.body.lr.ph:                                 ; preds = %entry, %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterISC_St17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredESB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4nextEj.exit, %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterISC_St17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredESB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4nextEj.exit.thread
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -41893,21 +41888,21 @@ if.end14.preheader:                               ; preds = %cond.true.i, %cond.
   br label %if.end14
 
 cond.true.i:                                      ; preds = %while.body
-  %11 = load i32, ptr %mMaskIter.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i32 %11, 512
+  %10 = load i32, ptr %mMaskIter.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i32 %10, 512
   br i1 %cmp.i.i.i.not, label %if.end14.preheader, label %if.end24
 
 cond.true.i.i.i:                                  ; preds = %while.body
-  %12 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.not = icmp eq i32 %12, 32768
+  %11 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.not = icmp eq i32 %11, 32768
   br i1 %cmp.i.i.i.i.i.not, label %if.end14.preheader, label %if.end24.thread104
 
 cond.false.i.i.i:                                 ; preds = %while.body
   %cmp.i.i2.i.i = icmp eq i32 %lvl.088, 3
-  %13 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i15 = icmp ne ptr %14, %add.ptr.i.i.i.i.i.i.i
+  %12 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i15 = icmp ne ptr %13, %add.ptr.i.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %cmp.i.i2.i.i, i1 %cmp.i.i.i.i.i.i15, i1 false
   br i1 %cond.i.i.i.i, label %if.end24.thread104, label %do.body.preheader
 
@@ -41920,21 +41915,21 @@ if.end14:                                         ; preds = %if.end14.preheader,
   ]
 
 cond.true.i.i20:                                  ; preds = %if.end14
-  %15 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %cmp.i.i.i.i22.not = icmp eq i32 %15, 4096
+  %14 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %cmp.i.i.i.i22.not = icmp eq i32 %14, 4096
   br i1 %cmp.i.i.i.i22.not, label %do.body.backedge, label %if.then17
 
 cond.true.i.i.i16:                                ; preds = %if.end14
-  %16 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.i.i18.not = icmp eq i32 %16, 32768
+  %15 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.i.i18.not = icmp eq i32 %15, 32768
   br i1 %cmp.i.i.i.i.i18.not, label %do.body.backedge, label %if.then17
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterISC_St17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredESB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4testEj.exit33: ; preds = %if.end14
   %cmp.i.i2.i.i28 = icmp eq i32 %inc, 3
-  %17 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i31 = icmp ne ptr %18, %add.ptr.i.i.i.i.i.i.i30
+  %16 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i31 = icmp ne ptr %17, %add.ptr.i.i.i.i.i.i.i30
   %cond.i.i.i.i32 = select i1 %cmp.i.i2.i.i28, i1 %cmp.i.i.i.i.i.i31, i1 false
   br i1 %cond.i.i.i.i32, label %if.then17, label %do.cond
 
@@ -41950,8 +41945,8 @@ do.cond:                                          ; preds = %_ZNK7openvdb5v11_04
   ]
 
 cond.true.i41:                                    ; preds = %do.cond
-  %19 = load i32, ptr %mMaskIter.i.i, align 8
-  %cmp.i.i.i43.not = icmp eq i32 %19, 512
+  %18 = load i32, ptr %mMaskIter.i.i, align 8
+  %cmp.i.i.i43.not = icmp eq i32 %18, 512
   br i1 %cmp.i.i.i43.not, label %do.body.backedge, label %while.end
 
 cond.true.i.i38:                                  ; preds = %do.cond
@@ -41966,10 +41961,10 @@ cond.true.i.i.i34:                                ; preds = %do.cond
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterISC_St17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredESB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4testEj.exit51: ; preds = %do.cond
   %cmp.i.i2.i.i46 = icmp eq i32 %inc, 3
-  %20 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i49 = icmp ne ptr %21, %add.ptr.i.i.i.i.i.i.i48
+  %19 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i49 = icmp ne ptr %20, %add.ptr.i.i.i.i.i.i.i48
   %cond.i.i.i.i50 = select i1 %cmp.i.i2.i.i46, i1 %cmp.i.i.i.i.i.i49, i1 false
   br i1 %cond.i.i.i.i50, label %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseINS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterISC_St17_Rb_tree_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredESB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4downEj.exit.preheader, label %do.body.backedge
 
@@ -42007,33 +42002,30 @@ while.end:                                        ; preds = %cond.true.i41, %_ZN
   br i1 %cmp.i.i.i.i12.not, label %while.body, label %while.end30, !llvm.loop !398
 
 while.end30:                                      ; preds = %while.end, %cond.true.i.i38
-  %22 = phi i32 [ %.pr, %cond.true.i.i38 ], [ %.pr107, %while.end ]
+  %21 = phi i32 [ %.pr, %cond.true.i.i38 ], [ %.pr107, %while.end ]
   %mPrev.i60 = getelementptr inbounds i8, ptr %this, i64 104
-  %23 = load ptr, ptr %mPrev.i60, align 8
-  %cmp2.not.i61 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %mPrev.i60, align 8
+  %cmp2.not.i61 = icmp eq ptr %22, null
   br i1 %cmp2.not.i61, label %return, label %if.then.i65
 
 if.then.i65:                                      ; preds = %while.end30
   %mNext.i56 = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i.i.i66 = tail call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEENS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i56)
-  %idxprom.i.i.i.i.i67 = zext i32 %22 to i64
+  %idxprom.i.i.i.i.i67 = zext i32 %21 to i64
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.383"], ptr %call.i.i.i.i66, i64 0, i64 %idxprom.i.i.i.i.i67
-  %24 = load ptr, ptr %arrayidx.i.i.i.i.i68, align 8
-  %tobool.not.i69 = icmp eq ptr %24, null
-  br i1 %tobool.not.i69, label %return, label %if.then6.i70
+  %23 = load ptr, ptr %arrayidx.i.i.i.i.i68, align 8
+  %tobool.not.i69 = icmp eq ptr %23, null
+  br i1 %tobool.not.i69, label %return, label %return.sink.split
 
-if.then6.i70:                                     ; preds = %if.then.i65
-  %25 = load ptr, ptr %mPrev.i60, align 8
-  store ptr %24, ptr %25, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then6.i, %if.then6.i70
-  %.sink114 = phi ptr [ %25, %if.then6.i70 ], [ %10, %if.then6.i ]
-  %.sink = phi ptr [ %24, %if.then6.i70 ], [ %9, %if.then6.i ]
-  %mMaskIter.i.i.i.i.i4.i.i71 = getelementptr inbounds i8, ptr %.sink114, i64 8
+return.sink.split:                                ; preds = %if.then.i65, %if.then.i
+  %mPrev.i60.sink = phi ptr [ %mPrev.i, %if.then.i ], [ %mPrev.i60, %if.then.i65 ]
+  %.sink115 = phi ptr [ %9, %if.then.i ], [ %23, %if.then.i65 ]
+  %24 = load ptr, ptr %mPrev.i60.sink, align 8
+  store ptr %.sink115, ptr %24, align 8
+  %mMaskIter.i.i.i.i.i4.i.i71 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 512, ptr %mMaskIter.i.i.i.i.i4.i.i71, align 8
-  %mParent3.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %.sink114, i64 16
-  store ptr %.sink, ptr %mParent3.i.i.i.i.i.i.i.i.i72, align 8
+  %mParent3.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %.sink115, ptr %mParent3.i.i.i.i.i.i.i.i.i72, align 8
   br label %return
 
 return:                                           ; preds = %do.body.preheader, %do.body.backedge, %return.sink.split, %if.then.i65, %while.end30, %if.then.i, %if.then
@@ -42674,12 +42666,7 @@ if.then.i:                                        ; preds = %if.then
   %arrayidx.i.i.i.i.i = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.383"], ptr %call.i.i.i.i, i64 0, i64 %idxprom.i.i.i.i.i
   %9 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8
   %tobool.not.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i, label %return, label %if.then6.i
-
-if.then6.i:                                       ; preds = %if.then.i
-  %10 = load ptr, ptr %mPrev.i, align 8
-  store ptr %9, ptr %10, align 8
-  br label %return.sink.split
+  br i1 %tobool.not.i, label %return, label %return.sink.split
 
 while.body.lr.ph:                                 ; preds = %entry, %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4nextEj.exit, %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4nextEj.exit.thread
   %mMaskIter.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -42705,21 +42692,21 @@ if.end14.preheader:                               ; preds = %cond.true.i, %cond.
   br label %if.end14
 
 cond.true.i:                                      ; preds = %while.body
-  %11 = load i32, ptr %mMaskIter.i.i, align 8
-  %cmp.i.i.i.not = icmp eq i32 %11, 512
+  %10 = load i32, ptr %mMaskIter.i.i, align 8
+  %cmp.i.i.i.not = icmp eq i32 %10, 512
   br i1 %cmp.i.i.i.not, label %if.end14.preheader, label %if.end24
 
 cond.true.i.i.i:                                  ; preds = %while.body
-  %12 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.not = icmp eq i32 %12, 32768
+  %11 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.not = icmp eq i32 %11, 32768
   br i1 %cmp.i.i.i.i.i.not, label %if.end14.preheader, label %if.end24.thread104
 
 cond.false.i.i.i:                                 ; preds = %while.body
   %cmp.i.i2.i.i = icmp eq i32 %lvl.088, 3
-  %13 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i15 = icmp ne ptr %14, %add.ptr.i.i.i.i.i.i.i
+  %12 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i15 = icmp ne ptr %13, %add.ptr.i.i.i.i.i.i.i
   %cond.i.i.i.i = select i1 %cmp.i.i2.i.i, i1 %cmp.i.i.i.i.i.i15, i1 false
   br i1 %cond.i.i.i.i, label %if.end24.thread104, label %do.body.preheader
 
@@ -42732,21 +42719,21 @@ if.end14:                                         ; preds = %if.end14.preheader,
   ]
 
 cond.true.i.i20:                                  ; preds = %if.end14
-  %15 = load i32, ptr %mMaskIter.i.i.i, align 8
-  %cmp.i.i.i.i22.not = icmp eq i32 %15, 4096
+  %14 = load i32, ptr %mMaskIter.i.i.i, align 8
+  %cmp.i.i.i.i22.not = icmp eq i32 %14, 4096
   br i1 %cmp.i.i.i.i22.not, label %do.body.backedge, label %if.then17
 
 cond.true.i.i.i16:                                ; preds = %if.end14
-  %16 = load i32, ptr %mMaskIter.i.i.i.i, align 8
-  %cmp.i.i.i.i.i18.not = icmp eq i32 %16, 32768
+  %15 = load i32, ptr %mMaskIter.i.i.i.i, align 8
+  %cmp.i.i.i.i.i18.not = icmp eq i32 %15, 32768
   br i1 %cmp.i.i.i.i.i18.not, label %do.body.backedge, label %if.then17
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4testEj.exit33: ; preds = %if.end14
   %cmp.i.i2.i.i28 = icmp eq i32 %inc, 3
-  %17 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i31 = icmp ne ptr %18, %add.ptr.i.i.i.i.i.i.i30
+  %16 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i31 = icmp ne ptr %17, %add.ptr.i.i.i.i.i.i.i30
   %cond.i.i.i.i32 = select i1 %cmp.i.i2.i.i28, i1 %cmp.i.i.i.i.i.i31, i1 false
   br i1 %cond.i.i.i.i32, label %if.then17, label %do.cond
 
@@ -42762,8 +42749,8 @@ do.cond:                                          ; preds = %_ZNK7openvdb5v11_04
   ]
 
 cond.true.i41:                                    ; preds = %do.cond
-  %19 = load i32, ptr %mMaskIter.i.i, align 8
-  %cmp.i.i.i43.not = icmp eq i32 %19, 512
+  %18 = load i32, ptr %mMaskIter.i.i, align 8
+  %cmp.i.i.i43.not = icmp eq i32 %18, 512
   br i1 %cmp.i.i.i43.not, label %do.body.backedge, label %while.end
 
 cond.true.i.i38:                                  ; preds = %do.cond
@@ -42778,10 +42765,10 @@ cond.true.i.i.i34:                                ; preds = %do.cond
 
 _ZNK7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4testEj.exit51: ; preds = %do.cond
   %cmp.i.i2.i.i46 = icmp eq i32 %inc, 3
-  %20 = load ptr, ptr %mNext.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load ptr, ptr %mIter.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i49 = icmp ne ptr %21, %add.ptr.i.i.i.i.i.i.i48
+  %19 = load ptr, ptr %mNext.i.i.i, align 8
+  %add.ptr.i.i.i.i.i.i.i48 = getelementptr inbounds i8, ptr %19, i64 8
+  %20 = load ptr, ptr %mIter.i.i.i.i.i, align 8
+  %cmp.i.i.i.i.i.i49 = icmp ne ptr %20, %add.ptr.i.i.i.i.i.i.i48
   %cond.i.i.i.i50 = select i1 %cmp.i.i2.i.i46, i1 %cmp.i.i.i.i.i.i49, i1 false
   br i1 %cond.i.i.i.i50, label %_ZN7openvdb5v11_04tree12IterListItemINS1_16LeafIteratorBaseIKNS1_4TreeINS1_8RootNodeINS1_12InternalNodeINS6_INS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEELj5EEEEEEENSC_9ChildIterIKSC_St23_Rb_tree_const_iteratorISt4pairIKNS0_4math5CoordENSC_10NodeStructEEENSC_11ChildOnPredEKSB_EEE8PrevItemENS0_8TypeListIJS9_SA_SB_SC_EEELm4ELj0EE4downEj.exit.preheader, label %do.body.backedge
 
@@ -42819,33 +42806,30 @@ while.end:                                        ; preds = %cond.true.i41, %_ZN
   br i1 %cmp.i.i.i.i12.not, label %while.body, label %while.end30, !llvm.loop !411
 
 while.end30:                                      ; preds = %while.end, %cond.true.i.i38
-  %22 = phi i32 [ %.pr, %cond.true.i.i38 ], [ %.pr107, %while.end ]
+  %21 = phi i32 [ %.pr, %cond.true.i.i38 ], [ %.pr107, %while.end ]
   %mPrev.i60 = getelementptr inbounds i8, ptr %this, i64 104
-  %23 = load ptr, ptr %mPrev.i60, align 8
-  %cmp2.not.i61 = icmp eq ptr %23, null
+  %22 = load ptr, ptr %mPrev.i60, align 8
+  %cmp2.not.i61 = icmp eq ptr %22, null
   br i1 %cmp2.not.i61, label %return, label %if.then.i65
 
 if.then.i65:                                      ; preds = %while.end30
   %mNext.i56 = getelementptr inbounds i8, ptr %this, i64 24
   %call.i.i.i.i66 = tail call noundef nonnull align 8 dereferenceable(33808) ptr @_ZNK7openvdb5v11_04tree12IteratorBaseINS0_4util14OnMaskIteratorINS3_8NodeMaskILj4EEEEEKNS1_12InternalNodeINS1_8LeafNodeINS0_9ValueMaskELj3EEELj4EEEE6parentEv(ptr noundef nonnull align 8 dereferenceable(24) %mNext.i56)
-  %idxprom.i.i.i.i.i67 = zext i32 %22 to i64
+  %idxprom.i.i.i.i.i67 = zext i32 %21 to i64
   %arrayidx.i.i.i.i.i68 = getelementptr inbounds [4096 x %"class.openvdb::v11_0::tree::NodeUnion.383"], ptr %call.i.i.i.i66, i64 0, i64 %idxprom.i.i.i.i.i67
-  %24 = load ptr, ptr %arrayidx.i.i.i.i.i68, align 8
-  %tobool.not.i69 = icmp eq ptr %24, null
-  br i1 %tobool.not.i69, label %return, label %if.then6.i70
+  %23 = load ptr, ptr %arrayidx.i.i.i.i.i68, align 8
+  %tobool.not.i69 = icmp eq ptr %23, null
+  br i1 %tobool.not.i69, label %return, label %return.sink.split
 
-if.then6.i70:                                     ; preds = %if.then.i65
-  %25 = load ptr, ptr %mPrev.i60, align 8
-  store ptr %24, ptr %25, align 8
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then6.i, %if.then6.i70
-  %.sink114 = phi ptr [ %25, %if.then6.i70 ], [ %10, %if.then6.i ]
-  %.sink = phi ptr [ %24, %if.then6.i70 ], [ %9, %if.then6.i ]
-  %mMaskIter.i.i.i.i.i4.i.i71 = getelementptr inbounds i8, ptr %.sink114, i64 8
+return.sink.split:                                ; preds = %if.then.i65, %if.then.i
+  %mPrev.i60.sink = phi ptr [ %mPrev.i, %if.then.i ], [ %mPrev.i60, %if.then.i65 ]
+  %.sink115 = phi ptr [ %9, %if.then.i ], [ %23, %if.then.i65 ]
+  %24 = load ptr, ptr %mPrev.i60.sink, align 8
+  store ptr %.sink115, ptr %24, align 8
+  %mMaskIter.i.i.i.i.i4.i.i71 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 512, ptr %mMaskIter.i.i.i.i.i4.i.i71, align 8
-  %mParent3.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %.sink114, i64 16
-  store ptr %.sink, ptr %mParent3.i.i.i.i.i.i.i.i.i72, align 8
+  %mParent3.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %24, i64 16
+  store ptr %.sink115, ptr %mParent3.i.i.i.i.i.i.i.i.i72, align 8
   br label %return
 
 return:                                           ; preds = %do.body.preheader, %do.body.backedge, %return.sink.split, %if.then.i65, %while.end30, %if.then.i, %if.then

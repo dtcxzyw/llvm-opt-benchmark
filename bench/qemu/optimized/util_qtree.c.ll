@@ -1427,10 +1427,10 @@ if.end73:                                         ; preds = %if.else51, %if.then
   br i1 %cmp10, label %if.then11, label %if.else33
 
 while.end:                                        ; preds = %if.else58, %if.else41
-  %.sink139 = phi i8 [ 1, %if.else58 ], [ -1, %if.else41 ]
+  %.sink136 = phi i8 [ 1, %if.else58 ], [ -1, %if.else41 ]
   %balance66 = getelementptr inbounds i8, ptr %node.0115, i64 32
   %18 = load i8, ptr %balance66, align 8
-  %add = add i8 %18, %.sink139
+  %add = add i8 %18, %.sink136
   store i8 %add, ptr %balance66, align 8
   %nnodes69 = getelementptr inbounds i8, ptr %tree, i64 40
   %19 = load i32, ptr %nnodes69, align 8
@@ -1510,10 +1510,10 @@ if.else133:                                       ; preds = %if.end117.thread92,
   br label %if.end138
 
 if.end138:                                        ; preds = %if.end126, %if.end117.thread97, %if.else133
-  %.sink136 = phi i8 [ 1, %if.else133 ], [ -1, %if.end117.thread97 ], [ -1, %if.end126 ]
+  %.sink139 = phi i8 [ 1, %if.else133 ], [ -1, %if.end117.thread97 ], [ -1, %if.end126 ]
   %balance134 = getelementptr inbounds i8, ptr %20, i64 32
   %28 = load i8, ptr %balance134, align 8
-  %add136 = add i8 %28, %.sink136
+  %add136 = add i8 %28, %.sink139
   store i8 %add136, ptr %balance134, align 8
   br label %while.body74
 

@@ -6355,17 +6355,17 @@ lor.lhs.false.i15:                                ; preds = %if.else
   br i1 %cmp5.i18, label %if.end19.sink.split, label %if.end19
 
 if.end19.sink.split:                              ; preds = %if.else, %lor.lhs.false.i15, %if.then16, %lor.lhs.false.i
-  %m_learned.sink42 = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_learned, %if.then16 ], [ %m_clauses, %lor.lhs.false.i15 ], [ %m_clauses, %if.else ]
-  tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_learned.sink42)
-  %.pre.i = load ptr, ptr %m_learned.sink42, align 8
-  %arrayidx8.phi.trans.insert.i25 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %m_clauses.sink43 = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_learned, %if.then16 ], [ %m_clauses, %lor.lhs.false.i15 ], [ %m_clauses, %if.else ]
+  tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_clauses.sink43)
+  %.pre.i24 = load ptr, ptr %m_clauses.sink43, align 8
+  %arrayidx8.phi.trans.insert.i25 = getelementptr inbounds i8, ptr %.pre.i24, i64 -4
   %.pre1.i26 = load i32, ptr %arrayidx8.phi.trans.insert.i25, align 4
   br label %if.end19
 
 if.end19:                                         ; preds = %if.end19.sink.split, %lor.lhs.false.i15, %lor.lhs.false.i
   %.sink41 = phi i32 [ %19, %lor.lhs.false.i ], [ %22, %lor.lhs.false.i15 ], [ %.pre1.i26, %if.end19.sink.split ]
-  %.sink = phi ptr [ %18, %lor.lhs.false.i ], [ %21, %lor.lhs.false.i15 ], [ %.pre.i, %if.end19.sink.split ]
-  %m_clauses.sink = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_clauses, %lor.lhs.false.i15 ], [ %m_learned.sink42, %if.end19.sink.split ]
+  %.sink = phi ptr [ %18, %lor.lhs.false.i ], [ %21, %lor.lhs.false.i15 ], [ %.pre.i24, %if.end19.sink.split ]
+  %m_clauses.sink = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_clauses, %lor.lhs.false.i15 ], [ %m_clauses.sink43, %if.end19.sink.split ]
   %idx.ext.i19 = zext i32 %.sink41 to i64
   %add.ptr.i20 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i19
   store ptr %call3.i, ptr %add.ptr.i20, align 8
@@ -6471,17 +6471,17 @@ lor.lhs.false.i10.i:                              ; preds = %_ZNK5nlsat6solver3i
   br i1 %cmp5.i13.i, label %if.end.sink.split.i, label %_ZN5nlsat6solver3imp13attach_clauseERNS_6clauseE.exit
 
 if.end.sink.split.i:                              ; preds = %lor.lhs.false.i10.i, %_ZNK5nlsat6solver3imp8max_bvarERKNS_6clauseE.exit.i, %lor.lhs.false.i.i, %if.then.i29
-  %arrayidx.i.sink30.i = phi ptr [ %arrayidx.i.i, %lor.lhs.false.i.i ], [ %arrayidx.i.i, %if.then.i29 ], [ %arrayidx.i8.i, %lor.lhs.false.i10.i ], [ %arrayidx.i8.i, %_ZNK5nlsat6solver3imp8max_bvarERKNS_6clauseE.exit.i ]
-  tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i.sink30.i)
-  %.pre.i.i = load ptr, ptr %arrayidx.i.sink30.i, align 8
-  %arrayidx8.phi.trans.insert.i20.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %arrayidx.i8.sink31.i = phi ptr [ %arrayidx.i.i, %lor.lhs.false.i.i ], [ %arrayidx.i.i, %if.then.i29 ], [ %arrayidx.i8.i, %lor.lhs.false.i10.i ], [ %arrayidx.i8.i, %_ZNK5nlsat6solver3imp8max_bvarERKNS_6clauseE.exit.i ]
+  tail call void @_ZN6vectorIPN5nlsat6clauseELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i8.sink31.i)
+  %.pre.i19.i = load ptr, ptr %arrayidx.i8.sink31.i, align 8
+  %arrayidx8.phi.trans.insert.i20.i = getelementptr inbounds i8, ptr %.pre.i19.i, i64 -4
   %.pre1.i21.i = load i32, ptr %arrayidx8.phi.trans.insert.i20.i, align 4
   br label %_ZN5nlsat6solver3imp13attach_clauseERNS_6clauseE.exit
 
 _ZN5nlsat6solver3imp13attach_clauseERNS_6clauseE.exit: ; preds = %lor.lhs.false.i.i, %lor.lhs.false.i10.i, %if.end.sink.split.i
   %.sink29.i = phi i32 [ %33, %lor.lhs.false.i.i ], [ %41, %lor.lhs.false.i10.i ], [ %.pre1.i21.i, %if.end.sink.split.i ]
-  %.sink.i = phi ptr [ %32, %lor.lhs.false.i.i ], [ %40, %lor.lhs.false.i10.i ], [ %.pre.i.i, %if.end.sink.split.i ]
-  %arrayidx.i8.sink.i = phi ptr [ %arrayidx.i.i, %lor.lhs.false.i.i ], [ %arrayidx.i8.i, %lor.lhs.false.i10.i ], [ %arrayidx.i.sink30.i, %if.end.sink.split.i ]
+  %.sink.i = phi ptr [ %32, %lor.lhs.false.i.i ], [ %40, %lor.lhs.false.i10.i ], [ %.pre.i19.i, %if.end.sink.split.i ]
+  %arrayidx.i8.sink.i = phi ptr [ %arrayidx.i.i, %lor.lhs.false.i.i ], [ %arrayidx.i8.i, %lor.lhs.false.i10.i ], [ %arrayidx.i8.sink31.i, %if.end.sink.split.i ]
   %idx.ext.i14.i = zext i32 %.sink29.i to i64
   %add.ptr.i15.i = getelementptr inbounds ptr, ptr %.sink.i, i64 %idx.ext.i14.i
   store ptr %call3.i, ptr %add.ptr.i15.i, align 8
@@ -17465,10 +17465,10 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
   %add.ptr.i22 = getelementptr inbounds %"class.sat::literal", ptr %.sink204, i64 %idx.ext.i21
   store i32 %spec.select.sink, ptr %add.ptr.i22, align 4
   %.sink = load ptr, ptr %lits, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %30 = load i32, ptr %arrayidx10.i, align 4
+  %arrayidx10.i32 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %30 = load i32, ptr %arrayidx10.i32, align 4
   %inc.i33 = add i32 %30, 1
-  store i32 %inc.i33, ptr %arrayidx10.i, align 4
+  store i32 %inc.i33, ptr %arrayidx10.i32, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else, %if.then
@@ -20232,14 +20232,14 @@ lor.lhs.false.i.i.i6:                             ; preds = %if.else
 
 if.end6.sink.split:                               ; preds = %if.else, %lor.lhs.false.i.i.i6, %if.then5, %lor.lhs.false.i.i.i
   tail call void @_ZN6vectorIN5nlsat6solver3imp5trailELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i.i4)
-  %.pre.i.i.i = load ptr, ptr %m_trail.i.i4, align 8
-  %arrayidx8.phi.trans.insert.i.i.i18 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
+  %.pre.i.i.i17 = load ptr, ptr %m_trail.i.i4, align 8
+  %arrayidx8.phi.trans.insert.i.i.i18 = getelementptr inbounds i8, ptr %.pre.i.i.i17, i64 -4
   %.pre1.i.i.i19 = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i18, align 4
   br label %if.end6
 
 if.end6:                                          ; preds = %if.end6.sink.split, %lor.lhs.false.i.i.i6, %lor.lhs.false.i.i.i
   %.sink83 = phi i32 [ %13, %lor.lhs.false.i.i.i ], [ %17, %lor.lhs.false.i.i.i6 ], [ %.pre1.i.i.i19, %if.end6.sink.split ]
-  %.sink = phi ptr [ %12, %lor.lhs.false.i.i.i ], [ %16, %lor.lhs.false.i.i.i6 ], [ %.pre.i.i.i, %if.end6.sink.split ]
+  %.sink = phi ptr [ %12, %lor.lhs.false.i.i.i ], [ %16, %lor.lhs.false.i.i.i6 ], [ %.pre.i.i.i17, %if.end6.sink.split ]
   %idx.ext.i.i.i = zext i32 %.sink83 to i64
   %add.ptr.i.i.i = getelementptr inbounds %"struct.nlsat::solver::imp::trail", ptr %.sink, i64 %idx.ext.i.i.i
   store i32 3, ptr %add.ptr.i.i.i, align 8

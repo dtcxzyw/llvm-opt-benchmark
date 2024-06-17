@@ -668,7 +668,7 @@ define internal i32 @dissect_telnet(ptr noundef %0, ptr noundef %1, ptr noundef 
   br label %19
 
 19:                                               ; preds = %.lr.ph, %telnet_command.exit
-  %20 = phi i32 [ %17, %.lr.ph ], [ %291, %telnet_command.exit ]
+  %20 = phi i32 [ %17, %.lr.ph ], [ %254, %telnet_command.exit ]
   %.056104 = phi i32 [ 0, %.lr.ph ], [ %.1.i, %telnet_command.exit ]
   %.070103 = phi i32 [ 0, %.lr.ph ], [ %.2, %telnet_command.exit ]
   %21 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %.056104, i32 noundef %20, i8 noundef zeroext -1) #5
@@ -758,12 +758,12 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %62 = load i32, ptr @hf_telnet_cmd, align 4
   %63 = call ptr @proto_tree_add_item(ptr noundef %61, i32 noundef %62, ptr noundef %0, i32 noundef %23, i32 noundef 1, i32 noundef 0) #5
   %64 = add i32 %22, 2
-  switch i8 %59, label %156 [
+  switch i8 %59, label %119 [
     i8 -5, label %65
-    i8 -4, label %83
-    i8 -3, label %101
-    i8 -2, label %119
-    i8 -6, label %137
+    i8 -4, label %74
+    i8 -3, label %83
+    i8 -2, label %92
+    i8 -6, label %101
   ]
 
 65:                                               ; preds = %58
@@ -778,22 +778,21 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %72 = getelementptr inbounds i8, ptr %.0.i.i.i, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not.i.i = icmp eq ptr %73, null
-  br i1 %.not.i.i, label %telnet_suboption_name.exit.i, label %74
+  br i1 %.not.i.i, label %.thread.i, label %.thread.sink.split.i
 
-74:                                               ; preds = %65
-  %75 = load i32, ptr %73, align 4
-  br label %telnet_suboption_name.exit.i
-
-telnet_suboption_name.exit.i:                     ; preds = %74, %65
-  %.0.i.i = phi i32 [ %75, %74 ], [ %66, %65 ]
-  %76 = load i32, ptr @hf_telnet_subcmd, align 4
-  %77 = zext i8 %67 to i32
-  %78 = load ptr, ptr %.0.i.i.i, align 8
-  %79 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %76, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %77, ptr noundef nonnull @.str.285, ptr noundef %78) #5
-  %80 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %.0.i.i) #5
-  %81 = load ptr, ptr %18, align 8
-  %82 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %81, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.171, ptr noundef %78) #5
-  br label %.thread.i
+74:                                               ; preds = %58
+  %75 = load i32, ptr @ett_telnet_subopt, align 4
+  %76 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
+  %77 = icmp ult i8 %76, 50
+  %78 = zext nneg i8 %76 to i64
+  %79 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %78
+  %80 = icmp eq i8 %76, -24
+  %telnet_opt_vmware.telnet_opt_unknown.i.i31.i = select i1 %80, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
+  %.0.i.i32.i = select i1 %77, ptr %79, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i31.i
+  %81 = getelementptr inbounds i8, ptr %.0.i.i32.i, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %.not.i33.i = icmp eq ptr %82, null
+  br i1 %.not.i33.i, label %.thread.i, label %.thread.sink.split.i
 
 83:                                               ; preds = %58
   %84 = load i32, ptr @ett_telnet_subopt, align 4
@@ -802,27 +801,26 @@ telnet_suboption_name.exit.i:                     ; preds = %74, %65
   %87 = zext nneg i8 %85 to i64
   %88 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %87
   %89 = icmp eq i8 %85, -24
-  %telnet_opt_vmware.telnet_opt_unknown.i.i31.i = select i1 %89, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
-  %.0.i.i32.i = select i1 %86, ptr %88, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i31.i
-  %90 = getelementptr inbounds i8, ptr %.0.i.i32.i, i64 8
+  %telnet_opt_vmware.telnet_opt_unknown.i.i36.i = select i1 %89, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
+  %.0.i.i37.i = select i1 %86, ptr %88, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i36.i
+  %90 = getelementptr inbounds i8, ptr %.0.i.i37.i, i64 8
   %91 = load ptr, ptr %90, align 8
-  %.not.i33.i = icmp eq ptr %91, null
-  br i1 %.not.i33.i, label %telnet_suboption_name.exit35.i, label %92
+  %.not.i38.i = icmp eq ptr %91, null
+  br i1 %.not.i38.i, label %.thread.i, label %.thread.sink.split.i
 
-92:                                               ; preds = %83
-  %93 = load i32, ptr %91, align 4
-  br label %telnet_suboption_name.exit35.i
-
-telnet_suboption_name.exit35.i:                   ; preds = %92, %83
-  %.0.i34.i = phi i32 [ %93, %92 ], [ %84, %83 ]
-  %94 = load i32, ptr @hf_telnet_subcmd, align 4
-  %95 = zext i8 %85 to i32
-  %96 = load ptr, ptr %.0.i.i32.i, align 8
-  %97 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %94, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %95, ptr noundef nonnull @.str.285, ptr noundef %96) #5
-  %98 = call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %.0.i34.i) #5
-  %99 = load ptr, ptr %18, align 8
-  %100 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %99, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.170, ptr noundef %96) #5
-  br label %.thread.i
+92:                                               ; preds = %58
+  %93 = load i32, ptr @ett_telnet_subopt, align 4
+  %94 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
+  %95 = icmp ult i8 %94, 50
+  %96 = zext nneg i8 %94 to i64
+  %97 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %96
+  %98 = icmp eq i8 %94, -24
+  %telnet_opt_vmware.telnet_opt_unknown.i.i41.i = select i1 %98, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
+  %.0.i.i42.i = select i1 %95, ptr %97, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i41.i
+  %99 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %.not.i43.i = icmp eq ptr %100, null
+  br i1 %.not.i43.i, label %.thread.i, label %.thread.sink.split.i
 
 101:                                              ; preds = %58
   %102 = load i32, ptr @ett_telnet_subopt, align 4
@@ -831,442 +829,385 @@ telnet_suboption_name.exit35.i:                   ; preds = %92, %83
   %105 = zext nneg i8 %103 to i64
   %106 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %105
   %107 = icmp eq i8 %103, -24
-  %telnet_opt_vmware.telnet_opt_unknown.i.i36.i = select i1 %107, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
-  %.0.i.i37.i = select i1 %104, ptr %106, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i36.i
-  %108 = getelementptr inbounds i8, ptr %.0.i.i37.i, i64 8
+  %telnet_opt_vmware.telnet_opt_unknown.i.i46.i = select i1 %107, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
+  %.0.i.i47.i = select i1 %104, ptr %106, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i46.i
+  %108 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 8
   %109 = load ptr, ptr %108, align 8
-  %.not.i38.i = icmp eq ptr %109, null
-  br i1 %.not.i38.i, label %telnet_suboption_name.exit40.i, label %110
+  %.not.i48.i = icmp eq ptr %109, null
+  br i1 %.not.i48.i, label %.thread.i, label %.thread.sink.split.i
 
-110:                                              ; preds = %101
-  %111 = load i32, ptr %109, align 4
-  br label %telnet_suboption_name.exit40.i
-
-telnet_suboption_name.exit40.i:                   ; preds = %110, %101
-  %.0.i39.i = phi i32 [ %111, %110 ], [ %102, %101 ]
-  %112 = load i32, ptr @hf_telnet_subcmd, align 4
-  %113 = zext i8 %103 to i32
-  %114 = load ptr, ptr %.0.i.i37.i, align 8
-  %115 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %112, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %113, ptr noundef nonnull @.str.285, ptr noundef %114) #5
-  %116 = call ptr @proto_item_add_subtree(ptr noundef %115, i32 noundef %.0.i39.i) #5
-  %117 = load ptr, ptr %18, align 8
-  %118 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %117, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.169, ptr noundef %114) #5
+.thread.sink.split.i:                             ; preds = %101, %92, %83, %74, %65
+  %.sink137.i = phi ptr [ %73, %65 ], [ %82, %74 ], [ %91, %83 ], [ %100, %92 ], [ %109, %101 ]
+  %.sink.ph.i = phi i8 [ %67, %65 ], [ %76, %74 ], [ %85, %83 ], [ %94, %92 ], [ %103, %101 ]
+  %.0.i.i47.sink.ph.i = phi ptr [ %.0.i.i.i, %65 ], [ %.0.i.i32.i, %74 ], [ %.0.i.i37.i, %83 ], [ %.0.i.i42.i, %92 ], [ %.0.i.i47.i, %101 ]
+  %.str.86.sink.ph.i = phi ptr [ @.str.171, %65 ], [ @.str.170, %74 ], [ @.str.169, %83 ], [ @.str.168, %92 ], [ @.str.86, %101 ]
+  %110 = load i32, ptr %.sink137.i, align 4
   br label %.thread.i
+
+.thread.i:                                        ; preds = %.thread.sink.split.i, %101, %92, %83, %74, %65
+  %.sink.i = phi i8 [ %67, %65 ], [ %76, %74 ], [ %85, %83 ], [ %94, %92 ], [ %103, %101 ], [ %.sink.ph.i, %.thread.sink.split.i ]
+  %.0.i.i47.sink.i = phi ptr [ %.0.i.i.i, %65 ], [ %.0.i.i32.i, %74 ], [ %.0.i.i37.i, %83 ], [ %.0.i.i42.i, %92 ], [ %.0.i.i47.i, %101 ], [ %.0.i.i47.sink.ph.i, %.thread.sink.split.i ]
+  %.0.i49.sink.i = phi i32 [ %66, %65 ], [ %75, %74 ], [ %84, %83 ], [ %93, %92 ], [ %102, %101 ], [ %110, %.thread.sink.split.i ]
+  %.str.86.sink.i = phi ptr [ @.str.171, %65 ], [ @.str.170, %74 ], [ @.str.169, %83 ], [ @.str.168, %92 ], [ @.str.86, %101 ], [ %.str.86.sink.ph.i, %.thread.sink.split.i ]
+  %111 = load i32, ptr @hf_telnet_subcmd, align 4
+  %112 = zext i8 %.sink.i to i32
+  %113 = load ptr, ptr %.0.i.i47.sink.i, align 8
+  %114 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %111, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %112, ptr noundef nonnull @.str.285, ptr noundef %113) #5
+  %115 = call ptr @proto_item_add_subtree(ptr noundef %114, i32 noundef %.0.i49.sink.i) #5
+  %116 = load ptr, ptr %18, align 8
+  %117 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %116, ptr noundef nonnull @.str.286, ptr noundef nonnull %.str.86.sink.i, ptr noundef %113) #5
+  %.077.ph.i = add i32 %22, 3
+  %118 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %118, ptr noundef nonnull @.str.285, ptr noundef %117) #5
+  br label %123
 
 119:                                              ; preds = %58
-  %120 = load i32, ptr @ett_telnet_subopt, align 4
-  %121 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
-  %122 = icmp ult i8 %121, 50
-  %123 = zext nneg i8 %121 to i64
-  %124 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %123
-  %125 = icmp eq i8 %121, -24
-  %telnet_opt_vmware.telnet_opt_unknown.i.i41.i = select i1 %125, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
-  %.0.i.i42.i = select i1 %122, ptr %124, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i41.i
-  %126 = getelementptr inbounds i8, ptr %.0.i.i42.i, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %.not.i43.i = icmp eq ptr %127, null
-  br i1 %.not.i43.i, label %telnet_suboption_name.exit45.i, label %128
-
-128:                                              ; preds = %119
-  %129 = load i32, ptr %127, align 4
-  br label %telnet_suboption_name.exit45.i
-
-telnet_suboption_name.exit45.i:                   ; preds = %128, %119
-  %.0.i44.i = phi i32 [ %129, %128 ], [ %120, %119 ]
-  %130 = load i32, ptr @hf_telnet_subcmd, align 4
-  %131 = zext i8 %121 to i32
-  %132 = load ptr, ptr %.0.i.i42.i, align 8
-  %133 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %130, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %131, ptr noundef nonnull @.str.285, ptr noundef %132) #5
-  %134 = call ptr @proto_item_add_subtree(ptr noundef %133, i32 noundef %.0.i44.i) #5
-  %135 = load ptr, ptr %18, align 8
-  %136 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %135, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.168, ptr noundef %132) #5
-  br label %.thread.i
-
-137:                                              ; preds = %58
-  %138 = load i32, ptr @ett_telnet_subopt, align 4
-  %139 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
-  %140 = icmp ult i8 %139, 50
-  %141 = zext nneg i8 %139 to i64
-  %142 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %141
-  %143 = icmp eq i8 %139, -24
-  %telnet_opt_vmware.telnet_opt_unknown.i.i46.i = select i1 %143, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
-  %.0.i.i47.i = select i1 %140, ptr %142, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i46.i
-  %144 = getelementptr inbounds i8, ptr %.0.i.i47.i, i64 8
-  %145 = load ptr, ptr %144, align 8
-  %.not.i48.i = icmp eq ptr %145, null
-  br i1 %.not.i48.i, label %telnet_suboption_name.exit50.i, label %146
-
-146:                                              ; preds = %137
-  %147 = load i32, ptr %145, align 4
-  br label %telnet_suboption_name.exit50.i
-
-telnet_suboption_name.exit50.i:                   ; preds = %146, %137
-  %.0.i49.i = phi i32 [ %147, %146 ], [ %138, %137 ]
-  %148 = load i32, ptr @hf_telnet_subcmd, align 4
-  %149 = zext i8 %139 to i32
-  %150 = load ptr, ptr %.0.i.i47.i, align 8
-  %151 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %61, i32 noundef %148, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %149, ptr noundef nonnull @.str.285, ptr noundef %150) #5
-  %152 = call ptr @proto_item_add_subtree(ptr noundef %151, i32 noundef %.0.i49.i) #5
-  %153 = load ptr, ptr %18, align 8
-  %154 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %153, ptr noundef nonnull @.str.286, ptr noundef nonnull @.str.86, ptr noundef %150) #5
-  br label %.thread.i
-
-.thread.i:                                        ; preds = %telnet_suboption_name.exit50.i, %telnet_suboption_name.exit45.i, %telnet_suboption_name.exit40.i, %telnet_suboption_name.exit35.i, %telnet_suboption_name.exit.i
-  %.076.ph.i = phi ptr [ %82, %telnet_suboption_name.exit.i ], [ %100, %telnet_suboption_name.exit35.i ], [ %118, %telnet_suboption_name.exit40.i ], [ %136, %telnet_suboption_name.exit45.i ], [ %154, %telnet_suboption_name.exit50.i ]
-  %.075.ph.i = phi ptr [ %79, %telnet_suboption_name.exit.i ], [ %97, %telnet_suboption_name.exit35.i ], [ %115, %telnet_suboption_name.exit40.i ], [ %133, %telnet_suboption_name.exit45.i ], [ %151, %telnet_suboption_name.exit50.i ]
-  %.0.ph.i = phi ptr [ %80, %telnet_suboption_name.exit.i ], [ %98, %telnet_suboption_name.exit35.i ], [ %116, %telnet_suboption_name.exit40.i ], [ %134, %telnet_suboption_name.exit45.i ], [ %152, %telnet_suboption_name.exit50.i ]
-  %.077.ph.i = add i32 %22, 3
-  %155 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %155, ptr noundef nonnull @.str.285, ptr noundef %.076.ph.i) #5
-  br label %160
-
-156:                                              ; preds = %58
-  %157 = zext i8 %59 to i32
-  %158 = call ptr @val_to_str_const(i32 noundef %157, ptr noundef nonnull @cmd_vals, ptr noundef nonnull @.str.284) #5
-  %159 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %159, ptr noundef nonnull @.str.285, ptr noundef %158) #5
+  %120 = zext i8 %59 to i32
+  %121 = call ptr @val_to_str_const(i32 noundef %120, ptr noundef nonnull @cmd_vals, ptr noundef nonnull @.str.284) #5
+  %122 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %122, ptr noundef nonnull @.str.285, ptr noundef %121) #5
   %cond.i = icmp eq i8 %59, -16
-  br i1 %cond.i, label %telnet_command.exit, label %160
+  br i1 %cond.i, label %telnet_command.exit, label %123
 
-160:                                              ; preds = %156, %.thread.i
-  %.086.i = phi ptr [ %.0.ph.i, %.thread.i ], [ null, %156 ]
-  %.07585.i = phi ptr [ %.075.ph.i, %.thread.i ], [ null, %156 ]
-  %.07684.i = phi ptr [ %.076.ph.i, %.thread.i ], [ %158, %156 ]
-  %.07783.i = phi i32 [ %.077.ph.i, %.thread.i ], [ %64, %156 ]
-  %161 = icmp eq i32 %.1, 0
-  br i1 %161, label %162, label %164
+123:                                              ; preds = %119, %.thread.i
+  %.086.i = phi ptr [ %115, %.thread.i ], [ null, %119 ]
+  %.07585.i = phi ptr [ %114, %.thread.i ], [ null, %119 ]
+  %.07684.i = phi ptr [ %117, %.thread.i ], [ %121, %119 ]
+  %.07783.i = phi i32 [ %.077.ph.i, %.thread.i ], [ %64, %119 ]
+  %124 = icmp eq i32 %.1, 0
+  br i1 %124, label %125, label %127
 
-162:                                              ; preds = %160
-  %163 = load ptr, ptr %8, align 8
-  call void @col_add_str(ptr noundef %163, i32 noundef 25, ptr noundef %.07684.i) #5
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %8, align 8
+  call void @col_add_str(ptr noundef %126, i32 noundef 25, ptr noundef %.07684.i) #5
   br label %add_telnet_info_str.exit.i
 
-164:                                              ; preds = %160
-  %165 = icmp ult i32 %.1, 5
-  br i1 %165, label %166, label %168
+127:                                              ; preds = %123
+  %128 = icmp ult i32 %.1, 5
+  br i1 %128, label %129, label %131
 
-166:                                              ; preds = %164
-  %167 = load ptr, ptr %8, align 8
-  call void @col_append_sep_str(ptr noundef %167, i32 noundef 25, ptr noundef null, ptr noundef %.07684.i) #5
+129:                                              ; preds = %127
+  %130 = load ptr, ptr %8, align 8
+  call void @col_append_sep_str(ptr noundef %130, i32 noundef 25, ptr noundef null, ptr noundef %.07684.i) #5
   br label %add_telnet_info_str.exit.i
 
-168:                                              ; preds = %164
-  %169 = icmp eq i32 %.1, 5
-  br i1 %169, label %170, label %add_telnet_info_str.exit.i
+131:                                              ; preds = %127
+  %132 = icmp eq i32 %.1, 5
+  br i1 %132, label %133, label %add_telnet_info_str.exit.i
 
-170:                                              ; preds = %168
-  %171 = load ptr, ptr %8, align 8
-  call void @col_append_sep_str(ptr noundef %171, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.282) #5
+133:                                              ; preds = %131
+  %134 = load ptr, ptr %8, align 8
+  call void @col_append_sep_str(ptr noundef %134, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.282) #5
   br label %add_telnet_info_str.exit.i
 
-add_telnet_info_str.exit.i:                       ; preds = %170, %168, %166, %162
-  %172 = add i32 %.1, 1
-  %173 = icmp eq i8 %59, -6
-  br i1 %173, label %174, label %telnet_command.exit
+add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %125
+  %135 = add i32 %.1, 1
+  %136 = icmp eq i8 %59, -6
+  br i1 %136, label %137, label %telnet_command.exit
 
-174:                                              ; preds = %add_telnet_info_str.exit.i
-  %175 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
-  %176 = icmp ult i8 %175, 50
-  %177 = zext nneg i8 %175 to i64
-  %178 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %177
-  %179 = icmp eq i8 %175, -24
-  %telnet_opt_vmware.telnet_opt_unknown.i.i51.i = select i1 %179, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
-  %.0.i.i52.i = select i1 %176, ptr %178, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i51.i
-  %180 = add i32 %22, 3
-  %181 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %180) #5
-  %182 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %180, i32 noundef %181, i8 noundef zeroext -1) #5
-  %183 = icmp eq i32 %182, -1
-  br i1 %183, label %._crit_edge.i.i, label %.lr.ph.i.i
+137:                                              ; preds = %add_telnet_info_str.exit.i
+  %138 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %64) #5
+  %139 = icmp ult i8 %138, 50
+  %140 = zext nneg i8 %138 to i64
+  %141 = getelementptr [50 x %struct.tn_opt], ptr @options, i64 0, i64 %140
+  %142 = icmp eq i8 %138, -24
+  %telnet_opt_vmware.telnet_opt_unknown.i.i51.i = select i1 %142, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
+  %.0.i.i52.i = select i1 %139, ptr %141, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i51.i
+  %143 = add i32 %22, 3
+  %144 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %143) #5
+  %145 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %143, i32 noundef %144, i8 noundef zeroext -1) #5
+  %146 = icmp eq i32 %145, -1
+  br i1 %146, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-._crit_edge.i.i:                                  ; preds = %190, %174
-  %.0.lcssa.i.i = phi i32 [ 0, %174 ], [ %192, %190 ]
-  %184 = add i32 %181, %180
+._crit_edge.i.i:                                  ; preds = %153, %137
+  %.0.lcssa.i.i = phi i32 [ 0, %137 ], [ %155, %153 ]
+  %147 = add i32 %144, %143
   br label %.loopexit.i.i
 
-.lr.ph.i.i:                                       ; preds = %174, %190
-  %185 = phi i32 [ %193, %190 ], [ %182, %174 ]
-  %.0135.i.i = phi i32 [ %192, %190 ], [ 0, %174 ]
-  %186 = add nuw i32 %185, 1
-  %187 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %186) #5
-  %.not.i53.i = icmp eq i32 %187, 0
-  br i1 %.not.i53.i, label %.loopexit.i.i, label %188
+.lr.ph.i.i:                                       ; preds = %137, %153
+  %148 = phi i32 [ %156, %153 ], [ %145, %137 ]
+  %.0135.i.i = phi i32 [ %155, %153 ], [ 0, %137 ]
+  %149 = add nuw i32 %148, 1
+  %150 = call i32 @tvb_offset_exists(ptr noundef %0, i32 noundef %149) #5
+  %.not.i53.i = icmp eq i32 %150, 0
+  br i1 %.not.i53.i, label %.loopexit.i.i, label %151
 
-188:                                              ; preds = %.lr.ph.i.i
-  %189 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %186) #5
-  %.not94.i.i = icmp eq i8 %189, -1
-  br i1 %.not94.i.i, label %190, label %.loopexit.i.i
+151:                                              ; preds = %.lr.ph.i.i
+  %152 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %149) #5
+  %.not94.i.i = icmp eq i8 %152, -1
+  br i1 %.not94.i.i, label %153, label %.loopexit.i.i
 
-190:                                              ; preds = %188
-  %191 = add i32 %185, 2
-  %192 = add i32 %.0135.i.i, 1
-  %193 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %191, i32 noundef %181, i8 noundef zeroext -1) #5
-  %194 = icmp eq i32 %193, -1
-  br i1 %194, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
+153:                                              ; preds = %151
+  %154 = add i32 %148, 2
+  %155 = add i32 %.0135.i.i, 1
+  %156 = call i32 @tvb_find_guint8(ptr noundef %0, i32 noundef %154, i32 noundef %144, i8 noundef zeroext -1) #5
+  %157 = icmp eq i32 %156, -1
+  br i1 %157, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !6
 
-.loopexit.i.i:                                    ; preds = %188, %.lr.ph.i.i, %._crit_edge.i.i
-  %.0134.i.i = phi i32 [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.0135.i.i, %.lr.ph.i.i ], [ %.0135.i.i, %188 ]
-  %.189.ph.i.i = phi i32 [ %184, %._crit_edge.i.i ], [ %185, %.lr.ph.i.i ], [ %185, %188 ]
-  %195 = sub i32 %.189.ph.i.i, %22
-  %196 = add i32 %195, -3
-  %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %198, label %telnet_command.exit
+.loopexit.i.i:                                    ; preds = %151, %.lr.ph.i.i, %._crit_edge.i.i
+  %.0134.i.i = phi i32 [ %.0.lcssa.i.i, %._crit_edge.i.i ], [ %.0135.i.i, %.lr.ph.i.i ], [ %.0135.i.i, %151 ]
+  %.189.ph.i.i = phi i32 [ %147, %._crit_edge.i.i ], [ %148, %.lr.ph.i.i ], [ %148, %151 ]
+  %158 = sub i32 %.189.ph.i.i, %22
+  %159 = add i32 %158, -3
+  %160 = icmp sgt i32 %159, 0
+  br i1 %160, label %161, label %telnet_command.exit
 
-198:                                              ; preds = %.loopexit.i.i
-  %199 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 24
-  %200 = load ptr, ptr %199, align 8
-  %.not96.i.i = icmp eq ptr %200, null
-  br i1 %.not96.i.i, label %253, label %201
+161:                                              ; preds = %.loopexit.i.i
+  %162 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 24
+  %163 = load ptr, ptr %162, align 8
+  %.not96.i.i = icmp eq ptr %163, null
+  br i1 %.not96.i.i, label %216, label %164
 
-201:                                              ; preds = %198
-  %202 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 16
-  %203 = load i32, ptr %202, align 8
-  switch i32 %203, label %219 [
-    i32 0, label %204
-    i32 1, label %206
-    i32 2, label %212
+164:                                              ; preds = %161
+  %165 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 16
+  %166 = load i32, ptr %165, align 8
+  switch i32 %166, label %182 [
+    i32 0, label %167
+    i32 1, label %169
+    i32 2, label %175
   ]
 
-204:                                              ; preds = %201
-  %205 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.143) #5
+167:                                              ; preds = %164
+  %168 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.143) #5
   br label %telnet_command.exit
 
-206:                                              ; preds = %201
-  %207 = sub i32 %196, %.0134.i.i
-  %208 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
-  %209 = load i32, ptr %208, align 4
-  %.not97.i.i = icmp eq i32 %207, %209
-  br i1 %.not97.i.i, label %219, label %210
+169:                                              ; preds = %164
+  %170 = sub i32 %159, %.0134.i.i
+  %171 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
+  %172 = load i32, ptr %171, align 4
+  %.not97.i.i = icmp eq i32 %170, %172
+  br i1 %.not97.i.i, label %182, label %173
 
-210:                                              ; preds = %206
-  %211 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.451, i32 noundef %196, i32 noundef %209) #5
+173:                                              ; preds = %169
+  %174 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.451, i32 noundef %159, i32 noundef %172) #5
   br label %telnet_command.exit
 
-212:                                              ; preds = %201
-  %213 = sub i32 %196, %.0134.i.i
-  %214 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
-  %215 = load i32, ptr %214, align 4
-  %216 = icmp slt i32 %213, %215
-  br i1 %216, label %217, label %219
+175:                                              ; preds = %164
+  %176 = sub i32 %159, %.0134.i.i
+  %177 = getelementptr inbounds i8, ptr %.0.i.i52.i, i64 20
+  %178 = load i32, ptr %177, align 4
+  %179 = icmp slt i32 %176, %178
+  br i1 %179, label %180, label %182
 
-217:                                              ; preds = %212
-  %218 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.452, i32 noundef %196, i32 noundef %215) #5
+180:                                              ; preds = %175
+  %181 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.07585.i, ptr noundef nonnull @ei_telnet_suboption_length, ptr noundef nonnull @.str.452, i32 noundef %159, i32 noundef %178) #5
   br label %telnet_command.exit
 
-219:                                              ; preds = %212, %206, %201
-  %220 = icmp sgt i32 %.0134.i.i, 0
-  br i1 %220, label %221, label %251
+182:                                              ; preds = %175, %169, %164
+  %183 = icmp sgt i32 %.0134.i.i, 0
+  br i1 %183, label %184, label %214
 
-221:                                              ; preds = %219
-  %222 = icmp ugt i32 %196, 10239
-  br i1 %222, label %unescape_and_tvbuffify_telnet_option.exit.i.i, label %223
+184:                                              ; preds = %182
+  %185 = icmp ugt i32 %159, 10239
+  br i1 %185, label %unescape_and_tvbuffify_telnet_option.exit.i.i, label %186
 
-223:                                              ; preds = %221
-  %224 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %180, i32 noundef %196) #5
-  %225 = zext nneg i32 %196 to i64
-  %226 = getelementptr i8, ptr %224, i64 %225
-  %227 = getelementptr i8, ptr %226, i64 -1
-  %228 = load ptr, ptr %18, align 8
-  %229 = call noalias ptr @wmem_alloc(ptr noundef %228, i64 noundef %225) #5
+186:                                              ; preds = %184
+  %187 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %143, i32 noundef %159) #5
+  %188 = zext nneg i32 %159 to i64
+  %189 = getelementptr i8, ptr %187, i64 %188
+  %190 = getelementptr i8, ptr %189, i64 -1
+  %191 = load ptr, ptr %18, align 8
+  %192 = call noalias ptr @wmem_alloc(ptr noundef %191, i64 noundef %188) #5
   br label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %.outer.i.i.i, %223
-  %.031.ph46.i.i.i = phi i32 [ %238, %.outer.i.i.i ], [ %196, %223 ]
-  %.032.ph45.i.i.i = phi i32 [ %237, %.outer.i.i.i ], [ 0, %223 ]
-  %.033.ph44.i.i.i = phi ptr [ %239, %.outer.i.i.i ], [ %229, %223 ]
-  %.034.ph43.i.i.i = phi ptr [ %240, %.outer.i.i.i ], [ %224, %223 ]
-  br label %230
+.lr.ph.i.i.i:                                     ; preds = %.outer.i.i.i, %186
+  %.031.ph46.i.i.i = phi i32 [ %201, %.outer.i.i.i ], [ %159, %186 ]
+  %.032.ph45.i.i.i = phi i32 [ %200, %.outer.i.i.i ], [ 0, %186 ]
+  %.033.ph44.i.i.i = phi ptr [ %202, %.outer.i.i.i ], [ %192, %186 ]
+  %.034.ph43.i.i.i = phi ptr [ %203, %.outer.i.i.i ], [ %187, %186 ]
+  br label %193
 
-230:                                              ; preds = %242, %.lr.ph.i.i.i
-  %.03141.i.i.i = phi i32 [ %.031.ph46.i.i.i, %.lr.ph.i.i.i ], [ %245, %242 ]
-  %.03340.i.i.i = phi ptr [ %.033.ph44.i.i.i, %.lr.ph.i.i.i ], [ %244, %242 ]
-  %.03439.i.i.i = phi ptr [ %.034.ph43.i.i.i, %.lr.ph.i.i.i ], [ %243, %242 ]
-  %231 = icmp ult ptr %.03439.i.i.i, %227
+193:                                              ; preds = %205, %.lr.ph.i.i.i
+  %.03141.i.i.i = phi i32 [ %.031.ph46.i.i.i, %.lr.ph.i.i.i ], [ %208, %205 ]
+  %.03340.i.i.i = phi ptr [ %.033.ph44.i.i.i, %.lr.ph.i.i.i ], [ %207, %205 ]
+  %.03439.i.i.i = phi ptr [ %.034.ph43.i.i.i, %.lr.ph.i.i.i ], [ %206, %205 ]
+  %194 = icmp ult ptr %.03439.i.i.i, %190
   %.pre.i.i.i = load i8, ptr %.03439.i.i.i, align 1
-  %232 = icmp eq i8 %.pre.i.i.i, -1
-  %or.cond.i.i.i = select i1 %231, i1 %232, i1 false
-  br i1 %or.cond.i.i.i, label %233, label %242
+  %195 = icmp eq i8 %.pre.i.i.i, -1
+  %or.cond.i.i.i = select i1 %194, i1 %195, i1 false
+  br i1 %or.cond.i.i.i, label %196, label %205
 
-233:                                              ; preds = %230
-  %234 = getelementptr i8, ptr %.03439.i.i.i, i64 1
-  %235 = load i8, ptr %234, align 1
-  %236 = icmp eq i8 %235, -1
-  br i1 %236, label %.outer.i.i.i, label %242
+196:                                              ; preds = %193
+  %197 = getelementptr i8, ptr %.03439.i.i.i, i64 1
+  %198 = load i8, ptr %197, align 1
+  %199 = icmp eq i8 %198, -1
+  br i1 %199, label %.outer.i.i.i, label %205
 
-.outer.i.i.i:                                     ; preds = %233
-  %237 = add i32 %.032.ph45.i.i.i, 1
-  %238 = add nsw i32 %.03141.i.i.i, -2
-  %239 = getelementptr i8, ptr %.03340.i.i.i, i64 1
+.outer.i.i.i:                                     ; preds = %196
+  %200 = add i32 %.032.ph45.i.i.i, 1
+  %201 = add nsw i32 %.03141.i.i.i, -2
+  %202 = getelementptr i8, ptr %.03340.i.i.i, i64 1
   store i8 -1, ptr %.03340.i.i.i, align 1
-  %240 = getelementptr i8, ptr %.03439.i.i.i, i64 2
-  %241 = icmp sgt i32 %.03141.i.i.i, 2
-  br i1 %241, label %.lr.ph.i.i.i, label %.outer._crit_edge.i.i.i, !llvm.loop !7
+  %203 = getelementptr i8, ptr %.03439.i.i.i, i64 2
+  %204 = icmp sgt i32 %.03141.i.i.i, 2
+  br i1 %204, label %.lr.ph.i.i.i, label %.outer._crit_edge.i.i.i, !llvm.loop !7
 
-242:                                              ; preds = %233, %230
-  %243 = getelementptr i8, ptr %.03439.i.i.i, i64 1
-  %244 = getelementptr i8, ptr %.03340.i.i.i, i64 1
+205:                                              ; preds = %196, %193
+  %206 = getelementptr i8, ptr %.03439.i.i.i, i64 1
+  %207 = getelementptr i8, ptr %.03340.i.i.i, i64 1
   store i8 %.pre.i.i.i, ptr %.03340.i.i.i, align 1
-  %245 = add nsw i32 %.03141.i.i.i, -1
-  %246 = icmp sgt i32 %.03141.i.i.i, 1
-  br i1 %246, label %230, label %.outer._crit_edge.i.i.i, !llvm.loop !7
+  %208 = add nsw i32 %.03141.i.i.i, -1
+  %209 = icmp sgt i32 %.03141.i.i.i, 1
+  br i1 %209, label %193, label %.outer._crit_edge.i.i.i, !llvm.loop !7
 
-.outer._crit_edge.i.i.i:                          ; preds = %.outer.i.i.i, %242
-  %.032.ph.lcssa.i.i.i = phi i32 [ %.032.ph45.i.i.i, %242 ], [ %237, %.outer.i.i.i ]
-  %247 = sub i32 %196, %.032.ph.lcssa.i.i.i
-  %248 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %229, i32 noundef %247, i32 noundef %247) #5
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %248, ptr noundef nonnull @.str.453) #5
+.outer._crit_edge.i.i.i:                          ; preds = %.outer.i.i.i, %205
+  %.032.ph.lcssa.i.i.i = phi i32 [ %.032.ph45.i.i.i, %205 ], [ %200, %.outer.i.i.i ]
+  %210 = sub i32 %159, %.032.ph.lcssa.i.i.i
+  %211 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %192, i32 noundef %210, i32 noundef %210) #5
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %211, ptr noundef nonnull @.str.453) #5
   br label %unescape_and_tvbuffify_telnet_option.exit.i.i
 
-unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i.i.i, %221
-  %.0.i98.i.i = phi ptr [ %248, %.outer._crit_edge.i.i.i ], [ null, %221 ]
-  %249 = load ptr, ptr %.0.i.i52.i, align 8
-  %250 = sub nsw i32 %196, %.0134.i.i
-  call void %200(ptr noundef %1, ptr noundef %249, ptr noundef %.0.i98.i.i, i32 noundef 0, i32 noundef %250, ptr noundef %.086.i, ptr noundef %.07585.i) #5
+unescape_and_tvbuffify_telnet_option.exit.i.i:    ; preds = %.outer._crit_edge.i.i.i, %184
+  %.0.i98.i.i = phi ptr [ %211, %.outer._crit_edge.i.i.i ], [ null, %184 ]
+  %212 = load ptr, ptr %.0.i.i52.i, align 8
+  %213 = sub nsw i32 %159, %.0134.i.i
+  call void %163(ptr noundef %1, ptr noundef %212, ptr noundef %.0.i98.i.i, i32 noundef 0, i32 noundef %213, ptr noundef %.086.i, ptr noundef %.07585.i) #5
   br label %telnet_command.exit
 
-251:                                              ; preds = %219
-  %252 = load ptr, ptr %.0.i.i52.i, align 8
-  call void %200(ptr noundef %1, ptr noundef %252, ptr noundef %0, i32 noundef %180, i32 noundef %196, ptr noundef %.086.i, ptr noundef %.07585.i) #5
+214:                                              ; preds = %182
+  %215 = load ptr, ptr %.0.i.i52.i, align 8
+  call void %163(ptr noundef %1, ptr noundef %215, ptr noundef %0, i32 noundef %143, i32 noundef %159, ptr noundef %.086.i, ptr noundef %.07585.i) #5
   br label %telnet_command.exit
 
-253:                                              ; preds = %198
-  %254 = icmp sgt i32 %.0134.i.i, 0
-  br i1 %254, label %255, label %286
+216:                                              ; preds = %161
+  %217 = icmp sgt i32 %.0134.i.i, 0
+  br i1 %217, label %218, label %249
 
-255:                                              ; preds = %253
-  %256 = icmp ugt i32 %196, 10239
-  br i1 %256, label %unescape_and_tvbuffify_telnet_option.exit113.i.i, label %257
+218:                                              ; preds = %216
+  %219 = icmp ugt i32 %159, 10239
+  br i1 %219, label %unescape_and_tvbuffify_telnet_option.exit113.i.i, label %220
 
-257:                                              ; preds = %255
-  %258 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %180, i32 noundef %196) #5
-  %259 = zext nneg i32 %196 to i64
-  %260 = getelementptr i8, ptr %258, i64 %259
-  %261 = getelementptr i8, ptr %260, i64 -1
-  %262 = load ptr, ptr %18, align 8
-  %263 = call noalias ptr @wmem_alloc(ptr noundef %262, i64 noundef %259) #5
+220:                                              ; preds = %218
+  %221 = call ptr @tvb_get_ptr(ptr noundef %0, i32 noundef %143, i32 noundef %159) #5
+  %222 = zext nneg i32 %159 to i64
+  %223 = getelementptr i8, ptr %221, i64 %222
+  %224 = getelementptr i8, ptr %223, i64 -1
+  %225 = load ptr, ptr %18, align 8
+  %226 = call noalias ptr @wmem_alloc(ptr noundef %225, i64 noundef %222) #5
   br label %.lr.ph.i102.i.i
 
-.lr.ph.i102.i.i:                                  ; preds = %.outer.i112.i.i, %257
-  %.031.ph46.i103.i.i = phi i32 [ %272, %.outer.i112.i.i ], [ %196, %257 ]
-  %.032.ph45.i104.i.i = phi i32 [ %271, %.outer.i112.i.i ], [ 0, %257 ]
-  %.033.ph44.i105.i.i = phi ptr [ %273, %.outer.i112.i.i ], [ %263, %257 ]
-  %.034.ph43.i106.i.i = phi ptr [ %274, %.outer.i112.i.i ], [ %258, %257 ]
-  br label %264
+.lr.ph.i102.i.i:                                  ; preds = %.outer.i112.i.i, %220
+  %.031.ph46.i103.i.i = phi i32 [ %235, %.outer.i112.i.i ], [ %159, %220 ]
+  %.032.ph45.i104.i.i = phi i32 [ %234, %.outer.i112.i.i ], [ 0, %220 ]
+  %.033.ph44.i105.i.i = phi ptr [ %236, %.outer.i112.i.i ], [ %226, %220 ]
+  %.034.ph43.i106.i.i = phi ptr [ %237, %.outer.i112.i.i ], [ %221, %220 ]
+  br label %227
 
-264:                                              ; preds = %276, %.lr.ph.i102.i.i
-  %.03141.i107.i.i = phi i32 [ %.031.ph46.i103.i.i, %.lr.ph.i102.i.i ], [ %279, %276 ]
-  %.03340.i108.i.i = phi ptr [ %.033.ph44.i105.i.i, %.lr.ph.i102.i.i ], [ %278, %276 ]
-  %.03439.i109.i.i = phi ptr [ %.034.ph43.i106.i.i, %.lr.ph.i102.i.i ], [ %277, %276 ]
-  %265 = icmp ult ptr %.03439.i109.i.i, %261
+227:                                              ; preds = %239, %.lr.ph.i102.i.i
+  %.03141.i107.i.i = phi i32 [ %.031.ph46.i103.i.i, %.lr.ph.i102.i.i ], [ %242, %239 ]
+  %.03340.i108.i.i = phi ptr [ %.033.ph44.i105.i.i, %.lr.ph.i102.i.i ], [ %241, %239 ]
+  %.03439.i109.i.i = phi ptr [ %.034.ph43.i106.i.i, %.lr.ph.i102.i.i ], [ %240, %239 ]
+  %228 = icmp ult ptr %.03439.i109.i.i, %224
   %.pre.i110.i.i = load i8, ptr %.03439.i109.i.i, align 1
-  %266 = icmp eq i8 %.pre.i110.i.i, -1
-  %or.cond.i111.i.i = select i1 %265, i1 %266, i1 false
-  br i1 %or.cond.i111.i.i, label %267, label %276
+  %229 = icmp eq i8 %.pre.i110.i.i, -1
+  %or.cond.i111.i.i = select i1 %228, i1 %229, i1 false
+  br i1 %or.cond.i111.i.i, label %230, label %239
 
-267:                                              ; preds = %264
-  %268 = getelementptr i8, ptr %.03439.i109.i.i, i64 1
-  %269 = load i8, ptr %268, align 1
-  %270 = icmp eq i8 %269, -1
-  br i1 %270, label %.outer.i112.i.i, label %276
+230:                                              ; preds = %227
+  %231 = getelementptr i8, ptr %.03439.i109.i.i, i64 1
+  %232 = load i8, ptr %231, align 1
+  %233 = icmp eq i8 %232, -1
+  br i1 %233, label %.outer.i112.i.i, label %239
 
-.outer.i112.i.i:                                  ; preds = %267
-  %271 = add i32 %.032.ph45.i104.i.i, 1
-  %272 = add nsw i32 %.03141.i107.i.i, -2
-  %273 = getelementptr i8, ptr %.03340.i108.i.i, i64 1
+.outer.i112.i.i:                                  ; preds = %230
+  %234 = add i32 %.032.ph45.i104.i.i, 1
+  %235 = add nsw i32 %.03141.i107.i.i, -2
+  %236 = getelementptr i8, ptr %.03340.i108.i.i, i64 1
   store i8 -1, ptr %.03340.i108.i.i, align 1
-  %274 = getelementptr i8, ptr %.03439.i109.i.i, i64 2
-  %275 = icmp sgt i32 %.03141.i107.i.i, 2
-  br i1 %275, label %.lr.ph.i102.i.i, label %.outer._crit_edge.i99.i.i, !llvm.loop !7
+  %237 = getelementptr i8, ptr %.03439.i109.i.i, i64 2
+  %238 = icmp sgt i32 %.03141.i107.i.i, 2
+  br i1 %238, label %.lr.ph.i102.i.i, label %.outer._crit_edge.i99.i.i, !llvm.loop !7
 
-276:                                              ; preds = %267, %264
-  %277 = getelementptr i8, ptr %.03439.i109.i.i, i64 1
-  %278 = getelementptr i8, ptr %.03340.i108.i.i, i64 1
+239:                                              ; preds = %230, %227
+  %240 = getelementptr i8, ptr %.03439.i109.i.i, i64 1
+  %241 = getelementptr i8, ptr %.03340.i108.i.i, i64 1
   store i8 %.pre.i110.i.i, ptr %.03340.i108.i.i, align 1
-  %279 = add nsw i32 %.03141.i107.i.i, -1
-  %280 = icmp sgt i32 %.03141.i107.i.i, 1
-  br i1 %280, label %264, label %.outer._crit_edge.i99.i.i, !llvm.loop !7
+  %242 = add nsw i32 %.03141.i107.i.i, -1
+  %243 = icmp sgt i32 %.03141.i107.i.i, 1
+  br i1 %243, label %227, label %.outer._crit_edge.i99.i.i, !llvm.loop !7
 
-.outer._crit_edge.i99.i.i:                        ; preds = %.outer.i112.i.i, %276
-  %.032.ph.lcssa.i100.i.i = phi i32 [ %.032.ph45.i104.i.i, %276 ], [ %271, %.outer.i112.i.i ]
-  %281 = sub i32 %196, %.032.ph.lcssa.i100.i.i
-  %282 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %263, i32 noundef %281, i32 noundef %281) #5
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %282, ptr noundef nonnull @.str.453) #5
+.outer._crit_edge.i99.i.i:                        ; preds = %.outer.i112.i.i, %239
+  %.032.ph.lcssa.i100.i.i = phi i32 [ %.032.ph45.i104.i.i, %239 ], [ %234, %.outer.i112.i.i ]
+  %244 = sub i32 %159, %.032.ph.lcssa.i100.i.i
+  %245 = call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %226, i32 noundef %244, i32 noundef %244) #5
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %245, ptr noundef nonnull @.str.453) #5
   br label %unescape_and_tvbuffify_telnet_option.exit113.i.i
 
-unescape_and_tvbuffify_telnet_option.exit113.i.i: ; preds = %.outer._crit_edge.i99.i.i, %255
-  %.0.i101.i.i = phi ptr [ %282, %.outer._crit_edge.i99.i.i ], [ null, %255 ]
-  %283 = load i32, ptr @hf_telnet_option_data, align 4
-  %284 = sub nsw i32 %196, %.0134.i.i
-  %285 = call ptr @proto_tree_add_item(ptr noundef %.086.i, i32 noundef %283, ptr noundef %.0.i101.i.i, i32 noundef 0, i32 noundef %284, i32 noundef 0) #5
+unescape_and_tvbuffify_telnet_option.exit113.i.i: ; preds = %.outer._crit_edge.i99.i.i, %218
+  %.0.i101.i.i = phi ptr [ %245, %.outer._crit_edge.i99.i.i ], [ null, %218 ]
+  %246 = load i32, ptr @hf_telnet_option_data, align 4
+  %247 = sub nsw i32 %159, %.0134.i.i
+  %248 = call ptr @proto_tree_add_item(ptr noundef %.086.i, i32 noundef %246, ptr noundef %.0.i101.i.i, i32 noundef 0, i32 noundef %247, i32 noundef 0) #5
   br label %telnet_command.exit
 
-286:                                              ; preds = %253
-  %287 = load i32, ptr @hf_telnet_option_data, align 4
-  %288 = call ptr @proto_tree_add_item(ptr noundef %.086.i, i32 noundef %287, ptr noundef %0, i32 noundef %180, i32 noundef %196, i32 noundef 0) #5
+249:                                              ; preds = %216
+  %250 = load i32, ptr @hf_telnet_option_data, align 4
+  %251 = call ptr @proto_tree_add_item(ptr noundef %.086.i, i32 noundef %250, ptr noundef %0, i32 noundef %143, i32 noundef %159, i32 noundef 0) #5
   br label %telnet_command.exit
 
-telnet_command.exit:                              ; preds = %156, %add_telnet_info_str.exit.i, %.loopexit.i.i, %204, %210, %217, %unescape_and_tvbuffify_telnet_option.exit.i.i, %251, %unescape_and_tvbuffify_telnet_option.exit113.i.i, %286
-  %.2 = phi i32 [ %.1, %156 ], [ %172, %unescape_and_tvbuffify_telnet_option.exit113.i.i ], [ %172, %286 ], [ %172, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %172, %251 ], [ %172, %217 ], [ %172, %210 ], [ %172, %204 ], [ %172, %.loopexit.i.i ], [ %172, %add_telnet_info_str.exit.i ]
-  %.1.i = phi i32 [ %64, %156 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit113.i.i ], [ %.189.ph.i.i, %286 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %.189.ph.i.i, %251 ], [ %.189.ph.i.i, %217 ], [ %.189.ph.i.i, %210 ], [ %.189.ph.i.i, %204 ], [ %.189.ph.i.i, %.loopexit.i.i ], [ %.07783.i, %add_telnet_info_str.exit.i ]
-  %289 = load ptr, ptr %6, align 8
-  %290 = sub i32 %.1.i, %22
-  call void @proto_item_set_len(ptr noundef %289, i32 noundef %290) #5
+telnet_command.exit:                              ; preds = %119, %add_telnet_info_str.exit.i, %.loopexit.i.i, %167, %173, %180, %unescape_and_tvbuffify_telnet_option.exit.i.i, %214, %unescape_and_tvbuffify_telnet_option.exit113.i.i, %249
+  %.2 = phi i32 [ %.1, %119 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit113.i.i ], [ %135, %249 ], [ %135, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %135, %214 ], [ %135, %180 ], [ %135, %173 ], [ %135, %167 ], [ %135, %.loopexit.i.i ], [ %135, %add_telnet_info_str.exit.i ]
+  %.1.i = phi i32 [ %64, %119 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit113.i.i ], [ %.189.ph.i.i, %249 ], [ %.189.ph.i.i, %unescape_and_tvbuffify_telnet_option.exit.i.i ], [ %.189.ph.i.i, %214 ], [ %.189.ph.i.i, %180 ], [ %.189.ph.i.i, %173 ], [ %.189.ph.i.i, %167 ], [ %.189.ph.i.i, %.loopexit.i.i ], [ %.07783.i, %add_telnet_info_str.exit.i ]
+  %252 = load ptr, ptr %6, align 8
+  %253 = sub i32 %.1.i, %22
+  call void @proto_item_set_len(ptr noundef %252, i32 noundef %253) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  %291 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #5
-  %.not = icmp eq i32 %291, 0
+  %254 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1.i) #5
+  %.not = icmp eq i32 %254, 0
   br i1 %.not, label %.loopexit76, label %19, !llvm.loop !8
 
 .loopexit:                                        ; preds = %19, %26
-  %292 = icmp ne i32 %11, 0
-  %293 = icmp ne i32 %12, 0
-  %or.cond = select i1 %292, i1 true, i1 %293
-  br i1 %or.cond, label %294, label %297
+  %255 = icmp ne i32 %11, 0
+  %256 = icmp ne i32 %12, 0
+  %or.cond = select i1 %255, i1 true, i1 %256
+  br i1 %or.cond, label %257, label %260
 
-294:                                              ; preds = %.loopexit
-  %295 = getelementptr inbounds i8, ptr %1, i64 332
-  store i32 %.056104, ptr %295, align 4
-  %296 = getelementptr inbounds i8, ptr %1, i64 336
-  store i32 268435455, ptr %296, align 8
+257:                                              ; preds = %.loopexit
+  %258 = getelementptr inbounds i8, ptr %1, i64 332
+  store i32 %.056104, ptr %258, align 4
+  %259 = getelementptr inbounds i8, ptr %1, i64 336
+  store i32 268435455, ptr %259, align 8
   br label %.loopexit76
 
-297:                                              ; preds = %.loopexit
+260:                                              ; preds = %.loopexit
   call void @llvm.lifetime.start.p0(i64 30, ptr nonnull %5)
-  %298 = icmp eq i32 %20, 1
-  %299 = select i1 %298, ptr @.str.280, ptr @.str.281
-  %300 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef %20, ptr noundef nonnull %299) #5
-  %301 = icmp eq i32 %.070103, 0
-  br i1 %301, label %302, label %304
+  %261 = icmp eq i32 %20, 1
+  %262 = select i1 %261, ptr @.str.280, ptr @.str.281
+  %263 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 30, ptr noundef nonnull @.str.279, i32 noundef %20, ptr noundef nonnull %262) #5
+  %264 = icmp eq i32 %.070103, 0
+  br i1 %264, label %265, label %267
 
-302:                                              ; preds = %297
-  %303 = load ptr, ptr %8, align 8
-  call void @col_add_str(ptr noundef %303, i32 noundef 25, ptr noundef nonnull %5) #5
+265:                                              ; preds = %260
+  %266 = load ptr, ptr %8, align 8
+  call void @col_add_str(ptr noundef %266, i32 noundef 25, ptr noundef nonnull %5) #5
   br label %add_telnet_data_bytes_str.exit64
 
-304:                                              ; preds = %297
-  %305 = icmp ult i32 %.070103, 5
-  br i1 %305, label %306, label %308
+267:                                              ; preds = %260
+  %268 = icmp ult i32 %.070103, 5
+  br i1 %268, label %269, label %271
 
-306:                                              ; preds = %304
-  %307 = load ptr, ptr %8, align 8
-  call void @col_append_sep_str(ptr noundef %307, i32 noundef 25, ptr noundef null, ptr noundef nonnull %5) #5
+269:                                              ; preds = %267
+  %270 = load ptr, ptr %8, align 8
+  call void @col_append_sep_str(ptr noundef %270, i32 noundef 25, ptr noundef null, ptr noundef nonnull %5) #5
   br label %add_telnet_data_bytes_str.exit64
 
-308:                                              ; preds = %304
-  %309 = icmp eq i32 %.070103, 5
-  br i1 %309, label %310, label %add_telnet_data_bytes_str.exit64
+271:                                              ; preds = %267
+  %272 = icmp eq i32 %.070103, 5
+  br i1 %272, label %273, label %add_telnet_data_bytes_str.exit64
 
-310:                                              ; preds = %308
-  %311 = load ptr, ptr %8, align 8
-  call void @col_append_sep_str(ptr noundef %311, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.282) #5
+273:                                              ; preds = %271
+  %274 = load ptr, ptr %8, align 8
+  call void @col_append_sep_str(ptr noundef %274, i32 noundef 25, ptr noundef null, ptr noundef nonnull @.str.282) #5
   br label %add_telnet_data_bytes_str.exit64
 
-add_telnet_data_bytes_str.exit64:                 ; preds = %302, %306, %308, %310
+add_telnet_data_bytes_str.exit64:                 ; preds = %265, %269, %271, %273
   call void @llvm.lifetime.end.p0(i64 30, ptr nonnull %5)
   call fastcc void @telnet_add_text(ptr noundef %16, ptr noundef %0, i32 noundef %.056104, i32 noundef %20)
   br label %.loopexit76
 
-.loopexit76:                                      ; preds = %telnet_command.exit, %add_telnet_data_bytes_str.exit64, %4, %294
-  %312 = call i32 @tvb_captured_length(ptr noundef %0) #5
-  ret i32 %312
+.loopexit76:                                      ; preds = %telnet_command.exit, %add_telnet_data_bytes_str.exit64, %4, %257
+  %275 = call i32 @tvb_captured_length(ptr noundef %0) #5
+  ret i32 %275
 }
 
 ; Function Attrs: nounwind uwtable

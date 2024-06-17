@@ -26839,7 +26839,7 @@ sw.bb.i:                                          ; preds = %for.body.i
     i16 10, label %for.inc.sink.split.i
   ]
 
-for.inc.sink.split.i:                             ; preds = %for.body.i, %sw.bb.i, %sw.bb.i
+for.inc.sink.split.i:                             ; preds = %sw.bb.i, %sw.bb.i, %for.body.i
   %add.ptr112.i = getelementptr inbounds i8, ptr %add.ptr94.i, i64 4
   %178 = load i8, ptr %add.ptr112.i, align 1
   %conv.i807.i = zext i8 %178 to i32
@@ -26858,12 +26858,12 @@ for.inc.sink.split.i:                             ; preds = %for.body.i, %sw.bb.
   %181 = load i8, ptr %arrayidx8.i817.i, align 1
   %conv9.i818.i = zext i8 %181 to i32
   %add10.i819.i = or disjoint i32 %add7.i816.i, %conv9.i818.i
-  %add114.sink.i = add i32 %add10.i819.i, %retval.0.i825.i
-  store i32 %add114.sink.i, ptr %index_map.i, align 8
+  %add114.i = add i32 %add10.i819.i, %retval.0.i825.i
+  store i32 %add114.i, ptr %index_map.i, align 8
   br label %for.inc.i
 
 for.inc.i:                                        ; preds = %for.inc.sink.split.i, %sw.bb.i, %for.body.i
-  %182 = phi i32 [ %174, %for.body.i ], [ %174, %sw.bb.i ], [ %add114.sink.i, %for.inc.sink.split.i ]
+  %182 = phi i32 [ %174, %for.body.i ], [ %174, %sw.bb.i ], [ %add114.i, %for.inc.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !139
@@ -29426,10 +29426,10 @@ if.end88:                                         ; preds = %if.then76
 
 return.sink.split:                                ; preds = %if.end74, %if.end88, %if.then76
   %retval.0.ph = phi ptr [ null, %if.then76 ], [ %font.0, %if.end88 ], [ %font.0, %if.end74 ]
-  %font_num = getelementptr inbounds i8, ptr %atlas, i64 392
-  %25 = load i32, ptr %font_num, align 8
+  %font_num95 = getelementptr inbounds i8, ptr %atlas, i64 392
+  %25 = load i32, ptr %font_num95, align 8
   %inc96 = add nsw i32 %25, 1
-  store i32 %inc96, ptr %font_num, align 8
+  store i32 %inc96, ptr %font_num95, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry, %lor.lhs.false2, %lor.lhs.false4, %lor.lhs.false6, %lor.lhs.false7, %lor.lhs.false9, %lor.lhs.false12, %lor.lhs.false15
@@ -53999,7 +53999,7 @@ if.else21.i:                                      ; preds = %nk_rgb_factor.exit.
 
 if.end26.i:                                       ; preds = %if.else21.i, %nk_rgb_factor.exit89.i
   %tobool27.not.i = icmp eq i32 %51, 0
-  br i1 %tobool27.not.i, label %nk_draw_checkbox.exit, label %if.then28.i
+  br i1 %tobool27.not.i, label %if.end109, label %if.then28.i
 
 if.then28.i:                                      ; preds = %if.end26.i
   %62 = load i32, ptr %cursor_hover6.i, align 8
@@ -54017,39 +54017,11 @@ if.then31.i:                                      ; preds = %if.then28.i
   %66 = or disjoint i32 %65, -16777216
   %retval.sroa.0.0.insert.insert.i128.i = select i1 %cmp.i110.i, i32 -1, i32 %66
   tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull %data32.i, i32 %retval.sroa.0.0.insert.insert.i128.i)
-  br label %nk_draw_checkbox.exit
+  br label %if.end109
 
 if.else36.i:                                      ; preds = %if.then28.i
   %67 = load i32, ptr %data32.i, align 8
   tail call void @nk_fill_rect(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, float noundef 0.000000e+00, i32 %67)
-  br label %nk_draw_checkbox.exit
-
-nk_draw_checkbox.exit:                            ; preds = %if.else36.i, %if.then31.i, %if.end26.i
-  %text_background.i = getelementptr inbounds i8, ptr %style, i64 220
-  %68 = load i32, ptr %text_background.i, align 4
-  %cmp.i132.i = fcmp olt float %9, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i.i = select i1 %cmp.i132.i, float 0.000000e+00, float %9
-  %69 = load float, ptr %height, align 8
-  %width.i.i = getelementptr inbounds i8, ptr %font, i64 16
-  %70 = load ptr, ptr %width.i.i, align 8
-  %71 = load ptr, ptr %font, align 8
-  %call.i.i = tail call float %70(ptr %71, float noundef %69, ptr noundef %str, i32 noundef %len) #51
-  %add35.i.i = fadd float %add81, 0.000000e+00
-  %72 = insertelement <2 x float> poison, float %add35.i.i, i64 0
-  %div164.i.i = fmul float %mul.b.sroa.14.12.vec.extract.i.i, 5.000000e-01
-  %add165.i.i = fadd float %div164.i.i, %sub47
-  %73 = load float, ptr %height, align 8
-  %div167.i.i = fmul float %73, 5.000000e-01
-  %sub168.i.i = fsub float %add165.i.i, %div167.i.i
-  %label.sroa.0.4.vec.insert27.i.i = insertelement <2 x float> %72, float %sub168.i.i, i64 1
-  %add177.i.i = fadd float %div164.i.i, %div167.i.i
-  %sub178.i.i = fsub float %mul.b.sroa.14.12.vec.extract.i.i, %add177.i.i
-  %74 = insertelement <2 x float> poison, float %sub99, i64 0
-  %75 = insertelement <2 x float> %74, float %sub178.i.i, i64 1
-  %76 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i.i, i64 1
-  %77 = fcmp ogt <2 x float> %75, %76
-  %78 = select <2 x i1> %77, <2 x float> %75, <2 x float> %76
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i.i, <2 x float> %78, ptr noundef %str, i32 noundef %len, ptr noundef nonnull %font, i32 %68, i32 %retval.sroa.0.0.insert.insert.i.i)
   br label %if.end109
 
 if.else:                                          ; preds = %if.end106
@@ -54076,24 +54048,24 @@ if.end10.i88:                                     ; preds = %if.then4.i257, %if.
   %text_active.i93 = getelementptr inbounds i8, ptr %style, i64 %.sink.i90
   %text.sroa.6.0.i94 = load i32, ptr %text_active.i93, align 4
   %color_factor.i95 = getelementptr inbounds i8, ptr %style, i64 252
-  %79 = load float, ptr %color_factor.i95, align 4
+  %68 = load float, ptr %color_factor.i95, align 4
   %col.sroa.0.0.extract.trunc.i.i96 = trunc i32 %text.sroa.6.0.i94 to i8
   %col.sroa.5.0.extract.shift.i.i97 = lshr i32 %text.sroa.6.0.i94, 8
   %col.sroa.5.0.extract.trunc.i.i98 = trunc i32 %col.sroa.5.0.extract.shift.i.i97 to i8
   %col.sroa.7.0.extract.shift.i.i99 = lshr i32 %text.sroa.6.0.i94, 16
   %col.sroa.7.0.extract.trunc.i.i100 = trunc i32 %col.sroa.7.0.extract.shift.i.i99 to i8
-  %cmp.i.i101 = fcmp oeq float %79, 1.000000e+00
+  %cmp.i.i101 = fcmp oeq float %68, 1.000000e+00
   br i1 %cmp.i.i101, label %nk_rgb_factor.exit.i112, label %if.end.i.i102
 
 if.end.i.i102:                                    ; preds = %if.end10.i88
   %conv.i.i103 = uitofp i8 %col.sroa.0.0.extract.trunc.i.i96 to float
-  %mul.i.i104 = fmul float %79, %conv.i.i103
+  %mul.i.i104 = fmul float %68, %conv.i.i103
   %conv1.i.i105 = fptoui float %mul.i.i104 to i8
   %conv2.i.i106 = uitofp i8 %col.sroa.5.0.extract.trunc.i.i98 to float
-  %mul3.i.i107 = fmul float %79, %conv2.i.i106
+  %mul3.i.i107 = fmul float %68, %conv2.i.i106
   %conv4.i.i108 = fptoui float %mul3.i.i107 to i8
   %conv5.i.i109 = uitofp i8 %col.sroa.7.0.extract.trunc.i.i100 to float
-  %mul6.i.i110 = fmul float %79, %conv5.i.i109
+  %mul6.i.i110 = fmul float %68, %conv5.i.i109
   %conv7.i.i111 = fptoui float %mul6.i.i110 to i8
   br label %nk_rgb_factor.exit.i112
 
@@ -54110,29 +54082,29 @@ nk_rgb_factor.exit.i112:                          ; preds = %if.end.i.i102, %if.
   %retval.sroa.3.0.insert.insert.i.i122 = or disjoint i32 %retval.sroa.5.0.insert.insert.i.i119, %retval.sroa.3.0.insert.shift.i.i121
   %retval.sroa.0.0.insert.ext.i.i123 = zext i8 %retval.sroa.0.0.i.i114 to i32
   %retval.sroa.0.0.insert.insert.i.i124 = or disjoint i32 %retval.sroa.3.0.insert.insert.i.i122, %retval.sroa.0.0.insert.ext.i.i123
-  %80 = load i32, ptr %background.0.i91, align 8
-  %cmp.i125 = icmp eq i32 %80, 0
+  %69 = load i32, ptr %background.0.i91, align 8
+  %cmp.i125 = icmp eq i32 %69, 0
   br i1 %cmp.i125, label %if.then13.i178, label %if.else21.i126
 
 if.then13.i178:                                   ; preds = %nk_rgb_factor.exit.i112
   %border_color.i179 = getelementptr inbounds i8, ptr %style, i64 120
-  %81 = load i32, ptr %border_color.i179, align 8
-  %col.sroa.0.0.extract.trunc.i30.i180 = trunc i32 %81 to i8
-  %col.sroa.5.0.extract.shift.i31.i181 = lshr i32 %81, 8
+  %70 = load i32, ptr %border_color.i179, align 8
+  %col.sroa.0.0.extract.trunc.i30.i180 = trunc i32 %70 to i8
+  %col.sroa.5.0.extract.shift.i31.i181 = lshr i32 %70, 8
   %col.sroa.5.0.extract.trunc.i32.i182 = trunc i32 %col.sroa.5.0.extract.shift.i31.i181 to i8
-  %col.sroa.7.0.extract.shift.i33.i183 = lshr i32 %81, 16
+  %col.sroa.7.0.extract.shift.i33.i183 = lshr i32 %70, 16
   %col.sroa.7.0.extract.trunc.i34.i184 = trunc i32 %col.sroa.7.0.extract.shift.i33.i183 to i8
   br i1 %cmp.i.i101, label %nk_rgb_factor.exit58.i195, label %if.end.i36.i185
 
 if.end.i36.i185:                                  ; preds = %if.then13.i178
   %conv.i37.i186 = uitofp i8 %col.sroa.0.0.extract.trunc.i30.i180 to float
-  %mul.i38.i187 = fmul float %79, %conv.i37.i186
+  %mul.i38.i187 = fmul float %68, %conv.i37.i186
   %conv1.i39.i188 = fptoui float %mul.i38.i187 to i8
   %conv2.i40.i189 = uitofp i8 %col.sroa.5.0.extract.trunc.i32.i182 to float
-  %mul3.i41.i190 = fmul float %79, %conv2.i40.i189
+  %mul3.i41.i190 = fmul float %68, %conv2.i40.i189
   %conv4.i42.i191 = fptoui float %mul3.i41.i190 to i8
   %conv5.i43.i192 = uitofp i8 %col.sroa.7.0.extract.trunc.i34.i184 to float
-  %mul6.i44.i193 = fmul float %79, %conv5.i43.i192
+  %mul6.i44.i193 = fmul float %68, %conv5.i43.i192
   %conv7.i45.i194 = fptoui float %mul6.i44.i193 to i8
   br label %nk_rgb_factor.exit58.i195
 
@@ -54140,7 +54112,7 @@ nk_rgb_factor.exit58.i195:                        ; preds = %if.end.i36.i185, %i
   %retval.sroa.3.0.i46.i196 = phi i8 [ %conv4.i42.i191, %if.end.i36.i185 ], [ %col.sroa.5.0.extract.trunc.i32.i182, %if.then13.i178 ]
   %retval.sroa.0.0.i47.i197 = phi i8 [ %conv1.i39.i188, %if.end.i36.i185 ], [ %col.sroa.0.0.extract.trunc.i30.i180, %if.then13.i178 ]
   %retval.sroa.5.0.i48.i198 = phi i8 [ %conv7.i45.i194, %if.end.i36.i185 ], [ %col.sroa.7.0.extract.trunc.i34.i184, %if.then13.i178 ]
-  %col.sroa.9.0.extract.shift.i49.i199 = and i32 %81, -16777216
+  %col.sroa.9.0.extract.shift.i49.i199 = and i32 %70, -16777216
   %retval.sroa.5.0.insert.ext.i50.i200 = zext i8 %retval.sroa.5.0.i48.i198 to i32
   %retval.sroa.5.0.insert.shift.i51.i201 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i50.i200, 16
   %retval.sroa.5.0.insert.insert.i52.i202 = or disjoint i32 %retval.sroa.5.0.insert.shift.i51.i201, %col.sroa.9.0.extract.shift.i49.i199
@@ -54150,37 +54122,37 @@ nk_rgb_factor.exit58.i195:                        ; preds = %if.end.i36.i185, %i
   %retval.sroa.0.0.insert.ext.i56.i206 = zext i8 %retval.sroa.0.0.i47.i197 to i32
   %retval.sroa.0.0.insert.insert.i57.i207 = or disjoint i32 %retval.sroa.3.0.insert.insert.i55.i205, %retval.sroa.0.0.insert.ext.i56.i206
   tail call void @nk_fill_circle(ptr noundef nonnull %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, i32 %retval.sroa.0.0.insert.insert.i57.i207)
-  %82 = load float, ptr %border, align 8
-  %mul.i59.i210 = fmul float %82, 2.000000e+00
+  %71 = load float, ptr %border, align 8
+  %mul.i59.i210 = fmul float %71, 2.000000e+00
   %cmp.i60.i211 = fcmp olt float %9, %mul.i59.i210
   %cond.i.i212 = select i1 %cmp.i60.i211, float %mul.i59.i210, float %9
-  %add.i.i217 = fadd float %0, %82
+  %add.i.i217 = fadd float %0, %71
   %retval.sroa.0.0.vec.insert.i.i218 = insertelement <2 x float> poison, float %add.i.i217, i64 0
-  %add14.i.i220 = fadd float %sub47, %82
+  %add14.i.i220 = fadd float %sub47, %71
   %retval.sroa.0.4.vec.insert.i.i221 = insertelement <2 x float> %retval.sroa.0.0.vec.insert.i.i218, float %add14.i.i220, i64 1
-  %83 = tail call float @llvm.fmuladd.f32(float %82, float -2.000000e+00, float %cond.i.i212)
-  %retval.sroa.3.8.vec.insert.i.i222 = insertelement <2 x float> poison, float %83, i64 0
+  %72 = tail call float @llvm.fmuladd.f32(float %71, float -2.000000e+00, float %cond.i.i212)
+  %retval.sroa.3.8.vec.insert.i.i222 = insertelement <2 x float> poison, float %72, i64 0
   %retval.sroa.3.12.vec.insert.i.i223 = shufflevector <2 x float> %retval.sroa.3.8.vec.insert.i.i222, <2 x float> poison, <2 x i32> zeroinitializer
   %data.i224 = getelementptr inbounds i8, ptr %background.0.i91, i64 8
-  %84 = load float, ptr %color_factor.i95, align 4
-  %85 = load i32, ptr %data.i224, align 8
-  %col.sroa.0.0.extract.trunc.i61.i225 = trunc i32 %85 to i8
-  %col.sroa.5.0.extract.shift.i62.i226 = lshr i32 %85, 8
+  %73 = load float, ptr %color_factor.i95, align 4
+  %74 = load i32, ptr %data.i224, align 8
+  %col.sroa.0.0.extract.trunc.i61.i225 = trunc i32 %74 to i8
+  %col.sroa.5.0.extract.shift.i62.i226 = lshr i32 %74, 8
   %col.sroa.5.0.extract.trunc.i63.i227 = trunc i32 %col.sroa.5.0.extract.shift.i62.i226 to i8
-  %col.sroa.7.0.extract.shift.i64.i228 = lshr i32 %85, 16
+  %col.sroa.7.0.extract.shift.i64.i228 = lshr i32 %74, 16
   %col.sroa.7.0.extract.trunc.i65.i229 = trunc i32 %col.sroa.7.0.extract.shift.i64.i228 to i8
-  %cmp.i66.i230 = fcmp oeq float %84, 1.000000e+00
+  %cmp.i66.i230 = fcmp oeq float %73, 1.000000e+00
   br i1 %cmp.i66.i230, label %nk_rgb_factor.exit89.i241, label %if.end.i67.i231
 
 if.end.i67.i231:                                  ; preds = %nk_rgb_factor.exit58.i195
   %conv.i68.i232 = uitofp i8 %col.sroa.0.0.extract.trunc.i61.i225 to float
-  %mul.i69.i233 = fmul float %84, %conv.i68.i232
+  %mul.i69.i233 = fmul float %73, %conv.i68.i232
   %conv1.i70.i234 = fptoui float %mul.i69.i233 to i8
   %conv2.i71.i235 = uitofp i8 %col.sroa.5.0.extract.trunc.i63.i227 to float
-  %mul3.i72.i236 = fmul float %84, %conv2.i71.i235
+  %mul3.i72.i236 = fmul float %73, %conv2.i71.i235
   %conv4.i73.i237 = fptoui float %mul3.i72.i236 to i8
   %conv5.i74.i238 = uitofp i8 %col.sroa.7.0.extract.trunc.i65.i229 to float
-  %mul6.i75.i239 = fmul float %84, %conv5.i74.i238
+  %mul6.i75.i239 = fmul float %73, %conv5.i74.i238
   %conv7.i76.i240 = fptoui float %mul6.i75.i239 to i8
   br label %nk_rgb_factor.exit89.i241
 
@@ -54188,7 +54160,7 @@ nk_rgb_factor.exit89.i241:                        ; preds = %if.end.i67.i231, %n
   %retval.sroa.3.0.i77.i242 = phi i8 [ %conv4.i73.i237, %if.end.i67.i231 ], [ %col.sroa.5.0.extract.trunc.i63.i227, %nk_rgb_factor.exit58.i195 ]
   %retval.sroa.0.0.i78.i243 = phi i8 [ %conv1.i70.i234, %if.end.i67.i231 ], [ %col.sroa.0.0.extract.trunc.i61.i225, %nk_rgb_factor.exit58.i195 ]
   %retval.sroa.5.0.i79.i244 = phi i8 [ %conv7.i76.i240, %if.end.i67.i231 ], [ %col.sroa.7.0.extract.trunc.i65.i229, %nk_rgb_factor.exit58.i195 ]
-  %col.sroa.9.0.extract.shift.i80.i245 = and i32 %85, -16777216
+  %col.sroa.9.0.extract.shift.i80.i245 = and i32 %74, -16777216
   %retval.sroa.5.0.insert.ext.i81.i246 = zext i8 %retval.sroa.5.0.i79.i244 to i32
   %retval.sroa.5.0.insert.shift.i82.i247 = shl nuw nsw i32 %retval.sroa.5.0.insert.ext.i81.i246, 16
   %retval.sroa.5.0.insert.insert.i83.i248 = or disjoint i32 %retval.sroa.5.0.insert.shift.i82.i247, %col.sroa.9.0.extract.shift.i80.i245
@@ -54202,80 +54174,78 @@ nk_rgb_factor.exit89.i241:                        ; preds = %if.end.i67.i231, %n
 
 if.else21.i126:                                   ; preds = %nk_rgb_factor.exit.i112
   %data22.i127 = getelementptr inbounds i8, ptr %background.0.i91, i64 8
-  %mul.i92.i128 = fmul float %79, 2.550000e+02
+  %mul.i92.i128 = fmul float %68, 2.550000e+02
   %conv1.i93.i129 = fptoui float %mul.i92.i128 to i8
-  %86 = zext i8 %conv1.i93.i129 to i32
-  %87 = mul nuw nsw i32 %86, 65793
-  %88 = or disjoint i32 %87, -16777216
-  %retval.sroa.0.0.insert.insert.i108.i135 = select i1 %cmp.i.i101, i32 -1, i32 %88
+  %75 = zext i8 %conv1.i93.i129 to i32
+  %76 = mul nuw nsw i32 %75, 65793
+  %77 = or disjoint i32 %76, -16777216
+  %retval.sroa.0.0.insert.insert.i108.i135 = select i1 %cmp.i.i101, i32 -1, i32 %77
   tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %select.sroa.0.0.vec.insert, <2 x float> %select.sroa.11.12.vec.insert, ptr noundef nonnull %data22.i127, i32 %retval.sroa.0.0.insert.insert.i108.i135)
   br label %if.end26.i136
 
 if.end26.i136:                                    ; preds = %if.else21.i126, %nk_rgb_factor.exit89.i241
   %tobool27.not.i137 = icmp eq i32 %51, 0
-  br i1 %tobool27.not.i137, label %nk_draw_option.exit, label %if.then28.i138
+  br i1 %tobool27.not.i137, label %if.end109, label %if.then28.i138
 
 if.then28.i138:                                   ; preds = %if.end26.i136
-  %89 = load i32, ptr %cursor_hover6.i92, align 8
-  %cmp30.i139 = icmp eq i32 %89, 1
+  %78 = load i32, ptr %cursor_hover6.i92, align 8
+  %cmp30.i139 = icmp eq i32 %78, 1
   %data32.i140 = getelementptr inbounds i8, ptr %cursor_hover6.i92, i64 8
   br i1 %cmp30.i139, label %if.then31.i168, label %if.else36.i141
 
 if.then31.i168:                                   ; preds = %if.then28.i138
-  %90 = load float, ptr %color_factor.i95, align 4
-  %cmp.i110.i169 = fcmp oeq float %90, 1.000000e+00
-  %mul.i112.i170 = fmul float %90, 2.550000e+02
+  %79 = load float, ptr %color_factor.i95, align 4
+  %cmp.i110.i169 = fcmp oeq float %79, 1.000000e+00
+  %mul.i112.i170 = fmul float %79, 2.550000e+02
   %conv1.i113.i171 = fptoui float %mul.i112.i170 to i8
-  %91 = zext i8 %conv1.i113.i171 to i32
-  %92 = mul nuw nsw i32 %91, 65793
-  %93 = or disjoint i32 %92, -16777216
-  %retval.sroa.0.0.insert.insert.i128.i177 = select i1 %cmp.i110.i169, i32 -1, i32 %93
+  %80 = zext i8 %conv1.i113.i171 to i32
+  %81 = mul nuw nsw i32 %80, 65793
+  %82 = or disjoint i32 %81, -16777216
+  %retval.sroa.0.0.insert.insert.i128.i177 = select i1 %cmp.i110.i169, i32 -1, i32 %82
   tail call void @nk_draw_image(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, ptr noundef nonnull %data32.i140, i32 %retval.sroa.0.0.insert.insert.i128.i177)
-  br label %nk_draw_option.exit
-
-if.else36.i141:                                   ; preds = %if.then28.i138
-  %94 = load i32, ptr %data32.i140, align 8
-  tail call void @nk_fill_circle(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, i32 %94)
-  br label %nk_draw_option.exit
-
-nk_draw_option.exit:                              ; preds = %if.else36.i141, %if.then31.i168, %if.end26.i136
-  %text_background.i145 = getelementptr inbounds i8, ptr %style, i64 220
-  %95 = load i32, ptr %text_background.i145, align 4
-  %cmp.i132.i147 = fcmp olt float %9, 0.000000e+00
-  %mul.b.sroa.14.12.vec.extract.i.i148 = select i1 %cmp.i132.i147, float 0.000000e+00, float %9
-  %96 = load float, ptr %height, align 8
-  %width.i.i151 = getelementptr inbounds i8, ptr %font, i64 16
-  %97 = load ptr, ptr %width.i.i151, align 8
-  %98 = load ptr, ptr %font, align 8
-  %call.i.i152 = tail call float %97(ptr %98, float noundef %96, ptr noundef %str, i32 noundef %len) #51
-  %add35.i.i154 = fadd float %add81, 0.000000e+00
-  %99 = insertelement <2 x float> poison, float %add35.i.i154, i64 0
-  %div164.i.i158 = fmul float %mul.b.sroa.14.12.vec.extract.i.i148, 5.000000e-01
-  %add165.i.i159 = fadd float %div164.i.i158, %sub47
-  %100 = load float, ptr %height, align 8
-  %div167.i.i160 = fmul float %100, 5.000000e-01
-  %sub168.i.i161 = fsub float %add165.i.i159, %div167.i.i160
-  %label.sroa.0.4.vec.insert27.i.i162 = insertelement <2 x float> %99, float %sub168.i.i161, i64 1
-  %add177.i.i163 = fadd float %div164.i.i158, %div167.i.i160
-  %sub178.i.i164 = fsub float %mul.b.sroa.14.12.vec.extract.i.i148, %add177.i.i163
-  %101 = insertelement <2 x float> poison, float %sub99, i64 0
-  %102 = insertelement <2 x float> %101, float %sub178.i.i164, i64 1
-  %103 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i.i158, i64 1
-  %104 = fcmp ogt <2 x float> %102, %103
-  %105 = select <2 x i1> %104, <2 x float> %102, <2 x float> %103
-  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i.i162, <2 x float> %105, ptr noundef %str, i32 noundef %len, ptr noundef nonnull %font, i32 %95, i32 %retval.sroa.0.0.insert.insert.i.i124)
   br label %if.end109
 
-if.end109:                                        ; preds = %nk_draw_option.exit, %nk_draw_checkbox.exit
+if.else36.i141:                                   ; preds = %if.then28.i138
+  %83 = load i32, ptr %data32.i140, align 8
+  tail call void @nk_fill_circle(ptr noundef nonnull %out, <2 x float> %25, <2 x float> %29, i32 %83)
+  br label %if.end109
+
+if.end109:                                        ; preds = %if.end26.i136, %if.then31.i168, %if.else36.i141, %if.end26.i, %if.then31.i, %if.else36.i
+  %retval.sroa.0.0.insert.insert.i.i124.sink = phi i32 [ %retval.sroa.0.0.insert.insert.i.i, %if.else36.i ], [ %retval.sroa.0.0.insert.insert.i.i, %if.then31.i ], [ %retval.sroa.0.0.insert.insert.i.i, %if.end26.i ], [ %retval.sroa.0.0.insert.insert.i.i124, %if.else36.i141 ], [ %retval.sroa.0.0.insert.insert.i.i124, %if.then31.i168 ], [ %retval.sroa.0.0.insert.insert.i.i124, %if.end26.i136 ]
+  %text_background.i145 = getelementptr inbounds i8, ptr %style, i64 220
+  %84 = load i32, ptr %text_background.i145, align 4
+  %cmp.i132.i147 = fcmp olt float %9, 0.000000e+00
+  %mul.b.sroa.14.12.vec.extract.i.i148 = select i1 %cmp.i132.i147, float 0.000000e+00, float %9
+  %85 = load float, ptr %height, align 8
+  %width.i.i151 = getelementptr inbounds i8, ptr %font, i64 16
+  %86 = load ptr, ptr %width.i.i151, align 8
+  %87 = load ptr, ptr %font, align 8
+  %call.i.i152 = tail call float %86(ptr %87, float noundef %85, ptr noundef %str, i32 noundef %len) #51
+  %add35.i.i154 = fadd float %add81, 0.000000e+00
+  %88 = insertelement <2 x float> poison, float %add35.i.i154, i64 0
+  %div164.i.i158 = fmul float %mul.b.sroa.14.12.vec.extract.i.i148, 5.000000e-01
+  %add165.i.i159 = fadd float %div164.i.i158, %sub47
+  %89 = load float, ptr %height, align 8
+  %div167.i.i160 = fmul float %89, 5.000000e-01
+  %sub168.i.i161 = fsub float %add165.i.i159, %div167.i.i160
+  %label.sroa.0.4.vec.insert27.i.i162 = insertelement <2 x float> %88, float %sub168.i.i161, i64 1
+  %add177.i.i163 = fadd float %div164.i.i158, %div167.i.i160
+  %sub178.i.i164 = fsub float %mul.b.sroa.14.12.vec.extract.i.i148, %add177.i.i163
+  %90 = insertelement <2 x float> poison, float %sub99, i64 0
+  %91 = insertelement <2 x float> %90, float %sub178.i.i164, i64 1
+  %92 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %div164.i.i158, i64 1
+  %93 = fcmp ogt <2 x float> %91, %92
+  %94 = select <2 x i1> %93, <2 x float> %91, <2 x float> %92
+  tail call void @nk_draw_text(ptr noundef nonnull %out, <2 x float> %label.sroa.0.4.vec.insert27.i.i162, <2 x float> %94, ptr noundef %str, i32 noundef %len, ptr noundef nonnull %font, i32 %84, i32 %retval.sroa.0.0.insert.insert.i.i124.sink)
   %draw_end = getelementptr inbounds i8, ptr %style, i64 280
-  %106 = load ptr, ptr %draw_end, align 8
-  %tobool110.not = icmp eq ptr %106, null
+  %95 = load ptr, ptr %draw_end, align 8
+  %tobool110.not = icmp eq ptr %95, null
   br i1 %tobool110.not, label %return, label %if.then111
 
 if.then111:                                       ; preds = %if.end109
   %userdata113 = getelementptr inbounds i8, ptr %style, i64 264
-  %107 = load ptr, ptr %userdata113, align 8
-  tail call void %106(ptr noundef nonnull %out, ptr %107) #51
+  %96 = load ptr, ptr %userdata113, align 8
+  tail call void %95(ptr noundef nonnull %out, ptr %96) #51
   br label %return
 
 return:                                           ; preds = %if.end109, %if.then111, %entry
@@ -72990,12 +72960,12 @@ stbtt__buf_get8.exit.i45.i.i:                     ; preds = %if.end.i.i52.i.i, %
   br i1 %exitcond.not.i51.i.i, label %stbtt__cff_skip_operand.exit.i, label %for.body.i39.i.i, !llvm.loop !138
 
 stbtt__cff_skip_operand.exit.sink.split.i:        ; preds = %if.then20.i.i, %if.then9.i.i
-  %inc.i31.i.sink.i = add nsw i32 %inc.i.i7176.i, 2
-  store i32 %inc.i31.i.sink.i, ptr %cursor.i.i, align 8
+  %inc.i31.i.i = add nsw i32 %inc.i.i7176.i, 2
+  store i32 %inc.i31.i.i, ptr %cursor.i.i, align 8
   br label %stbtt__cff_skip_operand.exit.i
 
 stbtt__cff_skip_operand.exit.i:                   ; preds = %stbtt__buf_get8.exit.i45.i.i, %stbtt__buf_get8.exit.i.i.i, %stbtt__buf_get8.exit.i.i, %stbtt__cff_skip_operand.exit.sink.split.i, %if.else28.i.i, %if.then20.i.i, %if.then9.i.i, %stbtt__buf_get8.exit.i53.i
-  %cursor.i.promoted82.i = phi i32 [ %add.i.i.i, %if.then20.i.i ], [ %add.i.i.i, %if.then9.i.i ], [ %add.i.i.i, %stbtt__buf_get8.exit.i53.i ], [ %add.i.i.i, %if.else28.i.i ], [ %inc.i31.i.sink.i, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %inc.i6.i.i.i, %stbtt__buf_get8.exit.i.i.i ], [ %inc.i6.i46.i.i, %stbtt__buf_get8.exit.i45.i.i ]
+  %cursor.i.promoted82.i = phi i32 [ %add.i.i.i, %if.then20.i.i ], [ %add.i.i.i, %if.then9.i.i ], [ %add.i.i.i, %stbtt__buf_get8.exit.i53.i ], [ %add.i.i.i, %if.else28.i.i ], [ %inc.i31.i.i, %stbtt__cff_skip_operand.exit.sink.split.i ], [ %indvars.i, %stbtt__buf_get8.exit.i.i ], [ %inc.i6.i.i.i, %stbtt__buf_get8.exit.i.i.i ], [ %inc.i6.i46.i.i, %stbtt__buf_get8.exit.i45.i.i ]
   %cmp.not.i.i = icmp slt i32 %cursor.i.promoted82.i, %0
   br i1 %cmp.not.i.i, label %stbtt__buf_peek8.exit.i, label %if.end.i, !llvm.loop !245
 

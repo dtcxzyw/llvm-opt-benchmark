@@ -2552,10 +2552,10 @@ _ZNSt7__cxx114listIN6Assimp3LWO7TextureESaIS3_EE9push_backERKS3_.exit: ; preds =
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %_ZNSt7__cxx114listIN6Assimp3LWO7TextureESaIS3_EE6insertESt20_List_const_iteratorIS3_ERKS3_.exit, %_ZNSt7__cxx114listIN6Assimp3LWO7TextureESaIS3_EE9push_backERKS3_.exit
-  %_M_size.i.i = getelementptr inbounds i8, ptr %mReflectionTextures, i64 16
-  %9 = load i64, ptr %_M_size.i.i, align 8
+  %_M_size.i.i.i = getelementptr inbounds i8, ptr %mReflectionTextures, i64 16
+  %9 = load i64, ptr %_M_size.i.i.i, align 8
   %add.i.i.i = add i64 %9, 1
-  store i64 %add.i.i.i, ptr %_M_size.i.i, align 8
+  store i64 %add.i.i.i, ptr %_M_size.i.i.i, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont17

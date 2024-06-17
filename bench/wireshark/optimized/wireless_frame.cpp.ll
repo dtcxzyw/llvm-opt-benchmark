@@ -100,7 +100,7 @@ define void @_ZN13WirelessFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   store ptr getelementptr inbounds (i8, ptr @_ZTV13WirelessFrame, i64 456), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #12
-          to label %9 unwind label %28
+          to label %9 unwind label %25
 
 9:                                                ; preds = %2
   store ptr %8, ptr %7, align 8
@@ -111,79 +111,70 @@ define void @_ZN13WirelessFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %12 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 -1, ptr %12, align 4
   invoke void @_ZN16Ui_WirelessFrame7setupUiEP6QFrame(ptr noundef nonnull align 8 dereferenceable(168) %8, ptr noundef nonnull %0)
-          to label %13 unwind label %28
+          to label %13 unwind label %25
 
 13:                                               ; preds = %9
   %14 = load ptr, ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %14, i64 152
   %16 = load ptr, ptr %15, align 8
   invoke void @_ZN7QWidget4hideEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
-          to label %17 unwind label %28
+          to label %17 unwind label %25
 
 17:                                               ; preds = %13
   %18 = invoke i32 @ws80211_init()
-          to label %19 unwind label %28
+          to label %19 unwind label %25
 
 19:                                               ; preds = %17
   %20 = icmp eq i32 %18, 0
   %21 = load ptr, ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
-  br i1 %20, label %24, label %30
+  br i1 %20, label %24, label %27
 
 24:                                               ; preds = %19
   invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %23, i1 noundef zeroext true)
-          to label %25 unwind label %28
+          to label %.invoke unwind label %25
 
-25:                                               ; preds = %24
-  %26 = load ptr, ptr %7, align 8
-  %27 = getelementptr inbounds i8, ptr %26, i64 16
-  br label %.invoke
-
-28:                                               ; preds = %.invoke, %.noexc, %46, %45, %41, %36, %30, %24, %17, %13, %9, %2
-  %29 = landingpad { ptr, i32 }
+25:                                               ; preds = %.invoke, %.noexc, %43, %42, %38, %33, %27, %24, %17, %13, %9, %2
+  %26 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6QFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) #13
-  resume { ptr, i32 } %29
+  resume { ptr, i32 } %26
 
-30:                                               ; preds = %19
+27:                                               ; preds = %19
   invoke void @_ZN7QWidget10setEnabledEb(ptr noundef nonnull align 8 dereferenceable(40) %23, i1 noundef zeroext false)
-          to label %31 unwind label %28
+          to label %.invoke unwind label %25
 
-31:                                               ; preds = %30
-  %32 = load ptr, ptr %7, align 8
-  %33 = getelementptr inbounds i8, ptr %32, i64 120
-  br label %.invoke
+.invoke:                                          ; preds = %27, %24
+  %.sink9 = phi i64 [ 16, %24 ], [ 120, %27 ]
+  %28 = load ptr, ptr %7, align 8
+  %29 = getelementptr inbounds i8, ptr %28, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds i8, ptr %28, i64 %.sink9
+  %32 = load ptr, ptr %31, align 8
+  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef %32)
+          to label %33 unwind label %25
 
-.invoke:                                          ; preds = %25, %31
-  %.sink = phi ptr [ %27, %25 ], [ %33, %31 ]
-  %.pn = phi ptr [ %26, %25 ], [ %32, %31 ]
-  %.in = getelementptr inbounds i8, ptr %.pn, i64 8
-  %34 = load ptr, ptr %.in, align 8
-  %35 = load ptr, ptr %.sink, align 8
-  invoke void @_ZN14QStackedWidget16setCurrentWidgetEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef %35)
-          to label %36 unwind label %28
+33:                                               ; preds = %.invoke
+  %34 = load ptr, ptr %7, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 80
+  %36 = load ptr, ptr %35, align 8
+  %37 = invoke zeroext i1 @ws80211_has_fcs_filter()
+          to label %38 unwind label %25
 
-36:                                               ; preds = %.invoke
-  %37 = load ptr, ptr %7, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 80
-  %39 = load ptr, ptr %38, align 8
-  %40 = invoke zeroext i1 @ws80211_has_fcs_filter()
-          to label %41 unwind label %28
+38:                                               ; preds = %33
+  %39 = load ptr, ptr %36, align 8
+  %40 = getelementptr inbounds i8, ptr %39, i64 104
+  %41 = load ptr, ptr %40, align 8
+  invoke void %41(ptr noundef nonnull align 8 dereferenceable(40) %36, i1 noundef zeroext %37)
+          to label %42 unwind label %25
 
-41:                                               ; preds = %36
-  %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 104
-  %44 = load ptr, ptr %43, align 8
-  invoke void %44(ptr noundef nonnull align 8 dereferenceable(40) %39, i1 noundef zeroext %40)
-          to label %45 unwind label %28
-
-45:                                               ; preds = %41
+42:                                               ; preds = %38
   invoke void @_ZN13WirelessFrame19updateInterfaceListEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-          to label %46 unwind label %28
+          to label %43 unwind label %25
 
-46:                                               ; preds = %45
-  %47 = load ptr, ptr @mainApp, align 8
+43:                                               ; preds = %42
+  %44 = load ptr, ptr @mainApp, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store i64 ptrtoint (ptr @_ZN15MainApplication19localInterfaceEventEPKcii to i64), ptr %3, align 8, !noalias !4
@@ -192,21 +183,21 @@ define void @_ZN13WirelessFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   store i64 ptrtoint (ptr @_ZN13WirelessFrame20handleInterfaceEventEPKcii to i64), ptr %4, align 8, !noalias !4
   %.fca.1.gep.i = getelementptr inbounds i8, ptr %4, i64 8
   store i64 0, ptr %.fca.1.gep.i, align 8, !noalias !4
-  %48 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
-          to label %.noexc unwind label %28
+  %45 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #12
+          to label %.noexc unwind label %25
 
-.noexc:                                           ; preds = %46
-  store i32 1, ptr %48, align 4, !noalias !4
-  %49 = getelementptr inbounds i8, ptr %48, i64 8
-  store ptr @_ZN9QtPrivate11QSlotObjectIM13WirelessFrameFvPKciiENS_4ListIJS3_iiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %49, align 8, !noalias !4
-  %50 = getelementptr inbounds i8, ptr %48, i64 16
-  store i64 ptrtoint (ptr @_ZN13WirelessFrame20handleInterfaceEventEPKcii to i64), ptr %50, align 8, !noalias !4
-  %.repack7.i.i = getelementptr inbounds i8, ptr %48, i64 24
+.noexc:                                           ; preds = %43
+  store i32 1, ptr %45, align 4, !noalias !4
+  %46 = getelementptr inbounds i8, ptr %45, i64 8
+  store ptr @_ZN9QtPrivate11QSlotObjectIM13WirelessFrameFvPKciiENS_4ListIJS3_iiEEEvE4implEiPNS_15QSlotObjectBaseEP7QObjectPPvPb, ptr %46, align 8, !noalias !4
+  %47 = getelementptr inbounds i8, ptr %45, i64 16
+  store i64 ptrtoint (ptr @_ZN13WirelessFrame20handleInterfaceEventEPKcii to i64), ptr %47, align 8, !noalias !4
+  %.repack7.i.i = getelementptr inbounds i8, ptr %45, i64 24
   store i64 0, ptr %.repack7.i.i, align 8, !noalias !4
-  invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %47, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %48, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
-          to label %51 unwind label %28
+  invoke void @_ZN7QObject11connectImplEPKS_PPvS1_S3_PN9QtPrivate15QSlotObjectBaseEN2Qt14ConnectionTypeEPKiPK11QMetaObject(ptr dead_on_unwind nonnull writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %44, ptr noundef nonnull %3, ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %45, i32 noundef 0, ptr noundef null, ptr noundef nonnull @_ZN15MainApplication16staticMetaObjectE)
+          to label %48 unwind label %25
 
-51:                                               ; preds = %.noexc
+48:                                               ; preds = %.noexc
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   call void @_ZN11QMetaObject10ConnectionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13

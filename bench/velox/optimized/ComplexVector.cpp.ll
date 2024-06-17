@@ -13440,12 +13440,12 @@ if.then19.i:                                      ; preds = %for.end.i
 
 return.sink.split:                                ; preds = %if.then3.i, %if.then19.i
   %notmask.i45.i.sink = phi i64 [ %notmask.i45.i, %if.then19.i ], [ %not.i.i, %if.then3.i ]
-  %div.i.sink = ashr i32 %add, 6
-  %idxprom2.i.i = sext i32 %div.i.sink to i64
-  %arrayidx3.i.i = getelementptr inbounds i64, ptr %2, i64 %idxprom2.i.i
-  %6 = load i64, ptr %arrayidx3.i.i, align 8
+  %div20.i.sink = ashr i32 %add, 6
+  %idxprom2.i50.i = sext i32 %div20.i.sink to i64
+  %arrayidx3.i51.i = getelementptr inbounds i64, ptr %2, i64 %idxprom2.i50.i
+  %6 = load i64, ptr %arrayidx3.i51.i, align 8
   %and4.i52.i = and i64 %6, %notmask.i45.i.sink
-  store i64 %and4.i52.i, ptr %arrayidx3.i.i, align 8
+  store i64 %and4.i52.i, ptr %arrayidx3.i51.i, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %for.end.i, %if.end

@@ -114,10 +114,10 @@ do.body:                                          ; preds = %entry
 
 sw.epilog.sink.split:                             ; preds = %entry, %entry, %sw.bb3, %sw.bb6
   %.sink50 = phi i32 [ 6, %sw.bb6 ], [ 3, %sw.bb3 ], [ 1, %entry ], [ 1, %entry ]
-  %m_num_dofs = getelementptr inbounds i8, ptr %this, i64 64
-  %0 = load i32, ptr %m_num_dofs, align 8
+  %m_num_dofs7 = getelementptr inbounds i8, ptr %this, i64 64
+  %0 = load i32, ptr %m_num_dofs7, align 8
   %add8 = add nsw i32 %0, %.sink50
-  store i32 %add8, ptr %m_num_dofs, align 8
+  store i32 %add8, ptr %m_num_dofs7, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry

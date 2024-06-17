@@ -14718,14 +14718,14 @@ define hidden void @"_ZN50_$LT$hir..ScopeDef$u20$as$u20$core..hash..Hash$GT$4has
   switch i32 %3, label %9 [
     i32 0, label %10
     i32 1, label %122
-    i32 2, label %247
-    i32 3, label %254
-    i32 4, label %265
-    i32 5, label %282
+    i32 2, label %235
+    i32 3, label %242
+    i32 4, label %253
+    i32 5, label %270
   ]
 
-.sink.split:                                      ; preds = %111, %"_ZN71_$LT$hir_def..builtin_type..BuiltinType$u20$as$u20$core..hash..Hash$GT$4hash17hd30b4fea74d4620cE.exit.i", %94, %87, %80, %73, %66, %59, %48, %41, %17, %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit", %247, %254, %265, %282
-  %.sink = phi i64 [ %298, %282 ], [ %281, %265 ], [ %264, %254 ], [ %253, %247 ], [ %246, %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit" ], [ %121, %111 ], [ %storemerge.i6.i, %"_ZN71_$LT$hir_def..builtin_type..BuiltinType$u20$as$u20$core..hash..Hash$GT$4hash17hd30b4fea74d4620cE.exit.i" ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %58, %48 ], [ %47, %41 ], [ %40, %17 ]
+.sink.split:                                      ; preds = %111, %"_ZN71_$LT$hir_def..builtin_type..BuiltinType$u20$as$u20$core..hash..Hash$GT$4hash17hd30b4fea74d4620cE.exit.i", %94, %87, %80, %73, %66, %59, %48, %41, %17, %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit", %235, %242, %253, %270
+  %.sink = phi i64 [ %286, %270 ], [ %269, %253 ], [ %252, %242 ], [ %241, %235 ], [ %234, %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit" ], [ %121, %111 ], [ %storemerge.i6.i, %"_ZN71_$LT$hir_def..builtin_type..BuiltinType$u20$as$u20$core..hash..Hash$GT$4hash17hd30b4fea74d4620cE.exit.i" ], [ %100, %94 ], [ %93, %87 ], [ %86, %80 ], [ %79, %73 ], [ %72, %66 ], [ %65, %59 ], [ %58, %48 ], [ %47, %41 ], [ %40, %17 ]
   store i64 %.sink, ptr %1, align 8
   br label %9
 
@@ -14916,8 +14916,8 @@ default.unreachable:                              ; preds = %122, %10
   %137 = tail call i64 @llvm.fshl.i64(i64 %136, i64 %136, i64 5)
   switch i32 %124, label %default.unreachable [
     i32 0, label %138
-    i32 1, label %174
-    i32 2, label %210
+    i32 1, label %168
+    i32 2, label %198
   ]
 
 138:                                              ; preds = %122
@@ -14938,7 +14938,7 @@ default.unreachable:                              ; preds = %122, %10
 140:                                              ; preds = %138
   %141 = zext i32 %.val1.i7 to i64
   %142 = xor i64 %137, %141
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 143:                                              ; preds = %138
   %144 = zext nneg i32 %.val.i6 to i64
@@ -14947,255 +14947,231 @@ default.unreachable:                              ; preds = %122, %10
   %147 = zext i32 %.val1.i7 to i64
   %148 = tail call i64 @llvm.fshl.i64(i64 %146, i64 %146, i64 5)
   %149 = xor i64 %148, %147
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 150:                                              ; preds = %138
   %151 = zext i32 %.val1.i7 to i64
   %152 = xor i64 %137, %151
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 153:                                              ; preds = %138
   %154 = zext i32 %.val1.i7 to i64
   %155 = xor i64 %137, %154
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 156:                                              ; preds = %138
   %157 = zext i32 %.val1.i7 to i64
   %158 = xor i64 %137, %157
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 159:                                              ; preds = %138
   %160 = zext i32 %.val1.i7 to i64
   %161 = xor i64 %137, %160
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 162:                                              ; preds = %138
   %163 = zext i32 %.val1.i7 to i64
   %164 = xor i64 %137, %163
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
 165:                                              ; preds = %138
   %166 = zext i32 %.val1.i7 to i64
   %167 = xor i64 %137, %166
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i"
-
-"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i": ; preds = %165, %162, %159, %156, %153, %150, %143, %140
-  %.sink1.i.i = phi i64 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %153 ], [ %152, %150 ], [ %149, %143 ], [ %142, %140 ]
-  %168 = mul i64 %.sink1.i.i, 5871781006564002453
-  %169 = getelementptr inbounds i8, ptr %0, i64 16
-  %170 = load i32, ptr %169, align 4, !alias.scope !4224, !noalias !4227, !noundef !11
-  %171 = zext i32 %170 to i64
-  %172 = tail call i64 @llvm.fshl.i64(i64 %168, i64 %168, i64 5)
-  %173 = xor i64 %172, %171
   br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-174:                                              ; preds = %122
-  switch i32 %narrow.i.i, label %175 [
-    i32 0, label %176
-    i32 1, label %179
-    i32 2, label %186
-    i32 3, label %189
-    i32 4, label %192
-    i32 5, label %195
-    i32 6, label %198
-    i32 7, label %201
+168:                                              ; preds = %122
+  switch i32 %narrow.i.i, label %169 [
+    i32 0, label %170
+    i32 1, label %173
+    i32 2, label %180
+    i32 3, label %183
+    i32 4, label %186
+    i32 5, label %189
+    i32 6, label %192
+    i32 7, label %195
   ]
 
-175:                                              ; preds = %174
+169:                                              ; preds = %168
   unreachable
 
-176:                                              ; preds = %174
+170:                                              ; preds = %168
+  %171 = zext i32 %.val1.i7 to i64
+  %172 = xor i64 %137, %171
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+173:                                              ; preds = %168
+  %174 = zext nneg i32 %.val.i6 to i64
+  %175 = xor i64 %137, %174
+  %176 = mul i64 %175, 5871781006564002453
   %177 = zext i32 %.val1.i7 to i64
-  %178 = xor i64 %137, %177
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+  %178 = tail call i64 @llvm.fshl.i64(i64 %176, i64 %176, i64 5)
+  %179 = xor i64 %178, %177
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-179:                                              ; preds = %174
-  %180 = zext nneg i32 %.val.i6 to i64
-  %181 = xor i64 %137, %180
-  %182 = mul i64 %181, 5871781006564002453
-  %183 = zext i32 %.val1.i7 to i64
-  %184 = tail call i64 @llvm.fshl.i64(i64 %182, i64 %182, i64 5)
-  %185 = xor i64 %184, %183
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+180:                                              ; preds = %168
+  %181 = zext i32 %.val1.i7 to i64
+  %182 = xor i64 %137, %181
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-186:                                              ; preds = %174
+183:                                              ; preds = %168
+  %184 = zext i32 %.val1.i7 to i64
+  %185 = xor i64 %137, %184
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+186:                                              ; preds = %168
   %187 = zext i32 %.val1.i7 to i64
   %188 = xor i64 %137, %187
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-189:                                              ; preds = %174
+189:                                              ; preds = %168
   %190 = zext i32 %.val1.i7 to i64
   %191 = xor i64 %137, %190
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-192:                                              ; preds = %174
+192:                                              ; preds = %168
   %193 = zext i32 %.val1.i7 to i64
   %194 = xor i64 %137, %193
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-195:                                              ; preds = %174
+195:                                              ; preds = %168
   %196 = zext i32 %.val1.i7 to i64
   %197 = xor i64 %137, %196
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-198:                                              ; preds = %174
-  %199 = zext i32 %.val1.i7 to i64
-  %200 = xor i64 %137, %199
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+198:                                              ; preds = %122
+  switch i32 %narrow.i.i, label %199 [
+    i32 0, label %200
+    i32 1, label %203
+    i32 2, label %210
+    i32 3, label %213
+    i32 4, label %216
+    i32 5, label %219
+    i32 6, label %222
+    i32 7, label %225
+  ]
 
-201:                                              ; preds = %174
-  %202 = zext i32 %.val1.i7 to i64
-  %203 = xor i64 %137, %202
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i"
+199:                                              ; preds = %198
+  unreachable
 
-"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i": ; preds = %201, %198, %195, %192, %189, %186, %179, %176
-  %.sink1.i7.i = phi i64 [ %203, %201 ], [ %200, %198 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %185, %179 ], [ %178, %176 ]
-  %204 = mul i64 %.sink1.i7.i, 5871781006564002453
-  %205 = getelementptr inbounds i8, ptr %0, i64 16
-  %206 = load i32, ptr %205, align 4, !alias.scope !4224, !noalias !4227, !noundef !11
-  %207 = zext i32 %206 to i64
-  %208 = tail call i64 @llvm.fshl.i64(i64 %204, i64 %204, i64 5)
+200:                                              ; preds = %198
+  %201 = zext i32 %.val1.i7 to i64
+  %202 = xor i64 %137, %201
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+203:                                              ; preds = %198
+  %204 = zext nneg i32 %.val.i6 to i64
+  %205 = xor i64 %137, %204
+  %206 = mul i64 %205, 5871781006564002453
+  %207 = zext i32 %.val1.i7 to i64
+  %208 = tail call i64 @llvm.fshl.i64(i64 %206, i64 %206, i64 5)
   %209 = xor i64 %208, %207
   br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-210:                                              ; preds = %122
-  switch i32 %narrow.i.i, label %211 [
-    i32 0, label %212
-    i32 1, label %215
-    i32 2, label %222
-    i32 3, label %225
-    i32 4, label %228
-    i32 5, label %231
-    i32 6, label %234
-    i32 7, label %237
-  ]
-
-211:                                              ; preds = %210
-  unreachable
-
-212:                                              ; preds = %210
-  %213 = zext i32 %.val1.i7 to i64
-  %214 = xor i64 %137, %213
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-215:                                              ; preds = %210
-  %216 = zext nneg i32 %.val.i6 to i64
-  %217 = xor i64 %137, %216
-  %218 = mul i64 %217, 5871781006564002453
-  %219 = zext i32 %.val1.i7 to i64
-  %220 = tail call i64 @llvm.fshl.i64(i64 %218, i64 %218, i64 5)
-  %221 = xor i64 %220, %219
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-222:                                              ; preds = %210
-  %223 = zext i32 %.val1.i7 to i64
-  %224 = xor i64 %137, %223
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-225:                                              ; preds = %210
-  %226 = zext i32 %.val1.i7 to i64
-  %227 = xor i64 %137, %226
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-228:                                              ; preds = %210
-  %229 = zext i32 %.val1.i7 to i64
-  %230 = xor i64 %137, %229
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-231:                                              ; preds = %210
-  %232 = zext i32 %.val1.i7 to i64
-  %233 = xor i64 %137, %232
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-234:                                              ; preds = %210
-  %235 = zext i32 %.val1.i7 to i64
-  %236 = xor i64 %137, %235
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-237:                                              ; preds = %210
-  %238 = zext i32 %.val1.i7 to i64
-  %239 = xor i64 %137, %238
-  br label %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-
-"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i": ; preds = %237, %234, %231, %228, %225, %222, %215, %212
-  %.sink1.i10.i = phi i64 [ %239, %237 ], [ %236, %234 ], [ %233, %231 ], [ %230, %228 ], [ %227, %225 ], [ %224, %222 ], [ %221, %215 ], [ %214, %212 ]
-  %240 = mul i64 %.sink1.i10.i, 5871781006564002453
-  %241 = getelementptr inbounds i8, ptr %0, i64 16
-  %242 = load i32, ptr %241, align 4, !alias.scope !4224, !noalias !4227, !noundef !11
-  %243 = zext i32 %242 to i64
-  %244 = tail call i64 @llvm.fshl.i64(i64 %240, i64 %240, i64 5)
-  %245 = xor i64 %244, %243
+210:                                              ; preds = %198
+  %211 = zext i32 %.val1.i7 to i64
+  %212 = xor i64 %137, %211
   br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
 
-"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit": ; preds = %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i", %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i", %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i"
-  %.sink13.i = phi i64 [ %245, %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit11.i" ], [ %209, %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit8.i" ], [ %173, %"_ZN58_$LT$hir_def..GenericDefId$u20$as$u20$core..hash..Hash$GT$4hash17hc2ea963ffe577fbeE.exit.i" ]
-  %246 = mul i64 %.sink13.i, 5871781006564002453
+213:                                              ; preds = %198
+  %214 = zext i32 %.val1.i7 to i64
+  %215 = xor i64 %137, %214
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+216:                                              ; preds = %198
+  %217 = zext i32 %.val1.i7 to i64
+  %218 = xor i64 %137, %217
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+219:                                              ; preds = %198
+  %220 = zext i32 %.val1.i7 to i64
+  %221 = xor i64 %137, %220
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+222:                                              ; preds = %198
+  %223 = zext i32 %.val1.i7 to i64
+  %224 = xor i64 %137, %223
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+225:                                              ; preds = %198
+  %226 = zext i32 %.val1.i7 to i64
+  %227 = xor i64 %137, %226
+  br label %"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit"
+
+"_ZN54_$LT$hir..GenericParam$u20$as$u20$core..hash..Hash$GT$4hash17h8f23eae75b122834E.exit": ; preds = %140, %143, %150, %153, %156, %159, %162, %165, %170, %173, %180, %183, %186, %189, %192, %195, %200, %203, %210, %213, %216, %219, %222, %225
+  %.sink1.i10.sink.i = phi i64 [ %167, %165 ], [ %164, %162 ], [ %161, %159 ], [ %158, %156 ], [ %155, %153 ], [ %152, %150 ], [ %149, %143 ], [ %142, %140 ], [ %197, %195 ], [ %194, %192 ], [ %191, %189 ], [ %188, %186 ], [ %185, %183 ], [ %182, %180 ], [ %179, %173 ], [ %172, %170 ], [ %227, %225 ], [ %224, %222 ], [ %221, %219 ], [ %218, %216 ], [ %215, %213 ], [ %212, %210 ], [ %209, %203 ], [ %202, %200 ]
+  %228 = mul i64 %.sink1.i10.sink.i, 5871781006564002453
+  %229 = getelementptr inbounds i8, ptr %0, i64 16
+  %230 = load i32, ptr %229, align 4, !alias.scope !4224, !noalias !4227, !noundef !11
+  %231 = zext i32 %230 to i64
+  %232 = tail call i64 @llvm.fshl.i64(i64 %228, i64 %228, i64 5)
+  %233 = xor i64 %232, %231
+  %234 = mul i64 %233, 5871781006564002453
   br label %.sink.split
 
-247:                                              ; preds = %2
-  %248 = getelementptr inbounds i8, ptr %0, i64 4
-  %249 = load i32, ptr %248, align 4, !noundef !11
-  %250 = zext i32 %249 to i64
-  %251 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
-  %252 = xor i64 %251, %250
-  %253 = mul i64 %252, 5871781006564002453
+235:                                              ; preds = %2
+  %236 = getelementptr inbounds i8, ptr %0, i64 4
+  %237 = load i32, ptr %236, align 4, !noundef !11
+  %238 = zext i32 %237 to i64
+  %239 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
+  %240 = xor i64 %239, %238
+  %241 = mul i64 %240, 5871781006564002453
   br label %.sink.split
 
-254:                                              ; preds = %2
-  %255 = getelementptr inbounds i8, ptr %0, i64 4
-  %.val = load i32, ptr %255, align 4, !range !1455, !noundef !11
-  %256 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val1 = load i32, ptr %256, align 4
-  %257 = zext nneg i32 %.val to i64
-  %258 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
-  %259 = xor i64 %258, %257
-  %260 = mul i64 %259, 5871781006564002453
-  %261 = zext i32 %.val1 to i64
-  %262 = tail call i64 @llvm.fshl.i64(i64 %260, i64 %260, i64 5)
-  %263 = xor i64 %262, %261
-  %264 = mul i64 %263, 5871781006564002453
+242:                                              ; preds = %2
+  %243 = getelementptr inbounds i8, ptr %0, i64 4
+  %.val = load i32, ptr %243, align 4, !range !1455, !noundef !11
+  %244 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val1 = load i32, ptr %244, align 4
+  %245 = zext nneg i32 %.val to i64
+  %246 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
+  %247 = xor i64 %246, %245
+  %248 = mul i64 %247, 5871781006564002453
+  %249 = zext i32 %.val1 to i64
+  %250 = tail call i64 @llvm.fshl.i64(i64 %248, i64 %248, i64 5)
+  %251 = xor i64 %250, %249
+  %252 = mul i64 %251, 5871781006564002453
   br label %.sink.split
 
-265:                                              ; preds = %2
-  %266 = getelementptr inbounds i8, ptr %0, i64 4
-  %.val2 = load i32, ptr %266, align 4, !range !4230, !noundef !11
-  %267 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val3 = load i32, ptr %267, align 4
-  %268 = zext nneg i32 %.val2 to i64
-  %269 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
-  %270 = xor i64 %269, %268
-  %271 = mul i64 %270, 5871781006564002453
-  %272 = zext i32 %.val3 to i64
-  %273 = tail call i64 @llvm.fshl.i64(i64 %271, i64 %271, i64 5)
-  %274 = xor i64 %273, %272
-  %275 = mul i64 %274, 5871781006564002453
-  %276 = getelementptr inbounds i8, ptr %0, i64 12
-  %277 = load i32, ptr %276, align 4, !noundef !11
-  %278 = zext i32 %277 to i64
-  %279 = tail call i64 @llvm.fshl.i64(i64 %275, i64 %275, i64 5)
-  %280 = xor i64 %279, %278
-  %281 = mul i64 %280, 5871781006564002453
+253:                                              ; preds = %2
+  %254 = getelementptr inbounds i8, ptr %0, i64 4
+  %.val2 = load i32, ptr %254, align 4, !range !4230, !noundef !11
+  %255 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val3 = load i32, ptr %255, align 4
+  %256 = zext nneg i32 %.val2 to i64
+  %257 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
+  %258 = xor i64 %257, %256
+  %259 = mul i64 %258, 5871781006564002453
+  %260 = zext i32 %.val3 to i64
+  %261 = tail call i64 @llvm.fshl.i64(i64 %259, i64 %259, i64 5)
+  %262 = xor i64 %261, %260
+  %263 = mul i64 %262, 5871781006564002453
+  %264 = getelementptr inbounds i8, ptr %0, i64 12
+  %265 = load i32, ptr %264, align 4, !noundef !11
+  %266 = zext i32 %265 to i64
+  %267 = tail call i64 @llvm.fshl.i64(i64 %263, i64 %263, i64 5)
+  %268 = xor i64 %267, %266
+  %269 = mul i64 %268, 5871781006564002453
   br label %.sink.split
 
-282:                                              ; preds = %2
-  %283 = getelementptr inbounds i8, ptr %0, i64 4
-  %.val4 = load i32, ptr %283, align 4, !range !4230, !noundef !11
-  %284 = getelementptr inbounds i8, ptr %0, i64 8
-  %.val5 = load i32, ptr %284, align 4
-  %285 = zext nneg i32 %.val4 to i64
-  %286 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
-  %287 = xor i64 %286, %285
-  %288 = mul i64 %287, 5871781006564002453
-  %289 = zext i32 %.val5 to i64
-  %290 = tail call i64 @llvm.fshl.i64(i64 %288, i64 %288, i64 5)
-  %291 = xor i64 %290, %289
-  %292 = mul i64 %291, 5871781006564002453
-  %293 = getelementptr inbounds i8, ptr %0, i64 12
-  %294 = load i32, ptr %293, align 4, !noundef !11
-  %295 = zext i32 %294 to i64
-  %296 = tail call i64 @llvm.fshl.i64(i64 %292, i64 %292, i64 5)
-  %297 = xor i64 %296, %295
-  %298 = mul i64 %297, 5871781006564002453
+270:                                              ; preds = %2
+  %271 = getelementptr inbounds i8, ptr %0, i64 4
+  %.val4 = load i32, ptr %271, align 4, !range !4230, !noundef !11
+  %272 = getelementptr inbounds i8, ptr %0, i64 8
+  %.val5 = load i32, ptr %272, align 4
+  %273 = zext nneg i32 %.val4 to i64
+  %274 = tail call i64 @llvm.fshl.i64(i64 %8, i64 %8, i64 5)
+  %275 = xor i64 %274, %273
+  %276 = mul i64 %275, 5871781006564002453
+  %277 = zext i32 %.val5 to i64
+  %278 = tail call i64 @llvm.fshl.i64(i64 %276, i64 %276, i64 5)
+  %279 = xor i64 %278, %277
+  %280 = mul i64 %279, 5871781006564002453
+  %281 = getelementptr inbounds i8, ptr %0, i64 12
+  %282 = load i32, ptr %281, align 4, !noundef !11
+  %283 = zext i32 %282 to i64
+  %284 = tail call i64 @llvm.fshl.i64(i64 %280, i64 %280, i64 5)
+  %285 = xor i64 %284, %283
+  %286 = mul i64 %285, 5871781006564002453
   br label %.sink.split
 }
 

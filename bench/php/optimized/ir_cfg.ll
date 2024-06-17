@@ -931,9 +931,9 @@ switch.edge343.i.i:                               ; preds = %switch.hole_check, 
   br label %529
 
 529:                                              ; preds = %528, %516
-  %.sink.i.i = phi i32 [ %487, %528 ], [ %505, %516 ]
+  %.sink.i70.i = phi i32 [ %487, %528 ], [ %505, %516 ]
   %530 = getelementptr inbounds i8, ptr %287, i64 4
-  store i32 %.sink.i.i, ptr %530, align 4
+  store i32 %.sink.i70.i, ptr %530, align 4
   store i32 0, ptr %522, align 4
   %531 = getelementptr inbounds i8, ptr %458, i64 4
   %532 = load i32, ptr %531, align 4
@@ -1239,12 +1239,12 @@ ir_is_zero.exit359.i.i:                           ; preds = %629
   br label %ir_try_remove_empty_diamond.exit.sink.split.i
 
 ir_try_remove_empty_diamond.exit.sink.split.i:    ; preds = %.lr.ph201.i.i, %668, %542, %._crit_edge.i.i, %206
-  %.sink.i = phi ptr [ %87, %._crit_edge.i.i ], [ %87, %206 ], [ %87, %542 ], [ %692, %668 ], [ %87, %.lr.ph201.i.i ]
-  %.sink72.i = phi i64 [ %86, %._crit_edge.i.i ], [ %86, %206 ], [ %86, %542 ], [ %691, %668 ], [ %86, %.lr.ph201.i.i ]
-  %.0.ph.i = phi i32 [ %249, %._crit_edge.i.i ], [ %197, %206 ], [ %.0321.i.i, %542 ], [ %.0323.i.i, %668 ], [ %249, %.lr.ph201.i.i ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink.i, i8 0, i64 16, i1 false)
+  %.sink373.i.sink.i = phi ptr [ %87, %._crit_edge.i.i ], [ %87, %206 ], [ %692, %668 ], [ %87, %542 ], [ %87, %.lr.ph201.i.i ]
+  %.sink372.i.sink.i = phi i64 [ %86, %._crit_edge.i.i ], [ %86, %206 ], [ %691, %668 ], [ %86, %542 ], [ %86, %.lr.ph201.i.i ]
+  %.0.ph.i = phi i32 [ %249, %._crit_edge.i.i ], [ %197, %206 ], [ %.0323.i.i, %668 ], [ %.0321.i.i, %542 ], [ %249, %.lr.ph201.i.i ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sink373.i.sink.i, i8 0, i64 16, i1 false)
   %693 = load ptr, ptr %28, align 8
-  %694 = getelementptr inbounds %struct._ir_use_list, ptr %693, i64 %.sink72.i
+  %694 = getelementptr inbounds %struct._ir_use_list, ptr %693, i64 %.sink372.i.sink.i
   %695 = getelementptr inbounds i8, ptr %694, i64 4
   store i32 0, ptr %695, align 4
   store i32 0, ptr %694, align 4
@@ -4331,13 +4331,13 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %10 = load i8, ptr %9, align 8
   %11 = add i8 %10, -14
   %or.cond = icmp ult i8 %11, 10
-  br i1 %or.cond, label %12, label %252
+  br i1 %or.cond, label %12, label %253
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %9, i64 8
   %14 = load i32, ptr %13, align 8
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %252
+  br i1 %15, label %16, label %253
 
 16:                                               ; preds = %12
   %17 = sext i32 %14 to i64
@@ -4345,7 +4345,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %19 = load i8, ptr %18, align 8
   %.off = add i8 %19, -66
   %switch = icmp ult i8 %.off, 3
-  br i1 %switch, label %252, label %20
+  br i1 %switch, label %253, label %20
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds i8, ptr %0, i64 72
@@ -4353,7 +4353,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %23 = getelementptr inbounds %struct._ir_use_list, ptr %22, i64 %8, i32 1
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %24, 1
-  br i1 %25, label %26, label %252
+  br i1 %25, label %26, label %253
 
 26:                                               ; preds = %20
   %27 = getelementptr inbounds i8, ptr %9, i64 4
@@ -4362,13 +4362,13 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %30 = getelementptr inbounds %struct._ir_insn, ptr %7, i64 %29
   %31 = load i8, ptr %30, align 8
   %32 = icmp eq i8 %31, 59
-  br i1 %32, label %33, label %252
+  br i1 %32, label %33, label %253
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %30, i64 2
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, 3
-  br i1 %36, label %37, label %252
+  br i1 %36, label %37, label %253
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %30, i64 4
@@ -4376,13 +4376,13 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %40 = getelementptr inbounds i8, ptr %3, i64 4
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %39, %41
-  br i1 %42, label %43, label %252
+  br i1 %42, label %43, label %253
 
 43:                                               ; preds = %37
   %44 = getelementptr inbounds %struct._ir_use_list, ptr %22, i64 %29, i32 1
   %45 = load i32, ptr %44, align 4
   %46 = icmp eq i32 %45, 1
-  br i1 %46, label %47, label %252
+  br i1 %46, label %47, label %253
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds i8, ptr %30, i64 8
@@ -4402,7 +4402,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %56 = getelementptr inbounds i8, ptr %30, i64 12
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %57, 0
-  br i1 %58, label %59, label %252
+  br i1 %58, label %59, label %253
 
 59:                                               ; preds = %55
   %60 = sext i32 %57 to i64
@@ -4410,7 +4410,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %62 = load i8, ptr %61, align 8
   %.off366 = add i8 %62, -66
   %switch367 = icmp ult i8 %.off366, 3
-  br i1 %switch367, label %252, label %63
+  br i1 %switch367, label %253, label %63
 
 63:                                               ; preds = %59, %51
   %64 = sext i32 %39 to i64
@@ -4418,7 +4418,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %66 = getelementptr inbounds %struct._ir_use_list, ptr %22, i64 %64, i32 1
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 2
-  br i1 %68, label %69, label %252
+  br i1 %68, label %69, label %253
 
 69:                                               ; preds = %63
   %70 = getelementptr inbounds i8, ptr %65, i64 4
@@ -4431,12 +4431,12 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %77 = getelementptr inbounds %struct._ir_insn, ptr %7, i64 %76
   %78 = load i8, ptr %75, align 8
   %79 = icmp eq i8 %78, 98
-  br i1 %79, label %80, label %252
+  br i1 %79, label %80, label %253
 
 80:                                               ; preds = %69
   %81 = load i8, ptr %77, align 8
   %82 = icmp eq i8 %81, 98
-  br i1 %82, label %.cont377, label %252
+  br i1 %82, label %.cont377, label %253
 
 .cont377:                                         ; preds = %80
   %83 = sext i32 %2 to i64
@@ -4592,7 +4592,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %166 = shl nuw i64 1, %165
   %167 = and i64 %163, %166
   %.not362 = icmp eq i64 %167, 0
-  br i1 %.not362, label %168, label %252
+  br i1 %.not362, label %168, label %253
 
 168:                                              ; preds = %158
   %169 = or i64 %163, %166
@@ -4675,7 +4675,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %215 = shl nuw i64 1, %214
   %216 = and i64 %212, %215
   %.not360 = icmp eq i64 %216, 0
-  br i1 %.not360, label %217, label %252
+  br i1 %.not360, label %217, label %253
 
 217:                                              ; preds = %207
   %218 = or i64 %212, %215
@@ -4734,7 +4734,7 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   %243 = shl nuw i64 1, %242
   %244 = and i64 %240, %243
   %.not363 = icmp eq i64 %244, 0
-  br i1 %.not363, label %245, label %252
+  br i1 %.not363, label %245, label %253
 
 245:                                              ; preds = %224
   %246 = or i64 %240, %243
@@ -4742,19 +4742,19 @@ define internal fastcc noundef i32 @ir_try_split_if_cmp(ptr noundef %0, ptr noca
   br label %.sink.split
 
 .sink.split:                                      ; preds = %168, %217, %245
-  %.0344.sink = phi i32 [ %.0345, %168 ], [ %.0345, %217 ], [ %.0344, %245 ]
-  %.0.ph = phi i32 [ -1, %168 ], [ -1, %217 ], [ %2, %245 ]
-  %.sink = getelementptr inbounds i8, ptr %1, i64 16
-  %247 = load i32, ptr %.sink, align 8
-  %248 = add i32 %247, 1
-  store i32 %248, ptr %.sink, align 8
-  %249 = load ptr, ptr %1, align 8
-  %250 = zext i32 %247 to i64
-  %251 = getelementptr inbounds i32, ptr %249, i64 %250
-  store i32 %.0344.sink, ptr %251, align 4
-  br label %252
+  %.0344.sink = phi i32 [ %.0344, %245 ], [ %.0345, %217 ], [ %.0345, %168 ]
+  %.0.ph = phi i32 [ %2, %245 ], [ -1, %217 ], [ -1, %168 ]
+  %247 = getelementptr inbounds i8, ptr %1, i64 16
+  %248 = load i32, ptr %247, align 8
+  %249 = add i32 %248, 1
+  store i32 %249, ptr %247, align 8
+  %250 = load ptr, ptr %1, align 8
+  %251 = zext i32 %248 to i64
+  %252 = getelementptr inbounds i32, ptr %250, i64 %251
+  store i32 %.0344.sink, ptr %252, align 4
+  br label %253
 
-252:                                              ; preds = %.sink.split, %59, %16, %4, %12, %20, %63, %80, %69, %55, %43, %37, %33, %26, %224, %207, %158
+253:                                              ; preds = %.sink.split, %59, %16, %4, %12, %20, %63, %80, %69, %55, %43, %37, %33, %26, %224, %207, %158
   %.0 = phi i32 [ -1, %158 ], [ -1, %207 ], [ %2, %224 ], [ 0, %59 ], [ 0, %16 ], [ 0, %26 ], [ 0, %33 ], [ 0, %37 ], [ 0, %43 ], [ 0, %55 ], [ 0, %69 ], [ 0, %80 ], [ 0, %63 ], [ 0, %20 ], [ 0, %12 ], [ 0, %4 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

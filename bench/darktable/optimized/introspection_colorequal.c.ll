@@ -11463,7 +11463,7 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
   %exitcond.not = icmp eq i32 %439, %smax
   br i1 %exitcond.not, label %434, label %438, !llvm.loop !418
 
-486:                                              ; preds = %594
+486:                                              ; preds = %575
   %487 = load ptr, ptr %363, align 8, !tbaa !417
   call void @free(ptr noundef %487) #30
   call void @cairo_restore(ptr noundef %38) #30
@@ -11481,8 +11481,8 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #30
   ret i32 0
 
-488:                                              ; preds = %594, %434
-  %489 = phi i64 [ 0, %434 ], [ %595, %594 ]
+488:                                              ; preds = %575, %434
+  %489 = phi i64 [ 0, %434 ], [ %585, %575 ]
   %490 = trunc i64 %489 to i32
   %491 = sitofp i32 %490 to float
   %492 = fmul reassoc nsz arcp contract afn float %491, 0x3FE921FB80000000
@@ -11578,45 +11578,36 @@ define internal noundef i32 @_iop_colorequalizer_draw(ptr noundef %0, ptr nounde
   store float %533, ptr %567, align 4, !tbaa !6
   %568 = load i32, ptr %436, align 8, !tbaa !363
   %569 = icmp eq i32 %568, 0
-  br i1 %569, label %584, label %570
+  br i1 %569, label %574, label %570
 
 570:                                              ; preds = %529
   %571 = load i32, ptr %437, align 4, !tbaa !420
   %572 = and i32 %490, 7
   %573 = icmp eq i32 %571, %572
-  br i1 %573, label %574, label %584
+  br i1 %573, label %575, label %574
 
-574:                                              ; preds = %570
-  %575 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !401
-  %576 = getelementptr inbounds i8, ptr %575, i64 688
-  %577 = load double, ptr %576, align 1
-  %578 = getelementptr inbounds i8, ptr %575, i64 696
-  %579 = load double, ptr %578, align 1
-  %580 = getelementptr inbounds i8, ptr %575, i64 704
-  %581 = load double, ptr %580, align 1
-  %582 = getelementptr inbounds i8, ptr %575, i64 712
-  %583 = load double, ptr %582, align 1
-  call void @cairo_set_source_rgba(ptr noundef %38, double noundef %577, double noundef %579, double noundef %581, double noundef %583) #30
-  br label %594
+574:                                              ; preds = %570, %529
+  br label %575
 
-584:                                              ; preds = %570, %529
-  %585 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !401
-  %586 = getelementptr inbounds i8, ptr %585, i64 592
-  %587 = load double, ptr %586, align 1
-  %588 = getelementptr inbounds i8, ptr %585, i64 600
-  %589 = load double, ptr %588, align 1
-  %590 = getelementptr inbounds i8, ptr %585, i64 608
-  %591 = load double, ptr %590, align 1
-  %592 = getelementptr inbounds i8, ptr %585, i64 616
-  %593 = load double, ptr %592, align 1
-  call void @cairo_set_source_rgba(ptr noundef %38, double noundef %587, double noundef %589, double noundef %591, double noundef %593) #30
-  br label %594
-
-594:                                              ; preds = %584, %574
+575:                                              ; preds = %570, %574
+  %.sink32 = phi i64 [ 592, %574 ], [ 688, %570 ]
+  %.sink30 = phi i64 [ 600, %574 ], [ 696, %570 ]
+  %.sink27 = phi i64 [ 608, %574 ], [ 704, %570 ]
+  %.sink24 = phi i64 [ 616, %574 ], [ 712, %570 ]
+  %576 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 128), align 8, !tbaa !401
+  %577 = getelementptr inbounds i8, ptr %576, i64 %.sink32
+  %578 = load double, ptr %577, align 1
+  %579 = getelementptr inbounds i8, ptr %576, i64 %.sink30
+  %580 = load double, ptr %579, align 1
+  %581 = getelementptr inbounds i8, ptr %576, i64 %.sink27
+  %582 = load double, ptr %581, align 1
+  %583 = getelementptr inbounds i8, ptr %576, i64 %.sink24
+  %584 = load double, ptr %583, align 1
+  call void @cairo_set_source_rgba(ptr noundef %38, double noundef %578, double noundef %580, double noundef %582, double noundef %584) #30
   call void @cairo_fill(ptr noundef %38) #30
-  %595 = add nuw nsw i64 %489, 1
-  %596 = icmp eq i64 %595, 9
-  br i1 %596, label %486, label %488
+  %585 = add nuw nsw i64 %489, 1
+  %586 = icmp eq i64 %585, 9
+  br i1 %586, label %486, label %488
 }
 
 ; Function Attrs: nounwind uwtable

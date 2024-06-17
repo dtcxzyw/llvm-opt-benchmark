@@ -167,14 +167,14 @@ if.then13.i.i:                                    ; preds = %if.else.i.i
   br label %if.end21.sink.split.i.i
 
 if.end21.sink.split.i.i:                          ; preds = %if.then13.i.i, %if.then.i.i
-  %pending.sink.i.i = phi ptr [ %pending.i.i, %if.then.i.i ], [ %pending17.i.i, %if.then13.i.i ]
-  %.sink.in.i.i = phi ptr [ %pending_buf.i.i, %if.then.i.i ], [ %pending_buf16.i.i, %if.then13.i.i ]
-  %conv15.sink.in.i.i = phi i16 [ %16, %if.then.i.i ], [ %12, %if.then13.i.i ]
+  %pending17.sink15.i.i = phi ptr [ %pending17.i.i, %if.then13.i.i ], [ %pending.i.i, %if.then.i.i ]
+  %.sink.in.i.i = phi ptr [ %pending_buf16.i.i, %if.then13.i.i ], [ %pending_buf.i.i, %if.then.i.i ]
+  %conv15.sink.in.i.i = phi i16 [ %12, %if.then13.i.i ], [ %16, %if.then.i.i ]
   %conv15.sink.i.i = trunc i16 %conv15.sink.in.i.i to i8
   %.sink.i.i = load ptr, ptr %.sink.in.i.i, align 16
-  %17 = load i32, ptr %pending.sink.i.i, align 8
+  %17 = load i32, ptr %pending17.sink15.i.i, align 8
   %inc18.i.i = add i32 %17, 1
-  store i32 %inc18.i.i, ptr %pending.sink.i.i, align 8
+  store i32 %inc18.i.i, ptr %pending17.sink15.i.i, align 8
   %idxprom19.i.i = zext i32 %17 to i64
   %arrayidx20.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 %idxprom19.i.i
   store i8 %conv15.sink.i.i, ptr %arrayidx20.i.i, align 1
@@ -1244,14 +1244,14 @@ if.then13.i:                                      ; preds = %if.else.i102
   br label %if.end21.sink.split.i
 
 if.end21.sink.split.i:                            ; preds = %if.then13.i, %if.then.i104
-  %pending.sink.i = phi ptr [ %pending.i107, %if.then.i104 ], [ %pending17.i, %if.then13.i ]
-  %.sink.in.i = phi ptr [ %pending_buf.i106, %if.then.i104 ], [ %pending_buf16.i, %if.then13.i ]
-  %conv15.sink.in.i = phi i16 [ %112, %if.then.i104 ], [ %113, %if.then13.i ]
+  %pending17.sink15.i = phi ptr [ %pending17.i, %if.then13.i ], [ %pending.i107, %if.then.i104 ]
+  %.sink.in.i = phi ptr [ %pending_buf16.i, %if.then13.i ], [ %pending_buf.i106, %if.then.i104 ]
+  %conv15.sink.in.i = phi i16 [ %113, %if.then13.i ], [ %112, %if.then.i104 ]
   %conv15.sink.i = trunc i16 %conv15.sink.in.i to i8
   %.sink.i = load ptr, ptr %.sink.in.i, align 16
-  %114 = load i32, ptr %pending.sink.i, align 8
+  %114 = load i32, ptr %pending17.sink15.i, align 8
   %inc18.i = add i32 %114, 1
-  store i32 %inc18.i, ptr %pending.sink.i, align 8
+  store i32 %inc18.i, ptr %pending17.sink15.i, align 8
   %idxprom19.i = zext i32 %114 to i64
   %arrayidx20.i103 = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom19.i
   store i8 %conv15.sink.i, ptr %arrayidx20.i103, align 1

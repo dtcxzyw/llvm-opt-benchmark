@@ -198,17 +198,17 @@ define ptr @Abc_NtkMulti(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 nou
 
 .critedge.sink.split.i:                           ; preds = %100, %35
   %.sink.i = phi ptr [ %87, %35 ], [ %23, %100 ]
-  %.val84.i = load ptr, ptr %.sink.i, align 8
+  %.val86.i = load ptr, ptr %.sink.i, align 8
   %102 = getelementptr i8, ptr %.sink.i, i64 32
-  %.val85.i = load ptr, ptr %102, align 8
-  %103 = getelementptr i8, ptr %.val84.i, i64 32
-  %.val84.val.i = load ptr, ptr %103, align 8
-  %104 = getelementptr i8, ptr %.val85.i, i64 4
-  %.val85.val.i = load i32, ptr %104, align 4
-  %105 = getelementptr i8, ptr %.val84.val.i, i64 8
-  %.val84.val.val.i = load ptr, ptr %105, align 8
-  %106 = sext i32 %.val85.val.i to i64
-  %107 = getelementptr inbounds ptr, ptr %.val84.val.val.i, i64 %106
+  %.val87.i = load ptr, ptr %102, align 8
+  %103 = getelementptr i8, ptr %.val86.i, i64 32
+  %.val86.val.i = load ptr, ptr %103, align 8
+  %104 = getelementptr i8, ptr %.val87.i, i64 4
+  %.val87.val.i = load i32, ptr %104, align 4
+  %105 = getelementptr i8, ptr %.val86.val.i, i64 8
+  %.val86.val.val.i = load ptr, ptr %105, align 8
+  %106 = sext i32 %.val87.val.i to i64
+  %107 = getelementptr inbounds ptr, ptr %.val86.val.val.i, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds i8, ptr %108, i64 20
   %110 = load i32, ptr %109, align 4

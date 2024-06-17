@@ -139775,7 +139775,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
   call void @llvm.experimental.noalias.scope.decl(metadata !22210)
   %2440 = load i64, ptr %2272, align 8, !alias.scope !22210, !noalias !22213, !noundef !4
   %2441 = icmp eq i64 %2440, 0
-  br i1 %2441, label %.invoke133.i, label %2442
+  br i1 %2441, label %.invoke143.i, label %2442
 
 2442:                                             ; preds = %2439
   call void @llvm.experimental.noalias.scope.decl(metadata !22215)
@@ -139839,13 +139839,13 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
 
 .noexc151.i:                                      ; preds = %.noexc150.i
   %2465 = icmp eq ptr %2464, null
-  br i1 %2465, label %.invoke133.i, label %2492
+  br i1 %2465, label %.invoke143.i, label %2492
 
 .thread108.i:                                     ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find28_$u7b$$u7b$closure$u7d$$u7d$17h6a825139478ea988E.exit._crit_edge.i.i.i.i", %2433, %2387, %2381
   call void @llvm.experimental.noalias.scope.decl(metadata !22246)
   %2466 = load i64, ptr %2272, align 8, !alias.scope !22246, !noalias !22249, !noundef !4
   %2467 = icmp eq i64 %2466, 0
-  br i1 %2467, label %.invoke133.i, label %2468
+  br i1 %2467, label %.invoke143.i, label %2468
 
 2468:                                             ; preds = %.thread108.i
   call void @llvm.experimental.noalias.scope.decl(metadata !22251)
@@ -139909,7 +139909,7 @@ _ZN5alloc5alloc15exchange_malloc17he27dc27497df8aaaE.llvm.10148583022391705530.e
 
 .noexc165.i:                                      ; preds = %.noexc164.i
   %2491 = icmp eq ptr %2490, null
-  br i1 %2491, label %.invoke133.i, label %2585
+  br i1 %2491, label %.invoke143.i, label %2585
 
 2492:                                             ; preds = %.noexc151.i
   call void @llvm.experimental.noalias.scope.decl(metadata !22282)
@@ -140067,25 +140067,25 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 
 "_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i": ; preds = %2633, %2571
   %.sink145.i = phi ptr [ %2620, %2633 ], [ %2558, %2571 ]
-  %.sink144.ph.i = phi i64 [ %2616, %2633 ], [ %2554, %2571 ]
-  %.sink143.ph.i = phi ptr [ %2490, %2633 ], [ %2464, %2571 ]
+  %.sink142.ph.i = phi i64 [ %2616, %2633 ], [ %2554, %2571 ]
+  %.sink141.ph.i = phi ptr [ %2490, %2633 ], [ %2464, %2571 ]
   %.pre.i.i.i453 = load i64, ptr %.sink145.i, align 8, !noalias !22021
   br label %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.i"
 
 "_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.i": ; preds = %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i", %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463
-  %.sink144.i = phi i64 [ %2616, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2554, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.sink144.ph.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
-  %.sink143.i = phi ptr [ %2490, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2464, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.sink143.ph.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
-  %.sink141.i = phi i64 [ %2631, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2569, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.pre.i.i.i453, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
+  %.sink142.i = phi i64 [ %2616, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2554, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.sink142.ph.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
+  %.sink141.i = phi ptr [ %2490, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2464, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.sink141.ph.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
+  %.sink139.i = phi i64 [ %2631, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2569, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.pre.i.i.i453, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
   %.sink.i451 = phi ptr [ %2620, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit.i172.i ], [ %2558, %_ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit3.i.i463 ], [ %.sink145.i, %"_ZN11arrow_array7builder21generic_bytes_builder27GenericByteBuilder$LT$T$GT$11append_null17h0ecdb33b379885c6E.exit.sink.split.i" ]
-  %2575 = trunc nuw nsw i64 %.sink144.i to i32
-  %2576 = getelementptr inbounds i8, ptr %.sink143.i, i64 -80
+  %2575 = trunc nuw nsw i64 %.sink142.i to i32
+  %2576 = getelementptr inbounds i8, ptr %.sink141.i, i64 -80
   %2577 = load ptr, ptr %2576, align 8, !noalias !22021, !nonnull !4, !noundef !4
-  %2578 = getelementptr inbounds i8, ptr %2577, i64 %.sink141.i
+  %2578 = getelementptr inbounds i8, ptr %2577, i64 %.sink139.i
   store i32 %2575, ptr %2578, align 1, !noalias !22021
   %2579 = load i64, ptr %.sink.i451, align 8, !noalias !22021, !noundef !4
   %2580 = add i64 %2579, 4
   store i64 %2580, ptr %.sink.i451, align 8, !noalias !22021
-  %2581 = getelementptr inbounds i8, ptr %.sink143.i, i64 -64
+  %2581 = getelementptr inbounds i8, ptr %.sink141.i, i64 -64
   %2582 = load i64, ptr %2581, align 8, !noalias !22021, !noundef !4
   %2583 = add i64 %2582, 1
   store i64 %2583, ptr %2581, align 8, !noalias !22021
@@ -140101,14 +140101,14 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 .noexc181.i:                                      ; preds = %2585
   %2587 = load i64, ptr %2586, align 8, !range !6, !alias.scope !22311, !noalias !22021, !noundef !4
   %2588 = icmp eq i64 %2587, 0
-  br i1 %2588, label %.invoke133.i, label %2590
+  br i1 %2588, label %.invoke143.i, label %2590
 
-.invoke133.i:                                     ; preds = %.noexc181.i, %.noexc165.i, %.thread108.i, %.noexc151.i, %2439
+.invoke143.i:                                     ; preds = %.noexc181.i, %.noexc165.i, %.thread108.i, %.noexc151.i, %2439
   %2589 = phi ptr [ @anon.fa082ecd109e1e9e48d31b7779f57bae.927, %.noexc151.i ], [ @anon.fa082ecd109e1e9e48d31b7779f57bae.927, %2439 ], [ @anon.fa082ecd109e1e9e48d31b7779f57bae.928, %.noexc165.i ], [ @anon.fa082ecd109e1e9e48d31b7779f57bae.928, %.thread108.i ], [ @anon.fa082ecd109e1e9e48d31b7779f57bae.162, %.noexc181.i ]
   invoke void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %2589) #45
-          to label %.cont134.i unwind label %.loopexit.split-lp.i448, !noalias !22021
+          to label %.cont144.i unwind label %.loopexit.split-lp.i448, !noalias !22021
 
-.cont134.i:                                       ; preds = %.invoke133.i
+.cont144.i:                                       ; preds = %.invoke143.i
   unreachable
 
 2590:                                             ; preds = %.noexc181.i
@@ -140211,7 +140211,7 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
           cleanup
   br label %2637
 
-.loopexit.split-lp.i448:                          ; preds = %.invoke.i447, %.invoke133.i
+.loopexit.split-lp.i448:                          ; preds = %.invoke.i447, %.invoke143.i
   %lpad.loopexit.split-lp.i449 = landingpad { ptr, i32 }
           cleanup
   br label %2637

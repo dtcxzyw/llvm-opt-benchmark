@@ -15320,10 +15320,10 @@ define internal fastcc void @_ZN6rustls6client5tls1214emit_client_kx17h3c88b2d28
   br label %.thread33
 
 22:                                               ; preds = %17, %19
-  %.sink51 = phi { i64, ptr } [ %20, %19 ], [ %18, %17 ]
+  %.sink = phi { i64, ptr } [ %20, %19 ], [ %18, %17 ]
   %23 = phi i64 [ 0, %19 ], [ 1, %17 ]
-  %24 = extractvalue { i64, ptr } %.sink51, 0
-  %25 = extractvalue { i64, ptr } %.sink51, 1
+  %24 = extractvalue { i64, ptr } %.sink, 0
+  %25 = extractvalue { i64, ptr } %.sink, 1
   %26 = icmp ne ptr %25, null
   tail call void @llvm.assume(i1 %26)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %25, ptr nonnull align 1 %3, i64 %4, i1 false)

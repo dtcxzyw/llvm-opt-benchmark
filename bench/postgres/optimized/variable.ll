@@ -1196,9 +1196,9 @@ thread-pre-split:                                 ; preds = %53
   br i1 %98, label %tailrecurse.backedge.sink.split, label %tailrecurse.backedge
 
 tailrecurse.backedge.sink.split:                  ; preds = %94, %103
-  %.sink118 = phi ptr [ %108, %103 ], [ %100, %94 ]
+  %.sink117 = phi ptr [ %108, %103 ], [ %100, %94 ]
   %.tr87.be.ph = phi ptr [ %.179, %103 ], [ %99, %94 ]
-  %101 = load ptr, ptr %.sink118, align 8
+  %101 = load ptr, ptr %.sink117, align 8
   %102 = getelementptr inbounds i8, ptr %101, i64 32
   br label %tailrecurse.backedge
 

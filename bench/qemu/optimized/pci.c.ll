@@ -368,7 +368,7 @@ for.cond7.preheader:                              ; preds = %for.inc
   br label %for.body10
 
 for.body:                                         ; preds = %entry, %for.inc
-  %index.0102 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
+  %index.0101 = phi i32 [ 0, %entry ], [ %inc, %for.inc ]
   %call.i = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
   %tobool.not.i.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i.i, label %if.else.i.i, label %qpci_device_set.exit.i
@@ -378,7 +378,7 @@ if.else.i.i:                                      ; preds = %for.body
   unreachable
 
 qpci_device_set.exit.i:                           ; preds = %for.body
-  %add = add nsw i32 %index.0102, %bus
+  %add = add nsw i32 %index.0101, %bus
   %shl = shl i32 %add, 3
   store ptr %qbus, ptr %call.i, align 8
   %devfn2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
@@ -412,12 +412,12 @@ if.then5:                                         ; preds = %if.end
 
 for.inc:                                          ; preds = %if.end, %if.then5, %qpci_device_set.exit.i
   tail call void @g_free(ptr noundef nonnull %call.i) #11
-  %inc = add nuw nsw i32 %index.0102, 1
+  %inc = add nuw nsw i32 %index.0101, 1
   %exitcond.not = icmp eq i32 %inc, 32
   br i1 %exitcond.not, label %for.cond7.preheader, label %for.body, !llvm.loop !8
 
 for.body10:                                       ; preds = %for.cond7.preheader, %for.inc91
-  %index.1103 = phi i32 [ 0, %for.cond7.preheader ], [ %inc92, %for.inc91 ]
+  %index.1102 = phi i32 [ 0, %for.cond7.preheader ], [ %inc92, %for.inc91 ]
   %call.i56 = tail call noalias dereferenceable_or_null(64) ptr @g_malloc0(i64 noundef 64) #10
   %tobool.not.i.i57 = icmp eq ptr %call.i56, null
   br i1 %tobool.not.i.i57, label %if.else.i.i65, label %qpci_device_set.exit.i58
@@ -427,7 +427,7 @@ if.else.i.i65:                                    ; preds = %for.body10
   unreachable
 
 qpci_device_set.exit.i58:                         ; preds = %for.body10
-  %add11 = add nsw i32 %index.1103, %bus
+  %add11 = add nsw i32 %index.1102, %bus
   %shl12 = shl i32 %add11, 3
   store ptr %qbus, ptr %call.i56, align 8
   %devfn2.i.i59 = getelementptr inbounds i8, ptr %call.i56, i64 8
@@ -534,46 +534,32 @@ do.body.i.preheader:                              ; preds = %if.end.i, %if.end.i
 do.body.i:                                        ; preds = %do.body.i.preheader, %land.rhs.i
   %cap.0.i = phi i8 [ %addr.1.i.i, %land.rhs.i ], [ 0, %do.body.i.preheader ]
   %tobool.not.i.i87 = icmp eq i8 %cap.0.i, 0
-  br i1 %tobool.not.i.i87, label %if.else.i.i88, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %do.body.i
   %add.i.i = add i8 %cap.0.i, 1
+  %.sink23.i.i = select i1 %tobool.not.i.i87, i8 52, i8 %add.i.i
   %40 = load ptr, ptr %call.i56, align 8
-  %config_readb.i.i.i = getelementptr inbounds i8, ptr %40, i64 80
-  %41 = load ptr, ptr %config_readb.i.i.i, align 8
+  %config_readb.i10.i.i = getelementptr inbounds i8, ptr %40, i64 80
+  %41 = load ptr, ptr %config_readb.i10.i.i, align 8
   %42 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i.i.i = tail call zeroext i8 %41(ptr noundef %40, i32 noundef %42, i8 noundef zeroext %add.i.i) #11
-  br label %do.body.i.i.preheader
-
-if.else.i.i88:                                    ; preds = %do.body.i
-  %43 = load ptr, ptr %call.i56, align 8
-  %config_readb.i10.i.i = getelementptr inbounds i8, ptr %43, i64 80
-  %44 = load ptr, ptr %config_readb.i10.i.i, align 8
-  %45 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i12.i.i = tail call zeroext i8 %44(ptr noundef %43, i32 noundef %45, i8 noundef zeroext 52) #11
-  br label %do.body.i.i.preheader
-
-do.body.i.i.preheader:                            ; preds = %if.else.i.i88, %if.then.i.i
-  %addr.1.i.i.ph = phi i8 [ %call.i12.i.i, %if.else.i.i88 ], [ %call.i.i.i, %if.then.i.i ]
+  %call.i12.i.i = tail call zeroext i8 %41(ptr noundef %40, i32 noundef %42, i8 noundef zeroext %.sink23.i.i) #11
   br label %do.body.i.i
 
-do.body.i.i:                                      ; preds = %do.body.i.i.preheader, %do.cond.i.i
-  %addr.1.i.i = phi i8 [ %call.i18.i.i, %do.cond.i.i ], [ %addr.1.i.i.ph, %do.body.i.i.preheader ]
-  %46 = load ptr, ptr %call.i56, align 8
-  %config_readb.i13.i.i = getelementptr inbounds i8, ptr %46, i64 80
-  %47 = load ptr, ptr %config_readb.i13.i.i, align 8
-  %48 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i15.i.i = tail call zeroext i8 %47(ptr noundef %46, i32 noundef %48, i8 noundef zeroext %addr.1.i.i) #11
+do.body.i.i:                                      ; preds = %do.cond.i.i, %do.body.i
+  %addr.1.i.i = phi i8 [ %call.i12.i.i, %do.body.i ], [ %call.i18.i.i, %do.cond.i.i ]
+  %43 = load ptr, ptr %call.i56, align 8
+  %config_readb.i13.i.i = getelementptr inbounds i8, ptr %43, i64 80
+  %44 = load ptr, ptr %config_readb.i13.i.i, align 8
+  %45 = load i32, ptr %devfn2.i.i59, align 8
+  %call.i15.i.i = tail call zeroext i8 %44(ptr noundef %43, i32 noundef %45, i8 noundef zeroext %addr.1.i.i) #11
   %cmp.not.i.i = icmp eq i8 %call.i15.i.i, 9
   br i1 %cmp.not.i.i, label %qpci_find_capability.exit.i, label %do.cond.i.i
 
 do.cond.i.i:                                      ; preds = %do.body.i.i
   %add9.i.i = add i8 %addr.1.i.i, 1
-  %49 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i.i = getelementptr inbounds i8, ptr %49, i64 80
-  %50 = load ptr, ptr %config_readb.i16.i.i, align 8
-  %51 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i18.i.i = tail call zeroext i8 %50(ptr noundef %49, i32 noundef %51, i8 noundef zeroext %add9.i.i) #11
+  %46 = load ptr, ptr %call.i56, align 8
+  %config_readb.i16.i.i = getelementptr inbounds i8, ptr %46, i64 80
+  %47 = load ptr, ptr %config_readb.i16.i.i, align 8
+  %48 = load i32, ptr %devfn2.i.i59, align 8
+  %call.i18.i.i = tail call zeroext i8 %47(ptr noundef %46, i32 noundef %48, i8 noundef zeroext %add9.i.i) #11
   %cmp18.not.i.i = icmp eq i8 %call.i18.i.i, 0
   br i1 %cmp18.not.i.i, label %if.end88, label %do.body.i.i, !llvm.loop !9
 
@@ -583,43 +569,43 @@ qpci_find_capability.exit.i:                      ; preds = %do.body.i.i
 
 land.rhs.i:                                       ; preds = %qpci_find_capability.exit.i
   %add.i = add i8 %addr.1.i.i, 3
-  %52 = load ptr, ptr %call.i56, align 8
-  %config_readb.i.i = getelementptr inbounds i8, ptr %52, i64 80
-  %53 = load ptr, ptr %config_readb.i.i, align 8
-  %54 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i15.i = tail call zeroext i8 %53(ptr noundef %52, i32 noundef %54, i8 noundef zeroext %add.i) #11
+  %49 = load ptr, ptr %call.i56, align 8
+  %config_readb.i.i = getelementptr inbounds i8, ptr %49, i64 80
+  %50 = load ptr, ptr %config_readb.i.i, align 8
+  %51 = load i32, ptr %devfn2.i.i59, align 8
+  %call.i15.i = tail call zeroext i8 %50(ptr noundef %49, i32 noundef %51, i8 noundef zeroext %add.i) #11
   %cmp17.not.i = icmp eq i8 %call.i15.i, 1
   br i1 %cmp17.not.i, label %if.then20.i, label %do.body.i, !llvm.loop !10
 
 if.then20.i:                                      ; preds = %land.rhs.i
   %add22.i = add i8 %addr.1.i.i, 2
-  %55 = load ptr, ptr %call.i56, align 8
-  %config_readb.i16.i = getelementptr inbounds i8, ptr %55, i64 80
-  %56 = load ptr, ptr %config_readb.i16.i, align 8
-  %57 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i18.i = tail call zeroext i8 %56(ptr noundef %55, i32 noundef %57, i8 noundef zeroext %add22.i) #11
+  %52 = load ptr, ptr %call.i56, align 8
+  %config_readb.i16.i = getelementptr inbounds i8, ptr %52, i64 80
+  %53 = load ptr, ptr %config_readb.i16.i, align 8
+  %54 = load i32, ptr %devfn2.i.i59, align 8
+  %call.i18.i = tail call zeroext i8 %53(ptr noundef %52, i32 noundef %54, i8 noundef zeroext %add22.i) #11
   %cmp26.i = icmp ult i8 %call.i18.i, 32
   br i1 %cmp26.i, label %if.end88, label %if.then49
 
 if.then49:                                        ; preds = %if.then20.i
   %add51 = add i8 %addr.1.i.i, 4
-  %58 = load ptr, ptr %call.i56, align 8
-  %config_readl.i = getelementptr inbounds i8, ptr %58, i64 96
-  %59 = load ptr, ptr %config_readl.i, align 8
-  %60 = load i32, ptr %devfn2.i.i59, align 8
-  %call.i90 = tail call i32 %59(ptr noundef %58, i32 noundef %60, i8 noundef zeroext %add51) #11
-  %cmp54.not = icmp eq i32 %call.i90, -1
+  %55 = load ptr, ptr %call.i56, align 8
+  %config_readl.i = getelementptr inbounds i8, ptr %55, i64 96
+  %56 = load ptr, ptr %config_readl.i, align 8
+  %57 = load i32, ptr %devfn2.i.i59, align 8
+  %call.i89 = tail call i32 %56(ptr noundef %55, i32 noundef %57, i8 noundef zeroext %add51) #11
+  %cmp54.not = icmp eq i32 %call.i89, -1
   br i1 %cmp54.not, label %if.end88, label %if.then56
 
 if.then56:                                        ; preds = %if.then49
-  %61 = trunc i32 %call.i90 to i8
-  %conv61 = add i8 %secbus.0, %61
+  %58 = trunc i32 %call.i89 to i8
+  %conv61 = add i8 %secbus.0, %58
   %cmp64 = icmp ult i8 %conv61, %secbus.0
   br i1 %cmp64, label %if.then74, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.then56
   %conv62 = zext i8 %conv61 to i32
-  %conv58 = and i32 %call.i90, 255
+  %conv58 = and i32 %call.i89, 255
   %cmp72 = icmp ugt i32 %conv58, %conv62
   br i1 %cmp72, label %if.then74, label %if.end75
 
@@ -627,11 +613,11 @@ if.then74:                                        ; preds = %lor.lhs.false, %if.
   br label %if.end75
 
 if.end75:                                         ; preds = %if.then74, %lor.lhs.false
-  %res_bus.0 = phi i8 [ 0, %if.then74 ], [ %61, %lor.lhs.false ]
+  %res_bus.0 = phi i8 [ 0, %if.then74 ], [ %58, %lor.lhs.false ]
   %conv77 = zext i8 %res_bus.0 to i32
   %add78 = add nuw nsw i32 %conv41.pre-phi, %conv77
-  %62 = load i32, ptr %pci_bus, align 4
-  %cmp79 = icmp sgt i32 %add78, %62
+  %59 = load i32, ptr %pci_bus, align 4
+  %cmp79 = icmp sgt i32 %add78, %59
   %conv85 = trunc i32 %add78 to i8
   %spec.select = select i1 %cmp79, i8 %conv85, i8 %res_bus.0
   br label %if.end88
@@ -644,18 +630,18 @@ if.end88:                                         ; preds = %qpci_find_capabilit
 
 if.end90:                                         ; preds = %if.end88, %if.end39
   %subbus.0 = phi i8 [ %res_bus.1, %if.end88 ], [ %call.i81, %if.end39 ]
-  %63 = load ptr, ptr %call.i56, align 8
-  %config_writeb.i91 = getelementptr inbounds i8, ptr %63, i64 104
-  %64 = load ptr, ptr %config_writeb.i91, align 8
-  %65 = load i32, ptr %devfn2.i.i59, align 8
-  tail call void %64(ptr noundef %63, i32 noundef %65, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
+  %60 = load ptr, ptr %call.i56, align 8
+  %config_writeb.i90 = getelementptr inbounds i8, ptr %60, i64 104
+  %61 = load ptr, ptr %config_writeb.i90, align 8
+  %62 = load i32, ptr %devfn2.i.i59, align 8
+  tail call void %61(ptr noundef %60, i32 noundef %62, i8 noundef zeroext 26, i8 noundef zeroext %subbus.0) #11
   br label %for.inc91
 
 for.inc91:                                        ; preds = %if.end18, %qpci_device_set.exit.i58, %if.end90
   tail call void @g_free(ptr noundef nonnull %call.i56) #11
-  %inc92 = add nuw nsw i32 %index.1103, 1
-  %exitcond107.not = icmp eq i32 %inc92, 32
-  br i1 %exitcond107.not, label %for.end93, label %for.body10, !llvm.loop !11
+  %inc92 = add nuw nsw i32 %index.1102, 1
+  %exitcond106.not = icmp eq i32 %inc92, 32
+  br i1 %exitcond106.not, label %for.end93, label %for.body10, !llvm.loop !11
 
 for.end93:                                        ; preds = %for.inc91
   ret void
@@ -730,49 +716,34 @@ declare void @g_assertion_message_cmpnum(ptr noundef, ptr noundef, i32 noundef, 
 define dso_local noundef zeroext i8 @qpci_find_capability(ptr nocapture noundef readonly %dev, i8 noundef zeroext %id, i8 noundef zeroext %start_addr) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq i8 %start_addr, 0
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
   %add = add i8 %start_addr, 1
+  %.sink23 = select i1 %tobool.not, i8 52, i8 %add
   %0 = load ptr, ptr %dev, align 8
-  %config_readb.i = getelementptr inbounds i8, ptr %0, i64 80
-  %1 = load ptr, ptr %config_readb.i, align 8
-  %devfn.i = getelementptr inbounds i8, ptr %dev, i64 8
-  %2 = load i32, ptr %devfn.i, align 8
-  %call.i = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %add) #11
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %3 = load ptr, ptr %dev, align 8
-  %config_readb.i10 = getelementptr inbounds i8, ptr %3, i64 80
-  %4 = load ptr, ptr %config_readb.i10, align 8
+  %config_readb.i10 = getelementptr inbounds i8, ptr %0, i64 80
+  %1 = load ptr, ptr %config_readb.i10, align 8
   %devfn.i11 = getelementptr inbounds i8, ptr %dev, i64 8
-  %5 = load i32, ptr %devfn.i11, align 8
-  %call.i12 = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext 52) #11
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %addr.0 = phi i8 [ %call.i, %if.then ], [ %call.i12, %if.else ]
+  %2 = load i32, ptr %devfn.i11, align 8
+  %call.i12 = tail call zeroext i8 %1(ptr noundef %0, i32 noundef %2, i8 noundef zeroext %.sink23) #11
   %devfn.i14 = getelementptr inbounds i8, ptr %dev, i64 8
   br label %do.body
 
-do.body:                                          ; preds = %do.cond, %if.end
-  %addr.1 = phi i8 [ %addr.0, %if.end ], [ %call.i18, %do.cond ]
-  %6 = load ptr, ptr %dev, align 8
-  %config_readb.i13 = getelementptr inbounds i8, ptr %6, i64 80
-  %7 = load ptr, ptr %config_readb.i13, align 8
-  %8 = load i32, ptr %devfn.i14, align 8
-  %call.i15 = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %addr.1) #11
+do.body:                                          ; preds = %do.cond, %entry
+  %addr.1 = phi i8 [ %call.i12, %entry ], [ %call.i18, %do.cond ]
+  %3 = load ptr, ptr %dev, align 8
+  %config_readb.i13 = getelementptr inbounds i8, ptr %3, i64 80
+  %4 = load ptr, ptr %config_readb.i13, align 8
+  %5 = load i32, ptr %devfn.i14, align 8
+  %call.i15 = tail call zeroext i8 %4(ptr noundef %3, i32 noundef %5, i8 noundef zeroext %addr.1) #11
   %cmp.not = icmp eq i8 %call.i15, %id
   br i1 %cmp.not, label %do.end, label %do.cond
 
 do.cond:                                          ; preds = %do.body
   %add9 = add i8 %addr.1, 1
-  %9 = load ptr, ptr %dev, align 8
-  %config_readb.i16 = getelementptr inbounds i8, ptr %9, i64 80
-  %10 = load ptr, ptr %config_readb.i16, align 8
-  %11 = load i32, ptr %devfn.i14, align 8
-  %call.i18 = tail call zeroext i8 %10(ptr noundef %9, i32 noundef %11, i8 noundef zeroext %add9) #11
+  %6 = load ptr, ptr %dev, align 8
+  %config_readb.i16 = getelementptr inbounds i8, ptr %6, i64 80
+  %7 = load ptr, ptr %config_readb.i16, align 8
+  %8 = load i32, ptr %devfn.i14, align 8
+  %call.i18 = tail call zeroext i8 %7(ptr noundef %6, i32 noundef %8, i8 noundef zeroext %add9) #11
   %cmp18.not = icmp eq i8 %call.i18, 0
   br i1 %cmp18.not, label %do.end, label %do.body, !llvm.loop !9
 
@@ -992,19 +963,14 @@ do.end47:                                         ; preds = %do.body39
   store i64 %add41, ptr %pio_alloc_ptr, align 8
   %12 = trunc i64 %mul to i32
   %conv52 = or i32 %12, 1
-  %13 = load ptr, ptr %dev, align 8
-  %config_writel.i44 = getelementptr inbounds i8, ptr %13, i64 120
-  %14 = load ptr, ptr %config_writel.i44, align 8
-  %15 = load i32, ptr %devfn.i, align 8
-  tail call void %14(ptr noundef %13, i32 noundef %15, i8 noundef zeroext %conv, i32 noundef %conv52) #11
   br label %if.end84
 
 if.else53:                                        ; preds = %if.end24
   %mmio_alloc_ptr = getelementptr inbounds i8, ptr %0, i64 152
-  %16 = load i64, ptr %mmio_alloc_ptr, align 8
-  %sub56 = add i64 %add55, %16
+  %13 = load i64, ptr %mmio_alloc_ptr, align 8
+  %sub56 = add i64 %add55, %13
   %mul60 = and i64 %sub56, %9
-  %cmp63.not = icmp ult i64 %mul60, %16
+  %cmp63.not = icmp ult i64 %mul60, %13
   br i1 %cmp63.not, label %if.else66, label %do.body69
 
 if.else66:                                        ; preds = %if.else53
@@ -1014,8 +980,8 @@ if.else66:                                        ; preds = %if.else53
 do.body69:                                        ; preds = %if.else53
   %add71 = add i64 %mul60, %conv54
   %mmio_limit = getelementptr inbounds i8, ptr %0, i64 160
-  %17 = load i64, ptr %mmio_limit, align 8
-  %cmp72.not = icmp ugt i64 %add71, %17
+  %14 = load i64, ptr %mmio_limit, align 8
+  %cmp72.not = icmp ugt i64 %add71, %14
   br i1 %cmp72.not, label %if.else75, label %do.end77
 
 if.else75:                                        ; preds = %do.body69
@@ -1025,16 +991,17 @@ if.else75:                                        ; preds = %do.body69
 do.end77:                                         ; preds = %do.body69
   store i64 %add71, ptr %mmio_alloc_ptr, align 8
   %conv83 = trunc i64 %mul60 to i32
-  %18 = load ptr, ptr %dev, align 8
-  %config_writel.i46 = getelementptr inbounds i8, ptr %18, i64 120
-  %19 = load ptr, ptr %config_writel.i46, align 8
-  %20 = load i32, ptr %devfn.i, align 8
-  tail call void %19(ptr noundef %18, i32 noundef %20, i8 noundef zeroext %conv, i32 noundef %conv83) #11
   br label %if.end84
 
 if.end84:                                         ; preds = %do.end77, %do.end47
-  %retval.sroa.2.0 = phi i8 [ 1, %do.end47 ], [ 0, %do.end77 ]
-  %loc.0 = phi i64 [ %mul, %do.end47 ], [ %mul60, %do.end77 ]
+  %conv83.sink = phi i32 [ %conv83, %do.end77 ], [ %conv52, %do.end47 ]
+  %retval.sroa.2.0 = phi i8 [ 0, %do.end77 ], [ 1, %do.end47 ]
+  %loc.0 = phi i64 [ %mul60, %do.end77 ], [ %mul, %do.end47 ]
+  %15 = load ptr, ptr %dev, align 8
+  %config_writel.i46 = getelementptr inbounds i8, ptr %15, i64 120
+  %16 = load ptr, ptr %config_writel.i46, align 8
+  %17 = load i32, ptr %devfn.i, align 8
+  tail call void %16(ptr noundef %15, i32 noundef %17, i8 noundef zeroext %conv, i32 noundef %conv83.sink) #11
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %loc.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %retval.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

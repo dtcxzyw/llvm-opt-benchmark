@@ -1031,51 +1031,32 @@ _is_writable.exit:                                ; preds = %2, %13
 
 _is_readable.exit:                                ; preds = %_is_writable.exit
   %18 = tail call zeroext i1 %17(ptr noundef nonnull %0) #10
-  %19 = select i1 %16, i1 %18, i1 false
-  br i1 %19, label %29, label %20
+  %19 = and i1 %16, %18
+  %.mux = select i1 %19, i16 8213, i16 8193
+  %brmerge51 = or i1 %18, %16
+  %.mux.mux = select i1 %18, i16 %.mux, i16 20
+  br i1 %brmerge51, label %.thread43, label %.critedge
 
-20:                                               ; preds = %_is_readable.exit
-  br i1 %18, label %21, label %.thread
+.thread:                                          ; preds = %_is_writable.exit
+  br i1 %16, label %.thread43, label %.critedge
 
-21:                                               ; preds = %20
-  %22 = load i32, ptr %0, align 8
-  %23 = zext i32 %8 to i64
-  %24 = getelementptr inbounds %struct.pollfd, ptr %4, i64 %23
-  store i32 %22, ptr %24, align 4
-  br label %.thread43
-
-.thread:                                          ; preds = %_is_writable.exit, %20
-  br i1 %16, label %25, label %.critedge
-
-25:                                               ; preds = %.thread
-  %26 = load i32, ptr %0, align 8
-  %27 = zext i32 %8 to i64
-  %28 = getelementptr inbounds %struct.pollfd, ptr %4, i64 %27
-  store i32 %26, ptr %28, align 4
-  br label %.thread43
-
-29:                                               ; preds = %_is_readable.exit
-  %30 = load i32, ptr %0, align 8
-  %31 = zext i32 %8 to i64
-  %32 = getelementptr inbounds %struct.pollfd, ptr %4, i64 %31
-  store i32 %30, ptr %32, align 4
-  br label %.thread43
-
-.thread43:                                        ; preds = %29, %21, %25
-  %.sink47 = phi ptr [ %32, %29 ], [ %24, %21 ], [ %28, %25 ]
-  %.sink = phi i16 [ 8213, %29 ], [ 8193, %21 ], [ 20, %25 ]
-  %.sink45 = phi i64 [ %31, %29 ], [ %23, %21 ], [ %27, %25 ]
-  %33 = getelementptr inbounds i8, ptr %.sink47, i64 4
-  store i16 %.sink, ptr %33, align 4
-  %34 = getelementptr inbounds ptr, ptr %5, i64 %.sink45
-  store ptr %0, ptr %34, align 8
-  %35 = load ptr, ptr %6, align 8
-  %36 = load i32, ptr %35, align 4
-  %37 = add i32 %36, 1
-  store i32 %37, ptr %35, align 4
+.thread43:                                        ; preds = %_is_readable.exit, %.thread
+  %.sink = phi i16 [ 20, %.thread ], [ %.mux.mux, %_is_readable.exit ]
+  %20 = load i32, ptr %0, align 8
+  %21 = zext i32 %8 to i64
+  %22 = getelementptr inbounds %struct.pollfd, ptr %4, i64 %21
+  store i32 %20, ptr %22, align 4
+  %23 = getelementptr inbounds i8, ptr %22, i64 4
+  store i16 %.sink, ptr %23, align 4
+  %24 = getelementptr inbounds ptr, ptr %5, i64 %21
+  store ptr %0, ptr %24, align 8
+  %25 = load ptr, ptr %6, align 8
+  %26 = load i32, ptr %25, align 4
+  %27 = add i32 %26, 1
+  store i32 %27, ptr %25, align 4
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread, %.thread43
+.critedge:                                        ; preds = %_is_readable.exit, %.thread, %.thread43
   ret i32 0
 }
 

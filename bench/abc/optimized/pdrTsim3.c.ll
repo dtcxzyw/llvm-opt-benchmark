@@ -2058,12 +2058,12 @@ Vec_IntGrow.exit.i243:                            ; preds = %480, %478
   br label %.sink.split
 
 .sink.split:                                      ; preds = %493, %Vec_IntGrow.exit.i243, %.Vec_IntGrow.exit10_crit_edge.i238, %462, %Vec_IntGrow.exit.i236, %.Vec_IntGrow.exit10_crit_edge.i231
-  %.sink303 = phi ptr [ %438, %.Vec_IntGrow.exit10_crit_edge.i231 ], [ %438, %Vec_IntGrow.exit.i236 ], [ %438, %462 ], [ %469, %.Vec_IntGrow.exit10_crit_edge.i238 ], [ %469, %Vec_IntGrow.exit.i243 ], [ %469, %493 ]
+  %.sink300 = phi ptr [ %438, %.Vec_IntGrow.exit10_crit_edge.i231 ], [ %438, %Vec_IntGrow.exit.i236 ], [ %438, %462 ], [ %469, %.Vec_IntGrow.exit10_crit_edge.i238 ], [ %469, %Vec_IntGrow.exit.i243 ], [ %469, %493 ]
   %.sink294 = phi ptr [ %.pre.i233, %.Vec_IntGrow.exit10_crit_edge.i231 ], [ %451, %Vec_IntGrow.exit.i236 ], [ %463, %462 ], [ %.pre.i240, %.Vec_IntGrow.exit10_crit_edge.i238 ], [ %482, %Vec_IntGrow.exit.i243 ], [ %494, %493 ]
   %.sink = phi i32 [ %437, %.Vec_IntGrow.exit10_crit_edge.i231 ], [ %437, %Vec_IntGrow.exit.i236 ], [ %437, %462 ], [ %468, %.Vec_IntGrow.exit10_crit_edge.i238 ], [ %468, %Vec_IntGrow.exit.i243 ], [ %468, %493 ]
-  %495 = load i32, ptr %.sink303, align 4
+  %495 = load i32, ptr %.sink300, align 4
   %496 = add nsw i32 %495, 1
-  store i32 %496, ptr %.sink303, align 4
+  store i32 %496, ptr %.sink300, align 4
   %497 = sext i32 %495 to i64
   %498 = getelementptr inbounds i32, ptr %.sink294, i64 %497
   store i32 %.sink, ptr %498, align 4
@@ -2199,11 +2199,11 @@ Vec_IntPush.exit251:                              ; preds = %.Vec_IntGrow.exit10
 564:                                              ; preds = %526, %Vec_IntPush.exit251
   %.0267.sink = phi i32 [ %.0267, %526 ], [ %562, %Vec_IntPush.exit251 ]
   %.val160.sink = phi ptr [ %.val160, %526 ], [ %561, %Vec_IntPush.exit251 ]
-  %.sink300 = phi i32 [ %517, %526 ], [ %534, %Vec_IntPush.exit251 ]
+  %.sink301 = phi i32 [ %517, %526 ], [ %534, %Vec_IntPush.exit251 ]
   %.1 = phi i32 [ %527, %526 ], [ %.0267, %Vec_IntPush.exit251 ]
   %565 = sext i32 %.0267.sink to i64
   %566 = getelementptr inbounds i32, ptr %.val160.sink, i64 %565
-  store i32 %.sink300, ptr %566, align 4
+  store i32 %.sink301, ptr %566, align 4
   %indvars.iv.next281 = add nuw nsw i64 %indvars.iv280, 1
   %567 = load ptr, ptr %364, align 8
   %568 = getelementptr i8, ptr %567, i64 4

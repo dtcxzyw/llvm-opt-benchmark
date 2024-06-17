@@ -2796,14 +2796,7 @@ _ZNK8seq_util3rex8is_emptyEPK4expr.exit:          ; preds = %entry, %land.rhs.i.
   %9 = phi i1 [ false, %entry ], [ false, %land.rhs.i.i ], [ %8, %land.rhs.i.i.i.i ]
   %cmp = icmp ugt i64 %1, -4294967297
   %or.cond = select i1 %9, i1 true, i1 %cmp
-  br i1 %or.cond, label %if.then, label %if.end
-
-if.then:                                          ; preds = %_ZNK8seq_util3rex8is_emptyEPK4expr.exit
-  %xor.i = xor i32 %lit.coerce, 1
-  %agg.tmp9.sroa.0.0.copyload.b = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
-  %agg.tmp9.sroa.0.0.copyload = select i1 %agg.tmp9.sroa.0.0.copyload.b, i32 -2, i32 0
-  tail call void @_ZN3smt10theory_seq9add_axiomEN3sat7literalES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(4328) %2, i32 %xor.i, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp9.sroa.0.0.copyload, i32 %agg.tmp9.sroa.0.0.copyload)
-  br label %return
+  br i1 %or.cond, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %_ZNK8seq_util3rex8is_emptyEPK4expr.exit
   %10 = extractvalue { i64, i64 } %call2, 0
@@ -2820,14 +2813,18 @@ if.then18:                                        ; preds = %if.end
 
 if.then22:                                        ; preds = %if.then18
   %12 = load ptr, ptr %this, align 8
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %_ZNK8seq_util3rex8is_emptyEPK4expr.exit, %if.then22
+  %.sink = phi ptr [ %12, %if.then22 ], [ %2, %_ZNK8seq_util3rex8is_emptyEPK4expr.exit ]
   %xor.i6 = xor i32 %lit.coerce, 1
   %agg.tmp29.sroa.0.0.copyload.b = load i1, ptr @_ZN3smtL12null_literalE.0, align 4
   %agg.tmp29.sroa.0.0.copyload = select i1 %agg.tmp29.sroa.0.0.copyload.b, i32 -2, i32 0
-  tail call void @_ZN3smt10theory_seq9add_axiomEN3sat7literalES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(4328) %12, i32 %xor.i6, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload)
+  tail call void @_ZN3smt10theory_seq9add_axiomEN3sat7literalES2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(4328) %.sink, i32 %xor.i6, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload, i32 %agg.tmp29.sroa.0.0.copyload)
   br label %return
 
-return:                                           ; preds = %if.end, %if.then18, %if.then22, %if.then
-  %retval.0 = phi i1 [ true, %if.then ], [ true, %if.then22 ], [ false, %if.then18 ], [ false, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end, %if.then18
+  %retval.0 = phi i1 [ false, %if.then18 ], [ false, %if.end ], [ true, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -5722,15 +5719,15 @@ if.then2.i.i.i77:                                 ; preds = %if.then.i.i.i72
           to label %if.end33 unwind label %lpad
 
 if.end33.sink.split:                              ; preds = %invoke.cont15, %if.then10
-  %r1.sink = phi ptr [ %r2, %if.then10 ], [ %r1, %invoke.cont15 ]
-  %m_ref_count.i.i.i42 = getelementptr inbounds i8, ptr %r1.sink, i64 8
-  %28 = load i32, ptr %m_ref_count.i.i.i42, align 4
+  %r2.sink = phi ptr [ %r2, %if.then10 ], [ %r1, %invoke.cont15 ]
+  %m_ref_count.i.i.i13 = getelementptr inbounds i8, ptr %r2.sink, i64 8
+  %28 = load i32, ptr %m_ref_count.i.i.i13, align 4
   %inc.i.i.i14 = add i32 %28, 1
-  store i32 %inc.i.i.i14, ptr %m_ref_count.i.i.i42, align 4
+  store i32 %inc.i.i.i14, ptr %m_ref_count.i.i.i13, align 4
   br label %if.end33
 
 if.end33:                                         ; preds = %if.end33.sink.split, %if.then.i.i.i72, %if.end.i70, %if.then2.i.i.i77, %if.then10, %if.then.i.i.i, %if.end.i, %if.then2.i.i.i
-  %call.i65.sink = phi ptr [ %call4, %if.then2.i.i.i ], [ %call4, %if.end.i ], [ %call4, %if.then.i.i.i ], [ %r2, %if.then10 ], [ %call.i65, %if.then2.i.i.i77 ], [ %call.i65, %if.end.i70 ], [ %call.i65, %if.then.i.i.i72 ], [ %r1.sink, %if.end33.sink.split ]
+  %call.i65.sink = phi ptr [ %call4, %if.then2.i.i.i ], [ %call4, %if.end.i ], [ %call4, %if.then.i.i.i ], [ %r2, %if.then10 ], [ %call.i65, %if.then2.i.i.i77 ], [ %call.i65, %if.end.i70 ], [ %call.i65, %if.then.i.i.i72 ], [ %r2.sink, %if.end33.sink.split ]
   store ptr %call.i65.sink, ptr %agg.result, align 8
   %29 = load ptr, ptr %this, align 8
   %m_rewrite.i = getelementptr inbounds i8, ptr %29, i64 1192
@@ -9410,10 +9407,10 @@ if.end45.sink.split:                              ; preds = %if.end45.sink.split
   %add.ptr.i57 = getelementptr inbounds ptr, ptr %.sink110, i64 %idx.ext.i56
   store ptr %e2.3.sink, ptr %add.ptr.i57, align 8
   %.sink109 = load ptr, ptr %.sink109.in, align 8
-  %arrayidx10.i58 = getelementptr inbounds i8, ptr %.sink109, i64 -4
-  %44 = load i32, ptr %arrayidx10.i58, align 4
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %.sink109, i64 -4
+  %44 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %44, 1
-  store i32 %inc.i.i, ptr %arrayidx10.i58, align 4
+  store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %if.end45
 
 if.end45:                                         ; preds = %if.end45.sink.split, %invoke.cont39, %invoke.cont32

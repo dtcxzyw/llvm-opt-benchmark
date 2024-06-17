@@ -45,19 +45,19 @@ entry:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %huffman_tree_histogram, i8 0, i64 72, i1 false)
   call void @BrotliWriteHuffmanTree(ptr noundef %depths, i64 noundef %num, ptr noundef nonnull %huffman_tree_size, ptr noundef nonnull %huffman_tree, ptr noundef nonnull %huffman_tree_extra_bits) #12
   %0 = load i64, ptr %huffman_tree_size, align 8
-  %cmp20.not = icmp eq i64 %0, 0
-  br i1 %cmp20.not, label %for.body6.preheader, label %for.body
+  %cmp17.not = icmp eq i64 %0, 0
+  br i1 %cmp17.not, label %for.body6.preheader, label %for.body
 
 for.body:                                         ; preds = %entry, %for.body
-  %i.021 = phi i64 [ %inc3, %for.body ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds [704 x i8], ptr %huffman_tree, i64 0, i64 %i.021
+  %i.018 = phi i64 [ %inc3, %for.body ], [ 0, %entry ]
+  %arrayidx = getelementptr inbounds [704 x i8], ptr %huffman_tree, i64 0, i64 %i.018
   %1 = load i8, ptr %arrayidx, align 1
   %idxprom = zext i8 %1 to i64
   %arrayidx2 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %idxprom
   %2 = load i32, ptr %arrayidx2, align 4
   %inc = add i32 %2, 1
   store i32 %inc, ptr %arrayidx2, align 4
-  %inc3 = add nuw i64 %i.021, 1
+  %inc3 = add nuw i64 %i.018, 1
   %exitcond.not = icmp eq i64 %inc3, %0
   br i1 %exitcond.not, label %for.body6.preheader, label %for.body, !llvm.loop !4
 
@@ -65,27 +65,27 @@ for.body6.preheader:                              ; preds = %for.body, %entry
   br label %for.body6
 
 for.body6:                                        ; preds = %for.body6.preheader, %for.inc14
-  %code.024 = phi i64 [ %code.1, %for.inc14 ], [ 0, %for.body6.preheader ]
-  %num_codes.023 = phi i32 [ %num_codes.1, %for.inc14 ], [ 0, %for.body6.preheader ]
-  %i.122 = phi i64 [ %inc15, %for.inc14 ], [ 0, %for.body6.preheader ]
-  %arrayidx7 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %i.122
+  %code.021 = phi i64 [ %code.1, %for.inc14 ], [ 0, %for.body6.preheader ]
+  %num_codes.020 = phi i32 [ %num_codes.1, %for.inc14 ], [ 0, %for.body6.preheader ]
+  %i.119 = phi i64 [ %inc15, %for.inc14 ], [ 0, %for.body6.preheader ]
+  %arrayidx7 = getelementptr inbounds [18 x i32], ptr %huffman_tree_histogram, i64 0, i64 %i.119
   %3 = load i32, ptr %arrayidx7, align 4
   %tobool.not = icmp eq i32 %3, 0
   br i1 %tobool.not, label %for.inc14, label %if.then
 
 if.then:                                          ; preds = %for.body6
-  %cmp8 = icmp eq i32 %num_codes.023, 0
+  %cmp8 = icmp eq i32 %num_codes.020, 0
   br i1 %cmp8, label %for.inc14, label %for.end16
 
 for.inc14:                                        ; preds = %if.then, %for.body6
-  %num_codes.1 = phi i32 [ %num_codes.023, %for.body6 ], [ 1, %if.then ]
-  %code.1 = phi i64 [ %code.024, %for.body6 ], [ %i.122, %if.then ]
-  %inc15 = add nuw nsw i64 %i.122, 1
-  %exitcond25.not = icmp eq i64 %inc15, 18
-  br i1 %exitcond25.not, label %for.end16, label %for.body6, !llvm.loop !6
+  %num_codes.1 = phi i32 [ %num_codes.020, %for.body6 ], [ 1, %if.then ]
+  %code.1 = phi i64 [ %code.021, %for.body6 ], [ %i.119, %if.then ]
+  %inc15 = add nuw nsw i64 %i.119, 1
+  %exitcond22.not = icmp eq i64 %inc15, 18
+  br i1 %exitcond22.not, label %for.end16, label %for.body6, !llvm.loop !6
 
 for.end16:                                        ; preds = %if.then, %for.inc14
-  %code.0.lcssa = phi i64 [ %code.024, %if.then ], [ %code.1, %for.inc14 ]
+  %code.0.lcssa = phi i64 [ %code.021, %if.then ], [ %code.1, %for.inc14 ]
   %num_codes.2 = phi i32 [ 2, %if.then ], [ %num_codes.1, %for.inc14 ]
   call void @BrotliCreateHuffmanTree(ptr noundef nonnull %huffman_tree_histogram, i64 noundef 18, i32 noundef 5, ptr noundef %tree, ptr noundef nonnull %code_length_bitdepth) #12
   call void @BrotliConvertBitDepthsToSymbols(ptr noundef nonnull %code_length_bitdepth, i64 noundef 18, ptr noundef nonnull %code_length_bitdepth_symbols) #12
@@ -183,9 +183,9 @@ if.end25:                                         ; preds = %if.then23, %BrotliS
   %cmp24.not.i = icmp eq i64 %19, 0
   br i1 %cmp24.not.i, label %BrotliStoreHuffmanTreeToBitMask.exit, label %for.body.i12
 
-for.body.i12:                                     ; preds = %if.end25, %for.inc.i17
-  %add.i3527.i = phi i64 [ %add.i3526.i, %for.inc.i17 ], [ %storage_ix.promoted.i, %if.end25 ]
-  %i.025.i = phi i64 [ %inc.i18, %for.inc.i17 ], [ 0, %if.end25 ]
+for.body.i12:                                     ; preds = %if.end25, %for.inc.i14
+  %add.i3527.i = phi i64 [ %add.i3526.i, %for.inc.i14 ], [ %storage_ix.promoted.i, %if.end25 ]
+  %i.025.i = phi i64 [ %inc.i15, %for.inc.i14 ], [ 0, %if.end25 ]
   %arrayidx.i13 = getelementptr inbounds i8, ptr %huffman_tree, i64 %i.025.i
   %20 = load i8, ptr %arrayidx.i13, align 1, !noalias !13
   %conv.i = zext i8 %20 to i64
@@ -204,7 +204,7 @@ for.body.i12:                                     ; preds = %if.end25, %for.inc.
   %or.i34.i = or i64 %shl.i33.i, %conv.i31.i
   store i64 %or.i34.i, ptr %arrayidx.i30.i, align 1, !alias.scope !11, !noalias !8
   %add.i35.i = add i64 %add.i3527.i, %conv2.i
-  switch i8 %20, label %for.inc.i17 [
+  switch i8 %20, label %for.inc.i14 [
     i8 16, label %for.inc.sink.split.i
     i8 17, label %sw.bb7.i
   ]
@@ -214,27 +214,27 @@ sw.bb7.i:                                         ; preds = %for.body.i12
 
 for.inc.sink.split.i:                             ; preds = %sw.bb7.i, %for.body.i12
   %.sink.i = phi i64 [ 3, %sw.bb7.i ], [ 2, %for.body.i12 ]
-  %arrayidx8.i14 = getelementptr inbounds i8, ptr %huffman_tree_extra_bits, i64 %i.025.i
-  %24 = load i8, ptr %arrayidx8.i14, align 1, !noalias !13
-  %conv9.i = zext i8 %24 to i64
-  %shr.i.i15 = lshr i64 %add.i35.i, 3
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %storage, i64 %shr.i.i15
-  %25 = load i8, ptr %arrayidx.i.i16, align 1, !alias.scope !11, !noalias !8
+  %arrayidx5.i = getelementptr inbounds i8, ptr %huffman_tree_extra_bits, i64 %i.025.i
+  %24 = load i8, ptr %arrayidx5.i, align 1, !noalias !13
+  %conv6.i = zext i8 %24 to i64
+  %shr.i16.i = lshr i64 %add.i35.i, 3
+  %arrayidx.i17.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i16.i
+  %25 = load i8, ptr %arrayidx.i17.i, align 1, !alias.scope !11, !noalias !8
   %conv.i18.i = zext i8 %25 to i64
   %and.i19.i = and i64 %add.i35.i, 7
-  %shl.i20.i = shl nuw nsw i64 %conv9.i, %and.i19.i
+  %shl.i20.i = shl nuw nsw i64 %conv6.i, %and.i19.i
   %or.i21.i = or i64 %shl.i20.i, %conv.i18.i
-  store i64 %or.i21.i, ptr %arrayidx.i.i16, align 1, !alias.scope !11, !noalias !8
+  store i64 %or.i21.i, ptr %arrayidx.i17.i, align 1, !alias.scope !11, !noalias !8
   %add.i22.i = add i64 %.sink.i, %add.i35.i
-  br label %for.inc.i17
+  br label %for.inc.i14
 
-for.inc.i17:                                      ; preds = %for.inc.sink.split.i, %for.body.i12
+for.inc.i14:                                      ; preds = %for.inc.sink.split.i, %for.body.i12
   %add.i3526.i = phi i64 [ %add.i35.i, %for.body.i12 ], [ %add.i22.i, %for.inc.sink.split.i ]
-  %inc.i18 = add nuw i64 %i.025.i, 1
-  %exitcond.not.i19 = icmp eq i64 %inc.i18, %19
-  br i1 %exitcond.not.i19, label %for.cond.for.end_crit_edge.i, label %for.body.i12, !llvm.loop !14
+  %inc.i15 = add nuw i64 %i.025.i, 1
+  %exitcond.not.i16 = icmp eq i64 %inc.i15, %19
+  br i1 %exitcond.not.i16, label %for.cond.for.end_crit_edge.i, label %for.body.i12, !llvm.loop !14
 
-for.cond.for.end_crit_edge.i:                     ; preds = %for.inc.i17
+for.cond.for.end_crit_edge.i:                     ; preds = %for.inc.i14
   store i64 %add.i3526.i, ptr %storage_ix, align 8, !alias.scope !8, !noalias !11
   br label %BrotliStoreHuffmanTreeToBitMask.exit
 
@@ -812,28 +812,28 @@ if.else210:                                       ; preds = %if.end194
   br label %if.end216.sink.split
 
 if.end216.sink.split:                             ; preds = %if.then177, %if.else210
-  %arrayidx180.sink = phi ptr [ %arrayidx180, %if.then177 ], [ %arrayidx214, %if.else210 ]
-  %.sink333 = phi i64 [ %53, %if.then177 ], [ %61, %if.else210 ]
-  %conv179.sink.in.in = phi ptr [ %arrayidx178, %if.then177 ], [ %arrayidx212, %if.else210 ]
-  %previous_value.1.ph = phi i8 [ %previous_value.0313, %if.then177 ], [ %54, %if.else210 ]
-  %conv179.sink.in = load i32, ptr %conv179.sink.in.in, align 4
-  %conv179.sink = zext i32 %conv179.sink.in to i64
-  %67 = load i64, ptr %arrayidx180.sink, align 8
-  %shr.i251 = lshr i64 %.sink333, 3
-  %arrayidx.i252 = getelementptr inbounds i8, ptr %storage, i64 %shr.i251
-  %68 = load i8, ptr %arrayidx.i252, align 1
-  %conv.i253 = zext i8 %68 to i64
-  %and.i254 = and i64 %.sink333, 7
-  %shl.i255 = shl i64 %67, %and.i254
-  %or.i256 = or i64 %shl.i255, %conv.i253
-  store i64 %or.i256, ptr %arrayidx.i252, align 1
+  %arrayidx214.sink = phi ptr [ %arrayidx214, %if.else210 ], [ %arrayidx180, %if.then177 ]
+  %.sink333 = phi i64 [ %61, %if.else210 ], [ %53, %if.then177 ]
+  %conv213.sink.in.in = phi ptr [ %arrayidx212, %if.else210 ], [ %arrayidx178, %if.then177 ]
+  %previous_value.1.ph = phi i8 [ %54, %if.else210 ], [ %previous_value.0313, %if.then177 ]
+  %conv213.sink.in = load i32, ptr %conv213.sink.in.in, align 4
+  %conv213.sink = zext i32 %conv213.sink.in to i64
+  %67 = load i64, ptr %arrayidx214.sink, align 8
+  %shr.i = lshr i64 %.sink333, 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %68 = load i8, ptr %arrayidx.i, align 1
+  %conv.i = zext i8 %68 to i64
+  %and.i = and i64 %.sink333, 7
+  %shl.i = shl i64 %67, %and.i
+  %or.i = or i64 %shl.i, %conv.i
+  store i64 %or.i, ptr %arrayidx.i, align 1
   %69 = load i64, ptr %storage_ix, align 8
-  %add.i257 = add i64 %69, %conv179.sink
-  store i64 %add.i257, ptr %storage_ix, align 8
+  %add.i = add i64 %69, %conv213.sink
+  store i64 %add.i, ptr %storage_ix, align 8
   br label %if.end216
 
 if.end216:                                        ; preds = %while.body201, %if.end216.sink.split, %while.cond198.preheader
-  %70 = phi i64 [ %61, %while.cond198.preheader ], [ %add.i257, %if.end216.sink.split ], [ %add.i231, %while.body201 ]
+  %70 = phi i64 [ %61, %while.cond198.preheader ], [ %add.i, %if.end216.sink.split ], [ %add.i231, %while.body201 ]
   %previous_value.1 = phi i8 [ %54, %while.cond198.preheader ], [ %previous_value.1.ph, %if.end216.sink.split ], [ %54, %while.body201 ]
   %cmp154 = icmp ult i64 %add173.pre-phi, %inc6
   br i1 %cmp154, label %for.body156, label %if.end218, !llvm.loop !27
@@ -2790,14 +2790,14 @@ if.else60.i:                                      ; preds = %while.body.i
   br i1 %cmp48.not.i, label %if.end71.i, label %while.body.i, !llvm.loop !56
 
 if.end71.sink.split.i:                            ; preds = %if.then52.i, %if.then.i71
-  %.sink.i = phi i64 [ %28, %if.then.i71 ], [ %33, %if.then52.i ]
-  %i.4.ph.i = phi i64 [ %inc29.i, %if.then.i71 ], [ %add4794.i, %if.then52.i ]
-  %inc30.i = add i64 %.sink.i, 1
+  %.lcssa.sink.i = phi i64 [ %33, %if.then52.i ], [ %28, %if.then.i71 ]
+  %i.4.ph.i = phi i64 [ %add4794.i, %if.then52.i ], [ %inc29.i, %if.then.i71 ]
+  %inc59.i = add i64 %.lcssa.sink.i, 1
   br label %if.end71.i
 
 if.end71.i:                                       ; preds = %if.else60.i, %if.end71.sink.split.i, %for.end45.i
-  %num_rle_symbols.1 = phi i64 [ %num_rle_symbols.0, %for.end45.i ], [ %inc30.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
-  %35 = phi i64 [ %28, %for.end45.i ], [ %inc30.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
+  %num_rle_symbols.1 = phi i64 [ %num_rle_symbols.0, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
+  %35 = phi i64 [ %28, %for.end45.i ], [ %inc59.i, %if.end71.sink.split.i ], [ %inc70.i, %if.else60.i ]
   %i.4.i = phi i64 [ %add47.i, %for.end45.i ], [ %i.4.ph.i, %if.end71.sink.split.i ], [ %add4794.i, %if.else60.i ]
   %cmp21.i = icmp ult i64 %i.4.i, %context_map_size
   br i1 %cmp21.i, label %for.body23.i, label %RunLengthCodeZeros.exit, !llvm.loop !57

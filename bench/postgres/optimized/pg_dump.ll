@@ -12685,8 +12685,8 @@ define internal fastcc void @collectComments(ptr noundef %0) unnamed_addr #4 {
   br i1 %.not44, label %46, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %32, %35, %39
-  %.146.sink = phi ptr [ %42, %39 ], [ %.146, %35 ], [ %.146, %32 ], [ %.146, %.thread ]
-  %43 = getelementptr inbounds i8, ptr %.146.sink, i64 40
+  %.sink52 = phi ptr [ %42, %39 ], [ %.146, %35 ], [ %.146, %32 ], [ %.146, %.thread ]
+  %43 = getelementptr inbounds i8, ptr %.sink52, i64 40
   %44 = load i32, ptr %43, align 8
   %45 = or i32 %44, 4
   store i32 %45, ptr %43, align 8
@@ -12800,8 +12800,8 @@ define internal fastcc void @collectSecLabels(ptr noundef %0) unnamed_addr #4 {
   br i1 %.not48, label %47, label %.sink.split
 
 .sink.split:                                      ; preds = %.thread, %33, %36, %40
-  %.150.sink = phi ptr [ %43, %40 ], [ %.150, %36 ], [ %.150, %33 ], [ %.150, %.thread ]
-  %44 = getelementptr inbounds i8, ptr %.150.sink, i64 40
+  %.sink56 = phi ptr [ %43, %40 ], [ %.150, %36 ], [ %.150, %33 ], [ %.150, %.thread ]
+  %44 = getelementptr inbounds i8, ptr %.sink56, i64 40
   %45 = load i32, ptr %44, align 8
   %46 = or i32 %45, 8
   store i32 %46, ptr %44, align 8

@@ -3955,15 +3955,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %tobool.not = icmp eq i32 %colored, 0
-  br i1 %tobool.not, label %if.then9, label %if.else
-
-if.then9:                                         ; preds = %if.then
-  %buf = getelementptr inbounds i8, ptr %s, i64 776
-  %2 = load ptr, ptr %buf, align 8
-  %extra_start = getelementptr inbounds i8, ptr %hunk, i64 88
-  %3 = load i64, ptr %extra_start, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %2, i64 %3
-  br label %if.end32
+  br i1 %tobool.not, label %if.end32, label %if.else
 
 if.else:                                          ; preds = %if.then
   %suppress_colored_line_range = getelementptr inbounds i8, ptr %hunk, i64 120
@@ -3974,41 +3966,38 @@ if.else:                                          ; preds = %if.then
 
 if.then12:                                        ; preds = %if.else
   %buf14 = getelementptr inbounds i8, ptr %s, i64 800
-  %4 = load ptr, ptr %buf14, align 8
+  %2 = load ptr, ptr %buf14, align 8
   %colored_extra_start = getelementptr inbounds i8, ptr %hunk, i64 104
-  %5 = load i64, ptr %colored_extra_start, align 8
-  %add.ptr15 = getelementptr inbounds i8, ptr %4, i64 %5
+  %3 = load i64, ptr %colored_extra_start, align 8
+  %add.ptr15 = getelementptr inbounds i8, ptr %2, i64 %3
   %colored_extra_end = getelementptr inbounds i8, ptr %hunk, i64 112
-  %6 = load i64, ptr %colored_extra_end, align 8
-  %sub17 = sub i64 %6, %5
+  %4 = load i64, ptr %colored_extra_end, align 8
+  %sub17 = sub i64 %4, %3
   tail call void @strbuf_add(ptr noundef %out, ptr noundef %add.ptr15, i64 noundef %sub17) #17
-  %7 = load ptr, ptr %buf14, align 8
   %colored_start = getelementptr inbounds i8, ptr %hunk, i64 16
-  %8 = load i64, ptr %colored_start, align 8
-  %add.ptr20 = getelementptr inbounds i8, ptr %7, i64 %8
   br label %if.end75
 
 if.else23:                                        ; preds = %if.else
   %fraginfo_color = getelementptr inbounds i8, ptr %s, i64 387
   %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %fraginfo_color) #18
   tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull %fraginfo_color, i64 noundef %call.i) #17
-  %buf26 = getelementptr inbounds i8, ptr %s, i64 800
-  %9 = load ptr, ptr %buf26, align 8
-  %colored_extra_start27 = getelementptr inbounds i8, ptr %hunk, i64 104
-  %10 = load i64, ptr %colored_extra_start27, align 8
-  %add.ptr28 = getelementptr inbounds i8, ptr %9, i64 %10
   br label %if.end32
 
-if.end32:                                         ; preds = %if.else23, %if.then9
-  %.sink = phi i64 [ 112, %if.else23 ], [ 96, %if.then9 ]
-  %.sink58 = phi i64 [ %10, %if.else23 ], [ %3, %if.then9 ]
-  %p.0 = phi ptr [ %add.ptr28, %if.else23 ], [ %add.ptr, %if.then9 ]
+if.end32:                                         ; preds = %if.then, %if.else23
+  %.sink62 = phi i64 [ 800, %if.else23 ], [ 776, %if.then ]
+  %.sink61 = phi i64 [ 104, %if.else23 ], [ 88, %if.then ]
+  %.sink = phi i64 [ 112, %if.else23 ], [ 96, %if.then ]
+  %buf26 = getelementptr inbounds i8, ptr %s, i64 %.sink62
+  %5 = load ptr, ptr %buf26, align 8
+  %colored_extra_start27 = getelementptr inbounds i8, ptr %hunk, i64 %.sink61
+  %6 = load i64, ptr %colored_extra_start27, align 8
+  %add.ptr28 = getelementptr inbounds i8, ptr %5, i64 %6
   %colored_extra_end29 = getelementptr inbounds i8, ptr %hunk, i64 %.sink
-  %11 = load i64, ptr %colored_extra_end29, align 8
-  %sub31 = sub i64 %11, %.sink58
+  %7 = load i64, ptr %colored_extra_end29, align 8
+  %sub31 = sub i64 %7, %6
   %mode = getelementptr inbounds i8, ptr %s, i64 824
-  %12 = load ptr, ptr %mode, align 8
-  %is_reverse = getelementptr inbounds i8, ptr %12, i64 96
+  %8 = load ptr, ptr %mode, align 8
+  %is_reverse = getelementptr inbounds i8, ptr %8, i64 96
   %bf.load33 = load i8, ptr %is_reverse, align 8
   %bf.clear34 = and i8 %bf.load33, 1
   %tobool36.not = icmp eq i8 %bf.clear34, 0
@@ -4018,32 +4007,32 @@ if.end32:                                         ; preds = %if.else23, %if.then
   %new_offset7.0 = add i64 %add, %1
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.115, i64 noundef %old_offset5.0) #17
   %old_count = getelementptr inbounds i8, ptr %hunk, i64 64
-  %13 = load i64, ptr %old_count, align 8
-  %cmp41.not = icmp eq i64 %13, 1
+  %9 = load i64, ptr %old_count, align 8
+  %cmp41.not = icmp eq i64 %9, 1
   br i1 %cmp41.not, label %if.end44, label %if.then42
 
 if.then42:                                        ; preds = %if.end32
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.116, i64 noundef %13) #17
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.116, i64 noundef %9) #17
   br label %if.end44
 
 if.end44:                                         ; preds = %if.then42, %if.end32
   tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.117, i64 noundef %new_offset7.0) #17
   %new_count = getelementptr inbounds i8, ptr %hunk, i64 80
-  %14 = load i64, ptr %new_count, align 8
-  %cmp45.not = icmp eq i64 %14, 1
+  %10 = load i64, ptr %new_count, align 8
+  %cmp45.not = icmp eq i64 %10, 1
   br i1 %cmp45.not, label %if.end48, label %if.then46
 
 if.then46:                                        ; preds = %if.end44
-  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.116, i64 noundef %14) #17
+  tail call void (ptr, ptr, ...) @strbuf_addf(ptr noundef %out, ptr noundef nonnull @.str.116, i64 noundef %10) #17
   br label %if.end48
 
 if.end48:                                         ; preds = %if.then46, %if.end44
   tail call void @strbuf_add(ptr noundef %out, ptr noundef nonnull @.str.86, i64 noundef 3) #17
-  %tobool49.not = icmp eq i64 %11, %.sink58
+  %tobool49.not = icmp eq i64 %7, %6
   br i1 %tobool49.not, label %if.else51, label %if.then50
 
 if.then50:                                        ; preds = %if.end48
-  tail call void @strbuf_add(ptr noundef %out, ptr noundef %p.0, i64 noundef %sub31) #17
+  tail call void @strbuf_add(ptr noundef %out, ptr noundef %add.ptr28, i64 noundef %sub31) #17
   br label %if.end59
 
 if.else51:                                        ; preds = %if.end48
@@ -4055,15 +4044,15 @@ if.end59.thread56:                                ; preds = %if.else51
   br label %if.then61
 
 if.else56:                                        ; preds = %if.else51
-  %15 = load i64, ptr %out, align 8
-  %tobool.not.i.i = icmp eq i64 %15, 0
+  %11 = load i64, ptr %out, align 8
+  %tobool.not.i.i = icmp eq i64 %11, 0
   br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.else56
   %len.i.i = getelementptr inbounds i8, ptr %out, i64 8
-  %16 = load i64, ptr %len.i.i, align 8
-  %.neg.i = add i64 %16, 1
-  %tobool.not.i = icmp eq i64 %15, %.neg.i
+  %12 = load i64, ptr %len.i.i, align 8
+  %.neg.i = add i64 %12, 1
+  %tobool.not.i = icmp eq i64 %11, %.neg.i
   br i1 %tobool.not.i, label %if.then.i, label %if.end59.thread
 
 if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.else56
@@ -4075,16 +4064,16 @@ if.then.i:                                        ; preds = %strbuf_avail.exit.i
 
 if.end59.thread:                                  ; preds = %if.then.i, %strbuf_avail.exit.i
   %inc.pre-phi.i = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ]
-  %17 = phi i64 [ %.pre.i, %if.then.i ], [ %16, %strbuf_avail.exit.i ]
+  %13 = phi i64 [ %.pre.i, %if.then.i ], [ %12, %strbuf_avail.exit.i ]
   %buf.i = getelementptr inbounds i8, ptr %out, i64 16
-  %18 = load ptr, ptr %buf.i, align 8
+  %14 = load ptr, ptr %buf.i, align 8
   %len.i = getelementptr inbounds i8, ptr %out, i64 8
   store i64 %inc.pre-phi.i, ptr %len.i, align 8
-  %arrayidx.i = getelementptr inbounds i8, ptr %18, i64 %17
+  %arrayidx.i = getelementptr inbounds i8, ptr %14, i64 %13
   store i8 10, ptr %arrayidx.i, align 1
-  %19 = load ptr, ptr %buf.i, align 8
-  %20 = load i64, ptr %len.i, align 8
-  %arrayidx3.i = getelementptr inbounds i8, ptr %19, i64 %20
+  %15 = load ptr, ptr %buf.i, align 8
+  %16 = load i64, ptr %len.i, align 8
+  %arrayidx3.i = getelementptr inbounds i8, ptr %15, i64 %16
   store i8 0, ptr %arrayidx3.i, align 1
   br label %if.else69
 
@@ -4094,27 +4083,24 @@ if.end59:                                         ; preds = %entry, %if.then50
 
 if.then61:                                        ; preds = %if.end59.thread56, %if.end59
   %buf63 = getelementptr inbounds i8, ptr %s, i64 800
-  %21 = load ptr, ptr %buf63, align 8
   %colored_start64 = getelementptr inbounds i8, ptr %hunk, i64 16
-  %22 = load i64, ptr %colored_start64, align 8
-  %add.ptr65 = getelementptr inbounds i8, ptr %21, i64 %22
   br label %if.end75
 
 if.else69:                                        ; preds = %if.end59.thread, %if.end59
   %buf71 = getelementptr inbounds i8, ptr %s, i64 776
-  %23 = load ptr, ptr %buf71, align 8
-  %24 = load i64, ptr %hunk, align 8
-  %add.ptr72 = getelementptr inbounds i8, ptr %23, i64 %24
   br label %if.end75
 
 if.end75:                                         ; preds = %if.else69, %if.then61, %if.then12
-  %.sink61 = phi i64 [ 8, %if.else69 ], [ 24, %if.then61 ], [ 24, %if.then12 ]
-  %.sink60 = phi i64 [ %24, %if.else69 ], [ %22, %if.then61 ], [ %8, %if.then12 ]
-  %add.ptr72.sink = phi ptr [ %add.ptr72, %if.else69 ], [ %add.ptr65, %if.then61 ], [ %add.ptr20, %if.then12 ]
-  %end = getelementptr inbounds i8, ptr %hunk, i64 %.sink61
-  %25 = load i64, ptr %end, align 8
-  %sub74 = sub i64 %25, %.sink60
-  tail call void @strbuf_add(ptr noundef %out, ptr noundef %add.ptr72.sink, i64 noundef %sub74) #17
+  %hunk.sink = phi ptr [ %hunk, %if.else69 ], [ %colored_start64, %if.then61 ], [ %colored_start, %if.then12 ]
+  %.sink66.in = phi ptr [ %buf71, %if.else69 ], [ %buf63, %if.then61 ], [ %buf14, %if.then12 ]
+  %.sink65 = phi i64 [ 8, %if.else69 ], [ 24, %if.then61 ], [ 24, %if.then12 ]
+  %.sink66 = load ptr, ptr %.sink66.in, align 8
+  %17 = load i64, ptr %hunk.sink, align 8
+  %add.ptr72 = getelementptr inbounds i8, ptr %.sink66, i64 %17
+  %end = getelementptr inbounds i8, ptr %hunk, i64 %.sink65
+  %18 = load i64, ptr %end, align 8
+  %sub74 = sub i64 %18, %17
+  tail call void @strbuf_add(ptr noundef %out, ptr noundef %add.ptr72, i64 noundef %sub74) #17
   ret void
 }
 

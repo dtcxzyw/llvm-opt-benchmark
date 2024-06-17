@@ -132165,13 +132165,13 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.
   br label %_ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit
 
 _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %.lr.ph.i, %.loopexit
-  %.sink25 = phi i32 [ %69, %.loopexit ], [ %.013.i, %.lr.ph.i ]
-  %.sink23 = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i ]
+  %.sink26 = phi i32 [ %69, %.loopexit ], [ %.013.i, %.lr.ph.i ]
+  %.sink = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink25, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.sink26, ptr %.sroa.2.0..sroa_idx, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sink23, ptr %70, align 8
+  store i8 %.sink, ptr %70, align 8
   ret void
 }
 

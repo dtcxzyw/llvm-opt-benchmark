@@ -104,12 +104,12 @@ define internal i32 @lzma_decode(ptr noundef %0, ptr noalias nocapture noundef %
   %.sroa.0.0.copyload3154 = load ptr, ptr %1, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.10.0.copyload = load i64, ptr %.sroa.10.0..sroa_idx, align 8
-  %.sroa.37.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
-  %.sroa.37.0.copyload = load i64, ptr %.sroa.37.0..sroa_idx, align 8
-  %.sroa.46.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
-  %.sroa.46.0.copyload = load i64, ptr %.sroa.46.0..sroa_idx, align 8
-  %.sroa.52.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
-  %.sroa.52.0.copyload = load i64, ptr %.sroa.52.0..sroa_idx, align 8
+  %.sroa.35.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 16
+  %.sroa.35.0.copyload = load i64, ptr %.sroa.35.0..sroa_idx, align 8
+  %.sroa.44.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 24
+  %.sroa.44.0.copyload = load i64, ptr %.sroa.44.0..sroa_idx, align 8
+  %.sroa.50.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
+  %.sroa.50.0.copyload = load i64, ptr %.sroa.50.0..sroa_idx, align 8
   %.sroa.0.0.copyload = load i32, ptr %6, align 4
   %.sroa.498.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 28272
   %25 = getelementptr inbounds i8, ptr %0, i64 28280
@@ -143,14 +143,14 @@ define internal i32 @lzma_decode(ptr noundef %0, ptr noalias nocapture noundef %
   %53 = getelementptr inbounds i8, ptr %0, i64 28312
   %54 = load i64, ptr %53, align 8
   %55 = icmp ne i64 %54, -1
-  %56 = sub i64 %.sroa.46.0.copyload, %.sroa.10.0.copyload
+  %56 = sub i64 %.sroa.44.0.copyload, %.sroa.10.0.copyload
   %57 = icmp ult i64 %54, %56
-  %or.cond3273 = select i1 %55, i1 %57, i1 false
+  %or.cond3271 = select i1 %55, i1 %57, i1 false
   %58 = add i64 %54, %.sroa.10.0.copyload
-  %.sroa.46.0 = select i1 %or.cond3273, i64 %58, i64 %.sroa.46.0.copyload
+  %.sroa.44.0 = select i1 %or.cond3271, i64 %58, i64 %.sroa.44.0.copyload
   %59 = getelementptr inbounds i8, ptr %0, i64 28320
   %60 = load i32, ptr %59, align 8
-  switch i32 %60, label %2615 [
+  switch i32 %60, label %2613 [
     i32 0, label %63
     i32 1, label %63
     i32 2, label %108
@@ -225,9 +225,9 @@ define internal i32 @lzma_decode(ptr noundef %0, ptr noalias nocapture noundef %
   ]
 
 dict_put.exit.thread:                             ; preds = %1934, %696, %.loopexit.i
-  %.sroa.37.0 = phi i64 [ %spec.select3280, %.loopexit.i ], [ %spec.select3276, %696 ], [ %spec.select3278, %1934 ]
-  %.sroa.10.0 = phi i64 [ %.sroa.10.78, %.loopexit.i ], [ %698, %696 ], [ %1942, %1934 ]
-  %.03186 = phi i32 [ 0, %.loopexit.i ], [ %.193205, %696 ], [ %.543240, %1934 ]
+  %.sroa.35.0 = phi i64 [ %spec.select3278, %.loopexit.i ], [ %spec.select3274, %696 ], [ %spec.select3276, %1934 ]
+  %.sroa.10.0 = phi i64 [ %.sroa.10.79, %.loopexit.i ], [ %698, %696 ], [ %1942, %1934 ]
+  %.03184 = phi i32 [ 0, %.loopexit.i ], [ %.193203, %696 ], [ %.543238, %1934 ]
   %.02894 = phi i32 [ %.742968, %.loopexit.i ], [ %.192913, %696 ], [ %.542948, %1934 ]
   %.02817 = phi i32 [ %.742891, %.loopexit.i ], [ %.192836, %696 ], [ %.542871, %1934 ]
   %.02740 = phi i32 [ %.742814, %.loopexit.i ], [ %.192759, %696 ], [ %.542794, %1934 ]
@@ -245,9 +245,9 @@ dict_put.exit.thread:                             ; preds = %1934, %696, %.loope
   br label %63
 
 63:                                               ; preds = %dict_put.exit.thread, %.loopexit, %.loopexit
-  %.sroa.37.1 = phi i64 [ %.sroa.37.0, %dict_put.exit.thread ], [ %.sroa.37.0.copyload, %.loopexit ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.1 = phi i64 [ %.sroa.35.0, %dict_put.exit.thread ], [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.1 = phi i64 [ %.sroa.10.0, %dict_put.exit.thread ], [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.13187 = phi i32 [ %.03186, %dict_put.exit.thread ], [ %46, %.loopexit ], [ %46, %.loopexit ]
+  %.13185 = phi i32 [ %.03184, %dict_put.exit.thread ], [ %46, %.loopexit ], [ %46, %.loopexit ]
   %.12895 = phi i32 [ %.02894, %dict_put.exit.thread ], [ %30, %.loopexit ], [ %30, %.loopexit ]
   %.12818 = phi i32 [ %.02817, %dict_put.exit.thread ], [ %32, %.loopexit ], [ %32, %.loopexit ]
   %.12741 = phi i32 [ %.02740, %dict_put.exit.thread ], [ %34, %.loopexit ], [ %34, %.loopexit ]
@@ -261,9 +261,9 @@ dict_put.exit.thread:                             ; preds = %1934, %696, %.loope
   %.1 = phi i64 [ %.02205, %dict_put.exit.thread ], [ %24, %.loopexit ], [ %24, %.loopexit ]
   %.sroa.0.1 = phi i32 [ %.sroa.0.0, %dict_put.exit.thread ], [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.1 = phi i32 [ %.sroa.498.0, %dict_put.exit.thread ], [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %64 = icmp eq i64 %.sroa.10.1, %.sroa.46.0
+  %64 = icmp eq i64 %.sroa.10.1, %.sroa.44.0
   %65 = select i1 %55, i1 %64, i1 false
-  br i1 %65, label %2615, label %66
+  br i1 %65, label %2613, label %66
 
 66:                                               ; preds = %63
   %67 = icmp ult i32 %.sroa.0.1, 16777216
@@ -275,7 +275,7 @@ dict_put.exit.thread:                             ; preds = %1934, %696, %.loope
 
 70:                                               ; preds = %68
   store i32 1, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 71:                                               ; preds = %68
   %72 = shl nuw i32 %.sroa.0.1, 8
@@ -312,11 +312,11 @@ dict_get.exit:                                    ; preds = %79
   %94 = and i64 %.sroa.10.1, %93
   %95 = zext nneg i32 %50 to i64
   %96 = shl i64 %94, %95
-  %.not3282 = icmp eq i64 %.sroa.10.1, 0
-  %spec.select3274 = select i1 %.not3282, i64 %.sroa.52.0.copyload, i64 0
+  %.not3280 = icmp eq i64 %.sroa.10.1, 0
+  %spec.select3272 = select i1 %.not3280, i64 %.sroa.50.0.copyload, i64 0
   %97 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.1
   %98 = getelementptr i8, ptr %97, i64 -1
-  %99 = getelementptr i8, ptr %98, i64 %spec.select3274
+  %99 = getelementptr i8, ptr %98, i64 %spec.select3272
   %100 = load i8, ptr %99, align 1
   %101 = zext i8 %100 to i32
   %102 = sub i32 8, %50
@@ -328,9 +328,9 @@ dict_get.exit:                                    ; preds = %79
   br i1 %107, label %108, label %dict_get.exit3123
 
 108:                                              ; preds = %dict_get.exit, %.loopexit
-  %.sroa.37.2 = phi i64 [ %.sroa.37.1, %dict_get.exit ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.2 = phi i64 [ %.sroa.35.1, %dict_get.exit ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.2 = phi i64 [ %.sroa.10.1, %dict_get.exit ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.23188 = phi i32 [ %.13187, %dict_get.exit ], [ %46, %.loopexit ]
+  %.23186 = phi i32 [ %.13185, %dict_get.exit ], [ %46, %.loopexit ]
   %.22896 = phi i32 [ %.12895, %dict_get.exit ], [ %30, %.loopexit ]
   %.22819 = phi i32 [ %.12818, %dict_get.exit ], [ %32, %.loopexit ]
   %.22742 = phi i32 [ %.12741, %dict_get.exit ], [ %34, %.loopexit ]
@@ -352,7 +352,7 @@ dict_get.exit:                                    ; preds = %79
 
 112:                                              ; preds = %110
   store i32 2, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 113:                                              ; preds = %110
   %114 = shl nuw i32 %.sroa.0.3, 8
@@ -396,9 +396,9 @@ dict_get.exit:                                    ; preds = %79
   br label %141
 
 141:                                              ; preds = %135, %130, %.loopexit
-  %.sroa.37.3 = phi i64 [ %.sroa.37.2, %130 ], [ %.sroa.37.2, %135 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.3 = phi i64 [ %.sroa.35.2, %130 ], [ %.sroa.35.2, %135 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.3 = phi i64 [ %.sroa.10.2, %130 ], [ %.sroa.10.2, %135 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.33189 = phi i32 [ %.23188, %130 ], [ %.23188, %135 ], [ %46, %.loopexit ]
+  %.33187 = phi i32 [ %.23186, %130 ], [ %.23186, %135 ], [ %46, %.loopexit ]
   %.32897 = phi i32 [ %.22896, %130 ], [ %.22896, %135 ], [ %30, %.loopexit ]
   %.32820 = phi i32 [ %.22819, %130 ], [ %.22819, %135 ], [ %32, %.loopexit ]
   %.32743 = phi i32 [ %.22742, %130 ], [ %.22742, %135 ], [ %34, %.loopexit ]
@@ -420,7 +420,7 @@ dict_get.exit:                                    ; preds = %79
 
 145:                                              ; preds = %143
   store i32 3, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 146:                                              ; preds = %143
   %147 = shl nuw i32 %.sroa.0.5, 8
@@ -464,9 +464,9 @@ dict_get.exit:                                    ; preds = %79
   br label %174
 
 174:                                              ; preds = %168, %163, %.loopexit
-  %.sroa.37.4 = phi i64 [ %.sroa.37.3, %163 ], [ %.sroa.37.3, %168 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.4 = phi i64 [ %.sroa.35.3, %163 ], [ %.sroa.35.3, %168 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.4 = phi i64 [ %.sroa.10.3, %163 ], [ %.sroa.10.3, %168 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.43190 = phi i32 [ %.33189, %163 ], [ %.33189, %168 ], [ %46, %.loopexit ]
+  %.43188 = phi i32 [ %.33187, %163 ], [ %.33187, %168 ], [ %46, %.loopexit ]
   %.42898 = phi i32 [ %.32897, %163 ], [ %.32897, %168 ], [ %30, %.loopexit ]
   %.42821 = phi i32 [ %.32820, %163 ], [ %.32820, %168 ], [ %32, %.loopexit ]
   %.42744 = phi i32 [ %.32743, %163 ], [ %.32743, %168 ], [ %34, %.loopexit ]
@@ -488,7 +488,7 @@ dict_get.exit:                                    ; preds = %79
 
 178:                                              ; preds = %176
   store i32 4, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 179:                                              ; preds = %176
   %180 = shl nuw i32 %.sroa.0.7, 8
@@ -532,9 +532,9 @@ dict_get.exit:                                    ; preds = %79
   br label %207
 
 207:                                              ; preds = %201, %196, %.loopexit
-  %.sroa.37.5 = phi i64 [ %.sroa.37.4, %196 ], [ %.sroa.37.4, %201 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.5 = phi i64 [ %.sroa.35.4, %196 ], [ %.sroa.35.4, %201 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.5 = phi i64 [ %.sroa.10.4, %196 ], [ %.sroa.10.4, %201 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.53191 = phi i32 [ %.43190, %196 ], [ %.43190, %201 ], [ %46, %.loopexit ]
+  %.53189 = phi i32 [ %.43188, %196 ], [ %.43188, %201 ], [ %46, %.loopexit ]
   %.52899 = phi i32 [ %.42898, %196 ], [ %.42898, %201 ], [ %30, %.loopexit ]
   %.52822 = phi i32 [ %.42821, %196 ], [ %.42821, %201 ], [ %32, %.loopexit ]
   %.52745 = phi i32 [ %.42744, %196 ], [ %.42744, %201 ], [ %34, %.loopexit ]
@@ -556,7 +556,7 @@ dict_get.exit:                                    ; preds = %79
 
 211:                                              ; preds = %209
   store i32 5, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 212:                                              ; preds = %209
   %213 = shl nuw i32 %.sroa.0.9, 8
@@ -600,9 +600,9 @@ dict_get.exit:                                    ; preds = %79
   br label %240
 
 240:                                              ; preds = %234, %229, %.loopexit
-  %.sroa.37.6 = phi i64 [ %.sroa.37.5, %229 ], [ %.sroa.37.5, %234 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.6 = phi i64 [ %.sroa.35.5, %229 ], [ %.sroa.35.5, %234 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.6 = phi i64 [ %.sroa.10.5, %229 ], [ %.sroa.10.5, %234 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.63192 = phi i32 [ %.53191, %229 ], [ %.53191, %234 ], [ %46, %.loopexit ]
+  %.63190 = phi i32 [ %.53189, %229 ], [ %.53189, %234 ], [ %46, %.loopexit ]
   %.62900 = phi i32 [ %.52899, %229 ], [ %.52899, %234 ], [ %30, %.loopexit ]
   %.62823 = phi i32 [ %.52822, %229 ], [ %.52822, %234 ], [ %32, %.loopexit ]
   %.62746 = phi i32 [ %.52745, %229 ], [ %.52745, %234 ], [ %34, %.loopexit ]
@@ -624,7 +624,7 @@ dict_get.exit:                                    ; preds = %79
 
 244:                                              ; preds = %242
   store i32 6, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 245:                                              ; preds = %242
   %246 = shl nuw i32 %.sroa.0.11, 8
@@ -668,9 +668,9 @@ dict_get.exit:                                    ; preds = %79
   br label %273
 
 273:                                              ; preds = %267, %262, %.loopexit
-  %.sroa.37.7 = phi i64 [ %.sroa.37.6, %262 ], [ %.sroa.37.6, %267 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.7 = phi i64 [ %.sroa.35.6, %262 ], [ %.sroa.35.6, %267 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.7 = phi i64 [ %.sroa.10.6, %262 ], [ %.sroa.10.6, %267 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.73193 = phi i32 [ %.63192, %262 ], [ %.63192, %267 ], [ %46, %.loopexit ]
+  %.73191 = phi i32 [ %.63190, %262 ], [ %.63190, %267 ], [ %46, %.loopexit ]
   %.72901 = phi i32 [ %.62900, %262 ], [ %.62900, %267 ], [ %30, %.loopexit ]
   %.72824 = phi i32 [ %.62823, %262 ], [ %.62823, %267 ], [ %32, %.loopexit ]
   %.72747 = phi i32 [ %.62746, %262 ], [ %.62746, %267 ], [ %34, %.loopexit ]
@@ -692,7 +692,7 @@ dict_get.exit:                                    ; preds = %79
 
 277:                                              ; preds = %275
   store i32 7, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 278:                                              ; preds = %275
   %279 = shl nuw i32 %.sroa.0.13, 8
@@ -736,9 +736,9 @@ dict_get.exit:                                    ; preds = %79
   br label %306
 
 306:                                              ; preds = %300, %295, %.loopexit
-  %.sroa.37.8 = phi i64 [ %.sroa.37.7, %295 ], [ %.sroa.37.7, %300 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.8 = phi i64 [ %.sroa.35.7, %295 ], [ %.sroa.35.7, %300 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.8 = phi i64 [ %.sroa.10.7, %295 ], [ %.sroa.10.7, %300 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.83194 = phi i32 [ %.73193, %295 ], [ %.73193, %300 ], [ %46, %.loopexit ]
+  %.83192 = phi i32 [ %.73191, %295 ], [ %.73191, %300 ], [ %46, %.loopexit ]
   %.82902 = phi i32 [ %.72901, %295 ], [ %.72901, %300 ], [ %30, %.loopexit ]
   %.82825 = phi i32 [ %.72824, %295 ], [ %.72824, %300 ], [ %32, %.loopexit ]
   %.82748 = phi i32 [ %.72747, %295 ], [ %.72747, %300 ], [ %34, %.loopexit ]
@@ -760,7 +760,7 @@ dict_get.exit:                                    ; preds = %79
 
 310:                                              ; preds = %308
   store i32 8, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 311:                                              ; preds = %308
   %312 = shl nuw i32 %.sroa.0.15, 8
@@ -804,9 +804,9 @@ dict_get.exit:                                    ; preds = %79
   br label %339
 
 339:                                              ; preds = %333, %328, %.loopexit
-  %.sroa.37.9 = phi i64 [ %.sroa.37.8, %328 ], [ %.sroa.37.8, %333 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.9 = phi i64 [ %.sroa.35.8, %328 ], [ %.sroa.35.8, %333 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.9 = phi i64 [ %.sroa.10.8, %328 ], [ %.sroa.10.8, %333 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.93195 = phi i32 [ %.83194, %328 ], [ %.83194, %333 ], [ %46, %.loopexit ]
+  %.93193 = phi i32 [ %.83192, %328 ], [ %.83192, %333 ], [ %46, %.loopexit ]
   %.92903 = phi i32 [ %.82902, %328 ], [ %.82902, %333 ], [ %30, %.loopexit ]
   %.92826 = phi i32 [ %.82825, %328 ], [ %.82825, %333 ], [ %32, %.loopexit ]
   %.92749 = phi i32 [ %.82748, %328 ], [ %.82748, %333 ], [ %34, %.loopexit ]
@@ -828,7 +828,7 @@ dict_get.exit:                                    ; preds = %79
 
 343:                                              ; preds = %341
   store i32 9, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 344:                                              ; preds = %341
   %345 = shl nuw i32 %.sroa.0.17, 8
@@ -874,19 +874,19 @@ dict_get.exit:                                    ; preds = %79
 dict_get.exit3123:                                ; preds = %dict_get.exit
   %372 = zext i32 %.12654 to i64
   %373 = icmp ugt i64 %.sroa.10.1, %372
-  %spec.select3275 = select i1 %373, i64 0, i64 %.sroa.52.0.copyload
+  %spec.select3273 = select i1 %373, i64 0, i64 %.sroa.50.0.copyload
   %374 = xor i64 %372, -1
   %375 = getelementptr i8, ptr %97, i64 %374
-  %376 = getelementptr i8, ptr %375, i64 %spec.select3275
+  %376 = getelementptr i8, ptr %375, i64 %spec.select3273
   %377 = load i8, ptr %376, align 1
   %378 = zext i8 %377 to i32
   %379 = shl nuw nsw i32 %378, 1
   br label %380
 
 380:                                              ; preds = %dict_get.exit3123, %.loopexit
-  %.sroa.37.10 = phi i64 [ %.sroa.37.1, %dict_get.exit3123 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.10 = phi i64 [ %.sroa.35.1, %dict_get.exit3123 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.10 = phi i64 [ %.sroa.10.1, %dict_get.exit3123 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.103196 = phi i32 [ %379, %dict_get.exit3123 ], [ %46, %.loopexit ]
+  %.103194 = phi i32 [ %379, %dict_get.exit3123 ], [ %46, %.loopexit ]
   %.102904 = phi i32 [ %.12895, %dict_get.exit3123 ], [ %30, %.loopexit ]
   %.102827 = phi i32 [ %.12818, %dict_get.exit3123 ], [ %32, %.loopexit ]
   %.102750 = phi i32 [ %.12741, %dict_get.exit3123 ], [ %34, %.loopexit ]
@@ -899,7 +899,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.19 = phi i64 [ %.2, %dict_get.exit3123 ], [ %24, %.loopexit ]
   %.sroa.0.19 = phi i32 [ %87, %dict_get.exit3123 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.19 = phi i32 [ %.sroa.498.2, %dict_get.exit3123 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %381 = and i32 %.102320, %.103196
+  %381 = and i32 %.102320, %.103194
   %382 = add i32 %.102320, %.102490
   %383 = add i32 %382, %381
   %384 = icmp ult i32 %.sroa.0.19, 16777216
@@ -911,7 +911,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 387:                                              ; preds = %385
   store i32 10, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 388:                                              ; preds = %385
   %389 = shl nuw i32 %.sroa.0.19, 8
@@ -960,13 +960,13 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.sroa.0.21 = phi i32 [ %402, %405 ], [ %412, %411 ]
   %.sroa.498.21 = phi i32 [ %.sroa.498.20, %405 ], [ %413, %411 ]
   store i16 %.sink, ptr %399, align 2
-  %418 = shl i32 %.103196, 1
+  %418 = shl i32 %.103194, 1
   br label %419
 
 419:                                              ; preds = %417, %.loopexit
-  %.sroa.37.11 = phi i64 [ %.sroa.37.10, %417 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.11 = phi i64 [ %.sroa.35.10, %417 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.11 = phi i64 [ %.sroa.10.10, %417 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.113197 = phi i32 [ %418, %417 ], [ %46, %.loopexit ]
+  %.113195 = phi i32 [ %418, %417 ], [ %46, %.loopexit ]
   %.112905 = phi i32 [ %.102904, %417 ], [ %30, %.loopexit ]
   %.112828 = phi i32 [ %.102827, %417 ], [ %32, %.loopexit ]
   %.112751 = phi i32 [ %.102750, %417 ], [ %34, %.loopexit ]
@@ -979,7 +979,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.21 = phi i64 [ %.20, %417 ], [ %24, %.loopexit ]
   %.sroa.0.22 = phi i32 [ %.sroa.0.21, %417 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.22 = phi i32 [ %.sroa.498.21, %417 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %420 = and i32 %.122322, %.113197
+  %420 = and i32 %.122322, %.113195
   %421 = add i32 %.122322, %.122492
   %422 = add i32 %421, %420
   %423 = icmp ult i32 %.sroa.0.22, 16777216
@@ -991,7 +991,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 426:                                              ; preds = %424
   store i32 11, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 427:                                              ; preds = %424
   %428 = shl nuw i32 %.sroa.0.22, 8
@@ -1034,19 +1034,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %456
 
 456:                                              ; preds = %444, %450
-  %.sink3299 = phi i16 [ %448, %444 ], [ %454, %450 ]
+  %.sink3297 = phi i16 [ %448, %444 ], [ %454, %450 ]
   %.132493 = phi i32 [ %443, %444 ], [ %455, %450 ]
   %.132323 = phi i32 [ %449, %444 ], [ %420, %450 ]
   %.sroa.0.24 = phi i32 [ %441, %444 ], [ %451, %450 ]
   %.sroa.498.24 = phi i32 [ %.sroa.498.23, %444 ], [ %452, %450 ]
-  store i16 %.sink3299, ptr %438, align 2
-  %457 = shl i32 %.113197, 1
+  store i16 %.sink3297, ptr %438, align 2
+  %457 = shl i32 %.113195, 1
   br label %458
 
 458:                                              ; preds = %456, %.loopexit
-  %.sroa.37.12 = phi i64 [ %.sroa.37.11, %456 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.12 = phi i64 [ %.sroa.35.11, %456 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.12 = phi i64 [ %.sroa.10.11, %456 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.123198 = phi i32 [ %457, %456 ], [ %46, %.loopexit ]
+  %.123196 = phi i32 [ %457, %456 ], [ %46, %.loopexit ]
   %.122906 = phi i32 [ %.112905, %456 ], [ %30, %.loopexit ]
   %.122829 = phi i32 [ %.112828, %456 ], [ %32, %.loopexit ]
   %.122752 = phi i32 [ %.112751, %456 ], [ %34, %.loopexit ]
@@ -1059,7 +1059,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.23 = phi i64 [ %.22, %456 ], [ %24, %.loopexit ]
   %.sroa.0.25 = phi i32 [ %.sroa.0.24, %456 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.25 = phi i32 [ %.sroa.498.24, %456 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %459 = and i32 %.142324, %.123198
+  %459 = and i32 %.142324, %.123196
   %460 = add i32 %.142324, %.142494
   %461 = add i32 %460, %459
   %462 = icmp ult i32 %.sroa.0.25, 16777216
@@ -1071,7 +1071,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 465:                                              ; preds = %463
   store i32 12, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 466:                                              ; preds = %463
   %467 = shl nuw i32 %.sroa.0.25, 8
@@ -1114,19 +1114,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %495
 
 495:                                              ; preds = %483, %489
-  %.sink3300 = phi i16 [ %487, %483 ], [ %493, %489 ]
+  %.sink3298 = phi i16 [ %487, %483 ], [ %493, %489 ]
   %.152495 = phi i32 [ %482, %483 ], [ %494, %489 ]
   %.152325 = phi i32 [ %488, %483 ], [ %459, %489 ]
   %.sroa.0.27 = phi i32 [ %480, %483 ], [ %490, %489 ]
   %.sroa.498.27 = phi i32 [ %.sroa.498.26, %483 ], [ %491, %489 ]
-  store i16 %.sink3300, ptr %477, align 2
-  %496 = shl i32 %.123198, 1
+  store i16 %.sink3298, ptr %477, align 2
+  %496 = shl i32 %.123196, 1
   br label %497
 
 497:                                              ; preds = %495, %.loopexit
-  %.sroa.37.13 = phi i64 [ %.sroa.37.12, %495 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.13 = phi i64 [ %.sroa.35.12, %495 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.13 = phi i64 [ %.sroa.10.12, %495 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.133199 = phi i32 [ %496, %495 ], [ %46, %.loopexit ]
+  %.133197 = phi i32 [ %496, %495 ], [ %46, %.loopexit ]
   %.132907 = phi i32 [ %.122906, %495 ], [ %30, %.loopexit ]
   %.132830 = phi i32 [ %.122829, %495 ], [ %32, %.loopexit ]
   %.132753 = phi i32 [ %.122752, %495 ], [ %34, %.loopexit ]
@@ -1139,7 +1139,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.25 = phi i64 [ %.24, %495 ], [ %24, %.loopexit ]
   %.sroa.0.28 = phi i32 [ %.sroa.0.27, %495 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.28 = phi i32 [ %.sroa.498.27, %495 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %498 = and i32 %.162326, %.133199
+  %498 = and i32 %.162326, %.133197
   %499 = add i32 %.162326, %.162496
   %500 = add i32 %499, %498
   %501 = icmp ult i32 %.sroa.0.28, 16777216
@@ -1151,7 +1151,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 504:                                              ; preds = %502
   store i32 13, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 505:                                              ; preds = %502
   %506 = shl nuw i32 %.sroa.0.28, 8
@@ -1194,19 +1194,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %534
 
 534:                                              ; preds = %522, %528
-  %.sink3301 = phi i16 [ %526, %522 ], [ %532, %528 ]
+  %.sink3299 = phi i16 [ %526, %522 ], [ %532, %528 ]
   %.172497 = phi i32 [ %521, %522 ], [ %533, %528 ]
   %.172327 = phi i32 [ %527, %522 ], [ %498, %528 ]
   %.sroa.0.30 = phi i32 [ %519, %522 ], [ %529, %528 ]
   %.sroa.498.30 = phi i32 [ %.sroa.498.29, %522 ], [ %530, %528 ]
-  store i16 %.sink3301, ptr %516, align 2
-  %535 = shl i32 %.133199, 1
+  store i16 %.sink3299, ptr %516, align 2
+  %535 = shl i32 %.133197, 1
   br label %536
 
 536:                                              ; preds = %534, %.loopexit
-  %.sroa.37.14 = phi i64 [ %.sroa.37.13, %534 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.14 = phi i64 [ %.sroa.35.13, %534 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.14 = phi i64 [ %.sroa.10.13, %534 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.143200 = phi i32 [ %535, %534 ], [ %46, %.loopexit ]
+  %.143198 = phi i32 [ %535, %534 ], [ %46, %.loopexit ]
   %.142908 = phi i32 [ %.132907, %534 ], [ %30, %.loopexit ]
   %.142831 = phi i32 [ %.132830, %534 ], [ %32, %.loopexit ]
   %.142754 = phi i32 [ %.132753, %534 ], [ %34, %.loopexit ]
@@ -1219,7 +1219,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.27 = phi i64 [ %.26, %534 ], [ %24, %.loopexit ]
   %.sroa.0.31 = phi i32 [ %.sroa.0.30, %534 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.31 = phi i32 [ %.sroa.498.30, %534 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %537 = and i32 %.182328, %.143200
+  %537 = and i32 %.182328, %.143198
   %538 = add i32 %.182328, %.182498
   %539 = add i32 %538, %537
   %540 = icmp ult i32 %.sroa.0.31, 16777216
@@ -1231,7 +1231,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 543:                                              ; preds = %541
   store i32 14, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 544:                                              ; preds = %541
   %545 = shl nuw i32 %.sroa.0.31, 8
@@ -1274,19 +1274,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %573
 
 573:                                              ; preds = %561, %567
-  %.sink3302 = phi i16 [ %565, %561 ], [ %571, %567 ]
+  %.sink3300 = phi i16 [ %565, %561 ], [ %571, %567 ]
   %.192499 = phi i32 [ %560, %561 ], [ %572, %567 ]
   %.192329 = phi i32 [ %566, %561 ], [ %537, %567 ]
   %.sroa.0.33 = phi i32 [ %558, %561 ], [ %568, %567 ]
   %.sroa.498.33 = phi i32 [ %.sroa.498.32, %561 ], [ %569, %567 ]
-  store i16 %.sink3302, ptr %555, align 2
-  %574 = shl i32 %.143200, 1
+  store i16 %.sink3300, ptr %555, align 2
+  %574 = shl i32 %.143198, 1
   br label %575
 
 575:                                              ; preds = %573, %.loopexit
-  %.sroa.37.15 = phi i64 [ %.sroa.37.14, %573 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.15 = phi i64 [ %.sroa.35.14, %573 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.15 = phi i64 [ %.sroa.10.14, %573 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.153201 = phi i32 [ %574, %573 ], [ %46, %.loopexit ]
+  %.153199 = phi i32 [ %574, %573 ], [ %46, %.loopexit ]
   %.152909 = phi i32 [ %.142908, %573 ], [ %30, %.loopexit ]
   %.152832 = phi i32 [ %.142831, %573 ], [ %32, %.loopexit ]
   %.152755 = phi i32 [ %.142754, %573 ], [ %34, %.loopexit ]
@@ -1299,7 +1299,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.29 = phi i64 [ %.28, %573 ], [ %24, %.loopexit ]
   %.sroa.0.34 = phi i32 [ %.sroa.0.33, %573 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.34 = phi i32 [ %.sroa.498.33, %573 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %576 = and i32 %.202330, %.153201
+  %576 = and i32 %.202330, %.153199
   %577 = add i32 %.202330, %.202500
   %578 = add i32 %577, %576
   %579 = icmp ult i32 %.sroa.0.34, 16777216
@@ -1311,7 +1311,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 582:                                              ; preds = %580
   store i32 15, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 583:                                              ; preds = %580
   %584 = shl nuw i32 %.sroa.0.34, 8
@@ -1354,19 +1354,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %612
 
 612:                                              ; preds = %600, %606
-  %.sink3303 = phi i16 [ %604, %600 ], [ %610, %606 ]
+  %.sink3301 = phi i16 [ %604, %600 ], [ %610, %606 ]
   %.212501 = phi i32 [ %599, %600 ], [ %611, %606 ]
   %.212331 = phi i32 [ %605, %600 ], [ %576, %606 ]
   %.sroa.0.36 = phi i32 [ %597, %600 ], [ %607, %606 ]
   %.sroa.498.36 = phi i32 [ %.sroa.498.35, %600 ], [ %608, %606 ]
-  store i16 %.sink3303, ptr %594, align 2
-  %613 = shl i32 %.153201, 1
+  store i16 %.sink3301, ptr %594, align 2
+  %613 = shl i32 %.153199, 1
   br label %614
 
 614:                                              ; preds = %612, %.loopexit
-  %.sroa.37.16 = phi i64 [ %.sroa.37.15, %612 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.16 = phi i64 [ %.sroa.35.15, %612 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.16 = phi i64 [ %.sroa.10.15, %612 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.163202 = phi i32 [ %613, %612 ], [ %46, %.loopexit ]
+  %.163200 = phi i32 [ %613, %612 ], [ %46, %.loopexit ]
   %.162910 = phi i32 [ %.152909, %612 ], [ %30, %.loopexit ]
   %.162833 = phi i32 [ %.152832, %612 ], [ %32, %.loopexit ]
   %.162756 = phi i32 [ %.152755, %612 ], [ %34, %.loopexit ]
@@ -1379,7 +1379,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.31 = phi i64 [ %.30, %612 ], [ %24, %.loopexit ]
   %.sroa.0.37 = phi i32 [ %.sroa.0.36, %612 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.37 = phi i32 [ %.sroa.498.36, %612 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %615 = and i32 %.222332, %.163202
+  %615 = and i32 %.222332, %.163200
   %616 = add i32 %.222332, %.222502
   %617 = add i32 %616, %615
   %618 = icmp ult i32 %.sroa.0.37, 16777216
@@ -1391,7 +1391,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 621:                                              ; preds = %619
   store i32 16, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 622:                                              ; preds = %619
   %623 = shl nuw i32 %.sroa.0.37, 8
@@ -1434,19 +1434,19 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %651
 
 651:                                              ; preds = %639, %645
-  %.sink3304 = phi i16 [ %643, %639 ], [ %649, %645 ]
+  %.sink3302 = phi i16 [ %643, %639 ], [ %649, %645 ]
   %.232503 = phi i32 [ %638, %639 ], [ %650, %645 ]
   %.232333 = phi i32 [ %644, %639 ], [ %615, %645 ]
   %.sroa.0.39 = phi i32 [ %636, %639 ], [ %646, %645 ]
   %.sroa.498.39 = phi i32 [ %.sroa.498.38, %639 ], [ %647, %645 ]
-  store i16 %.sink3304, ptr %633, align 2
-  %652 = shl i32 %.163202, 1
+  store i16 %.sink3302, ptr %633, align 2
+  %652 = shl i32 %.163200, 1
   br label %653
 
 653:                                              ; preds = %651, %.loopexit
-  %.sroa.37.17 = phi i64 [ %.sroa.37.16, %651 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.17 = phi i64 [ %.sroa.35.16, %651 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.17 = phi i64 [ %.sroa.10.16, %651 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.173203 = phi i32 [ %652, %651 ], [ %46, %.loopexit ]
+  %.173201 = phi i32 [ %652, %651 ], [ %46, %.loopexit ]
   %.172911 = phi i32 [ %.162910, %651 ], [ %30, %.loopexit ]
   %.172834 = phi i32 [ %.162833, %651 ], [ %32, %.loopexit ]
   %.172757 = phi i32 [ %.162756, %651 ], [ %34, %.loopexit ]
@@ -1459,7 +1459,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.33 = phi i64 [ %.32, %651 ], [ %24, %.loopexit ]
   %.sroa.0.40 = phi i32 [ %.sroa.0.39, %651 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.40 = phi i32 [ %.sroa.498.39, %651 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %654 = and i32 %.242334, %.173203
+  %654 = and i32 %.242334, %.173201
   %655 = add i32 %.242334, %.242504
   %656 = add i32 %655, %654
   %657 = icmp ult i32 %.sroa.0.40, 16777216
@@ -1471,7 +1471,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
 
 660:                                              ; preds = %658
   store i32 17, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 661:                                              ; preds = %658
   %662 = shl nuw i32 %.sroa.0.40, 8
@@ -1516,9 +1516,9 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %690
 
 690:                                              ; preds = %684, %678, %366, %361
-  %.sroa.37.18 = phi i64 [ %.sroa.37.9, %361 ], [ %.sroa.37.9, %366 ], [ %.sroa.37.17, %678 ], [ %.sroa.37.17, %684 ]
+  %.sroa.35.18 = phi i64 [ %.sroa.35.9, %361 ], [ %.sroa.35.9, %366 ], [ %.sroa.35.17, %678 ], [ %.sroa.35.17, %684 ]
   %.sroa.10.18 = phi i64 [ %.sroa.10.9, %361 ], [ %.sroa.10.9, %366 ], [ %.sroa.10.17, %678 ], [ %.sroa.10.17, %684 ]
-  %.183204 = phi i32 [ %.93195, %361 ], [ %.93195, %366 ], [ %.173203, %678 ], [ %.173203, %684 ]
+  %.183202 = phi i32 [ %.93193, %361 ], [ %.93193, %366 ], [ %.173201, %678 ], [ %.173201, %684 ]
   %.182912 = phi i32 [ %.92903, %361 ], [ %.92903, %366 ], [ %.172911, %678 ], [ %.172911, %684 ]
   %.182835 = phi i32 [ %.92826, %361 ], [ %.92826, %366 ], [ %.172834, %678 ], [ %.172834, %684 ]
   %.182758 = phi i32 [ %.92749, %361 ], [ %.92749, %366 ], [ %.172757, %678 ], [ %.172757, %684 ]
@@ -1537,9 +1537,9 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   br label %694
 
 694:                                              ; preds = %690, %.loopexit
-  %.sroa.37.19 = phi i64 [ %.sroa.37.18, %690 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.19 = phi i64 [ %.sroa.35.18, %690 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.19 = phi i64 [ %.sroa.10.18, %690 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.193205 = phi i32 [ %.183204, %690 ], [ %46, %.loopexit ]
+  %.193203 = phi i32 [ %.183202, %690 ], [ %46, %.loopexit ]
   %.192913 = phi i32 [ %.182912, %690 ], [ %30, %.loopexit ]
   %.192836 = phi i32 [ %.182835, %690 ], [ %32, %.loopexit ]
   %.192759 = phi i32 [ %.182758, %690 ], [ %34, %.loopexit ]
@@ -1552,7 +1552,7 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %.36 = phi i64 [ %.35, %690 ], [ %24, %.loopexit ]
   %.sroa.0.43 = phi i32 [ %.sroa.0.42, %690 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.43 = phi i32 [ %.sroa.498.42, %690 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %695 = icmp eq i64 %.sroa.10.19, %.sroa.46.0
+  %695 = icmp eq i64 %.sroa.10.19, %.sroa.44.0
   br i1 %695, label %dict_put.exit, label %696
 
 696:                                              ; preds = %694
@@ -1560,12 +1560,12 @@ dict_get.exit3123:                                ; preds = %dict_get.exit
   %698 = add i64 %.sroa.10.19, 1
   %699 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.19
   store i8 %697, ptr %699, align 1
-  %spec.select3276 = tail call i64 @llvm.umax.i64(i64 %698, i64 %.sroa.37.19)
+  %spec.select3274 = tail call i64 @llvm.umax.i64(i64 %698, i64 %.sroa.35.19)
   br label %dict_put.exit.thread
 
 dict_put.exit:                                    ; preds = %694
   store i32 18, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 700:                                              ; preds = %79
   %701 = sub i32 %.sroa.0.2, %87
@@ -1576,9 +1576,9 @@ dict_put.exit:                                    ; preds = %694
   br label %705
 
 705:                                              ; preds = %.loopexit, %700
-  %.sroa.37.21 = phi i64 [ %.sroa.37.1, %700 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.21 = phi i64 [ %.sroa.35.1, %700 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.21 = phi i64 [ %.sroa.10.1, %700 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.203206 = phi i32 [ %.13187, %700 ], [ %46, %.loopexit ]
+  %.203204 = phi i32 [ %.13185, %700 ], [ %46, %.loopexit ]
   %.202914 = phi i32 [ %.12895, %700 ], [ %30, %.loopexit ]
   %.202837 = phi i32 [ %.12818, %700 ], [ %32, %.loopexit ]
   %.202760 = phi i32 [ %.12741, %700 ], [ %34, %.loopexit ]
@@ -1601,7 +1601,7 @@ dict_put.exit:                                    ; preds = %694
 
 709:                                              ; preds = %707
   store i32 19, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 710:                                              ; preds = %707
   %711 = shl nuw i32 %.sroa.0.44, 8
@@ -1638,9 +1638,9 @@ dict_put.exit:                                    ; preds = %694
   br label %734
 
 734:                                              ; preds = %.loopexit, %727
-  %.sroa.37.22 = phi i64 [ %.sroa.37.21, %727 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.22 = phi i64 [ %.sroa.35.21, %727 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.22 = phi i64 [ %.sroa.10.21, %727 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.213207 = phi i32 [ %.203206, %727 ], [ %46, %.loopexit ]
+  %.213205 = phi i32 [ %.203204, %727 ], [ %46, %.loopexit ]
   %.212915 = phi i32 [ %.202673, %727 ], [ %30, %.loopexit ]
   %.212838 = phi i32 [ %.202914, %727 ], [ %32, %.loopexit ]
   %.212761 = phi i32 [ %.202837, %727 ], [ %34, %.loopexit ]
@@ -1663,7 +1663,7 @@ dict_put.exit:                                    ; preds = %694
 
 738:                                              ; preds = %736
   store i32 20, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 739:                                              ; preds = %736
   %740 = shl nuw i32 %.sroa.0.46, 8
@@ -1696,9 +1696,9 @@ dict_put.exit:                                    ; preds = %694
   br label %759
 
 759:                                              ; preds = %754, %.loopexit
-  %.sroa.37.23 = phi i64 [ %.sroa.37.22, %754 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.23 = phi i64 [ %.sroa.35.22, %754 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.23 = phi i64 [ %.sroa.10.22, %754 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.223208 = phi i32 [ %.213207, %754 ], [ %46, %.loopexit ]
+  %.223206 = phi i32 [ %.213205, %754 ], [ %46, %.loopexit ]
   %.222916 = phi i32 [ %.212915, %754 ], [ %30, %.loopexit ]
   %.222839 = phi i32 [ %.212838, %754 ], [ %32, %.loopexit ]
   %.222762 = phi i32 [ %.212761, %754 ], [ %34, %.loopexit ]
@@ -1721,7 +1721,7 @@ dict_put.exit:                                    ; preds = %694
 
 763:                                              ; preds = %761
   store i32 21, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 764:                                              ; preds = %761
   %765 = shl nuw i32 %.sroa.0.48, 8
@@ -1767,9 +1767,9 @@ dict_put.exit:                                    ; preds = %694
   br label %794
 
 794:                                              ; preds = %788, %783, %.loopexit
-  %.sroa.37.24 = phi i64 [ %.sroa.37.23, %783 ], [ %.sroa.37.23, %788 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.24 = phi i64 [ %.sroa.35.23, %783 ], [ %.sroa.35.23, %788 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.24 = phi i64 [ %.sroa.10.23, %783 ], [ %.sroa.10.23, %788 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.233209 = phi i32 [ %.223208, %783 ], [ %.223208, %788 ], [ %46, %.loopexit ]
+  %.233207 = phi i32 [ %.223206, %783 ], [ %.223206, %788 ], [ %46, %.loopexit ]
   %.232917 = phi i32 [ %.222916, %783 ], [ %.222916, %788 ], [ %30, %.loopexit ]
   %.232840 = phi i32 [ %.222839, %783 ], [ %.222839, %788 ], [ %32, %.loopexit ]
   %.232763 = phi i32 [ %.222762, %783 ], [ %.222762, %788 ], [ %34, %.loopexit ]
@@ -1792,7 +1792,7 @@ dict_put.exit:                                    ; preds = %694
 
 798:                                              ; preds = %796
   store i32 22, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 799:                                              ; preds = %796
   %800 = shl nuw i32 %.sroa.0.50, 8
@@ -1838,9 +1838,9 @@ dict_put.exit:                                    ; preds = %694
   br label %829
 
 829:                                              ; preds = %823, %818, %.loopexit
-  %.sroa.37.25 = phi i64 [ %.sroa.37.24, %818 ], [ %.sroa.37.24, %823 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.25 = phi i64 [ %.sroa.35.24, %818 ], [ %.sroa.35.24, %823 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.25 = phi i64 [ %.sroa.10.24, %818 ], [ %.sroa.10.24, %823 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.243210 = phi i32 [ %.233209, %818 ], [ %.233209, %823 ], [ %46, %.loopexit ]
+  %.243208 = phi i32 [ %.233207, %818 ], [ %.233207, %823 ], [ %46, %.loopexit ]
   %.242918 = phi i32 [ %.232917, %818 ], [ %.232917, %823 ], [ %30, %.loopexit ]
   %.242841 = phi i32 [ %.232840, %818 ], [ %.232840, %823 ], [ %32, %.loopexit ]
   %.242764 = phi i32 [ %.232763, %818 ], [ %.232763, %823 ], [ %34, %.loopexit ]
@@ -1863,7 +1863,7 @@ dict_put.exit:                                    ; preds = %694
 
 833:                                              ; preds = %831
   store i32 23, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 834:                                              ; preds = %831
   %835 = shl nuw i32 %.sroa.0.52, 8
@@ -1907,11 +1907,11 @@ dict_put.exit:                                    ; preds = %694
   br label %864
 
 864:                                              ; preds = %853, %858
-  %.sink3305 = phi i16 [ %857, %853 ], [ %862, %858 ]
+  %.sink3303 = phi i16 [ %857, %853 ], [ %862, %858 ]
   %.322512 = phi i32 [ %852, %853 ], [ %863, %858 ]
   %.sroa.0.54 = phi i32 [ %850, %853 ], [ %859, %858 ]
   %.sroa.498.54 = phi i32 [ %.sroa.498.53, %853 ], [ %860, %858 ]
-  store i16 %.sink3305, ptr %847, align 2
+  store i16 %.sink3303, ptr %847, align 2
   %865 = add i32 %.322512, -6
   br label %1282
 
@@ -1924,9 +1924,9 @@ dict_put.exit:                                    ; preds = %694
   br label %871
 
 871:                                              ; preds = %.loopexit, %866
-  %.sroa.37.26 = phi i64 [ %.sroa.37.22, %866 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.26 = phi i64 [ %.sroa.35.22, %866 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.26 = phi i64 [ %.sroa.10.22, %866 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.253211 = phi i32 [ %.213207, %866 ], [ %46, %.loopexit ]
+  %.253209 = phi i32 [ %.213205, %866 ], [ %46, %.loopexit ]
   %.252919 = phi i32 [ %.212915, %866 ], [ %30, %.loopexit ]
   %.252842 = phi i32 [ %.212838, %866 ], [ %32, %.loopexit ]
   %.252765 = phi i32 [ %.212761, %866 ], [ %34, %.loopexit ]
@@ -1949,7 +1949,7 @@ dict_put.exit:                                    ; preds = %694
 
 875:                                              ; preds = %873
   store i32 24, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 876:                                              ; preds = %873
   %877 = shl nuw i32 %.sroa.0.55, 8
@@ -1982,9 +1982,9 @@ dict_put.exit:                                    ; preds = %694
   br label %896
 
 896:                                              ; preds = %891, %.loopexit
-  %.sroa.37.27 = phi i64 [ %.sroa.37.26, %891 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.27 = phi i64 [ %.sroa.35.26, %891 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.27 = phi i64 [ %.sroa.10.26, %891 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.263212 = phi i32 [ %.253211, %891 ], [ %46, %.loopexit ]
+  %.263210 = phi i32 [ %.253209, %891 ], [ %46, %.loopexit ]
   %.262920 = phi i32 [ %.252919, %891 ], [ %30, %.loopexit ]
   %.262843 = phi i32 [ %.252842, %891 ], [ %32, %.loopexit ]
   %.262766 = phi i32 [ %.252765, %891 ], [ %34, %.loopexit ]
@@ -2007,7 +2007,7 @@ dict_put.exit:                                    ; preds = %694
 
 900:                                              ; preds = %898
   store i32 25, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 901:                                              ; preds = %898
   %902 = shl nuw i32 %.sroa.0.57, 8
@@ -2053,9 +2053,9 @@ dict_put.exit:                                    ; preds = %694
   br label %931
 
 931:                                              ; preds = %925, %920, %.loopexit
-  %.sroa.37.28 = phi i64 [ %.sroa.37.27, %920 ], [ %.sroa.37.27, %925 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.28 = phi i64 [ %.sroa.35.27, %920 ], [ %.sroa.35.27, %925 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.28 = phi i64 [ %.sroa.10.27, %920 ], [ %.sroa.10.27, %925 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.273213 = phi i32 [ %.263212, %920 ], [ %.263212, %925 ], [ %46, %.loopexit ]
+  %.273211 = phi i32 [ %.263210, %920 ], [ %.263210, %925 ], [ %46, %.loopexit ]
   %.272921 = phi i32 [ %.262920, %920 ], [ %.262920, %925 ], [ %30, %.loopexit ]
   %.272844 = phi i32 [ %.262843, %920 ], [ %.262843, %925 ], [ %32, %.loopexit ]
   %.272767 = phi i32 [ %.262766, %920 ], [ %.262766, %925 ], [ %34, %.loopexit ]
@@ -2078,7 +2078,7 @@ dict_put.exit:                                    ; preds = %694
 
 935:                                              ; preds = %933
   store i32 26, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 936:                                              ; preds = %933
   %937 = shl nuw i32 %.sroa.0.59, 8
@@ -2124,9 +2124,9 @@ dict_put.exit:                                    ; preds = %694
   br label %966
 
 966:                                              ; preds = %960, %955, %.loopexit
-  %.sroa.37.29 = phi i64 [ %.sroa.37.28, %955 ], [ %.sroa.37.28, %960 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.29 = phi i64 [ %.sroa.35.28, %955 ], [ %.sroa.35.28, %960 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.29 = phi i64 [ %.sroa.10.28, %955 ], [ %.sroa.10.28, %960 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.283214 = phi i32 [ %.273213, %955 ], [ %.273213, %960 ], [ %46, %.loopexit ]
+  %.283212 = phi i32 [ %.273211, %955 ], [ %.273211, %960 ], [ %46, %.loopexit ]
   %.282922 = phi i32 [ %.272921, %955 ], [ %.272921, %960 ], [ %30, %.loopexit ]
   %.282845 = phi i32 [ %.272844, %955 ], [ %.272844, %960 ], [ %32, %.loopexit ]
   %.282768 = phi i32 [ %.272767, %955 ], [ %.272767, %960 ], [ %34, %.loopexit ]
@@ -2149,7 +2149,7 @@ dict_put.exit:                                    ; preds = %694
 
 970:                                              ; preds = %968
   store i32 27, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 971:                                              ; preds = %968
   %972 = shl nuw i32 %.sroa.0.61, 8
@@ -2193,11 +2193,11 @@ dict_put.exit:                                    ; preds = %694
   br label %1001
 
 1001:                                             ; preds = %990, %995
-  %.sink3306 = phi i16 [ %994, %990 ], [ %999, %995 ]
+  %.sink3304 = phi i16 [ %994, %990 ], [ %999, %995 ]
   %.372517 = phi i32 [ %989, %990 ], [ %1000, %995 ]
   %.sroa.0.63 = phi i32 [ %987, %990 ], [ %996, %995 ]
   %.sroa.498.63 = phi i32 [ %.sroa.498.62, %990 ], [ %997, %995 ]
-  store i16 %.sink3306, ptr %984, align 2
+  store i16 %.sink3304, ptr %984, align 2
   %1002 = add i32 %.372517, 2
   br label %1282
 
@@ -2210,9 +2210,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1008
 
 1008:                                             ; preds = %1003, %.loopexit
-  %.sroa.37.30 = phi i64 [ %.sroa.37.26, %1003 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.30 = phi i64 [ %.sroa.35.26, %1003 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.30 = phi i64 [ %.sroa.10.26, %1003 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.293215 = phi i32 [ %.253211, %1003 ], [ %46, %.loopexit ]
+  %.293213 = phi i32 [ %.253209, %1003 ], [ %46, %.loopexit ]
   %.292923 = phi i32 [ %.252919, %1003 ], [ %30, %.loopexit ]
   %.292846 = phi i32 [ %.252842, %1003 ], [ %32, %.loopexit ]
   %.292769 = phi i32 [ %.252765, %1003 ], [ %34, %.loopexit ]
@@ -2234,7 +2234,7 @@ dict_put.exit:                                    ; preds = %694
 
 1012:                                             ; preds = %1010
   store i32 28, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1013:                                             ; preds = %1010
   %1014 = shl nuw i32 %.sroa.0.64, 8
@@ -2279,9 +2279,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1042
 
 1042:                                             ; preds = %1036, %1031, %.loopexit
-  %.sroa.37.31 = phi i64 [ %.sroa.37.30, %1031 ], [ %.sroa.37.30, %1036 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.31 = phi i64 [ %.sroa.35.30, %1031 ], [ %.sroa.35.30, %1036 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.31 = phi i64 [ %.sroa.10.30, %1031 ], [ %.sroa.10.30, %1036 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.303216 = phi i32 [ %.293215, %1031 ], [ %.293215, %1036 ], [ %46, %.loopexit ]
+  %.303214 = phi i32 [ %.293213, %1031 ], [ %.293213, %1036 ], [ %46, %.loopexit ]
   %.302924 = phi i32 [ %.292923, %1031 ], [ %.292923, %1036 ], [ %30, %.loopexit ]
   %.302847 = phi i32 [ %.292846, %1031 ], [ %.292846, %1036 ], [ %32, %.loopexit ]
   %.302770 = phi i32 [ %.292769, %1031 ], [ %.292769, %1036 ], [ %34, %.loopexit ]
@@ -2303,7 +2303,7 @@ dict_put.exit:                                    ; preds = %694
 
 1046:                                             ; preds = %1044
   store i32 29, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1047:                                             ; preds = %1044
   %1048 = shl nuw i32 %.sroa.0.66, 8
@@ -2348,9 +2348,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1076
 
 1076:                                             ; preds = %1070, %1065, %.loopexit
-  %.sroa.37.32 = phi i64 [ %.sroa.37.31, %1065 ], [ %.sroa.37.31, %1070 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.32 = phi i64 [ %.sroa.35.31, %1065 ], [ %.sroa.35.31, %1070 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.32 = phi i64 [ %.sroa.10.31, %1065 ], [ %.sroa.10.31, %1070 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.313217 = phi i32 [ %.303216, %1065 ], [ %.303216, %1070 ], [ %46, %.loopexit ]
+  %.313215 = phi i32 [ %.303214, %1065 ], [ %.303214, %1070 ], [ %46, %.loopexit ]
   %.312925 = phi i32 [ %.302924, %1065 ], [ %.302924, %1070 ], [ %30, %.loopexit ]
   %.312848 = phi i32 [ %.302847, %1065 ], [ %.302847, %1070 ], [ %32, %.loopexit ]
   %.312771 = phi i32 [ %.302770, %1065 ], [ %.302770, %1070 ], [ %34, %.loopexit ]
@@ -2372,7 +2372,7 @@ dict_put.exit:                                    ; preds = %694
 
 1080:                                             ; preds = %1078
   store i32 30, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1081:                                             ; preds = %1078
   %1082 = shl nuw i32 %.sroa.0.68, 8
@@ -2417,9 +2417,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1110
 
 1110:                                             ; preds = %1104, %1099, %.loopexit
-  %.sroa.37.33 = phi i64 [ %.sroa.37.32, %1099 ], [ %.sroa.37.32, %1104 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.33 = phi i64 [ %.sroa.35.32, %1099 ], [ %.sroa.35.32, %1104 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.33 = phi i64 [ %.sroa.10.32, %1099 ], [ %.sroa.10.32, %1104 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.323218 = phi i32 [ %.313217, %1099 ], [ %.313217, %1104 ], [ %46, %.loopexit ]
+  %.323216 = phi i32 [ %.313215, %1099 ], [ %.313215, %1104 ], [ %46, %.loopexit ]
   %.322926 = phi i32 [ %.312925, %1099 ], [ %.312925, %1104 ], [ %30, %.loopexit ]
   %.322849 = phi i32 [ %.312848, %1099 ], [ %.312848, %1104 ], [ %32, %.loopexit ]
   %.322772 = phi i32 [ %.312771, %1099 ], [ %.312771, %1104 ], [ %34, %.loopexit ]
@@ -2441,7 +2441,7 @@ dict_put.exit:                                    ; preds = %694
 
 1114:                                             ; preds = %1112
   store i32 31, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1115:                                             ; preds = %1112
   %1116 = shl nuw i32 %.sroa.0.70, 8
@@ -2486,9 +2486,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1144
 
 1144:                                             ; preds = %1138, %1133, %.loopexit
-  %.sroa.37.34 = phi i64 [ %.sroa.37.33, %1133 ], [ %.sroa.37.33, %1138 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.34 = phi i64 [ %.sroa.35.33, %1133 ], [ %.sroa.35.33, %1138 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.34 = phi i64 [ %.sroa.10.33, %1133 ], [ %.sroa.10.33, %1138 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.333219 = phi i32 [ %.323218, %1133 ], [ %.323218, %1138 ], [ %46, %.loopexit ]
+  %.333217 = phi i32 [ %.323216, %1133 ], [ %.323216, %1138 ], [ %46, %.loopexit ]
   %.332927 = phi i32 [ %.322926, %1133 ], [ %.322926, %1138 ], [ %30, %.loopexit ]
   %.332850 = phi i32 [ %.322849, %1133 ], [ %.322849, %1138 ], [ %32, %.loopexit ]
   %.332773 = phi i32 [ %.322772, %1133 ], [ %.322772, %1138 ], [ %34, %.loopexit ]
@@ -2510,7 +2510,7 @@ dict_put.exit:                                    ; preds = %694
 
 1148:                                             ; preds = %1146
   store i32 32, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1149:                                             ; preds = %1146
   %1150 = shl nuw i32 %.sroa.0.72, 8
@@ -2555,9 +2555,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1178
 
 1178:                                             ; preds = %1172, %1167, %.loopexit
-  %.sroa.37.35 = phi i64 [ %.sroa.37.34, %1167 ], [ %.sroa.37.34, %1172 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.35 = phi i64 [ %.sroa.35.34, %1167 ], [ %.sroa.35.34, %1172 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.35 = phi i64 [ %.sroa.10.34, %1167 ], [ %.sroa.10.34, %1172 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.343220 = phi i32 [ %.333219, %1167 ], [ %.333219, %1172 ], [ %46, %.loopexit ]
+  %.343218 = phi i32 [ %.333217, %1167 ], [ %.333217, %1172 ], [ %46, %.loopexit ]
   %.342928 = phi i32 [ %.332927, %1167 ], [ %.332927, %1172 ], [ %30, %.loopexit ]
   %.342851 = phi i32 [ %.332850, %1167 ], [ %.332850, %1172 ], [ %32, %.loopexit ]
   %.342774 = phi i32 [ %.332773, %1167 ], [ %.332773, %1172 ], [ %34, %.loopexit ]
@@ -2579,7 +2579,7 @@ dict_put.exit:                                    ; preds = %694
 
 1182:                                             ; preds = %1180
   store i32 33, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1183:                                             ; preds = %1180
   %1184 = shl nuw i32 %.sroa.0.74, 8
@@ -2624,9 +2624,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1212
 
 1212:                                             ; preds = %1206, %1201, %.loopexit
-  %.sroa.37.36 = phi i64 [ %.sroa.37.35, %1201 ], [ %.sroa.37.35, %1206 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.36 = phi i64 [ %.sroa.35.35, %1201 ], [ %.sroa.35.35, %1206 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.36 = phi i64 [ %.sroa.10.35, %1201 ], [ %.sroa.10.35, %1206 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.353221 = phi i32 [ %.343220, %1201 ], [ %.343220, %1206 ], [ %46, %.loopexit ]
+  %.353219 = phi i32 [ %.343218, %1201 ], [ %.343218, %1206 ], [ %46, %.loopexit ]
   %.352929 = phi i32 [ %.342928, %1201 ], [ %.342928, %1206 ], [ %30, %.loopexit ]
   %.352852 = phi i32 [ %.342851, %1201 ], [ %.342851, %1206 ], [ %32, %.loopexit ]
   %.352775 = phi i32 [ %.342774, %1201 ], [ %.342774, %1206 ], [ %34, %.loopexit ]
@@ -2648,7 +2648,7 @@ dict_put.exit:                                    ; preds = %694
 
 1216:                                             ; preds = %1214
   store i32 34, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1217:                                             ; preds = %1214
   %1218 = shl nuw i32 %.sroa.0.76, 8
@@ -2693,9 +2693,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1246
 
 1246:                                             ; preds = %1240, %1235, %.loopexit
-  %.sroa.37.37 = phi i64 [ %.sroa.37.36, %1235 ], [ %.sroa.37.36, %1240 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.37 = phi i64 [ %.sroa.35.36, %1235 ], [ %.sroa.35.36, %1240 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.37 = phi i64 [ %.sroa.10.36, %1235 ], [ %.sroa.10.36, %1240 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.363222 = phi i32 [ %.353221, %1235 ], [ %.353221, %1240 ], [ %46, %.loopexit ]
+  %.363220 = phi i32 [ %.353219, %1235 ], [ %.353219, %1240 ], [ %46, %.loopexit ]
   %.362930 = phi i32 [ %.352929, %1235 ], [ %.352929, %1240 ], [ %30, %.loopexit ]
   %.362853 = phi i32 [ %.352852, %1235 ], [ %.352852, %1240 ], [ %32, %.loopexit ]
   %.362776 = phi i32 [ %.352775, %1235 ], [ %.352775, %1240 ], [ %34, %.loopexit ]
@@ -2717,7 +2717,7 @@ dict_put.exit:                                    ; preds = %694
 
 1250:                                             ; preds = %1248
   store i32 35, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1251:                                             ; preds = %1248
   %1252 = shl nuw i32 %.sroa.0.78, 8
@@ -2760,18 +2760,18 @@ dict_put.exit:                                    ; preds = %694
   br label %1280
 
 1280:                                             ; preds = %1269, %1274
-  %.sink3307 = phi i16 [ %1273, %1269 ], [ %1278, %1274 ]
+  %.sink3305 = phi i16 [ %1273, %1269 ], [ %1278, %1274 ]
   %.462526 = phi i32 [ %1268, %1269 ], [ %1279, %1274 ]
   %.sroa.0.80 = phi i32 [ %1266, %1269 ], [ %1275, %1274 ]
   %.sroa.498.80 = phi i32 [ %.sroa.498.79, %1269 ], [ %1276, %1274 ]
-  store i16 %.sink3307, ptr %1263, align 2
+  store i16 %.sink3305, ptr %1263, align 2
   %1281 = add i32 %.462526, -238
   br label %1282
 
 1282:                                             ; preds = %864, %1280, %1001
-  %.sroa.37.38 = phi i64 [ %.sroa.37.25, %864 ], [ %.sroa.37.29, %1001 ], [ %.sroa.37.37, %1280 ]
+  %.sroa.35.38 = phi i64 [ %.sroa.35.25, %864 ], [ %.sroa.35.29, %1001 ], [ %.sroa.35.37, %1280 ]
   %.sroa.10.38 = phi i64 [ %.sroa.10.25, %864 ], [ %.sroa.10.29, %1001 ], [ %.sroa.10.37, %1280 ]
-  %.373223 = phi i32 [ %865, %864 ], [ %1002, %1001 ], [ %1281, %1280 ]
+  %.373221 = phi i32 [ %865, %864 ], [ %1002, %1001 ], [ %1281, %1280 ]
   %.372931 = phi i32 [ %.242918, %864 ], [ %.282922, %1001 ], [ %.362930, %1280 ]
   %.372854 = phi i32 [ %.242841, %864 ], [ %.282845, %1001 ], [ %.362853, %1280 ]
   %.372777 = phi i32 [ %.242764, %864 ], [ %.282768, %1001 ], [ %.362776, %1280 ]
@@ -2783,17 +2783,17 @@ dict_put.exit:                                    ; preds = %694
   %.sroa.0.81 = phi i32 [ %.sroa.0.54, %864 ], [ %.sroa.0.63, %1001 ], [ %.sroa.0.80, %1280 ]
   %.sroa.498.81 = phi i32 [ %.sroa.498.54, %864 ], [ %.sroa.498.63, %1001 ], [ %.sroa.498.80, %1280 ]
   %1283 = getelementptr inbounds i8, ptr %0, i64 25440
-  %1284 = icmp ult i32 %.373223, 6
-  %1285 = add i32 %.373223, -2
+  %1284 = icmp ult i32 %.373221, 6
+  %1285 = add i32 %.373221, -2
   %1286 = select i1 %1284, i32 %1285, i32 3
   %1287 = zext i32 %1286 to i64
   %1288 = getelementptr inbounds [4 x [64 x i16]], ptr %1283, i64 0, i64 %1287
   br label %1289
 
 1289:                                             ; preds = %1282, %.loopexit
-  %.sroa.37.39 = phi i64 [ %.sroa.37.38, %1282 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.39 = phi i64 [ %.sroa.35.38, %1282 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.39 = phi i64 [ %.sroa.10.38, %1282 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.383224 = phi i32 [ %.373223, %1282 ], [ %46, %.loopexit ]
+  %.383222 = phi i32 [ %.373221, %1282 ], [ %46, %.loopexit ]
   %.382932 = phi i32 [ %.372931, %1282 ], [ %30, %.loopexit ]
   %.382855 = phi i32 [ %.372854, %1282 ], [ %32, %.loopexit ]
   %.382778 = phi i32 [ %.372777, %1282 ], [ %34, %.loopexit ]
@@ -2815,7 +2815,7 @@ dict_put.exit:                                    ; preds = %694
 
 1293:                                             ; preds = %1291
   store i32 36, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1294:                                             ; preds = %1291
   %1295 = shl nuw i32 %.sroa.0.82, 8
@@ -2859,9 +2859,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1322
 
 1322:                                             ; preds = %1316, %1311, %.loopexit
-  %.sroa.37.40 = phi i64 [ %.sroa.37.39, %1311 ], [ %.sroa.37.39, %1316 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.40 = phi i64 [ %.sroa.35.39, %1311 ], [ %.sroa.35.39, %1316 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.40 = phi i64 [ %.sroa.10.39, %1311 ], [ %.sroa.10.39, %1316 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.393225 = phi i32 [ %.383224, %1311 ], [ %.383224, %1316 ], [ %46, %.loopexit ]
+  %.393223 = phi i32 [ %.383222, %1311 ], [ %.383222, %1316 ], [ %46, %.loopexit ]
   %.392933 = phi i32 [ %.382932, %1311 ], [ %.382932, %1316 ], [ %30, %.loopexit ]
   %.392856 = phi i32 [ %.382855, %1311 ], [ %.382855, %1316 ], [ %32, %.loopexit ]
   %.392779 = phi i32 [ %.382778, %1311 ], [ %.382778, %1316 ], [ %34, %.loopexit ]
@@ -2883,7 +2883,7 @@ dict_put.exit:                                    ; preds = %694
 
 1326:                                             ; preds = %1324
   store i32 37, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1327:                                             ; preds = %1324
   %1328 = shl nuw i32 %.sroa.0.84, 8
@@ -2927,9 +2927,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1355
 
 1355:                                             ; preds = %1349, %1344, %.loopexit
-  %.sroa.37.41 = phi i64 [ %.sroa.37.40, %1344 ], [ %.sroa.37.40, %1349 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.41 = phi i64 [ %.sroa.35.40, %1344 ], [ %.sroa.35.40, %1349 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.41 = phi i64 [ %.sroa.10.40, %1344 ], [ %.sroa.10.40, %1349 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.403226 = phi i32 [ %.393225, %1344 ], [ %.393225, %1349 ], [ %46, %.loopexit ]
+  %.403224 = phi i32 [ %.393223, %1344 ], [ %.393223, %1349 ], [ %46, %.loopexit ]
   %.402934 = phi i32 [ %.392933, %1344 ], [ %.392933, %1349 ], [ %30, %.loopexit ]
   %.402857 = phi i32 [ %.392856, %1344 ], [ %.392856, %1349 ], [ %32, %.loopexit ]
   %.402780 = phi i32 [ %.392779, %1344 ], [ %.392779, %1349 ], [ %34, %.loopexit ]
@@ -2951,7 +2951,7 @@ dict_put.exit:                                    ; preds = %694
 
 1359:                                             ; preds = %1357
   store i32 38, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1360:                                             ; preds = %1357
   %1361 = shl nuw i32 %.sroa.0.86, 8
@@ -2995,9 +2995,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1388
 
 1388:                                             ; preds = %1382, %1377, %.loopexit
-  %.sroa.37.42 = phi i64 [ %.sroa.37.41, %1377 ], [ %.sroa.37.41, %1382 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.42 = phi i64 [ %.sroa.35.41, %1377 ], [ %.sroa.35.41, %1382 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.42 = phi i64 [ %.sroa.10.41, %1377 ], [ %.sroa.10.41, %1382 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.413227 = phi i32 [ %.403226, %1377 ], [ %.403226, %1382 ], [ %46, %.loopexit ]
+  %.413225 = phi i32 [ %.403224, %1377 ], [ %.403224, %1382 ], [ %46, %.loopexit ]
   %.412935 = phi i32 [ %.402934, %1377 ], [ %.402934, %1382 ], [ %30, %.loopexit ]
   %.412858 = phi i32 [ %.402857, %1377 ], [ %.402857, %1382 ], [ %32, %.loopexit ]
   %.412781 = phi i32 [ %.402780, %1377 ], [ %.402780, %1382 ], [ %34, %.loopexit ]
@@ -3019,7 +3019,7 @@ dict_put.exit:                                    ; preds = %694
 
 1392:                                             ; preds = %1390
   store i32 39, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1393:                                             ; preds = %1390
   %1394 = shl nuw i32 %.sroa.0.88, 8
@@ -3063,9 +3063,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1421
 
 1421:                                             ; preds = %1415, %1410, %.loopexit
-  %.sroa.37.43 = phi i64 [ %.sroa.37.42, %1410 ], [ %.sroa.37.42, %1415 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.43 = phi i64 [ %.sroa.35.42, %1410 ], [ %.sroa.35.42, %1415 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.43 = phi i64 [ %.sroa.10.42, %1410 ], [ %.sroa.10.42, %1415 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.423228 = phi i32 [ %.413227, %1410 ], [ %.413227, %1415 ], [ %46, %.loopexit ]
+  %.423226 = phi i32 [ %.413225, %1410 ], [ %.413225, %1415 ], [ %46, %.loopexit ]
   %.422936 = phi i32 [ %.412935, %1410 ], [ %.412935, %1415 ], [ %30, %.loopexit ]
   %.422859 = phi i32 [ %.412858, %1410 ], [ %.412858, %1415 ], [ %32, %.loopexit ]
   %.422782 = phi i32 [ %.412781, %1410 ], [ %.412781, %1415 ], [ %34, %.loopexit ]
@@ -3087,7 +3087,7 @@ dict_put.exit:                                    ; preds = %694
 
 1425:                                             ; preds = %1423
   store i32 40, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1426:                                             ; preds = %1423
   %1427 = shl nuw i32 %.sroa.0.90, 8
@@ -3131,9 +3131,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1454
 
 1454:                                             ; preds = %1448, %1443, %.loopexit
-  %.sroa.37.44 = phi i64 [ %.sroa.37.43, %1443 ], [ %.sroa.37.43, %1448 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.44 = phi i64 [ %.sroa.35.43, %1443 ], [ %.sroa.35.43, %1448 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.44 = phi i64 [ %.sroa.10.43, %1443 ], [ %.sroa.10.43, %1448 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.433229 = phi i32 [ %.423228, %1443 ], [ %.423228, %1448 ], [ %46, %.loopexit ]
+  %.433227 = phi i32 [ %.423226, %1443 ], [ %.423226, %1448 ], [ %46, %.loopexit ]
   %.432937 = phi i32 [ %.422936, %1443 ], [ %.422936, %1448 ], [ %30, %.loopexit ]
   %.432860 = phi i32 [ %.422859, %1443 ], [ %.422859, %1448 ], [ %32, %.loopexit ]
   %.432783 = phi i32 [ %.422782, %1443 ], [ %.422782, %1448 ], [ %34, %.loopexit ]
@@ -3155,7 +3155,7 @@ dict_put.exit:                                    ; preds = %694
 
 1458:                                             ; preds = %1456
   store i32 41, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1459:                                             ; preds = %1456
   %1460 = shl nuw i32 %.sroa.0.92, 8
@@ -3197,11 +3197,11 @@ dict_put.exit:                                    ; preds = %694
   br label %1487
 
 1487:                                             ; preds = %1476, %1481
-  %.sink3308 = phi i16 [ %1480, %1476 ], [ %1485, %1481 ]
+  %.sink3306 = phi i16 [ %1480, %1476 ], [ %1485, %1481 ]
   %.532533 = phi i32 [ %1475, %1476 ], [ %1486, %1481 ]
   %.sroa.0.94 = phi i32 [ %1473, %1476 ], [ %1482, %1481 ]
   %.sroa.498.94 = phi i32 [ %.sroa.498.93, %1476 ], [ %1483, %1481 ]
-  store i16 %.sink3308, ptr %1470, align 2
+  store i16 %.sink3306, ptr %1470, align 2
   %1488 = add i32 %.532533, -64
   %1489 = icmp ult i32 %1488, 4
   br i1 %1489, label %1868, label %1490
@@ -3226,9 +3226,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1505
 
 1505:                                             ; preds = %1495, %.loopexit
-  %.sroa.37.45 = phi i64 [ %.sroa.37.44, %1495 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.45 = phi i64 [ %.sroa.35.44, %1495 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.45 = phi i64 [ %.sroa.10.44, %1495 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.443230 = phi i32 [ %.433229, %1495 ], [ %46, %.loopexit ]
+  %.443228 = phi i32 [ %.433227, %1495 ], [ %46, %.loopexit ]
   %.442938 = phi i32 [ %.432937, %1495 ], [ %30, %.loopexit ]
   %.442861 = phi i32 [ %.432860, %1495 ], [ %32, %.loopexit ]
   %.442784 = phi i32 [ %.432783, %1495 ], [ %34, %.loopexit ]
@@ -3259,7 +3259,7 @@ dict_put.exit:                                    ; preds = %694
 
 1510:                                             ; preds = %1508
   store i32 42, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1511:                                             ; preds = %1508
   %1512 = shl nuw i32 %.sroa.0.95, 8
@@ -3302,12 +3302,12 @@ dict_put.exit:                                    ; preds = %694
   br label %1540
 
 1540:                                             ; preds = %1528, %1533
-  %.sink3309 = phi i16 [ %1532, %1528 ], [ %1537, %1533 ]
+  %.sink3307 = phi i16 [ %1532, %1528 ], [ %1537, %1533 ]
   %.452698 = phi i32 [ %.442697, %1528 ], [ %1539, %1533 ]
   %.552535 = phi i32 [ %1527, %1528 ], [ %1538, %1533 ]
   %.sroa.0.97 = phi i32 [ %1525, %1528 ], [ %1534, %1533 ]
   %.sroa.498.97 = phi i32 [ %.sroa.498.96, %1528 ], [ %1535, %1533 ]
-  store i16 %.sink3309, ptr %1522, align 2
+  store i16 %.sink3307, ptr %1522, align 2
   %1541 = add i32 %.512361, 1
   br label %1542
 
@@ -3327,7 +3327,7 @@ dict_put.exit:                                    ; preds = %694
 
 1546:                                             ; preds = %1544
   store i32 42, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1547:                                             ; preds = %1544
   %1548 = shl nuw i32 %.sroa.0.98, 8
@@ -3371,12 +3371,12 @@ dict_put.exit:                                    ; preds = %694
   br label %1577
 
 1577:                                             ; preds = %1564, %1569
-  %.sink3310 = phi i16 [ %1568, %1564 ], [ %1573, %1569 ]
+  %.sink3308 = phi i16 [ %1568, %1564 ], [ %1573, %1569 ]
   %.472700 = phi i32 [ %.462699, %1564 ], [ %1576, %1569 ]
   %.572537 = phi i32 [ %1563, %1564 ], [ %1574, %1569 ]
   %.sroa.0.100 = phi i32 [ %1561, %1564 ], [ %1570, %1569 ]
   %.sroa.498.100 = phi i32 [ %.sroa.498.99, %1564 ], [ %1571, %1569 ]
-  store i16 %.sink3310, ptr %1558, align 2
+  store i16 %.sink3308, ptr %1558, align 2
   %1578 = add i32 %.522362, 1
   br label %1579
 
@@ -3396,7 +3396,7 @@ dict_put.exit:                                    ; preds = %694
 
 1583:                                             ; preds = %1581
   store i32 42, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1584:                                             ; preds = %1581
   %1585 = shl nuw i32 %.sroa.0.101, 8
@@ -3440,12 +3440,12 @@ dict_put.exit:                                    ; preds = %694
   br label %1614
 
 1614:                                             ; preds = %1601, %1606
-  %.sink3311 = phi i16 [ %1605, %1601 ], [ %1610, %1606 ]
+  %.sink3309 = phi i16 [ %1605, %1601 ], [ %1610, %1606 ]
   %.492702 = phi i32 [ %.482701, %1601 ], [ %1613, %1606 ]
   %.592539 = phi i32 [ %1600, %1601 ], [ %1611, %1606 ]
   %.sroa.0.103 = phi i32 [ %1598, %1601 ], [ %1607, %1606 ]
   %.sroa.498.103 = phi i32 [ %.sroa.498.102, %1601 ], [ %1608, %1606 ]
-  store i16 %.sink3311, ptr %1595, align 2
+  store i16 %.sink3309, ptr %1595, align 2
   %1615 = add i32 %.532363, 1
   br label %1616
 
@@ -3465,7 +3465,7 @@ dict_put.exit:                                    ; preds = %694
 
 1620:                                             ; preds = %1618
   store i32 42, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1621:                                             ; preds = %1618
   %1622 = shl nuw i32 %.sroa.0.104, 8
@@ -3509,12 +3509,12 @@ dict_put.exit:                                    ; preds = %694
   br label %1651
 
 1651:                                             ; preds = %1638, %1643
-  %.sink3312 = phi i16 [ %1642, %1638 ], [ %1647, %1643 ]
+  %.sink3310 = phi i16 [ %1642, %1638 ], [ %1647, %1643 ]
   %.512704 = phi i32 [ %.502703, %1638 ], [ %1650, %1643 ]
   %.612541 = phi i32 [ %1637, %1638 ], [ %1648, %1643 ]
   %.sroa.0.106 = phi i32 [ %1635, %1638 ], [ %1644, %1643 ]
   %.sroa.498.106 = phi i32 [ %.sroa.498.105, %1638 ], [ %1645, %1643 ]
-  store i16 %.sink3312, ptr %1632, align 2
+  store i16 %.sink3310, ptr %1632, align 2
   %1652 = add i32 %.542364, 1
   br label %1653
 
@@ -3534,7 +3534,7 @@ dict_put.exit:                                    ; preds = %694
 
 1657:                                             ; preds = %1655
   store i32 42, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1658:                                             ; preds = %1655
   %1659 = shl nuw i32 %.sroa.0.107, 8
@@ -3582,9 +3582,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1688
 
 1688:                                             ; preds = %1686, %.loopexit
-  %.sroa.37.46 = phi i64 [ %.sroa.37.44, %1686 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.46 = phi i64 [ %.sroa.35.44, %1686 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.46 = phi i64 [ %.sroa.10.44, %1686 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.453231 = phi i32 [ %.433229, %1686 ], [ %46, %.loopexit ]
+  %.453229 = phi i32 [ %.433227, %1686 ], [ %46, %.loopexit ]
   %.452939 = phi i32 [ %.432937, %1686 ], [ %30, %.loopexit ]
   %.452862 = phi i32 [ %.432860, %1686 ], [ %32, %.loopexit ]
   %.452785 = phi i32 [ %.432783, %1686 ], [ %34, %.loopexit ]
@@ -3614,7 +3614,7 @@ dict_put.exit:                                    ; preds = %694
 
 1693:                                             ; preds = %1691
   store i32 43, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1694:                                             ; preds = %1691
   %1695 = shl nuw i32 %.sroa.0.110, 8
@@ -3647,9 +3647,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1713
 
 1713:                                             ; preds = %1711, %.loopexit
-  %.sroa.37.47 = phi i64 [ %.sroa.37.46, %1711 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.47 = phi i64 [ %.sroa.35.46, %1711 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.47 = phi i64 [ %.sroa.10.46, %1711 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.463232 = phi i32 [ %.453231, %1711 ], [ %46, %.loopexit ]
+  %.463230 = phi i32 [ %.453229, %1711 ], [ %46, %.loopexit ]
   %.462940 = phi i32 [ %.452939, %1711 ], [ %30, %.loopexit ]
   %.462863 = phi i32 [ %.452862, %1711 ], [ %32, %.loopexit ]
   %.462786 = phi i32 [ %.452785, %1711 ], [ %34, %.loopexit ]
@@ -3671,7 +3671,7 @@ dict_put.exit:                                    ; preds = %694
 
 1717:                                             ; preds = %1715
   store i32 44, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1718:                                             ; preds = %1715
   %1719 = shl nuw i32 %.sroa.0.112, 8
@@ -3717,9 +3717,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1748
 
 1748:                                             ; preds = %1741, %1736, %.loopexit
-  %.sroa.37.48 = phi i64 [ %.sroa.37.47, %1736 ], [ %.sroa.37.47, %1741 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.48 = phi i64 [ %.sroa.35.47, %1736 ], [ %.sroa.35.47, %1741 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.48 = phi i64 [ %.sroa.10.47, %1736 ], [ %.sroa.10.47, %1741 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.473233 = phi i32 [ %.463232, %1736 ], [ %.463232, %1741 ], [ %46, %.loopexit ]
+  %.473231 = phi i32 [ %.463230, %1736 ], [ %.463230, %1741 ], [ %46, %.loopexit ]
   %.472941 = phi i32 [ %.462940, %1736 ], [ %.462940, %1741 ], [ %30, %.loopexit ]
   %.472864 = phi i32 [ %.462863, %1736 ], [ %.462863, %1741 ], [ %32, %.loopexit ]
   %.472787 = phi i32 [ %.462786, %1736 ], [ %.462786, %1741 ], [ %34, %.loopexit ]
@@ -3741,7 +3741,7 @@ dict_put.exit:                                    ; preds = %694
 
 1752:                                             ; preds = %1750
   store i32 45, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1753:                                             ; preds = %1750
   %1754 = shl nuw i32 %.sroa.0.114, 8
@@ -3787,9 +3787,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1783
 
 1783:                                             ; preds = %1776, %1771, %.loopexit
-  %.sroa.37.49 = phi i64 [ %.sroa.37.48, %1771 ], [ %.sroa.37.48, %1776 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.49 = phi i64 [ %.sroa.35.48, %1771 ], [ %.sroa.35.48, %1776 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.49 = phi i64 [ %.sroa.10.48, %1771 ], [ %.sroa.10.48, %1776 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.483234 = phi i32 [ %.473233, %1771 ], [ %.473233, %1776 ], [ %46, %.loopexit ]
+  %.483232 = phi i32 [ %.473231, %1771 ], [ %.473231, %1776 ], [ %46, %.loopexit ]
   %.482942 = phi i32 [ %.472941, %1771 ], [ %.472941, %1776 ], [ %30, %.loopexit ]
   %.482865 = phi i32 [ %.472864, %1771 ], [ %.472864, %1776 ], [ %32, %.loopexit ]
   %.482788 = phi i32 [ %.472787, %1771 ], [ %.472787, %1776 ], [ %34, %.loopexit ]
@@ -3811,7 +3811,7 @@ dict_put.exit:                                    ; preds = %694
 
 1787:                                             ; preds = %1785
   store i32 46, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1788:                                             ; preds = %1785
   %1789 = shl nuw i32 %.sroa.0.116, 8
@@ -3857,9 +3857,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1818
 
 1818:                                             ; preds = %1811, %1806, %.loopexit
-  %.sroa.37.50 = phi i64 [ %.sroa.37.49, %1806 ], [ %.sroa.37.49, %1811 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.50 = phi i64 [ %.sroa.35.49, %1806 ], [ %.sroa.35.49, %1811 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.50 = phi i64 [ %.sroa.10.49, %1806 ], [ %.sroa.10.49, %1811 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.493235 = phi i32 [ %.483234, %1806 ], [ %.483234, %1811 ], [ %46, %.loopexit ]
+  %.493233 = phi i32 [ %.483232, %1806 ], [ %.483232, %1811 ], [ %46, %.loopexit ]
   %.492943 = phi i32 [ %.482942, %1806 ], [ %.482942, %1811 ], [ %30, %.loopexit ]
   %.492866 = phi i32 [ %.482865, %1806 ], [ %.482865, %1811 ], [ %32, %.loopexit ]
   %.492789 = phi i32 [ %.482788, %1806 ], [ %.482788, %1811 ], [ %34, %.loopexit ]
@@ -3881,7 +3881,7 @@ dict_put.exit:                                    ; preds = %694
 
 1822:                                             ; preds = %1820
   store i32 47, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1823:                                             ; preds = %1820
   %1824 = shl nuw i32 %.sroa.0.118, 8
@@ -3923,23 +3923,23 @@ dict_put.exit:                                    ; preds = %694
   br label %1851
 
 1851:                                             ; preds = %1840, %1845
-  %.sink3313 = phi i16 [ %1844, %1840 ], [ %1849, %1845 ]
+  %.sink3311 = phi i16 [ %1844, %1840 ], [ %1849, %1845 ]
   %.592712 = phi i32 [ %.582711, %1840 ], [ %1850, %1845 ]
   %.sroa.0.120 = phi i32 [ %1838, %1840 ], [ %1846, %1845 ]
   %.sroa.498.120 = phi i32 [ %.sroa.498.119, %1840 ], [ %1847, %1845 ]
-  store i16 %.sink3313, ptr %1835, align 2
+  store i16 %.sink3311, ptr %1835, align 2
   %1852 = icmp eq i32 %.592712, -1
   br i1 %1852, label %1853, label %1868
 
 1853:                                             ; preds = %1851
   %1854 = load i64, ptr %53, align 8
   %.not3118 = icmp eq i64 %1854, -1
-  br i1 %.not3118, label %1855, label %2629
+  br i1 %.not3118, label %1855, label %2627
 
 1855:                                             ; preds = %.loopexit, %1853
-  %.sroa.37.51 = phi i64 [ %.sroa.37.50, %1853 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.51 = phi i64 [ %.sroa.35.50, %1853 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.51 = phi i64 [ %.sroa.10.50, %1853 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.503236 = phi i32 [ %.493235, %1853 ], [ %46, %.loopexit ]
+  %.503234 = phi i32 [ %.493233, %1853 ], [ %46, %.loopexit ]
   %.502944 = phi i32 [ %.492943, %1853 ], [ %30, %.loopexit ]
   %.502867 = phi i32 [ %.492866, %1853 ], [ %32, %.loopexit ]
   %.502790 = phi i32 [ %.492789, %1853 ], [ %34, %.loopexit ]
@@ -3953,7 +3953,7 @@ dict_put.exit:                                    ; preds = %694
   %.sroa.0.121 = phi i32 [ %.sroa.0.120, %1853 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.121 = phi i32 [ %.sroa.498.120, %1853 ], [ %.sroa.498.0.copyload, %.loopexit ]
   %1856 = icmp ult i32 %.sroa.0.121, 16777216
-  br i1 %1856, label %1857, label %2629
+  br i1 %1856, label %1857, label %2627
 
 1857:                                             ; preds = %1855
   %1858 = icmp eq i64 %.105, %4
@@ -3961,7 +3961,7 @@ dict_put.exit:                                    ; preds = %694
 
 1859:                                             ; preds = %1857
   store i32 48, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1860:                                             ; preds = %1857
   %1861 = shl nuw i32 %.sroa.0.121, 8
@@ -3971,12 +3971,12 @@ dict_put.exit:                                    ; preds = %694
   %1865 = load i8, ptr %1864, align 1
   %1866 = zext i8 %1865 to i32
   %1867 = or disjoint i32 %1862, %1866
-  br label %2629
+  br label %2627
 
 1868:                                             ; preds = %1487, %1679, %1674, %1505, %1851
-  %.sroa.37.52 = phi i64 [ %.sroa.37.44, %1487 ], [ %.sroa.37.45, %1505 ], [ %.sroa.37.45, %1674 ], [ %.sroa.37.45, %1679 ], [ %.sroa.37.50, %1851 ]
+  %.sroa.35.52 = phi i64 [ %.sroa.35.44, %1487 ], [ %.sroa.35.45, %1505 ], [ %.sroa.35.45, %1674 ], [ %.sroa.35.45, %1679 ], [ %.sroa.35.50, %1851 ]
   %.sroa.10.52 = phi i64 [ %.sroa.10.44, %1487 ], [ %.sroa.10.45, %1505 ], [ %.sroa.10.45, %1674 ], [ %.sroa.10.45, %1679 ], [ %.sroa.10.50, %1851 ]
-  %.513237 = phi i32 [ %.433229, %1487 ], [ %.443230, %1505 ], [ %.443230, %1674 ], [ %.443230, %1679 ], [ %.493235, %1851 ]
+  %.513235 = phi i32 [ %.433227, %1487 ], [ %.443228, %1505 ], [ %.443228, %1674 ], [ %.443228, %1679 ], [ %.493233, %1851 ]
   %.512945 = phi i32 [ %.432937, %1487 ], [ %.442938, %1505 ], [ %.442938, %1674 ], [ %.442938, %1679 ], [ %.492943, %1851 ]
   %.512868 = phi i32 [ %.432860, %1487 ], [ %.442861, %1505 ], [ %.442861, %1674 ], [ %.442861, %1679 ], [ %.492866, %1851 ]
   %.512791 = phi i32 [ %.432783, %1487 ], [ %.442784, %1505 ], [ %.442784, %1674 ], [ %.442784, %1679 ], [ %.492789, %1851 ]
@@ -3990,8 +3990,8 @@ dict_put.exit:                                    ; preds = %694
   %.sroa.0.123 = phi i32 [ %.sroa.0.94, %1487 ], [ %.sroa.0.95, %1505 ], [ %1672, %1674 ], [ %1680, %1679 ], [ %.sroa.0.120, %1851 ]
   %.sroa.498.123 = phi i32 [ %.sroa.498.94, %1487 ], [ %.sroa.498.95, %1505 ], [ %.sroa.498.108, %1674 ], [ %1681, %1679 ], [ %.sroa.498.120, %1851 ]
   %1869 = zext i32 %.612714 to i64
-  %1870 = icmp ugt i64 %.sroa.37.52, %1869
-  br i1 %1870, label %2568, label %2629
+  %1870 = icmp ugt i64 %.sroa.35.52, %1869
+  br i1 %1870, label %2568, label %2627
 
 1871:                                             ; preds = %718
   %1872 = sub i32 %.sroa.0.45, %725
@@ -3999,13 +3999,13 @@ dict_put.exit:                                    ; preds = %694
   %1874 = lshr i16 %723, 5
   %1875 = sub i16 %723, %1874
   store i16 %1875, ptr %722, align 2
-  %.not = icmp eq i64 %.sroa.37.21, 0
-  br i1 %.not, label %2629, label %1876
+  %.not = icmp eq i64 %.sroa.35.21, 0
+  br i1 %.not, label %2627, label %1876
 
 1876:                                             ; preds = %.loopexit, %1871
-  %.sroa.37.53 = phi i64 [ %.sroa.37.21, %1871 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.53 = phi i64 [ %.sroa.35.21, %1871 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.53 = phi i64 [ %.sroa.10.21, %1871 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.523238 = phi i32 [ %.203206, %1871 ], [ %46, %.loopexit ]
+  %.523236 = phi i32 [ %.203204, %1871 ], [ %46, %.loopexit ]
   %.522946 = phi i32 [ %.202914, %1871 ], [ %30, %.loopexit ]
   %.522869 = phi i32 [ %.202837, %1871 ], [ %32, %.loopexit ]
   %.522792 = phi i32 [ %.202760, %1871 ], [ %34, %.loopexit ]
@@ -4028,7 +4028,7 @@ dict_put.exit:                                    ; preds = %694
 
 1880:                                             ; preds = %1878
   store i32 49, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1881:                                             ; preds = %1878
   %1882 = shl nuw i32 %.sroa.0.124, 8
@@ -4063,9 +4063,9 @@ dict_put.exit:                                    ; preds = %694
   br label %1903
 
 1903:                                             ; preds = %.loopexit, %1898
-  %.sroa.37.54 = phi i64 [ %.sroa.37.53, %1898 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.54 = phi i64 [ %.sroa.35.53, %1898 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.54 = phi i64 [ %.sroa.10.53, %1898 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.533239 = phi i32 [ %.523238, %1898 ], [ %46, %.loopexit ]
+  %.533237 = phi i32 [ %.523236, %1898 ], [ %46, %.loopexit ]
   %.532947 = phi i32 [ %.522946, %1898 ], [ %30, %.loopexit ]
   %.532870 = phi i32 [ %.522869, %1898 ], [ %32, %.loopexit ]
   %.532793 = phi i32 [ %.522792, %1898 ], [ %34, %.loopexit ]
@@ -4088,7 +4088,7 @@ dict_put.exit:                                    ; preds = %694
 
 1907:                                             ; preds = %1905
   store i32 51, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1908:                                             ; preds = %1905
   %1909 = shl nuw i32 %.sroa.0.126, 8
@@ -4126,9 +4126,9 @@ dict_put.exit:                                    ; preds = %694
   br label %dict_get.exit3124
 
 dict_get.exit3124:                                ; preds = %1926, %.loopexit
-  %.sroa.37.55 = phi i64 [ %.sroa.37.54, %1926 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.55 = phi i64 [ %.sroa.35.54, %1926 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.55 = phi i64 [ %.sroa.10.54, %1926 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.543240 = phi i32 [ %.533239, %1926 ], [ %46, %.loopexit ]
+  %.543238 = phi i32 [ %.533237, %1926 ], [ %46, %.loopexit ]
   %.542948 = phi i32 [ %.532947, %1926 ], [ %30, %.loopexit ]
   %.542871 = phi i32 [ %.532870, %1926 ], [ %32, %.loopexit ]
   %.542794 = phi i32 [ %.532793, %1926 ], [ %34, %.loopexit ]
@@ -4141,7 +4141,7 @@ dict_get.exit3124:                                ; preds = %1926, %.loopexit
   %.112 = phi i64 [ %.111, %1926 ], [ %24, %.loopexit ]
   %.sroa.0.128 = phi i32 [ %1924, %1926 ], [ %.sroa.0.0.copyload, %.loopexit ]
   %.sroa.498.128 = phi i32 [ %.sroa.498.127, %1926 ], [ %.sroa.498.0.copyload, %.loopexit ]
-  %1933 = icmp eq i64 %.sroa.10.55, %.sroa.46.0
+  %1933 = icmp eq i64 %.sroa.10.55, %.sroa.44.0
   br i1 %1933, label %dict_put.exit3125, label %1934
 
 1934:                                             ; preds = %dict_get.exit3124
@@ -4150,17 +4150,17 @@ dict_get.exit3124:                                ; preds = %1926, %.loopexit
   %1937 = xor i64 %1936, -1
   %1938 = getelementptr i8, ptr %1935, i64 %1937
   %1939 = icmp ugt i64 %.sroa.10.55, %1936
-  %spec.select3277 = select i1 %1939, i64 0, i64 %.sroa.52.0.copyload
-  %1940 = getelementptr i8, ptr %1938, i64 %spec.select3277
+  %spec.select3275 = select i1 %1939, i64 0, i64 %.sroa.50.0.copyload
+  %1940 = getelementptr i8, ptr %1938, i64 %spec.select3275
   %1941 = load i8, ptr %1940, align 1
   %1942 = add i64 %.sroa.10.55, 1
   store i8 %1941, ptr %1935, align 1
-  %spec.select3278 = tail call i64 @llvm.umax.i64(i64 %1942, i64 %.sroa.37.55)
+  %spec.select3276 = tail call i64 @llvm.umax.i64(i64 %1942, i64 %.sroa.35.55)
   br label %dict_put.exit.thread
 
 dict_put.exit3125:                                ; preds = %dict_get.exit3124
   store i32 50, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1943:                                             ; preds = %1916
   %1944 = sub i32 %.sroa.0.127, %1924
@@ -4179,9 +4179,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %1953
 
 1953:                                             ; preds = %.loopexit, %1948
-  %.sroa.37.57 = phi i64 [ %.sroa.37.53, %1948 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.57 = phi i64 [ %.sroa.35.53, %1948 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.57 = phi i64 [ %.sroa.10.53, %1948 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.553241 = phi i32 [ %.523238, %1948 ], [ %46, %.loopexit ]
+  %.553239 = phi i32 [ %.523236, %1948 ], [ %46, %.loopexit ]
   %.552949 = phi i32 [ %.522946, %1948 ], [ %30, %.loopexit ]
   %.552872 = phi i32 [ %.522869, %1948 ], [ %32, %.loopexit ]
   %.552795 = phi i32 [ %.522792, %1948 ], [ %34, %.loopexit ]
@@ -4204,7 +4204,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 1957:                                             ; preds = %1955
   store i32 52, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1958:                                             ; preds = %1955
   %1959 = shl nuw i32 %.sroa.0.129, 8
@@ -4247,9 +4247,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %1985
 
 1985:                                             ; preds = %.loopexit, %1980
-  %.sroa.37.58 = phi i64 [ %.sroa.37.57, %1980 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.58 = phi i64 [ %.sroa.35.57, %1980 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.58 = phi i64 [ %.sroa.10.57, %1980 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.563242 = phi i32 [ %.553241, %1980 ], [ %46, %.loopexit ]
+  %.563240 = phi i32 [ %.553239, %1980 ], [ %46, %.loopexit ]
   %.562950 = phi i32 [ %.552949, %1980 ], [ %30, %.loopexit ]
   %.562873 = phi i32 [ %.552872, %1980 ], [ %32, %.loopexit ]
   %.562796 = phi i32 [ %.552795, %1980 ], [ %34, %.loopexit ]
@@ -4272,7 +4272,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 1989:                                             ; preds = %1987
   store i32 53, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 1990:                                             ; preds = %1987
   %1991 = shl nuw i32 %.sroa.0.131, 8
@@ -4315,9 +4315,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2017
 
 2017:                                             ; preds = %1975, %2012, %2007, %1943
-  %.sroa.37.59 = phi i64 [ %.sroa.37.54, %1943 ], [ %.sroa.37.57, %1975 ], [ %.sroa.37.58, %2007 ], [ %.sroa.37.58, %2012 ]
+  %.sroa.35.59 = phi i64 [ %.sroa.35.54, %1943 ], [ %.sroa.35.57, %1975 ], [ %.sroa.35.58, %2007 ], [ %.sroa.35.58, %2012 ]
   %.sroa.10.59 = phi i64 [ %.sroa.10.54, %1943 ], [ %.sroa.10.57, %1975 ], [ %.sroa.10.58, %2007 ], [ %.sroa.10.58, %2012 ]
-  %.573243 = phi i32 [ %.533239, %1943 ], [ %.553241, %1975 ], [ %.563242, %2007 ], [ %.563242, %2012 ]
+  %.573241 = phi i32 [ %.533237, %1943 ], [ %.553239, %1975 ], [ %.563240, %2007 ], [ %.563240, %2012 ]
   %.572951 = phi i32 [ %.532947, %1943 ], [ %.652718, %1975 ], [ %.662719, %2007 ], [ %.662719, %2012 ]
   %.572874 = phi i32 [ %.532870, %1943 ], [ %.552872, %1975 ], [ %.562950, %2007 ], [ %.562950, %2012 ]
   %.572797 = phi i32 [ %.532793, %1943 ], [ %.552795, %1975 ], [ %.562796, %2007 ], [ %.562873, %2012 ]
@@ -4335,9 +4335,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2020
 
 2020:                                             ; preds = %.loopexit, %2017
-  %.sroa.37.60 = phi i64 [ %.sroa.37.59, %2017 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.60 = phi i64 [ %.sroa.35.59, %2017 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.60 = phi i64 [ %.sroa.10.59, %2017 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.583244 = phi i32 [ %.573243, %2017 ], [ %46, %.loopexit ]
+  %.583242 = phi i32 [ %.573241, %2017 ], [ %46, %.loopexit ]
   %.582952 = phi i32 [ %.572951, %2017 ], [ %30, %.loopexit ]
   %.582875 = phi i32 [ %.572874, %2017 ], [ %32, %.loopexit ]
   %.582798 = phi i32 [ %.572797, %2017 ], [ %34, %.loopexit ]
@@ -4360,7 +4360,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2024:                                             ; preds = %2022
   store i32 54, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2025:                                             ; preds = %2022
   %2026 = shl nuw i32 %.sroa.0.134, 8
@@ -4393,9 +4393,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2045
 
 2045:                                             ; preds = %2040, %.loopexit
-  %.sroa.37.61 = phi i64 [ %.sroa.37.60, %2040 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.61 = phi i64 [ %.sroa.35.60, %2040 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.61 = phi i64 [ %.sroa.10.60, %2040 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.593245 = phi i32 [ %.583244, %2040 ], [ %46, %.loopexit ]
+  %.593243 = phi i32 [ %.583242, %2040 ], [ %46, %.loopexit ]
   %.592953 = phi i32 [ %.582952, %2040 ], [ %30, %.loopexit ]
   %.592876 = phi i32 [ %.582875, %2040 ], [ %32, %.loopexit ]
   %.592799 = phi i32 [ %.582798, %2040 ], [ %34, %.loopexit ]
@@ -4418,7 +4418,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2049:                                             ; preds = %2047
   store i32 55, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2050:                                             ; preds = %2047
   %2051 = shl nuw i32 %.sroa.0.136, 8
@@ -4464,9 +4464,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2080
 
 2080:                                             ; preds = %2074, %2069, %.loopexit
-  %.sroa.37.62 = phi i64 [ %.sroa.37.61, %2069 ], [ %.sroa.37.61, %2074 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.62 = phi i64 [ %.sroa.35.61, %2069 ], [ %.sroa.35.61, %2074 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.62 = phi i64 [ %.sroa.10.61, %2069 ], [ %.sroa.10.61, %2074 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.603246 = phi i32 [ %.593245, %2069 ], [ %.593245, %2074 ], [ %46, %.loopexit ]
+  %.603244 = phi i32 [ %.593243, %2069 ], [ %.593243, %2074 ], [ %46, %.loopexit ]
   %.602954 = phi i32 [ %.592953, %2069 ], [ %.592953, %2074 ], [ %30, %.loopexit ]
   %.602877 = phi i32 [ %.592876, %2069 ], [ %.592876, %2074 ], [ %32, %.loopexit ]
   %.602800 = phi i32 [ %.592799, %2069 ], [ %.592799, %2074 ], [ %34, %.loopexit ]
@@ -4489,7 +4489,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2084:                                             ; preds = %2082
   store i32 56, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2085:                                             ; preds = %2082
   %2086 = shl nuw i32 %.sroa.0.138, 8
@@ -4535,9 +4535,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2115
 
 2115:                                             ; preds = %2109, %2104, %.loopexit
-  %.sroa.37.63 = phi i64 [ %.sroa.37.62, %2104 ], [ %.sroa.37.62, %2109 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.63 = phi i64 [ %.sroa.35.62, %2104 ], [ %.sroa.35.62, %2109 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.63 = phi i64 [ %.sroa.10.62, %2104 ], [ %.sroa.10.62, %2109 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.613247 = phi i32 [ %.603246, %2104 ], [ %.603246, %2109 ], [ %46, %.loopexit ]
+  %.613245 = phi i32 [ %.603244, %2104 ], [ %.603244, %2109 ], [ %46, %.loopexit ]
   %.612955 = phi i32 [ %.602954, %2104 ], [ %.602954, %2109 ], [ %30, %.loopexit ]
   %.612878 = phi i32 [ %.602877, %2104 ], [ %.602877, %2109 ], [ %32, %.loopexit ]
   %.612801 = phi i32 [ %.602800, %2104 ], [ %.602800, %2109 ], [ %34, %.loopexit ]
@@ -4560,7 +4560,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2119:                                             ; preds = %2117
   store i32 57, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2120:                                             ; preds = %2117
   %2121 = shl nuw i32 %.sroa.0.140, 8
@@ -4604,11 +4604,11 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2150
 
 2150:                                             ; preds = %2139, %2144
-  %.sink3314 = phi i16 [ %2143, %2139 ], [ %2148, %2144 ]
+  %.sink3312 = phi i16 [ %2143, %2139 ], [ %2148, %2144 ]
   %.792559 = phi i32 [ %2138, %2139 ], [ %2149, %2144 ]
   %.sroa.0.142 = phi i32 [ %2136, %2139 ], [ %2145, %2144 ]
   %.sroa.498.142 = phi i32 [ %.sroa.498.141, %2139 ], [ %2146, %2144 ]
-  store i16 %.sink3314, ptr %2133, align 2
+  store i16 %.sink3312, ptr %2133, align 2
   %2151 = add i32 %.792559, -6
   br label %2568
 
@@ -4621,9 +4621,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2157
 
 2157:                                             ; preds = %.loopexit, %2152
-  %.sroa.37.64 = phi i64 [ %.sroa.37.60, %2152 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.64 = phi i64 [ %.sroa.35.60, %2152 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.64 = phi i64 [ %.sroa.10.60, %2152 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.623248 = phi i32 [ %.583244, %2152 ], [ %46, %.loopexit ]
+  %.623246 = phi i32 [ %.583242, %2152 ], [ %46, %.loopexit ]
   %.622956 = phi i32 [ %.582952, %2152 ], [ %30, %.loopexit ]
   %.622879 = phi i32 [ %.582875, %2152 ], [ %32, %.loopexit ]
   %.622802 = phi i32 [ %.582798, %2152 ], [ %34, %.loopexit ]
@@ -4646,7 +4646,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2161:                                             ; preds = %2159
   store i32 58, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2162:                                             ; preds = %2159
   %2163 = shl nuw i32 %.sroa.0.143, 8
@@ -4679,9 +4679,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2182
 
 2182:                                             ; preds = %2177, %.loopexit
-  %.sroa.37.65 = phi i64 [ %.sroa.37.64, %2177 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.65 = phi i64 [ %.sroa.35.64, %2177 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.65 = phi i64 [ %.sroa.10.64, %2177 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.633249 = phi i32 [ %.623248, %2177 ], [ %46, %.loopexit ]
+  %.633247 = phi i32 [ %.623246, %2177 ], [ %46, %.loopexit ]
   %.632957 = phi i32 [ %.622956, %2177 ], [ %30, %.loopexit ]
   %.632880 = phi i32 [ %.622879, %2177 ], [ %32, %.loopexit ]
   %.632803 = phi i32 [ %.622802, %2177 ], [ %34, %.loopexit ]
@@ -4704,7 +4704,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2186:                                             ; preds = %2184
   store i32 59, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2187:                                             ; preds = %2184
   %2188 = shl nuw i32 %.sroa.0.145, 8
@@ -4750,9 +4750,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2217
 
 2217:                                             ; preds = %2211, %2206, %.loopexit
-  %.sroa.37.66 = phi i64 [ %.sroa.37.65, %2206 ], [ %.sroa.37.65, %2211 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.66 = phi i64 [ %.sroa.35.65, %2206 ], [ %.sroa.35.65, %2211 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.66 = phi i64 [ %.sroa.10.65, %2206 ], [ %.sroa.10.65, %2211 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.643250 = phi i32 [ %.633249, %2206 ], [ %.633249, %2211 ], [ %46, %.loopexit ]
+  %.643248 = phi i32 [ %.633247, %2206 ], [ %.633247, %2211 ], [ %46, %.loopexit ]
   %.642958 = phi i32 [ %.632957, %2206 ], [ %.632957, %2211 ], [ %30, %.loopexit ]
   %.642881 = phi i32 [ %.632880, %2206 ], [ %.632880, %2211 ], [ %32, %.loopexit ]
   %.642804 = phi i32 [ %.632803, %2206 ], [ %.632803, %2211 ], [ %34, %.loopexit ]
@@ -4775,7 +4775,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2221:                                             ; preds = %2219
   store i32 60, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2222:                                             ; preds = %2219
   %2223 = shl nuw i32 %.sroa.0.147, 8
@@ -4821,9 +4821,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2252
 
 2252:                                             ; preds = %2246, %2241, %.loopexit
-  %.sroa.37.67 = phi i64 [ %.sroa.37.66, %2241 ], [ %.sroa.37.66, %2246 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.67 = phi i64 [ %.sroa.35.66, %2241 ], [ %.sroa.35.66, %2246 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.67 = phi i64 [ %.sroa.10.66, %2241 ], [ %.sroa.10.66, %2246 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.653251 = phi i32 [ %.643250, %2241 ], [ %.643250, %2246 ], [ %46, %.loopexit ]
+  %.653249 = phi i32 [ %.643248, %2241 ], [ %.643248, %2246 ], [ %46, %.loopexit ]
   %.652959 = phi i32 [ %.642958, %2241 ], [ %.642958, %2246 ], [ %30, %.loopexit ]
   %.652882 = phi i32 [ %.642881, %2241 ], [ %.642881, %2246 ], [ %32, %.loopexit ]
   %.652805 = phi i32 [ %.642804, %2241 ], [ %.642804, %2246 ], [ %34, %.loopexit ]
@@ -4846,7 +4846,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2256:                                             ; preds = %2254
   store i32 61, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2257:                                             ; preds = %2254
   %2258 = shl nuw i32 %.sroa.0.149, 8
@@ -4890,11 +4890,11 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2287
 
 2287:                                             ; preds = %2276, %2281
-  %.sink3315 = phi i16 [ %2280, %2276 ], [ %2285, %2281 ]
+  %.sink3313 = phi i16 [ %2280, %2276 ], [ %2285, %2281 ]
   %.842564 = phi i32 [ %2275, %2276 ], [ %2286, %2281 ]
   %.sroa.0.151 = phi i32 [ %2273, %2276 ], [ %2282, %2281 ]
   %.sroa.498.151 = phi i32 [ %.sroa.498.150, %2276 ], [ %2283, %2281 ]
-  store i16 %.sink3315, ptr %2270, align 2
+  store i16 %.sink3313, ptr %2270, align 2
   %2288 = add i32 %.842564, 2
   br label %2568
 
@@ -4907,9 +4907,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2294
 
 2294:                                             ; preds = %2289, %.loopexit
-  %.sroa.37.68 = phi i64 [ %.sroa.37.64, %2289 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.68 = phi i64 [ %.sroa.35.64, %2289 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.68 = phi i64 [ %.sroa.10.64, %2289 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.663252 = phi i32 [ %.623248, %2289 ], [ %46, %.loopexit ]
+  %.663250 = phi i32 [ %.623246, %2289 ], [ %46, %.loopexit ]
   %.662960 = phi i32 [ %.622956, %2289 ], [ %30, %.loopexit ]
   %.662883 = phi i32 [ %.622879, %2289 ], [ %32, %.loopexit ]
   %.662806 = phi i32 [ %.622802, %2289 ], [ %34, %.loopexit ]
@@ -4931,7 +4931,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2298:                                             ; preds = %2296
   store i32 62, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2299:                                             ; preds = %2296
   %2300 = shl nuw i32 %.sroa.0.152, 8
@@ -4976,9 +4976,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2328
 
 2328:                                             ; preds = %2322, %2317, %.loopexit
-  %.sroa.37.69 = phi i64 [ %.sroa.37.68, %2317 ], [ %.sroa.37.68, %2322 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.69 = phi i64 [ %.sroa.35.68, %2317 ], [ %.sroa.35.68, %2322 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.69 = phi i64 [ %.sroa.10.68, %2317 ], [ %.sroa.10.68, %2322 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.673253 = phi i32 [ %.663252, %2317 ], [ %.663252, %2322 ], [ %46, %.loopexit ]
+  %.673251 = phi i32 [ %.663250, %2317 ], [ %.663250, %2322 ], [ %46, %.loopexit ]
   %.672961 = phi i32 [ %.662960, %2317 ], [ %.662960, %2322 ], [ %30, %.loopexit ]
   %.672884 = phi i32 [ %.662883, %2317 ], [ %.662883, %2322 ], [ %32, %.loopexit ]
   %.672807 = phi i32 [ %.662806, %2317 ], [ %.662806, %2322 ], [ %34, %.loopexit ]
@@ -5000,7 +5000,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2332:                                             ; preds = %2330
   store i32 63, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2333:                                             ; preds = %2330
   %2334 = shl nuw i32 %.sroa.0.154, 8
@@ -5045,9 +5045,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2362
 
 2362:                                             ; preds = %2356, %2351, %.loopexit
-  %.sroa.37.70 = phi i64 [ %.sroa.37.69, %2351 ], [ %.sroa.37.69, %2356 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.70 = phi i64 [ %.sroa.35.69, %2351 ], [ %.sroa.35.69, %2356 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.70 = phi i64 [ %.sroa.10.69, %2351 ], [ %.sroa.10.69, %2356 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.683254 = phi i32 [ %.673253, %2351 ], [ %.673253, %2356 ], [ %46, %.loopexit ]
+  %.683252 = phi i32 [ %.673251, %2351 ], [ %.673251, %2356 ], [ %46, %.loopexit ]
   %.682962 = phi i32 [ %.672961, %2351 ], [ %.672961, %2356 ], [ %30, %.loopexit ]
   %.682885 = phi i32 [ %.672884, %2351 ], [ %.672884, %2356 ], [ %32, %.loopexit ]
   %.682808 = phi i32 [ %.672807, %2351 ], [ %.672807, %2356 ], [ %34, %.loopexit ]
@@ -5069,7 +5069,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2366:                                             ; preds = %2364
   store i32 64, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2367:                                             ; preds = %2364
   %2368 = shl nuw i32 %.sroa.0.156, 8
@@ -5114,9 +5114,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2396
 
 2396:                                             ; preds = %2390, %2385, %.loopexit
-  %.sroa.37.71 = phi i64 [ %.sroa.37.70, %2385 ], [ %.sroa.37.70, %2390 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.71 = phi i64 [ %.sroa.35.70, %2385 ], [ %.sroa.35.70, %2390 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.71 = phi i64 [ %.sroa.10.70, %2385 ], [ %.sroa.10.70, %2390 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.693255 = phi i32 [ %.683254, %2385 ], [ %.683254, %2390 ], [ %46, %.loopexit ]
+  %.693253 = phi i32 [ %.683252, %2385 ], [ %.683252, %2390 ], [ %46, %.loopexit ]
   %.692963 = phi i32 [ %.682962, %2385 ], [ %.682962, %2390 ], [ %30, %.loopexit ]
   %.692886 = phi i32 [ %.682885, %2385 ], [ %.682885, %2390 ], [ %32, %.loopexit ]
   %.692809 = phi i32 [ %.682808, %2385 ], [ %.682808, %2390 ], [ %34, %.loopexit ]
@@ -5138,7 +5138,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2400:                                             ; preds = %2398
   store i32 65, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2401:                                             ; preds = %2398
   %2402 = shl nuw i32 %.sroa.0.158, 8
@@ -5183,9 +5183,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2430
 
 2430:                                             ; preds = %2424, %2419, %.loopexit
-  %.sroa.37.72 = phi i64 [ %.sroa.37.71, %2419 ], [ %.sroa.37.71, %2424 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.72 = phi i64 [ %.sroa.35.71, %2419 ], [ %.sroa.35.71, %2424 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.72 = phi i64 [ %.sroa.10.71, %2419 ], [ %.sroa.10.71, %2424 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.703256 = phi i32 [ %.693255, %2419 ], [ %.693255, %2424 ], [ %46, %.loopexit ]
+  %.703254 = phi i32 [ %.693253, %2419 ], [ %.693253, %2424 ], [ %46, %.loopexit ]
   %.702964 = phi i32 [ %.692963, %2419 ], [ %.692963, %2424 ], [ %30, %.loopexit ]
   %.702887 = phi i32 [ %.692886, %2419 ], [ %.692886, %2424 ], [ %32, %.loopexit ]
   %.702810 = phi i32 [ %.692809, %2419 ], [ %.692809, %2424 ], [ %34, %.loopexit ]
@@ -5207,7 +5207,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2434:                                             ; preds = %2432
   store i32 66, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2435:                                             ; preds = %2432
   %2436 = shl nuw i32 %.sroa.0.160, 8
@@ -5252,9 +5252,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2464
 
 2464:                                             ; preds = %2458, %2453, %.loopexit
-  %.sroa.37.73 = phi i64 [ %.sroa.37.72, %2453 ], [ %.sroa.37.72, %2458 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.73 = phi i64 [ %.sroa.35.72, %2453 ], [ %.sroa.35.72, %2458 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.73 = phi i64 [ %.sroa.10.72, %2453 ], [ %.sroa.10.72, %2458 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.713257 = phi i32 [ %.703256, %2453 ], [ %.703256, %2458 ], [ %46, %.loopexit ]
+  %.713255 = phi i32 [ %.703254, %2453 ], [ %.703254, %2458 ], [ %46, %.loopexit ]
   %.712965 = phi i32 [ %.702964, %2453 ], [ %.702964, %2458 ], [ %30, %.loopexit ]
   %.712888 = phi i32 [ %.702887, %2453 ], [ %.702887, %2458 ], [ %32, %.loopexit ]
   %.712811 = phi i32 [ %.702810, %2453 ], [ %.702810, %2458 ], [ %34, %.loopexit ]
@@ -5276,7 +5276,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2468:                                             ; preds = %2466
   store i32 67, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2469:                                             ; preds = %2466
   %2470 = shl nuw i32 %.sroa.0.162, 8
@@ -5321,9 +5321,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2498
 
 2498:                                             ; preds = %2492, %2487, %.loopexit
-  %.sroa.37.74 = phi i64 [ %.sroa.37.73, %2487 ], [ %.sroa.37.73, %2492 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.74 = phi i64 [ %.sroa.35.73, %2487 ], [ %.sroa.35.73, %2492 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.74 = phi i64 [ %.sroa.10.73, %2487 ], [ %.sroa.10.73, %2492 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.723258 = phi i32 [ %.713257, %2487 ], [ %.713257, %2492 ], [ %46, %.loopexit ]
+  %.723256 = phi i32 [ %.713255, %2487 ], [ %.713255, %2492 ], [ %46, %.loopexit ]
   %.722966 = phi i32 [ %.712965, %2487 ], [ %.712965, %2492 ], [ %30, %.loopexit ]
   %.722889 = phi i32 [ %.712888, %2487 ], [ %.712888, %2492 ], [ %32, %.loopexit ]
   %.722812 = phi i32 [ %.712811, %2487 ], [ %.712811, %2492 ], [ %34, %.loopexit ]
@@ -5345,7 +5345,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2502:                                             ; preds = %2500
   store i32 68, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2503:                                             ; preds = %2500
   %2504 = shl nuw i32 %.sroa.0.164, 8
@@ -5390,9 +5390,9 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2532
 
 2532:                                             ; preds = %2526, %2521, %.loopexit
-  %.sroa.37.75 = phi i64 [ %.sroa.37.74, %2521 ], [ %.sroa.37.74, %2526 ], [ %.sroa.37.0.copyload, %.loopexit ]
+  %.sroa.35.75 = phi i64 [ %.sroa.35.74, %2521 ], [ %.sroa.35.74, %2526 ], [ %.sroa.35.0.copyload, %.loopexit ]
   %.sroa.10.75 = phi i64 [ %.sroa.10.74, %2521 ], [ %.sroa.10.74, %2526 ], [ %.sroa.10.0.copyload, %.loopexit ]
-  %.733259 = phi i32 [ %.723258, %2521 ], [ %.723258, %2526 ], [ %46, %.loopexit ]
+  %.733257 = phi i32 [ %.723256, %2521 ], [ %.723256, %2526 ], [ %46, %.loopexit ]
   %.732967 = phi i32 [ %.722966, %2521 ], [ %.722966, %2526 ], [ %30, %.loopexit ]
   %.732890 = phi i32 [ %.722889, %2521 ], [ %.722889, %2526 ], [ %32, %.loopexit ]
   %.732813 = phi i32 [ %.722812, %2521 ], [ %.722812, %2526 ], [ %34, %.loopexit ]
@@ -5414,7 +5414,7 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
 
 2536:                                             ; preds = %2534
   store i32 69, ptr %59, align 8
-  br label %2629
+  br label %2627
 
 2537:                                             ; preds = %2534
   %2538 = shl nuw i32 %.sroa.0.166, 8
@@ -5457,18 +5457,18 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   br label %2566
 
 2566:                                             ; preds = %2555, %2560
-  %.sink3316 = phi i16 [ %2559, %2555 ], [ %2564, %2560 ]
+  %.sink3314 = phi i16 [ %2559, %2555 ], [ %2564, %2560 ]
   %.932573 = phi i32 [ %2554, %2555 ], [ %2565, %2560 ]
   %.sroa.0.168 = phi i32 [ %2552, %2555 ], [ %2561, %2560 ]
   %.sroa.498.168 = phi i32 [ %.sroa.498.167, %2555 ], [ %2562, %2560 ]
-  store i16 %.sink3316, ptr %2549, align 2
+  store i16 %.sink3314, ptr %2549, align 2
   %2567 = add i32 %.932573, -238
   br label %2568
 
 2568:                                             ; preds = %1868, %2150, %2566, %2287, %.loopexit
-  %.sroa.37.76 = phi i64 [ %.sroa.37.0.copyload, %.loopexit ], [ %.sroa.37.52, %1868 ], [ %.sroa.37.63, %2150 ], [ %.sroa.37.67, %2287 ], [ %.sroa.37.75, %2566 ]
+  %.sroa.35.76 = phi i64 [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.52, %1868 ], [ %.sroa.35.63, %2150 ], [ %.sroa.35.67, %2287 ], [ %.sroa.35.75, %2566 ]
   %.sroa.10.76 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.10.52, %1868 ], [ %.sroa.10.63, %2150 ], [ %.sroa.10.67, %2287 ], [ %.sroa.10.75, %2566 ]
-  %.743260 = phi i32 [ %46, %.loopexit ], [ %.513237, %1868 ], [ %2151, %2150 ], [ %2288, %2287 ], [ %2567, %2566 ]
+  %.743258 = phi i32 [ %46, %.loopexit ], [ %.513235, %1868 ], [ %2151, %2150 ], [ %2288, %2287 ], [ %2567, %2566 ]
   %.742968 = phi i32 [ %30, %.loopexit ], [ %.512945, %1868 ], [ %.612955, %2150 ], [ %.652959, %2287 ], [ %.732967, %2566 ]
   %.742891 = phi i32 [ %32, %.loopexit ], [ %.512868, %1868 ], [ %.612878, %2150 ], [ %.652882, %2287 ], [ %.732890, %2566 ]
   %.742814 = phi i32 [ %34, %.loopexit ], [ %.512791, %1868 ], [ %.612801, %2150 ], [ %.652805, %2287 ], [ %.732813, %2566 ]
@@ -5481,12 +5481,12 @@ dict_put.exit3125:                                ; preds = %dict_get.exit3124
   %.150 = phi i64 [ %24, %.loopexit ], [ %.107, %1868 ], [ %.125, %2150 ], [ %.133, %2287 ], [ %.149, %2566 ]
   %.sroa.0.169 = phi i32 [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.123, %1868 ], [ %.sroa.0.142, %2150 ], [ %.sroa.0.151, %2287 ], [ %.sroa.0.168, %2566 ]
   %.sroa.498.169 = phi i32 [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.123, %1868 ], [ %.sroa.498.142, %2150 ], [ %.sroa.498.151, %2287 ], [ %.sroa.498.168, %2566 ]
-  %2569 = sub i64 %.sroa.46.0, %.sroa.10.76
-  %2570 = zext i32 %.743260 to i64
+  %2569 = sub i64 %.sroa.44.0, %.sroa.10.76
+  %2570 = zext i32 %.743258 to i64
   %2571 = icmp ult i64 %2569, %2570
   %2572 = trunc nuw i64 %2569 to i32
-  %2573 = select i1 %2571, i32 %2572, i32 %.743260
-  %2574 = sub i32 %.743260, %2573
+  %2573 = select i1 %2571, i32 %2572, i32 %.743258
+  %2574 = sub i32 %.743258, %2573
   %2575 = icmp ugt i32 %2573, %.842737
   %2576 = zext i32 %.842737 to i64
   br i1 %2575, label %.preheader.i, label %2585
@@ -5499,10 +5499,10 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %.sroa.10.77 = phi i64 [ %.sroa.10.76, %.preheader.i ], [ %2583, %dict_get.exit.i ]
   %.0.i3126 = phi i32 [ %2573, %.preheader.i ], [ %2584, %dict_get.exit.i ]
   %2578 = icmp ugt i64 %.sroa.10.77, %2576
-  %spec.select3279 = select i1 %2578, i64 0, i64 %.sroa.52.0.copyload
+  %spec.select3277 = select i1 %2578, i64 0, i64 %.sroa.50.0.copyload
   %2579 = getelementptr i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.77
   %2580 = getelementptr i8, ptr %2579, i64 %2577
-  %2581 = getelementptr i8, ptr %2580, i64 %spec.select3279
+  %2581 = getelementptr i8, ptr %2580, i64 %spec.select3277
   %2582 = load i8, ptr %2581, align 1
   store i8 %2582, ptr %2579, align 1
   %2583 = add i64 %.sroa.10.77, 1
@@ -5512,7 +5512,7 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
 
 2585:                                             ; preds = %2568
   %2586 = icmp ugt i64 %.sroa.10.76, %2576
-  br i1 %2586, label %2587, label %2594
+  br i1 %2586, label %2587, label %2593
 
 2587:                                             ; preds = %2585
   %2588 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.76
@@ -5521,52 +5521,55 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %2591 = getelementptr inbounds i8, ptr %2590, i64 -1
   %2592 = zext i32 %2573 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %2588, ptr nonnull align 1 %2591, i64 %2592, i1 false)
-  %2593 = add i64 %.sroa.10.76, %2592
+  br label %.loopexit.sink.split.i
+
+2593:                                             ; preds = %2585
+  %2594 = xor i64 %2576, -1
+  %2595 = add nsw i64 %.sroa.10.76, %2594
+  %2596 = add i64 %2595, %.sroa.50.0.copyload
+  %2597 = and i64 %2596, 4294967295
+  %2598 = trunc i64 %2595 to i32
+  %2599 = sub i32 0, %2598
+  %2600 = icmp ugt i32 %2573, %2599
+  %2601 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.76
+  %2602 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2597
+  br i1 %2600, label %2603, label %2609
+
+2603:                                             ; preds = %2593
+  %2604 = zext i32 %2599 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2601, ptr align 1 %2602, i64 %2604, i1 false)
+  %2605 = add nuw nsw i64 %.sroa.10.76, %2604
+  %2606 = add i32 %2573, %2598
+  %2607 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2605
+  %2608 = zext i32 %2606 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2607, ptr align 1 %.sroa.0.0.copyload3154, i64 %2608, i1 false)
+  br label %.loopexit.sink.split.i
+
+2609:                                             ; preds = %2593
+  %2610 = zext i32 %2573 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2601, ptr align 1 %2602, i64 %2610, i1 false)
+  br label %.loopexit.sink.split.i
+
+.loopexit.sink.split.i:                           ; preds = %2609, %2603, %2587
+  %.sroa.10.78 = phi i64 [ %.sroa.10.76, %2587 ], [ %2605, %2603 ], [ %.sroa.10.76, %2609 ]
+  %.sink70.i = phi i64 [ %2592, %2587 ], [ %2608, %2603 ], [ %2610, %2609 ]
+  %2611 = add i64 %.sink70.i, %.sroa.10.78
   br label %.loopexit.i
 
-2594:                                             ; preds = %2585
-  %2595 = xor i64 %2576, -1
-  %2596 = add nsw i64 %.sroa.10.76, %2595
-  %2597 = add i64 %2596, %.sroa.52.0.copyload
-  %2598 = and i64 %2597, 4294967295
-  %2599 = trunc i64 %2596 to i32
-  %2600 = sub i32 0, %2599
-  %2601 = icmp ugt i32 %2573, %2600
-  %2602 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %.sroa.10.76
-  %2603 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2598
-  br i1 %2601, label %2604, label %2611
+.loopexit.i:                                      ; preds = %dict_get.exit.i, %.loopexit.sink.split.i
+  %.sroa.10.79 = phi i64 [ %2611, %.loopexit.sink.split.i ], [ %2583, %dict_get.exit.i ]
+  %spec.select3278 = tail call i64 @llvm.umax.i64(i64 %.sroa.35.76, i64 %.sroa.10.79)
+  %.not3279 = icmp eq i32 %2574, 0
+  br i1 %.not3279, label %dict_put.exit.thread, label %2612
 
-2604:                                             ; preds = %2594
-  %2605 = zext i32 %2600 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2602, ptr align 1 %2603, i64 %2605, i1 false)
-  %2606 = add nuw nsw i64 %.sroa.10.76, %2605
-  %2607 = add i32 %2573, %2599
-  %2608 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload3154, i64 %2606
-  %2609 = zext i32 %2607 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %2608, ptr align 1 %.sroa.0.0.copyload3154, i64 %2609, i1 false)
-  %2610 = add nuw nsw i64 %2606, %2609
-  br label %.loopexit.i
-
-2611:                                             ; preds = %2594
-  %2612 = zext i32 %2573 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %2602, ptr align 1 %2603, i64 %2612, i1 false)
-  %2613 = add nuw nsw i64 %.sroa.10.76, %2612
-  br label %.loopexit.i
-
-.loopexit.i:                                      ; preds = %dict_get.exit.i, %2587, %2604, %2611
-  %.sroa.10.78 = phi i64 [ %2593, %2587 ], [ %2613, %2611 ], [ %2610, %2604 ], [ %2583, %dict_get.exit.i ]
-  %spec.select3280 = tail call i64 @llvm.umax.i64(i64 %.sroa.37.76, i64 %.sroa.10.78)
-  %.not3281 = icmp eq i32 %2574, 0
-  br i1 %.not3281, label %dict_put.exit.thread, label %2614
-
-2614:                                             ; preds = %.loopexit.i
+2612:                                             ; preds = %.loopexit.i
   store i32 70, ptr %59, align 8
-  br label %2629
+  br label %2627
 
-2615:                                             ; preds = %.loopexit, %63
-  %.sroa.37.78 = phi i64 [ %.sroa.37.0.copyload, %.loopexit ], [ %.sroa.37.1, %63 ]
-  %.sroa.10.79 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.46.0, %63 ]
-  %.753261 = phi i32 [ %46, %.loopexit ], [ %.13187, %63 ]
+2613:                                             ; preds = %.loopexit, %63
+  %.sroa.35.78 = phi i64 [ %.sroa.35.0.copyload, %.loopexit ], [ %.sroa.35.1, %63 ]
+  %.sroa.10.80 = phi i64 [ %.sroa.10.0.copyload, %.loopexit ], [ %.sroa.44.0, %63 ]
+  %.753259 = phi i32 [ %46, %.loopexit ], [ %.13185, %63 ]
   %.752969 = phi i32 [ %30, %.loopexit ], [ %.12895, %63 ]
   %.752892 = phi i32 [ %32, %.loopexit ], [ %.12818, %63 ]
   %.752815 = phi i32 [ %34, %.loopexit ], [ %.12741, %63 ]
@@ -5579,55 +5582,55 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   %.151 = phi i64 [ %24, %.loopexit ], [ %.1, %63 ]
   %.sroa.0.170 = phi i32 [ %.sroa.0.0.copyload, %.loopexit ], [ %.sroa.0.1, %63 ]
   %.sroa.498.170 = phi i32 [ %.sroa.498.0.copyload, %.loopexit ], [ %.sroa.498.1, %63 ]
-  %2616 = icmp ult i32 %.sroa.0.170, 16777216
-  br i1 %2616, label %2617, label %2628
+  %2614 = icmp ult i32 %.sroa.0.170, 16777216
+  br i1 %2614, label %2615, label %2626
+
+2615:                                             ; preds = %2613
+  %2616 = icmp eq i64 %.151, %4
+  br i1 %2616, label %2617, label %2618
 
 2617:                                             ; preds = %2615
-  %2618 = icmp eq i64 %.151, %4
-  br i1 %2618, label %2619, label %2620
-
-2619:                                             ; preds = %2617
   store i32 0, ptr %59, align 8
-  br label %2629
+  br label %2627
 
-2620:                                             ; preds = %2617
-  %2621 = shl nuw i32 %.sroa.0.170, 8
-  %2622 = shl i32 %.sroa.498.170, 8
-  %2623 = add i64 %.151, 1
-  %2624 = getelementptr inbounds i8, ptr %2, i64 %.151
-  %2625 = load i8, ptr %2624, align 1
-  %2626 = zext i8 %2625 to i32
-  %2627 = or disjoint i32 %2622, %2626
-  br label %2628
+2618:                                             ; preds = %2615
+  %2619 = shl nuw i32 %.sroa.0.170, 8
+  %2620 = shl i32 %.sroa.498.170, 8
+  %2621 = add i64 %.151, 1
+  %2622 = getelementptr inbounds i8, ptr %2, i64 %.151
+  %2623 = load i8, ptr %2622, align 1
+  %2624 = zext i8 %2623 to i32
+  %2625 = or disjoint i32 %2620, %2624
+  br label %2626
 
-2628:                                             ; preds = %2615, %2620
-  %.152 = phi i64 [ %2623, %2620 ], [ %.151, %2615 ]
-  %.sroa.0.171 = phi i32 [ %2621, %2620 ], [ %.sroa.0.170, %2615 ]
-  %.sroa.498.171 = phi i32 [ %2627, %2620 ], [ %.sroa.498.170, %2615 ]
+2626:                                             ; preds = %2613, %2618
+  %.152 = phi i64 [ %2621, %2618 ], [ %.151, %2613 ]
+  %.sroa.0.171 = phi i32 [ %2619, %2618 ], [ %.sroa.0.170, %2613 ]
+  %.sroa.498.171 = phi i32 [ %2625, %2618 ], [ %.sroa.498.170, %2613 ]
   store i32 1, ptr %59, align 8
-  br label %2629
+  br label %2627
 
-2629:                                             ; preds = %1871, %1868, %1860, %1855, %1853, %2628, %2619, %2614, %2536, %2502, %2468, %2434, %2400, %2366, %2332, %2298, %2256, %2221, %2186, %2161, %2119, %2084, %2049, %2024, %1989, %1957, %dict_put.exit3125, %1907, %1880, %1859, %1822, %1787, %1752, %1717, %1693, %1657, %1620, %1583, %1546, %1510, %1458, %1425, %1392, %1359, %1326, %1293, %1250, %1216, %1182, %1148, %1114, %1080, %1046, %1012, %970, %935, %900, %875, %833, %798, %763, %738, %709, %dict_put.exit, %660, %621, %582, %543, %504, %465, %426, %387, %343, %310, %277, %244, %211, %178, %145, %112, %70
-  %.sroa.37.79 = phi i64 [ %.sroa.37.78, %2619 ], [ %.sroa.37.78, %2628 ], [ %spec.select3280, %2614 ], [ %.sroa.37.1, %70 ], [ %.sroa.37.2, %112 ], [ %.sroa.37.3, %145 ], [ %.sroa.37.4, %178 ], [ %.sroa.37.5, %211 ], [ %.sroa.37.6, %244 ], [ %.sroa.37.7, %277 ], [ %.sroa.37.8, %310 ], [ %.sroa.37.9, %343 ], [ %.sroa.37.19, %dict_put.exit ], [ %.sroa.37.10, %387 ], [ %.sroa.37.11, %426 ], [ %.sroa.37.12, %465 ], [ %.sroa.37.13, %504 ], [ %.sroa.37.14, %543 ], [ %.sroa.37.15, %582 ], [ %.sroa.37.16, %621 ], [ %.sroa.37.17, %660 ], [ %.sroa.37.21, %709 ], [ %.sroa.37.22, %738 ], [ %.sroa.37.23, %763 ], [ %.sroa.37.24, %798 ], [ %.sroa.37.25, %833 ], [ %.sroa.37.39, %1293 ], [ %.sroa.37.40, %1326 ], [ %.sroa.37.41, %1359 ], [ %.sroa.37.42, %1392 ], [ %.sroa.37.43, %1425 ], [ %.sroa.37.44, %1458 ], [ %.sroa.37.52, %1868 ], [ %.sroa.37.45, %1657 ], [ %.sroa.37.45, %1620 ], [ %.sroa.37.45, %1583 ], [ %.sroa.37.45, %1546 ], [ %.sroa.37.45, %1510 ], [ %.sroa.37.46, %1693 ], [ %.sroa.37.47, %1717 ], [ %.sroa.37.48, %1752 ], [ %.sroa.37.49, %1787 ], [ %.sroa.37.50, %1822 ], [ %.sroa.37.51, %1859 ], [ %.sroa.37.51, %1860 ], [ %.sroa.37.51, %1855 ], [ %.sroa.37.50, %1853 ], [ %.sroa.37.26, %875 ], [ %.sroa.37.27, %900 ], [ %.sroa.37.28, %935 ], [ %.sroa.37.29, %970 ], [ %.sroa.37.30, %1012 ], [ %.sroa.37.31, %1046 ], [ %.sroa.37.32, %1080 ], [ %.sroa.37.33, %1114 ], [ %.sroa.37.34, %1148 ], [ %.sroa.37.35, %1182 ], [ %.sroa.37.36, %1216 ], [ %.sroa.37.37, %1250 ], [ %.sroa.37.53, %1880 ], [ %.sroa.37.54, %1907 ], [ %.sroa.37.55, %dict_put.exit3125 ], [ %.sroa.37.60, %2024 ], [ %.sroa.37.61, %2049 ], [ %.sroa.37.62, %2084 ], [ %.sroa.37.63, %2119 ], [ %.sroa.37.64, %2161 ], [ %.sroa.37.65, %2186 ], [ %.sroa.37.66, %2221 ], [ %.sroa.37.67, %2256 ], [ %.sroa.37.68, %2298 ], [ %.sroa.37.69, %2332 ], [ %.sroa.37.70, %2366 ], [ %.sroa.37.71, %2400 ], [ %.sroa.37.72, %2434 ], [ %.sroa.37.73, %2468 ], [ %.sroa.37.74, %2502 ], [ %.sroa.37.75, %2536 ], [ %.sroa.37.57, %1957 ], [ %.sroa.37.58, %1989 ], [ 0, %1871 ]
-  %.sroa.10.80 = phi i64 [ %.sroa.10.79, %2619 ], [ %.sroa.10.79, %2628 ], [ %.sroa.10.78, %2614 ], [ %.sroa.10.1, %70 ], [ %.sroa.10.2, %112 ], [ %.sroa.10.3, %145 ], [ %.sroa.10.4, %178 ], [ %.sroa.10.5, %211 ], [ %.sroa.10.6, %244 ], [ %.sroa.10.7, %277 ], [ %.sroa.10.8, %310 ], [ %.sroa.10.9, %343 ], [ %.sroa.46.0, %dict_put.exit ], [ %.sroa.10.10, %387 ], [ %.sroa.10.11, %426 ], [ %.sroa.10.12, %465 ], [ %.sroa.10.13, %504 ], [ %.sroa.10.14, %543 ], [ %.sroa.10.15, %582 ], [ %.sroa.10.16, %621 ], [ %.sroa.10.17, %660 ], [ %.sroa.10.21, %709 ], [ %.sroa.10.22, %738 ], [ %.sroa.10.23, %763 ], [ %.sroa.10.24, %798 ], [ %.sroa.10.25, %833 ], [ %.sroa.10.39, %1293 ], [ %.sroa.10.40, %1326 ], [ %.sroa.10.41, %1359 ], [ %.sroa.10.42, %1392 ], [ %.sroa.10.43, %1425 ], [ %.sroa.10.44, %1458 ], [ %.sroa.10.52, %1868 ], [ %.sroa.10.45, %1657 ], [ %.sroa.10.45, %1620 ], [ %.sroa.10.45, %1583 ], [ %.sroa.10.45, %1546 ], [ %.sroa.10.45, %1510 ], [ %.sroa.10.46, %1693 ], [ %.sroa.10.47, %1717 ], [ %.sroa.10.48, %1752 ], [ %.sroa.10.49, %1787 ], [ %.sroa.10.50, %1822 ], [ %.sroa.10.51, %1859 ], [ %.sroa.10.51, %1860 ], [ %.sroa.10.51, %1855 ], [ %.sroa.10.50, %1853 ], [ %.sroa.10.26, %875 ], [ %.sroa.10.27, %900 ], [ %.sroa.10.28, %935 ], [ %.sroa.10.29, %970 ], [ %.sroa.10.30, %1012 ], [ %.sroa.10.31, %1046 ], [ %.sroa.10.32, %1080 ], [ %.sroa.10.33, %1114 ], [ %.sroa.10.34, %1148 ], [ %.sroa.10.35, %1182 ], [ %.sroa.10.36, %1216 ], [ %.sroa.10.37, %1250 ], [ %.sroa.10.53, %1880 ], [ %.sroa.10.54, %1907 ], [ %.sroa.46.0, %dict_put.exit3125 ], [ %.sroa.10.60, %2024 ], [ %.sroa.10.61, %2049 ], [ %.sroa.10.62, %2084 ], [ %.sroa.10.63, %2119 ], [ %.sroa.10.64, %2161 ], [ %.sroa.10.65, %2186 ], [ %.sroa.10.66, %2221 ], [ %.sroa.10.67, %2256 ], [ %.sroa.10.68, %2298 ], [ %.sroa.10.69, %2332 ], [ %.sroa.10.70, %2366 ], [ %.sroa.10.71, %2400 ], [ %.sroa.10.72, %2434 ], [ %.sroa.10.73, %2468 ], [ %.sroa.10.74, %2502 ], [ %.sroa.10.75, %2536 ], [ %.sroa.10.57, %1957 ], [ %.sroa.10.58, %1989 ], [ %.sroa.10.21, %1871 ]
-  %.763262 = phi i32 [ %.753261, %2619 ], [ %.753261, %2628 ], [ %2574, %2614 ], [ %.13187, %70 ], [ %.23188, %112 ], [ %.33189, %145 ], [ %.43190, %178 ], [ %.53191, %211 ], [ %.63192, %244 ], [ %.73193, %277 ], [ %.83194, %310 ], [ %.93195, %343 ], [ %.193205, %dict_put.exit ], [ %.103196, %387 ], [ %.113197, %426 ], [ %.123198, %465 ], [ %.133199, %504 ], [ %.143200, %543 ], [ %.153201, %582 ], [ %.163202, %621 ], [ %.173203, %660 ], [ %.203206, %709 ], [ %.213207, %738 ], [ %.223208, %763 ], [ %.233209, %798 ], [ %.243210, %833 ], [ %.383224, %1293 ], [ %.393225, %1326 ], [ %.403226, %1359 ], [ %.413227, %1392 ], [ %.423228, %1425 ], [ %.433229, %1458 ], [ %.513237, %1868 ], [ %.443230, %1657 ], [ %.443230, %1620 ], [ %.443230, %1583 ], [ %.443230, %1546 ], [ %.443230, %1510 ], [ %.453231, %1693 ], [ %.463232, %1717 ], [ %.473233, %1752 ], [ %.483234, %1787 ], [ %.493235, %1822 ], [ %.503236, %1859 ], [ %.503236, %1860 ], [ %.503236, %1855 ], [ %.493235, %1853 ], [ %.253211, %875 ], [ %.263212, %900 ], [ %.273213, %935 ], [ %.283214, %970 ], [ %.293215, %1012 ], [ %.303216, %1046 ], [ %.313217, %1080 ], [ %.323218, %1114 ], [ %.333219, %1148 ], [ %.343220, %1182 ], [ %.353221, %1216 ], [ %.363222, %1250 ], [ %.523238, %1880 ], [ %.533239, %1907 ], [ %.543240, %dict_put.exit3125 ], [ %.583244, %2024 ], [ %.593245, %2049 ], [ %.603246, %2084 ], [ %.613247, %2119 ], [ %.623248, %2161 ], [ %.633249, %2186 ], [ %.643250, %2221 ], [ %.653251, %2256 ], [ %.663252, %2298 ], [ %.673253, %2332 ], [ %.683254, %2366 ], [ %.693255, %2400 ], [ %.703256, %2434 ], [ %.713257, %2468 ], [ %.723258, %2502 ], [ %.733259, %2536 ], [ %.553241, %1957 ], [ %.563242, %1989 ], [ %.203206, %1871 ]
-  %.762970 = phi i32 [ %.752969, %2619 ], [ %.752969, %2628 ], [ %.742968, %2614 ], [ %.12895, %70 ], [ %.22896, %112 ], [ %.32897, %145 ], [ %.42898, %178 ], [ %.52899, %211 ], [ %.62900, %244 ], [ %.72901, %277 ], [ %.82902, %310 ], [ %.92903, %343 ], [ %.192913, %dict_put.exit ], [ %.102904, %387 ], [ %.112905, %426 ], [ %.122906, %465 ], [ %.132907, %504 ], [ %.142908, %543 ], [ %.152909, %582 ], [ %.162910, %621 ], [ %.172911, %660 ], [ %.202914, %709 ], [ %.212915, %738 ], [ %.222916, %763 ], [ %.232917, %798 ], [ %.242918, %833 ], [ %.382932, %1293 ], [ %.392933, %1326 ], [ %.402934, %1359 ], [ %.412935, %1392 ], [ %.422936, %1425 ], [ %.432937, %1458 ], [ %.512945, %1868 ], [ %.442938, %1657 ], [ %.442938, %1620 ], [ %.442938, %1583 ], [ %.442938, %1546 ], [ %.442938, %1510 ], [ %.452939, %1693 ], [ %.462940, %1717 ], [ %.472941, %1752 ], [ %.482942, %1787 ], [ %.492943, %1822 ], [ %.502944, %1859 ], [ %.502944, %1860 ], [ %.502944, %1855 ], [ %.492943, %1853 ], [ %.252919, %875 ], [ %.262920, %900 ], [ %.272921, %935 ], [ %.282922, %970 ], [ %.292923, %1012 ], [ %.302924, %1046 ], [ %.312925, %1080 ], [ %.322926, %1114 ], [ %.332927, %1148 ], [ %.342928, %1182 ], [ %.352929, %1216 ], [ %.362930, %1250 ], [ %.522946, %1880 ], [ %.532947, %1907 ], [ %.542948, %dict_put.exit3125 ], [ %.582952, %2024 ], [ %.592953, %2049 ], [ %.602954, %2084 ], [ %.612955, %2119 ], [ %.622956, %2161 ], [ %.632957, %2186 ], [ %.642958, %2221 ], [ %.652959, %2256 ], [ %.662960, %2298 ], [ %.672961, %2332 ], [ %.682962, %2366 ], [ %.692963, %2400 ], [ %.702964, %2434 ], [ %.712965, %2468 ], [ %.722966, %2502 ], [ %.732967, %2536 ], [ %.552949, %1957 ], [ %.562950, %1989 ], [ %.202914, %1871 ]
-  %.762893 = phi i32 [ %.752892, %2619 ], [ %.752892, %2628 ], [ %.742891, %2614 ], [ %.12818, %70 ], [ %.22819, %112 ], [ %.32820, %145 ], [ %.42821, %178 ], [ %.52822, %211 ], [ %.62823, %244 ], [ %.72824, %277 ], [ %.82825, %310 ], [ %.92826, %343 ], [ %.192836, %dict_put.exit ], [ %.102827, %387 ], [ %.112828, %426 ], [ %.122829, %465 ], [ %.132830, %504 ], [ %.142831, %543 ], [ %.152832, %582 ], [ %.162833, %621 ], [ %.172834, %660 ], [ %.202837, %709 ], [ %.212838, %738 ], [ %.222839, %763 ], [ %.232840, %798 ], [ %.242841, %833 ], [ %.382855, %1293 ], [ %.392856, %1326 ], [ %.402857, %1359 ], [ %.412858, %1392 ], [ %.422859, %1425 ], [ %.432860, %1458 ], [ %.512868, %1868 ], [ %.442861, %1657 ], [ %.442861, %1620 ], [ %.442861, %1583 ], [ %.442861, %1546 ], [ %.442861, %1510 ], [ %.452862, %1693 ], [ %.462863, %1717 ], [ %.472864, %1752 ], [ %.482865, %1787 ], [ %.492866, %1822 ], [ %.502867, %1859 ], [ %.502867, %1860 ], [ %.502867, %1855 ], [ %.492866, %1853 ], [ %.252842, %875 ], [ %.262843, %900 ], [ %.272844, %935 ], [ %.282845, %970 ], [ %.292846, %1012 ], [ %.302847, %1046 ], [ %.312848, %1080 ], [ %.322849, %1114 ], [ %.332850, %1148 ], [ %.342851, %1182 ], [ %.352852, %1216 ], [ %.362853, %1250 ], [ %.522869, %1880 ], [ %.532870, %1907 ], [ %.542871, %dict_put.exit3125 ], [ %.582875, %2024 ], [ %.592876, %2049 ], [ %.602877, %2084 ], [ %.612878, %2119 ], [ %.622879, %2161 ], [ %.632880, %2186 ], [ %.642881, %2221 ], [ %.652882, %2256 ], [ %.662883, %2298 ], [ %.672884, %2332 ], [ %.682885, %2366 ], [ %.692886, %2400 ], [ %.702887, %2434 ], [ %.712888, %2468 ], [ %.722889, %2502 ], [ %.732890, %2536 ], [ %.552872, %1957 ], [ %.562873, %1989 ], [ %.202837, %1871 ]
-  %.762816 = phi i32 [ %.752815, %2619 ], [ %.752815, %2628 ], [ %.742814, %2614 ], [ %.12741, %70 ], [ %.22742, %112 ], [ %.32743, %145 ], [ %.42744, %178 ], [ %.52745, %211 ], [ %.62746, %244 ], [ %.72747, %277 ], [ %.82748, %310 ], [ %.92749, %343 ], [ %.192759, %dict_put.exit ], [ %.102750, %387 ], [ %.112751, %426 ], [ %.122752, %465 ], [ %.132753, %504 ], [ %.142754, %543 ], [ %.152755, %582 ], [ %.162756, %621 ], [ %.172757, %660 ], [ %.202760, %709 ], [ %.212761, %738 ], [ %.222762, %763 ], [ %.232763, %798 ], [ %.242764, %833 ], [ %.382778, %1293 ], [ %.392779, %1326 ], [ %.402780, %1359 ], [ %.412781, %1392 ], [ %.422782, %1425 ], [ %.432783, %1458 ], [ %.512791, %1868 ], [ %.442784, %1657 ], [ %.442784, %1620 ], [ %.442784, %1583 ], [ %.442784, %1546 ], [ %.442784, %1510 ], [ %.452785, %1693 ], [ %.462786, %1717 ], [ %.472787, %1752 ], [ %.482788, %1787 ], [ %.492789, %1822 ], [ %.502790, %1859 ], [ %.502790, %1860 ], [ %.502790, %1855 ], [ %.492789, %1853 ], [ %.252765, %875 ], [ %.262766, %900 ], [ %.272767, %935 ], [ %.282768, %970 ], [ %.292769, %1012 ], [ %.302770, %1046 ], [ %.312771, %1080 ], [ %.322772, %1114 ], [ %.332773, %1148 ], [ %.342774, %1182 ], [ %.352775, %1216 ], [ %.362776, %1250 ], [ %.522792, %1880 ], [ %.532793, %1907 ], [ %.542794, %dict_put.exit3125 ], [ %.582798, %2024 ], [ %.592799, %2049 ], [ %.602800, %2084 ], [ %.612801, %2119 ], [ %.622802, %2161 ], [ %.632803, %2186 ], [ %.642804, %2221 ], [ %.652805, %2256 ], [ %.662806, %2298 ], [ %.672807, %2332 ], [ %.682808, %2366 ], [ %.692809, %2400 ], [ %.702810, %2434 ], [ %.712811, %2468 ], [ %.722812, %2502 ], [ %.732813, %2536 ], [ %.552795, %1957 ], [ %.562796, %1989 ], [ %.202760, %1871 ]
-  %.862739 = phi i32 [ %.852738, %2619 ], [ %.852738, %2628 ], [ %.842737, %2614 ], [ %.12654, %70 ], [ %.22655, %112 ], [ %.32656, %145 ], [ %.42657, %178 ], [ %.52658, %211 ], [ %.62659, %244 ], [ %.72660, %277 ], [ %.82661, %310 ], [ %.92662, %343 ], [ %.192672, %dict_put.exit ], [ %.102663, %387 ], [ %.112664, %426 ], [ %.122665, %465 ], [ %.132666, %504 ], [ %.142667, %543 ], [ %.152668, %582 ], [ %.162669, %621 ], [ %.172670, %660 ], [ %.202673, %709 ], [ %.212674, %738 ], [ %.222675, %763 ], [ %.232676, %798 ], [ %.242677, %833 ], [ %.382691, %1293 ], [ %.392692, %1326 ], [ %.402693, %1359 ], [ %.412694, %1392 ], [ %.422695, %1425 ], [ %.432696, %1458 ], [ %.612714, %1868 ], [ %.522705, %1657 ], [ %.502703, %1620 ], [ %.482701, %1583 ], [ %.462699, %1546 ], [ %.442697, %1510 ], [ %.542707, %1693 ], [ %.552708, %1717 ], [ %.562709, %1752 ], [ %.572710, %1787 ], [ %.582711, %1822 ], [ %.602713, %1859 ], [ %.602713, %1860 ], [ %.602713, %1855 ], [ -1, %1853 ], [ %.252678, %875 ], [ %.262679, %900 ], [ %.272680, %935 ], [ %.282681, %970 ], [ %.292682, %1012 ], [ %.302683, %1046 ], [ %.312684, %1080 ], [ %.322685, %1114 ], [ %.332686, %1148 ], [ %.342687, %1182 ], [ %.352688, %1216 ], [ %.362689, %1250 ], [ %.622715, %1880 ], [ %.632716, %1907 ], [ %.642717, %dict_put.exit3125 ], [ %.682721, %2024 ], [ %.692722, %2049 ], [ %.702723, %2084 ], [ %.712724, %2119 ], [ %.722725, %2161 ], [ %.732726, %2186 ], [ %.742727, %2221 ], [ %.752728, %2256 ], [ %.762729, %2298 ], [ %.772730, %2332 ], [ %.782731, %2366 ], [ %.792732, %2400 ], [ %.802733, %2434 ], [ %.812734, %2468 ], [ %.822735, %2502 ], [ %.832736, %2536 ], [ %.652718, %1957 ], [ %.662719, %1989 ], [ %.202673, %1871 ]
-  %.752652 = phi ptr [ %.742651, %2619 ], [ %.742651, %2628 ], [ %.732650, %2614 ], [ %.12578, %70 ], [ %.22579, %112 ], [ %.32580, %145 ], [ %.42581, %178 ], [ %.52582, %211 ], [ %.62583, %244 ], [ %.72584, %277 ], [ %.82585, %310 ], [ %.92586, %343 ], [ %.192596, %dict_put.exit ], [ %.102587, %387 ], [ %.112588, %426 ], [ %.122589, %465 ], [ %.132590, %504 ], [ %.142591, %543 ], [ %.152592, %582 ], [ %.162593, %621 ], [ %.172594, %660 ], [ %.202597, %709 ], [ %.212598, %738 ], [ %.222599, %763 ], [ %.232600, %798 ], [ %.242601, %833 ], [ %.372614, %1293 ], [ %.382615, %1326 ], [ %.392616, %1359 ], [ %.402617, %1392 ], [ %.412618, %1425 ], [ %.422619, %1458 ], [ %.502627, %1868 ], [ %.432620, %1657 ], [ %.432620, %1620 ], [ %.432620, %1583 ], [ %.432620, %1546 ], [ %.432620, %1510 ], [ %.442621, %1693 ], [ %.452622, %1717 ], [ %.462623, %1752 ], [ %.472624, %1787 ], [ %.482625, %1822 ], [ %.492626, %1859 ], [ %.492626, %1860 ], [ %.492626, %1855 ], [ %.482625, %1853 ], [ %.252602, %875 ], [ %.262603, %900 ], [ %.272604, %935 ], [ %.282605, %970 ], [ %.292606, %1012 ], [ %.302607, %1046 ], [ %.312608, %1080 ], [ %.322609, %1114 ], [ %.332610, %1148 ], [ %.342611, %1182 ], [ %.352612, %1216 ], [ %.362613, %1250 ], [ %.512628, %1880 ], [ %.522629, %1907 ], [ %.532630, %dict_put.exit3125 ], [ %.572634, %2024 ], [ %.582635, %2049 ], [ %.592636, %2084 ], [ %.602637, %2119 ], [ %.612638, %2161 ], [ %.622639, %2186 ], [ %.632640, %2221 ], [ %.642641, %2256 ], [ %.652642, %2298 ], [ %.662643, %2332 ], [ %.672644, %2366 ], [ %.682645, %2400 ], [ %.692646, %2434 ], [ %.702647, %2468 ], [ %.712648, %2502 ], [ %.722649, %2536 ], [ %.542631, %1957 ], [ %.552632, %1989 ], [ %.202597, %1871 ]
-  %.962576 = phi i32 [ %.952575, %2619 ], [ %.952575, %2628 ], [ %.942574, %2614 ], [ %.12481, %70 ], [ %.22482, %112 ], [ %.32483, %145 ], [ %.42484, %178 ], [ %.52485, %211 ], [ %.62486, %244 ], [ %.72487, %277 ], [ %.82488, %310 ], [ %.92489, %343 ], [ %.262506, %dict_put.exit ], [ %.102490, %387 ], [ %.122492, %426 ], [ %.142494, %465 ], [ %.162496, %504 ], [ %.182498, %543 ], [ %.202500, %582 ], [ %.222502, %621 ], [ %.242504, %660 ], [ %.272507, %709 ], [ %.282508, %738 ], [ %.292509, %763 ], [ %.302510, %798 ], [ %.312511, %833 ], [ %.472527, %1293 ], [ %.482528, %1326 ], [ %.492529, %1359 ], [ %.502530, %1392 ], [ %.512531, %1425 ], [ %.522532, %1458 ], [ %.692549, %1868 ], [ %.622542, %1657 ], [ %.602540, %1620 ], [ %.582538, %1583 ], [ %.562536, %1546 ], [ %.542534, %1510 ], [ %.632543, %1693 ], [ %.642544, %1717 ], [ %.652545, %1752 ], [ %.662546, %1787 ], [ %.672547, %1822 ], [ %.682548, %1859 ], [ %.682548, %1860 ], [ %.682548, %1855 ], [ %.672547, %1853 ], [ %.332513, %875 ], [ %.342514, %900 ], [ %.352515, %935 ], [ %.362516, %970 ], [ %.382518, %1012 ], [ %.392519, %1046 ], [ %.402520, %1080 ], [ %.412521, %1114 ], [ %.422522, %1148 ], [ %.432523, %1182 ], [ %.442524, %1216 ], [ %.452525, %1250 ], [ %.702550, %1880 ], [ %.712551, %1907 ], [ %.722552, %dict_put.exit3125 ], [ %.752555, %2024 ], [ %.762556, %2049 ], [ %.772557, %2084 ], [ %.782558, %2119 ], [ %.802560, %2161 ], [ %.812561, %2186 ], [ %.822562, %2221 ], [ %.832563, %2256 ], [ %.852565, %2298 ], [ %.862566, %2332 ], [ %.872567, %2366 ], [ %.882568, %2400 ], [ %.892569, %2434 ], [ %.902570, %2468 ], [ %.912571, %2502 ], [ %.922572, %2536 ], [ %.732553, %1957 ], [ %.742554, %1989 ], [ %.272507, %1871 ]
-  %.812479 = phi i32 [ %.802478, %2619 ], [ %.802478, %2628 ], [ %.792477, %2614 ], [ %.12399, %70 ], [ %.22400, %112 ], [ %.32401, %145 ], [ %.42402, %178 ], [ %.52403, %211 ], [ %.62404, %244 ], [ %.72405, %277 ], [ %.82406, %310 ], [ %.92407, %343 ], [ %.192417, %dict_put.exit ], [ %.102408, %387 ], [ %.112409, %426 ], [ %.122410, %465 ], [ %.132411, %504 ], [ %.142412, %543 ], [ %.152413, %582 ], [ %.162414, %621 ], [ %.172415, %660 ], [ %.202418, %709 ], [ %.212419, %738 ], [ %.222420, %763 ], [ %.232421, %798 ], [ %.242422, %833 ], [ %.382436, %1293 ], [ %.392437, %1326 ], [ %.402438, %1359 ], [ %.412439, %1392 ], [ %.422440, %1425 ], [ %.432441, %1458 ], [ %.562454, %1868 ], [ 1, %1657 ], [ 2, %1620 ], [ 3, %1583 ], [ 4, %1546 ], [ 5, %1510 ], [ %.502448, %1693 ], [ %.512449, %1717 ], [ %.522450, %1752 ], [ %.532451, %1787 ], [ %.542452, %1822 ], [ %.552453, %1859 ], [ %.552453, %1860 ], [ %.552453, %1855 ], [ %.542452, %1853 ], [ %.252423, %875 ], [ %.262424, %900 ], [ %.272425, %935 ], [ %.282426, %970 ], [ %.292427, %1012 ], [ %.302428, %1046 ], [ %.312429, %1080 ], [ %.322430, %1114 ], [ %.332431, %1148 ], [ %.342432, %1182 ], [ %.352433, %1216 ], [ %.362434, %1250 ], [ %.572455, %1880 ], [ %.582456, %1907 ], [ %.592457, %dict_put.exit3125 ], [ %.632461, %2024 ], [ %.642462, %2049 ], [ %.652463, %2084 ], [ %.662464, %2119 ], [ %.672465, %2161 ], [ %.682466, %2186 ], [ %.692467, %2221 ], [ %.702468, %2256 ], [ %.712469, %2298 ], [ %.722470, %2332 ], [ %.732471, %2366 ], [ %.742472, %2400 ], [ %.752473, %2434 ], [ %.762474, %2468 ], [ %.772475, %2502 ], [ %.782476, %2536 ], [ %.602458, %1957 ], [ %.612459, %1989 ], [ %.202418, %1871 ]
-  %.872397 = phi i32 [ %.862396, %2619 ], [ %.862396, %2628 ], [ %.852395, %2614 ], [ %.12311, %70 ], [ %.22312, %112 ], [ %.32313, %145 ], [ %.42314, %178 ], [ %.52315, %211 ], [ %.62316, %244 ], [ %.72317, %277 ], [ %.82318, %310 ], [ %.92319, %343 ], [ %.262336, %dict_put.exit ], [ %.102320, %387 ], [ %.122322, %426 ], [ %.142324, %465 ], [ %.162326, %504 ], [ %.182328, %543 ], [ %.202330, %582 ], [ %.222332, %621 ], [ %.242334, %660 ], [ %.272337, %709 ], [ %.282338, %738 ], [ %.292339, %763 ], [ %.302340, %798 ], [ %.312341, %833 ], [ %.452355, %1293 ], [ %.462356, %1326 ], [ %.472357, %1359 ], [ %.482358, %1392 ], [ %.492359, %1425 ], [ %.502360, %1458 ], [ %.622372, %1868 ], [ %.552365, %1657 ], [ %.542364, %1620 ], [ %.532363, %1583 ], [ %.522362, %1546 ], [ %.512361, %1510 ], [ %.562366, %1693 ], [ %.572367, %1717 ], [ %.582368, %1752 ], [ %.592369, %1787 ], [ %.602370, %1822 ], [ %.612371, %1859 ], [ %.612371, %1860 ], [ %.612371, %1855 ], [ %.602370, %1853 ], [ %.322342, %875 ], [ %.332343, %900 ], [ %.342344, %935 ], [ %.352345, %970 ], [ %.362346, %1012 ], [ %.372347, %1046 ], [ %.382348, %1080 ], [ %.392349, %1114 ], [ %.402350, %1148 ], [ %.412351, %1182 ], [ %.422352, %1216 ], [ %.432353, %1250 ], [ %.632373, %1880 ], [ %.642374, %1907 ], [ %.652375, %dict_put.exit3125 ], [ %.692379, %2024 ], [ %.702380, %2049 ], [ %.712381, %2084 ], [ %.722382, %2119 ], [ %.732383, %2161 ], [ %.742384, %2186 ], [ %.752385, %2221 ], [ %.762386, %2256 ], [ %.772387, %2298 ], [ %.782388, %2332 ], [ %.792389, %2366 ], [ %.802390, %2400 ], [ %.812391, %2434 ], [ %.822392, %2468 ], [ %.832393, %2502 ], [ %.842394, %2536 ], [ %.662376, %1957 ], [ %.672377, %1989 ], [ %.272337, %1871 ]
-  %.762309 = phi i32 [ %.752308, %2619 ], [ %.752308, %2628 ], [ %.742307, %2614 ], [ %.12234, %70 ], [ %.22235, %112 ], [ %.32236, %145 ], [ %.42237, %178 ], [ %.52238, %211 ], [ %.62239, %244 ], [ %.72240, %277 ], [ %.82241, %310 ], [ %.92242, %343 ], [ %.192252, %dict_put.exit ], [ %.102243, %387 ], [ %.112244, %426 ], [ %.122245, %465 ], [ %.132246, %504 ], [ %.142247, %543 ], [ %.152248, %582 ], [ %.162249, %621 ], [ %.172250, %660 ], [ %.202253, %709 ], [ %.212254, %738 ], [ %.222255, %763 ], [ %.232256, %798 ], [ %.242257, %833 ], [ %.382271, %1293 ], [ %.392272, %1326 ], [ %.402273, %1359 ], [ %.412274, %1392 ], [ %.422275, %1425 ], [ %.432276, %1458 ], [ %.512284, %1868 ], [ %.442277, %1657 ], [ %.442277, %1620 ], [ %.442277, %1583 ], [ %.442277, %1546 ], [ %.442277, %1510 ], [ %.452278, %1693 ], [ %.462279, %1717 ], [ %.472280, %1752 ], [ %.482281, %1787 ], [ %.492282, %1822 ], [ %.502283, %1859 ], [ %.502283, %1860 ], [ %.502283, %1855 ], [ %.492282, %1853 ], [ %.252258, %875 ], [ %.262259, %900 ], [ %.272260, %935 ], [ %.282261, %970 ], [ %.292262, %1012 ], [ %.302263, %1046 ], [ %.312264, %1080 ], [ %.322265, %1114 ], [ %.332266, %1148 ], [ %.342267, %1182 ], [ %.352268, %1216 ], [ %.362269, %1250 ], [ %.522285, %1880 ], [ %.532286, %1907 ], [ %.542287, %dict_put.exit3125 ], [ %.582291, %2024 ], [ %.592292, %2049 ], [ %.602293, %2084 ], [ %.612294, %2119 ], [ %.622295, %2161 ], [ %.632296, %2186 ], [ %.642297, %2221 ], [ %.652298, %2256 ], [ %.662299, %2298 ], [ %.672300, %2332 ], [ %.682301, %2366 ], [ %.692302, %2400 ], [ %.702303, %2434 ], [ %.712304, %2468 ], [ %.722305, %2502 ], [ %.732306, %2536 ], [ %.552288, %1957 ], [ %.562289, %1989 ], [ %.202253, %1871 ]
-  %2630 = phi i1 [ true, %2619 ], [ true, %2628 ], [ true, %2614 ], [ true, %70 ], [ true, %112 ], [ true, %145 ], [ true, %178 ], [ true, %211 ], [ true, %244 ], [ true, %277 ], [ true, %310 ], [ true, %343 ], [ true, %dict_put.exit ], [ true, %387 ], [ true, %426 ], [ true, %465 ], [ true, %504 ], [ true, %543 ], [ true, %582 ], [ true, %621 ], [ true, %660 ], [ true, %709 ], [ true, %738 ], [ true, %763 ], [ true, %798 ], [ true, %833 ], [ true, %1293 ], [ true, %1326 ], [ true, %1359 ], [ true, %1392 ], [ true, %1425 ], [ true, %1458 ], [ false, %1868 ], [ true, %1657 ], [ true, %1620 ], [ true, %1583 ], [ true, %1546 ], [ true, %1510 ], [ true, %1693 ], [ true, %1717 ], [ true, %1752 ], [ true, %1787 ], [ true, %1822 ], [ true, %1859 ], [ false, %1860 ], [ false, %1855 ], [ false, %1853 ], [ true, %875 ], [ true, %900 ], [ true, %935 ], [ true, %970 ], [ true, %1012 ], [ true, %1046 ], [ true, %1080 ], [ true, %1114 ], [ true, %1148 ], [ true, %1182 ], [ true, %1216 ], [ true, %1250 ], [ true, %1880 ], [ true, %1907 ], [ true, %dict_put.exit3125 ], [ true, %2024 ], [ true, %2049 ], [ true, %2084 ], [ true, %2119 ], [ true, %2161 ], [ true, %2186 ], [ true, %2221 ], [ true, %2256 ], [ true, %2298 ], [ true, %2332 ], [ true, %2366 ], [ true, %2400 ], [ true, %2434 ], [ true, %2468 ], [ true, %2502 ], [ true, %2536 ], [ true, %1957 ], [ true, %1989 ], [ false, %1871 ]
-  %2631 = phi i1 [ false, %2619 ], [ false, %2628 ], [ false, %2614 ], [ false, %70 ], [ false, %112 ], [ false, %145 ], [ false, %178 ], [ false, %211 ], [ false, %244 ], [ false, %277 ], [ false, %310 ], [ false, %343 ], [ false, %dict_put.exit ], [ false, %387 ], [ false, %426 ], [ false, %465 ], [ false, %504 ], [ false, %543 ], [ false, %582 ], [ false, %621 ], [ false, %660 ], [ false, %709 ], [ false, %738 ], [ false, %763 ], [ false, %798 ], [ false, %833 ], [ false, %1293 ], [ false, %1326 ], [ false, %1359 ], [ false, %1392 ], [ false, %1425 ], [ false, %1458 ], [ false, %1868 ], [ false, %1657 ], [ false, %1620 ], [ false, %1583 ], [ false, %1546 ], [ false, %1510 ], [ false, %1693 ], [ false, %1717 ], [ false, %1752 ], [ false, %1787 ], [ false, %1822 ], [ false, %1859 ], [ true, %1860 ], [ true, %1855 ], [ false, %1853 ], [ false, %875 ], [ false, %900 ], [ false, %935 ], [ false, %970 ], [ false, %1012 ], [ false, %1046 ], [ false, %1080 ], [ false, %1114 ], [ false, %1148 ], [ false, %1182 ], [ false, %1216 ], [ false, %1250 ], [ false, %1880 ], [ false, %1907 ], [ false, %dict_put.exit3125 ], [ false, %2024 ], [ false, %2049 ], [ false, %2084 ], [ false, %2119 ], [ false, %2161 ], [ false, %2186 ], [ false, %2221 ], [ false, %2256 ], [ false, %2298 ], [ false, %2332 ], [ false, %2366 ], [ false, %2400 ], [ false, %2434 ], [ false, %2468 ], [ false, %2502 ], [ false, %2536 ], [ false, %1957 ], [ false, %1989 ], [ false, %1871 ]
-  %.02206 = phi i32 [ 0, %2619 ], [ 0, %2628 ], [ 0, %2614 ], [ 0, %70 ], [ 0, %112 ], [ 0, %145 ], [ 0, %178 ], [ 0, %211 ], [ 0, %244 ], [ 0, %277 ], [ 0, %310 ], [ 0, %343 ], [ 0, %dict_put.exit ], [ 0, %387 ], [ 0, %426 ], [ 0, %465 ], [ 0, %504 ], [ 0, %543 ], [ 0, %582 ], [ 0, %621 ], [ 0, %660 ], [ 0, %709 ], [ 0, %738 ], [ 0, %763 ], [ 0, %798 ], [ 0, %833 ], [ 0, %1293 ], [ 0, %1326 ], [ 0, %1359 ], [ 0, %1392 ], [ 0, %1425 ], [ 0, %1458 ], [ 9, %1868 ], [ 0, %1657 ], [ 0, %1620 ], [ 0, %1583 ], [ 0, %1546 ], [ 0, %1510 ], [ 0, %1693 ], [ 0, %1717 ], [ 0, %1752 ], [ 0, %1787 ], [ 0, %1822 ], [ 0, %1859 ], [ 1, %1860 ], [ 1, %1855 ], [ 9, %1853 ], [ 0, %875 ], [ 0, %900 ], [ 0, %935 ], [ 0, %970 ], [ 0, %1012 ], [ 0, %1046 ], [ 0, %1080 ], [ 0, %1114 ], [ 0, %1148 ], [ 0, %1182 ], [ 0, %1216 ], [ 0, %1250 ], [ 0, %1880 ], [ 0, %1907 ], [ 0, %dict_put.exit3125 ], [ 0, %2024 ], [ 0, %2049 ], [ 0, %2084 ], [ 0, %2119 ], [ 0, %2161 ], [ 0, %2186 ], [ 0, %2221 ], [ 0, %2256 ], [ 0, %2298 ], [ 0, %2332 ], [ 0, %2366 ], [ 0, %2400 ], [ 0, %2434 ], [ 0, %2468 ], [ 0, %2502 ], [ 0, %2536 ], [ 0, %1957 ], [ 0, %1989 ], [ 9, %1871 ]
-  %.153 = phi i64 [ %4, %2619 ], [ %.152, %2628 ], [ %.150, %2614 ], [ %4, %70 ], [ %4, %112 ], [ %4, %145 ], [ %4, %178 ], [ %4, %211 ], [ %4, %244 ], [ %4, %277 ], [ %4, %310 ], [ %4, %343 ], [ %.36, %dict_put.exit ], [ %4, %387 ], [ %4, %426 ], [ %4, %465 ], [ %4, %504 ], [ %4, %543 ], [ %4, %582 ], [ %4, %621 ], [ %4, %660 ], [ %4, %709 ], [ %4, %738 ], [ %4, %763 ], [ %4, %798 ], [ %4, %833 ], [ %4, %1293 ], [ %4, %1326 ], [ %4, %1359 ], [ %4, %1392 ], [ %4, %1425 ], [ %4, %1458 ], [ %.107, %1868 ], [ %4, %1657 ], [ %4, %1620 ], [ %4, %1583 ], [ %4, %1546 ], [ %4, %1510 ], [ %4, %1693 ], [ %4, %1717 ], [ %4, %1752 ], [ %4, %1787 ], [ %4, %1822 ], [ %4, %1859 ], [ %1863, %1860 ], [ %.105, %1855 ], [ %.104, %1853 ], [ %4, %875 ], [ %4, %900 ], [ %4, %935 ], [ %4, %970 ], [ %4, %1012 ], [ %4, %1046 ], [ %4, %1080 ], [ %4, %1114 ], [ %4, %1148 ], [ %4, %1182 ], [ %4, %1216 ], [ %4, %1250 ], [ %4, %1880 ], [ %4, %1907 ], [ %.112, %dict_put.exit3125 ], [ %4, %2024 ], [ %4, %2049 ], [ %4, %2084 ], [ %4, %2119 ], [ %4, %2161 ], [ %4, %2186 ], [ %4, %2221 ], [ %4, %2256 ], [ %4, %2298 ], [ %4, %2332 ], [ %4, %2366 ], [ %4, %2400 ], [ %4, %2434 ], [ %4, %2468 ], [ %4, %2502 ], [ %4, %2536 ], [ %4, %1957 ], [ %4, %1989 ], [ %.38, %1871 ]
-  %.sroa.0.172 = phi i32 [ %.sroa.0.170, %2619 ], [ %.sroa.0.171, %2628 ], [ %.sroa.0.169, %2614 ], [ %.sroa.0.1, %70 ], [ %.sroa.0.3, %112 ], [ %.sroa.0.5, %145 ], [ %.sroa.0.7, %178 ], [ %.sroa.0.9, %211 ], [ %.sroa.0.11, %244 ], [ %.sroa.0.13, %277 ], [ %.sroa.0.15, %310 ], [ %.sroa.0.17, %343 ], [ %.sroa.0.43, %dict_put.exit ], [ %.sroa.0.19, %387 ], [ %.sroa.0.22, %426 ], [ %.sroa.0.25, %465 ], [ %.sroa.0.28, %504 ], [ %.sroa.0.31, %543 ], [ %.sroa.0.34, %582 ], [ %.sroa.0.37, %621 ], [ %.sroa.0.40, %660 ], [ %.sroa.0.44, %709 ], [ %.sroa.0.46, %738 ], [ %.sroa.0.48, %763 ], [ %.sroa.0.50, %798 ], [ %.sroa.0.52, %833 ], [ %.sroa.0.82, %1293 ], [ %.sroa.0.84, %1326 ], [ %.sroa.0.86, %1359 ], [ %.sroa.0.88, %1392 ], [ %.sroa.0.90, %1425 ], [ %.sroa.0.92, %1458 ], [ %.sroa.0.123, %1868 ], [ %.sroa.0.107, %1657 ], [ %.sroa.0.104, %1620 ], [ %.sroa.0.101, %1583 ], [ %.sroa.0.98, %1546 ], [ %.sroa.0.95, %1510 ], [ %.sroa.0.110, %1693 ], [ %.sroa.0.112, %1717 ], [ %.sroa.0.114, %1752 ], [ %.sroa.0.116, %1787 ], [ %.sroa.0.118, %1822 ], [ %.sroa.0.121, %1859 ], [ %1861, %1860 ], [ %.sroa.0.121, %1855 ], [ %.sroa.0.120, %1853 ], [ %.sroa.0.55, %875 ], [ %.sroa.0.57, %900 ], [ %.sroa.0.59, %935 ], [ %.sroa.0.61, %970 ], [ %.sroa.0.64, %1012 ], [ %.sroa.0.66, %1046 ], [ %.sroa.0.68, %1080 ], [ %.sroa.0.70, %1114 ], [ %.sroa.0.72, %1148 ], [ %.sroa.0.74, %1182 ], [ %.sroa.0.76, %1216 ], [ %.sroa.0.78, %1250 ], [ %.sroa.0.124, %1880 ], [ %.sroa.0.126, %1907 ], [ %.sroa.0.128, %dict_put.exit3125 ], [ %.sroa.0.134, %2024 ], [ %.sroa.0.136, %2049 ], [ %.sroa.0.138, %2084 ], [ %.sroa.0.140, %2119 ], [ %.sroa.0.143, %2161 ], [ %.sroa.0.145, %2186 ], [ %.sroa.0.147, %2221 ], [ %.sroa.0.149, %2256 ], [ %.sroa.0.152, %2298 ], [ %.sroa.0.154, %2332 ], [ %.sroa.0.156, %2366 ], [ %.sroa.0.158, %2400 ], [ %.sroa.0.160, %2434 ], [ %.sroa.0.162, %2468 ], [ %.sroa.0.164, %2502 ], [ %.sroa.0.166, %2536 ], [ %.sroa.0.129, %1957 ], [ %.sroa.0.131, %1989 ], [ %1872, %1871 ]
-  %.sroa.498.172 = phi i32 [ %.sroa.498.170, %2619 ], [ %.sroa.498.171, %2628 ], [ %.sroa.498.169, %2614 ], [ %.sroa.498.1, %70 ], [ %.sroa.498.3, %112 ], [ %.sroa.498.5, %145 ], [ %.sroa.498.7, %178 ], [ %.sroa.498.9, %211 ], [ %.sroa.498.11, %244 ], [ %.sroa.498.13, %277 ], [ %.sroa.498.15, %310 ], [ %.sroa.498.17, %343 ], [ %.sroa.498.43, %dict_put.exit ], [ %.sroa.498.19, %387 ], [ %.sroa.498.22, %426 ], [ %.sroa.498.25, %465 ], [ %.sroa.498.28, %504 ], [ %.sroa.498.31, %543 ], [ %.sroa.498.34, %582 ], [ %.sroa.498.37, %621 ], [ %.sroa.498.40, %660 ], [ %.sroa.498.44, %709 ], [ %.sroa.498.46, %738 ], [ %.sroa.498.48, %763 ], [ %.sroa.498.50, %798 ], [ %.sroa.498.52, %833 ], [ %.sroa.498.82, %1293 ], [ %.sroa.498.84, %1326 ], [ %.sroa.498.86, %1359 ], [ %.sroa.498.88, %1392 ], [ %.sroa.498.90, %1425 ], [ %.sroa.498.92, %1458 ], [ %.sroa.498.123, %1868 ], [ %.sroa.498.107, %1657 ], [ %.sroa.498.104, %1620 ], [ %.sroa.498.101, %1583 ], [ %.sroa.498.98, %1546 ], [ %.sroa.498.95, %1510 ], [ %.sroa.498.110, %1693 ], [ %.sroa.498.112, %1717 ], [ %.sroa.498.114, %1752 ], [ %.sroa.498.116, %1787 ], [ %.sroa.498.118, %1822 ], [ %.sroa.498.121, %1859 ], [ %1867, %1860 ], [ %.sroa.498.121, %1855 ], [ %.sroa.498.120, %1853 ], [ %.sroa.498.55, %875 ], [ %.sroa.498.57, %900 ], [ %.sroa.498.59, %935 ], [ %.sroa.498.61, %970 ], [ %.sroa.498.64, %1012 ], [ %.sroa.498.66, %1046 ], [ %.sroa.498.68, %1080 ], [ %.sroa.498.70, %1114 ], [ %.sroa.498.72, %1148 ], [ %.sroa.498.74, %1182 ], [ %.sroa.498.76, %1216 ], [ %.sroa.498.78, %1250 ], [ %.sroa.498.124, %1880 ], [ %.sroa.498.126, %1907 ], [ %.sroa.498.128, %dict_put.exit3125 ], [ %.sroa.498.134, %2024 ], [ %.sroa.498.136, %2049 ], [ %.sroa.498.138, %2084 ], [ %.sroa.498.140, %2119 ], [ %.sroa.498.143, %2161 ], [ %.sroa.498.145, %2186 ], [ %.sroa.498.147, %2221 ], [ %.sroa.498.149, %2256 ], [ %.sroa.498.152, %2298 ], [ %.sroa.498.154, %2332 ], [ %.sroa.498.156, %2366 ], [ %.sroa.498.158, %2400 ], [ %.sroa.498.160, %2434 ], [ %.sroa.498.162, %2468 ], [ %.sroa.498.164, %2502 ], [ %.sroa.498.166, %2536 ], [ %.sroa.498.129, %1957 ], [ %.sroa.498.131, %1989 ], [ %1873, %1871 ]
-  store i64 %.sroa.10.80, ptr %.sroa.10.0..sroa_idx, align 8
-  store i64 %.sroa.37.79, ptr %.sroa.37.0..sroa_idx, align 8
+2627:                                             ; preds = %1871, %1868, %1860, %1855, %1853, %2626, %2617, %2612, %2536, %2502, %2468, %2434, %2400, %2366, %2332, %2298, %2256, %2221, %2186, %2161, %2119, %2084, %2049, %2024, %1989, %1957, %dict_put.exit3125, %1907, %1880, %1859, %1822, %1787, %1752, %1717, %1693, %1657, %1620, %1583, %1546, %1510, %1458, %1425, %1392, %1359, %1326, %1293, %1250, %1216, %1182, %1148, %1114, %1080, %1046, %1012, %970, %935, %900, %875, %833, %798, %763, %738, %709, %dict_put.exit, %660, %621, %582, %543, %504, %465, %426, %387, %343, %310, %277, %244, %211, %178, %145, %112, %70
+  %.sroa.35.79 = phi i64 [ %.sroa.35.78, %2617 ], [ %.sroa.35.78, %2626 ], [ %spec.select3278, %2612 ], [ %.sroa.35.1, %70 ], [ %.sroa.35.2, %112 ], [ %.sroa.35.3, %145 ], [ %.sroa.35.4, %178 ], [ %.sroa.35.5, %211 ], [ %.sroa.35.6, %244 ], [ %.sroa.35.7, %277 ], [ %.sroa.35.8, %310 ], [ %.sroa.35.9, %343 ], [ %.sroa.35.19, %dict_put.exit ], [ %.sroa.35.10, %387 ], [ %.sroa.35.11, %426 ], [ %.sroa.35.12, %465 ], [ %.sroa.35.13, %504 ], [ %.sroa.35.14, %543 ], [ %.sroa.35.15, %582 ], [ %.sroa.35.16, %621 ], [ %.sroa.35.17, %660 ], [ %.sroa.35.21, %709 ], [ %.sroa.35.22, %738 ], [ %.sroa.35.23, %763 ], [ %.sroa.35.24, %798 ], [ %.sroa.35.25, %833 ], [ %.sroa.35.39, %1293 ], [ %.sroa.35.40, %1326 ], [ %.sroa.35.41, %1359 ], [ %.sroa.35.42, %1392 ], [ %.sroa.35.43, %1425 ], [ %.sroa.35.44, %1458 ], [ %.sroa.35.52, %1868 ], [ %.sroa.35.45, %1657 ], [ %.sroa.35.45, %1620 ], [ %.sroa.35.45, %1583 ], [ %.sroa.35.45, %1546 ], [ %.sroa.35.45, %1510 ], [ %.sroa.35.46, %1693 ], [ %.sroa.35.47, %1717 ], [ %.sroa.35.48, %1752 ], [ %.sroa.35.49, %1787 ], [ %.sroa.35.50, %1822 ], [ %.sroa.35.51, %1859 ], [ %.sroa.35.51, %1860 ], [ %.sroa.35.51, %1855 ], [ %.sroa.35.50, %1853 ], [ %.sroa.35.26, %875 ], [ %.sroa.35.27, %900 ], [ %.sroa.35.28, %935 ], [ %.sroa.35.29, %970 ], [ %.sroa.35.30, %1012 ], [ %.sroa.35.31, %1046 ], [ %.sroa.35.32, %1080 ], [ %.sroa.35.33, %1114 ], [ %.sroa.35.34, %1148 ], [ %.sroa.35.35, %1182 ], [ %.sroa.35.36, %1216 ], [ %.sroa.35.37, %1250 ], [ %.sroa.35.53, %1880 ], [ %.sroa.35.54, %1907 ], [ %.sroa.35.55, %dict_put.exit3125 ], [ %.sroa.35.60, %2024 ], [ %.sroa.35.61, %2049 ], [ %.sroa.35.62, %2084 ], [ %.sroa.35.63, %2119 ], [ %.sroa.35.64, %2161 ], [ %.sroa.35.65, %2186 ], [ %.sroa.35.66, %2221 ], [ %.sroa.35.67, %2256 ], [ %.sroa.35.68, %2298 ], [ %.sroa.35.69, %2332 ], [ %.sroa.35.70, %2366 ], [ %.sroa.35.71, %2400 ], [ %.sroa.35.72, %2434 ], [ %.sroa.35.73, %2468 ], [ %.sroa.35.74, %2502 ], [ %.sroa.35.75, %2536 ], [ %.sroa.35.57, %1957 ], [ %.sroa.35.58, %1989 ], [ 0, %1871 ]
+  %.sroa.10.81 = phi i64 [ %.sroa.10.80, %2617 ], [ %.sroa.10.80, %2626 ], [ %.sroa.10.79, %2612 ], [ %.sroa.10.1, %70 ], [ %.sroa.10.2, %112 ], [ %.sroa.10.3, %145 ], [ %.sroa.10.4, %178 ], [ %.sroa.10.5, %211 ], [ %.sroa.10.6, %244 ], [ %.sroa.10.7, %277 ], [ %.sroa.10.8, %310 ], [ %.sroa.10.9, %343 ], [ %.sroa.44.0, %dict_put.exit ], [ %.sroa.10.10, %387 ], [ %.sroa.10.11, %426 ], [ %.sroa.10.12, %465 ], [ %.sroa.10.13, %504 ], [ %.sroa.10.14, %543 ], [ %.sroa.10.15, %582 ], [ %.sroa.10.16, %621 ], [ %.sroa.10.17, %660 ], [ %.sroa.10.21, %709 ], [ %.sroa.10.22, %738 ], [ %.sroa.10.23, %763 ], [ %.sroa.10.24, %798 ], [ %.sroa.10.25, %833 ], [ %.sroa.10.39, %1293 ], [ %.sroa.10.40, %1326 ], [ %.sroa.10.41, %1359 ], [ %.sroa.10.42, %1392 ], [ %.sroa.10.43, %1425 ], [ %.sroa.10.44, %1458 ], [ %.sroa.10.52, %1868 ], [ %.sroa.10.45, %1657 ], [ %.sroa.10.45, %1620 ], [ %.sroa.10.45, %1583 ], [ %.sroa.10.45, %1546 ], [ %.sroa.10.45, %1510 ], [ %.sroa.10.46, %1693 ], [ %.sroa.10.47, %1717 ], [ %.sroa.10.48, %1752 ], [ %.sroa.10.49, %1787 ], [ %.sroa.10.50, %1822 ], [ %.sroa.10.51, %1859 ], [ %.sroa.10.51, %1860 ], [ %.sroa.10.51, %1855 ], [ %.sroa.10.50, %1853 ], [ %.sroa.10.26, %875 ], [ %.sroa.10.27, %900 ], [ %.sroa.10.28, %935 ], [ %.sroa.10.29, %970 ], [ %.sroa.10.30, %1012 ], [ %.sroa.10.31, %1046 ], [ %.sroa.10.32, %1080 ], [ %.sroa.10.33, %1114 ], [ %.sroa.10.34, %1148 ], [ %.sroa.10.35, %1182 ], [ %.sroa.10.36, %1216 ], [ %.sroa.10.37, %1250 ], [ %.sroa.10.53, %1880 ], [ %.sroa.10.54, %1907 ], [ %.sroa.44.0, %dict_put.exit3125 ], [ %.sroa.10.60, %2024 ], [ %.sroa.10.61, %2049 ], [ %.sroa.10.62, %2084 ], [ %.sroa.10.63, %2119 ], [ %.sroa.10.64, %2161 ], [ %.sroa.10.65, %2186 ], [ %.sroa.10.66, %2221 ], [ %.sroa.10.67, %2256 ], [ %.sroa.10.68, %2298 ], [ %.sroa.10.69, %2332 ], [ %.sroa.10.70, %2366 ], [ %.sroa.10.71, %2400 ], [ %.sroa.10.72, %2434 ], [ %.sroa.10.73, %2468 ], [ %.sroa.10.74, %2502 ], [ %.sroa.10.75, %2536 ], [ %.sroa.10.57, %1957 ], [ %.sroa.10.58, %1989 ], [ %.sroa.10.21, %1871 ]
+  %.763260 = phi i32 [ %.753259, %2617 ], [ %.753259, %2626 ], [ %2574, %2612 ], [ %.13185, %70 ], [ %.23186, %112 ], [ %.33187, %145 ], [ %.43188, %178 ], [ %.53189, %211 ], [ %.63190, %244 ], [ %.73191, %277 ], [ %.83192, %310 ], [ %.93193, %343 ], [ %.193203, %dict_put.exit ], [ %.103194, %387 ], [ %.113195, %426 ], [ %.123196, %465 ], [ %.133197, %504 ], [ %.143198, %543 ], [ %.153199, %582 ], [ %.163200, %621 ], [ %.173201, %660 ], [ %.203204, %709 ], [ %.213205, %738 ], [ %.223206, %763 ], [ %.233207, %798 ], [ %.243208, %833 ], [ %.383222, %1293 ], [ %.393223, %1326 ], [ %.403224, %1359 ], [ %.413225, %1392 ], [ %.423226, %1425 ], [ %.433227, %1458 ], [ %.513235, %1868 ], [ %.443228, %1657 ], [ %.443228, %1620 ], [ %.443228, %1583 ], [ %.443228, %1546 ], [ %.443228, %1510 ], [ %.453229, %1693 ], [ %.463230, %1717 ], [ %.473231, %1752 ], [ %.483232, %1787 ], [ %.493233, %1822 ], [ %.503234, %1859 ], [ %.503234, %1860 ], [ %.503234, %1855 ], [ %.493233, %1853 ], [ %.253209, %875 ], [ %.263210, %900 ], [ %.273211, %935 ], [ %.283212, %970 ], [ %.293213, %1012 ], [ %.303214, %1046 ], [ %.313215, %1080 ], [ %.323216, %1114 ], [ %.333217, %1148 ], [ %.343218, %1182 ], [ %.353219, %1216 ], [ %.363220, %1250 ], [ %.523236, %1880 ], [ %.533237, %1907 ], [ %.543238, %dict_put.exit3125 ], [ %.583242, %2024 ], [ %.593243, %2049 ], [ %.603244, %2084 ], [ %.613245, %2119 ], [ %.623246, %2161 ], [ %.633247, %2186 ], [ %.643248, %2221 ], [ %.653249, %2256 ], [ %.663250, %2298 ], [ %.673251, %2332 ], [ %.683252, %2366 ], [ %.693253, %2400 ], [ %.703254, %2434 ], [ %.713255, %2468 ], [ %.723256, %2502 ], [ %.733257, %2536 ], [ %.553239, %1957 ], [ %.563240, %1989 ], [ %.203204, %1871 ]
+  %.762970 = phi i32 [ %.752969, %2617 ], [ %.752969, %2626 ], [ %.742968, %2612 ], [ %.12895, %70 ], [ %.22896, %112 ], [ %.32897, %145 ], [ %.42898, %178 ], [ %.52899, %211 ], [ %.62900, %244 ], [ %.72901, %277 ], [ %.82902, %310 ], [ %.92903, %343 ], [ %.192913, %dict_put.exit ], [ %.102904, %387 ], [ %.112905, %426 ], [ %.122906, %465 ], [ %.132907, %504 ], [ %.142908, %543 ], [ %.152909, %582 ], [ %.162910, %621 ], [ %.172911, %660 ], [ %.202914, %709 ], [ %.212915, %738 ], [ %.222916, %763 ], [ %.232917, %798 ], [ %.242918, %833 ], [ %.382932, %1293 ], [ %.392933, %1326 ], [ %.402934, %1359 ], [ %.412935, %1392 ], [ %.422936, %1425 ], [ %.432937, %1458 ], [ %.512945, %1868 ], [ %.442938, %1657 ], [ %.442938, %1620 ], [ %.442938, %1583 ], [ %.442938, %1546 ], [ %.442938, %1510 ], [ %.452939, %1693 ], [ %.462940, %1717 ], [ %.472941, %1752 ], [ %.482942, %1787 ], [ %.492943, %1822 ], [ %.502944, %1859 ], [ %.502944, %1860 ], [ %.502944, %1855 ], [ %.492943, %1853 ], [ %.252919, %875 ], [ %.262920, %900 ], [ %.272921, %935 ], [ %.282922, %970 ], [ %.292923, %1012 ], [ %.302924, %1046 ], [ %.312925, %1080 ], [ %.322926, %1114 ], [ %.332927, %1148 ], [ %.342928, %1182 ], [ %.352929, %1216 ], [ %.362930, %1250 ], [ %.522946, %1880 ], [ %.532947, %1907 ], [ %.542948, %dict_put.exit3125 ], [ %.582952, %2024 ], [ %.592953, %2049 ], [ %.602954, %2084 ], [ %.612955, %2119 ], [ %.622956, %2161 ], [ %.632957, %2186 ], [ %.642958, %2221 ], [ %.652959, %2256 ], [ %.662960, %2298 ], [ %.672961, %2332 ], [ %.682962, %2366 ], [ %.692963, %2400 ], [ %.702964, %2434 ], [ %.712965, %2468 ], [ %.722966, %2502 ], [ %.732967, %2536 ], [ %.552949, %1957 ], [ %.562950, %1989 ], [ %.202914, %1871 ]
+  %.762893 = phi i32 [ %.752892, %2617 ], [ %.752892, %2626 ], [ %.742891, %2612 ], [ %.12818, %70 ], [ %.22819, %112 ], [ %.32820, %145 ], [ %.42821, %178 ], [ %.52822, %211 ], [ %.62823, %244 ], [ %.72824, %277 ], [ %.82825, %310 ], [ %.92826, %343 ], [ %.192836, %dict_put.exit ], [ %.102827, %387 ], [ %.112828, %426 ], [ %.122829, %465 ], [ %.132830, %504 ], [ %.142831, %543 ], [ %.152832, %582 ], [ %.162833, %621 ], [ %.172834, %660 ], [ %.202837, %709 ], [ %.212838, %738 ], [ %.222839, %763 ], [ %.232840, %798 ], [ %.242841, %833 ], [ %.382855, %1293 ], [ %.392856, %1326 ], [ %.402857, %1359 ], [ %.412858, %1392 ], [ %.422859, %1425 ], [ %.432860, %1458 ], [ %.512868, %1868 ], [ %.442861, %1657 ], [ %.442861, %1620 ], [ %.442861, %1583 ], [ %.442861, %1546 ], [ %.442861, %1510 ], [ %.452862, %1693 ], [ %.462863, %1717 ], [ %.472864, %1752 ], [ %.482865, %1787 ], [ %.492866, %1822 ], [ %.502867, %1859 ], [ %.502867, %1860 ], [ %.502867, %1855 ], [ %.492866, %1853 ], [ %.252842, %875 ], [ %.262843, %900 ], [ %.272844, %935 ], [ %.282845, %970 ], [ %.292846, %1012 ], [ %.302847, %1046 ], [ %.312848, %1080 ], [ %.322849, %1114 ], [ %.332850, %1148 ], [ %.342851, %1182 ], [ %.352852, %1216 ], [ %.362853, %1250 ], [ %.522869, %1880 ], [ %.532870, %1907 ], [ %.542871, %dict_put.exit3125 ], [ %.582875, %2024 ], [ %.592876, %2049 ], [ %.602877, %2084 ], [ %.612878, %2119 ], [ %.622879, %2161 ], [ %.632880, %2186 ], [ %.642881, %2221 ], [ %.652882, %2256 ], [ %.662883, %2298 ], [ %.672884, %2332 ], [ %.682885, %2366 ], [ %.692886, %2400 ], [ %.702887, %2434 ], [ %.712888, %2468 ], [ %.722889, %2502 ], [ %.732890, %2536 ], [ %.552872, %1957 ], [ %.562873, %1989 ], [ %.202837, %1871 ]
+  %.762816 = phi i32 [ %.752815, %2617 ], [ %.752815, %2626 ], [ %.742814, %2612 ], [ %.12741, %70 ], [ %.22742, %112 ], [ %.32743, %145 ], [ %.42744, %178 ], [ %.52745, %211 ], [ %.62746, %244 ], [ %.72747, %277 ], [ %.82748, %310 ], [ %.92749, %343 ], [ %.192759, %dict_put.exit ], [ %.102750, %387 ], [ %.112751, %426 ], [ %.122752, %465 ], [ %.132753, %504 ], [ %.142754, %543 ], [ %.152755, %582 ], [ %.162756, %621 ], [ %.172757, %660 ], [ %.202760, %709 ], [ %.212761, %738 ], [ %.222762, %763 ], [ %.232763, %798 ], [ %.242764, %833 ], [ %.382778, %1293 ], [ %.392779, %1326 ], [ %.402780, %1359 ], [ %.412781, %1392 ], [ %.422782, %1425 ], [ %.432783, %1458 ], [ %.512791, %1868 ], [ %.442784, %1657 ], [ %.442784, %1620 ], [ %.442784, %1583 ], [ %.442784, %1546 ], [ %.442784, %1510 ], [ %.452785, %1693 ], [ %.462786, %1717 ], [ %.472787, %1752 ], [ %.482788, %1787 ], [ %.492789, %1822 ], [ %.502790, %1859 ], [ %.502790, %1860 ], [ %.502790, %1855 ], [ %.492789, %1853 ], [ %.252765, %875 ], [ %.262766, %900 ], [ %.272767, %935 ], [ %.282768, %970 ], [ %.292769, %1012 ], [ %.302770, %1046 ], [ %.312771, %1080 ], [ %.322772, %1114 ], [ %.332773, %1148 ], [ %.342774, %1182 ], [ %.352775, %1216 ], [ %.362776, %1250 ], [ %.522792, %1880 ], [ %.532793, %1907 ], [ %.542794, %dict_put.exit3125 ], [ %.582798, %2024 ], [ %.592799, %2049 ], [ %.602800, %2084 ], [ %.612801, %2119 ], [ %.622802, %2161 ], [ %.632803, %2186 ], [ %.642804, %2221 ], [ %.652805, %2256 ], [ %.662806, %2298 ], [ %.672807, %2332 ], [ %.682808, %2366 ], [ %.692809, %2400 ], [ %.702810, %2434 ], [ %.712811, %2468 ], [ %.722812, %2502 ], [ %.732813, %2536 ], [ %.552795, %1957 ], [ %.562796, %1989 ], [ %.202760, %1871 ]
+  %.862739 = phi i32 [ %.852738, %2617 ], [ %.852738, %2626 ], [ %.842737, %2612 ], [ %.12654, %70 ], [ %.22655, %112 ], [ %.32656, %145 ], [ %.42657, %178 ], [ %.52658, %211 ], [ %.62659, %244 ], [ %.72660, %277 ], [ %.82661, %310 ], [ %.92662, %343 ], [ %.192672, %dict_put.exit ], [ %.102663, %387 ], [ %.112664, %426 ], [ %.122665, %465 ], [ %.132666, %504 ], [ %.142667, %543 ], [ %.152668, %582 ], [ %.162669, %621 ], [ %.172670, %660 ], [ %.202673, %709 ], [ %.212674, %738 ], [ %.222675, %763 ], [ %.232676, %798 ], [ %.242677, %833 ], [ %.382691, %1293 ], [ %.392692, %1326 ], [ %.402693, %1359 ], [ %.412694, %1392 ], [ %.422695, %1425 ], [ %.432696, %1458 ], [ %.612714, %1868 ], [ %.522705, %1657 ], [ %.502703, %1620 ], [ %.482701, %1583 ], [ %.462699, %1546 ], [ %.442697, %1510 ], [ %.542707, %1693 ], [ %.552708, %1717 ], [ %.562709, %1752 ], [ %.572710, %1787 ], [ %.582711, %1822 ], [ %.602713, %1859 ], [ %.602713, %1860 ], [ %.602713, %1855 ], [ -1, %1853 ], [ %.252678, %875 ], [ %.262679, %900 ], [ %.272680, %935 ], [ %.282681, %970 ], [ %.292682, %1012 ], [ %.302683, %1046 ], [ %.312684, %1080 ], [ %.322685, %1114 ], [ %.332686, %1148 ], [ %.342687, %1182 ], [ %.352688, %1216 ], [ %.362689, %1250 ], [ %.622715, %1880 ], [ %.632716, %1907 ], [ %.642717, %dict_put.exit3125 ], [ %.682721, %2024 ], [ %.692722, %2049 ], [ %.702723, %2084 ], [ %.712724, %2119 ], [ %.722725, %2161 ], [ %.732726, %2186 ], [ %.742727, %2221 ], [ %.752728, %2256 ], [ %.762729, %2298 ], [ %.772730, %2332 ], [ %.782731, %2366 ], [ %.792732, %2400 ], [ %.802733, %2434 ], [ %.812734, %2468 ], [ %.822735, %2502 ], [ %.832736, %2536 ], [ %.652718, %1957 ], [ %.662719, %1989 ], [ %.202673, %1871 ]
+  %.752652 = phi ptr [ %.742651, %2617 ], [ %.742651, %2626 ], [ %.732650, %2612 ], [ %.12578, %70 ], [ %.22579, %112 ], [ %.32580, %145 ], [ %.42581, %178 ], [ %.52582, %211 ], [ %.62583, %244 ], [ %.72584, %277 ], [ %.82585, %310 ], [ %.92586, %343 ], [ %.192596, %dict_put.exit ], [ %.102587, %387 ], [ %.112588, %426 ], [ %.122589, %465 ], [ %.132590, %504 ], [ %.142591, %543 ], [ %.152592, %582 ], [ %.162593, %621 ], [ %.172594, %660 ], [ %.202597, %709 ], [ %.212598, %738 ], [ %.222599, %763 ], [ %.232600, %798 ], [ %.242601, %833 ], [ %.372614, %1293 ], [ %.382615, %1326 ], [ %.392616, %1359 ], [ %.402617, %1392 ], [ %.412618, %1425 ], [ %.422619, %1458 ], [ %.502627, %1868 ], [ %.432620, %1657 ], [ %.432620, %1620 ], [ %.432620, %1583 ], [ %.432620, %1546 ], [ %.432620, %1510 ], [ %.442621, %1693 ], [ %.452622, %1717 ], [ %.462623, %1752 ], [ %.472624, %1787 ], [ %.482625, %1822 ], [ %.492626, %1859 ], [ %.492626, %1860 ], [ %.492626, %1855 ], [ %.482625, %1853 ], [ %.252602, %875 ], [ %.262603, %900 ], [ %.272604, %935 ], [ %.282605, %970 ], [ %.292606, %1012 ], [ %.302607, %1046 ], [ %.312608, %1080 ], [ %.322609, %1114 ], [ %.332610, %1148 ], [ %.342611, %1182 ], [ %.352612, %1216 ], [ %.362613, %1250 ], [ %.512628, %1880 ], [ %.522629, %1907 ], [ %.532630, %dict_put.exit3125 ], [ %.572634, %2024 ], [ %.582635, %2049 ], [ %.592636, %2084 ], [ %.602637, %2119 ], [ %.612638, %2161 ], [ %.622639, %2186 ], [ %.632640, %2221 ], [ %.642641, %2256 ], [ %.652642, %2298 ], [ %.662643, %2332 ], [ %.672644, %2366 ], [ %.682645, %2400 ], [ %.692646, %2434 ], [ %.702647, %2468 ], [ %.712648, %2502 ], [ %.722649, %2536 ], [ %.542631, %1957 ], [ %.552632, %1989 ], [ %.202597, %1871 ]
+  %.962576 = phi i32 [ %.952575, %2617 ], [ %.952575, %2626 ], [ %.942574, %2612 ], [ %.12481, %70 ], [ %.22482, %112 ], [ %.32483, %145 ], [ %.42484, %178 ], [ %.52485, %211 ], [ %.62486, %244 ], [ %.72487, %277 ], [ %.82488, %310 ], [ %.92489, %343 ], [ %.262506, %dict_put.exit ], [ %.102490, %387 ], [ %.122492, %426 ], [ %.142494, %465 ], [ %.162496, %504 ], [ %.182498, %543 ], [ %.202500, %582 ], [ %.222502, %621 ], [ %.242504, %660 ], [ %.272507, %709 ], [ %.282508, %738 ], [ %.292509, %763 ], [ %.302510, %798 ], [ %.312511, %833 ], [ %.472527, %1293 ], [ %.482528, %1326 ], [ %.492529, %1359 ], [ %.502530, %1392 ], [ %.512531, %1425 ], [ %.522532, %1458 ], [ %.692549, %1868 ], [ %.622542, %1657 ], [ %.602540, %1620 ], [ %.582538, %1583 ], [ %.562536, %1546 ], [ %.542534, %1510 ], [ %.632543, %1693 ], [ %.642544, %1717 ], [ %.652545, %1752 ], [ %.662546, %1787 ], [ %.672547, %1822 ], [ %.682548, %1859 ], [ %.682548, %1860 ], [ %.682548, %1855 ], [ %.672547, %1853 ], [ %.332513, %875 ], [ %.342514, %900 ], [ %.352515, %935 ], [ %.362516, %970 ], [ %.382518, %1012 ], [ %.392519, %1046 ], [ %.402520, %1080 ], [ %.412521, %1114 ], [ %.422522, %1148 ], [ %.432523, %1182 ], [ %.442524, %1216 ], [ %.452525, %1250 ], [ %.702550, %1880 ], [ %.712551, %1907 ], [ %.722552, %dict_put.exit3125 ], [ %.752555, %2024 ], [ %.762556, %2049 ], [ %.772557, %2084 ], [ %.782558, %2119 ], [ %.802560, %2161 ], [ %.812561, %2186 ], [ %.822562, %2221 ], [ %.832563, %2256 ], [ %.852565, %2298 ], [ %.862566, %2332 ], [ %.872567, %2366 ], [ %.882568, %2400 ], [ %.892569, %2434 ], [ %.902570, %2468 ], [ %.912571, %2502 ], [ %.922572, %2536 ], [ %.732553, %1957 ], [ %.742554, %1989 ], [ %.272507, %1871 ]
+  %.812479 = phi i32 [ %.802478, %2617 ], [ %.802478, %2626 ], [ %.792477, %2612 ], [ %.12399, %70 ], [ %.22400, %112 ], [ %.32401, %145 ], [ %.42402, %178 ], [ %.52403, %211 ], [ %.62404, %244 ], [ %.72405, %277 ], [ %.82406, %310 ], [ %.92407, %343 ], [ %.192417, %dict_put.exit ], [ %.102408, %387 ], [ %.112409, %426 ], [ %.122410, %465 ], [ %.132411, %504 ], [ %.142412, %543 ], [ %.152413, %582 ], [ %.162414, %621 ], [ %.172415, %660 ], [ %.202418, %709 ], [ %.212419, %738 ], [ %.222420, %763 ], [ %.232421, %798 ], [ %.242422, %833 ], [ %.382436, %1293 ], [ %.392437, %1326 ], [ %.402438, %1359 ], [ %.412439, %1392 ], [ %.422440, %1425 ], [ %.432441, %1458 ], [ %.562454, %1868 ], [ 1, %1657 ], [ 2, %1620 ], [ 3, %1583 ], [ 4, %1546 ], [ 5, %1510 ], [ %.502448, %1693 ], [ %.512449, %1717 ], [ %.522450, %1752 ], [ %.532451, %1787 ], [ %.542452, %1822 ], [ %.552453, %1859 ], [ %.552453, %1860 ], [ %.552453, %1855 ], [ %.542452, %1853 ], [ %.252423, %875 ], [ %.262424, %900 ], [ %.272425, %935 ], [ %.282426, %970 ], [ %.292427, %1012 ], [ %.302428, %1046 ], [ %.312429, %1080 ], [ %.322430, %1114 ], [ %.332431, %1148 ], [ %.342432, %1182 ], [ %.352433, %1216 ], [ %.362434, %1250 ], [ %.572455, %1880 ], [ %.582456, %1907 ], [ %.592457, %dict_put.exit3125 ], [ %.632461, %2024 ], [ %.642462, %2049 ], [ %.652463, %2084 ], [ %.662464, %2119 ], [ %.672465, %2161 ], [ %.682466, %2186 ], [ %.692467, %2221 ], [ %.702468, %2256 ], [ %.712469, %2298 ], [ %.722470, %2332 ], [ %.732471, %2366 ], [ %.742472, %2400 ], [ %.752473, %2434 ], [ %.762474, %2468 ], [ %.772475, %2502 ], [ %.782476, %2536 ], [ %.602458, %1957 ], [ %.612459, %1989 ], [ %.202418, %1871 ]
+  %.872397 = phi i32 [ %.862396, %2617 ], [ %.862396, %2626 ], [ %.852395, %2612 ], [ %.12311, %70 ], [ %.22312, %112 ], [ %.32313, %145 ], [ %.42314, %178 ], [ %.52315, %211 ], [ %.62316, %244 ], [ %.72317, %277 ], [ %.82318, %310 ], [ %.92319, %343 ], [ %.262336, %dict_put.exit ], [ %.102320, %387 ], [ %.122322, %426 ], [ %.142324, %465 ], [ %.162326, %504 ], [ %.182328, %543 ], [ %.202330, %582 ], [ %.222332, %621 ], [ %.242334, %660 ], [ %.272337, %709 ], [ %.282338, %738 ], [ %.292339, %763 ], [ %.302340, %798 ], [ %.312341, %833 ], [ %.452355, %1293 ], [ %.462356, %1326 ], [ %.472357, %1359 ], [ %.482358, %1392 ], [ %.492359, %1425 ], [ %.502360, %1458 ], [ %.622372, %1868 ], [ %.552365, %1657 ], [ %.542364, %1620 ], [ %.532363, %1583 ], [ %.522362, %1546 ], [ %.512361, %1510 ], [ %.562366, %1693 ], [ %.572367, %1717 ], [ %.582368, %1752 ], [ %.592369, %1787 ], [ %.602370, %1822 ], [ %.612371, %1859 ], [ %.612371, %1860 ], [ %.612371, %1855 ], [ %.602370, %1853 ], [ %.322342, %875 ], [ %.332343, %900 ], [ %.342344, %935 ], [ %.352345, %970 ], [ %.362346, %1012 ], [ %.372347, %1046 ], [ %.382348, %1080 ], [ %.392349, %1114 ], [ %.402350, %1148 ], [ %.412351, %1182 ], [ %.422352, %1216 ], [ %.432353, %1250 ], [ %.632373, %1880 ], [ %.642374, %1907 ], [ %.652375, %dict_put.exit3125 ], [ %.692379, %2024 ], [ %.702380, %2049 ], [ %.712381, %2084 ], [ %.722382, %2119 ], [ %.732383, %2161 ], [ %.742384, %2186 ], [ %.752385, %2221 ], [ %.762386, %2256 ], [ %.772387, %2298 ], [ %.782388, %2332 ], [ %.792389, %2366 ], [ %.802390, %2400 ], [ %.812391, %2434 ], [ %.822392, %2468 ], [ %.832393, %2502 ], [ %.842394, %2536 ], [ %.662376, %1957 ], [ %.672377, %1989 ], [ %.272337, %1871 ]
+  %.762309 = phi i32 [ %.752308, %2617 ], [ %.752308, %2626 ], [ %.742307, %2612 ], [ %.12234, %70 ], [ %.22235, %112 ], [ %.32236, %145 ], [ %.42237, %178 ], [ %.52238, %211 ], [ %.62239, %244 ], [ %.72240, %277 ], [ %.82241, %310 ], [ %.92242, %343 ], [ %.192252, %dict_put.exit ], [ %.102243, %387 ], [ %.112244, %426 ], [ %.122245, %465 ], [ %.132246, %504 ], [ %.142247, %543 ], [ %.152248, %582 ], [ %.162249, %621 ], [ %.172250, %660 ], [ %.202253, %709 ], [ %.212254, %738 ], [ %.222255, %763 ], [ %.232256, %798 ], [ %.242257, %833 ], [ %.382271, %1293 ], [ %.392272, %1326 ], [ %.402273, %1359 ], [ %.412274, %1392 ], [ %.422275, %1425 ], [ %.432276, %1458 ], [ %.512284, %1868 ], [ %.442277, %1657 ], [ %.442277, %1620 ], [ %.442277, %1583 ], [ %.442277, %1546 ], [ %.442277, %1510 ], [ %.452278, %1693 ], [ %.462279, %1717 ], [ %.472280, %1752 ], [ %.482281, %1787 ], [ %.492282, %1822 ], [ %.502283, %1859 ], [ %.502283, %1860 ], [ %.502283, %1855 ], [ %.492282, %1853 ], [ %.252258, %875 ], [ %.262259, %900 ], [ %.272260, %935 ], [ %.282261, %970 ], [ %.292262, %1012 ], [ %.302263, %1046 ], [ %.312264, %1080 ], [ %.322265, %1114 ], [ %.332266, %1148 ], [ %.342267, %1182 ], [ %.352268, %1216 ], [ %.362269, %1250 ], [ %.522285, %1880 ], [ %.532286, %1907 ], [ %.542287, %dict_put.exit3125 ], [ %.582291, %2024 ], [ %.592292, %2049 ], [ %.602293, %2084 ], [ %.612294, %2119 ], [ %.622295, %2161 ], [ %.632296, %2186 ], [ %.642297, %2221 ], [ %.652298, %2256 ], [ %.662299, %2298 ], [ %.672300, %2332 ], [ %.682301, %2366 ], [ %.692302, %2400 ], [ %.702303, %2434 ], [ %.712304, %2468 ], [ %.722305, %2502 ], [ %.732306, %2536 ], [ %.552288, %1957 ], [ %.562289, %1989 ], [ %.202253, %1871 ]
+  %2628 = phi i1 [ true, %2617 ], [ true, %2626 ], [ true, %2612 ], [ true, %70 ], [ true, %112 ], [ true, %145 ], [ true, %178 ], [ true, %211 ], [ true, %244 ], [ true, %277 ], [ true, %310 ], [ true, %343 ], [ true, %dict_put.exit ], [ true, %387 ], [ true, %426 ], [ true, %465 ], [ true, %504 ], [ true, %543 ], [ true, %582 ], [ true, %621 ], [ true, %660 ], [ true, %709 ], [ true, %738 ], [ true, %763 ], [ true, %798 ], [ true, %833 ], [ true, %1293 ], [ true, %1326 ], [ true, %1359 ], [ true, %1392 ], [ true, %1425 ], [ true, %1458 ], [ false, %1868 ], [ true, %1657 ], [ true, %1620 ], [ true, %1583 ], [ true, %1546 ], [ true, %1510 ], [ true, %1693 ], [ true, %1717 ], [ true, %1752 ], [ true, %1787 ], [ true, %1822 ], [ true, %1859 ], [ false, %1860 ], [ false, %1855 ], [ false, %1853 ], [ true, %875 ], [ true, %900 ], [ true, %935 ], [ true, %970 ], [ true, %1012 ], [ true, %1046 ], [ true, %1080 ], [ true, %1114 ], [ true, %1148 ], [ true, %1182 ], [ true, %1216 ], [ true, %1250 ], [ true, %1880 ], [ true, %1907 ], [ true, %dict_put.exit3125 ], [ true, %2024 ], [ true, %2049 ], [ true, %2084 ], [ true, %2119 ], [ true, %2161 ], [ true, %2186 ], [ true, %2221 ], [ true, %2256 ], [ true, %2298 ], [ true, %2332 ], [ true, %2366 ], [ true, %2400 ], [ true, %2434 ], [ true, %2468 ], [ true, %2502 ], [ true, %2536 ], [ true, %1957 ], [ true, %1989 ], [ false, %1871 ]
+  %2629 = phi i1 [ false, %2617 ], [ false, %2626 ], [ false, %2612 ], [ false, %70 ], [ false, %112 ], [ false, %145 ], [ false, %178 ], [ false, %211 ], [ false, %244 ], [ false, %277 ], [ false, %310 ], [ false, %343 ], [ false, %dict_put.exit ], [ false, %387 ], [ false, %426 ], [ false, %465 ], [ false, %504 ], [ false, %543 ], [ false, %582 ], [ false, %621 ], [ false, %660 ], [ false, %709 ], [ false, %738 ], [ false, %763 ], [ false, %798 ], [ false, %833 ], [ false, %1293 ], [ false, %1326 ], [ false, %1359 ], [ false, %1392 ], [ false, %1425 ], [ false, %1458 ], [ false, %1868 ], [ false, %1657 ], [ false, %1620 ], [ false, %1583 ], [ false, %1546 ], [ false, %1510 ], [ false, %1693 ], [ false, %1717 ], [ false, %1752 ], [ false, %1787 ], [ false, %1822 ], [ false, %1859 ], [ true, %1860 ], [ true, %1855 ], [ false, %1853 ], [ false, %875 ], [ false, %900 ], [ false, %935 ], [ false, %970 ], [ false, %1012 ], [ false, %1046 ], [ false, %1080 ], [ false, %1114 ], [ false, %1148 ], [ false, %1182 ], [ false, %1216 ], [ false, %1250 ], [ false, %1880 ], [ false, %1907 ], [ false, %dict_put.exit3125 ], [ false, %2024 ], [ false, %2049 ], [ false, %2084 ], [ false, %2119 ], [ false, %2161 ], [ false, %2186 ], [ false, %2221 ], [ false, %2256 ], [ false, %2298 ], [ false, %2332 ], [ false, %2366 ], [ false, %2400 ], [ false, %2434 ], [ false, %2468 ], [ false, %2502 ], [ false, %2536 ], [ false, %1957 ], [ false, %1989 ], [ false, %1871 ]
+  %.02206 = phi i32 [ 0, %2617 ], [ 0, %2626 ], [ 0, %2612 ], [ 0, %70 ], [ 0, %112 ], [ 0, %145 ], [ 0, %178 ], [ 0, %211 ], [ 0, %244 ], [ 0, %277 ], [ 0, %310 ], [ 0, %343 ], [ 0, %dict_put.exit ], [ 0, %387 ], [ 0, %426 ], [ 0, %465 ], [ 0, %504 ], [ 0, %543 ], [ 0, %582 ], [ 0, %621 ], [ 0, %660 ], [ 0, %709 ], [ 0, %738 ], [ 0, %763 ], [ 0, %798 ], [ 0, %833 ], [ 0, %1293 ], [ 0, %1326 ], [ 0, %1359 ], [ 0, %1392 ], [ 0, %1425 ], [ 0, %1458 ], [ 9, %1868 ], [ 0, %1657 ], [ 0, %1620 ], [ 0, %1583 ], [ 0, %1546 ], [ 0, %1510 ], [ 0, %1693 ], [ 0, %1717 ], [ 0, %1752 ], [ 0, %1787 ], [ 0, %1822 ], [ 0, %1859 ], [ 1, %1860 ], [ 1, %1855 ], [ 9, %1853 ], [ 0, %875 ], [ 0, %900 ], [ 0, %935 ], [ 0, %970 ], [ 0, %1012 ], [ 0, %1046 ], [ 0, %1080 ], [ 0, %1114 ], [ 0, %1148 ], [ 0, %1182 ], [ 0, %1216 ], [ 0, %1250 ], [ 0, %1880 ], [ 0, %1907 ], [ 0, %dict_put.exit3125 ], [ 0, %2024 ], [ 0, %2049 ], [ 0, %2084 ], [ 0, %2119 ], [ 0, %2161 ], [ 0, %2186 ], [ 0, %2221 ], [ 0, %2256 ], [ 0, %2298 ], [ 0, %2332 ], [ 0, %2366 ], [ 0, %2400 ], [ 0, %2434 ], [ 0, %2468 ], [ 0, %2502 ], [ 0, %2536 ], [ 0, %1957 ], [ 0, %1989 ], [ 9, %1871 ]
+  %.153 = phi i64 [ %4, %2617 ], [ %.152, %2626 ], [ %.150, %2612 ], [ %4, %70 ], [ %4, %112 ], [ %4, %145 ], [ %4, %178 ], [ %4, %211 ], [ %4, %244 ], [ %4, %277 ], [ %4, %310 ], [ %4, %343 ], [ %.36, %dict_put.exit ], [ %4, %387 ], [ %4, %426 ], [ %4, %465 ], [ %4, %504 ], [ %4, %543 ], [ %4, %582 ], [ %4, %621 ], [ %4, %660 ], [ %4, %709 ], [ %4, %738 ], [ %4, %763 ], [ %4, %798 ], [ %4, %833 ], [ %4, %1293 ], [ %4, %1326 ], [ %4, %1359 ], [ %4, %1392 ], [ %4, %1425 ], [ %4, %1458 ], [ %.107, %1868 ], [ %4, %1657 ], [ %4, %1620 ], [ %4, %1583 ], [ %4, %1546 ], [ %4, %1510 ], [ %4, %1693 ], [ %4, %1717 ], [ %4, %1752 ], [ %4, %1787 ], [ %4, %1822 ], [ %4, %1859 ], [ %1863, %1860 ], [ %.105, %1855 ], [ %.104, %1853 ], [ %4, %875 ], [ %4, %900 ], [ %4, %935 ], [ %4, %970 ], [ %4, %1012 ], [ %4, %1046 ], [ %4, %1080 ], [ %4, %1114 ], [ %4, %1148 ], [ %4, %1182 ], [ %4, %1216 ], [ %4, %1250 ], [ %4, %1880 ], [ %4, %1907 ], [ %.112, %dict_put.exit3125 ], [ %4, %2024 ], [ %4, %2049 ], [ %4, %2084 ], [ %4, %2119 ], [ %4, %2161 ], [ %4, %2186 ], [ %4, %2221 ], [ %4, %2256 ], [ %4, %2298 ], [ %4, %2332 ], [ %4, %2366 ], [ %4, %2400 ], [ %4, %2434 ], [ %4, %2468 ], [ %4, %2502 ], [ %4, %2536 ], [ %4, %1957 ], [ %4, %1989 ], [ %.38, %1871 ]
+  %.sroa.0.172 = phi i32 [ %.sroa.0.170, %2617 ], [ %.sroa.0.171, %2626 ], [ %.sroa.0.169, %2612 ], [ %.sroa.0.1, %70 ], [ %.sroa.0.3, %112 ], [ %.sroa.0.5, %145 ], [ %.sroa.0.7, %178 ], [ %.sroa.0.9, %211 ], [ %.sroa.0.11, %244 ], [ %.sroa.0.13, %277 ], [ %.sroa.0.15, %310 ], [ %.sroa.0.17, %343 ], [ %.sroa.0.43, %dict_put.exit ], [ %.sroa.0.19, %387 ], [ %.sroa.0.22, %426 ], [ %.sroa.0.25, %465 ], [ %.sroa.0.28, %504 ], [ %.sroa.0.31, %543 ], [ %.sroa.0.34, %582 ], [ %.sroa.0.37, %621 ], [ %.sroa.0.40, %660 ], [ %.sroa.0.44, %709 ], [ %.sroa.0.46, %738 ], [ %.sroa.0.48, %763 ], [ %.sroa.0.50, %798 ], [ %.sroa.0.52, %833 ], [ %.sroa.0.82, %1293 ], [ %.sroa.0.84, %1326 ], [ %.sroa.0.86, %1359 ], [ %.sroa.0.88, %1392 ], [ %.sroa.0.90, %1425 ], [ %.sroa.0.92, %1458 ], [ %.sroa.0.123, %1868 ], [ %.sroa.0.107, %1657 ], [ %.sroa.0.104, %1620 ], [ %.sroa.0.101, %1583 ], [ %.sroa.0.98, %1546 ], [ %.sroa.0.95, %1510 ], [ %.sroa.0.110, %1693 ], [ %.sroa.0.112, %1717 ], [ %.sroa.0.114, %1752 ], [ %.sroa.0.116, %1787 ], [ %.sroa.0.118, %1822 ], [ %.sroa.0.121, %1859 ], [ %1861, %1860 ], [ %.sroa.0.121, %1855 ], [ %.sroa.0.120, %1853 ], [ %.sroa.0.55, %875 ], [ %.sroa.0.57, %900 ], [ %.sroa.0.59, %935 ], [ %.sroa.0.61, %970 ], [ %.sroa.0.64, %1012 ], [ %.sroa.0.66, %1046 ], [ %.sroa.0.68, %1080 ], [ %.sroa.0.70, %1114 ], [ %.sroa.0.72, %1148 ], [ %.sroa.0.74, %1182 ], [ %.sroa.0.76, %1216 ], [ %.sroa.0.78, %1250 ], [ %.sroa.0.124, %1880 ], [ %.sroa.0.126, %1907 ], [ %.sroa.0.128, %dict_put.exit3125 ], [ %.sroa.0.134, %2024 ], [ %.sroa.0.136, %2049 ], [ %.sroa.0.138, %2084 ], [ %.sroa.0.140, %2119 ], [ %.sroa.0.143, %2161 ], [ %.sroa.0.145, %2186 ], [ %.sroa.0.147, %2221 ], [ %.sroa.0.149, %2256 ], [ %.sroa.0.152, %2298 ], [ %.sroa.0.154, %2332 ], [ %.sroa.0.156, %2366 ], [ %.sroa.0.158, %2400 ], [ %.sroa.0.160, %2434 ], [ %.sroa.0.162, %2468 ], [ %.sroa.0.164, %2502 ], [ %.sroa.0.166, %2536 ], [ %.sroa.0.129, %1957 ], [ %.sroa.0.131, %1989 ], [ %1872, %1871 ]
+  %.sroa.498.172 = phi i32 [ %.sroa.498.170, %2617 ], [ %.sroa.498.171, %2626 ], [ %.sroa.498.169, %2612 ], [ %.sroa.498.1, %70 ], [ %.sroa.498.3, %112 ], [ %.sroa.498.5, %145 ], [ %.sroa.498.7, %178 ], [ %.sroa.498.9, %211 ], [ %.sroa.498.11, %244 ], [ %.sroa.498.13, %277 ], [ %.sroa.498.15, %310 ], [ %.sroa.498.17, %343 ], [ %.sroa.498.43, %dict_put.exit ], [ %.sroa.498.19, %387 ], [ %.sroa.498.22, %426 ], [ %.sroa.498.25, %465 ], [ %.sroa.498.28, %504 ], [ %.sroa.498.31, %543 ], [ %.sroa.498.34, %582 ], [ %.sroa.498.37, %621 ], [ %.sroa.498.40, %660 ], [ %.sroa.498.44, %709 ], [ %.sroa.498.46, %738 ], [ %.sroa.498.48, %763 ], [ %.sroa.498.50, %798 ], [ %.sroa.498.52, %833 ], [ %.sroa.498.82, %1293 ], [ %.sroa.498.84, %1326 ], [ %.sroa.498.86, %1359 ], [ %.sroa.498.88, %1392 ], [ %.sroa.498.90, %1425 ], [ %.sroa.498.92, %1458 ], [ %.sroa.498.123, %1868 ], [ %.sroa.498.107, %1657 ], [ %.sroa.498.104, %1620 ], [ %.sroa.498.101, %1583 ], [ %.sroa.498.98, %1546 ], [ %.sroa.498.95, %1510 ], [ %.sroa.498.110, %1693 ], [ %.sroa.498.112, %1717 ], [ %.sroa.498.114, %1752 ], [ %.sroa.498.116, %1787 ], [ %.sroa.498.118, %1822 ], [ %.sroa.498.121, %1859 ], [ %1867, %1860 ], [ %.sroa.498.121, %1855 ], [ %.sroa.498.120, %1853 ], [ %.sroa.498.55, %875 ], [ %.sroa.498.57, %900 ], [ %.sroa.498.59, %935 ], [ %.sroa.498.61, %970 ], [ %.sroa.498.64, %1012 ], [ %.sroa.498.66, %1046 ], [ %.sroa.498.68, %1080 ], [ %.sroa.498.70, %1114 ], [ %.sroa.498.72, %1148 ], [ %.sroa.498.74, %1182 ], [ %.sroa.498.76, %1216 ], [ %.sroa.498.78, %1250 ], [ %.sroa.498.124, %1880 ], [ %.sroa.498.126, %1907 ], [ %.sroa.498.128, %dict_put.exit3125 ], [ %.sroa.498.134, %2024 ], [ %.sroa.498.136, %2049 ], [ %.sroa.498.138, %2084 ], [ %.sroa.498.140, %2119 ], [ %.sroa.498.143, %2161 ], [ %.sroa.498.145, %2186 ], [ %.sroa.498.147, %2221 ], [ %.sroa.498.149, %2256 ], [ %.sroa.498.152, %2298 ], [ %.sroa.498.154, %2332 ], [ %.sroa.498.156, %2366 ], [ %.sroa.498.158, %2400 ], [ %.sroa.498.160, %2434 ], [ %.sroa.498.162, %2468 ], [ %.sroa.498.164, %2502 ], [ %.sroa.498.166, %2536 ], [ %.sroa.498.129, %1957 ], [ %.sroa.498.131, %1989 ], [ %1873, %1871 ]
+  store i64 %.sroa.10.81, ptr %.sroa.10.0..sroa_idx, align 8
+  store i64 %.sroa.35.79, ptr %.sroa.35.0..sroa_idx, align 8
   store i32 %.sroa.0.172, ptr %6, align 4
   store i32 %.sroa.498.172, ptr %.sroa.498.0..sroa_idx, align 4
   store i32 0, ptr %7, align 4
@@ -5641,42 +5644,42 @@ dict_get.exit.i:                                  ; preds = %dict_get.exit.i, %.
   store i32 %.962576, ptr %39, align 8
   store i32 %.812479, ptr %41, align 4
   store i32 %.872397, ptr %43, align 8
-  store i32 %.763262, ptr %45, align 4
-  %2632 = load i64, ptr %53, align 8
-  %.not3119 = icmp eq i64 %2632, -1
-  br i1 %.not3119, label %2638, label %2633
+  store i32 %.763260, ptr %45, align 4
+  %2630 = load i64, ptr %53, align 8
+  %.not3119 = icmp eq i64 %2630, -1
+  br i1 %.not3119, label %2636, label %2631
 
-2633:                                             ; preds = %2629
-  %.neg3120 = sub i64 %.sroa.10.0.copyload, %.sroa.10.80
-  %2634 = add i64 %2632, %.neg3120
-  store i64 %2634, ptr %53, align 8
-  %2635 = icmp eq i64 %2634, 0
-  %or.cond = and i1 %2630, %2635
-  br i1 %or.cond, label %2636, label %2638
+2631:                                             ; preds = %2627
+  %.neg3120 = sub i64 %.sroa.10.0.copyload, %.sroa.10.81
+  %2632 = add i64 %2630, %.neg3120
+  store i64 %2632, ptr %53, align 8
+  %2633 = icmp eq i64 %2632, 0
+  %or.cond = and i1 %2628, %2633
+  br i1 %or.cond, label %2634, label %2636
 
-2636:                                             ; preds = %2633
-  %2637 = load i32, ptr %59, align 8
-  switch i32 %2637, label %rc_read_init.exit.fold.split [
+2634:                                             ; preds = %2631
+  %2635 = load i32, ptr %59, align 8
+  switch i32 %2635, label %rc_read_init.exit.fold.split [
     i32 0, label %rc_read_init.exit
-    i32 1, label %.thread3270
+    i32 1, label %.thread3268
   ]
 
-2638:                                             ; preds = %2633, %2629
-  br i1 %2631, label %.thread3270, label %rc_read_init.exit
+2636:                                             ; preds = %2631, %2627
+  br i1 %2629, label %.thread3268, label %rc_read_init.exit
 
-.thread3270:                                      ; preds = %2636, %2638
-  %2639 = icmp eq i32 %.sroa.498.172, 0
-  %spec.select = select i1 %2639, i32 1, i32 9
+.thread3268:                                      ; preds = %2634, %2636
+  %2637 = icmp eq i32 %.sroa.498.172, 0
+  %spec.select = select i1 %2637, i32 1, i32 9
   store i32 -1, ptr %6, align 4
   store i32 0, ptr %.sroa.498.0..sroa_idx, align 4
   store i32 5, ptr %7, align 4
   br label %rc_read_init.exit
 
-rc_read_init.exit.fold.split:                     ; preds = %2636
+rc_read_init.exit.fold.split:                     ; preds = %2634
   br label %rc_read_init.exit
 
-rc_read_init.exit:                                ; preds = %16, %8, %2636, %rc_read_init.exit.fold.split, %2638, %.thread3270
-  %.0 = phi i32 [ %spec.select, %.thread3270 ], [ %.02206, %2638 ], [ %2637, %2636 ], [ 9, %rc_read_init.exit.fold.split ], [ 0, %8 ], [ 9, %16 ]
+rc_read_init.exit:                                ; preds = %16, %8, %2634, %rc_read_init.exit.fold.split, %2636, %.thread3268
+  %.0 = phi i32 [ %spec.select, %.thread3268 ], [ %.02206, %2636 ], [ %2635, %2634 ], [ 9, %rc_read_init.exit.fold.split ], [ 0, %8 ], [ 9, %16 ]
   ret i32 %.0
 }
 

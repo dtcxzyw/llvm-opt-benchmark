@@ -4345,9 +4345,9 @@ default.unreachable221:                           ; preds = %74, %28, %"_ZN3std2
   br label %31
 
 136:                                              ; preds = %132, %127
-  %.sink240 = phi { ptr, ptr } [ %124, %127 ], [ %131, %132 ]
+  %.sink241 = phi { ptr, ptr } [ %124, %127 ], [ %131, %132 ]
   %.sroa.0.4 = phi ptr [ %128, %127 ], [ %133, %132 ]
-  %137 = extractvalue { ptr, ptr } %.sink240, 1
+  %137 = extractvalue { ptr, ptr } %.sink241, 1
   %138 = icmp ne ptr %137, null
   call void @llvm.assume(i1 %138)
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$alloc..boxed..Box$LT$uu_tail..chunks..LinesChunk$GT$$GT$$GT$17h08fd8d7685b07efcE.llvm.12436615190307095759"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)
@@ -4942,9 +4942,9 @@ default.unreachable230:                           ; preds = %80, %28, %"_ZN3std2
   br label %31
 
 147:                                              ; preds = %143, %138
-  %.sink249 = phi { ptr, ptr } [ %135, %138 ], [ %142, %143 ]
+  %.sink250 = phi { ptr, ptr } [ %135, %138 ], [ %142, %143 ]
   %.sroa.0.4 = phi ptr [ %139, %138 ], [ %144, %143 ]
-  %148 = extractvalue { ptr, ptr } %.sink249, 1
+  %148 = extractvalue { ptr, ptr } %.sink250, 1
   %149 = icmp ne ptr %148, null
   call void @llvm.assume(i1 %149)
   invoke void @"_ZN4core3ptr120drop_in_place$LT$alloc..collections..vec_deque..VecDeque$LT$alloc..boxed..Box$LT$uu_tail..chunks..LinesChunk$GT$$GT$$GT$17h08fd8d7685b07efcE.llvm.12436615190307095759"(ptr noalias noundef nonnull align 8 dereferenceable(32) %13)

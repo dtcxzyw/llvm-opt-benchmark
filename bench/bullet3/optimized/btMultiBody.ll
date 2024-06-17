@@ -17754,11 +17754,11 @@ if.then4:                                         ; preds = %if.else
 
 if.end11.sink.split:                              ; preds = %if.then4, %if.then
   %.sink = phi ptr [ %0, %if.then ], [ %3, %if.then4 ]
-  %m_collisionFlags.i.i9 = getelementptr inbounds i8, ptr %.sink, i64 224
-  %4 = load i32, ptr %m_collisionFlags.i.i9, align 8
+  %m_collisionFlags.i.i = getelementptr inbounds i8, ptr %.sink, i64 224
+  %4 = load i32, ptr %m_collisionFlags.i.i, align 8
   %and.i = and i32 %4, -4
   %or.i = or i32 %and.i, %type
-  store i32 %or.i, ptr %m_collisionFlags.i.i9, align 8
+  store i32 %or.i, ptr %m_collisionFlags.i.i, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.sink.split, %if.then, %if.else, %if.then4

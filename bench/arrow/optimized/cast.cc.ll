@@ -4328,14 +4328,14 @@ do.end:                                           ; preds = %_ZN5arrow5DatumD2Ev
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %4 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %invoke.cont8, label %return.sink.split.i.i.i.i.i.i.i.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %4, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %invoke.cont8, label %return.sink.split.i.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i:            ; preds = %do.end
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !40
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !40
   store <2 x ptr> %5, ptr %result, align 16, !alias.scope !40
   store ptr null, ptr %storage_.i.i, align 8, !noalias !40
   br label %invoke.cont8
@@ -12302,16 +12302,7 @@ if.end23:                                         ; preds = %_ZN5arrow8FieldRefD
   call void @llvm.experimental.noalias.scope.decl(metadata !133)
   store ptr null, ptr %result, align 8, !alias.scope !133
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %holder.val.val8, null
-  br i1 %cmp.not.i.i.i.i.i.i.i, label %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread, label %if.then.i.i.i.i.i.i.i49
-
-_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread: ; preds = %if.end23
-  %storage_.i.i.i177 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %holder.val.val, ptr %storage_.i.i.i177, align 8, !alias.scope !133
-  %owned_type2.i.i.i.i.i178 = getelementptr inbounds i8, ptr %result, i64 16
-  store ptr %holder.val.val, ptr %owned_type2.i.i.i.i.i178, align 8, !alias.scope !133
-  %_M_refcount.i.i.i.i.i.i.i179 = getelementptr inbounds i8, ptr %result, i64 24
-  store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i179, align 8, !alias.scope !133
-  br label %if.end42
+  br i1 %cmp.not.i.i.i.i.i.i.i, label %if.end42.sink.split, label %if.then.i.i.i.i.i.i.i49
 
 if.then.i.i.i.i.i.i.i49:                          ; preds = %if.end23
   %_M_use_count.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %holder.val.val8, i64 8
@@ -12323,13 +12314,7 @@ _ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIX
   %35 = load i32, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !133
   %add.i.i.i.i.i.i.i.i.i = add nsw i32 %35, 1
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 4, !noalias !133
-  %storage_.i.i.i186 = getelementptr inbounds i8, ptr %result, i64 8
-  store ptr %holder.val.val, ptr %storage_.i.i.i186, align 8, !alias.scope !133
-  %owned_type2.i.i.i.i.i187 = getelementptr inbounds i8, ptr %result, i64 16
-  store ptr %holder.val.val, ptr %owned_type2.i.i.i.i.i187, align 8, !alias.scope !133
-  %_M_refcount.i.i.i.i.i.i.i188 = getelementptr inbounds i8, ptr %result, i64 24
-  store ptr %holder.val.val8, ptr %_M_refcount.i.i.i.i.i.i.i188, align 8, !alias.scope !133
-  br label %if.end42
+  br label %if.end42.sink.split
 
 _ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit: ; preds = %if.then.i.i.i.i.i.i.i49
   %36 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i.i.i.i, i32 1 acq_rel, align 4, !noalias !133
@@ -12454,9 +12439,19 @@ lpad26:                                           ; preds = %invoke.cont37, %if.
   call void @_ZNSt10shared_ptrIN5arrow6ScalarEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %holder) #21
   br label %ehcleanup49
 
-if.end42:                                         ; preds = %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit
-  %_M_refcount.i.i.i.i.i.i.i182 = phi ptr [ %_M_refcount.i.i.i.i.i.i.i179, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread ], [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %_M_refcount.i.i.i.i.i.i.i188, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184 ]
-  %owned_type2.i.i.i.i.i181 = phi ptr [ %owned_type2.i.i.i.i.i178, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread ], [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %owned_type2.i.i.i.i.i187, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184 ]
+if.end42.sink.split:                              ; preds = %if.end23, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184
+  %holder.val.val8.sink = phi ptr [ %holder.val.val8, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit.thread184 ], [ null, %if.end23 ]
+  %storage_.i.i.i186 = getelementptr inbounds i8, ptr %result, i64 8
+  store ptr %holder.val.val, ptr %storage_.i.i.i186, align 8, !alias.scope !133
+  %owned_type2.i.i.i.i.i187 = getelementptr inbounds i8, ptr %result, i64 16
+  store ptr %holder.val.val, ptr %owned_type2.i.i.i.i.i187, align 8, !alias.scope !133
+  %_M_refcount.i.i.i.i.i.i.i188 = getelementptr inbounds i8, ptr %result, i64 24
+  store ptr %holder.val.val8.sink, ptr %_M_refcount.i.i.i.i.i.i.i188, align 8, !alias.scope !133
+  br label %if.end42
+
+if.end42:                                         ; preds = %if.end42.sink.split, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit
+  %_M_refcount.i.i.i.i.i.i.i182 = phi ptr [ %_M_refcount.i.i.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %_M_refcount.i.i.i.i.i.i.i188, %if.end42.sink.split ]
+  %owned_type2.i.i.i.i.i181 = phi ptr [ %owned_type2.i.i.i.i.i, %_ZN5arrow7compute8internalL17GenericFromScalarINS_10TypeHolderEEENSt9enable_ifIXsr3std7is_sameIT_S3_EE5valueENS_6ResultIS5_EEE4typeERKSt10shared_ptrINS_6ScalarEE.exit ], [ %owned_type2.i.i.i.i.i187, %if.end42.sink.split ]
   %52 = load ptr, ptr %this, align 8
   store ptr null, ptr %_M_refcount.i.i.i.i.i.i.i182, align 8, !noalias !136
   store ptr null, ptr %owned_type2.i.i.i.i.i181, align 8, !noalias !136
@@ -14874,14 +14869,14 @@ invoke.cont88:                                    ; preds = %_ZNSt10shared_ptrIN
   store i8 -1, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i49, align 8
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i50 = getelementptr inbounds i8, ptr %ref.tmp85, i64 16
   %44 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i50, align 16
-  %switch.i.i.i.i.i.i.i.i.i.i51 = icmp eq i8 %44, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i51, label %_ZN5arrow6ResultINS_5DatumEEC2EOS1_.exit57, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i52
+  %switch.i.i.i.i.i.i.i.i.i.i.i51 = icmp eq i8 %44, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i51, label %_ZN5arrow6ResultINS_5DatumEEC2EOS1_.exit57, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i52
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i52:        ; preds = %invoke.cont88
   %storage_.i.i53 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp85, i64 8
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i55 = getelementptr inbounds i8, ptr %ref.tmp85, i64 8
   %45 = load <2 x ptr>, ptr %ref.tmp85, align 16
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i55, align 8
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i55, align 8
   store <2 x ptr> %45, ptr %storage_.i.i53, align 8
   store ptr null, ptr %ref.tmp85, align 16
   br label %_ZN5arrow6ResultINS_5DatumEEC2EOS1_.exit57

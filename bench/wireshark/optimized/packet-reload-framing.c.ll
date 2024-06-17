@@ -269,19 +269,19 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %45 = getelementptr inbounds i8, ptr %5, i64 24
   %46 = getelementptr inbounds i8, ptr %5, i64 32
   %47 = getelementptr inbounds i8, ptr %5, i64 40
-  %.334 = select i1 %43, i64 284, i64 288
-  %.335 = select i1 %43, i64 212, i64 236
-  %.336 = select i1 %43, i64 216, i64 240
-  %48 = getelementptr inbounds i8, ptr %1, i64 %.334
+  %.338 = select i1 %43, i64 284, i64 288
+  %.339 = select i1 %43, i64 212, i64 236
+  %.340 = select i1 %43, i64 216, i64 240
+  %48 = getelementptr inbounds i8, ptr %1, i64 %.338
   store ptr %48, ptr %45, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 %.335
+  %49 = getelementptr inbounds i8, ptr %1, i64 %.339
   %50 = load i32, ptr %49, align 4
   %51 = lshr i32 %50, 2
   store i32 %51, ptr %46, align 16
   %52 = sext i32 %50 to i64
   %53 = call noalias ptr @g_malloc(i64 noundef %52) #5
   store ptr %53, ptr %47, align 8
-  %54 = getelementptr inbounds i8, ptr %1, i64 %.336
+  %54 = getelementptr inbounds i8, ptr %1, i64 %.340
   %55 = load ptr, ptr %54, align 8
   %56 = load i32, ptr %49, align 4
   %57 = sext i32 %56 to i64
@@ -404,10 +404,10 @@ define internal fastcc i32 @dissect_reload_framing_message(ptr noundef %0, ptr n
   %120 = getelementptr inbounds i8, ptr %1, i64 20
   %121 = load i32, ptr %120, align 4
   %. = select i1 %43, i32 %121, i32 0
-  %.326 = select i1 %43, i32 0, i32 %121
+  %.334 = select i1 %43, i32 0, i32 %121
   store i32 %., ptr %119, align 8
   %122 = getelementptr inbounds i8, ptr %119, i64 4
-  store i32 %.326, ptr %122, align 4
+  store i32 %.334, ptr %122, align 4
   %123 = getelementptr inbounds i8, ptr %119, i64 8
   %124 = getelementptr inbounds i8, ptr %1, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, ptr noundef nonnull align 8 dereferenceable(16) %124, i64 16, i1 false)
@@ -573,11 +573,11 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
 
 214:                                              ; preds = %196
   %215 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %127, ptr noundef nonnull @ei_reload_no_dissector) #4
-  br label %.sink.split329
+  br label %.sink.split337
 
 216:                                              ; preds = %196
   %217 = call i32 @call_dissector_only(ptr noundef nonnull %212, ptr noundef %211, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null) #4
-  br label %.sink.split329
+  br label %.sink.split337
 
 218:                                              ; preds = %proto_item_set_generated.exit267, %proto_item_set_generated.exit270, %189, %192
   %219 = load i32, ptr @hf_reload_framing_type, align 4
@@ -589,7 +589,7 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
   %225 = call ptr @proto_tree_add_item(ptr noundef %129, i32 noundef %224, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef 0) #4
   %226 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 5) #4
   %.not297 = icmp eq i32 %226, 0
-  br i1 %.not297, label %.sink.split329, label %.lr.ph
+  br i1 %.not297, label %.sink.split337, label %.lr.ph
 
 .lr.ph:                                           ; preds = %218, %.outer
   %.0.ph293 = phi ptr [ %.2, %.outer ], [ null, %218 ]
@@ -715,7 +715,7 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
   %.0.ph.lcssa = phi ptr [ %.0.ph293, %.backedge ], [ %.2, %.outer ]
   %.0218.lcssa = phi i32 [ %.0218.be, %.backedge ], [ %284, %.outer ]
   %289 = icmp sgt i32 %.0219.ph.lcssa, -1
-  br i1 %289, label %290, label %.sink.split329
+  br i1 %289, label %290, label %.sink.split337
 
 290:                                              ; preds = %.outer._crit_edge
   %291 = icmp ugt i32 %.0218.lcssa, 1
@@ -751,36 +751,36 @@ proto_item_set_generated.exit270:                 ; preds = %175, %178, %181
 
 .sink.split:                                      ; preds = %301, %305
   %.str.55.sink = phi ptr [ @.str.54, %305 ], [ @.str.55, %301 ]
-  %.sink328 = load i32, ptr %6, align 4
+  %.sink336 = load i32, ptr %6, align 4
   %306 = add i32 %.0218.lcssa, -33
-  %307 = add i32 %306, %.sink328
+  %307 = add i32 %306, %.sink336
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull %.str.55.sink, i32 noundef %307) #4
   br label %308
 
 308:                                              ; preds = %.sink.split, %296, %292, %290
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0.ph.lcssa, ptr noundef nonnull @.str.56) #4
   %.not.i274 = icmp eq ptr %.0.ph.lcssa, null
-  br i1 %.not.i274, label %.sink.split329, label %309
+  br i1 %.not.i274, label %.sink.split337, label %309
 
 309:                                              ; preds = %308
   %310 = getelementptr inbounds i8, ptr %.0.ph.lcssa, i64 32
   %311 = load ptr, ptr %310, align 8
   %.not5.i275 = icmp eq ptr %311, null
-  br i1 %.not5.i275, label %.sink.split329, label %312
+  br i1 %.not5.i275, label %.sink.split337, label %312
 
 312:                                              ; preds = %309
   %313 = getelementptr inbounds i8, ptr %311, i64 28
   %314 = load i32, ptr %313, align 4
   %315 = or i32 %314, 2
   store i32 %315, ptr %313, align 4
-  br label %.sink.split329
+  br label %.sink.split337
 
-.sink.split329:                                   ; preds = %216, %.outer._crit_edge, %308, %309, %312, %218, %214
+.sink.split337:                                   ; preds = %216, %.outer._crit_edge, %308, %309, %312, %218, %214
   %316 = call i32 @tvb_captured_length(ptr noundef %0) #4
   br label %317
 
-317:                                              ; preds = %.sink.split329, %15, %25, %22, %20, %18, %4
-  %.0221 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %25 ], [ 0, %15 ], [ %316, %.sink.split329 ]
+317:                                              ; preds = %.sink.split337, %15, %25, %22, %20, %18, %4
+  %.0221 = phi i32 [ 0, %4 ], [ 0, %18 ], [ 0, %20 ], [ 0, %22 ], [ 0, %25 ], [ 0, %15 ], [ %316, %.sink.split337 ]
   ret i32 %.0221
 }
 

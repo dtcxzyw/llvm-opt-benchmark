@@ -9169,10 +9169,10 @@ if.else:                                          ; preds = %if.then1
 
 if.end10.sink.split:                              ; preds = %if.else, %if.then1
   %.sink = phi i64 [ 192, %if.then1 ], [ 200, %if.else ]
-  %rejected_calls = getelementptr inbounds i8, ptr %cmd, i64 %.sink
-  %2 = load i64, ptr %rejected_calls, align 8
+  %failed_calls = getelementptr inbounds i8, ptr %cmd, i64 %.sink
+  %2 = load i64, ptr %failed_calls, align 8
   %inc7 = add nsw i64 %2, 1
-  store i64 %inc7, ptr %rejected_calls, align 8
+  store i64 %inc7, ptr %failed_calls, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.sink.split, %if.then, %if.else, %entry
@@ -9323,10 +9323,10 @@ if.end23:                                         ; preds = %if.else, %if.then19
   br i1 %or.cond, label %incrCommandStatsOnError.exit, label %land.lhs.true
 
 incrCommandStatsOnError.exit:                     ; preds = %if.end23
-  %rejected_calls.i = getelementptr inbounds i8, ptr %1, i64 200
-  %27 = load i64, ptr %rejected_calls.i, align 8
+  %failed_calls.i = getelementptr inbounds i8, ptr %1, i64 200
+  %27 = load i64, ptr %failed_calls.i, align 8
   %inc7.i = add nsw i64 %27, 1
-  store i64 %inc7.i, ptr %rejected_calls.i, align 8
+  store i64 %inc7.i, ptr %failed_calls.i, align 8
   %28 = load i64, ptr getelementptr inbounds (i8, ptr @server, i64 2424), align 8
   store i64 %28, ptr @incrCommandStatsOnError.prev_err_count, align 8
   br label %if.end33

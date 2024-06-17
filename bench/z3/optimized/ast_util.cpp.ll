@@ -2144,11 +2144,11 @@ _Z6mk_notR11ast_managerP4expr.exit.i197:          ; preds = %if.else8.i.i194, %i
   br i1 %tobool.not.i.i.i200, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %_Z6mk_notR11ast_managerP4expr.exit.i197, %if.then30, %if.then9, %_Z6mk_notR11ast_managerP4expr.exit.i
-  %retval.0.i.i.sink = phi ptr [ %retval.0.i.i, %_Z6mk_notR11ast_managerP4expr.exit.i ], [ %18, %if.then9 ], [ %57, %if.then30 ], [ %retval.0.i.i198, %_Z6mk_notR11ast_managerP4expr.exit.i197 ]
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink, i64 8
-  %100 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
+  %retval.0.i.i198.sink = phi ptr [ %retval.0.i.i, %_Z6mk_notR11ast_managerP4expr.exit.i ], [ %18, %if.then9 ], [ %57, %if.then30 ], [ %retval.0.i.i198, %_Z6mk_notR11ast_managerP4expr.exit.i197 ]
+  %m_ref_count.i.i.i.i.i202 = getelementptr inbounds i8, ptr %retval.0.i.i198.sink, i64 8
+  %100 = load i32, ptr %m_ref_count.i.i.i.i.i202, align 4
   %inc.i.i.i.i.i203 = add i32 %100, 1
-  store i32 %inc.i.i.i.i.i203, ptr %m_ref_count.i.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i.i203, ptr %m_ref_count.i.i.i.i.i202, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_Z6mk_notR11ast_managerP4expr.exit.i197, %if.then.i.i.i.i.i177, %invoke.cont8.i.i174, %invoke.cont60, %if.then30, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %invoke.cont23, %if.then9, %_Z6mk_notR11ast_managerP4expr.exit.i

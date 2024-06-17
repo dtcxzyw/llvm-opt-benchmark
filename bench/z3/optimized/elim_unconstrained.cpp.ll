@@ -6812,24 +6812,24 @@ if.then.i.i145:                                   ; preds = %lor.lhs.false.i.i13
           to label %for.inc105.sink.split.sink.split unwind label %lpad28.loopexit.split-lp.loopexit.split-lp
 
 for.inc105.sink.split.sink.split:                 ; preds = %if.then.i.i145, %if.then.i.i114
-  %call3.i98.sink.ph = phi ptr [ %call3.i98, %if.then.i.i114 ], [ %call96, %if.then.i.i145 ]
-  %.pre.i.i115 = load ptr, ptr %m_nodes.i135, align 8
-  %arrayidx8.phi.trans.insert.i.i147 = getelementptr inbounds i8, ptr %.pre.i.i115, i64 -4
+  %call96.sink.ph = phi ptr [ %call3.i98, %if.then.i.i114 ], [ %call96, %if.then.i.i145 ]
+  %.pre.i.i146 = load ptr, ptr %m_nodes.i135, align 8
+  %arrayidx8.phi.trans.insert.i.i147 = getelementptr inbounds i8, ptr %.pre.i.i146, i64 -4
   %.pre1.i.i148 = load i32, ptr %arrayidx8.phi.trans.insert.i.i147, align 4
   br label %for.inc105.sink.split
 
 for.inc105.sink.split:                            ; preds = %for.inc105.sink.split.sink.split, %lor.lhs.false.i.i137, %lor.lhs.false.i.i106
   %.sink180 = phi i32 [ %88, %lor.lhs.false.i.i106 ], [ %98, %lor.lhs.false.i.i137 ], [ %.pre1.i.i148, %for.inc105.sink.split.sink.split ]
-  %.sink = phi ptr [ %87, %lor.lhs.false.i.i106 ], [ %97, %lor.lhs.false.i.i137 ], [ %.pre.i.i115, %for.inc105.sink.split.sink.split ]
-  %call3.i98.sink = phi ptr [ %call3.i98, %lor.lhs.false.i.i106 ], [ %call96, %lor.lhs.false.i.i137 ], [ %call3.i98.sink.ph, %for.inc105.sink.split.sink.split ]
-  %idx.ext.i.i110 = zext i32 %.sink180 to i64
-  %add.ptr.i.i111 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i110
-  store ptr %call3.i98.sink, ptr %add.ptr.i.i111, align 8
+  %.sink = phi ptr [ %87, %lor.lhs.false.i.i106 ], [ %97, %lor.lhs.false.i.i137 ], [ %.pre.i.i146, %for.inc105.sink.split.sink.split ]
+  %call96.sink = phi ptr [ %call3.i98, %lor.lhs.false.i.i106 ], [ %call96, %lor.lhs.false.i.i137 ], [ %call96.sink.ph, %for.inc105.sink.split.sink.split ]
+  %idx.ext.i.i141 = zext i32 %.sink180 to i64
+  %add.ptr.i.i142 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i141
+  store ptr %call96.sink, ptr %add.ptr.i.i142, align 8
   %100 = load ptr, ptr %m_nodes.i135, align 8
-  %arrayidx10.i.i112 = getelementptr inbounds i8, ptr %100, i64 -4
-  %101 = load i32, ptr %arrayidx10.i.i112, align 4
+  %arrayidx10.i.i143 = getelementptr inbounds i8, ptr %100, i64 -4
+  %101 = load i32, ptr %arrayidx10.i.i143, align 4
   %inc.i.i144 = add i32 %101, 1
-  store i32 %inc.i.i144, ptr %arrayidx10.i.i112, align 4
+  store i32 %inc.i.i144, ptr %arrayidx10.i.i143, align 4
   br label %for.inc105
 
 for.inc105:                                       ; preds = %for.inc105.sink.split, %invoke.cont39, %invoke.cont36, %for.end61, %invoke.cont85, %invoke.cont34

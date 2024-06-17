@@ -5321,12 +5321,12 @@ if.then31:                                        ; preds = %if.else27
   br i1 %cmp34, label %if.end41.sink.split, label %if.end41
 
 if.end41.sink.split:                              ; preds = %if.then31, %if.then22
-  %link = getelementptr inbounds i8, ptr %ri, i64 40
-  %13 = load ptr, ptr %link, align 8
-  %pending_commands = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i32, ptr %pending_commands, align 8
+  %link36 = getelementptr inbounds i8, ptr %ri, i64 40
+  %13 = load ptr, ptr %link36, align 8
+  %pending_commands37 = getelementptr inbounds i8, ptr %13, i64 8
+  %14 = load i32, ptr %pending_commands37, align 8
   %inc38 = add nsw i32 %14, 1
-  store i32 %inc38, ptr %pending_commands, align 8
+  store i32 %inc38, ptr %pending_commands37, align 8
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end41.sink.split, %if.else10, %if.else27, %if.then31, %if.then22
@@ -12135,94 +12135,83 @@ entry:
   %act_ping_time = getelementptr inbounds i8, ptr %0, i64 64
   %1 = load i64, ptr %act_ping_time, align 8
   %tobool.not = icmp eq i64 %1, 0
-  br i1 %tobool.not, label %if.else, label %if.then
-
-if.then:                                          ; preds = %entry
-  %call = tail call i64 @mstime() #28
-  %2 = load ptr, ptr %link, align 8
-  %act_ping_time2 = getelementptr inbounds i8, ptr %2, i64 64
-  br label %if.end9.sink.split
+  br i1 %tobool.not, label %if.else, label %if.end9.sink.split
 
 if.else:                                          ; preds = %entry
   %disconnected = getelementptr inbounds i8, ptr %0, i64 4
-  %3 = load i32, ptr %disconnected, align 4
-  %tobool4.not = icmp eq i32 %3, 0
-  br i1 %tobool4.not, label %if.end9, label %if.then5
+  %2 = load i32, ptr %disconnected, align 4
+  %tobool4.not = icmp eq i32 %2, 0
+  br i1 %tobool4.not, label %if.end9, label %if.end9.sink.split
 
-if.then5:                                         ; preds = %if.else
+if.end9.sink.split:                               ; preds = %if.else, %entry
+  %.sink49 = phi i64 [ 64, %entry ], [ 56, %if.else ]
   %call6 = tail call i64 @mstime() #28
-  %4 = load ptr, ptr %link, align 8
-  %last_avail_time = getelementptr inbounds i8, ptr %4, i64 56
-  br label %if.end9.sink.split
-
-if.end9.sink.split:                               ; preds = %if.then, %if.then5
-  %last_avail_time.sink = phi ptr [ %last_avail_time, %if.then5 ], [ %act_ping_time2, %if.then ]
-  %call6.sink = phi i64 [ %call6, %if.then5 ], [ %call, %if.then ]
-  %.ph = phi ptr [ %4, %if.then5 ], [ %2, %if.then ]
-  %5 = load i64, ptr %last_avail_time.sink, align 8
-  %sub8 = sub nsw i64 %call6.sink, %5
+  %3 = load ptr, ptr %link, align 8
+  %last_avail_time = getelementptr inbounds i8, ptr %3, i64 %.sink49
+  %4 = load i64, ptr %last_avail_time, align 8
+  %sub8 = sub nsw i64 %call6, %4
   br label %if.end9
 
 if.end9:                                          ; preds = %if.end9.sink.split, %if.else
-  %6 = phi ptr [ %0, %if.else ], [ %.ph, %if.end9.sink.split ]
+  %5 = phi ptr [ %0, %if.else ], [ %3, %if.end9.sink.split ]
   %elapsed.0 = phi i64 [ 0, %if.else ], [ %sub8, %if.end9.sink.split ]
-  %cc = getelementptr inbounds i8, ptr %6, i64 16
-  %7 = load ptr, ptr %cc, align 8
-  %tobool11.not = icmp eq ptr %7, null
+  %cc = getelementptr inbounds i8, ptr %5, i64 16
+  %6 = load ptr, ptr %cc, align 8
+  %tobool11.not = icmp eq ptr %6, null
   br i1 %tobool11.not, label %if.end36, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end9
   %call12 = tail call i64 @mstime() #28
-  %8 = load ptr, ptr %link, align 8
-  %cc_conn_time = getelementptr inbounds i8, ptr %8, i64 32
-  %9 = load i64, ptr %cc_conn_time, align 8
-  %sub14 = sub nsw i64 %call12, %9
-  %10 = load i64, ptr @sentinel_min_link_reconnect_period, align 8
-  %cmp = icmp sgt i64 %sub14, %10
+  %7 = load ptr, ptr %link, align 8
+  %cc_conn_time = getelementptr inbounds i8, ptr %7, i64 32
+  %8 = load i64, ptr %cc_conn_time, align 8
+  %sub14 = sub nsw i64 %call12, %8
+  %9 = load i64, ptr @sentinel_min_link_reconnect_period, align 8
+  %cmp = icmp sgt i64 %sub14, %9
   br i1 %cmp, label %land.lhs.true15, label %if.end36
 
 land.lhs.true15:                                  ; preds = %land.lhs.true
-  %act_ping_time17 = getelementptr inbounds i8, ptr %8, i64 64
-  %11 = load i64, ptr %act_ping_time17, align 8
-  %cmp18.not = icmp eq i64 %11, 0
+  %act_ping_time17 = getelementptr inbounds i8, ptr %7, i64 64
+  %10 = load i64, ptr %act_ping_time17, align 8
+  %cmp18.not = icmp eq i64 %10, 0
   br i1 %cmp18.not, label %if.end36, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %land.lhs.true15
   %call20 = tail call i64 @mstime() #28
-  %12 = load ptr, ptr %link, align 8
-  %act_ping_time22 = getelementptr inbounds i8, ptr %12, i64 64
-  %13 = load i64, ptr %act_ping_time22, align 8
-  %sub23 = sub nsw i64 %call20, %13
+  %11 = load ptr, ptr %link, align 8
+  %act_ping_time22 = getelementptr inbounds i8, ptr %11, i64 64
+  %12 = load i64, ptr %act_ping_time22, align 8
+  %sub23 = sub nsw i64 %call20, %12
   %down_after_period = getelementptr inbounds i8, ptr %ri, i64 88
-  %14 = load i64, ptr %down_after_period, align 8
-  %div = sdiv i64 %14, 2
+  %13 = load i64, ptr %down_after_period, align 8
+  %div = sdiv i64 %13, 2
   %cmp24 = icmp sgt i64 %sub23, %div
   br i1 %cmp24, label %land.lhs.true25, label %if.end36
 
 land.lhs.true25:                                  ; preds = %land.lhs.true19
   %call26 = tail call i64 @mstime() #28
-  %15 = load ptr, ptr %link, align 8
-  %last_pong_time = getelementptr inbounds i8, ptr %15, i64 80
-  %16 = load i64, ptr %last_pong_time, align 8
-  %sub28 = sub nsw i64 %call26, %16
-  %17 = load i64, ptr %down_after_period, align 8
-  %div30 = sdiv i64 %17, 2
+  %14 = load ptr, ptr %link, align 8
+  %last_pong_time = getelementptr inbounds i8, ptr %14, i64 80
+  %15 = load i64, ptr %last_pong_time, align 8
+  %sub28 = sub nsw i64 %call26, %15
+  %16 = load i64, ptr %down_after_period, align 8
+  %div30 = sdiv i64 %16, 2
   %cmp31 = icmp sgt i64 %sub28, %div30
   br i1 %cmp31, label %if.then32, label %if.end36
 
 if.then32:                                        ; preds = %land.lhs.true25
-  %cc35 = getelementptr inbounds i8, ptr %15, i64 16
-  %18 = load ptr, ptr %cc35, align 8
-  %cmp.i = icmp eq ptr %18, null
+  %cc35 = getelementptr inbounds i8, ptr %14, i64 16
+  %17 = load ptr, ptr %cc35, align 8
+  %cmp.i = icmp eq ptr %17, null
   br i1 %cmp.i, label %if.end36, label %if.end4.i
 
 if.end4.i:                                        ; preds = %if.then32
   store ptr null, ptr %cc35, align 8
-  %pending_commands.i = getelementptr inbounds i8, ptr %15, i64 8
+  %pending_commands.i = getelementptr inbounds i8, ptr %14, i64 8
   store i32 0, ptr %pending_commands.i, align 8
-  %pc.i = getelementptr inbounds i8, ptr %15, i64 24
-  %19 = load ptr, ptr %pc.i, align 8
-  %cmp5.i = icmp eq ptr %19, %18
+  %pc.i = getelementptr inbounds i8, ptr %14, i64 24
+  %18 = load ptr, ptr %pc.i, align 8
+  %cmp5.i = icmp eq ptr %18, %17
   br i1 %cmp5.i, label %if.then6.i, label %if.end8.i
 
 if.then6.i:                                       ; preds = %if.end4.i
@@ -12230,96 +12219,96 @@ if.then6.i:                                       ; preds = %if.end4.i
   br label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.then6.i, %if.end4.i
-  %data.i = getelementptr inbounds i8, ptr %18, i64 288
+  %data.i = getelementptr inbounds i8, ptr %17, i64 288
   store ptr null, ptr %data.i, align 8
-  %disconnected.i = getelementptr inbounds i8, ptr %15, i64 4
+  %disconnected.i = getelementptr inbounds i8, ptr %14, i64 4
   store i32 1, ptr %disconnected.i, align 4
-  tail call void @redisAsyncFree(ptr noundef nonnull %18) #28
+  tail call void @redisAsyncFree(ptr noundef nonnull %17) #28
   %.pre = load ptr, ptr %link, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end8.i, %if.then32, %land.lhs.true25, %land.lhs.true19, %land.lhs.true15, %land.lhs.true, %if.end9
-  %20 = phi ptr [ %.pre, %if.end8.i ], [ %15, %if.then32 ], [ %15, %land.lhs.true25 ], [ %12, %land.lhs.true19 ], [ %8, %land.lhs.true15 ], [ %8, %land.lhs.true ], [ %6, %if.end9 ]
-  %pc = getelementptr inbounds i8, ptr %20, i64 24
-  %21 = load ptr, ptr %pc, align 8
-  %tobool38.not = icmp eq ptr %21, null
+  %19 = phi ptr [ %.pre, %if.end8.i ], [ %14, %if.then32 ], [ %14, %land.lhs.true25 ], [ %11, %land.lhs.true19 ], [ %7, %land.lhs.true15 ], [ %7, %land.lhs.true ], [ %5, %if.end9 ]
+  %pc = getelementptr inbounds i8, ptr %19, i64 24
+  %20 = load ptr, ptr %pc, align 8
+  %tobool38.not = icmp eq ptr %20, null
   br i1 %tobool38.not, label %if.end53, label %land.lhs.true39
 
 land.lhs.true39:                                  ; preds = %if.end36
   %call40 = tail call i64 @mstime() #28
-  %22 = load ptr, ptr %link, align 8
-  %pc_conn_time = getelementptr inbounds i8, ptr %22, i64 40
-  %23 = load i64, ptr %pc_conn_time, align 8
-  %sub42 = sub nsw i64 %call40, %23
-  %24 = load i64, ptr @sentinel_min_link_reconnect_period, align 8
-  %cmp43 = icmp sgt i64 %sub42, %24
+  %21 = load ptr, ptr %link, align 8
+  %pc_conn_time = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = load i64, ptr %pc_conn_time, align 8
+  %sub42 = sub nsw i64 %call40, %22
+  %23 = load i64, ptr @sentinel_min_link_reconnect_period, align 8
+  %cmp43 = icmp sgt i64 %sub42, %23
   br i1 %cmp43, label %land.lhs.true44, label %if.end53
 
 land.lhs.true44:                                  ; preds = %land.lhs.true39
   %call45 = tail call i64 @mstime() #28
-  %25 = load ptr, ptr %link, align 8
-  %pc_last_activity = getelementptr inbounds i8, ptr %25, i64 48
-  %26 = load i64, ptr %pc_last_activity, align 8
-  %sub47 = sub nsw i64 %call45, %26
-  %27 = load i64, ptr @sentinel_publish_period, align 8
-  %mul = mul nsw i64 %27, 3
+  %24 = load ptr, ptr %link, align 8
+  %pc_last_activity = getelementptr inbounds i8, ptr %24, i64 48
+  %25 = load i64, ptr %pc_last_activity, align 8
+  %sub47 = sub nsw i64 %call45, %25
+  %26 = load i64, ptr @sentinel_publish_period, align 8
+  %mul = mul nsw i64 %26, 3
   %cmp48 = icmp sgt i64 %sub47, %mul
   br i1 %cmp48, label %if.then49, label %if.end53
 
 if.then49:                                        ; preds = %land.lhs.true44
-  %pc52 = getelementptr inbounds i8, ptr %25, i64 24
-  %28 = load ptr, ptr %pc52, align 8
-  %cmp.i33 = icmp eq ptr %28, null
+  %pc52 = getelementptr inbounds i8, ptr %24, i64 24
+  %27 = load ptr, ptr %pc52, align 8
+  %cmp.i33 = icmp eq ptr %27, null
   br i1 %cmp.i33, label %if.end53, label %if.end.i34
 
 if.end.i34:                                       ; preds = %if.then49
-  %cc.i35 = getelementptr inbounds i8, ptr %25, i64 16
-  %29 = load ptr, ptr %cc.i35, align 8
-  %cmp1.i36 = icmp eq ptr %29, %28
+  %cc.i35 = getelementptr inbounds i8, ptr %24, i64 16
+  %28 = load ptr, ptr %cc.i35, align 8
+  %cmp1.i36 = icmp eq ptr %28, %27
   br i1 %cmp1.i36, label %if.then2.i44, label %if.end8.i40
 
 if.then2.i44:                                     ; preds = %if.end.i34
   store ptr null, ptr %cc.i35, align 8
-  %pending_commands.i45 = getelementptr inbounds i8, ptr %25, i64 8
+  %pending_commands.i45 = getelementptr inbounds i8, ptr %24, i64 8
   store i32 0, ptr %pending_commands.i45, align 8
   br label %if.end8.i40
 
 if.end8.i40:                                      ; preds = %if.then2.i44, %if.end.i34
   store ptr null, ptr %pc52, align 8
-  %data.i41 = getelementptr inbounds i8, ptr %28, i64 288
+  %data.i41 = getelementptr inbounds i8, ptr %27, i64 288
   store ptr null, ptr %data.i41, align 8
-  %disconnected.i42 = getelementptr inbounds i8, ptr %25, i64 4
+  %disconnected.i42 = getelementptr inbounds i8, ptr %24, i64 4
   store i32 1, ptr %disconnected.i42, align 4
-  tail call void @redisAsyncFree(ptr noundef nonnull %28) #28
+  tail call void @redisAsyncFree(ptr noundef nonnull %27) #28
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end8.i40, %if.then49, %land.lhs.true44, %land.lhs.true39, %if.end36
   %down_after_period54 = getelementptr inbounds i8, ptr %ri, i64 88
-  %30 = load i64, ptr %down_after_period54, align 8
-  %cmp55 = icmp sgt i64 %elapsed.0, %30
+  %29 = load i64, ptr %down_after_period54, align 8
+  %cmp55 = icmp sgt i64 %elapsed.0, %29
   br i1 %cmp55, label %if.then73, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end53
-  %31 = load i32, ptr %ri, align 8
-  %and = and i32 %31, 1
+  %30 = load i32, ptr %ri, align 8
+  %and = and i32 %30, 1
   %tobool56.not = icmp eq i32 %and, 0
   br i1 %tobool56.not, label %lor.lhs.false65, label %land.lhs.true57
 
 land.lhs.true57:                                  ; preds = %lor.lhs.false
   %role_reported = getelementptr inbounds i8, ptr %ri, i64 128
-  %32 = load i32, ptr %role_reported, align 8
-  %cmp58 = icmp eq i32 %32, 2
+  %31 = load i32, ptr %role_reported, align 8
+  %cmp58 = icmp eq i32 %31, 2
   br i1 %cmp58, label %land.lhs.true59, label %lor.lhs.false65
 
 land.lhs.true59:                                  ; preds = %land.lhs.true57
   %call60 = tail call i64 @mstime() #28
   %role_reported_time = getelementptr inbounds i8, ptr %ri, i64 136
-  %33 = load i64, ptr %role_reported_time, align 8
-  %sub61 = sub nsw i64 %call60, %33
-  %34 = load i64, ptr %down_after_period54, align 8
-  %35 = load i64, ptr @sentinel_info_period, align 8
-  %mul63 = shl nuw nsw i64 %35, 1
-  %add = add nsw i64 %mul63, %34
+  %32 = load i64, ptr %role_reported_time, align 8
+  %sub61 = sub nsw i64 %call60, %32
+  %33 = load i64, ptr %down_after_period54, align 8
+  %34 = load i64, ptr @sentinel_info_period, align 8
+  %mul63 = shl nuw nsw i64 %34, 1
+  %add = add nsw i64 %mul63, %33
   %cmp64 = icmp sgt i64 %sub61, %add
   br i1 %cmp64, label %if.then73, label %land.lhs.true59.lor.lhs.false65_crit_edge
 
@@ -12328,19 +12317,19 @@ land.lhs.true59.lor.lhs.false65_crit_edge:        ; preds = %land.lhs.true59
   br label %lor.lhs.false65
 
 lor.lhs.false65:                                  ; preds = %land.lhs.true59.lor.lhs.false65_crit_edge, %land.lhs.true57, %lor.lhs.false
-  %36 = phi i32 [ %.pre47, %land.lhs.true59.lor.lhs.false65_crit_edge ], [ %31, %land.lhs.true57 ], [ %31, %lor.lhs.false ]
-  %and67 = and i32 %36, 8192
+  %35 = phi i32 [ %.pre47, %land.lhs.true59.lor.lhs.false65_crit_edge ], [ %30, %land.lhs.true57 ], [ %30, %lor.lhs.false ]
+  %and67 = and i32 %35, 8192
   %tobool68.not = icmp eq i32 %and67, 0
   br i1 %tobool68.not, label %if.else81, label %land.lhs.true69
 
 land.lhs.true69:                                  ; preds = %lor.lhs.false65
   %call70 = tail call i64 @mstime() #28
   %master_reboot_since_time = getelementptr inbounds i8, ptr %ri, i64 104
-  %37 = load i64, ptr %master_reboot_since_time, align 8
-  %sub71 = sub nsw i64 %call70, %37
+  %36 = load i64, ptr %master_reboot_since_time, align 8
+  %sub71 = sub nsw i64 %call70, %36
   %master_reboot_down_after_period = getelementptr inbounds i8, ptr %ri, i64 96
-  %38 = load i64, ptr %master_reboot_down_after_period, align 8
-  %cmp72 = icmp sgt i64 %sub71, %38
+  %37 = load i64, ptr %master_reboot_down_after_period, align 8
+  %cmp72 = icmp sgt i64 %sub71, %37
   br i1 %cmp72, label %if.then73, label %land.lhs.true69.if.else81_crit_edge
 
 land.lhs.true69.if.else81_crit_edge:              ; preds = %land.lhs.true69
@@ -12348,8 +12337,8 @@ land.lhs.true69.if.else81_crit_edge:              ; preds = %land.lhs.true69
   br label %if.else81
 
 if.then73:                                        ; preds = %land.lhs.true69, %land.lhs.true59, %if.end53
-  %39 = load i32, ptr %ri, align 8
-  %and75 = and i32 %39, 8
+  %38 = load i32, ptr %ri, align 8
+  %and75 = and i32 %38, 8
   %cmp76 = icmp eq i32 %and75, 0
   br i1 %cmp76, label %if.then77, label %if.end89
 
@@ -12358,20 +12347,20 @@ if.then77:                                        ; preds = %if.then73
   %call78 = tail call i64 @mstime() #28
   %s_down_since_time = getelementptr inbounds i8, ptr %ri, i64 72
   store i64 %call78, ptr %s_down_since_time, align 8
-  %40 = load i32, ptr %ri, align 8
-  %or = or i32 %40, 8
+  %39 = load i32, ptr %ri, align 8
+  %or = or i32 %39, 8
   br label %if.end89.sink.split
 
 if.else81:                                        ; preds = %land.lhs.true69.if.else81_crit_edge, %lor.lhs.false65
-  %41 = phi i32 [ %.pre48, %land.lhs.true69.if.else81_crit_edge ], [ %36, %lor.lhs.false65 ]
-  %and83 = and i32 %41, 8
+  %40 = phi i32 [ %.pre48, %land.lhs.true69.if.else81_crit_edge ], [ %35, %lor.lhs.false65 ]
+  %and83 = and i32 %40, 8
   %tobool84.not = icmp eq i32 %and83, 0
   br i1 %tobool84.not, label %if.end89, label %if.then85
 
 if.then85:                                        ; preds = %if.else81
   tail call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.405, ptr noundef nonnull %ri, ptr noundef nonnull @.str.54)
-  %42 = load i32, ptr %ri, align 8
-  %and87 = and i32 %42, -4105
+  %41 = load i32, ptr %ri, align 8
+  %and87 = and i32 %41, -4105
   br label %if.end89.sink.split
 
 if.end89.sink.split:                              ; preds = %if.then77, %if.then85

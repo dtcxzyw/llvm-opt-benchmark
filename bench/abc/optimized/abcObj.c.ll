@@ -680,11 +680,11 @@ Vec_PtrGrow.exit.i79:                             ; preds = %258, %256
   br label %.sink.split
 
 .sink.split:                                      ; preds = %271, %Vec_PtrGrow.exit.i79, %.Vec_PtrGrow.exit11_crit_edge.i74, %239, %Vec_PtrGrow.exit.i72, %.Vec_PtrGrow.exit11_crit_edge.i67, %209, %Vec_PtrGrow.exit.i65, %.Vec_PtrGrow.exit11_crit_edge.i60, %179, %Vec_PtrGrow.exit.i58, %.Vec_PtrGrow.exit11_crit_edge.i53, %117, %Vec_PtrGrow.exit.i44, %.Vec_PtrGrow.exit11_crit_edge.i39
-  %.sink = phi ptr [ %93, %.Vec_PtrGrow.exit11_crit_edge.i39 ], [ %93, %Vec_PtrGrow.exit.i44 ], [ %93, %117 ], [ %155, %.Vec_PtrGrow.exit11_crit_edge.i53 ], [ %155, %Vec_PtrGrow.exit.i58 ], [ %155, %179 ], [ %185, %.Vec_PtrGrow.exit11_crit_edge.i60 ], [ %185, %Vec_PtrGrow.exit.i65 ], [ %185, %209 ], [ %215, %.Vec_PtrGrow.exit11_crit_edge.i67 ], [ %215, %Vec_PtrGrow.exit.i72 ], [ %215, %239 ], [ %247, %.Vec_PtrGrow.exit11_crit_edge.i74 ], [ %247, %Vec_PtrGrow.exit.i79 ], [ %247, %271 ]
+  %.sink86 = phi ptr [ %93, %.Vec_PtrGrow.exit11_crit_edge.i39 ], [ %93, %Vec_PtrGrow.exit.i44 ], [ %93, %117 ], [ %155, %.Vec_PtrGrow.exit11_crit_edge.i53 ], [ %155, %Vec_PtrGrow.exit.i58 ], [ %155, %179 ], [ %185, %.Vec_PtrGrow.exit11_crit_edge.i60 ], [ %185, %Vec_PtrGrow.exit.i65 ], [ %185, %209 ], [ %215, %.Vec_PtrGrow.exit11_crit_edge.i67 ], [ %215, %Vec_PtrGrow.exit.i72 ], [ %215, %239 ], [ %247, %.Vec_PtrGrow.exit11_crit_edge.i74 ], [ %247, %Vec_PtrGrow.exit.i79 ], [ %247, %271 ]
   %.sink81 = phi ptr [ %.pre.i41, %.Vec_PtrGrow.exit11_crit_edge.i39 ], [ %106, %Vec_PtrGrow.exit.i44 ], [ %118, %117 ], [ %.pre.i55, %.Vec_PtrGrow.exit11_crit_edge.i53 ], [ %168, %Vec_PtrGrow.exit.i58 ], [ %180, %179 ], [ %.pre.i62, %.Vec_PtrGrow.exit11_crit_edge.i60 ], [ %198, %Vec_PtrGrow.exit.i65 ], [ %210, %209 ], [ %.pre.i69, %.Vec_PtrGrow.exit11_crit_edge.i67 ], [ %228, %Vec_PtrGrow.exit.i72 ], [ %240, %239 ], [ %.pre.i76, %.Vec_PtrGrow.exit11_crit_edge.i74 ], [ %260, %Vec_PtrGrow.exit.i79 ], [ %272, %271 ]
-  %273 = load i32, ptr %.sink, align 4
+  %273 = load i32, ptr %.sink86, align 4
   %274 = add nsw i32 %273, 1
-  store i32 %274, ptr %.sink, align 4
+  store i32 %274, ptr %.sink86, align 4
   %275 = sext i32 %273 to i64
   %276 = getelementptr inbounds ptr, ptr %.sink81, i64 %275
   store ptr %.0.i, ptr %276, align 8

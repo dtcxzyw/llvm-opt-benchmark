@@ -3666,11 +3666,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %.noexc100
 
 .noexc100:                                        ; preds = %550, %.noexc211, %548, %.noexc214, %546, %.noexc217
-  %.sink679 = phi i64 [ %187, %546 ], [ %.pre.i.i.i.i216, %.noexc217 ], [ %187, %548 ], [ %.pre.i.i.i.i213, %.noexc214 ], [ %187, %550 ], [ %.pre.i.i.i.i210, %.noexc211 ]
-  %.sink676 = phi i8 [ -89, %546 ], [ -89, %.noexc217 ], [ -10, %548 ], [ -10, %.noexc214 ], [ -90, %550 ], [ -90, %.noexc211 ]
+  %.sink658 = phi i64 [ %187, %546 ], [ %.pre.i.i.i.i216, %.noexc217 ], [ %187, %548 ], [ %.pre.i.i.i.i213, %.noexc214 ], [ %187, %550 ], [ %.pre.i.i.i.i210, %.noexc211 ]
+  %.sink655 = phi i8 [ -89, %546 ], [ -89, %.noexc217 ], [ -10, %548 ], [ -10, %.noexc214 ], [ -90, %550 ], [ -90, %.noexc211 ]
   %552 = load ptr, ptr %53, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %553 = getelementptr inbounds i8, ptr %552, i64 %.sink679
-  store i8 %.sink676, ptr %553, align 1
+  %553 = getelementptr inbounds i8, ptr %552, i64 %.sink658
+  store i8 %.sink655, ptr %553, align 1
   %554 = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %555 = add i64 %554, 1
   store i64 %555, ptr %27, align 8, !noalias !4
@@ -3722,9 +3722,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %578, label %932, label %.noexc79
 
 579:                                              ; preds = %568, %559
-  %.sink654 = phi i32 [ 16, %559 ], [ 17, %568 ]
+  %.sink659 = phi i32 [ 16, %559 ], [ 17, %568 ]
   %.sroa.6357.4.insert.mask359 = and i32 %.sroa.6357.0, -256
-  %.sroa.6357.4.insert.insert360 = or disjoint i32 %.sink654, %.sroa.6357.4.insert.mask359
+  %.sroa.6357.4.insert.insert360 = or disjoint i32 %.sink659, %.sroa.6357.4.insert.mask359
   %.sroa.9361.8.extract.trunc453 = trunc i64 %.sroa.9361.0 to i32
   store i32 %.sroa.6357.4.insert.insert360, ptr %13, align 4, !noalias !629
   store i32 %.sroa.9361.8.extract.trunc453, ptr %.4..4..4..4..4..4..sroa_idx735, align 4, !noalias !629
@@ -3906,9 +3906,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %932
 
 671:                                              ; preds = %649, %640
-  %.sink655 = phi i32 [ 16, %640 ], [ 17, %649 ]
+  %.sink660 = phi i32 [ 16, %640 ], [ 17, %649 ]
   %.sroa.6364.4.insert.mask366 = and i32 %.sroa.6364.0, -256
-  %.sroa.6364.4.insert.insert367 = or disjoint i32 %.sink655, %.sroa.6364.4.insert.mask366
+  %.sroa.6364.4.insert.insert367 = or disjoint i32 %.sink660, %.sroa.6364.4.insert.mask366
   %.sroa.9368.8.extract.trunc466 = trunc i64 %.sroa.9368.0 to i32
   store i32 %.sroa.6364.4.insert.insert367, ptr %12, align 4, !noalias !629
   store i32 %.sroa.9368.8.extract.trunc466, ptr %.4..4..4..4..4..4..sroa_idx737, align 4, !noalias !629
@@ -3995,11 +3995,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %.noexc118
 
 .noexc118:                                        ; preds = %695, %.noexc191, %693, %.noexc194
-  %.sink659 = phi i64 [ %230, %693 ], [ %.pre.i.i.i.i193, %.noexc194 ], [ %230, %695 ], [ %.pre.i.i.i.i190, %.noexc191 ]
-  %.sink656 = phi i8 [ -9, %693 ], [ -9, %.noexc194 ], [ -88, %695 ], [ -88, %.noexc191 ]
+  %.sink664 = phi i64 [ %230, %693 ], [ %.pre.i.i.i.i193, %.noexc194 ], [ %230, %695 ], [ %.pre.i.i.i.i190, %.noexc191 ]
+  %.sink661 = phi i8 [ -9, %693 ], [ -9, %.noexc194 ], [ -88, %695 ], [ -88, %.noexc191 ]
   %697 = load ptr, ptr %53, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %698 = getelementptr inbounds i8, ptr %697, i64 %.sink659
-  store i8 %.sink656, ptr %698, align 1
+  %698 = getelementptr inbounds i8, ptr %697, i64 %.sink664
+  store i8 %.sink661, ptr %698, align 1
   %storemerge525.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge525 = add i64 %storemerge525.in, 1
   store i64 %storemerge525, ptr %27, align 8, !noalias !4
@@ -4058,9 +4058,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %722, label %932, label %.noexc79
 
 723:                                              ; preds = %712, %708
-  %.sink660 = phi i32 [ 16, %708 ], [ 17, %712 ]
+  %.sink665 = phi i32 [ 16, %708 ], [ 17, %712 ]
   %.sroa.6371.4.insert.mask373 = and i32 %.sroa.6371.0, -256
-  %.sroa.6371.4.insert.insert374 = or disjoint i32 %.sink660, %.sroa.6371.4.insert.mask373
+  %.sroa.6371.4.insert.insert374 = or disjoint i32 %.sink665, %.sroa.6371.4.insert.mask373
   %.sroa.9375.8.extract.trunc484 = trunc i64 %.sroa.9375.0 to i32
   store i32 %.sroa.6371.4.insert.insert374, ptr %10, align 4, !noalias !629
   store i32 %.sroa.9375.8.extract.trunc484, ptr %.4..4..4..4..4..4..sroa_idx741, align 4, !noalias !629
@@ -4091,11 +4091,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %.noexc123
 
 .noexc123:                                        ; preds = %727, %.noexc180, %725, %.noexc183
-  %.sink664 = phi i64 [ %238, %725 ], [ %.pre.i.i.i.i182, %.noexc183 ], [ %238, %727 ], [ %.pre.i.i.i.i179, %.noexc180 ]
-  %.sink661 = phi i8 [ -7, %725 ], [ -7, %.noexc183 ], [ -87, %727 ], [ -87, %.noexc180 ]
+  %.sink669 = phi i64 [ %238, %725 ], [ %.pre.i.i.i.i182, %.noexc183 ], [ %238, %727 ], [ %.pre.i.i.i.i179, %.noexc180 ]
+  %.sink666 = phi i8 [ -7, %725 ], [ -7, %.noexc183 ], [ -87, %727 ], [ -87, %.noexc180 ]
   %729 = load ptr, ptr %53, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %730 = getelementptr inbounds i8, ptr %729, i64 %.sink664
-  store i8 %.sink661, ptr %730, align 1
+  %730 = getelementptr inbounds i8, ptr %729, i64 %.sink669
+  store i8 %.sink666, ptr %730, align 1
   %storemerge524.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge524 = add i64 %storemerge524.in, 1
   store i64 %storemerge524, ptr %27, align 8, !noalias !4
@@ -4154,9 +4154,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br i1 %754, label %932, label %.noexc79
 
 755:                                              ; preds = %744, %740
-  %.sink665 = phi i32 [ 16, %740 ], [ 17, %744 ]
+  %.sink670 = phi i32 [ 16, %740 ], [ 17, %744 ]
   %.sroa.6378.4.insert.mask380 = and i32 %.sroa.6378.0, -256
-  %.sroa.6378.4.insert.insert381 = or disjoint i32 %.sink665, %.sroa.6378.4.insert.mask380
+  %.sroa.6378.4.insert.insert381 = or disjoint i32 %.sink670, %.sroa.6378.4.insert.mask380
   %.sroa.9382.8.extract.trunc497 = trunc i64 %.sroa.9382.0 to i32
   store i32 %.sroa.6378.4.insert.insert381, ptr %9, align 4, !noalias !629
   store i32 %.sroa.9382.8.extract.trunc497, ptr %.4..4..4..4..4..4..sroa_idx743, align 4, !noalias !629
@@ -4187,11 +4187,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %.noexc128
 
 .noexc128:                                        ; preds = %759, %.noexc169, %757, %.noexc172
-  %.sink669 = phi i64 [ %242, %757 ], [ %.pre.i.i.i.i171, %.noexc172 ], [ %242, %759 ], [ %.pre.i.i.i.i168, %.noexc169 ]
-  %.sink666 = phi i8 [ -13, %757 ], [ -13, %.noexc172 ], [ -93, %759 ], [ -93, %.noexc169 ]
+  %.sink674 = phi i64 [ %242, %757 ], [ %.pre.i.i.i.i171, %.noexc172 ], [ %242, %759 ], [ %.pre.i.i.i.i168, %.noexc169 ]
+  %.sink671 = phi i8 [ -13, %757 ], [ -13, %.noexc172 ], [ -93, %759 ], [ -93, %.noexc169 ]
   %761 = load ptr, ptr %53, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %762 = getelementptr inbounds i8, ptr %761, i64 %.sink669
-  store i8 %.sink666, ptr %762, align 1
+  %762 = getelementptr inbounds i8, ptr %761, i64 %.sink674
+  store i8 %.sink671, ptr %762, align 1
   %storemerge523.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge523 = add i64 %storemerge523.in, 1
   store i64 %storemerge523, ptr %27, align 8, !noalias !4
@@ -4350,11 +4350,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %.noexc138
 
 .noexc138:                                        ; preds = %825, %.noexc157, %823, %.noexc159
-  %.sink673 = phi i64 [ %258, %823 ], [ %.pre.i.i.i.i158, %.noexc159 ], [ %258, %825 ], [ %.pre.i.i.i.i, %.noexc157 ]
-  %.sink670 = phi i8 [ -14, %823 ], [ -14, %.noexc159 ], [ -96, %825 ], [ -96, %.noexc157 ]
+  %.sink678 = phi i64 [ %258, %823 ], [ %.pre.i.i.i.i158, %.noexc159 ], [ %258, %825 ], [ %.pre.i.i.i.i, %.noexc157 ]
+  %.sink675 = phi i8 [ -14, %823 ], [ -14, %.noexc159 ], [ -96, %825 ], [ -96, %.noexc157 ]
   %827 = load ptr, ptr %53, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %828 = getelementptr inbounds i8, ptr %827, i64 %.sink673
-  store i8 %.sink670, ptr %828, align 1
+  %828 = getelementptr inbounds i8, ptr %827, i64 %.sink678
+  store i8 %.sink675, ptr %828, align 1
   %storemerge.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %27, align 8, !noalias !4
@@ -4522,9 +4522,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17h556c6948bd041faeE(ptr 
   br label %932
 
 900:                                              ; preds = %878, %869
-  %.sink674 = phi i32 [ 16, %869 ], [ 17, %878 ]
+  %.sink679 = phi i32 [ 16, %869 ], [ 17, %878 ]
   %.sroa.6385.4.insert.mask387 = and i32 %.sroa.6385.0, -256
-  %.sroa.6385.4.insert.insert388 = or disjoint i32 %.sink674, %.sroa.6385.4.insert.mask387
+  %.sroa.6385.4.insert.insert388 = or disjoint i32 %.sink679, %.sroa.6385.4.insert.mask387
   %.sroa.9389.8.extract.trunc513 = trunc i64 %.sroa.9389.0 to i32
   store i32 %.sroa.6385.4.insert.insert388, ptr %7, align 4, !noalias !629
   store i32 %.sroa.9389.8.extract.trunc513, ptr %.4..4..4..4..4..4..sroa_idx747, align 4, !noalias !629
@@ -5980,11 +5980,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %.noexc100
 
 .noexc100:                                        ; preds = %535, %.noexc211, %533, %.noexc214, %531, %.noexc217
-  %.sink683 = phi i64 [ %184, %531 ], [ %.pre.i.i.i.i216, %.noexc217 ], [ %184, %533 ], [ %.pre.i.i.i.i213, %.noexc214 ], [ %184, %535 ], [ %.pre.i.i.i.i210, %.noexc211 ]
-  %.sink680 = phi i8 [ -89, %531 ], [ -89, %.noexc217 ], [ -10, %533 ], [ -10, %.noexc214 ], [ -90, %535 ], [ -90, %.noexc211 ]
+  %.sink662 = phi i64 [ %184, %531 ], [ %.pre.i.i.i.i216, %.noexc217 ], [ %184, %533 ], [ %.pre.i.i.i.i213, %.noexc214 ], [ %184, %535 ], [ %.pre.i.i.i.i210, %.noexc211 ]
+  %.sink659 = phi i8 [ -89, %531 ], [ -89, %.noexc217 ], [ -10, %533 ], [ -10, %.noexc214 ], [ -90, %535 ], [ -90, %.noexc211 ]
   %537 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %538 = getelementptr inbounds i8, ptr %537, i64 %.sink683
-  store i8 %.sink680, ptr %538, align 1
+  %538 = getelementptr inbounds i8, ptr %537, i64 %.sink662
+  store i8 %.sink659, ptr %538, align 1
   %539 = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %540 = add i64 %539, 1
   store i64 %540, ptr %27, align 8, !noalias !4
@@ -6036,9 +6036,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %563, label %917, label %.noexc70.thread
 
 564:                                              ; preds = %553, %544
-  %.sink658 = phi i32 [ 16, %544 ], [ 17, %553 ]
+  %.sink663 = phi i32 [ 16, %544 ], [ 17, %553 ]
   %.sroa.6357.4.insert.mask359 = and i32 %.sroa.6357.0, -256
-  %.sroa.6357.4.insert.insert360 = or disjoint i32 %.sink658, %.sroa.6357.4.insert.mask359
+  %.sroa.6357.4.insert.insert360 = or disjoint i32 %.sink663, %.sroa.6357.4.insert.mask359
   %.sroa.9361.8.extract.trunc457 = trunc i64 %.sroa.9361.0 to i32
   store i32 %.sroa.6357.4.insert.insert360, ptr %13, align 4, !noalias !1502
   store i32 %.sroa.9361.8.extract.trunc457, ptr %.4..4..4..4..4..4..sroa_idx739, align 4, !noalias !1502
@@ -6220,9 +6220,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %917
 
 656:                                              ; preds = %634, %625
-  %.sink659 = phi i32 [ 16, %625 ], [ 17, %634 ]
+  %.sink664 = phi i32 [ 16, %625 ], [ 17, %634 ]
   %.sroa.6364.4.insert.mask366 = and i32 %.sroa.6364.0, -256
-  %.sroa.6364.4.insert.insert367 = or disjoint i32 %.sink659, %.sroa.6364.4.insert.mask366
+  %.sroa.6364.4.insert.insert367 = or disjoint i32 %.sink664, %.sroa.6364.4.insert.mask366
   %.sroa.9368.8.extract.trunc470 = trunc i64 %.sroa.9368.0 to i32
   store i32 %.sroa.6364.4.insert.insert367, ptr %12, align 4, !noalias !1502
   store i32 %.sroa.9368.8.extract.trunc470, ptr %.4..4..4..4..4..4..sroa_idx741, align 4, !noalias !1502
@@ -6309,11 +6309,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %.noexc118
 
 .noexc118:                                        ; preds = %680, %.noexc191, %678, %.noexc194
-  %.sink663 = phi i64 [ %227, %678 ], [ %.pre.i.i.i.i193, %.noexc194 ], [ %227, %680 ], [ %.pre.i.i.i.i190, %.noexc191 ]
-  %.sink660 = phi i8 [ -9, %678 ], [ -9, %.noexc194 ], [ -88, %680 ], [ -88, %.noexc191 ]
+  %.sink668 = phi i64 [ %227, %678 ], [ %.pre.i.i.i.i193, %.noexc194 ], [ %227, %680 ], [ %.pre.i.i.i.i190, %.noexc191 ]
+  %.sink665 = phi i8 [ -9, %678 ], [ -9, %.noexc194 ], [ -88, %680 ], [ -88, %.noexc191 ]
   %682 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %683 = getelementptr inbounds i8, ptr %682, i64 %.sink663
-  store i8 %.sink660, ptr %683, align 1
+  %683 = getelementptr inbounds i8, ptr %682, i64 %.sink668
+  store i8 %.sink665, ptr %683, align 1
   %storemerge529.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge529 = add i64 %storemerge529.in, 1
   store i64 %storemerge529, ptr %27, align 8, !noalias !4
@@ -6372,9 +6372,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %707, label %917, label %.noexc70.thread
 
 708:                                              ; preds = %697, %693
-  %.sink664 = phi i32 [ 16, %693 ], [ 17, %697 ]
+  %.sink669 = phi i32 [ 16, %693 ], [ 17, %697 ]
   %.sroa.6371.4.insert.mask373 = and i32 %.sroa.6371.0, -256
-  %.sroa.6371.4.insert.insert374 = or disjoint i32 %.sink664, %.sroa.6371.4.insert.mask373
+  %.sroa.6371.4.insert.insert374 = or disjoint i32 %.sink669, %.sroa.6371.4.insert.mask373
   %.sroa.9375.8.extract.trunc488 = trunc i64 %.sroa.9375.0 to i32
   store i32 %.sroa.6371.4.insert.insert374, ptr %10, align 4, !noalias !1502
   store i32 %.sroa.9375.8.extract.trunc488, ptr %.4..4..4..4..4..4..sroa_idx745, align 4, !noalias !1502
@@ -6405,11 +6405,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %.noexc123
 
 .noexc123:                                        ; preds = %712, %.noexc180, %710, %.noexc183
-  %.sink668 = phi i64 [ %235, %710 ], [ %.pre.i.i.i.i182, %.noexc183 ], [ %235, %712 ], [ %.pre.i.i.i.i179, %.noexc180 ]
-  %.sink665 = phi i8 [ -7, %710 ], [ -7, %.noexc183 ], [ -87, %712 ], [ -87, %.noexc180 ]
+  %.sink673 = phi i64 [ %235, %710 ], [ %.pre.i.i.i.i182, %.noexc183 ], [ %235, %712 ], [ %.pre.i.i.i.i179, %.noexc180 ]
+  %.sink670 = phi i8 [ -7, %710 ], [ -7, %.noexc183 ], [ -87, %712 ], [ -87, %.noexc180 ]
   %714 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %715 = getelementptr inbounds i8, ptr %714, i64 %.sink668
-  store i8 %.sink665, ptr %715, align 1
+  %715 = getelementptr inbounds i8, ptr %714, i64 %.sink673
+  store i8 %.sink670, ptr %715, align 1
   %storemerge528.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge528 = add i64 %storemerge528.in, 1
   store i64 %storemerge528, ptr %27, align 8, !noalias !4
@@ -6468,9 +6468,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br i1 %739, label %917, label %.noexc70.thread
 
 740:                                              ; preds = %729, %725
-  %.sink669 = phi i32 [ 16, %725 ], [ 17, %729 ]
+  %.sink674 = phi i32 [ 16, %725 ], [ 17, %729 ]
   %.sroa.6378.4.insert.mask380 = and i32 %.sroa.6378.0, -256
-  %.sroa.6378.4.insert.insert381 = or disjoint i32 %.sink669, %.sroa.6378.4.insert.mask380
+  %.sroa.6378.4.insert.insert381 = or disjoint i32 %.sink674, %.sroa.6378.4.insert.mask380
   %.sroa.9382.8.extract.trunc501 = trunc i64 %.sroa.9382.0 to i32
   store i32 %.sroa.6378.4.insert.insert381, ptr %9, align 4, !noalias !1502
   store i32 %.sroa.9382.8.extract.trunc501, ptr %.4..4..4..4..4..4..sroa_idx747, align 4, !noalias !1502
@@ -6501,11 +6501,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %.noexc128
 
 .noexc128:                                        ; preds = %744, %.noexc169, %742, %.noexc172
-  %.sink673 = phi i64 [ %239, %742 ], [ %.pre.i.i.i.i171, %.noexc172 ], [ %239, %744 ], [ %.pre.i.i.i.i168, %.noexc169 ]
-  %.sink670 = phi i8 [ -13, %742 ], [ -13, %.noexc172 ], [ -93, %744 ], [ -93, %.noexc169 ]
+  %.sink678 = phi i64 [ %239, %742 ], [ %.pre.i.i.i.i171, %.noexc172 ], [ %239, %744 ], [ %.pre.i.i.i.i168, %.noexc169 ]
+  %.sink675 = phi i8 [ -13, %742 ], [ -13, %.noexc172 ], [ -93, %744 ], [ -93, %.noexc169 ]
   %746 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %747 = getelementptr inbounds i8, ptr %746, i64 %.sink673
-  store i8 %.sink670, ptr %747, align 1
+  %747 = getelementptr inbounds i8, ptr %746, i64 %.sink678
+  store i8 %.sink675, ptr %747, align 1
   %storemerge527.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge527 = add i64 %storemerge527.in, 1
   store i64 %storemerge527, ptr %27, align 8, !noalias !4
@@ -6664,11 +6664,11 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %.noexc138
 
 .noexc138:                                        ; preds = %810, %.noexc157, %808, %.noexc159
-  %.sink677 = phi i64 [ %255, %808 ], [ %.pre.i.i.i.i158, %.noexc159 ], [ %255, %810 ], [ %.pre.i.i.i.i, %.noexc157 ]
-  %.sink674 = phi i8 [ -14, %808 ], [ -14, %.noexc159 ], [ -96, %810 ], [ -96, %.noexc157 ]
+  %.sink682 = phi i64 [ %255, %808 ], [ %.pre.i.i.i.i158, %.noexc159 ], [ %255, %810 ], [ %.pre.i.i.i.i, %.noexc157 ]
+  %.sink679 = phi i8 [ -14, %808 ], [ -14, %.noexc159 ], [ -96, %810 ], [ -96, %.noexc157 ]
   %812 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %813 = getelementptr inbounds i8, ptr %812, i64 %.sink677
-  store i8 %.sink674, ptr %813, align 1
+  %813 = getelementptr inbounds i8, ptr %812, i64 %.sink682
+  store i8 %.sink679, ptr %813, align 1
   %storemerge.in = load i64, ptr %27, align 8, !noalias !4, !noundef !4
   %storemerge = add i64 %storemerge.in, 1
   store i64 %storemerge, ptr %27, align 8, !noalias !4
@@ -6836,9 +6836,9 @@ define hidden i64 @_ZN5gimli5write2op10Expression5write17hcae77c0b536fd028E(ptr 
   br label %917
 
 885:                                              ; preds = %863, %854
-  %.sink678 = phi i32 [ 16, %854 ], [ 17, %863 ]
+  %.sink683 = phi i32 [ 16, %854 ], [ 17, %863 ]
   %.sroa.6385.4.insert.mask387 = and i32 %.sroa.6385.0, -256
-  %.sroa.6385.4.insert.insert388 = or disjoint i32 %.sink678, %.sroa.6385.4.insert.mask387
+  %.sroa.6385.4.insert.insert388 = or disjoint i32 %.sink683, %.sroa.6385.4.insert.mask387
   %.sroa.9389.8.extract.trunc517 = trunc i64 %.sroa.9389.0 to i32
   store i32 %.sroa.6385.4.insert.insert388, ptr %7, align 4, !noalias !1502
   store i32 %.sroa.9389.8.extract.trunc517, ptr %.4..4..4..4..4..4..sroa_idx751, align 4, !noalias !1502

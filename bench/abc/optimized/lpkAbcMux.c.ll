@@ -19,14 +19,14 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %7 = getelementptr inbounds i8, ptr %1, i64 144
   br label %8
 
-8:                                                ; preds = %2, %236
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %236 ]
+8:                                                ; preds = %2, %220
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %220 ]
   %9 = load i32, ptr %3, align 4
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = shl nuw nsw i32 1, %10
   %12 = and i32 %9, %11
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %236, label %13
+  br i1 %.not, label %220, label %13
 
 13:                                               ; preds = %8
   %14 = shl nuw nsw i64 %indvars.iv, 1
@@ -58,7 +58,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %40 = extractelement <2 x i1> %39, i64 0
   %41 = extractelement <2 x i1> %39, i64 1
   %or.cond = select i1 %41, i1 true, i1 %40
-  br i1 %or.cond, label %236, label %42
+  br i1 %or.cond, label %220, label %42
 
 42:                                               ; preds = %13
   %43 = load i32, ptr %5, align 8
@@ -90,7 +90,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %66 = tail call noundef i32 @llvm.smax.i32(i32 %62, i32 %65)
   %67 = tail call noundef i32 @llvm.smin.i32(i32 %59, i32 %66)
   %68 = icmp sle i32 %66, %59
-  br label %197
+  br label %181
 
 69:                                               ; preds = %42
   br i1 %51, label %90, label %70
@@ -118,7 +118,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %87 = zext i1 %86 to i32
   %88 = add nsw i32 %.sext208, 1
   %89 = add nsw i32 %88, %87
-  br label %197
+  br label %181
 
 90:                                               ; preds = %69
   br i1 %50, label %111, label %91
@@ -146,7 +146,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %108 = zext i1 %107 to i32
   %109 = add nsw i32 %.sext202, 1
   %110 = add nsw i32 %109, %108
-  br label %197
+  br label %181
 
 111:                                              ; preds = %90
   %112 = extractelement <2 x i32> %38, i64 1
@@ -176,7 +176,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %130 = zext i1 %129 to i32
   %131 = add nsw i32 %.sext196, 1
   %132 = add nsw i32 %131, %130
-  br label %197
+  br label %181
 
 133:                                              ; preds = %111
   %134 = extractelement <2 x i32> %38, i64 0
@@ -205,7 +205,7 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %151 = zext i1 %150 to i32
   %152 = add nsw i32 %.sext190, 1
   %153 = add nsw i32 %152, %151
-  br label %197
+  br label %181
 
 154:                                              ; preds = %133
   %155 = load i32, ptr %17, align 4
@@ -222,131 +222,106 @@ define ptr @Lpk_MuxAnalize(ptr nocapture noundef readnone %0, ptr noundef %1) lo
   %165 = trunc i32 %164 to i8
   %166 = and i8 %165, 15
   %.rhs.trunc177 = add nsw i8 %166, -1
-  br i1 %.not212, label %181, label %167
+  %. = select i1 %.not212, i32 %134, i32 %112
+  %.226 = select i1 %.not212, i32 %112, i32 %134
+  %167 = trunc nuw nsw i32 %. to i8
+  %.lhs.trunc176 = add nuw nsw i8 %167, 1
+  %168 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
+  %.sext178 = sext i8 %168 to i32
+  %169 = srem i8 %.lhs.trunc176, %.rhs.trunc177
+  %170 = icmp ne i8 %169, 0
+  %171 = zext i1 %170 to i32
+  %172 = trunc nuw nsw i32 %.226 to i8
+  %.lhs.trunc182 = add nsw i8 %172, -1
+  %173 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
+  %.sext184 = sext i8 %173 to i32
+  %174 = srem i8 %.lhs.trunc182, %.rhs.trunc177
+  %175 = icmp ne i8 %174, 0
+  %176 = zext i1 %175 to i32
+  %177 = add nsw i32 %171, %.sext178
+  %178 = add nsw i32 %177, %.sext184
+  %179 = add nsw i32 %178, %176
+  %180 = icmp sle i32 %161, %141
+  br label %181
 
-167:                                              ; preds = %154
-  %168 = trunc nuw nsw i32 %112 to i8
-  %.lhs.trunc = add nuw nsw i8 %168, 1
-  %169 = sdiv i8 %.lhs.trunc, %.rhs.trunc177
-  %.sext = sext i8 %169 to i32
-  %170 = srem i8 %.lhs.trunc, %.rhs.trunc177
-  %171 = icmp ne i8 %170, 0
-  %172 = zext i1 %171 to i32
-  %173 = trunc nuw nsw i32 %134 to i8
-  %.lhs.trunc170 = add nsw i8 %173, -1
-  %174 = sdiv i8 %.lhs.trunc170, %.rhs.trunc177
-  %.sext172 = sext i8 %174 to i32
-  %175 = srem i8 %.lhs.trunc170, %.rhs.trunc177
-  %176 = icmp ne i8 %175, 0
-  %177 = zext i1 %176 to i32
-  %178 = add nsw i32 %172, %.sext
-  %179 = add nsw i32 %178, %.sext172
-  %180 = add nsw i32 %179, %177
-  br label %195
-
-181:                                              ; preds = %154
-  %182 = trunc nuw nsw i32 %134 to i8
-  %.lhs.trunc176 = add nuw nsw i8 %182, 1
-  %183 = sdiv i8 %.lhs.trunc176, %.rhs.trunc177
-  %.sext178 = sext i8 %183 to i32
-  %184 = srem i8 %.lhs.trunc176, %.rhs.trunc177
-  %185 = icmp ne i8 %184, 0
-  %186 = zext i1 %185 to i32
-  %187 = trunc nuw nsw i32 %112 to i8
-  %.lhs.trunc182 = add nsw i8 %187, -1
-  %188 = sdiv i8 %.lhs.trunc182, %.rhs.trunc177
-  %.sext184 = sext i8 %188 to i32
-  %189 = srem i8 %.lhs.trunc182, %.rhs.trunc177
-  %190 = icmp ne i8 %189, 0
-  %191 = zext i1 %190 to i32
-  %192 = add nsw i32 %186, %.sext178
-  %193 = add nsw i32 %192, %.sext184
-  %194 = add nsw i32 %193, %191
-  br label %195
-
-195:                                              ; preds = %181, %167
-  %.0149 = phi i32 [ %180, %167 ], [ %194, %181 ]
-  %196 = icmp sle i32 %161, %141
-  br label %197
-
-197:                                              ; preds = %70, %113, %195, %142, %91, %52
-  %.1 = phi i32 [ 2, %52 ], [ %89, %70 ], [ %110, %91 ], [ %132, %113 ], [ %153, %142 ], [ %.0149, %195 ]
-  %.0148.shrunk = phi i1 [ %68, %52 ], [ false, %70 ], [ true, %91 ], [ true, %113 ], [ false, %142 ], [ %196, %195 ]
-  %.0 = phi i32 [ %67, %52 ], [ %77, %70 ], [ %98, %91 ], [ %120, %113 ], [ %141, %142 ], [ %162, %195 ]
+181:                                              ; preds = %70, %113, %154, %142, %91, %52
+  %.1 = phi i32 [ 2, %52 ], [ %89, %70 ], [ %110, %91 ], [ %132, %113 ], [ %153, %142 ], [ %179, %154 ]
+  %.0148.shrunk = phi i1 [ %68, %52 ], [ false, %70 ], [ true, %91 ], [ true, %113 ], [ false, %142 ], [ %180, %154 ]
+  %.0 = phi i32 [ %67, %52 ], [ %77, %70 ], [ %98, %91 ], [ %120, %113 ], [ %141, %142 ], [ %162, %154 ]
   %.0148 = zext i1 %.0148.shrunk to i32
-  %198 = load i32, ptr %7, align 8
-  %199 = icmp sgt i32 %.0, %198
-  br i1 %199, label %236, label %200
+  %182 = load i32, ptr %7, align 8
+  %183 = icmp sgt i32 %.0, %182
+  br i1 %183, label %220, label %184
 
-200:                                              ; preds = %197
-  %201 = load i32, ptr %5, align 8
-  %202 = lshr i32 %201, 16
-  %203 = and i32 %202, 16383
-  %204 = icmp sgt i32 %.1, %203
-  br i1 %204, label %236, label %205
+184:                                              ; preds = %181
+  %185 = load i32, ptr %5, align 8
+  %186 = lshr i32 %185, 16
+  %187 = and i32 %186, 16383
+  %188 = icmp sgt i32 %.1, %187
+  br i1 %188, label %220, label %189
 
-205:                                              ; preds = %200
-  %206 = select i1 %.0148.shrunk, i32 0, i32 2
-  %207 = extractelement <2 x i32> %38, i64 1
-  %208 = add nuw nsw i32 %206, %207
-  %209 = select i1 %.0148.shrunk, i32 2, i32 0
-  %210 = extractelement <2 x i32> %38, i64 0
-  %211 = add nuw nsw i32 %209, %210
-  %212 = tail call i32 @llvm.umin.i32(i32 %208, i32 %211)
-  %213 = tail call i32 @llvm.umax.i32(i32 %208, i32 %211)
-  %214 = lshr i32 %201, 7
-  %215 = and i32 %214, 31
-  %216 = icmp ugt i32 %213, %215
-  br i1 %216, label %236, label %217
+189:                                              ; preds = %184
+  %190 = select i1 %.0148.shrunk, i32 0, i32 2
+  %191 = extractelement <2 x i32> %38, i64 1
+  %192 = add nuw nsw i32 %190, %191
+  %193 = select i1 %.0148.shrunk, i32 2, i32 0
+  %194 = extractelement <2 x i32> %38, i64 0
+  %195 = add nuw nsw i32 %193, %194
+  %196 = tail call i32 @llvm.umin.i32(i32 %192, i32 %195)
+  %197 = tail call i32 @llvm.umax.i32(i32 %192, i32 %195)
+  %198 = lshr i32 %185, 7
+  %199 = and i32 %198, 31
+  %200 = icmp ugt i32 %197, %199
+  br i1 %200, label %220, label %201
 
-217:                                              ; preds = %205
-  %218 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
-  %219 = icmp eq i32 %218, -1
-  br i1 %219, label %235, label %220
+201:                                              ; preds = %189
+  %202 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %203 = icmp eq i32 %202, -1
+  br i1 %203, label %219, label %204
 
-220:                                              ; preds = %217
-  %221 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
-  %222 = icmp sgt i32 %221, %.1
-  br i1 %222, label %235, label %223
+204:                                              ; preds = %201
+  %205 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
+  %206 = icmp sgt i32 %205, %.1
+  br i1 %206, label %219, label %207
 
-223:                                              ; preds = %220
-  %224 = icmp eq i32 %221, %.1
-  br i1 %224, label %225, label %236
+207:                                              ; preds = %204
+  %208 = icmp eq i32 %205, %.1
+  br i1 %208, label %209, label %220
 
-225:                                              ; preds = %223
-  %226 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  %227 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
-  %228 = add nsw i32 %227, %226
-  %229 = add nuw nsw i32 %208, %211
-  %230 = icmp sgt i32 %228, %229
-  br i1 %230, label %235, label %231
+209:                                              ; preds = %207
+  %210 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
+  %211 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  %212 = add nsw i32 %211, %210
+  %213 = add nuw nsw i32 %192, %195
+  %214 = icmp sgt i32 %212, %213
+  br i1 %214, label %219, label %215
 
-231:                                              ; preds = %225
-  %232 = icmp eq i32 %228, %229
-  %233 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
-  %234 = icmp sgt i32 %233, %.0
-  %or.cond166 = select i1 %232, i1 %234, i1 false
-  br i1 %or.cond166, label %235, label %236
+215:                                              ; preds = %209
+  %216 = icmp eq i32 %212, %213
+  %217 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
+  %218 = icmp sgt i32 %217, %.0
+  %or.cond166 = select i1 %216, i1 %218, i1 false
+  br i1 %or.cond166, label %219, label %220
 
-235:                                              ; preds = %231, %225, %220, %217
+219:                                              ; preds = %215, %209, %204, %201
   store i32 %10, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
   store i32 %.0148, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 36), align 4
   store i32 %.1, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 28), align 4
   store i32 %.0, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 24), align 4
-  store i32 %212, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
-  store i32 %213, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
-  br label %236
+  store i32 %196, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 16), align 4
+  store i32 %197, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 20), align 4
+  br label %220
 
-236:                                              ; preds = %223, %8, %235, %231, %205, %200, %197, %13
+220:                                              ; preds = %207, %8, %219, %215, %189, %184, %181, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
-  br i1 %exitcond.not, label %237, label %8, !llvm.loop !4
+  br i1 %exitcond.not, label %221, label %8, !llvm.loop !4
 
-237:                                              ; preds = %236
-  %238 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
-  %239 = icmp eq i32 %238, -1
-  %240 = select i1 %239, ptr null, ptr @Lpk_MuxAnalize.Res
-  ret ptr %240
+221:                                              ; preds = %220
+  %222 = load i32, ptr getelementptr inbounds (i8, ptr @Lpk_MuxAnalize.Res, i64 32), align 4
+  %223 = icmp eq i32 %222, -1
+  %224 = select i1 %223, ptr null, ptr @Lpk_MuxAnalize.Res
+  ret ptr %224
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)

@@ -533,23 +533,23 @@ define void @Sim_UtilSimulateNode(ptr nocapture noundef readonly %0, ptr nocaptu
   %15 = getelementptr inbounds ptr, ptr %14, i64 %10
   %.0 = load ptr, ptr %15, align 8
   %.not99 = icmp eq i32 %3, 0
-  br i1 %.not, label %16, label %86
-
-16:                                               ; preds = %5
-  %17 = getelementptr i8, ptr %1, i64 32
-  %.val102 = load ptr, ptr %17, align 8
-  %.185 = select i1 %.not99, i64 32, i64 40
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.185
+  %.sink166 = select i1 %.not99, i64 32, i64 40
+  %16 = getelementptr inbounds i8, ptr %0, i64 %.sink166
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
+  %20 = getelementptr i8, ptr %1, i64 32
+  %.val102 = load ptr, ptr %20, align 8
   %.val102.val = load i32, ptr %.val102, align 4
-  %22 = sext i32 %.val102.val to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
-  %.093 = load ptr, ptr %23, align 8
+  %21 = sext i32 %.val102.val to i64
+  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %.093 = load ptr, ptr %22, align 8
+  br i1 %.not, label %23, label %86
+
+23:                                               ; preds = %5
   %.not100 = icmp eq i32 %4, 0
-  %.181 = select i1 %.not100, i64 32, i64 40
-  %24 = getelementptr inbounds i8, ptr %0, i64 %.181
+  %.sink173 = select i1 %.not100, i64 32, i64 40
+  %24 = getelementptr inbounds i8, ptr %0, i64 %.sink173
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8
@@ -566,7 +566,7 @@ define void @Sim_UtilSimulateNode(ptr nocapture noundef readonly %0, ptr nocaptu
   %or.cond = and i1 %35, %33
   br i1 %or.cond, label %.preheader, label %48
 
-.preheader:                                       ; preds = %16
+.preheader:                                       ; preds = %23
   %36 = getelementptr inbounds i8, ptr %0, i64 24
   %37 = load i32, ptr %36, align 8
   %38 = icmp sgt i32 %37, 0
@@ -588,7 +588,7 @@ define void @Sim_UtilSimulateNode(ptr nocapture noundef readonly %0, ptr nocaptu
   %47 = icmp slt i64 %indvars.iv.next150, %46
   br i1 %47, label %.lr.ph130, label %.loopexit, !llvm.loop !15
 
-48:                                               ; preds = %16
+48:                                               ; preds = %23
   %49 = icmp eq i32 %32, 0
   %or.cond3 = or i1 %35, %49
   br i1 %or.cond3, label %63, label %.preheader114
@@ -660,54 +660,43 @@ define void @Sim_UtilSimulateNode(ptr nocapture noundef readonly %0, ptr nocaptu
   br i1 %85, label %.lr.ph126, label %.loopexit, !llvm.loop !18
 
 86:                                               ; preds = %5
-  %.sink180 = select i1 %.not99, i64 32, i64 40
-  %87 = getelementptr inbounds i8, ptr %0, i64 %.sink180
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 8
-  %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr i8, ptr %1, i64 32
-  %.val104 = load ptr, ptr %91, align 8
-  %.val104.val = load i32, ptr %.val104, align 4
-  %92 = sext i32 %.val104.val to i64
-  %93 = getelementptr inbounds ptr, ptr %90, i64 %92
-  %.194 = load ptr, ptr %93, align 8
-  %94 = and i32 %.val, 1024
-  %.not97 = icmp eq i32 %94, 0
-  %95 = getelementptr inbounds i8, ptr %0, i64 24
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp sgt i32 %96, 0
+  %87 = and i32 %.val, 1024
+  %.not97 = icmp eq i32 %87, 0
+  %88 = getelementptr inbounds i8, ptr %0, i64 24
+  %89 = load i32, ptr %88, align 8
+  %90 = icmp sgt i32 %89, 0
   br i1 %.not97, label %.preheader116, label %.preheader118
 
 .preheader118:                                    ; preds = %86
-  br i1 %97, label %.lr.ph, label %.loopexit
+  br i1 %90, label %.lr.ph, label %.loopexit
 
 .preheader116:                                    ; preds = %86
-  br i1 %97, label %.lr.ph122, label %.loopexit
+  br i1 %90, label %.lr.ph122, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader118, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader118 ]
-  %98 = getelementptr inbounds i32, ptr %.194, i64 %indvars.iv
-  %99 = load i32, ptr %98, align 4
-  %100 = xor i32 %99, -1
-  %101 = getelementptr inbounds i32, ptr %.0, i64 %indvars.iv
-  store i32 %100, ptr %101, align 4
+  %91 = getelementptr inbounds i32, ptr %.093, i64 %indvars.iv
+  %92 = load i32, ptr %91, align 4
+  %93 = xor i32 %92, -1
+  %94 = getelementptr inbounds i32, ptr %.0, i64 %indvars.iv
+  store i32 %93, ptr %94, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %102 = load i32, ptr %95, align 8
-  %103 = sext i32 %102 to i64
-  %104 = icmp slt i64 %indvars.iv.next, %103
-  br i1 %104, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  %95 = load i32, ptr %88, align 8
+  %96 = sext i32 %95 to i64
+  %97 = icmp slt i64 %indvars.iv.next, %96
+  br i1 %97, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
 .lr.ph122:                                        ; preds = %.preheader116, %.lr.ph122
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph122 ], [ 0, %.preheader116 ]
-  %105 = getelementptr inbounds i32, ptr %.194, i64 %indvars.iv137
-  %106 = load i32, ptr %105, align 4
-  %107 = getelementptr inbounds i32, ptr %.0, i64 %indvars.iv137
-  store i32 %106, ptr %107, align 4
+  %98 = getelementptr inbounds i32, ptr %.093, i64 %indvars.iv137
+  %99 = load i32, ptr %98, align 4
+  %100 = getelementptr inbounds i32, ptr %.0, i64 %indvars.iv137
+  store i32 %99, ptr %100, align 4
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
-  %108 = load i32, ptr %95, align 8
-  %109 = sext i32 %108 to i64
-  %110 = icmp slt i64 %indvars.iv.next138, %109
-  br i1 %110, label %.lr.ph122, label %.loopexit, !llvm.loop !20
+  %101 = load i32, ptr %88, align 8
+  %102 = sext i32 %101 to i64
+  %103 = icmp slt i64 %indvars.iv.next138, %102
+  br i1 %103, label %.lr.ph122, label %.loopexit, !llvm.loop !20
 
 .loopexit:                                        ; preds = %.lr.ph, %.lr.ph122, %.lr.ph124, %.lr.ph126, %.lr.ph128, %.lr.ph130, %.preheader118, %.preheader116, %.preheader114, %.preheader112, %.preheader110, %.preheader
   ret void

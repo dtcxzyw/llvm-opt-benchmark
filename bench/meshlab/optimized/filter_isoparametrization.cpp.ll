@@ -40226,10 +40226,10 @@ _ZN3vcg4face8VFDetachI8BaseFaceEEvRT_i.exit:      ; preds = %178, %160
   br i1 %247, label %.loopexit230.us.sink.split, label %239
 
 .loopexit230.us.sink.split:                       ; preds = %241, %245
-  %.sink373 = phi i64 [ %295, %245 ], [ %290, %241 ]
+  %.sink368 = phi i64 [ %295, %245 ], [ %290, %241 ]
   %248 = srem i32 %286, 3
   %249 = sext i32 %248 to i64
-  %250 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %249, i64 %.sink373
+  %250 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %249, i64 %.sink368
   %251 = load i32, ptr %250, align 4
   %252 = shl i32 32768, %251
   %253 = getelementptr inbounds i8, ptr %284, i64 88
@@ -40384,10 +40384,10 @@ _ZN3vcg4face8VFDetachI8BaseFaceEEvRT_i.exit:      ; preds = %178, %160
   br i1 %354, label %..loopexit_crit_edge.us.sink.split, label %346
 
 ..loopexit_crit_edge.us.sink.split:               ; preds = %348, %352
-  %.sink376 = phi i64 [ %344, %352 ], [ %339, %348 ]
+  %.sink374 = phi i64 [ %344, %352 ], [ %339, %348 ]
   %355 = srem i32 %335, 3
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %356, i64 %.sink376
+  %357 = getelementptr inbounds [3 x [3 x i32]], ptr @_ZZN3vcg3tri13EdgeCollapserI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEEE2DoERS2_RS5_RKNS_6Point3IfEEbE4VtoE, i64 0, i64 %356, i64 %.sink374
   %358 = load i32, ptr %357, align 4
   %359 = shl i32 32768, %358
   %360 = getelementptr inbounds i8, ptr %333, i64 88
@@ -126988,8 +126988,8 @@ _ZN3vcg4face8Quality3IfNS_6Arity8INS_8FaceBaseI14ParamUsedTypesEENS0_5VFAdjENS0_
   br i1 %.not.i166, label %_ZN3vcg3tri9AllocatorI9ParamMeshE22DeletePerFaceAttributeINS0_15RefinedFaceDataIP11ParamVertexEEEEvRS2_RNS0_7TriMeshISt6vectorIS6_SaIS6_EESB_I9ParamFaceSaISE_EENS0_14DummyContainerESH_SH_E22PerFaceAttributeHandleIT_EE.exit, label %.lr.ph.i164, !llvm.loop !1612
 
 _ZN3vcg3tri9AllocatorI9ParamMeshE22DeletePerFaceAttributeINS0_15RefinedFaceDataIP11ParamVertexEEEEvRS2_RNS0_7TriMeshISt6vectorIS6_SaIS6_EESB_I9ParamFaceSaISE_EENS0_14DummyContainerESH_SH_E22PerFaceAttributeHandleIT_EE.exit.sink.split: ; preds = %171, %580
-  %.sink391 = phi ptr [ %172, %171 ], [ %581, %580 ]
-  %.ph = phi i1 [ false, %171 ], [ %158, %580 ]
+  %.sink391 = phi ptr [ %581, %580 ], [ %172, %171 ]
+  %.ph = phi i1 [ %158, %580 ], [ false, %171 ]
   %584 = getelementptr inbounds i8, ptr %.sink391, i64 40
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %584) #22
   call void @_ZdlPv(ptr noundef nonnull %.sink391) #33
@@ -131061,9 +131061,9 @@ define linkonce_odr void @_ZN3vcg3tri6AppendI6CMeshO9ParamMeshE13ImportFaceAdjER
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split
 
 _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split: ; preds = %84, %82
-  %.sink89 = phi ptr [ %93, %84 ], [ %83, %82 ]
-  %.sink87 = phi ptr [ %86, %84 ], [ null, %82 ]
-  %.sink = phi i8 [ %61, %84 ], [ -1, %82 ]
+  %.sink89 = phi ptr [ %83, %82 ], [ %93, %84 ]
+  %.sink87 = phi ptr [ null, %82 ], [ %86, %84 ]
+  %.sink = phi i8 [ -1, %82 ], [ %61, %84 ]
   %94 = getelementptr inbounds [3 x ptr], ptr %.sink89, i64 0, i64 %indvars.iv73
   store ptr %.sink87, ptr %94, align 8
   %95 = load ptr, ptr %2, align 8

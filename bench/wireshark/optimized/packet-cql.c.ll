@@ -778,8 +778,8 @@ proto_item_set_generated.exit649:                 ; preds = %124, %127, %130
   br i1 %.not5.i651, label %proto_item_set_generated.exit652, label %proto_item_set_generated.exit652.sink.split
 
 proto_item_set_generated.exit652.sink.split:      ; preds = %138, %120
-  %.sink759 = phi ptr [ %122, %120 ], [ %140, %138 ]
-  %141 = getelementptr inbounds i8, ptr %.sink759, i64 28
+  %.sink758 = phi ptr [ %122, %120 ], [ %140, %138 ]
+  %141 = getelementptr inbounds i8, ptr %.sink758, i64 28
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, 2
   store i32 %143, ptr %141, align 4
@@ -1403,8 +1403,8 @@ proto_item_set_generated.exit652:                 ; preds = %proto_item_set_gene
   %534 = load i32, ptr %14, align 4
   %.not640 = icmp eq i32 %534, 0
   %.not748 = icmp eq i32 %528, 0
-  %or.cond758 = or i1 %.not640, %.not748
-  br i1 %or.cond758, label %.loopexit, label %.lr.ph704
+  %or.cond759 = or i1 %.not640, %.not748
+  br i1 %or.cond759, label %.loopexit, label %.lr.ph704
 
 .lr.ph704:                                        ; preds = %533
   %535 = add i32 %.15, 4

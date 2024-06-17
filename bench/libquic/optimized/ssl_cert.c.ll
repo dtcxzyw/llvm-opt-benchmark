@@ -262,29 +262,23 @@ entry:
 define hidden range(i32 0, 2) i32 @ssl_cert_set1_chain(ptr nocapture noundef %cert, ptr noundef %chain) local_unnamed_addr #1 {
 entry:
   %cmp = icmp eq ptr %chain, null
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %chain1.i = getelementptr inbounds i8, ptr %cert, i64 16
-  %0 = load ptr, ptr %chain1.i, align 8
-  tail call void @sk_pop_free(ptr noundef %0, ptr noundef nonnull @X509_free) #10
-  store ptr null, ptr %chain1.i, align 8
-  br label %return
+  br i1 %cmp, label %return.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %call1 = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %chain) #10
   %cmp2 = icmp eq ptr %call1, null
-  br i1 %cmp2, label %return, label %if.end4
+  br i1 %cmp2, label %return, label %return.sink.split
 
-if.end4:                                          ; preds = %if.end
+return.sink.split:                                ; preds = %if.end, %entry
+  %call1.sink = phi ptr [ null, %entry ], [ %call1, %if.end ]
   %chain1.i5 = getelementptr inbounds i8, ptr %cert, i64 16
-  %1 = load ptr, ptr %chain1.i5, align 8
-  tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_free) #10
-  store ptr %call1, ptr %chain1.i5, align 8
+  %0 = load ptr, ptr %chain1.i5, align 8
+  tail call void @sk_pop_free(ptr noundef %0, ptr noundef nonnull @X509_free) #10
+  store ptr %call1.sink, ptr %chain1.i5, align 8
   br label %return
 
-return:                                           ; preds = %if.end, %if.end4, %if.then
-  %retval.0 = phi i32 [ 1, %if.then ], [ 1, %if.end4 ], [ 0, %if.end ]
+return:                                           ; preds = %return.sink.split, %if.end
+  %retval.0 = phi i32 [ 0, %if.end ], [ 1, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -899,29 +893,23 @@ entry:
   %cert = getelementptr inbounds i8, ptr %ctx, i64 296
   %0 = load ptr, ptr %cert, align 8
   %cmp.i = icmp eq ptr %chain, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  %chain1.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = load ptr, ptr %chain1.i.i, align 8
-  tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_free) #10
-  store ptr null, ptr %chain1.i.i, align 8
-  br label %ssl_cert_set1_chain.exit
+  br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %chain) #10
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %ssl_cert_set1_chain.exit, label %if.end4.i
+  br i1 %cmp2.i, label %ssl_cert_set1_chain.exit, label %return.sink.split.i
 
-if.end4.i:                                        ; preds = %if.end.i
+return.sink.split.i:                              ; preds = %if.end.i, %entry
+  %call1.sink.i = phi ptr [ null, %entry ], [ %call1.i, %if.end.i ]
   %chain1.i5.i = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %chain1.i5.i, align 8
-  tail call void @sk_pop_free(ptr noundef %2, ptr noundef nonnull @X509_free) #10
-  store ptr %call1.i, ptr %chain1.i5.i, align 8
+  %1 = load ptr, ptr %chain1.i5.i, align 8
+  tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_free) #10
+  store ptr %call1.sink.i, ptr %chain1.i5.i, align 8
   br label %ssl_cert_set1_chain.exit
 
-ssl_cert_set1_chain.exit:                         ; preds = %if.then.i, %if.end.i, %if.end4.i
-  %retval.0.i = phi i32 [ 1, %if.then.i ], [ 1, %if.end4.i ], [ 0, %if.end.i ]
+ssl_cert_set1_chain.exit:                         ; preds = %if.end.i, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 
@@ -943,29 +931,23 @@ entry:
   %cert = getelementptr inbounds i8, ptr %ssl, i64 136
   %0 = load ptr, ptr %cert, align 8
   %cmp.i = icmp eq ptr %chain, null
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %entry
-  %chain1.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %1 = load ptr, ptr %chain1.i.i, align 8
-  tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_free) #10
-  store ptr null, ptr %chain1.i.i, align 8
-  br label %ssl_cert_set1_chain.exit
+  br i1 %cmp.i, label %return.sink.split.i, label %if.end.i
 
 if.end.i:                                         ; preds = %entry
   %call1.i = tail call ptr @X509_chain_up_ref(ptr noundef nonnull %chain) #10
   %cmp2.i = icmp eq ptr %call1.i, null
-  br i1 %cmp2.i, label %ssl_cert_set1_chain.exit, label %if.end4.i
+  br i1 %cmp2.i, label %ssl_cert_set1_chain.exit, label %return.sink.split.i
 
-if.end4.i:                                        ; preds = %if.end.i
+return.sink.split.i:                              ; preds = %if.end.i, %entry
+  %call1.sink.i = phi ptr [ null, %entry ], [ %call1.i, %if.end.i ]
   %chain1.i5.i = getelementptr inbounds i8, ptr %0, i64 16
-  %2 = load ptr, ptr %chain1.i5.i, align 8
-  tail call void @sk_pop_free(ptr noundef %2, ptr noundef nonnull @X509_free) #10
-  store ptr %call1.i, ptr %chain1.i5.i, align 8
+  %1 = load ptr, ptr %chain1.i5.i, align 8
+  tail call void @sk_pop_free(ptr noundef %1, ptr noundef nonnull @X509_free) #10
+  store ptr %call1.sink.i, ptr %chain1.i5.i, align 8
   br label %ssl_cert_set1_chain.exit
 
-ssl_cert_set1_chain.exit:                         ; preds = %if.then.i, %if.end.i, %if.end4.i
-  %retval.0.i = phi i32 [ 1, %if.then.i ], [ 1, %if.end4.i ], [ 0, %if.end.i ]
+ssl_cert_set1_chain.exit:                         ; preds = %if.end.i, %return.sink.split.i
+  %retval.0.i = phi i32 [ 0, %if.end.i ], [ 1, %return.sink.split.i ]
   ret i32 %retval.0.i
 }
 

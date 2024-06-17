@@ -3371,11 +3371,11 @@ Vec_IntGrow.exit.i35:                             ; preds = %48, %46
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %61, %Vec_IntGrow.exit.i35, %.Vec_IntGrow.exit10_crit_edge.i30, %33, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink = phi ptr [ %9, %.Vec_IntGrow.exit10_crit_edge.i ], [ %9, %Vec_IntGrow.exit.i ], [ %9, %33 ], [ %37, %.Vec_IntGrow.exit10_crit_edge.i30 ], [ %37, %Vec_IntGrow.exit.i35 ], [ %37, %61 ]
+  %.sink80 = phi ptr [ %9, %.Vec_IntGrow.exit10_crit_edge.i ], [ %9, %Vec_IntGrow.exit.i ], [ %9, %33 ], [ %37, %.Vec_IntGrow.exit10_crit_edge.i30 ], [ %37, %Vec_IntGrow.exit.i35 ], [ %37, %61 ]
   %.sink75 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %22, %Vec_IntGrow.exit.i ], [ %34, %33 ], [ %.pre.i32, %.Vec_IntGrow.exit10_crit_edge.i30 ], [ %50, %Vec_IntGrow.exit.i35 ], [ %62, %61 ]
-  %63 = load i32, ptr %.sink, align 4
+  %63 = load i32, ptr %.sink80, align 4
   %64 = add nsw i32 %63, 1
-  store i32 %64, ptr %.sink, align 4
+  store i32 %64, ptr %.sink80, align 4
   %65 = sext i32 %63 to i64
   %66 = getelementptr inbounds i32, ptr %.sink75, i64 %65
   store i32 %.val29, ptr %66, align 4

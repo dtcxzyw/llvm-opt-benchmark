@@ -127,7 +127,7 @@ define internal range(i32 0, 2) i32 @gsm_a_stat_packet(ptr nocapture noundef %0,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %5, %29, %10, %12, %14, %16, %18, %20, %22, %24
-  %.sink27 = phi ptr [ %30, %29 ], [ %11, %10 ], [ %13, %12 ], [ %15, %14 ], [ %17, %16 ], [ %19, %18 ], [ %21, %20 ], [ %23, %22 ], [ %25, %24 ], [ %0, %5 ]
+  %.sink27 = phi ptr [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %30, %29 ], [ %0, %5 ]
   %31 = getelementptr inbounds i8, ptr %3, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64

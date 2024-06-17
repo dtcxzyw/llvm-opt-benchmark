@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden range(i32 -108, 6) i32 @mbedtls_asn1_write_len(ptr nocapture noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %2, 128
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %13
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
@@ -14,145 +14,139 @@ define hidden range(i32 -108, 6) i32 @mbedtls_asn1_write_len(ptr nocapture nound
   %8 = ptrtoint ptr %1 to i64
   %9 = sub i64 %7, %8
   %10 = icmp slt i64 %9, 1
-  br i1 %10, label %90, label %11
+  br i1 %10, label %86, label %11
 
 11:                                               ; preds = %5
   %12 = trunc nuw nsw i64 %2 to i8
-  %13 = getelementptr inbounds i8, ptr %6, i64 -1
-  store ptr %13, ptr %0, align 8
-  store i8 %12, ptr %13, align 1
-  br label %90
+  br label %.sink.split
 
-14:                                               ; preds = %3
-  %15 = icmp ult i64 %2, 256
-  br i1 %15, label %16, label %27
+13:                                               ; preds = %3
+  %14 = icmp ult i64 %2, 256
+  br i1 %14, label %15, label %25
 
-16:                                               ; preds = %14
-  %17 = load ptr, ptr %0, align 8
-  %18 = ptrtoint ptr %17 to i64
-  %19 = ptrtoint ptr %1 to i64
-  %20 = sub i64 %18, %19
-  %21 = icmp slt i64 %20, 2
-  br i1 %21, label %90, label %22
+15:                                               ; preds = %13
+  %16 = load ptr, ptr %0, align 8
+  %17 = ptrtoint ptr %16 to i64
+  %18 = ptrtoint ptr %1 to i64
+  %19 = sub i64 %17, %18
+  %20 = icmp slt i64 %19, 2
+  br i1 %20, label %86, label %21
 
-22:                                               ; preds = %16
-  %23 = trunc nuw i64 %2 to i8
-  %24 = getelementptr inbounds i8, ptr %17, i64 -1
-  store ptr %24, ptr %0, align 8
-  store i8 %23, ptr %24, align 1
-  %25 = load ptr, ptr %0, align 8
-  %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  store ptr %26, ptr %0, align 8
-  store i8 -127, ptr %26, align 1
-  br label %90
+21:                                               ; preds = %15
+  %22 = trunc nuw i64 %2 to i8
+  %23 = getelementptr inbounds i8, ptr %16, i64 -1
+  store ptr %23, ptr %0, align 8
+  store i8 %22, ptr %23, align 1
+  %24 = load ptr, ptr %0, align 8
+  br label %.sink.split
 
-27:                                               ; preds = %14
-  %28 = icmp ult i64 %2, 65536
-  br i1 %28, label %29, label %44
+25:                                               ; preds = %13
+  %26 = icmp ult i64 %2, 65536
+  br i1 %26, label %27, label %41
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %0, align 8
-  %31 = ptrtoint ptr %30 to i64
-  %32 = ptrtoint ptr %1 to i64
-  %33 = sub i64 %31, %32
-  %34 = icmp slt i64 %33, 3
-  br i1 %34, label %90, label %35
+27:                                               ; preds = %25
+  %28 = load ptr, ptr %0, align 8
+  %29 = ptrtoint ptr %28 to i64
+  %30 = ptrtoint ptr %1 to i64
+  %31 = sub i64 %29, %30
+  %32 = icmp slt i64 %31, 3
+  br i1 %32, label %86, label %33
 
-35:                                               ; preds = %29
-  %36 = trunc i64 %2 to i8
-  %37 = getelementptr inbounds i8, ptr %30, i64 -1
-  store ptr %37, ptr %0, align 8
-  store i8 %36, ptr %37, align 1
-  %38 = lshr i64 %2, 8
-  %39 = trunc nuw i64 %38 to i8
+33:                                               ; preds = %27
+  %34 = trunc i64 %2 to i8
+  %35 = getelementptr inbounds i8, ptr %28, i64 -1
+  store ptr %35, ptr %0, align 8
+  store i8 %34, ptr %35, align 1
+  %36 = lshr i64 %2, 8
+  %37 = trunc nuw i64 %36 to i8
+  %38 = load ptr, ptr %0, align 8
+  %39 = getelementptr inbounds i8, ptr %38, i64 -1
+  store ptr %39, ptr %0, align 8
+  store i8 %37, ptr %39, align 1
   %40 = load ptr, ptr %0, align 8
-  %41 = getelementptr inbounds i8, ptr %40, i64 -1
-  store ptr %41, ptr %0, align 8
-  store i8 %39, ptr %41, align 1
-  %42 = load ptr, ptr %0, align 8
-  %43 = getelementptr inbounds i8, ptr %42, i64 -1
-  store ptr %43, ptr %0, align 8
-  store i8 -126, ptr %43, align 1
-  br label %90
+  br label %.sink.split
 
-44:                                               ; preds = %27
-  %45 = icmp ult i64 %2, 16777216
-  br i1 %45, label %46, label %65
+41:                                               ; preds = %25
+  %42 = icmp ult i64 %2, 16777216
+  br i1 %42, label %43, label %61
 
-46:                                               ; preds = %44
-  %47 = load ptr, ptr %0, align 8
-  %48 = ptrtoint ptr %47 to i64
-  %49 = ptrtoint ptr %1 to i64
-  %50 = sub i64 %48, %49
-  %51 = icmp slt i64 %50, 4
-  br i1 %51, label %90, label %52
+43:                                               ; preds = %41
+  %44 = load ptr, ptr %0, align 8
+  %45 = ptrtoint ptr %44 to i64
+  %46 = ptrtoint ptr %1 to i64
+  %47 = sub i64 %45, %46
+  %48 = icmp slt i64 %47, 4
+  br i1 %48, label %86, label %49
 
-52:                                               ; preds = %46
-  %53 = trunc i64 %2 to i8
-  %54 = getelementptr inbounds i8, ptr %47, i64 -1
-  store ptr %54, ptr %0, align 8
-  store i8 %53, ptr %54, align 1
-  %55 = lshr i64 %2, 8
-  %56 = trunc i64 %55 to i8
-  %57 = load ptr, ptr %0, align 8
-  %58 = getelementptr inbounds i8, ptr %57, i64 -1
-  store ptr %58, ptr %0, align 8
-  store i8 %56, ptr %58, align 1
-  %59 = lshr i64 %2, 16
-  %60 = trunc nuw i64 %59 to i8
-  %61 = load ptr, ptr %0, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 -1
-  store ptr %62, ptr %0, align 8
-  store i8 %60, ptr %62, align 1
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 -1
-  store ptr %64, ptr %0, align 8
-  store i8 -125, ptr %64, align 1
-  br label %90
+49:                                               ; preds = %43
+  %50 = trunc i64 %2 to i8
+  %51 = getelementptr inbounds i8, ptr %44, i64 -1
+  store ptr %51, ptr %0, align 8
+  store i8 %50, ptr %51, align 1
+  %52 = lshr i64 %2, 8
+  %53 = trunc i64 %52 to i8
+  %54 = load ptr, ptr %0, align 8
+  %55 = getelementptr inbounds i8, ptr %54, i64 -1
+  store ptr %55, ptr %0, align 8
+  store i8 %53, ptr %55, align 1
+  %56 = lshr i64 %2, 16
+  %57 = trunc nuw i64 %56 to i8
+  %58 = load ptr, ptr %0, align 8
+  %59 = getelementptr inbounds i8, ptr %58, i64 -1
+  store ptr %59, ptr %0, align 8
+  store i8 %57, ptr %59, align 1
+  %60 = load ptr, ptr %0, align 8
+  br label %.sink.split
 
-65:                                               ; preds = %44
-  %66 = icmp ult i64 %2, 4294967296
-  br i1 %66, label %67, label %90
+61:                                               ; preds = %41
+  %62 = icmp ult i64 %2, 4294967296
+  br i1 %62, label %63, label %86
 
-67:                                               ; preds = %65
-  %68 = load ptr, ptr %0, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = ptrtoint ptr %1 to i64
-  %71 = sub i64 %69, %70
-  %72 = icmp slt i64 %71, 5
-  br i1 %72, label %90, label %73
+63:                                               ; preds = %61
+  %64 = load ptr, ptr %0, align 8
+  %65 = ptrtoint ptr %64 to i64
+  %66 = ptrtoint ptr %1 to i64
+  %67 = sub i64 %65, %66
+  %68 = icmp slt i64 %67, 5
+  br i1 %68, label %86, label %69
 
-73:                                               ; preds = %67
-  %74 = trunc i64 %2 to i8
-  %75 = getelementptr inbounds i8, ptr %68, i64 -1
+69:                                               ; preds = %63
+  %70 = trunc i64 %2 to i8
+  %71 = getelementptr inbounds i8, ptr %64, i64 -1
+  store ptr %71, ptr %0, align 8
+  store i8 %70, ptr %71, align 1
+  %72 = lshr i64 %2, 8
+  %73 = trunc i64 %72 to i8
+  %74 = load ptr, ptr %0, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 -1
   store ptr %75, ptr %0, align 8
-  store i8 %74, ptr %75, align 1
-  %76 = lshr i64 %2, 8
+  store i8 %73, ptr %75, align 1
+  %76 = lshr i64 %2, 16
   %77 = trunc i64 %76 to i8
   %78 = load ptr, ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %78, i64 -1
   store ptr %79, ptr %0, align 8
   store i8 %77, ptr %79, align 1
-  %80 = lshr i64 %2, 16
-  %81 = trunc i64 %80 to i8
+  %80 = lshr i64 %2, 24
+  %81 = trunc nuw i64 %80 to i8
   %82 = load ptr, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %82, i64 -1
   store ptr %83, ptr %0, align 8
   store i8 %81, ptr %83, align 1
-  %84 = lshr i64 %2, 24
-  %85 = trunc nuw i64 %84 to i8
-  %86 = load ptr, ptr %0, align 8
-  %87 = getelementptr inbounds i8, ptr %86, i64 -1
-  store ptr %87, ptr %0, align 8
-  store i8 %85, ptr %87, align 1
-  %88 = load ptr, ptr %0, align 8
-  %89 = getelementptr inbounds i8, ptr %88, i64 -1
-  store ptr %89, ptr %0, align 8
-  store i8 -124, ptr %89, align 1
-  br label %90
+  %84 = load ptr, ptr %0, align 8
+  br label %.sink.split
 
-90:                                               ; preds = %65, %67, %46, %29, %16, %5, %73, %52, %35, %22, %11
-  %.0 = phi i32 [ 1, %11 ], [ 2, %22 ], [ 3, %35 ], [ 4, %52 ], [ 5, %73 ], [ -108, %5 ], [ -108, %16 ], [ -108, %29 ], [ -108, %46 ], [ -108, %67 ], [ -100, %65 ]
+.sink.split:                                      ; preds = %11, %21, %33, %49, %69
+  %.sink44 = phi ptr [ %84, %69 ], [ %60, %49 ], [ %40, %33 ], [ %24, %21 ], [ %6, %11 ]
+  %.sink = phi i8 [ -124, %69 ], [ -125, %49 ], [ -126, %33 ], [ -127, %21 ], [ %12, %11 ]
+  %.0.ph = phi i32 [ 5, %69 ], [ 4, %49 ], [ 3, %33 ], [ 2, %21 ], [ 1, %11 ]
+  %85 = getelementptr inbounds i8, ptr %.sink44, i64 -1
+  store ptr %85, ptr %0, align 8
+  store i8 %.sink, ptr %85, align 1
+  br label %86
+
+86:                                               ; preds = %.sink.split, %61, %63, %43, %27, %15, %5
+  %.0 = phi i32 [ -108, %5 ], [ -108, %15 ], [ -108, %27 ], [ -108, %43 ], [ -108, %63 ], [ -100, %61 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

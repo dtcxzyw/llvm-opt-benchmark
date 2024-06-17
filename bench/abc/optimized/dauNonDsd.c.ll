@@ -935,12 +935,12 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr nocapture nou
   br i1 %exitcond.not.i.i.us, label %.sink.split.i.us, label %.lr.ph.i.i.us, !llvm.loop !16
 
 .sink.split.i.us:                                 ; preds = %43, %52
-  %.013.lcssa.i67.sink116.i.us = phi i32 [ %.2.i.i.us, %52 ], [ %.2.i73.i.us, %43 ]
+  %.013.lcssa.i.sink116.i.us = phi i32 [ %.2.i.i.us, %52 ], [ %.2.i73.i.us, %43 ]
   %.1.ph.i.us = phi i64 [ %30, %52 ], [ %.05098.i.us, %43 ]
-  %54 = and i32 %.013.lcssa.i67.sink116.i.us, 63
+  %54 = and i32 %.013.lcssa.i.sink116.i.us, 63
   %55 = zext nneg i32 %54 to i64
   %56 = shl nuw i64 1, %55
-  %57 = ashr i32 %.013.lcssa.i67.sink116.i.us, 6
+  %57 = ashr i32 %.013.lcssa.i.sink116.i.us, 6
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds i64, ptr %7, i64 %58
   %60 = load i64, ptr %59, align 8
@@ -1227,12 +1227,12 @@ define internal fastcc range(i32 0, 2) i32 @Dau_DecCheckSetAny(ptr nocapture nou
   br i1 %exitcond.not.i77.i, label %.sink.split.i28, label %.lr.ph.i70.i, !llvm.loop !16
 
 .sink.split.i28:                                  ; preds = %173, %161, %165, %153
-  %.013.lcssa.i69.sink98.i = phi i32 [ 0, %153 ], [ 0, %165 ], [ %.2.i.i35, %161 ], [ %.2.i75.i, %173 ]
+  %.013.lcssa.i.sink98.i = phi i32 [ 0, %153 ], [ 0, %165 ], [ %.2.i.i35, %161 ], [ %.2.i75.i, %173 ]
   %.1.ph.i29 = phi ptr [ %149, %153 ], [ %.089.i, %165 ], [ %149, %161 ], [ %.089.i, %173 ]
-  %175 = and i32 %.013.lcssa.i69.sink98.i, 63
+  %175 = and i32 %.013.lcssa.i.sink98.i, 63
   %176 = zext nneg i32 %175 to i64
   %177 = shl nuw i64 1, %176
-  %178 = ashr i32 %.013.lcssa.i69.sink98.i, 6
+  %178 = ashr i32 %.013.lcssa.i.sink98.i, 6
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds i64, ptr %7, i64 %179
   %181 = load i64, ptr %180, align 8

@@ -438,10 +438,10 @@ if.end66.sink.split:                              ; preds = %if.end66.sink.split
   %add.ptr.i101 = getelementptr inbounds ptr, ptr %.sink201, i64 %idx.ext.i100
   store ptr %.sink200, ptr %add.ptr.i101, align 8
   %.sink = load ptr, ptr %todo, align 8
-  %arrayidx10.i102 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %49 = load i32, ptr %arrayidx10.i102, align 4
+  %arrayidx10.i149 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %49 = load i32, ptr %arrayidx10.i149, align 4
   %inc.i150 = add i32 %49, 1
-  store i32 %inc.i150, ptr %arrayidx10.i102, align 4
+  store i32 %inc.i150, ptr %arrayidx10.i149, align 4
   br label %while.cond.backedge
 
 cleanup:                                          ; preds = %if.else54, %land.lhs.true.i, %invoke.cont55, %invoke.cont12, %invoke.cont23, %while.cond, %_ZNK6vectorIP4exprLb0EjE5emptyEv.exit, %land.rhs.i.i.i114, %while.body.i135

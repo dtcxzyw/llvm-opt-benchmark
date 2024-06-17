@@ -164,9 +164,9 @@ define noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull ali
   br label %.sink.split
 
 14:                                               ; preds = %1, %8, %4
-  %.sink5 = phi i32 [ 35633, %4 ], [ 35632, %8 ], [ 36313, %1 ]
+  %.sink4 = phi i32 [ 35633, %4 ], [ 35632, %8 ], [ 36313, %1 ]
   %15 = load ptr, ptr @__glewCreateShader, align 8
-  %16 = tail call i32 %15(i32 noundef %.sink5)
+  %16 = tail call i32 %15(i32 noundef %.sink4)
   %17 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %16, ptr %17, align 4
   %18 = icmp eq i32 %16, 0
@@ -179,8 +179,8 @@ define noundef zeroext i1 @_ZN9GPUShader12createShaderEv(ptr noundef nonnull ali
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %10, %12, %19
-  %.sink4 = phi ptr [ %22, %19 ], [ %13, %12 ], [ %11, %10 ], [ %7, %6 ]
-  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %.sink4, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
+  %.sink = phi ptr [ %22, %19 ], [ %13, %12 ], [ %11, %10 ], [ %7, %6 ]
+  %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %.sink, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   br label %24
 
 24:                                               ; preds = %.sink.split, %14

@@ -31616,10 +31616,10 @@ if.end17.sink.split.i.i.i.loopexit:               ; preds = %for.body.i.i.i
 
 if.end17.sink.split.i.i.i:                        ; preds = %if.end17.sink.split.i.i.i.loopexit, %if.then.i1.i.i
   %next_7.le.sink.i.i.i = phi ptr [ %timer_queues_.i.i, %if.then.i1.i.i ], [ %next_7.i.i.i.le, %if.end17.sink.split.i.i.i.loopexit ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i, align 8
+  %next_12.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i: ; preds = %for.cond.i.i.i, %if.end17.sink.split.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i
@@ -31689,10 +31689,10 @@ if.end17.sink.split.i.i.i.i.loopexit:             ; preds = %for.body.i.i.i.i
 
 if.end17.sink.split.i.i.i.i:                      ; preds = %if.end17.sink.split.i.i.i.i.loopexit, %if.then.i1.i.i.i
   %next_7.le.sink.i.i.i.i = phi ptr [ %timer_queues_.i.i.i, %if.then.i1.i.i.i ], [ %next_7.i.i.i.i.le, %if.end17.sink.split.i.i.i.i.loopexit ]
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i.i, align 8
+  %next_12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i: ; preds = %for.cond.i.i.i.i, %if.end17.sink.split.i.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i.i

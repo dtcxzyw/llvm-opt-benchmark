@@ -129,14 +129,14 @@ sw.bb7:                                           ; preds = %entry
 
 return.sink.split:                                ; preds = %entry, %sw.bb2, %sw.bb7
   %.sink6 = phi i32 [ 4, %sw.bb7 ], [ 2, %sw.bb2 ], [ 1, %entry ]
-  %opt_set_mask = getelementptr inbounds i8, ptr %option, i64 48
-  %0 = load i32, ptr %opt_set_mask, align 8
-  %or = or i32 %0, 128
-  store i32 %or, ptr %opt_set_mask, align 8
-  %builtin_recv_ext_types = getelementptr inbounds i8, ptr %option, i64 60
-  %1 = load i32, ptr %builtin_recv_ext_types, align 4
+  %opt_set_mask8 = getelementptr inbounds i8, ptr %option, i64 48
+  %0 = load i32, ptr %opt_set_mask8, align 8
+  %or9 = or i32 %0, 128
+  store i32 %or9, ptr %opt_set_mask8, align 8
+  %builtin_recv_ext_types10 = getelementptr inbounds i8, ptr %option, i64 60
+  %1 = load i32, ptr %builtin_recv_ext_types10, align 4
   %or11 = or i32 %1, %.sink6
-  store i32 %or11, ptr %builtin_recv_ext_types, align 4
+  store i32 %or11, ptr %builtin_recv_ext_types10, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %entry

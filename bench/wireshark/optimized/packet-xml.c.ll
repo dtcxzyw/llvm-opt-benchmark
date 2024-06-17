@@ -2748,7 +2748,7 @@ define internal void @before_tag(ptr noundef %0, ptr nocapture readnone %1, ptr 
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
   %18 = icmp eq i32 %17, -1001
-  br i1 %18, label %19, label %48
+  br i1 %18, label %19, label %44
 
 19:                                               ; preds = %3
   %20 = getelementptr inbounds i8, ptr %16, i64 40
@@ -2776,130 +2776,128 @@ define internal void @before_tag(ptr noundef %0, ptr nocapture readnone %1, ptr 
   %42 = load ptr, ptr getelementptr inbounds (i8, ptr @xml_ns, i64 40), align 8
   %43 = tail call ptr @wmem_map_lookup(ptr noundef %42, ptr noundef %33) #10
   %.not74 = icmp eq ptr %43, null
-  br i1 %.not74, label %71, label %44
+  br i1 %.not74, label %67, label %.sink.split
 
-44:                                               ; preds = %19
-  %45 = getelementptr inbounds i8, ptr %43, i64 40
-  %46 = load ptr, ptr %45, align 8
-  %47 = tail call ptr @wmem_map_lookup(ptr noundef %46, ptr noundef %41) #10
-  %.not75 = icmp eq ptr %47, null
-  %spec.store.select = select i1 %.not75, ptr @unknown_ns, ptr %47
-  br label %71
+44:                                               ; preds = %3
+  %45 = tail call ptr @wmem_packet_scope() #10
+  %46 = getelementptr inbounds i8, ptr %14, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %14, i64 24
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds i8, ptr %14, i64 28
+  %51 = load i32, ptr %50, align 4
+  %52 = tail call ptr @tvb_get_string_enc(ptr noundef %45, ptr noundef %47, i32 noundef %49, i32 noundef %51, i32 noundef 0) #10
+  %53 = tail call ptr @wmem_packet_scope() #10
+  %54 = tail call noalias ptr @wmem_strdup(ptr noundef %53, ptr noundef %52) #10
+  %55 = tail call ptr @ascii_strdown_inplace(ptr noundef %52) #10
+  %56 = getelementptr inbounds i8, ptr %10, i64 96
+  %57 = load ptr, ptr %56, align 8
+  %.not = icmp eq ptr %57, null
+  br i1 %.not, label %67, label %58
 
-48:                                               ; preds = %3
-  %49 = tail call ptr @wmem_packet_scope() #10
-  %50 = getelementptr inbounds i8, ptr %14, i64 16
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds i8, ptr %14, i64 24
-  %53 = load i32, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %14, i64 28
-  %55 = load i32, ptr %54, align 4
-  %56 = tail call ptr @tvb_get_string_enc(ptr noundef %49, ptr noundef %51, i32 noundef %53, i32 noundef %55, i32 noundef 0) #10
-  %57 = tail call ptr @wmem_packet_scope() #10
-  %58 = tail call noalias ptr @wmem_strdup(ptr noundef %57, ptr noundef %56) #10
-  %59 = tail call ptr @ascii_strdown_inplace(ptr noundef %56) #10
-  %60 = getelementptr inbounds i8, ptr %10, i64 96
-  %61 = load ptr, ptr %60, align 8
-  %.not = icmp eq ptr %61, null
-  br i1 %.not, label %71, label %62
+58:                                               ; preds = %44
+  %59 = getelementptr inbounds i8, ptr %57, i64 40
+  %60 = load ptr, ptr %59, align 8
+  %61 = tail call ptr @wmem_map_lookup(ptr noundef %60, ptr noundef %52) #10
+  %.not72 = icmp eq ptr %61, null
+  br i1 %.not72, label %62, label %67
 
-62:                                               ; preds = %48
-  %63 = getelementptr inbounds i8, ptr %61, i64 40
-  %64 = load ptr, ptr %63, align 8
-  %65 = tail call ptr @wmem_map_lookup(ptr noundef %64, ptr noundef %56) #10
-  %.not72 = icmp eq ptr %65, null
-  br i1 %.not72, label %66, label %71
+62:                                               ; preds = %58
+  %63 = load ptr, ptr @root_ns, align 8
+  br label %.sink.split
 
-66:                                               ; preds = %62
-  %67 = load ptr, ptr @root_ns, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 40
+.sink.split:                                      ; preds = %19, %62
+  %.sink79 = phi ptr [ %63, %62 ], [ %43, %19 ]
+  %.sink78 = phi ptr [ %52, %62 ], [ %41, %19 ]
+  %.067.ph = phi ptr [ %54, %62 ], [ %41, %19 ]
+  %64 = getelementptr inbounds i8, ptr %.sink79, i64 40
+  %65 = load ptr, ptr %64, align 8
+  %66 = tail call ptr @wmem_map_lookup(ptr noundef %65, ptr noundef %.sink78) #10
+  %.not75 = icmp eq ptr %66, null
+  %spec.store.select = select i1 %.not75, ptr @unknown_ns, ptr %66
+  br label %67
+
+67:                                               ; preds = %.sink.split, %58, %19, %44
+  %.068 = phi ptr [ %61, %58 ], [ @unknown_ns, %19 ], [ @unknown_ns, %44 ], [ %spec.store.select, %.sink.split ]
+  %.067 = phi ptr [ %54, %58 ], [ %41, %19 ], [ %54, %44 ], [ %.067.ph, %.sink.split ]
+  %.0 = phi ptr [ %52, %58 ], [ %41, %19 ], [ %52, %44 ], [ %.sink78, %.sink.split ]
+  %68 = getelementptr inbounds i8, ptr %10, i64 72
   %69 = load ptr, ptr %68, align 8
-  %70 = tail call ptr @wmem_map_lookup(ptr noundef %69, ptr noundef %56) #10
-  %.not73 = icmp eq ptr %70, null
-  %spec.store.select1 = select i1 %.not73, ptr @unknown_ns, ptr %70
-  br label %71
-
-71:                                               ; preds = %44, %62, %66, %19, %48
-  %.068 = phi ptr [ %spec.store.select, %44 ], [ %65, %62 ], [ %spec.store.select1, %66 ], [ @unknown_ns, %19 ], [ @unknown_ns, %48 ]
-  %.067 = phi ptr [ %41, %44 ], [ %58, %62 ], [ %58, %66 ], [ %41, %19 ], [ %58, %48 ]
-  %.0 = phi ptr [ %41, %44 ], [ %56, %62 ], [ %56, %66 ], [ %41, %19 ], [ %56, %48 ]
-  %72 = getelementptr inbounds i8, ptr %10, i64 72
+  %70 = getelementptr inbounds i8, ptr %.068, i64 16
+  %71 = load i32, ptr %70, align 8
+  %72 = getelementptr inbounds i8, ptr %2, i64 16
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds i8, ptr %.068, i64 16
+  %74 = getelementptr inbounds i8, ptr %2, i64 24
   %75 = load i32, ptr %74, align 8
-  %76 = getelementptr inbounds i8, ptr %2, i64 16
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %2, i64 24
-  %79 = load i32, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %2, i64 28
-  %81 = load i32, ptr %80, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %73, i32 noundef %75, ptr noundef %77, i32 noundef %79, i32 noundef %81, i32 noundef 2) #10
-  %83 = tail call ptr @wmem_packet_scope() #10
-  %84 = load ptr, ptr %76, align 8
-  %85 = load i32, ptr %78, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 24
-  %87 = load i32, ptr %86, align 8
-  %88 = sub i32 %87, %85
-  %89 = getelementptr inbounds i8, ptr %14, i64 28
-  %90 = load i32, ptr %89, align 4
-  %91 = add i32 %88, %90
-  %92 = tail call ptr @tvb_format_text(ptr noundef %83, ptr noundef %84, i32 noundef %85, i32 noundef %91) #10
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %82, ptr noundef nonnull @.str.252, ptr noundef %92) #10
-  %93 = getelementptr inbounds i8, ptr %.068, i64 24
-  %94 = load i32, ptr %93, align 8
-  %95 = tail call ptr @proto_item_add_subtree(ptr noundef %82, i32 noundef %94) #10
-  %96 = tail call ptr @wmem_packet_scope() #10
-  %97 = tail call noalias ptr @wmem_alloc(ptr noundef %96, i64 noundef 120) #10
-  store i32 1, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %97, i64 48
-  store ptr %.0, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 56
-  store ptr %.067, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 64
-  store ptr null, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 16
-  %102 = getelementptr inbounds i8, ptr %97, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
-  store ptr %10, ptr %102, align 8
-  %103 = getelementptr inbounds i8, ptr %97, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, i8 0, i64 16, i1 false)
-  %104 = getelementptr inbounds i8, ptr %10, i64 16
-  %105 = load ptr, ptr %104, align 8
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %107, label %108
+  %76 = getelementptr inbounds i8, ptr %2, i64 28
+  %77 = load i32, ptr %76, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %71, ptr noundef %73, i32 noundef %75, i32 noundef %77, i32 noundef 2) #10
+  %79 = tail call ptr @wmem_packet_scope() #10
+  %80 = load ptr, ptr %72, align 8
+  %81 = load i32, ptr %74, align 8
+  %82 = getelementptr inbounds i8, ptr %14, i64 24
+  %83 = load i32, ptr %82, align 8
+  %84 = sub i32 %83, %81
+  %85 = getelementptr inbounds i8, ptr %14, i64 28
+  %86 = load i32, ptr %85, align 4
+  %87 = add i32 %84, %86
+  %88 = tail call ptr @tvb_format_text(ptr noundef %79, ptr noundef %80, i32 noundef %81, i32 noundef %87) #10
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %78, ptr noundef nonnull @.str.252, ptr noundef %88) #10
+  %89 = getelementptr inbounds i8, ptr %.068, i64 24
+  %90 = load i32, ptr %89, align 8
+  %91 = tail call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %90) #10
+  %92 = tail call ptr @wmem_packet_scope() #10
+  %93 = tail call noalias ptr @wmem_alloc(ptr noundef %92, i64 noundef 120) #10
+  store i32 1, ptr %93, align 8
+  %94 = getelementptr inbounds i8, ptr %93, i64 48
+  store ptr %.0, ptr %94, align 8
+  %95 = getelementptr inbounds i8, ptr %93, i64 56
+  store ptr %.067, ptr %95, align 8
+  %96 = getelementptr inbounds i8, ptr %93, i64 64
+  store ptr null, ptr %96, align 8
+  %97 = getelementptr inbounds i8, ptr %93, i64 16
+  %98 = getelementptr inbounds i8, ptr %93, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
+  store ptr %10, ptr %98, align 8
+  %99 = getelementptr inbounds i8, ptr %93, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %99, i8 0, i64 16, i1 false)
+  %100 = getelementptr inbounds i8, ptr %10, i64 16
+  %101 = load ptr, ptr %100, align 8
+  %102 = icmp eq ptr %101, null
+  br i1 %102, label %103, label %104
 
-107:                                              ; preds = %71
-  store ptr %97, ptr %104, align 8
+103:                                              ; preds = %67
+  store ptr %93, ptr %100, align 8
   br label %insert_xml_frame.exit
 
-108:                                              ; preds = %71
+104:                                              ; preds = %67
+  %105 = getelementptr inbounds i8, ptr %10, i64 24
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 40
+  store ptr %93, ptr %107, align 8
+  %108 = load ptr, ptr %105, align 8
+  store ptr %108, ptr %99, align 8
+  br label %insert_xml_frame.exit
+
+insert_xml_frame.exit:                            ; preds = %103, %104
   %109 = getelementptr inbounds i8, ptr %10, i64 24
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 40
-  store ptr %97, ptr %111, align 8
-  %112 = load ptr, ptr %109, align 8
-  store ptr %112, ptr %103, align 8
-  br label %insert_xml_frame.exit
-
-insert_xml_frame.exit:                            ; preds = %107, %108
-  %113 = getelementptr inbounds i8, ptr %10, i64 24
-  store ptr %97, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %97, i64 80
-  store ptr %82, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %97, i64 88
-  store ptr %82, ptr %115, align 8
-  %116 = getelementptr inbounds i8, ptr %97, i64 72
-  store ptr %95, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %97, i64 104
-  %118 = load <2 x i32>, ptr %78, align 8
-  store <2 x i32> %118, ptr %117, align 8
-  %119 = getelementptr inbounds i8, ptr %97, i64 96
-  store ptr %.068, ptr %119, align 8
-  %120 = getelementptr inbounds i8, ptr %10, i64 112
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds i8, ptr %97, i64 112
-  store ptr %121, ptr %122, align 8
-  tail call void @g_ptr_array_add(ptr noundef nonnull %0, ptr noundef nonnull %97) #10
+  store ptr %93, ptr %109, align 8
+  %110 = getelementptr inbounds i8, ptr %93, i64 80
+  store ptr %78, ptr %110, align 8
+  %111 = getelementptr inbounds i8, ptr %93, i64 88
+  store ptr %78, ptr %111, align 8
+  %112 = getelementptr inbounds i8, ptr %93, i64 72
+  store ptr %91, ptr %112, align 8
+  %113 = getelementptr inbounds i8, ptr %93, i64 104
+  %114 = load <2 x i32>, ptr %74, align 8
+  store <2 x i32> %114, ptr %113, align 8
+  %115 = getelementptr inbounds i8, ptr %93, i64 96
+  store ptr %.068, ptr %115, align 8
+  %116 = getelementptr inbounds i8, ptr %10, i64 112
+  %117 = load ptr, ptr %116, align 8
+  %118 = getelementptr inbounds i8, ptr %93, i64 112
+  store ptr %117, ptr %118, align 8
+  tail call void @g_ptr_array_add(ptr noundef nonnull %0, ptr noundef nonnull %93) #10
   ret void
 }
 

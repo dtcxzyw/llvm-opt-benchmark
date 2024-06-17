@@ -354,7 +354,7 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %7 = alloca ptr, align 8
   %8 = load i32, ptr @curr_offset, align 4
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %354, label %9
+  br i1 %.not, label %346, label %9
 
 9:                                                ; preds = %1
   %10 = load i32, ptr @has_direction, align 4
@@ -462,147 +462,132 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
 59:                                               ; preds = %47, %57
   %.099225 = phi i32 [ %spec.select219, %57 ], [ 0, %47 ]
   %.094 = phi i32 [ 14, %57 ], [ 0, %47 ]
-  br i1 %.b112, label %60, label %87
+  br i1 %.b112, label %60, label %79
 
 60:                                               ; preds = %59
   %61 = load ptr, ptr @info_p, align 8
-  br i1 %14, label %62, label %68
-
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds i8, ptr %61, i64 140
-  %64 = load i32, ptr %63, align 4
-  %.not140 = icmp eq i32 %64, 0
-  %spec.select220 = select i1 %.not140, i32 33686026, i32 %64
-  %65 = getelementptr inbounds i8, ptr %61, i64 124
-  %66 = load i32, ptr %65, align 4
-  %.not141 = icmp eq i32 %66, 0
-  %67 = select i1 %.not141, i32 16843018, i32 %66
-  br label %74
-
-68:                                               ; preds = %60
-  %69 = getelementptr inbounds i8, ptr %61, i64 124
-  %70 = load i32, ptr %69, align 4
-  %.not138 = icmp eq i32 %70, 0
-  %spec.select221 = select i1 %.not138, i32 16843018, i32 %70
-  %71 = getelementptr inbounds i8, ptr %61, i64 140
-  %72 = load i32, ptr %71, align 4
-  %.not139 = icmp eq i32 %72, 0
-  %73 = select i1 %.not139, i32 33686026, i32 %72
-  br label %74
-
-74:                                               ; preds = %68, %62
-  %spec.select221.sink = phi i32 [ %spec.select220, %62 ], [ %spec.select221, %68 ]
-  %storemerge = phi i32 [ %67, %62 ], [ %73, %68 ]
-  store i32 %spec.select221.sink, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
-  store i32 %storemerge, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 16), align 4
+  %. = select i1 %14, i64 140, i64 124
+  %.267 = select i1 %14, i32 33686026, i32 16843018
+  %.268 = select i1 %14, i64 124, i64 140
+  %.269 = select i1 %14, i32 16843018, i32 33686026
+  %62 = getelementptr inbounds i8, ptr %61, i64 %.
+  %63 = load i32, ptr %62, align 4
+  %.not138 = icmp eq i32 %63, 0
+  %spec.select221 = select i1 %.not138, i32 %.267, i32 %63
+  %64 = getelementptr inbounds i8, ptr %61, i64 %.268
+  %65 = load i32, ptr %64, align 4
+  %.not139 = icmp eq i32 %65, 0
+  %66 = select i1 %.not139, i32 %.269, i32 %65
+  store i32 %spec.select221, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
+  store i32 %66, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 16), align 4
   %trunc142 = trunc i32 %.0100 to i16
   %rev143 = tail call i16 @llvm.bswap.i16(i16 %trunc142)
   store i16 %rev143, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 2), align 2
-  %75 = load i32, ptr @hdr_ip_proto, align 4
-  %76 = trunc i32 %75 to i8
-  store i8 %76, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 9), align 1
+  %67 = load i32, ptr @hdr_ip_proto, align 4
+  %68 = trunc i32 %67 to i8
+  store i8 %68, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 9), align 1
   store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
   store ptr @HDR_IP, ptr %2, align 16
-  %77 = getelementptr inbounds i8, ptr %2, i64 8
-  store i32 20, ptr %77, align 8
-  %78 = call i32 @in_cksum(ptr noundef nonnull %2, i32 noundef 1) #15
-  %79 = trunc i32 %78 to i16
-  store i16 %79, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
-  %80 = load ptr, ptr @packet_buf, align 8
-  %81 = zext nneg i32 %.094 to i64
-  %82 = getelementptr i8, ptr %80, i64 %81
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %82, ptr noundef nonnull align 4 dereferenceable(20) @HDR_IP, i64 20, i1 false)
-  %83 = add nuw nsw i32 %.094, 20
-  %84 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
-  store <2 x i32> %84, ptr @pseudoh, align 8
+  %69 = getelementptr inbounds i8, ptr %2, i64 8
+  store i32 20, ptr %69, align 8
+  %70 = call i32 @in_cksum(ptr noundef nonnull %2, i32 noundef 1) #15
+  %71 = trunc i32 %70 to i16
+  store i16 %71, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 10), align 2
+  %72 = load ptr, ptr @packet_buf, align 8
+  %73 = zext nneg i32 %.094 to i64
+  %74 = getelementptr i8, ptr %72, i64 %73
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %74, ptr noundef nonnull align 4 dereferenceable(20) @HDR_IP, i64 20, i1 false)
+  %75 = add nuw nsw i32 %.094, 20
+  %76 = load <2 x i32>, ptr getelementptr inbounds (i8, ptr @HDR_IP, i64 12), align 4
+  store <2 x i32> %76, ptr @pseudoh, align 8
   store i8 0, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 8), align 8
-  %85 = load i32, ptr @hdr_ip_proto, align 4
-  %86 = trunc i32 %85 to i8
-  store i8 %86, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 9), align 1
+  %77 = load i32, ptr @hdr_ip_proto, align 4
+  %78 = trunc i32 %77 to i8
+  store i8 %78, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 9), align 1
   %trunc144 = trunc i32 %.292 to i16
   %rev145 = call i16 @llvm.bswap.i16(i16 %trunc144)
   store i16 %rev145, ptr getelementptr inbounds (i8, ptr @pseudoh, i64 10), align 2
   %.b113.pre = load i1, ptr @hdr_udp, align 4
-  br i1 %.b113.pre, label %110, label %130
+  br i1 %.b113.pre, label %102, label %122
 
-87:                                               ; preds = %59
+79:                                               ; preds = %59
   %.b129 = load i1, ptr @hdr_ipv6, align 4
-  br i1 %.b129, label %88, label %109
+  br i1 %.b129, label %80, label %101
 
-88:                                               ; preds = %87
-  %89 = load ptr, ptr @info_p, align 8
-  %90 = getelementptr inbounds i8, ptr %89, i64 140
-  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %90, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
+80:                                               ; preds = %79
+  %81 = load ptr, ptr @info_p, align 8
+  %82 = getelementptr inbounds i8, ptr %81, i64 140
+  %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %82, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
   %.not131 = icmp eq i32 %bcmp, 0
-  %91 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24)
-  br i1 %.not131, label %93, label %92
+  %83 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24)
+  br i1 %.not131, label %85, label %84
 
-92:                                               ; preds = %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, ptr noundef nonnull align 4 dereferenceable(16) %90, i64 16, i1 false)
-  br label %94
+84:                                               ; preds = %80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %83, ptr noundef nonnull align 4 dereferenceable(16) %82, i64 16, i1 false)
+  br label %86
 
-93:                                               ; preds = %88
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %91, ptr noundef nonnull align 1 dereferenceable(16) @IPv6_DST, i64 16, i1 false)
-  br label %94
+85:                                               ; preds = %80
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %83, ptr noundef nonnull align 1 dereferenceable(16) @IPv6_DST, i64 16, i1 false)
+  br label %86
 
-94:                                               ; preds = %93, %92
-  %95 = getelementptr inbounds i8, ptr %89, i64 124
-  %bcmp132 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %95, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
+86:                                               ; preds = %85, %84
+  %87 = getelementptr inbounds i8, ptr %81, i64 124
+  %bcmp132 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %87, ptr noundef nonnull dereferenceable(16) @NO_IPv6_ADDRESS, i64 16)
   %.not133 = icmp eq i32 %bcmp132, 0
-  %96 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8)
-  br i1 %.not133, label %98, label %97
+  %88 = select i1 %14, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8)
+  br i1 %.not133, label %90, label %89
 
-97:                                               ; preds = %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %96, ptr noundef nonnull align 4 dereferenceable(16) %95, i64 16, i1 false)
-  br label %99
+89:                                               ; preds = %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 4 dereferenceable(16) %87, i64 16, i1 false)
+  br label %91
 
-98:                                               ; preds = %94
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %96, ptr noundef nonnull align 1 dereferenceable(16) @IPv6_SRC, i64 16, i1 false)
-  br label %99
+90:                                               ; preds = %86
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %88, ptr noundef nonnull align 1 dereferenceable(16) @IPv6_SRC, i64 16, i1 false)
+  br label %91
 
-99:                                               ; preds = %98, %97
-  %100 = load i8, ptr @HDR_IPv6, align 4
-  %101 = and i8 %100, 15
-  %102 = or disjoint i8 %101, 96
-  store i8 %102, ptr @HDR_IPv6, align 4
+91:                                               ; preds = %90, %89
+  %92 = load i8, ptr @HDR_IPv6, align 4
+  %93 = and i8 %92, 15
+  %94 = or disjoint i8 %93, 96
+  store i8 %94, ptr @HDR_IPv6, align 4
   %trunc134 = trunc i32 %.0100 to i16
   %rev135 = tail call i16 @llvm.bswap.i16(i16 %trunc134)
   store i16 %rev135, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 4), align 4
-  %103 = load i32, ptr @hdr_ip_proto, align 4
-  %104 = trunc i32 %103 to i8
-  store i8 %104, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 6), align 2
+  %95 = load i32, ptr @hdr_ip_proto, align 4
+  %96 = trunc i32 %95 to i8
+  store i8 %96, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 6), align 2
   store i8 32, ptr getelementptr inbounds (i8, ptr @HDR_IPv6, i64 7), align 1
-  %105 = zext nneg i32 %.094 to i64
-  %106 = getelementptr i8, ptr %49, i64 %105
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %106, ptr noundef nonnull align 4 dereferenceable(40) @HDR_IPv6, i64 40, i1 false)
-  %107 = add nuw nsw i32 %.094, 40
+  %97 = zext nneg i32 %.094 to i64
+  %98 = getelementptr i8, ptr %49, i64 %97
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %98, ptr noundef nonnull align 4 dereferenceable(40) @HDR_IPv6, i64 40, i1 false)
+  %99 = add nuw nsw i32 %.094, 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) @pseudoh6, ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 8), i64 16, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @pseudoh6, i64 16), ptr noundef nonnull align 4 dereferenceable(16) getelementptr inbounds (i8, ptr @HDR_IPv6, i64 24), i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) getelementptr inbounds (i8, ptr @pseudoh6, i64 36), i8 0, i64 3, i1 false)
-  store i8 %104, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 39), align 1
+  store i8 %96, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 39), align 1
   %trunc136 = trunc i32 %.292 to i16
   %rev137 = tail call i16 @llvm.bswap.i16(i16 %trunc136)
-  %108 = zext i16 %rev137 to i32
-  store i32 %108, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 32), align 4
-  br i1 %.b114, label %110, label %130
+  %100 = zext i16 %rev137 to i32
+  store i32 %100, ptr getelementptr inbounds (i8, ptr @pseudoh6, i64 32), align 4
+  br i1 %.b114, label %102, label %122
 
-109:                                              ; preds = %87
-  br i1 %.b114, label %110, label %130
+101:                                              ; preds = %79
+  br i1 %.b114, label %102, label %122
 
-110:                                              ; preds = %99, %74, %109
-  %.195245 = phi i32 [ %83, %74 ], [ %.094, %109 ], [ %107, %99 ]
-  %111 = phi ptr [ %80, %74 ], [ %49, %109 ], [ %49, %99 ]
-  %112 = load ptr, ptr @info_p, align 8
-  %113 = getelementptr inbounds i8, ptr %112, i64 160
-  %114 = getelementptr inbounds i8, ptr %112, i64 164
-  %.sink258.in = select i1 %14, ptr %114, ptr %113
-  %.sink257 = select i1 %14, i64 160, i64 164
-  %.sink258 = load i32, ptr %.sink258.in, align 4
-  %trunc146 = trunc i32 %.sink258 to i16
+102:                                              ; preds = %91, %60, %101
+  %.195245 = phi i32 [ %75, %60 ], [ %.094, %101 ], [ %99, %91 ]
+  %103 = phi ptr [ %72, %60 ], [ %49, %101 ], [ %49, %91 ]
+  %104 = load ptr, ptr @info_p, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 160
+  %106 = getelementptr inbounds i8, ptr %104, i64 164
+  %.sink271.in = select i1 %14, ptr %106, ptr %105
+  %.sink270 = select i1 %14, i64 160, i64 164
+  %.sink271 = load i32, ptr %.sink271.in, align 4
+  %trunc146 = trunc i32 %.sink271 to i16
   %rev147 = call i16 @llvm.bswap.i16(i16 %trunc146)
-  %115 = getelementptr inbounds i8, ptr %112, i64 %.sink257
-  %.sink246 = load i32, ptr %115, align 4
-  %trunc150 = trunc i32 %.sink246 to i16
+  %107 = getelementptr inbounds i8, ptr %104, i64 %.sink270
+  %.sink256 = load i32, ptr %107, align 4
+  %trunc150 = trunc i32 %.sink256 to i16
   %rev151 = call i16 @llvm.bswap.i16(i16 %trunc150)
   store i16 %rev147, ptr @HDR_UDP, align 8
   store i16 %rev151, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 2), align 2
@@ -614,441 +599,441 @@ define internal fastcc range(i32 0, 2) i32 @write_current_packet(i32 noundef %0)
   %pseudoh.sink = select i1 %.b128, ptr @pseudoh6, ptr @pseudoh
   %.sink = select i1 %.b128, i32 40, i32 12
   store ptr %pseudoh.sink, ptr %3, align 16
-  %116 = getelementptr inbounds i8, ptr %3, i64 8
-  store i32 %.sink, ptr %116, align 8
-  %117 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr @HDR_UDP, ptr %117, align 16
-  %118 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 8, ptr %118, align 8
-  %119 = getelementptr i8, ptr %111, i64 %50
-  %120 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr %119, ptr %120, align 16
-  %121 = load i32, ptr @curr_offset, align 4
-  %122 = getelementptr inbounds i8, ptr %3, i64 40
-  store i32 %121, ptr %122, align 8
-  %123 = call i32 @in_cksum(ptr noundef nonnull %3, i32 noundef 3) #15
-  %124 = trunc i32 %123 to i16
-  store i16 %124, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
-  %125 = load ptr, ptr @packet_buf, align 8
-  %126 = zext nneg i32 %.195245 to i64
-  %127 = getelementptr i8, ptr %125, i64 %126
-  %128 = load i64, ptr @HDR_UDP, align 8
-  store i64 %128, ptr %127, align 1
-  %129 = add nuw nsw i32 %.195245, 8
-  br label %130
+  %108 = getelementptr inbounds i8, ptr %3, i64 8
+  store i32 %.sink, ptr %108, align 8
+  %109 = getelementptr inbounds i8, ptr %3, i64 16
+  store ptr @HDR_UDP, ptr %109, align 16
+  %110 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 8, ptr %110, align 8
+  %111 = getelementptr i8, ptr %103, i64 %50
+  %112 = getelementptr inbounds i8, ptr %3, i64 32
+  store ptr %111, ptr %112, align 16
+  %113 = load i32, ptr @curr_offset, align 4
+  %114 = getelementptr inbounds i8, ptr %3, i64 40
+  store i32 %113, ptr %114, align 8
+  %115 = call i32 @in_cksum(ptr noundef nonnull %3, i32 noundef 3) #15
+  %116 = trunc i32 %115 to i16
+  store i16 %116, ptr getelementptr inbounds (i8, ptr @HDR_UDP, i64 6), align 2
+  %117 = load ptr, ptr @packet_buf, align 8
+  %118 = zext nneg i32 %.195245 to i64
+  %119 = getelementptr i8, ptr %117, i64 %118
+  %120 = load i64, ptr @HDR_UDP, align 8
+  store i64 %120, ptr %119, align 1
+  %121 = add nuw nsw i32 %.195245, 8
+  br label %122
 
-130:                                              ; preds = %99, %74, %110, %109
-  %131 = phi ptr [ %125, %110 ], [ %49, %109 ], [ %80, %74 ], [ %49, %99 ]
-  %.296 = phi i32 [ %129, %110 ], [ %.094, %109 ], [ %83, %74 ], [ %107, %99 ]
+122:                                              ; preds = %91, %60, %102, %101
+  %123 = phi ptr [ %117, %102 ], [ %49, %101 ], [ %72, %60 ], [ %49, %91 ]
+  %.296 = phi i32 [ %121, %102 ], [ %.094, %101 ], [ %75, %60 ], [ %99, %91 ]
   %.b115 = load i1, ptr @hdr_tcp, align 4
-  br i1 %.b115, label %132, label %174
+  br i1 %.b115, label %124, label %166
 
-132:                                              ; preds = %130
-  %133 = load ptr, ptr @info_p, align 8
-  %134 = getelementptr inbounds i8, ptr %133, i64 160
-  %135 = getelementptr inbounds i8, ptr %133, i64 164
-  %.sink260.in = select i1 %14, ptr %135, ptr %134
-  %.sink259 = select i1 %14, i64 160, i64 164
-  %.sink260 = load i32, ptr %.sink260.in, align 4
-  %trunc157 = trunc i32 %.sink260 to i16
+124:                                              ; preds = %122
+  %125 = load ptr, ptr @info_p, align 8
+  %126 = getelementptr inbounds i8, ptr %125, i64 160
+  %127 = getelementptr inbounds i8, ptr %125, i64 164
+  %.sink273.in = select i1 %14, ptr %127, ptr %126
+  %.sink272 = select i1 %14, i64 160, i64 164
+  %.sink273 = load i32, ptr %.sink273.in, align 4
+  %trunc157 = trunc i32 %.sink273 to i16
   %rev158 = call i16 @llvm.bswap.i16(i16 %trunc157)
-  %136 = getelementptr inbounds i8, ptr %133, i64 %.sink259
-  %.sink247 = load i32, ptr %136, align 4
-  %trunc162 = trunc i32 %.sink247 to i16
+  %128 = getelementptr inbounds i8, ptr %125, i64 %.sink272
+  %.sink257 = load i32, ptr %128, align 4
+  %trunc162 = trunc i32 %.sink257 to i16
   %rev163 = call i16 @llvm.bswap.i16(i16 %trunc162)
   store i16 %rev158, ptr @HDR_TCP, align 4
   store i16 %rev163, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 2), align 2
-  %137 = load i32, ptr @has_direction, align 4
-  %.not167 = icmp eq i32 %137, 0
-  br i1 %.not167, label %152, label %138
+  %129 = load i32, ptr @has_direction, align 4
+  %.not167 = icmp eq i32 %129, 0
+  br i1 %.not167, label %144, label %130
 
-138:                                              ; preds = %132
-  %139 = load i32, ptr @tcp_out_seq_num, align 4
-  %140 = load i32, ptr @tcp_in_seq_num, align 4
-  %141 = select i1 %14, i32 %139, i32 %140
-  %142 = call i32 @llvm.bswap.i32(i32 %141)
-  %143 = shl i32 %142, 24
-  %144 = shl i32 %142, 8
-  %145 = and i32 %144, 16711680
-  %146 = or disjoint i32 %145, %143
-  %147 = lshr i32 %142, 8
-  %148 = and i32 %147, 65280
-  %149 = or disjoint i32 %146, %148
-  %150 = lshr i32 %142, 24
-  %151 = or disjoint i32 %149, %150
+130:                                              ; preds = %124
+  %131 = load i32, ptr @tcp_out_seq_num, align 4
+  %132 = load i32, ptr @tcp_in_seq_num, align 4
+  %133 = select i1 %14, i32 %131, i32 %132
+  %134 = call i32 @llvm.bswap.i32(i32 %133)
+  %135 = shl i32 %134, 24
+  %136 = shl i32 %134, 8
+  %137 = and i32 %136, 16711680
+  %138 = or disjoint i32 %137, %135
+  %139 = lshr i32 %134, 8
+  %140 = and i32 %139, 65280
+  %141 = or disjoint i32 %138, %140
+  %142 = lshr i32 %134, 24
+  %143 = or disjoint i32 %141, %142
   br label %.sink.split
 
-152:                                              ; preds = %132
+144:                                              ; preds = %124
   %.pre = load i32, ptr @tcp_in_seq_num, align 4
   %.pre242 = load i32, ptr @tcp_out_seq_num, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %152, %138
-  %153 = phi i32 [ %.pre242, %152 ], [ %139, %138 ]
-  %154 = phi i32 [ %.pre, %152 ], [ %140, %138 ]
-  %.sink238 = phi i8 [ 0, %152 ], [ 16, %138 ]
-  %storemerge168 = phi i32 [ 0, %152 ], [ %151, %138 ]
+.sink.split:                                      ; preds = %144, %130
+  %145 = phi i32 [ %.pre242, %144 ], [ %131, %130 ]
+  %146 = phi i32 [ %.pre, %144 ], [ %132, %130 ]
+  %.sink238 = phi i8 [ 0, %144 ], [ 16, %130 ]
+  %storemerge168 = phi i32 [ 0, %144 ], [ %143, %130 ]
   store i8 %.sink238, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 13), align 1
   store i32 %storemerge168, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 8), align 4
-  %155 = select i1 %14, i32 %154, i32 %153
-  store i32 %155, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+  %147 = select i1 %14, i32 %146, i32 %145
+  store i32 %147, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
   store i16 32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 14), align 2
   store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
   %.b127 = load i1, ptr @hdr_ipv6, align 4
-  %spec.select248 = select i1 %.b127, ptr @pseudoh6, ptr @pseudoh
-  %spec.select249 = select i1 %.b127, i32 40, i32 12
-  store ptr %spec.select248, ptr %4, align 16
-  %156 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %spec.select249, ptr %156, align 8
-  %157 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr @HDR_TCP, ptr %157, align 16
-  %158 = getelementptr inbounds i8, ptr %4, i64 24
-  store i32 20, ptr %158, align 8
-  %159 = getelementptr i8, ptr %131, i64 %50
-  %160 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr %159, ptr %160, align 16
-  %161 = load i32, ptr @curr_offset, align 4
-  %162 = getelementptr inbounds i8, ptr %4, i64 40
-  store i32 %161, ptr %162, align 8
-  %163 = call i32 @in_cksum(ptr noundef nonnull %4, i32 noundef 3) #15
-  %164 = trunc i32 %163 to i16
-  store i16 %164, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
-  %165 = load ptr, ptr @packet_buf, align 8
-  %166 = zext nneg i32 %.296 to i64
-  %167 = getelementptr i8, ptr %165, i64 %166
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %167, ptr noundef nonnull align 4 dereferenceable(20) @HDR_TCP, i64 20, i1 false)
-  %168 = add nuw nsw i32 %.296, 20
+  %spec.select258 = select i1 %.b127, ptr @pseudoh6, ptr @pseudoh
+  %spec.select259 = select i1 %.b127, i32 40, i32 12
+  store ptr %spec.select258, ptr %4, align 16
+  %148 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 %spec.select259, ptr %148, align 8
+  %149 = getelementptr inbounds i8, ptr %4, i64 16
+  store ptr @HDR_TCP, ptr %149, align 16
+  %150 = getelementptr inbounds i8, ptr %4, i64 24
+  store i32 20, ptr %150, align 8
+  %151 = getelementptr i8, ptr %123, i64 %50
+  %152 = getelementptr inbounds i8, ptr %4, i64 32
+  store ptr %151, ptr %152, align 16
+  %153 = load i32, ptr @curr_offset, align 4
+  %154 = getelementptr inbounds i8, ptr %4, i64 40
+  store i32 %153, ptr %154, align 8
+  %155 = call i32 @in_cksum(ptr noundef nonnull %4, i32 noundef 3) #15
+  %156 = trunc i32 %155 to i16
+  store i16 %156, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 16), align 4
+  %157 = load ptr, ptr @packet_buf, align 8
+  %158 = zext nneg i32 %.296 to i64
+  %159 = getelementptr i8, ptr %157, i64 %158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %159, ptr noundef nonnull align 4 dereferenceable(20) @HDR_TCP, i64 20, i1 false)
+  %160 = add nuw nsw i32 %.296, 20
   %tcp_in_seq_num.tcp_out_seq_num = select i1 %14, ptr @tcp_in_seq_num, ptr @tcp_out_seq_num
-  %169 = load i32, ptr %tcp_in_seq_num.tcp_out_seq_num, align 4
-  %170 = call i32 @llvm.bswap.i32(i32 %169)
-  %171 = load i32, ptr @curr_offset, align 4
-  %172 = add i32 %170, %171
-  %173 = call i32 @llvm.bswap.i32(i32 %172)
-  store i32 %173, ptr %tcp_in_seq_num.tcp_out_seq_num, align 4
-  br label %174
+  %161 = load i32, ptr %tcp_in_seq_num.tcp_out_seq_num, align 4
+  %162 = call i32 @llvm.bswap.i32(i32 %161)
+  %163 = load i32, ptr @curr_offset, align 4
+  %164 = add i32 %162, %163
+  %165 = call i32 @llvm.bswap.i32(i32 %164)
+  store i32 %165, ptr %tcp_in_seq_num.tcp_out_seq_num, align 4
+  br label %166
 
-174:                                              ; preds = %.sink.split, %130
-  %175 = phi ptr [ %131, %130 ], [ %165, %.sink.split ]
-  %.397 = phi i32 [ %.296, %130 ], [ %168, %.sink.split ]
+166:                                              ; preds = %.sink.split, %122
+  %167 = phi ptr [ %123, %122 ], [ %157, %.sink.split ]
+  %.397 = phi i32 [ %.296, %122 ], [ %160, %.sink.split ]
   %.b121 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b121, label %176, label %203
+  br i1 %.b121, label %168, label %195
 
-176:                                              ; preds = %174
-  %177 = load i32, ptr @packet_start, align 4
-  %178 = icmp eq i32 %177, 0
-  %spec.store.select = select i1 %178, i8 2, i8 0
+168:                                              ; preds = %166
+  %169 = load i32, ptr @packet_start, align 4
+  %170 = icmp eq i32 %169, 0
+  %spec.store.select = select i1 %170, i8 2, i8 0
   %.not184 = icmp eq i32 %0, 0
-  %179 = zext i1 %.not184 to i8
-  %spec.select234 = or disjoint i8 %spec.store.select, %179
+  %171 = zext i1 %.not184 to i8
+  %spec.select234 = or disjoint i8 %spec.store.select, %171
   store i8 0, ptr @HDR_DATA_CHUNK, align 4
   store i8 %spec.select234, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 1), align 1
-  %180 = load i32, ptr @curr_offset, align 4
-  %181 = trunc i32 %180 to i16
-  %trunc185 = add i16 %181, 16
+  %172 = load i32, ptr @curr_offset, align 4
+  %173 = trunc i32 %172 to i16
+  %trunc185 = add i16 %173, 16
   %rev186 = call i16 @llvm.bswap.i16(i16 %trunc185)
   store i16 %rev186, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 2), align 2
-  %182 = load i32, ptr @hdr_data_chunk_tsn, align 4
-  %183 = call i32 @llvm.bswap.i32(i32 %182)
-  store i32 %183, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
+  %174 = load i32, ptr @hdr_data_chunk_tsn, align 4
+  %175 = call i32 @llvm.bswap.i32(i32 %174)
+  store i32 %175, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 4), align 4
   store i16 0, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 8), align 4
-  %184 = load i16, ptr @hdr_data_chunk_ssn, align 2
-  %rev190 = call i16 @llvm.bswap.i16(i16 %184)
+  %176 = load i16, ptr @hdr_data_chunk_ssn, align 2
+  %rev190 = call i16 @llvm.bswap.i16(i16 %176)
   store i16 %rev190, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 10), align 2
-  %185 = load ptr, ptr @info_p, align 8
-  %186 = getelementptr inbounds i8, ptr %185, i64 172
-  %187 = load i32, ptr %186, align 4
-  %188 = call i32 @llvm.bswap.i32(i32 %187)
-  store i32 %188, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 12), align 4
-  %189 = add i32 %182, 1
-  store i32 %189, ptr @hdr_data_chunk_tsn, align 4
-  br i1 %.not184, label %190, label %192
+  %177 = load ptr, ptr @info_p, align 8
+  %178 = getelementptr inbounds i8, ptr %177, i64 172
+  %179 = load i32, ptr %178, align 4
+  %180 = call i32 @llvm.bswap.i32(i32 %179)
+  store i32 %180, ptr getelementptr inbounds (i8, ptr @HDR_DATA_CHUNK, i64 12), align 4
+  %181 = add i32 %174, 1
+  store i32 %181, ptr @hdr_data_chunk_tsn, align 4
+  br i1 %.not184, label %182, label %184
 
-190:                                              ; preds = %176
-  %191 = add i16 %184, 1
-  store i16 %191, ptr @hdr_data_chunk_ssn, align 2
-  br label %192
+182:                                              ; preds = %168
+  %183 = add i16 %176, 1
+  store i16 %183, ptr @hdr_data_chunk_ssn, align 2
+  br label %184
 
-192:                                              ; preds = %190, %176
-  %193 = and i32 %180, 3
-  %194 = icmp eq i32 %193, 0
-  %195 = sub nuw nsw i32 4, %193
-  %.0.i223 = select i1 %194, i32 0, i32 %195
-  br i1 %194, label %._crit_edge, label %.lr.ph
+184:                                              ; preds = %182, %168
+  %185 = and i32 %172, 3
+  %186 = icmp eq i32 %185, 0
+  %187 = sub nuw nsw i32 4, %185
+  %.0.i223 = select i1 %186, i32 0, i32 %187
+  br i1 %186, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %192
-  %196 = add i32 %180, %spec.select218
-  %wide.trip.count = zext nneg i32 %195 to i64
-  br label %197
+.lr.ph:                                           ; preds = %184
+  %188 = add i32 %172, %spec.select218
+  %wide.trip.count = zext nneg i32 %187 to i64
+  br label %189
 
-197:                                              ; preds = %.lr.ph, %197
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %197 ]
-  %198 = trunc nuw nsw i64 %indvars.iv to i32
-  %199 = add i32 %196, %198
-  %200 = zext i32 %199 to i64
-  %201 = getelementptr i8, ptr %175, i64 %200
-  store i8 0, ptr %201, align 1
+189:                                              ; preds = %.lr.ph, %189
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %189 ]
+  %190 = trunc nuw nsw i64 %indvars.iv to i32
+  %191 = add i32 %188, %190
+  %192 = zext i32 %191 to i64
+  %193 = getelementptr i8, ptr %167, i64 %192
+  store i8 0, ptr %193, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %197, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %189, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %197, %192
-  %202 = add i32 %.0.i223, %180
-  store i32 %202, ptr @curr_offset, align 4
-  br label %203
+._crit_edge:                                      ; preds = %189, %184
+  %194 = add i32 %.0.i223, %172
+  store i32 %194, ptr @curr_offset, align 4
+  br label %195
 
-203:                                              ; preds = %._crit_edge, %174
+195:                                              ; preds = %._crit_edge, %166
   %.b117 = load i1, ptr @hdr_sctp, align 4
-  br i1 %.b117, label %204, label %252
+  br i1 %.b117, label %196, label %244
 
-204:                                              ; preds = %203
-  %205 = load ptr, ptr @info_p, align 8
-  %206 = getelementptr inbounds i8, ptr %205, i64 160
-  %207 = getelementptr inbounds i8, ptr %205, i64 164
-  %.sink262.in = select i1 %14, ptr %207, ptr %206
-  %.sink261 = select i1 %14, i64 160, i64 164
-  %.sink262 = load i32, ptr %.sink262.in, align 4
-  %trunc194 = trunc i32 %.sink262 to i16
+196:                                              ; preds = %195
+  %197 = load ptr, ptr @info_p, align 8
+  %198 = getelementptr inbounds i8, ptr %197, i64 160
+  %199 = getelementptr inbounds i8, ptr %197, i64 164
+  %.sink275.in = select i1 %14, ptr %199, ptr %198
+  %.sink274 = select i1 %14, i64 160, i64 164
+  %.sink275 = load i32, ptr %.sink275.in, align 4
+  %trunc194 = trunc i32 %.sink275 to i16
   %rev195 = call i16 @llvm.bswap.i16(i16 %trunc194)
-  %208 = getelementptr inbounds i8, ptr %205, i64 %.sink261
-  %.sink256 = load i32, ptr %208, align 4
-  %trunc199 = trunc i32 %.sink256 to i16
+  %200 = getelementptr inbounds i8, ptr %197, i64 %.sink274
+  %.sink266 = load i32, ptr %200, align 4
+  %trunc199 = trunc i32 %.sink266 to i16
   %rev200 = call i16 @llvm.bswap.i16(i16 %trunc199)
   store i16 %rev195, ptr @HDR_SCTP, align 4
   store i16 %rev200, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 2), align 2
-  %209 = getelementptr inbounds i8, ptr %205, i64 168
-  %210 = load i32, ptr %209, align 8
-  %211 = call i32 @llvm.bswap.i32(i32 %210)
-  store i32 %211, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 4), align 4
+  %201 = getelementptr inbounds i8, ptr %197, i64 168
+  %202 = load i32, ptr %201, align 8
+  %203 = call i32 @llvm.bswap.i32(i32 %202)
+  store i32 %203, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 4), align 4
   store i32 0, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %212 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1) #15
-  store i32 %212, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %204 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_SCTP, i32 noundef 12, i32 noundef -1) #15
+  store i32 %204, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %.b120 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b120, label %213, label %215
+  br i1 %.b120, label %205, label %207
 
-213:                                              ; preds = %204
-  %214 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %212) #15
-  store i32 %214, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  br label %215
+205:                                              ; preds = %196
+  %206 = call i32 @crc32c_calculate(ptr noundef nonnull @HDR_DATA_CHUNK, i32 noundef 16, i32 noundef %204) #15
+  store i32 %206, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  br label %207
 
-215:                                              ; preds = %213, %204
-  %216 = phi i32 [ %214, %213 ], [ %212, %204 ]
-  %217 = load ptr, ptr @packet_buf, align 8
-  %218 = getelementptr i8, ptr %217, i64 %50
-  %219 = load i32, ptr @curr_offset, align 4
-  %220 = call i32 @crc32c_calculate(ptr noundef %218, i32 noundef %219, i32 noundef %216) #15
-  %221 = xor i32 %220, -1
-  %222 = shl i32 %221, 24
+207:                                              ; preds = %205, %196
+  %208 = phi i32 [ %206, %205 ], [ %204, %196 ]
+  %209 = load ptr, ptr @packet_buf, align 8
+  %210 = getelementptr i8, ptr %209, i64 %50
+  %211 = load i32, ptr @curr_offset, align 4
+  %212 = call i32 @crc32c_calculate(ptr noundef %210, i32 noundef %211, i32 noundef %208) #15
+  %213 = xor i32 %212, -1
+  %214 = shl i32 %213, 24
+  %215 = load ptr, ptr @packet_buf, align 8
+  %216 = getelementptr i8, ptr %215, i64 %50
+  %217 = load i32, ptr @curr_offset, align 4
+  %218 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %219 = call i32 @crc32c_calculate(ptr noundef %216, i32 noundef %217, i32 noundef %218) #15
+  %220 = shl i32 %219, 8
+  %221 = and i32 %220, 16711680
+  %222 = or disjoint i32 %221, %214
   %223 = load ptr, ptr @packet_buf, align 8
   %224 = getelementptr i8, ptr %223, i64 %50
   %225 = load i32, ptr @curr_offset, align 4
   %226 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %227 = call i32 @crc32c_calculate(ptr noundef %224, i32 noundef %225, i32 noundef %226) #15
-  %228 = shl i32 %227, 8
-  %229 = and i32 %228, 16711680
+  %228 = lshr i32 %227, 8
+  %229 = and i32 %228, 65280
   %230 = or disjoint i32 %229, %222
   %231 = load ptr, ptr @packet_buf, align 8
   %232 = getelementptr i8, ptr %231, i64 %50
   %233 = load i32, ptr @curr_offset, align 4
   %234 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
   %235 = call i32 @crc32c_calculate(ptr noundef %232, i32 noundef %233, i32 noundef %234) #15
-  %236 = lshr i32 %235, 8
-  %237 = and i32 %236, 65280
+  %236 = xor i32 %235, -1
+  %237 = lshr i32 %236, 24
   %238 = or disjoint i32 %237, %230
-  %239 = load ptr, ptr @packet_buf, align 8
-  %240 = getelementptr i8, ptr %239, i64 %50
-  %241 = load i32, ptr @curr_offset, align 4
-  %242 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %243 = call i32 @crc32c_calculate(ptr noundef %240, i32 noundef %241, i32 noundef %242) #15
-  %244 = xor i32 %243, -1
-  %245 = lshr i32 %244, 24
-  %246 = or disjoint i32 %245, %238
-  %247 = xor i32 %246, 16776960
-  store i32 %247, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
-  %248 = load ptr, ptr @packet_buf, align 8
-  %249 = sext i32 %.397 to i64
-  %250 = getelementptr i8, ptr %248, i64 %249
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %250, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 12, i1 false)
-  %251 = add i32 %.397, 12
-  br label %252
+  %239 = xor i32 %238, 16776960
+  store i32 %239, ptr getelementptr inbounds (i8, ptr @HDR_SCTP, i64 8), align 4
+  %240 = load ptr, ptr @packet_buf, align 8
+  %241 = sext i32 %.397 to i64
+  %242 = getelementptr i8, ptr %240, i64 %241
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %242, ptr noundef nonnull align 4 dereferenceable(12) @HDR_SCTP, i64 12, i1 false)
+  %243 = add i32 %.397, 12
+  br label %244
 
-252:                                              ; preds = %215, %203
-  %.498 = phi i32 [ %251, %215 ], [ %.397, %203 ]
+244:                                              ; preds = %207, %195
+  %.498 = phi i32 [ %243, %207 ], [ %.397, %195 ]
   %.b119 = load i1, ptr @hdr_data_chunk, align 4
-  br i1 %.b119, label %253, label %257
+  br i1 %.b119, label %245, label %249
 
-253:                                              ; preds = %252
-  %254 = load ptr, ptr @packet_buf, align 8
-  %255 = sext i32 %.498 to i64
-  %256 = getelementptr i8, ptr %254, i64 %255
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %256, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 16, i1 false)
-  br label %257
+245:                                              ; preds = %244
+  %246 = load ptr, ptr @packet_buf, align 8
+  %247 = sext i32 %.498 to i64
+  %248 = getelementptr i8, ptr %246, i64 %247
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %248, ptr noundef nonnull align 4 dereferenceable(16) @HDR_DATA_CHUNK, i64 16, i1 false)
+  br label %249
 
-257:                                              ; preds = %253, %252
+249:                                              ; preds = %245, %244
   %.b125 = load i1, ptr @hdr_export_pdu, align 4
-  br i1 %.b125, label %258, label %276
+  br i1 %.b125, label %250, label %268
 
-258:                                              ; preds = %257
-  %259 = load ptr, ptr @info_p, align 8
-  %260 = getelementptr inbounds i8, ptr %259, i64 176
-  %261 = load ptr, ptr %260, align 8
-  %262 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %261) #16
-  %263 = trunc i64 %262 to i32
+250:                                              ; preds = %249
+  %251 = load ptr, ptr @info_p, align 8
+  %252 = getelementptr inbounds i8, ptr %251, i64 176
+  %253 = load ptr, ptr %252, align 8
+  %254 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %253) #16
+  %255 = trunc i64 %254 to i32
   store i16 3072, ptr @HDR_EXPORT_PDU, align 4
-  %trunc207 = trunc i64 %262 to i16
+  %trunc207 = trunc i64 %254 to i16
   %rev208 = call i16 @llvm.bswap.i16(i16 %trunc207)
   store i16 %rev208, ptr getelementptr inbounds (i8, ptr @HDR_EXPORT_PDU, i64 2), align 2
-  %264 = load ptr, ptr @packet_buf, align 8
-  %265 = sext i32 %.498 to i64
-  %266 = getelementptr i8, ptr %264, i64 %265
-  %267 = load i32, ptr @HDR_EXPORT_PDU, align 4
-  store i32 %267, ptr %266, align 1
-  %268 = add i32 %.498, 4
-  %269 = sext i32 %268 to i64
-  %270 = getelementptr i8, ptr %264, i64 %269
-  %271 = load ptr, ptr %260, align 8
-  %272 = and i64 %262, 4294967295
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %270, ptr align 1 %271, i64 %272, i1 false)
-  %273 = add i32 %268, %263
-  %274 = sext i32 %273 to i64
-  %275 = getelementptr i8, ptr %264, i64 %274
-  store i32 0, ptr %275, align 1
+  %256 = load ptr, ptr @packet_buf, align 8
+  %257 = sext i32 %.498 to i64
+  %258 = getelementptr i8, ptr %256, i64 %257
+  %259 = load i32, ptr @HDR_EXPORT_PDU, align 4
+  store i32 %259, ptr %258, align 1
+  %260 = add i32 %.498, 4
+  %261 = sext i32 %260 to i64
+  %262 = getelementptr i8, ptr %256, i64 %261
+  %263 = load ptr, ptr %252, align 8
+  %264 = and i64 %254, 4294967295
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %262, ptr align 1 %263, i64 %264, i1 false)
+  %265 = add i32 %260, %255
+  %266 = sext i32 %265 to i64
+  %267 = getelementptr i8, ptr %256, i64 %266
+  store i32 0, ptr %267, align 1
+  br label %268
+
+268:                                              ; preds = %250, %249
+  %.b = load i1, ptr @hdr_ethernet, align 4
+  %269 = icmp ne i32 %.099225, 0
+  %or.cond = select i1 %.b, i1 %269, i1 false
+  %.pre243 = load i32, ptr @curr_offset, align 4
+  br i1 %or.cond, label %270, label %276
+
+270:                                              ; preds = %268
+  %271 = load ptr, ptr @packet_buf, align 8
+  %272 = add i32 %.pre243, %spec.select218
+  %273 = zext i32 %272 to i64
+  %274 = getelementptr i8, ptr %271, i64 %273
+  %275 = zext nneg i32 %.099225 to i64
+  call void @llvm.memset.p0.i64(ptr align 1 %274, i8 0, i64 %275, i1 false)
   br label %276
 
-276:                                              ; preds = %258, %257
-  %.b = load i1, ptr @hdr_ethernet, align 4
-  %277 = icmp ne i32 %.099225, 0
-  %or.cond = select i1 %.b, i1 %277, i1 false
-  %.pre243 = load i32, ptr @curr_offset, align 4
-  br i1 %or.cond, label %278, label %284
-
-278:                                              ; preds = %276
-  %279 = load ptr, ptr @packet_buf, align 8
-  %280 = add i32 %.pre243, %spec.select218
-  %281 = zext i32 %280 to i64
-  %282 = getelementptr i8, ptr %279, i64 %281
-  %283 = zext nneg i32 %.099225 to i64
-  call void @llvm.memset.p0.i64(ptr align 1 %282, i8 0, i64 %283, i1 false)
-  br label %284
-
-284:                                              ; preds = %278, %276
-  %285 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
-  %286 = call i32 @llvm.bswap.i32(i32 %285)
-  %287 = add i32 %286, %.pre243
-  %288 = call i32 @llvm.bswap.i32(i32 %287)
-  store i32 %288, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+276:                                              ; preds = %270, %268
+  %277 = load i32, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
+  %278 = call i32 @llvm.bswap.i32(i32 %277)
+  %279 = add i32 %278, %.pre243
+  %280 = call i32 @llvm.bswap.i32(i32 %279)
+  store i32 %280, ptr getelementptr inbounds (i8, ptr @HDR_TCP, i64 4), align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %5, i8 0, i64 280, i1 false)
-  %289 = load ptr, ptr @info_p, align 8
-  %290 = getelementptr inbounds i8, ptr %289, i64 96
-  %291 = load i32, ptr %290, align 8
-  %292 = icmp eq i32 %291, 203
-  br i1 %292, label %293, label %301
+  %281 = load ptr, ptr @info_p, align 8
+  %282 = getelementptr inbounds i8, ptr %281, i64 96
+  %283 = load i32, ptr %282, align 8
+  %284 = icmp eq i32 %283, 203
+  br i1 %284, label %285, label %293
 
-293:                                              ; preds = %284
+285:                                              ; preds = %276
   store i32 4, ptr %5, align 8
-  %294 = call ptr @wtap_block_create(i32 noundef 10) #15
+  %286 = call ptr @wtap_block_create(i32 noundef 10) #15
+  %287 = getelementptr inbounds i8, ptr %5, i64 232
+  store ptr %286, ptr %287, align 8
+  %288 = load i32, ptr @curr_offset, align 4
+  %289 = add i32 %.099225, %spec.select218
+  %290 = add i32 %289, %288
+  %291 = getelementptr inbounds i8, ptr %5, i64 64
+  store i32 %290, ptr %291, align 8
+  %292 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 3, ptr %292, align 4
+  br label %319
+
+293:                                              ; preds = %276
+  %294 = call ptr @wtap_block_create(i32 noundef 5) #15
   %295 = getelementptr inbounds i8, ptr %5, i64 232
   store ptr %294, ptr %295, align 8
   %296 = load i32, ptr @curr_offset, align 4
   %297 = add i32 %.099225, %spec.select218
   %298 = add i32 %297, %296
   %299 = getelementptr inbounds i8, ptr %5, i64 64
+  %300 = getelementptr inbounds i8, ptr %5, i64 68
+  store i32 %298, ptr %300, align 4
   store i32 %298, ptr %299, align 8
-  %300 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 3, ptr %300, align 4
-  br label %327
+  %301 = load i64, ptr @ts_sec, align 8
+  %302 = getelementptr inbounds i8, ptr %5, i64 16
+  store i64 %301, ptr %302, align 8
+  %303 = load i32, ptr @ts_nsec, align 4
+  %304 = getelementptr inbounds i8, ptr %5, i64 24
+  store i32 %303, ptr %304, align 8
+  %305 = load ptr, ptr @info_p, align 8
+  %306 = getelementptr inbounds i8, ptr %305, i64 96
+  %307 = load i32, ptr %306, align 8
+  %308 = getelementptr inbounds i8, ptr %5, i64 72
+  store i32 %307, ptr %308, align 8
+  %309 = getelementptr inbounds i8, ptr %5, i64 4
+  store i32 7, ptr %309, align 4
+  %310 = load i32, ptr @has_direction, align 4
+  %.not215 = icmp eq i32 %310, 0
+  br i1 %.not215, label %314, label %311
 
-301:                                              ; preds = %284
-  %302 = call ptr @wtap_block_create(i32 noundef 5) #15
-  %303 = getelementptr inbounds i8, ptr %5, i64 232
-  store ptr %302, ptr %303, align 8
-  %304 = load i32, ptr @curr_offset, align 4
-  %305 = add i32 %.099225, %spec.select218
-  %306 = add i32 %305, %304
-  %307 = getelementptr inbounds i8, ptr %5, i64 64
-  %308 = getelementptr inbounds i8, ptr %5, i64 68
-  store i32 %306, ptr %308, align 4
-  store i32 %306, ptr %307, align 8
-  %309 = load i64, ptr @ts_sec, align 8
-  %310 = getelementptr inbounds i8, ptr %5, i64 16
-  store i64 %309, ptr %310, align 8
-  %311 = load i32, ptr @ts_nsec, align 4
-  %312 = getelementptr inbounds i8, ptr %5, i64 24
-  store i32 %311, ptr %312, align 8
-  %313 = load ptr, ptr @info_p, align 8
-  %314 = getelementptr inbounds i8, ptr %313, i64 96
-  %315 = load i32, ptr %314, align 8
-  %316 = getelementptr inbounds i8, ptr %5, i64 72
-  store i32 %315, ptr %316, align 8
-  %317 = getelementptr inbounds i8, ptr %5, i64 4
-  store i32 7, ptr %317, align 4
-  %318 = load i32, ptr @has_direction, align 4
-  %.not215 = icmp eq i32 %318, 0
-  br i1 %.not215, label %322, label %319
+311:                                              ; preds = %293
+  %312 = load i32, ptr @direction, align 4
+  %313 = call i32 @wtap_block_add_uint32_option(ptr noundef %294, i32 noundef 2, i32 noundef %312) #15
+  br label %314
 
-319:                                              ; preds = %301
-  %320 = load i32, ptr @direction, align 4
-  %321 = call i32 @wtap_block_add_uint32_option(ptr noundef %302, i32 noundef 2, i32 noundef %320) #15
-  br label %322
+314:                                              ; preds = %311, %293
+  %315 = load i32, ptr @has_seqno, align 4
+  %.not216 = icmp eq i32 %315, 0
+  br i1 %.not216, label %319, label %316
 
-322:                                              ; preds = %319, %301
-  %323 = load i32, ptr @has_seqno, align 4
-  %.not216 = icmp eq i32 %323, 0
-  br i1 %.not216, label %327, label %324
+316:                                              ; preds = %314
+  %317 = load i64, ptr @seqno, align 8
+  %318 = call i32 @wtap_block_add_uint64_option(ptr noundef %294, i32 noundef 5, i64 noundef %317) #15
+  br label %319
 
-324:                                              ; preds = %322
-  %325 = load i64, ptr @seqno, align 8
-  %326 = call i32 @wtap_block_add_uint64_option(ptr noundef %302, i32 noundef 5, i64 noundef %325) #15
-  br label %327
+319:                                              ; preds = %314, %316, %285
+  %320 = load ptr, ptr @info_p, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 104
+  %322 = load ptr, ptr %321, align 8
+  %323 = load ptr, ptr @packet_buf, align 8
+  %324 = call i32 @wtap_dump(ptr noundef %322, ptr noundef nonnull %5, ptr noundef %323, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
+  %.not217 = icmp eq i32 %324, 0
+  br i1 %.not217, label %325, label %339
 
-327:                                              ; preds = %322, %324, %293
-  %328 = load ptr, ptr @info_p, align 8
-  %329 = getelementptr inbounds i8, ptr %328, i64 104
-  %330 = load ptr, ptr %329, align 8
-  %331 = load ptr, ptr @packet_buf, align 8
-  %332 = call i32 @wtap_dump(ptr noundef %330, ptr noundef nonnull %5, ptr noundef %331, ptr noundef nonnull %6, ptr noundef nonnull %7) #15
-  %.not217 = icmp eq i32 %332, 0
-  br i1 %.not217, label %333, label %347
-
-333:                                              ; preds = %327
-  %334 = load ptr, ptr @info_p, align 8
+325:                                              ; preds = %319
+  %326 = load ptr, ptr @info_p, align 8
+  %327 = load ptr, ptr %326, align 8
+  %328 = getelementptr inbounds i8, ptr %326, i64 8
+  %329 = load ptr, ptr %328, align 8
+  %330 = load i32, ptr %6, align 4
+  %331 = load ptr, ptr %7, align 8
+  %332 = getelementptr inbounds i8, ptr %326, i64 188
+  %333 = load i32, ptr %332, align 4
+  %334 = getelementptr inbounds i8, ptr %326, i64 104
   %335 = load ptr, ptr %334, align 8
-  %336 = getelementptr inbounds i8, ptr %334, i64 8
-  %337 = load ptr, ptr %336, align 8
-  %338 = load i32, ptr %6, align 4
-  %339 = load ptr, ptr %7, align 8
-  %340 = getelementptr inbounds i8, ptr %334, i64 188
-  %341 = load i32, ptr %340, align 4
-  %342 = getelementptr inbounds i8, ptr %334, i64 104
-  %343 = load ptr, ptr %342, align 8
-  %344 = call i32 @wtap_dump_file_type_subtype(ptr noundef %343) #15
-  call void @report_cfile_write_failure(ptr noundef %335, ptr noundef %337, i32 noundef %338, ptr noundef %339, i32 noundef %341, i32 noundef %344) #15
-  %345 = getelementptr inbounds i8, ptr %5, i64 232
-  %346 = load ptr, ptr %345, align 8
-  call void @wtap_block_unref(ptr noundef %346) #15
-  br label %358
+  %336 = call i32 @wtap_dump_file_type_subtype(ptr noundef %335) #15
+  call void @report_cfile_write_failure(ptr noundef %327, ptr noundef %329, i32 noundef %330, ptr noundef %331, i32 noundef %333, i32 noundef %336) #15
+  %337 = getelementptr inbounds i8, ptr %5, i64 232
+  %338 = load ptr, ptr %337, align 8
+  call void @wtap_block_unref(ptr noundef %338) #15
+  br label %350
 
-347:                                              ; preds = %327
-  %348 = getelementptr inbounds i8, ptr %5, i64 232
-  %349 = load ptr, ptr %348, align 8
-  call void @wtap_block_unref(ptr noundef %349) #15
-  %350 = load ptr, ptr @info_p, align 8
-  %351 = getelementptr inbounds i8, ptr %350, i64 192
-  %352 = load i32, ptr %351, align 8
-  %353 = add i32 %352, 1
-  store i32 %353, ptr %351, align 8
+339:                                              ; preds = %319
+  %340 = getelementptr inbounds i8, ptr %5, i64 232
+  %341 = load ptr, ptr %340, align 8
+  call void @wtap_block_unref(ptr noundef %341) #15
+  %342 = load ptr, ptr @info_p, align 8
+  %343 = getelementptr inbounds i8, ptr %342, i64 192
+  %344 = load i32, ptr %343, align 8
+  %345 = add i32 %344, 1
+  store i32 %345, ptr %343, align 8
   %.pre244 = load i32, ptr @curr_offset, align 4
-  br label %354
+  br label %346
 
-354:                                              ; preds = %347, %1
-  %355 = phi i32 [ %.pre244, %347 ], [ 0, %1 ]
-  %356 = load i32, ptr @packet_start, align 4
-  %357 = add i32 %356, %355
-  store i32 %357, ptr @packet_start, align 4
+346:                                              ; preds = %339, %1
+  %347 = phi i32 [ %.pre244, %339 ], [ 0, %1 ]
+  %348 = load i32, ptr @packet_start, align 4
+  %349 = add i32 %348, %347
+  store i32 %349, ptr @packet_start, align 4
   store i32 0, ptr @curr_offset, align 4
-  br label %358
+  br label %350
 
-358:                                              ; preds = %354, %333
-  %.0 = phi i32 [ 0, %354 ], [ 1, %333 ]
+350:                                              ; preds = %346, %325
+  %.0 = phi i32 [ 0, %346 ], [ 1, %325 ]
   ret i32 %.0
 }
 

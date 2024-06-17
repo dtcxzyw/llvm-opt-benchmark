@@ -15089,11 +15089,11 @@ define void @_ZN15EditPointPlugin13keyPressEventEP9QKeyEventR9MeshModelP6GLArea(
   %6 = load i32, ptr %5, align 8
   switch i32 %6, label %.thread32 [
     i32 65, label %7
-    i32 90, label %16
-    i32 83, label %25
-    i32 88, label %41
-    i32 68, label %57
-    i32 67, label %69
+    i32 90, label %15
+    i32 83, label %23
+    i32 88, label %39
+    i32 68, label %55
+    i32 67, label %67
   ]
 
 7:                                                ; preds = %4
@@ -15107,164 +15107,163 @@ define void @_ZN15EditPointPlugin13keyPressEventEP9QKeyEventR9MeshModelP6GLArea(
   %12 = load float, ptr %11, align 4
   %13 = fpext float %12 to double
   %14 = fmul double %13, 1.200000e+00
-  %15 = fptrunc double %14 to float
-  store float %15, ptr %11, align 4
   br label %.thread29
 
-16:                                               ; preds = %4
-  %17 = getelementptr inbounds i8, ptr %0, i64 48
-  %18 = load ptr, ptr %17, align 8
-  %.not13 = icmp eq ptr %18, null
-  br i1 %.not13, label %.thread32, label %19
+15:                                               ; preds = %4
+  %16 = getelementptr inbounds i8, ptr %0, i64 48
+  %17 = load ptr, ptr %16, align 8
+  %.not13 = icmp eq ptr %17, null
+  br i1 %.not13, label %.thread32, label %18
 
-19:                                               ; preds = %16
-  %20 = getelementptr inbounds i8, ptr %0, i64 68
-  %21 = load float, ptr %20, align 4
-  %22 = fpext float %21 to double
-  %23 = fdiv double %22, 1.200000e+00
-  %24 = fptrunc double %23 to float
-  store float %24, ptr %20, align 4
+18:                                               ; preds = %15
+  %19 = getelementptr inbounds i8, ptr %0, i64 68
+  %20 = load float, ptr %19, align 4
+  %21 = fpext float %20 to double
+  %22 = fdiv double %21, 1.200000e+00
   br label %.thread29
 
-25:                                               ; preds = %4
-  %26 = getelementptr inbounds i8, ptr %0, i64 48
-  %27 = load ptr, ptr %26, align 8
-  %.not12 = icmp ne ptr %27, null
-  %28 = getelementptr inbounds i8, ptr %0, i64 36
-  %29 = load i32, ptr %28, align 4
-  %30 = icmp eq i32 %29, 1
-  %or.cond = select i1 %.not12, i1 %30, i1 false
-  br i1 %or.cond, label %31, label %.thread32
+23:                                               ; preds = %4
+  %24 = getelementptr inbounds i8, ptr %0, i64 48
+  %25 = load ptr, ptr %24, align 8
+  %.not12 = icmp ne ptr %25, null
+  %26 = getelementptr inbounds i8, ptr %0, i64 36
+  %27 = load i32, ptr %26, align 4
+  %28 = icmp eq i32 %27, 1
+  %or.cond = select i1 %.not12, i1 %28, i1 false
+  br i1 %or.cond, label %29, label %.thread32
 
-31:                                               ; preds = %25
-  %32 = getelementptr inbounds i8, ptr %0, i64 72
-  %33 = load float, ptr %32, align 8
-  %34 = fpext float %33 to double
-  %35 = fmul double %34, 1.200000e+00
-  %36 = fptrunc double %35 to float
-  store float %36, ptr %32, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 64
-  %38 = load float, ptr %37, align 8
-  %39 = fmul float %38, %36
-  %40 = getelementptr inbounds i8, ptr %0, i64 76
-  store float %39, ptr %40, align 4
-  br label %84
+29:                                               ; preds = %23
+  %30 = getelementptr inbounds i8, ptr %0, i64 72
+  %31 = load float, ptr %30, align 8
+  %32 = fpext float %31 to double
+  %33 = fmul double %32, 1.200000e+00
+  %34 = fptrunc double %33 to float
+  store float %34, ptr %30, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 64
+  %36 = load float, ptr %35, align 8
+  %37 = fmul float %36, %34
+  %38 = getelementptr inbounds i8, ptr %0, i64 76
+  store float %37, ptr %38, align 4
+  br label %82
 
-41:                                               ; preds = %4
-  %42 = getelementptr inbounds i8, ptr %0, i64 48
-  %43 = load ptr, ptr %42, align 8
-  %.not11 = icmp ne ptr %43, null
-  %44 = getelementptr inbounds i8, ptr %0, i64 36
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %45, 1
-  %or.cond19 = select i1 %.not11, i1 %46, i1 false
-  br i1 %or.cond19, label %47, label %.thread32
+39:                                               ; preds = %4
+  %40 = getelementptr inbounds i8, ptr %0, i64 48
+  %41 = load ptr, ptr %40, align 8
+  %.not11 = icmp ne ptr %41, null
+  %42 = getelementptr inbounds i8, ptr %0, i64 36
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp eq i32 %43, 1
+  %or.cond19 = select i1 %.not11, i1 %44, i1 false
+  br i1 %or.cond19, label %45, label %.thread32
 
-47:                                               ; preds = %41
-  %48 = getelementptr inbounds i8, ptr %0, i64 72
-  %49 = load float, ptr %48, align 8
-  %50 = fpext float %49 to double
-  %51 = fdiv double %50, 1.200000e+00
-  %52 = fptrunc double %51 to float
-  store float %52, ptr %48, align 8
-  %53 = getelementptr inbounds i8, ptr %0, i64 64
-  %54 = load float, ptr %53, align 8
-  %55 = fmul float %54, %52
-  %56 = getelementptr inbounds i8, ptr %0, i64 76
-  store float %55, ptr %56, align 4
-  br label %84
+45:                                               ; preds = %39
+  %46 = getelementptr inbounds i8, ptr %0, i64 72
+  %47 = load float, ptr %46, align 8
+  %48 = fpext float %47 to double
+  %49 = fdiv double %48, 1.200000e+00
+  %50 = fptrunc double %49 to float
+  store float %50, ptr %46, align 8
+  %51 = getelementptr inbounds i8, ptr %0, i64 64
+  %52 = load float, ptr %51, align 8
+  %53 = fmul float %52, %50
+  %54 = getelementptr inbounds i8, ptr %0, i64 76
+  store float %53, ptr %54, align 4
+  br label %82
 
-57:                                               ; preds = %4
-  %58 = getelementptr inbounds i8, ptr %0, i64 48
-  %59 = load ptr, ptr %58, align 8
-  %.not10 = icmp ne ptr %59, null
-  %60 = getelementptr inbounds i8, ptr %0, i64 36
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %61, 1
-  %or.cond22 = select i1 %.not10, i1 %62, i1 false
-  br i1 %or.cond22, label %63, label %.thread32
+55:                                               ; preds = %4
+  %56 = getelementptr inbounds i8, ptr %0, i64 48
+  %57 = load ptr, ptr %56, align 8
+  %.not10 = icmp ne ptr %57, null
+  %58 = getelementptr inbounds i8, ptr %0, i64 36
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp eq i32 %59, 1
+  %or.cond22 = select i1 %.not10, i1 %60, i1 false
+  br i1 %or.cond22, label %61, label %.thread32
 
-63:                                               ; preds = %57
-  %64 = getelementptr inbounds i8, ptr %0, i64 80
-  %65 = load float, ptr %64, align 8
-  %66 = fpext float %65 to double
-  %67 = fmul double %66, 1.200000e+00
-  %68 = fptrunc double %67 to float
-  store float %68, ptr %64, align 8
-  br label %84
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds i8, ptr %0, i64 80
+  %63 = load float, ptr %62, align 8
+  %64 = fpext float %63 to double
+  %65 = fmul double %64, 1.200000e+00
+  %66 = fptrunc double %65 to float
+  store float %66, ptr %62, align 8
+  br label %82
 
-69:                                               ; preds = %4
-  %70 = getelementptr inbounds i8, ptr %0, i64 48
-  %71 = load ptr, ptr %70, align 8
-  %.not = icmp ne ptr %71, null
-  %72 = getelementptr inbounds i8, ptr %0, i64 36
-  %73 = load i32, ptr %72, align 4
-  %74 = icmp eq i32 %73, 1
-  %or.cond25 = select i1 %.not, i1 %74, i1 false
-  br i1 %or.cond25, label %75, label %.thread32
+67:                                               ; preds = %4
+  %68 = getelementptr inbounds i8, ptr %0, i64 48
+  %69 = load ptr, ptr %68, align 8
+  %.not = icmp ne ptr %69, null
+  %70 = getelementptr inbounds i8, ptr %0, i64 36
+  %71 = load i32, ptr %70, align 4
+  %72 = icmp eq i32 %71, 1
+  %or.cond25 = select i1 %.not, i1 %72, i1 false
+  br i1 %or.cond25, label %73, label %.thread32
 
-75:                                               ; preds = %69
-  %76 = getelementptr inbounds i8, ptr %0, i64 80
-  %77 = load float, ptr %76, align 8
-  %78 = fpext float %77 to double
-  %79 = fdiv double %78, 1.200000e+00
-  %80 = fptrunc double %79 to float
-  store float %80, ptr %76, align 8
-  br label %84
+73:                                               ; preds = %67
+  %74 = getelementptr inbounds i8, ptr %0, i64 80
+  %75 = load float, ptr %74, align 8
+  %76 = fpext float %75 to double
+  %77 = fdiv double %76, 1.200000e+00
+  %78 = fptrunc double %77 to float
+  store float %78, ptr %74, align 8
+  br label %82
 
-.thread29:                                        ; preds = %19, %10
-  %81 = phi float [ %24, %19 ], [ %15, %10 ]
-  %82 = phi ptr [ %18, %19 ], [ %9, %10 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 1352
-  tail call void @_ZN3vcg3tri15ComponentFinderI6CMeshOE8DijkstraERS2_R8CVertexOifRSt6vectorIPS5_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1196) %2, ptr noundef nonnull align 8 dereferenceable(44) %82, i32 noundef 6, float noundef %81, ptr noundef nonnull align 8 dereferenceable(24) %83)
-  br label %84
+.thread29:                                        ; preds = %18, %10
+  %.sink35 = phi double [ %22, %18 ], [ %14, %10 ]
+  %.sink34 = phi ptr [ %19, %18 ], [ %11, %10 ]
+  %79 = phi ptr [ %17, %18 ], [ %9, %10 ]
+  %80 = fptrunc double %.sink35 to float
+  store float %80, ptr %.sink34, align 4
+  %81 = getelementptr inbounds i8, ptr %0, i64 1352
+  tail call void @_ZN3vcg3tri15ComponentFinderI6CMeshOE8DijkstraERS2_R8CVertexOifRSt6vectorIPS5_SaIS8_EE(ptr noundef nonnull align 8 dereferenceable(1196) %2, ptr noundef nonnull align 8 dereferenceable(44) %79, i32 noundef 6, float noundef %80, ptr noundef nonnull align 8 dereferenceable(24) %81)
+  br label %82
 
-84:                                               ; preds = %31, %47, %63, %75, %.thread29
-  %85 = getelementptr inbounds i8, ptr %0, i64 1328
+82:                                               ; preds = %29, %45, %61, %73, %.thread29
+  %83 = getelementptr inbounds i8, ptr %0, i64 1328
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds i8, ptr %0, i64 1336
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds i8, ptr %0, i64 1336
-  %88 = load ptr, ptr %87, align 8
-  %.not.i.i = icmp eq ptr %88, %86
-  br i1 %.not.i.i, label %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit, label %89
+  %.not.i.i = icmp eq ptr %86, %84
+  br i1 %.not.i.i, label %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit, label %87
 
-89:                                               ; preds = %84
-  store ptr %86, ptr %87, align 8
+87:                                               ; preds = %82
+  store ptr %84, ptr %85, align 8
   br label %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
 
-_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit:     ; preds = %84, %89
-  %90 = getelementptr inbounds i8, ptr %0, i64 36
-  %91 = load i32, ptr %90, align 4
-  switch i32 %91, label %.thread32 [
-    i32 0, label %92
-    i32 1, label %97
+_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit:     ; preds = %82, %87
+  %88 = getelementptr inbounds i8, ptr %0, i64 36
+  %89 = load i32, ptr %88, align 4
+  switch i32 %89, label %.thread32 [
+    i32 0, label %90
+    i32 1, label %95
   ]
 
-92:                                               ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
-  %93 = getelementptr inbounds i8, ptr %0, i64 64
-  %94 = load float, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %0, i64 1352
-  %96 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3vcg3tri15ComponentFinderI6CMeshOE13FindComponentERS2_fRSt6vectorIP8CVertexOSaIS7_EESA_bffPNS_6Plane3IfLb1EEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, float noundef %94, ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %95, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef null)
+90:                                               ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
+  %91 = getelementptr inbounds i8, ptr %0, i64 64
+  %92 = load float, ptr %91, align 8
+  %93 = getelementptr inbounds i8, ptr %0, i64 1352
+  %94 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3vcg3tri15ComponentFinderI6CMeshOE13FindComponentERS2_fRSt6vectorIP8CVertexOSaIS7_EESA_bffPNS_6Plane3IfLb1EEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, float noundef %92, ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %93, i1 noundef zeroext false, float noundef 0.000000e+00, float noundef 0.000000e+00, ptr noundef null)
   br label %.thread32.sink.split
 
-97:                                               ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
-  %98 = getelementptr inbounds i8, ptr %0, i64 64
-  %99 = load float, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %0, i64 1352
-  %101 = getelementptr inbounds i8, ptr %0, i64 76
-  %102 = load float, ptr %101, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 80
-  %104 = load float, ptr %103, align 8
-  %105 = getelementptr inbounds i8, ptr %0, i64 84
-  %106 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3vcg3tri15ComponentFinderI6CMeshOE13FindComponentERS2_fRSt6vectorIP8CVertexOSaIS7_EESA_bffPNS_6Plane3IfLb1EEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, float noundef %99, ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %100, i1 noundef zeroext true, float noundef %102, float noundef %104, ptr noundef nonnull %105)
+95:                                               ; preds = %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
+  %96 = getelementptr inbounds i8, ptr %0, i64 64
+  %97 = load float, ptr %96, align 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 1352
+  %99 = getelementptr inbounds i8, ptr %0, i64 76
+  %100 = load float, ptr %99, align 4
+  %101 = getelementptr inbounds i8, ptr %0, i64 80
+  %102 = load float, ptr %101, align 8
+  %103 = getelementptr inbounds i8, ptr %0, i64 84
+  %104 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3vcg3tri15ComponentFinderI6CMeshOE13FindComponentERS2_fRSt6vectorIP8CVertexOSaIS7_EESA_bffPNS_6Plane3IfLb1EEE(ptr noundef nonnull align 8 dereferenceable(1196) %2, float noundef %97, ptr noundef nonnull align 8 dereferenceable(24) %83, ptr noundef nonnull align 8 dereferenceable(24) %98, i1 noundef zeroext true, float noundef %100, float noundef %102, ptr noundef nonnull %103)
   br label %.thread32.sink.split
 
-.thread32.sink.split:                             ; preds = %97, %92
-  %.sink34 = phi ptr [ %96, %92 ], [ %106, %97 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 1304
-  %108 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIP8CVertexOSaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %107, ptr noundef nonnull align 8 dereferenceable(24) %.sink34)
+.thread32.sink.split:                             ; preds = %95, %90
+  %.sink36 = phi ptr [ %94, %90 ], [ %104, %95 ]
+  %105 = getelementptr inbounds i8, ptr %0, i64 1304
+  %106 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIP8CVertexOSaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %.sink36)
   br label %.thread32
 
-.thread32:                                        ; preds = %.thread32.sink.split, %4, %69, %57, %41, %25, %16, %7, %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
+.thread32:                                        ; preds = %.thread32.sink.split, %4, %67, %55, %39, %23, %15, %7, %_ZNSt6vectorIP8CVertexOSaIS1_EE5clearEv.exit
   tail call void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(48) %3)
   ret void
 }

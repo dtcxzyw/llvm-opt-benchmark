@@ -1246,10 +1246,10 @@ removeDontCares.exit131:                          ; preds = %removeDontCares.exi
   br label %placeOne.exit
 
 placeOne.exit:                                    ; preds = %327, %._crit_edge, %353, %.critedge.i
-  %.sink.i = phi ptr [ %282, %.critedge.i ], [ %3, %._crit_edge ], [ %3, %353 ], [ %3, %327 ]
-  %.sink51.i = phi i64 [ 40, %.critedge.i ], [ 8, %._crit_edge ], [ 8, %353 ], [ 8, %327 ]
-  %355 = load ptr, ptr %.sink.i, align 8
-  %356 = getelementptr inbounds i8, ptr %3, i64 %.sink51.i
+  %.sink52.i = phi ptr [ %282, %.critedge.i ], [ %3, %._crit_edge ], [ %3, %353 ], [ %3, %327 ]
+  %.sink.i = phi i64 [ 40, %.critedge.i ], [ 8, %._crit_edge ], [ 8, %353 ], [ 8, %327 ]
+  %355 = load ptr, ptr %.sink52.i, align 8
+  %356 = getelementptr inbounds i8, ptr %3, i64 %.sink.i
   %357 = load i32, ptr %356, align 8
   %358 = add i32 %357, 1
   store i32 %358, ptr %356, align 8

@@ -853,16 +853,16 @@ if.then.i62:                                      ; preds = %lor.lhs.false.i53, 
           to label %for.inc.sink.split unwind label %lpad11.loopexit.split
 
 for.inc.sink.split:                               ; preds = %if.then.i62, %if.then.i31
-  %m_inner2sig.sink = phi ptr [ %m_inner2sig, %if.then.i31 ], [ %m_ignored_cols, %if.then.i62 ]
-  %.pre.i32 = load ptr, ptr %m_inner2sig.sink, align 8
-  %arrayidx8.phi.trans.insert.i64 = getelementptr inbounds i8, ptr %.pre.i32, i64 -4
+  %m_ignored_cols.sink85 = phi ptr [ %m_inner2sig, %if.then.i31 ], [ %m_ignored_cols, %if.then.i62 ]
+  %.pre.i63 = load ptr, ptr %m_ignored_cols.sink85, align 8
+  %arrayidx8.phi.trans.insert.i64 = getelementptr inbounds i8, ptr %.pre.i63, i64 -4
   %.pre1.i65 = load i32, ptr %arrayidx8.phi.trans.insert.i64, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i53, %lor.lhs.false.i22
   %.sink84 = phi i32 [ %45, %lor.lhs.false.i22 ], [ %56, %lor.lhs.false.i53 ], [ %.pre1.i65, %for.inc.sink.split ]
-  %.sink = phi ptr [ %44, %lor.lhs.false.i22 ], [ %55, %lor.lhs.false.i53 ], [ %.pre.i32, %for.inc.sink.split ]
-  %m_ignored_cols.sink = phi ptr [ %m_inner2sig, %lor.lhs.false.i22 ], [ %m_ignored_cols, %lor.lhs.false.i53 ], [ %m_inner2sig.sink, %for.inc.sink.split ]
+  %.sink = phi ptr [ %44, %lor.lhs.false.i22 ], [ %55, %lor.lhs.false.i53 ], [ %.pre.i63, %for.inc.sink.split ]
+  %m_ignored_cols.sink = phi ptr [ %m_inner2sig, %lor.lhs.false.i22 ], [ %m_ignored_cols, %lor.lhs.false.i53 ], [ %m_ignored_cols.sink85, %for.inc.sink.split ]
   %idx.ext.i58 = zext i32 %.sink84 to i64
   %add.ptr.i59 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i58
   %58 = trunc nuw i64 %indvars.iv to i32

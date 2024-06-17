@@ -4206,14 +4206,14 @@ for.end.i:                                        ; preds = %for.body.i, %if.end
   br i1 %cmp.not.i.i126, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %for.end.i, %if.then.i.i37
-  %.sink = phi ptr [ %28, %if.then.i.i37 ], [ %.lcssa.i, %for.end.i ]
+  %.lcssa.i.sink = phi ptr [ %28, %if.then.i.i37 ], [ %.lcssa.i, %for.end.i ]
   %rem.i.i.i.i125.pn = phi i64 [ %rem.i.i.i.i, %if.then.i.i37 ], [ %rem.i.i.i.i125, %for.end.i ]
   %sub.i.i129.sink.in = shl nsw i64 -1, %rem.i.i.i.i125.pn
   %sub.i.i129.sink = xor i64 %sub.i.i129.sink.in, -1
-  %add.ptr.i.i.i.i.i.i38 = getelementptr inbounds i8, ptr %.sink, i64 -8
-  %69 = load i64, ptr %add.ptr.i.i.i.i.i.i38, align 8
+  %add.ptr.i.i.i.i.i.i130 = getelementptr inbounds i8, ptr %.lcssa.i.sink, i64 -8
+  %69 = load i64, ptr %add.ptr.i.i.i.i.i.i130, align 8
   %and.i.i131 = and i64 %69, %sub.i.i129.sink
-  store i64 %and.i.i131, ptr %add.ptr.i.i.i.i.i.i38, align 8
+  store i64 %and.i.i131, ptr %add.ptr.i.i.i.i.i.i130, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %for.end.i, %_ZSt4fillIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEEmEvT_S7_RKT0_.exit.i

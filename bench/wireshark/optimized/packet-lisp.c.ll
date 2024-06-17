@@ -2711,11 +2711,11 @@ define internal i32 @dissect_lisp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 129:                                              ; preds = %123, %114
   %hf_lisp_mreq_itr_rloc_ipv4.sink.i = phi ptr [ @hf_lisp_mreq_itr_rloc_ipv6, %123 ], [ @hf_lisp_mreq_itr_rloc_ipv4, %114 ]
-  %.sink263.i = phi i32 [ 16, %123 ], [ 4, %114 ]
+  %.sink264.i = phi i32 [ 16, %123 ], [ 4, %114 ]
   %.sink262.i = phi i32 [ 3, %123 ], [ 2, %114 ]
   %.sink258.i = phi i32 [ 18, %123 ], [ 6, %114 ]
   %130 = load i32, ptr %hf_lisp_mreq_itr_rloc_ipv4.sink.i, align 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %122, i32 noundef %.sink263.i, i32 noundef 0) #3
+  %131 = call ptr @proto_tree_add_item(ptr noundef %119, i32 noundef %130, ptr noundef %0, i32 noundef %122, i32 noundef %.sink264.i, i32 noundef 0) #3
   %132 = add nuw nsw i32 %.0241.i, 1
   %133 = load ptr, ptr %111, align 8
   %134 = call ptr @tvb_address_to_str(ptr noundef %133, ptr noundef %0, i32 noundef %.sink262.i, i32 noundef %122) #3

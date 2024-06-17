@@ -2488,9 +2488,9 @@ read_filter_data.exit.i.i.i:                      ; preds = %1049, %1044
 .sink.split.i.i.i:                                ; preds = %1059, %1056
   %.sink62.i.i.i = phi i32 [ %1060, %1059 ], [ %1052, %1056 ]
   %.sink.i.i.i = phi i32 [ %1060, %1059 ], [ %1057, %1056 ]
-  %.val42.i.i.i = load ptr, ptr %958, align 8
+  %.val43.i.i.i = load ptr, ptr %958, align 8
   %1061 = and i64 %1025, 4294967295
-  %1062 = getelementptr inbounds i8, ptr %.val42.i.i.i, i64 %1061
+  %1062 = getelementptr inbounds i8, ptr %.val43.i.i.i, i64 %1061
   %1063 = trunc i32 %.sink62.i.i.i to i8
   store i8 %1063, ptr %1062, align 1
   %1064 = lshr i32 %.sink62.i.i.i, 8

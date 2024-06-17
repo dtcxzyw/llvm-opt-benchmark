@@ -5691,11 +5691,11 @@ Au_NtkCleanCopy.exit:                             ; preds = %227, %Vec_IntGrow.e
   br label %.critedge10.sink.split
 
 .critedge10.sink.split:                           ; preds = %.critedge6, %165, %167, %163, %100, %354
-  %.sink214 = phi i64 [ %357, %354 ], [ %103, %100 ], [ %103, %163 ], [ %103, %167 ], [ %103, %165 ], [ %.pre205, %.critedge6 ]
+  %.pre-phi203.sink = phi i64 [ %357, %354 ], [ %103, %100 ], [ %103, %163 ], [ %103, %167 ], [ %103, %165 ], [ %.pre205, %.critedge6 ]
   %.pre-phi.sink = phi i64 [ %355, %354 ], [ %101, %100 ], [ %101, %163 ], [ %101, %167 ], [ %101, %165 ], [ %.pre204, %.critedge6 ]
   %.1105.sink = phi i32 [ 0, %354 ], [ %.0104172, %100 ], [ %164, %163 ], [ %195, %167 ], [ %166, %165 ], [ %99, %.critedge6 ]
   %.2106.ph = phi i32 [ %.0104172, %354 ], [ %.0104172, %100 ], [ %164, %163 ], [ %195, %167 ], [ %166, %165 ], [ %99, %.critedge6 ]
-  %358 = getelementptr inbounds i8, ptr %56, i64 %.sink214
+  %358 = getelementptr inbounds i8, ptr %56, i64 %.pre-phi203.sink
   %359 = load ptr, ptr %358, align 8
   %360 = getelementptr inbounds i8, ptr %358, i64 8
   %361 = load i32, ptr %360, align 4
@@ -6690,8 +6690,8 @@ Au_XsimMux.exit:                                  ; preds = %161, %210, %211, %2
   br label %.critedge8.sink.split
 
 .critedge8.sink.split:                            ; preds = %305, %74, %Au_XsimMux.exit, %117
-  %.sink224 = phi i64 [ %160, %117 ], [ %220, %Au_XsimMux.exit ], [ %116, %74 ], [ %307, %305 ]
-  store i64 %.sink224, ptr %69, align 4
+  %.sink = phi i64 [ %160, %117 ], [ %220, %Au_XsimMux.exit ], [ %116, %74 ], [ %307, %305 ]
+  store i64 %.sink, ptr %69, align 4
   br label %.critedge8
 
 .critedge8:                                       ; preds = %271, %.critedge8.sink.split, %.critedge6, %60, %71

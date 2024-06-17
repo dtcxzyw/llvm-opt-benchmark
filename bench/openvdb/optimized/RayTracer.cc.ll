@@ -3995,31 +3995,23 @@ if.then.i:                                        ; preds = %_ZN7openvdb5v11_04m
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_04mathlsERSoRKNS1_9CoordBBoxE(ptr noundef nonnull align 8 dereferenceable(8) %call.i15, ptr noundef nonnull align 4 dereferenceable(24) %mBBox.i)
   %call3.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %cmp4.i = icmp eq i32 %verboseLevel, 2
-  br i1 %cmp4.i, label %if.then5.i, label %if.else.i
+  br i1 %cmp4.i, label %if.end12.sink.split.i, label %if.else.i
 
-if.then5.i:                                       ; preds = %if.then.i
+if.else.i:                                        ; preds = %if.then.i
+  %cmp6.i = icmp ugt i32 %verboseLevel, 2
+  br i1 %cmp6.i, label %if.end12.sink.split.i, label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
+
+if.end12.sink.split.i:                            ; preds = %if.else.i, %if.then.i
+  %.sink5.i = phi i32 [ 1, %if.then.i ], [ 2, %if.else.i ]
   %mTree.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %mTree.i, align 8
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 232
   %10 = load ptr, ptr %vfn.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(1232) %9, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef 1)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(1232) %9, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %.sink5.i)
   br label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp6.i = icmp ugt i32 %verboseLevel, 2
-  br i1 %cmp6.i, label %if.then7.i, label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
-
-if.then7.i:                                       ; preds = %if.else.i
-  %mTree8.i = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load ptr, ptr %mTree8.i, align 8
-  %vtable9.i = load ptr, ptr %11, align 8
-  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 232
-  %12 = load ptr, ptr %vfn10.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(1232) %11, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef 2)
-  br label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
-
-_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit: ; preds = %entry, %if.then5.i, %if.else.i, %if.then7.i
+_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit: ; preds = %entry, %if.else.i, %if.end12.sink.split.i
   ret void
 }
 
@@ -6380,31 +6372,23 @@ if.then.i:                                        ; preds = %_ZN7openvdb5v11_04m
   %call2.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7openvdb5v11_04mathlsERSoRKNS1_9CoordBBoxE(ptr noundef nonnull align 8 dereferenceable(8) %call.i15, ptr noundef nonnull align 4 dereferenceable(24) %mBBox.i)
   %call3.i = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEPFRSoS_E(ptr noundef nonnull align 8 dereferenceable(8) %call2.i, ptr noundef nonnull @_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_)
   %cmp4.i = icmp eq i32 %verboseLevel, 2
-  br i1 %cmp4.i, label %if.then5.i, label %if.else.i
+  br i1 %cmp4.i, label %if.end12.sink.split.i, label %if.else.i
 
-if.then5.i:                                       ; preds = %if.then.i
+if.else.i:                                        ; preds = %if.then.i
+  %cmp6.i = icmp ugt i32 %verboseLevel, 2
+  br i1 %cmp6.i, label %if.end12.sink.split.i, label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
+
+if.end12.sink.split.i:                            ; preds = %if.else.i, %if.then.i
+  %.sink5.i = phi i32 [ 1, %if.then.i ], [ 2, %if.else.i ]
   %mTree.i = getelementptr inbounds i8, ptr %8, i64 8
   %9 = load ptr, ptr %mTree.i, align 8
   %vtable.i = load ptr, ptr %9, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 232
   %10 = load ptr, ptr %vfn.i, align 8
-  call void %10(ptr noundef nonnull align 8 dereferenceable(1232) %9, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef 1)
+  call void %10(ptr noundef nonnull align 8 dereferenceable(1232) %9, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef %.sink5.i)
   br label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
 
-if.else.i:                                        ; preds = %if.then.i
-  %cmp6.i = icmp ugt i32 %verboseLevel, 2
-  br i1 %cmp6.i, label %if.then7.i, label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
-
-if.then7.i:                                       ; preds = %if.else.i
-  %mTree8.i = getelementptr inbounds i8, ptr %8, i64 8
-  %11 = load ptr, ptr %mTree8.i, align 8
-  %vtable9.i = load ptr, ptr %11, align 8
-  %vfn10.i = getelementptr inbounds i8, ptr %vtable9.i, i64 232
-  %12 = load ptr, ptr %vfn10.i, align 8
-  call void %12(ptr noundef nonnull align 8 dereferenceable(1232) %11, ptr noundef nonnull align 8 dereferenceable(8) %os, i32 noundef 2)
-  br label %_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit
-
-_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit: ; preds = %entry, %if.then5.i, %if.else.i, %if.then7.i
+_ZN7openvdb5v11_05tools20VolumeRayIntersectorINS0_4GridINS0_4tree4TreeINS4_8RootNodeINS4_12InternalNodeINS7_INS4_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEEELi2ENS0_4math3RayIdEEE5printERSoi.exit: ; preds = %entry, %if.else.i, %if.end12.sink.split.i
   ret void
 }
 

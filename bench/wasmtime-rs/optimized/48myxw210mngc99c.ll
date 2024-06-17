@@ -21146,10 +21146,10 @@ default.unreachable193:                           ; preds = %4
   br label %20
 
 20:                                               ; preds = %.noexc, %.noexc5, %151, %.noexc68, %132, %.noexc59, %105, %.noexc47, %78, %.noexc35, %51, %.noexc23, %.noexc8, %.noexc11
-  %.sink198 = phi i64 [ %.pre.i10, %.noexc11 ], [ %30, %.noexc8 ], [ %.pre.i22, %.noexc23 ], [ %58, %51 ], [ %.pre.i34, %.noexc35 ], [ %85, %78 ], [ %.pre.i46, %.noexc47 ], [ %112, %105 ], [ %.pre.i58, %.noexc59 ], [ %139, %132 ], [ %.pre.i67, %.noexc68 ], [ %158, %151 ], [ %.pre.i4, %.noexc5 ], [ %16, %.noexc ]
+  %.sink199 = phi i64 [ %.pre.i10, %.noexc11 ], [ %30, %.noexc8 ], [ %.pre.i22, %.noexc23 ], [ %58, %51 ], [ %.pre.i34, %.noexc35 ], [ %85, %78 ], [ %.pre.i46, %.noexc47 ], [ %112, %105 ], [ %.pre.i58, %.noexc59 ], [ %139, %132 ], [ %.pre.i67, %.noexc68 ], [ %158, %151 ], [ %.pre.i4, %.noexc5 ], [ %16, %.noexc ]
   %.sink195 = phi i16 [ 124, %.noexc11 ], [ 124, %.noexc8 ], [ %.0, %.noexc23 ], [ %.0, %51 ], [ %3, %.noexc35 ], [ %3, %78 ], [ %3, %.noexc47 ], [ %3, %105 ], [ 120, %.noexc59 ], [ 120, %132 ], [ 182, %.noexc68 ], [ 182, %151 ], [ 123, %.noexc5 ], [ 123, %.noexc ]
   %21 = load ptr, ptr %.sroa.3.0..sroa_idx2.i, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %21, i64 %.sink198
+  %22 = getelementptr inbounds { { i32, [1 x i32] }, i16, i8, [1 x i8] }, ptr %21, i64 %.sink199
   store i32 0, ptr %22, align 4
   %.sroa.4178.0..sroa_idx = getelementptr inbounds i8, ptr %22, i64 8
   store i16 %.sink195, ptr %.sroa.4178.0..sroa_idx, align 4

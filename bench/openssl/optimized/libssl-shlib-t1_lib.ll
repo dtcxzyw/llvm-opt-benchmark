@@ -5478,10 +5478,10 @@ if.end.i:                                         ; preds = %if.end2
   %..i = select i1 %tobool.not.i, i64 64, i64 80
   %.15.i = select i1 %tobool.not.i, i32 2968, i32 2964
   %.16.i = select i1 %tobool.not.i, i64 72, i64 88
-  %conf_sigalgs.i = getelementptr inbounds i8, ptr %c, i64 %..i
-  %1 = load ptr, ptr %conf_sigalgs.i, align 8
+  %client_sigalgs.i = getelementptr inbounds i8, ptr %c, i64 %..i
+  %1 = load ptr, ptr %client_sigalgs.i, align 8
   call void @CRYPTO_free(ptr noundef %1, ptr noundef nonnull @.str.2, i32 noundef %.15.i) #15
-  store ptr %call.i, ptr %conf_sigalgs.i, align 8
+  store ptr %call.i, ptr %client_sigalgs.i, align 8
   %client_sigalgslen.i = getelementptr inbounds i8, ptr %c, i64 %.16.i
   store i64 %0, ptr %client_sigalgslen.i, align 8
   br label %return
@@ -5641,10 +5641,10 @@ if.end:                                           ; preds = %entry
   %. = select i1 %tobool.not, i64 64, i64 80
   %.15 = select i1 %tobool.not, i32 2968, i32 2964
   %.16 = select i1 %tobool.not, i64 72, i64 88
-  %conf_sigalgs = getelementptr inbounds i8, ptr %c, i64 %.
-  %0 = load ptr, ptr %conf_sigalgs, align 8
+  %client_sigalgs = getelementptr inbounds i8, ptr %c, i64 %.
+  %0 = load ptr, ptr %client_sigalgs, align 8
   tail call void @CRYPTO_free(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %.15) #15
-  store ptr %call, ptr %conf_sigalgs, align 8
+  store ptr %call, ptr %client_sigalgs, align 8
   %client_sigalgslen = getelementptr inbounds i8, ptr %c, i64 %.16
   store i64 %salglen, ptr %client_sigalgslen, align 8
   br label %return

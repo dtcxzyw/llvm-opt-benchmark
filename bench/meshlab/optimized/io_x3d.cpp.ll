@@ -60591,9 +60591,9 @@ _ZNK3vcg4face8VFAdjOcfINS_6Arity8INS_8FaceBaseI11CUsedTypesOEENS0_7InfoOcfENS0_9
   br label %_ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split
 
 _ZN3vcg4face9EmptyCoreINS_14FaceTypeHolderI11CUsedTypesOEEE7VFClearEi.exit.sink.split: ; preds = %120, %118
-  %.sink99 = phi ptr [ %129, %120 ], [ %119, %118 ]
-  %.sink97 = phi ptr [ %122, %120 ], [ null, %118 ]
-  %.sink = phi i8 [ %97, %120 ], [ -1, %118 ]
+  %.sink99 = phi ptr [ %119, %118 ], [ %129, %120 ]
+  %.sink97 = phi ptr [ null, %118 ], [ %122, %120 ]
+  %.sink = phi i8 [ -1, %118 ], [ %97, %120 ]
   %130 = getelementptr inbounds [3 x ptr], ptr %.sink99, i64 0, i64 %indvars.iv74
   store ptr %.sink97, ptr %130, align 8
   %131 = load ptr, ptr %2, align 8

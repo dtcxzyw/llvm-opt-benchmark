@@ -5569,15 +5569,15 @@ get_CDR_ulong.exit:                               ; preds = %17, %19
   %28 = load i32, ptr %3, align 4
   %29 = sub i32 %28, %10
   %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %31, label %131
+  br i1 %30, label %31, label %132
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %7, align 8
   call void @proto_item_set_len(ptr noundef %32, i32 noundef %29) #14
-  br label %131
+  br label %132
 
-.preheader:                                       ; preds = %get_CDR_ulong.exit, %124
-  %.0107 = phi i32 [ %126, %124 ], [ 0, %get_CDR_ulong.exit ]
+.preheader:                                       ; preds = %get_CDR_ulong.exit, %125
+  %.0107 = phi i32 [ %127, %125 ], [ 0, %get_CDR_ulong.exit ]
   %.promoted.i93 = load i32, ptr %3, align 4
   %33 = add i32 %.promoted.i93, %5
   %34 = and i32 %33, 3
@@ -5769,7 +5769,7 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
 
 120:                                              ; preds = %113
   %121 = icmp ult i32 %118, %114
-  br i1 %121, label %122, label %124
+  br i1 %121, label %122, label %125
 
 122:                                              ; preds = %120
   %123 = sub i32 %114, %118
@@ -5777,25 +5777,25 @@ decode_RTCorbaPriority.exit:                      ; preds = %102, %104
   br label %.sink.split
 
 .sink.split:                                      ; preds = %113, %122
-  %.sink = add i32 %117, %114
-  store i32 %.sink, ptr %3, align 4
-  br label %124
+  %124 = add i32 %117, %114
+  store i32 %124, ptr %3, align 4
+  br label %125
 
-124:                                              ; preds = %.sink.split, %120
-  %125 = phi i32 [ %116, %120 ], [ %.sink, %.sink.split ]
-  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %125) #14
-  %126 = add nuw i32 %.0107, 1
-  %exitcond.not = icmp eq i32 %126, %21
-  br i1 %exitcond.not, label %127, label %.preheader, !llvm.loop !26
+125:                                              ; preds = %.sink.split, %120
+  %126 = phi i32 [ %116, %120 ], [ %124, %.sink.split ]
+  call void @proto_item_set_end(ptr noundef %45, ptr noundef %0, i32 noundef %126) #14
+  %127 = add nuw i32 %.0107, 1
+  %exitcond.not = icmp eq i32 %127, %21
+  br i1 %exitcond.not, label %128, label %.preheader, !llvm.loop !26
 
-127:                                              ; preds = %124
-  %128 = load ptr, ptr %7, align 8
-  %129 = load i32, ptr %3, align 4
-  %130 = sub i32 %129, %10
-  call void @proto_item_set_len(ptr noundef %128, i32 noundef %130) #14
-  br label %131
+128:                                              ; preds = %125
+  %129 = load ptr, ptr %7, align 8
+  %130 = load i32, ptr %3, align 4
+  %131 = sub i32 %130, %10
+  call void @proto_item_set_len(ptr noundef %129, i32 noundef %131) #14
+  br label %132
 
-131:                                              ; preds = %27, %31, %127
+132:                                              ; preds = %27, %31, %128
   ret void
 }
 

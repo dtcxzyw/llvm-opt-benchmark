@@ -21088,14 +21088,14 @@ do.end219.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !377)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp185.i.i, i64 24
   %180 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !380
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %180, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont220.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %180, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont220.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i:        ; preds = %do.end219.i.i
   %storage_.i.i468.i.i = getelementptr inbounds i8, ptr %ref.tmp185.i.i, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp185.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp185.i.i, i64 16
   %181 = load <2 x ptr>, ptr %storage_.i.i468.i.i, align 8, !noalias !380
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !380
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !380
   store <2 x ptr> %181, ptr %compacted_dict_res.i.i, align 16, !alias.scope !381, !noalias !325
   store ptr null, ptr %storage_.i.i468.i.i, align 8, !noalias !380
   br label %invoke.cont220.i.i
@@ -22475,14 +22475,14 @@ do.end210.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i292 = getelementptr inbounds i8, ptr %ref.tmp178.i.i, i64 24
   %375 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i292, align 8, !noalias !446
-  %switch.i.i.i.i.i.i.i.i.i.i.i293 = icmp eq i8 %375, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i293, label %invoke.cont211.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i294
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i293 = icmp eq i8 %375, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i293, label %invoke.cont211.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i294
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i294:     ; preds = %do.end210.i.i
   %storage_.i.i468.i.i295 = getelementptr inbounds i8, ptr %ref.tmp178.i.i, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i297 = getelementptr inbounds i8, ptr %ref.tmp178.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i297 = getelementptr inbounds i8, ptr %ref.tmp178.i.i, i64 16
   %376 = load <2 x ptr>, ptr %storage_.i.i468.i.i295, align 8, !noalias !446
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i297, align 8, !noalias !446
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i297, align 8, !noalias !446
   store <2 x ptr> %376, ptr %compacted_dict_res.i.i97, align 16, !alias.scope !447, !noalias !391
   store ptr null, ptr %storage_.i.i468.i.i295, align 8, !noalias !446
   br label %invoke.cont211.i.i
@@ -23857,14 +23857,14 @@ do.end210.i.i785:                                 ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !509)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i786 = getelementptr inbounds i8, ptr %ref.tmp178.i.i572, i64 24
   %569 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i786, align 8, !noalias !512
-  %switch.i.i.i.i.i.i.i.i.i.i.i787 = icmp eq i8 %569, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i787, label %invoke.cont211.i.i792, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i788
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i787 = icmp eq i8 %569, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i787, label %invoke.cont211.i.i792, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i788
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i788:     ; preds = %do.end210.i.i785
   %storage_.i.i468.i.i789 = getelementptr inbounds i8, ptr %ref.tmp178.i.i572, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i791 = getelementptr inbounds i8, ptr %ref.tmp178.i.i572, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i791 = getelementptr inbounds i8, ptr %ref.tmp178.i.i572, i64 16
   %570 = load <2 x ptr>, ptr %storage_.i.i468.i.i789, align 8, !noalias !512
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i791, align 8, !noalias !512
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i791, align 8, !noalias !512
   store <2 x ptr> %570, ptr %compacted_dict_res.i.i577, align 16, !alias.scope !513, !noalias !457
   store ptr null, ptr %storage_.i.i468.i.i789, align 8, !noalias !512
   br label %invoke.cont211.i.i792
@@ -25240,14 +25240,14 @@ do.end210.i.i1370:                                ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !575)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i1371 = getelementptr inbounds i8, ptr %ref.tmp178.i.i1125, i64 24
   %764 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i1371, align 8, !noalias !578
-  %switch.i.i.i.i.i.i.i.i.i.i.i1372 = icmp eq i8 %764, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i1372, label %invoke.cont211.i.i1377, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1373
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i1372 = icmp eq i8 %764, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i1372, label %invoke.cont211.i.i1377, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1373
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1373:    ; preds = %do.end210.i.i1370
   %storage_.i.i468.i.i1374 = getelementptr inbounds i8, ptr %ref.tmp178.i.i1125, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1376 = getelementptr inbounds i8, ptr %ref.tmp178.i.i1125, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1376 = getelementptr inbounds i8, ptr %ref.tmp178.i.i1125, i64 16
   %765 = load <2 x ptr>, ptr %storage_.i.i468.i.i1374, align 8, !noalias !578
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1376, align 8, !noalias !578
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1376, align 8, !noalias !578
   store <2 x ptr> %765, ptr %compacted_dict_res.i.i1130, align 16, !alias.scope !579, !noalias !523
   store ptr null, ptr %storage_.i.i468.i.i1374, align 8, !noalias !578
   br label %invoke.cont211.i.i1377
@@ -26622,14 +26622,14 @@ do.end205.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i1751 = getelementptr inbounds i8, ptr %ref.tmp173.i.i, i64 24
   %958 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i1751, align 8, !noalias !644
-  %switch.i.i.i.i.i.i.i.i.i.i.i1752 = icmp eq i8 %958, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i1752, label %invoke.cont206.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1753
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i1752 = icmp eq i8 %958, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i1752, label %invoke.cont206.i.i, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1753
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i1753:    ; preds = %do.end205.i.i
   %storage_.i.i469.i.i = getelementptr inbounds i8, ptr %ref.tmp173.i.i, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1755 = getelementptr inbounds i8, ptr %ref.tmp173.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1755 = getelementptr inbounds i8, ptr %ref.tmp173.i.i, i64 16
   %959 = load <2 x ptr>, ptr %storage_.i.i469.i.i, align 8, !noalias !644
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1755, align 8, !noalias !644
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i1755, align 8, !noalias !644
   store <2 x ptr> %959, ptr %compacted_dict_res.i.i1684, align 16, !alias.scope !645, !noalias !589
   store ptr null, ptr %storage_.i.i469.i.i, align 8, !noalias !644
   br label %invoke.cont206.i.i
@@ -28002,14 +28002,14 @@ do.end205.i.i2151:                                ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !707)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i2152 = getelementptr inbounds i8, ptr %ref.tmp173.i.i1911, i64 24
   %1152 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i2152, align 8, !noalias !710
-  %switch.i.i.i.i.i.i.i.i.i.i.i2153 = icmp eq i8 %1152, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i2153, label %invoke.cont206.i.i2158, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2154
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i2153 = icmp eq i8 %1152, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i2153, label %invoke.cont206.i.i2158, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2154
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2154:    ; preds = %do.end205.i.i2151
   %storage_.i.i469.i.i2155 = getelementptr inbounds i8, ptr %ref.tmp173.i.i1911, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2157 = getelementptr inbounds i8, ptr %ref.tmp173.i.i1911, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2157 = getelementptr inbounds i8, ptr %ref.tmp173.i.i1911, i64 16
   %1153 = load <2 x ptr>, ptr %storage_.i.i469.i.i2155, align 8, !noalias !710
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2157, align 8, !noalias !710
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2157, align 8, !noalias !710
   store <2 x ptr> %1153, ptr %compacted_dict_res.i.i1916, align 16, !alias.scope !711, !noalias !655
   store ptr null, ptr %storage_.i.i469.i.i2155, align 8, !noalias !710
   br label %invoke.cont206.i.i2158
@@ -29378,14 +29378,14 @@ do.end197.i.i:                                    ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !773)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i2641 = getelementptr inbounds i8, ptr %ref.tmp166.i.i, i64 24
   %1344 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i2641, align 8, !noalias !776
-  %switch.i.i.i.i.i.i.i.i.i.i.i2642 = icmp eq i8 %1344, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i2642, label %invoke.cont198.i.i2647, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2643
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i2642 = icmp eq i8 %1344, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i2642, label %invoke.cont198.i.i2647, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2643
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i2643:    ; preds = %do.end197.i.i
   %storage_.i.i469.i.i2644 = getelementptr inbounds i8, ptr %ref.tmp166.i.i, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2646 = getelementptr inbounds i8, ptr %ref.tmp166.i.i, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2646 = getelementptr inbounds i8, ptr %ref.tmp166.i.i, i64 16
   %1345 = load <2 x ptr>, ptr %storage_.i.i469.i.i2644, align 8, !noalias !776
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2646, align 8, !noalias !776
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i2646, align 8, !noalias !776
   store <2 x ptr> %1345, ptr %compacted_dict_res.i.i2463, align 16, !alias.scope !777, !noalias !721
   store ptr null, ptr %storage_.i.i469.i.i2644, align 8, !noalias !776
   br label %invoke.cont198.i.i2647
@@ -30756,14 +30756,14 @@ do.end197.i.i3198:                                ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !839)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i3199 = getelementptr inbounds i8, ptr %ref.tmp166.i.i2964, i64 24
   %1538 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i.i.i3199, align 8, !noalias !842
-  %switch.i.i.i.i.i.i.i.i.i.i.i3200 = icmp eq i8 %1538, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i3200, label %invoke.cont198.i.i3205, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i3201
+  %switch.i.i.i.i.i.i.i.i.i.i.i.i3200 = icmp eq i8 %1538, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i3200, label %invoke.cont198.i.i3205, label %return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i3201
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i.i.i3201:    ; preds = %do.end197.i.i3198
   %storage_.i.i469.i.i3202 = getelementptr inbounds i8, ptr %ref.tmp166.i.i2964, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3204 = getelementptr inbounds i8, ptr %ref.tmp166.i.i2964, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3204 = getelementptr inbounds i8, ptr %ref.tmp166.i.i2964, i64 16
   %1539 = load <2 x ptr>, ptr %storage_.i.i469.i.i3202, align 8, !noalias !842
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3204, align 8, !noalias !842
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i3204, align 8, !noalias !842
   store <2 x ptr> %1539, ptr %compacted_dict_res.i.i2969, align 16, !alias.scope !843, !noalias !787
   store ptr null, ptr %storage_.i.i469.i.i3202, align 8, !noalias !842
   br label %invoke.cont198.i.i3205

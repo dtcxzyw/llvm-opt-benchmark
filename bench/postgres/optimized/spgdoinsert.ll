@@ -199,10 +199,10 @@ define dso_local void @spgPageIndexMultiDelete(ptr noundef %0, ptr noundef %1, p
   %43 = getelementptr i8, ptr %1, i64 %42
   %44 = load i16, ptr %18, align 4
   %45 = zext i16 %44 to i64
-  %gep = getelementptr i8, ptr %43, i64 %45
-  %46 = load i16, ptr %gep, align 2
+  %gep37 = getelementptr i8, ptr %43, i64 %45
+  %46 = load i16, ptr %gep37, align 2
   %47 = add i16 %46, 1
-  store i16 %47, ptr %gep, align 2
+  store i16 %47, ptr %gep37, align 2
   br label %48
 
 48:                                               ; preds = %.sink.split, %40

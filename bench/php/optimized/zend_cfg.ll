@@ -2505,11 +2505,11 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
   br i1 %.not.i185, label %.backedge235, label %78
 
 .backedge235:                                     ; preds = %.lr.ph, %88
-  %.0160247.lcssa.sink367 = phi i32 [ %83, %88 ], [ %.0160247, %.lr.ph ]
-  %68 = and i32 %.0160247.lcssa.sink367, 63
+  %.0160247.lcssa.sink363 = phi i32 [ %83, %88 ], [ %.0160247, %.lr.ph ]
+  %68 = and i32 %.0160247.lcssa.sink363, 63
   %69 = zext nneg i32 %68 to i64
   %70 = shl nuw i64 1, %69
-  %71 = lshr i32 %.0160247.lcssa.sink367, 6
+  %71 = lshr i32 %.0160247.lcssa.sink363, 6
   %72 = zext nneg i32 %71 to i64
   %73 = getelementptr inbounds i64, ptr %24, i64 %72
   %74 = load i64, ptr %73, align 8
@@ -2518,7 +2518,7 @@ define void @zend_cfg_identify_loops(ptr nocapture noundef readnone %0, ptr noca
   %76 = icmp slt i64 %indvars.iv306, %.pre-phi
   tail call void @llvm.assume(i1 %76)
   %77 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv306
-  store i32 %.0160247.lcssa.sink367, ptr %77, align 4
+  store i32 %.0160247.lcssa.sink363, ptr %77, align 4
   %indvars.iv.next307 = add nsw i64 %indvars.iv306, 1
   br label %43
 

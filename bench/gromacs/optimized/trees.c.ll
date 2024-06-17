@@ -165,9 +165,9 @@ define void @_tr_stored_block(ptr nocapture noundef %0, ptr nocapture noundef re
   br label %.sink.split.i.i
 
 .sink.split.i.i:                                  ; preds = %61, %47
-  %.sink20.i.i = phi ptr [ %52, %47 ], [ %63, %61 ]
-  %.sink14.in.i.i = phi ptr [ %50, %47 ], [ %62, %61 ]
-  %.sink.in.i.i = phi i16 [ %58, %47 ], [ %44, %61 ]
+  %.sink20.i.i = phi ptr [ %63, %61 ], [ %52, %47 ]
+  %.sink14.in.i.i = phi ptr [ %62, %61 ], [ %50, %47 ]
+  %.sink.in.i.i = phi i16 [ %44, %61 ], [ %58, %47 ]
   %.sink.i.i = trunc i16 %.sink.in.i.i to i8
   %.sink14.i.i = load ptr, ptr %.sink14.in.i.i, align 8
   %64 = load i32, ptr %.sink20.i.i, align 8
@@ -1239,9 +1239,9 @@ init_block.exit:                                  ; preds = %422
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %446, %431
-  %.sink20.i = phi ptr [ %437, %431 ], [ %450, %446 ]
-  %.sink14.in.i = phi ptr [ %435, %431 ], [ %449, %446 ]
-  %.sink.in.i = phi i16 [ %443, %431 ], [ %448, %446 ]
+  %.sink20.i = phi ptr [ %450, %446 ], [ %437, %431 ]
+  %.sink14.in.i = phi ptr [ %449, %446 ], [ %435, %431 ]
+  %.sink.in.i = phi i16 [ %448, %446 ], [ %443, %431 ]
   %.sink.i = trunc i16 %.sink.in.i to i8
   %.sink14.i = load ptr, ptr %.sink14.in.i, align 8
   %451 = load i32, ptr %.sink20.i, align 8

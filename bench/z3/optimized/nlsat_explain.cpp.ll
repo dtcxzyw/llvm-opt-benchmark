@@ -5877,11 +5877,11 @@ cleanup.cont199.sink.split:                       ; preds = %land.lhs.true, %ent
   %117 = load ptr, ptr %new_lit, align 8
   tail call void @_ZN5nlsat6solver7inc_refEj(ptr noundef nonnull align 8 dereferenceable(16) %117, i32 noundef %shr.i)
   %118 = load ptr, ptr %new_lit, align 8
-  %m_lit.i = getelementptr inbounds i8, ptr %new_lit, i64 8
-  %agg.tmp4.sroa.0.0.copyload.i57 = load i32, ptr %m_lit.i, align 8
+  %m_lit.i56 = getelementptr inbounds i8, ptr %new_lit, i64 8
+  %agg.tmp4.sroa.0.0.copyload.i57 = load i32, ptr %m_lit.i56, align 8
   %shr.i.i1.i58 = lshr i32 %agg.tmp4.sroa.0.0.copyload.i57, 1
   tail call void @_ZN5nlsat6solver7dec_refEj(ptr noundef nonnull align 8 dereferenceable(16) %118, i32 noundef %shr.i.i1.i58)
-  store i32 %l.coerce, ptr %m_lit.i, align 8
+  store i32 %l.coerce, ptr %m_lit.i56, align 8
   br label %cleanup.cont199
 
 cleanup.cont199:                                  ; preds = %cleanup.cont199.sink.split, %if.end.i.i.i.i.i.i.i, %invoke.cont5.i.i

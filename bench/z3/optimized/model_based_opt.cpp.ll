@@ -16823,24 +16823,24 @@ terminate.lpad.i365:                              ; preds = %.noexc.i366, %invok
   unreachable
 
 cleanup.sink.split.sink.split:                    ; preds = %if.then.i193, %if.then.i178, %if.then.i166
-  %m_mod.sink678 = phi ptr [ %m_mod, %if.then.i166 ], [ %m_div, %if.then.i178 ], [ %m_divides, %if.then.i193 ]
-  %.pre.i167 = load ptr, ptr %m_mod.sink678, align 8
-  %arrayidx8.phi.trans.insert.i195 = getelementptr inbounds i8, ptr %.pre.i167, i64 -4
+  %m_divides.sink678 = phi ptr [ %m_mod, %if.then.i166 ], [ %m_div, %if.then.i178 ], [ %m_divides, %if.then.i193 ]
+  %.pre.i194 = load ptr, ptr %m_divides.sink678, align 8
+  %arrayidx8.phi.trans.insert.i195 = getelementptr inbounds i8, ptr %.pre.i194, i64 -4
   %.pre1.i196 = load i32, ptr %arrayidx8.phi.trans.insert.i195, align 4
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %cleanup.sink.split.sink.split, %lor.lhs.false.i185, %lor.lhs.false.i170, %lor.lhs.false.i
-  %.sink677 = phi i32 [ %26, %lor.lhs.false.i ], [ %29, %lor.lhs.false.i170 ], [ %32, %lor.lhs.false.i185 ], [ %.pre1.i196, %cleanup.sink.split.sink.split ]
-  %.sink = phi ptr [ %25, %lor.lhs.false.i ], [ %28, %lor.lhs.false.i170 ], [ %31, %lor.lhs.false.i185 ], [ %.pre.i167, %cleanup.sink.split.sink.split ]
-  %m_mod.sink = phi ptr [ %m_mod, %lor.lhs.false.i ], [ %m_div, %lor.lhs.false.i170 ], [ %m_divides, %lor.lhs.false.i185 ], [ %m_mod.sink678, %cleanup.sink.split.sink.split ]
-  %idx.ext.i = zext i32 %.sink677 to i64
-  %add.ptr.i165 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i
-  store i32 %10, ptr %add.ptr.i165, align 4
-  %116 = load ptr, ptr %m_mod.sink, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %116, i64 -4
-  %117 = load i32, ptr %arrayidx10.i, align 4
+  %.sink676 = phi i32 [ %26, %lor.lhs.false.i ], [ %29, %lor.lhs.false.i170 ], [ %32, %lor.lhs.false.i185 ], [ %.pre1.i196, %cleanup.sink.split.sink.split ]
+  %.sink = phi ptr [ %25, %lor.lhs.false.i ], [ %28, %lor.lhs.false.i170 ], [ %31, %lor.lhs.false.i185 ], [ %.pre.i194, %cleanup.sink.split.sink.split ]
+  %m_divides.sink = phi ptr [ %m_mod, %lor.lhs.false.i ], [ %m_div, %lor.lhs.false.i170 ], [ %m_divides, %lor.lhs.false.i185 ], [ %m_divides.sink678, %cleanup.sink.split.sink.split ]
+  %idx.ext.i189 = zext i32 %.sink676 to i64
+  %add.ptr.i190 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i189
+  store i32 %10, ptr %add.ptr.i190, align 4
+  %116 = load ptr, ptr %m_divides.sink, align 8
+  %arrayidx10.i191 = getelementptr inbounds i8, ptr %116, i64 -4
+  %117 = load i32, ptr %arrayidx10.i191, align 4
   %inc.i192 = add i32 %117, 1
-  store i32 %inc.i192, ptr %arrayidx10.i, align 4
+  store i32 %inc.i192, ptr %arrayidx10.i191, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %.noexc.i366, %.noexc.i261, %if.end29, %invoke.cont26
@@ -17231,9 +17231,9 @@ if.else220:                                       ; preds = %if.then211
           to label %if.end228.sink.split unwind label %lpad146.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 if.end228.sink.split:                             ; preds = %if.else220, %if.then213
-  %ref.tmp214.sink676 = phi ptr [ %ref.tmp214, %if.then213 ], [ %ref.tmp221, %if.else220 ]
-  %call219 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3opt15model_based_opt3defaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp214.sink676) #16
-  call void @_ZN3opt15model_based_opt3defD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp214.sink676) #16
+  %ref.tmp214.sink677 = phi ptr [ %ref.tmp214, %if.then213 ], [ %ref.tmp221, %if.else220 ]
+  %call219 = call noundef nonnull align 8 dereferenceable(72) ptr @_ZN3opt15model_based_opt3defaSEOS1_(ptr noundef nonnull align 8 dereferenceable(72) %agg.result, ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp214.sink677) #16
+  call void @_ZN3opt15model_based_opt3defD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %ref.tmp214.sink677) #16
   br label %if.end228
 
 if.end228:                                        ; preds = %if.end228.sink.split, %if.end209

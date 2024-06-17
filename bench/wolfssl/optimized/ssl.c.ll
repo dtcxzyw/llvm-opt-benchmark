@@ -5821,10 +5821,10 @@ sw.epilog:                                        ; preds = %if.end241
 
 if.then300.sink.split:                            ; preds = %do.end281, %do.end263, %do.end244
   %.sink = phi i64 [ 268435456, %do.end244 ], [ 1073741824, %do.end263 ], [ 2147483648, %do.end281 ]
-  %haveDilithiumSig = getelementptr inbounds i8, ptr %ssl, i64 1008
-  %bf.load249 = load i64, ptr %haveDilithiumSig, align 8
+  %haveECDSAsig248 = getelementptr inbounds i8, ptr %ssl, i64 1008
+  %bf.load249 = load i64, ptr %haveECDSAsig248, align 8
   %bf.set251 = or i64 %bf.load249, %.sink
-  store i64 %bf.set251, ptr %haveDilithiumSig, align 8
+  store i64 %bf.set251, ptr %haveECDSAsig248, align 8
   br label %if.then300
 
 if.then300:                                       ; preds = %if.then300.sink.split, %sw.epilog
@@ -5866,10 +5866,10 @@ if.else335:                                       ; preds = %sw.epilog
 
 if.then337.sink.split:                            ; preds = %if.else288, %if.else270, %if.else252
   %.sink268 = phi i24 [ 2048, %if.else252 ], [ 4096, %if.else270 ], [ 8192, %if.else288 ]
-  %haveECDSAsig255 = getelementptr inbounds i8, ptr %ctx, i64 169
-  %bf.load292 = load i24, ptr %haveECDSAsig255, align 1
+  %haveDilithiumSig291 = getelementptr inbounds i8, ptr %ctx, i64 169
+  %bf.load292 = load i24, ptr %haveDilithiumSig291, align 1
   %bf.set294 = or i24 %bf.load292, %.sink268
-  store i24 %bf.set294, ptr %haveECDSAsig255, align 1
+  store i24 %bf.set294, ptr %haveDilithiumSig291, align 1
   br label %if.then337
 
 if.then337:                                       ; preds = %if.then337.sink.split, %if.else335
@@ -7891,10 +7891,10 @@ if.end3:                                          ; preds = %if.end
 
 return.sink.split:                                ; preds = %if.end3, %if.end
   %.sink = phi i24 [ 16, %if.end ], [ 32, %if.end3 ]
-  %sessionCacheFlushOff = getelementptr inbounds i8, ptr %ctx, i64 169
-  %bf.load = load i24, ptr %sessionCacheFlushOff, align 1
+  %sessionCacheOff = getelementptr inbounds i8, ptr %ctx, i64 169
+  %bf.load = load i24, ptr %sessionCacheOff, align 1
   %bf.set = or i24 %bf.load, %.sink
-  store i24 %bf.set, ptr %sessionCacheFlushOff, align 1
+  store i24 %bf.set, ptr %sessionCacheOff, align 1
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end3, %entry

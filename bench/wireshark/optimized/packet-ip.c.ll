@@ -1738,9 +1738,9 @@ export_pdu.exit:                                  ; preds = %proto_item_set_gene
   br i1 %.not5.i508, label %proto_item_set_generated.exit503, label %proto_item_set_generated.exit503.sink.split
 
 proto_item_set_generated.exit503.sink.split:      ; preds = %214, %204, %195
-  %.sink = phi ptr [ %197, %195 ], [ %206, %204 ], [ %216, %214 ]
+  %.sink628 = phi ptr [ %197, %195 ], [ %206, %204 ], [ %216, %214 ]
   %.0438.ph = phi i1 [ true, %195 ], [ false, %204 ], [ true, %214 ]
-  %217 = getelementptr inbounds i8, ptr %.sink, i64 28
+  %217 = getelementptr inbounds i8, ptr %.sink628, i64 28
   %218 = load i32, ptr %217, align 4
   %219 = or i32 %218, 2
   store i32 %219, ptr %217, align 4
@@ -2145,8 +2145,8 @@ proto_item_set_hidden.exit540:                    ; preds = %387, %proto_item_se
   br i1 %.not5.i545, label %proto_item_set_hidden.exit531, label %proto_item_set_hidden.exit531.sink.split
 
 proto_item_set_hidden.exit531.sink.split:         ; preds = %403, %369
-  %.pre591.sink = phi ptr [ %.pre591, %369 ], [ %.pre593, %403 ]
-  %407 = getelementptr inbounds i8, ptr %.pre591.sink, i64 28
+  %.pre593.sink = phi ptr [ %.pre591, %369 ], [ %.pre593, %403 ]
+  %407 = getelementptr inbounds i8, ptr %.pre593.sink, i64 28
   %408 = load i32, ptr %407, align 4
   %409 = or i32 %408, 1
   store i32 %409, ptr %407, align 4

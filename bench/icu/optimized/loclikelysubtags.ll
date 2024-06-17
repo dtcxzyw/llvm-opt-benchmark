@@ -3515,15 +3515,15 @@ if.end202:                                        ; preds = %invoke.cont201, %if
   br label %if.end202.invoke
 
 if.end202.invoke:                                 ; preds = %invoke.cont164, %if.end202
-  %.sink383 = phi ptr [ %65, %invoke.cont164 ], [ %1, %if.end202 ]
+  %.sink = phi ptr [ %65, %invoke.cont164 ], [ %1, %if.end202 ]
   %.in = phi ptr [ %agg.tmp159, %invoke.cont164 ], [ %language, %if.end202 ]
   %72 = phi i32 [ %64, %invoke.cont164 ], [ %agg.tmp209.sroa.2.0.copyload, %if.end202 ]
-  %.in384 = phi ptr [ %agg.tmp161, %invoke.cont164 ], [ %script, %if.end202 ]
+  %.in381 = phi ptr [ %agg.tmp161, %invoke.cont164 ], [ %script, %if.end202 ]
   %73 = phi ptr [ %agg.tmp163, %invoke.cont164 ], [ %region, %if.end202 ]
   %74 = phi i32 [ 7, %invoke.cont164 ], [ %add208, %if.end202 ]
-  %75 = load ptr, ptr %.in384, align 8
+  %75 = load ptr, ptr %.in381, align 8
   %76 = load ptr, ptr %.in, align 8
-  %77 = load i32, ptr %.sink383, align 8
+  %77 = load i32, ptr %.sink, align 8
   invoke void @_ZN6icu_753LSRC1ENS_11StringPieceES1_S1_iR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(48) %agg.result, ptr %76, i32 %72, ptr %75, i32 %77, ptr noundef nonnull byval(%"class.icu_75::StringPiece") align 8 %73, i32 noundef %74, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %cleanup unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 

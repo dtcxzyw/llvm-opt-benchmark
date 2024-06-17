@@ -5550,18 +5550,18 @@ if.then.i47:                                      ; preds = %lor.lhs.false.i39, 
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %if.then.i47, %lor.lhs.false.i39, %if.then.i34, %lor.lhs.false.i26, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit
-  %.sink96 = phi i32 [ %4, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre1.i37, %if.then.i34 ], [ %30, %lor.lhs.false.i26 ], [ %.pre1.i50, %if.then.i47 ], [ %33, %lor.lhs.false.i39 ]
-  %.sink95 = phi ptr [ %5, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre.i35, %if.then.i34 ], [ %29, %lor.lhs.false.i26 ], [ %.pre.i48, %if.then.i47 ], [ %32, %lor.lhs.false.i39 ]
-  %.sink = phi ptr [ %7, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %call4, %if.then.i34 ], [ %call4, %lor.lhs.false.i26 ], [ %call4, %if.then.i47 ], [ %call4, %lor.lhs.false.i39 ]
-  %m_unit_clauses.i.sink = phi ptr [ %m_unit_clauses.i, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %m_clauses, %if.then.i34 ], [ %m_clauses, %lor.lhs.false.i26 ], [ %m_lemmas, %if.then.i47 ], [ %m_lemmas, %lor.lhs.false.i39 ]
-  %idx.ext.i.i = zext i32 %.sink96 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink95, i64 %idx.ext.i.i
-  store ptr %.sink, ptr %add.ptr.i.i, align 8
-  %35 = load ptr, ptr %m_unit_clauses.i.sink, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %35, i64 -4
-  %36 = load i32, ptr %arrayidx10.i.i, align 4
+  %.sink95 = phi i32 [ %4, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre1.i37, %if.then.i34 ], [ %30, %lor.lhs.false.i26 ], [ %.pre1.i50, %if.then.i47 ], [ %33, %lor.lhs.false.i39 ]
+  %.sink = phi ptr [ %5, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre.i35, %if.then.i34 ], [ %29, %lor.lhs.false.i26 ], [ %.pre.i48, %if.then.i47 ], [ %32, %lor.lhs.false.i39 ]
+  %call4.sink = phi ptr [ %7, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %call4, %if.then.i34 ], [ %call4, %lor.lhs.false.i26 ], [ %call4, %if.then.i47 ], [ %call4, %lor.lhs.false.i39 ]
+  %m_lemmas.sink = phi ptr [ %m_unit_clauses.i, %_ZN9subpaving9context_tINS_11config_mpfxEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %m_clauses, %if.then.i34 ], [ %m_clauses, %lor.lhs.false.i26 ], [ %m_lemmas, %if.then.i47 ], [ %m_lemmas, %lor.lhs.false.i39 ]
+  %idx.ext.i43 = zext i32 %.sink95 to i64
+  %add.ptr.i44 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i43
+  store ptr %call4.sink, ptr %add.ptr.i44, align 8
+  %35 = load ptr, ptr %m_lemmas.sink, align 8
+  %arrayidx10.i45 = getelementptr inbounds i8, ptr %35, i64 -4
+  %36 = load i32, ptr %arrayidx10.i45, align 4
   %inc.i46 = add i32 %36, 1
-  store i32 %inc.i46, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i46, ptr %arrayidx10.i45, align 4
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.end37.thread, %if.else

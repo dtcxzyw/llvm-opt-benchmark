@@ -12825,7 +12825,7 @@ if.end.i39:                                       ; preds = %_ZN4node11Environme
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49: ; preds = %if.end.i39, %if.then.i44
   %retval.i30.sroa.0.0 = phi ptr [ %16, %if.then.i44 ], [ %17, %if.end.i39 ]
   %call5 = tail call noundef zeroext i1 @_ZNK2v85Value10IsFunctionEv(ptr noundef nonnull align 1 dereferenceable(1) %retval.i30.sroa.0.0) #19
-  br i1 %call5, label %lor.lhs.false.i, label %if.else
+  br i1 %call5, label %lor.lhs.false.i, label %if.end
 
 lor.lhs.false.i:                                  ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49
   %18 = load i32, ptr %length_.i37, align 8
@@ -12839,33 +12839,21 @@ if.then.i:                                        ; preds = %lor.lhs.false.i
   %21 = ptrtoint ptr %20 to i64
   %add1.i65 = add i64 %21, 608
   %22 = inttoptr i64 %add1.i65 to ptr
-  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  br label %if.end
 
 if.end.i:                                         ; preds = %lor.lhs.false.i
   %values_.i = getelementptr inbounds i8, ptr %args, i64 8
   %23 = load ptr, ptr %values_.i, align 8
-  br label %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-
-_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.then.i
-  %retval.i.sroa.0.0 = phi ptr [ %22, %if.then.i ], [ %23, %if.end.i ]
-  %principal_realm_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
-  %24 = load ptr, ptr %principal_realm_.i, align 8
-  %vtable.i = load ptr, ptr %24, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 112
-  %25 = load ptr, ptr %vfn.i, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(872) %24, ptr %retval.i.sroa.0.0) #19
   br label %if.end
 
-if.else:                                          ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49
+if.end:                                           ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49, %if.then.i, %if.end.i
+  %.sink13 = phi ptr [ %22, %if.then.i ], [ %23, %if.end.i ], [ null, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit49 ]
   %principal_realm_.i10 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
-  %26 = load ptr, ptr %principal_realm_.i10, align 8
-  %vtable.i11 = load ptr, ptr %26, align 8
+  %24 = load ptr, ptr %principal_realm_.i10, align 8
+  %vtable.i11 = load ptr, ptr %24, align 8
   %vfn.i12 = getelementptr inbounds i8, ptr %vtable.i11, i64 112
-  %27 = load ptr, ptr %vfn.i12, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(872) %26, ptr null) #19
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
+  %25 = load ptr, ptr %vfn.i12, align 8
+  tail call void %25(ptr noundef nonnull align 8 dereferenceable(872) %24, ptr %.sink13) #19
   ret void
 }
 

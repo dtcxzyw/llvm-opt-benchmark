@@ -1893,13 +1893,13 @@ _ZTWN7rocksdb12perf_contextE.exit57:              ; preds = %invoke.cont46, %43
           to label %invoke.cont56.sink.split unwind label %lpad.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont56.sink.split:                         ; preds = %_ZTWN7rocksdb12perf_contextE.exit57, %_ZTWN7rocksdb12perf_contextE.exit47
-  %call51.sink = phi ptr [ %call41, %_ZTWN7rocksdb12perf_contextE.exit47 ], [ %call51, %_ZTWN7rocksdb12perf_contextE.exit57 ]
+  %call41.sink = phi ptr [ %call41, %_ZTWN7rocksdb12perf_contextE.exit47 ], [ %call51, %_ZTWN7rocksdb12perf_contextE.exit57 ]
   %call.i45.pn = phi i64 [ %call.i45, %_ZTWN7rocksdb12perf_contextE.exit47 ], [ %call.i54, %_ZTWN7rocksdb12perf_contextE.exit57 ]
   %sub.i.sink = sub i64 %call.i45.pn, %timer.sroa.3.0
-  %get_from_table_nanos52 = getelementptr inbounds i8, ptr %call51.sink, i64 32
-  %45 = load i64, ptr %get_from_table_nanos52, align 8
+  %get_from_table_nanos = getelementptr inbounds i8, ptr %call41.sink, i64 32
+  %45 = load i64, ptr %get_from_table_nanos, align 8
   %add = add i64 %sub.i.sink, %45
-  store i64 %add, ptr %get_from_table_nanos52, align 8
+  store i64 %add, ptr %get_from_table_nanos, align 8
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %invoke.cont56.sink.split, %_ZN7rocksdb6StatusD2Ev.exit, %_ZTWN7rocksdb12perf_contextE.exit, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb12perf_contextE.exit38.thread
@@ -2251,8 +2251,8 @@ if.then143:                                       ; preds = %sw.bb136
   br i1 %tobool.not.i148, label %if.end153, label %if.then.i138.invoke
 
 if.else146:                                       ; preds = %sw.bb136
-  %or.cond637 = select i1 %cmp147, i1 true, i1 %tobool.not.i148
-  br i1 %or.cond637, label %if.end153, label %if.then.i138.invoke
+  %or.cond639 = select i1 %cmp147, i1 true, i1 %tobool.not.i148
+  br i1 %or.cond639, label %if.end153, label %if.then.i138.invoke
 
 if.end153:                                        ; preds = %if.then.i138.invoke, %if.then143, %if.then138, %if.else146
   br i1 %.not.i154, label %_ZTWN7rocksdb10perf_levelE.exit155, label %104
@@ -2387,10 +2387,10 @@ _ZTWN7rocksdb12perf_contextE.exit193:             ; preds = %invoke.cont184, %12
   br label %_ZTWN7rocksdb12perf_contextE.exit189.invoke
 
 if.end193.sink.split:                             ; preds = %_ZTWN7rocksdb12perf_contextE.exit189.invoke
-  %user_key_return_count190 = getelementptr inbounds i8, ptr %120, i64 24
-  %125 = load i64, ptr %user_key_return_count190, align 8
+  %user_key_return_count = getelementptr inbounds i8, ptr %120, i64 24
+  %125 = load i64, ptr %user_key_return_count, align 8
   %add179 = add i64 %125, 1
-  store i64 %add179, ptr %user_key_return_count190, align 8
+  store i64 %add179, ptr %user_key_return_count, align 8
   br label %if.end193
 
 if.end193:                                        ; preds = %if.end193.sink.split, %_ZTWN7rocksdb12perf_contextE.exit159.thread, %_ZTWN7rocksdb12perf_contextE.exit157.thread, %_ZTWN7rocksdb12perf_contextE.exit157, %_ZTWN7rocksdb10perf_levelE.exit155
@@ -2654,8 +2654,8 @@ if.else256:                                       ; preds = %if.else244
   br label %if.end263
 
 if.end263:                                        ; preds = %if.else244, %if.else256
-  %.sink639 = phi ptr [ %162, %if.else256 ], [ %161, %if.else244 ]
-  %size_.i.i325 = getelementptr inbounds i8, ptr %.sink639, i64 8
+  %.sink638 = phi ptr [ %162, %if.else256 ], [ %161, %if.else244 ]
+  %size_.i.i325 = getelementptr inbounds i8, ptr %.sink638, i64 8
   %163 = load i64, ptr %size_.i.i325, align 8
   %164 = load ptr, ptr %file_range, align 8
   %value_size_.i326 = getelementptr inbounds i8, ptr %164, i64 3856
@@ -7953,18 +7953,18 @@ entry:
   %_M_next_resize.i.i.i = getelementptr inbounds i8, ptr %props, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_next_resize.i.i.i, i8 0, i64 16, i1 false)
   %cmp = icmp slt i32 %level, 0
-  %ref.tmp.sink57.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
-  %ref.tmp.sink57.sroa.gep58 = getelementptr inbounds i8, ptr %ref.tmp4, i64 1
-  %ref.tmp.sink57.sroa.gep60 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
-  %ref.tmp.sink57.sroa.gep61 = getelementptr inbounds i8, ptr %ref.tmp4, i64 3
-  %ref.tmp.sink57.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
-  %ref.tmp.sink57.sroa.gep64 = getelementptr inbounds i8, ptr %ref.tmp4, i64 5
-  %ref.tmp.sink57.sroa.gep66 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
-  %ref.tmp.sink57.sroa.gep67 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
-  %ref.tmp.sink57.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
-  %ref.tmp.sink57.sroa.gep70 = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
-  %ref.tmp.sink57.sroa.gep72 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
-  %ref.tmp.sink57.sroa.gep73 = getelementptr inbounds i8, ptr %ref.tmp4, i64 2
+  %ref.tmp.sink59.sroa.gep = getelementptr inbounds i8, ptr %ref.tmp, i64 1
+  %ref.tmp.sink59.sroa.gep60 = getelementptr inbounds i8, ptr %ref.tmp4, i64 1
+  %ref.tmp.sink59.sroa.gep62 = getelementptr inbounds i8, ptr %ref.tmp, i64 2
+  %ref.tmp.sink59.sroa.gep63 = getelementptr inbounds i8, ptr %ref.tmp4, i64 2
+  %ref.tmp.sink59.sroa.gep65 = getelementptr inbounds i8, ptr %ref.tmp, i64 3
+  %ref.tmp.sink59.sroa.gep66 = getelementptr inbounds i8, ptr %ref.tmp4, i64 3
+  %ref.tmp.sink59.sroa.gep68 = getelementptr inbounds i8, ptr %ref.tmp, i64 4
+  %ref.tmp.sink59.sroa.gep69 = getelementptr inbounds i8, ptr %ref.tmp4, i64 4
+  %ref.tmp.sink59.sroa.gep71 = getelementptr inbounds i8, ptr %ref.tmp, i64 5
+  %ref.tmp.sink59.sroa.gep72 = getelementptr inbounds i8, ptr %ref.tmp4, i64 5
+  %ref.tmp.sink59.sroa.gep74 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
+  %ref.tmp.sink59.sroa.gep75 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   br i1 %cmp, label %if.then, label %if.else
 
 if.then:                                          ; preds = %entry
@@ -8011,22 +8011,22 @@ _ZN7rocksdb6StatusD2Ev.exit31:                    ; preds = %if.else
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %_ZN7rocksdb6StatusD2Ev.exit, %_ZN7rocksdb6StatusD2Ev.exit31
-  %ref.tmp.sink57.sroa.phi = phi ptr [ %ref.tmp.sink57.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep58, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %ref.tmp.sink57.sroa.phi59 = phi ptr [ %ref.tmp.sink57.sroa.gep60, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep61, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %ref.tmp.sink57.sroa.phi62 = phi ptr [ %ref.tmp.sink57.sroa.gep63, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep64, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %ref.tmp.sink57.sroa.phi65 = phi ptr [ %ref.tmp.sink57.sroa.gep66, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep67, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %ref.tmp.sink57.sroa.phi68 = phi ptr [ %ref.tmp.sink57.sroa.gep69, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep70, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %ref.tmp.sink57.sroa.phi71 = phi ptr [ %ref.tmp.sink57.sroa.gep72, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink57.sroa.gep73, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi = phi ptr [ %ref.tmp.sink59.sroa.gep, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep60, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi61 = phi ptr [ %ref.tmp.sink59.sroa.gep62, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep63, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi64 = phi ptr [ %ref.tmp.sink59.sroa.gep65, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep66, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi67 = phi ptr [ %ref.tmp.sink59.sroa.gep68, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep69, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi70 = phi ptr [ %ref.tmp.sink59.sroa.gep71, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep72, %_ZN7rocksdb6StatusD2Ev.exit31 ]
+  %ref.tmp.sink59.sroa.phi73 = phi ptr [ %ref.tmp.sink59.sroa.gep74, %_ZN7rocksdb6StatusD2Ev.exit ], [ %ref.tmp.sink59.sroa.gep75, %_ZN7rocksdb6StatusD2Ev.exit31 ]
   %s.sroa.0.0 = phi i8 [ %0, %_ZN7rocksdb6StatusD2Ev.exit ], [ %1, %_ZN7rocksdb6StatusD2Ev.exit31 ]
-  %2 = load i8, ptr %ref.tmp.sink57.sroa.phi, align 1
-  %3 = load i8, ptr %ref.tmp.sink57.sroa.phi71, align 2
-  %4 = load i8, ptr %ref.tmp.sink57.sroa.phi59, align 1
-  %5 = load i8, ptr %ref.tmp.sink57.sroa.phi68, align 4
-  store <4 x i8> zeroinitializer, ptr %ref.tmp.sink57.sroa.phi, align 1
-  %6 = load i8, ptr %ref.tmp.sink57.sroa.phi62, align 1
-  store i8 0, ptr %ref.tmp.sink57.sroa.phi62, align 1
-  %7 = load ptr, ptr %ref.tmp.sink57.sroa.phi65, align 8
-  store ptr null, ptr %ref.tmp.sink57.sroa.phi65, align 8
+  %2 = load i8, ptr %ref.tmp.sink59.sroa.phi, align 1
+  %3 = load i8, ptr %ref.tmp.sink59.sroa.phi61, align 2
+  %4 = load i8, ptr %ref.tmp.sink59.sroa.phi64, align 1
+  %5 = load i8, ptr %ref.tmp.sink59.sroa.phi67, align 4
+  store <4 x i8> zeroinitializer, ptr %ref.tmp.sink59.sroa.phi, align 1
+  %6 = load i8, ptr %ref.tmp.sink59.sroa.phi70, align 1
+  store i8 0, ptr %ref.tmp.sink59.sroa.phi70, align 1
+  %7 = load ptr, ptr %ref.tmp.sink59.sroa.phi73, align 8
+  store ptr null, ptr %ref.tmp.sink59.sroa.phi73, align 8
   %cmp.i = icmp eq i8 %s.sroa.0.0, 0
   br i1 %cmp.i, label %if.end10, label %if.then9
 
@@ -14787,13 +14787,13 @@ _ZTWN7rocksdb12perf_contextE.exit118:             ; preds = %invoke.cont133, %86
           to label %invoke.cont146.sink.split unwind label %lpad45.loopexit
 
 invoke.cont146.sink.split:                        ; preds = %_ZTWN7rocksdb12perf_contextE.exit118, %_ZTWN7rocksdb12perf_contextE.exit107
-  %call140.sink = phi ptr [ %call126, %_ZTWN7rocksdb12perf_contextE.exit107 ], [ %call140, %_ZTWN7rocksdb12perf_contextE.exit118 ]
+  %call126.sink = phi ptr [ %call126, %_ZTWN7rocksdb12perf_contextE.exit107 ], [ %call140, %_ZTWN7rocksdb12perf_contextE.exit118 ]
   %call.i105.pn = phi i64 [ %call.i105, %_ZTWN7rocksdb12perf_contextE.exit107 ], [ %call.i115, %_ZTWN7rocksdb12perf_contextE.exit118 ]
   %sub.i103.sink = sub i64 %call.i105.pn, %timer.sroa.3.0
-  %get_from_table_nanos141 = getelementptr inbounds i8, ptr %call140.sink, i64 32
-  %88 = load i64, ptr %get_from_table_nanos141, align 8
+  %get_from_table_nanos = getelementptr inbounds i8, ptr %call126.sink, i64 32
+  %88 = load i64, ptr %get_from_table_nanos, align 8
   %add = add i64 %sub.i103.sink, %88
-  store i64 %add, ptr %get_from_table_nanos141, align 8
+  store i64 %add, ptr %get_from_table_nanos, align 8
   br label %invoke.cont146
 
 invoke.cont146:                                   ; preds = %invoke.cont146.sink.split, %_ZN7rocksdb6StatusD2Ev.exit, %_ZTWN7rocksdb12perf_contextE.exit, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb12perf_contextE.exit93.thread
@@ -15005,10 +15005,10 @@ _ZTWN7rocksdb12perf_contextE.exit178.invoke:      ; preds = %_ZTWN7rocksdb12perf
           to label %if.end242.sink.split unwind label %lpad45.loopexit.split-lp.loopexit.split-lp
 
 if.end242.sink.split:                             ; preds = %_ZTWN7rocksdb12perf_contextE.exit178.invoke
-  %user_key_return_count239 = getelementptr inbounds i8, ptr %116, i64 24
-  %117 = load i64, ptr %user_key_return_count239, align 8
+  %user_key_return_count = getelementptr inbounds i8, ptr %116, i64 24
+  %117 = load i64, ptr %user_key_return_count, align 8
   %add224 = add i64 %117, 1
-  store i64 %add224, ptr %user_key_return_count239, align 8
+  store i64 %add224, ptr %user_key_return_count, align 8
   br label %if.end242
 
 if.end242:                                        ; preds = %if.end242.sink.split, %_ZTWN7rocksdb12perf_contextE.exit144.thread, %_ZTWN7rocksdb12perf_contextE.exit142.thread, %_ZTWN7rocksdb12perf_contextE.exit142, %_ZTWN7rocksdb10perf_levelE.exit140

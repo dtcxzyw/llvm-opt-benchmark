@@ -442,8 +442,8 @@ define dso_local ptr @get_perf_callchain(ptr noundef %0, i32 noundef %1, i1 noun
   br label %.thread4.sink.split
 
 .thread4.sink.split:                              ; preds = %.thread5, %31
-  %.sink8.in = phi i64 [ %107, %.thread5 ], [ %32, %31 ]
-  %.ph = phi ptr [ %46, %.thread5 ], [ null, %31 ]
+  %.sink8.in = phi i64 [ %32, %31 ], [ %107, %.thread5 ]
+  %.ph = phi ptr [ null, %31 ], [ %46, %.thread5 ]
   %.sink8 = inttoptr i64 %.sink8.in to ptr
   %108 = getelementptr i32, ptr %.sink8, i64 %24
   %109 = load i32, ptr %108, align 4

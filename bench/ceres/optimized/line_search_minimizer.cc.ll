@@ -1922,8 +1922,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 866:                                              ; preds = %859, %._crit_edge.i.i.i.i.i316, %831
   %.173.i.i.i.i.i310 = phi <2 x double> [ %865, %859 ], [ %858, %._crit_edge.i.i.i.i.i316 ], [ %835, %831 ]
-  %shift696 = shufflevector <2 x double> %.173.i.i.i.i.i310, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %867 = fadd <2 x double> %.173.i.i.i.i.i310, %shift696
+  %shift690 = shufflevector <2 x double> %.173.i.i.i.i.i310, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %867 = fadd <2 x double> %.173.i.i.i.i.i310, %shift690
   %868 = extractelement <2 x double> %867, i64 0
   br i1 %384, label %.lr.ph83.i.i.i.i.i312, label %.loopexit591
 
@@ -1986,8 +1986,8 @@ _ZN5Eigen6MatrixIdLin1ELi1ELi0ELin1ELi1EEaSERKS1_.exit: ; preds = %.lr.ph.i.i.i.
 
 897:                                              ; preds = %893, %._crit_edge.i.i.i.i.i333, %.loopexit591
   %.173.i.i.i.i.i327 = phi <2 x double> [ %896, %893 ], [ %892, %._crit_edge.i.i.i.i.i333 ], [ %880, %.loopexit591 ]
-  %shift697 = shufflevector <2 x double> %.173.i.i.i.i.i327, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %898 = fadd <2 x double> %.173.i.i.i.i.i327, %shift697
+  %shift691 = shufflevector <2 x double> %.173.i.i.i.i.i327, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %898 = fadd <2 x double> %.173.i.i.i.i.i327, %shift691
   %899 = extractelement <2 x double> %898, i64 0
   br i1 %384, label %.lr.ph83.i.i.i.i.i329, label %.loopexit
 

@@ -107,22 +107,22 @@ sub_2:                                            ; preds = %sub_1
   tail call void @exit(i32 noundef 0) #9
   unreachable
 
-.preheader108:                                    ; preds = %23, %119
-  %_ZL7inverse.0 = phi i32 [ %_ZL7inverse.4, %119 ], [ %24, %23 ]
-  %.in = phi i32 [ %.4, %119 ], [ %0, %23 ]
-  %.066126 = phi ptr [ %.268, %119 ], [ %1, %23 ]
+.preheader108:                                    ; preds = %23, %120
+  %_ZL7inverse.0 = phi i32 [ %_ZL7inverse.4, %120 ], [ %24, %23 ]
+  %.in = phi i32 [ %.4, %120 ], [ %0, %23 ]
+  %.066126 = phi ptr [ %.268, %120 ], [ %1, %23 ]
   %31 = add nsw i32 %.in, -1
   %32 = getelementptr inbounds i8, ptr %.066126, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = load i8, ptr %33, align 1
-  switch i8 %34, label %114 [
+  switch i8 %34, label %115 [
     i8 45, label %.outer
-    i8 43, label %105
+    i8 43, label %106
   ]
 
 .outer:                                           ; preds = %.preheader108, %.outer.backedge
   %_ZL7inverse.1 = phi i32 [ %_ZL7inverse.2, %.outer.backedge ], [ %_ZL7inverse.0, %.preheader108 ]
-  %.167.ph = phi ptr [ %.sink177, %.outer.backedge ], [ %32, %.preheader108 ]
+  %.167.ph = phi ptr [ %65, %.outer.backedge ], [ %32, %.preheader108 ]
   %.063.ph = phi ptr [ %35, %.outer.backedge ], [ %33, %.preheader108 ]
   %.1.ph = phi i32 [ %.1.ph.be, %.outer.backedge ], [ %31, %.preheader108 ]
   br label %.backedge
@@ -132,7 +132,7 @@ sub_2:                                            ; preds = %sub_1
   %.063 = phi ptr [ %.063.ph, %.outer ], [ %.063.be, %.backedge.backedge ]
   %35 = getelementptr inbounds i8, ptr %.063, i64 1
   %36 = load i8, ptr %35, align 1
-  switch i8 %36, label %103 [
+  switch i8 %36, label %104 [
     i8 0, label %37
     i8 97, label %45
     i8 73, label %.backedge.backedge
@@ -140,15 +140,15 @@ sub_2:                                            ; preds = %sub_1
     i8 87, label %52
     i8 119, label %52
     i8 102, label %60
-    i8 70, label %66
-    i8 108, label %69
-    i8 112, label %102
+    i8 70, label %67
+    i8 108, label %70
+    i8 112, label %103
   ]
 
 37:                                               ; preds = %.backedge
   %38 = load i8, ptr %.063, align 1
   %39 = icmp eq i8 %38, 45
-  br i1 %39, label %40, label %119
+  br i1 %39, label %40, label %120
 
 40:                                               ; preds = %37
   %41 = load i32, ptr @_ZZ4mainE5eargc, align 4
@@ -157,7 +157,7 @@ sub_2:                                            ; preds = %sub_1
   %43 = sext i32 %41 to i64
   %44 = getelementptr inbounds ptr, ptr %1, i64 %43
   store ptr @.str.2, ptr %44, align 8
-  br label %119
+  br label %120
 
 45:                                               ; preds = %.backedge
   store i1 true, ptr @_ZL7fullout, align 4
@@ -192,9 +192,9 @@ sub_2:                                            ; preds = %sub_1
   tail call void @_Z10set_rtodmsii(i32 noundef %isdigittmp, i32 noundef %58)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %102
-  %_ZL7inverse.3 = phi i32 [ %_ZL7inverse.2, %102 ], [ %_ZL7inverse.2, %56 ], [ %_ZL7inverse.2, %59 ], [ %_ZL7inverse.2, %51 ], [ %_ZL7inverse.2, %49 ], [ %_ZL7inverse.2, %45 ], [ 1, %.backedge ]
-  %.063.be = phi ptr [ %35, %102 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
+.backedge.backedge:                               ; preds = %.backedge, %56, %59, %49, %51, %45, %103
+  %_ZL7inverse.3 = phi i32 [ %_ZL7inverse.2, %103 ], [ %_ZL7inverse.2, %56 ], [ %_ZL7inverse.2, %59 ], [ %_ZL7inverse.2, %51 ], [ %_ZL7inverse.2, %49 ], [ %_ZL7inverse.2, %45 ], [ 1, %.backedge ]
+  %.063.be = phi ptr [ %35, %103 ], [ %53, %56 ], [ %35, %59 ], [ %35, %51 ], [ %47, %49 ], [ %35, %45 ], [ %35, %.backedge ]
   br label %.backedge, !llvm.loop !5
 
 59:                                               ; preds = %52
@@ -206,592 +206,592 @@ sub_2:                                            ; preds = %sub_1
   %62 = icmp slt i32 %.1.ph, 2
   br i1 %62, label %63, label %.outer.backedge
 
-63:                                               ; preds = %66, %60
-  %.2 = phi i32 [ %67, %66 ], [ %61, %60 ]
+63:                                               ; preds = %67, %60
+  %.2 = phi i32 [ %68, %67 ], [ %61, %60 ]
   %64 = zext nneg i8 %36 to i32
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.5, i32 noundef %64)
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %66, %60, %63
-  %_ZL5oform.sink = phi ptr [ @_ZL5oform, %63 ], [ @_ZL5oform, %60 ], [ @_ZL6osform, %66 ]
-  %.1.ph.be = phi i32 [ %.2, %63 ], [ %61, %60 ], [ %67, %66 ]
-  %.sink177 = getelementptr inbounds i8, ptr %.167.ph, i64 8
-  %65 = load ptr, ptr %.sink177, align 8
-  store ptr %65, ptr %_ZL5oform.sink, align 8
+.outer.backedge:                                  ; preds = %60, %63, %67
+  %_ZL5oform.sink = phi ptr [ @_ZL6osform, %67 ], [ @_ZL5oform, %63 ], [ @_ZL5oform, %60 ]
+  %.1.ph.be = phi i32 [ %68, %67 ], [ %.2, %63 ], [ %61, %60 ]
+  %65 = getelementptr inbounds i8, ptr %.167.ph, i64 8
+  %66 = load ptr, ptr %65, align 8
+  store ptr %66, ptr %_ZL5oform.sink, align 8
   br label %.outer, !llvm.loop !5
 
-66:                                               ; preds = %.backedge
-  %67 = add nsw i32 %.1.ph, -1
-  %68 = icmp slt i32 %.1.ph, 2
-  br i1 %68, label %63, label %.outer.backedge
+67:                                               ; preds = %.backedge
+  %68 = add nsw i32 %.1.ph, -1
+  %69 = icmp slt i32 %.1.ph, 2
+  br i1 %69, label %63, label %.outer.backedge
 
-69:                                               ; preds = %.backedge
-  %70 = getelementptr inbounds i8, ptr %.063, i64 2
-  %71 = load i8, ptr %70, align 1
-  switch i8 %71, label %100 [
-    i8 0, label %72
-    i8 101, label %72
-    i8 117, label %85
+70:                                               ; preds = %.backedge
+  %71 = getelementptr inbounds i8, ptr %.063, i64 2
+  %72 = load i8, ptr %71, align 1
+  switch i8 %72, label %101 [
+    i8 0, label %73
+    i8 101, label %73
+    i8 117, label %86
   ]
 
-72:                                               ; preds = %69, %69
-  %73 = tail call ptr @proj_list_ellps()
-  %74 = load ptr, ptr %73, align 8
-  %.not96135 = icmp eq ptr %74, null
+73:                                               ; preds = %70, %70
+  %74 = tail call ptr @proj_list_ellps()
+  %75 = load ptr, ptr %74, align 8
+  %.not96135 = icmp eq ptr %75, null
   br i1 %.not96135, label %.loopexit, label %.lr.ph137
 
-.lr.ph137:                                        ; preds = %72, %.lr.ph137
-  %75 = phi ptr [ %84, %.lr.ph137 ], [ %74, %72 ]
-  %.060136 = phi ptr [ %83, %.lr.ph137 ], [ %73, %72 ]
-  %76 = getelementptr inbounds i8, ptr %.060136, i64 8
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %.060136, i64 16
-  %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds i8, ptr %.060136, i64 24
-  %81 = load ptr, ptr %80, align 8
-  %82 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %75, ptr noundef %77, ptr noundef %79, ptr noundef %81)
-  %83 = getelementptr inbounds i8, ptr %.060136, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %.not96 = icmp eq ptr %84, null
+.lr.ph137:                                        ; preds = %73, %.lr.ph137
+  %76 = phi ptr [ %85, %.lr.ph137 ], [ %75, %73 ]
+  %.060136 = phi ptr [ %84, %.lr.ph137 ], [ %74, %73 ]
+  %77 = getelementptr inbounds i8, ptr %.060136, i64 8
+  %78 = load ptr, ptr %77, align 8
+  %79 = getelementptr inbounds i8, ptr %.060136, i64 16
+  %80 = load ptr, ptr %79, align 8
+  %81 = getelementptr inbounds i8, ptr %.060136, i64 24
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %76, ptr noundef %78, ptr noundef %80, ptr noundef %82)
+  %84 = getelementptr inbounds i8, ptr %.060136, i64 32
+  %85 = load ptr, ptr %84, align 8
+  %.not96 = icmp eq ptr %85, null
   br i1 %.not96, label %.loopexit, label %.lr.ph137, !llvm.loop !7
 
-85:                                               ; preds = %69
-  %86 = tail call ptr @proj_get_units_from_database(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null)
-  %.not93 = icmp eq ptr %86, null
+86:                                               ; preds = %70
+  %87 = tail call ptr @proj_get_units_from_database(ptr noundef null, ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 0, ptr noundef null)
+  %.not93 = icmp eq ptr %87, null
   br i1 %.not93, label %.critedge, label %.lr.ph130.split
 
-.lr.ph130.split:                                  ; preds = %85
-  %87 = load ptr, ptr %86, align 8
-  %.not94132 = icmp eq ptr %87, null
+.lr.ph130.split:                                  ; preds = %86
+  %88 = load ptr, ptr %87, align 8
+  %.not94132 = icmp eq ptr %88, null
   br i1 %.not94132, label %.critedge, label %.lr.ph134
 
-.lr.ph134:                                        ; preds = %.lr.ph130.split, %97
-  %indvars.iv = phi i64 [ %indvars.iv.next, %97 ], [ 0, %.lr.ph130.split ]
-  %88 = phi ptr [ %99, %97 ], [ %87, %.lr.ph130.split ]
-  %89 = getelementptr inbounds i8, ptr %88, i64 40
-  %90 = load ptr, ptr %89, align 8
-  %.not95 = icmp eq ptr %90, null
-  br i1 %.not95, label %97, label %91
+.lr.ph134:                                        ; preds = %.lr.ph130.split, %98
+  %indvars.iv = phi i64 [ %indvars.iv.next, %98 ], [ 0, %.lr.ph130.split ]
+  %89 = phi ptr [ %100, %98 ], [ %88, %.lr.ph130.split ]
+  %90 = getelementptr inbounds i8, ptr %89, i64 40
+  %91 = load ptr, ptr %90, align 8
+  %.not95 = icmp eq ptr %91, null
+  br i1 %.not95, label %98, label %92
 
-91:                                               ; preds = %.lr.ph134
-  %92 = getelementptr inbounds i8, ptr %88, i64 32
-  %93 = load double, ptr %92, align 8
-  %94 = getelementptr inbounds i8, ptr %88, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %90, double noundef %93, ptr noundef %95)
-  br label %97
+92:                                               ; preds = %.lr.ph134
+  %93 = getelementptr inbounds i8, ptr %89, i64 32
+  %94 = load double, ptr %93, align 8
+  %95 = getelementptr inbounds i8, ptr %89, i64 16
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef nonnull %91, double noundef %94, ptr noundef %96)
+  br label %98
 
-97:                                               ; preds = %.lr.ph134, %91
+98:                                               ; preds = %.lr.ph134, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %98 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv.next
-  %99 = load ptr, ptr %98, align 8
-  %.not94 = icmp eq ptr %99, null
+  %99 = getelementptr inbounds ptr, ptr %87, i64 %indvars.iv.next
+  %100 = load ptr, ptr %99, align 8
+  %.not94 = icmp eq ptr %100, null
   br i1 %.not94, label %.critedge, label %.lr.ph134
 
-.critedge:                                        ; preds = %97, %.lr.ph130.split, %85
-  tail call void @proj_unit_list_destroy(ptr noundef %86)
+.critedge:                                        ; preds = %98, %.lr.ph130.split, %86
+  tail call void @proj_unit_list_destroy(ptr noundef %87)
   br label %.loopexit
 
-100:                                              ; preds = %69
-  %101 = sext i8 %71 to i32
-  tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.9, i32 noundef %101)
+101:                                              ; preds = %70
+  %102 = sext i8 %72 to i32
+  tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.9, i32 noundef %102)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph137, %72, %.critedge, %100
+.loopexit:                                        ; preds = %.lr.ph137, %73, %.critedge, %101
   tail call void @exit(i32 noundef 0) #9
   unreachable
 
-102:                                              ; preds = %.backedge
+103:                                              ; preds = %.backedge
   store i1 true, ptr @_ZL7pos_azi, align 4
   br label %.backedge.backedge
 
-103:                                              ; preds = %.backedge
-  %104 = sext i8 %36 to i32
-  tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %104)
-  br label %119
+104:                                              ; preds = %.backedge
+  %105 = sext i8 %36 to i32
+  tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.10, i32 noundef %105)
+  br label %120
 
-105:                                              ; preds = %.preheader108
-  %106 = load i32, ptr @_ZL5pargc, align 4
-  %107 = icmp slt i32 %106, 50
-  br i1 %107, label %108, label %113
+106:                                              ; preds = %.preheader108
+  %107 = load i32, ptr @_ZL5pargc, align 4
+  %108 = icmp slt i32 %107, 50
+  br i1 %108, label %109, label %114
 
-108:                                              ; preds = %105
-  %109 = getelementptr inbounds i8, ptr %33, i64 1
-  %110 = add nsw i32 %106, 1
-  store i32 %110, ptr @_ZL5pargc, align 4
-  %111 = sext i32 %106 to i64
-  %112 = getelementptr inbounds [50 x ptr], ptr @_ZL5pargv, i64 0, i64 %111
-  store ptr %109, ptr %112, align 8
-  br label %119
+109:                                              ; preds = %106
+  %110 = getelementptr inbounds i8, ptr %33, i64 1
+  %111 = add nsw i32 %107, 1
+  store i32 %111, ptr @_ZL5pargc, align 4
+  %112 = sext i32 %107 to i64
+  %113 = getelementptr inbounds [50 x ptr], ptr @_ZL5pargv, i64 0, i64 %112
+  store ptr %110, ptr %113, align 8
+  br label %120
 
-113:                                              ; preds = %105
+114:                                              ; preds = %106
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.11)
-  br label %119
+  br label %120
 
-114:                                              ; preds = %.preheader108
-  %115 = load i32, ptr @_ZZ4mainE5eargc, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr @_ZZ4mainE5eargc, align 4
-  %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds ptr, ptr %1, i64 %117
-  store ptr %33, ptr %118, align 8
-  br label %119
+115:                                              ; preds = %.preheader108
+  %116 = load i32, ptr @_ZZ4mainE5eargc, align 4
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr @_ZZ4mainE5eargc, align 4
+  %118 = sext i32 %116 to i64
+  %119 = getelementptr inbounds ptr, ptr %1, i64 %118
+  store ptr %33, ptr %119, align 8
+  br label %120
 
-119:                                              ; preds = %114, %113, %108, %37, %40, %103
-  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.0, %108 ], [ %_ZL7inverse.0, %113 ], [ %_ZL7inverse.2, %103 ], [ %_ZL7inverse.2, %40 ], [ %_ZL7inverse.2, %37 ]
-  %.268 = phi ptr [ %32, %114 ], [ %32, %108 ], [ %32, %113 ], [ %.167.ph, %103 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
-  %.4 = phi i32 [ %31, %114 ], [ %31, %108 ], [ %31, %113 ], [ %.1.ph, %103 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ]
-  %120 = icmp sgt i32 %.4, 1
-  br i1 %120, label %.preheader108, label %121, !llvm.loop !8
+120:                                              ; preds = %115, %114, %109, %37, %40, %104
+  %_ZL7inverse.4 = phi i32 [ %_ZL7inverse.0, %115 ], [ %_ZL7inverse.0, %109 ], [ %_ZL7inverse.0, %114 ], [ %_ZL7inverse.2, %104 ], [ %_ZL7inverse.2, %40 ], [ %_ZL7inverse.2, %37 ]
+  %.268 = phi ptr [ %32, %115 ], [ %32, %109 ], [ %32, %114 ], [ %.167.ph, %104 ], [ %.167.ph, %40 ], [ %.167.ph, %37 ]
+  %.4 = phi i32 [ %31, %115 ], [ %31, %109 ], [ %31, %114 ], [ %.1.ph, %104 ], [ %.1.ph, %40 ], [ %.1.ph, %37 ]
+  %121 = icmp sgt i32 %.4, 1
+  br i1 %121, label %.preheader108, label %122, !llvm.loop !8
 
-121:                                              ; preds = %119
-  %122 = load i32, ptr @_ZL5pargc, align 4
-  tail call void @geod_set(i32 noundef %122, ptr noundef nonnull @_ZL5pargv)
-  %123 = load i32, ptr @n_alpha, align 4
-  %124 = icmp ne i32 %123, 0
-  %125 = load i32, ptr @n_S, align 4
-  %126 = icmp ne i32 %125, 0
-  %or.cond = select i1 %124, i1 true, i1 %126
-  %127 = load i32, ptr @_ZZ4mainE5eargc, align 4
-  %128 = icmp ne i32 %127, 0
-  %or.cond3 = select i1 %or.cond, i1 %128, i1 false
-  br i1 %or.cond3, label %129, label %130
+122:                                              ; preds = %120
+  %123 = load i32, ptr @_ZL5pargc, align 4
+  tail call void @geod_set(i32 noundef %123, ptr noundef nonnull @_ZL5pargv)
+  %124 = load i32, ptr @n_alpha, align 4
+  %125 = icmp ne i32 %124, 0
+  %126 = load i32, ptr @n_S, align 4
+  %127 = icmp ne i32 %126, 0
+  %or.cond = select i1 %125, i1 true, i1 %127
+  %128 = load i32, ptr @_ZZ4mainE5eargc, align 4
+  %129 = icmp ne i32 %128, 0
+  %or.cond3 = select i1 %or.cond, i1 %129, i1 false
+  br i1 %or.cond3, label %130, label %131
 
-129:                                              ; preds = %121
+130:                                              ; preds = %122
   tail call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef 1, ptr noundef nonnull @.str.12)
   %.pre = load i32, ptr @n_alpha, align 4
-  br label %130
+  br label %131
 
-130:                                              ; preds = %121, %129
-  %131 = phi i32 [ %123, %121 ], [ %.pre, %129 ]
-  %.not88 = icmp eq i32 %131, 0
-  br i1 %.not88, label %147, label %132
+131:                                              ; preds = %122, %130
+  %132 = phi i32 [ %124, %122 ], [ %.pre, %130 ]
+  %.not88 = icmp eq i32 %132, 0
+  br i1 %.not88, label %148, label %133
 
-132:                                              ; preds = %130
-  %133 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %134 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  tail call fastcc void @_ZL7printLLdd(double noundef %133, double noundef %134)
-  %135 = tail call i32 @putchar(i32 noundef 10)
-  %136 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %137 = load i32, ptr @n_alpha, align 4
-  %138 = add nsw i32 %137, -1
-  store i32 %138, ptr @n_alpha, align 4
-  %.not1.i = icmp eq i32 %137, 0
+133:                                              ; preds = %131
+  %134 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %135 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  tail call fastcc void @_ZL7printLLdd(double noundef %134, double noundef %135)
+  %136 = tail call i32 @putchar(i32 noundef 10)
+  %137 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %138 = load i32, ptr @n_alpha, align 4
+  %139 = add nsw i32 %138, -1
+  store i32 %139, ptr @n_alpha, align 4
+  %.not1.i = icmp eq i32 %138, 0
   br i1 %.not1.i, label %_ZL6do_arcv.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %132, %.lr.ph.i
-  %.02.i = phi double [ %141, %.lr.ph.i ], [ %136, %132 ]
-  %139 = load double, ptr @del_alpha, align 8
-  %140 = fadd double %.02.i, %139
-  %141 = tail call noundef double @_Z6adjlond(double noundef %140)
-  store double %141, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+.lr.ph.i:                                         ; preds = %133, %.lr.ph.i
+  %.02.i = phi double [ %142, %.lr.ph.i ], [ %137, %133 ]
+  %140 = load double, ptr @del_alpha, align 8
+  %141 = fadd double %.02.i, %140
+  %142 = tail call noundef double @_Z6adjlond(double noundef %141)
+  store double %142, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
   tail call void @geod_pre()
   tail call void @geod_for()
-  %142 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %143 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  tail call fastcc void @_ZL7printLLdd(double noundef %142, double noundef %143)
-  %144 = tail call i32 @putchar(i32 noundef 10)
-  %145 = load i32, ptr @n_alpha, align 4
-  %146 = add nsw i32 %145, -1
-  store i32 %146, ptr @n_alpha, align 4
-  %.not.i = icmp eq i32 %145, 0
+  %143 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %144 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  tail call fastcc void @_ZL7printLLdd(double noundef %143, double noundef %144)
+  %145 = tail call i32 @putchar(i32 noundef 10)
+  %146 = load i32, ptr @n_alpha, align 4
+  %147 = add nsw i32 %146, -1
+  store i32 %147, ptr @n_alpha, align 4
+  %.not.i = icmp eq i32 %146, 0
   br i1 %.not.i, label %_ZL6do_arcv.exit, label %.lr.ph.i, !llvm.loop !9
 
-147:                                              ; preds = %130
-  %148 = load i32, ptr @n_S, align 4
-  %.not89 = icmp eq i32 %148, 0
-  br i1 %.not89, label %150, label %149
+148:                                              ; preds = %131
+  %149 = load i32, ptr @n_S, align 4
+  %.not89 = icmp eq i32 %149, 0
+  br i1 %.not89, label %151, label %150
 
-149:                                              ; preds = %147
+150:                                              ; preds = %148
   tail call fastcc void @_ZL7do_geodv()
   br label %_ZL6do_arcv.exit
 
-150:                                              ; preds = %147
-  %151 = load i32, ptr @_ZZ4mainE5eargc, align 4
-  %152 = icmp eq i32 %151, 0
-  br i1 %152, label %153, label %.lr.ph.preheader
+151:                                              ; preds = %148
+  %152 = load i32, ptr @_ZZ4mainE5eargc, align 4
+  %153 = icmp eq i32 %152, 0
+  br i1 %153, label %154, label %.lr.ph.preheader
 
-153:                                              ; preds = %150
+154:                                              ; preds = %151
   store ptr @.str.2, ptr %1, align 8
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %150, %153
-  %154 = phi i32 [ 1, %153 ], [ %151, %150 ]
-  %155 = add nsw i32 %154, -1
-  store i32 %155, ptr @_ZZ4mainE5eargc, align 4
+.lr.ph.preheader:                                 ; preds = %151, %154
+  %155 = phi i32 [ 1, %154 ], [ %152, %151 ]
+  %156 = add nsw i32 %155, -1
+  store i32 %156, ptr @_ZZ4mainE5eargc, align 4
   %.not12.i = icmp eq i32 %_ZL7inverse.4, 0
   %.not13.i = icmp eq i32 %_ZL7inverse.4, 0
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %359
-  %.062128 = phi ptr [ %360, %359 ], [ %1, %.lr.ph.preheader ]
-  %156 = load ptr, ptr %.062128, align 8
-  %157 = load i8, ptr %156, align 1
-  %158 = icmp eq i8 %157, 45
-  br i1 %158, label %159, label %161
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %360
+  %.062128 = phi ptr [ %361, %360 ], [ %1, %.lr.ph.preheader ]
+  %157 = load ptr, ptr %.062128, align 8
+  %158 = load i8, ptr %157, align 1
+  %159 = icmp eq i8 %158, 45
+  br i1 %159, label %160, label %162
 
-159:                                              ; preds = %.lr.ph
-  %160 = load ptr, ptr @stdin, align 8
-  br label %166
+160:                                              ; preds = %.lr.ph
+  %161 = load ptr, ptr @stdin, align 8
+  br label %167
 
-161:                                              ; preds = %.lr.ph
-  %162 = call noalias ptr @fopen(ptr noundef nonnull %156, ptr noundef nonnull @.str.14)
-  %163 = icmp eq ptr %162, null
-  %164 = load ptr, ptr %.062128, align 8
-  br i1 %163, label %165, label %166
+162:                                              ; preds = %.lr.ph
+  %163 = call noalias ptr @fopen(ptr noundef nonnull %157, ptr noundef nonnull @.str.14)
+  %164 = icmp eq ptr %163, null
+  %165 = load ptr, ptr %.062128, align 8
+  br i1 %164, label %166, label %167
 
-165:                                              ; preds = %161
-  call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef -2, ptr noundef nonnull @.str.15, ptr noundef %164)
-  br label %359
+166:                                              ; preds = %162
+  call void (i32, ptr, ...) @_Z5emessiPKcz(i32 noundef -2, ptr noundef nonnull @.str.15, ptr noundef %165)
+  br label %360
 
-166:                                              ; preds = %161, %159
-  %storemerge91 = phi ptr [ @.str.13, %159 ], [ %164, %161 ]
-  %.061 = phi ptr [ %160, %159 ], [ %162, %161 ]
+167:                                              ; preds = %162, %160
+  %storemerge91 = phi ptr [ @.str.13, %160 ], [ %165, %162 ]
+  %.061 = phi ptr [ %161, %160 ], [ %163, %162 ]
   store ptr %storemerge91, ptr @emess_dat, align 8
   call void @llvm.lifetime.start.p0(i64 203, ptr nonnull %3)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store i32 1, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
-  %167 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
-  store ptr %167, ptr %4, align 8
-  %.not17.i = icmp eq ptr %167, null
+  %168 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
+  store ptr %168, ptr %4, align 8
+  %.not17.i = icmp eq ptr %168, null
   br i1 %.not17.i, label %_ZL7processP8_IO_FILE.exit, label %.lr.ph.i100
 
-.lr.ph.i100:                                      ; preds = %166, %.backedge.i
-  %168 = phi ptr [ %183, %.backedge.i ], [ %167, %166 ]
-  %169 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %168, i32 noundef 10) #10
-  %.not11.i = icmp eq ptr %169, null
-  br i1 %.not11.i, label %170, label %.loopexit.i
+.lr.ph.i100:                                      ; preds = %167, %.backedge.i
+  %169 = phi ptr [ %184, %.backedge.i ], [ %168, %167 ]
+  %170 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %169, i32 noundef 10) #10
+  %.not11.i = icmp eq ptr %170, null
+  br i1 %.not11.i, label %171, label %.loopexit.i
 
-170:                                              ; preds = %.lr.ph.i100
-  %strlen.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %168)
-  %endptr.i = getelementptr inbounds i8, ptr %168, i64 %strlen.i
+171:                                              ; preds = %.lr.ph.i100
+  %strlen.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %169)
+  %endptr.i = getelementptr inbounds i8, ptr %169, i64 %strlen.i
   store i16 10, ptr %endptr.i, align 1
-  br label %171
+  br label %172
 
-171:                                              ; preds = %171, %170
-  %172 = call i32 @fgetc(ptr noundef %.061)
-  switch i32 %172, label %171 [
+172:                                              ; preds = %172, %171
+  %173 = call i32 @fgetc(ptr noundef %.061)
+  switch i32 %173, label %172 [
     i32 -1, label %.loopexit.loopexit.i
     i32 10, label %.loopexit.loopexit.i
   ]
 
-.loopexit.loopexit.i:                             ; preds = %171, %171
+.loopexit.loopexit.i:                             ; preds = %172, %172
   %.pre.i = load ptr, ptr %4, align 8
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.loopexit.i, %.lr.ph.i100
-  %173 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %168, %.lr.ph.i100 ]
-  %174 = load i8, ptr %173, align 1
-  %175 = sext i8 %174 to i32
-  %176 = load i32, ptr @_ZL3tag, align 4
-  %177 = icmp eq i32 %176, %175
-  br i1 %177, label %178, label %184
+  %174 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %169, %.lr.ph.i100 ]
+  %175 = load i8, ptr %174, align 1
+  %176 = sext i8 %175 to i32
+  %177 = load i32, ptr @_ZL3tag, align 4
+  %178 = icmp eq i32 %177, %176
+  br i1 %178, label %179, label %185
 
-178:                                              ; preds = %.loopexit.i
-  %179 = load ptr, ptr @stdout, align 8
-  %180 = call i32 @fputs(ptr noundef nonnull %3, ptr noundef %179)
+179:                                              ; preds = %.loopexit.i
+  %180 = load ptr, ptr @stdout, align 8
+  %181 = call i32 @fputs(ptr noundef nonnull %3, ptr noundef %180)
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %352, %178
-  %181 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
-  %182 = add nsw i32 %181, 1
-  store i32 %182, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
-  %183 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
-  store ptr %183, ptr %4, align 8
-  %.not.i101 = icmp eq ptr %183, null
+.backedge.i:                                      ; preds = %353, %179
+  %182 = load i32, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %183 = add nsw i32 %182, 1
+  store i32 %183, ptr getelementptr inbounds (i8, ptr @emess_dat, i64 16), align 8
+  %184 = call ptr @fgets(ptr noundef nonnull %3, i32 noundef 200, ptr noundef %.061)
+  store ptr %184, ptr %4, align 8
+  %.not.i101 = icmp eq ptr %184, null
   br i1 %.not.i101, label %_ZL7processP8_IO_FILE.exit, label %.lr.ph.i100, !llvm.loop !10
 
-184:                                              ; preds = %.loopexit.i
-  %185 = call noundef double @_Z6dmstorPKcPPc(ptr noundef nonnull %173, ptr noundef nonnull %4)
-  store double %185, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
-  %186 = load ptr, ptr %4, align 8
-  %187 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %186, ptr noundef nonnull %4)
-  store double %187, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
-  %188 = load ptr, ptr %4, align 8
-  %189 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %188, ptr noundef nonnull %4)
-  br i1 %.not12.i, label %193, label %190
+185:                                              ; preds = %.loopexit.i
+  %186 = call noundef double @_Z6dmstorPKcPPc(ptr noundef nonnull %174, ptr noundef nonnull %4)
+  store double %186, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
+  %187 = load ptr, ptr %4, align 8
+  %188 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %187, ptr noundef nonnull %4)
+  store double %188, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
+  %189 = load ptr, ptr %4, align 8
+  %190 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %189, ptr noundef nonnull %4)
+  br i1 %.not12.i, label %194, label %191
 
-190:                                              ; preds = %184
-  store double %189, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %191 = load ptr, ptr %4, align 8
-  %192 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %191, ptr noundef nonnull %4)
-  store double %192, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+191:                                              ; preds = %185
+  store double %190, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %192 = load ptr, ptr %4, align 8
+  %193 = call noundef double @_Z6dmstorPKcPPc(ptr noundef %192, ptr noundef nonnull %4)
+  store double %193, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
   call void @geod_inv()
-  br label %198
+  br label %199
 
-193:                                              ; preds = %184
-  store double %189, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %194 = load ptr, ptr %4, align 8
-  %195 = call double @strtod(ptr noundef %194, ptr noundef nonnull %4) #12
-  %196 = load double, ptr @to_meter, align 8
-  %197 = fmul double %195, %196
-  store double %197, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+194:                                              ; preds = %185
+  store double %190, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %195 = load ptr, ptr %4, align 8
+  %196 = call double @strtod(ptr noundef %195, ptr noundef nonnull %4) #12
+  %197 = load double, ptr @to_meter, align 8
+  %198 = fmul double %196, %197
+  store double %198, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
   call void @geod_pre()
   call void @geod_for()
-  br label %198
+  br label %199
 
-198:                                              ; preds = %193, %190
-  %199 = load ptr, ptr %4, align 8
-  %200 = load i8, ptr %199, align 1
-  %201 = icmp eq i8 %200, 0
-  %202 = icmp ugt ptr %199, %3
-  %or.cond.i = and i1 %202, %201
-  br i1 %or.cond.i, label %203, label %205
+199:                                              ; preds = %194, %191
+  %200 = load ptr, ptr %4, align 8
+  %201 = load i8, ptr %200, align 1
+  %202 = icmp eq i8 %201, 0
+  %203 = icmp ugt ptr %200, %3
+  %or.cond.i = and i1 %203, %202
+  br i1 %or.cond.i, label %204, label %206
 
-203:                                              ; preds = %198
-  %204 = getelementptr inbounds i8, ptr %199, i64 -1
-  store ptr %204, ptr %4, align 8
-  br label %205
+204:                                              ; preds = %199
+  %205 = getelementptr inbounds i8, ptr %200, i64 -1
+  store ptr %205, ptr %4, align 8
+  br label %206
 
-205:                                              ; preds = %203, %198
+206:                                              ; preds = %204, %199
   %.b10.i = load i1, ptr @_ZL7pos_azi, align 4
-  br i1 %.b10.i, label %206, label %216
+  br i1 %.b10.i, label %207, label %217
 
-206:                                              ; preds = %205
-  %207 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %208 = fcmp olt double %207, 0.000000e+00
-  br i1 %208, label %209, label %211
+207:                                              ; preds = %206
+  %208 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %209 = fcmp olt double %208, 0.000000e+00
+  br i1 %209, label %210, label %212
 
-209:                                              ; preds = %206
-  %210 = fadd double %207, 0x401921FB54442D18
-  store double %210, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  br label %211
+210:                                              ; preds = %207
+  %211 = fadd double %208, 0x401921FB54442D18
+  store double %211, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  br label %212
 
-211:                                              ; preds = %209, %206
-  %212 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %213 = fcmp olt double %212, 0.000000e+00
-  br i1 %213, label %214, label %216
+212:                                              ; preds = %210, %207
+  %213 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %214 = fcmp olt double %213, 0.000000e+00
+  br i1 %214, label %215, label %217
 
-214:                                              ; preds = %211
-  %215 = fadd double %212, 0x401921FB54442D18
-  store double %215, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  br label %216
+215:                                              ; preds = %212
+  %216 = fadd double %213, 0x401921FB54442D18
+  store double %216, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  br label %217
 
-216:                                              ; preds = %214, %211, %205
+217:                                              ; preds = %215, %212, %206
   %.b.i = load i1, ptr @_ZL7fullout, align 4
-  br i1 %.b.i, label %217, label %288
+  br i1 %.b.i, label %218, label %289
 
-217:                                              ; preds = %216
-  %218 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
-  %219 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
-  %220 = load ptr, ptr @_ZL5oform, align 8
-  %.not.i105 = icmp eq ptr %220, null
-  br i1 %.not.i105, label %228, label %221
+218:                                              ; preds = %217
+  %219 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 24), align 8
+  %220 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 16), align 8
+  %221 = load ptr, ptr @_ZL5oform, align 8
+  %.not.i105 = icmp eq ptr %221, null
+  br i1 %.not.i105, label %229, label %222
 
-221:                                              ; preds = %217
-  %222 = load ptr, ptr @stdout, align 8
-  %223 = fmul double %218, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %222, ptr noundef nonnull %220, double noundef %223)
-  %224 = call i32 @putchar(i32 noundef 9)
-  %225 = load ptr, ptr @stdout, align 8
-  %226 = load ptr, ptr @_ZL5oform, align 8
-  %227 = fmul double %219, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %225, ptr noundef %226, double noundef %227)
+222:                                              ; preds = %218
+  %223 = load ptr, ptr @stdout, align 8
+  %224 = fmul double %219, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %223, ptr noundef nonnull %221, double noundef %224)
+  %225 = call i32 @putchar(i32 noundef 9)
+  %226 = load ptr, ptr @stdout, align 8
+  %227 = load ptr, ptr @_ZL5oform, align 8
+  %228 = fmul double %220, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %226, ptr noundef %227, double noundef %228)
   br label %_ZL7printLLdd.exit106
 
-228:                                              ; preds = %217
-  %229 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %218, i32 noundef 78, i32 noundef 83)
-  %230 = load ptr, ptr @stdout, align 8
-  %231 = call i32 @fputs(ptr noundef %229, ptr noundef %230)
-  %232 = call i32 @putchar(i32 noundef 9)
-  %233 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %219, i32 noundef 69, i32 noundef 87)
-  %234 = load ptr, ptr @stdout, align 8
-  %235 = call i32 @fputs(ptr noundef %233, ptr noundef %234)
+229:                                              ; preds = %218
+  %230 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %219, i32 noundef 78, i32 noundef 83)
+  %231 = load ptr, ptr @stdout, align 8
+  %232 = call i32 @fputs(ptr noundef %230, ptr noundef %231)
+  %233 = call i32 @putchar(i32 noundef 9)
+  %234 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %220, i32 noundef 69, i32 noundef 87)
+  %235 = load ptr, ptr @stdout, align 8
+  %236 = call i32 @fputs(ptr noundef %234, ptr noundef %235)
   br label %_ZL7printLLdd.exit106
 
-_ZL7printLLdd.exit106:                            ; preds = %221, %228
-  %236 = call i32 @putchar(i32 noundef 9)
-  %237 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %238 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  %239 = load ptr, ptr @_ZL5oform, align 8
-  %.not.i103 = icmp eq ptr %239, null
-  br i1 %.not.i103, label %247, label %240
+_ZL7printLLdd.exit106:                            ; preds = %222, %229
+  %237 = call i32 @putchar(i32 noundef 9)
+  %238 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %239 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %240 = load ptr, ptr @_ZL5oform, align 8
+  %.not.i103 = icmp eq ptr %240, null
+  br i1 %.not.i103, label %248, label %241
 
-240:                                              ; preds = %_ZL7printLLdd.exit106
-  %241 = load ptr, ptr @stdout, align 8
-  %242 = fmul double %237, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %241, ptr noundef nonnull %239, double noundef %242)
-  %243 = call i32 @putchar(i32 noundef 9)
-  %244 = load ptr, ptr @stdout, align 8
-  %245 = load ptr, ptr @_ZL5oform, align 8
-  %246 = fmul double %238, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %244, ptr noundef %245, double noundef %246)
+241:                                              ; preds = %_ZL7printLLdd.exit106
+  %242 = load ptr, ptr @stdout, align 8
+  %243 = fmul double %238, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %242, ptr noundef nonnull %240, double noundef %243)
+  %244 = call i32 @putchar(i32 noundef 9)
+  %245 = load ptr, ptr @stdout, align 8
+  %246 = load ptr, ptr @_ZL5oform, align 8
+  %247 = fmul double %239, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %245, ptr noundef %246, double noundef %247)
   br label %_ZL7printLLdd.exit104
 
-247:                                              ; preds = %_ZL7printLLdd.exit106
-  %248 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %237, i32 noundef 78, i32 noundef 83)
-  %249 = load ptr, ptr @stdout, align 8
-  %250 = call i32 @fputs(ptr noundef %248, ptr noundef %249)
-  %251 = call i32 @putchar(i32 noundef 9)
-  %252 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %238, i32 noundef 69, i32 noundef 87)
-  %253 = load ptr, ptr @stdout, align 8
-  %254 = call i32 @fputs(ptr noundef %252, ptr noundef %253)
+248:                                              ; preds = %_ZL7printLLdd.exit106
+  %249 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %238, i32 noundef 78, i32 noundef 83)
+  %250 = load ptr, ptr @stdout, align 8
+  %251 = call i32 @fputs(ptr noundef %249, ptr noundef %250)
+  %252 = call i32 @putchar(i32 noundef 9)
+  %253 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %239, i32 noundef 69, i32 noundef 87)
+  %254 = load ptr, ptr @stdout, align 8
+  %255 = call i32 @fputs(ptr noundef %253, ptr noundef %254)
   br label %_ZL7printLLdd.exit104
 
-_ZL7printLLdd.exit104:                            ; preds = %240, %247
-  %255 = call i32 @putchar(i32 noundef 9)
-  %256 = load ptr, ptr @_ZL5oform, align 8
-  %.not16.i = icmp eq ptr %256, null
-  br i1 %.not16.i, label %272, label %257
+_ZL7printLLdd.exit104:                            ; preds = %241, %248
+  %256 = call i32 @putchar(i32 noundef 9)
+  %257 = load ptr, ptr @_ZL5oform, align 8
+  %.not16.i = icmp eq ptr %257, null
+  br i1 %.not16.i, label %273, label %258
 
-257:                                              ; preds = %_ZL7printLLdd.exit104
-  %258 = load ptr, ptr @stdout, align 8
-  %259 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %260 = fmul double %259, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %258, ptr noundef nonnull %256, double noundef %260)
-  %261 = call i32 @putchar(i32 noundef 9)
-  %262 = load ptr, ptr @stdout, align 8
-  %263 = load ptr, ptr @_ZL5oform, align 8
-  %264 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %265 = fmul double %264, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %262, ptr noundef %263, double noundef %265)
-  %266 = call i32 @putchar(i32 noundef 9)
-  %267 = load ptr, ptr @stdout, align 8
-  %268 = load ptr, ptr @_ZL6osform, align 8
-  %269 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
-  %270 = load double, ptr @fr_meter, align 8
-  %271 = fmul double %269, %270
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %267, ptr noundef %268, double noundef %271)
-  br label %352
+258:                                              ; preds = %_ZL7printLLdd.exit104
+  %259 = load ptr, ptr @stdout, align 8
+  %260 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %261 = fmul double %260, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %259, ptr noundef nonnull %257, double noundef %261)
+  %262 = call i32 @putchar(i32 noundef 9)
+  %263 = load ptr, ptr @stdout, align 8
+  %264 = load ptr, ptr @_ZL5oform, align 8
+  %265 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %266 = fmul double %265, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %263, ptr noundef %264, double noundef %266)
+  %267 = call i32 @putchar(i32 noundef 9)
+  %268 = load ptr, ptr @stdout, align 8
+  %269 = load ptr, ptr @_ZL6osform, align 8
+  %270 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %271 = load double, ptr @fr_meter, align 8
+  %272 = fmul double %270, %271
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %268, ptr noundef %269, double noundef %272)
+  br label %353
 
-272:                                              ; preds = %_ZL7printLLdd.exit104
-  %273 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %274 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %273, i32 noundef 0, i32 noundef 0)
-  %275 = load ptr, ptr @stdout, align 8
-  %276 = call i32 @fputs(ptr noundef %274, ptr noundef %275)
-  %277 = call i32 @putchar(i32 noundef 9)
-  %278 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %279 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %278, i32 noundef 0, i32 noundef 0)
-  %280 = load ptr, ptr @stdout, align 8
-  %281 = call i32 @fputs(ptr noundef %279, ptr noundef %280)
-  %282 = call i32 @putchar(i32 noundef 9)
-  %283 = load ptr, ptr @stdout, align 8
-  %284 = load ptr, ptr @_ZL6osform, align 8
-  %285 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
-  %286 = load double, ptr @fr_meter, align 8
-  %287 = fmul double %285, %286
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %283, ptr noundef %284, double noundef %287)
-  br label %352
+273:                                              ; preds = %_ZL7printLLdd.exit104
+  %274 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %275 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %274, i32 noundef 0, i32 noundef 0)
+  %276 = load ptr, ptr @stdout, align 8
+  %277 = call i32 @fputs(ptr noundef %275, ptr noundef %276)
+  %278 = call i32 @putchar(i32 noundef 9)
+  %279 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %280 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %279, i32 noundef 0, i32 noundef 0)
+  %281 = load ptr, ptr @stdout, align 8
+  %282 = call i32 @fputs(ptr noundef %280, ptr noundef %281)
+  %283 = call i32 @putchar(i32 noundef 9)
+  %284 = load ptr, ptr @stdout, align 8
+  %285 = load ptr, ptr @_ZL6osform, align 8
+  %286 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %287 = load double, ptr @fr_meter, align 8
+  %288 = fmul double %286, %287
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %284, ptr noundef %285, double noundef %288)
+  br label %353
 
-288:                                              ; preds = %216
-  br i1 %.not13.i, label %322, label %289
+289:                                              ; preds = %217
+  br i1 %.not13.i, label %323, label %290
 
-289:                                              ; preds = %288
-  %290 = load ptr, ptr @_ZL5oform, align 8
-  %.not15.i = icmp eq ptr %290, null
-  br i1 %.not15.i, label %306, label %291
+290:                                              ; preds = %289
+  %291 = load ptr, ptr @_ZL5oform, align 8
+  %.not15.i = icmp eq ptr %291, null
+  br i1 %.not15.i, label %307, label %292
 
-291:                                              ; preds = %289
-  %292 = load ptr, ptr @stdout, align 8
-  %293 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %294 = fmul double %293, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %292, ptr noundef nonnull %290, double noundef %294)
-  %295 = call i32 @putchar(i32 noundef 9)
-  %296 = load ptr, ptr @stdout, align 8
-  %297 = load ptr, ptr @_ZL5oform, align 8
-  %298 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %299 = fmul double %298, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %296, ptr noundef %297, double noundef %299)
-  %300 = call i32 @putchar(i32 noundef 9)
-  %301 = load ptr, ptr @stdout, align 8
-  %302 = load ptr, ptr @_ZL6osform, align 8
-  %303 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
-  %304 = load double, ptr @fr_meter, align 8
-  %305 = fmul double %303, %304
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %301, ptr noundef %302, double noundef %305)
-  br label %352
+292:                                              ; preds = %290
+  %293 = load ptr, ptr @stdout, align 8
+  %294 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %295 = fmul double %294, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %293, ptr noundef nonnull %291, double noundef %295)
+  %296 = call i32 @putchar(i32 noundef 9)
+  %297 = load ptr, ptr @stdout, align 8
+  %298 = load ptr, ptr @_ZL5oform, align 8
+  %299 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %300 = fmul double %299, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %297, ptr noundef %298, double noundef %300)
+  %301 = call i32 @putchar(i32 noundef 9)
+  %302 = load ptr, ptr @stdout, align 8
+  %303 = load ptr, ptr @_ZL6osform, align 8
+  %304 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %305 = load double, ptr @fr_meter, align 8
+  %306 = fmul double %304, %305
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %302, ptr noundef %303, double noundef %306)
+  br label %353
 
-306:                                              ; preds = %289
-  %307 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
-  %308 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %307, i32 noundef 0, i32 noundef 0)
-  %309 = load ptr, ptr @stdout, align 8
-  %310 = call i32 @fputs(ptr noundef %308, ptr noundef %309)
-  %311 = call i32 @putchar(i32 noundef 9)
-  %312 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %313 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %312, i32 noundef 0, i32 noundef 0)
-  %314 = load ptr, ptr @stdout, align 8
-  %315 = call i32 @fputs(ptr noundef %313, ptr noundef %314)
-  %316 = call i32 @putchar(i32 noundef 9)
-  %317 = load ptr, ptr @stdout, align 8
-  %318 = load ptr, ptr @_ZL6osform, align 8
-  %319 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
-  %320 = load double, ptr @fr_meter, align 8
-  %321 = fmul double %319, %320
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %317, ptr noundef %318, double noundef %321)
-  br label %352
+307:                                              ; preds = %290
+  %308 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 32), align 8
+  %309 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %308, i32 noundef 0, i32 noundef 0)
+  %310 = load ptr, ptr @stdout, align 8
+  %311 = call i32 @fputs(ptr noundef %309, ptr noundef %310)
+  %312 = call i32 @putchar(i32 noundef 9)
+  %313 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %314 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %313, i32 noundef 0, i32 noundef 0)
+  %315 = load ptr, ptr @stdout, align 8
+  %316 = call i32 @fputs(ptr noundef %314, ptr noundef %315)
+  %317 = call i32 @putchar(i32 noundef 9)
+  %318 = load ptr, ptr @stdout, align 8
+  %319 = load ptr, ptr @_ZL6osform, align 8
+  %320 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 64), align 8
+  %321 = load double, ptr @fr_meter, align 8
+  %322 = fmul double %320, %321
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %318, ptr noundef %319, double noundef %322)
+  br label %353
 
-322:                                              ; preds = %288
-  %323 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
-  %324 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
-  %325 = load ptr, ptr @_ZL5oform, align 8
-  %.not.i102 = icmp eq ptr %325, null
-  br i1 %.not.i102, label %333, label %326
+323:                                              ; preds = %289
+  %324 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 48), align 8
+  %325 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 40), align 8
+  %326 = load ptr, ptr @_ZL5oform, align 8
+  %.not.i102 = icmp eq ptr %326, null
+  br i1 %.not.i102, label %334, label %327
 
-326:                                              ; preds = %322
-  %327 = load ptr, ptr @stdout, align 8
-  %328 = fmul double %323, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %327, ptr noundef nonnull %325, double noundef %328)
-  %329 = call i32 @putchar(i32 noundef 9)
-  %330 = load ptr, ptr @stdout, align 8
-  %331 = load ptr, ptr @_ZL5oform, align 8
-  %332 = fmul double %324, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %330, ptr noundef %331, double noundef %332)
+327:                                              ; preds = %323
+  %328 = load ptr, ptr @stdout, align 8
+  %329 = fmul double %324, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %328, ptr noundef nonnull %326, double noundef %329)
+  %330 = call i32 @putchar(i32 noundef 9)
+  %331 = load ptr, ptr @stdout, align 8
+  %332 = load ptr, ptr @_ZL5oform, align 8
+  %333 = fmul double %325, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %331, ptr noundef %332, double noundef %333)
   br label %_ZL7printLLdd.exit
 
-333:                                              ; preds = %322
-  %334 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %323, i32 noundef 78, i32 noundef 83)
-  %335 = load ptr, ptr @stdout, align 8
-  %336 = call i32 @fputs(ptr noundef %334, ptr noundef %335)
-  %337 = call i32 @putchar(i32 noundef 9)
-  %338 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %324, i32 noundef 69, i32 noundef 87)
-  %339 = load ptr, ptr @stdout, align 8
-  %340 = call i32 @fputs(ptr noundef %338, ptr noundef %339)
+334:                                              ; preds = %323
+  %335 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %324, i32 noundef 78, i32 noundef 83)
+  %336 = load ptr, ptr @stdout, align 8
+  %337 = call i32 @fputs(ptr noundef %335, ptr noundef %336)
+  %338 = call i32 @putchar(i32 noundef 9)
+  %339 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %325, i32 noundef 69, i32 noundef 87)
+  %340 = load ptr, ptr @stdout, align 8
+  %341 = call i32 @fputs(ptr noundef %339, ptr noundef %340)
   br label %_ZL7printLLdd.exit
 
-_ZL7printLLdd.exit:                               ; preds = %326, %333
-  %341 = call i32 @putchar(i32 noundef 9)
-  %342 = load ptr, ptr @_ZL5oform, align 8
-  %.not14.i = icmp eq ptr %342, null
-  br i1 %.not14.i, label %347, label %343
+_ZL7printLLdd.exit:                               ; preds = %327, %334
+  %342 = call i32 @putchar(i32 noundef 9)
+  %343 = load ptr, ptr @_ZL5oform, align 8
+  %.not14.i = icmp eq ptr %343, null
+  br i1 %.not14.i, label %348, label %344
 
-343:                                              ; preds = %_ZL7printLLdd.exit
-  %344 = load ptr, ptr @stdout, align 8
-  %345 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %346 = fmul double %345, 0x404CA5DC1A63C1F8
-  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %344, ptr noundef nonnull %342, double noundef %346)
-  br label %352
+344:                                              ; preds = %_ZL7printLLdd.exit
+  %345 = load ptr, ptr @stdout, align 8
+  %346 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %347 = fmul double %346, 0x404CA5DC1A63C1F8
+  call void @_Z26limited_fprintf_for_numberP8_IO_FILEPKcd(ptr noundef %345, ptr noundef nonnull %343, double noundef %347)
+  br label %353
 
-347:                                              ; preds = %_ZL7printLLdd.exit
-  %348 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
-  %349 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %348, i32 noundef 0, i32 noundef 0)
-  %350 = load ptr, ptr @stdout, align 8
-  %351 = call i32 @fputs(ptr noundef %349, ptr noundef %350)
-  br label %352
+348:                                              ; preds = %_ZL7printLLdd.exit
+  %349 = load double, ptr getelementptr inbounds (i8, ptr @GEODESIC, i64 56), align 8
+  %350 = call noundef ptr @_Z6rtodmsPcmdii(ptr noundef nonnull @_ZL5pline, i64 noundef 50, double noundef %349, i32 noundef 0, i32 noundef 0)
+  %351 = load ptr, ptr @stdout, align 8
+  %352 = call i32 @fputs(ptr noundef %350, ptr noundef %351)
+  br label %353
 
-352:                                              ; preds = %347, %343, %306, %291, %272, %257
-  %353 = load ptr, ptr %4, align 8
-  %354 = load ptr, ptr @stdout, align 8
-  %355 = call i32 @fputs(ptr noundef %353, ptr noundef %354)
-  %356 = load ptr, ptr @stdout, align 8
-  %357 = call i32 @fflush(ptr noundef %356)
+353:                                              ; preds = %348, %344, %307, %292, %273, %258
+  %354 = load ptr, ptr %4, align 8
+  %355 = load ptr, ptr @stdout, align 8
+  %356 = call i32 @fputs(ptr noundef %354, ptr noundef %355)
+  %357 = load ptr, ptr @stdout, align 8
+  %358 = call i32 @fflush(ptr noundef %357)
   br label %.backedge.i
 
-_ZL7processP8_IO_FILE.exit:                       ; preds = %.backedge.i, %166
+_ZL7processP8_IO_FILE.exit:                       ; preds = %.backedge.i, %167
   call void @llvm.lifetime.end.p0(i64 203, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  %358 = call i32 @fclose(ptr noundef %.061)
+  %359 = call i32 @fclose(ptr noundef %.061)
   store ptr null, ptr @emess_dat, align 8
-  br label %359
+  br label %360
 
-359:                                              ; preds = %_ZL7processP8_IO_FILE.exit, %165
-  %360 = getelementptr inbounds i8, ptr %.062128, i64 8
-  %361 = load i32, ptr @_ZZ4mainE5eargc, align 4
-  %362 = add nsw i32 %361, -1
-  store i32 %362, ptr @_ZZ4mainE5eargc, align 4
-  %.not90 = icmp eq i32 %361, 0
+360:                                              ; preds = %_ZL7processP8_IO_FILE.exit, %166
+  %361 = getelementptr inbounds i8, ptr %.062128, i64 8
+  %362 = load i32, ptr @_ZZ4mainE5eargc, align 4
+  %363 = add nsw i32 %362, -1
+  store i32 %363, ptr @_ZZ4mainE5eargc, align 4
+  %.not90 = icmp eq i32 %362, 0
   br i1 %.not90, label %_ZL6do_arcv.exit, label %.lr.ph, !llvm.loop !11
 
-_ZL6do_arcv.exit:                                 ; preds = %.lr.ph.i, %359, %132, %149
+_ZL6do_arcv.exit:                                 ; preds = %.lr.ph.i, %360, %133, %150
   call void @exit(i32 noundef 0) #9
   unreachable
 }

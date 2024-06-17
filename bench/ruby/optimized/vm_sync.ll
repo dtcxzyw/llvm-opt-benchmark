@@ -55,62 +55,54 @@ define hidden void @rb_vm_lock_enter_body(ptr nocapture noundef writeonly %0) lo
 
 vm_locked.exit:                                   ; preds = %5
   %9 = icmp eq ptr %.val, null
-  br i1 %9, label %14, label %rb_current_ractor.exit
+  br i1 %9, label %25, label %rb_current_ractor.exit
 
 vm_locked.exit.thread7:                           ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %.val
-  br i1 %12, label %14, label %18
+  br i1 %12, label %25, label %14
 
 vm_locked.exit.thread:                            ; preds = %1
   %13 = icmp eq ptr %4, %.val
-  br i1 %13, label %14, label %rb_current_ractor.exit
+  br i1 %13, label %25, label %rb_current_ractor.exit
 
-14:                                               ; preds = %vm_locked.exit.thread7, %vm_locked.exit.thread, %vm_locked.exit
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
-  %16 = load i32, ptr %15, align 8
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 8
-  br label %32
-
-18:                                               ; preds = %vm_locked.exit.thread7
-  %19 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
-  %20 = load ptr, ptr %19, align 8
+14:                                               ; preds = %vm_locked.exit.thread7
+  %15 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
+  %16 = load ptr, ptr %15, align 8
   br label %rb_current_ractor.exit
 
-rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %18
-  %.0.i.i = phi ptr [ %20, %18 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull %21) #5
-  %22 = getelementptr inbounds i8, ptr %.0.i.i, i64 328
-  %23 = load ptr, ptr %22, align 8
-  %.not.i = icmp eq ptr %23, null
+rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %14
+  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull %17) #5
+  %18 = getelementptr inbounds i8, ptr %.0.i.i, i64 328
+  %19 = load ptr, ptr %18, align 8
+  %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %vm_lock_enter.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %rb_current_ractor.exit
-  %24 = getelementptr inbounds i8, ptr %2, i64 456
-  %25 = load i8, ptr %24, align 8
-  %26 = trunc i8 %25 to i1
-  br i1 %26, label %.lr.ph.i, label %vm_lock_enter.exit
+  %20 = getelementptr inbounds i8, ptr %2, i64 456
+  %21 = load i8, ptr %20, align 8
+  %22 = trunc i8 %21 to i1
+  br i1 %22, label %.lr.ph.i, label %vm_lock_enter.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   tail call void @rb_ractor_sched_barrier_join(ptr noundef nonnull %2, ptr noundef %.0.i.i) #5
-  %27 = load i8, ptr %24, align 8
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %.lr.ph.i, label %vm_lock_enter.exit, !llvm.loop !7
+  %23 = load i8, ptr %20, align 8
+  %24 = trunc i8 %23 to i1
+  br i1 %24, label %.lr.ph.i, label %vm_lock_enter.exit, !llvm.loop !7
 
 vm_lock_enter.exit:                               ; preds = %.lr.ph.i, %rb_current_ractor.exit, %.preheader.i
   store ptr %.0.i.i, ptr %3, align 8
-  %29 = getelementptr inbounds i8, ptr %2, i64 96
-  %30 = load i32, ptr %29, align 8
-  %31 = add i32 %30, 1
-  store i32 %31, ptr %29, align 8
-  br label %32
+  br label %25
 
-32:                                               ; preds = %vm_lock_enter.exit, %14
-  %storemerge = phi i32 [ %31, %vm_lock_enter.exit ], [ %17, %14 ]
-  store i32 %storemerge, ptr %0, align 4
+25:                                               ; preds = %vm_locked.exit, %vm_locked.exit.thread, %vm_locked.exit.thread7, %vm_lock_enter.exit
+  %26 = getelementptr inbounds i8, ptr %2, i64 96
+  %27 = load i32, ptr %26, align 8
+  %28 = add i32 %27, 1
+  store i32 %28, ptr %26, align 8
+  store i32 %28, ptr %0, align 4
   ret void
 }
 
@@ -133,44 +125,36 @@ define hidden void @rb_vm_lock_enter_body_nb(ptr nocapture noundef writeonly %0)
 
 vm_locked.exit:                                   ; preds = %5
   %9 = icmp eq ptr %.val, null
-  br i1 %9, label %14, label %rb_current_ractor.exit
+  br i1 %9, label %18, label %rb_current_ractor.exit
 
 vm_locked.exit.thread7:                           ; preds = %5
   %10 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %.val
-  br i1 %12, label %14, label %18
+  br i1 %12, label %18, label %14
 
 vm_locked.exit.thread:                            ; preds = %1
   %13 = icmp eq ptr %4, %.val
-  br i1 %13, label %14, label %rb_current_ractor.exit
+  br i1 %13, label %18, label %rb_current_ractor.exit
 
-14:                                               ; preds = %vm_locked.exit.thread7, %vm_locked.exit.thread, %vm_locked.exit
-  %15 = getelementptr inbounds i8, ptr %2, i64 96
-  %16 = load i32, ptr %15, align 8
-  %17 = add i32 %16, 1
-  store i32 %17, ptr %15, align 8
-  br label %25
-
-18:                                               ; preds = %vm_locked.exit.thread7
-  %19 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
-  %20 = load ptr, ptr %19, align 8
+14:                                               ; preds = %vm_locked.exit.thread7
+  %15 = getelementptr inbounds i8, ptr %.val.i.i.i, i64 24
+  %16 = load ptr, ptr %15, align 8
   br label %rb_current_ractor.exit
 
-rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %18
-  %.0.i.i = phi ptr [ %20, %18 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
-  %21 = getelementptr inbounds i8, ptr %2, i64 48
-  tail call void @rb_native_mutex_lock(ptr noundef nonnull %21) #5
+rb_current_ractor.exit:                           ; preds = %vm_locked.exit, %vm_locked.exit.thread, %14
+  %.0.i.i = phi ptr [ %16, %14 ], [ %4, %vm_locked.exit.thread ], [ null, %vm_locked.exit ]
+  %17 = getelementptr inbounds i8, ptr %2, i64 48
+  tail call void @rb_native_mutex_lock(ptr noundef nonnull %17) #5
   store ptr %.0.i.i, ptr %3, align 8
-  %22 = getelementptr inbounds i8, ptr %2, i64 96
-  %23 = load i32, ptr %22, align 8
-  %24 = add i32 %23, 1
-  store i32 %24, ptr %22, align 8
-  br label %25
+  br label %18
 
-25:                                               ; preds = %rb_current_ractor.exit, %14
-  %storemerge = phi i32 [ %24, %rb_current_ractor.exit ], [ %17, %14 ]
-  store i32 %storemerge, ptr %0, align 4
+18:                                               ; preds = %vm_locked.exit, %vm_locked.exit.thread, %vm_locked.exit.thread7, %rb_current_ractor.exit
+  %19 = getelementptr inbounds i8, ptr %2, i64 96
+  %20 = load i32, ptr %19, align 8
+  %21 = add i32 %20, 1
+  store i32 %21, ptr %19, align 8
+  store i32 %21, ptr %0, align 4
   ret void
 }
 

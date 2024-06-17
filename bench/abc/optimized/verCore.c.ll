@@ -2025,12 +2025,12 @@ Vec_PtrGrow.exit.i51:                             ; preds = %120, %118
   br label %Vec_PtrPush.exit
 
 Vec_PtrPush.exit:                                 ; preds = %133, %Vec_PtrGrow.exit.i51, %.Vec_PtrGrow.exit11_crit_edge.i46, %102, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink67 = phi ptr [ %78, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %78, %Vec_PtrGrow.exit.i ], [ %78, %102 ], [ %109, %.Vec_PtrGrow.exit11_crit_edge.i46 ], [ %109, %Vec_PtrGrow.exit.i51 ], [ %109, %133 ]
+  %.sink65 = phi ptr [ %78, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %78, %Vec_PtrGrow.exit.i ], [ %78, %102 ], [ %109, %.Vec_PtrGrow.exit11_crit_edge.i46 ], [ %109, %Vec_PtrGrow.exit.i51 ], [ %109, %133 ]
   %.sink59 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %91, %Vec_PtrGrow.exit.i ], [ %103, %102 ], [ %.pre.i48, %.Vec_PtrGrow.exit11_crit_edge.i46 ], [ %122, %Vec_PtrGrow.exit.i51 ], [ %134, %133 ]
   %.sink = phi ptr [ null, %.Vec_PtrGrow.exit11_crit_edge.i ], [ null, %Vec_PtrGrow.exit.i ], [ null, %102 ], [ %108, %.Vec_PtrGrow.exit11_crit_edge.i46 ], [ %108, %Vec_PtrGrow.exit.i51 ], [ %108, %133 ]
-  %135 = load i32, ptr %.sink67, align 4
+  %135 = load i32, ptr %.sink65, align 4
   %136 = add nsw i32 %135, 1
-  store i32 %136, ptr %.sink67, align 4
+  store i32 %136, ptr %.sink65, align 4
   %137 = sext i32 %135 to i64
   %138 = getelementptr inbounds ptr, ptr %.sink59, i64 %137
   store ptr %.sink, ptr %138, align 8
@@ -2039,10 +2039,10 @@ Vec_PtrPush.exit:                                 ; preds = %133, %Vec_PtrGrow.e
   br i1 %exitcond.not, label %Ver_ParsePrintErrorMessage.exit, label %.lr.ph, !llvm.loop !25
 
 Ver_ParsePrintErrorMessage.exit.sink.split:       ; preds = %73, %46, %24
-  %.sink66 = phi ptr [ %26, %24 ], [ %48, %46 ], [ %75, %73 ]
-  %.sink65 = phi ptr [ %25, %24 ], [ %47, %46 ], [ %74, %73 ]
-  tail call void @Abc_DesFree(ptr noundef nonnull %.sink66, ptr noundef null) #19
-  store ptr null, ptr %.sink65, align 8
+  %.sink67 = phi ptr [ %26, %24 ], [ %48, %46 ], [ %75, %73 ]
+  %.sink66 = phi ptr [ %25, %24 ], [ %47, %46 ], [ %74, %73 ]
+  tail call void @Abc_DesFree(ptr noundef nonnull %.sink67, ptr noundef null) #19
+  store ptr null, ptr %.sink66, align 8
   br label %Ver_ParsePrintErrorMessage.exit
 
 Ver_ParsePrintErrorMessage.exit:                  ; preds = %Vec_PtrPush.exit, %Ver_ParsePrintErrorMessage.exit.sink.split, %49, %73, %46, %24

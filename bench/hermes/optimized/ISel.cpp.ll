@@ -28332,29 +28332,13 @@ if.then:                                          ; preds = %_ZN6hermes3hbc7HBCI
   %9 = load i32, ptr %Size.i.i.i, align 8
   %10 = load i32, ptr %Capacity.i.i.i, align 4
   %cmp.not.i.i = icmp ult i32 %9, %10
-  br i1 %cmp.not.i.i, label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %if.then
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 104
-  tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %relocations_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i, i64 noundef 0, i64 noundef 16) #19
-  %.pre.i.i = load i32, ptr %Size.i.i.i, align 8
-  br label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit
-
-_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit: ; preds = %if.then, %if.then.i.i
-  %11 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %9, %if.then ]
-  %add.ptr.i = getelementptr inbounds i8, ptr %7, i64 16
-  %spec.select.i = select i1 %6, ptr null, ptr %add.ptr.i
-  %12 = load ptr, ptr %relocations_.i, align 8
-  %conv.i3.i.i = zext i32 %11 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.hermes::hbc::HBCISel::Relocation", ptr %12, i64 %conv.i3.i.i
-  store i32 %call5, ptr %add.ptr.i.i.i, align 1
-  br label %return.sink.split
+  br i1 %cmp.not.i.i, label %return.sink.split, label %return.sink.split.sink.split
 
 if.end:                                           ; preds = %_ZN6hermes3hbc7HBCISel11encodeValueEPNS_5ValueE.exit
   %call9 = tail call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator15emitJmpTrueLongEll(ptr noundef nonnull align 8 dereferenceable(25) %8, i64 noundef 0, i64 noundef %conv)
-  %13 = load i32, ptr %Size.i.i.i, align 8
-  %14 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i.i15 = icmp ult i32 %13, %14
+  %11 = load i32, ptr %Size.i.i.i, align 8
+  %12 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i.i15 = icmp ult i32 %11, %12
   br i1 %cmp.not.i.i15, label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit26, label %if.then.i.i16
 
 if.then.i.i16:                                    ; preds = %if.end
@@ -28364,56 +28348,53 @@ if.then.i.i16:                                    ; preds = %if.end
   br label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit26
 
 _ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit26: ; preds = %if.end, %if.then.i.i16
-  %15 = phi i32 [ %.pre.i.i18, %if.then.i.i16 ], [ %13, %if.end ]
+  %13 = phi i32 [ %.pre.i.i18, %if.then.i.i16 ], [ %11, %if.end ]
   %add.ptr.i19 = getelementptr inbounds i8, ptr %5, i64 16
   %spec.select.i20 = select i1 %4, ptr null, ptr %add.ptr.i19
-  %16 = load ptr, ptr %relocations_.i, align 8
-  %conv.i3.i.i21 = zext i32 %15 to i64
-  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.hermes::hbc::HBCISel::Relocation", ptr %16, i64 %conv.i3.i.i21
+  %14 = load ptr, ptr %relocations_.i, align 8
+  %conv.i3.i.i21 = zext i32 %13 to i64
+  %add.ptr.i.i.i22 = getelementptr inbounds %"struct.hermes::hbc::HBCISel::Relocation", ptr %14, i64 %conv.i3.i.i21
   store i32 %call9, ptr %add.ptr.i.i.i22, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i23 = getelementptr inbounds i8, ptr %add.ptr.i.i.i22, i64 4
   store i32 1, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i23, align 1
   %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i24 = getelementptr inbounds i8, ptr %add.ptr.i.i.i22, i64 8
   store ptr %spec.select.i20, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i24, align 1
-  %17 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i25 = add i32 %17, 1
+  %15 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i25 = add i32 %15, 1
   store i32 %add.i.i25, ptr %Size.i.i.i, align 8
   %cmp10 = icmp eq ptr %7, %next
   br i1 %cmp10, label %return, label %if.end12
 
 if.end12:                                         ; preds = %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit26
-  %18 = load ptr, ptr %BCFGen_, align 8
-  %call14 = tail call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator11emitJmpLongEl(ptr noundef nonnull align 8 dereferenceable(25) %18, i64 noundef 0)
-  %19 = load i32, ptr %Size.i.i.i, align 8
-  %20 = load i32, ptr %Capacity.i.i.i, align 4
-  %cmp.not.i.i30 = icmp ult i32 %19, %20
-  br i1 %cmp.not.i.i30, label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41, label %if.then.i.i31
+  %16 = load ptr, ptr %BCFGen_, align 8
+  %call14 = tail call noundef i32 @_ZN6hermes3hbc28BytecodeInstructionGenerator11emitJmpLongEl(ptr noundef nonnull align 8 dereferenceable(25) %16, i64 noundef 0)
+  %17 = load i32, ptr %Size.i.i.i, align 8
+  %18 = load i32, ptr %Capacity.i.i.i, align 4
+  %cmp.not.i.i30 = icmp ult i32 %17, %18
+  br i1 %cmp.not.i.i30, label %return.sink.split, label %return.sink.split.sink.split
 
-if.then.i.i31:                                    ; preds = %if.end12
+return.sink.split.sink.split:                     ; preds = %if.end12, %if.then
+  %call14.sink.ph = phi i32 [ %call5, %if.then ], [ %call14, %if.end12 ]
   %add.ptr.i.i.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %relocations_.i, ptr noundef nonnull %add.ptr.i.i.i.i.i32, i64 noundef 0, i64 noundef 16) #19
   %.pre.i.i33 = load i32, ptr %Size.i.i.i, align 8
-  br label %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41
-
-_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41: ; preds = %if.end12, %if.then.i.i31
-  %21 = phi i32 [ %.pre.i.i33, %if.then.i.i31 ], [ %19, %if.end12 ]
-  %add.ptr.i34 = getelementptr inbounds i8, ptr %7, i64 16
-  %spec.select.i35 = select i1 %6, ptr null, ptr %add.ptr.i34
-  %22 = load ptr, ptr %relocations_.i, align 8
-  %conv.i3.i.i36 = zext i32 %21 to i64
-  %add.ptr.i.i.i37 = getelementptr inbounds %"struct.hermes::hbc::HBCISel::Relocation", ptr %22, i64 %conv.i3.i.i36
-  store i32 %call14, ptr %add.ptr.i.i.i37, align 1
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit, %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41
-  %add.ptr.i.i.i37.sink42 = phi ptr [ %add.ptr.i.i.i37, %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41 ], [ %add.ptr.i.i.i, %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit ]
-  %spec.select.i35.sink = phi ptr [ %spec.select.i35, %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit41 ], [ %spec.select.i, %_ZN6hermes3hbc7HBCISel16registerLongJumpEjPNS_10BasicBlockE.exit ]
-  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37.sink42, i64 4
+return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end12, %if.then
+  %.sink44 = phi i32 [ %9, %if.then ], [ %17, %if.end12 ], [ %.pre.i.i33, %return.sink.split.sink.split ]
+  %call14.sink = phi i32 [ %call5, %if.then ], [ %call14, %if.end12 ], [ %call14.sink.ph, %return.sink.split.sink.split ]
+  %add.ptr.i34 = getelementptr inbounds i8, ptr %7, i64 16
+  %spec.select.i35 = select i1 %6, ptr null, ptr %add.ptr.i34
+  %19 = load ptr, ptr %relocations_.i, align 8
+  %conv.i3.i.i36 = zext i32 %.sink44 to i64
+  %add.ptr.i.i.i37 = getelementptr inbounds %"struct.hermes::hbc::HBCISel::Relocation", ptr %19, i64 %conv.i3.i.i36
+  store i32 %call14.sink, ptr %add.ptr.i.i.i37, align 1
+  %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i38 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37, i64 4
   store i32 1, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i38, align 1
-  %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37.sink42, i64 8
-  store ptr %spec.select.i35.sink, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i39, align 1
-  %23 = load i32, ptr %Size.i.i.i, align 8
-  %add.i.i40 = add i32 %23, 1
+  %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i39 = getelementptr inbounds i8, ptr %add.ptr.i.i.i37, i64 8
+  store ptr %spec.select.i35, ptr %ref.tmp.sroa.3.0.add.ptr.i.i.sroa_idx.i39, align 1
+  %20 = load i32, ptr %Size.i.i.i, align 8
+  %add.i.i40 = add i32 %20, 1
   store i32 %add.i.i40, ptr %Size.i.i.i, align 8
   br label %return
 

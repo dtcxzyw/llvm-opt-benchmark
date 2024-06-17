@@ -5358,15 +5358,15 @@ safe_send.exit.us:                                ; preds = %do.cond.us.i.us
 
 for.inc.us.sink.split:                            ; preds = %safe_send.exit.us
   %4 = load i16, ptr %keylen.i14, align 2
-  %call3.i15.us = call zeroext i16 @ntohs(i16 noundef zeroext %4) #22
-  store i16 %call3.i15.us, ptr %keylen.i14, align 2
+  %call3.i.us = call zeroext i16 @ntohs(i16 noundef zeroext %4) #22
+  store i16 %call3.i.us, ptr %keylen.i14, align 2
   %5 = load i16, ptr %status.i16, align 2
-  %call7.i17.us = call zeroext i16 @ntohs(i16 noundef zeroext %5) #22
-  store i16 %call7.i17.us, ptr %status.i16, align 2
+  %call7.i.us = call zeroext i16 @ntohs(i16 noundef zeroext %5) #22
+  store i16 %call7.i.us, ptr %status.i16, align 2
   %6 = load i32, ptr %bodylen.i18, align 8
-  %call11.i19.us = call i32 @ntohl(i32 noundef %6) #22
-  store i32 %call11.i19.us, ptr %bodylen.i18, align 8
-  %conv.i10.us = zext i32 %call11.i19.us to i64
+  %call11.i.us = call i32 @ntohl(i32 noundef %6) #22
+  store i32 %call11.i.us, ptr %bodylen.i18, align 8
+  %conv.i10.us = zext i32 %call11.i.us to i64
   %call16.i.us = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i20, i64 noundef %conv.i10.us)
   br label %for.inc.us
 
@@ -7902,22 +7902,7 @@ safe_send.exit114:                                ; preds = %do.cond.us.i105
 
 if.then:                                          ; preds = %safe_send.exit114
   %call.i115 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
-  br i1 %call.i115, label %if.end2.i117, label %if.end
-
-if.end2.i117:                                     ; preds = %if.then
-  %keylen.i118 = getelementptr inbounds i8, ptr %receive, i64 2
-  %24 = load i16, ptr %keylen.i118, align 2
-  %call3.i119 = call zeroext i16 @ntohs(i16 noundef zeroext %24) #22
-  store i16 %call3.i119, ptr %keylen.i118, align 2
-  %status.i120 = getelementptr inbounds i8, ptr %receive, i64 6
-  %25 = load i16, ptr %status.i120, align 2
-  %call7.i121 = call zeroext i16 @ntohs(i16 noundef zeroext %25) #22
-  store i16 %call7.i121, ptr %status.i120, align 2
-  %bodylen.i122 = getelementptr inbounds i8, ptr %receive, i64 8
-  %26 = load i32, ptr %bodylen.i122, align 8
-  %call11.i123 = call i32 @ntohl(i32 noundef %26) #22
-  store i32 %call11.i123, ptr %bodylen.i122, align 8
-  br label %if.end.sink.split
+  br i1 %call.i115, label %if.end.sink.split, label %if.end
 
 if.else:                                          ; preds = %safe_send.exit114
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %send, i8 0, i64 24, i1 false)
@@ -7933,11 +7918,11 @@ if.else:                                          ; preds = %safe_send.exit114
 do.body.us.i135:                                  ; preds = %do.cond.us.i144, %if.else
   %offset.0.us.i136 = phi i64 [ %offset.1.us.i145, %do.cond.us.i144 ], [ 0, %if.else ]
   %sub.us.i137 = sub nuw nsw i64 24, %offset.0.us.i136
-  %27 = load ptr, ptr @con, align 8
-  %write.us.i138 = getelementptr inbounds i8, ptr %27, i64 16
-  %28 = load ptr, ptr %write.us.i138, align 8
+  %24 = load ptr, ptr @con, align 8
+  %write.us.i138 = getelementptr inbounds i8, ptr %24, i64 16
+  %25 = load ptr, ptr %write.us.i138, align 8
   %add.ptr.us.i139 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i136
-  %call3.us.i140 = call i64 %28(ptr noundef %27, ptr noundef nonnull %add.ptr.us.i139, i64 noundef %sub.us.i137) #18
+  %call3.us.i140 = call i64 %25(ptr noundef %24, ptr noundef nonnull %add.ptr.us.i139, i64 noundef %sub.us.i137) #18
   %cmp4.us.i141 = icmp eq i64 %call3.us.i140, -1
   br i1 %cmp4.us.i141, label %if.then6.us.i147, label %if.else.us.i142
 
@@ -7947,8 +7932,8 @@ if.else.us.i142:                                  ; preds = %do.body.us.i135
 
 if.then6.us.i147:                                 ; preds = %do.body.us.i135
   %call7.us.i148 = tail call ptr @__errno_location() #22
-  %29 = load i32, ptr %call7.us.i148, align 4
-  %cmp8.not.us.i149 = icmp eq i32 %29, 4
+  %26 = load i32, ptr %call7.us.i148, align 4
+  %cmp8.not.us.i149 = icmp eq i32 %26, 4
   br i1 %cmp8.not.us.i149, label %do.cond.us.i144, label %if.then10.i150
 
 do.cond.us.i144:                                  ; preds = %if.then6.us.i147, %if.else.us.i142
@@ -7957,36 +7942,32 @@ do.cond.us.i144:                                  ; preds = %if.then6.us.i147, %
   br i1 %cmp21.us.i146, label %do.body.us.i135, label %safe_send.exit153, !llvm.loop !19
 
 if.then10.i150:                                   ; preds = %if.then6.us.i147
-  %30 = load ptr, ptr @stderr, align 8
-  %call12.i151 = call ptr @strerror(i32 noundef %29) #18
-  %call13.i152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.238, ptr noundef %call12.i151) #23
+  %27 = load ptr, ptr @stderr, align 8
+  %call12.i151 = call ptr @strerror(i32 noundef %26) #18
+  %call13.i152 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %27, ptr noundef nonnull @.str.238, ptr noundef %call12.i151) #23
   call void @abort() #19
   unreachable
 
 safe_send.exit153:                                ; preds = %do.cond.us.i144
   %call.i154 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %receive, i64 noundef 24)
-  br i1 %call.i154, label %if.end2.i156, label %if.end
+  br i1 %call.i154, label %if.end.sink.split, label %if.end
 
-if.end2.i156:                                     ; preds = %safe_send.exit153
+if.end.sink.split:                                ; preds = %safe_send.exit153, %if.then
+  %.sink.ph = phi i8 [ %cmd, %if.then ], [ 10, %safe_send.exit153 ]
   %keylen.i157 = getelementptr inbounds i8, ptr %receive, i64 2
-  %31 = load i16, ptr %keylen.i157, align 2
-  %call3.i158 = call zeroext i16 @ntohs(i16 noundef zeroext %31) #22
+  %28 = load i16, ptr %keylen.i157, align 2
+  %call3.i158 = call zeroext i16 @ntohs(i16 noundef zeroext %28) #22
   store i16 %call3.i158, ptr %keylen.i157, align 2
   %status.i159 = getelementptr inbounds i8, ptr %receive, i64 6
-  %32 = load i16, ptr %status.i159, align 2
-  %call7.i160 = call zeroext i16 @ntohs(i16 noundef zeroext %32) #22
+  %29 = load i16, ptr %status.i159, align 2
+  %call7.i160 = call zeroext i16 @ntohs(i16 noundef zeroext %29) #22
   store i16 %call7.i160, ptr %status.i159, align 2
   %bodylen.i161 = getelementptr inbounds i8, ptr %receive, i64 8
-  %33 = load i32, ptr %bodylen.i161, align 8
-  %call11.i162 = call i32 @ntohl(i32 noundef %33) #22
+  %30 = load i32, ptr %bodylen.i161, align 8
+  %call11.i162 = call i32 @ntohl(i32 noundef %30) #22
   store i32 %call11.i162, ptr %bodylen.i161, align 8
-  br label %if.end.sink.split
-
-if.end.sink.split:                                ; preds = %if.end2.i117, %if.end2.i156
-  %call11.i162.sink = phi i32 [ %call11.i162, %if.end2.i156 ], [ %call11.i123, %if.end2.i117 ]
-  %.sink.ph = phi i8 [ 10, %if.end2.i156 ], [ %cmd, %if.end2.i117 ]
   %add.ptr.i163 = getelementptr inbounds i8, ptr %receive, i64 24
-  %conv.i164 = zext i32 %call11.i162.sink to i64
+  %conv.i164 = zext i32 %call11.i162 to i64
   %call16.i165 = call fastcc zeroext i1 @safe_recv(ptr noundef nonnull %add.ptr.i163, i64 noundef %conv.i164)
   br label %if.end
 
@@ -8025,11 +8006,11 @@ do.body.us.i185.preheader:                        ; preds = %if.end.i.i171, %if.
 do.body.us.i185:                                  ; preds = %do.body.us.i185.preheader, %do.cond.us.i194
   %offset.0.us.i186 = phi i64 [ %offset.1.us.i195, %do.cond.us.i194 ], [ 0, %do.body.us.i185.preheader ]
   %sub.us.i187 = sub i64 %add1.i.i167, %offset.0.us.i186
-  %34 = load ptr, ptr @con, align 8
-  %write.us.i188 = getelementptr inbounds i8, ptr %34, i64 16
-  %35 = load ptr, ptr %write.us.i188, align 8
+  %31 = load ptr, ptr @con, align 8
+  %write.us.i188 = getelementptr inbounds i8, ptr %31, i64 16
+  %32 = load ptr, ptr %write.us.i188, align 8
   %add.ptr.us.i189 = getelementptr inbounds i8, ptr %send, i64 %offset.0.us.i186
-  %call3.us.i190 = call i64 %35(ptr noundef %34, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #18
+  %call3.us.i190 = call i64 %32(ptr noundef %31, ptr noundef nonnull %add.ptr.us.i189, i64 noundef %sub.us.i187) #18
   %cmp4.us.i191 = icmp eq i64 %call3.us.i190, -1
   br i1 %cmp4.us.i191, label %if.then6.us.i197, label %if.else.us.i192
 
@@ -8039,8 +8020,8 @@ if.else.us.i192:                                  ; preds = %do.body.us.i185
 
 if.then6.us.i197:                                 ; preds = %do.body.us.i185
   %call7.us.i198 = tail call ptr @__errno_location() #22
-  %36 = load i32, ptr %call7.us.i198, align 4
-  %cmp8.not.us.i199 = icmp eq i32 %36, 4
+  %33 = load i32, ptr %call7.us.i198, align 4
+  %cmp8.not.us.i199 = icmp eq i32 %33, 4
   br i1 %cmp8.not.us.i199, label %do.cond.us.i194, label %if.then10.i200
 
 do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %if.else.us.i192
@@ -8049,9 +8030,9 @@ do.cond.us.i194:                                  ; preds = %if.then6.us.i197, %
   br i1 %cmp21.us.i196, label %do.body.us.i185, label %safe_send.exit203, !llvm.loop !19
 
 if.then10.i200:                                   ; preds = %if.then6.us.i197
-  %37 = load ptr, ptr @stderr, align 8
-  %call12.i201 = call ptr @strerror(i32 noundef %36) #18
-  %call13.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.238, ptr noundef %call12.i201) #23
+  %34 = load ptr, ptr @stderr, align 8
+  %call12.i201 = call ptr @strerror(i32 noundef %33) #18
+  %call13.i202 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.238, ptr noundef %call12.i201) #23
   call void @abort() #19
   unreachable
 
@@ -8061,16 +8042,16 @@ safe_send.exit203:                                ; preds = %do.cond.us.i194
 
 if.end2.i206:                                     ; preds = %safe_send.exit203
   %keylen.i207 = getelementptr inbounds i8, ptr %receive, i64 2
-  %38 = load i16, ptr %keylen.i207, align 2
-  %call3.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %38) #22
+  %35 = load i16, ptr %keylen.i207, align 2
+  %call3.i208 = call zeroext i16 @ntohs(i16 noundef zeroext %35) #22
   store i16 %call3.i208, ptr %keylen.i207, align 2
   %status.i209 = getelementptr inbounds i8, ptr %receive, i64 6
-  %39 = load i16, ptr %status.i209, align 2
-  %call7.i210 = call zeroext i16 @ntohs(i16 noundef zeroext %39) #22
+  %36 = load i16, ptr %status.i209, align 2
+  %call7.i210 = call zeroext i16 @ntohs(i16 noundef zeroext %36) #22
   store i16 %call7.i210, ptr %status.i209, align 2
   %bodylen.i211 = getelementptr inbounds i8, ptr %receive, i64 8
-  %40 = load i32, ptr %bodylen.i211, align 8
-  %call11.i212 = call i32 @ntohl(i32 noundef %40) #22
+  %37 = load i32, ptr %bodylen.i211, align 8
+  %call11.i212 = call i32 @ntohl(i32 noundef %37) #22
   store i32 %call11.i212, ptr %bodylen.i211, align 8
   %add.ptr.i213 = getelementptr inbounds i8, ptr %receive, i64 24
   %conv.i214 = zext i32 %call11.i212 to i64
@@ -8080,8 +8061,8 @@ if.end2.i206:                                     ; preds = %safe_send.exit203
 safe_recv_packet.exit216:                         ; preds = %safe_send.exit203, %if.end2.i206
   call fastcc void @validate_response_header(ptr noundef nonnull %receive, i8 noundef zeroext 12, i16 noundef zeroext 0)
   %keylen = getelementptr inbounds i8, ptr %receive, i64 2
-  %41 = load i16, ptr %keylen, align 2
-  %conv35 = zext i16 %41 to i64
+  %38 = load i16, ptr %keylen, align 2
+  %conv35 = zext i16 %38 to i64
   %call36 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %key) #21
   %cmp37 = icmp eq i64 %call36, %conv35
   br i1 %cmp37, label %if.end41, label %if.else40
@@ -8092,8 +8073,8 @@ if.else40:                                        ; preds = %safe_recv_packet.ex
 
 if.end41:                                         ; preds = %safe_recv_packet.exit216
   %bodylen = getelementptr inbounds i8, ptr %receive, i64 8
-  %42 = load i32, ptr %bodylen, align 8
-  %conv43 = zext i32 %42 to i64
+  %39 = load i32, ptr %bodylen, align 8
+  %conv43 = zext i32 %39 to i64
   %add46 = add nuw nsw i64 %conv35, 14
   %cmp47 = icmp eq i64 %add46, %conv43
   br i1 %cmp47, label %if.end51, label %if.else50

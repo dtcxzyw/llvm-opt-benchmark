@@ -483,18 +483,18 @@ for.body9.i.i1784.epil:                           ; preds = %for.body9.i.i1784.p
   br label %invoke.cont9.i1715.sink.split
 
 invoke.cont9.i1715.sink.split:                    ; preds = %invoke.cont9.i1715.loopexit.unr-lcssa, %for.body9.us.i.i1794.preheader, %for.body9.i.i1784.epil
-  %i5.05.us.i.i1795.unr75.sink = phi i64 [ %conv.i37.i.i1787.epil, %for.body9.i.i1784.epil ], [ %unroll_iter2107, %invoke.cont9.i1715.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1794.preheader ]
+  %conv.i37.i.i1787.epil.sink = phi i64 [ %conv.i37.i.i1787.epil, %for.body9.i.i1784.epil ], [ %unroll_iter2107, %invoke.cont9.i1715.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1794.preheader ]
   %i5.05.i.i1785.unr78.sink = phi i64 [ %i5.05.i.i1785.unr78, %for.body9.i.i1784.epil ], [ %unroll_iter2107, %invoke.cont9.i1715.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1794.preheader ]
-  %arrayidx13.us.i.i1796.epil = getelementptr inbounds i8, ptr %7, i64 %i5.05.us.i.i1795.unr75.sink
-  %25 = load i8, ptr %arrayidx13.us.i.i1796.epil, align 1, !tbaa !24, !alias.scope !34, !noalias !44
-  %conv.i40.us.i.i1797.epil = sext i8 %25 to i64
-  %conv.i.i41.us.i.i1798.epil = and i64 %conv.i40.us.i.i1797.epil, 4294967295
-  %mul.i.i.i.us.i.i1799.epil = mul i64 %conv.i.i41.us.i.i1798.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i1800.epil = lshr i64 %mul.i.i.i.us.i.i1799.epil, 32
-  %xor2.i.i.i.us.i.i1801.epil = xor i64 %shr1.i.i.i.us.i.i1800.epil, %mul.i.i.i.us.i.i1799.epil
-  %mul3.i.i.i.us.i.i1802.epil = mul i64 %xor2.i.i.i.us.i.i1801.epil, -2960836687051489901
-  %shr4.i.i.i.i29.i.epil = lshr i64 %mul3.i.i.i.us.i.i1802.epil, 32
-  %xor5.i.i.i.i30.i.epil = xor i64 %shr4.i.i.i.i29.i.epil, %mul3.i.i.i.us.i.i1802.epil
+  %arrayidx13.i.i1788.epil = getelementptr inbounds i8, ptr %7, i64 %conv.i37.i.i1787.epil.sink
+  %25 = load i8, ptr %arrayidx13.i.i1788.epil, align 1, !tbaa !24, !alias.scope !34, !noalias !44
+  %conv.i40.i.i1789.epil = sext i8 %25 to i64
+  %conv.i.i41.i.i1790.epil = and i64 %conv.i40.i.i1789.epil, 4294967295
+  %mul.i.i.i.i25.i.epil = mul i64 %conv.i.i41.i.i1790.epil, -2960836687051489901
+  %shr1.i.i.i.i26.i.epil = lshr i64 %mul.i.i.i.i25.i.epil, 32
+  %xor2.i.i.i.i27.i.epil = xor i64 %shr1.i.i.i.i26.i.epil, %mul.i.i.i.i25.i.epil
+  %mul3.i.i.i.i28.i.epil = mul i64 %xor2.i.i.i.i27.i.epil, -2960836687051489901
+  %shr4.i.i.i.i29.i.epil = lshr i64 %mul3.i.i.i.i28.i.epil, 32
+  %xor5.i.i.i.i30.i.epil = xor i64 %shr4.i.i.i.i29.i.epil, %mul3.i.i.i.i28.i.epil
   %arrayidx15.i.i1791.epil = getelementptr inbounds i64, ptr %8, i64 %i5.05.i.i1785.unr78.sink
   store i64 %xor5.i.i.i.i30.i.epil, ptr %arrayidx15.i.i1791.epil, align 8, !tbaa !26, !alias.scope !37, !noalias !45
   br label %invoke.cont9.i1715
@@ -862,18 +862,18 @@ for.body9.i.i1642.epil:                           ; preds = %for.body9.i.i1642.p
   br label %invoke.cont8.i1573.sink.split
 
 invoke.cont8.i1573.sink.split:                    ; preds = %invoke.cont8.i1573.loopexit.unr-lcssa, %for.body9.us.i.i1650.preheader, %for.body9.i.i1642.epil
-  %i5.05.us.i.i1651.unr81.sink = phi i64 [ %conv.i37.i.i1645.epil, %for.body9.i.i1642.epil ], [ %unroll_iter2099, %invoke.cont8.i1573.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1650.preheader ]
+  %conv.i37.i.i1645.epil.sink = phi i64 [ %conv.i37.i.i1645.epil, %for.body9.i.i1642.epil ], [ %unroll_iter2099, %invoke.cont8.i1573.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1650.preheader ]
   %i5.05.i.i1643.unr84.sink = phi i64 [ %i5.05.i.i1643.unr84, %for.body9.i.i1642.epil ], [ %unroll_iter2099, %invoke.cont8.i1573.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1650.preheader ]
-  %arrayidx13.us.i.i1652.epil = getelementptr inbounds i16, ptr %47, i64 %i5.05.us.i.i1651.unr81.sink
-  %65 = load i16, ptr %arrayidx13.us.i.i1652.epil, align 2, !tbaa !58, !alias.scope !60, !noalias !69
-  %conv.i40.us.i.i.epil = sext i16 %65 to i64
-  %conv.i.i41.us.i.i.epil = and i64 %conv.i40.us.i.i.epil, 4294967295
-  %mul.i.i.i.us.i.i1653.epil = mul i64 %conv.i.i41.us.i.i.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i1654.epil = lshr i64 %mul.i.i.i.us.i.i1653.epil, 32
-  %xor2.i.i.i.us.i.i1655.epil = xor i64 %shr1.i.i.i.us.i.i1654.epil, %mul.i.i.i.us.i.i1653.epil
-  %mul3.i.i.i.us.i.i1656.epil = mul i64 %xor2.i.i.i.us.i.i1655.epil, -2960836687051489901
-  %shr4.i.i.i.i28.i.epil = lshr i64 %mul3.i.i.i.us.i.i1656.epil, 32
-  %xor5.i.i.i.i29.i.epil = xor i64 %shr4.i.i.i.i28.i.epil, %mul3.i.i.i.us.i.i1656.epil
+  %arrayidx13.i.i1646.epil = getelementptr inbounds i16, ptr %47, i64 %conv.i37.i.i1645.epil.sink
+  %65 = load i16, ptr %arrayidx13.i.i1646.epil, align 2, !tbaa !58, !alias.scope !60, !noalias !69
+  %conv.i40.i.i.epil = sext i16 %65 to i64
+  %conv.i.i41.i.i.epil = and i64 %conv.i40.i.i.epil, 4294967295
+  %mul.i.i.i.i24.i.epil = mul i64 %conv.i.i41.i.i.epil, -2960836687051489901
+  %shr1.i.i.i.i25.i.epil = lshr i64 %mul.i.i.i.i24.i.epil, 32
+  %xor2.i.i.i.i26.i.epil = xor i64 %shr1.i.i.i.i25.i.epil, %mul.i.i.i.i24.i.epil
+  %mul3.i.i.i.i27.i.epil = mul i64 %xor2.i.i.i.i26.i.epil, -2960836687051489901
+  %shr4.i.i.i.i28.i.epil = lshr i64 %mul3.i.i.i.i27.i.epil, 32
+  %xor5.i.i.i.i29.i.epil = xor i64 %shr4.i.i.i.i28.i.epil, %mul3.i.i.i.i27.i.epil
   %arrayidx15.i.i1647.epil = getelementptr inbounds i64, ptr %48, i64 %i5.05.i.i1643.unr84.sink
   store i64 %xor5.i.i.i.i29.i.epil, ptr %arrayidx15.i.i1647.epil, align 8, !tbaa !26, !alias.scope !63, !noalias !70
   br label %invoke.cont8.i1573
@@ -1905,17 +1905,17 @@ for.body9.i.i1201.epil:                           ; preds = %for.body9.i.i1201.p
   br label %invoke.cont8.i1133.sink.split
 
 invoke.cont8.i1133.sink.split:                    ; preds = %invoke.cont8.i1133.loopexit.unr-lcssa, %for.body9.us.i.i1216.preheader, %for.body9.i.i1201.epil
-  %i5.05.us.i.i1217.unr90.sink = phi i64 [ %conv.i37.i.i1204.epil, %for.body9.i.i1201.epil ], [ %unroll_iter2087, %invoke.cont8.i1133.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1216.preheader ]
+  %conv.i37.i.i1204.epil.sink = phi i64 [ %conv.i37.i.i1204.epil, %for.body9.i.i1201.epil ], [ %unroll_iter2087, %invoke.cont8.i1133.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1216.preheader ]
   %i5.05.i.i1202.unr93.sink = phi i64 [ %i5.05.i.i1202.unr93, %for.body9.i.i1201.epil ], [ %unroll_iter2087, %invoke.cont8.i1133.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1216.preheader ]
-  %arrayidx13.us.i.i1218.epil = getelementptr inbounds i8, ptr %172, i64 %i5.05.us.i.i1217.unr90.sink
-  %190 = load i8, ptr %arrayidx13.us.i.i1218.epil, align 1, !tbaa !24, !alias.scope !103, !noalias !112
-  %conv.i.i.us.i.i1219.epil = zext i8 %190 to i64
-  %mul.i.i.i.us.i.i1220.epil = mul i64 %conv.i.i.us.i.i1219.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i1221.epil = lshr i64 %mul.i.i.i.us.i.i1220.epil, 32
-  %xor2.i.i.i.us.i.i1222.epil = xor i64 %shr1.i.i.i.us.i.i1221.epil, %mul.i.i.i.us.i.i1220.epil
-  %mul3.i.i.i.us.i.i1223.epil = mul i64 %xor2.i.i.i.us.i.i1222.epil, -2960836687051489901
-  %shr4.i.i.i.i27.i1211.epil = lshr i64 %mul3.i.i.i.us.i.i1223.epil, 32
-  %xor5.i.i.i.i28.i1212.epil = xor i64 %shr4.i.i.i.i27.i1211.epil, %mul3.i.i.i.us.i.i1223.epil
+  %arrayidx13.i.i1205.epil = getelementptr inbounds i8, ptr %172, i64 %conv.i37.i.i1204.epil.sink
+  %190 = load i8, ptr %arrayidx13.i.i1205.epil, align 1, !tbaa !24, !alias.scope !103, !noalias !112
+  %conv.i.i.i22.i1206.epil = zext i8 %190 to i64
+  %mul.i.i.i.i23.i1207.epil = mul i64 %conv.i.i.i22.i1206.epil, -2960836687051489901
+  %shr1.i.i.i.i24.i1208.epil = lshr i64 %mul.i.i.i.i23.i1207.epil, 32
+  %xor2.i.i.i.i25.i1209.epil = xor i64 %shr1.i.i.i.i24.i1208.epil, %mul.i.i.i.i23.i1207.epil
+  %mul3.i.i.i.i26.i1210.epil = mul i64 %xor2.i.i.i.i25.i1209.epil, -2960836687051489901
+  %shr4.i.i.i.i27.i1211.epil = lshr i64 %mul3.i.i.i.i26.i1210.epil, 32
+  %xor5.i.i.i.i28.i1212.epil = xor i64 %shr4.i.i.i.i27.i1211.epil, %mul3.i.i.i.i26.i1210.epil
   %arrayidx15.i.i1213.epil = getelementptr inbounds i64, ptr %173, i64 %i5.05.i.i1202.unr93.sink
   store i64 %xor5.i.i.i.i28.i1212.epil, ptr %arrayidx15.i.i1213.epil, align 8, !tbaa !26, !alias.scope !106, !noalias !113
   br label %invoke.cont8.i1133
@@ -2272,17 +2272,17 @@ for.body9.i.i1049.epil:                           ; preds = %for.body9.i.i1049.p
   br label %invoke.cont8.i981.sink.split
 
 invoke.cont8.i981.sink.split:                     ; preds = %invoke.cont8.i981.loopexit.unr-lcssa, %for.body9.us.i.i1064.preheader, %for.body9.i.i1049.epil
-  %i5.05.us.i.i1065.unr96.sink = phi i64 [ %conv.i37.i.i1052.epil, %for.body9.i.i1049.epil ], [ %unroll_iter2079, %invoke.cont8.i981.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1064.preheader ]
+  %conv.i37.i.i1052.epil.sink = phi i64 [ %conv.i37.i.i1052.epil, %for.body9.i.i1049.epil ], [ %unroll_iter2079, %invoke.cont8.i981.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1064.preheader ]
   %i5.05.i.i1050.unr99.sink = phi i64 [ %i5.05.i.i1050.unr99, %for.body9.i.i1049.epil ], [ %unroll_iter2079, %invoke.cont8.i981.loopexit.unr-lcssa ], [ 0, %for.body9.us.i.i1064.preheader ]
-  %arrayidx13.us.i.i1066.epil = getelementptr inbounds i16, ptr %212, i64 %i5.05.us.i.i1065.unr96.sink
-  %230 = load i16, ptr %arrayidx13.us.i.i1066.epil, align 2, !tbaa !58, !alias.scope !116, !noalias !125
-  %conv.i.i.us.i.i1067.epil = zext i16 %230 to i64
-  %mul.i.i.i.us.i.i1068.epil = mul i64 %conv.i.i.us.i.i1067.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i1069.epil = lshr i64 %mul.i.i.i.us.i.i1068.epil, 32
-  %xor2.i.i.i.us.i.i1070.epil = xor i64 %shr1.i.i.i.us.i.i1069.epil, %mul.i.i.i.us.i.i1068.epil
-  %mul3.i.i.i.us.i.i1071.epil = mul i64 %xor2.i.i.i.us.i.i1070.epil, -2960836687051489901
-  %shr4.i.i.i.i27.i1059.epil = lshr i64 %mul3.i.i.i.us.i.i1071.epil, 32
-  %xor5.i.i.i.i28.i1060.epil = xor i64 %shr4.i.i.i.i27.i1059.epil, %mul3.i.i.i.us.i.i1071.epil
+  %arrayidx13.i.i1053.epil = getelementptr inbounds i16, ptr %212, i64 %conv.i37.i.i1052.epil.sink
+  %230 = load i16, ptr %arrayidx13.i.i1053.epil, align 2, !tbaa !58, !alias.scope !116, !noalias !125
+  %conv.i.i.i22.i1054.epil = zext i16 %230 to i64
+  %mul.i.i.i.i23.i1055.epil = mul i64 %conv.i.i.i22.i1054.epil, -2960836687051489901
+  %shr1.i.i.i.i24.i1056.epil = lshr i64 %mul.i.i.i.i23.i1055.epil, 32
+  %xor2.i.i.i.i25.i1057.epil = xor i64 %shr1.i.i.i.i24.i1056.epil, %mul.i.i.i.i23.i1055.epil
+  %mul3.i.i.i.i26.i1058.epil = mul i64 %xor2.i.i.i.i25.i1057.epil, -2960836687051489901
+  %shr4.i.i.i.i27.i1059.epil = lshr i64 %mul3.i.i.i.i26.i1058.epil, 32
+  %xor5.i.i.i.i28.i1060.epil = xor i64 %shr4.i.i.i.i27.i1059.epil, %mul3.i.i.i.i26.i1058.epil
   %arrayidx15.i.i1061.epil = getelementptr inbounds i64, ptr %213, i64 %i5.05.i.i1050.unr99.sink
   store i64 %xor5.i.i.i.i28.i1060.epil, ptr %arrayidx15.i.i1061.epil, align 8, !tbaa !26, !alias.scope !119, !noalias !126
   br label %invoke.cont8.i981
@@ -5988,18 +5988,18 @@ for.body10.us.i.i2305.epil:                       ; preds = %for.body10.us.i.i23
   br label %invoke.cont7.i2164.sink.split
 
 invoke.cont7.i2164.sink.split:                    ; preds = %invoke.cont7.i2164.loopexit.unr-lcssa, %for.body10.us.us.i.i2321.preheader, %for.body10.us.i.i2305.epil
-  %i6.030.us.us.i.i2322.unr119.sink = phi i64 [ %conv.i52.us.i.i2308.epil, %for.body10.us.i.i2305.epil ], [ %unroll_iter2818, %invoke.cont7.i2164.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2321.preheader ]
+  %conv.i52.us.i.i2308.epil.sink = phi i64 [ %conv.i52.us.i.i2308.epil, %for.body10.us.i.i2305.epil ], [ %unroll_iter2818, %invoke.cont7.i2164.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2321.preheader ]
   %i6.030.us.i.i2306.unr122.sink = phi i64 [ %i6.030.us.i.i2306.unr122, %for.body10.us.i.i2305.epil ], [ %unroll_iter2818, %invoke.cont7.i2164.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2321.preheader ]
-  %arrayidx15.us.us.i.i2323.epil = getelementptr inbounds i8, ptr %7, i64 %i6.030.us.us.i.i2322.unr119.sink
-  %37 = load i8, ptr %arrayidx15.us.us.i.i2323.epil, align 1, !tbaa !24, !alias.scope !247, !noalias !256
-  %conv.i55.us.us.i.i2324.epil = sext i8 %37 to i64
-  %conv.i.i56.us.us.i.i2325.epil = and i64 %conv.i55.us.us.i.i2324.epil, 4294967295
-  %mul.i.i.i.us.us.i.i2326.epil = mul i64 %conv.i.i56.us.us.i.i2325.epil, -2960836687051489901
-  %shr1.i.i.i.us.us.i.i2327.epil = lshr i64 %mul.i.i.i.us.us.i.i2326.epil, 32
-  %xor2.i.i.i.us.us.i.i2328.epil = xor i64 %shr1.i.i.i.us.us.i.i2327.epil, %mul.i.i.i.us.us.i.i2326.epil
-  %mul3.i.i.i.us.us.i.i2329.epil = mul i64 %xor2.i.i.i.us.us.i.i2328.epil, -2960836687051489901
-  %shr4.i.i.i.us.i.i2316.epil = lshr i64 %mul3.i.i.i.us.us.i.i2329.epil, 32
-  %xor5.i.i.i.us.i.i2317.epil = xor i64 %shr4.i.i.i.us.i.i2316.epil, %mul3.i.i.i.us.us.i.i2329.epil
+  %arrayidx15.us.i.i2309.epil = getelementptr inbounds i8, ptr %7, i64 %conv.i52.us.i.i2308.epil.sink
+  %37 = load i8, ptr %arrayidx15.us.i.i2309.epil, align 1, !tbaa !24, !alias.scope !247, !noalias !256
+  %conv.i55.us.i.i2310.epil = sext i8 %37 to i64
+  %conv.i.i56.us.i.i2311.epil = and i64 %conv.i55.us.i.i2310.epil, 4294967295
+  %mul.i.i.i.us.i.i2312.epil = mul i64 %conv.i.i56.us.i.i2311.epil, -2960836687051489901
+  %shr1.i.i.i.us.i.i2313.epil = lshr i64 %mul.i.i.i.us.i.i2312.epil, 32
+  %xor2.i.i.i.us.i.i2314.epil = xor i64 %shr1.i.i.i.us.i.i2313.epil, %mul.i.i.i.us.i.i2312.epil
+  %mul3.i.i.i.us.i.i2315.epil = mul i64 %xor2.i.i.i.us.i.i2314.epil, -2960836687051489901
+  %shr4.i.i.i.us.i.i2316.epil = lshr i64 %mul3.i.i.i.us.i.i2315.epil, 32
+  %xor5.i.i.i.us.i.i2317.epil = xor i64 %shr4.i.i.i.us.i.i2316.epil, %mul3.i.i.i.us.i.i2315.epil
   %arrayidx17.us.i.i2318.epil = getelementptr inbounds i64, ptr %8, i64 %i6.030.us.i.i2306.unr122.sink
   store i64 %xor5.i.i.i.us.i.i2317.epil, ptr %arrayidx17.us.i.i2318.epil, align 8, !tbaa !26, !alias.scope !250, !noalias !257
   br label %invoke.cont7.i2164
@@ -6484,18 +6484,18 @@ for.body10.us.i.i2080.epil:                       ; preds = %for.body10.us.i.i20
   br label %invoke.cont7.i1966.sink.split
 
 invoke.cont7.i1966.sink.split:                    ; preds = %invoke.cont7.i1966.loopexit.unr-lcssa, %for.body10.us.us.i.i2092.preheader, %for.body10.us.i.i2080.epil
-  %i6.030.us.us.i.i.unr125.sink = phi i64 [ %conv.i52.us.i.i2082.epil, %for.body10.us.i.i2080.epil ], [ %unroll_iter2810, %invoke.cont7.i1966.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2092.preheader ]
+  %conv.i52.us.i.i2082.epil.sink = phi i64 [ %conv.i52.us.i.i2082.epil, %for.body10.us.i.i2080.epil ], [ %unroll_iter2810, %invoke.cont7.i1966.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2092.preheader ]
   %i6.030.us.i.i.unr128.sink = phi i64 [ %i6.030.us.i.i.unr128, %for.body10.us.i.i2080.epil ], [ %unroll_iter2810, %invoke.cont7.i1966.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i2092.preheader ]
-  %arrayidx15.us.us.i.i2093.epil = getelementptr inbounds i16, ptr %59, i64 %i6.030.us.us.i.i.unr125.sink
-  %89 = load i16, ptr %arrayidx15.us.us.i.i2093.epil, align 2, !tbaa !58, !alias.scope !260, !noalias !269
-  %conv.i55.us.us.i.i.epil = sext i16 %89 to i64
-  %conv.i.i56.us.us.i.i.epil = and i64 %conv.i55.us.us.i.i.epil, 4294967295
-  %mul.i.i.i.us.us.i.i2094.epil = mul i64 %conv.i.i56.us.us.i.i.epil, -2960836687051489901
-  %shr1.i.i.i.us.us.i.i2095.epil = lshr i64 %mul.i.i.i.us.us.i.i2094.epil, 32
-  %xor2.i.i.i.us.us.i.i2096.epil = xor i64 %shr1.i.i.i.us.us.i.i2095.epil, %mul.i.i.i.us.us.i.i2094.epil
-  %mul3.i.i.i.us.us.i.i2097.epil = mul i64 %xor2.i.i.i.us.us.i.i2096.epil, -2960836687051489901
-  %shr4.i.i.i.us.i.i2088.epil = lshr i64 %mul3.i.i.i.us.us.i.i2097.epil, 32
-  %xor5.i.i.i.us.i.i2089.epil = xor i64 %shr4.i.i.i.us.i.i2088.epil, %mul3.i.i.i.us.us.i.i2097.epil
+  %arrayidx15.us.i.i2083.epil = getelementptr inbounds i16, ptr %59, i64 %conv.i52.us.i.i2082.epil.sink
+  %89 = load i16, ptr %arrayidx15.us.i.i2083.epil, align 2, !tbaa !58, !alias.scope !260, !noalias !269
+  %conv.i55.us.i.i.epil = sext i16 %89 to i64
+  %conv.i.i56.us.i.i.epil = and i64 %conv.i55.us.i.i.epil, 4294967295
+  %mul.i.i.i.us.i.i2084.epil = mul i64 %conv.i.i56.us.i.i.epil, -2960836687051489901
+  %shr1.i.i.i.us.i.i2085.epil = lshr i64 %mul.i.i.i.us.i.i2084.epil, 32
+  %xor2.i.i.i.us.i.i2086.epil = xor i64 %shr1.i.i.i.us.i.i2085.epil, %mul.i.i.i.us.i.i2084.epil
+  %mul3.i.i.i.us.i.i2087.epil = mul i64 %xor2.i.i.i.us.i.i2086.epil, -2960836687051489901
+  %shr4.i.i.i.us.i.i2088.epil = lshr i64 %mul3.i.i.i.us.i.i2087.epil, 32
+  %xor5.i.i.i.us.i.i2089.epil = xor i64 %shr4.i.i.i.us.i.i2088.epil, %mul3.i.i.i.us.i.i2087.epil
   %arrayidx17.us.i.i2090.epil = getelementptr inbounds i64, ptr %60, i64 %i6.030.us.i.i.unr128.sink
   store i64 %xor5.i.i.i.us.i.i2089.epil, ptr %arrayidx17.us.i.i2090.epil, align 8, !tbaa !26, !alias.scope !263, !noalias !270
   br label %invoke.cont7.i1966
@@ -7066,17 +7066,17 @@ for.body10.i.i1848.epil:                          ; preds = %for.body10.i.i1848.
   br label %invoke.cont7.i1731.sink.split
 
 invoke.cont7.i1731.sink.split:                    ; preds = %for.body10.us.i.i1881.epil, %for.body10.us30.i.i1865.epil, %for.body10.i.i1848.epil
-  %conv.i52.us.i.i1884.epil.sink = phi i64 [ %conv.i52.us.i.i1884.epil, %for.body10.us.i.i1881.epil ], [ %conv.i46.us.i.i1868.epil, %for.body10.us30.i.i1865.epil ], [ %conv.i52.i.i1853.epil, %for.body10.i.i1848.epil ]
-  %conv.i46.i.i1851.epil.sink = phi i64 [ %i6.029.us.i.i1882.unr131, %for.body10.us.i.i1881.epil ], [ %conv.i46.us.i.i1868.epil, %for.body10.us30.i.i1865.epil ], [ %conv.i46.i.i1851.epil, %for.body10.i.i1848.epil ]
-  %arrayidx15.us.i.i1885.epil = getelementptr inbounds i32, ptr %111, i64 %conv.i52.us.i.i1884.epil.sink
-  %161 = load i32, ptr %arrayidx15.us.i.i1885.epil, align 4, !tbaa !49, !alias.scope !273, !noalias !282
-  %conv.i.i.us.i.i1886.epil = zext i32 %161 to i64
-  %mul.i.i.i.us.i.i1887.epil = mul i64 %conv.i.i.us.i.i1886.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i1888.epil = lshr i64 %mul.i.i.i.us.i.i1887.epil, 32
-  %xor2.i.i.i.us.i.i1889.epil = xor i64 %shr1.i.i.i.us.i.i1888.epil, %mul.i.i.i.us.i.i1887.epil
-  %mul3.i.i.i.us.i.i1890.epil = mul i64 %xor2.i.i.i.us.i.i1889.epil, -2960836687051489901
-  %shr4.i.i.i.i26.i1860.epil = lshr i64 %mul3.i.i.i.us.i.i1890.epil, 32
-  %xor5.i.i.i.i27.i1861.epil = xor i64 %shr4.i.i.i.i26.i1860.epil, %mul3.i.i.i.us.i.i1890.epil
+  %conv.i52.i.i1853.epil.sink = phi i64 [ %conv.i52.i.i1853.epil, %for.body10.i.i1848.epil ], [ %conv.i46.us.i.i1868.epil, %for.body10.us30.i.i1865.epil ], [ %conv.i52.us.i.i1884.epil, %for.body10.us.i.i1881.epil ]
+  %conv.i46.i.i1851.epil.sink = phi i64 [ %conv.i46.i.i1851.epil, %for.body10.i.i1848.epil ], [ %conv.i46.us.i.i1868.epil, %for.body10.us30.i.i1865.epil ], [ %i6.029.us.i.i1882.unr131, %for.body10.us.i.i1881.epil ]
+  %arrayidx15.i.i1854.epil = getelementptr inbounds i32, ptr %111, i64 %conv.i52.i.i1853.epil.sink
+  %161 = load i32, ptr %arrayidx15.i.i1854.epil, align 4, !tbaa !49, !alias.scope !273, !noalias !282
+  %conv.i.i.i21.i1855.epil = zext i32 %161 to i64
+  %mul.i.i.i.i22.i1856.epil = mul i64 %conv.i.i.i21.i1855.epil, -2960836687051489901
+  %shr1.i.i.i.i23.i1857.epil = lshr i64 %mul.i.i.i.i22.i1856.epil, 32
+  %xor2.i.i.i.i24.i1858.epil = xor i64 %shr1.i.i.i.i23.i1857.epil, %mul.i.i.i.i22.i1856.epil
+  %mul3.i.i.i.i25.i1859.epil = mul i64 %xor2.i.i.i.i24.i1858.epil, -2960836687051489901
+  %shr4.i.i.i.i26.i1860.epil = lshr i64 %mul3.i.i.i.i25.i1859.epil, 32
+  %xor5.i.i.i.i27.i1861.epil = xor i64 %shr4.i.i.i.i26.i1860.epil, %mul3.i.i.i.i25.i1859.epil
   %arrayidx17.i.i1862.epil = getelementptr inbounds i64, ptr %112, i64 %conv.i46.i.i1851.epil.sink
   store i64 %xor5.i.i.i.i27.i1861.epil, ptr %arrayidx17.i.i1862.epil, align 8, !tbaa !26, !alias.scope !276, !noalias !283
   br label %invoke.cont7.i1731
@@ -7986,17 +7986,17 @@ for.body10.i.i1448.epil:                          ; preds = %for.body10.i.i1448.
   br label %invoke.cont7.i1331.sink.split
 
 invoke.cont7.i1331.sink.split:                    ; preds = %invoke.cont7.i1331.loopexit.unr-lcssa, %for.body10.us.us.i.i1496.preheader, %for.body10.us.i.i1481.epil, %for.body10.us30.i.i1465.epil, %for.body10.i.i1448.epil
-  %i6.029.us.us.i.i1497.unr140.sink = phi i64 [ %conv.i52.us.i.i1484.epil, %for.body10.us.i.i1481.epil ], [ %conv.i46.us.i.i1468.epil, %for.body10.us30.i.i1465.epil ], [ %conv.i52.i.i1453.epil, %for.body10.i.i1448.epil ], [ %unroll_iter2790, %invoke.cont7.i1331.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1496.preheader ]
-  %conv.i46.i.i1451.epil.sink = phi i64 [ %i6.029.us.i.i1482.unr143, %for.body10.us.i.i1481.epil ], [ %conv.i46.us.i.i1468.epil, %for.body10.us30.i.i1465.epil ], [ %conv.i46.i.i1451.epil, %for.body10.i.i1448.epil ], [ %unroll_iter2790, %invoke.cont7.i1331.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1496.preheader ]
-  %arrayidx15.us.us.i.i1498.epil = getelementptr inbounds i8, ptr %227, i64 %i6.029.us.us.i.i1497.unr140.sink
-  %267 = load i8, ptr %arrayidx15.us.us.i.i1498.epil, align 1, !tbaa !24, !alias.scope !301, !noalias !310
-  %conv.i.i.us.us.i.i1499.epil = zext i8 %267 to i64
-  %mul.i.i.i.us.us.i.i1500.epil = mul i64 %conv.i.i.us.us.i.i1499.epil, -2960836687051489901
-  %shr1.i.i.i.us.us.i.i1501.epil = lshr i64 %mul.i.i.i.us.us.i.i1500.epil, 32
-  %xor2.i.i.i.us.us.i.i1502.epil = xor i64 %shr1.i.i.i.us.us.i.i1501.epil, %mul.i.i.i.us.us.i.i1500.epil
-  %mul3.i.i.i.us.us.i.i1503.epil = mul i64 %xor2.i.i.i.us.us.i.i1502.epil, -2960836687051489901
-  %shr4.i.i.i.i26.i1460.epil = lshr i64 %mul3.i.i.i.us.us.i.i1503.epil, 32
-  %xor5.i.i.i.i27.i1461.epil = xor i64 %shr4.i.i.i.i26.i1460.epil, %mul3.i.i.i.us.us.i.i1503.epil
+  %conv.i52.i.i1453.epil.sink = phi i64 [ %conv.i52.i.i1453.epil, %for.body10.i.i1448.epil ], [ %conv.i46.us.i.i1468.epil, %for.body10.us30.i.i1465.epil ], [ %conv.i52.us.i.i1484.epil, %for.body10.us.i.i1481.epil ], [ %unroll_iter2790, %invoke.cont7.i1331.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1496.preheader ]
+  %conv.i46.i.i1451.epil.sink = phi i64 [ %conv.i46.i.i1451.epil, %for.body10.i.i1448.epil ], [ %conv.i46.us.i.i1468.epil, %for.body10.us30.i.i1465.epil ], [ %i6.029.us.i.i1482.unr143, %for.body10.us.i.i1481.epil ], [ %unroll_iter2790, %invoke.cont7.i1331.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1496.preheader ]
+  %arrayidx15.i.i1454.epil = getelementptr inbounds i8, ptr %227, i64 %conv.i52.i.i1453.epil.sink
+  %267 = load i8, ptr %arrayidx15.i.i1454.epil, align 1, !tbaa !24, !alias.scope !301, !noalias !310
+  %conv.i.i.i21.i1455.epil = zext i8 %267 to i64
+  %mul.i.i.i.i22.i1456.epil = mul i64 %conv.i.i.i21.i1455.epil, -2960836687051489901
+  %shr1.i.i.i.i23.i1457.epil = lshr i64 %mul.i.i.i.i22.i1456.epil, 32
+  %xor2.i.i.i.i24.i1458.epil = xor i64 %shr1.i.i.i.i23.i1457.epil, %mul.i.i.i.i22.i1456.epil
+  %mul3.i.i.i.i25.i1459.epil = mul i64 %xor2.i.i.i.i24.i1458.epil, -2960836687051489901
+  %shr4.i.i.i.i26.i1460.epil = lshr i64 %mul3.i.i.i.i25.i1459.epil, 32
+  %xor5.i.i.i.i27.i1461.epil = xor i64 %shr4.i.i.i.i26.i1460.epil, %mul3.i.i.i.i25.i1459.epil
   %arrayidx17.i.i1462.epil = getelementptr inbounds i64, ptr %228, i64 %conv.i46.i.i1451.epil.sink
   store i64 %xor5.i.i.i.i27.i1461.epil, ptr %arrayidx17.i.i1462.epil, align 8, !tbaa !26, !alias.scope !304, !noalias !311
   br label %invoke.cont7.i1331
@@ -8555,17 +8555,17 @@ for.body10.i.i1210.epil:                          ; preds = %for.body10.i.i1210.
   br label %invoke.cont7.i1093.sink.split
 
 invoke.cont7.i1093.sink.split:                    ; preds = %invoke.cont7.i1093.loopexit.unr-lcssa, %for.body10.us.us.i.i1258.preheader, %for.body10.us.i.i1243.epil, %for.body10.us30.i.i1227.epil, %for.body10.i.i1210.epil
-  %i6.029.us.us.i.i1259.unr152.sink = phi i64 [ %conv.i52.us.i.i1246.epil, %for.body10.us.i.i1243.epil ], [ %conv.i46.us.i.i1230.epil, %for.body10.us30.i.i1227.epil ], [ %conv.i52.i.i1215.epil, %for.body10.i.i1210.epil ], [ %unroll_iter2774, %invoke.cont7.i1093.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1258.preheader ]
-  %conv.i46.i.i1213.epil.sink = phi i64 [ %i6.029.us.i.i1244.unr155, %for.body10.us.i.i1243.epil ], [ %conv.i46.us.i.i1230.epil, %for.body10.us30.i.i1227.epil ], [ %conv.i46.i.i1213.epil, %for.body10.i.i1210.epil ], [ %unroll_iter2774, %invoke.cont7.i1093.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1258.preheader ]
-  %arrayidx15.us.us.i.i1260.epil = getelementptr inbounds i16, ptr %289, i64 %i6.029.us.us.i.i1259.unr152.sink
-  %329 = load i16, ptr %arrayidx15.us.us.i.i1260.epil, align 2, !tbaa !58, !alias.scope !314, !noalias !323
-  %conv.i.i.us.us.i.i1261.epil = zext i16 %329 to i64
-  %mul.i.i.i.us.us.i.i1262.epil = mul i64 %conv.i.i.us.us.i.i1261.epil, -2960836687051489901
-  %shr1.i.i.i.us.us.i.i1263.epil = lshr i64 %mul.i.i.i.us.us.i.i1262.epil, 32
-  %xor2.i.i.i.us.us.i.i1264.epil = xor i64 %shr1.i.i.i.us.us.i.i1263.epil, %mul.i.i.i.us.us.i.i1262.epil
-  %mul3.i.i.i.us.us.i.i1265.epil = mul i64 %xor2.i.i.i.us.us.i.i1264.epil, -2960836687051489901
-  %shr4.i.i.i.i26.i1222.epil = lshr i64 %mul3.i.i.i.us.us.i.i1265.epil, 32
-  %xor5.i.i.i.i27.i1223.epil = xor i64 %shr4.i.i.i.i26.i1222.epil, %mul3.i.i.i.us.us.i.i1265.epil
+  %conv.i52.i.i1215.epil.sink = phi i64 [ %conv.i52.i.i1215.epil, %for.body10.i.i1210.epil ], [ %conv.i46.us.i.i1230.epil, %for.body10.us30.i.i1227.epil ], [ %conv.i52.us.i.i1246.epil, %for.body10.us.i.i1243.epil ], [ %unroll_iter2774, %invoke.cont7.i1093.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1258.preheader ]
+  %conv.i46.i.i1213.epil.sink = phi i64 [ %conv.i46.i.i1213.epil, %for.body10.i.i1210.epil ], [ %conv.i46.us.i.i1230.epil, %for.body10.us30.i.i1227.epil ], [ %i6.029.us.i.i1244.unr155, %for.body10.us.i.i1243.epil ], [ %unroll_iter2774, %invoke.cont7.i1093.loopexit.unr-lcssa ], [ 0, %for.body10.us.us.i.i1258.preheader ]
+  %arrayidx15.i.i1216.epil = getelementptr inbounds i16, ptr %289, i64 %conv.i52.i.i1215.epil.sink
+  %329 = load i16, ptr %arrayidx15.i.i1216.epil, align 2, !tbaa !58, !alias.scope !314, !noalias !323
+  %conv.i.i.i21.i1217.epil = zext i16 %329 to i64
+  %mul.i.i.i.i22.i1218.epil = mul i64 %conv.i.i.i21.i1217.epil, -2960836687051489901
+  %shr1.i.i.i.i23.i1219.epil = lshr i64 %mul.i.i.i.i22.i1218.epil, 32
+  %xor2.i.i.i.i24.i1220.epil = xor i64 %shr1.i.i.i.i23.i1219.epil, %mul.i.i.i.i22.i1218.epil
+  %mul3.i.i.i.i25.i1221.epil = mul i64 %xor2.i.i.i.i24.i1220.epil, -2960836687051489901
+  %shr4.i.i.i.i26.i1222.epil = lshr i64 %mul3.i.i.i.i25.i1221.epil, 32
+  %xor5.i.i.i.i27.i1223.epil = xor i64 %shr4.i.i.i.i26.i1222.epil, %mul3.i.i.i.i25.i1221.epil
   %arrayidx17.i.i1224.epil = getelementptr inbounds i64, ptr %290, i64 %conv.i46.i.i1213.epil.sink
   store i64 %xor5.i.i.i.i27.i1223.epil, ptr %arrayidx17.i.i1224.epil, align 8, !tbaa !26, !alias.scope !317, !noalias !324
   br label %invoke.cont7.i1093
@@ -9136,17 +9136,17 @@ for.body10.i.i1026.epil:                          ; preds = %for.body10.i.i1026.
   br label %invoke.cont7.i964.sink.split
 
 invoke.cont7.i964.sink.split:                     ; preds = %for.body10.us.i.i1036.epil, %for.body10.us30.i.i.epil, %for.body10.i.i1026.epil
-  %conv.i52.us.i.i.epil.sink = phi i64 [ %conv.i52.us.i.i.epil, %for.body10.us.i.i1036.epil ], [ %conv.i46.us.i.i1035.epil, %for.body10.us30.i.i.epil ], [ %conv.i52.i.i1030.epil, %for.body10.i.i1026.epil ]
-  %conv.i46.i.i1028.epil.sink = phi i64 [ %i6.029.us.i.i.unr164, %for.body10.us.i.i1036.epil ], [ %conv.i46.us.i.i1035.epil, %for.body10.us30.i.i.epil ], [ %conv.i46.i.i1028.epil, %for.body10.i.i1026.epil ]
-  %arrayidx15.us.i.i1037.epil = getelementptr inbounds i32, ptr %351, i64 %conv.i52.us.i.i.epil.sink
-  %401 = load i32, ptr %arrayidx15.us.i.i1037.epil, align 4, !tbaa !49, !alias.scope !327, !noalias !336
-  %conv.i.i.us.i.i.epil = zext i32 %401 to i64
-  %mul.i.i.i.us.i.i.epil = mul i64 %conv.i.i.us.i.i.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.i.epil = lshr i64 %mul.i.i.i.us.i.i.epil, 32
-  %xor2.i.i.i.us.i.i.epil = xor i64 %shr1.i.i.i.us.i.i.epil, %mul.i.i.i.us.i.i.epil
-  %mul3.i.i.i.us.i.i.epil = mul i64 %xor2.i.i.i.us.i.i.epil, -2960836687051489901
-  %shr4.i.i.i.i26.i.epil = lshr i64 %mul3.i.i.i.us.i.i.epil, 32
-  %xor5.i.i.i.i27.i.epil = xor i64 %shr4.i.i.i.i26.i.epil, %mul3.i.i.i.us.i.i.epil
+  %conv.i52.i.i1030.epil.sink = phi i64 [ %conv.i52.i.i1030.epil, %for.body10.i.i1026.epil ], [ %conv.i46.us.i.i1035.epil, %for.body10.us30.i.i.epil ], [ %conv.i52.us.i.i.epil, %for.body10.us.i.i1036.epil ]
+  %conv.i46.i.i1028.epil.sink = phi i64 [ %conv.i46.i.i1028.epil, %for.body10.i.i1026.epil ], [ %conv.i46.us.i.i1035.epil, %for.body10.us30.i.i.epil ], [ %i6.029.us.i.i.unr164, %for.body10.us.i.i1036.epil ]
+  %arrayidx15.i.i1031.epil = getelementptr inbounds i32, ptr %351, i64 %conv.i52.i.i1030.epil.sink
+  %401 = load i32, ptr %arrayidx15.i.i1031.epil, align 4, !tbaa !49, !alias.scope !327, !noalias !336
+  %conv.i.i.i21.i.epil = zext i32 %401 to i64
+  %mul.i.i.i.i22.i.epil = mul i64 %conv.i.i.i21.i.epil, -2960836687051489901
+  %shr1.i.i.i.i23.i.epil = lshr i64 %mul.i.i.i.i22.i.epil, 32
+  %xor2.i.i.i.i24.i.epil = xor i64 %shr1.i.i.i.i23.i.epil, %mul.i.i.i.i22.i.epil
+  %mul3.i.i.i.i25.i.epil = mul i64 %xor2.i.i.i.i24.i.epil, -2960836687051489901
+  %shr4.i.i.i.i26.i.epil = lshr i64 %mul3.i.i.i.i25.i.epil, 32
+  %xor5.i.i.i.i27.i.epil = xor i64 %shr4.i.i.i.i26.i.epil, %mul3.i.i.i.i25.i.epil
   %arrayidx17.i.i1032.epil = getelementptr inbounds i64, ptr %352, i64 %conv.i46.i.i1028.epil.sink
   store i64 %xor5.i.i.i.i27.i.epil, ptr %arrayidx17.i.i1032.epil, align 8, !tbaa !26, !alias.scope !330, !noalias !337
   br label %invoke.cont7.i964
@@ -17334,19 +17334,19 @@ for.body10.i.epil:                                ; preds = %for.body10.i.prehea
   br label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.end.loopexit.unr-lcssa, %for.body10.us.i.preheader, %for.body10.i.epil
-  %i6.05.us.i.unr6.sink = phi i64 [ %conv.i41.i.epil, %for.body10.i.epil ], [ %unroll_iter157, %if.end.loopexit.unr-lcssa ], [ 0, %for.body10.us.i.preheader ]
+  %conv.i41.i.epil.sink = phi i64 [ %conv.i41.i.epil, %for.body10.i.epil ], [ %unroll_iter157, %if.end.loopexit.unr-lcssa ], [ 0, %for.body10.us.i.preheader ]
   %i6.05.i.unr9.sink = phi i64 [ %i6.05.i.unr9, %for.body10.i.epil ], [ %unroll_iter157, %if.end.loopexit.unr-lcssa ], [ 0, %for.body10.us.i.preheader ]
-  %arrayidx15.us.i.epil = getelementptr inbounds i8, ptr %11, i64 %i6.05.us.i.unr6.sink
-  %54 = load i8, ptr %arrayidx15.us.i.epil, align 1, !tbaa !24, !alias.scope !472, !noalias !481
-  %conv.i44.us.i.epil = sext i8 %54 to i64
-  %conv.i.i45.us.i.epil = and i64 %conv.i44.us.i.epil, 4294967295
-  %mul.i.i.i.us.i.epil = mul i64 %conv.i.i45.us.i.epil, -2960836687051489901
-  %shr1.i.i.i.us.i.epil = lshr i64 %mul.i.i.i.us.i.epil, 32
-  %xor2.i.i.i.us.i.epil = xor i64 %shr1.i.i.i.us.i.epil, %mul.i.i.i.us.i.epil
-  %mul3.i.i.i.us.i.epil = mul i64 %xor2.i.i.i.us.i.epil, -2960836687051489901
-  %shr4.i.i.i.i52.epil = lshr i64 %mul3.i.i.i.us.i.epil, 32
+  %arrayidx15.i.epil = getelementptr inbounds i8, ptr %11, i64 %conv.i41.i.epil.sink
+  %54 = load i8, ptr %arrayidx15.i.epil, align 1, !tbaa !24, !alias.scope !472, !noalias !481
+  %conv.i44.i.epil = sext i8 %54 to i64
+  %conv.i.i45.i.epil = and i64 %conv.i44.i.epil, 4294967295
+  %mul.i.i.i.i48.epil = mul i64 %conv.i.i45.i.epil, -2960836687051489901
+  %shr1.i.i.i.i49.epil = lshr i64 %mul.i.i.i.i48.epil, 32
+  %xor2.i.i.i.i50.epil = xor i64 %shr1.i.i.i.i49.epil, %mul.i.i.i.i48.epil
+  %mul3.i.i.i.i51.epil = mul i64 %xor2.i.i.i.i50.epil, -2960836687051489901
+  %shr4.i.i.i.i52.epil = lshr i64 %mul3.i.i.i.i51.epil, 32
   %55 = xor i64 %mul.i46.i, %shr4.i.i.i.i52.epil
-  %xor.i47.i.epil = xor i64 %55, %mul3.i.i.i.us.i.epil
+  %xor.i47.i.epil = xor i64 %55, %mul3.i.i.i.i51.epil
   %arrayidx18.i.epil = getelementptr inbounds i64, ptr %12, i64 %i6.05.i.unr9.sink
   store i64 %xor.i47.i.epil, ptr %arrayidx18.i.epil, align 8, !tbaa !26, !alias.scope !475, !noalias !482
   br label %if.end
@@ -27396,18 +27396,18 @@ for.body11.us.i.epil:                             ; preds = %for.body11.us.i.pre
   br label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.end.loopexit.unr-lcssa, %for.body11.us.us.i.preheader, %for.body11.us.i.epil
-  %i7.030.us.us.i.unr11.sink = phi i64 [ %conv.i56.us.i.epil, %for.body11.us.i.epil ], [ %unroll_iter199, %if.end.loopexit.unr-lcssa ], [ 0, %for.body11.us.us.i.preheader ]
+  %conv.i56.us.i.epil.sink = phi i64 [ %conv.i56.us.i.epil, %for.body11.us.i.epil ], [ %unroll_iter199, %if.end.loopexit.unr-lcssa ], [ 0, %for.body11.us.us.i.preheader ]
   %i7.030.us.i.unr14.sink = phi i64 [ %i7.030.us.i.unr14, %for.body11.us.i.epil ], [ %unroll_iter199, %if.end.loopexit.unr-lcssa ], [ 0, %for.body11.us.us.i.preheader ]
-  %arrayidx17.us.us.i.epil = getelementptr inbounds i8, ptr %11, i64 %i7.030.us.us.i.unr11.sink
-  %81 = load i8, ptr %arrayidx17.us.us.i.epil, align 1, !tbaa !24, !alias.scope !924, !noalias !933
-  %conv.i.i.us.us.i.epil = zext i8 %81 to i64
-  %mul.i.i.i.us.us.i.epil = mul i64 %conv.i.i.us.us.i.epil, -2960836687051489901
-  %shr1.i.i.i.us.us.i.epil = lshr i64 %mul.i.i.i.us.us.i.epil, 32
-  %xor2.i.i.i.us.us.i.epil = xor i64 %shr1.i.i.i.us.us.i.epil, %mul.i.i.i.us.us.i.epil
-  %mul3.i.i.i.us.us.i.epil = mul i64 %xor2.i.i.i.us.us.i.epil, -2960836687051489901
-  %shr4.i.i.i.us.i.epil = lshr i64 %mul3.i.i.i.us.us.i.epil, 32
+  %arrayidx17.us.i.epil = getelementptr inbounds i8, ptr %11, i64 %conv.i56.us.i.epil.sink
+  %81 = load i8, ptr %arrayidx17.us.i.epil, align 1, !tbaa !24, !alias.scope !924, !noalias !933
+  %conv.i.i.us.i.epil = zext i8 %81 to i64
+  %mul.i.i.i.us.i.epil = mul i64 %conv.i.i.us.i.epil, -2960836687051489901
+  %shr1.i.i.i.us.i.epil = lshr i64 %mul.i.i.i.us.i.epil, 32
+  %xor2.i.i.i.us.i.epil = xor i64 %shr1.i.i.i.us.i.epil, %mul.i.i.i.us.i.epil
+  %mul3.i.i.i.us.i.epil = mul i64 %xor2.i.i.i.us.i.epil, -2960836687051489901
+  %shr4.i.i.i.us.i.epil = lshr i64 %mul3.i.i.i.us.i.epil, 32
   %82 = xor i64 %mul.i59.i, %shr4.i.i.i.us.i.epil
-  %xor.i60.us.i.epil = xor i64 %82, %mul3.i.i.i.us.us.i.epil
+  %xor.i60.us.i.epil = xor i64 %82, %mul3.i.i.i.us.i.epil
   %arrayidx20.us.i.epil = getelementptr inbounds i64, ptr %12, i64 %i7.030.us.i.unr14.sink
   store i64 %xor.i60.us.i.epil, ptr %arrayidx20.us.i.epil, align 8, !tbaa !26, !alias.scope !927, !noalias !934
   br label %if.end

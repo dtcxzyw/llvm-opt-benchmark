@@ -626,30 +626,30 @@ define dso_local i32 @drm_gem_fb_vmap(ptr nocapture noundef readonly %0, ptr nou
 46:                                               ; preds = %13, %.preheader
   %47 = phi i32 [ %15, %13 ], [ -22, %.preheader ]
   %48 = icmp eq i64 %9, 0
-  br i1 %48, label %.loopexit, label %.split
+  br i1 %48, label %.loopexit, label %.split1
 
-.split:                                           ; preds = %46, %.split1
-  %.sink.in = phi i64 [ %.sink, %.split1 ], [ %9, %46 ]
-  %.sink = add nsw i64 %.sink.in, -1
-  %indvars = trunc i64 %.sink to i32
-  %49 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %indvars)
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %.split1, label %51
+.split1:                                          ; preds = %46, %55
+  %.sink16 = phi i64 [ %49, %55 ], [ %9, %46 ]
+  %49 = add nsw i64 %.sink16, -1
+  %indvars = trunc i64 %49 to i32
+  %50 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %indvars)
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %55, label %52
 
-51:                                               ; preds = %.split
-  %52 = and i64 %.sink, 4294967295
-  %53 = getelementptr %struct.iosys_map, ptr %1, i64 %52
-  tail call void @drm_gem_vunmap_unlocked(ptr noundef nonnull %49, ptr noundef %53) #7
-  br label %.split1
+52:                                               ; preds = %.split1
+  %53 = and i64 %49, 4294967295
+  %54 = getelementptr %struct.iosys_map, ptr %1, i64 %53
+  tail call void @drm_gem_vunmap_unlocked(ptr noundef nonnull %50, ptr noundef %54) #7
+  br label %55
 
-.split1:                                          ; preds = %51, %.split
-  %54 = and i64 %.sink, 4294967295
-  %55 = icmp eq i64 %54, 0
-  br i1 %55, label %.loopexit, label %.split, !llvm.loop !26
+55:                                               ; preds = %52, %.split1
+  %56 = and i64 %49, 4294967295
+  %57 = icmp eq i64 %56, 0
+  br i1 %57, label %.loopexit, label %.split1, !llvm.loop !26
 
-.loopexit:                                        ; preds = %39, %.split1, %.loopexit8, %3, %46
-  %56 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %.split1 ], [ 0, %39 ]
-  ret i32 %56
+.loopexit:                                        ; preds = %39, %55, %.loopexit8, %3, %46
+  %58 = phi i32 [ 0, %.loopexit8 ], [ %47, %46 ], [ 0, %3 ], [ %47, %55 ], [ 0, %39 ]
+  ret i32 %58
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -672,33 +672,33 @@ define dso_local void @drm_gem_fb_vunmap(ptr nocapture noundef readonly %0, ptr 
 
 .split:                                           ; preds = %2
   %8 = zext i8 %6 to i64
-  br label %9
+  br label %.split1
 
-9:                                                ; preds = %.split1, %.split
-  %.sink.in = phi i64 [ %.sink, %.split1 ], [ %8, %.split ]
-  %.sink = add nsw i64 %.sink.in, -1
-  %indvars = trunc i64 %.sink to i32
+.split1:                                          ; preds = %18, %.split
+  %.sink3 = phi i64 [ %8, %.split ], [ %9, %18 ]
+  %9 = add nsw i64 %.sink3, -1
+  %indvars = trunc i64 %9 to i32
   %10 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %indvars)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.split1, label %12
+  br i1 %11, label %18, label %12
 
-12:                                               ; preds = %9
-  %13 = and i64 %.sink, 4294967295
+12:                                               ; preds = %.split1
+  %13 = and i64 %9, 4294967295
   %14 = getelementptr %struct.iosys_map, ptr %1, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %.split1, label %17
+  br i1 %16, label %18, label %17
 
 17:                                               ; preds = %12
   tail call void @drm_gem_vunmap_unlocked(ptr noundef nonnull %10, ptr noundef %14) #7
-  br label %.split1
+  br label %18
 
-.split1:                                          ; preds = %17, %12, %9
-  %18 = and i64 %.sink, 4294967295
-  %19 = icmp eq i64 %18, 0
-  br i1 %19, label %.loopexit, label %9, !llvm.loop !27
+18:                                               ; preds = %17, %12, %.split1
+  %19 = and i64 %9, 4294967295
+  %20 = icmp eq i64 %19, 0
+  br i1 %20, label %.loopexit, label %.split1, !llvm.loop !27
 
-.loopexit:                                        ; preds = %.split1, %2
+.loopexit:                                        ; preds = %18, %2
   ret void
 }
 
@@ -741,49 +741,49 @@ define dso_local i32 @drm_gem_fb_begin_cpu_access(ptr nocapture noundef readonly
 26:                                               ; preds = %15, %.preheader
   %27 = phi i32 [ %17, %15 ], [ -22, %.preheader ]
   %28 = icmp eq i32 %8, 0
-  br i1 %28, label %.loopexit, label %.split
+  br i1 %28, label %.loopexit, label %.split1
 
-.split:                                           ; preds = %26, %.split1
-  %.sink.in = phi i32 [ %.sink, %.split1 ], [ %8, %26 ]
-  %.sink = add nsw i32 %.sink.in, -1
-  %29 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %.sink)
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.split1, label %31
+.split1:                                          ; preds = %26, %48
+  %.sink16 = phi i32 [ %29, %48 ], [ %8, %26 ]
+  %29 = add nsw i32 %.sink16, -1
+  %30 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %29)
+  %31 = icmp eq ptr %30, null
+  br i1 %31, label %48, label %32
 
-31:                                               ; preds = %.split
-  %32 = getelementptr inbounds i8, ptr %29, i64 240
-  %33 = load ptr, ptr %32, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %.split1, label %35
+32:                                               ; preds = %.split1
+  %33 = getelementptr inbounds i8, ptr %30, i64 240
+  %34 = load ptr, ptr %33, align 8
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %48, label %36
 
-35:                                               ; preds = %31
-  %36 = load ptr, ptr %33, align 8
-  %37 = tail call i32 @dma_buf_end_cpu_access(ptr noundef %36, i32 noundef %1) #7
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %.split1, label %39
+36:                                               ; preds = %32
+  %37 = load ptr, ptr %34, align 8
+  %38 = tail call i32 @dma_buf_end_cpu_access(ptr noundef %37, i32 noundef %1) #7
+  %39 = icmp eq i32 %38, 0
+  br i1 %39, label %48, label %40
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %0, align 8
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %45, label %42
+40:                                               ; preds = %36
+  %41 = load ptr, ptr %0, align 8
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %46, label %43
 
-42:                                               ; preds = %39
-  %43 = getelementptr inbounds i8, ptr %40, i64 8
-  %44 = load ptr, ptr %43, align 8
-  br label %45
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds i8, ptr %41, i64 8
+  %45 = load ptr, ptr %44, align 8
+  br label %46
 
-45:                                               ; preds = %42, %39
-  %46 = phi ptr [ %44, %42 ], [ null, %39 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %46, ptr noundef nonnull @.str.11, i32 noundef %37, i32 noundef %.sink, i32 noundef %1) #8
-  br label %.split1
+46:                                               ; preds = %43, %40
+  %47 = phi ptr [ %45, %43 ], [ null, %40 ]
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %47, ptr noundef nonnull @.str.11, i32 noundef %38, i32 noundef %29, i32 noundef %1) #8
+  br label %48
 
-.split1:                                          ; preds = %45, %35, %31, %.split
-  %47 = icmp eq i32 %.sink, 0
-  br i1 %47, label %.loopexit, label %.split, !llvm.loop !29
+48:                                               ; preds = %46, %36, %32, %.split1
+  %49 = icmp eq i32 %29, 0
+  br i1 %49, label %.loopexit, label %.split1, !llvm.loop !29
 
-.loopexit:                                        ; preds = %19, %.split1, %26, %2
-  %48 = phi i32 [ %27, %26 ], [ 0, %2 ], [ %27, %.split1 ], [ 0, %19 ]
-  ret i32 %48
+.loopexit:                                        ; preds = %19, %48, %26, %2
+  %50 = phi i32 [ %27, %26 ], [ 0, %2 ], [ %27, %48 ], [ 0, %19 ]
+  ret i32 %50
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -800,26 +800,26 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
 
 .split:                                           ; preds = %2
   %8 = zext i8 %6 to i32
-  br label %9
+  br label %.split1
 
-9:                                                ; preds = %.split1, %.split
-  %.sink.in = phi i32 [ %.sink, %.split1 ], [ %8, %.split ]
-  %.sink = add nsw i32 %.sink.in, -1
-  %10 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %.sink)
+.split1:                                          ; preds = %28, %.split
+  %.sink6 = phi i32 [ %8, %.split ], [ %9, %28 ]
+  %9 = add nsw i32 %.sink6, -1
+  %10 = tail call ptr @drm_gem_fb_get_obj(ptr noundef %0, i32 noundef %9)
   %11 = icmp eq ptr %10, null
-  br i1 %11, label %.split1, label %12
+  br i1 %11, label %28, label %12
 
-12:                                               ; preds = %9
+12:                                               ; preds = %.split1
   %13 = getelementptr inbounds i8, ptr %10, i64 240
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.split1, label %16
+  br i1 %15, label %28, label %16
 
 16:                                               ; preds = %12
   %17 = load ptr, ptr %14, align 8
   %18 = tail call i32 @dma_buf_end_cpu_access(ptr noundef %17, i32 noundef %1) #7
   %19 = icmp eq i32 %18, 0
-  br i1 %19, label %.split1, label %20
+  br i1 %19, label %28, label %20
 
 20:                                               ; preds = %16
   %21 = load ptr, ptr %0, align 8
@@ -833,14 +833,14 @@ define dso_local void @drm_gem_fb_end_cpu_access(ptr nocapture noundef readonly 
 
 26:                                               ; preds = %23, %20
   %27 = phi ptr [ %25, %23 ], [ null, %20 ]
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.11, i32 noundef %18, i32 noundef %.sink, i32 noundef %1) #8
-  br label %.split1
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %27, ptr noundef nonnull @.str.11, i32 noundef %18, i32 noundef %9, i32 noundef %1) #8
+  br label %28
 
-.split1:                                          ; preds = %26, %16, %12, %9
-  %28 = icmp eq i32 %.sink, 0
-  br i1 %28, label %.loopexit, label %9, !llvm.loop !29
+28:                                               ; preds = %26, %16, %12, %.split1
+  %29 = icmp eq i32 %9, 0
+  br i1 %29, label %.loopexit, label %.split1, !llvm.loop !29
 
-.loopexit:                                        ; preds = %.split1, %2
+.loopexit:                                        ; preds = %28, %2
   ret void
 }
 

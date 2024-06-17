@@ -2371,11 +2371,11 @@ _ZN12V3NumberData6resizeEi.exit409:               ; preds = %234, %.sink.split.i
   br i1 %.not294422, label %.sink.split, label %.preheader
 
 .sink.split:                                      ; preds = %_ZN12V3NumberData6resizeEi.exit409, %_ZN8V3Number6setBitEic.exit, %_ZN8V3Number6setBitEic.exit341, %_ZN8V3Number6setBitEic.exit346, %_ZN8V3Number6setBitEic.exit336
-  %.sink590 = phi ptr [ %146, %_ZN8V3Number6setBitEic.exit336 ], [ %176, %_ZN8V3Number6setBitEic.exit346 ], [ %176, %_ZN8V3Number6setBitEic.exit341 ], [ %117, %_ZN8V3Number6setBitEic.exit ], [ %176, %_ZN12V3NumberData6resizeEi.exit409 ]
-  %.sink589 = phi i8 [ 32, %_ZN8V3Number6setBitEic.exit336 ], [ 32, %_ZN8V3Number6setBitEic.exit346 ], [ 32, %_ZN8V3Number6setBitEic.exit341 ], [ 32, %_ZN8V3Number6setBitEic.exit ], [ 2, %_ZN12V3NumberData6resizeEi.exit409 ]
-  %.pre568 = load i8, ptr %.sink590, align 1
-  %246 = or i8 %.pre568, %.sink589
-  store i8 %246, ptr %.sink590, align 1
+  %.sink = phi ptr [ %146, %_ZN8V3Number6setBitEic.exit336 ], [ %176, %_ZN8V3Number6setBitEic.exit346 ], [ %176, %_ZN8V3Number6setBitEic.exit341 ], [ %117, %_ZN8V3Number6setBitEic.exit ], [ %176, %_ZN12V3NumberData6resizeEi.exit409 ]
+  %.sink588 = phi i8 [ 32, %_ZN8V3Number6setBitEic.exit336 ], [ 32, %_ZN8V3Number6setBitEic.exit346 ], [ 32, %_ZN8V3Number6setBitEic.exit341 ], [ 32, %_ZN8V3Number6setBitEic.exit ], [ 2, %_ZN12V3NumberData6resizeEi.exit409 ]
+  %.pre568 = load i8, ptr %.sink, align 1
+  %246 = or i8 %.pre568, %.sink588
+  store i8 %246, ptr %.sink, align 1
   br label %.preheader
 
 .preheader:                                       ; preds = %.sink.split, %_ZN12V3NumberData6resizeEi.exit409, %232
@@ -18959,7 +18959,7 @@ _ZNK8V3Number6bitIs1Ei.exit.thread:               ; preds = %79, %.lr.ph47, %.pr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number11bitIsExtendEii(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 comdat align 2 {
   %4 = icmp slt i32 %1, 0
-  br i1 %4, label %54, label %5
+  br i1 %4, label %51, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds i8, ptr %0, i64 32
@@ -18980,7 +18980,7 @@ define linkonce_odr dso_local noundef signext i8 @_ZNK8V3Number11bitIsExtendEii(
   %14 = load i8, ptr %13, align 4
   %15 = add i8 %14, -1
   %spec.select.i.i23 = icmp ult i8 %15, 2
-  br i1 %.not17, label %32, label %16
+  br i1 %.not17, label %28, label %16
 
 16:                                               ; preds = %12
   br i1 %spec.select.i.i23, label %_ZNK12V3NumberData3numEv.exit, label %17
@@ -19001,57 +19001,51 @@ _ZNK12V3NumberData3numEv.exit:                    ; preds = %16
   %25 = sdiv i32 %22, 32
   %26 = sext i32 %25 to i64
   %27 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %26
-  %.sroa.01.0.copyload = load i32, ptr %27, align 4
-  %28 = zext i32 %.sroa.01.0.copyload to i64
-  %29 = and i32 %22, 31
-  %30 = zext nneg i32 %29 to i64
-  %31 = lshr i64 %28, %30
   br label %.sink.split
 
-32:                                               ; preds = %12
-  br i1 %spec.select.i.i23, label %_ZNK12V3NumberData3numEv.exit25, label %33
+28:                                               ; preds = %12
+  br i1 %spec.select.i.i23, label %_ZNK12V3NumberData3numEv.exit25, label %29
 
-33:                                               ; preds = %32
-  %34 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
-  %35 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %36 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %35, ptr noundef nonnull @.str.79)
-  %37 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef nonnull align 1 dereferenceable(1) %13)
-  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %37) #30
+29:                                               ; preds = %28
+  %30 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.78, i32 noundef 206, i1 noundef zeroext false)
+  %31 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull @.str.79)
+  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRKN12V3NumberData16V3NumberDataTypeE(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 1 dereferenceable(1) %13)
+  tail call void @_Z15v3errorEndFatalRNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %33) #30
   unreachable
 
-_ZNK12V3NumberData3numEv.exit25:                  ; preds = %32
-  %38 = icmp slt i32 %7, 129
-  %39 = load ptr, ptr %0, align 8
-  %spec.select.i24 = select i1 %38, ptr %0, ptr %39
-  %40 = lshr i32 %1, 5
-  %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i24, i64 %41
-  %.sroa.0.0.copyload = load i32, ptr %42, align 4
-  %43 = zext i32 %.sroa.0.0.copyload to i64
-  %44 = and i32 %1, 31
-  %45 = zext nneg i32 %44 to i64
-  %46 = lshr i64 %43, %45
+_ZNK12V3NumberData3numEv.exit25:                  ; preds = %28
+  %34 = icmp slt i32 %7, 129
+  %35 = load ptr, ptr %0, align 8
+  %spec.select.i24 = select i1 %34, ptr %0, ptr %35
+  %36 = lshr i32 %1, 5
+  %37 = zext nneg i32 %36 to i64
+  %38 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i24, i64 %37
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNK12V3NumberData3numEv.exit, %_ZNK12V3NumberData3numEv.exit25
-  %.sink = phi i64 [ %46, %_ZNK12V3NumberData3numEv.exit25 ], [ %31, %_ZNK12V3NumberData3numEv.exit ]
-  %.pn = phi ptr [ %42, %_ZNK12V3NumberData3numEv.exit25 ], [ %27, %_ZNK12V3NumberData3numEv.exit ]
-  %.pn30 = phi i64 [ %45, %_ZNK12V3NumberData3numEv.exit25 ], [ %30, %_ZNK12V3NumberData3numEv.exit ]
-  %.sink28 = shl nuw nsw i64 1, %.pn30
-  %.sroa.2.0.copyload.sink.in = getelementptr inbounds i8, ptr %.pn, i64 4
-  %.sroa.2.0.copyload.sink = load i32, ptr %.sroa.2.0.copyload.sink.in, align 4
-  %47 = and i64 %.sink, 1
-  %48 = zext i32 %.sroa.2.0.copyload.sink to i64
-  %49 = and i64 %.sink28, %48
-  %.not19 = icmp eq i64 %49, 0
-  %50 = select i1 %.not19, i64 0, i64 2
-  %51 = or disjoint i64 %50, %47
-  %52 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %51
-  %53 = load i8, ptr %52, align 1
-  br label %54
+  %.sink34 = phi ptr [ %38, %_ZNK12V3NumberData3numEv.exit25 ], [ %27, %_ZNK12V3NumberData3numEv.exit ]
+  %.sink = phi i32 [ %1, %_ZNK12V3NumberData3numEv.exit25 ], [ %22, %_ZNK12V3NumberData3numEv.exit ]
+  %.sroa.0.0.copyload = load i32, ptr %.sink34, align 4
+  %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %.sink34, i64 4
+  %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
+  %39 = zext i32 %.sroa.0.0.copyload to i64
+  %40 = and i32 %.sink, 31
+  %41 = zext nneg i32 %40 to i64
+  %42 = shl nuw nsw i64 1, %41
+  %43 = lshr i64 %39, %41
+  %44 = and i64 %43, 1
+  %45 = zext i32 %.sroa.2.0.copyload to i64
+  %46 = and i64 %42, %45
+  %.not19 = icmp eq i64 %46, 0
+  %47 = select i1 %.not19, i64 0, i64 2
+  %48 = or disjoint i64 %47, %44
+  %49 = getelementptr inbounds [5 x i8], ptr @.str.510, i64 0, i64 %48
+  %50 = load i8, ptr %49, align 1
+  br label %51
 
-54:                                               ; preds = %.sink.split, %3
-  %.0 = phi i8 [ 48, %3 ], [ %53, %.sink.split ]
+51:                                               ; preds = %.sink.split, %3
+  %.0 = phi i8 [ 48, %3 ], [ %50, %.sink.split ]
   ret i8 %.0
 }
 

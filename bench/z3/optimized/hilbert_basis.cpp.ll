@@ -4537,20 +4537,20 @@ lor.lhs.false.i38:                                ; preds = %if.end
   br i1 %cmp5.i41, label %for.inc34.sink.split, label %for.inc34
 
 for.inc34.sink.split:                             ; preds = %if.end, %lor.lhs.false.i38, %if.then, %lor.lhs.false.i
-  %m_zero.sink387 = phi ptr [ %m_zero, %lor.lhs.false.i ], [ %m_zero, %if.then ], [ %m_sos, %lor.lhs.false.i38 ], [ %m_sos, %if.end ]
+  %m_sos.sink386 = phi ptr [ %m_zero, %lor.lhs.false.i ], [ %m_zero, %if.then ], [ %m_sos, %lor.lhs.false.i38 ], [ %m_sos, %if.end ]
   %init_basis_size.2.ph = phi i32 [ %init_basis_size.0323, %lor.lhs.false.i ], [ %init_basis_size.0323, %if.then ], [ %init_basis_size.1, %lor.lhs.false.i38 ], [ %init_basis_size.1, %if.end ]
-  call void @_ZN6vectorIN13hilbert_basis8offset_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_zero.sink387)
-  %.pre.i = load ptr, ptr %m_zero.sink387, align 8
-  %arrayidx8.phi.trans.insert.i49 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  call void @_ZN6vectorIN13hilbert_basis8offset_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_sos.sink386)
+  %.pre.i48 = load ptr, ptr %m_sos.sink386, align 8
+  %arrayidx8.phi.trans.insert.i49 = getelementptr inbounds i8, ptr %.pre.i48, i64 -4
   %.pre1.i50 = load i32, ptr %arrayidx8.phi.trans.insert.i49, align 4
   br label %for.inc34
 
 for.inc34:                                        ; preds = %for.inc34.sink.split, %lor.lhs.false.i38, %lor.lhs.false.i
-  %.sink381 = phi i32 [ %32, %lor.lhs.false.i ], [ %36, %lor.lhs.false.i38 ], [ %.pre1.i50, %for.inc34.sink.split ]
-  %.sink = phi ptr [ %31, %lor.lhs.false.i ], [ %35, %lor.lhs.false.i38 ], [ %.pre.i, %for.inc34.sink.split ]
-  %m_zero.sink = phi ptr [ %m_zero, %lor.lhs.false.i ], [ %m_sos, %lor.lhs.false.i38 ], [ %m_zero.sink387, %for.inc34.sink.split ]
+  %.sink380 = phi i32 [ %32, %lor.lhs.false.i ], [ %36, %lor.lhs.false.i38 ], [ %.pre1.i50, %for.inc34.sink.split ]
+  %.sink = phi ptr [ %31, %lor.lhs.false.i ], [ %35, %lor.lhs.false.i38 ], [ %.pre.i48, %for.inc34.sink.split ]
+  %m_zero.sink = phi ptr [ %m_zero, %lor.lhs.false.i ], [ %m_sos, %lor.lhs.false.i38 ], [ %m_sos.sink386, %for.inc34.sink.split ]
   %init_basis_size.2 = phi i32 [ %init_basis_size.0323, %lor.lhs.false.i ], [ %init_basis_size.1, %lor.lhs.false.i38 ], [ %init_basis_size.2.ph, %for.inc34.sink.split ]
-  %idx.ext.i30 = zext i32 %.sink381 to i64
+  %idx.ext.i30 = zext i32 %.sink380 to i64
   %add.ptr.i31 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %.sink, i64 %idx.ext.i30
   store i32 %9, ptr %add.ptr.i31, align 4
   %38 = load ptr, ptr %m_zero.sink, align 8
@@ -4573,7 +4573,7 @@ _ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i: ; preds = %_Z
 
 while.cond.i.preheader:                           ; preds = %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.i, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i
   %init_basis_size.0317.ph = phi i32 [ %init_basis_size.0323, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i ], [ %init_basis_size.2, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.i ]
-  %.ph411 = phi ptr [ %6, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.i ]
+  %.ph410 = phi ptr [ %6, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.i ]
   %retval.0.i16.i.ph = phi i32 [ %7, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE4sizeEv.exit.i ]
   br label %while.cond.i
 
@@ -4583,7 +4583,7 @@ if.then.i.i54:                                    ; preds = %_ZNK6vectorIN13hilb
   br label %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE6resizeEj.exit
 
 while.cond.i:                                     ; preds = %while.cond.i.preheader, %while.body.i
-  %41 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph411, %while.cond.i.preheader ]
+  %41 = phi ptr [ %.pr.pre.i, %while.body.i ], [ %.ph410, %while.cond.i.preheader ]
   %cmp.i10.i = icmp eq ptr %41, null
   br i1 %cmp.i10.i, label %_ZNK6vectorIN13hilbert_basis8offset_tELb0EjE8capacityEv.exit.i, label %if.end.i11.i
 
@@ -4744,7 +4744,7 @@ _ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i: ; preds = %_ZNK1
 
 while.cond.i.i.preheader:                         ; preds = %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i
   %add626.i.ph = phi i32 [ %add6.i, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i ], [ %add.i, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i ]
-  %.ph409 = phi ptr [ %65, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i ]
+  %.ph408 = phi ptr [ %65, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i ], [ null, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i ]
   %retval.0.i16.i.i.ph = phi i32 [ %66, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.thread.i.i ], [ 0, %_ZNK6vectorI13checked_int64ILb1EELb1EjE4sizeEv.exit.i.i ]
   br label %while.cond.i.i
 
@@ -4753,7 +4753,7 @@ _ZN6vectorI13checked_int64ILb1EELb1EjE3endEv.exit.i.i.i: ; preds = %_ZNK6vectorI
   br label %_ZN13hilbert_basis12alloc_vectorEv.exit
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %while.body.i.i
-  %67 = phi ptr [ %.pr.pre.i.i, %while.body.i.i ], [ %.ph409, %while.cond.i.i.preheader ]
+  %67 = phi ptr [ %.pr.pre.i.i, %while.body.i.i ], [ %.ph408, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %67, null
   br i1 %cmp.i10.i.i, label %_ZNK6vectorI13checked_int64ILb1EELb1EjE8capacityEv.exit.i.i, label %if.end.i11.i.i
 
@@ -4929,25 +4929,25 @@ lor.lhs.false.i136:                               ; preds = %if.then108
   br i1 %cmp5.i139, label %if.end112.sink.split.sink.split, label %if.end112.sink.split
 
 if.end112.sink.split.sink.split:                  ; preds = %if.then108, %lor.lhs.false.i136, %if.then97, %lor.lhs.false.i119
-  %m_zero.sink389 = phi ptr [ %m_zero, %lor.lhs.false.i119 ], [ %m_zero, %if.then97 ], [ %m_basis, %lor.lhs.false.i136 ], [ %m_basis, %if.then108 ]
-  call void @_ZN6vectorIN13hilbert_basis8offset_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_zero.sink389)
-  %.pre.i129 = load ptr, ptr %m_zero.sink389, align 8
-  %arrayidx8.phi.trans.insert.i147 = getelementptr inbounds i8, ptr %.pre.i129, i64 -4
+  %m_basis.sink388 = phi ptr [ %m_zero, %lor.lhs.false.i119 ], [ %m_zero, %if.then97 ], [ %m_basis, %lor.lhs.false.i136 ], [ %m_basis, %if.then108 ]
+  call void @_ZN6vectorIN13hilbert_basis8offset_tELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_basis.sink388)
+  %.pre.i146 = load ptr, ptr %m_basis.sink388, align 8
+  %arrayidx8.phi.trans.insert.i147 = getelementptr inbounds i8, ptr %.pre.i146, i64 -4
   %.pre1.i148 = load i32, ptr %arrayidx8.phi.trans.insert.i147, align 4
   br label %if.end112.sink.split
 
 if.end112.sink.split:                             ; preds = %if.end112.sink.split.sink.split, %lor.lhs.false.i136, %lor.lhs.false.i119
   %.sink385 = phi i32 [ %95, %lor.lhs.false.i119 ], [ %102, %lor.lhs.false.i136 ], [ %.pre1.i148, %if.end112.sink.split.sink.split ]
-  %.sink384 = phi ptr [ %94, %lor.lhs.false.i119 ], [ %101, %lor.lhs.false.i136 ], [ %.pre.i129, %if.end112.sink.split.sink.split ]
-  %m_zero.sink383 = phi ptr [ %m_zero, %lor.lhs.false.i119 ], [ %m_basis, %lor.lhs.false.i136 ], [ %m_zero.sink389, %if.end112.sink.split.sink.split ]
-  %idx.ext.i124 = zext i32 %.sink385 to i64
-  %add.ptr.i125 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %.sink384, i64 %idx.ext.i124
-  store i32 %idx66.sroa.0.0.ph331, ptr %add.ptr.i125, align 4
-  %104 = load ptr, ptr %m_zero.sink383, align 8
-  %arrayidx10.i126 = getelementptr inbounds i8, ptr %104, i64 -4
-  %105 = load i32, ptr %arrayidx10.i126, align 4
+  %.sink384 = phi ptr [ %94, %lor.lhs.false.i119 ], [ %101, %lor.lhs.false.i136 ], [ %.pre.i146, %if.end112.sink.split.sink.split ]
+  %m_basis.sink = phi ptr [ %m_zero, %lor.lhs.false.i119 ], [ %m_basis, %lor.lhs.false.i136 ], [ %m_basis.sink388, %if.end112.sink.split.sink.split ]
+  %idx.ext.i141 = zext i32 %.sink385 to i64
+  %add.ptr.i142 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %.sink384, i64 %idx.ext.i141
+  store i32 %idx66.sroa.0.0.ph331, ptr %add.ptr.i142, align 4
+  %104 = load ptr, ptr %m_basis.sink, align 8
+  %arrayidx10.i143 = getelementptr inbounds i8, ptr %104, i64 -4
+  %105 = load i32, ptr %arrayidx10.i143, align 4
   %inc.i144 = add i32 %105, 1
-  store i32 %inc.i144, ptr %arrayidx10.i126, align 4
+  store i32 %inc.i144, ptr %arrayidx10.i143, align 4
   br label %if.end112
 
 if.end112:                                        ; preds = %if.end112.sink.split, %if.else100
@@ -6720,16 +6720,16 @@ if.then.i309:                                     ; preds = %lor.lhs.false.i300,
           to label %for.inc159.sink.split unwind label %lpad.loopexit
 
 for.inc159.sink.split:                            ; preds = %if.then.i309, %if.then.i293
-  %m_basis.i.sink = phi ptr [ %m_basis.i, %if.then.i293 ], [ %m_free_list.i40, %if.then.i309 ]
-  %.pre.i294 = load ptr, ptr %m_basis.i.sink, align 8
-  %arrayidx8.phi.trans.insert.i311 = getelementptr inbounds i8, ptr %.pre.i294, i64 -4
+  %m_free_list.i40.sink463 = phi ptr [ %m_basis.i, %if.then.i293 ], [ %m_free_list.i40, %if.then.i309 ]
+  %.pre.i310 = load ptr, ptr %m_free_list.i40.sink463, align 8
+  %arrayidx8.phi.trans.insert.i311 = getelementptr inbounds i8, ptr %.pre.i310, i64 -4
   %.pre1.i312 = load i32, ptr %arrayidx8.phi.trans.insert.i311, align 4
   br label %for.inc159
 
 for.inc159:                                       ; preds = %for.inc159.sink.split, %lor.lhs.false.i300, %lor.lhs.false.i284
   %.sink462 = phi i32 [ %189, %lor.lhs.false.i284 ], [ %192, %lor.lhs.false.i300 ], [ %.pre1.i312, %for.inc159.sink.split ]
-  %.sink = phi ptr [ %188, %lor.lhs.false.i284 ], [ %191, %lor.lhs.false.i300 ], [ %.pre.i294, %for.inc159.sink.split ]
-  %m_free_list.i40.sink = phi ptr [ %m_basis.i, %lor.lhs.false.i284 ], [ %m_free_list.i40, %lor.lhs.false.i300 ], [ %m_basis.i.sink, %for.inc159.sink.split ]
+  %.sink = phi ptr [ %188, %lor.lhs.false.i284 ], [ %191, %lor.lhs.false.i300 ], [ %.pre.i310, %for.inc159.sink.split ]
+  %m_free_list.i40.sink = phi ptr [ %m_basis.i, %lor.lhs.false.i284 ], [ %m_free_list.i40, %lor.lhs.false.i300 ], [ %m_free_list.i40.sink463, %for.inc159.sink.split ]
   %idx.ext.i305 = zext i32 %.sink462 to i64
   %add.ptr.i306 = getelementptr inbounds %"struct.hilbert_basis::offset_t", ptr %.sink, i64 %idx.ext.i305
   store i32 %182, ptr %add.ptr.i306, align 4
@@ -8270,19 +8270,19 @@ lor.lhs.false.i58:                                ; preds = %_ZN6vectorIN13hilbe
   br i1 %cmp5.i61, label %for.inc.sink.split, label %for.inc
 
 for.inc.sink.split:                               ; preds = %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit54, %lor.lhs.false.i58, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit, %lor.lhs.false.i25
-  %m_pos_sos_sum.sink77 = phi ptr [ %m_pos_sos_sum, %lor.lhs.false.i25 ], [ %m_pos_sos_sum, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit ], [ %m_neg_sos_sum, %lor.lhs.false.i58 ], [ %m_neg_sos_sum, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit54 ]
+  %m_neg_sos_sum.sink76 = phi ptr [ %m_pos_sos_sum, %lor.lhs.false.i25 ], [ %m_pos_sos_sum, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit ], [ %m_neg_sos_sum, %lor.lhs.false.i58 ], [ %m_neg_sos_sum, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit54 ]
   %call13.sink.ph = phi i64 [ %call13, %lor.lhs.false.i25 ], [ %call13, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit ], [ %call22, %lor.lhs.false.i58 ], [ %call22, %_ZN6vectorIN13hilbert_basis8offset_tELb0EjE9push_backERKS1_.exit54 ]
-  tail call void @_ZN6vectorI13checked_int64ILb1EELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_pos_sos_sum.sink77)
-  %.pre.i35 = load ptr, ptr %m_pos_sos_sum.sink77, align 8
-  %arrayidx8.phi.trans.insert.i69 = getelementptr inbounds i8, ptr %.pre.i35, i64 -4
+  tail call void @_ZN6vectorI13checked_int64ILb1EELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_neg_sos_sum.sink76)
+  %.pre.i68 = load ptr, ptr %m_neg_sos_sum.sink76, align 8
+  %arrayidx8.phi.trans.insert.i69 = getelementptr inbounds i8, ptr %.pre.i68, i64 -4
   %.pre1.i70 = load i32, ptr %arrayidx8.phi.trans.insert.i69, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i58, %lor.lhs.false.i25
   %.sink75 = phi i32 [ %19, %lor.lhs.false.i25 ], [ %31, %lor.lhs.false.i58 ], [ %.pre1.i70, %for.inc.sink.split ]
-  %.sink = phi ptr [ %18, %lor.lhs.false.i25 ], [ %30, %lor.lhs.false.i58 ], [ %.pre.i35, %for.inc.sink.split ]
+  %.sink = phi ptr [ %18, %lor.lhs.false.i25 ], [ %30, %lor.lhs.false.i58 ], [ %.pre.i68, %for.inc.sink.split ]
   %call13.sink = phi i64 [ %call13, %lor.lhs.false.i25 ], [ %call22, %lor.lhs.false.i58 ], [ %call13.sink.ph, %for.inc.sink.split ]
-  %m_pos_sos_sum.sink = phi ptr [ %m_pos_sos_sum, %lor.lhs.false.i25 ], [ %m_neg_sos_sum, %lor.lhs.false.i58 ], [ %m_pos_sos_sum.sink77, %for.inc.sink.split ]
+  %m_pos_sos_sum.sink = phi ptr [ %m_pos_sos_sum, %lor.lhs.false.i25 ], [ %m_neg_sos_sum, %lor.lhs.false.i58 ], [ %m_neg_sos_sum.sink76, %for.inc.sink.split ]
   %idx.ext.i30 = zext i32 %.sink75 to i64
   %add.ptr.i31 = getelementptr inbounds %class.checked_int64, ptr %.sink, i64 %idx.ext.i30
   store i64 %call13.sink, ptr %add.ptr.i31, align 8
@@ -16603,14 +16603,14 @@ _ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76: ; preds = %for.cond.i33
 while.end9.sink.split:                            ; preds = %while.cond5.preheader.split173.split, %while.cond5.preheader.split173, %while.cond5.preheader, %while.cond5.preheader.thread238
   %.us-phi129236.ph = phi i32 [ %agg.tmp.sroa.0.0.copyload.i.us.le, %while.cond5.preheader.thread238 ], [ %agg.tmp.sroa.0.0.copyload.i, %while.cond5.preheader ], [ %.us-phi129237, %while.cond5.preheader.split173 ], [ %.us-phi129237, %while.cond5.preheader.split173.split ]
   %.us-phi234.ph = phi ptr [ %__first.addr.0, %while.cond5.preheader.thread238 ], [ %__first.addr.1, %while.cond5.preheader ], [ %.us-phi235, %while.cond5.preheader.split173 ], [ %.us-phi235, %while.cond5.preheader.split173.split ]
-  %__last.addr.1.us180.sink = getelementptr inbounds i8, ptr %__last.addr.0, i64 -4
-  %agg.tmp2.sroa.0.0.copyload.i12.us181 = load i32, ptr %__last.addr.1.us180.sink, align 4
+  %__last.addr.1.us180 = getelementptr inbounds i8, ptr %__last.addr.0, i64 -4
+  %agg.tmp2.sroa.0.0.copyload.i12.us181 = load i32, ptr %__last.addr.1.us180, align 4
   br label %while.end9
 
 while.end9:                                       ; preds = %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76, %while.end9.sink.split
   %.us-phi129236 = phi i32 [ %.us-phi129236.ph, %while.end9.sink.split ], [ %.us-phi129237, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76 ]
   %.us-phi234 = phi ptr [ %.us-phi234.ph, %while.end9.sink.split ], [ %.us-phi235, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76 ]
-  %.us-phi174 = phi ptr [ %__last.addr.1.us180.sink, %while.end9.sink.split ], [ %__last.addr.1, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76 ]
+  %.us-phi174 = phi ptr [ %__last.addr.1.us180, %while.end9.sink.split ], [ %__last.addr.1, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76 ]
   %.us-phi175 = phi i32 [ %agg.tmp2.sroa.0.0.copyload.i12.us181, %while.end9.sink.split ], [ %agg.tmp2.sroa.0.0.copyload.i12, %_ZNK13hilbert_basis9vector_ltENS_8offset_tES0_.exit76 ]
   %cmp = icmp ult ptr %.us-phi234, %.us-phi174
   br i1 %cmp, label %if.end, label %if.then

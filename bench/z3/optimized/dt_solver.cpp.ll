@@ -3527,25 +3527,25 @@ lor.lhs.false.i37:                                ; preds = %sw.bb47
   br i1 %cmp5.i40, label %for.inc.sink.split.sink.split, label %for.inc.sink.split
 
 for.inc.sink.split.sink.split:                    ; preds = %sw.bb47, %lor.lhs.false.i37, %if.end26, %lor.lhs.false.i
-  %xor.i35.sink.ph = phi i32 [ %xor.i, %lor.lhs.false.i ], [ %xor.i, %if.end26 ], [ %xor.i35, %lor.lhs.false.i37 ], [ %xor.i35, %sw.bb47 ]
+  %xor.i.sink.ph = phi i32 [ %xor.i, %lor.lhs.false.i ], [ %xor.i, %if.end26 ], [ %xor.i35, %lor.lhs.false.i37 ], [ %xor.i35, %sw.bb47 ]
   tail call void @_ZN6vectorIN3sat7literalELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_lits)
-  %.pre.i = load ptr, ptr %m_lits, align 8
-  %arrayidx8.phi.trans.insert.i48 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %.pre.i47 = load ptr, ptr %m_lits, align 8
+  %arrayidx8.phi.trans.insert.i48 = getelementptr inbounds i8, ptr %.pre.i47, i64 -4
   %.pre1.i49 = load i32, ptr %arrayidx8.phi.trans.insert.i48, align 4
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %lor.lhs.false.i37, %lor.lhs.false.i
   %.sink81 = phi i32 [ %24, %lor.lhs.false.i ], [ %33, %lor.lhs.false.i37 ], [ %.pre1.i49, %for.inc.sink.split.sink.split ]
-  %.sink = phi ptr [ %23, %lor.lhs.false.i ], [ %32, %lor.lhs.false.i37 ], [ %.pre.i, %for.inc.sink.split.sink.split ]
-  %xor.i35.sink = phi i32 [ %xor.i, %lor.lhs.false.i ], [ %xor.i35, %lor.lhs.false.i37 ], [ %xor.i35.sink.ph, %for.inc.sink.split.sink.split ]
-  %idx.ext.i42 = zext i32 %.sink81 to i64
-  %add.ptr.i43 = getelementptr inbounds %"class.sat::literal", ptr %.sink, i64 %idx.ext.i42
-  store i32 %xor.i35.sink, ptr %add.ptr.i43, align 4
+  %.sink = phi ptr [ %23, %lor.lhs.false.i ], [ %32, %lor.lhs.false.i37 ], [ %.pre.i47, %for.inc.sink.split.sink.split ]
+  %xor.i.sink = phi i32 [ %xor.i, %lor.lhs.false.i ], [ %xor.i35, %lor.lhs.false.i37 ], [ %xor.i.sink.ph, %for.inc.sink.split.sink.split ]
+  %idx.ext.i = zext i32 %.sink81 to i64
+  %add.ptr.i = getelementptr inbounds %"class.sat::literal", ptr %.sink, i64 %idx.ext.i
+  store i32 %xor.i.sink, ptr %add.ptr.i, align 4
   %35 = load ptr, ptr %m_lits, align 8
-  %arrayidx10.i44 = getelementptr inbounds i8, ptr %35, i64 -4
-  %36 = load i32, ptr %arrayidx10.i44, align 4
+  %arrayidx10.i = getelementptr inbounds i8, ptr %35, i64 -4
+  %36 = load i32, ptr %arrayidx10.i, align 4
   %inc.i = add i32 %36, 1
-  store i32 %inc.i, ptr %arrayidx10.i44, align 4
+  store i32 %inc.i, ptr %arrayidx10.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else

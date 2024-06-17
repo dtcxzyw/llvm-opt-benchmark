@@ -3415,10 +3415,10 @@ if.else:                                          ; preds = %for.body.us
 
 for.end.sink.split:                               ; preds = %if.end, %trace_sdcard_erase.exit, %lor.lhs.false
   %.sink42 = phi i32 [ 268435456, %lor.lhs.false ], [ 268435456, %trace_sdcard_erase.exit ], [ -2147483648, %if.end ]
-  %card_status = getelementptr inbounds i8, ptr %sd, i64 212
-  %21 = load i32, ptr %card_status, align 4
+  %card_status23 = getelementptr inbounds i8, ptr %sd, i64 212
+  %21 = load i32, ptr %card_status23, align 4
   %or24 = or i32 %21, %.sink42
-  store i32 %or24, ptr %card_status, align 4
+  store i32 %or24, ptr %card_status23, align 4
   store i32 -1, ptr %erase_start1, align 8
   store i32 -1, ptr %erase_end2, align 4
   br label %for.end

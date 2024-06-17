@@ -1454,27 +1454,27 @@ lor.lhs.false.i105:                               ; preds = %if.then26
   br i1 %cmp5.i108, label %sw.epilog.sink.split.sink.split, label %sw.epilog.sink.split
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then26, %lor.lhs.false.i105, %if.then13, %lor.lhs.false.i51
-  %m_todo14.sink148 = phi ptr [ %m_todo14, %lor.lhs.false.i51 ], [ %m_todo14, %if.then13 ], [ %m_todo27, %lor.lhs.false.i105 ], [ %m_todo27, %if.then26 ]
+  %m_todo27.sink148 = phi ptr [ %m_todo14, %lor.lhs.false.i51 ], [ %m_todo14, %if.then13 ], [ %m_todo27, %lor.lhs.false.i105 ], [ %m_todo27, %if.then26 ]
   %.sink.ph = phi ptr [ %32, %lor.lhs.false.i51 ], [ %32, %if.then13 ], [ %43, %lor.lhs.false.i105 ], [ %43, %if.then26 ]
-  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo14.sink148)
-  %.pre.i61 = load ptr, ptr %m_todo14.sink148, align 8
-  %arrayidx8.phi.trans.insert.i116 = getelementptr inbounds i8, ptr %.pre.i61, i64 -4
+  tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo27.sink148)
+  %.pre.i115 = load ptr, ptr %m_todo27.sink148, align 8
+  %arrayidx8.phi.trans.insert.i116 = getelementptr inbounds i8, ptr %.pre.i115, i64 -4
   %.pre1.i117 = load i32, ptr %arrayidx8.phi.trans.insert.i116, align 4
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %lor.lhs.false.i105, %lor.lhs.false.i51
   %.sink146 = phi i32 [ %41, %lor.lhs.false.i51 ], [ %52, %lor.lhs.false.i105 ], [ %.pre1.i117, %sw.epilog.sink.split.sink.split ]
-  %.sink145 = phi ptr [ %40, %lor.lhs.false.i51 ], [ %51, %lor.lhs.false.i105 ], [ %.pre.i61, %sw.epilog.sink.split.sink.split ]
+  %.sink145 = phi ptr [ %40, %lor.lhs.false.i51 ], [ %51, %lor.lhs.false.i105 ], [ %.pre.i115, %sw.epilog.sink.split.sink.split ]
   %.sink = phi ptr [ %32, %lor.lhs.false.i51 ], [ %43, %lor.lhs.false.i105 ], [ %.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %m_todo14.sink = phi ptr [ %m_todo14, %lor.lhs.false.i51 ], [ %m_todo27, %lor.lhs.false.i105 ], [ %m_todo14.sink148, %sw.epilog.sink.split.sink.split ]
-  %idx.ext.i56 = zext i32 %.sink146 to i64
-  %add.ptr.i57 = getelementptr inbounds ptr, ptr %.sink145, i64 %idx.ext.i56
-  store ptr %.sink, ptr %add.ptr.i57, align 8
-  %54 = load ptr, ptr %m_todo14.sink, align 8
-  %arrayidx10.i58 = getelementptr inbounds i8, ptr %54, i64 -4
-  %55 = load i32, ptr %arrayidx10.i58, align 4
+  %m_todo27.sink = phi ptr [ %m_todo14, %lor.lhs.false.i51 ], [ %m_todo27, %lor.lhs.false.i105 ], [ %m_todo27.sink148, %sw.epilog.sink.split.sink.split ]
+  %idx.ext.i110 = zext i32 %.sink146 to i64
+  %add.ptr.i111 = getelementptr inbounds ptr, ptr %.sink145, i64 %idx.ext.i110
+  store ptr %.sink, ptr %add.ptr.i111, align 8
+  %54 = load ptr, ptr %m_todo27.sink, align 8
+  %arrayidx10.i112 = getelementptr inbounds i8, ptr %54, i64 -4
+  %55 = load i32, ptr %arrayidx10.i112, align 4
   %inc.i113 = add i32 %55, 1
-  store i32 %inc.i113, ptr %arrayidx10.i58, align 4
+  store i32 %inc.i113, ptr %arrayidx10.i112, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.then.i.i96, %if.then22.i.i91, %if.then.i.i42, %if.then22.i.i37, %sw.epilog.sink.split, %_ZN3smt22for_each_relevant_expr14get_assignmentEP4expr.exit

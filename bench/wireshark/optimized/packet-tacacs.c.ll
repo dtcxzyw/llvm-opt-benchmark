@@ -615,64 +615,48 @@ define internal void @tacplus_pref_cb() #0 {
   %22 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #12
   %23 = tail call i32 @str_to_ip(ptr noundef nonnull %.0916.i, ptr noundef %22) #9
   %.not.i.i.i = icmp eq i32 %23, 0
-  br i1 %.not.i.i.i, label %26, label %24
+  br i1 %.not.i.i.i, label %24, label %mkipv4_address.exit.i.i
 
 24:                                               ; preds = %19
-  %25 = load ptr, ptr %12, align 8
-  store i32 2, ptr %25, align 8
-  br label %mkipv4_address.exit.i.i
-
-26:                                               ; preds = %19
   tail call void @g_free(ptr noundef %22) #9
-  %27 = load ptr, ptr %12, align 8
-  store i32 7, ptr %27, align 8
   br label %mkipv4_address.exit.i.i
 
-mkipv4_address.exit.i.i:                          ; preds = %26, %24
-  %.sink10.i.i.i = phi ptr [ %27, %26 ], [ %25, %24 ]
-  %.sink.i.i.i = phi i32 [ 8, %26 ], [ 4, %24 ]
-  %.str.256.sink.i.i.i = phi ptr [ @.str.256, %26 ], [ %22, %24 ]
-  %28 = getelementptr inbounds i8, ptr %.sink10.i.i.i, i64 4
-  store i32 %.sink.i.i.i, ptr %28, align 4
-  %29 = getelementptr inbounds i8, ptr %.sink10.i.i.i, i64 8
-  store ptr %.str.256.sink.i.i.i, ptr %29, align 8
-  %30 = getelementptr inbounds i8, ptr %.sink10.i.i.i, i64 16
-  store ptr null, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %12, i64 8
-  %32 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #11
-  store ptr %32, ptr %31, align 8
-  %33 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #12
-  %34 = tail call i32 @str_to_ip(ptr noundef %16, ptr noundef %33) #9
-  %.not.i17.i.i = icmp eq i32 %34, 0
-  br i1 %.not.i17.i.i, label %37, label %35
+mkipv4_address.exit.i.i:                          ; preds = %24, %19
+  %.str.256.sink.i.i.i = phi ptr [ @.str.256, %24 ], [ %22, %19 ]
+  %25 = phi <2 x i32> [ <i32 7, i32 8>, %24 ], [ <i32 2, i32 4>, %19 ]
+  %26 = load ptr, ptr %12, align 8
+  store <2 x i32> %25, ptr %26, align 8
+  %27 = getelementptr inbounds i8, ptr %26, i64 8
+  store ptr %.str.256.sink.i.i.i, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %26, i64 16
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %12, i64 8
+  %30 = tail call noalias dereferenceable_or_null(24) ptr @g_malloc_n(i64 noundef 1, i64 noundef 24) #11
+  store ptr %30, ptr %29, align 8
+  %31 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #12
+  %32 = tail call i32 @str_to_ip(ptr noundef %16, ptr noundef %31) #9
+  %.not.i17.i.i = icmp eq i32 %32, 0
+  br i1 %.not.i17.i.i, label %33, label %mkipv4_address.exit21.i.i
 
-35:                                               ; preds = %mkipv4_address.exit.i.i
-  %36 = load ptr, ptr %31, align 8
-  store i32 2, ptr %36, align 8
+33:                                               ; preds = %mkipv4_address.exit.i.i
+  tail call void @g_free(ptr noundef %31) #9
   br label %mkipv4_address.exit21.i.i
 
-37:                                               ; preds = %mkipv4_address.exit.i.i
-  tail call void @g_free(ptr noundef %33) #9
-  %38 = load ptr, ptr %31, align 8
-  store i32 7, ptr %38, align 8
-  br label %mkipv4_address.exit21.i.i
-
-mkipv4_address.exit21.i.i:                        ; preds = %37, %35
-  %.sink10.i18.i.i = phi ptr [ %38, %37 ], [ %36, %35 ]
-  %.sink.i19.i.i = phi i32 [ 8, %37 ], [ 4, %35 ]
-  %.str.256.sink.i20.i.i = phi ptr [ @.str.256, %37 ], [ %33, %35 ]
-  %39 = getelementptr inbounds i8, ptr %.sink10.i18.i.i, i64 4
-  store i32 %.sink.i19.i.i, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %.sink10.i18.i.i, i64 8
-  store ptr %.str.256.sink.i20.i.i, ptr %40, align 8
-  %41 = getelementptr inbounds i8, ptr %.sink10.i18.i.i, i64 16
-  store ptr null, ptr %41, align 8
-  %42 = tail call noalias ptr @g_strdup(ptr noundef %20) #9
-  %43 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr %42, ptr %43, align 8
-  %44 = load ptr, ptr @tacplus_keys, align 8
-  %45 = tail call ptr @g_slist_prepend(ptr noundef %44, ptr noundef nonnull %12) #9
-  store ptr %45, ptr @tacplus_keys, align 8
+mkipv4_address.exit21.i.i:                        ; preds = %33, %mkipv4_address.exit.i.i
+  %.str.256.sink.i20.i.i = phi ptr [ @.str.256, %33 ], [ %31, %mkipv4_address.exit.i.i ]
+  %34 = phi <2 x i32> [ <i32 7, i32 8>, %33 ], [ <i32 2, i32 4>, %mkipv4_address.exit.i.i ]
+  %35 = load ptr, ptr %29, align 8
+  store <2 x i32> %34, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %.str.256.sink.i20.i.i, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %35, i64 16
+  store ptr null, ptr %37, align 8
+  %38 = tail call noalias ptr @g_strdup(ptr noundef %20) #9
+  %39 = getelementptr inbounds i8, ptr %12, i64 16
+  store ptr %38, ptr %39, align 8
+  %40 = load ptr, ptr @tacplus_keys, align 8
+  %41 = tail call ptr @g_slist_prepend(ptr noundef %40, ptr noundef nonnull %12) #9
+  store ptr %41, ptr @tacplus_keys, align 8
   br label %parse_tuple.exit.i
 
 parse_tuple.exit.i:                               ; preds = %mkipv4_address.exit21.i.i, %18, %14

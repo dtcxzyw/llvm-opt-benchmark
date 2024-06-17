@@ -16236,7 +16236,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.
           to label %.loopexit unwind label %.loopexit.split-lp.i512.loopexit.split-lp
 
 .loopexit:                                        ; preds = %.noexc572, %.loopexit.i564
-  %.sink23.i = phi i1 [ true, %.loopexit.i564 ], [ false, %.noexc572 ]
+  %.sink.i = phi i1 [ true, %.loopexit.i564 ], [ false, %.noexc572 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
   %6585 = load ptr, ptr %6445, align 8
   %6586 = load ptr, ptr %6447, align 8
@@ -16261,7 +16261,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_ha
           to label %6599 unwind label %.loopexit.split-lp.i512.loopexit.split-lp
 
 6599:                                             ; preds = %_ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.i.i515
-  br i1 %.sink23.i, label %6600, label %.loopexit.i517
+  br i1 %.sink.i, label %6600, label %.loopexit.i517
 
 .loopexit208.i:                                   ; preds = %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i.i510, %6469
   %lpad.loopexit210.i = landingpad { ptr, i32 }
@@ -77913,13 +77913,13 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.
   br label %_ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit
 
 _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE9do_lookupERKS3_Ri.exit: ; preds = %.lr.ph.i, %.loopexit
-  %.sink25 = phi i32 [ %69, %.loopexit ], [ %.013.i, %.lr.ph.i ]
-  %.sink23 = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i ]
+  %.sink26 = phi i32 [ %69, %.loopexit ], [ %.013.i, %.lr.ph.i ]
+  %.sink = phi i8 [ 1, %.loopexit ], [ 0, %.lr.ph.i ]
   store ptr %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 8
-  store i32 %.sink25, ptr %.sroa.2.0..sroa_idx, align 8
+  store i32 %.sink26, ptr %.sroa.2.0..sroa_idx, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 16
-  store i8 %.sink23, ptr %70, align 8
+  store i8 %.sink, ptr %70, align 8
   ret void
 }
 

@@ -580,6 +580,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.410 = private unnamed_addr constant [81 x i8] c"field %s passed to proto_tree_add_bits_format_value() has a bit width of %u > 65\00", align 1
 @.str.411 = private unnamed_addr constant [76 x i8] c"field %s has type %d (%s) not handled in proto_tree_add_bits_format_value()\00", align 1
 @switch.table.get_hfi_length = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 8], align 4
+@switch.table.hfinfo_char_value_format_display = private unnamed_addr constant [14 x i8] c"0000000abtnvfr", align 1
 @switch.table.hfinfo_numeric_value_format = private unnamed_addr constant [7 x i32] [i32 1, i32 1, i32 1, i32 1, i32 1, i32 2, i32 1], align 4
 @switch.table.hfinfo_number_value_format_display64.23 = private unnamed_addr constant [17 x i32] [i32 2, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16, i32 2, i32 4, i32 6, i32 8, i32 10, i32 12, i32 14, i32 16], align 4
 @switch.table.fill_label_number = private unnamed_addr constant [4 x i32] [i32 3, i32 2, i32 4, i32 1], align 4
@@ -19934,7 +19935,7 @@ define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr 
   %12 = trunc i32 %2 to i8
   %13 = getelementptr i8, ptr %1, i64 4
   store i8 %12, ptr %13, align 1
-  switch i32 %2, label %65 [
+  switch i32 %2, label %50 [
     i32 92, label %14
     i32 39, label %14
   ]
@@ -19944,121 +19945,84 @@ define hidden noundef ptr @hfinfo_char_value_format_display(i32 noundef %0, ptr 
   br label %.sink.split
 
 16:                                               ; preds = %3
-  switch i32 %2, label %33 [
-    i32 0, label %17
-    i32 7, label %19
-    i32 8, label %21
-    i32 12, label %23
-    i32 10, label %25
-    i32 13, label %27
-    i32 9, label %29
-    i32 11, label %31
-  ]
+  %17 = icmp ult i32 %2, 14
+  br i1 %17, label %switch.hole_check, label %18
 
-17:                                               ; preds = %16
-  %18 = getelementptr i8, ptr %1, i64 4
-  store i8 48, ptr %18, align 1
-  br label %63
-
-19:                                               ; preds = %16
-  %20 = getelementptr i8, ptr %1, i64 4
-  store i8 97, ptr %20, align 1
-  br label %63
-
-21:                                               ; preds = %16
-  %22 = getelementptr i8, ptr %1, i64 4
-  store i8 98, ptr %22, align 1
-  br label %63
-
-23:                                               ; preds = %16
-  %24 = getelementptr i8, ptr %1, i64 4
-  store i8 102, ptr %24, align 1
-  br label %63
-
-25:                                               ; preds = %16
-  %26 = getelementptr i8, ptr %1, i64 4
-  store i8 110, ptr %26, align 1
-  br label %63
-
-27:                                               ; preds = %16
-  %28 = getelementptr i8, ptr %1, i64 4
-  store i8 114, ptr %28, align 1
-  br label %63
-
-29:                                               ; preds = %16
-  %30 = getelementptr i8, ptr %1, i64 4
-  store i8 116, ptr %30, align 1
-  br label %63
-
-31:                                               ; preds = %16
-  %32 = getelementptr i8, ptr %1, i64 4
-  store i8 118, ptr %32, align 1
-  br label %63
-
-33:                                               ; preds = %16
+18:                                               ; preds = %switch.hole_check, %16
   %trunc = trunc i32 %0 to i8
-  switch i8 %trunc, label %61 [
-    i8 3, label %34
-    i8 2, label %48
+  switch i8 %trunc, label %44 [
+    i8 3, label %19
+    i8 2, label %32
   ]
 
-34:                                               ; preds = %33
-  %35 = trunc i32 %2 to i8
-  %36 = and i8 %35, 7
-  %37 = or disjoint i8 %36, 48
-  %38 = getelementptr i8, ptr %1, i64 4
-  store i8 %37, ptr %38, align 1
-  %39 = lshr i8 %35, 3
-  %40 = and i8 %39, 7
-  %41 = or disjoint i8 %40, 48
-  %42 = getelementptr i8, ptr %1, i64 3
-  store i8 %41, ptr %42, align 1
-  %43 = lshr i32 %2, 6
-  %44 = trunc i32 %43 to i8
-  %45 = and i8 %44, 7
-  %46 = or disjoint i8 %45, 48
-  %47 = getelementptr i8, ptr %1, i64 2
-  store i8 %46, ptr %47, align 1
-  br label %63
+19:                                               ; preds = %18
+  %20 = trunc i32 %2 to i8
+  %21 = and i8 %20, 7
+  %22 = or disjoint i8 %21, 48
+  %23 = getelementptr i8, ptr %1, i64 4
+  store i8 %22, ptr %23, align 1
+  %24 = lshr i8 %20, 3
+  %25 = and i8 %24, 7
+  %26 = or disjoint i8 %25, 48
+  %27 = getelementptr i8, ptr %1, i64 3
+  store i8 %26, ptr %27, align 1
+  %28 = lshr i32 %2, 6
+  %29 = trunc i32 %28 to i8
+  %30 = and i8 %29, 7
+  %31 = or disjoint i8 %30, 48
+  br label %47
 
-48:                                               ; preds = %33
-  %49 = and i32 %2, 15
-  %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %50
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr i8, ptr %1, i64 4
-  store i8 %52, ptr %53, align 1
-  %54 = lshr i32 %2, 4
-  %55 = and i32 %54, 15
-  %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %56
-  %58 = load i8, ptr %57, align 1
-  %59 = getelementptr i8, ptr %1, i64 3
-  store i8 %58, ptr %59, align 1
-  %60 = getelementptr i8, ptr %1, i64 2
-  store i8 120, ptr %60, align 1
-  br label %63
+32:                                               ; preds = %18
+  %33 = and i32 %2, 15
+  %34 = zext nneg i32 %33 to i64
+  %35 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %34
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr i8, ptr %1, i64 4
+  store i8 %36, ptr %37, align 1
+  %38 = lshr i32 %2, 4
+  %39 = and i32 %38, 15
+  %40 = zext nneg i32 %39 to i64
+  %41 = getelementptr [16 x i8], ptr @hfinfo_char_value_format_display.hex_digits, i64 0, i64 %40
+  %42 = load i8, ptr %41, align 1
+  %43 = getelementptr i8, ptr %1, i64 3
+  store i8 %42, ptr %43, align 1
+  br label %47
 
-61:                                               ; preds = %33
-  %62 = and i32 %0, 255
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.128, i32 noundef %62) #35
+44:                                               ; preds = %18
+  %45 = and i32 %0, 255
+  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.128, i32 noundef %45) #35
   unreachable
 
-63:                                               ; preds = %34, %48, %31, %29, %27, %25, %23, %21, %19, %17
-  %.0 = phi ptr [ %60, %48 ], [ %47, %34 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %24, %23 ], [ %22, %21 ], [ %20, %19 ], [ %18, %17 ]
-  %64 = getelementptr i8, ptr %.0, i64 -1
+switch.hole_check:                                ; preds = %16
+  %switch.maskindex = trunc nuw i32 %2 to i16
+  %switch.shifted = lshr i16 16257, %switch.maskindex
+  %switch.lobit = trunc i16 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %18
+
+switch.lookup:                                    ; preds = %switch.hole_check
+  %46 = zext nneg i32 %2 to i64
+  %switch.gep = getelementptr inbounds [14 x i8], ptr @switch.table.hfinfo_char_value_format_display, i64 0, i64 %46
+  %switch.load = load i8, ptr %switch.gep, align 1
+  br label %47
+
+47:                                               ; preds = %switch.lookup, %19, %32
+  %.sink38 = phi i64 [ 2, %19 ], [ 2, %32 ], [ 4, %switch.lookup ]
+  %.sink = phi i8 [ %31, %19 ], [ 120, %32 ], [ %switch.load, %switch.lookup ]
+  %48 = getelementptr i8, ptr %1, i64 %.sink38
+  store i8 %.sink, ptr %48, align 1
+  %49 = getelementptr i8, ptr %48, i64 -1
   br label %.sink.split
 
-.sink.split:                                      ; preds = %63, %14
-  %.sink = phi ptr [ %15, %14 ], [ %64, %63 ]
-  store i8 92, ptr %.sink, align 1
-  br label %65
+.sink.split:                                      ; preds = %47, %14
+  %.sink39 = phi ptr [ %15, %14 ], [ %49, %47 ]
+  store i8 92, ptr %.sink39, align 1
+  br label %50
 
-65:                                               ; preds = %.sink.split, %11
-  %.1 = phi ptr [ %13, %11 ], [ %.sink, %.sink.split ]
-  %66 = getelementptr i8, ptr %.1, i64 -1
-  store i8 39, ptr %66, align 1
-  ret ptr %66
+50:                                               ; preds = %.sink.split, %11
+  %.1 = phi ptr [ %13, %11 ], [ %.sink39, %.sink.split ]
+  %51 = getelementptr i8, ptr %.1, i64 -1
+  store i8 39, ptr %51, align 1
+  ret ptr %51
 }
 
 declare i32 @fvalue_get_sinteger(ptr noundef) local_unnamed_addr #1

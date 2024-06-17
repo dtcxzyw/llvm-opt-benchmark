@@ -4682,8 +4682,8 @@ switch.lookup:                                    ; preds = %125
   br i1 %.not14.i12, label %.thread.sink.split, label %.lr.ph.i10
 
 .thread.sink.split:                               ; preds = %232, %209, %217, %214, %194, %191
-  %.sink24 = phi i8 [ 0, %191 ], [ 0, %194 ], [ 1, %214 ], [ 1, %217 ], [ 0, %209 ], [ 1, %232 ]
-  store i8 %.sink24, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 4), align 4
+  %.sink25 = phi i8 [ 0, %191 ], [ 0, %194 ], [ 1, %214 ], [ 1, %217 ], [ 0, %209 ], [ 1, %232 ]
+  store i8 %.sink25, ptr getelementptr inbounds (i8, ptr @accel_globals, i64 4), align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %186, %211

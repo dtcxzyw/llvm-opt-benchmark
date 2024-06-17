@@ -4372,24 +4372,24 @@ esp_pdma_write.exit25:                            ; preds = %sw.bb1
   br i1 %cmp.i31, label %sw.epilog, label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %esp_pdma_write.exit25, %sw.bb
-  %or8.i.i.sink = phi i32 [ %or8.i.i, %sw.bb ], [ %.pre48, %esp_pdma_write.exit25 ]
+  %.pre48.sink = phi i32 [ %or8.i.i, %sw.bb ], [ %.pre48, %esp_pdma_write.exit25 ]
   %rregs.i.i7.sink = phi ptr [ %rregs.i.i, %sw.bb ], [ %rregs.i.i7, %esp_pdma_write.exit25 ]
   %arrayidx5.i.i8.sink = phi ptr [ %arrayidx5.i.i, %sw.bb ], [ %arrayidx5.i.i8, %esp_pdma_write.exit25 ]
-  %conv = trunc i64 %val to i8
-  %do_cmd.i = getelementptr inbounds i8, ptr %call.i, i64 436
-  %13 = load i32, ptr %do_cmd.i, align 4
-  %tobool.not.i = icmp eq i32 %13, 0
-  %..i = select i1 %tobool.not.i, i64 224, i64 408
-  %fifo.i = getelementptr inbounds i8, ptr %call.i, i64 %..i
-  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i, i8 noundef zeroext %conv)
-  %dec.i = add nsw i32 %or8.i.i.sink, -1
-  %conv.i.i38 = trunc i32 %dec.i to i8
+  %conv3 = trunc i64 %val to i8
+  %do_cmd.i33 = getelementptr inbounds i8, ptr %call.i, i64 436
+  %13 = load i32, ptr %do_cmd.i33, align 4
+  %tobool.not.i34 = icmp eq i32 %13, 0
+  %..i35 = select i1 %tobool.not.i34, i64 224, i64 408
+  %fifo.i36 = getelementptr inbounds i8, ptr %call.i, i64 %..i35
+  tail call fastcc void @esp_fifo_push(ptr noundef nonnull %fifo.i36, i8 noundef zeroext %conv3)
+  %dec.i37 = add nsw i32 %.pre48.sink, -1
+  %conv.i.i38 = trunc i32 %dec.i37 to i8
   store i8 %conv.i.i38, ptr %rregs.i.i7.sink, align 8
-  %shr.i.i39 = lshr i32 %dec.i, 8
+  %shr.i.i39 = lshr i32 %dec.i37, 8
   %conv1.i.i40 = trunc i32 %shr.i.i39 to i8
   %arrayidx3.i.i41 = getelementptr i8, ptr %call.i, i64 161
   store i8 %conv1.i.i40, ptr %arrayidx3.i.i41, align 1
-  %shr4.i.i42 = lshr i32 %dec.i, 16
+  %shr4.i.i42 = lshr i32 %dec.i37, 16
   %conv5.i.i43 = trunc i32 %shr4.i.i42 to i8
   store i8 %conv5.i.i43, ptr %arrayidx5.i.i8.sink, align 2
   br label %sw.epilog

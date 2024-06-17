@@ -1074,7 +1074,7 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %.not67 = icmp ne i32 %1, 0
   %6 = zext i1 %.not67 to i32
   %spec.select75 = xor i32 %6, %2
-  br label %105
+  br label %102
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 2
@@ -1084,16 +1084,16 @@ define i32 @Gia_ManHashXorReal(ptr nocapture noundef %0, i32 noundef %1, i32 nou
   %.not66 = icmp ne i32 %2, 0
   %10 = zext i1 %.not66 to i32
   %spec.select76 = xor i32 %10, %1
-  br label %105
+  br label %102
 
 11:                                               ; preds = %7
   %12 = icmp eq i32 %1, %2
-  br i1 %12, label %105, label %13
+  br i1 %12, label %102, label %13
 
 13:                                               ; preds = %11
   %14 = xor i32 %2, %1
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %105, label %16
+  br i1 %15, label %102, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1210,7 +1210,7 @@ Gia_ManHashFind.exit:                             ; preds = %Gia_ObjFaninLit2p.e
   %86 = load i32, ptr %.027.i, align 4
   %87 = shl nsw i32 %86, 1
   %88 = or disjoint i32 %87, %.1
-  br label %105
+  br label %102
 
 Gia_ManHashFind.exit.thread:                      ; preds = %80, %35
   %.0.lcssa.i74 = phi ptr [ %46, %35 ], [ %81, %80 ]
@@ -1224,27 +1224,22 @@ Gia_ManHashFind.exit.thread:                      ; preds = %80, %35
   %.val70 = load i32, ptr %92, align 8
   %94 = icmp slt i32 %.val, %.val70
   %95 = tail call fastcc i32 @Gia_ManAppendXorReal(ptr noundef nonnull %0, i32 noundef %spec.select77, i32 noundef %.157)
-  br i1 %94, label %96, label %98
+  br i1 %94, label %98, label %96
 
 96:                                               ; preds = %Gia_ManHashFind.exit.thread
-  %97 = ashr i32 %95, 1
-  store i32 %97, ptr %.0.lcssa.i74, align 4
-  br label %101
+  %97 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select77, i32 noundef %.157, i32 noundef -1)
+  br label %98
 
-98:                                               ; preds = %Gia_ManHashFind.exit.thread
-  %99 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select77, i32 noundef %.157, i32 noundef -1)
-  %100 = ashr i32 %95, 1
-  store i32 %100, ptr %99, align 4
-  br label %101
+98:                                               ; preds = %Gia_ManHashFind.exit.thread, %96
+  %.sink82 = phi ptr [ %97, %96 ], [ %.0.lcssa.i74, %Gia_ManHashFind.exit.thread ]
+  %99 = ashr i32 %95, 1
+  store i32 %99, ptr %.sink82, align 4
+  %100 = and i32 %95, -2
+  %101 = or disjoint i32 %100, %.1
+  br label %102
 
-101:                                              ; preds = %98, %96
-  %102 = phi i32 [ %97, %96 ], [ %100, %98 ]
-  %103 = shl nsw i32 %102, 1
-  %104 = or disjoint i32 %103, %.1
-  br label %105
-
-105:                                              ; preds = %9, %5, %13, %11, %101, %Gia_ManHashFind.exit
-  %.0 = phi i32 [ %88, %Gia_ManHashFind.exit ], [ %104, %101 ], [ 0, %11 ], [ 1, %13 ], [ %spec.select75, %5 ], [ %spec.select76, %9 ]
+102:                                              ; preds = %9, %5, %13, %11, %98, %Gia_ManHashFind.exit
+  %.0 = phi i32 [ %88, %Gia_ManHashFind.exit ], [ %101, %98 ], [ 0, %11 ], [ 1, %13 ], [ %spec.select75, %5 ], [ %spec.select76, %9 ]
   ret i32 %.0
 }
 
@@ -1342,7 +1337,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 6:                                                ; preds = %4
   %.not97 = icmp eq i32 %1, 0
   %7 = select i1 %.not97, i32 %3, i32 %2
-  br label %78
+  br label %75
 
 8:                                                ; preds = %4
   %9 = icmp slt i32 %3, 2
@@ -1356,11 +1351,11 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %12 = xor i32 %2, 1
   %13 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %12)
   %14 = xor i32 %13, 1
-  br label %78
+  br label %75
 
 15:                                               ; preds = %10
   %16 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2)
-  br label %78
+  br label %75
 
 17:                                               ; preds = %8
   %18 = icmp slt i32 %2, 2
@@ -1375,15 +1370,15 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %22 = xor i32 %3, 1
   %23 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %20, i32 noundef %22)
   %24 = xor i32 %23, 1
-  br label %78
+  br label %75
 
 25:                                               ; preds = %19
   %26 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %20, i32 noundef %3)
-  br label %78
+  br label %75
 
 27:                                               ; preds = %17
   %28 = icmp eq i32 %3, %2
-  br i1 %28, label %78, label %29
+  br i1 %28, label %75, label %29
 
 29:                                               ; preds = %27
   %30 = icmp eq i32 %1, %3
@@ -1396,7 +1391,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 34:                                               ; preds = %31, %29
   %35 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %3, i32 noundef %2)
-  br label %78
+  br label %75
 
 36:                                               ; preds = %31
   %37 = icmp eq i32 %1, %2
@@ -1409,7 +1404,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %41 = xor i32 %3, 1
   %42 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %41, i32 noundef %32)
   %43 = xor i32 %42, 1
-  br label %78
+  br label %75
 
 44:                                               ; preds = %36
   %.unshifted = xor i32 %3, %2
@@ -1418,7 +1413,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
 
 46:                                               ; preds = %44
   %47 = tail call i32 @Gia_ManHashXorReal(ptr noundef %0, i32 noundef %1, i32 noundef %3)
-  br label %78
+  br label %75
 
 48:                                               ; preds = %44
   %49 = icmp ugt i32 %3, %2
@@ -1442,7 +1437,7 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %58 = load i32, ptr %52, align 4
   %59 = shl nsw i32 %58, 1
   %60 = or disjoint i32 %59, %51
-  br label %78
+  br label %75
 
 61:                                               ; preds = %48
   %62 = getelementptr inbounds i8, ptr %0, i64 760
@@ -1455,27 +1450,22 @@ define i32 @Gia_ManHashMuxReal(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %.val98 = load i32, ptr %65, align 8
   %67 = icmp slt i32 %.val, %.val98
   %68 = tail call fastcc i32 @Gia_ManAppendMuxReal(ptr noundef nonnull %0, i32 noundef %.087, i32 noundef %.186, i32 noundef %.1)
-  br i1 %67, label %69, label %71
+  br i1 %67, label %71, label %69
 
 69:                                               ; preds = %61
-  %70 = ashr i32 %68, 1
-  store i32 %70, ptr %52, align 4
-  br label %74
+  %70 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.186, i32 noundef %.087)
+  br label %71
 
-71:                                               ; preds = %61
-  %72 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %.1, i32 noundef %.186, i32 noundef %.087)
-  %73 = ashr i32 %68, 1
-  store i32 %73, ptr %72, align 4
-  br label %74
+71:                                               ; preds = %61, %69
+  %.sink100 = phi ptr [ %70, %69 ], [ %52, %61 ]
+  %72 = ashr i32 %68, 1
+  store i32 %72, ptr %.sink100, align 4
+  %73 = and i32 %68, -2
+  %74 = or disjoint i32 %73, %51
+  br label %75
 
-74:                                               ; preds = %71, %69
-  %75 = phi i32 [ %70, %69 ], [ %73, %71 ]
-  %76 = shl nsw i32 %75, 1
-  %77 = or disjoint i32 %76, %51
-  br label %78
-
-78:                                               ; preds = %27, %21, %25, %11, %15, %74, %54, %46, %40, %34, %6
-  %.0 = phi i32 [ %7, %6 ], [ %35, %34 ], [ %43, %40 ], [ %47, %46 ], [ %60, %54 ], [ %77, %74 ], [ %14, %11 ], [ %16, %15 ], [ %24, %21 ], [ %26, %25 ], [ %3, %27 ]
+75:                                               ; preds = %27, %21, %25, %11, %15, %71, %54, %46, %40, %34, %6
+  %.0 = phi i32 [ %7, %6 ], [ %35, %34 ], [ %43, %40 ], [ %47, %46 ], [ %60, %54 ], [ %74, %71 ], [ %14, %11 ], [ %16, %15 ], [ %24, %21 ], [ %26, %25 ], [ %3, %27 ]
   ret i32 %.0
 }
 
@@ -1496,7 +1486,7 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 5:                                                ; preds = %3
   %.not69 = icmp eq i32 %1, 0
   %6 = select i1 %.not69, i32 0, i32 %2
-  br label %98
+  br label %95
 
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 2
@@ -1505,16 +1495,16 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 9:                                                ; preds = %7
   %.not68 = icmp eq i32 %2, 0
   %10 = select i1 %.not68, i32 0, i32 %1
-  br label %98
+  br label %95
 
 11:                                               ; preds = %7
   %12 = icmp eq i32 %1, %2
-  br i1 %12, label %98, label %13
+  br i1 %12, label %95, label %13
 
 13:                                               ; preds = %11
   %14 = xor i32 %2, %1
   %15 = icmp eq i32 %14, 1
-  br i1 %15, label %98, label %16
+  br i1 %15, label %95, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %0, i64 120
@@ -1524,7 +1514,7 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 
 19:                                               ; preds = %16
   %20 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
-  br label %98
+  br label %95
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1596,7 +1586,7 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %70 = and i32 %69, 1
   %71 = shl nsw i32 %68, 1
   %72 = or disjoint i32 %71, %70
-  br label %98
+  br label %95
 
 73:                                               ; preds = %43, %40
   %spec.select = tail call i32 @llvm.umax.i32(i32 %1, i32 %2)
@@ -1613,7 +1603,7 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   store i64 %79, ptr %77, align 8
   %80 = load i32, ptr %74, align 4
   %81 = shl nsw i32 %80, 1
-  br label %98
+  br label %95
 
 82:                                               ; preds = %73
   %83 = getelementptr inbounds i8, ptr %0, i64 760
@@ -1626,26 +1616,21 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   %.val73 = load i32, ptr %86, align 8
   %88 = icmp slt i32 %.val, %.val73
   %89 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select)
-  br i1 %88, label %90, label %92
+  br i1 %88, label %92, label %90
 
 90:                                               ; preds = %82
-  %91 = ashr i32 %89, 1
-  store i32 %91, ptr %74, align 4
+  %91 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select, i32 noundef -1)
+  br label %92
+
+92:                                               ; preds = %82, %90
+  %.sink76 = phi ptr [ %91, %90 ], [ %74, %82 ]
+  %93 = ashr i32 %89, 1
+  store i32 %93, ptr %.sink76, align 4
+  %94 = and i32 %89, -2
   br label %95
 
-92:                                               ; preds = %82
-  %93 = tail call fastcc ptr @Gia_ManHashFind(ptr noundef nonnull %0, i32 noundef %spec.select70, i32 noundef %spec.select, i32 noundef -1)
-  %94 = ashr i32 %89, 1
-  store i32 %94, ptr %93, align 4
-  br label %95
-
-95:                                               ; preds = %92, %90
-  %96 = phi i32 [ %91, %90 ], [ %94, %92 ]
-  %97 = shl nsw i32 %96, 1
-  br label %98
-
-98:                                               ; preds = %13, %11, %95, %76, %62, %19, %9, %5
-  %.0 = phi i32 [ %6, %5 ], [ %10, %9 ], [ %20, %19 ], [ %72, %62 ], [ %81, %76 ], [ %97, %95 ], [ %1, %11 ], [ 0, %13 ]
+95:                                               ; preds = %13, %11, %92, %76, %62, %19, %9, %5
+  %.0 = phi i32 [ %6, %5 ], [ %10, %9 ], [ %20, %19 ], [ %72, %62 ], [ %81, %76 ], [ %94, %92 ], [ %1, %11 ], [ 0, %13 ]
   ret i32 %.0
 }
 

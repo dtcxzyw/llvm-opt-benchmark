@@ -1535,7 +1535,7 @@ if.end33.i:                                       ; preds = %_ZNK3irr3gui14CGUIT
 _ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread: ; preds = %if.end33.i
   %ScrollControl28 = getelementptr inbounds i8, ptr %this, i64 350
   store i8 1, ptr %ScrollControl28, align 2, !tbaa !60
-  br label %if.then5
+  br label %if.end16
 
 _ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit: ; preds = %for.cond.i, %if.end12.i, %if.end3.i, %if.end
   %CurrentScrollTabIndex = getelementptr inbounds i8, ptr %this, i64 380
@@ -1544,45 +1544,30 @@ _ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit: ; preds = %for.cond.i,
   %ScrollControl = getelementptr inbounds i8, ptr %this, i64 350
   %frombool = zext i1 %cmp to i8
   store i8 %frombool, ptr %ScrollControl, align 2, !tbaa !60
-  br i1 %cmp, label %if.then5, label %if.else
+  br label %if.end16
 
-if.then5:                                         ; preds = %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread
+if.end16:                                         ; preds = %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread
+  %.sink6 = phi i1 [ true, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit.thread ], [ %cmp, %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit ]
   %20 = load ptr, ptr %UpButton, align 8, !tbaa !63
-  %vtable = load ptr, ptr %20, align 8, !tbaa !3
-  %vfn = getelementptr inbounds i8, ptr %vtable, i64 120
-  %21 = load ptr, ptr %vfn, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(308) %20, i1 noundef zeroext true) #19
-  %22 = load ptr, ptr %DownButton, align 8, !tbaa !65
-  %vtable8 = load ptr, ptr %22, align 8, !tbaa !3
-  %vfn9 = getelementptr inbounds i8, ptr %vtable8, i64 120
-  %23 = load ptr, ptr %vfn9, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(308) %22, i1 noundef zeroext true) #19
-  br label %if.end16
-
-if.else:                                          ; preds = %_ZN3irr3gui14CGUITabControl17needScrollControlEibPi.exit
-  %24 = load ptr, ptr %UpButton, align 8, !tbaa !63
-  %vtable11 = load ptr, ptr %24, align 8, !tbaa !3
+  %vtable11 = load ptr, ptr %20, align 8, !tbaa !3
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 120
-  %25 = load ptr, ptr %vfn12, align 8
-  tail call void %25(ptr noundef nonnull align 8 dereferenceable(308) %24, i1 noundef zeroext false) #19
-  %26 = load ptr, ptr %DownButton, align 8, !tbaa !65
-  %vtable14 = load ptr, ptr %26, align 8, !tbaa !3
+  %21 = load ptr, ptr %vfn12, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(308) %20, i1 noundef zeroext %.sink6) #19
+  %22 = load ptr, ptr %DownButton, align 8, !tbaa !65
+  %vtable14 = load ptr, ptr %22, align 8, !tbaa !3
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 120
-  %27 = load ptr, ptr %vfn15, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(308) %26, i1 noundef zeroext false) #19
-  br label %if.end16
-
-if.end16:                                         ; preds = %if.else, %if.then5
-  %28 = load ptr, ptr %UpButton, align 8, !tbaa !63
+  %23 = load ptr, ptr %vfn15, align 8
+  tail call void %23(ptr noundef nonnull align 8 dereferenceable(308) %22, i1 noundef zeroext %.sink6) #19
+  %24 = load ptr, ptr %UpButton, align 8, !tbaa !63
   %vtable18 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 208
-  %29 = load ptr, ptr %vfn19, align 8
-  %call20 = tail call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %28) #19
-  %30 = load ptr, ptr %DownButton, align 8, !tbaa !65
+  %25 = load ptr, ptr %vfn19, align 8
+  %call20 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %24) #19
+  %26 = load ptr, ptr %DownButton, align 8, !tbaa !65
   %vtable22 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 208
-  %31 = load ptr, ptr %vfn23, align 8
-  %call24 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %30) #19
+  %27 = load ptr, ptr %vfn23, align 8
+  %call24 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(308) %this, ptr noundef %26) #19
   br label %return
 
 return:                                           ; preds = %if.end16, %lor.lhs.false, %entry

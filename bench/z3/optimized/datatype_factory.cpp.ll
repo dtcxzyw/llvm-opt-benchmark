@@ -1768,11 +1768,11 @@ for.inc.sink.split:                               ; preds = %.noexc, %.noexc83
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i.i71, %lor.lhs.false.i.i
-  %.sink434 = phi i32 [ %24, %lor.lhs.false.i.i ], [ %30, %lor.lhs.false.i.i71 ], [ %.pre1.i.i82, %for.inc.sink.split ]
+  %.sink433 = phi i32 [ %24, %lor.lhs.false.i.i ], [ %30, %lor.lhs.false.i.i71 ], [ %.pre1.i.i82, %for.inc.sink.split ]
   %.sink = phi ptr [ %23, %lor.lhs.false.i.i ], [ %29, %lor.lhs.false.i.i71 ], [ %.pre.i.i80.sink, %for.inc.sink.split ]
   %call57.sink = phi ptr [ %call46, %lor.lhs.false.i.i ], [ %call57, %lor.lhs.false.i.i71 ], [ %call57.sink.ph, %for.inc.sink.split ]
   %found_fresh_arg.1 = phi i8 [ 1, %lor.lhs.false.i.i ], [ %found_fresh_arg.0356, %lor.lhs.false.i.i71 ], [ %found_fresh_arg.1.ph, %for.inc.sink.split ]
-  %idx.ext.i.i75 = zext i32 %.sink434 to i64
+  %idx.ext.i.i75 = zext i32 %.sink433 to i64
   %add.ptr.i.i76 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i75
   store ptr %call57.sink, ptr %add.ptr.i.i76, align 8
   %34 = load ptr, ptr %m_nodes.i.i, align 8
@@ -2310,18 +2310,18 @@ if.then.i.i199:                                   ; preds = %lor.lhs.false.i.i19
 for.inc175.sink.split:                            ; preds = %if.then.i.i199, %if.then.i.i178
   %call171.sink.ph = phi ptr [ %maybe_new_arg.1317, %if.then.i.i178 ], [ %call171, %if.then.i.i199 ]
   %found_sibling.2.ph = phi i8 [ %found_sibling.1315, %if.then.i.i178 ], [ %found_sibling.0362, %if.then.i.i199 ]
-  %.pre.i.i179 = load ptr, ptr %m_nodes.i.i149, align 8
-  %arrayidx8.phi.trans.insert.i.i201 = getelementptr inbounds i8, ptr %.pre.i.i179, i64 -4
+  %.pre.i.i200 = load ptr, ptr %m_nodes.i.i149, align 8
+  %arrayidx8.phi.trans.insert.i.i201 = getelementptr inbounds i8, ptr %.pre.i.i200, i64 -4
   %.pre1.i.i202 = load i32, ptr %arrayidx8.phi.trans.insert.i.i201, align 4
   br label %for.inc175
 
 for.inc175:                                       ; preds = %for.inc175.sink.split, %lor.lhs.false.i.i191, %lor.lhs.false.i.i170
-  %.sink437 = phi i32 [ %91, %lor.lhs.false.i.i170 ], [ %97, %lor.lhs.false.i.i191 ], [ %.pre1.i.i202, %for.inc175.sink.split ]
-  %.sink436 = phi ptr [ %90, %lor.lhs.false.i.i170 ], [ %96, %lor.lhs.false.i.i191 ], [ %.pre.i.i179, %for.inc175.sink.split ]
+  %.sink438 = phi i32 [ %91, %lor.lhs.false.i.i170 ], [ %97, %lor.lhs.false.i.i191 ], [ %.pre1.i.i202, %for.inc175.sink.split ]
+  %.sink437 = phi ptr [ %90, %lor.lhs.false.i.i170 ], [ %96, %lor.lhs.false.i.i191 ], [ %.pre.i.i200, %for.inc175.sink.split ]
   %call171.sink = phi ptr [ %maybe_new_arg.1317, %lor.lhs.false.i.i170 ], [ %call171, %lor.lhs.false.i.i191 ], [ %call171.sink.ph, %for.inc175.sink.split ]
   %found_sibling.2 = phi i8 [ %found_sibling.1315, %lor.lhs.false.i.i170 ], [ %found_sibling.0362, %lor.lhs.false.i.i191 ], [ %found_sibling.2.ph, %for.inc175.sink.split ]
-  %idx.ext.i.i195 = zext i32 %.sink437 to i64
-  %add.ptr.i.i196 = getelementptr inbounds ptr, ptr %.sink436, i64 %idx.ext.i.i195
+  %idx.ext.i.i195 = zext i32 %.sink438 to i64
+  %add.ptr.i.i196 = getelementptr inbounds ptr, ptr %.sink437, i64 %idx.ext.i.i195
   store ptr %call171.sink, ptr %add.ptr.i.i196, align 8
   %99 = load ptr, ptr %m_nodes.i.i149, align 8
   %arrayidx10.i.i197 = getelementptr inbounds i8, ptr %99, i64 -4

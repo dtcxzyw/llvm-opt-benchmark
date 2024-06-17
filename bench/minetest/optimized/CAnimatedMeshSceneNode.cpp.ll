@@ -2442,38 +2442,25 @@ entry:
   %1 = load ptr, ptr %vfn, align 8
   %call = tail call noundef i32 %1(ptr noundef nonnull align 8 dereferenceable(8) %0) #21
   %sub = add i32 %call, -1
-  %cmp = icmp slt i32 %end, %begin
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %2 = tail call i32 @llvm.smax.i32(i32 %end, i32 0)
+  %end.begin = tail call i32 @llvm.smin.i32(i32 %end, i32 %begin)
+  %begin.end = tail call i32 @llvm.smax.i32(i32 %end, i32 %begin)
+  %2 = tail call i32 @llvm.smax.i32(i32 %end.begin, i32 0)
   %3 = tail call noundef i32 @llvm.smin.i32(i32 %2, i32 %sub)
-  %4 = tail call i32 @llvm.smax.i32(i32 %begin, i32 %3)
-  br label %if.end
-
-if.else:                                          ; preds = %entry
-  %5 = tail call i32 @llvm.smax.i32(i32 %begin, i32 0)
-  %6 = tail call noundef i32 @llvm.smin.i32(i32 %5, i32 %sub)
-  %7 = tail call i32 @llvm.smax.i32(i32 %end, i32 %6)
-  br label %if.end
-
-if.end:                                           ; preds = %if.else, %if.then
-  %.sink = phi i32 [ %7, %if.else ], [ %4, %if.then ]
-  %8 = phi i32 [ %6, %if.else ], [ %3, %if.then ]
-  %9 = tail call noundef i32 @llvm.smin.i32(i32 %.sink, i32 %sub)
-  %10 = getelementptr inbounds i8, ptr %this, i64 288
-  store i32 %8, ptr %10, align 8
-  %11 = getelementptr inbounds i8, ptr %this, i64 292
-  store i32 %9, ptr %11, align 4
+  %4 = tail call i32 @llvm.smax.i32(i32 %begin.end, i32 %3)
+  %5 = tail call noundef i32 @llvm.smin.i32(i32 %4, i32 %sub)
+  %6 = getelementptr inbounds i8, ptr %this, i64 288
+  store i32 %3, ptr %6, align 8
+  %7 = getelementptr inbounds i8, ptr %this, i64 292
+  store i32 %5, ptr %7, align 4
   %FramesPerSecond = getelementptr inbounds i8, ptr %this, i64 296
-  %12 = load float, ptr %FramesPerSecond, align 8, !tbaa !49
-  %cmp10 = fcmp olt float %12, 0.000000e+00
-  %. = select i1 %cmp10, i32 %9, i32 %8
+  %8 = load float, ptr %FramesPerSecond, align 8, !tbaa !49
+  %cmp10 = fcmp olt float %8, 0.000000e+00
+  %. = select i1 %cmp10, i32 %5, i32 %3
   %conv17 = sitofp i32 %. to float
   %vtable18 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn19 = getelementptr inbounds i8, ptr %vtable18, i64 288
-  %13 = load ptr, ptr %vfn19, align 8
-  tail call void %13(ptr noundef nonnull align 8 dereferenceable(408) %this, float noundef %conv17) #21
+  %9 = load ptr, ptr %vfn19, align 8
+  tail call void %9(ptr noundef nonnull align 8 dereferenceable(408) %this, float noundef %conv17) #21
   ret i1 true
 }
 

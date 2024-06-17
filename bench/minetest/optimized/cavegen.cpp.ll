@@ -2120,10 +2120,6 @@ if.then48:                                        ; preds = %land.lhs.true45
   %conv67 = uitofp nneg i32 %rem66 to float
   %conv69 = sitofp i16 %conv41 to float
   %sub70 = fsub nsz float %conv67, %conv69
-  %vec.sroa.0.4.vec.insert = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sub70, i64 1
-  %mul.i283 = mul i32 %add.i280, 1103515245
-  %add.i284 = add i32 %mul.i283, 12345
-  store i32 %add.i284, ptr %.pre469, align 4, !tbaa !147
   br label %if.end121
 
 if.else84:                                        ; preds = %land.lhs.true45, %if.end42, %if.end42.thread
@@ -2150,20 +2146,19 @@ if.else84:                                        ; preds = %land.lhs.true45, %i
   %conv105 = sitofp i16 %maxlen.sroa.7.0475 to float
   %div106 = fmul nsz float %conv105, 5.000000e-01
   %sub107 = fsub nsz float %conv103, %div106
-  %vec.sroa.0.4.vec.insert426 = insertelement <2 x float> <float 0.000000e+00, float poison>, float %sub107, i64 1
-  %mul.i295 = mul i32 %add.i292, 1103515245
-  %add.i296 = add i32 %mul.i295, 12345
-  store i32 %add.i296, ptr %.pre469476, align 4, !tbaa !147
   br label %if.end121
 
 if.end121:                                        ; preds = %if.else84, %if.then48
-  %add.i296.sink = phi i32 [ %add.i296, %if.else84 ], [ %add.i284, %if.then48 ]
+  %sub107.sink = phi float [ %sub107, %if.else84 ], [ %sub70, %if.then48 ]
+  %add.i292.sink = phi i32 [ %add.i292, %if.else84 ], [ %add.i280, %if.then48 ]
+  %.pre469476.sink = phi ptr [ %.pre469476, %if.else84 ], [ %.pre469, %if.then48 ]
   %conv88.sink = phi i32 [ %conv88.pre-phi, %if.else84 ], [ %conv39, %if.then48 ]
   %div94.sink = phi float [ %div94, %if.else84 ], [ %div58, %if.then48 ]
-  %.pre469477 = phi ptr [ %.pre469476, %if.else84 ], [ %.pre469, %if.then48 ]
-  %vec.sroa.0.0 = phi <2 x float> [ %vec.sroa.0.4.vec.insert426, %if.else84 ], [ %vec.sroa.0.4.vec.insert, %if.then48 ]
   %vec.sroa.19.0 = phi float [ %sub95, %if.else84 ], [ %sub59, %if.then48 ]
-  %div.i297 = sdiv i32 %add.i296.sink, 65536
+  %mul.i295 = mul i32 %add.i292.sink, 1103515245
+  %add.i296 = add i32 %mul.i295, 12345
+  store i32 %add.i296, ptr %.pre469476.sink, align 4, !tbaa !147
+  %div.i297 = sdiv i32 %add.i296, 65536
   %rem.i298 = and i32 %div.i297, 32767
   %rem114 = urem i32 %rem.i298, %conv88.sink
   %conv115 = uitofp nneg i32 %rem114 to float
@@ -2192,8 +2187,7 @@ if.end121:                                        ; preds = %if.else84, %if.then
   %add6.i = add i16 %add8.i, %38
   %add10.i = add i16 %add13.i, %38
   %conv141 = fptosi float %sub119 to i16
-  %vec.sroa.0.4.vec.extract = extractelement <2 x float> %vec.sroa.0.0, i64 1
-  %conv143 = fptosi float %vec.sroa.0.4.vec.extract to i16
+  %conv143 = fptosi float %sub107.sink to i16
   %conv145 = fptosi float %vec.sroa.19.0 to i16
   %add.i316 = add i16 %add.i304, %conv141
   %add8.i319 = add i16 %add6.i, %conv143
@@ -2301,38 +2295,39 @@ if.end152:                                        ; preds = %if.else.i369, %if.t
   %53 = load float, ptr %Z.i376, align 8, !tbaa !130
   %add6.i377 = fadd nsz float %vec.sroa.19.0, %53
   %54 = load <2 x float>, ptr %main_direction153, align 8, !tbaa !70
-  %55 = insertelement <2 x float> %vec.sroa.0.0, float %sub119, i64 0
-  %56 = fadd nsz <2 x float> %55, %54
-  %57 = fadd nsz <2 x float> %30, %56
+  %55 = insertelement <2 x float> poison, float %sub119, i64 0
+  %56 = insertelement <2 x float> %55, float %sub107.sink, i64 1
+  %57 = fadd nsz <2 x float> %56, %54
+  %58 = fadd nsz <2 x float> %30, %57
   %add6.i384 = fadd nsz float %33, %add6.i377
-  %58 = extractelement <2 x float> %57, i64 0
-  %cmp159 = fcmp nsz olt float %58, 0.000000e+00
+  %59 = extractelement <2 x float> %58, i64 0
+  %cmp159 = fcmp nsz olt float %59, 0.000000e+00
   br i1 %cmp159, label %if.then160, label %if.else162
 
 if.then160:                                       ; preds = %if.end152
-  %rp.sroa.0.0.vec.insert = insertelement <2 x float> %57, float 0.000000e+00, i64 0
+  %rp.sroa.0.0.vec.insert = insertelement <2 x float> %58, float 0.000000e+00, i64 0
   br label %if.end176
 
 if.else162:                                       ; preds = %if.end152
   %ar = getelementptr inbounds i8, ptr %this, i64 110
-  %59 = load i16, ptr %ar, align 2, !tbaa !164
-  %conv166 = sitofp i16 %59 to float
-  %cmp167 = fcmp nsz ult float %58, %conv166
+  %60 = load i16, ptr %ar, align 2, !tbaa !164
+  %conv166 = sitofp i16 %60 to float
+  %cmp167 = fcmp nsz ult float %59, %conv166
   br i1 %cmp167, label %if.end176, label %if.then168
 
 if.then168:                                       ; preds = %if.else162
-  %conv165 = sext i16 %59 to i32
+  %conv165 = sext i16 %60 to i32
   %sub172 = add nsw i32 %conv165, -1
   %conv173 = sitofp i32 %sub172 to float
-  %rp.sroa.0.0.vec.insert404 = insertelement <2 x float> %57, float %conv173, i64 0
+  %rp.sroa.0.0.vec.insert404 = insertelement <2 x float> %58, float %conv173, i64 0
   br label %if.end176
 
 if.end176:                                        ; preds = %if.then168, %if.else162, %if.then160
-  %rp.sroa.0.0 = phi <2 x float> [ %rp.sroa.0.0.vec.insert, %if.then160 ], [ %57, %if.else162 ], [ %rp.sroa.0.0.vec.insert404, %if.then168 ]
+  %rp.sroa.0.0 = phi <2 x float> [ %rp.sroa.0.0.vec.insert, %if.then160 ], [ %58, %if.else162 ], [ %rp.sroa.0.0.vec.insert404, %if.then168 ]
   %rp.sroa.0.4.vec.extract = extractelement <2 x float> %rp.sroa.0.0, i64 1
   %route_y_min = getelementptr inbounds i8, ptr %this, i64 132
-  %60 = load i16, ptr %route_y_min, align 4, !tbaa !160
-  %conv179 = sitofp i16 %60 to float
+  %61 = load i16, ptr %route_y_min, align 4, !tbaa !160
+  %conv179 = sitofp i16 %61 to float
   %cmp180 = fcmp nsz olt float %rp.sroa.0.4.vec.extract, %conv179
   br i1 %cmp180, label %if.then181, label %if.else185
 
@@ -2342,13 +2337,13 @@ if.then181:                                       ; preds = %if.end176
 
 if.else185:                                       ; preds = %if.end176
   %route_y_max = getelementptr inbounds i8, ptr %this, i64 134
-  %61 = load i16, ptr %route_y_max, align 2, !tbaa !161
-  %conv188 = sitofp i16 %61 to float
+  %62 = load i16, ptr %route_y_max, align 2, !tbaa !161
+  %conv188 = sitofp i16 %62 to float
   %cmp189 = fcmp nsz ult float %rp.sroa.0.4.vec.extract, %conv188
   br i1 %cmp189, label %if.end197, label %if.then190
 
 if.then190:                                       ; preds = %if.else185
-  %conv187 = sext i16 %61 to i32
+  %conv187 = sext i16 %62 to i32
   %sub193 = add nsw i32 %conv187, -1
   %conv194 = sitofp i32 %sub193 to float
   %rp.sroa.0.4.vec.insert = insertelement <2 x float> %rp.sroa.0.0, float %conv194, i64 1
@@ -2361,36 +2356,36 @@ if.end197:                                        ; preds = %if.then190, %if.els
 
 if.else202:                                       ; preds = %if.end197
   %Z205 = getelementptr inbounds i8, ptr %this, i64 114
-  %62 = load i16, ptr %Z205, align 2, !tbaa !162
-  %conv207 = sitofp i16 %62 to float
+  %63 = load i16, ptr %Z205, align 2, !tbaa !162
+  %conv207 = sitofp i16 %63 to float
   %cmp208 = fcmp nsz ult float %add6.i384, %conv207
   br i1 %cmp208, label %if.end217, label %if.then209
 
 if.then209:                                       ; preds = %if.else202
-  %conv206 = sext i16 %62 to i32
+  %conv206 = sext i16 %63 to i32
   %sub213 = add nsw i32 %conv206, -1
   %conv214 = sitofp i32 %sub213 to float
   br label %if.end217
 
 if.end217:                                        ; preds = %if.then209, %if.else202, %if.end197
   %rp.sroa.12.0 = phi float [ %add6.i384, %if.else202 ], [ %conv214, %if.then209 ], [ 0.000000e+00, %if.end197 ]
-  %63 = fsub nsz <2 x float> %rp.sroa.0.1, %30
+  %64 = fsub nsz <2 x float> %rp.sroa.0.1, %30
   %sub6.i = fsub nsz float %rp.sroa.12.0, %33
-  %64 = fmul nsz <2 x float> %63, %63
-  %mul4.i = extractelement <2 x float> %64, i64 1
-  %65 = extractelement <2 x float> %63, i64 0
-  %66 = tail call nsz float @llvm.fmuladd.f32(float %65, float %65, float %mul4.i)
-  %67 = tail call nsz float @llvm.fmuladd.f32(float %sub6.i, float %sub6.i, float %66)
-  %68 = tail call nsz noundef float @llvm.sqrt.f32(float %67)
-  %cmp223 = fcmp nsz olt float %68, 0x3FA99999A0000000
-  %69 = fdiv nsz float 1.000000e+00, %68
-  %mul.i.i396 = mul i32 %add.i296.sink, 1103515245
+  %65 = fmul nsz <2 x float> %64, %64
+  %mul4.i = extractelement <2 x float> %65, i64 1
+  %66 = extractelement <2 x float> %64, i64 0
+  %67 = tail call nsz float @llvm.fmuladd.f32(float %66, float %66, float %mul4.i)
+  %68 = tail call nsz float @llvm.fmuladd.f32(float %sub6.i, float %sub6.i, float %67)
+  %69 = tail call nsz noundef float @llvm.sqrt.f32(float %68)
+  %cmp223 = fcmp nsz olt float %69, 0x3FA99999A0000000
+  %70 = fdiv nsz float 1.000000e+00, %69
+  %mul.i.i396 = mul i32 %add.i296, 1103515245
   %add.i.i397 = add i32 %mul.i.i396, 12345
-  store i32 %add.i.i397, ptr %.pre469477, align 4, !tbaa !147
+  store i32 %add.i.i397, ptr %.pre469476.sink, align 4, !tbaa !147
   %div.i.i398 = sdiv i32 %add.i.i397, 65536
   %rem49.i400 = and i32 %div.i.i398, 1
   %cmp228 = icmp eq i32 %rem49.i400, 0
-  %div233 = select i1 %cmp223, float 1.000000e+00, float %69
+  %div233 = select i1 %cmp223, float 1.000000e+00, float %70
   br label %for.body
 
 for.cond.cleanup:                                 ; preds = %for.body
@@ -2400,7 +2395,7 @@ for.cond.cleanup:                                 ; preds = %for.body
 
 for.body:                                         ; preds = %for.body, %if.end217
   %f.0467 = phi float [ 0.000000e+00, %if.end217 ], [ %add, %for.body ]
-  tail call void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr noundef nonnull align 8 dereferenceable(150) %this, <2 x float> %63, float %sub6.i, float noundef %f.0467, i1 noundef zeroext %cmp228)
+  tail call void @_ZN15CavesRandomWalk10carveRouteEN3irr4core8vector3dIfEEfb(ptr noundef nonnull align 8 dereferenceable(150) %this, <2 x float> %64, float %sub6.i, float noundef %f.0467, i1 noundef zeroext %cmp228)
   %add = fadd nsz float %div233, %f.0467
   %cmp230 = fcmp nsz olt float %add, 1.000000e+00
   br i1 %cmp230, label %for.body, label %for.cond.cleanup, !llvm.loop !173

@@ -497,7 +497,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @r_remove_second_order_pref
   br label %.sink.split
 
 .sink.split:                                      ; preds = %38, %32, %27, %21
-  %.sink = phi ptr [ %39, %38 ], [ %33, %32 ], [ %28, %27 ], [ %22, %21 ]
+  %.sink = phi ptr [ %22, %21 ], [ %28, %27 ], [ %33, %32 ], [ %39, %38 ]
   %41 = load ptr, ptr %.sink, align 8
   %42 = getelementptr i8, ptr %41, i64 4
   %43 = load i32, ptr %42, align 4

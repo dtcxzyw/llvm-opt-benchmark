@@ -3154,26 +3154,26 @@ sw.bb26.i592:                                     ; preds = %_ZNK25btHeightfield
 if.end57.sink.split:                              ; preds = %sw.bb26.i592, %sw.bb9.i612, %sw.bb.i624, %entry.sw.epilog_crit_edge.i636, %sw.bb26.i262, %sw.bb9.i282, %sw.bb.i294, %entry.sw.epilog_crit_edge.i306
   %.sink669 = phi ptr [ %177, %entry.sw.epilog_crit_edge.i306 ], [ %177, %sw.bb.i294 ], [ %177, %sw.bb9.i282 ], [ %177, %sw.bb26.i262 ], [ %378, %entry.sw.epilog_crit_edge.i636 ], [ %378, %sw.bb.i624 ], [ %378, %sw.bb9.i612 ], [ %378, %sw.bb26.i592 ]
   %.sink667 = phi float [ %.pre.i307, %entry.sw.epilog_crit_edge.i306 ], [ %sub.i296, %sw.bb.i294 ], [ %189, %sw.bb9.i282 ], [ %198, %sw.bb26.i262 ], [ %.pre.i637, %entry.sw.epilog_crit_edge.i636 ], [ %sub.i626, %sw.bb.i624 ], [ %390, %sw.bb9.i612 ], [ %399, %sw.bb26.i592 ]
-  %arrayidx17.sink = phi ptr [ %arrayidx17, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx17, %sw.bb.i294 ], [ %arrayidx17, %sw.bb9.i282 ], [ %arrayidx17, %sw.bb26.i262 ], [ %arrayidx38, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx38, %sw.bb.i624 ], [ %arrayidx38, %sw.bb9.i612 ], [ %arrayidx38, %sw.bb26.i592 ]
-  %arrayidx7.i20.i112.sink = phi ptr [ %arrayidx7.i20.i112, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx7.i20.i112, %sw.bb.i294 ], [ %arrayidx7.i20.i112, %sw.bb9.i282 ], [ %arrayidx7.i20.i112, %sw.bb26.i262 ], [ %arrayidx7.i20.i442, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx7.i20.i442, %sw.bb.i624 ], [ %arrayidx7.i20.i442, %sw.bb9.i612 ], [ %arrayidx7.i20.i442, %sw.bb26.i592 ]
-  %arrayidx12.i.i115.sink = phi ptr [ %arrayidx12.i.i115, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx12.i.i115, %sw.bb.i294 ], [ %arrayidx12.i.i115, %sw.bb9.i282 ], [ %arrayidx12.i.i115, %sw.bb26.i262 ], [ %arrayidx12.i.i445, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx12.i.i445, %sw.bb.i624 ], [ %arrayidx12.i.i445, %sw.bb9.i612 ], [ %arrayidx12.i.i445, %sw.bb26.i592 ]
-  %callback.sink = phi ptr [ %callback, %entry.sw.epilog_crit_edge.i306 ], [ %callback, %sw.bb.i294 ], [ %callback, %sw.bb9.i282 ], [ %callback, %sw.bb26.i262 ], [ %callback39, %entry.sw.epilog_crit_edge.i636 ], [ %callback39, %sw.bb.i624 ], [ %callback39, %sw.bb9.i612 ], [ %callback39, %sw.bb26.i592 ]
+  %arrayidx38.sink = phi ptr [ %arrayidx17, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx17, %sw.bb.i294 ], [ %arrayidx17, %sw.bb9.i282 ], [ %arrayidx17, %sw.bb26.i262 ], [ %arrayidx38, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx38, %sw.bb.i624 ], [ %arrayidx38, %sw.bb9.i612 ], [ %arrayidx38, %sw.bb26.i592 ]
+  %arrayidx7.i20.i442.sink = phi ptr [ %arrayidx7.i20.i112, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx7.i20.i112, %sw.bb.i294 ], [ %arrayidx7.i20.i112, %sw.bb9.i282 ], [ %arrayidx7.i20.i112, %sw.bb26.i262 ], [ %arrayidx7.i20.i442, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx7.i20.i442, %sw.bb.i624 ], [ %arrayidx7.i20.i442, %sw.bb9.i612 ], [ %arrayidx7.i20.i442, %sw.bb26.i592 ]
+  %arrayidx12.i.i445.sink = phi ptr [ %arrayidx12.i.i115, %entry.sw.epilog_crit_edge.i306 ], [ %arrayidx12.i.i115, %sw.bb.i294 ], [ %arrayidx12.i.i115, %sw.bb9.i282 ], [ %arrayidx12.i.i115, %sw.bb26.i262 ], [ %arrayidx12.i.i445, %entry.sw.epilog_crit_edge.i636 ], [ %arrayidx12.i.i445, %sw.bb.i624 ], [ %arrayidx12.i.i445, %sw.bb9.i612 ], [ %arrayidx12.i.i445, %sw.bb26.i592 ]
+  %callback39.sink = phi ptr [ %callback, %entry.sw.epilog_crit_edge.i306 ], [ %callback, %sw.bb.i294 ], [ %callback, %sw.bb9.i282 ], [ %callback, %sw.bb26.i262 ], [ %callback39, %entry.sw.epilog_crit_edge.i636 ], [ %callback39, %sw.bb.i624 ], [ %callback39, %sw.bb9.i612 ], [ %callback39, %sw.bb26.i592 ]
   %407 = phi <2 x float> [ %180, %entry.sw.epilog_crit_edge.i306 ], [ %187, %sw.bb.i294 ], [ %196, %sw.bb9.i282 ], [ %205, %sw.bb26.i262 ], [ %381, %entry.sw.epilog_crit_edge.i636 ], [ %388, %sw.bb.i624 ], [ %397, %sw.bb9.i612 ], [ %406, %sw.bb26.i592 ]
-  %m_localScaling.i274 = getelementptr inbounds i8, ptr %.sink669, i64 132
-  %408 = load float, ptr %m_localScaling.i274, align 4
-  %mul.i.i275 = fmul float %.sink667, %408
-  store float %mul.i.i275, ptr %arrayidx17.sink, align 4
-  %arrayidx5.i19.i276 = getelementptr inbounds i8, ptr %.sink669, i64 136
-  %409 = load float, ptr %arrayidx5.i19.i276, align 4
+  %m_localScaling.i604 = getelementptr inbounds i8, ptr %.sink669, i64 132
+  %408 = load float, ptr %m_localScaling.i604, align 4
+  %mul.i.i605 = fmul float %.sink667, %408
+  store float %mul.i.i605, ptr %arrayidx38.sink, align 4
+  %arrayidx5.i19.i606 = getelementptr inbounds i8, ptr %.sink669, i64 136
+  %409 = load float, ptr %arrayidx5.i19.i606, align 4
   %410 = extractelement <2 x float> %407, i64 0
-  %mul8.i.i278 = fmul float %410, %409
-  store float %mul8.i.i278, ptr %arrayidx7.i20.i112.sink, align 4
-  %arrayidx10.i.i279 = getelementptr inbounds i8, ptr %.sink669, i64 140
-  %411 = load float, ptr %arrayidx10.i.i279, align 4
+  %mul8.i.i608 = fmul float %410, %409
+  store float %mul8.i.i608, ptr %arrayidx7.i20.i442.sink, align 4
+  %arrayidx10.i.i609 = getelementptr inbounds i8, ptr %.sink669, i64 140
+  %411 = load float, ptr %arrayidx10.i.i609, align 4
   %412 = extractelement <2 x float> %407, i64 1
-  %mul13.i.i281 = fmul float %412, %411
-  store float %mul13.i.i281, ptr %arrayidx12.i.i115.sink, align 4
-  %413 = load ptr, ptr %callback.sink, align 8
+  %mul13.i.i611 = fmul float %412, %411
+  store float %mul13.i.i611, ptr %arrayidx12.i.i445.sink, align 4
+  %413 = load ptr, ptr %callback39.sink, align 8
   %vtable55 = load ptr, ptr %413, align 8
   %vfn56 = getelementptr inbounds i8, ptr %vtable55, i64 16
   %414 = load ptr, ptr %vfn56, align 8

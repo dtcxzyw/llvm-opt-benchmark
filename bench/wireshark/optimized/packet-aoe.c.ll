@@ -439,9 +439,9 @@ proto_item_set_generated.exit.i.i:                ; preds = %118, %115, %112
   br i1 %.not5.i121.i.i, label %proto_item_set_generated.exit119.i.i, label %proto_item_set_generated.exit119.sink.split.i.i
 
 proto_item_set_generated.exit119.sink.split.i.i:  ; preds = %135, %126
-  %.sink148.i.i = phi ptr [ %128, %126 ], [ %137, %135 ]
+  %.sink144.i.i = phi ptr [ %128, %126 ], [ %137, %135 ]
   %.0129.ph.i.i = phi ptr [ %.0128141.i.i, %126 ], [ %.0128137.i.i, %135 ]
-  %138 = getelementptr inbounds i8, ptr %.sink148.i.i, i64 28
+  %138 = getelementptr inbounds i8, ptr %.sink144.i.i, i64 28
   %139 = load i32, ptr %138, align 4
   %140 = or i32 %139, 2
   store i32 %140, ptr %138, align 4
@@ -529,10 +529,10 @@ proto_item_set_generated.exit125.i.i:             ; preds = %181, %178, %172
 
 .sink.split.i.i:                                  ; preds = %proto_item_set_generated.exit125.i.i, %161
   %.sink147.i.i = phi i8 [ %186, %proto_item_set_generated.exit125.i.i ], [ %165, %161 ]
-  %.sink144.i.i = phi ptr [ %185, %proto_item_set_generated.exit125.i.i ], [ %164, %161 ]
+  %.sink.i.i = phi ptr [ %185, %proto_item_set_generated.exit125.i.i ], [ %164, %161 ]
   %187 = zext i8 %.sink147.i.i to i32
   %188 = call ptr @val_to_str(i32 noundef %187, ptr noundef nonnull @ata_cmd_vals, ptr noundef nonnull @.str.141) #6
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.sink144.i.i, i32 noundef 25, ptr noundef nonnull @.str.140, ptr noundef %188) #6
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.sink.i.i, i32 noundef 25, ptr noundef nonnull @.str.140, ptr noundef %188) #6
   br label %dissect_ata_pdu.exit.i
 
 dissect_ata_pdu.exit.i:                           ; preds = %.sink.split.i.i, %169, %166

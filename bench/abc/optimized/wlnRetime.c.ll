@@ -2337,7 +2337,7 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
   %5 = getelementptr inbounds i32, ptr %.val43, i64 %4
   %6 = load i32, ptr %5, align 4
   %7 = icmp sgt i32 %6, -1
-  br i1 %7, label %58, label %8
+  br i1 %7, label %56, label %8
 
 8:                                                ; preds = %2
   store i32 0, ptr %5, align 4
@@ -2353,11 +2353,11 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
   %14 = getelementptr i8, ptr %0, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %45
-  %16 = phi i32 [ 0, %.lr.ph ], [ %46, %45 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
-  %.val4251 = phi ptr [ %.val4249, %.lr.ph ], [ %.val42, %45 ]
-  %17 = phi ptr [ %9, %.lr.ph ], [ %47, %45 ]
+15:                                               ; preds = %.lr.ph, %43
+  %16 = phi i32 [ 0, %.lr.ph ], [ %44, %43 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
+  %.val4251 = phi ptr [ %.val4249, %.lr.ph ], [ %.val42, %43 ]
+  %17 = phi ptr [ %9, %.lr.ph ], [ %45, %43 ]
   %.val45 = load ptr, ptr %14, align 8
   %18 = getelementptr inbounds i32, ptr %.val45, i64 %4
   %19 = load i32, ptr %18, align 4
@@ -2368,7 +2368,7 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds i8, ptr %23, i64 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %45, label %26
+  br i1 %.not, label %43, label %26
 
 26:                                               ; preds = %15
   %27 = sext i32 %24 to i64
@@ -2383,7 +2383,7 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
   %32 = getelementptr inbounds i32, ptr %.val46, i64 %27
   %33 = load i32, ptr %32, align 4
   %.not48 = icmp eq i32 %33, 3
-  br i1 %.not48, label %._crit_edge, label %45
+  br i1 %.not48, label %._crit_edge, label %43
 
 ._crit_edge:                                      ; preds = %26, %31
   %34 = getelementptr inbounds i32, ptr %.val46, i64 %4
@@ -2391,51 +2391,47 @@ define i32 @Wln_RetPropDelay_rec(ptr nocapture noundef readonly %0, i32 noundef 
   %36 = icmp eq i32 %35, 89
   %37 = icmp ne i64 %indvars.iv, 0
   %or.cond = and i1 %37, %36
-  br i1 %or.cond, label %45, label %38
+  br i1 %or.cond, label %43, label %38
 
 38:                                               ; preds = %._crit_edge
   %39 = load i32, ptr %25, align 4
   %.not40 = icmp eq i32 %39, 0
-  br i1 %.not40, label %42, label %40
+  br i1 %.not40, label %40, label %.sink.split
 
 40:                                               ; preds = %38
-  %41 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 0)
+  %41 = tail call i32 @Wln_RetPropDelay_rec(ptr noundef nonnull %0, i32 noundef %24)
   br label %.sink.split
 
-42:                                               ; preds = %38
-  %43 = tail call i32 @Wln_RetPropDelay_rec(ptr noundef nonnull %0, i32 noundef %24)
-  %44 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 %43)
-  br label %.sink.split
+.sink.split:                                      ; preds = %38, %40
+  %.sink54 = phi i32 [ %41, %40 ], [ 0, %38 ]
+  %42 = tail call noundef i32 @llvm.smax.i32(i32 %16, i32 %.sink54)
+  store i32 %42, ptr %5, align 4
+  br label %43
 
-.sink.split:                                      ; preds = %40, %42
-  %.sink = phi i32 [ %44, %42 ], [ %41, %40 ]
-  store i32 %.sink, ptr %5, align 4
-  br label %45
-
-45:                                               ; preds = %.sink.split, %31, %15, %._crit_edge
-  %46 = phi i32 [ %16, %31 ], [ %16, %15 ], [ %16, %._crit_edge ], [ %.sink, %.sink.split ]
+43:                                               ; preds = %.sink.split, %31, %15, %._crit_edge
+  %44 = phi i32 [ %16, %31 ], [ %16, %15 ], [ %16, %._crit_edge ], [ %42, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %47 = load ptr, ptr %0, align 8
-  %48 = getelementptr i8, ptr %47, i64 88
-  %.val42 = load ptr, ptr %48, align 8
-  %49 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val42, i64 %4, i32 1
-  %50 = load i32, ptr %49, align 4
-  %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next, %51
-  br i1 %52, label %15, label %.critedge, !llvm.loop !25
+  %45 = load ptr, ptr %0, align 8
+  %46 = getelementptr i8, ptr %45, i64 88
+  %.val42 = load ptr, ptr %46, align 8
+  %47 = getelementptr inbounds %struct.Wln_Vec_t_, ptr %.val42, i64 %4, i32 1
+  %48 = load i32, ptr %47, align 4
+  %49 = sext i32 %48 to i64
+  %50 = icmp slt i64 %indvars.iv.next, %49
+  br i1 %50, label %15, label %.critedge, !llvm.loop !25
 
-.critedge:                                        ; preds = %45, %8
-  %53 = phi i32 [ 0, %8 ], [ %46, %45 ]
-  %54 = getelementptr i8, ptr %0, i64 80
-  %.val = load ptr, ptr %54, align 8
-  %55 = getelementptr inbounds i32, ptr %.val, i64 %4
-  %56 = load i32, ptr %55, align 4
-  %57 = add nsw i32 %53, %56
-  store i32 %57, ptr %5, align 4
-  br label %58
+.critedge:                                        ; preds = %43, %8
+  %51 = phi i32 [ 0, %8 ], [ %44, %43 ]
+  %52 = getelementptr i8, ptr %0, i64 80
+  %.val = load ptr, ptr %52, align 8
+  %53 = getelementptr inbounds i32, ptr %.val, i64 %4
+  %54 = load i32, ptr %53, align 4
+  %55 = add nsw i32 %51, %54
+  store i32 %55, ptr %5, align 4
+  br label %56
 
-58:                                               ; preds = %2, %.critedge
-  %.0 = phi i32 [ %57, %.critedge ], [ %6, %2 ]
+56:                                               ; preds = %2, %.critedge
+  %.0 = phi i32 [ %55, %.critedge ], [ %6, %2 ]
   ret i32 %.0
 }
 

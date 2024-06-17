@@ -2167,12 +2167,12 @@ if.then10:                                        ; preds = %for.body
 
 if.end13.sink.split:                              ; preds = %for.body, %if.then10
   %.sink = phi i32 [ 1, %if.then10 ], [ 2, %for.body ]
-  %add = add nsw i32 %2, %.sink
-  store i32 %add, ptr %info, align 4
+  %add12 = add nsw i32 %2, %.sink
+  store i32 %add12, ptr %info, align 4
   br label %if.end13
 
 if.end13:                                         ; preds = %if.end13.sink.split, %for.body
-  %4 = phi i32 [ %2, %for.body ], [ %add, %if.end13.sink.split ]
+  %4 = phi i32 [ %2, %for.body ], [ %add12, %if.end13.sink.split ]
   %arrayidx16 = getelementptr inbounds [3 x i8], ptr %m_enableMotor, i64 0, i64 %indvars.iv
   %5 = load i8, ptr %arrayidx16, align 1
   %tobool = trunc i8 %5 to i1
@@ -3875,13 +3875,13 @@ sw.bb62:                                          ; preds = %if.then33
   br label %if.end75.sink.split
 
 if.end75.sink.split:                              ; preds = %sw.bb21, %sw.bb12, %sw.bb3, %sw.bb, %sw.bb34, %sw.bb42, %sw.bb52, %sw.bb62
-  %.sink = phi i32 [ 4, %sw.bb21 ], [ 8, %sw.bb12 ], [ 1, %sw.bb3 ], [ 2, %sw.bb ], [ 2, %sw.bb34 ], [ 1, %sw.bb42 ], [ 8, %sw.bb52 ], [ 4, %sw.bb62 ]
-  %mul26 = shl nuw nsw i32 %axis, 2
-  %shl27 = shl nuw nsw i32 %.sink, %mul26
-  %m_flags28 = getelementptr inbounds i8, ptr %this, i64 1480
-  %1 = load i32, ptr %m_flags28, align 8
-  %or71 = or i32 %1, %shl27
-  store i32 %or71, ptr %m_flags28, align 8
+  %.sink = phi i32 [ 4, %sw.bb62 ], [ 8, %sw.bb52 ], [ 1, %sw.bb42 ], [ 2, %sw.bb34 ], [ 2, %sw.bb ], [ 1, %sw.bb3 ], [ 8, %sw.bb12 ], [ 4, %sw.bb21 ]
+  %mul68 = shl nuw nsw i32 %axis, 2
+  %shl69 = shl nuw nsw i32 %.sink, %mul68
+  %m_flags70 = getelementptr inbounds i8, ptr %this, i64 1480
+  %1 = load i32, ptr %m_flags70, align 8
+  %or71 = or i32 %1, %shl69
+  store i32 %or71, ptr %m_flags70, align 8
   br label %if.end75
 
 if.end75:                                         ; preds = %if.end75.sink.split, %if.then33, %if.else, %if.then

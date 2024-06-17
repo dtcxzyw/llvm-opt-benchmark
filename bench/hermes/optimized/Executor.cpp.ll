@@ -3321,13 +3321,13 @@ sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb4, %sw.bb
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %sw.bb12
-  %sub.i47.sink.in = phi i32 [ %1, %sw.bb12 ], [ %21, %sw.epilog.sink.split.sink.split ]
-  %sub.i47.sink = add i32 %sub.i47.sink.in, -1
-  store i32 %sub.i47.sink, ptr %Size.i, align 8
+  %.sink = phi i32 [ %1, %sw.bb12 ], [ %21, %sw.epilog.sink.split.sink.split ]
+  %sub.i47 = add i32 %.sink, -1
+  store i32 %sub.i47, ptr %Size.i, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %while.body
-  %22 = phi i32 [ %1, %while.body ], [ %sub.i47.sink, %sw.epilog.sink.split ]
+  %22 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
   %tobool.not.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !12
 
@@ -6316,13 +6316,13 @@ sw.epilog.sink.split.sink.split:                  ; preds = %sw.bb4, %sw.bb
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %sw.bb12
-  %sub.i47.sink.in = phi i32 [ %1, %sw.bb12 ], [ %21, %sw.epilog.sink.split.sink.split ]
-  %sub.i47.sink = add i32 %sub.i47.sink.in, -1
-  store i32 %sub.i47.sink, ptr %Size.i, align 8
+  %.sink = phi i32 [ %1, %sw.bb12 ], [ %21, %sw.epilog.sink.split.sink.split ]
+  %sub.i47 = add i32 %.sink, -1
+  store i32 %sub.i47, ptr %Size.i, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %while.body
-  %22 = phi i32 [ %1, %while.body ], [ %sub.i47.sink, %sw.epilog.sink.split ]
+  %22 = phi i32 [ %1, %while.body ], [ %sub.i47, %sw.epilog.sink.split ]
   %tobool.not.i = icmp eq i32 %22, 0
   br i1 %tobool.not.i, label %return, label %while.body, !llvm.loop !27
 

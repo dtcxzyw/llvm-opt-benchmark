@@ -617,12 +617,12 @@ _ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i: ; preds = %if.then59.i.i
   br i1 %cmp.i62.i.i, label %if.then.i66.i.invoke.sink.split.i, label %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit68.i.i
 
 if.then.i66.i.invoke.sink.split.i:                ; preds = %_ZN3ue2L14make_u64a_maskERKSt6vectorIhSaIhEE.exit.i.i, %if.then59.i.i
-  %exception.i67.i.i = call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !7
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i67.i.i, align 8, !noalias !7
+  %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #18, !noalias !7
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i.i.i, align 8, !noalias !7
   br label %if.then.i66.i.invoke.i
 
 if.then.i66.i.invoke.i:                           ; preds = %if.then.i66.i.invoke.sink.split.i, %if.then.i.i.i.i
-  %49 = phi ptr [ %exception.i.i.i.i, %if.then.i.i.i.i ], [ %exception.i67.i.i, %if.then.i66.i.invoke.sink.split.i ]
+  %49 = phi ptr [ %exception.i.i.i.i, %if.then.i.i.i.i ], [ %exception.i.i.i, %if.then.i66.i.invoke.sink.split.i ]
   %50 = phi ptr [ @_ZTIN3ue218ResourceLimitErrorE, %if.then.i.i.i.i ], [ @_ZTISt9exception, %if.then.i66.i.invoke.sink.split.i ]
   %51 = phi ptr [ @_ZN3ue218ResourceLimitErrorD1Ev, %if.then.i.i.i.i ], [ @_ZNSt9exceptionD1Ev, %if.then.i66.i.invoke.sink.split.i ]
   invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull %50, ptr nonnull %51) #15

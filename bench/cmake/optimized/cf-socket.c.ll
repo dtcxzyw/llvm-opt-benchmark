@@ -1931,7 +1931,7 @@ define internal fastcc void @set_local_ip(ptr %.16.val, ptr noundef %0) unnamed_
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 2048
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %12, label %29
+  br i1 %.not, label %12, label %24
 
 12:                                               ; preds = %1
   store i32 128, ptr %4, align 4
@@ -1940,30 +1940,24 @@ define internal fastcc void @set_local_ip(ptr %.16.val, ptr noundef %0) unnamed_
   %14 = load i32, ptr %13, align 8
   %15 = call i32 @getsockname(i32 noundef %14, ptr noundef nonnull %3, ptr noundef nonnull %4) #13
   %.not9 = icmp eq i32 %15, 0
-  br i1 %.not9, label %20, label %16
+  br i1 %.not9, label %16, label %.sink.split
 
 16:                                               ; preds = %12
-  %17 = tail call ptr @__errno_location() #14
-  %18 = load i32, ptr %17, align 4
-  %19 = call ptr @Curl_strerror(i32 noundef %18, ptr noundef nonnull %2, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.26, i32 noundef %18, ptr noundef %19) #13
-  br label %29
+  %17 = load i32, ptr %4, align 4
+  %18 = getelementptr inbounds i8, ptr %.16.val, i64 276
+  %19 = getelementptr inbounds i8, ptr %.16.val, i64 324
+  %20 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %3, i32 noundef %17, ptr noundef nonnull %18, ptr noundef nonnull %19) #13
+  br i1 %20, label %24, label %.sink.split
 
-20:                                               ; preds = %12
-  %21 = load i32, ptr %4, align 4
-  %22 = getelementptr inbounds i8, ptr %.16.val, i64 276
-  %23 = getelementptr inbounds i8, ptr %.16.val, i64 324
-  %24 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %3, i32 noundef %21, ptr noundef nonnull %22, ptr noundef nonnull %23) #13
-  br i1 %24, label %29, label %25
+.sink.split:                                      ; preds = %16, %12
+  %.str.52.sink = phi ptr [ @.str.26, %12 ], [ @.str.52, %16 ]
+  %21 = tail call ptr @__errno_location() #14
+  %22 = load i32, ptr %21, align 4
+  %23 = call ptr @Curl_strerror(i32 noundef %22, ptr noundef nonnull %2, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull %.str.52.sink, i32 noundef %22, ptr noundef %23) #13
+  br label %24
 
-25:                                               ; preds = %20
-  %26 = tail call ptr @__errno_location() #14
-  %27 = load i32, ptr %26, align 4
-  %28 = call ptr @Curl_strerror(i32 noundef %27, ptr noundef nonnull %2, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.52, i32 noundef %27, ptr noundef %28) #13
-  br label %29
-
-29:                                               ; preds = %1, %20, %25, %16
+24:                                               ; preds = %.sink.split, %1, %16
   ret void
 }
 
@@ -1981,12 +1975,12 @@ define dso_local range(i32 0, 3) i32 @Curl_conn_tcp_accepted_set(ptr noundef %0,
   %10 = getelementptr inbounds [2 x ptr], ptr %8, i64 0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %71, label %12
+  br i1 %.not, label %66, label %12
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %11, align 8
   %.not33 = icmp eq ptr %13, @Curl_cft_tcp_accept
-  br i1 %.not33, label %14, label %71
+  br i1 %.not33, label %14, label %66
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds i8, ptr %11, i64 16
@@ -2032,75 +2026,69 @@ socket_close.exit:                                ; preds = %21, %26
   %34 = load i32, ptr %33, align 8
   %35 = call i32 @getpeername(i32 noundef %34, ptr noundef nonnull %6, ptr noundef nonnull %7) #13
   %.not.i37 = icmp eq i32 %35, 0
-  br i1 %.not.i37, label %40, label %36
+  br i1 %.not.i37, label %36, label %.sink.split.i
 
 36:                                               ; preds = %socket_close.exit
-  %37 = tail call ptr @__errno_location() #14
-  %38 = load i32, ptr %37, align 4
-  %39 = call ptr @Curl_strerror(i32 noundef %38, ptr noundef nonnull %5, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.53, i32 noundef %38, ptr noundef %39) #13
+  %37 = load i32, ptr %7, align 4
+  %38 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %6, i32 noundef %37, ptr noundef nonnull %31, ptr noundef nonnull %32) #13
+  br i1 %38, label %set_accepted_remote_ip.exit, label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %36, %socket_close.exit
+  %.str.54.sink.i = phi ptr [ @.str.53, %socket_close.exit ], [ @.str.54, %36 ]
+  %39 = tail call ptr @__errno_location() #14
+  %40 = load i32, ptr %39, align 4
+  %41 = call ptr @Curl_strerror(i32 noundef %40, ptr noundef nonnull %5, i64 noundef 256) #13
+  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull %.str.54.sink.i, i32 noundef %40, ptr noundef %41) #13
   br label %set_accepted_remote_ip.exit
 
-40:                                               ; preds = %socket_close.exit
-  %41 = load i32, ptr %7, align 4
-  %42 = call zeroext i1 @Curl_addr2string(ptr noundef nonnull %6, i32 noundef %41, ptr noundef nonnull %31, ptr noundef nonnull %32) #13
-  br i1 %42, label %set_accepted_remote_ip.exit, label %43
-
-43:                                               ; preds = %40
-  %44 = tail call ptr @__errno_location() #14
-  %45 = load i32, ptr %44, align 4
-  %46 = call ptr @Curl_strerror(i32 noundef %45, ptr noundef nonnull %5, i64 noundef 256) #13
-  call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.54, i32 noundef %45, ptr noundef %46) #13
-  br label %set_accepted_remote_ip.exit
-
-set_accepted_remote_ip.exit:                      ; preds = %36, %40, %43
+set_accepted_remote_ip.exit:                      ; preds = %36, %.sink.split.i
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   %.val = load ptr, ptr %15, align 8
   call fastcc void @set_local_ip(ptr %.val, ptr noundef %0)
-  %47 = getelementptr inbounds i8, ptr %16, i64 380
-  %48 = load i8, ptr %47, align 4
-  %49 = or i8 %48, 10
-  store i8 %49, ptr %47, align 4
-  %50 = getelementptr inbounds i8, ptr %16, i64 344
-  %51 = call { i64, i32 } @Curl_now() #13
-  %52 = extractvalue { i64, i32 } %51, 0
-  %53 = extractvalue { i64, i32 } %51, 1
-  store i64 %52, ptr %50, align 8
+  %42 = getelementptr inbounds i8, ptr %16, i64 380
+  %43 = load i8, ptr %42, align 4
+  %44 = or i8 %43, 10
+  store i8 %44, ptr %42, align 4
+  %45 = getelementptr inbounds i8, ptr %16, i64 344
+  %46 = call { i64, i32 } @Curl_now() #13
+  %47 = extractvalue { i64, i32 } %46, 0
+  %48 = extractvalue { i64, i32 } %46, 1
+  store i64 %47, ptr %45, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %16, i64 352
-  store i32 %53, ptr %.sroa.2.0..sroa_idx, align 8
-  %54 = getelementptr inbounds i8, ptr %11, i64 36
-  %55 = load i8, ptr %54, align 4
-  %56 = or i8 %55, 1
-  store i8 %56, ptr %54, align 4
+  store i32 %48, ptr %.sroa.2.0..sroa_idx, align 8
+  %49 = getelementptr inbounds i8, ptr %11, i64 36
+  %50 = load i8, ptr %49, align 4
+  %51 = or i8 %50, 1
+  store i8 %51, ptr %49, align 4
   %.not34 = icmp eq ptr %0, null
-  br i1 %.not34, label %71, label %57
+  br i1 %.not34, label %66, label %52
 
-57:                                               ; preds = %set_accepted_remote_ip.exit
-  %58 = getelementptr inbounds i8, ptr %0, i64 2642
-  %59 = load i64, ptr %58, align 2
-  %60 = and i64 %59, 268435456
-  %.not35 = icmp eq i64 %60, 0
-  br i1 %.not35, label %71, label %61
+52:                                               ; preds = %set_accepted_remote_ip.exit
+  %53 = getelementptr inbounds i8, ptr %0, i64 2642
+  %54 = load i64, ptr %53, align 2
+  %55 = and i64 %54, 268435456
+  %.not35 = icmp eq i64 %55, 0
+  br i1 %.not35, label %66, label %56
 
-61:                                               ; preds = %57
-  %62 = load ptr, ptr %11, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 12
-  %64 = load i32, ptr %63, align 4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %66, label %71
+56:                                               ; preds = %52
+  %57 = load ptr, ptr %11, align 8
+  %58 = getelementptr inbounds i8, ptr %57, i64 12
+  %59 = load i32, ptr %58, align 4
+  %60 = icmp sgt i32 %59, 0
+  br i1 %60, label %61, label %66
 
-66:                                               ; preds = %61
-  %67 = load i32, ptr %17, align 8
-  %68 = getelementptr inbounds i8, ptr %16, i64 224
-  %69 = getelementptr inbounds i8, ptr %16, i64 272
-  %70 = load i32, ptr %69, align 8
-  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %67, ptr noundef nonnull %68, i32 noundef %70) #13
-  br label %71
+61:                                               ; preds = %56
+  %62 = load i32, ptr %17, align 8
+  %63 = getelementptr inbounds i8, ptr %16, i64 224
+  %64 = getelementptr inbounds i8, ptr %16, i64 272
+  %65 = load i32, ptr %64, align 8
+  call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %62, ptr noundef nonnull %63, i32 noundef %65) #13
+  br label %66
 
-71:                                               ; preds = %66, %61, %57, %set_accepted_remote_ip.exit, %4, %12
-  %.0 = phi i32 [ 2, %12 ], [ 2, %4 ], [ 0, %set_accepted_remote_ip.exit ], [ 0, %57 ], [ 0, %61 ], [ 0, %66 ]
+66:                                               ; preds = %61, %56, %52, %set_accepted_remote_ip.exit, %4, %12
+  %.0 = phi i32 [ 2, %12 ], [ 2, %4 ], [ 0, %set_accepted_remote_ip.exit ], [ 0, %52 ], [ 0, %56 ], [ 0, %61 ]
   ret i32 %.0
 }
 

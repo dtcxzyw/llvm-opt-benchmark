@@ -4370,10 +4370,10 @@ invoke.cont59:                                    ; preds = %land.lhs.true
 
 while.cond.backedge.sink.split:                   ; preds = %invoke.cont59, %while.end
   %20 = load ptr, ptr %m_frame_stack.i, align 8
-  %arrayidx.i68 = getelementptr inbounds i8, ptr %20, i64 -4
-  %21 = load i32, ptr %arrayidx.i68, align 4
+  %arrayidx.i39 = getelementptr inbounds i8, ptr %20, i64 -4
+  %21 = load i32, ptr %arrayidx.i39, align 4
   %dec.i = add i32 %21, -1
-  store i32 %dec.i, ptr %arrayidx.i68, align 4
+  store i32 %dec.i, ptr %arrayidx.i39, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %while.cond.backedge.sink.split, %if.then76

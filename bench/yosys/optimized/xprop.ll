@@ -86328,8 +86328,8 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i496: ; preds = %1272, %1268
   br i1 %1284, label %.lr.ph673, label %.loopexit587, !llvm.loop !677
 
 .loopexit587.sink.split:                          ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i496, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i490
-  %.sink = phi ptr [ %1248, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i490 ], [ %1274, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i496 ]
-  %1285 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %.sink, i64 %indvars.iv771
+  %.sink864 = phi ptr [ %1248, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i490 ], [ %1274, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i496 ]
+  %1285 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %.sink864, i64 %indvars.iv771
   %.sroa.042.0.copyload = load ptr, ptr %1285, align 8
   %.sroa.243.0..sroa_idx = getelementptr inbounds i8, ptr %1285, i64 8
   %.sroa.243.0.copyload = load i32, ptr %.sroa.243.0..sroa_idx, align 8

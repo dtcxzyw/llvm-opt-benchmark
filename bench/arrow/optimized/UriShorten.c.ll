@@ -295,18 +295,18 @@ if.then118.i:                                     ; preds = %if.else111.i
   br i1 %cmp.i79.i, label %if.then7, label %if.end126.sink.split.i
 
 if.end126.sink.split.i:                           ; preds = %if.then118.i, %if.then105.i
-  %call.i66.sink154.i = phi ptr [ %call.i66.i, %if.then105.i ], [ %call.i78.i, %if.then118.i ]
-  %next.i69.i = getelementptr inbounds i8, ptr %call.i66.sink154.i, i64 16
-  store ptr null, ptr %next.i69.i, align 8
-  store ptr %21, ptr %call.i66.sink154.i, align 8
-  %afterLast3.i70.i = getelementptr inbounds i8, ptr %call.i66.sink154.i, i64 8
-  store ptr %add.ptr119.i, ptr %afterLast3.i70.i, align 8
+  %call.i78.sink155.i = phi ptr [ %call.i66.i, %if.then105.i ], [ %call.i78.i, %if.then118.i ]
+  %next.i81.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 16
+  store ptr null, ptr %next.i81.i, align 8
+  store ptr %21, ptr %call.i78.sink155.i, align 8
+  %afterLast3.i82.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 8
+  store ptr %add.ptr119.i, ptr %afterLast3.i82.i, align 8
   %26 = load ptr, ptr %pathTail.i83.i, align 8
   %cmp4.i84.i = icmp eq ptr %26, null
   %next7.i85.i = getelementptr inbounds i8, ptr %26, i64 16
   %next7.sink.i87.i = select i1 %cmp4.i84.i, ptr %pathHead.i86.i, ptr %next7.i85.i
-  store ptr %call.i66.sink154.i, ptr %next7.sink.i87.i, align 8
-  store ptr %call.i66.sink154.i, ptr %pathTail.i83.i, align 8
+  store ptr %call.i78.sink155.i, ptr %next7.sink.i87.i, align 8
+  store ptr %call.i78.sink155.i, ptr %pathTail.i83.i, align 8
   %.pre = load ptr, ptr %sourceSeg.1135.i, align 8
   br label %if.end126.i
 
@@ -643,18 +643,18 @@ if.then117.i:                                     ; preds = %if.else110.i
   br i1 %cmp.i79.i, label %if.then7, label %if.end125.sink.split.i
 
 if.end125.sink.split.i:                           ; preds = %if.then117.i, %if.then104.i
-  %call.i66.sink154.i = phi ptr [ %call.i66.i, %if.then104.i ], [ %call.i78.i, %if.then117.i ]
-  %next.i69.i = getelementptr inbounds i8, ptr %call.i66.sink154.i, i64 16
-  store ptr null, ptr %next.i69.i, align 8
-  store ptr %21, ptr %call.i66.sink154.i, align 8
-  %afterLast3.i70.i = getelementptr inbounds i8, ptr %call.i66.sink154.i, i64 8
-  store ptr %add.ptr118.i, ptr %afterLast3.i70.i, align 8
+  %call.i78.sink155.i = phi ptr [ %call.i66.i, %if.then104.i ], [ %call.i78.i, %if.then117.i ]
+  %next.i81.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 16
+  store ptr null, ptr %next.i81.i, align 8
+  store ptr %21, ptr %call.i78.sink155.i, align 8
+  %afterLast3.i82.i = getelementptr inbounds i8, ptr %call.i78.sink155.i, i64 8
+  store ptr %add.ptr118.i, ptr %afterLast3.i82.i, align 8
   %26 = load ptr, ptr %pathTail.i83.i, align 8
   %cmp4.i84.i = icmp eq ptr %26, null
   %next7.i85.i = getelementptr inbounds i8, ptr %26, i64 16
   %next7.sink.i87.i = select i1 %cmp4.i84.i, ptr %pathHead.i86.i, ptr %next7.i85.i
-  store ptr %call.i66.sink154.i, ptr %next7.sink.i87.i, align 8
-  store ptr %call.i66.sink154.i, ptr %pathTail.i83.i, align 8
+  store ptr %call.i78.sink155.i, ptr %next7.sink.i87.i, align 8
+  store ptr %call.i78.sink155.i, ptr %pathTail.i83.i, align 8
   %.pre = load ptr, ptr %sourceSeg.1135.i, align 8
   br label %if.end125.i
 

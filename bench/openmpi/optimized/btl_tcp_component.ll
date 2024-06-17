@@ -2768,7 +2768,7 @@ define internal void @mca_btl_tcp_component_recv_handler(i32 noundef %0, i16 sig
   %21 = call ptr @strerror(i32 noundef %20) #15
   %22 = load i32, ptr %14, align 4
   %23 = call i32 (ptr, ptr, i32, ...) %17(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %18, i32 noundef %19, ptr noundef nonnull @.str.70, ptr noundef %21, i32 noundef %22) #15
-  br label %159
+  br label %149
 
 24:                                               ; preds = %3
   store i64 2, ptr %9, align 8
@@ -2787,7 +2787,7 @@ define internal void @mca_btl_tcp_component_recv_handler(i32 noundef %0, i16 sig
   %33 = call ptr @strerror(i32 noundef %32) #15
   %34 = load i32, ptr %31, align 4
   %35 = call i32 (ptr, ptr, i32, ...) %28(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %29, i32 noundef %30, ptr noundef nonnull @.str.71, ptr noundef %33, i32 noundef %34) #15
-  br label %159
+  br label %149
 
 36:                                               ; preds = %13, %13, %24
   %37 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2853,7 +2853,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   call void @free(ptr noundef %60) #15
   %66 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
   %67 = call i32 @close(i32 noundef %0) #15
-  br label %159
+  br label %149
 
 68:                                               ; preds = %56
   %69 = load i64, ptr %7, align 8
@@ -2878,7 +2878,7 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   call void @free(ptr noundef %73) #15
   %79 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
   %80 = call i32 @close(i32 noundef %0) #15
-  br label %159
+  br label %149
 
 81:                                               ; preds = %68
   br i1 %.not, label %82, label %93
@@ -2897,111 +2897,98 @@ opal_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
   %90 = call ptr @strerror(i32 noundef %89) #15
   %91 = load i32, ptr %88, align 4
   %92 = call i32 (ptr, ptr, i32, ...) %85(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %86, i32 noundef %87, ptr noundef nonnull @.str.71, ptr noundef %90, i32 noundef %91) #15
-  br label %159
+  br label %149
 
 93:                                               ; preds = %82, %81
   %94 = call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 3, i32 noundef 0) #15
   %sext.mask = and i32 %94, 32768
   %.not49 = icmp eq i32 %sext.mask, 0
-  br i1 %.not49, label %104, label %95
+  br i1 %.not49, label %95, label %.sink.split
 
 95:                                               ; preds = %93
-  %96 = load ptr, ptr @opal_show_help, align 8
-  %97 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %98 = call i32 @getpid() #15
-  %99 = tail call ptr @__errno_location() #18
-  %100 = load i32, ptr %99, align 4
-  %101 = call ptr @strerror(i32 noundef %100) #15
-  %102 = load i32, ptr %99, align 4
-  %103 = call i32 (ptr, ptr, i32, ...) %96(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %97, i32 noundef %98, ptr noundef nonnull @.str.63, ptr noundef %101, i32 noundef %102) #15
-  br label %.sink.split
+  %96 = and i32 %94, 30719
+  %97 = or disjoint i32 %96, 2048
+  %98 = call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 4, i32 noundef %97) #15
+  %99 = icmp slt i32 %98, 0
+  br i1 %99, label %.sink.split, label %110
 
-104:                                              ; preds = %93
-  %105 = and i32 %94, 30719
-  %106 = or disjoint i32 %105, 2048
-  %107 = call i32 (i32, i32, ...) @fcntl(i32 noundef %0, i32 noundef 4, i32 noundef %106) #15
-  %108 = icmp slt i32 %107, 0
-  br i1 %108, label %109, label %120
+.sink.split:                                      ; preds = %95, %93
+  %.str.64.sink = phi ptr [ @.str.63, %93 ], [ @.str.64, %95 ]
+  %100 = load ptr, ptr @opal_show_help, align 8
+  %101 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %102 = call i32 @getpid() #15
+  %103 = tail call ptr @__errno_location() #18
+  %104 = load i32, ptr %103, align 4
+  %105 = call ptr @strerror(i32 noundef %104) #15
+  %106 = load i32, ptr %103, align 4
+  %107 = call i32 (ptr, ptr, i32, ...) %100(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %101, i32 noundef %102, ptr noundef nonnull %.str.64.sink, ptr noundef %105, i32 noundef %106) #15
+  %108 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
+  %109 = call i32 @close(i32 noundef %0) #15
+  br label %110
 
-109:                                              ; preds = %104
-  %110 = load ptr, ptr @opal_show_help, align 8
-  %111 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %112 = call i32 @getpid() #15
-  %113 = tail call ptr @__errno_location() #18
-  %114 = load i32, ptr %113, align 4
-  %115 = call ptr @strerror(i32 noundef %114) #15
-  %116 = load i32, ptr %113, align 4
-  %117 = call i32 (ptr, ptr, i32, ...) %110(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.62, i32 noundef 1, ptr noundef %111, i32 noundef %112, ptr noundef nonnull @.str.64, ptr noundef %115, i32 noundef %116) #15
-  br label %.sink.split
+110:                                              ; preds = %.sink.split, %95
+  %111 = call ptr @mca_btl_tcp_proc_lookup(ptr noundef nonnull %4) #15
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %120
 
-.sink.split:                                      ; preds = %95, %109
+113:                                              ; preds = %110
+  %114 = load ptr, ptr @opal_show_help, align 8
+  %115 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %116 = call i32 @getpid() #15
+  %117 = call i32 (ptr, ptr, i32, ...) %114(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.74, i32 noundef 1, ptr noundef %115, i32 noundef %116) #15
   %118 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
   %119 = call i32 @close(i32 noundef %0) #15
-  br label %120
+  br label %149
 
-120:                                              ; preds = %.sink.split, %104
-  %121 = call ptr @mca_btl_tcp_proc_lookup(ptr noundef nonnull %4) #15
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %123, label %130
+120:                                              ; preds = %110
+  %121 = call i32 @getpeername(i32 noundef %0, ptr nonnull %5, ptr noundef nonnull %6) #15
+  %.not50 = icmp eq i32 %121, 0
+  br i1 %.not50, label %136, label %122
 
-123:                                              ; preds = %120
-  %124 = load ptr, ptr @opal_show_help, align 8
-  %125 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %126 = call i32 @getpid() #15
-  %127 = call i32 (ptr, ptr, i32, ...) %124(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.74, i32 noundef 1, ptr noundef %125, i32 noundef %126) #15
-  %128 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
-  %129 = call i32 @close(i32 noundef %0) #15
-  br label %159
+122:                                              ; preds = %120
+  %123 = tail call ptr @__errno_location() #18
+  %124 = load i32, ptr %123, align 4
+  %.not51 = icmp eq i32 %124, 107
+  br i1 %.not51, label %133, label %125
 
-130:                                              ; preds = %120
-  %131 = call i32 @getpeername(i32 noundef %0, ptr nonnull %5, ptr noundef nonnull %6) #15
-  %.not50 = icmp eq i32 %131, 0
-  br i1 %.not50, label %146, label %132
+125:                                              ; preds = %122
+  %126 = load ptr, ptr @opal_show_help, align 8
+  %127 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
+  %128 = call i32 @getpid() #15
+  %129 = load i32, ptr %123, align 4
+  %130 = call ptr @strerror(i32 noundef %129) #15
+  %131 = load i32, ptr %123, align 4
+  %132 = call i32 (ptr, ptr, i32, ...) %126(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.75, i32 noundef 1, ptr noundef %127, i32 noundef %128, ptr noundef %130, i32 noundef %131) #15
+  br label %133
 
-132:                                              ; preds = %130
-  %133 = tail call ptr @__errno_location() #18
-  %134 = load i32, ptr %133, align 4
-  %.not51 = icmp eq i32 %134, 107
-  br i1 %.not51, label %143, label %135
+133:                                              ; preds = %125, %122
+  %134 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
+  %135 = call i32 @close(i32 noundef %0) #15
+  br label %149
 
-135:                                              ; preds = %132
-  %136 = load ptr, ptr @opal_show_help, align 8
-  %137 = load ptr, ptr getelementptr inbounds (i8, ptr @opal_process_info, i64 272), align 8
-  %138 = call i32 @getpid() #15
-  %139 = load i32, ptr %133, align 4
-  %140 = call ptr @strerror(i32 noundef %139) #15
-  %141 = load i32, ptr %133, align 4
-  %142 = call i32 (ptr, ptr, i32, ...) %136(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.75, i32 noundef 1, ptr noundef %137, i32 noundef %138, ptr noundef %140, i32 noundef %141) #15
-  br label %143
+136:                                              ; preds = %120
+  call void @mca_btl_tcp_proc_accept(ptr noundef nonnull %111, ptr noundef nonnull %5, i32 noundef %0) #15
+  %137 = call ptr @opal_fd_get_peer_name(i32 noundef %0) #15
+  %138 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %139 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %138) #15
+  br i1 %139, label %140, label %148
 
-143:                                              ; preds = %135, %132
-  %144 = call i32 @shutdown(i32 noundef %0, i32 noundef 2) #15
-  %145 = call i32 @close(i32 noundef %0) #15
-  br label %159
+140:                                              ; preds = %136
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
+  %142 = load ptr, ptr @opal_process_name_print, align 8
+  %143 = getelementptr inbounds i8, ptr %111, i64 40
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds i8, ptr %144, i64 40
+  %146 = load i64, ptr %145, align 8
+  %147 = call ptr %142(i64 %146) #15
+  call void (i32, ptr, ...) @opal_output(i32 noundef %141, ptr noundef nonnull @.str.76, ptr noundef %137, ptr noundef %147) #15
+  br label %148
 
-146:                                              ; preds = %130
-  call void @mca_btl_tcp_proc_accept(ptr noundef nonnull %121, ptr noundef nonnull %5, i32 noundef %0) #15
-  %147 = call ptr @opal_fd_get_peer_name(i32 noundef %0) #15
-  %148 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
-  %149 = call zeroext i1 @opal_output_check_verbosity(i32 noundef 10, i32 noundef %148) #15
-  br i1 %149, label %150, label %158
+148:                                              ; preds = %136, %140
+  call void @free(ptr noundef %137) #15
+  br label %149
 
-150:                                              ; preds = %146
-  %151 = load i32, ptr getelementptr inbounds (i8, ptr @opal_btl_base_framework, i64 76), align 4
-  %152 = load ptr, ptr @opal_process_name_print, align 8
-  %153 = getelementptr inbounds i8, ptr %121, i64 40
-  %154 = load ptr, ptr %153, align 8
-  %155 = getelementptr inbounds i8, ptr %154, i64 40
-  %156 = load i64, ptr %155, align 8
-  %157 = call ptr %152(i64 %156) #15
-  call void (i32, ptr, ...) @opal_output(i32 noundef %151, ptr noundef nonnull @.str.76, ptr noundef %147, ptr noundef %157) #15
-  br label %158
-
-158:                                              ; preds = %146, %150
-  call void @free(ptr noundef %147) #15
-  br label %159
-
-159:                                              ; preds = %158, %143, %123, %84, %78, %65, %27, %16
+149:                                              ; preds = %148, %133, %113, %84, %78, %65, %27, %16
   ret void
 }
 

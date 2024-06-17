@@ -23264,10 +23264,10 @@ if.end17.sink.split.i.i.i.loopexit:               ; preds = %for.body.i.i.i
 
 if.end17.sink.split.i.i.i:                        ; preds = %if.end17.sink.split.i.i.i.loopexit, %if.then.i1.i.i
   %next_7.le.sink.i.i.i = phi ptr [ %timer_queues_.i.i, %if.then.i1.i.i ], [ %next_7.i.i.i.le, %if.end17.sink.split.i.i.i.loopexit ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i, align 8
+  %next_12.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i: ; preds = %for.cond.i.i.i, %if.end17.sink.split.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i
@@ -23337,10 +23337,10 @@ if.end17.sink.split.i.i.i.i.loopexit:             ; preds = %for.body.i.i.i.i
 
 if.end17.sink.split.i.i.i.i:                      ; preds = %if.end17.sink.split.i.i.i.i.loopexit, %if.then.i1.i.i.i
   %next_7.le.sink.i.i.i.i = phi ptr [ %timer_queues_.i.i.i, %if.then.i1.i.i.i ], [ %next_7.i.i.i.i.le, %if.end17.sink.split.i.i.i.i.loopexit ]
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i.i, align 8
+  %next_12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i: ; preds = %for.cond.i.i.i.i, %if.end17.sink.split.i.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i.i
@@ -70671,35 +70671,10 @@ acquire.i69.i.i:                                  ; preds = %if.then.i
   %16 = add i64 %11, %15
   %sub.i27.i.i = sub i64 %14, %16
   %cmp.i28.i.i = icmp ugt i64 %sub.i27.i.i, -9223372036854775808
-  br i1 %cmp.i28.i.i, label %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53, label %release.i76.i.i
-
-_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53: ; preds = %acquire.i69.i.i
-  %headIndex.i.i = getelementptr inbounds i8, ptr %best.2, i64 40
-  %17 = atomicrmw add ptr %headIndex.i.i, i64 1 acq_rel, align 8
-  %blockIndex.i.i = getelementptr inbounds i8, ptr %best.2, i64 88
-  %18 = load atomic i64, ptr %blockIndex.i.i acquire, align 8
-  %atomic-temp.i.0.i.i.i = inttoptr i64 %18 to ptr
-  %front.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 8
-  %19 = load atomic i64, ptr %front.i.i acquire, align 8
-  %entries.i.i = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i, i64 16
-  %20 = load ptr, ptr %entries.i.i, align 8
-  %arrayidx.i.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %20, i64 %19
-  %21 = load i64, ptr %arrayidx.i.i, align 8
-  %and.i.i = and i64 %17, -32
-  %sub16.i.i = sub i64 %and.i.i, %21
-  %div.i.i = sdiv i64 %sub16.i.i, 32
-  %add.i.i = add i64 %div.i.i, %19
-  %22 = load i64, ptr %atomic-temp.i.0.i.i.i, align 8
-  %sub18.i.i = add i64 %22, -1
-  %and19.i.i = and i64 %add.i.i, %sub18.i.i
-  %block21.i.i = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %20, i64 %and19.i.i, i32 1
-  %23 = load ptr, ptr %block21.i.i, align 8
-  %and.i.i.i = and i64 %17, 31
-  %add.ptr.i.i.i = getelementptr inbounds ptr, ptr %23, i64 %and.i.i.i
-  br label %return.sink.split
+  br i1 %cmp.i28.i.i, label %return.sink.split, label %release.i76.i.i
 
 release.i76.i.i:                                  ; preds = %acquire.i69.i.i
-  %24 = atomicrmw add ptr %dequeueOvercommit.i.i, i64 1 release, align 8
+  %17 = atomicrmw add ptr %dequeueOvercommit.i.i, i64 1 release, align 8
   br label %if.end14
 
 _ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit: ; preds = %if.then10
@@ -70707,12 +70682,12 @@ _ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinat
   br i1 %call2.i, label %return, label %if.end14
 
 if.end14:                                         ; preds = %if.then.i, %release.i76.i.i, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit
-  %25 = load atomic i64, ptr %this acquire, align 8
-  %cmp19.not75 = icmp eq i64 %25, 0
+  %18 = load atomic i64, ptr %this acquire, align 8
+  %cmp19.not75 = icmp eq i64 %18, 0
   br i1 %cmp19.not75, label %return, label %for.body20.preheader
 
 for.body20.preheader:                             ; preds = %if.end14
-  %atomic-temp.i.0.i14 = inttoptr i64 %25 to ptr
+  %atomic-temp.i.0.i14 = inttoptr i64 %18 to ptr
   br label %for.body20
 
 for.body20:                                       ; preds = %for.body20.preheader, %for.inc25
@@ -70722,58 +70697,33 @@ for.body20:                                       ; preds = %for.body20.preheade
 
 land.lhs.true:                                    ; preds = %for.body20
   %isExplicit.i15 = getelementptr inbounds i8, ptr %ptr15.076, i64 72
-  %26 = load i8, ptr %isExplicit.i15, align 8
-  %tobool.i16 = trunc i8 %26 to i1
+  %19 = load i8, ptr %isExplicit.i15, align 8
+  %tobool.i16 = trunc i8 %19 to i1
   br i1 %tobool.i16, label %if.then.i20, label %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49
 
 if.then.i20:                                      ; preds = %land.lhs.true
   %tailIndex.i.i21 = getelementptr inbounds i8, ptr %ptr15.076, i64 32
-  %27 = load atomic i64, ptr %tailIndex.i.i21 monotonic, align 8
+  %20 = load atomic i64, ptr %tailIndex.i.i21 monotonic, align 8
   %dequeueOvercommit.i.i22 = getelementptr inbounds i8, ptr %ptr15.076, i64 56
-  %28 = load atomic i64, ptr %dequeueOvercommit.i.i22 monotonic, align 8
+  %21 = load atomic i64, ptr %dequeueOvercommit.i.i22 monotonic, align 8
   %dequeueOptimisticCount.i.i23 = getelementptr inbounds i8, ptr %ptr15.076, i64 48
-  %29 = load atomic i64, ptr %dequeueOptimisticCount.i.i23 monotonic, align 8
-  %30 = add i64 %28, %27
-  %sub.i.i.i24 = sub i64 %29, %30
+  %22 = load atomic i64, ptr %dequeueOptimisticCount.i.i23 monotonic, align 8
+  %23 = add i64 %21, %20
+  %sub.i.i.i24 = sub i64 %22, %23
   %cmp.i.i.i25 = icmp ugt i64 %sub.i.i.i24, -9223372036854775808
   br i1 %cmp.i.i.i25, label %acquire.i69.i.i26, label %for.inc25
 
 acquire.i69.i.i26:                                ; preds = %if.then.i20
   fence acquire
-  %31 = atomicrmw add ptr %dequeueOptimisticCount.i.i23, i64 1 monotonic, align 8
-  %32 = load atomic i64, ptr %tailIndex.i.i21 acquire, align 8
-  %33 = add i64 %28, %32
-  %sub.i27.i.i27 = sub i64 %31, %33
+  %24 = atomicrmw add ptr %dequeueOptimisticCount.i.i23, i64 1 monotonic, align 8
+  %25 = load atomic i64, ptr %tailIndex.i.i21 acquire, align 8
+  %26 = add i64 %21, %25
+  %sub.i27.i.i27 = sub i64 %24, %26
   %cmp.i28.i.i28 = icmp ugt i64 %sub.i27.i.i27, -9223372036854775808
-  br i1 %cmp.i28.i.i28, label %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56, label %release.i76.i.i29
-
-_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56: ; preds = %acquire.i69.i.i26
-  %headIndex.i.i31 = getelementptr inbounds i8, ptr %ptr15.076, i64 40
-  %34 = atomicrmw add ptr %headIndex.i.i31, i64 1 acq_rel, align 8
-  %blockIndex.i.i32 = getelementptr inbounds i8, ptr %ptr15.076, i64 88
-  %35 = load atomic i64, ptr %blockIndex.i.i32 acquire, align 8
-  %atomic-temp.i.0.i.i.i33 = inttoptr i64 %35 to ptr
-  %front.i.i34 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i33, i64 8
-  %36 = load atomic i64, ptr %front.i.i34 acquire, align 8
-  %entries.i.i35 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i33, i64 16
-  %37 = load ptr, ptr %entries.i.i35, align 8
-  %arrayidx.i.i36 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %37, i64 %36
-  %38 = load i64, ptr %arrayidx.i.i36, align 8
-  %and.i.i37 = and i64 %34, -32
-  %sub16.i.i38 = sub i64 %and.i.i37, %38
-  %div.i.i39 = sdiv i64 %sub16.i.i38, 32
-  %add.i.i40 = add i64 %div.i.i39, %36
-  %39 = load i64, ptr %atomic-temp.i.0.i.i.i33, align 8
-  %sub18.i.i41 = add i64 %39, -1
-  %and19.i.i42 = and i64 %add.i.i40, %sub18.i.i41
-  %block21.i.i43 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %37, i64 %and19.i.i42, i32 1
-  %40 = load ptr, ptr %block21.i.i43, align 8
-  %and.i.i.i44 = and i64 %34, 31
-  %add.ptr.i.i.i45 = getelementptr inbounds ptr, ptr %40, i64 %and.i.i.i44
-  br label %return.sink.split
+  br i1 %cmp.i28.i.i28, label %return.sink.split, label %release.i76.i.i29
 
 release.i76.i.i29:                                ; preds = %acquire.i69.i.i26
-  %41 = atomicrmw add ptr %dequeueOvercommit.i.i22, i64 1 release, align 8
+  %27 = atomicrmw add ptr %dequeueOvercommit.i.i22, i64 1 release, align 8
   br label %for.inc25
 
 _ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49: ; preds = %land.lhs.true
@@ -70782,19 +70732,39 @@ _ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinat
 
 for.inc25:                                        ; preds = %if.then.i20, %release.i76.i.i29, %for.body20, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49
   %add.ptr.i50 = getelementptr inbounds i8, ptr %ptr15.076, i64 8
-  %42 = load ptr, ptr %add.ptr.i50, align 8
-  %43 = icmp eq ptr %42, null
-  %sub.ptr.i51 = getelementptr inbounds i8, ptr %42, i64 -8
-  br i1 %43, label %return, label %for.body20
+  %28 = load ptr, ptr %add.ptr.i50, align 8
+  %29 = icmp eq ptr %28, null
+  %sub.ptr.i51 = getelementptr inbounds i8, ptr %28, i64 -8
+  br i1 %29, label %return, label %for.body20
 
-return.sink.split:                                ; preds = %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56
-  %add.ptr.i.i.i45.sink = phi ptr [ %add.ptr.i.i.i45, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56 ], [ %add.ptr.i.i.i, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53 ]
-  %.sink = phi ptr [ %40, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56 ], [ %23, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53 ]
-  %and.i.i.i44.sink = phi i64 [ %and.i.i.i44, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit49.thread56 ], [ %and.i.i.i, %_ZN10moodycamel15ConcurrentQueueIPN12async_simple7PromiseISt10unique_ptrIN7cinatra16coro_http_clientESt14default_deleteIS5_EEEENS_28ConcurrentQueueDefaultTraitsEE12ProducerBase7dequeueISA_EEbRT_.exit.thread53 ]
-  %44 = load ptr, ptr %add.ptr.i.i.i45.sink, align 8
-  store ptr %44, ptr %item, align 8
-  %emptyFlags.i.i.i46 = getelementptr inbounds i8, ptr %.sink, i64 272
-  %sub.i30.i.i47 = xor i64 %and.i.i.i44.sink, 31
+return.sink.split:                                ; preds = %acquire.i69.i.i26, %acquire.i69.i.i
+  %ptr15.076.lcssa82.sink95 = phi ptr [ %best.2, %acquire.i69.i.i ], [ %ptr15.076, %acquire.i69.i.i26 ]
+  %headIndex.i.i31 = getelementptr inbounds i8, ptr %ptr15.076.lcssa82.sink95, i64 40
+  %30 = atomicrmw add ptr %headIndex.i.i31, i64 1 acq_rel, align 8
+  %blockIndex.i.i32 = getelementptr inbounds i8, ptr %ptr15.076.lcssa82.sink95, i64 88
+  %31 = load atomic i64, ptr %blockIndex.i.i32 acquire, align 8
+  %atomic-temp.i.0.i.i.i33 = inttoptr i64 %31 to ptr
+  %front.i.i34 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i33, i64 8
+  %32 = load atomic i64, ptr %front.i.i34 acquire, align 8
+  %entries.i.i35 = getelementptr inbounds i8, ptr %atomic-temp.i.0.i.i.i33, i64 16
+  %33 = load ptr, ptr %entries.i.i35, align 8
+  %arrayidx.i.i36 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %33, i64 %32
+  %34 = load i64, ptr %arrayidx.i.i36, align 8
+  %and.i.i37 = and i64 %30, -32
+  %sub16.i.i38 = sub i64 %and.i.i37, %34
+  %div.i.i39 = sdiv i64 %sub16.i.i38, 32
+  %add.i.i40 = add i64 %div.i.i39, %32
+  %35 = load i64, ptr %atomic-temp.i.0.i.i.i33, align 8
+  %sub18.i.i41 = add i64 %35, -1
+  %and19.i.i42 = and i64 %add.i.i40, %sub18.i.i41
+  %block21.i.i43 = getelementptr inbounds %"struct.moodycamel::ConcurrentQueue<async_simple::Promise<std::unique_ptr<cinatra::coro_http_client>> *>::ExplicitProducer::BlockIndexEntry", ptr %33, i64 %and19.i.i42, i32 1
+  %36 = load ptr, ptr %block21.i.i43, align 8
+  %and.i.i.i44 = and i64 %30, 31
+  %add.ptr.i.i.i45 = getelementptr inbounds ptr, ptr %36, i64 %and.i.i.i44
+  %37 = load ptr, ptr %add.ptr.i.i.i45, align 8
+  store ptr %37, ptr %item, align 8
+  %emptyFlags.i.i.i46 = getelementptr inbounds i8, ptr %36, i64 272
+  %sub.i30.i.i47 = xor i64 %and.i.i.i44, 31
   %arrayidx.i.i.i48 = getelementptr inbounds [32 x %"struct.std::atomic.67"], ptr %emptyFlags.i.i.i46, i64 0, i64 %sub.i30.i.i47
   store atomic i8 1, ptr %arrayidx.i.i.i48 release, align 1
   br label %return

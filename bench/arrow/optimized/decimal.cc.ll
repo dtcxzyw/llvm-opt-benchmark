@@ -1475,23 +1475,22 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %incdec.ptr.i.i12.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i12.i.i, align 1
   %8 = load i8, ptr %arrayidx.i10.i.i, align 1
-  %incdec.ptr.i3.i13.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -2
-  store i8 %8, ptr %incdec.ptr.i3.i13.i.i, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
-  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %cursor.2.i = phi ptr [ %incdec.ptr.i3.i13.i.i, %if.then.i.i ], [ %incdec.ptr.i.i14.i.i, %if.else.i.i ]
+  %cursor.2.i = phi ptr [ %incdec.ptr.i.i12.i.i, %if.then.i.i ], [ %cursor.1.i, %if.else.i.i ]
+  %conv.i.sink.i.i = phi i8 [ %8, %if.then.i.i ], [ %conv.i.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
+  store i8 %conv.i.sink.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i14.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %incdec.ptr.i.i14.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not69 = icmp eq i64 %num_segments.0, 0
@@ -1499,7 +1498,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
-  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %add.ptr.i28 to i64
+  %sub.ptr.lhs.cast.i.i39 = ptrtoint ptr %add.ptr.i28 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
@@ -1534,35 +1533,34 @@ while.end.i.i30:                                  ; preds = %while.body.i.i49, %
   %cursor.1.i31 = phi ptr [ %add.ptr.i28, %while.body ], [ %incdec.ptr.i3.i.i.i58, %while.body.i.i49 ]
   %value.addr.0.lcssa.i.i32 = phi i32 [ %10, %while.body ], [ %div.i.i59, %while.body.i.i49 ]
   %cmp1.i.i33 = icmp ugt i32 %value.addr.0.lcssa.i.i32, 9
-  br i1 %cmp1.i.i33, label %if.then.i.i42, label %if.else.i.i34
+  br i1 %cmp1.i.i33, label %if.then.i.i43, label %if.else.i.i34
 
-if.then.i.i42:                                    ; preds = %while.end.i.i30
-  %mul.i8.i.i43 = shl nuw nsw i32 %value.addr.0.lcssa.i.i32, 1
-  %idxprom.i9.i.i44 = zext nneg i32 %mul.i8.i.i43 to i64
-  %arrayidx.i10.i.i45 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i9.i.i44
-  %arrayidx1.i11.i.i46 = getelementptr inbounds i8, ptr %arrayidx.i10.i.i45, i64 1
-  %13 = load i8, ptr %arrayidx1.i11.i.i46, align 1
-  %incdec.ptr.i.i12.i.i47 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
-  store i8 %13, ptr %incdec.ptr.i.i12.i.i47, align 1
-  %14 = load i8, ptr %arrayidx.i10.i.i45, align 1
-  %incdec.ptr.i3.i13.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -2
-  store i8 %14, ptr %incdec.ptr.i3.i13.i.i48, align 1
+if.then.i.i43:                                    ; preds = %while.end.i.i30
+  %mul.i8.i.i44 = shl nuw nsw i32 %value.addr.0.lcssa.i.i32, 1
+  %idxprom.i9.i.i45 = zext nneg i32 %mul.i8.i.i44 to i64
+  %arrayidx.i10.i.i46 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i9.i.i45
+  %arrayidx1.i11.i.i47 = getelementptr inbounds i8, ptr %arrayidx.i10.i.i46, i64 1
+  %13 = load i8, ptr %arrayidx1.i11.i.i47, align 1
+  %incdec.ptr.i.i12.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
+  store i8 %13, ptr %incdec.ptr.i.i12.i.i48, align 1
+  %14 = load i8, ptr %arrayidx.i10.i.i46, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
   %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
-  %incdec.ptr.i.i14.i.i36 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
-  store i8 %conv.i.i.i35, ptr %incdec.ptr.i.i14.i.i36, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i42, %if.else.i.i34
-  %cursor.2.i37 = phi ptr [ %incdec.ptr.i3.i13.i.i48, %if.then.i.i42 ], [ %incdec.ptr.i.i14.i.i36, %if.else.i.i34 ]
-  %sub.ptr.rhs.cast.i.i39 = ptrtoint ptr %cursor.2.i37 to i64
-  %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
-  %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
-  %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i43, %if.else.i.i34
+  %cursor.2.i36 = phi ptr [ %incdec.ptr.i.i12.i.i48, %if.then.i.i43 ], [ %cursor.1.i31, %if.else.i.i34 ]
+  %conv.i.sink.i.i37 = phi i8 [ %14, %if.then.i.i43 ], [ %conv.i.i.i35, %if.else.i.i34 ]
+  %incdec.ptr.i.i14.i.i38 = getelementptr inbounds i8, ptr %cursor.2.i36, i64 -1
+  store i8 %conv.i.sink.i.i37, ptr %incdec.ptr.i.i14.i.i38, align 1
+  %sub.ptr.rhs.cast.i.i40 = ptrtoint ptr %incdec.ptr.i.i14.i.i38 to i64
+  %sub.ptr.sub.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i39, %sub.ptr.rhs.cast.i.i40
+  %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i41
+  %add.ptr.i2.i42 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i42, ptr nonnull align 1 %incdec.ptr.i.i14.i.i38, i64 %sub.ptr.sub.i.i41, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !24
@@ -1779,29 +1777,28 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %incdec.ptr.i.i12.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %4, ptr %incdec.ptr.i.i12.i.i, align 1
   %5 = load i8, ptr %arrayidx.i10.i.i, align 1
-  %incdec.ptr.i3.i13.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -2
-  store i8 %5, ptr %incdec.ptr.i3.i13.i.i, align 1
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %6 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %6, 48
-  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   br label %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
 
 _ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i: ; preds = %if.else.i.i, %if.then.i.i
-  %cursor.2.i = phi ptr [ %incdec.ptr.i3.i13.i.i, %if.then.i.i ], [ %incdec.ptr.i.i14.i.i, %if.else.i.i ]
+  %cursor.2.i = phi ptr [ %incdec.ptr.i.i12.i.i, %if.then.i.i ], [ %cursor.1.i, %if.else.i.i ]
+  %conv.i.sink.i.i = phi i8 [ %5, %if.then.i.i ], [ %conv.i.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
+  store i8 %conv.i.sink.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   %cmp.i = icmp slt i32 %sub18, 0
   br i1 %cmp.i, label %if.then.i, label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit"
 
 if.then.i:                                        ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -2
   store i8 45, ptr %incdec.ptr.i.i, align 1
   br label %"_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit"
 
 "_ZN5arrow8internal25IntToStringFormatterMixinINS_9Int32TypeEEclIZNS_L28AdjustIntegerStringWithScaleEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEDTclclsr3stdE7declvalIT_EEtlSt17basic_string_viewIcS8_EEEEiOSD_.exit": ; preds = %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i, %if.then.i
-  %cursor.3.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %cursor.2.i, %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i ]
+  %cursor.3.i = phi ptr [ %incdec.ptr.i.i, %if.then.i ], [ %incdec.ptr.i.i14.i.i, %_ZN5arrow8internal6detail15FormatAllDigitsIjEEvT_PPc.exit.i ]
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i25 to i64
   %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.3.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
@@ -2997,23 +2994,22 @@ if.then.i.i:                                      ; preds = %while.end.i.i
   %incdec.ptr.i.i12.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
   store i8 %7, ptr %incdec.ptr.i.i12.i.i, align 1
   %8 = load i8, ptr %arrayidx.i10.i.i, align 1
-  %incdec.ptr.i3.i13.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -2
-  store i8 %8, ptr %incdec.ptr.i3.i13.i.i, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i:                                      ; preds = %while.end.i.i
   %9 = trunc nuw i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i.i = or disjoint i8 %9, 48
-  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.1.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i, %if.else.i.i
-  %cursor.2.i = phi ptr [ %incdec.ptr.i3.i13.i.i, %if.then.i.i ], [ %incdec.ptr.i.i14.i.i, %if.else.i.i ]
+  %cursor.2.i = phi ptr [ %incdec.ptr.i.i12.i.i, %if.then.i.i ], [ %cursor.1.i, %if.else.i.i ]
+  %conv.i.sink.i.i = phi i8 [ %8, %if.then.i.i ], [ %conv.i.i.i, %if.else.i.i ]
+  %incdec.ptr.i.i14.i.i = getelementptr inbounds i8, ptr %cursor.2.i, i64 -1
+  store i8 %conv.i.sink.i.i, ptr %incdec.ptr.i.i14.i.i, align 1
   %sub.ptr.lhs.cast.i.i = ptrtoint ptr %add.ptr.i to i64
-  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %cursor.2.i to i64
+  %sub.ptr.rhs.cast.i.i = ptrtoint ptr %incdec.ptr.i.i14.i.i to i64
   %sub.ptr.sub.i.i = sub i64 %sub.ptr.lhs.cast.i.i, %sub.ptr.rhs.cast.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %cursor.2.i, i64 %sub.ptr.sub.i.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %call30, ptr nonnull align 1 %incdec.ptr.i.i14.i.i, i64 %sub.ptr.sub.i.i, i1 false)
   %add.ptr.i2.i = getelementptr inbounds i8, ptr %call30, i64 %sub.ptr.sub.i.i
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i)
   %cmp34.not76 = icmp eq i64 %num_segments.0, 0
@@ -3021,7 +3017,7 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
 
 while.body.lr.ph:                                 ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %add.ptr.i28 = getelementptr inbounds i8, ptr %buffer.i27, i64 11
-  %sub.ptr.lhs.cast.i.i38 = ptrtoint ptr %add.ptr.i28 to i64
+  %sub.ptr.lhs.cast.i.i39 = ptrtoint ptr %add.ptr.i28 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
@@ -3056,35 +3052,34 @@ while.end.i.i30:                                  ; preds = %while.body.i.i49, %
   %cursor.1.i31 = phi ptr [ %add.ptr.i28, %while.body ], [ %incdec.ptr.i3.i.i.i58, %while.body.i.i49 ]
   %value.addr.0.lcssa.i.i32 = phi i32 [ %10, %while.body ], [ %div.i.i59, %while.body.i.i49 ]
   %cmp1.i.i33 = icmp ugt i32 %value.addr.0.lcssa.i.i32, 9
-  br i1 %cmp1.i.i33, label %if.then.i.i42, label %if.else.i.i34
+  br i1 %cmp1.i.i33, label %if.then.i.i43, label %if.else.i.i34
 
-if.then.i.i42:                                    ; preds = %while.end.i.i30
-  %mul.i8.i.i43 = shl nuw nsw i32 %value.addr.0.lcssa.i.i32, 1
-  %idxprom.i9.i.i44 = zext nneg i32 %mul.i8.i.i43 to i64
-  %arrayidx.i10.i.i45 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i9.i.i44
-  %arrayidx1.i11.i.i46 = getelementptr inbounds i8, ptr %arrayidx.i10.i.i45, i64 1
-  %13 = load i8, ptr %arrayidx1.i11.i.i46, align 1
-  %incdec.ptr.i.i12.i.i47 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
-  store i8 %13, ptr %incdec.ptr.i.i12.i.i47, align 1
-  %14 = load i8, ptr %arrayidx.i10.i.i45, align 1
-  %incdec.ptr.i3.i13.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -2
-  store i8 %14, ptr %incdec.ptr.i3.i13.i.i48, align 1
+if.then.i.i43:                                    ; preds = %while.end.i.i30
+  %mul.i8.i.i44 = shl nuw nsw i32 %value.addr.0.lcssa.i.i32, 1
+  %idxprom.i9.i.i45 = zext nneg i32 %mul.i8.i.i44 to i64
+  %arrayidx.i10.i.i46 = getelementptr inbounds [0 x i8], ptr @_ZN5arrow8internal6detail11digit_pairsE, i64 0, i64 %idxprom.i9.i.i45
+  %arrayidx1.i11.i.i47 = getelementptr inbounds i8, ptr %arrayidx.i10.i.i46, i64 1
+  %13 = load i8, ptr %arrayidx1.i11.i.i47, align 1
+  %incdec.ptr.i.i12.i.i48 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
+  store i8 %13, ptr %incdec.ptr.i.i12.i.i48, align 1
+  %14 = load i8, ptr %arrayidx.i10.i.i46, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
 if.else.i.i34:                                    ; preds = %while.end.i.i30
   %15 = trunc nuw i32 %value.addr.0.lcssa.i.i32 to i8
   %conv.i.i.i35 = or disjoint i8 %15, 48
-  %incdec.ptr.i.i14.i.i36 = getelementptr inbounds i8, ptr %cursor.1.i31, i64 -1
-  store i8 %conv.i.i.i35, ptr %incdec.ptr.i.i14.i.i36, align 1
   br label %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
 
-_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i42, %if.else.i.i34
-  %cursor.2.i37 = phi ptr [ %incdec.ptr.i3.i13.i.i48, %if.then.i.i42 ], [ %incdec.ptr.i.i14.i.i36, %if.else.i.i34 ]
-  %sub.ptr.rhs.cast.i.i39 = ptrtoint ptr %cursor.2.i37 to i64
-  %sub.ptr.sub.i.i40 = sub i64 %sub.ptr.lhs.cast.i.i38, %sub.ptr.rhs.cast.i.i39
-  %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i40
-  %add.ptr.i2.i41 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i41, ptr nonnull align 1 %cursor.2.i37, i64 %sub.ptr.sub.i.i40, i1 false)
+_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit: ; preds = %if.then.i.i43, %if.else.i.i34
+  %cursor.2.i36 = phi ptr [ %incdec.ptr.i.i12.i.i48, %if.then.i.i43 ], [ %cursor.1.i31, %if.else.i.i34 ]
+  %conv.i.sink.i.i37 = phi i8 [ %14, %if.then.i.i43 ], [ %conv.i.i.i35, %if.else.i.i34 ]
+  %incdec.ptr.i.i14.i.i38 = getelementptr inbounds i8, ptr %cursor.2.i36, i64 -1
+  store i8 %conv.i.sink.i.i37, ptr %incdec.ptr.i.i14.i.i38, align 1
+  %sub.ptr.rhs.cast.i.i40 = ptrtoint ptr %incdec.ptr.i.i14.i.i38 to i64
+  %sub.ptr.sub.i.i41 = sub i64 %sub.ptr.lhs.cast.i.i39, %sub.ptr.rhs.cast.i.i40
+  %idx.neg.i.i = sub i64 0, %sub.ptr.sub.i.i41
+  %add.ptr.i2.i42 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg.i.i
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i2.i42, ptr nonnull align 1 %incdec.ptr.i.i14.i.i38, i64 %sub.ptr.sub.i.i41, i1 false)
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %buffer.i27)
   %cmp34.not = icmp eq ptr %incdec.ptr35, %segments
   br i1 %cmp34.not, label %while.end, label %while.body, !llvm.loop !83

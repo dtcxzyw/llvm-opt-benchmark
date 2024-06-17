@@ -1729,13 +1729,13 @@ dissect_mip6_ba.exit:                             ; preds = %112, %132
   br i1 %.not.i161, label %dissect_mip6_hoti.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %245, %243
-  %.str.721.sink.i = phi ptr [ @.str.721, %243 ], [ @.str.723, %245 ]
+  %.str.723.sink.i = phi ptr [ @.str.721, %243 ], [ @.str.723, %245 ]
   %hf_pmip6_bri_status.sink.i = phi ptr [ @hf_pmip6_bri_rtrigger, %243 ], [ @hf_pmip6_bri_status, %245 ]
   %hf_pmip6_bri_ap_flag.sink.i = phi ptr [ @hf_pmip6_bri_ip_flag, %243 ], [ @hf_pmip6_bri_ap_flag, %245 ]
   %hf_pmip6_bri_av_flag.sink.i = phi ptr [ @hf_pmip6_bri_iv_flag, %243 ], [ @hf_pmip6_bri_av_flag, %245 ]
   %hf_pmip6_bri_ag_flag.sink.i = phi ptr [ @hf_pmip6_bri_ig_flag, %243 ], [ @hf_pmip6_bri_ag_flag, %245 ]
   %247 = load i32, ptr @ett_mip6, align 4
-  %248 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %19, ptr noundef %0, i32 noundef 6, i32 noundef 6, i32 noundef %247, ptr noundef null, ptr noundef nonnull %.str.721.sink.i) #5
+  %248 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %19, ptr noundef %0, i32 noundef 6, i32 noundef 6, i32 noundef %247, ptr noundef null, ptr noundef nonnull %.str.723.sink.i) #5
   %249 = load i32, ptr @hf_pmip6_bri_brtype, align 4
   %250 = tail call ptr @proto_tree_add_item(ptr noundef %248, i32 noundef %249, ptr noundef %0, i32 noundef 6, i32 noundef 1, i32 noundef 0) #5
   %251 = load i32, ptr %hf_pmip6_bri_status.sink.i, align 4

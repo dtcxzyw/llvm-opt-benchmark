@@ -12097,86 +12097,70 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
   %58 = ashr exact i32 %55, 2
   %spec.select = select i1 %57, i32 %58, i32 -1
   %.not = icmp eq i32 %spec.select, -1
-  br i1 %.not, label %105, label %.thread
+  br i1 %.not, label %96, label %.thread
 
 .thread:                                          ; preds = %find_btmesh_property_length.exit101.thread, %find_btmesh_property_length.exit, %find_btmesh_property_length.exit101, %find_btmesh_property_length.exit.thread
+  %. = phi i16 [ %3, %find_btmesh_property_length.exit.thread ], [ -1, %find_btmesh_property_length.exit101.thread ], [ %3, %find_btmesh_property_length.exit ], [ -1, %find_btmesh_property_length.exit101 ]
   %.0108 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ %spec.select88, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ %46, %find_btmesh_property_length.exit101 ]
   %.1107 = phi i32 [ %spec.select, %find_btmesh_property_length.exit.thread ], [ 2, %find_btmesh_property_length.exit101.thread ], [ %26, %find_btmesh_property_length.exit ], [ 2, %find_btmesh_property_length.exit101 ]
   %59 = getelementptr inbounds i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8
   %61 = load i32, ptr %60, align 4
-  br i1 %7, label %62, label %69
-
-62:                                               ; preds = %.thread
-  %63 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %.1107)
-  %64 = zext i16 %63 to i32
-  %65 = add nuw nsw i32 %64, %2
-  %66 = load ptr, ptr %5, align 8
-  %67 = load i32, ptr %66, align 4
-  %68 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %67, ptr noundef %1, i32 noundef %65, i16 noundef zeroext %3, i32 noundef %.1107)
-  br label %76
-
-69:                                               ; preds = %.thread
-  %70 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext -1, i32 noundef %.1107)
-  %71 = zext i16 %70 to i32
-  %72 = add nuw nsw i32 %71, %2
-  %73 = load ptr, ptr %5, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %74, ptr noundef %1, i32 noundef %72, i16 noundef zeroext -1, i32 noundef %.1107)
-  br label %76
-
-76:                                               ; preds = %69, %62
-  %.sink128 = phi i16 [ %75, %69 ], [ %68, %62 ]
-  %.sink = phi i32 [ %72, %69 ], [ %65, %62 ]
-  %77 = zext i16 %.sink128 to i32
-  %78 = add nuw nsw i32 %.sink, %77
-  %79 = getelementptr inbounds i8, ptr %5, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %80, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %81, ptr noundef %1, i32 noundef %78, i32 noundef 1, i32 noundef -2147483648) #16
-  %83 = add nuw nsw i32 %78, 1
+  %62 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %61, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %., i32 noundef %.1107)
+  %63 = zext i16 %62 to i32
+  %64 = add nuw nsw i32 %63, %2
+  %65 = load ptr, ptr %5, align 8
+  %66 = load i32, ptr %65, align 4
+  %67 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %66, ptr noundef %1, i32 noundef %64, i16 noundef zeroext %., i32 noundef %.1107)
+  %68 = zext i16 %67 to i32
+  %69 = add nuw nsw i32 %64, %68
+  %70 = getelementptr inbounds i8, ptr %5, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %72 = load i32, ptr %71, align 4
+  %73 = tail call ptr @proto_tree_add_item(ptr noundef %0, i32 noundef %72, ptr noundef %1, i32 noundef %69, i32 noundef 1, i32 noundef -2147483648) #16
+  %74 = add nuw nsw i32 %69, 1
   %.not86 = icmp eq i32 %.0108, -1
-  br i1 %.not86, label %97, label %84
+  br i1 %.not86, label %88, label %75
 
-84:                                               ; preds = %76
-  %85 = getelementptr inbounds i8, ptr %5, i64 24
-  %86 = load ptr, ptr %85, align 8
-  %87 = load i32, ptr %86, align 4
-  %88 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %87, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %.0108)
-  %89 = zext i16 %88 to i32
-  %90 = add nuw nsw i32 %83, %89
-  %91 = getelementptr inbounds i8, ptr %5, i64 32
-  %92 = load ptr, ptr %91, align 8
-  %93 = load i32, ptr %92, align 4
-  %94 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %93, ptr noundef %1, i32 noundef %90, i16 noundef zeroext %3, i32 noundef %.0108)
-  %95 = zext i16 %94 to i32
-  %96 = add nuw nsw i32 %90, %95
-  br label %113
+75:                                               ; preds = %.thread
+  %76 = getelementptr inbounds i8, ptr %5, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = load i32, ptr %77, align 4
+  %79 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %78, ptr noundef %1, i32 noundef %74, i16 noundef zeroext %3, i32 noundef %.0108)
+  %80 = zext i16 %79 to i32
+  %81 = add nuw nsw i32 %74, %80
+  %82 = getelementptr inbounds i8, ptr %5, i64 32
+  %83 = load ptr, ptr %82, align 8
+  %84 = load i32, ptr %83, align 4
+  %85 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %84, ptr noundef %1, i32 noundef %81, i16 noundef zeroext %3, i32 noundef %.0108)
+  %86 = zext i16 %85 to i32
+  %87 = add nuw nsw i32 %81, %86
+  br label %104
 
-97:                                               ; preds = %76
-  %98 = getelementptr inbounds i8, ptr %5, i64 40
-  %99 = load ptr, ptr %98, align 8
-  %100 = load i32, ptr %99, align 4
-  %101 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %83) #16
-  %102 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %100, ptr noundef %1, i32 noundef %83, i16 noundef zeroext %3, i32 noundef %101)
-  %103 = zext i16 %102 to i32
-  %104 = add nuw nsw i32 %83, %103
-  br label %113
+88:                                               ; preds = %.thread
+  %89 = getelementptr inbounds i8, ptr %5, i64 40
+  %90 = load ptr, ptr %89, align 8
+  %91 = load i32, ptr %90, align 4
+  %92 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %74) #16
+  %93 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %91, ptr noundef %1, i32 noundef %74, i16 noundef zeroext %3, i32 noundef %92)
+  %94 = zext i16 %93 to i32
+  %95 = add nuw nsw i32 %74, %94
+  br label %104
 
-105:                                              ; preds = %find_btmesh_property_length.exit.thread
-  %106 = getelementptr inbounds i8, ptr %5, i64 40
-  %107 = load ptr, ptr %106, align 8
-  %108 = load i32, ptr %107, align 4
-  %109 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
-  %110 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %108, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %109)
-  %111 = zext i16 %110 to i32
-  %112 = add nuw nsw i32 %111, %2
-  br label %113
+96:                                               ; preds = %find_btmesh_property_length.exit.thread
+  %97 = getelementptr inbounds i8, ptr %5, i64 40
+  %98 = load ptr, ptr %97, align 8
+  %99 = load i32, ptr %98, align 4
+  %100 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %2) #16
+  %101 = tail call fastcc zeroext i16 @dissect_btmesh_property(ptr noundef %0, i32 noundef %99, ptr noundef %1, i32 noundef %2, i16 noundef zeroext %3, i32 noundef %100)
+  %102 = zext i16 %101 to i32
+  %103 = add nuw nsw i32 %102, %2
+  br label %104
 
-113:                                              ; preds = %84, %97, %105
-  %.183 = phi i32 [ %96, %84 ], [ %104, %97 ], [ %112, %105 ]
-  %114 = sub nsw i32 %.183, %2
-  ret i32 %114
+104:                                              ; preds = %75, %88, %96
+  %.183 = phi i32 [ %87, %75 ], [ %95, %88 ], [ %103, %96 ]
+  %105 = sub nsw i32 %.183, %2
+  ret i32 %105
 }
 
 ; Function Attrs: nounwind uwtable

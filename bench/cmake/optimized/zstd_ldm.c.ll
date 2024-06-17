@@ -405,9 +405,9 @@ define dso_local i64 @ZSTD_ldm_generateSequences(ptr nocapture noundef %0, ptr n
   %33 = getelementptr i8, ptr %0, i64 56
   br label %34
 
-34:                                               ; preds = %.lr.ph, %421
-  %.05377 = phi i64 [ 0, %.lr.ph ], [ %422, %421 ]
-  %.05476 = phi i64 [ 0, %.lr.ph ], [ %.1, %421 ]
+34:                                               ; preds = %.lr.ph, %422
+  %.05377 = phi i64 [ 0, %.lr.ph ], [ %423, %422 ]
+  %.05476 = phi i64 [ 0, %.lr.ph ], [ %.1, %422 ]
   %35 = load i64, ptr %17, align 8
   %36 = load i64, ptr %18, align 8
   %37 = icmp ult i64 %35, %36
@@ -557,7 +557,7 @@ ZSTD_window_enforceMaxDist.exit:                  ; preds = %.ZSTD_window_enforc
 ZSTD_ldm_generateSequences_internal.exit.thread:  ; preds = %.thread.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  br label %410
+  br label %411
 
 ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %.val227.i = load i32, ptr %31, align 4
@@ -591,7 +591,7 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
 
 123:                                              ; preds = %.loopexit.i, %.lr.ph295.i
   %.0200294.i = phi ptr [ %40, %.lr.ph295.i ], [ %.3.i, %.loopexit.i ]
-  %.0201293.i = phi ptr [ %113, %.lr.ph295.i ], [ %407, %.loopexit.i ]
+  %.0201293.i = phi ptr [ %113, %.lr.ph295.i ], [ %408, %.loopexit.i ]
   store i32 0, ptr %7, align 4
   %124 = ptrtoint ptr %.0201293.i to i64
   %125 = sub i64 %115, %124
@@ -638,9 +638,9 @@ ZSTD_ldm_gear_reset.exit.i:                       ; preds = %.thread.i
   %exitcond.not.i62 = icmp eq i64 %indvars.iv.next.i61, %wide.trip.count.i59
   br i1 %exitcond.not.i62, label %.lr.ph291.i, label %129, !llvm.loop !11
 
-145:                                              ; preds = %406, %.lr.ph291.i
-  %indvars.iv307.i = phi i64 [ 0, %.lr.ph291.i ], [ %indvars.iv.next308.i, %406 ]
-  %.1289.i = phi ptr [ %.0200294.i, %.lr.ph291.i ], [ %.2.i, %406 ]
+145:                                              ; preds = %407, %.lr.ph291.i
+  %indvars.iv307.i = phi i64 [ 0, %.lr.ph291.i ], [ %indvars.iv.next308.i, %407 ]
+  %.1289.i = phi ptr [ %.0200294.i, %.lr.ph291.i ], [ %.2.i, %407 ]
   %146 = getelementptr inbounds %struct.ldmMatchCandidate_t, ptr %30, i64 %indvars.iv307.i
   %147 = load ptr, ptr %146, align 8
   %148 = getelementptr inbounds i8, ptr %146, i64 12
@@ -1196,7 +1196,7 @@ ZSTD_ldm_generateSequences_internal.exit.thread66: ; preds = %356
   store i8 %389, ptr %378, align 1
   %390 = getelementptr inbounds i8, ptr %147, i64 %.0205.lcssa.i
   %391 = icmp ugt ptr %390, %128
-  br i1 %391, label %ZSTD_ldm_gear_reset.exit254.i, label %406
+  br i1 %391, label %ZSTD_ldm_gear_reset.exit254.i, label %407
 
 ZSTD_ldm_gear_reset.exit254.i:                    ; preds = %360
   %392 = sub i64 0, %126
@@ -1204,43 +1204,43 @@ ZSTD_ldm_gear_reset.exit254.i:                    ; preds = %360
   br label %.loopexit.i
 
 .sink.split.i:                                    ; preds = %._crit_edge.i, %145
-  %.sink = zext i32 %151 to i64
+  %394 = zext i32 %151 to i64
   %.sroa.4.0.insert.ext26.i = zext i32 %149 to i64
   %.sroa.4.0.insert.shift27.i = shl nuw i64 %.sroa.4.0.insert.ext26.i, 32
   %.sroa.0.0.insert.ext18.i = and i64 %153, 4294967295
   %.sroa.0.0.insert.insert20.i = or disjoint i64 %.sroa.4.0.insert.shift27.i, %.sroa.0.0.insert.ext18.i
+  %.sroa.1256.0.copyload.i = load i32, ptr %28, align 4
+  %.val233.i = load ptr, ptr %26, align 8
   %.val234.i = load ptr, ptr %33, align 8
-  %394 = getelementptr inbounds i8, ptr %.val234.i, i64 %.sink
-  %.val233.sink.i = load ptr, ptr %26, align 8
-  %.sroa.1256.0.copyload.sink328.i = load i32, ptr %28, align 4
-  %395 = load i8, ptr %394, align 1
-  %396 = zext i8 %395 to i32
-  %397 = zext nneg i32 %.sroa.1256.0.copyload.sink328.i to i64
-  %398 = shl i64 %.sink, %397
-  %399 = getelementptr inbounds %struct.ldmEntry_t, ptr %.val233.sink.i, i64 %398
-  %400 = zext i8 %395 to i64
-  %401 = getelementptr inbounds %struct.ldmEntry_t, ptr %399, i64 %400
-  store i64 %.sroa.0.0.insert.insert20.i, ptr %401, align 4
-  %402 = add nuw nsw i32 %396, 1
-  %notmask.i250.i = shl nsw i32 -1, %.sroa.1256.0.copyload.sink328.i
-  %403 = xor i32 %notmask.i250.i, -1
-  %404 = and i32 %402, %403
-  %405 = trunc i32 %404 to i8
-  store i8 %405, ptr %394, align 1
-  br label %406
+  %395 = getelementptr inbounds i8, ptr %.val234.i, i64 %394
+  %396 = load i8, ptr %395, align 1
+  %397 = zext i8 %396 to i32
+  %398 = zext nneg i32 %.sroa.1256.0.copyload.i to i64
+  %399 = shl i64 %394, %398
+  %400 = getelementptr inbounds %struct.ldmEntry_t, ptr %.val233.i, i64 %399
+  %401 = zext i8 %396 to i64
+  %402 = getelementptr inbounds %struct.ldmEntry_t, ptr %400, i64 %401
+  store i64 %.sroa.0.0.insert.insert20.i, ptr %402, align 4
+  %403 = add nuw nsw i32 %397, 1
+  %notmask.i250.i = shl nsw i32 -1, %.sroa.1256.0.copyload.i
+  %404 = xor i32 %notmask.i250.i, -1
+  %405 = and i32 %403, %404
+  %406 = trunc i32 %405 to i8
+  store i8 %406, ptr %395, align 1
+  br label %407
 
-406:                                              ; preds = %.sink.split.i, %360
+407:                                              ; preds = %.sink.split.i, %360
   %.2.i = phi ptr [ %390, %360 ], [ %.1289.i, %.sink.split.i ]
   %indvars.iv.next308.i = add nuw nsw i64 %indvars.iv307.i, 1
   %exitcond311.not.i = icmp eq i64 %indvars.iv.next308.i, %wide.trip.count.i59
   br i1 %exitcond311.not.i, label %.loopexit.i, label %145, !llvm.loop !15
 
-.loopexit.i:                                      ; preds = %406, %ZSTD_ldm_gear_reset.exit254.i, %123
-  %.1202.i = phi ptr [ %393, %ZSTD_ldm_gear_reset.exit254.i ], [ %.0201293.i, %123 ], [ %.0201293.i, %406 ]
-  %.3.i = phi ptr [ %390, %ZSTD_ldm_gear_reset.exit254.i ], [ %.0200294.i, %123 ], [ %.2.i, %406 ]
-  %407 = getelementptr inbounds i8, ptr %.1202.i, i64 %126
-  %408 = icmp ult ptr %407, %105
-  br i1 %408, label %123, label %ZSTD_ldm_generateSequences_internal.exit.loopexit, !llvm.loop !16
+.loopexit.i:                                      ; preds = %407, %ZSTD_ldm_gear_reset.exit254.i, %123
+  %.1202.i = phi ptr [ %393, %ZSTD_ldm_gear_reset.exit254.i ], [ %.0201293.i, %123 ], [ %.0201293.i, %407 ]
+  %.3.i = phi ptr [ %390, %ZSTD_ldm_gear_reset.exit254.i ], [ %.0200294.i, %123 ], [ %.2.i, %407 ]
+  %408 = getelementptr inbounds i8, ptr %.1202.i, i64 %126
+  %409 = icmp ult ptr %408, %105
+  br i1 %409, label %123, label %ZSTD_ldm_generateSequences_internal.exit.loopexit, !llvm.loop !16
 
 ZSTD_ldm_generateSequences_internal.exit.loopexit: ; preds = %.loopexit.i
   %.pre97 = ptrtoint ptr %.3.i to i64
@@ -1251,36 +1251,36 @@ ZSTD_ldm_generateSequences_internal.exit:         ; preds = %ZSTD_ldm_generateSe
   %.pre-phi100 = phi i64 [ %.pre99, %ZSTD_ldm_generateSequences_internal.exit.loopexit ], [ %46, %ZSTD_ldm_gear_reset.exit.i ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %409 = icmp ult i64 %.pre-phi100, -119
-  br i1 %409, label %410, label %.critedge
+  %410 = icmp ult i64 %.pre-phi100, -119
+  br i1 %410, label %411, label %.critedge
 
-410:                                              ; preds = %ZSTD_ldm_generateSequences_internal.exit.thread, %ZSTD_ldm_generateSequences_internal.exit
+411:                                              ; preds = %ZSTD_ldm_generateSequences_internal.exit.thread, %ZSTD_ldm_generateSequences_internal.exit
   %.0.i65 = phi i64 [ %46, %ZSTD_ldm_generateSequences_internal.exit.thread ], [ %.pre-phi100, %ZSTD_ldm_generateSequences_internal.exit ]
-  %411 = load i64, ptr %17, align 8
-  %412 = icmp ult i64 %35, %411
-  br i1 %412, label %413, label %419
+  %412 = load i64, ptr %17, align 8
+  %413 = icmp ult i64 %35, %412
+  br i1 %413, label %414, label %420
 
-413:                                              ; preds = %410
-  %414 = trunc i64 %.05476 to i32
-  %415 = load ptr, ptr %1, align 8
-  %416 = getelementptr inbounds %struct.rawSeq, ptr %415, i64 %35, i32 1
-  %417 = load i32, ptr %416, align 4
-  %418 = add i32 %417, %414
-  store i32 %418, ptr %416, align 4
-  br label %421
+414:                                              ; preds = %411
+  %415 = trunc i64 %.05476 to i32
+  %416 = load ptr, ptr %1, align 8
+  %417 = getelementptr inbounds %struct.rawSeq, ptr %416, i64 %35, i32 1
+  %418 = load i32, ptr %417, align 4
+  %419 = add i32 %418, %415
+  store i32 %419, ptr %417, align 4
+  br label %422
 
-419:                                              ; preds = %410
-  %420 = add i64 %46, %.05476
-  br label %421
+420:                                              ; preds = %411
+  %421 = add i64 %46, %.05476
+  br label %422
 
-421:                                              ; preds = %413, %419
-  %.1 = phi i64 [ %.0.i65, %413 ], [ %420, %419 ]
-  %422 = add nuw nsw i64 %.05377, 1
-  %exitcond.not = icmp eq i64 %422, %16
+422:                                              ; preds = %414, %420
+  %.1 = phi i64 [ %.0.i65, %414 ], [ %421, %420 ]
+  %423 = add nuw nsw i64 %.05377, 1
+  %exitcond.not = icmp eq i64 %423, %16
   br i1 %exitcond.not, label %.critedge, label %34, !llvm.loop !17
 
-.critedge:                                        ; preds = %ZSTD_ldm_generateSequences_internal.exit, %421, %34, %5, %ZSTD_ldm_generateSequences_internal.exit.thread66
-  %.0 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread66 ], [ 0, %5 ], [ %.pre-phi100, %ZSTD_ldm_generateSequences_internal.exit ], [ 0, %421 ], [ 0, %34 ]
+.critedge:                                        ; preds = %ZSTD_ldm_generateSequences_internal.exit, %422, %34, %5, %ZSTD_ldm_generateSequences_internal.exit.thread66
+  %.0 = phi i64 [ -70, %ZSTD_ldm_generateSequences_internal.exit.thread66 ], [ 0, %5 ], [ %.pre-phi100, %ZSTD_ldm_generateSequences_internal.exit ], [ 0, %422 ], [ 0, %34 ]
   ret i64 %.0
 }
 

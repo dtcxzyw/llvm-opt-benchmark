@@ -163,6 +163,8 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
   %25 = getelementptr inbounds i64, ptr %24, i64 %16
   %26 = and i64 %.val174, 2305843009213693952
   %.not143 = icmp eq i64 %26, 0
+  %.242 = select i1 %.not142, ptr %24, ptr %25
+  %.243 = select i1 %.not142, ptr %25, ptr %24
   %27 = lshr i64 %.val174, 32
   %28 = trunc nuw i64 %27 to i32
   %29 = and i32 %28, 536870911
@@ -173,21 +175,19 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
   %34 = getelementptr inbounds i64, ptr %33, i64 %16
   %.232 = select i1 %.not143, ptr %33, ptr %34
   %.233 = select i1 %.not143, ptr %34, ptr %33
-  %. = select i1 %.not142, ptr %24, ptr %25
-  %.236 = select i1 %.not142, ptr %25, ptr %24
   %35 = icmp sgt i32 %.val173, 0
   br i1 %35, label %.lr.ph209, label %.loopexit
 
 .lr.ph209:                                        ; preds = %9, %.lr.ph209
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.lr.ph209 ], [ 0, %9 ]
-  %36 = getelementptr inbounds i64, ptr %., i64 %indvars.iv224
+  %36 = getelementptr inbounds i64, ptr %.242, i64 %indvars.iv224
   %37 = load i64, ptr %36, align 8
   %38 = getelementptr inbounds i64, ptr %.232, i64 %indvars.iv224
   %39 = load i64, ptr %38, align 8
   %40 = or i64 %39, %37
   %41 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv224
   store i64 %40, ptr %41, align 8
-  %42 = getelementptr inbounds i64, ptr %.236, i64 %indvars.iv224
+  %42 = getelementptr inbounds i64, ptr %.243, i64 %indvars.iv224
   %43 = load i64, ptr %42, align 8
   %44 = getelementptr inbounds i64, ptr %.233, i64 %indvars.iv224
   %45 = load i64, ptr %44, align 8
@@ -225,18 +225,18 @@ define void @Gia_ManInseSimulateObj(ptr nocapture noundef readonly %0, i32 nound
   %66 = sext i32 %65 to i64
   %67 = getelementptr inbounds i64, ptr %.val158, i64 %66
   %68 = getelementptr inbounds i64, ptr %67, i64 %59
-  %.234 = select i1 %.not141, ptr %67, ptr %68
-  %.235 = select i1 %.not141, ptr %68, ptr %67
+  %. = select i1 %.not141, ptr %67, ptr %68
+  %.241 = select i1 %.not141, ptr %68, ptr %67
   %69 = icmp sgt i32 %.val159, 0
   br i1 %69, label %.lr.ph207, label %.loopexit
 
 .lr.ph207:                                        ; preds = %52, %.lr.ph207
   %indvars.iv221 = phi i64 [ %indvars.iv.next222, %.lr.ph207 ], [ 0, %52 ]
-  %70 = getelementptr inbounds i64, ptr %.234, i64 %indvars.iv221
+  %70 = getelementptr inbounds i64, ptr %., i64 %indvars.iv221
   %71 = load i64, ptr %70, align 8
   %72 = getelementptr inbounds i64, ptr %58, i64 %indvars.iv221
   store i64 %71, ptr %72, align 8
-  %73 = getelementptr inbounds i64, ptr %.235, i64 %indvars.iv221
+  %73 = getelementptr inbounds i64, ptr %.241, i64 %indvars.iv221
   %74 = load i64, ptr %73, align 8
   %75 = getelementptr inbounds i64, ptr %60, i64 %indvars.iv221
   store i64 %74, ptr %75, align 8

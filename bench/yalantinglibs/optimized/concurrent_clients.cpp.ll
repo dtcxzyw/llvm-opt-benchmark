@@ -19825,10 +19825,10 @@ if.end17.sink.split.i.i.i.loopexit:               ; preds = %for.body.i.i.i
 
 if.end17.sink.split.i.i.i:                        ; preds = %if.end17.sink.split.i.i.i.loopexit, %if.then.i1.i.i
   %next_7.le.sink.i.i.i = phi ptr [ %timer_queues_.i.i, %if.then.i1.i.i ], [ %next_7.i.i.i.le, %if.end17.sink.split.i.i.i.loopexit ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i, align 8
+  %next_12.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i: ; preds = %for.cond.i.i.i, %if.end17.sink.split.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i
@@ -19898,10 +19898,10 @@ if.end17.sink.split.i.i.i.i.loopexit:             ; preds = %for.body.i.i.i.i
 
 if.end17.sink.split.i.i.i.i:                      ; preds = %if.end17.sink.split.i.i.i.i.loopexit, %if.then.i1.i.i.i
   %next_7.le.sink.i.i.i.i = phi ptr [ %timer_queues_.i.i.i, %if.then.i1.i.i.i ], [ %next_7.i.i.i.i.le, %if.end17.sink.split.i.i.i.i.loopexit ]
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i.i, align 8
+  %next_12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i: ; preds = %for.cond.i.i.i.i, %if.end17.sink.split.i.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i.i
@@ -45409,7 +45409,6 @@ sw.bb.i:                                          ; preds = %_ZN11struct_pack6de
   store i32 -1647314314, ptr %add.ptr6.i, align 1
   %size.0.extract.trunc.i.i = trunc nuw i64 %call.i.i to i8
   store i8 %size.0.extract.trunc.i.i, ptr %add.ptr.i.i, align 1
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
   br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb1.i:                                         ; preds = %_ZN11struct_pack6detail6resizeISt4byteEEvRSt6vectorIT_SaIS4_EEm.exit
@@ -45426,30 +45425,27 @@ sw.bb1.i:                                         ; preds = %_ZN11struct_pack6de
 sw.bb.i.i:                                        ; preds = %sw.bb1.i
   %size2.0.extract.trunc10.i.i = trunc i64 %call.i.i to i16
   store i16 %size2.0.extract.trunc10.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb5.i.i:                                       ; preds = %sw.bb1.i
   %size2.0.extract.trunc.i.i = trunc i64 %call.i.i to i32
   store i32 %size2.0.extract.trunc.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %call.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
-_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
-  %.sink12.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
-  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 %.sink12.i.i
+_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit: ; preds = %sw.bb.i, %sw.bb.i.i, %sw.bb5.i.i, %sw.bb7.i.i
+  %writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i, %sw.bb.i ], [ %add.ptr.i.i24.i, %sw.bb7.i.i ], [ %add.ptr.i.i24.i, %sw.bb5.i.i ], [ %add.ptr.i.i24.i, %sw.bb.i.i ]
+  %.sink12.i.sink.i = phi i64 [ 1, %sw.bb.i ], [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
+  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %writer.i.sroa.0.0, i64 %.sink12.i.sink.i
   %cmp.i.i9.i = icmp ult i64 %call.i.i, 9223372036854775807
   tail call void @llvm.assume(i1 %cmp.i.i9.i)
-  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
-
-_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit: ; preds = %sw.bb.i, %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
-  %add.ptr.i.i.i.i.sink = phi ptr [ %add.ptr.i.i.i.i, %sw.bb.i ], [ %add.ptr.i.i33.i.i, %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i.sink, ptr align 1 %0, i64 %call.i.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %0, i64 %call.i.i, i1 false)
   ret void
 }
 

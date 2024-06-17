@@ -698,25 +698,12 @@ entry:
   %transportDirection_ = getelementptr inbounds i8, ptr %this, i64 381
   %0 = load i8, ptr %transportDirection_, align 1
   %cmp = icmp eq i8 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %ingressTxnID_ = getelementptr inbounds i8, ptr %this, i64 48
-  %1 = load i64, ptr %ingressTxnID_, align 8
-  %inc = add i64 %1, 1
-  store i64 %inc, ptr %ingressTxnID_, align 8
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %egressTxnID_ = getelementptr inbounds i8, ptr %this, i64 56
-  %2 = load i64, ptr %egressTxnID_, align 8
-  %inc2 = add i64 %2, 1
+  %. = select i1 %cmp, i64 48, i64 56
+  %egressTxnID_ = getelementptr inbounds i8, ptr %this, i64 %.
+  %1 = load i64, ptr %egressTxnID_, align 8
+  %inc2 = add i64 %1, 1
   store i64 %inc2, ptr %egressTxnID_, align 8
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %retval.0 = phi i64 [ %inc, %if.then ], [ %inc2, %if.else ]
-  ret i64 %retval.0
+  ret i64 %inc2
 }
 
 ; Function Attrs: mustprogress uwtable

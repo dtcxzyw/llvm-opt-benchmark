@@ -1089,19 +1089,13 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
 if.then100:                                       ; preds = %for.body93
   %20 = load i64, ptr %dst, align 8
   %tobool.not.i.i = icmp eq i64 %20, 0
-  br i1 %tobool.not.i.i, label %if.then.i, label %strbuf_avail.exit.i
+  br i1 %tobool.not.i.i, label %for.inc110.sink.split.sink.split, label %strbuf_avail.exit.i
 
 strbuf_avail.exit.i:                              ; preds = %if.then100
   %21 = load i64, ptr %len.i.i, align 8
   %.neg.i = add i64 %21, 1
   %tobool.not.i = icmp eq i64 %20, %.neg.i
-  br i1 %tobool.not.i, label %if.then.i, label %for.inc110.sink.split
-
-if.then.i:                                        ; preds = %strbuf_avail.exit.i, %if.then100
-  tail call void @strbuf_grow(ptr noundef nonnull %dst, i64 noundef 1) #11
-  %.pre.i = load i64, ptr %len.i.i, align 8
-  %.pre8.i = add i64 %.pre.i, 1
-  br label %for.inc110.sink.split
+  br i1 %tobool.not.i, label %for.inc110.sink.split.sink.split, label %for.inc110.sink.split
 
 if.else102:                                       ; preds = %for.body93
   %inc103 = add nsw i32 %consecutive_spaces.0235, 1
@@ -1111,24 +1105,25 @@ if.else102:                                       ; preds = %for.body93
 if.then107:                                       ; preds = %if.else102
   %22 = load i64, ptr %dst, align 8
   %tobool.not.i.i73 = icmp eq i64 %22, 0
-  br i1 %tobool.not.i.i73, label %if.then.i83, label %strbuf_avail.exit.i74
+  br i1 %tobool.not.i.i73, label %for.inc110.sink.split.sink.split, label %strbuf_avail.exit.i74
 
 strbuf_avail.exit.i74:                            ; preds = %if.then107
   %23 = load i64, ptr %len.i.i, align 8
   %.neg.i76 = add i64 %23, 1
   %tobool.not.i77 = icmp eq i64 %22, %.neg.i76
-  br i1 %tobool.not.i77, label %if.then.i83, label %for.inc110.sink.split
+  br i1 %tobool.not.i77, label %for.inc110.sink.split.sink.split, label %for.inc110.sink.split
 
-if.then.i83:                                      ; preds = %strbuf_avail.exit.i74, %if.then107
+for.inc110.sink.split.sink.split:                 ; preds = %if.then107, %strbuf_avail.exit.i74, %if.then100, %strbuf_avail.exit.i
+  %.sink.ph = phi i8 [ %19, %strbuf_avail.exit.i ], [ %19, %if.then100 ], [ 9, %strbuf_avail.exit.i74 ], [ 9, %if.then107 ]
   tail call void @strbuf_grow(ptr noundef nonnull %dst, i64 noundef 1) #11
   %.pre.i85 = load i64, ptr %len.i.i, align 8
   %.pre8.i86 = add i64 %.pre.i85, 1
   br label %for.inc110.sink.split
 
-for.inc110.sink.split:                            ; preds = %if.then.i83, %strbuf_avail.exit.i74, %if.then.i, %strbuf_avail.exit.i
-  %inc.pre-phi.i.sink = phi i64 [ %.pre8.i, %if.then.i ], [ %.neg.i, %strbuf_avail.exit.i ], [ %.pre8.i86, %if.then.i83 ], [ %.neg.i76, %strbuf_avail.exit.i74 ]
-  %.sink346 = phi i64 [ %.pre.i, %if.then.i ], [ %21, %strbuf_avail.exit.i ], [ %.pre.i85, %if.then.i83 ], [ %23, %strbuf_avail.exit.i74 ]
-  %.sink = phi i8 [ %19, %if.then.i ], [ %19, %strbuf_avail.exit.i ], [ 9, %if.then.i83 ], [ 9, %strbuf_avail.exit.i74 ]
+for.inc110.sink.split:                            ; preds = %for.inc110.sink.split.sink.split, %strbuf_avail.exit.i74, %strbuf_avail.exit.i
+  %inc.pre-phi.i.sink = phi i64 [ %.neg.i, %strbuf_avail.exit.i ], [ %.neg.i76, %strbuf_avail.exit.i74 ], [ %.pre8.i86, %for.inc110.sink.split.sink.split ]
+  %.sink346 = phi i64 [ %21, %strbuf_avail.exit.i ], [ %23, %strbuf_avail.exit.i74 ], [ %.pre.i85, %for.inc110.sink.split.sink.split ]
+  %.sink = phi i8 [ %19, %strbuf_avail.exit.i ], [ 9, %strbuf_avail.exit.i74 ], [ %.sink.ph, %for.inc110.sink.split.sink.split ]
   %24 = load ptr, ptr %buf.i, align 8
   store i64 %inc.pre-phi.i.sink, ptr %len.i.i, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %24, i64 %.sink346

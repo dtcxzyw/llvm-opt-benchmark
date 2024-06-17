@@ -23843,168 +23843,140 @@ if.end79:                                         ; preds = %while.cond74
 if.then83:                                        ; preds = %if.end79
   %72 = load i8, ptr %error_.i110, align 8
   %tobool.i111 = trunc i8 %72 to i1
-  br i1 %tobool.i111, label %cleanup112, label %if.then.i112
-
-if.then.i112:                                     ; preds = %if.then83
-  %73 = load ptr, ptr %handler_70, align 8
-  %74 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i114 = ptrtoint ptr %70 to i64
-  %sub.ptr.rhs.cast.i115 = ptrtoint ptr %74 to i64
-  %sub.ptr.sub.i116 = sub i64 %sub.ptr.lhs.cast.i114, %sub.ptr.rhs.cast.i115
-  %vtable.i117 = load ptr, ptr %73, align 8
-  %vfn.i118 = getelementptr inbounds i8, ptr %vtable.i117, i64 104
-  %75 = load ptr, ptr %vfn.i118, align 8
-  tail call void %75(ptr noundef nonnull align 8 dereferenceable(8) %73, i32 6, i64 %sub.ptr.sub.i116) #27
-  br label %cleanup112.sink.split
+  br i1 %tobool.i111, label %cleanup112, label %cleanup112.sink.split
 
 if.end84:                                         ; preds = %if.end79
-  %76 = load ptr, ptr %handler_70, align 8
-  %77 = load ptr, ptr %key, align 8
-  %78 = load ptr, ptr %_M_finish.i120, align 8
-  %sub.ptr.lhs.cast.i121 = ptrtoint ptr %78 to i64
-  %sub.ptr.rhs.cast.i122 = ptrtoint ptr %77 to i64
+  %73 = load ptr, ptr %handler_70, align 8
+  %74 = load ptr, ptr %key, align 8
+  %75 = load ptr, ptr %_M_finish.i120, align 8
+  %sub.ptr.lhs.cast.i121 = ptrtoint ptr %75 to i64
+  %sub.ptr.rhs.cast.i122 = ptrtoint ptr %74 to i64
   %sub.ptr.sub.i123 = sub i64 %sub.ptr.lhs.cast.i121, %sub.ptr.rhs.cast.i122
   %sub.ptr.div.i124 = ashr exact i64 %sub.ptr.sub.i123, 1
-  %vtable89 = load ptr, ptr %76, align 8
+  %vtable89 = load ptr, ptr %73, align 8
   %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 56
-  %79 = load ptr, ptr %vfn90, align 8
-  tail call void %79(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr %77, i64 %sub.ptr.div.i124) #27
+  %76 = load ptr, ptr %vfn90, align 8
+  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %73, ptr %74, i64 %sub.ptr.div.i124) #27
   %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %71, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   %cmp92.not = icmp eq i32 %call91, 10
   br i1 %cmp92.not, label %if.end94, label %if.then93
 
 if.then93:                                        ; preds = %if.end84
-  %80 = load i8, ptr %error_.i110, align 8
-  %tobool.i127 = trunc i8 %80 to i1
+  %77 = load i8, ptr %error_.i110, align 8
+  %tobool.i127 = trunc i8 %77 to i1
   br i1 %tobool.i127, label %cleanup112, label %if.then.i128
 
 if.then.i128:                                     ; preds = %if.then93
-  %81 = load ptr, ptr %token_start, align 8
-  %82 = load ptr, ptr %handler_70, align 8
-  %83 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i130 = ptrtoint ptr %81 to i64
-  %sub.ptr.rhs.cast.i131 = ptrtoint ptr %83 to i64
-  %sub.ptr.sub.i132 = sub i64 %sub.ptr.lhs.cast.i130, %sub.ptr.rhs.cast.i131
-  %vtable.i133 = load ptr, ptr %82, align 8
-  %vfn.i134 = getelementptr inbounds i8, ptr %vtable.i133, i64 104
-  %84 = load ptr, ptr %vfn.i134, align 8
-  tail call void %84(ptr noundef nonnull align 8 dereferenceable(8) %82, i32 10, i64 %sub.ptr.sub.i132) #27
+  %78 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
 if.end94:                                         ; preds = %if.end84
-  %85 = load ptr, ptr %token_end, align 8
-  call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseValueEPKhS7_PS7_i(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %85, ptr noundef %end, ptr noundef nonnull %token_end, i32 noundef %add95)
-  %86 = load i8, ptr %error_.i110, align 8
-  %tobool97 = trunc i8 %86 to i1
+  %79 = load ptr, ptr %token_end, align 8
+  call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseValueEPKhS7_PS7_i(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %79, ptr noundef %end, ptr noundef nonnull %token_end, i32 noundef %add95)
+  %80 = load i8, ptr %error_.i110, align 8
+  %tobool97 = trunc i8 %80 to i1
   br i1 %tobool97, label %cleanup112, label %if.end99
 
 if.end99:                                         ; preds = %if.end94
-  %87 = load ptr, ptr %token_end, align 8
-  %call100 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %87, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
+  %81 = load ptr, ptr %token_end, align 8
+  %call100 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %81, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   switch i32 %call100, label %if.then109 [
     i32 9, label %if.then102
     i32 1, label %cleanup112
   ]
 
 if.then102:                                       ; preds = %if.end99
-  %88 = load ptr, ptr %token_end, align 8
-  %call103 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %88, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
+  %82 = load ptr, ptr %token_end, align 8
+  %call103 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE10ParseTokenEPKhS7_PS7_S8_(ptr noundef %82, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   %cmp104 = icmp eq i32 %call103, 1
   br i1 %cmp104, label %if.then105, label %cleanup112
 
 if.then105:                                       ; preds = %if.then102
-  %89 = load i8, ptr %error_.i110, align 8
-  %tobool.i137 = trunc i8 %89 to i1
+  %83 = load i8, ptr %error_.i110, align 8
+  %tobool.i137 = trunc i8 %83 to i1
   br i1 %tobool.i137, label %cleanup112, label %if.then.i138
 
 if.then.i138:                                     ; preds = %if.then105
-  %90 = load ptr, ptr %token_start, align 8
-  %91 = load ptr, ptr %handler_70, align 8
-  %92 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i140 = ptrtoint ptr %90 to i64
-  %sub.ptr.rhs.cast.i141 = ptrtoint ptr %92 to i64
-  %sub.ptr.sub.i142 = sub i64 %sub.ptr.lhs.cast.i140, %sub.ptr.rhs.cast.i141
-  %vtable.i143 = load ptr, ptr %91, align 8
-  %vfn.i144 = getelementptr inbounds i8, ptr %vtable.i143, i64 104
-  %93 = load ptr, ptr %vfn.i144, align 8
-  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %91, i32 11, i64 %sub.ptr.sub.i142) #27
+  %84 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
 if.then109:                                       ; preds = %if.end99
-  %94 = load i8, ptr %error_.i110, align 8
-  %tobool.i147 = trunc i8 %94 to i1
+  %85 = load i8, ptr %error_.i110, align 8
+  %tobool.i147 = trunc i8 %85 to i1
   br i1 %tobool.i147, label %cleanup112, label %if.then.i148
 
 if.then.i148:                                     ; preds = %if.then109
-  %95 = load ptr, ptr %token_start, align 8
-  %96 = load ptr, ptr %handler_70, align 8
-  %97 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %95 to i64
-  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %97 to i64
-  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
-  %vtable.i153 = load ptr, ptr %96, align 8
-  %vfn.i154 = getelementptr inbounds i8, ptr %vtable.i153, i64 104
-  %98 = load ptr, ptr %vfn.i154, align 8
-  tail call void %98(ptr noundef nonnull align 8 dereferenceable(8) %96, i32 12, i64 %sub.ptr.sub.i152) #27
+  %86 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
-cleanup112.sink.split:                            ; preds = %if.then.i112, %if.then.i128, %if.then.i138, %if.then.i148
-  %token.4.ph = phi i32 [ %call100, %if.then.i148 ], [ 1, %if.then.i138 ], [ %call91, %if.then.i128 ], [ 4, %if.then.i112 ]
+cleanup112.sink.split:                            ; preds = %if.then83, %if.then.i128, %if.then.i138, %if.then.i148
+  %.sink202 = phi ptr [ %86, %if.then.i148 ], [ %84, %if.then.i138 ], [ %78, %if.then.i128 ], [ %70, %if.then83 ]
+  %.sink198 = phi i32 [ 12, %if.then.i148 ], [ 11, %if.then.i138 ], [ 10, %if.then.i128 ], [ 6, %if.then83 ]
+  %token.4.ph = phi i32 [ %call100, %if.then.i148 ], [ 1, %if.then.i138 ], [ %call91, %if.then.i128 ], [ 4, %if.then83 ]
+  %87 = load ptr, ptr %handler_70, align 8
+  %88 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i150 = ptrtoint ptr %.sink202 to i64
+  %sub.ptr.rhs.cast.i151 = ptrtoint ptr %88 to i64
+  %sub.ptr.sub.i152 = sub i64 %sub.ptr.lhs.cast.i150, %sub.ptr.rhs.cast.i151
+  %vtable.i153 = load ptr, ptr %87, align 8
+  %vfn.i154 = getelementptr inbounds i8, ptr %vtable.i153, i64 104
+  %89 = load ptr, ptr %vfn.i154, align 8
+  tail call void %89(ptr noundef nonnull align 8 dereferenceable(8) %87, i32 %.sink198, i64 %sub.ptr.sub.i152) #27
   store i8 1, ptr %error_.i110, align 8
   br label %cleanup112
 
 cleanup112:                                       ; preds = %cleanup112.sink.split, %if.then109, %if.then105, %if.then93, %if.then83, %if.then102, %if.end99, %if.end94
   %token.4 = phi i32 [ 10, %if.end94 ], [ %call103, %if.then102 ], [ %call100, %if.end99 ], [ 4, %if.then83 ], [ %call91, %if.then93 ], [ 1, %if.then105 ], [ %call100, %if.then109 ], [ %token.4.ph, %cleanup112.sink.split ]
   %switch34 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
-  %99 = load ptr, ptr %key, align 8
-  %tobool.not.i.i.i156 = icmp eq ptr %99, null
+  %90 = load ptr, ptr %key, align 8
+  %tobool.not.i.i.i156 = icmp eq ptr %90, null
   br i1 %tobool.not.i.i.i156, label %_ZNSt6vectorItSaItEED2Ev.exit158, label %if.then.i.i.i157
 
 if.then.i.i.i157:                                 ; preds = %cleanup112
-  tail call void @_ZdlPv(ptr noundef nonnull %99) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %90) #28
   br label %_ZNSt6vectorItSaItEED2Ev.exit158
 
 _ZNSt6vectorItSaItEED2Ev.exit158:                 ; preds = %cleanup112, %if.then.i.i.i157
   br i1 %switch34, label %while.cond74, label %return
 
 while.end114:                                     ; preds = %while.cond74
-  %100 = load ptr, ptr %handler_70, align 8
-  %vtable116 = load ptr, ptr %100, align 8
+  %91 = load ptr, ptr %handler_70, align 8
+  %vtable116 = load ptr, ptr %91, align 8
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 24
-  %101 = load ptr, ptr %vfn117, align 8
-  tail call void %101(ptr noundef nonnull align 8 dereferenceable(8) %100) #27
+  %92 = load ptr, ptr %vfn117, align 8
+  tail call void %92(ptr noundef nonnull align 8 dereferenceable(8) %91) #27
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
   %error_.i159 = getelementptr inbounds i8, ptr %this, i64 8
-  %102 = load i8, ptr %error_.i159, align 8
-  %tobool.i160 = trunc i8 %102 to i1
+  %93 = load i8, ptr %error_.i159, align 8
+  %tobool.i160 = trunc i8 %93 to i1
   br i1 %tobool.i160, label %return, label %if.then.i161
 
 if.then.i161:                                     ; preds = %sw.default
-  %103 = load ptr, ptr %token_start, align 8
+  %94 = load ptr, ptr %token_start, align 8
   %handler_.i162 = getelementptr inbounds i8, ptr %this, i64 24
-  %104 = load ptr, ptr %handler_.i162, align 8
-  %105 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i163 = ptrtoint ptr %103 to i64
-  %sub.ptr.rhs.cast.i164 = ptrtoint ptr %105 to i64
+  %95 = load ptr, ptr %handler_.i162, align 8
+  %96 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i163 = ptrtoint ptr %94 to i64
+  %sub.ptr.rhs.cast.i164 = ptrtoint ptr %96 to i64
   %sub.ptr.sub.i165 = sub i64 %sub.ptr.lhs.cast.i163, %sub.ptr.rhs.cast.i164
-  %vtable.i166 = load ptr, ptr %104, align 8
+  %vtable.i166 = load ptr, ptr %95, align 8
   %vfn.i167 = getelementptr inbounds i8, ptr %vtable.i166, i64 104
-  %106 = load ptr, ptr %vfn.i167, align 8
-  tail call void %106(ptr noundef nonnull align 8 dereferenceable(8) %104, i32 13, i64 %sub.ptr.sub.i165) #27
+  %97 = load ptr, ptr %vfn.i167, align 8
+  tail call void %97(ptr noundef nonnull align 8 dereferenceable(8) %95, i32 13, i64 %sub.ptr.sub.i165) #27
   store i8 1, ptr %error_.i159, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then25, %if.else, %while.end114, %while.end, %sw.bb8, %sw.bb4, %sw.bb3
-  %107 = load ptr, ptr %token_end, align 8
-  %cmp15.i = icmp ult ptr %107, %end
+  %98 = load ptr, ptr %token_end, align 8
+  %cmp15.i = icmp ult ptr %98, %end
   br i1 %cmp15.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit
 
 while.body.i:                                     ; preds = %sw.epilog, %if.end7.i
-  %start.addr.016.i = phi ptr [ %start.addr.1.i, %if.end7.i ], [ %107, %sw.epilog ]
-  %108 = load i8, ptr %start.addr.016.i, align 1
-  switch i8 %108, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit [
+  %start.addr.016.i = phi ptr [ %start.addr.1.i, %if.end7.i ], [ %98, %sw.epilog ]
+  %99 = load i8, ptr %start.addr.016.i, align 1
+  switch i8 %99, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit [
     i8 32, label %if.then.i169
     i8 13, label %if.then.i169
     i8 12, label %if.then.i169
@@ -24024,8 +23996,8 @@ lor.lhs.false.i.i:                                ; preds = %while.body.i
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %109 = load i8, ptr %add.ptr.i.i, align 1
-  switch i8 %109, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit [
+  %100 = load i8, ptr %add.ptr.i.i, align 1
+  switch i8 %100, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit [
     i8 47, label %if.then7.i.i
     i8 42, label %if.then22.i.i
   ]
@@ -24037,8 +24009,8 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
-  %110 = load i8, ptr %start.addr.029.i.i, align 1
-  switch i8 %110, label %for.inc.i.i [
+  %101 = load i8, ptr %start.addr.029.i.i, align 1
+  switch i8 %101, label %for.inc.i.i [
     i8 10, label %if.then15.i.i
     i8 13, label %if.then15.i.i
   ]
@@ -24077,7 +24049,7 @@ if.end7.i:                                        ; preds = %for.body26.i.i, %if
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit, !llvm.loop !429
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserIhE25SkipWhitespaceAndCommentsEPKhS7_PS7_.exit: ; preds = %while.body.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.then7.i.i, %if.then22.i.i, %if.end7.i, %for.inc34.i.i, %for.inc.i.i, %sw.epilog
-  %start.addr.014.i = phi ptr [ %107, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.016.i, %for.inc34.i.i ], [ %start.addr.016.i, %while.body.i ], [ %start.addr.016.i, %if.then22.i.i ], [ %start.addr.016.i, %if.end4.i.i ], [ %start.addr.016.i, %lor.lhs.false.i.i ], [ %start.addr.1.i, %if.end7.i ], [ %end, %if.then7.i.i ]
+  %start.addr.014.i = phi ptr [ %98, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.016.i, %for.inc34.i.i ], [ %start.addr.016.i, %while.body.i ], [ %start.addr.016.i, %if.then22.i.i ], [ %start.addr.016.i, %if.end4.i.i ], [ %start.addr.016.i, %lor.lhs.false.i.i ], [ %start.addr.1.i, %if.end7.i ], [ %end, %if.then7.i.i ]
   store ptr %start.addr.014.i, ptr %value_token_end, align 8
   br label %return
 
@@ -25731,173 +25703,142 @@ if.end79:                                         ; preds = %while.cond74
 if.then83:                                        ; preds = %if.end79
   %73 = load i8, ptr %error_.i123, align 8
   %tobool.i124 = trunc i8 %73 to i1
-  br i1 %tobool.i124, label %cleanup112, label %if.then.i125
-
-if.then.i125:                                     ; preds = %if.then83
-  %74 = load ptr, ptr %handler_70, align 8
-  %75 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i127 = ptrtoint ptr %71 to i64
-  %sub.ptr.rhs.cast.i128 = ptrtoint ptr %75 to i64
-  %sub.ptr.sub.i129 = sub i64 %sub.ptr.lhs.cast.i127, %sub.ptr.rhs.cast.i128
-  %sub.ptr.div.i130 = ashr exact i64 %sub.ptr.sub.i129, 1
-  %vtable.i131 = load ptr, ptr %74, align 8
-  %vfn.i132 = getelementptr inbounds i8, ptr %vtable.i131, i64 104
-  %76 = load ptr, ptr %vfn.i132, align 8
-  tail call void %76(ptr noundef nonnull align 8 dereferenceable(8) %74, i32 6, i64 %sub.ptr.div.i130) #27
-  br label %cleanup112.sink.split
+  br i1 %tobool.i124, label %cleanup112, label %cleanup112.sink.split
 
 if.end84:                                         ; preds = %if.end79
-  %77 = load ptr, ptr %handler_70, align 8
-  %78 = load ptr, ptr %key, align 8
-  %79 = load ptr, ptr %_M_finish.i135, align 8
-  %sub.ptr.lhs.cast.i136 = ptrtoint ptr %79 to i64
-  %sub.ptr.rhs.cast.i137 = ptrtoint ptr %78 to i64
+  %74 = load ptr, ptr %handler_70, align 8
+  %75 = load ptr, ptr %key, align 8
+  %76 = load ptr, ptr %_M_finish.i135, align 8
+  %sub.ptr.lhs.cast.i136 = ptrtoint ptr %76 to i64
+  %sub.ptr.rhs.cast.i137 = ptrtoint ptr %75 to i64
   %sub.ptr.sub.i138 = sub i64 %sub.ptr.lhs.cast.i136, %sub.ptr.rhs.cast.i137
   %sub.ptr.div.i139 = ashr exact i64 %sub.ptr.sub.i138, 1
-  %vtable89 = load ptr, ptr %77, align 8
+  %vtable89 = load ptr, ptr %74, align 8
   %vfn90 = getelementptr inbounds i8, ptr %vtable89, i64 56
-  %80 = load ptr, ptr %vfn90, align 8
-  tail call void %80(ptr noundef nonnull align 8 dereferenceable(8) %77, ptr %78, i64 %sub.ptr.div.i139) #27
+  %77 = load ptr, ptr %vfn90, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr %75, i64 %sub.ptr.div.i139) #27
   %call91 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %72, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   %cmp92.not = icmp eq i32 %call91, 10
   br i1 %cmp92.not, label %if.end94, label %if.then93
 
 if.then93:                                        ; preds = %if.end84
-  %81 = load i8, ptr %error_.i123, align 8
-  %tobool.i142 = trunc i8 %81 to i1
+  %78 = load i8, ptr %error_.i123, align 8
+  %tobool.i142 = trunc i8 %78 to i1
   br i1 %tobool.i142, label %cleanup112, label %if.then.i143
 
 if.then.i143:                                     ; preds = %if.then93
-  %82 = load ptr, ptr %token_start, align 8
-  %83 = load ptr, ptr %handler_70, align 8
-  %84 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i145 = ptrtoint ptr %82 to i64
-  %sub.ptr.rhs.cast.i146 = ptrtoint ptr %84 to i64
-  %sub.ptr.sub.i147 = sub i64 %sub.ptr.lhs.cast.i145, %sub.ptr.rhs.cast.i146
-  %sub.ptr.div.i148 = ashr exact i64 %sub.ptr.sub.i147, 1
-  %vtable.i149 = load ptr, ptr %83, align 8
-  %vfn.i150 = getelementptr inbounds i8, ptr %vtable.i149, i64 104
-  %85 = load ptr, ptr %vfn.i150, align 8
-  tail call void %85(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 10, i64 %sub.ptr.div.i148) #27
+  %79 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
 if.end94:                                         ; preds = %if.end84
-  %86 = load ptr, ptr %token_end, align 8
-  call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseValueEPKtS7_PS7_i(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %86, ptr noundef %end, ptr noundef nonnull %token_end, i32 noundef %add95)
-  %87 = load i8, ptr %error_.i123, align 8
-  %tobool97 = trunc i8 %87 to i1
+  %80 = load ptr, ptr %token_end, align 8
+  call fastcc void @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseValueEPKtS7_PS7_i(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %80, ptr noundef %end, ptr noundef nonnull %token_end, i32 noundef %add95)
+  %81 = load i8, ptr %error_.i123, align 8
+  %tobool97 = trunc i8 %81 to i1
   br i1 %tobool97, label %cleanup112, label %if.end99
 
 if.end99:                                         ; preds = %if.end94
-  %88 = load ptr, ptr %token_end, align 8
-  %call100 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %88, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
+  %82 = load ptr, ptr %token_end, align 8
+  %call100 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %82, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   switch i32 %call100, label %if.then109 [
     i32 9, label %if.then102
     i32 1, label %cleanup112
   ]
 
 if.then102:                                       ; preds = %if.end99
-  %89 = load ptr, ptr %token_end, align 8
-  %call103 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %89, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
+  %83 = load ptr, ptr %token_end, align 8
+  %call103 = call fastcc noundef i32 @_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE10ParseTokenEPKtS7_PS7_S8_(ptr noundef %83, ptr noundef %end, ptr noundef nonnull %token_start, ptr noundef nonnull %token_end)
   %cmp104 = icmp eq i32 %call103, 1
   br i1 %cmp104, label %if.then105, label %cleanup112
 
 if.then105:                                       ; preds = %if.then102
-  %90 = load i8, ptr %error_.i123, align 8
-  %tobool.i154 = trunc i8 %90 to i1
+  %84 = load i8, ptr %error_.i123, align 8
+  %tobool.i154 = trunc i8 %84 to i1
   br i1 %tobool.i154, label %cleanup112, label %if.then.i155
 
 if.then.i155:                                     ; preds = %if.then105
-  %91 = load ptr, ptr %token_start, align 8
-  %92 = load ptr, ptr %handler_70, align 8
-  %93 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i157 = ptrtoint ptr %91 to i64
-  %sub.ptr.rhs.cast.i158 = ptrtoint ptr %93 to i64
-  %sub.ptr.sub.i159 = sub i64 %sub.ptr.lhs.cast.i157, %sub.ptr.rhs.cast.i158
-  %sub.ptr.div.i160 = ashr exact i64 %sub.ptr.sub.i159, 1
-  %vtable.i161 = load ptr, ptr %92, align 8
-  %vfn.i162 = getelementptr inbounds i8, ptr %vtable.i161, i64 104
-  %94 = load ptr, ptr %vfn.i162, align 8
-  tail call void %94(ptr noundef nonnull align 8 dereferenceable(8) %92, i32 11, i64 %sub.ptr.div.i160) #27
+  %85 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
 if.then109:                                       ; preds = %if.end99
-  %95 = load i8, ptr %error_.i123, align 8
-  %tobool.i166 = trunc i8 %95 to i1
+  %86 = load i8, ptr %error_.i123, align 8
+  %tobool.i166 = trunc i8 %86 to i1
   br i1 %tobool.i166, label %cleanup112, label %if.then.i167
 
 if.then.i167:                                     ; preds = %if.then109
-  %96 = load ptr, ptr %token_start, align 8
-  %97 = load ptr, ptr %handler_70, align 8
-  %98 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i169 = ptrtoint ptr %96 to i64
-  %sub.ptr.rhs.cast.i170 = ptrtoint ptr %98 to i64
-  %sub.ptr.sub.i171 = sub i64 %sub.ptr.lhs.cast.i169, %sub.ptr.rhs.cast.i170
-  %sub.ptr.div.i172 = ashr exact i64 %sub.ptr.sub.i171, 1
-  %vtable.i173 = load ptr, ptr %97, align 8
-  %vfn.i174 = getelementptr inbounds i8, ptr %vtable.i173, i64 104
-  %99 = load ptr, ptr %vfn.i174, align 8
-  tail call void %99(ptr noundef nonnull align 8 dereferenceable(8) %97, i32 12, i64 %sub.ptr.div.i172) #27
+  %87 = load ptr, ptr %token_start, align 8
   br label %cleanup112.sink.split
 
-cleanup112.sink.split:                            ; preds = %if.then.i125, %if.then.i143, %if.then.i155, %if.then.i167
-  %token.4.ph = phi i32 [ %call100, %if.then.i167 ], [ 1, %if.then.i155 ], [ %call91, %if.then.i143 ], [ 4, %if.then.i125 ]
+cleanup112.sink.split:                            ; preds = %if.then83, %if.then.i143, %if.then.i155, %if.then.i167
+  %.sink226 = phi ptr [ %87, %if.then.i167 ], [ %85, %if.then.i155 ], [ %79, %if.then.i143 ], [ %71, %if.then83 ]
+  %.sink222 = phi i32 [ 12, %if.then.i167 ], [ 11, %if.then.i155 ], [ 10, %if.then.i143 ], [ 6, %if.then83 ]
+  %token.4.ph = phi i32 [ %call100, %if.then.i167 ], [ 1, %if.then.i155 ], [ %call91, %if.then.i143 ], [ 4, %if.then83 ]
+  %88 = load ptr, ptr %handler_70, align 8
+  %89 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i169 = ptrtoint ptr %.sink226 to i64
+  %sub.ptr.rhs.cast.i170 = ptrtoint ptr %89 to i64
+  %sub.ptr.sub.i171 = sub i64 %sub.ptr.lhs.cast.i169, %sub.ptr.rhs.cast.i170
+  %sub.ptr.div.i172 = ashr exact i64 %sub.ptr.sub.i171, 1
+  %vtable.i173 = load ptr, ptr %88, align 8
+  %vfn.i174 = getelementptr inbounds i8, ptr %vtable.i173, i64 104
+  %90 = load ptr, ptr %vfn.i174, align 8
+  tail call void %90(ptr noundef nonnull align 8 dereferenceable(8) %88, i32 %.sink222, i64 %sub.ptr.div.i172) #27
   store i8 1, ptr %error_.i123, align 8
   br label %cleanup112
 
 cleanup112:                                       ; preds = %cleanup112.sink.split, %if.then109, %if.then105, %if.then93, %if.then83, %if.then102, %if.end99, %if.end94
   %token.4 = phi i32 [ 10, %if.end94 ], [ %call103, %if.then102 ], [ %call100, %if.end99 ], [ 4, %if.then83 ], [ %call91, %if.then93 ], [ 1, %if.then105 ], [ %call100, %if.then109 ], [ %token.4.ph, %cleanup112.sink.split ]
   %switch34 = phi i1 [ false, %if.end94 ], [ true, %if.then102 ], [ true, %if.end99 ], [ false, %if.then83 ], [ false, %if.then93 ], [ false, %if.then105 ], [ false, %if.then109 ], [ false, %cleanup112.sink.split ]
-  %100 = load ptr, ptr %key, align 8
-  %tobool.not.i.i.i177 = icmp eq ptr %100, null
+  %91 = load ptr, ptr %key, align 8
+  %tobool.not.i.i.i177 = icmp eq ptr %91, null
   br i1 %tobool.not.i.i.i177, label %_ZNSt6vectorItSaItEED2Ev.exit179, label %if.then.i.i.i178
 
 if.then.i.i.i178:                                 ; preds = %cleanup112
-  tail call void @_ZdlPv(ptr noundef nonnull %100) #28
+  tail call void @_ZdlPv(ptr noundef nonnull %91) #28
   br label %_ZNSt6vectorItSaItEED2Ev.exit179
 
 _ZNSt6vectorItSaItEED2Ev.exit179:                 ; preds = %cleanup112, %if.then.i.i.i178
   br i1 %switch34, label %while.cond74, label %return
 
 while.end114:                                     ; preds = %while.cond74
-  %101 = load ptr, ptr %handler_70, align 8
-  %vtable116 = load ptr, ptr %101, align 8
+  %92 = load ptr, ptr %handler_70, align 8
+  %vtable116 = load ptr, ptr %92, align 8
   %vfn117 = getelementptr inbounds i8, ptr %vtable116, i64 24
-  %102 = load ptr, ptr %vfn117, align 8
-  tail call void %102(ptr noundef nonnull align 8 dereferenceable(8) %101) #27
+  %93 = load ptr, ptr %vfn117, align 8
+  tail call void %93(ptr noundef nonnull align 8 dereferenceable(8) %92) #27
   br label %sw.epilog
 
 sw.default:                                       ; preds = %if.end
   %error_.i180 = getelementptr inbounds i8, ptr %this, i64 8
-  %103 = load i8, ptr %error_.i180, align 8
-  %tobool.i181 = trunc i8 %103 to i1
+  %94 = load i8, ptr %error_.i180, align 8
+  %tobool.i181 = trunc i8 %94 to i1
   br i1 %tobool.i181, label %return, label %if.then.i182
 
 if.then.i182:                                     ; preds = %sw.default
-  %104 = load ptr, ptr %token_start, align 8
+  %95 = load ptr, ptr %token_start, align 8
   %handler_.i183 = getelementptr inbounds i8, ptr %this, i64 24
-  %105 = load ptr, ptr %handler_.i183, align 8
-  %106 = load ptr, ptr %this, align 8
-  %sub.ptr.lhs.cast.i184 = ptrtoint ptr %104 to i64
-  %sub.ptr.rhs.cast.i185 = ptrtoint ptr %106 to i64
+  %96 = load ptr, ptr %handler_.i183, align 8
+  %97 = load ptr, ptr %this, align 8
+  %sub.ptr.lhs.cast.i184 = ptrtoint ptr %95 to i64
+  %sub.ptr.rhs.cast.i185 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i186 = sub i64 %sub.ptr.lhs.cast.i184, %sub.ptr.rhs.cast.i185
   %sub.ptr.div.i187 = ashr exact i64 %sub.ptr.sub.i186, 1
-  %vtable.i188 = load ptr, ptr %105, align 8
+  %vtable.i188 = load ptr, ptr %96, align 8
   %vfn.i189 = getelementptr inbounds i8, ptr %vtable.i188, i64 104
-  %107 = load ptr, ptr %vfn.i189, align 8
-  tail call void %107(ptr noundef nonnull align 8 dereferenceable(8) %105, i32 13, i64 %sub.ptr.div.i187) #27
+  %98 = load ptr, ptr %vfn.i189, align 8
+  tail call void %98(ptr noundef nonnull align 8 dereferenceable(8) %96, i32 13, i64 %sub.ptr.div.i187) #27
   store i8 1, ptr %error_.i180, align 8
   br label %return
 
 sw.epilog:                                        ; preds = %_ZNSt6vectorItSaItEED2Ev.exit, %if.then25, %if.else, %while.end114, %while.end, %sw.bb8, %sw.bb4, %sw.bb3
-  %108 = load ptr, ptr %token_end, align 8
-  %cmp15.i = icmp ult ptr %108, %end
+  %99 = load ptr, ptr %token_end, align 8
+  %cmp15.i = icmp ult ptr %99, %end
   br i1 %cmp15.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit
 
 while.body.i:                                     ; preds = %sw.epilog, %if.end7.i
-  %start.addr.016.i = phi ptr [ %start.addr.1.i, %if.end7.i ], [ %108, %sw.epilog ]
-  %109 = load i16, ptr %start.addr.016.i, align 2
-  switch i16 %109, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit [
+  %start.addr.016.i = phi ptr [ %start.addr.1.i, %if.end7.i ], [ %99, %sw.epilog ]
+  %100 = load i16, ptr %start.addr.016.i, align 2
+  switch i16 %100, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit [
     i16 32, label %if.then.i192
     i16 13, label %if.then.i192
     i16 12, label %if.then.i192
@@ -25917,8 +25858,8 @@ lor.lhs.false.i.i:                                ; preds = %while.body.i
   br i1 %cmp2.not.i.i, label %if.end4.i.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit
 
 if.end4.i.i:                                      ; preds = %lor.lhs.false.i.i
-  %110 = load i16, ptr %add.ptr.i.i, align 2
-  switch i16 %110, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit [
+  %101 = load i16, ptr %add.ptr.i.i, align 2
+  switch i16 %101, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit [
     i16 47, label %if.then7.i.i
     i16 42, label %if.then22.i.i
   ]
@@ -25930,8 +25871,8 @@ if.then7.i.i:                                     ; preds = %if.end4.i.i
 
 for.body.i.i:                                     ; preds = %if.then7.i.i, %for.inc.i.i
   %start.addr.029.i.i = phi ptr [ %incdec.ptr18.i.i, %for.inc.i.i ], [ %incdec.ptr8.i.i, %if.then7.i.i ]
-  %111 = load i16, ptr %start.addr.029.i.i, align 2
-  switch i16 %111, label %for.inc.i.i [
+  %102 = load i16, ptr %start.addr.029.i.i, align 2
+  switch i16 %102, label %for.inc.i.i [
     i16 10, label %if.then15.i.i
     i16 13, label %if.then15.i.i
   ]
@@ -25970,7 +25911,7 @@ if.end7.i:                                        ; preds = %for.body26.i.i, %if
   br i1 %cmp.i, label %while.body.i, label %_ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit, !llvm.loop !440
 
 _ZN4node9inspector8protocol4json12_GLOBAL__N_110JsonParserItE25SkipWhitespaceAndCommentsEPKtS7_PS7_.exit: ; preds = %while.body.i, %lor.lhs.false.i.i, %if.end4.i.i, %if.then7.i.i, %if.then22.i.i, %if.end7.i, %for.inc34.i.i, %for.inc.i.i, %sw.epilog
-  %start.addr.014.i = phi ptr [ %108, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.016.i, %for.inc34.i.i ], [ %start.addr.016.i, %while.body.i ], [ %start.addr.016.i, %if.then22.i.i ], [ %start.addr.016.i, %if.end4.i.i ], [ %start.addr.016.i, %lor.lhs.false.i.i ], [ %start.addr.1.i, %if.end7.i ], [ %end, %if.then7.i.i ]
+  %start.addr.014.i = phi ptr [ %99, %sw.epilog ], [ %end, %for.inc.i.i ], [ %start.addr.016.i, %for.inc34.i.i ], [ %start.addr.016.i, %while.body.i ], [ %start.addr.016.i, %if.then22.i.i ], [ %start.addr.016.i, %if.end4.i.i ], [ %start.addr.016.i, %lor.lhs.false.i.i ], [ %start.addr.1.i, %if.end7.i ], [ %end, %if.then7.i.i ]
   store ptr %start.addr.014.i, ptr %value_token_end, align 8
   br label %return
 

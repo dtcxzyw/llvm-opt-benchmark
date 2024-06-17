@@ -28625,13 +28625,13 @@ if.end486:                                        ; preds = %if.else484, %if.the
 
 return.sink.split:                                ; preds = %if.end486, %if.then191
   %104 = load ptr, ptr @GImGui, align 8
-  %CurrentWindow.i190 = getelementptr inbounds i8, ptr %104, i64 16392
-  %105 = load ptr, ptr %CurrentWindow.i190, align 8
+  %CurrentWindow.i196 = getelementptr inbounds i8, ptr %104, i64 16392
+  %105 = load ptr, ptr %CurrentWindow.i196, align 8
   call void @_ZN5ImGui6IndentEf(float noundef 0.000000e+00)
-  %TreeDepth.i = getelementptr inbounds i8, ptr %105, i64 408
-  %106 = load i32, ptr %TreeDepth.i, align 8
+  %TreeDepth.i197 = getelementptr inbounds i8, ptr %105, i64 408
+  %106 = load i32, ptr %TreeDepth.i197, align 8
   %inc.i198 = add nsw i32 %106, 1
-  store i32 %inc.i198, ptr %TreeDepth.i, align 8
+  store i32 %inc.i198, ptr %TreeDepth.i197, align 8
   call void @_ZN5ImGui14PushOverrideIDEj(i32 noundef %id)
   br label %return
 
@@ -36692,7 +36692,7 @@ _ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditSta
   %add.ptr9.i.i = getelementptr inbounds i16, ptr %add.ptr7.i.i, i64 %idx.ext1.i.i
   %16 = load i16, ptr %add.ptr9.i.i, align 2
   %tobool.not12.i.i = icmp eq i16 %16, 0
-  br i1 %tobool.not12.i.i, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit, label %while.body.i.i
+  br i1 %tobool.not12.i.i, label %if.end, label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i, %while.body.i.i
   %17 = phi i16 [ %18, %while.body.i.i ], [ %16, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ]
@@ -36703,15 +36703,7 @@ while.body.i.i:                                   ; preds = %_ZN5ImStbL24stb_tex
   store i16 %17, ptr %dst.014.i.i, align 2
   %18 = load i16, ptr %incdec.ptr.i.i, align 2
   %tobool.not.i6.i = icmp eq i16 %18, 0
-  br i1 %tobool.not.i6.i, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit, label %while.body.i.i, !llvm.loop !32
-
-_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit: ; preds = %while.body.i.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i
-  %dst.0.lcssa.i.i = phi ptr [ %add.ptr.i.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %incdec.ptr10.i.i, %while.body.i.i ]
-  store i16 0, ptr %dst.0.lcssa.i.i, align 2
-  %19 = load i32, ptr %select_start.i, align 4
-  store i32 %19, ptr %state, align 4
-  store i32 %19, ptr %select_end.i, align 4
-  br label %if.end
+  br i1 %tobool.not.i6.i, label %if.end, label %while.body.i.i, !llvm.loop !32
 
 if.else:                                          ; preds = %if.then
   %sub13 = sub nsw i32 %6, %5
@@ -36726,67 +36718,66 @@ entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_Texte
   br label %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30
 
 for.body.lr.ph.i.i53:                             ; preds = %if.else
-  %20 = getelementptr i8, ptr %str, i64 32
-  %21 = sext i32 %5 to i64
+  %19 = getelementptr i8, ptr %str, i64 32
+  %20 = sext i32 %5 to i64
   %wide.trip.count.i.i54 = zext nneg i32 %sub13 to i64
   br label %for.body.i.i55
 
 for.body.i.i55:                                   ; preds = %for.body.i.i55, %for.body.lr.ph.i.i53
   %indvars.iv.i.i56 = phi i64 [ 0, %for.body.lr.ph.i.i53 ], [ %indvars.iv.next.i.i60, %for.body.i.i55 ]
-  %str.val.i.i57 = load ptr, ptr %20, align 8
-  %22 = getelementptr i16, ptr %str.val.i.i57, i64 %indvars.iv.i.i56
-  %arrayidx.i.i.i.i58 = getelementptr i16, ptr %22, i64 %21
-  %23 = load i16, ptr %arrayidx.i.i.i.i58, align 2
+  %str.val.i.i57 = load ptr, ptr %19, align 8
+  %21 = getelementptr i16, ptr %str.val.i.i57, i64 %indvars.iv.i.i56
+  %arrayidx.i.i.i.i58 = getelementptr i16, ptr %21, i64 %20
+  %22 = load i16, ptr %arrayidx.i.i.i.i58, align 2
   %arrayidx.i.i59 = getelementptr inbounds i16, ptr %call.i.i24, i64 %indvars.iv.i.i56
-  store i16 %23, ptr %arrayidx.i.i59, align 2
+  store i16 %22, ptr %arrayidx.i.i59, align 2
   %indvars.iv.next.i.i60 = add nuw nsw i64 %indvars.iv.i.i56, 1
   %exitcond.not.i.i61 = icmp eq i64 %indvars.iv.next.i.i60, %wide.trip.count.i.i54
   br i1 %exitcond.not.i.i61, label %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30, label %for.body.i.i55, !llvm.loop !84
 
 _ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30: ; preds = %for.body.i.i55, %entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i28
-  %idx.ext.i.pre-phi.i31 = phi i64 [ %.pre.i29, %entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i28 ], [ %21, %for.body.i.i55 ]
+  %idx.ext.i.pre-phi.i31 = phi i64 [ %.pre.i29, %entry._ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit_crit_edge.i28 ], [ %20, %for.body.i.i55 ]
   %Data.i.i32 = getelementptr inbounds i8, ptr %str, i64 32
-  %24 = load ptr, ptr %Data.i.i32, align 8
-  %add.ptr.i.i33 = getelementptr inbounds i16, ptr %24, i64 %idx.ext.i.pre-phi.i31
+  %23 = load ptr, ptr %Data.i.i32, align 8
+  %add.ptr.i.i33 = getelementptr inbounds i16, ptr %23, i64 %idx.ext.i.pre-phi.i31
   %Edited.i.i34 = getelementptr inbounds i8, ptr %str, i64 3718
   store i8 1, ptr %Edited.i.i34, align 2
   %idx.ext1.i.i35 = sext i32 %sub13 to i64
   %add.ptr2.i.i36 = getelementptr inbounds i16, ptr %add.ptr.i.i33, i64 %idx.ext1.i.i35
   %call.i5.i37 = tail call noundef i32 @_Z27ImTextCountUtf8BytesFromStrPKtS0_(ptr noundef %add.ptr.i.i33, ptr noundef %add.ptr2.i.i36)
   %CurLenA.i.i38 = getelementptr inbounds i8, ptr %str, i64 16
-  %25 = load i32, ptr %CurLenA.i.i38, align 8
-  %sub.i.i39 = sub nsw i32 %25, %call.i5.i37
+  %24 = load i32, ptr %CurLenA.i.i38, align 8
+  %sub.i.i39 = sub nsw i32 %24, %call.i5.i37
   store i32 %sub.i.i39, ptr %CurLenA.i.i38, align 8
-  %26 = load i32, ptr %0, align 4
-  %sub3.i.i41 = sub nsw i32 %26, %sub13
+  %25 = load i32, ptr %0, align 4
+  %sub3.i.i41 = sub nsw i32 %25, %sub13
   store i32 %sub3.i.i41, ptr %0, align 4
-  %27 = load ptr, ptr %Data.i.i32, align 8
-  %add.ptr7.i.i42 = getelementptr inbounds i16, ptr %27, i64 %idx.ext.i.pre-phi.i31
+  %26 = load ptr, ptr %Data.i.i32, align 8
+  %add.ptr7.i.i42 = getelementptr inbounds i16, ptr %26, i64 %idx.ext.i.pre-phi.i31
   %add.ptr9.i.i43 = getelementptr inbounds i16, ptr %add.ptr7.i.i42, i64 %idx.ext1.i.i35
-  %28 = load i16, ptr %add.ptr9.i.i43, align 2
-  %tobool.not12.i.i44 = icmp eq i16 %28, 0
-  br i1 %tobool.not12.i.i44, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit62, label %while.body.i.i45
+  %27 = load i16, ptr %add.ptr9.i.i43, align 2
+  %tobool.not12.i.i44 = icmp eq i16 %27, 0
+  br i1 %tobool.not12.i.i44, label %if.end, label %while.body.i.i45
 
 while.body.i.i45:                                 ; preds = %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30, %while.body.i.i45
-  %29 = phi i16 [ %30, %while.body.i.i45 ], [ %28, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ]
+  %28 = phi i16 [ %29, %while.body.i.i45 ], [ %27, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ]
   %dst.014.i.i46 = phi ptr [ %incdec.ptr10.i.i49, %while.body.i.i45 ], [ %add.ptr.i.i33, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ]
   %src.013.i.i47 = phi ptr [ %incdec.ptr.i.i48, %while.body.i.i45 ], [ %add.ptr9.i.i43, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ]
   %incdec.ptr.i.i48 = getelementptr inbounds i8, ptr %src.013.i.i47, i64 2
   %incdec.ptr10.i.i49 = getelementptr inbounds i8, ptr %dst.014.i.i46, i64 2
-  store i16 %29, ptr %dst.014.i.i46, align 2
-  %30 = load i16, ptr %incdec.ptr.i.i48, align 2
-  %tobool.not.i6.i50 = icmp eq i16 %30, 0
-  br i1 %tobool.not.i6.i50, label %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit62, label %while.body.i.i45, !llvm.loop !32
+  store i16 %28, ptr %dst.014.i.i46, align 2
+  %29 = load i16, ptr %incdec.ptr.i.i48, align 2
+  %tobool.not.i6.i50 = icmp eq i16 %29, 0
+  br i1 %tobool.not.i6.i50, label %if.end, label %while.body.i.i45, !llvm.loop !32
 
-_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit62: ; preds = %while.body.i.i45, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30
-  %dst.0.lcssa.i.i51 = phi ptr [ %add.ptr.i.i33, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ], [ %incdec.ptr10.i.i49, %while.body.i.i45 ]
-  store i16 0, ptr %dst.0.lcssa.i.i51, align 2
-  %31 = load i32, ptr %select_end.i, align 4
-  store i32 %31, ptr %state, align 4
-  store i32 %31, ptr %select_start.i, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit62, %_ZN5ImStbL19stb_textedit_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit
+if.end:                                           ; preds = %while.body.i.i45, %while.body.i.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i
+  %dst.0.lcssa.i.i51.sink = phi ptr [ %add.ptr.i.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %add.ptr.i.i33, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ], [ %incdec.ptr10.i.i, %while.body.i.i ], [ %incdec.ptr10.i.i49, %while.body.i.i45 ]
+  %select_end.i.sink = phi ptr [ %select_start.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %select_end.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ], [ %select_start.i, %while.body.i.i ], [ %select_end.i, %while.body.i.i45 ]
+  %select_start.i.sink = phi ptr [ %select_end.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i ], [ %select_start.i, %_ZN5ImStbL24stb_text_makeundo_deleteEP19ImGuiInputTextStatePNS_17STB_TexteditStateEii.exit.i30 ], [ %select_end.i, %while.body.i.i ], [ %select_start.i, %while.body.i.i45 ]
+  store i16 0, ptr %dst.0.lcssa.i.i51.sink, align 2
+  %30 = load i32, ptr %select_end.i.sink, align 4
+  store i32 %30, ptr %state, align 4
+  store i32 %30, ptr %select_start.i.sink, align 4
   %has_preferred_x = getelementptr inbounds i8, ptr %state, i64 22
   store i8 0, ptr %has_preferred_x, align 2
   br label %if.end17

@@ -144,53 +144,45 @@ _ZN15NumberlikeArrayImEC2EPKmj.exit.i:            ; preds = %.lr.ph.i.i
 
 _ZN11BigUnsignedC2EPKmj.exit:                     ; preds = %19, %24, %4, %_ZN15NumberlikeArrayImEC2EPKmj.exit.i
   %25 = phi i1 [ true, %4 ], [ true, %_ZN15NumberlikeArrayImEC2EPKmj.exit.i ], [ %23, %24 ], [ %23, %19 ]
-  switch i32 %3, label %36 [
+  switch i32 %3, label %.invoke [
     i32 0, label %26
-    i32 1, label %34
-    i32 -1, label %34
+    i32 1, label %32
+    i32 -1, label %32
   ]
 
 26:                                               ; preds = %_ZN11BigUnsignedC2EPKmj.exit
-  br i1 %25, label %39, label %27
+  br i1 %25, label %35, label %.invoke
 
-27:                                               ; preds = %26
-  %28 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr @.str, ptr %28, align 16
-  br label %.invoke
-
-29:                                               ; preds = %.invoke
-  %30 = landingpad { ptr, i32 }
+27:                                               ; preds = %.invoke
+  %28 = landingpad { ptr, i32 }
           cleanup
-  %31 = load ptr, ptr %10, align 8
-  %32 = icmp eq ptr %31, null
-  br i1 %32, label %_ZN11BigUnsignedD2Ev.exit, label %33
+  %29 = load ptr, ptr %10, align 8
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %_ZN11BigUnsignedD2Ev.exit, label %31
 
-33:                                               ; preds = %29
-  tail call void @_ZdaPv(ptr noundef nonnull %31) #7
+31:                                               ; preds = %27
+  tail call void @_ZdaPv(ptr noundef nonnull %29) #7
   br label %_ZN11BigUnsignedD2Ev.exit
 
-_ZN11BigUnsignedD2Ev.exit:                        ; preds = %29, %33
-  resume { ptr, i32 } %30
+_ZN11BigUnsignedD2Ev.exit:                        ; preds = %27, %31
+  resume { ptr, i32 } %28
 
-34:                                               ; preds = %_ZN11BigUnsignedC2EPKmj.exit, %_ZN11BigUnsignedC2EPKmj.exit
-  %35 = select i1 %25, i32 0, i32 %3
-  br label %39
+32:                                               ; preds = %_ZN11BigUnsignedC2EPKmj.exit, %_ZN11BigUnsignedC2EPKmj.exit
+  %33 = select i1 %25, i32 0, i32 %3
+  br label %35
 
-36:                                               ; preds = %_ZN11BigUnsignedC2EPKmj.exit
-  %37 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr @.str.1, ptr %37, align 16
-  br label %.invoke
-
-.invoke:                                          ; preds = %27, %36
-  %38 = phi ptr [ %37, %36 ], [ %28, %27 ]
-  invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIPKc, ptr null) #10
-          to label %.cont unwind label %29
+.invoke:                                          ; preds = %_ZN11BigUnsignedC2EPKmj.exit, %26
+  %.str.sink = phi ptr [ @.str, %26 ], [ @.str.1, %_ZN11BigUnsignedC2EPKmj.exit ]
+  %34 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  store ptr %.str.sink, ptr %34, align 16
+  invoke void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTIPKc, ptr null) #10
+          to label %.cont unwind label %27
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-39:                                               ; preds = %26, %34
-  %storemerge = phi i32 [ %35, %34 ], [ 0, %26 ]
+35:                                               ; preds = %26, %32
+  %storemerge = phi i32 [ %33, %32 ], [ 0, %26 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }
@@ -241,53 +233,45 @@ _ZN11BigUnsignedC2ERKS_.exit.loopexit:            ; preds = %13
 
 _ZN11BigUnsignedC2ERKS_.exit:                     ; preds = %_ZN11BigUnsignedC2ERKS_.exit.loopexit, %3
   %23 = phi i1 [ %22, %_ZN11BigUnsignedC2ERKS_.exit.loopexit ], [ true, %3 ]
-  switch i32 %2, label %34 [
+  switch i32 %2, label %.invoke [
     i32 0, label %24
-    i32 1, label %32
-    i32 -1, label %32
+    i32 1, label %30
+    i32 -1, label %30
   ]
 
 24:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
-  br i1 %23, label %37, label %25
+  br i1 %23, label %33, label %.invoke
 
-25:                                               ; preds = %24
-  %26 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr @.str.2, ptr %26, align 16
-  br label %.invoke
-
-27:                                               ; preds = %.invoke
-  %28 = landingpad { ptr, i32 }
+25:                                               ; preds = %.invoke
+  %26 = landingpad { ptr, i32 }
           cleanup
-  %29 = load ptr, ptr %11, align 8
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %_ZN11BigUnsignedD2Ev.exit, label %31
+  %27 = load ptr, ptr %11, align 8
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %_ZN11BigUnsignedD2Ev.exit, label %29
 
-31:                                               ; preds = %27
-  tail call void @_ZdaPv(ptr noundef nonnull %29) #7
+29:                                               ; preds = %25
+  tail call void @_ZdaPv(ptr noundef nonnull %27) #7
   br label %_ZN11BigUnsignedD2Ev.exit
 
-_ZN11BigUnsignedD2Ev.exit:                        ; preds = %27, %31
-  resume { ptr, i32 } %28
+_ZN11BigUnsignedD2Ev.exit:                        ; preds = %25, %29
+  resume { ptr, i32 } %26
 
-32:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit, %_ZN11BigUnsignedC2ERKS_.exit
-  %33 = select i1 %23, i32 0, i32 %2
-  br label %37
+30:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit, %_ZN11BigUnsignedC2ERKS_.exit
+  %31 = select i1 %23, i32 0, i32 %2
+  br label %33
 
-34:                                               ; preds = %_ZN11BigUnsignedC2ERKS_.exit
-  %35 = tail call ptr @__cxa_allocate_exception(i64 8) #9
-  store ptr @.str.3, ptr %35, align 16
-  br label %.invoke
-
-.invoke:                                          ; preds = %25, %34
-  %36 = phi ptr [ %35, %34 ], [ %26, %25 ]
-  invoke void @__cxa_throw(ptr nonnull %36, ptr nonnull @_ZTIPKc, ptr null) #10
-          to label %.cont unwind label %27
+.invoke:                                          ; preds = %_ZN11BigUnsignedC2ERKS_.exit, %24
+  %.str.2.sink = phi ptr [ @.str.2, %24 ], [ @.str.3, %_ZN11BigUnsignedC2ERKS_.exit ]
+  %32 = tail call ptr @__cxa_allocate_exception(i64 8) #9
+  store ptr %.str.2.sink, ptr %32, align 16
+  invoke void @__cxa_throw(ptr nonnull %32, ptr nonnull @_ZTIPKc, ptr null) #10
+          to label %.cont unwind label %25
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-37:                                               ; preds = %24, %32
-  %storemerge = phi i32 [ %33, %32 ], [ 0, %24 ]
+33:                                               ; preds = %24, %30
+  %storemerge = phi i32 [ %31, %30 ], [ 0, %24 ]
   store i32 %storemerge, ptr %0, align 8
   ret void
 }

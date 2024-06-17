@@ -1014,7 +1014,7 @@ define noundef i32 @Gls_ManParse(ptr nocapture noundef %0, ptr nocapture noundef
   switch i8 %28, label %.fold.split.i.loopexit [
     i8 32, label %29
     i8 119, label %31
-    i8 48, label %.fold.split.i.loopexit523
+    i8 48, label %.fold.split.i.loopexit524
     i8 49, label %.fold.split.i
   ]
 
@@ -1030,12 +1030,12 @@ define noundef i32 @Gls_ManParse(ptr nocapture noundef %0, ptr nocapture noundef
 .fold.split.i.loopexit:                           ; preds = %27
   br label %.fold.split.i
 
-.fold.split.i.loopexit523:                        ; preds = %27
+.fold.split.i.loopexit524:                        ; preds = %27
   br label %.fold.split.i
 
-.fold.split.i:                                    ; preds = %27, %.fold.split.i.loopexit523, %.fold.split.i.loopexit, %31
-  %.018.i = phi i32 [ %33, %31 ], [ -1, %.fold.split.i.loopexit ], [ 0, %.fold.split.i.loopexit523 ], [ 1, %27 ]
-  %.1.i = phi ptr [ %32, %31 ], [ %.0.i, %.fold.split.i.loopexit ], [ %.0.i, %.fold.split.i.loopexit523 ], [ %.0.i, %27 ]
+.fold.split.i:                                    ; preds = %27, %.fold.split.i.loopexit524, %.fold.split.i.loopexit, %31
+  %.018.i = phi i32 [ %33, %31 ], [ -1, %.fold.split.i.loopexit ], [ 0, %.fold.split.i.loopexit524 ], [ 1, %27 ]
+  %.1.i = phi ptr [ %32, %31 ], [ %.0.i, %.fold.split.i.loopexit ], [ %.0.i, %.fold.split.i.loopexit524 ], [ %.0.i, %27 ]
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge.i, %.fold.split.i
@@ -1144,24 +1144,24 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %.0356 = phi ptr [ %84, %83 ], [ %.3.i, %Gls_ManParseOne.exit ]
   %82 = load i8, ptr %.0356, align 1
   %.not105 = icmp eq i8 %82, 0
-  br i1 %.not105, label %.preheader521, label %83
+  br i1 %.not105, label %.preheader522, label %83
 
 83:                                               ; preds = %.preheader362
   %84 = getelementptr inbounds i8, ptr %.0356, i64 1
   %85 = icmp eq i8 %82, 40
-  br i1 %85, label %.preheader521, label %.preheader362, !llvm.loop !12
+  br i1 %85, label %.preheader522, label %.preheader362, !llvm.loop !12
 
-.preheader521:                                    ; preds = %83, %.preheader362
+.preheader522:                                    ; preds = %83, %.preheader362
   %.0.i129.ph = phi ptr [ %84, %83 ], [ %.0356, %.preheader362 ]
   br label %86
 
-86:                                               ; preds = %.preheader521, %88
-  %.0.i129 = phi ptr [ %89, %88 ], [ %.0.i129.ph, %.preheader521 ]
+86:                                               ; preds = %.preheader522, %88
+  %.0.i129 = phi ptr [ %89, %88 ], [ %.0.i129.ph, %.preheader522 ]
   %87 = load i8, ptr %.0.i129, align 1
   switch i8 %87, label %.fold.split.i131.loopexit [
     i8 32, label %88
     i8 119, label %90
-    i8 48, label %.fold.split.i131.loopexit522
+    i8 48, label %.fold.split.i131.loopexit523
     i8 49, label %.fold.split.i131
   ]
 
@@ -1177,12 +1177,12 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 .fold.split.i131.loopexit:                        ; preds = %86
   br label %.fold.split.i131
 
-.fold.split.i131.loopexit522:                     ; preds = %86
+.fold.split.i131.loopexit523:                     ; preds = %86
   br label %.fold.split.i131
 
-.fold.split.i131:                                 ; preds = %86, %.fold.split.i131.loopexit522, %.fold.split.i131.loopexit, %90
-  %.018.i132 = phi i32 [ %92, %90 ], [ -1, %.fold.split.i131.loopexit ], [ 0, %.fold.split.i131.loopexit522 ], [ 1, %86 ]
-  %.1.i133 = phi ptr [ %91, %90 ], [ %.0.i129, %.fold.split.i131.loopexit ], [ %.0.i129, %.fold.split.i131.loopexit522 ], [ %.0.i129, %86 ]
+.fold.split.i131:                                 ; preds = %86, %.fold.split.i131.loopexit523, %.fold.split.i131.loopexit, %90
+  %.018.i132 = phi i32 [ %92, %90 ], [ -1, %.fold.split.i131.loopexit ], [ 0, %.fold.split.i131.loopexit523 ], [ 1, %86 ]
+  %.1.i133 = phi ptr [ %91, %90 ], [ %.0.i129, %.fold.split.i131.loopexit ], [ %.0.i129, %.fold.split.i131.loopexit523 ], [ %.0.i129, %86 ]
   br label %.critedge.i134
 
 .critedge.i134:                                   ; preds = %.critedge.i134, %.fold.split.i131
@@ -1537,11 +1537,11 @@ Vec_IntGrow.exit.i175:                            ; preds = %240, %238
   br label %.sink.split
 
 .sink.split:                                      ; preds = %253, %Vec_IntGrow.exit.i175, %.Vec_IntGrow.exit10_crit_edge.i170, %225, %Vec_IntGrow.exit.i168, %.Vec_IntGrow.exit10_crit_edge.i163, %184, %Vec_IntGrow.exit.i161, %.Vec_IntGrow.exit10_crit_edge.i156, %156, %Vec_IntGrow.exit.i154, %.Vec_IntGrow.exit10_crit_edge.i149, %128, %Vec_IntGrow.exit.i147, %.Vec_IntGrow.exit10_crit_edge.i142
-  %.sink = phi ptr [ %104, %.Vec_IntGrow.exit10_crit_edge.i142 ], [ %104, %Vec_IntGrow.exit.i147 ], [ %104, %128 ], [ %132, %.Vec_IntGrow.exit10_crit_edge.i149 ], [ %132, %Vec_IntGrow.exit.i154 ], [ %132, %156 ], [ %160, %.Vec_IntGrow.exit10_crit_edge.i156 ], [ %160, %Vec_IntGrow.exit.i161 ], [ %160, %184 ], [ %201, %.Vec_IntGrow.exit10_crit_edge.i163 ], [ %201, %Vec_IntGrow.exit.i168 ], [ %201, %225 ], [ %229, %.Vec_IntGrow.exit10_crit_edge.i170 ], [ %229, %Vec_IntGrow.exit.i175 ], [ %229, %253 ]
+  %.sink490 = phi ptr [ %104, %.Vec_IntGrow.exit10_crit_edge.i142 ], [ %104, %Vec_IntGrow.exit.i147 ], [ %104, %128 ], [ %132, %.Vec_IntGrow.exit10_crit_edge.i149 ], [ %132, %Vec_IntGrow.exit.i154 ], [ %132, %156 ], [ %160, %.Vec_IntGrow.exit10_crit_edge.i156 ], [ %160, %Vec_IntGrow.exit.i161 ], [ %160, %184 ], [ %201, %.Vec_IntGrow.exit10_crit_edge.i163 ], [ %201, %Vec_IntGrow.exit.i168 ], [ %201, %225 ], [ %229, %.Vec_IntGrow.exit10_crit_edge.i170 ], [ %229, %Vec_IntGrow.exit.i175 ], [ %229, %253 ]
   %.sink485 = phi ptr [ %.pre.i144, %.Vec_IntGrow.exit10_crit_edge.i142 ], [ %117, %Vec_IntGrow.exit.i147 ], [ %129, %128 ], [ %.pre.i151, %.Vec_IntGrow.exit10_crit_edge.i149 ], [ %145, %Vec_IntGrow.exit.i154 ], [ %157, %156 ], [ %.pre.i158, %.Vec_IntGrow.exit10_crit_edge.i156 ], [ %173, %Vec_IntGrow.exit.i161 ], [ %185, %184 ], [ %.pre.i165, %.Vec_IntGrow.exit10_crit_edge.i163 ], [ %214, %Vec_IntGrow.exit.i168 ], [ %226, %225 ], [ %.pre.i172, %.Vec_IntGrow.exit10_crit_edge.i170 ], [ %242, %Vec_IntGrow.exit.i175 ], [ %254, %253 ]
-  %255 = load i32, ptr %.sink, align 4
+  %255 = load i32, ptr %.sink490, align 4
   %256 = add nsw i32 %255, 1
-  store i32 %256, ptr %.sink, align 4
+  store i32 %256, ptr %.sink490, align 4
   %257 = sext i32 %255 to i64
   %258 = getelementptr inbounds i32, ptr %.sink485, i64 %257
   store i32 %.018.i, ptr %258, align 4
@@ -2369,7 +2369,7 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
   switch i8 %616, label %.fold.split.i265.loopexit [
     i8 32, label %615
     i8 119, label %617
-    i8 48, label %.fold.split.i265.loopexit520
+    i8 48, label %.fold.split.i265.loopexit521
     i8 49, label %.fold.split.i265
   ], !llvm.loop !9
 
@@ -2381,12 +2381,12 @@ Vec_IntPush.exit262:                              ; preds = %.Vec_IntGrow.exit10
 .fold.split.i265.loopexit:                        ; preds = %615
   br label %.fold.split.i265
 
-.fold.split.i265.loopexit520:                     ; preds = %615
+.fold.split.i265.loopexit521:                     ; preds = %615
   br label %.fold.split.i265
 
-.fold.split.i265:                                 ; preds = %615, %.fold.split.i265.loopexit520, %.fold.split.i265.loopexit, %617
-  %.018.i266 = phi i32 [ %619, %617 ], [ -1, %.fold.split.i265.loopexit ], [ 0, %.fold.split.i265.loopexit520 ], [ 1, %615 ]
-  %.1.i267 = phi ptr [ %618, %617 ], [ %.0.i263, %.fold.split.i265.loopexit ], [ %.0.i263, %.fold.split.i265.loopexit520 ], [ %.0.i263, %615 ]
+.fold.split.i265:                                 ; preds = %615, %.fold.split.i265.loopexit521, %.fold.split.i265.loopexit, %617
+  %.018.i266 = phi i32 [ %619, %617 ], [ -1, %.fold.split.i265.loopexit ], [ 0, %.fold.split.i265.loopexit521 ], [ 1, %615 ]
+  %.1.i267 = phi ptr [ %618, %617 ], [ %.0.i263, %.fold.split.i265.loopexit ], [ %.0.i263, %.fold.split.i265.loopexit521 ], [ %.0.i263, %615 ]
   br label %.critedge.i268
 
 .critedge.i268:                                   ; preds = %.critedge.i268, %.fold.split.i265

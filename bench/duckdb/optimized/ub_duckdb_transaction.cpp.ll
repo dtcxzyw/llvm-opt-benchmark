@@ -7192,9 +7192,9 @@ for.cond.cleanup:                                 ; preds = %_ZNSt13unordered_ma
   ret void
 
 for.body:                                         ; preds = %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit, %for.body.lr.ph
-  %sub3.sink.in = phi i64 [ %sub3.sink, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ], [ %sub.ptr.div.i, %for.body.lr.ph ]
-  %sub3.sink = add i64 %sub3.sink.in, -1
-  %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorISt17reference_wrapperINS_16AttachedDatabaseEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %all_transactions, i64 noundef %sub3.sink)
+  %.sink = phi i64 [ %sub.ptr.div.i, %for.body.lr.ph ], [ %sub3, %_ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_11TransactionEENS1_21ReferenceHashFunctionIS2_EENS1_17ReferenceEqualityIS2_EESaISt4pairIKS3_S5_EEE4findERSB_.exit ]
+  %sub3 = add i64 %.sink, -1
+  %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorISt17reference_wrapperINS_16AttachedDatabaseEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %all_transactions, i64 noundef %sub3)
   %2 = load ptr, ptr %call34, align 8, !tbaa !143
   %call5 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb16AttachedDatabase21GetTransactionManagerEv(ptr noundef nonnull align 8 dereferenceable(145) %2)
   %3 = load i64, ptr %_M_element_count.i.i.i, align 8, !tbaa !140
@@ -7249,7 +7249,7 @@ _ZNSt13unordered_mapISt17reference_wrapperIN6duckdb16AttachedDatabaseEES0_INS1_1
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 32
   %18 = load ptr, ptr %vfn, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(16) %call5, ptr noundef nonnull align 8 dereferenceable(40) %17)
-  %cmp.not = icmp eq i64 %sub3.sink, 0
+  %cmp.not = icmp eq i64 %sub3, 0
   br i1 %cmp.not, label %for.cond.cleanup, label %for.body, !llvm.loop !326
 }
 

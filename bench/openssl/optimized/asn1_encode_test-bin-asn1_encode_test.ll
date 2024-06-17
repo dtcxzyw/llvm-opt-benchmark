@@ -575,8 +575,8 @@ cond.end.i:                                       ; preds = %entry
   %add2 = add nuw nsw i64 %add, %0
   %nbytes2 = getelementptr inbounds i8, ptr %custom_data, i64 24
   %2 = load i64, ptr %nbytes2, align 8
-  %cmp171.not = icmp eq i64 %2, 0
-  br i1 %cmp171.not, label %for.end, label %for.body.lr.ph
+  %cmp163.not = icmp eq i64 %2, 0
+  br i1 %cmp163.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %cond.end.i
   %bytes2 = getelementptr inbounds i8, ptr %custom_data, i64 16
@@ -585,13 +585,13 @@ for.body.lr.ph:                                   ; preds = %cond.end.i
   br label %for.body
 
 for.cond:                                         ; preds = %for.body
-  %dec = add i64 %i.0172, -1
+  %dec = add i64 %i.0164, -1
   %cmp.not = icmp eq i64 %dec, 0
   br i1 %cmp.not, label %for.end, label %for.body, !llvm.loop !8
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.cond
-  %i.0172 = phi i64 [ %2, %for.body.lr.ph ], [ %dec, %for.cond ]
-  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0172
+  %i.0164 = phi i64 [ %2, %for.body.lr.ph ], [ %dec, %for.cond ]
+  %gep = getelementptr i8, ptr %invariant.gep, i64 %i.0164
   %4 = load i8, ptr %gep, align 1
   %cmp3.not = icmp eq i8 %4, 0
   br i1 %cmp3.not, label %for.cond, label %if.then7
@@ -670,14 +670,10 @@ if.end5.thread.i66:                               ; preds = %cond.end.i60
   %incdec.ptr21.i = getelementptr inbounds i8, ptr %call24, i64 3
   store i8 %conv20.i, ptr %incdec.ptr1233.i, align 1
   %conv22.i = trunc i64 %add18 to i8
-  %incdec.ptr23.i = getelementptr inbounds i8, ptr %call24, i64 4
-  store i8 %conv22.i, ptr %incdec.ptr21.i, align 1
   br label %der_encode_length.exit67
 
 if.then9.i:                                       ; preds = %if.end5.i62
   %conv.i = trunc nuw i64 %add18 to i8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %call24, i64 2
-  store i8 %conv.i, ptr %incdec.ptr, align 1
   br label %der_encode_length.exit67
 
 if.else10.i:                                      ; preds = %if.end5.i62
@@ -685,15 +681,16 @@ if.else10.i:                                      ; preds = %if.end5.i62
   store i8 1, ptr %incdec.ptr, align 1
   %9 = trunc nuw i64 %add18 to i8
   %conv16.i = or i8 %9, -128
-  %incdec.ptr17.i = getelementptr inbounds i8, ptr %call24, i64 3
-  store i8 %conv16.i, ptr %incdec.ptr12.i, align 1
   br label %der_encode_length.exit67
 
 der_encode_length.exit67:                         ; preds = %if.end5.thread.i66, %if.then9.i, %if.else10.i
-  %p.0 = phi ptr [ %incdec.ptr23.i, %if.end5.thread.i66 ], [ %incdec.ptr.i, %if.then9.i ], [ %incdec.ptr17.i, %if.else10.i ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %p.0, ptr noundef nonnull align 1 dereferenceable(3) @__const.make_custom_der.t_true, i64 3, i1 false)
-  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 3
-  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.0, i64 4
+  %p.0 = phi ptr [ %incdec.ptr21.i, %if.end5.thread.i66 ], [ %incdec.ptr, %if.then9.i ], [ %incdec.ptr12.i, %if.else10.i ]
+  %conv.sink.i = phi i8 [ %conv22.i, %if.end5.thread.i66 ], [ %conv.i, %if.then9.i ], [ %conv16.i, %if.else10.i ]
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %p.0, i64 1
+  store i8 %conv.sink.i, ptr %p.0, align 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %incdec.ptr.i, ptr noundef nonnull align 1 dereferenceable(3) @__const.make_custom_der.t_true, i64 3, i1 false)
+  %add.ptr = getelementptr inbounds i8, ptr %p.0, i64 4
+  %incdec.ptr32 = getelementptr inbounds i8, ptr %p.0, i64 5
   store i8 2, ptr %add.ptr, align 1
   %10 = load i64, ptr %nbytes1, align 8
   %cmp.i68 = icmp ult i64 %10, 32768
@@ -705,45 +702,43 @@ cond.false.i69:                                   ; preds = %der_encode_length.e
 
 cond.end.i70:                                     ; preds = %der_encode_length.exit67
   %cmp1.i71 = icmp ugt i64 %10, 255
-  br i1 %cmp1.i71, label %if.end5.thread.i83, label %if.end5.i72
+  br i1 %cmp1.i71, label %if.end5.thread.i84, label %if.end5.i72
 
 if.end5.i72:                                      ; preds = %cond.end.i70
   %cmp2.i73 = icmp ult i64 %10, 128
-  br i1 %cmp2.i73, label %if.then9.i80, label %if.else10.i75
+  br i1 %cmp2.i73, label %if.then9.i82, label %if.else10.i75
 
-if.end5.thread.i83:                               ; preds = %cond.end.i70
-  %incdec.ptr1233.i84 = getelementptr inbounds i8, ptr %p.0, i64 5
+if.end5.thread.i84:                               ; preds = %cond.end.i70
+  %incdec.ptr1233.i85 = getelementptr inbounds i8, ptr %p.0, i64 6
   store i8 2, ptr %incdec.ptr32, align 1
-  %shr.i85 = lshr i64 %10, 8
-  %11 = trunc nuw i64 %shr.i85 to i8
-  %conv20.i86 = or disjoint i8 %11, -128
-  %incdec.ptr21.i87 = getelementptr inbounds i8, ptr %p.0, i64 6
-  store i8 %conv20.i86, ptr %incdec.ptr1233.i84, align 1
-  %conv22.i88 = trunc i64 %10 to i8
-  %incdec.ptr23.i89 = getelementptr inbounds i8, ptr %p.0, i64 7
-  store i8 %conv22.i88, ptr %incdec.ptr21.i87, align 1
+  %shr.i86 = lshr i64 %10, 8
+  %11 = trunc nuw i64 %shr.i86 to i8
+  %conv20.i87 = or disjoint i8 %11, -128
+  %incdec.ptr21.i88 = getelementptr inbounds i8, ptr %p.0, i64 7
+  store i8 %conv20.i87, ptr %incdec.ptr1233.i85, align 1
+  %conv22.i89 = trunc i64 %10 to i8
   br label %der_encode_length.exit90
 
-if.then9.i80:                                     ; preds = %if.end5.i72
-  %conv.i81 = trunc nuw i64 %10 to i8
-  %incdec.ptr.i82 = getelementptr inbounds i8, ptr %p.0, i64 5
-  store i8 %conv.i81, ptr %incdec.ptr32, align 1
+if.then9.i82:                                     ; preds = %if.end5.i72
+  %conv.i83 = trunc nuw i64 %10 to i8
   br label %der_encode_length.exit90
 
 if.else10.i75:                                    ; preds = %if.end5.i72
-  %incdec.ptr12.i76 = getelementptr inbounds i8, ptr %p.0, i64 5
+  %incdec.ptr12.i76 = getelementptr inbounds i8, ptr %p.0, i64 6
   store i8 1, ptr %incdec.ptr32, align 1
   %12 = trunc nuw i64 %10 to i8
   %conv16.i77 = or i8 %12, -128
-  %incdec.ptr17.i78 = getelementptr inbounds i8, ptr %p.0, i64 6
-  store i8 %conv16.i77, ptr %incdec.ptr12.i76, align 1
   br label %der_encode_length.exit90
 
-der_encode_length.exit90:                         ; preds = %if.end5.thread.i83, %if.then9.i80, %if.else10.i75
-  %p.1 = phi ptr [ %incdec.ptr23.i89, %if.end5.thread.i83 ], [ %incdec.ptr.i82, %if.then9.i80 ], [ %incdec.ptr17.i78, %if.else10.i75 ]
+der_encode_length.exit90:                         ; preds = %if.end5.thread.i84, %if.then9.i82, %if.else10.i75
+  %p.1 = phi ptr [ %incdec.ptr21.i88, %if.end5.thread.i84 ], [ %incdec.ptr32, %if.then9.i82 ], [ %incdec.ptr12.i76, %if.else10.i75 ]
+  %conv.sink.i78 = phi i8 [ %conv22.i89, %if.end5.thread.i84 ], [ %conv.i83, %if.then9.i82 ], [ %conv16.i77, %if.else10.i75 ]
+  %incdec.ptr.i80 = getelementptr inbounds i8, ptr %p.1, i64 1
+  store i8 %conv.sink.i78, ptr %p.1, align 1
   %13 = load ptr, ptr %custom_data, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.1, ptr align 1 %13, i64 %10, i1 false)
-  %add.ptr37 = getelementptr inbounds i8, ptr %p.1, i64 %10
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i80, ptr align 1 %13, i64 %10, i1 false)
+  %14 = load i64, ptr %nbytes1, align 8
+  %add.ptr37 = getelementptr inbounds i8, ptr %incdec.ptr.i80, i64 %14
   %cmp38.not = icmp eq i64 %secondbytes.0, 0
   br i1 %cmp38.not, label %if.end50, label %cond.end.i93
 
@@ -751,46 +746,43 @@ cond.end.i93:                                     ; preds = %der_encode_length.e
   %incdec.ptr41 = getelementptr inbounds i8, ptr %add.ptr37, i64 1
   store i8 -96, ptr %add.ptr37, align 1
   %cmp1.i94 = icmp ugt i64 %secondbytesinner.0, 255
-  br i1 %cmp1.i94, label %if.end5.thread.i106, label %if.end5.i95
+  br i1 %cmp1.i94, label %if.end5.thread.i107, label %if.end5.i95
 
 if.end5.i95:                                      ; preds = %cond.end.i93
   %cmp2.i96 = icmp ult i64 %secondbytesinner.0, 128
-  br i1 %cmp2.i96, label %if.then9.i103, label %if.else10.i98
+  br i1 %cmp2.i96, label %if.then9.i105, label %if.else10.i98
 
-if.end5.thread.i106:                              ; preds = %cond.end.i93
-  %incdec.ptr1233.i107 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
+if.end5.thread.i107:                              ; preds = %cond.end.i93
+  %incdec.ptr1233.i108 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
   store i8 2, ptr %incdec.ptr41, align 1
-  %shr.i108 = lshr i64 %secondbytesinner.0, 8
-  %14 = trunc nuw i64 %shr.i108 to i8
-  %conv20.i109 = or disjoint i8 %14, -128
-  %incdec.ptr21.i110 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
-  store i8 %conv20.i109, ptr %incdec.ptr1233.i107, align 1
-  %conv22.i111 = trunc i64 %secondbytesinner.0 to i8
-  %incdec.ptr23.i112 = getelementptr inbounds i8, ptr %add.ptr37, i64 4
-  store i8 %conv22.i111, ptr %incdec.ptr21.i110, align 1
+  %shr.i109 = lshr i64 %secondbytesinner.0, 8
+  %15 = trunc nuw i64 %shr.i109 to i8
+  %conv20.i110 = or disjoint i8 %15, -128
+  %incdec.ptr21.i111 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
+  store i8 %conv20.i110, ptr %incdec.ptr1233.i108, align 1
+  %conv22.i112 = trunc i64 %secondbytesinner.0 to i8
   br label %der_encode_length.exit113
 
-if.then9.i103:                                    ; preds = %if.end5.i95
-  %conv.i104 = trunc nuw i64 %secondbytesinner.0 to i8
-  %incdec.ptr.i105 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
-  store i8 %conv.i104, ptr %incdec.ptr41, align 1
+if.then9.i105:                                    ; preds = %if.end5.i95
+  %conv.i106 = trunc nuw i64 %secondbytesinner.0 to i8
   br label %der_encode_length.exit113
 
 if.else10.i98:                                    ; preds = %if.end5.i95
   %incdec.ptr12.i99 = getelementptr inbounds i8, ptr %add.ptr37, i64 2
   store i8 1, ptr %incdec.ptr41, align 1
-  %15 = trunc nuw i64 %secondbytesinner.0 to i8
-  %conv16.i100 = or i8 %15, -128
-  %incdec.ptr17.i101 = getelementptr inbounds i8, ptr %add.ptr37, i64 3
-  store i8 %conv16.i100, ptr %incdec.ptr12.i99, align 1
+  %16 = trunc nuw i64 %secondbytesinner.0 to i8
+  %conv16.i100 = or i8 %16, -128
   br label %der_encode_length.exit113
 
-der_encode_length.exit113:                        ; preds = %if.end5.thread.i106, %if.then9.i103, %if.else10.i98
-  %p.2 = phi ptr [ %incdec.ptr23.i112, %if.end5.thread.i106 ], [ %incdec.ptr.i105, %if.then9.i103 ], [ %incdec.ptr17.i101, %if.else10.i98 ]
-  %incdec.ptr43 = getelementptr inbounds i8, ptr %p.2, i64 1
-  store i8 2, ptr %p.2, align 1
-  %16 = load i64, ptr %nbytes2, align 8
-  %cmp.i114 = icmp ult i64 %16, 32768
+der_encode_length.exit113:                        ; preds = %if.end5.thread.i107, %if.then9.i105, %if.else10.i98
+  %p.2 = phi ptr [ %incdec.ptr21.i111, %if.end5.thread.i107 ], [ %incdec.ptr41, %if.then9.i105 ], [ %incdec.ptr12.i99, %if.else10.i98 ]
+  %conv.sink.i101 = phi i8 [ %conv22.i112, %if.end5.thread.i107 ], [ %conv.i106, %if.then9.i105 ], [ %conv16.i100, %if.else10.i98 ]
+  %incdec.ptr.i103 = getelementptr inbounds i8, ptr %p.2, i64 1
+  store i8 %conv.sink.i101, ptr %p.2, align 1
+  %incdec.ptr43 = getelementptr inbounds i8, ptr %p.2, i64 2
+  store i8 2, ptr %incdec.ptr.i103, align 1
+  %17 = load i64, ptr %nbytes2, align 8
+  %cmp.i114 = icmp ult i64 %17, 32768
   br i1 %cmp.i114, label %cond.end.i116, label %cond.false.i115
 
 cond.false.i115:                                  ; preds = %der_encode_length.exit113
@@ -798,57 +790,53 @@ cond.false.i115:                                  ; preds = %der_encode_length.e
   unreachable
 
 cond.end.i116:                                    ; preds = %der_encode_length.exit113
-  %cmp1.i117 = icmp ugt i64 %16, 255
-  br i1 %cmp1.i117, label %if.end5.thread.i129, label %if.end5.i118
+  %cmp1.i117 = icmp ugt i64 %17, 255
+  br i1 %cmp1.i117, label %if.end5.thread.i130, label %if.end5.i118
 
 if.end5.i118:                                     ; preds = %cond.end.i116
-  %cmp2.i119 = icmp ult i64 %16, 128
-  br i1 %cmp2.i119, label %if.then9.i126, label %if.else10.i121
+  %cmp2.i119 = icmp ult i64 %17, 128
+  br i1 %cmp2.i119, label %if.then9.i128, label %if.else10.i121
 
-if.end5.thread.i129:                              ; preds = %cond.end.i116
-  %incdec.ptr1233.i130 = getelementptr inbounds i8, ptr %p.2, i64 2
+if.end5.thread.i130:                              ; preds = %cond.end.i116
+  %incdec.ptr1233.i131 = getelementptr inbounds i8, ptr %p.2, i64 3
   store i8 2, ptr %incdec.ptr43, align 1
-  %shr.i131 = lshr i64 %16, 8
-  %17 = trunc nuw i64 %shr.i131 to i8
-  %conv20.i132 = or disjoint i8 %17, -128
-  %incdec.ptr21.i133 = getelementptr inbounds i8, ptr %p.2, i64 3
-  store i8 %conv20.i132, ptr %incdec.ptr1233.i130, align 1
-  %conv22.i134 = trunc i64 %16 to i8
-  %incdec.ptr23.i135 = getelementptr inbounds i8, ptr %p.2, i64 4
-  store i8 %conv22.i134, ptr %incdec.ptr21.i133, align 1
+  %shr.i132 = lshr i64 %17, 8
+  %18 = trunc nuw i64 %shr.i132 to i8
+  %conv20.i133 = or disjoint i8 %18, -128
+  %incdec.ptr21.i134 = getelementptr inbounds i8, ptr %p.2, i64 4
+  store i8 %conv20.i133, ptr %incdec.ptr1233.i131, align 1
+  %conv22.i135 = trunc i64 %17 to i8
   br label %der_encode_length.exit136
 
-if.then9.i126:                                    ; preds = %if.end5.i118
-  %conv.i127 = trunc nuw i64 %16 to i8
-  %incdec.ptr.i128 = getelementptr inbounds i8, ptr %p.2, i64 2
-  store i8 %conv.i127, ptr %incdec.ptr43, align 1
+if.then9.i128:                                    ; preds = %if.end5.i118
+  %conv.i129 = trunc nuw i64 %17 to i8
   br label %der_encode_length.exit136
 
 if.else10.i121:                                   ; preds = %if.end5.i118
-  %incdec.ptr12.i122 = getelementptr inbounds i8, ptr %p.2, i64 2
+  %incdec.ptr12.i122 = getelementptr inbounds i8, ptr %p.2, i64 3
   store i8 1, ptr %incdec.ptr43, align 1
-  %18 = trunc nuw i64 %16 to i8
-  %conv16.i123 = or i8 %18, -128
-  %incdec.ptr17.i124 = getelementptr inbounds i8, ptr %p.2, i64 3
-  store i8 %conv16.i123, ptr %incdec.ptr12.i122, align 1
+  %19 = trunc nuw i64 %17 to i8
+  %conv16.i123 = or i8 %19, -128
   br label %der_encode_length.exit136
 
-der_encode_length.exit136:                        ; preds = %if.end5.thread.i129, %if.then9.i126, %if.else10.i121
-  %p.3 = phi ptr [ %incdec.ptr23.i135, %if.end5.thread.i129 ], [ %incdec.ptr.i128, %if.then9.i126 ], [ %incdec.ptr17.i124, %if.else10.i121 ]
+der_encode_length.exit136:                        ; preds = %if.end5.thread.i130, %if.then9.i128, %if.else10.i121
+  %p.3 = phi ptr [ %incdec.ptr21.i134, %if.end5.thread.i130 ], [ %incdec.ptr43, %if.then9.i128 ], [ %incdec.ptr12.i122, %if.else10.i121 ]
+  %conv.sink.i124 = phi i8 [ %conv22.i135, %if.end5.thread.i130 ], [ %conv.i129, %if.then9.i128 ], [ %conv16.i123, %if.else10.i121 ]
+  %incdec.ptr.i126 = getelementptr inbounds i8, ptr %p.3, i64 1
+  store i8 %conv.sink.i124, ptr %p.3, align 1
   %bytes246 = getelementptr inbounds i8, ptr %custom_data, i64 16
-  %19 = load ptr, ptr %bytes246, align 8
-  %20 = load i64, ptr %nbytes2, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %p.3, ptr align 1 %19, i64 %20, i1 false)
+  %20 = load ptr, ptr %bytes246, align 8
   %21 = load i64, ptr %nbytes2, align 8
-  %add.ptr49 = getelementptr inbounds i8, ptr %p.3, i64 %21
-  %.pre = load ptr, ptr %encoding, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %incdec.ptr.i126, ptr align 1 %20, i64 %21, i1 false)
+  %22 = load i64, ptr %nbytes2, align 8
+  %add.ptr49 = getelementptr inbounds i8, ptr %incdec.ptr.i126, i64 %22
   br label %if.end50
 
 if.end50:                                         ; preds = %der_encode_length.exit136, %der_encode_length.exit90
-  %22 = phi ptr [ %call24, %der_encode_length.exit90 ], [ %.pre, %der_encode_length.exit136 ]
   %p.4 = phi ptr [ %add.ptr37, %der_encode_length.exit90 ], [ %add.ptr49, %der_encode_length.exit136 ]
+  %23 = load ptr, ptr %encoding, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %p.4 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %23 to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %cmp51 = icmp eq i64 %add23, %sub.ptr.sub
   br i1 %cmp51, label %return, label %cond.false

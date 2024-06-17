@@ -945,50 +945,40 @@ list_insert_tail.exit:                            ; preds = %if.end.i14, %if.the
   %free_cb.i = getelementptr inbounds i8, ptr %item, i64 40
   %9 = load ptr, ptr %free_cb.i, align 8
   %cmp.not.i15 = icmp eq ptr %9, null
-  br i1 %cmp.not.i15, label %sw.epilog.sink.split, label %if.then.i16
-
-if.then.i16:                                      ; preds = %list_insert_tail.exit
-  %encoded.i = getelementptr inbounds i8, ptr %item, i64 32
-  %10 = load ptr, ptr %encoded.i, align 8
-  %encoded_len.i = getelementptr inbounds i8, ptr %item, i64 64
-  %11 = load i64, ptr %encoded_len.i, align 8
-  %free_cb_arg.i = getelementptr inbounds i8, ptr %item, i64 48
-  %12 = load ptr, ptr %free_cb_arg.i, align 8
-  tail call void %9(ptr noundef %10, i64 noundef %11, ptr noundef %12) #6
-  br label %sw.epilog.sink.split.sink.split
+  br i1 %cmp.not.i15, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb1:                                           ; preds = %entry
   %tx_list = getelementptr inbounds i8, ptr %cfq, i64 16
-  %13 = load ptr, ptr %tx_list, align 8
-  %cmp.i18 = icmp eq ptr %13, %item
+  %10 = load ptr, ptr %tx_list, align 8
+  %cmp.i18 = icmp eq ptr %10, %item
   br i1 %cmp.i18, label %if.then.i35, label %if.end.i19
 
 if.then.i35:                                      ; preds = %sw.bb1
   %next.i36 = getelementptr inbounds i8, ptr %item, i64 24
-  %14 = load ptr, ptr %next.i36, align 8
-  store ptr %14, ptr %tx_list, align 8
+  %11 = load ptr, ptr %next.i36, align 8
+  store ptr %11, ptr %tx_list, align 8
   br label %if.end.i19
 
 if.end.i19:                                       ; preds = %if.then.i35, %sw.bb1
   %tail.i20 = getelementptr inbounds i8, ptr %cfq, i64 24
-  %15 = load ptr, ptr %tail.i20, align 8
-  %cmp2.i21 = icmp eq ptr %15, %item
+  %12 = load ptr, ptr %tail.i20, align 8
+  %cmp2.i21 = icmp eq ptr %12, %item
   %prev.i22 = getelementptr inbounds i8, ptr %item, i64 16
-  %16 = load ptr, ptr %prev.i22, align 8
+  %13 = load ptr, ptr %prev.i22, align 8
   br i1 %cmp2.i21, label %if.then3.i34, label %if.end5.i23
 
 if.then3.i34:                                     ; preds = %if.end.i19
-  store ptr %16, ptr %tail.i20, align 8
+  store ptr %13, ptr %tail.i20, align 8
   br label %if.end5.i23
 
 if.end5.i23:                                      ; preds = %if.then3.i34, %if.end.i19
-  %cmp7.not.i25 = icmp eq ptr %16, null
+  %cmp7.not.i25 = icmp eq ptr %13, null
   %next13.phi.trans.insert.i26 = getelementptr inbounds i8, ptr %item, i64 24
   %.pre16.i27 = load ptr, ptr %next13.phi.trans.insert.i26, align 8
   br i1 %cmp7.not.i25, label %if.end12.i30, label %if.then8.i28
 
 if.then8.i28:                                     ; preds = %if.end5.i23
-  %next11.i29 = getelementptr inbounds i8, ptr %16, i64 24
+  %next11.i29 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %.pre16.i27, ptr %next11.i29, align 8
   br label %if.end12.i30
 
@@ -997,31 +987,31 @@ if.end12.i30:                                     ; preds = %if.then8.i28, %if.e
   br i1 %cmp14.not.i31, label %list_remove.exit37, label %if.then15.i32
 
 if.then15.i32:                                    ; preds = %if.end12.i30
-  %17 = load ptr, ptr %prev.i22, align 8
+  %14 = load ptr, ptr %prev.i22, align 8
   %prev18.i33 = getelementptr inbounds i8, ptr %.pre16.i27, i64 16
-  store ptr %17, ptr %prev18.i33, align 8
+  store ptr %14, ptr %prev18.i33, align 8
   br label %list_remove.exit37
 
 list_remove.exit37:                               ; preds = %if.end12.i30, %if.then15.i32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i22, i8 0, i64 16, i1 false)
   %free_list2 = getelementptr inbounds i8, ptr %cfq, i64 32
   %tail.i38 = getelementptr inbounds i8, ptr %cfq, i64 40
-  %18 = load ptr, ptr %tail.i38, align 8
-  store ptr %18, ptr %prev.i22, align 8
+  %15 = load ptr, ptr %tail.i38, align 8
+  store ptr %15, ptr %prev.i22, align 8
   store ptr null, ptr %next13.phi.trans.insert.i26, align 8
   store ptr %item, ptr %tail.i38, align 8
-  %19 = load ptr, ptr %prev.i22, align 8
-  %cmp.not.i41 = icmp eq ptr %19, null
+  %16 = load ptr, ptr %prev.i22, align 8
+  %cmp.not.i41 = icmp eq ptr %16, null
   br i1 %cmp.not.i41, label %if.end.i44, label %if.then.i42
 
 if.then.i42:                                      ; preds = %list_remove.exit37
-  %next4.i43 = getelementptr inbounds i8, ptr %19, i64 24
+  %next4.i43 = getelementptr inbounds i8, ptr %16, i64 24
   store ptr %item, ptr %next4.i43, align 8
   br label %if.end.i44
 
 if.end.i44:                                       ; preds = %if.then.i42, %list_remove.exit37
-  %20 = load ptr, ptr %free_list2, align 8
-  %cmp5.i45 = icmp eq ptr %20, null
+  %17 = load ptr, ptr %free_list2, align 8
+  %cmp5.i45 = icmp eq ptr %17, null
   br i1 %cmp5.i45, label %if.then6.i46, label %list_insert_tail.exit47
 
 if.then6.i46:                                     ; preds = %if.end.i44
@@ -1030,25 +1020,21 @@ if.then6.i46:                                     ; preds = %if.end.i44
 
 list_insert_tail.exit47:                          ; preds = %if.end.i44, %if.then6.i46
   %free_cb.i48 = getelementptr inbounds i8, ptr %item, i64 40
-  %21 = load ptr, ptr %free_cb.i48, align 8
-  %cmp.not.i49 = icmp eq ptr %21, null
-  br i1 %cmp.not.i49, label %sw.epilog.sink.split, label %if.then.i50
+  %18 = load ptr, ptr %free_cb.i48, align 8
+  %cmp.not.i49 = icmp eq ptr %18, null
+  br i1 %cmp.not.i49, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
-if.then.i50:                                      ; preds = %list_insert_tail.exit47
+sw.epilog.sink.split.sink.split:                  ; preds = %list_insert_tail.exit47, %list_insert_tail.exit
+  %.sink59 = phi ptr [ %9, %list_insert_tail.exit ], [ %18, %list_insert_tail.exit47 ]
   %encoded.i51 = getelementptr inbounds i8, ptr %item, i64 32
-  %22 = load ptr, ptr %encoded.i51, align 8
+  %19 = load ptr, ptr %encoded.i51, align 8
   %encoded_len.i52 = getelementptr inbounds i8, ptr %item, i64 64
-  %23 = load i64, ptr %encoded_len.i52, align 8
+  %20 = load i64, ptr %encoded_len.i52, align 8
   %free_cb_arg.i53 = getelementptr inbounds i8, ptr %item, i64 48
-  %24 = load ptr, ptr %free_cb_arg.i53, align 8
-  tail call void %21(ptr noundef %22, i64 noundef %23, ptr noundef %24) #6
-  br label %sw.epilog.sink.split.sink.split
-
-sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i16, %if.then.i50
-  %encoded_len.i52.sink = phi ptr [ %encoded_len.i52, %if.then.i50 ], [ %encoded_len.i, %if.then.i16 ]
-  %encoded.i51.sink = phi ptr [ %encoded.i51, %if.then.i50 ], [ %encoded.i, %if.then.i16 ]
-  store i64 0, ptr %encoded_len.i52.sink, align 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded.i51.sink, i8 0, i64 16, i1 false)
+  %21 = load ptr, ptr %free_cb_arg.i53, align 8
+  tail call void %.sink59(ptr noundef %19, i64 noundef %20, ptr noundef %21) #6
+  store i64 0, ptr %encoded_len.i52, align 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %encoded.i51, i8 0, i64 16, i1 false)
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %list_insert_tail.exit47, %list_insert_tail.exit

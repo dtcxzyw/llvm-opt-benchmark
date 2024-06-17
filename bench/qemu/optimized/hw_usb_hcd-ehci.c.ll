@@ -2088,10 +2088,10 @@ sw.default.i:                                     ; preds = %if.end11.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb32.i, %sw.bb18.i, %sw.bb12.i
   %10 = load ptr, ptr %q, align 8
-  %usbsts_pending.i.i = getelementptr inbounds i8, ptr %10, i64 1952
-  %11 = load i32, ptr %usbsts_pending.i.i, align 16
+  %usbsts_pending.i49.i = getelementptr inbounds i8, ptr %10, i64 1952
+  %11 = load i32, ptr %usbsts_pending.i49.i, align 16
   %or1.i50.i = or i32 %11, 2
-  store i32 %or1.i50.i, ptr %usbsts_pending.i.i, align 16
+  store i32 %or1.i50.i, ptr %usbsts_pending.i49.i, align 16
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %sw.epilog.sink.split.i, %if.end11.i

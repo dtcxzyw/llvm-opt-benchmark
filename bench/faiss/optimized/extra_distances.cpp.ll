@@ -6736,149 +6736,97 @@ _ZNK5faiss14VectorDistanceILNS_10MetricTypeE23EEclEPKfS4_.exit: ; preds = %.lr.p
 define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf(i64 noundef %0, i32 noundef %1, float noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
-  switch i32 %1, label %48 [
-    i32 1, label %8
-    i32 2, label %13
-    i32 3, label %18
-    i32 20, label %23
-    i32 21, label %28
-    i32 22, label %33
-    i32 4, label %38
-    i32 23, label %43
+  switch i32 %1, label %15 [
+    i32 1, label %23
+    i32 2, label %8
+    i32 3, label %9
+    i32 20, label %10
+    i32 21, label %11
+    i32 22, label %12
+    i32 4, label %13
+    i32 23, label %14
   ]
 
 8:                                                ; preds = %5
-  %9 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %10 = shl i64 %0, 2
-  %11 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %4, ptr %11, align 8
-  %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %10, ptr %12, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), ptr %9, align 8
-  br label %56
+  br label %23
+
+9:                                                ; preds = %5
+  br label %23
+
+10:                                               ; preds = %5
+  br label %23
+
+11:                                               ; preds = %5
+  br label %23
+
+12:                                               ; preds = %5
+  br label %23
 
 13:                                               ; preds = %5
-  %14 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %15 = shl i64 %0, 2
-  %16 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr %4, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 16
-  store i64 %15, ptr %17, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i64 16), ptr %14, align 8
-  br label %56
+  br label %23
 
-18:                                               ; preds = %5
-  %19 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %20 = shl i64 %0, 2
-  %21 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %4, ptr %21, align 8
-  %22 = getelementptr inbounds i8, ptr %19, i64 16
-  store i64 %20, ptr %22, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i64 16), ptr %19, align 8
-  br label %56
+14:                                               ; preds = %5
+  br label %23
 
-23:                                               ; preds = %5
+15:                                               ; preds = %5
+  %16 = tail call ptr @__cxa_allocate_exception(i64 40) #5
+  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %7)
+          to label %17 unwind label %.thread
+
+17:                                               ; preds = %15
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf, ptr noundef nonnull @.str.1, i32 noundef 247)
+          to label %18 unwind label %20
+
+18:                                               ; preds = %17
+  invoke void @__cxa_throw(ptr nonnull %16, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #21
+          to label %33 unwind label %20
+
+.thread:                                          ; preds = %15
+  %19 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
+  br label %22
+
+20:                                               ; preds = %17, %18
+  %.0 = phi i1 [ false, %18 ], [ true, %17 ]
+  %21 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
+  br i1 %.0, label %22, label %32
+
+22:                                               ; preds = %.thread, %20
+  %.pn66 = phi { ptr, i32 } [ %19, %.thread ], [ %21, %20 ]
+  call void @__cxa_free_exception(ptr %16) #5
+  br label %32
+
+23:                                               ; preds = %5, %14, %13, %12, %11, %10, %9, %8
+  %.sink72 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i64 16), %14 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i64 16), %13 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i64 16), %12 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i64 16), %11 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i64 16), %10 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i64 16), %9 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i64 16), %8 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 16), %5 ]
   %24 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
   %25 = shl i64 %0, 2
   %26 = getelementptr inbounds i8, ptr %24, i64 8
   store ptr %4, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 %25, ptr %27, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i64 16), ptr %24, align 8
-  br label %56
-
-28:                                               ; preds = %5
-  %29 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %30 = shl i64 %0, 2
-  %31 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr %4, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %29, i64 16
-  store i64 %30, ptr %32, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i64 16), ptr %29, align 8
-  br label %56
-
-33:                                               ; preds = %5
-  %34 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %35 = shl i64 %0, 2
-  %36 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr %4, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 16
-  store i64 %35, ptr %37, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i64 16), ptr %34, align 8
-  br label %56
-
-38:                                               ; preds = %5
-  %39 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %40 = shl i64 %0, 2
-  %41 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr %4, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %39, i64 16
-  store i64 %40, ptr %42, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i64 16), ptr %39, align 8
-  br label %56
-
-43:                                               ; preds = %5
-  %44 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #23
-  %45 = shl i64 %0, 2
-  %46 = getelementptr inbounds i8, ptr %44, i64 8
-  store ptr %4, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 16
-  store i64 %45, ptr %47, align 8
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i64 16), ptr %44, align 8
-  br label %56
-
-48:                                               ; preds = %5
-  %49 = tail call ptr @__cxa_allocate_exception(i64 40) #5
-  call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %50 unwind label %.thread
-
-50:                                               ; preds = %48
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %49, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss27get_extra_distance_computerEmNS_10MetricTypeEfmPKf, ptr noundef nonnull @.str.1, i32 noundef 247)
-          to label %51 unwind label %53
-
-51:                                               ; preds = %50
-  invoke void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #21
-          to label %62 unwind label %53
-
-.thread:                                          ; preds = %48
-  %52 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  br label %55
-
-53:                                               ; preds = %50, %51
-  %.0 = phi i1 [ false, %51 ], [ true, %50 ]
-  %54 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #5
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #5
-  br i1 %.0, label %55, label %61
-
-55:                                               ; preds = %.thread, %53
-  %.pn66 = phi { ptr, i32 } [ %52, %.thread ], [ %54, %53 ]
-  call void @__cxa_free_exception(ptr %49) #5
-  br label %61
-
-56:                                               ; preds = %8, %43, %38, %33, %28, %23, %18, %13
-  %.sink71 = phi ptr [ %9, %8 ], [ %44, %43 ], [ %39, %38 ], [ %34, %33 ], [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ]
-  %57 = getelementptr inbounds i8, ptr %.sink71, i64 24
-  store i64 %0, ptr %57, align 8
-  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %.sink71, i64 32
+  store ptr %.sink72, ptr %24, align 8
+  %28 = getelementptr inbounds i8, ptr %24, i64 24
+  store i64 %0, ptr %28, align 8
+  %.sroa.362.0..sroa_idx = getelementptr inbounds i8, ptr %24, i64 32
   store float %2, ptr %.sroa.362.0..sroa_idx, align 8
-  %58 = getelementptr inbounds i8, ptr %.sink71, i64 40
-  store i64 %3, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %.sink71, i64 48
-  store ptr null, ptr %59, align 8
-  %60 = getelementptr inbounds i8, ptr %.sink71, i64 56
-  store ptr %4, ptr %60, align 8
-  ret ptr %.sink71
+  %29 = getelementptr inbounds i8, ptr %24, i64 40
+  store i64 %3, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %24, i64 48
+  store ptr null, ptr %30, align 8
+  %31 = getelementptr inbounds i8, ptr %24, i64 56
+  store ptr %4, ptr %31, align 8
+  ret ptr %24
 
-61:                                               ; preds = %53, %55
-  %.pn.pn = phi { ptr, i32 } [ %.pn66, %55 ], [ %54, %53 ]
+32:                                               ; preds = %20, %22
+  %.pn.pn = phi { ptr, i32 } [ %.pn66, %22 ], [ %21, %20 ]
   resume { ptr, i32 } %.pn.pn
 
-62:                                               ; preds = %51
+33:                                               ; preds = %18
   unreachable
 }
 

@@ -4065,10 +4065,10 @@ define range(i32 0, -2147483648) i32 @Gia_ManCrossCut(ptr noundef %0, i32 nounde
   %7 = getelementptr i8, ptr %0, i64 32
   br label %8
 
-8:                                                ; preds = %.lr.ph, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %.052 = phi i32 [ 0, %.lr.ph ], [ %.1, %43 ]
-  %.02951 = phi i32 [ 0, %.lr.ph ], [ %.3, %43 ]
+8:                                                ; preds = %.lr.ph, %36
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
+  %.052 = phi i32 [ 0, %.lr.ph ], [ %.1, %36 ]
+  %.02951 = phi i32 [ 0, %.lr.ph ], [ %.3, %36 ]
   %.val44 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i32, ptr %.val44, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
@@ -4091,7 +4091,7 @@ define range(i32 0, -2147483648) i32 @Gia_ManCrossCut(ptr noundef %0, i32 nounde
   %18 = and i64 %.val42, 536870911
   %19 = icmp ne i64 %18, 536870911
   %narrow.i = and i1 %.not.i, %19
-  br i1 %narrow.i, label %20, label %35
+  br i1 %narrow.i, label %20, label %29
 
 20:                                               ; preds = %13
   %21 = sub nsw i64 0, %18
@@ -4104,51 +4104,45 @@ define range(i32 0, -2147483648) i32 @Gia_ManCrossCut(ptr noundef %0, i32 nounde
   %spec.select38 = add nsw i32 %spec.select, %26
   %27 = lshr i64 %.val42, 32
   %28 = and i64 %27, 536870911
-  %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %12, i64 %29, i32 1
-  %31 = load i32, ptr %30, align 4
-  %32 = add i32 %31, -1
-  store i32 %32, ptr %30, align 4
-  %33 = icmp eq i32 %32, 0
-  %34 = sext i1 %33 to i32
-  %spec.select40 = add nsw i32 %spec.select38, %34
-  br label %43
+  br label %.sink.split
 
-35:                                               ; preds = %13
+29:                                               ; preds = %13
   %.not.i46 = icmp ne i64 %17, 0
   %narrow.i47 = and i1 %.not.i46, %19
-  br i1 %narrow.i47, label %36, label %43
+  br i1 %narrow.i47, label %.sink.split, label %36
 
-36:                                               ; preds = %35
-  %37 = sub nsw i64 0, %18
-  %38 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %12, i64 %37, i32 1
-  %39 = load i32, ptr %38, align 4
-  %40 = add i32 %39, -1
-  store i32 %40, ptr %38, align 4
-  %41 = icmp eq i32 %40, 0
-  %42 = sext i1 %41 to i32
-  %spec.select39 = add nsw i32 %spec.select, %42
-  br label %43
+.sink.split:                                      ; preds = %29, %20
+  %.sink = phi i64 [ %28, %20 ], [ %18, %29 ]
+  %spec.select38.sink = phi i32 [ %spec.select38, %20 ], [ %spec.select, %29 ]
+  %30 = sub nsw i64 0, %.sink
+  %31 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %12, i64 %30, i32 1
+  %32 = load i32, ptr %31, align 4
+  %33 = add i32 %32, -1
+  store i32 %33, ptr %31, align 4
+  %34 = icmp eq i32 %33, 0
+  %35 = sext i1 %34 to i32
+  %spec.select40 = add nsw i32 %spec.select38.sink, %35
+  br label %36
 
-43:                                               ; preds = %20, %36, %35
-  %.3 = phi i32 [ %spec.select, %35 ], [ %spec.select39, %36 ], [ %spec.select40, %20 ]
+36:                                               ; preds = %.sink.split, %29
+  %.3 = phi i32 [ %spec.select, %29 ], [ %spec.select40, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val45 = load i32, ptr %5, align 4
-  %44 = sext i32 %.val45 to i64
-  %45 = icmp slt i64 %indvars.iv.next, %44
-  br i1 %45, label %8, label %.critedge, !llvm.loop !40
+  %37 = sext i32 %.val45 to i64
+  %38 = icmp slt i64 %indvars.iv.next, %37
+  br i1 %38, label %8, label %.critedge, !llvm.loop !40
 
-.critedge:                                        ; preds = %8, %43, %2
-  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %43 ], [ %.052, %8 ]
-  %46 = load ptr, ptr %4, align 8
-  %.not.i48 = icmp eq ptr %46, null
-  br i1 %.not.i48, label %Vec_IntFree.exit, label %47
+.critedge:                                        ; preds = %8, %36, %2
+  %.0.lcssa = phi i32 [ 0, %2 ], [ %.1, %36 ], [ %.052, %8 ]
+  %39 = load ptr, ptr %4, align 8
+  %.not.i48 = icmp eq ptr %39, null
+  br i1 %.not.i48, label %Vec_IntFree.exit, label %40
 
-47:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %46) #36
+40:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %39) #36
   br label %Vec_IntFree.exit
 
-Vec_IntFree.exit:                                 ; preds = %.critedge, %47
+Vec_IntFree.exit:                                 ; preds = %.critedge, %40
   tail call void @free(ptr noundef nonnull %3) #36
   ret i32 %.0.lcssa
 }

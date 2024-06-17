@@ -86886,13 +86886,11 @@ sw.bb1.i:                                         ; preds = %cond.end107
 if.then5.i.i:                                     ; preds = %sw.bb1.i, %sw.bb1.i
   %sext.i.i = shl i32 %55, 24
   %conv8.i.i = ashr exact i32 %sext.i.i, 24
-  store i32 %conv8.i.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i.i:                                      ; preds = %sw.bb1.i
   %conv12.i.i = and i32 %55, 255
-  store i32 %conv12.i.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 sw.bb2.i12:                                       ; preds = %cond.end107
   %56 = load i32, ptr %arg, align 16, !tbaa !35
@@ -86904,13 +86902,11 @@ sw.bb2.i12:                                       ; preds = %cond.end107
 if.then5.i68.i:                                   ; preds = %sw.bb2.i12, %sw.bb2.i12
   %sext.i69.i = shl i32 %56, 24
   %conv8.i70.i = ashr exact i32 %sext.i69.i, 24
-  store i32 %conv8.i70.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i72.i:                                    ; preds = %sw.bb2.i12
   %conv12.i73.i = and i32 %56, 255
-  store i32 %conv12.i73.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 sw.bb4.i11:                                       ; preds = %cond.end107
   %57 = load i64, ptr %arg, align 16, !tbaa !35
@@ -86923,14 +86919,12 @@ if.then5.i76.i:                                   ; preds = %sw.bb4.i11, %sw.bb4
   %conv7.i.i = trunc i64 %57 to i32
   %sext.i77.i = shl i32 %conv7.i.i, 24
   %conv8.i78.i = ashr exact i32 %sext.i77.i, 24
-  store i32 %conv8.i78.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i79.i:                                    ; preds = %sw.bb4.i11
   %conv11.i.i = trunc i64 %57 to i32
   %conv12.i80.i = and i32 %conv11.i.i, 255
-  store i32 %conv12.i80.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 sw.bb6.i9:                                        ; preds = %cond.end107
   %58 = load i64, ptr %arg, align 16, !tbaa !35
@@ -86943,14 +86937,12 @@ if.then5.i82.i:                                   ; preds = %sw.bb6.i9, %sw.bb6.
   %conv7.i83.i = trunc i64 %58 to i32
   %sext.i84.i = shl i32 %conv7.i83.i, 24
   %conv8.i85.i = ashr exact i32 %sext.i84.i, 24
-  store i32 %conv8.i85.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i87.i:                                    ; preds = %sw.bb6.i9
   %conv11.i88.i = trunc i64 %58 to i32
   %conv12.i89.i = and i32 %conv11.i88.i, 255
-  store i32 %conv12.i89.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 sw.bb13.i14:                                      ; preds = %cond.end107
   %59 = load i8, ptr %arg, align 16, !tbaa !35, !range !772, !noundef !776
@@ -86962,13 +86954,11 @@ sw.bb13.i14:                                      ; preds = %cond.end107
 
 if.then6.i.i.i:                                   ; preds = %sw.bb13.i14, %sw.bb13.i14
   %conv10.i.i.i15 = zext nneg i8 %59 to i32
-  store i32 %conv10.i.i.i15, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i.i.i:                                    ; preds = %sw.bb13.i14
   %conv15.i.i.i = zext nneg i8 %59 to i32
-  store i32 %conv15.i.i.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 sw.bb15.i16:                                      ; preds = %cond.end107
   %60 = load i8, ptr %arg, align 16, !tbaa !35
@@ -86979,12 +86969,16 @@ sw.bb15.i16:                                      ; preds = %cond.end107
 
 if.then5.i93.i:                                   ; preds = %sw.bb15.i16, %sw.bb15.i16
   %conv7.i94.i = sext i8 %60 to i32
-  store i32 %conv7.i94.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i10
 
 if.else.i95.i:                                    ; preds = %sw.bb15.i16
   %conv10.i.i = zext i8 %60 to i32
-  store i32 %conv10.i.i, ptr %arg, align 16, !tbaa.struct !777
+  br label %return.sink.split.i10
+
+return.sink.split.i10:                            ; preds = %if.else.i95.i, %if.then5.i93.i, %if.else.i.i.i, %if.then6.i.i.i, %if.else.i87.i, %if.then5.i82.i, %if.else.i79.i, %if.then5.i76.i, %if.else.i72.i, %if.then5.i68.i, %if.else.i.i, %if.then5.i.i
+  %conv10.i.sink.i = phi i32 [ %conv10.i.i, %if.else.i95.i ], [ %conv7.i94.i, %if.then5.i93.i ], [ %conv15.i.i.i, %if.else.i.i.i ], [ %conv10.i.i.i15, %if.then6.i.i.i ], [ %conv12.i89.i, %if.else.i87.i ], [ %conv8.i85.i, %if.then5.i82.i ], [ %conv12.i80.i, %if.else.i79.i ], [ %conv8.i78.i, %if.then5.i76.i ], [ %conv12.i73.i, %if.else.i72.i ], [ %conv8.i70.i, %if.then5.i68.i ], [ %conv12.i.i, %if.else.i.i ], [ %conv8.i.i, %if.then5.i.i ]
+  %.sink.i = phi i32 [ 3, %if.else.i95.i ], [ 2, %if.then5.i93.i ], [ 3, %if.else.i.i.i ], [ 2, %if.then6.i.i.i ], [ 3, %if.else.i87.i ], [ 2, %if.then5.i82.i ], [ 3, %if.else.i79.i ], [ 2, %if.then5.i76.i ], [ 3, %if.else.i72.i ], [ 2, %if.then5.i68.i ], [ 3, %if.else.i.i ], [ 2, %if.then5.i.i ]
+  store i32 %conv10.i.sink.i, ptr %arg, align 16
   br label %sw.epilog.sink.split
 
 if.else110:                                       ; preds = %sw.bb
@@ -87008,13 +87002,11 @@ sw.bb1.i45:                                       ; preds = %if.else110
 if.then5.i.i47:                                   ; preds = %sw.bb1.i45, %sw.bb1.i45
   %sext.i.i48 = shl i32 %62, 16
   %conv8.i.i49 = ashr exact i32 %sext.i.i48, 16
-  store i32 %conv8.i.i49, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i.i50:                                    ; preds = %sw.bb1.i45
   %conv12.i.i51 = and i32 %62, 65535
-  store i32 %conv12.i.i51, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 sw.bb2.i38:                                       ; preds = %if.else110
   %63 = load i32, ptr %arg, align 16, !tbaa !35
@@ -87026,13 +87018,11 @@ sw.bb2.i38:                                       ; preds = %if.else110
 if.then5.i68.i40:                                 ; preds = %sw.bb2.i38, %sw.bb2.i38
   %sext.i69.i41 = shl i32 %63, 16
   %conv8.i70.i42 = ashr exact i32 %sext.i69.i41, 16
-  store i32 %conv8.i70.i42, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i72.i43:                                  ; preds = %sw.bb2.i38
   %conv12.i73.i44 = and i32 %63, 65535
-  store i32 %conv12.i73.i44, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 sw.bb4.i29:                                       ; preds = %if.else110
   %64 = load i64, ptr %arg, align 16, !tbaa !35
@@ -87045,14 +87035,12 @@ if.then5.i76.i31:                                 ; preds = %sw.bb4.i29, %sw.bb4
   %conv7.i.i32 = trunc i64 %64 to i32
   %sext.i77.i33 = shl i32 %conv7.i.i32, 16
   %conv8.i78.i34 = ashr exact i32 %sext.i77.i33, 16
-  store i32 %conv8.i78.i34, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i79.i35:                                  ; preds = %sw.bb4.i29
   %conv11.i.i36 = trunc i64 %64 to i32
   %conv12.i80.i37 = and i32 %conv11.i.i36, 65535
-  store i32 %conv12.i80.i37, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 sw.bb6.i18:                                       ; preds = %if.else110
   %65 = load i64, ptr %arg, align 16, !tbaa !35
@@ -87065,14 +87053,12 @@ if.then5.i82.i20:                                 ; preds = %sw.bb6.i18, %sw.bb6
   %conv7.i83.i21 = trunc i64 %65 to i32
   %sext.i84.i22 = shl i32 %conv7.i83.i21, 16
   %conv8.i85.i23 = ashr exact i32 %sext.i84.i22, 16
-  store i32 %conv8.i85.i23, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i87.i26:                                  ; preds = %sw.bb6.i18
   %conv11.i88.i27 = trunc i64 %65 to i32
   %conv12.i89.i28 = and i32 %conv11.i88.i27, 65535
-  store i32 %conv12.i89.i28, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 sw.bb13.i52:                                      ; preds = %if.else110
   %66 = load i8, ptr %arg, align 16, !tbaa !35, !range !772, !noundef !776
@@ -87084,13 +87070,11 @@ sw.bb13.i52:                                      ; preds = %if.else110
 
 if.then6.i.i.i54:                                 ; preds = %sw.bb13.i52, %sw.bb13.i52
   %conv10.i.i.i55 = zext nneg i8 %66 to i32
-  store i32 %conv10.i.i.i55, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i.i.i56:                                  ; preds = %sw.bb13.i52
   %conv15.i.i.i57 = zext nneg i8 %66 to i32
-  store i32 %conv15.i.i.i57, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 sw.bb15.i58:                                      ; preds = %if.else110
   %67 = load i8, ptr %arg, align 16, !tbaa !35
@@ -87101,13 +87085,17 @@ sw.bb15.i58:                                      ; preds = %if.else110
 
 if.then5.i93.i60:                                 ; preds = %sw.bb15.i58, %sw.bb15.i58
   %conv8.i94.i = sext i8 %67 to i32
-  store i32 %conv8.i94.i, ptr %arg, align 16, !tbaa.struct !777
-  br label %sw.epilog.sink.split
+  br label %return.sink.split.i24
 
 if.else.i96.i:                                    ; preds = %sw.bb15.i58
   %conv11.i97.i = sext i8 %67 to i32
   %conv12.i98.i = and i32 %conv11.i97.i, 65535
-  store i32 %conv12.i98.i, ptr %arg, align 16, !tbaa.struct !777
+  br label %return.sink.split.i24
+
+return.sink.split.i24:                            ; preds = %if.else.i96.i, %if.then5.i93.i60, %if.else.i.i.i56, %if.then6.i.i.i54, %if.else.i87.i26, %if.then5.i82.i20, %if.else.i79.i35, %if.then5.i76.i31, %if.else.i72.i43, %if.then5.i68.i40, %if.else.i.i50, %if.then5.i.i47
+  %conv12.i98.sink.i = phi i32 [ %conv12.i98.i, %if.else.i96.i ], [ %conv8.i94.i, %if.then5.i93.i60 ], [ %conv15.i.i.i57, %if.else.i.i.i56 ], [ %conv10.i.i.i55, %if.then6.i.i.i54 ], [ %conv12.i89.i28, %if.else.i87.i26 ], [ %conv8.i85.i23, %if.then5.i82.i20 ], [ %conv12.i80.i37, %if.else.i79.i35 ], [ %conv8.i78.i34, %if.then5.i76.i31 ], [ %conv12.i73.i44, %if.else.i72.i43 ], [ %conv8.i70.i42, %if.then5.i68.i40 ], [ %conv12.i.i51, %if.else.i.i50 ], [ %conv8.i.i49, %if.then5.i.i47 ]
+  %.sink.i25 = phi i32 [ 3, %if.else.i96.i ], [ 2, %if.then5.i93.i60 ], [ 3, %if.else.i.i.i56 ], [ 2, %if.then6.i.i.i54 ], [ 3, %if.else.i87.i26 ], [ 2, %if.then5.i82.i20 ], [ 3, %if.else.i79.i35 ], [ 2, %if.then5.i76.i31 ], [ 3, %if.else.i72.i43 ], [ 2, %if.then5.i68.i40 ], [ 3, %if.else.i.i50 ], [ 2, %if.then5.i.i47 ]
+  store i32 %conv12.i98.sink.i, ptr %arg, align 16
   br label %sw.epilog.sink.split
 
 sw.bb112:                                         ; preds = %cond.end95
@@ -87623,9 +87611,9 @@ if.else.i81.i.i:                                  ; preds = %sw.bb15.i.i387
   store i32 %conv10.i.i.i, ptr %arg, align 16, !tbaa.struct !777
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.bb1.i.i385, %sw.bb2.i.i384, %sw.bb4.i.i380, %sw.bb6.i.i377, %if.then6.i.i.i.i, %if.else.i.i.i.i, %if.then5.i80.i.i, %if.else.i81.i.i, %sw.bb1.i.i362, %if.then16.i.i.i363, %sw.bb2.i.i359, %if.then16.i68.i.i360, %sw.bb4.i.i355, %sw.bb6.i.i349, %if.then19.i.i.i.i366, %if.else25.i.i.i.i368, %if.then16.i81.i.i371, %if.else21.i84.i.i373, %sw.bb1.i.i335, %if.then16.i.i.i336, %sw.bb2.i.i332, %if.then16.i68.i.i333, %sw.bb4.i.i328, %sw.bb6.i.i322, %if.then19.i.i.i.i339, %if.else25.i.i.i.i341, %if.then16.i81.i.i344, %if.else21.i84.i.i346, %sw.bb1.i.i307, %if.then16.i.i.i308, %sw.bb2.i.i304, %if.then16.i68.i.i305, %sw.bb4.i.i300, %sw.bb6.i.i294, %if.then19.i.i.i.i311, %if.else25.i.i.i.i313, %if.then16.i81.i.i316, %if.else21.i84.i.i318, %sw.bb1.i.i280, %if.then16.i.i.i281, %sw.bb2.i.i277, %if.then16.i68.i.i278, %sw.bb4.i.i273, %sw.bb6.i.i267, %if.then19.i.i.i.i284, %if.else25.i.i.i.i286, %if.then16.i81.i.i289, %if.else21.i84.i.i291, %sw.bb1.i.i, %if.then16.i.i.i, %sw.bb2.i.i, %if.then16.i68.i.i, %sw.bb4.i.i, %sw.bb6.i.i, %if.then19.i.i.i.i, %if.else25.i.i.i.i, %if.then16.i81.i.i, %if.else21.i84.i.i, %if.then5.i.i47, %if.else.i.i50, %if.then5.i68.i40, %if.else.i72.i43, %if.then5.i76.i31, %if.else.i79.i35, %if.then5.i82.i20, %if.else.i87.i26, %if.then6.i.i.i54, %if.else.i.i.i56, %if.then5.i93.i60, %if.else.i96.i, %if.then5.i.i, %if.else.i.i, %if.then5.i68.i, %if.else.i72.i, %if.then5.i76.i, %if.else.i79.i, %if.then5.i82.i, %if.else.i87.i, %if.then6.i.i.i, %if.else.i.i.i, %if.then5.i93.i, %if.else.i95.i
-  %.sink.i25.sink = phi i32 [ 3, %if.else.i95.i ], [ 2, %if.then5.i93.i ], [ 3, %if.else.i87.i ], [ 2, %if.then5.i82.i ], [ 3, %if.else.i79.i ], [ 2, %if.then5.i76.i ], [ 3, %if.else.i72.i ], [ 2, %if.then5.i68.i ], [ 3, %if.else.i.i ], [ 2, %if.then5.i.i ], [ 3, %if.else.i.i.i ], [ 2, %if.then6.i.i.i ], [ 3, %if.else.i96.i ], [ 2, %if.then5.i93.i60 ], [ 3, %if.else.i87.i26 ], [ 2, %if.then5.i82.i20 ], [ 3, %if.else.i79.i35 ], [ 2, %if.then5.i76.i31 ], [ 3, %if.else.i72.i43 ], [ 2, %if.then5.i68.i40 ], [ 3, %if.else.i.i50 ], [ 2, %if.then5.i.i47 ], [ 3, %if.else.i.i.i56 ], [ 2, %if.then6.i.i.i54 ], [ 3, %if.else21.i84.i.i ], [ 4, %if.then16.i81.i.i ], [ 4, %if.then16.i68.i.i ], [ 4, %if.then16.i.i.i ], [ %73, %sw.bb6.i.i ], [ %72, %sw.bb4.i.i ], [ 8, %if.else25.i.i.i.i ], [ 4, %if.then19.i.i.i.i ], [ 3, %sw.bb1.i.i ], [ 3, %sw.bb2.i.i ], [ 3, %if.else21.i84.i.i291 ], [ 4, %if.then16.i81.i.i289 ], [ 4, %if.then16.i68.i.i278 ], [ 4, %if.then16.i.i.i281 ], [ %80, %sw.bb6.i.i267 ], [ %79, %sw.bb4.i.i273 ], [ 8, %if.else25.i.i.i.i286 ], [ 4, %if.then19.i.i.i.i284 ], [ 3, %sw.bb1.i.i280 ], [ 3, %sw.bb2.i.i277 ], [ 3, %if.else21.i84.i.i318 ], [ 4, %if.then16.i81.i.i316 ], [ 4, %if.then16.i68.i.i305 ], [ 4, %if.then16.i.i.i308 ], [ %87, %sw.bb6.i.i294 ], [ %86, %sw.bb4.i.i300 ], [ 8, %if.else25.i.i.i.i313 ], [ 4, %if.then19.i.i.i.i311 ], [ 3, %sw.bb1.i.i307 ], [ 3, %sw.bb2.i.i304 ], [ 3, %if.else21.i84.i.i346 ], [ 4, %if.then16.i81.i.i344 ], [ 4, %if.then16.i68.i.i333 ], [ 4, %if.then16.i.i.i336 ], [ %94, %sw.bb6.i.i322 ], [ %93, %sw.bb4.i.i328 ], [ 8, %if.else25.i.i.i.i341 ], [ 4, %if.then19.i.i.i.i339 ], [ 3, %sw.bb1.i.i335 ], [ 3, %sw.bb2.i.i332 ], [ 3, %if.else21.i84.i.i373 ], [ 4, %if.then16.i81.i.i371 ], [ 4, %if.then16.i68.i.i360 ], [ 4, %if.then16.i.i.i363 ], [ %101, %sw.bb6.i.i349 ], [ %100, %sw.bb4.i.i355 ], [ 8, %if.else25.i.i.i.i368 ], [ 4, %if.then19.i.i.i.i366 ], [ 3, %sw.bb1.i.i362 ], [ 3, %sw.bb2.i.i359 ], [ 3, %if.else.i81.i.i ], [ 2, %if.then5.i80.i.i ], [ %109, %sw.bb6.i.i377 ], [ %108, %sw.bb4.i.i380 ], [ 3, %if.else.i.i.i.i ], [ 2, %if.then6.i.i.i.i ], [ %106, %sw.bb1.i.i385 ], [ %107, %sw.bb2.i.i384 ]
-  %.ph = phi ptr [ %incdec.ptr102, %if.else.i95.i ], [ %incdec.ptr102, %if.then5.i93.i ], [ %incdec.ptr102, %if.else.i87.i ], [ %incdec.ptr102, %if.then5.i82.i ], [ %incdec.ptr102, %if.else.i79.i ], [ %incdec.ptr102, %if.then5.i76.i ], [ %incdec.ptr102, %if.else.i72.i ], [ %incdec.ptr102, %if.then5.i68.i ], [ %incdec.ptr102, %if.else.i.i ], [ %incdec.ptr102, %if.then5.i.i ], [ %incdec.ptr102, %if.else.i.i.i ], [ %incdec.ptr102, %if.then6.i.i.i ], [ %incdec.ptr85, %if.else.i96.i ], [ %incdec.ptr85, %if.then5.i93.i60 ], [ %incdec.ptr85, %if.else.i87.i26 ], [ %incdec.ptr85, %if.then5.i82.i20 ], [ %incdec.ptr85, %if.else.i79.i35 ], [ %incdec.ptr85, %if.then5.i76.i31 ], [ %incdec.ptr85, %if.else.i72.i43 ], [ %incdec.ptr85, %if.then5.i68.i40 ], [ %incdec.ptr85, %if.else.i.i50 ], [ %incdec.ptr85, %if.then5.i.i47 ], [ %incdec.ptr85, %if.else.i.i.i56 ], [ %incdec.ptr85, %if.then6.i.i.i54 ], [ %incdec.ptr116, %if.else21.i84.i.i ], [ %incdec.ptr116, %if.then16.i81.i.i ], [ %incdec.ptr116, %if.then16.i68.i.i ], [ %incdec.ptr116, %if.then16.i.i.i ], [ %incdec.ptr116, %sw.bb6.i.i ], [ %incdec.ptr116, %sw.bb4.i.i ], [ %incdec.ptr116, %if.else25.i.i.i.i ], [ %incdec.ptr116, %if.then19.i.i.i.i ], [ %incdec.ptr116, %sw.bb1.i.i ], [ %incdec.ptr116, %sw.bb2.i.i ], [ %incdec.ptr85, %if.else21.i84.i.i291 ], [ %incdec.ptr85, %if.then16.i81.i.i289 ], [ %incdec.ptr85, %if.then16.i68.i.i278 ], [ %incdec.ptr85, %if.then16.i.i.i281 ], [ %incdec.ptr85, %sw.bb6.i.i267 ], [ %incdec.ptr85, %sw.bb4.i.i273 ], [ %incdec.ptr85, %if.else25.i.i.i.i286 ], [ %incdec.ptr85, %if.then19.i.i.i.i284 ], [ %incdec.ptr85, %sw.bb1.i.i280 ], [ %incdec.ptr85, %sw.bb2.i.i277 ], [ %incdec.ptr85, %if.else21.i84.i.i318 ], [ %incdec.ptr85, %if.then16.i81.i.i316 ], [ %incdec.ptr85, %if.then16.i68.i.i305 ], [ %incdec.ptr85, %if.then16.i.i.i308 ], [ %incdec.ptr85, %sw.bb6.i.i294 ], [ %incdec.ptr85, %sw.bb4.i.i300 ], [ %incdec.ptr85, %if.else25.i.i.i.i313 ], [ %incdec.ptr85, %if.then19.i.i.i.i311 ], [ %incdec.ptr85, %sw.bb1.i.i307 ], [ %incdec.ptr85, %sw.bb2.i.i304 ], [ %incdec.ptr85, %if.else21.i84.i.i346 ], [ %incdec.ptr85, %if.then16.i81.i.i344 ], [ %incdec.ptr85, %if.then16.i68.i.i333 ], [ %incdec.ptr85, %if.then16.i.i.i336 ], [ %incdec.ptr85, %sw.bb6.i.i322 ], [ %incdec.ptr85, %sw.bb4.i.i328 ], [ %incdec.ptr85, %if.else25.i.i.i.i341 ], [ %incdec.ptr85, %if.then19.i.i.i.i339 ], [ %incdec.ptr85, %sw.bb1.i.i335 ], [ %incdec.ptr85, %sw.bb2.i.i332 ], [ %incdec.ptr85, %if.else21.i84.i.i373 ], [ %incdec.ptr85, %if.then16.i81.i.i371 ], [ %incdec.ptr85, %if.then16.i68.i.i360 ], [ %incdec.ptr85, %if.then16.i.i.i363 ], [ %incdec.ptr85, %sw.bb6.i.i349 ], [ %incdec.ptr85, %sw.bb4.i.i355 ], [ %incdec.ptr85, %if.else25.i.i.i.i368 ], [ %incdec.ptr85, %if.then19.i.i.i.i366 ], [ %incdec.ptr85, %sw.bb1.i.i362 ], [ %incdec.ptr85, %sw.bb2.i.i359 ], [ %incdec.ptr129, %if.else.i81.i.i ], [ %incdec.ptr129, %if.then5.i80.i.i ], [ %incdec.ptr129, %sw.bb6.i.i377 ], [ %incdec.ptr129, %sw.bb4.i.i380 ], [ %incdec.ptr129, %if.else.i.i.i.i ], [ %incdec.ptr129, %if.then6.i.i.i.i ], [ %incdec.ptr129, %sw.bb1.i.i385 ], [ %incdec.ptr129, %sw.bb2.i.i384 ]
+sw.epilog.sink.split:                             ; preds = %sw.bb1.i.i385, %sw.bb2.i.i384, %sw.bb4.i.i380, %sw.bb6.i.i377, %if.then6.i.i.i.i, %if.else.i.i.i.i, %if.then5.i80.i.i, %if.else.i81.i.i, %sw.bb1.i.i362, %if.then16.i.i.i363, %sw.bb2.i.i359, %if.then16.i68.i.i360, %sw.bb4.i.i355, %sw.bb6.i.i349, %if.then19.i.i.i.i366, %if.else25.i.i.i.i368, %if.then16.i81.i.i371, %if.else21.i84.i.i373, %sw.bb1.i.i335, %if.then16.i.i.i336, %sw.bb2.i.i332, %if.then16.i68.i.i333, %sw.bb4.i.i328, %sw.bb6.i.i322, %if.then19.i.i.i.i339, %if.else25.i.i.i.i341, %if.then16.i81.i.i344, %if.else21.i84.i.i346, %sw.bb1.i.i307, %if.then16.i.i.i308, %sw.bb2.i.i304, %if.then16.i68.i.i305, %sw.bb4.i.i300, %sw.bb6.i.i294, %if.then19.i.i.i.i311, %if.else25.i.i.i.i313, %if.then16.i81.i.i316, %if.else21.i84.i.i318, %sw.bb1.i.i280, %if.then16.i.i.i281, %sw.bb2.i.i277, %if.then16.i68.i.i278, %sw.bb4.i.i273, %sw.bb6.i.i267, %if.then19.i.i.i.i284, %if.else25.i.i.i.i286, %if.then16.i81.i.i289, %if.else21.i84.i.i291, %sw.bb1.i.i, %if.then16.i.i.i, %sw.bb2.i.i, %if.then16.i68.i.i, %sw.bb4.i.i, %sw.bb6.i.i, %if.then19.i.i.i.i, %if.else25.i.i.i.i, %if.then16.i81.i.i, %if.else21.i84.i.i, %return.sink.split.i10, %return.sink.split.i24
+  %.sink.i25.sink = phi i32 [ %.sink.i25, %return.sink.split.i24 ], [ %.sink.i, %return.sink.split.i10 ], [ 3, %if.else21.i84.i.i ], [ 4, %if.then16.i81.i.i ], [ 4, %if.then16.i68.i.i ], [ 4, %if.then16.i.i.i ], [ %73, %sw.bb6.i.i ], [ %72, %sw.bb4.i.i ], [ 8, %if.else25.i.i.i.i ], [ 4, %if.then19.i.i.i.i ], [ 3, %sw.bb1.i.i ], [ 3, %sw.bb2.i.i ], [ 3, %if.else21.i84.i.i291 ], [ 4, %if.then16.i81.i.i289 ], [ 4, %if.then16.i68.i.i278 ], [ 4, %if.then16.i.i.i281 ], [ %80, %sw.bb6.i.i267 ], [ %79, %sw.bb4.i.i273 ], [ 8, %if.else25.i.i.i.i286 ], [ 4, %if.then19.i.i.i.i284 ], [ 3, %sw.bb1.i.i280 ], [ 3, %sw.bb2.i.i277 ], [ 3, %if.else21.i84.i.i318 ], [ 4, %if.then16.i81.i.i316 ], [ 4, %if.then16.i68.i.i305 ], [ 4, %if.then16.i.i.i308 ], [ %87, %sw.bb6.i.i294 ], [ %86, %sw.bb4.i.i300 ], [ 8, %if.else25.i.i.i.i313 ], [ 4, %if.then19.i.i.i.i311 ], [ 3, %sw.bb1.i.i307 ], [ 3, %sw.bb2.i.i304 ], [ 3, %if.else21.i84.i.i346 ], [ 4, %if.then16.i81.i.i344 ], [ 4, %if.then16.i68.i.i333 ], [ 4, %if.then16.i.i.i336 ], [ %94, %sw.bb6.i.i322 ], [ %93, %sw.bb4.i.i328 ], [ 8, %if.else25.i.i.i.i341 ], [ 4, %if.then19.i.i.i.i339 ], [ 3, %sw.bb1.i.i335 ], [ 3, %sw.bb2.i.i332 ], [ 3, %if.else21.i84.i.i373 ], [ 4, %if.then16.i81.i.i371 ], [ 4, %if.then16.i68.i.i360 ], [ 4, %if.then16.i.i.i363 ], [ %101, %sw.bb6.i.i349 ], [ %100, %sw.bb4.i.i355 ], [ 8, %if.else25.i.i.i.i368 ], [ 4, %if.then19.i.i.i.i366 ], [ 3, %sw.bb1.i.i362 ], [ 3, %sw.bb2.i.i359 ], [ 3, %if.else.i81.i.i ], [ 2, %if.then5.i80.i.i ], [ %109, %sw.bb6.i.i377 ], [ %108, %sw.bb4.i.i380 ], [ 3, %if.else.i.i.i.i ], [ 2, %if.then6.i.i.i.i ], [ %106, %sw.bb1.i.i385 ], [ %107, %sw.bb2.i.i384 ]
+  %.ph = phi ptr [ %incdec.ptr85, %return.sink.split.i24 ], [ %incdec.ptr102, %return.sink.split.i10 ], [ %incdec.ptr116, %if.else21.i84.i.i ], [ %incdec.ptr116, %if.then16.i81.i.i ], [ %incdec.ptr116, %if.then16.i68.i.i ], [ %incdec.ptr116, %if.then16.i.i.i ], [ %incdec.ptr116, %sw.bb6.i.i ], [ %incdec.ptr116, %sw.bb4.i.i ], [ %incdec.ptr116, %if.else25.i.i.i.i ], [ %incdec.ptr116, %if.then19.i.i.i.i ], [ %incdec.ptr116, %sw.bb1.i.i ], [ %incdec.ptr116, %sw.bb2.i.i ], [ %incdec.ptr85, %if.else21.i84.i.i291 ], [ %incdec.ptr85, %if.then16.i81.i.i289 ], [ %incdec.ptr85, %if.then16.i68.i.i278 ], [ %incdec.ptr85, %if.then16.i.i.i281 ], [ %incdec.ptr85, %sw.bb6.i.i267 ], [ %incdec.ptr85, %sw.bb4.i.i273 ], [ %incdec.ptr85, %if.else25.i.i.i.i286 ], [ %incdec.ptr85, %if.then19.i.i.i.i284 ], [ %incdec.ptr85, %sw.bb1.i.i280 ], [ %incdec.ptr85, %sw.bb2.i.i277 ], [ %incdec.ptr85, %if.else21.i84.i.i318 ], [ %incdec.ptr85, %if.then16.i81.i.i316 ], [ %incdec.ptr85, %if.then16.i68.i.i305 ], [ %incdec.ptr85, %if.then16.i.i.i308 ], [ %incdec.ptr85, %sw.bb6.i.i294 ], [ %incdec.ptr85, %sw.bb4.i.i300 ], [ %incdec.ptr85, %if.else25.i.i.i.i313 ], [ %incdec.ptr85, %if.then19.i.i.i.i311 ], [ %incdec.ptr85, %sw.bb1.i.i307 ], [ %incdec.ptr85, %sw.bb2.i.i304 ], [ %incdec.ptr85, %if.else21.i84.i.i346 ], [ %incdec.ptr85, %if.then16.i81.i.i344 ], [ %incdec.ptr85, %if.then16.i68.i.i333 ], [ %incdec.ptr85, %if.then16.i.i.i336 ], [ %incdec.ptr85, %sw.bb6.i.i322 ], [ %incdec.ptr85, %sw.bb4.i.i328 ], [ %incdec.ptr85, %if.else25.i.i.i.i341 ], [ %incdec.ptr85, %if.then19.i.i.i.i339 ], [ %incdec.ptr85, %sw.bb1.i.i335 ], [ %incdec.ptr85, %sw.bb2.i.i332 ], [ %incdec.ptr85, %if.else21.i84.i.i373 ], [ %incdec.ptr85, %if.then16.i81.i.i371 ], [ %incdec.ptr85, %if.then16.i68.i.i360 ], [ %incdec.ptr85, %if.then16.i.i.i363 ], [ %incdec.ptr85, %sw.bb6.i.i349 ], [ %incdec.ptr85, %sw.bb4.i.i355 ], [ %incdec.ptr85, %if.else25.i.i.i.i368 ], [ %incdec.ptr85, %if.then19.i.i.i.i366 ], [ %incdec.ptr85, %sw.bb1.i.i362 ], [ %incdec.ptr85, %sw.bb2.i.i359 ], [ %incdec.ptr129, %if.else.i81.i.i ], [ %incdec.ptr129, %if.then5.i80.i.i ], [ %incdec.ptr129, %sw.bb6.i.i377 ], [ %incdec.ptr129, %sw.bb4.i.i380 ], [ %incdec.ptr129, %if.else.i.i.i.i ], [ %incdec.ptr129, %if.then6.i.i.i.i ], [ %incdec.ptr129, %sw.bb1.i.i385 ], [ %incdec.ptr129, %sw.bb2.i.i384 ]
   store i32 %.sink.i25.sink, ptr %.sink.i.sroa.gep, align 16, !tbaa !778
   br label %sw.epilog
 

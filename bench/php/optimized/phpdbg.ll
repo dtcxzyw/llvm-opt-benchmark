@@ -2413,7 +2413,7 @@ php_ini_builder_finish.exit:                      ; preds = %117, %119
 
 150:                                              ; preds = %149, %148
   %.not372 = icmp eq ptr %.0253, null
-  br i1 %.not372, label %508, label %.sink.split404
+  br i1 %.not372, label %508, label %.sink.split405
 
 151:                                              ; preds = %133
   %152 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 416), align 8
@@ -3205,9 +3205,9 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   %.5 = phi ptr [ null, %500 ], [ %.3, %128 ]
   call void @php_module_shutdown() #25
   call void @sapi_shutdown() #25
-  br i1 %.not336, label %508, label %.sink.split404
+  br i1 %.not336, label %508, label %.sink.split405
 
-.sink.split404:                                   ; preds = %507, %150
+.sink.split405:                                   ; preds = %507, %150
   %.0235.lcssa.sink = phi ptr [ %.0253, %150 ], [ %.0235, %507 ]
   %.3310.ph = phi i32 [ 0, %150 ], [ %.2309, %507 ]
   %.5302.ph = phi ptr [ %.0297, %150 ], [ %.4301, %507 ]
@@ -3219,14 +3219,14 @@ phpdbg_welcome.exit:                              ; preds = %247, %244, %237, %2
   call void @free(ptr noundef nonnull %.0235.lcssa.sink) #25
   br label %508
 
-508:                                              ; preds = %.sink.split404, %507, %150
-  %.3310 = phi i32 [ 0, %150 ], [ %.2309, %507 ], [ %.3310.ph, %.sink.split404 ]
-  %.5302 = phi ptr [ %.0297, %150 ], [ %.4301, %507 ], [ %.5302.ph, %.sink.split404 ]
-  %.7286 = phi ptr [ %.0279, %150 ], [ %.6285, %507 ], [ %.7286.ph, %.sink.split404 ]
-  %.5278 = phi ptr [ %.1274, %150 ], [ %.4277, %507 ], [ %.5278.ph, %.sink.split404 ]
-  %.7 = phi i64 [ %.0266, %150 ], [ %.6272, %507 ], [ %.7.ph, %.sink.split404 ]
-  %.4252 = phi ptr [ %.0248, %150 ], [ %.3251, %507 ], [ %.4252.ph, %.sink.split404 ]
-  %.6 = phi ptr [ %.3, %150 ], [ %.5, %507 ], [ %.6.ph, %.sink.split404 ]
+508:                                              ; preds = %.sink.split405, %507, %150
+  %.3310 = phi i32 [ 0, %150 ], [ %.2309, %507 ], [ %.3310.ph, %.sink.split405 ]
+  %.5302 = phi ptr [ %.0297, %150 ], [ %.4301, %507 ], [ %.5302.ph, %.sink.split405 ]
+  %.7286 = phi ptr [ %.0279, %150 ], [ %.6285, %507 ], [ %.7286.ph, %.sink.split405 ]
+  %.5278 = phi ptr [ %.1274, %150 ], [ %.4277, %507 ], [ %.5278.ph, %.sink.split405 ]
+  %.7 = phi i64 [ %.0266, %150 ], [ %.6272, %507 ], [ %.7.ph, %.sink.split405 ]
+  %.4252 = phi ptr [ %.0248, %150 ], [ %.3251, %507 ], [ %.4252.ph, %.sink.split405 ]
+  %.6 = phi ptr [ %.3, %150 ], [ %.5, %507 ], [ %.6.ph, %.sink.split405 ]
   br i1 %.not333, label %510, label %509
 
 509:                                              ; preds = %508

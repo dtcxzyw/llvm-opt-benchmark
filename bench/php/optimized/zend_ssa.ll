@@ -4478,8 +4478,8 @@ define void @zend_ssa_compute_use_def_chains(ptr nocapture noundef %0, ptr nocap
   br i1 %291, label %240, label %.loopexit336
 
 .loopexit336.sink.split:                          ; preds = %236, %232
-  %.sink444 = phi i32 [ %234, %232 ], [ %238, %236 ]
-  %292 = zext nneg i32 %.sink444 to i64
+  %.sink438 = phi i32 [ %234, %232 ], [ %238, %236 ]
+  %292 = zext nneg i32 %.sink438 to i64
   %293 = getelementptr inbounds %struct._zend_ssa_var, ptr %38, i64 %292, i32 6
   %294 = load ptr, ptr %293, align 8
   %295 = getelementptr inbounds i8, ptr %.0296371, i64 88
@@ -4536,11 +4536,11 @@ define void @zend_ssa_compute_use_def_chains(ptr nocapture noundef %0, ptr nocap
   br i1 %.not326, label %.critedge.sink.split, label %.critedge
 
 .critedge.sink.split:                             ; preds = %312, %302
-  %.sink440 = phi i8 [ 4, %302 ], [ 8, %312 ]
+  %.sink442 = phi i8 [ 4, %302 ], [ 8, %312 ]
   %314 = getelementptr inbounds %struct._zend_ssa_var, ptr %38, i64 %indvars.iv412, i32 7
   %315 = load i8, ptr %314, align 8
   %316 = and i8 %315, -13
-  %317 = or disjoint i8 %316, %.sink440
+  %317 = or disjoint i8 %316, %.sink442
   store i8 %317, ptr %314, align 8
   br label %.critedge
 
@@ -5698,9 +5698,9 @@ define hidden void @zend_ssa_rename_var_uses(ptr nocapture noundef readonly %0, 
   br i1 %57, label %.sink.split, label %61
 
 .sink.split:                                      ; preds = %56, %54, %48
-  %.sink223 = phi i64 [ 24, %48 ], [ 28, %54 ], [ 28, %56 ]
+  %.sink219 = phi i64 [ 24, %48 ], [ 28, %54 ], [ 28, %56 ]
   %.sink217 = phi i64 [ 32, %48 ], [ 32, %54 ], [ 24, %56 ]
-  %58 = getelementptr inbounds i8, ptr %34, i64 %.sink223
+  %58 = getelementptr inbounds i8, ptr %34, i64 %.sink219
   %59 = load i32, ptr %58, align 4
   %60 = getelementptr inbounds i8, ptr %34, i64 %.sink217
   store i32 %59, ptr %60, align 4
@@ -5737,20 +5737,20 @@ define hidden void @zend_ssa_rename_var_uses(ptr nocapture noundef readonly %0, 
   br label %74
 
 74:                                               ; preds = %73, %68
-  br i1 %.0153, label %.sink.split219, label %79
+  br i1 %.0153, label %.sink.split220, label %79
 
-.sink.split219:                                   ; preds = %74
+.sink.split220:                                   ; preds = %74
   %75 = icmp eq i32 %65, %2
   %76 = icmp eq i32 %69, %2
   %spec.select = select i1 %76, i64 24, i64 28
-  %.sink222 = select i1 %75, i64 32, i64 %spec.select
+  %.sink223 = select i1 %75, i64 32, i64 %spec.select
   %77 = load i32, ptr %30, align 4
-  %78 = getelementptr inbounds i8, ptr %34, i64 %.sink222
+  %78 = getelementptr inbounds i8, ptr %34, i64 %.sink223
   store i32 %77, ptr %78, align 4
   store i32 %.0156172, ptr %30, align 4
   br label %79
 
-79:                                               ; preds = %.sink.split219, %74
+79:                                               ; preds = %.sink.split220, %74
   %80 = icmp sgt i32 %.0152, -1
   br i1 %80, label %31, label %._crit_edge
 

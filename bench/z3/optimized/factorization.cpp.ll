@@ -181,17 +181,17 @@ lor.lhs.false.i29:                                ; preds = %if.else
   br i1 %cmp5.i32, label %for.inc.sink.split, label %for.inc
 
 for.inc.sink.split:                               ; preds = %if.else, %lor.lhs.false.i29, %if.then, %lor.lhs.false.i12
-  %k_vars.sink47 = phi ptr [ %k_vars, %lor.lhs.false.i12 ], [ %k_vars, %if.then ], [ %j_vars, %lor.lhs.false.i29 ], [ %j_vars, %if.else ]
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %k_vars.sink47)
-  %.pre.i22 = load ptr, ptr %k_vars.sink47, align 8
-  %arrayidx8.phi.trans.insert.i40 = getelementptr inbounds i8, ptr %.pre.i22, i64 -4
+  %j_vars.sink46 = phi ptr [ %k_vars, %lor.lhs.false.i12 ], [ %k_vars, %if.then ], [ %j_vars, %lor.lhs.false.i29 ], [ %j_vars, %if.else ]
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %j_vars.sink46)
+  %.pre.i39 = load ptr, ptr %j_vars.sink46, align 8
+  %arrayidx8.phi.trans.insert.i40 = getelementptr inbounds i8, ptr %.pre.i39, i64 -4
   %.pre1.i41 = load i32, ptr %arrayidx8.phi.trans.insert.i40, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i29, %lor.lhs.false.i12
   %.sink45 = phi i32 [ %22, %lor.lhs.false.i12 ], [ %25, %lor.lhs.false.i29 ], [ %.pre1.i41, %for.inc.sink.split ]
-  %.sink = phi ptr [ %21, %lor.lhs.false.i12 ], [ %24, %lor.lhs.false.i29 ], [ %.pre.i22, %for.inc.sink.split ]
-  %k_vars.sink = phi ptr [ %k_vars, %lor.lhs.false.i12 ], [ %j_vars, %lor.lhs.false.i29 ], [ %k_vars.sink47, %for.inc.sink.split ]
+  %.sink = phi ptr [ %21, %lor.lhs.false.i12 ], [ %24, %lor.lhs.false.i29 ], [ %.pre.i39, %for.inc.sink.split ]
+  %k_vars.sink = phi ptr [ %k_vars, %lor.lhs.false.i12 ], [ %j_vars, %lor.lhs.false.i29 ], [ %j_vars.sink46, %for.inc.sink.split ]
   %idx.ext.i17 = zext i32 %.sink45 to i64
   %add.ptr.i18 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i17
   %27 = load i32, ptr %arrayidx.i10, align 4

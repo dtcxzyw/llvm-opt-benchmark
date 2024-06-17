@@ -6661,14 +6661,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nocap
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph, %34
-  %10 = phi ptr [ %5, %.lr.ph ], [ %35, %34 ]
+9:                                                ; preds = %.lr.ph, %26
+  %10 = phi ptr [ %5, %.lr.ph ], [ %31, %26 ]
   %11 = load i8, ptr %10, align 1
   %12 = icmp sgt i8 %11, -1
   %13 = load i64, ptr %4, align 8
   %14 = load i64, ptr %7, align 8
   %.not14 = icmp ult i64 %13, %14
-  br i1 %12, label %15, label %24
+  br i1 %12, label %15, label %20
 
 15:                                               ; preds = %9
   br i1 %.not14, label %16, label %._crit_edge
@@ -6678,38 +6678,33 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_x_user_defined(ptr nocap
   store ptr %17, ptr %1, align 8
   %18 = load i8, ptr %10, align 1
   %19 = zext i8 %18 to i32
-  %20 = load ptr, ptr %8, align 8
-  %21 = load i64, ptr %4, align 8
-  %22 = add i64 %21, 1
-  store i64 %22, ptr %4, align 8
-  %23 = getelementptr inbounds i32, ptr %20, i64 %21
-  store i32 %19, ptr %23, align 4
-  br label %34
+  br label %26
 
-24:                                               ; preds = %9
-  br i1 %.not14, label %25, label %._crit_edge
+20:                                               ; preds = %9
+  br i1 %.not14, label %21, label %._crit_edge
 
-25:                                               ; preds = %24
-  %26 = getelementptr inbounds i8, ptr %10, i64 1
-  store ptr %26, ptr %1, align 8
-  %27 = load i8, ptr %10, align 1
-  %28 = zext i8 %27 to i32
-  %29 = or disjoint i32 %28, 63232
-  %30 = load ptr, ptr %8, align 8
-  %31 = load i64, ptr %4, align 8
-  %32 = add i64 %31, 1
-  store i64 %32, ptr %4, align 8
-  %33 = getelementptr inbounds i32, ptr %30, i64 %31
-  store i32 %29, ptr %33, align 4
-  br label %34
+21:                                               ; preds = %20
+  %22 = getelementptr inbounds i8, ptr %10, i64 1
+  store ptr %22, ptr %1, align 8
+  %23 = load i8, ptr %10, align 1
+  %24 = zext i8 %23 to i32
+  %25 = or disjoint i32 %24, 63232
+  br label %26
 
-34:                                               ; preds = %25, %16
-  %35 = load ptr, ptr %1, align 8
-  %36 = icmp ult ptr %35, %2
-  br i1 %36, label %9, label %._crit_edge
+26:                                               ; preds = %21, %16
+  %.sink = phi i32 [ %25, %21 ], [ %19, %16 ]
+  %27 = load ptr, ptr %8, align 8
+  %28 = load i64, ptr %4, align 8
+  %29 = add i64 %28, 1
+  store i64 %29, ptr %4, align 8
+  %30 = getelementptr inbounds i32, ptr %27, i64 %28
+  store i32 %.sink, ptr %30, align 4
+  %31 = load ptr, ptr %1, align 8
+  %32 = icmp ult ptr %31, %2
+  br i1 %32, label %9, label %._crit_edge
 
-._crit_edge:                                      ; preds = %15, %24, %34, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %34 ], [ 15, %24 ], [ 15, %15 ]
+._crit_edge:                                      ; preds = %15, %20, %26, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %26 ], [ 15, %20 ], [ 15, %15 ]
   ret i32 %.0
 }
 

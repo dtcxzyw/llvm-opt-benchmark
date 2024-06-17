@@ -4757,10 +4757,10 @@ sw.bb9:                                           ; preds = %if.then
 
 if.end.sink.split:                                ; preds = %sw.bb9, %sw.bb6, %sw.bb3, %sw.bb
   %.sink5 = phi i32 [ 2, %sw.bb ], [ 1, %sw.bb3 ], [ 4, %sw.bb6 ], [ 8, %sw.bb9 ]
-  %m_flags10 = getelementptr inbounds i8, ptr %this, i64 772
-  %0 = load i32, ptr %m_flags10, align 4
+  %m_flags = getelementptr inbounds i8, ptr %this, i64 772
+  %0 = load i32, ptr %m_flags, align 4
   %or = or i32 %0, %.sink5
-  store i32 %or, ptr %m_flags10, align 4
+  store i32 %or, ptr %m_flags, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %entry, %if.then

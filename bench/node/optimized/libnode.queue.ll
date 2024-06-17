@@ -11875,12 +11875,12 @@ do.body8.i.i.i31:                                 ; preds = %_ZNSt10shared_ptrIN
   unreachable
 
 return.sink.split:                                ; preds = %if.end, %_ZNRSt8optionalImE5valueEv.exit
-  %call.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !99
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 16), ptr %call.i.i, align 8, !noalias !99
+  %call.i.i34 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !99
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN4node12_GLOBAL__N_110EmptyEntryE, i64 16), ptr %call.i.i34, align 8, !noalias !99
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i
-  %storemerge = phi ptr [ %call.i2.i, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i ], [ %call.i2.i16, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23 ], [ %call.i.i, %return.sink.split ]
+  %storemerge = phi ptr [ %call.i2.i, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i ], [ %call.i2.i16, %_ZNSt10shared_ptrIN2v812BackingStoreEEC2ERKS2_.exit.i.i23 ], [ %call.i.i34, %return.sink.split ]
   store ptr %storemerge, ptr %agg.result, align 8
   ret void
 }

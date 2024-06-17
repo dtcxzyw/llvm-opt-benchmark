@@ -899,75 +899,20 @@ define noundef ptr @hex64_to_str_back_len(ptr noundef writeonly %0, i64 noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define noundef ptr @uint_to_str_back(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq i32 %1, 0
-  br i1 %3, label %._crit_edge.thread, label %5
+  br i1 %3, label %.sink.split, label %4
 
-._crit_edge.thread:                               ; preds = %2
-  %4 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %4, align 1
-  br label %22
+4:                                                ; preds = %2
+  %5 = icmp ugt i32 %1, 9
+  br i1 %5, label %.lr.ph, label %._crit_edge.thread21
 
-5:                                                ; preds = %2
-  %6 = icmp ugt i32 %1, 9
-  br i1 %6, label %.lr.ph, label %._crit_edge.thread21
-
-.lr.ph:                                           ; preds = %5, %.lr.ph
-  %.114 = phi ptr [ %17, %.lr.ph ], [ %0, %5 ]
-  %.01213 = phi i32 [ %11, %.lr.ph ], [ %1, %5 ]
-  %7 = urem i32 %.01213, 100
-  %8 = add nuw nsw i32 %7, 100
-  %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %9
-  %11 = udiv i32 %.01213, 100
-  %12 = getelementptr i8, ptr %10, i64 2
-  %13 = load i8, ptr %12, align 2
-  %14 = getelementptr i8, ptr %.114, i64 -1
-  store i8 %13, ptr %14, align 1
-  %15 = getelementptr i8, ptr %10, i64 1
-  %16 = load i8, ptr %15, align 1
-  %17 = getelementptr i8, ptr %.114, i64 -2
-  store i8 %16, ptr %17, align 1
-  %18 = icmp ugt i32 %.01213, 999
-  br i1 %18, label %.lr.ph, label %._crit_edge, !llvm.loop !11
-
-._crit_edge:                                      ; preds = %.lr.ph
-  %.not = icmp ult i32 %.01213, 100
-  br i1 %.not, label %22, label %._crit_edge.thread21
-
-._crit_edge.thread21:                             ; preds = %5, %._crit_edge
-  %.1.lcssa26 = phi ptr [ %17, %._crit_edge ], [ %0, %5 ]
-  %.012.lcssa25 = phi i32 [ %11, %._crit_edge ], [ %1, %5 ]
-  %19 = trunc nuw i32 %.012.lcssa25 to i8
-  %20 = or disjoint i8 %19, 48
-  %21 = getelementptr i8, ptr %.1.lcssa26, i64 -1
-  store i8 %20, ptr %21, align 1
-  br label %22
-
-22:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread21, %._crit_edge
-  %.2 = phi ptr [ %21, %._crit_edge.thread21 ], [ %17, %._crit_edge ], [ %4, %._crit_edge.thread ]
-  ret ptr %.2
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #5 {
-  %3 = icmp eq i64 %1, 0
-  br i1 %3, label %._crit_edge.thread, label %5
-
-._crit_edge.thread:                               ; preds = %2
-  %4 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %4, align 1
-  br label %21
-
-5:                                                ; preds = %2
-  %6 = icmp ugt i64 %1, 9
-  br i1 %6, label %.lr.ph, label %._crit_edge.thread21
-
-.lr.ph:                                           ; preds = %5, %.lr.ph
-  %.114 = phi ptr [ %16, %.lr.ph ], [ %0, %5 ]
-  %.01213 = phi i64 [ %10, %.lr.ph ], [ %1, %5 ]
-  %7 = urem i64 %.01213, 100
-  %8 = add nuw nsw i64 %7, 100
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.114 = phi ptr [ %16, %.lr.ph ], [ %0, %4 ]
+  %.01213 = phi i32 [ %10, %.lr.ph ], [ %1, %4 ]
+  %6 = urem i32 %.01213, 100
+  %7 = add nuw nsw i32 %6, 100
+  %8 = zext nneg i32 %7 to i64
   %9 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %8
-  %10 = udiv i64 %.01213, 100
+  %10 = udiv i32 %.01213, 100
   %11 = getelementptr i8, ptr %9, i64 2
   %12 = load i8, ptr %11, align 2
   %13 = getelementptr i8, ptr %.114, i64 -1
@@ -976,122 +921,99 @@ define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1)
   %15 = load i8, ptr %14, align 1
   %16 = getelementptr i8, ptr %.114, i64 -2
   store i8 %15, ptr %16, align 1
-  %17 = icmp ugt i64 %.01213, 999
-  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !12
+  %17 = icmp ugt i32 %.01213, 999
+  br i1 %17, label %.lr.ph, label %._crit_edge, !llvm.loop !11
+
+._crit_edge:                                      ; preds = %.lr.ph
+  %.not = icmp ult i32 %.01213, 100
+  br i1 %.not, label %21, label %._crit_edge.thread21
+
+._crit_edge.thread21:                             ; preds = %4, %._crit_edge
+  %.1.lcssa26 = phi ptr [ %16, %._crit_edge ], [ %0, %4 ]
+  %.012.lcssa25 = phi i32 [ %10, %._crit_edge ], [ %1, %4 ]
+  %18 = trunc nuw i32 %.012.lcssa25 to i8
+  %19 = or disjoint i8 %18, 48
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %2, %._crit_edge.thread21
+  %.sink29 = phi ptr [ %.1.lcssa26, %._crit_edge.thread21 ], [ %0, %2 ]
+  %.sink = phi i8 [ %19, %._crit_edge.thread21 ], [ 48, %2 ]
+  %20 = getelementptr i8, ptr %.sink29, i64 -1
+  store i8 %.sink, ptr %20, align 1
+  br label %21
+
+21:                                               ; preds = %.sink.split, %._crit_edge
+  %.2 = phi ptr [ %16, %._crit_edge ], [ %20, %.sink.split ]
+  ret ptr %.2
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+define noundef ptr @uint64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #5 {
+  %3 = icmp eq i64 %1, 0
+  br i1 %3, label %.sink.split, label %4
+
+4:                                                ; preds = %2
+  %5 = icmp ugt i64 %1, 9
+  br i1 %5, label %.lr.ph, label %._crit_edge.thread21
+
+.lr.ph:                                           ; preds = %4, %.lr.ph
+  %.114 = phi ptr [ %15, %.lr.ph ], [ %0, %4 ]
+  %.01213 = phi i64 [ %9, %.lr.ph ], [ %1, %4 ]
+  %6 = urem i64 %.01213, 100
+  %7 = add nuw nsw i64 %6, 100
+  %8 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %7
+  %9 = udiv i64 %.01213, 100
+  %10 = getelementptr i8, ptr %8, i64 2
+  %11 = load i8, ptr %10, align 2
+  %12 = getelementptr i8, ptr %.114, i64 -1
+  store i8 %11, ptr %12, align 1
+  %13 = getelementptr i8, ptr %8, i64 1
+  %14 = load i8, ptr %13, align 1
+  %15 = getelementptr i8, ptr %.114, i64 -2
+  store i8 %14, ptr %15, align 1
+  %16 = icmp ugt i64 %.01213, 999
+  br i1 %16, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not = icmp ult i64 %.01213, 100
-  br i1 %.not, label %21, label %._crit_edge.thread21
+  br i1 %.not, label %20, label %._crit_edge.thread21
 
-._crit_edge.thread21:                             ; preds = %5, %._crit_edge
-  %.1.lcssa26 = phi ptr [ %16, %._crit_edge ], [ %0, %5 ]
-  %.012.lcssa25 = phi i64 [ %10, %._crit_edge ], [ %1, %5 ]
-  %18 = trunc nuw i64 %.012.lcssa25 to i8
-  %19 = or disjoint i8 %18, 48
-  %20 = getelementptr i8, ptr %.1.lcssa26, i64 -1
-  store i8 %19, ptr %20, align 1
-  br label %21
+._crit_edge.thread21:                             ; preds = %4, %._crit_edge
+  %.1.lcssa26 = phi ptr [ %15, %._crit_edge ], [ %0, %4 ]
+  %.012.lcssa25 = phi i64 [ %9, %._crit_edge ], [ %1, %4 ]
+  %17 = trunc nuw i64 %.012.lcssa25 to i8
+  %18 = or disjoint i8 %17, 48
+  br label %.sink.split
 
-21:                                               ; preds = %._crit_edge.thread, %._crit_edge.thread21, %._crit_edge
-  %.2 = phi ptr [ %20, %._crit_edge.thread21 ], [ %16, %._crit_edge ], [ %4, %._crit_edge.thread ]
+.sink.split:                                      ; preds = %2, %._crit_edge.thread21
+  %.sink29 = phi ptr [ %.1.lcssa26, %._crit_edge.thread21 ], [ %0, %2 ]
+  %.sink = phi i8 [ %18, %._crit_edge.thread21 ], [ 48, %2 ]
+  %19 = getelementptr i8, ptr %.sink29, i64 -1
+  store i8 %.sink, ptr %19, align 1
+  br label %20
+
+20:                                               ; preds = %.sink.split, %._crit_edge
+  %.2 = phi ptr [ %15, %._crit_edge ], [ %19, %.sink.split ]
   ret ptr %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define noundef ptr @uint_to_str_back_len(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq i32 %1, 0
-  br i1 %4, label %._crit_edge.thread.i, label %6
+  br i1 %4, label %.sink.split.i, label %5
 
-._crit_edge.thread.i:                             ; preds = %3
-  %5 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %5, align 1
-  br label %uint_to_str_back.exit
+5:                                                ; preds = %3
+  %6 = icmp ugt i32 %1, 9
+  br i1 %6, label %.lr.ph.i, label %._crit_edge.thread21.i
 
-6:                                                ; preds = %3
-  %7 = icmp ugt i32 %1, 9
-  br i1 %7, label %.lr.ph.i, label %._crit_edge.thread21.i
-
-.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.114.i = phi ptr [ %18, %.lr.ph.i ], [ %0, %6 ]
-  %.01213.i = phi i32 [ %12, %.lr.ph.i ], [ %1, %6 ]
-  %8 = urem i32 %.01213.i, 100
-  %9 = add nuw nsw i32 %8, 100
-  %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %10
-  %12 = udiv i32 %.01213.i, 100
-  %13 = getelementptr i8, ptr %11, i64 2
-  %14 = load i8, ptr %13, align 2
-  %15 = getelementptr i8, ptr %.114.i, i64 -1
-  store i8 %14, ptr %15, align 1
-  %16 = getelementptr i8, ptr %11, i64 1
-  %17 = load i8, ptr %16, align 1
-  %18 = getelementptr i8, ptr %.114.i, i64 -2
-  store i8 %17, ptr %18, align 1
-  %19 = icmp ugt i32 %.01213.i, 999
-  br i1 %19, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
-
-._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i32 %.01213.i, 100
-  br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
-
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %6
-  %.1.lcssa26.i = phi ptr [ %18, %._crit_edge.i ], [ %0, %6 ]
-  %.012.lcssa25.i = phi i32 [ %12, %._crit_edge.i ], [ %1, %6 ]
-  %20 = trunc nuw i32 %.012.lcssa25.i to i8
-  %21 = or disjoint i8 %20, 48
-  %22 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
-  store i8 %21, ptr %22, align 1
-  br label %uint_to_str_back.exit
-
-uint_to_str_back.exit:                            ; preds = %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge.thread21.i
-  %.2.i = phi ptr [ %22, %._crit_edge.thread21.i ], [ %18, %._crit_edge.i ], [ %5, %._crit_edge.thread.i ]
-  %23 = ptrtoint ptr %0 to i64
-  %24 = ptrtoint ptr %.2.i to i64
-  %.neg = sub i64 %24, %23
-  %.neg9 = trunc i64 %.neg to i32
-  %25 = add i32 %.neg9, %2
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph.preheader, label %._crit_edge
-
-.lr.ph.preheader:                                 ; preds = %uint_to_str_back.exit
-  %27 = trunc i64 %24 to i32
-  %28 = add i32 %27, %2
-  %29 = trunc i64 %23 to i32
-  %30 = xor i32 %29, -1
-  %31 = add i32 %28, %30
-  %32 = zext i32 %31 to i64
-  %33 = xor i64 %32, -1
-  %scevgep = getelementptr i8, ptr %.2.i, i64 %33
-  %34 = add nuw nsw i64 %32, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %34, i1 false)
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %.lr.ph.preheader, %uint_to_str_back.exit
-  %.0.lcssa = phi ptr [ %.2.i, %uint_to_str_back.exit ], [ %scevgep, %.lr.ph.preheader ]
-  ret ptr %.0.lcssa
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
-define noundef ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
-  %4 = icmp eq i64 %1, 0
-  br i1 %4, label %._crit_edge.thread.i, label %6
-
-._crit_edge.thread.i:                             ; preds = %3
-  %5 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %5, align 1
-  br label %uint64_to_str_back.exit
-
-6:                                                ; preds = %3
-  %7 = icmp ugt i64 %1, 9
-  br i1 %7, label %.lr.ph.i, label %._crit_edge.thread21.i
-
-.lr.ph.i:                                         ; preds = %6, %.lr.ph.i
-  %.114.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %6 ]
-  %.01213.i = phi i64 [ %11, %.lr.ph.i ], [ %1, %6 ]
-  %8 = urem i64 %.01213.i, 100
-  %9 = add nuw nsw i64 %8, 100
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.114.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %5 ]
+  %.01213.i = phi i32 [ %11, %.lr.ph.i ], [ %1, %5 ]
+  %7 = urem i32 %.01213.i, 100
+  %8 = add nuw nsw i32 %7, 100
+  %9 = zext nneg i32 %8 to i64
   %10 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %9
-  %11 = udiv i64 %.01213.i, 100
+  %11 = udiv i32 %.01213.i, 100
   %12 = getelementptr i8, ptr %10, i64 2
   %13 = load i8, ptr %12, align 2
   %14 = getelementptr i8, ptr %.114.i, i64 -1
@@ -1100,24 +1022,29 @@ define noundef ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 n
   %16 = load i8, ptr %15, align 1
   %17 = getelementptr i8, ptr %.114.i, i64 -2
   store i8 %16, ptr %17, align 1
-  %18 = icmp ugt i64 %.01213.i, 999
-  br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+  %18 = icmp ugt i32 %.01213.i, 999
+  br i1 %18, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not.i = icmp ult i64 %.01213.i, 100
-  br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
+  %.not.i = icmp ult i32 %.01213.i, 100
+  br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
 
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %6
-  %.1.lcssa26.i = phi ptr [ %17, %._crit_edge.i ], [ %0, %6 ]
-  %.012.lcssa25.i = phi i64 [ %11, %._crit_edge.i ], [ %1, %6 ]
-  %19 = trunc nuw i64 %.012.lcssa25.i to i8
+._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %5
+  %.1.lcssa26.i = phi ptr [ %17, %._crit_edge.i ], [ %0, %5 ]
+  %.012.lcssa25.i = phi i32 [ %11, %._crit_edge.i ], [ %1, %5 ]
+  %19 = trunc nuw i32 %.012.lcssa25.i to i8
   %20 = or disjoint i8 %19, 48
-  %21 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
-  store i8 %20, ptr %21, align 1
-  br label %uint64_to_str_back.exit
+  br label %.sink.split.i
 
-uint64_to_str_back.exit:                          ; preds = %._crit_edge.thread.i, %._crit_edge.i, %._crit_edge.thread21.i
-  %.2.i = phi ptr [ %21, %._crit_edge.thread21.i ], [ %17, %._crit_edge.i ], [ %5, %._crit_edge.thread.i ]
+.sink.split.i:                                    ; preds = %._crit_edge.thread21.i, %3
+  %.sink29.i = phi ptr [ %.1.lcssa26.i, %._crit_edge.thread21.i ], [ %0, %3 ]
+  %.sink.i = phi i8 [ %20, %._crit_edge.thread21.i ], [ 48, %3 ]
+  %21 = getelementptr i8, ptr %.sink29.i, i64 -1
+  store i8 %.sink.i, ptr %21, align 1
+  br label %uint_to_str_back.exit
+
+uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %.sink.split.i
+  %.2.i = phi ptr [ %17, %._crit_edge.i ], [ %21, %.sink.split.i ]
   %22 = ptrtoint ptr %0 to i64
   %23 = ptrtoint ptr %.2.i to i64
   %.neg = sub i64 %23, %22
@@ -1126,7 +1053,7 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.thread.
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %uint64_to_str_back.exit
+.lr.ph.preheader:                                 ; preds = %uint_to_str_back.exit
   %26 = trunc i64 %23 to i32
   %27 = add i32 %26, %2
   %28 = trunc i64 %22 to i32
@@ -1139,6 +1066,79 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.thread.
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %33, i1 false)
   br label %._crit_edge
 
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %uint_to_str_back.exit
+  %.0.lcssa = phi ptr [ %.2.i, %uint_to_str_back.exit ], [ %scevgep, %.lr.ph.preheader ]
+  ret ptr %.0.lcssa
+}
+
+; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
+define noundef ptr @uint64_to_str_back_len(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+  %4 = icmp eq i64 %1, 0
+  br i1 %4, label %.sink.split.i, label %5
+
+5:                                                ; preds = %3
+  %6 = icmp ugt i64 %1, 9
+  br i1 %6, label %.lr.ph.i, label %._crit_edge.thread21.i
+
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.114.i = phi ptr [ %16, %.lr.ph.i ], [ %0, %5 ]
+  %.01213.i = phi i64 [ %10, %.lr.ph.i ], [ %1, %5 ]
+  %7 = urem i64 %.01213.i, 100
+  %8 = add nuw nsw i64 %7, 100
+  %9 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %8
+  %10 = udiv i64 %.01213.i, 100
+  %11 = getelementptr i8, ptr %9, i64 2
+  %12 = load i8, ptr %11, align 2
+  %13 = getelementptr i8, ptr %.114.i, i64 -1
+  store i8 %12, ptr %13, align 1
+  %14 = getelementptr i8, ptr %9, i64 1
+  %15 = load i8, ptr %14, align 1
+  %16 = getelementptr i8, ptr %.114.i, i64 -2
+  store i8 %15, ptr %16, align 1
+  %17 = icmp ugt i64 %.01213.i, 999
+  br i1 %17, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+
+._crit_edge.i:                                    ; preds = %.lr.ph.i
+  %.not.i = icmp ult i64 %.01213.i, 100
+  br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
+
+._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %5
+  %.1.lcssa26.i = phi ptr [ %16, %._crit_edge.i ], [ %0, %5 ]
+  %.012.lcssa25.i = phi i64 [ %10, %._crit_edge.i ], [ %1, %5 ]
+  %18 = trunc nuw i64 %.012.lcssa25.i to i8
+  %19 = or disjoint i8 %18, 48
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %._crit_edge.thread21.i, %3
+  %.sink29.i = phi ptr [ %.1.lcssa26.i, %._crit_edge.thread21.i ], [ %0, %3 ]
+  %.sink.i = phi i8 [ %19, %._crit_edge.thread21.i ], [ 48, %3 ]
+  %20 = getelementptr i8, ptr %.sink29.i, i64 -1
+  store i8 %.sink.i, ptr %20, align 1
+  br label %uint64_to_str_back.exit
+
+uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %.sink.split.i
+  %.2.i = phi ptr [ %16, %._crit_edge.i ], [ %20, %.sink.split.i ]
+  %21 = ptrtoint ptr %0 to i64
+  %22 = ptrtoint ptr %.2.i to i64
+  %.neg = sub i64 %22, %21
+  %.neg9 = trunc i64 %.neg to i32
+  %23 = add i32 %.neg9, %2
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %.lr.ph.preheader, label %._crit_edge
+
+.lr.ph.preheader:                                 ; preds = %uint64_to_str_back.exit
+  %25 = trunc i64 %22 to i32
+  %26 = add i32 %25, %2
+  %27 = trunc i64 %21 to i32
+  %28 = xor i32 %27, -1
+  %29 = add i32 %26, %28
+  %30 = zext i32 %29 to i64
+  %31 = xor i64 %30, -1
+  %scevgep = getelementptr i8, ptr %.2.i, i64 %31
+  %32 = add nuw nsw i64 %30, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %32, i1 false)
+  br label %._crit_edge
+
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %uint64_to_str_back.exit
   %.0.lcssa = phi ptr [ %.2.i, %uint64_to_str_back.exit ], [ %scevgep, %.lr.ph.preheader ]
   ret ptr %.0.lcssa
@@ -1147,12 +1147,12 @@ uint64_to_str_back.exit:                          ; preds = %._crit_edge.thread.
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i32 %1, 0
-  br i1 %3, label %4, label %23
+  br i1 %3, label %4, label %22
 
 4:                                                ; preds = %2
   %5 = sub i32 0, %1
   %6 = icmp ugt i32 %5, 9
-  br i1 %6, label %.lr.ph.i, label %._crit_edge.thread21.i
+  br i1 %6, label %.lr.ph.i, label %.sink.split.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.114.i = phi ptr [ %17, %.lr.ph.i ], [ %0, %4 ]
@@ -1175,82 +1175,76 @@ define noundef ptr @int_to_str_back(ptr noundef writeonly %0, i32 noundef %1) lo
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not.i = icmp ult i32 %.01213.i, 100
-  br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
+  br i1 %.not.i, label %uint_to_str_back.exit19.sink.split, label %.sink.split.i
 
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %4
+.sink.split.i:                                    ; preds = %4, %._crit_edge.i
   %.1.lcssa26.i = phi ptr [ %17, %._crit_edge.i ], [ %0, %4 ]
   %.012.lcssa25.i = phi i32 [ %11, %._crit_edge.i ], [ %5, %4 ]
   %19 = trunc nuw i32 %.012.lcssa25.i to i8
   %20 = or disjoint i8 %19, 48
   %21 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %20, ptr %21, align 1
-  br label %uint_to_str_back.exit
+  br label %uint_to_str_back.exit19.sink.split
 
-uint_to_str_back.exit:                            ; preds = %._crit_edge.i, %._crit_edge.thread21.i
-  %.2.i = phi ptr [ %21, %._crit_edge.thread21.i ], [ %17, %._crit_edge.i ]
-  %22 = getelementptr i8, ptr %.2.i, i64 -1
-  store i8 45, ptr %22, align 1
-  br label %uint_to_str_back.exit17
+22:                                               ; preds = %2
+  %23 = icmp eq i32 %1, 0
+  br i1 %23, label %uint_to_str_back.exit19.sink.split, label %24
 
-23:                                               ; preds = %2
-  %24 = icmp eq i32 %1, 0
-  br i1 %24, label %._crit_edge.thread.i16, label %26
+24:                                               ; preds = %22
+  %25 = icmp ugt i32 %1, 9
+  br i1 %25, label %.lr.ph.i14, label %._crit_edge.thread21.i7
 
-._crit_edge.thread.i16:                           ; preds = %23
-  %25 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %25, align 1
-  br label %uint_to_str_back.exit17
+.lr.ph.i14:                                       ; preds = %24, %.lr.ph.i14
+  %.114.i15 = phi ptr [ %36, %.lr.ph.i14 ], [ %0, %24 ]
+  %.01213.i16 = phi i32 [ %30, %.lr.ph.i14 ], [ %1, %24 ]
+  %26 = urem i32 %.01213.i16, 100
+  %27 = add nuw nsw i32 %26, 100
+  %28 = zext nneg i32 %27 to i64
+  %29 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %28
+  %30 = udiv i32 %.01213.i16, 100
+  %31 = getelementptr i8, ptr %29, i64 2
+  %32 = load i8, ptr %31, align 2
+  %33 = getelementptr i8, ptr %.114.i15, i64 -1
+  store i8 %32, ptr %33, align 1
+  %34 = getelementptr i8, ptr %29, i64 1
+  %35 = load i8, ptr %34, align 1
+  %36 = getelementptr i8, ptr %.114.i15, i64 -2
+  store i8 %35, ptr %36, align 1
+  %37 = icmp ugt i32 %.01213.i16, 999
+  br i1 %37, label %.lr.ph.i14, label %._crit_edge.i17, !llvm.loop !11
 
-26:                                               ; preds = %23
-  %27 = icmp ugt i32 %1, 9
-  br i1 %27, label %.lr.ph.i11, label %._crit_edge.thread21.i7
+._crit_edge.i17:                                  ; preds = %.lr.ph.i14
+  %.not.i18 = icmp ult i32 %.01213.i16, 100
+  br i1 %.not.i18, label %uint_to_str_back.exit19, label %._crit_edge.thread21.i7
 
-.lr.ph.i11:                                       ; preds = %26, %.lr.ph.i11
-  %.114.i12 = phi ptr [ %38, %.lr.ph.i11 ], [ %0, %26 ]
-  %.01213.i13 = phi i32 [ %32, %.lr.ph.i11 ], [ %1, %26 ]
-  %28 = urem i32 %.01213.i13, 100
-  %29 = add nuw nsw i32 %28, 100
-  %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %30
-  %32 = udiv i32 %.01213.i13, 100
-  %33 = getelementptr i8, ptr %31, i64 2
-  %34 = load i8, ptr %33, align 2
-  %35 = getelementptr i8, ptr %.114.i12, i64 -1
-  store i8 %34, ptr %35, align 1
-  %36 = getelementptr i8, ptr %31, i64 1
-  %37 = load i8, ptr %36, align 1
-  %38 = getelementptr i8, ptr %.114.i12, i64 -2
-  store i8 %37, ptr %38, align 1
-  %39 = icmp ugt i32 %.01213.i13, 999
-  br i1 %39, label %.lr.ph.i11, label %._crit_edge.i14, !llvm.loop !11
+._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i17, %24
+  %.1.lcssa26.i8 = phi ptr [ %36, %._crit_edge.i17 ], [ %0, %24 ]
+  %.012.lcssa25.i9 = phi i32 [ %30, %._crit_edge.i17 ], [ %1, %24 ]
+  %38 = trunc nuw i32 %.012.lcssa25.i9 to i8
+  %39 = or disjoint i8 %38, 48
+  br label %uint_to_str_back.exit19.sink.split
 
-._crit_edge.i14:                                  ; preds = %.lr.ph.i11
-  %.not.i15 = icmp ult i32 %.01213.i13, 100
-  br i1 %.not.i15, label %uint_to_str_back.exit17, label %._crit_edge.thread21.i7
+uint_to_str_back.exit19.sink.split:               ; preds = %22, %._crit_edge.thread21.i7, %.sink.split.i, %._crit_edge.i
+  %.sink29.i11.sink = phi ptr [ %17, %._crit_edge.i ], [ %21, %.sink.split.i ], [ %.1.lcssa26.i8, %._crit_edge.thread21.i7 ], [ %0, %22 ]
+  %.sink.i12.sink = phi i8 [ 45, %._crit_edge.i ], [ 45, %.sink.split.i ], [ %39, %._crit_edge.thread21.i7 ], [ 48, %22 ]
+  %40 = getelementptr i8, ptr %.sink29.i11.sink, i64 -1
+  store i8 %.sink.i12.sink, ptr %40, align 1
+  br label %uint_to_str_back.exit19
 
-._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i14, %26
-  %.1.lcssa26.i8 = phi ptr [ %38, %._crit_edge.i14 ], [ %0, %26 ]
-  %.012.lcssa25.i9 = phi i32 [ %32, %._crit_edge.i14 ], [ %1, %26 ]
-  %40 = trunc nuw i32 %.012.lcssa25.i9 to i8
-  %41 = or disjoint i8 %40, 48
-  %42 = getelementptr i8, ptr %.1.lcssa26.i8, i64 -1
-  store i8 %41, ptr %42, align 1
-  br label %uint_to_str_back.exit17
-
-uint_to_str_back.exit17:                          ; preds = %._crit_edge.thread21.i7, %._crit_edge.i14, %._crit_edge.thread.i16, %uint_to_str_back.exit
-  %.0 = phi ptr [ %22, %uint_to_str_back.exit ], [ %42, %._crit_edge.thread21.i7 ], [ %38, %._crit_edge.i14 ], [ %25, %._crit_edge.thread.i16 ]
+uint_to_str_back.exit19:                          ; preds = %uint_to_str_back.exit19.sink.split, %._crit_edge.i17
+  %.0 = phi ptr [ %36, %._crit_edge.i17 ], [ %40, %uint_to_str_back.exit19.sink.split ]
   ret ptr %.0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, inaccessiblemem: none) uwtable
 define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #5 {
   %3 = icmp slt i64 %1, 0
-  br i1 %3, label %4, label %22
+  br i1 %3, label %4, label %21
 
 4:                                                ; preds = %2
   %5 = sub i64 0, %1
   %6 = icmp ugt i64 %5, 9
-  br i1 %6, label %.lr.ph.i, label %._crit_edge.thread21.i
+  br i1 %6, label %.lr.ph.i, label %.sink.split.i
 
 .lr.ph.i:                                         ; preds = %4, %.lr.ph.i
   %.114.i = phi ptr [ %16, %.lr.ph.i ], [ %0, %4 ]
@@ -1272,69 +1266,63 @@ define noundef ptr @int64_to_str_back(ptr noundef writeonly %0, i64 noundef %1) 
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not.i = icmp ult i64 %.01213.i, 100
-  br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
+  br i1 %.not.i, label %uint64_to_str_back.exit19.sink.split, label %.sink.split.i
 
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %4
+.sink.split.i:                                    ; preds = %4, %._crit_edge.i
   %.1.lcssa26.i = phi ptr [ %16, %._crit_edge.i ], [ %0, %4 ]
   %.012.lcssa25.i = phi i64 [ %10, %._crit_edge.i ], [ %5, %4 ]
   %18 = trunc nuw i64 %.012.lcssa25.i to i8
   %19 = or disjoint i8 %18, 48
   %20 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
   store i8 %19, ptr %20, align 1
-  br label %uint64_to_str_back.exit
+  br label %uint64_to_str_back.exit19.sink.split
 
-uint64_to_str_back.exit:                          ; preds = %._crit_edge.i, %._crit_edge.thread21.i
-  %.2.i = phi ptr [ %20, %._crit_edge.thread21.i ], [ %16, %._crit_edge.i ]
-  %21 = getelementptr i8, ptr %.2.i, i64 -1
-  store i8 45, ptr %21, align 1
-  br label %uint64_to_str_back.exit17
+21:                                               ; preds = %2
+  %22 = icmp eq i64 %1, 0
+  br i1 %22, label %uint64_to_str_back.exit19.sink.split, label %23
 
-22:                                               ; preds = %2
-  %23 = icmp eq i64 %1, 0
-  br i1 %23, label %._crit_edge.thread.i16, label %25
+23:                                               ; preds = %21
+  %24 = icmp ugt i64 %1, 9
+  br i1 %24, label %.lr.ph.i14, label %._crit_edge.thread21.i7
 
-._crit_edge.thread.i16:                           ; preds = %22
-  %24 = getelementptr i8, ptr %0, i64 -1
-  store i8 48, ptr %24, align 1
-  br label %uint64_to_str_back.exit17
+.lr.ph.i14:                                       ; preds = %23, %.lr.ph.i14
+  %.114.i15 = phi ptr [ %34, %.lr.ph.i14 ], [ %0, %23 ]
+  %.01213.i16 = phi i64 [ %28, %.lr.ph.i14 ], [ %1, %23 ]
+  %25 = urem i64 %.01213.i16, 100
+  %26 = add nuw nsw i64 %25, 100
+  %27 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %26
+  %28 = udiv i64 %.01213.i16, 100
+  %29 = getelementptr i8, ptr %27, i64 2
+  %30 = load i8, ptr %29, align 2
+  %31 = getelementptr i8, ptr %.114.i15, i64 -1
+  store i8 %30, ptr %31, align 1
+  %32 = getelementptr i8, ptr %27, i64 1
+  %33 = load i8, ptr %32, align 1
+  %34 = getelementptr i8, ptr %.114.i15, i64 -2
+  store i8 %33, ptr %34, align 1
+  %35 = icmp ugt i64 %.01213.i16, 999
+  br i1 %35, label %.lr.ph.i14, label %._crit_edge.i17, !llvm.loop !12
 
-25:                                               ; preds = %22
-  %26 = icmp ugt i64 %1, 9
-  br i1 %26, label %.lr.ph.i11, label %._crit_edge.thread21.i7
+._crit_edge.i17:                                  ; preds = %.lr.ph.i14
+  %.not.i18 = icmp ult i64 %.01213.i16, 100
+  br i1 %.not.i18, label %uint64_to_str_back.exit19, label %._crit_edge.thread21.i7
 
-.lr.ph.i11:                                       ; preds = %25, %.lr.ph.i11
-  %.114.i12 = phi ptr [ %36, %.lr.ph.i11 ], [ %0, %25 ]
-  %.01213.i13 = phi i64 [ %30, %.lr.ph.i11 ], [ %1, %25 ]
-  %27 = urem i64 %.01213.i13, 100
-  %28 = add nuw nsw i64 %27, 100
-  %29 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %28
-  %30 = udiv i64 %.01213.i13, 100
-  %31 = getelementptr i8, ptr %29, i64 2
-  %32 = load i8, ptr %31, align 2
-  %33 = getelementptr i8, ptr %.114.i12, i64 -1
-  store i8 %32, ptr %33, align 1
-  %34 = getelementptr i8, ptr %29, i64 1
-  %35 = load i8, ptr %34, align 1
-  %36 = getelementptr i8, ptr %.114.i12, i64 -2
-  store i8 %35, ptr %36, align 1
-  %37 = icmp ugt i64 %.01213.i13, 999
-  br i1 %37, label %.lr.ph.i11, label %._crit_edge.i14, !llvm.loop !12
+._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i17, %23
+  %.1.lcssa26.i8 = phi ptr [ %34, %._crit_edge.i17 ], [ %0, %23 ]
+  %.012.lcssa25.i9 = phi i64 [ %28, %._crit_edge.i17 ], [ %1, %23 ]
+  %36 = trunc nuw i64 %.012.lcssa25.i9 to i8
+  %37 = or disjoint i8 %36, 48
+  br label %uint64_to_str_back.exit19.sink.split
 
-._crit_edge.i14:                                  ; preds = %.lr.ph.i11
-  %.not.i15 = icmp ult i64 %.01213.i13, 100
-  br i1 %.not.i15, label %uint64_to_str_back.exit17, label %._crit_edge.thread21.i7
+uint64_to_str_back.exit19.sink.split:             ; preds = %21, %._crit_edge.thread21.i7, %.sink.split.i, %._crit_edge.i
+  %.sink29.i11.sink = phi ptr [ %16, %._crit_edge.i ], [ %20, %.sink.split.i ], [ %.1.lcssa26.i8, %._crit_edge.thread21.i7 ], [ %0, %21 ]
+  %.sink.i12.sink = phi i8 [ 45, %._crit_edge.i ], [ 45, %.sink.split.i ], [ %37, %._crit_edge.thread21.i7 ], [ 48, %21 ]
+  %38 = getelementptr i8, ptr %.sink29.i11.sink, i64 -1
+  store i8 %.sink.i12.sink, ptr %38, align 1
+  br label %uint64_to_str_back.exit19
 
-._crit_edge.thread21.i7:                          ; preds = %._crit_edge.i14, %25
-  %.1.lcssa26.i8 = phi ptr [ %36, %._crit_edge.i14 ], [ %0, %25 ]
-  %.012.lcssa25.i9 = phi i64 [ %30, %._crit_edge.i14 ], [ %1, %25 ]
-  %38 = trunc nuw i64 %.012.lcssa25.i9 to i8
-  %39 = or disjoint i8 %38, 48
-  %40 = getelementptr i8, ptr %.1.lcssa26.i8, i64 -1
-  store i8 %39, ptr %40, align 1
-  br label %uint64_to_str_back.exit17
-
-uint64_to_str_back.exit17:                        ; preds = %._crit_edge.thread21.i7, %._crit_edge.i14, %._crit_edge.thread.i16, %uint64_to_str_back.exit
-  %.0 = phi ptr [ %21, %uint64_to_str_back.exit ], [ %40, %._crit_edge.thread21.i7 ], [ %36, %._crit_edge.i14 ], [ %24, %._crit_edge.thread.i16 ]
+uint64_to_str_back.exit19:                        ; preds = %uint64_to_str_back.exit19.sink.split, %._crit_edge.i17
+  %.0 = phi ptr [ %34, %._crit_edge.i17 ], [ %38, %uint64_to_str_back.exit19.sink.split ]
   ret ptr %.0
 }
 
@@ -1389,50 +1377,50 @@ guint32_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
   %24 = getelementptr i8, ptr %1, i64 %.0.i
   store i8 0, ptr %24, align 1
   %25 = icmp eq i32 %0, 0
-  br i1 %25, label %._crit_edge.thread.i, label %27
+  br i1 %25, label %.sink.split.i, label %26
 
-._crit_edge.thread.i:                             ; preds = %23
-  %26 = getelementptr i8, ptr %24, i64 -1
-  store i8 48, ptr %26, align 1
-  br label %uint_to_str_back.exit
+26:                                               ; preds = %23
+  %27 = icmp ugt i32 %0, 9
+  br i1 %27, label %.lr.ph.i, label %._crit_edge.thread21.i
 
-27:                                               ; preds = %23
-  %28 = icmp ugt i32 %0, 9
-  br i1 %28, label %.lr.ph.i, label %._crit_edge.thread21.i
-
-.lr.ph.i:                                         ; preds = %27, %.lr.ph.i
-  %.114.i = phi ptr [ %39, %.lr.ph.i ], [ %24, %27 ]
-  %.01213.i = phi i32 [ %33, %.lr.ph.i ], [ %0, %27 ]
-  %29 = urem i32 %.01213.i, 100
-  %30 = add nuw nsw i32 %29, 100
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %31
-  %33 = udiv i32 %.01213.i, 100
-  %34 = getelementptr i8, ptr %32, i64 2
-  %35 = load i8, ptr %34, align 2
-  %36 = getelementptr i8, ptr %.114.i, i64 -1
-  store i8 %35, ptr %36, align 1
-  %37 = getelementptr i8, ptr %32, i64 1
-  %38 = load i8, ptr %37, align 1
-  %39 = getelementptr i8, ptr %.114.i, i64 -2
-  store i8 %38, ptr %39, align 1
-  %40 = icmp ugt i32 %.01213.i, 999
-  br i1 %40, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
+.lr.ph.i:                                         ; preds = %26, %.lr.ph.i
+  %.114.i = phi ptr [ %38, %.lr.ph.i ], [ %24, %26 ]
+  %.01213.i = phi i32 [ %32, %.lr.ph.i ], [ %0, %26 ]
+  %28 = urem i32 %.01213.i, 100
+  %29 = add nuw nsw i32 %28, 100
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %30
+  %32 = udiv i32 %.01213.i, 100
+  %33 = getelementptr i8, ptr %31, i64 2
+  %34 = load i8, ptr %33, align 2
+  %35 = getelementptr i8, ptr %.114.i, i64 -1
+  store i8 %34, ptr %35, align 1
+  %36 = getelementptr i8, ptr %31, i64 1
+  %37 = load i8, ptr %36, align 1
+  %38 = getelementptr i8, ptr %.114.i, i64 -2
+  store i8 %37, ptr %38, align 1
+  %39 = icmp ugt i32 %.01213.i, 999
+  br i1 %39, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not.i = icmp ult i32 %.01213.i, 100
   br i1 %.not.i, label %uint_to_str_back.exit, label %._crit_edge.thread21.i
 
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %27
-  %.1.lcssa26.i = phi ptr [ %39, %._crit_edge.i ], [ %24, %27 ]
-  %.012.lcssa25.i = phi i32 [ %33, %._crit_edge.i ], [ %0, %27 ]
-  %41 = trunc nuw i32 %.012.lcssa25.i to i8
-  %42 = or disjoint i8 %41, 48
-  %43 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
-  store i8 %42, ptr %43, align 1
+._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %26
+  %.1.lcssa26.i = phi ptr [ %38, %._crit_edge.i ], [ %24, %26 ]
+  %.012.lcssa25.i = phi i32 [ %32, %._crit_edge.i ], [ %0, %26 ]
+  %40 = trunc nuw i32 %.012.lcssa25.i to i8
+  %41 = or disjoint i8 %40, 48
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %._crit_edge.thread21.i, %23
+  %.sink29.i = phi ptr [ %.1.lcssa26.i, %._crit_edge.thread21.i ], [ %24, %23 ]
+  %.sink.i = phi i8 [ %41, %._crit_edge.thread21.i ], [ 48, %23 ]
+  %42 = getelementptr i8, ptr %.sink29.i, i64 -1
+  store i8 %.sink.i, ptr %42, align 1
   br label %uint_to_str_back.exit
 
-uint_to_str_back.exit:                            ; preds = %._crit_edge.thread21.i, %._crit_edge.i, %._crit_edge.thread.i, %21
+uint_to_str_back.exit:                            ; preds = %.sink.split.i, %._crit_edge.i, %21
   ret void
 }
 
@@ -1529,49 +1517,49 @@ guint64_to_str_buf_len.exit:                      ; preds = %3, %5, %7, %9, %11,
   %44 = getelementptr i8, ptr %1, i64 %.0.i
   store i8 0, ptr %44, align 1
   %45 = icmp eq i64 %0, 0
-  br i1 %45, label %._crit_edge.thread.i, label %47
+  br i1 %45, label %.sink.split.i, label %46
 
-._crit_edge.thread.i:                             ; preds = %43
-  %46 = getelementptr i8, ptr %44, i64 -1
-  store i8 48, ptr %46, align 1
-  br label %uint64_to_str_back.exit
+46:                                               ; preds = %43
+  %47 = icmp ugt i64 %0, 9
+  br i1 %47, label %.lr.ph.i, label %._crit_edge.thread21.i
 
-47:                                               ; preds = %43
-  %48 = icmp ugt i64 %0, 9
-  br i1 %48, label %.lr.ph.i, label %._crit_edge.thread21.i
-
-.lr.ph.i:                                         ; preds = %47, %.lr.ph.i
-  %.114.i = phi ptr [ %58, %.lr.ph.i ], [ %44, %47 ]
-  %.01213.i = phi i64 [ %52, %.lr.ph.i ], [ %0, %47 ]
-  %49 = urem i64 %.01213.i, 100
-  %50 = add nuw nsw i64 %49, 100
-  %51 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %50
-  %52 = udiv i64 %.01213.i, 100
-  %53 = getelementptr i8, ptr %51, i64 2
-  %54 = load i8, ptr %53, align 2
-  %55 = getelementptr i8, ptr %.114.i, i64 -1
-  store i8 %54, ptr %55, align 1
-  %56 = getelementptr i8, ptr %51, i64 1
-  %57 = load i8, ptr %56, align 1
-  %58 = getelementptr i8, ptr %.114.i, i64 -2
-  store i8 %57, ptr %58, align 1
-  %59 = icmp ugt i64 %.01213.i, 999
-  br i1 %59, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
+.lr.ph.i:                                         ; preds = %46, %.lr.ph.i
+  %.114.i = phi ptr [ %57, %.lr.ph.i ], [ %44, %46 ]
+  %.01213.i = phi i64 [ %51, %.lr.ph.i ], [ %0, %46 ]
+  %48 = urem i64 %.01213.i, 100
+  %49 = add nuw nsw i64 %48, 100
+  %50 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %49
+  %51 = udiv i64 %.01213.i, 100
+  %52 = getelementptr i8, ptr %50, i64 2
+  %53 = load i8, ptr %52, align 2
+  %54 = getelementptr i8, ptr %.114.i, i64 -1
+  store i8 %53, ptr %54, align 1
+  %55 = getelementptr i8, ptr %50, i64 1
+  %56 = load i8, ptr %55, align 1
+  %57 = getelementptr i8, ptr %.114.i, i64 -2
+  store i8 %56, ptr %57, align 1
+  %58 = icmp ugt i64 %.01213.i, 999
+  br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %.not.i = icmp ult i64 %.01213.i, 100
   br i1 %.not.i, label %uint64_to_str_back.exit, label %._crit_edge.thread21.i
 
-._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %47
-  %.1.lcssa26.i = phi ptr [ %58, %._crit_edge.i ], [ %44, %47 ]
-  %.012.lcssa25.i = phi i64 [ %52, %._crit_edge.i ], [ %0, %47 ]
-  %60 = trunc nuw i64 %.012.lcssa25.i to i8
-  %61 = or disjoint i8 %60, 48
-  %62 = getelementptr i8, ptr %.1.lcssa26.i, i64 -1
-  store i8 %61, ptr %62, align 1
+._crit_edge.thread21.i:                           ; preds = %._crit_edge.i, %46
+  %.1.lcssa26.i = phi ptr [ %57, %._crit_edge.i ], [ %44, %46 ]
+  %.012.lcssa25.i = phi i64 [ %51, %._crit_edge.i ], [ %0, %46 ]
+  %59 = trunc nuw i64 %.012.lcssa25.i to i8
+  %60 = or disjoint i8 %59, 48
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %._crit_edge.thread21.i, %43
+  %.sink29.i = phi ptr [ %.1.lcssa26.i, %._crit_edge.thread21.i ], [ %44, %43 ]
+  %.sink.i = phi i8 [ %60, %._crit_edge.thread21.i ], [ 48, %43 ]
+  %61 = getelementptr i8, ptr %.sink29.i, i64 -1
+  store i8 %.sink.i, ptr %61, align 1
   br label %uint64_to_str_back.exit
 
-uint64_to_str_back.exit:                          ; preds = %._crit_edge.thread21.i, %._crit_edge.i, %._crit_edge.thread.i, %41
+uint64_to_str_back.exit:                          ; preds = %.sink.split.i, %._crit_edge.i, %41
   ret void
 }
 
@@ -2276,7 +2264,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
   %6 = alloca [9 x i8], align 1
   %7 = getelementptr inbounds i8, ptr %6, i64 9
   %8 = icmp eq i64 %1, 0
-  br i1 %8, label %82, label %9
+  br i1 %8, label %81, label %9
 
 9:                                                ; preds = %5
   %10 = icmp ugt i32 %2, 999999999
@@ -2286,12 +2274,12 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
   %12 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.2, ptr noundef %3, i32 noundef %2) #11
   %13 = zext i32 %12 to i64
   %.not61 = icmp ult i64 %13, %1
-  br i1 %.not61, label %82, label %14
+  br i1 %.not61, label %81, label %14
 
 14:                                               ; preds = %11
   %15 = trunc i64 %1 to i32
   %16 = add i32 %15, -1
-  br label %82
+  br label %81
 
 17:                                               ; preds = %9
   %18 = tail call i64 @g_strlcpy(ptr noundef %0, ptr noundef %3, i64 noundef %1) #11
@@ -2301,7 +2289,7 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
 19:                                               ; preds = %17
   %20 = trunc i64 %1 to i32
   %21 = add i32 %20, -1
-  br label %82
+  br label %81
 
 22:                                               ; preds = %17
   %23 = getelementptr i8, ptr %0, i64 %18
@@ -2357,93 +2345,93 @@ define i32 @format_fractional_part_nsecs(ptr noundef %0, i64 noundef %1, i32 nou
 42:                                               ; preds = %22, %39, %37, %35, %33, %31, %29, %27, %25
   %.054 = phi i32 [ %40, %39 ], [ %38, %37 ], [ %36, %35 ], [ %34, %33 ], [ %32, %31 ], [ %30, %29 ], [ %28, %27 ], [ %26, %25 ], [ %2, %22 ]
   %43 = icmp eq i32 %.054, 0
-  br i1 %43, label %._crit_edge.thread.i.i, label %45
+  br i1 %43, label %.sink.split.i.i, label %44
 
-._crit_edge.thread.i.i:                           ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %6, i64 8
-  store i8 48, ptr %44, align 1
-  br label %uint_to_str_back.exit.i
+44:                                               ; preds = %42
+  %45 = icmp ugt i32 %.054, 9
+  br i1 %45, label %.lr.ph.i.i, label %._crit_edge.thread21.i.i
 
-45:                                               ; preds = %42
-  %46 = icmp ugt i32 %.054, 9
-  br i1 %46, label %.lr.ph.i.i, label %._crit_edge.thread21.i.i
-
-.lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
-  %.114.i.i = phi ptr [ %57, %.lr.ph.i.i ], [ %7, %45 ]
-  %.01213.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ %.054, %45 ]
-  %47 = urem i32 %.01213.i.i, 100
-  %48 = add nuw nsw i32 %47, 100
-  %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %49
-  %51 = udiv i32 %.01213.i.i, 100
-  %52 = getelementptr i8, ptr %50, i64 2
-  %53 = load i8, ptr %52, align 2
-  %54 = getelementptr i8, ptr %.114.i.i, i64 -1
-  store i8 %53, ptr %54, align 1
-  %55 = getelementptr i8, ptr %50, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = getelementptr i8, ptr %.114.i.i, i64 -2
-  store i8 %56, ptr %57, align 1
-  %58 = icmp ugt i32 %.01213.i.i, 999
-  br i1 %58, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
+.lr.ph.i.i:                                       ; preds = %44, %.lr.ph.i.i
+  %.114.i.i = phi ptr [ %56, %.lr.ph.i.i ], [ %7, %44 ]
+  %.01213.i.i = phi i32 [ %50, %.lr.ph.i.i ], [ %.054, %44 ]
+  %46 = urem i32 %.01213.i.i, 100
+  %47 = add nuw nsw i32 %46, 100
+  %48 = zext nneg i32 %47 to i64
+  %49 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %48
+  %50 = udiv i32 %.01213.i.i, 100
+  %51 = getelementptr i8, ptr %49, i64 2
+  %52 = load i8, ptr %51, align 2
+  %53 = getelementptr i8, ptr %.114.i.i, i64 -1
+  store i8 %52, ptr %53, align 1
+  %54 = getelementptr i8, ptr %49, i64 1
+  %55 = load i8, ptr %54, align 1
+  %56 = getelementptr i8, ptr %.114.i.i, i64 -2
+  store i8 %55, ptr %56, align 1
+  %57 = icmp ugt i32 %.01213.i.i, 999
+  br i1 %57, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !11
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not.i.i = icmp ult i32 %.01213.i.i, 100
   br i1 %.not.i.i, label %uint_to_str_back.exit.i, label %._crit_edge.thread21.i.i
 
-._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %45
-  %.1.lcssa26.i.i = phi ptr [ %57, %._crit_edge.i.i ], [ %7, %45 ]
-  %.012.lcssa25.i.i = phi i32 [ %51, %._crit_edge.i.i ], [ %.054, %45 ]
-  %59 = trunc nuw i32 %.012.lcssa25.i.i to i8
-  %60 = or disjoint i8 %59, 48
-  %61 = getelementptr i8, ptr %.1.lcssa26.i.i, i64 -1
-  store i8 %60, ptr %61, align 1
+._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %44
+  %.1.lcssa26.i.i = phi ptr [ %56, %._crit_edge.i.i ], [ %7, %44 ]
+  %.012.lcssa25.i.i = phi i32 [ %50, %._crit_edge.i.i ], [ %.054, %44 ]
+  %58 = trunc nuw i32 %.012.lcssa25.i.i to i8
+  %59 = or disjoint i8 %58, 48
+  br label %.sink.split.i.i
+
+.sink.split.i.i:                                  ; preds = %._crit_edge.thread21.i.i, %42
+  %.sink29.i.i = phi ptr [ %.1.lcssa26.i.i, %._crit_edge.thread21.i.i ], [ %7, %42 ]
+  %.sink.i.i = phi i8 [ %59, %._crit_edge.thread21.i.i ], [ 48, %42 ]
+  %60 = getelementptr i8, ptr %.sink29.i.i, i64 -1
+  store i8 %.sink.i.i, ptr %60, align 1
   br label %uint_to_str_back.exit.i
 
-uint_to_str_back.exit.i:                          ; preds = %._crit_edge.thread21.i.i, %._crit_edge.i.i, %._crit_edge.thread.i.i
-  %.2.i.i = phi ptr [ %61, %._crit_edge.thread21.i.i ], [ %57, %._crit_edge.i.i ], [ %44, %._crit_edge.thread.i.i ]
-  %62 = ptrtoint ptr %7 to i64
-  %63 = ptrtoint ptr %.2.i.i to i64
-  %.neg.i = sub i64 %63, %62
+uint_to_str_back.exit.i:                          ; preds = %.sink.split.i.i, %._crit_edge.i.i
+  %.2.i.i = phi ptr [ %56, %._crit_edge.i.i ], [ %60, %.sink.split.i.i ]
+  %61 = ptrtoint ptr %7 to i64
+  %62 = ptrtoint ptr %.2.i.i to i64
+  %.neg.i = sub i64 %62, %61
   %.neg9.i = trunc i64 %.neg.i to i32
-  %64 = add i32 %.neg9.i, %4
-  %65 = icmp sgt i32 %64, 0
-  br i1 %65, label %.lr.ph.preheader.i, label %uint_to_str_back_len.exit
+  %63 = add i32 %.neg9.i, %4
+  %64 = icmp sgt i32 %63, 0
+  br i1 %64, label %.lr.ph.preheader.i, label %uint_to_str_back_len.exit
 
 .lr.ph.preheader.i:                               ; preds = %uint_to_str_back.exit.i
-  %66 = trunc i64 %63 to i32
-  %67 = trunc i64 %62 to i32
-  %68 = xor i32 %67, -1
-  %69 = add i32 %68, %4
-  %70 = add i32 %69, %66
-  %71 = zext i32 %70 to i64
-  %72 = xor i64 %71, -1
-  %scevgep.i = getelementptr i8, ptr %.2.i.i, i64 %72
-  %73 = add nuw nsw i64 %71, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 48, i64 %73, i1 false)
+  %65 = trunc i64 %62 to i32
+  %66 = trunc i64 %61 to i32
+  %67 = xor i32 %66, -1
+  %68 = add i32 %67, %4
+  %69 = add i32 %68, %65
+  %70 = zext i32 %69 to i64
+  %71 = xor i64 %70, -1
+  %scevgep.i = getelementptr i8, ptr %.2.i.i, i64 %71
+  %72 = add nuw nsw i64 %70, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep.i, i8 48, i64 %72, i1 false)
   %.pre = ptrtoint ptr %scevgep.i to i64
   br label %uint_to_str_back_len.exit
 
 uint_to_str_back_len.exit:                        ; preds = %uint_to_str_back.exit.i, %.lr.ph.preheader.i
-  %.pre-phi = phi i64 [ %63, %uint_to_str_back.exit.i ], [ %.pre, %.lr.ph.preheader.i ]
+  %.pre-phi = phi i64 [ %62, %uint_to_str_back.exit.i ], [ %.pre, %.lr.ph.preheader.i ]
   %.0.lcssa.i = phi ptr [ %.2.i.i, %uint_to_str_back.exit.i ], [ %scevgep.i, %.lr.ph.preheader.i ]
-  %74 = sub i64 %62, %.pre-phi
-  %75 = xor i64 %18, -1
-  %76 = add i64 %75, %1
-  %. = call i64 @llvm.umin.i64(i64 %74, i64 %76)
-  %77 = icmp eq i64 %., 0
-  br i1 %77, label %82, label %78
+  %73 = sub i64 %61, %.pre-phi
+  %74 = xor i64 %18, -1
+  %75 = add i64 %74, %1
+  %. = call i64 @llvm.umin.i64(i64 %73, i64 %75)
+  %76 = icmp eq i64 %., 0
+  br i1 %76, label %81, label %77
 
-78:                                               ; preds = %uint_to_str_back_len.exit
+77:                                               ; preds = %uint_to_str_back_len.exit
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %23, ptr align 1 %.0.lcssa.i, i64 %., i1 false)
-  %79 = getelementptr i8, ptr %23, i64 %.
-  %80 = trunc i64 %. to i32
-  %81 = add i32 %80, %24
-  store i8 0, ptr %79, align 1
-  br label %82
+  %78 = getelementptr i8, ptr %23, i64 %.
+  %79 = trunc i64 %. to i32
+  %80 = add i32 %79, %24
+  store i8 0, ptr %78, align 1
+  br label %81
 
-82:                                               ; preds = %uint_to_str_back_len.exit, %11, %5, %78, %19, %14
-  %.0 = phi i32 [ %16, %14 ], [ %21, %19 ], [ %81, %78 ], [ 0, %5 ], [ %12, %11 ], [ %24, %uint_to_str_back_len.exit ]
+81:                                               ; preds = %uint_to_str_back_len.exit, %11, %5, %77, %19, %14
+  %.0 = phi i32 [ %16, %14 ], [ %21, %19 ], [ %80, %77 ], [ 0, %5 ], [ %12, %11 ], [ %24, %uint_to_str_back_len.exit ]
   ret i32 %.0
 }
 
@@ -2467,7 +2455,7 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   %5 = alloca [20 x i8], align 16
   %6 = getelementptr inbounds i8, ptr %5, i64 20
   %7 = icmp eq i64 %1, 0
-  br i1 %7, label %70, label %8
+  br i1 %7, label %68, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %2, i64 8
@@ -2493,16 +2481,16 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
   %.0.ph = phi ptr [ %0, %8 ], [ %17, %16 ]
   %.pr = load i64, ptr %2, align 8
   %20 = icmp slt i64 %.pr, 0
-  br i1 %20, label %.thread, label %39
+  br i1 %20, label %.thread, label %38
 
 .thread:                                          ; preds = %12, %19
-  %.045 = phi ptr [ %.0.ph, %19 ], [ %0, %12 ]
-  %.02943 = phi i64 [ %.029.ph, %19 ], [ %1, %12 ]
-  %.03041 = phi i32 [ %.030.ph, %19 ], [ %13, %12 ]
+  %.048 = phi ptr [ %.0.ph, %19 ], [ %0, %12 ]
+  %.02945 = phi i64 [ %.029.ph, %19 ], [ %1, %12 ]
+  %.03042 = phi i32 [ %.030.ph, %19 ], [ %13, %12 ]
   %21 = phi i64 [ %.pr, %19 ], [ %14, %12 ]
   %22 = sub i64 0, %21
   %23 = icmp ugt i64 %22, 9
-  br i1 %23, label %.lr.ph.i.i, label %._crit_edge.thread21.i.i
+  br i1 %23, label %.lr.ph.i.i, label %.sink.split.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread, %.lr.ph.i.i
   %.114.i.i = phi ptr [ %33, %.lr.ph.i.i ], [ %6, %.thread ]
@@ -2524,96 +2512,93 @@ define void @display_signed_time(ptr noundef %0, i64 noundef %1, ptr nocapture n
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %.not.i.i = icmp ult i64 %.01213.i.i, 100
-  br i1 %.not.i.i, label %uint64_to_str_back.exit.i, label %._crit_edge.thread21.i.i
+  br i1 %.not.i.i, label %uint64_to_str_back.exit19.sink.split.i, label %.sink.split.i.i
 
-._crit_edge.thread21.i.i:                         ; preds = %._crit_edge.i.i, %.thread
+.sink.split.i.i:                                  ; preds = %._crit_edge.i.i, %.thread
   %.1.lcssa26.i.i = phi ptr [ %33, %._crit_edge.i.i ], [ %6, %.thread ]
   %.012.lcssa25.i.i = phi i64 [ %27, %._crit_edge.i.i ], [ %22, %.thread ]
   %35 = trunc nuw i64 %.012.lcssa25.i.i to i8
   %36 = or disjoint i8 %35, 48
   %37 = getelementptr i8, ptr %.1.lcssa26.i.i, i64 -1
   store i8 %36, ptr %37, align 1
-  br label %uint64_to_str_back.exit.i
+  br label %uint64_to_str_back.exit19.sink.split.i
 
-uint64_to_str_back.exit.i:                        ; preds = %._crit_edge.thread21.i.i, %._crit_edge.i.i
-  %.2.i.i = phi ptr [ %37, %._crit_edge.thread21.i.i ], [ %33, %._crit_edge.i.i ]
-  %38 = getelementptr i8, ptr %.2.i.i, i64 -1
-  store i8 45, ptr %38, align 1
+38:                                               ; preds = %19
+  %39 = icmp eq i64 %.pr, 0
+  br i1 %39, label %uint64_to_str_back.exit19.sink.split.i, label %40
+
+40:                                               ; preds = %38
+  %41 = icmp ugt i64 %.pr, 9
+  br i1 %41, label %.lr.ph.i14.i, label %._crit_edge.thread21.i7.i
+
+.lr.ph.i14.i:                                     ; preds = %40, %.lr.ph.i14.i
+  %.114.i15.i = phi ptr [ %51, %.lr.ph.i14.i ], [ %6, %40 ]
+  %.01213.i16.i = phi i64 [ %45, %.lr.ph.i14.i ], [ %.pr, %40 ]
+  %42 = urem i64 %.01213.i16.i, 100
+  %43 = add nuw nsw i64 %42, 100
+  %44 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %43
+  %45 = udiv i64 %.01213.i16.i, 100
+  %46 = getelementptr i8, ptr %44, i64 2
+  %47 = load i8, ptr %46, align 2
+  %48 = getelementptr i8, ptr %.114.i15.i, i64 -1
+  store i8 %47, ptr %48, align 1
+  %49 = getelementptr i8, ptr %44, i64 1
+  %50 = load i8, ptr %49, align 1
+  %51 = getelementptr i8, ptr %.114.i15.i, i64 -2
+  store i8 %50, ptr %51, align 1
+  %52 = icmp ugt i64 %.01213.i16.i, 999
+  br i1 %52, label %.lr.ph.i14.i, label %._crit_edge.i17.i, !llvm.loop !12
+
+._crit_edge.i17.i:                                ; preds = %.lr.ph.i14.i
+  %.not.i18.i = icmp ult i64 %.01213.i16.i, 100
+  br i1 %.not.i18.i, label %int64_to_str_back.exit, label %._crit_edge.thread21.i7.i
+
+._crit_edge.thread21.i7.i:                        ; preds = %._crit_edge.i17.i, %40
+  %.1.lcssa26.i8.i = phi ptr [ %51, %._crit_edge.i17.i ], [ %6, %40 ]
+  %.012.lcssa25.i9.i = phi i64 [ %45, %._crit_edge.i17.i ], [ %.pr, %40 ]
+  %53 = trunc nuw i64 %.012.lcssa25.i9.i to i8
+  %54 = or disjoint i8 %53, 48
+  br label %uint64_to_str_back.exit19.sink.split.i
+
+uint64_to_str_back.exit19.sink.split.i:           ; preds = %._crit_edge.thread21.i7.i, %38, %.sink.split.i.i, %._crit_edge.i.i
+  %.047 = phi ptr [ %.048, %._crit_edge.i.i ], [ %.048, %.sink.split.i.i ], [ %.0.ph, %._crit_edge.thread21.i7.i ], [ %.0.ph, %38 ]
+  %.02944 = phi i64 [ %.02945, %._crit_edge.i.i ], [ %.02945, %.sink.split.i.i ], [ %.029.ph, %._crit_edge.thread21.i7.i ], [ %.029.ph, %38 ]
+  %.03041 = phi i32 [ %.03042, %._crit_edge.i.i ], [ %.03042, %.sink.split.i.i ], [ %.030.ph, %._crit_edge.thread21.i7.i ], [ %.030.ph, %38 ]
+  %.sink29.i11.sink.i = phi ptr [ %33, %._crit_edge.i.i ], [ %37, %.sink.split.i.i ], [ %.1.lcssa26.i8.i, %._crit_edge.thread21.i7.i ], [ %6, %38 ]
+  %.sink.i12.sink.i = phi i8 [ 45, %._crit_edge.i.i ], [ 45, %.sink.split.i.i ], [ %54, %._crit_edge.thread21.i7.i ], [ 48, %38 ]
+  %55 = getelementptr i8, ptr %.sink29.i11.sink.i, i64 -1
+  store i8 %.sink.i12.sink.i, ptr %55, align 1
   br label %int64_to_str_back.exit
 
-39:                                               ; preds = %19
-  %40 = icmp eq i64 %.pr, 0
-  br i1 %40, label %._crit_edge.thread.i16.i, label %42
+int64_to_str_back.exit:                           ; preds = %._crit_edge.i17.i, %uint64_to_str_back.exit19.sink.split.i
+  %.046 = phi ptr [ %.0.ph, %._crit_edge.i17.i ], [ %.047, %uint64_to_str_back.exit19.sink.split.i ]
+  %.02943 = phi i64 [ %.029.ph, %._crit_edge.i17.i ], [ %.02944, %uint64_to_str_back.exit19.sink.split.i ]
+  %.03040 = phi i32 [ %.030.ph, %._crit_edge.i17.i ], [ %.03041, %uint64_to_str_back.exit19.sink.split.i ]
+  %.0.i = phi ptr [ %51, %._crit_edge.i17.i ], [ %55, %uint64_to_str_back.exit19.sink.split.i ]
+  %56 = ptrtoint ptr %6 to i64
+  %57 = ptrtoint ptr %.0.i to i64
+  %58 = sub i64 %56, %57
+  %59 = add i64 %.02943, -1
+  %. = call i64 @llvm.umin.i64(i64 %58, i64 %59)
+  %60 = icmp eq i64 %., 0
+  br i1 %60, label %68, label %61
 
-._crit_edge.thread.i16.i:                         ; preds = %39
-  %41 = getelementptr inbounds i8, ptr %5, i64 19
-  store i8 48, ptr %41, align 1
-  br label %int64_to_str_back.exit
+61:                                               ; preds = %int64_to_str_back.exit
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.046, ptr nonnull align 1 %.0.i, i64 %., i1 false)
+  %62 = getelementptr i8, ptr %.046, i64 %.
+  %63 = icmp eq i32 %3, 0
+  br i1 %63, label %64, label %65
 
-42:                                               ; preds = %39
-  %43 = icmp ugt i64 %.pr, 9
-  br i1 %43, label %.lr.ph.i11.i, label %._crit_edge.thread21.i7.i
+64:                                               ; preds = %61
+  store i8 0, ptr %62, align 1
+  br label %68
 
-.lr.ph.i11.i:                                     ; preds = %42, %.lr.ph.i11.i
-  %.114.i12.i = phi ptr [ %53, %.lr.ph.i11.i ], [ %6, %42 ]
-  %.01213.i13.i = phi i64 [ %47, %.lr.ph.i11.i ], [ %.pr, %42 ]
-  %44 = urem i64 %.01213.i13.i, 100
-  %45 = add nuw nsw i64 %44, 100
-  %46 = getelementptr [256 x [4 x i8]], ptr @fast_strings, i64 0, i64 %45
-  %47 = udiv i64 %.01213.i13.i, 100
-  %48 = getelementptr i8, ptr %46, i64 2
-  %49 = load i8, ptr %48, align 2
-  %50 = getelementptr i8, ptr %.114.i12.i, i64 -1
-  store i8 %49, ptr %50, align 1
-  %51 = getelementptr i8, ptr %46, i64 1
-  %52 = load i8, ptr %51, align 1
-  %53 = getelementptr i8, ptr %.114.i12.i, i64 -2
-  store i8 %52, ptr %53, align 1
-  %54 = icmp ugt i64 %.01213.i13.i, 999
-  br i1 %54, label %.lr.ph.i11.i, label %._crit_edge.i14.i, !llvm.loop !12
+65:                                               ; preds = %61
+  %66 = sub i64 %.02943, %.
+  %67 = call i32 @format_fractional_part_nsecs(ptr noundef %62, i64 noundef %66, i32 noundef %.03040, ptr noundef nonnull @.str.6, i32 noundef %3)
+  br label %68
 
-._crit_edge.i14.i:                                ; preds = %.lr.ph.i11.i
-  %.not.i15.i = icmp ult i64 %.01213.i13.i, 100
-  br i1 %.not.i15.i, label %int64_to_str_back.exit, label %._crit_edge.thread21.i7.i
-
-._crit_edge.thread21.i7.i:                        ; preds = %._crit_edge.i14.i, %42
-  %.1.lcssa26.i8.i = phi ptr [ %53, %._crit_edge.i14.i ], [ %6, %42 ]
-  %.012.lcssa25.i9.i = phi i64 [ %47, %._crit_edge.i14.i ], [ %.pr, %42 ]
-  %55 = trunc nuw i64 %.012.lcssa25.i9.i to i8
-  %56 = or disjoint i8 %55, 48
-  %57 = getelementptr i8, ptr %.1.lcssa26.i8.i, i64 -1
-  store i8 %56, ptr %57, align 1
-  br label %int64_to_str_back.exit
-
-int64_to_str_back.exit:                           ; preds = %uint64_to_str_back.exit.i, %._crit_edge.thread.i16.i, %._crit_edge.i14.i, %._crit_edge.thread21.i7.i
-  %.044 = phi ptr [ %.045, %uint64_to_str_back.exit.i ], [ %.0.ph, %._crit_edge.thread21.i7.i ], [ %.0.ph, %._crit_edge.i14.i ], [ %.0.ph, %._crit_edge.thread.i16.i ]
-  %.02942 = phi i64 [ %.02943, %uint64_to_str_back.exit.i ], [ %.029.ph, %._crit_edge.thread21.i7.i ], [ %.029.ph, %._crit_edge.i14.i ], [ %.029.ph, %._crit_edge.thread.i16.i ]
-  %.03040 = phi i32 [ %.03041, %uint64_to_str_back.exit.i ], [ %.030.ph, %._crit_edge.thread21.i7.i ], [ %.030.ph, %._crit_edge.i14.i ], [ %.030.ph, %._crit_edge.thread.i16.i ]
-  %.0.i = phi ptr [ %38, %uint64_to_str_back.exit.i ], [ %57, %._crit_edge.thread21.i7.i ], [ %53, %._crit_edge.i14.i ], [ %41, %._crit_edge.thread.i16.i ]
-  %58 = ptrtoint ptr %6 to i64
-  %59 = ptrtoint ptr %.0.i to i64
-  %60 = sub i64 %58, %59
-  %61 = add i64 %.02942, -1
-  %. = call i64 @llvm.umin.i64(i64 %60, i64 %61)
-  %62 = icmp eq i64 %., 0
-  br i1 %62, label %70, label %63
-
-63:                                               ; preds = %int64_to_str_back.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.044, ptr nonnull align 1 %.0.i, i64 %., i1 false)
-  %64 = getelementptr i8, ptr %.044, i64 %.
-  %65 = icmp eq i32 %3, 0
-  br i1 %65, label %66, label %67
-
-66:                                               ; preds = %63
-  store i8 0, ptr %64, align 1
-  br label %70
-
-67:                                               ; preds = %63
-  %68 = sub i64 %.02942, %.
-  %69 = call i32 @format_fractional_part_nsecs(ptr noundef %64, i64 noundef %68, i32 noundef %.03040, ptr noundef nonnull @.str.6, i32 noundef %3)
-  br label %70
-
-70:                                               ; preds = %int64_to_str_back.exit, %4, %67, %66
+68:                                               ; preds = %int64_to_str_back.exit, %4, %65, %64
   ret void
 }
 

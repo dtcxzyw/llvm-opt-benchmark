@@ -5967,15 +5967,15 @@ call.i.i.noexc49:                                 ; preds = %if.end.i
   br i1 %tobool.not.i.i12.i, label %invoke.cont56, label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %call.i.i.noexc49, %if.then.i47
-  %.sink.i = phi ptr [ %44, %if.then.i47 ], [ %call.i.i50, %call.i.i.noexc49 ]
-  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 8
-  %45 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4, !noalias !38
+  %call.i.sink.i = phi ptr [ %44, %if.then.i47 ], [ %call.i.i50, %call.i.i.noexc49 ]
+  %m_ref_count.i.i.i.i14.i = getelementptr inbounds i8, ptr %call.i.sink.i, i64 8
+  %45 = load i32, ptr %m_ref_count.i.i.i.i14.i, align 4, !noalias !38
   %inc.i.i.i.i15.i = add i32 %45, 1
-  store i32 %inc.i.i.i.i15.i, ptr %m_ref_count.i.i.i.i.i, align 4, !noalias !38
+  store i32 %inc.i.i.i.i15.i, ptr %m_ref_count.i.i.i.i14.i, align 4, !noalias !38
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %return.sink.split.i, %call.i.i.noexc49, %if.then.i47
-  %46 = phi ptr [ %.sink.i, %return.sink.split.i ], [ null, %call.i.i.noexc49 ], [ null, %if.then.i47 ]
+  %46 = phi ptr [ %call.i.sink.i, %return.sink.split.i ], [ null, %call.i.i.noexc49 ], [ null, %if.then.i47 ]
   invoke void @_ZN3seq9eq_solver15add_consequenceERK7obj_refI4expr11ast_managerES6_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp54, ptr noundef nonnull align 8 dereferenceable(16) %eq)
           to label %invoke.cont58 unwind label %lpad57
 
@@ -6558,23 +6558,23 @@ lor.lhs.false.i90:                                ; preds = %if.then25
 if.end30.sink.split.sink.split:                   ; preds = %if.then25, %lor.lhs.false.i90, %if.then18, %lor.lhs.false.i57, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit23, %lor.lhs.false.i25
   %.sink.ph = phi ptr [ %26, %lor.lhs.false.i25 ], [ %26, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit23 ], [ %41, %lor.lhs.false.i57 ], [ %41, %if.then18 ], [ %49, %lor.lhs.false.i90 ], [ %49, %if.then25 ]
   tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_todo)
-  %.pre.i34 = load ptr, ptr %m_todo, align 8
-  %arrayidx8.phi.trans.insert.i100 = getelementptr inbounds i8, ptr %.pre.i34, i64 -4
+  %.pre.i99 = load ptr, ptr %m_todo, align 8
+  %arrayidx8.phi.trans.insert.i100 = getelementptr inbounds i8, ptr %.pre.i99, i64 -4
   %.pre1.i101 = load i32, ptr %arrayidx8.phi.trans.insert.i100, align 4
   br label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %if.end30.sink.split.sink.split, %lor.lhs.false.i90, %lor.lhs.false.i57, %lor.lhs.false.i25
   %.sink127 = phi i32 [ %35, %lor.lhs.false.i25 ], [ %43, %lor.lhs.false.i57 ], [ %51, %lor.lhs.false.i90 ], [ %.pre1.i101, %if.end30.sink.split.sink.split ]
-  %.sink126 = phi ptr [ %34, %lor.lhs.false.i25 ], [ %42, %lor.lhs.false.i57 ], [ %50, %lor.lhs.false.i90 ], [ %.pre.i34, %if.end30.sink.split.sink.split ]
+  %.sink126 = phi ptr [ %34, %lor.lhs.false.i25 ], [ %42, %lor.lhs.false.i57 ], [ %50, %lor.lhs.false.i90 ], [ %.pre.i99, %if.end30.sink.split.sink.split ]
   %.sink = phi ptr [ %26, %lor.lhs.false.i25 ], [ %41, %lor.lhs.false.i57 ], [ %49, %lor.lhs.false.i90 ], [ %.sink.ph, %if.end30.sink.split.sink.split ]
-  %idx.ext.i29 = zext i32 %.sink127 to i64
-  %add.ptr.i30 = getelementptr inbounds ptr, ptr %.sink126, i64 %idx.ext.i29
-  store ptr %.sink, ptr %add.ptr.i30, align 8
+  %idx.ext.i61 = zext i32 %.sink127 to i64
+  %add.ptr.i62 = getelementptr inbounds ptr, ptr %.sink126, i64 %idx.ext.i61
+  store ptr %.sink, ptr %add.ptr.i62, align 8
   %53 = load ptr, ptr %m_todo, align 8
-  %arrayidx10.i31 = getelementptr inbounds i8, ptr %53, i64 -4
-  %54 = load i32, ptr %arrayidx10.i31, align 4
+  %arrayidx10.i63 = getelementptr inbounds i8, ptr %53, i64 -4
+  %54 = load i32, ptr %arrayidx10.i63, align 4
   %inc.i64 = add i32 %54, 1
-  store i32 %inc.i64, ptr %arrayidx10.i31, align 4
+  store i32 %inc.i64, ptr %arrayidx10.i63, align 4
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %land.rhs.i.i.i, %if.end, %_ZNK8seq_util3str8is_nth_iEPK4expr.exit.i, %land.lhs.true.i83

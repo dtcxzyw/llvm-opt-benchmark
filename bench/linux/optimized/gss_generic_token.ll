@@ -49,105 +49,85 @@ define dso_local void @g_make_token_header(ptr nocapture noundef readonly %0, i3
   %7 = add i32 %1, 2
   %8 = add i32 %7, %6
   %9 = icmp slt i32 %8, 128
-  br i1 %9, label %10, label %14
+  br i1 %9, label %34, label %10
 
 10:                                               ; preds = %3
-  %11 = trunc i32 %8 to i8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr i8, ptr %12, i64 1
-  store ptr %13, ptr %2, align 8
-  store i8 %11, ptr %12, align 1
-  br label %47
+  %11 = icmp ult i32 %8, 256
+  br i1 %11, label %31, label %12
 
-14:                                               ; preds = %3
-  %15 = icmp ult i32 %8, 256
-  br i1 %15, label %35, label %16
+12:                                               ; preds = %10
+  %13 = icmp ult i32 %8, 65536
+  br i1 %13, label %.thread4, label %14
 
-16:                                               ; preds = %14
-  %17 = icmp ult i32 %8, 65536
-  br i1 %17, label %.thread4, label %20
+14:                                               ; preds = %12
+  %15 = icmp ult i32 %8, 16777216
+  %16 = select i1 %15, i8 -125, i8 -124
+  %17 = load ptr, ptr %2, align 8
+  %18 = getelementptr i8, ptr %17, i64 1
+  store ptr %18, ptr %2, align 8
+  store i8 %16, ptr %17, align 1
+  %19 = icmp ugt i32 %8, 16777215
+  br i1 %19, label %20, label %.thread3
 
-.thread4:                                         ; preds = %16
-  %18 = load ptr, ptr %2, align 8
-  %19 = getelementptr i8, ptr %18, i64 1
-  store ptr %19, ptr %2, align 8
-  store i8 -126, ptr %18, align 1
-  br label %38
-
-20:                                               ; preds = %16
-  %21 = icmp ult i32 %8, 16777216
-  %22 = select i1 %21, i8 -125, i8 -124
+20:                                               ; preds = %14
+  %21 = lshr i32 %8, 24
+  %22 = trunc nuw nsw i32 %21 to i8
   %23 = load ptr, ptr %2, align 8
   %24 = getelementptr i8, ptr %23, i64 1
   store ptr %24, ptr %2, align 8
   store i8 %22, ptr %23, align 1
-  %25 = icmp ugt i32 %8, 16777215
-  br i1 %25, label %26, label %.thread3
-
-26:                                               ; preds = %20
-  %27 = lshr i32 %8, 24
-  %28 = trunc nuw nsw i32 %27 to i8
-  %29 = load ptr, ptr %2, align 8
-  %30 = getelementptr i8, ptr %29, i64 1
-  store ptr %30, ptr %2, align 8
-  store i8 %28, ptr %29, align 1
   br label %.thread3
 
-.thread3:                                         ; preds = %20, %26
-  %31 = lshr i32 %8, 16
-  %32 = trunc i32 %31 to i8
-  %33 = load ptr, ptr %2, align 8
-  %34 = getelementptr i8, ptr %33, i64 1
-  store ptr %34, ptr %2, align 8
-  store i8 %32, ptr %33, align 1
-  br label %38
+.thread3:                                         ; preds = %14, %20
+  %25 = lshr i32 %8, 16
+  %26 = trunc i32 %25 to i8
+  br label %.thread4
 
-35:                                               ; preds = %14
+.thread4:                                         ; preds = %12, %.thread3
+  %.sink = phi i8 [ %26, %.thread3 ], [ -126, %12 ]
+  %27 = load ptr, ptr %2, align 8
+  %28 = getelementptr i8, ptr %27, i64 1
+  store ptr %28, ptr %2, align 8
+  store i8 %.sink, ptr %27, align 1
+  %29 = lshr i32 %8, 8
+  %30 = trunc i32 %29 to i8
+  br label %31
+
+31:                                               ; preds = %10, %.thread4
+  %.sink9 = phi i8 [ %30, %.thread4 ], [ -127, %10 ]
+  %32 = load ptr, ptr %2, align 8
+  %33 = getelementptr i8, ptr %32, i64 1
+  store ptr %33, ptr %2, align 8
+  store i8 %.sink9, ptr %32, align 1
+  br label %34
+
+34:                                               ; preds = %3, %31
+  %35 = trunc i32 %8 to i8
   %36 = load ptr, ptr %2, align 8
   %37 = getelementptr i8, ptr %36, i64 1
   store ptr %37, ptr %2, align 8
-  store i8 -127, ptr %36, align 1
-  br label %43
-
-38:                                               ; preds = %.thread4, %.thread3
-  %39 = lshr i32 %8, 8
-  %40 = trunc i32 %39 to i8
-  %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr i8, ptr %41, i64 1
-  store ptr %42, ptr %2, align 8
-  store i8 %40, ptr %41, align 1
-  br label %43
-
-43:                                               ; preds = %35, %38
-  %44 = trunc i32 %8 to i8
-  %45 = load ptr, ptr %2, align 8
-  %46 = getelementptr i8, ptr %45, i64 1
-  store ptr %46, ptr %2, align 8
-  store i8 %44, ptr %45, align 1
-  br label %47
-
-47:                                               ; preds = %43, %10
-  %48 = load ptr, ptr %2, align 8
-  %49 = getelementptr i8, ptr %48, i64 1
-  store ptr %49, ptr %2, align 8
-  store i8 6, ptr %48, align 1
-  %50 = load i32, ptr %0, align 8
-  %51 = trunc i32 %50 to i8
-  %52 = load ptr, ptr %2, align 8
-  %53 = getelementptr i8, ptr %52, i64 1
-  store ptr %53, ptr %2, align 8
-  store i8 %51, ptr %52, align 1
-  %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %0, align 8
-  %58 = sext i32 %57 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 1 %56, i64 %58, i1 false)
-  %59 = load i32, ptr %0, align 8
-  %60 = load ptr, ptr %2, align 8
-  %61 = sext i32 %59 to i64
-  %62 = getelementptr i8, ptr %60, i64 %61
-  store ptr %62, ptr %2, align 8
+  store i8 %35, ptr %36, align 1
+  %38 = load ptr, ptr %2, align 8
+  %39 = getelementptr i8, ptr %38, i64 1
+  store ptr %39, ptr %2, align 8
+  store i8 6, ptr %38, align 1
+  %40 = load i32, ptr %0, align 8
+  %41 = trunc i32 %40 to i8
+  %42 = load ptr, ptr %2, align 8
+  %43 = getelementptr i8, ptr %42, i64 1
+  store ptr %43, ptr %2, align 8
+  store i8 %41, ptr %42, align 1
+  %44 = load ptr, ptr %2, align 8
+  %45 = getelementptr inbounds i8, ptr %0, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %47 = load i32, ptr %0, align 8
+  %48 = sext i32 %47 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %44, ptr align 1 %46, i64 %48, i1 false)
+  %49 = load i32, ptr %0, align 8
+  %50 = load ptr, ptr %2, align 8
+  %51 = sext i32 %49 to i64
+  %52 = getelementptr i8, ptr %50, i64 %51
+  store ptr %52, ptr %2, align 8
   ret void
 }
 

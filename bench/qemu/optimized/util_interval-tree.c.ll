@@ -99,16 +99,13 @@ land.lhs.true.i.i:                                ; preds = %if.then9.i.i
   %17 = load atomic i64, ptr %16 monotonic, align 8
   %conv.i1.i.i.i.i = and i64 %17, 1
   %cmp.i.i.i.i = icmp eq i64 %conv.i1.i.i.i.i, 0
-  br i1 %cmp.i.i.i.i, label %if.then13.i.i, label %if.end15.i.i
+  br i1 %cmp.i.i.i.i, label %while.body.backedge.i.i, label %if.end15.i.i
 
-if.then13.i.i:                                    ; preds = %land.lhs.true.i.i
+while.body.backedge.i.i:                          ; preds = %land.lhs.true63.i.i, %land.lhs.true.i.i
+  %.sink.i.i = phi ptr [ %41, %land.lhs.true63.i.i ], [ %16, %land.lhs.true.i.i ]
   %or.i.i.i = or i64 %14, 1
-  store atomic i64 %or.i.i.i, ptr %16 monotonic, align 8
-  br label %while.body.backedge.i.i
-
-while.body.backedge.i.i:                          ; preds = %if.then66.i.i, %if.then13.i.i
-  %or.i.sink.i.i = phi i64 [ %or.i.i.i, %if.then13.i.i ], [ %or.i121.i.i, %if.then66.i.i ]
-  store atomic i64 %or.i.sink.i.i, ptr %parent.022.i.i monotonic, align 8
+  store atomic i64 %or.i.i.i, ptr %.sink.i.i monotonic, align 8
+  store atomic i64 %or.i.i.i, ptr %parent.022.i.i monotonic, align 8
   %18 = load atomic i64, ptr %15 monotonic, align 8
   %and.i.i.i.i = and i64 %18, -2
   store atomic i64 %and.i.i.i.i, ptr %15 monotonic, align 8
@@ -255,12 +252,7 @@ land.lhs.true63.i.i:                              ; preds = %if.else.i.i
   %42 = load atomic i64, ptr %41 monotonic, align 8
   %conv.i1.i.i119.i.i = and i64 %42, 1
   %cmp.i.i120.i.i = icmp eq i64 %conv.i1.i.i119.i.i, 0
-  br i1 %cmp.i.i120.i.i, label %if.then66.i.i, label %if.end68.i.i
-
-if.then66.i.i:                                    ; preds = %land.lhs.true63.i.i
-  %or.i121.i.i = or i64 %14, 1
-  store atomic i64 %or.i121.i.i, ptr %41 monotonic, align 8
-  br label %while.body.backedge.i.i
+  br i1 %cmp.i.i120.i.i, label %while.body.backedge.i.i, label %if.end68.i.i
 
 if.end68.i.i:                                     ; preds = %land.lhs.true63.i.i, %if.else.i.i
   %rb_right.i.i.le = getelementptr inbounds i8, ptr %15, i64 8

@@ -10826,16 +10826,16 @@ if.then.i12:                                      ; preds = %lor.lhs.false.i4, %
           to label %if.end.sink.split unwind label %lpad
 
 if.end.sink.split:                                ; preds = %if.then.i12, %if.then.i
-  %m_learned.sink = phi ptr [ %m_learned, %if.then.i ], [ %m_constraints, %if.then.i12 ]
-  %.pre.i = load ptr, ptr %m_learned.sink, align 8
-  %arrayidx8.phi.trans.insert.i14 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %m_constraints.sink62 = phi ptr [ %m_learned, %if.then.i ], [ %m_constraints, %if.then.i12 ]
+  %.pre.i13 = load ptr, ptr %m_constraints.sink62, align 8
+  %arrayidx8.phi.trans.insert.i14 = getelementptr inbounds i8, ptr %.pre.i13, i64 -4
   %.pre1.i15 = load i32, ptr %arrayidx8.phi.trans.insert.i14, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %lor.lhs.false.i4, %lor.lhs.false.i
   %.sink61 = phi i32 [ %3, %lor.lhs.false.i ], [ %7, %lor.lhs.false.i4 ], [ %.pre1.i15, %if.end.sink.split ]
-  %.sink = phi ptr [ %2, %lor.lhs.false.i ], [ %6, %lor.lhs.false.i4 ], [ %.pre.i, %if.end.sink.split ]
-  %m_constraints.sink = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_constraints, %lor.lhs.false.i4 ], [ %m_learned.sink, %if.end.sink.split ]
+  %.sink = phi ptr [ %2, %lor.lhs.false.i ], [ %6, %lor.lhs.false.i4 ], [ %.pre.i13, %if.end.sink.split ]
+  %m_constraints.sink = phi ptr [ %m_learned, %lor.lhs.false.i ], [ %m_constraints, %lor.lhs.false.i4 ], [ %m_constraints.sink62, %if.end.sink.split ]
   %idx.ext.i8 = zext i32 %.sink61 to i64
   %add.ptr.i9 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i8
   store ptr %c, ptr %add.ptr.i9, align 8
@@ -25267,31 +25267,31 @@ sw.default:                                       ; preds = %entry
   unreachable
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then45, %lor.lhs.false.i.i87, %if.then, %lor.lhs.false.i.i35
-  %xor.i.sink.ph = phi i32 [ %xor.i, %lor.lhs.false.i.i35 ], [ %xor.i, %if.then ], [ %xor.i84, %lor.lhs.false.i.i87 ], [ %xor.i84, %if.then45 ]
-  %mul19.sink.ph = phi i32 [ %mul19, %lor.lhs.false.i.i35 ], [ %mul19, %if.then ], [ %mul54, %lor.lhs.false.i.i87 ], [ %mul54, %if.then45 ]
+  %xor.i84.sink.ph = phi i32 [ %xor.i, %lor.lhs.false.i.i35 ], [ %xor.i, %if.then ], [ %xor.i84, %lor.lhs.false.i.i87 ], [ %xor.i84, %if.then45 ]
+  %mul54.sink.ph = phi i32 [ %mul19, %lor.lhs.false.i.i35 ], [ %mul19, %if.then ], [ %mul54, %lor.lhs.false.i.i87 ], [ %mul54, %if.then45 ]
   tail call void @_ZN6vectorISt4pairIjN3sat7literalEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %ineq)
-  %.pre.i.i48 = load ptr, ptr %ineq, align 8
-  %arrayidx8.phi.trans.insert.i.i101 = getelementptr inbounds i8, ptr %.pre.i.i48, i64 -4
+  %.pre.i.i100 = load ptr, ptr %ineq, align 8
+  %arrayidx8.phi.trans.insert.i.i101 = getelementptr inbounds i8, ptr %.pre.i.i100, i64 -4
   %.pre1.i.i102 = load i32, ptr %arrayidx8.phi.trans.insert.i.i101, align 4
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %lor.lhs.false.i.i87, %lor.lhs.false.i.i35
   %.sink109 = phi i32 [ %15, %lor.lhs.false.i.i35 ], [ %31, %lor.lhs.false.i.i87 ], [ %.pre1.i.i102, %sw.epilog.sink.split.sink.split ]
-  %.sink = phi ptr [ %14, %lor.lhs.false.i.i35 ], [ %30, %lor.lhs.false.i.i87 ], [ %.pre.i.i48, %sw.epilog.sink.split.sink.split ]
-  %xor.i.sink = phi i32 [ %xor.i, %lor.lhs.false.i.i35 ], [ %xor.i84, %lor.lhs.false.i.i87 ], [ %xor.i.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %mul19.sink = phi i32 [ %mul19, %lor.lhs.false.i.i35 ], [ %mul54, %lor.lhs.false.i.i87 ], [ %mul19.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %idx.ext.i.i39 = zext i32 %.sink109 to i64
-  %add.ptr.i.i40 = getelementptr inbounds %"struct.std::pair", ptr %.sink, i64 %idx.ext.i.i39
-  %ref.tmp.sroa.2.0.insert.ext.i41 = zext i32 %xor.i.sink to i64
-  %ref.tmp.sroa.2.0.insert.shift.i42 = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i41, 32
-  %ref.tmp.sroa.0.0.insert.ext.i43 = zext i32 %mul19.sink to i64
-  %ref.tmp.sroa.0.0.insert.insert.i44 = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i42, %ref.tmp.sroa.0.0.insert.ext.i43
-  store i64 %ref.tmp.sroa.0.0.insert.insert.i44, ptr %add.ptr.i.i40, align 4
+  %.sink = phi ptr [ %14, %lor.lhs.false.i.i35 ], [ %30, %lor.lhs.false.i.i87 ], [ %.pre.i.i100, %sw.epilog.sink.split.sink.split ]
+  %xor.i84.sink = phi i32 [ %xor.i, %lor.lhs.false.i.i35 ], [ %xor.i84, %lor.lhs.false.i.i87 ], [ %xor.i84.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %mul54.sink = phi i32 [ %mul19, %lor.lhs.false.i.i35 ], [ %mul54, %lor.lhs.false.i.i87 ], [ %mul54.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %idx.ext.i.i91 = zext i32 %.sink109 to i64
+  %add.ptr.i.i92 = getelementptr inbounds %"struct.std::pair", ptr %.sink, i64 %idx.ext.i.i91
+  %ref.tmp.sroa.2.0.insert.ext.i93 = zext i32 %xor.i84.sink to i64
+  %ref.tmp.sroa.2.0.insert.shift.i94 = shl nuw i64 %ref.tmp.sroa.2.0.insert.ext.i93, 32
+  %ref.tmp.sroa.0.0.insert.ext.i95 = zext i32 %mul54.sink to i64
+  %ref.tmp.sroa.0.0.insert.insert.i96 = or disjoint i64 %ref.tmp.sroa.2.0.insert.shift.i94, %ref.tmp.sroa.0.0.insert.ext.i95
+  store i64 %ref.tmp.sroa.0.0.insert.insert.i96, ptr %add.ptr.i.i92, align 4
   %33 = load ptr, ptr %ineq, align 8
-  %arrayidx10.i.i45 = getelementptr inbounds i8, ptr %33, i64 -4
-  %34 = load i32, ptr %arrayidx10.i.i45, align 4
+  %arrayidx10.i.i97 = getelementptr inbounds i8, ptr %33, i64 -4
+  %34 = load i32, ptr %arrayidx10.i.i97, align 4
   %inc.i.i98 = add i32 %34, 1
-  store i32 %inc.i.i98, ptr %arrayidx10.i.i45, align 4
+  store i32 %inc.i.i98, ptr %arrayidx10.i.i97, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %for.end40, %for.end

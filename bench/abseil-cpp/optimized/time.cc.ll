@@ -908,21 +908,11 @@ entry:
   %coerce.val.ip = inttoptr i64 %tz.coerce to ptr
   store ptr %coerce.val.ip, ptr %tz, align 8
   %cmp = icmp sgt i64 %year, 300000000000
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %post.i = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i64 9223372036854775807, ptr %post.i, align 4, !alias.scope !17
-  br label %return.sink.split.sink.split
+  br i1 %cmp, label %return.sink.split.sink.split, label %if.end
 
 if.end:                                           ; preds = %entry
   %cmp2 = icmp slt i64 %year, -300000000000
-  br i1 %cmp2, label %if.then3, label %if.end4
-
-if.then3:                                         ; preds = %if.end
-  %post.i9 = getelementptr inbounds i8, ptr %agg.result, i64 24
-  store i64 -9223372036854775808, ptr %post.i9, align 4, !alias.scope !20
-  br label %return.sink.split.sink.split
+  br i1 %cmp2, label %return.sink.split.sink.split, label %if.end4
 
 if.end4:                                          ; preds = %if.end
   %conv = sext i32 %mon to i64
@@ -936,21 +926,21 @@ if.end4:                                          ; preds = %if.end
   %cs.sroa.3.8.extract.trunc = trunc i64 %1 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cl.i)
-  store i64 %0, ptr %cs.i, align 8, !noalias !23
+  store i64 %0, ptr %cs.i, align 8, !noalias !17
   %2 = getelementptr inbounds i8, ptr %cs.i, i64 8
-  store i64 %1, ptr %2, align 8, !noalias !23
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i), !noalias !23
-  %3 = load i32, ptr %cl.i, align 8, !noalias !23
+  store i64 %1, ptr %2, align 8, !noalias !17
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i), !noalias !17
+  %3 = load i32, ptr %cl.i, align 8, !noalias !17
   %pre.i = getelementptr inbounds i8, ptr %cl.i, i64 8
-  %call.i14 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
+  %call.i14 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !17
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i14, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i14, 1
   %trans.i15 = getelementptr inbounds i8, ptr %cl.i, i64 16
-  %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i15, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
+  %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i15, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !17
   %call11.fca.0.extract.i = extractvalue { i64, i32 } %call11.i, 0
   %call11.fca.1.extract.i = extractvalue { i64, i32 } %call11.i, 1
   %post.i16 = getelementptr inbounds i8, ptr %cl.i, i64 24
-  %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i16, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !23
+  %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i16, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz), !noalias !17
   %call17.fca.0.extract.i = extractvalue { i64, i32 } %call17.i, 0
   %call17.fca.1.extract.i = extractvalue { i64, i32 } %call17.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)
@@ -1000,13 +990,15 @@ sw.epilog:                                        ; preds = %if.end4, %sw.epilog
   %or.cond25 = select i1 %or.cond24, i1 %cmp31.not, i1 false
   br i1 %or.cond25, label %return, label %return.sink.split
 
-return.sink.split.sink.split:                     ; preds = %if.then3, %if.then
-  %post.i.sink30 = phi ptr [ %post.i, %if.then ], [ %post.i9, %if.then3 ]
+return.sink.split.sink.split:                     ; preds = %if.end, %entry
+  %.sink31 = phi i64 [ 9223372036854775807, %entry ], [ -9223372036854775808, %if.end ]
+  %post.i = getelementptr inbounds i8, ptr %agg.result, i64 24
+  store i64 %.sink31, ptr %post.i, align 4
   %ref.tmp.sroa.2.0.post.sroa_idx.i = getelementptr inbounds i8, ptr %agg.result, i64 32
   store i32 -1, ptr %ref.tmp.sroa.2.0.post.sroa_idx.i, align 4
   %trans.i = getelementptr inbounds i8, ptr %agg.result, i64 12
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %trans.i, ptr noundef nonnull align 4 dereferenceable(12) %post.i.sink30, i64 12, i1 false)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %post.i.sink30, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %trans.i, ptr noundef nonnull align 4 dereferenceable(12) %post.i, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %agg.result, ptr noundef nonnull align 4 dereferenceable(12) %post.i, i64 12, i1 false)
   %kind.i = getelementptr inbounds i8, ptr %agg.result, i64 36
   store i32 0, ptr %kind.i, align 4
   %normalized.i = getelementptr inbounds i8, ptr %agg.result, i64 40
@@ -1056,18 +1048,18 @@ entry:
   %8 = extractvalue { i64, i64 } %call.i, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %cs.i)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %cl.i)
-  store i64 %7, ptr %cs.i, align 8, !noalias !26
+  store i64 %7, ptr %cs.i, align 8, !noalias !20
   %9 = getelementptr inbounds i8, ptr %cs.i, i64 8
-  store i64 %8, ptr %9, align 8, !noalias !26
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i) #13, !noalias !26
+  store i64 %8, ptr %9, align 8, !noalias !20
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNS1_6detail10civil_timeINS3_10second_tagEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::civil_lookup") align 8 %cl.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(16) %cs.i) #13, !noalias !20
   %pre.i = getelementptr inbounds i8, ptr %cl.i, i64 8
-  %call.i12 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
+  %call.i12 = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %pre.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !20
   %call.fca.0.extract.i = extractvalue { i64, i32 } %call.i12, 0
   %call.fca.1.extract.i = extractvalue { i64, i32 } %call.i12, 1
   %trans.i = getelementptr inbounds i8, ptr %cl.i, i64 16
-  %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
+  %call11.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %trans.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !20
   %post.i = getelementptr inbounds i8, ptr %cl.i, i64 24
-  %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !26
+  %call17.i = call fastcc { i64, i32 } @_ZN4absl12_GLOBAL__N_120MakeTimeWithOverflowERKNSt6chrono10time_pointINS1_3_V212system_clockENS1_8durationIlSt5ratioILl1ELl1EEEEEERKNS_13time_internal4cctz6detail10civil_timeINSE_10second_tagEEERKNSD_9time_zoneEPb(ptr noundef nonnull align 8 dereferenceable(8) %post.i, ptr noundef nonnull align 8 dereferenceable(16) %cs.i, ptr noundef nonnull align 8 dereferenceable(8) %tz) #13, !noalias !20
   %call17.fca.0.extract.i = extractvalue { i64, i32 } %call17.i, 0
   %call17.fca.1.extract.i = extractvalue { i64, i32 } %call17.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %cs.i)
@@ -1099,7 +1091,7 @@ entry:
   br i1 %spec.select.i.i.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %call.i.i.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !29
+  %call.i.i.i.i.i = tail call { i64, i64 } @_ZN4absl13time_internal4cctz6detail4impl5n_dayElallaaa(i64 noundef 9223372036854775807, i8 noundef signext 12, i64 noundef 31, i64 noundef 0, i8 noundef signext 23, i8 noundef signext 59, i8 noundef signext 59) #13, !noalias !23
   %1 = extractvalue { i64, i64 } %call.i.i.i.i.i, 0
   %2 = extractvalue { i64, i64 } %call.i.i.i.i.i, 1
   %ci.sroa.8.8.extract.trunc29 = trunc i64 %2 to i8
@@ -1119,11 +1111,11 @@ if.end.i:                                         ; preds = %entry
   br i1 %spec.select.i.i9.i, label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit, label %if.end11.i
 
 if.end11.i:                                       ; preds = %if.end.i
-  store i64 %t.coerce0, ptr %tp.i, align 8, !noalias !34
-  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %al.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(8) %tp.i) #13, !noalias !34
-  %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %al.i, align 8, !noalias !34
+  store i64 %t.coerce0, ptr %tp.i, align 8, !noalias !28
+  call void @_ZNK4absl13time_internal4cctz9time_zone6lookupERKNSt6chrono10time_pointINS3_3_V212system_clockENS3_8durationIlSt5ratioILl1ELl1EEEEEE(ptr nonnull sret(%"struct.absl::time_internal::cctz::time_zone::absolute_lookup") align 8 %al.i, ptr noundef nonnull align 8 dereferenceable(8) %tz, ptr noundef nonnull align 8 dereferenceable(8) %tp.i) #13, !noalias !28
+  %agg.tmp.sroa.0.0.copyload.i.i = load i64, ptr %al.i, align 8, !noalias !28
   %agg.tmp.sroa.2.0.f_.sroa_idx.i.i = getelementptr inbounds i8, ptr %al.i, i64 8
-  %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i.i, align 8, !noalias !34
+  %agg.tmp.sroa.2.0.copyload.i.i = load i64, ptr %agg.tmp.sroa.2.0.f_.sroa_idx.i.i, align 8, !noalias !28
   %ci.sroa.8.8.extract.trunc = trunc i64 %agg.tmp.sroa.2.0.copyload.i.i to i8
   %ci.sroa.14.8.extract.shift = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 8
   %ci.sroa.14.8.extract.trunc = trunc i64 %ci.sroa.14.8.extract.shift to i8
@@ -1134,7 +1126,7 @@ if.end11.i:                                       ; preds = %if.end.i
   %ci.sroa.17.8.extract.shift = lshr i64 %agg.tmp.sroa.2.0.copyload.i.i, 32
   %ci.sroa.17.8.extract.trunc = trunc nuw i64 %ci.sroa.17.8.extract.shift to i32
   %is_dst.i = getelementptr inbounds i8, ptr %al.i, i64 20
-  %3 = load i8, ptr %is_dst.i, align 4, !noalias !34
+  %3 = load i8, ptr %is_dst.i, align 4, !noalias !28
   %frombool.i = and i8 %3, 1
   %4 = zext nneg i8 %frombool.i to i32
   br label %_ZNK4absl8TimeZone2AtENS_4TimeE.exit
@@ -1600,7 +1592,7 @@ if.end31:                                         ; preds = %if.then25, %if.end3
   %3 = or i1 %cmp.i61, %cmp1.i
   %conv28 = select i1 %3, i64 36525, i64 36524
   %cmp29.not = icmp ugt i64 %sub33, %conv28
-  br i1 %cmp29.not, label %if.end31, label %for.cond40.preheader, !llvm.loop !35
+  br i1 %cmp29.not, label %if.end31, label %for.cond40.preheader, !llvm.loop !29
 
 for.cond40.preheader:                             ; preds = %if.end31, %if.then25
   %yi.2.ph = phi i32 [ %cond.i, %if.then25 ], [ %spec.select, %if.end31 ]
@@ -1635,7 +1627,7 @@ if.end46:                                         ; preds = %_ZN4absl13time_inte
   %cmp51 = icmp sgt i32 %yi.2, 395
   %spec.select55.v = select i1 %cmp51, i32 -396, i32 4
   %spec.select55 = add nsw i32 %spec.select55.v, %yi.2
-  br label %for.cond40, !llvm.loop !37
+  br label %for.cond40, !llvm.loop !31
 
 for.cond56:                                       ; preds = %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit, %if.end62
   %ey.4 = phi i64 [ %inc, %if.end62 ], [ %ey.3, %_ZN4absl13time_internal4cctz6detail4impl15days_per_4yearsEi.exit ]
@@ -1662,7 +1654,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78: ; preds = %fo
 if.end62:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78
   %sub64 = sub nuw nsw i64 %d.addr.3, %conv59
   %inc = add nsw i64 %ey.4, 1
-  br label %for.cond56, !llvm.loop !38
+  br label %for.cond56, !llvm.loop !32
 
 if.end66:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78, %if.end23
   %ey.5 = phi i64 [ %ey.1, %if.end23 ], [ %ey.4, %_ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit78 ]
@@ -1708,7 +1700,7 @@ if.end75:                                         ; preds = %_ZN4absl13time_inte
   %inc82 = zext i1 %cmp80 to i64
   %spec.select56 = add nsw i64 %ey.6, %inc82
   %spec.select57 = select i1 %cmp80, i8 1, i8 %inc78
-  br label %for.cond69, !llvm.loop !39
+  br label %for.cond69, !llvm.loop !33
 
 if.end85:                                         ; preds = %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit, %if.end66
   %ey.8 = phi i64 [ %ey.5, %if.end66 ], [ %ey.6, %_ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.exit ]
@@ -1786,25 +1778,19 @@ attributes #14 = { nounwind willreturn memory(none) }
 !15 = distinct !{!15, !16, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv: %agg.result"}
 !16 = distinct !{!16, !"_ZN4absl12_GLOBAL__N_121InfinitePastCivilInfoEv"}
 !17 = !{!18}
-!18 = distinct !{!18, !19, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv: %agg.result"}
-!19 = distinct !{!19, !"_ZN4absl12_GLOBAL__N_128InfiniteFutureTimeConversionEv"}
+!18 = distinct !{!18, !19, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: %agg.result"}
+!19 = distinct !{!19, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
 !20 = !{!21}
-!21 = distinct !{!21, !22, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv: %agg.result"}
-!22 = distinct !{!22, !"_ZN4absl12_GLOBAL__N_126InfinitePastTimeConversionEv"}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: %agg.result"}
-!25 = distinct !{!25, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
-!26 = !{!27}
-!27 = distinct !{!27, !28, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: %agg.result"}
-!28 = distinct !{!28, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
-!29 = !{!30, !32}
-!30 = distinct !{!30, !31, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: %agg.result"}
-!31 = distinct !{!31, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
-!32 = distinct !{!32, !33, !"_ZNK4absl8TimeZone2AtENS_4TimeE: %agg.result"}
-!33 = distinct !{!33, !"_ZNK4absl8TimeZone2AtENS_4TimeE"}
-!34 = !{!32}
-!35 = distinct !{!35, !36}
-!36 = !{!"llvm.loop.mustprogress"}
-!37 = distinct !{!37, !36}
-!38 = distinct !{!38, !36}
-!39 = distinct !{!39, !36}
+!21 = distinct !{!21, !22, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE: %agg.result"}
+!22 = distinct !{!22, !"_ZNK4absl8TimeZone2AtENS_13time_internal4cctz6detail10civil_timeINS1_10second_tagEEE"}
+!23 = !{!24, !26}
+!24 = distinct !{!24, !25, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv: %agg.result"}
+!25 = distinct !{!25, !"_ZN4absl12_GLOBAL__N_123InfiniteFutureCivilInfoEv"}
+!26 = distinct !{!26, !27, !"_ZNK4absl8TimeZone2AtENS_4TimeE: %agg.result"}
+!27 = distinct !{!27, !"_ZNK4absl8TimeZone2AtENS_4TimeE"}
+!28 = !{!26}
+!29 = distinct !{!29, !30}
+!30 = !{!"llvm.loop.mustprogress"}
+!31 = distinct !{!31, !30}
+!32 = distinct !{!32, !30}
+!33 = distinct !{!33, !30}

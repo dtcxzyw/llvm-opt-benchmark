@@ -11177,10 +11177,10 @@ fSequenceOfEnums.exit904:                         ; preds = %1343, %1346, %1350
   br label %.sink.split337.i
 
 .sink.split337.i:                                 ; preds = %1506, %1503
-  %.str.3411.sink.i = phi ptr [ @.str.3412, %1506 ], [ @.str.3411, %1503 ]
+  %.str.3412.sink.i = phi ptr [ @.str.3412, %1506 ], [ @.str.3411, %1503 ]
   %1507 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %1358, i32 noundef %.13248274.i, ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55)
   %1508 = add i32 %1507, %.13248274.i
-  %1509 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef %0, ptr noundef %1, ptr noundef %1358, i32 noundef %1508, ptr noundef nonnull %.str.3411.sink.i, ptr noundef null, i32 noundef 0)
+  %1509 = call fastcc i32 @fApplicationTypesEnumeratedSplit(ptr noundef %0, ptr noundef %1, ptr noundef %1358, i32 noundef %1508, ptr noundef nonnull %.str.3412.sink.i, ptr noundef null, i32 noundef 0)
   %1510 = call fastcc i32 @fTagHeaderTree(ptr noundef %0, ptr noundef %1, ptr noundef %1358, i32 noundef %1509, ptr noundef nonnull %53, ptr noundef nonnull %54, ptr noundef nonnull %55)
   %1511 = add i32 %1510, %1509
   br label %1512

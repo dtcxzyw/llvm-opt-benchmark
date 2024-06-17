@@ -11454,20 +11454,20 @@ for.inc:                                          ; preds = %do.end
   br i1 %cmp11, label %for.body, label %return, !llvm.loop !159
 
 return.sink.split:                                ; preds = %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit, %if.end35, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128
-  %.sink = phi ptr [ %12, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ], [ %26, %if.end35 ], [ %55, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ]
-  %add.i.i.i.i.sink = phi i64 [ %add.i.i.i.i, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ], [ %25, %if.end35 ], [ %add.i.i44, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ]
-  %retval.0.ph = phi ptr [ %5, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ], [ %add.ptr.i, %if.end35 ], [ %24, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ]
-  %markBitArray_.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 16384
-  %sub.ptr.rhs.cast.i.i.i = ptrtoint ptr %markBitArray_.i.i.i to i64
-  %sub.ptr.sub.i.i.i = sub i64 %add.i.i.i.i.sink, %sub.ptr.rhs.cast.i.i.i
-  %shr.i.i.i = ashr i64 %sub.ptr.sub.i.i.i, 3
-  %rem.i.i.i.i = and i64 %shr.i.i.i, 63
-  %shl.i.i.i.i = shl nuw i64 1, %rem.i.i.i.i
-  %div4.i.i.i.i = lshr i64 %shr.i.i.i, 6
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8192 x i64], ptr %markBitArray_.i.i.i, i64 0, i64 %div4.i.i.i.i
-  %57 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %or.i.i.i.i141 = or i64 %57, %shl.i.i.i.i
-  store i64 %or.i.i.i.i141, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %.sink = phi ptr [ %55, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ], [ %26, %if.end35 ], [ %12, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ]
+  %add.i.i44.lcssa198.sink = phi i64 [ %add.i.i44, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ], [ %25, %if.end35 ], [ %add.i.i.i.i, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ]
+  %retval.0.ph = phi ptr [ %24, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEPNS0_27AssignableCompressedPointerEmPNS2_13SegmentBucketE.exit128 ], [ %add.ptr.i, %if.end35 ], [ %5, %_ZN6hermes2vm7HadesGC6OldGen22removeCellFromFreelistEmPNS2_13SegmentBucketE.exit ]
+  %markBitArray_.i.i.i133 = getelementptr inbounds i8, ptr %.sink, i64 16384
+  %sub.ptr.rhs.cast.i.i.i134 = ptrtoint ptr %markBitArray_.i.i.i133 to i64
+  %sub.ptr.sub.i.i.i135 = sub i64 %add.i.i44.lcssa198.sink, %sub.ptr.rhs.cast.i.i.i134
+  %shr.i.i.i136 = ashr i64 %sub.ptr.sub.i.i.i135, 3
+  %rem.i.i.i.i137 = and i64 %shr.i.i.i136, 63
+  %shl.i.i.i.i138 = shl nuw i64 1, %rem.i.i.i.i137
+  %div4.i.i.i.i139 = lshr i64 %shr.i.i.i136, 6
+  %arrayidx.i.i.i.i.i.i140 = getelementptr inbounds [8192 x i64], ptr %markBitArray_.i.i.i133, i64 0, i64 %div4.i.i.i.i139
+  %57 = load i64, ptr %arrayidx.i.i.i.i.i.i140, align 8
+  %or.i.i.i.i141 = or i64 %57, %shl.i.i.i.i138
+  store i64 %or.i.i.i.i141, ptr %arrayidx.i.i.i.i.i.i140, align 8
   br label %return
 
 return:                                           ; preds = %for.inc, %return.sink.split, %_ZNK6hermes8BitArrayILm267ELm8EE18findNextSetBitFromEm.exit

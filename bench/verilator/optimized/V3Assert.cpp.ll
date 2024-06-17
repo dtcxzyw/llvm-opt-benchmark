@@ -5986,8 +5986,8 @@ _ZN10AstSenTree12unlinkFrBackEP10VNRelinker.exit: ; preds = %70
 81:                                               ; preds = %60, %80, %_ZN10AstSenTree12unlinkFrBackEP10VNRelinker.exit
   %82 = getelementptr inbounds i8, ptr %1, i64 64
   %.sroa.0.0.copyload.i.i.i107 = load i16, ptr %82, align 8
-  %.not162 = icmp eq i16 %.sroa.0.0.copyload.i.i.i107, 403
-  br i1 %.not162, label %83, label %128
+  %.not161 = icmp eq i16 %.sroa.0.0.copyload.i.i.i107, 403
+  br i1 %.not161, label %83, label %128
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %0, i64 96
@@ -6324,9 +6324,9 @@ _ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %_ZN20AstNodeCoverOr
   ret void
 
 194:                                              ; preds = %51, %126, %.body, %166, %187, %24
-  %.sink160 = phi ptr [ %5, %24 ], [ %6, %187 ], [ %6, %166 ], [ %6, %.body ], [ %6, %126 ], [ %6, %51 ]
+  %.sink = phi ptr [ %5, %24 ], [ %6, %187 ], [ %6, %166 ], [ %6, %.body ], [ %6, %126 ], [ %6, %51 ]
   %.pn103.pn = phi { ptr, i32 } [ %25, %24 ], [ %188, %187 ], [ %167, %166 ], [ %.pn, %.body ], [ %127, %126 ], [ %52, %51 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink160) #19
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #19
   resume { ptr, i32 } %.pn103.pn
 }
 

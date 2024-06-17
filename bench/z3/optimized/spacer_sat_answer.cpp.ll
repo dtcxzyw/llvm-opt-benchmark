@@ -1096,10 +1096,10 @@ while.cond.backedge.sink.split:                   ; preds = %if.then.i.i.i147, %
   %arrayidx.i1.i143.sink = phi ptr [ %arrayidx.i1.i.i205, %_ZN6vectorIN6spacer20ground_sat_answer_op5frameELb1EjE8pop_backEv.exit208 ], [ %arrayidx.i1.i143, %if.then22.i.i.i ], [ %arrayidx.i1.i143, %if.then.i.i.i147 ]
   call void @_ZN6spacer20ground_sat_answer_op5frameD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %arrayidx.i1.i143.sink) #14
   %.sink = load ptr, ptr %todo, align 8
-  %arrayidx.i152 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %142 = load i32, ptr %arrayidx.i152, align 4
+  %arrayidx.i206 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %142 = load i32, ptr %arrayidx.i206, align 4
   %dec.i207 = add i32 %142, -1
-  store i32 %dec.i207, ptr %arrayidx.i152, align 4
+  store i32 %dec.i207, ptr %arrayidx.i206, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZNK6vectorIN6spacer20ground_sat_answer_op5frameELb1EjE4sizeEv.exit.i, %while.cond.backedge.sink.split

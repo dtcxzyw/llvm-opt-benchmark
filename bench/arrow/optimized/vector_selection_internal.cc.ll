@@ -59278,7 +59278,7 @@ for.body.lr.ph:                                   ; preds = %_ZNSt6vectorISt10sh
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 24
   %storage_.i.i213 = getelementptr inbounds i8, ptr %ref.tmp38, i64 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %child_datum, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp38, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %child_datum, i64 16
   br label %for.body
 
@@ -59675,8 +59675,8 @@ do.end78:                                         ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !3265)
   call void @llvm.experimental.noalias.scope.decl(metadata !3268)
   %116 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3271
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %116, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %invoke.cont79.thread, label %invoke.cont79
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %116, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %invoke.cont79.thread, label %invoke.cont79
 
 invoke.cont79.thread:                             ; preds = %do.end78
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !3271
@@ -59684,7 +59684,7 @@ invoke.cont79.thread:                             ; preds = %do.end78
 
 invoke.cont79:                                    ; preds = %do.end78
   %117 = load <2 x ptr>, ptr %storage_.i.i213, align 8, !noalias !3271
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3271
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3271
   store <2 x ptr> %117, ptr %child_datum, align 16, !alias.scope !3271
   store ptr null, ptr %storage_.i.i213, align 8, !noalias !3271
   store i8 %116, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !3271
@@ -61153,7 +61153,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 24
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken_field, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp10, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %taken_field, i64 16
   br label %for.body
 
@@ -61390,8 +61390,8 @@ do.end:                                           ; preds = %_ZN5arrow5DatumD2Ev
   call void @llvm.experimental.noalias.scope.decl(metadata !3284)
   call void @llvm.experimental.noalias.scope.decl(metadata !3287)
   %54 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3290
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %54, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %invoke.cont35.thread, label %invoke.cont35
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %54, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %invoke.cont35.thread, label %invoke.cont35
 
 invoke.cont35.thread:                             ; preds = %do.end
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !3290
@@ -61399,7 +61399,7 @@ invoke.cont35.thread:                             ; preds = %do.end
 
 invoke.cont35:                                    ; preds = %do.end
   %55 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !3290
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3290
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !3290
   store <2 x ptr> %55, ptr %taken_field, align 16, !alias.scope !3290
   store ptr null, ptr %storage_.i.i, align 8, !noalias !3290
   store i8 %54, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !3290

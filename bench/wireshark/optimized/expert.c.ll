@@ -1119,9 +1119,9 @@ proto_item_set_generated.exit84:                  ; preds = %104, %106, %109
   br i1 %.not5.i86, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %115, %101
-  %.sink100 = phi ptr [ %103, %101 ], [ %117, %115 ]
+  %.sink98 = phi ptr [ %103, %101 ], [ %117, %115 ]
   %.sink97 = phi i32 [ 2, %101 ], [ 1, %115 ]
-  %118 = getelementptr inbounds i8, ptr %.sink100, i64 28
+  %118 = getelementptr inbounds i8, ptr %.sink98, i64 28
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, %.sink97
   store i32 %120, ptr %118, align 4
@@ -1204,9 +1204,9 @@ proto_item_set_generated.exit92:                  ; preds = %proto_item_set_gene
   br label %160
 
 160:                                              ; preds = %156, %159
-  %.sink98 = phi ptr [ null, %159 ], [ %1, %156 ]
+  %.sink = phi ptr [ null, %159 ], [ %1, %156 ]
   %161 = getelementptr inbounds i8, ptr %146, i64 32
-  store ptr %.sink98, ptr %161, align 8
+  store ptr %.sink, ptr %161, align 8
   %162 = load i32, ptr @expert_tap, align 4
   call void @tap_queue_packet(i32 noundef %162, ptr noundef nonnull %.068, ptr noundef nonnull %146) #12
   br label %.thread

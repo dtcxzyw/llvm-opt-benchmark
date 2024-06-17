@@ -883,31 +883,22 @@ define internal fastcc void @init_t38_info_conv(ptr noundef %0) unnamed_addr #0 
   %102 = icmp eq i32 %bcmp.i, 0
   br i1 %102, label %103, label %addresses_equal.exit
 
-103:                                              ; preds = %96, %94
+addresses_equal.exit:                             ; preds = %96, %88, %80
+  br label %103
+
+103:                                              ; preds = %94, %96, %addresses_equal.exit
+  %.sink22 = phi i64 [ 72, %addresses_equal.exit ], [ 16, %96 ], [ 16, %94 ]
   %104 = load ptr, ptr @p_t38_conv, align 8
-  %105 = getelementptr inbounds i8, ptr %104, i64 16
+  %105 = getelementptr inbounds i8, ptr %104, i64 %.sink22
   store ptr %105, ptr @p_t38_conv_info, align 8
   %106 = load ptr, ptr @p_t38_packet_conv, align 8
-  %107 = getelementptr inbounds i8, ptr %106, i64 16
-  br label %112
-
-addresses_equal.exit:                             ; preds = %96, %88, %80
-  %108 = load ptr, ptr @p_t38_conv, align 8
-  %109 = getelementptr inbounds i8, ptr %108, i64 72
-  store ptr %109, ptr @p_t38_conv_info, align 8
-  %110 = load ptr, ptr @p_t38_packet_conv, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 72
-  br label %112
-
-112:                                              ; preds = %addresses_equal.exit, %103
-  %113 = phi ptr [ %110, %addresses_equal.exit ], [ %106, %103 ]
-  %storemerge = phi ptr [ %111, %addresses_equal.exit ], [ %107, %103 ]
-  store ptr %storemerge, ptr @p_t38_packet_conv_info, align 8
-  %114 = getelementptr inbounds i8, ptr %113, i64 8
-  %115 = load i32, ptr %114, align 8
-  %116 = load ptr, ptr @t38_info, align 8
-  %117 = getelementptr inbounds i8, ptr %116, i64 16
-  store i32 %115, ptr %117, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 %.sink22
+  store ptr %107, ptr @p_t38_packet_conv_info, align 8
+  %108 = getelementptr inbounds i8, ptr %106, i64 8
+  %109 = load i32, ptr %108, align 8
+  %110 = load ptr, ptr @t38_info, align 8
+  %111 = getelementptr inbounds i8, ptr %110, i64 16
+  store i32 %109, ptr %111, align 8
   ret void
 }
 

@@ -1995,18 +1995,18 @@ if.then1449:                                      ; preds = %land.lhs.true1443
   br label %if.end1466.sink.split
 
 if.end1466.sink.split:                            ; preds = %if.then1430, %if.then1449
-  %cond1459.sink = phi i64 [ %cond1459, %if.then1449 ], [ 102, %if.then1430 ]
+  %.sink = phi i64 [ %cond1459, %if.then1449 ], [ 102, %if.then1430 ]
   %185 = phi i64 [ 12, %if.then1449 ], [ 8, %if.then1430 ]
   %186 = getelementptr i8, ptr %matches, i64 %185
-  %mul14611329 = shl i64 %cond1459.sink, %sh_prom1405
-  %add1462 = add i64 %mul14611329, %conv1409
-  %shl.i1689 = shl i64 %add1462, 5
-  %add.i1690 = or disjoint i64 %shl.i1689, %conv1399
-  %conv.i1691 = trunc i64 %add.i1690 to i32
-  %gep1691 = getelementptr inbounds i32, ptr %186, i64 %conv1399
-  %187 = load i32, ptr %gep1691, align 4
-  %cond.i4000 = tail call i32 @llvm.umin.i32(i32 %187, i32 %conv.i1691)
-  store i32 %cond.i4000, ptr %gep1691, align 4
+  %mul14361330 = shl i64 %.sink, %sh_prom1405
+  %add1437 = add i64 %mul14361330, %conv1409
+  %shl.i1700 = shl i64 %add1437, 5
+  %add.i1701 = or disjoint i64 %shl.i1700, %conv1399
+  %conv.i1702 = trunc i64 %add.i1701 to i32
+  %gep1693 = getelementptr inbounds i32, ptr %186, i64 %conv1399
+  %187 = load i32, ptr %gep1693, align 4
+  %cond.i4000 = tail call i32 @llvm.umin.i32(i32 %187, i32 %conv.i1702)
+  store i32 %cond.i4000, ptr %gep1693, align 4
   br label %if.end1466
 
 if.end1466:                                       ; preds = %if.end1466.sink.split, %land.lhs.true1443, %if.else1439, %IsMatch.exit2683, %while.body1390

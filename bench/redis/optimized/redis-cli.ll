@@ -5399,17 +5399,17 @@ if.end28:                                         ; preds = %lor.lhs.false.i22
   br i1 %cmp11.not, label %while.end, label %while.body, !llvm.loop !57
 
 reply_err:                                        ; preds = %lor.lhs.false.i22, %lor.lhs.false.i
-  %call21.sink = phi ptr [ %call12, %lor.lhs.false.i ], [ %call21, %lor.lhs.false.i22 ]
-  %len.i26 = getelementptr inbounds i8, ptr %call21.sink, i64 24
+  %call21.lcssa.sink107 = phi ptr [ %call12, %lor.lhs.false.i ], [ %call21, %lor.lhs.false.i22 ]
+  %len.i26 = getelementptr inbounds i8, ptr %call21.lcssa.sink107, i64 24
   %12 = load i64, ptr %len.i26, align 8
   %add.i27 = add i64 %12, 1
   %call.i28 = call noalias ptr @zmalloc(i64 noundef %add.i27) #35
-  %str.i29 = getelementptr inbounds i8, ptr %call21.sink, i64 32
+  %str.i29 = getelementptr inbounds i8, ptr %call21.lcssa.sink107, i64 32
   %13 = load ptr, ptr %str.i29, align 8
   %14 = load i64, ptr %len.i26, align 8
   %add7.i30 = add i64 %14, 1
   %call8.i31 = call i64 @redis_strlcpy(ptr noundef %call.i28, ptr noundef %13, i64 noundef %add7.i30) #33
-  call void @freeReplyObject(ptr noundef nonnull %call21.sink) #33
+  call void @freeReplyObject(ptr noundef nonnull %call21.lcssa.sink107) #33
   %cmp31 = icmp eq ptr %call.i28, null
   br i1 %cmp31, label %if.then32, label %if.then37.critedge
 

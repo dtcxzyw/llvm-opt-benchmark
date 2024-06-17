@@ -2839,7 +2839,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.sink.split
 
 .sink.split:                                      ; preds = %160, %154
-  %.sink216 = phi i32 [ %172, %160 ], [ %159, %154 ]
+  %.sink216 = phi i32 [ %159, %154 ], [ %172, %160 ]
   %173 = and i32 %.sink216, 31
   %174 = shl nuw i32 1, %173
   %175 = ashr i32 %.sink216, 5

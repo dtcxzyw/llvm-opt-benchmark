@@ -3766,8 +3766,8 @@ if.else:                                          ; preds = %if.end31
   br i1 %cmp44.not, label %if.end50, label %if.end50.sink.split
 
 if.end50.sink.split:                              ; preds = %if.else, %if.then35
-  %is.sink = phi ptr [ %is, %if.then35 ], [ %is37, %if.else ]
-  %15 = load ptr, ptr %is.sink, align 8
+  %is37.sink = phi ptr [ %is, %if.then35 ], [ %is37, %if.else ]
+  %15 = load ptr, ptr %is37.sink, align 8
   %vtable47 = load ptr, ptr %15, align 8
   %vfn48 = getelementptr inbounds i8, ptr %vtable47, i64 48
   %16 = load ptr, ptr %vfn48, align 8

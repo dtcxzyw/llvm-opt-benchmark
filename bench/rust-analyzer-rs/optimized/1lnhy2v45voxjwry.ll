@@ -74005,10 +74005,10 @@ define hidden void @_ZN3std9panicking3try17h148fafd99a29e921E(ptr noalias nocapt
   unreachable
 
 10:                                               ; preds = %4, %2
-  %.sink16 = phi { ptr, ptr } [ %3, %2 ], [ %7, %4 ]
+  %.sink = phi { ptr, ptr } [ %3, %2 ], [ %7, %4 ]
   %storemerge = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %11 = extractvalue { ptr, ptr } %.sink16, 0
-  %12 = extractvalue { ptr, ptr } %.sink16, 1
+  %11 = extractvalue { ptr, ptr } %.sink, 0
+  %12 = extractvalue { ptr, ptr } %.sink, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null
@@ -75073,10 +75073,10 @@ define hidden void @_ZN3std9panicking3try17h8a33c6cd2b9e6b4dE(ptr noalias nocapt
   unreachable
 
 10:                                               ; preds = %4, %2
-  %.sink16 = phi { ptr, ptr } [ %3, %2 ], [ %7, %4 ]
+  %.sink = phi { ptr, ptr } [ %3, %2 ], [ %7, %4 ]
   %storemerge = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %11 = extractvalue { ptr, ptr } %.sink16, 0
-  %12 = extractvalue { ptr, ptr } %.sink16, 1
+  %11 = extractvalue { ptr, ptr } %.sink, 0
+  %12 = extractvalue { ptr, ptr } %.sink, 1
   %13 = icmp ne ptr %11, null
   tail call void @llvm.assume(i1 %13)
   %14 = icmp ne ptr %12, null

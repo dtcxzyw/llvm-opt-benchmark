@@ -2511,13 +2511,13 @@ define dso_local noundef i64 @rb_tracepoint_enable(i64 noundef %0) #0 {
   %8 = getelementptr inbounds i8, ptr %2, i64 4
   %9 = load i32, ptr %8, align 4
   %.not10 = icmp eq i32 %9, 0
-  br i1 %.not10, label %10, label %61
+  br i1 %.not10, label %10, label %52
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not11 = icmp eq ptr %12, null
-  br i1 %.not11, label %38, label %13
+  br i1 %.not11, label %29, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %12, i64 16
@@ -2550,71 +2550,60 @@ rb_thread_add_event_hook2.exit:                   ; preds = %13
   %28 = getelementptr inbounds i8, ptr %23, i64 40
   store i32 0, ptr %28, align 8
   store ptr %19, ptr %27, align 8
-  %29 = getelementptr i8, ptr %18, i64 48
-  %.val.i.i = load ptr, ptr %29, align 8, !nonnull !11, !noundef !11
-  %30 = getelementptr inbounds i8, ptr %.val.i.i, i64 24
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %31, i64 16
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds i8, ptr %23, i64 24
-  store ptr %35, ptr %36, align 8
-  store ptr %23, ptr %32, align 8
-  %37 = or i32 %34, %16
-  store i32 %37, ptr %33, align 8
-  tail call fastcc void @update_global_event_hook(i32 noundef %34, i32 noundef %37)
-  br label %60
+  br label %42
 
-38:                                               ; preds = %10
-  %39 = load i32, ptr %2, align 8
-  %.not.i.i = icmp ult i32 %39, 65536
-  %40 = and i32 %39, 65535
-  %.not12.i.i = icmp eq i32 %40, 0
+29:                                               ; preds = %10
+  %30 = load i32, ptr %2, align 8
+  %.not.i.i = icmp ult i32 %30, 65536
+  %31 = and i32 %30, 65535
+  %.not12.i.i = icmp eq i32 %31, 0
   %or.cond.i.i = or i1 %.not.i.i, %.not12.i.i
-  br i1 %or.cond.i.i, label %rb_add_event_hook2.exit, label %41
+  br i1 %or.cond.i.i, label %rb_add_event_hook2.exit, label %32
 
-41:                                               ; preds = %38
-  %42 = load i64, ptr @rb_eTypeError, align 8
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.37) #17
+32:                                               ; preds = %29
+  %33 = load i64, ptr @rb_eTypeError, align 8
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %33, ptr noundef nonnull @.str.37) #17
   unreachable
 
-rb_add_event_hook2.exit:                          ; preds = %38
-  %43 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
-  store i32 5, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 4
-  store i32 %39, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr @tp_call_trace, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %43, i64 16
-  store i64 %0, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %43, i64 32
-  store ptr null, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %43, i64 40
-  store i32 0, ptr %48, align 8
-  %49 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr i8, ptr %50, i64 48
-  %.val.i = load ptr, ptr %51, align 8, !nonnull !11, !noundef !11
-  %52 = getelementptr inbounds i8, ptr %.val.i, i64 24
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 16
-  %55 = getelementptr inbounds i8, ptr %53, i64 24
-  %56 = load i32, ptr %55, align 8
-  %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds i8, ptr %43, i64 24
-  store ptr %57, ptr %58, align 8
-  store ptr %43, ptr %54, align 8
-  %59 = or i32 %56, %39
-  store i32 %59, ptr %55, align 8
-  tail call fastcc void @update_global_event_hook(i32 noundef %56, i32 noundef %59)
-  br label %60
+rb_add_event_hook2.exit:                          ; preds = %29
+  %34 = tail call noalias nonnull dereferenceable(48) ptr @ruby_xmalloc(i64 noundef 48) #23
+  store i32 5, ptr %34, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 4
+  store i32 %30, ptr %35, align 4
+  %36 = getelementptr inbounds i8, ptr %34, i64 8
+  store ptr @tp_call_trace, ptr %36, align 8
+  %37 = getelementptr inbounds i8, ptr %34, i64 16
+  store i64 %0, ptr %37, align 8
+  %38 = getelementptr inbounds i8, ptr %34, i64 32
+  store ptr null, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %34, i64 40
+  store i32 0, ptr %39, align 8
+  %40 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %41 = load ptr, ptr %40, align 8
+  br label %42
 
-60:                                               ; preds = %rb_add_event_hook2.exit, %rb_thread_add_event_hook2.exit
+42:                                               ; preds = %rb_add_event_hook2.exit, %rb_thread_add_event_hook2.exit
+  %.sink26 = phi ptr [ %41, %rb_add_event_hook2.exit ], [ %18, %rb_thread_add_event_hook2.exit ]
+  %.sink21 = phi ptr [ %34, %rb_add_event_hook2.exit ], [ %23, %rb_thread_add_event_hook2.exit ]
+  %.sink16 = phi i32 [ %30, %rb_add_event_hook2.exit ], [ %16, %rb_thread_add_event_hook2.exit ]
+  %43 = getelementptr i8, ptr %.sink26, i64 48
+  %.val.i = load ptr, ptr %43, align 8, !nonnull !11, !noundef !11
+  %44 = getelementptr inbounds i8, ptr %.val.i, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds i8, ptr %45, i64 16
+  %47 = getelementptr inbounds i8, ptr %45, i64 24
+  %48 = load i32, ptr %47, align 8
+  %49 = load ptr, ptr %46, align 8
+  %50 = getelementptr inbounds i8, ptr %.sink21, i64 24
+  store ptr %49, ptr %50, align 8
+  store ptr %.sink21, ptr %46, align 8
+  %51 = or i32 %48, %.sink16
+  store i32 %51, ptr %47, align 8
+  tail call fastcc void @update_global_event_hook(i32 noundef %48, i32 noundef %51)
   store i32 1, ptr %8, align 4
-  br label %61
+  br label %52
 
-61:                                               ; preds = %7, %60
+52:                                               ; preds = %7, %42
   ret i64 36
 }
 

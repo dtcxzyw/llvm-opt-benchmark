@@ -2011,9 +2011,9 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %33 = icmp ugt i16 %10, 4
   br i1 %33, label %.lr.ph.i.i, label %dissect_pcep_msg_tree.exit
 
-.lr.ph.i.i:                                       ; preds = %4, %83
-  %.08091.i.i = phi i32 [ %85, %83 ], [ 4, %4 ]
-  %.08190.i.i = phi i32 [ %84, %83 ], [ 4, %4 ]
+.lr.ph.i.i:                                       ; preds = %4, %78
+  %.08091.i.i = phi i32 [ %80, %78 ], [ 4, %4 ]
+  %.08190.i.i = phi i32 [ %79, %78 ], [ 4, %4 ]
   %34 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.08190.i.i) #2
   %35 = zext i8 %34 to i32
   %36 = add i8 %34, -1
@@ -2038,76 +2038,71 @@ define internal i32 @dissect_pcep_pdu(ptr noundef %0, ptr noundef %1, ptr nounde
   %42 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %41, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, i32 noundef 0) #2
   %43 = load i32, ptr %.sroa.6.0.copyload.i.i, align 4
   %44 = tail call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %43) #2
-  %45 = load i32, ptr @hf_PCEPF_OBJECT_CLASS, align 4
-  %46 = tail call ptr @proto_tree_add_uint(ptr noundef %44, i32 noundef %45, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef 1, i32 noundef %35) #2
-  %47 = load i32, ptr %.sroa.5.0.copyload.i.i, align 4
-  %48 = add i32 %.08190.i.i, 1
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %44, i32 noundef %47, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef 0) #2
-  br label %60
+  br label %50
 
 .thread.i.i:                                      ; preds = %37, %.lr.ph.i.i
   %.sroa.7.089.i.i = phi ptr [ %.sroa.7.0.copyload.i.i, %37 ], [ null, %.lr.ph.i.i ]
-  %50 = load i32, ptr @hf_PCEPF_OBJ_UNKNOWN_TYPE, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %50, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, i32 noundef 0) #2
-  %52 = load i32, ptr @ett_pcep_obj_unknown, align 4
-  %53 = tail call ptr @proto_item_add_subtree(ptr noundef %51, i32 noundef %52) #2
-  %54 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %53, ptr noundef %1, ptr noundef nonnull @ei_pcep_non_defined_object, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, ptr noundef nonnull @.str.1077, i32 noundef %35) #2
-  %55 = load i32, ptr @hf_PCEPF_OBJECT_CLASS, align 4
-  %56 = tail call ptr @proto_tree_add_uint(ptr noundef %53, i32 noundef %55, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef 1, i32 noundef %35) #2
-  %57 = load i32, ptr @hf_pcep_object_type, align 4
-  %58 = add i32 %.08190.i.i, 1
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %53, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef 1, i32 noundef 0) #2
-  br label %60
+  %45 = load i32, ptr @hf_PCEPF_OBJ_UNKNOWN_TYPE, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %45, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, i32 noundef 0) #2
+  %47 = load i32, ptr @ett_pcep_obj_unknown, align 4
+  %48 = tail call ptr @proto_item_add_subtree(ptr noundef %46, i32 noundef %47) #2
+  %49 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %48, ptr noundef %1, ptr noundef nonnull @ei_pcep_non_defined_object, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef -1, ptr noundef nonnull @.str.1077, i32 noundef %35) #2
+  br label %50
 
-60:                                               ; preds = %.thread.i.i, %40
-  %.pre-phi.i.i = phi i32 [ %58, %.thread.i.i ], [ %48, %40 ]
-  %61 = phi i1 [ false, %.thread.i.i ], [ true, %40 ]
+50:                                               ; preds = %.thread.i.i, %40
+  %.sink98.i.i = phi ptr [ %48, %.thread.i.i ], [ %44, %40 ]
+  %hf_pcep_object_type.sink.i.i = phi ptr [ @hf_pcep_object_type, %.thread.i.i ], [ %.sroa.5.0.copyload.i.i, %40 ]
+  %51 = phi i1 [ false, %.thread.i.i ], [ true, %40 ]
   %.sroa.7.088.i.i = phi ptr [ %.sroa.7.089.i.i, %.thread.i.i ], [ %.sroa.7.0.copyload.i.i, %40 ]
-  %.079.i.i = phi ptr [ %53, %.thread.i.i ], [ %44, %40 ]
-  %.0.i.i = phi ptr [ %51, %.thread.i.i ], [ %42, %40 ]
-  %62 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.pre-phi.i.i) #2
-  %63 = lshr i8 %62, 4
-  %64 = zext nneg i8 %63 to i32
-  %65 = load i32, ptr @hf_pcep_hdr_obj_flags, align 4
-  %66 = load i32, ptr @ett_pcep_hdr, align 4
-  %67 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.079.i.i, ptr noundef %0, i32 noundef %.pre-phi.i.i, i32 noundef %65, i32 noundef %66, ptr noundef nonnull @dissect_pcep_obj_tree.pcep_hdr_obj_flags, i32 noundef 0) #2
-  %68 = load i32, ptr @hf_pcep_object_length, align 4
-  %69 = add i32 %.08190.i.i, 2
-  %70 = tail call ptr @proto_tree_add_item(ptr noundef %.079.i.i, i32 noundef %68, ptr noundef %0, i32 noundef %69, i32 noundef 2, i32 noundef 0) #2
-  %71 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %69) #2
-  %72 = zext i16 %71 to i32
-  tail call void @proto_item_set_len(ptr noundef %.0.i.i, i32 noundef %72) #2
-  %73 = icmp ult i16 %71, 4
-  br i1 %73, label %74, label %76
+  %.0.i.i = phi ptr [ %46, %.thread.i.i ], [ %42, %40 ]
+  %52 = load i32, ptr @hf_PCEPF_OBJECT_CLASS, align 4
+  %53 = tail call ptr @proto_tree_add_uint(ptr noundef %.sink98.i.i, i32 noundef %52, ptr noundef %0, i32 noundef %.08190.i.i, i32 noundef 1, i32 noundef %35) #2
+  %54 = load i32, ptr %hf_pcep_object_type.sink.i.i, align 4
+  %55 = add i32 %.08190.i.i, 1
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %.sink98.i.i, i32 noundef %54, ptr noundef %0, i32 noundef %55, i32 noundef 1, i32 noundef 0) #2
+  %57 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #2
+  %58 = lshr i8 %57, 4
+  %59 = zext nneg i8 %58 to i32
+  %60 = load i32, ptr @hf_pcep_hdr_obj_flags, align 4
+  %61 = load i32, ptr @ett_pcep_hdr, align 4
+  %62 = tail call ptr @proto_tree_add_bitmask(ptr noundef %.sink98.i.i, ptr noundef %0, i32 noundef %55, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @dissect_pcep_obj_tree.pcep_hdr_obj_flags, i32 noundef 0) #2
+  %63 = load i32, ptr @hf_pcep_object_length, align 4
+  %64 = add i32 %.08190.i.i, 2
+  %65 = tail call ptr @proto_tree_add_item(ptr noundef %.sink98.i.i, i32 noundef %63, ptr noundef %0, i32 noundef %64, i32 noundef 2, i32 noundef 0) #2
+  %66 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %64) #2
+  %67 = zext i16 %66 to i32
+  tail call void @proto_item_set_len(ptr noundef %.0.i.i, i32 noundef %67) #2
+  %68 = icmp ult i16 %66, 4
+  br i1 %68, label %69, label %71
 
-74:                                               ; preds = %60
-  %75 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.079.i.i, ptr noundef nonnull @ei_pcep_object_length, ptr noundef nonnull @.str.1078, i32 noundef %72) #2
+69:                                               ; preds = %50
+  %70 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.sink98.i.i, ptr noundef nonnull @ei_pcep_object_length, ptr noundef nonnull @.str.1078, i32 noundef %67) #2
   br label %dissect_pcep_msg_tree.exit
 
-76:                                               ; preds = %60
-  %77 = icmp ne ptr %.sroa.7.088.i.i, null
-  %or.cond5.i.i = select i1 %61, i1 %77, i1 false
-  %78 = add i32 %.08190.i.i, 4
-  br i1 %or.cond5.i.i, label %79, label %80
+71:                                               ; preds = %50
+  %72 = icmp ne ptr %.sroa.7.088.i.i, null
+  %or.cond5.i.i = select i1 %51, i1 %72, i1 false
+  %73 = add i32 %.08190.i.i, 4
+  br i1 %or.cond5.i.i, label %74, label %75
 
-79:                                               ; preds = %76
-  tail call void %.sroa.7.088.i.i(ptr noundef %.079.i.i, ptr noundef %1, ptr noundef %0, i32 noundef %78, i32 noundef %72, i32 noundef %35, i32 noundef %64) #2
-  br label %83
+74:                                               ; preds = %71
+  tail call void %.sroa.7.088.i.i(ptr noundef %.sink98.i.i, ptr noundef %1, ptr noundef %0, i32 noundef %73, i32 noundef %67, i32 noundef %35, i32 noundef %59) #2
+  br label %78
 
-80:                                               ; preds = %76
-  %81 = add nsw i32 %72, -4
-  %82 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.079.i.i, ptr noundef %1, ptr noundef nonnull @ei_pcep_pcep_object_body_non_defined, ptr noundef %0, i32 noundef %78, i32 noundef %81, ptr noundef nonnull @.str.1079, i32 noundef %64) #2
-  br label %83
+75:                                               ; preds = %71
+  %76 = add nsw i32 %67, -4
+  %77 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.sink98.i.i, ptr noundef %1, ptr noundef nonnull @ei_pcep_pcep_object_body_non_defined, ptr noundef %0, i32 noundef %73, i32 noundef %76, ptr noundef nonnull @.str.1079, i32 noundef %59) #2
+  br label %78
 
-83:                                               ; preds = %80, %79
-  %84 = add i32 %.08190.i.i, %72
-  %85 = add nuw nsw i32 %.08091.i.i, %72
-  %86 = icmp ult i32 %85, %15
-  br i1 %86, label %.lr.ph.i.i, label %dissect_pcep_msg_tree.exit, !llvm.loop !4
+78:                                               ; preds = %75, %74
+  %79 = add i32 %.08190.i.i, %67
+  %80 = add nuw nsw i32 %.08091.i.i, %67
+  %81 = icmp ult i32 %80, %15
+  br i1 %81, label %.lr.ph.i.i, label %dissect_pcep_msg_tree.exit, !llvm.loop !4
 
-dissect_pcep_msg_tree.exit:                       ; preds = %83, %4, %74
-  %87 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %87
+dissect_pcep_msg_tree.exit:                       ; preds = %78, %4, %69
+  %82 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %82
 }
 
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #1

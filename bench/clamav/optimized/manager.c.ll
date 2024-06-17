@@ -1704,8 +1704,8 @@ switch.lookup:                                    ; preds = %811
   br label %817
 
 817:                                              ; preds = %switch.lookup, %806
-  %.sink561 = phi i32 [ 1536, %806 ], [ %switch.offset, %switch.lookup ]
-  %818 = or i32 %805, %.sink561
+  %.sink559 = phi i32 [ 1536, %806 ], [ %switch.offset, %switch.lookup ]
+  %818 = or i32 %805, %.sink559
   store i32 %818, ptr %804, align 4
   %819 = call ptr @optget(ptr noundef %0, ptr noundef nonnull @.str.125) #21
   %820 = getelementptr inbounds i8, ptr %819, i64 36
@@ -1761,7 +1761,7 @@ switch.lookup:                                    ; preds = %811
 
 847:                                              ; preds = %844
   %848 = or i32 %818, 4096
-  br label %.sink.split559
+  br label %.sink.split560
 
 849:                                              ; preds = %844
   %850 = call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.130) #21
@@ -1769,14 +1769,14 @@ switch.lookup:                                    ; preds = %811
 
 851:                                              ; preds = %800
   %852 = and i32 %805, -513
-  br label %.sink.split559
+  br label %.sink.split560
 
-.sink.split559:                                   ; preds = %851, %847
-  %.sink560 = phi i32 [ %848, %847 ], [ %852, %851 ]
-  store i32 %.sink560, ptr %804, align 4
+.sink.split560:                                   ; preds = %851, %847
+  %.sink = phi i32 [ %848, %847 ], [ %852, %851 ]
+  store i32 %.sink, ptr %804, align 4
   br label %853
 
-853:                                              ; preds = %.sink.split559, %840, %844
+853:                                              ; preds = %.sink.split560, %840, %844
   store i64 0, ptr @procdev, align 8
   %854 = call i32 @stat(ptr noundef nonnull @.str.131, ptr noundef nonnull %3) #21
   %855 = icmp eq i32 %854, -1

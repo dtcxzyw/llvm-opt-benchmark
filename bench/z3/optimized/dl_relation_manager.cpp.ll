@@ -15276,14 +15276,14 @@ lor.lhs.false.i.i:                                ; preds = %if.then
 for.cond.backedge.sink.split:                     ; preds = %if.then, %lor.lhs.false.i.i, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i, %lor.lhs.false.i.i22
   %.sink.ph = phi ptr [ %call7, %lor.lhs.false.i.i22 ], [ %call7, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i ], [ null, %lor.lhs.false.i.i ], [ null, %if.then ]
   tail call void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_nodes.i)
-  %.pre.i.i31 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i31, i64 -4
+  %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %for.cond.backedge.sink.split, %lor.lhs.false.i.i, %lor.lhs.false.i.i22
   %.sink46 = phi i32 [ %24, %lor.lhs.false.i.i22 ], [ %15, %lor.lhs.false.i.i ], [ %.pre1.i.i, %for.cond.backedge.sink.split ]
-  %.sink45 = phi ptr [ %23, %lor.lhs.false.i.i22 ], [ %14, %lor.lhs.false.i.i ], [ %.pre.i.i31, %for.cond.backedge.sink.split ]
+  %.sink45 = phi ptr [ %23, %lor.lhs.false.i.i22 ], [ %14, %lor.lhs.false.i.i ], [ %.pre.i.i, %for.cond.backedge.sink.split ]
   %.sink = phi ptr [ %call7, %lor.lhs.false.i.i22 ], [ null, %lor.lhs.false.i.i ], [ %.sink.ph, %for.cond.backedge.sink.split ]
   %idx.ext.i.i = zext i32 %.sink46 to i64
   %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink45, i64 %idx.ext.i.i

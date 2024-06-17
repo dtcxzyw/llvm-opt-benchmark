@@ -4102,8 +4102,8 @@ call17.i.noexc.i:                                 ; preds = %if.else.i.i
   br i1 %cmp21.not.i.i, label %if.end27.i.i, label %if.end27.sink.split.i.i
 
 if.end27.sink.split.i.i:                          ; preds = %call17.i.noexc.i, %if.then12.i.i
-  %is.sink.i.i = phi ptr [ %is.i.i, %if.then12.i.i ], [ %is14.i.i, %call17.i.noexc.i ]
-  %67 = load ptr, ptr %is.sink.i.i, align 8
+  %is14.sink.i.i = phi ptr [ %is.i.i, %if.then12.i.i ], [ %is14.i.i, %call17.i.noexc.i ]
+  %67 = load ptr, ptr %is14.sink.i.i, align 8
   %vtable24.i.i = load ptr, ptr %67, align 8
   %vfn25.i.i = getelementptr inbounds i8, ptr %vtable24.i.i, i64 48
   %68 = load ptr, ptr %vfn25.i.i, align 8
@@ -5051,15 +5051,15 @@ if.then135:                                       ; preds = %invoke.cont129
   br i1 %cmp138, label %if.then139.invoke, label %cleanup
 
 if.then139.invoke:                                ; preds = %if.then135, %if.then101
-  %.pn56 = phi ptr [ %51, %if.then101 ], [ %63, %if.then135 ]
-  %.pn55.in = getelementptr inbounds i8, ptr %.pn56, i64 504
-  %.pn55 = load ptr, ptr %.pn55.in, align 8
-  %.sink.in = getelementptr inbounds i8, ptr %.pn55, i64 40
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %vtable108 = load ptr, ptr %.sink, align 8
+  %.sink = phi ptr [ %51, %if.then101 ], [ %63, %if.then135 ]
+  %_streamData106 = getelementptr inbounds i8, ptr %.sink, i64 504
+  %66 = load ptr, ptr %_streamData106, align 8
+  %is107 = getelementptr inbounds i8, ptr %66, i64 40
+  %67 = load ptr, ptr %is107, align 8
+  %vtable108 = load ptr, ptr %67, align 8
   %vfn109 = getelementptr inbounds i8, ptr %vtable108, i64 48
-  %66 = load ptr, ptr %vfn109, align 8
-  invoke void %66(ptr noundef nonnull align 8 dereferenceable(40) %.sink, i64 noundef %7)
+  %68 = load ptr, ptr %vfn109, align 8
+  invoke void %68(ptr noundef nonnull align 8 dereferenceable(40) %67, i64 noundef %7)
           to label %cleanup unwind label %lpad20
 
 cleanup:                                          ; preds = %if.then139.invoke, %invoke.cont129, %if.then135, %if.then96, %if.then101

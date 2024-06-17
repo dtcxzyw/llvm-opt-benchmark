@@ -3854,14 +3854,14 @@ do.end:                                           ; preds = %invoke.cont50
   call void @llvm.experimental.noalias.scope.decl(metadata !101)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 24
   %41 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !104
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %invoke.cont59, label %return.sink.split.i.i.i.i.i.i.i.i.i.i
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %41, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %invoke.cont59, label %return.sink.split.i.i.i.i.i.i.i.i.i.i
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i:            ; preds = %do.end
   %storage_.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 16
   %42 = load <2 x ptr>, ptr %storage_.i.i, align 8, !noalias !104
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !104
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !104
   store <2 x ptr> %42, ptr %unpacked, align 16, !alias.scope !104
   store ptr null, ptr %storage_.i.i, align 8, !noalias !104
   br label %invoke.cont59
@@ -3950,14 +3950,14 @@ do.end79:                                         ; preds = %invoke.cont68
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
   %_M_index.i.i.i.i.i.i.i.i.i.i.i57 = getelementptr inbounds i8, ptr %ref.tmp64, i64 24
   %53 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i57, align 8, !noalias !111
-  %switch.i.i.i.i.i.i.i.i.i58 = icmp eq i8 %53, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i58, label %invoke.cont81, label %return.sink.split.i.i.i.i.i.i.i.i.i.i59
+  %switch.i.i.i.i.i.i.i.i.i.i58 = icmp eq i8 %53, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i58, label %invoke.cont81, label %return.sink.split.i.i.i.i.i.i.i.i.i.i59
 
 return.sink.split.i.i.i.i.i.i.i.i.i.i59:          ; preds = %do.end79
   %storage_.i.i60 = getelementptr inbounds i8, ptr %ref.tmp64, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i62 = getelementptr inbounds i8, ptr %ref.tmp64, i64 16
   %54 = load <2 x ptr>, ptr %storage_.i.i60, align 8, !noalias !111
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i62, align 8, !noalias !111
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i62, align 8, !noalias !111
   store <2 x ptr> %54, ptr %ref.tmp80, align 16, !alias.scope !111
   store ptr null, ptr %storage_.i.i60, align 8, !noalias !111
   br label %invoke.cont81

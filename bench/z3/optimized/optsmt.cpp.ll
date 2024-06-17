@@ -1231,11 +1231,11 @@ call3.i.noexc26:                                  ; preds = %_ZNK15ref_vector_co
   br i1 %tobool.not.i.i.i, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %call3.i.noexc26, %if.then
-  %.sink = phi ptr [ %11, %if.then ], [ %call3.i27, %call3.i.noexc26 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %25 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %call3.i27.sink = phi ptr [ %11, %if.then ], [ %call3.i27, %call3.i.noexc26 ]
+  %m_ref_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call3.i27.sink, i64 8
+  %25 = load i32, ptr %m_ref_count.i.i.i.i.i, align 4
   %inc.i.i.i.i.i = add i32 %25, 1
-  store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i.i, ptr %m_ref_count.i.i.i.i.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %call3.i.noexc26, %if.then

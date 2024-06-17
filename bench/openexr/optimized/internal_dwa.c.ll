@@ -63,8 +63,8 @@ entry:
   %dwaa = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
-  %call = tail call i64 @internal_exr_huf_compress_spare_bytes() #18
-  %call1 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #18
+  %call = tail call i64 @internal_exr_huf_compress_spare_bytes() #16
+  %call1 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #16
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -101,13 +101,13 @@ if.end.i:                                         ; preds = %entry
   store i1 true, ptr @initializeFuncs.done, align 4
   store ptr @convertFloatToHalf64_scalar, ptr @convertFloatToHalf64, align 8
   store ptr @fromHalfZigZag_scalar, ptr @fromHalfZigZag, align 8
-  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #19, !srcloc !4
+  %0 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 0) #17, !srcloc !4
   %asmresult.i.i.i.i = extractvalue { i32, i32, i32, i32 } %0, 0
   %cmp.i.i.i = icmp eq i32 %asmresult.i.i.i.i, 0
   br i1 %cmp.i.i.i, label %if.end4.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.end.i
-  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #19, !srcloc !5
+  %1 = tail call { i32, i32, i32, i32 } asm "  xchgq  %rbx,${1:q}\0A  cpuid\0A  xchgq  %rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 1) #17, !srcloc !5
   %asmresult3.i10.i.i = extractvalue { i32, i32, i32, i32 } %1, 2
   %asmresult4.i11.i.i = extractvalue { i32, i32, i32, i32 } %1, 3
   %2 = lshr i32 %asmresult4.i11.i.i, 26
@@ -119,7 +119,7 @@ if.end.i.i:                                       ; preds = %if.end.i
   br i1 %tobool.not.i.i, label %if.end4.i, label %if.else26.i.i
 
 if.else26.i.i:                                    ; preds = %if.end.i.i
-  %4 = tail call { i32, i32 } asm sideeffect "xgetbv", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #18, !srcloc !6
+  %4 = tail call { i32, i32 } asm sideeffect "xgetbv", "={ax},={dx},{cx},~{dirflag},~{fpsr},~{flags}"(i32 0) #16, !srcloc !6
   %asmresult.i.i = extractvalue { i32, i32 } %4, 0
   %and31.i.i = and i32 %asmresult.i.i, 6
   %cmp32.not.i.i = icmp eq i32 %and31.i.i, 6
@@ -215,7 +215,7 @@ cond.end6:                                        ; preds = %cond.end.thread, %c
   %10 = load i16, ptr %channel_count, align 8
   %conv = sext i16 %10 to i64
   %mul = mul nsw i64 %conv, 576
-  %call = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %cond93, ptr noundef nonnull %_channel_mem, i64 noundef %mul, i64 noundef 32) #18
+  %call = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %cond93, ptr noundef nonnull %_channel_mem, i64 noundef %mul, i64 noundef 32) #16
   %_channelData = getelementptr inbounds i8, ptr %me, i64 48
   store ptr %call, ptr %_channelData, align 8
   %tobool11.not = icmp eq ptr %call, null
@@ -287,7 +287,7 @@ for.end:                                          ; preds = %for.body, %if.end
   %part_index = getelementptr inbounds i8, ptr %encode, i64 12
   %27 = load i32, ptr %part_index, align 4
   %_zipLevel = getelementptr inbounds i8, ptr %me, i64 200
-  %call52 = tail call i32 @exr_get_zip_compression_level(ptr noundef %26, i32 noundef %27, ptr noundef nonnull %_zipLevel) #18
+  %call52 = tail call i32 @exr_get_zip_compression_level(ptr noundef %26, i32 noundef %27, ptr noundef nonnull %_zipLevel) #16
   %cmp53.not = icmp eq i32 %call52, 0
   br i1 %cmp53.not, label %if.end56, label %return
 
@@ -295,7 +295,7 @@ if.end56:                                         ; preds = %for.end
   %28 = load ptr, ptr %context, align 8
   %29 = load i32, ptr %part_index, align 4
   %_dwaCompressionLevel = getelementptr inbounds i8, ptr %me, i64 204
-  %call59 = tail call i32 @exr_get_dwa_compression_level(ptr noundef %28, i32 noundef %29, ptr noundef nonnull %_dwaCompressionLevel) #18
+  %call59 = tail call i32 @exr_get_dwa_compression_level(ptr noundef %28, i32 noundef %29, ptr noundef nonnull %_dwaCompressionLevel) #16
   %cmp60.not = icmp eq i32 %call59, 0
   br i1 %cmp60.not, label %if.end146, label %return
 
@@ -329,7 +329,7 @@ cond.end77:                                       ; preds = %cond.end70.thread, 
   %33 = load i16, ptr %channel_count82, align 8
   %conv83 = sext i16 %33 to i64
   %mul84 = mul nsw i64 %conv83, 576
-  %call85 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %cond7196, ptr noundef nonnull %_channel_mem81, i64 noundef %mul84, i64 noundef 32) #18
+  %call85 = tail call noalias ptr @internal_exr_alloc_aligned(ptr noundef %cond7196, ptr noundef nonnull %_channel_mem81, i64 noundef %mul84, i64 noundef 32) #16
   %_channelData86 = getelementptr inbounds i8, ptr %me, i64 48
   store ptr %call85, ptr %_channelData86, align 8
   %tobool88.not = icmp eq ptr %call85, null
@@ -423,7 +423,7 @@ entry:
 if.end:                                           ; preds = %entry
   %compressed_buffer = getelementptr inbounds i8, ptr %0, i64 160
   %2 = load i64, ptr %outBufferSize, align 8
-  %call5 = tail call i32 @internal_encode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %compressed_buffer, ptr noundef nonnull %compressed_alloc_size, i64 noundef %2) #18
+  %call5 = tail call i32 @internal_encode_alloc_buffer(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull %compressed_buffer, ptr noundef nonnull %compressed_alloc_size, i64 noundef %2) #16
   %cmp6.not = icmp eq i32 %call5, 0
   br i1 %cmp6.not, label %if.end8, label %return
 
@@ -489,7 +489,7 @@ for.body4.i:                                      ; preds = %for.inc.i, %for.bod
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %11, i64 %indvars.iv.i, i32 1
   %14 = load ptr, ptr %chan.i, align 32
   %15 = load ptr, ptr %14, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 46) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %15, ptr %add.ptr.i.i
@@ -506,11 +506,11 @@ if.end.i.i:                                       ; preds = %for.body4.i
   br i1 %tobool.not.i22.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i.i
-  %call.i23.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %18) #20
+  %call.i23.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %18) #18
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %18) #18
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -519,7 +519,7 @@ Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.th
   br i1 %retval.0.shrunk.i.not.i, label %if.then7.i, label %for.inc.i
 
 if.then7.i:                                       ; preds = %Classifier_match.exit.i
-  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #20
+  %call.i24.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #18
   %add1.i.i = add i64 %nOut.042.i, 3
   %add8.i = add i64 %add1.i.i, %call.i24.i
   %cmp13.i = icmp ugt i64 %add8.i, %2
@@ -806,7 +806,7 @@ if.then.i:                                        ; preds = %if.end69
   %div17.i = lshr i64 %mul.i233, 1
   %cond.i = select i1 %cmp2.i, i64 16, i64 %div17.i
   %mul4.i = shl i64 %cond.i, 3
-  %call.i = tail call ptr %71(i64 noundef %mul4.i) #18
+  %call.i = tail call ptr %71(i64 noundef %mul4.i) #16
   %tobool.not.i = icmp eq ptr %call.i, null
   br i1 %tobool.not.i, label %return, label %if.then5.i
 
@@ -821,7 +821,7 @@ if.then7.i234:                                    ; preds = %if.then5.i
   %mul10.i = shl i64 %73, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call.i, ptr nonnull align 8 %72, i64 %mul10.i, i1 false)
   %74 = load ptr, ptr %_rows.i, align 8
-  tail call void %68(ptr noundef %74) #18
+  tail call void %68(ptr noundef %74) #16
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then7.i234, %if.then5.i
@@ -1189,8 +1189,8 @@ if.then272:                                       ; preds = %for.end269
   %context = getelementptr inbounds i8, ptr %157, i64 16
   %158 = load ptr, ptr %context, align 8
   %159 = load ptr, ptr %_planarUncBuffer.i, align 8
-  %call275 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %156) #18
-  %call276 = call i32 @exr_compress_buffer(ptr noundef %158, i32 noundef 9, ptr noundef %159, i64 noundef %156, ptr noundef %curp.0.lcssa50.i, i64 noundef %call275, ptr noundef nonnull %outSize) #18
+  %call275 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %156) #16
+  %call276 = call i32 @exr_compress_buffer(ptr noundef %158, i32 noundef 9, ptr noundef %159, i64 noundef %156, ptr noundef %curp.0.lcssa50.i, i64 noundef %call275, ptr noundef nonnull %outSize) #16
   %cmp277.not = icmp eq i32 %call276, 0
   br i1 %cmp277.not, label %if.end280, label %return
 
@@ -1227,7 +1227,7 @@ sw.bb288:                                         ; preds = %if.then286
   %168 = load ptr, ptr %scratch_buffer_1, align 8
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %167, i64 192
   %169 = load i64, ptr %scratch_alloc_size_1, align 8
-  %call293 = call i32 @internal_huf_compress(ptr noundef nonnull %add.ptr15, ptr noundef %outDataPtr.0, i64 noundef %sub289, ptr noundef %166, i64 noundef %161, ptr noundef %168, i64 noundef %169) #18
+  %call293 = call i32 @internal_huf_compress(ptr noundef nonnull %add.ptr15, ptr noundef %outDataPtr.0, i64 noundef %sub289, ptr noundef %166, i64 noundef %161, ptr noundef %168, i64 noundef %169) #16
   switch i32 %call293, label %return [
     i32 0, label %sw.bb288.sw.epilog322_crit_edge
     i32 4, label %if.then299
@@ -1246,140 +1246,137 @@ if.then299:                                       ; preds = %sw.bb288
   %packed_alloc_size = getelementptr inbounds i8, ptr %170, i64 112
   %173 = load i64, ptr %packed_alloc_size, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %171, ptr align 1 %172, i64 %173, i1 false)
-  %174 = load ptr, ptr %me, align 8
-  %packed_alloc_size306 = getelementptr inbounds i8, ptr %174, i64 112
   br label %return.sink.split.sink.split
 
 sw.bb310:                                         ; preds = %if.then286
   %mul311 = shl i64 %161, 1
-  %175 = load ptr, ptr %me, align 8
-  %context313 = getelementptr inbounds i8, ptr %175, i64 16
-  %176 = load ptr, ptr %context313, align 8
-  %177 = load ptr, ptr %_packedAcBuffer, align 8
-  %call315 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul311) #18
-  %call316 = call i32 @exr_compress_buffer(ptr noundef %176, i32 noundef 9, ptr noundef %177, i64 noundef %mul311, ptr noundef %outDataPtr.0, i64 noundef %call315, ptr noundef nonnull %destLen) #18
+  %174 = load ptr, ptr %me, align 8
+  %context313 = getelementptr inbounds i8, ptr %174, i64 16
+  %175 = load ptr, ptr %context313, align 8
+  %176 = load ptr, ptr %_packedAcBuffer, align 8
+  %call315 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul311) #16
+  %call316 = call i32 @exr_compress_buffer(ptr noundef %175, i32 noundef 9, ptr noundef %176, i64 noundef %mul311, ptr noundef %outDataPtr.0, i64 noundef %call315, ptr noundef nonnull %destLen) #16
   %cmp317.not = icmp eq i32 %call316, 0
   br i1 %cmp317.not, label %if.end320, label %return
 
 if.end320:                                        ; preds = %sw.bb310
-  %178 = load i64, ptr %destLen, align 8
-  store i64 %178, ptr %add.ptr15, align 8
+  %177 = load i64, ptr %destLen, align 8
+  store i64 %177, ptr %add.ptr15, align 8
   br label %sw.epilog322
 
 sw.epilog322:                                     ; preds = %sw.bb288.sw.epilog322_crit_edge, %if.end320
-  %179 = phi i64 [ %.pre317, %sw.bb288.sw.epilog322_crit_edge ], [ %178, %if.end320 ]
-  %add.ptr323 = getelementptr inbounds i8, ptr %outDataPtr.0, i64 %179
-  %add324 = add i64 %179, %nWritten.1
+  %178 = phi i64 [ %.pre317, %sw.bb288.sw.epilog322_crit_edge ], [ %177, %if.end320 ]
+  %add.ptr323 = getelementptr inbounds i8, ptr %outDataPtr.0, i64 %178
+  %add324 = add i64 %178, %nWritten.1
   br label %if.end325
 
 if.end325:                                        ; preds = %sw.epilog322, %if.end283
   %nWritten.2 = phi i64 [ %nWritten.1, %if.end283 ], [ %add324, %sw.epilog322 ]
   %outDataPtr.1 = phi ptr [ %outDataPtr.0, %if.end283 ], [ %add.ptr323, %sw.epilog322 ]
-  %180 = load i64, ptr %add.ptr21, align 8
-  %cmp326.not = icmp eq i64 %180, 0
+  %179 = load i64, ptr %add.ptr21, align 8
+  %cmp326.not = icmp eq i64 %179, 0
   br i1 %cmp326.not, label %if.end355, label %if.then328
 
 if.then328:                                       ; preds = %if.end325
-  %mul329 = shl i64 %180, 1
-  %181 = load ptr, ptr %me, align 8
-  %scratch_buffer_1332 = getelementptr inbounds i8, ptr %181, i64 184
-  %scratch_alloc_size_1334 = getelementptr inbounds i8, ptr %181, i64 192
-  %call335 = call i32 @internal_encode_alloc_buffer(ptr noundef %181, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1332, ptr noundef nonnull %scratch_alloc_size_1334, i64 noundef %mul329) #18
+  %mul329 = shl i64 %179, 1
+  %180 = load ptr, ptr %me, align 8
+  %scratch_buffer_1332 = getelementptr inbounds i8, ptr %180, i64 184
+  %scratch_alloc_size_1334 = getelementptr inbounds i8, ptr %180, i64 192
+  %call335 = call i32 @internal_encode_alloc_buffer(ptr noundef %180, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1332, ptr noundef nonnull %scratch_alloc_size_1334, i64 noundef %mul329) #16
   %cmp336.not = icmp eq i32 %call335, 0
   br i1 %cmp336.not, label %if.end339, label %return
 
 if.end339:                                        ; preds = %if.then328
-  %182 = load ptr, ptr %me, align 8
-  %scratch_buffer_1341 = getelementptr inbounds i8, ptr %182, i64 184
-  %183 = load ptr, ptr %scratch_buffer_1341, align 8
-  %184 = load ptr, ptr %_packedDcBuffer, align 8
-  call void @internal_zip_deconstruct_bytes(ptr noundef %183, ptr noundef %184, i64 noundef %mul329) #18
-  %185 = load ptr, ptr %me, align 8
-  %context344 = getelementptr inbounds i8, ptr %185, i64 16
-  %186 = load ptr, ptr %context344, align 8
+  %181 = load ptr, ptr %me, align 8
+  %scratch_buffer_1341 = getelementptr inbounds i8, ptr %181, i64 184
+  %182 = load ptr, ptr %scratch_buffer_1341, align 8
+  %183 = load ptr, ptr %_packedDcBuffer, align 8
+  call void @internal_zip_deconstruct_bytes(ptr noundef %182, ptr noundef %183, i64 noundef %mul329) #16
+  %184 = load ptr, ptr %me, align 8
+  %context344 = getelementptr inbounds i8, ptr %184, i64 16
+  %185 = load ptr, ptr %context344, align 8
   %_zipLevel = getelementptr inbounds i8, ptr %me, i64 200
-  %187 = load i32, ptr %_zipLevel, align 8
-  %scratch_buffer_1346 = getelementptr inbounds i8, ptr %185, i64 184
-  %188 = load ptr, ptr %scratch_buffer_1346, align 8
-  %call347 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul329) #18
-  %call348 = call i32 @exr_compress_buffer(ptr noundef %186, i32 noundef %187, ptr noundef %188, i64 noundef %mul329, ptr noundef %outDataPtr.1, i64 noundef %call347, ptr noundef nonnull %compBytes) #18
+  %186 = load i32, ptr %_zipLevel, align 8
+  %scratch_buffer_1346 = getelementptr inbounds i8, ptr %184, i64 184
+  %187 = load ptr, ptr %scratch_buffer_1346, align 8
+  %call347 = call i64 @exr_compress_max_buffer_size(i64 noundef %mul329) #16
+  %call348 = call i32 @exr_compress_buffer(ptr noundef %185, i32 noundef %186, ptr noundef %187, i64 noundef %mul329, ptr noundef %outDataPtr.1, i64 noundef %call347, ptr noundef nonnull %compBytes) #16
   %cmp349.not = icmp eq i32 %call348, 0
   br i1 %cmp349.not, label %if.end352, label %return
 
 if.end352:                                        ; preds = %if.end339
-  %189 = load i64, ptr %compBytes, align 8
-  store i64 %189, ptr %add.ptr16, align 8
-  %add.ptr353 = getelementptr inbounds i8, ptr %outDataPtr.1, i64 %189
-  %add354 = add i64 %189, %nWritten.2
+  %188 = load i64, ptr %compBytes, align 8
+  store i64 %188, ptr %add.ptr16, align 8
+  %add.ptr353 = getelementptr inbounds i8, ptr %outDataPtr.1, i64 %188
+  %add354 = add i64 %188, %nWritten.2
   br label %if.end355
 
 if.end355:                                        ; preds = %if.end352, %if.end325
   %nWritten.3 = phi i64 [ %nWritten.2, %if.end325 ], [ %add354, %if.end352 ]
   %outDataPtr.2 = phi ptr [ %outDataPtr.1, %if.end325 ], [ %add.ptr353, %if.end352 ]
-  %190 = load i64, ptr %add.ptr19, align 8
-  %cmp356.not = icmp eq i64 %190, 0
+  %189 = load i64, ptr %add.ptr19, align 8
+  %cmp356.not = icmp eq i64 %189, 0
   br i1 %cmp356.not, label %if.end374, label %if.then358
 
 if.then358:                                       ; preds = %if.end355
   %_rleBuffer = getelementptr inbounds i8, ptr %me, i64 120
-  %191 = load ptr, ptr %_rleBuffer, align 8
+  %190 = load ptr, ptr %_rleBuffer, align 8
   %_rleBufferSize = getelementptr inbounds i8, ptr %me, i64 128
-  %192 = load i64, ptr %_rleBufferSize, align 8
+  %191 = load i64, ptr %_rleBufferSize, align 8
   %arrayidx361 = getelementptr inbounds i8, ptr %me, i64 152
-  %193 = load ptr, ptr %arrayidx361, align 8
-  %call362 = call i64 @internal_rle_compress(ptr noundef %191, i64 noundef %192, ptr noundef %193, i64 noundef %190) #18
+  %192 = load ptr, ptr %arrayidx361, align 8
+  %call362 = call i64 @internal_rle_compress(ptr noundef %190, i64 noundef %191, ptr noundef %192, i64 noundef %189) #16
   store i64 %call362, ptr %add.ptr18, align 8
-  %194 = load ptr, ptr %me, align 8
-  %context364 = getelementptr inbounds i8, ptr %194, i64 16
-  %195 = load ptr, ptr %context364, align 8
-  %196 = load ptr, ptr %_rleBuffer, align 8
-  %call366 = call i64 @exr_compress_max_buffer_size(i64 noundef %call362) #18
-  %call367 = call i32 @exr_compress_buffer(ptr noundef %195, i32 noundef 9, ptr noundef %196, i64 noundef %call362, ptr noundef %outDataPtr.2, i64 noundef %call366, ptr noundef nonnull %compBytes359) #18
+  %193 = load ptr, ptr %me, align 8
+  %context364 = getelementptr inbounds i8, ptr %193, i64 16
+  %194 = load ptr, ptr %context364, align 8
+  %195 = load ptr, ptr %_rleBuffer, align 8
+  %call366 = call i64 @exr_compress_max_buffer_size(i64 noundef %call362) #16
+  %call367 = call i32 @exr_compress_buffer(ptr noundef %194, i32 noundef 9, ptr noundef %195, i64 noundef %call362, ptr noundef %outDataPtr.2, i64 noundef %call366, ptr noundef nonnull %compBytes359) #16
   %cmp368.not = icmp eq i32 %call367, 0
   br i1 %cmp368.not, label %if.end371, label %return
 
 if.end371:                                        ; preds = %if.then358
-  %197 = load i64, ptr %compBytes359, align 8
-  store i64 %197, ptr %add.ptr17, align 8
-  %add.ptr372 = getelementptr inbounds i8, ptr %outDataPtr.2, i64 %197
-  %add373 = add i64 %197, %nWritten.3
+  %196 = load i64, ptr %compBytes359, align 8
+  store i64 %196, ptr %add.ptr17, align 8
+  %add.ptr372 = getelementptr inbounds i8, ptr %outDataPtr.2, i64 %196
+  %add373 = add i64 %196, %nWritten.3
   br label %if.end374
 
 if.end374:                                        ; preds = %if.end371, %if.end355
   %nWritten.4 = phi i64 [ %nWritten.3, %if.end355 ], [ %add373, %if.end371 ]
   %outDataPtr.3 = phi ptr [ %outDataPtr.2, %if.end355 ], [ %add.ptr372, %if.end371 ]
-  %198 = ptrtoint ptr %outDataPtr.3 to i64
-  %199 = load ptr, ptr %me, align 8
-  %compressed_buffer376 = getelementptr inbounds i8, ptr %199, i64 160
-  %200 = load ptr, ptr %compressed_buffer376, align 8
-  %201 = ptrtoint ptr %200 to i64
-  %sub377 = sub i64 %198, %201
+  %197 = ptrtoint ptr %outDataPtr.3 to i64
+  %198 = load ptr, ptr %me, align 8
+  %compressed_buffer376 = getelementptr inbounds i8, ptr %198, i64 160
+  %199 = load ptr, ptr %compressed_buffer376, align 8
+  %200 = ptrtoint ptr %199 to i64
+  %sub377 = sub i64 %197, %200
   %cmp378.not = icmp eq i64 %nWritten.4, %sub377
   br i1 %cmp378.not, label %if.end381, label %return
 
 if.end381:                                        ; preds = %if.end374
-  %packed_bytes = getelementptr inbounds i8, ptr %199, i64 104
-  %202 = load i64, ptr %packed_bytes, align 8
-  %cmp383.not = icmp ult i64 %nWritten.4, %202
+  %packed_bytes = getelementptr inbounds i8, ptr %198, i64 104
+  %201 = load i64, ptr %packed_bytes, align 8
+  %cmp383.not = icmp ult i64 %nWritten.4, %201
   br i1 %cmp383.not, label %return.sink.split, label %if.then385
 
 if.then385:                                       ; preds = %if.end381
-  %packed_buffer389 = getelementptr inbounds i8, ptr %199, i64 96
-  %203 = load ptr, ptr %packed_buffer389, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %200, ptr align 1 %203, i64 %202, i1 false)
-  %204 = load ptr, ptr %me, align 8
-  %packed_bytes393 = getelementptr inbounds i8, ptr %204, i64 104
+  %packed_buffer389 = getelementptr inbounds i8, ptr %198, i64 96
+  %202 = load ptr, ptr %packed_buffer389, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 1 %202, i64 %201, i1 false)
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.then385, %if.then299
-  %packed_alloc_size306.sink = phi ptr [ %packed_alloc_size306, %if.then299 ], [ %packed_bytes393, %if.then385 ]
-  %.sink330.ph = phi ptr [ %174, %if.then299 ], [ %204, %if.then385 ]
-  %205 = load i64, ptr %packed_alloc_size306.sink, align 8
+  %.sink332 = phi i64 [ 112, %if.then299 ], [ 104, %if.then385 ]
+  %203 = load ptr, ptr %me, align 8
+  %packed_alloc_size306 = getelementptr inbounds i8, ptr %203, i64 %.sink332
+  %204 = load i64, ptr %packed_alloc_size306, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end381
-  %.sink330 = phi ptr [ %199, %if.end381 ], [ %.sink330.ph, %return.sink.split.sink.split ]
-  %.sink = phi i64 [ %nWritten.4, %if.end381 ], [ %205, %return.sink.split.sink.split ]
+  %.sink330 = phi ptr [ %198, %if.end381 ], [ %203, %return.sink.split.sink.split ]
+  %.sink = phi i64 [ %nWritten.4, %if.end381 ], [ %204, %return.sink.split.sink.split ]
   %compressed_bytes395 = getelementptr inbounds i8, ptr %.sink330, i64 168
   store i64 %.sink, ptr %compressed_bytes395, align 8
   br label %return
@@ -1400,7 +1397,7 @@ entry:
 if.then:                                          ; preds = %entry
   %free_fn = getelementptr inbounds i8, ptr %me, i64 192
   %1 = load ptr, ptr %free_fn, align 8
-  tail call void %1(ptr noundef nonnull %0) #18
+  tail call void %1(ptr noundef nonnull %0) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
@@ -1412,7 +1409,7 @@ if.end:                                           ; preds = %if.then, %entry
 if.then3:                                         ; preds = %if.end
   %free_fn4 = getelementptr inbounds i8, ptr %me, i64 192
   %3 = load ptr, ptr %free_fn4, align 8
-  tail call void %3(ptr noundef nonnull %2) #18
+  tail call void %3(ptr noundef nonnull %2) #16
   br label %if.end6
 
 if.end6:                                          ; preds = %if.then3, %if.end
@@ -1424,7 +1421,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
 if.then8:                                         ; preds = %if.end6
   %free_fn9 = getelementptr inbounds i8, ptr %me, i64 192
   %5 = load ptr, ptr %free_fn9, align 8
-  tail call void %5(ptr noundef nonnull %4) #18
+  tail call void %5(ptr noundef nonnull %4) #16
   br label %if.end11
 
 if.end11:                                         ; preds = %if.then8, %if.end6
@@ -1455,7 +1452,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %Dc
 
 if.then.i:                                        ; preds = %for.body
   %11 = load ptr, ptr %free_fn14, align 8
-  tail call void %11(ptr noundef nonnull %arrayidx.val) #18
+  tail call void %11(ptr noundef nonnull %arrayidx.val) #16
   %.pre = load i32, ptr %_numChannels, align 8
   br label %DctCoderChannelData_destroy.exit
 
@@ -1474,7 +1471,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %14 = phi ptr [ %.pre51, %for.end.loopexit ], [ %6, %for.cond.preheader ]
   %free_fn15 = getelementptr inbounds i8, ptr %me, i64 192
   %15 = load ptr, ptr %free_fn15, align 8
-  tail call void %15(ptr noundef %14) #18
+  tail call void %15(ptr noundef %14) #16
   br label %if.end17
 
 if.end17:                                         ; preds = %for.end, %if.end11
@@ -1486,7 +1483,7 @@ if.end17:                                         ; preds = %for.end, %if.end11
 if.then19:                                        ; preds = %if.end17
   %free_fn20 = getelementptr inbounds i8, ptr %me, i64 192
   %17 = load ptr, ptr %free_fn20, align 8
-  tail call void %17(ptr noundef nonnull %16) #18
+  tail call void %17(ptr noundef nonnull %16) #16
   br label %if.end22
 
 if.end22:                                         ; preds = %if.then19, %if.end17
@@ -1524,7 +1521,7 @@ land.lhs.true.i:                                  ; preds = %for.body29
   br i1 %tobool1.not.i, label %if.then.i41, label %Classifier_destroy.exit
 
 if.then.i41:                                      ; preds = %land.lhs.true.i
-  tail call void %21(ptr noundef nonnull %23) #18
+  tail call void %21(ptr noundef nonnull %23) #16
   %.pre52 = load i64, ptr %_channelRuleCount, align 8
   br label %Classifier_destroy.exit
 
@@ -1542,7 +1539,7 @@ for.end35:                                        ; preds = %for.end35.loopexit,
   %26 = phi ptr [ %.pre53, %for.end35.loopexit ], [ %18, %for.cond27.preheader ]
   %free_fn36 = getelementptr inbounds i8, ptr %me, i64 192
   %27 = load ptr, ptr %free_fn36, align 8
-  tail call void %27(ptr noundef %26) #18
+  tail call void %27(ptr noundef %26) #16
   br label %if.end38
 
 if.end38:                                         ; preds = %for.end35, %if.end22
@@ -1559,7 +1556,7 @@ for.body42:                                       ; preds = %if.end38, %for.inc5
 
 if.then46:                                        ; preds = %for.body42
   %29 = load ptr, ptr %free_fn47, align 8
-  tail call void %29(ptr noundef nonnull %28) #18
+  tail call void %29(ptr noundef nonnull %28) #16
   br label %for.inc52
 
 for.inc52:                                        ; preds = %for.body42, %if.then46
@@ -1577,8 +1574,8 @@ entry:
   %dwab = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds i8, ptr %encode, i64 184
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %encode, i64 192
-  %call = tail call i64 @internal_exr_huf_compress_spare_bytes() #18
-  %call1 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #18
+  %call = tail call i64 @internal_exr_huf_compress_spare_bytes() #16
+  %call1 = tail call i32 @internal_encode_alloc_buffer(ptr noundef %encode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #16
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -1607,8 +1604,8 @@ entry:
   %dwaa = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
-  %call = tail call i64 @internal_exr_huf_decompress_spare_bytes() #18
-  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #18
+  %call = tail call i64 @internal_exr_huf_decompress_spare_bytes() #16
+  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #16
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -1775,7 +1772,7 @@ if.end8.i.i:                                      ; preds = %if.end4.i.i
 
 if.end14.i.i:                                     ; preds = %if.end4.i.i
   %.pre.i.i = add nuw nsw i64 %len.040.i.i, 1
-  %call.i.i = tail call ptr %5(i64 noundef %.pre.i.i) #18
+  %call.i.i = tail call ptr %5(i64 noundef %.pre.i.i) #16
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   br i1 %tobool.not.i.i, label %while.end.thread128.i, label %if.end16.i.i
 
@@ -1807,7 +1804,7 @@ Classifier_destroy.exit.i:                        ; preds = %if.end37.i.i, %if.e
   %retval.0.i.ph.i = phi i32 [ 23, %if.end16.i.i ], [ %spec.select.i, %if.end37.i.i ]
   call void @llvm.lifetime.end.p0(i64 129, ptr nonnull %suffix.i.i)
   %10 = load ptr, ptr %free_fn90.i, align 8
-  tail call void %10(ptr noundef nonnull %call.i.i) #18
+  tail call void %10(ptr noundef nonnull %call.i.i) #16
   %inc.i = add i64 %nRules.0105.i, 1
   %cmp10.i = icmp eq i32 %retval.0.i.ph.i, 0
   %cmp12.i = icmp ne i64 %sub27.i.i, 0
@@ -1824,7 +1821,7 @@ if.then17.i:                                      ; preds = %while.end.i, %if.en
   %alloc_fn18.i = getelementptr inbounds i8, ptr %me, i64 184
   %12 = load ptr, ptr %alloc_fn18.i, align 8
   %mul.i = mul i64 %nRules.0.lcssa127.i, 24
-  %call19.i = tail call ptr %12(i64 noundef %mul.i) #18
+  %call19.i = tail call ptr %12(i64 noundef %mul.i) #16
   %_channelRules.i = getelementptr inbounds i8, ptr %me, i64 72
   store ptr %call19.i, ptr %_channelRules.i, align 8
   %tobool.not.i = icmp eq ptr %call19.i, null
@@ -1871,7 +1868,7 @@ if.end8.i41.i:                                    ; preds = %if.end4.i38.i
 
 if.end14.i46.i:                                   ; preds = %if.end4.i38.i
   %.pre.i47.i = add nuw nsw i64 %len.040.i36.i, 1
-  %call.i48.i = tail call ptr %13(i64 noundef %.pre.i47.i) #18
+  %call.i48.i = tail call ptr %13(i64 noundef %.pre.i47.i) #16
   %tobool.not.i49.i = icmp eq ptr %call.i48.i, null
   br i1 %tobool.not.i49.i, label %Classifier_read.exit76.i, label %if.end16.i50.i
 
@@ -1984,7 +1981,7 @@ if.end94:                                         ; preds = %if.then90
   %26 = load ptr, ptr %context, align 8
   %_planarUncBuffer = getelementptr inbounds i8, ptr %me, i64 136
   %27 = load ptr, ptr %_planarUncBuffer, align 8
-  %call97 = tail call i32 @exr_uncompress_buffer(ptr noundef %26, ptr noundef %dataPtr.1, i64 noundef %counters.sroa.3.0.copyload, ptr noundef %27, i64 noundef %counters.sroa.2.0.copyload, ptr noundef null) #18
+  %call97 = tail call i32 @exr_uncompress_buffer(ptr noundef %26, ptr noundef %dataPtr.1, i64 noundef %counters.sroa.3.0.copyload, ptr noundef %27, i64 noundef %counters.sroa.2.0.copyload, ptr noundef null) #16
   %cmp98.not = icmp eq i32 %call97, 0
   br i1 %cmp98.not, label %if.end101, label %return
 
@@ -2016,7 +2013,7 @@ sw.bb:                                            ; preds = %if.end109
   %31 = load ptr, ptr %scratch_buffer_1, align 8
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %30, i64 168
   %32 = load i64, ptr %scratch_alloc_size_1, align 8
-  %call114 = tail call i32 @internal_huf_decompress(ptr noundef %30, ptr noundef %add.ptr64, i64 noundef %counters.sroa.4.0.copyload, ptr noundef nonnull %28, i64 noundef %counters.sroa.9.0.copyload, ptr noundef %31, i64 noundef %32) #18
+  %call114 = tail call i32 @internal_huf_decompress(ptr noundef %30, ptr noundef %add.ptr64, i64 noundef %counters.sroa.4.0.copyload, ptr noundef nonnull %28, i64 noundef %counters.sroa.9.0.copyload, ptr noundef %31, i64 noundef %32) #16
   %cmp115.not = icmp eq i32 %call114, 0
   br i1 %cmp115.not, label %if.end131, label %return
 
@@ -2024,7 +2021,7 @@ sw.bb118:                                         ; preds = %if.end109
   %33 = load ptr, ptr %_decode, align 8
   %context120 = getelementptr inbounds i8, ptr %33, i64 16
   %34 = load ptr, ptr %context120, align 8
-  %call123 = call i32 @exr_uncompress_buffer(ptr noundef %34, ptr noundef %add.ptr64, i64 noundef %counters.sroa.4.0.copyload, ptr noundef nonnull %28, i64 noundef %mul, ptr noundef nonnull %destLen) #18
+  %call123 = call i32 @exr_uncompress_buffer(ptr noundef %34, ptr noundef %add.ptr64, i64 noundef %counters.sroa.4.0.copyload, ptr noundef nonnull %28, i64 noundef %mul, ptr noundef nonnull %destLen) #16
   %cmp124.not = icmp eq i32 %call123, 0
   br i1 %cmp124.not, label %if.end126, label %return
 
@@ -2048,7 +2045,7 @@ if.end138:                                        ; preds = %if.then133
   %37 = load ptr, ptr %_decode, align 8
   %scratch_buffer_1141 = getelementptr inbounds i8, ptr %37, i64 160
   %scratch_alloc_size_1143 = getelementptr inbounds i8, ptr %37, i64 168
-  %call144 = call i32 @internal_decode_alloc_buffer(ptr noundef %37, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1141, ptr noundef nonnull %scratch_alloc_size_1143, i64 noundef %mul135) #18
+  %call144 = call i32 @internal_decode_alloc_buffer(ptr noundef %37, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1141, ptr noundef nonnull %scratch_alloc_size_1143, i64 noundef %mul135) #16
   %cmp145.not = icmp eq i32 %call144, 0
   br i1 %cmp145.not, label %if.end147, label %return
 
@@ -2058,7 +2055,7 @@ if.end147:                                        ; preds = %if.end138
   %39 = load ptr, ptr %context149, align 8
   %scratch_buffer_1151 = getelementptr inbounds i8, ptr %38, i64 160
   %40 = load ptr, ptr %scratch_buffer_1151, align 8
-  %call152 = call i32 @exr_uncompress_buffer(ptr noundef %39, ptr noundef %add.ptr65, i64 noundef %counters.sroa.5.0.copyload, ptr noundef %40, i64 noundef %mul135, ptr noundef nonnull %destLen134) #18
+  %call152 = call i32 @exr_uncompress_buffer(ptr noundef %39, ptr noundef %add.ptr65, i64 noundef %counters.sroa.5.0.copyload, ptr noundef %40, i64 noundef %mul135, ptr noundef nonnull %destLen134) #16
   %cmp153.not = icmp eq i32 %call152, 0
   %41 = load i64, ptr %destLen134, align 8
   %cmp155.not = icmp eq i64 %mul135, %41
@@ -2070,7 +2067,7 @@ if.end157:                                        ; preds = %if.end147
   %43 = load ptr, ptr %_decode, align 8
   %scratch_buffer_1160 = getelementptr inbounds i8, ptr %43, i64 160
   %44 = load ptr, ptr %scratch_buffer_1160, align 8
-  call void @internal_zip_reconstruct_bytes(ptr noundef %42, ptr noundef %44, i64 noundef %mul135) #18
+  call void @internal_zip_reconstruct_bytes(ptr noundef %42, ptr noundef %44, i64 noundef %mul135) #16
   br label %if.end165
 
 if.else161:                                       ; preds = %if.end131
@@ -2099,7 +2096,7 @@ if.end174:                                        ; preds = %lor.lhs.false169
   %48 = load ptr, ptr %context176, align 8
   %_rleBuffer = getelementptr inbounds i8, ptr %me, i64 120
   %49 = load ptr, ptr %_rleBuffer, align 8
-  %call177 = call i32 @exr_uncompress_buffer(ptr noundef %48, ptr noundef %add.ptr66, i64 noundef %counters.sroa.6.0.copyload, ptr noundef %49, i64 noundef %counters.sroa.7.0.copyload, ptr noundef nonnull %dstLen) #18
+  %call177 = call i32 @exr_uncompress_buffer(ptr noundef %48, ptr noundef %add.ptr66, i64 noundef %counters.sroa.6.0.copyload, ptr noundef %49, i64 noundef %counters.sroa.7.0.copyload, ptr noundef nonnull %dstLen) #16
   %cmp178.not = icmp eq i32 %call177, 0
   %50 = load i64, ptr %dstLen, align 8
   %cmp181.not = icmp eq i64 %50, %counters.sroa.7.0.copyload
@@ -2110,7 +2107,7 @@ if.end183:                                        ; preds = %if.end174
   %arrayidx185 = getelementptr inbounds i8, ptr %me, i64 152
   %51 = load ptr, ptr %arrayidx185, align 8
   %52 = load ptr, ptr %_rleBuffer, align 8
-  %call187 = call i64 @internal_rle_decompress(ptr noundef %51, i64 noundef %counters.sroa.8.0.copyload, ptr noundef %52, i64 noundef %counters.sroa.7.0.copyload) #18
+  %call187 = call i64 @internal_rle_decompress(ptr noundef %51, i64 noundef %counters.sroa.8.0.copyload, ptr noundef %52, i64 noundef %counters.sroa.7.0.copyload) #16
   %cmp188.not = icmp eq i64 %call187, %counters.sroa.8.0.copyload
   br i1 %cmp188.not, label %if.end191, label %return
 
@@ -2630,8 +2627,8 @@ entry:
   %dwaa = alloca %struct._DwaCompressor, align 8
   %scratch_buffer_1 = getelementptr inbounds i8, ptr %decode, i64 160
   %scratch_alloc_size_1 = getelementptr inbounds i8, ptr %decode, i64 168
-  %call = tail call i64 @internal_exr_huf_decompress_spare_bytes() #18
-  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #18
+  %call = tail call i64 @internal_exr_huf_decompress_spare_bytes() #16
+  %call1 = tail call i32 @internal_decode_alloc_buffer(ptr noundef %decode, i32 noundef 3, ptr noundef nonnull %scratch_buffer_1, ptr noundef nonnull %scratch_alloc_size_1, i64 noundef %call) #16
   %cmp = icmp eq i32 %call1, 0
   br i1 %cmp, label %if.then, label %if.end6
 
@@ -5395,14 +5392,14 @@ half_to_float.exit1575:                           ; preds = %if.then10.i.i1573, 
 ; Function Attrs: nounwind uwtable
 define internal void @convertFloatToHalf64_f16c(ptr noundef %dst, ptr noundef %src) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !41
+  tail call void asm sideeffect "vmovaps       ($0),     %ymm0         \0Avmovaps   0x20($0),     %ymm1         \0Avmovaps   0x40($0),     %ymm2         \0Avmovaps   0x60($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x00($1)       \0Avmovdqa   %xmm1,       0x10($1)       \0Avmovdqa   %xmm2,       0x20($1)       \0Avmovdqa   %xmm3,       0x30($1)       \0Avmovaps   0x80($0),     %ymm0         \0Avmovaps   0xa0($0),     %ymm1         \0Avmovaps   0xc0($0),     %ymm2         \0Avmovaps   0xe0($0),     %ymm3         \0Avcvtps2ph $$0,           %ymm0, %xmm0 \0Avcvtps2ph $$0,           %ymm1, %xmm1 \0Avcvtps2ph $$0,           %ymm2, %xmm2 \0Avcvtps2ph $$0,           %ymm3, %xmm3 \0Avmovdqa   %xmm0,       0x40($1)       \0Avmovdqa   %xmm1,       0x50($1)       \0Avmovdqa   %xmm2,       0x60($1)       \0Avmovdqa   %xmm3,       0x70($1)       \0Avzeroupper                             \0A", "r,r,~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #16, !srcloc !41
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @fromHalfZigZag_f16c(ptr noundef %src, ptr noundef %dst) #0 {
 entry:
-  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #18, !srcloc !42
+  tail call void asm sideeffect "vpxor   %xmm3,  %xmm3, %xmm3   \0Avmovdqa    ($0), %xmm8           \0Avmovdqa 112($0), %xmm6           \0Avmovdqu  42($0), %xmm9           \0Avmovdqu  56($0), %xmm7           \0Avmovq    12($0), %xmm3           \0Avpsrldq      $$2, %xmm8, %xmm1   \0Avpslldq      $$4, %xmm8, %xmm2   \0Avpalignr     $$2, 70($0), %xmm8, %xmm0 \0Avpblendw  $$0xfc, 82($0), %xmm1, %xmm1 \0Avpblendw  $$0x1f, 98($0), %xmm2, %xmm2 \0Avpsrldq      $$4, %xmm6, %xmm4         \0Avpslldq      $$2, %xmm6, %xmm5         \0Avpalignr    $$14, %xmm6, %xmm9, %xmm6 \0Avpblendw  $$0xf8, 14($0), %xmm4, %xmm4 \0Avpblendw  $$0x3f, 30($0), %xmm5, %xmm5 \0Avpinsrq      $$1, 108($0), %xmm3, %xmm3\0Avpshuflw $$0x1b, %xmm0, %xmm0          \0Avpshuflw $$0x1b, %xmm2, %xmm2          \0Avpshuflw $$0x1b, %xmm4, %xmm4          \0Avpshuflw $$0x1b, %xmm6, %xmm6          \0Avpshufhw $$0x1b, %xmm0, %xmm0          \0Avpshufhw $$0x1b, %xmm2, %xmm2          \0Avpshufhw $$0x1b, %xmm4, %xmm4          \0Avpshufhw $$0x1b, %xmm6, %xmm6          \0Avpshufd $$0x4e, %xmm0, %xmm0          \0Avpshufd $$0x4e, %xmm2, %xmm2          \0Avpshufd $$0x4e, %xmm4, %xmm4          \0Avpshufd $$0x4e, %xmm6, %xmm6          \0Avpunpcklwd %xmm1, %xmm0, %xmm8       \0Avpunpcklwd %xmm3, %xmm2, %xmm9       \0Avpunpcklwd %xmm5, %xmm4, %xmm10      \0Avpunpcklwd %xmm7, %xmm6, %xmm11      \0Avpunpckhwd %xmm1, %xmm0, %xmm12      \0Avpunpckhwd %xmm3, %xmm2, %xmm13      \0Avpunpckhwd %xmm5, %xmm4, %xmm14      \0Avpunpckhwd %xmm7, %xmm6, %xmm15      \0Avpunpckldq  %xmm9,  %xmm8, %xmm0     \0Avpunpckldq %xmm11, %xmm10, %xmm1     \0Avpunpckhdq  %xmm9,  %xmm8, %xmm2     \0Avpunpckhdq %xmm11, %xmm10, %xmm3     \0Avpunpckldq %xmm13, %xmm12, %xmm4     \0Avpunpckldq %xmm15, %xmm14, %xmm5     \0Avpunpckhdq %xmm13, %xmm12, %xmm6     \0Avpunpckhdq %xmm15, %xmm14, %xmm7     \0Avpunpcklqdq %xmm1,  %xmm0, %xmm8     \0Avpunpckhqdq %xmm1,  %xmm0, %xmm9     \0Avpunpcklqdq %xmm3,  %xmm2, %xmm10    \0Avpunpckhqdq %xmm3,  %xmm2, %xmm11    \0Avpunpcklqdq %xmm4,  %xmm5, %xmm12    \0Avpunpckhqdq %xmm5,  %xmm4, %xmm13    \0Avpunpcklqdq %xmm7,  %xmm6, %xmm14    \0Avpunpckhqdq %xmm7,  %xmm6, %xmm15    \0Avpalignr  $$2,  %xmm9,  %xmm9,  %xmm9 \0Avpalignr  $$4, %xmm10, %xmm10, %xmm10 \0Avpalignr  $$6, %xmm11, %xmm11, %xmm11 \0Avpalignr $$10, %xmm13, %xmm13, %xmm13 \0Avpalignr $$12, %xmm14, %xmm14, %xmm14 \0Avpalignr $$14, %xmm15, %xmm15, %xmm15 \0Avcvtph2ps  %xmm8, %ymm8            \0Avcvtph2ps  %xmm9, %ymm9            \0Avcvtph2ps %xmm10, %ymm10           \0Avcvtph2ps %xmm11, %ymm11           \0Avcvtph2ps %xmm12, %ymm12           \0Avcvtph2ps %xmm13, %ymm13           \0Avcvtph2ps %xmm14, %ymm14           \0Avcvtph2ps %xmm15, %ymm15           \0Avmovaps    %ymm8,    ($1)           \0Avmovaps    %ymm9,  32($1)           \0Avmovaps   %ymm10,  64($1)           \0Avmovaps   %ymm11,  96($1)           \0Avmovaps   %ymm12, 128($1)           \0Avmovaps   %ymm13, 160($1)           \0Avmovaps   %ymm14, 192($1)           \0Avmovaps   %ymm15, 224($1)           \0Avzeroupper                          \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %src, ptr %dst) #16, !srcloc !42
   ret void
 }
 
@@ -5465,110 +5462,110 @@ entry:
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_0(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !43
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x13, %ymm3, %ymm15, %ymm7   \0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avmulps    %ymm7, %ymm11, %ymm15    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm14, %ymm15, %ymm14    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps    %ymm7,  %ymm10, %ymm15   \0Avsubps    %ymm15, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm7,   %ymm9, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avmulps    %ymm7,  %ymm8,  %ymm7    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avaddps    %ymm3,  %ymm7,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !43
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_1(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !44
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avmovaps                 192($0),  %xmm8  \0Avmovaps                 208($0),  %xmm9  \0A                                                                                \0Avinsertf128  $$1, 224($0), %ymm8, %ymm8  \0Avinsertf128  $$1, 240($0), %ymm9, %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0A                                                                                \0Avunpcklps      %ymm7,  %ymm3,  %ymm8  \0Avunpckhps      %ymm7,  %ymm3,  %ymm9  \0A                                                                                \0Avunpcklpd      %ymm9,  %ymm8,  %ymm3  \0Avunpckhpd      %ymm9,  %ymm8,  %ymm7  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avpermilps $$0x00, %ymm3, %ymm12       \0Avpermilps $$0x55, %ymm3, %ymm13       \0Avpermilps $$0xaa, %ymm3, %ymm14       \0Avpermilps $$0xff, %ymm3, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm3\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avpermilps $$0x00, %ymm7, %ymm12       \0Avpermilps $$0x55, %ymm7, %ymm13       \0Avpermilps $$0xaa, %ymm7, %ymm14       \0Avpermilps $$0xff, %ymm7, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm7\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avsubps   %ymm7, %ymm3, %ymm15\0Avaddps   %ymm7, %ymm3, %ymm3\0Avpermilps $$0x1b, %ymm15, %ymm15\0Avperm2f128 $$0x02, %ymm3, %ymm15, %ymm6   \0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmulps    %ymm5, %ymm6,  %ymm9    \0Avaddps    %ymm9, %ymm7,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmulps     %ymm3,  %ymm6, %ymm9   \0Avsubps     %ymm9,  %ymm7, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !44
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_2(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !45
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x13, %ymm2, %ymm14, %ymm5   \0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avmulps    %ymm5, %ymm10, %ymm14    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avaddps   %ymm12, %ymm14, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avmulps    %ymm5,   %ymm8, %ymm15   \0Avaddps    %ymm14, %ymm15, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps     %ymm5, %ymm11, %ymm15   \0Avaddps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avmulps    %ymm5,  %ymm9,  %ymm5    \0Avaddps   %ymm15,  %ymm5, %ymm15    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !45
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_3(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !46
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avmovaps                 128($0),  %xmm10  \0Avmovaps                 144($0),  %xmm11  \0A                                                                                \0Avinsertf128  $$1, 160($0), %ymm10, %ymm10  \0Avinsertf128  $$1, 176($0), %ymm11, %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0A                                                                                \0Avunpcklps      %ymm6,  %ymm2,  %ymm10  \0Avunpckhps      %ymm6,  %ymm2,  %ymm11  \0A                                                                                \0Avunpcklpd      %ymm11,  %ymm10,  %ymm2  \0Avunpckhpd      %ymm11,  %ymm10,  %ymm6  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avpermilps $$0x00, %ymm2, %ymm12       \0Avpermilps $$0x55, %ymm2, %ymm13       \0Avpermilps $$0xaa, %ymm2, %ymm14       \0Avpermilps $$0xff, %ymm2, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm2\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avpermilps $$0x00, %ymm6, %ymm12       \0Avpermilps $$0x55, %ymm6, %ymm13       \0Avpermilps $$0xaa, %ymm6, %ymm14       \0Avpermilps $$0xff, %ymm6, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm6\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avsubps   %ymm6, %ymm2, %ymm14\0Avaddps   %ymm6, %ymm2, %ymm2\0Avpermilps $$0x1b, %ymm14, %ymm14\0Avperm2f128 $$0x02, %ymm2, %ymm14, %ymm4   \0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmulps    %ymm1,  %ymm4,  %ymm4   \0Avmovaps   %ymm11, %ymm1            \0Avaddps    %ymm4, %ymm11, %ymm11   \0Avsubps    %ymm4,  %ymm1,  %ymm1   \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !46
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_4(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !47
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x13, %ymm1, %ymm13, %ymm3   \0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm3,  %ymm9, %ymm13    \0Avaddps   %ymm12, %ymm13, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps    %ymm3,  %ymm11, %ymm14   \0Avsubps    %ymm14, %ymm13, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps     %ymm3,  %ymm8,  %ymm15  \0Avsubps    %ymm15, %ymm14, %ymm14   \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avmulps    %ymm3, %ymm10,  %ymm3    \0Avsubps    %ymm3, %ymm15, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !47
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_5(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !48
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avmovaps                 64($0),  %xmm12  \0Avmovaps                 80($0),  %xmm13  \0A                                                                                \0Avinsertf128  $$1, 96($0), %ymm12, %ymm12  \0Avinsertf128  $$1, 112($0), %ymm13, %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0A                                                                                \0Avunpcklps      %ymm5,  %ymm1,  %ymm12  \0Avunpckhps      %ymm5,  %ymm1,  %ymm13  \0A                                                                                \0Avunpcklpd      %ymm13,  %ymm12,  %ymm1  \0Avunpckhpd      %ymm13,  %ymm12,  %ymm5  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avpermilps $$0x00, %ymm1, %ymm12       \0Avpermilps $$0x55, %ymm1, %ymm13       \0Avpermilps $$0xaa, %ymm1, %ymm14       \0Avpermilps $$0xff, %ymm1, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm1\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avpermilps $$0x00, %ymm5, %ymm12       \0Avpermilps $$0x55, %ymm5, %ymm13       \0Avpermilps $$0xaa, %ymm5, %ymm14       \0Avpermilps $$0xff, %ymm5, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm5\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avsubps   %ymm5, %ymm1, %ymm13\0Avaddps   %ymm5, %ymm1, %ymm1\0Avpermilps $$0x1b, %ymm13, %ymm13\0Avperm2f128 $$0x02, %ymm1, %ymm13, %ymm2   \0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmulps    %ymm3, %ymm2,  %ymm7    \0Avmovaps   %ymm11, %ymm8            \0Avaddps     %ymm7, %ymm8,  %ymm8   \0Avsubps     %ymm7, %ymm11, %ymm11  \0Avmulps     %ymm5,  %ymm2, %ymm7   \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps    %ymm7,  %ymm1,  %ymm9   \0Avsubps    %ymm7,  %ymm1,  %ymm10  \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !48
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_6(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !49
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x13, %ymm0, %ymm12, %ymm1   \0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avpermilps        $$0xff,  %ymm8, %ymm11  \0Avpermilps        $$0xaa,  %ymm8, %ymm10  \0Avpermilps        $$0x55,  %ymm8, %ymm9   \0Avpermilps        $$0x00,  %ymm8, %ymm8   \0Avmulps    %ymm1,  %ymm8, %ymm12    \0Avmulps    %ymm1,   %ymm9, %ymm13   \0Avmulps     %ymm1, %ymm10,  %ymm14  \0Avmulps    %ymm1, %ymm11, %ymm15    \0Avbroadcastf128   8($1),  %ymm1          \0Avpermilps        $$0xff,  %ymm1, %ymm5  \0Avpermilps        $$0xaa,  %ymm1, %ymm3  \0Avpermilps        $$0x00,  %ymm1, %ymm1  \0Avmulps    %ymm1,  %ymm0, %ymm11   \0Avmovaps   %ymm11, %ymm1            \0Avmovaps   %ymm11, %ymm8            \0Avmovaps   %ymm1,  %ymm9            \0Avmovaps   %ymm1, %ymm10            \0Avaddps   %ymm12,  %ymm8, %ymm0       \0Avaddps   %ymm13,  %ymm9, %ymm1       \0Avaddps   %ymm14, %ymm10, %ymm2       \0Avaddps   %ymm15, %ymm11, %ymm3       \0Avsubps   %ymm12,  %ymm8, %ymm7       \0Avsubps   %ymm13,  %ymm9, %ymm6       \0Avsubps   %ymm14, %ymm10, %ymm5       \0Avsubps   %ymm15, %ymm11, %ymm4       \0Avmovaps   %ymm0,    ($0)                   \0Avmovaps   %ymm1,  32($0)                   \0Avmovaps   %ymm2,  64($0)                   \0Avmovaps   %ymm3,  96($0)                   \0Avmovaps   %ymm4, 128($0)                   \0Avmovaps   %ymm5, 160($0)                   \0Avmovaps   %ymm6, 192($0)                   \0Avmovaps   %ymm7, 224($0)                   \0Avzeroupper      \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !49
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @dctInverse8x8_avx_7(ptr noundef %data) #0 {
 entry:
-  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #18, !srcloc !50
+  tail call void asm sideeffect "vmovaps                 0($0),  %xmm14  \0Avmovaps                 16($0),  %xmm15  \0A                                                                                \0Avinsertf128  $$1, 32($0), %ymm14, %ymm14  \0Avinsertf128  $$1, 48($0), %ymm15, %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0A                                                                                \0Avunpcklps      %ymm4,  %ymm0,  %ymm14  \0Avunpckhps      %ymm4,  %ymm0,  %ymm15  \0A                                                                                \0Avunpcklpd      %ymm15,  %ymm14,  %ymm0  \0Avunpckhpd      %ymm15,  %ymm14,  %ymm4  \0Avbroadcastf128   ($1),  %ymm8         \0Avbroadcastf128 16($1),  %ymm9         \0Avbroadcastf128 32($1), %ymm10         \0Avbroadcastf128 48($1), %ymm11         \0Avinsertf128 $$1,  %xmm8,  %ymm8,  %ymm2 \0Avpermilps $$0x00, %ymm0, %ymm12       \0Avpermilps $$0x55, %ymm0, %ymm13       \0Avpermilps $$0xaa, %ymm0, %ymm14       \0Avpermilps $$0xff, %ymm0, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm0\0Avbroadcastf128  64($1),  %ymm8         \0Avbroadcastf128  80($1),  %ymm9         \0Avbroadcastf128  96($1), %ymm10         \0Avbroadcastf128 112($1), %ymm11         \0Avpermilps $$0x00, %ymm4, %ymm12       \0Avpermilps $$0x55, %ymm4, %ymm13       \0Avpermilps $$0xaa, %ymm4, %ymm14       \0Avpermilps $$0xff, %ymm4, %ymm15       \0Avmulps    %ymm12,  %ymm8, %ymm12     \0Avmulps    %ymm13,  %ymm9, %ymm13     \0Avmulps    %ymm14, %ymm10, %ymm14     \0Avmulps    %ymm15, %ymm11, %ymm15     \0Avaddps    %ymm13, %ymm12, %ymm12      \0Avaddps    %ymm15, %ymm14, %ymm14      \0Avaddps    %ymm14, %ymm12, %ymm4\0Avsubps   %ymm4, %ymm0, %ymm12\0Avaddps   %ymm4, %ymm0, %ymm0\0Avpermilps $$0x1b, %ymm12, %ymm12\0Avperm2f128 $$0x02, %ymm0, %ymm12, %ymm0   \0Avmulps   %ymm2, %ymm0, %ymm0  \0Avmovaps %ymm0,    ($0)          \0Avmovaps %ymm0,  32($0)          \0Avmovaps %ymm0,  64($0)          \0Avmovaps %ymm0,  96($0)          \0Avmovaps %ymm0, 128($0)          \0Avmovaps %ymm0, 160($0)          \0Avmovaps %ymm0, 192($0)          \0Avmovaps %ymm0, 224($0)          \0Avzeroupper                   \0A", "r,r,~{memory},~{xmm0},~{xmm1},~{xmm2},~{xmm3},~{xmm4},~{xmm5},~{xmm6},~{xmm7},~{xmm8},~{xmm9},~{xmm10},~{xmm11},~{xmm12},~{xmm13},~{xmm14},~{xmm15},~{dirflag},~{fpsr},~{flags}"(ptr %data, ptr nonnull @sAvxCoef) #16, !srcloc !50
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_0(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_0(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 0)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_1(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_1(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 1)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_2(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_2(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 2)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_3(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_3(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 3)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_4(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_4(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 4)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_5(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_5(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 5)
   ret void
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal void @dctInverse8x8_sse2_6(ptr noundef %data) #5 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @dctInverse8x8_sse2_6(ptr nocapture noundef %data) #3 {
 entry:
   tail call fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef 6)
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @dctInverse8x8_sse2_7(ptr nocapture noundef %data) #6 {
+define internal void @dctInverse8x8_sse2_7(ptr nocapture noundef %data) #5 {
 entry:
   %in.i = alloca [8 x <4 x float>], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %in.i)
@@ -5719,7 +5716,7 @@ dctInverse8x8_sse2.exit:                          ; preds = %for.end.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #7
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @dctInverse8x8_scalar(ptr nocapture noundef %data, i32 noundef %zeroedRows) unnamed_addr #3 {
@@ -5874,10 +5871,10 @@ for.end316:                                       ; preds = %for.body133
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fmuladd.f32(float, float, float) #7
+declare float @llvm.fmuladd.f32(float, float, float) #6
 
-; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @dctInverse8x8_sse2(ptr noundef %data, i32 noundef %zeroedRows) unnamed_addr #8 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal fastcc void @dctInverse8x8_sse2(ptr nocapture noundef %data, i32 noundef %zeroedRows) unnamed_addr #5 {
 entry:
   %in = alloca [8 x <4 x float>], align 16
   %0 = load <4 x float>, ptr %data, align 16
@@ -5914,12 +5911,12 @@ entry:
   store <4 x float> %shufp78, ptr %arrayidx15, align 16
   switch i32 %zeroedRows, label %sw.default [
     i32 7, label %sw.epilog
-    i32 1, label %sw.bb654
-    i32 2, label %sw.bb1229
-    i32 3, label %sw.bb1722
-    i32 4, label %sw.bb2133
-    i32 5, label %sw.bb2462
-    i32 6, label %sw.bb2709
+    i32 1, label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split
+    i32 2, label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split
+    i32 3, label %sw.epilog.sink.split.sink.split.sink.split.sink.split
+    i32 4, label %sw.epilog.sink.split.sink.split.sink.split
+    i32 5, label %sw.epilog.sink.split.sink.split
+    i32 6, label %sw.epilog.sink.split
   ]
 
 sw.default:                                       ; preds = %entry
@@ -5956,12 +5953,27 @@ sw.default:                                       ; preds = %entry
   %sub.i5263 = fsub <4 x float> %add.i5084, %add.i5072
   %shufp160 = shufflevector <4 x float> %sub.i5263, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %shufp160, ptr %arrayidx96, align 16
-  %arrayidx162 = getelementptr inbounds i8, ptr %data, i64 64
+  br label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split
+
+sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %entry, %sw.default
+  %.sink2190 = phi i64 [ 64, %sw.default ], [ 32, %entry ]
+  %.sink2185 = phi i64 [ 80, %sw.default ], [ 48, %entry ]
+  %.sink2174.ph = phi i64 [ 96, %sw.default ], [ 64, %entry ]
+  %.sink2169.ph = phi i64 [ 112, %sw.default ], [ 80, %entry ]
+  %.sink2158.ph.ph = phi i64 [ 128, %sw.default ], [ 96, %entry ]
+  %.sink2153.ph.ph = phi i64 [ 144, %sw.default ], [ 112, %entry ]
+  %.sink2142.ph.ph.ph = phi i64 [ 160, %sw.default ], [ 128, %entry ]
+  %.sink2137.ph.ph.ph = phi i64 [ 176, %sw.default ], [ 144, %entry ]
+  %.sink2126.ph.ph.ph.ph = phi i64 [ 192, %sw.default ], [ 160, %entry ]
+  %.sink2121.ph.ph.ph.ph = phi i64 [ 208, %sw.default ], [ 176, %entry ]
+  %.sink.ph.ph.ph.ph.ph = phi i64 [ 224, %sw.default ], [ 192, %entry ]
+  %.sink2106.ph.ph.ph.ph.ph = phi i64 [ 240, %sw.default ], [ 208, %entry ]
+  %arrayidx162 = getelementptr inbounds i8, ptr %data, i64 %.sink2190
   %8 = load <4 x float>, ptr %arrayidx162, align 16
   %shufp168 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %shufp172 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %shufp176 = shufflevector <4 x float> %8, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx178 = getelementptr inbounds i8, ptr %data, i64 80
+  %arrayidx178 = getelementptr inbounds i8, ptr %data, i64 %.sink2185
   %9 = load <4 x float>, ptr %arrayidx178, align 16
   %shufp180 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> zeroinitializer
   %shufp184 = shufflevector <4 x float> %9, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -5989,45 +6001,69 @@ sw.default:                                       ; preds = %entry
   %sub.i5260 = fsub <4 x float> %add.i5057, %add.i5045
   %shufp242 = shufflevector <4 x float> %sub.i5260, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %shufp242, ptr %arrayidx178, align 16
-  %arrayidx244 = getelementptr inbounds i8, ptr %data, i64 96
-  %12 = load <4 x float>, ptr %arrayidx244, align 16
-  %shufp250 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp254 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp258 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx260 = getelementptr inbounds i8, ptr %data, i64 112
-  %13 = load <4 x float>, ptr %arrayidx260, align 16
-  %shufp262 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp266 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp270 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp274 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  br label %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split
+
+sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split: ; preds = %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split, %entry
+  %.sink2174 = phi i64 [ 32, %entry ], [ %.sink2174.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2169 = phi i64 [ 48, %entry ], [ %.sink2169.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2158.ph = phi i64 [ 64, %entry ], [ %.sink2158.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2153.ph = phi i64 [ 80, %entry ], [ %.sink2153.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2142.ph.ph = phi i64 [ 96, %entry ], [ %.sink2142.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2137.ph.ph = phi i64 [ 112, %entry ], [ %.sink2137.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2126.ph.ph.ph = phi i64 [ 128, %entry ], [ %.sink2126.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2121.ph.ph.ph = phi i64 [ 144, %entry ], [ %.sink2121.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink.ph.ph.ph.ph = phi i64 [ 160, %entry ], [ %.sink.ph.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2106.ph.ph.ph.ph = phi i64 [ 176, %entry ], [ %.sink2106.ph.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %arrayidx1312 = getelementptr inbounds i8, ptr %data, i64 %.sink2174
+  %12 = load <4 x float>, ptr %arrayidx1312, align 16
+  %shufp1318 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp1322 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp1326 = shufflevector <4 x float> %12, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %arrayidx1328 = getelementptr inbounds i8, ptr %data, i64 %.sink2169
+  %13 = load <4 x float>, ptr %arrayidx1328, align 16
+  %shufp1330 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> zeroinitializer
+  %shufp1334 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp1338 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp1342 = shufflevector <4 x float> %13, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %14 = fmul <4 x float> %12, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3958 = fmul <4 x float> %shufp254, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3955 = fmul <4 x float> %shufp262, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3952 = fmul <4 x float> %shufp270, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3949 = fmul <4 x float> %shufp250, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3946 = fmul <4 x float> %shufp258, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3943 = fmul <4 x float> %shufp266, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3940 = fmul <4 x float> %shufp274, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
+  %mul.i3646 = fmul <4 x float> %shufp1322, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
+  %mul.i3643 = fmul <4 x float> %shufp1330, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3640 = fmul <4 x float> %shufp1338, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
+  %mul.i3637 = fmul <4 x float> %shufp1318, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3634 = fmul <4 x float> %shufp1326, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
+  %mul.i3631 = fmul <4 x float> %shufp1334, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
+  %mul.i3628 = fmul <4 x float> %shufp1342, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
   %15 = fadd <4 x float> %14, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i5039 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i5036 = fadd <4 x float> %mul.i3958, %add.i5039
-  %add.i5033 = fadd <4 x float> %mul.i3955, %add.i5036
-  %add.i5030 = fadd <4 x float> %mul.i3952, %add.i5033
-  %add.i5027 = fadd <4 x float> %mul.i3949, zeroinitializer
-  %add.i5024 = fadd <4 x float> %mul.i3946, %add.i5027
-  %add.i5021 = fadd <4 x float> %mul.i3943, %add.i5024
-  %add.i5018 = fadd <4 x float> %mul.i3940, %add.i5021
-  %add.i5015 = fadd <4 x float> %add.i5030, %add.i5018
-  store <4 x float> %add.i5015, ptr %arrayidx244, align 16
-  %sub.i5257 = fsub <4 x float> %add.i5030, %add.i5018
-  %shufp324 = shufflevector <4 x float> %sub.i5257, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp324, ptr %arrayidx260, align 16
-  %arrayidx326 = getelementptr inbounds i8, ptr %data, i64 128
+  %add.i4688 = shufflevector <4 x float> %15, <4 x float> poison, <4 x i32> zeroinitializer
+  %add.i4685 = fadd <4 x float> %mul.i3646, %add.i4688
+  %add.i4682 = fadd <4 x float> %mul.i3643, %add.i4685
+  %add.i4679 = fadd <4 x float> %mul.i3640, %add.i4682
+  %add.i4676 = fadd <4 x float> %mul.i3637, zeroinitializer
+  %add.i4673 = fadd <4 x float> %mul.i3634, %add.i4676
+  %add.i4670 = fadd <4 x float> %mul.i3631, %add.i4673
+  %add.i4667 = fadd <4 x float> %mul.i3628, %add.i4670
+  %add.i4664 = fadd <4 x float> %add.i4679, %add.i4667
+  store <4 x float> %add.i4664, ptr %arrayidx1312, align 16
+  %sub.i5218 = fsub <4 x float> %add.i4679, %add.i4667
+  %shufp1392 = shufflevector <4 x float> %sub.i5218, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %shufp1392, ptr %arrayidx1328, align 16
+  br label %sw.epilog.sink.split.sink.split.sink.split.sink.split
+
+sw.epilog.sink.split.sink.split.sink.split.sink.split: ; preds = %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split, %entry
+  %.sink2158 = phi i64 [ 32, %entry ], [ %.sink2158.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2153 = phi i64 [ 48, %entry ], [ %.sink2153.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2142.ph = phi i64 [ 64, %entry ], [ %.sink2142.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2137.ph = phi i64 [ 80, %entry ], [ %.sink2137.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2126.ph.ph = phi i64 [ 96, %entry ], [ %.sink2126.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2121.ph.ph = phi i64 [ 112, %entry ], [ %.sink2121.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink.ph.ph.ph = phi i64 [ 128, %entry ], [ %.sink.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2106.ph.ph.ph = phi i64 [ 144, %entry ], [ %.sink2106.ph.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split.sink.split ]
+  %arrayidx326 = getelementptr inbounds i8, ptr %data, i64 %.sink2158
   %16 = load <4 x float>, ptr %arrayidx326, align 16
   %shufp332 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %shufp336 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %shufp340 = shufflevector <4 x float> %16, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx342 = getelementptr inbounds i8, ptr %data, i64 144
+  %arrayidx342 = getelementptr inbounds i8, ptr %data, i64 %.sink2153
   %17 = load <4 x float>, ptr %arrayidx342, align 16
   %shufp344 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> zeroinitializer
   %shufp348 = shufflevector <4 x float> %17, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -6055,45 +6091,61 @@ sw.default:                                       ; preds = %entry
   %sub.i5254 = fsub <4 x float> %add.i5003, %add.i4991
   %shufp406 = shufflevector <4 x float> %sub.i5254, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %shufp406, ptr %arrayidx342, align 16
-  %arrayidx408 = getelementptr inbounds i8, ptr %data, i64 160
-  %20 = load <4 x float>, ptr %arrayidx408, align 16
-  %shufp414 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp418 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp422 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx424 = getelementptr inbounds i8, ptr %data, i64 176
-  %21 = load <4 x float>, ptr %arrayidx424, align 16
-  %shufp426 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp430 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp434 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp438 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  br label %sw.epilog.sink.split.sink.split.sink.split
+
+sw.epilog.sink.split.sink.split.sink.split:       ; preds = %sw.epilog.sink.split.sink.split.sink.split.sink.split, %entry
+  %.sink2142 = phi i64 [ 32, %entry ], [ %.sink2142.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2137 = phi i64 [ 48, %entry ], [ %.sink2137.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2126.ph = phi i64 [ 64, %entry ], [ %.sink2126.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2121.ph = phi i64 [ 80, %entry ], [ %.sink2121.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %.sink.ph.ph = phi i64 [ 96, %entry ], [ %.sink.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %.sink2106.ph.ph = phi i64 [ 112, %entry ], [ %.sink2106.ph.ph.ph, %sw.epilog.sink.split.sink.split.sink.split.sink.split ]
+  %arrayidx2216 = getelementptr inbounds i8, ptr %data, i64 %.sink2142
+  %20 = load <4 x float>, ptr %arrayidx2216, align 16
+  %shufp2222 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2226 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2230 = shufflevector <4 x float> %20, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %arrayidx2232 = getelementptr inbounds i8, ptr %data, i64 %.sink2137
+  %21 = load <4 x float>, ptr %arrayidx2232, align 16
+  %shufp2234 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> zeroinitializer
+  %shufp2238 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2242 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2246 = shufflevector <4 x float> %21, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %22 = fmul <4 x float> %20, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3910 = fmul <4 x float> %shufp418, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3907 = fmul <4 x float> %shufp426, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3904 = fmul <4 x float> %shufp434, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3901 = fmul <4 x float> %shufp414, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3898 = fmul <4 x float> %shufp422, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3895 = fmul <4 x float> %shufp430, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3892 = fmul <4 x float> %shufp438, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
+  %mul.i3382 = fmul <4 x float> %shufp2226, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
+  %mul.i3379 = fmul <4 x float> %shufp2234, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
+  %mul.i3376 = fmul <4 x float> %shufp2242, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
+  %mul.i3373 = fmul <4 x float> %shufp2222, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3370 = fmul <4 x float> %shufp2230, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
+  %mul.i3367 = fmul <4 x float> %shufp2238, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
+  %mul.i3364 = fmul <4 x float> %shufp2246, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
   %23 = fadd <4 x float> %22, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4985 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4982 = fadd <4 x float> %mul.i3910, %add.i4985
-  %add.i4979 = fadd <4 x float> %mul.i3907, %add.i4982
-  %add.i4976 = fadd <4 x float> %mul.i3904, %add.i4979
-  %add.i4973 = fadd <4 x float> %mul.i3901, zeroinitializer
-  %add.i4970 = fadd <4 x float> %mul.i3898, %add.i4973
-  %add.i4967 = fadd <4 x float> %mul.i3895, %add.i4970
-  %add.i4964 = fadd <4 x float> %mul.i3892, %add.i4967
-  %add.i4961 = fadd <4 x float> %add.i4976, %add.i4964
-  store <4 x float> %add.i4961, ptr %arrayidx408, align 16
-  %sub.i5251 = fsub <4 x float> %add.i4976, %add.i4964
-  %shufp488 = shufflevector <4 x float> %sub.i5251, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp488, ptr %arrayidx424, align 16
-  %arrayidx490 = getelementptr inbounds i8, ptr %data, i64 192
+  %add.i4391 = shufflevector <4 x float> %23, <4 x float> poison, <4 x i32> zeroinitializer
+  %add.i4388 = fadd <4 x float> %mul.i3382, %add.i4391
+  %add.i4385 = fadd <4 x float> %mul.i3379, %add.i4388
+  %add.i4382 = fadd <4 x float> %mul.i3376, %add.i4385
+  %add.i4379 = fadd <4 x float> %mul.i3373, zeroinitializer
+  %add.i4376 = fadd <4 x float> %mul.i3370, %add.i4379
+  %add.i4373 = fadd <4 x float> %mul.i3367, %add.i4376
+  %add.i4370 = fadd <4 x float> %mul.i3364, %add.i4373
+  %add.i4367 = fadd <4 x float> %add.i4382, %add.i4370
+  store <4 x float> %add.i4367, ptr %arrayidx2216, align 16
+  %sub.i5185 = fsub <4 x float> %add.i4382, %add.i4370
+  %shufp2296 = shufflevector <4 x float> %sub.i5185, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %shufp2296, ptr %arrayidx2232, align 16
+  br label %sw.epilog.sink.split.sink.split
+
+sw.epilog.sink.split.sink.split:                  ; preds = %sw.epilog.sink.split.sink.split.sink.split, %entry
+  %.sink2126 = phi i64 [ 32, %entry ], [ %.sink2126.ph, %sw.epilog.sink.split.sink.split.sink.split ]
+  %.sink2121 = phi i64 [ 48, %entry ], [ %.sink2121.ph, %sw.epilog.sink.split.sink.split.sink.split ]
+  %.sink.ph = phi i64 [ 64, %entry ], [ %.sink.ph.ph, %sw.epilog.sink.split.sink.split.sink.split ]
+  %.sink2106.ph = phi i64 [ 80, %entry ], [ %.sink2106.ph.ph, %sw.epilog.sink.split.sink.split.sink.split ]
+  %arrayidx490 = getelementptr inbounds i8, ptr %data, i64 %.sink2126
   %24 = load <4 x float>, ptr %arrayidx490, align 16
   %shufp496 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
   %shufp500 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
   %shufp504 = shufflevector <4 x float> %24, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx506 = getelementptr inbounds i8, ptr %data, i64 208
+  %arrayidx506 = getelementptr inbounds i8, ptr %data, i64 %.sink2121
   %25 = load <4 x float>, ptr %arrayidx506, align 16
   %shufp508 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> zeroinitializer
   %shufp512 = shufflevector <4 x float> %25, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
@@ -6121,717 +6173,23 @@ sw.default:                                       ; preds = %entry
   %sub.i5248 = fsub <4 x float> %add.i4949, %add.i4937
   %shufp570 = shufflevector <4 x float> %sub.i5248, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
   store <4 x float> %shufp570, ptr %arrayidx506, align 16
-  %arrayidx572 = getelementptr inbounds i8, ptr %data, i64 224
-  %28 = load <4 x float>, ptr %arrayidx572, align 16
-  %shufp578 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp582 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp586 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx588 = getelementptr inbounds i8, ptr %data, i64 240
-  %29 = load <4 x float>, ptr %arrayidx588, align 16
-  %shufp590 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp594 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp598 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp602 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %entry
+  %.sink = phi i64 [ 32, %entry ], [ %.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %.sink2106 = phi i64 [ 48, %entry ], [ %.sink2106.ph, %sw.epilog.sink.split.sink.split ]
+  %arrayidx2792 = getelementptr inbounds i8, ptr %data, i64 %.sink
+  %28 = load <4 x float>, ptr %arrayidx2792, align 16
+  %shufp2798 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2802 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2806 = shufflevector <4 x float> %28, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
+  %arrayidx2808 = getelementptr inbounds i8, ptr %data, i64 %.sink2106
+  %29 = load <4 x float>, ptr %arrayidx2808, align 16
+  %shufp2810 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> zeroinitializer
+  %shufp2814 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
+  %shufp2818 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
+  %shufp2822 = shufflevector <4 x float> %29, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
   %30 = fmul <4 x float> %28, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3862 = fmul <4 x float> %shufp582, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3859 = fmul <4 x float> %shufp590, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3856 = fmul <4 x float> %shufp598, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3853 = fmul <4 x float> %shufp578, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3850 = fmul <4 x float> %shufp586, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3847 = fmul <4 x float> %shufp594, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3844 = fmul <4 x float> %shufp602, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %31 = fadd <4 x float> %30, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4931 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4928 = fadd <4 x float> %mul.i3862, %add.i4931
-  %add.i4925 = fadd <4 x float> %mul.i3859, %add.i4928
-  %add.i4922 = fadd <4 x float> %mul.i3856, %add.i4925
-  %add.i4919 = fadd <4 x float> %mul.i3853, zeroinitializer
-  %add.i4916 = fadd <4 x float> %mul.i3850, %add.i4919
-  %add.i4913 = fadd <4 x float> %mul.i3847, %add.i4916
-  %add.i4910 = fadd <4 x float> %mul.i3844, %add.i4913
-  %add.i4907 = fadd <4 x float> %add.i4922, %add.i4910
-  store <4 x float> %add.i4907, ptr %arrayidx572, align 16
-  %sub.i5245 = fsub <4 x float> %add.i4922, %add.i4910
-  br label %sw.epilog.sink.split
-
-sw.bb654:                                         ; preds = %entry
-  %arrayidx737 = getelementptr inbounds i8, ptr %data, i64 32
-  %32 = load <4 x float>, ptr %arrayidx737, align 16
-  %shufp743 = shufflevector <4 x float> %32, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp747 = shufflevector <4 x float> %32, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp751 = shufflevector <4 x float> %32, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx753 = getelementptr inbounds i8, ptr %data, i64 48
-  %33 = load <4 x float>, ptr %arrayidx753, align 16
-  %shufp755 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp759 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp763 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp767 = shufflevector <4 x float> %33, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %34 = fmul <4 x float> %32, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3814 = fmul <4 x float> %shufp747, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3811 = fmul <4 x float> %shufp755, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3808 = fmul <4 x float> %shufp763, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3805 = fmul <4 x float> %shufp743, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3802 = fmul <4 x float> %shufp751, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3799 = fmul <4 x float> %shufp759, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3796 = fmul <4 x float> %shufp767, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %35 = fadd <4 x float> %34, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4877 = shufflevector <4 x float> %35, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4874 = fadd <4 x float> %mul.i3814, %add.i4877
-  %add.i4871 = fadd <4 x float> %mul.i3811, %add.i4874
-  %add.i4868 = fadd <4 x float> %mul.i3808, %add.i4871
-  %add.i4865 = fadd <4 x float> %mul.i3805, zeroinitializer
-  %add.i4862 = fadd <4 x float> %mul.i3802, %add.i4865
-  %add.i4859 = fadd <4 x float> %mul.i3799, %add.i4862
-  %add.i4856 = fadd <4 x float> %mul.i3796, %add.i4859
-  %add.i4853 = fadd <4 x float> %add.i4868, %add.i4856
-  store <4 x float> %add.i4853, ptr %arrayidx737, align 16
-  %sub.i5239 = fsub <4 x float> %add.i4868, %add.i4856
-  %shufp817 = shufflevector <4 x float> %sub.i5239, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp817, ptr %arrayidx753, align 16
-  %arrayidx819 = getelementptr inbounds i8, ptr %data, i64 64
-  %36 = load <4 x float>, ptr %arrayidx819, align 16
-  %shufp825 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp829 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp833 = shufflevector <4 x float> %36, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx835 = getelementptr inbounds i8, ptr %data, i64 80
-  %37 = load <4 x float>, ptr %arrayidx835, align 16
-  %shufp837 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp841 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp845 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp849 = shufflevector <4 x float> %37, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %38 = fmul <4 x float> %36, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3790 = fmul <4 x float> %shufp829, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3787 = fmul <4 x float> %shufp837, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3784 = fmul <4 x float> %shufp845, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3781 = fmul <4 x float> %shufp825, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3778 = fmul <4 x float> %shufp833, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3775 = fmul <4 x float> %shufp841, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3772 = fmul <4 x float> %shufp849, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %39 = fadd <4 x float> %38, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4850 = shufflevector <4 x float> %39, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4847 = fadd <4 x float> %mul.i3790, %add.i4850
-  %add.i4844 = fadd <4 x float> %mul.i3787, %add.i4847
-  %add.i4841 = fadd <4 x float> %mul.i3784, %add.i4844
-  %add.i4838 = fadd <4 x float> %mul.i3781, zeroinitializer
-  %add.i4835 = fadd <4 x float> %mul.i3778, %add.i4838
-  %add.i4832 = fadd <4 x float> %mul.i3775, %add.i4835
-  %add.i4829 = fadd <4 x float> %mul.i3772, %add.i4832
-  %add.i4826 = fadd <4 x float> %add.i4841, %add.i4829
-  store <4 x float> %add.i4826, ptr %arrayidx819, align 16
-  %sub.i5236 = fsub <4 x float> %add.i4841, %add.i4829
-  %shufp899 = shufflevector <4 x float> %sub.i5236, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp899, ptr %arrayidx835, align 16
-  %arrayidx901 = getelementptr inbounds i8, ptr %data, i64 96
-  %40 = load <4 x float>, ptr %arrayidx901, align 16
-  %shufp907 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp911 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp915 = shufflevector <4 x float> %40, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx917 = getelementptr inbounds i8, ptr %data, i64 112
-  %41 = load <4 x float>, ptr %arrayidx917, align 16
-  %shufp919 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp923 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp927 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp931 = shufflevector <4 x float> %41, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %42 = fmul <4 x float> %40, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3766 = fmul <4 x float> %shufp911, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3763 = fmul <4 x float> %shufp919, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3760 = fmul <4 x float> %shufp927, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3757 = fmul <4 x float> %shufp907, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3754 = fmul <4 x float> %shufp915, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3751 = fmul <4 x float> %shufp923, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3748 = fmul <4 x float> %shufp931, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %43 = fadd <4 x float> %42, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4823 = shufflevector <4 x float> %43, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4820 = fadd <4 x float> %mul.i3766, %add.i4823
-  %add.i4817 = fadd <4 x float> %mul.i3763, %add.i4820
-  %add.i4814 = fadd <4 x float> %mul.i3760, %add.i4817
-  %add.i4811 = fadd <4 x float> %mul.i3757, zeroinitializer
-  %add.i4808 = fadd <4 x float> %mul.i3754, %add.i4811
-  %add.i4805 = fadd <4 x float> %mul.i3751, %add.i4808
-  %add.i4802 = fadd <4 x float> %mul.i3748, %add.i4805
-  %add.i4799 = fadd <4 x float> %add.i4814, %add.i4802
-  store <4 x float> %add.i4799, ptr %arrayidx901, align 16
-  %sub.i5233 = fsub <4 x float> %add.i4814, %add.i4802
-  %shufp981 = shufflevector <4 x float> %sub.i5233, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp981, ptr %arrayidx917, align 16
-  %arrayidx983 = getelementptr inbounds i8, ptr %data, i64 128
-  %44 = load <4 x float>, ptr %arrayidx983, align 16
-  %shufp989 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp993 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp997 = shufflevector <4 x float> %44, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx999 = getelementptr inbounds i8, ptr %data, i64 144
-  %45 = load <4 x float>, ptr %arrayidx999, align 16
-  %shufp1001 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1005 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1009 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1013 = shufflevector <4 x float> %45, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %46 = fmul <4 x float> %44, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3742 = fmul <4 x float> %shufp993, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3739 = fmul <4 x float> %shufp1001, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3736 = fmul <4 x float> %shufp1009, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3733 = fmul <4 x float> %shufp989, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3730 = fmul <4 x float> %shufp997, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3727 = fmul <4 x float> %shufp1005, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3724 = fmul <4 x float> %shufp1013, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %47 = fadd <4 x float> %46, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4796 = shufflevector <4 x float> %47, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4793 = fadd <4 x float> %mul.i3742, %add.i4796
-  %add.i4790 = fadd <4 x float> %mul.i3739, %add.i4793
-  %add.i4787 = fadd <4 x float> %mul.i3736, %add.i4790
-  %add.i4784 = fadd <4 x float> %mul.i3733, zeroinitializer
-  %add.i4781 = fadd <4 x float> %mul.i3730, %add.i4784
-  %add.i4778 = fadd <4 x float> %mul.i3727, %add.i4781
-  %add.i4775 = fadd <4 x float> %mul.i3724, %add.i4778
-  %add.i4772 = fadd <4 x float> %add.i4787, %add.i4775
-  store <4 x float> %add.i4772, ptr %arrayidx983, align 16
-  %sub.i5230 = fsub <4 x float> %add.i4787, %add.i4775
-  %shufp1063 = shufflevector <4 x float> %sub.i5230, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1063, ptr %arrayidx999, align 16
-  %arrayidx1065 = getelementptr inbounds i8, ptr %data, i64 160
-  %48 = load <4 x float>, ptr %arrayidx1065, align 16
-  %shufp1071 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1075 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1079 = shufflevector <4 x float> %48, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1081 = getelementptr inbounds i8, ptr %data, i64 176
-  %49 = load <4 x float>, ptr %arrayidx1081, align 16
-  %shufp1083 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1087 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1091 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1095 = shufflevector <4 x float> %49, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %50 = fmul <4 x float> %48, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3718 = fmul <4 x float> %shufp1075, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3715 = fmul <4 x float> %shufp1083, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3712 = fmul <4 x float> %shufp1091, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3709 = fmul <4 x float> %shufp1071, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3706 = fmul <4 x float> %shufp1079, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3703 = fmul <4 x float> %shufp1087, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3700 = fmul <4 x float> %shufp1095, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %51 = fadd <4 x float> %50, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4769 = shufflevector <4 x float> %51, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4766 = fadd <4 x float> %mul.i3718, %add.i4769
-  %add.i4763 = fadd <4 x float> %mul.i3715, %add.i4766
-  %add.i4760 = fadd <4 x float> %mul.i3712, %add.i4763
-  %add.i4757 = fadd <4 x float> %mul.i3709, zeroinitializer
-  %add.i4754 = fadd <4 x float> %mul.i3706, %add.i4757
-  %add.i4751 = fadd <4 x float> %mul.i3703, %add.i4754
-  %add.i4748 = fadd <4 x float> %mul.i3700, %add.i4751
-  %add.i4745 = fadd <4 x float> %add.i4760, %add.i4748
-  store <4 x float> %add.i4745, ptr %arrayidx1065, align 16
-  %sub.i5227 = fsub <4 x float> %add.i4760, %add.i4748
-  %shufp1145 = shufflevector <4 x float> %sub.i5227, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1145, ptr %arrayidx1081, align 16
-  %arrayidx1147 = getelementptr inbounds i8, ptr %data, i64 192
-  %52 = load <4 x float>, ptr %arrayidx1147, align 16
-  %shufp1153 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1157 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1161 = shufflevector <4 x float> %52, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1163 = getelementptr inbounds i8, ptr %data, i64 208
-  %53 = load <4 x float>, ptr %arrayidx1163, align 16
-  %shufp1165 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1169 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1173 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1177 = shufflevector <4 x float> %53, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %54 = fmul <4 x float> %52, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3694 = fmul <4 x float> %shufp1157, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3691 = fmul <4 x float> %shufp1165, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3688 = fmul <4 x float> %shufp1173, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3685 = fmul <4 x float> %shufp1153, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3682 = fmul <4 x float> %shufp1161, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3679 = fmul <4 x float> %shufp1169, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3676 = fmul <4 x float> %shufp1177, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %55 = fadd <4 x float> %54, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4742 = shufflevector <4 x float> %55, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4739 = fadd <4 x float> %mul.i3694, %add.i4742
-  %add.i4736 = fadd <4 x float> %mul.i3691, %add.i4739
-  %add.i4733 = fadd <4 x float> %mul.i3688, %add.i4736
-  %add.i4730 = fadd <4 x float> %mul.i3685, zeroinitializer
-  %add.i4727 = fadd <4 x float> %mul.i3682, %add.i4730
-  %add.i4724 = fadd <4 x float> %mul.i3679, %add.i4727
-  %add.i4721 = fadd <4 x float> %mul.i3676, %add.i4724
-  %add.i4718 = fadd <4 x float> %add.i4733, %add.i4721
-  store <4 x float> %add.i4718, ptr %arrayidx1147, align 16
-  %sub.i5224 = fsub <4 x float> %add.i4733, %add.i4721
-  br label %sw.epilog.sink.split
-
-sw.bb1229:                                        ; preds = %entry
-  %arrayidx1312 = getelementptr inbounds i8, ptr %data, i64 32
-  %56 = load <4 x float>, ptr %arrayidx1312, align 16
-  %shufp1318 = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1322 = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1326 = shufflevector <4 x float> %56, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1328 = getelementptr inbounds i8, ptr %data, i64 48
-  %57 = load <4 x float>, ptr %arrayidx1328, align 16
-  %shufp1330 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1334 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1338 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1342 = shufflevector <4 x float> %57, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %58 = fmul <4 x float> %56, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3646 = fmul <4 x float> %shufp1322, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3643 = fmul <4 x float> %shufp1330, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3640 = fmul <4 x float> %shufp1338, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3637 = fmul <4 x float> %shufp1318, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3634 = fmul <4 x float> %shufp1326, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3631 = fmul <4 x float> %shufp1334, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3628 = fmul <4 x float> %shufp1342, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %59 = fadd <4 x float> %58, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4688 = shufflevector <4 x float> %59, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4685 = fadd <4 x float> %mul.i3646, %add.i4688
-  %add.i4682 = fadd <4 x float> %mul.i3643, %add.i4685
-  %add.i4679 = fadd <4 x float> %mul.i3640, %add.i4682
-  %add.i4676 = fadd <4 x float> %mul.i3637, zeroinitializer
-  %add.i4673 = fadd <4 x float> %mul.i3634, %add.i4676
-  %add.i4670 = fadd <4 x float> %mul.i3631, %add.i4673
-  %add.i4667 = fadd <4 x float> %mul.i3628, %add.i4670
-  %add.i4664 = fadd <4 x float> %add.i4679, %add.i4667
-  store <4 x float> %add.i4664, ptr %arrayidx1312, align 16
-  %sub.i5218 = fsub <4 x float> %add.i4679, %add.i4667
-  %shufp1392 = shufflevector <4 x float> %sub.i5218, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1392, ptr %arrayidx1328, align 16
-  %arrayidx1394 = getelementptr inbounds i8, ptr %data, i64 64
-  %60 = load <4 x float>, ptr %arrayidx1394, align 16
-  %shufp1400 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1404 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1408 = shufflevector <4 x float> %60, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1410 = getelementptr inbounds i8, ptr %data, i64 80
-  %61 = load <4 x float>, ptr %arrayidx1410, align 16
-  %shufp1412 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1416 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1420 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1424 = shufflevector <4 x float> %61, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %62 = fmul <4 x float> %60, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3622 = fmul <4 x float> %shufp1404, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3619 = fmul <4 x float> %shufp1412, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3616 = fmul <4 x float> %shufp1420, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3613 = fmul <4 x float> %shufp1400, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3610 = fmul <4 x float> %shufp1408, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3607 = fmul <4 x float> %shufp1416, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3604 = fmul <4 x float> %shufp1424, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %63 = fadd <4 x float> %62, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4661 = shufflevector <4 x float> %63, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4658 = fadd <4 x float> %mul.i3622, %add.i4661
-  %add.i4655 = fadd <4 x float> %mul.i3619, %add.i4658
-  %add.i4652 = fadd <4 x float> %mul.i3616, %add.i4655
-  %add.i4649 = fadd <4 x float> %mul.i3613, zeroinitializer
-  %add.i4646 = fadd <4 x float> %mul.i3610, %add.i4649
-  %add.i4643 = fadd <4 x float> %mul.i3607, %add.i4646
-  %add.i4640 = fadd <4 x float> %mul.i3604, %add.i4643
-  %add.i4637 = fadd <4 x float> %add.i4652, %add.i4640
-  store <4 x float> %add.i4637, ptr %arrayidx1394, align 16
-  %sub.i5215 = fsub <4 x float> %add.i4652, %add.i4640
-  %shufp1474 = shufflevector <4 x float> %sub.i5215, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1474, ptr %arrayidx1410, align 16
-  %arrayidx1476 = getelementptr inbounds i8, ptr %data, i64 96
-  %64 = load <4 x float>, ptr %arrayidx1476, align 16
-  %shufp1482 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1486 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1490 = shufflevector <4 x float> %64, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1492 = getelementptr inbounds i8, ptr %data, i64 112
-  %65 = load <4 x float>, ptr %arrayidx1492, align 16
-  %shufp1494 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1498 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1502 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1506 = shufflevector <4 x float> %65, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %66 = fmul <4 x float> %64, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3598 = fmul <4 x float> %shufp1486, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3595 = fmul <4 x float> %shufp1494, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3592 = fmul <4 x float> %shufp1502, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3589 = fmul <4 x float> %shufp1482, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3586 = fmul <4 x float> %shufp1490, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3583 = fmul <4 x float> %shufp1498, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3580 = fmul <4 x float> %shufp1506, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %67 = fadd <4 x float> %66, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4634 = shufflevector <4 x float> %67, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4631 = fadd <4 x float> %mul.i3598, %add.i4634
-  %add.i4628 = fadd <4 x float> %mul.i3595, %add.i4631
-  %add.i4625 = fadd <4 x float> %mul.i3592, %add.i4628
-  %add.i4622 = fadd <4 x float> %mul.i3589, zeroinitializer
-  %add.i4619 = fadd <4 x float> %mul.i3586, %add.i4622
-  %add.i4616 = fadd <4 x float> %mul.i3583, %add.i4619
-  %add.i4613 = fadd <4 x float> %mul.i3580, %add.i4616
-  %add.i4610 = fadd <4 x float> %add.i4625, %add.i4613
-  store <4 x float> %add.i4610, ptr %arrayidx1476, align 16
-  %sub.i5212 = fsub <4 x float> %add.i4625, %add.i4613
-  %shufp1556 = shufflevector <4 x float> %sub.i5212, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1556, ptr %arrayidx1492, align 16
-  %arrayidx1558 = getelementptr inbounds i8, ptr %data, i64 128
-  %68 = load <4 x float>, ptr %arrayidx1558, align 16
-  %shufp1564 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1568 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1572 = shufflevector <4 x float> %68, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1574 = getelementptr inbounds i8, ptr %data, i64 144
-  %69 = load <4 x float>, ptr %arrayidx1574, align 16
-  %shufp1576 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1580 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1584 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1588 = shufflevector <4 x float> %69, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %70 = fmul <4 x float> %68, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3574 = fmul <4 x float> %shufp1568, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3571 = fmul <4 x float> %shufp1576, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3568 = fmul <4 x float> %shufp1584, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3565 = fmul <4 x float> %shufp1564, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3562 = fmul <4 x float> %shufp1572, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3559 = fmul <4 x float> %shufp1580, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3556 = fmul <4 x float> %shufp1588, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %71 = fadd <4 x float> %70, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4607 = shufflevector <4 x float> %71, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4604 = fadd <4 x float> %mul.i3574, %add.i4607
-  %add.i4601 = fadd <4 x float> %mul.i3571, %add.i4604
-  %add.i4598 = fadd <4 x float> %mul.i3568, %add.i4601
-  %add.i4595 = fadd <4 x float> %mul.i3565, zeroinitializer
-  %add.i4592 = fadd <4 x float> %mul.i3562, %add.i4595
-  %add.i4589 = fadd <4 x float> %mul.i3559, %add.i4592
-  %add.i4586 = fadd <4 x float> %mul.i3556, %add.i4589
-  %add.i4583 = fadd <4 x float> %add.i4598, %add.i4586
-  store <4 x float> %add.i4583, ptr %arrayidx1558, align 16
-  %sub.i5209 = fsub <4 x float> %add.i4598, %add.i4586
-  %shufp1638 = shufflevector <4 x float> %sub.i5209, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1638, ptr %arrayidx1574, align 16
-  %arrayidx1640 = getelementptr inbounds i8, ptr %data, i64 160
-  %72 = load <4 x float>, ptr %arrayidx1640, align 16
-  %shufp1646 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1650 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1654 = shufflevector <4 x float> %72, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1656 = getelementptr inbounds i8, ptr %data, i64 176
-  %73 = load <4 x float>, ptr %arrayidx1656, align 16
-  %shufp1658 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1662 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1666 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1670 = shufflevector <4 x float> %73, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %74 = fmul <4 x float> %72, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3550 = fmul <4 x float> %shufp1650, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3547 = fmul <4 x float> %shufp1658, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3544 = fmul <4 x float> %shufp1666, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3541 = fmul <4 x float> %shufp1646, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3538 = fmul <4 x float> %shufp1654, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3535 = fmul <4 x float> %shufp1662, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3532 = fmul <4 x float> %shufp1670, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %75 = fadd <4 x float> %74, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4580 = shufflevector <4 x float> %75, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4577 = fadd <4 x float> %mul.i3550, %add.i4580
-  %add.i4574 = fadd <4 x float> %mul.i3547, %add.i4577
-  %add.i4571 = fadd <4 x float> %mul.i3544, %add.i4574
-  %add.i4568 = fadd <4 x float> %mul.i3541, zeroinitializer
-  %add.i4565 = fadd <4 x float> %mul.i3538, %add.i4568
-  %add.i4562 = fadd <4 x float> %mul.i3535, %add.i4565
-  %add.i4559 = fadd <4 x float> %mul.i3532, %add.i4562
-  %add.i4556 = fadd <4 x float> %add.i4571, %add.i4559
-  store <4 x float> %add.i4556, ptr %arrayidx1640, align 16
-  %sub.i5206 = fsub <4 x float> %add.i4571, %add.i4559
-  br label %sw.epilog.sink.split
-
-sw.bb1722:                                        ; preds = %entry
-  %arrayidx1805 = getelementptr inbounds i8, ptr %data, i64 32
-  %76 = load <4 x float>, ptr %arrayidx1805, align 16
-  %shufp1811 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1815 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1819 = shufflevector <4 x float> %76, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1821 = getelementptr inbounds i8, ptr %data, i64 48
-  %77 = load <4 x float>, ptr %arrayidx1821, align 16
-  %shufp1823 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1827 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1831 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1835 = shufflevector <4 x float> %77, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %78 = fmul <4 x float> %76, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3502 = fmul <4 x float> %shufp1815, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3499 = fmul <4 x float> %shufp1823, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3496 = fmul <4 x float> %shufp1831, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3493 = fmul <4 x float> %shufp1811, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3490 = fmul <4 x float> %shufp1819, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3487 = fmul <4 x float> %shufp1827, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3484 = fmul <4 x float> %shufp1835, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %79 = fadd <4 x float> %78, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4526 = shufflevector <4 x float> %79, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4523 = fadd <4 x float> %mul.i3502, %add.i4526
-  %add.i4520 = fadd <4 x float> %mul.i3499, %add.i4523
-  %add.i4517 = fadd <4 x float> %mul.i3496, %add.i4520
-  %add.i4514 = fadd <4 x float> %mul.i3493, zeroinitializer
-  %add.i4511 = fadd <4 x float> %mul.i3490, %add.i4514
-  %add.i4508 = fadd <4 x float> %mul.i3487, %add.i4511
-  %add.i4505 = fadd <4 x float> %mul.i3484, %add.i4508
-  %add.i4502 = fadd <4 x float> %add.i4517, %add.i4505
-  store <4 x float> %add.i4502, ptr %arrayidx1805, align 16
-  %sub.i5200 = fsub <4 x float> %add.i4517, %add.i4505
-  %shufp1885 = shufflevector <4 x float> %sub.i5200, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1885, ptr %arrayidx1821, align 16
-  %arrayidx1887 = getelementptr inbounds i8, ptr %data, i64 64
-  %80 = load <4 x float>, ptr %arrayidx1887, align 16
-  %shufp1893 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1897 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1901 = shufflevector <4 x float> %80, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1903 = getelementptr inbounds i8, ptr %data, i64 80
-  %81 = load <4 x float>, ptr %arrayidx1903, align 16
-  %shufp1905 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1909 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1913 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1917 = shufflevector <4 x float> %81, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %82 = fmul <4 x float> %80, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3478 = fmul <4 x float> %shufp1897, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3475 = fmul <4 x float> %shufp1905, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3472 = fmul <4 x float> %shufp1913, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3469 = fmul <4 x float> %shufp1893, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3466 = fmul <4 x float> %shufp1901, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3463 = fmul <4 x float> %shufp1909, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3460 = fmul <4 x float> %shufp1917, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %83 = fadd <4 x float> %82, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4499 = shufflevector <4 x float> %83, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4496 = fadd <4 x float> %mul.i3478, %add.i4499
-  %add.i4493 = fadd <4 x float> %mul.i3475, %add.i4496
-  %add.i4490 = fadd <4 x float> %mul.i3472, %add.i4493
-  %add.i4487 = fadd <4 x float> %mul.i3469, zeroinitializer
-  %add.i4484 = fadd <4 x float> %mul.i3466, %add.i4487
-  %add.i4481 = fadd <4 x float> %mul.i3463, %add.i4484
-  %add.i4478 = fadd <4 x float> %mul.i3460, %add.i4481
-  %add.i4475 = fadd <4 x float> %add.i4490, %add.i4478
-  store <4 x float> %add.i4475, ptr %arrayidx1887, align 16
-  %sub.i5197 = fsub <4 x float> %add.i4490, %add.i4478
-  %shufp1967 = shufflevector <4 x float> %sub.i5197, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp1967, ptr %arrayidx1903, align 16
-  %arrayidx1969 = getelementptr inbounds i8, ptr %data, i64 96
-  %84 = load <4 x float>, ptr %arrayidx1969, align 16
-  %shufp1975 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1979 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1983 = shufflevector <4 x float> %84, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx1985 = getelementptr inbounds i8, ptr %data, i64 112
-  %85 = load <4 x float>, ptr %arrayidx1985, align 16
-  %shufp1987 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp1991 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp1995 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp1999 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %86 = fmul <4 x float> %84, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3454 = fmul <4 x float> %shufp1979, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3451 = fmul <4 x float> %shufp1987, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3448 = fmul <4 x float> %shufp1995, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3445 = fmul <4 x float> %shufp1975, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3442 = fmul <4 x float> %shufp1983, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3439 = fmul <4 x float> %shufp1991, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3436 = fmul <4 x float> %shufp1999, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %87 = fadd <4 x float> %86, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4472 = shufflevector <4 x float> %87, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4469 = fadd <4 x float> %mul.i3454, %add.i4472
-  %add.i4466 = fadd <4 x float> %mul.i3451, %add.i4469
-  %add.i4463 = fadd <4 x float> %mul.i3448, %add.i4466
-  %add.i4460 = fadd <4 x float> %mul.i3445, zeroinitializer
-  %add.i4457 = fadd <4 x float> %mul.i3442, %add.i4460
-  %add.i4454 = fadd <4 x float> %mul.i3439, %add.i4457
-  %add.i4451 = fadd <4 x float> %mul.i3436, %add.i4454
-  %add.i4448 = fadd <4 x float> %add.i4463, %add.i4451
-  store <4 x float> %add.i4448, ptr %arrayidx1969, align 16
-  %sub.i5194 = fsub <4 x float> %add.i4463, %add.i4451
-  %shufp2049 = shufflevector <4 x float> %sub.i5194, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp2049, ptr %arrayidx1985, align 16
-  %arrayidx2051 = getelementptr inbounds i8, ptr %data, i64 128
-  %88 = load <4 x float>, ptr %arrayidx2051, align 16
-  %shufp2057 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2061 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2065 = shufflevector <4 x float> %88, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2067 = getelementptr inbounds i8, ptr %data, i64 144
-  %89 = load <4 x float>, ptr %arrayidx2067, align 16
-  %shufp2069 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2073 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2077 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2081 = shufflevector <4 x float> %89, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %90 = fmul <4 x float> %88, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3430 = fmul <4 x float> %shufp2061, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3427 = fmul <4 x float> %shufp2069, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3424 = fmul <4 x float> %shufp2077, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3421 = fmul <4 x float> %shufp2057, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3418 = fmul <4 x float> %shufp2065, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3415 = fmul <4 x float> %shufp2073, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3412 = fmul <4 x float> %shufp2081, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %91 = fadd <4 x float> %90, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4445 = shufflevector <4 x float> %91, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4442 = fadd <4 x float> %mul.i3430, %add.i4445
-  %add.i4439 = fadd <4 x float> %mul.i3427, %add.i4442
-  %add.i4436 = fadd <4 x float> %mul.i3424, %add.i4439
-  %add.i4433 = fadd <4 x float> %mul.i3421, zeroinitializer
-  %add.i4430 = fadd <4 x float> %mul.i3418, %add.i4433
-  %add.i4427 = fadd <4 x float> %mul.i3415, %add.i4430
-  %add.i4424 = fadd <4 x float> %mul.i3412, %add.i4427
-  %add.i4421 = fadd <4 x float> %add.i4436, %add.i4424
-  store <4 x float> %add.i4421, ptr %arrayidx2051, align 16
-  %sub.i5191 = fsub <4 x float> %add.i4436, %add.i4424
-  br label %sw.epilog.sink.split
-
-sw.bb2133:                                        ; preds = %entry
-  %arrayidx2216 = getelementptr inbounds i8, ptr %data, i64 32
-  %92 = load <4 x float>, ptr %arrayidx2216, align 16
-  %shufp2222 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2226 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2230 = shufflevector <4 x float> %92, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2232 = getelementptr inbounds i8, ptr %data, i64 48
-  %93 = load <4 x float>, ptr %arrayidx2232, align 16
-  %shufp2234 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2238 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2242 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2246 = shufflevector <4 x float> %93, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %94 = fmul <4 x float> %92, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3382 = fmul <4 x float> %shufp2226, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3379 = fmul <4 x float> %shufp2234, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3376 = fmul <4 x float> %shufp2242, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3373 = fmul <4 x float> %shufp2222, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3370 = fmul <4 x float> %shufp2230, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3367 = fmul <4 x float> %shufp2238, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3364 = fmul <4 x float> %shufp2246, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %95 = fadd <4 x float> %94, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4391 = shufflevector <4 x float> %95, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4388 = fadd <4 x float> %mul.i3382, %add.i4391
-  %add.i4385 = fadd <4 x float> %mul.i3379, %add.i4388
-  %add.i4382 = fadd <4 x float> %mul.i3376, %add.i4385
-  %add.i4379 = fadd <4 x float> %mul.i3373, zeroinitializer
-  %add.i4376 = fadd <4 x float> %mul.i3370, %add.i4379
-  %add.i4373 = fadd <4 x float> %mul.i3367, %add.i4376
-  %add.i4370 = fadd <4 x float> %mul.i3364, %add.i4373
-  %add.i4367 = fadd <4 x float> %add.i4382, %add.i4370
-  store <4 x float> %add.i4367, ptr %arrayidx2216, align 16
-  %sub.i5185 = fsub <4 x float> %add.i4382, %add.i4370
-  %shufp2296 = shufflevector <4 x float> %sub.i5185, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp2296, ptr %arrayidx2232, align 16
-  %arrayidx2298 = getelementptr inbounds i8, ptr %data, i64 64
-  %96 = load <4 x float>, ptr %arrayidx2298, align 16
-  %shufp2304 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2308 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2312 = shufflevector <4 x float> %96, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2314 = getelementptr inbounds i8, ptr %data, i64 80
-  %97 = load <4 x float>, ptr %arrayidx2314, align 16
-  %shufp2316 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2320 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2324 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2328 = shufflevector <4 x float> %97, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %98 = fmul <4 x float> %96, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3358 = fmul <4 x float> %shufp2308, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3355 = fmul <4 x float> %shufp2316, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3352 = fmul <4 x float> %shufp2324, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3349 = fmul <4 x float> %shufp2304, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3346 = fmul <4 x float> %shufp2312, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3343 = fmul <4 x float> %shufp2320, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3340 = fmul <4 x float> %shufp2328, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %99 = fadd <4 x float> %98, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4364 = shufflevector <4 x float> %99, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4361 = fadd <4 x float> %mul.i3358, %add.i4364
-  %add.i4358 = fadd <4 x float> %mul.i3355, %add.i4361
-  %add.i4355 = fadd <4 x float> %mul.i3352, %add.i4358
-  %add.i4352 = fadd <4 x float> %mul.i3349, zeroinitializer
-  %add.i4349 = fadd <4 x float> %mul.i3346, %add.i4352
-  %add.i4346 = fadd <4 x float> %mul.i3343, %add.i4349
-  %add.i4343 = fadd <4 x float> %mul.i3340, %add.i4346
-  %add.i4340 = fadd <4 x float> %add.i4355, %add.i4343
-  store <4 x float> %add.i4340, ptr %arrayidx2298, align 16
-  %sub.i5182 = fsub <4 x float> %add.i4355, %add.i4343
-  %shufp2378 = shufflevector <4 x float> %sub.i5182, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp2378, ptr %arrayidx2314, align 16
-  %arrayidx2380 = getelementptr inbounds i8, ptr %data, i64 96
-  %100 = load <4 x float>, ptr %arrayidx2380, align 16
-  %shufp2386 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2390 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2394 = shufflevector <4 x float> %100, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2396 = getelementptr inbounds i8, ptr %data, i64 112
-  %101 = load <4 x float>, ptr %arrayidx2396, align 16
-  %shufp2398 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2402 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2406 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2410 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %102 = fmul <4 x float> %100, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3334 = fmul <4 x float> %shufp2390, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3331 = fmul <4 x float> %shufp2398, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3328 = fmul <4 x float> %shufp2406, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3325 = fmul <4 x float> %shufp2386, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3322 = fmul <4 x float> %shufp2394, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3319 = fmul <4 x float> %shufp2402, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3316 = fmul <4 x float> %shufp2410, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %103 = fadd <4 x float> %102, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4337 = shufflevector <4 x float> %103, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4334 = fadd <4 x float> %mul.i3334, %add.i4337
-  %add.i4331 = fadd <4 x float> %mul.i3331, %add.i4334
-  %add.i4328 = fadd <4 x float> %mul.i3328, %add.i4331
-  %add.i4325 = fadd <4 x float> %mul.i3325, zeroinitializer
-  %add.i4322 = fadd <4 x float> %mul.i3322, %add.i4325
-  %add.i4319 = fadd <4 x float> %mul.i3319, %add.i4322
-  %add.i4316 = fadd <4 x float> %mul.i3316, %add.i4319
-  %add.i4313 = fadd <4 x float> %add.i4328, %add.i4316
-  store <4 x float> %add.i4313, ptr %arrayidx2380, align 16
-  %sub.i5179 = fsub <4 x float> %add.i4328, %add.i4316
-  br label %sw.epilog.sink.split
-
-sw.bb2462:                                        ; preds = %entry
-  %arrayidx2545 = getelementptr inbounds i8, ptr %data, i64 32
-  %104 = load <4 x float>, ptr %arrayidx2545, align 16
-  %shufp2551 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2555 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2559 = shufflevector <4 x float> %104, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2561 = getelementptr inbounds i8, ptr %data, i64 48
-  %105 = load <4 x float>, ptr %arrayidx2561, align 16
-  %shufp2563 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2567 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2571 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2575 = shufflevector <4 x float> %105, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %106 = fmul <4 x float> %104, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3286 = fmul <4 x float> %shufp2555, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3283 = fmul <4 x float> %shufp2563, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3280 = fmul <4 x float> %shufp2571, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3277 = fmul <4 x float> %shufp2551, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3274 = fmul <4 x float> %shufp2559, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3271 = fmul <4 x float> %shufp2567, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3268 = fmul <4 x float> %shufp2575, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %107 = fadd <4 x float> %106, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4283 = shufflevector <4 x float> %107, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4280 = fadd <4 x float> %mul.i3286, %add.i4283
-  %add.i4277 = fadd <4 x float> %mul.i3283, %add.i4280
-  %add.i4274 = fadd <4 x float> %mul.i3280, %add.i4277
-  %add.i4271 = fadd <4 x float> %mul.i3277, zeroinitializer
-  %add.i4268 = fadd <4 x float> %mul.i3274, %add.i4271
-  %add.i4265 = fadd <4 x float> %mul.i3271, %add.i4268
-  %add.i4262 = fadd <4 x float> %mul.i3268, %add.i4265
-  %add.i4259 = fadd <4 x float> %add.i4274, %add.i4262
-  store <4 x float> %add.i4259, ptr %arrayidx2545, align 16
-  %sub.i5173 = fsub <4 x float> %add.i4274, %add.i4262
-  %shufp2625 = shufflevector <4 x float> %sub.i5173, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp2625, ptr %arrayidx2561, align 16
-  %arrayidx2627 = getelementptr inbounds i8, ptr %data, i64 64
-  %108 = load <4 x float>, ptr %arrayidx2627, align 16
-  %shufp2633 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2637 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2641 = shufflevector <4 x float> %108, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2643 = getelementptr inbounds i8, ptr %data, i64 80
-  %109 = load <4 x float>, ptr %arrayidx2643, align 16
-  %shufp2645 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2649 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2653 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2657 = shufflevector <4 x float> %109, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %110 = fmul <4 x float> %108, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
-  %mul.i3262 = fmul <4 x float> %shufp2637, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
-  %mul.i3259 = fmul <4 x float> %shufp2645, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
-  %mul.i3256 = fmul <4 x float> %shufp2653, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
-  %mul.i3253 = fmul <4 x float> %shufp2633, <float 0x3FDF629820000000, float 0x3FDA9B6680000000, float 0x3FD1C73CE0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3250 = fmul <4 x float> %shufp2641, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
-  %mul.i3247 = fmul <4 x float> %shufp2649, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
-  %mul.i3244 = fmul <4 x float> %shufp2657, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %111 = fadd <4 x float> %110, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4256 = shufflevector <4 x float> %111, <4 x float> poison, <4 x i32> zeroinitializer
-  %add.i4253 = fadd <4 x float> %mul.i3262, %add.i4256
-  %add.i4250 = fadd <4 x float> %mul.i3259, %add.i4253
-  %add.i4247 = fadd <4 x float> %mul.i3256, %add.i4250
-  %add.i4244 = fadd <4 x float> %mul.i3253, zeroinitializer
-  %add.i4241 = fadd <4 x float> %mul.i3250, %add.i4244
-  %add.i4238 = fadd <4 x float> %mul.i3247, %add.i4241
-  %add.i4235 = fadd <4 x float> %mul.i3244, %add.i4238
-  %add.i4232 = fadd <4 x float> %add.i4247, %add.i4235
-  store <4 x float> %add.i4232, ptr %arrayidx2627, align 16
-  %sub.i5170 = fsub <4 x float> %add.i4247, %add.i4235
-  br label %sw.epilog.sink.split
-
-sw.bb2709:                                        ; preds = %entry
-  %arrayidx2792 = getelementptr inbounds i8, ptr %data, i64 32
-  %112 = load <4 x float>, ptr %arrayidx2792, align 16
-  %shufp2798 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2802 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2806 = shufflevector <4 x float> %112, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %arrayidx2808 = getelementptr inbounds i8, ptr %data, i64 48
-  %113 = load <4 x float>, ptr %arrayidx2808, align 16
-  %shufp2810 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> zeroinitializer
-  %shufp2814 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 1, i32 1, i32 1, i32 1>
-  %shufp2818 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 2, i32 2, i32 2, i32 2>
-  %shufp2822 = shufflevector <4 x float> %113, <4 x float> poison, <4 x i32> <i32 3, i32 3, i32 3, i32 3>
-  %114 = fmul <4 x float> %112, <float 0x3FD6A09F40000000, float poison, float poison, float poison>
   %mul.i3214 = fmul <4 x float> %shufp2802, <float 0x3FDD906C00000000, float 0x3FC87DE6C0000000, float 0xBFC87DE6C0000000, float 0xBFDD906C00000000>
   %mul.i3211 = fmul <4 x float> %shufp2810, <float 0x3FD6A09F40000000, float 0xBFD6A09F40000000, float 0xBFD6A09F40000000, float 0x3FD6A09F40000000>
   %mul.i3208 = fmul <4 x float> %shufp2818, <float 0x3FC87DE6C0000000, float 0xBFDD906C00000000, float 0x3FDD906C00000000, float 0xBFC87DE6C0000000>
@@ -6839,8 +6197,8 @@ sw.bb2709:                                        ; preds = %entry
   %mul.i3202 = fmul <4 x float> %shufp2806, <float 0x3FDA9B6680000000, float 0xBFB8F8C1C0000000, float 0xBFDF629820000000, float 0xBFD1C73CE0000000>
   %mul.i3199 = fmul <4 x float> %shufp2814, <float 0x3FD1C73CE0000000, float 0xBFDF629820000000, float 0x3FB8F8C1C0000000, float 0x3FDA9B6680000000>
   %mul.i3196 = fmul <4 x float> %shufp2822, <float 0x3FB8F8C1C0000000, float 0xBFD1C73CE0000000, float 0x3FDA9B6680000000, float 0xBFDF629820000000>
-  %115 = fadd <4 x float> %114, <float 0.000000e+00, float poison, float poison, float poison>
-  %add.i4202 = shufflevector <4 x float> %115, <4 x float> poison, <4 x i32> zeroinitializer
+  %31 = fadd <4 x float> %30, <float 0.000000e+00, float poison, float poison, float poison>
+  %add.i4202 = shufflevector <4 x float> %31, <4 x float> poison, <4 x i32> zeroinitializer
   %add.i4199 = fadd <4 x float> %mul.i3214, %add.i4202
   %add.i4196 = fadd <4 x float> %mul.i3211, %add.i4199
   %add.i4193 = fadd <4 x float> %mul.i3208, %add.i4196
@@ -6851,13 +6209,8 @@ sw.bb2709:                                        ; preds = %entry
   %add.i4178 = fadd <4 x float> %add.i4193, %add.i4181
   store <4 x float> %add.i4178, ptr %arrayidx2792, align 16
   %sub.i5164 = fsub <4 x float> %add.i4193, %add.i4181
-  br label %sw.epilog.sink.split
-
-sw.epilog.sink.split:                             ; preds = %sw.default, %sw.bb654, %sw.bb1229, %sw.bb1722, %sw.bb2133, %sw.bb2462, %sw.bb2709
-  %sub.i5164.sink = phi <4 x float> [ %sub.i5164, %sw.bb2709 ], [ %sub.i5170, %sw.bb2462 ], [ %sub.i5179, %sw.bb2133 ], [ %sub.i5191, %sw.bb1722 ], [ %sub.i5206, %sw.bb1229 ], [ %sub.i5224, %sw.bb654 ], [ %sub.i5245, %sw.default ]
-  %arrayidx2808.sink = phi ptr [ %arrayidx2808, %sw.bb2709 ], [ %arrayidx2643, %sw.bb2462 ], [ %arrayidx2396, %sw.bb2133 ], [ %arrayidx2067, %sw.bb1722 ], [ %arrayidx1656, %sw.bb1229 ], [ %arrayidx1163, %sw.bb654 ], [ %arrayidx588, %sw.default ]
-  %shufp2872 = shufflevector <4 x float> %sub.i5164.sink, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x float> %shufp2872, ptr %arrayidx2808.sink, align 16
+  %shufp2872 = shufflevector <4 x float> %sub.i5164, <4 x float> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x float> %shufp2872, ptr %arrayidx2808, align 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
@@ -6878,59 +6231,59 @@ for.cond2957.preheader:                           ; preds = %sw.epilog, %for.end
 
 for.body2959:                                     ; preds = %for.cond2957.preheader, %for.body2959
   %indvars.iv = phi i64 [ 0, %for.cond2957.preheader ], [ %indvars.iv.next, %for.body2959 ]
-  %116 = shl nuw nsw i64 %indvars.iv, 1
-  %gep = getelementptr inbounds <4 x float>, ptr %invariant.gep, i64 %116
-  %117 = load <4 x float>, ptr %gep, align 16
+  %32 = shl nuw nsw i64 %indvars.iv, 1
+  %gep = getelementptr inbounds <4 x float>, ptr %invariant.gep, i64 %32
+  %33 = load <4 x float>, ptr %gep, align 16
   %arrayidx2962 = getelementptr inbounds [8 x <4 x float>], ptr %in, i64 0, i64 %indvars.iv
-  store <4 x float> %117, ptr %arrayidx2962, align 16
+  store <4 x float> %33, ptr %arrayidx2962, align 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %for.end, label %for.body2959, !llvm.loop !51
 
 for.end:                                          ; preds = %for.body2959
-  %118 = load <4 x float>, ptr %arrayidx2963, align 16
-  %mul.i3169 = fmul <4 x float> %118, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3166 = fmul <4 x float> %118, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
-  %119 = load <4 x float>, ptr %arrayidx2969, align 16
-  %mul.i3163 = fmul <4 x float> %119, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
-  %mul.i3160 = fmul <4 x float> %119, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
-  %120 = load <4 x float>, ptr %arrayidx2975, align 16
-  %mul.i3157 = fmul <4 x float> %120, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %121 = load <4 x float>, ptr %arrayidx2977, align 16
-  %mul.i3154 = fmul <4 x float> %121, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %34 = load <4 x float>, ptr %arrayidx2963, align 16
+  %mul.i3169 = fmul <4 x float> %34, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
+  %mul.i3166 = fmul <4 x float> %34, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %35 = load <4 x float>, ptr %arrayidx2969, align 16
+  %mul.i3163 = fmul <4 x float> %35, <float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000, float 0x3FDD906C00000000>
+  %mul.i3160 = fmul <4 x float> %35, <float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000, float 0x3FC87DE6C0000000>
+  %36 = load <4 x float>, ptr %arrayidx2975, align 16
+  %mul.i3157 = fmul <4 x float> %36, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %37 = load <4 x float>, ptr %arrayidx2977, align 16
+  %mul.i3154 = fmul <4 x float> %37, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
   %add.i4148 = fadd <4 x float> %mul.i3157, %mul.i3154
-  %122 = load <4 x float>, ptr %arrayidx2980, align 16
-  %mul.i3151 = fmul <4 x float> %122, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %123 = load <4 x float>, ptr %arrayidx2982, align 16
-  %mul.i3148 = fmul <4 x float> %123, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %38 = load <4 x float>, ptr %arrayidx2980, align 16
+  %mul.i3151 = fmul <4 x float> %38, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %39 = load <4 x float>, ptr %arrayidx2982, align 16
+  %mul.i3148 = fmul <4 x float> %39, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
   %add.i4145 = fadd <4 x float> %mul.i3151, %mul.i3148
   %add.i4142 = fadd <4 x float> %add.i4148, %add.i4145
-  %mul.i3145 = fmul <4 x float> %120, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3142 = fmul <4 x float> %121, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3145 = fmul <4 x float> %36, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3142 = fmul <4 x float> %37, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
   %sub.i5158 = fsub <4 x float> %mul.i3145, %mul.i3142
-  %mul.i3139 = fmul <4 x float> %122, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
-  %mul.i3136 = fmul <4 x float> %123, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3139 = fmul <4 x float> %38, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3136 = fmul <4 x float> %39, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
   %add.i4139 = fadd <4 x float> %mul.i3139, %mul.i3136
   %sub.i5155 = fsub <4 x float> %sub.i5158, %add.i4139
-  %mul.i3133 = fmul <4 x float> %120, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
-  %mul.i3130 = fmul <4 x float> %121, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3133 = fmul <4 x float> %36, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3130 = fmul <4 x float> %37, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
   %sub.i5152 = fsub <4 x float> %mul.i3133, %mul.i3130
-  %mul.i3127 = fmul <4 x float> %122, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3124 = fmul <4 x float> %123, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3127 = fmul <4 x float> %38, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3124 = fmul <4 x float> %39, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
   %add.i4136 = fadd <4 x float> %mul.i3127, %mul.i3124
   %add.i4133 = fadd <4 x float> %sub.i5152, %add.i4136
-  %mul.i3121 = fmul <4 x float> %120, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
-  %mul.i3118 = fmul <4 x float> %121, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
+  %mul.i3121 = fmul <4 x float> %36, <float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000, float 0x3FB8F8C1C0000000>
+  %mul.i3118 = fmul <4 x float> %37, <float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000, float 0x3FD1C73CE0000000>
   %sub.i5149 = fsub <4 x float> %mul.i3121, %mul.i3118
-  %mul.i3115 = fmul <4 x float> %122, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
-  %mul.i3112 = fmul <4 x float> %123, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
+  %mul.i3115 = fmul <4 x float> %38, <float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000, float 0x3FDA9B6680000000>
+  %mul.i3112 = fmul <4 x float> %39, <float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000, float 0x3FDF629820000000>
   %sub.i5146 = fsub <4 x float> %mul.i3115, %mul.i3112
   %add.i4130 = fadd <4 x float> %sub.i5149, %sub.i5146
-  %124 = load <4 x float>, ptr %in, align 16
-  %125 = load <4 x float>, ptr %arrayidx3024, align 16
-  %add.i4127 = fadd <4 x float> %124, %125
+  %40 = load <4 x float>, ptr %in, align 16
+  %41 = load <4 x float>, ptr %arrayidx3024, align 16
+  %add.i4127 = fadd <4 x float> %40, %41
   %mul.i3109 = fmul <4 x float> %add.i4127, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
-  %sub.i5143 = fsub <4 x float> %124, %125
+  %sub.i5143 = fsub <4 x float> %40, %41
   %mul.i = fmul <4 x float> %sub.i5143, <float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000, float 0x3FD6A09F40000000>
   %add.i4124 = fadd <4 x float> %mul.i3169, %mul.i3160
   %sub.i5140 = fsub <4 x float> %mul.i3166, %mul.i3163
@@ -6942,32 +6295,32 @@ for.end:                                          ; preds = %for.body2959
   %arrayidx3061 = getelementptr inbounds <4 x float>, ptr %data, i64 %indvars.iv2088
   store <4 x float> %add.i4115, ptr %arrayidx3061, align 16
   %add.i4112 = fadd <4 x float> %sub.i5155, %add.i4118
-  %126 = or disjoint i64 %indvars.iv2088, 2
-  %arrayidx3067 = getelementptr inbounds <4 x float>, ptr %data, i64 %126
+  %42 = or disjoint i64 %indvars.iv2088, 2
+  %arrayidx3067 = getelementptr inbounds <4 x float>, ptr %data, i64 %42
   store <4 x float> %add.i4112, ptr %arrayidx3067, align 16
   %add.i4109 = fadd <4 x float> %add.i4133, %sub.i5137
-  %127 = or disjoint i64 %indvars.iv2088, 4
-  %arrayidx3073 = getelementptr inbounds <4 x float>, ptr %data, i64 %127
+  %43 = or disjoint i64 %indvars.iv2088, 4
+  %arrayidx3073 = getelementptr inbounds <4 x float>, ptr %data, i64 %43
   store <4 x float> %add.i4109, ptr %arrayidx3073, align 16
   %add.i = fadd <4 x float> %add.i4130, %sub.i5134
-  %128 = or disjoint i64 %indvars.iv2088, 6
-  %arrayidx3079 = getelementptr inbounds <4 x float>, ptr %data, i64 %128
+  %44 = or disjoint i64 %indvars.iv2088, 6
+  %arrayidx3079 = getelementptr inbounds <4 x float>, ptr %data, i64 %44
   store <4 x float> %add.i, ptr %arrayidx3079, align 16
   %sub.i5131 = fsub <4 x float> %sub.i5134, %add.i4130
-  %129 = or disjoint i64 %indvars.iv2088, 8
-  %arrayidx3085 = getelementptr inbounds <4 x float>, ptr %data, i64 %129
+  %45 = or disjoint i64 %indvars.iv2088, 8
+  %arrayidx3085 = getelementptr inbounds <4 x float>, ptr %data, i64 %45
   store <4 x float> %sub.i5131, ptr %arrayidx3085, align 16
   %sub.i5128 = fsub <4 x float> %sub.i5137, %add.i4133
-  %130 = or disjoint i64 %indvars.iv2088, 10
-  %arrayidx3091 = getelementptr inbounds <4 x float>, ptr %data, i64 %130
+  %46 = or disjoint i64 %indvars.iv2088, 10
+  %arrayidx3091 = getelementptr inbounds <4 x float>, ptr %data, i64 %46
   store <4 x float> %sub.i5128, ptr %arrayidx3091, align 16
   %sub.i5125 = fsub <4 x float> %add.i4118, %sub.i5155
-  %131 = or disjoint i64 %indvars.iv2088, 12
-  %arrayidx3097 = getelementptr inbounds <4 x float>, ptr %data, i64 %131
+  %47 = or disjoint i64 %indvars.iv2088, 12
+  %arrayidx3097 = getelementptr inbounds <4 x float>, ptr %data, i64 %47
   store <4 x float> %sub.i5125, ptr %arrayidx3097, align 16
   %sub.i = fsub <4 x float> %add.i4121, %add.i4142
-  %132 = or disjoint i64 %indvars.iv2088, 14
-  %arrayidx3103 = getelementptr inbounds <4 x float>, ptr %data, i64 %132
+  %48 = or disjoint i64 %indvars.iv2088, 14
+  %arrayidx3103 = getelementptr inbounds <4 x float>, ptr %data, i64 %48
   store <4 x float> %sub.i, ptr %arrayidx3103, align 16
   br i1 %cmp, label %for.cond2957.preheader, label %for.end3106, !llvm.loop !52
 
@@ -7017,7 +6370,7 @@ for.body39:                                       ; preds = %for.body39.lr.ph, %
   %maxOutBufferSize.0121 = phi i64 [ 0, %for.body39.lr.ph ], [ %add41, %for.body39 ]
   %arrayidx40 = getelementptr inbounds %struct._Classifier, ptr %6, i64 %i35.0122
   %arrayidx40.val = load ptr, ptr %arrayidx40, align 8
-  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx40.val) #20
+  %call.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %arrayidx40.val) #18
   %add1.i = add i64 %maxOutBufferSize.0121, 3
   %add41 = add i64 %add1.i, %call.i
   %inc43 = add nuw i64 %i35.0122, 1
@@ -7032,7 +6385,7 @@ for.end44:                                        ; preds = %for.body39, %entry
   %8 = load i32, ptr %_numChannels.i, align 8
   %conv.i = sext i32 %8 to i64
   %mul.i = mul nsw i64 %conv.i, 12
-  %call.i107 = tail call ptr %7(i64 noundef %mul.i) #18
+  %call.i107 = tail call ptr %7(i64 noundef %mul.i) #16
   %_cscChannelSets.i = getelementptr inbounds i8, ptr %me, i64 56
   store ptr %call.i107, ptr %_cscChannelSets.i, align 8
   %tobool.not.i = icmp eq ptr %call.i107, null
@@ -7043,7 +6396,7 @@ if.end.i:                                         ; preds = %for.end44
   %10 = load i32, ptr %_numChannels.i, align 8
   %conv4.i = sext i32 %10 to i64
   %mul5.i = shl nsw i64 %conv4.i, 5
-  %call6.i = tail call ptr %9(i64 noundef %mul5.i) #18
+  %call6.i = tail call ptr %9(i64 noundef %mul5.i) #16
   %tobool7.not.i = icmp eq ptr %call6.i, null
   br i1 %tobool7.not.i, label %return, label %if.end9.i
 
@@ -7076,7 +6429,7 @@ for.body.i:                                       ; preds = %for.inc46.i, %for.b
   %chan.i = getelementptr inbounds %struct._ChannelData, ptr %14, i64 %indvars.iv.i, i32 1
   %15 = load ptr, ptr %chan.i, align 32
   %16 = load ptr, ptr %15, align 8
-  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #20
+  %call.i.i = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 46) #18
   %tobool.not.i.i = icmp eq ptr %call.i.i, null
   %add.ptr.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 1
   %suffix.0.i.i = select i1 %tobool.not.i.i, ptr %16, ptr %add.ptr.i.i
@@ -7117,7 +6470,7 @@ if.end.i.i:                                       ; preds = %for.body.i.i
   br i1 %cmp22.i.i, label %land.lhs.true.i.i, label %for.inc.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end.i.i
-  %call.i79.i = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull %17, i64 noundef %sub.ptr.sub.i) #20
+  %call.i79.i = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull %17, i64 noundef %sub.ptr.sub.i) #18
   %tobool.not.i80.i = icmp eq i32 %call.i79.i, 0
   br i1 %tobool.not.i80.i, label %for.end.loopexit.split.loop.exit.i.i, label %for.inc.i.i
 
@@ -7161,11 +6514,11 @@ if.end.i81.i:                                     ; preds = %for.body23.i
   br i1 %tobool.not.i82.i, label %if.end3.i.i, label %if.then1.i.i
 
 if.then1.i.i:                                     ; preds = %if.end.i81.i
-  %call.i83.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %27) #20
+  %call.i83.i = tail call i32 @strcasecmp(ptr noundef %suffix.0.i.i, ptr noundef %27) #18
   br label %Classifier_match.exit.i
 
 if.end3.i.i:                                      ; preds = %if.end.i81.i
-  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #20
+  %call5.i.i = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %suffix.0.i.i, ptr noundef nonnull dereferenceable(1) %27) #18
   br label %Classifier_match.exit.i
 
 Classifier_match.exit.i:                          ; preds = %if.end3.i.i, %if.then1.i.i
@@ -7290,7 +6643,7 @@ for.inc132.i:                                     ; preds = %if.end122.i, %lor.l
 DwaCompressor_classifyChannels.exit:              ; preds = %for.body54.i, %for.inc132.i, %if.end9.i, %for.cond50.preheader.i
   %free_fn.i = getelementptr inbounds i8, ptr %me, i64 192
   %55 = load ptr, ptr %free_fn.i, align 8
-  tail call void %55(ptr noundef nonnull %call6.i) #18
+  tail call void %55(ptr noundef nonnull %call6.i) #16
   %56 = load i32, ptr %_numChannels.i, align 8
   %cmp49125 = icmp sgt i32 %56, 0
   br i1 %cmp49125, label %for.body51.lr.ph, label %for.end87
@@ -7325,7 +6678,7 @@ for.body51:                                       ; preds = %for.body51.lr.ph, %
   ]
 
 sw.bb:                                            ; preds = %for.body51
-  %call59 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %mul7) #18
+  %call59 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %mul7) #16
   %cond.i = tail call noundef i64 @llvm.umax.i64(i64 %add58, i64 %call59)
   %add61 = add i64 %cond.i, %maxOutBufferSize.1129
   %inc62 = add i64 %numLossyDctChans.0128, 1
@@ -7374,10 +6727,10 @@ for.end87:                                        ; preds = %for.cond48.for.end8
   %numLossyDctChans.0.lcssa = phi i64 [ %numLossyDctChans.1, %for.cond48.for.end87_crit_edge ], [ 0, %DwaCompressor_classifyChannels.exit ]
   %maxOutBufferSize.1.lcssa = phi i64 [ %maxOutBufferSize.2, %for.cond48.for.end87_crit_edge ], [ %maxOutBufferSize.0.lcssa, %DwaCompressor_classifyChannels.exit ]
   store i64 %69, ptr %planarUncBufferSize, align 16
-  %call88 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %rleBufferSize.0.lcssa) #18
-  %call90 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %unknownBufferSize.0.lcssa) #18
+  %call88 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %rleBufferSize.0.lcssa) #16
+  %call90 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %unknownBufferSize.0.lcssa) #16
   %mul92 = mul i64 %numLossyDctChans.0.lcssa, %mul22
-  %call93 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %mul92) #18
+  %call93 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %mul92) #16
   %add89 = add i64 %maxOutBufferSize.1.lcssa, 88
   %add91 = add i64 %add89, %call88
   %add94 = add i64 %add91, %call90
@@ -7398,14 +6751,14 @@ if.then99:                                        ; preds = %for.end87
 
 if.then104:                                       ; preds = %if.then99
   %72 = load ptr, ptr %free_fn.i, align 8
-  tail call void %72(ptr noundef nonnull %71) #18
+  tail call void %72(ptr noundef nonnull %71) #16
   %.pre155 = load i64, ptr %_packedAcBufferSize, align 8
   br label %if.end106
 
 if.end106:                                        ; preds = %if.then104, %if.then99
   %73 = phi i64 [ %.pre155, %if.then104 ], [ %mul96, %if.then99 ]
   %74 = load ptr, ptr %alloc_fn.i, align 8
-  %call108 = tail call ptr %74(i64 noundef %73) #18
+  %call108 = tail call ptr %74(i64 noundef %73) #16
   store ptr %call108, ptr %_packedAcBuffer, align 8
   %tobool.not = icmp eq ptr %call108, null
   br i1 %tobool.not, label %return, label %if.end112
@@ -7430,14 +6783,14 @@ if.then119:                                       ; preds = %if.end115
 
 if.then124:                                       ; preds = %if.then119
   %78 = load ptr, ptr %free_fn.i, align 8
-  tail call void %78(ptr noundef nonnull %77) #18
+  tail call void %78(ptr noundef nonnull %77) #16
   %.pre156 = load i64, ptr %_packedDcBufferSize, align 8
   br label %if.end127
 
 if.end127:                                        ; preds = %if.then124, %if.then119
   %79 = phi i64 [ %.pre156, %if.then124 ], [ %mul92, %if.then119 ]
   %80 = load ptr, ptr %alloc_fn.i, align 8
-  %call130 = tail call ptr %80(i64 noundef %79) #18
+  %call130 = tail call ptr %80(i64 noundef %79) #16
   store ptr %call130, ptr %_packedDcBuffer, align 8
   %tobool133.not = icmp eq ptr %call130, null
   br i1 %tobool133.not, label %return, label %if.end135
@@ -7462,12 +6815,12 @@ if.then141:                                       ; preds = %if.end138
 
 if.then145:                                       ; preds = %if.then141
   %84 = load ptr, ptr %free_fn.i, align 8
-  tail call void %84(ptr noundef nonnull %83) #18
+  tail call void %84(ptr noundef nonnull %83) #16
   br label %if.end148
 
 if.end148:                                        ; preds = %if.then145, %if.then141
   %85 = load ptr, ptr %alloc_fn.i, align 8
-  %call150 = tail call ptr %85(i64 noundef %rleBufferSize.0.lcssa) #18
+  %call150 = tail call ptr %85(i64 noundef %rleBufferSize.0.lcssa) #16
   store ptr %call150, ptr %_rleBuffer, align 8
   %tobool153.not = icmp eq ptr %call150, null
   br i1 %tobool153.not, label %return, label %if.end155
@@ -7481,7 +6834,7 @@ if.end157:                                        ; preds = %if.end155, %if.end1
   br i1 %cmp159.not, label %if.end165, label %if.then161
 
 if.then161:                                       ; preds = %if.end157
-  %call163 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %69) #18
+  %call163 = tail call i64 @exr_compress_max_buffer_size(i64 noundef %69) #16
   store i64 %call163, ptr %planarUncBufferSize, align 16
   br label %if.end165
 
@@ -7508,12 +6861,12 @@ if.then177:                                       ; preds = %for.body170
 
 if.then187:                                       ; preds = %if.then177
   %89 = load ptr, ptr %free_fn.i, align 8
-  tail call void %89(ptr noundef nonnull %88) #18
+  tail call void %89(ptr noundef nonnull %88) #16
   br label %if.end198
 
 if.end198:                                        ; preds = %if.then177, %if.then187
   %90 = load ptr, ptr %alloc_fn.i, align 8
-  %call202 = tail call ptr %90(i64 noundef %86) #18
+  %call202 = tail call ptr %90(i64 noundef %86) #16
   store ptr %call202, ptr %arrayidx184, align 8
   %tobool209.not = icmp eq ptr %call202, null
   br i1 %tobool209.not, label %return, label %for.inc213
@@ -7529,7 +6882,7 @@ return:                                           ; preds = %for.body51, %for.in
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef readonly %me) unnamed_addr #9 {
+define internal fastcc void @DwaCompressor_setupChannelData(ptr nocapture noundef readonly %me) unnamed_addr #7 {
 entry:
   %planarUncBuffer = alloca [3 x ptr], align 16
   %_planarUncBuffer = getelementptr inbounds i8, ptr %me, i64 136
@@ -7667,7 +7020,7 @@ if.then:                                          ; preds = %entry
   %div17 = lshr i64 %mul, 1
   %cond = select i1 %cmp2, i64 16, i64 %div17
   %mul4 = shl i64 %cond, 3
-  %call = tail call ptr %alloc_fn(i64 noundef %mul4) #18
+  %call = tail call ptr %alloc_fn(i64 noundef %mul4) #16
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %if.then5
 
@@ -7682,7 +7035,7 @@ if.then7:                                         ; preds = %if.then5
   %mul10 = shl i64 %3, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %call, ptr nonnull align 8 %2, i64 %mul10, i1 false)
   %4 = load ptr, ptr %_rows, align 8
-  tail call void %free_fn(ptr noundef %4) #18
+  tail call void %free_fn(ptr noundef %4) #16
   br label %if.end
 
 if.end:                                           ; preds = %if.then7, %if.then5
@@ -7707,7 +7060,7 @@ return:                                           ; preds = %if.then, %if.end15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %e) unnamed_addr #10 {
+define internal fastcc range(i32 0, 2) i32 @LossyDctEncoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %e) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %halfZigCoef = alloca [64 x i16], align 16
@@ -7763,7 +7116,7 @@ for.end:                                          ; preds = %for.body
 if.then14:                                        ; preds = %for.end
   %conv15 = sext i32 %tmpHalfBufferElements.1 to i64
   %mul16 = shl nsw i64 %conv15, 1
-  %call = tail call ptr %alloc_fn(i64 noundef %mul16) #18
+  %call = tail call ptr %alloc_fn(i64 noundef %mul16) #16
   %tobool17.not = icmp eq ptr %call, null
   br i1 %tobool17.not, label %return, label %if.end20
 
@@ -8647,7 +8000,7 @@ for.end243:                                       ; preds = %for.cond99.for.inc2
   br i1 %tobool244.not, label %return, label %if.then245
 
 if.then245:                                       ; preds = %for.end243
-  tail call void %free_fn(ptr noundef nonnull %tmpHalfBufferPtr.0210215) #18
+  tail call void %free_fn(ptr noundef nonnull %tmpHalfBufferPtr.0210215) #16
   br label %return
 
 return:                                           ; preds = %for.end243, %if.then245, %if.then14
@@ -8656,7 +8009,7 @@ return:                                           ; preds = %for.end243, %if.the
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #11 {
+define internal fastcc void @LossyDctEncoder_construct(ptr nocapture noundef writeonly %e, float noundef %quantBaseError, ptr noundef %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #9 {
 entry:
   %_quantBaseError.i = getelementptr inbounds i8, ptr %e, i64 60
   store float %quantBaseError, ptr %_quantBaseError.i, align 4
@@ -8715,7 +8068,7 @@ LossyDctEncoder_base_construct.exit:              ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #12
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #10
 
 declare i32 @exr_compress_buffer(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8728,25 +8081,25 @@ declare void @internal_zip_deconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 declare i64 @internal_rle_compress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.ceil.f32(float) #7
+declare float @llvm.ceil.f32(float) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #13
+declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #13
+declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #13
+declare i32 @strncmp(ptr nocapture noundef, ptr nocapture noundef, i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
-declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #14
+declare i32 @strcasecmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #13
+declare i32 @strcmp(ptr nocapture noundef, ptr nocapture noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.fabs.f32(float) #7
+declare float @llvm.fabs.f32(float) #6
 
 declare i32 @exr_uncompress_buffer(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8757,7 +8110,7 @@ declare void @internal_zip_reconstruct_bytes(ptr noundef, ptr noundef, i64 nound
 declare i64 @internal_rle_decompress(ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @LossyDctDecoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d) unnamed_addr #10 {
+define internal fastcc noundef i32 @LossyDctDecoder_execute(ptr nocapture noundef readonly %alloc_fn, ptr nocapture noundef readonly %free_fn, ptr nocapture noundef %d) unnamed_addr #8 {
 entry:
   %chanData = alloca [3 x ptr], align 16
   %currDcComp = alloca [3 x ptr], align 16
@@ -8807,7 +8160,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.end:                                          ; preds = %for.body.lr.ph, %for.cond.preheader
   %mul24 = shl i64 %mul12, 7
   %add25 = or disjoint i64 %mul24, 32
-  %call = tail call ptr %alloc_fn(i64 noundef %add25) #18
+  %call = tail call ptr %alloc_fn(i64 noundef %add25) #16
   %tobool.not = icmp eq ptr %call, null
   br i1 %tobool.not, label %return, label %for.body32
 
@@ -9117,7 +8470,7 @@ for.body.i:                                       ; preds = %for.body.i, %half_t
 
 if.else:                                          ; preds = %if.end128
   %29 = load ptr, ptr @fromHalfZigZag, align 8
-  tail call void %29(ptr noundef nonnull %_halfZigData, ptr noundef %18) #18, !callees !87
+  tail call void %29(ptr noundef nonnull %_halfZigData, ptr noundef %18) #16, !callees !87
   %cmp135 = icmp slt i32 %lnz.125.i, 2
   br i1 %cmp135, label %for.inc171.sink.split, label %if.else138
 
@@ -9149,7 +8502,7 @@ if.else158:                                       ; preds = %if.else154
 for.inc171.sink.split:                            ; preds = %if.else158, %if.else154, %if.else150, %if.else146, %if.else142, %if.else138, %if.else
   %dctInverse8x8_6.sink = phi ptr [ @dctInverse8x8_7, %if.else ], [ @dctInverse8x8_6, %if.else138 ], [ @dctInverse8x8_5, %if.else142 ], [ @dctInverse8x8_4, %if.else146 ], [ @dctInverse8x8_3, %if.else150 ], [ @dctInverse8x8_2, %if.else154 ], [ %dctInverse8x8_1.dctInverse8x8_0, %if.else158 ]
   %30 = load ptr, ptr %dctInverse8x8_6.sink, align 8
-  tail call void %30(ptr noundef %18) #18
+  tail call void %30(ptr noundef %18) #16
   br label %for.inc171
 
 for.inc171:                                       ; preds = %for.body.i, %for.inc171.sink.split
@@ -9447,7 +8800,7 @@ for.body204.us:                                   ; preds = %for.body204.us.preh
   %arrayidx211.us = getelementptr inbounds i16, ptr %140, i64 %138
   %arrayidx213.us = getelementptr inbounds [3 x ptr], ptr %chanData, i64 0, i64 %indvars.iv373
   %141 = load ptr, ptr %arrayidx213.us, align 8
-  tail call void %139(ptr noundef %arrayidx211.us, ptr noundef %141) #18, !callees !89
+  tail call void %139(ptr noundef %arrayidx211.us, ptr noundef %141) #16, !callees !89
   %indvars.iv.next374 = add nuw nsw i64 %indvars.iv373, 1
   %exitcond377.not = icmp eq i64 %indvars.iv.next374, %wide.trip.count376
   br i1 %exitcond377.not, label %for.inc248, label %for.body204.us, !llvm.loop !90
@@ -9944,7 +9297,7 @@ for.inc535:                                       ; preds = %for.inc532, %for.bo
 
 return.sink.split:                                ; preds = %while.body.i, %for.inc535, %for.cond495.preheader
   %retval.0.ph = phi i32 [ 0, %for.cond495.preheader ], [ 0, %for.inc535 ], [ 23, %while.body.i ]
-  tail call void %free_fn(ptr noundef nonnull %call) #18
+  tail call void %free_fn(ptr noundef nonnull %call) #16
   br label %return
 
 return:                                           ; preds = %return.sink.split, %for.end, %entry
@@ -9953,7 +9306,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @interleaveByte2(ptr noundef %dst, ptr noundef %src0, ptr noundef %src1, i32 noundef %numBytes) unnamed_addr #6 {
+define internal fastcc void @interleaveByte2(ptr noundef %dst, ptr noundef %src0, ptr noundef %src1, i32 noundef %numBytes) unnamed_addr #5 {
 entry:
   %0 = ptrtoint ptr %dst to i64
   %1 = trunc i64 %0 to i32
@@ -10178,47 +9531,45 @@ if.end164:                                        ; preds = %for.body148, %for.b
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #15
+declare void @llvm.prefetch.p0(ptr nocapture readonly, i32 immarg, i32 immarg, i32 immarg) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #16
+declare i64 @llvm.umax.i64(i64, i64) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #16
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #16
+declare i32 @llvm.umin.i32(i32, i32) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #16
+declare <4 x float> @llvm.fmuladd.v4f32(<4 x float>, <4 x float>, <4 x float>) #14
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nounwind }
-attributes #19 = { nounwind memory(none) }
-attributes #20 = { nounwind willreturn memory(read) }
+attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nounwind }
+attributes #17 = { nounwind memory(none) }
+attributes #18 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

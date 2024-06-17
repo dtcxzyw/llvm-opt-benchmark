@@ -2211,10 +2211,10 @@ if.else92:                                        ; preds = %land.lhs.true, %if.
   br i1 %call93, label %do.body.sink.split, label %do.body
 
 do.body.sink.split:                               ; preds = %if.else92, %if.then84
-  %flags95 = getelementptr inbounds i8, ptr %call60, i64 56
-  %10 = load i8, ptr %flags95, align 8
+  %flags87 = getelementptr inbounds i8, ptr %call60, i64 56
+  %10 = load i8, ptr %flags87, align 8
   %11 = or i8 %10, 2
-  store i8 %11, ptr %flags95, align 8
+  store i8 %11, ptr %flags87, align 8
   br label %do.body
 
 do.body:                                          ; preds = %do.body.sink.split, %if.then84, %if.else92

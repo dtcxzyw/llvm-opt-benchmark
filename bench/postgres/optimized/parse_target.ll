@@ -419,207 +419,200 @@ list_length.exit.thread:                          ; preds = %3, %list_length.exi
   br label %ExpandAllTables.exit
 
 43:                                               ; preds = %39, %list_length.exit.thread
-  switch i32 %36, label %84 [
+  switch i32 %36, label %72 [
     i32 2, label %44
-    i32 3, label %52
-    i32 4, label %64
+    i32 3, label %46
+    i32 4, label %52
   ]
 
 44:                                               ; preds = %43
   %45 = getelementptr i8, ptr %6, i64 16
   %.val = load ptr, ptr %45, align 8
-  %46 = load ptr, ptr %.val, align 8
-  %47 = getelementptr inbounds i8, ptr %46, i64 8
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %1, i64 16
-  %50 = load i32, ptr %49, align 8
-  %51 = call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef null, ptr noundef %48, i32 noundef %50, ptr noundef nonnull %4) #9
-  br label %84
+  br label %.sink.split
+
+46:                                               ; preds = %43
+  %47 = getelementptr i8, ptr %6, i64 16
+  %.val78 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %.val78, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr i8, ptr %.val78, i64 8
+  br label %.sink.split
 
 52:                                               ; preds = %43
   %53 = getelementptr i8, ptr %6, i64 16
-  %.val78 = load ptr, ptr %53, align 8
-  %54 = load ptr, ptr %.val78, align 8
+  %.val80 = load ptr, ptr %53, align 8
+  %54 = load ptr, ptr %.val80, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr i8, ptr %.val78, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds i8, ptr %1, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef %56, ptr noundef %60, i32 noundef %62, ptr noundef nonnull %4) #9
-  br label %84
+  %57 = load i32, ptr @MyDatabaseId, align 4
+  %58 = tail call ptr @get_database_name(i32 noundef %57) #9
+  %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %58) #11
+  %.not74 = icmp eq i32 %59, 0
+  br i1 %.not74, label %60, label %72
 
-64:                                               ; preds = %43
-  %65 = getelementptr i8, ptr %6, i64 16
-  %.val80 = load ptr, ptr %65, align 8
-  %66 = load ptr, ptr %.val80, align 8
+60:                                               ; preds = %52
+  %.val81 = load ptr, ptr %53, align 8
+  %61 = getelementptr i8, ptr %.val81, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 8
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr i8, ptr %.val81, i64 16
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %44, %46, %60
+  %.sink125 = phi ptr [ %65, %60 ], [ %51, %46 ], [ %.val, %44 ]
+  %.sink = phi ptr [ %64, %60 ], [ %50, %46 ], [ null, %44 ]
+  %66 = load ptr, ptr %.sink125, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr @MyDatabaseId, align 4
-  %70 = tail call ptr @get_database_name(i32 noundef %69) #9
-  %71 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %68, ptr noundef nonnull dereferenceable(1) %70) #11
-  %.not74 = icmp eq i32 %71, 0
-  br i1 %.not74, label %72, label %84
+  %69 = getelementptr inbounds i8, ptr %1, i64 16
+  %70 = load i32, ptr %69, align 8
+  %71 = call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef %.sink, ptr noundef %68, i32 noundef %70, ptr noundef nonnull %4) #9
+  br label %72
 
-72:                                               ; preds = %64
-  %.val81 = load ptr, ptr %65, align 8
-  %73 = getelementptr i8, ptr %.val81, i64 8
+72:                                               ; preds = %.sink.split, %43, %52
+  %.066 = phi ptr [ null, %52 ], [ null, %43 ], [ %71, %.sink.split ]
+  %.065 = phi i32 [ 1, %52 ], [ 2, %43 ], [ 0, %.sink.split ]
+  %.064 = phi ptr [ null, %52 ], [ null, %43 ], [ %68, %.sink.split ]
+  %.063 = phi ptr [ null, %52 ], [ null, %43 ], [ %.sink, %.sink.split ]
+  %73 = getelementptr inbounds i8, ptr %0, i64 192
   %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %74, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr i8, ptr %.val81, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds i8, ptr %78, i64 8
+  %.not75 = icmp eq ptr %74, null
+  %75 = icmp eq ptr %.066, null
+  br i1 %.not75, label %93, label %76
+
+76:                                               ; preds = %72
+  br i1 %75, label %77, label %.thread96
+
+77:                                               ; preds = %76
+  %78 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #9
+  %.not77 = icmp eq ptr %78, null
+  br i1 %.not77, label %.thread113, label %91
+
+.thread96:                                        ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %.066, i64 8
   %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds i8, ptr %1, i64 16
-  %82 = load i32, ptr %81, align 8
-  %83 = call ptr @refnameNamespaceItem(ptr noundef nonnull %0, ptr noundef %76, ptr noundef %80, i32 noundef %82, ptr noundef nonnull %4) #9
-  br label %84
+  %81 = call ptr %74(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %80) #9
+  %.not7797 = icmp eq ptr %81, null
+  br i1 %.not7797, label %.split, label %82
 
-84:                                               ; preds = %43, %64, %72, %52, %44
-  %.066 = phi ptr [ %83, %72 ], [ %63, %52 ], [ %51, %44 ], [ null, %64 ], [ null, %43 ]
-  %.065 = phi i32 [ 0, %72 ], [ 0, %52 ], [ 0, %44 ], [ 1, %64 ], [ 2, %43 ]
-  %.064 = phi ptr [ %80, %72 ], [ %60, %52 ], [ %48, %44 ], [ null, %64 ], [ null, %43 ]
-  %.063 = phi ptr [ %76, %72 ], [ %56, %52 ], [ null, %44 ], [ null, %64 ], [ null, %43 ]
-  %85 = getelementptr inbounds i8, ptr %0, i64 192
-  %86 = load ptr, ptr %85, align 8
-  %.not75 = icmp eq ptr %86, null
-  %87 = icmp eq ptr %.066, null
-  br i1 %.not75, label %105, label %88
-
-88:                                               ; preds = %84
-  br i1 %87, label %89, label %.thread96
-
-89:                                               ; preds = %88
-  %90 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef null) #9
-  %.not77 = icmp eq ptr %90, null
-  br i1 %.not77, label %.thread113, label %103
-
-.thread96:                                        ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.066, i64 8
-  %92 = load ptr, ptr %91, align 8
-  %93 = call ptr %86(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %92) #9
-  %.not7797 = icmp eq ptr %93, null
-  br i1 %.not7797, label %.split, label %94
-
-94:                                               ; preds = %.thread96
-  %95 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %95)
-  %96 = call i32 @errcode(i32 noundef 33583236) #9
-  %97 = load ptr, ptr %5, align 8
-  %98 = call ptr @NameListToString(ptr noundef %97) #9
-  %99 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %98) #9
-  %100 = getelementptr inbounds i8, ptr %1, i64 16
-  %101 = load i32, ptr %100, align 8
-  %102 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %101) #9
+82:                                               ; preds = %.thread96
+  %83 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %83)
+  %84 = call i32 @errcode(i32 noundef 33583236) #9
+  %85 = load ptr, ptr %5, align 8
+  %86 = call ptr @NameListToString(ptr noundef %85) #9
+  %87 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.17, ptr noundef %86) #9
+  %88 = getelementptr inbounds i8, ptr %1, i64 16
+  %89 = load i32, ptr %88, align 8
+  %90 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %89) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1227, ptr noundef nonnull @__func__.ExpandColumnRefStar) #9
   unreachable
 
-103:                                              ; preds = %89
-  %104 = call fastcc ptr @ExpandRowReference(ptr noundef nonnull %0, ptr noundef nonnull %90, i1 noundef zeroext %2)
+91:                                               ; preds = %77
+  %92 = call fastcc ptr @ExpandRowReference(ptr noundef nonnull %0, ptr noundef nonnull %78, i1 noundef zeroext %2)
   br label %ExpandAllTables.exit
 
-105:                                              ; preds = %84
-  br i1 %87, label %.thread113, label %.split
+93:                                               ; preds = %72
+  br i1 %75, label %.thread113, label %.split
 
-.split:                                           ; preds = %.thread96, %105
-  %106 = load i32, ptr %4, align 4
-  %107 = getelementptr inbounds i8, ptr %1, i64 16
-  %108 = load i32, ptr %107, align 8
-  br i1 %2, label %109, label %111
+.split:                                           ; preds = %.thread96, %93
+  %94 = load i32, ptr %4, align 4
+  %95 = getelementptr inbounds i8, ptr %1, i64 16
+  %96 = load i32, ptr %95, align 8
+  br i1 %2, label %97, label %99
 
-109:                                              ; preds = %.split
-  %110 = call ptr @expandNSItemAttrs(ptr noundef nonnull %0, ptr noundef nonnull %.066, i32 noundef %106, i1 noundef zeroext true, i32 noundef %108) #9
+97:                                               ; preds = %.split
+  %98 = call ptr @expandNSItemAttrs(ptr noundef nonnull %0, ptr noundef nonnull %.066, i32 noundef %94, i1 noundef zeroext true, i32 noundef %96) #9
   br label %ExpandAllTables.exit
 
-111:                                              ; preds = %.split
-  %112 = getelementptr inbounds i8, ptr %.066, i64 8
-  %113 = load ptr, ptr %112, align 8
-  %114 = getelementptr inbounds i8, ptr %.066, i64 24
-  %115 = load ptr, ptr %114, align 8
-  %116 = call ptr @expandNSItemVars(ptr noundef nonnull %0, ptr noundef nonnull %.066, i32 noundef %106, i32 noundef %108, ptr noundef null) #9
-  %117 = getelementptr inbounds i8, ptr %113, i64 4
-  %118 = load i32, ptr %117, align 4
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %120, label %124
+99:                                               ; preds = %.split
+  %100 = getelementptr inbounds i8, ptr %.066, i64 8
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %.066, i64 24
+  %103 = load ptr, ptr %102, align 8
+  %104 = call ptr @expandNSItemVars(ptr noundef nonnull %0, ptr noundef nonnull %.066, i32 noundef %94, i32 noundef %96, ptr noundef null) #9
+  %105 = getelementptr inbounds i8, ptr %101, i64 4
+  %106 = load i32, ptr %105, align 4
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %108, label %112
 
-120:                                              ; preds = %111
-  %121 = getelementptr inbounds i8, ptr %115, i64 16
-  %122 = load i64, ptr %121, align 8
-  %123 = or i64 %122, 2
-  store i64 %123, ptr %121, align 8
-  br label %124
+108:                                              ; preds = %99
+  %109 = getelementptr inbounds i8, ptr %103, i64 16
+  %110 = load i64, ptr %109, align 8
+  %111 = or i64 %110, 2
+  store i64 %111, ptr %109, align 8
+  br label %112
 
-124:                                              ; preds = %120, %111
-  %125 = getelementptr inbounds i8, ptr %116, i64 4
-  %.not.i84 = icmp eq ptr %116, null
+112:                                              ; preds = %108, %99
+  %113 = getelementptr inbounds i8, ptr %104, i64 4
+  %.not.i84 = icmp eq ptr %104, null
   br i1 %.not.i84, label %ExpandAllTables.exit, label %.lr.ph.i85
 
-.lr.ph.i85:                                       ; preds = %124
-  %126 = getelementptr inbounds i8, ptr %116, i64 16
-  %127 = load i32, ptr %125, align 4
-  %128 = icmp sgt i32 %127, 0
-  br i1 %128, label %.lr.ph32.i, label %ExpandAllTables.exit
+.lr.ph.i85:                                       ; preds = %112
+  %114 = getelementptr inbounds i8, ptr %104, i64 16
+  %115 = load i32, ptr %113, align 4
+  %116 = icmp sgt i32 %115, 0
+  br i1 %116, label %.lr.ph32.i, label %ExpandAllTables.exit
 
 .lr.ph32.i:                                       ; preds = %.lr.ph.i85, %.lr.ph32.i
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %.lr.ph32.i ], [ 0, %.lr.ph.i85 ]
-  %129 = load ptr, ptr %126, align 8
-  %130 = getelementptr %union.ListCell, ptr %129, i64 %indvars.iv.i86
-  %131 = load ptr, ptr %130, align 8
-  call void @markVarForSelectPriv(ptr noundef %0, ptr noundef %131) #9
+  %117 = load ptr, ptr %114, align 8
+  %118 = getelementptr %union.ListCell, ptr %117, i64 %indvars.iv.i86
+  %119 = load ptr, ptr %118, align 8
+  call void @markVarForSelectPriv(ptr noundef %0, ptr noundef %119) #9
   %indvars.iv.next.i87 = add nuw nsw i64 %indvars.iv.i86, 1
-  %132 = load i32, ptr %125, align 4
-  %133 = sext i32 %132 to i64
-  %134 = icmp slt i64 %indvars.iv.next.i87, %133
-  br i1 %134, label %.lr.ph32.i, label %ExpandAllTables.exit
+  %120 = load i32, ptr %113, align 4
+  %121 = sext i32 %120 to i64
+  %122 = icmp slt i64 %indvars.iv.next.i87, %121
+  br i1 %122, label %.lr.ph32.i, label %ExpandAllTables.exit
 
-.thread113:                                       ; preds = %89, %105
+.thread113:                                       ; preds = %77, %93
   switch i32 %.065, label %default.unreachable112 [
-    i32 0, label %135
-    i32 1, label %139
-    i32 2, label %148
+    i32 0, label %123
+    i32 1, label %127
+    i32 2, label %136
   ]
 
 default.unreachable112:                           ; preds = %.thread113
   unreachable
 
-135:                                              ; preds = %.thread113
-  %136 = getelementptr inbounds i8, ptr %1, i64 16
-  %137 = load i32, ptr %136, align 8
-  %138 = call ptr @makeRangeVar(ptr noundef %.063, ptr noundef %.064, i32 noundef %137) #9
-  call void @errorMissingRTE(ptr noundef nonnull %0, ptr noundef %138) #12
+123:                                              ; preds = %.thread113
+  %124 = getelementptr inbounds i8, ptr %1, i64 16
+  %125 = load i32, ptr %124, align 8
+  %126 = call ptr @makeRangeVar(ptr noundef %.063, ptr noundef %.064, i32 noundef %125) #9
+  call void @errorMissingRTE(ptr noundef nonnull %0, ptr noundef %126) #12
   unreachable
 
-139:                                              ; preds = %.thread113
-  %140 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %140)
-  %141 = call i32 @errcode(i32 noundef 1088) #9
-  %142 = load ptr, ptr %5, align 8
-  %143 = call ptr @NameListToString(ptr noundef %142) #9
-  %144 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %143) #9
-  %145 = getelementptr inbounds i8, ptr %1, i64 16
-  %146 = load i32, ptr %145, align 8
-  %147 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %146) #9
+127:                                              ; preds = %.thread113
+  %128 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %128)
+  %129 = call i32 @errcode(i32 noundef 1088) #9
+  %130 = load ptr, ptr %5, align 8
+  %131 = call ptr @NameListToString(ptr noundef %130) #9
+  %132 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.18, ptr noundef %131) #9
+  %133 = getelementptr inbounds i8, ptr %1, i64 16
+  %134 = load i32, ptr %133, align 8
+  %135 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %134) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1248, ptr noundef nonnull @__func__.ExpandColumnRefStar) #9
   unreachable
 
-148:                                              ; preds = %.thread113
-  %149 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
-  call void @llvm.assume(i1 %149)
-  %150 = call i32 @errcode(i32 noundef 16801924) #9
-  %151 = load ptr, ptr %5, align 8
-  %152 = call ptr @NameListToString(ptr noundef %151) #9
-  %153 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %152) #9
-  %154 = getelementptr inbounds i8, ptr %1, i64 16
-  %155 = load i32, ptr %154, align 8
-  %156 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %155) #9
+136:                                              ; preds = %.thread113
+  %137 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
+  call void @llvm.assume(i1 %137)
+  %138 = call i32 @errcode(i32 noundef 16801924) #9
+  %139 = load ptr, ptr %5, align 8
+  %140 = call ptr @NameListToString(ptr noundef %139) #9
+  %141 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %140) #9
+  %142 = getelementptr inbounds i8, ptr %1, i64 16
+  %143 = load i32, ptr %142, align 8
+  %144 = call i32 @parser_errposition(ptr noundef nonnull %0, i32 noundef %143) #9
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1255, ptr noundef nonnull @__func__.ExpandColumnRefStar) #9
   unreachable
 
-ExpandAllTables.exit:                             ; preds = %.thread, %.lr.ph32.i, %.lr.ph.i85, %124, %109, %._crit_edge.i, %103, %41
-  %.0 = phi ptr [ %42, %41 ], [ %104, %103 ], [ %.02331.i.ph, %._crit_edge.i ], [ %110, %109 ], [ null, %124 ], [ %116, %.lr.ph.i85 ], [ %116, %.lr.ph32.i ], [ %29, %.thread ]
+ExpandAllTables.exit:                             ; preds = %.thread, %.lr.ph32.i, %.lr.ph.i85, %112, %97, %._crit_edge.i, %91, %41
+  %.0 = phi ptr [ %42, %41 ], [ %92, %91 ], [ %.02331.i.ph, %._crit_edge.i ], [ %98, %97 ], [ null, %112 ], [ %104, %.lr.ph.i85 ], [ %104, %.lr.ph32.i ], [ %29, %.thread ]
   ret ptr %.0
 }
 

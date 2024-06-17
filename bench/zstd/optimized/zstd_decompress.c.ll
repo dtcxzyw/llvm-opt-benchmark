@@ -2889,26 +2889,12 @@ do.end9:                                          ; preds = %cond.true.i, %entry
 
 do.body13:                                        ; preds = %do.end9
   %cmp.i = icmp ult i64 %dictSize, 8
-  br i1 %cmp.i, label %if.then.i, label %if.end.i
-
-if.then.i:                                        ; preds = %do.body13
-  %prefixStart.i.i = getelementptr inbounds i8, ptr %dctx, i64 29896
-  %virtualStart.i.i = getelementptr inbounds i8, ptr %dctx, i64 29904
-  store ptr %dict, ptr %virtualStart.i.i, align 8
-  store ptr %dict, ptr %prefixStart.i.i, align 8
-  br label %ZSTD_decompress_insertDictionary.exit.thread
+  br i1 %cmp.i, label %ZSTD_decompress_insertDictionary.exit.thread, label %if.end.i
 
 if.end.i:                                         ; preds = %do.body13
   %dict.val.i = load i32, ptr %dict, align 1
   %cmp2.not.i = icmp eq i32 %dict.val.i, -332356553
-  br i1 %cmp2.not.i, label %if.end5.i, label %if.then3.i
-
-if.then3.i:                                       ; preds = %if.end.i
-  %prefixStart.i22.i = getelementptr inbounds i8, ptr %dctx, i64 29896
-  %virtualStart.i27.i = getelementptr inbounds i8, ptr %dctx, i64 29904
-  store ptr %dict, ptr %virtualStart.i27.i, align 8
-  store ptr %dict, ptr %prefixStart.i22.i, align 8
-  br label %ZSTD_decompress_insertDictionary.exit.thread
+  br i1 %cmp2.not.i, label %if.end5.i, label %ZSTD_decompress_insertDictionary.exit.thread
 
 if.end5.i:                                        ; preds = %if.end.i
   %add.ptr.i = getelementptr inbounds i8, ptr %dict, i64 4
@@ -2922,21 +2908,25 @@ do.end18.i:                                       ; preds = %if.end5.i
   %add.ptr19.i = getelementptr inbounds i8, ptr %dict, i64 %call7.i
   store i32 1, ptr %fseEntropy.i, align 4
   store i32 1, ptr %litEntropy.i, align 8
-  %1 = load ptr, ptr %previousDstEnd.i, align 8
-  %dictEnd.i30.i = getelementptr inbounds i8, ptr %dctx, i64 29912
-  store ptr %1, ptr %dictEnd.i30.i, align 8
-  %prefixStart.i31.i = getelementptr inbounds i8, ptr %dctx, i64 29896
-  %2 = load ptr, ptr %prefixStart.i31.i, align 8
-  %sub.ptr.lhs.cast.i32.i = ptrtoint ptr %1 to i64
-  %sub.ptr.rhs.cast.i33.i = ptrtoint ptr %2 to i64
-  %sub.ptr.sub.neg.i34.i = sub i64 %sub.ptr.rhs.cast.i33.i, %sub.ptr.lhs.cast.i32.i
-  %add.ptr.i35.i = getelementptr inbounds i8, ptr %add.ptr19.i, i64 %sub.ptr.sub.neg.i34.i
-  %virtualStart.i36.i = getelementptr inbounds i8, ptr %dctx, i64 29904
-  store ptr %add.ptr.i35.i, ptr %virtualStart.i36.i, align 8
-  store ptr %add.ptr19.i, ptr %prefixStart.i31.i, align 8
+  %.pre = load ptr, ptr %previousDstEnd.i, align 8
+  %prefixStart.i31.i.phi.trans.insert = getelementptr inbounds i8, ptr %dctx, i64 29896
+  %.pre15 = load ptr, ptr %prefixStart.i31.i.phi.trans.insert, align 8
+  %1 = ptrtoint ptr %.pre15 to i64
   br label %ZSTD_decompress_insertDictionary.exit.thread
 
-ZSTD_decompress_insertDictionary.exit.thread:     ; preds = %if.then.i, %if.then3.i, %do.end18.i
+ZSTD_decompress_insertDictionary.exit.thread:     ; preds = %do.body13, %if.end.i, %do.end18.i
+  %sub.ptr.rhs.cast.i33.i = phi i64 [ %1, %do.end18.i ], [ 0, %do.body13 ], [ 0, %if.end.i ]
+  %2 = phi ptr [ %.pre, %do.end18.i ], [ null, %do.body13 ], [ null, %if.end.i ]
+  %add.ptr19.sink38.i = phi ptr [ %add.ptr19.i, %do.end18.i ], [ %dict, %do.body13 ], [ %dict, %if.end.i ]
+  %dictEnd.i30.i = getelementptr inbounds i8, ptr %dctx, i64 29912
+  store ptr %2, ptr %dictEnd.i30.i, align 8
+  %prefixStart.i31.i = getelementptr inbounds i8, ptr %dctx, i64 29896
+  %sub.ptr.lhs.cast.i32.i = ptrtoint ptr %2 to i64
+  %sub.ptr.sub.neg.i34.i = sub i64 %sub.ptr.rhs.cast.i33.i, %sub.ptr.lhs.cast.i32.i
+  %add.ptr.i35.i = getelementptr inbounds i8, ptr %add.ptr19.sink38.i, i64 %sub.ptr.sub.neg.i34.i
+  %virtualStart.i36.i = getelementptr inbounds i8, ptr %dctx, i64 29904
+  store ptr %add.ptr.i35.i, ptr %virtualStart.i36.i, align 8
+  store ptr %add.ptr19.sink38.i, ptr %prefixStart.i31.i, align 8
   %add.ptr3.i37.i = getelementptr inbounds i8, ptr %dict, i64 %dictSize
   store ptr %add.ptr3.i37.i, ptr %previousDstEnd.i, align 8
   br label %return

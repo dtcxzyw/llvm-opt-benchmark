@@ -5856,7 +5856,7 @@ invoke.cont:                                      ; preds = %lor.rhs.i, %if.then
   %9 = load ptr, ptr %second.i, align 8
   store ptr %call10, ptr %second.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %9, null
-  br i1 %tobool.not.i.i.i.i, label %if.end18, label %delete.notnull.i.i.i.i.i
+  br i1 %tobool.not.i.i.i.i, label %if.end48, label %delete.notnull.i.i.i.i.i
 
 delete.notnull.i.i.i.i.i:                         ; preds = %invoke.cont
   %10 = load ptr, ptr %9, align 8
@@ -5872,7 +5872,7 @@ while.body.i.i.i.i.i.i.i.i.i:                     ; preds = %delete.notnull.i.i.
 
 _ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit: ; preds = %while.body.i.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
   call void @_ZdlPv(ptr noundef %9) #26
-  br label %if.end18
+  br label %if.end48
 
 lpad:                                             ; preds = %if.then.i
   %12 = landingpad { ptr, i32 }
@@ -5882,14 +5882,6 @@ lpad:                                             ; preds = %if.then.i
 if.else:                                          ; preds = %_ZNSt3mapIP6aiNodeSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS6_EESt4lessIS1_ESaISt4pairIKS1_S9_EEE4findERSD_.exit
   %second = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i, i64 40
   %13 = load ptr, ptr %second, align 8
-  br label %if.end18
-
-if.end18:                                         ; preds = %invoke.cont, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit, %if.else
-  %info.0 = phi ptr [ %13, %if.else ], [ %call10, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit ], [ %call10, %invoke.cont ]
-  %call5.i.i.i.i.i.i = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
-  %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 16
-  store ptr %node, ptr %_M_storage.i.i.i.i, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i, ptr noundef nonnull %info.0) #25
   br label %if.end48
 
 if.else19:                                        ; preds = %if.end
@@ -5972,7 +5964,7 @@ invoke.cont39:                                    ; preds = %lor.rhs.i54, %if.th
   %20 = load ptr, ptr %second.i58, align 8
   store ptr %call34, ptr %second.i58, align 8
   %tobool.not.i.i.i.i64 = icmp eq ptr %20, null
-  br i1 %tobool.not.i.i.i.i64, label %if.end46, label %delete.notnull.i.i.i.i.i65
+  br i1 %tobool.not.i.i.i.i64, label %if.end48, label %delete.notnull.i.i.i.i.i65
 
 delete.notnull.i.i.i.i.i65:                       ; preds = %invoke.cont39
   %21 = load ptr, ptr %20, align 8
@@ -5988,7 +5980,7 @@ while.body.i.i.i.i.i.i.i.i.i67:                   ; preds = %delete.notnull.i.i.
 
 _ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit71: ; preds = %while.body.i.i.i.i.i.i.i.i.i67, %delete.notnull.i.i.i.i.i65
   call void @_ZdlPv(ptr noundef %20) #26
-  br label %if.end46
+  br label %if.end48
 
 lpad38:                                           ; preds = %if.then.i59
   %23 = landingpad { ptr, i32 }
@@ -5998,19 +5990,15 @@ lpad38:                                           ; preds = %if.then.i59
 if.else42:                                        ; preds = %_ZNSt3mapIP6aiNodeSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS6_EESt4lessIS1_ESaISt4pairIKS1_S9_EEE4findERSD_.exit31
   %second44 = getelementptr inbounds i8, ptr %__y.addr.1.i.i.i19, i64 40
   %24 = load ptr, ptr %second44, align 8
-  br label %if.end46
+  br label %if.end48
 
-if.end46:                                         ; preds = %invoke.cont39, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit71, %if.else42
-  %info.1 = phi ptr [ %24, %if.else42 ], [ %call34, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit71 ], [ %call34, %invoke.cont39 ]
+if.end48:                                         ; preds = %if.else42, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit71, %invoke.cont39, %if.else, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit, %invoke.cont
+  %info.1.sink109 = phi ptr [ %13, %if.else ], [ %call10, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit ], [ %call10, %invoke.cont ], [ %24, %if.else42 ], [ %call34, %_ZNSt10unique_ptrIN6Assimp7OpenGEX15OpenGEXImporter9ChildInfoESt14default_deleteIS3_EEaSEOS6_.exit71 ], [ %call34, %invoke.cont39 ]
   %call5.i.i.i.i.i.i81 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   %_M_storage.i.i.i.i82 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i81, i64 16
   store ptr %node, ptr %_M_storage.i.i.i.i82, align 8
-  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i81, ptr noundef nonnull %info.1) #25
-  br label %if.end48
-
-if.end48:                                         ; preds = %if.end46, %if.end18
-  %info.1.sink = phi ptr [ %info.1, %if.end46 ], [ %info.0, %if.end18 ]
-  %_M_size.i.i.i83 = getelementptr inbounds i8, ptr %info.1.sink, i64 16
+  call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %call5.i.i.i.i.i.i81, ptr noundef nonnull %info.1.sink109) #25
+  %_M_size.i.i.i83 = getelementptr inbounds i8, ptr %info.1.sink109, i64 16
   %25 = load i64, ptr %_M_size.i.i.i83, align 8
   %add.i.i.i84 = add i64 %25, 1
   store i64 %add.i.i.i84, ptr %_M_size.i.i.i83, align 8

@@ -28994,8 +28994,8 @@ _ZN15tree_sitter_cli8generate12build_tables15token_conflicts16TokenConflictMap12
 .sink.split.i:                                    ; preds = %182, %177
   %.sink234.i = phi i64 [ 0, %182 ], [ %.sroa.58.0.ph.i, %177 ]
   %.sink.i = phi i8 [ 1, %182 ], [ 3, %177 ]
-  %.val42.i = load ptr, ptr %52, align 8, !alias.scope !7879, !noalias !7882, !nonnull !4, !noundef !4
-  %179 = getelementptr inbounds [0 x { { { i64, ptr }, i64 }, { i64, i8 }, { i64, i8 } }], ptr %.val42.i, i64 0, i64 %.sroa.8152.0.copyload
+  %.val40.i = load ptr, ptr %52, align 8, !alias.scope !7879, !noalias !7882, !nonnull !4, !noundef !4
+  %179 = getelementptr inbounds [0 x { { { i64, ptr }, i64 }, { i64, i8 }, { i64, i8 } }], ptr %.val40.i, i64 0, i64 %.sroa.8152.0.copyload
   %180 = getelementptr inbounds i8, ptr %179, i64 40
   store i64 %.sink234.i, ptr %180, align 8, !noalias !7882
   %181 = getelementptr inbounds i8, ptr %179, i64 48

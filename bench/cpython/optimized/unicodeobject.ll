@@ -6773,10 +6773,10 @@ sw.default:                                       ; preds = %if.end21
   unreachable
 
 return.sink.split:                                ; preds = %while.body89, %while.body47, %sw.bb, %while.cond44.preheader, %while.cond86.preheader, %_PyUnicodeWriter_Update.exit
-  %pos = getelementptr inbounds i8, ptr %writer, i64 32
-  %31 = load i64, ptr %pos, align 8
+  %pos95 = getelementptr inbounds i8, ptr %writer, i64 32
+  %31 = load i64, ptr %pos95, align 8
   %add96 = add i64 %31, %len.addr.0
-  store i64 %add96, ptr %pos, align 8
+  store i64 %add96, ptr %pos95, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end.i, %cond.false15, %if.then.i

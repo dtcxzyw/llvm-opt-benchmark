@@ -186,7 +186,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32i_fminm_qP11
   %49 = and i64 %48, 31
   %50 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49
   store i64 %.sroa.04.0.copyload.pn.sink, ptr %50, align 8
-  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49, i32 0, i64 1
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %50, i64 8
   store i64 %.sroa.25.0.copyload.pn.sink, ptr %.sroa.2.0..sroa_idx.i103, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 2024
   %52 = load ptr, ptr %51, align 8
@@ -346,7 +346,7 @@ define noundef i64 @_Z18fast_rv64i_fminm_qP11processor_t6insn_tm(ptr nocapture n
   %49 = and i64 %48, 31
   %50 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49
   store i64 %.sroa.04.0.copyload.pn.sink, ptr %50, align 8
-  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49, i32 0, i64 1
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %50, i64 8
   store i64 %.sroa.25.0.copyload.pn.sink, ptr %.sroa.2.0..sroa_idx.i103, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 2024
   %52 = load ptr, ptr %51, align 8
@@ -584,18 +584,18 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %63, %92, %.loopexit.i.i111, %87, %.loopexit.i.i, %58
-  %.0.i.pn.i.i113.sink149 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
-  %.sroa.04.0.copyload.pn.sink148 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
-  %.sroa.25.0.copyload.pn.sink147 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
-  %.sink146 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
-  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 16
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %.0.i.i114, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 24
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.38.0..sroa_idx, align 8
-  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %104, align 8
-  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146, i32 0, i64 1
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.2.0..sroa_idx.i116, align 8
+  %.0.i.pn.i.i113.sink147 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
+  %.sroa.04.0.copyload.pn.sink146 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
+  %.sroa.25.0.copyload.pn.sink145 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
+  %.sink144 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 16
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %.0.i.i114, align 8
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 24
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.38.0..sroa_idx, align 8
+  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink144
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds i8, ptr %104, i64 8
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.2.0..sroa_idx.i116, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 2024
   %106 = load ptr, ptr %105, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %106, i64 noundef 24576)
@@ -834,18 +834,18 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %63, %92, %.loopexit.i.i111, %87, %.loopexit.i.i, %58
-  %.0.i.pn.i.i113.sink149 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
-  %.sroa.04.0.copyload.pn.sink148 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
-  %.sroa.25.0.copyload.pn.sink147 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
-  %.sink146 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
-  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 16
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %.0.i.i114, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 24
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.38.0..sroa_idx, align 8
-  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %104, align 8
-  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146, i32 0, i64 1
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.2.0..sroa_idx.i116, align 8
+  %.0.i.pn.i.i113.sink147 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
+  %.sroa.04.0.copyload.pn.sink146 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
+  %.sroa.25.0.copyload.pn.sink145 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
+  %.sink144 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 16
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %.0.i.i114, align 8
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 24
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.38.0..sroa_idx, align 8
+  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink144
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds i8, ptr %104, i64 8
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.2.0..sroa_idx.i116, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 2024
   %106 = load ptr, ptr %105, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %106, i64 noundef 24576)
@@ -977,7 +977,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18fast_rv32e_fminm_qP11
   %49 = and i64 %48, 31
   %50 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49
   store i64 %.sroa.04.0.copyload.pn.sink, ptr %50, align 8
-  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49, i32 0, i64 1
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %50, i64 8
   store i64 %.sroa.25.0.copyload.pn.sink, ptr %.sroa.2.0..sroa_idx.i103, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 2024
   %52 = load ptr, ptr %51, align 8
@@ -1112,7 +1112,7 @@ define noundef i64 @_Z18fast_rv64e_fminm_qP11processor_t6insn_tm(ptr nocapture n
   %49 = and i64 %48, 31
   %50 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49
   store i64 %.sroa.04.0.copyload.pn.sink, ptr %50, align 8
-  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %49, i32 0, i64 1
+  %.sroa.2.0..sroa_idx.i103 = getelementptr inbounds i8, ptr %50, i64 8
   store i64 %.sroa.25.0.copyload.pn.sink, ptr %.sroa.2.0..sroa_idx.i103, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 2024
   %52 = load ptr, ptr %51, align 8
@@ -1350,18 +1350,18 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %63, %92, %.loopexit.i.i111, %87, %.loopexit.i.i, %58
-  %.0.i.pn.i.i113.sink149 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
-  %.sroa.04.0.copyload.pn.sink148 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
-  %.sroa.25.0.copyload.pn.sink147 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
-  %.sink146 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
-  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 16
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %.0.i.i114, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 24
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.38.0..sroa_idx, align 8
-  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %104, align 8
-  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146, i32 0, i64 1
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.2.0..sroa_idx.i116, align 8
+  %.0.i.pn.i.i113.sink147 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
+  %.sroa.04.0.copyload.pn.sink146 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
+  %.sroa.25.0.copyload.pn.sink145 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
+  %.sink144 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 16
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %.0.i.i114, align 8
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 24
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.38.0..sroa_idx, align 8
+  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink144
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds i8, ptr %104, i64 8
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.2.0..sroa_idx.i116, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 2024
   %106 = load ptr, ptr %105, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %106, i64 noundef 24576)
@@ -1600,18 +1600,18 @@ _ZNSt10_HashtableImSt4pairIKm10float128_tESaIS3_ENSt8__detail10_Select1stESt8equ
   br label %common.resume
 
 _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixEOm.exit: ; preds = %63, %92, %.loopexit.i.i111, %87, %.loopexit.i.i, %58
-  %.0.i.pn.i.i113.sink149 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
-  %.sroa.04.0.copyload.pn.sink148 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
-  %.sroa.25.0.copyload.pn.sink147 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
-  %.sink146 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
-  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 16
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %.0.i.i114, align 8
-  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink149, i64 24
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.38.0..sroa_idx, align 8
-  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146
-  store i64 %.sroa.04.0.copyload.pn.sink148, ptr %104, align 8
-  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink146, i32 0, i64 1
-  store i64 %.sroa.25.0.copyload.pn.sink147, ptr %.sroa.2.0..sroa_idx.i116, align 8
+  %.0.i.pn.i.i113.sink147 = phi ptr [ %59, %58 ], [ %73, %.loopexit.i.i ], [ %88, %87 ], [ %102, %.loopexit.i.i111 ], [ %94, %92 ], [ %65, %63 ]
+  %.sroa.04.0.copyload.pn.sink146 = phi i64 [ 0, %58 ], [ 0, %.loopexit.i.i ], [ %.sroa.04.0.copyload.pn, %87 ], [ %.sroa.04.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.04.0.copyload.pn, %92 ], [ 0, %63 ]
+  %.sroa.25.0.copyload.pn.sink145 = phi i64 [ 9223231299366420480, %58 ], [ 9223231299366420480, %.loopexit.i.i ], [ %.sroa.25.0.copyload.pn, %87 ], [ %.sroa.25.0.copyload.pn, %.loopexit.i.i111 ], [ %.sroa.25.0.copyload.pn, %92 ], [ 9223231299366420480, %63 ]
+  %.sink144 = phi i64 [ %49, %58 ], [ %49, %.loopexit.i.i ], [ %78, %87 ], [ %78, %.loopexit.i.i111 ], [ %78, %92 ], [ %49, %63 ]
+  %.0.i.i114 = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 16
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %.0.i.i114, align 8
+  %.sroa.38.0..sroa_idx = getelementptr inbounds i8, ptr %.0.i.pn.i.i113.sink147, i64 24
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.38.0..sroa_idx, align 8
+  %104 = getelementptr inbounds [32 x %struct.float128_t], ptr %23, i64 0, i64 %.sink144
+  store i64 %.sroa.04.0.copyload.pn.sink146, ptr %104, align 8
+  %.sroa.2.0..sroa_idx.i116 = getelementptr inbounds i8, ptr %104, i64 8
+  store i64 %.sroa.25.0.copyload.pn.sink145, ptr %.sroa.2.0..sroa_idx.i116, align 8
   %105 = getelementptr inbounds i8, ptr %0, i64 2024
   %106 = load ptr, ptr %105, align 8
   tail call void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull align 8 dereferenceable(104) %106, i64 noundef 24576)

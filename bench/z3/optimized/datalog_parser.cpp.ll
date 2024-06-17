@@ -8744,26 +8744,26 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br i1 %switch, label %return, label %sw.epilog
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then.i.i, %if.then.i.i65, %if.then.i.i125
-  %m_nodes.i.sink188 = phi ptr [ %m_nodes.i, %if.then.i.i ], [ %m_nodes.i55, %if.then.i.i65 ], [ %m_nodes.i115, %if.then.i.i125 ]
-  %call.sink.ph = phi ptr [ %call, %if.then.i.i ], [ %v.1, %if.then.i.i65 ], [ %call56, %if.then.i.i125 ]
-  %.pre.i.i = load ptr, ptr %m_nodes.i.sink188, align 8
-  %arrayidx8.phi.trans.insert.i.i127 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %m_nodes.i115.sink = phi ptr [ %m_nodes.i115, %if.then.i.i125 ], [ %m_nodes.i55, %if.then.i.i65 ], [ %m_nodes.i, %if.then.i.i ]
+  %v.1.sink.ph = phi ptr [ %call56, %if.then.i.i125 ], [ %v.1, %if.then.i.i65 ], [ %call, %if.then.i.i ]
+  %.pre.i.i126 = load ptr, ptr %m_nodes.i115.sink, align 8
+  %arrayidx8.phi.trans.insert.i.i127 = getelementptr inbounds i8, ptr %.pre.i.i126, i64 -4
   %.pre1.i.i128 = load i32, ptr %arrayidx8.phi.trans.insert.i.i127, align 4
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %lor.lhs.false.i.i117, %lor.lhs.false.i.i57, %lor.lhs.false.i.i
   %.sink187 = phi i32 [ %4, %lor.lhs.false.i.i ], [ %31, %lor.lhs.false.i.i57 ], [ %44, %lor.lhs.false.i.i117 ], [ %.pre1.i.i128, %sw.epilog.sink.split.sink.split ]
-  %.sink = phi ptr [ %3, %lor.lhs.false.i.i ], [ %30, %lor.lhs.false.i.i57 ], [ %43, %lor.lhs.false.i.i117 ], [ %.pre.i.i, %sw.epilog.sink.split.sink.split ]
-  %call.sink = phi ptr [ %call, %lor.lhs.false.i.i ], [ %v.1, %lor.lhs.false.i.i57 ], [ %call56, %lor.lhs.false.i.i117 ], [ %call.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %m_nodes.i.sink = phi ptr [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i55, %lor.lhs.false.i.i57 ], [ %m_nodes.i115, %lor.lhs.false.i.i117 ], [ %m_nodes.i.sink188, %sw.epilog.sink.split.sink.split ]
-  %idx.ext.i.i = zext i32 %.sink187 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i
-  store ptr %call.sink, ptr %add.ptr.i.i, align 8
-  %72 = load ptr, ptr %m_nodes.i.sink, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %72, i64 -4
-  %73 = load i32, ptr %arrayidx10.i.i, align 4
+  %.sink = phi ptr [ %3, %lor.lhs.false.i.i ], [ %30, %lor.lhs.false.i.i57 ], [ %43, %lor.lhs.false.i.i117 ], [ %.pre.i.i126, %sw.epilog.sink.split.sink.split ]
+  %v.1.sink = phi ptr [ %call, %lor.lhs.false.i.i ], [ %v.1, %lor.lhs.false.i.i57 ], [ %call56, %lor.lhs.false.i.i117 ], [ %v.1.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %m_nodes.i55.sink = phi ptr [ %m_nodes.i, %lor.lhs.false.i.i ], [ %m_nodes.i55, %lor.lhs.false.i.i57 ], [ %m_nodes.i115, %lor.lhs.false.i.i117 ], [ %m_nodes.i115.sink, %sw.epilog.sink.split.sink.split ]
+  %idx.ext.i.i61 = zext i32 %.sink187 to i64
+  %add.ptr.i.i62 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i61
+  store ptr %v.1.sink, ptr %add.ptr.i.i62, align 8
+  %72 = load ptr, ptr %m_nodes.i55.sink, align 8
+  %arrayidx10.i.i63 = getelementptr inbounds i8, ptr %72, i64 -4
+  %73 = load i32, ptr %arrayidx10.i.i63, align 4
   %inc.i.i64 = add i32 %73, 1
-  store i32 %inc.i.i64, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i.i64, ptr %arrayidx10.i.i63, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN8rationalD2Ev.exit, %entry

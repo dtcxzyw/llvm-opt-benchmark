@@ -11534,10 +11534,10 @@ if.end68.sink.split.sink.split.i:                 ; preds = %if.end8.i.i92.i, %i
 
 if.end68.sink.split.i:                            ; preds = %if.end68.sink.split.sink.split.i, %if.end8.i.i92.i, %if.end8.i.i70.i, %if.end8.i.i48.i
   %.sink.i227 = phi ptr [ %292, %if.end8.i.i48.i ], [ %299, %if.end8.i.i70.i ], [ %307, %if.end8.i.i92.i ], [ %.sink146.i, %if.end68.sink.split.sink.split.i ]
-  %cnt_data.i99.i = getelementptr inbounds i8, ptr %.sink.i227, i64 56
-  %314 = load ptr, ptr %cnt_data.i99.i, align 8
+  %cnt_data.i77.i = getelementptr inbounds i8, ptr %.sink.i227, i64 56
+  %314 = load ptr, ptr %cnt_data.i77.i, align 8
   call void @free(ptr noundef %314) #31
-  store ptr null, ptr %cnt_data.i99.i, align 8
+  store ptr null, ptr %cnt_data.i77.i, align 8
   br label %if.end68.i
 
 if.end68.i:                                       ; preds = %if.end68.sink.split.i, %if.then48.i, %diff_free_filespec_data.exit.i
@@ -22424,10 +22424,10 @@ if.then8:                                         ; preds = %if.end
 
 if.end11.sink.split:                              ; preds = %if.end, %if.then8
   %.sink = phi i64 [ 48, %if.then8 ], [ 40, %if.end ]
-  %added = getelementptr inbounds i8, ptr %4, i64 %.sink
-  %6 = load i64, ptr %added, align 8
+  %deleted = getelementptr inbounds i8, ptr %4, i64 %.sink
+  %6 = load i64, ptr %deleted, align 8
   %inc9 = add i64 %6, 1
-  store i64 %inc9, ptr %added, align 8
+  store i64 %inc9, ptr %deleted, align 8
   br label %if.end11
 
 if.end11:                                         ; preds = %if.end11.sink.split, %if.end

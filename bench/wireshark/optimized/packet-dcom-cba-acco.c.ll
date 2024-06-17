@@ -5456,7 +5456,7 @@ cba_packet_in_range.exit.thread:                  ; preds = %40, %37, %.critedge
   br label %.loopexit76.sink.split
 
 .loopexit76.sink.split:                           ; preds = %68, %63
-  %.sink99 = phi ptr [ %2, %68 ], [ %3, %63 ]
+  %.sink99 = phi ptr [ %3, %63 ], [ %2, %68 ]
   %73 = getelementptr inbounds i8, ptr %.sink99, i64 16
   %74 = load ptr, ptr %73, align 8
   %75 = tail call ptr @g_list_append(ptr noundef %74, ptr noundef nonnull %45) #7

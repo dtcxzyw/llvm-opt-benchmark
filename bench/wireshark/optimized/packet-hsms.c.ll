@@ -601,30 +601,30 @@ default.unreachable:                              ; preds = %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !4
 
 .loopexit.sink.split:                             ; preds = %38, %65
-  %.sink3 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %38 ]
+  %.sink156 = phi ptr [ inttoptr (i64 16 to ptr), %65 ], [ inttoptr (i64 8 to ptr), %38 ]
   %hf_hsms_data_item_value_string.sink = phi ptr [ @hf_hsms_data_item_value_string, %65 ], [ @hf_hsms_data_item_value_binary, %38 ]
   %87 = load ptr, ptr @value_lengths, align 8
-  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink3) #3
-  %.pn.in = ptrtoint ptr %88 to i64
-  %.pn = trunc i64 %.pn.in to i32
-  %.sink153 = mul i32 %.1133, %.pn
-  %89 = load i32, ptr %hf_hsms_data_item_value_string.sink, align 4
-  %90 = load i32, ptr %2, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %89, ptr noundef %0, i32 noundef %90, i32 noundef %.sink153, i32 noundef 0) #3
-  %92 = load i32, ptr %2, align 4
-  %93 = add i32 %92, %.sink153
-  store i32 %93, ptr %2, align 4
+  %88 = call ptr @wmem_map_lookup(ptr noundef %87, ptr noundef nonnull %.sink156) #3
+  %89 = ptrtoint ptr %88 to i64
+  %90 = trunc i64 %89 to i32
+  %91 = mul i32 %.1133, %90
+  %92 = load i32, ptr %hf_hsms_data_item_value_string.sink, align 4
+  %93 = load i32, ptr %2, align 4
+  %94 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %92, ptr noundef %0, i32 noundef %93, i32 noundef %91, i32 noundef 0) #3
+  %95 = load i32, ptr %2, align 4
+  %96 = add i32 %95, %91
+  store i32 %96, ptr %2, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %80, %63, %.loopexit.sink.split, %.preheader
-  %.2 = phi i32 [ 0, %.preheader ], [ %.sink153, %.loopexit.sink.split ], [ %.1.us, %63 ], [ %.1, %80 ]
-  %94 = add nuw nsw i32 %13, 1
-  %95 = add i32 %94, %.2
-  call void @proto_item_set_len(ptr noundef %42, i32 noundef %95) #3
+  %.2 = phi i32 [ 0, %.preheader ], [ %91, %.loopexit.sink.split ], [ %.1.us, %63 ], [ %.1, %80 ]
+  %97 = add nuw nsw i32 %13, 1
+  %98 = add i32 %97, %.2
+  call void @proto_item_set_len(ptr noundef %42, i32 noundef %98) #3
   br label %.loopexit139
 
 .loopexit139:                                     ; preds = %.lr.ph.split, %.lr.ph.split.us, %29, %3, %.loopexit
-  %.0 = phi i32 [ %95, %.loopexit ], [ -1, %3 ], [ -1, %29 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
+  %.0 = phi i32 [ %98, %.loopexit ], [ -1, %3 ], [ -1, %29 ], [ -1, %.lr.ph.split.us ], [ -1, %.lr.ph.split ]
   ret i32 %.0
 }
 

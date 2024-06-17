@@ -12556,31 +12556,31 @@ if.else13:                                        ; preds = %if.else10
 
 if.end16:                                         ; preds = %if.then9, %if.else13, %if.then12, %if.then2, %if.else5, %if.then4
   %__a.sink = phi ptr [ %__a, %if.then9 ], [ %__b, %if.else13 ], [ %__c, %if.then12 ], [ %__b, %if.then2 ], [ %__a, %if.else5 ], [ %__c, %if.then4 ]
-  %m_ptr.i.i.i.i.i.i.i.i116.sink279 = getelementptr inbounds i8, ptr %__result, i64 16
+  %m_ptr.i.i.i.i.i.i.i.i116.sink284 = getelementptr inbounds i8, ptr %__result, i64 16
   %m_ptr3.i.i.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %__a.sink, i64 16
-  %22 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i116.sink279, align 8
+  %22 = load ptr, ptr %m_ptr.i.i.i.i.i.i.i.i116.sink284, align 8
   %23 = load ptr, ptr %m_ptr3.i.i.i.i.i.i.i.i117, align 8
-  store ptr %23, ptr %m_ptr.i.i.i.i.i.i.i.i116.sink279, align 8
+  store ptr %23, ptr %m_ptr.i.i.i.i.i.i.i.i116.sink284, align 8
   store ptr %22, ptr %m_ptr3.i.i.i.i.i.i.i.i117, align 8
-  %m_owner.i.i.i.i.i.i.i.i118.sink276 = getelementptr inbounds i8, ptr %__result, i64 12
-  %bf.load.i.i.i.i.i.i.i.i119 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i118.sink276, align 4
+  %m_owner.i.i.i.i.i.i.i.i118.sink281 = getelementptr inbounds i8, ptr %__result, i64 12
+  %bf.load.i.i.i.i.i.i.i.i119 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i118.sink281, align 4
   %bf.clear.i.i.i.i.i.i.i.i120 = and i8 %bf.load.i.i.i.i.i.i.i.i119, 2
   %m_owner4.i.i.i.i.i.i.i.i121 = getelementptr inbounds i8, ptr %__a.sink, i64 12
   %bf.load5.i.i.i.i.i.i.i.i122 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i121, align 4
   %bf.clear7.i.i.i.i.i.i.i.i123 = and i8 %bf.load5.i.i.i.i.i.i.i.i122, 2
   %bf.clear11.i.i.i.i.i.i.i.i124 = and i8 %bf.load.i.i.i.i.i.i.i.i119, -3
   %bf.set.i.i.i.i.i.i.i.i125 = or disjoint i8 %bf.clear7.i.i.i.i.i.i.i.i123, %bf.clear11.i.i.i.i.i.i.i.i124
-  store i8 %bf.set.i.i.i.i.i.i.i.i125, ptr %m_owner.i.i.i.i.i.i.i.i118.sink276, align 4
+  store i8 %bf.set.i.i.i.i.i.i.i.i125, ptr %m_owner.i.i.i.i.i.i.i.i118.sink281, align 4
   %bf.load13.i.i.i.i.i.i.i.i126 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i121, align 4
   %bf.clear16.i.i.i.i.i.i.i.i127 = and i8 %bf.load13.i.i.i.i.i.i.i.i126, -3
   %bf.set17.i.i.i.i.i.i.i.i128 = or disjoint i8 %bf.clear16.i.i.i.i.i.i.i.i127, %bf.clear.i.i.i.i.i.i.i.i120
   store i8 %bf.set17.i.i.i.i.i.i.i.i128, ptr %m_owner4.i.i.i.i.i.i.i.i121, align 4
-  %bf.load18.i.i.i.i.i.i.i.i129 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i118.sink276, align 4
+  %bf.load18.i.i.i.i.i.i.i.i129 = load i8, ptr %m_owner.i.i.i.i.i.i.i.i118.sink281, align 4
   %bf.clear19.i.i.i.i.i.i.i.i130 = and i8 %bf.load18.i.i.i.i.i.i.i.i129, 1
   %bf.clear23.i.i.i.i.i.i.i.i131 = and i8 %bf.load13.i.i.i.i.i.i.i.i126, 1
   %bf.clear28.i.i.i.i.i.i.i.i132 = and i8 %bf.load18.i.i.i.i.i.i.i.i129, -2
   %bf.set29.i.i.i.i.i.i.i.i133 = or disjoint i8 %bf.clear28.i.i.i.i.i.i.i.i132, %bf.clear23.i.i.i.i.i.i.i.i131
-  store i8 %bf.set29.i.i.i.i.i.i.i.i133, ptr %m_owner.i.i.i.i.i.i.i.i118.sink276, align 4
+  store i8 %bf.set29.i.i.i.i.i.i.i.i133, ptr %m_owner.i.i.i.i.i.i.i.i118.sink281, align 4
   %bf.load31.i.i.i.i.i.i.i.i134 = load i8, ptr %m_owner4.i.i.i.i.i.i.i.i121, align 4
   %bf.clear33.i.i.i.i.i.i.i.i135 = and i8 %bf.load31.i.i.i.i.i.i.i.i134, -2
   %bf.set34.i.i.i.i.i.i.i.i136 = or disjoint i8 %bf.clear33.i.i.i.i.i.i.i.i135, %bf.clear19.i.i.i.i.i.i.i.i130

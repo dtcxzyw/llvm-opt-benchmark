@@ -2693,11 +2693,11 @@ _ZNK10reflection5Field6offsetEv.exit.i260.invoke.sink.split: ; preds = %_ZNK10re
   br label %_ZNK10reflection5Field6offsetEv.exit.i260.invoke
 
 _ZNK10reflection5Field6offsetEv.exit.i260.invoke: ; preds = %_ZNK10reflection5Field6offsetEv.exit.i260.invoke.sink.split, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i250, %if.then38
-  %.sink1007 = phi i16 [ %11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i250 ], [ %11, %if.then38 ], [ %.pre950, %_ZNK10reflection5Field6offsetEv.exit.i260.invoke.sink.split ]
+  %.sink1006 = phi i16 [ %11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i250 ], [ %11, %if.then38 ], [ %.pre950, %_ZNK10reflection5Field6offsetEv.exit.i260.invoke.sink.split ]
   %55 = phi ptr [ %add.ptr2.i.i218, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i250 ], [ %add.ptr2.i.i218, %if.then38 ], [ %.ph, %_ZNK10reflection5Field6offsetEv.exit.i260.invoke.sink.split ]
-  %tobool.not.i.i8.i244 = icmp ne i16 %.sink1007, 0
+  %tobool.not.i.i8.i244 = icmp ne i16 %.sink1006, 0
   tail call void @llvm.assume(i1 %tobool.not.i.i8.i244)
-  %idx.ext.i.i10.i246 = zext i16 %.sink1007 to i64
+  %idx.ext.i.i10.i246 = zext i16 %.sink1006 to i64
   %add.ptr.i.i11.i247 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i10.i246
   %56 = load i32, ptr %add.ptr.i.i11.i247, align 4
   %idx.ext3.i.i.i248 = zext i32 %56 to i64
@@ -2737,12 +2737,12 @@ invoke.cont63:                                    ; preds = %sw.bb60
   br i1 %cmp.i.i.i.i106, label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i312, label %invoke.cont65
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i312.sink.split: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i300, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i288
-  %.pre.sink = phi i16 [ %11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i288 ], [ %.pre, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i300 ]
-  %idx.ext.i.i305961 = zext i16 %.pre.sink to i64
-  %add.ptr.i.i306962 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i305961
-  %61 = load i32, ptr %add.ptr.i.i306962, align 4
+  %.sink1009 = phi i16 [ %11, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i288 ], [ %.pre, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i300 ]
+  %idx.ext.i.i305966 = zext i16 %.sink1009 to i64
+  %add.ptr.i.i306967 = getelementptr inbounds i8, ptr %table, i64 %idx.ext.i.i305966
+  %61 = load i32, ptr %add.ptr.i.i306967, align 4
   %idx.ext3.i.i968 = zext i32 %61 to i64
-  %add.ptr4.i.i969 = getelementptr inbounds i8, ptr %add.ptr.i.i306962, i64 %idx.ext3.i.i968
+  %add.ptr4.i.i969 = getelementptr inbounds i8, ptr %add.ptr.i.i306967, i64 %idx.ext3.i.i968
   br label %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i312
 
 _ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i312: ; preds = %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i.i312.sink.split, %_ZNK11flatbuffers5Table22GetOptionalFieldOffsetEt.exit.i.i300, %invoke.cont61, %invoke.cont63

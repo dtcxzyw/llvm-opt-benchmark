@@ -3307,38 +3307,39 @@ define internal fastcc noundef i32 @dissect_query_afp_login_ext(ptr noundef %0, 
   %34 = load i32, ptr @hf_afp_path_type, align 4
   %35 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef 0) #7
   %36 = add nuw nsw i32 %32, 1
-  switch i8 %33, label %55 [
+  switch i8 %33, label %49 [
     i8 1, label %37
     i8 2, label %37
-    i8 3, label %46
+    i8 3, label %40
   ]
 
 37:                                               ; preds = %3, %3
   %38 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %36) #7
   %39 = zext i8 %38 to i32
-  %40 = load i32, ptr @hf_afp_path_len, align 4
-  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef 0) #7
-  %42 = add nuw nsw i32 %32, 2
-  %43 = load i32, ptr @hf_afp_path_name, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef %39, i32 noundef 2) #7
-  %45 = add nuw nsw i32 %42, %39
-  br label %55
+  br label %.sink.split
 
-46:                                               ; preds = %3
-  %47 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %36) #7
-  %48 = zext i16 %47 to i32
-  %49 = load i32, ptr @hf_afp_path_unicode_len, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %36, i32 noundef 2, i32 noundef 0) #7
-  %51 = add nuw nsw i32 %32, 3
-  %52 = load i32, ptr @hf_afp_path_name, align 4
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %51, i32 noundef %48, i32 noundef 2) #7
-  %54 = add nuw nsw i32 %51, %48
-  br label %55
+40:                                               ; preds = %3
+  %41 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %36) #7
+  %42 = zext i16 %41 to i32
+  br label %.sink.split
 
-55:                                               ; preds = %3, %46, %37
-  %.0 = phi i32 [ %36, %3 ], [ %54, %46 ], [ %45, %37 ]
-  %56 = tail call fastcc i32 @decode_uam_parameters(ptr noundef %18, i32 noundef %14, ptr noundef %0, ptr noundef %2, i32 noundef %.0)
-  ret i32 %56
+.sink.split:                                      ; preds = %37, %40
+  %hf_afp_path_unicode_len.sink = phi ptr [ @hf_afp_path_unicode_len, %40 ], [ @hf_afp_path_len, %37 ]
+  %.sink82 = phi i32 [ 2, %40 ], [ 1, %37 ]
+  %.sink81 = phi i32 [ 3, %40 ], [ 2, %37 ]
+  %.sink80 = phi i32 [ %42, %40 ], [ %39, %37 ]
+  %43 = load i32, ptr %hf_afp_path_unicode_len.sink, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %36, i32 noundef %.sink82, i32 noundef 0) #7
+  %45 = add nuw nsw i32 %32, %.sink81
+  %46 = load i32, ptr @hf_afp_path_name, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef %.sink80, i32 noundef 2) #7
+  %48 = add nuw nsw i32 %45, %.sink80
+  br label %49
+
+49:                                               ; preds = %.sink.split, %3
+  %.0 = phi i32 [ %36, %3 ], [ %48, %.sink.split ]
+  %50 = tail call fastcc i32 @decode_uam_parameters(ptr noundef %18, i32 noundef %14, ptr noundef %0, ptr noundef %2, i32 noundef %.0)
+  ret i32 %50
 }
 
 ; Function Attrs: nounwind uwtable

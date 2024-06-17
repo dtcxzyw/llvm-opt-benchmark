@@ -4456,9 +4456,9 @@ define internal fastcc range(i32 0, 65536) i32 @vnc_mirrorlink(ptr noundef %0, p
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %32, %59, %94, %133, %178, %185, %216, %223, %230, %257, %319, %326
-  %.sink344 = phi i32 [ 4, %32 ], [ 2, %59 ], [ 4, %94 ], [ 4, %133 ], [ 4, %178 ], [ 2, %185 ], [ 4, %216 ], [ 4, %223 ], [ 2, %230 ], [ 2, %257 ], [ %316, %319 ], [ 2, %326 ]
+  %.sink342 = phi i32 [ 2, %326 ], [ %316, %319 ], [ 2, %257 ], [ 2, %230 ], [ 4, %223 ], [ 4, %216 ], [ 2, %185 ], [ 4, %178 ], [ 4, %133 ], [ 4, %94 ], [ 2, %59 ], [ 4, %32 ]
   %330 = load i32, ptr %2, align 4
-  %331 = add i32 %330, %.sink344
+  %331 = add i32 %330, %.sink342
   store i32 %331, ptr %2, align 4
   br label %.loopexit
 

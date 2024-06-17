@@ -9242,7 +9242,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.
           to label %.loopexit243.i unwind label %.loopexit.split-lp.i134
 
 .loopexit243.i:                                   ; preds = %.noexc186.i, %.loopexit.i180.i
-  %.sink23.i.i = phi i1 [ true, %.loopexit.i180.i ], [ false, %.noexc186.i ]
+  %.sink.i.i = phi i1 [ true, %.loopexit.i180.i ], [ false, %.noexc186.i ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %38)
   %3332 = load ptr, ptr %2734, align 8
   %.not.i.i.i.i.i138.i = icmp eq ptr %3332, null
@@ -9253,7 +9253,7 @@ _ZNK5Yosys7hashlib4poolINS_5RTLIL5ConstENS0_8hash_opsIS3_EEE7do_hashERKS3_.exit.
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit.i.i:               ; preds = %3333, %.loopexit243.i
-  br i1 %.sink23.i.i, label %3247, label %.loopexit45.i.i
+  br i1 %.sink.i.i, label %3247, label %.loopexit45.i.i
 
 .loopexit.i137:                                   ; preds = %.lr.ph.i.i181.i
   %lpad.loopexit.i138 = landingpad { ptr, i32 }

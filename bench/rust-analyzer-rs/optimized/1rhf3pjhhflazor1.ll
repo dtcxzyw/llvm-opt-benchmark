@@ -16798,10 +16798,10 @@ define hidden void @_ZN3std9panicking3try17h4c0f2fa3b32de496E(ptr noalias nocapt
   unreachable
 
 11:                                               ; preds = %5, %2
-  %.sink16 = phi { ptr, ptr } [ %4, %2 ], [ %8, %5 ]
+  %.sink = phi { ptr, ptr } [ %4, %2 ], [ %8, %5 ]
   %storemerge = phi i64 [ 0, %2 ], [ 1, %5 ]
-  %12 = extractvalue { ptr, ptr } %.sink16, 0
-  %13 = extractvalue { ptr, ptr } %.sink16, 1
+  %12 = extractvalue { ptr, ptr } %.sink, 0
+  %13 = extractvalue { ptr, ptr } %.sink, 1
   %14 = icmp ne ptr %12, null
   tail call void @llvm.assume(i1 %14)
   %15 = icmp ne ptr %13, null

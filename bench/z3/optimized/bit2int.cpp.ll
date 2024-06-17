@@ -5755,10 +5755,10 @@ while.cond.backedge.sink.split.sink.split:        ; preds = %while.cond.backedge
 while.cond.backedge.sink.split:                   ; preds = %if.end20.invoke, %while.cond.backedge.sink.split.sink.split, %invoke.cont5
   %.sink349 = phi i32 [ -1, %invoke.cont5 ], [ 1, %while.cond.backedge.sink.split.sink.split ], [ -1, %if.end20.invoke ]
   %.sink = load ptr, ptr %stack, align 8
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %8 = load i32, ptr %arrayidx.i51, align 4
+  %arrayidx.i58 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %8 = load i32, ptr %arrayidx.i58, align 4
   %dec.i59 = add i32 %8, %.sink349
-  store i32 %dec.i59, ptr %arrayidx.i51, align 4
+  store i32 %dec.i59, ptr %arrayidx.i58, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %for.inc.i171.thread, %for.inc.i207.thread, %for.inc.i135.thread, %for.inc.i.thread, %while.cond.backedge.sink.split, %if.end, %invoke.cont17, %invoke.cont45, %invoke.cont57, %invoke.cont99, %invoke.cont118, %invoke.cont130

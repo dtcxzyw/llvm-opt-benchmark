@@ -4307,7 +4307,7 @@ if.then:                                          ; preds = %_ZNK9__gnu_cxx5__op
   %add.ptr.i.i.i10.i.i.i64 = getelementptr inbounds i8, ptr %__c.coerce, i64 16
   %6 = load i64, ptr %add.ptr.i.i.i10.i.i.i64, align 8, !tbaa !37
   %cmp.i.i.i65 = icmp ult i64 %1, %6
-  br i1 %cmp.i.i.i65, label %if.then12, label %lor.rhs.i.i.i66
+  br i1 %cmp.i.i.i65, label %if.end62, label %lor.rhs.i.i.i66
 
 lor.rhs.i.i.i66:                                  ; preds = %if.then
   %cmp4.i.i.i67 = icmp ult i64 %6, %1
@@ -4319,7 +4319,7 @@ land.rhs.i.i.i68:                                 ; preds = %lor.rhs.i.i.i66
   %add.ptr.i.i.i10.i.i.i.i70 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
   %8 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i70, align 8, !tbaa !37
   %cmp.i.i.i.i71 = icmp ult i64 %7, %8
-  br i1 %cmp.i.i.i.i71, label %if.then12, label %lor.rhs.i.i.i.i72
+  br i1 %cmp.i.i.i.i71, label %if.end62, label %lor.rhs.i.i.i.i72
 
 lor.rhs.i.i.i.i72:                                ; preds = %land.rhs.i.i.i68
   %cmp4.i.i.i.i73 = icmp ult i64 %8, %7
@@ -4329,18 +4329,11 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEES
   %9 = load i64, ptr %__b.coerce, align 8, !tbaa !37
   %10 = load i64, ptr %__c.coerce, align 8, !tbaa !37
   %cmp.i.i.i.i.i75 = icmp ult i64 %9, %10
-  br i1 %cmp.i.i.i.i.i75, label %if.then12, label %if.else
-
-if.then12:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76, %land.rhs.i.i.i68, %if.then
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %11 = load i64, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !37
-  store i64 %1, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !37
-  store i64 %11, ptr %add.ptr.i.i.i10.i.i.i, align 8, !tbaa !37
-  br label %if.end62
+  br i1 %cmp.i.i.i.i.i75, label %if.end62, label %if.else
 
 if.else:                                          ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76, %lor.rhs.i.i.i.i72, %lor.rhs.i.i.i66
   %cmp.i.i.i80 = icmp ult i64 %0, %6
-  br i1 %cmp.i.i.i80, label %if.then22, label %lor.rhs.i.i.i81
+  br i1 %cmp.i.i.i80, label %if.end62, label %lor.rhs.i.i.i81
 
 lor.rhs.i.i.i81:                                  ; preds = %if.else
   %cmp4.i.i.i82 = icmp ult i64 %6, %0
@@ -4348,123 +4341,100 @@ lor.rhs.i.i.i81:                                  ; preds = %if.else
 
 land.rhs.i.i.i83:                                 ; preds = %lor.rhs.i.i.i81
   %add.ptr.i.i.i.i.i.i.i84 = getelementptr inbounds i8, ptr %__a.coerce, i64 8
-  %12 = load i64, ptr %add.ptr.i.i.i.i.i.i.i84, align 8, !tbaa !37
+  %11 = load i64, ptr %add.ptr.i.i.i.i.i.i.i84, align 8, !tbaa !37
   %add.ptr.i.i.i10.i.i.i.i85 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
-  %13 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i85, align 8, !tbaa !37
-  %cmp.i.i.i.i86 = icmp ult i64 %12, %13
-  br i1 %cmp.i.i.i.i86, label %if.then22, label %lor.rhs.i.i.i.i87
+  %12 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i85, align 8, !tbaa !37
+  %cmp.i.i.i.i86 = icmp ult i64 %11, %12
+  br i1 %cmp.i.i.i.i86, label %if.end62, label %lor.rhs.i.i.i.i87
 
 lor.rhs.i.i.i.i87:                                ; preds = %land.rhs.i.i.i83
-  %cmp4.i.i.i.i88 = icmp ult i64 %13, %12
+  %cmp4.i.i.i.i88 = icmp ult i64 %12, %11
   br i1 %cmp4.i.i.i.i88, label %if.else27, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91: ; preds = %lor.rhs.i.i.i.i87
-  %14 = load i64, ptr %__a.coerce, align 8, !tbaa !37
-  %15 = load i64, ptr %__c.coerce, align 8, !tbaa !37
-  %cmp.i.i.i.i.i90 = icmp ult i64 %14, %15
-  br i1 %cmp.i.i.i.i.i90, label %if.then22, label %if.else27
-
-if.then22:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91, %land.rhs.i.i.i83, %if.else
-  %add.ptr.i.i.i.i.i92 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %16 = load i64, ptr %add.ptr.i.i.i.i.i92, align 8, !tbaa !37
-  store i64 %6, ptr %add.ptr.i.i.i.i.i92, align 8, !tbaa !37
-  store i64 %16, ptr %add.ptr.i.i.i10.i.i.i64, align 8, !tbaa !37
-  br label %if.end62
+  %13 = load i64, ptr %__a.coerce, align 8, !tbaa !37
+  %14 = load i64, ptr %__c.coerce, align 8, !tbaa !37
+  %cmp.i.i.i.i.i90 = icmp ult i64 %13, %14
+  br i1 %cmp.i.i.i.i.i90, label %if.end62, label %if.else27
 
 if.else27:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91, %lor.rhs.i.i.i.i87, %lor.rhs.i.i.i81
-  %add.ptr.i.i.i.i.i96 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %17 = load i64, ptr %add.ptr.i.i.i.i.i96, align 8, !tbaa !37
-  store i64 %0, ptr %add.ptr.i.i.i.i.i96, align 8, !tbaa !37
-  store i64 %17, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !37
   br label %if.end62
 
 if.else33:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit, %lor.rhs.i.i.i.i, %lor.rhs.i.i.i
   %add.ptr.i.i.i10.i.i.i101 = getelementptr inbounds i8, ptr %__c.coerce, i64 16
-  %18 = load i64, ptr %add.ptr.i.i.i10.i.i.i101, align 8, !tbaa !37
-  %cmp.i.i.i102 = icmp ult i64 %0, %18
-  br i1 %cmp.i.i.i102, label %if.then39, label %lor.rhs.i.i.i103
+  %15 = load i64, ptr %add.ptr.i.i.i10.i.i.i101, align 8, !tbaa !37
+  %cmp.i.i.i102 = icmp ult i64 %0, %15
+  br i1 %cmp.i.i.i102, label %if.end62, label %lor.rhs.i.i.i103
 
 lor.rhs.i.i.i103:                                 ; preds = %if.else33
-  %cmp4.i.i.i104 = icmp ult i64 %18, %0
+  %cmp4.i.i.i104 = icmp ult i64 %15, %0
   br i1 %cmp4.i.i.i104, label %if.else44, label %land.rhs.i.i.i105
 
 land.rhs.i.i.i105:                                ; preds = %lor.rhs.i.i.i103
   %add.ptr.i.i.i.i.i.i.i106 = getelementptr inbounds i8, ptr %__a.coerce, i64 8
-  %19 = load i64, ptr %add.ptr.i.i.i.i.i.i.i106, align 8, !tbaa !37
+  %16 = load i64, ptr %add.ptr.i.i.i.i.i.i.i106, align 8, !tbaa !37
   %add.ptr.i.i.i10.i.i.i.i107 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
-  %20 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i107, align 8, !tbaa !37
-  %cmp.i.i.i.i108 = icmp ult i64 %19, %20
-  br i1 %cmp.i.i.i.i108, label %if.then39, label %lor.rhs.i.i.i.i109
+  %17 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i107, align 8, !tbaa !37
+  %cmp.i.i.i.i108 = icmp ult i64 %16, %17
+  br i1 %cmp.i.i.i.i108, label %if.end62, label %lor.rhs.i.i.i.i109
 
 lor.rhs.i.i.i.i109:                               ; preds = %land.rhs.i.i.i105
-  %cmp4.i.i.i.i110 = icmp ult i64 %20, %19
+  %cmp4.i.i.i.i110 = icmp ult i64 %17, %16
   br i1 %cmp4.i.i.i.i110, label %if.else44, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113: ; preds = %lor.rhs.i.i.i.i109
-  %21 = load i64, ptr %__a.coerce, align 8, !tbaa !37
-  %22 = load i64, ptr %__c.coerce, align 8, !tbaa !37
-  %cmp.i.i.i.i.i112 = icmp ult i64 %21, %22
-  br i1 %cmp.i.i.i.i.i112, label %if.then39, label %if.else44
-
-if.then39:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113, %land.rhs.i.i.i105, %if.else33
-  %add.ptr.i.i.i.i.i114 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %23 = load i64, ptr %add.ptr.i.i.i.i.i114, align 8, !tbaa !37
-  store i64 %0, ptr %add.ptr.i.i.i.i.i114, align 8, !tbaa !37
-  store i64 %23, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !37
-  br label %if.end62
+  %18 = load i64, ptr %__a.coerce, align 8, !tbaa !37
+  %19 = load i64, ptr %__c.coerce, align 8, !tbaa !37
+  %cmp.i.i.i.i.i112 = icmp ult i64 %18, %19
+  br i1 %cmp.i.i.i.i.i112, label %if.end62, label %if.else44
 
 if.else44:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113, %lor.rhs.i.i.i.i109, %lor.rhs.i.i.i103
-  %cmp.i.i.i120 = icmp ult i64 %1, %18
-  br i1 %cmp.i.i.i120, label %if.then50, label %lor.rhs.i.i.i121
+  %cmp.i.i.i120 = icmp ult i64 %1, %15
+  br i1 %cmp.i.i.i120, label %if.end62, label %lor.rhs.i.i.i121
 
 lor.rhs.i.i.i121:                                 ; preds = %if.else44
-  %cmp4.i.i.i122 = icmp ult i64 %18, %1
+  %cmp4.i.i.i122 = icmp ult i64 %15, %1
   br i1 %cmp4.i.i.i122, label %if.else55, label %land.rhs.i.i.i123
 
 land.rhs.i.i.i123:                                ; preds = %lor.rhs.i.i.i121
   %add.ptr.i.i.i.i.i.i.i124 = getelementptr inbounds i8, ptr %__b.coerce, i64 8
-  %24 = load i64, ptr %add.ptr.i.i.i.i.i.i.i124, align 8, !tbaa !37
+  %20 = load i64, ptr %add.ptr.i.i.i.i.i.i.i124, align 8, !tbaa !37
   %add.ptr.i.i.i10.i.i.i.i125 = getelementptr inbounds i8, ptr %__c.coerce, i64 8
-  %25 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i125, align 8, !tbaa !37
-  %cmp.i.i.i.i126 = icmp ult i64 %24, %25
-  br i1 %cmp.i.i.i.i126, label %if.then50, label %lor.rhs.i.i.i.i127
+  %21 = load i64, ptr %add.ptr.i.i.i10.i.i.i.i125, align 8, !tbaa !37
+  %cmp.i.i.i.i126 = icmp ult i64 %20, %21
+  br i1 %cmp.i.i.i.i126, label %if.end62, label %lor.rhs.i.i.i.i127
 
 lor.rhs.i.i.i.i127:                               ; preds = %land.rhs.i.i.i123
-  %cmp4.i.i.i.i128 = icmp ult i64 %25, %24
+  %cmp4.i.i.i.i128 = icmp ult i64 %21, %20
   br i1 %cmp4.i.i.i.i128, label %if.else55, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131: ; preds = %lor.rhs.i.i.i.i127
-  %26 = load i64, ptr %__b.coerce, align 8, !tbaa !37
-  %27 = load i64, ptr %__c.coerce, align 8, !tbaa !37
-  %cmp.i.i.i.i.i130 = icmp ult i64 %26, %27
-  br i1 %cmp.i.i.i.i.i130, label %if.then50, label %if.else55
-
-if.then50:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131, %land.rhs.i.i.i123, %if.else44
-  %add.ptr.i.i.i.i.i132 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %28 = load i64, ptr %add.ptr.i.i.i.i.i132, align 8, !tbaa !37
-  store i64 %18, ptr %add.ptr.i.i.i.i.i132, align 8, !tbaa !37
-  store i64 %28, ptr %add.ptr.i.i.i10.i.i.i101, align 8, !tbaa !37
-  br label %if.end62
+  %22 = load i64, ptr %__b.coerce, align 8, !tbaa !37
+  %23 = load i64, ptr %__c.coerce, align 8, !tbaa !37
+  %cmp.i.i.i.i.i130 = icmp ult i64 %22, %23
+  br i1 %cmp.i.i.i.i.i130, label %if.end62, label %if.else55
 
 if.else55:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131, %lor.rhs.i.i.i.i127, %lor.rhs.i.i.i121
-  %add.ptr.i.i.i.i.i136 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
-  %29 = load i64, ptr %add.ptr.i.i.i.i.i136, align 8, !tbaa !37
-  store i64 %1, ptr %add.ptr.i.i.i.i.i136, align 8, !tbaa !37
-  store i64 %29, ptr %add.ptr.i.i.i10.i.i.i, align 8, !tbaa !37
   br label %if.end62
 
-if.end62:                                         ; preds = %if.else55, %if.then50, %if.then39, %if.else27, %if.then22, %if.then12
-  %__a.coerce.sink = phi ptr [ %__a.coerce, %if.then39 ], [ %__b.coerce, %if.else55 ], [ %__c.coerce, %if.then50 ], [ %__b.coerce, %if.then12 ], [ %__a.coerce, %if.else27 ], [ %__c.coerce, %if.then22 ]
+if.end62:                                         ; preds = %if.else44, %land.rhs.i.i.i123, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131, %if.else33, %land.rhs.i.i.i105, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113, %if.else, %land.rhs.i.i.i83, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91, %if.then, %land.rhs.i.i.i68, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76, %if.else55, %if.else27
+  %.sink15 = phi i64 [ %1, %if.else55 ], [ %0, %if.else27 ], [ %1, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76 ], [ %1, %land.rhs.i.i.i68 ], [ %1, %if.then ], [ %6, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91 ], [ %6, %land.rhs.i.i.i83 ], [ %6, %if.else ], [ %0, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113 ], [ %0, %land.rhs.i.i.i105 ], [ %0, %if.else33 ], [ %15, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131 ], [ %15, %land.rhs.i.i.i123 ], [ %15, %if.else44 ]
+  %add.ptr.i.i.i10.i.i.i.sink = phi ptr [ %add.ptr.i.i.i10.i.i.i, %if.else55 ], [ %add.ptr.i.i.i.i.i.i, %if.else27 ], [ %add.ptr.i.i.i10.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76 ], [ %add.ptr.i.i.i10.i.i.i, %land.rhs.i.i.i68 ], [ %add.ptr.i.i.i10.i.i.i, %if.then ], [ %add.ptr.i.i.i10.i.i.i64, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91 ], [ %add.ptr.i.i.i10.i.i.i64, %land.rhs.i.i.i83 ], [ %add.ptr.i.i.i10.i.i.i64, %if.else ], [ %add.ptr.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113 ], [ %add.ptr.i.i.i.i.i.i, %land.rhs.i.i.i105 ], [ %add.ptr.i.i.i.i.i.i, %if.else33 ], [ %add.ptr.i.i.i10.i.i.i101, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131 ], [ %add.ptr.i.i.i10.i.i.i101, %land.rhs.i.i.i123 ], [ %add.ptr.i.i.i10.i.i.i101, %if.else44 ]
+  %__a.coerce.sink = phi ptr [ %__b.coerce, %if.else55 ], [ %__a.coerce, %if.else27 ], [ %__b.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit76 ], [ %__b.coerce, %land.rhs.i.i.i68 ], [ %__b.coerce, %if.then ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit91 ], [ %__c.coerce, %land.rhs.i.i.i83 ], [ %__c.coerce, %if.else ], [ %__a.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit113 ], [ %__a.coerce, %land.rhs.i.i.i105 ], [ %__a.coerce, %if.else33 ], [ %__c.coerce, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPSt5tupleIJmmmEESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit131 ], [ %__c.coerce, %land.rhs.i.i.i123 ], [ %__c.coerce, %if.else44 ]
+  %add.ptr.i.i.i.i.i136 = getelementptr inbounds i8, ptr %__result.coerce, i64 16
+  %24 = load i64, ptr %add.ptr.i.i.i.i.i136, align 8, !tbaa !37
+  store i64 %.sink15, ptr %add.ptr.i.i.i.i.i136, align 8, !tbaa !37
+  store i64 %24, ptr %add.ptr.i.i.i10.i.i.i.sink, align 8, !tbaa !37
   %add.ptr.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %__result.coerce, i64 8
   %add.ptr.i5.i.i.i.i.i117 = getelementptr inbounds i8, ptr %__a.coerce.sink, i64 8
-  %30 = load i64, ptr %add.ptr.i.i.i.i.i.i116, align 8, !tbaa !37
-  %31 = load i64, ptr %add.ptr.i5.i.i.i.i.i117, align 8, !tbaa !37
-  store i64 %31, ptr %add.ptr.i.i.i.i.i.i116, align 8, !tbaa !37
-  store i64 %30, ptr %add.ptr.i5.i.i.i.i.i117, align 8, !tbaa !37
-  %32 = load i64, ptr %__result.coerce, align 8, !tbaa !37
-  %33 = load i64, ptr %__a.coerce.sink, align 8, !tbaa !37
-  store i64 %33, ptr %__result.coerce, align 8, !tbaa !37
-  store i64 %32, ptr %__a.coerce.sink, align 8, !tbaa !37
+  %25 = load i64, ptr %add.ptr.i.i.i.i.i.i116, align 8, !tbaa !37
+  %26 = load i64, ptr %add.ptr.i5.i.i.i.i.i117, align 8, !tbaa !37
+  store i64 %26, ptr %add.ptr.i.i.i.i.i.i116, align 8, !tbaa !37
+  store i64 %25, ptr %add.ptr.i5.i.i.i.i.i117, align 8, !tbaa !37
+  %27 = load i64, ptr %__result.coerce, align 8, !tbaa !37
+  %28 = load i64, ptr %__a.coerce.sink, align 8, !tbaa !37
+  store i64 %28, ptr %__result.coerce, align 8, !tbaa !37
+  store i64 %27, ptr %__a.coerce.sink, align 8, !tbaa !37
   ret void
 }
 

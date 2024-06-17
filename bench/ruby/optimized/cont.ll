@@ -3623,16 +3623,16 @@ ruby_nonempty_memcpy.exit58.i:                    ; preds = %102, %rbimpl_size_m
   %112 = load ptr, ptr %111, align 8
   %113 = icmp ugt ptr %110, %112
   %114 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.38.i, i64 72
-  %115 = ptrtoint ptr %112 to i64
-  %116 = ptrtoint ptr %110 to i64
+  %..i.i = select i1 %113, ptr %110, ptr %112
+  %.35.i.i = select i1 %113, ptr %112, ptr %110
+  %.36.i.i = select i1 %113, i64 160, i64 152
+  %115 = ptrtoint ptr %..i.i to i64
+  %116 = ptrtoint ptr %.35.i.i to i64
   %117 = sub i64 %115, %116
-  %118 = sub i64 %116, %115
-  %.sink29.i.v.i = select i1 %113, i64 %118, i64 %117
-  %.sink29.i.i = ashr exact i64 %.sink29.i.v.i, 3
-  %.sink28.i.i = select i1 %113, i64 160, i64 152
-  store i64 %.sink29.i.i, ptr %114, align 8
+  %118 = ashr exact i64 %117, 3
+  store i64 %118, ptr %114, align 8
   %119 = load ptr, ptr %11, align 8
-  %120 = getelementptr inbounds i8, ptr %119, i64 %.sink28.i.i
+  %120 = getelementptr inbounds i8, ptr %119, i64 %.36.i.i
   %.sink.i.i = load ptr, ptr %120, align 8
   %121 = getelementptr inbounds i8, ptr %.0..0..0..0..0..0.38.i, i64 64
   store ptr %.sink.i.i, ptr %121, align 8
@@ -3642,30 +3642,30 @@ ruby_nonempty_memcpy.exit58.i:                    ; preds = %102, %rbimpl_size_m
   br i1 %.not.i59.i, label %126, label %124
 
 124:                                              ; preds = %ruby_nonempty_memcpy.exit58.i
-  %125 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %123, i64 noundef %.sink29.i.i, i64 noundef 8) #37
+  %125 = call nonnull ptr @ruby_xrealloc2(ptr noundef nonnull %123, i64 noundef %118, i64 noundef 8) #37
   br label %128
 
 126:                                              ; preds = %ruby_nonempty_memcpy.exit58.i
-  %127 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %.sink29.i.i, i64 noundef 8) #32
+  %127 = call noalias nonnull ptr @ruby_xmalloc2(i64 noundef %118, i64 noundef 8) #32
   br label %128
 
 128:                                              ; preds = %126, %124
   %storemerge.i.i = phi ptr [ %127, %126 ], [ %125, %124 ]
   store ptr %storemerge.i.i, ptr %122, align 8
   %129 = load ptr, ptr %121, align 8
-  %130 = icmp ugt i64 %.sink29.i.i, 2305843009213693951
+  %130 = icmp ugt i64 %118, 2305843009213693951
   br i1 %130, label %131, label %rbimpl_size_mul_or_raise.exit.i.i
 
 131:                                              ; preds = %128
-  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %.sink29.i.i) #26
+  call void @ruby_malloc_size_overflow(i64 noundef 8, i64 noundef %118) #26
   unreachable
 
 rbimpl_size_mul_or_raise.exit.i.i:                ; preds = %128
-  %.not.i.i60.i = icmp eq i64 %.sink29.i.v.i, 0
+  %.not.i.i60.i = icmp eq ptr %110, %112
   br i1 %.not.i.i60.i, label %cont_save_machine_stack.exit.i, label %132
 
 132:                                              ; preds = %rbimpl_size_mul_or_raise.exit.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storemerge.i.i, ptr align 1 %129, i64 %.sink29.i.v.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %storemerge.i.i, ptr align 1 %129, i64 %117, i1 false)
   br label %cont_save_machine_stack.exit.i
 
 cont_save_machine_stack.exit.i:                   ; preds = %132, %rbimpl_size_mul_or_raise.exit.i.i

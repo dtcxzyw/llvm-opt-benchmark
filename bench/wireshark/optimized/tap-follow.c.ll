@@ -272,9 +272,9 @@ follow_arg_mode.exit:                             ; preds = %2, %21, %24, %27, %
   %86 = phi <2 x i32> [ <i32 3, i32 16>, %77 ], [ <i32 2, i32 4>, %81 ]
   %87 = getelementptr [2 x %struct._address], ptr %62, i64 0, i64 %indvars.iv.i
   store <2 x i32> %86, ptr %87, align 8
-  %88 = getelementptr [2 x %struct._address], ptr %62, i64 0, i64 %indvars.iv.i, i32 2
+  %88 = getelementptr inbounds i8, ptr %87, i64 8
   store ptr %.sink.i40, ptr %88, align 8
-  %89 = getelementptr [2 x %struct._address], ptr %62, i64 0, i64 %indvars.iv.i, i32 3
+  %89 = getelementptr inbounds i8, ptr %87, i64 16
   store ptr null, ptr %89, align 8
   %90 = load i32, ptr %4, align 4
   %91 = sext i32 %90 to i64

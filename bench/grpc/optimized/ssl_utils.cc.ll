@@ -867,22 +867,22 @@ if.else55:                                        ; preds = %if.else50
   br i1 %cmp58, label %if.end69.sink.split, label %if.end69
 
 if.end69.sink.split:                              ; preds = %if.else55, %if.else50, %if.else45, %if.else40, %if.else35, %if.else30, %if.else25, %if.else20, %if.else15, %if.else, %while.body7
-  %.str.14.sink = phi ptr [ @.str.14, %while.body7 ], [ @.str.11, %if.else ], [ @.str.12, %if.else15 ], [ @.str.15, %if.else20 ], [ @.str.18, %if.else25 ], [ @.str.16, %if.else30 ], [ @.str.19, %if.else35 ], [ @.str.21, %if.else40 ], [ @.str.21, %if.else45 ], [ @.str.23, %if.else50 ], [ @.str.25, %if.else55 ]
-  %arrayidx.i = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.0118
-  store ptr %.str.14.sink, ptr %arrayidx.i, align 8
-  %retval.sroa.14.1.ph = add i64 %retval.sroa.14.0118, 1
+  %.str.11.sink = phi ptr [ @.str.14, %while.body7 ], [ @.str.11, %if.else ], [ @.str.12, %if.else15 ], [ @.str.15, %if.else20 ], [ @.str.18, %if.else25 ], [ @.str.16, %if.else30 ], [ @.str.19, %if.else35 ], [ @.str.21, %if.else40 ], [ @.str.21, %if.else45 ], [ @.str.23, %if.else50 ], [ @.str.25, %if.else55 ]
+  %inc.i26 = add i64 %retval.sroa.14.0118, 1
+  %arrayidx.i27 = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.0118
+  store ptr %.str.11.sink, ptr %arrayidx.i27, align 8
   %value.i28 = getelementptr inbounds i8, ptr %call5119, i64 8
   %1 = load ptr, ptr %value.i28, align 8
-  %value1.i29 = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.0118, i32 1
+  %value1.i29 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 8
   store ptr %1, ptr %value1.i29, align 8
   %value_length.i30 = getelementptr inbounds i8, ptr %call5119, i64 16
   %2 = load i64, ptr %value_length.i30, align 8
-  %length.i31 = getelementptr inbounds %struct.tsi_peer_property, ptr %call2, i64 %retval.sroa.14.0118, i32 1, i32 1
+  %length.i31 = getelementptr inbounds i8, ptr %arrayidx.i27, i64 16
   store i64 %2, ptr %length.i31, align 8
   br label %if.end69
 
 if.end69:                                         ; preds = %if.end69.sink.split, %if.else55
-  %retval.sroa.14.1 = phi i64 [ %retval.sroa.14.0118, %if.else55 ], [ %retval.sroa.14.1.ph, %if.end69.sink.split ]
+  %retval.sroa.14.1 = phi i64 [ %retval.sroa.14.0118, %if.else55 ], [ %inc.i26, %if.end69.sink.split ]
   %call5 = call ptr @grpc_auth_property_iterator_next(ptr noundef nonnull %it)
   %cmp6.not = icmp eq ptr %call5, null
   br i1 %cmp6.not, label %if.end71, label %while.body7, !llvm.loop !17

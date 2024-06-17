@@ -3545,10 +3545,10 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit563:              ; preds = %_ZSt8_DestroyIPN5Yo
   br label %1194
 
 .sink.split:                                      ; preds = %1131, %980
-  %.sink1360 = phi ptr [ %30, %980 ], [ %43, %1131 ]
-  %.sink1359 = phi ptr [ %31, %980 ], [ %44, %1131 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1360) #19
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1359) #19
+  %.sink1362 = phi ptr [ %30, %980 ], [ %43, %1131 ]
+  %.sink1361 = phi ptr [ %31, %980 ], [ %44, %1131 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink1362) #19
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink1361) #19
   br label %1163
 
 1163:                                             ; preds = %.sink.split, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit503, %842
@@ -4247,7 +4247,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit605:             ; preds = %_ZZN12_GLOBAL__N_11
 1526:                                             ; preds = %1524, %1520, %._crit_edge1170
   %1527 = load i32, ptr @_ZZZN12_GLOBAL__N_112TribufWorker3runEvENKUlvE8_clEvE2id, align 4, !noalias !60
   %.not.i.i.i606 = icmp eq i32 %1527, 0
-  br i1 %.not.i.i.i606, label %.invoke1361, label %1528
+  br i1 %.not.i.i.i606, label %.invoke1363, label %1528
 
 1528:                                             ; preds = %1526
   %1529 = sext i32 %1527 to i64
@@ -4256,7 +4256,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit605:             ; preds = %_ZZN12_GLOBAL__N_11
   %1532 = load i32, ptr %1531, align 4, !noalias !60
   %1533 = add nsw i32 %1532, 1
   store i32 %1533, ptr %1531, align 4, !noalias !60
-  br label %.invoke1361
+  br label %.invoke1363
 
 1534:                                             ; preds = %1522
   %1535 = landingpad { ptr, i32 }
@@ -4264,7 +4264,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit605:             ; preds = %_ZZN12_GLOBAL__N_11
   call void @__cxa_guard_abort(ptr nonnull @_ZGVZZN12_GLOBAL__N_112TribufWorker3runEvENKUlvE8_clEvE2id) #19, !noalias !60
   br label %.body601
 
-.invoke1361:                                      ; preds = %1528, %1526
+.invoke1363:                                      ; preds = %1528, %1526
   store i32 %1527, ptr %47, align 4, !alias.scope !60
   %1536 = getelementptr inbounds i8, ptr %1470, i64 76
   %1537 = load i32, ptr %1536, align 4
@@ -4273,7 +4273,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit605:             ; preds = %_ZZN12_GLOBAL__N_11
   %1539 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1470, ptr noundef nonnull align 4 dereferenceable(4) %_ZN5Yosys5RTLIL2ID2ENE._ZN5Yosys5RTLIL2ID1EE)
           to label %1540 unwind label %.loopexit996
 
-1540:                                             ; preds = %.invoke1361
+1540:                                             ; preds = %.invoke1363
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, ptr noundef nonnull align 8 dereferenceable(16) %1539, i64 16, i1 false)
   %1541 = getelementptr inbounds i8, ptr %1539, i64 16
   %1542 = getelementptr inbounds i8, ptr %1539, i64 24
@@ -5081,7 +5081,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit714:              ; preds = %_ZSt8_DestroyIPN5Yo
   %.not = icmp eq ptr %1791, %1459
   br i1 %.not, label %.loopexit995, label %.lr.ph1173
 
-.loopexit996:                                     ; preds = %.invoke1361, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i
+.loopexit996:                                     ; preds = %.invoke1363, %_ZNSt16allocator_traitsISaIN5Yosys5RTLIL8SigChunkEEE8allocateERS3_m.exit.i.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body615
@@ -5422,7 +5422,7 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit721:             ; preds = %_ZZN12_GLOBAL__N_11
 1896:                                             ; preds = %_ZZN12_GLOBAL__N_112TribufWorker3runEvENKUlvE9_clEv.exit.thread, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit721
   br label %.invoke1366
 
-1897:                                             ; preds = %.invoke1366, %.invoke1362, %1904, %1903, %1901
+1897:                                             ; preds = %.invoke1366, %.invoke1364, %1904, %1903, %1901
   %1898 = landingpad { ptr, i32 }
           cleanup
   br label %.body717
@@ -5430,13 +5430,13 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit721:             ; preds = %_ZZN12_GLOBAL__N_11
 .invoke1366:                                      ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit721, %_ZZN12_GLOBAL__N_112TribufWorker3runEvENKUlvE9_clEv.exit.thread, %1896
   %1899 = phi ptr [ @_ZN5Yosys5RTLIL2ID2ENE, %1896 ], [ @_ZN5Yosys5RTLIL2ID1EE, %_ZZN12_GLOBAL__N_112TribufWorker3runEvENKUlvE9_clEv.exit.thread ], [ @_ZN5Yosys5RTLIL2ID1EE, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit721 ]
   %1900 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1860, ptr noundef nonnull align 4 dereferenceable(4) %1899)
-          to label %.invoke1362 unwind label %1897
+          to label %.invoke1364 unwind label %1897
 
-.invoke1362:                                      ; preds = %.invoke1366
+.invoke1364:                                      ; preds = %.invoke1366
   invoke void @_ZN5Yosys5RTLIL7SigSpec6appendERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %81, ptr noundef nonnull align 8 dereferenceable(64) %1900)
           to label %1901 unwind label %1897
 
-1901:                                             ; preds = %.invoke1362
+1901:                                             ; preds = %.invoke1364
   %1902 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK5Yosys5RTLIL4Cell7getPortERKNS0_8IdStringE(ptr noundef nonnull align 8 dereferenceable(192) %1860, ptr noundef nonnull align 4 dereferenceable(4) @_ZN5Yosys5RTLIL2ID1AE)
           to label %1903 unwind label %1897
 

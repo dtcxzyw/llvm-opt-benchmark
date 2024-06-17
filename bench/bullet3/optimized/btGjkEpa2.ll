@@ -840,12 +840,12 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit: ; preds = %mempt
   br label %do.body
 
 do.body:                                          ; preds = %for.end177, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit
-  %90 = phi float [ %.pre248, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %240, %for.end177 ]
+  %90 = phi float [ %.pre248, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %236, %for.end177 ]
   %alpha.0 = phi float [ 0.000000e+00, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %.sroa.speculated, %for.end177 ]
   %clastw.0 = phi i32 [ 0, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %and, %for.end177 ]
   %sqdist.0 = phi float [ %5, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %sqdist.1, %for.end177 ]
   %iterations.0 = phi i32 [ 0, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %inc188, %for.end177 ]
-  %91 = phi <2 x float> [ %89, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %241, %for.end177 ]
+  %91 = phi <2 x float> [ %89, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %237, %for.end177 ]
   %92 = load i32, ptr %m_current, align 4
   %sub = sub i32 1, %92
   %idxprom = zext i32 %92 to i64
@@ -1060,17 +1060,7 @@ for.body:                                         ; preds = %_ZNK12gjkepa2_impl3
   %187 = call float @llvm.fmuladd.f32(float %sub.i, float %sub.i, float %mul8.i.i74)
   %188 = call noundef float @llvm.fmuladd.f32(float %sub14.i, float %sub14.i, float %187)
   %cmp66 = fcmp olt float %188, 0x3F1A36E2E0000000
-  br i1 %cmp66, label %if.then69, label %for.cond
-
-if.then69:                                        ; preds = %for.body
-  %189 = load i32, ptr %m_current, align 4
-  %idxprom72 = zext i32 %189 to i64
-  %arrayidx73 = getelementptr inbounds [2 x %"struct.gjkepa2_impl::GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom72
-  %rank.i76 = getelementptr inbounds i8, ptr %arrayidx73, i64 48
-  %190 = load i32, ptr %rank.i76, align 8
-  %dec.i77 = add i32 %190, -1
-  store i32 %dec.i77, ptr %rank.i76, align 8
-  br label %do.endthread-pre-split
+  br i1 %cmp66, label %do.endthread-pre-split, label %for.cond
 
 if.else:                                          ; preds = %for.cond
   %add = add nuw nsw i32 %clastw.0, 1
@@ -1078,29 +1068,19 @@ if.else:                                          ; preds = %for.cond
   %idxprom74 = zext nneg i32 %and to i64
   %arrayidx75 = getelementptr inbounds [4 x %class.btVector3], ptr %lastw, i64 0, i64 %idxprom74
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %arrayidx75, ptr noundef nonnull align 4 dereferenceable(16) %w58, i64 16, i1 false)
-  %191 = load float, ptr %m_ray, align 8
-  %192 = load float, ptr %arrayidx5.i.i37, align 4
-  %mul8.i.i87 = fmul float %192, %182
-  %193 = call float @llvm.fmuladd.f32(float %191, float %181, float %mul8.i.i87)
-  %194 = load float, ptr %arrayidx10.i.i, align 8
-  %195 = call noundef float @llvm.fmuladd.f32(float %194, float %183, float %193)
-  %div = fdiv float %195, %sqrt.i
+  %189 = load float, ptr %m_ray, align 8
+  %190 = load float, ptr %arrayidx5.i.i37, align 4
+  %mul8.i.i87 = fmul float %190, %182
+  %191 = call float @llvm.fmuladd.f32(float %189, float %181, float %mul8.i.i87)
+  %192 = load float, ptr %arrayidx10.i.i, align 8
+  %193 = call noundef float @llvm.fmuladd.f32(float %192, float %183, float %191)
+  %div = fdiv float %193, %sqrt.i
   %cmp.i = fcmp ogt float %div, %alpha.0
   %.sroa.speculated = select i1 %cmp.i, float %div, float %alpha.0
   %sub80 = fsub float %sqrt.i, %.sroa.speculated
-  %196 = call float @llvm.fmuladd.f32(float %sqrt.i, float 0xBF1A36E2E0000000, float %sub80)
-  %cmp81 = fcmp ugt float %196, 0.000000e+00
-  br i1 %cmp81, label %if.end87, label %if.then82
-
-if.then82:                                        ; preds = %if.else
-  %197 = load i32, ptr %m_current, align 4
-  %idxprom85 = zext i32 %197 to i64
-  %arrayidx86 = getelementptr inbounds [2 x %"struct.gjkepa2_impl::GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom85
-  %rank.i89 = getelementptr inbounds i8, ptr %arrayidx86, i64 48
-  %198 = load i32, ptr %rank.i89, align 8
-  %dec.i90 = add i32 %198, -1
-  store i32 %dec.i90, ptr %rank.i89, align 8
-  br label %do.endthread-pre-split
+  %194 = call float @llvm.fmuladd.f32(float %sqrt.i, float 0xBF1A36E2E0000000, float %sub80)
+  %cmp81 = fcmp ugt float %194, 0.000000e+00
+  br i1 %cmp81, label %if.end87, label %do.endthread-pre-split
 
 if.end87:                                         ; preds = %if.else
   store i32 0, ptr %mask, align 4
@@ -1111,45 +1091,45 @@ if.end87:                                         ; preds = %if.else
   ]
 
 sw.bb:                                            ; preds = %if.end87
-  %199 = load ptr, ptr %arrayidx40, align 8
-  %w91 = getelementptr inbounds i8, ptr %199, i64 16
+  %195 = load ptr, ptr %arrayidx40, align 8
+  %w91 = getelementptr inbounds i8, ptr %195, i64 16
   %arrayidx93 = getelementptr inbounds i8, ptr %arrayidx40, i64 8
-  %200 = load ptr, ptr %arrayidx93, align 8
-  %w94 = getelementptr inbounds i8, ptr %200, i64 16
-  %201 = load float, ptr %w94, align 4
-  %202 = load float, ptr %w91, align 4
-  %sub.i.i = fsub float %201, %202
-  %arrayidx5.i.i98 = getelementptr inbounds i8, ptr %200, i64 20
-  %203 = load float, ptr %arrayidx5.i.i98, align 4
-  %arrayidx7.i.i99 = getelementptr inbounds i8, ptr %199, i64 20
-  %204 = load float, ptr %arrayidx7.i.i99, align 4
-  %sub8.i.i = fsub float %203, %204
-  %arrayidx11.i.i100 = getelementptr inbounds i8, ptr %200, i64 24
-  %205 = load float, ptr %arrayidx11.i.i100, align 4
-  %arrayidx13.i.i = getelementptr inbounds i8, ptr %199, i64 24
-  %206 = load float, ptr %arrayidx13.i.i, align 4
-  %sub14.i.i = fsub float %205, %206
+  %196 = load ptr, ptr %arrayidx93, align 8
+  %w94 = getelementptr inbounds i8, ptr %196, i64 16
+  %197 = load float, ptr %w94, align 4
+  %198 = load float, ptr %w91, align 4
+  %sub.i.i = fsub float %197, %198
+  %arrayidx5.i.i98 = getelementptr inbounds i8, ptr %196, i64 20
+  %199 = load float, ptr %arrayidx5.i.i98, align 4
+  %arrayidx7.i.i99 = getelementptr inbounds i8, ptr %195, i64 20
+  %200 = load float, ptr %arrayidx7.i.i99, align 4
+  %sub8.i.i = fsub float %199, %200
+  %arrayidx11.i.i100 = getelementptr inbounds i8, ptr %196, i64 24
+  %201 = load float, ptr %arrayidx11.i.i100, align 4
+  %arrayidx13.i.i = getelementptr inbounds i8, ptr %195, i64 24
+  %202 = load float, ptr %arrayidx13.i.i, align 4
+  %sub14.i.i = fsub float %201, %202
   %mul8.i.i.i101 = fmul float %sub8.i.i, %sub8.i.i
-  %207 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul8.i.i.i101)
-  %208 = call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %sub14.i.i, float %207)
-  %cmp.i102 = fcmp ogt float %208, 0.000000e+00
-  br i1 %cmp.i102, label %cond.true.i, label %if.else182
+  %203 = call float @llvm.fmuladd.f32(float %sub.i.i, float %sub.i.i, float %mul8.i.i.i101)
+  %204 = call noundef float @llvm.fmuladd.f32(float %sub14.i.i, float %sub14.i.i, float %203)
+  %cmp.i102 = fcmp ogt float %204, 0.000000e+00
+  br i1 %cmp.i102, label %cond.true.i, label %do.endthread-pre-split
 
 cond.true.i:                                      ; preds = %sw.bb
-  %mul8.i.i15.i = fmul float %204, %sub8.i.i
-  %209 = call float @llvm.fmuladd.f32(float %202, float %sub.i.i, float %mul8.i.i15.i)
-  %210 = call noundef float @llvm.fmuladd.f32(float %206, float %sub14.i.i, float %209)
-  %fneg.i103 = fneg float %210
-  %div.i = fdiv float %fneg.i103, %208
+  %mul8.i.i15.i = fmul float %200, %sub8.i.i
+  %205 = call float @llvm.fmuladd.f32(float %198, float %sub.i.i, float %mul8.i.i15.i)
+  %206 = call noundef float @llvm.fmuladd.f32(float %202, float %sub14.i.i, float %205)
+  %fneg.i103 = fneg float %206
+  %div.i = fdiv float %fneg.i103, %204
   %cmp4.i = fcmp ult float %div.i, 1.000000e+00
   br i1 %cmp4.i, label %if.else.i, label %if.then5.i
 
 if.then5.i:                                       ; preds = %cond.true.i
   store <2 x float> <float 0.000000e+00, float 1.000000e+00>, ptr %weights, align 16
   store i32 2, ptr %mask, align 4
-  %mul8.i.i18.i = fmul float %203, %203
-  %211 = call float @llvm.fmuladd.f32(float %201, float %201, float %mul8.i.i18.i)
-  %212 = call noundef float @llvm.fmuladd.f32(float %205, float %205, float %211)
+  %mul8.i.i18.i = fmul float %199, %199
+  %207 = call float @llvm.fmuladd.f32(float %197, float %197, float %mul8.i.i18.i)
+  %208 = call noundef float @llvm.fmuladd.f32(float %201, float %201, float %207)
   br label %sw.epilog
 
 if.else.i:                                        ; preds = %cond.true.i
@@ -1159,9 +1139,9 @@ if.else.i:                                        ; preds = %cond.true.i
 if.then9.i:                                       ; preds = %if.else.i
   store <2 x float> <float 1.000000e+00, float 0.000000e+00>, ptr %weights, align 16
   store i32 1, ptr %mask, align 4
-  %mul8.i.i21.i = fmul float %204, %204
-  %213 = call float @llvm.fmuladd.f32(float %202, float %202, float %mul8.i.i21.i)
-  %214 = call noundef float @llvm.fmuladd.f32(float %206, float %206, float %213)
+  %mul8.i.i21.i = fmul float %200, %200
+  %209 = call float @llvm.fmuladd.f32(float %198, float %198, float %mul8.i.i21.i)
+  %210 = call noundef float @llvm.fmuladd.f32(float %202, float %202, float %209)
   br label %sw.epilog
 
 if.else13.i:                                      ; preds = %if.else.i
@@ -1172,186 +1152,181 @@ if.else13.i:                                      ; preds = %if.else.i
   %mul.i.i = fmul float %sub.i.i, %div.i
   %mul4.i.i = fmul float %sub8.i.i, %div.i
   %mul8.i.i107 = fmul float %sub14.i.i, %div.i
-  %add.i.i = fadd float %202, %mul.i.i
-  %add8.i.i = fadd float %204, %mul4.i.i
-  %add14.i.i = fadd float %206, %mul8.i.i107
+  %add.i.i = fadd float %198, %mul.i.i
+  %add8.i.i = fadd float %200, %mul4.i.i
+  %add14.i.i = fadd float %202, %mul8.i.i107
   %mul8.i.i39.i = fmul float %add8.i.i, %add8.i.i
-  %215 = call float @llvm.fmuladd.f32(float %add.i.i, float %add.i.i, float %mul8.i.i39.i)
-  %216 = call noundef float @llvm.fmuladd.f32(float %add14.i.i, float %add14.i.i, float %215)
+  %211 = call float @llvm.fmuladd.f32(float %add.i.i, float %add.i.i, float %mul8.i.i39.i)
+  %212 = call noundef float @llvm.fmuladd.f32(float %add14.i.i, float %add14.i.i, float %211)
   br label %sw.epilog
 
 sw.bb96:                                          ; preds = %if.end87
-  %217 = load ptr, ptr %arrayidx40, align 8
-  %w99 = getelementptr inbounds i8, ptr %217, i64 16
+  %213 = load ptr, ptr %arrayidx40, align 8
+  %w99 = getelementptr inbounds i8, ptr %213, i64 16
   %arrayidx101 = getelementptr inbounds i8, ptr %arrayidx40, i64 8
-  %218 = load ptr, ptr %arrayidx101, align 8
-  %w102 = getelementptr inbounds i8, ptr %218, i64 16
+  %214 = load ptr, ptr %arrayidx101, align 8
+  %w102 = getelementptr inbounds i8, ptr %214, i64 16
   %arrayidx104 = getelementptr inbounds i8, ptr %arrayidx40, i64 16
-  %219 = load ptr, ptr %arrayidx104, align 8
-  %w105 = getelementptr inbounds i8, ptr %219, i64 16
+  %215 = load ptr, ptr %arrayidx104, align 8
+  %w105 = getelementptr inbounds i8, ptr %215, i64 16
   %call107 = call noundef float @_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRj(ptr noundef nonnull align 4 dereferenceable(16) %w99, ptr noundef nonnull align 4 dereferenceable(16) %w102, ptr noundef nonnull align 4 dereferenceable(16) %w105, ptr noundef nonnull %weights, ptr noundef nonnull align 4 dereferenceable(4) %mask)
   br label %sw.epilog
 
 sw.bb108:                                         ; preds = %if.end87
-  %220 = load ptr, ptr %arrayidx40, align 8
-  %w111 = getelementptr inbounds i8, ptr %220, i64 16
+  %216 = load ptr, ptr %arrayidx40, align 8
+  %w111 = getelementptr inbounds i8, ptr %216, i64 16
   %arrayidx113 = getelementptr inbounds i8, ptr %arrayidx40, i64 8
-  %221 = load ptr, ptr %arrayidx113, align 8
-  %w114 = getelementptr inbounds i8, ptr %221, i64 16
+  %217 = load ptr, ptr %arrayidx113, align 8
+  %w114 = getelementptr inbounds i8, ptr %217, i64 16
   %arrayidx116 = getelementptr inbounds i8, ptr %arrayidx40, i64 16
-  %222 = load ptr, ptr %arrayidx116, align 8
-  %w117 = getelementptr inbounds i8, ptr %222, i64 16
+  %218 = load ptr, ptr %arrayidx116, align 8
+  %w117 = getelementptr inbounds i8, ptr %218, i64 16
   %arrayidx119 = getelementptr inbounds i8, ptr %arrayidx40, i64 24
-  %223 = load ptr, ptr %arrayidx119, align 8
-  %w120 = getelementptr inbounds i8, ptr %223, i64 16
+  %219 = load ptr, ptr %arrayidx119, align 8
+  %w120 = getelementptr inbounds i8, ptr %219, i64 16
   %call122 = call noundef float @_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_S3_PfRj(ptr noundef nonnull align 4 dereferenceable(16) %w111, ptr noundef nonnull align 4 dereferenceable(16) %w114, ptr noundef nonnull align 4 dereferenceable(16) %w117, ptr noundef nonnull align 4 dereferenceable(16) %w120, ptr noundef nonnull %weights, ptr noundef nonnull align 4 dereferenceable(4) %mask)
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %if.else13.i, %if.then9.i, %if.then5.i, %sw.bb108, %sw.bb96, %if.end87
-  %sqdist.1 = phi float [ %sqdist.0, %if.end87 ], [ %call122, %sw.bb108 ], [ %call107, %sw.bb96 ], [ %212, %if.then5.i ], [ %214, %if.then9.i ], [ %216, %if.else13.i ]
+  %sqdist.1 = phi float [ %sqdist.0, %if.end87 ], [ %call122, %sw.bb108 ], [ %call107, %sw.bb96 ], [ %208, %if.then5.i ], [ %210, %if.then9.i ], [ %212, %if.else13.i ]
   %cmp123 = fcmp ult float %sqdist.1, 0.000000e+00
-  br i1 %cmp123, label %if.else182, label %if.then124
+  br i1 %cmp123, label %do.endthread-pre-split, label %if.then124
 
 if.then124:                                       ; preds = %sw.epilog
   %rank125 = getelementptr inbounds i8, ptr %arrayidx43, i64 48
   store i32 0, ptr %rank125, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_ray, i8 0, i64 16, i1 false)
   store i32 %sub, ptr %m_current, align 4
-  %224 = load i32, ptr %rank.i53, align 8
-  %cmp135237.not = icmp eq i32 %224, 0
+  %220 = load i32, ptr %rank.i53, align 8
+  %cmp135237.not = icmp eq i32 %220, 0
   %.pre249 = load i32, ptr %mask, align 4
   br i1 %cmp135237.not, label %for.end177, label %for.body136.lr.ph
 
 for.body136.lr.ph:                                ; preds = %if.then124
   %p149 = getelementptr inbounds i8, ptr %arrayidx43, i64 32
-  %wide.trip.count = zext i32 %224 to i64
+  %wide.trip.count = zext i32 %220 to i64
   br label %for.body136
 
 for.body136:                                      ; preds = %for.body136.lr.ph, %for.inc175
   %indvars.iv243 = phi i64 [ 0, %for.body136.lr.ph ], [ %indvars.iv.next244, %for.inc175 ]
   %add13.i236238 = phi float [ 0.000000e+00, %for.body136.lr.ph ], [ %add13.i235, %for.inc175 ]
-  %225 = phi <2 x float> [ zeroinitializer, %for.body136.lr.ph ], [ %239, %for.inc175 ]
-  %226 = trunc nuw i64 %indvars.iv243 to i32
-  %shl = shl nuw i32 1, %226
+  %221 = phi <2 x float> [ zeroinitializer, %for.body136.lr.ph ], [ %235, %for.inc175 ]
+  %222 = trunc nuw i64 %indvars.iv243 to i32
+  %shl = shl nuw i32 1, %222
   %and137 = and i32 %.pre249, %shl
   %tobool138.not = icmp eq i32 %and137, 0
   %arrayidx168 = getelementptr inbounds [4 x ptr], ptr %arrayidx40, i64 0, i64 %indvars.iv243
-  %227 = load ptr, ptr %arrayidx168, align 8
+  %223 = load ptr, ptr %arrayidx168, align 8
   br i1 %tobool138.not, label %if.else165, label %if.then139
 
 if.then139:                                       ; preds = %for.body136
-  %228 = load i32, ptr %rank125, align 8
-  %idxprom145 = zext i32 %228 to i64
+  %224 = load i32, ptr %rank125, align 8
+  %idxprom145 = zext i32 %224 to i64
   %arrayidx146 = getelementptr inbounds [4 x ptr], ptr %arrayidx43, i64 0, i64 %idxprom145
-  store ptr %227, ptr %arrayidx146, align 8
+  store ptr %223, ptr %arrayidx146, align 8
   %arrayidx148 = getelementptr inbounds [4 x float], ptr %weights, i64 0, i64 %indvars.iv243
-  %229 = load float, ptr %arrayidx148, align 4
-  %230 = load i32, ptr %rank125, align 8
-  %inc151 = add i32 %230, 1
+  %225 = load float, ptr %arrayidx148, align 4
+  %226 = load i32, ptr %rank125, align 8
+  %inc151 = add i32 %226, 1
   store i32 %inc151, ptr %rank125, align 8
-  %idxprom152 = zext i32 %230 to i64
+  %idxprom152 = zext i32 %226 to i64
   %arrayidx153 = getelementptr inbounds [4 x float], ptr %p149, i64 0, i64 %idxprom152
-  store float %229, ptr %arrayidx153, align 4
-  %231 = load ptr, ptr %arrayidx168, align 8
-  %w158 = getelementptr inbounds i8, ptr %231, i64 16
-  %arrayidx7.i112 = getelementptr inbounds i8, ptr %231, i64 24
-  %232 = load float, ptr %arrayidx7.i112, align 4
-  %mul8.i = fmul float %229, %232
-  %233 = load <2 x float>, ptr %w158, align 4
-  %234 = insertelement <2 x float> poison, float %229, i64 0
-  %235 = shufflevector <2 x float> %234, <2 x float> poison, <2 x i32> zeroinitializer
-  %236 = fmul <2 x float> %235, %233
-  %237 = fadd <2 x float> %236, %225
-  store <2 x float> %237, ptr %m_ray, align 8
+  store float %225, ptr %arrayidx153, align 4
+  %227 = load ptr, ptr %arrayidx168, align 8
+  %w158 = getelementptr inbounds i8, ptr %227, i64 16
+  %arrayidx7.i112 = getelementptr inbounds i8, ptr %227, i64 24
+  %228 = load float, ptr %arrayidx7.i112, align 4
+  %mul8.i = fmul float %225, %228
+  %229 = load <2 x float>, ptr %w158, align 4
+  %230 = insertelement <2 x float> poison, float %225, i64 0
+  %231 = shufflevector <2 x float> %230, <2 x float> poison, <2 x i32> zeroinitializer
+  %232 = fmul <2 x float> %231, %229
+  %233 = fadd <2 x float> %232, %221
+  store <2 x float> %233, ptr %m_ray, align 8
   %add13.i = fadd float %mul8.i, %add13.i236238
   store float %add13.i, ptr %arrayidx10.i.i, align 8
   br label %for.inc175
 
 if.else165:                                       ; preds = %for.body136
-  %238 = load i32, ptr %m_nfree, align 8
-  %inc171 = add i32 %238, 1
+  %234 = load i32, ptr %m_nfree, align 8
+  %inc171 = add i32 %234, 1
   store i32 %inc171, ptr %m_nfree, align 8
-  %idxprom172 = zext i32 %238 to i64
+  %idxprom172 = zext i32 %234 to i64
   %arrayidx173 = getelementptr inbounds [4 x ptr], ptr %m_free, i64 0, i64 %idxprom172
-  store ptr %227, ptr %arrayidx173, align 8
+  store ptr %223, ptr %arrayidx173, align 8
   br label %for.inc175
 
 for.inc175:                                       ; preds = %if.then139, %if.else165
   %add13.i235 = phi float [ %add13.i, %if.then139 ], [ %add13.i236238, %if.else165 ]
-  %239 = phi <2 x float> [ %237, %if.then139 ], [ %225, %if.else165 ]
+  %235 = phi <2 x float> [ %233, %if.then139 ], [ %221, %if.else165 ]
   %indvars.iv.next244 = add nuw nsw i64 %indvars.iv243, 1
   %exitcond246.not = icmp eq i64 %indvars.iv.next244, %wide.trip.count
   br i1 %exitcond246.not, label %for.end177, label %for.body136, !llvm.loop !18
 
 for.end177:                                       ; preds = %for.inc175, %if.then124
-  %240 = phi float [ 0.000000e+00, %if.then124 ], [ %add13.i235, %for.inc175 ]
-  %241 = phi <2 x float> [ zeroinitializer, %if.then124 ], [ %239, %for.inc175 ]
+  %236 = phi float [ 0.000000e+00, %if.then124 ], [ %add13.i235, %for.inc175 ]
+  %237 = phi <2 x float> [ zeroinitializer, %if.then124 ], [ %235, %for.inc175 ]
   %cmp178 = icmp eq i32 %.pre249, 15
   %.pre250 = load i32, ptr %m_status, align 8
-  %242 = select i1 %cmp178, i32 1, i32 %.pre250
+  %238 = select i1 %cmp178, i32 1, i32 %.pre250
   %inc188 = add i32 %iterations.0, 1
   %cmp189 = icmp ult i32 %inc188, 128
-  %spec.select = select i1 %cmp189, i32 %242, i32 2
+  %spec.select = select i1 %cmp189, i32 %238, i32 2
   store i32 %spec.select, ptr %m_status, align 8
   %cmp196 = icmp eq i32 %spec.select, 0
   br i1 %cmp196, label %do.body, label %do.end, !llvm.loop !19
 
-if.else182:                                       ; preds = %sw.bb, %sw.epilog
-  %243 = load i32, ptr %m_current, align 4
-  %idxprom185 = zext i32 %243 to i64
-  %arrayidx186 = getelementptr inbounds [2 x %"struct.gjkepa2_impl::GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom185
-  %rank.i121 = getelementptr inbounds i8, ptr %arrayidx186, i64 48
-  %244 = load i32, ptr %rank.i121, align 8
-  %dec.i122 = add i32 %244, -1
-  store i32 %dec.i122, ptr %rank.i121, align 8
-  br label %do.endthread-pre-split
-
-do.endthread-pre-split:                           ; preds = %if.then69, %if.then82, %if.else182
-  %dec.i77.sink = phi i32 [ %dec.i77, %if.then69 ], [ %dec.i90, %if.then82 ], [ %dec.i122, %if.else182 ]
-  %arrayidx73.sink = phi ptr [ %arrayidx73, %if.then69 ], [ %arrayidx86, %if.then82 ], [ %arrayidx186, %if.else182 ]
-  %idxprom.i78 = zext i32 %dec.i77.sink to i64
-  %arrayidx.i79 = getelementptr inbounds [4 x ptr], ptr %arrayidx73.sink, i64 0, i64 %idxprom.i78
-  %245 = load ptr, ptr %arrayidx.i79, align 8
-  %246 = load i32, ptr %m_nfree, align 8
-  %inc.i82 = add i32 %246, 1
+do.endthread-pre-split:                           ; preds = %sw.epilog, %sw.bb, %if.else, %for.body
+  %239 = load i32, ptr %m_current, align 4
+  %idxprom72 = zext i32 %239 to i64
+  %arrayidx73 = getelementptr inbounds [2 x %"struct.gjkepa2_impl::GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom72
+  %rank.i76 = getelementptr inbounds i8, ptr %arrayidx73, i64 48
+  %240 = load i32, ptr %rank.i76, align 8
+  %dec.i77 = add i32 %240, -1
+  store i32 %dec.i77, ptr %rank.i76, align 8
+  %idxprom.i78 = zext i32 %dec.i77 to i64
+  %arrayidx.i79 = getelementptr inbounds [4 x ptr], ptr %arrayidx73, i64 0, i64 %idxprom.i78
+  %241 = load ptr, ptr %arrayidx.i79, align 8
+  %242 = load i32, ptr %m_nfree, align 8
+  %inc.i82 = add i32 %242, 1
   store i32 %inc.i82, ptr %m_nfree, align 8
-  %idxprom2.i83 = zext i32 %246 to i64
+  %idxprom2.i83 = zext i32 %242 to i64
   %arrayidx3.i84 = getelementptr inbounds [4 x ptr], ptr %m_free, i64 0, i64 %idxprom2.i83
-  store ptr %245, ptr %arrayidx3.i84, align 8
+  store ptr %241, ptr %arrayidx3.i84, align 8
   %.pr = load i32, ptr %m_status, align 8
   br label %do.end
 
 do.end:                                           ; preds = %for.end177, %do.endthread-pre-split
-  %247 = phi i32 [ %.pr, %do.endthread-pre-split ], [ %spec.select, %for.end177 ]
-  %248 = load i32, ptr %m_current, align 4
-  %idxprom199 = zext i32 %248 to i64
+  %243 = phi i32 [ %.pr, %do.endthread-pre-split ], [ %spec.select, %for.end177 ]
+  %244 = load i32, ptr %m_current, align 4
+  %idxprom199 = zext i32 %244 to i64
   %arrayidx200 = getelementptr inbounds [2 x %"struct.gjkepa2_impl::GJK::sSimplex"], ptr %m_simplices, i64 0, i64 %idxprom199
   %m_simplex = getelementptr inbounds i8, ptr %this, i64 448
   store ptr %arrayidx200, ptr %m_simplex, align 8
-  switch i32 %247, label %sw.epilog208 [
+  switch i32 %243, label %sw.epilog208 [
     i32 0, label %sw.bb202
     i32 1, label %sw.epilog208.sink.split
   ]
 
 sw.bb202:                                         ; preds = %do.end
-  %249 = load float, ptr %m_ray, align 8
-  %250 = load float, ptr %arrayidx5.i.i37, align 4
-  %mul8.i.i.i131 = fmul float %250, %250
-  %251 = call float @llvm.fmuladd.f32(float %249, float %249, float %mul8.i.i.i131)
-  %252 = load float, ptr %arrayidx10.i.i, align 8
-  %253 = call noundef float @llvm.fmuladd.f32(float %252, float %252, float %251)
-  %sqrt.i133 = call noundef float @llvm.sqrt.f32(float %253)
+  %245 = load float, ptr %m_ray, align 8
+  %246 = load float, ptr %arrayidx5.i.i37, align 4
+  %mul8.i.i.i131 = fmul float %246, %246
+  %247 = call float @llvm.fmuladd.f32(float %245, float %245, float %mul8.i.i.i131)
+  %248 = load float, ptr %arrayidx10.i.i, align 8
+  %249 = call noundef float @llvm.fmuladd.f32(float %248, float %248, float %247)
+  %sqrt.i133 = call noundef float @llvm.sqrt.f32(float %249)
   br label %sw.epilog208.sink.split
 
 sw.epilog208.sink.split:                          ; preds = %do.end, %do.end.thread, %sw.bb202
-  %.sink257 = phi float [ %sqrt.i133, %sw.bb202 ], [ 0.000000e+00, %do.end.thread ], [ 0.000000e+00, %do.end ]
-  %.ph = phi i32 [ 0, %sw.bb202 ], [ 1, %do.end.thread ], [ %247, %do.end ]
-  store float %.sink257, ptr %m_distance, align 8
+  %.sink = phi float [ %sqrt.i133, %sw.bb202 ], [ 0.000000e+00, %do.end.thread ], [ 0.000000e+00, %do.end ]
+  %.ph = phi i32 [ 0, %sw.bb202 ], [ 1, %do.end.thread ], [ %243, %do.end ]
+  store float %.sink, ptr %m_distance, align 8
   br label %sw.epilog208
 
 sw.epilog208:                                     ; preds = %sw.epilog208.sink.split, %do.end
-  %254 = phi i32 [ %247, %do.end ], [ %.ph, %sw.epilog208.sink.split ]
-  ret i32 %254
+  %250 = phi i32 [ %243, %do.end ], [ %.ph, %sw.epilog208.sink.split ]
+  ret i32 %250
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

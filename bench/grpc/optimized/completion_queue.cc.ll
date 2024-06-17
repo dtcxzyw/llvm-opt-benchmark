@@ -1822,22 +1822,21 @@ if.end4:                                          ; preds = %_ZL23cq_finish_shut
   br i1 %cmp.i.i19, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end4, %if.then
-  %vtable.i.sink = getelementptr inbounds i8, ptr %cq, i64 144
-  %14 = load ptr, ptr %vtable.i.sink, align 8
-  %destroy.i = getelementptr inbounds i8, ptr %14, i64 32
-  %15 = load ptr, ptr %destroy.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %cq, i64 264
-  tail call void %15(ptr noundef nonnull %add.ptr.i)
-  %16 = getelementptr inbounds i8, ptr %cq, i64 264
+  %vtable.i21 = getelementptr inbounds i8, ptr %cq, i64 144
+  %14 = load ptr, ptr %vtable.i21, align 8
+  %destroy.i22 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = load ptr, ptr %destroy.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %cq, i64 264
+  tail call void %15(ptr noundef nonnull %add.ptr.i23)
   %poller_vtable.i24 = getelementptr inbounds i8, ptr %cq, i64 216
-  %17 = load ptr, ptr %poller_vtable.i24, align 8
-  %destroy1.i25 = getelementptr inbounds i8, ptr %17, i64 48
-  %18 = load ptr, ptr %destroy1.i25, align 8
-  %19 = load ptr, ptr %vtable.i.sink, align 8
-  %data_size.i26 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i64, ptr %data_size.i26, align 8
-  %add.ptr4.i27 = getelementptr inbounds i8, ptr %16, i64 %20
-  tail call void %18(ptr noundef nonnull %add.ptr4.i27)
+  %16 = load ptr, ptr %poller_vtable.i24, align 8
+  %destroy1.i25 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = load ptr, ptr %destroy1.i25, align 8
+  %18 = load ptr, ptr %vtable.i21, align 8
+  %data_size.i26 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load i64, ptr %data_size.i26, align 8
+  %add.ptr4.i27 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %19
+  tail call void %17(ptr noundef nonnull %add.ptr4.i27)
   tail call void @gpr_free(ptr noundef nonnull %cq)
   br label %return
 
@@ -2888,22 +2887,21 @@ if.end4:                                          ; preds = %_ZL24cq_finish_shut
   br i1 %cmp.i.i19, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end4, %if.then
-  %vtable.i.sink = getelementptr inbounds i8, ptr %cq, i64 144
-  %14 = load ptr, ptr %vtable.i.sink, align 8
-  %destroy.i = getelementptr inbounds i8, ptr %14, i64 32
-  %15 = load ptr, ptr %destroy.i, align 8
-  %add.ptr.i = getelementptr inbounds i8, ptr %cq, i64 264
-  tail call void %15(ptr noundef nonnull %add.ptr.i)
-  %16 = getelementptr inbounds i8, ptr %cq, i64 264
+  %vtable.i21 = getelementptr inbounds i8, ptr %cq, i64 144
+  %14 = load ptr, ptr %vtable.i21, align 8
+  %destroy.i22 = getelementptr inbounds i8, ptr %14, i64 32
+  %15 = load ptr, ptr %destroy.i22, align 8
+  %add.ptr.i23 = getelementptr inbounds i8, ptr %cq, i64 264
+  tail call void %15(ptr noundef nonnull %add.ptr.i23)
   %poller_vtable.i24 = getelementptr inbounds i8, ptr %cq, i64 216
-  %17 = load ptr, ptr %poller_vtable.i24, align 8
-  %destroy1.i25 = getelementptr inbounds i8, ptr %17, i64 48
-  %18 = load ptr, ptr %destroy1.i25, align 8
-  %19 = load ptr, ptr %vtable.i.sink, align 8
-  %data_size.i26 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i64, ptr %data_size.i26, align 8
-  %add.ptr4.i27 = getelementptr inbounds i8, ptr %16, i64 %20
-  tail call void %18(ptr noundef nonnull %add.ptr4.i27)
+  %16 = load ptr, ptr %poller_vtable.i24, align 8
+  %destroy1.i25 = getelementptr inbounds i8, ptr %16, i64 48
+  %17 = load ptr, ptr %destroy1.i25, align 8
+  %18 = load ptr, ptr %vtable.i21, align 8
+  %data_size.i26 = getelementptr inbounds i8, ptr %18, i64 8
+  %19 = load i64, ptr %data_size.i26, align 8
+  %add.ptr4.i27 = getelementptr inbounds i8, ptr %add.ptr.i23, i64 %19
+  tail call void %17(ptr noundef nonnull %add.ptr4.i27)
   tail call void @gpr_free(ptr noundef nonnull %cq)
   br label %return
 
@@ -3862,8 +3860,8 @@ if.end6:                                          ; preds = %if.end, %if.then3
   br i1 %cmp.i.i15, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %if.end6, %if.then
-  %vtable.i = getelementptr inbounds i8, ptr %cq, i64 144
-  %8 = load ptr, ptr %vtable.i, align 8
+  %vtable.i17 = getelementptr inbounds i8, ptr %cq, i64 144
+  %8 = load ptr, ptr %vtable.i17, align 8
   %destroy.i18 = getelementptr inbounds i8, ptr %8, i64 32
   %9 = load ptr, ptr %destroy.i18, align 8
   tail call void %9(ptr noundef nonnull %add.ptr)
@@ -3871,7 +3869,7 @@ return.sink.split:                                ; preds = %if.end6, %if.then
   %10 = load ptr, ptr %poller_vtable.i20, align 8
   %destroy1.i21 = getelementptr inbounds i8, ptr %10, i64 48
   %11 = load ptr, ptr %destroy1.i21, align 8
-  %12 = load ptr, ptr %vtable.i, align 8
+  %12 = load ptr, ptr %vtable.i17, align 8
   %data_size.i22 = getelementptr inbounds i8, ptr %12, i64 8
   %13 = load i64, ptr %data_size.i22, align 8
   %add.ptr4.i23 = getelementptr inbounds i8, ptr %add.ptr, i64 %13

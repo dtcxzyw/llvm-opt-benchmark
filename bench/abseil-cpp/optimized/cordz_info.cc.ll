@@ -1048,10 +1048,10 @@ if.else24.i:                                      ; preds = %if.else18.i
 if.end33.sink.split.i:                            ; preds = %if.else24.i, %if.else18.i, %if.else12.i, %if.else.i, %if.then
   %.sink6.i = phi i64 [ 40, %if.then ], [ 48, %if.else.i ], [ 56, %if.else12.i ], [ 64, %if.else18.i ], [ 72, %if.else24.i ]
   %14 = load ptr, ptr %this, align 8
-  %flat_64.i = getelementptr inbounds i8, ptr %14, i64 %.sink6.i
-  %15 = load i64, ptr %flat_64.i, align 8
+  %flat_128.i = getelementptr inbounds i8, ptr %14, i64 %.sink6.i
+  %15 = load i64, ptr %flat_128.i, align 8
   %inc11.i = add i64 %15, 1
-  store i64 %inc11.i, ptr %flat_64.i, align 8
+  store i64 %inc11.i, ptr %flat_128.i, align 8
   br label %return.sink.split
 
 _ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit27: ; preds = %_ZNK4absl13cord_internal12_GLOBAL__N_115CordRepAnalyzer6RepRef3tagEv.exit12

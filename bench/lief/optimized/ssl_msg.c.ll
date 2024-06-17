@@ -2438,10 +2438,10 @@ ssl_swap_epochs.exit150:                          ; preds = %185, %183, %165, %1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %249, %245
-  %.sink157 = phi ptr [ %248, %245 ], [ null, %249 ]
+  %.sink = phi ptr [ %248, %245 ], [ null, %249 ]
   %250 = load ptr, ptr %2, align 8
   %251 = getelementptr inbounds i8, ptr %250, i64 1048
-  store ptr %.sink157, ptr %251, align 8
+  store ptr %.sink, ptr %251, align 8
   br label %252
 
 252:                                              ; preds = %.sink.split, %229

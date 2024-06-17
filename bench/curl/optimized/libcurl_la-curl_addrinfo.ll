@@ -419,16 +419,6 @@ if.end4.i:                                        ; preds = %if.end.i
   %2 = load i32, ptr %in, align 4
   store i32 %2, ptr %addrentry5.i, align 1
   store ptr %call1.i, ptr %call.i, align 8
-  %h_aliases.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr null, ptr %h_aliases.i, align 8
-  %h_addrtype.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  store i32 2, ptr %h_addrtype.i, align 8
-  %h_length.i = getelementptr inbounds i8, ptr %call.i, i64 20
-  store i32 4, ptr %h_length.i, align 4
-  %h_addr_list.i = getelementptr inbounds i8, ptr %call.i, i64 48
-  %h_addr_list11.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store ptr %h_addr_list.i, ptr %h_addr_list11.i, align 8
-  store ptr %addrentry5.i, ptr %h_addr_list.i, align 8
   br label %return.sink.split.sink.split
 
 if.end:                                           ; preds = %entry
@@ -452,33 +442,33 @@ if.end4.i10:                                      ; preds = %if.end.i7
   %addrentry7.i = getelementptr inbounds i8, ptr %call.i5, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %addrentry7.i, ptr noundef nonnull align 4 dereferenceable(16) %in6, i64 16, i1 false)
   store ptr %call1.i8, ptr %call.i5, align 8
-  %h_aliases.i11 = getelementptr inbounds i8, ptr %call.i5, i64 8
-  store ptr null, ptr %h_aliases.i11, align 8
-  %h_addrtype.i12 = getelementptr inbounds i8, ptr %call.i5, i64 16
-  store i32 10, ptr %h_addrtype.i12, align 8
-  %h_length.i13 = getelementptr inbounds i8, ptr %call.i5, i64 20
-  store i32 16, ptr %h_length.i13, align 4
-  %h_addr_list.i14 = getelementptr inbounds i8, ptr %call.i5, i64 48
-  %h_addr_list11.i15 = getelementptr inbounds i8, ptr %call.i5, i64 24
-  store ptr %h_addr_list.i14, ptr %h_addr_list11.i15, align 8
-  store ptr %addrentry7.i, ptr %h_addr_list.i14, align 8
   br label %return.sink.split.sink.split
 
 return.sink.split.sink.split:                     ; preds = %if.end4.i, %if.end4.i10
-  %call.i5.sink23 = phi ptr [ %call.i5, %if.end4.i10 ], [ %call.i, %if.end4.i ]
+  %call.i5.sink30 = phi ptr [ %call.i5, %if.end4.i10 ], [ %call.i, %if.end4.i ]
+  %addrentry7.i.sink = phi ptr [ %addrentry7.i, %if.end4.i10 ], [ %addrentry5.i, %if.end4.i ]
   %call1.i8.sink = phi ptr [ %call1.i8, %if.end4.i10 ], [ %call1.i, %if.end4.i ]
-  %arrayidx15.i16 = getelementptr inbounds i8, ptr %call.i5.sink23, i64 56
+  %5 = phi <2 x i32> [ <i32 10, i32 16>, %if.end4.i10 ], [ <i32 2, i32 4>, %if.end4.i ]
+  %h_aliases.i11 = getelementptr inbounds i8, ptr %call.i5.sink30, i64 8
+  store ptr null, ptr %h_aliases.i11, align 8
+  %h_addrtype.i12 = getelementptr inbounds i8, ptr %call.i5.sink30, i64 16
+  store <2 x i32> %5, ptr %h_addrtype.i12, align 8
+  %h_addr_list.i14 = getelementptr inbounds i8, ptr %call.i5.sink30, i64 48
+  %h_addr_list11.i15 = getelementptr inbounds i8, ptr %call.i5.sink30, i64 24
+  store ptr %h_addr_list.i14, ptr %h_addr_list11.i15, align 8
+  store ptr %addrentry7.i.sink, ptr %h_addr_list.i14, align 8
+  %arrayidx15.i16 = getelementptr inbounds i8, ptr %call.i5.sink30, i64 56
   store ptr null, ptr %arrayidx15.i16, align 8
-  %call16.i17 = call ptr @Curl_he2ai(ptr noundef nonnull %call.i5.sink23, i32 noundef %port)
-  %5 = load ptr, ptr @Curl_cfree, align 8
-  call void %5(ptr noundef nonnull %call1.i8.sink) #7
+  %call16.i17 = call ptr @Curl_he2ai(ptr noundef nonnull %call.i5.sink30, i32 noundef %port)
+  %6 = load ptr, ptr @Curl_cfree, align 8
+  call void %6(ptr noundef nonnull %call1.i8.sink) #7
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end.i7, %if.end.i
-  %call.i5.sink = phi ptr [ %call.i, %if.end.i ], [ %call.i5, %if.end.i7 ], [ %call.i5.sink23, %return.sink.split.sink.split ]
+  %call.i5.sink = phi ptr [ %call.i, %if.end.i ], [ %call.i5, %if.end.i7 ], [ %call.i5.sink30, %return.sink.split.sink.split ]
   %retval.0.ph = phi ptr [ null, %if.end.i ], [ null, %if.end.i7 ], [ %call16.i17, %return.sink.split.sink.split ]
-  %6 = load ptr, ptr @Curl_cfree, align 8
-  call void %6(ptr noundef nonnull %call.i5.sink) #7
+  %7 = load ptr, ptr @Curl_cfree, align 8
+  call void %7(ptr noundef nonnull %call.i5.sink) #7
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then4, %if.then, %if.end

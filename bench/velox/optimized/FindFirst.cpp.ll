@@ -10751,12 +10751,12 @@ if.then19.i.i.i.i.i.i.i:                          ; preds = %for.end.i.i.i.i.i.i
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i.i.i.i.i.i: ; preds = %if.then19.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i
   %and7.i.sink.i.i.i.i.i.i = phi i64 [ %and7.i.i.i.i.i.i.i, %if.then3.i.i.i.i.i.i.i ], [ %sub.i46.i.i.i.i.i.i.i, %if.then19.i.i.i.i.i.i.i ]
-  %div20.i.sink.i.i.i.i.i.i = ashr i32 %add.i.i.i.i.i.i, 6
-  %idxprom.i54.i.i.i.i.i.i.i = sext i32 %div20.i.sink.i.i.i.i.i.i to i64
-  %arrayidx.i55.i.i.i.i.i.i.i = getelementptr inbounds i64, ptr %41, i64 %idxprom.i54.i.i.i.i.i.i.i
-  %45 = load i64, ptr %arrayidx.i55.i.i.i.i.i.i.i, align 8
+  %div.i.sink.i.i.i.i.i.i = ashr i32 %add.i.i.i.i.i.i, 6
+  %idxprom.i.i.i.i.i.i.i.i = sext i32 %div.i.sink.i.i.i.i.i.i to i64
+  %arrayidx.i.i17.i.i.i.i.i.i = getelementptr inbounds i64, ptr %41, i64 %idxprom.i.i.i.i.i.i.i.i
+  %45 = load i64, ptr %arrayidx.i.i17.i.i.i.i.i.i, align 8
   %or.i.i.i.i.i.i.i.i = or i64 %45, %and7.i.sink.i.i.i.i.i.i
-  store i64 %or.i.i.i.i.i.i.i.i, ptr %arrayidx.i55.i.i.i.i.i.i.i, align 8
+  store i64 %or.i.i.i.i.i.i.i.i, ptr %arrayidx.i.i17.i.i.i.i.i.i, align 8
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.i.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split.i.i.i.i.i.i, %for.end.i.i.i.i.i.i.i
@@ -10843,12 +10843,12 @@ if.then19.i51.i.i.i.i.i.i:                        ; preds = %for.end.i49.i.i.i.i
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split.i.i.i.i.i.i: ; preds = %if.then19.i51.i.i.i.i.i.i, %if.then3.i60.i.i.i.i.i.i
   %and7.i73.sink.i.i.i.i.i.i = phi i64 [ %and7.i73.i.i.i.i.i.i, %if.then3.i60.i.i.i.i.i.i ], [ %sub.i46.i56.i.i.i.i.i.i, %if.then19.i51.i.i.i.i.i.i ]
-  %div20.i52.sink.i.i.i.i.i.i = ashr i32 %add5.i.i.i.i.i.i, 6
-  %idxprom.i54.i57.i.i.i.i.i.i = sext i32 %div20.i52.sink.i.i.i.i.i.i to i64
-  %arrayidx.i55.i58.i.i.i.i.i.i = getelementptr inbounds i64, ptr %47, i64 %idxprom.i54.i57.i.i.i.i.i.i
-  %51 = load i64, ptr %arrayidx.i55.i58.i.i.i.i.i.i, align 8
+  %div.i61.sink.i.i.i.i.i.i = ashr i32 %add5.i.i.i.i.i.i, 6
+  %idxprom.i.i74.i.i.i.i.i.i = sext i32 %div.i61.sink.i.i.i.i.i.i to i64
+  %arrayidx.i.i75.i.i.i.i.i.i = getelementptr inbounds i64, ptr %47, i64 %idxprom.i.i74.i.i.i.i.i.i
+  %51 = load i64, ptr %arrayidx.i.i75.i.i.i.i.i.i, align 8
   %or.i.i76.i.i.i.i.i.i = or i64 %51, %and7.i73.sink.i.i.i.i.i.i
-  store i64 %or.i.i76.i.i.i.i.i.i, ptr %arrayidx.i55.i58.i.i.i.i.i.i, align 8
+  store i64 %or.i.i76.i.i.i.i.i.i, ptr %arrayidx.i.i75.i.i.i.i.i.i, align 8
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.i.i.i.i.i.i: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split.i.i.i.i.i.i, %for.end.i49.i.i.i.i.i.i
@@ -12382,12 +12382,12 @@ if.then19.i:                                      ; preds = %for.end.i
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split: ; preds = %if.then19.i, %if.then3.i
   %and7.i.sink = phi i64 [ %and7.i, %if.then3.i ], [ %sub.i46.i, %if.then19.i ]
-  %div20.i.sink = ashr i32 %add, 6
-  %idxprom.i54.i = sext i32 %div20.i.sink to i64
-  %arrayidx.i55.i = getelementptr inbounds i64, ptr %13, i64 %idxprom.i54.i
-  %17 = load i64, ptr %arrayidx.i55.i, align 8
+  %div.i.sink = ashr i32 %add, 6
+  %idxprom.i.i = sext i32 %div.i.sink to i64
+  %arrayidx.i.i17 = getelementptr inbounds i64, ptr %13, i64 %idxprom.i.i
+  %17 = load i64, ptr %arrayidx.i.i17, align 8
   %or.i.i = or i64 %17, %and7.i.sink
-  store i64 %or.i.i, ptr %arrayidx.i55.i, align 8
+  store i64 %or.i.i, ptr %arrayidx.i.i17, align 8
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit.sink.split, %for.end.i
@@ -12475,12 +12475,12 @@ if.then19.i51:                                    ; preds = %for.end.i49
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split: ; preds = %if.then19.i51, %if.then3.i60
   %and7.i73.sink = phi i64 [ %and7.i73, %if.then3.i60 ], [ %sub.i46.i56, %if.then19.i51 ]
-  %div20.i52.sink = ashr i32 %add6, 6
-  %idxprom.i54.i57 = sext i32 %div20.i52.sink to i64
-  %arrayidx.i55.i58 = getelementptr inbounds i64, ptr %19, i64 %idxprom.i54.i57
-  %23 = load i64, ptr %arrayidx.i55.i58, align 8
+  %div.i61.sink = ashr i32 %add6, 6
+  %idxprom.i.i74 = sext i32 %div.i61.sink to i64
+  %arrayidx.i.i75 = getelementptr inbounds i64, ptr %19, i64 %idxprom.i.i74
+  %23 = load i64, ptr %arrayidx.i.i75, align 8
   %or.i.i76 = or i64 %23, %and7.i73.sink
-  store i64 %or.i.i76, ptr %arrayidx.i55.i58, align 8
+  store i64 %or.i.i76, ptr %arrayidx.i.i75, align 8
   br label %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77
 
 _ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77: ; preds = %_ZN8facebook5velox4bits11forEachWordIZNS1_8fillBitsEPmiibEUlimE_ZNS1_8fillBitsES3_iibEUliE_EEviiT_T0_.exit77.sink.split, %for.end.i49

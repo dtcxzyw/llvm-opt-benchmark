@@ -3895,12 +3895,12 @@ if.then19.i.i:                                    ; preds = %for.end.i.i
 
 if.end16.sink.split.i:                            ; preds = %if.then19.i.i, %if.then3.i.i
   %notmask.i45.i.sink.i = phi i64 [ %notmask.i45.i.i, %if.then19.i.i ], [ %not.i.i.i, %if.then3.i.i ]
-  %div.i17.sink.i = ashr i32 %add15.i, 6
-  %idxprom2.i.i.i = sext i32 %div.i17.sink.i to i64
-  %arrayidx3.i.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom2.i.i.i
-  %47 = load i64, ptr %arrayidx3.i.i.i, align 8
+  %div20.i.sink.i = ashr i32 %add15.i, 6
+  %idxprom2.i50.i.i = sext i32 %div20.i.sink.i to i64
+  %arrayidx3.i51.i.i = getelementptr inbounds i64, ptr %43, i64 %idxprom2.i50.i.i
+  %47 = load i64, ptr %arrayidx3.i51.i.i, align 8
   %and4.i52.i.i = and i64 %47, %notmask.i45.i.sink.i
-  store i64 %and4.i52.i.i, ptr %arrayidx3.i.i.i, align 8
+  store i64 %and4.i52.i.i, ptr %arrayidx3.i51.i.i, align 8
   br label %if.end
 
 if.end:                                           ; preds = %for.body10.i.i, %for.body.i.i, %for.inc.i, %if.end16.sink.split.i, %for.end.i.i, %if.else11.i, %for.cond7.preheader.i.i, %if.then5.i, %_ZNRSt8optionalIjE5valueEv.exit.i

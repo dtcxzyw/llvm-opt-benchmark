@@ -11526,8 +11526,8 @@ define void @_ZN19LBMLBTRUSourceEntry13processPacketEPK12_packet_infoPK20lbm_lbt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %69, %78, %46, %38
-  %.sink68 = phi i64 [ 184, %54 ], [ 208, %69 ], [ 224, %78 ], [ 152, %46 ], [ 168, %38 ]
-  %.sink67 = phi i64 [ %68, %54 ], [ %77, %69 ], [ %86, %78 ], [ %53, %46 ], [ %45, %38 ]
+  %.sink68 = phi i64 [ 168, %38 ], [ 152, %46 ], [ 224, %78 ], [ 208, %69 ], [ 184, %54 ]
+  %.sink67 = phi i64 [ %45, %38 ], [ %53, %46 ], [ %86, %78 ], [ %77, %69 ], [ %68, %54 ]
   %87 = getelementptr inbounds i8, ptr %0, i64 %.sink68
   %88 = load i64, ptr %87, align 8
   %89 = add i64 %88, %.sink67
@@ -19069,8 +19069,8 @@ define void @_ZN21LBMLBTRUReceiverEntry13processPacketEPK12_packet_infoPK20lbm_l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %34, %49, %58
-  %.sink65 = phi i64 [ 152, %34 ], [ 176, %49 ], [ 192, %58 ]
-  %.sink64 = phi i64 [ %48, %34 ], [ %57, %49 ], [ %66, %58 ]
+  %.sink65 = phi i64 [ 192, %58 ], [ 176, %49 ], [ 152, %34 ]
+  %.sink64 = phi i64 [ %66, %58 ], [ %57, %49 ], [ %48, %34 ]
   %67 = getelementptr inbounds i8, ptr %0, i64 %.sink65
   %68 = load i64, ptr %67, align 8
   %69 = add i64 %68, %.sink64

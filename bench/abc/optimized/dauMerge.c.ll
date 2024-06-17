@@ -670,8 +670,8 @@ Dau_DsdMergeGetStatus.exit171:                    ; preds = %.critedge2.i165, %2
   %.pn.pre219 = load ptr, ptr %2, align 8
   %224 = getelementptr inbounds i8, ptr %.pn.pre219, i64 1
   %225 = icmp ult ptr %.0135, %224
-  %or.cond234 = select i1 %223, i1 %225, i1 false
-  br i1 %or.cond234, label %.lr.ph.i, label %Dau_DsdMergeStoreAddToDef.exit
+  %or.cond235 = select i1 %223, i1 %225, i1 false
+  br i1 %or.cond235, label %.lr.ph.i, label %Dau_DsdMergeStoreAddToDef.exit
 
 .lr.ph.i:                                         ; preds = %220, %.lr.ph.i
   %.04.i = phi ptr [ %226, %.lr.ph.i ], [ %.0135, %220 ]

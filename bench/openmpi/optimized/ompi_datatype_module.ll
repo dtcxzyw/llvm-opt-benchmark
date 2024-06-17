@@ -2630,13 +2630,13 @@ define void @ompi_datatype_dump(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not113, label %57, label %.sink.split
 
 .sink.split:                                      ; preds = %49, %1
-  %.sink = phi i32 [ %39, %1 ], [ %.0, %49 ]
+  %.0.sink119 = phi i32 [ %39, %1 ], [ %.0, %49 ]
   %.str.34.sink = phi ptr [ @.str.32, %1 ], [ @.str.34, %49 ]
-  %52 = sext i32 %.sink to i64
+  %52 = sext i32 %.0.sink119 to i64
   %53 = getelementptr inbounds i8, ptr %10, i64 %52
   %54 = sub i64 %9, %52
   %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %53, i64 noundef %54, ptr noundef nonnull %.str.34.sink) #8
-  %56 = add nsw i32 %55, %.sink
+  %56 = add nsw i32 %55, %.0.sink119
   br label %57
 
 57:                                               ; preds = %.sink.split, %49

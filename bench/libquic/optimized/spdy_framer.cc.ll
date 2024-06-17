@@ -1588,16 +1588,16 @@ if.then7.if.end34_crit_edge.i:                    ; preds = %if.then7.i
   br label %if.end34.i
 
 land.lhs.true.i:                                  ; preds = %if.then7.i
-  %tobool.not.i82 = icmp eq i8 %17, 0
-  br i1 %tobool.not.i82, label %if.end34.i, label %if.end14.i
+  %tobool.not.i84 = icmp eq i8 %17, 0
+  br i1 %tobool.not.i84, label %if.end34.i, label %if.end14.i
 
 if.end14.i:                                       ; preds = %land.lhs.true.i
   %19 = load ptr, ptr %visitor_.i116, align 8
-  %vtable.i83 = load ptr, ptr %19, align 8
-  %vfn.i84 = getelementptr inbounds i8, ptr %vtable.i83, i64 128
-  %20 = load ptr, ptr %vfn.i84, align 8
+  %vtable.i85 = load ptr, ptr %19, align 8
+  %vfn.i86 = getelementptr inbounds i8, ptr %vtable.i85, i64 128
+  %20 = load ptr, ptr %vfn.i86, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19)
-  br label %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split
+  br label %if.end40.sink.split.i
 
 if.end34.i:                                       ; preds = %land.lhs.true.i, %if.then7.if.end34_crit_edge.i
   %.pre-phi.i = phi i1 [ %18, %if.then7.if.end34_crit_edge.i ], [ false, %land.lhs.true.i ]
@@ -1606,17 +1606,17 @@ if.end34.i:                                       ; preds = %land.lhs.true.i, %i
   %vfn23.i = getelementptr inbounds i8, ptr %vtable22.i, i64 112
   %22 = load ptr, ptr %vfn23.i, align 8
   tail call void %22(ptr noundef nonnull align 8 dereferenceable(8) %21, i1 noundef zeroext %.pre-phi.i)
-  br label %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split
+  br label %if.end40.sink.split.i
 
-_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split: ; preds = %if.end34.i, %if.end14.i
-  %.sink = phi i32 [ 2, %if.end14.i ], [ 14, %if.end34.i ]
+if.end40.sink.split.i:                            ; preds = %if.end34.i, %if.end14.i
+  %.sink.i = phi i32 [ 2, %if.end14.i ], [ 14, %if.end34.i ]
   %23 = load i32, ptr %state_, align 8
   store i32 %23, ptr %previous_state_, align 4
-  store i32 %.sink, ptr %state_, align 8
+  store i32 %.sink.i, ptr %state_, align 8
   br label %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit
 
-_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit: ; preds = %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split, %if.end.i79
-  %bytes_read.011.i = phi i64 [ %.sroa.speculated.i.i, %if.end.i79 ], [ %bytes_read.012.i, %_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit.sink.split ]
+_ZN3net10SpdyFramer26ProcessSettingsFrameHeaderEPKcm.exit: ; preds = %if.end.i79, %if.end40.sink.split.i
+  %bytes_read.011.i = phi i64 [ %.sroa.speculated.i.i, %if.end.i79 ], [ %bytes_read.012.i, %if.end40.sink.split.i ]
   %sext70 = shl i64 %bytes_read.011.i, 32
   %conv59 = ashr exact i64 %sext70, 32
   %sub60 = sub i64 %len.addr.0, %conv59
@@ -2952,30 +2952,29 @@ if.end14:                                         ; preds = %land.lhs.true
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 128
   %11 = load ptr, ptr %vfn, align 8
   tail call void %11(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %state_ = getelementptr inbounds i8, ptr %this, i64 8
-  %12 = load i32, ptr %state_, align 8
-  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %12, ptr %previous_state_, align 4
-  store i32 2, ptr %state_, align 8
-  br label %if.end40
+  br label %if.end40.sink.split
 
 if.end34:                                         ; preds = %if.then7.if.end34_crit_edge, %land.lhs.true
   %.pre-phi = phi i1 [ %9, %if.then7.if.end34_crit_edge ], [ false, %land.lhs.true ]
   %visitor_17 = getelementptr inbounds i8, ptr %this, i64 176
-  %13 = load ptr, ptr %visitor_17, align 8
-  %vtable22 = load ptr, ptr %13, align 8
+  %12 = load ptr, ptr %visitor_17, align 8
+  %vtable22 = load ptr, ptr %12, align 8
   %vfn23 = getelementptr inbounds i8, ptr %vtable22, i64 112
-  %14 = load ptr, ptr %vfn23, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(8) %13, i1 noundef zeroext %.pre-phi)
-  %state_35 = getelementptr inbounds i8, ptr %this, i64 8
-  %15 = load i32, ptr %state_35, align 8
-  %previous_state_36 = getelementptr inbounds i8, ptr %this, i64 12
-  store i32 %15, ptr %previous_state_36, align 4
-  store i32 14, ptr %state_35, align 8
+  %13 = load ptr, ptr %vfn23, align 8
+  tail call void %13(ptr noundef nonnull align 8 dereferenceable(8) %12, i1 noundef zeroext %.pre-phi)
+  br label %if.end40.sink.split
+
+if.end40.sink.split:                              ; preds = %if.end34, %if.end14
+  %.sink = phi i32 [ 2, %if.end14 ], [ 14, %if.end34 ]
+  %state_ = getelementptr inbounds i8, ptr %this, i64 8
+  %14 = load i32, ptr %state_, align 8
+  %previous_state_ = getelementptr inbounds i8, ptr %this, i64 12
+  store i32 %14, ptr %previous_state_, align 4
+  store i32 %.sink, ptr %state_, align 8
   br label %if.end40
 
-if.end40:                                         ; preds = %if.end14, %if.end34, %if.end
-  %bytes_read.011 = phi i64 [ %bytes_read.012, %if.end14 ], [ %bytes_read.012, %if.end34 ], [ %.sroa.speculated.i, %if.end ]
+if.end40:                                         ; preds = %if.end40.sink.split, %if.end
+  %bytes_read.011 = phi i64 [ %.sroa.speculated.i, %if.end ], [ %bytes_read.012, %if.end40.sink.split ]
   ret i64 %bytes_read.011
 }
 
@@ -7645,8 +7644,8 @@ if.end68:                                         ; preds = %if.end63, %if.then6
   br i1 %21, label %while.body, label %return, !llvm.loop !26
 
 return.sink.split:                                ; preds = %cleanup.done, %if.end68.thread
-  %visitor_.i.sink = phi ptr [ %visitor_.i, %cleanup.done ], [ %visitor_.i34, %if.end68.thread ]
-  %22 = load ptr, ptr %visitor_.i.sink, align 8
+  %visitor_.i34.sink = phi ptr [ %visitor_.i34, %if.end68.thread ], [ %visitor_.i, %cleanup.done ]
+  %22 = load ptr, ptr %visitor_.i34.sink, align 8
   %vtable.i35 = load ptr, ptr %22, align 8
   %vfn.i36 = getelementptr inbounds i8, ptr %vtable.i35, i64 16
   %23 = load ptr, ptr %vfn.i36, align 8

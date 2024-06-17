@@ -6404,8 +6404,8 @@ _ZL11icell_set_xiRKN3gmx11BasicVectorIfEEiPKf25ClusterDistanceKernelTypeP20Nbnxn
   %911 = load <2 x float>, ptr %909, align 4, !alias.scope !87, !noalias !90
   %912 = fsub <2 x float> %910, %911
   %913 = fmul <2 x float> %912, %912
-  %shift694 = shufflevector <2 x float> %913, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %914 = fadd <2 x float> %913, %shift694
+  %shift699 = shufflevector <2 x float> %913, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %914 = fadd <2 x float> %913, %shift699
   %915 = extractelement <2 x float> %914, i64 0
   %916 = load float, ptr %903, align 4, !noalias !92
   %917 = getelementptr i8, ptr %909, i64 8
@@ -8882,19 +8882,19 @@ _ZL27effective_buffer_1x1_vs_MxNRKN5Nbnxm4GridES2_.exit.i232: ; preds = %2107, %
   %2139 = fmul float %2138, %2138
   %2140 = load ptr, ptr @debug, align 8
   %.not394.i103 = icmp eq ptr %2140, null
-  br i1 %.not394.i103, label %.preheader716, label %2141
+  br i1 %.not394.i103, label %.preheader721, label %2141
 
 2141:                                             ; preds = %2124
   %sqrt.i104 = call float @llvm.sqrt.f32(float %2139)
   %2142 = fpext float %sqrt.i104 to double
   %2143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %2140, ptr noundef nonnull @.str.18, double noundef %2142) #11
-  br label %.preheader716
+  br label %.preheader721
 
-.preheader716:                                    ; preds = %2141, %2124
+.preheader721:                                    ; preds = %2141, %2124
   br label %2144
 
-2144:                                             ; preds = %.preheader716, %2168
-  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i108, %2168 ], [ 0, %.preheader716 ]
+2144:                                             ; preds = %.preheader721, %2168
+  %indvars.iv.i105 = phi i64 [ %indvars.iv.next.i108, %2168 ], [ 0, %.preheader721 ]
   %.sroa.0638.0.copyload.i = load i32, ptr %8, align 8
   %2145 = invoke noundef i32 @_Z16numPbcDimensions7PbcType(i32 noundef %.sroa.0638.0.copyload.i)
           to label %.noexc241 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -9028,19 +9028,19 @@ _ZL27effective_buffer_1x1_vs_MxNRKN5Nbnxm4GridES2_.exit.i232: ; preds = %2107, %
   br label %.outer.i.outer
 
 .outer.i.outer:                                   ; preds = %.loopexit696.i, %2183
-  %.ph714 = phi i32 [ %.pre.i, %2183 ], [ %3764, %.loopexit696.i ]
-  %.ph715 = phi i32 [ %.pre.i, %2183 ], [ %3765, %.loopexit696.i ]
+  %.ph719 = phi i32 [ %.pre.i, %2183 ], [ %3764, %.loopexit696.i ]
+  %.ph720 = phi i32 [ %.pre.i, %2183 ], [ %3765, %.loopexit696.i ]
   %.0679.ph.i.ph = phi i32 [ -1, %2183 ], [ %.us-phi792.i, %.loopexit696.i ]
   %.0677.ph.i.ph = phi i32 [ %2188, %2183 ], [ %.us-phi793.i, %.loopexit696.i ]
   %.0673.ph.i.ph = phi i32 [ 0, %2183 ], [ %.us-phi791.i, %.loopexit696.i ]
   %.0670.ph.i.ph = phi i32 [ 0, %2183 ], [ %.us-phi790.i, %.loopexit696.i ]
   %.0665.ph.i.ph = phi i32 [ 0, %2183 ], [ %.15.i, %.loopexit696.i ]
-  %.ph715.fr = freeze i32 %.ph715
+  %.ph720.fr = freeze i32 %.ph720
   %2238 = load i32, ptr %78, align 8
   %2239 = load i32, ptr %80, align 4
   %2240 = load ptr, ptr %81, align 8
   %invariant.gep788.i = getelementptr i8, ptr %2240, i64 4
-  %2241 = icmp ne i32 %.ph715.fr, 0
+  %2241 = icmp ne i32 %.ph720.fr, 0
   %or.cond.not.i112 = or i1 %73, %2241
   %2242 = load float, ptr %68, align 4
   %2243 = load float, ptr %64, align 8
@@ -9174,8 +9174,8 @@ _ZL7next_ciRKN5Nbnxm4GridEiiPiS3_S3_S3_.exit.thread.us.i: ; preds = %2282, %_ZL7
 
 2302:                                             ; preds = %.loopexit696.i, %.lr.ph836.i
   %2303 = phi i32 [ %2245, %.lr.ph836.i ], [ %3763, %.loopexit696.i ]
-  %2304 = phi i32 [ %.ph714, %.lr.ph836.i ], [ %3764, %.loopexit696.i ]
-  %2305 = phi i32 [ %.ph715.fr, %.lr.ph836.i ], [ %3765, %.loopexit696.i ]
+  %2304 = phi i32 [ %.ph719, %.lr.ph836.i ], [ %3764, %.loopexit696.i ]
+  %2305 = phi i32 [ %.ph720.fr, %.lr.ph836.i ], [ %3765, %.loopexit696.i ]
   %.0361833.i = phi i32 [ %2286, %.lr.ph836.i ], [ %3766, %.loopexit696.i ]
   %.1666832.i = phi i32 [ %.0665.ph.i.ph, %.lr.ph836.i ], [ %.15.i, %.loopexit696.i ]
   %2306 = sitofp i32 %.0361833.i to float

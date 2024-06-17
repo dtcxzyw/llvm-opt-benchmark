@@ -1395,8 +1395,8 @@ Extra_TruthIsEqual.exit.thread.i287.us:           ; preds = %450, %441
   %493 = icmp eq i16 %479, %492
   %494 = sub nsw i32 %.1218.lcssa.us, %.10346.us
   %495 = sext i32 %494 to i64
-  %.474 = select i1 %493, ptr %57, ptr %56
-  %496 = getelementptr inbounds [10 x i32], ptr %.474, i64 0, i64 %495
+  %.473 = select i1 %493, ptr %57, ptr %56
+  %496 = getelementptr inbounds [10 x i32], ptr %.473, i64 0, i64 %495
   %497 = load i32, ptr %496, align 4
   %498 = add nsw i32 %497, 1
   store i32 %498, ptr %496, align 4

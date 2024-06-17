@@ -10071,12 +10071,12 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   %106 = getelementptr inbounds i8, ptr %13, i64 32
   %107 = load i32, ptr %98, align 4
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph111, label %._crit_edge
+  br i1 %108, label %.lr.ph114, label %._crit_edge
 
-.lr.ph111:                                        ; preds = %.lr.ph, %.thread105
-  %indvars.iv110 = phi i64 [ %indvars.iv.next, %.thread105 ], [ 0, %.lr.ph ]
+.lr.ph114:                                        ; preds = %.lr.ph, %.thread105
+  %indvars.iv113 = phi i64 [ %indvars.iv.next, %.thread105 ], [ 0, %.lr.ph ]
   %109 = load ptr, ptr %99, align 8
-  %110 = getelementptr %union.ListCell, ptr %109, i64 %indvars.iv110
+  %110 = getelementptr %union.ListCell, ptr %109, i64 %indvars.iv113
   %111 = load ptr, ptr %110, align 8
   %112 = load ptr, ptr %100, align 8
   %113 = getelementptr inbounds i8, ptr %111, i64 26
@@ -10089,7 +10089,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   %.not98 = icmp eq i32 %sext.mask, 0
   br i1 %.not98, label %131, label %119
 
-119:                                              ; preds = %.lr.ph111
+119:                                              ; preds = %.lr.ph114
   %120 = load ptr, ptr @get_relation_stats_hook, align 8
   %.not100 = icmp eq ptr %120, null
   br i1 %.not100, label %.sink.split, label %121
@@ -10113,7 +10113,7 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 8016, ptr noundef nonnull @__func__.brincostestimate) #13
   unreachable
 
-131:                                              ; preds = %.lr.ph111
+131:                                              ; preds = %.lr.ph114
   %132 = add i16 %114, 1
   %133 = load ptr, ptr @get_index_stats_hook, align 8
   %.not99 = icmp eq ptr %133, null
@@ -10140,10 +10140,10 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   unreachable
 
 .sink.split:                                      ; preds = %131, %134, %119, %121
-  %.sink114.in = phi ptr [ %103, %121 ], [ %103, %119 ], [ %104, %134 ], [ %104, %131 ]
+  %.sink112.in = phi ptr [ %103, %121 ], [ %103, %119 ], [ %104, %134 ], [ %104, %131 ]
   %.sink = phi i16 [ %118, %121 ], [ %118, %119 ], [ %132, %134 ], [ %132, %131 ]
-  %.sink114 = load i32, ptr %.sink114.in, align 4
-  %145 = zext i32 %.sink114 to i64
+  %.sink112 = load i32, ptr %.sink112.in, align 4
+  %145 = zext i32 %.sink112 to i64
   %146 = sext i16 %.sink to i64
   %147 = call ptr @SearchSysCache3(i32 noundef 63, i64 noundef %145, i64 noundef %146, i64 noundef 0) #13
   store ptr %147, ptr %101, align 8
@@ -10196,11 +10196,11 @@ get_quals_from_indexclauses.exit:                 ; preds = %._crit_edge.i, %8, 
   br label %.thread105
 
 .thread105:                                       ; preds = %148, %166, %165
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv110, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv113, 1
   %168 = load i32, ptr %98, align 4
   %169 = sext i32 %168 to i64
   %170 = icmp slt i64 %indvars.iv.next, %169
-  br i1 %170, label %.lr.ph111, label %._crit_edge
+  br i1 %170, label %.lr.ph114, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread105, %.lr.ph, %96
   %171 = getelementptr inbounds i8, ptr %45, i64 112

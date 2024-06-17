@@ -2083,10 +2083,10 @@ if.end127.sink.split:                             ; preds = %if.else115, %if.the
   %.sink = phi i32 [ %58, %if.then.i.i151 ], [ 1, %if.else115 ]
   %x.0.ph = phi i32 [ -1, %if.then.i.i151 ], [ %call124, %if.else115 ]
   store i32 %.sink, ptr %n, align 8
-  %m_kind.i.i159 = getelementptr inbounds i8, ptr %n, i64 4
-  %bf.load.i.i153 = load i8, ptr %m_kind.i.i159, align 4
+  %m_kind.i.i152 = getelementptr inbounds i8, ptr %n, i64 4
+  %bf.load.i.i153 = load i8, ptr %m_kind.i.i152, align 4
   %bf.clear.i.i154 = and i8 %bf.load.i.i153, -2
-  store i8 %bf.clear.i.i154, ptr %m_kind.i.i159, align 4
+  store i8 %bf.clear.i.i154, ptr %m_kind.i.i152, align 4
   br label %if.end127
 
 if.end127:                                        ; preds = %if.end127.sink.split, %if.else.i.i150

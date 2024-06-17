@@ -748,10 +748,10 @@ do.body:                                          ; preds = %while.body
   br i1 %cmp4, label %return, label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %do.body, %do.body164, %do.body176, %do.body75, %do.body358
-  %.sink198 = phi i64 [ 2, %do.body358 ], [ 2, %do.body75 ], [ 2, %do.body176 ], [ 2, %do.body164 ], [ 1, %do.body ]
+  %.sink197 = phi i64 [ 2, %do.body358 ], [ 2, %do.body75 ], [ 2, %do.body176 ], [ 2, %do.body164 ], [ 1, %do.body ]
   %.sink = phi i64 [ -2, %do.body358 ], [ -2, %do.body75 ], [ -2, %do.body176 ], [ -2, %do.body164 ], [ -1, %do.body ]
   %2 = load ptr, ptr %inbuf, align 8
-  %add.ptr = getelementptr i8, ptr %2, i64 %.sink198
+  %add.ptr = getelementptr i8, ptr %2, i64 %.sink197
   store ptr %add.ptr, ptr %inbuf, align 8
   %sub = add nsw i64 %inleft.addr.0178, %.sink
   %cmp = icmp sgt i64 %sub, 0

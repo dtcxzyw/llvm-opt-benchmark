@@ -1505,11 +1505,11 @@ is_left_of.exit921.thread973:                     ; preds = %576, %568, %550, %5
   br label %705
 
 705:                                              ; preds = %677, %657
-  %.sink1034.in = phi ptr [ %704, %677 ], [ %676, %657 ]
-  %.sink1032 = phi ptr [ %703, %677 ], [ %675, %657 ]
-  %.sink1034 = load i32, ptr %.sink1034.in, align 4
-  %706 = sext i32 %.sink1034 to i64
-  %707 = getelementptr inbounds %struct.trap_t, ptr %.sink1032, i64 %706, i32 6
+  %.sink1035.in = phi ptr [ %704, %677 ], [ %676, %657 ]
+  %.sink1033 = phi ptr [ %703, %677 ], [ %675, %657 ]
+  %.sink1035 = load i32, ptr %.sink1035.in, align 4
+  %706 = sext i32 %.sink1035 to i64
+  %707 = getelementptr inbounds %struct.trap_t, ptr %.sink1033, i64 %706, i32 6
   store i32 %257, ptr %707, align 8
   %708 = load ptr, ptr %206, align 8
   %709 = getelementptr inbounds %struct.trap_t, ptr %708, i64 %261, i32 9
@@ -1877,9 +1877,9 @@ is_left_of.exit933.thread990:                     ; preds = %914, %906, %888, %8
   %955 = getelementptr inbounds i8, ptr %950, i64 44
   %956 = load i32, ptr %955, align 4
   %957 = icmp sgt i32 %956, 0
-  br i1 %957, label %.sink.split1035, label %965
+  br i1 %957, label %.sink.split1036, label %965
 
-.sink.split1035:                                  ; preds = %954
+.sink.split1036:                                  ; preds = %954
   %958 = icmp eq i32 %952, %.08781010
   %959 = getelementptr inbounds i8, ptr %950, i64 60
   %.1050 = select i1 %958, i32 %956, i32 %952
@@ -1893,7 +1893,7 @@ is_left_of.exit933.thread990:                     ; preds = %914, %906, %888, %8
   store i32 %.1051, ptr %964, align 8
   br label %965
 
-965:                                              ; preds = %.sink.split1035, %954, %946
+965:                                              ; preds = %.sink.split1036, %954, %946
   %966 = load ptr, ptr %206, align 8
   %967 = getelementptr inbounds %struct.trap_t, ptr %966, i64 %211, i32 7
   %968 = load i32, ptr %967, align 4
@@ -2040,11 +2040,11 @@ _less_than.exit:                                  ; preds = %1004, %1001, %991, 
   br label %1070
 
 1070:                                             ; preds = %1042, %1022
-  %.sink1046.in = phi ptr [ %1069, %1042 ], [ %1041, %1022 ]
-  %.sink1044 = phi ptr [ %1068, %1042 ], [ %1040, %1022 ]
-  %.sink1046 = load i32, ptr %.sink1046.in, align 4
-  %1071 = sext i32 %.sink1046 to i64
-  %1072 = getelementptr inbounds %struct.trap_t, ptr %.sink1044, i64 %1071, i32 6
+  %.sink1048.in = phi ptr [ %1069, %1042 ], [ %1041, %1022 ]
+  %.sink1046 = phi ptr [ %1068, %1042 ], [ %1040, %1022 ]
+  %.sink1048 = load i32, ptr %.sink1048.in, align 4
+  %1071 = sext i32 %.sink1048 to i64
+  %1072 = getelementptr inbounds %struct.trap_t, ptr %.sink1046, i64 %1071, i32 6
   store i32 %257, ptr %1072, align 8
   %1073 = load ptr, ptr %206, align 8
   %1074 = getelementptr inbounds %struct.trap_t, ptr %1073, i64 %261, i32 9

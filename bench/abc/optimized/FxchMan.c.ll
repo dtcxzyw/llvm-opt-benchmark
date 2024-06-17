@@ -5506,19 +5506,19 @@ Vec_IntGrow.exit.i251:                            ; preds = %536, %534
   br label %.sink.split
 
 .sink.split:                                      ; preds = %549, %Vec_IntGrow.exit.i251, %.Vec_IntGrow.exit10_crit_edge.i246, %490, %Vec_IntGrow.exit.i237, %.Vec_IntGrow.exit10_crit_edge.i232
-  %.sink = phi ptr [ %466, %.Vec_IntGrow.exit10_crit_edge.i232 ], [ %466, %Vec_IntGrow.exit.i237 ], [ %466, %490 ], [ %525, %.Vec_IntGrow.exit10_crit_edge.i246 ], [ %525, %Vec_IntGrow.exit.i251 ], [ %525, %549 ]
+  %.sink338 = phi ptr [ %466, %.Vec_IntGrow.exit10_crit_edge.i232 ], [ %466, %Vec_IntGrow.exit.i237 ], [ %466, %490 ], [ %525, %.Vec_IntGrow.exit10_crit_edge.i246 ], [ %525, %Vec_IntGrow.exit.i251 ], [ %525, %549 ]
   %.sink332 = phi ptr [ %.pre.i234, %.Vec_IntGrow.exit10_crit_edge.i232 ], [ %479, %Vec_IntGrow.exit.i237 ], [ %491, %490 ], [ %.pre.i248, %.Vec_IntGrow.exit10_crit_edge.i246 ], [ %538, %Vec_IntGrow.exit.i251 ], [ %550, %549 ]
   %.sink330.in.in = phi i64 [ %465, %.Vec_IntGrow.exit10_crit_edge.i232 ], [ %465, %Vec_IntGrow.exit.i237 ], [ %465, %490 ], [ %524, %.Vec_IntGrow.exit10_crit_edge.i246 ], [ %524, %Vec_IntGrow.exit.i251 ], [ %524, %549 ]
   %.sink329 = phi i64 [ -8, %.Vec_IntGrow.exit10_crit_edge.i232 ], [ -8, %Vec_IntGrow.exit.i237 ], [ -8, %490 ], [ -24, %.Vec_IntGrow.exit10_crit_edge.i246 ], [ -24, %Vec_IntGrow.exit.i251 ], [ -24, %549 ]
   %.sink330.in = lshr exact i64 %.sink330.in.in, 4
   %.sink330 = trunc i64 %.sink330.in to i32
-  %551 = load i32, ptr %.sink, align 4
+  %551 = load i32, ptr %.sink338, align 4
   %552 = add nsw i32 %551, 1
-  store i32 %552, ptr %.sink, align 4
+  store i32 %552, ptr %.sink338, align 4
   %553 = sext i32 %551 to i64
   %554 = getelementptr inbounds i32, ptr %.sink332, i64 %553
   store i32 %.sink330, ptr %554, align 4
-  %.val177 = load i32, ptr %.sink, align 4
+  %.val177 = load i32, ptr %.sink338, align 4
   %555 = getelementptr i8, ptr %421, i64 %.sink329
   %.val178 = load ptr, ptr %555, align 8
   %556 = sext i32 %.val177 to i64

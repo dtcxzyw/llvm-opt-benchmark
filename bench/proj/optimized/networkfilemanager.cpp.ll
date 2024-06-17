@@ -2249,9 +2249,9 @@ _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exi
   ret i1 %.3
 
 76:                                               ; preds = %49, %14
-  %.sink52 = phi ptr [ %5, %49 ], [ %4, %14 ]
+  %.sink = phi ptr [ %5, %49 ], [ %4, %14 ]
   %.pn = phi { ptr, i32 } [ %50, %49 ], [ %15, %14 ]
-  call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink52) #26
+  call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink) #26
   resume { ptr, i32 } %.pn
 }
 
@@ -2274,7 +2274,7 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj14DiskChunkCache20update_linked_
   %12 = invoke i32 @sqlite3_bind_int64(ptr noundef %8, i32 noundef %10, i64 noundef %2)
           to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit unwind label %13
 
-13:                                               ; preds = %34, %30, %25, %20, %15, %11, %45, %40
+13:                                               ; preds = %29, %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13, %22, %20, %15, %11, %40, %35
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #26
@@ -2290,73 +2290,62 @@ _ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit: ; preds = %15, %11
   store i32 %18, ptr %9, align 8
   %.not11 = icmp eq i64 %3, 0
   %19 = load ptr, ptr %6, align 8
-  br i1 %.not11, label %25, label %20
+  br i1 %.not11, label %22, label %20
 
 20:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit
   %21 = invoke i32 @sqlite3_bind_int64(ptr noundef %19, i32 noundef %18, i64 noundef %3)
           to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13 unwind label %13
 
-_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13: ; preds = %20
-  %22 = getelementptr inbounds i8, ptr %6, i64 8
-  %23 = load i32, ptr %22, align 8
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %22, align 8
-  br label %30
+22:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit
+  %23 = invoke i32 @sqlite3_bind_null(ptr noundef %19, i32 noundef %18)
+          to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13 unwind label %13
 
-25:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit
-  %26 = invoke i32 @sqlite3_bind_null(ptr noundef %19, i32 noundef %18)
-          to label %_ZN5osgeo4proj15SQLiteStatement8bindNullEv.exit14 unwind label %13
+_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13: ; preds = %22, %20
+  %24 = getelementptr inbounds i8, ptr %6, i64 8
+  %25 = load i32, ptr %24, align 8
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %24, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = invoke i32 @sqlite3_bind_int64(ptr noundef %27, i32 noundef %26, i64 noundef %1)
+          to label %29 unwind label %13
 
-_ZN5osgeo4proj15SQLiteStatement8bindNullEv.exit14: ; preds = %25
-  %27 = getelementptr inbounds i8, ptr %6, i64 8
-  %28 = load i32, ptr %27, align 8
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %27, align 8
-  br label %30
-
-30:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement8bindNullEv.exit14, %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13
-  %31 = phi i32 [ %29, %_ZN5osgeo4proj15SQLiteStatement8bindNullEv.exit14 ], [ %24, %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13 ]
-  %32 = load ptr, ptr %6, align 8
-  %33 = invoke i32 @sqlite3_bind_int64(ptr noundef %32, i32 noundef %31, i64 noundef %1)
-          to label %34 unwind label %13
-
-34:                                               ; preds = %30
-  %35 = getelementptr inbounds i8, ptr %6, i64 8
-  %36 = load i32, ptr %35, align 8
-  %37 = add nsw i32 %36, 1
-  store i32 %37, ptr %35, align 8
-  %38 = load ptr, ptr %6, align 8
-  %39 = invoke noundef i32 @sqlite3_step(ptr noundef %38)
+29:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit13
+  %30 = getelementptr inbounds i8, ptr %6, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %30, align 8
+  %33 = load ptr, ptr %6, align 8
+  %34 = invoke noundef i32 @sqlite3_step(ptr noundef %33)
           to label %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit unwind label %13
 
-_ZN5osgeo4proj15SQLiteStatement7executeEv.exit:   ; preds = %34
-  %.not12 = icmp eq i32 %39, 101
-  br i1 %.not12, label %46, label %40
+_ZN5osgeo4proj15SQLiteStatement7executeEv.exit:   ; preds = %29
+  %.not12 = icmp eq i32 %34, 101
+  br i1 %.not12, label %41, label %35
 
-40:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
-  %41 = load ptr, ptr %0, align 8
-  %42 = getelementptr inbounds i8, ptr %0, i64 40
-  %43 = load ptr, ptr %42, align 8
-  %44 = invoke ptr @sqlite3_errmsg(ptr noundef %43)
-          to label %45 unwind label %13
+35:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
+  %36 = load ptr, ptr %0, align 8
+  %37 = getelementptr inbounds i8, ptr %0, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = invoke ptr @sqlite3_errmsg(ptr noundef %38)
+          to label %40 unwind label %13
 
-45:                                               ; preds = %40
-  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %41, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %44)
-          to label %46 unwind label %13
+40:                                               ; preds = %35
+  invoke void (ptr, i32, ptr, ...) @_Z6pj_logP6pj_ctxiPKcz(ptr noundef %36, i32 noundef 1, ptr noundef nonnull @.str.3, ptr noundef %39)
+          to label %41 unwind label %13
 
-46:                                               ; preds = %45, %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
-  %47 = load ptr, ptr %6, align 8
-  %48 = invoke i32 @sqlite3_finalize(ptr noundef %47)
-          to label %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i unwind label %49
+41:                                               ; preds = %40, %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit
+  %42 = load ptr, ptr %6, align 8
+  %43 = invoke i32 @sqlite3_finalize(ptr noundef %42)
+          to label %_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i unwind label %44
 
-49:                                               ; preds = %46
-  %50 = landingpad { ptr, i32 }
+44:                                               ; preds = %41
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %51 = extractvalue { ptr, i32 } %50, 0
-  tail call void @__clang_call_terminate(ptr %51) #31
+  %46 = extractvalue { ptr, i32 } %45, 0
+  tail call void @__clang_call_terminate(ptr %46) #31
   unreachable
 
-_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i: ; preds = %46
+_ZNKSt14default_deleteIN5osgeo4proj15SQLiteStatementEEclEPS2_.exit.i: ; preds = %41
   tail call void @_ZdlPv(ptr noundef nonnull %6) #27
   br label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit
 

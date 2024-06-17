@@ -1722,12 +1722,12 @@ free_log_filter.exit.i50:                         ; preds = %72, %75
 
 ws_log_set_fatal_domain_filter.exit.sink.split:   ; preds = %free_log_filter.exit.i50, %free_log_filter.exit.i46
   %spec.select.i.i53.sink = phi ptr [ %spec.select.i.i49, %free_log_filter.exit.i46 ], [ %spec.select.i.i53, %free_log_filter.exit.i50 ]
-  %.sink78 = phi i1 [ %67, %free_log_filter.exit.i46 ], [ %79, %free_log_filter.exit.i50 ]
+  %.sink77 = phi i1 [ %67, %free_log_filter.exit.i46 ], [ %79, %free_log_filter.exit.i50 ]
   %82 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc_n(i64 noundef 1, i64 noundef 16) #20
   %83 = tail call ptr @g_strsplit_set(ptr noundef nonnull %spec.select.i.i53.sink, ptr noundef nonnull @.str.61, i32 noundef -1) #19
   store ptr %83, ptr %82, align 8
   %84 = getelementptr inbounds i8, ptr %82, i64 8
-  %85 = zext i1 %.sink78 to i8
+  %85 = zext i1 %.sink77 to i8
   store i8 %85, ptr %84, align 8
   %86 = getelementptr inbounds i8, ptr %82, i64 12
   store i32 0, ptr %86, align 4

@@ -244,27 +244,14 @@ while.cond76:                                     ; preds = %while.body89, %if.t
   %s.4 = phi ptr [ %t.0, %if.then67 ], [ %incdec.ptr90, %while.body89 ]
   %7 = load i8, ptr %s.4, align 1
   switch i8 %7, label %while.body89 [
-    i8 13, label %while.end91
-    i8 10, label %while.end91
-    i8 0, label %while.end91
+    i8 13, label %if.end145.sink.split
+    i8 10, label %if.end145.sink.split
+    i8 0, label %if.end145.sink.split
   ]
 
 while.body89:                                     ; preds = %while.cond76
   %incdec.ptr90 = getelementptr inbounds i8, ptr %s.4, i64 1
   br label %while.cond76, !llvm.loop !10
-
-while.end91:                                      ; preds = %while.cond76, %while.cond76, %while.cond76
-  %inc = add nsw i32 %inc_count.090, 1
-  %sub.ptr.lhs.cast92 = ptrtoint ptr %s.089 to i64
-  %sub.ptr.sub94 = sub i64 %sub.ptr.lhs.cast92, %sub.ptr.rhs.cast93
-  %conv95 = trunc i64 %sub.ptr.sub94 to i32
-  %conv.i = sext i32 %inc to i64
-  %mul.i = mul nsw i64 %conv.i, 24
-  %call.i = tail call ptr @realloc(ptr noundef %list.091, i64 noundef %mul.i) #15
-  %idxprom.i = sext i32 %inc_count.090 to i64
-  %arrayidx.i = getelementptr inbounds %struct.include_info, ptr %call.i, i64 %idxprom.i
-  store i32 %conv95, ptr %arrayidx.i, align 8
-  br label %if.end145.sink.split
 
 if.else:                                          ; preds = %land.lhs.true, %while.end22
   %call103 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %s.2, ptr noundef nonnull dereferenceable(7) @.str.2, i64 noundef 6) #17
@@ -289,9 +276,9 @@ while.cond116:                                    ; preds = %while.cond116.prehe
   %9 = phi i8 [ %.pre101, %while.body129 ], [ %3, %while.cond116.preheader ]
   %s.5 = phi ptr [ %incdec.ptr130, %while.body129 ], [ %s.2, %while.cond116.preheader ]
   switch i8 %9, label %while.body129 [
-    i8 13, label %while.end131
-    i8 10, label %while.end131
-    i8 0, label %while.end131
+    i8 13, label %if.end145.sink.split
+    i8 10, label %if.end145.sink.split
+    i8 0, label %if.end145.sink.split
   ]
 
 while.body129:                                    ; preds = %while.cond116
@@ -299,41 +286,35 @@ while.body129:                                    ; preds = %while.cond116
   %.pre101 = load i8, ptr %incdec.ptr130, align 1
   br label %while.cond116, !llvm.loop !11
 
-while.end131:                                     ; preds = %while.cond116, %while.cond116, %while.cond116
-  %inc132 = add nsw i32 %inc_count.090, 1
-  %sub.ptr.lhs.cast133 = ptrtoint ptr %s.089 to i64
-  %sub.ptr.sub135 = sub i64 %sub.ptr.lhs.cast133, %sub.ptr.rhs.cast93
-  %conv136 = trunc i64 %sub.ptr.sub135 to i32
-  %conv.i71 = sext i32 %inc132 to i64
-  %mul.i72 = mul nsw i64 %conv.i71, 24
-  %call.i73 = tail call ptr @realloc(ptr noundef %list.091, i64 noundef %mul.i72) #15
-  %idxprom.i74 = sext i32 %inc_count.090 to i64
-  %arrayidx.i75 = getelementptr inbounds %struct.include_info, ptr %call.i73, i64 %idxprom.i74
-  store i32 %conv136, ptr %arrayidx.i75, align 8
-  br label %if.end145.sink.split
-
-if.end145.sink.split:                             ; preds = %while.end131, %while.end91
-  %arrayidx.i.sink120 = phi ptr [ %arrayidx.i, %while.end91 ], [ %arrayidx.i75, %while.end131 ]
-  %sub.ptr.lhs.cast96.pn.in = phi ptr [ %s.4, %while.end91 ], [ %s.5, %while.end131 ]
-  %call68.sink = phi ptr [ %call68, %while.end91 ], [ null, %while.end131 ]
-  %inc_count.1.ph = phi i32 [ %inc, %while.end91 ], [ %inc132, %while.end131 ]
-  %list.1.ph = phi ptr [ %call.i, %while.end91 ], [ %call.i73, %while.end131 ]
-  %add100.sink = add nuw nsw i32 %line_count.092, 1
-  %sub.ptr.lhs.cast96.pn = ptrtoint ptr %sub.ptr.lhs.cast96.pn.in to i64
-  %conv99.sink.in = sub i64 %sub.ptr.lhs.cast96.pn, %sub.ptr.rhs.cast93
-  %conv99.sink = trunc i64 %conv99.sink.in to i32
-  %end4.i = getelementptr inbounds i8, ptr %arrayidx.i.sink120, i64 4
-  store i32 %conv99.sink, ptr %end4.i, align 4
-  %filename7.i = getelementptr inbounds i8, ptr %arrayidx.i.sink120, i64 8
+if.end145.sink.split:                             ; preds = %while.cond76, %while.cond76, %while.cond76, %while.cond116, %while.cond116, %while.cond116
+  %s.4.lcssa.sink = phi ptr [ %s.5, %while.cond116 ], [ %s.5, %while.cond116 ], [ %s.5, %while.cond116 ], [ %s.4, %while.cond76 ], [ %s.4, %while.cond76 ], [ %s.4, %while.cond76 ]
+  %call68.sink = phi ptr [ null, %while.cond116 ], [ null, %while.cond116 ], [ null, %while.cond116 ], [ %call68, %while.cond76 ], [ %call68, %while.cond76 ], [ %call68, %while.cond76 ]
+  %inc = add nsw i32 %inc_count.090, 1
+  %sub.ptr.lhs.cast92 = ptrtoint ptr %s.089 to i64
+  %sub.ptr.sub94 = sub i64 %sub.ptr.lhs.cast92, %sub.ptr.rhs.cast93
+  %conv95 = trunc i64 %sub.ptr.sub94 to i32
+  %sub.ptr.lhs.cast96 = ptrtoint ptr %s.4.lcssa.sink to i64
+  %sub.ptr.sub98 = sub i64 %sub.ptr.lhs.cast96, %sub.ptr.rhs.cast93
+  %conv99 = trunc i64 %sub.ptr.sub98 to i32
+  %add100 = add nuw nsw i32 %line_count.092, 1
+  %conv.i = sext i32 %inc to i64
+  %mul.i = mul nsw i64 %conv.i, 24
+  %call.i = tail call ptr @realloc(ptr noundef %list.091, i64 noundef %mul.i) #15
+  %idxprom.i = sext i32 %inc_count.090 to i64
+  %arrayidx.i = getelementptr inbounds %struct.include_info, ptr %call.i, i64 %idxprom.i
+  store i32 %conv95, ptr %arrayidx.i, align 8
+  %end4.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 4
+  store i32 %conv99, ptr %end4.i, align 4
+  %filename7.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
   store ptr %call68.sink, ptr %filename7.i, align 8
-  %next_line_after.i = getelementptr inbounds i8, ptr %arrayidx.i.sink120, i64 16
-  store i32 %add100.sink, ptr %next_line_after.i, align 8
+  %next_line_after.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 16
+  store i32 %add100, ptr %next_line_after.i, align 8
   br label %if.end145
 
 if.end145:                                        ; preds = %while.cond1, %while.cond29, %while.cond46, %while.cond46, %while.cond46, %if.end145.sink.split, %land.lhs.true106, %if.else
-  %s.6 = phi ptr [ %s.2, %if.else ], [ %s.2, %land.lhs.true106 ], [ %sub.ptr.lhs.cast96.pn.in, %if.end145.sink.split ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %s.3, %while.cond29 ], [ %s.1, %while.cond1 ]
-  %inc_count.1 = phi i32 [ %inc_count.090, %if.else ], [ %inc_count.090, %land.lhs.true106 ], [ %inc_count.1.ph, %if.end145.sink.split ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond29 ], [ %inc_count.090, %while.cond1 ]
-  %list.1 = phi ptr [ %list.091, %if.else ], [ %list.091, %land.lhs.true106 ], [ %list.1.ph, %if.end145.sink.split ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond29 ], [ %list.091, %while.cond1 ]
+  %s.6 = phi ptr [ %s.2, %if.else ], [ %s.2, %land.lhs.true106 ], [ %s.4.lcssa.sink, %if.end145.sink.split ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %incdec.ptr45, %while.cond46 ], [ %s.3, %while.cond29 ], [ %s.1, %while.cond1 ]
+  %inc_count.1 = phi i32 [ %inc_count.090, %if.else ], [ %inc_count.090, %land.lhs.true106 ], [ %inc, %if.end145.sink.split ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond46 ], [ %inc_count.090, %while.cond29 ], [ %inc_count.090, %while.cond1 ]
+  %list.1 = phi ptr [ %list.091, %if.else ], [ %list.091, %land.lhs.true106 ], [ %call.i, %if.end145.sink.split ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond46 ], [ %list.091, %while.cond29 ], [ %list.091, %while.cond1 ]
   br label %while.cond146
 
 while.cond146:                                    ; preds = %while.body159, %if.end145

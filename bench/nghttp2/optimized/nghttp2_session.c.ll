@@ -2343,10 +2343,10 @@ if.else29:                                        ; preds = %nghttp2_session_is_
 if.end32.sink.split:                              ; preds = %if.else, %if.then22, %nghttp2_session_is_my_stream_id.exit.thread, %if.else29
   %.sink = phi i64 [ 2664, %if.else29 ], [ 2672, %nghttp2_session_is_my_stream_id.exit.thread ], [ 2672, %if.then22 ], [ 2656, %if.else ]
   %tobool49.ph = phi i1 [ false, %if.else29 ], [ false, %nghttp2_session_is_my_stream_id.exit.thread ], [ false, %if.then22 ], [ true, %if.else ]
-  %num_incoming_reserved_streams = getelementptr inbounds i8, ptr %session, i64 %.sink
-  %20 = load i64, ptr %num_incoming_reserved_streams, align 8
+  %num_outgoing_streams = getelementptr inbounds i8, ptr %session, i64 %.sink
+  %20 = load i64, ptr %num_outgoing_streams, align 8
   %dec28 = add i64 %20, -1
-  store i64 %dec28, ptr %num_incoming_reserved_streams, align 8
+  store i64 %dec28, ptr %num_outgoing_streams, align 8
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %if.then22

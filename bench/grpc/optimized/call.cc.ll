@@ -22411,79 +22411,49 @@ _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8:  ; preds = %_ZN9grpc_core19Intr
 
 if.end.i10:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
   %.not.i.i.i11 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %17
-
-17:                                               ; preds = %if.end.i10
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i12 = load i16, ptr %on_closed_, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i13
-
-_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %17, %if.end.i10
-  %18 = phi i16 [ %16, %if.end.i10 ], [ %.pre.i12, %17 ]
-  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %20 = load ptr, ptr %19, align 8
-  store i16 0, ptr %on_closed_, align 2
-  %vtable.i14 = load ptr, ptr %20, align 8
-  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
-  %21 = load ptr, ptr %vfn.i15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %18)
-  br label %sw.epilog
+  br i1 %.not.i.i.i11, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb3:                                           ; preds = %entry
   store i8 5, ptr %value_state_, align 1
   %on_closed_5 = getelementptr inbounds i8, ptr %this, i64 46
-  %22 = load i16, ptr %on_closed_5, align 2
-  %cmp.i17 = icmp eq i16 %22, 0
+  %17 = load i16, ptr %on_closed_5, align 2
+  %cmp.i17 = icmp eq i16 %17, 0
   br i1 %cmp.i17, label %sw.epilog, label %if.end.i18
 
 if.end.i18:                                       ; preds = %sw.bb3
   %.not.i.i.i19 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i19, label %_ZN9grpc_core8Activity7currentEv.exit.i21, label %23
-
-23:                                               ; preds = %if.end.i18
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i20 = load i16, ptr %on_closed_5, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i21
-
-_ZN9grpc_core8Activity7currentEv.exit.i21:        ; preds = %23, %if.end.i18
-  %24 = phi i16 [ %22, %if.end.i18 ], [ %.pre.i20, %23 ]
-  %25 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %26 = load ptr, ptr %25, align 8
-  store i16 0, ptr %on_closed_5, align 2
-  %vtable.i22 = load ptr, ptr %26, align 8
-  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
-  %27 = load ptr, ptr %vfn.i23, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, i16 noundef zeroext %24)
-  br label %sw.epilog
+  br i1 %.not.i.i.i19, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb6:                                           ; preds = %entry
   store i8 6, ptr %value_state_, align 1
   %on_closed_8 = getelementptr inbounds i8, ptr %this, i64 46
-  %28 = load i16, ptr %on_closed_8, align 2
-  %cmp.i25 = icmp eq i16 %28, 0
+  %18 = load i16, ptr %on_closed_8, align 2
+  %cmp.i25 = icmp eq i16 %18, 0
   br i1 %cmp.i25, label %sw.epilog, label %if.end.i26
 
 if.end.i26:                                       ; preds = %sw.bb6
   %.not.i.i.i27 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i27, label %_ZN9grpc_core8Activity7currentEv.exit.i29, label %29
+  br i1 %.not.i.i.i27, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
-29:                                               ; preds = %if.end.i26
+sw.epilog.sink.split.sink.split:                  ; preds = %if.end.i26, %if.end.i18, %if.end.i10
+  %on_closed_8.sink37 = phi ptr [ %on_closed_, %if.end.i10 ], [ %on_closed_5, %if.end.i18 ], [ %on_closed_8, %if.end.i26 ]
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i28 = load i16, ptr %on_closed_8, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i29
+  %.pre.i28 = load i16, ptr %on_closed_8.sink37, align 2
+  br label %sw.epilog.sink.split
 
-_ZN9grpc_core8Activity7currentEv.exit.i29:        ; preds = %29, %if.end.i26
-  %30 = phi i16 [ %28, %if.end.i26 ], [ %.pre.i28, %29 ]
-  %31 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %32 = load ptr, ptr %31, align 8
-  store i16 0, ptr %on_closed_8, align 2
-  %vtable.i30 = load ptr, ptr %32, align 8
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end.i26, %if.end.i18, %if.end.i10
+  %on_closed_8.sink = phi ptr [ %on_closed_, %if.end.i10 ], [ %on_closed_5, %if.end.i18 ], [ %on_closed_8, %if.end.i26 ], [ %on_closed_8.sink37, %sw.epilog.sink.split.sink.split ]
+  %.sink33 = phi i16 [ %16, %if.end.i10 ], [ %17, %if.end.i18 ], [ %18, %if.end.i26 ], [ %.pre.i28, %sw.epilog.sink.split.sink.split ]
+  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %20 = load ptr, ptr %19, align 8
+  store i16 0, ptr %on_closed_8.sink, align 2
+  %vtable.i30 = load ptr, ptr %20, align 8
   %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 24
-  %33 = load ptr, ptr %vfn.i31, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, i16 noundef zeroext %30)
+  %21 = load ptr, ptr %vfn.i31, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %.sink33)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i29, %sw.bb6, %_ZN9grpc_core8Activity7currentEv.exit.i21, %sw.bb3, %_ZN9grpc_core8Activity7currentEv.exit.i13, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb6, %sw.bb3, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %entry
   ret void
 }
 
@@ -23112,79 +23082,49 @@ _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8:  ; preds = %_ZN9grpc_core19Intr
 
 if.end.i10:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
   %.not.i.i.i11 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %17
-
-17:                                               ; preds = %if.end.i10
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i12 = load i16, ptr %on_closed_, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i13
-
-_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %17, %if.end.i10
-  %18 = phi i16 [ %16, %if.end.i10 ], [ %.pre.i12, %17 ]
-  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %20 = load ptr, ptr %19, align 8
-  store i16 0, ptr %on_closed_, align 2
-  %vtable.i14 = load ptr, ptr %20, align 8
-  %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
-  %21 = load ptr, ptr %vfn.i15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %18)
-  br label %sw.epilog
+  br i1 %.not.i.i.i11, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb3:                                           ; preds = %entry
   store i8 5, ptr %value_state_, align 1
   %on_closed_5 = getelementptr inbounds i8, ptr %this, i64 46
-  %22 = load i16, ptr %on_closed_5, align 2
-  %cmp.i17 = icmp eq i16 %22, 0
+  %17 = load i16, ptr %on_closed_5, align 2
+  %cmp.i17 = icmp eq i16 %17, 0
   br i1 %cmp.i17, label %sw.epilog, label %if.end.i18
 
 if.end.i18:                                       ; preds = %sw.bb3
   %.not.i.i.i19 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i19, label %_ZN9grpc_core8Activity7currentEv.exit.i21, label %23
-
-23:                                               ; preds = %if.end.i18
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i20 = load i16, ptr %on_closed_5, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i21
-
-_ZN9grpc_core8Activity7currentEv.exit.i21:        ; preds = %23, %if.end.i18
-  %24 = phi i16 [ %22, %if.end.i18 ], [ %.pre.i20, %23 ]
-  %25 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %26 = load ptr, ptr %25, align 8
-  store i16 0, ptr %on_closed_5, align 2
-  %vtable.i22 = load ptr, ptr %26, align 8
-  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
-  %27 = load ptr, ptr %vfn.i23, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, i16 noundef zeroext %24)
-  br label %sw.epilog
+  br i1 %.not.i.i.i19, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb6:                                           ; preds = %entry
   store i8 6, ptr %value_state_, align 1
   %on_closed_8 = getelementptr inbounds i8, ptr %this, i64 46
-  %28 = load i16, ptr %on_closed_8, align 2
-  %cmp.i25 = icmp eq i16 %28, 0
+  %18 = load i16, ptr %on_closed_8, align 2
+  %cmp.i25 = icmp eq i16 %18, 0
   br i1 %cmp.i25, label %sw.epilog, label %if.end.i26
 
 if.end.i26:                                       ; preds = %sw.bb6
   %.not.i.i.i27 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i27, label %_ZN9grpc_core8Activity7currentEv.exit.i29, label %29
+  br i1 %.not.i.i.i27, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
-29:                                               ; preds = %if.end.i26
+sw.epilog.sink.split.sink.split:                  ; preds = %if.end.i26, %if.end.i18, %if.end.i10
+  %on_closed_8.sink37 = phi ptr [ %on_closed_, %if.end.i10 ], [ %on_closed_5, %if.end.i18 ], [ %on_closed_8, %if.end.i26 ]
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i28 = load i16, ptr %on_closed_8, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i29
+  %.pre.i28 = load i16, ptr %on_closed_8.sink37, align 2
+  br label %sw.epilog.sink.split
 
-_ZN9grpc_core8Activity7currentEv.exit.i29:        ; preds = %29, %if.end.i26
-  %30 = phi i16 [ %28, %if.end.i26 ], [ %.pre.i28, %29 ]
-  %31 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %32 = load ptr, ptr %31, align 8
-  store i16 0, ptr %on_closed_8, align 2
-  %vtable.i30 = load ptr, ptr %32, align 8
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end.i26, %if.end.i18, %if.end.i10
+  %on_closed_8.sink = phi ptr [ %on_closed_, %if.end.i10 ], [ %on_closed_5, %if.end.i18 ], [ %on_closed_8, %if.end.i26 ], [ %on_closed_8.sink37, %sw.epilog.sink.split.sink.split ]
+  %.sink33 = phi i16 [ %16, %if.end.i10 ], [ %17, %if.end.i18 ], [ %18, %if.end.i26 ], [ %.pre.i28, %sw.epilog.sink.split.sink.split ]
+  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %20 = load ptr, ptr %19, align 8
+  store i16 0, ptr %on_closed_8.sink, align 2
+  %vtable.i30 = load ptr, ptr %20, align 8
   %vfn.i31 = getelementptr inbounds i8, ptr %vtable.i30, i64 24
-  %33 = load ptr, ptr %vfn.i31, align 8
-  tail call void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, i16 noundef zeroext %30)
+  %21 = load ptr, ptr %vfn.i31, align 8
+  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %.sink33)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i29, %sw.bb6, %_ZN9grpc_core8Activity7currentEv.exit.i21, %sw.bb3, %_ZN9grpc_core8Activity7currentEv.exit.i13, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %entry
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %sw.bb6, %sw.bb3, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %entry
   ret void
 }
 
@@ -35503,125 +35443,111 @@ sw.bb:                                            ; preds = %entry, %entry
 
 if.end.i:                                         ; preds = %sw.bb
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i, label %2
-
-2:                                                ; preds = %if.end.i
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i = load i16, ptr %on_empty_, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i
-
-_ZN9grpc_core8Activity7currentEv.exit.i:          ; preds = %2, %if.end.i
-  %3 = phi i16 [ %1, %if.end.i ], [ %.pre.i, %2 ]
-  %4 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %5 = load ptr, ptr %4, align 8
-  store i16 0, ptr %on_empty_, align 2
-  %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i16 noundef zeroext %3)
-  br label %sw.epilog
+  br i1 %.not.i.i.i, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %7 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %7, null
+  %2 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %2, null
   br i1 %cmp.not3.i.i, label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb3, %for.body.i.i
-  %f.04.i.i = phi ptr [ %8, %for.body.i.i ], [ %7, %sw.bb3 ]
+  %f.04.i.i = phi ptr [ %3, %for.body.i.i ], [ %2, %sw.bb3 ]
   %next_.i.i.i = getelementptr inbounds i8, ptr %f.04.i.i, i64 8
-  %8 = load ptr, ptr %next_.i.i.i, align 8
+  %3 = load ptr, ptr %next_.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %f.04.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %f.04.i.i) #28
-  %cmp.not.i.i = icmp eq ptr %8, null
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %f.04.i.i) #28
+  %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, label %for.body.i.i, !llvm.loop !162
 
 _ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit: ; preds = %for.body.i.i, %sw.bb3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   store i8 4, ptr %value_state_, align 1
   %on_closed_ = getelementptr inbounds i8, ptr %this, i64 46
-  %10 = load i16, ptr %on_closed_, align 2
-  %cmp.i1 = icmp eq i16 %10, 0
+  %5 = load i16, ptr %on_closed_, align 2
+  %cmp.i1 = icmp eq i16 %5, 0
   br i1 %cmp.i1, label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, label %if.end.i2
 
 if.end.i2:                                        ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit
   %.not.i.i.i3 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i3, label %_ZN9grpc_core8Activity7currentEv.exit.i5, label %11
+  br i1 %.not.i.i.i3, label %_ZN9grpc_core8Activity7currentEv.exit.i5, label %6
 
-11:                                               ; preds = %if.end.i2
+6:                                                ; preds = %if.end.i2
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
   %.pre.i4 = load i16, ptr %on_closed_, align 2
   br label %_ZN9grpc_core8Activity7currentEv.exit.i5
 
-_ZN9grpc_core8Activity7currentEv.exit.i5:         ; preds = %11, %if.end.i2
-  %12 = phi i16 [ %10, %if.end.i2 ], [ %.pre.i4, %11 ]
-  %13 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %14 = load ptr, ptr %13, align 8
+_ZN9grpc_core8Activity7currentEv.exit.i5:         ; preds = %6, %if.end.i2
+  %7 = phi i16 [ %5, %if.end.i2 ], [ %.pre.i4, %6 ]
+  %8 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %9 = load ptr, ptr %8, align 8
   store i16 0, ptr %on_closed_, align 2
-  %vtable.i6 = load ptr, ptr %14, align 8
+  %vtable.i6 = load ptr, ptr %9, align 8
   %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
-  %15 = load ptr, ptr %vfn.i7, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i16 noundef zeroext %12)
+  %10 = load ptr, ptr %vfn.i7, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i16 noundef zeroext %7)
   br label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
 
 _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8:  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, %_ZN9grpc_core8Activity7currentEv.exit.i5
   %on_empty_5 = getelementptr inbounds i8, ptr %this, i64 42
-  %16 = load i16, ptr %on_empty_5, align 2
-  %cmp.i9 = icmp eq i16 %16, 0
+  %11 = load i16, ptr %on_empty_5, align 2
+  %cmp.i9 = icmp eq i16 %11, 0
   br i1 %cmp.i9, label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, label %if.end.i10
 
 if.end.i10:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
   %.not.i.i.i11 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %17
+  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %12
 
-17:                                               ; preds = %if.end.i10
+12:                                               ; preds = %if.end.i10
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
   %.pre.i12 = load i16, ptr %on_empty_5, align 2
   br label %_ZN9grpc_core8Activity7currentEv.exit.i13
 
-_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %17, %if.end.i10
-  %18 = phi i16 [ %16, %if.end.i10 ], [ %.pre.i12, %17 ]
-  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %20 = load ptr, ptr %19, align 8
+_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %12, %if.end.i10
+  %13 = phi i16 [ %11, %if.end.i10 ], [ %.pre.i12, %12 ]
+  %14 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %15 = load ptr, ptr %14, align 8
   store i16 0, ptr %on_empty_5, align 2
-  %vtable.i14 = load ptr, ptr %20, align 8
+  %vtable.i14 = load ptr, ptr %15, align 8
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
-  %21 = load ptr, ptr %vfn.i15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %18)
+  %16 = load ptr, ptr %vfn.i15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i16 noundef zeroext %13)
   br label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16
 
 _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16: ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %_ZN9grpc_core8Activity7currentEv.exit.i13
   %on_full_ = getelementptr inbounds i8, ptr %this, i64 44
-  %22 = load i16, ptr %on_full_, align 4
-  %cmp.i17 = icmp eq i16 %22, 0
+  %17 = load i16, ptr %on_full_, align 4
+  %cmp.i17 = icmp eq i16 %17, 0
   br i1 %cmp.i17, label %sw.epilog, label %if.end.i18
 
 if.end.i18:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16
   %.not.i.i.i19 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i19, label %_ZN9grpc_core8Activity7currentEv.exit.i21, label %23
-
-23:                                               ; preds = %if.end.i18
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i20 = load i16, ptr %on_full_, align 4
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i21
-
-_ZN9grpc_core8Activity7currentEv.exit.i21:        ; preds = %23, %if.end.i18
-  %24 = phi i16 [ %22, %if.end.i18 ], [ %.pre.i20, %23 ]
-  %25 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %26 = load ptr, ptr %25, align 8
-  store i16 0, ptr %on_full_, align 4
-  %vtable.i22 = load ptr, ptr %26, align 8
-  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
-  %27 = load ptr, ptr %vfn.i23, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, i16 noundef zeroext %24)
-  br label %sw.epilog
+  br i1 %.not.i.i.i19, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb7:                                           ; preds = %entry, %entry
   tail call void @abort() #30
   unreachable
 
-sw.epilog:                                        ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i21, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, %_ZN9grpc_core8Activity7currentEv.exit.i, %sw.bb, %entry
+sw.epilog.sink.split.sink.split:                  ; preds = %if.end.i18, %if.end.i
+  %on_full_.sink29 = phi ptr [ %on_empty_, %if.end.i ], [ %on_full_, %if.end.i18 ]
+  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
+  %.pre.i20 = load i16, ptr %on_full_.sink29, align 2
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end.i18, %if.end.i
+  %on_full_.sink = phi ptr [ %on_empty_, %if.end.i ], [ %on_full_, %if.end.i18 ], [ %on_full_.sink29, %sw.epilog.sink.split.sink.split ]
+  %.sink25 = phi i16 [ %1, %if.end.i ], [ %17, %if.end.i18 ], [ %.pre.i20, %sw.epilog.sink.split.sink.split ]
+  %18 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %19 = load ptr, ptr %18, align 8
+  store i16 0, ptr %on_full_.sink, align 2
+  %vtable.i22 = load ptr, ptr %19, align 8
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
+  %20 = load ptr, ptr %vfn.i23, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, i16 noundef zeroext %.sink25)
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, %sw.bb, %entry
   ret void
 }
 
@@ -39024,125 +38950,111 @@ sw.bb:                                            ; preds = %entry, %entry
 
 if.end.i:                                         ; preds = %sw.bb
   %.not.i.i.i = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i, label %_ZN9grpc_core8Activity7currentEv.exit.i, label %2
-
-2:                                                ; preds = %if.end.i
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i = load i16, ptr %on_empty_, align 2
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i
-
-_ZN9grpc_core8Activity7currentEv.exit.i:          ; preds = %2, %if.end.i
-  %3 = phi i16 [ %1, %if.end.i ], [ %.pre.i, %2 ]
-  %4 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %5 = load ptr, ptr %4, align 8
-  store i16 0, ptr %on_empty_, align 2
-  %vtable.i = load ptr, ptr %5, align 8
-  %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 24
-  %6 = load ptr, ptr %vfn.i, align 8
-  tail call void %6(ptr noundef nonnull align 8 dereferenceable(8) %5, i16 noundef zeroext %3)
-  br label %sw.epilog
+  br i1 %.not.i.i.i, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb3:                                           ; preds = %entry, %entry
-  %7 = load ptr, ptr %this, align 8
-  %cmp.not3.i.i = icmp eq ptr %7, null
+  %2 = load ptr, ptr %this, align 8
+  %cmp.not3.i.i = icmp eq ptr %2, null
   br i1 %cmp.not3.i.i, label %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, label %for.body.i.i
 
 for.body.i.i:                                     ; preds = %sw.bb3, %for.body.i.i
-  %f.04.i.i = phi ptr [ %8, %for.body.i.i ], [ %7, %sw.bb3 ]
+  %f.04.i.i = phi ptr [ %3, %for.body.i.i ], [ %2, %sw.bb3 ]
   %next_.i.i.i = getelementptr inbounds i8, ptr %f.04.i.i, i64 8
-  %8 = load ptr, ptr %next_.i.i.i, align 8
+  %3 = load ptr, ptr %next_.i.i.i, align 8
   %vtable.i.i = load ptr, ptr %f.04.i.i, align 8
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i, i64 24
-  %9 = load ptr, ptr %vfn.i.i, align 8
-  tail call void %9(ptr noundef nonnull align 8 dereferenceable(16) %f.04.i.i) #28
-  %cmp.not.i.i = icmp eq ptr %8, null
+  %4 = load ptr, ptr %vfn.i.i, align 8
+  tail call void %4(ptr noundef nonnull align 8 dereferenceable(16) %f.04.i.i) #28
+  %cmp.not.i.i = icmp eq ptr %3, null
   br i1 %cmp.not.i.i, label %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, label %for.body.i.i, !llvm.loop !158
 
 _ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit: ; preds = %for.body.i.i, %sw.bb3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %this, i8 0, i64 24, i1 false)
   store i8 4, ptr %value_state_, align 1
   %on_closed_ = getelementptr inbounds i8, ptr %this, i64 46
-  %10 = load i16, ptr %on_closed_, align 2
-  %cmp.i1 = icmp eq i16 %10, 0
+  %5 = load i16, ptr %on_closed_, align 2
+  %cmp.i1 = icmp eq i16 %5, 0
   br i1 %cmp.i1, label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, label %if.end.i2
 
 if.end.i2:                                        ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit
   %.not.i.i.i3 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i3, label %_ZN9grpc_core8Activity7currentEv.exit.i5, label %11
+  br i1 %.not.i.i.i3, label %_ZN9grpc_core8Activity7currentEv.exit.i5, label %6
 
-11:                                               ; preds = %if.end.i2
+6:                                                ; preds = %if.end.i2
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
   %.pre.i4 = load i16, ptr %on_closed_, align 2
   br label %_ZN9grpc_core8Activity7currentEv.exit.i5
 
-_ZN9grpc_core8Activity7currentEv.exit.i5:         ; preds = %11, %if.end.i2
-  %12 = phi i16 [ %10, %if.end.i2 ], [ %.pre.i4, %11 ]
-  %13 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %14 = load ptr, ptr %13, align 8
+_ZN9grpc_core8Activity7currentEv.exit.i5:         ; preds = %6, %if.end.i2
+  %7 = phi i16 [ %5, %if.end.i2 ], [ %.pre.i4, %6 ]
+  %8 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %9 = load ptr, ptr %8, align 8
   store i16 0, ptr %on_closed_, align 2
-  %vtable.i6 = load ptr, ptr %14, align 8
+  %vtable.i6 = load ptr, ptr %9, align 8
   %vfn.i7 = getelementptr inbounds i8, ptr %vtable.i6, i64 24
-  %15 = load ptr, ptr %vfn.i7, align 8
-  tail call void %15(ptr noundef nonnull align 8 dereferenceable(8) %14, i16 noundef zeroext %12)
+  %10 = load ptr, ptr %vfn.i7, align 8
+  tail call void %10(ptr noundef nonnull align 8 dereferenceable(8) %9, i16 noundef zeroext %7)
   br label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
 
 _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8:  ; preds = %_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEE20ResetInterceptorListEv.exit, %_ZN9grpc_core8Activity7currentEv.exit.i5
   %on_empty_5 = getelementptr inbounds i8, ptr %this, i64 42
-  %16 = load i16, ptr %on_empty_5, align 2
-  %cmp.i9 = icmp eq i16 %16, 0
+  %11 = load i16, ptr %on_empty_5, align 2
+  %cmp.i9 = icmp eq i16 %11, 0
   br i1 %cmp.i9, label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, label %if.end.i10
 
 if.end.i10:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8
   %.not.i.i.i11 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %17
+  br i1 %.not.i.i.i11, label %_ZN9grpc_core8Activity7currentEv.exit.i13, label %12
 
-17:                                               ; preds = %if.end.i10
+12:                                               ; preds = %if.end.i10
   tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
   %.pre.i12 = load i16, ptr %on_empty_5, align 2
   br label %_ZN9grpc_core8Activity7currentEv.exit.i13
 
-_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %17, %if.end.i10
-  %18 = phi i16 [ %16, %if.end.i10 ], [ %.pre.i12, %17 ]
-  %19 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %20 = load ptr, ptr %19, align 8
+_ZN9grpc_core8Activity7currentEv.exit.i13:        ; preds = %12, %if.end.i10
+  %13 = phi i16 [ %11, %if.end.i10 ], [ %.pre.i12, %12 ]
+  %14 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %15 = load ptr, ptr %14, align 8
   store i16 0, ptr %on_empty_5, align 2
-  %vtable.i14 = load ptr, ptr %20, align 8
+  %vtable.i14 = load ptr, ptr %15, align 8
   %vfn.i15 = getelementptr inbounds i8, ptr %vtable.i14, i64 24
-  %21 = load ptr, ptr %vfn.i15, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %20, i16 noundef zeroext %18)
+  %16 = load ptr, ptr %vfn.i15, align 8
+  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %15, i16 noundef zeroext %13)
   br label %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16
 
 _ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16: ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit8, %_ZN9grpc_core8Activity7currentEv.exit.i13
   %on_full_ = getelementptr inbounds i8, ptr %this, i64 44
-  %22 = load i16, ptr %on_full_, align 4
-  %cmp.i17 = icmp eq i16 %22, 0
+  %17 = load i16, ptr %on_full_, align 4
+  %cmp.i17 = icmp eq i16 %17, 0
   br i1 %cmp.i17, label %sw.epilog, label %if.end.i18
 
 if.end.i18:                                       ; preds = %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16
   %.not.i.i.i19 = icmp eq ptr @_ZTHN9grpc_core8Activity19g_current_activity_E, null
-  br i1 %.not.i.i.i19, label %_ZN9grpc_core8Activity7currentEv.exit.i21, label %23
-
-23:                                               ; preds = %if.end.i18
-  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
-  %.pre.i20 = load i16, ptr %on_full_, align 4
-  br label %_ZN9grpc_core8Activity7currentEv.exit.i21
-
-_ZN9grpc_core8Activity7currentEv.exit.i21:        ; preds = %23, %if.end.i18
-  %24 = phi i16 [ %22, %if.end.i18 ], [ %.pre.i20, %23 ]
-  %25 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
-  %26 = load ptr, ptr %25, align 8
-  store i16 0, ptr %on_full_, align 4
-  %vtable.i22 = load ptr, ptr %26, align 8
-  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
-  %27 = load ptr, ptr %vfn.i23, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %26, i16 noundef zeroext %24)
-  br label %sw.epilog
+  br i1 %.not.i.i.i19, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.bb7:                                           ; preds = %entry, %entry
   tail call void @abort() #30
   unreachable
 
-sw.epilog:                                        ; preds = %_ZN9grpc_core8Activity7currentEv.exit.i21, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, %_ZN9grpc_core8Activity7currentEv.exit.i, %sw.bb, %entry
+sw.epilog.sink.split.sink.split:                  ; preds = %if.end.i18, %if.end.i
+  %on_full_.sink29 = phi ptr [ %on_empty_, %if.end.i ], [ %on_full_, %if.end.i18 ]
+  tail call void @_ZTHN9grpc_core8Activity19g_current_activity_E()
+  %.pre.i20 = load i16, ptr %on_full_.sink29, align 2
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.end.i18, %if.end.i
+  %on_full_.sink = phi ptr [ %on_empty_, %if.end.i ], [ %on_full_, %if.end.i18 ], [ %on_full_.sink29, %sw.epilog.sink.split.sink.split ]
+  %.sink25 = phi i16 [ %1, %if.end.i ], [ %17, %if.end.i18 ], [ %.pre.i20, %sw.epilog.sink.split.sink.split ]
+  %18 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN9grpc_core8Activity19g_current_activity_E)
+  %19 = load ptr, ptr %18, align 8
+  store i16 0, ptr %on_full_.sink, align 2
+  %vtable.i22 = load ptr, ptr %19, align 8
+  %vfn.i23 = getelementptr inbounds i8, ptr %vtable.i22, i64 24
+  %20 = load ptr, ptr %vfn.i23, align 8
+  tail call void %20(ptr noundef nonnull align 8 dereferenceable(8) %19, i16 noundef zeroext %.sink25)
+  br label %sw.epilog
+
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN9grpc_core19IntraActivityWaiter4WakeEv.exit16, %sw.bb, %entry
   ret void
 }
 

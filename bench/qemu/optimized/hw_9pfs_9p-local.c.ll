@@ -288,63 +288,39 @@ if.then6:                                         ; preds = %entry
 if.end7:                                          ; preds = %entry
   %call8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(12) @.str.10) #16
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then10, label %if.else
-
-if.then10:                                        ; preds = %if.end7
-  %export_flags = getelementptr inbounds i8, ptr %fse, i64 16
-  %0 = load i32, ptr %export_flags, align 8
-  %or = or i32 %0, 4
-  store i32 %or, ptr %export_flags, align 8
-  br label %if.end35
+  br i1 %tobool9.not, label %if.end35, label %if.else
 
 if.else:                                          ; preds = %if.end7
   %call11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(7) @.str.11) #16
   %tobool12.not = icmp eq i32 %call11, 0
-  br i1 %tobool12.not, label %if.then16, label %lor.lhs.false13
+  br i1 %tobool12.not, label %if.end35, label %lor.lhs.false13
 
 lor.lhs.false13:                                  ; preds = %if.else
   %call14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(13) @.str.12) #16
   %tobool15.not = icmp eq i32 %call14, 0
-  br i1 %tobool15.not, label %if.then16, label %if.else19
-
-if.then16:                                        ; preds = %lor.lhs.false13, %if.else
-  %export_flags17 = getelementptr inbounds i8, ptr %fse, i64 16
-  %1 = load i32, ptr %export_flags17, align 8
-  %or18 = or i32 %1, 8
-  store i32 %or18, ptr %export_flags17, align 8
-  br label %if.end35
+  br i1 %tobool15.not, label %if.end35, label %if.else19
 
 if.else19:                                        ; preds = %lor.lhs.false13
   %call20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(5) @.str.13) #16
   %tobool21.not = icmp eq i32 %call20, 0
-  br i1 %tobool21.not, label %if.then22, label %if.else25
-
-if.then22:                                        ; preds = %if.else19
-  %export_flags23 = getelementptr inbounds i8, ptr %fse, i64 16
-  %2 = load i32, ptr %export_flags23, align 8
-  %or24 = or i32 %2, 16
-  store i32 %or24, ptr %export_flags23, align 8
-  br label %if.end35
+  br i1 %tobool21.not, label %if.end35, label %if.else25
 
 if.else25:                                        ; preds = %if.else19
   %call26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %call, ptr noundef nonnull dereferenceable(12) @.str.14) #16
   %tobool27.not = icmp eq i32 %call26, 0
-  br i1 %tobool27.not, label %if.then28, label %if.else31
-
-if.then28:                                        ; preds = %if.else25
-  %export_flags29 = getelementptr inbounds i8, ptr %fse, i64 16
-  %3 = load i32, ptr %export_flags29, align 8
-  %or30 = or i32 %3, 32
-  store i32 %or30, ptr %export_flags29, align 8
-  br label %if.end35
+  br i1 %tobool27.not, label %if.end35, label %if.else31
 
 if.else31:                                        ; preds = %if.else25
   call void (ptr, ptr, i32, ptr, ptr, ...) @error_setg_internal(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.1, i32 noundef 1519, ptr noundef nonnull @__func__.local_parse_opts, ptr noundef nonnull @.str.15, ptr noundef nonnull %call) #15
   call void (ptr, ptr, ...) @error_append_hint(ptr noundef nonnull %spec.select, ptr noundef nonnull @.str.27) #15
   br label %cleanup
 
-if.end35:                                         ; preds = %if.then16, %if.then28, %if.then22, %if.then10
-  %4 = phi i32 [ %or18, %if.then16 ], [ %or30, %if.then28 ], [ %or24, %if.then22 ], [ %or, %if.then10 ]
+if.end35:                                         ; preds = %if.else25, %if.else19, %if.else, %lor.lhs.false13, %if.end7
+  %.sink49 = phi i32 [ 4, %if.end7 ], [ 8, %lor.lhs.false13 ], [ 8, %if.else ], [ 16, %if.else19 ], [ 32, %if.else25 ]
+  %export_flags17 = getelementptr inbounds i8, ptr %fse, i64 16
+  %0 = load i32, ptr %export_flags17, align 8
+  %or18 = or i32 %0, %.sink49
+  store i32 %or18, ptr %export_flags17, align 8
   %tobool36.not = icmp eq ptr %call4, null
   br i1 %tobool36.not, label %if.end64, label %if.then37
 
@@ -355,7 +331,7 @@ if.then37:                                        ; preds = %if.end35
 
 if.then40:                                        ; preds = %if.then37
   %export_flags41 = getelementptr inbounds i8, ptr %fse, i64 16
-  %and = and i32 %4, -1537
+  %and = and i32 %or18, -1537
   %or43 = or disjoint i32 %and, 512
   store i32 %or43, ptr %export_flags41, align 8
   br label %if.end64
@@ -367,7 +343,7 @@ if.else44:                                        ; preds = %if.then37
 
 if.then47:                                        ; preds = %if.else44
   %export_flags48 = getelementptr inbounds i8, ptr %fse, i64 16
-  %and49 = and i32 %4, -1537
+  %and49 = and i32 %or18, -1537
   %or51 = or disjoint i32 %and49, 1024
   store i32 %or51, ptr %export_flags48, align 8
   br label %if.end64
@@ -379,7 +355,7 @@ if.else52:                                        ; preds = %if.else44
 
 if.then55:                                        ; preds = %if.else52
   %export_flags56 = getelementptr inbounds i8, ptr %fse, i64 16
-  %and59 = and i32 %4, -1537
+  %and59 = and i32 %or18, -1537
   store i32 %and59, ptr %export_flags56, align 8
   br label %if.end64
 
@@ -408,20 +384,20 @@ if.then70:                                        ; preds = %if.end67
 
 if.end71:                                         ; preds = %if.end67
   %export_flags72 = getelementptr inbounds i8, ptr %fse, i64 16
-  %5 = load i32, ptr %export_flags72, align 8
-  %6 = and i32 %5, 40
-  %or.cond47 = icmp eq i32 %6, 0
+  %1 = load i32, ptr %export_flags72, align 8
+  %2 = and i32 %1, 40
+  %or.cond47 = icmp eq i32 %2, 0
   br i1 %or.cond47, label %if.else85, label %if.then79
 
 if.then79:                                        ; preds = %if.end71
   %call80 = call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.23, i64 noundef 384) #15
-  %7 = trunc i64 %call80 to i32
-  %conv = and i32 %7, 511
+  %3 = trunc i64 %call80 to i32
+  %conv = and i32 %3, 511
   %fmode = getelementptr inbounds i8, ptr %fse, i64 616
   store i32 %conv, ptr %fmode, align 8
   %call82 = call i64 @qemu_opt_get_number(ptr noundef %opts, ptr noundef nonnull @.str.24, i64 noundef 448) #15
-  %8 = trunc i64 %call82 to i32
-  %conv84 = and i32 %8, 511
+  %4 = trunc i64 %call82 to i32
+  %conv84 = and i32 %4, 511
   %dmode = getelementptr inbounds i8, ptr %fse, i64 620
   store i32 %conv84, ptr %dmode, align 4
   br label %if.end94

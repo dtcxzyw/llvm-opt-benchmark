@@ -4004,7 +4004,7 @@ if.then36:                                        ; preds = %if.then28
   br label %for.cond.backedge.sink.split
 
 for.cond.backedge.sink.split:                     ; preds = %if.end73, %if.end136, %if.end150.sink.split, %if.then36
-  %add.ptr37.sink = phi ptr [ %add.ptr37, %if.then36 ], [ %ip.7, %if.end136 ], [ %add.ptr74, %if.end73 ], [ %.sink220, %if.end150.sink.split ]
+  %add.ptr37.sink = phi ptr [ %add.ptr37, %if.then36 ], [ %ip.7, %if.end136 ], [ %add.ptr74, %if.end73 ], [ %41, %if.end150.sink.split ]
   %op.0.be.ph = phi ptr [ %add.ptr.i137, %if.then36 ], [ %op.7, %if.end136 ], [ %add.ptr.i160, %if.end73 ], [ %op.8.ph, %if.end150.sink.split ]
   %17 = load i8, ptr %add.ptr37.sink, align 1
   %conv38 = zext i8 %17 to i32
@@ -4228,14 +4228,14 @@ if.then140:                                       ; preds = %if.end136
 
 if.end150.sink.split:                             ; preds = %if.then140, %if.then78
   %op.8.ph = phi ptr [ %add.ptr.i160, %if.then78 ], [ %op.7, %if.then140 ]
-  %.sink220 = load ptr, ptr %ip_, align 8
-  %41 = load ptr, ptr %ip_limit_.i, align 8
-  %sub.ptr.lhs.cast.i177 = ptrtoint ptr %41 to i64
-  %sub.ptr.rhs.cast.i178 = ptrtoint ptr %.sink220 to i64
+  %41 = load ptr, ptr %ip_, align 8
+  %42 = load ptr, ptr %ip_limit_.i, align 8
+  %sub.ptr.lhs.cast.i177 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i178 = ptrtoint ptr %41 to i64
   %sub.ptr.sub.i179 = sub i64 %sub.ptr.lhs.cast.i177, %sub.ptr.rhs.cast.i178
   %.sroa.speculated.i180 = call i64 @llvm.smin.i64(i64 %sub.ptr.sub.i179, i64 4)
   %idx.neg.i181 = sub i64 0, %.sroa.speculated.i180
-  %add.ptr.i182 = getelementptr inbounds i8, ptr %41, i64 %idx.neg.i181
+  %add.ptr.i182 = getelementptr inbounds i8, ptr %42, i64 %idx.neg.i181
   store ptr %add.ptr.i182, ptr %ip_limit_min_maxtaglen_.i, align 8
   br label %for.cond.backedge.sink.split
 

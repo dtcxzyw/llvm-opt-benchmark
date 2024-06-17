@@ -2293,8 +2293,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit": ; preds = %24, %19
-  %.sink = phi i64 [ 248, %19 ], [ 32, %24 ]
-  %29 = getelementptr inbounds i8, ptr %14, i64 %.sink
+  %.sink35 = phi i64 [ 248, %19 ], [ 32, %24 ]
+  %29 = getelementptr inbounds i8, ptr %14, i64 %.sink35
   %30 = load ptr, ptr %29, align 8, !alias.scope !385, !noalias !409, !nonnull !11, !noundef !11
   %31 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, i32, [1 x i32] }], ptr %30, i64 0, i64 %18
   %32 = getelementptr inbounds i8, ptr %31, i64 48
@@ -2424,8 +2424,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br i1 %75, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit.i.i", label %.invoke, !prof !400
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha2d60eeffc417465E.exit.i.i": ; preds = %72, %66
-  %.sink.i.i = phi i64 [ 248, %66 ], [ 32, %72 ]
-  %76 = getelementptr inbounds i8, ptr %61, i64 %.sink.i.i
+  %.sink26.i.i = phi i64 [ 248, %66 ], [ 32, %72 ]
+  %76 = getelementptr inbounds i8, ptr %61, i64 %.sink26.i.i
   %77 = load ptr, ptr %76, align 8, !alias.scope !455, !noalias !473, !nonnull !11, !noundef !11
   %78 = getelementptr inbounds [0 x { { { { { i64, ptr, {} }, i64 }, {} }, { { { i64, ptr, {} }, i64 }, {} } }, i32, [1 x i32] }], ptr %77, i64 0, i64 %65
   %79 = getelementptr inbounds i8, ptr %78, i64 48

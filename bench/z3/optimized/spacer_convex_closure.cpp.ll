@@ -5974,7 +5974,7 @@ while.body.lr.ph:                                 ; preds = %entry
   %m_ptr.i.i3.i.i.i.i346.i.i = getelementptr inbounds i8, ptr %__first, i64 24
   %m_ptr3.i.i.i.i.i.i204.i.i = getelementptr inbounds i8, ptr %__first, i64 40
   %m_ptr3.i.i4.i.i.i.i227.i.i = getelementptr inbounds i8, ptr %__first, i64 56
-  %m_owner.i.i5.i.i.i.i228.sink.i.i = getelementptr inbounds i8, ptr %__first, i64 20
+  %m_owner.i.i5.i.i.i.i228.sink373.i.i = getelementptr inbounds i8, ptr %__first, i64 20
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %"_ZSt27__unguarded_partition_pivotIP8rationalN9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEET_SI_SI_T0_.exit"
@@ -6174,25 +6174,25 @@ while.body.i.i:                                   ; preds = %"_ZSt11__make_heapI
   store ptr %20, ptr %m_ptr.i.i3.i.i.i.i346.i.i, align 8
   %bf.load.i.i5.i.i.i = load i8, ptr %m_kind3.i3.i.i.i, align 4
   %bf.clear.i.i6.i.i.i = and i8 %bf.load.i.i5.i.i.i, 2
-  %bf.load5.i.i8.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load5.i.i8.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear7.i.i9.i.i.i = and i8 %bf.load5.i.i8.i.i.i, 2
   %bf.clear11.i.i10.i.i.i = and i8 %bf.load.i.i5.i.i.i, -3
   %bf.set.i.i11.i.i.i = or disjoint i8 %bf.clear7.i.i9.i.i.i, %bf.clear11.i.i10.i.i.i
   store i8 %bf.set.i.i11.i.i.i, ptr %m_kind3.i3.i.i.i, align 4
-  %bf.load13.i.i12.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load13.i.i12.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear16.i.i13.i.i.i = and i8 %bf.load13.i.i12.i.i.i, -3
   %bf.set17.i.i14.i.i.i = or disjoint i8 %bf.clear16.i.i13.i.i.i, %bf.clear.i.i6.i.i.i
-  store i8 %bf.set17.i.i14.i.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  store i8 %bf.set17.i.i14.i.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.load18.i.i15.i.i.i = load i8, ptr %m_kind3.i3.i.i.i, align 4
   %bf.clear19.i.i16.i.i.i = and i8 %bf.load18.i.i15.i.i.i, 1
   %bf.clear23.i.i17.i.i.i = and i8 %bf.load13.i.i12.i.i.i, 1
   %bf.clear28.i.i18.i.i.i = and i8 %bf.load18.i.i15.i.i.i, -2
   %bf.set29.i.i19.i.i.i = or disjoint i8 %bf.clear28.i.i18.i.i.i, %bf.clear23.i.i17.i.i.i
   store i8 %bf.set29.i.i19.i.i.i, ptr %m_kind3.i3.i.i.i, align 4
-  %bf.load31.i.i20.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load31.i.i20.i.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear33.i.i21.i.i.i = and i8 %bf.load31.i.i20.i.i.i, -2
   %bf.set34.i.i22.i.i.i = or disjoint i8 %bf.clear33.i.i21.i.i.i, %bf.clear19.i.i16.i.i.i
-  store i8 %bf.set34.i.i22.i.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  store i8 %bf.set34.i.i22.i.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %sub.ptr.lhs.cast.i13 = ptrtoint ptr %incdec.ptr.i3.i to i64
   %sub.ptr.sub.i15 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast
   %sub.ptr.div.i16 = ashr exact i64 %sub.ptr.sub.i15, 5
@@ -6708,32 +6708,32 @@ if.else13.i.i:                                    ; preds = %"_ZN9__gnu_cxx5__op
 
 "_ZSt22__move_median_to_firstIP8rationalN9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_SI_SI_SI_T0_.exit.i": ; preds = %if.else13.i.i, %if.then12.i.i, %if.then9.i.i, %if.else5.i.i, %if.then4.i.i, %if.then2.i.i
   %m_ptr3.i.i4.i.i.i.i347.i.i.sink40 = phi ptr [ %m_ptr3.i.i4.i.i.i.i347.i.i, %if.else13.i.i ], [ %m_ptr3.i.i4.i.i.i.i303.i.i, %if.then12.i.i ], [ %m_ptr3.i.i4.i.i.i.i227.i.i, %if.then9.i.i ], [ %m_ptr3.i.i4.i.i.i.i227.i.i, %if.else5.i.i ], [ %m_ptr3.i.i4.i.i.i.i107.i.i, %if.then4.i.i ], [ %m_ptr3.i.i4.i.i.i.i.i.i, %if.then2.i.i ]
-  %m_owner4.i.i8.i.i.i.i231.sink372.i.i = phi ptr [ %m_kind.i.i.i.i.i.i.i.i.i.i.i, %if.else13.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i172.i.i, %if.then12.i.i ], [ %m_kind.i.i.i.i6.i.i.i.i.i.i.i, %if.then9.i.i ], [ %m_kind.i.i.i.i6.i.i.i.i.i.i.i, %if.else5.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i20.i.i, %if.then4.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i.i.i, %if.then2.i.i ]
+  %m_owner4.i.i8.i.i.i.i231.sink374.i.i = phi ptr [ %m_kind.i.i.i.i.i.i.i.i.i.i.i, %if.else13.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i172.i.i, %if.then12.i.i ], [ %m_kind.i.i.i.i6.i.i.i.i.i.i.i, %if.then9.i.i ], [ %m_kind.i.i.i.i6.i.i.i.i.i.i.i, %if.else5.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i20.i.i, %if.then4.i.i ], [ %m_kind.i.i.i.i.i.i.i.i.i.i.i, %if.then2.i.i ]
   %104 = load ptr, ptr %m_ptr.i.i3.i.i.i.i346.i.i, align 8
   %105 = load ptr, ptr %m_ptr3.i.i4.i.i.i.i347.i.i.sink40, align 8
   store ptr %105, ptr %m_ptr.i.i3.i.i.i.i346.i.i, align 8
   store ptr %104, ptr %m_ptr3.i.i4.i.i.i.i347.i.i.sink40, align 8
-  %bf.load.i.i6.i.i.i.i229.sink.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load.i.i6.i.i.i.i229.sink.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear.i.i7.i.i.i.i230.sink.i.i = and i8 %bf.load.i.i6.i.i.i.i229.sink.i.i, 2
-  %bf.load5.i.i9.i.i.i.i232.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink372.i.i, align 4
+  %bf.load5.i.i9.i.i.i.i232.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink374.i.i, align 4
   %bf.clear7.i.i10.i.i.i.i233.i.i = and i8 %bf.load5.i.i9.i.i.i.i232.i.i, 2
   %bf.clear11.i.i11.i.i.i.i234.i.i = and i8 %bf.load.i.i6.i.i.i.i229.sink.i.i, -3
   %bf.set.i.i12.i.i.i.i235.i.i = or disjoint i8 %bf.clear7.i.i10.i.i.i.i233.i.i, %bf.clear11.i.i11.i.i.i.i234.i.i
-  store i8 %bf.set.i.i12.i.i.i.i235.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
-  %bf.load13.i.i13.i.i.i.i236.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink372.i.i, align 4
+  store i8 %bf.set.i.i12.i.i.i.i235.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
+  %bf.load13.i.i13.i.i.i.i236.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink374.i.i, align 4
   %bf.clear16.i.i14.i.i.i.i237.i.i = and i8 %bf.load13.i.i13.i.i.i.i236.i.i, -3
   %bf.set17.i.i15.i.i.i.i238.i.i = or disjoint i8 %bf.clear16.i.i14.i.i.i.i237.i.i, %bf.clear.i.i7.i.i.i.i230.sink.i.i
-  store i8 %bf.set17.i.i15.i.i.i.i238.i.i, ptr %m_owner4.i.i8.i.i.i.i231.sink372.i.i, align 4
-  %bf.load18.i.i16.i.i.i.i239.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  store i8 %bf.set17.i.i15.i.i.i.i238.i.i, ptr %m_owner4.i.i8.i.i.i.i231.sink374.i.i, align 4
+  %bf.load18.i.i16.i.i.i.i239.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear19.i.i17.i.i.i.i240.i.i = and i8 %bf.load18.i.i16.i.i.i.i239.i.i, 1
   %bf.clear23.i.i18.i.i.i.i241.i.i = and i8 %bf.load13.i.i13.i.i.i.i236.i.i, 1
   %bf.clear28.i.i19.i.i.i.i242.i.i = and i8 %bf.load18.i.i16.i.i.i.i239.i.i, -2
   %bf.set29.i.i20.i.i.i.i243.i.i = or disjoint i8 %bf.clear28.i.i19.i.i.i.i242.i.i, %bf.clear23.i.i18.i.i.i.i241.i.i
-  store i8 %bf.set29.i.i20.i.i.i.i243.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
-  %bf.load31.i.i21.i.i.i.i244.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink372.i.i, align 4
+  store i8 %bf.set29.i.i20.i.i.i.i243.i.i, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
+  %bf.load31.i.i21.i.i.i.i244.i.i = load i8, ptr %m_owner4.i.i8.i.i.i.i231.sink374.i.i, align 4
   %bf.clear33.i.i22.i.i.i.i245.i.i = and i8 %bf.load31.i.i21.i.i.i.i244.i.i, -2
   %bf.set34.i.i23.i.i.i.i246.i.i = or disjoint i8 %bf.clear33.i.i22.i.i.i.i245.i.i, %bf.clear19.i.i17.i.i.i.i240.i.i
-  store i8 %bf.set34.i.i23.i.i.i.i246.i.i, ptr %m_owner4.i.i8.i.i.i.i231.sink372.i.i, align 4
+  store i8 %bf.set34.i.i23.i.i.i.i246.i.i, ptr %m_owner4.i.i8.i.i.i.i231.sink374.i.i, align 4
   br label %while.body.i.i12
 
 while.body.i.i12:                                 ; preds = %if.end.i.i, %"_ZSt22__move_median_to_firstIP8rationalN9__gnu_cxx5__ops15_Iter_comp_iterIZN6spacer14convex_closure7cc_1dimERK7obj_refI4expr11ast_managerER10ref_vectorIS8_S9_EE3$_0EEEvT_SI_SI_SI_T0_.exit.i"
@@ -6744,7 +6744,7 @@ while.body.i.i12:                                 ; preds = %if.end.i.i, %"_ZSt2
 while.cond1.i.i:                                  ; preds = %while.body2.i.i, %while.body.i.i12
   %__first.addr.1.i.i = phi ptr [ %__first.addr.0.i.i, %while.body.i.i12 ], [ %incdec.ptr.i.i, %while.body2.i.i ]
   %106 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8
-  %bf.load.i.i.i.i.i.i.i.i.i.i12.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load.i.i.i.i.i.i.i.i.i.i12.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear.i.i.i.i.i.i.i.i.i.i13.i = and i8 %bf.load.i.i.i.i.i.i.i.i.i.i12.i, 1
   %cmp.i.i.i.i.i.i.i.i.i.i14.i = icmp eq i8 %bf.clear.i.i.i.i.i.i.i.i.i.i13.i, 0
   %107 = load i32, ptr %m_den.i.i.i.i344.i.i, align 8
@@ -6813,7 +6813,7 @@ while.cond4.i.i:                                  ; preds = %while.cond4.i.i.bac
   br i1 %115, label %land.lhs.true.i.i.i.i.i20.i.i, label %if.else.i.i.i.i.i17.i.i
 
 land.lhs.true.i.i.i.i.i20.i.i:                    ; preds = %while.cond4.i.i
-  %bf.load.i.i.i.i7.i.i.i.i.i23.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink.i.i, align 4
+  %bf.load.i.i.i.i7.i.i.i.i.i23.i.i = load i8, ptr %m_owner.i.i5.i.i.i.i228.sink373.i.i, align 4
   %bf.clear.i.i.i.i8.i.i.i.i.i24.i.i = and i8 %bf.load.i.i.i.i7.i.i.i.i.i23.i.i, 1
   %cmp.i.i.i.i9.i.i.i.i.i25.i.i = icmp eq i8 %bf.clear.i.i.i.i8.i.i.i.i.i24.i.i, 0
   %116 = load i32, ptr %m_den.i.i.i.i344.i.i, align 8

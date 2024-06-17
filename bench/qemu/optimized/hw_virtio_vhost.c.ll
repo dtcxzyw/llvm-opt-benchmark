@@ -984,17 +984,11 @@ entry:
 if.then:                                          ; preds = %entry
   %call = call i32 %1(ptr noundef nonnull %dev, ptr noundef nonnull %addr, ptr noundef %vq) #18
   %cmp = icmp slt i32 %call, 0
-  br i1 %cmp, label %do.body, label %if.then.if.end6_crit_edge
+  br i1 %cmp, label %return.sink.split, label %if.then.if.end6_crit_edge
 
 if.then.if.end6_crit_edge:                        ; preds = %if.then
   %.pre = load ptr, ptr %vhost_ops, align 8
   br label %if.end6
-
-do.body:                                          ; preds = %if.then
-  %sub = sub i32 0, %call
-  %call4 = call ptr @strerror(i32 noundef %sub) #18
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.58, ptr noundef %call4, i32 noundef %sub) #18
-  br label %return
 
 if.else:                                          ; preds = %entry
   %desc = getelementptr inbounds i8, ptr %vq, i64 8
@@ -1024,16 +1018,18 @@ if.end6:                                          ; preds = %if.then.if.end6_cri
   %9 = load ptr, ptr %vhost_set_vring_addr, align 8
   %call9 = call i32 %9(ptr noundef nonnull %dev, ptr noundef nonnull %addr) #18
   %cmp10 = icmp slt i32 %call9, 0
-  br i1 %cmp10, label %do.body12, label %return
+  br i1 %cmp10, label %return.sink.split, label %return
 
-do.body12:                                        ; preds = %if.end6
-  %sub13 = sub i32 0, %call9
+return.sink.split:                                ; preds = %if.end6, %if.then
+  %call9.sink = phi i32 [ %call, %if.then ], [ %call9, %if.end6 ]
+  %.str.59.sink = phi ptr [ @.str.58, %if.then ], [ @.str.59, %if.end6 ]
+  %sub13 = sub i32 0, %call9.sink
   %call14 = call ptr @strerror(i32 noundef %sub13) #18
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.59, ptr noundef %call14, i32 noundef %sub13) #18
+  call void (ptr, ...) @error_report(ptr noundef nonnull %.str.59.sink, ptr noundef %call14, i32 noundef %sub13) #18
   br label %return
 
-return:                                           ; preds = %if.end6, %do.body12, %do.body
-  %retval.0 = phi i32 [ %call, %do.body ], [ %call9, %do.body12 ], [ %call9, %if.end6 ]
+return:                                           ; preds = %return.sink.split, %if.end6
+  %retval.0 = phi i32 [ %call9, %if.end6 ], [ %call9.sink, %return.sink.split ]
   ret i32 %retval.0
 }
 
@@ -3755,13 +3751,7 @@ if.end12:                                         ; preds = %if.then4, %3
   %8 = load ptr, ptr %vhost_set_features, align 8
   %call14 = tail call i32 %8(ptr noundef nonnull %dev, i64 noundef %features.2) #18
   %cmp15 = icmp slt i32 %call14, 0
-  br i1 %cmp15, label %do.body, label %if.end20
-
-do.body:                                          ; preds = %if.end12
-  %sub = sub i32 0, %call14
-  %call18 = tail call ptr @strerror(i32 noundef %sub) #18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.97, ptr noundef %call18, i32 noundef %sub) #18
-  br label %out
+  br i1 %cmp15, label %out.sink.split, label %if.end20
 
 if.end20:                                         ; preds = %if.end12
   %9 = load ptr, ptr %vhost_ops, align 8
@@ -3773,16 +3763,18 @@ if.end20:                                         ; preds = %if.end12
 if.then23:                                        ; preds = %if.end20
   %call26 = tail call i32 %10(ptr noundef nonnull %dev) #18
   %cmp27 = icmp slt i32 %call26, 0
-  br i1 %cmp27, label %do.body30, label %out
+  br i1 %cmp27, label %out.sink.split, label %out
 
-do.body30:                                        ; preds = %if.then23
-  %sub31 = sub i32 0, %call26
+out.sink.split:                                   ; preds = %if.then23, %if.end12
+  %call26.sink = phi i32 [ %call14, %if.end12 ], [ %call26, %if.then23 ]
+  %.str.98.sink = phi ptr [ @.str.97, %if.end12 ], [ @.str.98, %if.then23 ]
+  %sub31 = sub i32 0, %call26.sink
   %call32 = tail call ptr @strerror(i32 noundef %sub31) #18
-  tail call void (ptr, ...) @error_report(ptr noundef nonnull @.str.98, ptr noundef %call32, i32 noundef %sub31) #18
+  tail call void (ptr, ...) @error_report(ptr noundef nonnull %.str.98.sink, ptr noundef %call32, i32 noundef %sub31) #18
   br label %out
 
-out:                                              ; preds = %if.end20, %if.then23, %do.body30, %do.body
-  %r.0 = phi i32 [ %call14, %do.body ], [ %call26, %do.body30 ], [ %call26, %if.then23 ], [ %call14, %if.end20 ]
+out:                                              ; preds = %out.sink.split, %if.end20, %if.then23
+  %r.0 = phi i32 [ %call26, %if.then23 ], [ %call14, %if.end20 ], [ %call26.sink, %out.sink.split ]
   ret i32 %r.0
 }
 
@@ -5853,6 +5845,8 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc i32 @vhost_dev_set_log(ptr noundef %dev, i1 noundef zeroext %enable_log) unnamed_addr #0 {
 entry:
+  %addr.i31 = alloca %struct.vhost_vring_addr, align 8
+  %addr.i = alloca %struct.vhost_vring_addr, align 8
   %call = tail call fastcc i32 @vhost_dev_set_features(ptr noundef %dev, i1 noundef zeroext %enable_log)
   %cmp = icmp slt i32 %call, 0
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -5860,88 +5854,205 @@ entry:
 for.cond.preheader:                               ; preds = %entry
   %nvqs = getelementptr inbounds i8, ptr %dev, i64 440
   %0 = load i32, ptr %nvqs, align 8
-  %cmp132.not = icmp eq i32 %0, 0
-  br i1 %cmp132.not, label %return, label %for.body.lr.ph
+  %cmp165.not = icmp eq i32 %0, 0
+  br i1 %cmp165.not, label %return, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %vhost_ops = getelementptr inbounds i8, ptr %dev, i64 528
   %vq_index = getelementptr inbounds i8, ptr %dev, i64 444
   %vqs = getelementptr inbounds i8, ptr %dev, i64 432
+  %desc_user_addr.i = getelementptr inbounds i8, ptr %addr.i, i64 8
+  %avail_user_addr.i = getelementptr inbounds i8, ptr %addr.i, i64 24
+  %used_user_addr.i = getelementptr inbounds i8, ptr %addr.i, i64 16
+  %log_guest_addr.i = getelementptr inbounds i8, ptr %addr.i, i64 32
+  %cond.i = zext i1 %enable_log to i32
+  %flags.i = getelementptr inbounds i8, ptr %addr.i, i64 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
-  %i.033 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
+  %i.066 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %1 = load ptr, ptr %vhost_ops, align 8
   %vhost_get_vq_index = getelementptr inbounds i8, ptr %1, i64 208
   %2 = load ptr, ptr %vhost_get_vq_index, align 8
   %3 = load i32, ptr %vq_index, align 4
-  %add = add i32 %3, %i.033
-  %call2 = tail call i32 %2(ptr noundef nonnull %dev, i32 noundef %add) #18
+  %add = add i32 %3, %i.066
+  %call2 = call i32 %2(ptr noundef nonnull %dev, i32 noundef %add) #18
   %4 = load ptr, ptr %dev, align 8
-  %call3 = tail call i64 @virtio_queue_get_desc_addr(ptr noundef %4, i32 noundef %call2) #18
+  %call3 = call i64 @virtio_queue_get_desc_addr(ptr noundef %4, i32 noundef %call2) #18
   %tobool4.not = icmp eq i64 %call3, 0
   br i1 %tobool4.not, label %for.inc, label %if.end6
 
 if.end6:                                          ; preds = %for.body
   %5 = load ptr, ptr %vqs, align 8
-  %idx.ext = sext i32 %i.033 to i64
+  %idx.ext = sext i32 %i.066 to i64
   %add.ptr = getelementptr %struct.vhost_virtqueue, ptr %5, i64 %idx.ext
-  %call8 = tail call fastcc i32 @vhost_virtqueue_set_addr(ptr noundef nonnull %dev, ptr noundef %add.ptr, i32 noundef %call2, i1 noundef zeroext %enable_log)
-  %cmp9 = icmp slt i32 %call8, 0
-  br i1 %cmp9, label %for.cond12.preheader, label %for.inc
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %addr.i)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %addr.i, i8 0, i64 40, i1 false)
+  %6 = load ptr, ptr %vhost_ops, align 8
+  %vhost_vq_get_addr.i = getelementptr inbounds i8, ptr %6, i64 328
+  %7 = load ptr, ptr %vhost_vq_get_addr.i, align 8
+  %tobool.not.i = icmp eq ptr %7, null
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
 
-for.cond12.preheader:                             ; preds = %if.end6
-  %cmp1334 = icmp sgt i32 %i.033, -1
-  br i1 %cmp1334, label %for.body14.lr.ph, label %for.end31
+if.then.i:                                        ; preds = %if.end6
+  %call.i = call i32 %7(ptr noundef nonnull %dev, ptr noundef nonnull %addr.i, ptr noundef %add.ptr) #18
+  %cmp.i = icmp slt i32 %call.i, 0
+  br i1 %cmp.i, label %vhost_virtqueue_set_addr.exit, label %if.then.if.end6_crit_edge.i
 
-for.body14.lr.ph:                                 ; preds = %for.cond12.preheader
+if.then.if.end6_crit_edge.i:                      ; preds = %if.then.i
+  %.pre.i = load ptr, ptr %vhost_ops, align 8
+  br label %if.end6.i
+
+if.else.i:                                        ; preds = %if.end6
+  %desc.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
+  %8 = load ptr, ptr %desc.i, align 8
+  %9 = ptrtoint ptr %8 to i64
+  store i64 %9, ptr %desc_user_addr.i, align 8
+  %avail.i = getelementptr inbounds i8, ptr %add.ptr, i64 16
+  %10 = load ptr, ptr %avail.i, align 8
+  %11 = ptrtoint ptr %10 to i64
+  store i64 %11, ptr %avail_user_addr.i, align 8
+  %used.i = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %12 = load ptr, ptr %used.i, align 8
+  %13 = ptrtoint ptr %12 to i64
+  store i64 %13, ptr %used_user_addr.i, align 8
+  br label %if.end6.i
+
+if.end6.i:                                        ; preds = %if.else.i, %if.then.if.end6_crit_edge.i
+  %14 = phi ptr [ %.pre.i, %if.then.if.end6_crit_edge.i ], [ %6, %if.else.i ]
+  store i32 %call2, ptr %addr.i, align 8
+  %used_phys.i = getelementptr inbounds i8, ptr %add.ptr, i64 72
+  %15 = load i64, ptr %used_phys.i, align 8
+  store i64 %15, ptr %log_guest_addr.i, align 8
+  store i32 %cond.i, ptr %flags.i, align 4
+  %vhost_set_vring_addr.i = getelementptr inbounds i8, ptr %14, i64 96
+  %16 = load ptr, ptr %vhost_set_vring_addr.i, align 8
+  %call9.i = call i32 %16(ptr noundef nonnull %dev, ptr noundef nonnull %addr.i) #18
+  %cmp10.i = icmp slt i32 %call9.i, 0
+  br i1 %cmp10.i, label %vhost_virtqueue_set_addr.exit, label %vhost_virtqueue_set_addr.exit.thread
+
+vhost_virtqueue_set_addr.exit.thread:             ; preds = %if.end6.i
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %addr.i)
+  br label %for.inc
+
+vhost_virtqueue_set_addr.exit:                    ; preds = %if.then.i, %if.end6.i
+  %call9.sink.i = phi i32 [ %call.i, %if.then.i ], [ %call9.i, %if.end6.i ]
+  %.str.59.sink.i = phi ptr [ @.str.58, %if.then.i ], [ @.str.59, %if.end6.i ]
+  %sub13.i = sub i32 0, %call9.sink.i
+  %call14.i = call ptr @strerror(i32 noundef %sub13.i) #18
+  call void (ptr, ...) @error_report(ptr noundef nonnull %.str.59.sink.i, ptr noundef %call14.i, i32 noundef %sub13.i) #18
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %addr.i)
+  %cmp1367 = icmp sgt i32 %i.066, -1
+  br i1 %cmp1367, label %for.body14.lr.ph, label %for.end31
+
+for.body14.lr.ph:                                 ; preds = %vhost_virtqueue_set_addr.exit
   %log_enabled = getelementptr inbounds i8, ptr %dev, i64 505
+  %desc_user_addr.i56 = getelementptr inbounds i8, ptr %addr.i31, i64 8
+  %avail_user_addr.i58 = getelementptr inbounds i8, ptr %addr.i31, i64 24
+  %used_user_addr.i60 = getelementptr inbounds i8, ptr %addr.i31, i64 16
+  %log_guest_addr.i42 = getelementptr inbounds i8, ptr %addr.i31, i64 32
+  %flags.i44 = getelementptr inbounds i8, ptr %addr.i31, i64 4
   br label %for.body14
 
-for.inc:                                          ; preds = %if.end6, %for.body
-  %inc = add nuw i32 %i.033, 1
-  %6 = load i32, ptr %nvqs, align 8
-  %cmp1 = icmp ult i32 %inc, %6
+for.inc:                                          ; preds = %vhost_virtqueue_set_addr.exit.thread, %for.body
+  %inc = add nuw i32 %i.066, 1
+  %17 = load i32, ptr %nvqs, align 8
+  %cmp1 = icmp ult i32 %inc, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br i1 %cmp1, label %for.body, label %return, !llvm.loop !41
 
 for.body14:                                       ; preds = %for.body14.lr.ph, %for.inc30
-  %indvars.iv38 = phi i64 [ %indvars.iv, %for.body14.lr.ph ], [ %indvars.iv.next39, %for.inc30 ]
-  %7 = load ptr, ptr %vhost_ops, align 8
-  %vhost_get_vq_index16 = getelementptr inbounds i8, ptr %7, i64 208
-  %8 = load ptr, ptr %vhost_get_vq_index16, align 8
-  %9 = load i32, ptr %vq_index, align 4
-  %10 = trunc nuw i64 %indvars.iv38 to i32
-  %add18 = add i32 %9, %10
-  %call19 = tail call i32 %8(ptr noundef nonnull %dev, i32 noundef %add18) #18
-  %11 = load ptr, ptr %dev, align 8
-  %call21 = tail call i64 @virtio_queue_get_desc_addr(ptr noundef %11, i32 noundef %call19) #18
+  %indvars.iv71 = phi i64 [ %indvars.iv, %for.body14.lr.ph ], [ %indvars.iv.next72, %for.inc30 ]
+  %18 = load ptr, ptr %vhost_ops, align 8
+  %vhost_get_vq_index16 = getelementptr inbounds i8, ptr %18, i64 208
+  %19 = load ptr, ptr %vhost_get_vq_index16, align 8
+  %20 = load i32, ptr %vq_index, align 4
+  %21 = trunc nuw i64 %indvars.iv71 to i32
+  %add18 = add i32 %20, %21
+  %call19 = call i32 %19(ptr noundef nonnull %dev, i32 noundef %add18) #18
+  %22 = load ptr, ptr %dev, align 8
+  %call21 = call i64 @virtio_queue_get_desc_addr(ptr noundef %22, i32 noundef %call19) #18
   %tobool22.not = icmp eq i64 %call21, 0
   br i1 %tobool22.not, label %for.inc30, label %if.end24
 
 if.end24:                                         ; preds = %for.body14
-  %12 = load ptr, ptr %vqs, align 8
-  %add.ptr27 = getelementptr %struct.vhost_virtqueue, ptr %12, i64 %indvars.iv38
-  %13 = load i8, ptr %log_enabled, align 1
-  %tobool28 = trunc i8 %13 to i1
-  %call29 = tail call fastcc i32 @vhost_virtqueue_set_addr(ptr noundef nonnull %dev, ptr noundef %add.ptr27, i32 noundef %call19, i1 noundef zeroext %tobool28)
+  %23 = load ptr, ptr %vqs, align 8
+  %add.ptr27 = getelementptr %struct.vhost_virtqueue, ptr %23, i64 %indvars.iv71
+  %24 = load i8, ptr %log_enabled, align 1
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %addr.i31)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %addr.i31, i8 0, i64 40, i1 false)
+  %25 = load ptr, ptr %vhost_ops, align 8
+  %vhost_vq_get_addr.i33 = getelementptr inbounds i8, ptr %25, i64 328
+  %26 = load ptr, ptr %vhost_vq_get_addr.i33, align 8
+  %tobool.not.i34 = icmp eq ptr %26, null
+  br i1 %tobool.not.i34, label %if.else.i54, label %if.then.i35
+
+if.then.i35:                                      ; preds = %if.end24
+  %call.i36 = call i32 %26(ptr noundef nonnull %dev, ptr noundef nonnull %addr.i31, ptr noundef %add.ptr27) #18
+  %cmp.i37 = icmp slt i32 %call.i36, 0
+  br i1 %cmp.i37, label %return.sink.split.i49, label %if.then.if.end6_crit_edge.i38
+
+if.then.if.end6_crit_edge.i38:                    ; preds = %if.then.i35
+  %.pre.i39 = load ptr, ptr %vhost_ops, align 8
+  br label %if.end6.i40
+
+if.else.i54:                                      ; preds = %if.end24
+  %desc.i55 = getelementptr inbounds i8, ptr %add.ptr27, i64 8
+  %27 = load ptr, ptr %desc.i55, align 8
+  %28 = ptrtoint ptr %27 to i64
+  store i64 %28, ptr %desc_user_addr.i56, align 8
+  %avail.i57 = getelementptr inbounds i8, ptr %add.ptr27, i64 16
+  %29 = load ptr, ptr %avail.i57, align 8
+  %30 = ptrtoint ptr %29 to i64
+  store i64 %30, ptr %avail_user_addr.i58, align 8
+  %used.i59 = getelementptr inbounds i8, ptr %add.ptr27, i64 24
+  %31 = load ptr, ptr %used.i59, align 8
+  %32 = ptrtoint ptr %31 to i64
+  store i64 %32, ptr %used_user_addr.i60, align 8
+  br label %if.end6.i40
+
+if.end6.i40:                                      ; preds = %if.else.i54, %if.then.if.end6_crit_edge.i38
+  %33 = phi ptr [ %.pre.i39, %if.then.if.end6_crit_edge.i38 ], [ %25, %if.else.i54 ]
+  store i32 %call19, ptr %addr.i31, align 8
+  %used_phys.i41 = getelementptr inbounds i8, ptr %add.ptr27, i64 72
+  %34 = load i64, ptr %used_phys.i41, align 8
+  store i64 %34, ptr %log_guest_addr.i42, align 8
+  %35 = and i8 %24, 1
+  %cond.i43 = zext nneg i8 %35 to i32
+  store i32 %cond.i43, ptr %flags.i44, align 4
+  %vhost_set_vring_addr.i45 = getelementptr inbounds i8, ptr %33, i64 96
+  %36 = load ptr, ptr %vhost_set_vring_addr.i45, align 8
+  %call9.i46 = call i32 %36(ptr noundef nonnull %dev, ptr noundef nonnull %addr.i31) #18
+  %cmp10.i47 = icmp slt i32 %call9.i46, 0
+  br i1 %cmp10.i47, label %return.sink.split.i49, label %vhost_virtqueue_set_addr.exit61
+
+return.sink.split.i49:                            ; preds = %if.end6.i40, %if.then.i35
+  %call9.sink.i50 = phi i32 [ %call.i36, %if.then.i35 ], [ %call9.i46, %if.end6.i40 ]
+  %.str.59.sink.i51 = phi ptr [ @.str.58, %if.then.i35 ], [ @.str.59, %if.end6.i40 ]
+  %sub13.i52 = sub i32 0, %call9.sink.i50
+  %call14.i53 = call ptr @strerror(i32 noundef %sub13.i52) #18
+  call void (ptr, ...) @error_report(ptr noundef nonnull %.str.59.sink.i51, ptr noundef %call14.i53, i32 noundef %sub13.i52) #18
+  br label %vhost_virtqueue_set_addr.exit61
+
+vhost_virtqueue_set_addr.exit61:                  ; preds = %if.end6.i40, %return.sink.split.i49
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %addr.i31)
   br label %for.inc30
 
-for.inc30:                                        ; preds = %for.body14, %if.end24
-  %indvars.iv.next39 = add nsw i64 %indvars.iv38, -1
-  %cmp13 = icmp sgt i32 %10, 0
+for.inc30:                                        ; preds = %for.body14, %vhost_virtqueue_set_addr.exit61
+  %indvars.iv.next72 = add nsw i64 %indvars.iv71, -1
+  %cmp13 = icmp sgt i32 %21, 0
   br i1 %cmp13, label %for.body14, label %for.end31, !llvm.loop !42
 
-for.end31:                                        ; preds = %for.inc30, %for.cond12.preheader
+for.end31:                                        ; preds = %for.inc30, %vhost_virtqueue_set_addr.exit
   %log_enabled32 = getelementptr inbounds i8, ptr %dev, i64 505
-  %14 = load i8, ptr %log_enabled32, align 1
-  %tobool33 = trunc i8 %14 to i1
-  %call34 = tail call fastcc i32 @vhost_dev_set_features(ptr noundef nonnull %dev, i1 noundef zeroext %tobool33)
+  %37 = load i8, ptr %log_enabled32, align 1
+  %tobool33 = trunc i8 %37 to i1
+  %call34 = call fastcc i32 @vhost_dev_set_features(ptr noundef nonnull %dev, i1 noundef zeroext %tobool33)
   br label %return
 
 return:                                           ; preds = %for.inc, %for.cond.preheader, %for.end31, %entry
-  %retval.0 = phi i32 [ %call, %entry ], [ %call8, %for.end31 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
+  %retval.0 = phi i32 [ %call, %entry ], [ %call9.sink.i, %for.end31 ], [ 0, %for.cond.preheader ], [ 0, %for.inc ]
   ret i32 %retval.0
 }
 

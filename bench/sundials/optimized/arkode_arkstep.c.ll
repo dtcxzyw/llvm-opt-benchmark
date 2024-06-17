@@ -775,16 +775,16 @@ arkStep_AccessStepMem.exit:                       ; preds = %5
   br label %41
 
 41:                                               ; preds = %35, %38
-  %.sink = phi ptr [ %40, %38 ], [ %37, %35 ]
-  %.sink207 = phi ptr [ %39, %38 ], [ %36, %35 ]
-  %42 = load i32, ptr %.sink, align 8
+  %.sink211 = phi ptr [ %40, %38 ], [ %37, %35 ]
+  %.sink205 = phi ptr [ %39, %38 ], [ %36, %35 ]
+  %42 = load i32, ptr %.sink211, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 448
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds i8, ptr %44, i64 92
   store i32 %42, ptr %45, align 4
   %46 = getelementptr inbounds i8, ptr %7, i64 88
   store i32 %42, ptr %46, align 8
-  %47 = load ptr, ptr %.sink207, align 8
+  %47 = load ptr, ptr %.sink205, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = load ptr, ptr %43, align 8

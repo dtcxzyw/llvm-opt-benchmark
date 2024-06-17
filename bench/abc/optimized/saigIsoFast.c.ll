@@ -171,11 +171,11 @@ define void @Iso_StoCollectInfo_rec(ptr noundef %0, ptr nocapture noundef readon
   %23 = or disjoint i32 %10, 65536
   %.not58 = icmp eq i32 %2, 0
   %. = select i1 %.not58, i32 32, i32 8
-  %.117 = select i1 %.not58, i32 96, i32 24
-  %.118 = select i1 %.not58, i32 130975, i32 131047
+  %.127 = select i1 %.not58, i32 96, i32 24
+  %.128 = select i1 %.not58, i32 130975, i32 131047
   %24 = add nuw nsw i32 %10, %.
-  %25 = and i32 %24, %.117
-  %26 = and i32 %23, %.118
+  %25 = and i32 %24, %.127
+  %26 = and i32 %23, %.128
   %27 = or disjoint i32 %26, %25
   store i32 %27, ptr %9, align 4
   %28 = getelementptr inbounds i8, ptr %1, i64 24

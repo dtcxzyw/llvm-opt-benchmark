@@ -709,11 +709,11 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %63, %61
   br label %Vec_PtrPushUnique.exit.sink.split
 
 Vec_PtrPushUnique.exit.sink.split:                ; preds = %.Vec_PtrGrow.exit11_crit_edge.i.i, %Vec_PtrGrow.exit.i.i, %76, %37, %Vec_PtrGrow.exit.i, %.Vec_PtrGrow.exit11_crit_edge.i
-  %.sink = phi ptr [ %13, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %13, %Vec_PtrGrow.exit.i ], [ %13, %37 ], [ %44, %76 ], [ %44, %Vec_PtrGrow.exit.i.i ], [ %44, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
+  %.sink22 = phi ptr [ %13, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %13, %Vec_PtrGrow.exit.i ], [ %13, %37 ], [ %44, %76 ], [ %44, %Vec_PtrGrow.exit.i.i ], [ %44, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
   %.sink17 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %26, %Vec_PtrGrow.exit.i ], [ %38, %37 ], [ %77, %76 ], [ %65, %Vec_PtrGrow.exit.i.i ], [ %.pre.i.i, %.Vec_PtrGrow.exit11_crit_edge.i.i ]
-  %78 = load i32, ptr %.sink, align 4
+  %78 = load i32, ptr %.sink22, align 4
   %79 = add nsw i32 %78, 1
-  store i32 %79, ptr %.sink, align 4
+  store i32 %79, ptr %.sink22, align 4
   %80 = sext i32 %78 to i64
   %81 = getelementptr inbounds ptr, ptr %.sink17, i64 %80
   store ptr %0, ptr %81, align 8
@@ -1519,8 +1519,8 @@ define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %36
-  %.sink = phi i32 [ 2039, %26 ], [ 2047, %36 ]
-  %.sink78 = phi i32 [ %33, %26 ], [ %38, %36 ]
+  %.sink = phi i32 [ 2047, %36 ], [ 2039, %26 ]
+  %.sink78 = phi i32 [ %38, %36 ], [ %33, %26 ]
   %39 = and i32 %.val57, %.sink
   %40 = or disjoint i32 %.sink78, %39
   store i32 %40, ptr %3, align 8

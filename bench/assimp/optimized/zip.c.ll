@@ -1966,23 +1966,23 @@ do.end39:                                         ; preds = %if.end
   br i1 %cmp40, label %do.end56.sink.split, label %for.cond32
 
 do.end56.sink.split:                              ; preds = %do.body28, %do.end39
-  %pIn_buf_cur.0.sink953 = phi ptr [ %pIn_buf_next, %do.end39 ], [ %pIn_buf_cur.0, %do.body28 ]
+  %pIn_buf_cur.0.sink951 = phi ptr [ %pIn_buf_next, %do.end39 ], [ %pIn_buf_cur.0, %do.body28 ]
   %bit_buf.3.ph = phi i64 [ %3, %do.end39 ], [ %bit_buf.1, %do.body28 ]
   %num_extra.3.ph = phi i32 [ %6, %do.end39 ], [ %num_extra.1, %do.body28 ]
   %dist.3.ph = phi i32 [ %4, %do.end39 ], [ %dist.1, %do.body28 ]
   %num_bits.3.ph = phi i32 [ %2, %do.end39 ], [ %num_bits.1, %do.body28 ]
-  %incdec.ptr52 = getelementptr inbounds i8, ptr %pIn_buf_cur.0.sink953, i64 1
-  %11 = load i8, ptr %pIn_buf_cur.0.sink953, align 1
+  %incdec.ptr52 = getelementptr inbounds i8, ptr %pIn_buf_cur.0.sink951, i64 1
+  %11 = load i8, ptr %pIn_buf_cur.0.sink951, align 1
+  %conv53 = zext i8 %11 to i32
   br label %do.end56
 
 do.end56:                                         ; preds = %do.end56.sink.split, %for.cond32
-  %conv53.sink.shrunk = phi i8 [ 0, %for.cond32 ], [ %11, %do.end56.sink.split ]
+  %conv53.sink = phi i32 [ 0, %for.cond32 ], [ %conv53, %do.end56.sink.split ]
   %pIn_buf_cur.2 = phi ptr [ %pIn_buf_cur.1, %for.cond32 ], [ %incdec.ptr52, %do.end56.sink.split ]
   %bit_buf.3 = phi i64 [ %bit_buf.2, %for.cond32 ], [ %bit_buf.3.ph, %do.end56.sink.split ]
   %num_extra.3 = phi i32 [ %num_extra.2, %for.cond32 ], [ %num_extra.3.ph, %do.end56.sink.split ]
   %dist.3 = phi i32 [ %dist.2, %for.cond32 ], [ %dist.3.ph, %do.end56.sink.split ]
   %num_bits.3 = phi i32 [ %num_bits.2, %for.cond32 ], [ %num_bits.3.ph, %do.end56.sink.split ]
-  %conv53.sink = zext i8 %conv53.sink.shrunk to i32
   %m_zhdr154 = getelementptr inbounds i8, ptr %r, i64 12
   store i32 %conv53.sink, ptr %m_zhdr154, align 4
   %m_zhdr057 = getelementptr inbounds i8, ptr %r, i64 8

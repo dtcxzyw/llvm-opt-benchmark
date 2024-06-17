@@ -63,24 +63,24 @@ define hidden noalias noundef ptr @convert_libmagic_pattern(ptr nocapture nounde
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph103, %16
-  %.sink122 = phi i32 [ 3, %16 ], [ 1, %.lr.ph103 ]
+  %.sink121 = phi i32 [ 3, %16 ], [ 1, %.lr.ph103 ]
   %.2100.sink = phi i32 [ %20, %16 ], [ %.2100, %.lr.ph103 ]
   %.sink = phi i8 [ 48, %16 ], [ 92, %.lr.ph103 ]
   %.sink113.ph = phi i8 [ 48, %16 ], [ %15, %.lr.ph103 ]
-  %23 = add nsw i32 %.2100, %.sink122
+  %23 = add nsw i32 %.2100, %.sink121
   %24 = sext i32 %.2100.sink to i64
   %25 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %24
   store i8 %.sink, ptr %25, align 1
   br label %26
 
 26:                                               ; preds = %.sink.split, %.lr.ph103
+  %.sink116 = phi i32 [ %.2100, %.lr.ph103 ], [ %23, %.sink.split ]
   %.sink113 = phi i8 [ %15, %.lr.ph103 ], [ %.sink113.ph, %.sink.split ]
-  %.3 = phi i32 [ %.2100, %.lr.ph103 ], [ %23, %.sink.split ]
-  %27 = sext i32 %.3 to i64
+  %27 = sext i32 %.sink116 to i64
   %28 = getelementptr inbounds [1 x i8], ptr %13, i64 0, i64 %27
   store i8 %.sink113, ptr %28, align 1
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %29 = add nsw i32 %.3, 1
+  %29 = add nsw i32 %.sink116, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next110, %1
   br i1 %exitcond112.not, label %._crit_edge104, label %.lr.ph103
 

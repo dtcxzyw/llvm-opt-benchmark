@@ -484,11 +484,11 @@ if.else.i.i:                                      ; preds = %_ZN11hb_vector_tIN5
 if.end.sink.split.i.i:                            ; preds = %if.else.i.i, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23
   %18 = phi ptr [ %__begin2.sroa.0.0.__begin2.sroa.0.0.__begin2.sroa.0.0..pre42.ph, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.9.0.__begin2.sroa.9.0.__begin2.sroa.9.16.36.pre.pre50.ph, %if.else.i.i ]
   %.sink11.i.i = phi i32 [ %__begin2.sroa.4.0.__begin2.sroa.4.0.__begin2.sroa.4.8..pre44, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.12.0.__begin2.sroa.12.0.__begin2.sroa.12.24.37.pre.pre48, %if.else.i.i ]
-  %length.i.i.i.i.sink.i.i = phi ptr [ %__begin2.sroa.4, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.12, %if.else.i.i ]
+  %length.i.i1.sink.i.i = phi ptr [ %__begin2.sroa.4, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.12, %if.else.i.i ]
   %.sink.i.i.sroa.phi = phi ptr [ %__begin2.sroa.8, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.16, %if.else.i.i ]
   %b.sink9.i.i = phi ptr [ %__begin2.sroa.0, %_ZN11hb_vector_tIN5graph7graph_t8vertex_tELb0EEixEi.exit23 ], [ %__begin2.sroa.9, %if.else.i.i ]
-  %dec.i.i.i.i = add i32 %.sink11.i.i, -1
-  store i32 %dec.i.i.i.i, ptr %length.i.i.i.i.sink.i.i, align 8
+  %dec.i.i4.i.i = add i32 %.sink11.i.i, -1
+  store i32 %dec.i.i4.i.i, ptr %length.i.i1.sink.i.i, align 8
   %19 = load i32, ptr %.sink.i.i.sroa.phi, align 4
   %inc.i.i6.i.i = add i32 %19, 1
   store i32 %inc.i.i6.i.i, ptr %.sink.i.i.sroa.phi, align 4

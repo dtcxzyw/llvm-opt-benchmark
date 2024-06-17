@@ -9577,10 +9577,10 @@ delete.notnull.i.i.i.i.i.i:                       ; preds = %_ZN5eastl4listIiNS_
   br label %if.end18.sink.split
 
 if.end18.sink.split:                              ; preds = %delete.notnull.i.i.i.i.i.i, %if.then.i.i.i.i.i, %if.then8
-  %mSize.i.i = getelementptr inbounds i8, ptr %x, i64 64
-  %24 = load i64, ptr %mSize.i.i, align 8
+  %mSize12 = getelementptr inbounds i8, ptr %x, i64 64
+  %24 = load i64, ptr %mSize12, align 8
   %dec = add i64 %24, -1
-  store i64 %dec, ptr %mSize.i.i, align 8
+  store i64 %dec, ptr %mSize12, align 8
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18.sink.split, %if.then

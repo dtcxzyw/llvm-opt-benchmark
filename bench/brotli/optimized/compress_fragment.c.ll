@@ -7858,28 +7858,28 @@ if.then10:                                        ; preds = %if.end9
   br label %if.end13.sink.split
 
 if.end13.sink.split:                              ; preds = %entry, %if.then10
-  %.sink4767 = phi i64 [ %1130, %if.then10 ], [ %0, %entry ]
-  %shr.i47 = lshr i64 %.sink4767, 3
-  %arrayidx.i48 = getelementptr inbounds i8, ptr %storage, i64 %shr.i47
-  %1131 = load i8, ptr %arrayidx.i48, align 1
-  %conv.i49 = zext i8 %1131 to i64
-  %and.i50 = and i64 %.sink4767, 7
-  %shl.i51 = shl nuw nsw i64 1, %and.i50
-  %or.i52 = or i64 %shl.i51, %conv.i49
-  store i64 %or.i52, ptr %arrayidx.i48, align 1
-  %add.i53.sink4549.in = load i64, ptr %storage_ix, align 8
-  %add.i53.sink4549 = add i64 %add.i53.sink4549.in, 1
-  store i64 %add.i53.sink4549, ptr %storage_ix, align 8
-  %shr.i34 = lshr i64 %add.i53.sink4549, 3
-  %arrayidx.i35 = getelementptr inbounds i8, ptr %storage, i64 %shr.i34
-  %1132 = load i8, ptr %arrayidx.i35, align 1
-  %conv.i14 = zext i8 %1132 to i64
-  %and.i = and i64 %add.i53.sink4549, 7
+  %.sink4553 = phi i64 [ %1130, %if.then10 ], [ %0, %entry ]
+  %shr.i21 = lshr i64 %.sink4553, 3
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %storage, i64 %shr.i21
+  %1131 = load i8, ptr %arrayidx.i22, align 1
+  %conv.i23 = zext i8 %1131 to i64
+  %and.i24 = and i64 %.sink4553, 7
+  %shl.i25 = shl nuw nsw i64 1, %and.i24
+  %or.i26 = or i64 %shl.i25, %conv.i23
+  store i64 %or.i26, ptr %arrayidx.i22, align 1
+  %1132 = load i64, ptr %storage_ix, align 8
+  %add.i27 = add i64 %1132, 1
+  store i64 %add.i27, ptr %storage_ix, align 8
+  %shr.i = lshr i64 %add.i27, 3
+  %arrayidx.i = getelementptr inbounds i8, ptr %storage, i64 %shr.i
+  %1133 = load i8, ptr %arrayidx.i, align 1
+  %conv.i14 = zext i8 %1133 to i64
+  %and.i = and i64 %add.i27, 7
   %shl.i = shl nuw nsw i64 1, %and.i
   %or.i = or i64 %shl.i, %conv.i14
-  store i64 %or.i, ptr %arrayidx.i35, align 1
-  %1133 = load i64, ptr %storage_ix, align 8
-  %add11 = add i64 %1133, 8
+  store i64 %or.i, ptr %arrayidx.i, align 1
+  %1134 = load i64, ptr %storage_ix, align 8
+  %add11 = add i64 %1134, 8
   %and12 = and i64 %add11, 4294967288
   store i64 %and12, ptr %storage_ix, align 8
   br label %if.end13

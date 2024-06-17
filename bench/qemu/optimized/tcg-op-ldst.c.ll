@@ -1226,17 +1226,17 @@ if.else62:                                        ; preds = %if.end54
 
 if.end67:                                         ; preds = %if.else62, %if.then58
   %call64.sink = phi ptr [ %call64, %if.else62 ], [ %call59, %if.then58 ]
-  %.sink = load ptr, ptr %.pre-phi103, align 8
-  %37 = ptrtoint ptr %call64.sink to i64
-  %add.ptr.i.i82 = getelementptr i8, ptr %.sink, i64 %37
+  %37 = load ptr, ptr %.pre-phi103, align 8
+  %38 = ptrtoint ptr %call64.sink to i64
+  %add.ptr.i.i82 = getelementptr i8, ptr %37, i64 %38
   %shl.i83 = shl i32 %mop_2.1.i, 4
   %or.i84 = or i32 %shl.i83, %conv
-  %38 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i85 = getelementptr i8, ptr %.sink, i64 %38
-  %39 = ptrtoint ptr %add.ptr.i.i.i85 to i64
-  %40 = ptrtoint ptr %add.ptr.i.i82 to i64
+  %39 = ptrtoint ptr %y.0 to i64
+  %add.ptr.i.i.i85 = getelementptr i8, ptr %37, i64 %39
+  %40 = ptrtoint ptr %add.ptr.i.i.i85 to i64
+  %41 = ptrtoint ptr %add.ptr.i.i82 to i64
   %conv5.i.i86 = zext i32 %or.i84 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %39, i64 noundef %40, i64 noundef %conv5.i.i86) #5
+  tail call void @tcg_gen_op3(i32 noundef %.46, i64 noundef %40, i64 noundef %41, i64 noundef %conv5.i.i86) #5
   tail call void @tcg_temp_free_internal(ptr noundef %add.ptr.i.i82) #5
   br i1 %tobool32.not, label %if.end86, label %if.then72
 
@@ -1246,40 +1246,40 @@ if.then72:                                        ; preds = %if.end67
 
 if.else74:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else27
   %addr_type75 = getelementptr inbounds i8, ptr %6, i64 60
-  %41 = load i32, ptr %addr_type75, align 4
-  %cmp76 = icmp eq i32 %41, 0
+  %42 = load i32, ptr %addr_type75, align 4
+  %cmp76 = icmp eq i32 %42, 0
   br i1 %cmp76, label %if.then78, label %if.end82
 
 if.then78:                                        ; preds = %if.else74
   %call79 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %42 = load ptr, ptr %.pre-phi103, align 8
+  %43 = load ptr, ptr %.pre-phi103, align 8
   %sub.ptr.lhs.cast.i.i87 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %42 to i64
+  %sub.ptr.rhs.cast.i88 = ptrtoint ptr %43 to i64
   %sub.ptr.sub.i89 = sub i64 %sub.ptr.lhs.cast.i.i87, %sub.ptr.rhs.cast.i88
-  %43 = inttoptr i64 %sub.ptr.sub.i89 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call79, ptr noundef %43) #5
-  %44 = load ptr, ptr %.pre-phi103, align 8
-  %45 = ptrtoint ptr %call79 to i64
-  %add.ptr.i.i90 = getelementptr i8, ptr %44, i64 %45
+  %44 = inttoptr i64 %sub.ptr.sub.i89 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call79, ptr noundef %44) #5
+  %45 = load ptr, ptr %.pre-phi103, align 8
+  %46 = ptrtoint ptr %call79 to i64
+  %add.ptr.i.i90 = getelementptr i8, ptr %45, i64 %46
   br label %if.end82
 
 if.end82:                                         ; preds = %if.then78, %if.else74
-  %46 = phi ptr [ %44, %if.then78 ], [ %6, %if.else74 ]
+  %47 = phi ptr [ %45, %if.then78 ], [ %6, %if.else74 ]
   %ext_addr.0 = phi ptr [ %call79, %if.then78 ], [ null, %if.else74 ]
   %addr.addr.0 = phi ptr [ %add.ptr.i.i90, %if.then78 ], [ %addr, %if.else74 ]
-  %47 = load ptr, ptr @tcg_env, align 8
+  %48 = load ptr, ptr @tcg_env, align 8
   %sub.ptr.lhs.cast.i.i.i91 = ptrtoint ptr %addr.addr.0 to i64
-  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %46 to i64
+  %sub.ptr.rhs.cast.i.i92 = ptrtoint ptr %47 to i64
   %sub.ptr.sub.i.i93 = sub i64 %sub.ptr.lhs.cast.i.i.i91, %sub.ptr.rhs.cast.i.i92
   %call84 = tail call ptr @tcg_constant_i32(i32 noundef %or.i47) #5
-  %48 = load ptr, ptr %.pre-phi103, align 8
-  %49 = ptrtoint ptr %val to i64
-  %add.ptr.i.i.i94 = getelementptr i8, ptr %48, i64 %49
-  %50 = ptrtoint ptr %47 to i64
-  %add.ptr.i.i1.i = getelementptr i8, ptr %48, i64 %50
-  %add.ptr.i.i2.i = getelementptr i8, ptr %48, i64 %sub.ptr.sub.i.i93
-  %51 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i95 = getelementptr i8, ptr %48, i64 %51
+  %49 = load ptr, ptr %.pre-phi103, align 8
+  %50 = ptrtoint ptr %val to i64
+  %add.ptr.i.i.i94 = getelementptr i8, ptr %49, i64 %50
+  %51 = ptrtoint ptr %48 to i64
+  %add.ptr.i.i1.i = getelementptr i8, ptr %49, i64 %51
+  %add.ptr.i.i2.i = getelementptr i8, ptr %49, i64 %sub.ptr.sub.i.i93
+  %52 = ptrtoint ptr %call84 to i64
+  %add.ptr.i.i95 = getelementptr i8, ptr %49, i64 %52
   tail call void @tcg_gen_call3(ptr noundef nonnull @helper_info_ld_i128, ptr noundef %add.ptr.i.i.i94, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i95) #5
   br label %if.end86
 
@@ -1613,9 +1613,9 @@ if.else63:                                        ; preds = %if.end52
 
 if.end68:                                         ; preds = %if.else63, %if.then59
   %call65.sink = phi ptr [ %call65, %if.else63 ], [ %call60, %if.then59 ]
-  %.sink = load ptr, ptr %.pre-phi124, align 8
-  %44 = ptrtoint ptr %call65.sink to i64
-  %add.ptr.i.i87 = getelementptr i8, ptr %.sink, i64 %44
+  %44 = load ptr, ptr %.pre-phi124, align 8
+  %45 = ptrtoint ptr %call65.sink to i64
+  %add.ptr.i.i87 = getelementptr i8, ptr %44, i64 %45
   %tobool69.not = icmp eq ptr %b.0, null
   br i1 %tobool69.not, label %if.else74, label %if.then70
 
@@ -1623,25 +1623,25 @@ if.then70:                                        ; preds = %if.end68
   tail call void @tcg_gen_bswap64_i64(ptr noundef nonnull %b.0, ptr noundef %y.0) #5
   %shl.i88 = shl i32 %mop_2.1.i115, 4
   %or.i89 = or i32 %shl.i88, %conv
-  %45 = load ptr, ptr %.pre-phi124, align 8
-  %46 = ptrtoint ptr %b.0 to i64
-  %add.ptr.i.i.i90 = getelementptr i8, ptr %45, i64 %46
-  %47 = ptrtoint ptr %add.ptr.i.i.i90 to i64
-  %48 = ptrtoint ptr %add.ptr.i.i87 to i64
+  %46 = load ptr, ptr %.pre-phi124, align 8
+  %47 = ptrtoint ptr %b.0 to i64
+  %add.ptr.i.i.i90 = getelementptr i8, ptr %46, i64 %47
+  %48 = ptrtoint ptr %add.ptr.i.i.i90 to i64
+  %49 = ptrtoint ptr %add.ptr.i.i87 to i64
   %conv5.i.i91 = zext i32 %or.i89 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %47, i64 noundef %48, i64 noundef %conv5.i.i91) #5
+  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %48, i64 noundef %49, i64 noundef %conv5.i.i91) #5
   tail call void @tcg_temp_free_i64(ptr noundef nonnull %b.0) #5
   br label %if.end78
 
 if.else74:                                        ; preds = %if.end68
   %shl.i92 = shl i32 %mop_2.1.i115, 4
   %or.i93 = or i32 %shl.i92, %conv
-  %49 = ptrtoint ptr %y.0 to i64
-  %add.ptr.i.i.i94 = getelementptr i8, ptr %.sink, i64 %49
-  %50 = ptrtoint ptr %add.ptr.i.i.i94 to i64
-  %51 = ptrtoint ptr %add.ptr.i.i87 to i64
+  %50 = ptrtoint ptr %y.0 to i64
+  %add.ptr.i.i.i94 = getelementptr i8, ptr %44, i64 %50
+  %51 = ptrtoint ptr %add.ptr.i.i.i94 to i64
+  %52 = ptrtoint ptr %add.ptr.i.i87 to i64
   %conv5.i.i95 = zext i32 %or.i93 to i64
-  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %50, i64 noundef %51, i64 noundef %conv5.i.i95) #5
+  tail call void @tcg_gen_op3(i32 noundef %.51117, i64 noundef %51, i64 noundef %52, i64 noundef %conv5.i.i95) #5
   br label %if.end78
 
 if.end78:                                         ; preds = %if.else74, %if.then70
@@ -1650,40 +1650,40 @@ if.end78:                                         ; preds = %if.else74, %if.then
 
 if.else79:                                        ; preds = %if.end.i, %if.end.i, %if.end.i, %if.end.i, %if.else29
   %addr_type80 = getelementptr inbounds i8, ptr %6, i64 60
-  %52 = load i32, ptr %addr_type80, align 4
-  %cmp81 = icmp eq i32 %52, 0
+  %53 = load i32, ptr %addr_type80, align 4
+  %cmp81 = icmp eq i32 %53, 0
   br i1 %cmp81, label %if.then83, label %if.end87
 
 if.then83:                                        ; preds = %if.else79
   %call84 = tail call ptr @tcg_temp_ebb_new_i64() #5
-  %53 = load ptr, ptr %.pre-phi124, align 8
+  %54 = load ptr, ptr %.pre-phi124, align 8
   %sub.ptr.lhs.cast.i.i96 = ptrtoint ptr %addr to i64
-  %sub.ptr.rhs.cast.i97 = ptrtoint ptr %53 to i64
+  %sub.ptr.rhs.cast.i97 = ptrtoint ptr %54 to i64
   %sub.ptr.sub.i98 = sub i64 %sub.ptr.lhs.cast.i.i96, %sub.ptr.rhs.cast.i97
-  %54 = inttoptr i64 %sub.ptr.sub.i98 to ptr
-  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call84, ptr noundef %54) #5
-  %55 = load ptr, ptr %.pre-phi124, align 8
-  %56 = ptrtoint ptr %call84 to i64
-  %add.ptr.i.i99 = getelementptr i8, ptr %55, i64 %56
+  %55 = inttoptr i64 %sub.ptr.sub.i98 to ptr
+  tail call void @tcg_gen_extu_i32_i64(ptr noundef %call84, ptr noundef %55) #5
+  %56 = load ptr, ptr %.pre-phi124, align 8
+  %57 = ptrtoint ptr %call84 to i64
+  %add.ptr.i.i99 = getelementptr i8, ptr %56, i64 %57
   br label %if.end87
 
 if.end87:                                         ; preds = %if.then83, %if.else79
-  %57 = phi ptr [ %55, %if.then83 ], [ %6, %if.else79 ]
+  %58 = phi ptr [ %56, %if.then83 ], [ %6, %if.else79 ]
   %ext_addr.0 = phi ptr [ %call84, %if.then83 ], [ null, %if.else79 ]
   %addr.addr.0 = phi ptr [ %add.ptr.i.i99, %if.then83 ], [ %addr, %if.else79 ]
-  %58 = load ptr, ptr @tcg_env, align 8
+  %59 = load ptr, ptr @tcg_env, align 8
   %sub.ptr.lhs.cast.i.i.i100 = ptrtoint ptr %addr.addr.0 to i64
-  %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %57 to i64
+  %sub.ptr.rhs.cast.i.i101 = ptrtoint ptr %58 to i64
   %sub.ptr.sub.i.i102 = sub i64 %sub.ptr.lhs.cast.i.i.i100, %sub.ptr.rhs.cast.i.i101
   %call89 = tail call ptr @tcg_constant_i32(i32 noundef %or.i52) #5
-  %59 = load ptr, ptr %.pre-phi124, align 8
-  %60 = ptrtoint ptr %58 to i64
-  %add.ptr.i.i.i103 = getelementptr i8, ptr %59, i64 %60
-  %add.ptr.i.i1.i = getelementptr i8, ptr %59, i64 %sub.ptr.sub.i.i102
-  %61 = ptrtoint ptr %val to i64
-  %add.ptr.i.i2.i = getelementptr i8, ptr %59, i64 %61
-  %62 = ptrtoint ptr %call89 to i64
-  %add.ptr.i.i104 = getelementptr i8, ptr %59, i64 %62
+  %60 = load ptr, ptr %.pre-phi124, align 8
+  %61 = ptrtoint ptr %59 to i64
+  %add.ptr.i.i.i103 = getelementptr i8, ptr %60, i64 %61
+  %add.ptr.i.i1.i = getelementptr i8, ptr %60, i64 %sub.ptr.sub.i.i102
+  %62 = ptrtoint ptr %val to i64
+  %add.ptr.i.i2.i = getelementptr i8, ptr %60, i64 %62
+  %63 = ptrtoint ptr %call89 to i64
+  %add.ptr.i.i104 = getelementptr i8, ptr %60, i64 %63
   tail call void @tcg_gen_call4(ptr noundef nonnull @helper_info_st_i128, ptr noundef null, ptr noundef %add.ptr.i.i.i103, ptr noundef %add.ptr.i.i1.i, ptr noundef %add.ptr.i.i2.i, ptr noundef %add.ptr.i.i104) #5
   br label %if.end91
 

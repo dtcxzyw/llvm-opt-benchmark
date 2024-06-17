@@ -2843,7 +2843,7 @@ define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonl
   %8 = getelementptr inbounds i8, ptr %1, i64 48
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %81, label %10
+  br i1 %.not, label %76, label %10
 
 10:                                               ; preds = %4
   %11 = tail call fastcc ptr @eval(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %2)
@@ -2853,7 +2853,7 @@ define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonl
   %14 = load i64, ptr %13, align 8
   %15 = icmp eq i64 %14, 259
   %16 = ptrtoint ptr %11 to i64
-  br i1 %15, label %17, label %34
+  br i1 %15, label %17, label %29
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds i8, ptr %12, i64 64
@@ -2861,7 +2861,7 @@ define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonl
   %20 = load ptr, ptr %19, align 8
   %21 = call ptr %20(ptr noundef nonnull %19, ptr noundef nonnull %5, i32 noundef 512) #21
   %.not52 = icmp eq ptr %21, null
-  br i1 %.not52, label %22, label %69
+  br i1 %.not52, label %22, label %64
 
 22:                                               ; preds = %17
   %23 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #27
@@ -2876,105 +2876,104 @@ define internal fastcc ptr @getdyn(ptr noundef %0, ptr nocapture noundef readonl
   %27 = getelementptr inbounds i8, ptr %23, i64 16
   %28 = load i64, ptr %5, align 8
   store i64 %28, ptr %27, align 8
-  %29 = load ptr, ptr %7, align 8
-  %30 = getelementptr inbounds i8, ptr %29, i64 64
-  %31 = load ptr, ptr %30, align 8
-  %32 = load ptr, ptr %31, align 8
-  %33 = call ptr %32(ptr noundef nonnull %31, ptr noundef %23, i32 noundef 1) #21
-  br label %69
+  br label %.sink.split
 
-34:                                               ; preds = %10
-  %35 = load ptr, ptr %8, align 8
-  %36 = load i32, ptr %35, align 8
-  %.not49 = icmp eq i32 %36, 263
-  br i1 %.not49, label %48, label %37
+29:                                               ; preds = %10
+  %30 = load ptr, ptr %8, align 8
+  %31 = load i32, ptr %30, align 8
+  %.not49 = icmp eq i32 %31, 263
+  br i1 %.not49, label %43, label %32
 
-37:                                               ; preds = %34
-  %38 = icmp sgt i32 %36, 258
-  br i1 %38, label %46, label %39
+32:                                               ; preds = %29
+  %33 = icmp sgt i32 %31, 258
+  br i1 %33, label %41, label %34
 
-39:                                               ; preds = %37
-  %40 = getelementptr inbounds i8, ptr %0, i64 160
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 88
-  %43 = load ptr, ptr %42, align 8
-  %44 = tail call ptr %43(ptr %11, i32 noundef %36) #21
-  %45 = ptrtoint ptr %44 to i64
-  br label %46
+34:                                               ; preds = %32
+  %35 = getelementptr inbounds i8, ptr %0, i64 160
+  %36 = load ptr, ptr %35, align 8
+  %37 = getelementptr inbounds i8, ptr %36, i64 88
+  %38 = load ptr, ptr %37, align 8
+  %39 = tail call ptr %38(ptr %11, i32 noundef %31) #21
+  %40 = ptrtoint ptr %39 to i64
+  br label %41
 
-46:                                               ; preds = %37, %39
-  %.sroa.08.0 = phi i64 [ %45, %39 ], [ %16, %37 ]
-  %47 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 17, ptr noundef nonnull @.str.19, i64 noundef %.sroa.08.0) #21
+41:                                               ; preds = %32, %34
+  %.sroa.08.0 = phi i64 [ %40, %34 ], [ %16, %32 ]
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 17, ptr noundef nonnull @.str.19, i64 noundef %.sroa.08.0) #21
   %.pre = load ptr, ptr %7, align 8
-  br label %48
+  br label %43
 
-48:                                               ; preds = %34, %46
-  %49 = phi ptr [ %.pre, %46 ], [ %12, %34 ]
-  %.043 = phi ptr [ %6, %46 ], [ %11, %34 ]
-  %50 = getelementptr inbounds i8, ptr %49, i64 64
-  %51 = load ptr, ptr %50, align 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = call ptr %52(ptr noundef nonnull %51, ptr noundef %.043, i32 noundef 512) #21
-  %.not50 = icmp eq ptr %53, null
-  br i1 %.not50, label %54, label %69
+43:                                               ; preds = %29, %41
+  %44 = phi ptr [ %.pre, %41 ], [ %12, %29 ]
+  %.043 = phi ptr [ %6, %41 ], [ %11, %29 ]
+  %45 = getelementptr inbounds i8, ptr %44, i64 64
+  %46 = load ptr, ptr %45, align 8
+  %47 = load ptr, ptr %46, align 8
+  %48 = call ptr %47(ptr noundef nonnull %46, ptr noundef %.043, i32 noundef 512) #21
+  %.not50 = icmp eq ptr %48, null
+  br i1 %.not50, label %49, label %64
 
-54:                                               ; preds = %48
-  %55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.043) #26
-  %56 = add i64 %55, 40
-  %57 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %56) #27
-  %.not51 = icmp eq ptr %57, null
-  br i1 %.not51, label %58, label %60
+49:                                               ; preds = %43
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.043) #26
+  %51 = add i64 %50, 40
+  %52 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %51) #27
+  %.not51 = icmp eq ptr %52, null
+  br i1 %.not51, label %53, label %55
 
-58:                                               ; preds = %54
-  %59 = call ptr @exnospace() #21
-  br label %60
+53:                                               ; preds = %49
+  %54 = call ptr @exnospace() #21
+  br label %55
 
-60:                                               ; preds = %58, %54
-  %61 = getelementptr inbounds i8, ptr %57, i64 32
-  %62 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %.043) #21
-  %63 = getelementptr inbounds i8, ptr %57, i64 16
-  store i64 %16, ptr %63, align 8
-  %64 = load ptr, ptr %7, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 64
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %66, align 8
-  %68 = call ptr %67(ptr noundef nonnull %66, ptr noundef %57, i32 noundef 1) #21
-  br label %69
+55:                                               ; preds = %53, %49
+  %56 = getelementptr inbounds i8, ptr %52, i64 32
+  %57 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %.043) #21
+  %58 = getelementptr inbounds i8, ptr %52, i64 16
+  store i64 %16, ptr %58, align 8
+  br label %.sink.split
 
-69:                                               ; preds = %26, %17, %60, %48
-  %.0 = phi ptr [ %21, %17 ], [ %23, %26 ], [ %53, %48 ], [ %57, %60 ]
+.sink.split:                                      ; preds = %55, %26
+  %.sink56 = phi ptr [ %23, %26 ], [ %52, %55 ]
+  %59 = load ptr, ptr %7, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 64
+  %61 = load ptr, ptr %60, align 8
+  %62 = load ptr, ptr %61, align 8
+  %63 = call ptr %62(ptr noundef nonnull %61, ptr noundef %.sink56, i32 noundef 1) #21
+  br label %64
+
+64:                                               ; preds = %.sink.split, %17, %43
+  %.0 = phi ptr [ %21, %17 ], [ %48, %43 ], [ %.sink56, %.sink.split ]
   store ptr %.0, ptr %3, align 8
-  %70 = load ptr, ptr %7, align 8
-  %71 = getelementptr inbounds i8, ptr %70, i64 32
-  %72 = load i64, ptr %71, align 8
-  %73 = icmp eq i64 %72, 263
-  br i1 %73, label %74, label %79
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 32
+  %67 = load i64, ptr %66, align 8
+  %68 = icmp eq i64 %67, 263
+  br i1 %68, label %69, label %74
 
-74:                                               ; preds = %69
+69:                                               ; preds = %64
+  %70 = getelementptr inbounds i8, ptr %.0, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %.not55 = icmp eq ptr %71, null
+  br i1 %.not55, label %72, label %74
+
+72:                                               ; preds = %69
+  %73 = call ptr @exzero(i64 noundef 263) #21
+  store ptr %73, ptr %70, align 8
+  br label %74
+
+74:                                               ; preds = %72, %69, %64
   %75 = getelementptr inbounds i8, ptr %.0, i64 24
-  %76 = load ptr, ptr %75, align 8
-  %.not55 = icmp eq ptr %76, null
-  br i1 %.not55, label %77, label %79
+  br label %81
 
-77:                                               ; preds = %74
-  %78 = call ptr @exzero(i64 noundef 263) #21
-  store ptr %78, ptr %75, align 8
-  br label %79
-
-79:                                               ; preds = %77, %74, %69
-  %80 = getelementptr inbounds i8, ptr %.0, i64 24
-  br label %86
-
-81:                                               ; preds = %4
+76:                                               ; preds = %4
   store ptr null, ptr %3, align 8
-  %82 = load ptr, ptr %7, align 8
-  %83 = getelementptr inbounds i8, ptr %82, i64 56
-  %84 = load ptr, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %84, i64 32
-  br label %86
+  %77 = load ptr, ptr %7, align 8
+  %78 = getelementptr inbounds i8, ptr %77, i64 56
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds i8, ptr %79, i64 32
+  br label %81
 
-86:                                               ; preds = %81, %79
-  %.sroa.040.0.in = phi ptr [ %80, %79 ], [ %85, %81 ]
+81:                                               ; preds = %76, %74
+  %.sroa.040.0.in = phi ptr [ %75, %74 ], [ %80, %76 ]
   %.sroa.040.0 = load ptr, ptr %.sroa.040.0.in, align 8
   ret ptr %.sroa.040.0
 }

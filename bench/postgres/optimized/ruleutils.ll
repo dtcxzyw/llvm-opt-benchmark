@@ -9821,14 +9821,14 @@ define internal fastcc void @set_deparse_plan(ptr nocapture noundef %0, ptr noun
   br label %find_recursive_union.exit.sink.split
 
 find_recursive_union.exit.sink.split:             ; preds = %25, %59, %27
-  %.sink = phi ptr [ %35, %27 ], [ %60, %59 ], [ %26, %25 ]
-  %61 = load ptr, ptr %.sink, align 8
+  %.sink67 = phi ptr [ %35, %27 ], [ %60, %59 ], [ %26, %25 ]
+  %61 = load ptr, ptr %.sink67, align 8
   br label %find_recursive_union.exit
 
 find_recursive_union.exit:                        ; preds = %49, %find_recursive_union.exit.sink.split, %21
-  %.sink62 = phi ptr [ %1, %21 ], [ %61, %find_recursive_union.exit.sink.split ], [ %46, %49 ]
+  %.sink = phi ptr [ %1, %21 ], [ %61, %find_recursive_union.exit.sink.split ], [ %46, %49 ]
   %62 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr %.sink62, ptr %62, align 8
+  store ptr %.sink, ptr %62, align 8
   %63 = load i32, ptr %1, align 4
   %64 = icmp eq i32 %63, 317
   br i1 %64, label %65, label %71
@@ -9844,11 +9844,11 @@ find_recursive_union.exit:                        ; preds = %49, %find_recursive
   br label %.sink.split
 
 71:                                               ; preds = %find_recursive_union.exit
-  %.not54 = icmp eq ptr %.sink62, null
+  %.not54 = icmp eq ptr %.sink, null
   br i1 %.not54, label %75, label %72
 
 72:                                               ; preds = %71
-  %73 = getelementptr inbounds i8, ptr %.sink62, i64 48
+  %73 = getelementptr inbounds i8, ptr %.sink, i64 48
   br label %.sink.split
 
 .sink.split:                                      ; preds = %69, %72
@@ -9857,9 +9857,9 @@ find_recursive_union.exit:                        ; preds = %49, %find_recursive
   br label %75
 
 75:                                               ; preds = %.sink.split, %71, %65
-  %.sink64 = phi ptr [ %22, %65 ], [ null, %71 ], [ %74, %.sink.split ]
+  %.sink63 = phi ptr [ %22, %65 ], [ null, %71 ], [ %74, %.sink.split ]
   %76 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr %.sink64, ptr %76, align 8
+  store ptr %.sink63, ptr %76, align 8
   %77 = load i32, ptr %1, align 4
   switch i32 %77, label %80 [
     i32 326, label %.sink.split69
@@ -9873,9 +9873,9 @@ find_recursive_union.exit:                        ; preds = %49, %find_recursive
   br label %80
 
 80:                                               ; preds = %.sink.split69, %75
-  %.sink66 = phi ptr [ null, %75 ], [ %79, %.sink.split69 ]
+  %.sink65 = phi ptr [ null, %75 ], [ %79, %.sink.split69 ]
   %81 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr %.sink66, ptr %81, align 8
+  store ptr %.sink65, ptr %81, align 8
   ret void
 }
 

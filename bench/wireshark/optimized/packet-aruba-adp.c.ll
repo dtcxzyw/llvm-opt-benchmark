@@ -90,36 +90,33 @@ define internal i32 @dissect_aruba_adp(ptr noundef %0, ptr nocapture noundef rea
   %18 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 2) #2
   %19 = load i32, ptr @hf_adp_id, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %19, ptr noundef %0, i32 noundef 4, i32 noundef 2, i32 noundef 0) #2
-  switch i16 %18, label %35 [
-    i16 1, label %21
-    i16 2, label %28
+  switch i16 %18, label %28 [
+    i16 1, label %.sink.split
+    i16 2, label %21
   ]
 
 21:                                               ; preds = %13
-  %22 = load i32, ptr @hf_adp_mac, align 4
-  %23 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef 6, i32 noundef 0) #2
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %13, %21
+  %hf_adp_switchip.sink = phi ptr [ @hf_adp_switchip, %21 ], [ @hf_adp_mac, %13 ]
+  %.sink36 = phi i32 [ 4, %21 ], [ 6, %13 ]
+  %.sink35 = phi i32 [ 2, %21 ], [ 1, %13 ]
+  %.str.22.sink = phi ptr [ @.str.22, %21 ], [ @.str.20, %13 ]
+  %.str.23.sink = phi ptr [ @.str.23, %21 ], [ @.str.21, %13 ]
+  %22 = load i32, ptr %hf_adp_switchip.sink, align 4
+  %23 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %22, ptr noundef %0, i32 noundef 6, i32 noundef %.sink36, i32 noundef 0) #2
   %24 = getelementptr inbounds i8, ptr %1, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef 1, i32 noundef 6) #2
+  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %0, i32 noundef %.sink35, i32 noundef 6) #2
   %27 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull @.str.20, ptr noundef %26) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.21, ptr noundef %26) #2
-  br label %35
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %27, i32 noundef 25, ptr noundef nonnull %.str.22.sink, ptr noundef %26) #2
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull %.str.23.sink, ptr noundef %26) #2
+  br label %28
 
-28:                                               ; preds = %13
-  %29 = load i32, ptr @hf_adp_switchip, align 4
-  %30 = tail call ptr @proto_tree_add_item(ptr noundef %.030, i32 noundef %29, ptr noundef %0, i32 noundef 6, i32 noundef 4, i32 noundef 0) #2
-  %31 = getelementptr inbounds i8, ptr %1, i64 408
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call ptr @tvb_address_to_str(ptr noundef %32, ptr noundef %0, i32 noundef 2, i32 noundef 6) #2
-  %34 = load ptr, ptr %5, align 8
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %34, i32 noundef 25, ptr noundef nonnull @.str.22, ptr noundef %33) #2
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0, ptr noundef nonnull @.str.23, ptr noundef %33) #2
-  br label %35
-
-35:                                               ; preds = %13, %28, %21
-  %36 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
-  ret i32 %36
+28:                                               ; preds = %.sink.split, %13
+  %29 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
+  ret i32 %29
 }
 
 ; Function Attrs: nounwind uwtable

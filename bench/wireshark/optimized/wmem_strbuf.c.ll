@@ -779,7 +779,7 @@ wmem_strbuf_grow.exit:                            ; preds = %2, %13, %15
 ; Function Attrs: nounwind uwtable
 define range(i64 4, 11) i64 @wmem_strbuf_append_hex_unichar(ptr nocapture noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i32 %1, 128
-  br i1 %3, label %4, label %47
+  br i1 %3, label %4, label %32
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -829,260 +829,223 @@ wmem_strbuf_append_hex.exit:                      ; preds = %4, %15, %17
   %30 = getelementptr i8, ptr %27, i64 %28
   store i8 120, ptr %30, align 1
   %31 = lshr i32 %1, 4
-  %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %32
-  %34 = load i8, ptr %33, align 1
-  %35 = load ptr, ptr %23, align 8
-  %36 = load i64, ptr %7, align 8
-  %37 = add i64 %36, 1
-  store i64 %37, ptr %7, align 8
-  %38 = getelementptr i8, ptr %35, i64 %36
-  store i8 %34, ptr %38, align 1
-  %39 = and i32 %1, 15
-  %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %40
-  %42 = load i8, ptr %41, align 1
-  %43 = load ptr, ptr %23, align 8
-  %44 = load i64, ptr %7, align 8
-  %45 = add i64 %44, 1
-  store i64 %45, ptr %7, align 8
-  %46 = getelementptr i8, ptr %43, i64 %44
-  store i8 %42, ptr %46, align 1
-  br label %202
+  br label %157
 
-47:                                               ; preds = %2
-  %48 = icmp ult i32 %1, 65536
-  %49 = getelementptr inbounds i8, ptr %0, i64 24
-  %50 = load i64, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %0, i64 16
-  %52 = load i64, ptr %51, align 8
-  %53 = sub i64 %52, %50
-  br i1 %48, label %54, label %110
+32:                                               ; preds = %2
+  %33 = icmp ult i32 %1, 65536
+  %34 = getelementptr inbounds i8, ptr %0, i64 24
+  %35 = load i64, ptr %34, align 8
+  %36 = getelementptr inbounds i8, ptr %0, i64 16
+  %37 = load i64, ptr %36, align 8
+  %38 = sub i64 %37, %35
+  br i1 %33, label %39, label %80
 
-54:                                               ; preds = %47
-  %.not.i.i9 = icmp ugt i64 %53, -7
-  br i1 %.not.i.i9, label %55, label %append_hex_bmp.exit
+39:                                               ; preds = %32
+  %.not.i.i9 = icmp ugt i64 %38, -7
+  br i1 %.not.i.i9, label %40, label %append_hex_bmp.exit
 
-55:                                               ; preds = %54
-  %56 = add i64 %52, 7
-  br label %57
+40:                                               ; preds = %39
+  %41 = add i64 %37, 7
+  br label %42
 
-57:                                               ; preds = %57, %55
-  %.0.i.i10 = phi i64 [ %50, %55 ], [ %59, %57 ]
-  %58 = icmp ult i64 %.0.i.i10, %56
-  %59 = shl i64 %.0.i.i10, 1
-  br i1 %58, label %57, label %60, !llvm.loop !6
+42:                                               ; preds = %42, %40
+  %.0.i.i10 = phi i64 [ %35, %40 ], [ %44, %42 ]
+  %43 = icmp ult i64 %.0.i.i10, %41
+  %44 = shl i64 %.0.i.i10, 1
+  br i1 %43, label %42, label %45, !llvm.loop !6
 
-60:                                               ; preds = %57
-  %61 = icmp eq i64 %.0.i.i10, %50
-  br i1 %61, label %append_hex_bmp.exit, label %62
+45:                                               ; preds = %42
+  %46 = icmp eq i64 %.0.i.i10, %35
+  br i1 %46, label %append_hex_bmp.exit, label %47
 
-62:                                               ; preds = %60
-  %63 = load ptr, ptr %0, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = tail call noalias ptr @wmem_realloc(ptr noundef %63, ptr noundef %65, i64 noundef %.0.i.i10) #12
-  store ptr %66, ptr %64, align 8
-  store i64 %.0.i.i10, ptr %49, align 8
-  %.pre.i11 = load i64, ptr %51, align 8
+47:                                               ; preds = %45
+  %48 = load ptr, ptr %0, align 8
+  %49 = getelementptr inbounds i8, ptr %0, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = tail call noalias ptr @wmem_realloc(ptr noundef %48, ptr noundef %50, i64 noundef %.0.i.i10) #12
+  store ptr %51, ptr %49, align 8
+  store i64 %.0.i.i10, ptr %34, align 8
+  %.pre.i11 = load i64, ptr %36, align 8
   br label %append_hex_bmp.exit
 
-append_hex_bmp.exit:                              ; preds = %54, %60, %62
-  %67 = phi i64 [ %52, %54 ], [ %52, %60 ], [ %.pre.i11, %62 ]
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = add i64 %67, 1
-  store i64 %70, ptr %51, align 8
-  %71 = getelementptr i8, ptr %69, i64 %67
-  store i8 92, ptr %71, align 1
-  %72 = load ptr, ptr %68, align 8
-  %73 = load i64, ptr %51, align 8
-  %74 = add i64 %73, 1
-  store i64 %74, ptr %51, align 8
-  %75 = getelementptr i8, ptr %72, i64 %73
-  store i8 117, ptr %75, align 1
-  %76 = lshr i32 %1, 12
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %77
-  %79 = load i8, ptr %78, align 1
-  %80 = load ptr, ptr %68, align 8
-  %81 = load i64, ptr %51, align 8
-  %82 = add i64 %81, 1
-  store i64 %82, ptr %51, align 8
-  %83 = getelementptr i8, ptr %80, i64 %81
-  store i8 %79, ptr %83, align 1
-  %84 = lshr i32 %1, 8
-  %85 = and i32 %84, 15
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = load ptr, ptr %68, align 8
-  %90 = load i64, ptr %51, align 8
-  %91 = add i64 %90, 1
-  store i64 %91, ptr %51, align 8
-  %92 = getelementptr i8, ptr %89, i64 %90
-  store i8 %88, ptr %92, align 1
-  %93 = lshr i32 %1, 4
-  %94 = and i32 %93, 15
-  %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %95
-  %97 = load i8, ptr %96, align 1
-  %98 = load ptr, ptr %68, align 8
-  %99 = load i64, ptr %51, align 8
+append_hex_bmp.exit:                              ; preds = %39, %45, %47
+  %52 = phi i64 [ %37, %39 ], [ %37, %45 ], [ %.pre.i11, %47 ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = add i64 %52, 1
+  store i64 %55, ptr %36, align 8
+  %56 = getelementptr i8, ptr %54, i64 %52
+  store i8 92, ptr %56, align 1
+  %57 = load ptr, ptr %53, align 8
+  %58 = load i64, ptr %36, align 8
+  %59 = add i64 %58, 1
+  store i64 %59, ptr %36, align 8
+  %60 = getelementptr i8, ptr %57, i64 %58
+  store i8 117, ptr %60, align 1
+  %61 = lshr i32 %1, 12
+  %62 = zext nneg i32 %61 to i64
+  %63 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %62
+  %64 = load i8, ptr %63, align 1
+  %65 = load ptr, ptr %53, align 8
+  %66 = load i64, ptr %36, align 8
+  %67 = add i64 %66, 1
+  store i64 %67, ptr %36, align 8
+  %68 = getelementptr i8, ptr %65, i64 %66
+  store i8 %64, ptr %68, align 1
+  %69 = lshr i32 %1, 8
+  %70 = and i32 %69, 15
+  %71 = zext nneg i32 %70 to i64
+  %72 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %71
+  %73 = load i8, ptr %72, align 1
+  %74 = load ptr, ptr %53, align 8
+  %75 = load i64, ptr %36, align 8
+  %76 = add i64 %75, 1
+  store i64 %76, ptr %36, align 8
+  %77 = getelementptr i8, ptr %74, i64 %75
+  store i8 %73, ptr %77, align 1
+  %78 = lshr i32 %1, 4
+  %79 = and i32 %78, 15
+  br label %157
+
+80:                                               ; preds = %32
+  %.not.i.i12 = icmp ugt i64 %38, -11
+  br i1 %.not.i.i12, label %81, label %append_hex_any.exit
+
+81:                                               ; preds = %80
+  %82 = add i64 %37, 11
+  br label %83
+
+83:                                               ; preds = %83, %81
+  %.0.i.i13 = phi i64 [ %35, %81 ], [ %85, %83 ]
+  %84 = icmp ult i64 %.0.i.i13, %82
+  %85 = shl i64 %.0.i.i13, 1
+  br i1 %84, label %83, label %86, !llvm.loop !6
+
+86:                                               ; preds = %83
+  %87 = icmp eq i64 %.0.i.i13, %35
+  br i1 %87, label %append_hex_any.exit, label %88
+
+88:                                               ; preds = %86
+  %89 = load ptr, ptr %0, align 8
+  %90 = getelementptr inbounds i8, ptr %0, i64 8
+  %91 = load ptr, ptr %90, align 8
+  %92 = tail call noalias ptr @wmem_realloc(ptr noundef %89, ptr noundef %91, i64 noundef %.0.i.i13) #12
+  store ptr %92, ptr %90, align 8
+  store i64 %.0.i.i13, ptr %34, align 8
+  %.pre.i14 = load i64, ptr %36, align 8
+  br label %append_hex_any.exit
+
+append_hex_any.exit:                              ; preds = %80, %86, %88
+  %93 = phi i64 [ %37, %80 ], [ %37, %86 ], [ %.pre.i14, %88 ]
+  %94 = getelementptr inbounds i8, ptr %0, i64 8
+  %95 = load ptr, ptr %94, align 8
+  %96 = add i64 %93, 1
+  store i64 %96, ptr %36, align 8
+  %97 = getelementptr i8, ptr %95, i64 %93
+  store i8 92, ptr %97, align 1
+  %98 = load ptr, ptr %94, align 8
+  %99 = load i64, ptr %36, align 8
   %100 = add i64 %99, 1
-  store i64 %100, ptr %51, align 8
+  store i64 %100, ptr %36, align 8
   %101 = getelementptr i8, ptr %98, i64 %99
-  store i8 %97, ptr %101, align 1
-  %102 = and i32 %1, 15
+  store i8 85, ptr %101, align 1
+  %102 = lshr i32 %1, 28
   %103 = zext nneg i32 %102 to i64
   %104 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %103
   %105 = load i8, ptr %104, align 1
-  %106 = load ptr, ptr %68, align 8
-  %107 = load i64, ptr %51, align 8
+  %106 = load ptr, ptr %94, align 8
+  %107 = load i64, ptr %36, align 8
   %108 = add i64 %107, 1
-  store i64 %108, ptr %51, align 8
+  store i64 %108, ptr %36, align 8
   %109 = getelementptr i8, ptr %106, i64 %107
   store i8 %105, ptr %109, align 1
-  br label %202
+  %110 = lshr i32 %1, 24
+  %111 = and i32 %110, 15
+  %112 = zext nneg i32 %111 to i64
+  %113 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %112
+  %114 = load i8, ptr %113, align 1
+  %115 = load ptr, ptr %94, align 8
+  %116 = load i64, ptr %36, align 8
+  %117 = add i64 %116, 1
+  store i64 %117, ptr %36, align 8
+  %118 = getelementptr i8, ptr %115, i64 %116
+  store i8 %114, ptr %118, align 1
+  %119 = lshr i32 %1, 20
+  %120 = and i32 %119, 15
+  %121 = zext nneg i32 %120 to i64
+  %122 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %121
+  %123 = load i8, ptr %122, align 1
+  %124 = load ptr, ptr %94, align 8
+  %125 = load i64, ptr %36, align 8
+  %126 = add i64 %125, 1
+  store i64 %126, ptr %36, align 8
+  %127 = getelementptr i8, ptr %124, i64 %125
+  store i8 %123, ptr %127, align 1
+  %128 = lshr i32 %1, 16
+  %129 = and i32 %128, 15
+  %130 = zext nneg i32 %129 to i64
+  %131 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %130
+  %132 = load i8, ptr %131, align 1
+  %133 = load ptr, ptr %94, align 8
+  %134 = load i64, ptr %36, align 8
+  %135 = add i64 %134, 1
+  store i64 %135, ptr %36, align 8
+  %136 = getelementptr i8, ptr %133, i64 %134
+  store i8 %132, ptr %136, align 1
+  %137 = lshr i32 %1, 12
+  %138 = and i32 %137, 15
+  %139 = zext nneg i32 %138 to i64
+  %140 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %139
+  %141 = load i8, ptr %140, align 1
+  %142 = load ptr, ptr %94, align 8
+  %143 = load i64, ptr %36, align 8
+  %144 = add i64 %143, 1
+  store i64 %144, ptr %36, align 8
+  %145 = getelementptr i8, ptr %142, i64 %143
+  store i8 %141, ptr %145, align 1
+  %146 = lshr i32 %1, 8
+  %147 = and i32 %146, 15
+  %148 = zext nneg i32 %147 to i64
+  %149 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %148
+  %150 = load i8, ptr %149, align 1
+  %151 = load ptr, ptr %94, align 8
+  %152 = load i64, ptr %36, align 8
+  %153 = add i64 %152, 1
+  store i64 %153, ptr %36, align 8
+  %154 = getelementptr i8, ptr %151, i64 %152
+  store i8 %150, ptr %154, align 1
+  %155 = lshr i32 %1, 4
+  %156 = and i32 %155, 15
+  br label %157
 
-110:                                              ; preds = %47
-  %.not.i.i12 = icmp ugt i64 %53, -11
-  br i1 %.not.i.i12, label %111, label %append_hex_any.exit
-
-111:                                              ; preds = %110
-  %112 = add i64 %52, 11
-  br label %113
-
-113:                                              ; preds = %113, %111
-  %.0.i.i13 = phi i64 [ %50, %111 ], [ %115, %113 ]
-  %114 = icmp ult i64 %.0.i.i13, %112
-  %115 = shl i64 %.0.i.i13, 1
-  br i1 %114, label %113, label %116, !llvm.loop !6
-
-116:                                              ; preds = %113
-  %117 = icmp eq i64 %.0.i.i13, %50
-  br i1 %117, label %append_hex_any.exit, label %118
-
-118:                                              ; preds = %116
-  %119 = load ptr, ptr %0, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = tail call noalias ptr @wmem_realloc(ptr noundef %119, ptr noundef %121, i64 noundef %.0.i.i13) #12
-  store ptr %122, ptr %120, align 8
-  store i64 %.0.i.i13, ptr %49, align 8
-  %.pre.i14 = load i64, ptr %51, align 8
-  br label %append_hex_any.exit
-
-append_hex_any.exit:                              ; preds = %110, %116, %118
-  %123 = phi i64 [ %52, %110 ], [ %52, %116 ], [ %.pre.i14, %118 ]
-  %124 = getelementptr inbounds i8, ptr %0, i64 8
-  %125 = load ptr, ptr %124, align 8
-  %126 = add i64 %123, 1
-  store i64 %126, ptr %51, align 8
-  %127 = getelementptr i8, ptr %125, i64 %123
-  store i8 92, ptr %127, align 1
-  %128 = load ptr, ptr %124, align 8
-  %129 = load i64, ptr %51, align 8
-  %130 = add i64 %129, 1
-  store i64 %130, ptr %51, align 8
-  %131 = getelementptr i8, ptr %128, i64 %129
-  store i8 85, ptr %131, align 1
-  %132 = lshr i32 %1, 28
-  %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %133
-  %135 = load i8, ptr %134, align 1
-  %136 = load ptr, ptr %124, align 8
-  %137 = load i64, ptr %51, align 8
-  %138 = add i64 %137, 1
-  store i64 %138, ptr %51, align 8
-  %139 = getelementptr i8, ptr %136, i64 %137
-  store i8 %135, ptr %139, align 1
-  %140 = lshr i32 %1, 24
-  %141 = and i32 %140, 15
-  %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %142
-  %144 = load i8, ptr %143, align 1
-  %145 = load ptr, ptr %124, align 8
-  %146 = load i64, ptr %51, align 8
-  %147 = add i64 %146, 1
-  store i64 %147, ptr %51, align 8
-  %148 = getelementptr i8, ptr %145, i64 %146
-  store i8 %144, ptr %148, align 1
-  %149 = lshr i32 %1, 20
-  %150 = and i32 %149, 15
-  %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %151
-  %153 = load i8, ptr %152, align 1
-  %154 = load ptr, ptr %124, align 8
-  %155 = load i64, ptr %51, align 8
-  %156 = add i64 %155, 1
-  store i64 %156, ptr %51, align 8
-  %157 = getelementptr i8, ptr %154, i64 %155
-  store i8 %153, ptr %157, align 1
-  %158 = lshr i32 %1, 16
-  %159 = and i32 %158, 15
-  %160 = zext nneg i32 %159 to i64
-  %161 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %160
-  %162 = load i8, ptr %161, align 1
-  %163 = load ptr, ptr %124, align 8
-  %164 = load i64, ptr %51, align 8
-  %165 = add i64 %164, 1
-  store i64 %165, ptr %51, align 8
-  %166 = getelementptr i8, ptr %163, i64 %164
-  store i8 %162, ptr %166, align 1
-  %167 = lshr i32 %1, 12
-  %168 = and i32 %167, 15
-  %169 = zext nneg i32 %168 to i64
-  %170 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %169
-  %171 = load i8, ptr %170, align 1
-  %172 = load ptr, ptr %124, align 8
-  %173 = load i64, ptr %51, align 8
-  %174 = add i64 %173, 1
-  store i64 %174, ptr %51, align 8
-  %175 = getelementptr i8, ptr %172, i64 %173
-  store i8 %171, ptr %175, align 1
-  %176 = lshr i32 %1, 8
-  %177 = and i32 %176, 15
-  %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %178
-  %180 = load i8, ptr %179, align 1
-  %181 = load ptr, ptr %124, align 8
-  %182 = load i64, ptr %51, align 8
-  %183 = add i64 %182, 1
-  store i64 %183, ptr %51, align 8
-  %184 = getelementptr i8, ptr %181, i64 %182
-  store i8 %180, ptr %184, align 1
-  %185 = lshr i32 %1, 4
-  %186 = and i32 %185, 15
-  %187 = zext nneg i32 %186 to i64
-  %188 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %187
-  %189 = load i8, ptr %188, align 1
-  %190 = load ptr, ptr %124, align 8
-  %191 = load i64, ptr %51, align 8
-  %192 = add i64 %191, 1
-  store i64 %192, ptr %51, align 8
-  %193 = getelementptr i8, ptr %190, i64 %191
-  store i8 %189, ptr %193, align 1
-  %194 = and i32 %1, 15
-  %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %195
-  %197 = load i8, ptr %196, align 1
-  %198 = load ptr, ptr %124, align 8
-  %199 = load i64, ptr %51, align 8
-  %200 = add i64 %199, 1
-  store i64 %200, ptr %51, align 8
-  %201 = getelementptr i8, ptr %198, i64 %199
-  store i8 %197, ptr %201, align 1
-  br label %202
-
-202:                                              ; preds = %append_hex_any.exit, %append_hex_bmp.exit, %wmem_strbuf_append_hex.exit
-  %.sink17 = phi ptr [ %124, %append_hex_any.exit ], [ %68, %append_hex_bmp.exit ], [ %23, %wmem_strbuf_append_hex.exit ]
-  %.sink = phi ptr [ %51, %append_hex_any.exit ], [ %51, %append_hex_bmp.exit ], [ %7, %wmem_strbuf_append_hex.exit ]
+157:                                              ; preds = %append_hex_any.exit, %append_hex_bmp.exit, %wmem_strbuf_append_hex.exit
+  %.sink41 = phi i32 [ %156, %append_hex_any.exit ], [ %79, %append_hex_bmp.exit ], [ %31, %wmem_strbuf_append_hex.exit ]
+  %.sink38 = phi ptr [ %94, %append_hex_any.exit ], [ %53, %append_hex_bmp.exit ], [ %23, %wmem_strbuf_append_hex.exit ]
+  %.sink37 = phi ptr [ %36, %append_hex_any.exit ], [ %36, %append_hex_bmp.exit ], [ %7, %wmem_strbuf_append_hex.exit ]
   %.0 = phi i64 [ 10, %append_hex_any.exit ], [ 6, %append_hex_bmp.exit ], [ 4, %wmem_strbuf_append_hex.exit ]
-  %203 = load ptr, ptr %.sink17, align 8
-  %204 = load i64, ptr %.sink, align 8
-  %205 = getelementptr i8, ptr %203, i64 %204
-  store i8 0, ptr %205, align 1
+  %158 = zext nneg i32 %.sink41 to i64
+  %159 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %158
+  %160 = load i8, ptr %159, align 1
+  %161 = load ptr, ptr %.sink38, align 8
+  %162 = load i64, ptr %.sink37, align 8
+  %163 = add i64 %162, 1
+  store i64 %163, ptr %.sink37, align 8
+  %164 = getelementptr i8, ptr %161, i64 %162
+  store i8 %160, ptr %164, align 1
+  %165 = and i32 %1, 15
+  %166 = zext nneg i32 %165 to i64
+  %167 = getelementptr [16 x i8], ptr @hex, i64 0, i64 %166
+  %168 = load i8, ptr %167, align 1
+  %169 = load ptr, ptr %.sink38, align 8
+  %170 = load i64, ptr %.sink37, align 8
+  %171 = add i64 %170, 1
+  store i64 %171, ptr %.sink37, align 8
+  %172 = getelementptr i8, ptr %169, i64 %170
+  store i8 %168, ptr %172, align 1
+  %173 = load ptr, ptr %.sink38, align 8
+  %174 = load i64, ptr %.sink37, align 8
+  %175 = getelementptr i8, ptr %173, i64 %174
+  store i8 0, ptr %175, align 1
   ret i64 %.0
 }
 

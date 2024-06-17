@@ -5073,44 +5073,44 @@ if.end281.thread.sink.split:                      ; preds = %for.end, %for.end.t
 
 if.end281.thread:                                 ; preds = %if.end281.thread.sink.split, %for.end, %for.end.thread
   %add.i.i823 = phi i64 [ 640, %for.end.thread ], [ 632, %for.end ], [ %add.i.i823.ph, %if.end281.thread.sink.split ]
-  %.sink = load ptr, ptr %args, align 8
-  %arrayidx.i105123 = getelementptr inbounds i8, ptr %.sink, i64 24
-  %arrayidx.i827 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %87 = load ptr, ptr %arrayidx.i827, align 8
-  %88 = ptrtoint ptr %87 to i64
-  %add1.i.i = add i64 %add.i.i823, %88
-  %89 = inttoptr i64 %add1.i.i to ptr
-  %90 = load i64, ptr %89, align 8
-  store i64 %90, ptr %arrayidx.i105123, align 8
+  %87 = load ptr, ptr %args, align 8
+  %arrayidx.i105123 = getelementptr inbounds i8, ptr %87, i64 24
+  %arrayidx.i827 = getelementptr inbounds i8, ptr %87, i64 8
+  %88 = load ptr, ptr %arrayidx.i827, align 8
+  %89 = ptrtoint ptr %88 to i64
+  %add1.i.i = add i64 %add.i.i823, %89
+  %90 = inttoptr i64 %add1.i.i to ptr
+  %91 = load i64, ptr %90, align 8
+  store i64 %91, ptr %arrayidx.i105123, align 8
   %cmp.not.i.i = icmp eq ptr %retval.0.i.i, null
   br i1 %cmp.not.i.i, label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit79, label %if.then.i.i76
 
 if.then.i.i76:                                    ; preds = %.thread, %if.end281.thread
-  %91 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
-  %dec.i.i.i = add nsw i32 %91, -1
+  %92 = load i32, ptr %should_not_abort_scope_counter_.i.i, align 8
+  %dec.i.i.i = add nsw i32 %92, -1
   store i32 %dec.i.i.i, ptr %should_not_abort_scope_counter_.i.i, align 8
   br label %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit79
 
 _ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit79: ; preds = %if.then.i.i76, %if.end281.thread
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #21
-  %92 = load ptr, ptr %consume_cache_task19.i.i, align 8
-  %cmp.not.i80 = icmp eq ptr %92, null
+  %93 = load ptr, ptr %consume_cache_task19.i.i, align 8
+  %cmp.not.i80 = icmp eq ptr %93, null
   br i1 %cmp.not.i80, label %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN2v814ScriptCompiler20ConsumeCodeCacheTaskEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN2v814ScriptCompiler20ConsumeCodeCacheTaskEEclEPS2_.exit.i: ; preds = %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit79
-  call void @_ZN2v814ScriptCompiler20ConsumeCodeCacheTaskD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %92) #21
-  call void @_ZdlPv(ptr noundef nonnull %92) #23
+  call void @_ZN2v814ScriptCompiler20ConsumeCodeCacheTaskD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %93) #21
+  call void @_ZdlPv(ptr noundef nonnull %93) #23
   br label %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt6vectorIN2v85LocalINS0_6StringEEESaIS3_EED2Ev.exit79, %_ZNKSt14default_deleteIN2v814ScriptCompiler20ConsumeCodeCacheTaskEEclEPS2_.exit.i
   store ptr null, ptr %consume_cache_task19.i.i, align 8
-  %93 = load ptr, ptr %cached_data.i.i, align 8
-  %cmp.not.i82 = icmp eq ptr %93, null
+  %94 = load ptr, ptr %cached_data.i.i, align 8
+  %cmp.not.i82 = icmp eq ptr %94, null
   br i1 %cmp.not.i82, label %return, label %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i: ; preds = %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit
-  call void @_ZN2v814ScriptCompiler10CachedDataD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %93) #21
-  call void @_ZdlPv(ptr noundef nonnull %93) #23
+  call void @_ZN2v814ScriptCompiler10CachedDataD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %94) #21
+  call void @_ZdlPv(ptr noundef nonnull %94) #23
   br label %return
 
 return:                                           ; preds = %_ZNKSt14default_deleteIN2v814ScriptCompiler10CachedDataEEclEPS2_.exit.i, %_ZNSt10unique_ptrIN2v814ScriptCompiler20ConsumeCodeCacheTaskESt14default_deleteIS2_EED2Ev.exit, %cleanup, %if.then

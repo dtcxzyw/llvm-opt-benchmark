@@ -3773,24 +3773,24 @@ if.then.i.i481:                                   ; preds = %lor.lhs.false.i.i47
 for.inc183.sink.split.sink.split:                 ; preds = %if.then.i.i481, %if.then.i.i454
   %.sink1601.ph = phi ptr [ %137, %if.then.i.i454 ], [ %143, %if.then.i.i481 ]
   %lam.4.ph.ph = phi ptr [ %lam.31430, %if.then.i.i454 ], [ %130, %if.then.i.i481 ]
-  %.pre.i.i455 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx8.phi.trans.insert.i.i483 = getelementptr inbounds i8, ptr %.pre.i.i455, i64 -4
+  %.pre.i.i482 = load ptr, ptr %m_nodes.i.i, align 8
+  %arrayidx8.phi.trans.insert.i.i483 = getelementptr inbounds i8, ptr %.pre.i.i482, i64 -4
   %.pre1.i.i484 = load i32, ptr %arrayidx8.phi.trans.insert.i.i483, align 4
   br label %for.inc183.sink.split
 
 for.inc183.sink.split:                            ; preds = %for.inc183.sink.split.sink.split, %lor.lhs.false.i.i473, %lor.lhs.false.i.i
   %.sink1603 = phi i32 [ %140, %lor.lhs.false.i.i ], [ %146, %lor.lhs.false.i.i473 ], [ %.pre1.i.i484, %for.inc183.sink.split.sink.split ]
-  %.sink1602 = phi ptr [ %139, %lor.lhs.false.i.i ], [ %145, %lor.lhs.false.i.i473 ], [ %.pre.i.i455, %for.inc183.sink.split.sink.split ]
+  %.sink1602 = phi ptr [ %139, %lor.lhs.false.i.i ], [ %145, %lor.lhs.false.i.i473 ], [ %.pre.i.i482, %for.inc183.sink.split.sink.split ]
   %.sink1601 = phi ptr [ %137, %lor.lhs.false.i.i ], [ %143, %lor.lhs.false.i.i473 ], [ %.sink1601.ph, %for.inc183.sink.split.sink.split ]
   %lam.4.ph = phi ptr [ %lam.31430, %lor.lhs.false.i.i ], [ %130, %lor.lhs.false.i.i473 ], [ %lam.4.ph.ph, %for.inc183.sink.split.sink.split ]
-  %idx.ext.i.i451 = zext i32 %.sink1603 to i64
-  %add.ptr.i.i452 = getelementptr inbounds ptr, ptr %.sink1602, i64 %idx.ext.i.i451
-  store ptr %.sink1601, ptr %add.ptr.i.i452, align 8
+  %idx.ext.i.i477 = zext i32 %.sink1603 to i64
+  %add.ptr.i.i478 = getelementptr inbounds ptr, ptr %.sink1602, i64 %idx.ext.i.i477
+  store ptr %.sink1601, ptr %add.ptr.i.i478, align 8
   %148 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %148, i64 -4
-  %149 = load i32, ptr %arrayidx10.i.i, align 4
+  %arrayidx10.i.i479 = getelementptr inbounds i8, ptr %148, i64 -4
+  %149 = load i32, ptr %arrayidx10.i.i479, align 4
   %inc.i.i480 = add i32 %149, 1
-  store i32 %inc.i.i480, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i.i480, ptr %arrayidx10.i.i479, align 4
   br label %for.inc183
 
 for.inc183:                                       ; preds = %for.inc183.sink.split, %for.body156, %invoke.cont162, %land.rhs.i.i437, %invoke.cont172

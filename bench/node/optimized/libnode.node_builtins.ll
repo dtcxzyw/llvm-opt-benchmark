@@ -2813,12 +2813,6 @@ _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20fo
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 712
   %0 = load ptr, ptr %vfn, align 8
   %call50 = tail call ptr %0(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
-  %vtable60 = load ptr, ptr %realm, align 8
-  %vfn61 = getelementptr inbounds i8, ptr %vtable60, i64 728
-  %1 = load ptr, ptr %vfn61, align 8
-  %call62 = tail call ptr %1(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
-  %call5.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  store ptr %call50, ptr %call5.i.i.i.i.i, align 8
   br label %if.end127
 
 if.else:                                          ; preds = %entry
@@ -2834,22 +2828,16 @@ lor.lhs.false:                                    ; preds = %if.else
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65: ; preds = %if.else, %lor.lhs.false
   %vtable79 = load ptr, ptr %realm, align 8
   %vfn80 = getelementptr inbounds i8, ptr %vtable79, i64 712
-  %2 = load ptr, ptr %vfn80, align 8
-  %call81 = tail call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
+  %1 = load ptr, ptr %vfn80, align 8
+  %call81 = tail call ptr %1(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
   %vtable90 = load ptr, ptr %realm, align 8
   %vfn91 = getelementptr inbounds i8, ptr %vtable90, i64 664
-  %3 = load ptr, ptr %vfn91, align 8
-  %call92 = tail call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
+  %2 = load ptr, ptr %vfn91, align 8
+  %call92 = tail call ptr %2(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
   %vtable101 = load ptr, ptr %realm, align 8
   %vfn102 = getelementptr inbounds i8, ptr %vtable101, i64 536
-  %4 = load ptr, ptr %vfn102, align 8
-  %call103 = tail call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
-  %vtable112 = load ptr, ptr %realm, align 8
-  %vfn113 = getelementptr inbounds i8, ptr %vtable112, i64 728
-  %5 = load ptr, ptr %vfn113, align 8
-  %call114 = tail call ptr %5(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
-  %call5.i.i.i.i.i59 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
-  store ptr %call81, ptr %call5.i.i.i.i.i59, align 8
+  %3 = load ptr, ptr %vfn102, align 8
+  %call103 = tail call ptr %3(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
   br label %if.end127
 
 do.body:                                          ; preds = %lor.lhs.false
@@ -2858,31 +2846,36 @@ do.body:                                          ; preds = %lor.lhs.false
   unreachable
 
 if.end127:                                        ; preds = %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit
-  %call5.i.i.i.i.i59.sink80 = phi ptr [ %call5.i.i.i.i.i59, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65 ], [ %call5.i.i.i.i.i, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit ]
+  %call81.sink = phi ptr [ %call81, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65 ], [ %call50, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit ]
   %call92.sink = phi ptr [ %call92, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65 ], [ %call19, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit ]
   %call103.sink = phi ptr [ %call103, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65 ], [ %call40, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit ]
-  %call114.sink = phi ptr [ %call114, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit65 ], [ %call62, %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EE13_M_assign_auxIPKS3_EEvT_S9_St20forward_iterator_tag.exit ]
-  %ref.tmp76.sroa.2.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59.sink80, i64 8
+  %vtable112 = load ptr, ptr %realm, align 8
+  %vfn113 = getelementptr inbounds i8, ptr %vtable112, i64 728
+  %4 = load ptr, ptr %vfn113, align 8
+  %call114 = tail call ptr %4(ptr noundef nonnull align 8 dereferenceable(872) %realm) #23
+  %call5.i.i.i.i.i59 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
+  store ptr %call81.sink, ptr %call5.i.i.i.i.i59, align 8
+  %ref.tmp76.sroa.2.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59, i64 8
   store ptr %call92.sink, ptr %ref.tmp76.sroa.2.0.call5.i.i.i.i.i59.sroa_idx, align 8
-  %ref.tmp76.sroa.3.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59.sink80, i64 16
+  %ref.tmp76.sroa.3.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59, i64 16
   store ptr %call103.sink, ptr %ref.tmp76.sroa.3.0.call5.i.i.i.i.i59.sroa_idx, align 8
-  %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59.sink80, i64 24
-  store ptr %call114.sink, ptr %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx, align 8
+  %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx = getelementptr inbounds i8, ptr %call5.i.i.i.i.i59, i64 24
+  store ptr %call114, ptr %ref.tmp76.sroa.4.0.call5.i.i.i.i.i59.sroa_idx, align 8
   %call.i = tail call ptr @_ZN4node8builtins13BuiltinLoader16LookupAndCompileEN2v85LocalINS2_7ContextEEEPKcPNS_5RealmE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr %context.coerce, ptr noundef %id, ptr noundef nonnull %realm)
   %cmp.i.i.not.i = icmp eq ptr %call.i, null
   br i1 %cmp.i.i.not.i, label %if.then.i.i.i, label %if.end.i
 
 if.end.i:                                         ; preds = %if.end127
   %call14.i = tail call noundef ptr @_ZN2v87Context10GetIsolateEv(ptr noundef nonnull align 1 dereferenceable(1) %context.coerce) #23
-  %6 = ptrtoint ptr %call14.i to i64
-  %add1.i.i = add i64 %6, 608
-  %7 = inttoptr i64 %add1.i.i to ptr
-  %call31.i = tail call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr nonnull %context.coerce, ptr %7, i32 noundef 4, ptr noundef nonnull %call5.i.i.i.i.i59.sink80) #23
+  %5 = ptrtoint ptr %call14.i to i64
+  %add1.i.i = add i64 %5, 608
+  %6 = inttoptr i64 %add1.i.i to ptr
+  %call31.i = tail call ptr @_ZN2v88Function4CallENS_5LocalINS_7ContextEEENS1_INS_5ValueEEEiPS5_(ptr noundef nonnull align 1 dereferenceable(1) %call.i, ptr nonnull %context.coerce, ptr %6, i32 noundef 4, ptr noundef nonnull %call5.i.i.i.i.i59) #23
   br label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end127, %if.end.i
   %retval.sroa.0.0 = phi ptr [ %call31.i, %if.end.i ], [ null, %if.end127 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i59.sink80) #27
+  tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i.i59) #27
   br label %_ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN2v85LocalINS0_5ValueEEESaIS3_EED2Ev.exit: ; preds = %lor.rhs, %if.then, %if.then.i.i.i

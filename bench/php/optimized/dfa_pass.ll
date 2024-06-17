@@ -3694,12 +3694,12 @@ compress_block.exit:                              ; preds = %23, %compress_block
   br label %.critedge17.backedge
 
 .sink.split872:                                   ; preds = %426, %388
-  %.sink894 = phi ptr [ %381, %388 ], [ %419, %426 ]
+  %.sink889 = phi ptr [ %381, %388 ], [ %419, %426 ]
   store i8 44, ptr %75, align 4
   %203 = getelementptr inbounds i8, ptr %72, i64 31
   store i8 0, ptr %203, align 1
   %204 = load ptr, ptr %47, align 8
-  %205 = load i32, ptr %.sink894, align 4
+  %205 = load i32, ptr %.sink889, align 4
   %206 = sext i32 %205 to i64
   %207 = getelementptr inbounds %struct._zend_ssa_var, ptr %204, i64 %206
   %208 = getelementptr inbounds i8, ptr %207, i64 8
@@ -3715,7 +3715,7 @@ compress_block.exit:                              ; preds = %23, %compress_block
   %.not743 = icmp eq ptr %215, null
   tail call void @llvm.assume(i1 %.not743)
   store i32 -1, ptr %208, align 8
-  store i32 -1, ptr %.sink894, align 4
+  store i32 -1, ptr %.sink889, align 4
   br label %216
 
 216:                                              ; preds = %.sink.split872, %65

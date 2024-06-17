@@ -55,9 +55,9 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr nocapture noundef %1,
   %29 = and i32 %28, 16777215
   %30 = icmp ugt i32 %24, %29
   %. = select i1 %30, ptr %15, ptr %19
-  %.56 = select i1 %30, ptr %19, ptr %15
+  %.57 = select i1 %30, ptr %19, ptr %15
   tail call void @Llb_Nonlin4SweepOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef %2, ptr noundef %3, i32 noundef %4)
-  tail call void @Llb_Nonlin4SweepOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %.56, ptr noundef %2, ptr noundef %3, i32 noundef %4)
+  tail call void @Llb_Nonlin4SweepOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %.57, ptr noundef %2, ptr noundef %3, i32 noundef %4)
   %.not37 = icmp eq i32 %4, 0
   br i1 %.not37, label %31, label %.sink.split
 
@@ -69,13 +69,13 @@ define void @Llb_Nonlin4SweepOrder_rec(ptr noundef %0, ptr nocapture noundef %1,
 
 .sink.split:                                      ; preds = %11, %31, %8
   %34 = getelementptr i8, ptr %1, i64 36
-  %.val42 = load i32, ptr %34, align 4
+  %.val43 = load i32, ptr %34, align 4
   %35 = load i32, ptr %3, align 4
   %36 = add nsw i32 %35, 1
   store i32 %36, ptr %3, align 4
   %37 = getelementptr i8, ptr %2, i64 8
   %.val45 = load ptr, ptr %37, align 8
-  %38 = sext i32 %.val42 to i64
+  %38 = sext i32 %.val43 to i64
   %39 = getelementptr inbounds i32, ptr %.val45, i64 %38
   store i32 %35, ptr %39, align 4
   br label %40

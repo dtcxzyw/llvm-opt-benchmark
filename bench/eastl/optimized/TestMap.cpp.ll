@@ -79766,10 +79766,10 @@ _ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1
 
 return.sink.split:                                ; preds = %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i
   %storemerge.ph = phi ptr [ %call.i.i.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit.i ], [ %call.i.i.i.i.i, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE17DoInsertValueImplIJS3_EEENS_15rbtree_iteratorIS3_PS3_RS3_EEPNS_16rbtree_node_baseEbRS2_DpOT_.exit ]
-  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %15 = load i64, ptr %mnSize.i.i, align 8, !noalias !70
+  %mnSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %15 = load i64, ptr %mnSize.i.i.i, align 8, !noalias !70
   %inc.i.i.i = add i64 %15, 1
-  store i64 %inc.i.i.i, ptr %mnSize.i.i, align 8, !noalias !70
+  store i64 %inc.i.i.i, ptr %mnSize.i.i.i, align 8, !noalias !70
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN5eastl6rbtreeIiNS_4pairIKiiEENS_4lessIiEENS_9allocatorENS_9use_firstIS3_EELb1ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRS2_.exit.i
@@ -85090,10 +85090,10 @@ _ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_f
 
 return.sink.split:                                ; preds = %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS3_DpOT_.exit, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS3_DpOT_.exit.i
   %storemerge.ph = phi ptr [ %call.i6.i.i.i.i.i, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS3_DpOT_.exit.i ], [ %call.i6.i.i.i.i, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE17DoInsertValueImplIJS4_EEENS_15rbtree_iteratorIS4_PS4_RS4_EEPNS_16rbtree_node_baseEbRS3_DpOT_.exit ]
-  %mnSize.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %11 = load i64, ptr %mnSize.i.i, align 8, !noalias !70
+  %mnSize.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
+  %11 = load i64, ptr %mnSize.i.i.i, align 8, !noalias !70
   %inc.i.i.i = add i64 %11, 1
-  store i64 %inc.i.i.i, ptr %mnSize.i.i, align 8, !noalias !70
+  store i64 %inc.i.i.i, ptr %mnSize.i.i.i, align 8, !noalias !70
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN5eastl6rbtreeI7Align64NS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE35DoGetKeyInsertionPositionUniqueKeysERbRS3_.exit.i

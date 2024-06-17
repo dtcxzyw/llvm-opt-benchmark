@@ -6194,28 +6194,21 @@ entry:
 define linkonce_odr dso_local void @_ZN22btDeformableBodySolver17setPreconditionerEi(ptr noundef nonnull align 8 dereferenceable(609) %this, i32 noundef %opt) unnamed_addr #4 comdat align 2 {
 entry:
   switch i32 %opt, label %sw.epilog [
-    i32 0, label %sw.bb
+    i32 0, label %sw.epilog.sink.split
     i32 1, label %sw.bb3
   ]
 
-sw.bb:                                            ; preds = %entry
-  %m_objective = getelementptr inbounds i8, ptr %this, i64 600
-  %0 = load ptr, ptr %m_objective, align 8
-  %m_massPreconditioner = getelementptr inbounds i8, ptr %0, i64 488
-  br label %sw.epilog.sink.split
-
 sw.bb3:                                           ; preds = %entry
-  %m_objective4 = getelementptr inbounds i8, ptr %this, i64 600
-  %1 = load ptr, ptr %m_objective4, align 8
-  %m_KKTPreconditioner = getelementptr inbounds i8, ptr %1, i64 496
   br label %sw.epilog.sink.split
 
-sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb3
-  %m_KKTPreconditioner.sink = phi ptr [ %m_KKTPreconditioner, %sw.bb3 ], [ %m_massPreconditioner, %sw.bb ]
-  %.sink1 = phi ptr [ %1, %sw.bb3 ], [ %0, %sw.bb ]
-  %2 = load ptr, ptr %m_KKTPreconditioner.sink, align 8
-  %m_preconditioner6 = getelementptr inbounds i8, ptr %.sink1, i64 56
-  store ptr %2, ptr %m_preconditioner6, align 8
+sw.epilog.sink.split:                             ; preds = %entry, %sw.bb3
+  %.sink2 = phi i64 [ 496, %sw.bb3 ], [ 488, %entry ]
+  %m_objective4 = getelementptr inbounds i8, ptr %this, i64 600
+  %0 = load ptr, ptr %m_objective4, align 8
+  %m_KKTPreconditioner = getelementptr inbounds i8, ptr %0, i64 %.sink2
+  %1 = load ptr, ptr %m_KKTPreconditioner, align 8
+  %m_preconditioner6 = getelementptr inbounds i8, ptr %0, i64 56
+  store ptr %1, ptr %m_preconditioner6, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry

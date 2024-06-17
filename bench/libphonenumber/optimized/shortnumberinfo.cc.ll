@@ -2377,9 +2377,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit23: ; 
   ret void
 
 .body:                                            ; preds = %48, %46, %31, %29
-  %.sink34 = phi ptr [ %5, %29 ], [ %5, %31 ], [ %6, %46 ], [ %6, %48 ]
+  %.sink35 = phi ptr [ %5, %29 ], [ %5, %31 ], [ %6, %46 ], [ %6, %48 ]
   %.pn = phi { ptr, i32 } [ %30, %29 ], [ %32, %31 ], [ %47, %46 ], [ %49, %48 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink34) #20
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink35) #20
   resume { ptr, i32 } %.pn
 }
 

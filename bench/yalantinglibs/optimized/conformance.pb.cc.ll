@@ -3406,90 +3406,36 @@ if.end27:                                         ; preds = %_ZN6google8protobuf
   %_oneof_case_.i = getelementptr inbounds i8, ptr %this, i64 60
   %16 = load i32, ptr %_oneof_case_.i, align 4
   switch i32 %16, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 2, label %sw.bb38
-    i32 7, label %sw.bb43
-    i32 8, label %sw.bb48
+    i32 1, label %sw.epilog.sink.split
+    i32 2, label %sw.epilog.sink.split
+    i32 7, label %sw.epilog.sink.split
+    i32 8, label %sw.epilog.sink.split
   ]
 
-sw.bb:                                            ; preds = %if.end27
-  %payload_.i = getelementptr inbounds i8, ptr %this, i64 48
-  %17 = load ptr, ptr %payload_.i, align 8
-  %_M_string_length.i.i38 = getelementptr inbounds i8, ptr %17, i64 8
-  %18 = load i64, ptr %_M_string_length.i.i38, align 8
-  %conv.i.i39 = trunc i64 %18 to i32
-  %or.i.i.i40 = or i32 %conv.i.i39, 1
-  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i40, i1 true)
-  %xor.i.i.i.i41 = xor i32 %19, 31
-  %mul.i.i.i42 = mul nuw nsw i32 %xor.i.i.i.i41, 9
-  %add.i.i.i43 = add nuw nsw i32 %mul.i.i.i42, 73
-  %div1.i.i.i44 = lshr i32 %add.i.i.i43, 6
-  %conv.i.i.i45 = zext nneg i32 %div1.i.i.i44 to i64
-  %add.i.i46 = add i64 %spec.select, 1
-  %add36 = add i64 %add.i.i46, %18
-  %add37 = add i64 %add36, %conv.i.i.i45
-  br label %sw.epilog
-
-sw.bb38:                                          ; preds = %if.end27
-  %payload_.i49 = getelementptr inbounds i8, ptr %this, i64 48
-  %20 = load ptr, ptr %payload_.i49, align 8
-  %_M_string_length.i.i51 = getelementptr inbounds i8, ptr %20, i64 8
-  %21 = load i64, ptr %_M_string_length.i.i51, align 8
-  %conv.i.i52 = trunc i64 %21 to i32
-  %or.i.i.i53 = or i32 %conv.i.i52, 1
-  %22 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i53, i1 true)
-  %xor.i.i.i.i54 = xor i32 %22, 31
-  %mul.i.i.i55 = mul nuw nsw i32 %xor.i.i.i.i54, 9
-  %add.i.i.i56 = add nuw nsw i32 %mul.i.i.i55, 73
-  %div1.i.i.i57 = lshr i32 %add.i.i.i56, 6
-  %conv.i.i.i58 = zext nneg i32 %div1.i.i.i57 to i64
-  %add.i.i59 = add i64 %spec.select, 1
-  %add41 = add i64 %add.i.i59, %21
-  %add42 = add i64 %add41, %conv.i.i.i58
-  br label %sw.epilog
-
-sw.bb43:                                          ; preds = %if.end27
-  %payload_.i62 = getelementptr inbounds i8, ptr %this, i64 48
-  %23 = load ptr, ptr %payload_.i62, align 8
-  %_M_string_length.i.i64 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load i64, ptr %_M_string_length.i.i64, align 8
-  %conv.i.i65 = trunc i64 %24 to i32
-  %or.i.i.i66 = or i32 %conv.i.i65, 1
-  %25 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i66, i1 true)
-  %xor.i.i.i.i67 = xor i32 %25, 31
-  %mul.i.i.i68 = mul nuw nsw i32 %xor.i.i.i.i67, 9
-  %add.i.i.i69 = add nuw nsw i32 %mul.i.i.i68, 73
-  %div1.i.i.i70 = lshr i32 %add.i.i.i69, 6
-  %conv.i.i.i71 = zext nneg i32 %div1.i.i.i70 to i64
-  %add.i.i72 = add i64 %spec.select, 1
-  %add46 = add i64 %add.i.i72, %24
-  %add47 = add i64 %add46, %conv.i.i.i71
-  br label %sw.epilog
-
-sw.bb48:                                          ; preds = %if.end27
+sw.epilog.sink.split:                             ; preds = %if.end27, %if.end27, %if.end27, %if.end27
   %payload_.i75 = getelementptr inbounds i8, ptr %this, i64 48
-  %26 = load ptr, ptr %payload_.i75, align 8
-  %_M_string_length.i.i77 = getelementptr inbounds i8, ptr %26, i64 8
-  %27 = load i64, ptr %_M_string_length.i.i77, align 8
-  %conv.i.i78 = trunc i64 %27 to i32
+  %17 = load ptr, ptr %payload_.i75, align 8
+  %_M_string_length.i.i77 = getelementptr inbounds i8, ptr %17, i64 8
+  %18 = load i64, ptr %_M_string_length.i.i77, align 8
+  %conv.i.i78 = trunc i64 %18 to i32
   %or.i.i.i79 = or i32 %conv.i.i78, 1
-  %28 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i79, i1 true)
-  %xor.i.i.i.i80 = xor i32 %28, 31
+  %19 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i79, i1 true)
+  %xor.i.i.i.i80 = xor i32 %19, 31
   %mul.i.i.i81 = mul nuw nsw i32 %xor.i.i.i.i80, 9
   %add.i.i.i82 = add nuw nsw i32 %mul.i.i.i81, 73
   %div1.i.i.i83 = lshr i32 %add.i.i.i82, 6
   %conv.i.i.i84 = zext nneg i32 %div1.i.i.i83 to i64
   %add.i.i85 = add i64 %spec.select, 1
-  %add51 = add i64 %add.i.i85, %27
+  %add51 = add i64 %add.i.i85, %18
   %add52 = add i64 %add51, %conv.i.i.i84
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb48, %sw.bb43, %sw.bb38, %sw.bb, %if.end27
-  %total_size.5 = phi i64 [ %spec.select, %if.end27 ], [ %add52, %sw.bb48 ], [ %add47, %sw.bb43 ], [ %add42, %sw.bb38 ], [ %add37, %sw.bb ]
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end27
+  %total_size.5 = phi i64 [ %spec.select, %if.end27 ], [ %add52, %sw.epilog.sink.split ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  %29 = load ptr, ptr %_internal_metadata_, align 8
-  %30 = ptrtoint ptr %29 to i64
-  %conv.i12 = and i64 %30, 1
+  %20 = load ptr, ptr %_internal_metadata_, align 8
+  %21 = ptrtoint ptr %20 to i64
+  %conv.i12 = and i64 %21, 1
   %cmp.i.not = icmp eq i64 %conv.i12, 0
   br i1 %cmp.i.not, label %if.end59, label %if.then56
 
@@ -6143,177 +6089,33 @@ define dso_local noundef i64 @_ZNK11conformance19ConformanceResponse12ByteSizeLo
 entry:
   %_oneof_case_.i = getelementptr inbounds i8, ptr %this, i64 28
   %0 = load i32, ptr %_oneof_case_.i, align 4
-  switch i32 %0, label %sw.epilog [
-    i32 1, label %sw.bb
-    i32 6, label %sw.bb5
-    i32 9, label %sw.bb10
-    i32 2, label %sw.bb15
-    i32 3, label %sw.bb20
-    i32 4, label %sw.bb25
-    i32 5, label %sw.bb30
-    i32 7, label %sw.bb35
-    i32 8, label %sw.bb40
-  ]
+  %.off = add i32 %0, -1
+  %switch = icmp ult i32 %.off, 9
+  br i1 %switch, label %sw.epilog.sink.split, label %sw.epilog
 
-sw.bb:                                            ; preds = %entry
-  %result_.i = getelementptr inbounds i8, ptr %this, i64 16
-  %1 = load ptr, ptr %result_.i, align 8
-  %_M_string_length.i.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load i64, ptr %_M_string_length.i.i, align 8
-  %conv.i.i = trunc i64 %2 to i32
-  %or.i.i.i = or i32 %conv.i.i, 1
-  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i, i1 true)
-  %xor.i.i.i.i = xor i32 %3, 31
-  %mul.i.i.i = mul nuw nsw i32 %xor.i.i.i.i, 9
-  %add.i.i.i = add nuw nsw i32 %mul.i.i.i, 73
-  %div1.i.i.i = lshr i32 %add.i.i.i, 6
-  %conv.i.i.i = zext nneg i32 %div1.i.i.i to i64
-  %add.i.i = add i64 %2, 1
-  %add = add i64 %add.i.i, %conv.i.i.i
-  br label %sw.epilog
-
-sw.bb5:                                           ; preds = %entry
-  %result_.i15 = getelementptr inbounds i8, ptr %this, i64 16
-  %4 = load ptr, ptr %result_.i15, align 8
-  %_M_string_length.i.i17 = getelementptr inbounds i8, ptr %4, i64 8
-  %5 = load i64, ptr %_M_string_length.i.i17, align 8
-  %conv.i.i18 = trunc i64 %5 to i32
-  %or.i.i.i19 = or i32 %conv.i.i18, 1
-  %6 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i19, i1 true)
-  %xor.i.i.i.i20 = xor i32 %6, 31
-  %mul.i.i.i21 = mul nuw nsw i32 %xor.i.i.i.i20, 9
-  %add.i.i.i22 = add nuw nsw i32 %mul.i.i.i21, 73
-  %div1.i.i.i23 = lshr i32 %add.i.i.i22, 6
-  %conv.i.i.i24 = zext nneg i32 %div1.i.i.i23 to i64
-  %add.i.i25 = add i64 %5, 1
-  %add8 = add i64 %add.i.i25, %conv.i.i.i24
-  br label %sw.epilog
-
-sw.bb10:                                          ; preds = %entry
-  %result_.i28 = getelementptr inbounds i8, ptr %this, i64 16
-  %7 = load ptr, ptr %result_.i28, align 8
-  %_M_string_length.i.i30 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load i64, ptr %_M_string_length.i.i30, align 8
-  %conv.i.i31 = trunc i64 %8 to i32
-  %or.i.i.i32 = or i32 %conv.i.i31, 1
-  %9 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i32, i1 true)
-  %xor.i.i.i.i33 = xor i32 %9, 31
-  %mul.i.i.i34 = mul nuw nsw i32 %xor.i.i.i.i33, 9
-  %add.i.i.i35 = add nuw nsw i32 %mul.i.i.i34, 73
-  %div1.i.i.i36 = lshr i32 %add.i.i.i35, 6
-  %conv.i.i.i37 = zext nneg i32 %div1.i.i.i36 to i64
-  %add.i.i38 = add i64 %8, 1
-  %add13 = add i64 %add.i.i38, %conv.i.i.i37
-  br label %sw.epilog
-
-sw.bb15:                                          ; preds = %entry
-  %result_.i41 = getelementptr inbounds i8, ptr %this, i64 16
-  %10 = load ptr, ptr %result_.i41, align 8
-  %_M_string_length.i.i43 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load i64, ptr %_M_string_length.i.i43, align 8
-  %conv.i.i44 = trunc i64 %11 to i32
-  %or.i.i.i45 = or i32 %conv.i.i44, 1
-  %12 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i45, i1 true)
-  %xor.i.i.i.i46 = xor i32 %12, 31
-  %mul.i.i.i47 = mul nuw nsw i32 %xor.i.i.i.i46, 9
-  %add.i.i.i48 = add nuw nsw i32 %mul.i.i.i47, 73
-  %div1.i.i.i49 = lshr i32 %add.i.i.i48, 6
-  %conv.i.i.i50 = zext nneg i32 %div1.i.i.i49 to i64
-  %add.i.i51 = add i64 %11, 1
-  %add18 = add i64 %add.i.i51, %conv.i.i.i50
-  br label %sw.epilog
-
-sw.bb20:                                          ; preds = %entry
-  %result_.i54 = getelementptr inbounds i8, ptr %this, i64 16
-  %13 = load ptr, ptr %result_.i54, align 8
-  %_M_string_length.i.i56 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i64, ptr %_M_string_length.i.i56, align 8
-  %conv.i.i57 = trunc i64 %14 to i32
-  %or.i.i.i58 = or i32 %conv.i.i57, 1
-  %15 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i58, i1 true)
-  %xor.i.i.i.i59 = xor i32 %15, 31
-  %mul.i.i.i60 = mul nuw nsw i32 %xor.i.i.i.i59, 9
-  %add.i.i.i61 = add nuw nsw i32 %mul.i.i.i60, 73
-  %div1.i.i.i62 = lshr i32 %add.i.i.i61, 6
-  %conv.i.i.i63 = zext nneg i32 %div1.i.i.i62 to i64
-  %add.i.i64 = add i64 %14, 1
-  %add23 = add i64 %add.i.i64, %conv.i.i.i63
-  br label %sw.epilog
-
-sw.bb25:                                          ; preds = %entry
-  %result_.i67 = getelementptr inbounds i8, ptr %this, i64 16
-  %16 = load ptr, ptr %result_.i67, align 8
-  %_M_string_length.i.i69 = getelementptr inbounds i8, ptr %16, i64 8
-  %17 = load i64, ptr %_M_string_length.i.i69, align 8
-  %conv.i.i70 = trunc i64 %17 to i32
-  %or.i.i.i71 = or i32 %conv.i.i70, 1
-  %18 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i71, i1 true)
-  %xor.i.i.i.i72 = xor i32 %18, 31
-  %mul.i.i.i73 = mul nuw nsw i32 %xor.i.i.i.i72, 9
-  %add.i.i.i74 = add nuw nsw i32 %mul.i.i.i73, 73
-  %div1.i.i.i75 = lshr i32 %add.i.i.i74, 6
-  %conv.i.i.i76 = zext nneg i32 %div1.i.i.i75 to i64
-  %add.i.i77 = add i64 %17, 1
-  %add28 = add i64 %add.i.i77, %conv.i.i.i76
-  br label %sw.epilog
-
-sw.bb30:                                          ; preds = %entry
-  %result_.i80 = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load ptr, ptr %result_.i80, align 8
-  %_M_string_length.i.i82 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load i64, ptr %_M_string_length.i.i82, align 8
-  %conv.i.i83 = trunc i64 %20 to i32
-  %or.i.i.i84 = or i32 %conv.i.i83, 1
-  %21 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i84, i1 true)
-  %xor.i.i.i.i85 = xor i32 %21, 31
-  %mul.i.i.i86 = mul nuw nsw i32 %xor.i.i.i.i85, 9
-  %add.i.i.i87 = add nuw nsw i32 %mul.i.i.i86, 73
-  %div1.i.i.i88 = lshr i32 %add.i.i.i87, 6
-  %conv.i.i.i89 = zext nneg i32 %div1.i.i.i88 to i64
-  %add.i.i90 = add i64 %20, 1
-  %add33 = add i64 %add.i.i90, %conv.i.i.i89
-  br label %sw.epilog
-
-sw.bb35:                                          ; preds = %entry
-  %result_.i93 = getelementptr inbounds i8, ptr %this, i64 16
-  %22 = load ptr, ptr %result_.i93, align 8
-  %_M_string_length.i.i95 = getelementptr inbounds i8, ptr %22, i64 8
-  %23 = load i64, ptr %_M_string_length.i.i95, align 8
-  %conv.i.i96 = trunc i64 %23 to i32
-  %or.i.i.i97 = or i32 %conv.i.i96, 1
-  %24 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i97, i1 true)
-  %xor.i.i.i.i98 = xor i32 %24, 31
-  %mul.i.i.i99 = mul nuw nsw i32 %xor.i.i.i.i98, 9
-  %add.i.i.i100 = add nuw nsw i32 %mul.i.i.i99, 73
-  %div1.i.i.i101 = lshr i32 %add.i.i.i100, 6
-  %conv.i.i.i102 = zext nneg i32 %div1.i.i.i101 to i64
-  %add.i.i103 = add i64 %23, 1
-  %add38 = add i64 %add.i.i103, %conv.i.i.i102
-  br label %sw.epilog
-
-sw.bb40:                                          ; preds = %entry
+sw.epilog.sink.split:                             ; preds = %entry
   %result_.i106 = getelementptr inbounds i8, ptr %this, i64 16
-  %25 = load ptr, ptr %result_.i106, align 8
-  %_M_string_length.i.i108 = getelementptr inbounds i8, ptr %25, i64 8
-  %26 = load i64, ptr %_M_string_length.i.i108, align 8
-  %conv.i.i109 = trunc i64 %26 to i32
+  %1 = load ptr, ptr %result_.i106, align 8
+  %_M_string_length.i.i108 = getelementptr inbounds i8, ptr %1, i64 8
+  %2 = load i64, ptr %_M_string_length.i.i108, align 8
+  %conv.i.i109 = trunc i64 %2 to i32
   %or.i.i.i110 = or i32 %conv.i.i109, 1
-  %27 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i110, i1 true)
-  %xor.i.i.i.i111 = xor i32 %27, 31
+  %3 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %or.i.i.i110, i1 true)
+  %xor.i.i.i.i111 = xor i32 %3, 31
   %mul.i.i.i112 = mul nuw nsw i32 %xor.i.i.i.i111, 9
   %add.i.i.i113 = add nuw nsw i32 %mul.i.i.i112, 73
   %div1.i.i.i114 = lshr i32 %add.i.i.i113, 6
   %conv.i.i.i115 = zext nneg i32 %div1.i.i.i114 to i64
-  %add.i.i116 = add i64 %26, 1
+  %add.i.i116 = add i64 %2, 1
   %add43 = add i64 %add.i.i116, %conv.i.i.i115
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb40, %sw.bb35, %sw.bb30, %sw.bb25, %sw.bb20, %sw.bb15, %sw.bb10, %sw.bb5, %sw.bb, %entry
-  %total_size.0 = phi i64 [ 0, %entry ], [ %add43, %sw.bb40 ], [ %add38, %sw.bb35 ], [ %add33, %sw.bb30 ], [ %add28, %sw.bb25 ], [ %add23, %sw.bb20 ], [ %add18, %sw.bb15 ], [ %add13, %sw.bb10 ], [ %add8, %sw.bb5 ], [ %add, %sw.bb ]
+sw.epilog:                                        ; preds = %entry, %sw.epilog.sink.split
+  %total_size.0 = phi i64 [ 0, %entry ], [ %add43, %sw.epilog.sink.split ]
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
-  %28 = load ptr, ptr %_internal_metadata_, align 8
-  %29 = ptrtoint ptr %28 to i64
-  %conv.i12 = and i64 %29, 1
+  %4 = load ptr, ptr %_internal_metadata_, align 8
+  %5 = ptrtoint ptr %4 to i64
+  %conv.i12 = and i64 %5, 1
   %cmp.i.not = icmp eq i64 %conv.i12, 0
   br i1 %cmp.i.not, label %if.end, label %if.then
 

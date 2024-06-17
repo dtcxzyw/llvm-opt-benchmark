@@ -7836,15 +7836,15 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268:   ; preds = %if.then2.i.i.i266, 
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit373
 
 if.end153.sink.split:                             ; preds = %invoke.cont38, %if.then
-  %.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %73 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i51.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
+  %m_ref_count.i.i.i54 = getelementptr inbounds i8, ptr %call.i51.sink, i64 8
+  %73 = load i32, ptr %m_ref_count.i.i.i54, align 4
   %inc.i.i.i55 = add i32 %73, 1
-  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i54, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end153.sink.split, %if.then.i.i.i227, %if.end.i225, %if.then2.i.i.i232, %if.then.i.i.i142, %if.end.i140, %if.then2.i.i.i147, %invoke.cont38, %if.then
-  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %.sink, %if.end153.sink.split ]
+  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %call.i51.sink, %if.end153.sink.split ]
   %74 = phi ptr [ null, %if.then ], [ null, %invoke.cont38 ], [ %39, %if.then2.i.i.i147 ], [ %39, %if.end.i140 ], [ %39, %if.then.i.i.i142 ], [ %61, %if.then2.i.i.i232 ], [ %61, %if.end.i225 ], [ %61, %if.then.i.i.i227 ], [ null, %if.end153.sink.split ]
   store ptr %call.i219.sink, ptr %agg.result, align 8
   %m_autil154 = getelementptr inbounds i8, ptr %this, i64 208
@@ -26304,15 +26304,15 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268:   ; preds = %if.then2.i.i.i266, 
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit373
 
 if.end153.sink.split:                             ; preds = %invoke.cont38, %if.then
-  %.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %73 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i51.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
+  %m_ref_count.i.i.i54 = getelementptr inbounds i8, ptr %call.i51.sink, i64 8
+  %73 = load i32, ptr %m_ref_count.i.i.i54, align 4
   %inc.i.i.i55 = add i32 %73, 1
-  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i54, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end153.sink.split, %if.then.i.i.i227, %if.end.i225, %if.then2.i.i.i232, %if.then.i.i.i142, %if.end.i140, %if.then2.i.i.i147, %invoke.cont38, %if.then
-  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %.sink, %if.end153.sink.split ]
+  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %call.i51.sink, %if.end153.sink.split ]
   %74 = phi ptr [ null, %if.then ], [ null, %invoke.cont38 ], [ %39, %if.then2.i.i.i147 ], [ %39, %if.end.i140 ], [ %39, %if.then.i.i.i142 ], [ %61, %if.then2.i.i.i232 ], [ %61, %if.end.i225 ], [ %61, %if.then.i.i.i227 ], [ null, %if.end153.sink.split ]
   store ptr %call.i219.sink, ptr %agg.result, align 8
   %m_autil154 = getelementptr inbounds i8, ptr %this, i64 144
@@ -39142,15 +39142,15 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268:   ; preds = %if.then2.i.i.i266, 
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit373
 
 if.end153.sink.split:                             ; preds = %invoke.cont38, %if.then
-  %.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %73 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i51.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
+  %m_ref_count.i.i.i54 = getelementptr inbounds i8, ptr %call.i51.sink, i64 8
+  %73 = load i32, ptr %m_ref_count.i.i.i54, align 4
   %inc.i.i.i55 = add i32 %73, 1
-  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i54, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end153.sink.split, %if.then.i.i.i227, %if.end.i225, %if.then2.i.i.i232, %if.then.i.i.i142, %if.end.i140, %if.then2.i.i.i147, %invoke.cont38, %if.then
-  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %.sink, %if.end153.sink.split ]
+  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %call.i51.sink, %if.end153.sink.split ]
   %74 = phi ptr [ null, %if.then ], [ null, %invoke.cont38 ], [ %39, %if.then2.i.i.i147 ], [ %39, %if.end.i140 ], [ %39, %if.then.i.i.i142 ], [ %61, %if.then2.i.i.i232 ], [ %61, %if.end.i225 ], [ %61, %if.then.i.i.i227 ], [ null, %if.end153.sink.split ]
   store ptr %call.i219.sink, ptr %agg.result, align 8
   %m_autil154 = getelementptr inbounds i8, ptr %this, i64 96
@@ -50685,15 +50685,15 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit268:   ; preds = %if.then2.i.i.i266, 
   br label %_ZN7obj_refI4expr11ast_managerED2Ev.exit373
 
 if.end153.sink.split:                             ; preds = %invoke.cont38, %if.then
-  %.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %73 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i51.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ]
+  %m_ref_count.i.i.i54 = getelementptr inbounds i8, ptr %call.i51.sink, i64 8
+  %73 = load i32, ptr %m_ref_count.i.i.i54, align 4
   %inc.i.i.i55 = add i32 %73, 1
-  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i55, ptr %m_ref_count.i.i.i54, align 4
   br label %if.end153
 
 if.end153:                                        ; preds = %if.end153.sink.split, %if.then.i.i.i227, %if.end.i225, %if.then2.i.i.i232, %if.then.i.i.i142, %if.end.i140, %if.then2.i.i.i147, %invoke.cont38, %if.then
-  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %.sink, %if.end153.sink.split ]
+  %call.i219.sink = phi ptr [ %11, %if.then ], [ %call.i51, %invoke.cont38 ], [ %call.i135, %if.then2.i.i.i147 ], [ %call.i135, %if.end.i140 ], [ %call.i135, %if.then.i.i.i142 ], [ %call.i219, %if.then2.i.i.i232 ], [ %call.i219, %if.end.i225 ], [ %call.i219, %if.then.i.i.i227 ], [ %call.i51.sink, %if.end153.sink.split ]
   %74 = phi ptr [ null, %if.then ], [ null, %invoke.cont38 ], [ %39, %if.then2.i.i.i147 ], [ %39, %if.end.i140 ], [ %39, %if.then.i.i.i142 ], [ %61, %if.then2.i.i.i232 ], [ %61, %if.end.i225 ], [ %61, %if.then.i.i.i227 ], [ null, %if.end153.sink.split ]
   store ptr %call.i219.sink, ptr %agg.result, align 8
   %m_autil154 = getelementptr inbounds i8, ptr %this, i64 88

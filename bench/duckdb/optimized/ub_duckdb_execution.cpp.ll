@@ -33366,13 +33366,13 @@ for.body13.i508.i.epil:                           ; preds = %for.body13.i508.i.p
   br label %sw.epilog.i.sink.split
 
 sw.epilog.i.sink.split:                           ; preds = %for.body15.i.i.epil, %for.body15.i115.i.epil, %for.body13.i.i.epil, %for.body13.i224.i.epil, %for.body15.i286.i.epil, %for.body15.i362.i.epil, %for.body13.i436.i.epil, %for.body13.i508.i.epil
-  %add24.i.i.epil.sink = phi i64 [ %add24.i.i.epil, %for.body15.i.i.epil ], [ %add24.i121.i.epil, %for.body15.i115.i.epil ], [ %conv21.i176.i.epil, %for.body13.i.i.epil ], [ %add20.i226.i.epil, %for.body13.i224.i.epil ], [ %add24.i292.i.epil, %for.body15.i286.i.epil ], [ %add24.i368.i.epil, %for.body15.i362.i.epil ], [ %conv21.i442.i.epil, %for.body13.i436.i.epil ], [ %add20.i513.i.epil, %for.body13.i508.i.epil ]
-  %i11.061.i.i.unr22.sink = phi i64 [ %i11.061.i.i.unr22, %for.body15.i.i.epil ], [ %i11.061.i116.i.unr25, %for.body15.i115.i.epil ], [ %i9.057.i.i.unr28, %for.body13.i.i.epil ], [ %i9.056.i.i.unr31, %for.body13.i224.i.epil ], [ %i11.061.i287.i.unr34, %for.body15.i286.i.epil ], [ %i11.061.i363.i.unr37, %for.body15.i362.i.epil ], [ %i9.057.i437.i.unr40, %for.body13.i436.i.epil ], [ %i9.056.i509.i.unr43, %for.body13.i508.i.epil ]
-  %shl26.i.i.epil = shl i64 %add24.i.i.epil.sink, %sub
-  %arrayidx27.i.i.epil = getelementptr inbounds i64, ptr %0, i64 %i11.061.i.i.unr22.sink
-  %334 = load i64, ptr %arrayidx27.i.i.epil, align 8, !tbaa !26
-  %add23.i516.i.epil = add i64 %shl26.i.i.epil, %334
-  store i64 %add23.i516.i.epil, ptr %arrayidx27.i.i.epil, align 8, !tbaa !26
+  %add20.i513.i.epil.sink = phi i64 [ %add20.i513.i.epil, %for.body13.i508.i.epil ], [ %conv21.i442.i.epil, %for.body13.i436.i.epil ], [ %add24.i368.i.epil, %for.body15.i362.i.epil ], [ %add24.i292.i.epil, %for.body15.i286.i.epil ], [ %add20.i226.i.epil, %for.body13.i224.i.epil ], [ %conv21.i176.i.epil, %for.body13.i.i.epil ], [ %add24.i121.i.epil, %for.body15.i115.i.epil ], [ %add24.i.i.epil, %for.body15.i.i.epil ]
+  %i9.056.i509.i.unr43.sink = phi i64 [ %i9.056.i509.i.unr43, %for.body13.i508.i.epil ], [ %i9.057.i437.i.unr40, %for.body13.i436.i.epil ], [ %i11.061.i363.i.unr37, %for.body15.i362.i.epil ], [ %i11.061.i287.i.unr34, %for.body15.i286.i.epil ], [ %i9.056.i.i.unr31, %for.body13.i224.i.epil ], [ %i9.057.i.i.unr28, %for.body13.i.i.epil ], [ %i11.061.i116.i.unr25, %for.body15.i115.i.epil ], [ %i11.061.i.i.unr22, %for.body15.i.i.epil ]
+  %shl21.i514.i.epil = shl i64 %add20.i513.i.epil.sink, %sub
+  %arrayidx22.i515.i.epil = getelementptr inbounds i64, ptr %0, i64 %i9.056.i509.i.unr43.sink
+  %334 = load i64, ptr %arrayidx22.i515.i.epil, align 8, !tbaa !26
+  %add23.i516.i.epil = add i64 %shl21.i514.i.epil, %334
+  store i64 %add23.i516.i.epil, ptr %arrayidx22.i515.i.epil, align 8, !tbaa !26
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %if.end.i484.i, %if.end.us.i501.i, %for.body13.us.i519.i, %if.end.i411.i, %if.end.us.i429.i, %for.body13.us.i448.i, %if.end.i336.i, %if.end.us.i354.i, %for.body15.us.i374.i, %if.end.i260.i, %if.end.us.i278.i, %for.body15.us.i298.i, %if.end.i203.i, %if.end.us.i219.i, %for.body13.us.i228.i, %if.end.i159.i, %if.end.us.i174.i, %for.body13.us.i.i, %if.end.i89.i, %if.end.us.i107.i, %for.body15.us.i127.i, %if.end.i.i, %if.end.us.i.i, %for.body15.us.i.i, %sw.epilog.i.sink.split, %sw.epilog.i.loopexit406.unr-lcssa, %sw.epilog.i.loopexit401.unr-lcssa, %sw.epilog.i.loopexit396.unr-lcssa, %sw.epilog.i.loopexit391.unr-lcssa, %sw.epilog.i.loopexit386.unr-lcssa, %sw.epilog.i.loopexit381.unr-lcssa, %sw.epilog.i.loopexit376.unr-lcssa, %sw.epilog.i.loopexit371.unr-lcssa, %for.body13.us.i519.i.prol.loopexit, %middle.block351, %for.cond10.preheader.i504.i, %for.cond.preheader.i464.i, %middle.block326, %for.cond10.preheader.i432.i, %for.cond.preheader.i390.i, %middle.block307, %for.cond12.preheader.i357.i, %for.cond.preheader.i314.i, %for.body15.us.i298.i.prol.loopexit, %middle.block288, %for.cond12.preheader.i281.i, %for.cond.preheader.i238.i, %for.body13.us.i228.i.prol.loopexit, %middle.block263, %for.cond10.preheader.i221.i, %for.cond.preheader.i185.i, %middle.block238, %for.cond10.preheader.i.i, %for.cond.preheader.i142.i, %middle.block219, %for.cond12.preheader.i110.i, %for.cond.preheader.i67.i, %for.body15.us.i.i.prol.loopexit, %middle.block, %for.cond12.preheader.i.i, %for.cond.preheader.i.i
@@ -67387,14 +67387,14 @@ for.body.epil:                                    ; preds = %for.body.preheader,
   br label %for.cond.cleanup.sink.split
 
 for.cond.cleanup.sink.split:                      ; preds = %for.body.us55.epil, %for.body.epil
-  %add.us.epil.sink15 = phi i64 [ %add.us.epil, %for.body.us55.epil ], [ %add.epil, %for.body.epil ]
-  %div2.i.i.i.us.epil = lshr i64 %add.us.epil.sink15, 6
-  %rem.i.i.i.us.epil = and i64 %add.us.epil.sink15, 63
-  %shl.i.i.us.epil = shl nuw i64 1, %rem.i.i.i.us.epil
-  %arrayidx.i.i.us.epil = getelementptr inbounds i64, ptr %23, i64 %div2.i.i.i.us.epil
-  %33 = load i64, ptr %arrayidx.i.i.us.epil, align 8, !tbaa !26
-  %or.i.i.epil = or i64 %shl.i.i.us.epil, %33
-  store i64 %or.i.i.epil, ptr %arrayidx.i.i.us.epil, align 8, !tbaa !26
+  %add.epil.sink15 = phi i64 [ %add.epil, %for.body.epil ], [ %add.us.epil, %for.body.us55.epil ]
+  %div2.i.i.i.epil = lshr i64 %add.epil.sink15, 6
+  %rem.i.i.i.epil = and i64 %add.epil.sink15, 63
+  %shl.i.i.epil = shl nuw i64 1, %rem.i.i.i.epil
+  %arrayidx.i.i.epil = getelementptr inbounds i64, ptr %23, i64 %div2.i.i.i.epil
+  %33 = load i64, ptr %arrayidx.i.i.epil, align 8, !tbaa !26
+  %or.i.i.epil = or i64 %shl.i.i.epil, %33
+  store i64 %or.i.i.epil, ptr %arrayidx.i.i.epil, align 8, !tbaa !26
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.cond.cleanup.sink.split, %for.cond.cleanup.loopexit70.unr-lcssa, %for.cond.cleanup.loopexit.unr-lcssa, %for.body.lr.ph, %if.end21
@@ -70000,8 +70000,6 @@ for.body:                                         ; preds = %_ZNK6duckdb15Aggreg
 if.then20:                                        ; preds = %for.body
   %arrayidx21 = getelementptr inbounds i64, ptr %1, i64 %i.0104
   %8 = load i64, ptr %arrayidx21, align 8, !tbaa !26
-  %call22 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_11FrameBoundsELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %frames13, i64 noundef 0)
-  store i64 %7, ptr %call22, align 8, !tbaa !26
   br label %if.end53
 
 cond.false:                                       ; preds = %for.body
@@ -70049,14 +70047,15 @@ cond.false45:                                     ; preds = %if.end39
 cond.end47:                                       ; preds = %cond.false45, %cond.true43
   %cond48 = phi i64 [ %add44, %cond.true43 ], [ %13, %cond.false45 ]
   %cond.i98 = call noundef i64 @llvm.umin.i64(i64 %cond48, i64 %12)
-  %call52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_11FrameBoundsELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %frames13, i64 noundef %nframes.0)
-  store i64 %cond.i98, ptr %call52, align 8, !tbaa !26
   br label %if.end53
 
 if.end53:                                         ; preds = %cond.end47, %if.then20
-  %call52.sink = phi ptr [ %call52, %cond.end47 ], [ %call22, %if.then20 ]
+  %nframes.0.sink = phi i64 [ %nframes.0, %cond.end47 ], [ 0, %if.then20 ]
+  %cond.i98.sink = phi i64 [ %cond.i98, %cond.end47 ], [ %7, %if.then20 ]
   %.sink = phi i64 [ %12, %cond.end47 ], [ %8, %if.then20 ]
-  %ref.tmp50.sroa.4.0.call52.sroa_idx = getelementptr inbounds i8, ptr %call52.sink, i64 8
+  %call52 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6duckdb6vectorINS_11FrameBoundsELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %frames13, i64 noundef %nframes.0.sink)
+  store i64 %cond.i98.sink, ptr %call52, align 8, !tbaa !26
+  %ref.tmp50.sroa.4.0.call52.sroa_idx = getelementptr inbounds i8, ptr %call52, i64 8
   store i64 %.sink, ptr %ref.tmp50.sroa.4.0.call52.sroa_idx, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %aggr_input_data) #37
   %14 = load ptr, ptr %bind_data_wrapper.i, align 8, !tbaa !1621

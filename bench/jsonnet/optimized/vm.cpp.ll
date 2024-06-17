@@ -27877,26 +27877,26 @@ _ZNSt6vectorIN7jsonnet8internal12_GLOBAL__N_15Value4TypeESaIS4_EED2Ev.exit: ; pr
           to label %35 unwind label %31
 
 35:                                               ; preds = %33, %29
-  %.sink42.i.i = phi ptr [ %30, %29 ], [ %34, %33 ]
+  %.sink43.i.i = phi ptr [ %30, %29 ], [ %34, %33 ]
   %.sink34.i.i = phi ptr [ %27, %29 ], [ null, %33 ]
   %36 = ptrtoint ptr %28 to i64
   %37 = ptrtoint ptr %27 to i64
   %38 = sub i64 %36, %37
-  %39 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 8
+  %39 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 8
   store i32 1, ptr %39, align 8, !noalias !39
-  %40 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 12
+  %40 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 12
   store i32 1, ptr %40, align 4, !noalias !39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink42.i.i, align 8, !noalias !39
-  %41 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink43.i.i, align 8, !noalias !39
+  %41 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail20input_buffer_adapterE, i64 16), ptr %41, align 8, !noalias !39
-  %42 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 24
+  %42 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 24
   store ptr %.sink34.i.i, ptr %42, align 8, !noalias !39
-  %43 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 32
+  %43 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 32
   %44 = getelementptr inbounds i8, ptr %.sink34.i.i, i64 %38
   store ptr %44, ptr %43, align 8, !noalias !39
   store ptr %41, ptr %9, align 8
   %45 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr %.sink42.i.i, ptr %45, align 8
+  store ptr %.sink43.i.i, ptr %45, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5parseEONS_6detail13input_adapterESt8functionIFbiNSB_6parserISA_E13parse_event_tERSA_EEb(ptr dead_on_unwind nonnull writable sret(%"class.nlohmann::basic_json") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %10, i1 noundef zeroext true)
           to label %46 unwind label %96
@@ -54947,26 +54947,26 @@ define internal fastcc void @_ZN7jsonnet8internal12_GLOBAL__N_111Interpreter14ya
           to label %23 unwind label %19
 
 23:                                               ; preds = %21, %17
-  %.sink42.i.i = phi ptr [ %18, %17 ], [ %22, %21 ]
+  %.sink43.i.i = phi ptr [ %18, %17 ], [ %22, %21 ]
   %.sink34.i.i = phi ptr [ %15, %17 ], [ null, %21 ]
   %24 = ptrtoint ptr %16 to i64
   %25 = ptrtoint ptr %15 to i64
   %26 = sub i64 %24, %25
-  %27 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 8
+  %27 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 8
   store i32 1, ptr %27, align 8, !noalias !39
-  %28 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 12
+  %28 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 12
   store i32 1, ptr %28, align 4, !noalias !39
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink42.i.i, align 8, !noalias !39
-  %29 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 16
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail20input_buffer_adapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %.sink43.i.i, align 8, !noalias !39
+  %29 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 16
   store ptr getelementptr inbounds (i8, ptr @_ZTVN8nlohmann6detail20input_buffer_adapterE, i64 16), ptr %29, align 8, !noalias !39
-  %30 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 24
+  %30 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 24
   store ptr %.sink34.i.i, ptr %30, align 8, !noalias !39
-  %31 = getelementptr inbounds i8, ptr %.sink42.i.i, i64 32
+  %31 = getelementptr inbounds i8, ptr %.sink43.i.i, i64 32
   %32 = getelementptr inbounds i8, ptr %.sink34.i.i, i64 %26
   store ptr %32, ptr %31, align 8, !noalias !39
   store ptr %29, ptr %5, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr %.sink42.i.i, ptr %33, align 8
+  store ptr %.sink43.i.i, ptr %33, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
   invoke void @_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerEE5parseEONS_6detail13input_adapterESt8functionIFbiNSB_6parserISA_E13parse_event_tERSA_EEb(ptr dead_on_unwind writable sret(%"class.nlohmann::basic_json") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %7, i1 noundef zeroext true)
           to label %34 unwind label %79
@@ -56690,10 +56690,10 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit.thread.i: ; preds = %_ZNK2c415b
   br i1 %.not108, label %183, label %.sink.split129
 
 .sink.split129:                                   ; preds = %175, %._crit_edge
-  %.sink134 = phi i8 [ 125, %._crit_edge ], [ 93, %175 ]
+  %.sink132 = phi i8 [ 125, %._crit_edge ], [ 93, %175 ]
   %177 = load ptr, ptr %0, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
-  %179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %178, i8 noundef signext %.sink134)
+  %179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %178, i8 noundef signext %.sink132)
   %180 = getelementptr inbounds i8, ptr %0, i64 8
   %181 = load i64, ptr %180, align 8
   %182 = add i64 %181, 1

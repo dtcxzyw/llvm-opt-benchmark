@@ -628,12 +628,12 @@ stbtt__buf_get8.exit.i45.i:                       ; preds = %if.end.i.i52.i, %fo
   br i1 %exitcond.not.i51.i, label %stbtt__cff_skip_operand.exit, label %for.body.i39.i, !llvm.loop !4
 
 stbtt__cff_skip_operand.exit.sink.split:          ; preds = %if.then20.i, %if.then9.i
-  %inc.i31.i.sink = add nsw i32 %inc.i.i7176, 2
-  store i32 %inc.i31.i.sink, ptr %cursor.i, align 8
+  %inc.i31.i = add nsw i32 %inc.i.i7176, 2
+  store i32 %inc.i31.i, ptr %cursor.i, align 8
   br label %stbtt__cff_skip_operand.exit
 
 stbtt__cff_skip_operand.exit:                     ; preds = %stbtt__buf_get8.exit.i45.i, %stbtt__buf_get8.exit.i.i, %stbtt__buf_get8.exit.i, %stbtt__cff_skip_operand.exit.sink.split, %if.then20.i, %if.then9.i, %stbtt__buf_get8.exit.i53, %if.else28.i
-  %cursor.i.promoted82 = phi i32 [ %add.i.i, %if.then20.i ], [ %add.i.i, %if.then9.i ], [ %add.i.i, %stbtt__buf_get8.exit.i53 ], [ %add.i.i, %if.else28.i ], [ %inc.i31.i.sink, %stbtt__cff_skip_operand.exit.sink.split ], [ %indvars, %stbtt__buf_get8.exit.i ], [ %inc.i6.i.i, %stbtt__buf_get8.exit.i.i ], [ %inc.i6.i46.i, %stbtt__buf_get8.exit.i45.i ]
+  %cursor.i.promoted82 = phi i32 [ %add.i.i, %if.then20.i ], [ %add.i.i, %if.then9.i ], [ %add.i.i, %stbtt__buf_get8.exit.i53 ], [ %add.i.i, %if.else28.i ], [ %inc.i31.i, %stbtt__cff_skip_operand.exit.sink.split ], [ %indvars, %stbtt__buf_get8.exit.i ], [ %inc.i6.i.i, %stbtt__buf_get8.exit.i.i ], [ %inc.i6.i46.i, %stbtt__buf_get8.exit.i45.i ]
   %cmp.not.i = icmp slt i32 %cursor.i.promoted82, %0
   br i1 %cmp.not.i, label %stbtt__buf_peek8.exit, label %if.end, !llvm.loop !7
 
@@ -3163,30 +3163,30 @@ sw.bb:                                            ; preds = %for.body
   ]
 
 for.inc.sink.split:                               ; preds = %for.body, %sw.bb, %sw.bb
-  %add.ptr105 = getelementptr inbounds i8, ptr %add.ptr94, i64 4
-  %221 = load i8, ptr %add.ptr105, align 1
-  %conv.i835 = zext i8 %221 to i32
-  %shl.i = shl nuw i32 %conv.i835, 24
-  %arrayidx1.i836 = getelementptr inbounds i8, ptr %add.ptr94, i64 5
-  %222 = load i8, ptr %arrayidx1.i836, align 1
-  %conv2.i837 = zext i8 %222 to i32
-  %shl3.i = shl nuw nsw i32 %conv2.i837, 16
-  %add.i838 = or disjoint i32 %shl3.i, %shl.i
-  %arrayidx4.i = getelementptr inbounds i8, ptr %add.ptr94, i64 6
-  %223 = load i8, ptr %arrayidx4.i, align 1
-  %conv5.i = zext i8 %223 to i32
-  %shl6.i = shl nuw nsw i32 %conv5.i, 8
-  %add7.i = or disjoint i32 %add.i838, %shl6.i
-  %arrayidx8.i = getelementptr inbounds i8, ptr %add.ptr94, i64 7
-  %224 = load i8, ptr %arrayidx8.i, align 1
-  %conv9.i = zext i8 %224 to i32
-  %add10.i = or disjoint i32 %add7.i, %conv9.i
-  %add114.sink = add i32 %add10.i, %retval.0.i860
-  store i32 %add114.sink, ptr %index_map, align 8
+  %add.ptr112 = getelementptr inbounds i8, ptr %add.ptr94, i64 4
+  %221 = load i8, ptr %add.ptr112, align 1
+  %conv.i839 = zext i8 %221 to i32
+  %shl.i840 = shl nuw i32 %conv.i839, 24
+  %arrayidx1.i841 = getelementptr inbounds i8, ptr %add.ptr94, i64 5
+  %222 = load i8, ptr %arrayidx1.i841, align 1
+  %conv2.i842 = zext i8 %222 to i32
+  %shl3.i843 = shl nuw nsw i32 %conv2.i842, 16
+  %add.i844 = or disjoint i32 %shl3.i843, %shl.i840
+  %arrayidx4.i845 = getelementptr inbounds i8, ptr %add.ptr94, i64 6
+  %223 = load i8, ptr %arrayidx4.i845, align 1
+  %conv5.i846 = zext i8 %223 to i32
+  %shl6.i847 = shl nuw nsw i32 %conv5.i846, 8
+  %add7.i848 = or disjoint i32 %add.i844, %shl6.i847
+  %arrayidx8.i849 = getelementptr inbounds i8, ptr %add.ptr94, i64 7
+  %224 = load i8, ptr %arrayidx8.i849, align 1
+  %conv9.i850 = zext i8 %224 to i32
+  %add10.i851 = or disjoint i32 %add7.i848, %conv9.i850
+  %add114 = add i32 %add10.i851, %retval.0.i860
+  store i32 %add114, ptr %index_map, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body, %sw.bb
-  %225 = phi i32 [ %215, %for.body ], [ %215, %sw.bb ], [ %add114.sink, %for.inc.sink.split ]
+  %225 = phi i32 [ %215, %for.body ], [ %215, %sw.bb ], [ %add114, %for.inc.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11

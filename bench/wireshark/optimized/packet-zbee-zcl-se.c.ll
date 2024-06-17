@@ -6914,7 +6914,7 @@ define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr nocapture nou
   %8 = alloca %struct.nstime_t, align 8
   %9 = alloca %struct.nstime_t, align 8
   %10 = icmp eq ptr %3, null
-  br i1 %10, label %279, label %11
+  br i1 %10, label %280, label %11
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds i8, ptr %3, i64 17
@@ -7038,10 +7038,10 @@ define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr nocapture nou
   switch i8 %13, label %dissect_zcl_calendar_publish_day_profile.exit [
     i8 0, label %96
     i8 1, label %125
-    i8 2, label %162
-    i8 3, label %185
-    i8 4, label %219
-    i8 5, label %271
+    i8 2, label %163
+    i8 3, label %186
+    i8 4, label %220
+    i8 5, label %272
   ]
 
 96:                                               ; preds = %93
@@ -7113,177 +7113,177 @@ define internal i32 @dissect_zbee_zcl_calendar(ptr noundef %0, ptr nocapture nou
   %switch.gep = getelementptr inbounds [5 x ptr], ptr @switch.table.dissect_zbee_zcl_calendar, i64 0, i64 %150
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %156
-  %.0163 = phi i32 [ %.1, %156 ], [ 18, %.lr.ph.i.preheader ]
-  %.057.i = phi i32 [ %157, %156 ], [ 0, %.lr.ph.i.preheader ]
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %157
+  %.0163 = phi i32 [ %.1, %157 ], [ 18, %.lr.ph.i.preheader ]
+  %.057.i = phi i32 [ %158, %157 ], [ 0, %.lr.ph.i.preheader ]
   %151 = load i32, ptr @hf_zbee_zcl_calendar_schedule_entry_start_time, align 4
   %152 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %151, ptr noundef %0, i32 noundef %.0163, i32 noundef 2, i32 noundef -2147483648) #6
   %153 = add i32 %.0163, 2
-  br i1 %149, label %switch.lookup, label %156
+  br i1 %149, label %switch.lookup, label %157
 
 switch.lookup:                                    ; preds = %.lr.ph.i
   %switch.load = load ptr, ptr %switch.gep, align 8
   %154 = load i32, ptr %switch.load, align 4
   %155 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %154, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef 0) #6
-  %.sink.i = add i32 %.0163, 3
-  br label %156
+  %156 = add i32 %.0163, 3
+  br label %157
 
-156:                                              ; preds = %.lr.ph.i, %switch.lookup
-  %.1 = phi i32 [ %153, %.lr.ph.i ], [ %.sink.i, %switch.lookup ]
-  %157 = add nuw nsw i32 %.057.i, 1
-  %158 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #6
-  %159 = icmp sgt i32 %158, 2
-  %160 = icmp ult i32 %157, %146
-  %161 = select i1 %159, i1 %160, i1 false
-  br i1 %161, label %.lr.ph.i, label %dissect_zcl_calendar_publish_day_profile.exit, !llvm.loop !10
+157:                                              ; preds = %.lr.ph.i, %switch.lookup
+  %.1 = phi i32 [ %153, %.lr.ph.i ], [ %156, %switch.lookup ]
+  %158 = add nuw nsw i32 %.057.i, 1
+  %159 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.1) #6
+  %160 = icmp sgt i32 %159, 2
+  %161 = icmp ult i32 %158, %146
+  %162 = select i1 %160, i1 %161, i1 false
+  br i1 %162, label %.lr.ph.i, label %dissect_zcl_calendar_publish_day_profile.exit, !llvm.loop !10
 
-162:                                              ; preds = %93
-  %163 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %163, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
-  %165 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
-  %166 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %165, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
-  %167 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
-  %168 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %167, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
-  %169 = load i32, ptr @hf_zbee_zcl_calendar_week_id, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %169, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #6
-  %171 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_monday, align 4
-  %172 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %171, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #6
-  %173 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_tuesday, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %173, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #6
-  %175 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_wednesday, align 4
-  %176 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %175, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #6
-  %177 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_thursday, align 4
-  %178 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %177, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #6
-  %179 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_friday, align 4
-  %180 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %179, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #6
-  %181 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_saturday, align 4
-  %182 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %181, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #6
-  %183 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_sunday, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %183, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #6
+163:                                              ; preds = %93
+  %164 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %164, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
+  %166 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %166, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
+  %168 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
+  %169 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %168, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
+  %170 = load i32, ptr @hf_zbee_zcl_calendar_week_id, align 4
+  %171 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %170, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #6
+  %172 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_monday, align 4
+  %173 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %172, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #6
+  %174 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_tuesday, align 4
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %174, ptr noundef %0, i32 noundef 15, i32 noundef 1, i32 noundef 0) #6
+  %176 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_wednesday, align 4
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %176, ptr noundef %0, i32 noundef 16, i32 noundef 1, i32 noundef 0) #6
+  %178 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_thursday, align 4
+  %179 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %178, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #6
+  %180 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_friday, align 4
+  %181 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %180, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #6
+  %182 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_saturday, align 4
+  %183 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %182, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #6
+  %184 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref_sunday, align 4
+  %185 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %184, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_zcl_calendar_publish_day_profile.exit
 
-185:                                              ; preds = %93
-  %186 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
-  %187 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %186, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
-  %188 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
-  %189 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %188, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
-  %190 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %190, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
-  %192 = load i32, ptr @hf_zbee_zcl_calendar_command_index, align 4
-  %193 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %192, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #6
-  %194 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_commands, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %194, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #6
-  %196 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 15) #6
-  %197 = icmp sgt i32 %196, 4
-  br i1 %197, label %.lr.ph.i54, label %dissect_zcl_calendar_publish_day_profile.exit
+186:                                              ; preds = %93
+  %187 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
+  %188 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %187, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
+  %189 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
+  %190 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %189, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
+  %191 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
+  %192 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %191, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
+  %193 = load i32, ptr @hf_zbee_zcl_calendar_command_index, align 4
+  %194 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %193, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0) #6
+  %195 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_commands, align 4
+  %196 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %195, ptr noundef %0, i32 noundef 14, i32 noundef 1, i32 noundef 0) #6
+  %197 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 15) #6
+  %198 = icmp sgt i32 %197, 4
+  br i1 %198, label %.lr.ph.i54, label %dissect_zcl_calendar_publish_day_profile.exit
 
-.lr.ph.i54:                                       ; preds = %185, %.lr.ph.i54
-  %.2 = phi i32 [ %storemerge.i, %.lr.ph.i54 ], [ 15, %185 ]
-  %198 = load i32, ptr @ett_zbee_zcl_calendar_season_start_date, align 4
-  %199 = load i32, ptr @hf_zbee_zcl_calendar_date_year, align 4
-  %200 = load i32, ptr @hf_zbee_zcl_calendar_date_month, align 4
-  %201 = load i32, ptr @hf_zbee_zcl_calendar_date_month_day, align 4
-  %202 = load i32, ptr @hf_zbee_zcl_calendar_date_week_day, align 4
-  %203 = tail call ptr @proto_tree_add_subtree(ptr noundef %95, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef %198, ptr noundef null, ptr noundef nonnull @.str.3444) #6
-  %204 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
-  %205 = zext i8 %204 to i32
-  %206 = add nuw nsw i32 %205, 1900
-  %207 = tail call ptr @proto_tree_add_uint(ptr noundef %203, i32 noundef %199, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %206) #6
-  %208 = add i32 %.2, 1
-  %209 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %200, ptr noundef %0, i32 noundef %208, i32 noundef 1, i32 noundef 0) #6
-  %210 = add i32 %.2, 2
-  %211 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %201, ptr noundef %0, i32 noundef %210, i32 noundef 1, i32 noundef 0) #6
-  %212 = add i32 %.2, 3
-  %213 = tail call ptr @proto_tree_add_item(ptr noundef %203, i32 noundef %202, ptr noundef %0, i32 noundef %212, i32 noundef 1, i32 noundef 0) #6
-  %214 = add i32 %.2, 4
-  %215 = load i32, ptr @hf_zbee_zcl_calendar_week_id_ref, align 4
-  %216 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %215, ptr noundef %0, i32 noundef %214, i32 noundef 1, i32 noundef 0) #6
+.lr.ph.i54:                                       ; preds = %186, %.lr.ph.i54
+  %.2 = phi i32 [ %storemerge.i, %.lr.ph.i54 ], [ 15, %186 ]
+  %199 = load i32, ptr @ett_zbee_zcl_calendar_season_start_date, align 4
+  %200 = load i32, ptr @hf_zbee_zcl_calendar_date_year, align 4
+  %201 = load i32, ptr @hf_zbee_zcl_calendar_date_month, align 4
+  %202 = load i32, ptr @hf_zbee_zcl_calendar_date_month_day, align 4
+  %203 = load i32, ptr @hf_zbee_zcl_calendar_date_week_day, align 4
+  %204 = tail call ptr @proto_tree_add_subtree(ptr noundef %95, ptr noundef %0, i32 noundef %.2, i32 noundef 4, i32 noundef %199, ptr noundef null, ptr noundef nonnull @.str.3444) #6
+  %205 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.2) #6
+  %206 = zext i8 %205 to i32
+  %207 = add nuw nsw i32 %206, 1900
+  %208 = tail call ptr @proto_tree_add_uint(ptr noundef %204, i32 noundef %200, ptr noundef %0, i32 noundef %.2, i32 noundef 1, i32 noundef %207) #6
+  %209 = add i32 %.2, 1
+  %210 = tail call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %201, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef 0) #6
+  %211 = add i32 %.2, 2
+  %212 = tail call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %202, ptr noundef %0, i32 noundef %211, i32 noundef 1, i32 noundef 0) #6
+  %213 = add i32 %.2, 3
+  %214 = tail call ptr @proto_tree_add_item(ptr noundef %204, i32 noundef %203, ptr noundef %0, i32 noundef %213, i32 noundef 1, i32 noundef 0) #6
+  %215 = add i32 %.2, 4
+  %216 = load i32, ptr @hf_zbee_zcl_calendar_week_id_ref, align 4
+  %217 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 1, i32 noundef 0) #6
   %storemerge.i = add i32 %.2, 5
-  %217 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %storemerge.i) #6
-  %218 = icmp sgt i32 %217, 4
-  br i1 %218, label %.lr.ph.i54, label %dissect_zcl_calendar_publish_day_profile.exit, !llvm.loop !11
+  %218 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %storemerge.i) #6
+  %219 = icmp sgt i32 %218, 4
+  br i1 %219, label %.lr.ph.i54, label %dissect_zcl_calendar_publish_day_profile.exit, !llvm.loop !11
 
-219:                                              ; preds = %93
+220:                                              ; preds = %93
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %220 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
-  %221 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %220, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
-  %222 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
-  %223 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %222, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
-  %224 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
-  %225 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %224, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
-  %226 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 13) #6
-  %227 = zext i32 %226 to i64
-  %228 = add nuw nsw i64 %227, 946684800
-  store i64 %228, ptr %5, align 8
-  %229 = getelementptr inbounds i8, ptr %5, i64 8
-  store i32 0, ptr %229, align 8
-  %230 = load i32, ptr @hf_zbee_zcl_calendar_start_time, align 4
-  %231 = call ptr @proto_tree_add_time(ptr noundef %95, i32 noundef %230, ptr noundef %0, i32 noundef 13, i32 noundef 4, ptr noundef nonnull %5) #6
-  %232 = load i32, ptr @hf_zbee_zcl_calendar_type, align 4
-  %233 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %232, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #6
-  %234 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 18) #6
-  %235 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_special_days, align 4
-  %236 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %235, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #6
-  %237 = load i32, ptr @hf_zbee_zcl_calendar_command_index, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %237, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #6
-  %239 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_commands, align 4
-  %240 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %239, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #6
-  %241 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 21) #6
-  %242 = icmp sgt i32 %241, 4
-  %243 = zext i8 %234 to i32
-  %244 = icmp ne i8 %234, 0
-  %245 = select i1 %242, i1 %244, i1 false
-  br i1 %245, label %.lr.ph.i55, label %dissect_zcl_calendar_publish_special_days.exit
+  %221 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
+  %222 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %221, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
+  %223 = load i32, ptr @hf_zbee_zcl_calendar_issuer_event_id, align 4
+  %224 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %223, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
+  %225 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
+  %226 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %225, ptr noundef %0, i32 noundef 9, i32 noundef 4, i32 noundef -2147483648) #6
+  %227 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 13) #6
+  %228 = zext i32 %227 to i64
+  %229 = add nuw nsw i64 %228, 946684800
+  store i64 %229, ptr %5, align 8
+  %230 = getelementptr inbounds i8, ptr %5, i64 8
+  store i32 0, ptr %230, align 8
+  %231 = load i32, ptr @hf_zbee_zcl_calendar_start_time, align 4
+  %232 = call ptr @proto_tree_add_time(ptr noundef %95, i32 noundef %231, ptr noundef %0, i32 noundef 13, i32 noundef 4, ptr noundef nonnull %5) #6
+  %233 = load i32, ptr @hf_zbee_zcl_calendar_type, align 4
+  %234 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %233, ptr noundef %0, i32 noundef 17, i32 noundef 1, i32 noundef 0) #6
+  %235 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 18) #6
+  %236 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_special_days, align 4
+  %237 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %236, ptr noundef %0, i32 noundef 18, i32 noundef 1, i32 noundef 0) #6
+  %238 = load i32, ptr @hf_zbee_zcl_calendar_command_index, align 4
+  %239 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %238, ptr noundef %0, i32 noundef 19, i32 noundef 1, i32 noundef 0) #6
+  %240 = load i32, ptr @hf_zbee_zcl_calendar_total_number_of_commands, align 4
+  %241 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %240, ptr noundef %0, i32 noundef 20, i32 noundef 1, i32 noundef 0) #6
+  %242 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 21) #6
+  %243 = icmp sgt i32 %242, 4
+  %244 = zext i8 %235 to i32
+  %245 = icmp ne i8 %235, 0
+  %246 = select i1 %243, i1 %245, i1 false
+  br i1 %246, label %.lr.ph.i55, label %dissect_zcl_calendar_publish_special_days.exit
 
-.lr.ph.i55:                                       ; preds = %219, %.lr.ph.i55
-  %.3 = phi i32 [ %265, %.lr.ph.i55 ], [ 21, %219 ]
-  %.047.i = phi i32 [ %266, %.lr.ph.i55 ], [ 0, %219 ]
-  %246 = load i32, ptr @ett_zbee_zcl_calendar_special_day_date, align 4
-  %247 = load i32, ptr @hf_zbee_zcl_calendar_date_year, align 4
-  %248 = load i32, ptr @hf_zbee_zcl_calendar_date_month, align 4
-  %249 = load i32, ptr @hf_zbee_zcl_calendar_date_month_day, align 4
-  %250 = load i32, ptr @hf_zbee_zcl_calendar_date_week_day, align 4
-  %251 = call ptr @proto_tree_add_subtree(ptr noundef %95, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef %246, ptr noundef null, ptr noundef nonnull @.str.3445) #6
-  %252 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3) #6
-  %253 = zext i8 %252 to i32
-  %254 = add nuw nsw i32 %253, 1900
-  %255 = call ptr @proto_tree_add_uint(ptr noundef %251, i32 noundef %247, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %254) #6
-  %256 = add nuw nsw i32 %.3, 1
-  %257 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %248, ptr noundef %0, i32 noundef %256, i32 noundef 1, i32 noundef 0) #6
-  %258 = add nuw nsw i32 %.3, 2
-  %259 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %249, ptr noundef %0, i32 noundef %258, i32 noundef 1, i32 noundef 0) #6
-  %260 = add nuw nsw i32 %.3, 3
-  %261 = call ptr @proto_tree_add_item(ptr noundef %251, i32 noundef %250, ptr noundef %0, i32 noundef %260, i32 noundef 1, i32 noundef 0) #6
-  %262 = add nuw nsw i32 %.3, 4
-  %263 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref, align 4
-  %264 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %263, ptr noundef %0, i32 noundef %262, i32 noundef 1, i32 noundef 0) #6
-  %265 = add nuw nsw i32 %.3, 5
-  %266 = add nuw nsw i32 %.047.i, 1
-  %267 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %265) #6
-  %268 = icmp sgt i32 %267, 4
-  %269 = icmp ult i32 %266, %243
-  %270 = select i1 %268, i1 %269, i1 false
-  br i1 %270, label %.lr.ph.i55, label %dissect_zcl_calendar_publish_special_days.exit, !llvm.loop !12
+.lr.ph.i55:                                       ; preds = %220, %.lr.ph.i55
+  %.3 = phi i32 [ %266, %.lr.ph.i55 ], [ 21, %220 ]
+  %.047.i = phi i32 [ %267, %.lr.ph.i55 ], [ 0, %220 ]
+  %247 = load i32, ptr @ett_zbee_zcl_calendar_special_day_date, align 4
+  %248 = load i32, ptr @hf_zbee_zcl_calendar_date_year, align 4
+  %249 = load i32, ptr @hf_zbee_zcl_calendar_date_month, align 4
+  %250 = load i32, ptr @hf_zbee_zcl_calendar_date_month_day, align 4
+  %251 = load i32, ptr @hf_zbee_zcl_calendar_date_week_day, align 4
+  %252 = call ptr @proto_tree_add_subtree(ptr noundef %95, ptr noundef %0, i32 noundef %.3, i32 noundef 4, i32 noundef %247, ptr noundef null, ptr noundef nonnull @.str.3445) #6
+  %253 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.3) #6
+  %254 = zext i8 %253 to i32
+  %255 = add nuw nsw i32 %254, 1900
+  %256 = call ptr @proto_tree_add_uint(ptr noundef %252, i32 noundef %248, ptr noundef %0, i32 noundef %.3, i32 noundef 1, i32 noundef %255) #6
+  %257 = add nuw nsw i32 %.3, 1
+  %258 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %249, ptr noundef %0, i32 noundef %257, i32 noundef 1, i32 noundef 0) #6
+  %259 = add nuw nsw i32 %.3, 2
+  %260 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %250, ptr noundef %0, i32 noundef %259, i32 noundef 1, i32 noundef 0) #6
+  %261 = add nuw nsw i32 %.3, 3
+  %262 = call ptr @proto_tree_add_item(ptr noundef %252, i32 noundef %251, ptr noundef %0, i32 noundef %261, i32 noundef 1, i32 noundef 0) #6
+  %263 = add nuw nsw i32 %.3, 4
+  %264 = load i32, ptr @hf_zbee_zcl_calendar_day_id_ref, align 4
+  %265 = call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %264, ptr noundef %0, i32 noundef %263, i32 noundef 1, i32 noundef 0) #6
+  %266 = add nuw nsw i32 %.3, 5
+  %267 = add nuw nsw i32 %.047.i, 1
+  %268 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %266) #6
+  %269 = icmp sgt i32 %268, 4
+  %270 = icmp ult i32 %267, %244
+  %271 = select i1 %269, i1 %270, i1 false
+  br i1 %271, label %.lr.ph.i55, label %dissect_zcl_calendar_publish_special_days.exit, !llvm.loop !12
 
-dissect_zcl_calendar_publish_special_days.exit:   ; preds = %.lr.ph.i55, %219
+dissect_zcl_calendar_publish_special_days.exit:   ; preds = %.lr.ph.i55, %220
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %dissect_zcl_calendar_publish_day_profile.exit
 
-271:                                              ; preds = %93
-  %272 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
-  %273 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %272, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
-  %274 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
-  %275 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %274, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
-  %276 = load i32, ptr @hf_zbee_zcl_calendar_type, align 4
-  %277 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %276, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #6
+272:                                              ; preds = %93
+  %273 = load i32, ptr @hf_zbee_zcl_calendar_provider_id, align 4
+  %274 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %273, ptr noundef %0, i32 noundef 1, i32 noundef 4, i32 noundef -2147483648) #6
+  %275 = load i32, ptr @hf_zbee_zcl_calendar_issuer_calendar_id, align 4
+  %276 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %275, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648) #6
+  %277 = load i32, ptr @hf_zbee_zcl_calendar_type, align 4
+  %278 = tail call ptr @proto_tree_add_item(ptr noundef %95, i32 noundef %277, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0) #6
   br label %dissect_zcl_calendar_publish_day_profile.exit
 
-dissect_zcl_calendar_publish_day_profile.exit:    ; preds = %.lr.ph.i54, %156, %185, %125, %85, %93, %271, %dissect_zcl_calendar_publish_special_days.exit, %162, %96, %21, %29, %70, %65, %56, %47, %32
-  %278 = call i32 @tvb_captured_length(ptr noundef %0) #6
-  br label %279
+dissect_zcl_calendar_publish_day_profile.exit:    ; preds = %.lr.ph.i54, %157, %186, %125, %85, %93, %272, %dissect_zcl_calendar_publish_special_days.exit, %163, %96, %21, %29, %70, %65, %56, %47, %32
+  %279 = call i32 @tvb_captured_length(ptr noundef %0) #6
+  br label %280
 
-279:                                              ; preds = %4, %dissect_zcl_calendar_publish_day_profile.exit
-  %.0 = phi i32 [ %278, %dissect_zcl_calendar_publish_day_profile.exit ], [ 0, %4 ]
+280:                                              ; preds = %4, %dissect_zcl_calendar_publish_day_profile.exit
+  %.0 = phi i32 [ %279, %dissect_zcl_calendar_publish_day_profile.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

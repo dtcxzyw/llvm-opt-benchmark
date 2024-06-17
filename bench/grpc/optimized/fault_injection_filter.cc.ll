@@ -1112,9 +1112,9 @@ tail1.sink.split.i.i.i.i.i.i.i:                   ; preds = %tail0.i.i.i.i.i.i.i
   %.sink18.i.i.i.i.i.i.i = phi i64 [ 16, %sw.bb5.i.i.i.i.i.i.i ], [ 32, %tail0.i.i.i.i.i.i.i ]
   %_M_engaged.i.i.i.i.i.i.i.i.i7.sink.i.i.i.i.i.i.i = phi ptr [ %_M_engaged.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %sw.bb5.i.i.i.i.i.i.i ], [ %_M_engaged.i.i.i.i.i.i.i.i.i7.i.i.i.i.i.i.i, %tail0.i.i.i.i.i.i.i ]
   %.sink16.ph.i.i.i.i.i.i.i = phi i64 [ 32, %sw.bb5.i.i.i.i.i.i.i ], [ 48, %tail0.i.i.i.i.i.i.i ]
-  %abort_request_.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 %.sink18.i.i.i.i.i.i.i
+  %abort_request_.i.i.i.i13.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i.i.i, i64 %.sink18.i.i.i.i.i.i.i
   %41 = load i64, ptr %.sink18.i.i.i.i.i.i.i.sroa.phi, align 8
-  store i64 %41, ptr %abort_request_.i.i.i.i.i.i.i.i.i.i.i, align 8
+  store i64 %41, ptr %abort_request_.i.i.i.i13.i.i.i.i.i.i.i, align 8
   store i64 54, ptr %.sink18.i.i.i.i.i.i.i.sroa.phi, align 8
   store i8 1, ptr %_M_engaged.i.i.i.i.i.i.i.i.i7.sink.i.i.i.i.i.i.i, align 8
   br label %tail1.i.i.i.i.i.i.i

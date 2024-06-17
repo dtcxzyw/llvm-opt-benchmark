@@ -4145,18 +4145,18 @@ zend_generator_update_root.exit:                  ; preds = %27, %30
 
 .sink.split:                                      ; preds = %44, %47
   %.sink = phi i32 [ %51, %47 ], [ %42, %44 ]
-  %.sink48 = phi ptr [ %49, %47 ], [ %38, %44 ]
+  %.sink46 = phi ptr [ %49, %47 ], [ %38, %44 ]
   %53 = and i32 %.sink, 65280
   %54 = icmp ne i32 %53, 0
   tail call void @llvm.assume(i1 %54)
-  %55 = load ptr, ptr %.sink48, align 8
+  %55 = load ptr, ptr %.sink46, align 8
   %56 = load i32, ptr %55, align 4
   %57 = add i32 %56, 1
   store i32 %57, ptr %55, align 4
   br label %58
 
 58:                                               ; preds = %.sink.split, %41, %47
-  %.037 = phi ptr [ %49, %47 ], [ %38, %41 ], [ %.sink48, %.sink.split ]
+  %.037 = phi ptr [ %49, %47 ], [ %38, %41 ], [ %.sink46, %.sink.split ]
   %59 = load ptr, ptr %.037, align 8
   %60 = getelementptr inbounds i8, ptr %.037, i64 8
   %61 = load i32, ptr %60, align 8
@@ -4164,9 +4164,9 @@ zend_generator_update_root.exit:                  ; preds = %27, %30
   br label %62
 
 62:                                               ; preds = %37, %58
-  %.sink46 = phi i32 [ %61, %58 ], [ 1, %37 ]
+  %.sink48 = phi i32 [ %61, %58 ], [ 1, %37 ]
   %63 = getelementptr inbounds i8, ptr %1, i64 8
-  store i32 %.sink46, ptr %63, align 8
+  store i32 %.sink48, ptr %63, align 8
   ret void
 }
 

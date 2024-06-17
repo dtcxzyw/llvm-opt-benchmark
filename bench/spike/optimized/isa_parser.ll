@@ -883,8 +883,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i26
   br label %.sink.split
 
 .sink.split:                                      ; preds = %261, %267
-  %.sink1235 = phi i64 [ %269, %267 ], [ %263, %261 ]
-  store i64 %.sink1235, ptr %191, align 8
+  %.sink = phi i64 [ %269, %267 ], [ %263, %261 ]
+  store i64 %.sink, ptr %191, align 8
   br label %270
 
 270:                                              ; preds = %.sink.split, %.critedge2
@@ -2166,8 +2166,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   %817 = load i64, ptr %816, align 8
   %818 = and i64 %817, 268435456
   %.not1041 = icmp eq i64 %818, 0
-  %or.cond1236 = select i1 %.not1036.not, i1 %.not1041, i1 false
-  br i1 %or.cond1236, label %820, label %.thread825
+  %or.cond1235 = select i1 %.not1036.not, i1 %.not1041, i1 false
+  br i1 %or.cond1235, label %820, label %.thread825
 
 .thread825:                                       ; preds = %.thread816, %805
   %.pre1195 = phi i64 [ %807, %805 ], [ %817, %.thread816 ]
@@ -2232,8 +2232,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   %.not1047 = icmp eq i64 %848, 0
   %849 = and i64 %847, 64
   %.not1048 = icmp eq i64 %849, 0
-  %or.cond1237 = or i1 %.not1047, %.not1048
-  br i1 %or.cond1237, label %.thread827, label %850
+  %or.cond1236 = or i1 %.not1047, %.not1048
+  br i1 %or.cond1236, label %.thread827, label %850
 
 850:                                              ; preds = %846
   %851 = load ptr, ptr @stderr, align 8
@@ -2375,8 +2375,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i37
   %900 = icmp ne i32 %899, 64
   %901 = and i64 %828, 286720
   %or.cond1102 = icmp eq i64 %901, 0
-  %or.cond1238 = or i1 %900, %or.cond1102
-  br i1 %or.cond1238, label %.thread967, label %.thread968
+  %or.cond1237 = or i1 %900, %or.cond1102
+  br i1 %or.cond1237, label %.thread967, label %.thread968
 
 .thread968:                                       ; preds = %.thread929
   %902 = load ptr, ptr @stderr, align 8

@@ -704,11 +704,11 @@ ehcleanup56:                                      ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn.pn
 
 return.sink.split:                                ; preds = %if.end7, %if.then
-  %s.tr.lcssa.sink = phi ptr [ %s.tr.lcssa, %if.then ], [ %s.tr126, %if.end7 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %s.tr.lcssa.sink, i64 8
-  %64 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %s.tr126181.sink = phi ptr [ %s.tr.lcssa, %if.then ], [ %s.tr126, %if.end7 ]
+  %m_ref_count.i.i.i.i9 = getelementptr inbounds i8, ptr %s.tr126181.sink, i64 8
+  %64 = load i32, ptr %m_ref_count.i.i.i.i9, align 4
   %inc.i.i.i.i10 = add i32 %64, 1
-  store i32 %inc.i.i.i.i10, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i10, ptr %m_ref_count.i.i.i.i9, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i, %_ZN9sort_infoD2Ev.exit, %if.end7, %if.then
@@ -5095,11 +5095,11 @@ ehcleanup79:                                      ; preds = %lpad18.loopexit, %l
   br label %eh.resume
 
 return.sink.split:                                ; preds = %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit40, %if.then
-  %.sink = phi ptr [ %7, %if.then ], [ %call11, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit40 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %100 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %call11.sink = phi ptr [ %7, %if.then ], [ %call11, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit40 ]
+  %m_ref_count.i.i.i.i44 = getelementptr inbounds i8, ptr %call11.sink, i64 8
+  %100 = load i32, ptr %m_ref_count.i.i.i.i44, align 4
   %inc.i.i.i.i45 = add i32 %100, 1
-  store i32 %inc.i.i.i.i45, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i45, ptr %m_ref_count.i.i.i.i44, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZN6vectorI9parameterLb1EjE16destroy_elementsEv.exit.i.i, %_ZN9sort_infoD2Ev.exit, %_ZN15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit40, %if.then
@@ -5775,10 +5775,10 @@ while.cond.backedge.sink.split.i.sink.split.i:    ; preds = %lor.lhs.false.i215.
 while.cond.backedge.sink.split.i.i:               ; preds = %if.end132.i.invoke.i, %while.cond.backedge.sink.split.i.sink.split.i, %invoke.cont5.i.i
   %.sink335.i.i = phi i32 [ -1, %invoke.cont5.i.i ], [ 1, %while.cond.backedge.sink.split.i.sink.split.i ], [ -1, %if.end132.i.invoke.i ]
   %.sink.i.i = load ptr, ptr %stack.i.i, align 8
-  %arrayidx.i52.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
-  %8 = load i32, ptr %arrayidx.i52.i.i, align 4
+  %arrayidx.i53.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
+  %8 = load i32, ptr %arrayidx.i53.i.i, align 4
   %dec.i54.i.i = add i32 %8, %.sink335.i.i
-  store i32 %dec.i54.i.i, ptr %arrayidx.i52.i.i, align 4
+  store i32 %dec.i54.i.i, ptr %arrayidx.i53.i.i, align 4
   br label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %for.inc.i164.thread.i.i, %for.inc.i200.thread.i.i, %for.inc.i129.thread.i.i, %for.inc.i.thread.i.i, %invoke.cont118.i.i, %invoke.cont109.i.i, %invoke.cont93.i.i, %invoke.cont52.i.i, %if.end.i.i, %while.cond.backedge.sink.split.i.i
@@ -6435,10 +6435,10 @@ while.cond.backedge.sink.split.i.i:               ; preds = %if.end116.i.invoke.
   %proc.sroa.2.1 = phi i1 [ %proc.sroa.2.0, %invoke.cont4.i.i ], [ %proc.sroa.2.4, %if.end116.i.invoke.i ], [ %proc.sroa.2.0, %while.cond.backedge.sink.split.i.sink.split.i ]
   %.sink322.i.i = phi i32 [ -1, %invoke.cont4.i.i ], [ -1, %if.end116.i.invoke.i ], [ 1, %while.cond.backedge.sink.split.i.sink.split.i ]
   %.sink.i.i = load ptr, ptr %stack.i.i, align 8
-  %arrayidx.i51.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
-  %9 = load i32, ptr %arrayidx.i51.i.i, align 4
+  %arrayidx.i54.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
+  %9 = load i32, ptr %arrayidx.i54.i.i, align 4
   %dec.i55.i.i = add i32 %9, %.sink322.i.i
-  store i32 %dec.i55.i.i, ptr %arrayidx.i51.i.i, align 4
+  store i32 %dec.i55.i.i, ptr %arrayidx.i54.i.i, align 4
   br label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %for.inc.i151.thread.i.i, %for.inc.i187.thread.i.i, %for.inc.i116.thread.i.i, %for.inc.i.thread.i.i, %invoke.cont102.i.i, %invoke.cont93.i.i, %invoke.cont78.i.i, %invoke.cont43.i.i, %if.end.i.i, %while.cond.backedge.sink.split.i.i
@@ -7035,10 +7035,10 @@ while.cond.backedge.sink.split.i.sink.split.i:    ; preds = %lor.lhs.false.i237.
 while.cond.backedge.sink.split.i.i:               ; preds = %if.end116.i.invoke.i, %while.cond.backedge.sink.split.i.sink.split.i, %invoke.cont4.i.i
   %.sink363.i.i = phi i32 [ -1, %invoke.cont4.i.i ], [ 1, %while.cond.backedge.sink.split.i.sink.split.i ], [ -1, %if.end116.i.invoke.i ]
   %.sink.i.i = load ptr, ptr %stack.i.i, align 8
-  %arrayidx.i52.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
-  %8 = load i32, ptr %arrayidx.i52.i.i, align 4
+  %arrayidx.i64.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 -4
+  %8 = load i32, ptr %arrayidx.i64.i.i, align 4
   %dec.i65.i.i = add i32 %8, %.sink363.i.i
-  store i32 %dec.i65.i.i, ptr %arrayidx.i52.i.i, align 4
+  store i32 %dec.i65.i.i, ptr %arrayidx.i64.i.i, align 4
   br label %while.cond.backedge.i.i
 
 while.cond.backedge.i.i:                          ; preds = %for.inc.i186.thread.i.i, %for.inc.i222.thread.i.i, %for.inc.i151.thread.i.i, %for.inc.i.thread.i.i, %invoke.cont102.i.i, %invoke.cont93.i.i, %invoke.cont78.i.i, %invoke.cont43.i.i, %invoke.cont35.i.i, %invoke.cont13.i.i, %if.end.i.i, %while.cond.backedge.sink.split.i.i

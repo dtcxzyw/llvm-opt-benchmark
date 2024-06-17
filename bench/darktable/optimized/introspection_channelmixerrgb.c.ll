@@ -493,9 +493,9 @@ define noundef i32 @default_colorspace(ptr nocapture noundef readnone %0, ptr no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone %0, ptr nocapture noundef readonly %1, i32 noundef %2, ptr nocapture noundef writeonly %3, ptr nocapture noundef writeonly %4, ptr nocapture noundef writeonly %5) local_unnamed_addr #6 {
-  switch i32 %2, label %23 [
+  switch i32 %2, label %18 [
     i32 1, label %7
-    i32 2, label %14
+    i32 2, label %10
   ]
 
 7:                                                ; preds = %6
@@ -503,37 +503,31 @@ define noundef range(i32 0, 2) i32 @legacy_params(ptr nocapture noundef readnone
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(156) %8, ptr noundef nonnull align 4 dereferenceable(156) %1, i64 156, i1 false)
   %9 = getelementptr inbounds i8, ptr %8, i64 116
   store i32 1, ptr %9, align 4, !tbaa !6
-  %10 = getelementptr inbounds i8, ptr %8, i64 48
-  %11 = load float, ptr %10, align 4, !tbaa !12
-  %12 = getelementptr inbounds i8, ptr %8, i64 56
-  %13 = load float, ptr %12, align 4, !tbaa !12
-  store float %13, ptr %10, align 4, !tbaa !12
-  store float %11, ptr %12, align 4, !tbaa !12
-  br label %20
+  br label %12
 
-14:                                               ; preds = %6
-  %15 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #30
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(156) %15, ptr noundef nonnull align 4 dereferenceable(156) %1, i64 156, i1 false)
-  %16 = getelementptr inbounds i8, ptr %15, i64 48
-  %17 = load float, ptr %16, align 4, !tbaa !12
-  %18 = getelementptr inbounds i8, ptr %15, i64 56
-  %19 = load float, ptr %18, align 4, !tbaa !12
-  store float %19, ptr %16, align 4, !tbaa !12
-  store float %17, ptr %18, align 4, !tbaa !12
-  br label %20
+10:                                               ; preds = %6
+  %11 = tail call noalias dereferenceable_or_null(160) ptr @malloc(i64 noundef 160) #30
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(156) %11, ptr noundef nonnull align 4 dereferenceable(156) %1, i64 156, i1 false)
+  br label %12
 
-20:                                               ; preds = %14, %7
-  %21 = phi ptr [ %15, %14 ], [ %8, %7 ]
-  %22 = getelementptr inbounds i8, ptr %21, i64 156
-  store i32 0, ptr %22, align 4, !tbaa !13
-  store ptr %21, ptr %3, align 8, !tbaa !14
+12:                                               ; preds = %10, %7
+  %.sink = phi ptr [ %11, %10 ], [ %8, %7 ]
+  %13 = getelementptr inbounds i8, ptr %.sink, i64 48
+  %14 = load float, ptr %13, align 4, !tbaa !12
+  %15 = getelementptr inbounds i8, ptr %.sink, i64 56
+  %16 = load float, ptr %15, align 4, !tbaa !12
+  store float %16, ptr %13, align 4, !tbaa !12
+  store float %14, ptr %15, align 4, !tbaa !12
+  %17 = getelementptr inbounds i8, ptr %.sink, i64 156
+  store i32 0, ptr %17, align 4, !tbaa !13
+  store ptr %.sink, ptr %3, align 8, !tbaa !14
   store i32 160, ptr %4, align 4, !tbaa !16
   store i32 3, ptr %5, align 4, !tbaa !16
-  br label %23
+  br label %18
 
-23:                                               ; preds = %20, %6
-  %24 = phi i32 [ 1, %6 ], [ 0, %20 ]
-  ret i32 %24
+18:                                               ; preds = %12, %6
+  %19 = phi i32 [ 1, %6 ], [ 0, %12 ]
+  ret i32 %19
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

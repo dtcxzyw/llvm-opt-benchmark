@@ -7388,13 +7388,13 @@ while.cond.backedge:                              ; preds = %if.end112.sink.spli
   br label %while.cond, !llvm.loop !14
 
 while.end.sink.split:                             ; preds = %if.else107, %if.else63, %if.then59
-  %m_num.i.sink = phi ptr [ %m_num.i, %if.then59 ], [ %m_num.i36, %if.else63 ], [ %m_num.i41, %if.else107 ]
-  %18 = load i32, ptr %m_num.i.sink, align 8
+  %m_num.i41.sink = phi ptr [ %m_num.i, %if.then59 ], [ %m_num.i36, %if.else63 ], [ %m_num.i41, %if.else107 ]
+  %18 = load i32, ptr %m_num.i41.sink, align 8
   store i32 %18, ptr %o, align 8
-  %m_kind.i140 = getelementptr inbounds i8, ptr %o, i64 4
-  %bf.load.i232 = load i8, ptr %m_kind.i140, align 4
+  %m_kind.i231 = getelementptr inbounds i8, ptr %o, i64 4
+  %bf.load.i232 = load i8, ptr %m_kind.i231, align 4
   %bf.clear.i233 = and i8 %bf.load.i232, -2
-  store i8 %bf.clear.i233, ptr %m_kind.i140, align 4
+  store i8 %bf.clear.i233, ptr %m_kind.i231, align 4
   br label %while.end
 
 while.end:                                        ; preds = %invoke.cont34, %if.then.i.i100, %while.end.sink.split, %if.else.i138.invoke

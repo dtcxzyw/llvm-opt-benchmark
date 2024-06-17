@@ -1115,7 +1115,7 @@ define ptr @Extra_bddFindOneCube(ptr noundef %0, ptr noundef %1) local_unnamed_a
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %16
-  %.sink40 = phi ptr [ %26, %23 ], [ %22, %16 ]
+  %.sink40 = phi ptr [ %22, %16 ], [ %26, %23 ]
   %27 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.03033, ptr noundef %.sink40) #18
   tail call void @Cudd_Ref(ptr noundef %27) #18
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.03033) #18

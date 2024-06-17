@@ -1211,25 +1211,25 @@ ZSTD_ldm_gear_reset.exit224.i:                    ; preds = %if.end185.i
   br label %for.end212.i
 
 for.inc210.sink.split.i:                          ; preds = %for.end165.i, %for.body72.i
-  %conv169.i.sink = zext i32 %29 to i64
+  %conv169.i = zext i32 %29 to i64
   %newEntry.sroa.4.0.insert.ext19.i = zext i32 %28 to i64
   %newEntry.sroa.4.0.insert.shift20.i = shl nuw i64 %newEntry.sroa.4.0.insert.ext19.i, 32
   %newEntry.sroa.0.0.insert.ext11.i = and i64 %sub.ptr.sub91.i, 4294967295
   %newEntry.sroa.0.0.insert.insert13.i = or disjoint i64 %newEntry.sroa.4.0.insert.shift20.i, %newEntry.sroa.0.0.insert.ext11.i
+  %byval-temp170.sroa.1.0.copyload.i = load i32, ptr %bucketSizeLog.i, align 4
+  %ldmState.val157.i = load ptr, ptr %hashTable, align 8
   %ldmState.val158.i = load ptr, ptr %4, align 8
-  %add.ptr.i194.i = getelementptr inbounds i8, ptr %ldmState.val158.i, i64 %conv169.i.sink
-  %ldmState.val157.sink.i = load ptr, ptr %hashTable, align 8
-  %byval-temp170.sroa.1.0.copyload.sink278.i = load i32, ptr %bucketSizeLog.i, align 4
+  %add.ptr.i194.i = getelementptr inbounds i8, ptr %ldmState.val158.i, i64 %conv169.i
   %59 = load i8, ptr %add.ptr.i194.i, align 1
   %conv.i195.i = zext i8 %59 to i32
-  %sh_prom.i.i196.i = zext nneg i32 %byval-temp170.sroa.1.0.copyload.sink278.i to i64
-  %shl.i.i197.i = shl i64 %conv169.i.sink, %sh_prom.i.i196.i
-  %add.ptr.i.i198.i = getelementptr inbounds %struct.ldmEntry_t, ptr %ldmState.val157.sink.i, i64 %shl.i.i197.i
+  %sh_prom.i.i196.i = zext nneg i32 %byval-temp170.sroa.1.0.copyload.i to i64
+  %shl.i.i197.i = shl i64 %conv169.i, %sh_prom.i.i196.i
+  %add.ptr.i.i198.i = getelementptr inbounds %struct.ldmEntry_t, ptr %ldmState.val157.i, i64 %shl.i.i197.i
   %idx.ext.i199.i = zext i8 %59 to i64
   %add.ptr3.i200.i = getelementptr inbounds %struct.ldmEntry_t, ptr %add.ptr.i.i198.i, i64 %idx.ext.i199.i
   store i64 %newEntry.sroa.0.0.insert.insert13.i, ptr %add.ptr3.i200.i, align 4
   %add.i201.i = add nuw nsw i32 %conv.i195.i, 1
-  %notmask.i202.i = shl nsw i32 -1, %byval-temp170.sroa.1.0.copyload.sink278.i
+  %notmask.i202.i = shl nsw i32 -1, %byval-temp170.sroa.1.0.copyload.i
   %sub.i203.i = xor i32 %notmask.i202.i, -1
   %and.i204.i = and i32 %add.i201.i, %sub.i203.i
   %conv4.i205.i = trunc i32 %and.i204.i to i8

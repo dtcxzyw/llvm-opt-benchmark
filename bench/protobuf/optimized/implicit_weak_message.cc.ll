@@ -179,15 +179,15 @@ cond.false.i:                                     ; preds = %entry
   br label %_ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit
 
 _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit: ; preds = %cond.true.i, %cond.false.i
-  %call1.sink.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %call1.sink.i, align 8
+  %call1.sink9.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 16), ptr %call1.sink9.i, align 8
   %call.i4.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
-  %data_.i5.i = getelementptr inbounds i8, ptr %call1.sink.i, i64 16
+  %data_.i5.i = getelementptr inbounds i8, ptr %call1.sink9.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i4.i) #10
   store ptr %call.i4.i, ptr %data_.i5.i, align 8
-  %cached_size_.i6.i = getelementptr inbounds i8, ptr %call1.sink.i, i64 24
+  %cached_size_.i6.i = getelementptr inbounds i8, ptr %call1.sink9.i, i64 24
   store i32 0, ptr %cached_size_.i6.i, align 4
-  ret ptr %call1.sink.i
+  ret ptr %call1.sink9.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

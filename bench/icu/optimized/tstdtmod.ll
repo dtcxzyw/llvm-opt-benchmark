@@ -779,12 +779,12 @@ lor.lhs.false:                                    ; preds = %if.end39
 
 if.else.invoke:                                   ; preds = %if.end39, %lor.lhs.false
   %.sink = phi i64 [ %31, %lor.lhs.false ], [ 32, %if.end39 ]
-  %.sink52.in = getelementptr inbounds i8, ptr %this, i64 16
-  %.sink52 = load ptr, ptr %.sink52.in, align 8
-  %vtable = load ptr, ptr %.sink52, align 8
+  %testClass = getelementptr inbounds i8, ptr %this, i64 16
+  %32 = load ptr, ptr %testClass, align 8
+  %vtable = load ptr, ptr %32, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 %.sink
-  %32 = load ptr, ptr %vfn, align 8
-  invoke void %32(ptr noundef nonnull align 8 dereferenceable(8) %.sink52, ptr noundef nonnull align 8 dereferenceable(64) %msg)
+  %33 = load ptr, ptr %vfn, align 8
+  invoke void %33(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(64) %msg)
           to label %if.end54 unwind label %lpad
 
 if.end54:                                         ; preds = %if.else.invoke

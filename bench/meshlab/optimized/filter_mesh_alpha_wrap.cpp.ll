@@ -91096,13 +91096,13 @@ _ZNSt6vectorISt4pairIPKN4CGAL19Add_decorated_pointINS1_11AABB_traitsINS1_13Alpha
   %52 = icmp eq ptr %49, %51
   br i1 %52, label %_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit, label %57
 
-53:                                               ; preds = %.invoke, %180, %57, %176, %122
+53:                                               ; preds = %.invoke, %166, %57, %162, %116
   %54 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i29, %53, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i48, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i36, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %78, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i ], [ %119, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i29 ], [ %132, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i36 ], [ %54, %53 ], [ %173, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i48 ]
+.body:                                            ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i30, %53, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i49, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i37, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i
+  %eh.lpad-body = phi { ptr, i32 } [ %78, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i ], [ %113, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i30 ], [ %126, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i37 ], [ %54, %53 ], [ %159, %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i49 ]
   %55 = load ptr, ptr %46, align 8
   %.not.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %56
@@ -91141,7 +91141,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %57
   %68 = getelementptr inbounds i8, ptr %1, i64 320
   %69 = load i8, ptr %68, align 8
   %70 = trunc i8 %69 to i1
-  br i1 %67, label %71, label %125
+  br i1 %67, label %71, label %119
 
 71:                                               ; preds = %._crit_edge
   br i1 %70, label %81, label %72
@@ -91177,235 +91177,217 @@ _ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traits
   %84 = getelementptr inbounds i8, ptr %83, i64 24
   br label %85
 
-85:                                               ; preds = %110, %81
-  %indvars.iv.i = phi i64 [ 0, %81 ], [ %indvars.iv.next.i, %110 ]
-  %.03336.i = phi double [ 0.000000e+00, %81 ], [ %.1.i, %110 ]
-  %.034.idx35.i = phi i64 [ 0, %81 ], [ %.034.add.i, %110 ]
+85:                                               ; preds = %104, %81
+  %indvars.iv.i = phi i64 [ 0, %81 ], [ %indvars.iv.next.i, %104 ]
+  %.03336.i = phi double [ 0.000000e+00, %81 ], [ %.1.i, %104 ]
+  %.034.idx35.i = phi i64 [ 0, %81 ], [ %.034.add.i, %104 ]
   %.034.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.034.idx35.i
   %86 = load double, ptr %.034.ptr.i, align 8
   %87 = getelementptr inbounds [3 x double], ptr %83, i64 0, i64 %indvars.iv.i
   %88 = load double, ptr %87, align 8
   %89 = fcmp olt double %86, %88
-  br i1 %89, label %90, label %98
+  br i1 %89, label %90, label %92
 
 90:                                               ; preds = %85
   %91 = fsub double %88, %86
-  %92 = load ptr, ptr %46, align 8
-  %93 = getelementptr inbounds double, ptr %92, i64 %indvars.iv.i
-  store double %91, ptr %93, align 8
-  %94 = load ptr, ptr %46, align 8
-  %95 = getelementptr inbounds double, ptr %94, i64 %indvars.iv.i
-  %96 = load double, ptr %95, align 8
-  %97 = tail call double @llvm.fmuladd.f64(double %96, double %96, double %.03336.i)
-  br label %110
+  br label %.sink.split.i
 
-98:                                               ; preds = %85
-  %99 = getelementptr inbounds [3 x double], ptr %84, i64 0, i64 %indvars.iv.i
-  %100 = load double, ptr %99, align 8
-  %101 = fcmp ogt double %86, %100
-  br i1 %101, label %102, label %110
+92:                                               ; preds = %85
+  %93 = getelementptr inbounds [3 x double], ptr %84, i64 0, i64 %indvars.iv.i
+  %94 = load double, ptr %93, align 8
+  %95 = fcmp ogt double %86, %94
+  br i1 %95, label %96, label %104
 
-102:                                              ; preds = %98
-  %103 = fsub double %86, %100
-  %104 = load ptr, ptr %46, align 8
-  %105 = getelementptr inbounds double, ptr %104, i64 %indvars.iv.i
-  store double %103, ptr %105, align 8
-  %106 = load ptr, ptr %46, align 8
-  %107 = getelementptr inbounds double, ptr %106, i64 %indvars.iv.i
-  %108 = load double, ptr %107, align 8
-  %109 = tail call double @llvm.fmuladd.f64(double %108, double %108, double %.03336.i)
-  br label %110
+96:                                               ; preds = %92
+  %97 = fsub double %86, %94
+  br label %.sink.split.i
 
-110:                                              ; preds = %102, %98, %90
-  %.1.i = phi double [ %97, %90 ], [ %109, %102 ], [ %.03336.i, %98 ]
+.sink.split.i:                                    ; preds = %96, %90
+  %.sink.i27 = phi double [ %91, %90 ], [ %97, %96 ]
+  %98 = load ptr, ptr %46, align 8
+  %99 = getelementptr inbounds double, ptr %98, i64 %indvars.iv.i
+  store double %.sink.i27, ptr %99, align 8
+  %100 = load ptr, ptr %46, align 8
+  %101 = getelementptr inbounds double, ptr %100, i64 %indvars.iv.i
+  %102 = load double, ptr %101, align 8
+  %103 = tail call double @llvm.fmuladd.f64(double %102, double %102, double %.03336.i)
+  br label %104
+
+104:                                              ; preds = %.sink.split.i, %92
+  %.1.i = phi double [ %.03336.i, %92 ], [ %103, %.sink.split.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.034.add.i = add nuw nsw i64 %.034.idx35.i, 8
   %.not.i = icmp eq i64 %.034.add.i, 24
   br i1 %.not.i, label %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit, label %85, !llvm.loop !1743
 
-_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit: ; preds = %110
-  %111 = load i8, ptr %68, align 8
-  %112 = trunc i8 %111 to i1
-  br i1 %112, label %122, label %113
+_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit: ; preds = %104
+  %105 = load i8, ptr %68, align 8
+  %106 = trunc i8 %105 to i1
+  br i1 %106, label %116, label %107
 
-113:                                              ; preds = %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
-  %114 = getelementptr inbounds i8, ptr %1, i64 280
-  %115 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %114) #21
-  %.not.i.i.i.i.i27 = icmp eq i32 %115, 0
-  br i1 %.not.i.i.i.i.i27, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i28, label %.invoke
+107:                                              ; preds = %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
+  %108 = getelementptr inbounds i8, ptr %1, i64 280
+  %109 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %108) #21
+  %.not.i.i.i.i.i28 = icmp eq i32 %109, 0
+  br i1 %.not.i.i.i.i.i28, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i29, label %.invoke
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i28:   ; preds = %113
-  %116 = load i8, ptr %68, align 8
-  %117 = trunc i8 %116 to i1
-  br i1 %117, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i30, label %118
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i29:   ; preds = %107
+  %110 = load i8, ptr %68, align 8
+  %111 = trunc i8 %110 to i1
+  br i1 %111, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i31, label %112
 
-118:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i28
+112:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i29
   invoke void @_ZN4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E5buildINS_14Sequential_tagEEEvv(ptr noundef nonnull align 8 dereferenceable(322) %1)
-          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i30 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i29
+          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i31 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i30
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i29:      ; preds = %118
-  %119 = landingpad { ptr, i32 }
+_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i30:      ; preds = %112
+  %113 = landingpad { ptr, i32 }
           cleanup
-  %120 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %114) #21
+  %114 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %108) #21
   br label %.body
 
-_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i30: ; preds = %118, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i28
-  %121 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %114) #21
-  br label %122
+_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i31: ; preds = %112, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i29
+  %115 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %108) #21
+  br label %116
 
-122:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i30, %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
-  %123 = getelementptr inbounds i8, ptr %1, i64 184
-  %124 = load ptr, ptr %123, align 8
-  invoke void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_18Euclidean_distanceIS11_EENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEENS_7Kd_treeIS11_S17_ST_SU_EEE38compute_nearest_neighbors_orthogonallyEPKNS_12Kd_tree_nodeIS11_S17_ST_SU_EEd(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %124, double noundef %.1.i)
-          to label %179 unwind label %53
+116:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i31, %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25min_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
+  %117 = getelementptr inbounds i8, ptr %1, i64 184
+  %118 = load ptr, ptr %117, align 8
+  invoke void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_18Euclidean_distanceIS11_EENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEENS_7Kd_treeIS11_S17_ST_SU_EEE38compute_nearest_neighbors_orthogonallyEPKNS_12Kd_tree_nodeIS11_S17_ST_SU_EEd(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %118, double noundef %.1.i)
+          to label %165 unwind label %53
 
-125:                                              ; preds = %._crit_edge
-  br i1 %70, label %135, label %126
+119:                                              ; preds = %._crit_edge
+  br i1 %70, label %129, label %120
 
-126:                                              ; preds = %125
-  %127 = getelementptr inbounds i8, ptr %1, i64 280
-  %128 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %127) #21
-  %.not.i.i.i.i.i34 = icmp eq i32 %128, 0
-  br i1 %.not.i.i.i.i.i34, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i35, label %.invoke
+120:                                              ; preds = %119
+  %121 = getelementptr inbounds i8, ptr %1, i64 280
+  %122 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %121) #21
+  %.not.i.i.i.i.i35 = icmp eq i32 %122, 0
+  br i1 %.not.i.i.i.i.i35, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i36, label %.invoke
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i35:   ; preds = %126
-  %129 = load i8, ptr %68, align 8
-  %130 = trunc i8 %129 to i1
-  br i1 %130, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i37, label %131
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i36:   ; preds = %120
+  %123 = load i8, ptr %68, align 8
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i38, label %125
 
-131:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i35
+125:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i36
   invoke void @_ZN4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E5buildINS_14Sequential_tagEEEvv(ptr noundef nonnull align 8 dereferenceable(322) %1)
-          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i37 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i36
+          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i38 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i37
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i36:      ; preds = %131
-  %132 = landingpad { ptr, i32 }
+_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i37:      ; preds = %125
+  %126 = landingpad { ptr, i32 }
           cleanup
-  %133 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %127) #21
+  %127 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %121) #21
   br label %.body
 
-_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i37: ; preds = %131, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i35
-  %134 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %127) #21
-  br label %135
+_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i38: ; preds = %125, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i36
+  %128 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %121) #21
+  br label %129
 
-135:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i37, %125
-  %136 = getelementptr inbounds i8, ptr %1, i64 192
-  %137 = load ptr, ptr %136, align 8
-  %138 = getelementptr inbounds i8, ptr %137, i64 24
-  %.pre60 = load ptr, ptr %46, align 8
-  br label %139
+129:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i38, %119
+  %130 = getelementptr inbounds i8, ptr %1, i64 192
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds i8, ptr %131, i64 24
+  %.pre61 = load ptr, ptr %46, align 8
+  br label %133
 
-139:                                              ; preds = %162, %135
-  %140 = phi ptr [ %.pre60, %135 ], [ %163, %162 ]
-  %indvars.iv.i42 = phi i64 [ 0, %135 ], [ %indvars.iv.next.i44, %162 ]
-  %.03235.i = phi double [ 0.000000e+00, %135 ], [ %.1.i43, %162 ]
-  %.033.idx34.i = phi i64 [ 0, %135 ], [ %.033.add.i, %162 ]
+133:                                              ; preds = %133, %129
+  %134 = phi ptr [ %.pre61, %129 ], [ %146, %133 ]
+  %indvars.iv.i43 = phi i64 [ 0, %129 ], [ %indvars.iv.next.i45, %133 ]
+  %.03235.i = phi double [ 0.000000e+00, %129 ], [ %149, %133 ]
+  %.033.idx34.i = phi i64 [ 0, %129 ], [ %.033.add.i, %133 ]
   %.033.ptr.i = getelementptr inbounds i8, ptr %2, i64 %.033.idx34.i
-  %141 = load double, ptr %.033.ptr.i, align 8
-  %142 = getelementptr inbounds [3 x double], ptr %137, i64 0, i64 %indvars.iv.i42
-  %143 = load double, ptr %142, align 8
-  %144 = getelementptr inbounds [3 x double], ptr %138, i64 0, i64 %indvars.iv.i42
-  %145 = load double, ptr %144, align 8
-  %146 = fadd double %143, %145
-  %147 = fmul double %146, 5.000000e-01
-  %148 = fcmp ugt double %141, %147
-  %149 = getelementptr inbounds double, ptr %140, i64 %indvars.iv.i42
-  br i1 %148, label %156, label %150
-
-150:                                              ; preds = %139
-  %151 = fsub double %145, %141
-  store double %151, ptr %149, align 8
-  %152 = load ptr, ptr %46, align 8
-  %153 = getelementptr inbounds double, ptr %152, i64 %indvars.iv.i42
-  %154 = load double, ptr %153, align 8
-  %155 = tail call double @llvm.fmuladd.f64(double %154, double %154, double %.03235.i)
-  br label %162
-
-156:                                              ; preds = %139
-  %157 = fsub double %141, %143
-  store double %157, ptr %149, align 8
-  %158 = load ptr, ptr %46, align 8
-  %159 = getelementptr inbounds double, ptr %158, i64 %indvars.iv.i42
-  %160 = load double, ptr %159, align 8
-  %161 = tail call double @llvm.fmuladd.f64(double %160, double %160, double %.03235.i)
-  br label %162
-
-162:                                              ; preds = %156, %150
-  %163 = phi ptr [ %152, %150 ], [ %158, %156 ]
-  %.1.i43 = phi double [ %155, %150 ], [ %161, %156 ]
-  %indvars.iv.next.i44 = add nuw nsw i64 %indvars.iv.i42, 1
+  %135 = load double, ptr %.033.ptr.i, align 8
+  %136 = getelementptr inbounds [3 x double], ptr %131, i64 0, i64 %indvars.iv.i43
+  %137 = load double, ptr %136, align 8
+  %138 = getelementptr inbounds [3 x double], ptr %132, i64 0, i64 %indvars.iv.i43
+  %139 = load double, ptr %138, align 8
+  %140 = fadd double %137, %139
+  %141 = fmul double %140, 5.000000e-01
+  %142 = fcmp ugt double %135, %141
+  %143 = getelementptr inbounds double, ptr %134, i64 %indvars.iv.i43
+  %144 = fsub double %139, %135
+  %145 = fsub double %135, %137
+  %.sink.i44 = select i1 %142, double %145, double %144
+  store double %.sink.i44, ptr %143, align 8
+  %146 = load ptr, ptr %46, align 8
+  %147 = getelementptr inbounds double, ptr %146, i64 %indvars.iv.i43
+  %148 = load double, ptr %147, align 8
+  %149 = tail call double @llvm.fmuladd.f64(double %148, double %148, double %.03235.i)
+  %indvars.iv.next.i45 = add nuw nsw i64 %indvars.iv.i43, 1
   %.033.add.i = add nuw nsw i64 %.033.idx34.i, 8
-  %.not.i45 = icmp eq i64 %.033.add.i, 24
-  br i1 %.not.i45, label %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit, label %139, !llvm.loop !1744
+  %.not.i46 = icmp eq i64 %.033.add.i, 24
+  br i1 %.not.i46, label %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit, label %133, !llvm.loop !1744
 
-_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit: ; preds = %162
-  %164 = load i8, ptr %68, align 8
-  %165 = trunc i8 %164 to i1
-  br i1 %165, label %176, label %166
+_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit: ; preds = %133
+  %150 = load i8, ptr %68, align 8
+  %151 = trunc i8 %150 to i1
+  br i1 %151, label %162, label %152
 
-166:                                              ; preds = %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
-  %167 = getelementptr inbounds i8, ptr %1, i64 280
-  %168 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %167) #21
-  %.not.i.i.i.i.i46 = icmp eq i32 %168, 0
-  br i1 %.not.i.i.i.i.i46, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i47, label %.invoke
+152:                                              ; preds = %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
+  %153 = getelementptr inbounds i8, ptr %1, i64 280
+  %154 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %153) #21
+  %.not.i.i.i.i.i47 = icmp eq i32 %154, 0
+  br i1 %.not.i.i.i.i.i47, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i48, label %.invoke
 
-.invoke:                                          ; preds = %166, %126, %113, %72
-  %169 = phi i32 [ %74, %72 ], [ %115, %113 ], [ %128, %126 ], [ %168, %166 ]
-  invoke void @_ZSt20__throw_system_errori(i32 noundef %169) #40
+.invoke:                                          ; preds = %152, %120, %107, %72
+  %155 = phi i32 [ %74, %72 ], [ %109, %107 ], [ %122, %120 ], [ %154, %152 ]
+  invoke void @_ZSt20__throw_system_errori(i32 noundef %155) #40
           to label %.cont unwind label %53
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i47:   ; preds = %166
-  %170 = load i8, ptr %68, align 8
-  %171 = trunc i8 %170 to i1
-  br i1 %171, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i49, label %172
+_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i48:   ; preds = %152
+  %156 = load i8, ptr %68, align 8
+  %157 = trunc i8 %156 to i1
+  br i1 %157, label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i50, label %158
 
-172:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i47
+158:                                              ; preds = %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i48
   invoke void @_ZN4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E5buildINS_14Sequential_tagEEEvv(ptr noundef nonnull align 8 dereferenceable(322) %1)
-          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i49 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i48
+          to label %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i50 unwind label %_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i49
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i48:      ; preds = %172
-  %173 = landingpad { ptr, i32 }
+_ZNSt11unique_lockISt5mutexED2Ev.exit.i.i49:      ; preds = %158
+  %159 = landingpad { ptr, i32 }
           cleanup
-  %174 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %167) #21
+  %160 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %153) #21
   br label %.body
 
-_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i49: ; preds = %172, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i47
-  %175 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %167) #21
-  br label %176
+_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i50: ; preds = %158, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i.i48
+  %161 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %153) #21
+  br label %162
 
-176:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i49, %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
-  %177 = getelementptr inbounds i8, ptr %1, i64 184
-  %178 = load ptr, ptr %177, align 8
-  invoke void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_18Euclidean_distanceIS11_EENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEENS_7Kd_treeIS11_S17_ST_SU_EEE39compute_furthest_neighbors_orthogonallyEPKNS_12Kd_tree_nodeIS11_S17_ST_SU_EEd(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %178, double noundef %.1.i43)
-          to label %179 unwind label %53
+162:                                              ; preds = %_ZNK4CGAL7Kd_treeINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEEST_SU_E11const_buildEv.exit.i50, %_ZNK4CGAL18Euclidean_distanceINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEEE25max_distance_to_rectangleERKNS10_15Decorated_pointERKNS_17Kd_tree_rectangleIdNS_13Dimension_tagILi3EEEEERSt6vectorIdSaIdEE.exit
+  %163 = getelementptr inbounds i8, ptr %1, i64 184
+  %164 = load ptr, ptr %163, align 8
+  invoke void @_ZN4CGAL28Orthogonal_k_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS7_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_EEEENS_18Euclidean_distanceIS11_EENS_16Sliding_midpointIS11_NS_15Plane_separatorIdEEEENS_7Kd_treeIS11_S17_ST_SU_EEE39compute_furthest_neighbors_orthogonallyEPKNS_12Kd_tree_nodeIS11_S17_ST_SU_EEd(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %164, double noundef %149)
+          to label %165 unwind label %53
 
-179:                                              ; preds = %176, %122
-  br i1 %7, label %180, label %_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit
+165:                                              ; preds = %162, %116
+  br i1 %7, label %166, label %_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit
 
-180:                                              ; preds = %179
-  %181 = load ptr, ptr %32, align 8
-  %182 = load i32, ptr %31, align 8
-  %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds %"struct.std::pair.1533", ptr %181, i64 %183
+166:                                              ; preds = %165
+  %167 = load ptr, ptr %32, align 8
+  %168 = load i32, ptr %31, align 8
+  %169 = zext i32 %168 to i64
+  %170 = getelementptr inbounds %"struct.std::pair.1533", ptr %167, i64 %169
   %.sroa.0.0.copyload.i = load i8, ptr %41, align 8
-  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_15Search_traits_3IS11_EENS3_18Euclidean_distanceIS1G_EENS3_16Sliding_midpointIS1G_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS1G_S1M_SU_SV_EEE15Distance_largerEEEEvT_S1S_T0_(ptr %181, ptr %184, i8 %.sroa.0.0.copyload.i)
+  invoke void @_ZSt6__sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIPKN4CGAL19Add_decorated_pointINS3_11AABB_traitsINS3_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS3_5EpickEEENS3_14AABB_primitiveIS2_ImmENS3_20Compose_property_mapINSD_INS3_26First_of_pair_property_mapISC_EENS7_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS3_10Triangle_3IS9_EEEESJ_EENSD_ISF_NSG_INS3_7Point_3IS9_EEEESJ_EENS3_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS3_6Bbox_3EEESJ_EEEESC_E15Decorated_pointEdESt6vectorIS15_SaIS15_EEEENS0_5__ops15_Iter_comp_iterINS3_8internal17K_neighbor_searchINS3_15Search_traits_3IS11_EENS3_18Euclidean_distanceIS1G_EENS3_16Sliding_midpointIS1G_NS3_15Plane_separatorIdEEEENS3_7Kd_treeIS1G_S1M_SU_SV_EEE15Distance_largerEEEEvT_S1S_T0_(ptr %167, ptr %170, i8 %.sroa.0.0.copyload.i)
           to label %_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit unwind label %53
 
-_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit: ; preds = %180, %38, %179
+_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveIS2_ImmENS_20Compose_property_mapINSC_INS_26First_of_pair_property_mapISB_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS_10Triangle_3IS8_EEEESI_EENSC_ISE_NSF_INS_7Point_3IS8_EEEESI_EENS_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS_6Bbox_3EEESI_EEEESB_E15Decorated_pointEdENS0_17K_neighbor_searchINS_15Search_traits_3IS10_EENS_18Euclidean_distanceIS17_EENS_16Sliding_midpointIS17_NS_15Plane_separatorIdEEEENS_7Kd_treeIS17_S1D_ST_SU_EEE15Distance_largerEE4sortEv.exit: ; preds = %166, %38, %165
   ret void
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %56, %.body
-  %185 = load ptr, ptr %32, align 8
-  %.not.i.i.i.i.i55 = icmp eq ptr %185, null
-  br i1 %.not.i.i.i.i.i55, label %_ZN4CGAL8internal17K_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSD_INS_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS_7Point_3IS8_EEEESJ_EENS_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS_6Bbox_3EEESJ_EEEESC_EEEENS_18Euclidean_distanceIS12_EENS_16Sliding_midpointIS12_NS_15Plane_separatorIdEEEENS_7Kd_treeIS12_S18_SU_SV_EEED2Ev.exit, label %186
+  %171 = load ptr, ptr %32, align 8
+  %.not.i.i.i.i.i56 = icmp eq ptr %171, null
+  br i1 %.not.i.i.i.i.i56, label %_ZN4CGAL8internal17K_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSD_INS_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS_7Point_3IS8_EEEESJ_EENS_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS_6Bbox_3EEESJ_EEEESC_EEEENS_18Euclidean_distanceIS12_EENS_16Sliding_midpointIS12_NS_15Plane_separatorIdEEEENS_7Kd_treeIS12_S18_SU_SV_EEED2Ev.exit, label %172
 
-186:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %185) #36
+172:                                              ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit
+  tail call void @_ZdlPv(ptr noundef nonnull %171) #36
   br label %_ZN4CGAL8internal17K_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSD_INS_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS_7Point_3IS8_EEEESJ_EENS_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS_6Bbox_3EEESJ_EEEESC_EEEENS_18Euclidean_distanceIS12_EENS_16Sliding_midpointIS12_NS_15Plane_separatorIdEEEENS_7Kd_treeIS12_S18_SU_SV_EEED2Ev.exit
 
-_ZN4CGAL8internal17K_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSD_INS_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS_7Point_3IS8_EEEESJ_EENS_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS_6Bbox_3EEESJ_EEEESC_EEEENS_18Euclidean_distanceIS12_EENS_16Sliding_midpointIS12_NS_15Plane_separatorIdEEEENS_7Kd_treeIS12_S18_SU_SV_EEED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %186
+_ZN4CGAL8internal17K_neighbor_searchINS_15Search_traits_3INS_19Add_decorated_pointINS_11AABB_traitsINS_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSD_INS_26First_of_pair_property_mapISC_EENS6_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSG_INS_10Triangle_3IS8_EEEESJ_EENSD_ISF_NSG_INS_7Point_3IS8_EEEESJ_EENS_11Boolean_tagILb1EEENST_ILb0EEEEENSD_ISF_NSG_INS_6Bbox_3EEESJ_EEEESC_EEEENS_18Euclidean_distanceIS12_EENS_16Sliding_midpointIS12_NS_15Plane_separatorIdEEEENS_7Kd_treeIS12_S18_SU_SV_EEED2Ev.exit: ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit, %172
   resume { ptr, i32 } %eh.lpad-body
 }
 
@@ -92027,8 +92009,8 @@ define linkonce_odr void @_ZN4CGAL8internal22bounded_priority_queueISt4pairIPKNS
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader, %._crit_edge51.loopexit, %._crit_edge
-  %.sink = phi i64 [ %77, %._crit_edge ], [ 1, %.preheader ], [ %53, %._crit_edge51.loopexit ]
-  %78 = getelementptr inbounds %"struct.std::pair.1533", ptr %5, i64 %.sink
+  %.0.lcssa.sink = phi i64 [ %77, %._crit_edge ], [ 1, %.preheader ], [ %53, %._crit_edge51.loopexit ]
+  %78 = getelementptr inbounds %"struct.std::pair.1533", ptr %5, i64 %.0.lcssa.sink
   %79 = load ptr, ptr %1, align 8
   store ptr %79, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %1, i64 8
@@ -112356,9 +112338,9 @@ _ZN4CGALleERKNS_11Interval_ntILb0EEEd.exit188:    ; preds = %141
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %36, %59, %77, %105, %123, %146, %164
-  %.sink361 = phi ptr [ %33, %18 ], [ %51, %36 ], [ %74, %59 ], [ %92, %77 ], [ %1, %105 ], [ %1, %123 ], [ %1, %146 ], [ %1, %164 ]
-  %.sink = phi i64 [ 32, %18 ], [ 32, %36 ], [ 8, %59 ], [ 8, %77 ], [ 32, %105 ], [ 32, %123 ], [ 8, %146 ], [ 8, %164 ]
-  %.sink359 = phi i64 [ 40, %18 ], [ 16, %36 ], [ 40, %59 ], [ 16, %77 ], [ 40, %105 ], [ 16, %123 ], [ 40, %146 ], [ 16, %164 ]
+  %.sink361 = phi ptr [ %1, %164 ], [ %1, %146 ], [ %1, %123 ], [ %1, %105 ], [ %92, %77 ], [ %74, %59 ], [ %51, %36 ], [ %33, %18 ]
+  %.sink = phi i64 [ 8, %164 ], [ 8, %146 ], [ 32, %123 ], [ 32, %105 ], [ 8, %77 ], [ 8, %59 ], [ 32, %36 ], [ 32, %18 ]
+  %.sink359 = phi i64 [ 16, %164 ], [ 40, %146 ], [ 16, %123 ], [ 40, %105 ], [ 16, %77 ], [ 40, %59 ], [ 16, %36 ], [ 40, %18 ]
   %180 = load double, ptr %.sink361, align 8
   %181 = getelementptr inbounds i8, ptr %1, i64 %.sink
   %182 = load double, ptr %181, align 8

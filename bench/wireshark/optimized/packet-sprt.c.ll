@@ -1516,10 +1516,10 @@ proto_item_set_generated.exit673.i:               ; preds = %514, %511, %508
   br i1 %.not5.i678.i, label %proto_item_set_generated.exit.i104, label %proto_item_set_generated.exit.sink.split.i
 
 proto_item_set_generated.exit.sink.split.i:       ; preds = %528, %522, %505
-  %.sink.i = phi ptr [ %507, %505 ], [ %524, %522 ], [ %530, %528 ]
+  %.sink690.i = phi ptr [ %507, %505 ], [ %524, %522 ], [ %530, %528 ]
   %.2665.ph.i = phi i32 [ %.1664.i, %505 ], [ %128, %522 ], [ %128, %528 ]
   %.4.ph.i = phi i32 [ %.3.i, %505 ], [ %127, %522 ], [ %127, %528 ]
-  %531 = getelementptr inbounds i8, ptr %.sink.i, i64 28
+  %531 = getelementptr inbounds i8, ptr %.sink690.i, i64 28
   %532 = load i32, ptr %531, align 4
   %533 = or i32 %532, 2
   store i32 %533, ptr %531, align 4

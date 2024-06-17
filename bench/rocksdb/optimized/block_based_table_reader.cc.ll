@@ -9180,10 +9180,10 @@ _ZTWN7rocksdb12perf_contextE.exit1087.invoke:     ; preds = %_ZTWN7rocksdb12perf
           to label %invoke.cont699.sink.split unwind label %lpad370.loopexit.split-lp.loopexit.split-lp
 
 invoke.cont699.sink.split:                        ; preds = %_ZTWN7rocksdb12perf_contextE.exit1087.invoke
-  %bloom_filter_full_true_positive694 = getelementptr inbounds i8, ptr %399, i64 16
-  %400 = load i64, ptr %bloom_filter_full_true_positive694, align 8
+  %bloom_filter_full_true_positive = getelementptr inbounds i8, ptr %399, i64 16
+  %400 = load i64, ptr %bloom_filter_full_true_positive, align 8
   %add680 = add i64 %400, 1
-  store i64 %add680, ptr %bloom_filter_full_true_positive694, align 8
+  store i64 %add680, ptr %bloom_filter_full_true_positive, align 8
   br label %invoke.cont699
 
 invoke.cont699:                                   ; preds = %invoke.cont699.sink.split, %do.end, %_ZTWN7rocksdb12perf_contextE.exit, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb12perf_contextE.exit1072.thread
@@ -9881,11 +9881,11 @@ _ZTWN7rocksdb12perf_contextE.exit45:              ; preds = %_ZTWN7rocksdb12perf
   br label %if.end42.sink.split
 
 if.end42.sink.split:                              ; preds = %_ZTWN7rocksdb12perf_contextE.exit41, %_ZTWN7rocksdb12perf_contextE.exit45
-  %call27.sink = phi ptr [ %call27, %_ZTWN7rocksdb12perf_contextE.exit41 ], [ %call37, %_ZTWN7rocksdb12perf_contextE.exit45 ]
-  %bloom_filter_full_positive = getelementptr inbounds i8, ptr %call27.sink, i64 8
-  %50 = load i64, ptr %bloom_filter_full_positive, align 8
+  %call37.sink = phi ptr [ %call37, %_ZTWN7rocksdb12perf_contextE.exit45 ], [ %call27, %_ZTWN7rocksdb12perf_contextE.exit41 ]
+  %bloom_filter_full_positive38 = getelementptr inbounds i8, ptr %call37.sink, i64 8
+  %50 = load i64, ptr %bloom_filter_full_positive38, align 8
   %add39 = add i64 %50, %18
-  store i64 %add39, ptr %bloom_filter_full_positive, align 8
+  store i64 %add39, ptr %bloom_filter_full_positive38, align 8
   br label %if.end42
 
 if.end42:                                         ; preds = %if.end42.sink.split, %_ZTWN7rocksdb12perf_contextE.exit35.thread, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit, %if.then2
@@ -10259,11 +10259,11 @@ _ZTWN7rocksdb12perf_contextE.exit144:             ; preds = %_ZTWN7rocksdb12perf
   br label %if.end150.sink.split
 
 if.end150.sink.split:                             ; preds = %_ZTWN7rocksdb12perf_contextE.exit140, %_ZTWN7rocksdb12perf_contextE.exit144
-  %call131.sink = phi ptr [ %call131, %_ZTWN7rocksdb12perf_contextE.exit140 ], [ %call145, %_ZTWN7rocksdb12perf_contextE.exit144 ]
-  %bloom_filter_full_positive132 = getelementptr inbounds i8, ptr %call131.sink, i64 8
-  %124 = load i64, ptr %bloom_filter_full_positive132, align 8
+  %call145.sink = phi ptr [ %call145, %_ZTWN7rocksdb12perf_contextE.exit144 ], [ %call131, %_ZTWN7rocksdb12perf_contextE.exit140 ]
+  %bloom_filter_full_positive146 = getelementptr inbounds i8, ptr %call145.sink, i64 8
+  %124 = load i64, ptr %bloom_filter_full_positive146, align 8
   %add147 = add i64 %124, %96
-  store i64 %add147, ptr %bloom_filter_full_positive132, align 8
+  store i64 %add147, ptr %bloom_filter_full_positive146, align 8
   br label %if.end150
 
 if.end150:                                        ; preds = %if.end150.sink.split, %_ZTWN7rocksdb12perf_contextE.exit110.thread, %_ZTWN7rocksdb12perf_contextE.exit108.thread, %_ZTWN7rocksdb10perf_levelE.exit106, %_ZTWN7rocksdb12perf_contextE.exit108, %_ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit96
@@ -10777,11 +10777,11 @@ _ZTWN7rocksdb12perf_contextE.exit33:              ; preds = %_ZTWN7rocksdb12perf
   br label %if.end36.sink.split
 
 if.end36.sink.split:                              ; preds = %_ZTWN7rocksdb12perf_contextE.exit33, %_ZTWN7rocksdb12perf_contextE.exit29
-  %call32.sink = phi ptr [ %call32, %_ZTWN7rocksdb12perf_contextE.exit33 ], [ %call20, %_ZTWN7rocksdb12perf_contextE.exit29 ]
-  %block_cache_hit_count33 = getelementptr inbounds i8, ptr %call32.sink, i64 40
-  %35 = load i64, ptr %block_cache_hit_count33, align 8
+  %call20.sink = phi ptr [ %call20, %_ZTWN7rocksdb12perf_contextE.exit29 ], [ %call32, %_ZTWN7rocksdb12perf_contextE.exit33 ]
+  %block_cache_hit_count21 = getelementptr inbounds i8, ptr %call20.sink, i64 40
+  %35 = load i64, ptr %block_cache_hit_count21, align 8
   %add22 = add i64 %35, 1
-  store i64 %add22, ptr %block_cache_hit_count33, align 8
+  store i64 %add22, ptr %block_cache_hit_count21, align 8
   br label %if.end36
 
 if.end36:                                         ; preds = %if.end36.sink.split, %_ZTWN7rocksdb12perf_contextE.exit23.thread, %_ZTWN7rocksdb12perf_contextE.exit21.thread, %_ZTWN7rocksdb12perf_contextE.exit21, %_ZTWN7rocksdb10perf_levelE.exit19
@@ -11126,11 +11126,11 @@ _ZTWN7rocksdb12perf_contextE.exit26:              ; preds = %_ZTWN7rocksdb12perf
   br label %if.end30.sink.split
 
 if.end30.sink.split:                              ; preds = %_ZTWN7rocksdb12perf_contextE.exit26, %_ZTWN7rocksdb12perf_contextE.exit22
-  %call27.sink = phi ptr [ %call27, %_ZTWN7rocksdb12perf_contextE.exit26 ], [ %call17, %_ZTWN7rocksdb12perf_contextE.exit22 ]
-  %block_cache_miss_count28 = getelementptr inbounds i8, ptr %call27.sink, i64 48
-  %30 = load i64, ptr %block_cache_miss_count28, align 8
+  %call17.sink = phi ptr [ %call17, %_ZTWN7rocksdb12perf_contextE.exit22 ], [ %call27, %_ZTWN7rocksdb12perf_contextE.exit26 ]
+  %block_cache_miss_count = getelementptr inbounds i8, ptr %call17.sink, i64 48
+  %30 = load i64, ptr %block_cache_miss_count, align 8
   %add = add i64 %30, 1
-  store i64 %add, ptr %block_cache_miss_count28, align 8
+  store i64 %add, ptr %block_cache_miss_count, align 8
   br label %if.end30
 
 if.end30:                                         ; preds = %if.end30.sink.split, %_ZTWN7rocksdb12perf_contextE.exit16.thread, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb12perf_contextE.exit, %_ZTWN7rocksdb10perf_levelE.exit
@@ -24461,10 +24461,10 @@ _ZTWN7rocksdb12perf_contextE.exit355:             ; preds = %invoke.cont263, %18
   br label %_ZTWN7rocksdb12perf_contextE.exit351.invoke
 
 invoke.cont276.sink.split:                        ; preds = %_ZTWN7rocksdb12perf_contextE.exit351.invoke
-  %bloom_filter_full_true_positive271 = getelementptr inbounds i8, ptr %180, i64 16
-  %188 = load i64, ptr %bloom_filter_full_true_positive271, align 8
+  %bloom_filter_full_true_positive = getelementptr inbounds i8, ptr %180, i64 16
+  %188 = load i64, ptr %bloom_filter_full_true_positive, align 8
   %add257 = add i64 %188, 1
-  store i64 %add257, ptr %bloom_filter_full_true_positive271, align 8
+  store i64 %add257, ptr %bloom_filter_full_true_positive, align 8
   br label %invoke.cont276
 
 invoke.cont276:                                   ; preds = %invoke.cont276.sink.split, %for.end216, %_ZTWN7rocksdb12perf_contextE.exit, %_ZTWN7rocksdb10perf_levelE.exit, %_ZTWN7rocksdb12perf_contextE.exit.thread, %_ZTWN7rocksdb12perf_contextE.exit343.thread

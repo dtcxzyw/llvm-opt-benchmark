@@ -8901,7 +8901,7 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
   store i64 %12, ptr getelementptr inbounds (i8, ptr @PendingCheckpointerStats, i64 48), align 8
   %13 = load i8, ptr @log_checkpoints, align 1
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %15, label %122
+  br i1 %14, label %15, label %75
 
 15:                                               ; preds = %1
   %16 = load i64, ptr @CheckpointStats, align 8
@@ -8925,112 +8925,58 @@ define internal fastcc void @LogCheckpointEnd(i1 noundef zeroext %0) unnamed_add
 30:                                               ; preds = %24, %15
   %.0 = phi i64 [ %29, %24 ], [ 0, %15 ]
   %31 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #26
-  br i1 %0, label %32, label %77
+  br i1 %31, label %.sink.split, label %75
 
-32:                                               ; preds = %30
-  br i1 %31, label %33, label %122
+.sink.split:                                      ; preds = %30
+  %. = select i1 %0, i32 6606, i32 6629
+  %.str.188..str.189 = select i1 %0, ptr @.str.188, ptr @.str.189
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
+  %33 = sitofp i32 %32 to double
+  %34 = fmul double %33, 1.000000e+02
+  %35 = load i32, ptr @NBuffers, align 4
+  %36 = sitofp i32 %35 to double
+  %37 = fdiv double %34, %36
+  %38 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
+  %39 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
+  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
+  %41 = sdiv i64 %5, 1000
+  %42 = srem i64 %5, 1000
+  %43 = trunc nsw i64 %42 to i32
+  %44 = sdiv i64 %8, 1000
+  %45 = srem i64 %8, 1000
+  %46 = trunc nsw i64 %45 to i32
+  %47 = sdiv i64 %18, 1000
+  %48 = srem i64 %18, 1000
+  %49 = trunc nsw i64 %48 to i32
+  %50 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
+  %51 = udiv i64 %20, 1000000
+  %52 = urem i64 %21, 1000
+  %53 = trunc nuw nsw i64 %52 to i32
+  %54 = udiv i64 %.0, 1000
+  %55 = urem i64 %.0, 1000
+  %56 = trunc nuw nsw i64 %55 to i32
+  %57 = load double, ptr @PrevCheckPointDistance, align 8
+  %58 = fmul double %57, 0x3F50000000000000
+  %59 = fptosi double %58 to i32
+  %60 = load double, ptr @CheckPointDistanceEstimate, align 8
+  %61 = fmul double %60, 0x3F50000000000000
+  %62 = fptosi double %61 to i32
+  %63 = load ptr, ptr @ControlFile, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 32
+  %65 = load i64, ptr %64, align 8
+  %66 = lshr i64 %65, 32
+  %67 = trunc nuw i64 %66 to i32
+  %68 = trunc i64 %65 to i32
+  %69 = getelementptr inbounds i8, ptr %63, i64 40
+  %70 = load i64, ptr %69, align 8
+  %71 = lshr i64 %70, 32
+  %72 = trunc nuw i64 %71 to i32
+  %73 = trunc i64 %70 to i32
+  %74 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull %.str.188..str.189, i32 noundef %32, double noundef %37, i32 noundef %38, i32 noundef %39, i32 noundef %40, i64 noundef %41, i32 noundef %43, i64 noundef %44, i32 noundef %46, i64 noundef %47, i32 noundef %49, i32 noundef %50, i64 noundef %51, i32 noundef %53, i64 noundef %54, i32 noundef %56, i32 noundef %59, i32 noundef %62, i32 noundef %67, i32 noundef %68, i32 noundef %72, i32 noundef %73) #26
+  tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef %., ptr noundef nonnull @__func__.LogCheckpointEnd) #26
+  br label %75
 
-33:                                               ; preds = %32
-  %34 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
-  %35 = sitofp i32 %34 to double
-  %36 = fmul double %35, 1.000000e+02
-  %37 = load i32, ptr @NBuffers, align 4
-  %38 = sitofp i32 %37 to double
-  %39 = fdiv double %36, %38
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
-  %41 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
-  %42 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
-  %43 = sdiv i64 %5, 1000
-  %44 = srem i64 %5, 1000
-  %45 = trunc nsw i64 %44 to i32
-  %46 = sdiv i64 %8, 1000
-  %47 = srem i64 %8, 1000
-  %48 = trunc nsw i64 %47 to i32
-  %49 = sdiv i64 %18, 1000
-  %50 = srem i64 %18, 1000
-  %51 = trunc nsw i64 %50 to i32
-  %52 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
-  %53 = udiv i64 %20, 1000000
-  %54 = urem i64 %21, 1000
-  %55 = trunc nuw nsw i64 %54 to i32
-  %56 = udiv i64 %.0, 1000
-  %57 = urem i64 %.0, 1000
-  %58 = trunc nuw nsw i64 %57 to i32
-  %59 = load double, ptr @PrevCheckPointDistance, align 8
-  %60 = fmul double %59, 0x3F50000000000000
-  %61 = fptosi double %60 to i32
-  %62 = load double, ptr @CheckPointDistanceEstimate, align 8
-  %63 = fmul double %62, 0x3F50000000000000
-  %64 = fptosi double %63 to i32
-  %65 = load ptr, ptr @ControlFile, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 32
-  %67 = load i64, ptr %66, align 8
-  %68 = lshr i64 %67, 32
-  %69 = trunc nuw i64 %68 to i32
-  %70 = trunc i64 %67 to i32
-  %71 = getelementptr inbounds i8, ptr %65, i64 40
-  %72 = load i64, ptr %71, align 8
-  %73 = lshr i64 %72, 32
-  %74 = trunc nuw i64 %73 to i32
-  %75 = trunc i64 %72 to i32
-  %76 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.188, i32 noundef %34, double noundef %39, i32 noundef %40, i32 noundef %41, i32 noundef %42, i64 noundef %43, i32 noundef %45, i64 noundef %46, i32 noundef %48, i64 noundef %49, i32 noundef %51, i32 noundef %52, i64 noundef %53, i32 noundef %55, i64 noundef %56, i32 noundef %58, i32 noundef %61, i32 noundef %64, i32 noundef %69, i32 noundef %70, i32 noundef %74, i32 noundef %75) #26
-  br label %.sink.split
-
-77:                                               ; preds = %30
-  br i1 %31, label %78, label %122
-
-78:                                               ; preds = %77
-  %79 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 40), align 8
-  %80 = sitofp i32 %79 to double
-  %81 = fmul double %80, 1.000000e+02
-  %82 = load i32, ptr @NBuffers, align 4
-  %83 = sitofp i32 %82 to double
-  %84 = fdiv double %81, %83
-  %85 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 44), align 4
-  %86 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 48), align 8
-  %87 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 52), align 4
-  %88 = sdiv i64 %5, 1000
-  %89 = srem i64 %5, 1000
-  %90 = trunc nsw i64 %89 to i32
-  %91 = sdiv i64 %8, 1000
-  %92 = srem i64 %8, 1000
-  %93 = trunc nsw i64 %92 to i32
-  %94 = sdiv i64 %18, 1000
-  %95 = srem i64 %18, 1000
-  %96 = trunc nsw i64 %95 to i32
-  %97 = load i32, ptr getelementptr inbounds (i8, ptr @CheckpointStats, i64 56), align 8
-  %98 = udiv i64 %20, 1000000
-  %99 = urem i64 %21, 1000
-  %100 = trunc nuw nsw i64 %99 to i32
-  %101 = udiv i64 %.0, 1000
-  %102 = urem i64 %.0, 1000
-  %103 = trunc nuw nsw i64 %102 to i32
-  %104 = load double, ptr @PrevCheckPointDistance, align 8
-  %105 = fmul double %104, 0x3F50000000000000
-  %106 = fptosi double %105 to i32
-  %107 = load double, ptr @CheckPointDistanceEstimate, align 8
-  %108 = fmul double %107, 0x3F50000000000000
-  %109 = fptosi double %108 to i32
-  %110 = load ptr, ptr @ControlFile, align 8
-  %111 = getelementptr inbounds i8, ptr %110, i64 32
-  %112 = load i64, ptr %111, align 8
-  %113 = lshr i64 %112, 32
-  %114 = trunc nuw i64 %113 to i32
-  %115 = trunc i64 %112 to i32
-  %116 = getelementptr inbounds i8, ptr %110, i64 40
-  %117 = load i64, ptr %116, align 8
-  %118 = lshr i64 %117, 32
-  %119 = trunc nuw i64 %118 to i32
-  %120 = trunc i64 %117 to i32
-  %121 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.189, i32 noundef %79, double noundef %84, i32 noundef %85, i32 noundef %86, i32 noundef %87, i64 noundef %88, i32 noundef %90, i64 noundef %91, i32 noundef %93, i64 noundef %94, i32 noundef %96, i32 noundef %97, i64 noundef %98, i32 noundef %100, i64 noundef %101, i32 noundef %103, i32 noundef %106, i32 noundef %109, i32 noundef %114, i32 noundef %115, i32 noundef %119, i32 noundef %120) #26
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %33, %78
-  %.sink = phi i32 [ 6629, %78 ], [ 6606, %33 ]
-  tail call void @errfinish(ptr noundef nonnull @.str.14, i32 noundef %.sink, ptr noundef nonnull @__func__.LogCheckpointEnd) #26
-  br label %122
-
-122:                                              ; preds = %.sink.split, %77, %32, %1
+75:                                               ; preds = %30, %.sink.split, %1
   ret void
 }
 

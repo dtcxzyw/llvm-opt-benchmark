@@ -11462,19 +11462,7 @@ if.end:                                           ; preds = %entry
 if.then6:                                         ; preds = %if.end
   %call7 = call i32 @X509_VERIFY_PARAM_clear_flags(ptr noundef %call1, i64 noundef %and) #11
   %tobool8.not = icmp eq i32 %call7, 0
-  br i1 %tobool8.not, label %if.then9, label %if.end12
-
-if.then9:                                         ; preds = %if.then6
-  %state = getelementptr inbounds i8, ptr %self, i64 88
-  %2 = load ptr, ptr %state, align 8
-  %call.i = call i64 @ERR_peek_last_error() #11
-  %conv.i = trunc i64 %call.i to i32
-  %PySSLErrorObject4.i = getelementptr inbounds i8, ptr %2, i64 40
-  %3 = load ptr, ptr %PySSLErrorObject4.i, align 8
-  %sext.i = shl i64 %call.i, 32
-  %conv15.i = ashr exact i64 %sext.i, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i, ptr noundef null, i32 noundef 3465, i64 noundef %conv15.i)
-  br label %return.sink.split
+  br i1 %tobool8.not, label %return.sink.split, label %if.end12
 
 if.end12:                                         ; preds = %if.then6, %if.end
   %tobool13.not = icmp eq i64 %and4, 0
@@ -11483,21 +11471,19 @@ if.end12:                                         ; preds = %if.then6, %if.end
 if.then14:                                        ; preds = %if.end12
   %call15 = call i32 @X509_VERIFY_PARAM_set_flags(ptr noundef %call1, i64 noundef %and4) #11
   %tobool16.not = icmp eq i32 %call15, 0
-  br i1 %tobool16.not, label %if.then17, label %return
+  br i1 %tobool16.not, label %return.sink.split, label %return
 
-if.then17:                                        ; preds = %if.then14
+return.sink.split:                                ; preds = %if.then14, %if.then6
+  %.sink14 = phi i32 [ 3465, %if.then6 ], [ 3471, %if.then14 ]
   %state18 = getelementptr inbounds i8, ptr %self, i64 88
-  %4 = load ptr, ptr %state18, align 8
+  %2 = load ptr, ptr %state18, align 8
   %call.i8 = call i64 @ERR_peek_last_error() #11
   %conv.i9 = trunc i64 %call.i8 to i32
-  %PySSLErrorObject4.i10 = getelementptr inbounds i8, ptr %4, i64 40
-  %5 = load ptr, ptr %PySSLErrorObject4.i10, align 8
+  %PySSLErrorObject4.i10 = getelementptr inbounds i8, ptr %2, i64 40
+  %3 = load ptr, ptr %PySSLErrorObject4.i10, align 8
   %sext.i11 = shl i64 %call.i8, 32
   %conv15.i12 = ashr exact i64 %sext.i11, 32
-  call fastcc void @fill_and_set_sslerror(ptr noundef %4, ptr noundef null, ptr noundef %5, i32 noundef %conv.i9, ptr noundef null, i32 noundef 3471, i64 noundef %conv15.i12)
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then9, %if.then17
+  call fastcc void @fill_and_set_sslerror(ptr noundef %2, ptr noundef null, ptr noundef %3, i32 noundef %conv.i9, ptr noundef null, i32 noundef %.sink14, i64 noundef %conv15.i12)
   call void @ERR_clear_error() #11
   br label %return
 

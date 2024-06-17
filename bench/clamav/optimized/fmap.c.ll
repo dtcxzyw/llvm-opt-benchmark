@@ -1718,10 +1718,10 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
   br label %63
 
 63:                                               ; preds = %.preheader, %83
-  %64 = phi i64 [ %.pre, %.preheader ], [ %.sink, %83 ]
-  %.192 = phi i64 [ 0, %.preheader ], [ %85, %83 ]
+  %64 = phi i64 [ %.pre, %.preheader ], [ %84, %83 ]
+  %.192 = phi i64 [ 0, %.preheader ], [ %86, %83 ]
   %.07091 = phi ptr [ null, %.preheader ], [ %.171, %83 ]
-  %.07290 = phi ptr [ null, %.preheader ], [ %84, %83 ]
+  %.07290 = phi ptr [ null, %.preheader ], [ %85, %83 ]
   %65 = load ptr, ptr %61, align 8
   %66 = getelementptr inbounds [2048 x i64], ptr %2, i64 0, i64 %.192
   %67 = load i64, ptr %66, align 8
@@ -1757,40 +1757,40 @@ define internal fastcc void @fmap_aging(ptr nocapture noundef %0) unnamed_addr #
 
 83:                                               ; preds = %63, %81
   %.171 = phi ptr [ %69, %81 ], [ %.07091.mux, %63 ]
-  %.sink = load i64, ptr %9, align 8
-  %84 = getelementptr inbounds i8, ptr %69, i64 %.sink
-  %85 = add nuw i64 %.192, 1
-  %exitcond.not = icmp eq i64 %85, %.175
-  br i1 %exitcond.not, label %86, label %63
+  %84 = load i64, ptr %9, align 8
+  %85 = getelementptr inbounds i8, ptr %69, i64 %84
+  %86 = add nuw i64 %.192, 1
+  %exitcond.not = icmp eq i64 %86, %.175
+  br i1 %exitcond.not, label %87, label %63
 
-86:                                               ; preds = %83
+87:                                               ; preds = %83
   %.not81 = icmp eq ptr %65, null
-  br i1 %.not81, label %97, label %87
+  br i1 %.not81, label %98, label %88
 
-87:                                               ; preds = %86
-  %88 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
-  %89 = ptrtoint ptr %84 to i64
-  %90 = ptrtoint ptr %.171 to i64
-  %91 = sub i64 %89, %90
-  %92 = tail call ptr @mmap(ptr noundef %.171, i64 noundef %91, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
-  %93 = icmp eq ptr %92, inttoptr (i64 -1 to ptr)
-  br i1 %93, label %94, label %95
+88:                                               ; preds = %87
+  %89 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @fmap_mutex) #18
+  %90 = ptrtoint ptr %85 to i64
+  %91 = ptrtoint ptr %.171 to i64
+  %92 = sub i64 %90, %91
+  %93 = tail call ptr @mmap(ptr noundef %.171, i64 noundef %92, i32 noundef 3, i32 noundef 50, i32 noundef -1, i64 noundef 0) #18
+  %94 = icmp eq ptr %93, inttoptr (i64 -1 to ptr)
+  br i1 %94, label %95, label %96
 
-94:                                               ; preds = %87
+95:                                               ; preds = %88
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31) #18
-  br label %95
+  br label %96
 
-95:                                               ; preds = %94, %87
-  %96 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
-  br label %97
+96:                                               ; preds = %95, %88
+  %97 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @fmap_mutex) #18
+  br label %98
 
-97:                                               ; preds = %95, %86
-  %98 = load i64, ptr %7, align 8
-  %99 = sub i64 %98, %.175
-  store i64 %99, ptr %7, align 8
+98:                                               ; preds = %96, %87
+  %99 = load i64, ptr %7, align 8
+  %100 = sub i64 %99, %.175
+  store i64 %100, ptr %7, align 8
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %13, %._crit_edge, %97, %1, %6
+._crit_edge.thread:                               ; preds = %13, %._crit_edge, %98, %1, %6
   ret void
 }
 

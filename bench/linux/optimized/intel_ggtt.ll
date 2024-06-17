@@ -2073,93 +2073,83 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr nocapture nou
   %41 = getelementptr inbounds i8, ptr %38, i64 24
   %42 = load i32, ptr %41, align 8, !noalias !59
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.thread, label %.sink.split
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds i8, ptr %38, i64 8
-  %46 = load i32, ptr %45, align 8, !noalias !59
-  %47 = add i32 %46, %42
-  br label %.outer
+.thread:                                          ; preds = %62, %74, %77, %.loopexit18, %40
+  %44 = phi ptr [ %30, %40 ], [ %30, %.loopexit18 ], [ %58, %77 ], [ %58, %74 ], [ %58, %62 ]
+  %45 = icmp ult ptr %44, %35
+  br i1 %45, label %46, label %.loopexit
 
-.outer:                                           ; preds = %80, %44
-  %.ph = phi i32 [ %83, %80 ], [ %47, %44 ]
-  %.ph24 = phi i32 [ %82, %80 ], [ %46, %44 ]
-  %.ph26 = phi ptr [ %74, %80 ], [ %38, %44 ]
-  %.ph27 = phi ptr [ %57, %80 ], [ %30, %44 ]
-  %.ph25.in = getelementptr inbounds i8, ptr %.ph26, i64 16
-  %.ph25 = load i64, ptr %.ph25.in, align 8, !noalias !39
-  br label %52
+46:                                               ; preds = %.thread
+  %47 = getelementptr inbounds i8, ptr %0, i64 472
+  br label %81
 
-.thread:                                          ; preds = %61, %73, %76, %.loopexit18, %40
-  %48 = phi ptr [ %30, %40 ], [ %30, %.loopexit18 ], [ %57, %76 ], [ %57, %73 ], [ %57, %61 ]
-  %49 = icmp ult ptr %48, %35
-  br i1 %49, label %50, label %.loopexit
+.sink.split:                                      ; preds = %40, %77
+  %.sink = phi ptr [ %75, %77 ], [ %38, %40 ]
+  %.sink28 = phi i32 [ %79, %77 ], [ %42, %40 ]
+  %.ph27 = phi ptr [ %58, %77 ], [ %30, %40 ]
+  %48 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %49 = load i32, ptr %48, align 8, !noalias !39
+  %50 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %51 = load i64, ptr %50, align 8, !noalias !39
+  %52 = add i32 %49, %.sink28
+  br label %53
 
-50:                                               ; preds = %.thread
-  %51 = getelementptr inbounds i8, ptr %0, i64 472
-  br label %84
+53:                                               ; preds = %.sink.split, %53
+  %54 = phi i32 [ %60, %53 ], [ %49, %.sink.split ]
+  %55 = phi ptr [ %58, %53 ], [ %.ph27, %.sink.split ]
+  %56 = zext i32 %54 to i64
+  %57 = add i64 %51, %56
+  %58 = getelementptr i8, ptr %55, i64 8
+  %59 = or i64 %57, %7
+  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %59, ptr elementtype(i64) %55) #10, !srcloc !51
+  %60 = add i32 %54, 4096
+  %61 = icmp ult i32 %60, %52
+  br i1 %61, label %53, label %62, !llvm.loop !62
 
-52:                                               ; preds = %.outer, %52
-  %53 = phi i32 [ %59, %52 ], [ %.ph24, %.outer ]
-  %54 = phi ptr [ %57, %52 ], [ %.ph27, %.outer ]
-  %55 = zext i32 %53 to i64
-  %56 = add i64 %.ph25, %55
-  %57 = getelementptr i8, ptr %54, i64 8
-  %58 = or i64 %56, %7
-  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %58, ptr elementtype(i64) %54) #10, !srcloc !51
-  %59 = add i32 %53, 4096
-  %60 = icmp ult i32 %59, %.ph
-  br i1 %60, label %52, label %61, !llvm.loop !62
+62:                                               ; preds = %53
+  %63 = load i64, ptr %.sink, align 8
+  %64 = and i64 %63, 2
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %66, label %.thread
 
-61:                                               ; preds = %52
-  %62 = load i64, ptr %.ph26, align 8
-  %63 = and i64 %62, 2
-  %64 = icmp eq i64 %63, 0
-  br i1 %64, label %65, label %.thread
+66:                                               ; preds = %62
+  %67 = getelementptr i8, ptr %.sink, i64 32
+  %68 = load i64, ptr %67, align 8
+  %69 = and i64 %68, 1
+  %70 = icmp eq i64 %69, 0
+  br i1 %70, label %74, label %71, !prof !18
 
-65:                                               ; preds = %61
-  %66 = getelementptr i8, ptr %.ph26, i64 32
-  %67 = load i64, ptr %66, align 8
-  %68 = and i64 %67, 1
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %73, label %70, !prof !18
+71:                                               ; preds = %66
+  %72 = and i64 %68, -4
+  %73 = inttoptr i64 %72 to ptr
+  br label %74
 
-70:                                               ; preds = %65
-  %71 = and i64 %67, -4
-  %72 = inttoptr i64 %71 to ptr
-  br label %73
+74:                                               ; preds = %71, %66
+  %75 = phi ptr [ %73, %71 ], [ %67, %66 ]
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %.thread, label %77
 
-73:                                               ; preds = %70, %65
-  %74 = phi ptr [ %72, %70 ], [ %66, %65 ]
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %.thread, label %76
+77:                                               ; preds = %74
+  %78 = getelementptr inbounds i8, ptr %75, i64 24
+  %79 = load i32, ptr %78, align 8, !noalias !63
+  %80 = icmp eq i32 %79, 0
+  br i1 %80, label %.thread, label %.sink.split, !llvm.loop !62
 
-76:                                               ; preds = %73
-  %77 = getelementptr inbounds i8, ptr %74, i64 24
-  %78 = load i32, ptr %77, align 8, !noalias !63
-  %79 = icmp eq i32 %78, 0
-  br i1 %79, label %.thread, label %80
+81:                                               ; preds = %81, %46
+  %82 = phi ptr [ %44, %46 ], [ %83, %81 ]
+  %83 = getelementptr i8, ptr %82, i64 8
+  %84 = load ptr, ptr %47, align 8
+  %85 = getelementptr inbounds i8, ptr %84, i64 1032
+  %86 = load i64, ptr %85, align 8
+  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %86, ptr elementtype(i64) %82) #10, !srcloc !51
+  %87 = icmp ult ptr %83, %35
+  br i1 %87, label %81, label %.loopexit, !llvm.loop !66
 
-80:                                               ; preds = %76
-  %81 = getelementptr inbounds i8, ptr %74, i64 8
-  %82 = load i32, ptr %81, align 8, !noalias !63
-  %83 = add i32 %82, %78
-  br label %.outer, !llvm.loop !62
-
-84:                                               ; preds = %84, %50
-  %85 = phi ptr [ %48, %50 ], [ %86, %84 ]
-  %86 = getelementptr i8, ptr %85, i64 8
-  %87 = load ptr, ptr %51, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 1032
-  %89 = load i64, ptr %88, align 8
-  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %89, ptr elementtype(i64) %85) #10, !srcloc !51
-  %90 = icmp ult ptr %86, %35
-  br i1 %90, label %84, label %.loopexit, !llvm.loop !66
-
-.loopexit:                                        ; preds = %84, %.thread
-  %91 = getelementptr inbounds i8, ptr %0, i64 792
-  %92 = load ptr, ptr %91, align 8
-  tail call void %92(ptr noundef %0) #10
+.loopexit:                                        ; preds = %81, %.thread
+  %88 = getelementptr inbounds i8, ptr %0, i64 792
+  %89 = load ptr, ptr %88, align 8
+  tail call void %89(ptr noundef %0) #10
   ret void
 }
 

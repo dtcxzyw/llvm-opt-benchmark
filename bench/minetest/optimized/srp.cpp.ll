@@ -467,43 +467,35 @@ if.end83:                                         ; preds = %if.end56
 if.end.i206:                                      ; preds = %if.end83
   %call.i10.i = call ptr @__gmpz_export(ptr noundef nonnull %call1.i, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %S)
   %cond.i.i = icmp eq i32 %alg, 0
-  br i1 %cond.i.i, label %sw.bb.i.i, label %if.end.i206.split
-
-if.end.i206.split:                                ; preds = %if.end.i206
-  %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %12(ptr noundef nonnull %call1.i)
-  %M1 = getelementptr inbounds i8, ptr %call13, i64 36
-  %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
-  br label %if.end105
+  br i1 %cond.i.i, label %sw.bb.i.i, label %if.end105
 
 sw.bb.i.i:                                        ; preds = %if.end.i206
   %call.i11.i = call ptr @SHA256(ptr noundef nonnull %call1.i, i64 noundef %conv.i, ptr noundef nonnull %session_key)
-  %13 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %13(ptr noundef nonnull %call1.i)
-  %M3 = getelementptr inbounds i8, ptr %call13, i64 36
-  %call1114 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef 0, ptr noundef nonnull %call12, ptr noundef nonnull %M3, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
   br label %if.end105
 
-if.end105:                                        ; preds = %if.end.i206.split, %sw.bb.i.i
-  %14 = phi ptr [ %M1, %if.end.i206.split ], [ %M3, %sw.bb.i.i ]
-  %phi.call = phi i32 [ %call1112, %if.end.i206.split ], [ %call1114, %sw.bb.i.i ]
-  %tobool112.not = icmp eq i32 %phi.call, 0
+if.end105:                                        ; preds = %if.end.i206, %sw.bb.i.i
+  %alg.sink = phi i32 [ 0, %sw.bb.i.i ], [ %alg, %if.end.i206 ]
+  %12 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %12(ptr noundef nonnull %call1.i)
+  %M1 = getelementptr inbounds i8, ptr %call13, i64 36
+  %call1112 = call fastcc noundef i32 @_ZL11calculate_M17SRP_HashAlgorithmP10NGConstantPhPKcPKhmPK12__mpz_structS9_S6_(i32 noundef %alg.sink, ptr noundef nonnull %call12, ptr noundef nonnull %M1, ptr noundef %username, ptr noundef %bytes_s, i64 noundef %len_s, ptr noundef nonnull %A, ptr noundef nonnull %B, ptr noundef nonnull %session_key), !range !12
+  %tobool112.not = icmp eq i32 %call1112, 0
   br i1 %tobool112.not, label %ver_cleanup_and_exit, label %if.end114
 
 if.end114:                                        ; preds = %if.end105
   %H_AMK = getelementptr inbounds i8, ptr %call13, i64 68
-  %call121 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %14, ptr noundef nonnull %session_key), !range !12
+  %call121 = call fastcc noundef i32 @_ZL15calculate_H_AMK17SRP_HashAlgorithmPhPK12__mpz_structPKhS5_(i32 noundef %alg, ptr noundef nonnull %H_AMK, ptr noundef nonnull %A, ptr noundef nonnull %M1, ptr noundef nonnull %session_key), !range !12
   %tobool122.not = icmp eq i32 %call121, 0
   br i1 %tobool122.not, label %ver_cleanup_and_exit, label %if.end124
 
 if.end124:                                        ; preds = %if.end114
   %call.i = call i64 @__gmpz_sizeinbase(ptr noundef nonnull %B, i32 noundef 2) #18
   %add.i208 = shl i64 %call.i, 29
-  %15 = add i64 %add.i208, 3758096384
-  %conv127 = ashr i64 %15, 32
+  %13 = add i64 %add.i208, 3758096384
+  %conv127 = ashr i64 %13, 32
   store i64 %conv127, ptr %len_B, align 8, !tbaa !10
-  %16 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
-  %call128 = call noundef ptr %16(i64 noundef %conv127)
+  %14 = load ptr, ptr @srp_alloc, align 8, !tbaa !4
+  %call128 = call noundef ptr %14(i64 noundef %conv127)
   store ptr %call128, ptr %bytes_B, align 8, !tbaa !4
   %tobool129.not = icmp eq ptr %call128, null
   br i1 %tobool129.not, label %if.then130, label %if.end131
@@ -514,14 +506,14 @@ if.then130:                                       ; preds = %if.end124
 
 if.end131:                                        ; preds = %if.end124
   %call.i210 = call ptr @__gmpz_export(ptr noundef nonnull %call128, ptr noundef null, i32 noundef 1, i64 noundef 1, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %B)
-  %17 = load ptr, ptr %bytes_B, align 8, !tbaa !4
+  %15 = load ptr, ptr %bytes_B, align 8, !tbaa !4
   %bytes_B133 = getelementptr inbounds i8, ptr %call13, i64 24
-  store ptr %17, ptr %bytes_B133, align 8, !tbaa !22
+  store ptr %15, ptr %bytes_B133, align 8, !tbaa !22
   br label %cleanup_and_exit
 
 if.else134:                                       ; preds = %if.end26
-  %18 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %18(ptr noundef nonnull %call13)
+  %16 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  call void %16(ptr noundef nonnull %call13)
   br label %cleanup_and_exit
 
 cleanup_and_exit:                                 ; preds = %ver_cleanup_and_exit, %if.else134, %if.end131, %if.then25, %if.then18, %if.end, %entry
@@ -549,11 +541,11 @@ cleanup_and_exit:                                 ; preds = %ver_cleanup_and_exi
   ret ptr %ver.0
 
 ver_cleanup_and_exit:                             ; preds = %if.then130, %if.end114, %if.end105, %if.end83, %if.end56, %if.end46, %if.end.i.i200, %if.then.i
+  %17 = load ptr, ptr @srp_free, align 8, !tbaa !4
+  %18 = load ptr, ptr %username21, align 8, !tbaa !16
+  call void %17(ptr noundef %18)
   %19 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  %20 = load ptr, ptr %username21, align 8, !tbaa !16
-  call void %19(ptr noundef %20)
-  %21 = load ptr, ptr @srp_free, align 8, !tbaa !4
-  call void %21(ptr noundef nonnull %call13)
+  call void %19(ptr noundef nonnull %call13)
   br label %cleanup_and_exit
 }
 

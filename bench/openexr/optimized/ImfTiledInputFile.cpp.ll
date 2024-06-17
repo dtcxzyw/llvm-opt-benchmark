@@ -3626,8 +3626,8 @@ if.then23.i.i.us.us:                              ; preds = %if.then21.i.i.us.us
   br label %if.end35.sink.split.i.i.us.us
 
 if.end35.sink.split.i.i.us.us:                    ; preds = %if.then23.i.i.us.us, %call28.i.noexc.i.us.us
-  %is.sink.i.i.us.us = phi ptr [ %is.i.i.us.us, %if.then23.i.i.us.us ], [ %is25.i.i.us.us, %call28.i.noexc.i.us.us ]
-  %35 = load ptr, ptr %is.sink.i.i.us.us, align 8
+  %is25.sink.i.i.us.us = phi ptr [ %is.i.i.us.us, %if.then23.i.i.us.us ], [ %is25.i.i.us.us, %call28.i.noexc.i.us.us ]
+  %35 = load ptr, ptr %is25.sink.i.i.us.us, align 8
   %vtable32.i.i.us.us = load ptr, ptr %35, align 8
   %vfn33.i.i.us.us = getelementptr inbounds i8, ptr %vtable32.i.i.us.us, i64 48
   %36 = load ptr, ptr %vfn33.i.i.us.us, align 8

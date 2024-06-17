@@ -1175,7 +1175,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %_M_index.i.i.i.i16 = getelementptr inbounds i8, ptr %__begin1.sroa.0.0207, i64 48
   %7 = load i8, ptr %_M_index.i.i.i.i16, align 8
   switch i8 %7, label %sw.default.i.i.i26 [
-    i8 -1, label %if.then.i.i23
+    i8 -1, label %if.then.i.i23.invoke
     i8 0, label %if.then13
     i8 1, label %if.then13
     i8 2, label %if.then13
@@ -1184,16 +1184,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
     i8 5, label %if.then13
   ]
 
-if.then.i.i23:                                    ; preds = %for.body
-  %exception.i.i.i24 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  br label %if.then.i.i23.invoke
-
-if.then.i.i23.invoke:                             ; preds = %if.then.i.i105, %if.then.i.i23
-  %exception.i.i.i106.sink283 = phi ptr [ %exception.i.i.i106, %if.then.i.i105 ], [ %exception.i.i.i24, %if.then.i.i23 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i106.sink283, align 8
-  %_M_reason.i.i.i.i107 = getelementptr inbounds i8, ptr %exception.i.i.i106.sink283, i64 8
+if.then.i.i23.invoke:                             ; preds = %for.body, %invoke.cont41
+  %exception.i.i.i106 = tail call ptr @__cxa_allocate_exception(i64 16) #17
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt18bad_variant_access, i64 16), ptr %exception.i.i.i106, align 8
+  %_M_reason.i.i.i.i107 = getelementptr inbounds i8, ptr %exception.i.i.i106, i64 8
   store ptr @.str.12, ptr %_M_reason.i.i.i.i107, align 8
-  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i106.sink283, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
+  invoke void @__cxa_throw(ptr nonnull %exception.i.i.i106, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #18
           to label %if.then.i.i23.cont unwind label %lpad2.loopexit.split-lp
 
 if.then.i.i23.cont:                               ; preds = %if.then.i.i23.invoke
@@ -1344,7 +1340,7 @@ invoke.cont41:                                    ; preds = %invoke.cont20
   %_M_index.i.i.i.i98 = getelementptr inbounds i8, ptr %21, i64 112
   %22 = load i8, ptr %_M_index.i.i.i.i98, align 8
   switch i8 %22, label %sw.default.i.i.i108 [
-    i8 -1, label %if.then.i.i105
+    i8 -1, label %if.then.i.i23.invoke
     i8 0, label %if.then49
     i8 1, label %if.then49
     i8 2, label %if.then49
@@ -1352,10 +1348,6 @@ invoke.cont41:                                    ; preds = %invoke.cont20
     i8 4, label %if.end55
     i8 5, label %if.then49
   ]
-
-if.then.i.i105:                                   ; preds = %invoke.cont41
-  %exception.i.i.i106 = tail call ptr @__cxa_allocate_exception(i64 16) #17
-  br label %if.then.i.i23.invoke
 
 sw.default.i.i.i108:                              ; preds = %invoke.cont41
   unreachable

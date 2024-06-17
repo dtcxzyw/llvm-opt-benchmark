@@ -1273,66 +1273,48 @@ define internal range(i64 0, 21) i64 @strscan_bol_p(i64 noundef %0) #0 {
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = load i64, ptr %3, align 8
   %5 = icmp eq i64 %4, 4
-  br i1 %5, label %6, label %8
+  br i1 %5, label %6, label %RSTRING_PTR.exit12
 
 6:                                                ; preds = %1
   %7 = load i64, ptr @rb_eArgError, align 8
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %7, ptr noundef nonnull @.str.63) #9
   unreachable
 
-8:                                                ; preds = %1
-  %9 = inttoptr i64 %4 to ptr
-  %10 = load i64, ptr %9, align 8, !noalias !9
-  %11 = and i64 %10, 8192
-  %.not.i.i = icmp eq i64 %11, 0
-  %12 = getelementptr inbounds i8, ptr %9, i64 24
-  br i1 %.not.i.i, label %RSTRING_PTR.exit.thread, label %16
+RSTRING_PTR.exit12:                               ; preds = %1
+  %8 = inttoptr i64 %4 to ptr
+  %9 = load i64, ptr %8, align 8, !noalias !9
+  %10 = and i64 %9, 8192
+  %.not.i.i = icmp eq i64 %10, 0
+  %11 = getelementptr inbounds i8, ptr %8, i64 24
+  %12 = getelementptr inbounds i8, ptr %2, i64 24
+  %13 = load i64, ptr %12, align 8
+  %14 = getelementptr inbounds i8, ptr %8, i64 16
+  %15 = load i64, ptr %14, align 8
+  %16 = icmp sgt i64 %13, %15
+  br i1 %16, label %26, label %17
 
-RSTRING_PTR.exit.thread:                          ; preds = %8
-  %13 = getelementptr inbounds i8, ptr %2, i64 24
-  %14 = load i64, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %12, i64 %14
-  br label %RSTRING_PTR.exit12
+17:                                               ; preds = %RSTRING_PTR.exit12
+  %18 = icmp eq i64 %13, 0
+  br i1 %18, label %26, label %19
 
-16:                                               ; preds = %8
-  %.sroa.2.0.copyload.i = load ptr, ptr %12, align 8
-  %17 = getelementptr inbounds i8, ptr %2, i64 24
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %.sroa.2.0.copyload.i, i64 %18
-  br label %RSTRING_PTR.exit12
+19:                                               ; preds = %17
+  br i1 %.not.i.i, label %RSTRING_PTR.exit16, label %20
 
-RSTRING_PTR.exit12:                               ; preds = %RSTRING_PTR.exit.thread, %16
-  %20 = phi ptr [ %19, %16 ], [ %15, %RSTRING_PTR.exit.thread ]
-  %21 = phi i64 [ %18, %16 ], [ %14, %RSTRING_PTR.exit.thread ]
-  %.sroa.2.0.i11 = phi ptr [ %.sroa.2.0.copyload.i, %16 ], [ %12, %RSTRING_PTR.exit.thread ]
-  %22 = getelementptr inbounds i8, ptr %9, i64 16
-  %23 = load i64, ptr %22, align 8
-  %24 = getelementptr inbounds i8, ptr %.sroa.2.0.i11, i64 %23
-  %25 = icmp ugt ptr %20, %24
-  br i1 %25, label %35, label %26
-
-26:                                               ; preds = %RSTRING_PTR.exit12
-  %27 = icmp eq i64 %21, 0
-  br i1 %27, label %35, label %28
-
-28:                                               ; preds = %26
-  br i1 %.not.i.i, label %RSTRING_PTR.exit16, label %29
-
-29:                                               ; preds = %28
-  %.sroa.2.0.copyload.i14 = load ptr, ptr %12, align 8
+20:                                               ; preds = %19
+  %.sroa.2.0.copyload.i14 = load ptr, ptr %11, align 8
   br label %RSTRING_PTR.exit16
 
-RSTRING_PTR.exit16:                               ; preds = %28, %29
-  %.sroa.2.0.i15 = phi ptr [ %.sroa.2.0.copyload.i14, %29 ], [ %12, %28 ]
-  %30 = getelementptr inbounds i8, ptr %.sroa.2.0.i15, i64 %21
-  %31 = getelementptr inbounds i8, ptr %30, i64 -1
-  %32 = load i8, ptr %31, align 1
-  %33 = icmp eq i8 %32, 10
-  %34 = select i1 %33, i64 20, i64 0
-  br label %35
+RSTRING_PTR.exit16:                               ; preds = %19, %20
+  %.sroa.2.0.i15 = phi ptr [ %.sroa.2.0.copyload.i14, %20 ], [ %11, %19 ]
+  %21 = getelementptr inbounds i8, ptr %.sroa.2.0.i15, i64 %13
+  %22 = getelementptr inbounds i8, ptr %21, i64 -1
+  %23 = load i8, ptr %22, align 1
+  %24 = icmp eq i8 %23, 10
+  %25 = select i1 %24, i64 20, i64 0
+  br label %26
 
-35:                                               ; preds = %26, %RSTRING_PTR.exit12, %RSTRING_PTR.exit16
-  %.0 = phi i64 [ %34, %RSTRING_PTR.exit16 ], [ 4, %RSTRING_PTR.exit12 ], [ 20, %26 ]
+26:                                               ; preds = %17, %RSTRING_PTR.exit12, %RSTRING_PTR.exit16
+  %.0 = phi i64 [ %25, %RSTRING_PTR.exit16 ], [ 4, %RSTRING_PTR.exit12 ], [ 20, %17 ]
   ret i64 %.0
 }
 

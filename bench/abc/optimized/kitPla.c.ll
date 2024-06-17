@@ -646,7 +646,7 @@ select.unfold.i:                                  ; preds = %11, %4
   %indvars.iv.i = phi i64 [ %8, %4 ], [ %12, %11 ]
   %9 = trunc nuw i64 %indvars.iv.i to i32
   %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %11, label %Kit_TruthIsConst0.exit
+  br i1 %10, label %11, label %Kit_PlaComplement.exit.sink.split
 
 11:                                               ; preds = %select.unfold.i
   %12 = add nsw i64 %indvars.iv.i, -1
@@ -655,167 +655,163 @@ select.unfold.i:                                  ; preds = %11, %4
   %.not.i = icmp eq i32 %14, 0
   br i1 %.not.i, label %select.unfold.i, label %select.unfold.i19, !llvm.loop !14
 
-Kit_TruthIsConst0.exit:                           ; preds = %select.unfold.i
-  %15 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef 4) #12
-  store i32 667680, ptr %15, align 1
-  br label %Kit_PlaComplement.exit
+select.unfold.i19:                                ; preds = %11, %17
+  %indvars.iv.i20 = phi i64 [ %18, %17 ], [ %8, %11 ]
+  %15 = trunc nuw i64 %indvars.iv.i20 to i32
+  %16 = icmp sgt i32 %15, 0
+  br i1 %16, label %17, label %Kit_PlaComplement.exit.sink.split
 
-select.unfold.i19:                                ; preds = %11, %18
-  %indvars.iv.i20 = phi i64 [ %19, %18 ], [ %8, %11 ]
-  %16 = trunc nuw i64 %indvars.iv.i20 to i32
-  %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %18, label %Kit_TruthIsConst1.exit
+17:                                               ; preds = %select.unfold.i19
+  %18 = add nsw i64 %indvars.iv.i20, -1
+  %19 = getelementptr inbounds i32, ptr %1, i64 %18
+  %20 = load i32, ptr %19, align 4
+  %.not.i22 = icmp eq i32 %20, -1
+  br i1 %.not.i22, label %select.unfold.i19, label %21, !llvm.loop !15
 
-18:                                               ; preds = %select.unfold.i19
-  %19 = add nsw i64 %indvars.iv.i20, -1
-  %20 = getelementptr inbounds i32, ptr %1, i64 %19
-  %21 = load i32, ptr %20, align 4
-  %.not.i22 = icmp eq i32 %21, -1
-  br i1 %.not.i22, label %select.unfold.i19, label %23, !llvm.loop !15
+21:                                               ; preds = %17
+  %22 = tail call i32 @Kit_TruthIsop(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef 0) #12
+  %23 = getelementptr i8, ptr %3, i64 4
+  %.val.i = load i32, ptr %23, align 4
+  %24 = icmp eq i32 %.val.i, 0
+  br i1 %24, label %Kit_PlaCreateFromIsop.exit, label %25
 
-Kit_TruthIsConst1.exit:                           ; preds = %select.unfold.i19
-  %22 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef 4) #12
-  store i32 667936, ptr %22, align 1
-  br label %Kit_PlaComplement.exit
+25:                                               ; preds = %21
+  %26 = add nsw i32 %2, 3
+  %27 = mul nsw i32 %.val.i, %26
+  %28 = add nsw i32 %27, 1
+  %29 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef %28) #12
+  %30 = sext i32 %27 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %29, i8 45, i64 %30, i1 false)
+  %31 = getelementptr inbounds i8, ptr %29, i64 %30
+  store i8 0, ptr %31, align 1
+  %32 = icmp sgt i32 %.val.i, 0
+  br i1 %32, label %.lr.ph.i.i, label %Kit_PlaStart.exit.i
 
-23:                                               ; preds = %18
-  %24 = tail call i32 @Kit_TruthIsop(ptr noundef nonnull %1, i32 noundef %2, ptr noundef %3, i32 noundef 0) #12
-  %25 = getelementptr i8, ptr %3, i64 4
-  %.val.i = load i32, ptr %25, align 4
-  %26 = icmp eq i32 %.val.i, 0
-  br i1 %26, label %Kit_PlaCreateFromIsop.exit, label %27
-
-27:                                               ; preds = %23
-  %28 = add nsw i32 %2, 3
-  %29 = mul nsw i32 %.val.i, %28
-  %30 = add nsw i32 %29, 1
-  %31 = tail call ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef %30) #12
-  %32 = sext i32 %29 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %31, i8 45, i64 %32, i1 false)
-  %33 = getelementptr inbounds i8, ptr %31, i64 %32
-  store i8 0, ptr %33, align 1
-  %34 = icmp sgt i32 %.val.i, 0
-  br i1 %34, label %.lr.ph.i.i, label %Kit_PlaStart.exit.i
-
-.lr.ph.i.i:                                       ; preds = %27
-  %35 = sext i32 %2 to i64
-  %invariant.gep.i.i = getelementptr i8, ptr %31, i64 %35
-  %36 = sext i32 %28 to i64
+.lr.ph.i.i:                                       ; preds = %25
+  %33 = sext i32 %2 to i64
+  %invariant.gep.i.i = getelementptr i8, ptr %29, i64 %33
+  %34 = sext i32 %26 to i64
   %wide.trip.count.i.i = zext nneg i32 %.val.i to i64
-  br label %37
+  br label %35
 
-37:                                               ; preds = %37, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %38 = mul nsw i64 %indvars.iv.i.i, %36
-  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %38
+35:                                               ; preds = %35, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %35 ]
+  %36 = mul nsw i64 %indvars.iv.i.i, %34
+  %gep.i.i = getelementptr i8, ptr %invariant.gep.i.i, i64 %36
   store i8 32, ptr %gep.i.i, align 1
-  %39 = getelementptr i8, ptr %gep.i.i, i64 1
-  store i8 49, ptr %39, align 1
-  %40 = getelementptr i8, ptr %gep.i.i, i64 2
-  store i8 10, ptr %40, align 1
+  %37 = getelementptr i8, ptr %gep.i.i, i64 1
+  store i8 49, ptr %37, align 1
+  %38 = getelementptr i8, ptr %gep.i.i, i64 2
+  store i8 10, ptr %38, align 1
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %Kit_PlaStart.exit.i, label %37, !llvm.loop !9
+  br i1 %exitcond.not.i.i, label %Kit_PlaStart.exit.i, label %35, !llvm.loop !9
 
-Kit_PlaStart.exit.i:                              ; preds = %37, %27
-  %.val3033.i = load i32, ptr %25, align 4
-  %41 = icmp sgt i32 %.val3033.i, 0
-  br i1 %41, label %.lr.ph35.i, label %Kit_PlaCreateFromIsop.exit
+Kit_PlaStart.exit.i:                              ; preds = %35, %25
+  %.val3033.i = load i32, ptr %23, align 4
+  %39 = icmp sgt i32 %.val3033.i, 0
+  br i1 %39, label %.lr.ph35.i, label %Kit_PlaCreateFromIsop.exit
 
 .lr.ph35.i:                                       ; preds = %Kit_PlaStart.exit.i
-  %42 = getelementptr i8, ptr %3, i64 8
-  %43 = icmp sgt i32 %2, 0
-  br i1 %43, label %.lr.ph.us.preheader.i, label %Kit_PlaCreateFromIsop.exit
+  %40 = getelementptr i8, ptr %3, i64 8
+  %41 = icmp sgt i32 %2, 0
+  br i1 %41, label %.lr.ph.us.preheader.i, label %Kit_PlaCreateFromIsop.exit
 
 .lr.ph.us.preheader.i:                            ; preds = %.lr.ph35.i
-  %44 = zext nneg i32 %28 to i64
+  %42 = zext nneg i32 %26 to i64
   %wide.trip.count.i = zext nneg i32 %2 to i64
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %.lr.ph.us.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next39.i, %._crit_edge.us.i ]
-  %.val31.us.i = load ptr, ptr %42, align 8
-  %45 = getelementptr inbounds i32, ptr %.val31.us.i, i64 %indvars.iv38.i
-  %46 = load i32, ptr %45, align 4
-  %47 = mul nuw nsw i64 %indvars.iv38.i, %44
-  %48 = getelementptr inbounds i8, ptr %31, i64 %47
-  br label %49
+  %.val31.us.i = load ptr, ptr %40, align 8
+  %43 = getelementptr inbounds i32, ptr %.val31.us.i, i64 %indvars.iv38.i
+  %44 = load i32, ptr %43, align 4
+  %45 = mul nuw nsw i64 %indvars.iv38.i, %42
+  %46 = getelementptr inbounds i8, ptr %29, i64 %45
+  br label %47
 
-49:                                               ; preds = %55, %.lr.ph.us.i
-  %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %55 ]
+47:                                               ; preds = %53, %.lr.ph.us.i
+  %indvars.iv.i23 = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next.i, %53 ]
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i23 to i32
-  %50 = shl i32 %indvars.iv.tr.i, 1
-  %51 = ashr i32 %46, %50
-  %52 = and i32 %51, 3
-  switch i32 %52, label %55 [
-    i32 1, label %53
+  %48 = shl i32 %indvars.iv.tr.i, 1
+  %49 = ashr i32 %44, %48
+  %50 = and i32 %49, 3
+  switch i32 %50, label %53 [
+    i32 1, label %51
     i32 2, label %.sink.split.i
   ]
 
-53:                                               ; preds = %49
+51:                                               ; preds = %47
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %53, %49
-  %.sink.i = phi i8 [ 48, %53 ], [ 49, %49 ]
-  %54 = getelementptr inbounds i8, ptr %48, i64 %indvars.iv.i23
-  store i8 %.sink.i, ptr %54, align 1
-  br label %55
+.sink.split.i:                                    ; preds = %51, %47
+  %.sink.i = phi i8 [ 48, %51 ], [ 49, %47 ]
+  %52 = getelementptr inbounds i8, ptr %46, i64 %indvars.iv.i23
+  store i8 %.sink.i, ptr %52, align 1
+  br label %53
 
-55:                                               ; preds = %.sink.split.i, %49
+53:                                               ; preds = %.sink.split.i, %47
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i23, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %49, !llvm.loop !10
+  br i1 %exitcond.not.i, label %._crit_edge.us.i, label %47, !llvm.loop !10
 
-._crit_edge.us.i:                                 ; preds = %55
+._crit_edge.us.i:                                 ; preds = %53
   %indvars.iv.next39.i = add nuw nsw i64 %indvars.iv38.i, 1
-  %.val30.us.i = load i32, ptr %25, align 4
-  %56 = sext i32 %.val30.us.i to i64
-  %57 = icmp slt i64 %indvars.iv.next39.i, %56
-  br i1 %57, label %.lr.ph.us.i, label %Kit_PlaCreateFromIsop.exit, !llvm.loop !11
+  %.val30.us.i = load i32, ptr %23, align 4
+  %54 = sext i32 %.val30.us.i to i64
+  %55 = icmp slt i64 %indvars.iv.next39.i, %54
+  br i1 %55, label %.lr.ph.us.i, label %Kit_PlaCreateFromIsop.exit, !llvm.loop !11
 
-Kit_PlaCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %23, %Kit_PlaStart.exit.i, %.lr.ph35.i
-  %.0.i = phi ptr [ null, %23 ], [ %31, %Kit_PlaStart.exit.i ], [ %31, %.lr.ph35.i ], [ %31, %._crit_edge.us.i ]
-  %.not17 = icmp eq i32 %24, 0
+Kit_PlaCreateFromIsop.exit:                       ; preds = %._crit_edge.us.i, %21, %Kit_PlaStart.exit.i, %.lr.ph35.i
+  %.0.i = phi ptr [ null, %21 ], [ %29, %Kit_PlaStart.exit.i ], [ %29, %.lr.ph35.i ], [ %29, %._crit_edge.us.i ]
+  %.not17 = icmp eq i32 %22, 0
   br i1 %.not17, label %Kit_PlaComplement.exit, label %.preheader
 
-.preheader:                                       ; preds = %Kit_PlaCreateFromIsop.exit, %65
-  %.0.i24 = phi ptr [ %66, %65 ], [ %.0.i, %Kit_PlaCreateFromIsop.exit ]
-  %58 = load i8, ptr %.0.i24, align 1
-  switch i8 %58, label %65 [
+.preheader:                                       ; preds = %Kit_PlaCreateFromIsop.exit, %63
+  %.0.i24 = phi ptr [ %64, %63 ], [ %.0.i, %Kit_PlaCreateFromIsop.exit ]
+  %56 = load i8, ptr %.0.i24, align 1
+  switch i8 %56, label %63 [
     i8 0, label %Kit_PlaComplement.exit
-    i8 10, label %59
+    i8 10, label %57
   ]
 
-59:                                               ; preds = %.preheader
-  %60 = getelementptr inbounds i8, ptr %.0.i24, i64 -1
-  %61 = load i8, ptr %60, align 1
-  switch i8 %61, label %65 [
+57:                                               ; preds = %.preheader
+  %58 = getelementptr inbounds i8, ptr %.0.i24, i64 -1
+  %59 = load i8, ptr %58, align 1
+  switch i8 %59, label %63 [
     i8 48, label %.sink.split.i25
-    i8 49, label %62
-    i8 120, label %63
-    i8 110, label %64
+    i8 49, label %60
+    i8 120, label %61
+    i8 110, label %62
   ]
 
-62:                                               ; preds = %59
+60:                                               ; preds = %57
   br label %.sink.split.i25
 
-63:                                               ; preds = %59
+61:                                               ; preds = %57
   br label %.sink.split.i25
 
-64:                                               ; preds = %59
+62:                                               ; preds = %57
   br label %.sink.split.i25
 
-.sink.split.i25:                                  ; preds = %64, %63, %62, %59
-  %.sink.i26 = phi i8 [ 48, %62 ], [ 120, %64 ], [ 110, %63 ], [ 49, %59 ]
-  store i8 %.sink.i26, ptr %60, align 1
-  br label %65
+.sink.split.i25:                                  ; preds = %62, %61, %60, %57
+  %.sink.i26 = phi i8 [ 48, %60 ], [ 120, %62 ], [ 110, %61 ], [ 49, %57 ]
+  store i8 %.sink.i26, ptr %58, align 1
+  br label %63
 
-65:                                               ; preds = %.sink.split.i25, %59, %.preheader
-  %66 = getelementptr inbounds i8, ptr %.0.i24, i64 1
+63:                                               ; preds = %.sink.split.i25, %57, %.preheader
+  %64 = getelementptr inbounds i8, ptr %.0.i24, i64 1
   br label %.preheader, !llvm.loop !8
 
-Kit_PlaComplement.exit:                           ; preds = %.preheader, %Kit_PlaCreateFromIsop.exit, %Kit_TruthIsConst1.exit, %Kit_TruthIsConst0.exit
-  %.0 = phi ptr [ %15, %Kit_TruthIsConst0.exit ], [ %22, %Kit_TruthIsConst1.exit ], [ %.0.i, %Kit_PlaCreateFromIsop.exit ], [ %.0.i, %.preheader ]
+Kit_PlaComplement.exit.sink.split:                ; preds = %select.unfold.i, %select.unfold.i19
+  %.sink = phi i32 [ 667936, %select.unfold.i19 ], [ 667680, %select.unfold.i ]
+  %65 = tail call noundef ptr @Aig_MmFlexEntryFetch(ptr noundef %0, i32 noundef 4) #12
+  store i32 %.sink, ptr %65, align 1
+  br label %Kit_PlaComplement.exit
+
+Kit_PlaComplement.exit:                           ; preds = %.preheader, %Kit_PlaComplement.exit.sink.split, %Kit_PlaCreateFromIsop.exit
+  %.0 = phi ptr [ %.0.i, %Kit_PlaCreateFromIsop.exit ], [ %65, %Kit_PlaComplement.exit.sink.split ], [ %.0.i, %.preheader ]
   ret ptr %.0
 }
 

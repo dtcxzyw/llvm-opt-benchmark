@@ -4189,12 +4189,12 @@ targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i: ; preds = %.lr.
   br label %targetIsInAllPartitionLists.exit.thread.sink.split.i
 
 targetIsInAllPartitionLists.exit.thread.sink.split.i: ; preds = %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i, %60
-  %.sink45.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
-  %.pre.sink.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
+  %.sink46.i = phi ptr [ %53, %60 ], [ %66, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
+  %.sink44.i = phi ptr [ %.pre.i, %60 ], [ %117, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
   %.sink43.i = phi i8 [ 2, %60 ], [ %.sink43.ph.i, %targetIsInAllPartitionLists.exit.thread.sink.split.sink.split.i ]
-  %118 = load i16, ptr %.sink45.i, align 8
+  %118 = load i16, ptr %.sink46.i, align 8
   %119 = sext i16 %118 to i64
-  %120 = getelementptr i8, ptr %.pre.sink.i, i64 %119
+  %120 = getelementptr i8, ptr %.sink44.i, i64 %119
   %121 = load i8, ptr %120, align 1
   %122 = or i8 %121, %.sink43.i
   store i8 %122, ptr %120, align 1

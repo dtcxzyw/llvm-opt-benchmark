@@ -14657,15 +14657,15 @@ lpad196:                                          ; preds = %if.then.i3.i260, %i
   br label %ehcleanup239
 
 invoke.cont220.sink.split:                        ; preds = %invoke.cont207, %invoke.cont195
-  %.sink = phi ptr [ %121, %invoke.cont195 ], [ %call208, %invoke.cont207 ]
-  %m_ref_count.i.i.i208 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %127 = load i32, ptr %m_ref_count.i.i.i208, align 4
+  %call208.sink = phi ptr [ %121, %invoke.cont195 ], [ %call208, %invoke.cont207 ]
+  %m_ref_count.i.i.i222 = getelementptr inbounds i8, ptr %call208.sink, i64 8
+  %127 = load i32, ptr %m_ref_count.i.i.i222, align 4
   %inc.i.i.i223 = add i32 %127, 1
-  store i32 %inc.i.i.i223, ptr %m_ref_count.i.i.i208, align 4
+  store i32 %inc.i.i.i223, ptr %m_ref_count.i.i.i222, align 4
   br label %invoke.cont220
 
 invoke.cont220:                                   ; preds = %invoke.cont220.sink.split, %invoke.cont207
-  %128 = phi ptr [ %call208, %invoke.cont207 ], [ %.sink, %invoke.cont220.sink.split ]
+  %128 = phi ptr [ %call208, %invoke.cont207 ], [ %call208.sink, %invoke.cont220.sink.split ]
   store ptr %128, ptr %p, align 8
   %129 = load ptr, ptr %pr, align 8
   store ptr %129, ptr %premises, align 16
@@ -14934,15 +14934,15 @@ lpad246:                                          ; preds = %if.then.i3.i368, %i
   br label %ehcleanup291
 
 if.end261.sink.split:                             ; preds = %invoke.cont257, %invoke.cont245
-  %.sink627 = phi ptr [ %170, %invoke.cont245 ], [ %call258, %invoke.cont257 ]
-  %m_ref_count.i.i.i300 = getelementptr inbounds i8, ptr %.sink627, i64 8
-  %174 = load i32, ptr %m_ref_count.i.i.i300, align 4
+  %call258.sink = phi ptr [ %170, %invoke.cont245 ], [ %call258, %invoke.cont257 ]
+  %m_ref_count.i.i.i315 = getelementptr inbounds i8, ptr %call258.sink, i64 8
+  %174 = load i32, ptr %m_ref_count.i.i.i315, align 4
   %inc.i.i.i316 = add i32 %174, 1
-  store i32 %inc.i.i.i316, ptr %m_ref_count.i.i.i300, align 4
+  store i32 %inc.i.i.i316, ptr %m_ref_count.i.i.i315, align 4
   br label %if.end261
 
 if.end261:                                        ; preds = %if.end261.sink.split, %invoke.cont257
-  %storemerge = phi ptr [ %call258, %invoke.cont257 ], [ %.sink627, %if.end261.sink.split ]
+  %storemerge = phi ptr [ %call258, %invoke.cont257 ], [ %call258.sink, %if.end261.sink.split ]
   store ptr %storemerge, ptr %p, align 8
   %175 = load ptr, ptr %m_nodes.i.i, align 8
   %cmp.i.i330 = icmp eq ptr %175, null
@@ -21990,15 +21990,15 @@ lpad116:                                          ; preds = %if.then120
   br label %ehcleanup219
 
 if.end128.sink.split:                             ; preds = %invoke.cont124, %invoke.cont114
-  %.sink = phi ptr [ %90, %invoke.cont114 ], [ %call125, %invoke.cont124 ]
-  %m_ref_count.i.i.i149 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %95 = load i32, ptr %m_ref_count.i.i.i149, align 4
+  %call125.sink = phi ptr [ %90, %invoke.cont114 ], [ %call125, %invoke.cont124 ]
+  %m_ref_count.i.i.i162 = getelementptr inbounds i8, ptr %call125.sink, i64 8
+  %95 = load i32, ptr %m_ref_count.i.i.i162, align 4
   %inc.i.i.i163 = add i32 %95, 1
-  store i32 %inc.i.i.i163, ptr %m_ref_count.i.i.i149, align 4
+  store i32 %inc.i.i.i163, ptr %m_ref_count.i.i.i162, align 4
   br label %if.end128
 
 if.end128:                                        ; preds = %if.end128.sink.split, %invoke.cont124
-  %.pr.i255 = phi ptr [ null, %invoke.cont124 ], [ %.sink, %if.end128.sink.split ]
+  %.pr.i255 = phi ptr [ null, %invoke.cont124 ], [ %call125.sink, %if.end128.sink.split ]
   store ptr %.pr.i255, ptr %p, align 8
   store i32 %89, ptr %m_proof_mode.i.i.i, align 8
   %96 = load ptr, ptr %r0, align 8
@@ -30018,18 +30018,18 @@ if.then.i.i82:                                    ; preds = %lor.lhs.false.i.i74
           to label %if.end39.sink.split unwind label %lpad.loopexit.split-lp
 
 if.end39.sink.split:                              ; preds = %if.then.i.i82, %if.then.i.i59
-  %m_nodes.i49.sink = phi ptr [ %m_nodes.i49, %if.then.i.i59 ], [ %m_nodes.i72, %if.then.i.i82 ]
+  %m_nodes.i72.sink161 = phi ptr [ %m_nodes.i49, %if.then.i.i59 ], [ %m_nodes.i72, %if.then.i.i82 ]
   %call36.sink.ph = phi ptr [ %33, %if.then.i.i59 ], [ %call36, %if.then.i.i82 ]
-  %.pre.i.i60 = load ptr, ptr %m_nodes.i49.sink, align 8
-  %arrayidx8.phi.trans.insert.i.i84 = getelementptr inbounds i8, ptr %.pre.i.i60, i64 -4
+  %.pre.i.i83 = load ptr, ptr %m_nodes.i72.sink161, align 8
+  %arrayidx8.phi.trans.insert.i.i84 = getelementptr inbounds i8, ptr %.pre.i.i83, i64 -4
   %.pre1.i.i85 = load i32, ptr %arrayidx8.phi.trans.insert.i.i84, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %lor.lhs.false.i.i74, %lor.lhs.false.i.i51
   %.sink160 = phi i32 [ %36, %lor.lhs.false.i.i51 ], [ %42, %lor.lhs.false.i.i74 ], [ %.pre1.i.i85, %if.end39.sink.split ]
-  %.sink = phi ptr [ %35, %lor.lhs.false.i.i51 ], [ %41, %lor.lhs.false.i.i74 ], [ %.pre.i.i60, %if.end39.sink.split ]
+  %.sink = phi ptr [ %35, %lor.lhs.false.i.i51 ], [ %41, %lor.lhs.false.i.i74 ], [ %.pre.i.i83, %if.end39.sink.split ]
   %call36.sink = phi ptr [ %33, %lor.lhs.false.i.i51 ], [ %call36, %lor.lhs.false.i.i74 ], [ %call36.sink.ph, %if.end39.sink.split ]
-  %m_nodes.i72.sink = phi ptr [ %m_nodes.i49, %lor.lhs.false.i.i51 ], [ %m_nodes.i72, %lor.lhs.false.i.i74 ], [ %m_nodes.i49.sink, %if.end39.sink.split ]
+  %m_nodes.i72.sink = phi ptr [ %m_nodes.i49, %lor.lhs.false.i.i51 ], [ %m_nodes.i72, %lor.lhs.false.i.i74 ], [ %m_nodes.i72.sink161, %if.end39.sink.split ]
   %idx.ext.i.i78 = zext i32 %.sink160 to i64
   %add.ptr.i.i79 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i78
   store ptr %call36.sink, ptr %add.ptr.i.i79, align 8

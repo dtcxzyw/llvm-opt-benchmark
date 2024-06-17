@@ -18519,8 +18519,8 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1E
 
 353:                                              ; preds = %348, %._crit_edge.i.i.i.i.i151, %329
   %.173.i.i.i.i.i143 = phi <2 x double> [ %352, %348 ], [ %346, %._crit_edge.i.i.i.i.i151 ], [ %331, %329 ]
-  %shift440 = shufflevector <2 x double> %.173.i.i.i.i.i143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %354 = fadd <2 x double> %.173.i.i.i.i.i143, %shift440
+  %shift438 = shufflevector <2 x double> %.173.i.i.i.i.i143, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %354 = fadd <2 x double> %.173.i.i.i.i.i143, %shift438
   %355 = extractelement <2 x double> %354, i64 0
   %.not.i144 = icmp eq i64 %328, %.02962.i
   br i1 %.not.i144, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1ELb0EEEE11squaredNormEv.exit.i, label %.lr.ph83.i.i.i.i.i145
@@ -18633,8 +18633,8 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELi1ELin1E
 
 415:                                              ; preds = %408, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i133, %380
   %.173.i.i.i.i.i.i.i.i.i.i.i.i127 = phi <2 x double> [ %414, %408 ], [ %406, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i133 ], [ %383, %380 ]
-  %shift441 = shufflevector <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i127, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %416 = fadd <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i127, %shift441
+  %shift439 = shufflevector <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i127, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %416 = fadd <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i127, %shift439
   %417 = extractelement <2 x double> %416, i64 0
   %.not56.i = icmp eq i64 %379, %.02962.i
   br i1 %.not56.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb1EEEE3dotINS1_IKNS_9TransposeIKNS1_IS3_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSG_17scalar_product_opIdSK_EEE10ReturnTypeERKNS0_ISI_EE.exit.i.i.i.i.i.i.i, label %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i128
@@ -18830,8 +18830,8 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELi1ELb0
 
 505:                                              ; preds = %500, %._crit_edge.i.i.i.i.i, %481
   %.173.i.i.i.i.i = phi <2 x double> [ %504, %500 ], [ %498, %._crit_edge.i.i.i.i.i ], [ %483, %481 ]
-  %shift442 = shufflevector <2 x double> %.173.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %506 = fadd <2 x double> %.173.i.i.i.i.i, %shift442
+  %shift440 = shufflevector <2 x double> %.173.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %506 = fadd <2 x double> %.173.i.i.i.i.i, %shift440
   %507 = extractelement <2 x double> %506, i64 0
   %.not.i110 = icmp eq i64 %480, %.02966.i
   br i1 %.not.i110, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELi1ELin1ELb0EEEE11squaredNormEv.exit.i, label %.lr.ph83.i.i.i.i.i
@@ -18942,8 +18942,8 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1
 
 565:                                              ; preds = %558, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i, %530
   %.173.i.i.i.i.i.i.i.i.i.i.i.i = phi <2 x double> [ %564, %558 ], [ %556, %._crit_edge.i.i.i.i.i.i.i.i.i.i.i.i ], [ %533, %530 ]
-  %shift443 = shufflevector <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %566 = fadd <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i, %shift443
+  %shift441 = shufflevector <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %566 = fadd <2 x double> %.173.i.i.i.i.i.i.i.i.i.i.i.i, %shift441
   %567 = extractelement <2 x double> %566, i64 0
   %.not60.i = icmp eq i64 %529, %.02966.i
   br i1 %.not60.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockIKNS1_INS1_INS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEELin1ELin1ELb0EEELin1ELin1ELb0EEELi1ELin1ELb1EEEE3dotINS1_IKNS_9TransposeIKNS1_IS4_Li1ELin1ELb0EEEEELin1ELi1ELb1EEEEENS_20ScalarBinaryOpTraitsIdNS_8internal6traitsIT_E6ScalarENSH_17scalar_product_opIdSL_EEE10ReturnTypeERKNS0_ISJ_EE.exit.i.i.i.i.i.i.i, label %.lr.ph83.i.i.i.i.i.i.i.i.i.i.i.i

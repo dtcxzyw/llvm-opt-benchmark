@@ -721,7 +721,7 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %tailrecurse
   %storemerge5467 = phi ptr [ %storemerge5463, %.lr.ph.lr.ph ], [ %storemerge54, %tailrecurse ]
   %.tr5066 = phi i32 [ %1, %.lr.ph.lr.ph ], [ 1, %tailrecurse ]
-  %accumulator.tr65 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %130, %tailrecurse ]
+  %accumulator.tr65 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %118, %tailrecurse ]
   br label %11
 
 11:                                               ; preds = %.lr.ph, %NewRangeInsertCubePair.exit
@@ -732,11 +732,11 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
   br i1 %13, label %NewRangeInsertCubePair.exit, label %14
 
 14:                                               ; preds = %11
-  switch i32 %12, label %134 [
+  switch i32 %12, label %122 [
     i32 4, label %15
-    i32 3, label %25
-    i32 2, label %35
-    i32 1, label %45
+    i32 3, label %21
+    i32 2, label %27
+    i32 1, label %33
   ]
 
 15:                                               ; preds = %14
@@ -751,284 +751,269 @@ define i32 @CheckForCloseCubes(ptr noundef %0, i32 noundef %1) local_unnamed_add
   %20 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 144), align 16
   %.not18.i = icmp eq i32 %18, %20
   %or.cond47 = select i1 %.not.i, i1 %.not18.i, i1 false
-  br i1 %or.cond47, label %NewRangeInsertCubePair.exit, label %21
+  br i1 %or.cond47, label %NewRangeInsertCubePair.exit, label %NewRangeInsertCubePair.exit.sink.split
 
-21:                                               ; preds = %17
-  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 112), align 16
-  %23 = sext i32 %18 to i64
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %23
-  br label %NewRangeInsertCubePair.exit.sink.split
+21:                                               ; preds = %14
+  %22 = load i32, ptr @s_fDistEnable3, align 4
+  %.not35 = icmp eq i32 %22, 0
+  br i1 %.not35, label %NewRangeInsertCubePair.exit, label %23
 
-25:                                               ; preds = %14
-  %26 = load i32, ptr @s_fDistEnable3, align 4
-  %.not35 = icmp eq i32 %26, 0
-  br i1 %.not35, label %NewRangeInsertCubePair.exit, label %27
-
-27:                                               ; preds = %25
-  %28 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
-  %29 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 104), align 8
-  %.not.i37 = icmp eq i32 %29, 0
-  %30 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 88), align 8
-  %.not18.i38 = icmp eq i32 %28, %30
+23:                                               ; preds = %21
+  %24 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %25 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 104), align 8
+  %.not.i37 = icmp eq i32 %25, 0
+  %26 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 88), align 8
+  %.not18.i38 = icmp eq i32 %24, %26
   %or.cond48 = select i1 %.not.i37, i1 %.not18.i38, i1 false
-  br i1 %or.cond48, label %NewRangeInsertCubePair.exit, label %31
+  br i1 %or.cond48, label %NewRangeInsertCubePair.exit, label %NewRangeInsertCubePair.exit.sink.split
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr getelementptr inbounds (i8, ptr @s_Que, i64 56), align 8
-  %33 = sext i32 %28 to i64
-  %34 = getelementptr inbounds ptr, ptr %32, i64 %33
-  br label %NewRangeInsertCubePair.exit.sink.split
+27:                                               ; preds = %14
+  %28 = load i32, ptr @s_fDistEnable2, align 4
+  %.not34 = icmp eq i32 %28, 0
+  br i1 %.not34, label %NewRangeInsertCubePair.exit, label %29
 
-35:                                               ; preds = %14
-  %36 = load i32, ptr @s_fDistEnable2, align 4
-  %.not34 = icmp eq i32 %36, 0
-  br i1 %.not34, label %NewRangeInsertCubePair.exit, label %37
-
-37:                                               ; preds = %35
-  %38 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
-  %39 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 48), align 16
-  %.not.i40 = icmp eq i32 %39, 0
-  %40 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 32), align 16
-  %.not18.i41 = icmp eq i32 %38, %40
+29:                                               ; preds = %27
+  %30 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %31 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 48), align 16
+  %.not.i40 = icmp eq i32 %31, 0
+  %32 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 32), align 16
+  %.not18.i41 = icmp eq i32 %30, %32
   %or.cond49 = select i1 %.not.i40, i1 %.not18.i41, i1 false
-  br i1 %or.cond49, label %NewRangeInsertCubePair.exit, label %41
+  br i1 %or.cond49, label %NewRangeInsertCubePair.exit, label %NewRangeInsertCubePair.exit.sink.split
 
-41:                                               ; preds = %37
-  %42 = load ptr, ptr @s_Que, align 16
-  %43 = sext i32 %38 to i64
-  %44 = getelementptr inbounds ptr, ptr %42, i64 %43
-  br label %NewRangeInsertCubePair.exit.sink.split
-
-45:                                               ; preds = %14
-  %46 = load i32, ptr @s_DiffVarNum, align 4
-  %47 = icmp ne i32 %46, -1
-  %48 = zext i1 %47 to i32
-  store i32 %48, ptr @s_ChangeStore.0, align 8
+33:                                               ; preds = %14
+  %34 = load i32, ptr @s_DiffVarNum, align 4
+  %35 = icmp ne i32 %34, -1
+  %36 = zext i1 %35 to i32
+  store i32 %36, ptr @s_ChangeStore.0, align 8
   store ptr %0, ptr @s_ChangeStore.1, align 8
-  %49 = load ptr, ptr @s_q, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 2
-  %51 = load i16, ptr %50, align 2
-  %52 = sext i16 %51 to i32
-  store i32 %52, ptr @s_ChangeStore.2, align 8
-  %53 = load i16, ptr %7, align 2
-  %54 = sext i16 %53 to i32
-  store i32 %54, ptr @s_ChangeStore.3, align 8
-  %55 = getelementptr inbounds i8, ptr %49, i64 6
-  %56 = load i16, ptr %55, align 2
-  %57 = sext i16 %56 to i32
-  store i32 %57, ptr @s_ChangeStore.4, align 8
-  %58 = load i16, ptr %8, align 2
-  %59 = sext i16 %58 to i32
-  store i32 %59, ptr @s_ChangeStore.5, align 8
-  %60 = load i16, ptr %9, align 4
-  %61 = sext i16 %60 to i32
-  store i32 %61, ptr @s_ChangeStore.6, align 8
-  store i32 %46, ptr @s_ChangeStore.7, align 8
-  %62 = load i32, ptr @s_DiffVarValueQ, align 4
-  store i32 %62, ptr @s_ChangeStore.8, align 8
-  %63 = getelementptr inbounds i8, ptr %49, i64 1
-  %64 = load i8, ptr %63, align 1
-  %65 = zext i8 %64 to i32
-  store i32 %65, ptr @s_ChangeStore.9, align 8
-  %66 = load ptr, ptr @s_List, align 8
-  %67 = icmp eq ptr %66, %49
-  %68 = getelementptr inbounds i8, ptr %49, i64 32
-  %69 = load ptr, ptr %68, align 8
-  br i1 %67, label %74, label %70
+  %37 = load ptr, ptr @s_q, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 2
+  %39 = load i16, ptr %38, align 2
+  %40 = sext i16 %39 to i32
+  store i32 %40, ptr @s_ChangeStore.2, align 8
+  %41 = load i16, ptr %7, align 2
+  %42 = sext i16 %41 to i32
+  store i32 %42, ptr @s_ChangeStore.3, align 8
+  %43 = getelementptr inbounds i8, ptr %37, i64 6
+  %44 = load i16, ptr %43, align 2
+  %45 = sext i16 %44 to i32
+  store i32 %45, ptr @s_ChangeStore.4, align 8
+  %46 = load i16, ptr %8, align 2
+  %47 = sext i16 %46 to i32
+  store i32 %47, ptr @s_ChangeStore.5, align 8
+  %48 = load i16, ptr %9, align 4
+  %49 = sext i16 %48 to i32
+  store i32 %49, ptr @s_ChangeStore.6, align 8
+  store i32 %34, ptr @s_ChangeStore.7, align 8
+  %50 = load i32, ptr @s_DiffVarValueQ, align 4
+  store i32 %50, ptr @s_ChangeStore.8, align 8
+  %51 = getelementptr inbounds i8, ptr %37, i64 1
+  %52 = load i8, ptr %51, align 1
+  %53 = zext i8 %52 to i32
+  store i32 %53, ptr @s_ChangeStore.9, align 8
+  %54 = load ptr, ptr @s_List, align 8
+  %55 = icmp eq ptr %54, %37
+  %56 = getelementptr inbounds i8, ptr %37, i64 32
+  %57 = load ptr, ptr %56, align 8
+  br i1 %55, label %62, label %58
 
-70:                                               ; preds = %45
-  %71 = getelementptr inbounds i8, ptr %49, i64 24
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds i8, ptr %72, i64 32
-  br label %74
+58:                                               ; preds = %33
+  %59 = getelementptr inbounds i8, ptr %37, i64 24
+  %60 = load ptr, ptr %59, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 32
+  br label %62
 
-74:                                               ; preds = %70, %45
-  %.sink.i = phi ptr [ %73, %70 ], [ @s_List, %45 ]
-  store ptr %69, ptr %.sink.i, align 8
-  %.not.i43 = icmp eq ptr %69, null
-  br i1 %.not.i43, label %CubeExtract.exit, label %75
+62:                                               ; preds = %58, %33
+  %.sink.i = phi ptr [ %61, %58 ], [ @s_List, %33 ]
+  store ptr %57, ptr %.sink.i, align 8
+  %.not.i43 = icmp eq ptr %57, null
+  br i1 %.not.i43, label %CubeExtract.exit, label %63
 
-75:                                               ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %49, i64 24
-  %77 = load ptr, ptr %76, align 8
-  %78 = getelementptr inbounds i8, ptr %69, i64 24
-  store ptr %77, ptr %78, align 8
+63:                                               ; preds = %62
+  %64 = getelementptr inbounds i8, ptr %37, i64 24
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %57, i64 24
+  store ptr %65, ptr %66, align 8
   br label %CubeExtract.exit
 
-CubeExtract.exit:                                 ; preds = %74, %75
-  %79 = getelementptr inbounds i8, ptr %49, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
-  %80 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  %81 = add nsw i32 %80, -1
-  store i32 %81, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  %82 = icmp eq i32 %46, -1
-  br i1 %82, label %83, label %114
+CubeExtract.exit:                                 ; preds = %62, %63
+  %67 = getelementptr inbounds i8, ptr %37, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %67, i8 0, i64 16, i1 false)
+  %68 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %69 = add nsw i32 %68, -1
+  store i32 %69, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %70 = icmp eq i32 %34, -1
+  br i1 %70, label %71, label %102
 
-83:                                               ; preds = %CubeExtract.exit
+71:                                               ; preds = %CubeExtract.exit
   store i16 0, ptr %9, align 4
-  %84 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
-  %85 = icmp sgt i32 %84, 0
-  br i1 %85, label %.lr.ph62.preheader, label %tailrecurse
+  %72 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.lr.ph62.preheader, label %tailrecurse
 
-.lr.ph62.preheader:                               ; preds = %83
+.lr.ph62.preheader:                               ; preds = %71
   %.pre = load ptr, ptr %10, align 8
   br label %.lr.ph62
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
-  %86 = phi ptr [ %.pre, %.lr.ph62.preheader ], [ %95, %.lr.ph62 ]
+  %74 = phi ptr [ %.pre, %.lr.ph62.preheader ], [ %83, %.lr.ph62 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next, %.lr.ph62 ]
-  %87 = load ptr, ptr @s_q, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 16
-  %89 = load ptr, ptr %88, align 8
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
-  %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i32, ptr %86, i64 %indvars.iv
-  %93 = load i32, ptr %92, align 4
-  %94 = xor i32 %93, %91
-  store i32 %94, ptr %92, align 4
-  %95 = load ptr, ptr %10, align 8
-  %96 = getelementptr inbounds i32, ptr %95, i64 %indvars.iv
-  %97 = load i32, ptr %96, align 4
-  %98 = and i32 %97, 65535
-  %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %99
-  %101 = load i8, ptr %100, align 1
-  %102 = zext i8 %101 to i16
-  %103 = lshr i32 %97, 16
-  %104 = zext nneg i32 %103 to i64
-  %105 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %104
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i16
-  %108 = add nuw nsw i16 %107, %102
-  %109 = load i16, ptr %9, align 4
-  %110 = add i16 %108, %109
-  store i16 %110, ptr %9, align 4
+  %75 = load ptr, ptr @s_q, align 8
+  %76 = getelementptr inbounds i8, ptr %75, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = getelementptr inbounds i32, ptr %77, i64 %indvars.iv
+  %79 = load i32, ptr %78, align 4
+  %80 = getelementptr inbounds i32, ptr %74, i64 %indvars.iv
+  %81 = load i32, ptr %80, align 4
+  %82 = xor i32 %81, %79
+  store i32 %82, ptr %80, align 4
+  %83 = load ptr, ptr %10, align 8
+  %84 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv
+  %85 = load i32, ptr %84, align 4
+  %86 = and i32 %85, 65535
+  %87 = zext nneg i32 %86 to i64
+  %88 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %87
+  %89 = load i8, ptr %88, align 1
+  %90 = zext i8 %89 to i16
+  %91 = lshr i32 %85, 16
+  %92 = zext nneg i32 %91 to i64
+  %93 = getelementptr inbounds [0 x i8], ptr @BitCount, i64 0, i64 %92
+  %94 = load i8, ptr %93, align 1
+  %95 = zext i8 %94 to i16
+  %96 = add nuw nsw i16 %95, %90
+  %97 = load i16, ptr %9, align 4
+  %98 = add i16 %96, %97
+  store i16 %98, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %111 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
-  %112 = sext i32 %111 to i64
-  %113 = icmp slt i64 %indvars.iv.next, %112
-  br i1 %113, label %.lr.ph62, label %tailrecurse, !llvm.loop !8
+  %99 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 12), align 4
+  %100 = sext i32 %99 to i64
+  %101 = icmp slt i64 %indvars.iv.next, %100
+  br i1 %101, label %.lr.ph62, label %tailrecurse, !llvm.loop !8
 
-114:                                              ; preds = %CubeExtract.exit
-  %115 = load i32, ptr @s_DiffVarValueP_old, align 4
-  %116 = add i32 %115, -1
-  %or.cond = icmp ult i32 %116, 2
-  br i1 %or.cond, label %117, label %120
+102:                                              ; preds = %CubeExtract.exit
+  %103 = load i32, ptr @s_DiffVarValueP_old, align 4
+  %104 = add i32 %103, -1
+  %or.cond = icmp ult i32 %104, 2
+  br i1 %or.cond, label %105, label %108
 
-117:                                              ; preds = %114
-  %118 = load i16, ptr %7, align 2
-  %119 = add i16 %118, -1
-  store i16 %119, ptr %7, align 2
-  br label %120
+105:                                              ; preds = %102
+  %106 = load i16, ptr %7, align 2
+  %107 = add i16 %106, -1
+  store i16 %107, ptr %7, align 2
+  br label %108
 
-120:                                              ; preds = %114, %117
-  %121 = load i32, ptr @s_DiffVarValueP_new, align 4
-  %122 = add i32 %121, -1
-  %or.cond3 = icmp ult i32 %122, 2
-  br i1 %or.cond3, label %123, label %126
+108:                                              ; preds = %102, %105
+  %109 = load i32, ptr @s_DiffVarValueP_new, align 4
+  %110 = add i32 %109, -1
+  %or.cond3 = icmp ult i32 %110, 2
+  br i1 %or.cond3, label %111, label %114
 
-123:                                              ; preds = %120
-  %124 = load i16, ptr %7, align 2
-  %125 = add i16 %124, 1
-  store i16 %125, ptr %7, align 2
-  br label %126
+111:                                              ; preds = %108
+  %112 = load i16, ptr %7, align 2
+  %113 = add i16 %112, 1
+  store i16 %113, ptr %7, align 2
+  br label %114
 
-126:                                              ; preds = %120, %123
-  %127 = tail call i32 @ComputeQCostBits(ptr noundef nonnull %0) #16
-  %128 = trunc i32 %127 to i16
-  store i16 %128, ptr %8, align 2
+114:                                              ; preds = %108, %111
+  %115 = tail call i32 @ComputeQCostBits(ptr noundef nonnull %0) #16
+  %116 = trunc i32 %115 to i16
+  store i16 %116, ptr %8, align 2
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %.lr.ph62, %83, %126
-  %129 = load ptr, ptr @s_q, align 8
-  tail call void @AddToFreeCubes(ptr noundef %129) #16
-  %130 = add nuw nsw i32 %accumulator.tr65, 1
-  %131 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
-  store i32 %131, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
-  %132 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
-  store i32 %132, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
-  %133 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
-  store i32 %133, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
+tailrecurse:                                      ; preds = %.lr.ph62, %71, %114
+  %117 = load ptr, ptr @s_q, align 8
+  tail call void @AddToFreeCubes(ptr noundef %117) #16
+  %118 = add nuw nsw i32 %accumulator.tr65, 1
+  %119 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %119, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %120 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %120, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %121 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %121, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
   %storemerge54 = load ptr, ptr @s_List, align 8
   store ptr %storemerge54, ptr @s_q, align 8
   %.not55 = icmp eq ptr %storemerge54, null
   br i1 %.not55, label %CubeInsert.exit, label %.lr.ph
 
-134:                                              ; preds = %14
+122:                                              ; preds = %14
   tail call void @AddToFreeCubes(ptr noundef %0) #16
-  %135 = load ptr, ptr @s_q, align 8
-  %136 = load ptr, ptr @s_List, align 8
-  %137 = icmp eq ptr %136, %135
-  %138 = getelementptr inbounds i8, ptr %135, i64 32
-  %139 = load ptr, ptr %138, align 8
-  br i1 %137, label %144, label %140
+  %123 = load ptr, ptr @s_q, align 8
+  %124 = load ptr, ptr @s_List, align 8
+  %125 = icmp eq ptr %124, %123
+  %126 = getelementptr inbounds i8, ptr %123, i64 32
+  %127 = load ptr, ptr %126, align 8
+  br i1 %125, label %132, label %128
 
-140:                                              ; preds = %134
-  %141 = getelementptr inbounds i8, ptr %135, i64 24
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %142, i64 32
-  br label %144
+128:                                              ; preds = %122
+  %129 = getelementptr inbounds i8, ptr %123, i64 24
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 32
+  br label %132
 
-144:                                              ; preds = %140, %134
-  %.sink.i44 = phi ptr [ %143, %140 ], [ @s_List, %134 ]
-  store ptr %139, ptr %.sink.i44, align 8
-  %.not.i45 = icmp eq ptr %139, null
-  br i1 %.not.i45, label %CubeExtract.exit46, label %145
+132:                                              ; preds = %128, %122
+  %.sink.i44 = phi ptr [ %131, %128 ], [ @s_List, %122 ]
+  store ptr %127, ptr %.sink.i44, align 8
+  %.not.i45 = icmp eq ptr %127, null
+  br i1 %.not.i45, label %CubeExtract.exit46, label %133
 
-145:                                              ; preds = %144
-  %146 = getelementptr inbounds i8, ptr %135, i64 24
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %139, i64 24
-  store ptr %147, ptr %148, align 8
+133:                                              ; preds = %132
+  %134 = getelementptr inbounds i8, ptr %123, i64 24
+  %135 = load ptr, ptr %134, align 8
+  %136 = getelementptr inbounds i8, ptr %127, i64 24
+  store ptr %135, ptr %136, align 8
   br label %CubeExtract.exit46
 
-CubeExtract.exit46:                               ; preds = %144, %145
-  %149 = getelementptr inbounds i8, ptr %135, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %149, i8 0, i64 16, i1 false)
-  %150 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  %151 = add nsw i32 %150, -1
-  store i32 %151, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  tail call void @AddToFreeCubes(ptr noundef nonnull %135) #16
-  %152 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
-  store i32 %152, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
-  %153 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
-  store i32 %153, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
-  %154 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
-  store i32 %154, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
-  br label %181
+CubeExtract.exit46:                               ; preds = %132, %133
+  %137 = getelementptr inbounds i8, ptr %123, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
+  %138 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %139 = add nsw i32 %138, -1
+  store i32 %139, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  tail call void @AddToFreeCubes(ptr noundef nonnull %123) #16
+  %140 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  store i32 %140, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  %141 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  store i32 %141, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  %142 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  store i32 %142, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
+  br label %173
 
-NewRangeInsertCubePair.exit.sink.split:           ; preds = %21, %31, %41
-  %.sink106 = phi ptr [ %44, %41 ], [ %34, %31 ], [ %24, %21 ]
-  %.sink105 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 8), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 64), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 120), %21 ]
-  %.sink104 = phi i64 [ %43, %41 ], [ %33, %31 ], [ %23, %21 ]
-  %.sink100 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 16), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 72), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 128), %21 ]
-  %.sink94 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 24), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 80), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 136), %21 ]
-  %.sink90 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 40), %41 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 96), %31 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 152), %21 ]
-  %.sink101 = load ptr, ptr @s_q, align 8
-  store ptr %0, ptr %.sink106, align 8
-  %155 = load ptr, ptr %.sink105, align 8
-  %156 = getelementptr inbounds ptr, ptr %155, i64 %.sink104
-  store ptr %.sink101, ptr %156, align 8
-  %157 = load i8, ptr %6, align 1
-  %158 = load ptr, ptr %.sink100, align 8
-  %159 = getelementptr inbounds i8, ptr %158, i64 %.sink104
-  store i8 %157, ptr %159, align 1
-  %160 = getelementptr inbounds i8, ptr %.sink101, i64 1
-  %161 = load i8, ptr %160, align 1
-  %162 = load ptr, ptr %.sink94, align 8
-  %163 = getelementptr inbounds i8, ptr %162, i64 %.sink104
-  store i8 %161, ptr %163, align 1
-  %164 = load i32, ptr %.sink90, align 8
-  %165 = add nsw i32 %164, 1
-  %166 = load i32, ptr @s_nPosAlloc, align 4
-  %167 = srem i32 %165, %166
-  store i32 %167, ptr %.sink90, align 8
+NewRangeInsertCubePair.exit.sink.split:           ; preds = %29, %23, %17
+  %s_Que.sink = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 112), %17 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 56), %23 ], [ @s_Que, %29 ]
+  %.sink109 = phi i32 [ %18, %17 ], [ %24, %23 ], [ %30, %29 ]
+  %.sink105 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 120), %17 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 64), %23 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 8), %29 ]
+  %.sink100 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 128), %17 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 72), %23 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 16), %29 ]
+  %.sink94 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 136), %17 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 80), %23 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 24), %29 ]
+  %.sink90 = phi ptr [ getelementptr inbounds (i8, ptr @s_Que, i64 152), %17 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 96), %23 ], [ getelementptr inbounds (i8, ptr @s_Que, i64 40), %29 ]
+  %143 = load ptr, ptr @s_q, align 8
+  %144 = load ptr, ptr %s_Que.sink, align 8
+  %145 = sext i32 %.sink109 to i64
+  %146 = getelementptr inbounds ptr, ptr %144, i64 %145
+  store ptr %0, ptr %146, align 8
+  %147 = load ptr, ptr %.sink105, align 8
+  %148 = getelementptr inbounds ptr, ptr %147, i64 %145
+  store ptr %143, ptr %148, align 8
+  %149 = load i8, ptr %6, align 1
+  %150 = load ptr, ptr %.sink100, align 8
+  %151 = getelementptr inbounds i8, ptr %150, i64 %145
+  store i8 %149, ptr %151, align 1
+  %152 = getelementptr inbounds i8, ptr %143, i64 1
+  %153 = load i8, ptr %152, align 1
+  %154 = load ptr, ptr %.sink94, align 8
+  %155 = getelementptr inbounds i8, ptr %154, i64 %145
+  store i8 %153, ptr %155, align 1
+  %156 = load i32, ptr %.sink90, align 8
+  %157 = add nsw i32 %156, 1
+  %158 = load i32, ptr @s_nPosAlloc, align 4
+  %159 = srem i32 %157, %158
+  store i32 %159, ptr %.sink90, align 8
   br label %NewRangeInsertCubePair.exit
 
-NewRangeInsertCubePair.exit:                      ; preds = %NewRangeInsertCubePair.exit.sink.split, %37, %27, %17, %11, %25, %35, %15
-  %168 = load ptr, ptr @s_q, align 8
-  %169 = getelementptr inbounds i8, ptr %168, i64 32
-  %storemerge = load ptr, ptr %169, align 8
+NewRangeInsertCubePair.exit:                      ; preds = %NewRangeInsertCubePair.exit.sink.split, %29, %23, %17, %11, %21, %27, %15
+  %160 = load ptr, ptr @s_q, align 8
+  %161 = getelementptr inbounds i8, ptr %160, i64 32
+  %storemerge = load ptr, ptr %161, align 8
   store ptr %storemerge, ptr @s_q, align 8
   %.not = icmp eq ptr %storemerge, null
   br i1 %.not, label %tailrecurse._crit_edge, label %11, !llvm.loop !9
@@ -1037,41 +1022,41 @@ tailrecurse._crit_edge:                           ; preds = %NewRangeInsertCubeP
   %accumulator.tr.lcssa = phi i32 [ 0, %2 ], [ %accumulator.tr65, %NewRangeInsertCubePair.exit ]
   %.tr50.lcssa = phi i32 [ %1, %2 ], [ %.tr5066, %NewRangeInsertCubePair.exit ]
   %.not33 = icmp eq i32 %.tr50.lcssa, 0
-  br i1 %.not33, label %177, label %170
+  br i1 %.not33, label %169, label %162
 
-170:                                              ; preds = %tailrecurse._crit_edge
+162:                                              ; preds = %tailrecurse._crit_edge
   %.pr = load ptr, ptr @s_List, align 8
-  %171 = icmp eq ptr %.pr, null
-  br i1 %171, label %CubeInsert.exit, label %172
+  %163 = icmp eq ptr %.pr, null
+  br i1 %163, label %CubeInsert.exit, label %164
 
-172:                                              ; preds = %170
-  %173 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr %.pr, ptr %173, align 8
-  %174 = getelementptr inbounds i8, ptr %.pr, i64 24
-  store ptr %0, ptr %174, align 8
+164:                                              ; preds = %162
+  %165 = getelementptr inbounds i8, ptr %0, i64 32
+  store ptr %.pr, ptr %165, align 8
+  %166 = getelementptr inbounds i8, ptr %.pr, i64 24
+  store ptr %0, ptr %166, align 8
   br label %CubeInsert.exit
 
-CubeInsert.exit:                                  ; preds = %tailrecurse, %170, %172
-  %accumulator.tr.lcssa7982 = phi i32 [ %accumulator.tr.lcssa, %170 ], [ %accumulator.tr.lcssa, %172 ], [ %130, %tailrecurse ]
+CubeInsert.exit:                                  ; preds = %tailrecurse, %162, %164
+  %accumulator.tr.lcssa7982 = phi i32 [ %accumulator.tr.lcssa, %162 ], [ %accumulator.tr.lcssa, %164 ], [ %118, %tailrecurse ]
   store ptr %0, ptr @s_List, align 8
-  %175 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  %176 = add nsw i32 %175, 1
-  store i32 %176, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
-  br label %177
+  %167 = load i32, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  %168 = add nsw i32 %167, 1
+  store i32 %168, ptr getelementptr inbounds (i8, ptr @g_CoverInfo, i64 24), align 8
+  br label %169
 
-177:                                              ; preds = %CubeInsert.exit, %tailrecurse._crit_edge
+169:                                              ; preds = %CubeInsert.exit, %tailrecurse._crit_edge
   %accumulator.tr.lcssa80 = phi i32 [ %accumulator.tr.lcssa7982, %CubeInsert.exit ], [ %accumulator.tr.lcssa, %tailrecurse._crit_edge ]
-  %178 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
-  store i32 %178, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
-  %179 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
-  store i32 %179, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
-  %180 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
-  store i32 %180, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
-  br label %181
+  %170 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 40), align 8
+  store i32 %170, ptr getelementptr inbounds (i8, ptr @s_Que, i64 36), align 4
+  %171 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 96), align 16
+  store i32 %171, ptr getelementptr inbounds (i8, ptr @s_Que, i64 92), align 4
+  %172 = load i32, ptr getelementptr inbounds (i8, ptr @s_Que, i64 152), align 8
+  store i32 %172, ptr getelementptr inbounds (i8, ptr @s_Que, i64 148), align 4
+  br label %173
 
-181:                                              ; preds = %177, %CubeExtract.exit46
-  %accumulator.tr53 = phi i32 [ %accumulator.tr65, %CubeExtract.exit46 ], [ %accumulator.tr.lcssa80, %177 ]
-  %.030 = phi i32 [ 2, %CubeExtract.exit46 ], [ 0, %177 ]
+173:                                              ; preds = %169, %CubeExtract.exit46
+  %accumulator.tr53 = phi i32 [ %accumulator.tr65, %CubeExtract.exit46 ], [ %accumulator.tr.lcssa80, %169 ]
+  %.030 = phi i32 [ 2, %CubeExtract.exit46 ], [ 0, %169 ]
   %accumulator.ret.tr = add nsw i32 %.030, %accumulator.tr53
   ret i32 %accumulator.ret.tr
 }

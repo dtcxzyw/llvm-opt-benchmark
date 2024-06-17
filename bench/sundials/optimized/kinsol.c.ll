@@ -1233,17 +1233,17 @@ KINAllocVectors.exit:                             ; preds = %529, %432, %381, %3
   br label %674
 
 .sink.split:                                      ; preds = %579, %485, %255, %236, %218, %202, %187
-  %.neg387.i.sink = phi i64 [ %.neg387.i, %579 ], [ %.neg399.i, %485 ], [ %.neg409.i, %255 ], [ %.neg411.i, %236 ], [ %.neg413.i, %218 ], [ %.neg415.i, %202 ], [ %.neg417.i, %187 ]
-  %.neg386.i.sink = phi i64 [ %.neg386.i, %579 ], [ %.neg398.i, %485 ], [ -5, %255 ], [ -5, %236 ], [ -5, %218 ], [ -5, %202 ], [ -5, %187 ]
+  %.neg417.i.sink = phi i64 [ %.neg417.i, %187 ], [ %.neg415.i, %202 ], [ %.neg413.i, %218 ], [ %.neg411.i, %236 ], [ %.neg409.i, %255 ], [ %.neg399.i, %485 ], [ %.neg387.i, %579 ]
+  %.sink86 = phi i64 [ -5, %187 ], [ -5, %202 ], [ -5, %218 ], [ -5, %236 ], [ -5, %255 ], [ %.neg398.i, %485 ], [ %.neg386.i, %579 ]
   %605 = getelementptr inbounds i8, ptr %0, i64 536
   %606 = load i64, ptr %605, align 8
-  %607 = add i64 %.neg387.i.sink, %606
+  %607 = add i64 %.neg417.i.sink, %606
   store i64 %607, ptr %605, align 8
   %608 = load i64, ptr %61, align 8
-  %.neg390.i = mul i64 %608, %.neg386.i.sink
+  %.neg418.i = mul i64 %608, %.sink86
   %609 = getelementptr inbounds i8, ptr %0, i64 528
   %610 = load i64, ptr %609, align 8
-  %611 = add i64 %.neg390.i, %610
+  %611 = add i64 %.neg418.i, %610
   store i64 %611, ptr %609, align 8
   br label %612
 
@@ -1336,9 +1336,9 @@ KINAllocVectors.exit:                             ; preds = %529, %432, %381, %3
   br label %672
 
 660:                                              ; preds = %629
-  %spec.select85 = select i1 %.not72, ptr @SUNQRAdd_DCGS2, ptr @SUNQRAdd_DCGS2_SB
+  %spec.select91 = select i1 %.not72, ptr @SUNQRAdd_DCGS2, ptr @SUNQRAdd_DCGS2_SB
   %661 = getelementptr inbounds i8, ptr %0, i64 472
-  store ptr %spec.select85, ptr %661, align 8
+  store ptr %spec.select91, ptr %661, align 8
   %662 = getelementptr inbounds i8, ptr %0, i64 480
   %663 = load ptr, ptr %662, align 8
   store ptr %618, ptr %663, align 8

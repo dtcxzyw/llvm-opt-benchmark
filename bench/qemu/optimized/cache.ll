@@ -1507,12 +1507,12 @@ return.critedge:                                  ; preds = %cond.end
 return.sink.split:                                ; preds = %if.then26, %if.end20.if.end33_crit_edge, %return.critedge
   %.sink = phi ptr [ %19, %return.critedge ], [ %.pre, %if.end20.if.end33_crit_edge ], [ %16, %if.then26 ]
   %l1_dcache_locks.sink = phi ptr [ @l1_dcache_locks, %return.critedge ], [ @l2_ucache_locks, %if.end20.if.end33_crit_edge ], [ @l2_ucache_locks, %if.then26 ]
-  %arrayidx35 = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom
-  %20 = load ptr, ptr %arrayidx35, align 8
-  %accesses36 = getelementptr inbounds i8, ptr %20, i64 40
-  %21 = load i64, ptr %accesses36, align 8
+  %arrayidx13.c = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom
+  %20 = load ptr, ptr %arrayidx13.c, align 8
+  %accesses.c = getelementptr inbounds i8, ptr %20, i64 40
+  %21 = load i64, ptr %accesses.c, align 8
   %inc14.c = add i64 %21, 1
-  store i64 %inc14.c, ptr %accesses36, align 8
+  store i64 %inc14.c, ptr %accesses.c, align 8
   %22 = load ptr, ptr %l1_dcache_locks.sink, align 8
   %arrayidx16.c = getelementptr inbounds %union._GMutex, ptr %22, i64 %idxprom
   tail call void @g_mutex_unlock(ptr noundef %arrayidx16.c) #11
@@ -1596,12 +1596,12 @@ return.critedge:                                  ; preds = %entry
 return.sink.split:                                ; preds = %if.then19, %if.end13.if.end26_crit_edge, %return.critedge
   %.sink = phi ptr [ %20, %return.critedge ], [ %.pre, %if.end13.if.end26_crit_edge ], [ %17, %if.then19 ]
   %l1_icache_locks.sink = phi ptr [ @l1_icache_locks, %return.critedge ], [ @l2_ucache_locks, %if.end13.if.end26_crit_edge ], [ @l2_ucache_locks, %if.then19 ]
-  %arrayidx28 = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom
-  %21 = load ptr, ptr %arrayidx28, align 8
-  %accesses29 = getelementptr inbounds i8, ptr %21, i64 40
-  %22 = load i64, ptr %accesses29, align 8
+  %arrayidx6.c = getelementptr inbounds ptr, ptr %.sink, i64 %idxprom
+  %21 = load ptr, ptr %arrayidx6.c, align 8
+  %accesses.c = getelementptr inbounds i8, ptr %21, i64 40
+  %22 = load i64, ptr %accesses.c, align 8
   %inc7.c = add i64 %22, 1
-  store i64 %inc7.c, ptr %accesses29, align 8
+  store i64 %inc7.c, ptr %accesses.c, align 8
   %23 = load ptr, ptr %l1_icache_locks.sink, align 8
   %arrayidx9.c = getelementptr inbounds %union._GMutex, ptr %23, i64 %idxprom
   tail call void @g_mutex_unlock(ptr noundef %arrayidx9.c) #11

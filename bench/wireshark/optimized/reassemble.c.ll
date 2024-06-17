@@ -2018,8 +2018,8 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   br label %.sink.split
 
 .sink.split:                                      ; preds = %65, %68
-  %.sink218 = phi i32 [ 8, %65 ], [ 1024, %68 ]
-  %73 = or i32 %50, %.sink218
+  %.sink215 = phi i32 [ 1024, %68 ], [ 8, %65 ]
+  %73 = or i32 %50, %.sink215
   store i32 %73, ptr %16, align 8
   br label %74
 
@@ -2049,7 +2049,7 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   %89 = or i32 %81, 18
   store i32 %89, ptr %11, align 4
   %90 = or i32 %75, 18
-  br label %.sink.split215
+  br label %.sink.split216
 
 91:                                               ; preds = %77
   %92 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2067,14 +2067,14 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   store i32 %100, ptr %11, align 4
   %101 = load i32, ptr %16, align 8
   %102 = or i32 %101, 4
-  br label %.sink.split215
+  br label %.sink.split216
 
-.sink.split215:                                   ; preds = %88, %98
-  %.sink216 = phi i32 [ %102, %98 ], [ %90, %88 ]
-  store i32 %.sink216, ptr %16, align 8
+.sink.split216:                                   ; preds = %88, %98
+  %.sink = phi i32 [ %102, %98 ], [ %90, %88 ]
+  store i32 %.sink, ptr %16, align 8
   br label %103
 
-103:                                              ; preds = %.sink.split215, %91
+103:                                              ; preds = %.sink.split216, %91
   %104 = load ptr, ptr %0, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %.loopexit206, label %106
@@ -2090,21 +2090,21 @@ fragment_reset_defragmentation.exit:              ; preds = %.preheader.i, %._cr
   %112 = getelementptr inbounds i8, ptr %0, i64 8
   %113 = load ptr, ptr %112, align 8
   %.not.i180 = icmp eq ptr %113, null
-  br i1 %.not.i180, label %.preheader220, label %114
+  br i1 %.not.i180, label %.preheader219, label %114
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds i8, ptr %113, i64 12
   %116 = load i32, ptr %115, align 4
   %.not26.i = icmp ult i32 %107, %116
   %spec.select.i = select i1 %.not26.i, ptr %104, ptr %113
-  br label %.preheader220
+  br label %.preheader219
 
-.preheader220:                                    ; preds = %114, %111
+.preheader219:                                    ; preds = %114, %111
   %.1.i.ph = phi ptr [ %spec.select.i, %114 ], [ %104, %111 ]
   br label %117
 
-117:                                              ; preds = %.preheader220, %119
-  %.1.i = phi ptr [ %118, %119 ], [ %.1.i.ph, %.preheader220 ]
+117:                                              ; preds = %.preheader219, %119
+  %.1.i = phi ptr [ %118, %119 ], [ %.1.i.ph, %.preheader219 ]
   %118 = load ptr, ptr %.1.i, align 8
   %.not27.i = icmp eq ptr %118, null
   br i1 %.not27.i, label %.loopexit206, label %119
@@ -2923,9 +2923,9 @@ lookup_fd_head.exit:                              ; preds = %11, %19
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %126, %125
-  %.sink = phi i32 [ 1024, %126 ], [ 8, %125 ]
+  %.sink307.i = phi i32 [ 1024, %126 ], [ 8, %125 ]
   %.ph.i = phi i32 [ 0, %126 ], [ 8, %125 ]
-  %127 = or i32 %.pre296.i, %.sink
+  %127 = or i32 %.sink307.i, %.pre296.i
   store i32 %127, ptr %76, align 8
   br label %128
 

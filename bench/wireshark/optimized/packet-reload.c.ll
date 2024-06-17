@@ -3575,9 +3575,9 @@ define internal fastcc void @dissect_chordupdate(ptr noundef %0, ptr noundef %1,
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %25
-  %.sink = phi i32 [ %24, %19 ], [ %36, %25 ]
-  %hf_reload_chordupdate_fingers.sink = phi ptr [ @hf_reload_chordupdate_successors, %19 ], [ @hf_reload_chordupdate_fingers, %25 ]
-  %37 = trunc i32 %.sink to i16
+  %.sink65 = phi i32 [ %36, %25 ], [ %24, %19 ]
+  %hf_reload_chordupdate_fingers.sink = phi ptr [ @hf_reload_chordupdate_fingers, %25 ], [ @hf_reload_chordupdate_successors, %19 ]
+  %37 = trunc i32 %.sink65 to i16
   %38 = add i16 %37, %3
   %39 = sub i16 %4, %37
   %40 = load i32, ptr %hf_reload_chordupdate_fingers.sink, align 4
@@ -5547,48 +5547,38 @@ define internal fastcc range(i32 2, 258) i32 @dissect_ipaddressport(i32 noundef 
   %32 = and i32 %8, 65535
   %33 = tail call ptr @proto_tree_add_uint(ptr noundef %28, i32 noundef %31, ptr noundef %1, i32 noundef %32, i32 noundef 1, i32 noundef %10) #5
   %34 = add i16 %3, 2
-  switch i8 %16, label %65 [
-    i8 1, label %35
-    i8 2, label %50
+  switch i8 %16, label %50 [
+    i8 1, label %.sink.split78
+    i8 2, label %35
   ]
 
 35:                                               ; preds = %26
-  %36 = load i32, ptr @hf_reload_ipv4addrport, align 4
+  br label %.sink.split78
+
+.sink.split78:                                    ; preds = %26, %35
+  %hf_reload_ipv6addrport.sink = phi ptr [ @hf_reload_ipv6addrport, %35 ], [ @hf_reload_ipv4addrport, %26 ]
+  %.sink94 = phi i32 [ 3, %35 ], [ 2, %26 ]
+  %.sink92 = phi i32 [ 16, %35 ], [ 4, %26 ]
+  %ett_reload_ipv6addrport.sink = phi ptr [ @ett_reload_ipv6addrport, %35 ], [ @ett_reload_ipv4addrport, %26 ]
+  %hf_reload_ipv6addr.sink = phi ptr [ @hf_reload_ipv6addr, %35 ], [ @hf_reload_ipv4addr, %26 ]
+  %36 = load i32, ptr %hf_reload_ipv6addrport.sink, align 4
   %37 = zext i16 %34 to i32
   %38 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %36, ptr noundef %1, i32 noundef %37, i32 noundef 6, i32 noundef 0) #5
   %39 = tail call ptr @wmem_packet_scope() #5
-  %40 = tail call ptr @tvb_address_to_str(ptr noundef %39, ptr noundef %1, i32 noundef 2, i32 noundef %37) #5
-  %41 = add nuw nsw i32 %37, 4
+  %40 = tail call ptr @tvb_address_to_str(ptr noundef %39, ptr noundef %1, i32 noundef %.sink94, i32 noundef %37) #5
+  %41 = add nuw nsw i32 %.sink92, %37
   %42 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %41) #5
   %43 = zext i16 %42 to i32
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %38, ptr noundef nonnull @.str.667, ptr noundef %40, i32 noundef %43) #5
-  %44 = load i32, ptr @ett_reload_ipv4addrport, align 4
+  %44 = load i32, ptr %ett_reload_ipv6addrport.sink, align 4
   %45 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %44) #5
-  %46 = load i32, ptr @hf_reload_ipv4addr, align 4
-  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %1, i32 noundef %37, i32 noundef 4, i32 noundef 0) #5
+  %46 = load i32, ptr %hf_reload_ipv6addr.sink, align 4
+  %47 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %1, i32 noundef %37, i32 noundef %.sink92, i32 noundef 0) #5
   %48 = load i32, ptr @hf_reload_port, align 4
   %49 = tail call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %1, i32 noundef %41, i32 noundef 2, i32 noundef 0) #5
-  br label %65
+  br label %50
 
-50:                                               ; preds = %26
-  %51 = load i32, ptr @hf_reload_ipv6addrport, align 4
-  %52 = zext i16 %34 to i32
-  %53 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %51, ptr noundef %1, i32 noundef %52, i32 noundef 6, i32 noundef 0) #5
-  %54 = tail call ptr @wmem_packet_scope() #5
-  %55 = tail call ptr @tvb_address_to_str(ptr noundef %54, ptr noundef %1, i32 noundef 3, i32 noundef %52) #5
-  %56 = add nuw nsw i32 %52, 16
-  %57 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %56) #5
-  %58 = zext i16 %57 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %53, ptr noundef nonnull @.str.667, ptr noundef %55, i32 noundef %58) #5
-  %59 = load i32, ptr @ett_reload_ipv6addrport, align 4
-  %60 = tail call ptr @proto_item_add_subtree(ptr noundef %53, i32 noundef %59) #5
-  %61 = load i32, ptr @hf_reload_ipv6addr, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %61, ptr noundef %1, i32 noundef %52, i32 noundef 16, i32 noundef 0) #5
-  %63 = load i32, ptr @hf_reload_port, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %60, i32 noundef %63, ptr noundef %1, i32 noundef %56, i32 noundef 2, i32 noundef 0) #5
-  br label %65
-
-65:                                               ; preds = %26, %50, %35
+50:                                               ; preds = %.sink.split78, %26
   ret i32 %11
 }
 

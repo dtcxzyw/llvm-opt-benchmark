@@ -41693,7 +41693,7 @@ _ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit27: ; preds = %65, %.noexc2
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit27, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit18", %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit15
-  %.sink37 = phi i64 [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit27 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit18" ], [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit15 ]
+  %.sink37 = phi i64 [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit15 ], [ 2, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hafb02ec133e02f16E.exit18" ], [ 1, %_ZN5alloc6string6String4push17h5bf80ac19761e8d5E.exit27 ]
   %77 = load i64, ptr %.sroa.57.0..sroa_idx, align 8, !noundef !4
   %78 = add i64 %77, %.sink37
   store i64 %78, ptr %.sroa.57.0..sroa_idx, align 8
@@ -111776,10 +111776,10 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit148.i
 
 134:                                              ; preds = %.noexc17, %.noexc15
   %.sroa.5400.0.sink.i = phi i16 [ %.sroa.5400.0.i, %.noexc17 ], [ %.sroa.5396.0.i, %.noexc15 ]
-  %.sink.i = phi double [ %133, %.noexc17 ], [ %123, %.noexc15 ]
-  %.sink592.in.i = getelementptr inbounds i8, ptr %1, i64 504
-  %.sink592.i = load ptr, ptr %.sink592.in.i, align 8, !alias.scope !24428, !noalias !24448, !nonnull !4, !align !312, !noundef !4
-  %135 = load ptr, ptr %.sink592.i, align 8, !noalias !4, !nonnull !4, !noundef !4
+  %.sink575.i = phi double [ %133, %.noexc17 ], [ %123, %.noexc15 ]
+  %.sink.in.i = getelementptr inbounds i8, ptr %1, i64 504
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8, !alias.scope !24428, !noalias !24448, !nonnull !4, !align !312, !noundef !4
+  %135 = load ptr, ptr %.sink.i, align 8, !noalias !4, !nonnull !4, !noundef !4
   %136 = getelementptr inbounds i8, ptr %135, i64 5376
   %137 = load double, ptr %136, align 8, !noalias !4, !noundef !4
   %138 = sitofp i16 %.sroa.5400.0.sink.i to double
@@ -111798,7 +111798,7 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit148.i
   %147 = icmp ne i64 %.mask.i.i.i.i.i.i.i.i.i152.i, 0
   %.0.i.i.i.i.i.i.i.i.i153.i = and i1 %146, %147
   %.0.i.i.i.i.i.i.i.i154.i = select i1 %.0.i.i.i.i.i.i.i.i.i153.i, double 0.000000e+00, double %.0.i.i.i.i.i151.i
-  %148 = fmul double %.sink.i, %.0.i.i.i.i.i.i.i.i154.i
+  %148 = fmul double %.sink575.i, %.0.i.i.i.i.i.i.i.i154.i
   %149 = bitcast double %148 to i64
   %150 = and i64 %149, 9218868437227405312
   %151 = icmp eq i64 %150, 9218868437227405312
@@ -111845,7 +111845,7 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit161.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %43), !noalias !24431
   call void @llvm.experimental.noalias.scope.decl(metadata !24458)
   call void @llvm.experimental.noalias.scope.decl(metadata !24461)
-  %164 = load ptr, ptr %.sink592.in.i, align 8, !alias.scope !24464, !noalias !24465, !nonnull !4, !align !312, !noundef !4
+  %164 = load ptr, ptr %.sink.in.i, align 8, !alias.scope !24464, !noalias !24465, !nonnull !4, !align !312, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !24467)
   call void @llvm.experimental.noalias.scope.decl(metadata !24470)
   %165 = load ptr, ptr %164, align 8, !alias.scope !24473, !noalias !24474, !nonnull !4, !noundef !4
@@ -111912,7 +111912,7 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit174.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %42), !noalias !24431
   call void @llvm.experimental.noalias.scope.decl(metadata !24479)
   call void @llvm.experimental.noalias.scope.decl(metadata !24482)
-  %192 = load ptr, ptr %.sink592.in.i, align 8, !alias.scope !24485, !noalias !24486, !nonnull !4, !align !312, !noundef !4
+  %192 = load ptr, ptr %.sink.in.i, align 8, !alias.scope !24485, !noalias !24486, !nonnull !4, !align !312, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !24488)
   call void @llvm.experimental.noalias.scope.decl(metadata !24491)
   %193 = load ptr, ptr %192, align 8, !alias.scope !24494, !noalias !24495, !nonnull !4, !noundef !4
@@ -111979,7 +111979,7 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit187.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %41), !noalias !24431
   call void @llvm.experimental.noalias.scope.decl(metadata !24500)
   call void @llvm.experimental.noalias.scope.decl(metadata !24503)
-  %220 = load ptr, ptr %.sink592.in.i, align 8, !alias.scope !24506, !noalias !24507, !nonnull !4, !align !312, !noundef !4
+  %220 = load ptr, ptr %.sink.in.i, align 8, !alias.scope !24506, !noalias !24507, !nonnull !4, !align !312, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !24509)
   call void @llvm.experimental.noalias.scope.decl(metadata !24512)
   %221 = load ptr, ptr %220, align 8, !alias.scope !24515, !noalias !24516, !nonnull !4, !noundef !4
@@ -112046,7 +112046,7 @@ _ZN10ttf_parser6tables4math9Constants11read_record17hc3c5c79a7e8495e1E.exit200.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %40), !noalias !24431
   call void @llvm.experimental.noalias.scope.decl(metadata !24521)
   call void @llvm.experimental.noalias.scope.decl(metadata !24524)
-  %248 = load ptr, ptr %.sink592.in.i, align 8, !alias.scope !24527, !noalias !24528, !nonnull !4, !align !312, !noundef !4
+  %248 = load ptr, ptr %.sink.in.i, align 8, !alias.scope !24527, !noalias !24528, !nonnull !4, !align !312, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !24530)
   call void @llvm.experimental.noalias.scope.decl(metadata !24533)
   %249 = load ptr, ptr %248, align 8, !alias.scope !24536, !noalias !24537, !nonnull !4, !noundef !4

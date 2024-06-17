@@ -2583,12 +2583,12 @@ Gia_ObjIsPi.exit.thread.i:                        ; preds = %Gia_ObjIsPi.exit.i,
   br label %197
 
 197:                                              ; preds = %189, %177
-  %.sink85.i = phi i32 [ %196, %189 ], [ %188, %177 ]
+  %.sink86.i = phi i32 [ %196, %189 ], [ %188, %177 ]
   %198 = getelementptr i8, ptr %143, i64 64
   %.val72.i = load ptr, ptr %198, align 8
   %199 = getelementptr i8, ptr %.val72.i, i64 8
   %.val72.val.i = load ptr, ptr %199, align 8
-  %200 = sext i32 %.sink85.i to i64
+  %200 = sext i32 %.sink86.i to i64
   %201 = getelementptr inbounds i32, ptr %.val72.val.i, i64 %200
   %202 = load i32, ptr %201, align 4
   %203 = shl nsw i32 %202, 1

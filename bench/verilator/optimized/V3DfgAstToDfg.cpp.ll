@@ -49933,7 +49933,7 @@ define linkonce_odr dso_local noundef ptr @_ZN15AstToDfgVisitor6getNetEP6AstVar(
   %8 = load i64, ptr %7, align 8
   %.not24 = icmp eq i64 %8, 0
   %.not = select i1 %6, i1 true, i1 %.not24
-  br i1 %.not, label %9, label %109
+  br i1 %.not, label %9, label %110
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds i8, ptr %1, i64 72
@@ -50155,22 +50155,22 @@ _ZNSt6vectorIP12DfgVarPackedSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17_
   br label %.body
 
 .sink.split:                                      ; preds = %_ZNSt6vectorIP12DfgVarPackedSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %80, %_ZNSt6vectorIP11DfgVarArraySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %28
-  %.sink.in = phi ptr [ %19, %28 ], [ %19, %_ZNSt6vectorIP11DfgVarArraySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %56, %80 ], [ %56, %_ZNSt6vectorIP12DfgVarPackedSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
-  %.sink = ptrtoint ptr %.sink.in to i64
-  store i64 %.sink, ptr %7, align 8
-  %108 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
-  store i32 %108, ptr %3, align 8
-  br label %109
+  %.sink25 = phi ptr [ %19, %28 ], [ %19, %_ZNSt6vectorIP11DfgVarArraySaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ], [ %56, %80 ], [ %56, %_ZNSt6vectorIP12DfgVarPackedSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %108 = ptrtoint ptr %.sink25 to i64
+  store i64 %108, ptr %7, align 8
+  %109 = load i32, ptr @_ZN12VNUser1InUse12s_userCntGblE, align 4
+  store i32 %109, ptr %3, align 8
+  br label %110
 
-109:                                              ; preds = %.sink.split, %2
-  %110 = phi i64 [ %8, %2 ], [ %.sink, %.sink.split ]
-  %111 = inttoptr i64 %110 to ptr
-  ret ptr %111
+110:                                              ; preds = %.sink.split, %2
+  %111 = phi i64 [ %8, %2 ], [ %108, %.sink.split ]
+  %112 = inttoptr i64 %111 to ptr
+  ret ptr %112
 
 .body:                                            ; preds = %106, %63, %54
-  %.sink25 = phi ptr [ %19, %54 ], [ %56, %63 ], [ %56, %106 ]
+  %.sink = phi ptr [ %19, %54 ], [ %56, %63 ], [ %56, %106 ]
   %.pn = phi { ptr, i32 } [ %55, %54 ], [ %64, %63 ], [ %107, %106 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink25) #25
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink) #25
   resume { ptr, i32 } %.pn
 }
 

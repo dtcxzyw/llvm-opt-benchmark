@@ -1630,12 +1630,12 @@ If_CutTruth.exit:                                 ; preds = %.lr.ph.i.i.i, %.lr.
   br label %732
 
 732:                                              ; preds = %If_CutTruthW.exit, %If_CutTruth.exit, %626
-  %.sink1002 = phi i64 [ %686, %If_CutTruthW.exit ], [ %731, %If_CutTruth.exit ], [ %642, %626 ]
+  %.sink1001 = phi i64 [ %686, %If_CutTruthW.exit ], [ %731, %If_CutTruth.exit ], [ %642, %626 ]
   %.sink = load i64, ptr %416, align 4
   %733 = and i64 %.sink, -16385
-  %734 = or disjoint i64 %733, %.sink1002
+  %734 = or disjoint i64 %733, %.sink1001
   store i64 %734, ptr %416, align 4
-  %735 = trunc nuw nsw i64 %.sink1002 to i32
+  %735 = trunc nuw nsw i64 %.sink1001 to i32
   %736 = lshr i32 %735, 14
   %737 = and i32 %736, 1
   %738 = load i32, ptr %257, align 4
@@ -2360,8 +2360,8 @@ Abc_TtProcessBiDec.exit:                          ; preds = %.lr.ph18.preheader.
   %.pre947 = load i64, ptr %416, align 4
   %1131 = and i64 %.pre947, 16384
   %.not602 = icmp eq i64 %1131, 0
-  %or.cond1000 = select i1 %.not601, i1 %.not602, i1 false
-  br i1 %or.cond1000, label %Abc_Tt4Check.exit.thread, label %1132
+  %or.cond1002 = select i1 %.not601, i1 %.not602, i1 false
+  br i1 %or.cond1002, label %Abc_Tt4Check.exit.thread, label %1132
 
 1132:                                             ; preds = %1128
   %1133 = load i32, ptr %419, align 4

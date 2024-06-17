@@ -1732,35 +1732,28 @@ if.then:                                          ; preds = %entry
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   %or.i8.i = or disjoint i8 %1, 1
-  store i8 %or.i8.i, ptr %result, align 8
-  %exp1.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i, align 8
-  %data.i = getelementptr inbounds i8, ptr %result, i64 40
-  %2 = load ptr, ptr %data.i, align 8
-  %arrayidx.i = getelementptr i8, ptr %2, i64 8
-  store i64 0, ptr %arrayidx.i, align 8
-  store i64 %sub, ptr %2, align 8
   br label %if.end4
 
 if.else3.split:                                   ; preds = %entry
-  %3 = load i8, ptr %result, align 8
-  %4 = and i8 %3, -16
-  store i8 %4, ptr %result, align 8
-  %exp1.i6 = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i6, align 8
-  %data.i7 = getelementptr inbounds i8, ptr %result, i64 40
-  %5 = load ptr, ptr %data.i7, align 8
-  %arrayidx.i8 = getelementptr i8, ptr %5, i64 8
-  store i64 0, ptr %arrayidx.i8, align 8
-  store i64 %a, ptr %5, align 8
+  %2 = load i8, ptr %result, align 8
+  %3 = and i8 %2, -16
   br label %if.end4
 
 if.end4:                                          ; preds = %if.else3.split, %if.then
-  %data.i7.sink = phi ptr [ %data.i7, %if.else3.split ], [ %data.i, %if.then ]
-  %6 = load ptr, ptr %data.i7.sink, align 8
-  %arrayidx5.i13 = getelementptr i8, ptr %6, i64 8
-  %7 = load i64, ptr %arrayidx5.i13, align 8
-  %cmp.i14 = icmp eq i64 %7, 0
+  %.sink = phi i8 [ %3, %if.else3.split ], [ %or.i8.i, %if.then ]
+  %a.sink = phi i64 [ %a, %if.else3.split ], [ %sub, %if.then ]
+  store i8 %.sink, ptr %result, align 8
+  %exp1.i6 = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 0, ptr %exp1.i6, align 8
+  %data.i7 = getelementptr inbounds i8, ptr %result, i64 40
+  %4 = load ptr, ptr %data.i7, align 8
+  %arrayidx.i8 = getelementptr i8, ptr %4, i64 8
+  store i64 0, ptr %arrayidx.i8, align 8
+  store i64 %a.sink, ptr %4, align 8
+  %5 = load ptr, ptr %data.i7, align 8
+  %arrayidx5.i13 = getelementptr i8, ptr %5, i64 8
+  %6 = load i64, ptr %arrayidx5.i13, align 8
+  %cmp.i14 = icmp eq i64 %6, 0
   %conv.i15 = select i1 %cmp.i14, i64 1, i64 2
   %len.i16 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15, ptr %len.i16, align 8
@@ -2002,35 +1995,28 @@ if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   %or.i8.i.i = or disjoint i8 %1, 1
-  store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
-  %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %sub.i, ptr %2, align 8
   br label %mpd_qsset_ssize.exit
 
 if.else3.split.i:                                 ; preds = %entry
-  %3 = load i8, ptr %result, align 8
-  %4 = and i8 %3, -16
-  store i8 %4, ptr %result, align 8
-  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i6.i, align 8
-  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
-  %5 = load ptr, ptr %data.i7.i, align 8
-  %arrayidx.i8.i = getelementptr i8, ptr %5, i64 8
-  store i64 0, ptr %arrayidx.i8.i, align 8
-  store i64 %conv, ptr %5, align 8
+  %2 = load i8, ptr %result, align 8
+  %3 = and i8 %2, -16
   br label %mpd_qsset_ssize.exit
 
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else3.split.i
-  %data.i7.sink.i = phi ptr [ %data.i7.i, %if.else3.split.i ], [ %data.i.i, %if.then.i ]
-  %6 = load ptr, ptr %data.i7.sink.i, align 8
-  %arrayidx5.i13.i = getelementptr i8, ptr %6, i64 8
-  %7 = load i64, ptr %arrayidx5.i13.i, align 8
-  %cmp.i14.i = icmp eq i64 %7, 0
+  %.sink.i = phi i8 [ %3, %if.else3.split.i ], [ %or.i8.i.i, %if.then.i ]
+  %a.sink.i = phi i64 [ %conv, %if.else3.split.i ], [ %sub.i, %if.then.i ]
+  store i8 %.sink.i, ptr %result, align 8
+  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 0, ptr %exp1.i6.i, align 8
+  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
+  %4 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx.i8.i = getelementptr i8, ptr %4, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %a.sink.i, ptr %4, align 8
+  %5 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx5.i13.i = getelementptr i8, ptr %5, i64 8
+  %6 = load i64, ptr %arrayidx5.i13.i, align 8
+  %cmp.i14.i = icmp eq i64 %6, 0
   %conv.i15.i = select i1 %cmp.i14.i, i64 1, i64 2
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
@@ -2076,35 +2062,28 @@ if.then.i:                                        ; preds = %entry
   %0 = load i8, ptr %result, align 8
   %1 = and i8 %0, -16
   %or.i8.i.i = or disjoint i8 %1, 1
-  store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
-  %2 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %2, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %sub.i, ptr %2, align 8
   br label %mpd_qsset_ssize.exit
 
 if.else3.split.i:                                 ; preds = %entry
-  %3 = load i8, ptr %result, align 8
-  %4 = and i8 %3, -16
-  store i8 %4, ptr %result, align 8
-  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i6.i, align 8
-  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
-  %5 = load ptr, ptr %data.i7.i, align 8
-  %arrayidx.i8.i = getelementptr i8, ptr %5, i64 8
-  store i64 0, ptr %arrayidx.i8.i, align 8
-  store i64 %a, ptr %5, align 8
+  %2 = load i8, ptr %result, align 8
+  %3 = and i8 %2, -16
   br label %mpd_qsset_ssize.exit
 
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i, %if.else3.split.i
-  %data.i7.sink.i = phi ptr [ %data.i7.i, %if.else3.split.i ], [ %data.i.i, %if.then.i ]
-  %6 = load ptr, ptr %data.i7.sink.i, align 8
-  %arrayidx5.i13.i = getelementptr i8, ptr %6, i64 8
-  %7 = load i64, ptr %arrayidx5.i13.i, align 8
-  %cmp.i14.i = icmp eq i64 %7, 0
+  %.sink.i = phi i8 [ %3, %if.else3.split.i ], [ %or.i8.i.i, %if.then.i ]
+  %a.sink.i = phi i64 [ %a, %if.else3.split.i ], [ %sub.i, %if.then.i ]
+  store i8 %.sink.i, ptr %result, align 8
+  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 0, ptr %exp1.i6.i, align 8
+  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
+  %4 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx.i8.i = getelementptr i8, ptr %4, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %a.sink.i, ptr %4, align 8
+  %5 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx5.i13.i = getelementptr i8, ptr %5, i64 8
+  %6 = load i64, ptr %arrayidx5.i13.i, align 8
+  %cmp.i14.i = icmp eq i64 %6, 0
   %conv.i15.i = select i1 %cmp.i14.i, i64 1, i64 2
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
@@ -2182,35 +2161,28 @@ if.then.i7:                                       ; preds = %mpd_minalloc.exit
   %7 = load i8, ptr %result, align 8
   %8 = and i8 %7, -16
   %or.i8.i.i = or disjoint i8 %8, 1
-  store i8 %or.i8.i.i, ptr %result, align 8
-  %exp1.i.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i.i, align 8
-  %data.i.i = getelementptr inbounds i8, ptr %result, i64 40
-  %9 = load ptr, ptr %data.i.i, align 8
-  %arrayidx.i.i = getelementptr i8, ptr %9, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %sub.i, ptr %9, align 8
   br label %mpd_qsset_ssize.exit
 
 if.else3.split.i:                                 ; preds = %mpd_minalloc.exit
-  %10 = load i8, ptr %result, align 8
-  %11 = and i8 %10, -16
-  store i8 %11, ptr %result, align 8
-  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 0, ptr %exp1.i6.i, align 8
-  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
-  %12 = load ptr, ptr %data.i7.i, align 8
-  %arrayidx.i8.i = getelementptr i8, ptr %12, i64 8
-  store i64 0, ptr %arrayidx.i8.i, align 8
-  store i64 %a, ptr %12, align 8
+  %9 = load i8, ptr %result, align 8
+  %10 = and i8 %9, -16
   br label %mpd_qsset_ssize.exit
 
 mpd_qsset_ssize.exit:                             ; preds = %if.then.i7, %if.else3.split.i
-  %data.i7.sink.i = phi ptr [ %data.i7.i, %if.else3.split.i ], [ %data.i.i, %if.then.i7 ]
-  %13 = load ptr, ptr %data.i7.sink.i, align 8
-  %arrayidx5.i13.i = getelementptr i8, ptr %13, i64 8
-  %14 = load i64, ptr %arrayidx5.i13.i, align 8
-  %cmp.i14.i = icmp eq i64 %14, 0
+  %.sink.i = phi i8 [ %10, %if.else3.split.i ], [ %or.i8.i.i, %if.then.i7 ]
+  %a.sink.i = phi i64 [ %a, %if.else3.split.i ], [ %sub.i, %if.then.i7 ]
+  store i8 %.sink.i, ptr %result, align 8
+  %exp1.i6.i = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 0, ptr %exp1.i6.i, align 8
+  %data.i7.i = getelementptr inbounds i8, ptr %result, i64 40
+  %11 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx.i8.i = getelementptr i8, ptr %11, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %a.sink.i, ptr %11, align 8
+  %12 = load ptr, ptr %data.i7.i, align 8
+  %arrayidx5.i13.i = getelementptr i8, ptr %12, i64 8
+  %13 = load i64, ptr %arrayidx5.i13.i, align 8
+  %cmp.i14.i = icmp eq i64 %13, 0
   %conv.i15.i = select i1 %cmp.i14.i, i64 1, i64 2
   %len.i16.i = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %conv.i15.i, ptr %len.i16.i, align 8
@@ -9760,31 +9732,32 @@ entry:
   %exp = getelementptr inbounds i8, ptr %bb, i64 8
   %len = getelementptr inbounds i8, ptr %bb, i64 24
   %alloc = getelementptr inbounds i8, ptr %bb, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
+  store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
-  %storemerge8 = select i1 %cmp.i, i8 49, i8 48
-  %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
-  store i8 %storemerge8, ptr %bb, align 8
+  %spec.select = select i1 %cmp.i, i8 49, i8 48
+  %spec.select8 = call i64 @llvm.abs.i64(i64 %b, i1 false)
+  store i8 %spec.select, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %storemerge, ptr %bb_data, align 16
+  %arrayidx.i8.i = getelementptr inbounds i8, ptr %bb_data, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %spec.select8, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
   call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  %0 = load i8, ptr %a, align 8
-  %1 = and i8 %0, 14
-  %tobool.not.i = icmp eq i8 %1, 0
+  %1 = load i8, ptr %a, align 8
+  %2 = and i8 %1, 14
+  %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i6
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %2 = load i8, ptr %bb, align 8
-  %3 = and i8 %2, 14
-  %tobool2.not.i = icmp eq i8 %3, 0
+  %3 = load i8, ptr %bb, align 8
+  %4 = and i8 %3, 14
+  %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.end7.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.lhs.false.i, %entry
@@ -9793,39 +9766,39 @@ if.then.i6:                                       ; preds = %lor.lhs.false.i, %e
   br i1 %tobool4.not.i, label %if.end.i7, label %mpd_qadd.exit
 
 if.end.i7:                                        ; preds = %if.then.i6
-  %4 = load i8, ptr %bb, align 8
-  %5 = and i8 %4, 1
+  %5 = load i8, ptr %bb, align 8
+  %6 = and i8 %5, 1
   %a.val.i = load i8, ptr %a, align 8
-  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %5, ptr noundef %status)
+  call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %6, ptr noundef %status)
   br label %mpd_qadd.exit
 
 if.end7.i:                                        ; preds = %lor.lhs.false.i
-  %and.i14.i = and i8 %2, 1
+  %and.i14.i = and i8 %3, 1
   call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %and.i14.i, ptr noundef %ctx, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
   br label %mpd_qadd.exit
 
 mpd_qadd.exit:                                    ; preds = %if.then.i6, %if.end.i7, %if.end7.i
-  %6 = load i8, ptr %bb, align 8
-  %tobool.i8.i.not = icmp ult i8 %6, 32
+  %7 = load i8, ptr %bb, align 8
+  %tobool.i8.i.not = icmp ult i8 %7, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %mpd_qadd.exit
-  %7 = load ptr, ptr @mpd_free, align 8
-  %8 = load ptr, ptr %data, align 8
-  call void %7(ptr noundef %8) #27
+  %8 = load ptr, ptr @mpd_free, align 8
+  %9 = load ptr, ptr %data, align 8
+  call void %8(ptr noundef %9) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %mpd_qadd.exit
-  %9 = phi i8 [ %.pre, %if.then.i ], [ %6, %mpd_qadd.exit ]
-  %10 = and i8 %9, 16
-  %tobool.i.i.not = icmp eq i8 %10, 0
+  %10 = phi i8 [ %.pre, %if.then.i ], [ %7, %mpd_qadd.exit ]
+  %11 = and i8 %10, 16
+  %tobool.i.i.not = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not, label %if.then3.i, label %mpd_del.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr @mpd_free, align 8
-  call void %11(ptr noundef nonnull %bb) #27
+  %12 = load ptr, ptr @mpd_free, align 8
+  call void %12(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -9925,31 +9898,32 @@ entry:
   %exp = getelementptr inbounds i8, ptr %bb, i64 8
   %len = getelementptr inbounds i8, ptr %bb, i64 24
   %alloc = getelementptr inbounds i8, ptr %bb, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
+  store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
-  %storemerge8 = select i1 %cmp.i, i8 49, i8 48
-  %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
-  store i8 %storemerge8, ptr %bb, align 8
+  %spec.select = select i1 %cmp.i, i8 49, i8 48
+  %spec.select8 = call i64 @llvm.abs.i64(i64 %b, i1 false)
+  store i8 %spec.select, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %storemerge, ptr %bb_data, align 16
+  %arrayidx.i8.i = getelementptr inbounds i8, ptr %bb_data, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %spec.select8, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
   call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
-  %0 = load i8, ptr %a, align 8
-  %1 = and i8 %0, 14
-  %tobool.not.i = icmp eq i8 %1, 0
+  %1 = load i8, ptr %a, align 8
+  %2 = and i8 %1, 14
+  %tobool.not.i = icmp eq i8 %2, 0
   br i1 %tobool.not.i, label %lor.lhs.false.i, label %if.then.i6
 
 lor.lhs.false.i:                                  ; preds = %entry
-  %2 = load i8, ptr %bb, align 8
-  %3 = and i8 %2, 14
-  %tobool2.not.i = icmp eq i8 %3, 0
+  %3 = load i8, ptr %bb, align 8
+  %4 = and i8 %3, 14
+  %tobool2.not.i = icmp eq i8 %4, 0
   br i1 %tobool2.not.i, label %if.end8.i, label %if.then.i6
 
 if.then.i6:                                       ; preds = %lor.lhs.false.i, %entry
@@ -9958,41 +9932,41 @@ if.then.i6:                                       ; preds = %lor.lhs.false.i, %e
   br i1 %tobool4.not.i, label %if.end.i7, label %mpd_qsub.exit
 
 if.end.i7:                                        ; preds = %if.then.i6
-  %4 = load i8, ptr %bb, align 8
-  %5 = and i8 %4, 1
-  %conv.i = xor i8 %5, 1
+  %5 = load i8, ptr %bb, align 8
+  %6 = and i8 %5, 1
+  %conv.i = xor i8 %6, 1
   %a.val.i = load i8, ptr %a, align 8
   call fastcc void @_mpd_qaddsub_inf(ptr noundef %result, i8 %a.val.i, ptr noundef nonnull %bb, i8 noundef zeroext %conv.i, ptr noundef %status)
   br label %mpd_qsub.exit
 
 if.end8.i:                                        ; preds = %lor.lhs.false.i
-  %and.i19.i = and i8 %2, 1
+  %and.i19.i = and i8 %3, 1
   %conv13.i = xor i8 %and.i19.i, 1
   call fastcc void @_mpd_qaddsub(ptr noundef %result, ptr noundef nonnull %a, ptr noundef nonnull %bb, i8 noundef zeroext %conv13.i, ptr noundef %ctx, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
   br label %mpd_qsub.exit
 
 mpd_qsub.exit:                                    ; preds = %if.then.i6, %if.end.i7, %if.end8.i
-  %6 = load i8, ptr %bb, align 8
-  %tobool.i8.i.not = icmp ult i8 %6, 32
+  %7 = load i8, ptr %bb, align 8
+  %tobool.i8.i.not = icmp ult i8 %7, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %mpd_qsub.exit
-  %7 = load ptr, ptr @mpd_free, align 8
-  %8 = load ptr, ptr %data, align 8
-  call void %7(ptr noundef %8) #27
+  %8 = load ptr, ptr @mpd_free, align 8
+  %9 = load ptr, ptr %data, align 8
+  call void %8(ptr noundef %9) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %mpd_qsub.exit
-  %9 = phi i8 [ %.pre, %if.then.i ], [ %6, %mpd_qsub.exit ]
-  %10 = and i8 %9, 16
-  %tobool.i.i.not = icmp eq i8 %10, 0
+  %10 = phi i8 [ %.pre, %if.then.i ], [ %7, %mpd_qsub.exit ]
+  %11 = and i8 %10, 16
+  %tobool.i.i.not = icmp eq i8 %11, 0
   br i1 %tobool.i.i.not, label %if.then3.i, label %mpd_del.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %11 = load ptr, ptr @mpd_free, align 8
-  call void %11(ptr noundef nonnull %bb) #27
+  %12 = load ptr, ptr @mpd_free, align 8
+  call void %12(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -12963,43 +12937,44 @@ entry:
   %exp = getelementptr inbounds i8, ptr %bb, i64 8
   %len = getelementptr inbounds i8, ptr %bb, i64 24
   %alloc = getelementptr inbounds i8, ptr %bb, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
+  store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
-  %storemerge6 = select i1 %cmp.i, i8 49, i8 48
-  %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
-  store i8 %storemerge6, ptr %bb, align 8
+  %spec.select = select i1 %cmp.i, i8 49, i8 48
+  %spec.select6 = call i64 @llvm.abs.i64(i64 %b, i1 false)
+  store i8 %spec.select, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %storemerge, ptr %bb_data, align 16
+  %arrayidx.i8.i = getelementptr inbounds i8, ptr %bb_data, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %spec.select6, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
   call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
   call void @mpd_qdiv(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
-  %0 = load i8, ptr %bb, align 8
-  %tobool.i8.i.not = icmp ult i8 %0, 32
+  %1 = load i8, ptr %bb, align 8
+  %tobool.i8.i.not = icmp ult i8 %1, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr @mpd_free, align 8
-  %2 = load ptr, ptr %data, align 8
-  call void %1(ptr noundef %2) #27
+  %2 = load ptr, ptr @mpd_free, align 8
+  %3 = load ptr, ptr %data, align 8
+  call void %2(ptr noundef %3) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %3 = phi i8 [ %.pre, %if.then.i ], [ %0, %entry ]
-  %4 = and i8 %3, 16
-  %tobool.i.i.not = icmp eq i8 %4, 0
+  %4 = phi i8 [ %.pre, %if.then.i ], [ %1, %entry ]
+  %5 = and i8 %4, 16
+  %tobool.i.i.not = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not, label %if.then3.i, label %mpd_del.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %5 = load ptr, ptr @mpd_free, align 8
-  call void %5(ptr noundef nonnull %bb) #27
+  %6 = load ptr, ptr @mpd_free, align 8
+  call void %6(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i
@@ -18002,41 +17977,41 @@ mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if
   br i1 %tobool.not.i118, label %if.end27, label %if.end27.sink.split.sink.split.sink.split
 
 if.end27.sink.split.sink.split.sink.split:        ; preds = %mpd_qresize.exit.i116, %mpd_qresize.exit.i84, %mpd_qresize.exit.i49, %mpd_qresize.exit.i
-  %a.sink132.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %b, %mpd_qresize.exit.i84 ], [ %a, %mpd_qresize.exit.i116 ]
-  %len.i.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
+  %a.sink.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %b, %mpd_qresize.exit.i84 ], [ %a, %mpd_qresize.exit.i116 ]
+  %len.i94.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
   %.pre.i120 = load i8, ptr %result, align 8
   br label %if.end27.sink.split.sink.split
 
 if.end27.sink.split.sink.split:                   ; preds = %if.end27.sink.split.sink.split.sink.split, %if.end.i93, %if.then2.i.i101, %if.end.i61, %if.then2.i.i69
-  %a.sink132 = phi ptr [ %b, %if.then2.i.i69 ], [ %b, %if.end.i61 ], [ %a, %if.then2.i.i101 ], [ %a, %if.end.i93 ], [ %a.sink132.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %a.sink = phi ptr [ %b, %if.then2.i.i69 ], [ %b, %if.end.i61 ], [ %a, %if.then2.i.i101 ], [ %a, %if.end.i93 ], [ %a.sink.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i8 [ %.pre28.i66, %if.then2.i.i69 ], [ %.pre28.i66, %if.end.i61 ], [ %.pre28.i98, %if.then2.i.i101 ], [ %.pre28.i98, %if.end.i93 ], [ %.pre.i120, %if.end27.sink.split.sink.split.sink.split ]
-  %len.i.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
-  %.pre125 = load i8, ptr %a.sink132, align 8
+  %len.i94.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i94.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %.pre125 = load i8, ptr %a.sink, align 8
   br label %if.end27.sink.split
 
 if.end27.sink.split:                              ; preds = %if.end27.sink.split.sink.split, %if.end.i26, %if.then2.i.i34, %if.end.i, %if.then2.i.i
   %.sink = phi i8 [ %.pre28.i, %if.then2.i.i ], [ %.pre28.i, %if.end.i ], [ %.pre28.i31, %if.then2.i.i34 ], [ %.pre28.i31, %if.end.i26 ], [ %.sink.ph, %if.end27.sink.split.sink.split ]
-  %.sink131 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
-  %b.sink129 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink132, %if.end27.sink.split.sink.split ]
-  %len.i.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i.sink.ph, %if.end27.sink.split.sink.split ]
+  %.sink132 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
+  %a.sink130 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink, %if.end27.sink.split.sink.split ]
+  %len.i94.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i94.sink.ph, %if.end27.sink.split.sink.split ]
   %29 = and i8 %.sink, -16
-  %30 = and i8 %.sink131, 15
-  %or.i25.i = or disjoint i8 %30, %29
-  store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds i8, ptr %b.sink129, i64 8
-  %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds i8, ptr %b.sink129, i64 16
-  %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
-  store i64 %32, ptr %digits4.i, align 8
-  %33 = load i64, ptr %len.i.sink, align 8
+  %30 = and i8 %.sink132, 15
+  %or.i25.i104 = or disjoint i8 %30, %29
+  store i8 %or.i25.i104, ptr %result, align 8
+  %exp.i105 = getelementptr inbounds i8, ptr %a.sink130, i64 8
+  %31 = load i64, ptr %exp.i105, align 8
+  %exp3.i106 = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 %31, ptr %exp3.i106, align 8
+  %digits.i107 = getelementptr inbounds i8, ptr %a.sink130, i64 16
+  %32 = load i64, ptr %digits.i107, align 8
+  %digits4.i108 = getelementptr inbounds i8, ptr %result, i64 16
+  store i64 %32, ptr %digits4.i108, align 8
+  %33 = load i64, ptr %len.i94.sink, align 8
   %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
   %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds i8, ptr %b.sink129, i64 40
+  %data7.i111 = getelementptr inbounds i8, ptr %a.sink130, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18261,41 +18236,41 @@ mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if
   br i1 %tobool.not.i118, label %if.end27, label %if.end27.sink.split.sink.split.sink.split
 
 if.end27.sink.split.sink.split.sink.split:        ; preds = %mpd_qresize.exit.i116, %mpd_qresize.exit.i84, %mpd_qresize.exit.i49, %mpd_qresize.exit.i
-  %a.sink132.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %b, %mpd_qresize.exit.i84 ], [ %a, %mpd_qresize.exit.i116 ]
-  %len.i.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
+  %a.sink.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %b, %mpd_qresize.exit.i84 ], [ %a, %mpd_qresize.exit.i116 ]
+  %len.i94.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
   %.pre.i120 = load i8, ptr %result, align 8
   br label %if.end27.sink.split.sink.split
 
 if.end27.sink.split.sink.split:                   ; preds = %if.end27.sink.split.sink.split.sink.split, %if.end.i93, %if.then2.i.i101, %if.end.i61, %if.then2.i.i69
-  %a.sink132 = phi ptr [ %b, %if.then2.i.i69 ], [ %b, %if.end.i61 ], [ %a, %if.then2.i.i101 ], [ %a, %if.end.i93 ], [ %a.sink132.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %a.sink = phi ptr [ %b, %if.then2.i.i69 ], [ %b, %if.end.i61 ], [ %a, %if.then2.i.i101 ], [ %a, %if.end.i93 ], [ %a.sink.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i8 [ %.pre28.i66, %if.then2.i.i69 ], [ %.pre28.i66, %if.end.i61 ], [ %.pre28.i98, %if.then2.i.i101 ], [ %.pre28.i98, %if.end.i93 ], [ %.pre.i120, %if.end27.sink.split.sink.split.sink.split ]
-  %len.i.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
-  %.pre125 = load i8, ptr %a.sink132, align 8
+  %len.i94.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i94.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %.pre125 = load i8, ptr %a.sink, align 8
   br label %if.end27.sink.split
 
 if.end27.sink.split:                              ; preds = %if.end27.sink.split.sink.split, %if.end.i26, %if.then2.i.i34, %if.end.i, %if.then2.i.i
   %.sink = phi i8 [ %.pre28.i, %if.then2.i.i ], [ %.pre28.i, %if.end.i ], [ %.pre28.i31, %if.then2.i.i34 ], [ %.pre28.i31, %if.end.i26 ], [ %.sink.ph, %if.end27.sink.split.sink.split ]
-  %.sink131 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
-  %b.sink129 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink132, %if.end27.sink.split.sink.split ]
-  %len.i.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i.sink.ph, %if.end27.sink.split.sink.split ]
+  %.sink132 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
+  %a.sink130 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink, %if.end27.sink.split.sink.split ]
+  %len.i94.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i94.sink.ph, %if.end27.sink.split.sink.split ]
   %29 = and i8 %.sink, -16
-  %30 = and i8 %.sink131, 15
-  %or.i25.i = or disjoint i8 %30, %29
-  store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds i8, ptr %b.sink129, i64 8
-  %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds i8, ptr %b.sink129, i64 16
-  %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
-  store i64 %32, ptr %digits4.i, align 8
-  %33 = load i64, ptr %len.i.sink, align 8
+  %30 = and i8 %.sink132, 15
+  %or.i25.i104 = or disjoint i8 %30, %29
+  store i8 %or.i25.i104, ptr %result, align 8
+  %exp.i105 = getelementptr inbounds i8, ptr %a.sink130, i64 8
+  %31 = load i64, ptr %exp.i105, align 8
+  %exp3.i106 = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 %31, ptr %exp3.i106, align 8
+  %digits.i107 = getelementptr inbounds i8, ptr %a.sink130, i64 16
+  %32 = load i64, ptr %digits.i107, align 8
+  %digits4.i108 = getelementptr inbounds i8, ptr %result, i64 16
+  store i64 %32, ptr %digits4.i108, align 8
+  %33 = load i64, ptr %len.i94.sink, align 8
   %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
   %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
   %34 = load ptr, ptr %data.i110, align 8
-  %data7.i111 = getelementptr inbounds i8, ptr %b.sink129, i64 40
+  %data7.i111 = getelementptr inbounds i8, ptr %a.sink130, i64 40
   %35 = load ptr, ptr %data7.i111, align 8
   %mul.i112 = shl i64 %33, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %35, i64 %mul.i112, i1 false)
@@ -18521,14 +18496,14 @@ mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if
 
 if.end27.sink.split.sink.split.sink.split:        ; preds = %mpd_qresize.exit.i116, %mpd_qresize.exit.i84, %mpd_qresize.exit.i49, %mpd_qresize.exit.i
   %a.sink.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %a, %mpd_qresize.exit.i84 ], [ %b, %mpd_qresize.exit.i116 ]
-  %len.i.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
+  %len.i94.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
   %.pre.i120 = load i8, ptr %result, align 8
   br label %if.end27.sink.split.sink.split
 
 if.end27.sink.split.sink.split:                   ; preds = %if.end27.sink.split.sink.split.sink.split, %if.end.i93, %if.then2.i.i101, %if.end.i61, %if.then2.i.i69
   %a.sink = phi ptr [ %a, %if.then2.i.i69 ], [ %a, %if.end.i61 ], [ %b, %if.then2.i.i101 ], [ %b, %if.end.i93 ], [ %a.sink.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i8 [ %.pre28.i66, %if.then2.i.i69 ], [ %.pre28.i66, %if.end.i61 ], [ %.pre28.i98, %if.then2.i.i101 ], [ %.pre28.i98, %if.end.i93 ], [ %.pre.i120, %if.end27.sink.split.sink.split.sink.split ]
-  %len.i.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %len.i94.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i94.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.pre125 = load i8, ptr %a.sink, align 8
   br label %if.end27.sink.split
 
@@ -18536,20 +18511,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %.sink = phi i8 [ %.pre28.i, %if.then2.i.i ], [ %.pre28.i, %if.end.i ], [ %.pre28.i31, %if.then2.i.i34 ], [ %.pre28.i31, %if.end.i26 ], [ %.sink.ph, %if.end27.sink.split.sink.split ]
   %.sink132 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
   %b.sink130 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink, %if.end27.sink.split.sink.split ]
-  %len.i.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i.sink.ph, %if.end27.sink.split.sink.split ]
+  %len.i94.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i94.sink.ph, %if.end27.sink.split.sink.split ]
   %29 = and i8 %.sink, -16
   %30 = and i8 %.sink132, 15
-  %or.i25.i = or disjoint i8 %30, %29
-  store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds i8, ptr %b.sink130, i64 8
-  %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds i8, ptr %b.sink130, i64 16
-  %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
-  store i64 %32, ptr %digits4.i, align 8
-  %33 = load i64, ptr %len.i.sink, align 8
+  %or.i25.i104 = or disjoint i8 %30, %29
+  store i8 %or.i25.i104, ptr %result, align 8
+  %exp.i105 = getelementptr inbounds i8, ptr %b.sink130, i64 8
+  %31 = load i64, ptr %exp.i105, align 8
+  %exp3.i106 = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 %31, ptr %exp3.i106, align 8
+  %digits.i107 = getelementptr inbounds i8, ptr %b.sink130, i64 16
+  %32 = load i64, ptr %digits.i107, align 8
+  %digits4.i108 = getelementptr inbounds i8, ptr %result, i64 16
+  store i64 %32, ptr %digits4.i108, align 8
+  %33 = load i64, ptr %len.i94.sink, align 8
   %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
   %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
@@ -18780,14 +18755,14 @@ mpd_qresize.exit.i116:                            ; preds = %if.end8.i.i121, %if
 
 if.end27.sink.split.sink.split.sink.split:        ; preds = %mpd_qresize.exit.i116, %mpd_qresize.exit.i84, %mpd_qresize.exit.i49, %mpd_qresize.exit.i
   %a.sink.ph = phi ptr [ %b, %mpd_qresize.exit.i ], [ %a, %mpd_qresize.exit.i49 ], [ %a, %mpd_qresize.exit.i84 ], [ %b, %mpd_qresize.exit.i116 ]
-  %len.i.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
+  %len.i94.sink.ph.ph = phi ptr [ %len.i, %mpd_qresize.exit.i ], [ %len.i27, %mpd_qresize.exit.i49 ], [ %len.i62, %mpd_qresize.exit.i84 ], [ %len.i94, %mpd_qresize.exit.i116 ]
   %.pre.i120 = load i8, ptr %result, align 8
   br label %if.end27.sink.split.sink.split
 
 if.end27.sink.split.sink.split:                   ; preds = %if.end27.sink.split.sink.split.sink.split, %if.end.i93, %if.then2.i.i101, %if.end.i61, %if.then2.i.i69
   %a.sink = phi ptr [ %a, %if.then2.i.i69 ], [ %a, %if.end.i61 ], [ %b, %if.then2.i.i101 ], [ %b, %if.end.i93 ], [ %a.sink.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i8 [ %.pre28.i66, %if.then2.i.i69 ], [ %.pre28.i66, %if.end.i61 ], [ %.pre28.i98, %if.then2.i.i101 ], [ %.pre28.i98, %if.end.i93 ], [ %.pre.i120, %if.end27.sink.split.sink.split.sink.split ]
-  %len.i.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
+  %len.i94.sink.ph = phi ptr [ %len.i62, %if.then2.i.i69 ], [ %len.i62, %if.end.i61 ], [ %len.i94, %if.then2.i.i101 ], [ %len.i94, %if.end.i93 ], [ %len.i94.sink.ph.ph, %if.end27.sink.split.sink.split.sink.split ]
   %.pre125 = load i8, ptr %a.sink, align 8
   br label %if.end27.sink.split
 
@@ -18795,20 +18770,20 @@ if.end27.sink.split:                              ; preds = %if.end27.sink.split
   %.sink = phi i8 [ %.pre28.i, %if.then2.i.i ], [ %.pre28.i, %if.end.i ], [ %.pre28.i31, %if.then2.i.i34 ], [ %.pre28.i31, %if.end.i26 ], [ %.sink.ph, %if.end27.sink.split.sink.split ]
   %.sink132 = phi i8 [ %.pre124, %if.then2.i.i ], [ %.pre124, %if.end.i ], [ %0, %if.then2.i.i34 ], [ %0, %if.end.i26 ], [ %.pre125, %if.end27.sink.split.sink.split ]
   %b.sink130 = phi ptr [ %b, %if.then2.i.i ], [ %b, %if.end.i ], [ %a, %if.then2.i.i34 ], [ %a, %if.end.i26 ], [ %a.sink, %if.end27.sink.split.sink.split ]
-  %len.i.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i.sink.ph, %if.end27.sink.split.sink.split ]
+  %len.i94.sink = phi ptr [ %len.i, %if.then2.i.i ], [ %len.i, %if.end.i ], [ %len.i27, %if.then2.i.i34 ], [ %len.i27, %if.end.i26 ], [ %len.i94.sink.ph, %if.end27.sink.split.sink.split ]
   %29 = and i8 %.sink, -16
   %30 = and i8 %.sink132, 15
-  %or.i25.i = or disjoint i8 %30, %29
-  store i8 %or.i25.i, ptr %result, align 8
-  %exp.i = getelementptr inbounds i8, ptr %b.sink130, i64 8
-  %31 = load i64, ptr %exp.i, align 8
-  %exp3.i = getelementptr inbounds i8, ptr %result, i64 8
-  store i64 %31, ptr %exp3.i, align 8
-  %digits.i = getelementptr inbounds i8, ptr %b.sink130, i64 16
-  %32 = load i64, ptr %digits.i, align 8
-  %digits4.i = getelementptr inbounds i8, ptr %result, i64 16
-  store i64 %32, ptr %digits4.i, align 8
-  %33 = load i64, ptr %len.i.sink, align 8
+  %or.i25.i104 = or disjoint i8 %30, %29
+  store i8 %or.i25.i104, ptr %result, align 8
+  %exp.i105 = getelementptr inbounds i8, ptr %b.sink130, i64 8
+  %31 = load i64, ptr %exp.i105, align 8
+  %exp3.i106 = getelementptr inbounds i8, ptr %result, i64 8
+  store i64 %31, ptr %exp3.i106, align 8
+  %digits.i107 = getelementptr inbounds i8, ptr %b.sink130, i64 16
+  %32 = load i64, ptr %digits.i107, align 8
+  %digits4.i108 = getelementptr inbounds i8, ptr %result, i64 16
+  store i64 %32, ptr %digits4.i108, align 8
+  %33 = load i64, ptr %len.i94.sink, align 8
   %len6.i109 = getelementptr inbounds i8, ptr %result, i64 24
   store i64 %33, ptr %len6.i109, align 8
   %data.i110 = getelementptr inbounds i8, ptr %result, i64 40
@@ -18836,44 +18811,45 @@ entry:
   %exp = getelementptr inbounds i8, ptr %bb, i64 8
   %len = getelementptr inbounds i8, ptr %bb, i64 24
   %alloc = getelementptr inbounds i8, ptr %bb, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %exp, i8 0, i64 16, i1 false)
+  %0 = getelementptr inbounds i8, ptr %bb, i64 16
+  store i64 0, ptr %0, align 8
   store i64 64, ptr %alloc, align 8
   %data = getelementptr inbounds i8, ptr %bb, i64 40
   store ptr %bb_data, ptr %data, align 8
   call void @mpd_maxcontext(ptr noundef nonnull %maxcontext) #27
   %cmp.i = icmp slt i64 %b, 0
-  %storemerge6 = select i1 %cmp.i, i8 49, i8 48
-  %storemerge = call i64 @llvm.abs.i64(i64 %b, i1 false)
-  store i8 %storemerge6, ptr %bb, align 8
+  %spec.select = select i1 %cmp.i, i8 49, i8 48
+  %spec.select6 = call i64 @llvm.abs.i64(i64 %b, i1 false)
+  store i8 %spec.select, ptr %bb, align 8
   store i64 0, ptr %exp, align 8
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %bb_data, i64 8
-  store i64 0, ptr %arrayidx.i.i, align 8
-  store i64 %storemerge, ptr %bb_data, align 16
+  %arrayidx.i8.i = getelementptr inbounds i8, ptr %bb_data, i64 8
+  store i64 0, ptr %arrayidx.i8.i, align 8
+  store i64 %spec.select6, ptr %bb_data, align 16
   store i64 1, ptr %len, align 8
   call void @mpd_setdigits(ptr noundef nonnull %bb)
   call void @mpd_qfinalize(ptr noundef nonnull %bb, ptr noundef nonnull %maxcontext, ptr noundef %status)
   call fastcc void @_mpd_qmul(ptr noundef %result, ptr noundef %a, ptr noundef nonnull %bb, ptr noundef %ctx, ptr noundef %status)
   call void @mpd_qfinalize(ptr noundef %result, ptr noundef %ctx, ptr noundef %status)
-  %0 = load i8, ptr %bb, align 8
-  %tobool.i8.i.not = icmp ult i8 %0, 32
+  %1 = load i8, ptr %bb, align 8
+  %tobool.i8.i.not = icmp ult i8 %1, 32
   br i1 %tobool.i8.i.not, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %entry
-  %1 = load ptr, ptr @mpd_free, align 8
-  %2 = load ptr, ptr %data, align 8
-  call void %1(ptr noundef %2) #27
+  %2 = load ptr, ptr @mpd_free, align 8
+  %3 = load ptr, ptr %data, align 8
+  call void %2(ptr noundef %3) #27
   %.pre = load i8, ptr %bb, align 8
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  %3 = phi i8 [ %.pre, %if.then.i ], [ %0, %entry ]
-  %4 = and i8 %3, 16
-  %tobool.i.i.not = icmp eq i8 %4, 0
+  %4 = phi i8 [ %.pre, %if.then.i ], [ %1, %entry ]
+  %5 = and i8 %4, 16
+  %tobool.i.i.not = icmp eq i8 %5, 0
   br i1 %tobool.i.i.not, label %if.then3.i, label %mpd_del.exit
 
 if.then3.i:                                       ; preds = %if.end.i
-  %5 = load ptr, ptr @mpd_free, align 8
-  call void %5(ptr noundef nonnull %bb) #27
+  %6 = load ptr, ptr @mpd_free, align 8
+  call void %6(ptr noundef nonnull %bb) #27
   br label %mpd_del.exit
 
 mpd_del.exit:                                     ; preds = %if.then3.i, %if.end.i

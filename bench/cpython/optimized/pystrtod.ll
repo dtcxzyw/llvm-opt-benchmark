@@ -718,7 +718,7 @@ if.end200.thread.i:                               ; preds = %if.end185.i
   %cmp204.not145.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
   %call218152.i = call ptr @strncpy(ptr noundef %add.ptr195.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
   %add.ptr219153.i = getelementptr i8, ptr %add.ptr195.i, i64 %sub.ptr.sub.i
-  br i1 %cmp204.not145.i, label %if.then223.i, label %if.else231.i
+  br i1 %cmp204.not145.i, label %if.then223.i, label %if.end235.i
 
 if.end200.i:                                      ; preds = %if.end185.i
   %cmp204.not.i = icmp sgt i64 %spec.select135.i, %sub.ptr.sub.i
@@ -733,7 +733,7 @@ if.then206.i:                                     ; preds = %if.end200.i
   %sub213.i = sub nsw i64 %sub.ptr.sub.i, %spec.select135.i
   %call214.i = call ptr @strncpy(ptr noundef %incdec.ptr211.i, ptr noundef %add.ptr212.i, i64 noundef %sub213.i) #13
   %add.ptr216.i = getelementptr i8, ptr %incdec.ptr211.i, i64 %sub213.i
-  br label %if.else231.i
+  br label %if.end235.i
 
 if.end220.i:                                      ; preds = %if.end200.i
   %call218.i = call ptr @strncpy(ptr noundef %p.1.i, ptr noundef nonnull %call5140.i, i64 noundef %sub.ptr.sub.i) #13
@@ -747,26 +747,20 @@ if.then223.i:                                     ; preds = %if.end220.i, %if.en
   %add.ptr226.i = getelementptr i8, ptr %p.3150.i, i64 %sub224.i
   %incdec.ptr227.i = getelementptr i8, ptr %add.ptr226.i, i64 1
   store i8 46, ptr %add.ptr226.i, align 1
-  %sub228.i = sub i64 %vdigits_end.1.i, %spec.select135.i
-  call void @llvm.memset.p0.i64(ptr align 1 %incdec.ptr227.i, i8 48, i64 %sub228.i, i1 false)
-  %add.ptr230.i = getelementptr i8, ptr %incdec.ptr227.i, i64 %sub228.i
   br label %if.end235.i
 
-if.else231.i:                                     ; preds = %if.then206.i, %if.end200.thread.i
-  %p.3151.i = phi ptr [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
-  %sub232.i = sub i64 %vdigits_end.1.i, %sub.ptr.sub.i
-  call void @llvm.memset.p0.i64(ptr align 1 %p.3151.i, i8 48, i64 %sub232.i, i1 false)
-  %add.ptr234.i = getelementptr i8, ptr %p.3151.i, i64 %sub232.i
-  br label %if.end235.i
-
-if.end235.i:                                      ; preds = %if.else231.i, %if.then223.i
-  %p.4.i = phi ptr [ %add.ptr230.i, %if.then223.i ], [ %add.ptr234.i, %if.else231.i ]
-  %arrayidx236.i = getelementptr i8, ptr %p.4.i, i64 -1
+if.end235.i:                                      ; preds = %if.then223.i, %if.then206.i, %if.end200.thread.i
+  %sub.ptr.sub.sink.i = phi i64 [ %spec.select135.i, %if.then223.i ], [ %sub.ptr.sub.i, %if.then206.i ], [ %sub.ptr.sub.i, %if.end200.thread.i ]
+  %p.3151.sink170.i = phi ptr [ %incdec.ptr227.i, %if.then223.i ], [ %add.ptr216.i, %if.then206.i ], [ %add.ptr219153.i, %if.end200.thread.i ]
+  %sub232.i = sub i64 %vdigits_end.1.i, %sub.ptr.sub.sink.i
+  call void @llvm.memset.p0.i64(ptr align 1 %p.3151.sink170.i, i8 48, i64 %sub232.i, i1 false)
+  %add.ptr234.i = getelementptr i8, ptr %p.3151.sink170.i, i64 %sub232.i
+  %arrayidx236.i = getelementptr i8, ptr %add.ptr234.i, i64 -1
   %13 = load i8, ptr %arrayidx236.i, align 1
   %cmp238.i = icmp ne i8 %13, 46
   %tobool241.i = icmp ne i32 %and13, 0
   %or.cond3.i = or i1 %tobool241.i, %cmp238.i
-  %spec.select138.i = select i1 %or.cond3.i, ptr %p.4.i, ptr %arrayidx236.i
+  %spec.select138.i = select i1 %or.cond3.i, ptr %add.ptr234.i, ptr %arrayidx236.i
   br i1 %tobool133.not.i, label %if.then254.i, label %if.then246.i
 
 if.then246.i:                                     ; preds = %if.end235.i

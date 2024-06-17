@@ -936,18 +936,18 @@ spl_fixedarray_init.exit:                         ; preds = %.lr.ph.i.i
 
 .sink.split:                                      ; preds = %87, %90
   %.sink = phi i32 [ %94, %90 ], [ %85, %87 ]
-  %.0127167.sink = phi ptr [ %92, %90 ], [ %.0127167, %87 ]
+  %.sink179 = phi ptr [ %92, %90 ], [ %.0127167, %87 ]
   %96 = and i32 %.sink, 65280
   %97 = icmp ne i32 %96, 0
   call void @llvm.assume(i1 %97)
-  %98 = load ptr, ptr %.0127167.sink, align 8
+  %98 = load ptr, ptr %.sink179, align 8
   %99 = load i32, ptr %98, align 4
   %100 = add i32 %99, 1
   store i32 %100, ptr %98, align 4
   br label %101
 
 101:                                              ; preds = %.sink.split, %84, %90
-  %.0129 = phi ptr [ %92, %90 ], [ %.0127167, %84 ], [ %.0127167.sink, %.sink.split ]
+  %.0129 = phi ptr [ %92, %90 ], [ %.0127167, %84 ], [ %.sink179, %.sink.split ]
   %102 = getelementptr inbounds %struct._zval_struct, ptr %59, i64 %.0124
   %103 = load ptr, ptr %.0129, align 8
   %104 = getelementptr inbounds i8, ptr %.0129, i64 8
@@ -1014,7 +1014,7 @@ spl_fixedarray_init.exit145:                      ; preds = %.lr.ph.i.i142
 132:                                              ; preds = %129
   %133 = and i32 %130, 255
   %134 = icmp eq i32 %133, 10
-  br i1 %134, label %135, label %.sink.split179
+  br i1 %134, label %135, label %.sink.split181
 
 135:                                              ; preds = %132
   %136 = load ptr, ptr %.0115156, align 8
@@ -1023,22 +1023,22 @@ spl_fixedarray_init.exit145:                      ; preds = %.lr.ph.i.i142
   %139 = load i32, ptr %138, align 8
   %140 = and i32 %139, 65280
   %.not134 = icmp eq i32 %140, 0
-  br i1 %.not134, label %146, label %.sink.split179
+  br i1 %.not134, label %146, label %.sink.split181
 
-.sink.split179:                                   ; preds = %132, %135
-  %.sink187 = phi i32 [ %139, %135 ], [ %130, %132 ]
-  %.0115156.sink = phi ptr [ %137, %135 ], [ %.0115156, %132 ]
-  %141 = and i32 %.sink187, 65280
+.sink.split181:                                   ; preds = %132, %135
+  %.sink189 = phi i32 [ %139, %135 ], [ %130, %132 ]
+  %.sink186 = phi ptr [ %137, %135 ], [ %.0115156, %132 ]
+  %141 = and i32 %.sink189, 65280
   %142 = icmp ne i32 %141, 0
   call void @llvm.assume(i1 %142)
-  %143 = load ptr, ptr %.0115156.sink, align 8
+  %143 = load ptr, ptr %.sink186, align 8
   %144 = load i32, ptr %143, align 4
   %145 = add i32 %144, 1
   store i32 %145, ptr %143, align 4
   br label %146
 
-146:                                              ; preds = %.sink.split179, %129, %135
-  %.0114 = phi ptr [ %137, %135 ], [ %.0115156, %129 ], [ %.0115156.sink, %.sink.split179 ]
+146:                                              ; preds = %.sink.split181, %129, %135
+  %.0114 = phi ptr [ %137, %135 ], [ %.0115156, %129 ], [ %.sink186, %.sink.split181 ]
   %147 = getelementptr inbounds %struct._zval_struct, ptr %110, i64 %.0121154
   %148 = load ptr, ptr %.0114, align 8
   %149 = getelementptr inbounds i8, ptr %.0114, i64 8

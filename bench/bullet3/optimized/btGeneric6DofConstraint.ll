@@ -3841,91 +3841,76 @@ if.then216:                                       ; preds = %land.lhs.true175, %
   %m_stopERP218 = getelementptr inbounds i8, ptr %limot, i64 32
   %155 = load float, ptr %m_stopERP218, align 4
   %mul219 = fmul float %154, %155
-  br i1 %tobool4.not, label %if.then221, label %if.else227
-
-if.then221:                                       ; preds = %if.then216
-  %m_currentLimitError222 = getelementptr inbounds i8, ptr %limot, i64 48
-  %156 = load float, ptr %m_currentLimitError222, align 4
-  %157 = load ptr, ptr %m_constraintError441, align 8
-  %arrayidx226 = getelementptr inbounds float, ptr %157, i64 %idxprom
-  %158 = load float, ptr %arrayidx226, align 4
-  %159 = tail call float @llvm.fmuladd.f32(float %mul219, float %156, float %158)
-  store float %159, ptr %arrayidx226, align 4
-  br label %if.end234
-
-if.else227:                                       ; preds = %if.then216
   %fneg228 = fneg float %mul219
+  %fneg228.sink = select i1 %tobool4.not, float %mul219, float %fneg228
   %m_currentLimitError229 = getelementptr inbounds i8, ptr %limot, i64 48
-  %160 = load float, ptr %m_currentLimitError229, align 4
-  %161 = load ptr, ptr %m_constraintError441, align 8
-  %arrayidx233 = getelementptr inbounds float, ptr %161, i64 %idxprom
-  %162 = load float, ptr %arrayidx233, align 4
-  %163 = tail call float @llvm.fmuladd.f32(float %fneg228, float %160, float %162)
-  store float %163, ptr %arrayidx233, align 4
-  br label %if.end234
-
-if.end234:                                        ; preds = %if.else227, %if.then221
+  %156 = load float, ptr %m_currentLimitError229, align 4
+  %157 = load ptr, ptr %m_constraintError441, align 8
+  %arrayidx233 = getelementptr inbounds float, ptr %157, i64 %idxprom
+  %158 = load float, ptr %arrayidx233, align 4
+  %159 = tail call float @llvm.fmuladd.f32(float %fneg228.sink, float %156, float %158)
+  store float %159, ptr %arrayidx233, align 4
   %m_stopCFM = getelementptr inbounds i8, ptr %limot, i64 36
-  %164 = load float, ptr %m_stopCFM, align 4
+  %160 = load float, ptr %m_stopCFM, align 4
   %cfm235 = getelementptr inbounds i8, ptr %info, i64 56
-  %165 = load ptr, ptr %cfm235, align 8
-  %arrayidx237 = getelementptr inbounds float, ptr %165, i64 %idxprom
-  store float %164, ptr %arrayidx237, align 4
-  %166 = load float, ptr %limot, align 4
-  %167 = load float, ptr %m_hiLimit, align 4
-  %cmp240 = fcmp oeq float %166, %167
+  %161 = load ptr, ptr %cfm235, align 8
+  %arrayidx237 = getelementptr inbounds float, ptr %161, i64 %idxprom
+  store float %160, ptr %arrayidx237, align 4
+  %162 = load float, ptr %limot, align 4
+  %163 = load float, ptr %m_hiLimit, align 4
+  %cmp240 = fcmp oeq float %162, %163
   %m_upperLimit245 = getelementptr inbounds i8, ptr %info, i64 72
   br i1 %cmp240, label %if.then241, label %if.else248
 
-if.then241:                                       ; preds = %if.end234
+if.then241:                                       ; preds = %if.then216
   %m_lowerLimit242 = getelementptr inbounds i8, ptr %info, i64 64
-  %168 = load ptr, ptr %m_lowerLimit242, align 8
-  %arrayidx244 = getelementptr inbounds float, ptr %168, i64 %idxprom
+  %164 = load ptr, ptr %m_lowerLimit242, align 8
+  %arrayidx244 = getelementptr inbounds float, ptr %164, i64 %idxprom
   store float 0xC7EFFFFFE0000000, ptr %arrayidx244, align 4
-  %169 = load ptr, ptr %m_upperLimit245, align 8
-  %arrayidx247 = getelementptr inbounds float, ptr %169, i64 %idxprom
+  %165 = load ptr, ptr %m_upperLimit245, align 8
+  %arrayidx247 = getelementptr inbounds float, ptr %165, i64 %idxprom
   store float 0x47EFFFFFE0000000, ptr %arrayidx247, align 4
   br label %return
 
-if.else248:                                       ; preds = %if.end234
+if.else248:                                       ; preds = %if.then216
   %cmp249 = icmp eq i32 %1, 1
   %m_lowerLimit251 = getelementptr inbounds i8, ptr %info, i64 64
-  %170 = load ptr, ptr %m_lowerLimit251, align 8
-  %arrayidx253 = getelementptr inbounds float, ptr %170, i64 %idxprom
+  %166 = load ptr, ptr %m_lowerLimit251, align 8
+  %arrayidx253 = getelementptr inbounds float, ptr %166, i64 %idxprom
   %. = select i1 %cmp249, float 0.000000e+00, float 0xC7EFFFFFE0000000
-  %.487 = select i1 %cmp249, float 0x47EFFFFFE0000000, float 0.000000e+00
+  %.490 = select i1 %cmp249, float 0x47EFFFFFE0000000, float 0.000000e+00
   store float %., ptr %arrayidx253, align 4
-  %171 = load ptr, ptr %m_upperLimit245, align 8
-  %arrayidx263 = getelementptr inbounds float, ptr %171, i64 %idxprom
-  store float %.487, ptr %arrayidx263, align 4
+  %167 = load ptr, ptr %m_upperLimit245, align 8
+  %arrayidx263 = getelementptr inbounds float, ptr %167, i64 %idxprom
+  store float %.490, ptr %arrayidx263, align 4
   %m_bounce = getelementptr inbounds i8, ptr %limot, i64 40
-  %172 = load float, ptr %m_bounce, align 4
-  %cmp265 = fcmp ogt float %172, 0.000000e+00
+  %168 = load float, ptr %m_bounce, align 4
+  %cmp265 = fcmp ogt float %168, 0.000000e+00
   br i1 %cmp265, label %if.then266, label %return
 
 if.then266:                                       ; preds = %if.else248
-  %173 = load float, ptr %ax1, align 4
-  %174 = load float, ptr %arrayidx12, align 4
-  %175 = load float, ptr %arrayidx17, align 4
+  %169 = load float, ptr %ax1, align 4
+  %170 = load float, ptr %arrayidx12, align 4
+  %171 = load float, ptr %arrayidx17, align 4
   %linVelA.angVelA = select i1 %tobool4.not, ptr %linVelA, ptr %angVelA
   %linVelB.angVelB = select i1 %tobool4.not, ptr %linVelB, ptr %angVelB
-  %176 = load float, ptr %linVelA.angVelA, align 4
+  %172 = load float, ptr %linVelA.angVelA, align 4
   %arrayidx5.i376 = getelementptr inbounds i8, ptr %linVelA.angVelA, i64 4
-  %177 = load float, ptr %arrayidx5.i376, align 4
-  %mul8.i378 = fmul float %177, %174
-  %178 = tail call float @llvm.fmuladd.f32(float %176, float %173, float %mul8.i378)
+  %173 = load float, ptr %arrayidx5.i376, align 4
+  %mul8.i378 = fmul float %173, %170
+  %174 = tail call float @llvm.fmuladd.f32(float %172, float %169, float %mul8.i378)
   %arrayidx10.i379 = getelementptr inbounds i8, ptr %linVelA.angVelA, i64 8
-  %179 = load float, ptr %arrayidx10.i379, align 4
-  %180 = tail call noundef float @llvm.fmuladd.f32(float %179, float %175, float %178)
-  %181 = load float, ptr %linVelB.angVelB, align 4
+  %175 = load float, ptr %arrayidx10.i379, align 4
+  %176 = tail call noundef float @llvm.fmuladd.f32(float %175, float %171, float %174)
+  %177 = load float, ptr %linVelB.angVelB, align 4
   %arrayidx5.i381 = getelementptr inbounds i8, ptr %linVelB.angVelB, i64 4
-  %182 = load float, ptr %arrayidx5.i381, align 4
-  %mul8.i383 = fmul float %174, %182
-  %183 = tail call float @llvm.fmuladd.f32(float %181, float %173, float %mul8.i383)
+  %178 = load float, ptr %arrayidx5.i381, align 4
+  %mul8.i383 = fmul float %170, %178
+  %179 = tail call float @llvm.fmuladd.f32(float %177, float %169, float %mul8.i383)
   %arrayidx10.i384 = getelementptr inbounds i8, ptr %linVelB.angVelB, i64 8
-  %184 = load float, ptr %arrayidx10.i384, align 4
-  %185 = tail call noundef float @llvm.fmuladd.f32(float %184, float %175, float %183)
-  %sub275 = fsub float %180, %185
+  %180 = load float, ptr %arrayidx10.i384, align 4
+  %181 = tail call noundef float @llvm.fmuladd.f32(float %180, float %171, float %179)
+  %sub275 = fsub float %176, %181
   br i1 %cmp249, label %if.then278, label %if.else294
 
 if.then278:                                       ; preds = %if.then266
@@ -3933,12 +3918,12 @@ if.then278:                                       ; preds = %if.then266
   br i1 %cmp279, label %if.then280, label %return
 
 if.then280:                                       ; preds = %if.then278
-  %fneg282 = fneg float %172
+  %fneg282 = fneg float %168
   %mul283 = fmul float %sub275, %fneg282
-  %186 = load ptr, ptr %m_constraintError441, align 8
-  %arrayidx286 = getelementptr inbounds float, ptr %186, i64 %idxprom
-  %187 = load float, ptr %arrayidx286, align 4
-  %cmp287 = fcmp ogt float %mul283, %187
+  %182 = load ptr, ptr %m_constraintError441, align 8
+  %arrayidx286 = getelementptr inbounds float, ptr %182, i64 %idxprom
+  %183 = load float, ptr %arrayidx286, align 4
+  %cmp287 = fcmp ogt float %mul283, %183
   br i1 %cmp287, label %if.then288, label %return
 
 if.then288:                                       ; preds = %if.then280
@@ -3950,12 +3935,12 @@ if.else294:                                       ; preds = %if.then266
   br i1 %cmp295, label %if.then296, label %return
 
 if.then296:                                       ; preds = %if.else294
-  %fneg299 = fneg float %172
+  %fneg299 = fneg float %168
   %mul300 = fmul float %sub275, %fneg299
-  %188 = load ptr, ptr %m_constraintError441, align 8
-  %arrayidx303 = getelementptr inbounds float, ptr %188, i64 %idxprom
-  %189 = load float, ptr %arrayidx303, align 4
-  %cmp304 = fcmp olt float %mul300, %189
+  %184 = load ptr, ptr %m_constraintError441, align 8
+  %arrayidx303 = getelementptr inbounds float, ptr %184, i64 %idxprom
+  %185 = load float, ptr %arrayidx303, align 4
+  %cmp304 = fcmp olt float %mul300, %185
   br i1 %cmp304, label %if.then305, label %return
 
 if.then305:                                       ; preds = %if.then296
@@ -4138,15 +4123,15 @@ sw.bb43:                                          ; preds = %if.then24
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %sw.bb12, %sw.bb3, %sw.bb, %sw.bb25, %sw.bb33, %sw.bb43
-  %arrayidx16.sink = phi ptr [ %arrayidx16, %sw.bb12 ], [ %arrayidx7, %sw.bb3 ], [ %arrayidx, %sw.bb ], [ %m_stopERP28, %sw.bb25 ], [ %m_stopCFM38, %sw.bb33 ], [ %m_normalCFM48, %sw.bb43 ]
-  %.sink = phi i32 [ 1, %sw.bb12 ], [ 2, %sw.bb3 ], [ 4, %sw.bb ], [ 4, %sw.bb25 ], [ 2, %sw.bb33 ], [ 1, %sw.bb43 ]
-  store float %value, ptr %arrayidx16.sink, align 4
-  %mul17 = mul nuw nsw i32 %axis, 3
-  %shl18 = shl nuw nsw i32 %.sink, %mul17
-  %m_flags19 = getelementptr inbounds i8, ptr %this, i64 1328
-  %1 = load i32, ptr %m_flags19, align 8
-  %or52 = or i32 %1, %shl18
-  store i32 %or52, ptr %m_flags19, align 8
+  %m_normalCFM48.sink = phi ptr [ %m_normalCFM48, %sw.bb43 ], [ %m_stopCFM38, %sw.bb33 ], [ %m_stopERP28, %sw.bb25 ], [ %arrayidx, %sw.bb ], [ %arrayidx7, %sw.bb3 ], [ %arrayidx16, %sw.bb12 ]
+  %.sink = phi i32 [ 1, %sw.bb43 ], [ 2, %sw.bb33 ], [ 4, %sw.bb25 ], [ 4, %sw.bb ], [ 2, %sw.bb3 ], [ 1, %sw.bb12 ]
+  store float %value, ptr %m_normalCFM48.sink, align 4
+  %mul49 = mul nuw nsw i32 %axis, 3
+  %shl50 = shl nuw nsw i32 %.sink, %mul49
+  %m_flags51 = getelementptr inbounds i8, ptr %this, i64 1328
+  %1 = load i32, ptr %m_flags51, align 8
+  %or52 = or i32 %1, %shl50
+  store i32 %or52, ptr %m_flags51, align 8
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.then24, %if.else, %if.then

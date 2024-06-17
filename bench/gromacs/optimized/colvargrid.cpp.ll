@@ -24627,10 +24627,10 @@ define void @_ZN19integrate_potential6atimesERKSt6vectorIdSaIdEERS2_(ptr nocaptu
   br i1 %exitcond1616.not, label %.loopexit, label %1175, !llvm.loop !218
 
 .loopexit.sink.split:                             ; preds = %._crit_edge1549, %._crit_edge1540
-  %.31141.lcssa.sink = phi i64 [ %.31141.lcssa, %._crit_edge1549 ], [ %.21140.lcssa, %._crit_edge1540 ]
-  %.sink1696 = phi double [ %397, %._crit_edge1549 ], [ %341, %._crit_edge1540 ]
+  %.21140.lcssa.sink = phi i64 [ %.21140.lcssa, %._crit_edge1540 ], [ %.31141.lcssa, %._crit_edge1549 ]
+  %.sink1696 = phi double [ %341, %._crit_edge1540 ], [ %397, %._crit_edge1549 ]
   %1250 = load ptr, ptr %2, align 8
-  %1251 = getelementptr inbounds double, ptr %1250, i64 %.31141.lcssa.sink
+  %1251 = getelementptr inbounds double, ptr %1250, i64 %.21140.lcssa.sink
   %1252 = load double, ptr %1251, align 8
   %1253 = tail call double @llvm.fmuladd.f64(double %265, double %.sink1696, double %1252)
   store double %1253, ptr %1251, align 8

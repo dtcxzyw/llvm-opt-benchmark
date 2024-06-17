@@ -7349,10 +7349,10 @@ Vec_IntGrow.exit.i218:                            ; preds = %477, %475
   %495 = getelementptr inbounds i32, ptr %.sink295, i64 %494
   store i32 %.sink, ptr %495, align 4
   %496 = getelementptr i8, ptr %9, i64 8
-  %.val127 = load ptr, ptr %496, align 8
-  %497 = load i32, ptr %.val127, align 4
+  %.val128 = load ptr, ptr %496, align 8
+  %497 = load i32, ptr %.val128, align 4
   %498 = add nsw i32 %497, 1
-  store i32 %498, ptr %.val127, align 4
+  store i32 %498, ptr %.val128, align 4
   br label %499
 
 499:                                              ; preds = %.sink.split291, %If_CutTruthW.exit

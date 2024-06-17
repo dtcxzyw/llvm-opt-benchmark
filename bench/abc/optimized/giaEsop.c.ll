@@ -2655,7 +2655,7 @@ Vec_IntGrow.exit.i:                               ; preds = %72, %70
   %94 = getelementptr i8, ptr %38, i64 24
   %.val143 = load ptr, ptr %94, align 8
   %95 = icmp sgt i32 %34, 0
-  %.not425 = icmp eq i32 %34, -1
+  %.not426 = icmp eq i32 %34, -1
   %wide.trip.count = zext nneg i32 %.val139 to i64
   br label %96
 
@@ -2723,11 +2723,11 @@ Hsh_VecReadArray.exit:                            ; preds = %96, %100
   br i1 %brmerge.not, label %Eso_ManFindDistOneLitNotEqual.exit.thread, label %Eso_ManFindDistOneLitNotEqual.exit.thread233.split.loop.exit
 
 Eso_ManFindDistOneLitNotEqual.exit:               ; preds = %Hsh_VecReadArray.exit
-  br i1 %.not425, label %Eso_ManFindDistOneLitNotEqual.exit.thread, label %Eso_ManFindDistOneLitNotEqual.exit.thread233
+  br i1 %.not426, label %Eso_ManFindDistOneLitNotEqual.exit.thread, label %Eso_ManFindDistOneLitNotEqual.exit.thread233
 
 Eso_ManFindDistOneLitNotEqual.exit.thread233.split.loop.exit: ; preds = %._crit_edge.i
-  %.not424.le = icmp eq i32 %.1.fr.i, -1
-  %.1.fr.i.lcssa.mux.le = select i1 %.not424.le, i32 %34, i32 %.1.fr.i
+  %.not425.le = icmp eq i32 %.1.fr.i, -1
+  %.1.fr.i.lcssa.mux.le = select i1 %.not425.le, i32 %34, i32 %.1.fr.i
   br label %Eso_ManFindDistOneLitNotEqual.exit.thread233
 
 Eso_ManFindDistOneLitNotEqual.exit.thread233:     ; preds = %Eso_ManFindDistOneLitNotEqual.exit, %Eso_ManFindDistOneLitNotEqual.exit.thread233.split.loop.exit

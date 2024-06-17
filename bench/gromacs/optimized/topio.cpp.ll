@@ -404,7 +404,7 @@ define noundef double @_Z9check_molPK10gmx_mtop_tP14WarningHandler(ptr nocapture
 
 9:                                                ; preds = %.lr.ph70, %._crit_edge
   %.05268 = phi double [ 0.000000e+00, %.lr.ph70 ], [ %.1.lcssa, %._crit_edge ]
-  %.sroa.058.067 = phi ptr [ %5, %.lr.ph70 ], [ %80, %._crit_edge ]
+  %.sroa.058.067 = phi ptr [ %5, %.lr.ph70 ], [ %63, %._crit_edge ]
   %10 = load i32, ptr %.sroa.058.067, align 8
   %11 = sext i32 %10 to i64
   %12 = load ptr, ptr %8, align 8
@@ -421,9 +421,9 @@ define noundef double @_Z9check_molPK10gmx_mtop_tP14WarningHandler(ptr nocapture
   %20 = getelementptr inbounds i8, ptr %13, i64 56
   br label %21
 
-21:                                               ; preds = %.lr.ph, %76
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %76 ]
-  %.164 = phi double [ %.05268, %.lr.ph ], [ %30, %76 ]
+21:                                               ; preds = %.lr.ph, %59
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
+  %.164 = phi double [ %.05268, %.lr.ph ], [ %30, %59 ]
   %22 = load i32, ptr %17, align 4
   %23 = sitofp i32 %22 to float
   %24 = load ptr, ptr %18, align 8
@@ -444,68 +444,48 @@ define noundef double @_Z9check_molPK10gmx_mtop_tP14WarningHandler(ptr nocapture
   %or.cond53.not63 = select i1 %37, i1 true, i1 %38
   %or.cond = icmp ult i32 %35, 2
   %or.cond54 = select i1 %or.cond53.not63, i1 %or.cond, i1 false
-  br i1 %or.cond54, label %39, label %55
+  br i1 %or.cond54, label %.sink.split, label %39
 
 39:                                               ; preds = %21
-  %40 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
-  %41 = load i32, ptr %40, align 4
-  %42 = load ptr, ptr %19, align 8
-  %43 = getelementptr inbounds ptr, ptr %42, i64 %indvars.iv
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = load ptr, ptr %20, align 8
-  %47 = sext i32 %41 to i64
-  %48 = getelementptr inbounds %struct.t_resinfo, ptr %46, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds i8, ptr %48, i64 8
-  %52 = load i32, ptr %51, align 8
-  %53 = fpext float %33 to double
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %45, ptr noundef %50, i32 noundef %52, double noundef %36, double noundef %53) #26
-  br label %.sink.split
+  %40 = fcmp une float %31, 0.000000e+00
+  %41 = fcmp une float %33, 0.000000e+00
+  %or.cond3 = select i1 %40, i1 true, i1 %41
+  %42 = icmp eq i32 %35, 4
+  %or.cond5 = select i1 %or.cond3, i1 %42, i1 false
+  br i1 %or.cond5, label %.sink.split, label %59
 
-55:                                               ; preds = %21
-  %56 = fcmp une float %31, 0.000000e+00
-  %57 = fcmp une float %33, 0.000000e+00
-  %or.cond3 = select i1 %56, i1 true, i1 %57
-  %58 = icmp eq i32 %35, 4
-  %or.cond5 = select i1 %or.cond3, i1 %58, i1 false
-  br i1 %or.cond5, label %59, label %76
+.sink.split:                                      ; preds = %39, %21
+  %.str.8.sink = phi ptr [ @.str.8, %21 ], [ @.str.9, %39 ]
+  %43 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
+  %44 = load i32, ptr %43, align 4
+  %45 = load ptr, ptr %19, align 8
+  %46 = getelementptr inbounds ptr, ptr %45, i64 %indvars.iv
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = load ptr, ptr %20, align 8
+  %50 = sext i32 %44 to i64
+  %51 = getelementptr inbounds %struct.t_resinfo, ptr %49, i64 %50
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %51, i64 8
+  %55 = load i32, ptr %54, align 8
+  %56 = fpext float %33 to double
+  %57 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %.str.8.sink, ptr noundef %48, ptr noundef %53, i32 noundef %55, double noundef %36, double noundef %56) #26
+  %58 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
+  call void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 %58, ptr nonnull %3)
+  br label %59
 
-59:                                               ; preds = %55
-  %60 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv, i32 7
-  %61 = load i32, ptr %60, align 4
-  %62 = load ptr, ptr %19, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv
-  %64 = load ptr, ptr %63, align 8
-  %65 = load ptr, ptr %64, align 8
-  %66 = load ptr, ptr %20, align 8
-  %67 = sext i32 %61 to i64
-  %68 = getelementptr inbounds %struct.t_resinfo, ptr %66, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %68, i64 8
-  %72 = load i32, ptr %71, align 8
-  %73 = fpext float %33 to double
-  %74 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, ptr noundef %65, ptr noundef %70, i32 noundef %72, double noundef %36, double noundef %73) #26
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %59, %39
-  %75 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #26
-  call void @_ZN14WarningHandler8addErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(64) %1, i64 %75, ptr nonnull %3)
-  br label %76
-
-76:                                               ; preds = %.sink.split, %55
+59:                                               ; preds = %.sink.split, %39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %77 = load i32, ptr %14, align 8
-  %78 = sext i32 %77 to i64
-  %79 = icmp slt i64 %indvars.iv.next, %78
-  br i1 %79, label %21, label %._crit_edge, !llvm.loop !5
+  %60 = load i32, ptr %14, align 8
+  %61 = sext i32 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next, %61
+  br i1 %62, label %21, label %._crit_edge, !llvm.loop !5
 
-._crit_edge:                                      ; preds = %76, %9
-  %.1.lcssa = phi double [ %.05268, %9 ], [ %30, %76 ]
-  %80 = getelementptr inbounds i8, ptr %.sroa.058.067, i64 56
-  %.not = icmp eq ptr %80, %7
+._crit_edge:                                      ; preds = %59, %9
+  %.1.lcssa = phi double [ %.05268, %9 ], [ %30, %59 ]
+  %63 = getelementptr inbounds i8, ptr %.sroa.058.067, i64 56
+  %.not = icmp eq ptr %63, %7
   br i1 %.not, label %._crit_edge71, label %9
 
 ._crit_edge71:                                    ; preds = %._crit_edge, %2

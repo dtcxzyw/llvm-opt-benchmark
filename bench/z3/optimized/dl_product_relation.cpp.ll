@@ -7884,12 +7884,12 @@ _ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnELb0EjE9
   br label %for.inc162.sink.split
 
 for.inc162.sink.split:                            ; preds = %_ZN6vectorIjLb0EjE9push_backERKj.exit271, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnELb0EjE9push_backEOS5_.exit395
-  %.sink1057.in = phi ptr [ %r2_tables_indexes, %_ZN6vectorIjLb0EjE9push_backERKj.exit271 ], [ %m_joins153, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnELb0EjE9push_backEOS5_.exit395 ]
-  %.sink1057 = load ptr, ptr %.sink1057.in, align 8
-  %arrayidx10.i264 = getelementptr inbounds i8, ptr %.sink1057, i64 -4
-  %183 = load i32, ptr %arrayidx10.i264, align 4
+  %.sink1058.in = phi ptr [ %m_joins153, %_ZN6vectorIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7join_fnELb0EjE9push_backEOS5_.exit395 ], [ %r2_tables_indexes, %_ZN6vectorIjLb0EjE9push_backERKj.exit271 ]
+  %.sink1058 = load ptr, ptr %.sink1058.in, align 8
+  %arrayidx10.i388 = getelementptr inbounds i8, ptr %.sink1058, i64 -4
+  %183 = load i32, ptr %arrayidx10.i388, align 4
   %inc.i389 = add i32 %183, 1
-  store i32 %inc.i389, ptr %arrayidx10.i264, align 4
+  store i32 %inc.i389, ptr %arrayidx10.i388, align 4
   br label %for.inc162
 
 for.inc162:                                       ; preds = %for.inc162.sink.split, %invoke.cont106

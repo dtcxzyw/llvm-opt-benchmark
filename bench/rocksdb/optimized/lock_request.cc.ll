@@ -1601,10 +1601,10 @@ while.condthread-pre-split.backedge:              ; preds = %if.end13.split30
 
 while.end.sink.split.sink.split:                  ; preds = %if.end13.split30, %while.body.lr.ph.us36, %if.end13.split.us
   %25 = load ptr, ptr %m_info, align 8
-  %timeout_count = getelementptr inbounds i8, ptr %25, i64 88
-  %26 = load i64, ptr %timeout_count, align 8
+  %timeout_count.us = getelementptr inbounds i8, ptr %25, i64 88
+  %26 = load i64, ptr %timeout_count.us, align 8
   %add34.us = add i64 %26, 1
-  store i64 %add34.us, ptr %timeout_count, align 8
+  store i64 %add34.us, ptr %timeout_count.us, align 8
   br label %while.end.sink.split
 
 while.end.sink.split:                             ; preds = %while.body.lr.ph, %while.body.lr.ph.split.us, %while.end.sink.split.sink.split

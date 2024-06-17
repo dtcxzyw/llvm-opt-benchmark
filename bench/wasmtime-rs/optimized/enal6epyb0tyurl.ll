@@ -37609,12 +37609,12 @@ define hidden void @"_ZN9addr2line8function18Functions$LT$R$GT$5parse17hd7739247
   br label %64
 
 .loopexit.loopexit:                               ; preds = %112
-  %lpad.loopexit543 = landingpad { ptr, i32 }
+  %lpad.loopexit544 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
 .loopexit.loopexit.split-lp:                      ; preds = %121
-  %lpad.loopexit.split-lp544 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp545 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -37921,10 +37921,10 @@ define hidden void @"_ZN9addr2line8function18Functions$LT$R$GT$5parse17hd7739247
   br label %234
 
 "_ZN9addr2line24RangeAttributes$LT$R$GT$14for_each_range17h55304288ca949be2E.exit.thread.thread281.sink.split": ; preds = %139, %.noexc168, %131, %.noexc167
-  %.sink522 = phi i64 [ %.pre.i.i66.i, %.noexc167 ], [ %132, %131 ], [ %.pre.i.i70.i, %.noexc168 ], [ %140, %139 ]
+  %.sink523 = phi i64 [ %.pre.i.i66.i, %.noexc167 ], [ %132, %131 ], [ %.pre.i.i70.i, %.noexc168 ], [ %140, %139 ]
   %.sroa.14.4.lcssa.sink = phi i64 [ %.sroa.14.4, %.noexc167 ], [ %.sroa.14.4, %131 ], [ %137, %.noexc168 ], [ %137, %139 ]
   %148 = load ptr, ptr %29, align 8, !alias.scope !6789, !noalias !6802, !nonnull !4, !noundef !4
-  %149 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %148, i64 %.sink522
+  %149 = getelementptr inbounds { { i64, i64 }, i64 }, ptr %148, i64 %.sink523
   store i64 %.sroa.7176.4, ptr %149, align 8, !noalias !6802
   %.sroa.4.0..sroa_idx.i64.i = getelementptr inbounds i8, ptr %149, i64 8
   store i64 %.sroa.14.4.lcssa.sink, ptr %.sroa.4.0..sroa_idx.i64.i, align 8, !noalias !6802
@@ -38346,7 +38346,7 @@ common.resume:                                    ; preds = %258, %275, %249, %2
 
 .thread:                                          ; preds = %.loopexit.loopexit, %.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %156, %184, %200, %178
   %.0.ph = phi i1 [ true, %184 ], [ true, %200 ], [ true, %178 ], [ true, %156 ], [ true, %.loopexit.split-lp.loopexit ], [ true, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %.1.ph.ph.ph, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ true, %.loopexit.loopexit.split-lp ], [ true, %.loopexit.loopexit ]
-  %.pn.ph = phi { ptr, i32 } [ %185, %184 ], [ %201, %200 ], [ %179, %178 ], [ %157, %156 ], [ %lpad.loopexit289, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit292, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit543, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp544, %.loopexit.loopexit.split-lp ]
+  %.pn.ph = phi { ptr, i32 } [ %185, %184 ], [ %201, %200 ], [ %179, %178 ], [ %157, %156 ], [ %lpad.loopexit289, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit292, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit544, %.loopexit.loopexit ], [ %lpad.loopexit.split-lp545, %.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr80drop_in_place$LT$alloc..vec..Vec$LT$addr2line..function..FunctionAddress$GT$$GT$17hf59c87779171b6b3E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %25) #42
           to label %258 unwind label %256
 

@@ -99863,9 +99863,9 @@ next_iteration:                                   ; preds = %if.then199, %if.the
   br i1 %tobool235.not, label %return, label %for.cond171
 
 return.sink.split:                                ; preds = %if.then177, %if.then180
-  %sub178.le = sub i64 %pcmFrameIndex, %runningPCMFrameCount.1
-  %call194 = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef nonnull %pFlac, i64 noundef %sub178.le)
-  %cmp195 = icmp eq i64 %call194, %sub178.le
+  %sub178.le118 = sub i64 %pcmFrameIndex, %runningPCMFrameCount.1
+  %call194 = tail call fastcc i64 @ma_dr_flac__seek_forward_by_pcm_frames(ptr noundef nonnull %pFlac, i64 noundef %sub178.le118)
+  %cmp195 = icmp eq i64 %call194, %sub178.le118
   %36 = zext i1 %cmp195 to i32
   br label %return
 
@@ -107559,20 +107559,20 @@ if.end106:                                        ; preds = %for.cond67.preheade
   %cmp44 = icmp ult i64 %add42, %add7.i68
   br i1 %cmp44, label %for.inc109, label %for.cond67.preheader
 
-for.inc109:                                       ; preds = %for.cond67.preheader, %for.body41, %if.end106
-  %runningPCMFrameCount.296 = phi i64 [ %runningPCMFrameCount.1108, %for.body41 ], [ %add7.i68, %if.end106 ], [ %runningPCMFrameCount.2104, %for.cond67.preheader ]
-  %runningPCMFrameCountFractionalPart.294 = phi float [ %runningPCMFrameCountFractionalPart.1109, %for.body41 ], [ %sub.i66, %if.end106 ], [ %runningPCMFrameCountFractionalPart.2105, %for.cond67.preheader ]
+for.inc109:                                       ; preds = %for.cond67.preheader, %if.end106, %for.body41
+  %runningPCMFrameCount.296 = phi i64 [ %runningPCMFrameCount.1108, %for.body41 ], [ %runningPCMFrameCount.2104, %for.cond67.preheader ], [ %add7.i68, %if.end106 ]
+  %runningPCMFrameCountFractionalPart.294 = phi float [ %runningPCMFrameCountFractionalPart.1109, %for.body41 ], [ %runningPCMFrameCountFractionalPart.2105, %for.cond67.preheader ], [ %sub.i66, %if.end106 ]
   %.sink = load i64, ptr %mp3FrameInfo, align 16
   %arrayidx50 = getelementptr inbounds %struct.ma_dr_mp3_seek_point, ptr %pSeekPoints, i64 %indvars.iv115
   store i64 %.sink, ptr %arrayidx50, align 8
-  %pcmFrameIndex54 = getelementptr inbounds %struct.ma_dr_mp3_seek_point, ptr %pSeekPoints, i64 %indvars.iv115, i32 1
+  %pcmFrameIndex54 = getelementptr inbounds i8, ptr %arrayidx50, i64 8
   store i64 %add42, ptr %pcmFrameIndex54, align 8
-  %mp3FramesToDiscard57 = getelementptr inbounds %struct.ma_dr_mp3_seek_point, ptr %pSeekPoints, i64 %indvars.iv115, i32 2
+  %mp3FramesToDiscard57 = getelementptr inbounds i8, ptr %arrayidx50, i64 16
   store i16 2, ptr %mp3FramesToDiscard57, align 8
   %12 = load i64, ptr %pcmFrameIndex100, align 8
   %sub60 = sub i64 %add42, %12
   %conv61 = trunc i64 %sub60 to i16
-  %pcmFramesToDiscard64 = getelementptr inbounds %struct.ma_dr_mp3_seek_point, ptr %pSeekPoints, i64 %indvars.iv115, i32 3
+  %pcmFramesToDiscard64 = getelementptr inbounds i8, ptr %arrayidx50, i64 18
   store i16 %conv61, ptr %pcmFramesToDiscard64, align 2
   %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count

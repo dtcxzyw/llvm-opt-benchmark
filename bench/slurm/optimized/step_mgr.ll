@@ -1376,12 +1376,12 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %121 = bitcast <8 x i1> %120 to i8
   %122 = icmp eq i8 %121, 0
   %op.rdx = and i1 %122, %114
-  %op.rdx495 = and i1 %115, %116
-  %op.rdx496 = and i1 %117, %or.cond13
-  %op.rdx497 = and i1 %op.rdx, %op.rdx495
-  %op.rdx498 = and i1 %op.rdx496, %119
-  %op.rdx499 = and i1 %op.rdx497, %op.rdx498
-  br i1 %op.rdx499, label %526, label %123
+  %op.rdx494 = and i1 %115, %116
+  %op.rdx495 = and i1 %117, %or.cond13
+  %op.rdx496 = and i1 %op.rdx, %op.rdx494
+  %op.rdx497 = and i1 %op.rdx495, %119
+  %op.rdx498 = and i1 %op.rdx496, %op.rdx497
+  br i1 %op.rdx498, label %526, label %123
 
 123:                                              ; preds = %107
   %124 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1551,12 +1551,12 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
 .sink.split:                                      ; preds = %208
   %213 = load i32, ptr %165, align 8
   %.not439 = icmp eq i32 %213, -2
-  %.494 = select i1 %.not439, i32 %210, i32 %213
-  store i32 %.494, ptr %175, align 8
+  %.493 = select i1 %.not439, i32 %210, i32 %213
+  store i32 %.493, ptr %175, align 8
   br label %214
 
 214:                                              ; preds = %.sink.split, %208
-  %215 = phi i32 [ %211, %208 ], [ %.494, %.sink.split ]
+  %215 = phi i32 [ %211, %208 ], [ %.493, %.sink.split ]
   %216 = load i16, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 664), align 8
   %217 = zext i16 %216 to i32
   %218 = mul i32 %210, %217
@@ -1667,10 +1667,10 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %263 = call ptr @find_job_record(i32 noundef %259) #13
   %.not444 = icmp eq ptr %263, null
   %264 = getelementptr inbounds i8, ptr %263, i64 552
-  %.sink = select i1 %.not444, ptr %161, ptr %264
-  %265 = load i32, ptr %.sink, align 8
+  %.sink484 = select i1 %.not444, ptr %161, ptr %264
+  %265 = load i32, ptr %.sink484, align 8
   %266 = add i32 %265, 1
-  store i32 %266, ptr %.sink, align 8
+  store i32 %266, ptr %.sink484, align 8
   %267 = getelementptr inbounds i8, ptr %230, i64 296
   store i32 %265, ptr %267, align 8
   %268 = load i32, ptr %161, align 8
@@ -1742,9 +1742,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   %302 = add nsw i32 %301, -1
   %303 = call i32 @llvm.fshl.i32(i32 %302, i32 %302, i32 28)
   %switch = icmp ult i32 %303, 4
-  %spec.select484 = zext i1 %switch to i16
+  %spec.select485 = zext i1 %switch to i16
   %304 = getelementptr inbounds i8, ptr %230, i64 88
-  store i16 %spec.select484, ptr %304, align 8
+  store i16 %spec.select485, ptr %304, align 8
   %305 = load ptr, ptr %0, align 8
   %306 = call ptr @xstrdup(ptr noundef %305) #13
   %307 = getelementptr inbounds i8, ptr %230, i64 8
@@ -1941,9 +1941,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %431
 
 431:                                              ; preds = %427, %425
-  %.sink488 = phi ptr [ %430, %427 ], [ %426, %425 ]
+  %.sink = phi ptr [ %430, %427 ], [ %426, %425 ]
   %432 = getelementptr inbounds i8, ptr %230, i64 176
-  store ptr %.sink488, ptr %432, align 8
+  store ptr %.sink, ptr %432, align 8
   %433 = getelementptr inbounds i8, ptr %0, i64 104
   %434 = load ptr, ptr %433, align 8
   %.not452 = icmp eq ptr %434, null
@@ -1965,9 +1965,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %443
 
 443:                                              ; preds = %439, %437
-  %.sink490 = phi ptr [ %442, %439 ], [ %438, %437 ]
+  %.sink489 = phi ptr [ %442, %439 ], [ %438, %437 ]
   %444 = getelementptr inbounds i8, ptr %230, i64 184
-  store ptr %.sink490, ptr %444, align 8
+  store ptr %.sink489, ptr %444, align 8
   %445 = getelementptr inbounds i8, ptr %230, i64 272
   store ptr %197, ptr %445, align 8
   %446 = getelementptr inbounds i8, ptr %0, i64 196
@@ -2005,9 +2005,9 @@ define dso_local i32 @step_create(ptr noundef %0, ptr noundef %1, i16 noundef ze
   br label %526
 
 switch.lookup:                                    ; preds = %443, %449
-  %.sink492 = phi i32 [ %447, %449 ], [ -1, %443 ]
+  %.sink491 = phi i32 [ %447, %449 ], [ -1, %443 ]
   %464 = getelementptr inbounds i8, ptr %230, i64 264
-  store i32 %.sink492, ptr %464, align 8
+  store i32 %.sink491, ptr %464, align 8
   %465 = load i32, ptr %175, align 8
   %466 = load i32, ptr %96, align 8
   %467 = getelementptr inbounds i8, ptr %0, i64 140
@@ -2541,10 +2541,10 @@ define internal fastcc noundef i32 @_build_ext_launcher_step(ptr noundef writeon
   %96 = call ptr @find_job_record(i32 noundef %91) #13
   %.not111 = icmp eq ptr %96, null
   %97 = getelementptr inbounds i8, ptr %96, i64 552
-  %.sink = select i1 %.not111, ptr %12, ptr %97
-  %98 = load i32, ptr %.sink, align 8
+  %.sink116 = select i1 %.not111, ptr %12, ptr %97
+  %98 = load i32, ptr %.sink116, align 8
   %99 = add i32 %98, 1
-  store i32 %99, ptr %.sink, align 8
+  store i32 %99, ptr %.sink116, align 8
   %100 = getelementptr inbounds i8, ptr %8, i64 296
   store i32 %98, ptr %100, align 8
   %101 = load i32, ptr %12, align 8
@@ -8375,16 +8375,16 @@ define internal noundef i32 @_suspend_job_step(ptr nocapture noundef %0, ptr noc
   %.not13.not = icmp eq i64 %8, 0
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 256
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %9 = load i64, ptr %1, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 208
-  %11 = tail call i64 @llvm.smax.i64(i64 %8, i64 %.pre)
-  %..pre = select i1 %.not13.not, i64 %.pre, i64 %11
-  %12 = tail call double @difftime(i64 noundef %9, i64 noundef %..pre) #15
-  %13 = load i64, ptr %10, align 8
+  %9 = tail call i64 @llvm.smax.i64(i64 %8, i64 %.pre)
+  %..pre = select i1 %.not13.not, i64 %.pre, i64 %9
+  %10 = load i64, ptr %1, align 8
+  %11 = tail call double @difftime(i64 noundef %10, i64 noundef %..pre) #15
+  %12 = getelementptr inbounds i8, ptr %0, i64 208
+  %13 = load i64, ptr %12, align 8
   %14 = sitofp i64 %13 to double
-  %15 = fadd double %12, %14
+  %15 = fadd double %11, %14
   %16 = fptosi double %15 to i64
-  store i64 %16, ptr %10, align 8
+  store i64 %16, ptr %12, align 8
   br label %17
 
 17:                                               ; preds = %.sink.split, %2

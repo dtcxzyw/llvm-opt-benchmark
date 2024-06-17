@@ -7865,14 +7865,14 @@ _ZL9set_ee_avP9ener_ee_t.exit:                    ; preds = %170, %._crit_edge.i
   br label %206
 
 206:                                              ; preds = %201, %196
-  %.sink328 = phi i64 [ 1, %201 ], [ %200, %196 ]
-  %.sink327.in.in = phi ptr [ %205, %201 ], [ %62, %196 ]
-  %.sink327.in = load float, ptr %.sink327.in.in, align 4
-  %.sink327 = fpext float %.sink327.in to double
-  %207 = add nsw i64 %194, %.sink328
+  %.sink320 = phi i64 [ 1, %201 ], [ %200, %196 ]
+  %.sink319.in.in = phi ptr [ %205, %201 ], [ %62, %196 ]
+  %.sink319.in = load float, ptr %.sink319.in.in, align 4
+  %.sink319 = fpext float %.sink319.in to double
+  %207 = add nsw i64 %194, %.sink320
   store i64 %207, ptr %193, align 8
   %208 = load double, ptr %195, align 8
-  %209 = fadd double %208, %.sink327
+  %209 = fadd double %208, %.sink319
   store double %209, ptr %195, align 8
   %210 = load ptr, ptr %47, align 8
   %211 = load i32, ptr %210, align 4
@@ -8001,9 +8001,9 @@ _ZL9set_ee_avP9ener_ee_t.exit206:                 ; preds = %244, %._crit_edge.i
   br label %271
 
 271:                                              ; preds = %264, %261
-  %.sink319 = phi ptr [ %265, %264 ], [ %263, %261 ]
+  %.sink321 = phi ptr [ %265, %264 ], [ %263, %261 ]
   %sqrt.sink = phi double [ %sqrt, %264 ], [ %262, %261 ]
-  %272 = getelementptr inbounds %struct.enerdat_t, ptr %.sink319, i64 %indvars.iv292, i32 4
+  %272 = getelementptr inbounds %struct.enerdat_t, ptr %.sink321, i64 %indvars.iv292, i32 4
   store double %sqrt.sink, ptr %272, align 8
   %273 = load i32, ptr %45, align 8
   %274 = icmp sgt i32 %273, 1
@@ -8019,10 +8019,10 @@ _ZL9set_ee_avP9ener_ee_t.exit206:                 ; preds = %244, %._crit_edge.i
   br label %282
 
 282:                                              ; preds = %271, %275
-  %.sink320 = phi double [ %281, %275 ], [ 0.000000e+00, %271 ]
+  %.sink = phi double [ %281, %275 ], [ 0.000000e+00, %271 ]
   %283 = load ptr, ptr %44, align 8
   %284 = getelementptr inbounds %struct.enerdat_t, ptr %283, i64 %indvars.iv292, i32 6
-  store double %.sink320, ptr %284, align 8
+  store double %.sink, ptr %284, align 8
   br i1 %.not227, label %._crit_edge259.thread, label %.lr.ph258.preheader
 
 .lr.ph258.preheader:                              ; preds = %282
@@ -8080,8 +8080,8 @@ _ZL9set_ee_avP9ener_ee_t.exit206:                 ; preds = %244, %._crit_edge.i
   %313 = shufflevector <2 x double> %312, <2 x double> poison, <2 x i32> zeroinitializer
   %314 = fdiv <2 x double> %311, %313
   %315 = fmul <2 x double> %314, %314
-  %shift334 = shufflevector <2 x double> %314, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %316 = fsub <2 x double> %shift334, %315
+  %shift332 = shufflevector <2 x double> %314, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %316 = fsub <2 x double> %shift332, %315
   %317 = extractelement <2 x double> %316, i64 0
   %318 = trunc i64 %indvars.iv287 to i32
   %319 = add i32 %318, -1
@@ -8110,10 +8110,10 @@ _ZL9set_ee_avP9ener_ee_t.exit206:                 ; preds = %244, %._crit_edge.i
   br label %._crit_edge259.thread
 
 ._crit_edge259.thread:                            ; preds = %._crit_edge259, %282, %326
-  %.sink323 = phi double [ %329, %326 ], [ -1.000000e+00, %282 ], [ -1.000000e+00, %._crit_edge259 ]
+  %.sink324 = phi double [ %329, %326 ], [ -1.000000e+00, %282 ], [ -1.000000e+00, %._crit_edge259 ]
   %330 = load ptr, ptr %44, align 8
   %331 = getelementptr inbounds %struct.enerdat_t, ptr %330, i64 %indvars.iv292, i32 5
-  store double %.sink323, ptr %331, align 8
+  store double %.sink324, ptr %331, align 8
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
   br i1 %exitcond296.not, label %._crit_edge265, label %50, !llvm.loop !81

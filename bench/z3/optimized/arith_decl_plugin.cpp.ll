@@ -9145,14 +9145,14 @@ lor.lhs.false.i49:                                ; preds = %_ZN6vectorI12builti
 if.end.sink.split:                                ; preds = %_ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit46, %lor.lhs.false.i49, %if.then, %lor.lhs.false.i
   %ref.tmp8.sink.ph = phi ptr [ %ref.tmp, %lor.lhs.false.i ], [ %ref.tmp, %if.then ], [ %ref.tmp8, %lor.lhs.false.i49 ], [ %ref.tmp8, %_ZN6vectorI12builtin_nameLb0EjE9push_backEOS0_.exit46 ]
   call void @_ZN6vectorI12builtin_nameLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %sort_names)
-  %.pre.i = load ptr, ptr %sort_names, align 8
-  %arrayidx8.phi.trans.insert.i59 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %.pre.i58 = load ptr, ptr %sort_names, align 8
+  %arrayidx8.phi.trans.insert.i59 = getelementptr inbounds i8, ptr %.pre.i58, i64 -4
   %.pre1.i60 = load i32, ptr %arrayidx8.phi.trans.insert.i59, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %lor.lhs.false.i49, %lor.lhs.false.i
   %.sink75 = phi i32 [ %6, %lor.lhs.false.i ], [ %16, %lor.lhs.false.i49 ], [ %.pre1.i60, %if.end.sink.split ]
-  %.sink = phi ptr [ %5, %lor.lhs.false.i ], [ %15, %lor.lhs.false.i49 ], [ %.pre.i, %if.end.sink.split ]
+  %.sink = phi ptr [ %5, %lor.lhs.false.i ], [ %15, %lor.lhs.false.i49 ], [ %.pre.i58, %if.end.sink.split ]
   %ref.tmp8.sink = phi ptr [ %ref.tmp, %lor.lhs.false.i ], [ %ref.tmp8, %lor.lhs.false.i49 ], [ %ref.tmp8.sink.ph, %if.end.sink.split ]
   %idx.ext.i53 = zext i32 %.sink75 to i64
   %add.ptr.i54 = getelementptr inbounds %struct.builtin_name, ptr %.sink, i64 %idx.ext.i53
@@ -12332,15 +12332,15 @@ invoke.cont9:                                     ; preds = %cond.false.i
   br i1 %tobool.not.i24, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
 nrvo.skipdtor.sink.split.sink.split:              ; preds = %invoke.cont9, %sw.bb6
-  %.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ]
-  %m_ref_count.i.i.i9 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %12 = load i32, ptr %m_ref_count.i.i.i9, align 4
+  %call4.i23.sink39 = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ]
+  %m_ref_count.i.i.i26 = getelementptr inbounds i8, ptr %call4.i23.sink39, i64 8
+  %12 = load i32, ptr %m_ref_count.i.i.i26, align 4
   %inc.i.i.i27 = add i32 %12, 1
-  store i32 %inc.i.i.i27, ptr %m_ref_count.i.i.i9, align 4
+  store i32 %inc.i.i.i27, ptr %m_ref_count.i.i.i26, align 4
   br label %nrvo.skipdtor.sink.split
 
 nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.sink.split.sink.split, %invoke.cont9, %sw.bb6
-  %call4.i23.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ], [ %.sink, %nrvo.skipdtor.sink.split.sink.split ]
+  %call4.i23.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ], [ %call4.i23.sink39, %nrvo.skipdtor.sink.split.sink.split ]
   store ptr %call4.i23.sink, ptr %agg.result, align 8
   br label %nrvo.skipdtor
 
@@ -12507,15 +12507,15 @@ invoke.cont9:                                     ; preds = %cond.false.i
   br i1 %tobool.not.i24, label %nrvo.skipdtor.sink.split, label %nrvo.skipdtor.sink.split.sink.split
 
 nrvo.skipdtor.sink.split.sink.split:              ; preds = %invoke.cont9, %sw.bb6
-  %.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ]
-  %m_ref_count.i.i.i9 = getelementptr inbounds i8, ptr %.sink, i64 8
-  %12 = load i32, ptr %m_ref_count.i.i.i9, align 4
+  %call4.i23.sink39 = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ]
+  %m_ref_count.i.i.i26 = getelementptr inbounds i8, ptr %call4.i23.sink39, i64 8
+  %12 = load i32, ptr %m_ref_count.i.i.i26, align 4
   %inc.i.i.i27 = add i32 %12, 1
-  store i32 %inc.i.i.i27, ptr %m_ref_count.i.i.i9, align 4
+  store i32 %inc.i.i.i27, ptr %m_ref_count.i.i.i26, align 4
   br label %nrvo.skipdtor.sink.split
 
 nrvo.skipdtor.sink.split:                         ; preds = %nrvo.skipdtor.sink.split.sink.split, %invoke.cont9, %sw.bb6
-  %call4.i23.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ], [ %.sink, %nrvo.skipdtor.sink.split.sink.split ]
+  %call4.i23.sink = phi ptr [ %11, %sw.bb6 ], [ %call4.i23, %invoke.cont9 ], [ %call4.i23.sink39, %nrvo.skipdtor.sink.split.sink.split ]
   store ptr %call4.i23.sink, ptr %agg.result, align 8
   br label %nrvo.skipdtor
 

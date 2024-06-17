@@ -169,15 +169,15 @@ sw.epilog50.sink.split.loopexit:                  ; preds = %if.else33, %if.else
 
 sw.epilog50.sink.split:                           ; preds = %if.else33, %if.else33, %sw.epilog50.sink.split.loopexit, %sw.bb40
   %.sink = phi i32 [ 10, %sw.bb40 ], [ 30, %sw.epilog50.sink.split.loopexit ], [ 20, %if.else33 ], [ 20, %if.else33 ]
-  %mul42 = shl i32 %.ph, %.sink
-  store i32 %mul42, ptr %Val, align 4
+  %mul = shl i32 %.ph, %.sink
+  store i32 %mul, ptr %Val, align 4
   br label %if.end15.outer, !llvm.loop !16
 
 if.end15.outer:                                   ; preds = %entry, %sw.epilog50.sink.split
   %cmp31.not.ph = phi i1 [ false, %sw.epilog50.sink.split ], [ true, %entry ]
   %cmp21.ph = phi i1 [ true, %sw.epilog50.sink.split ], [ false, %entry ]
   %incdec.ptr4244.ph = phi ptr [ %incdec.ptr, %sw.epilog50.sink.split ], [ %0, %entry ]
-  %.ph = phi i32 [ %mul42, %sw.epilog50.sink.split ], [ %conv, %entry ]
+  %.ph = phi i32 [ %mul, %sw.epilog50.sink.split ], [ %conv, %entry ]
   br label %if.end15
 
 return.sink.split:                                ; preds = %if.then, %if.then8, %sw.default

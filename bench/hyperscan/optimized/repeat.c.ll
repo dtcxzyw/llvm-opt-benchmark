@@ -2076,13 +2076,13 @@ if.then26:                                        ; preds = %if.else
   br label %do.end35.sink.split
 
 do.end35.sink.split:                              ; preds = %if.then17, %if.then26
-  %shl29.pn = phi i64 [ %shl29, %if.then26 ], [ %retval.i47.0, %if.then17 ]
-  %or31.sink = or i64 %cond, %shl29.pn
-  store i64 %or31.sink, ptr %bitmap13, align 8
+  %shl29.sink = phi i64 [ %shl29, %if.then26 ], [ %retval.i47.0, %if.then17 ]
+  %or31 = or i64 %cond, %shl29.sink
+  store i64 %or31, ptr %bitmap13, align 8
   br label %do.end35
 
 do.end35:                                         ; preds = %do.end35.sink.split, %if.else
-  %6 = phi i64 [ %cond, %if.else ], [ %or31.sink, %do.end35.sink.split ]
+  %6 = phi i64 [ %cond, %if.else ], [ %or31, %do.end35.sink.split ]
   store i64 %add, ptr %ctrl, align 8
   %7 = load i32, ptr %repeatMin, align 4
   %cmp38 = icmp ult i32 %7, 63
@@ -7669,17 +7669,17 @@ mmbit_unset_big.exit:                             ; preds = %do.body.i, %if.end.
   br i1 %cmp1.i1762, label %if.end104.sink.split, label %for.cond.i1755
 
 if.end104.sink.split:                             ; preds = %mmbit_iterate_bounded.exit.i902, %mmbit_unset_big.exit2315, %for.cond.i899, %if.else.i37.i969, %mmbit_iterate_bounded.exit.i1758, %mmbit_unset_big.exit, %for.cond.i1755, %if.else.i37.i1825, %mmbit_unset_range.exit127, %for.end.i596, %sw.bb25.i.i, %sw.bb23.i.i, %sw.bb18.i.i, %sw.bb16.i.i, %sw.bb11.i.i, %sw.bb6.i.i, %sw.bb1.i.i2066, %sw.bb.i.i2072, %get_flat_masks.exit.i626, %mmbit_unset_range.exit145, %for.end.i264, %sw.bb25.i.i2154, %sw.bb23.i.i2156, %sw.bb18.i.i2158, %sw.bb16.i.i2163, %sw.bb11.i.i2165, %sw.bb6.i.i2170, %sw.bb1.i.i2175, %sw.bb.i.i2183, %get_flat_masks.exit.i294
-  %idx.0.sink = phi i32 [ %sub42, %get_flat_masks.exit.i294 ], [ %sub42, %sw.bb25.i.i2154 ], [ %sub42, %sw.bb23.i.i2156 ], [ %sub42, %sw.bb18.i.i2158 ], [ %sub42, %sw.bb16.i.i2163 ], [ %sub42, %sw.bb11.i.i2165 ], [ %sub42, %sw.bb6.i.i2170 ], [ %sub42, %sw.bb1.i.i2175 ], [ %sub42, %sw.bb.i.i2183 ], [ %sub42, %for.end.i264 ], [ %sub34, %mmbit_unset_range.exit145 ], [ %sub90, %get_flat_masks.exit.i626 ], [ %sub90, %sw.bb25.i.i ], [ %sub90, %sw.bb23.i.i ], [ %sub90, %sw.bb18.i.i ], [ %sub90, %sw.bb16.i.i ], [ %sub90, %sw.bb11.i.i ], [ %sub90, %sw.bb6.i.i ], [ %sub90, %sw.bb1.i.i2066 ], [ %sub90, %sw.bb.i.i2072 ], [ %sub90, %for.end.i596 ], [ %sub78, %mmbit_unset_range.exit127 ], [ %sub90, %if.else.i37.i1825 ], [ %sub90, %for.cond.i1755 ], [ %sub90, %mmbit_unset_big.exit ], [ %sub90, %mmbit_iterate_bounded.exit.i1758 ], [ %sub42, %if.else.i37.i969 ], [ %sub42, %for.cond.i899 ], [ %sub42, %mmbit_unset_big.exit2315 ], [ %sub42, %mmbit_iterate_bounded.exit.i902 ]
-  %204 = trunc i32 %idx.0.sink to i16
-  %conv46 = add i16 %204, 1
-  %conv97 = zext i16 %conv46 to i32
+  %idx.1.sink = phi i32 [ %sub42, %get_flat_masks.exit.i294 ], [ %sub42, %sw.bb25.i.i2154 ], [ %sub42, %sw.bb23.i.i2156 ], [ %sub42, %sw.bb18.i.i2158 ], [ %sub42, %sw.bb16.i.i2163 ], [ %sub42, %sw.bb11.i.i2165 ], [ %sub42, %sw.bb6.i.i2170 ], [ %sub42, %sw.bb1.i.i2175 ], [ %sub42, %sw.bb.i.i2183 ], [ %sub42, %for.end.i264 ], [ %sub34, %mmbit_unset_range.exit145 ], [ %sub90, %get_flat_masks.exit.i626 ], [ %sub90, %sw.bb25.i.i ], [ %sub90, %sw.bb23.i.i ], [ %sub90, %sw.bb18.i.i ], [ %sub90, %sw.bb16.i.i ], [ %sub90, %sw.bb11.i.i ], [ %sub90, %sw.bb6.i.i ], [ %sub90, %sw.bb1.i.i2066 ], [ %sub90, %sw.bb.i.i2072 ], [ %sub90, %for.end.i596 ], [ %sub78, %mmbit_unset_range.exit127 ], [ %sub90, %if.else.i37.i1825 ], [ %sub90, %for.cond.i1755 ], [ %sub90, %mmbit_unset_big.exit ], [ %sub90, %mmbit_iterate_bounded.exit.i1758 ], [ %sub42, %if.else.i37.i969 ], [ %sub42, %for.cond.i899 ], [ %sub42, %mmbit_unset_big.exit2315 ], [ %sub42, %mmbit_iterate_bounded.exit.i902 ]
+  %204 = trunc i32 %idx.1.sink to i16
+  %conv94 = add i16 %204, 1
+  %conv97 = zext i16 %conv94 to i32
   %cmp98 = icmp eq i32 %16, %conv97
-  %spec.store.select996 = select i1 %cmp98, i16 0, i16 %conv46
+  %spec.store.select996 = select i1 %cmp98, i16 0, i16 %conv94
   store i16 %spec.store.select996, ptr %20, align 2
   br label %if.end104
 
 if.end104:                                        ; preds = %if.end104.sink.split, %if.then57
-  %idx.2 = phi i32 [ %cond69, %if.then57 ], [ %idx.0.sink, %if.end104.sink.split ]
+  %idx.2 = phi i32 [ %cond69, %if.then57 ], [ %idx.1.sink, %if.end104.sink.split ]
   %mul105 = mul i32 %div, %15
   %add.ptr.i150 = getelementptr inbounds i8, ptr %info, i64 56
   %205 = ptrtoint ptr %add.ptr.i150 to i64

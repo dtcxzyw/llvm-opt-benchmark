@@ -12289,15 +12289,15 @@ _ZN5Ipopt8SmartPtrINS_15AugSystemSolverEED2Ev.exit152: ; preds = %174, %169, %16
   br label %_ZN5Ipopt8SmartPtrINS_21RestoRestorationPhaseEED2Ev.exit372
 
 .sink.split:                                      ; preds = %195, %154
-  %.sink624 = phi ptr [ %153, %154 ], [ %194, %195 ]
-  %198 = getelementptr inbounds i8, ptr %.sink624, i64 8
+  %.sink598 = phi ptr [ %153, %154 ], [ %194, %195 ]
+  %198 = getelementptr inbounds i8, ptr %.sink598, i64 8
   %199 = load i32, ptr %198, align 8
   %200 = add nsw i32 %199, 1
   store i32 %200, ptr %198, align 8
   br label %201
 
 201:                                              ; preds = %.sink.split, %190
-  %.sroa.0539.1 = phi ptr [ null, %190 ], [ %.sink624, %.sink.split ]
+  %.sroa.0539.1 = phi ptr [ null, %190 ], [ %.sink598, %.sink.split ]
   %202 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
           to label %203 unwind label %186
 

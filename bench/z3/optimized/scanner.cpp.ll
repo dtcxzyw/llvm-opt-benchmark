@@ -1443,14 +1443,14 @@ lor.lhs.false.i37:                                ; preds = %_ZN6vectorIcLb1EjE5
 while.body17.sink.split:                          ; preds = %_ZN6vectorIcLb1EjE5resetEv.exit, %lor.lhs.false.i37, %sw.default, %if.then.i108
   %conv44.sink.in.ph = phi i32 [ %retval.0.i, %if.then.i108 ], [ %call2, %sw.default ], [ %call2, %lor.lhs.false.i37 ], [ %call2, %_ZN6vectorIcLb1EjE5resetEv.exit ]
   call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string)
-  %.pre.i47 = load ptr, ptr %m_string, align 8
-  %arrayidx8.phi.trans.insert.i110 = getelementptr inbounds i8, ptr %.pre.i47, i64 -4
+  %.pre.i109 = load ptr, ptr %m_string, align 8
+  %arrayidx8.phi.trans.insert.i110 = getelementptr inbounds i8, ptr %.pre.i109, i64 -4
   %.pre1.i111 = load i32, ptr %arrayidx8.phi.trans.insert.i110, align 4
   br label %while.body17.preheader
 
 while.body17.preheader:                           ; preds = %lor.lhs.false.i37, %while.body17.sink.split
   %.sink142.ph = phi i32 [ %.pre1.i111, %while.body17.sink.split ], [ %22, %lor.lhs.false.i37 ]
-  %.sink.ph = phi ptr [ %.pre.i47, %while.body17.sink.split ], [ %.pr, %lor.lhs.false.i37 ]
+  %.sink.ph = phi ptr [ %.pre.i109, %while.body17.sink.split ], [ %.pr, %lor.lhs.false.i37 ]
   %conv44.sink.in.ph147 = phi i32 [ %conv44.sink.in.ph, %while.body17.sink.split ], [ %call2, %lor.lhs.false.i37 ]
   br label %while.body17
 
@@ -3228,23 +3228,23 @@ if.else122:                                       ; preds = %if.else110
 while.body133.sink.split:                         ; preds = %lor.lhs.false.i323, %_ZN6vectorIcLb1EjE9push_backEOc.exit321, %lor.lhs.false.i365, %_ZN6vectorIcLb1EjE9push_backEOc.exit363, %if.then.i387
   %conv.sink.ph = phi i8 [ %conv, %if.then.i387 ], [ 120, %lor.lhs.false.i323 ], [ 120, %_ZN6vectorIcLb1EjE9push_backEOc.exit321 ], [ 110, %lor.lhs.false.i365 ], [ 110, %_ZN6vectorIcLb1EjE9push_backEOc.exit363 ]
   tail call void @_ZN6vectorIcLb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string)
-  %.pre.i332 = load ptr, ptr %m_string, align 8
-  %arrayidx8.phi.trans.insert.i389 = getelementptr inbounds i8, ptr %.pre.i332, i64 -4
+  %.pre.i388 = load ptr, ptr %m_string, align 8
+  %arrayidx8.phi.trans.insert.i389 = getelementptr inbounds i8, ptr %.pre.i388, i64 -4
   %.pre1.i390 = load i32, ptr %arrayidx8.phi.trans.insert.i389, align 4
   br label %while.body133.preheader
 
 while.body133.preheader:                          ; preds = %lor.lhs.false.i365, %lor.lhs.false.i323, %while.body133.sink.split
-  %.sink424.ph = phi i32 [ %.pre1.i390, %while.body133.sink.split ], [ %156, %lor.lhs.false.i365 ], [ %139, %lor.lhs.false.i323 ]
-  %.sink423.ph = phi ptr [ %.pre.i332, %while.body133.sink.split ], [ %155, %lor.lhs.false.i365 ], [ %138, %lor.lhs.false.i323 ]
-  %conv.sink.ph425 = phi i8 [ %conv.sink.ph, %while.body133.sink.split ], [ 110, %lor.lhs.false.i365 ], [ 120, %lor.lhs.false.i323 ]
+  %.sink425.ph = phi i32 [ %.pre1.i390, %while.body133.sink.split ], [ %156, %lor.lhs.false.i365 ], [ %139, %lor.lhs.false.i323 ]
+  %.sink424.ph = phi ptr [ %.pre.i388, %while.body133.sink.split ], [ %155, %lor.lhs.false.i365 ], [ %138, %lor.lhs.false.i323 ]
+  %conv.sink.ph426 = phi i8 [ %conv.sink.ph, %while.body133.sink.split ], [ 110, %lor.lhs.false.i365 ], [ 120, %lor.lhs.false.i323 ]
   br label %while.body133
 
 while.body133:                                    ; preds = %while.body133.preheader, %lor.lhs.false.i379
-  %.sink424 = phi i32 [ %164, %lor.lhs.false.i379 ], [ %.sink424.ph, %while.body133.preheader ]
-  %.sink423 = phi ptr [ %163, %lor.lhs.false.i379 ], [ %.sink423.ph, %while.body133.preheader ]
-  %conv.sink = phi i8 [ %conv, %lor.lhs.false.i379 ], [ %conv.sink.ph425, %while.body133.preheader ]
-  %idx.ext.i383 = zext i32 %.sink424 to i64
-  %add.ptr.i384 = getelementptr inbounds i8, ptr %.sink423, i64 %idx.ext.i383
+  %.sink425 = phi i32 [ %164, %lor.lhs.false.i379 ], [ %.sink425.ph, %while.body133.preheader ]
+  %.sink424 = phi ptr [ %163, %lor.lhs.false.i379 ], [ %.sink424.ph, %while.body133.preheader ]
+  %conv.sink = phi i8 [ %conv, %lor.lhs.false.i379 ], [ %conv.sink.ph426, %while.body133.preheader ]
+  %idx.ext.i383 = zext i32 %.sink425 to i64
+  %add.ptr.i384 = getelementptr inbounds i8, ptr %.sink424, i64 %idx.ext.i383
   store i8 %conv.sink, ptr %add.ptr.i384, align 1
   %159 = load ptr, ptr %m_string, align 8
   %arrayidx10.i385 = getelementptr inbounds i8, ptr %159, i64 -4

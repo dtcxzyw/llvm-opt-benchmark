@@ -1667,10 +1667,10 @@ if.then17:                                        ; preds = %if.end15
 return.sink.split.sink.split:                     ; preds = %if.then17, %if.then12
   %.sink = phi ptr [ %4, %if.then12 ], [ %5, %if.then17 ]
   %cmp1016.ph.ph = phi i1 [ false, %if.then12 ], [ true, %if.then17 ]
-  %mapped_size_.i = getelementptr inbounds i8, ptr %this, i64 8
-  %6 = load i64, ptr %mapped_size_.i, align 8
+  %mapped_size_.i9 = getelementptr inbounds i8, ptr %this, i64 8
+  %6 = load i64, ptr %mapped_size_.i9, align 8
   %call.i10 = call i32 @munmap(ptr noundef nonnull %.sink, i64 noundef %6) #16
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_.i, i8 0, i64 16, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mapped_size_.i9, i8 0, i64 16, i1 false)
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then17, %if.then12

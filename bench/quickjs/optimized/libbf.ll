@@ -2809,9 +2809,9 @@ ntt_free.exit162:                                 ; preds = %.lr.ph.split, %.lr.
 ntt_static_init.exit.sink.split:                  ; preds = %ntt_free.exit162, %ntt_free.exit158
   %.1.sink = phi ptr [ %169, %ntt_free.exit158 ], [ %.1, %ntt_free.exit162 ]
   %.0.ph = phi i32 [ 0, %ntt_free.exit158 ], [ -1, %ntt_free.exit162 ]
-  %.val105 = load ptr, ptr %106, align 8
-  %.val.i.i164 = load ptr, ptr %.val105, align 8
-  %427 = getelementptr i8, ptr %.val105, i64 8
+  %.val107 = load ptr, ptr %106, align 8
+  %.val.i.i164 = load ptr, ptr %.val107, align 8
+  %427 = getelementptr i8, ptr %.val107, i64 8
   %.val3.i.i165 = load ptr, ptr %427, align 8
   %428 = tail call ptr %.val3.i.i165(ptr noundef %.val.i.i164, ptr noundef nonnull %.1.sink, i64 noundef 0) #17
   br label %ntt_static_init.exit
@@ -29372,9 +29372,9 @@ ntt_free.exit147.sink.split.i:                    ; preds = %ntt_vec_mul.exit
   %78 = tail call fastcc i32 @ntt_fft(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef nonnull %76, i32 noundef %3, i32 noundef 1, i32 noundef %77)
   %.not119.i = icmp ne i32 %78, 0
   %spec.select = sext i1 %.not119.i to i32
-  %.val121.i = load ptr, ptr %0, align 8
-  %.val.i.i145.i = load ptr, ptr %.val121.i, align 8
-  %79 = getelementptr i8, ptr %.val121.i, i64 8
+  %.val166.i = load ptr, ptr %0, align 8
+  %.val.i.i145.i = load ptr, ptr %.val166.i, align 8
+  %79 = getelementptr i8, ptr %.val166.i, i64 8
   %.val3.i.i146.i = load ptr, ptr %79, align 8
   %80 = tail call ptr %.val3.i.i146.i(ptr noundef %.val.i.i145.i, ptr noundef nonnull %76, i64 noundef 0) #17
   br label %ntt_fft_partial.exit
@@ -29694,9 +29694,9 @@ ntt_free.exit143.thread:                          ; preds = %.thread159, %14, %1
 
 ntt_free.exit147.sink.split:                      ; preds = %ntt_free.exit, %14, %ntt_free.exit143.thread
   %.0.ph = phi i32 [ -1, %ntt_free.exit143.thread ], [ 0, %14 ], [ 0, %ntt_free.exit ]
-  %.val121 = load ptr, ptr %0, align 8
-  %.val.i.i145 = load ptr, ptr %.val121, align 8
-  %168 = getelementptr i8, ptr %.val121, i64 8
+  %.val166 = load ptr, ptr %0, align 8
+  %.val.i.i145 = load ptr, ptr %.val166, align 8
+  %168 = getelementptr i8, ptr %.val166, i64 8
   %.val3.i.i146 = load ptr, ptr %168, align 8
   %169 = tail call ptr %.val3.i.i146(ptr noundef %.val.i.i145, ptr noundef nonnull %11, i64 noundef 0) #17
   br label %ntt_free.exit147

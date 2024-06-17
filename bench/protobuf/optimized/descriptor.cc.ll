@@ -5141,14 +5141,14 @@ sw.default.i50.i.i.i.i.i.i:                       ; preds = %for.body.i.i.i.i.i.
 
 return.sink.split.i10.i.i.i.i.i.i:                ; preds = %sw.bb47.i8.i.i.i.i.i.i, %sw.bb18.i.i18.i.i.i.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i20.i.i.i.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i26.i.i.i.i.i.i, %sw.bb11.i.i64.i31.i.i.i.i.i.i, %sw.bb15.i33.i.i.i.i.i.i, %sw.bb4.i.i31.i43.i.i.i.i.i.i, %sw.bb.i.i.i48.i.i.i.i.i.i
   %file_.i10.i.i93.sink.i11.i.i.i.i.i.i = phi ptr [ %file_.i10.i.i93.i27.i.i.i.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i26.i.i.i.i.i.i ], [ %file_.i9.i.i65.i32.i.i.i.i.i.i, %sw.bb11.i.i64.i31.i.i.i.i.i.i ], [ %file_.i3.i.i32.i44.i.i.i.i.i.i, %sw.bb4.i.i31.i43.i.i.i.i.i.i ], [ %file_.i.i.i.i49.i.i.i.i.i.i, %sw.bb.i.i.i48.i.i.i.i.i.i ], [ %service_.i.i9.i.i.i.i.i.i, %sw.bb47.i8.i.i.i.i.i.i ], [ %file_.i13.i.i19.i.i.i.i.i.i, %sw.bb18.i.i18.i.i.i.i.i.i ], [ %type_.i117150.i21.i.i.i.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i20.i.i.i.i.i.i ], [ %containing_type_.i41.i34.i.i.i.i.i.i, %sw.bb15.i33.i.i.i.i.i.i ]
-  %.sink.ph.i12.i.i.i.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i26.i.i.i.i.i.i ], [ 8, %sw.bb11.i.i64.i31.i.i.i.i.i.i ], [ 8, %sw.bb4.i.i31.i43.i.i.i.i.i.i ], [ 8, %sw.bb.i.i.i48.i.i.i.i.i.i ], [ 8, %sw.bb47.i8.i.i.i.i.i.i ], [ 8, %sw.bb18.i.i18.i.i.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i20.i.i.i.i.i.i ], [ 8, %sw.bb15.i33.i.i.i.i.i.i ]
+  %.sink163.ph.i12.i.i.i.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i26.i.i.i.i.i.i ], [ 8, %sw.bb11.i.i64.i31.i.i.i.i.i.i ], [ 8, %sw.bb4.i.i31.i43.i.i.i.i.i.i ], [ 8, %sw.bb.i.i.i48.i.i.i.i.i.i ], [ 8, %sw.bb47.i8.i.i.i.i.i.i ], [ 8, %sw.bb18.i.i18.i.i.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i20.i.i.i.i.i.i ], [ 8, %sw.bb15.i33.i.i.i.i.i.i ]
   %18 = load ptr, ptr %file_.i10.i.i93.sink.i11.i.i.i.i.i.i, align 8, !noalias !121
   br label %_ZNK6google8protobuf6Symbol15parent_name_keyEv.exit51.i.i.i.i.i.i
 
 _ZNK6google8protobuf6Symbol15parent_name_keyEv.exit51.i.i.i.i.i.i: ; preds = %return.sink.split.i10.i.i.i.i.i.i, %sw.bb28.i22.i.i.i.i.i.i, %sw.bb21.i28.i.i.i.i.i.i, %sw.bb7.i35.i.i.i.i.i.i, %sw.bb.i45.i.i.i.i.i.i
-  %.sink.i13.i.i.i.i.i.i = phi i64 [ 8, %sw.bb.i45.i.i.i.i.i.i ], [ 8, %sw.bb7.i35.i.i.i.i.i.i ], [ 8, %sw.bb21.i28.i.i.i.i.i.i ], [ 8, %sw.bb28.i22.i.i.i.i.i.i ], [ %.sink.ph.i12.i.i.i.i.i.i, %return.sink.split.i10.i.i.i.i.i.i ]
-  %.sink161.i14.i.i.i.i.i.i = phi ptr [ %13, %sw.bb.i45.i.i.i.i.i.i ], [ %cond.i41.i.i.i.i.i.i, %sw.bb7.i35.i.i.i.i.i.i ], [ %15, %sw.bb21.i28.i.i.i.i.i.i ], [ %17, %sw.bb28.i22.i.i.i.i.i.i ], [ %18, %return.sink.split.i10.i.i.i.i.i.i ]
-  %all_names_.i135.i15.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %.sink.i13.i.i.i.i.i.i
+  %.sink163.i13.i.i.i.i.i.i = phi i64 [ 8, %sw.bb.i45.i.i.i.i.i.i ], [ 8, %sw.bb7.i35.i.i.i.i.i.i ], [ 8, %sw.bb21.i28.i.i.i.i.i.i ], [ 8, %sw.bb28.i22.i.i.i.i.i.i ], [ %.sink163.ph.i12.i.i.i.i.i.i, %return.sink.split.i10.i.i.i.i.i.i ]
+  %.sink162.i14.i.i.i.i.i.i = phi ptr [ %13, %sw.bb.i45.i.i.i.i.i.i ], [ %cond.i41.i.i.i.i.i.i, %sw.bb7.i35.i.i.i.i.i.i ], [ %15, %sw.bb21.i28.i.i.i.i.i.i ], [ %17, %sw.bb28.i22.i.i.i.i.i.i ], [ %18, %return.sink.split.i10.i.i.i.i.i.i ]
+  %all_names_.i135.i15.i.i.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %.sink163.i13.i.i.i.i.i.i
   %19 = load ptr, ptr %all_names_.i135.i15.i.i.i.i.i.i, align 8, !noalias !121
   %call.i137.i17.i.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %19) #37, !noalias !121
   %20 = extractvalue { i64, ptr } %call.i137.i17.i.i.i.i.i.i, 0
@@ -5238,20 +5238,20 @@ sw.default.i.i.i.i.i.i.i:                         ; preds = %_ZNK6google8protobu
 
 return.sink.split.i.i.i.i.i.i.i:                  ; preds = %sw.bb47.i.i.i.i.i.i.i, %sw.bb18.i.i.i.i.i.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i.i.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i.i.i.i.i, %sw.bb11.i.i64.i.i.i.i.i.i.i, %sw.bb15.i.i.i.i.i.i.i, %sw.bb4.i.i31.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i
   %file_.i10.i.i93.sink.i.i.i.i.i.i.i = phi ptr [ %file_.i10.i.i93.i.i.i.i.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i.i.i.i.i ], [ %file_.i9.i.i65.i.i.i.i.i.i.i, %sw.bb11.i.i64.i.i.i.i.i.i.i ], [ %file_.i3.i.i32.i.i.i.i.i.i.i, %sw.bb4.i.i31.i.i.i.i.i.i.i ], [ %file_.i.i.i.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i.i.i ], [ %service_.i.i.i.i.i.i.i.i, %sw.bb47.i.i.i.i.i.i.i ], [ %file_.i13.i.i.i.i.i.i.i.i, %sw.bb18.i.i.i.i.i.i.i.i ], [ %type_.i117150.i.i.i.i.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i.i.i.i.i ], [ %containing_type_.i41.i.i.i.i.i.i.i, %sw.bb15.i.i.i.i.i.i.i ]
-  %.sink.ph.i.i.i.i.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i.i.i.i.i ], [ 8, %sw.bb11.i.i64.i.i.i.i.i.i.i ], [ 8, %sw.bb4.i.i31.i.i.i.i.i.i.i ], [ 8, %sw.bb.i.i.i.i.i.i.i.i.i ], [ 8, %sw.bb47.i.i.i.i.i.i.i ], [ 8, %sw.bb18.i.i.i.i.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i.i.i.i.i ], [ 8, %sw.bb15.i.i.i.i.i.i.i ]
+  %.sink163.ph.i.i.i.i.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i.i.i.i.i ], [ 8, %sw.bb11.i.i64.i.i.i.i.i.i.i ], [ 8, %sw.bb4.i.i31.i.i.i.i.i.i.i ], [ 8, %sw.bb.i.i.i.i.i.i.i.i.i ], [ 8, %sw.bb47.i.i.i.i.i.i.i ], [ 8, %sw.bb18.i.i.i.i.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i.i.i.i.i ], [ 8, %sw.bb15.i.i.i.i.i.i.i ]
   %29 = load ptr, ptr %file_.i10.i.i93.sink.i.i.i.i.i.i.i, align 8, !noalias !124
   br label %_ZNK6google8protobuf6Symbol15parent_name_keyEv.exit.i.i.i.i.i.i
 
 _ZNK6google8protobuf6Symbol15parent_name_keyEv.exit.i.i.i.i.i.i: ; preds = %return.sink.split.i.i.i.i.i.i.i, %sw.bb28.i.i.i.i.i.i.i, %sw.bb21.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i, %sw.bb.i.i.i.i.i.i.i
-  %.sink.i.i.i.i.i.i.i = phi i64 [ 8, %sw.bb.i.i.i.i.i.i.i ], [ 8, %sw.bb7.i.i.i.i.i.i.i ], [ 8, %sw.bb21.i.i.i.i.i.i.i ], [ 8, %sw.bb28.i.i.i.i.i.i.i ], [ %.sink.ph.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i.i.i.i ]
-  %.sink161.i.i.i.i.i.i.i = phi ptr [ %24, %sw.bb.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i ], [ %26, %sw.bb21.i.i.i.i.i.i.i ], [ %28, %sw.bb28.i.i.i.i.i.i.i ], [ %29, %return.sink.split.i.i.i.i.i.i.i ]
-  %all_names_.i135.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 %.sink.i.i.i.i.i.i.i
+  %.sink163.i.i.i.i.i.i.i = phi i64 [ 8, %sw.bb.i.i.i.i.i.i.i ], [ 8, %sw.bb7.i.i.i.i.i.i.i ], [ 8, %sw.bb21.i.i.i.i.i.i.i ], [ 8, %sw.bb28.i.i.i.i.i.i.i ], [ %.sink163.ph.i.i.i.i.i.i.i, %return.sink.split.i.i.i.i.i.i.i ]
+  %.sink162.i.i.i.i.i.i.i = phi ptr [ %24, %sw.bb.i.i.i.i.i.i.i ], [ %cond.i.i.i.i.i.i.i, %sw.bb7.i.i.i.i.i.i.i ], [ %26, %sw.bb21.i.i.i.i.i.i.i ], [ %28, %sw.bb28.i.i.i.i.i.i.i ], [ %29, %return.sink.split.i.i.i.i.i.i.i ]
+  %all_names_.i135.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 %.sink163.i.i.i.i.i.i.i
   %30 = load ptr, ptr %all_names_.i135.i.i.i.i.i.i.i, align 8, !noalias !124
   %call.i137.i.i.i.i.i.i.i = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %30) #37, !noalias !124
   %31 = extractvalue { i64, ptr } %call.i137.i.i.i.i.i.i.i, 0
   %32 = extractvalue { i64, ptr } %call.i137.i.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp54.i.i.i.i.i.i.i), !noalias !105
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sink161.i14.i.i.i.i.i.i, %.sink161.i.i.i.i.i.i.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sink162.i14.i.i.i.i.i.i, %.sink162.i.i.i.i.i.i.i
   %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, %31
   %or.cond.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i1 false
   br i1 %or.cond.i.i.i.i.i.i, label %land.rhs.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %for.inc.i.i.i.i.i.i.i
@@ -10657,19 +10657,19 @@ sw.default.i.i.i:                                 ; preds = %for.body.i.i.i
 
 return.sink.split.i.i.i:                          ; preds = %sw.bb47.i.i.i, %sw.bb18.i.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i, %sw.bb11.i.i64.i.i.i, %sw.bb15.i.i.i, %sw.bb4.i.i31.i.i.i, %sw.bb.i.i.i.i.i
   %file_.i10.i.i93.sink.i.i.i = phi ptr [ %file_.i10.i.i93.i.i.i, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i ], [ %file_.i9.i.i65.i.i.i, %sw.bb11.i.i64.i.i.i ], [ %file_.i3.i.i32.i.i.i, %sw.bb4.i.i31.i.i.i ], [ %file_.i.i.i.i.i.i, %sw.bb.i.i.i.i.i ], [ %service_.i.i.i.i, %sw.bb47.i.i.i ], [ %file_.i13.i.i.i.i, %sw.bb18.i.i.i.i ], [ %type_.i117150.i.i.i, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i ], [ %containing_type_.i41.i.i.i, %sw.bb15.i.i.i ]
-  %.sink.ph.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i ], [ 8, %sw.bb11.i.i64.i.i.i ], [ 8, %sw.bb4.i.i31.i.i.i ], [ 8, %sw.bb.i.i.i.i.i ], [ 8, %sw.bb47.i.i.i ], [ 8, %sw.bb18.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i ], [ 8, %sw.bb15.i.i.i ]
+  %.sink163.ph.i.i.i = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144.i.i.i ], [ 8, %sw.bb11.i.i64.i.i.i ], [ 8, %sw.bb4.i.i31.i.i.i ], [ 8, %sw.bb.i.i.i.i.i ], [ 8, %sw.bb47.i.i.i ], [ 8, %sw.bb18.i.i.i.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148.i.i.i ], [ 8, %sw.bb15.i.i.i ]
   %17 = load ptr, ptr %file_.i10.i.i93.sink.i.i.i, align 8, !noalias !275
   br label %_ZNK6google8protobuf6Symbol15parent_name_keyEv.exit.i.i
 
 _ZNK6google8protobuf6Symbol15parent_name_keyEv.exit.i.i: ; preds = %return.sink.split.i.i.i, %sw.bb28.i.i.i, %sw.bb21.i.i.i, %sw.bb7.i.i.i, %sw.bb.i.i.i
-  %.sink.i.i.i = phi i64 [ 8, %sw.bb.i.i.i ], [ 8, %sw.bb7.i.i.i ], [ 8, %sw.bb21.i.i.i ], [ 8, %sw.bb28.i.i.i ], [ %.sink.ph.i.i.i, %return.sink.split.i.i.i ]
-  %.sink161.i.i.i = phi ptr [ %12, %sw.bb.i.i.i ], [ %cond.i.i.i, %sw.bb7.i.i.i ], [ %14, %sw.bb21.i.i.i ], [ %16, %sw.bb28.i.i.i ], [ %17, %return.sink.split.i.i.i ]
-  %all_names_.i135.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.sink.i.i.i
+  %.sink163.i.i.i = phi i64 [ 8, %sw.bb.i.i.i ], [ 8, %sw.bb7.i.i.i ], [ 8, %sw.bb21.i.i.i ], [ 8, %sw.bb28.i.i.i ], [ %.sink163.ph.i.i.i, %return.sink.split.i.i.i ]
+  %.sink162.i.i.i = phi ptr [ %12, %sw.bb.i.i.i ], [ %cond.i.i.i, %sw.bb7.i.i.i ], [ %14, %sw.bb21.i.i.i ], [ %16, %sw.bb28.i.i.i ], [ %17, %return.sink.split.i.i.i ]
+  %all_names_.i135.i.i.i = getelementptr inbounds i8, ptr %10, i64 %.sink163.i.i.i
   %18 = load ptr, ptr %all_names_.i135.i.i.i, align 8, !noalias !275
   %call.i137.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %18) #37, !noalias !275
   %19 = extractvalue { i64, ptr } %call.i137.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp54.i.i.i)
-  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sink161.i.i.i, %parent
+  %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %.sink162.i.i.i, %parent
   %20 = extractvalue { i64, ptr } %call.i137.i.i.i, 0
   %cmp.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %20, %name.coerce0
   %or.cond = select i1 %cmp.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i.i.i.i.i.i.i.i.i, i1 false
@@ -58122,16 +58122,16 @@ sw.default:                                       ; preds = %entry
 
 return.sink.split:                                ; preds = %sw.bb15, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148, %sw.bb18.i, %sw.bb47, %sw.bb.i.i, %sw.bb4.i.i31, %sw.bb11.i.i64, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144
   %file_.i10.i.i93.sink = phi ptr [ %file_.i10.i.i93, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144 ], [ %file_.i9.i.i65, %sw.bb11.i.i64 ], [ %file_.i3.i.i32, %sw.bb4.i.i31 ], [ %file_.i.i.i, %sw.bb.i.i ], [ %service_.i, %sw.bb47 ], [ %file_.i13.i, %sw.bb18.i ], [ %type_.i117150, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148 ], [ %containing_type_.i41, %sw.bb15 ]
-  %.sink.ph = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144 ], [ 8, %sw.bb11.i.i64 ], [ 8, %sw.bb4.i.i31 ], [ 8, %sw.bb.i.i ], [ 8, %sw.bb47 ], [ 8, %sw.bb18.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148 ], [ 8, %sw.bb15 ]
+  %.sink163.ph = phi i64 [ 8, %_ZZNK6google8protobuf6Symbol15parent_name_keyEvENKUlPKvE_clES3_.exit103.thread144 ], [ 8, %sw.bb11.i.i64 ], [ 8, %sw.bb4.i.i31 ], [ 8, %sw.bb.i.i ], [ 8, %sw.bb47 ], [ 8, %sw.bb18.i ], [ 7, %_ZNK6google8protobuf6Symbol21enum_value_descriptorEv.exit116.thread148 ], [ 8, %sw.bb15 ]
   %7 = load ptr, ptr %file_.i10.i.i93.sink, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %sw.bb28, %sw.bb21, %sw.bb7, %sw.bb
-  %.sink = phi i64 [ 8, %sw.bb ], [ 8, %sw.bb7 ], [ 8, %sw.bb21 ], [ 8, %sw.bb28 ], [ %.sink.ph, %return.sink.split ]
-  %.sink161 = phi ptr [ %2, %sw.bb ], [ %cond, %sw.bb7 ], [ %4, %sw.bb21 ], [ %6, %sw.bb28 ], [ %7, %return.sink.split ]
-  %all_names_.i135 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %.sink163 = phi i64 [ 8, %sw.bb ], [ 8, %sw.bb7 ], [ 8, %sw.bb21 ], [ 8, %sw.bb28 ], [ %.sink163.ph, %return.sink.split ]
+  %.sink162 = phi ptr [ %2, %sw.bb ], [ %cond, %sw.bb7 ], [ %4, %sw.bb21 ], [ %6, %sw.bb28 ], [ %7, %return.sink.split ]
+  %all_names_.i135 = getelementptr inbounds i8, ptr %0, i64 %.sink163
   %8 = load ptr, ptr %all_names_.i135, align 8
-  store ptr %.sink161, ptr %agg.result, align 8
+  store ptr %.sink162, ptr %agg.result, align 8
   %second.i136 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i137 = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #37
   %9 = extractvalue { i64, ptr } %call.i137, 0

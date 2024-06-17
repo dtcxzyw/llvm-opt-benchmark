@@ -888,8 +888,8 @@ BufferGetPage.exit77.i:                           ; preds = %493, %487
   br i1 %.not81.i, label %spgRedoAddNode.exit, label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %519, %344
-  %.sink84.i = phi i32 [ %345, %344 ], [ %520, %519 ]
-  call void @UnlockReleaseBuffer(i32 noundef %.sink84.i) #6
+  %.sink.i = phi i32 [ %345, %344 ], [ %520, %519 ]
+  call void @UnlockReleaseBuffer(i32 noundef %.sink.i) #6
   br label %spgRedoAddNode.exit
 
 spgRedoAddNode.exit:                              ; preds = %344, %477, %519, %.sink.split.i

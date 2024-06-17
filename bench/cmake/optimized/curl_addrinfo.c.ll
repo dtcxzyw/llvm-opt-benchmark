@@ -395,7 +395,7 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   %4 = alloca %struct.in6_addr, align 4
   %5 = call i32 @inet_pton(i32 noundef 2, ptr noundef %0, ptr noundef nonnull %3) #7
   %6 = icmp sgt i32 %5, 0
-  br i1 %6, label %7, label %21
+  br i1 %6, label %7, label %16
 
 7:                                                ; preds = %2
   %8 = load ptr, ptr @Curl_cmalloc, align 8
@@ -414,70 +414,60 @@ define dso_local ptr @Curl_str2addr(ptr noundef %0, i32 noundef %1) local_unname
   %15 = load i32, ptr %3, align 4
   store i32 %15, ptr %14, align 1
   store ptr %12, ptr %9, align 8
-  %16 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr null, ptr %16, align 8
-  %17 = getelementptr inbounds i8, ptr %9, i64 16
-  store i32 2, ptr %17, align 8
-  %18 = getelementptr inbounds i8, ptr %9, i64 20
-  store i32 4, ptr %18, align 4
-  %19 = getelementptr inbounds i8, ptr %9, i64 48
-  %20 = getelementptr inbounds i8, ptr %9, i64 24
-  store ptr %19, ptr %20, align 8
-  store ptr %14, ptr %19, align 8
   br label %Curl_ip2addr.exit.sink.split.sink.split
 
-21:                                               ; preds = %2
-  %22 = call i32 @inet_pton(i32 noundef 10, ptr noundef %0, ptr noundef nonnull %4) #7
-  %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %24, label %Curl_ip2addr.exit
+16:                                               ; preds = %2
+  %17 = call i32 @inet_pton(i32 noundef 10, ptr noundef %0, ptr noundef nonnull %4) #7
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %Curl_ip2addr.exit
 
-24:                                               ; preds = %21
-  %25 = load ptr, ptr @Curl_cmalloc, align 8
-  %26 = call ptr %25(i64 noundef 64) #7
-  %.not.i6 = icmp eq ptr %26, null
-  br i1 %.not.i6, label %Curl_ip2addr.exit, label %27
+19:                                               ; preds = %16
+  %20 = load ptr, ptr @Curl_cmalloc, align 8
+  %21 = call ptr %20(i64 noundef 64) #7
+  %.not.i6 = icmp eq ptr %21, null
+  br i1 %.not.i6, label %Curl_ip2addr.exit, label %22
 
-27:                                               ; preds = %24
-  %28 = load ptr, ptr @Curl_cstrdup, align 8
-  %29 = call ptr %28(ptr noundef %0) #7
-  %.not35.i7 = icmp eq ptr %29, null
-  br i1 %.not35.i7, label %Curl_ip2addr.exit.sink.split, label %30
+22:                                               ; preds = %19
+  %23 = load ptr, ptr @Curl_cstrdup, align 8
+  %24 = call ptr %23(ptr noundef %0) #7
+  %.not35.i7 = icmp eq ptr %24, null
+  br i1 %.not35.i7, label %Curl_ip2addr.exit.sink.split, label %25
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds i8, ptr %26, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
-  store ptr %29, ptr %26, align 8
-  %32 = getelementptr inbounds i8, ptr %26, i64 8
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds i8, ptr %21, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false)
+  store ptr %24, ptr %21, align 8
+  br label %Curl_ip2addr.exit.sink.split.sink.split
+
+Curl_ip2addr.exit.sink.split.sink.split:          ; preds = %13, %25
+  %.sink31 = phi ptr [ %21, %25 ], [ %9, %13 ]
+  %.sink18 = phi ptr [ %26, %25 ], [ %14, %13 ]
+  %.sink13 = phi ptr [ %24, %25 ], [ %12, %13 ]
+  %27 = phi <2 x i32> [ <i32 10, i32 16>, %25 ], [ <i32 2, i32 4>, %13 ]
+  %28 = getelementptr inbounds i8, ptr %.sink31, i64 8
+  store ptr null, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %.sink31, i64 16
+  store <2 x i32> %27, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %.sink31, i64 48
+  %31 = getelementptr inbounds i8, ptr %.sink31, i64 24
+  store ptr %30, ptr %31, align 8
+  store ptr %.sink18, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %.sink31, i64 56
   store ptr null, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %26, i64 16
-  store i32 10, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %26, i64 20
-  store i32 16, ptr %34, align 4
-  %35 = getelementptr inbounds i8, ptr %26, i64 48
-  %36 = getelementptr inbounds i8, ptr %26, i64 24
-  store ptr %35, ptr %36, align 8
-  store ptr %31, ptr %35, align 8
-  br label %Curl_ip2addr.exit.sink.split.sink.split
-
-Curl_ip2addr.exit.sink.split.sink.split:          ; preds = %13, %30
-  %.sink17 = phi ptr [ %26, %30 ], [ %9, %13 ]
-  %.sink13 = phi ptr [ %29, %30 ], [ %12, %13 ]
-  %37 = getelementptr inbounds i8, ptr %.sink17, i64 56
-  store ptr null, ptr %37, align 8
-  %38 = call ptr @Curl_he2ai(ptr noundef nonnull %.sink17, i32 noundef %1)
-  %39 = load ptr, ptr @Curl_cfree, align 8
-  call void %39(ptr noundef nonnull %.sink13) #7
+  %33 = call ptr @Curl_he2ai(ptr noundef nonnull %.sink31, i32 noundef %1)
+  %34 = load ptr, ptr @Curl_cfree, align 8
+  call void %34(ptr noundef nonnull %.sink13) #7
   br label %Curl_ip2addr.exit.sink.split
 
-Curl_ip2addr.exit.sink.split:                     ; preds = %Curl_ip2addr.exit.sink.split.sink.split, %27, %10
-  %.sink = phi ptr [ %9, %10 ], [ %26, %27 ], [ %.sink17, %Curl_ip2addr.exit.sink.split.sink.split ]
-  %.0.ph = phi ptr [ null, %10 ], [ null, %27 ], [ %38, %Curl_ip2addr.exit.sink.split.sink.split ]
-  %40 = load ptr, ptr @Curl_cfree, align 8
-  call void %40(ptr noundef nonnull %.sink) #7
+Curl_ip2addr.exit.sink.split:                     ; preds = %Curl_ip2addr.exit.sink.split.sink.split, %22, %10
+  %.sink = phi ptr [ %9, %10 ], [ %21, %22 ], [ %.sink31, %Curl_ip2addr.exit.sink.split.sink.split ]
+  %.0.ph = phi ptr [ null, %10 ], [ null, %22 ], [ %33, %Curl_ip2addr.exit.sink.split.sink.split ]
+  %35 = load ptr, ptr @Curl_cfree, align 8
+  call void %35(ptr noundef nonnull %.sink) #7
   br label %Curl_ip2addr.exit
 
-Curl_ip2addr.exit:                                ; preds = %Curl_ip2addr.exit.sink.split, %24, %7, %21
-  %.0 = phi ptr [ null, %21 ], [ null, %7 ], [ null, %24 ], [ %.0.ph, %Curl_ip2addr.exit.sink.split ]
+Curl_ip2addr.exit:                                ; preds = %Curl_ip2addr.exit.sink.split, %19, %7, %16
+  %.0 = phi ptr [ null, %16 ], [ null, %7 ], [ null, %19 ], [ %.0.ph, %Curl_ip2addr.exit.sink.split ]
   ret ptr %.0
 }
 

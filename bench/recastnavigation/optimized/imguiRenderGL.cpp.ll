@@ -823,9 +823,9 @@ _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__f
   %wide.trip.count = zext nneg i32 %374 to i64
   br label %377
 
-377:                                              ; preds = %.lr.ph, %413
-  %378 = phi i32 [ 0, %.lr.ph ], [ %414, %413 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %413 ]
+377:                                              ; preds = %.lr.ph, %414
+  %378 = phi i32 [ 0, %.lr.ph ], [ %415, %414 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %414 ]
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %379 = shl i32 %indvars.iv.tr, 3
   %380 = add i32 %376, %379
@@ -838,7 +838,7 @@ _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__f
   %385 = shl nuw i16 %384, 8
   %386 = zext i8 %.val75 to i16
   %387 = or disjoint i16 %385, %386
-  switch i16 %387, label %413 [
+  switch i16 %387, label %414 [
     i16 3, label %388
     i16 0, label %.sink.split
   ]
@@ -852,7 +852,7 @@ _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__f
   %392 = shl nuw i16 %391, 8
   %393 = zext i8 %.val77 to i16
   %394 = or disjoint i16 %392, %393
-  switch i16 %394, label %413 [
+  switch i16 %394, label %414 [
     i16 1, label %.sink.split
     i16 10, label %.sink.split
   ]
@@ -876,37 +876,37 @@ _ZL17stbtt__find_tablePhjPKc.exit156.thread:      ; preds = %338, %_ZL17stbtt__f
   %410 = load i8, ptr %409, align 1
   %411 = zext i8 %410 to i32
   %412 = or disjoint i32 %408, %411
-  %.sink215 = add i32 %412, %.0.i158
-  store i32 %.sink215, ptr %375, align 8
-  br label %413
+  %413 = add i32 %412, %.0.i158
+  store i32 %413, ptr %375, align 8
+  br label %414
 
-413:                                              ; preds = %.sink.split, %377, %388
-  %414 = phi i32 [ %378, %377 ], [ %378, %388 ], [ %.sink215, %.sink.split ]
+414:                                              ; preds = %.sink.split, %377, %388
+  %415 = phi i32 [ %378, %377 ], [ %378, %388 ], [ %413, %.sink.split ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %377, !llvm.loop !7
 
-._crit_edge:                                      ; preds = %413
-  %415 = icmp eq i32 %414, 0
-  br i1 %415, label %._crit_edge.thread, label %416
+._crit_edge:                                      ; preds = %414
+  %416 = icmp eq i32 %415, 0
+  br i1 %416, label %._crit_edge.thread, label %417
 
-416:                                              ; preds = %._crit_edge
-  %417 = sext i32 %.0.i100 to i64
-  %418 = getelementptr inbounds i8, ptr %1, i64 %417
-  %419 = getelementptr inbounds i8, ptr %418, i64 50
-  %.val78 = load i8, ptr %419, align 1
-  %420 = getelementptr i8, ptr %418, i64 51
-  %.val79 = load i8, ptr %420, align 1
-  %421 = zext i8 %.val78 to i32
-  %422 = shl nuw nsw i32 %421, 8
-  %423 = zext i8 %.val79 to i32
-  %424 = or disjoint i32 %422, %423
-  %425 = getelementptr inbounds i8, ptr %0, i64 52
-  store i32 %424, ptr %425, align 4
+417:                                              ; preds = %._crit_edge
+  %418 = sext i32 %.0.i100 to i64
+  %419 = getelementptr inbounds i8, ptr %1, i64 %418
+  %420 = getelementptr inbounds i8, ptr %419, i64 50
+  %.val78 = load i8, ptr %420, align 1
+  %421 = getelementptr i8, ptr %419, i64 51
+  %.val79 = load i8, ptr %421, align 1
+  %422 = zext i8 %.val78 to i32
+  %423 = shl nuw nsw i32 %422, 8
+  %424 = zext i8 %.val79 to i32
+  %425 = or disjoint i32 %423, %424
+  %426 = getelementptr inbounds i8, ptr %0, i64 52
+  store i32 %425, ptr %426, align 4
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %_ZL17stbtt__find_tablePhjPKc.exit156.thread, %._crit_edge, %_ZL17stbtt__find_tablePhjPKc.exit145, %416
-  %.0 = phi i32 [ 1, %416 ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit145 ], [ 0, %._crit_edge ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit156.thread ]
+._crit_edge.thread:                               ; preds = %_ZL17stbtt__find_tablePhjPKc.exit156.thread, %._crit_edge, %_ZL17stbtt__find_tablePhjPKc.exit145, %417
+  %.0 = phi i32 [ 1, %417 ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit145 ], [ 0, %._crit_edge ], [ 0, %_ZL17stbtt__find_tablePhjPKc.exit156.thread ]
   ret i32 %.0
 }
 

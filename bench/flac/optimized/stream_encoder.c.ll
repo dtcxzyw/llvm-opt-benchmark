@@ -6297,11 +6297,11 @@ if.end584.sink.split.sink.split.sink.split:       ; preds = %if.then213, %if.the
   br label %if.end584.sink.split.sink.split
 
 if.end584.sink.split.sink.split:                  ; preds = %if.end584.sink.split.sink.split.sink.split, %cond.end408, %cond.end285
-  %.sink277 = phi ptr [ %2, %cond.end285 ], [ %16, %cond.end408 ], [ %32, %if.end584.sink.split.sink.split.sink.split ]
+  %.sink276 = phi ptr [ %2, %cond.end285 ], [ %16, %cond.end408 ], [ %32, %if.end584.sink.split.sink.split.sink.split ]
   %conv.sink = phi float [ %cond286, %cond.end285 ], [ %cond409, %cond.end408 ], [ %conv.sink.ph, %if.end584.sink.split.sink.split.sink.split ]
   %.sink.ph = phi i32 [ 13, %cond.end285 ], [ 13, %cond.end408 ], [ %.sink.ph.ph, %if.end584.sink.split.sink.split.sink.split ]
-  %apodizations95 = getelementptr inbounds i8, ptr %.sink277, i64 44
-  %num_apodizations97 = getelementptr inbounds i8, ptr %.sink277, i64 40
+  %apodizations95 = getelementptr inbounds i8, ptr %.sink276, i64 44
+  %num_apodizations97 = getelementptr inbounds i8, ptr %.sink276, i64 40
   %33 = load i32, ptr %num_apodizations97, align 8
   %idxprom98 = zext i32 %33 to i64
   %parameters = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations95, i64 0, i64 %idxprom98, i32 1
@@ -6311,13 +6311,13 @@ if.end584.sink.split.sink.split:                  ; preds = %if.end584.sink.spli
 if.end584.sink.split:                             ; preds = %if.end584.sink.split.sink.split, %land.lhs.true554, %land.lhs.true193, %land.lhs.true177, %land.lhs.true161, %land.lhs.true145, %land.lhs.true129, %land.lhs.true113, %land.lhs.true67, %land.lhs.true53, %land.lhs.true39, %land.lhs.true25, %land.lhs.true11, %land.lhs.true
   %.sink = phi i32 [ 0, %land.lhs.true ], [ 1, %land.lhs.true11 ], [ 2, %land.lhs.true25 ], [ 3, %land.lhs.true39 ], [ 4, %land.lhs.true53 ], [ 5, %land.lhs.true67 ], [ 7, %land.lhs.true113 ], [ 8, %land.lhs.true129 ], [ 9, %land.lhs.true145 ], [ 10, %land.lhs.true161 ], [ 11, %land.lhs.true177 ], [ 12, %land.lhs.true193 ], [ 17, %land.lhs.true554 ], [ %.sink.ph, %if.end584.sink.split.sink.split ]
   %34 = load ptr, ptr %encoder, align 8
-  %apodizations = getelementptr inbounds i8, ptr %34, i64 44
-  %num_apodizations9 = getelementptr inbounds i8, ptr %34, i64 40
-  %35 = load i32, ptr %num_apodizations9, align 8
+  %apodizations16 = getelementptr inbounds i8, ptr %34, i64 44
+  %num_apodizations18 = getelementptr inbounds i8, ptr %34, i64 40
+  %35 = load i32, ptr %num_apodizations18, align 8
   %inc19 = add i32 %35, 1
-  store i32 %inc19, ptr %num_apodizations9, align 8
+  store i32 %inc19, ptr %num_apodizations18, align 8
   %idxprom20 = zext i32 %35 to i64
-  %arrayidx21 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations, i64 0, i64 %idxprom20
+  %arrayidx21 = getelementptr inbounds [32 x %struct.FLAC__ApodizationSpecification], ptr %apodizations16, i64 0, i64 %idxprom20
   store i32 %.sink, ptr %arrayidx21, align 4
   br label %if.end584
 
@@ -7502,10 +7502,10 @@ if.else:                                          ; preds = %if.end
 
 if.end25.sink.split:                              ; preds = %if.else, %if.end
   %.sink113 = phi i32 [ 1, %if.end ], [ -1, %if.else ]
-  %overcommitted_indicator = getelementptr inbounds i8, ptr %8, i64 3056
-  %11 = load i32, ptr %overcommitted_indicator, align 8
+  %overcommitted_indicator23 = getelementptr inbounds i8, ptr %8, i64 3056
+  %11 = load i32, ptr %overcommitted_indicator23, align 8
   %dec = add nsw i32 %11, %.sink113
-  store i32 %dec, ptr %overcommitted_indicator, align 8
+  store i32 %dec, ptr %overcommitted_indicator23, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end25.sink.split, %if.else

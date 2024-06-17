@@ -2545,39 +2545,32 @@ entry:
   %cmp.not = icmp eq i32 %timeout, -1
   %flags1 = getelementptr inbounds i8, ptr %evcon, i64 200
   %0 = load i32, ptr %flags1, align 8
-  %timeout_read10 = getelementptr inbounds i8, ptr %evcon, i64 224
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %or = or i32 %0, 4194304
   store i32 %or, ptr %flags1, align 8
   %spec.select5.i = sext i32 %timeout to i64
-  %1 = getelementptr inbounds i8, ptr %evcon, i64 232
-  store i64 0, ptr %1, align 8
-  store i64 %spec.select5.i, ptr %timeout_read10, align 8
-  %timeout_write11 = getelementptr inbounds i8, ptr %evcon, i64 240
-  %2 = getelementptr inbounds i8, ptr %evcon, i64 248
-  store i64 0, ptr %2, align 8
-  store i64 %spec.select5.i, ptr %timeout_write11, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %and = and i32 %0, -4194305
   store i32 %and, ptr %flags1, align 8
-  %3 = getelementptr inbounds i8, ptr %evcon, i64 232
-  store i64 0, ptr %3, align 8
-  store i64 50, ptr %timeout_read10, align 8
-  %timeout_write12 = getelementptr inbounds i8, ptr %evcon, i64 240
-  %4 = getelementptr inbounds i8, ptr %evcon, i64 248
-  store i64 0, ptr %4, align 8
-  store i64 50, ptr %timeout_write12, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = phi ptr [ %timeout_write11, %if.then ], [ %timeout_write12, %if.else ]
+  %.sink17 = phi i64 [ 50, %if.else ], [ %spec.select5.i, %if.then ]
+  %timeout_read10 = getelementptr inbounds i8, ptr %evcon, i64 224
+  %1 = getelementptr inbounds i8, ptr %evcon, i64 232
+  store i64 0, ptr %1, align 8
+  store i64 %.sink17, ptr %timeout_read10, align 8
+  %timeout_write12 = getelementptr inbounds i8, ptr %evcon, i64 240
+  %2 = getelementptr inbounds i8, ptr %evcon, i64 248
+  store i64 0, ptr %2, align 8
+  store i64 %.sink17, ptr %timeout_write12, align 8
   %bufev = getelementptr inbounds i8, ptr %evcon, i64 16
-  %6 = load ptr, ptr %bufev, align 8
-  %call = tail call i32 @bufferevent_set_timeouts(ptr noundef %6, ptr noundef nonnull %timeout_read10, ptr noundef nonnull %5) #19
+  %3 = load ptr, ptr %bufev, align 8
+  %call = tail call i32 @bufferevent_set_timeouts(ptr noundef %3, ptr noundef nonnull %timeout_read10, ptr noundef nonnull %timeout_write12) #19
   ret void
 }
 

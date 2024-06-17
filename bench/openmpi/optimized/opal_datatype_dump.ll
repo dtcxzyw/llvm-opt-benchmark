@@ -485,13 +485,13 @@ define void @opal_datatype_dump(ptr noundef %0) local_unnamed_addr #3 {
   br i1 %.not111, label %56, label %.sink.split
 
 .sink.split:                                      ; preds = %48, %1
-  %.sink = phi i32 [ %37, %1 ], [ %.0, %48 ]
+  %.0.sink117 = phi i32 [ %37, %1 ], [ %.0, %48 ]
   %.str.12.sink = phi ptr [ @.str.10, %1 ], [ @.str.12, %48 ]
-  %51 = sext i32 %.sink to i64
+  %51 = sext i32 %.0.sink117 to i64
   %52 = getelementptr inbounds i8, ptr %10, i64 %51
   %53 = sub i64 %9, %51
   %54 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %52, i64 noundef %53, ptr noundef nonnull %.str.12.sink) #8
-  %55 = add nsw i32 %54, %.sink
+  %55 = add nsw i32 %54, %.0.sink117
   br label %56
 
 56:                                               ; preds = %.sink.split, %48

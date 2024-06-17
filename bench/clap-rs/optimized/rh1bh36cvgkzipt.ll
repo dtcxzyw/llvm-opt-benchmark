@@ -8805,7 +8805,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
           to label %114 unwind label %103, !noalias !3956
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.noexc, %92
-  %32 = phi ptr [ %.sink.in.i.i.i.i.i.i, %92 ], [ %.sroa.0.0.i.i.i.i, %.noexc ]
+  %32 = phi ptr [ %.sink19.i.i.i.i.i.i, %92 ], [ %.sroa.0.0.i.i.i.i, %.noexc ]
   %33 = getelementptr inbounds i8, ptr %32, i64 1
   %34 = load i8, ptr %32, align 1, !alias.scope !3958, !noalias !3961, !noundef !4
   %35 = icmp sgt i8 %34, -1
@@ -8859,7 +8859,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %69, label %.loopexit.i.i.i, label %"_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread12.i.i.i.i.i.i"
 
 "_ZN87_$LT$core..str..iter..CharIndices$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfe4b4302862dc0f7E.exit.thread12.i.i.i.i.i.i": ; preds = %58, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i.i.i.i.i.i.i", %46, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i.i.i.i.i.i.i"
-  %.sink.in.i.i.i.i.i.i = phi ptr [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i.i.i.i.i.i.i" ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i.i.i.i.i.i.i" ], [ %33, %46 ], [ %60, %58 ]
+  %.sink19.i.i.i.i.i.i = phi ptr [ %39, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i.i.i.i.i.i.i" ], [ %49, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i.i.i.i.i.i.i" ], [ %33, %46 ], [ %60, %58 ]
   %.sroa.4.0.i.ph10.i15.i.i.i.i.i.i = phi i32 [ %44, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit13.i.i.i.i.i.i.i.i" ], [ %56, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he88cf11464f3de94E.exit15.i.i.i.i.i.i.i.i" ], [ %47, %46 ], [ %68, %58 ]
   switch i32 %.sroa.4.0.i.ph10.i15.i.i.i.i.i.i, label %70 [
     i32 32, label %94
@@ -8914,7 +8914,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
   br i1 %91, label %94, label %92
 
 92:                                               ; preds = %"_ZN53_$LT$F$u20$as$u20$core..str..pattern..MultiCharEq$GT$7matches17h2ac35194725a8323E.exit.i.i.i.i.i.i", %72, %70
-  %93 = icmp eq ptr %.sink.in.i.i.i.i.i.i, %28
+  %93 = icmp eq ptr %.sink19.i.i.i.i.i.i, %28
   br i1 %93, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .loopexit.i.i.i:                                  ; preds = %92, %58, %.noexc

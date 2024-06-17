@@ -1559,7 +1559,7 @@ ir_add_fixed_live_range.exit:                     ; preds = %686, %685, %675, %6
   %716 = shl nsw i32 %.1695867, 2
   %717 = lshr i32 %.0683, 3
   %718 = and i32 %717, 1
-  %spec.select921 = or disjoint i32 %716, %718
+  %spec.select924 = or disjoint i32 %716, %718
   br label %735
 
 719:                                              ; preds = %705
@@ -1598,7 +1598,7 @@ ir_add_fixed_live_range.exit:                     ; preds = %686, %685, %675, %6
   br label %735
 
 735:                                              ; preds = %715, %699, %732, %721, %702
-  %.0678 = phi i32 [ %701, %702 ], [ %722, %721 ], [ %734, %732 ], [ %701, %699 ], [ %spec.select921, %715 ]
+  %.0678 = phi i32 [ %701, %702 ], [ %722, %721 ], [ %734, %732 ], [ %701, %699 ], [ %spec.select924, %715 ]
   %.1677 = phi i32 [ 0, %702 ], [ 0, %721 ], [ 0, %732 ], [ 0, %699 ], [ %.0676, %715 ]
   %.val = load ptr, ptr %36, align 8
   %736 = sext i32 %694 to i64

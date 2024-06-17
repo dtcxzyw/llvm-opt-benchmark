@@ -2733,10 +2733,10 @@ cond.false48:                                     ; preds = %cond.end40
 
 for.inc.sink.split:                               ; preds = %if.end.i, %land.lhs.true4.i, %land.lhs.true12.i, %land.lhs.true20.i, %land.lhs.true31.i, %ucm_printMapping.exit
   %.sink93 = phi i8 [ 2, %ucm_printMapping.exit ], [ 1, %land.lhs.true31.i ], [ 1, %land.lhs.true20.i ], [ 1, %land.lhs.true12.i ], [ 1, %land.lhs.true4.i ], [ 1, %if.end.i ]
-  %moveFlag = getelementptr inbounds i8, ptr %m.062, i64 11
-  %31 = load i8, ptr %moveFlag, align 1
+  %moveFlag57 = getelementptr inbounds i8, ptr %m.062, i64 11
+  %31 = load i8, ptr %moveFlag57, align 1
   %32 = or i8 %31, %.sink93
-  store i8 %32, ptr %moveFlag, align 1
+  store i8 %32, ptr %moveFlag57, align 1
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true31.i, %land.lhs.true27.i, %lor.lhs.false23.i, %land.lhs.true7.i, %land.lhs.true12.i

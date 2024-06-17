@@ -31279,22 +31279,22 @@ lpad98:                                           ; preds = %if.then.i.i215, %_Z
   br label %ehcleanup
 
 if.end109.sink.split.sink.split:                  ; preds = %if.then.i.i164.invoke
-  %.pre.i.i165 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx8.phi.trans.insert.i.i242 = getelementptr inbounds i8, ptr %.pre.i.i165, i64 -4
+  %.pre.i.i241 = load ptr, ptr %m_nodes.i.i, align 8
+  %arrayidx8.phi.trans.insert.i.i242 = getelementptr inbounds i8, ptr %.pre.i.i241, i64 -4
   %.pre1.i.i243 = load i32, ptr %arrayidx8.phi.trans.insert.i.i242, align 4
   br label %if.end109.sink.split
 
 if.end109.sink.split:                             ; preds = %if.end109.sink.split.sink.split, %lor.lhs.false.i.i232, %lor.lhs.false.i.i156
-  %.sink294 = phi i32 [ %85, %lor.lhs.false.i.i156 ], [ %108, %lor.lhs.false.i.i232 ], [ %.pre1.i.i243, %if.end109.sink.split.sink.split ]
-  %.sink = phi ptr [ %84, %lor.lhs.false.i.i156 ], [ %107, %lor.lhs.false.i.i232 ], [ %.pre.i.i165, %if.end109.sink.split.sink.split ]
-  %idx.ext.i.i160 = zext i32 %.sink294 to i64
-  %add.ptr.i.i161 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i160
-  store ptr %e, ptr %add.ptr.i.i161, align 8
+  %.sink293 = phi i32 [ %85, %lor.lhs.false.i.i156 ], [ %108, %lor.lhs.false.i.i232 ], [ %.pre1.i.i243, %if.end109.sink.split.sink.split ]
+  %.sink = phi ptr [ %84, %lor.lhs.false.i.i156 ], [ %107, %lor.lhs.false.i.i232 ], [ %.pre.i.i241, %if.end109.sink.split.sink.split ]
+  %idx.ext.i.i236 = zext i32 %.sink293 to i64
+  %add.ptr.i.i237 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i236
+  store ptr %e, ptr %add.ptr.i.i237, align 8
   %111 = load ptr, ptr %m_nodes.i.i, align 8
-  %arrayidx10.i.i162 = getelementptr inbounds i8, ptr %111, i64 -4
-  %112 = load i32, ptr %arrayidx10.i.i162, align 4
+  %arrayidx10.i.i238 = getelementptr inbounds i8, ptr %111, i64 -4
+  %112 = load i32, ptr %arrayidx10.i.i238, align 4
   %inc.i.i239 = add i32 %112, 1
-  store i32 %inc.i.i239, ptr %arrayidx10.i.i162, align 4
+  store i32 %inc.i.i239, ptr %arrayidx10.i.i238, align 4
   br label %if.end109
 
 if.end109:                                        ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit.i, %if.end109.sink.split, %if.end, %invoke.cont39, %.noexc.i
@@ -31332,11 +31332,11 @@ invoke.cont123:                                   ; preds = %cond.false.i
   br i1 %tobool.not.i.i267, label %cleanup, label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont123, %invoke.cont113
-  %.sink295 = phi ptr [ %115, %invoke.cont113 ], [ %call4.i265, %invoke.cont123 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %.sink295, i64 8
-  %119 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %call4.i265.sink = phi ptr [ %115, %invoke.cont113 ], [ %call4.i265, %invoke.cont123 ]
+  %m_ref_count.i.i.i.i269 = getelementptr inbounds i8, ptr %call4.i265.sink, i64 8
+  %119 = load i32, ptr %m_ref_count.i.i.i.i269, align 4
   %inc.i.i.i.i270 = add i32 %119, 1
-  store i32 %inc.i.i.i.i270, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i270, ptr %m_ref_count.i.i.i.i269, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont123, %invoke.cont113

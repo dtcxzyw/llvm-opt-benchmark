@@ -740,26 +740,26 @@ lor.lhs.false.i20:                                ; preds = %_ZNK6vectorIcLb0EjE
   br i1 %cmp5.i23, label %return.sink.split.sink.split, label %return.sink.split
 
 return.sink.split.sink.split:                     ; preds = %lor.lhs.false.i20, %if.else, %lor.lhs.false.i5
-  %m_string.sink37 = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string, %if.else ], [ %m_string13, %lor.lhs.false.i20 ]
-  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string.sink37)
-  %.pre.i14 = load ptr, ptr %m_string.sink37, align 8
-  %arrayidx8.phi.trans.insert.i30 = getelementptr inbounds i8, ptr %.pre.i14, i64 -4
+  %m_string13.sink37 = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string, %if.else ], [ %m_string13, %lor.lhs.false.i20 ]
+  tail call void @_ZN6vectorIcLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_string13.sink37)
+  %.pre.i29 = load ptr, ptr %m_string13.sink37, align 8
+  %arrayidx8.phi.trans.insert.i30 = getelementptr inbounds i8, ptr %.pre.i29, i64 -4
   %.pre1.i31 = load i32, ptr %arrayidx8.phi.trans.insert.i30, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i20, %lor.lhs.false.i5
-  %.sink35 = phi i32 [ %12, %lor.lhs.false.i5 ], [ %15, %lor.lhs.false.i20 ], [ %.pre1.i31, %return.sink.split.sink.split ]
-  %.sink = phi ptr [ %11, %lor.lhs.false.i5 ], [ %14, %lor.lhs.false.i20 ], [ %.pre.i14, %return.sink.split.sink.split ]
-  %m_string.sink = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string13, %lor.lhs.false.i20 ], [ %m_string.sink37, %return.sink.split.sink.split ]
-  %idx.ext.i9 = zext i32 %.sink35 to i64
-  %add.ptr.i10 = getelementptr inbounds i8, ptr %.sink, i64 %idx.ext.i9
-  store i8 0, ptr %add.ptr.i10, align 1
-  %17 = load ptr, ptr %m_string.sink, align 8
-  %arrayidx10.i11 = getelementptr inbounds i8, ptr %17, i64 -4
-  %18 = load i32, ptr %arrayidx10.i11, align 4
+  %.sink36 = phi i32 [ %12, %lor.lhs.false.i5 ], [ %15, %lor.lhs.false.i20 ], [ %.pre1.i31, %return.sink.split.sink.split ]
+  %.sink = phi ptr [ %11, %lor.lhs.false.i5 ], [ %14, %lor.lhs.false.i20 ], [ %.pre.i29, %return.sink.split.sink.split ]
+  %m_string13.sink35 = phi ptr [ %m_string, %lor.lhs.false.i5 ], [ %m_string13, %lor.lhs.false.i20 ], [ %m_string13.sink37, %return.sink.split.sink.split ]
+  %idx.ext.i24 = zext i32 %.sink36 to i64
+  %add.ptr.i25 = getelementptr inbounds i8, ptr %.sink, i64 %idx.ext.i24
+  store i8 0, ptr %add.ptr.i25, align 1
+  %17 = load ptr, ptr %m_string13.sink35, align 8
+  %arrayidx10.i26 = getelementptr inbounds i8, ptr %17, i64 -4
+  %18 = load i32, ptr %arrayidx10.i26, align 4
   %inc.i27 = add i32 %18, 1
-  store i32 %inc.i27, ptr %arrayidx10.i11, align 4
-  %19 = load ptr, ptr %m_string.sink, align 8
+  store i32 %inc.i27, ptr %arrayidx10.i26, align 4
+  %19 = load ptr, ptr %m_string13.sink35, align 8
   %m_id21 = getelementptr inbounds i8, ptr %this, i64 32
   %call22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6symbolaSEPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_id21, ptr noundef %19)
   br label %return

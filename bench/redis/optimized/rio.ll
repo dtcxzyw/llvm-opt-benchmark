@@ -365,8 +365,8 @@ sdslen.exit.thread251:                            ; preds = %entry
 
 sdslen.exit71:                                    ; preds = %entry, %sdslen.exit.thread, %sdslen.exit.thread233, %sdslen.exit.thread239, %sdslen.exit.thread245, %sdslen.exit.thread251
   %.sink = phi i64 [ %conv2.i, %sdslen.exit.thread ], [ %conv4.i, %sdslen.exit.thread233 ], [ %conv8.i, %sdslen.exit.thread239 ], [ %conv12.i, %sdslen.exit.thread245 ], [ %5, %sdslen.exit.thread251 ], [ 0, %entry ]
-  %pos.sink = getelementptr inbounds i8, ptr %r, i64 80
-  %6 = load i64, ptr %pos.sink, align 8
+  %pos = getelementptr inbounds i8, ptr %r, i64 80
+  %6 = load i64, ptr %pos, align 8
   %sub = sub i64 %.sink, %6
   %7 = and i8 %1, 7
   switch i8 %7, label %sdsavail.exit [
@@ -523,9 +523,9 @@ sdsavail.exit119:                                 ; preds = %land.lhs.true, %sw.
   br i1 %cmp23, label %if.then24, label %if.end31
 
 if.then24:                                        ; preds = %sdsavail.exit119
-  %31 = load i64, ptr %pos.sink, align 8
+  %31 = load i64, ptr %pos, align 8
   tail call void @sdsrange(ptr noundef nonnull %20, i64 noundef %31, i64 noundef -1) #15
-  store i64 0, ptr %pos.sink, align 8
+  store i64 0, ptr %pos, align 8
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then24, %sdsavail.exit119, %if.end
@@ -594,7 +594,7 @@ sw.bb13.i123:                                     ; preds = %while.cond
 
 sdslen.exit138:                                   ; preds = %while.cond, %sw.bb.i135, %sw.bb3.i132, %sw.bb5.i129, %sw.bb9.i126, %sw.bb13.i123
   %retval.0.i125 = phi i64 [ %39, %sw.bb13.i123 ], [ %conv12.i128, %sw.bb9.i126 ], [ %conv8.i131, %sw.bb5.i129 ], [ %conv4.i134, %sw.bb3.i132 ], [ %conv2.i137, %sw.bb.i135 ], [ 0, %while.cond ]
-  %40 = load i64, ptr %pos.sink, align 8
+  %40 = load i64, ptr %pos, align 8
   %sub48 = sub i64 %retval.0.i125, %40
   %cmp49 = icmp ult i64 %sub48, %len
   br i1 %cmp49, label %while.body, label %while.end
@@ -845,9 +845,9 @@ while.end:                                        ; preds = %sdslen.exit138
   %86 = load i64, ptr %read_so_far72, align 8
   %add119 = add i64 %86, %len
   store i64 %add119, ptr %read_so_far72, align 8
-  %87 = load i64, ptr %pos.sink, align 8
+  %87 = load i64, ptr %pos, align 8
   %add122 = add i64 %87, %len
-  store i64 %add122, ptr %pos.sink, align 8
+  store i64 %add122, ptr %pos, align 8
   br label %return
 
 return:                                           ; preds = %sdslen.exit224, %if.end102, %if.then105, %while.end, %if.then40

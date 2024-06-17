@@ -1843,11 +1843,11 @@ invoke.cont283.invoke.sink.split:                 ; preds = %call.i.i.i514.noexc
   %.sink772 = phi i64 [ %257, %call.i.i.i502.noexc ], [ %259, %call.i.i.i514.noexc ]
   %.ph = phi ptr [ @.str.93, %call.i.i.i502.noexc ], [ @.str.95, %call.i.i.i514.noexc ]
   %261 = load ptr, ptr %slots_.i.i.i3.i.i.i, align 8, !noalias !175
-  %add.ptr.i.i.i.i508 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %261, i64 %.sink772
-  store i64 10, ptr %add.ptr.i.i.i.i508, align 8, !noalias !175
-  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i508, i64 8
+  %add.ptr.i.i.i.i520 = getelementptr inbounds %"union.absl::lts_20230802::container_internal::map_slot_type", ptr %261, i64 %.sink772
+  store i64 10, ptr %add.ptr.i.i.i.i520, align 8, !noalias !175
+  %_M_str.i.i.i.i.i.i.i.i.i.i.i.i522 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i520, i64 8
   store ptr @.str.94, ptr %_M_str.i.i.i.i.i.i.i.i.i.i.i.i522, align 8, !noalias !175
-  %second.i.i.i.i.i.i.i.i.i.i.i523 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i508, i64 16
+  %second.i.i.i.i.i.i.i.i.i.i.i523 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i520, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %second.i.i.i.i.i.i.i.i.i.i.i523) #21, !noalias !175
   br label %invoke.cont283.invoke
 

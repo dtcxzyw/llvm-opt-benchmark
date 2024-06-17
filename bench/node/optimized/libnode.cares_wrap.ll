@@ -16059,8 +16059,8 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit188: ; preds = %if.end.i244
   %buf_.i = getelementptr inbounds i8, ptr %ip0, i64 16
   %31 = load ptr, ptr %buf_.i, align 8
   %call47 = call i32 @uv_inet_pton(i32 noundef 2, ptr noundef %31, ptr noundef nonnull %addr0) #20
-  %cmp48.not = icmp eq i32 %call47, 0
-  br i1 %cmp48.not, label %if.then49, label %if.else
+  %cmp48.not.not = icmp eq i32 %call47, 0
+  br i1 %cmp48.not.not, label %if.then49, label %if.else
 
 if.then49:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit188
   %channel_.i = getelementptr inbounds i8, ptr %retval.i18.0.i, i64 64
@@ -16214,117 +16214,101 @@ _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit: ; preds = %if.end.i, %if.the
   br i1 %cmp97, label %if.then98, label %if.else106
 
 if.then98:                                        ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  br i1 %cmp48.not, label %if.then100, label %if.else101
-
-if.then100:                                       ; preds = %if.then98
-  %isolate_.i.i49 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %69 = load ptr, ptr %isolate_.i.i49, align 8
-  %call.i.i50 = call ptr @_ZN4node21ERR_INVALID_ARG_VALUEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %69, ptr noundef nonnull @.str.190)
-  %call6.i.i51 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %69, ptr %call.i.i50) #20
-  br label %cleanup129.critedge
+  br i1 %cmp48.not.not, label %cleanup129.critedge, label %if.else101
 
 if.else101:                                       ; preds = %if.then98
   %channel_.i52 = getelementptr inbounds i8, ptr %retval.i18.0.i, i64 64
-  %70 = load ptr, ptr %channel_.i52, align 8
-  %71 = load i8, ptr %addr1, align 16
-  %conv.i53 = zext i8 %71 to i32
+  %69 = load ptr, ptr %channel_.i52, align 8
+  %70 = load i8, ptr %addr1, align 16
+  %conv.i53 = zext i8 %70 to i32
   %shl.i54 = shl nuw i32 %conv.i53, 24
   %arrayidx1.i55 = getelementptr inbounds i8, ptr %addr1, i64 1
-  %72 = load i8, ptr %arrayidx1.i55, align 1
-  %conv2.i56 = zext i8 %72 to i32
+  %71 = load i8, ptr %arrayidx1.i55, align 1
+  %conv2.i56 = zext i8 %71 to i32
   %shl3.i57 = shl nuw nsw i32 %conv2.i56, 16
   %or.i58 = or disjoint i32 %shl3.i57, %shl.i54
   %arrayidx4.i59 = getelementptr inbounds i8, ptr %addr1, i64 2
-  %73 = load i8, ptr %arrayidx4.i59, align 2
-  %conv5.i60 = zext i8 %73 to i32
+  %72 = load i8, ptr %arrayidx4.i59, align 2
+  %conv5.i60 = zext i8 %72 to i32
   %shl6.i61 = shl nuw nsw i32 %conv5.i60, 8
   %or7.i62 = or disjoint i32 %or.i58, %shl6.i61
   %arrayidx8.i63 = getelementptr inbounds i8, ptr %addr1, i64 3
-  %74 = load i8, ptr %arrayidx8.i63, align 1
-  %conv9.i64 = zext i8 %74 to i32
+  %73 = load i8, ptr %arrayidx8.i63, align 1
+  %conv9.i64 = zext i8 %73 to i32
   %or10.i65 = or disjoint i32 %or7.i62, %conv9.i64
-  call void @ares_set_local_ip4(ptr noundef %70, i32 noundef %or10.i65) #20
+  call void @ares_set_local_ip4(ptr noundef %69, i32 noundef %or10.i65) #20
   br label %cleanup
 
 if.else106:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
-  %75 = load ptr, ptr %buf_.i48, align 8
-  %call108 = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef %75, ptr noundef nonnull %addr1) #20
-  %cmp109 = icmp eq i32 %call108, 0
-  br i1 %cmp109, label %if.then110, label %if.else117
+  %74 = load ptr, ptr %buf_.i48, align 8
+  %call108 = call i32 @uv_inet_pton(i32 noundef 10, ptr noundef %74, ptr noundef nonnull %addr1) #20
+  %cmp109.not = icmp eq i32 %call108, 0
+  %75 = or i32 %call108, %call47
+  %brmerge.not = icmp eq i32 %75, 0
+  %.str.188.mux = select i1 %cmp109.not, ptr @.str.191, ptr @.str.188
+  br i1 %brmerge.not, label %if.else113, label %cleanup129.critedge
 
-if.then110:                                       ; preds = %if.else106
-  br i1 %cmp48.not, label %if.else113, label %if.then112
-
-if.then112:                                       ; preds = %if.then110
-  %isolate_.i.i67 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %76 = load ptr, ptr %isolate_.i.i67, align 8
-  %call.i.i68 = call ptr @_ZN4node21ERR_INVALID_ARG_VALUEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %76, ptr noundef nonnull @.str.191)
-  %call6.i.i69 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %76, ptr %call.i.i68) #20
-  br label %cleanup129.critedge
-
-if.else113:                                       ; preds = %if.then110
+if.else113:                                       ; preds = %if.else106
   %channel_.i70 = getelementptr inbounds i8, ptr %retval.i18.0.i, i64 64
-  %77 = load ptr, ptr %channel_.i70, align 8
-  call void @ares_set_local_ip6(ptr noundef %77, ptr noundef nonnull %addr1) #20
+  %76 = load ptr, ptr %channel_.i70, align 8
+  call void @ares_set_local_ip6(ptr noundef %76, ptr noundef nonnull %addr1) #20
   br label %cleanup
 
-if.else117:                                       ; preds = %if.else106
-  %isolate_.i.i71 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
-  %78 = load ptr, ptr %isolate_.i.i71, align 8
-  %call.i.i72 = call ptr @_ZN4node21ERR_INVALID_ARG_VALUEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %78, ptr noundef nonnull @.str.188)
-  %call6.i.i73 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %78, ptr %call.i.i72) #20
-  br label %cleanup129.critedge
-
 cleanup:                                          ; preds = %if.else101, %if.else113
-  %79 = load ptr, ptr %buf_.i48, align 8
-  %cmp.i.i.i.i74 = icmp ne ptr %79, null
+  %77 = load ptr, ptr %buf_.i48, align 8
+  %cmp.i.i.i.i74 = icmp ne ptr %77, null
   %buf_st_.i.i.i = getelementptr inbounds i8, ptr %ip1, i64 24
-  %cmp.i.i.i75 = icmp ne ptr %79, %buf_st_.i.i.i
-  %80 = select i1 %cmp.i.i.i.i74, i1 %cmp.i.i.i75, i1 false
-  br i1 %80, label %if.then.i.i76, label %cleanup129
+  %cmp.i.i.i75 = icmp ne ptr %77, %buf_st_.i.i.i
+  %78 = select i1 %cmp.i.i.i.i74, i1 %cmp.i.i.i75, i1 false
+  br i1 %78, label %if.then.i.i76, label %cleanup129
 
 if.then.i.i76:                                    ; preds = %cleanup
-  call void @free(ptr noundef nonnull %79) #20
+  call void @free(ptr noundef nonnull %77) #20
   br label %cleanup129
 
 if.else120:                                       ; preds = %if.end5.i
-  br i1 %cmp48.not, label %if.then122, label %if.else125
+  br i1 %cmp48.not.not, label %if.then122, label %if.else125
 
 if.then122:                                       ; preds = %if.else120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %addr1, i8 0, i64 16, i1 false)
   %channel_.i77 = getelementptr inbounds i8, ptr %retval.i18.0.i, i64 64
-  %81 = load ptr, ptr %channel_.i77, align 8
-  call void @ares_set_local_ip6(ptr noundef %81, ptr noundef nonnull %addr1) #20
+  %79 = load ptr, ptr %channel_.i77, align 8
+  call void @ares_set_local_ip6(ptr noundef %79, ptr noundef nonnull %addr1) #20
   br label %cleanup129
 
 if.else125:                                       ; preds = %if.else120
   %channel_.i78 = getelementptr inbounds i8, ptr %retval.i18.0.i, i64 64
-  %82 = load ptr, ptr %channel_.i78, align 8
-  call void @ares_set_local_ip4(ptr noundef %82, i32 noundef 0) #20
+  %80 = load ptr, ptr %channel_.i78, align 8
+  call void @ares_set_local_ip4(ptr noundef %80, i32 noundef 0) #20
   br label %cleanup129
 
-cleanup129.critedge:                              ; preds = %if.else117, %if.then112, %if.then100
-  %83 = load ptr, ptr %buf_.i48, align 8
-  %cmp.i.i.i.i80 = icmp ne ptr %83, null
+cleanup129.critedge:                              ; preds = %if.else106, %if.then98
+  %.str.188.sink = phi ptr [ @.str.190, %if.then98 ], [ %.str.188.mux, %if.else106 ]
+  %isolate_.i.i71 = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
+  %81 = load ptr, ptr %isolate_.i.i71, align 8
+  %call.i.i72 = call ptr @_ZN4node21ERR_INVALID_ARG_VALUEIJEEEN2v85LocalINS1_5ValueEEEPNS1_7IsolateEPKcDpOT_(ptr noundef %81, ptr noundef nonnull %.str.188.sink)
+  %call6.i.i73 = call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %81, ptr %call.i.i72) #20
+  %82 = load ptr, ptr %buf_.i48, align 8
+  %cmp.i.i.i.i80 = icmp ne ptr %82, null
   %buf_st_.i.i.i81 = getelementptr inbounds i8, ptr %ip1, i64 24
-  %cmp.i.i.i82 = icmp ne ptr %83, %buf_st_.i.i.i81
-  %84 = select i1 %cmp.i.i.i.i80, i1 %cmp.i.i.i82, i1 false
-  br i1 %84, label %if.then.i.i83, label %cleanup129
+  %cmp.i.i.i82 = icmp ne ptr %82, %buf_st_.i.i.i81
+  %83 = select i1 %cmp.i.i.i.i80, i1 %cmp.i.i.i82, i1 false
+  br i1 %83, label %if.then.i.i83, label %cleanup129
 
 if.then.i.i83:                                    ; preds = %cleanup129.critedge
-  call void @free(ptr noundef nonnull %83) #20
+  call void @free(ptr noundef nonnull %82) #20
   br label %cleanup129
 
 cleanup129:                                       ; preds = %if.then.i.i83, %cleanup129.critedge, %if.then.i.i76, %cleanup, %if.else125, %if.then122, %if.else58
-  %85 = load ptr, ptr %buf_.i, align 8
-  %cmp.i.i.i.i86 = icmp ne ptr %85, null
+  %84 = load ptr, ptr %buf_.i, align 8
+  %cmp.i.i.i.i86 = icmp ne ptr %84, null
   %buf_st_.i.i.i87 = getelementptr inbounds i8, ptr %ip0, i64 24
-  %cmp.i.i.i88 = icmp ne ptr %85, %buf_st_.i.i.i87
-  %86 = select i1 %cmp.i.i.i.i86, i1 %cmp.i.i.i88, i1 false
-  br i1 %86, label %if.then.i.i89, label %cleanup.cont131
+  %cmp.i.i.i88 = icmp ne ptr %84, %buf_st_.i.i.i87
+  %85 = select i1 %cmp.i.i.i.i86, i1 %cmp.i.i.i88, i1 false
+  br i1 %85, label %if.then.i.i89, label %cleanup.cont131
 
 if.then.i.i89:                                    ; preds = %cleanup129
-  call void @free(ptr noundef nonnull %85) #20
+  call void @free(ptr noundef nonnull %84) #20
   br label %cleanup.cont131
 
 cleanup.cont131:                                  ; preds = %if.then.i.i89, %cleanup129, %_ZN4node10BaseObject12FromJSObjectEN2v85LocalINS1_5ValueEEE.exit

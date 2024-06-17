@@ -15271,32 +15271,30 @@ define hidden void @"_ZN106_$LT$serde..__private..de..content..ContentRefDeseria
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h3bd0a94538a43715E"(ptr noalias nocapture noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #0 {
   %2 = load i8, ptr %0, align 8, !range !25, !noundef !12
-  switch i8 %2, label %3 [
-    i8 16, label %13
-    i8 17, label %7
-    i8 18, label %13
+  switch i8 %2, label %.sink.split [
+    i8 16, label %9
+    i8 17, label %3
+    i8 18, label %9
   ]
 
 3:                                                ; preds = %1
-  %4 = tail call { i64, ptr } @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h488cd6115a42120dE.llvm.13621867877897344372"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0)
-  %5 = extractvalue { i64, ptr } %4, 0
-  %6 = extractvalue { i64, ptr } %4, 1
-  br label %13
+  %4 = getelementptr inbounds i8, ptr %0, i64 8
+  %5 = load ptr, ptr %4, align 8, !nonnull !12, !align !13, !noundef !12
+  br label %.sink.split
 
-7:                                                ; preds = %1
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8, !nonnull !12, !align !13, !noundef !12
-  %10 = tail call { i64, ptr } @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h488cd6115a42120dE.llvm.13621867877897344372"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %9)
-  %11 = extractvalue { i64, ptr } %10, 0
-  %12 = extractvalue { i64, ptr } %10, 1
-  br label %13
+.sink.split:                                      ; preds = %1, %3
+  %.sink2 = phi ptr [ %5, %3 ], [ %0, %1 ]
+  %6 = tail call { i64, ptr } @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17h488cd6115a42120dE.llvm.13621867877897344372"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sink2)
+  %7 = extractvalue { i64, ptr } %6, 0
+  %8 = extractvalue { i64, ptr } %6, 1
+  br label %9
 
-13:                                               ; preds = %1, %1, %7, %3
-  %.sroa.5.0 = phi ptr [ %6, %3 ], [ %12, %7 ], [ null, %1 ], [ null, %1 ]
-  %.sroa.0.0 = phi i64 [ %5, %3 ], [ %11, %7 ], [ 0, %1 ], [ 0, %1 ]
-  %14 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %15 = insertvalue { i64, ptr } %14, ptr %.sroa.5.0, 1
-  ret { i64, ptr } %15
+9:                                                ; preds = %.sink.split, %1, %1
+  %.sroa.5.0 = phi ptr [ null, %1 ], [ null, %1 ], [ %8, %.sink.split ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %1 ], [ %7, %.sink.split ]
+  %10 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %11 = insertvalue { i64, ptr } %10, ptr %.sroa.5.0, 1
+  ret { i64, ptr } %11
 }
 
 ; Function Attrs: nonlazybind uwtable

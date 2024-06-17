@@ -2102,12 +2102,12 @@ copy_address.exit:                                ; preds = %.thread, %42
   %79 = sext i32 %4 to i64
   %80 = sext i32 %5 to i64
   %. = select i1 %.not46, i64 40, i64 48
-  %.64 = select i1 %.not46, i64 56, i64 64
+  %.61 = select i1 %.not46, i64 56, i64 64
   %81 = getelementptr inbounds i8, ptr %.1, i64 %.
   %82 = load i64, ptr %81, align 8
   %83 = add i64 %82, %79
   store i64 %83, ptr %81, align 8
-  %84 = getelementptr inbounds i8, ptr %.1, i64 %.64
+  %84 = getelementptr inbounds i8, ptr %.1, i64 %.61
   %85 = load i64, ptr %84, align 8
   %86 = add i64 %85, %80
   store i64 %86, ptr %84, align 8
@@ -2119,13 +2119,13 @@ copy_address.exit:                                ; preds = %.thread, %42
   %.not47 = icmp eq i32 %3, 0
   %89 = sext i32 %4 to i64
   %90 = sext i32 %5 to i64
-  %.65 = select i1 %.not47, i64 72, i64 80
-  %.66 = select i1 %.not47, i64 88, i64 96
-  %91 = getelementptr inbounds i8, ptr %.1, i64 %.65
+  %.62 = select i1 %.not47, i64 72, i64 80
+  %.63 = select i1 %.not47, i64 88, i64 96
+  %91 = getelementptr inbounds i8, ptr %.1, i64 %.62
   %92 = load i64, ptr %91, align 8
   %93 = add i64 %92, %89
   store i64 %93, ptr %91, align 8
-  %94 = getelementptr inbounds i8, ptr %.1, i64 %.66
+  %94 = getelementptr inbounds i8, ptr %.1, i64 %.63
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %90
   store i64 %96, ptr %94, align 8

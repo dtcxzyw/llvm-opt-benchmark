@@ -1471,10 +1471,10 @@ compile_relation_list_one_db.exit:                ; preds = %433, %354
   %.not215316 = icmp eq ptr %.2166315, null
   br i1 %.not215316, label %.loopexit, label %.lr.ph321
 
-.lr.ph321:                                        ; preds = %501, %610
-  %.2166319 = phi ptr [ %.2166, %610 ], [ %.2166315, %501 ]
-  %.0174318 = phi i64 [ %512, %610 ], [ 0, %501 ]
-  %.0176317 = phi i64 [ %508, %610 ], [ 0, %501 ]
+.lr.ph321:                                        ; preds = %501, %prepare_btree_command.exit
+  %.2166319 = phi ptr [ %.2166, %prepare_btree_command.exit ], [ %.2166315, %501 ]
+  %.0174318 = phi i64 [ %512, %prepare_btree_command.exit ], [ 0, %501 ]
+  %.0176317 = phi i64 [ %508, %prepare_btree_command.exit ], [ 0, %501 ]
   %502 = getelementptr inbounds i8, ptr %.2166319, i64 8
   %503 = load ptr, ptr %502, align 8
   %504 = load volatile i32, ptr @CancelRequested, align 4
@@ -1512,7 +1512,7 @@ compile_relation_list_one_db.exit:                ; preds = %433, %354
   %525 = trunc i8 %524 to i1
   %526 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 3), align 1
   %527 = trunc i8 %526 to i1
-  br i1 %525, label %528, label %566
+  br i1 %525, label %528, label %563
 
 528:                                              ; preds = %522
   br i1 %527, label %529, label %543
@@ -1576,143 +1576,135 @@ prepare_heap_command.exit:                        ; preds = %557, %560
   %561 = getelementptr inbounds i8, ptr %503, i64 8
   %562 = load i32, ptr %561, align 8
   call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.76, i32 noundef %562) #12
-  %563 = load ptr, ptr %6, align 8
-  %564 = call ptr @pstrdup(ptr noundef %563) #12
-  %565 = getelementptr inbounds i8, ptr %503, i64 40
-  store ptr %564, ptr %565, align 8
-  br label %610
+  br label %prepare_btree_command.exit
 
-566:                                              ; preds = %522
-  br i1 %527, label %567, label %581
+563:                                              ; preds = %522
+  br i1 %527, label %564, label %578
 
-567:                                              ; preds = %566
-  %568 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
-  %569 = trunc i8 %568 to i1
-  br i1 %569, label %570, label %574
+564:                                              ; preds = %563
+  %565 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 5), align 1
+  %566 = trunc i8 %565 to i1
+  br i1 %566, label %567, label %571
 
-570:                                              ; preds = %567
+567:                                              ; preds = %564
   %.b218 = load i1, ptr @progress_since_last_stderr, align 1
-  br i1 %.b218, label %571, label %574
+  br i1 %.b218, label %568, label %571
 
-571:                                              ; preds = %570
-  %572 = load ptr, ptr @stderr, align 8
-  %573 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %572, ptr noundef nonnull @.str.67) #12
-  br label %574
+568:                                              ; preds = %567
+  %569 = load ptr, ptr @stderr, align 8
+  %570 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %569, ptr noundef nonnull @.str.67) #12
+  br label %571
 
-574:                                              ; preds = %571, %570, %567
-  %575 = load ptr, ptr %503, align 8
-  %576 = load ptr, ptr %575, align 8
-  %577 = getelementptr inbounds i8, ptr %503, i64 16
-  %578 = load ptr, ptr %577, align 8
-  %579 = getelementptr inbounds i8, ptr %503, i64 24
-  %580 = load ptr, ptr %579, align 8
-  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.69, ptr noundef %576, ptr noundef %578, ptr noundef %580) #12
+571:                                              ; preds = %568, %567, %564
+  %572 = load ptr, ptr %503, align 8
+  %573 = load ptr, ptr %572, align 8
+  %574 = getelementptr inbounds i8, ptr %503, i64 16
+  %575 = load ptr, ptr %574, align 8
+  %576 = getelementptr inbounds i8, ptr %503, i64 24
+  %577 = load ptr, ptr %576, align 8
+  call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 2, i32 noundef 0, ptr noundef nonnull @.str.69, ptr noundef %573, ptr noundef %575, ptr noundef %577) #12
   store i1 false, ptr @progress_since_last_stderr, align 1
-  br label %581
+  br label %578
 
-581:                                              ; preds = %574, %566
+578:                                              ; preds = %571, %563
   call void @resetPQExpBuffer(ptr noundef nonnull %6) #12
-  %582 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 88), align 8
-  %583 = trunc i8 %582 to i1
-  %584 = load ptr, ptr %503, align 8
-  %585 = getelementptr inbounds i8, ptr %584, i64 8
-  %586 = load ptr, ptr %585, align 8
-  %587 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 90), align 2
-  %588 = trunc i8 %587 to i1
-  %589 = select i1 %588, ptr @.str.72, ptr @.str.73
-  br i1 %583, label %590, label %600
+  %579 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 88), align 8
+  %580 = trunc i8 %579 to i1
+  %581 = load ptr, ptr %503, align 8
+  %582 = getelementptr inbounds i8, ptr %581, i64 8
+  %583 = load ptr, ptr %582, align 8
+  %584 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 90), align 2
+  %585 = trunc i8 %584 to i1
+  %586 = select i1 %585, ptr @.str.72, ptr @.str.73
+  br i1 %580, label %587, label %597
 
-590:                                              ; preds = %581
-  %591 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 89), align 1
-  %592 = trunc i8 %591 to i1
-  %593 = select i1 %592, ptr @.str.72, ptr @.str.73
-  %594 = getelementptr inbounds i8, ptr %584, i64 16
-  %595 = load i8, ptr %594, align 8
-  %596 = trunc i8 %595 to i1
-  %597 = select i1 %596, ptr @.str.78, ptr @.str.79
-  %598 = getelementptr inbounds i8, ptr %503, i64 8
-  %599 = load i32, ptr %598, align 8
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.77, ptr noundef %586, ptr noundef nonnull %589, ptr noundef nonnull %593, ptr noundef nonnull %597, i32 noundef %599) #12
+587:                                              ; preds = %578
+  %588 = load i8, ptr getelementptr inbounds (i8, ptr @opts, i64 89), align 1
+  %589 = trunc i8 %588 to i1
+  %590 = select i1 %589, ptr @.str.72, ptr @.str.73
+  %591 = getelementptr inbounds i8, ptr %581, i64 16
+  %592 = load i8, ptr %591, align 8
+  %593 = trunc i8 %592 to i1
+  %594 = select i1 %593, ptr @.str.78, ptr @.str.79
+  %595 = getelementptr inbounds i8, ptr %503, i64 8
+  %596 = load i32, ptr %595, align 8
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.77, ptr noundef %583, ptr noundef nonnull %586, ptr noundef nonnull %590, ptr noundef nonnull %594, i32 noundef %596) #12
   br label %prepare_btree_command.exit
 
-600:                                              ; preds = %581
-  %601 = getelementptr inbounds i8, ptr %584, i64 16
-  %602 = load i8, ptr %601, align 8
-  %603 = trunc i8 %602 to i1
-  %604 = select i1 %603, ptr @.str.78, ptr @.str.79
-  %605 = getelementptr inbounds i8, ptr %503, i64 8
-  %606 = load i32, ptr %605, align 8
-  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef %586, ptr noundef nonnull %589, ptr noundef nonnull %604, i32 noundef %606) #12
+597:                                              ; preds = %578
+  %598 = getelementptr inbounds i8, ptr %581, i64 16
+  %599 = load i8, ptr %598, align 8
+  %600 = trunc i8 %599 to i1
+  %601 = select i1 %600, ptr @.str.78, ptr @.str.79
+  %602 = getelementptr inbounds i8, ptr %503, i64 8
+  %603 = load i32, ptr %602, align 8
+  call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef nonnull %6, ptr noundef nonnull @.str.80, ptr noundef %583, ptr noundef nonnull %586, ptr noundef nonnull %601, i32 noundef %603) #12
   br label %prepare_btree_command.exit
 
-prepare_btree_command.exit:                       ; preds = %590, %600
-  %607 = load ptr, ptr %6, align 8
-  %608 = call ptr @pstrdup(ptr noundef %607) #12
-  %609 = getelementptr inbounds i8, ptr %503, i64 40
-  store ptr %608, ptr %609, align 8
-  br label %610
-
-610:                                              ; preds = %prepare_heap_command.exit, %prepare_btree_command.exit
-  %verify_heap_slot_handler.sink = phi ptr [ @verify_heap_slot_handler, %prepare_heap_command.exit ], [ @verify_btree_slot_handler, %prepare_btree_command.exit ]
-  %.sink425 = phi ptr [ %565, %prepare_heap_command.exit ], [ %609, %prepare_btree_command.exit ]
-  %611 = getelementptr inbounds i8, ptr %515, i64 16
-  store ptr %verify_heap_slot_handler.sink, ptr %611, align 8
-  %612 = getelementptr inbounds i8, ptr %515, i64 24
-  store ptr %503, ptr %612, align 8
-  %613 = load ptr, ptr %.sink425, align 8
-  call fastcc void @run_command(ptr noundef nonnull %515, ptr noundef %613)
+prepare_btree_command.exit:                       ; preds = %597, %587, %prepare_heap_command.exit
+  %verify_heap_slot_handler.sink = phi ptr [ @verify_heap_slot_handler, %prepare_heap_command.exit ], [ @verify_btree_slot_handler, %587 ], [ @verify_btree_slot_handler, %597 ]
+  %.sink430 = load ptr, ptr %6, align 8
+  %604 = call ptr @pstrdup(ptr noundef %.sink430) #12
+  %605 = getelementptr inbounds i8, ptr %503, i64 40
+  store ptr %604, ptr %605, align 8
+  %606 = getelementptr inbounds i8, ptr %515, i64 16
+  store ptr %verify_heap_slot_handler.sink, ptr %606, align 8
+  %607 = getelementptr inbounds i8, ptr %515, i64 24
+  store ptr %503, ptr %607, align 8
+  %608 = load ptr, ptr %605, align 8
+  call fastcc void @run_command(ptr noundef nonnull %515, ptr noundef %608)
   %.2166 = load ptr, ptr %.2166319, align 8
   %.not215 = icmp eq ptr %.2166, null
   br i1 %.not215, label %.loopexit, label %.lr.ph321, !llvm.loop !11
 
 .thread247:                                       ; preds = %.lr.ph321, %505
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
-  br label %618
+  br label %613
 
-.loopexit:                                        ; preds = %610, %501
-  %.0176.lcssa = phi i64 [ 0, %501 ], [ %508, %610 ]
-  %.0174.lcssa = phi i64 [ 0, %501 ], [ %512, %610 ]
+.loopexit:                                        ; preds = %prepare_btree_command.exit, %501
+  %.0176.lcssa = phi i64 [ 0, %501 ], [ %508, %prepare_btree_command.exit ]
+  %.0174.lcssa = phi i64 [ 0, %501 ], [ %512, %prepare_btree_command.exit ]
   call void @termPQExpBuffer(ptr noundef nonnull %6) #12
   %.not220 = icmp eq ptr %499, null
-  br i1 %.not220, label %616, label %614
+  br i1 %.not220, label %611, label %609
 
-614:                                              ; preds = %.loopexit
-  %615 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef nonnull %499) #12
-  %spec.select237 = select i1 %615, i8 %.0167.lcssa375, i8 1
-  br label %616
+609:                                              ; preds = %.loopexit
+  %610 = call zeroext i1 @ParallelSlotsWaitCompletion(ptr noundef nonnull %499) #12
+  %spec.select237 = select i1 %610, i8 %.0167.lcssa375, i8 1
+  br label %611
 
-616:                                              ; preds = %614, %.loopexit
-  %.3170 = phi i8 [ %.0167.lcssa375, %.loopexit ], [ %spec.select237, %614 ]
+611:                                              ; preds = %609, %.loopexit
+  %.3170 = phi i8 [ %.0167.lcssa375, %.loopexit ], [ %spec.select237, %609 ]
   call fastcc void @progress_report(i64 noundef %489, i64 noundef %.0176.lcssa, i64 noundef %.4245, i64 noundef %.0174.lcssa, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext true)
-  %617 = trunc i8 %.3170 to i1
-  br label %618
+  %612 = trunc i8 %.3170 to i1
+  br label %613
 
-618:                                              ; preds = %.thread247, %616
-  %.4 = phi i1 [ %617, %616 ], [ true, %.thread247 ]
+613:                                              ; preds = %.thread247, %611
+  %.4 = phi i1 [ %612, %611 ], [ true, %.thread247 ]
   %.not221 = icmp eq ptr %499, null
-  br i1 %.not221, label %620, label %619
+  br i1 %.not221, label %615, label %614
 
-619:                                              ; preds = %618
+614:                                              ; preds = %613
   call void @ParallelSlotsTerminate(ptr noundef nonnull %499) #12
   call void @pg_free(ptr noundef nonnull %499) #12
-  br label %620
+  br label %615
 
-620:                                              ; preds = %619, %618
-  br i1 %.4, label %621, label %622
+615:                                              ; preds = %614, %613
+  br i1 %.4, label %616, label %617
 
-621:                                              ; preds = %620
+616:                                              ; preds = %615
   call void @exit(i32 noundef 1) #13
   unreachable
 
-622:                                              ; preds = %620
+617:                                              ; preds = %615
   %.b207 = load i1, ptr @all_checks_pass, align 1
-  br i1 %.b207, label %623, label %624
+  br i1 %.b207, label %618, label %619
 
-623:                                              ; preds = %622
+618:                                              ; preds = %617
   call void @exit(i32 noundef 2) #13
   unreachable
 
-624:                                              ; preds = %622
+619:                                              ; preds = %617
   ret i32 0
 }
 

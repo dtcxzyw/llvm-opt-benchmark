@@ -4289,10 +4289,10 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit.i:          ; preds = %if.then.i.i157, %lo
 if.end78.sink.split:                              ; preds = %_ZN6vectorIN3euf9ac_plugin2eqELb1EjE4backEv.exit, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i
   %.sink = phi ptr [ %113, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ %11, %_ZN6vectorIN3euf9ac_plugin2eqELb1EjE4backEv.exit ]
   %.sink187 = phi i32 [ 1, %_ZN6vectorIjLb0EjE9push_backERKj.exit.i ], [ -1, %_ZN6vectorIN3euf9ac_plugin2eqELb1EjE4backEv.exit ]
-  %arrayidx.i162 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %114 = load i32, ptr %arrayidx.i162, align 4
+  %arrayidx10.i.i155 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %114 = load i32, ptr %arrayidx10.i.i155, align 4
   %inc.i.i156 = add i32 %114, %.sink187
-  store i32 %inc.i.i156, ptr %arrayidx.i162, align 4
+  store i32 %inc.i.i156, ptr %arrayidx10.i.i155, align 4
   br label %if.end78
 
 if.end78:                                         ; preds = %if.end78.sink.split, %_ZN6vectorIcLb0EjE7reserveEjRKc.exit.i

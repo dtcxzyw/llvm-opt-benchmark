@@ -6002,10 +6002,10 @@ if.else:                                          ; preds = %land.lhs.true, %_ZN
 
 return.sink.split:                                ; preds = %if.else, %_ZN3refI15model_converterED2Ev.exit, %_ZN3refI15model_converterEC2ERKS1_.exit
   %.sink = phi ptr [ %0, %_ZN3refI15model_converterEC2ERKS1_.exit ], [ %17, %_ZN3refI15model_converterED2Ev.exit ], [ %19, %if.else ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %20 = load i32, ptr %m_ref_count.i.i.i, align 8
+  %m_ref_count.i.i.i.i23 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %20 = load i32, ptr %m_ref_count.i.i.i.i23, align 8
   %inc.i.i.i.i24 = add i32 %20, 1
-  store i32 %inc.i.i.i.i24, ptr %m_ref_count.i.i.i, align 8
+  store i32 %inc.i.i.i.i24, ptr %m_ref_count.i.i.i.i23, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else, %_ZN3refI15model_converterED2Ev.exit

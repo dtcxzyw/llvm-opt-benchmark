@@ -6088,7 +6088,7 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
   store ptr null, ptr %3, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %4, ptr noundef nonnull align 4 dereferenceable(28) @__const._set_type_tres_cnt.locks, i64 28, i1 false)
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %5
+  br i1 %.not, label %27, label %5
 
 5:                                                ; preds = %2
   br i1 %1, label %7, label %6
@@ -6104,62 +6104,55 @@ define dso_local ptr @gres_ctld_gres_2_tres_str(ptr noundef %0, i1 noundef zeroe
   br i1 %.not2223, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.backedge
-  %10 = phi ptr [ %23, %.backedge ], [ %9, %7 ]
+  %10 = phi ptr [ %16, %.backedge ], [ %9, %7 ]
   %11 = getelementptr inbounds i8, ptr %10, i64 24
   %12 = load i32, ptr %11, align 8
-  switch i32 %12, label %21 [
-    i32 2, label %13
-    i32 3, label %17
+  switch i32 %12, label %14 [
+    i32 2, label %17
+    i32 3, label %13
   ]
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds i8, ptr %10, i64 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %15, i64 112
-  br label %24
+  br label %17
 
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds i8, ptr %10, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %19, i64 72
-  br label %24
-
-21:                                               ; preds = %.lr.ph
-  %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.gres_ctld_gres_2_tres_str, i32 noundef %12) #8
+14:                                               ; preds = %.lr.ph
+  %15 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.23, ptr noundef nonnull @__func__.gres_ctld_gres_2_tres_str, i32 noundef %12) #8
   br label %.backedge
 
-.backedge:                                        ; preds = %21, %24
-  %23 = call ptr @list_next(ptr noundef %8) #8
-  %.not22 = icmp eq ptr %23, null
+.backedge:                                        ; preds = %14, %17
+  %16 = call ptr @list_next(ptr noundef %8) #8
+  %.not22 = icmp eq ptr %16, null
   br i1 %.not22, label %._crit_edge, label %.lr.ph, !llvm.loop !56
 
-24:                                               ; preds = %17, %13
-  %.pn = phi ptr [ %19, %17 ], [ %15, %13 ]
-  %.018.in = phi ptr [ %20, %17 ], [ %16, %13 ]
-  %.018 = load i64, ptr %.018.in, align 8
-  %.019.in = getelementptr inbounds i8, ptr %.pn, i64 8
+17:                                               ; preds = %.lr.ph, %13
+  %.sink24 = phi i64 [ 72, %13 ], [ 112, %.lr.ph ]
+  %18 = getelementptr inbounds i8, ptr %10, i64 8
+  %19 = load ptr, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %19, i64 %.sink24
+  %.018 = load i64, ptr %20, align 8
+  %.019.in = getelementptr inbounds i8, ptr %19, i64 8
   %.019 = load ptr, ptr %.019.in, align 8
-  %25 = icmp eq i64 %.018, -3
-  %spec.store.select = select i1 %25, i64 0, i64 %.018
-  %26 = getelementptr inbounds i8, ptr %10, i64 16
-  %27 = load ptr, ptr %26, align 8
-  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %3, ptr noundef %27, ptr noundef %.019, i64 noundef %spec.store.select)
+  %21 = icmp eq i64 %.018, -3
+  %spec.store.select = select i1 %21, i64 0, i64 %.018
+  %22 = getelementptr inbounds i8, ptr %10, i64 16
+  %23 = load ptr, ptr %22, align 8
+  call fastcc void @_gres_2_tres_str_internal(ptr noundef nonnull %3, ptr noundef %23, ptr noundef %.019, i64 noundef %spec.store.select)
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %.backedge, %7
   call void @list_iterator_destroy(ptr noundef %8) #8
-  br i1 %1, label %29, label %28
+  br i1 %1, label %25, label %24
 
-28:                                               ; preds = %._crit_edge
+24:                                               ; preds = %._crit_edge
   call void @assoc_mgr_unlock(ptr noundef nonnull %4) #8
-  br label %29
+  br label %25
 
-29:                                               ; preds = %28, %._crit_edge
-  %30 = load ptr, ptr %3, align 8
-  br label %31
+25:                                               ; preds = %24, %._crit_edge
+  %26 = load ptr, ptr %3, align 8
+  br label %27
 
-31:                                               ; preds = %2, %29
-  %.0 = phi ptr [ %30, %29 ], [ null, %2 ]
+27:                                               ; preds = %2, %25
+  %.0 = phi ptr [ %26, %25 ], [ null, %2 ]
   ret ptr %.0
 }
 

@@ -697,9 +697,9 @@ AndersonAccelerate.exit:                          ; preds = %.loopexit.i, %77, %
   br i1 %282, label %.lr.ph, label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %272, %7, %270
-  %.sink58 = phi ptr [ %271, %270 ], [ %20, %7 ], [ %277, %272 ]
+  %.lcssa46.sink = phi ptr [ %271, %270 ], [ %20, %7 ], [ %277, %272 ]
   %.0.ph = phi i32 [ %269, %270 ], [ 902, %7 ], [ 902, %272 ]
-  %283 = getelementptr inbounds i8, ptr %.sink58, i64 160
+  %283 = getelementptr inbounds i8, ptr %.lcssa46.sink, i64 160
   %284 = load i64, ptr %283, align 8
   %285 = add nsw i64 %284, 1
   store i64 %285, ptr %283, align 8

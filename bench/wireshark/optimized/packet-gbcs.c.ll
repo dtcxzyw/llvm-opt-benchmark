@@ -1473,7 +1473,7 @@ define internal fastcc void @dissect_gbcs_gbz_component(ptr noundef %0, ptr noun
   br label %.sink.split
 
 .sink.split:                                      ; preds = %107, %143
-  %.sink94 = phi i32 [ 12, %107 ], [ %144, %143 ]
+  %.sink94 = phi i32 [ %144, %143 ], [ 12, %107 ]
   %145 = load i32, ptr %3, align 4
   %146 = add i32 %145, %.sink94
   store i32 %146, ptr %3, align 4

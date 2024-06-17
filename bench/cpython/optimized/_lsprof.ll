@@ -980,11 +980,11 @@ if.then20:                                        ; preds = %if.then16
   %dec22 = add i64 %13, -1
   store i64 %dec22, ptr %recursionLevel21, align 8
   %cmp23 = icmp eq i64 %dec22, 0
-  %.30 = select i1 %cmp23, i64 24, i64 48
-  %sub.31 = select i1 %cmp23, i64 %sub, i64 1
-  %recursivecallcount28 = getelementptr inbounds i8, ptr %call.i, i64 %.30
+  %.31 = select i1 %cmp23, i64 24, i64 48
+  %sub.32 = select i1 %cmp23, i64 %sub, i64 1
+  %recursivecallcount28 = getelementptr inbounds i8, ptr %call.i, i64 %.31
   %14 = load i64, ptr %recursivecallcount28, align 8
-  %inc29 = add i64 %14, %sub.31
+  %inc29 = add i64 %14, %sub.32
   store i64 %inc29, ptr %recursivecallcount28, align 8
   %it31 = getelementptr inbounds i8, ptr %call.i, i64 32
   %15 = load <2 x i64>, ptr %it31, align 8

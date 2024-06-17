@@ -5714,7 +5714,7 @@ if.then15:                                        ; preds = %lor.lhs.false, %lor
   %6 = load i8, ptr %in.addr.0.i, align 1, !tbaa !28
   %7 = add i8 %6, -48
   %or.cond29.i.i = icmp ult i8 %7, 10
-  br i1 %or.cond29.i.i, label %while.body.i.i, label %if.else13.i.thread
+  br i1 %or.cond29.i.i, label %while.body.i.i, label %if.else35.sink.split
 
 while.body.i.i:                                   ; preds = %if.then15, %while.body.i.i
   %8 = phi i8 [ %10, %while.body.i.i ], [ %6, %if.then15 ]
@@ -5742,32 +5742,16 @@ while.end.i.i:                                    ; preds = %while.body.i.i
   br i1 %cmp9.i, label %if.then10.i, label %if.else13.i
 
 if.then10.i:                                      ; preds = %while.end.i.i
-  br i1 %cmp.i, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread100, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread
+  br i1 %cmp.i, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread100, label %if.else35.sink.split
 
 if.else13.i:                                      ; preds = %while.end.i.i
-  br i1 %cmp.i, label %_ZN3irr4core8strtol10EPKcPS2_.exit, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread
-
-if.else13.i.thread:                               ; preds = %if.then15
-  br i1 %cmp.i, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122, label %_ZN3irr4core8strtol10EPKcPS2_.exit.thread
-
-_ZN3irr4core8strtol10EPKcPS2_.exit.thread122:     ; preds = %if.else13.i.thread
-  %idxprom19125 = zext i32 %idxType.0111 to i64
-  %arrayidx20126 = getelementptr inbounds i32, ptr %idx, i64 %idxprom19125
-  store i32 0, ptr %arrayidx20126, align 4, !tbaa !90
-  br label %if.else35
+  br i1 %cmp.i, label %_ZN3irr4core8strtol10EPKcPS2_.exit, label %if.else35.sink.split
 
 _ZN3irr4core8strtol10EPKcPS2_.exit.thread100:     ; preds = %if.then10.i
   %idxprom19102 = zext i32 %idxType.0111 to i64
   %arrayidx20103 = getelementptr inbounds i32, ptr %idx, i64 %idxprom19102
   store i32 -2147483648, ptr %arrayidx20103, align 4, !tbaa !90
   br label %if.then24
-
-_ZN3irr4core8strtol10EPKcPS2_.exit.thread:        ; preds = %if.else13.i.thread, %if.else13.i, %if.then10.i
-  %retval.1.i.ph = phi i32 [ %unsignedValue.2.i.i, %if.else13.i ], [ 2147483647, %if.then10.i ], [ 0, %if.else13.i.thread ]
-  %idxprom1995 = zext i32 %idxType.0111 to i64
-  %arrayidx2096 = getelementptr inbounds i32, ptr %idx, i64 %idxprom1995
-  store i32 %retval.1.i.ph, ptr %arrayidx2096, align 4, !tbaa !90
-  br label %if.else35
 
 _ZN3irr4core8strtol10EPKcPS2_.exit:               ; preds = %if.else13.i
   %sub.i = sub nsw i32 0, %unsignedValue.2.i.i
@@ -5801,9 +5785,16 @@ sw.bb31:                                          ; preds = %if.then24
   store i32 %add34, ptr %arrayidx20106, align 4, !tbaa !90
   br label %if.end38
 
-if.else35:                                        ; preds = %_ZN3irr4core8strtol10EPKcPS2_.exit, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122
-  %arrayidx2099 = phi ptr [ %arrayidx2096, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread ], [ %arrayidx20, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ %arrayidx20126, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122 ]
-  %retval.1.i98 = phi i32 [ %retval.1.i.ph, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread ], [ 0, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ 0, %_ZN3irr4core8strtol10EPKcPS2_.exit.thread122 ]
+if.else35.sink.split:                             ; preds = %if.then15, %if.then10.i, %if.else13.i
+  %retval.1.i.ph.sink = phi i32 [ %unsignedValue.2.i.i, %if.else13.i ], [ 2147483647, %if.then10.i ], [ 0, %if.then15 ]
+  %idxprom1995 = zext i32 %idxType.0111 to i64
+  %arrayidx2096 = getelementptr inbounds i32, ptr %idx, i64 %idxprom1995
+  store i32 %retval.1.i.ph.sink, ptr %arrayidx2096, align 4, !tbaa !90
+  br label %if.else35
+
+if.else35:                                        ; preds = %if.else35.sink.split, %_ZN3irr4core8strtol10EPKcPS2_.exit
+  %arrayidx2099 = phi ptr [ %arrayidx20, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ %arrayidx2096, %if.else35.sink.split ]
+  %retval.1.i98 = phi i32 [ 0, %_ZN3irr4core8strtol10EPKcPS2_.exit ], [ %retval.1.i.ph.sink, %if.else35.sink.split ]
   %sub = add nsw i32 %retval.1.i98, -1
   store i32 %sub, ptr %arrayidx2099, align 4, !tbaa !90
   br label %if.end38

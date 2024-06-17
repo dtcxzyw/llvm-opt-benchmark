@@ -247,9 +247,9 @@ define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1
   %6 = icmp sgt i32 %4, 3
   br i1 %6, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %5, %56
-  %.045 = phi i32 [ %57, %56 ], [ %3, %5 ]
-  %.04144 = phi i32 [ %58, %56 ], [ %4, %5 ]
+.lr.ph:                                           ; preds = %5, %44
+  %.045 = phi i32 [ %45, %44 ], [ %3, %5 ]
+  %.04144 = phi i32 [ %46, %44 ], [ %4, %5 ]
   %7 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.045) #2
   %8 = add i32 %.045, 2
   %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %8) #2
@@ -275,60 +275,52 @@ define internal fastcc void @dissect_asf_payloads(ptr noundef %0, ptr noundef %1
   %25 = icmp ne i8 %7, 0
   %26 = icmp ne i16 %9, 4
   %or.cond = select i1 %25, i1 %26, i1 false
-  br i1 %or.cond, label %27, label %56
+  br i1 %or.cond, label %27, label %44
 
 27:                                               ; preds = %24
   switch i8 %7, label %.sink.split [
-    i8 1, label %28
-    i8 2, label %40
+    i8 1, label %.sink.split.sink.split
+    i8 2, label %28
   ]
 
 28:                                               ; preds = %27
+  br label %.sink.split.sink.split
+
+.sink.split.sink.split:                           ; preds = %27, %28
+  %asf_integrity_type_vals.sink = phi ptr [ @asf_integrity_type_vals, %28 ], [ @asf_authentication_type_vals, %27 ]
+  %.str.74.sink = phi ptr [ @.str.74, %28 ], [ @.str.73, %27 ]
+  %hf_asf_integrity_alg.sink = phi ptr [ @hf_asf_integrity_alg, %28 ], [ @hf_asf_auth_alg, %27 ]
   %29 = add i32 %.045, 4
   %30 = add nsw i32 %11, -4
   %31 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %29) #2
   %32 = load i32, ptr @hf_asf_payload_data, align 4
   %33 = zext i8 %31 to i32
-  %34 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull @asf_authentication_type_vals, ptr noundef nonnull @.str.72) #2
-  %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef %29, i32 noundef %30, ptr noundef nonnull @.str.73, ptr noundef %34) #2
+  %34 = tail call ptr @val_to_str(i32 noundef %33, ptr noundef nonnull %asf_integrity_type_vals.sink, ptr noundef nonnull @.str.72) #2
+  %35 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %16, i32 noundef %32, ptr noundef %0, i32 noundef %29, i32 noundef %30, ptr noundef nonnull %.str.74.sink, ptr noundef %34) #2
   %36 = load i32, ptr @ett_asf_alg_payload, align 4
   %37 = tail call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %36) #2
-  %38 = load i32, ptr @hf_asf_auth_alg, align 4
+  %38 = load i32, ptr %hf_asf_integrity_alg.sink, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %29, i32 noundef 1, i32 noundef 0) #2
   br label %.sink.split
 
-40:                                               ; preds = %27
-  %41 = add i32 %.045, 4
-  %42 = add nsw i32 %11, -4
-  %43 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %41) #2
-  %44 = load i32, ptr @hf_asf_payload_data, align 4
-  %45 = zext i8 %43 to i32
-  %46 = tail call ptr @val_to_str(i32 noundef %45, ptr noundef nonnull @asf_integrity_type_vals, ptr noundef nonnull @.str.72) #2
-  %47 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %16, i32 noundef %44, ptr noundef %0, i32 noundef %41, i32 noundef %42, ptr noundef nonnull @.str.74, ptr noundef %46) #2
-  %48 = load i32, ptr @ett_asf_alg_payload, align 4
-  %49 = tail call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %48) #2
-  %50 = load i32, ptr @hf_asf_integrity_alg, align 4
-  %51 = tail call ptr @proto_tree_add_item(ptr noundef %49, i32 noundef %50, ptr noundef %0, i32 noundef %41, i32 noundef 1, i32 noundef 0) #2
-  br label %.sink.split
+.sink.split:                                      ; preds = %.sink.split.sink.split, %27
+  %hf_asf_reserved.sink = phi ptr [ @hf_asf_payload_data, %27 ], [ @hf_asf_reserved, %.sink.split.sink.split ]
+  %.sink52 = phi i32 [ 4, %27 ], [ 5, %.sink.split.sink.split ]
+  %.sink51 = phi i32 [ -4, %27 ], [ -5, %.sink.split.sink.split ]
+  %.sink = phi ptr [ %16, %27 ], [ %37, %.sink.split.sink.split ]
+  %40 = load i32, ptr %hf_asf_reserved.sink, align 4
+  %41 = add i32 %.045, %.sink52
+  %42 = add nsw i32 %.sink51, %11
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef %42, i32 noundef 0) #2
+  br label %44
 
-.sink.split:                                      ; preds = %27, %40, %28
-  %hf_asf_reserved.sink = phi ptr [ @hf_asf_reserved, %28 ], [ @hf_asf_reserved, %40 ], [ @hf_asf_payload_data, %27 ]
-  %.sink52 = phi i32 [ 5, %28 ], [ 5, %40 ], [ 4, %27 ]
-  %.sink51 = phi i32 [ -5, %28 ], [ -5, %40 ], [ -4, %27 ]
-  %.sink = phi ptr [ %37, %28 ], [ %49, %40 ], [ %16, %27 ]
-  %52 = load i32, ptr %hf_asf_reserved.sink, align 4
-  %53 = add i32 %.045, %.sink52
-  %54 = add nsw i32 %.sink51, %11
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %.sink, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef %54, i32 noundef 0) #2
-  br label %56
+44:                                               ; preds = %.sink.split, %24
+  %45 = add i32 %.045, %11
+  %46 = sub nsw i32 %.04144, %11
+  %47 = icmp sgt i32 %46, 3
+  br i1 %47, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-56:                                               ; preds = %.sink.split, %24
-  %57 = add i32 %.045, %11
-  %58 = sub nsw i32 %.04144, %11
-  %59 = icmp sgt i32 %58, 3
-  br i1 %59, label %.lr.ph, label %.loopexit, !llvm.loop !4
-
-.loopexit:                                        ; preds = %56, %5, %22
+.loopexit:                                        ; preds = %44, %5, %22
   ret void
 }
 

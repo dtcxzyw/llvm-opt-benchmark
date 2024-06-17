@@ -4060,46 +4060,32 @@ entry:
   %0 = load ptr, ptr %db1, align 8
   %call = tail call i32 @TXT_DB_create_index(ptr noundef %0, i32 noundef 3, ptr noundef null, ptr noundef nonnull @index_serial_LHASH_HASH, ptr noundef nonnull @index_serial_LHASH_COMP) #28
   %tobool.not = icmp eq i32 %call, 0
-  br i1 %tobool.not, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %1 = load ptr, ptr @bio_err, align 8
-  %2 = load ptr, ptr %db1, align 8
-  %error = getelementptr inbounds i8, ptr %2, i64 32
-  %3 = load i64, ptr %error, align 8
-  %arg1 = getelementptr inbounds i8, ptr %2, i64 40
-  %4 = load i64, ptr %arg1, align 8
-  %arg2 = getelementptr inbounds i8, ptr %2, i64 48
-  %5 = load i64, ptr %arg2, align 8
-  %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.131, i64 noundef %3, i64 noundef %4, i64 noundef %5) #28
-  br label %err
+  br i1 %tobool.not, label %err, label %if.end
 
 if.end:                                           ; preds = %entry
-  %6 = load i32, ptr %db, align 8
-  %tobool6.not = icmp eq i32 %6, 0
+  %1 = load i32, ptr %db, align 8
+  %tobool6.not = icmp eq i32 %1, 0
   br i1 %tobool6.not, label %return, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end
-  %7 = load ptr, ptr %db1, align 8
-  %call8 = tail call i32 @TXT_DB_create_index(ptr noundef %7, i32 noundef 5, ptr noundef nonnull @index_name_qual, ptr noundef nonnull @index_name_LHASH_HASH, ptr noundef nonnull @index_name_LHASH_COMP) #28
+  %2 = load ptr, ptr %db1, align 8
+  %call8 = tail call i32 @TXT_DB_create_index(ptr noundef %2, i32 noundef 5, ptr noundef nonnull @index_name_qual, ptr noundef nonnull @index_name_LHASH_HASH, ptr noundef nonnull @index_name_LHASH_COMP) #28
   %tobool9.not = icmp eq i32 %call8, 0
-  br i1 %tobool9.not, label %if.then10, label %return
+  br i1 %tobool9.not, label %err, label %return
 
-if.then10:                                        ; preds = %land.lhs.true
+err:                                              ; preds = %land.lhs.true, %entry
+  %.str.132.sink = phi ptr [ @.str.131, %entry ], [ @.str.132, %land.lhs.true ]
+  %3 = load ptr, ptr @bio_err, align 8
+  %4 = load ptr, ptr %db1, align 8
+  %error12 = getelementptr inbounds i8, ptr %4, i64 32
+  %5 = load i64, ptr %error12, align 8
+  %arg114 = getelementptr inbounds i8, ptr %4, i64 40
+  %6 = load i64, ptr %arg114, align 8
+  %arg216 = getelementptr inbounds i8, ptr %4, i64 48
+  %7 = load i64, ptr %arg216, align 8
+  %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %3, ptr noundef nonnull %.str.132.sink, i64 noundef %5, i64 noundef %6, i64 noundef %7) #28
   %8 = load ptr, ptr @bio_err, align 8
-  %9 = load ptr, ptr %db1, align 8
-  %error12 = getelementptr inbounds i8, ptr %9, i64 32
-  %10 = load i64, ptr %error12, align 8
-  %arg114 = getelementptr inbounds i8, ptr %9, i64 40
-  %11 = load i64, ptr %arg114, align 8
-  %arg216 = getelementptr inbounds i8, ptr %9, i64 48
-  %12 = load i64, ptr %arg216, align 8
-  %call17 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.132, i64 noundef %10, i64 noundef %11, i64 noundef %12) #28
-  br label %err
-
-err:                                              ; preds = %if.then10, %if.then
-  %13 = load ptr, ptr @bio_err, align 8
-  tail call void @ERR_print_errors(ptr noundef %13) #28
+  tail call void @ERR_print_errors(ptr noundef %8) #28
   br label %return
 
 return:                                           ; preds = %if.end, %land.lhs.true, %err

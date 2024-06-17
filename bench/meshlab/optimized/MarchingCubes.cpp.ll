@@ -1388,10 +1388,9 @@ define noundef zeroext i8 @_ZN13MarchingCubes8GetIndexEPKdd(ptr nocapture nounde
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKddi(ptr nocapture noundef readonly %0, double noundef %1, i32 noundef %2) local_unnamed_addr #2 align 2 {
   %.sroa.0 = alloca double, align 16
-  %.sroa.7 = alloca <2 x double>, align 16
-  %.sroa.19 = alloca double, align 8
-  %.sroa.7.8.gep.sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 8
-  %.sroa.7.8.gep.sroa_idx234 = getelementptr inbounds i8, ptr %.sroa.7, i64 8
+  %.sroa.7 = alloca double, align 8
+  %.sroa.11 = alloca double, align 16
+  %.sroa.15 = alloca double, align 8
   switch i32 %2, label %.thread111 [
     i32 0, label %.preheader
     i32 1, label %.preheader114
@@ -1405,105 +1404,90 @@ define noundef zeroext range(i8 0, 16) i8 @_ZN13MarchingCubes12GetFaceIndexEPKdd
   %invariant.gep187 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load double, ptr %invariant.gep187, align 8
   store double %4, ptr %.sroa.0, align 16
-  %gep.c = getelementptr inbounds i8, ptr %0, i64 40
-  %5 = load <2 x double>, ptr %gep.c, align 8
-  %6 = shufflevector <2 x double> %5, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %6, ptr %.sroa.7, align 16
-  %gep186.c.c = getelementptr inbounds i8, ptr %0, i64 56
+  %gep186.c = getelementptr inbounds i8, ptr %0, i64 48
   br label %.thread111.sink.split
 
 .preheader120.preheader:                          ; preds = %3
   %invariant.gep193 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load double, ptr %invariant.gep193, align 8
-  store double %7, ptr %.sroa.0, align 16
+  %5 = load double, ptr %invariant.gep193, align 8
+  store double %5, ptr %.sroa.0, align 16
   %gep192.c = getelementptr inbounds i8, ptr %0, i64 48
-  %8 = load double, ptr %gep192.c, align 8
-  store double %8, ptr %.sroa.7, align 16
-  %gep194.c = getelementptr inbounds i8, ptr %0, i64 24
-  %9 = load double, ptr %gep194.c, align 8
-  %.sroa.7.8..sroa_idx232 = getelementptr inbounds i8, ptr %.sroa.7, i64 8
-  store double %9, ptr %.sroa.7.8..sroa_idx232, align 8
-  %gep192.c.c = getelementptr inbounds i8, ptr %0, i64 56
   br label %.thread111.sink.split
 
 .preheader:                                       ; preds = %3
   %invariant.gep197 = getelementptr inbounds double, ptr %0, i64 0
-  %10 = load double, ptr %invariant.gep197, align 8
-  store double %10, ptr %.sroa.0, align 8
+  %6 = load double, ptr %invariant.gep197, align 8
+  store double %6, ptr %.sroa.0, align 16
   %gep198.c = getelementptr inbounds i8, ptr %invariant.gep197, i64 32
-  %11 = load double, ptr %gep198.c, align 8
-  store double %11, ptr %.sroa.7, align 8
+  %7 = load double, ptr %gep198.c, align 8
+  store double %7, ptr %.sroa.7, align 8
   %invariant.gep197.c = getelementptr inbounds double, ptr %0, i64 2
-  %12 = load double, ptr %invariant.gep197.c, align 8
-  store double %12, ptr %.sroa.7.8.gep.sroa_idx234, align 8
+  %8 = load double, ptr %invariant.gep197.c, align 8
+  store double %8, ptr %.sroa.11, align 16
   %gep198.c.c = getelementptr inbounds i8, ptr %invariant.gep197.c, i64 32
-  %13 = load double, ptr %gep198.c.c, align 8
-  store double %13, ptr %.sroa.19, align 8
+  %9 = load double, ptr %gep198.c.c, align 8
+  store double %9, ptr %.sroa.15, align 8
   br label %.thread111
 
 .preheader114:                                    ; preds = %3
-  %14 = or disjoint i64 0, 1
-  %15 = getelementptr inbounds double, ptr %0, i64 %14
-  %16 = load double, ptr %15, align 8
-  store double %16, ptr %.sroa.0, align 8
-  %17 = or disjoint i64 0, 5
-  %18 = getelementptr inbounds double, ptr %0, i64 %17
+  %10 = or disjoint i64 0, 1
+  %11 = getelementptr inbounds double, ptr %0, i64 %10
+  %12 = load double, ptr %11, align 8
+  store double %12, ptr %.sroa.0, align 16
+  %13 = or disjoint i64 0, 5
+  %14 = getelementptr inbounds double, ptr %0, i64 %13
+  %15 = load double, ptr %14, align 8
+  store double %15, ptr %.sroa.7, align 8
+  %16 = getelementptr inbounds double, ptr %0, i64 3
+  %17 = load double, ptr %16, align 8
+  store double %17, ptr %.sroa.11, align 16
+  %18 = getelementptr inbounds double, ptr %0, i64 7
   %19 = load double, ptr %18, align 8
-  store double %19, ptr %.sroa.7, align 8
-  %20 = getelementptr inbounds double, ptr %0, i64 3
-  %21 = load double, ptr %20, align 8
-  store double %21, ptr %.sroa.7.8.gep.sroa_idx, align 8
-  %22 = getelementptr inbounds double, ptr %0, i64 7
-  %23 = load double, ptr %22, align 8
-  store double %23, ptr %.sroa.19, align 8
+  store double %19, ptr %.sroa.15, align 8
   br label %.thread111
 
 .preheader117:                                    ; preds = %3
-  %24 = load double, ptr %0, align 8
-  store double %24, ptr %.sroa.0, align 16
+  %20 = load double, ptr %0, align 8
+  store double %20, ptr %.sroa.0, align 16
   %gep196.c = getelementptr inbounds i8, ptr %0, i64 32
-  %25 = load double, ptr %gep196.c, align 8
-  store double %25, ptr %.sroa.7, align 16
-  %invariant.gep195.c = getelementptr inbounds i8, ptr %0, i64 8
-  %26 = load double, ptr %invariant.gep195.c, align 8
-  %.sroa.7.8..sroa_idx233 = getelementptr inbounds i8, ptr %.sroa.7, i64 8
-  store double %26, ptr %.sroa.7.8..sroa_idx233, align 8
-  %gep196.c.c = getelementptr inbounds i8, ptr %0, i64 40
   br label %.thread111.sink.split
 
 .preheader123:                                    ; preds = %3
-  %27 = load double, ptr %0, align 8
-  store double %27, ptr %.sroa.0, align 16
-  %invariant.gep.c = getelementptr inbounds i8, ptr %0, i64 8
-  %28 = load <2 x double>, ptr %invariant.gep.c, align 8
-  %29 = shufflevector <2 x double> %28, <2 x double> poison, <2 x i32> <i32 1, i32 0>
-  store <2 x double> %29, ptr %.sroa.7, align 16
-  %gep188.c.c = getelementptr inbounds i8, ptr %0, i64 24
+  %21 = load double, ptr %0, align 8
+  store double %21, ptr %.sroa.0, align 16
+  %gep188.c = getelementptr inbounds i8, ptr %0, i64 16
   br label %.thread111.sink.split
 
 .thread111.sink.split:                            ; preds = %.preheader117, %.preheader120.preheader, %.preheader123, %.preheader126.preheader
-  %gep186.c.c.sink = phi ptr [ %gep186.c.c, %.preheader126.preheader ], [ %gep188.c.c, %.preheader123 ], [ %gep192.c.c, %.preheader120.preheader ], [ %gep196.c.c, %.preheader117 ]
-  %30 = load double, ptr %gep186.c.c.sink, align 8
-  store double %30, ptr %.sroa.19, align 8
+  %gep186.c.sink = phi ptr [ %gep186.c, %.preheader126.preheader ], [ %gep188.c, %.preheader123 ], [ %gep192.c, %.preheader120.preheader ], [ %gep196.c, %.preheader117 ]
+  %invariant.gep187.sink = phi ptr [ %invariant.gep187, %.preheader126.preheader ], [ %0, %.preheader123 ], [ %invariant.gep193, %.preheader120.preheader ], [ %0, %.preheader117 ]
+  %.sink = phi i64 [ 2, %.preheader126.preheader ], [ 2, %.preheader123 ], [ 4, %.preheader120.preheader ], [ 4, %.preheader117 ]
+  %22 = load double, ptr %gep186.c.sink, align 8
+  store double %22, ptr %.sroa.7, align 8
+  %gep.c = getelementptr inbounds i8, ptr %invariant.gep187.sink, i64 8
+  %23 = load double, ptr %gep.c, align 8
+  store double %23, ptr %.sroa.11, align 16
+  %gep186.c.c = getelementptr inbounds double, ptr %gep.c, i64 %.sink
+  %24 = load double, ptr %gep186.c.c, align 8
+  store double %24, ptr %.sroa.15, align 8
   br label %.thread111
 
 .thread111:                                       ; preds = %.preheader114, %.preheader, %.thread111.sink.split, %3
   %.sroa.0.0..sroa.0.0. = load double, ptr %.sroa.0, align 16
-  %31 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
-  %.0 = zext i1 %31 to i8
-  %.sroa.7.8..sroa_idx = getelementptr inbounds i8, ptr %.sroa.7, i64 8
-  %.sroa.7.8..sroa.7.16. = load double, ptr %.sroa.7.8..sroa_idx, align 8
-  %32 = fcmp olt double %.sroa.7.8..sroa.7.16., %1
-  %33 = or disjoint i8 %.0, 2
-  %.1 = select i1 %32, i8 %33, i8 %.0
-  %.sroa.19.0..sroa.19.24. = load double, ptr %.sroa.19, align 8
-  %34 = fcmp olt double %.sroa.19.0..sroa.19.24., %1
-  %35 = or disjoint i8 %.1, 4
-  %.2 = select i1 %34, i8 %35, i8 %.1
-  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 16
-  %36 = fcmp olt double %.sroa.7.0..sroa.7.8., %1
-  %37 = or disjoint i8 %.2, 8
-  %.3 = select i1 %36, i8 %37, i8 %.2
+  %25 = fcmp olt double %.sroa.0.0..sroa.0.0., %1
+  %.0 = zext i1 %25 to i8
+  %.sroa.11.0..sroa.11.16. = load double, ptr %.sroa.11, align 16
+  %26 = fcmp olt double %.sroa.11.0..sroa.11.16., %1
+  %27 = or disjoint i8 %.0, 2
+  %.1 = select i1 %26, i8 %27, i8 %.0
+  %.sroa.15.0..sroa.15.24. = load double, ptr %.sroa.15, align 8
+  %28 = fcmp olt double %.sroa.15.0..sroa.15.24., %1
+  %29 = or disjoint i8 %.1, 4
+  %.2 = select i1 %28, i8 %29, i8 %.1
+  %.sroa.7.0..sroa.7.8. = load double, ptr %.sroa.7, align 8
+  %30 = fcmp olt double %.sroa.7.0..sroa.7.8., %1
+  %31 = or disjoint i8 %.2, 8
+  %.3 = select i1 %30, i8 %31, i8 %.2
   ret i8 %.3
 }
 

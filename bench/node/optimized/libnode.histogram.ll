@@ -2243,10 +2243,10 @@ do.end9.i:                                        ; preds = %do.body.i
   %12 = load ptr, ptr %histogram_.i, align 8
   %call12.i = tail call zeroext i1 @hdr_record_value(ptr noundef %12, i64 noundef %sub.i) #15
   %..i = select i1 %call12.i, i64 32, i64 24
-  %exceeds_.i = getelementptr inbounds i8, ptr %10, i64 %..i
-  %13 = load i64, ptr %exceeds_.i, align 8
+  %count_.i = getelementptr inbounds i8, ptr %10, i64 %..i
+  %13 = load i64, ptr %count_.i, align 8
   %inc.i = add i64 %13, 1
-  store i64 %inc.i, ptr %exceeds_.i, align 8
+  store i64 %inc.i, ptr %count_.i, align 8
   br label %_ZN4node9Histogram11RecordDeltaEv.exit
 
 _ZN4node9Histogram11RecordDeltaEv.exit:           ; preds = %do.end, %do.end9.i

@@ -23791,18 +23791,18 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %45, %48
   %.sink = phi i32 [ %52, %48 ], [ %43, %45 ]
-  %.sink134 = phi ptr [ %50, %48 ], [ %40, %45 ]
+  %.sink129 = phi ptr [ %50, %48 ], [ %40, %45 ]
   %54 = and i32 %.sink, 65280
   %55 = icmp ne i32 %54, 0
   call void @llvm.assume(i1 %55)
-  %56 = load ptr, ptr %.sink134, align 8
+  %56 = load ptr, ptr %.sink129, align 8
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4
   br label %59
 
 59:                                               ; preds = %.sink.split, %41, %48
-  %.0 = phi ptr [ %50, %48 ], [ %40, %41 ], [ %.sink134, %.sink.split ]
+  %.0 = phi ptr [ %50, %48 ], [ %40, %41 ], [ %.sink129, %.sink.split ]
   %60 = load ptr, ptr %.0, align 8
   %61 = getelementptr inbounds i8, ptr %.0, i64 8
   %62 = load i32, ptr %61, align 8
@@ -23870,7 +23870,7 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
 92:                                               ; preds = %89
   %93 = and i32 %90, 255
   %94 = icmp eq i32 %93, 10
-  br i1 %94, label %95, label %.sink.split129
+  br i1 %94, label %95, label %.sink.split131
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %87, align 8
@@ -23879,9 +23879,9 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   %99 = load i32, ptr %98, align 8
   %100 = and i32 %99, 65280
   %.not119 = icmp eq i32 %100, 0
-  br i1 %.not119, label %106, label %.sink.split129
+  br i1 %.not119, label %106, label %.sink.split131
 
-.sink.split129:                                   ; preds = %92, %95
+.sink.split131:                                   ; preds = %92, %95
   %.sink139 = phi i32 [ %99, %95 ], [ %90, %92 ]
   %.sink136 = phi ptr [ %97, %95 ], [ %87, %92 ]
   %101 = and i32 %.sink139, 65280
@@ -23893,8 +23893,8 @@ define hidden void @zim_ReflectionProperty_getValue(ptr nocapture noundef readon
   store i32 %105, ptr %103, align 4
   br label %106
 
-106:                                              ; preds = %.sink.split129, %89, %95
-  %.0102 = phi ptr [ %97, %95 ], [ %87, %89 ], [ %.sink136, %.sink.split129 ]
+106:                                              ; preds = %.sink.split131, %89, %95
+  %.0102 = phi ptr [ %97, %95 ], [ %87, %89 ], [ %.sink136, %.sink.split131 ]
   %107 = load ptr, ptr %.0102, align 8
   %108 = getelementptr inbounds i8, ptr %.0102, i64 8
   %109 = load i32, ptr %108, align 8

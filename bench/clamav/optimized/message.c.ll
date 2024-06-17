@@ -2712,17 +2712,17 @@ define range(i32 -1, 1) i32 @messageMoveText(ptr nocapture noundef %0, ptr nound
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %48
+  br i1 %6, label %7, label %46
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %44, label %8
+  br i1 %.not, label %42, label %8
 
 8:                                                ; preds = %7
   %9 = getelementptr inbounds i8, ptr %2, i64 40
   %10 = load ptr, ptr %9, align 8
   %.not47 = icmp eq ptr %10, null
-  br i1 %.not47, label %44, label %11
+  br i1 %.not47, label %42, label %11
 
 11:                                               ; preds = %8
   store ptr %1, ptr %4, align 8
@@ -2763,82 +2763,79 @@ define range(i32 -1, 1) i32 @messageMoveText(ptr nocapture noundef %0, ptr nound
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %42
+  br i1 %29, label %30, label %.sink.split
 
 30:                                               ; preds = %23
   %31 = getelementptr inbounds i8, ptr %2, i64 104
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %42
+  br i1 %33, label %34, label %.sink.split
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %2, i64 88
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
-  br i1 %37, label %38, label %42
+  br i1 %37, label %38, label %.sink.split
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds i8, ptr %2, i64 96
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %.loopexit, label %42
+  br i1 %41, label %.loopexit, label %.sink.split
 
-42:                                               ; preds = %38, %34, %30, %23
-  %43 = load ptr, ptr %4, align 8
-  store ptr %43, ptr %26, align 8
-  br label %55
+42:                                               ; preds = %8, %7
+  %43 = tail call ptr @textMove(ptr noundef null, ptr noundef %1) #21
+  store ptr %43, ptr %4, align 8
+  %44 = getelementptr inbounds i8, ptr %0, i64 48
+  store ptr %43, ptr %44, align 8
+  %45 = icmp eq ptr %43, null
+  br i1 %45, label %.loopexit, label %52
 
-44:                                               ; preds = %8, %7
-  %45 = tail call ptr @textMove(ptr noundef null, ptr noundef %1) #21
-  store ptr %45, ptr %4, align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr %45, ptr %46, align 8
-  %47 = icmp eq ptr %45, null
-  br i1 %47, label %.loopexit, label %55
+46:                                               ; preds = %3
+  %47 = getelementptr inbounds i8, ptr %0, i64 48
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call ptr @textMove(ptr noundef %48, ptr noundef %1) #21
+  store ptr %49, ptr %47, align 8
+  %50 = icmp eq ptr %49, null
+  br i1 %50, label %.sink.split, label %52
 
-48:                                               ; preds = %3
-  %49 = getelementptr inbounds i8, ptr %0, i64 48
-  %50 = load ptr, ptr %49, align 8
-  %51 = tail call ptr @textMove(ptr noundef %50, ptr noundef %1) #21
-  store ptr %51, ptr %49, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %55
+.sink.split:                                      ; preds = %46, %23, %30, %34, %38
+  %.sink53 = phi ptr [ %26, %38 ], [ %26, %34 ], [ %26, %30 ], [ %26, %23 ], [ %47, %46 ]
+  %.042.ph = phi i32 [ 0, %38 ], [ 0, %34 ], [ 0, %30 ], [ 0, %23 ], [ -1, %46 ]
+  %51 = load ptr, ptr %4, align 8
+  store ptr %51, ptr %.sink53, align 8
+  br label %52
 
-53:                                               ; preds = %48
-  %54 = load ptr, ptr %4, align 8
-  store ptr %54, ptr %49, align 8
-  br label %55
-
-55:                                               ; preds = %48, %44, %53, %42
-  %56 = phi ptr [ %43, %42 ], [ %54, %53 ], [ %45, %44 ], [ %51, %48 ]
-  %.042 = phi i32 [ 0, %42 ], [ -1, %53 ], [ 0, %44 ], [ 0, %48 ]
-  %57 = getelementptr inbounds i8, ptr %0, i64 48
-  %58 = getelementptr inbounds i8, ptr %56, i64 8
-  %59 = load ptr, ptr %58, align 8
-  %.not4952 = icmp eq ptr %59, null
+52:                                               ; preds = %.sink.split, %46, %42
+  %53 = phi ptr [ %43, %42 ], [ %49, %46 ], [ %51, %.sink.split ]
+  %.042 = phi i32 [ 0, %42 ], [ 0, %46 ], [ %.042.ph, %.sink.split ]
+  %54 = getelementptr inbounds i8, ptr %0, i64 48
+  %55 = getelementptr inbounds i8, ptr %53, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %.not4952 = icmp eq ptr %56, null
   br i1 %.not4952, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %55, %63
-  %60 = phi ptr [ %66, %63 ], [ %59, %55 ]
-  store ptr %60, ptr %57, align 8
-  %61 = load ptr, ptr %60, align 8
-  %.not50 = icmp eq ptr %61, null
-  br i1 %.not50, label %63, label %62
+.lr.ph:                                           ; preds = %52, %60
+  %57 = phi ptr [ %63, %60 ], [ %56, %52 ]
+  store ptr %57, ptr %54, align 8
+  %58 = load ptr, ptr %57, align 8
+  %.not50 = icmp eq ptr %58, null
+  br i1 %.not50, label %60, label %59
 
-62:                                               ; preds = %.lr.ph
+59:                                               ; preds = %.lr.ph
   tail call fastcc void @messageIsEncoding(ptr noundef nonnull %0)
-  %.pre = load ptr, ptr %57, align 8
-  br label %63
+  %.pre = load ptr, ptr %54, align 8
+  br label %60
 
-63:                                               ; preds = %62, %.lr.ph
-  %64 = phi ptr [ %.pre, %62 ], [ %60, %.lr.ph ]
-  %65 = getelementptr inbounds i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %.not49 = icmp eq ptr %66, null
+60:                                               ; preds = %59, %.lr.ph
+  %61 = phi ptr [ %.pre, %59 ], [ %57, %.lr.ph ]
+  %62 = getelementptr inbounds i8, ptr %61, i64 8
+  %63 = load ptr, ptr %62, align 8
+  %.not49 = icmp eq ptr %63, null
   br i1 %.not49, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %63, %55, %44, %38, %22
-  %.0 = phi i32 [ -1, %22 ], [ 0, %38 ], [ -1, %44 ], [ %.042, %55 ], [ %.042, %63 ]
+.loopexit:                                        ; preds = %60, %52, %42, %38, %22
+  %.0 = phi i32 [ -1, %22 ], [ 0, %38 ], [ -1, %42 ], [ %.042, %52 ], [ %.042, %60 ]
   ret i32 %.0
 }
 

@@ -12794,24 +12794,18 @@ entry:
 define void @SSL_CTX_set1_cert_store(ptr nocapture noundef %ctx, ptr noundef %store) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %store, null
-  br i1 %cmp.not, label %entry.split, label %if.then
-
-entry.split:                                      ; preds = %entry
-  %cert_store.i = getelementptr inbounds i8, ptr %ctx, i64 40
-  %0 = load ptr, ptr %cert_store.i, align 8
-  tail call void @X509_STORE_free(ptr noundef %0) #24
-  store ptr null, ptr %cert_store.i, align 8
-  br label %if.end
+  br i1 %cmp.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
   %call = tail call i32 @X509_STORE_up_ref(ptr noundef nonnull %store) #24
-  %cert_store.i3 = getelementptr inbounds i8, ptr %ctx, i64 40
-  %1 = load ptr, ptr %cert_store.i3, align 8
-  tail call void @X509_STORE_free(ptr noundef %1) #24
-  store ptr %store, ptr %cert_store.i3, align 8
   br label %if.end
 
-if.end:                                           ; preds = %entry.split, %if.then
+if.end:                                           ; preds = %entry, %if.then
+  %.sink = phi ptr [ %store, %if.then ], [ null, %entry ]
+  %cert_store.i = getelementptr inbounds i8, ptr %ctx, i64 40
+  %0 = load ptr, ptr %cert_store.i, align 8
+  tail call void @X509_STORE_free(ptr noundef %0) #24
+  store ptr %.sink, ptr %cert_store.i, align 8
   ret void
 }
 

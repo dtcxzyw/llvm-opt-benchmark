@@ -199,8 +199,8 @@ common.resume:                                    ; preds = %139, %46
   store i64 %53, ptr %55, align 8
   %70 = load ptr, ptr %0, align 8
   %71 = and i64 %53, 2305843009213693950
-  %.not62 = icmp eq i64 %53, 1
-  br i1 %.not62, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i
+  %.not61 = icmp eq i64 %53, 1
+  br i1 %.not61, label %._crit_edge.i.i.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i.i
 
 .lr.ph.i.preheader.i.i.i.i.i.i:                   ; preds = %69
   %.sroa.3.24.vec.insert.i.i.i.i.i.i = insertelement <2 x double> poison, double %54, i64 0

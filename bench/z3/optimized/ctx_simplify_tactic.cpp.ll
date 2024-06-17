@@ -10452,10 +10452,10 @@ if.else:                                          ; preds = %_ZN6vectorIN19ctx_s
   br i1 %tobool.not.i21, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %if.else, %_ZN11ast_manager7inc_refEP3ast.exit
-  %m_ref_count.i.i12 = getelementptr inbounds i8, ptr %to, i64 8
-  %15 = load i32, ptr %m_ref_count.i.i12, align 4
+  %m_ref_count.i.i23 = getelementptr inbounds i8, ptr %to, i64 8
+  %15 = load i32, ptr %m_ref_count.i.i23, align 4
   %inc.i.i24 = add i32 %15, 1
-  store i32 %inc.i.i24, ptr %m_ref_count.i.i12, align 4
+  store i32 %inc.i.i24, ptr %m_ref_count.i.i23, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %if.else, %_ZN11ast_manager7inc_refEP3ast.exit

@@ -1455,11 +1455,11 @@ Vec_IntGrow.exit.i35.i.i.i.i.i:                   ; preds = %592, %590
   br label %thread-pre-split.i.i.i.i.i
 
 thread-pre-split.i.i.i.i.i:                       ; preds = %604, %Vec_IntGrow.exit.i35.i.i.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i30.i.i.i.i.i, %580, %Vec_IntGrow.exit.i.i.i.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i.i.i.i.i
-  %.sink.i.i.i.i.i = phi ptr [ %537, %.Vec_IntGrow.exit10_crit_edge.i.i.i.i.i.i ], [ %537, %Vec_IntGrow.exit.i.i.i.i.i.i ], [ %537, %580 ], [ %536, %.Vec_IntGrow.exit10_crit_edge.i30.i.i.i.i.i ], [ %536, %Vec_IntGrow.exit.i35.i.i.i.i.i ], [ %536, %604 ]
+  %.sink80.i.i.i.i.i = phi ptr [ %537, %.Vec_IntGrow.exit10_crit_edge.i.i.i.i.i.i ], [ %537, %Vec_IntGrow.exit.i.i.i.i.i.i ], [ %537, %580 ], [ %536, %.Vec_IntGrow.exit10_crit_edge.i30.i.i.i.i.i ], [ %536, %Vec_IntGrow.exit.i35.i.i.i.i.i ], [ %536, %604 ]
   %.sink75.i.i.i.i.i = phi ptr [ %.pre.i.i.i.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i.i.i.i.i.i ], [ %570, %Vec_IntGrow.exit.i.i.i.i.i.i ], [ %581, %580 ], [ %.pre.i32.i.i.i.i.i, %.Vec_IntGrow.exit10_crit_edge.i30.i.i.i.i.i ], [ %594, %Vec_IntGrow.exit.i35.i.i.i.i.i ], [ %605, %604 ]
-  %606 = load i32, ptr %.sink.i.i.i.i.i, align 4
+  %606 = load i32, ptr %.sink80.i.i.i.i.i, align 4
   %607 = add nsw i32 %606, 1
-  store i32 %607, ptr %.sink.i.i.i.i.i, align 4
+  store i32 %607, ptr %.sink80.i.i.i.i.i, align 4
   %608 = sext i32 %606 to i64
   %609 = getelementptr inbounds i32, ptr %.sink75.i.i.i.i.i, i64 %608
   store i32 %.val.i.i.i.i.i, ptr %609, align 4

@@ -74392,7 +74392,7 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   br i1 %.not, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %listOfCard32.exit.i
-  %.0153.i = phi i32 [ %161, %listOfCard32.exit.i ], [ 0, %5 ]
+  %.0153.i = phi i32 [ %145, %listOfCard32.exit.i ], [ 0, %5 ]
   %37 = load i32, ptr @hf_x11_struct_xinput_FeedbackState, align 4
   %38 = load i32, ptr %2, align 4
   %39 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %37, ptr noundef %0, i32 noundef %38, i32 noundef 4, i32 noundef 0) #10
@@ -74414,11 +74414,11 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   %trunc.i = trunc nuw i32 %43 to i8
   switch i8 %trunc.i, label %listOfCard32.exit.i [
     i8 0, label %53
-    i8 1, label %88
-    i8 2, label %103
-    i8 3, label %126
-    i8 4, label %137
-    i8 5, label %144
+    i8 1, label %84
+    i8 2, label %95
+    i8 3, label %118
+    i8 4, label %125
+    i8 5, label %128
   ]
 
 53:                                               ; preds = %.lr.ph.i
@@ -74459,126 +74459,108 @@ define internal void @xinputGetFeedbackControl_Reply(ptr noundef %0, ptr nocaptu
   store i32 %81, ptr %2, align 4
   %82 = load i32, ptr @hf_x11_unused, align 4
   %83 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %82, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0) #10
-  %84 = load i32, ptr %2, align 4
-  %85 = add i32 %84, 1
-  store i32 %85, ptr %2, align 4
-  %86 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Keyboard_auto_repeats, align 4
-  %87 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef 32, i32 noundef %4) #10
   br label %listOfCard32.exit.sink.split.i
 
-88:                                               ; preds = %.lr.ph.i
-  %89 = load i32, ptr @hf_x11_unused, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %89, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0) #10
+84:                                               ; preds = %.lr.ph.i
+  %85 = load i32, ptr @hf_x11_unused, align 4
+  %86 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %85, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef 0) #10
+  %87 = load i32, ptr %2, align 4
+  %88 = add i32 %87, 2
+  store i32 %88, ptr %2, align 4
+  %89 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Pointer_accel_num, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 2, i32 noundef %4) #10
   %91 = load i32, ptr %2, align 4
   %92 = add i32 %91, 2
   store i32 %92, ptr %2, align 4
-  %93 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Pointer_accel_num, align 4
+  %93 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Pointer_accel_denom, align 4
   %94 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef %4) #10
-  %95 = load i32, ptr %2, align 4
-  %96 = add i32 %95, 2
-  store i32 %96, ptr %2, align 4
-  %97 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Pointer_accel_denom, align 4
-  %98 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %97, ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef %4) #10
-  %99 = load i32, ptr %2, align 4
-  %100 = add i32 %99, 2
-  store i32 %100, ptr %2, align 4
-  %101 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Pointer_threshold, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 2, i32 noundef %4) #10
   br label %listOfCard32.exit.sink.split.i
 
-103:                                              ; preds = %.lr.ph.i
-  %104 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_max_symbols, align 4
-  %105 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %104, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef %4) #10
-  %106 = load i32, ptr %2, align 4
-  %107 = add i32 %106, 2
-  store i32 %107, ptr %2, align 4
-  %108 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %107, i32 noundef %4) #10
-  %109 = zext i16 %108 to i32
-  %110 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_num_keysyms, align 4
-  %111 = load i32, ptr %2, align 4
-  %112 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %110, ptr noundef %0, i32 noundef %111, i32 noundef 2, i32 noundef %4) #10
-  %113 = load i32, ptr %2, align 4
-  %114 = add i32 %113, 2
-  store i32 %114, ptr %2, align 4
-  %115 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_keysyms, align 4
-  %116 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_keysyms_item, align 4
-  %117 = shl nuw nsw i32 %109, 2
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef %117, i32 noundef %4) #10
-  %119 = load i32, ptr @ett_x11_list_of_card32, align 4
-  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #10
-  %.not13.i.i = icmp eq i16 %108, 0
+95:                                               ; preds = %.lr.ph.i
+  %96 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_max_symbols, align 4
+  %97 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %96, ptr noundef %0, i32 noundef %52, i32 noundef 2, i32 noundef %4) #10
+  %98 = load i32, ptr %2, align 4
+  %99 = add i32 %98, 2
+  store i32 %99, ptr %2, align 4
+  %100 = tail call zeroext i16 @tvb_get_guint16(ptr noundef %0, i32 noundef %99, i32 noundef %4) #10
+  %101 = zext i16 %100 to i32
+  %102 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_num_keysyms, align 4
+  %103 = load i32, ptr %2, align 4
+  %104 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %102, ptr noundef %0, i32 noundef %103, i32 noundef 2, i32 noundef %4) #10
+  %105 = load i32, ptr %2, align 4
+  %106 = add i32 %105, 2
+  store i32 %106, ptr %2, align 4
+  %107 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_keysyms, align 4
+  %108 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_String_keysyms_item, align 4
+  %109 = shl nuw nsw i32 %101, 2
+  %110 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %107, ptr noundef %0, i32 noundef %106, i32 noundef %109, i32 noundef %4) #10
+  %111 = load i32, ptr @ett_x11_list_of_card32, align 4
+  %112 = tail call ptr @proto_item_add_subtree(ptr noundef %110, i32 noundef %111) #10
+  %.not13.i.i = icmp eq i16 %100, 0
   br i1 %.not13.i.i, label %listOfCard32.exit.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %103
+.lr.ph.preheader.i.i:                             ; preds = %95
   %.pre.i.i = load i32, ptr %2, align 4
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %121 = phi i32 [ %125, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
-  %.014.i.i = phi i32 [ %122, %.lr.ph.i.i ], [ %109, %.lr.ph.preheader.i.i ]
-  %122 = add nsw i32 %.014.i.i, -1
-  %123 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %116, ptr noundef %0, i32 noundef %121, i32 noundef 4, i32 noundef %4) #10
-  %124 = load i32, ptr %2, align 4
-  %125 = add i32 %124, 4
-  store i32 %125, ptr %2, align 4
-  %.not.i.i = icmp eq i32 %122, 0
+  %113 = phi i32 [ %117, %.lr.ph.i.i ], [ %.pre.i.i, %.lr.ph.preheader.i.i ]
+  %.014.i.i = phi i32 [ %114, %.lr.ph.i.i ], [ %101, %.lr.ph.preheader.i.i ]
+  %114 = add nsw i32 %.014.i.i, -1
+  %115 = tail call ptr @proto_tree_add_item(ptr noundef %112, i32 noundef %108, ptr noundef %0, i32 noundef %113, i32 noundef 4, i32 noundef %4) #10
+  %116 = load i32, ptr %2, align 4
+  %117 = add i32 %116, 4
+  store i32 %117, ptr %2, align 4
+  %.not.i.i = icmp eq i32 %114, 0
   br i1 %.not.i.i, label %listOfCard32.exit.i, label %.lr.ph.i.i, !llvm.loop !41
 
-126:                                              ; preds = %.lr.ph.i
-  %127 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_resolution, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %127, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %4) #10
-  %129 = load i32, ptr %2, align 4
-  %130 = add i32 %129, 4
-  store i32 %130, ptr %2, align 4
-  %131 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_min_value, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef %4) #10
-  %133 = load i32, ptr %2, align 4
-  %134 = add i32 %133, 4
-  store i32 %134, ptr %2, align 4
-  %135 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_max_value, align 4
-  %136 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %135, ptr noundef %0, i32 noundef %134, i32 noundef 4, i32 noundef %4) #10
+118:                                              ; preds = %.lr.ph.i
+  %119 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_resolution, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %119, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %4) #10
+  %121 = load i32, ptr %2, align 4
+  %122 = add i32 %121, 4
+  store i32 %122, ptr %2, align 4
+  %123 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Integer_min_value, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %123, ptr noundef %0, i32 noundef %122, i32 noundef 4, i32 noundef %4) #10
   br label %listOfCard32.exit.sink.split.i
 
-137:                                              ; preds = %.lr.ph.i
-  %138 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Led_led_mask, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %138, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %4) #10
-  %140 = load i32, ptr %2, align 4
-  %141 = add i32 %140, 4
-  store i32 %141, ptr %2, align 4
-  %142 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Led_led_values, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %142, ptr noundef %0, i32 noundef %141, i32 noundef 4, i32 noundef %4) #10
+125:                                              ; preds = %.lr.ph.i
+  %126 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Led_led_mask, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %126, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef %4) #10
   br label %listOfCard32.exit.sink.split.i
 
-144:                                              ; preds = %.lr.ph.i
-  %145 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Bell_percent, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %145, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %4) #10
-  %147 = load i32, ptr %2, align 4
-  %148 = add i32 %147, 1
-  store i32 %148, ptr %2, align 4
-  %149 = load i32, ptr @hf_x11_unused, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %149, ptr noundef %0, i32 noundef %148, i32 noundef 3, i32 noundef 0) #10
-  %151 = load i32, ptr %2, align 4
-  %152 = add i32 %151, 3
-  store i32 %152, ptr %2, align 4
-  %153 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Bell_pitch, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %153, ptr noundef %0, i32 noundef %152, i32 noundef 2, i32 noundef %4) #10
-  %155 = load i32, ptr %2, align 4
-  %156 = add i32 %155, 2
-  store i32 %156, ptr %2, align 4
-  %157 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Bell_duration, align 4
-  %158 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %157, ptr noundef %0, i32 noundef %156, i32 noundef 2, i32 noundef %4) #10
+128:                                              ; preds = %.lr.ph.i
+  %129 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Bell_percent, align 4
+  %130 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %129, ptr noundef %0, i32 noundef %52, i32 noundef 1, i32 noundef %4) #10
+  %131 = load i32, ptr %2, align 4
+  %132 = add i32 %131, 1
+  store i32 %132, ptr %2, align 4
+  %133 = load i32, ptr @hf_x11_unused, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %133, ptr noundef %0, i32 noundef %132, i32 noundef 3, i32 noundef 0) #10
+  %135 = load i32, ptr %2, align 4
+  %136 = add i32 %135, 3
+  store i32 %136, ptr %2, align 4
+  %137 = load i32, ptr @hf_x11_struct_xinput_FeedbackState_Bell_pitch, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 2, i32 noundef %4) #10
   br label %listOfCard32.exit.sink.split.i
 
-listOfCard32.exit.sink.split.i:                   ; preds = %144, %137, %126, %88, %53
-  %.sink155.i = phi i32 [ 4, %137 ], [ 4, %126 ], [ 2, %88 ], [ 32, %53 ], [ 2, %144 ]
-  %159 = load i32, ptr %2, align 4
-  %160 = add i32 %159, %.sink155.i
-  store i32 %160, ptr %2, align 4
+listOfCard32.exit.sink.split.i:                   ; preds = %128, %125, %118, %84, %53
+  %.sink159.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 1, %53 ], [ 2, %128 ]
+  %hf_x11_struct_xinput_FeedbackState_Led_led_values.sink.i = phi ptr [ @hf_x11_struct_xinput_FeedbackState_Led_led_values, %125 ], [ @hf_x11_struct_xinput_FeedbackState_Integer_max_value, %118 ], [ @hf_x11_struct_xinput_FeedbackState_Pointer_threshold, %84 ], [ @hf_x11_struct_xinput_FeedbackState_Keyboard_auto_repeats, %53 ], [ @hf_x11_struct_xinput_FeedbackState_Bell_duration, %128 ]
+  %.sink157.i = phi i32 [ 4, %125 ], [ 4, %118 ], [ 2, %84 ], [ 32, %53 ], [ 2, %128 ]
+  %139 = load i32, ptr %2, align 4
+  %140 = add i32 %139, %.sink159.i
+  store i32 %140, ptr %2, align 4
+  %141 = load i32, ptr %hf_x11_struct_xinput_FeedbackState_Led_led_values.sink.i, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef %.sink157.i, i32 noundef %4) #10
+  %143 = load i32, ptr %2, align 4
+  %144 = add i32 %143, %.sink157.i
+  store i32 %144, ptr %2, align 4
   br label %listOfCard32.exit.i
 
-listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %listOfCard32.exit.sink.split.i, %103, %.lr.ph.i
-  %161 = add nuw nsw i32 %.0153.i, 1
-  %exitcond.not.i = icmp eq i32 %161, %27
+listOfCard32.exit.i:                              ; preds = %.lr.ph.i.i, %listOfCard32.exit.sink.split.i, %95, %.lr.ph.i
+  %145 = add nuw nsw i32 %.0153.i, 1
+  %exitcond.not.i = icmp eq i32 %145, %27
   br i1 %exitcond.not.i, label %struct_xinput_FeedbackState.exit, label %.lr.ph.i, !llvm.loop !113
 
 struct_xinput_FeedbackState.exit:                 ; preds = %listOfCard32.exit.i, %5
@@ -74945,9 +74927,9 @@ define internal void @xinputQueryDeviceState_Reply(ptr noundef %0, ptr nocapture
   br i1 %.not.i.i, label %listOfInt32.exit.i, label %.lr.ph.i.i, !llvm.loop !60
 
 listOfInt32.exit.sink.split.i:                    ; preds = %49, %.lr.ph.i
-  %hf_x11_struct_xinput_InputState_Key_num_keys.sink.i = phi ptr [ @hf_x11_struct_xinput_InputState_Button_num_buttons, %49 ], [ @hf_x11_struct_xinput_InputState_Key_num_keys, %.lr.ph.i ]
+  %hf_x11_struct_xinput_InputState_Button_num_buttons.sink.i = phi ptr [ @hf_x11_struct_xinput_InputState_Button_num_buttons, %49 ], [ @hf_x11_struct_xinput_InputState_Key_num_keys, %.lr.ph.i ]
   %hf_x11_struct_xinput_InputState_Button_buttons.sink.i = phi ptr [ @hf_x11_struct_xinput_InputState_Button_buttons, %49 ], [ @hf_x11_struct_xinput_InputState_Key_keys, %.lr.ph.i ]
-  %74 = load i32, ptr %hf_x11_struct_xinput_InputState_Key_num_keys.sink.i, align 4
+  %74 = load i32, ptr %hf_x11_struct_xinput_InputState_Button_num_buttons.sink.i, align 4
   %75 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %74, ptr noundef %0, i32 noundef %48, i32 noundef 1, i32 noundef %4) #10
   %76 = load i32, ptr %2, align 4
   %77 = add i32 %76, 1

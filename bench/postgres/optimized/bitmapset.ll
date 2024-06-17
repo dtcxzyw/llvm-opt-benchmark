@@ -201,7 +201,7 @@ declare void @pfree(ptr noundef) local_unnamed_addr #1
 define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
-  br i1 %3, label %5, label %13
+  br i1 %3, label %5, label %9
 
 5:                                                ; preds = %2
   br i1 %4, label %bms_copy.exit, label %6
@@ -209,73 +209,57 @@ define dso_local ptr @bms_union(ptr noundef readonly %0, ptr noundef readonly %1
 6:                                                ; preds = %5
   %7 = getelementptr inbounds i8, ptr %1, i64 4
   %8 = load i32, ptr %7, align 4
-  %9 = sext i32 %8 to i64
-  %10 = shl nsw i64 %9, 3
-  %11 = add nsw i64 %10, 8
-  %12 = tail call ptr @palloc(i64 noundef %11) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr nonnull align 8 %1, i64 %11, i1 false)
-  br label %bms_copy.exit
+  br label %bms_copy.exit.sink.split
 
-13:                                               ; preds = %2
-  %14 = getelementptr inbounds i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4
-  br i1 %4, label %bms_copy.exit24, label %20
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds i8, ptr %0, i64 4
+  %11 = load i32, ptr %10, align 4
+  br i1 %4, label %bms_copy.exit.sink.split, label %12
 
-bms_copy.exit24:                                  ; preds = %13
-  %16 = sext i32 %15 to i64
-  %17 = shl nsw i64 %16, 3
-  %18 = add nsw i64 %17, 8
-  %19 = tail call ptr @palloc(i64 noundef %18) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %19, ptr nonnull align 8 %0, i64 %18, i1 false)
-  br label %bms_copy.exit
-
-20:                                               ; preds = %13
-  %21 = getelementptr inbounds i8, ptr %1, i64 4
-  %22 = load i32, ptr %21, align 4
-  %.not = icmp sgt i32 %15, %22
-  br i1 %.not, label %bms_copy.exit28, label %bms_copy.exit26
-
-bms_copy.exit26:                                  ; preds = %20
-  %23 = sext i32 %22 to i64
-  %24 = shl nsw i64 %23, 3
-  %25 = add nsw i64 %24, 8
-  %26 = tail call ptr @palloc(i64 noundef %25) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr nonnull align 8 %1, i64 %25, i1 false)
-  br label %31
-
-bms_copy.exit28:                                  ; preds = %20
-  %27 = sext i32 %15 to i64
-  %28 = shl nsw i64 %27, 3
-  %29 = add nsw i64 %28, 8
-  %30 = tail call ptr @palloc(i64 noundef %29) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr nonnull align 8 %0, i64 %29, i1 false)
-  br label %31
-
-31:                                               ; preds = %bms_copy.exit28, %bms_copy.exit26
-  %.020 = phi ptr [ %26, %bms_copy.exit26 ], [ %30, %bms_copy.exit28 ]
-  %.019 = phi ptr [ %0, %bms_copy.exit26 ], [ %1, %bms_copy.exit28 ]
-  %32 = getelementptr inbounds i8, ptr %.019, i64 4
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %.019, i64 8
-  %35 = getelementptr inbounds i8, ptr %.020, i64 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %33, i32 1)
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds i8, ptr %1, i64 4
+  %14 = load i32, ptr %13, align 4
+  %.not = icmp sgt i32 %11, %14
+  %. = tail call i32 @llvm.smax.i32(i32 %11, i32 %14)
+  %.41 = select i1 %.not, ptr %0, ptr %1
+  %.42 = select i1 %.not, ptr %1, ptr %0
+  %15 = sext i32 %. to i64
+  %16 = shl nsw i64 %15, 3
+  %17 = add nsw i64 %16, 8
+  %18 = tail call ptr @palloc(i64 noundef %17) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr nonnull align 8 %.41, i64 %17, i1 false)
+  %19 = getelementptr inbounds i8, ptr %.42, i64 4
+  %20 = load i32, ptr %19, align 4
+  %21 = getelementptr inbounds i8, ptr %.42, i64 8
+  %22 = getelementptr inbounds i8, ptr %18, i64 8
+  %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %36
+  br label %23
 
-36:                                               ; preds = %36, %31
-  %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %31 ]
-  %37 = getelementptr [0 x i64], ptr %34, i64 0, i64 %indvars.iv
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr [0 x i64], ptr %35, i64 0, i64 %indvars.iv
-  %40 = load i64, ptr %39, align 8
-  %41 = or i64 %40, %38
-  store i64 %41, ptr %39, align 8
+23:                                               ; preds = %23, %12
+  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %12 ]
+  %24 = getelementptr [0 x i64], ptr %21, i64 0, i64 %indvars.iv
+  %25 = load i64, ptr %24, align 8
+  %26 = getelementptr [0 x i64], ptr %22, i64 0, i64 %indvars.iv
+  %27 = load i64, ptr %26, align 8
+  %28 = or i64 %27, %25
+  store i64 %28, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %bms_copy.exit, label %36, !llvm.loop !8
+  br i1 %exitcond.not, label %bms_copy.exit, label %23, !llvm.loop !8
 
-bms_copy.exit:                                    ; preds = %36, %6, %5, %bms_copy.exit24
-  %.018 = phi ptr [ %19, %bms_copy.exit24 ], [ %12, %6 ], [ null, %5 ], [ %.020, %36 ]
+bms_copy.exit.sink.split:                         ; preds = %9, %6
+  %.sink40 = phi i32 [ %8, %6 ], [ %11, %9 ]
+  %.sink35 = phi ptr [ %1, %6 ], [ %0, %9 ]
+  %29 = sext i32 %.sink40 to i64
+  %30 = shl nsw i64 %29, 3
+  %31 = add nsw i64 %30, 8
+  %32 = tail call ptr @palloc(i64 noundef %31) #11
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr nonnull align 8 %.sink35, i64 %31, i1 false)
+  br label %bms_copy.exit
+
+bms_copy.exit:                                    ; preds = %23, %bms_copy.exit.sink.split, %5
+  %.018 = phi ptr [ null, %5 ], [ %32, %bms_copy.exit.sink.split ], [ %18, %23 ]
   ret ptr %.018
 }
 
@@ -284,7 +268,7 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %35, label %5
+  br i1 %or.cond, label %30, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -292,66 +276,53 @@ define dso_local ptr @bms_intersect(ptr noundef readonly %0, ptr noundef readonl
   %8 = getelementptr inbounds i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
   %.not = icmp sgt i32 %7, %9
-  br i1 %.not, label %bms_copy.exit33, label %bms_copy.exit
-
-bms_copy.exit:                                    ; preds = %5
-  %10 = sext i32 %7 to i64
+  %. = tail call i32 @llvm.smin.i32(i32 %7, i32 %9)
+  %.39 = select i1 %.not, ptr %1, ptr %0
+  %.40 = select i1 %.not, ptr %0, ptr %1
+  %10 = sext i32 %. to i64
   %11 = shl nsw i64 %10, 3
   %12 = add nsw i64 %11, 8
   %13 = tail call ptr @palloc(i64 noundef %12) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %0, i64 %12, i1 false)
-  br label %18
-
-bms_copy.exit33:                                  ; preds = %5
-  %14 = sext i32 %9 to i64
-  %15 = shl nsw i64 %14, 3
-  %16 = add nsw i64 %15, 8
-  %17 = tail call ptr @palloc(i64 noundef %16) #11
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr nonnull align 8 %1, i64 %16, i1 false)
-  br label %18
-
-18:                                               ; preds = %bms_copy.exit33, %bms_copy.exit
-  %.027 = phi ptr [ %13, %bms_copy.exit ], [ %17, %bms_copy.exit33 ]
-  %.026 = phi ptr [ %1, %bms_copy.exit ], [ %0, %bms_copy.exit33 ]
-  %19 = getelementptr inbounds i8, ptr %.027, i64 4
-  %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds i8, ptr %.026, i64 8
-  %22 = getelementptr inbounds i8, ptr %.027, i64 8
-  %smax = tail call i32 @llvm.smax.i32(i32 %20, i32 1)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr nonnull align 8 %.39, i64 %12, i1 false)
+  %14 = getelementptr inbounds i8, ptr %13, i64 4
+  %15 = load i32, ptr %14, align 4
+  %16 = getelementptr inbounds i8, ptr %.40, i64 8
+  %17 = getelementptr inbounds i8, ptr %13, i64 8
+  %smax = tail call i32 @llvm.smax.i32(i32 %15, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
-  br label %23
+  br label %18
 
-23:                                               ; preds = %23, %18
-  %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %18 ]
-  %.025 = phi i32 [ %spec.select, %23 ], [ -1, %18 ]
-  %24 = getelementptr [0 x i64], ptr %21, i64 0, i64 %indvars.iv
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr [0 x i64], ptr %22, i64 0, i64 %indvars.iv
-  %27 = load i64, ptr %26, align 8
-  %28 = and i64 %27, %25
-  store i64 %28, ptr %26, align 8
-  %.not31 = icmp eq i64 %28, 0
-  %29 = trunc nuw nsw i64 %indvars.iv to i32
-  %spec.select = select i1 %.not31, i32 %.025, i32 %29
+18:                                               ; preds = %18, %5
+  %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %5 ]
+  %.025 = phi i32 [ %spec.select, %18 ], [ -1, %5 ]
+  %19 = getelementptr [0 x i64], ptr %16, i64 0, i64 %indvars.iv
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr [0 x i64], ptr %17, i64 0, i64 %indvars.iv
+  %22 = load i64, ptr %21, align 8
+  %23 = and i64 %22, %20
+  store i64 %23, ptr %21, align 8
+  %.not31 = icmp eq i64 %23, 0
+  %24 = trunc nuw nsw i64 %indvars.iv to i32
+  %spec.select = select i1 %.not31, i32 %.025, i32 %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %30, label %23, !llvm.loop !9
+  br i1 %exitcond.not, label %25, label %18, !llvm.loop !9
 
-30:                                               ; preds = %23
-  %31 = icmp eq i32 %spec.select, -1
-  br i1 %31, label %32, label %33
+25:                                               ; preds = %18
+  %26 = icmp eq i32 %spec.select, -1
+  br i1 %26, label %27, label %28
 
-32:                                               ; preds = %30
-  tail call void @pfree(ptr noundef nonnull %.027) #11
-  br label %35
+27:                                               ; preds = %25
+  tail call void @pfree(ptr noundef nonnull %13) #11
+  br label %30
 
-33:                                               ; preds = %30
-  %34 = add nuw i32 %spec.select, 1
-  store i32 %34, ptr %19, align 4
-  br label %35
+28:                                               ; preds = %25
+  %29 = add nuw i32 %spec.select, 1
+  store i32 %29, ptr %14, align 4
+  br label %30
 
-35:                                               ; preds = %2, %33, %32
-  %.024 = phi ptr [ null, %32 ], [ %.027, %33 ], [ null, %2 ]
+30:                                               ; preds = %2, %28, %27
+  %.024 = phi ptr [ null, %27 ], [ %13, %28 ], [ null, %2 ]
   ret ptr %.024
 }
 

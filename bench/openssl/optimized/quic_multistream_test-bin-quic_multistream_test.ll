@@ -5719,10 +5719,10 @@ lor.lhs.false26:                                  ; preds = %if.end20
 
 return.sink.split:                                ; preds = %lor.lhs.false26, %if.end20, %if.end7, %PACKET_buf_init.exit
   %.sink = phi i64 [ 264, %PACKET_buf_init.exit ], [ 264, %if.end7 ], [ 264, %if.end20 ], [ %spec.select, %lor.lhs.false26 ]
-  %scratch1 = getelementptr inbounds i8, ptr %arg, i64 %.sink
-  %2 = load i64, ptr %scratch1, align 8
+  %scratch0 = getelementptr inbounds i8, ptr %arg, i64 %.sink
+  %2 = load i64, ptr %scratch0, align 8
   %inc33 = add i64 %2, 1
-  store i64 %inc33, ptr %scratch1, align 8
+  store i64 %inc33, ptr %scratch0, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end16, %entry

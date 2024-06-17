@@ -15692,8 +15692,8 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11Ex(ptr dead_on_unwind noali
   br i1 %.not.i9, label %_ZN4JsonL12uintToStringEyRPc.exit10, label %27, !llvm.loop !170
 
 _ZN4JsonL12uintToStringEyRPc.exit10.sink.split:   ; preds = %19, %8
-  %.0.lcssa.sink = phi ptr [ %.0, %8 ], [ %.1, %19 ]
-  %33 = getelementptr inbounds i8, ptr %.0.lcssa.sink, i64 -2
+  %.1.lcssa.sink = phi ptr [ %.0, %8 ], [ %.1, %19 ]
+  %33 = getelementptr inbounds i8, ptr %.1.lcssa.sink, i64 -2
   store i8 45, ptr %33, align 1
   br label %_ZN4JsonL12uintToStringEyRPc.exit10
 

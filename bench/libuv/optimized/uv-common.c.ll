@@ -358,11 +358,11 @@ uv__realloc.exit:                                 ; preds = %entry
   br i1 %cmp, label %if.end3.sink.split, label %if.end3
 
 if.end3.sink.split:                               ; preds = %uv__realloc.exit, %entry
-  %call.i4 = tail call ptr @__errno_location() #25
-  %1 = load i32, ptr %call.i4, align 4
+  %call.i.i = tail call ptr @__errno_location() #25
+  %1 = load i32, ptr %call.i.i, align 4
   %2 = load ptr, ptr @uv__allocator.3, align 8
   tail call void %2(ptr noundef %ptr) #24
-  store i32 %1, ptr %call.i4, align 4
+  store i32 %1, ptr %call.i.i, align 4
   br label %if.end3
 
 if.end3:                                          ; preds = %if.end3.sink.split, %uv__realloc.exit

@@ -1787,33 +1787,33 @@ if.end15:                                         ; preds = %if.then5
   %call19 = tail call noundef double @_ZN6hermes2vm7makeDayEddd(double noundef %5, double noundef 0.000000e+00, double noundef 1.000000e+00) #14
   %call20 = tail call noundef double @_ZN6hermes2vm8makeTimeEdddd(double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00) #14
   %call21 = tail call noundef double @_ZN6hermes2vm8makeDateEdd(double noundef %call19, double noundef %call20) #14
-  %call22 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %call21) #14
-  %6 = fcmp uno double %call22, 0.000000e+00
-  %7 = bitcast double %call22 to i64
-  %retval.sroa.0.0.i5 = select i1 %6, i64 9221120237041090560, i64 %7
-  br label %return
+  br label %return.sink.split
 
 if.end26:                                         ; preds = %entry
-  %8 = load ptr, ptr %args, align 8
-  store ptr %8, ptr %agg.tmp27, align 8
+  %6 = load ptr, ptr %args, align 8
+  store ptr %6, ptr %agg.tmp27, align 8
   %argCount_.i7 = getelementptr inbounds i8, ptr %agg.tmp27, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i7, ptr noundef nonnull align 8 dereferenceable(16) %argCount_.i, i64 16, i1 false)
   %call28 = call fastcc { i32, double } @_ZN6hermes2vmL20makeTimeFromArgs_RJSERNS0_7RuntimeENS0_10NativeArgsE(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef nonnull %agg.tmp27)
-  %9 = extractvalue { i32, double } %call28, 0
-  %cmp.i9 = icmp eq i32 %9, 0
+  %7 = extractvalue { i32, double } %call28, 0
+  %cmp.i9 = icmp eq i32 %7, 0
   br i1 %cmp.i9, label %return, label %if.end32
 
 if.end32:                                         ; preds = %if.end26
-  %10 = extractvalue { i32, double } %call28, 1
-  %call35 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %10) #14
-  %11 = fcmp uno double %call35, 0.000000e+00
-  %12 = bitcast double %call35 to i64
-  %retval.sroa.0.0.i11 = select i1 %11, i64 9221120237041090560, i64 %12
+  %8 = extractvalue { i32, double } %call28, 1
+  br label %return.sink.split
+
+return.sink.split:                                ; preds = %if.end15, %if.end32
+  %.sink = phi double [ %8, %if.end32 ], [ %call21, %if.end15 ]
+  %call35 = tail call noundef double @_ZN6hermes2vm8timeClipEd(double noundef %.sink) #14
+  %9 = fcmp uno double %call35, 0.000000e+00
+  %10 = bitcast double %call35 to i64
+  %retval.sroa.0.0.i11 = select i1 %9, i64 9221120237041090560, i64 %10
   br label %return
 
-return:                                           ; preds = %entry, %if.end26, %if.then5, %if.end32, %if.end15
-  %retval.sroa.0.0 = phi i32 [ 1, %if.end15 ], [ 1, %if.end32 ], [ 1, %entry ], [ 0, %if.then5 ], [ 0, %if.end26 ]
-  %retval.sroa.6.0 = phi i64 [ %retval.sroa.0.0.i5, %if.end15 ], [ %retval.sroa.0.0.i11, %if.end32 ], [ 9221120237041090560, %entry ], [ undef, %if.then5 ], [ undef, %if.end26 ]
+return:                                           ; preds = %return.sink.split, %entry, %if.end26, %if.then5
+  %retval.sroa.0.0 = phi i32 [ 1, %entry ], [ 0, %if.then5 ], [ 0, %if.end26 ], [ 1, %return.sink.split ]
+  %retval.sroa.6.0 = phi i64 [ 9221120237041090560, %entry ], [ undef, %if.then5 ], [ undef, %if.end26 ], [ %retval.sroa.0.0.i11, %return.sink.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.6.0, 1
   ret { i32, i64 } %.fca.1.insert

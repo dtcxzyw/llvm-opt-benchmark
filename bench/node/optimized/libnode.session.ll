@@ -7469,13 +7469,13 @@ sw.bb47:                                          ; preds = %if.else41
   br label %sw.epilog52.sink.split
 
 sw.epilog52.sink.split:                           ; preds = %if.else41, %if.then31, %if.else, %if.then, %sw.bb25, %sw.bb17, %sw.bb47, %sw.bb37
-  %.sink34 = phi i64 [ 88, %sw.bb25 ], [ 80, %sw.bb17 ], [ 80, %sw.bb47 ], [ 88, %sw.bb37 ], [ 64, %if.then ], [ 72, %if.else ], [ 72, %if.then31 ], [ 64, %if.else41 ]
-  %ptr_.i13 = getelementptr inbounds i8, ptr %this, i64 88
-  %13 = load ptr, ptr %ptr_.i13, align 8
-  %memptr.offset.i14 = getelementptr inbounds i8, ptr %13, i64 %.sink34
-  %14 = load i64, ptr %memptr.offset.i14, align 8
+  %.sink34 = phi i64 [ 88, %sw.bb37 ], [ 80, %sw.bb47 ], [ 80, %sw.bb17 ], [ 88, %sw.bb25 ], [ 64, %if.then ], [ 72, %if.else ], [ 72, %if.then31 ], [ 64, %if.else41 ]
+  %ptr_.i24 = getelementptr inbounds i8, ptr %this, i64 88
+  %13 = load ptr, ptr %ptr_.i24, align 8
+  %memptr.offset.i25 = getelementptr inbounds i8, ptr %13, i64 %.sink34
+  %14 = load i64, ptr %memptr.offset.i25, align 8
   %add.i26 = add i64 %14, 1
-  store i64 %add.i26, ptr %memptr.offset.i14, align 8
+  store i64 %add.i26, ptr %memptr.offset.i25, align 8
   br label %sw.epilog52
 
 sw.epilog52:                                      ; preds = %sw.epilog52.sink.split, %if.then31, %if.else41, %if.then, %if.else, %_ZN4node17BaseObjectPtrImplINS_4quic6StreamELb0EEaSERKS3_.exit
@@ -9740,12 +9740,12 @@ sw.bb2:                                           ; preds = %entry
 
 sw.epilog.sink.split:                             ; preds = %entry, %sw.bb2
   %.sink6 = phi i64 [ 280, %sw.bb2 ], [ 272, %entry ]
-  %ptr_.i = getelementptr inbounds i8, ptr %this, i64 88
-  %0 = load ptr, ptr %ptr_.i, align 8
-  %memptr.offset.i = getelementptr inbounds i8, ptr %0, i64 %.sink6
-  %1 = load i64, ptr %memptr.offset.i, align 8
+  %ptr_.i2 = getelementptr inbounds i8, ptr %this, i64 88
+  %0 = load ptr, ptr %ptr_.i2, align 8
+  %memptr.offset.i3 = getelementptr inbounds i8, ptr %0, i64 %.sink6
+  %1 = load i64, ptr %memptr.offset.i3, align 8
   %add.i4 = add i64 %1, 1
-  store i64 %add.i4, ptr %memptr.offset.i, align 8
+  store i64 %add.i4, ptr %memptr.offset.i3, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %entry
@@ -17723,12 +17723,12 @@ if.end:                                           ; preds = %entry
   %env_.i.i = getelementptr inbounds i8, ptr %2, i64 176
   %3 = load ptr, ptr %env_.i.i, align 8
   call void @_ZN4node4quic19NgTcp2CallbackScopeC1EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(8) %scope, ptr noundef %3) #28
-  %ptr_.i.i3 = getelementptr inbounds i8, ptr %user_data, i64 88
-  %4 = load ptr, ptr %ptr_.i.i3, align 8
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %4, i64 272
-  %5 = load i64, ptr %memptr.offset.i.i, align 8
+  %ptr_.i2.i = getelementptr inbounds i8, ptr %user_data, i64 88
+  %4 = load ptr, ptr %ptr_.i2.i, align 8
+  %memptr.offset.i3.i = getelementptr inbounds i8, ptr %4, i64 272
+  %5 = load i64, ptr %memptr.offset.i3.i, align 8
   %add.i4.i = add i64 %5, 1
-  store i64 %add.i4.i, ptr %memptr.offset.i.i, align 8
+  store i64 %add.i4.i, ptr %memptr.offset.i3.i, align 8
   call void @_ZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusE(ptr noundef nonnull align 8 dereferenceable(2616) %user_data, i64 noundef %dgram_id, i32 noundef 0)
   call void @_ZN4node4quic19NgTcp2CallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %scope) #28
   br label %return
@@ -17755,12 +17755,12 @@ if.end:                                           ; preds = %entry
   %env_.i.i = getelementptr inbounds i8, ptr %2, i64 176
   %3 = load ptr, ptr %env_.i.i, align 8
   call void @_ZN4node4quic19NgTcp2CallbackScopeC1EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(8) %scope, ptr noundef %3) #28
-  %ptr_.i.i3 = getelementptr inbounds i8, ptr %user_data, i64 88
-  %4 = load ptr, ptr %ptr_.i.i3, align 8
-  %memptr.offset.i.i = getelementptr inbounds i8, ptr %4, i64 280
-  %5 = load i64, ptr %memptr.offset.i.i, align 8
+  %ptr_.i2.i = getelementptr inbounds i8, ptr %user_data, i64 88
+  %4 = load ptr, ptr %ptr_.i2.i, align 8
+  %memptr.offset.i3.i = getelementptr inbounds i8, ptr %4, i64 280
+  %5 = load i64, ptr %memptr.offset.i3.i, align 8
   %add.i4.i = add i64 %5, 1
-  store i64 %add.i4.i, ptr %memptr.offset.i.i, align 8
+  store i64 %add.i4.i, ptr %memptr.offset.i3.i, align 8
   call void @_ZN4node4quic7Session18EmitDatagramStatusEmNS0_14DatagramStatusE(ptr noundef nonnull align 8 dereferenceable(2616) %user_data, i64 noundef %dgram_id, i32 noundef 1)
   call void @_ZN4node4quic19NgTcp2CallbackScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %scope) #28
   br label %return

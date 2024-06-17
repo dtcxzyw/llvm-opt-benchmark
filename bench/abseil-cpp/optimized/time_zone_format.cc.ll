@@ -496,13 +496,13 @@ while.end.i:                                      ; preds = %while.body.preheade
   br i1 %cmp.i256, label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke.sink.split, label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
 
 _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke.sink.split: ; preds = %while.end.i, %while.end.i437, %while.end.i357, %while.end.i301
-  %ep.addr.3.lcssa.i302.sink = phi ptr [ %ep.addr.3.lcssa.i302, %while.end.i301 ], [ %ep.addr.3.lcssa.i358, %while.end.i357 ], [ %ep.addr.3.lcssa.i438, %while.end.i437 ], [ %ep.addr.3.lcssa.i, %while.end.i ]
-  %incdec.ptr19.i305 = getelementptr inbounds i8, ptr %ep.addr.3.lcssa.i302.sink, i64 -1
-  store i8 45, ptr %incdec.ptr19.i305, align 1
+  %ep.addr.3.lcssa.i.sink = phi ptr [ %ep.addr.3.lcssa.i302, %while.end.i301 ], [ %ep.addr.3.lcssa.i358, %while.end.i357 ], [ %ep.addr.3.lcssa.i438, %while.end.i437 ], [ %ep.addr.3.lcssa.i, %while.end.i ]
+  %incdec.ptr19.i = getelementptr inbounds i8, ptr %ep.addr.3.lcssa.i.sink, i64 -1
+  store i8 45, ptr %incdec.ptr19.i, align 1
   br label %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke
 
 _ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke: ; preds = %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke.sink.split, %while.end.i, %while.end.i437, %while.end.i357, %while.end.i301
-  %ep.addr.4.i439.sink = phi ptr [ %ep.addr.3.lcssa.i302, %while.end.i301 ], [ %ep.addr.3.lcssa.i358, %while.end.i357 ], [ %ep.addr.3.lcssa.i438, %while.end.i437 ], [ %ep.addr.3.lcssa.i, %while.end.i ], [ %incdec.ptr19.i305, %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke.sink.split ]
+  %ep.addr.4.i439.sink = phi ptr [ %ep.addr.3.lcssa.i302, %while.end.i301 ], [ %ep.addr.3.lcssa.i358, %while.end.i357 ], [ %ep.addr.3.lcssa.i438, %while.end.i437 ], [ %ep.addr.3.lcssa.i, %while.end.i ], [ %incdec.ptr19.i, %_ZN4absl13time_internal4cctz6detail12_GLOBAL__N_18Format64EPcil.exit.invoke.sink.split ]
   %sub.ptr.rhs.cast189 = ptrtoint ptr %ep.addr.4.i439.sink to i64
   %sub.ptr.sub190 = sub i64 %sub.ptr.lhs.cast188, %sub.ptr.rhs.cast189
   %41 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef %ep.addr.4.i439.sink, i64 noundef %sub.ptr.sub190)

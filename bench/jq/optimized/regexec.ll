@@ -352,7 +352,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, %1
-  br i1 %3, label %72, label %4
+  br i1 %3, label %73, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 8
@@ -372,7 +372,7 @@ define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unn
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %14, ptr %15, align 8
   %16 = icmp eq ptr %14, null
-  br i1 %16, label %72, label %17
+  br i1 %16, label %73, label %17
 
 17:                                               ; preds = %11
   %18 = load i32, ptr %7, align 4
@@ -382,11 +382,11 @@ define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unn
   %22 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
-  br i1 %23, label %72, label %.sink.split
+  br i1 %23, label %73, label %.sink.split
 
 24:                                               ; preds = %4
   %25 = icmp slt i32 %5, %8
-  br i1 %25, label %26, label %41
+  br i1 %25, label %26, label %42
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds i8, ptr %0, i64 8
@@ -396,7 +396,7 @@ define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unn
   %31 = tail call ptr @realloc(ptr noundef %28, i64 noundef %30) #28
   store ptr %31, ptr %27, align 8
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %72, label %33
+  br i1 %32, label %73, label %33
 
 33:                                               ; preds = %26
   %34 = getelementptr inbounds i8, ptr %0, i64 16
@@ -407,72 +407,72 @@ define void @onig_region_copy(ptr noundef %0, ptr noundef readonly %1) local_unn
   %39 = tail call ptr @realloc(ptr noundef %35, i64 noundef %38) #28
   store ptr %39, ptr %34, align 8
   %40 = icmp eq ptr %39, null
-  br i1 %40, label %72, label %.sink.split
+  br i1 %40, label %73, label %.sink.split
 
 .sink.split:                                      ; preds = %33, %17
-  %.sink = load i32, ptr %7, align 4
-  store i32 %.sink, ptr %0, align 8
-  br label %41
+  %41 = load i32, ptr %7, align 4
+  store i32 %41, ptr %0, align 8
+  br label %42
 
-41:                                               ; preds = %.sink.split, %24
-  %42 = phi i32 [ %8, %24 ], [ %.sink, %.sink.split ]
-  %43 = getelementptr inbounds i8, ptr %1, i64 4
-  %44 = icmp sgt i32 %42, 0
-  br i1 %44, label %.lr.ph, label %._crit_edge
+42:                                               ; preds = %.sink.split, %24
+  %43 = phi i32 [ %8, %24 ], [ %41, %.sink.split ]
+  %44 = getelementptr inbounds i8, ptr %1, i64 4
+  %45 = icmp sgt i32 %43, 0
+  br i1 %45, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %1, i64 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 16
-  %48 = getelementptr inbounds i8, ptr %0, i64 16
-  br label %49
+.lr.ph:                                           ; preds = %42
+  %46 = getelementptr inbounds i8, ptr %1, i64 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 8
+  %48 = getelementptr inbounds i8, ptr %1, i64 16
+  %49 = getelementptr inbounds i8, ptr %0, i64 16
+  br label %50
 
-49:                                               ; preds = %.lr.ph, %49
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
-  %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr inbounds i32, ptr %50, i64 %indvars.iv
-  %52 = load i32, ptr %51, align 4
-  %53 = load ptr, ptr %46, align 8
-  %54 = getelementptr inbounds i32, ptr %53, i64 %indvars.iv
-  store i32 %52, ptr %54, align 4
-  %55 = load ptr, ptr %47, align 8
-  %56 = getelementptr inbounds i32, ptr %55, i64 %indvars.iv
-  %57 = load i32, ptr %56, align 4
-  %58 = load ptr, ptr %48, align 8
-  %59 = getelementptr inbounds i32, ptr %58, i64 %indvars.iv
-  store i32 %57, ptr %59, align 4
+50:                                               ; preds = %.lr.ph, %50
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
+  %51 = load ptr, ptr %46, align 8
+  %52 = getelementptr inbounds i32, ptr %51, i64 %indvars.iv
+  %53 = load i32, ptr %52, align 4
+  %54 = load ptr, ptr %47, align 8
+  %55 = getelementptr inbounds i32, ptr %54, i64 %indvars.iv
+  store i32 %53, ptr %55, align 4
+  %56 = load ptr, ptr %48, align 8
+  %57 = getelementptr inbounds i32, ptr %56, i64 %indvars.iv
+  %58 = load i32, ptr %57, align 4
+  %59 = load ptr, ptr %49, align 8
+  %60 = getelementptr inbounds i32, ptr %59, i64 %indvars.iv
+  store i32 %58, ptr %60, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %60 = load i32, ptr %43, align 4
-  %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next, %61
-  br i1 %62, label %49, label %._crit_edge, !llvm.loop !6
+  %61 = load i32, ptr %44, align 4
+  %62 = sext i32 %61 to i64
+  %63 = icmp slt i64 %indvars.iv.next, %62
+  br i1 %63, label %50, label %._crit_edge, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %49, %9, %41
-  %.lcssa = phi i32 [ %42, %41 ], [ %8, %9 ], [ %60, %49 ]
-  %63 = getelementptr inbounds i8, ptr %0, i64 4
-  store i32 %.lcssa, ptr %63, align 4
-  %64 = getelementptr inbounds i8, ptr %0, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %history_root_free.exit, label %67
+._crit_edge:                                      ; preds = %50, %9, %42
+  %.lcssa = phi i32 [ %43, %42 ], [ %8, %9 ], [ %61, %50 ]
+  %64 = getelementptr inbounds i8, ptr %0, i64 4
+  store i32 %.lcssa, ptr %64, align 4
+  %65 = getelementptr inbounds i8, ptr %0, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %history_root_free.exit, label %68
 
-67:                                               ; preds = %._crit_edge
-  tail call fastcc void @history_tree_free(ptr noundef nonnull %65)
-  store ptr null, ptr %64, align 8
+68:                                               ; preds = %._crit_edge
+  tail call fastcc void @history_tree_free(ptr noundef nonnull %66)
+  store ptr null, ptr %65, align 8
   br label %history_root_free.exit
 
-history_root_free.exit:                           ; preds = %._crit_edge, %67
-  %68 = getelementptr inbounds i8, ptr %1, i64 24
-  %69 = load ptr, ptr %68, align 8
-  %.not = icmp eq ptr %69, null
-  br i1 %.not, label %72, label %70
+history_root_free.exit:                           ; preds = %._crit_edge, %68
+  %69 = getelementptr inbounds i8, ptr %1, i64 24
+  %70 = load ptr, ptr %69, align 8
+  %.not = icmp eq ptr %70, null
+  br i1 %.not, label %73, label %71
 
-70:                                               ; preds = %history_root_free.exit
-  %71 = tail call fastcc ptr @history_tree_clone(ptr noundef nonnull %69)
-  store ptr %71, ptr %64, align 8
-  br label %72
+71:                                               ; preds = %history_root_free.exit
+  %72 = tail call fastcc ptr @history_tree_clone(ptr noundef nonnull %70)
+  store ptr %72, ptr %65, align 8
+  br label %73
 
-72:                                               ; preds = %33, %26, %17, %11, %2, %70, %history_root_free.exit
+73:                                               ; preds = %33, %26, %17, %11, %2, %71, %history_root_free.exit
   ret void
 }
 

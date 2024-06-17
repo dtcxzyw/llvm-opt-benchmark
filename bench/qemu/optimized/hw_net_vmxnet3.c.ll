@@ -693,7 +693,7 @@ if.then5:                                         ; preds = %if.then2
   %needs_vlan.i.i = getelementptr inbounds i8, ptr %opaque, i64 14210
   %nic.i.i = getelementptr inbounds i8, ptr %opaque, i64 2608
   %txq_stats.i34.i.i = getelementptr [8 x %struct.Vmxnet3TxqDescr], ptr %txq_descr.i.i, i64 0, i64 %idxprom.i.i, i32 4
-  %pktsTxDiscard.i.i = getelementptr [8 x %struct.Vmxnet3TxqDescr], ptr %txq_descr.i.i, i64 0, i64 %idxprom.i.i, i32 4, i32 8
+  %TSOBytesTxOK.i.i = getelementptr [8 x %struct.Vmxnet3TxqDescr], ptr %txq_descr.i.i, i64 0, i64 %idxprom.i.i, i32 4, i32 8
   %6 = getelementptr inbounds i8, ptr %txcq_descr.i.i, i64 4
   %comp_ring.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 24
   %7 = getelementptr i8, ptr %arrayidx.i.i, i64 44
@@ -916,9 +916,9 @@ sw.bb14.i.i.i:                                    ; preds = %vmxnet3_setup_tx_of
   br label %sw.epilog19.sink.split.i.i.i
 
 sw.epilog19.sink.split.i.i.i:                     ; preds = %sw.bb14.i.i.i, %if.then.i.i.i, %if.end.i.i
-  %.sink20.i.i.i = phi i64 [ 64, %sw.bb14.i.i.i ], [ 8, %if.then.i.i.i ], [ 72, %if.end.i.i ]
-  %call.sink.i.i.i = phi i64 [ 1, %sw.bb14.i.i.i ], [ %call.i931.i.i, %if.then.i.i.i ], [ 1, %if.end.i.i ]
-  %pktsTxDiscard.i.i.i = getelementptr inbounds i8, ptr %txq_stats.i34.i.i, i64 %.sink20.i.i.i
+  %.sink22.i.i.i = phi i64 [ 8, %if.then.i.i.i ], [ 64, %sw.bb14.i.i.i ], [ 72, %if.end.i.i ]
+  %call.sink.i.i.i = phi i64 [ %call.i931.i.i, %if.then.i.i.i ], [ 1, %sw.bb14.i.i.i ], [ 1, %if.end.i.i ]
+  %TSOBytesTxOK.i.i.i = getelementptr inbounds i8, ptr %txq_stats.i34.i.i, i64 %.sink22.i.i.i
   br label %if.end29.sink.split.i
 
 if.else.i:                                        ; preds = %land.lhs.true.i, %if.then17.i
@@ -927,11 +927,11 @@ if.else.i:                                        ; preds = %land.lhs.true.i, %i
   br label %if.end29.sink.split.i
 
 if.end29.sink.split.i:                            ; preds = %if.else.i, %sw.epilog19.sink.split.i.i.i
-  %pktsTxDiscard.i.i.sink46.i = phi ptr [ %pktsTxDiscard.i.i.i, %sw.epilog19.sink.split.i.i.i ], [ %pktsTxDiscard.i.i, %if.else.i ]
+  %TSOBytesTxOK.i.i.sink46.i = phi ptr [ %TSOBytesTxOK.i.i.i, %sw.epilog19.sink.split.i.i.i ], [ %TSOBytesTxOK.i.i, %if.else.i ]
   %call.sink.i.i.sink.i = phi i64 [ %call.sink.i.i.i, %sw.epilog19.sink.split.i.i.i ], [ 1, %if.else.i ]
-  %51 = load i64, ptr %pktsTxDiscard.i.i.sink46.i, align 8
+  %51 = load i64, ptr %TSOBytesTxOK.i.i.sink46.i, align 8
   %add11.i.i.i = add i64 %51, %call.sink.i.i.sink.i
-  store i64 %add11.i.i.i, ptr %pktsTxDiscard.i.i.sink46.i, align 8
+  store i64 %add11.i.i.i, ptr %TSOBytesTxOK.i.i.sink46.i, align 8
   br label %if.end29.i
 
 if.end29.i:                                       ; preds = %if.end29.sink.split.i, %switch.lookup
@@ -3241,10 +3241,10 @@ if.else.i:                                        ; preds = %vmxnet3_trigger_int
 return.sink.split.i:                              ; preds = %if.else.i, %if.then.i63.i
   %.sink160.i = phi i64 [ 11744, %if.then.i63.i ], [ %..i40, %if.else.i ]
   %call.i59.sink.i = phi i64 [ %call.i59.i, %if.then.i63.i ], [ 1, %if.else.i ]
-  %pktsRxOutOfBuf.i67.i = getelementptr inbounds i8, ptr %call, i64 %.sink160.i
-  %122 = load i64, ptr %pktsRxOutOfBuf.i67.i, align 8
+  %LROBytesRxOK.i.i = getelementptr inbounds i8, ptr %call, i64 %.sink160.i
+  %122 = load i64, ptr %LROBytesRxOK.i.i, align 8
   %add16.i.i = add i64 %122, %call.i59.sink.i
-  store i64 %add16.i.i, ptr %pktsRxOutOfBuf.i67.i, align 8
+  store i64 %add16.i.i, ptr %LROBytesRxOK.i.i, align 8
   br label %vmxnet3_indicate_packet.exit
 
 vmxnet3_indicate_packet.exit:                     ; preds = %switch.lookup, %return.sink.split.i

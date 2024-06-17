@@ -2693,41 +2693,29 @@ while.body.i7:                                    ; preds = %while.body, %bitxor
   br label %for.cond.i91
 
 for.cond.i91:                                     ; preds = %for.cond.i91.backedge, %while.body.i7
-  %node.0.i92 = phi ptr [ %call.i90, %while.body.i7 ], [ %call.i.i.i106.sink163, %for.cond.i91.backedge ]
+  %node.0.i92 = phi ptr [ %call.i90, %while.body.i7 ], [ %call.i.i.i106, %for.cond.i91.backedge ]
   %6 = load ptr, ptr %tok.addr.i89, align 8
   %call1.i93 = tail call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.10) #13
-  br i1 %call1.i93, label %if.then.i103, label %if.end.i94
+  br i1 %call1.i93, label %for.cond.i91.backedge, label %if.end.i94
 
-if.then.i103:                                     ; preds = %for.cond.i91
+for.cond.i91.backedge:                            ; preds = %for.cond.i91, %if.end.i94
+  %.sink = phi i32 [ 13, %if.end.i94 ], [ 12, %for.cond.i91 ]
   %next.i104 = getelementptr inbounds i8, ptr %6, i64 8
   %7 = load ptr, ptr %next.i104, align 8
   %call2.i105 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i89, ptr noundef %7)
   %call.i.i.i106 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i.i106, align 16
-  br label %for.cond.i91.backedge
-
-for.cond.i91.backedge:                            ; preds = %if.then.i103, %if.then5.i96
-  %call.i.i.i106.sink163 = phi ptr [ %call.i.i.i106, %if.then.i103 ], [ %call.i.i4.i99, %if.then5.i96 ]
-  %call2.i105.sink = phi ptr [ %call2.i105, %if.then.i103 ], [ %call7.i98, %if.then5.i96 ]
-  %tok2.i.i.i107 = getelementptr inbounds i8, ptr %call.i.i.i106.sink163, i64 24
+  store i32 %.sink, ptr %call.i.i.i106, align 16
+  %tok2.i.i.i107 = getelementptr inbounds i8, ptr %call.i.i.i106, i64 24
   store ptr %6, ptr %tok2.i.i.i107, align 8
-  %lhs1.i.i108 = getelementptr inbounds i8, ptr %call.i.i.i106.sink163, i64 32
+  %lhs1.i.i108 = getelementptr inbounds i8, ptr %call.i.i.i106, i64 32
   store ptr %node.0.i92, ptr %lhs1.i.i108, align 16
-  %rhs2.i.i109 = getelementptr inbounds i8, ptr %call.i.i.i106.sink163, i64 40
-  store ptr %call2.i105.sink, ptr %rhs2.i.i109, align 8
+  %rhs2.i.i109 = getelementptr inbounds i8, ptr %call.i.i.i106, i64 40
+  store ptr %call2.i105, ptr %rhs2.i.i109, align 8
   br label %for.cond.i91
 
 if.end.i94:                                       ; preds = %for.cond.i91
   %call4.i95 = tail call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.11) #13
-  br i1 %call4.i95, label %if.then5.i96, label %equality.exit110
-
-if.then5.i96:                                     ; preds = %if.end.i94
-  %next6.i97 = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %next6.i97, align 8
-  %call7.i98 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i89, ptr noundef %8)
-  %call.i.i4.i99 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4.i99, align 16
-  br label %for.cond.i91.backedge
+  br i1 %call4.i95, label %for.cond.i91.backedge, label %equality.exit110
 
 equality.exit110:                                 ; preds = %if.end.i94
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i89)
@@ -2735,57 +2723,45 @@ equality.exit110:                                 ; preds = %if.end.i94
   br i1 %call1.i.i127, label %while.body.i.i, label %while.cond.i22.preheader
 
 while.cond.i22.preheader:                         ; preds = %equality.exit88, %equality.exit110
-  %tok.addr.i.i.0.lcssa = phi ptr [ %6, %equality.exit110 ], [ %10, %equality.exit88 ]
+  %tok.addr.i.i.0.lcssa = phi ptr [ %6, %equality.exit110 ], [ %9, %equality.exit88 ]
   %node.0.i.i.lcssa = phi ptr [ %node.0.i92, %equality.exit110 ], [ %call.i.i63, %equality.exit88 ]
   %call1.i24137 = tail call zeroext i1 @equal(ptr noundef %tok.addr.i.i.0.lcssa, ptr noundef nonnull @.str.8) #13
   br i1 %call1.i24137, label %while.body.i25, label %bitxor.exit
 
 while.body.i.i:                                   ; preds = %equality.exit110, %equality.exit88
   %node.0.i.i129 = phi ptr [ %call.i.i63, %equality.exit88 ], [ %node.0.i92, %equality.exit110 ]
-  %tok.addr.i.i.0128 = phi ptr [ %10, %equality.exit88 ], [ %6, %equality.exit110 ]
+  %tok.addr.i.i.0128 = phi ptr [ %9, %equality.exit88 ], [ %6, %equality.exit110 ]
   %next.i.i = getelementptr inbounds i8, ptr %tok.addr.i.i.0128, i64 8
-  %9 = load ptr, ptr %next.i.i, align 8
+  %8 = load ptr, ptr %next.i.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i67)
-  store ptr %9, ptr %tok.addr.i67, align 8
-  %call.i68 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %9)
+  store ptr %8, ptr %tok.addr.i67, align 8
+  %call.i68 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %8)
   br label %for.cond.i69
 
 for.cond.i69:                                     ; preds = %for.cond.i69.backedge, %while.body.i.i
-  %node.0.i70 = phi ptr [ %call.i68, %while.body.i.i ], [ %call.i.i.i84.sink165, %for.cond.i69.backedge ]
-  %10 = load ptr, ptr %tok.addr.i67, align 8
-  %call1.i71 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.10) #13
-  br i1 %call1.i71, label %if.then.i81, label %if.end.i72
+  %node.0.i70 = phi ptr [ %call.i68, %while.body.i.i ], [ %call.i.i.i84, %for.cond.i69.backedge ]
+  %9 = load ptr, ptr %tok.addr.i67, align 8
+  %call1.i71 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i71, label %for.cond.i69.backedge, label %if.end.i72
 
-if.then.i81:                                      ; preds = %for.cond.i69
-  %next.i82 = getelementptr inbounds i8, ptr %10, i64 8
-  %11 = load ptr, ptr %next.i82, align 8
-  %call2.i83 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %11)
+for.cond.i69.backedge:                            ; preds = %for.cond.i69, %if.end.i72
+  %.sink168 = phi i32 [ 13, %if.end.i72 ], [ 12, %for.cond.i69 ]
+  %next.i82 = getelementptr inbounds i8, ptr %9, i64 8
+  %10 = load ptr, ptr %next.i82, align 8
+  %call2.i83 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %10)
   %call.i.i.i84 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i.i84, align 16
-  br label %for.cond.i69.backedge
-
-for.cond.i69.backedge:                            ; preds = %if.then.i81, %if.then5.i74
-  %call.i.i.i84.sink165 = phi ptr [ %call.i.i.i84, %if.then.i81 ], [ %call.i.i4.i77, %if.then5.i74 ]
-  %call2.i83.sink = phi ptr [ %call2.i83, %if.then.i81 ], [ %call7.i76, %if.then5.i74 ]
-  %tok2.i.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i84.sink165, i64 24
-  store ptr %10, ptr %tok2.i.i.i85, align 8
-  %lhs1.i.i86 = getelementptr inbounds i8, ptr %call.i.i.i84.sink165, i64 32
+  store i32 %.sink168, ptr %call.i.i.i84, align 16
+  %tok2.i.i.i85 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 24
+  store ptr %9, ptr %tok2.i.i.i85, align 8
+  %lhs1.i.i86 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 32
   store ptr %node.0.i70, ptr %lhs1.i.i86, align 16
-  %rhs2.i.i87 = getelementptr inbounds i8, ptr %call.i.i.i84.sink165, i64 40
-  store ptr %call2.i83.sink, ptr %rhs2.i.i87, align 8
+  %rhs2.i.i87 = getelementptr inbounds i8, ptr %call.i.i.i84, i64 40
+  store ptr %call2.i83, ptr %rhs2.i.i87, align 8
   br label %for.cond.i69
 
 if.end.i72:                                       ; preds = %for.cond.i69
-  %call4.i73 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.11) #13
-  br i1 %call4.i73, label %if.then5.i74, label %equality.exit88
-
-if.then5.i74:                                     ; preds = %if.end.i72
-  %next6.i75 = getelementptr inbounds i8, ptr %10, i64 8
-  %12 = load ptr, ptr %next6.i75, align 8
-  %call7.i76 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i67, ptr noundef %12)
-  %call.i.i4.i77 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4.i77, align 16
-  br label %for.cond.i69.backedge
+  %call4.i73 = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i73, label %for.cond.i69.backedge, label %equality.exit88
 
 equality.exit88:                                  ; preds = %if.end.i72
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i67)
@@ -2797,107 +2773,83 @@ equality.exit88:                                  ; preds = %if.end.i72
   store ptr %node.0.i.i129, ptr %lhs1.i65, align 16
   %rhs2.i66 = getelementptr inbounds i8, ptr %call.i.i63, i64 40
   store ptr %node.0.i70, ptr %rhs2.i66, align 8
-  %call1.i.i = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.9) #13
+  %call1.i.i = tail call zeroext i1 @equal(ptr noundef %9, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i.i, label %while.body.i.i, label %while.cond.i22.preheader, !llvm.loop !23
 
 while.body.i25:                                   ; preds = %while.cond.i22.preheader, %bitand.exit11.i
   %node.0.i23139 = phi ptr [ %call.i.i.i, %bitand.exit11.i ], [ %node.0.i.i.lcssa, %while.cond.i22.preheader ]
   %tok.addr.i20.0138 = phi ptr [ %tok.addr.i2.i.0.lcssa, %bitand.exit11.i ], [ %tok.addr.i.i.0.lcssa, %while.cond.i22.preheader ]
   %next.i26 = getelementptr inbounds i8, ptr %tok.addr.i20.0138, i64 8
-  %13 = load ptr, ptr %next.i26, align 8
+  %11 = load ptr, ptr %next.i26, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i41)
-  store ptr %13, ptr %tok.addr.i41, align 8
-  %call.i42 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %13)
+  store ptr %11, ptr %tok.addr.i41, align 8
+  %call.i42 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %11)
   br label %for.cond.i43
 
 for.cond.i43:                                     ; preds = %for.cond.i43.backedge, %while.body.i25
-  %node.0.i44 = phi ptr [ %call.i42, %while.body.i25 ], [ %call.i.i.i58.sink167, %for.cond.i43.backedge ]
-  %14 = load ptr, ptr %tok.addr.i41, align 8
-  %call1.i45 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef nonnull @.str.10) #13
-  br i1 %call1.i45, label %if.then.i55, label %if.end.i46
+  %node.0.i44 = phi ptr [ %call.i42, %while.body.i25 ], [ %call.i.i.i58, %for.cond.i43.backedge ]
+  %12 = load ptr, ptr %tok.addr.i41, align 8
+  %call1.i45 = tail call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i45, label %for.cond.i43.backedge, label %if.end.i46
 
-if.then.i55:                                      ; preds = %for.cond.i43
-  %next.i56 = getelementptr inbounds i8, ptr %14, i64 8
-  %15 = load ptr, ptr %next.i56, align 8
-  %call2.i57 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %15)
+for.cond.i43.backedge:                            ; preds = %for.cond.i43, %if.end.i46
+  %.sink173 = phi i32 [ 13, %if.end.i46 ], [ 12, %for.cond.i43 ]
+  %next.i56 = getelementptr inbounds i8, ptr %12, i64 8
+  %13 = load ptr, ptr %next.i56, align 8
+  %call2.i57 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %13)
   %call.i.i.i58 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i.i58, align 16
-  br label %for.cond.i43.backedge
-
-for.cond.i43.backedge:                            ; preds = %if.then.i55, %if.then5.i48
-  %call.i.i.i58.sink167 = phi ptr [ %call.i.i.i58, %if.then.i55 ], [ %call.i.i4.i51, %if.then5.i48 ]
-  %call2.i57.sink = phi ptr [ %call2.i57, %if.then.i55 ], [ %call7.i50, %if.then5.i48 ]
-  %tok2.i.i.i59 = getelementptr inbounds i8, ptr %call.i.i.i58.sink167, i64 24
-  store ptr %14, ptr %tok2.i.i.i59, align 8
-  %lhs1.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i58.sink167, i64 32
+  store i32 %.sink173, ptr %call.i.i.i58, align 16
+  %tok2.i.i.i59 = getelementptr inbounds i8, ptr %call.i.i.i58, i64 24
+  store ptr %12, ptr %tok2.i.i.i59, align 8
+  %lhs1.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i58, i64 32
   store ptr %node.0.i44, ptr %lhs1.i.i60, align 16
-  %rhs2.i.i61 = getelementptr inbounds i8, ptr %call.i.i.i58.sink167, i64 40
-  store ptr %call2.i57.sink, ptr %rhs2.i.i61, align 8
+  %rhs2.i.i61 = getelementptr inbounds i8, ptr %call.i.i.i58, i64 40
+  store ptr %call2.i57, ptr %rhs2.i.i61, align 8
   br label %for.cond.i43
 
 if.end.i46:                                       ; preds = %for.cond.i43
-  %call4.i47 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef nonnull @.str.11) #13
-  br i1 %call4.i47, label %if.then5.i48, label %equality.exit62
-
-if.then5.i48:                                     ; preds = %if.end.i46
-  %next6.i49 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %next6.i49, align 8
-  %call7.i50 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i41, ptr noundef %16)
-  %call.i.i4.i51 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4.i51, align 16
-  br label %for.cond.i43.backedge
+  %call4.i47 = tail call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i47, label %for.cond.i43.backedge, label %equality.exit62
 
 equality.exit62:                                  ; preds = %if.end.i46
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i41)
-  %call1.i6.i132 = tail call zeroext i1 @equal(ptr noundef %14, ptr noundef nonnull @.str.9) #13
+  %call1.i6.i132 = tail call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i6.i132, label %while.body.i7.i, label %bitand.exit11.i
 
 while.body.i7.i:                                  ; preds = %equality.exit62, %equality.exit
   %node.0.i5.i134 = phi ptr [ %call.i.i27, %equality.exit ], [ %node.0.i44, %equality.exit62 ]
-  %tok.addr.i2.i.0133 = phi ptr [ %18, %equality.exit ], [ %14, %equality.exit62 ]
+  %tok.addr.i2.i.0133 = phi ptr [ %15, %equality.exit ], [ %12, %equality.exit62 ]
   %next.i8.i = getelementptr inbounds i8, ptr %tok.addr.i2.i.0133, i64 8
-  %17 = load ptr, ptr %next.i8.i, align 8
+  %14 = load ptr, ptr %next.i8.i, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i31)
-  store ptr %17, ptr %tok.addr.i31, align 8
-  %call.i32 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %17)
+  store ptr %14, ptr %tok.addr.i31, align 8
+  %call.i32 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %14)
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %while.body.i7.i
-  %node.0.i33 = phi ptr [ %call.i32, %while.body.i7.i ], [ %call.i.i.i37.sink169, %for.cond.i.backedge ]
-  %18 = load ptr, ptr %tok.addr.i31, align 8
-  %call1.i34 = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef nonnull @.str.10) #13
-  br i1 %call1.i34, label %if.then.i, label %if.end.i
+  %node.0.i33 = phi ptr [ %call.i32, %while.body.i7.i ], [ %call.i.i.i37, %for.cond.i.backedge ]
+  %15 = load ptr, ptr %tok.addr.i31, align 8
+  %call1.i34 = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i34, label %for.cond.i.backedge, label %if.end.i
 
-if.then.i:                                        ; preds = %for.cond.i
-  %next.i35 = getelementptr inbounds i8, ptr %18, i64 8
-  %19 = load ptr, ptr %next.i35, align 8
-  %call2.i36 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %19)
+for.cond.i.backedge:                              ; preds = %for.cond.i, %if.end.i
+  %.sink178 = phi i32 [ 13, %if.end.i ], [ 12, %for.cond.i ]
+  %next.i35 = getelementptr inbounds i8, ptr %15, i64 8
+  %16 = load ptr, ptr %next.i35, align 8
+  %call2.i36 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %16)
   %call.i.i.i37 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i.i37, align 16
-  br label %for.cond.i.backedge
-
-for.cond.i.backedge:                              ; preds = %if.then.i, %if.then5.i
-  %call.i.i.i37.sink169 = phi ptr [ %call.i.i.i37, %if.then.i ], [ %call.i.i4.i, %if.then5.i ]
-  %call2.i36.sink = phi ptr [ %call2.i36, %if.then.i ], [ %call7.i, %if.then5.i ]
-  %tok2.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i37.sink169, i64 24
-  store ptr %18, ptr %tok2.i.i.i38, align 8
-  %lhs1.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i37.sink169, i64 32
+  store i32 %.sink178, ptr %call.i.i.i37, align 16
+  %tok2.i.i.i38 = getelementptr inbounds i8, ptr %call.i.i.i37, i64 24
+  store ptr %15, ptr %tok2.i.i.i38, align 8
+  %lhs1.i.i39 = getelementptr inbounds i8, ptr %call.i.i.i37, i64 32
   store ptr %node.0.i33, ptr %lhs1.i.i39, align 16
-  %rhs2.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i37.sink169, i64 40
-  store ptr %call2.i36.sink, ptr %rhs2.i.i40, align 8
+  %rhs2.i.i40 = getelementptr inbounds i8, ptr %call.i.i.i37, i64 40
+  store ptr %call2.i36, ptr %rhs2.i.i40, align 8
   br label %for.cond.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %call4.i = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef nonnull @.str.11) #13
-  br i1 %call4.i, label %if.then5.i, label %equality.exit
-
-if.then5.i:                                       ; preds = %if.end.i
-  %next6.i = getelementptr inbounds i8, ptr %18, i64 8
-  %20 = load ptr, ptr %next6.i, align 8
-  %call7.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i31, ptr noundef %20)
-  %call.i.i4.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4.i, align 16
-  br label %for.cond.i.backedge
+  %call4.i = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i, label %for.cond.i.backedge, label %equality.exit
 
 equality.exit:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i31)
@@ -2909,11 +2861,11 @@ equality.exit:                                    ; preds = %if.end.i
   store ptr %node.0.i5.i134, ptr %lhs1.i29, align 16
   %rhs2.i30 = getelementptr inbounds i8, ptr %call.i.i27, i64 40
   store ptr %node.0.i33, ptr %rhs2.i30, align 8
-  %call1.i6.i = tail call zeroext i1 @equal(ptr noundef %18, ptr noundef nonnull @.str.9) #13
+  %call1.i6.i = tail call zeroext i1 @equal(ptr noundef %15, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i6.i, label %while.body.i7.i, label %bitand.exit11.i, !llvm.loop !23
 
 bitand.exit11.i:                                  ; preds = %equality.exit, %equality.exit62
-  %tok.addr.i2.i.0.lcssa = phi ptr [ %14, %equality.exit62 ], [ %18, %equality.exit ]
+  %tok.addr.i2.i.0.lcssa = phi ptr [ %12, %equality.exit62 ], [ %15, %equality.exit ]
   %node.0.i5.i.lcssa = phi ptr [ %node.0.i44, %equality.exit62 ], [ %call.i.i27, %equality.exit ]
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 9, ptr %call.i.i.i, align 16
@@ -2965,38 +2917,96 @@ while.end:                                        ; preds = %bitor.exit11, %bito
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @bitxor(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
+  %tok.addr.i79 = alloca ptr, align 8
+  %tok.addr.i64 = alloca ptr, align 8
+  %tok.addr.i51 = alloca ptr, align 8
   %tok.addr.i20 = alloca ptr, align 8
-  %tok.addr.i2 = alloca ptr, align 8
-  %tok.addr.i = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
-  store ptr %tok, ptr %tok.addr.i, align 8
-  %call.i = call fastcc ptr @equality(ptr noundef nonnull %tok.addr.i, ptr noundef %tok)
-  %0 = load ptr, ptr %tok.addr.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i51)
+  store ptr %tok, ptr %tok.addr.i51, align 8
+  %call.i52 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i51, ptr noundef %tok)
+  br label %for.cond.i53
+
+for.cond.i53:                                     ; preds = %for.cond.backedge.i, %entry
+  %node.0.i = phi ptr [ %call.i52, %entry ], [ %call.i.i.i59, %for.cond.backedge.i ]
+  %0 = load ptr, ptr %tok.addr.i51, align 8
+  %call1.i54 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i54, label %for.cond.backedge.i, label %if.end.i55
+
+for.cond.backedge.i:                              ; preds = %if.end.i55, %for.cond.i53
+  %.sink.i = phi i32 [ 13, %if.end.i55 ], [ 12, %for.cond.i53 ]
+  %next.i57 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %next.i57, align 8
+  %call2.i58 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i51, ptr noundef %1)
+  %call.i.i.i59 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i, ptr %call.i.i.i59, align 16
+  %tok2.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 24
+  store ptr %0, ptr %tok2.i.i.i60, align 8
+  %lhs1.i.i61 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 32
+  store ptr %node.0.i, ptr %lhs1.i.i61, align 16
+  %rhs2.i.i62 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 40
+  store ptr %call2.i58, ptr %rhs2.i.i62, align 8
+  br label %for.cond.i53
+
+if.end.i55:                                       ; preds = %for.cond.i53
+  %call4.i56 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i56, label %for.cond.backedge.i, label %equality.exit63
+
+equality.exit63:                                  ; preds = %if.end.i55
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i51)
   %call1.i30 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i30, label %while.body.i, label %bitand.exit
 
-while.body.i:                                     ; preds = %entry, %while.body.i
-  %1 = phi ptr [ %3, %while.body.i ], [ %0, %entry ]
-  %node.0.i31 = phi ptr [ %call.i.i12, %while.body.i ], [ %call.i, %entry ]
-  %next.i = getelementptr inbounds i8, ptr %1, i64 8
-  %2 = load ptr, ptr %next.i, align 8
-  %call2.i = call fastcc ptr @equality(ptr noundef nonnull %tok.addr.i, ptr noundef %2)
+while.body.i:                                     ; preds = %equality.exit63, %equality.exit78
+  %2 = phi ptr [ %4, %equality.exit78 ], [ %0, %equality.exit63 ]
+  %node.0.i31 = phi ptr [ %call.i.i12, %equality.exit78 ], [ %node.0.i, %equality.exit63 ]
+  %next.i = getelementptr inbounds i8, ptr %2, i64 8
+  %3 = load ptr, ptr %next.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i64)
+  store ptr %3, ptr %tok.addr.i64, align 8
+  %call.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i64, ptr noundef %3)
+  br label %for.cond.i65
+
+for.cond.i65:                                     ; preds = %for.cond.backedge.i70, %while.body.i
+  %node.0.i66 = phi ptr [ %call.i, %while.body.i ], [ %call.i.i.i74, %for.cond.backedge.i70 ]
+  %4 = load ptr, ptr %tok.addr.i64, align 8
+  %call1.i67 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i67, label %for.cond.backedge.i70, label %if.end.i68
+
+for.cond.backedge.i70:                            ; preds = %if.end.i68, %for.cond.i65
+  %.sink.i71 = phi i32 [ 13, %if.end.i68 ], [ 12, %for.cond.i65 ]
+  %next.i72 = getelementptr inbounds i8, ptr %4, i64 8
+  %5 = load ptr, ptr %next.i72, align 8
+  %call2.i73 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i64, ptr noundef %5)
+  %call.i.i.i74 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i71, ptr %call.i.i.i74, align 16
+  %tok2.i.i.i75 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 24
+  store ptr %4, ptr %tok2.i.i.i75, align 8
+  %lhs1.i.i76 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 32
+  store ptr %node.0.i66, ptr %lhs1.i.i76, align 16
+  %rhs2.i.i77 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 40
+  store ptr %call2.i73, ptr %rhs2.i.i77, align 8
+  br label %for.cond.i65
+
+if.end.i68:                                       ; preds = %for.cond.i65
+  %call4.i69 = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i69, label %for.cond.backedge.i70, label %equality.exit78
+
+equality.exit78:                                  ; preds = %if.end.i68
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i64)
   %call.i.i12 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 7, ptr %call.i.i12, align 16
   %tok2.i.i13 = getelementptr inbounds i8, ptr %call.i.i12, i64 24
-  store ptr %1, ptr %tok2.i.i13, align 8
+  store ptr %2, ptr %tok2.i.i13, align 8
   %lhs1.i14 = getelementptr inbounds i8, ptr %call.i.i12, i64 32
   store ptr %node.0.i31, ptr %lhs1.i14, align 16
   %rhs2.i15 = getelementptr inbounds i8, ptr %call.i.i12, i64 40
-  store ptr %call2.i, ptr %rhs2.i15, align 8
-  %3 = load ptr, ptr %tok.addr.i, align 8
-  %call1.i = tail call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.9) #13
+  store ptr %node.0.i66, ptr %rhs2.i15, align 8
+  %call1.i = tail call zeroext i1 @equal(ptr noundef %4, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i, label %while.body.i, label %bitand.exit, !llvm.loop !23
 
-bitand.exit:                                      ; preds = %while.body.i, %entry
-  %node.0.i.lcssa = phi ptr [ %call.i, %entry ], [ %call.i.i12, %while.body.i ]
-  %.lcssa29 = phi ptr [ %0, %entry ], [ %3, %while.body.i ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
+bitand.exit:                                      ; preds = %equality.exit78, %equality.exit63
+  %node.0.i.lcssa = phi ptr [ %node.0.i, %equality.exit63 ], [ %call.i.i12, %equality.exit78 ]
+  %.lcssa29 = phi ptr [ %0, %equality.exit63 ], [ %4, %equality.exit78 ]
   %call140 = tail call zeroext i1 @equal(ptr noundef %.lcssa29, ptr noundef nonnull @.str.8) #13
   br i1 %call140, label %while.body, label %while.end
 
@@ -3004,60 +3014,76 @@ while.body:                                       ; preds = %bitand.exit, %bitan
   %node.042 = phi ptr [ %call.i.i, %bitand.exit11 ], [ %node.0.i.lcssa, %bitand.exit ]
   %tok.addr.041 = phi ptr [ %.lcssa33.lcssa, %bitand.exit11 ], [ %.lcssa29, %bitand.exit ]
   %next = getelementptr inbounds i8, ptr %tok.addr.041, i64 8
-  %4 = load ptr, ptr %next, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i2)
-  store ptr %4, ptr %tok.addr.i2, align 8
-  %call.i3 = call fastcc ptr @equality(ptr noundef nonnull %tok.addr.i2, ptr noundef %4)
-  %tok.addr.i2.promoted = load ptr, ptr %tok.addr.i2, align 8
-  %call1.i634 = tail call zeroext i1 @equal(ptr noundef %tok.addr.i2.promoted, ptr noundef nonnull @.str.9) #13
+  %6 = load ptr, ptr %next, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i79)
+  store ptr %6, ptr %tok.addr.i79, align 8
+  %call.i80 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i79, ptr noundef %6)
+  br label %for.cond.i81
+
+for.cond.i81:                                     ; preds = %for.cond.backedge.i86, %while.body
+  %node.0.i82 = phi ptr [ %call.i80, %while.body ], [ %call.i.i.i89, %for.cond.backedge.i86 ]
+  %7 = load ptr, ptr %tok.addr.i79, align 8
+  %call1.i83 = tail call zeroext i1 @equal(ptr noundef %7, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i83, label %for.cond.backedge.i86, label %if.end.i84
+
+for.cond.backedge.i86:                            ; preds = %if.end.i84, %for.cond.i81
+  %.sink.i87 = phi i32 [ 13, %if.end.i84 ], [ 12, %for.cond.i81 ]
+  %next.i88 = getelementptr inbounds i8, ptr %7, i64 8
+  %8 = load ptr, ptr %next.i88, align 8
+  %call2.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i79, ptr noundef %8)
+  %call.i.i.i89 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i87, ptr %call.i.i.i89, align 16
+  %tok2.i.i.i90 = getelementptr inbounds i8, ptr %call.i.i.i89, i64 24
+  store ptr %7, ptr %tok2.i.i.i90, align 8
+  %lhs1.i.i91 = getelementptr inbounds i8, ptr %call.i.i.i89, i64 32
+  store ptr %node.0.i82, ptr %lhs1.i.i91, align 16
+  %rhs2.i.i92 = getelementptr inbounds i8, ptr %call.i.i.i89, i64 40
+  store ptr %call2.i, ptr %rhs2.i.i92, align 8
+  br label %for.cond.i81
+
+if.end.i84:                                       ; preds = %for.cond.i81
+  %call4.i85 = tail call zeroext i1 @equal(ptr noundef %7, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i85, label %for.cond.backedge.i86, label %equality.exit93
+
+equality.exit93:                                  ; preds = %if.end.i84
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i79)
+  %call1.i634 = tail call zeroext i1 @equal(ptr noundef %7, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i634, label %while.body.i7, label %bitand.exit11
 
-while.body.i7:                                    ; preds = %while.body, %equality.exit
-  %node.0.i536 = phi ptr [ %call.i.i16, %equality.exit ], [ %call.i3, %while.body ]
-  %.lcssa3335 = phi ptr [ %6, %equality.exit ], [ %tok.addr.i2.promoted, %while.body ]
+while.body.i7:                                    ; preds = %equality.exit93, %equality.exit
+  %node.0.i536 = phi ptr [ %call.i.i16, %equality.exit ], [ %node.0.i82, %equality.exit93 ]
+  %.lcssa3335 = phi ptr [ %10, %equality.exit ], [ %7, %equality.exit93 ]
   %next.i8 = getelementptr inbounds i8, ptr %.lcssa3335, i64 8
-  %5 = load ptr, ptr %next.i8, align 8
+  %9 = load ptr, ptr %next.i8, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i20)
-  store ptr %5, ptr %tok.addr.i20, align 8
-  %call.i21 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %5)
+  store ptr %9, ptr %tok.addr.i20, align 8
+  %call.i21 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %9)
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %for.cond.i.backedge, %while.body.i7
-  %node.0.i22 = phi ptr [ %call.i21, %while.body.i7 ], [ %call.i.i.i.sink48, %for.cond.i.backedge ]
-  %6 = load ptr, ptr %tok.addr.i20, align 8
-  %call1.i23 = tail call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.10) #13
-  br i1 %call1.i23, label %if.then.i, label %if.end.i
+  %node.0.i22 = phi ptr [ %call.i21, %while.body.i7 ], [ %call.i.i.i, %for.cond.i.backedge ]
+  %10 = load ptr, ptr %tok.addr.i20, align 8
+  %call1.i23 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.10) #13
+  br i1 %call1.i23, label %for.cond.i.backedge, label %if.end.i
 
-if.then.i:                                        ; preds = %for.cond.i
-  %next.i24 = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %next.i24, align 8
-  %call2.i25 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %7)
+for.cond.i.backedge:                              ; preds = %for.cond.i, %if.end.i
+  %.sink = phi i32 [ 13, %if.end.i ], [ 12, %for.cond.i ]
+  %next.i24 = getelementptr inbounds i8, ptr %10, i64 8
+  %11 = load ptr, ptr %next.i24, align 8
+  %call2.i25 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %11)
   %call.i.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i.i, align 16
-  br label %for.cond.i.backedge
-
-for.cond.i.backedge:                              ; preds = %if.then.i, %if.then5.i
-  %call.i.i.i.sink48 = phi ptr [ %call.i.i.i, %if.then.i ], [ %call.i.i4.i, %if.then5.i ]
-  %call2.i25.sink = phi ptr [ %call2.i25, %if.then.i ], [ %call7.i, %if.then5.i ]
-  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink48, i64 24
-  store ptr %6, ptr %tok2.i.i.i, align 8
-  %lhs1.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink48, i64 32
+  store i32 %.sink, ptr %call.i.i.i, align 16
+  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
+  store ptr %10, ptr %tok2.i.i.i, align 8
+  %lhs1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %node.0.i22, ptr %lhs1.i.i, align 16
-  %rhs2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink48, i64 40
-  store ptr %call2.i25.sink, ptr %rhs2.i.i, align 8
+  %rhs2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  store ptr %call2.i25, ptr %rhs2.i.i, align 8
   br label %for.cond.i
 
 if.end.i:                                         ; preds = %for.cond.i
-  %call4.i = tail call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.11) #13
-  br i1 %call4.i, label %if.then5.i, label %equality.exit
-
-if.then5.i:                                       ; preds = %if.end.i
-  %next6.i = getelementptr inbounds i8, ptr %6, i64 8
-  %8 = load ptr, ptr %next6.i, align 8
-  %call7.i = call fastcc ptr @relational(ptr noundef nonnull %tok.addr.i20, ptr noundef %8)
-  %call.i.i4.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4.i, align 16
-  br label %for.cond.i.backedge
+  %call4.i = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.11) #13
+  br i1 %call4.i, label %for.cond.i.backedge, label %equality.exit
 
 equality.exit:                                    ; preds = %if.end.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i20)
@@ -3069,13 +3095,12 @@ equality.exit:                                    ; preds = %if.end.i
   store ptr %node.0.i536, ptr %lhs1.i18, align 16
   %rhs2.i19 = getelementptr inbounds i8, ptr %call.i.i16, i64 40
   store ptr %node.0.i22, ptr %rhs2.i19, align 8
-  %call1.i6 = tail call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.9) #13
+  %call1.i6 = tail call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.9) #13
   br i1 %call1.i6, label %while.body.i7, label %bitand.exit11, !llvm.loop !23
 
-bitand.exit11:                                    ; preds = %equality.exit, %while.body
-  %.lcssa33.lcssa = phi ptr [ %tok.addr.i2.promoted, %while.body ], [ %6, %equality.exit ]
-  %node.0.i5.lcssa = phi ptr [ %call.i3, %while.body ], [ %call.i.i16, %equality.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i2)
+bitand.exit11:                                    ; preds = %equality.exit, %equality.exit93
+  %.lcssa33.lcssa = phi ptr [ %7, %equality.exit93 ], [ %10, %equality.exit ]
+  %node.0.i5.lcssa = phi ptr [ %node.0.i82, %equality.exit93 ], [ %call.i.i16, %equality.exit ]
   %call.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 9, ptr %call.i.i, align 16
   %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
@@ -3095,75 +3120,25 @@ while.end:                                        ; preds = %bitand.exit11, %bit
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @equality(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
-entry:
-  %tok.addr = alloca ptr, align 8
-  store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @relational(ptr noundef nonnull %tok.addr, ptr noundef %tok)
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i.sink9, %for.cond.backedge ]
-  %0 = load ptr, ptr %tok.addr, align 8
-  %call1 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.10) #13
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.cond
-  %next = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr, ptr noundef %1)
-  %call.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 12, ptr %call.i.i, align 16
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.then, %if.then5
-  %call.i.i.sink9 = phi ptr [ %call.i.i, %if.then ], [ %call.i.i4, %if.then5 ]
-  %call2.sink = phi ptr [ %call2, %if.then ], [ %call7, %if.then5 ]
-  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 24
-  store ptr %0, ptr %tok2.i.i, align 8
-  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 32
-  store ptr %node.0, ptr %lhs1.i, align 16
-  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 40
-  store ptr %call2.sink, ptr %rhs2.i, align 8
-  br label %for.cond
-
-if.end:                                           ; preds = %for.cond
-  %call4 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.11) #13
-  br i1 %call4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.end
-  %next6 = getelementptr inbounds i8, ptr %0, i64 8
-  %2 = load ptr, ptr %next6, align 8
-  %call7 = call fastcc ptr @relational(ptr noundef nonnull %tok.addr, ptr noundef %2)
-  %call.i.i4 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 13, ptr %call.i.i4, align 16
-  br label %for.cond.backedge
-
-if.end9:                                          ; preds = %if.end
-  store ptr %0, ptr %rest, align 8
-  ret ptr %node.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc ptr @relational(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %tok.addr.i648 = alloca ptr, align 8
-  %tok.addr.i617 = alloca ptr, align 8
-  %tok.addr.i586 = alloca ptr, align 8
-  %tok.addr.i555 = alloca ptr, align 8
-  %tok.addr.i524 = alloca ptr, align 8
-  %tok.addr.i494 = alloca ptr, align 8
-  %tok.addr.i463 = alloca ptr, align 8
-  %tok.addr.i432 = alloca ptr, align 8
-  %tok.addr.i401 = alloca ptr, align 8
-  %tok.addr.i371 = alloca ptr, align 8
-  %tok.addr.i340 = alloca ptr, align 8
-  %tok.addr.i309 = alloca ptr, align 8
-  %tok.addr.i278 = alloca ptr, align 8
-  %tok.addr.i248 = alloca ptr, align 8
-  %tok.addr.i217 = alloca ptr, align 8
-  %tok.addr.i186 = alloca ptr, align 8
-  %tok.addr.i155 = alloca ptr, align 8
+  %tok.addr.i896 = alloca ptr, align 8
+  %tok.addr.i865 = alloca ptr, align 8
+  %tok.addr.i785 = alloca ptr, align 8
+  %tok.addr.i754 = alloca ptr, align 8
+  %tok.addr.i723 = alloca ptr, align 8
+  %tok.addr.i644 = alloca ptr, align 8
+  %tok.addr.i613 = alloca ptr, align 8
+  %tok.addr.i582 = alloca ptr, align 8
+  %tok.addr.i502 = alloca ptr, align 8
+  %tok.addr.i472 = alloca ptr, align 8
+  %tok.addr.i441 = alloca ptr, align 8
+  %tok.addr.i361 = alloca ptr, align 8
+  %tok.addr.i330 = alloca ptr, align 8
+  %tok.addr.i300 = alloca ptr, align 8
+  %tok.addr.i220 = alloca ptr, align 8
+  %tok.addr.i189 = alloca ptr, align 8
+  %tok.addr.i158 = alloca ptr, align 8
   %tok.addr.i142 = alloca ptr, align 8
   %tok.addr = alloca ptr, align 8
   store ptr %tok, ptr %tok.addr, align 8
@@ -3171,7 +3146,7 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i.sink732, %for.cond.backedge ]
+  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i, %for.cond.backedge ]
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.12) #13
   br i1 %call1, label %if.then, label %if.end
@@ -3179,141 +3154,200 @@ for.cond:                                         ; preds = %for.cond.backedge, 
 if.then:                                          ; preds = %for.cond
   %next = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load ptr, ptr %next, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i371)
-  store ptr %1, ptr %tok.addr.i371, align 8
-  %call.i372 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i371, ptr noundef %1)
-  br label %for.cond.i373
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i472)
+  store ptr %1, ptr %tok.addr.i472, align 8
+  %call.i473 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i472, ptr noundef %1)
+  br label %for.cond.i474
 
-for.cond.i373:                                    ; preds = %for.cond.i373.backedge, %if.then
-  %node.0.i374 = phi ptr [ %call.i372, %if.then ], [ %call.i.i.i396.sink712, %for.cond.i373.backedge ]
-  %2 = load ptr, ptr %tok.addr.i371, align 8
-  %call1.i375 = call zeroext i1 @equal(ptr noundef %2, ptr noundef nonnull @.str.20) #13
-  %3 = load ptr, ptr %tok.addr.i371, align 8
-  br i1 %call1.i375, label %if.then.i394, label %if.end.i376
+for.cond.i474:                                    ; preds = %for.cond.i474.backedge, %if.then
+  %node.0.i475 = phi ptr [ %call.i473, %if.then ], [ %call.i.i.i497, %for.cond.i474.backedge ]
+  %2 = load ptr, ptr %tok.addr.i472, align 8
+  %call1.i476 = call zeroext i1 @equal(ptr noundef %2, ptr noundef nonnull @.str.20) #13
+  %3 = load ptr, ptr %tok.addr.i472, align 8
+  br i1 %call1.i476, label %for.cond.i474.backedge, label %if.end.i477
 
-if.then.i394:                                     ; preds = %for.cond.i373
-  %next.i395 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %next.i395, align 8
-  %call2.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i371, ptr noundef %4)
-  %call.i.i.i396 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i396, align 16
-  br label %for.cond.i373.backedge
+for.cond.i474.backedge:                           ; preds = %if.end9.i479, %for.cond.i474, %if.end.i477
+  %.sink1059 = phi ptr [ %5, %if.end.i477 ], [ %3, %for.cond.i474 ], [ %6, %if.end9.i479 ]
+  %.sink = phi i32 [ 4, %if.end.i477 ], [ 3, %for.cond.i474 ], [ 6, %if.end9.i479 ]
+  %next.i496 = getelementptr inbounds i8, ptr %.sink1059, i64 8
+  %4 = load ptr, ptr %next.i496, align 8
+  %call2.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i472, ptr noundef %4)
+  %call.i.i.i497 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink, ptr %call.i.i.i497, align 16
+  %tok2.i.i.i498 = getelementptr inbounds i8, ptr %call.i.i.i497, i64 24
+  store ptr %2, ptr %tok2.i.i.i498, align 8
+  %lhs1.i.i499 = getelementptr inbounds i8, ptr %call.i.i.i497, i64 32
+  store ptr %node.0.i475, ptr %lhs1.i.i499, align 16
+  %rhs2.i.i500 = getelementptr inbounds i8, ptr %call.i.i.i497, i64 40
+  store ptr %call2.i, ptr %rhs2.i.i500, align 8
+  br label %for.cond.i474
 
-for.cond.i373.backedge:                           ; preds = %if.then.i394, %if.then5.i387, %if.then11.i380
-  %call.i.i.i396.sink712 = phi ptr [ %call.i.i.i396, %if.then.i394 ], [ %call.i.i6.i390, %if.then5.i387 ], [ %call.i.i10.i383, %if.then11.i380 ]
-  %call2.i.sink = phi ptr [ %call2.i, %if.then.i394 ], [ %call7.i389, %if.then5.i387 ], [ %call13.i382, %if.then11.i380 ]
-  %tok2.i.i.i397 = getelementptr inbounds i8, ptr %call.i.i.i396.sink712, i64 24
-  store ptr %2, ptr %tok2.i.i.i397, align 8
-  %lhs1.i.i398 = getelementptr inbounds i8, ptr %call.i.i.i396.sink712, i64 32
-  store ptr %node.0.i374, ptr %lhs1.i.i398, align 16
-  %rhs2.i.i399 = getelementptr inbounds i8, ptr %call.i.i.i396.sink712, i64 40
-  store ptr %call2.i.sink, ptr %rhs2.i.i399, align 8
-  br label %for.cond.i373
+if.end.i477:                                      ; preds = %for.cond.i474
+  %call4.i478 = call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.21) #13
+  %5 = load ptr, ptr %tok.addr.i472, align 8
+  br i1 %call4.i478, label %for.cond.i474.backedge, label %if.end9.i479
 
-if.end.i376:                                      ; preds = %for.cond.i373
-  %call4.i377 = call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.21) #13
-  %5 = load ptr, ptr %tok.addr.i371, align 8
-  br i1 %call4.i377, label %if.then5.i387, label %if.end9.i378
+if.end9.i479:                                     ; preds = %if.end.i477
+  %call10.i480 = call zeroext i1 @equal(ptr noundef %5, ptr noundef nonnull @.str.22) #13
+  %6 = load ptr, ptr %tok.addr.i472, align 8
+  br i1 %call10.i480, label %for.cond.i474.backedge, label %mul.exit501
 
-if.then5.i387:                                    ; preds = %if.end.i376
-  %next6.i388 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %next6.i388, align 8
-  %call7.i389 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i371, ptr noundef %6)
-  %call.i.i6.i390 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i390, align 16
-  br label %for.cond.i373.backedge
-
-if.end9.i378:                                     ; preds = %if.end.i376
-  %call10.i379 = call zeroext i1 @equal(ptr noundef %5, ptr noundef nonnull @.str.22) #13
-  %7 = load ptr, ptr %tok.addr.i371, align 8
-  br i1 %call10.i379, label %if.then11.i380, label %mul.exit400
-
-if.then11.i380:                                   ; preds = %if.end9.i378
-  %next12.i381 = getelementptr inbounds i8, ptr %7, i64 8
-  %8 = load ptr, ptr %next12.i381, align 8
-  %call13.i382 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i371, ptr noundef %8)
-  %call.i.i10.i383 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i383, align 16
-  br label %for.cond.i373.backedge
-
-mul.exit400:                                      ; preds = %if.end9.i378
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i371)
+mul.exit501:                                      ; preds = %if.end9.i479
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i472)
   br label %for.cond.i74
 
-for.cond.i74:                                     ; preds = %for.cond.i74.backedge, %mul.exit400
-  %tok.addr.i72.0 = phi ptr [ %7, %mul.exit400 ], [ %tok.addr.i72.0.be, %for.cond.i74.backedge ]
-  %node.0.i75 = phi ptr [ %node.0.i374, %mul.exit400 ], [ %node.0.i75.be, %for.cond.i74.backedge ]
+for.cond.i74:                                     ; preds = %for.cond.i74.backedge, %mul.exit501
+  %tok.addr.i72.0 = phi ptr [ %6, %mul.exit501 ], [ %tok.addr.i72.0.be, %for.cond.i74.backedge ]
+  %node.0.i75 = phi ptr [ %node.0.i475, %mul.exit501 ], [ %node.0.i75.be, %for.cond.i74.backedge ]
   %call1.i76 = call zeroext i1 @equal(ptr noundef %tok.addr.i72.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i76, label %if.then.i83, label %if.end.i77
 
 if.then.i83:                                      ; preds = %for.cond.i74
   %next.i84 = getelementptr inbounds i8, ptr %tok.addr.i72.0, i64 8
-  %9 = load ptr, ptr %next.i84, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i340)
-  store ptr %9, ptr %tok.addr.i340, align 8
-  %call.i341 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i340, ptr noundef %9)
-  br label %for.cond.i342
+  %7 = load ptr, ptr %next.i84, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i441)
+  store ptr %7, ptr %tok.addr.i441, align 8
+  %call.i442 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i441, ptr noundef %7)
+  br label %for.cond.i443
 
-for.cond.i342:                                    ; preds = %for.cond.i342.backedge, %if.then.i83
-  %node.0.i343 = phi ptr [ %call.i341, %if.then.i83 ], [ %call.i.i.i366.sink714, %for.cond.i342.backedge ]
-  %10 = load ptr, ptr %tok.addr.i340, align 8
-  %call1.i344 = call zeroext i1 @equal(ptr noundef %10, ptr noundef nonnull @.str.20) #13
-  %11 = load ptr, ptr %tok.addr.i340, align 8
-  br i1 %call1.i344, label %if.then.i363, label %if.end.i345
+for.cond.i443:                                    ; preds = %for.cond.i443.backedge, %if.then.i83
+  %node.0.i444 = phi ptr [ %call.i442, %if.then.i83 ], [ %call.i.i.i467, %for.cond.i443.backedge ]
+  %8 = load ptr, ptr %tok.addr.i441, align 8
+  %call1.i445 = call zeroext i1 @equal(ptr noundef %8, ptr noundef nonnull @.str.20) #13
+  %9 = load ptr, ptr %tok.addr.i441, align 8
+  br i1 %call1.i445, label %for.cond.i443.backedge, label %if.end.i446
 
-if.then.i363:                                     ; preds = %for.cond.i342
-  %next.i364 = getelementptr inbounds i8, ptr %11, i64 8
-  %12 = load ptr, ptr %next.i364, align 8
-  %call2.i365 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i340, ptr noundef %12)
-  %call.i.i.i366 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i366, align 16
-  br label %for.cond.i342.backedge
+for.cond.i443.backedge:                           ; preds = %if.end9.i448, %for.cond.i443, %if.end.i446
+  %.sink1065 = phi ptr [ %11, %if.end.i446 ], [ %9, %for.cond.i443 ], [ %12, %if.end9.i448 ]
+  %.sink1062 = phi i32 [ 4, %if.end.i446 ], [ 3, %for.cond.i443 ], [ 6, %if.end9.i448 ]
+  %next.i465 = getelementptr inbounds i8, ptr %.sink1065, i64 8
+  %10 = load ptr, ptr %next.i465, align 8
+  %call2.i466 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i441, ptr noundef %10)
+  %call.i.i.i467 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1062, ptr %call.i.i.i467, align 16
+  %tok2.i.i.i468 = getelementptr inbounds i8, ptr %call.i.i.i467, i64 24
+  store ptr %8, ptr %tok2.i.i.i468, align 8
+  %lhs1.i.i469 = getelementptr inbounds i8, ptr %call.i.i.i467, i64 32
+  store ptr %node.0.i444, ptr %lhs1.i.i469, align 16
+  %rhs2.i.i470 = getelementptr inbounds i8, ptr %call.i.i.i467, i64 40
+  store ptr %call2.i466, ptr %rhs2.i.i470, align 8
+  br label %for.cond.i443
 
-for.cond.i342.backedge:                           ; preds = %if.then.i363, %if.then5.i356, %if.then11.i349
-  %call.i.i.i366.sink714 = phi ptr [ %call.i.i.i366, %if.then.i363 ], [ %call.i.i6.i359, %if.then5.i356 ], [ %call.i.i10.i352, %if.then11.i349 ]
-  %call2.i365.sink = phi ptr [ %call2.i365, %if.then.i363 ], [ %call7.i358, %if.then5.i356 ], [ %call13.i351, %if.then11.i349 ]
-  %tok2.i.i.i367 = getelementptr inbounds i8, ptr %call.i.i.i366.sink714, i64 24
-  store ptr %10, ptr %tok2.i.i.i367, align 8
-  %lhs1.i.i368 = getelementptr inbounds i8, ptr %call.i.i.i366.sink714, i64 32
-  store ptr %node.0.i343, ptr %lhs1.i.i368, align 16
-  %rhs2.i.i369 = getelementptr inbounds i8, ptr %call.i.i.i366.sink714, i64 40
-  store ptr %call2.i365.sink, ptr %rhs2.i.i369, align 8
-  br label %for.cond.i342
+if.end.i446:                                      ; preds = %for.cond.i443
+  %call4.i447 = call zeroext i1 @equal(ptr noundef %9, ptr noundef nonnull @.str.21) #13
+  %11 = load ptr, ptr %tok.addr.i441, align 8
+  br i1 %call4.i447, label %for.cond.i443.backedge, label %if.end9.i448
 
-if.end.i345:                                      ; preds = %for.cond.i342
-  %call4.i346 = call zeroext i1 @equal(ptr noundef %11, ptr noundef nonnull @.str.21) #13
-  %13 = load ptr, ptr %tok.addr.i340, align 8
-  br i1 %call4.i346, label %if.then5.i356, label %if.end9.i347
+if.end9.i448:                                     ; preds = %if.end.i446
+  %call10.i449 = call zeroext i1 @equal(ptr noundef %11, ptr noundef nonnull @.str.22) #13
+  %12 = load ptr, ptr %tok.addr.i441, align 8
+  br i1 %call10.i449, label %for.cond.i443.backedge, label %mul.exit471
 
-if.then5.i356:                                    ; preds = %if.end.i345
-  %next6.i357 = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load ptr, ptr %next6.i357, align 8
-  %call7.i358 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i340, ptr noundef %14)
-  %call.i.i6.i359 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i359, align 16
-  br label %for.cond.i342.backedge
+mul.exit471:                                      ; preds = %if.end9.i448
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i441)
+  call void @add_type(ptr noundef %node.0.i75) #13
+  call void @add_type(ptr noundef %node.0.i444) #13
+  %ty.i392 = getelementptr inbounds i8, ptr %node.0.i75, i64 16
+  %13 = load ptr, ptr %ty.i392, align 16
+  %call.i393 = call zeroext i1 @is_numeric(ptr noundef %13) #13
+  br i1 %call.i393, label %land.lhs.true.i437, label %if.end.i394
 
-if.end9.i347:                                     ; preds = %if.end.i345
-  %call10.i348 = call zeroext i1 @equal(ptr noundef %13, ptr noundef nonnull @.str.22) #13
-  %15 = load ptr, ptr %tok.addr.i340, align 8
-  br i1 %call10.i348, label %if.then11.i349, label %mul.exit370
+land.lhs.true.i437:                               ; preds = %mul.exit471
+  %ty1.i438 = getelementptr inbounds i8, ptr %node.0.i444, i64 16
+  %14 = load ptr, ptr %ty1.i438, align 16
+  %call2.i439 = call zeroext i1 @is_numeric(ptr noundef %14) #13
+  br i1 %call2.i439, label %new_add.exit440, label %if.end.i394
 
-if.then11.i349:                                   ; preds = %if.end9.i347
-  %next12.i350 = getelementptr inbounds i8, ptr %15, i64 8
-  %16 = load ptr, ptr %next12.i350, align 8
-  %call13.i351 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i340, ptr noundef %16)
-  %call.i.i10.i352 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i352, align 16
-  br label %for.cond.i342.backedge
+if.end.i394:                                      ; preds = %land.lhs.true.i437, %mul.exit471
+  %15 = load ptr, ptr %ty.i392, align 16
+  %base.i395 = getelementptr inbounds i8, ptr %15, i64 24
+  %16 = load ptr, ptr %base.i395, align 8
+  %tobool.not.i396 = icmp eq ptr %16, null
+  %ty15.i397 = getelementptr inbounds i8, ptr %node.0.i444, i64 16
+  %17 = load ptr, ptr %ty15.i397, align 16
+  %base16.i398 = getelementptr inbounds i8, ptr %17, i64 24
+  %18 = load ptr, ptr %base16.i398, align 8
+  %tobool17.not.i399 = icmp eq ptr %18, null
+  br i1 %tobool.not.i396, label %land.lhs.true14.i430, label %land.lhs.true5.i400
 
-mul.exit370:                                      ; preds = %if.end9.i347
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i340)
-  %call3.i85 = call fastcc ptr @new_add(ptr noundef %node.0.i75, ptr noundef %node.0.i343, ptr noundef %tok.addr.i72.0)
+land.lhs.true5.i400:                              ; preds = %if.end.i394
+  br i1 %tobool17.not.i399, label %if.end19.i402, label %if.then9.i401
+
+if.then9.i401:                                    ; preds = %land.lhs.true5.i400
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i72.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i430:                             ; preds = %if.end.i394
+  %spec.select.i431 = select i1 %tobool17.not.i399, ptr %node.0.i444, ptr %node.0.i75
+  %spec.select27.i432 = select i1 %tobool17.not.i399, ptr %node.0.i75, ptr %node.0.i444
+  %ty20.phi.trans.insert.i433 = getelementptr inbounds i8, ptr %spec.select27.i432, i64 16
+  %.pre.i434 = load ptr, ptr %ty20.phi.trans.insert.i433, align 16
+  %base21.phi.trans.insert.i435 = getelementptr inbounds i8, ptr %.pre.i434, i64 24
+  %.pre48.i436 = load ptr, ptr %base21.phi.trans.insert.i435, align 8
+  br label %if.end19.i402
+
+if.end19.i402:                                    ; preds = %land.lhs.true14.i430, %land.lhs.true5.i400
+  %19 = phi ptr [ %.pre48.i436, %land.lhs.true14.i430 ], [ %16, %land.lhs.true5.i400 ]
+  %rhs.addr.0.i403 = phi ptr [ %spec.select.i431, %land.lhs.true14.i430 ], [ %node.0.i444, %land.lhs.true5.i400 ]
+  %lhs.addr.0.i404 = phi ptr [ %spec.select27.i432, %land.lhs.true14.i430 ], [ %node.0.i75, %land.lhs.true5.i400 ]
+  %20 = load i32, ptr %19, align 8
+  %cmp.i405 = icmp eq i32 %20, 13
+  br i1 %cmp.i405, label %if.then22.i425, label %if.end28.i406
+
+if.then22.i425:                                   ; preds = %if.end19.i402
+  %vla_size.i426 = getelementptr inbounds i8, ptr %19, i64 64
+  %21 = load ptr, ptr %vla_size.i426, align 8
+  %call.i.i28.i427 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i427, align 16
+  %tok2.i.i29.i428 = getelementptr inbounds i8, ptr %call.i.i28.i427, i64 24
+  store ptr %tok.addr.i72.0, ptr %tok2.i.i29.i428, align 8
+  %var1.i.i429 = getelementptr inbounds i8, ptr %call.i.i28.i427, i64 256
+  store ptr %21, ptr %var1.i.i429, align 16
+  br label %return.sink.split.i413
+
+if.end28.i406:                                    ; preds = %if.end19.i402
+  %size.i407 = getelementptr inbounds i8, ptr %19, i64 4
+  %22 = load i32, ptr %size.i407, align 4
+  %conv.i408 = sext i32 %22 to i64
+  %call.i.i38.i409 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i409, align 16
+  %tok2.i.i39.i410 = getelementptr inbounds i8, ptr %call.i.i38.i409, i64 24
+  store ptr %tok.addr.i72.0, ptr %tok2.i.i39.i410, align 8
+  %val1.i.i411 = getelementptr inbounds i8, ptr %call.i.i38.i409, i64 264
+  store i64 %conv.i408, ptr %val1.i.i411, align 8
+  %23 = load ptr, ptr @ty_long, align 8
+  %ty.i.i412 = getelementptr inbounds i8, ptr %call.i.i38.i409, i64 16
+  store ptr %23, ptr %ty.i.i412, align 16
+  br label %return.sink.split.i413
+
+return.sink.split.i413:                           ; preds = %if.end28.i406, %if.then22.i425
+  %call.i.i38.sink.i414 = phi ptr [ %call.i.i38.i409, %if.end28.i406 ], [ %call.i.i28.i427, %if.then22.i425 ]
+  %call.i.i40.i415 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i415, align 16
+  %tok2.i.i41.i416 = getelementptr inbounds i8, ptr %call.i.i40.i415, i64 24
+  store ptr %tok.addr.i72.0, ptr %tok2.i.i41.i416, align 8
+  %lhs1.i42.i417 = getelementptr inbounds i8, ptr %call.i.i40.i415, i64 32
+  store ptr %rhs.addr.0.i403, ptr %lhs1.i42.i417, align 16
+  %rhs2.i43.i418 = getelementptr inbounds i8, ptr %call.i.i40.i415, i64 40
+  store ptr %call.i.i38.sink.i414, ptr %rhs2.i43.i418, align 8
+  br label %new_add.exit440
+
+new_add.exit440:                                  ; preds = %land.lhs.true.i437, %return.sink.split.i413
+  %lhs.addr.0.sink.i419 = phi ptr [ %node.0.i75, %land.lhs.true.i437 ], [ %lhs.addr.0.i404, %return.sink.split.i413 ]
+  %call.i.i40.sink.i420 = phi ptr [ %node.0.i444, %land.lhs.true.i437 ], [ %call.i.i40.i415, %return.sink.split.i413 ]
+  %call.i.i44.i421 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i421, align 16
+  %tok2.i.i45.i422 = getelementptr inbounds i8, ptr %call.i.i44.i421, i64 24
+  store ptr %tok.addr.i72.0, ptr %tok2.i.i45.i422, align 8
+  %lhs1.i46.i423 = getelementptr inbounds i8, ptr %call.i.i44.i421, i64 32
+  store ptr %lhs.addr.0.sink.i419, ptr %lhs1.i46.i423, align 16
+  %rhs2.i47.i424 = getelementptr inbounds i8, ptr %call.i.i44.i421, i64 40
+  store ptr %call.i.i40.sink.i420, ptr %rhs2.i47.i424, align 8
   br label %for.cond.i74.backedge
 
-for.cond.i74.backedge:                            ; preds = %mul.exit370, %mul.exit339
-  %tok.addr.i72.0.be = phi ptr [ %15, %mul.exit370 ], [ %23, %mul.exit339 ]
-  %node.0.i75.be = phi ptr [ %call3.i85, %mul.exit370 ], [ %call8.i82, %mul.exit339 ]
+for.cond.i74.backedge:                            ; preds = %new_add.exit440, %mul.exit391
+  %tok.addr.i72.0.be = phi ptr [ %12, %new_add.exit440 ], [ %29, %mul.exit391 ]
+  %node.0.i75.be = phi ptr [ %call.i.i44.i421, %new_add.exit440 ], [ %call8.i82, %mul.exit391 ]
   br label %for.cond.i74
 
 if.end.i77:                                       ; preds = %for.cond.i74
@@ -3322,298 +3356,316 @@ if.end.i77:                                       ; preds = %for.cond.i74
 
 if.then5.i79:                                     ; preds = %if.end.i77
   %next6.i80 = getelementptr inbounds i8, ptr %tok.addr.i72.0, i64 8
-  %17 = load ptr, ptr %next6.i80, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i309)
-  store ptr %17, ptr %tok.addr.i309, align 8
-  %call.i310 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i309, ptr noundef %17)
-  br label %for.cond.i311
+  %24 = load ptr, ptr %next6.i80, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i361)
+  store ptr %24, ptr %tok.addr.i361, align 8
+  %call.i362 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i361, ptr noundef %24)
+  br label %for.cond.i363
 
-for.cond.i311:                                    ; preds = %for.cond.i311.backedge, %if.then5.i79
-  %node.0.i312 = phi ptr [ %call.i310, %if.then5.i79 ], [ %call.i.i.i335.sink716, %for.cond.i311.backedge ]
-  %18 = load ptr, ptr %tok.addr.i309, align 8
-  %call1.i313 = call zeroext i1 @equal(ptr noundef %18, ptr noundef nonnull @.str.20) #13
-  %19 = load ptr, ptr %tok.addr.i309, align 8
-  br i1 %call1.i313, label %if.then.i332, label %if.end.i314
+for.cond.i363:                                    ; preds = %for.cond.i363.backedge, %if.then5.i79
+  %node.0.i364 = phi ptr [ %call.i362, %if.then5.i79 ], [ %call.i.i.i387, %for.cond.i363.backedge ]
+  %25 = load ptr, ptr %tok.addr.i361, align 8
+  %call1.i365 = call zeroext i1 @equal(ptr noundef %25, ptr noundef nonnull @.str.20) #13
+  %26 = load ptr, ptr %tok.addr.i361, align 8
+  br i1 %call1.i365, label %for.cond.i363.backedge, label %if.end.i366
 
-if.then.i332:                                     ; preds = %for.cond.i311
-  %next.i333 = getelementptr inbounds i8, ptr %19, i64 8
-  %20 = load ptr, ptr %next.i333, align 8
-  %call2.i334 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i309, ptr noundef %20)
-  %call.i.i.i335 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i335, align 16
-  br label %for.cond.i311.backedge
+for.cond.i363.backedge:                           ; preds = %if.end9.i368, %for.cond.i363, %if.end.i366
+  %.sink1071 = phi ptr [ %28, %if.end.i366 ], [ %26, %for.cond.i363 ], [ %29, %if.end9.i368 ]
+  %.sink1068 = phi i32 [ 4, %if.end.i366 ], [ 3, %for.cond.i363 ], [ 6, %if.end9.i368 ]
+  %next.i385 = getelementptr inbounds i8, ptr %.sink1071, i64 8
+  %27 = load ptr, ptr %next.i385, align 8
+  %call2.i386 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i361, ptr noundef %27)
+  %call.i.i.i387 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1068, ptr %call.i.i.i387, align 16
+  %tok2.i.i.i388 = getelementptr inbounds i8, ptr %call.i.i.i387, i64 24
+  store ptr %25, ptr %tok2.i.i.i388, align 8
+  %lhs1.i.i389 = getelementptr inbounds i8, ptr %call.i.i.i387, i64 32
+  store ptr %node.0.i364, ptr %lhs1.i.i389, align 16
+  %rhs2.i.i390 = getelementptr inbounds i8, ptr %call.i.i.i387, i64 40
+  store ptr %call2.i386, ptr %rhs2.i.i390, align 8
+  br label %for.cond.i363
 
-for.cond.i311.backedge:                           ; preds = %if.then.i332, %if.then5.i325, %if.then11.i318
-  %call.i.i.i335.sink716 = phi ptr [ %call.i.i.i335, %if.then.i332 ], [ %call.i.i6.i328, %if.then5.i325 ], [ %call.i.i10.i321, %if.then11.i318 ]
-  %call2.i334.sink = phi ptr [ %call2.i334, %if.then.i332 ], [ %call7.i327, %if.then5.i325 ], [ %call13.i320, %if.then11.i318 ]
-  %tok2.i.i.i336 = getelementptr inbounds i8, ptr %call.i.i.i335.sink716, i64 24
-  store ptr %18, ptr %tok2.i.i.i336, align 8
-  %lhs1.i.i337 = getelementptr inbounds i8, ptr %call.i.i.i335.sink716, i64 32
-  store ptr %node.0.i312, ptr %lhs1.i.i337, align 16
-  %rhs2.i.i338 = getelementptr inbounds i8, ptr %call.i.i.i335.sink716, i64 40
-  store ptr %call2.i334.sink, ptr %rhs2.i.i338, align 8
-  br label %for.cond.i311
+if.end.i366:                                      ; preds = %for.cond.i363
+  %call4.i367 = call zeroext i1 @equal(ptr noundef %26, ptr noundef nonnull @.str.21) #13
+  %28 = load ptr, ptr %tok.addr.i361, align 8
+  br i1 %call4.i367, label %for.cond.i363.backedge, label %if.end9.i368
 
-if.end.i314:                                      ; preds = %for.cond.i311
-  %call4.i315 = call zeroext i1 @equal(ptr noundef %19, ptr noundef nonnull @.str.21) #13
-  %21 = load ptr, ptr %tok.addr.i309, align 8
-  br i1 %call4.i315, label %if.then5.i325, label %if.end9.i316
+if.end9.i368:                                     ; preds = %if.end.i366
+  %call10.i369 = call zeroext i1 @equal(ptr noundef %28, ptr noundef nonnull @.str.22) #13
+  %29 = load ptr, ptr %tok.addr.i361, align 8
+  br i1 %call10.i369, label %for.cond.i363.backedge, label %mul.exit391
 
-if.then5.i325:                                    ; preds = %if.end.i314
-  %next6.i326 = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %next6.i326, align 8
-  %call7.i327 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i309, ptr noundef %22)
-  %call.i.i6.i328 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i328, align 16
-  br label %for.cond.i311.backedge
-
-if.end9.i316:                                     ; preds = %if.end.i314
-  %call10.i317 = call zeroext i1 @equal(ptr noundef %21, ptr noundef nonnull @.str.22) #13
-  %23 = load ptr, ptr %tok.addr.i309, align 8
-  br i1 %call10.i317, label %if.then11.i318, label %mul.exit339
-
-if.then11.i318:                                   ; preds = %if.end9.i316
-  %next12.i319 = getelementptr inbounds i8, ptr %23, i64 8
-  %24 = load ptr, ptr %next12.i319, align 8
-  %call13.i320 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i309, ptr noundef %24)
-  %call.i.i10.i321 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i321, align 16
-  br label %for.cond.i311.backedge
-
-mul.exit339:                                      ; preds = %if.end9.i316
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i309)
-  %call8.i82 = call fastcc ptr @new_sub(ptr noundef %node.0.i75, ptr noundef %node.0.i312, ptr noundef %tok.addr.i72.0)
+mul.exit391:                                      ; preds = %if.end9.i368
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i361)
+  %call8.i82 = call fastcc ptr @new_sub(ptr noundef %node.0.i75, ptr noundef %node.0.i364, ptr noundef %tok.addr.i72.0)
   br label %for.cond.i74.backedge
 
 for.cond.i:                                       ; preds = %if.end.i77, %for.cond.i.backedge
   %tok.addr.i.0 = phi ptr [ %tok.addr.i.0.be, %for.cond.i.backedge ], [ %tok.addr.i72.0, %if.end.i77 ]
-  %node.0.i = phi ptr [ %call.i.i54.sink724, %for.cond.i.backedge ], [ %node.0.i75, %if.end.i77 ]
+  %node.0.i = phi ptr [ %call.i.i54, %for.cond.i.backedge ], [ %node.0.i75, %if.end.i77 ]
   %call1.i = call zeroext i1 @equal(ptr noundef %tok.addr.i.0, ptr noundef nonnull @.str.16) #13
   br i1 %call1.i, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %for.cond.i
   %next.i = getelementptr inbounds i8, ptr %tok.addr.i.0, i64 8
-  %25 = load ptr, ptr %next.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i278)
-  store ptr %25, ptr %tok.addr.i278, align 8
-  %call.i279 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i278, ptr noundef %25)
-  br label %for.cond.i280
+  %30 = load ptr, ptr %next.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i330)
+  store ptr %30, ptr %tok.addr.i330, align 8
+  %call.i331 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i330, ptr noundef %30)
+  br label %for.cond.i332
 
-for.cond.i280:                                    ; preds = %for.cond.i280.backedge, %if.then.i
-  %node.0.i281 = phi ptr [ %call.i279, %if.then.i ], [ %call.i.i.i304.sink718, %for.cond.i280.backedge ]
-  %26 = load ptr, ptr %tok.addr.i278, align 8
-  %call1.i282 = call zeroext i1 @equal(ptr noundef %26, ptr noundef nonnull @.str.20) #13
-  %27 = load ptr, ptr %tok.addr.i278, align 8
-  br i1 %call1.i282, label %if.then.i301, label %if.end.i283
+for.cond.i332:                                    ; preds = %for.cond.i332.backedge, %if.then.i
+  %node.0.i333 = phi ptr [ %call.i331, %if.then.i ], [ %call.i.i.i356, %for.cond.i332.backedge ]
+  %31 = load ptr, ptr %tok.addr.i330, align 8
+  %call1.i334 = call zeroext i1 @equal(ptr noundef %31, ptr noundef nonnull @.str.20) #13
+  %32 = load ptr, ptr %tok.addr.i330, align 8
+  br i1 %call1.i334, label %for.cond.i332.backedge, label %if.end.i335
 
-if.then.i301:                                     ; preds = %for.cond.i280
-  %next.i302 = getelementptr inbounds i8, ptr %27, i64 8
-  %28 = load ptr, ptr %next.i302, align 8
-  %call2.i303 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i278, ptr noundef %28)
-  %call.i.i.i304 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i304, align 16
-  br label %for.cond.i280.backedge
+for.cond.i332.backedge:                           ; preds = %if.end9.i337, %for.cond.i332, %if.end.i335
+  %.sink1077 = phi ptr [ %34, %if.end.i335 ], [ %32, %for.cond.i332 ], [ %35, %if.end9.i337 ]
+  %.sink1074 = phi i32 [ 4, %if.end.i335 ], [ 3, %for.cond.i332 ], [ 6, %if.end9.i337 ]
+  %next.i354 = getelementptr inbounds i8, ptr %.sink1077, i64 8
+  %33 = load ptr, ptr %next.i354, align 8
+  %call2.i355 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i330, ptr noundef %33)
+  %call.i.i.i356 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1074, ptr %call.i.i.i356, align 16
+  %tok2.i.i.i357 = getelementptr inbounds i8, ptr %call.i.i.i356, i64 24
+  store ptr %31, ptr %tok2.i.i.i357, align 8
+  %lhs1.i.i358 = getelementptr inbounds i8, ptr %call.i.i.i356, i64 32
+  store ptr %node.0.i333, ptr %lhs1.i.i358, align 16
+  %rhs2.i.i359 = getelementptr inbounds i8, ptr %call.i.i.i356, i64 40
+  store ptr %call2.i355, ptr %rhs2.i.i359, align 8
+  br label %for.cond.i332
 
-for.cond.i280.backedge:                           ; preds = %if.then.i301, %if.then5.i294, %if.then11.i287
-  %call.i.i.i304.sink718 = phi ptr [ %call.i.i.i304, %if.then.i301 ], [ %call.i.i6.i297, %if.then5.i294 ], [ %call.i.i10.i290, %if.then11.i287 ]
-  %call2.i303.sink = phi ptr [ %call2.i303, %if.then.i301 ], [ %call7.i296, %if.then5.i294 ], [ %call13.i289, %if.then11.i287 ]
-  %tok2.i.i.i305 = getelementptr inbounds i8, ptr %call.i.i.i304.sink718, i64 24
-  store ptr %26, ptr %tok2.i.i.i305, align 8
-  %lhs1.i.i306 = getelementptr inbounds i8, ptr %call.i.i.i304.sink718, i64 32
-  store ptr %node.0.i281, ptr %lhs1.i.i306, align 16
-  %rhs2.i.i307 = getelementptr inbounds i8, ptr %call.i.i.i304.sink718, i64 40
-  store ptr %call2.i303.sink, ptr %rhs2.i.i307, align 8
-  br label %for.cond.i280
+if.end.i335:                                      ; preds = %for.cond.i332
+  %call4.i336 = call zeroext i1 @equal(ptr noundef %32, ptr noundef nonnull @.str.21) #13
+  %34 = load ptr, ptr %tok.addr.i330, align 8
+  br i1 %call4.i336, label %for.cond.i332.backedge, label %if.end9.i337
 
-if.end.i283:                                      ; preds = %for.cond.i280
-  %call4.i284 = call zeroext i1 @equal(ptr noundef %27, ptr noundef nonnull @.str.21) #13
-  %29 = load ptr, ptr %tok.addr.i278, align 8
-  br i1 %call4.i284, label %if.then5.i294, label %if.end9.i285
+if.end9.i337:                                     ; preds = %if.end.i335
+  %call10.i338 = call zeroext i1 @equal(ptr noundef %34, ptr noundef nonnull @.str.22) #13
+  %35 = load ptr, ptr %tok.addr.i330, align 8
+  br i1 %call10.i338, label %for.cond.i332.backedge, label %mul.exit360
 
-if.then5.i294:                                    ; preds = %if.end.i283
-  %next6.i295 = getelementptr inbounds i8, ptr %29, i64 8
-  %30 = load ptr, ptr %next6.i295, align 8
-  %call7.i296 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i278, ptr noundef %30)
-  %call.i.i6.i297 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i297, align 16
-  br label %for.cond.i280.backedge
-
-if.end9.i285:                                     ; preds = %if.end.i283
-  %call10.i286 = call zeroext i1 @equal(ptr noundef %29, ptr noundef nonnull @.str.22) #13
-  %31 = load ptr, ptr %tok.addr.i278, align 8
-  br i1 %call10.i286, label %if.then11.i287, label %mul.exit308
-
-if.then11.i287:                                   ; preds = %if.end9.i285
-  %next12.i288 = getelementptr inbounds i8, ptr %31, i64 8
-  %32 = load ptr, ptr %next12.i288, align 8
-  %call13.i289 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i278, ptr noundef %32)
-  %call.i.i10.i290 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i290, align 16
-  br label %for.cond.i280.backedge
-
-mul.exit308:                                      ; preds = %if.end9.i285
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i278)
+mul.exit360:                                      ; preds = %if.end9.i337
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i330)
   br label %for.cond.i60
 
-for.cond.i60:                                     ; preds = %for.cond.i60.backedge, %mul.exit308
-  %tok.addr.i58.0 = phi ptr [ %31, %mul.exit308 ], [ %tok.addr.i58.0.be, %for.cond.i60.backedge ]
-  %node.0.i61 = phi ptr [ %node.0.i281, %mul.exit308 ], [ %node.0.i61.be, %for.cond.i60.backedge ]
+for.cond.i60:                                     ; preds = %for.cond.i60.backedge, %mul.exit360
+  %tok.addr.i58.0 = phi ptr [ %35, %mul.exit360 ], [ %tok.addr.i58.0.be, %for.cond.i60.backedge ]
+  %node.0.i61 = phi ptr [ %node.0.i333, %mul.exit360 ], [ %node.0.i61.be, %for.cond.i60.backedge ]
   %call1.i62 = call zeroext i1 @equal(ptr noundef %tok.addr.i58.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i62, label %if.then.i68, label %if.end.i63
 
 if.then.i68:                                      ; preds = %for.cond.i60
   %next.i69 = getelementptr inbounds i8, ptr %tok.addr.i58.0, i64 8
-  %33 = load ptr, ptr %next.i69, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i248)
-  store ptr %33, ptr %tok.addr.i248, align 8
-  %call.i249 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i248, ptr noundef %33)
-  br label %for.cond.i250
+  %36 = load ptr, ptr %next.i69, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i300)
+  store ptr %36, ptr %tok.addr.i300, align 8
+  %call.i301 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i300, ptr noundef %36)
+  br label %for.cond.i302
 
-for.cond.i250:                                    ; preds = %for.cond.i250.backedge, %if.then.i68
-  %node.0.i251 = phi ptr [ %call.i249, %if.then.i68 ], [ %call.i.i.i273.sink720, %for.cond.i250.backedge ]
-  %34 = load ptr, ptr %tok.addr.i248, align 8
-  %call1.i252 = call zeroext i1 @equal(ptr noundef %34, ptr noundef nonnull @.str.20) #13
-  %35 = load ptr, ptr %tok.addr.i248, align 8
-  br i1 %call1.i252, label %if.then.i270, label %if.end.i253
+for.cond.i302:                                    ; preds = %for.cond.i302.backedge, %if.then.i68
+  %node.0.i303 = phi ptr [ %call.i301, %if.then.i68 ], [ %call.i.i.i325, %for.cond.i302.backedge ]
+  %37 = load ptr, ptr %tok.addr.i300, align 8
+  %call1.i304 = call zeroext i1 @equal(ptr noundef %37, ptr noundef nonnull @.str.20) #13
+  %38 = load ptr, ptr %tok.addr.i300, align 8
+  br i1 %call1.i304, label %for.cond.i302.backedge, label %if.end.i305
 
-if.then.i270:                                     ; preds = %for.cond.i250
-  %next.i271 = getelementptr inbounds i8, ptr %35, i64 8
-  %36 = load ptr, ptr %next.i271, align 8
-  %call2.i272 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i248, ptr noundef %36)
-  %call.i.i.i273 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i273, align 16
-  br label %for.cond.i250.backedge
+for.cond.i302.backedge:                           ; preds = %if.end9.i307, %for.cond.i302, %if.end.i305
+  %.sink1083 = phi ptr [ %40, %if.end.i305 ], [ %38, %for.cond.i302 ], [ %41, %if.end9.i307 ]
+  %.sink1080 = phi i32 [ 4, %if.end.i305 ], [ 3, %for.cond.i302 ], [ 6, %if.end9.i307 ]
+  %next.i323 = getelementptr inbounds i8, ptr %.sink1083, i64 8
+  %39 = load ptr, ptr %next.i323, align 8
+  %call2.i324 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i300, ptr noundef %39)
+  %call.i.i.i325 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1080, ptr %call.i.i.i325, align 16
+  %tok2.i.i.i326 = getelementptr inbounds i8, ptr %call.i.i.i325, i64 24
+  store ptr %37, ptr %tok2.i.i.i326, align 8
+  %lhs1.i.i327 = getelementptr inbounds i8, ptr %call.i.i.i325, i64 32
+  store ptr %node.0.i303, ptr %lhs1.i.i327, align 16
+  %rhs2.i.i328 = getelementptr inbounds i8, ptr %call.i.i.i325, i64 40
+  store ptr %call2.i324, ptr %rhs2.i.i328, align 8
+  br label %for.cond.i302
 
-for.cond.i250.backedge:                           ; preds = %if.then.i270, %if.then5.i264, %if.then11.i257
-  %call.i.i.i273.sink720 = phi ptr [ %call.i.i.i273, %if.then.i270 ], [ %call.i.i6.i266, %if.then5.i264 ], [ %call.i.i10.i260, %if.then11.i257 ]
-  %call2.i272.sink = phi ptr [ %call2.i272, %if.then.i270 ], [ %call7.i, %if.then5.i264 ], [ %call13.i259, %if.then11.i257 ]
-  %tok2.i.i.i274 = getelementptr inbounds i8, ptr %call.i.i.i273.sink720, i64 24
-  store ptr %34, ptr %tok2.i.i.i274, align 8
-  %lhs1.i.i275 = getelementptr inbounds i8, ptr %call.i.i.i273.sink720, i64 32
-  store ptr %node.0.i251, ptr %lhs1.i.i275, align 16
-  %rhs2.i.i276 = getelementptr inbounds i8, ptr %call.i.i.i273.sink720, i64 40
-  store ptr %call2.i272.sink, ptr %rhs2.i.i276, align 8
-  br label %for.cond.i250
+if.end.i305:                                      ; preds = %for.cond.i302
+  %call4.i306 = call zeroext i1 @equal(ptr noundef %38, ptr noundef nonnull @.str.21) #13
+  %40 = load ptr, ptr %tok.addr.i300, align 8
+  br i1 %call4.i306, label %for.cond.i302.backedge, label %if.end9.i307
 
-if.end.i253:                                      ; preds = %for.cond.i250
-  %call4.i254 = call zeroext i1 @equal(ptr noundef %35, ptr noundef nonnull @.str.21) #13
-  %37 = load ptr, ptr %tok.addr.i248, align 8
-  br i1 %call4.i254, label %if.then5.i264, label %if.end9.i255
+if.end9.i307:                                     ; preds = %if.end.i305
+  %call10.i308 = call zeroext i1 @equal(ptr noundef %40, ptr noundef nonnull @.str.22) #13
+  %41 = load ptr, ptr %tok.addr.i300, align 8
+  br i1 %call10.i308, label %for.cond.i302.backedge, label %mul.exit329
 
-if.then5.i264:                                    ; preds = %if.end.i253
-  %next6.i265 = getelementptr inbounds i8, ptr %37, i64 8
-  %38 = load ptr, ptr %next6.i265, align 8
-  %call7.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i248, ptr noundef %38)
-  %call.i.i6.i266 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i266, align 16
-  br label %for.cond.i250.backedge
+mul.exit329:                                      ; preds = %if.end9.i307
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i300)
+  call void @add_type(ptr noundef %node.0.i61) #13
+  call void @add_type(ptr noundef %node.0.i303) #13
+  %ty.i251 = getelementptr inbounds i8, ptr %node.0.i61, i64 16
+  %42 = load ptr, ptr %ty.i251, align 16
+  %call.i252 = call zeroext i1 @is_numeric(ptr noundef %42) #13
+  br i1 %call.i252, label %land.lhs.true.i296, label %if.end.i253
 
-if.end9.i255:                                     ; preds = %if.end.i253
-  %call10.i256 = call zeroext i1 @equal(ptr noundef %37, ptr noundef nonnull @.str.22) #13
-  %39 = load ptr, ptr %tok.addr.i248, align 8
-  br i1 %call10.i256, label %if.then11.i257, label %mul.exit277
+land.lhs.true.i296:                               ; preds = %mul.exit329
+  %ty1.i297 = getelementptr inbounds i8, ptr %node.0.i303, i64 16
+  %43 = load ptr, ptr %ty1.i297, align 16
+  %call2.i298 = call zeroext i1 @is_numeric(ptr noundef %43) #13
+  br i1 %call2.i298, label %new_add.exit299, label %if.end.i253
 
-if.then11.i257:                                   ; preds = %if.end9.i255
-  %next12.i258 = getelementptr inbounds i8, ptr %39, i64 8
-  %40 = load ptr, ptr %next12.i258, align 8
-  %call13.i259 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i248, ptr noundef %40)
-  %call.i.i10.i260 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i260, align 16
-  br label %for.cond.i250.backedge
+if.end.i253:                                      ; preds = %land.lhs.true.i296, %mul.exit329
+  %44 = load ptr, ptr %ty.i251, align 16
+  %base.i254 = getelementptr inbounds i8, ptr %44, i64 24
+  %45 = load ptr, ptr %base.i254, align 8
+  %tobool.not.i255 = icmp eq ptr %45, null
+  %ty15.i256 = getelementptr inbounds i8, ptr %node.0.i303, i64 16
+  %46 = load ptr, ptr %ty15.i256, align 16
+  %base16.i257 = getelementptr inbounds i8, ptr %46, i64 24
+  %47 = load ptr, ptr %base16.i257, align 8
+  %tobool17.not.i258 = icmp eq ptr %47, null
+  br i1 %tobool.not.i255, label %land.lhs.true14.i289, label %land.lhs.true5.i259
 
-mul.exit277:                                      ; preds = %if.end9.i255
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i248)
-  %call3.i = call fastcc ptr @new_add(ptr noundef %node.0.i61, ptr noundef %node.0.i251, ptr noundef %tok.addr.i58.0)
+land.lhs.true5.i259:                              ; preds = %if.end.i253
+  br i1 %tobool17.not.i258, label %if.end19.i261, label %if.then9.i260
+
+if.then9.i260:                                    ; preds = %land.lhs.true5.i259
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i58.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i289:                             ; preds = %if.end.i253
+  %spec.select.i290 = select i1 %tobool17.not.i258, ptr %node.0.i303, ptr %node.0.i61
+  %spec.select27.i291 = select i1 %tobool17.not.i258, ptr %node.0.i61, ptr %node.0.i303
+  %ty20.phi.trans.insert.i292 = getelementptr inbounds i8, ptr %spec.select27.i291, i64 16
+  %.pre.i293 = load ptr, ptr %ty20.phi.trans.insert.i292, align 16
+  %base21.phi.trans.insert.i294 = getelementptr inbounds i8, ptr %.pre.i293, i64 24
+  %.pre48.i295 = load ptr, ptr %base21.phi.trans.insert.i294, align 8
+  br label %if.end19.i261
+
+if.end19.i261:                                    ; preds = %land.lhs.true14.i289, %land.lhs.true5.i259
+  %48 = phi ptr [ %.pre48.i295, %land.lhs.true14.i289 ], [ %45, %land.lhs.true5.i259 ]
+  %rhs.addr.0.i262 = phi ptr [ %spec.select.i290, %land.lhs.true14.i289 ], [ %node.0.i303, %land.lhs.true5.i259 ]
+  %lhs.addr.0.i263 = phi ptr [ %spec.select27.i291, %land.lhs.true14.i289 ], [ %node.0.i61, %land.lhs.true5.i259 ]
+  %49 = load i32, ptr %48, align 8
+  %cmp.i264 = icmp eq i32 %49, 13
+  br i1 %cmp.i264, label %if.then22.i284, label %if.end28.i265
+
+if.then22.i284:                                   ; preds = %if.end19.i261
+  %vla_size.i285 = getelementptr inbounds i8, ptr %48, i64 64
+  %50 = load ptr, ptr %vla_size.i285, align 8
+  %call.i.i28.i286 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i286, align 16
+  %tok2.i.i29.i287 = getelementptr inbounds i8, ptr %call.i.i28.i286, i64 24
+  store ptr %tok.addr.i58.0, ptr %tok2.i.i29.i287, align 8
+  %var1.i.i288 = getelementptr inbounds i8, ptr %call.i.i28.i286, i64 256
+  store ptr %50, ptr %var1.i.i288, align 16
+  br label %return.sink.split.i272
+
+if.end28.i265:                                    ; preds = %if.end19.i261
+  %size.i266 = getelementptr inbounds i8, ptr %48, i64 4
+  %51 = load i32, ptr %size.i266, align 4
+  %conv.i267 = sext i32 %51 to i64
+  %call.i.i38.i268 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i268, align 16
+  %tok2.i.i39.i269 = getelementptr inbounds i8, ptr %call.i.i38.i268, i64 24
+  store ptr %tok.addr.i58.0, ptr %tok2.i.i39.i269, align 8
+  %val1.i.i270 = getelementptr inbounds i8, ptr %call.i.i38.i268, i64 264
+  store i64 %conv.i267, ptr %val1.i.i270, align 8
+  %52 = load ptr, ptr @ty_long, align 8
+  %ty.i.i271 = getelementptr inbounds i8, ptr %call.i.i38.i268, i64 16
+  store ptr %52, ptr %ty.i.i271, align 16
+  br label %return.sink.split.i272
+
+return.sink.split.i272:                           ; preds = %if.end28.i265, %if.then22.i284
+  %call.i.i38.sink.i273 = phi ptr [ %call.i.i38.i268, %if.end28.i265 ], [ %call.i.i28.i286, %if.then22.i284 ]
+  %call.i.i40.i274 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i274, align 16
+  %tok2.i.i41.i275 = getelementptr inbounds i8, ptr %call.i.i40.i274, i64 24
+  store ptr %tok.addr.i58.0, ptr %tok2.i.i41.i275, align 8
+  %lhs1.i42.i276 = getelementptr inbounds i8, ptr %call.i.i40.i274, i64 32
+  store ptr %rhs.addr.0.i262, ptr %lhs1.i42.i276, align 16
+  %rhs2.i43.i277 = getelementptr inbounds i8, ptr %call.i.i40.i274, i64 40
+  store ptr %call.i.i38.sink.i273, ptr %rhs2.i43.i277, align 8
+  br label %new_add.exit299
+
+new_add.exit299:                                  ; preds = %land.lhs.true.i296, %return.sink.split.i272
+  %lhs.addr.0.sink.i278 = phi ptr [ %node.0.i61, %land.lhs.true.i296 ], [ %lhs.addr.0.i263, %return.sink.split.i272 ]
+  %call.i.i40.sink.i279 = phi ptr [ %node.0.i303, %land.lhs.true.i296 ], [ %call.i.i40.i274, %return.sink.split.i272 ]
+  %call.i.i44.i280 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i280, align 16
+  %tok2.i.i45.i281 = getelementptr inbounds i8, ptr %call.i.i44.i280, i64 24
+  store ptr %tok.addr.i58.0, ptr %tok2.i.i45.i281, align 8
+  %lhs1.i46.i282 = getelementptr inbounds i8, ptr %call.i.i44.i280, i64 32
+  store ptr %lhs.addr.0.sink.i278, ptr %lhs1.i46.i282, align 16
+  %rhs2.i47.i283 = getelementptr inbounds i8, ptr %call.i.i44.i280, i64 40
+  store ptr %call.i.i40.sink.i279, ptr %rhs2.i47.i283, align 8
   br label %for.cond.i60.backedge
 
-for.cond.i60.backedge:                            ; preds = %mul.exit277, %mul.exit247
-  %tok.addr.i58.0.be = phi ptr [ %39, %mul.exit277 ], [ %47, %mul.exit247 ]
-  %node.0.i61.be = phi ptr [ %call3.i, %mul.exit277 ], [ %call8.i67, %mul.exit247 ]
+for.cond.i60.backedge:                            ; preds = %new_add.exit299, %mul.exit250
+  %tok.addr.i58.0.be = phi ptr [ %41, %new_add.exit299 ], [ %58, %mul.exit250 ]
+  %node.0.i61.be = phi ptr [ %call.i.i44.i280, %new_add.exit299 ], [ %call8.i67, %mul.exit250 ]
   br label %for.cond.i60
 
 if.end.i63:                                       ; preds = %for.cond.i60
   %call4.i64 = call zeroext i1 @equal(ptr noundef %tok.addr.i58.0, ptr noundef nonnull @.str.19) #13
-  br i1 %call4.i64, label %if.then5.i65, label %add.exit71
+  br i1 %call4.i64, label %if.then5.i65, label %for.cond.i.backedge
 
 if.then5.i65:                                     ; preds = %if.end.i63
   %next6.i66 = getelementptr inbounds i8, ptr %tok.addr.i58.0, i64 8
-  %41 = load ptr, ptr %next6.i66, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i217)
-  store ptr %41, ptr %tok.addr.i217, align 8
-  %call.i218 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i217, ptr noundef %41)
-  br label %for.cond.i219
+  %53 = load ptr, ptr %next6.i66, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i220)
+  store ptr %53, ptr %tok.addr.i220, align 8
+  %call.i221 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i220, ptr noundef %53)
+  br label %for.cond.i222
 
-for.cond.i219:                                    ; preds = %for.cond.i219.backedge, %if.then5.i65
-  %node.0.i220 = phi ptr [ %call.i218, %if.then5.i65 ], [ %call.i.i.i243.sink722, %for.cond.i219.backedge ]
-  %42 = load ptr, ptr %tok.addr.i217, align 8
-  %call1.i221 = call zeroext i1 @equal(ptr noundef %42, ptr noundef nonnull @.str.20) #13
-  %43 = load ptr, ptr %tok.addr.i217, align 8
-  br i1 %call1.i221, label %if.then.i240, label %if.end.i222
+for.cond.i222:                                    ; preds = %for.cond.i222.backedge, %if.then5.i65
+  %node.0.i223 = phi ptr [ %call.i221, %if.then5.i65 ], [ %call.i.i.i246, %for.cond.i222.backedge ]
+  %54 = load ptr, ptr %tok.addr.i220, align 8
+  %call1.i224 = call zeroext i1 @equal(ptr noundef %54, ptr noundef nonnull @.str.20) #13
+  %55 = load ptr, ptr %tok.addr.i220, align 8
+  br i1 %call1.i224, label %for.cond.i222.backedge, label %if.end.i225
 
-if.then.i240:                                     ; preds = %for.cond.i219
-  %next.i241 = getelementptr inbounds i8, ptr %43, i64 8
-  %44 = load ptr, ptr %next.i241, align 8
-  %call2.i242 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i217, ptr noundef %44)
-  %call.i.i.i243 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i243, align 16
-  br label %for.cond.i219.backedge
+for.cond.i222.backedge:                           ; preds = %if.end9.i227, %for.cond.i222, %if.end.i225
+  %.sink1089 = phi ptr [ %57, %if.end.i225 ], [ %55, %for.cond.i222 ], [ %58, %if.end9.i227 ]
+  %.sink1086 = phi i32 [ 4, %if.end.i225 ], [ 3, %for.cond.i222 ], [ 6, %if.end9.i227 ]
+  %next.i244 = getelementptr inbounds i8, ptr %.sink1089, i64 8
+  %56 = load ptr, ptr %next.i244, align 8
+  %call2.i245 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i220, ptr noundef %56)
+  %call.i.i.i246 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1086, ptr %call.i.i.i246, align 16
+  %tok2.i.i.i247 = getelementptr inbounds i8, ptr %call.i.i.i246, i64 24
+  store ptr %54, ptr %tok2.i.i.i247, align 8
+  %lhs1.i.i248 = getelementptr inbounds i8, ptr %call.i.i.i246, i64 32
+  store ptr %node.0.i223, ptr %lhs1.i.i248, align 16
+  %rhs2.i.i249 = getelementptr inbounds i8, ptr %call.i.i.i246, i64 40
+  store ptr %call2.i245, ptr %rhs2.i.i249, align 8
+  br label %for.cond.i222
 
-for.cond.i219.backedge:                           ; preds = %if.then.i240, %if.then5.i233, %if.then11.i226
-  %call.i.i.i243.sink722 = phi ptr [ %call.i.i.i243, %if.then.i240 ], [ %call.i.i6.i236, %if.then5.i233 ], [ %call.i.i10.i229, %if.then11.i226 ]
-  %call2.i242.sink = phi ptr [ %call2.i242, %if.then.i240 ], [ %call7.i235, %if.then5.i233 ], [ %call13.i228, %if.then11.i226 ]
-  %tok2.i.i.i244 = getelementptr inbounds i8, ptr %call.i.i.i243.sink722, i64 24
-  store ptr %42, ptr %tok2.i.i.i244, align 8
-  %lhs1.i.i245 = getelementptr inbounds i8, ptr %call.i.i.i243.sink722, i64 32
-  store ptr %node.0.i220, ptr %lhs1.i.i245, align 16
-  %rhs2.i.i246 = getelementptr inbounds i8, ptr %call.i.i.i243.sink722, i64 40
-  store ptr %call2.i242.sink, ptr %rhs2.i.i246, align 8
-  br label %for.cond.i219
+if.end.i225:                                      ; preds = %for.cond.i222
+  %call4.i226 = call zeroext i1 @equal(ptr noundef %55, ptr noundef nonnull @.str.21) #13
+  %57 = load ptr, ptr %tok.addr.i220, align 8
+  br i1 %call4.i226, label %for.cond.i222.backedge, label %if.end9.i227
 
-if.end.i222:                                      ; preds = %for.cond.i219
-  %call4.i223 = call zeroext i1 @equal(ptr noundef %43, ptr noundef nonnull @.str.21) #13
-  %45 = load ptr, ptr %tok.addr.i217, align 8
-  br i1 %call4.i223, label %if.then5.i233, label %if.end9.i224
+if.end9.i227:                                     ; preds = %if.end.i225
+  %call10.i228 = call zeroext i1 @equal(ptr noundef %57, ptr noundef nonnull @.str.22) #13
+  %58 = load ptr, ptr %tok.addr.i220, align 8
+  br i1 %call10.i228, label %for.cond.i222.backedge, label %mul.exit250
 
-if.then5.i233:                                    ; preds = %if.end.i222
-  %next6.i234 = getelementptr inbounds i8, ptr %45, i64 8
-  %46 = load ptr, ptr %next6.i234, align 8
-  %call7.i235 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i217, ptr noundef %46)
-  %call.i.i6.i236 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i236, align 16
-  br label %for.cond.i219.backedge
-
-if.end9.i224:                                     ; preds = %if.end.i222
-  %call10.i225 = call zeroext i1 @equal(ptr noundef %45, ptr noundef nonnull @.str.22) #13
-  %47 = load ptr, ptr %tok.addr.i217, align 8
-  br i1 %call10.i225, label %if.then11.i226, label %mul.exit247
-
-if.then11.i226:                                   ; preds = %if.end9.i224
-  %next12.i227 = getelementptr inbounds i8, ptr %47, i64 8
-  %48 = load ptr, ptr %next12.i227, align 8
-  %call13.i228 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i217, ptr noundef %48)
-  %call.i.i10.i229 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i229, align 16
-  br label %for.cond.i219.backedge
-
-mul.exit247:                                      ; preds = %if.end9.i224
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i217)
-  %call8.i67 = call fastcc ptr @new_sub(ptr noundef %node.0.i61, ptr noundef %node.0.i220, ptr noundef %tok.addr.i58.0)
+mul.exit250:                                      ; preds = %if.end9.i227
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i220)
+  %call8.i67 = call fastcc ptr @new_sub(ptr noundef %node.0.i61, ptr noundef %node.0.i223, ptr noundef %tok.addr.i58.0)
   br label %for.cond.i60.backedge
 
-add.exit71:                                       ; preds = %if.end.i63
+for.cond.i.backedge:                              ; preds = %if.end.i45, %if.end.i63
+  %.sink1092 = phi i32 [ 10, %if.end.i63 ], [ 11, %if.end.i45 ]
+  %node.0.i61.lcssa.sink = phi ptr [ %node.0.i61, %if.end.i63 ], [ %node.0.i43, %if.end.i45 ]
+  %tok.addr.i.0.be = phi ptr [ %tok.addr.i58.0, %if.end.i63 ], [ %tok.addr.i40.0, %if.end.i45 ]
   %call.i.i54 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 10, ptr %call.i.i54, align 16
-  br label %for.cond.i.backedge
-
-for.cond.i.backedge:                              ; preds = %add.exit71, %add.exit
-  %call.i.i54.sink724 = phi ptr [ %call.i.i54, %add.exit71 ], [ %call.i.i36, %add.exit ]
-  %node.0.i61.lcssa.sink = phi ptr [ %node.0.i61, %add.exit71 ], [ %node.0.i43, %add.exit ]
-  %tok.addr.i.0.be = phi ptr [ %tok.addr.i58.0, %add.exit71 ], [ %tok.addr.i40.0, %add.exit ]
-  %tok2.i.i55 = getelementptr inbounds i8, ptr %call.i.i54.sink724, i64 24
+  store i32 %.sink1092, ptr %call.i.i54, align 16
+  %tok2.i.i55 = getelementptr inbounds i8, ptr %call.i.i54, i64 24
   store ptr %tok.addr.i.0, ptr %tok2.i.i55, align 8
-  %lhs1.i56 = getelementptr inbounds i8, ptr %call.i.i54.sink724, i64 32
+  %lhs1.i56 = getelementptr inbounds i8, ptr %call.i.i54, i64 32
   store ptr %node.0.i, ptr %lhs1.i56, align 16
-  %rhs2.i57 = getelementptr inbounds i8, ptr %call.i.i54.sink724, i64 40
+  %rhs2.i57 = getelementptr inbounds i8, ptr %call.i.i54, i64 40
   store ptr %node.0.i61.lcssa.sink, ptr %rhs2.i57, align 8
   br label %for.cond.i
 
@@ -3623,233 +3675,268 @@ if.end.i:                                         ; preds = %for.cond.i
 
 if.then5.i:                                       ; preds = %if.end.i
   %next6.i = getelementptr inbounds i8, ptr %tok.addr.i.0, i64 8
-  %49 = load ptr, ptr %next6.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i186)
-  store ptr %49, ptr %tok.addr.i186, align 8
-  %call.i187 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i186, ptr noundef %49)
-  br label %for.cond.i188
+  %59 = load ptr, ptr %next6.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i189)
+  store ptr %59, ptr %tok.addr.i189, align 8
+  %call.i190 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i189, ptr noundef %59)
+  br label %for.cond.i191
 
-for.cond.i188:                                    ; preds = %for.cond.i188.backedge, %if.then5.i
-  %node.0.i189 = phi ptr [ %call.i187, %if.then5.i ], [ %call.i.i.i212.sink726, %for.cond.i188.backedge ]
-  %50 = load ptr, ptr %tok.addr.i186, align 8
-  %call1.i190 = call zeroext i1 @equal(ptr noundef %50, ptr noundef nonnull @.str.20) #13
-  %51 = load ptr, ptr %tok.addr.i186, align 8
-  br i1 %call1.i190, label %if.then.i209, label %if.end.i191
+for.cond.i191:                                    ; preds = %for.cond.i191.backedge, %if.then5.i
+  %node.0.i192 = phi ptr [ %call.i190, %if.then5.i ], [ %call.i.i.i215, %for.cond.i191.backedge ]
+  %60 = load ptr, ptr %tok.addr.i189, align 8
+  %call1.i193 = call zeroext i1 @equal(ptr noundef %60, ptr noundef nonnull @.str.20) #13
+  %61 = load ptr, ptr %tok.addr.i189, align 8
+  br i1 %call1.i193, label %for.cond.i191.backedge, label %if.end.i194
 
-if.then.i209:                                     ; preds = %for.cond.i188
-  %next.i210 = getelementptr inbounds i8, ptr %51, i64 8
-  %52 = load ptr, ptr %next.i210, align 8
-  %call2.i211 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i186, ptr noundef %52)
-  %call.i.i.i212 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i212, align 16
-  br label %for.cond.i188.backedge
+for.cond.i191.backedge:                           ; preds = %if.end9.i196, %for.cond.i191, %if.end.i194
+  %.sink1099 = phi ptr [ %63, %if.end.i194 ], [ %61, %for.cond.i191 ], [ %64, %if.end9.i196 ]
+  %.sink1096 = phi i32 [ 4, %if.end.i194 ], [ 3, %for.cond.i191 ], [ 6, %if.end9.i196 ]
+  %next.i213 = getelementptr inbounds i8, ptr %.sink1099, i64 8
+  %62 = load ptr, ptr %next.i213, align 8
+  %call2.i214 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i189, ptr noundef %62)
+  %call.i.i.i215 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1096, ptr %call.i.i.i215, align 16
+  %tok2.i.i.i216 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 24
+  store ptr %60, ptr %tok2.i.i.i216, align 8
+  %lhs1.i.i217 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 32
+  store ptr %node.0.i192, ptr %lhs1.i.i217, align 16
+  %rhs2.i.i218 = getelementptr inbounds i8, ptr %call.i.i.i215, i64 40
+  store ptr %call2.i214, ptr %rhs2.i.i218, align 8
+  br label %for.cond.i191
 
-for.cond.i188.backedge:                           ; preds = %if.then.i209, %if.then5.i202, %if.then11.i195
-  %call.i.i.i212.sink726 = phi ptr [ %call.i.i.i212, %if.then.i209 ], [ %call.i.i6.i205, %if.then5.i202 ], [ %call.i.i10.i198, %if.then11.i195 ]
-  %call2.i211.sink = phi ptr [ %call2.i211, %if.then.i209 ], [ %call7.i204, %if.then5.i202 ], [ %call13.i197, %if.then11.i195 ]
-  %tok2.i.i.i213 = getelementptr inbounds i8, ptr %call.i.i.i212.sink726, i64 24
-  store ptr %50, ptr %tok2.i.i.i213, align 8
-  %lhs1.i.i214 = getelementptr inbounds i8, ptr %call.i.i.i212.sink726, i64 32
-  store ptr %node.0.i189, ptr %lhs1.i.i214, align 16
-  %rhs2.i.i215 = getelementptr inbounds i8, ptr %call.i.i.i212.sink726, i64 40
-  store ptr %call2.i211.sink, ptr %rhs2.i.i215, align 8
-  br label %for.cond.i188
+if.end.i194:                                      ; preds = %for.cond.i191
+  %call4.i195 = call zeroext i1 @equal(ptr noundef %61, ptr noundef nonnull @.str.21) #13
+  %63 = load ptr, ptr %tok.addr.i189, align 8
+  br i1 %call4.i195, label %for.cond.i191.backedge, label %if.end9.i196
 
-if.end.i191:                                      ; preds = %for.cond.i188
-  %call4.i192 = call zeroext i1 @equal(ptr noundef %51, ptr noundef nonnull @.str.21) #13
-  %53 = load ptr, ptr %tok.addr.i186, align 8
-  br i1 %call4.i192, label %if.then5.i202, label %if.end9.i193
+if.end9.i196:                                     ; preds = %if.end.i194
+  %call10.i197 = call zeroext i1 @equal(ptr noundef %63, ptr noundef nonnull @.str.22) #13
+  %64 = load ptr, ptr %tok.addr.i189, align 8
+  br i1 %call10.i197, label %for.cond.i191.backedge, label %mul.exit219
 
-if.then5.i202:                                    ; preds = %if.end.i191
-  %next6.i203 = getelementptr inbounds i8, ptr %53, i64 8
-  %54 = load ptr, ptr %next6.i203, align 8
-  %call7.i204 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i186, ptr noundef %54)
-  %call.i.i6.i205 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i205, align 16
-  br label %for.cond.i188.backedge
-
-if.end9.i193:                                     ; preds = %if.end.i191
-  %call10.i194 = call zeroext i1 @equal(ptr noundef %53, ptr noundef nonnull @.str.22) #13
-  %55 = load ptr, ptr %tok.addr.i186, align 8
-  br i1 %call10.i194, label %if.then11.i195, label %mul.exit216
-
-if.then11.i195:                                   ; preds = %if.end9.i193
-  %next12.i196 = getelementptr inbounds i8, ptr %55, i64 8
-  %56 = load ptr, ptr %next12.i196, align 8
-  %call13.i197 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i186, ptr noundef %56)
-  %call.i.i10.i198 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i198, align 16
-  br label %for.cond.i188.backedge
-
-mul.exit216:                                      ; preds = %if.end9.i193
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i186)
+mul.exit219:                                      ; preds = %if.end9.i196
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i189)
   br label %for.cond.i42
 
-for.cond.i42:                                     ; preds = %for.cond.i42.backedge, %mul.exit216
-  %tok.addr.i40.0 = phi ptr [ %55, %mul.exit216 ], [ %tok.addr.i40.0.be, %for.cond.i42.backedge ]
-  %node.0.i43 = phi ptr [ %node.0.i189, %mul.exit216 ], [ %node.0.i43.be, %for.cond.i42.backedge ]
+for.cond.i42:                                     ; preds = %for.cond.i42.backedge, %mul.exit219
+  %tok.addr.i40.0 = phi ptr [ %64, %mul.exit219 ], [ %tok.addr.i40.0.be, %for.cond.i42.backedge ]
+  %node.0.i43 = phi ptr [ %node.0.i192, %mul.exit219 ], [ %node.0.i43.be, %for.cond.i42.backedge ]
   %call1.i44 = call zeroext i1 @equal(ptr noundef %tok.addr.i40.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i44, label %if.then.i50, label %if.end.i45
 
 if.then.i50:                                      ; preds = %for.cond.i42
   %next.i51 = getelementptr inbounds i8, ptr %tok.addr.i40.0, i64 8
-  %57 = load ptr, ptr %next.i51, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i155)
-  store ptr %57, ptr %tok.addr.i155, align 8
-  %call.i156 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i155, ptr noundef %57)
-  br label %for.cond.i157
+  %65 = load ptr, ptr %next.i51, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i158)
+  store ptr %65, ptr %tok.addr.i158, align 8
+  %call.i159 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i158, ptr noundef %65)
+  br label %for.cond.i160
 
-for.cond.i157:                                    ; preds = %for.cond.i157.backedge, %if.then.i50
-  %node.0.i158 = phi ptr [ %call.i156, %if.then.i50 ], [ %call.i.i.i181.sink728, %for.cond.i157.backedge ]
-  %58 = load ptr, ptr %tok.addr.i155, align 8
-  %call1.i159 = call zeroext i1 @equal(ptr noundef %58, ptr noundef nonnull @.str.20) #13
-  %59 = load ptr, ptr %tok.addr.i155, align 8
-  br i1 %call1.i159, label %if.then.i178, label %if.end.i160
+for.cond.i160:                                    ; preds = %for.cond.i160.backedge, %if.then.i50
+  %node.0.i161 = phi ptr [ %call.i159, %if.then.i50 ], [ %call.i.i.i184, %for.cond.i160.backedge ]
+  %66 = load ptr, ptr %tok.addr.i158, align 8
+  %call1.i162 = call zeroext i1 @equal(ptr noundef %66, ptr noundef nonnull @.str.20) #13
+  %67 = load ptr, ptr %tok.addr.i158, align 8
+  br i1 %call1.i162, label %for.cond.i160.backedge, label %if.end.i163
 
-if.then.i178:                                     ; preds = %for.cond.i157
-  %next.i179 = getelementptr inbounds i8, ptr %59, i64 8
-  %60 = load ptr, ptr %next.i179, align 8
-  %call2.i180 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i155, ptr noundef %60)
-  %call.i.i.i181 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i181, align 16
-  br label %for.cond.i157.backedge
+for.cond.i160.backedge:                           ; preds = %if.end9.i165, %for.cond.i160, %if.end.i163
+  %.sink1105 = phi ptr [ %69, %if.end.i163 ], [ %67, %for.cond.i160 ], [ %70, %if.end9.i165 ]
+  %.sink1102 = phi i32 [ 4, %if.end.i163 ], [ 3, %for.cond.i160 ], [ 6, %if.end9.i165 ]
+  %next.i182 = getelementptr inbounds i8, ptr %.sink1105, i64 8
+  %68 = load ptr, ptr %next.i182, align 8
+  %call2.i183 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i158, ptr noundef %68)
+  %call.i.i.i184 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1102, ptr %call.i.i.i184, align 16
+  %tok2.i.i.i185 = getelementptr inbounds i8, ptr %call.i.i.i184, i64 24
+  store ptr %66, ptr %tok2.i.i.i185, align 8
+  %lhs1.i.i186 = getelementptr inbounds i8, ptr %call.i.i.i184, i64 32
+  store ptr %node.0.i161, ptr %lhs1.i.i186, align 16
+  %rhs2.i.i187 = getelementptr inbounds i8, ptr %call.i.i.i184, i64 40
+  store ptr %call2.i183, ptr %rhs2.i.i187, align 8
+  br label %for.cond.i160
 
-for.cond.i157.backedge:                           ; preds = %if.then.i178, %if.then5.i171, %if.then11.i164
-  %call.i.i.i181.sink728 = phi ptr [ %call.i.i.i181, %if.then.i178 ], [ %call.i.i6.i174, %if.then5.i171 ], [ %call.i.i10.i167, %if.then11.i164 ]
-  %call2.i180.sink = phi ptr [ %call2.i180, %if.then.i178 ], [ %call7.i173, %if.then5.i171 ], [ %call13.i166, %if.then11.i164 ]
-  %tok2.i.i.i182 = getelementptr inbounds i8, ptr %call.i.i.i181.sink728, i64 24
-  store ptr %58, ptr %tok2.i.i.i182, align 8
-  %lhs1.i.i183 = getelementptr inbounds i8, ptr %call.i.i.i181.sink728, i64 32
-  store ptr %node.0.i158, ptr %lhs1.i.i183, align 16
-  %rhs2.i.i184 = getelementptr inbounds i8, ptr %call.i.i.i181.sink728, i64 40
-  store ptr %call2.i180.sink, ptr %rhs2.i.i184, align 8
-  br label %for.cond.i157
+if.end.i163:                                      ; preds = %for.cond.i160
+  %call4.i164 = call zeroext i1 @equal(ptr noundef %67, ptr noundef nonnull @.str.21) #13
+  %69 = load ptr, ptr %tok.addr.i158, align 8
+  br i1 %call4.i164, label %for.cond.i160.backedge, label %if.end9.i165
 
-if.end.i160:                                      ; preds = %for.cond.i157
-  %call4.i161 = call zeroext i1 @equal(ptr noundef %59, ptr noundef nonnull @.str.21) #13
-  %61 = load ptr, ptr %tok.addr.i155, align 8
-  br i1 %call4.i161, label %if.then5.i171, label %if.end9.i162
+if.end9.i165:                                     ; preds = %if.end.i163
+  %call10.i166 = call zeroext i1 @equal(ptr noundef %69, ptr noundef nonnull @.str.22) #13
+  %70 = load ptr, ptr %tok.addr.i158, align 8
+  br i1 %call10.i166, label %for.cond.i160.backedge, label %mul.exit188
 
-if.then5.i171:                                    ; preds = %if.end.i160
-  %next6.i172 = getelementptr inbounds i8, ptr %61, i64 8
-  %62 = load ptr, ptr %next6.i172, align 8
-  %call7.i173 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i155, ptr noundef %62)
-  %call.i.i6.i174 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i174, align 16
-  br label %for.cond.i157.backedge
+mul.exit188:                                      ; preds = %if.end9.i165
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i158)
+  call void @add_type(ptr noundef %node.0.i43) #13
+  call void @add_type(ptr noundef %node.0.i161) #13
+  %ty.i = getelementptr inbounds i8, ptr %node.0.i43, i64 16
+  %71 = load ptr, ptr %ty.i, align 16
+  %call.i155 = call zeroext i1 @is_numeric(ptr noundef %71) #13
+  br i1 %call.i155, label %land.lhs.true.i, label %if.end.i156
 
-if.end9.i162:                                     ; preds = %if.end.i160
-  %call10.i163 = call zeroext i1 @equal(ptr noundef %61, ptr noundef nonnull @.str.22) #13
-  %63 = load ptr, ptr %tok.addr.i155, align 8
-  br i1 %call10.i163, label %if.then11.i164, label %mul.exit185
+land.lhs.true.i:                                  ; preds = %mul.exit188
+  %ty1.i = getelementptr inbounds i8, ptr %node.0.i161, i64 16
+  %72 = load ptr, ptr %ty1.i, align 16
+  %call2.i157 = call zeroext i1 @is_numeric(ptr noundef %72) #13
+  br i1 %call2.i157, label %new_add.exit, label %if.end.i156
 
-if.then11.i164:                                   ; preds = %if.end9.i162
-  %next12.i165 = getelementptr inbounds i8, ptr %63, i64 8
-  %64 = load ptr, ptr %next12.i165, align 8
-  %call13.i166 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i155, ptr noundef %64)
-  %call.i.i10.i167 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i167, align 16
-  br label %for.cond.i157.backedge
+if.end.i156:                                      ; preds = %land.lhs.true.i, %mul.exit188
+  %73 = load ptr, ptr %ty.i, align 16
+  %base.i = getelementptr inbounds i8, ptr %73, i64 24
+  %74 = load ptr, ptr %base.i, align 8
+  %tobool.not.i = icmp eq ptr %74, null
+  %ty15.i = getelementptr inbounds i8, ptr %node.0.i161, i64 16
+  %75 = load ptr, ptr %ty15.i, align 16
+  %base16.i = getelementptr inbounds i8, ptr %75, i64 24
+  %76 = load ptr, ptr %base16.i, align 8
+  %tobool17.not.i = icmp eq ptr %76, null
+  br i1 %tobool.not.i, label %land.lhs.true14.i, label %land.lhs.true5.i
 
-mul.exit185:                                      ; preds = %if.end9.i162
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i155)
-  %call3.i53 = call fastcc ptr @new_add(ptr noundef %node.0.i43, ptr noundef %node.0.i158, ptr noundef %tok.addr.i40.0)
+land.lhs.true5.i:                                 ; preds = %if.end.i156
+  br i1 %tobool17.not.i, label %if.end19.i, label %if.then9.i
+
+if.then9.i:                                       ; preds = %land.lhs.true5.i
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i40.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i:                                ; preds = %if.end.i156
+  %spec.select.i = select i1 %tobool17.not.i, ptr %node.0.i161, ptr %node.0.i43
+  %spec.select27.i = select i1 %tobool17.not.i, ptr %node.0.i43, ptr %node.0.i161
+  %ty20.phi.trans.insert.i = getelementptr inbounds i8, ptr %spec.select27.i, i64 16
+  %.pre.i = load ptr, ptr %ty20.phi.trans.insert.i, align 16
+  %base21.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %.pre48.i = load ptr, ptr %base21.phi.trans.insert.i, align 8
+  br label %if.end19.i
+
+if.end19.i:                                       ; preds = %land.lhs.true14.i, %land.lhs.true5.i
+  %77 = phi ptr [ %.pre48.i, %land.lhs.true14.i ], [ %74, %land.lhs.true5.i ]
+  %rhs.addr.0.i = phi ptr [ %spec.select.i, %land.lhs.true14.i ], [ %node.0.i161, %land.lhs.true5.i ]
+  %lhs.addr.0.i = phi ptr [ %spec.select27.i, %land.lhs.true14.i ], [ %node.0.i43, %land.lhs.true5.i ]
+  %78 = load i32, ptr %77, align 8
+  %cmp.i = icmp eq i32 %78, 13
+  br i1 %cmp.i, label %if.then22.i, label %if.end28.i
+
+if.then22.i:                                      ; preds = %if.end19.i
+  %vla_size.i = getelementptr inbounds i8, ptr %77, i64 64
+  %79 = load ptr, ptr %vla_size.i, align 8
+  %call.i.i28.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i, align 16
+  %tok2.i.i29.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 24
+  store ptr %tok.addr.i40.0, ptr %tok2.i.i29.i, align 8
+  %var1.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 256
+  store ptr %79, ptr %var1.i.i, align 16
+  br label %return.sink.split.i
+
+if.end28.i:                                       ; preds = %if.end19.i
+  %size.i = getelementptr inbounds i8, ptr %77, i64 4
+  %80 = load i32, ptr %size.i, align 4
+  %conv.i = sext i32 %80 to i64
+  %call.i.i38.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i, align 16
+  %tok2.i.i39.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 24
+  store ptr %tok.addr.i40.0, ptr %tok2.i.i39.i, align 8
+  %val1.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 264
+  store i64 %conv.i, ptr %val1.i.i, align 8
+  %81 = load ptr, ptr @ty_long, align 8
+  %ty.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 16
+  store ptr %81, ptr %ty.i.i, align 16
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %if.end28.i, %if.then22.i
+  %call.i.i38.sink.i = phi ptr [ %call.i.i38.i, %if.end28.i ], [ %call.i.i28.i, %if.then22.i ]
+  %call.i.i40.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i, align 16
+  %tok2.i.i41.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 24
+  store ptr %tok.addr.i40.0, ptr %tok2.i.i41.i, align 8
+  %lhs1.i42.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 32
+  store ptr %rhs.addr.0.i, ptr %lhs1.i42.i, align 16
+  %rhs2.i43.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 40
+  store ptr %call.i.i38.sink.i, ptr %rhs2.i43.i, align 8
+  br label %new_add.exit
+
+new_add.exit:                                     ; preds = %land.lhs.true.i, %return.sink.split.i
+  %lhs.addr.0.sink.i = phi ptr [ %node.0.i43, %land.lhs.true.i ], [ %lhs.addr.0.i, %return.sink.split.i ]
+  %call.i.i40.sink.i = phi ptr [ %node.0.i161, %land.lhs.true.i ], [ %call.i.i40.i, %return.sink.split.i ]
+  %call.i.i44.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i, align 16
+  %tok2.i.i45.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 24
+  store ptr %tok.addr.i40.0, ptr %tok2.i.i45.i, align 8
+  %lhs1.i46.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 32
+  store ptr %lhs.addr.0.sink.i, ptr %lhs1.i46.i, align 16
+  %rhs2.i47.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 40
+  store ptr %call.i.i40.sink.i, ptr %rhs2.i47.i, align 8
   br label %for.cond.i42.backedge
 
-for.cond.i42.backedge:                            ; preds = %mul.exit185, %mul.exit
-  %tok.addr.i40.0.be = phi ptr [ %63, %mul.exit185 ], [ %71, %mul.exit ]
-  %node.0.i43.be = phi ptr [ %call3.i53, %mul.exit185 ], [ %call8.i, %mul.exit ]
+for.cond.i42.backedge:                            ; preds = %new_add.exit, %mul.exit
+  %tok.addr.i40.0.be = phi ptr [ %70, %new_add.exit ], [ %87, %mul.exit ]
+  %node.0.i43.be = phi ptr [ %call.i.i44.i, %new_add.exit ], [ %call8.i, %mul.exit ]
   br label %for.cond.i42
 
 if.end.i45:                                       ; preds = %for.cond.i42
   %call4.i46 = call zeroext i1 @equal(ptr noundef %tok.addr.i40.0, ptr noundef nonnull @.str.19) #13
-  br i1 %call4.i46, label %if.then5.i47, label %add.exit
+  br i1 %call4.i46, label %if.then5.i47, label %for.cond.i.backedge
 
 if.then5.i47:                                     ; preds = %if.end.i45
   %next6.i48 = getelementptr inbounds i8, ptr %tok.addr.i40.0, i64 8
-  %65 = load ptr, ptr %next6.i48, align 8
+  %82 = load ptr, ptr %next6.i48, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i142)
-  store ptr %65, ptr %tok.addr.i142, align 8
-  %call.i143 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %65)
+  store ptr %82, ptr %tok.addr.i142, align 8
+  %call.i143 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %82)
   br label %for.cond.i144
 
 for.cond.i144:                                    ; preds = %for.cond.i144.backedge, %if.then5.i47
-  %node.0.i145 = phi ptr [ %call.i143, %if.then5.i47 ], [ %call.i.i.i.sink730, %for.cond.i144.backedge ]
-  %66 = load ptr, ptr %tok.addr.i142, align 8
-  %call1.i146 = call zeroext i1 @equal(ptr noundef %66, ptr noundef nonnull @.str.20) #13
-  %67 = load ptr, ptr %tok.addr.i142, align 8
-  br i1 %call1.i146, label %if.then.i152, label %if.end.i147
+  %node.0.i145 = phi ptr [ %call.i143, %if.then5.i47 ], [ %call.i.i.i, %for.cond.i144.backedge ]
+  %83 = load ptr, ptr %tok.addr.i142, align 8
+  %call1.i146 = call zeroext i1 @equal(ptr noundef %83, ptr noundef nonnull @.str.20) #13
+  %84 = load ptr, ptr %tok.addr.i142, align 8
+  br i1 %call1.i146, label %for.cond.i144.backedge, label %if.end.i147
 
-if.then.i152:                                     ; preds = %for.cond.i144
-  %next.i153 = getelementptr inbounds i8, ptr %67, i64 8
-  %68 = load ptr, ptr %next.i153, align 8
-  %call2.i154 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %68)
+for.cond.i144.backedge:                           ; preds = %if.end9.i, %for.cond.i144, %if.end.i147
+  %.sink1111 = phi ptr [ %86, %if.end.i147 ], [ %84, %for.cond.i144 ], [ %87, %if.end9.i ]
+  %.sink1108 = phi i32 [ 4, %if.end.i147 ], [ 3, %for.cond.i144 ], [ 6, %if.end9.i ]
+  %next.i153 = getelementptr inbounds i8, ptr %.sink1111, i64 8
+  %85 = load ptr, ptr %next.i153, align 8
+  %call2.i154 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %85)
   %call.i.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i, align 16
-  br label %for.cond.i144.backedge
-
-for.cond.i144.backedge:                           ; preds = %if.then.i152, %if.then5.i149, %if.then11.i
-  %call.i.i.i.sink730 = phi ptr [ %call.i.i.i, %if.then.i152 ], [ %call.i.i6.i, %if.then5.i149 ], [ %call.i.i10.i, %if.then11.i ]
-  %call2.i154.sink = phi ptr [ %call2.i154, %if.then.i152 ], [ %call7.i151, %if.then5.i149 ], [ %call13.i, %if.then11.i ]
-  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink730, i64 24
-  store ptr %66, ptr %tok2.i.i.i, align 8
-  %lhs1.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink730, i64 32
+  store i32 %.sink1108, ptr %call.i.i.i, align 16
+  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
+  store ptr %83, ptr %tok2.i.i.i, align 8
+  %lhs1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
   store ptr %node.0.i145, ptr %lhs1.i.i, align 16
-  %rhs2.i.i = getelementptr inbounds i8, ptr %call.i.i.i.sink730, i64 40
-  store ptr %call2.i154.sink, ptr %rhs2.i.i, align 8
+  %rhs2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  store ptr %call2.i154, ptr %rhs2.i.i, align 8
   br label %for.cond.i144
 
 if.end.i147:                                      ; preds = %for.cond.i144
-  %call4.i148 = call zeroext i1 @equal(ptr noundef %67, ptr noundef nonnull @.str.21) #13
-  %69 = load ptr, ptr %tok.addr.i142, align 8
-  br i1 %call4.i148, label %if.then5.i149, label %if.end9.i
-
-if.then5.i149:                                    ; preds = %if.end.i147
-  %next6.i150 = getelementptr inbounds i8, ptr %69, i64 8
-  %70 = load ptr, ptr %next6.i150, align 8
-  %call7.i151 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %70)
-  %call.i.i6.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i, align 16
-  br label %for.cond.i144.backedge
+  %call4.i148 = call zeroext i1 @equal(ptr noundef %84, ptr noundef nonnull @.str.21) #13
+  %86 = load ptr, ptr %tok.addr.i142, align 8
+  br i1 %call4.i148, label %for.cond.i144.backedge, label %if.end9.i
 
 if.end9.i:                                        ; preds = %if.end.i147
-  %call10.i = call zeroext i1 @equal(ptr noundef %69, ptr noundef nonnull @.str.22) #13
-  %71 = load ptr, ptr %tok.addr.i142, align 8
-  br i1 %call10.i, label %if.then11.i, label %mul.exit
-
-if.then11.i:                                      ; preds = %if.end9.i
-  %next12.i = getelementptr inbounds i8, ptr %71, i64 8
-  %72 = load ptr, ptr %next12.i, align 8
-  %call13.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i142, ptr noundef %72)
-  %call.i.i10.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i, align 16
-  br label %for.cond.i144.backedge
+  %call10.i = call zeroext i1 @equal(ptr noundef %86, ptr noundef nonnull @.str.22) #13
+  %87 = load ptr, ptr %tok.addr.i142, align 8
+  br i1 %call10.i, label %for.cond.i144.backedge, label %mul.exit
 
 mul.exit:                                         ; preds = %if.end9.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i142)
   %call8.i = call fastcc ptr @new_sub(ptr noundef %node.0.i43, ptr noundef %node.0.i145, ptr noundef %tok.addr.i40.0)
   br label %for.cond.i42.backedge
 
-add.exit:                                         ; preds = %if.end.i45
-  %call.i.i36 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 11, ptr %call.i.i36, align 16
-  br label %for.cond.i.backedge
-
 shift.exit:                                       ; preds = %if.end.i
   store ptr %tok.addr.i.0, ptr %tok.addr, align 8
-  %call.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 14, ptr %call.i.i, align 16
   br label %for.cond.backedge
 
 for.cond.backedge:                                ; preds = %shift.exit, %shift.exit23, %if.then11, %if.then17
-  %call.i.i.sink732 = phi ptr [ %call.i.i, %shift.exit ], [ %call.i.i24, %shift.exit23 ], [ %call.i.i28, %if.then11 ], [ %call.i.i32, %if.then17 ]
+  %.sink1114 = phi i32 [ 14, %shift.exit ], [ 15, %shift.exit23 ], [ 14, %if.then11 ], [ 15, %if.then17 ]
   %node.0.sink = phi ptr [ %node.0, %shift.exit ], [ %node.0, %shift.exit23 ], [ %call13, %if.then11 ], [ %call19, %if.then17 ]
   %node.0.i.lcssa.sink = phi ptr [ %node.0.i, %shift.exit ], [ %node.0.i11, %shift.exit23 ], [ %node.0, %if.then11 ], [ %node.0, %if.then17 ]
-  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i.sink732, i64 24
+  %call.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1114, ptr %call.i.i, align 16
+  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %0, ptr %tok2.i.i, align 8
-  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i.sink732, i64 32
+  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %node.0.sink, ptr %lhs1.i, align 16
-  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i.sink732, i64 40
+  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store ptr %node.0.i.lcssa.sink, ptr %rhs2.i, align 8
   br label %for.cond
 
@@ -3859,142 +3946,201 @@ if.end:                                           ; preds = %for.cond
 
 if.then5:                                         ; preds = %if.end
   %next6 = getelementptr inbounds i8, ptr %0, i64 8
-  %73 = load ptr, ptr %next6, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i648)
-  store ptr %73, ptr %tok.addr.i648, align 8
-  %call.i649 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i648, ptr noundef %73)
-  br label %for.cond.i650
+  %88 = load ptr, ptr %next6, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i896)
+  store ptr %88, ptr %tok.addr.i896, align 8
+  %call.i897 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i896, ptr noundef %88)
+  br label %for.cond.i898
 
-for.cond.i650:                                    ; preds = %for.cond.i650.backedge, %if.then5
-  %node.0.i651 = phi ptr [ %call.i649, %if.then5 ], [ %call.i.i.i674.sink734, %for.cond.i650.backedge ]
-  %74 = load ptr, ptr %tok.addr.i648, align 8
-  %call1.i652 = call zeroext i1 @equal(ptr noundef %74, ptr noundef nonnull @.str.20) #13
-  %75 = load ptr, ptr %tok.addr.i648, align 8
-  br i1 %call1.i652, label %if.then.i671, label %if.end.i653
+for.cond.i898:                                    ; preds = %for.cond.i898.backedge, %if.then5
+  %node.0.i899 = phi ptr [ %call.i897, %if.then5 ], [ %call.i.i.i922, %for.cond.i898.backedge ]
+  %89 = load ptr, ptr %tok.addr.i896, align 8
+  %call1.i900 = call zeroext i1 @equal(ptr noundef %89, ptr noundef nonnull @.str.20) #13
+  %90 = load ptr, ptr %tok.addr.i896, align 8
+  br i1 %call1.i900, label %for.cond.i898.backedge, label %if.end.i901
 
-if.then.i671:                                     ; preds = %for.cond.i650
-  %next.i672 = getelementptr inbounds i8, ptr %75, i64 8
-  %76 = load ptr, ptr %next.i672, align 8
-  %call2.i673 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i648, ptr noundef %76)
-  %call.i.i.i674 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i674, align 16
-  br label %for.cond.i650.backedge
+for.cond.i898.backedge:                           ; preds = %if.end9.i903, %for.cond.i898, %if.end.i901
+  %.sink1121 = phi ptr [ %92, %if.end.i901 ], [ %90, %for.cond.i898 ], [ %93, %if.end9.i903 ]
+  %.sink1118 = phi i32 [ 4, %if.end.i901 ], [ 3, %for.cond.i898 ], [ 6, %if.end9.i903 ]
+  %next.i920 = getelementptr inbounds i8, ptr %.sink1121, i64 8
+  %91 = load ptr, ptr %next.i920, align 8
+  %call2.i921 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i896, ptr noundef %91)
+  %call.i.i.i922 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1118, ptr %call.i.i.i922, align 16
+  %tok2.i.i.i923 = getelementptr inbounds i8, ptr %call.i.i.i922, i64 24
+  store ptr %89, ptr %tok2.i.i.i923, align 8
+  %lhs1.i.i924 = getelementptr inbounds i8, ptr %call.i.i.i922, i64 32
+  store ptr %node.0.i899, ptr %lhs1.i.i924, align 16
+  %rhs2.i.i925 = getelementptr inbounds i8, ptr %call.i.i.i922, i64 40
+  store ptr %call2.i921, ptr %rhs2.i.i925, align 8
+  br label %for.cond.i898
 
-for.cond.i650.backedge:                           ; preds = %if.then.i671, %if.then5.i664, %if.then11.i657
-  %call.i.i.i674.sink734 = phi ptr [ %call.i.i.i674, %if.then.i671 ], [ %call.i.i6.i667, %if.then5.i664 ], [ %call.i.i10.i660, %if.then11.i657 ]
-  %call2.i673.sink = phi ptr [ %call2.i673, %if.then.i671 ], [ %call7.i666, %if.then5.i664 ], [ %call13.i659, %if.then11.i657 ]
-  %tok2.i.i.i675 = getelementptr inbounds i8, ptr %call.i.i.i674.sink734, i64 24
-  store ptr %74, ptr %tok2.i.i.i675, align 8
-  %lhs1.i.i676 = getelementptr inbounds i8, ptr %call.i.i.i674.sink734, i64 32
-  store ptr %node.0.i651, ptr %lhs1.i.i676, align 16
-  %rhs2.i.i677 = getelementptr inbounds i8, ptr %call.i.i.i674.sink734, i64 40
-  store ptr %call2.i673.sink, ptr %rhs2.i.i677, align 8
-  br label %for.cond.i650
+if.end.i901:                                      ; preds = %for.cond.i898
+  %call4.i902 = call zeroext i1 @equal(ptr noundef %90, ptr noundef nonnull @.str.21) #13
+  %92 = load ptr, ptr %tok.addr.i896, align 8
+  br i1 %call4.i902, label %for.cond.i898.backedge, label %if.end9.i903
 
-if.end.i653:                                      ; preds = %for.cond.i650
-  %call4.i654 = call zeroext i1 @equal(ptr noundef %75, ptr noundef nonnull @.str.21) #13
-  %77 = load ptr, ptr %tok.addr.i648, align 8
-  br i1 %call4.i654, label %if.then5.i664, label %if.end9.i655
+if.end9.i903:                                     ; preds = %if.end.i901
+  %call10.i904 = call zeroext i1 @equal(ptr noundef %92, ptr noundef nonnull @.str.22) #13
+  %93 = load ptr, ptr %tok.addr.i896, align 8
+  br i1 %call10.i904, label %for.cond.i898.backedge, label %mul.exit926
 
-if.then5.i664:                                    ; preds = %if.end.i653
-  %next6.i665 = getelementptr inbounds i8, ptr %77, i64 8
-  %78 = load ptr, ptr %next6.i665, align 8
-  %call7.i666 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i648, ptr noundef %78)
-  %call.i.i6.i667 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i667, align 16
-  br label %for.cond.i650.backedge
-
-if.end9.i655:                                     ; preds = %if.end.i653
-  %call10.i656 = call zeroext i1 @equal(ptr noundef %77, ptr noundef nonnull @.str.22) #13
-  %79 = load ptr, ptr %tok.addr.i648, align 8
-  br i1 %call10.i656, label %if.then11.i657, label %mul.exit678
-
-if.then11.i657:                                   ; preds = %if.end9.i655
-  %next12.i658 = getelementptr inbounds i8, ptr %79, i64 8
-  %80 = load ptr, ptr %next12.i658, align 8
-  %call13.i659 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i648, ptr noundef %80)
-  %call.i.i10.i660 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i660, align 16
-  br label %for.cond.i650.backedge
-
-mul.exit678:                                      ; preds = %if.end9.i655
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i648)
+mul.exit926:                                      ; preds = %if.end9.i903
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i896)
   br label %for.cond.i128
 
-for.cond.i128:                                    ; preds = %for.cond.i128.backedge, %mul.exit678
-  %tok.addr.i126.0 = phi ptr [ %79, %mul.exit678 ], [ %tok.addr.i126.0.be, %for.cond.i128.backedge ]
-  %node.0.i129 = phi ptr [ %node.0.i651, %mul.exit678 ], [ %node.0.i129.be, %for.cond.i128.backedge ]
+for.cond.i128:                                    ; preds = %for.cond.i128.backedge, %mul.exit926
+  %tok.addr.i126.0 = phi ptr [ %93, %mul.exit926 ], [ %tok.addr.i126.0.be, %for.cond.i128.backedge ]
+  %node.0.i129 = phi ptr [ %node.0.i899, %mul.exit926 ], [ %node.0.i129.be, %for.cond.i128.backedge ]
   %call1.i130 = call zeroext i1 @equal(ptr noundef %tok.addr.i126.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i130, label %if.then.i137, label %if.end.i131
 
 if.then.i137:                                     ; preds = %for.cond.i128
   %next.i138 = getelementptr inbounds i8, ptr %tok.addr.i126.0, i64 8
-  %81 = load ptr, ptr %next.i138, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i617)
-  store ptr %81, ptr %tok.addr.i617, align 8
-  %call.i618 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i617, ptr noundef %81)
-  br label %for.cond.i619
+  %94 = load ptr, ptr %next.i138, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i865)
+  store ptr %94, ptr %tok.addr.i865, align 8
+  %call.i866 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i865, ptr noundef %94)
+  br label %for.cond.i867
 
-for.cond.i619:                                    ; preds = %for.cond.i619.backedge, %if.then.i137
-  %node.0.i620 = phi ptr [ %call.i618, %if.then.i137 ], [ %call.i.i.i643.sink736, %for.cond.i619.backedge ]
-  %82 = load ptr, ptr %tok.addr.i617, align 8
-  %call1.i621 = call zeroext i1 @equal(ptr noundef %82, ptr noundef nonnull @.str.20) #13
-  %83 = load ptr, ptr %tok.addr.i617, align 8
-  br i1 %call1.i621, label %if.then.i640, label %if.end.i622
+for.cond.i867:                                    ; preds = %for.cond.i867.backedge, %if.then.i137
+  %node.0.i868 = phi ptr [ %call.i866, %if.then.i137 ], [ %call.i.i.i891, %for.cond.i867.backedge ]
+  %95 = load ptr, ptr %tok.addr.i865, align 8
+  %call1.i869 = call zeroext i1 @equal(ptr noundef %95, ptr noundef nonnull @.str.20) #13
+  %96 = load ptr, ptr %tok.addr.i865, align 8
+  br i1 %call1.i869, label %for.cond.i867.backedge, label %if.end.i870
 
-if.then.i640:                                     ; preds = %for.cond.i619
-  %next.i641 = getelementptr inbounds i8, ptr %83, i64 8
-  %84 = load ptr, ptr %next.i641, align 8
-  %call2.i642 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i617, ptr noundef %84)
-  %call.i.i.i643 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i643, align 16
-  br label %for.cond.i619.backedge
+for.cond.i867.backedge:                           ; preds = %if.end9.i872, %for.cond.i867, %if.end.i870
+  %.sink1127 = phi ptr [ %98, %if.end.i870 ], [ %96, %for.cond.i867 ], [ %99, %if.end9.i872 ]
+  %.sink1124 = phi i32 [ 4, %if.end.i870 ], [ 3, %for.cond.i867 ], [ 6, %if.end9.i872 ]
+  %next.i889 = getelementptr inbounds i8, ptr %.sink1127, i64 8
+  %97 = load ptr, ptr %next.i889, align 8
+  %call2.i890 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i865, ptr noundef %97)
+  %call.i.i.i891 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1124, ptr %call.i.i.i891, align 16
+  %tok2.i.i.i892 = getelementptr inbounds i8, ptr %call.i.i.i891, i64 24
+  store ptr %95, ptr %tok2.i.i.i892, align 8
+  %lhs1.i.i893 = getelementptr inbounds i8, ptr %call.i.i.i891, i64 32
+  store ptr %node.0.i868, ptr %lhs1.i.i893, align 16
+  %rhs2.i.i894 = getelementptr inbounds i8, ptr %call.i.i.i891, i64 40
+  store ptr %call2.i890, ptr %rhs2.i.i894, align 8
+  br label %for.cond.i867
 
-for.cond.i619.backedge:                           ; preds = %if.then.i640, %if.then5.i633, %if.then11.i626
-  %call.i.i.i643.sink736 = phi ptr [ %call.i.i.i643, %if.then.i640 ], [ %call.i.i6.i636, %if.then5.i633 ], [ %call.i.i10.i629, %if.then11.i626 ]
-  %call2.i642.sink = phi ptr [ %call2.i642, %if.then.i640 ], [ %call7.i635, %if.then5.i633 ], [ %call13.i628, %if.then11.i626 ]
-  %tok2.i.i.i644 = getelementptr inbounds i8, ptr %call.i.i.i643.sink736, i64 24
-  store ptr %82, ptr %tok2.i.i.i644, align 8
-  %lhs1.i.i645 = getelementptr inbounds i8, ptr %call.i.i.i643.sink736, i64 32
-  store ptr %node.0.i620, ptr %lhs1.i.i645, align 16
-  %rhs2.i.i646 = getelementptr inbounds i8, ptr %call.i.i.i643.sink736, i64 40
-  store ptr %call2.i642.sink, ptr %rhs2.i.i646, align 8
-  br label %for.cond.i619
+if.end.i870:                                      ; preds = %for.cond.i867
+  %call4.i871 = call zeroext i1 @equal(ptr noundef %96, ptr noundef nonnull @.str.21) #13
+  %98 = load ptr, ptr %tok.addr.i865, align 8
+  br i1 %call4.i871, label %for.cond.i867.backedge, label %if.end9.i872
 
-if.end.i622:                                      ; preds = %for.cond.i619
-  %call4.i623 = call zeroext i1 @equal(ptr noundef %83, ptr noundef nonnull @.str.21) #13
-  %85 = load ptr, ptr %tok.addr.i617, align 8
-  br i1 %call4.i623, label %if.then5.i633, label %if.end9.i624
+if.end9.i872:                                     ; preds = %if.end.i870
+  %call10.i873 = call zeroext i1 @equal(ptr noundef %98, ptr noundef nonnull @.str.22) #13
+  %99 = load ptr, ptr %tok.addr.i865, align 8
+  br i1 %call10.i873, label %for.cond.i867.backedge, label %mul.exit895
 
-if.then5.i633:                                    ; preds = %if.end.i622
-  %next6.i634 = getelementptr inbounds i8, ptr %85, i64 8
-  %86 = load ptr, ptr %next6.i634, align 8
-  %call7.i635 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i617, ptr noundef %86)
-  %call.i.i6.i636 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i636, align 16
-  br label %for.cond.i619.backedge
+mul.exit895:                                      ; preds = %if.end9.i872
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i865)
+  call void @add_type(ptr noundef %node.0.i129) #13
+  call void @add_type(ptr noundef %node.0.i868) #13
+  %ty.i816 = getelementptr inbounds i8, ptr %node.0.i129, i64 16
+  %100 = load ptr, ptr %ty.i816, align 16
+  %call.i817 = call zeroext i1 @is_numeric(ptr noundef %100) #13
+  br i1 %call.i817, label %land.lhs.true.i861, label %if.end.i818
 
-if.end9.i624:                                     ; preds = %if.end.i622
-  %call10.i625 = call zeroext i1 @equal(ptr noundef %85, ptr noundef nonnull @.str.22) #13
-  %87 = load ptr, ptr %tok.addr.i617, align 8
-  br i1 %call10.i625, label %if.then11.i626, label %mul.exit647
+land.lhs.true.i861:                               ; preds = %mul.exit895
+  %ty1.i862 = getelementptr inbounds i8, ptr %node.0.i868, i64 16
+  %101 = load ptr, ptr %ty1.i862, align 16
+  %call2.i863 = call zeroext i1 @is_numeric(ptr noundef %101) #13
+  br i1 %call2.i863, label %new_add.exit864, label %if.end.i818
 
-if.then11.i626:                                   ; preds = %if.end9.i624
-  %next12.i627 = getelementptr inbounds i8, ptr %87, i64 8
-  %88 = load ptr, ptr %next12.i627, align 8
-  %call13.i628 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i617, ptr noundef %88)
-  %call.i.i10.i629 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i629, align 16
-  br label %for.cond.i619.backedge
+if.end.i818:                                      ; preds = %land.lhs.true.i861, %mul.exit895
+  %102 = load ptr, ptr %ty.i816, align 16
+  %base.i819 = getelementptr inbounds i8, ptr %102, i64 24
+  %103 = load ptr, ptr %base.i819, align 8
+  %tobool.not.i820 = icmp eq ptr %103, null
+  %ty15.i821 = getelementptr inbounds i8, ptr %node.0.i868, i64 16
+  %104 = load ptr, ptr %ty15.i821, align 16
+  %base16.i822 = getelementptr inbounds i8, ptr %104, i64 24
+  %105 = load ptr, ptr %base16.i822, align 8
+  %tobool17.not.i823 = icmp eq ptr %105, null
+  br i1 %tobool.not.i820, label %land.lhs.true14.i854, label %land.lhs.true5.i824
 
-mul.exit647:                                      ; preds = %if.end9.i624
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i617)
-  %call3.i140 = call fastcc ptr @new_add(ptr noundef %node.0.i129, ptr noundef %node.0.i620, ptr noundef %tok.addr.i126.0)
+land.lhs.true5.i824:                              ; preds = %if.end.i818
+  br i1 %tobool17.not.i823, label %if.end19.i826, label %if.then9.i825
+
+if.then9.i825:                                    ; preds = %land.lhs.true5.i824
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i126.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i854:                             ; preds = %if.end.i818
+  %spec.select.i855 = select i1 %tobool17.not.i823, ptr %node.0.i868, ptr %node.0.i129
+  %spec.select27.i856 = select i1 %tobool17.not.i823, ptr %node.0.i129, ptr %node.0.i868
+  %ty20.phi.trans.insert.i857 = getelementptr inbounds i8, ptr %spec.select27.i856, i64 16
+  %.pre.i858 = load ptr, ptr %ty20.phi.trans.insert.i857, align 16
+  %base21.phi.trans.insert.i859 = getelementptr inbounds i8, ptr %.pre.i858, i64 24
+  %.pre48.i860 = load ptr, ptr %base21.phi.trans.insert.i859, align 8
+  br label %if.end19.i826
+
+if.end19.i826:                                    ; preds = %land.lhs.true14.i854, %land.lhs.true5.i824
+  %106 = phi ptr [ %.pre48.i860, %land.lhs.true14.i854 ], [ %103, %land.lhs.true5.i824 ]
+  %rhs.addr.0.i827 = phi ptr [ %spec.select.i855, %land.lhs.true14.i854 ], [ %node.0.i868, %land.lhs.true5.i824 ]
+  %lhs.addr.0.i828 = phi ptr [ %spec.select27.i856, %land.lhs.true14.i854 ], [ %node.0.i129, %land.lhs.true5.i824 ]
+  %107 = load i32, ptr %106, align 8
+  %cmp.i829 = icmp eq i32 %107, 13
+  br i1 %cmp.i829, label %if.then22.i849, label %if.end28.i830
+
+if.then22.i849:                                   ; preds = %if.end19.i826
+  %vla_size.i850 = getelementptr inbounds i8, ptr %106, i64 64
+  %108 = load ptr, ptr %vla_size.i850, align 8
+  %call.i.i28.i851 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i851, align 16
+  %tok2.i.i29.i852 = getelementptr inbounds i8, ptr %call.i.i28.i851, i64 24
+  store ptr %tok.addr.i126.0, ptr %tok2.i.i29.i852, align 8
+  %var1.i.i853 = getelementptr inbounds i8, ptr %call.i.i28.i851, i64 256
+  store ptr %108, ptr %var1.i.i853, align 16
+  br label %return.sink.split.i837
+
+if.end28.i830:                                    ; preds = %if.end19.i826
+  %size.i831 = getelementptr inbounds i8, ptr %106, i64 4
+  %109 = load i32, ptr %size.i831, align 4
+  %conv.i832 = sext i32 %109 to i64
+  %call.i.i38.i833 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i833, align 16
+  %tok2.i.i39.i834 = getelementptr inbounds i8, ptr %call.i.i38.i833, i64 24
+  store ptr %tok.addr.i126.0, ptr %tok2.i.i39.i834, align 8
+  %val1.i.i835 = getelementptr inbounds i8, ptr %call.i.i38.i833, i64 264
+  store i64 %conv.i832, ptr %val1.i.i835, align 8
+  %110 = load ptr, ptr @ty_long, align 8
+  %ty.i.i836 = getelementptr inbounds i8, ptr %call.i.i38.i833, i64 16
+  store ptr %110, ptr %ty.i.i836, align 16
+  br label %return.sink.split.i837
+
+return.sink.split.i837:                           ; preds = %if.end28.i830, %if.then22.i849
+  %call.i.i38.sink.i838 = phi ptr [ %call.i.i38.i833, %if.end28.i830 ], [ %call.i.i28.i851, %if.then22.i849 ]
+  %call.i.i40.i839 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i839, align 16
+  %tok2.i.i41.i840 = getelementptr inbounds i8, ptr %call.i.i40.i839, i64 24
+  store ptr %tok.addr.i126.0, ptr %tok2.i.i41.i840, align 8
+  %lhs1.i42.i841 = getelementptr inbounds i8, ptr %call.i.i40.i839, i64 32
+  store ptr %rhs.addr.0.i827, ptr %lhs1.i42.i841, align 16
+  %rhs2.i43.i842 = getelementptr inbounds i8, ptr %call.i.i40.i839, i64 40
+  store ptr %call.i.i38.sink.i838, ptr %rhs2.i43.i842, align 8
+  br label %new_add.exit864
+
+new_add.exit864:                                  ; preds = %land.lhs.true.i861, %return.sink.split.i837
+  %lhs.addr.0.sink.i843 = phi ptr [ %node.0.i129, %land.lhs.true.i861 ], [ %lhs.addr.0.i828, %return.sink.split.i837 ]
+  %call.i.i40.sink.i844 = phi ptr [ %node.0.i868, %land.lhs.true.i861 ], [ %call.i.i40.i839, %return.sink.split.i837 ]
+  %call.i.i44.i845 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i845, align 16
+  %tok2.i.i45.i846 = getelementptr inbounds i8, ptr %call.i.i44.i845, i64 24
+  store ptr %tok.addr.i126.0, ptr %tok2.i.i45.i846, align 8
+  %lhs1.i46.i847 = getelementptr inbounds i8, ptr %call.i.i44.i845, i64 32
+  store ptr %lhs.addr.0.sink.i843, ptr %lhs1.i46.i847, align 16
+  %rhs2.i47.i848 = getelementptr inbounds i8, ptr %call.i.i44.i845, i64 40
+  store ptr %call.i.i40.sink.i844, ptr %rhs2.i47.i848, align 8
   br label %for.cond.i128.backedge
 
-for.cond.i128.backedge:                           ; preds = %mul.exit647, %mul.exit616
-  %tok.addr.i126.0.be = phi ptr [ %87, %mul.exit647 ], [ %95, %mul.exit616 ]
-  %node.0.i129.be = phi ptr [ %call3.i140, %mul.exit647 ], [ %call8.i136, %mul.exit616 ]
+for.cond.i128.backedge:                           ; preds = %new_add.exit864, %mul.exit815
+  %tok.addr.i126.0.be = phi ptr [ %99, %new_add.exit864 ], [ %116, %mul.exit815 ]
+  %node.0.i129.be = phi ptr [ %call.i.i44.i845, %new_add.exit864 ], [ %call8.i136, %mul.exit815 ]
   br label %for.cond.i128
 
 if.end.i131:                                      ; preds = %for.cond.i128
@@ -4003,298 +4149,316 @@ if.end.i131:                                      ; preds = %for.cond.i128
 
 if.then5.i133:                                    ; preds = %if.end.i131
   %next6.i134 = getelementptr inbounds i8, ptr %tok.addr.i126.0, i64 8
-  %89 = load ptr, ptr %next6.i134, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i586)
-  store ptr %89, ptr %tok.addr.i586, align 8
-  %call.i587 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i586, ptr noundef %89)
-  br label %for.cond.i588
+  %111 = load ptr, ptr %next6.i134, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i785)
+  store ptr %111, ptr %tok.addr.i785, align 8
+  %call.i786 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i785, ptr noundef %111)
+  br label %for.cond.i787
 
-for.cond.i588:                                    ; preds = %for.cond.i588.backedge, %if.then5.i133
-  %node.0.i589 = phi ptr [ %call.i587, %if.then5.i133 ], [ %call.i.i.i612.sink738, %for.cond.i588.backedge ]
-  %90 = load ptr, ptr %tok.addr.i586, align 8
-  %call1.i590 = call zeroext i1 @equal(ptr noundef %90, ptr noundef nonnull @.str.20) #13
-  %91 = load ptr, ptr %tok.addr.i586, align 8
-  br i1 %call1.i590, label %if.then.i609, label %if.end.i591
+for.cond.i787:                                    ; preds = %for.cond.i787.backedge, %if.then5.i133
+  %node.0.i788 = phi ptr [ %call.i786, %if.then5.i133 ], [ %call.i.i.i811, %for.cond.i787.backedge ]
+  %112 = load ptr, ptr %tok.addr.i785, align 8
+  %call1.i789 = call zeroext i1 @equal(ptr noundef %112, ptr noundef nonnull @.str.20) #13
+  %113 = load ptr, ptr %tok.addr.i785, align 8
+  br i1 %call1.i789, label %for.cond.i787.backedge, label %if.end.i790
 
-if.then.i609:                                     ; preds = %for.cond.i588
-  %next.i610 = getelementptr inbounds i8, ptr %91, i64 8
-  %92 = load ptr, ptr %next.i610, align 8
-  %call2.i611 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i586, ptr noundef %92)
-  %call.i.i.i612 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i612, align 16
-  br label %for.cond.i588.backedge
+for.cond.i787.backedge:                           ; preds = %if.end9.i792, %for.cond.i787, %if.end.i790
+  %.sink1133 = phi ptr [ %115, %if.end.i790 ], [ %113, %for.cond.i787 ], [ %116, %if.end9.i792 ]
+  %.sink1130 = phi i32 [ 4, %if.end.i790 ], [ 3, %for.cond.i787 ], [ 6, %if.end9.i792 ]
+  %next.i809 = getelementptr inbounds i8, ptr %.sink1133, i64 8
+  %114 = load ptr, ptr %next.i809, align 8
+  %call2.i810 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i785, ptr noundef %114)
+  %call.i.i.i811 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1130, ptr %call.i.i.i811, align 16
+  %tok2.i.i.i812 = getelementptr inbounds i8, ptr %call.i.i.i811, i64 24
+  store ptr %112, ptr %tok2.i.i.i812, align 8
+  %lhs1.i.i813 = getelementptr inbounds i8, ptr %call.i.i.i811, i64 32
+  store ptr %node.0.i788, ptr %lhs1.i.i813, align 16
+  %rhs2.i.i814 = getelementptr inbounds i8, ptr %call.i.i.i811, i64 40
+  store ptr %call2.i810, ptr %rhs2.i.i814, align 8
+  br label %for.cond.i787
 
-for.cond.i588.backedge:                           ; preds = %if.then.i609, %if.then5.i602, %if.then11.i595
-  %call.i.i.i612.sink738 = phi ptr [ %call.i.i.i612, %if.then.i609 ], [ %call.i.i6.i605, %if.then5.i602 ], [ %call.i.i10.i598, %if.then11.i595 ]
-  %call2.i611.sink = phi ptr [ %call2.i611, %if.then.i609 ], [ %call7.i604, %if.then5.i602 ], [ %call13.i597, %if.then11.i595 ]
-  %tok2.i.i.i613 = getelementptr inbounds i8, ptr %call.i.i.i612.sink738, i64 24
-  store ptr %90, ptr %tok2.i.i.i613, align 8
-  %lhs1.i.i614 = getelementptr inbounds i8, ptr %call.i.i.i612.sink738, i64 32
-  store ptr %node.0.i589, ptr %lhs1.i.i614, align 16
-  %rhs2.i.i615 = getelementptr inbounds i8, ptr %call.i.i.i612.sink738, i64 40
-  store ptr %call2.i611.sink, ptr %rhs2.i.i615, align 8
-  br label %for.cond.i588
+if.end.i790:                                      ; preds = %for.cond.i787
+  %call4.i791 = call zeroext i1 @equal(ptr noundef %113, ptr noundef nonnull @.str.21) #13
+  %115 = load ptr, ptr %tok.addr.i785, align 8
+  br i1 %call4.i791, label %for.cond.i787.backedge, label %if.end9.i792
 
-if.end.i591:                                      ; preds = %for.cond.i588
-  %call4.i592 = call zeroext i1 @equal(ptr noundef %91, ptr noundef nonnull @.str.21) #13
-  %93 = load ptr, ptr %tok.addr.i586, align 8
-  br i1 %call4.i592, label %if.then5.i602, label %if.end9.i593
+if.end9.i792:                                     ; preds = %if.end.i790
+  %call10.i793 = call zeroext i1 @equal(ptr noundef %115, ptr noundef nonnull @.str.22) #13
+  %116 = load ptr, ptr %tok.addr.i785, align 8
+  br i1 %call10.i793, label %for.cond.i787.backedge, label %mul.exit815
 
-if.then5.i602:                                    ; preds = %if.end.i591
-  %next6.i603 = getelementptr inbounds i8, ptr %93, i64 8
-  %94 = load ptr, ptr %next6.i603, align 8
-  %call7.i604 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i586, ptr noundef %94)
-  %call.i.i6.i605 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i605, align 16
-  br label %for.cond.i588.backedge
-
-if.end9.i593:                                     ; preds = %if.end.i591
-  %call10.i594 = call zeroext i1 @equal(ptr noundef %93, ptr noundef nonnull @.str.22) #13
-  %95 = load ptr, ptr %tok.addr.i586, align 8
-  br i1 %call10.i594, label %if.then11.i595, label %mul.exit616
-
-if.then11.i595:                                   ; preds = %if.end9.i593
-  %next12.i596 = getelementptr inbounds i8, ptr %95, i64 8
-  %96 = load ptr, ptr %next12.i596, align 8
-  %call13.i597 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i586, ptr noundef %96)
-  %call.i.i10.i598 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i598, align 16
-  br label %for.cond.i588.backedge
-
-mul.exit616:                                      ; preds = %if.end9.i593
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i586)
-  %call8.i136 = call fastcc ptr @new_sub(ptr noundef %node.0.i129, ptr noundef %node.0.i589, ptr noundef %tok.addr.i126.0)
+mul.exit815:                                      ; preds = %if.end9.i792
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i785)
+  %call8.i136 = call fastcc ptr @new_sub(ptr noundef %node.0.i129, ptr noundef %node.0.i788, ptr noundef %tok.addr.i126.0)
   br label %for.cond.i128.backedge
 
 for.cond.i10:                                     ; preds = %if.end.i131, %for.cond.i10.backedge
   %tok.addr.i8.0 = phi ptr [ %tok.addr.i8.0.be, %for.cond.i10.backedge ], [ %tok.addr.i126.0, %if.end.i131 ]
-  %node.0.i11 = phi ptr [ %call.i.i106.sink746, %for.cond.i10.backedge ], [ %node.0.i129, %if.end.i131 ]
+  %node.0.i11 = phi ptr [ %call.i.i106, %for.cond.i10.backedge ], [ %node.0.i129, %if.end.i131 ]
   %call1.i12 = call zeroext i1 @equal(ptr noundef %tok.addr.i8.0, ptr noundef nonnull @.str.16) #13
   br i1 %call1.i12, label %if.then.i19, label %if.end.i13
 
 if.then.i19:                                      ; preds = %for.cond.i10
   %next.i20 = getelementptr inbounds i8, ptr %tok.addr.i8.0, i64 8
-  %97 = load ptr, ptr %next.i20, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i555)
-  store ptr %97, ptr %tok.addr.i555, align 8
-  %call.i556 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i555, ptr noundef %97)
-  br label %for.cond.i557
+  %117 = load ptr, ptr %next.i20, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i754)
+  store ptr %117, ptr %tok.addr.i754, align 8
+  %call.i755 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i754, ptr noundef %117)
+  br label %for.cond.i756
 
-for.cond.i557:                                    ; preds = %for.cond.i557.backedge, %if.then.i19
-  %node.0.i558 = phi ptr [ %call.i556, %if.then.i19 ], [ %call.i.i.i581.sink740, %for.cond.i557.backedge ]
-  %98 = load ptr, ptr %tok.addr.i555, align 8
-  %call1.i559 = call zeroext i1 @equal(ptr noundef %98, ptr noundef nonnull @.str.20) #13
-  %99 = load ptr, ptr %tok.addr.i555, align 8
-  br i1 %call1.i559, label %if.then.i578, label %if.end.i560
+for.cond.i756:                                    ; preds = %for.cond.i756.backedge, %if.then.i19
+  %node.0.i757 = phi ptr [ %call.i755, %if.then.i19 ], [ %call.i.i.i780, %for.cond.i756.backedge ]
+  %118 = load ptr, ptr %tok.addr.i754, align 8
+  %call1.i758 = call zeroext i1 @equal(ptr noundef %118, ptr noundef nonnull @.str.20) #13
+  %119 = load ptr, ptr %tok.addr.i754, align 8
+  br i1 %call1.i758, label %for.cond.i756.backedge, label %if.end.i759
 
-if.then.i578:                                     ; preds = %for.cond.i557
-  %next.i579 = getelementptr inbounds i8, ptr %99, i64 8
-  %100 = load ptr, ptr %next.i579, align 8
-  %call2.i580 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i555, ptr noundef %100)
-  %call.i.i.i581 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i581, align 16
-  br label %for.cond.i557.backedge
+for.cond.i756.backedge:                           ; preds = %if.end9.i761, %for.cond.i756, %if.end.i759
+  %.sink1139 = phi ptr [ %121, %if.end.i759 ], [ %119, %for.cond.i756 ], [ %122, %if.end9.i761 ]
+  %.sink1136 = phi i32 [ 4, %if.end.i759 ], [ 3, %for.cond.i756 ], [ 6, %if.end9.i761 ]
+  %next.i778 = getelementptr inbounds i8, ptr %.sink1139, i64 8
+  %120 = load ptr, ptr %next.i778, align 8
+  %call2.i779 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i754, ptr noundef %120)
+  %call.i.i.i780 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1136, ptr %call.i.i.i780, align 16
+  %tok2.i.i.i781 = getelementptr inbounds i8, ptr %call.i.i.i780, i64 24
+  store ptr %118, ptr %tok2.i.i.i781, align 8
+  %lhs1.i.i782 = getelementptr inbounds i8, ptr %call.i.i.i780, i64 32
+  store ptr %node.0.i757, ptr %lhs1.i.i782, align 16
+  %rhs2.i.i783 = getelementptr inbounds i8, ptr %call.i.i.i780, i64 40
+  store ptr %call2.i779, ptr %rhs2.i.i783, align 8
+  br label %for.cond.i756
 
-for.cond.i557.backedge:                           ; preds = %if.then.i578, %if.then5.i571, %if.then11.i564
-  %call.i.i.i581.sink740 = phi ptr [ %call.i.i.i581, %if.then.i578 ], [ %call.i.i6.i574, %if.then5.i571 ], [ %call.i.i10.i567, %if.then11.i564 ]
-  %call2.i580.sink = phi ptr [ %call2.i580, %if.then.i578 ], [ %call7.i573, %if.then5.i571 ], [ %call13.i566, %if.then11.i564 ]
-  %tok2.i.i.i582 = getelementptr inbounds i8, ptr %call.i.i.i581.sink740, i64 24
-  store ptr %98, ptr %tok2.i.i.i582, align 8
-  %lhs1.i.i583 = getelementptr inbounds i8, ptr %call.i.i.i581.sink740, i64 32
-  store ptr %node.0.i558, ptr %lhs1.i.i583, align 16
-  %rhs2.i.i584 = getelementptr inbounds i8, ptr %call.i.i.i581.sink740, i64 40
-  store ptr %call2.i580.sink, ptr %rhs2.i.i584, align 8
-  br label %for.cond.i557
+if.end.i759:                                      ; preds = %for.cond.i756
+  %call4.i760 = call zeroext i1 @equal(ptr noundef %119, ptr noundef nonnull @.str.21) #13
+  %121 = load ptr, ptr %tok.addr.i754, align 8
+  br i1 %call4.i760, label %for.cond.i756.backedge, label %if.end9.i761
 
-if.end.i560:                                      ; preds = %for.cond.i557
-  %call4.i561 = call zeroext i1 @equal(ptr noundef %99, ptr noundef nonnull @.str.21) #13
-  %101 = load ptr, ptr %tok.addr.i555, align 8
-  br i1 %call4.i561, label %if.then5.i571, label %if.end9.i562
+if.end9.i761:                                     ; preds = %if.end.i759
+  %call10.i762 = call zeroext i1 @equal(ptr noundef %121, ptr noundef nonnull @.str.22) #13
+  %122 = load ptr, ptr %tok.addr.i754, align 8
+  br i1 %call10.i762, label %for.cond.i756.backedge, label %mul.exit784
 
-if.then5.i571:                                    ; preds = %if.end.i560
-  %next6.i572 = getelementptr inbounds i8, ptr %101, i64 8
-  %102 = load ptr, ptr %next6.i572, align 8
-  %call7.i573 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i555, ptr noundef %102)
-  %call.i.i6.i574 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i574, align 16
-  br label %for.cond.i557.backedge
-
-if.end9.i562:                                     ; preds = %if.end.i560
-  %call10.i563 = call zeroext i1 @equal(ptr noundef %101, ptr noundef nonnull @.str.22) #13
-  %103 = load ptr, ptr %tok.addr.i555, align 8
-  br i1 %call10.i563, label %if.then11.i564, label %mul.exit585
-
-if.then11.i564:                                   ; preds = %if.end9.i562
-  %next12.i565 = getelementptr inbounds i8, ptr %103, i64 8
-  %104 = load ptr, ptr %next12.i565, align 8
-  %call13.i566 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i555, ptr noundef %104)
-  %call.i.i10.i567 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i567, align 16
-  br label %for.cond.i557.backedge
-
-mul.exit585:                                      ; preds = %if.end9.i562
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i555)
+mul.exit784:                                      ; preds = %if.end9.i761
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i754)
   br label %for.cond.i112
 
-for.cond.i112:                                    ; preds = %for.cond.i112.backedge, %mul.exit585
-  %tok.addr.i110.0 = phi ptr [ %103, %mul.exit585 ], [ %tok.addr.i110.0.be, %for.cond.i112.backedge ]
-  %node.0.i113 = phi ptr [ %node.0.i558, %mul.exit585 ], [ %node.0.i113.be, %for.cond.i112.backedge ]
+for.cond.i112:                                    ; preds = %for.cond.i112.backedge, %mul.exit784
+  %tok.addr.i110.0 = phi ptr [ %122, %mul.exit784 ], [ %tok.addr.i110.0.be, %for.cond.i112.backedge ]
+  %node.0.i113 = phi ptr [ %node.0.i757, %mul.exit784 ], [ %node.0.i113.be, %for.cond.i112.backedge ]
   %call1.i114 = call zeroext i1 @equal(ptr noundef %tok.addr.i110.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i114, label %if.then.i121, label %if.end.i115
 
 if.then.i121:                                     ; preds = %for.cond.i112
   %next.i122 = getelementptr inbounds i8, ptr %tok.addr.i110.0, i64 8
-  %105 = load ptr, ptr %next.i122, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i524)
-  store ptr %105, ptr %tok.addr.i524, align 8
-  %call.i525 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i524, ptr noundef %105)
-  br label %for.cond.i526
+  %123 = load ptr, ptr %next.i122, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i723)
+  store ptr %123, ptr %tok.addr.i723, align 8
+  %call.i724 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i723, ptr noundef %123)
+  br label %for.cond.i725
 
-for.cond.i526:                                    ; preds = %for.cond.i526.backedge, %if.then.i121
-  %node.0.i527 = phi ptr [ %call.i525, %if.then.i121 ], [ %call.i.i.i550.sink742, %for.cond.i526.backedge ]
-  %106 = load ptr, ptr %tok.addr.i524, align 8
-  %call1.i528 = call zeroext i1 @equal(ptr noundef %106, ptr noundef nonnull @.str.20) #13
-  %107 = load ptr, ptr %tok.addr.i524, align 8
-  br i1 %call1.i528, label %if.then.i547, label %if.end.i529
+for.cond.i725:                                    ; preds = %for.cond.i725.backedge, %if.then.i121
+  %node.0.i726 = phi ptr [ %call.i724, %if.then.i121 ], [ %call.i.i.i749, %for.cond.i725.backedge ]
+  %124 = load ptr, ptr %tok.addr.i723, align 8
+  %call1.i727 = call zeroext i1 @equal(ptr noundef %124, ptr noundef nonnull @.str.20) #13
+  %125 = load ptr, ptr %tok.addr.i723, align 8
+  br i1 %call1.i727, label %for.cond.i725.backedge, label %if.end.i728
 
-if.then.i547:                                     ; preds = %for.cond.i526
-  %next.i548 = getelementptr inbounds i8, ptr %107, i64 8
-  %108 = load ptr, ptr %next.i548, align 8
-  %call2.i549 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i524, ptr noundef %108)
-  %call.i.i.i550 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i550, align 16
-  br label %for.cond.i526.backedge
+for.cond.i725.backedge:                           ; preds = %if.end9.i730, %for.cond.i725, %if.end.i728
+  %.sink1145 = phi ptr [ %127, %if.end.i728 ], [ %125, %for.cond.i725 ], [ %128, %if.end9.i730 ]
+  %.sink1142 = phi i32 [ 4, %if.end.i728 ], [ 3, %for.cond.i725 ], [ 6, %if.end9.i730 ]
+  %next.i747 = getelementptr inbounds i8, ptr %.sink1145, i64 8
+  %126 = load ptr, ptr %next.i747, align 8
+  %call2.i748 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i723, ptr noundef %126)
+  %call.i.i.i749 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1142, ptr %call.i.i.i749, align 16
+  %tok2.i.i.i750 = getelementptr inbounds i8, ptr %call.i.i.i749, i64 24
+  store ptr %124, ptr %tok2.i.i.i750, align 8
+  %lhs1.i.i751 = getelementptr inbounds i8, ptr %call.i.i.i749, i64 32
+  store ptr %node.0.i726, ptr %lhs1.i.i751, align 16
+  %rhs2.i.i752 = getelementptr inbounds i8, ptr %call.i.i.i749, i64 40
+  store ptr %call2.i748, ptr %rhs2.i.i752, align 8
+  br label %for.cond.i725
 
-for.cond.i526.backedge:                           ; preds = %if.then.i547, %if.then5.i540, %if.then11.i533
-  %call.i.i.i550.sink742 = phi ptr [ %call.i.i.i550, %if.then.i547 ], [ %call.i.i6.i543, %if.then5.i540 ], [ %call.i.i10.i536, %if.then11.i533 ]
-  %call2.i549.sink = phi ptr [ %call2.i549, %if.then.i547 ], [ %call7.i542, %if.then5.i540 ], [ %call13.i535, %if.then11.i533 ]
-  %tok2.i.i.i551 = getelementptr inbounds i8, ptr %call.i.i.i550.sink742, i64 24
-  store ptr %106, ptr %tok2.i.i.i551, align 8
-  %lhs1.i.i552 = getelementptr inbounds i8, ptr %call.i.i.i550.sink742, i64 32
-  store ptr %node.0.i527, ptr %lhs1.i.i552, align 16
-  %rhs2.i.i553 = getelementptr inbounds i8, ptr %call.i.i.i550.sink742, i64 40
-  store ptr %call2.i549.sink, ptr %rhs2.i.i553, align 8
-  br label %for.cond.i526
+if.end.i728:                                      ; preds = %for.cond.i725
+  %call4.i729 = call zeroext i1 @equal(ptr noundef %125, ptr noundef nonnull @.str.21) #13
+  %127 = load ptr, ptr %tok.addr.i723, align 8
+  br i1 %call4.i729, label %for.cond.i725.backedge, label %if.end9.i730
 
-if.end.i529:                                      ; preds = %for.cond.i526
-  %call4.i530 = call zeroext i1 @equal(ptr noundef %107, ptr noundef nonnull @.str.21) #13
-  %109 = load ptr, ptr %tok.addr.i524, align 8
-  br i1 %call4.i530, label %if.then5.i540, label %if.end9.i531
+if.end9.i730:                                     ; preds = %if.end.i728
+  %call10.i731 = call zeroext i1 @equal(ptr noundef %127, ptr noundef nonnull @.str.22) #13
+  %128 = load ptr, ptr %tok.addr.i723, align 8
+  br i1 %call10.i731, label %for.cond.i725.backedge, label %mul.exit753
 
-if.then5.i540:                                    ; preds = %if.end.i529
-  %next6.i541 = getelementptr inbounds i8, ptr %109, i64 8
-  %110 = load ptr, ptr %next6.i541, align 8
-  %call7.i542 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i524, ptr noundef %110)
-  %call.i.i6.i543 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i543, align 16
-  br label %for.cond.i526.backedge
+mul.exit753:                                      ; preds = %if.end9.i730
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i723)
+  call void @add_type(ptr noundef %node.0.i113) #13
+  call void @add_type(ptr noundef %node.0.i726) #13
+  %ty.i674 = getelementptr inbounds i8, ptr %node.0.i113, i64 16
+  %129 = load ptr, ptr %ty.i674, align 16
+  %call.i675 = call zeroext i1 @is_numeric(ptr noundef %129) #13
+  br i1 %call.i675, label %land.lhs.true.i719, label %if.end.i676
 
-if.end9.i531:                                     ; preds = %if.end.i529
-  %call10.i532 = call zeroext i1 @equal(ptr noundef %109, ptr noundef nonnull @.str.22) #13
-  %111 = load ptr, ptr %tok.addr.i524, align 8
-  br i1 %call10.i532, label %if.then11.i533, label %mul.exit554
+land.lhs.true.i719:                               ; preds = %mul.exit753
+  %ty1.i720 = getelementptr inbounds i8, ptr %node.0.i726, i64 16
+  %130 = load ptr, ptr %ty1.i720, align 16
+  %call2.i721 = call zeroext i1 @is_numeric(ptr noundef %130) #13
+  br i1 %call2.i721, label %new_add.exit722, label %if.end.i676
 
-if.then11.i533:                                   ; preds = %if.end9.i531
-  %next12.i534 = getelementptr inbounds i8, ptr %111, i64 8
-  %112 = load ptr, ptr %next12.i534, align 8
-  %call13.i535 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i524, ptr noundef %112)
-  %call.i.i10.i536 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i536, align 16
-  br label %for.cond.i526.backedge
+if.end.i676:                                      ; preds = %land.lhs.true.i719, %mul.exit753
+  %131 = load ptr, ptr %ty.i674, align 16
+  %base.i677 = getelementptr inbounds i8, ptr %131, i64 24
+  %132 = load ptr, ptr %base.i677, align 8
+  %tobool.not.i678 = icmp eq ptr %132, null
+  %ty15.i679 = getelementptr inbounds i8, ptr %node.0.i726, i64 16
+  %133 = load ptr, ptr %ty15.i679, align 16
+  %base16.i680 = getelementptr inbounds i8, ptr %133, i64 24
+  %134 = load ptr, ptr %base16.i680, align 8
+  %tobool17.not.i681 = icmp eq ptr %134, null
+  br i1 %tobool.not.i678, label %land.lhs.true14.i712, label %land.lhs.true5.i682
 
-mul.exit554:                                      ; preds = %if.end9.i531
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i524)
-  %call3.i124 = call fastcc ptr @new_add(ptr noundef %node.0.i113, ptr noundef %node.0.i527, ptr noundef %tok.addr.i110.0)
+land.lhs.true5.i682:                              ; preds = %if.end.i676
+  br i1 %tobool17.not.i681, label %if.end19.i684, label %if.then9.i683
+
+if.then9.i683:                                    ; preds = %land.lhs.true5.i682
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i110.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i712:                             ; preds = %if.end.i676
+  %spec.select.i713 = select i1 %tobool17.not.i681, ptr %node.0.i726, ptr %node.0.i113
+  %spec.select27.i714 = select i1 %tobool17.not.i681, ptr %node.0.i113, ptr %node.0.i726
+  %ty20.phi.trans.insert.i715 = getelementptr inbounds i8, ptr %spec.select27.i714, i64 16
+  %.pre.i716 = load ptr, ptr %ty20.phi.trans.insert.i715, align 16
+  %base21.phi.trans.insert.i717 = getelementptr inbounds i8, ptr %.pre.i716, i64 24
+  %.pre48.i718 = load ptr, ptr %base21.phi.trans.insert.i717, align 8
+  br label %if.end19.i684
+
+if.end19.i684:                                    ; preds = %land.lhs.true14.i712, %land.lhs.true5.i682
+  %135 = phi ptr [ %.pre48.i718, %land.lhs.true14.i712 ], [ %132, %land.lhs.true5.i682 ]
+  %rhs.addr.0.i685 = phi ptr [ %spec.select.i713, %land.lhs.true14.i712 ], [ %node.0.i726, %land.lhs.true5.i682 ]
+  %lhs.addr.0.i686 = phi ptr [ %spec.select27.i714, %land.lhs.true14.i712 ], [ %node.0.i113, %land.lhs.true5.i682 ]
+  %136 = load i32, ptr %135, align 8
+  %cmp.i687 = icmp eq i32 %136, 13
+  br i1 %cmp.i687, label %if.then22.i707, label %if.end28.i688
+
+if.then22.i707:                                   ; preds = %if.end19.i684
+  %vla_size.i708 = getelementptr inbounds i8, ptr %135, i64 64
+  %137 = load ptr, ptr %vla_size.i708, align 8
+  %call.i.i28.i709 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i709, align 16
+  %tok2.i.i29.i710 = getelementptr inbounds i8, ptr %call.i.i28.i709, i64 24
+  store ptr %tok.addr.i110.0, ptr %tok2.i.i29.i710, align 8
+  %var1.i.i711 = getelementptr inbounds i8, ptr %call.i.i28.i709, i64 256
+  store ptr %137, ptr %var1.i.i711, align 16
+  br label %return.sink.split.i695
+
+if.end28.i688:                                    ; preds = %if.end19.i684
+  %size.i689 = getelementptr inbounds i8, ptr %135, i64 4
+  %138 = load i32, ptr %size.i689, align 4
+  %conv.i690 = sext i32 %138 to i64
+  %call.i.i38.i691 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i691, align 16
+  %tok2.i.i39.i692 = getelementptr inbounds i8, ptr %call.i.i38.i691, i64 24
+  store ptr %tok.addr.i110.0, ptr %tok2.i.i39.i692, align 8
+  %val1.i.i693 = getelementptr inbounds i8, ptr %call.i.i38.i691, i64 264
+  store i64 %conv.i690, ptr %val1.i.i693, align 8
+  %139 = load ptr, ptr @ty_long, align 8
+  %ty.i.i694 = getelementptr inbounds i8, ptr %call.i.i38.i691, i64 16
+  store ptr %139, ptr %ty.i.i694, align 16
+  br label %return.sink.split.i695
+
+return.sink.split.i695:                           ; preds = %if.end28.i688, %if.then22.i707
+  %call.i.i38.sink.i696 = phi ptr [ %call.i.i38.i691, %if.end28.i688 ], [ %call.i.i28.i709, %if.then22.i707 ]
+  %call.i.i40.i697 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i697, align 16
+  %tok2.i.i41.i698 = getelementptr inbounds i8, ptr %call.i.i40.i697, i64 24
+  store ptr %tok.addr.i110.0, ptr %tok2.i.i41.i698, align 8
+  %lhs1.i42.i699 = getelementptr inbounds i8, ptr %call.i.i40.i697, i64 32
+  store ptr %rhs.addr.0.i685, ptr %lhs1.i42.i699, align 16
+  %rhs2.i43.i700 = getelementptr inbounds i8, ptr %call.i.i40.i697, i64 40
+  store ptr %call.i.i38.sink.i696, ptr %rhs2.i43.i700, align 8
+  br label %new_add.exit722
+
+new_add.exit722:                                  ; preds = %land.lhs.true.i719, %return.sink.split.i695
+  %lhs.addr.0.sink.i701 = phi ptr [ %node.0.i113, %land.lhs.true.i719 ], [ %lhs.addr.0.i686, %return.sink.split.i695 ]
+  %call.i.i40.sink.i702 = phi ptr [ %node.0.i726, %land.lhs.true.i719 ], [ %call.i.i40.i697, %return.sink.split.i695 ]
+  %call.i.i44.i703 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i703, align 16
+  %tok2.i.i45.i704 = getelementptr inbounds i8, ptr %call.i.i44.i703, i64 24
+  store ptr %tok.addr.i110.0, ptr %tok2.i.i45.i704, align 8
+  %lhs1.i46.i705 = getelementptr inbounds i8, ptr %call.i.i44.i703, i64 32
+  store ptr %lhs.addr.0.sink.i701, ptr %lhs1.i46.i705, align 16
+  %rhs2.i47.i706 = getelementptr inbounds i8, ptr %call.i.i44.i703, i64 40
+  store ptr %call.i.i40.sink.i702, ptr %rhs2.i47.i706, align 8
   br label %for.cond.i112.backedge
 
-for.cond.i112.backedge:                           ; preds = %mul.exit554, %mul.exit523
-  %tok.addr.i110.0.be = phi ptr [ %111, %mul.exit554 ], [ %119, %mul.exit523 ]
-  %node.0.i113.be = phi ptr [ %call3.i124, %mul.exit554 ], [ %call8.i120, %mul.exit523 ]
+for.cond.i112.backedge:                           ; preds = %new_add.exit722, %mul.exit673
+  %tok.addr.i110.0.be = phi ptr [ %128, %new_add.exit722 ], [ %145, %mul.exit673 ]
+  %node.0.i113.be = phi ptr [ %call.i.i44.i703, %new_add.exit722 ], [ %call8.i120, %mul.exit673 ]
   br label %for.cond.i112
 
 if.end.i115:                                      ; preds = %for.cond.i112
   %call4.i116 = call zeroext i1 @equal(ptr noundef %tok.addr.i110.0, ptr noundef nonnull @.str.19) #13
-  br i1 %call4.i116, label %if.then5.i117, label %add.exit125
+  br i1 %call4.i116, label %if.then5.i117, label %for.cond.i10.backedge
 
 if.then5.i117:                                    ; preds = %if.end.i115
   %next6.i118 = getelementptr inbounds i8, ptr %tok.addr.i110.0, i64 8
-  %113 = load ptr, ptr %next6.i118, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i494)
-  store ptr %113, ptr %tok.addr.i494, align 8
-  %call.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i494, ptr noundef %113)
-  br label %for.cond.i495
+  %140 = load ptr, ptr %next6.i118, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i644)
+  store ptr %140, ptr %tok.addr.i644, align 8
+  %call.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i644, ptr noundef %140)
+  br label %for.cond.i645
 
-for.cond.i495:                                    ; preds = %for.cond.i495.backedge, %if.then5.i117
-  %node.0.i496 = phi ptr [ %call.i, %if.then5.i117 ], [ %call.i.i.i519.sink744, %for.cond.i495.backedge ]
-  %114 = load ptr, ptr %tok.addr.i494, align 8
-  %call1.i497 = call zeroext i1 @equal(ptr noundef %114, ptr noundef nonnull @.str.20) #13
-  %115 = load ptr, ptr %tok.addr.i494, align 8
-  br i1 %call1.i497, label %if.then.i516, label %if.end.i498
+for.cond.i645:                                    ; preds = %for.cond.i645.backedge, %if.then5.i117
+  %node.0.i646 = phi ptr [ %call.i, %if.then5.i117 ], [ %call.i.i.i669, %for.cond.i645.backedge ]
+  %141 = load ptr, ptr %tok.addr.i644, align 8
+  %call1.i647 = call zeroext i1 @equal(ptr noundef %141, ptr noundef nonnull @.str.20) #13
+  %142 = load ptr, ptr %tok.addr.i644, align 8
+  br i1 %call1.i647, label %for.cond.i645.backedge, label %if.end.i648
 
-if.then.i516:                                     ; preds = %for.cond.i495
-  %next.i517 = getelementptr inbounds i8, ptr %115, i64 8
-  %116 = load ptr, ptr %next.i517, align 8
-  %call2.i518 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i494, ptr noundef %116)
-  %call.i.i.i519 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i519, align 16
-  br label %for.cond.i495.backedge
+for.cond.i645.backedge:                           ; preds = %if.end9.i650, %for.cond.i645, %if.end.i648
+  %.sink1151 = phi ptr [ %144, %if.end.i648 ], [ %142, %for.cond.i645 ], [ %145, %if.end9.i650 ]
+  %.sink1148 = phi i32 [ 4, %if.end.i648 ], [ 3, %for.cond.i645 ], [ 6, %if.end9.i650 ]
+  %next.i667 = getelementptr inbounds i8, ptr %.sink1151, i64 8
+  %143 = load ptr, ptr %next.i667, align 8
+  %call2.i668 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i644, ptr noundef %143)
+  %call.i.i.i669 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1148, ptr %call.i.i.i669, align 16
+  %tok2.i.i.i670 = getelementptr inbounds i8, ptr %call.i.i.i669, i64 24
+  store ptr %141, ptr %tok2.i.i.i670, align 8
+  %lhs1.i.i671 = getelementptr inbounds i8, ptr %call.i.i.i669, i64 32
+  store ptr %node.0.i646, ptr %lhs1.i.i671, align 16
+  %rhs2.i.i672 = getelementptr inbounds i8, ptr %call.i.i.i669, i64 40
+  store ptr %call2.i668, ptr %rhs2.i.i672, align 8
+  br label %for.cond.i645
 
-for.cond.i495.backedge:                           ; preds = %if.then.i516, %if.then5.i509, %if.then11.i502
-  %call.i.i.i519.sink744 = phi ptr [ %call.i.i.i519, %if.then.i516 ], [ %call.i.i6.i512, %if.then5.i509 ], [ %call.i.i10.i505, %if.then11.i502 ]
-  %call2.i518.sink = phi ptr [ %call2.i518, %if.then.i516 ], [ %call7.i511, %if.then5.i509 ], [ %call13.i504, %if.then11.i502 ]
-  %tok2.i.i.i520 = getelementptr inbounds i8, ptr %call.i.i.i519.sink744, i64 24
-  store ptr %114, ptr %tok2.i.i.i520, align 8
-  %lhs1.i.i521 = getelementptr inbounds i8, ptr %call.i.i.i519.sink744, i64 32
-  store ptr %node.0.i496, ptr %lhs1.i.i521, align 16
-  %rhs2.i.i522 = getelementptr inbounds i8, ptr %call.i.i.i519.sink744, i64 40
-  store ptr %call2.i518.sink, ptr %rhs2.i.i522, align 8
-  br label %for.cond.i495
+if.end.i648:                                      ; preds = %for.cond.i645
+  %call4.i649 = call zeroext i1 @equal(ptr noundef %142, ptr noundef nonnull @.str.21) #13
+  %144 = load ptr, ptr %tok.addr.i644, align 8
+  br i1 %call4.i649, label %for.cond.i645.backedge, label %if.end9.i650
 
-if.end.i498:                                      ; preds = %for.cond.i495
-  %call4.i499 = call zeroext i1 @equal(ptr noundef %115, ptr noundef nonnull @.str.21) #13
-  %117 = load ptr, ptr %tok.addr.i494, align 8
-  br i1 %call4.i499, label %if.then5.i509, label %if.end9.i500
+if.end9.i650:                                     ; preds = %if.end.i648
+  %call10.i651 = call zeroext i1 @equal(ptr noundef %144, ptr noundef nonnull @.str.22) #13
+  %145 = load ptr, ptr %tok.addr.i644, align 8
+  br i1 %call10.i651, label %for.cond.i645.backedge, label %mul.exit673
 
-if.then5.i509:                                    ; preds = %if.end.i498
-  %next6.i510 = getelementptr inbounds i8, ptr %117, i64 8
-  %118 = load ptr, ptr %next6.i510, align 8
-  %call7.i511 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i494, ptr noundef %118)
-  %call.i.i6.i512 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i512, align 16
-  br label %for.cond.i495.backedge
-
-if.end9.i500:                                     ; preds = %if.end.i498
-  %call10.i501 = call zeroext i1 @equal(ptr noundef %117, ptr noundef nonnull @.str.22) #13
-  %119 = load ptr, ptr %tok.addr.i494, align 8
-  br i1 %call10.i501, label %if.then11.i502, label %mul.exit523
-
-if.then11.i502:                                   ; preds = %if.end9.i500
-  %next12.i503 = getelementptr inbounds i8, ptr %119, i64 8
-  %120 = load ptr, ptr %next12.i503, align 8
-  %call13.i504 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i494, ptr noundef %120)
-  %call.i.i10.i505 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i505, align 16
-  br label %for.cond.i495.backedge
-
-mul.exit523:                                      ; preds = %if.end9.i500
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i494)
-  %call8.i120 = call fastcc ptr @new_sub(ptr noundef %node.0.i113, ptr noundef %node.0.i496, ptr noundef %tok.addr.i110.0)
+mul.exit673:                                      ; preds = %if.end9.i650
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i644)
+  %call8.i120 = call fastcc ptr @new_sub(ptr noundef %node.0.i113, ptr noundef %node.0.i646, ptr noundef %tok.addr.i110.0)
   br label %for.cond.i112.backedge
 
-add.exit125:                                      ; preds = %if.end.i115
+for.cond.i10.backedge:                            ; preds = %if.end.i95, %if.end.i115
+  %.sink1154 = phi i32 [ 10, %if.end.i115 ], [ 11, %if.end.i95 ]
+  %node.0.i113.lcssa.sink = phi ptr [ %node.0.i113, %if.end.i115 ], [ %node.0.i93, %if.end.i95 ]
+  %tok.addr.i8.0.be = phi ptr [ %tok.addr.i110.0, %if.end.i115 ], [ %tok.addr.i91.0, %if.end.i95 ]
   %call.i.i106 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 10, ptr %call.i.i106, align 16
-  br label %for.cond.i10.backedge
-
-for.cond.i10.backedge:                            ; preds = %add.exit125, %add.exit105
-  %call.i.i106.sink746 = phi ptr [ %call.i.i106, %add.exit125 ], [ %call.i.i87, %add.exit105 ]
-  %node.0.i113.lcssa.sink = phi ptr [ %node.0.i113, %add.exit125 ], [ %node.0.i93, %add.exit105 ]
-  %tok.addr.i8.0.be = phi ptr [ %tok.addr.i110.0, %add.exit125 ], [ %tok.addr.i91.0, %add.exit105 ]
-  %tok2.i.i107 = getelementptr inbounds i8, ptr %call.i.i106.sink746, i64 24
+  store i32 %.sink1154, ptr %call.i.i106, align 16
+  %tok2.i.i107 = getelementptr inbounds i8, ptr %call.i.i106, i64 24
   store ptr %tok.addr.i8.0, ptr %tok2.i.i107, align 8
-  %lhs1.i108 = getelementptr inbounds i8, ptr %call.i.i106.sink746, i64 32
+  %lhs1.i108 = getelementptr inbounds i8, ptr %call.i.i106, i64 32
   store ptr %node.0.i11, ptr %lhs1.i108, align 16
-  %rhs2.i109 = getelementptr inbounds i8, ptr %call.i.i106.sink746, i64 40
+  %rhs2.i109 = getelementptr inbounds i8, ptr %call.i.i106, i64 40
   store ptr %node.0.i113.lcssa.sink, ptr %rhs2.i109, align 8
   br label %for.cond.i10
 
@@ -4304,222 +4468,255 @@ if.end.i13:                                       ; preds = %for.cond.i10
 
 if.then5.i15:                                     ; preds = %if.end.i13
   %next6.i16 = getelementptr inbounds i8, ptr %tok.addr.i8.0, i64 8
-  %121 = load ptr, ptr %next6.i16, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i463)
-  store ptr %121, ptr %tok.addr.i463, align 8
-  %call.i464 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i463, ptr noundef %121)
-  br label %for.cond.i465
+  %146 = load ptr, ptr %next6.i16, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i613)
+  store ptr %146, ptr %tok.addr.i613, align 8
+  %call.i614 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i613, ptr noundef %146)
+  br label %for.cond.i615
 
-for.cond.i465:                                    ; preds = %for.cond.i465.backedge, %if.then5.i15
-  %node.0.i466 = phi ptr [ %call.i464, %if.then5.i15 ], [ %call.i.i.i489.sink748, %for.cond.i465.backedge ]
-  %122 = load ptr, ptr %tok.addr.i463, align 8
-  %call1.i467 = call zeroext i1 @equal(ptr noundef %122, ptr noundef nonnull @.str.20) #13
-  %123 = load ptr, ptr %tok.addr.i463, align 8
-  br i1 %call1.i467, label %if.then.i486, label %if.end.i468
+for.cond.i615:                                    ; preds = %for.cond.i615.backedge, %if.then5.i15
+  %node.0.i616 = phi ptr [ %call.i614, %if.then5.i15 ], [ %call.i.i.i639, %for.cond.i615.backedge ]
+  %147 = load ptr, ptr %tok.addr.i613, align 8
+  %call1.i617 = call zeroext i1 @equal(ptr noundef %147, ptr noundef nonnull @.str.20) #13
+  %148 = load ptr, ptr %tok.addr.i613, align 8
+  br i1 %call1.i617, label %for.cond.i615.backedge, label %if.end.i618
 
-if.then.i486:                                     ; preds = %for.cond.i465
-  %next.i487 = getelementptr inbounds i8, ptr %123, i64 8
-  %124 = load ptr, ptr %next.i487, align 8
-  %call2.i488 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i463, ptr noundef %124)
-  %call.i.i.i489 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i489, align 16
-  br label %for.cond.i465.backedge
+for.cond.i615.backedge:                           ; preds = %if.end9.i620, %for.cond.i615, %if.end.i618
+  %.sink1161 = phi ptr [ %150, %if.end.i618 ], [ %148, %for.cond.i615 ], [ %151, %if.end9.i620 ]
+  %.sink1158 = phi i32 [ 4, %if.end.i618 ], [ 3, %for.cond.i615 ], [ 6, %if.end9.i620 ]
+  %next.i637 = getelementptr inbounds i8, ptr %.sink1161, i64 8
+  %149 = load ptr, ptr %next.i637, align 8
+  %call2.i638 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i613, ptr noundef %149)
+  %call.i.i.i639 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1158, ptr %call.i.i.i639, align 16
+  %tok2.i.i.i640 = getelementptr inbounds i8, ptr %call.i.i.i639, i64 24
+  store ptr %147, ptr %tok2.i.i.i640, align 8
+  %lhs1.i.i641 = getelementptr inbounds i8, ptr %call.i.i.i639, i64 32
+  store ptr %node.0.i616, ptr %lhs1.i.i641, align 16
+  %rhs2.i.i642 = getelementptr inbounds i8, ptr %call.i.i.i639, i64 40
+  store ptr %call2.i638, ptr %rhs2.i.i642, align 8
+  br label %for.cond.i615
 
-for.cond.i465.backedge:                           ; preds = %if.then.i486, %if.then5.i479, %if.then11.i472
-  %call.i.i.i489.sink748 = phi ptr [ %call.i.i.i489, %if.then.i486 ], [ %call.i.i6.i482, %if.then5.i479 ], [ %call.i.i10.i475, %if.then11.i472 ]
-  %call2.i488.sink = phi ptr [ %call2.i488, %if.then.i486 ], [ %call7.i481, %if.then5.i479 ], [ %call13.i474, %if.then11.i472 ]
-  %tok2.i.i.i490 = getelementptr inbounds i8, ptr %call.i.i.i489.sink748, i64 24
-  store ptr %122, ptr %tok2.i.i.i490, align 8
-  %lhs1.i.i491 = getelementptr inbounds i8, ptr %call.i.i.i489.sink748, i64 32
-  store ptr %node.0.i466, ptr %lhs1.i.i491, align 16
-  %rhs2.i.i492 = getelementptr inbounds i8, ptr %call.i.i.i489.sink748, i64 40
-  store ptr %call2.i488.sink, ptr %rhs2.i.i492, align 8
-  br label %for.cond.i465
+if.end.i618:                                      ; preds = %for.cond.i615
+  %call4.i619 = call zeroext i1 @equal(ptr noundef %148, ptr noundef nonnull @.str.21) #13
+  %150 = load ptr, ptr %tok.addr.i613, align 8
+  br i1 %call4.i619, label %for.cond.i615.backedge, label %if.end9.i620
 
-if.end.i468:                                      ; preds = %for.cond.i465
-  %call4.i469 = call zeroext i1 @equal(ptr noundef %123, ptr noundef nonnull @.str.21) #13
-  %125 = load ptr, ptr %tok.addr.i463, align 8
-  br i1 %call4.i469, label %if.then5.i479, label %if.end9.i470
+if.end9.i620:                                     ; preds = %if.end.i618
+  %call10.i621 = call zeroext i1 @equal(ptr noundef %150, ptr noundef nonnull @.str.22) #13
+  %151 = load ptr, ptr %tok.addr.i613, align 8
+  br i1 %call10.i621, label %for.cond.i615.backedge, label %mul.exit643
 
-if.then5.i479:                                    ; preds = %if.end.i468
-  %next6.i480 = getelementptr inbounds i8, ptr %125, i64 8
-  %126 = load ptr, ptr %next6.i480, align 8
-  %call7.i481 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i463, ptr noundef %126)
-  %call.i.i6.i482 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i482, align 16
-  br label %for.cond.i465.backedge
-
-if.end9.i470:                                     ; preds = %if.end.i468
-  %call10.i471 = call zeroext i1 @equal(ptr noundef %125, ptr noundef nonnull @.str.22) #13
-  %127 = load ptr, ptr %tok.addr.i463, align 8
-  br i1 %call10.i471, label %if.then11.i472, label %mul.exit493
-
-if.then11.i472:                                   ; preds = %if.end9.i470
-  %next12.i473 = getelementptr inbounds i8, ptr %127, i64 8
-  %128 = load ptr, ptr %next12.i473, align 8
-  %call13.i474 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i463, ptr noundef %128)
-  %call.i.i10.i475 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i475, align 16
-  br label %for.cond.i465.backedge
-
-mul.exit493:                                      ; preds = %if.end9.i470
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i463)
+mul.exit643:                                      ; preds = %if.end9.i620
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i613)
   br label %for.cond.i92
 
-for.cond.i92:                                     ; preds = %for.cond.i92.backedge, %mul.exit493
-  %tok.addr.i91.0 = phi ptr [ %127, %mul.exit493 ], [ %tok.addr.i91.0.be, %for.cond.i92.backedge ]
-  %node.0.i93 = phi ptr [ %node.0.i466, %mul.exit493 ], [ %node.0.i93.be, %for.cond.i92.backedge ]
+for.cond.i92:                                     ; preds = %for.cond.i92.backedge, %mul.exit643
+  %tok.addr.i91.0 = phi ptr [ %151, %mul.exit643 ], [ %tok.addr.i91.0.be, %for.cond.i92.backedge ]
+  %node.0.i93 = phi ptr [ %node.0.i616, %mul.exit643 ], [ %node.0.i93.be, %for.cond.i92.backedge ]
   %call1.i94 = call zeroext i1 @equal(ptr noundef %tok.addr.i91.0, ptr noundef nonnull @.str.18) #13
   br i1 %call1.i94, label %if.then.i101, label %if.end.i95
 
 if.then.i101:                                     ; preds = %for.cond.i92
   %next.i102 = getelementptr inbounds i8, ptr %tok.addr.i91.0, i64 8
-  %129 = load ptr, ptr %next.i102, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i432)
-  store ptr %129, ptr %tok.addr.i432, align 8
-  %call.i433 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i432, ptr noundef %129)
-  br label %for.cond.i434
+  %152 = load ptr, ptr %next.i102, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i582)
+  store ptr %152, ptr %tok.addr.i582, align 8
+  %call.i583 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i582, ptr noundef %152)
+  br label %for.cond.i584
 
-for.cond.i434:                                    ; preds = %for.cond.i434.backedge, %if.then.i101
-  %node.0.i435 = phi ptr [ %call.i433, %if.then.i101 ], [ %call.i.i.i458.sink750, %for.cond.i434.backedge ]
-  %130 = load ptr, ptr %tok.addr.i432, align 8
-  %call1.i436 = call zeroext i1 @equal(ptr noundef %130, ptr noundef nonnull @.str.20) #13
-  %131 = load ptr, ptr %tok.addr.i432, align 8
-  br i1 %call1.i436, label %if.then.i455, label %if.end.i437
+for.cond.i584:                                    ; preds = %for.cond.i584.backedge, %if.then.i101
+  %node.0.i585 = phi ptr [ %call.i583, %if.then.i101 ], [ %call.i.i.i608, %for.cond.i584.backedge ]
+  %153 = load ptr, ptr %tok.addr.i582, align 8
+  %call1.i586 = call zeroext i1 @equal(ptr noundef %153, ptr noundef nonnull @.str.20) #13
+  %154 = load ptr, ptr %tok.addr.i582, align 8
+  br i1 %call1.i586, label %for.cond.i584.backedge, label %if.end.i587
 
-if.then.i455:                                     ; preds = %for.cond.i434
-  %next.i456 = getelementptr inbounds i8, ptr %131, i64 8
-  %132 = load ptr, ptr %next.i456, align 8
-  %call2.i457 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i432, ptr noundef %132)
-  %call.i.i.i458 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i458, align 16
-  br label %for.cond.i434.backedge
+for.cond.i584.backedge:                           ; preds = %if.end9.i589, %for.cond.i584, %if.end.i587
+  %.sink1167 = phi ptr [ %156, %if.end.i587 ], [ %154, %for.cond.i584 ], [ %157, %if.end9.i589 ]
+  %.sink1164 = phi i32 [ 4, %if.end.i587 ], [ 3, %for.cond.i584 ], [ 6, %if.end9.i589 ]
+  %next.i606 = getelementptr inbounds i8, ptr %.sink1167, i64 8
+  %155 = load ptr, ptr %next.i606, align 8
+  %call2.i607 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i582, ptr noundef %155)
+  %call.i.i.i608 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1164, ptr %call.i.i.i608, align 16
+  %tok2.i.i.i609 = getelementptr inbounds i8, ptr %call.i.i.i608, i64 24
+  store ptr %153, ptr %tok2.i.i.i609, align 8
+  %lhs1.i.i610 = getelementptr inbounds i8, ptr %call.i.i.i608, i64 32
+  store ptr %node.0.i585, ptr %lhs1.i.i610, align 16
+  %rhs2.i.i611 = getelementptr inbounds i8, ptr %call.i.i.i608, i64 40
+  store ptr %call2.i607, ptr %rhs2.i.i611, align 8
+  br label %for.cond.i584
 
-for.cond.i434.backedge:                           ; preds = %if.then.i455, %if.then5.i448, %if.then11.i441
-  %call.i.i.i458.sink750 = phi ptr [ %call.i.i.i458, %if.then.i455 ], [ %call.i.i6.i451, %if.then5.i448 ], [ %call.i.i10.i444, %if.then11.i441 ]
-  %call2.i457.sink = phi ptr [ %call2.i457, %if.then.i455 ], [ %call7.i450, %if.then5.i448 ], [ %call13.i443, %if.then11.i441 ]
-  %tok2.i.i.i459 = getelementptr inbounds i8, ptr %call.i.i.i458.sink750, i64 24
-  store ptr %130, ptr %tok2.i.i.i459, align 8
-  %lhs1.i.i460 = getelementptr inbounds i8, ptr %call.i.i.i458.sink750, i64 32
-  store ptr %node.0.i435, ptr %lhs1.i.i460, align 16
-  %rhs2.i.i461 = getelementptr inbounds i8, ptr %call.i.i.i458.sink750, i64 40
-  store ptr %call2.i457.sink, ptr %rhs2.i.i461, align 8
-  br label %for.cond.i434
+if.end.i587:                                      ; preds = %for.cond.i584
+  %call4.i588 = call zeroext i1 @equal(ptr noundef %154, ptr noundef nonnull @.str.21) #13
+  %156 = load ptr, ptr %tok.addr.i582, align 8
+  br i1 %call4.i588, label %for.cond.i584.backedge, label %if.end9.i589
 
-if.end.i437:                                      ; preds = %for.cond.i434
-  %call4.i438 = call zeroext i1 @equal(ptr noundef %131, ptr noundef nonnull @.str.21) #13
-  %133 = load ptr, ptr %tok.addr.i432, align 8
-  br i1 %call4.i438, label %if.then5.i448, label %if.end9.i439
+if.end9.i589:                                     ; preds = %if.end.i587
+  %call10.i590 = call zeroext i1 @equal(ptr noundef %156, ptr noundef nonnull @.str.22) #13
+  %157 = load ptr, ptr %tok.addr.i582, align 8
+  br i1 %call10.i590, label %for.cond.i584.backedge, label %mul.exit612
 
-if.then5.i448:                                    ; preds = %if.end.i437
-  %next6.i449 = getelementptr inbounds i8, ptr %133, i64 8
-  %134 = load ptr, ptr %next6.i449, align 8
-  %call7.i450 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i432, ptr noundef %134)
-  %call.i.i6.i451 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i451, align 16
-  br label %for.cond.i434.backedge
+mul.exit612:                                      ; preds = %if.end9.i589
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i582)
+  call void @add_type(ptr noundef %node.0.i93) #13
+  call void @add_type(ptr noundef %node.0.i585) #13
+  %ty.i533 = getelementptr inbounds i8, ptr %node.0.i93, i64 16
+  %158 = load ptr, ptr %ty.i533, align 16
+  %call.i534 = call zeroext i1 @is_numeric(ptr noundef %158) #13
+  br i1 %call.i534, label %land.lhs.true.i578, label %if.end.i535
 
-if.end9.i439:                                     ; preds = %if.end.i437
-  %call10.i440 = call zeroext i1 @equal(ptr noundef %133, ptr noundef nonnull @.str.22) #13
-  %135 = load ptr, ptr %tok.addr.i432, align 8
-  br i1 %call10.i440, label %if.then11.i441, label %mul.exit462
+land.lhs.true.i578:                               ; preds = %mul.exit612
+  %ty1.i579 = getelementptr inbounds i8, ptr %node.0.i585, i64 16
+  %159 = load ptr, ptr %ty1.i579, align 16
+  %call2.i580 = call zeroext i1 @is_numeric(ptr noundef %159) #13
+  br i1 %call2.i580, label %new_add.exit581, label %if.end.i535
 
-if.then11.i441:                                   ; preds = %if.end9.i439
-  %next12.i442 = getelementptr inbounds i8, ptr %135, i64 8
-  %136 = load ptr, ptr %next12.i442, align 8
-  %call13.i443 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i432, ptr noundef %136)
-  %call.i.i10.i444 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i444, align 16
-  br label %for.cond.i434.backedge
+if.end.i535:                                      ; preds = %land.lhs.true.i578, %mul.exit612
+  %160 = load ptr, ptr %ty.i533, align 16
+  %base.i536 = getelementptr inbounds i8, ptr %160, i64 24
+  %161 = load ptr, ptr %base.i536, align 8
+  %tobool.not.i537 = icmp eq ptr %161, null
+  %ty15.i538 = getelementptr inbounds i8, ptr %node.0.i585, i64 16
+  %162 = load ptr, ptr %ty15.i538, align 16
+  %base16.i539 = getelementptr inbounds i8, ptr %162, i64 24
+  %163 = load ptr, ptr %base16.i539, align 8
+  %tobool17.not.i540 = icmp eq ptr %163, null
+  br i1 %tobool.not.i537, label %land.lhs.true14.i571, label %land.lhs.true5.i541
 
-mul.exit462:                                      ; preds = %if.end9.i439
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i432)
-  %call3.i104 = call fastcc ptr @new_add(ptr noundef %node.0.i93, ptr noundef %node.0.i435, ptr noundef %tok.addr.i91.0)
+land.lhs.true5.i541:                              ; preds = %if.end.i535
+  br i1 %tobool17.not.i540, label %if.end19.i543, label %if.then9.i542
+
+if.then9.i542:                                    ; preds = %land.lhs.true5.i541
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i91.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i571:                             ; preds = %if.end.i535
+  %spec.select.i572 = select i1 %tobool17.not.i540, ptr %node.0.i585, ptr %node.0.i93
+  %spec.select27.i573 = select i1 %tobool17.not.i540, ptr %node.0.i93, ptr %node.0.i585
+  %ty20.phi.trans.insert.i574 = getelementptr inbounds i8, ptr %spec.select27.i573, i64 16
+  %.pre.i575 = load ptr, ptr %ty20.phi.trans.insert.i574, align 16
+  %base21.phi.trans.insert.i576 = getelementptr inbounds i8, ptr %.pre.i575, i64 24
+  %.pre48.i577 = load ptr, ptr %base21.phi.trans.insert.i576, align 8
+  br label %if.end19.i543
+
+if.end19.i543:                                    ; preds = %land.lhs.true14.i571, %land.lhs.true5.i541
+  %164 = phi ptr [ %.pre48.i577, %land.lhs.true14.i571 ], [ %161, %land.lhs.true5.i541 ]
+  %rhs.addr.0.i544 = phi ptr [ %spec.select.i572, %land.lhs.true14.i571 ], [ %node.0.i585, %land.lhs.true5.i541 ]
+  %lhs.addr.0.i545 = phi ptr [ %spec.select27.i573, %land.lhs.true14.i571 ], [ %node.0.i93, %land.lhs.true5.i541 ]
+  %165 = load i32, ptr %164, align 8
+  %cmp.i546 = icmp eq i32 %165, 13
+  br i1 %cmp.i546, label %if.then22.i566, label %if.end28.i547
+
+if.then22.i566:                                   ; preds = %if.end19.i543
+  %vla_size.i567 = getelementptr inbounds i8, ptr %164, i64 64
+  %166 = load ptr, ptr %vla_size.i567, align 8
+  %call.i.i28.i568 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i568, align 16
+  %tok2.i.i29.i569 = getelementptr inbounds i8, ptr %call.i.i28.i568, i64 24
+  store ptr %tok.addr.i91.0, ptr %tok2.i.i29.i569, align 8
+  %var1.i.i570 = getelementptr inbounds i8, ptr %call.i.i28.i568, i64 256
+  store ptr %166, ptr %var1.i.i570, align 16
+  br label %return.sink.split.i554
+
+if.end28.i547:                                    ; preds = %if.end19.i543
+  %size.i548 = getelementptr inbounds i8, ptr %164, i64 4
+  %167 = load i32, ptr %size.i548, align 4
+  %conv.i549 = sext i32 %167 to i64
+  %call.i.i38.i550 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i550, align 16
+  %tok2.i.i39.i551 = getelementptr inbounds i8, ptr %call.i.i38.i550, i64 24
+  store ptr %tok.addr.i91.0, ptr %tok2.i.i39.i551, align 8
+  %val1.i.i552 = getelementptr inbounds i8, ptr %call.i.i38.i550, i64 264
+  store i64 %conv.i549, ptr %val1.i.i552, align 8
+  %168 = load ptr, ptr @ty_long, align 8
+  %ty.i.i553 = getelementptr inbounds i8, ptr %call.i.i38.i550, i64 16
+  store ptr %168, ptr %ty.i.i553, align 16
+  br label %return.sink.split.i554
+
+return.sink.split.i554:                           ; preds = %if.end28.i547, %if.then22.i566
+  %call.i.i38.sink.i555 = phi ptr [ %call.i.i38.i550, %if.end28.i547 ], [ %call.i.i28.i568, %if.then22.i566 ]
+  %call.i.i40.i556 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i556, align 16
+  %tok2.i.i41.i557 = getelementptr inbounds i8, ptr %call.i.i40.i556, i64 24
+  store ptr %tok.addr.i91.0, ptr %tok2.i.i41.i557, align 8
+  %lhs1.i42.i558 = getelementptr inbounds i8, ptr %call.i.i40.i556, i64 32
+  store ptr %rhs.addr.0.i544, ptr %lhs1.i42.i558, align 16
+  %rhs2.i43.i559 = getelementptr inbounds i8, ptr %call.i.i40.i556, i64 40
+  store ptr %call.i.i38.sink.i555, ptr %rhs2.i43.i559, align 8
+  br label %new_add.exit581
+
+new_add.exit581:                                  ; preds = %land.lhs.true.i578, %return.sink.split.i554
+  %lhs.addr.0.sink.i560 = phi ptr [ %node.0.i93, %land.lhs.true.i578 ], [ %lhs.addr.0.i545, %return.sink.split.i554 ]
+  %call.i.i40.sink.i561 = phi ptr [ %node.0.i585, %land.lhs.true.i578 ], [ %call.i.i40.i556, %return.sink.split.i554 ]
+  %call.i.i44.i562 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i562, align 16
+  %tok2.i.i45.i563 = getelementptr inbounds i8, ptr %call.i.i44.i562, i64 24
+  store ptr %tok.addr.i91.0, ptr %tok2.i.i45.i563, align 8
+  %lhs1.i46.i564 = getelementptr inbounds i8, ptr %call.i.i44.i562, i64 32
+  store ptr %lhs.addr.0.sink.i560, ptr %lhs1.i46.i564, align 16
+  %rhs2.i47.i565 = getelementptr inbounds i8, ptr %call.i.i44.i562, i64 40
+  store ptr %call.i.i40.sink.i561, ptr %rhs2.i47.i565, align 8
   br label %for.cond.i92.backedge
 
-for.cond.i92.backedge:                            ; preds = %mul.exit462, %mul.exit431
-  %tok.addr.i91.0.be = phi ptr [ %135, %mul.exit462 ], [ %143, %mul.exit431 ]
-  %node.0.i93.be = phi ptr [ %call3.i104, %mul.exit462 ], [ %call8.i100, %mul.exit431 ]
+for.cond.i92.backedge:                            ; preds = %new_add.exit581, %mul.exit532
+  %tok.addr.i91.0.be = phi ptr [ %157, %new_add.exit581 ], [ %174, %mul.exit532 ]
+  %node.0.i93.be = phi ptr [ %call.i.i44.i562, %new_add.exit581 ], [ %call8.i100, %mul.exit532 ]
   br label %for.cond.i92
 
 if.end.i95:                                       ; preds = %for.cond.i92
   %call4.i96 = call zeroext i1 @equal(ptr noundef %tok.addr.i91.0, ptr noundef nonnull @.str.19) #13
-  br i1 %call4.i96, label %if.then5.i97, label %add.exit105
+  br i1 %call4.i96, label %if.then5.i97, label %for.cond.i10.backedge
 
 if.then5.i97:                                     ; preds = %if.end.i95
   %next6.i98 = getelementptr inbounds i8, ptr %tok.addr.i91.0, i64 8
-  %137 = load ptr, ptr %next6.i98, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i401)
-  store ptr %137, ptr %tok.addr.i401, align 8
-  %call.i402 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i401, ptr noundef %137)
-  br label %for.cond.i403
+  %169 = load ptr, ptr %next6.i98, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i502)
+  store ptr %169, ptr %tok.addr.i502, align 8
+  %call.i503 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i502, ptr noundef %169)
+  br label %for.cond.i504
 
-for.cond.i403:                                    ; preds = %for.cond.i403.backedge, %if.then5.i97
-  %node.0.i404 = phi ptr [ %call.i402, %if.then5.i97 ], [ %call.i.i.i427.sink752, %for.cond.i403.backedge ]
-  %138 = load ptr, ptr %tok.addr.i401, align 8
-  %call1.i405 = call zeroext i1 @equal(ptr noundef %138, ptr noundef nonnull @.str.20) #13
-  %139 = load ptr, ptr %tok.addr.i401, align 8
-  br i1 %call1.i405, label %if.then.i424, label %if.end.i406
+for.cond.i504:                                    ; preds = %for.cond.i504.backedge, %if.then5.i97
+  %node.0.i505 = phi ptr [ %call.i503, %if.then5.i97 ], [ %call.i.i.i528, %for.cond.i504.backedge ]
+  %170 = load ptr, ptr %tok.addr.i502, align 8
+  %call1.i506 = call zeroext i1 @equal(ptr noundef %170, ptr noundef nonnull @.str.20) #13
+  %171 = load ptr, ptr %tok.addr.i502, align 8
+  br i1 %call1.i506, label %for.cond.i504.backedge, label %if.end.i507
 
-if.then.i424:                                     ; preds = %for.cond.i403
-  %next.i425 = getelementptr inbounds i8, ptr %139, i64 8
-  %140 = load ptr, ptr %next.i425, align 8
-  %call2.i426 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i401, ptr noundef %140)
-  %call.i.i.i427 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i.i427, align 16
-  br label %for.cond.i403.backedge
+for.cond.i504.backedge:                           ; preds = %if.end9.i509, %for.cond.i504, %if.end.i507
+  %.sink1173 = phi ptr [ %173, %if.end.i507 ], [ %171, %for.cond.i504 ], [ %174, %if.end9.i509 ]
+  %.sink1170 = phi i32 [ 4, %if.end.i507 ], [ 3, %for.cond.i504 ], [ 6, %if.end9.i509 ]
+  %next.i526 = getelementptr inbounds i8, ptr %.sink1173, i64 8
+  %172 = load ptr, ptr %next.i526, align 8
+  %call2.i527 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i502, ptr noundef %172)
+  %call.i.i.i528 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink1170, ptr %call.i.i.i528, align 16
+  %tok2.i.i.i529 = getelementptr inbounds i8, ptr %call.i.i.i528, i64 24
+  store ptr %170, ptr %tok2.i.i.i529, align 8
+  %lhs1.i.i530 = getelementptr inbounds i8, ptr %call.i.i.i528, i64 32
+  store ptr %node.0.i505, ptr %lhs1.i.i530, align 16
+  %rhs2.i.i531 = getelementptr inbounds i8, ptr %call.i.i.i528, i64 40
+  store ptr %call2.i527, ptr %rhs2.i.i531, align 8
+  br label %for.cond.i504
 
-for.cond.i403.backedge:                           ; preds = %if.then.i424, %if.then5.i417, %if.then11.i410
-  %call.i.i.i427.sink752 = phi ptr [ %call.i.i.i427, %if.then.i424 ], [ %call.i.i6.i420, %if.then5.i417 ], [ %call.i.i10.i413, %if.then11.i410 ]
-  %call2.i426.sink = phi ptr [ %call2.i426, %if.then.i424 ], [ %call7.i419, %if.then5.i417 ], [ %call13.i412, %if.then11.i410 ]
-  %tok2.i.i.i428 = getelementptr inbounds i8, ptr %call.i.i.i427.sink752, i64 24
-  store ptr %138, ptr %tok2.i.i.i428, align 8
-  %lhs1.i.i429 = getelementptr inbounds i8, ptr %call.i.i.i427.sink752, i64 32
-  store ptr %node.0.i404, ptr %lhs1.i.i429, align 16
-  %rhs2.i.i430 = getelementptr inbounds i8, ptr %call.i.i.i427.sink752, i64 40
-  store ptr %call2.i426.sink, ptr %rhs2.i.i430, align 8
-  br label %for.cond.i403
+if.end.i507:                                      ; preds = %for.cond.i504
+  %call4.i508 = call zeroext i1 @equal(ptr noundef %171, ptr noundef nonnull @.str.21) #13
+  %173 = load ptr, ptr %tok.addr.i502, align 8
+  br i1 %call4.i508, label %for.cond.i504.backedge, label %if.end9.i509
 
-if.end.i406:                                      ; preds = %for.cond.i403
-  %call4.i407 = call zeroext i1 @equal(ptr noundef %139, ptr noundef nonnull @.str.21) #13
-  %141 = load ptr, ptr %tok.addr.i401, align 8
-  br i1 %call4.i407, label %if.then5.i417, label %if.end9.i408
+if.end9.i509:                                     ; preds = %if.end.i507
+  %call10.i510 = call zeroext i1 @equal(ptr noundef %173, ptr noundef nonnull @.str.22) #13
+  %174 = load ptr, ptr %tok.addr.i502, align 8
+  br i1 %call10.i510, label %for.cond.i504.backedge, label %mul.exit532
 
-if.then5.i417:                                    ; preds = %if.end.i406
-  %next6.i418 = getelementptr inbounds i8, ptr %141, i64 8
-  %142 = load ptr, ptr %next6.i418, align 8
-  %call7.i419 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i401, ptr noundef %142)
-  %call.i.i6.i420 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6.i420, align 16
-  br label %for.cond.i403.backedge
-
-if.end9.i408:                                     ; preds = %if.end.i406
-  %call10.i409 = call zeroext i1 @equal(ptr noundef %141, ptr noundef nonnull @.str.22) #13
-  %143 = load ptr, ptr %tok.addr.i401, align 8
-  br i1 %call10.i409, label %if.then11.i410, label %mul.exit431
-
-if.then11.i410:                                   ; preds = %if.end9.i408
-  %next12.i411 = getelementptr inbounds i8, ptr %143, i64 8
-  %144 = load ptr, ptr %next12.i411, align 8
-  %call13.i412 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i401, ptr noundef %144)
-  %call.i.i10.i413 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10.i413, align 16
-  br label %for.cond.i403.backedge
-
-mul.exit431:                                      ; preds = %if.end9.i408
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i401)
-  %call8.i100 = call fastcc ptr @new_sub(ptr noundef %node.0.i93, ptr noundef %node.0.i404, ptr noundef %tok.addr.i91.0)
+mul.exit532:                                      ; preds = %if.end9.i509
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i502)
+  %call8.i100 = call fastcc ptr @new_sub(ptr noundef %node.0.i93, ptr noundef %node.0.i505, ptr noundef %tok.addr.i91.0)
   br label %for.cond.i92.backedge
-
-add.exit105:                                      ; preds = %if.end.i95
-  %call.i.i87 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 11, ptr %call.i.i87, align 16
-  br label %for.cond.i10.backedge
 
 shift.exit23:                                     ; preds = %if.end.i13
   store ptr %tok.addr.i8.0, ptr %tok.addr, align 8
-  %call.i.i24 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 15, ptr %call.i.i24, align 16
   br label %for.cond.backedge
 
 if.end9:                                          ; preds = %if.end
@@ -4528,10 +4725,8 @@ if.end9:                                          ; preds = %if.end
 
 if.then11:                                        ; preds = %if.end9
   %next12 = getelementptr inbounds i8, ptr %0, i64 8
-  %145 = load ptr, ptr %next12, align 8
-  %call13 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %145)
-  %call.i.i28 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 14, ptr %call.i.i28, align 16
+  %175 = load ptr, ptr %next12, align 8
+  %call13 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %175)
   br label %for.cond.backedge
 
 if.end15:                                         ; preds = %if.end9
@@ -4540,10 +4735,8 @@ if.end15:                                         ; preds = %if.end9
 
 if.then17:                                        ; preds = %if.end15
   %next18 = getelementptr inbounds i8, ptr %0, i64 8
-  %146 = load ptr, ptr %next18, align 8
-  %call19 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %146)
-  %call.i.i32 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 15, ptr %call.i.i32, align 16
+  %176 = load ptr, ptr %next18, align 8
+  %call19 = call fastcc ptr @shift(ptr noundef nonnull %tok.addr, ptr noundef %176)
   br label %for.cond.backedge
 
 if.end21:                                         ; preds = %if.end15
@@ -4554,91 +4747,320 @@ if.end21:                                         ; preds = %if.end15
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @shift(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %tok.addr = alloca ptr, align 8
-  store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @add(ptr noundef nonnull %tok.addr, ptr noundef %tok)
+  %tok.addr.i = alloca ptr, align 8
+  %tok.addr.i45 = alloca ptr, align 8
+  %tok.addr.i25 = alloca ptr, align 8
+  %tok.addr.i12 = alloca ptr, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i)
+  store ptr %tok, ptr %tok.addr.i, align 8
+  %call.i = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %tok)
+  br label %for.cond.i76
+
+for.cond.i76:                                     ; preds = %for.cond.i76.backedge, %entry
+  %node.0.i77 = phi ptr [ %call.i, %entry ], [ %node.0.i77.be, %for.cond.i76.backedge ]
+  %0 = load ptr, ptr %tok.addr.i, align 8
+  %call1.i78 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.18) #13
+  br i1 %call1.i78, label %if.then.i87, label %if.end.i79
+
+if.then.i87:                                      ; preds = %for.cond.i76
+  %next.i88 = getelementptr inbounds i8, ptr %0, i64 8
+  %1 = load ptr, ptr %next.i88, align 8
+  %call2.i89 = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %1)
+  %call3.i = tail call fastcc ptr @new_add(ptr noundef %node.0.i77, ptr noundef %call2.i89, ptr noundef %0)
+  br label %for.cond.i76.backedge
+
+if.end.i79:                                       ; preds = %for.cond.i76
+  %call4.i80 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.19) #13
+  br i1 %call4.i80, label %if.then5.i82, label %add.exit90
+
+if.then5.i82:                                     ; preds = %if.end.i79
+  %next6.i83 = getelementptr inbounds i8, ptr %0, i64 8
+  %2 = load ptr, ptr %next6.i83, align 8
+  %call7.i = call fastcc ptr @mul(ptr noundef nonnull %tok.addr.i, ptr noundef %2)
+  %call8.i84 = tail call fastcc ptr @new_sub(ptr noundef %node.0.i77, ptr noundef %call7.i, ptr noundef %0)
+  br label %for.cond.i76.backedge
+
+for.cond.i76.backedge:                            ; preds = %if.then5.i82, %if.then.i87
+  %node.0.i77.be = phi ptr [ %call3.i, %if.then.i87 ], [ %call8.i84, %if.then5.i82 ]
+  br label %for.cond.i76
+
+add.exit90:                                       ; preds = %if.end.i79
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i)
   br label %for.cond
 
-for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i.sink9, %for.cond.backedge ]
-  %0 = load ptr, ptr %tok.addr, align 8
-  %call1 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.16) #13
-  br i1 %call1, label %if.then, label %if.end
+for.cond:                                         ; preds = %add.exit, %add.exit90
+  %3 = phi ptr [ %0, %add.exit90 ], [ %tok.addr.i.0, %add.exit ]
+  %node.0 = phi ptr [ %node.0.i77, %add.exit90 ], [ %call.i.i, %add.exit ]
+  %call1 = tail call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.16) #13
+  br i1 %call1, label %for.cond.backedge, label %if.end
 
-if.then:                                          ; preds = %for.cond
-  %next = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @add(ptr noundef nonnull %tok.addr, ptr noundef %1)
+for.cond.backedge:                                ; preds = %for.cond, %if.end
+  %.sink = phi i32 [ 11, %if.end ], [ 10, %for.cond ]
+  %next = getelementptr inbounds i8, ptr %3, i64 8
+  %4 = load ptr, ptr %next, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i45)
+  store ptr %4, ptr %tok.addr.i45, align 8
+  %call.i46 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i45, ptr noundef %4)
+  br label %for.cond.i47
+
+for.cond.i47:                                     ; preds = %for.cond.backedge.i55, %for.cond.backedge
+  %node.0.i48 = phi ptr [ %call.i46, %for.cond.backedge ], [ %call.i.i.i59, %for.cond.backedge.i55 ]
+  %5 = load ptr, ptr %tok.addr.i45, align 8
+  %call1.i49 = call zeroext i1 @equal(ptr noundef %5, ptr noundef nonnull @.str.20) #13
+  %6 = load ptr, ptr %tok.addr.i45, align 8
+  br i1 %call1.i49, label %for.cond.backedge.i55, label %if.end.i50
+
+for.cond.backedge.i55:                            ; preds = %if.end9.i52, %if.end.i50, %for.cond.i47
+  %.sink18.i56 = phi ptr [ %8, %if.end.i50 ], [ %6, %for.cond.i47 ], [ %9, %if.end9.i52 ]
+  %.sink.i57 = phi i32 [ 4, %if.end.i50 ], [ 3, %for.cond.i47 ], [ 6, %if.end9.i52 ]
+  %next.i58 = getelementptr inbounds i8, ptr %.sink18.i56, i64 8
+  %7 = load ptr, ptr %next.i58, align 8
+  %call2.i = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i45, ptr noundef %7)
+  %call.i.i.i59 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i57, ptr %call.i.i.i59, align 16
+  %tok2.i.i.i60 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 24
+  store ptr %5, ptr %tok2.i.i.i60, align 8
+  %lhs1.i.i61 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 32
+  store ptr %node.0.i48, ptr %lhs1.i.i61, align 16
+  %rhs2.i.i62 = getelementptr inbounds i8, ptr %call.i.i.i59, i64 40
+  store ptr %call2.i, ptr %rhs2.i.i62, align 8
+  br label %for.cond.i47
+
+if.end.i50:                                       ; preds = %for.cond.i47
+  %call4.i51 = call zeroext i1 @equal(ptr noundef %6, ptr noundef nonnull @.str.21) #13
+  %8 = load ptr, ptr %tok.addr.i45, align 8
+  br i1 %call4.i51, label %for.cond.backedge.i55, label %if.end9.i52
+
+if.end9.i52:                                      ; preds = %if.end.i50
+  %call10.i53 = call zeroext i1 @equal(ptr noundef %8, ptr noundef nonnull @.str.22) #13
+  %9 = load ptr, ptr %tok.addr.i45, align 8
+  br i1 %call10.i53, label %for.cond.backedge.i55, label %mul.exit63
+
+mul.exit63:                                       ; preds = %if.end9.i52
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i45)
+  br label %for.cond.i
+
+for.cond.i:                                       ; preds = %for.cond.i.backedge, %mul.exit63
+  %tok.addr.i.0 = phi ptr [ %9, %mul.exit63 ], [ %tok.addr.i.0.be, %for.cond.i.backedge ]
+  %node.0.i = phi ptr [ %node.0.i48, %mul.exit63 ], [ %node.0.i.be, %for.cond.i.backedge ]
+  %call1.i = call zeroext i1 @equal(ptr noundef %tok.addr.i.0, ptr noundef nonnull @.str.18) #13
+  br i1 %call1.i, label %if.then.i, label %if.end.i
+
+if.then.i:                                        ; preds = %for.cond.i
+  %next.i = getelementptr inbounds i8, ptr %tok.addr.i.0, i64 8
+  %10 = load ptr, ptr %next.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i25)
+  store ptr %10, ptr %tok.addr.i25, align 8
+  %call.i26 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i25, ptr noundef %10)
+  br label %for.cond.i27
+
+for.cond.i27:                                     ; preds = %for.cond.backedge.i35, %if.then.i
+  %node.0.i28 = phi ptr [ %call.i26, %if.then.i ], [ %call.i.i.i40, %for.cond.backedge.i35 ]
+  %11 = load ptr, ptr %tok.addr.i25, align 8
+  %call1.i29 = call zeroext i1 @equal(ptr noundef %11, ptr noundef nonnull @.str.20) #13
+  %12 = load ptr, ptr %tok.addr.i25, align 8
+  br i1 %call1.i29, label %for.cond.backedge.i35, label %if.end.i30
+
+for.cond.backedge.i35:                            ; preds = %if.end9.i32, %if.end.i30, %for.cond.i27
+  %.sink18.i36 = phi ptr [ %14, %if.end.i30 ], [ %12, %for.cond.i27 ], [ %15, %if.end9.i32 ]
+  %.sink.i37 = phi i32 [ 4, %if.end.i30 ], [ 3, %for.cond.i27 ], [ 6, %if.end9.i32 ]
+  %next.i38 = getelementptr inbounds i8, ptr %.sink18.i36, i64 8
+  %13 = load ptr, ptr %next.i38, align 8
+  %call2.i39 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i25, ptr noundef %13)
+  %call.i.i.i40 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i37, ptr %call.i.i.i40, align 16
+  %tok2.i.i.i41 = getelementptr inbounds i8, ptr %call.i.i.i40, i64 24
+  store ptr %11, ptr %tok2.i.i.i41, align 8
+  %lhs1.i.i42 = getelementptr inbounds i8, ptr %call.i.i.i40, i64 32
+  store ptr %node.0.i28, ptr %lhs1.i.i42, align 16
+  %rhs2.i.i43 = getelementptr inbounds i8, ptr %call.i.i.i40, i64 40
+  store ptr %call2.i39, ptr %rhs2.i.i43, align 8
+  br label %for.cond.i27
+
+if.end.i30:                                       ; preds = %for.cond.i27
+  %call4.i31 = call zeroext i1 @equal(ptr noundef %12, ptr noundef nonnull @.str.21) #13
+  %14 = load ptr, ptr %tok.addr.i25, align 8
+  br i1 %call4.i31, label %for.cond.backedge.i35, label %if.end9.i32
+
+if.end9.i32:                                      ; preds = %if.end.i30
+  %call10.i33 = call zeroext i1 @equal(ptr noundef %14, ptr noundef nonnull @.str.22) #13
+  %15 = load ptr, ptr %tok.addr.i25, align 8
+  br i1 %call10.i33, label %for.cond.backedge.i35, label %mul.exit44
+
+mul.exit44:                                       ; preds = %if.end9.i32
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i25)
+  call void @add_type(ptr noundef %node.0.i) #13
+  call void @add_type(ptr noundef %node.0.i28) #13
+  %ty.i = getelementptr inbounds i8, ptr %node.0.i, i64 16
+  %16 = load ptr, ptr %ty.i, align 16
+  %call.i22 = call zeroext i1 @is_numeric(ptr noundef %16) #13
+  br i1 %call.i22, label %land.lhs.true.i, label %if.end.i23
+
+land.lhs.true.i:                                  ; preds = %mul.exit44
+  %ty1.i = getelementptr inbounds i8, ptr %node.0.i28, i64 16
+  %17 = load ptr, ptr %ty1.i, align 16
+  %call2.i24 = call zeroext i1 @is_numeric(ptr noundef %17) #13
+  br i1 %call2.i24, label %new_add.exit, label %if.end.i23
+
+if.end.i23:                                       ; preds = %land.lhs.true.i, %mul.exit44
+  %18 = load ptr, ptr %ty.i, align 16
+  %base.i = getelementptr inbounds i8, ptr %18, i64 24
+  %19 = load ptr, ptr %base.i, align 8
+  %tobool.not.i = icmp eq ptr %19, null
+  %ty15.i = getelementptr inbounds i8, ptr %node.0.i28, i64 16
+  %20 = load ptr, ptr %ty15.i, align 16
+  %base16.i = getelementptr inbounds i8, ptr %20, i64 24
+  %21 = load ptr, ptr %base16.i, align 8
+  %tobool17.not.i = icmp eq ptr %21, null
+  br i1 %tobool.not.i, label %land.lhs.true14.i, label %land.lhs.true5.i
+
+land.lhs.true5.i:                                 ; preds = %if.end.i23
+  br i1 %tobool17.not.i, label %if.end19.i, label %if.then9.i
+
+if.then9.i:                                       ; preds = %land.lhs.true5.i
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %tok.addr.i.0, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i:                                ; preds = %if.end.i23
+  %spec.select.i = select i1 %tobool17.not.i, ptr %node.0.i28, ptr %node.0.i
+  %spec.select27.i = select i1 %tobool17.not.i, ptr %node.0.i, ptr %node.0.i28
+  %ty20.phi.trans.insert.i = getelementptr inbounds i8, ptr %spec.select27.i, i64 16
+  %.pre.i = load ptr, ptr %ty20.phi.trans.insert.i, align 16
+  %base21.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %.pre48.i = load ptr, ptr %base21.phi.trans.insert.i, align 8
+  br label %if.end19.i
+
+if.end19.i:                                       ; preds = %land.lhs.true14.i, %land.lhs.true5.i
+  %22 = phi ptr [ %.pre48.i, %land.lhs.true14.i ], [ %19, %land.lhs.true5.i ]
+  %rhs.addr.0.i = phi ptr [ %spec.select.i, %land.lhs.true14.i ], [ %node.0.i28, %land.lhs.true5.i ]
+  %lhs.addr.0.i = phi ptr [ %spec.select27.i, %land.lhs.true14.i ], [ %node.0.i, %land.lhs.true5.i ]
+  %23 = load i32, ptr %22, align 8
+  %cmp.i = icmp eq i32 %23, 13
+  br i1 %cmp.i, label %if.then22.i, label %if.end28.i
+
+if.then22.i:                                      ; preds = %if.end19.i
+  %vla_size.i = getelementptr inbounds i8, ptr %22, i64 64
+  %24 = load ptr, ptr %vla_size.i, align 8
+  %call.i.i28.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i, align 16
+  %tok2.i.i29.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 24
+  store ptr %tok.addr.i.0, ptr %tok2.i.i29.i, align 8
+  %var1.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 256
+  store ptr %24, ptr %var1.i.i, align 16
+  br label %return.sink.split.i
+
+if.end28.i:                                       ; preds = %if.end19.i
+  %size.i = getelementptr inbounds i8, ptr %22, i64 4
+  %25 = load i32, ptr %size.i, align 4
+  %conv.i = sext i32 %25 to i64
+  %call.i.i38.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i, align 16
+  %tok2.i.i39.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 24
+  store ptr %tok.addr.i.0, ptr %tok2.i.i39.i, align 8
+  %val1.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 264
+  store i64 %conv.i, ptr %val1.i.i, align 8
+  %26 = load ptr, ptr @ty_long, align 8
+  %ty.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 16
+  store ptr %26, ptr %ty.i.i, align 16
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %if.end28.i, %if.then22.i
+  %call.i.i38.sink.i = phi ptr [ %call.i.i38.i, %if.end28.i ], [ %call.i.i28.i, %if.then22.i ]
+  %call.i.i40.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i, align 16
+  %tok2.i.i41.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 24
+  store ptr %tok.addr.i.0, ptr %tok2.i.i41.i, align 8
+  %lhs1.i42.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 32
+  store ptr %rhs.addr.0.i, ptr %lhs1.i42.i, align 16
+  %rhs2.i43.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 40
+  store ptr %call.i.i38.sink.i, ptr %rhs2.i43.i, align 8
+  br label %new_add.exit
+
+new_add.exit:                                     ; preds = %land.lhs.true.i, %return.sink.split.i
+  %lhs.addr.0.sink.i = phi ptr [ %node.0.i, %land.lhs.true.i ], [ %lhs.addr.0.i, %return.sink.split.i ]
+  %call.i.i40.sink.i = phi ptr [ %node.0.i28, %land.lhs.true.i ], [ %call.i.i40.i, %return.sink.split.i ]
+  %call.i.i44.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i, align 16
+  %tok2.i.i45.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 24
+  store ptr %tok.addr.i.0, ptr %tok2.i.i45.i, align 8
+  %lhs1.i46.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 32
+  store ptr %lhs.addr.0.sink.i, ptr %lhs1.i46.i, align 16
+  %rhs2.i47.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 40
+  store ptr %call.i.i40.sink.i, ptr %rhs2.i47.i, align 8
+  br label %for.cond.i.backedge
+
+if.end.i:                                         ; preds = %for.cond.i
+  %call4.i = call zeroext i1 @equal(ptr noundef %tok.addr.i.0, ptr noundef nonnull @.str.19) #13
+  br i1 %call4.i, label %if.then5.i, label %add.exit
+
+if.then5.i:                                       ; preds = %if.end.i
+  %next6.i = getelementptr inbounds i8, ptr %tok.addr.i.0, i64 8
+  %27 = load ptr, ptr %next6.i, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i12)
+  store ptr %27, ptr %tok.addr.i12, align 8
+  %call.i13 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i12, ptr noundef %27)
+  br label %for.cond.i14
+
+for.cond.i14:                                     ; preds = %for.cond.backedge.i19, %if.then5.i
+  %node.0.i15 = phi ptr [ %call.i13, %if.then5.i ], [ %call.i.i.i, %for.cond.backedge.i19 ]
+  %28 = load ptr, ptr %tok.addr.i12, align 8
+  %call1.i16 = call zeroext i1 @equal(ptr noundef %28, ptr noundef nonnull @.str.20) #13
+  %29 = load ptr, ptr %tok.addr.i12, align 8
+  br i1 %call1.i16, label %for.cond.backedge.i19, label %if.end.i17
+
+for.cond.backedge.i19:                            ; preds = %if.end9.i, %if.end.i17, %for.cond.i14
+  %.sink18.i = phi ptr [ %31, %if.end.i17 ], [ %29, %for.cond.i14 ], [ %32, %if.end9.i ]
+  %.sink.i = phi i32 [ 4, %if.end.i17 ], [ 3, %for.cond.i14 ], [ 6, %if.end9.i ]
+  %next.i20 = getelementptr inbounds i8, ptr %.sink18.i, i64 8
+  %30 = load ptr, ptr %next.i20, align 8
+  %call2.i21 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr.i12, ptr noundef %30)
+  %call.i.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 %.sink.i, ptr %call.i.i.i, align 16
+  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
+  store ptr %28, ptr %tok2.i.i.i, align 8
+  %lhs1.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
+  store ptr %node.0.i15, ptr %lhs1.i.i, align 16
+  %rhs2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
+  store ptr %call2.i21, ptr %rhs2.i.i, align 8
+  br label %for.cond.i14
+
+if.end.i17:                                       ; preds = %for.cond.i14
+  %call4.i18 = call zeroext i1 @equal(ptr noundef %29, ptr noundef nonnull @.str.21) #13
+  %31 = load ptr, ptr %tok.addr.i12, align 8
+  br i1 %call4.i18, label %for.cond.backedge.i19, label %if.end9.i
+
+if.end9.i:                                        ; preds = %if.end.i17
+  %call10.i = call zeroext i1 @equal(ptr noundef %31, ptr noundef nonnull @.str.22) #13
+  %32 = load ptr, ptr %tok.addr.i12, align 8
+  br i1 %call10.i, label %for.cond.backedge.i19, label %mul.exit
+
+mul.exit:                                         ; preds = %if.end9.i
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i12)
+  %call8.i = call fastcc ptr @new_sub(ptr noundef %node.0.i, ptr noundef %node.0.i15, ptr noundef %tok.addr.i.0)
+  br label %for.cond.i.backedge
+
+for.cond.i.backedge:                              ; preds = %mul.exit, %new_add.exit
+  %tok.addr.i.0.be = phi ptr [ %15, %new_add.exit ], [ %32, %mul.exit ]
+  %node.0.i.be = phi ptr [ %call.i.i44.i, %new_add.exit ], [ %call8.i, %mul.exit ]
+  br label %for.cond.i
+
+add.exit:                                         ; preds = %if.end.i
   %call.i.i = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 10, ptr %call.i.i, align 16
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.then, %if.then5
-  %call.i.i.sink9 = phi ptr [ %call.i.i, %if.then ], [ %call.i.i4, %if.then5 ]
-  %call2.sink = phi ptr [ %call2, %if.then ], [ %call7, %if.then5 ]
-  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 24
-  store ptr %0, ptr %tok2.i.i, align 8
-  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 32
+  store i32 %.sink, ptr %call.i.i, align 16
+  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
+  store ptr %3, ptr %tok2.i.i, align 8
+  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %node.0, ptr %lhs1.i, align 16
-  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i.sink9, i64 40
-  store ptr %call2.sink, ptr %rhs2.i, align 8
+  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  store ptr %node.0.i, ptr %rhs2.i, align 8
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
-  %call4 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.17) #13
-  br i1 %call4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.end
-  %next6 = getelementptr inbounds i8, ptr %0, i64 8
-  %2 = load ptr, ptr %next6, align 8
-  %call7 = call fastcc ptr @add(ptr noundef nonnull %tok.addr, ptr noundef %2)
-  %call.i.i4 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 11, ptr %call.i.i4, align 16
-  br label %for.cond.backedge
+  %call4 = tail call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.17) #13
+  br i1 %call4, label %for.cond.backedge, label %if.end9
 
 if.end9:                                          ; preds = %if.end
-  store ptr %0, ptr %rest, align 8
-  ret ptr %node.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @add(ptr nocapture noundef writeonly %rest, ptr noundef %tok) unnamed_addr #0 {
-entry:
-  %tok.addr = alloca ptr, align 8
-  store ptr %tok, ptr %tok.addr, align 8
-  %call = call fastcc ptr @mul(ptr noundef nonnull %tok.addr, ptr noundef %tok)
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %node.0 = phi ptr [ %call, %entry ], [ %node.0.be, %for.cond.backedge ]
-  %0 = load ptr, ptr %tok.addr, align 8
-  %call1 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.18) #13
-  br i1 %call1, label %if.then, label %if.end
-
-if.then:                                          ; preds = %for.cond
-  %next = getelementptr inbounds i8, ptr %0, i64 8
-  %1 = load ptr, ptr %next, align 8
-  %call2 = call fastcc ptr @mul(ptr noundef nonnull %tok.addr, ptr noundef %1)
-  %call3 = tail call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef %call2, ptr noundef %0)
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.then, %if.then5
-  %node.0.be = phi ptr [ %call3, %if.then ], [ %call8, %if.then5 ]
-  br label %for.cond
-
-if.end:                                           ; preds = %for.cond
-  %call4 = tail call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.19) #13
-  br i1 %call4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.end
-  %next6 = getelementptr inbounds i8, ptr %0, i64 8
-  %2 = load ptr, ptr %next6, align 8
-  %call7 = call fastcc ptr @mul(ptr noundef nonnull %tok.addr, ptr noundef %2)
-  %call8 = tail call fastcc ptr @new_sub(ptr noundef %node.0, ptr noundef %call7, ptr noundef %0)
-  br label %for.cond.backedge
-
-if.end9:                                          ; preds = %if.end
-  store ptr %0, ptr %rest, align 8
+  store ptr %3, ptr %rest, align 8
   ret ptr %node.0
 }
 
@@ -4651,59 +5073,40 @@ entry:
   br label %for.cond
 
 for.cond:                                         ; preds = %for.cond.backedge, %entry
-  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i.sink15, %for.cond.backedge ]
+  %node.0 = phi ptr [ %call, %entry ], [ %call.i.i, %for.cond.backedge ]
   %0 = load ptr, ptr %tok.addr, align 8
   %call1 = call zeroext i1 @equal(ptr noundef %0, ptr noundef nonnull @.str.20) #13
   %1 = load ptr, ptr %tok.addr, align 8
-  br i1 %call1, label %if.then, label %if.end
+  br i1 %call1, label %for.cond.backedge, label %if.end
 
-if.then:                                          ; preds = %for.cond
-  %next = getelementptr inbounds i8, ptr %1, i64 8
+for.cond.backedge:                                ; preds = %if.end9, %for.cond, %if.end
+  %.sink18 = phi ptr [ %3, %if.end ], [ %1, %for.cond ], [ %4, %if.end9 ]
+  %.sink = phi i32 [ 4, %if.end ], [ 3, %for.cond ], [ 6, %if.end9 ]
+  %next = getelementptr inbounds i8, ptr %.sink18, i64 8
   %2 = load ptr, ptr %next, align 8
   %call2 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr, ptr noundef %2)
   %call.i.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 3, ptr %call.i.i, align 16
-  br label %for.cond.backedge
-
-for.cond.backedge:                                ; preds = %if.then, %if.then5, %if.then11
-  %call.i.i.sink15 = phi ptr [ %call.i.i, %if.then ], [ %call.i.i6, %if.then5 ], [ %call.i.i10, %if.then11 ]
-  %call2.sink = phi ptr [ %call2, %if.then ], [ %call7, %if.then5 ], [ %call13, %if.then11 ]
-  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i.sink15, i64 24
+  store i32 %.sink, ptr %call.i.i, align 16
+  %tok2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store ptr %0, ptr %tok2.i.i, align 8
-  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i.sink15, i64 32
+  %lhs1.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   store ptr %node.0, ptr %lhs1.i, align 16
-  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i.sink15, i64 40
-  store ptr %call2.sink, ptr %rhs2.i, align 8
+  %rhs2.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
+  store ptr %call2, ptr %rhs2.i, align 8
   br label %for.cond
 
 if.end:                                           ; preds = %for.cond
   %call4 = call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.21) #13
   %3 = load ptr, ptr %tok.addr, align 8
-  br i1 %call4, label %if.then5, label %if.end9
-
-if.then5:                                         ; preds = %if.end
-  %next6 = getelementptr inbounds i8, ptr %3, i64 8
-  %4 = load ptr, ptr %next6, align 8
-  %call7 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr, ptr noundef %4)
-  %call.i.i6 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 4, ptr %call.i.i6, align 16
-  br label %for.cond.backedge
+  br i1 %call4, label %for.cond.backedge, label %if.end9
 
 if.end9:                                          ; preds = %if.end
   %call10 = call zeroext i1 @equal(ptr noundef %3, ptr noundef nonnull @.str.22) #13
-  %5 = load ptr, ptr %tok.addr, align 8
-  br i1 %call10, label %if.then11, label %if.end15
-
-if.then11:                                        ; preds = %if.end9
-  %next12 = getelementptr inbounds i8, ptr %5, i64 8
-  %6 = load ptr, ptr %next12, align 8
-  %call13 = call fastcc ptr @cast(ptr noundef nonnull %tok.addr, ptr noundef %6)
-  %call.i.i10 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 6, ptr %call.i.i10, align 16
-  br label %for.cond.backedge
+  %4 = load ptr, ptr %tok.addr, align 8
+  br i1 %call10, label %for.cond.backedge, label %if.end15
 
 if.end15:                                         ; preds = %if.end9
-  store ptr %5, ptr %rest, align 8
+  store ptr %4, ptr %rest, align 8
   ret ptr %node.0
 }
 
@@ -4768,7 +5171,6 @@ if.then22:                                        ; preds = %if.end19
   store ptr %tok, ptr %tok2.i.i29, align 8
   %var1.i = getelementptr inbounds i8, ptr %call.i.i28, i64 256
   store ptr %8, ptr %var1.i, align 16
-  %call.i.i30 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   br label %return.sink.split
 
 if.end28:                                         ; preds = %if.end19
@@ -4784,24 +5186,23 @@ if.end28:                                         ; preds = %if.end19
   %10 = load ptr, ptr @ty_long, align 8
   %ty.i = getelementptr inbounds i8, ptr %call.i.i38, i64 16
   store ptr %10, ptr %ty.i, align 16
-  %call.i.i40 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then22, %if.end28
-  %call.i.i40.sink55 = phi ptr [ %call.i.i40, %if.end28 ], [ %call.i.i30, %if.then22 ]
   %call.i.i38.sink = phi ptr [ %call.i.i38, %if.end28 ], [ %call.i.i28, %if.then22 ]
-  store i32 3, ptr %call.i.i40.sink55, align 16
-  %tok2.i.i41 = getelementptr inbounds i8, ptr %call.i.i40.sink55, i64 24
+  %call.i.i40 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40, align 16
+  %tok2.i.i41 = getelementptr inbounds i8, ptr %call.i.i40, i64 24
   store ptr %tok, ptr %tok2.i.i41, align 8
-  %lhs1.i42 = getelementptr inbounds i8, ptr %call.i.i40.sink55, i64 32
+  %lhs1.i42 = getelementptr inbounds i8, ptr %call.i.i40, i64 32
   store ptr %rhs.addr.0, ptr %lhs1.i42, align 16
-  %rhs2.i43 = getelementptr inbounds i8, ptr %call.i.i40.sink55, i64 40
+  %rhs2.i43 = getelementptr inbounds i8, ptr %call.i.i40, i64 40
   store ptr %call.i.i38.sink, ptr %rhs2.i43, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true
   %lhs.addr.0.sink = phi ptr [ %lhs, %land.lhs.true ], [ %lhs.addr.0, %return.sink.split ]
-  %call.i.i40.sink = phi ptr [ %rhs, %land.lhs.true ], [ %call.i.i40.sink55, %return.sink.split ]
+  %call.i.i40.sink = phi ptr [ %rhs, %land.lhs.true ], [ %call.i.i40, %return.sink.split ]
   %call.i.i44 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 1, ptr %call.i.i44, align 16
   %tok2.i.i45 = getelementptr inbounds i8, ptr %call.i.i44, i64 24
@@ -6475,9 +6876,9 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @postfix(ptr noundef %rest, ptr noundef %tok) unnamed_addr #0 {
 entry:
-  %tok.addr.i217 = alloca ptr, align 8
+  %tok.addr.i232 = alloca ptr, align 8
   %tok.addr.i.i = alloca ptr, align 8
-  %tok.addr.i145 = alloca ptr, align 8
+  %tok.addr.i159 = alloca ptr, align 8
   %tok.addr.i40 = alloca ptr, align 8
   %head.i41 = alloca %struct.Node, align 16
   %tok.addr.i30 = alloca ptr, align 8
@@ -6630,22 +7031,22 @@ if.end:                                           ; preds = %if.then
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %desg.i, i8 0, i64 24, i1 false)
   %var2.i = getelementptr inbounds i8, ptr %desg.i, i64 24
   store ptr %call.i.i19, ptr %var2.i, align 8
-  %call.i115 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 44, ptr %call.i115, align 16
-  %tok2.i = getelementptr inbounds i8, ptr %call.i115, i64 24
+  %call.i129 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 44, ptr %call.i129, align 16
+  %tok2.i = getelementptr inbounds i8, ptr %call.i129, i64 24
   store ptr %24, ptr %tok2.i, align 8
-  %var4.i = getelementptr inbounds i8, ptr %call.i115, i64 256
+  %var4.i = getelementptr inbounds i8, ptr %call.i129, i64 256
   store ptr %call.i.i19, ptr %var4.i, align 16
   %25 = load ptr, ptr %ty2.i.i, align 8
   %call6.i = call fastcc ptr @create_lvar_init(ptr noundef %call.i23, ptr noundef %25, ptr noundef nonnull %desg.i, ptr noundef %24)
-  %call.i.i111 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 18, ptr %call.i.i111, align 16
-  %tok2.i.i112 = getelementptr inbounds i8, ptr %call.i.i111, i64 24
-  store ptr %24, ptr %tok2.i.i112, align 8
-  %lhs1.i113 = getelementptr inbounds i8, ptr %call.i.i111, i64 32
-  store ptr %call.i115, ptr %lhs1.i113, align 16
-  %rhs2.i114 = getelementptr inbounds i8, ptr %call.i.i111, i64 40
-  store ptr %call6.i, ptr %rhs2.i114, align 8
+  %call.i.i125 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 18, ptr %call.i.i125, align 16
+  %tok2.i.i126 = getelementptr inbounds i8, ptr %call.i.i125, i64 24
+  store ptr %24, ptr %tok2.i.i126, align 8
+  %lhs1.i127 = getelementptr inbounds i8, ptr %call.i.i125, i64 32
+  store ptr %call.i129, ptr %lhs1.i127, align 16
+  %rhs2.i128 = getelementptr inbounds i8, ptr %call.i.i125, i64 40
+  store ptr %call6.i, ptr %rhs2.i128, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %desg.i)
   %26 = load ptr, ptr %tok.addr, align 8
   %call.i.i25 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
@@ -6659,7 +7060,7 @@ if.end:                                           ; preds = %if.then
   %tok2.i.i29 = getelementptr inbounds i8, ptr %call.i.i28, i64 24
   store ptr %tok, ptr %tok2.i.i29, align 8
   %lhs1.i = getelementptr inbounds i8, ptr %call.i.i28, i64 32
-  store ptr %call.i.i111, ptr %lhs1.i, align 16
+  store ptr %call.i.i125, ptr %lhs1.i, align 16
   %rhs2.i = getelementptr inbounds i8, ptr %call.i.i28, i64 40
   store ptr %call.i.i25, ptr %rhs2.i, align 8
   br label %return
@@ -6677,17 +7078,17 @@ land.lhs.true.i:                                  ; preds = %if.end14
   br i1 %call1.i37, label %if.then.i, label %if.end.i32
 
 if.then.i:                                        ; preds = %land.lhs.true.i
-  %call.i244 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 39, ptr %call.i244, align 16
-  %tok2.i245 = getelementptr inbounds i8, ptr %call.i244, i64 24
-  store ptr %tok, ptr %tok2.i245, align 8
+  %call.i259 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 39, ptr %call.i259, align 16
+  %tok2.i260 = getelementptr inbounds i8, ptr %call.i259, i64 24
+  store ptr %tok, ptr %tok2.i260, align 8
   %28 = load ptr, ptr %next.i, align 8
   %next4.i = getelementptr inbounds i8, ptr %28, i64 8
   %29 = load ptr, ptr %next4.i, align 8
   %call5.i38 = call fastcc ptr @compound_stmt(ptr noundef nonnull %tok.addr.i30, ptr noundef %29)
   %body.i = getelementptr inbounds i8, ptr %call5.i38, i64 104
   %30 = load ptr, ptr %body.i, align 8
-  %body6.i = getelementptr inbounds i8, ptr %call.i244, i64 104
+  %body6.i = getelementptr inbounds i8, ptr %call.i259, i64 104
   store ptr %30, ptr %body6.i, align 8
   %31 = load ptr, ptr %tok.addr.i30, align 8
   %call7.i39 = tail call ptr @skip(ptr noundef %31, ptr noundef nonnull @.str.24) #13
@@ -6722,121 +7123,121 @@ land.lhs.true19.i:                                ; preds = %land.lhs.true16.i
   %next21.i = getelementptr inbounds i8, ptr %35, i64 8
   %36 = load ptr, ptr %next21.i, align 8
   %37 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
-  %cmp.i220 = icmp eq i32 %37, 0
-  br i1 %cmp.i220, label %for.body.i238, label %if.end.i221
+  %cmp.i235 = icmp eq i32 %37, 0
+  br i1 %cmp.i235, label %for.body.i253, label %if.end.i236
 
-for.body.i238:                                    ; preds = %land.lhs.true19.i, %for.body.i238
-  %indvars.iv.i239 = phi i64 [ %indvars.iv.next.i241, %for.body.i238 ], [ 0, %land.lhs.true19.i ]
-  %arrayidx.i240 = getelementptr inbounds [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i239
-  %38 = load ptr, ptr %arrayidx.i240, align 8
+for.body.i253:                                    ; preds = %land.lhs.true19.i, %for.body.i253
+  %indvars.iv.i254 = phi i64 [ %indvars.iv.next.i256, %for.body.i253 ], [ 0, %land.lhs.true19.i ]
+  %arrayidx.i255 = getelementptr inbounds [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i254
+  %38 = load ptr, ptr %arrayidx.i255, align 8
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %38, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
-  %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i239, 1
-  %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, 30
-  br i1 %exitcond.not.i242, label %if.end.i221, label %for.body.i238, !llvm.loop !13
+  %indvars.iv.next.i256 = add nuw nsw i64 %indvars.iv.i254, 1
+  %exitcond.not.i257 = icmp eq i64 %indvars.iv.next.i256, 30
+  br i1 %exitcond.not.i257, label %if.end.i236, label %for.body.i253, !llvm.loop !13
 
-if.end.i221:                                      ; preds = %for.body.i238, %land.lhs.true19.i
-  %loc.i222 = getelementptr inbounds i8, ptr %36, i64 48
-  %39 = load ptr, ptr %loc.i222, align 16
-  %len.i223 = getelementptr inbounds i8, ptr %36, i64 56
-  %40 = load i32, ptr %len.i223, align 8
-  %call.i224 = tail call ptr @hashmap_get2(ptr noundef nonnull @is_typename.map, ptr noundef %39, i32 noundef %40) #13
-  %tobool.not.i225 = icmp eq ptr %call.i224, null
-  br i1 %tobool.not.i225, label %lor.rhs.i226, label %if.then23.i
+if.end.i236:                                      ; preds = %for.body.i253, %land.lhs.true19.i
+  %loc.i237 = getelementptr inbounds i8, ptr %36, i64 48
+  %39 = load ptr, ptr %loc.i237, align 16
+  %len.i238 = getelementptr inbounds i8, ptr %36, i64 56
+  %40 = load i32, ptr %len.i238, align 8
+  %call.i239 = tail call ptr @hashmap_get2(ptr noundef nonnull @is_typename.map, ptr noundef %39, i32 noundef %40) #13
+  %tobool.not.i240 = icmp eq ptr %call.i239, null
+  br i1 %tobool.not.i240, label %lor.rhs.i241, label %if.then23.i
 
-lor.rhs.i226:                                     ; preds = %if.end.i221
+lor.rhs.i241:                                     ; preds = %if.end.i236
   %41 = load i32, ptr %36, align 16
-  %cmp.i.i227 = icmp eq i32 %41, 0
-  br i1 %cmp.i.i227, label %for.cond.i.i.i228, label %if.end39.i
+  %cmp.i.i242 = icmp eq i32 %41, 0
+  br i1 %cmp.i.i242, label %for.cond.i.i.i243, label %if.end39.i
 
-for.cond.i.i.i228:                                ; preds = %lor.rhs.i226, %for.body.i.i.i232
-  %sc.0.in.i.i.i229 = phi ptr [ %sc.0.i.i.i230, %for.body.i.i.i232 ], [ @scope, %lor.rhs.i226 ]
-  %sc.0.i.i.i230 = load ptr, ptr %sc.0.in.i.i.i229, align 8
-  %tobool.not.i.i.i231 = icmp eq ptr %sc.0.i.i.i230, null
-  br i1 %tobool.not.i.i.i231, label %if.end39.i, label %for.body.i.i.i232
+for.cond.i.i.i243:                                ; preds = %lor.rhs.i241, %for.body.i.i.i247
+  %sc.0.in.i.i.i244 = phi ptr [ %sc.0.i.i.i245, %for.body.i.i.i247 ], [ @scope, %lor.rhs.i241 ]
+  %sc.0.i.i.i245 = load ptr, ptr %sc.0.in.i.i.i244, align 8
+  %tobool.not.i.i.i246 = icmp eq ptr %sc.0.i.i.i245, null
+  br i1 %tobool.not.i.i.i246, label %if.end39.i, label %for.body.i.i.i247
 
-for.body.i.i.i232:                                ; preds = %for.cond.i.i.i228
-  %vars.i.i.i233 = getelementptr inbounds i8, ptr %sc.0.i.i.i230, i64 8
-  %42 = load ptr, ptr %loc.i222, align 16
-  %43 = load i32, ptr %len.i223, align 8
-  %call.i.i.i234 = tail call ptr @hashmap_get2(ptr noundef nonnull %vars.i.i.i233, ptr noundef %42, i32 noundef %43) #13
-  %tobool1.not.i.i.i235 = icmp eq ptr %call.i.i.i234, null
-  br i1 %tobool1.not.i.i.i235, label %for.cond.i.i.i228, label %is_typename.exit243, !llvm.loop !14
+for.body.i.i.i247:                                ; preds = %for.cond.i.i.i243
+  %vars.i.i.i248 = getelementptr inbounds i8, ptr %sc.0.i.i.i245, i64 8
+  %42 = load ptr, ptr %loc.i237, align 16
+  %43 = load i32, ptr %len.i238, align 8
+  %call.i.i.i249 = tail call ptr @hashmap_get2(ptr noundef nonnull %vars.i.i.i248, ptr noundef %42, i32 noundef %43) #13
+  %tobool1.not.i.i.i250 = icmp eq ptr %call.i.i.i249, null
+  br i1 %tobool1.not.i.i.i250, label %for.cond.i.i.i243, label %is_typename.exit258, !llvm.loop !14
 
-is_typename.exit243:                              ; preds = %for.body.i.i.i232
-  %type_def.i.i237 = getelementptr inbounds i8, ptr %call.i.i.i234, i64 8
-  %44 = load ptr, ptr %type_def.i.i237, align 8
-  %.not270 = icmp eq ptr %44, null
-  br i1 %.not270, label %if.end39.i, label %if.then23.i
+is_typename.exit258:                              ; preds = %for.body.i.i.i247
+  %type_def.i.i252 = getelementptr inbounds i8, ptr %call.i.i.i249, i64 8
+  %44 = load ptr, ptr %type_def.i.i252, align 8
+  %.not285 = icmp eq ptr %44, null
+  br i1 %.not285, label %if.end39.i, label %if.then23.i
 
-if.then23.i:                                      ; preds = %if.end.i221, %is_typename.exit243
+if.then23.i:                                      ; preds = %if.end.i236, %is_typename.exit258
   %45 = load ptr, ptr %next17.i, align 8
   %next25.i = getelementptr inbounds i8, ptr %45, i64 8
   %46 = load ptr, ptr %next25.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i217)
-  store ptr %46, ptr %tok.addr.i217, align 8
-  %call.i218 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i217, ptr noundef %46, ptr noundef null)
-  %47 = load ptr, ptr %tok.addr.i217, align 8
-  %call1.i219 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i30, ptr noundef %47, ptr noundef %call.i218)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i217)
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i232)
+  store ptr %46, ptr %tok.addr.i232, align 8
+  %call.i233 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i232, ptr noundef %46, ptr noundef null)
+  %47 = load ptr, ptr %tok.addr.i232, align 8
+  %call1.i234 = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i30, ptr noundef %47, ptr noundef %call.i233)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i232)
   %48 = load ptr, ptr %tok.addr.i30, align 8
   %call27.i = call ptr @skip(ptr noundef %48, ptr noundef nonnull @.str.24) #13
   store ptr %call27.i, ptr %tok.addr, align 8
-  %49 = load i32, ptr %call1.i219, align 8
+  %49 = load i32, ptr %call1.i234, align 8
   %cmp.i33 = icmp eq i32 %49, 13
   br i1 %cmp.i33, label %if.then28.i, label %if.end37.i
 
 if.then28.i:                                      ; preds = %if.then23.i
-  %vla_size.i = getelementptr inbounds i8, ptr %call1.i219, i64 64
+  %vla_size.i = getelementptr inbounds i8, ptr %call1.i234, i64 64
   %50 = load ptr, ptr %vla_size.i, align 8
   %tobool.not.i36 = icmp eq ptr %50, null
   %51 = load ptr, ptr %tok.addr.i30, align 8
   br i1 %tobool.not.i36, label %if.end32.i, label %if.then29.i
 
 if.then29.i:                                      ; preds = %if.then28.i
-  %call.i.i214 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 40, ptr %call.i.i214, align 16
-  %tok2.i.i215 = getelementptr inbounds i8, ptr %call.i.i214, i64 24
-  store ptr %51, ptr %tok2.i.i215, align 8
-  %var1.i216 = getelementptr inbounds i8, ptr %call.i.i214, i64 256
-  store ptr %50, ptr %var1.i216, align 16
+  %call.i.i229 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i229, align 16
+  %tok2.i.i230 = getelementptr inbounds i8, ptr %call.i.i229, i64 24
+  store ptr %51, ptr %tok2.i.i230, align 8
+  %var1.i231 = getelementptr inbounds i8, ptr %call.i.i229, i64 256
+  store ptr %50, ptr %var1.i231, align 16
   br label %primary.exit
 
 if.end32.i:                                       ; preds = %if.then28.i
-  %call33.i = call fastcc ptr @compute_vla_size(ptr noundef nonnull %call1.i219, ptr noundef %51)
+  %call33.i = call fastcc ptr @compute_vla_size(ptr noundef nonnull %call1.i234, ptr noundef %51)
   %52 = load ptr, ptr %vla_size.i, align 8
   %53 = load ptr, ptr %tok.addr.i30, align 8
-  %call.i.i211 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 40, ptr %call.i.i211, align 16
-  %tok2.i.i212 = getelementptr inbounds i8, ptr %call.i.i211, i64 24
-  store ptr %53, ptr %tok2.i.i212, align 8
-  %var1.i213 = getelementptr inbounds i8, ptr %call.i.i211, i64 256
-  store ptr %52, ptr %var1.i213, align 16
-  %call.i.i207 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 18, ptr %call.i.i207, align 16
-  %tok2.i.i208 = getelementptr inbounds i8, ptr %call.i.i207, i64 24
-  store ptr %53, ptr %tok2.i.i208, align 8
-  %lhs1.i209 = getelementptr inbounds i8, ptr %call.i.i207, i64 32
-  store ptr %call33.i, ptr %lhs1.i209, align 16
-  %rhs2.i210 = getelementptr inbounds i8, ptr %call.i.i207, i64 40
-  store ptr %call.i.i211, ptr %rhs2.i210, align 8
+  %call.i.i226 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i226, align 16
+  %tok2.i.i227 = getelementptr inbounds i8, ptr %call.i.i226, i64 24
+  store ptr %53, ptr %tok2.i.i227, align 8
+  %var1.i228 = getelementptr inbounds i8, ptr %call.i.i226, i64 256
+  store ptr %52, ptr %var1.i228, align 16
+  %call.i.i222 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 18, ptr %call.i.i222, align 16
+  %tok2.i.i223 = getelementptr inbounds i8, ptr %call.i.i222, i64 24
+  store ptr %53, ptr %tok2.i.i223, align 8
+  %lhs1.i224 = getelementptr inbounds i8, ptr %call.i.i222, i64 32
+  store ptr %call33.i, ptr %lhs1.i224, align 16
+  %rhs2.i225 = getelementptr inbounds i8, ptr %call.i.i222, i64 40
+  store ptr %call.i.i226, ptr %rhs2.i225, align 8
   br label %primary.exit
 
 if.end37.i:                                       ; preds = %if.then23.i
-  %size.i34 = getelementptr inbounds i8, ptr %call1.i219, i64 4
+  %size.i34 = getelementptr inbounds i8, ptr %call1.i234, i64 4
   %54 = load i32, ptr %size.i34, align 4
   %conv.i35 = sext i32 %54 to i64
-  %call.i.i203 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i203, align 16
-  %tok2.i.i204 = getelementptr inbounds i8, ptr %call.i.i203, i64 24
-  store ptr %tok, ptr %tok2.i.i204, align 8
-  %val1.i205 = getelementptr inbounds i8, ptr %call.i.i203, i64 264
-  store i64 %conv.i35, ptr %val1.i205, align 8
+  %call.i.i218 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i218, align 16
+  %tok2.i.i219 = getelementptr inbounds i8, ptr %call.i.i218, i64 24
+  store ptr %tok, ptr %tok2.i.i219, align 8
+  %val1.i220 = getelementptr inbounds i8, ptr %call.i.i218, i64 264
+  store i64 %conv.i35, ptr %val1.i220, align 8
   %55 = load ptr, ptr @ty_ulong, align 8
-  %ty.i206 = getelementptr inbounds i8, ptr %call.i.i203, i64 16
-  store ptr %55, ptr %ty.i206, align 16
+  %ty.i221 = getelementptr inbounds i8, ptr %call.i.i218, i64 16
+  store ptr %55, ptr %ty.i221, align 16
   br label %primary.exit
 
-if.end39.i:                                       ; preds = %for.cond.i.i.i228, %lor.rhs.i226, %is_typename.exit243, %land.lhs.true16.i, %if.end14.i
+if.end39.i:                                       ; preds = %for.cond.i.i.i243, %lor.rhs.i241, %is_typename.exit258, %land.lhs.true16.i, %if.end14.i
   %call40.i = tail call zeroext i1 @equal(ptr noundef %tok, ptr noundef nonnull @.str.89) #13
   br i1 %call40.i, label %if.then41.i, label %if.end58.i
 
@@ -6855,12 +7256,12 @@ if.then49.i:                                      ; preds = %if.then41.i
   %vla_size51.i = getelementptr inbounds i8, ptr %57, i64 64
   %59 = load ptr, ptr %vla_size51.i, align 8
   %60 = load ptr, ptr %tok.addr.i30, align 8
-  %call.i.i200 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 40, ptr %call.i.i200, align 16
-  %tok2.i.i201 = getelementptr inbounds i8, ptr %call.i.i200, i64 24
-  store ptr %60, ptr %tok2.i.i201, align 8
-  %var1.i202 = getelementptr inbounds i8, ptr %call.i.i200, i64 256
-  store ptr %59, ptr %var1.i202, align 16
+  %call.i.i215 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i215, align 16
+  %tok2.i.i216 = getelementptr inbounds i8, ptr %call.i.i215, i64 24
+  store ptr %60, ptr %tok2.i.i216, align 8
+  %var1.i217 = getelementptr inbounds i8, ptr %call.i.i215, i64 256
+  store ptr %59, ptr %var1.i217, align 16
   br label %primary.exit
 
 if.end53.i:                                       ; preds = %if.then41.i
@@ -6868,15 +7269,15 @@ if.end53.i:                                       ; preds = %if.then41.i
   %61 = load i32, ptr %size55.i, align 4
   %conv56.i = sext i32 %61 to i64
   %62 = load ptr, ptr %tok.addr.i30, align 8
-  %call.i.i196 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i196, align 16
-  %tok2.i.i197 = getelementptr inbounds i8, ptr %call.i.i196, i64 24
-  store ptr %62, ptr %tok2.i.i197, align 8
-  %val1.i198 = getelementptr inbounds i8, ptr %call.i.i196, i64 264
-  store i64 %conv56.i, ptr %val1.i198, align 8
+  %call.i.i211 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i211, align 16
+  %tok2.i.i212 = getelementptr inbounds i8, ptr %call.i.i211, i64 24
+  store ptr %62, ptr %tok2.i.i212, align 8
+  %val1.i213 = getelementptr inbounds i8, ptr %call.i.i211, i64 264
+  store i64 %conv56.i, ptr %val1.i213, align 8
   %63 = load ptr, ptr @ty_ulong, align 8
-  %ty.i199 = getelementptr inbounds i8, ptr %call.i.i196, i64 16
-  store ptr %63, ptr %ty.i199, align 16
+  %ty.i214 = getelementptr inbounds i8, ptr %call.i.i211, i64 16
+  store ptr %63, ptr %ty.i214, align 16
   br label %primary.exit
 
 if.end58.i:                                       ; preds = %if.end39.i
@@ -6894,53 +7295,53 @@ land.lhs.true65.i:                                ; preds = %land.lhs.true61.i
   %next67.i = getelementptr inbounds i8, ptr %65, i64 8
   %66 = load ptr, ptr %next67.i, align 8
   %67 = load i32, ptr getelementptr inbounds (i8, ptr @is_typename.map, i64 8), align 8
-  %cmp.i172 = icmp eq i32 %67, 0
-  br i1 %cmp.i172, label %for.body.i190, label %if.end.i173
+  %cmp.i187 = icmp eq i32 %67, 0
+  br i1 %cmp.i187, label %for.body.i205, label %if.end.i188
 
-for.body.i190:                                    ; preds = %land.lhs.true65.i, %for.body.i190
-  %indvars.iv.i191 = phi i64 [ %indvars.iv.next.i193, %for.body.i190 ], [ 0, %land.lhs.true65.i ]
-  %arrayidx.i192 = getelementptr inbounds [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i191
-  %68 = load ptr, ptr %arrayidx.i192, align 8
+for.body.i205:                                    ; preds = %land.lhs.true65.i, %for.body.i205
+  %indvars.iv.i206 = phi i64 [ %indvars.iv.next.i208, %for.body.i205 ], [ 0, %land.lhs.true65.i ]
+  %arrayidx.i207 = getelementptr inbounds [30 x ptr], ptr @is_typename.kw, i64 0, i64 %indvars.iv.i206
+  %68 = load ptr, ptr %arrayidx.i207, align 8
   tail call void @hashmap_put(ptr noundef nonnull @is_typename.map, ptr noundef %68, ptr noundef nonnull inttoptr (i64 1 to ptr)) #13
-  %indvars.iv.next.i193 = add nuw nsw i64 %indvars.iv.i191, 1
-  %exitcond.not.i194 = icmp eq i64 %indvars.iv.next.i193, 30
-  br i1 %exitcond.not.i194, label %if.end.i173, label %for.body.i190, !llvm.loop !13
+  %indvars.iv.next.i208 = add nuw nsw i64 %indvars.iv.i206, 1
+  %exitcond.not.i209 = icmp eq i64 %indvars.iv.next.i208, 30
+  br i1 %exitcond.not.i209, label %if.end.i188, label %for.body.i205, !llvm.loop !13
 
-if.end.i173:                                      ; preds = %for.body.i190, %land.lhs.true65.i
-  %loc.i174 = getelementptr inbounds i8, ptr %66, i64 48
-  %69 = load ptr, ptr %loc.i174, align 16
-  %len.i175 = getelementptr inbounds i8, ptr %66, i64 56
-  %70 = load i32, ptr %len.i175, align 8
-  %call.i176 = tail call ptr @hashmap_get2(ptr noundef nonnull @is_typename.map, ptr noundef %69, i32 noundef %70) #13
-  %tobool.not.i177 = icmp eq ptr %call.i176, null
-  br i1 %tobool.not.i177, label %lor.rhs.i178, label %if.then70.i
+if.end.i188:                                      ; preds = %for.body.i205, %land.lhs.true65.i
+  %loc.i189 = getelementptr inbounds i8, ptr %66, i64 48
+  %69 = load ptr, ptr %loc.i189, align 16
+  %len.i190 = getelementptr inbounds i8, ptr %66, i64 56
+  %70 = load i32, ptr %len.i190, align 8
+  %call.i191 = tail call ptr @hashmap_get2(ptr noundef nonnull @is_typename.map, ptr noundef %69, i32 noundef %70) #13
+  %tobool.not.i192 = icmp eq ptr %call.i191, null
+  br i1 %tobool.not.i192, label %lor.rhs.i193, label %if.then70.i
 
-lor.rhs.i178:                                     ; preds = %if.end.i173
+lor.rhs.i193:                                     ; preds = %if.end.i188
   %71 = load i32, ptr %66, align 16
-  %cmp.i.i179 = icmp eq i32 %71, 0
-  br i1 %cmp.i.i179, label %for.cond.i.i.i180, label %if.end78.i
+  %cmp.i.i194 = icmp eq i32 %71, 0
+  br i1 %cmp.i.i194, label %for.cond.i.i.i195, label %if.end78.i
 
-for.cond.i.i.i180:                                ; preds = %lor.rhs.i178, %for.body.i.i.i184
-  %sc.0.in.i.i.i181 = phi ptr [ %sc.0.i.i.i182, %for.body.i.i.i184 ], [ @scope, %lor.rhs.i178 ]
-  %sc.0.i.i.i182 = load ptr, ptr %sc.0.in.i.i.i181, align 8
-  %tobool.not.i.i.i183 = icmp eq ptr %sc.0.i.i.i182, null
-  br i1 %tobool.not.i.i.i183, label %if.end78.i, label %for.body.i.i.i184
+for.cond.i.i.i195:                                ; preds = %lor.rhs.i193, %for.body.i.i.i199
+  %sc.0.in.i.i.i196 = phi ptr [ %sc.0.i.i.i197, %for.body.i.i.i199 ], [ @scope, %lor.rhs.i193 ]
+  %sc.0.i.i.i197 = load ptr, ptr %sc.0.in.i.i.i196, align 8
+  %tobool.not.i.i.i198 = icmp eq ptr %sc.0.i.i.i197, null
+  br i1 %tobool.not.i.i.i198, label %if.end78.i, label %for.body.i.i.i199
 
-for.body.i.i.i184:                                ; preds = %for.cond.i.i.i180
-  %vars.i.i.i185 = getelementptr inbounds i8, ptr %sc.0.i.i.i182, i64 8
-  %72 = load ptr, ptr %loc.i174, align 16
-  %73 = load i32, ptr %len.i175, align 8
-  %call.i.i.i186 = tail call ptr @hashmap_get2(ptr noundef nonnull %vars.i.i.i185, ptr noundef %72, i32 noundef %73) #13
-  %tobool1.not.i.i.i187 = icmp eq ptr %call.i.i.i186, null
-  br i1 %tobool1.not.i.i.i187, label %for.cond.i.i.i180, label %is_typename.exit195, !llvm.loop !14
+for.body.i.i.i199:                                ; preds = %for.cond.i.i.i195
+  %vars.i.i.i200 = getelementptr inbounds i8, ptr %sc.0.i.i.i197, i64 8
+  %72 = load ptr, ptr %loc.i189, align 16
+  %73 = load i32, ptr %len.i190, align 8
+  %call.i.i.i201 = tail call ptr @hashmap_get2(ptr noundef nonnull %vars.i.i.i200, ptr noundef %72, i32 noundef %73) #13
+  %tobool1.not.i.i.i202 = icmp eq ptr %call.i.i.i201, null
+  br i1 %tobool1.not.i.i.i202, label %for.cond.i.i.i195, label %is_typename.exit210, !llvm.loop !14
 
-is_typename.exit195:                              ; preds = %for.body.i.i.i184
-  %type_def.i.i189 = getelementptr inbounds i8, ptr %call.i.i.i186, i64 8
-  %74 = load ptr, ptr %type_def.i.i189, align 8
-  %.not271 = icmp eq ptr %74, null
-  br i1 %.not271, label %if.end78.i, label %if.then70.i
+is_typename.exit210:                              ; preds = %for.body.i.i.i199
+  %type_def.i.i204 = getelementptr inbounds i8, ptr %call.i.i.i201, i64 8
+  %74 = load ptr, ptr %type_def.i.i204, align 8
+  %.not286 = icmp eq ptr %74, null
+  br i1 %.not286, label %if.end78.i, label %if.then70.i
 
-if.then70.i:                                      ; preds = %if.end.i173, %is_typename.exit195
+if.then70.i:                                      ; preds = %if.end.i188, %is_typename.exit210
   %75 = load ptr, ptr %next62.i, align 8
   %next73.i = getelementptr inbounds i8, ptr %75, i64 8
   %76 = load ptr, ptr %next73.i, align 8
@@ -6952,18 +7353,18 @@ if.then70.i:                                      ; preds = %if.end.i173, %is_ty
   %78 = load i32, ptr %align.i, align 8
   %conv76.i = sext i32 %78 to i64
   %79 = load ptr, ptr %tok.addr.i30, align 8
-  %call.i.i168 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i168, align 16
-  %tok2.i.i169 = getelementptr inbounds i8, ptr %call.i.i168, i64 24
-  store ptr %79, ptr %tok2.i.i169, align 8
-  %val1.i170 = getelementptr inbounds i8, ptr %call.i.i168, i64 264
-  store i64 %conv76.i, ptr %val1.i170, align 8
+  %call.i.i183 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i183, align 16
+  %tok2.i.i184 = getelementptr inbounds i8, ptr %call.i.i183, i64 24
+  store ptr %79, ptr %tok2.i.i184, align 8
+  %val1.i185 = getelementptr inbounds i8, ptr %call.i.i183, i64 264
+  store i64 %conv76.i, ptr %val1.i185, align 8
   %80 = load ptr, ptr @ty_ulong, align 8
-  %ty.i171 = getelementptr inbounds i8, ptr %call.i.i168, i64 16
-  store ptr %80, ptr %ty.i171, align 16
+  %ty.i186 = getelementptr inbounds i8, ptr %call.i.i183, i64 16
+  store ptr %80, ptr %ty.i186, align 16
   br label %primary.exit
 
-if.end78.i:                                       ; preds = %for.cond.i.i.i180, %lor.rhs.i178, %is_typename.exit195, %land.lhs.true61.i, %if.end58.i
+if.end78.i:                                       ; preds = %for.cond.i.i.i195, %lor.rhs.i193, %is_typename.exit210, %land.lhs.true61.i, %if.end58.i
   %call79.i = tail call zeroext i1 @equal(ptr noundef %tok, ptr noundef nonnull @.str.90) #13
   br i1 %call79.i, label %if.then80.i, label %if.end88.i
 
@@ -6978,15 +7379,15 @@ if.then80.i:                                      ; preds = %if.end78.i
   %83 = load i32, ptr %align85.i, align 8
   %conv86.i = sext i32 %83 to i64
   %84 = load ptr, ptr %tok.addr.i30, align 8
-  %call.i.i164 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i164, align 16
-  %tok2.i.i165 = getelementptr inbounds i8, ptr %call.i.i164, i64 24
-  store ptr %84, ptr %tok2.i.i165, align 8
-  %val1.i166 = getelementptr inbounds i8, ptr %call.i.i164, i64 264
-  store i64 %conv86.i, ptr %val1.i166, align 8
+  %call.i.i179 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i179, align 16
+  %tok2.i.i180 = getelementptr inbounds i8, ptr %call.i.i179, i64 24
+  store ptr %84, ptr %tok2.i.i180, align 8
+  %val1.i181 = getelementptr inbounds i8, ptr %call.i.i179, i64 264
+  store i64 %conv86.i, ptr %val1.i181, align 8
   %85 = load ptr, ptr @ty_ulong, align 8
-  %ty.i167 = getelementptr inbounds i8, ptr %call.i.i164, i64 16
-  store ptr %85, ptr %ty.i167, align 16
+  %ty.i182 = getelementptr inbounds i8, ptr %call.i.i179, i64 16
+  store ptr %85, ptr %ty.i182, align 16
   br label %primary.exit
 
 if.end88.i:                                       ; preds = %if.end78.i
@@ -6996,85 +7397,85 @@ if.end88.i:                                       ; preds = %if.end78.i
 if.then90.i:                                      ; preds = %if.end88.i
   %next91.i = getelementptr inbounds i8, ptr %tok, i64 8
   %86 = load ptr, ptr %next91.i, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i145)
-  %call.i146 = tail call ptr @skip(ptr noundef %86, ptr noundef nonnull @.str.23) #13
-  store ptr %call.i146, ptr %tok.addr.i145, align 8
-  %call1.i147 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i145, ptr noundef %call.i146)
-  call void @add_type(ptr noundef %call1.i147) #13
-  %ty.i148 = getelementptr inbounds i8, ptr %call1.i147, i64 16
-  %87 = load ptr, ptr %ty.i148, align 16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i159)
+  %call.i160 = tail call ptr @skip(ptr noundef %86, ptr noundef nonnull @.str.23) #13
+  store ptr %call.i160, ptr %tok.addr.i159, align 8
+  %call1.i161 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call.i160)
+  call void @add_type(ptr noundef %call1.i161) #13
+  %ty.i162 = getelementptr inbounds i8, ptr %call1.i161, i64 16
+  %87 = load ptr, ptr %ty.i162, align 16
   %88 = load i32, ptr %87, align 8
   switch i32 %88, label %if.end7.i [
-    i32 11, label %if.then.i162
+    i32 11, label %if.then.i177
     i32 12, label %if.then5.i
   ]
 
-if.then.i162:                                     ; preds = %if.then90.i
-  %call2.i163 = call ptr @pointer_to(ptr noundef nonnull %87) #13
+if.then.i177:                                     ; preds = %if.then90.i
+  %call2.i178 = call ptr @pointer_to(ptr noundef nonnull %87) #13
   br label %if.end7.i
 
 if.then5.i:                                       ; preds = %if.then90.i
-  %base.i149 = getelementptr inbounds i8, ptr %87, i64 24
-  %89 = load ptr, ptr %base.i149, align 8
-  %call6.i150 = call ptr @pointer_to(ptr noundef %89) #13
+  %base.i163 = getelementptr inbounds i8, ptr %87, i64 24
+  %89 = load ptr, ptr %base.i163, align 8
+  %call6.i164 = call ptr @pointer_to(ptr noundef %89) #13
   br label %if.end7.i
 
-if.end7.i:                                        ; preds = %if.then5.i, %if.then.i162, %if.then90.i
-  %t1.0.i = phi ptr [ %call2.i163, %if.then.i162 ], [ %call6.i150, %if.then5.i ], [ %87, %if.then90.i ]
-  %90 = load ptr, ptr %tok.addr.i145, align 8
-  %call8.i152293 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %90, ptr noundef nonnull @.str.24) #13
-  br i1 %call8.i152293, label %if.then25.i161, label %while.body.i153
+if.end7.i:                                        ; preds = %if.then5.i, %if.then.i177, %if.then90.i
+  %t1.0.i = phi ptr [ %call2.i178, %if.then.i177 ], [ %call6.i164, %if.then5.i ], [ %87, %if.then90.i ]
+  %90 = load ptr, ptr %tok.addr.i159, align 8
+  %call8.i166310 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %90, ptr noundef nonnull @.str.24) #13
+  br i1 %call8.i166310, label %if.then25.i176, label %while.body.i167
 
-while.body.i153:                                  ; preds = %if.end7.i, %while.cond.i151.backedge
-  %ret.0.i294 = phi ptr [ %ret.0.i.be, %while.cond.i151.backedge ], [ null, %if.end7.i ]
-  %91 = load ptr, ptr %tok.addr.i145, align 8
+while.body.i167:                                  ; preds = %if.end7.i, %while.cond.i165.backedge
+  %ret.0.i311 = phi ptr [ %ret.0.i.be, %while.cond.i165.backedge ], [ null, %if.end7.i ]
+  %91 = load ptr, ptr %tok.addr.i159, align 8
   %call9.i = call ptr @skip(ptr noundef %91, ptr noundef nonnull @.str.57) #13
-  store ptr %call9.i, ptr %tok.addr.i145, align 8
+  store ptr %call9.i, ptr %tok.addr.i159, align 8
   %call10.i = call zeroext i1 @equal(ptr noundef %call9.i, ptr noundef nonnull @.str.111) #13
-  %92 = load ptr, ptr %tok.addr.i145, align 8
+  %92 = load ptr, ptr %tok.addr.i159, align 8
   br i1 %call10.i, label %if.then11.i, label %if.end16.i
 
-if.then11.i:                                      ; preds = %while.body.i153
-  %next.i156 = getelementptr inbounds i8, ptr %92, i64 8
-  %93 = load ptr, ptr %next.i156, align 8
-  %call12.i157 = call ptr @skip(ptr noundef %93, ptr noundef nonnull @.str.3) #13
-  store ptr %call12.i157, ptr %tok.addr.i145, align 8
-  %call13.i158 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i145, ptr noundef %call12.i157)
-  %tobool.not.i159 = icmp eq ptr %ret.0.i294, null
-  %spec.select.i = select i1 %tobool.not.i159, ptr %call13.i158, ptr %ret.0.i294
-  br label %while.cond.i151.backedge
+if.then11.i:                                      ; preds = %while.body.i167
+  %next.i170 = getelementptr inbounds i8, ptr %92, i64 8
+  %93 = load ptr, ptr %next.i170, align 8
+  %call12.i171 = call ptr @skip(ptr noundef %93, ptr noundef nonnull @.str.3) #13
+  store ptr %call12.i171, ptr %tok.addr.i159, align 8
+  %call13.i172 = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call12.i171)
+  %tobool.not.i173 = icmp eq ptr %ret.0.i311, null
+  %spec.select.i174 = select i1 %tobool.not.i173, ptr %call13.i172, ptr %ret.0.i311
+  br label %while.cond.i165.backedge
 
-while.cond.i151.backedge:                         ; preds = %if.then11.i, %if.end16.i
-  %ret.0.i.be = phi ptr [ %spec.select.i, %if.then11.i ], [ %spec.select8.i, %if.end16.i ]
-  %94 = load ptr, ptr %tok.addr.i145, align 8
-  %call8.i152 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %94, ptr noundef nonnull @.str.24) #13
-  br i1 %call8.i152, label %while.end.i160, label %while.body.i153, !llvm.loop !30
+while.cond.i165.backedge:                         ; preds = %if.then11.i, %if.end16.i
+  %ret.0.i.be = phi ptr [ %spec.select.i174, %if.then11.i ], [ %spec.select8.i, %if.end16.i ]
+  %94 = load ptr, ptr %tok.addr.i159, align 8
+  %call8.i166 = call zeroext i1 @consume(ptr noundef nonnull %tok.addr, ptr noundef %94, ptr noundef nonnull @.str.24) #13
+  br i1 %call8.i166, label %while.end.i175, label %while.body.i167, !llvm.loop !30
 
-if.end16.i:                                       ; preds = %while.body.i153
+if.end16.i:                                       ; preds = %while.body.i167
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %tok.addr.i.i)
   store ptr %92, ptr %tok.addr.i.i, align 8
-  %call.i.i154 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i.i, ptr noundef %92, ptr noundef null)
+  %call.i.i168 = call fastcc ptr @declspec(ptr noundef nonnull %tok.addr.i.i, ptr noundef %92, ptr noundef null)
   %95 = load ptr, ptr %tok.addr.i.i, align 8
-  %call1.i.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i145, ptr noundef %95, ptr noundef %call.i.i154)
+  %call1.i.i = call fastcc ptr @abstract_declarator(ptr noundef nonnull %tok.addr.i159, ptr noundef %95, ptr noundef %call.i.i168)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i.i)
-  %96 = load ptr, ptr %tok.addr.i145, align 8
-  %call18.i155 = call ptr @skip(ptr noundef %96, ptr noundef nonnull @.str.3) #13
-  store ptr %call18.i155, ptr %tok.addr.i145, align 8
-  %call20.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i145, ptr noundef %call18.i155)
+  %96 = load ptr, ptr %tok.addr.i159, align 8
+  %call18.i169 = call ptr @skip(ptr noundef %96, ptr noundef nonnull @.str.3) #13
+  store ptr %call18.i169, ptr %tok.addr.i159, align 8
+  %call20.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i159, ptr noundef %call18.i169)
   %call21.i = call zeroext i1 @is_compatible(ptr noundef %t1.0.i, ptr noundef %call1.i.i) #13
-  %spec.select8.i = select i1 %call21.i, ptr %call20.i, ptr %ret.0.i294
-  br label %while.cond.i151.backedge
+  %spec.select8.i = select i1 %call21.i, ptr %call20.i, ptr %ret.0.i311
+  br label %while.cond.i165.backedge
 
-while.end.i160:                                   ; preds = %while.cond.i151.backedge
+while.end.i175:                                   ; preds = %while.cond.i165.backedge
   %tobool24.not.i = icmp eq ptr %ret.0.i.be, null
-  br i1 %tobool24.not.i, label %if.then25.i161, label %generic_selection.exit
+  br i1 %tobool24.not.i, label %if.then25.i176, label %generic_selection.exit
 
-if.then25.i161:                                   ; preds = %if.end7.i, %while.end.i160
+if.then25.i176:                                   ; preds = %if.end7.i, %while.end.i175
   call void (ptr, ptr, ...) @error_tok(ptr noundef %86, ptr noundef nonnull @.str.123) #16
   unreachable
 
-generic_selection.exit:                           ; preds = %while.end.i160
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i145)
+generic_selection.exit:                           ; preds = %while.end.i175
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i159)
   br label %primary.exit
 
 if.end93.i:                                       ; preds = %if.end88.i
@@ -7096,12 +7497,12 @@ if.then95.i:                                      ; preds = %if.end93.i
   store ptr %call101.i, ptr %tok.addr, align 8
   %call102.i = call zeroext i1 @is_compatible(ptr noundef %call98.i, ptr noundef %call100.i) #13
   %conv103.i = zext i1 %call102.i to i64
-  %call.i.i142 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i142, align 16
-  %tok2.i.i143 = getelementptr inbounds i8, ptr %call.i.i142, i64 24
-  store ptr %tok, ptr %tok2.i.i143, align 8
-  %val1.i144 = getelementptr inbounds i8, ptr %call.i.i142, i64 264
-  store i64 %conv103.i, ptr %val1.i144, align 8
+  %call.i.i156 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i156, align 16
+  %tok2.i.i157 = getelementptr inbounds i8, ptr %call.i.i156, i64 24
+  store ptr %tok, ptr %tok2.i.i157, align 8
+  %val1.i158 = getelementptr inbounds i8, ptr %call.i.i156, i64 264
+  store i64 %conv103.i, ptr %val1.i158, align 8
   br label %primary.exit
 
 if.end105.i:                                      ; preds = %if.end93.i
@@ -7126,29 +7527,29 @@ lor.lhs.false.i:                                  ; preds = %if.then107.i
   br i1 %cmp116.i, label %if.then118.i, label %if.end120.i
 
 if.then118.i:                                     ; preds = %lor.lhs.false.i, %if.then107.i
-  %call.i.i139 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i139, align 16
-  %tok2.i.i140 = getelementptr inbounds i8, ptr %call.i.i139, i64 24
-  store ptr %tok, ptr %tok2.i.i140, align 8
-  %val1.i141 = getelementptr inbounds i8, ptr %call.i.i139, i64 264
-  store i64 0, ptr %val1.i141, align 8
+  %call.i.i153 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i153, align 16
+  %tok2.i.i154 = getelementptr inbounds i8, ptr %call.i.i153, i64 24
+  store ptr %tok, ptr %tok2.i.i154, align 8
+  %val1.i155 = getelementptr inbounds i8, ptr %call.i.i153, i64 264
+  store i64 0, ptr %val1.i155, align 8
   br label %primary.exit
 
 if.end120.i:                                      ; preds = %lor.lhs.false.i
   %call121.i = call zeroext i1 @is_flonum(ptr noundef nonnull %call111.i) #13
-  %call.i.i136 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i136, align 16
-  %tok2.i.i137 = getelementptr inbounds i8, ptr %call.i.i136, i64 24
-  store ptr %tok, ptr %tok2.i.i137, align 8
-  %val1.i138 = getelementptr inbounds i8, ptr %call.i.i136, i64 264
+  %call.i.i150 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i150, align 16
+  %tok2.i.i151 = getelementptr inbounds i8, ptr %call.i.i150, i64 24
+  store ptr %tok, ptr %tok2.i.i151, align 8
+  %val1.i152 = getelementptr inbounds i8, ptr %call.i.i150, i64 264
   br i1 %call121.i, label %if.then122.i, label %if.end124.i
 
 if.then122.i:                                     ; preds = %if.end120.i
-  store i64 1, ptr %val1.i138, align 8
+  store i64 1, ptr %val1.i152, align 8
   br label %primary.exit
 
 if.end124.i:                                      ; preds = %if.end120.i
-  store i64 2, ptr %val1.i138, align 8
+  store i64 2, ptr %val1.i152, align 8
   br label %primary.exit
 
 if.end126.i:                                      ; preds = %if.end105.i
@@ -7156,28 +7557,28 @@ if.end126.i:                                      ; preds = %if.end105.i
   br i1 %call127.i, label %if.then128.i, label %if.end139.i
 
 if.then128.i:                                     ; preds = %if.end126.i
-  %call.i131 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 46, ptr %call.i131, align 16
-  %tok2.i132 = getelementptr inbounds i8, ptr %call.i131, i64 24
-  store ptr %tok, ptr %tok2.i132, align 8
+  %call.i145 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 46, ptr %call.i145, align 16
+  %tok2.i146 = getelementptr inbounds i8, ptr %call.i145, i64 24
+  store ptr %tok, ptr %tok2.i146, align 8
   %next131.i = getelementptr inbounds i8, ptr %tok, i64 8
   %103 = load ptr, ptr %next131.i, align 8
   %call132.i = tail call ptr @skip(ptr noundef %103, ptr noundef nonnull @.str.23) #13
   store ptr %call132.i, ptr %tok.addr.i30, align 8
   %call133.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call132.i)
-  %cas_addr.i = getelementptr inbounds i8, ptr %call.i131, i64 216
+  %cas_addr.i = getelementptr inbounds i8, ptr %call.i145, i64 216
   store ptr %call133.i, ptr %cas_addr.i, align 8
   %104 = load ptr, ptr %tok.addr.i30, align 8
   %call134.i = call ptr @skip(ptr noundef %104, ptr noundef nonnull @.str.57) #13
   store ptr %call134.i, ptr %tok.addr.i30, align 8
   %call135.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call134.i)
-  %cas_old.i = getelementptr inbounds i8, ptr %call.i131, i64 224
+  %cas_old.i = getelementptr inbounds i8, ptr %call.i145, i64 224
   store ptr %call135.i, ptr %cas_old.i, align 16
   %105 = load ptr, ptr %tok.addr.i30, align 8
   %call136.i = call ptr @skip(ptr noundef %105, ptr noundef nonnull @.str.57) #13
   store ptr %call136.i, ptr %tok.addr.i30, align 8
   %call137.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call136.i)
-  %cas_new.i = getelementptr inbounds i8, ptr %call.i131, i64 232
+  %cas_new.i = getelementptr inbounds i8, ptr %call.i145, i64 232
   store ptr %call137.i, ptr %cas_new.i, align 8
   %106 = load ptr, ptr %tok.addr.i30, align 8
   %call138.i = call ptr @skip(ptr noundef %106, ptr noundef nonnull @.str.24) #13
@@ -7189,22 +7590,22 @@ if.end139.i:                                      ; preds = %if.end126.i
   br i1 %call140.i, label %if.then141.i, label %if.end152.i
 
 if.then141.i:                                     ; preds = %if.end139.i
-  %call.i129 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 47, ptr %call.i129, align 16
-  %tok2.i130 = getelementptr inbounds i8, ptr %call.i129, i64 24
-  store ptr %tok, ptr %tok2.i130, align 8
+  %call.i143 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 47, ptr %call.i143, align 16
+  %tok2.i144 = getelementptr inbounds i8, ptr %call.i143, i64 24
+  store ptr %tok, ptr %tok2.i144, align 8
   %next144.i = getelementptr inbounds i8, ptr %tok, i64 8
   %107 = load ptr, ptr %next144.i, align 8
   %call145.i = tail call ptr @skip(ptr noundef %107, ptr noundef nonnull @.str.23) #13
   store ptr %call145.i, ptr %tok.addr.i30, align 8
   %call146.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call145.i)
-  %lhs147.i = getelementptr inbounds i8, ptr %call.i129, i64 32
+  %lhs147.i = getelementptr inbounds i8, ptr %call.i143, i64 32
   store ptr %call146.i, ptr %lhs147.i, align 16
   %108 = load ptr, ptr %tok.addr.i30, align 8
   %call148.i = call ptr @skip(ptr noundef %108, ptr noundef nonnull @.str.57) #13
   store ptr %call148.i, ptr %tok.addr.i30, align 8
   %call149.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i30, ptr noundef %call148.i)
-  %rhs150.i = getelementptr inbounds i8, ptr %call.i129, i64 40
+  %rhs150.i = getelementptr inbounds i8, ptr %call.i143, i64 40
   store ptr %call149.i, ptr %rhs150.i, align 8
   %109 = load ptr, ptr %tok.addr.i30, align 8
   %call151.i = call ptr @skip(ptr noundef %109, ptr noundef nonnull @.str.24) #13
@@ -7261,12 +7662,12 @@ if.then174.i:                                     ; preds = %land.lhs.true162.i,
   br i1 %tobool176.not.i, label %if.end180.i, label %if.then177.i
 
 if.then177.i:                                     ; preds = %if.then174.i
-  %call.i.i126 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 40, ptr %call.i.i126, align 16
-  %tok2.i.i127 = getelementptr inbounds i8, ptr %call.i.i126, i64 24
-  store ptr %tok, ptr %tok2.i.i127, align 8
-  %var1.i128 = getelementptr inbounds i8, ptr %call.i.i126, i64 256
-  store ptr %.pr, ptr %var1.i128, align 16
+  %call.i.i140 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i140, align 16
+  %tok2.i.i141 = getelementptr inbounds i8, ptr %call.i.i140, i64 24
+  store ptr %tok, ptr %tok2.i.i141, align 8
+  %var1.i142 = getelementptr inbounds i8, ptr %call.i.i140, i64 256
+  store ptr %.pr, ptr %var1.i142, align 16
   br label %primary.exit
 
 if.end180.i:                                      ; preds = %land.lhs.true160.i, %if.then174.i
@@ -7283,12 +7684,12 @@ if.then182.i:                                     ; preds = %if.end180.i
   %enum_val.i = getelementptr inbounds i8, ptr %call157.i, i64 24
   %117 = load i32, ptr %enum_val.i, align 8
   %conv183.i = sext i32 %117 to i64
-  %call.i.i123 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i123, align 16
-  %tok2.i.i124 = getelementptr inbounds i8, ptr %call.i.i123, i64 24
-  store ptr %tok, ptr %tok2.i.i124, align 8
-  %val1.i125 = getelementptr inbounds i8, ptr %call.i.i123, i64 264
-  store i64 %conv183.i, ptr %val1.i125, align 8
+  %call.i.i137 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i137, align 16
+  %tok2.i.i138 = getelementptr inbounds i8, ptr %call.i.i137, i64 24
+  store ptr %tok, ptr %tok2.i.i138, align 8
+  %val1.i139 = getelementptr inbounds i8, ptr %call.i.i137, i64 264
+  store i64 %conv183.i, ptr %val1.i139, align 8
   br label %primary.exit
 
 if.end186.i:                                      ; preds = %if.end180.i.if.end186.i_crit_edge, %if.then156.i
@@ -7313,12 +7714,12 @@ if.then195.i:                                     ; preds = %if.end152.i
   %next199.i = getelementptr inbounds i8, ptr %tok, i64 8
   %121 = load ptr, ptr %next199.i, align 8
   store ptr %121, ptr %tok.addr, align 8
-  %call.i.i120 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 40, ptr %call.i.i120, align 16
-  %tok2.i.i121 = getelementptr inbounds i8, ptr %call.i.i120, i64 24
-  store ptr %tok, ptr %tok2.i.i121, align 8
-  %var1.i122 = getelementptr inbounds i8, ptr %call.i.i120, i64 256
-  store ptr %call198.i, ptr %var1.i122, align 16
+  %call.i.i134 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i134, align 16
+  %tok2.i.i135 = getelementptr inbounds i8, ptr %call.i.i134, i64 24
+  store ptr %tok, ptr %tok2.i.i135, align 8
+  %var1.i136 = getelementptr inbounds i8, ptr %call.i.i134, i64 256
+  store ptr %call198.i, ptr %var1.i136, align 16
   br label %primary.exit
 
 if.then205.i:                                     ; preds = %if.end152.i
@@ -7328,29 +7729,29 @@ if.then205.i:                                     ; preds = %if.end152.i
   br i1 %call208.i, label %if.then209.i, label %if.else212.i
 
 if.then209.i:                                     ; preds = %if.then205.i
-  %call.i118 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i118, align 16
-  %tok2.i119 = getelementptr inbounds i8, ptr %call.i118, i64 24
-  store ptr %tok, ptr %tok2.i119, align 8
+  %call.i132 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i132, align 16
+  %tok2.i133 = getelementptr inbounds i8, ptr %call.i132, i64 24
+  store ptr %tok, ptr %tok2.i133, align 8
   %fval.i = getelementptr inbounds i8, ptr %tok, i64 32
   %123 = load x86_fp80, ptr %fval.i, align 16
-  %fval211.i = getelementptr inbounds i8, ptr %call.i118, i64 272
+  %fval211.i = getelementptr inbounds i8, ptr %call.i132, i64 272
   store x86_fp80 %123, ptr %fval211.i, align 16
   br label %if.end214.i
 
 if.else212.i:                                     ; preds = %if.then205.i
   %val.i = getelementptr inbounds i8, ptr %tok, i64 16
   %124 = load i64, ptr %val.i, align 16
-  %call.i.i116 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i116, align 16
-  %tok2.i.i117 = getelementptr inbounds i8, ptr %call.i.i116, i64 24
-  store ptr %tok, ptr %tok2.i.i117, align 8
-  %val1.i = getelementptr inbounds i8, ptr %call.i.i116, i64 264
+  %call.i.i130 = tail call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i130, align 16
+  %tok2.i.i131 = getelementptr inbounds i8, ptr %call.i.i130, i64 24
+  store ptr %tok, ptr %tok2.i.i131, align 8
+  %val1.i = getelementptr inbounds i8, ptr %call.i.i130, i64 264
   store i64 %124, ptr %val1.i, align 8
   br label %if.end214.i
 
 if.end214.i:                                      ; preds = %if.else212.i, %if.then209.i
-  %node206.0.i = phi ptr [ %call.i118, %if.then209.i ], [ %call.i.i116, %if.else212.i ]
+  %node206.0.i = phi ptr [ %call.i132, %if.then209.i ], [ %call.i.i130, %if.else212.i ]
   %125 = load ptr, ptr %ty207.i, align 16
   %ty216.i = getelementptr inbounds i8, ptr %node206.0.i, i64 16
   store ptr %125, ptr %ty216.i, align 16
@@ -7364,7 +7765,7 @@ if.end218.i:                                      ; preds = %if.end152.i
   unreachable
 
 primary.exit:                                     ; preds = %if.then.i, %if.then9.i, %if.then29.i, %if.end32.i, %if.end37.i, %if.then49.i, %if.end53.i, %if.then70.i, %if.then80.i, %generic_selection.exit, %if.then95.i, %if.then118.i, %if.then122.i, %if.end124.i, %if.then128.i, %if.then141.i, %if.then177.i, %if.then182.i, %if.then195.i, %if.end214.i
-  %retval.0.i = phi ptr [ %call.i244, %if.then.i ], [ %call12.i, %if.then9.i ], [ %call.i.i214, %if.then29.i ], [ %call.i.i207, %if.end32.i ], [ %call.i.i203, %if.end37.i ], [ %call.i.i200, %if.then49.i ], [ %call.i.i196, %if.end53.i ], [ %call.i.i168, %if.then70.i ], [ %call.i.i164, %if.then80.i ], [ %ret.0.i.be, %generic_selection.exit ], [ %call.i.i142, %if.then95.i ], [ %call.i.i139, %if.then118.i ], [ %call.i.i136, %if.then122.i ], [ %call.i.i136, %if.end124.i ], [ %call.i131, %if.then128.i ], [ %call.i129, %if.then141.i ], [ %call.i.i126, %if.then177.i ], [ %call.i.i123, %if.then182.i ], [ %call.i.i120, %if.then195.i ], [ %node206.0.i, %if.end214.i ]
+  %retval.0.i = phi ptr [ %call.i259, %if.then.i ], [ %call12.i, %if.then9.i ], [ %call.i.i229, %if.then29.i ], [ %call.i.i222, %if.end32.i ], [ %call.i.i218, %if.end37.i ], [ %call.i.i215, %if.then49.i ], [ %call.i.i211, %if.end53.i ], [ %call.i.i183, %if.then70.i ], [ %call.i.i179, %if.then80.i ], [ %ret.0.i.be, %generic_selection.exit ], [ %call.i.i156, %if.then95.i ], [ %call.i.i153, %if.then118.i ], [ %call.i.i150, %if.then122.i ], [ %call.i.i150, %if.end124.i ], [ %call.i145, %if.then128.i ], [ %call.i143, %if.then141.i ], [ %call.i.i140, %if.then177.i ], [ %call.i.i137, %if.then182.i ], [ %call.i.i134, %if.then195.i ], [ %node206.0.i, %if.end214.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %tok.addr.i30)
   %next48.i = getelementptr inbounds i8, ptr %head.i41, i64 8
   br label %for.cond
@@ -7410,30 +7811,30 @@ cond.end.i:                                       ; preds = %lor.lhs.false.i43, 
   %135 = load ptr, ptr %params.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %head.i41, i8 0, i64 288, i1 false)
   %136 = load ptr, ptr %tok.addr.i40, align 8
-  %call.i46295 = call zeroext i1 @equal(ptr noundef %136, ptr noundef nonnull @.str.24) #13
-  br i1 %call.i46295, label %while.end.i, label %while.body.i.lr.ph
+  %call.i46312 = call zeroext i1 @equal(ptr noundef %136, ptr noundef nonnull @.str.24) #13
+  br i1 %call.i46312, label %while.end.i, label %while.body.i.lr.ph
 
 while.body.i.lr.ph:                               ; preds = %cond.end.i
   %is_variadic.i = getelementptr inbounds i8, ptr %cond.i, i64 104
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.lr.ph, %if.end40.i
-  %param_ty.0.i297 = phi ptr [ %135, %while.body.i.lr.ph ], [ %param_ty.1.i, %if.end40.i ]
-  %cur.0.i296 = phi ptr [ %head.i41, %while.body.i.lr.ph ], [ %arg.1.i, %if.end40.i ]
-  %cmp15.not.i = icmp eq ptr %cur.0.i296, %head.i41
-  %.pre319 = load ptr, ptr %tok.addr.i40, align 8
+  %param_ty.0.i314 = phi ptr [ %135, %while.body.i.lr.ph ], [ %param_ty.1.i, %if.end40.i ]
+  %cur.0.i313 = phi ptr [ %head.i41, %while.body.i.lr.ph ], [ %arg.1.i, %if.end40.i ]
+  %cmp15.not.i = icmp eq ptr %cur.0.i313, %head.i41
+  %.pre338 = load ptr, ptr %tok.addr.i40, align 8
   br i1 %cmp15.not.i, label %if.end18.i, label %if.then16.i
 
 if.then16.i:                                      ; preds = %while.body.i
-  %call17.i = call ptr @skip(ptr noundef %.pre319, ptr noundef nonnull @.str.57) #13
+  %call17.i = call ptr @skip(ptr noundef %.pre338, ptr noundef nonnull @.str.57) #13
   store ptr %call17.i, ptr %tok.addr.i40, align 8
   br label %if.end18.i
 
 if.end18.i:                                       ; preds = %if.then16.i, %while.body.i
-  %137 = phi ptr [ %call17.i, %if.then16.i ], [ %.pre319, %while.body.i ]
+  %137 = phi ptr [ %call17.i, %if.then16.i ], [ %.pre338, %while.body.i ]
   %call19.i = call fastcc ptr @assign(ptr noundef nonnull %tok.addr.i40, ptr noundef %137)
   call void @add_type(ptr noundef %call19.i) #13
-  %tobool.not.i47 = icmp eq ptr %param_ty.0.i297, null
+  %tobool.not.i47 = icmp eq ptr %param_ty.0.i314, null
   br i1 %tobool.not.i47, label %land.lhs.true20.i, label %if.then25.i
 
 land.lhs.true20.i:                                ; preds = %if.end18.i
@@ -7447,29 +7848,29 @@ if.then22.i:                                      ; preds = %land.lhs.true20.i
   unreachable
 
 if.then25.i:                                      ; preds = %if.end18.i
-  %140 = load i32, ptr %param_ty.0.i297, align 8
+  %140 = load i32, ptr %param_ty.0.i314, align 8
   %141 = and i32 %140, -2
   %switch.i = icmp eq i32 %141, 14
   br i1 %switch.i, label %if.end33.i, label %if.then31.i
 
 if.then31.i:                                      ; preds = %if.then25.i
   call void @add_type(ptr noundef %call19.i) #13
-  %call.i259 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 43, ptr %call.i259, align 16
-  %tok.i260 = getelementptr inbounds i8, ptr %call19.i, i64 24
-  %142 = load ptr, ptr %tok.i260, align 8
-  %tok1.i261 = getelementptr inbounds i8, ptr %call.i259, i64 24
-  store ptr %142, ptr %tok1.i261, align 8
-  %lhs.i262 = getelementptr inbounds i8, ptr %call.i259, i64 32
-  store ptr %call19.i, ptr %lhs.i262, align 16
-  %call2.i263 = call ptr @copy_type(ptr noundef nonnull %param_ty.0.i297) #13
-  %ty3.i264 = getelementptr inbounds i8, ptr %call.i259, i64 16
-  store ptr %call2.i263, ptr %ty3.i264, align 16
+  %call.i274 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 43, ptr %call.i274, align 16
+  %tok.i275 = getelementptr inbounds i8, ptr %call19.i, i64 24
+  %142 = load ptr, ptr %tok.i275, align 8
+  %tok1.i276 = getelementptr inbounds i8, ptr %call.i274, i64 24
+  store ptr %142, ptr %tok1.i276, align 8
+  %lhs.i277 = getelementptr inbounds i8, ptr %call.i274, i64 32
+  store ptr %call19.i, ptr %lhs.i277, align 16
+  %call2.i278 = call ptr @copy_type(ptr noundef nonnull %param_ty.0.i314) #13
+  %ty3.i279 = getelementptr inbounds i8, ptr %call.i274, i64 16
+  store ptr %call2.i278, ptr %ty3.i279, align 16
   br label %if.end33.i
 
 if.end33.i:                                       ; preds = %if.then31.i, %if.then25.i
-  %arg.0.i = phi ptr [ %call.i259, %if.then31.i ], [ %call19.i, %if.then25.i ]
-  %next.i48 = getelementptr inbounds i8, ptr %param_ty.0.i297, i64 112
+  %arg.0.i = phi ptr [ %call.i274, %if.then31.i ], [ %call19.i, %if.then25.i ]
+  %next.i48 = getelementptr inbounds i8, ptr %param_ty.0.i314, i64 112
   %143 = load ptr, ptr %next.i48, align 8
   br label %if.end40.i
 
@@ -7483,23 +7884,23 @@ if.else.i49:                                      ; preds = %land.lhs.true20.i
 if.then37.i:                                      ; preds = %if.else.i49
   %146 = load ptr, ptr @ty_double, align 8
   call void @add_type(ptr noundef nonnull %call19.i) #13
-  %call.i257 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 43, ptr %call.i257, align 16
+  %call.i272 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 43, ptr %call.i272, align 16
   %tok.i = getelementptr inbounds i8, ptr %call19.i, i64 24
   %147 = load ptr, ptr %tok.i, align 8
-  %tok1.i = getelementptr inbounds i8, ptr %call.i257, i64 24
+  %tok1.i = getelementptr inbounds i8, ptr %call.i272, i64 24
   store ptr %147, ptr %tok1.i, align 8
-  %lhs.i258 = getelementptr inbounds i8, ptr %call.i257, i64 32
-  store ptr %call19.i, ptr %lhs.i258, align 16
+  %lhs.i273 = getelementptr inbounds i8, ptr %call.i272, i64 32
+  store ptr %call19.i, ptr %lhs.i273, align 16
   %call2.i = call ptr @copy_type(ptr noundef %146) #13
-  %ty3.i = getelementptr inbounds i8, ptr %call.i257, i64 16
+  %ty3.i = getelementptr inbounds i8, ptr %call.i272, i64 16
   store ptr %call2.i, ptr %ty3.i, align 16
   br label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then37.i, %if.else.i49, %if.end33.i
-  %arg.1.i = phi ptr [ %arg.0.i, %if.end33.i ], [ %call.i257, %if.then37.i ], [ %call19.i, %if.else.i49 ]
+  %arg.1.i = phi ptr [ %arg.0.i, %if.end33.i ], [ %call.i272, %if.then37.i ], [ %call19.i, %if.else.i49 ]
   %param_ty.1.i = phi ptr [ %143, %if.end33.i ], [ null, %if.then37.i ], [ null, %if.else.i49 ]
-  %next41.i = getelementptr inbounds i8, ptr %cur.0.i296, i64 8
+  %next41.i = getelementptr inbounds i8, ptr %cur.0.i313, i64 8
   store ptr %arg.1.i, ptr %next41.i, align 8
   %148 = load ptr, ptr %tok.addr.i40, align 8
   %call.i46 = call zeroext i1 @equal(ptr noundef %148, ptr noundef nonnull @.str.24) #13
@@ -7519,20 +7920,20 @@ if.end44.i:                                       ; preds = %while.end.i
   %call45.i = call ptr @skip(ptr noundef %149, ptr noundef nonnull @.str.24) #13
   store ptr %call45.i, ptr %tok.addr, align 8
   %150 = load ptr, ptr %tok.addr.i40, align 8
-  %call.i.i254 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 37, ptr %call.i.i254, align 16
-  %tok2.i.i255 = getelementptr inbounds i8, ptr %call.i.i254, i64 24
-  store ptr %150, ptr %tok2.i.i255, align 8
-  %lhs.i256 = getelementptr inbounds i8, ptr %call.i.i254, i64 32
-  store ptr %node.0, ptr %lhs.i256, align 16
-  %func_ty.i = getelementptr inbounds i8, ptr %call.i.i254, i64 120
+  %call.i.i269 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 37, ptr %call.i.i269, align 16
+  %tok2.i.i270 = getelementptr inbounds i8, ptr %call.i.i269, i64 24
+  store ptr %150, ptr %tok2.i.i270, align 8
+  %lhs.i271 = getelementptr inbounds i8, ptr %call.i.i269, i64 32
+  store ptr %node.0, ptr %lhs.i271, align 16
+  %func_ty.i = getelementptr inbounds i8, ptr %call.i.i269, i64 120
   store ptr %cond.i, ptr %func_ty.i, align 8
   %return_ty.i = getelementptr inbounds i8, ptr %cond.i, i64 88
   %151 = load ptr, ptr %return_ty.i, align 8
-  %ty47.i = getelementptr inbounds i8, ptr %call.i.i254, i64 16
+  %ty47.i = getelementptr inbounds i8, ptr %call.i.i269, i64 16
   store ptr %151, ptr %ty47.i, align 16
   %152 = load ptr, ptr %next48.i, align 8
-  %args.i = getelementptr inbounds i8, ptr %call.i.i254, i64 128
+  %args.i = getelementptr inbounds i8, ptr %call.i.i269, i64 128
   store ptr %152, ptr %args.i, align 16
   %153 = load i32, ptr %151, align 8
   %154 = and i32 %153, -2
@@ -7540,27 +7941,27 @@ if.end44.i:                                       ; preds = %while.end.i
   br i1 %switch33.i, label %if.then56.i, label %funcall.exit
 
 if.then56.i:                                      ; preds = %if.end44.i
-  %call.i.i246 = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
-  %name1.i.i247 = getelementptr inbounds i8, ptr %call.i.i246, i64 8
-  store ptr @.str.4, ptr %name1.i.i247, align 8
-  %ty2.i.i248 = getelementptr inbounds i8, ptr %call.i.i246, i64 16
-  store ptr %151, ptr %ty2.i.i248, align 8
-  %align.i.i249 = getelementptr inbounds i8, ptr %151, i64 8
-  %155 = load i32, ptr %align.i.i249, align 8
-  %align3.i.i250 = getelementptr inbounds i8, ptr %call.i.i246, i64 36
-  store i32 %155, ptr %align3.i.i250, align 4
-  %call.i.i.i251 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
+  %call.i.i261 = call noalias dereferenceable_or_null(144) ptr @calloc(i64 noundef 1, i64 noundef 144) #14
+  %name1.i.i262 = getelementptr inbounds i8, ptr %call.i.i261, i64 8
+  store ptr @.str.4, ptr %name1.i.i262, align 8
+  %ty2.i.i263 = getelementptr inbounds i8, ptr %call.i.i261, i64 16
+  store ptr %151, ptr %ty2.i.i263, align 8
+  %align.i.i264 = getelementptr inbounds i8, ptr %151, i64 8
+  %155 = load i32, ptr %align.i.i264, align 8
+  %align3.i.i265 = getelementptr inbounds i8, ptr %call.i.i261, i64 36
+  store i32 %155, ptr %align3.i.i265, align 4
+  %call.i.i.i266 = call noalias dereferenceable_or_null(32) ptr @calloc(i64 noundef 1, i64 noundef 32) #14
   %156 = load ptr, ptr @scope, align 8
-  %vars.i.i.i252 = getelementptr inbounds i8, ptr %156, i64 8
-  call void @hashmap_put(ptr noundef nonnull %vars.i.i.i252, ptr noundef nonnull @.str.4, ptr noundef %call.i.i.i251) #13
-  store ptr %call.i.i246, ptr %call.i.i.i251, align 8
-  %is_local.i253 = getelementptr inbounds i8, ptr %call.i.i246, i64 32
-  store i8 1, ptr %is_local.i253, align 8
+  %vars.i.i.i267 = getelementptr inbounds i8, ptr %156, i64 8
+  call void @hashmap_put(ptr noundef nonnull %vars.i.i.i267, ptr noundef nonnull @.str.4, ptr noundef %call.i.i.i266) #13
+  store ptr %call.i.i261, ptr %call.i.i.i266, align 8
+  %is_local.i268 = getelementptr inbounds i8, ptr %call.i.i261, i64 32
+  store i8 1, ptr %is_local.i268, align 8
   %157 = load ptr, ptr @locals, align 8
-  store ptr %157, ptr %call.i.i246, align 8
-  store ptr %call.i.i246, ptr @locals, align 8
-  %ret_buffer.i = getelementptr inbounds i8, ptr %call.i.i254, i64 144
-  store ptr %call.i.i246, ptr %ret_buffer.i, align 16
+  store ptr %157, ptr %call.i.i261, align 8
+  store ptr %call.i.i261, ptr @locals, align 8
+  %ret_buffer.i = getelementptr inbounds i8, ptr %call.i.i269, i64 144
+  store ptr %call.i.i261, ptr %ret_buffer.i, align 16
   br label %funcall.exit
 
 funcall.exit:                                     ; preds = %if.end44.i, %if.then56.i
@@ -7568,8 +7969,8 @@ funcall.exit:                                     ; preds = %if.end44.i, %if.the
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %head.i41)
   br label %for.cond.backedge
 
-for.cond.backedge:                                ; preds = %funcall.exit, %if.then22, %struct_ref.exit, %struct_ref.exit86, %if.then46, %if.then51
-  %node.0.be = phi ptr [ %call.i.i254, %funcall.exit ], [ %call.i.i51, %if.then22 ], [ %call.i.i.i57, %struct_ref.exit ], [ %call.i.i.i74, %struct_ref.exit86 ], [ %call.i.i93, %if.then46 ], [ %call.i.i105, %if.then51 ]
+for.cond.backedge:                                ; preds = %funcall.exit, %new_add.exit, %struct_ref.exit, %struct_ref.exit99, %if.then46, %if.then51
+  %node.0.be = phi ptr [ %call.i.i269, %funcall.exit ], [ %call.i.i64, %new_add.exit ], [ %call.i.i.i70, %struct_ref.exit ], [ %call.i.i.i87, %struct_ref.exit99 ], [ %call.i.i107, %if.then46 ], [ %call.i.i119, %if.then51 ]
   br label %for.cond
 
 if.end20:                                         ; preds = %for.cond
@@ -7584,233 +7985,330 @@ if.then22:                                        ; preds = %if.end20
   %160 = load ptr, ptr %tok.addr, align 8
   %call26 = call ptr @skip(ptr noundef %160, ptr noundef nonnull @.str.59) #13
   store ptr %call26, ptr %tok.addr, align 8
-  %call27 = call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef %call25, ptr noundef %158)
-  %call.i.i51 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 21, ptr %call.i.i51, align 16
-  %tok2.i.i52 = getelementptr inbounds i8, ptr %call.i.i51, i64 24
-  store ptr %158, ptr %tok2.i.i52, align 8
-  %lhs.i = getelementptr inbounds i8, ptr %call.i.i51, i64 32
-  store ptr %call27, ptr %lhs.i, align 16
+  call void @add_type(ptr noundef %node.0) #13
+  call void @add_type(ptr noundef %call25) #13
+  %ty.i51 = getelementptr inbounds i8, ptr %node.0, i64 16
+  %161 = load ptr, ptr %ty.i51, align 16
+  %call.i52 = call zeroext i1 @is_numeric(ptr noundef %161) #13
+  br i1 %call.i52, label %land.lhs.true.i62, label %if.end.i53
+
+land.lhs.true.i62:                                ; preds = %if.then22
+  %ty1.i = getelementptr inbounds i8, ptr %call25, i64 16
+  %162 = load ptr, ptr %ty1.i, align 16
+  %call2.i63 = call zeroext i1 @is_numeric(ptr noundef %162) #13
+  br i1 %call2.i63, label %new_add.exit, label %if.end.i53
+
+if.end.i53:                                       ; preds = %land.lhs.true.i62, %if.then22
+  %163 = load ptr, ptr %ty.i51, align 16
+  %base.i54 = getelementptr inbounds i8, ptr %163, i64 24
+  %164 = load ptr, ptr %base.i54, align 8
+  %tobool.not.i55 = icmp eq ptr %164, null
+  %ty15.i = getelementptr inbounds i8, ptr %call25, i64 16
+  %165 = load ptr, ptr %ty15.i, align 16
+  %base16.i = getelementptr inbounds i8, ptr %165, i64 24
+  %166 = load ptr, ptr %base16.i, align 8
+  %tobool17.not.i = icmp eq ptr %166, null
+  br i1 %tobool.not.i55, label %land.lhs.true14.i, label %land.lhs.true5.i
+
+land.lhs.true5.i:                                 ; preds = %if.end.i53
+  br i1 %tobool17.not.i, label %if.end19.i, label %if.then9.i56
+
+if.then9.i56:                                     ; preds = %land.lhs.true5.i
+  call void (ptr, ptr, ...) @error_tok(ptr noundef nonnull %158, ptr noundef nonnull @.str.129) #16
+  unreachable
+
+land.lhs.true14.i:                                ; preds = %if.end.i53
+  %spec.select.i = select i1 %tobool17.not.i, ptr %call25, ptr %node.0
+  %spec.select27.i = select i1 %tobool17.not.i, ptr %node.0, ptr %call25
+  %ty20.phi.trans.insert.i = getelementptr inbounds i8, ptr %spec.select27.i, i64 16
+  %.pre.i = load ptr, ptr %ty20.phi.trans.insert.i, align 16
+  %base21.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 24
+  %.pre48.i = load ptr, ptr %base21.phi.trans.insert.i, align 8
+  br label %if.end19.i
+
+if.end19.i:                                       ; preds = %land.lhs.true14.i, %land.lhs.true5.i
+  %167 = phi ptr [ %.pre48.i, %land.lhs.true14.i ], [ %164, %land.lhs.true5.i ]
+  %rhs.addr.0.i = phi ptr [ %spec.select.i, %land.lhs.true14.i ], [ %call25, %land.lhs.true5.i ]
+  %lhs.addr.0.i = phi ptr [ %spec.select27.i, %land.lhs.true14.i ], [ %node.0, %land.lhs.true5.i ]
+  %168 = load i32, ptr %167, align 8
+  %cmp.i57 = icmp eq i32 %168, 13
+  br i1 %cmp.i57, label %if.then22.i60, label %if.end28.i
+
+if.then22.i60:                                    ; preds = %if.end19.i
+  %vla_size.i61 = getelementptr inbounds i8, ptr %167, i64 64
+  %169 = load ptr, ptr %vla_size.i61, align 8
+  %call.i.i28.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 40, ptr %call.i.i28.i, align 16
+  %tok2.i.i29.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 24
+  store ptr %158, ptr %tok2.i.i29.i, align 8
+  %var1.i.i = getelementptr inbounds i8, ptr %call.i.i28.i, i64 256
+  store ptr %169, ptr %var1.i.i, align 16
+  br label %return.sink.split.i
+
+if.end28.i:                                       ; preds = %if.end19.i
+  %size.i58 = getelementptr inbounds i8, ptr %167, i64 4
+  %170 = load i32, ptr %size.i58, align 4
+  %conv.i59 = sext i32 %170 to i64
+  %call.i.i38.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i38.i, align 16
+  %tok2.i.i39.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 24
+  store ptr %158, ptr %tok2.i.i39.i, align 8
+  %val1.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 264
+  store i64 %conv.i59, ptr %val1.i.i, align 8
+  %171 = load ptr, ptr @ty_long, align 8
+  %ty.i.i = getelementptr inbounds i8, ptr %call.i.i38.i, i64 16
+  store ptr %171, ptr %ty.i.i, align 16
+  br label %return.sink.split.i
+
+return.sink.split.i:                              ; preds = %if.end28.i, %if.then22.i60
+  %call.i.i38.sink.i = phi ptr [ %call.i.i38.i, %if.end28.i ], [ %call.i.i28.i, %if.then22.i60 ]
+  %call.i.i40.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 3, ptr %call.i.i40.i, align 16
+  %tok2.i.i41.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 24
+  store ptr %158, ptr %tok2.i.i41.i, align 8
+  %lhs1.i42.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 32
+  store ptr %rhs.addr.0.i, ptr %lhs1.i42.i, align 16
+  %rhs2.i43.i = getelementptr inbounds i8, ptr %call.i.i40.i, i64 40
+  store ptr %call.i.i38.sink.i, ptr %rhs2.i43.i, align 8
+  br label %new_add.exit
+
+new_add.exit:                                     ; preds = %land.lhs.true.i62, %return.sink.split.i
+  %lhs.addr.0.sink.i = phi ptr [ %node.0, %land.lhs.true.i62 ], [ %lhs.addr.0.i, %return.sink.split.i ]
+  %call.i.i40.sink.i = phi ptr [ %call25, %land.lhs.true.i62 ], [ %call.i.i40.i, %return.sink.split.i ]
+  %call.i.i44.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 1, ptr %call.i.i44.i, align 16
+  %tok2.i.i45.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 24
+  store ptr %158, ptr %tok2.i.i45.i, align 8
+  %lhs1.i46.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 32
+  store ptr %lhs.addr.0.sink.i, ptr %lhs1.i46.i, align 16
+  %rhs2.i47.i = getelementptr inbounds i8, ptr %call.i.i44.i, i64 40
+  store ptr %call.i.i40.sink.i, ptr %rhs2.i47.i, align 8
+  %call.i.i64 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 21, ptr %call.i.i64, align 16
+  %tok2.i.i65 = getelementptr inbounds i8, ptr %call.i.i64, i64 24
+  store ptr %158, ptr %tok2.i.i65, align 8
+  %lhs.i = getelementptr inbounds i8, ptr %call.i.i64, i64 32
+  store ptr %call.i.i44.i, ptr %lhs.i, align 16
   br label %for.cond.backedge
 
 if.end29:                                         ; preds = %if.end20
   %call30 = call zeroext i1 @equal(ptr noundef %158, ptr noundef nonnull @.str.67) #13
-  %161 = load ptr, ptr %tok.addr, align 8
+  %172 = load ptr, ptr %tok.addr, align 8
   br i1 %call30, label %if.then31, label %if.end36
 
 if.then31:                                        ; preds = %if.end29
-  %next32 = getelementptr inbounds i8, ptr %161, i64 8
-  %162 = load ptr, ptr %next32, align 8
+  %next32 = getelementptr inbounds i8, ptr %172, i64 8
+  %173 = load ptr, ptr %next32, align 8
   call void @add_type(ptr noundef %node.0) #13
-  %ty.i53 = getelementptr inbounds i8, ptr %node.0, i64 16
-  %163 = load ptr, ptr %ty.i53, align 16
-  %164 = load i32, ptr %163, align 8
-  %165 = and i32 %164, -2
-  %switch.i54 = icmp eq i32 %165, 14
-  br i1 %switch.i54, label %for.cond.preheader.i, label %if.then.i55
+  %ty.i66 = getelementptr inbounds i8, ptr %node.0, i64 16
+  %174 = load ptr, ptr %ty.i66, align 16
+  %175 = load i32, ptr %174, align 8
+  %176 = and i32 %175, -2
+  %switch.i67 = icmp eq i32 %176, 14
+  br i1 %switch.i67, label %for.cond.preheader.i, label %if.then.i68
 
 for.cond.preheader.i:                             ; preds = %if.then31
-  %call14.i = call fastcc ptr @get_struct_member(ptr noundef nonnull %163, ptr noundef %162)
+  %call14.i = call fastcc ptr @get_struct_member(ptr noundef nonnull %174, ptr noundef %173)
   %tobool.not15.i = icmp eq ptr %call14.i, null
   br i1 %tobool.not15.i, label %if.then7.i, label %if.end8.i
 
-if.then.i55:                                      ; preds = %if.then31
+if.then.i68:                                      ; preds = %if.then31
   %tok4.i = getelementptr inbounds i8, ptr %node.0, i64 24
-  %166 = load ptr, ptr %tok4.i, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %166, ptr noundef nonnull @.str.127) #16
+  %177 = load ptr, ptr %tok4.i, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %177, ptr noundef nonnull @.str.127) #16
   unreachable
 
 for.cond.i:                                       ; preds = %if.end8.i
-  %ty13.i = getelementptr inbounds i8, ptr %call17.i56, i64 8
+  %ty13.i = getelementptr inbounds i8, ptr %call17.i69, i64 8
   %ty5.0.i = load ptr, ptr %ty13.i, align 8
-  %call.i59 = call fastcc ptr @get_struct_member(ptr noundef %ty5.0.i, ptr noundef %162)
-  %tobool.not.i60 = icmp eq ptr %call.i59, null
-  br i1 %tobool.not.i60, label %if.then7.i, label %if.end8.i
+  %call.i72 = call fastcc ptr @get_struct_member(ptr noundef %ty5.0.i, ptr noundef %173)
+  %tobool.not.i73 = icmp eq ptr %call.i72, null
+  br i1 %tobool.not.i73, label %if.then7.i, label %if.end8.i
 
 if.then7.i:                                       ; preds = %for.cond.preheader.i, %for.cond.i
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %162, ptr noundef nonnull @.str.128) #16
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %173, ptr noundef nonnull @.str.128) #16
   unreachable
 
 if.end8.i:                                        ; preds = %for.cond.preheader.i, %for.cond.i
-  %call17.i56 = phi ptr [ %call.i59, %for.cond.i ], [ %call14.i, %for.cond.preheader.i ]
-  %node.addr.016.i = phi ptr [ %call.i.i.i57, %for.cond.i ], [ %node.0, %for.cond.preheader.i ]
-  %call.i.i.i57 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 19, ptr %call.i.i.i57, align 16
-  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i57, i64 24
-  store ptr %162, ptr %tok2.i.i.i, align 8
-  %lhs.i.i = getelementptr inbounds i8, ptr %call.i.i.i57, i64 32
+  %call17.i69 = phi ptr [ %call.i72, %for.cond.i ], [ %call14.i, %for.cond.preheader.i ]
+  %node.addr.016.i = phi ptr [ %call.i.i.i70, %for.cond.i ], [ %node.0, %for.cond.preheader.i ]
+  %call.i.i.i70 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 19, ptr %call.i.i.i70, align 16
+  %tok2.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i70, i64 24
+  store ptr %173, ptr %tok2.i.i.i, align 8
+  %lhs.i.i = getelementptr inbounds i8, ptr %call.i.i.i70, i64 32
   store ptr %node.addr.016.i, ptr %lhs.i.i, align 16
-  %member.i = getelementptr inbounds i8, ptr %call.i.i.i57, i64 112
-  store ptr %call17.i56, ptr %member.i, align 16
-  %name.i58 = getelementptr inbounds i8, ptr %call17.i56, i64 24
-  %167 = load ptr, ptr %name.i58, align 8
-  %tobool10.not.i = icmp eq ptr %167, null
+  %member.i = getelementptr inbounds i8, ptr %call.i.i.i70, i64 112
+  store ptr %call17.i69, ptr %member.i, align 16
+  %name.i71 = getelementptr inbounds i8, ptr %call17.i69, i64 24
+  %178 = load ptr, ptr %name.i71, align 8
+  %tobool10.not.i = icmp eq ptr %178, null
   br i1 %tobool10.not.i, label %for.cond.i, label %struct_ref.exit
 
 struct_ref.exit:                                  ; preds = %if.end8.i
-  %168 = load ptr, ptr %tok.addr, align 8
-  %next34 = getelementptr inbounds i8, ptr %168, i64 8
-  %169 = load ptr, ptr %next34, align 8
-  %next35 = getelementptr inbounds i8, ptr %169, i64 8
-  %170 = load ptr, ptr %next35, align 8
-  store ptr %170, ptr %tok.addr, align 8
+  %179 = load ptr, ptr %tok.addr, align 8
+  %next34 = getelementptr inbounds i8, ptr %179, i64 8
+  %180 = load ptr, ptr %next34, align 8
+  %next35 = getelementptr inbounds i8, ptr %180, i64 8
+  %181 = load ptr, ptr %next35, align 8
+  store ptr %181, ptr %tok.addr, align 8
   br label %for.cond.backedge
 
 if.end36:                                         ; preds = %if.end29
-  %call37 = call zeroext i1 @equal(ptr noundef %161, ptr noundef nonnull @.str.68) #13
-  %171 = load ptr, ptr %tok.addr, align 8
+  %call37 = call zeroext i1 @equal(ptr noundef %172, ptr noundef nonnull @.str.68) #13
+  %182 = load ptr, ptr %tok.addr, align 8
   br i1 %call37, label %if.then38, label %if.end44
 
 if.then38:                                        ; preds = %if.end36
-  %call.i.i61 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 21, ptr %call.i.i61, align 16
-  %tok2.i.i62 = getelementptr inbounds i8, ptr %call.i.i61, i64 24
-  store ptr %171, ptr %tok2.i.i62, align 8
-  %lhs.i63 = getelementptr inbounds i8, ptr %call.i.i61, i64 32
-  store ptr %node.0, ptr %lhs.i63, align 16
-  %next40 = getelementptr inbounds i8, ptr %171, i64 8
-  %172 = load ptr, ptr %next40, align 8
-  call void @add_type(ptr noundef nonnull %call.i.i61) #13
-  %ty.i64 = getelementptr inbounds i8, ptr %call.i.i61, i64 16
-  %173 = load ptr, ptr %ty.i64, align 16
-  %174 = load i32, ptr %173, align 8
-  %175 = and i32 %174, -2
-  %switch.i65 = icmp eq i32 %175, 14
-  br i1 %switch.i65, label %for.cond.preheader.i68, label %if.then.i66
+  %call.i.i74 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 21, ptr %call.i.i74, align 16
+  %tok2.i.i75 = getelementptr inbounds i8, ptr %call.i.i74, i64 24
+  store ptr %182, ptr %tok2.i.i75, align 8
+  %lhs.i76 = getelementptr inbounds i8, ptr %call.i.i74, i64 32
+  store ptr %node.0, ptr %lhs.i76, align 16
+  %next40 = getelementptr inbounds i8, ptr %182, i64 8
+  %183 = load ptr, ptr %next40, align 8
+  call void @add_type(ptr noundef nonnull %call.i.i74) #13
+  %ty.i77 = getelementptr inbounds i8, ptr %call.i.i74, i64 16
+  %184 = load ptr, ptr %ty.i77, align 16
+  %185 = load i32, ptr %184, align 8
+  %186 = and i32 %185, -2
+  %switch.i78 = icmp eq i32 %186, 14
+  br i1 %switch.i78, label %for.cond.preheader.i81, label %if.then.i79
 
-for.cond.preheader.i68:                           ; preds = %if.then38
-  %call14.i69 = call fastcc ptr @get_struct_member(ptr noundef nonnull %173, ptr noundef %172)
-  %tobool.not15.i70 = icmp eq ptr %call14.i69, null
-  br i1 %tobool.not15.i70, label %if.then7.i85, label %if.end8.i71
+for.cond.preheader.i81:                           ; preds = %if.then38
+  %call14.i82 = call fastcc ptr @get_struct_member(ptr noundef nonnull %184, ptr noundef %183)
+  %tobool.not15.i83 = icmp eq ptr %call14.i82, null
+  br i1 %tobool.not15.i83, label %if.then7.i98, label %if.end8.i84
 
-if.then.i66:                                      ; preds = %if.then38
-  %tok2.i.i62.le = getelementptr inbounds i8, ptr %call.i.i61, i64 24
-  %176 = load ptr, ptr %tok2.i.i62.le, align 8
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %176, ptr noundef nonnull @.str.127) #16
+if.then.i79:                                      ; preds = %if.then38
+  %tok2.i.i75.le = getelementptr inbounds i8, ptr %call.i.i74, i64 24
+  %187 = load ptr, ptr %tok2.i.i75.le, align 8
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %187, ptr noundef nonnull @.str.127) #16
   unreachable
 
-for.cond.i80:                                     ; preds = %if.end8.i71
-  %ty13.i81 = getelementptr inbounds i8, ptr %call17.i72, i64 8
-  %ty5.0.i82 = load ptr, ptr %ty13.i81, align 8
-  %call.i83 = call fastcc ptr @get_struct_member(ptr noundef %ty5.0.i82, ptr noundef %172)
-  %tobool.not.i84 = icmp eq ptr %call.i83, null
-  br i1 %tobool.not.i84, label %if.then7.i85, label %if.end8.i71
+for.cond.i93:                                     ; preds = %if.end8.i84
+  %ty13.i94 = getelementptr inbounds i8, ptr %call17.i85, i64 8
+  %ty5.0.i95 = load ptr, ptr %ty13.i94, align 8
+  %call.i96 = call fastcc ptr @get_struct_member(ptr noundef %ty5.0.i95, ptr noundef %183)
+  %tobool.not.i97 = icmp eq ptr %call.i96, null
+  br i1 %tobool.not.i97, label %if.then7.i98, label %if.end8.i84
 
-if.then7.i85:                                     ; preds = %for.cond.preheader.i68, %for.cond.i80
-  call void (ptr, ptr, ...) @error_tok(ptr noundef %172, ptr noundef nonnull @.str.128) #16
+if.then7.i98:                                     ; preds = %for.cond.preheader.i81, %for.cond.i93
+  call void (ptr, ptr, ...) @error_tok(ptr noundef %183, ptr noundef nonnull @.str.128) #16
   unreachable
 
-if.end8.i71:                                      ; preds = %for.cond.preheader.i68, %for.cond.i80
-  %call17.i72 = phi ptr [ %call.i83, %for.cond.i80 ], [ %call14.i69, %for.cond.preheader.i68 ]
-  %node.addr.016.i73 = phi ptr [ %call.i.i.i74, %for.cond.i80 ], [ %call.i.i61, %for.cond.preheader.i68 ]
-  %call.i.i.i74 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 19, ptr %call.i.i.i74, align 16
-  %tok2.i.i.i75 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 24
-  store ptr %172, ptr %tok2.i.i.i75, align 8
-  %lhs.i.i76 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 32
-  store ptr %node.addr.016.i73, ptr %lhs.i.i76, align 16
-  %member.i77 = getelementptr inbounds i8, ptr %call.i.i.i74, i64 112
-  store ptr %call17.i72, ptr %member.i77, align 16
-  %name.i78 = getelementptr inbounds i8, ptr %call17.i72, i64 24
-  %177 = load ptr, ptr %name.i78, align 8
-  %tobool10.not.i79 = icmp eq ptr %177, null
-  br i1 %tobool10.not.i79, label %for.cond.i80, label %struct_ref.exit86
+if.end8.i84:                                      ; preds = %for.cond.preheader.i81, %for.cond.i93
+  %call17.i85 = phi ptr [ %call.i96, %for.cond.i93 ], [ %call14.i82, %for.cond.preheader.i81 ]
+  %node.addr.016.i86 = phi ptr [ %call.i.i.i87, %for.cond.i93 ], [ %call.i.i74, %for.cond.preheader.i81 ]
+  %call.i.i.i87 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 19, ptr %call.i.i.i87, align 16
+  %tok2.i.i.i88 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 24
+  store ptr %183, ptr %tok2.i.i.i88, align 8
+  %lhs.i.i89 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 32
+  store ptr %node.addr.016.i86, ptr %lhs.i.i89, align 16
+  %member.i90 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 112
+  store ptr %call17.i85, ptr %member.i90, align 16
+  %name.i91 = getelementptr inbounds i8, ptr %call17.i85, i64 24
+  %188 = load ptr, ptr %name.i91, align 8
+  %tobool10.not.i92 = icmp eq ptr %188, null
+  br i1 %tobool10.not.i92, label %for.cond.i93, label %struct_ref.exit99
 
-struct_ref.exit86:                                ; preds = %if.end8.i71
-  %178 = load ptr, ptr %tok.addr, align 8
-  %next42 = getelementptr inbounds i8, ptr %178, i64 8
-  %179 = load ptr, ptr %next42, align 8
-  %next43 = getelementptr inbounds i8, ptr %179, i64 8
-  %180 = load ptr, ptr %next43, align 8
-  store ptr %180, ptr %tok.addr, align 8
+struct_ref.exit99:                                ; preds = %if.end8.i84
+  %189 = load ptr, ptr %tok.addr, align 8
+  %next42 = getelementptr inbounds i8, ptr %189, i64 8
+  %190 = load ptr, ptr %next42, align 8
+  %next43 = getelementptr inbounds i8, ptr %190, i64 8
+  %191 = load ptr, ptr %next43, align 8
+  store ptr %191, ptr %tok.addr, align 8
   br label %for.cond.backedge
 
 if.end44:                                         ; preds = %if.end36
-  %call45 = call zeroext i1 @equal(ptr noundef %171, ptr noundef nonnull @.str.63) #13
-  %181 = load ptr, ptr %tok.addr, align 8
+  %call45 = call zeroext i1 @equal(ptr noundef %182, ptr noundef nonnull @.str.63) #13
+  %192 = load ptr, ptr %tok.addr, align 8
   br i1 %call45, label %if.then46, label %if.end49
 
 if.then46:                                        ; preds = %if.end44
   call void @add_type(ptr noundef %node.0) #13
-  %call.i.i.i87 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i.i87, align 16
-  %tok2.i.i.i88 = getelementptr inbounds i8, ptr %call.i.i.i87, i64 24
-  store ptr %181, ptr %tok2.i.i.i88, align 8
-  %val1.i.i = getelementptr inbounds i8, ptr %call.i.i.i87, i64 264
-  store i64 1, ptr %val1.i.i, align 8
-  %call1.i89 = call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef nonnull %call.i.i.i87, ptr noundef %181)
-  %call2.i90 = call fastcc ptr @to_assign(ptr noundef %call1.i89)
+  %call.i.i.i100 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i.i100, align 16
+  %tok2.i.i.i101 = getelementptr inbounds i8, ptr %call.i.i.i100, i64 24
+  store ptr %192, ptr %tok2.i.i.i101, align 8
+  %val1.i.i102 = getelementptr inbounds i8, ptr %call.i.i.i100, i64 264
+  store i64 1, ptr %val1.i.i102, align 8
+  %call1.i103 = call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef nonnull %call.i.i.i100, ptr noundef %192)
+  %call2.i104 = call fastcc ptr @to_assign(ptr noundef %call1.i103)
   %call.i.i7.i = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
   store i32 42, ptr %call.i.i7.i, align 16
   %tok2.i.i8.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 24
-  store ptr %181, ptr %tok2.i.i8.i, align 8
+  store ptr %192, ptr %tok2.i.i8.i, align 8
   %val1.i9.i = getelementptr inbounds i8, ptr %call.i.i7.i, i64 264
   store i64 -1, ptr %val1.i9.i, align 8
-  %call5.i91 = call fastcc ptr @new_add(ptr noundef %call2.i90, ptr noundef nonnull %call.i.i7.i, ptr noundef %181)
-  %ty.i92 = getelementptr inbounds i8, ptr %node.0, i64 16
-  %182 = load ptr, ptr %ty.i92, align 16
-  call void @add_type(ptr noundef %call5.i91) #13
-  %call.i.i93 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 43, ptr %call.i.i93, align 16
-  %tok.i.i = getelementptr inbounds i8, ptr %call5.i91, i64 24
-  %183 = load ptr, ptr %tok.i.i, align 8
-  %tok1.i.i = getelementptr inbounds i8, ptr %call.i.i93, i64 24
-  store ptr %183, ptr %tok1.i.i, align 8
-  %lhs.i.i94 = getelementptr inbounds i8, ptr %call.i.i93, i64 32
-  store ptr %call5.i91, ptr %lhs.i.i94, align 16
-  %call2.i.i = call ptr @copy_type(ptr noundef %182) #13
-  %ty3.i.i = getelementptr inbounds i8, ptr %call.i.i93, i64 16
+  %call5.i105 = call fastcc ptr @new_add(ptr noundef %call2.i104, ptr noundef nonnull %call.i.i7.i, ptr noundef %192)
+  %ty.i106 = getelementptr inbounds i8, ptr %node.0, i64 16
+  %193 = load ptr, ptr %ty.i106, align 16
+  call void @add_type(ptr noundef %call5.i105) #13
+  %call.i.i107 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 43, ptr %call.i.i107, align 16
+  %tok.i.i = getelementptr inbounds i8, ptr %call5.i105, i64 24
+  %194 = load ptr, ptr %tok.i.i, align 8
+  %tok1.i.i = getelementptr inbounds i8, ptr %call.i.i107, i64 24
+  store ptr %194, ptr %tok1.i.i, align 8
+  %lhs.i.i108 = getelementptr inbounds i8, ptr %call.i.i107, i64 32
+  store ptr %call5.i105, ptr %lhs.i.i108, align 16
+  %call2.i.i = call ptr @copy_type(ptr noundef %193) #13
+  %ty3.i.i = getelementptr inbounds i8, ptr %call.i.i107, i64 16
   store ptr %call2.i.i, ptr %ty3.i.i, align 16
-  %184 = load ptr, ptr %tok.addr, align 8
-  %next48 = getelementptr inbounds i8, ptr %184, i64 8
-  %185 = load ptr, ptr %next48, align 8
-  store ptr %185, ptr %tok.addr, align 8
+  %195 = load ptr, ptr %tok.addr, align 8
+  %next48 = getelementptr inbounds i8, ptr %195, i64 8
+  %196 = load ptr, ptr %next48, align 8
+  store ptr %196, ptr %tok.addr, align 8
   br label %for.cond.backedge
 
 if.end49:                                         ; preds = %if.end44
-  %call50 = call zeroext i1 @equal(ptr noundef %181, ptr noundef nonnull @.str.64) #13
-  %186 = load ptr, ptr %tok.addr, align 8
+  %call50 = call zeroext i1 @equal(ptr noundef %192, ptr noundef nonnull @.str.64) #13
+  %197 = load ptr, ptr %tok.addr, align 8
   br i1 %call50, label %if.then51, label %if.end54
 
 if.then51:                                        ; preds = %if.end49
   call void @add_type(ptr noundef %node.0) #13
-  %call.i.i.i95 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i.i95, align 16
-  %tok2.i.i.i96 = getelementptr inbounds i8, ptr %call.i.i.i95, i64 24
-  store ptr %186, ptr %tok2.i.i.i96, align 8
-  %val1.i.i97 = getelementptr inbounds i8, ptr %call.i.i.i95, i64 264
-  store i64 -1, ptr %val1.i.i97, align 8
-  %call1.i98 = call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef nonnull %call.i.i.i95, ptr noundef %186)
-  %call2.i99 = call fastcc ptr @to_assign(ptr noundef %call1.i98)
-  %call.i.i7.i100 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 42, ptr %call.i.i7.i100, align 16
-  %tok2.i.i8.i101 = getelementptr inbounds i8, ptr %call.i.i7.i100, i64 24
-  store ptr %186, ptr %tok2.i.i8.i101, align 8
-  %val1.i9.i102 = getelementptr inbounds i8, ptr %call.i.i7.i100, i64 264
-  store i64 1, ptr %val1.i9.i102, align 8
-  %call5.i103 = call fastcc ptr @new_add(ptr noundef %call2.i99, ptr noundef nonnull %call.i.i7.i100, ptr noundef %186)
-  %ty.i104 = getelementptr inbounds i8, ptr %node.0, i64 16
-  %187 = load ptr, ptr %ty.i104, align 16
-  call void @add_type(ptr noundef %call5.i103) #13
-  %call.i.i105 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
-  store i32 43, ptr %call.i.i105, align 16
-  %tok.i.i106 = getelementptr inbounds i8, ptr %call5.i103, i64 24
-  %188 = load ptr, ptr %tok.i.i106, align 8
-  %tok1.i.i107 = getelementptr inbounds i8, ptr %call.i.i105, i64 24
-  store ptr %188, ptr %tok1.i.i107, align 8
-  %lhs.i.i108 = getelementptr inbounds i8, ptr %call.i.i105, i64 32
-  store ptr %call5.i103, ptr %lhs.i.i108, align 16
-  %call2.i.i109 = call ptr @copy_type(ptr noundef %187) #13
-  %ty3.i.i110 = getelementptr inbounds i8, ptr %call.i.i105, i64 16
-  store ptr %call2.i.i109, ptr %ty3.i.i110, align 16
-  %189 = load ptr, ptr %tok.addr, align 8
-  %next53 = getelementptr inbounds i8, ptr %189, i64 8
-  %190 = load ptr, ptr %next53, align 8
-  store ptr %190, ptr %tok.addr, align 8
+  %call.i.i.i109 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i.i109, align 16
+  %tok2.i.i.i110 = getelementptr inbounds i8, ptr %call.i.i.i109, i64 24
+  store ptr %197, ptr %tok2.i.i.i110, align 8
+  %val1.i.i111 = getelementptr inbounds i8, ptr %call.i.i.i109, i64 264
+  store i64 -1, ptr %val1.i.i111, align 8
+  %call1.i112 = call fastcc ptr @new_add(ptr noundef %node.0, ptr noundef nonnull %call.i.i.i109, ptr noundef %197)
+  %call2.i113 = call fastcc ptr @to_assign(ptr noundef %call1.i112)
+  %call.i.i7.i114 = call noalias noundef dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 42, ptr %call.i.i7.i114, align 16
+  %tok2.i.i8.i115 = getelementptr inbounds i8, ptr %call.i.i7.i114, i64 24
+  store ptr %197, ptr %tok2.i.i8.i115, align 8
+  %val1.i9.i116 = getelementptr inbounds i8, ptr %call.i.i7.i114, i64 264
+  store i64 1, ptr %val1.i9.i116, align 8
+  %call5.i117 = call fastcc ptr @new_add(ptr noundef %call2.i113, ptr noundef nonnull %call.i.i7.i114, ptr noundef %197)
+  %ty.i118 = getelementptr inbounds i8, ptr %node.0, i64 16
+  %198 = load ptr, ptr %ty.i118, align 16
+  call void @add_type(ptr noundef %call5.i117) #13
+  %call.i.i119 = call noalias dereferenceable_or_null(288) ptr @calloc(i64 noundef 1, i64 noundef 288) #14
+  store i32 43, ptr %call.i.i119, align 16
+  %tok.i.i120 = getelementptr inbounds i8, ptr %call5.i117, i64 24
+  %199 = load ptr, ptr %tok.i.i120, align 8
+  %tok1.i.i121 = getelementptr inbounds i8, ptr %call.i.i119, i64 24
+  store ptr %199, ptr %tok1.i.i121, align 8
+  %lhs.i.i122 = getelementptr inbounds i8, ptr %call.i.i119, i64 32
+  store ptr %call5.i117, ptr %lhs.i.i122, align 16
+  %call2.i.i123 = call ptr @copy_type(ptr noundef %198) #13
+  %ty3.i.i124 = getelementptr inbounds i8, ptr %call.i.i119, i64 16
+  store ptr %call2.i.i123, ptr %ty3.i.i124, align 16
+  %200 = load ptr, ptr %tok.addr, align 8
+  %next53 = getelementptr inbounds i8, ptr %200, i64 8
+  %201 = load ptr, ptr %next53, align 8
+  store ptr %201, ptr %tok.addr, align 8
   br label %for.cond.backedge
 
 if.end54:                                         ; preds = %if.end49
-  store ptr %186, ptr %rest, align 8
+  store ptr %197, ptr %rest, align 8
   br label %return
 
 return:                                           ; preds = %if.end54, %if.end, %if.then6

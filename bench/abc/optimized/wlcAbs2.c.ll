@@ -1268,11 +1268,11 @@ Wlc_ObjFaninId.exit:                              ; preds = %115, %Wlc_ObjHasArr
   br i1 %125, label %113, label %.critedge, !llvm.loop !18
 
 .critedge.sink.split:                             ; preds = %111, %Vec_IntGrow.exit.i50, %.Vec_IntGrow.exit10_crit_edge.i45, %84, %Vec_IntGrow.exit.i43, %.Vec_IntGrow.exit10_crit_edge.i38, %50, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink = phi ptr [ %26, %.Vec_IntGrow.exit10_crit_edge.i ], [ %26, %Vec_IntGrow.exit.i ], [ %26, %50 ], [ %60, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %60, %Vec_IntGrow.exit.i43 ], [ %60, %84 ], [ %87, %.Vec_IntGrow.exit10_crit_edge.i45 ], [ %87, %Vec_IntGrow.exit.i50 ], [ %87, %111 ]
+  %.sink62 = phi ptr [ %26, %.Vec_IntGrow.exit10_crit_edge.i ], [ %26, %Vec_IntGrow.exit.i ], [ %26, %50 ], [ %60, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %60, %Vec_IntGrow.exit.i43 ], [ %60, %84 ], [ %87, %.Vec_IntGrow.exit10_crit_edge.i45 ], [ %87, %Vec_IntGrow.exit.i50 ], [ %87, %111 ]
   %.sink57 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %39, %Vec_IntGrow.exit.i ], [ %51, %50 ], [ %.pre.i40, %.Vec_IntGrow.exit10_crit_edge.i38 ], [ %73, %Vec_IntGrow.exit.i43 ], [ %85, %84 ], [ %.pre.i47, %.Vec_IntGrow.exit10_crit_edge.i45 ], [ %100, %Vec_IntGrow.exit.i50 ], [ %112, %111 ]
-  %126 = load i32, ptr %.sink, align 4
+  %126 = load i32, ptr %.sink62, align 4
   %127 = add nsw i32 %126, 1
-  store i32 %127, ptr %.sink, align 4
+  store i32 %127, ptr %.sink62, align 4
   %128 = sext i32 %126 to i64
   %129 = getelementptr inbounds i32, ptr %.sink57, i64 %128
   store i32 %16, ptr %129, align 4

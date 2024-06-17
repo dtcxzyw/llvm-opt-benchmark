@@ -3190,7 +3190,7 @@ define dso_local ptr @compiler_find_or_create_module(ptr noundef %0, ptr noundef
   %4 = load ptr, ptr %3, align 8
   %5 = tail call ptr @htable_get(ptr noundef nonnull @global_context, ptr noundef %4) #20
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %6, label %78
+  br i1 %.not, label %6, label %64
 
 6:                                                ; preds = %2
   %7 = tail call ptr @calloc_arena(i64 noundef 128) #20
@@ -3237,97 +3237,77 @@ define dso_local ptr @compiler_find_or_create_module(ptr noundef %0, ptr noundef
   %.0.i = phi ptr [ %26, %25 ], [ %23, %22 ]
   %29 = load i32, ptr %.0.i, align 4
   %30 = icmp eq i32 %29, %28
-  br i1 %30, label %31, label %.sink.split
-
-31:                                               ; preds = %27
-  %32 = getelementptr inbounds i8, ptr %.0.i, i64 4
-  %33 = shl i32 %28, 1
-  %34 = zext i32 %33 to i64
-  %35 = shl nuw nsw i64 %34, 3
-  %36 = or disjoint i64 %35, 8
-  %37 = tail call ptr @calloc_arena(i64 noundef %36) #20
-  %38 = getelementptr inbounds i8, ptr %37, i64 4
-  store i32 %33, ptr %38, align 4
-  %39 = load i32, ptr %32, align 4
-  %40 = zext i32 %39 to i64
-  %41 = shl nuw nsw i64 %40, 3
-  %42 = add nuw nsw i64 %41, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %37, ptr noundef nonnull align 4 dereferenceable(1) %.0.i, i64 %42, i1 false)
-  br label %.sink.split.sink.split
+  br i1 %30, label %.sink.split.sink.split, label %.sink.split
 
 .critedge:                                        ; preds = %6
-  %43 = and i16 %9, -2025
-  store i16 %43, ptr %8, align 8
-  %44 = getelementptr inbounds i8, ptr %7, i64 40
-  tail call void @htable_init(ptr noundef nonnull %44, i32 noundef 4096) #20
-  %45 = load ptr, ptr %3, align 8
-  %46 = tail call ptr @htable_set(ptr noundef nonnull @global_context, ptr noundef %45, ptr noundef nonnull %7) #20
-  %47 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
-  %.not.i42 = icmp eq ptr %47, null
-  br i1 %.not.i42, label %48, label %51
+  %31 = and i16 %9, -2025
+  store i16 %31, ptr %8, align 8
+  %32 = getelementptr inbounds i8, ptr %7, i64 40
+  tail call void @htable_init(ptr noundef nonnull %32, i32 noundef 4096) #20
+  %33 = load ptr, ptr %3, align 8
+  %34 = tail call ptr @htable_set(ptr noundef nonnull @global_context, ptr noundef %33, ptr noundef nonnull %7) #20
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @global_context, i64 24), align 8
+  %.not.i42 = icmp eq ptr %35, null
+  br i1 %.not.i42, label %36, label %39
 
-48:                                               ; preds = %.critedge
-  %49 = tail call ptr @calloc_arena(i64 noundef 72) #20
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
-  store i32 8, ptr %50, align 4
-  br label %53
+36:                                               ; preds = %.critedge
+  %37 = tail call ptr @calloc_arena(i64 noundef 72) #20
+  %38 = getelementptr inbounds i8, ptr %37, i64 4
+  store i32 8, ptr %38, align 4
+  br label %41
 
-51:                                               ; preds = %.critedge
-  %52 = getelementptr inbounds i8, ptr %47, i64 -8
-  %.phi.trans.insert.i43 = getelementptr inbounds i8, ptr %47, i64 -4
+39:                                               ; preds = %.critedge
+  %40 = getelementptr inbounds i8, ptr %35, i64 -8
+  %.phi.trans.insert.i43 = getelementptr inbounds i8, ptr %35, i64 -4
   %.pre.i44 = load i32, ptr %.phi.trans.insert.i43, align 4
-  br label %53
+  br label %41
 
-53:                                               ; preds = %51, %48
-  %54 = phi i32 [ %.pre.i44, %51 ], [ 8, %48 ]
-  %.0.i45 = phi ptr [ %52, %51 ], [ %49, %48 ]
-  %55 = load i32, ptr %.0.i45, align 4
-  %56 = icmp eq i32 %55, %54
-  br i1 %56, label %57, label %.sink.split
+41:                                               ; preds = %39, %36
+  %42 = phi i32 [ %.pre.i44, %39 ], [ 8, %36 ]
+  %.0.i45 = phi ptr [ %40, %39 ], [ %37, %36 ]
+  %43 = load i32, ptr %.0.i45, align 4
+  %44 = icmp eq i32 %43, %42
+  br i1 %44, label %.sink.split.sink.split, label %.sink.split
 
-57:                                               ; preds = %53
-  %58 = getelementptr inbounds i8, ptr %.0.i45, i64 4
-  %59 = shl i32 %54, 1
-  %60 = zext i32 %59 to i64
-  %61 = shl nuw nsw i64 %60, 3
-  %62 = or disjoint i64 %61, 8
-  %63 = tail call ptr @calloc_arena(i64 noundef %62) #20
-  %64 = getelementptr inbounds i8, ptr %63, i64 4
-  store i32 %59, ptr %64, align 4
-  %65 = load i32, ptr %58, align 4
-  %66 = zext i32 %65 to i64
-  %67 = shl nuw nsw i64 %66, 3
-  %68 = add nuw nsw i64 %67, 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %63, ptr noundef nonnull align 4 dereferenceable(1) %.0.i45, i64 %68, i1 false)
-  br label %.sink.split.sink.split
-
-.sink.split.sink.split:                           ; preds = %31, %57
-  %.sink58 = phi ptr [ %64, %57 ], [ %38, %31 ]
-  %.sink = phi ptr [ %63, %57 ], [ %37, %31 ]
-  %.sink52.ph = phi ptr [ getelementptr inbounds (i8, ptr @global_context, i64 24), %57 ], [ getelementptr inbounds (i8, ptr @global_context, i64 32), %31 ]
-  %69 = load i32, ptr %.sink58, align 4
-  %70 = shl i32 %69, 1
-  store i32 %70, ptr %.sink58, align 4
-  %.pre18.i47 = load i32, ptr %.sink, align 4
+.sink.split.sink.split:                           ; preds = %41, %27
+  %.0.i45.sink72 = phi ptr [ %.0.i, %27 ], [ %.0.i45, %41 ]
+  %.sink71 = phi i32 [ %28, %27 ], [ %42, %41 ]
+  %.sink52.ph = phi ptr [ getelementptr inbounds (i8, ptr @global_context, i64 32), %27 ], [ getelementptr inbounds (i8, ptr @global_context, i64 24), %41 ]
+  %45 = getelementptr inbounds i8, ptr %.0.i45.sink72, i64 4
+  %46 = shl i32 %.sink71, 1
+  %47 = zext i32 %46 to i64
+  %48 = shl nuw nsw i64 %47, 3
+  %49 = or disjoint i64 %48, 8
+  %50 = tail call ptr @calloc_arena(i64 noundef %49) #20
+  %51 = getelementptr inbounds i8, ptr %50, i64 4
+  store i32 %46, ptr %51, align 4
+  %52 = load i32, ptr %45, align 4
+  %53 = zext i32 %52 to i64
+  %54 = shl nuw nsw i64 %53, 3
+  %55 = add nuw nsw i64 %54, 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %50, ptr noundef nonnull align 4 dereferenceable(1) %.0.i45.sink72, i64 %55, i1 false)
+  %56 = load i32, ptr %51, align 4
+  %57 = shl i32 %56, 1
+  store i32 %57, ptr %51, align 4
+  %.pre18.i47 = load i32, ptr %50, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %53, %27
-  %.sink54 = phi i32 [ %29, %27 ], [ %55, %53 ], [ %.pre18.i47, %.sink.split.sink.split ]
-  %.1.i46.sink53 = phi ptr [ %.0.i, %27 ], [ %.0.i45, %53 ], [ %.sink, %.sink.split.sink.split ]
-  %.sink52 = phi ptr [ getelementptr inbounds (i8, ptr @global_context, i64 32), %27 ], [ getelementptr inbounds (i8, ptr @global_context, i64 24), %53 ], [ %.sink52.ph, %.sink.split.sink.split ]
-  %71 = add i32 %.sink54, 1
-  store i32 %71, ptr %.1.i46.sink53, align 4
-  %72 = getelementptr inbounds i8, ptr %.1.i46.sink53, i64 8
-  store ptr %72, ptr %.sink52, align 8
-  %73 = getelementptr inbounds i8, ptr %.1.i46.sink53, i64 8
-  %74 = load i32, ptr %.1.i46.sink53, align 4
-  %75 = add i32 %74, -1
-  %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
-  store ptr %7, ptr %77, align 8
-  br label %78
+.sink.split:                                      ; preds = %.sink.split.sink.split, %41, %27
+  %.sink55 = phi i32 [ %29, %27 ], [ %43, %41 ], [ %.pre18.i47, %.sink.split.sink.split ]
+  %.1.i.sink54 = phi ptr [ %.0.i, %27 ], [ %.0.i45, %41 ], [ %50, %.sink.split.sink.split ]
+  %.sink52 = phi ptr [ getelementptr inbounds (i8, ptr @global_context, i64 32), %27 ], [ getelementptr inbounds (i8, ptr @global_context, i64 24), %41 ], [ %.sink52.ph, %.sink.split.sink.split ]
+  %58 = add i32 %.sink55, 1
+  store i32 %58, ptr %.1.i.sink54, align 4
+  %59 = getelementptr inbounds i8, ptr %.1.i.sink54, i64 8
+  store ptr %59, ptr %.sink52, align 8
+  %60 = load i32, ptr %.1.i.sink54, align 4
+  %61 = add i32 %60, -1
+  %62 = zext i32 %61 to i64
+  %63 = getelementptr inbounds ptr, ptr %59, i64 %62
+  store ptr %7, ptr %63, align 8
+  br label %64
 
-78:                                               ; preds = %.sink.split, %2
+64:                                               ; preds = %.sink.split, %2
   %.033 = phi ptr [ %5, %2 ], [ %7, %.sink.split ]
   ret ptr %.033
 }

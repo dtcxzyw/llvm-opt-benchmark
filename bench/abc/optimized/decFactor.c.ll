@@ -127,8 +127,8 @@ define noundef ptr @Dec_Factor(ptr noundef %0) local_unnamed_addr #0 {
 
 .sink.split.i:                                    ; preds = %56, %53
   %.sink69.i = phi i32 [ 1, %56 ], [ 2, %53 ]
-  %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
-  %57 = shl i32 %indvars.iv.tr.i, 1
+  %indvars.iv.tr60.i = trunc i64 %indvars.iv.i to i32
+  %57 = shl i32 %indvars.iv.tr60.i, 1
   %58 = and i32 %57, 30
   %59 = shl nuw i32 %.sink69.i, %58
   %60 = xor i32 %59, -1

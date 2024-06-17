@@ -195,9 +195,9 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
   br label %7
 
 7:                                                ; preds = %2, %58
-  %8 = phi i32 [ %.pre, %2 ], [ %.sink, %58 ]
+  %8 = phi i32 [ %.pre, %2 ], [ %59, %58 ]
   %.029 = phi i32 [ %1, %2 ], [ %.2, %58 ]
-  %.02628 = phi i32 [ 0, %2 ], [ %59, %58 ]
+  %.02628 = phi i32 [ 0, %2 ], [ %60, %58 ]
   %9 = srem i32 %8, 8
   %10 = sext i32 %9 to i64
   %11 = getelementptr inbounds [8 x %"struct.dtPathQueue::PathQuery"], ptr %0, i64 0, i64 %10
@@ -276,22 +276,22 @@ define void @_ZN11dtPathQueue6updateEi(ptr noundef nonnull align 8 dereferenceab
 
 54:                                               ; preds = %47, %44
   %55 = icmp slt i32 %.1, 1
-  br i1 %55, label %60, label %56
+  br i1 %55, label %61, label %56
 
 56:                                               ; preds = %54
   %57 = load i32, ptr %4, align 8
   br label %58
 
 58:                                               ; preds = %17, %22, %7, %56
-  %.sink.in = phi i32 [ %57, %56 ], [ %8, %7 ], [ %8, %22 ], [ %8, %17 ]
+  %.sink30 = phi i32 [ %57, %56 ], [ %8, %7 ], [ %8, %22 ], [ %8, %17 ]
   %.2 = phi i32 [ %.1, %56 ], [ %.029, %7 ], [ %.029, %22 ], [ %.029, %17 ]
-  %.sink = add nsw i32 %.sink.in, 1
-  store i32 %.sink, ptr %4, align 8
-  %59 = add nuw nsw i32 %.02628, 1
-  %exitcond.not = icmp eq i32 %59, 8
-  br i1 %exitcond.not, label %60, label %7, !llvm.loop !8
+  %59 = add nsw i32 %.sink30, 1
+  store i32 %59, ptr %4, align 8
+  %60 = add nuw nsw i32 %.02628, 1
+  %exitcond.not = icmp eq i32 %60, 8
+  br i1 %exitcond.not, label %61, label %7, !llvm.loop !8
 
-60:                                               ; preds = %54, %58
+61:                                               ; preds = %54, %58
   ret void
 }
 

@@ -2443,9 +2443,9 @@ html_tag_arg_value.exit:                          ; preds = %823
   br i1 %846, label %.critedge1378.sink.split.sink.split, label %842
 
 .critedge1378.sink.split.sink.split:              ; preds = %.lr.ph.i1498, %.lr.ph.i1493
-  %indvars.iv.i1495.lcssa.sink = phi i64 [ %indvars.iv.i1495, %.lr.ph.i1493 ], [ %indvars.iv.i1500, %.lr.ph.i1498 ]
+  %indvars.iv.i1500.lcssa.sink = phi i64 [ %indvars.iv.i1495, %.lr.ph.i1493 ], [ %indvars.iv.i1500, %.lr.ph.i1498 ]
   %.str.26.sink = phi ptr [ @.str.24, %.lr.ph.i1493 ], [ @.str.26, %.lr.ph.i1498 ]
-  %847 = getelementptr inbounds ptr, ptr %828, i64 %indvars.iv.i1495.lcssa.sink
+  %847 = getelementptr inbounds ptr, ptr %828, i64 %indvars.iv.i1500.lcssa.sink
   %848 = load ptr, ptr %847, align 8
   call void @free(ptr noundef %848) #15
   %849 = call ptr @cli_safer_strdup(ptr noundef nonnull %.str.26.sink) #15

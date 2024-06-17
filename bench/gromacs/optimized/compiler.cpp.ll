@@ -12928,8 +12928,8 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEC2ERKS2_.exit62: ; preds = %271, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.lr.ph144, %294
-  %.sroa.0111.0143.sink = phi ptr [ %296, %294 ], [ %.sroa.0111.0143, %.lr.ph144 ]
-  %297 = getelementptr inbounds i8, ptr %.sroa.0111.0143.sink, i64 88
+  %.sink156 = phi ptr [ %296, %294 ], [ %.sroa.0111.0143, %.lr.ph144 ]
+  %297 = getelementptr inbounds i8, ptr %.sink156, i64 88
   %298 = load ptr, ptr %297, align 8
   %299 = getelementptr inbounds i8, ptr %298, i64 12
   %300 = load i32, ptr %299, align 4
@@ -13297,18 +13297,18 @@ _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEEaSERKS2_.exit100: ; preds = %_ZNS
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split.sink.split: ; preds = %441, %350
   %.sink = phi ptr [ %351, %350 ], [ %442, %441 ]
-  %.sroa.5.0.lcssa.sink162 = phi ptr [ %.sroa.8.0.lcssa, %350 ], [ %.sroa.5.0.lcssa, %441 ]
+  %.sroa.5.0.lcssa.sink161 = phi ptr [ %.sroa.8.0.lcssa, %350 ], [ %.sroa.5.0.lcssa, %441 ]
   store i32 0, ptr %.sink, align 8
-  %467 = getelementptr inbounds i8, ptr %.sroa.5.0.lcssa.sink162, i64 12
+  %467 = getelementptr inbounds i8, ptr %.sroa.5.0.lcssa.sink161, i64 12
   store i32 0, ptr %467, align 4
-  %468 = load ptr, ptr %.sroa.5.0.lcssa.sink162, align 8
+  %468 = load ptr, ptr %.sroa.5.0.lcssa.sink161, align 8
   %469 = getelementptr inbounds i8, ptr %468, i64 16
   %470 = load ptr, ptr %469, align 8
-  tail call void %470(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0.lcssa.sink162) #17
+  tail call void %470(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0.lcssa.sink161) #17
   br label %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split
 
 _ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split: ; preds = %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split.sink.split, %465, %374
-  %.sroa.5.0.lcssa.sink158 = phi ptr [ %.sroa.8.0.lcssa, %374 ], [ %.sroa.5.0.lcssa, %465 ], [ %.sroa.5.0.lcssa.sink162, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split.sink.split ]
+  %.sroa.5.0.lcssa.sink158 = phi ptr [ %.sroa.8.0.lcssa, %374 ], [ %.sroa.5.0.lcssa, %465 ], [ %.sroa.5.0.lcssa.sink161, %_ZNSt10shared_ptrIN3gmx20SelectionTreeElementEED2Ev.exit83.sink.split.sink.split ]
   %471 = load ptr, ptr %.sroa.5.0.lcssa.sink158, align 8
   %472 = getelementptr inbounds i8, ptr %471, i64 24
   %473 = load ptr, ptr %472, align 8

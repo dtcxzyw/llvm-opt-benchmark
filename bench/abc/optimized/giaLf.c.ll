@@ -6773,12 +6773,12 @@ Gia_ObjIsAndNotBuf.exit120:                       ; preds = %151
   br label %Gia_ObjIsAndNotBuf.exit113.thread.sink.split
 
 Gia_ObjIsAndNotBuf.exit113.thread.sink.split:     ; preds = %Gia_ObjFaninId2.exit, %158
-  %.sink168 = phi ptr [ %115, %Gia_ObjFaninId2.exit ], [ %164, %158 ]
-  %.sink166 = phi float [ 1.000000e+00, %Gia_ObjFaninId2.exit ], [ -1.000000e+00, %158 ]
+  %.sink168 = phi ptr [ %164, %158 ], [ %115, %Gia_ObjFaninId2.exit ]
+  %.sink166 = phi float [ -1.000000e+00, %158 ], [ 1.000000e+00, %Gia_ObjFaninId2.exit ]
   %165 = load i32, ptr %.sink168, align 4
-  %.val96 = load ptr, ptr %41, align 8
+  %.val98 = load ptr, ptr %41, align 8
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds float, ptr %.val96, i64 %166
+  %167 = getelementptr inbounds float, ptr %.val98, i64 %166
   %168 = load float, ptr %167, align 4
   %169 = fadd float %168, %.sink166
   store float %169, ptr %167, align 4

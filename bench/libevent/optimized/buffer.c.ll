@@ -5663,9 +5663,9 @@ while.body.lr.ph:                                 ; preds = %if.end19
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end80
   %chain.023.i35 = phi ptr [ %internal_22.promoted, %while.body.lr.ph ], [ %chain.023.i34, %if.end80 ]
-  %6 = phi i64 [ %pos_in_chain23.promoted, %while.body.lr.ph ], [ %18, %if.end80 ]
+  %6 = phi i64 [ %pos_in_chain23.promoted, %while.body.lr.ph ], [ %19, %if.end80 ]
   %chain.133 = phi ptr [ %internal_22.promoted, %while.body.lr.ph ], [ %chain.2, %if.end80 ]
-  %7 = phi i64 [ %agg.result.promoted, %while.body.lr.ph ], [ %19, %if.end80 ]
+  %7 = phi i64 [ %agg.result.promoted, %while.body.lr.ph ], [ %20, %if.end80 ]
   %buffer21 = getelementptr inbounds i8, ptr %chain.133, i64 40
   %8 = load ptr, ptr %buffer21, align 8
   %misalign = getelementptr inbounds i8, ptr %chain.133, i64 16
@@ -5758,16 +5758,16 @@ if.end68:                                         ; preds = %if.else64
 
 if.end80.sink.split:                              ; preds = %if.end48, %if.end68
   %.ph = phi i64 [ %add74, %if.end68 ], [ %inc, %if.end48 ]
-  %.sink = load ptr, ptr %chain.133, align 8
-  store ptr %.sink, ptr %internal_22, align 8
+  %18 = load ptr, ptr %chain.133, align 8
+  store ptr %18, ptr %internal_22, align 8
   store i64 0, ptr %pos_in_chain23, align 8
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end80.sink.split, %if.end48
-  %chain.023.i34 = phi ptr [ %chain.023.i35, %if.end48 ], [ %.sink, %if.end80.sink.split ]
-  %18 = phi i64 [ %inc52, %if.end48 ], [ 0, %if.end80.sink.split ]
-  %19 = phi i64 [ %inc, %if.end48 ], [ %.ph, %if.end80.sink.split ]
-  %chain.2 = phi ptr [ %chain.133, %if.end48 ], [ %.sink, %if.end80.sink.split ]
+  %chain.023.i34 = phi ptr [ %chain.023.i35, %if.end48 ], [ %18, %if.end80.sink.split ]
+  %19 = phi i64 [ %inc52, %if.end48 ], [ 0, %if.end80.sink.split ]
+  %20 = phi i64 [ %inc, %if.end48 ], [ %.ph, %if.end80.sink.split ]
+  %chain.2 = phi ptr [ %chain.133, %if.end48 ], [ %18, %if.end80.sink.split ]
   %tobool20.not = icmp eq ptr %chain.2, null
   br i1 %tobool20.not, label %do.body81, label %while.body, !llvm.loop !37
 
@@ -5778,13 +5778,13 @@ do.body81:                                        ; preds = %if.end80, %if.else6
   br label %do.body89
 
 do.body89:                                        ; preds = %if.then39, %land.lhs.true, %if.end16, %do.body81
-  %20 = load ptr, ptr %lock, align 8
-  %tobool91.not = icmp eq ptr %20, null
+  %21 = load ptr, ptr %lock, align 8
+  %tobool91.not = icmp eq ptr %21, null
   br i1 %tobool91.not, label %do.end97, label %if.then92
 
 if.then92:                                        ; preds = %do.body89
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %call94 = tail call i32 %21(i32 noundef 0, ptr noundef nonnull %20) #16
+  %22 = load ptr, ptr getelementptr inbounds (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %call94 = tail call i32 %22(i32 noundef 0, ptr noundef nonnull %21) #16
   br label %do.end97
 
 do.end97:                                         ; preds = %if.then92, %do.body89

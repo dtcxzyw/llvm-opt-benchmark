@@ -2390,8 +2390,8 @@ define dso_local void @md_bitmap_end_sync(ptr noundef %0, i64 noundef %1, ptr no
   br label %.thread4
 
 36:                                               ; preds = %27, %.thread5
-  %.sink = phi i64 [ %26, %.thread5 ], [ %10, %27 ]
-  %37 = shl nuw i64 1, %.sink
+  %.sink9 = phi i64 [ %26, %.thread5 ], [ %10, %27 ]
+  %37 = shl nuw i64 1, %.sink9
   %38 = add i64 %37, -1
   %39 = and i64 %38, %1
   %40 = sub i64 %37, %39

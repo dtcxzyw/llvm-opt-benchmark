@@ -982,12 +982,12 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   br label %.sink.split
 
 .sink.split:                                      ; preds = %18, %31
-  %.sink46 = phi ptr [ %32, %31 ], [ %.pre, %18 ]
+  %.pre.sink = phi ptr [ %32, %31 ], [ %.pre, %18 ]
   %33 = load ptr, ptr %3, align 8
   %34 = add i32 %.sroa.6.038, -1
   %35 = tail call ptr @list_delete_nth_cell(ptr noundef %33, i32 noundef %.sroa.6.038) #4
   store ptr %35, ptr %3, align 8
-  %36 = getelementptr inbounds i8, ptr %.sink46, i64 24
+  %36 = getelementptr inbounds i8, ptr %.pre.sink, i64 24
   %37 = load ptr, ptr %36, align 8
   %38 = tail call ptr @bms_intersect(ptr noundef %37, ptr noundef %1) #4
   store ptr %38, ptr %36, align 8

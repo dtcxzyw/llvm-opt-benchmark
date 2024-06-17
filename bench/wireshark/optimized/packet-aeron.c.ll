@@ -2128,10 +2128,10 @@ define internal fastcc noalias ptr @aeron_setup_conversation_info(ptr nocapture 
   %37 = and i8 %36, 1
   %.not104 = icmp eq i8 %37, 0
   %. = select i1 %.not104, ptr %32, ptr %30
-  %.141 = select i1 %.not104, i8 -1, i8 1
+  %.139 = select i1 %.not104, i8 -1, i8 1
   %38 = getelementptr i8, ptr %., i64 %34
   %39 = load i8, ptr %38, align 1
-  %40 = add i8 %39, %.141
+  %40 = add i8 %39, %.139
   store i8 %40, ptr %38, align 1
   store i32 2, ptr %14, align 8
   %41 = getelementptr inbounds i8, ptr %14, i64 4
@@ -2326,11 +2326,11 @@ copy_address_wmem.exit110:                        ; preds = %copy_address_wmem.e
   %141 = load i8, ptr %140, align 1
   %142 = and i8 %141, 1
   %.not102 = icmp eq i8 %142, 0
-  %.142 = select i1 %.not102, ptr %137, ptr %135
-  %.143 = select i1 %.not102, i8 -1, i8 1
-  %143 = getelementptr i8, ptr %.142, i64 %139
+  %.140 = select i1 %.not102, ptr %137, ptr %135
+  %.141 = select i1 %.not102, i8 -1, i8 1
+  %143 = getelementptr i8, ptr %.140, i64 %139
   %144 = load i8, ptr %143, align 1
-  %145 = add i8 %144, %.143
+  %145 = add i8 %144, %.141
   store i8 %145, ptr %143, align 1
   store i32 3, ptr %119, align 8
   %146 = getelementptr inbounds i8, ptr %119, i64 4
@@ -2478,9 +2478,9 @@ copy_address_wmem.exit118:                        ; preds = %copy_address_wmem.e
   br label %.sink.split
 
 .sink.split:                                      ; preds = %132, %copy_address_wmem.exit118, %copy_address_wmem.exit116, %27, %copy_address_wmem.exit110, %copy_address_wmem.exit108
-  %.sink138 = phi i16 [ %83, %copy_address_wmem.exit108 ], [ %114, %copy_address_wmem.exit110 ], [ %49, %27 ], [ %188, %copy_address_wmem.exit116 ], [ %219, %copy_address_wmem.exit118 ], [ %154, %132 ]
+  %.sink = phi i16 [ %83, %copy_address_wmem.exit108 ], [ %114, %copy_address_wmem.exit110 ], [ %49, %27 ], [ %188, %copy_address_wmem.exit116 ], [ %219, %copy_address_wmem.exit118 ], [ %154, %132 ]
   %220 = getelementptr inbounds i8, ptr %8, i64 18
-  store i16 %.sink138, ptr %220, align 2
+  store i16 %.sink, ptr %220, align 2
   br label %221
 
 221:                                              ; preds = %.sink.split, %aeron_is_address_multicast.exit, %aeron_is_address_multicast.exit114, %2

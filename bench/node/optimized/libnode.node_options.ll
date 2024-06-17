@@ -20515,7 +20515,7 @@ if.end:                                           ; preds = %if.else.i, %if.then
   %_M_finish.i.i.i3 = getelementptr inbounds i8, ptr %12, i64 8
   %14 = load ptr, ptr %_M_finish.i.i.i3, align 8
   %cmp.i.not.i.i = icmp eq ptr %add.ptr.i.i.i2, %14
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, label %if.then.i.i
+  br i1 %cmp.i.not.i.i, label %nrvo.skipdtor, label %if.then.i.i
 
 if.then.i.i:                                      ; preds = %if.end
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i = ptrtoint ptr %14 to i64
@@ -20523,7 +20523,7 @@ if.then.i.i:                                      ; preds = %if.end
   %sub.ptr.sub.i.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i.i
   %sub.ptr.div.i.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i, 5
   %cmp6.i.i.i.i.i.i.i = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i, 0
-  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
+  br i1 %cmp6.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i, label %nrvo.skipdtor
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.body.i.i.i.i.i.i.i
   %__n.09.i.i.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i ], [ %sub.ptr.div.i.i.i.i.i.i.i, %if.then.i.i ]
@@ -20538,18 +20538,12 @@ for.body.i.i.i.i.i.i.i:                           ; preds = %if.then.i.i, %for.b
 
 if.end.loopexit.i.i:                              ; preds = %for.body.i.i.i.i.i.i.i
   %.pre.i.i = load ptr, ptr %_M_finish.i.i.i3, align 8
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
-
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %if.end, %if.then.i.i, %if.end.loopexit.i.i
-  %15 = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %14, %if.end ]
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %15, i64 -32
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i3, align 8
   br label %nrvo.skipdtor
 
 if.else:                                          ; preds = %_ZN4node14options_parser8ArgsInfo5firstB5cxx11Ev.exit
   %add.ptr.i.i.i8 = getelementptr inbounds i8, ptr %5, i64 32
   %cmp.i.not.i.i10 = icmp eq ptr %add.ptr.i.i.i8, %6
-  br i1 %cmp.i.not.i.i10, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29, label %if.then.i.i11
+  br i1 %cmp.i.not.i.i10, label %nrvo.skipdtor, label %if.then.i.i11
 
 if.then.i.i11:                                    ; preds = %if.else
   %sub.ptr.lhs.cast.i.i.i.i.i.i.i12 = ptrtoint ptr %6 to i64
@@ -20557,7 +20551,7 @@ if.then.i.i11:                                    ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i.i.i14 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i.i12, %sub.ptr.rhs.cast.i.i.i.i.i.i.i13
   %sub.ptr.div.i.i.i.i.i.i.i15 = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i.i14, 5
   %cmp6.i.i.i.i.i.i.i16 = icmp sgt i64 %sub.ptr.div.i.i.i.i.i.i.i15, 0
-  br i1 %cmp6.i.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i.i18, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
+  br i1 %cmp6.i.i.i.i.i.i.i16, label %for.body.i.i.i.i.i.i.i18, label %nrvo.skipdtor
 
 for.body.i.i.i.i.i.i.i18:                         ; preds = %if.then.i.i11, %for.body.i.i.i.i.i.i.i18
   %__n.09.i.i.i.i.i.i.i19 = phi i64 [ %dec.i.i.i.i.i.i.i25, %for.body.i.i.i.i.i.i.i18 ], [ %sub.ptr.div.i.i.i.i.i.i.i15, %if.then.i.i11 ]
@@ -20572,17 +20566,14 @@ for.body.i.i.i.i.i.i.i18:                         ; preds = %if.then.i.i11, %for
 
 if.end.loopexit.i.i27:                            ; preds = %for.body.i.i.i.i.i.i.i18
   %.pre.i.i28 = load ptr, ptr %_M_finish.i.i.i, align 8
-  br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
-
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29: ; preds = %if.else, %if.then.i.i11, %if.end.loopexit.i.i27
-  %16 = phi ptr [ %.pre.i.i28, %if.end.loopexit.i.i27 ], [ %6, %if.then.i.i11 ], [ %6, %if.else ]
-  %incdec.ptr.i.i17 = getelementptr inbounds i8, ptr %16, i64 -32
-  store ptr %incdec.ptr.i.i17, ptr %_M_finish.i.i.i, align 8
   br label %nrvo.skipdtor
 
-nrvo.skipdtor:                                    ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29
-  %incdec.ptr.i.i.sink = phi ptr [ %incdec.ptr.i.i, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ %incdec.ptr.i.i17, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit29 ]
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i.sink) #22
+nrvo.skipdtor:                                    ; preds = %if.end.loopexit.i.i27, %if.then.i.i11, %if.else, %if.end.loopexit.i.i, %if.then.i.i, %if.end
+  %.sink = phi ptr [ %.pre.i.i, %if.end.loopexit.i.i ], [ %14, %if.then.i.i ], [ %14, %if.end ], [ %.pre.i.i28, %if.end.loopexit.i.i27 ], [ %6, %if.then.i.i11 ], [ %6, %if.else ]
+  %_M_finish.i.i.i3.sink = phi ptr [ %_M_finish.i.i.i3, %if.end.loopexit.i.i ], [ %_M_finish.i.i.i3, %if.then.i.i ], [ %_M_finish.i.i.i3, %if.end ], [ %_M_finish.i.i.i, %if.end.loopexit.i.i27 ], [ %_M_finish.i.i.i, %if.then.i.i11 ], [ %_M_finish.i.i.i, %if.else ]
+  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 -32
+  store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i.i3.sink, align 8
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %incdec.ptr.i.i) #22
   ret void
 }
 

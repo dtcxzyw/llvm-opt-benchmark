@@ -56,7 +56,7 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %.1146..1144182, ptr %7, align 8
   store double %.1144..1146183, ptr %6, align 8
   store double 1.000000e+00, ptr %5, align 8
-  br label %109
+  br label %.thread172
 
 32:                                               ; preds = %23, %21
   %.1139.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
@@ -125,8 +125,8 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %80 = insertelement <2 x double> poison, double %41, i64 0
   %81 = shufflevector <2 x double> %80, <2 x double> poison, <2 x i32> zeroinitializer
   %82 = fdiv <2 x double> %81, %79
-  %shift190 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %83 = fadd <2 x double> %82, %shift190
+  %shift197 = shufflevector <2 x double> %82, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %83 = fadd <2 x double> %82, %shift197
   %84 = extractelement <2 x double> %83, i64 0
   %85 = fadd double %52, 1.000000e+00
   %86 = fmul double %84, %85
@@ -164,75 +164,60 @@ define void @dlasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store double %.1146..1144, ptr %7, align 8
   store double %.1144..1146, ptr %6, align 8
   store double %.1148..1142, ptr %5, align 8
-  switch i32 %.2140, label %116 [
+  switch i32 %.2140, label %103 [
     i32 1, label %.thread169
-    i32 2, label %109
+    i32 2, label %.thread172
   ]
 
 .thread169:                                       ; preds = %101
   %102 = load double, ptr %6, align 8
-  %103 = fcmp ogt double %102, 0.000000e+00
-  %104 = load double, ptr %8, align 8
-  %105 = fcmp ogt double %104, 0.000000e+00
-  %106 = select i1 %105, double 1.000000e+00, double -1.000000e+00
-  %107 = fneg double %106
-  %108 = select i1 %103, double %106, double %107
   br label %.thread172
 
-109:                                              ; preds = %.thread, %101
-  %.1148..1142185 = phi double [ 1.000000e+00, %.thread ], [ %.1148..1142, %101 ]
-  %110 = fcmp ogt double %.1148..1142185, 0.000000e+00
-  %111 = load double, ptr %8, align 8
-  %112 = fcmp ogt double %111, 0.000000e+00
-  %113 = select i1 %112, double 1.000000e+00, double -1.000000e+00
-  %114 = fneg double %113
-  %115 = select i1 %110, double %113, double %114
+103:                                              ; preds = %101
   br label %.thread172
 
-116:                                              ; preds = %101
-  %117 = fcmp ogt double %.1148..1142, 0.000000e+00
-  %118 = load double, ptr %7, align 8
-  %119 = fcmp ogt double %118, 0.000000e+00
-  %120 = select i1 %119, double 1.000000e+00, double -1.000000e+00
-  %121 = fneg double %120
-  %122 = select i1 %117, double %120, double %121
-  br label %.thread172
+.thread172:                                       ; preds = %101, %.thread, %.thread169, %103
+  %.1148..1142185.sink = phi double [ %102, %.thread169 ], [ %.1148..1142, %103 ], [ 1.000000e+00, %.thread ], [ %.1148..1142, %101 ]
+  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %103 ], [ %8, %.thread ], [ %8, %101 ]
+  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %103 ], [ %1, %.thread ], [ %1, %101 ]
+  %104 = fcmp ogt double %.1148..1142185.sink, 0.000000e+00
+  %105 = load double, ptr %.sink196, align 8
+  %106 = fcmp ogt double %105, 0.000000e+00
+  %107 = select i1 %106, double 1.000000e+00, double -1.000000e+00
+  %108 = fneg double %107
+  %109 = select i1 %104, double %107, double %108
+  %110 = load double, ptr %.sink, align 8
+  %111 = fcmp ogt double %110, 0.000000e+00
+  %112 = fneg double %109
+  %113 = select i1 %111, double %109, double %112
+  %114 = fcmp olt double %113, 0.000000e+00
+  br i1 %114, label %115, label %118
 
-.thread172:                                       ; preds = %109, %.thread169, %116
-  %.sink = phi ptr [ %1, %109 ], [ %0, %.thread169 ], [ %2, %116 ]
-  %.sink188 = phi double [ %115, %109 ], [ %108, %.thread169 ], [ %122, %116 ]
-  %123 = load double, ptr %.sink, align 8
+115:                                              ; preds = %.thread172
+  %116 = load double, ptr %4, align 8
+  %117 = fneg double %116
+  store double %117, ptr %4, align 8
+  br label %118
+
+118:                                              ; preds = %115, %.thread172
+  %119 = load double, ptr %0, align 8
+  %120 = fcmp ogt double %119, 0.000000e+00
+  %121 = fneg double %113
+  %122 = select i1 %120, double %113, double %121
+  %123 = load double, ptr %2, align 8
   %124 = fcmp ogt double %123, 0.000000e+00
-  %125 = fneg double %.sink188
-  %126 = select i1 %124, double %.sink188, double %125
+  %125 = fneg double %122
+  %126 = select i1 %124, double %122, double %125
   %127 = fcmp olt double %126, 0.000000e+00
   br i1 %127, label %128, label %131
 
-128:                                              ; preds = %.thread172
-  %129 = load double, ptr %4, align 8
+128:                                              ; preds = %118
+  %129 = load double, ptr %3, align 8
   %130 = fneg double %129
-  store double %130, ptr %4, align 8
+  store double %130, ptr %3, align 8
   br label %131
 
-131:                                              ; preds = %128, %.thread172
-  %132 = load double, ptr %0, align 8
-  %133 = fcmp ogt double %132, 0.000000e+00
-  %134 = fneg double %126
-  %135 = select i1 %133, double %126, double %134
-  %136 = load double, ptr %2, align 8
-  %137 = fcmp ogt double %136, 0.000000e+00
-  %138 = fneg double %135
-  %139 = select i1 %137, double %135, double %138
-  %140 = fcmp olt double %139, 0.000000e+00
-  br i1 %140, label %141, label %144
-
-141:                                              ; preds = %131
-  %142 = load double, ptr %3, align 8
-  %143 = fneg double %142
-  store double %143, ptr %3, align 8
-  br label %144
-
-144:                                              ; preds = %141, %131
+131:                                              ; preds = %128, %118
   ret void
 }
 

@@ -1196,10 +1196,10 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %268
 
 268:                                              ; preds = %266, %264
-  %.sink473 = phi i64 [ 496, %266 ], [ 504, %264 ]
-  %.sink471 = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
-  %269 = getelementptr inbounds i8, ptr %75, i64 %.sink473
-  store double %.sink471, ptr %269, align 8
+  %.sink472 = phi i64 [ 496, %266 ], [ 504, %264 ]
+  %.sink = phi double [ 1.000000e+00, %266 ], [ %265, %264 ]
+  %269 = getelementptr inbounds i8, ptr %75, i64 %.sink472
+  store double %.sink, ptr %269, align 8
   %270 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.41)
   %.sroa.015.0..sroa.015.0..cast = inttoptr i64 %270 to ptr
   %.not388 = icmp eq i64 %270, 0
@@ -1293,9 +1293,9 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %309
 
 309:                                              ; preds = %303, %301
-  %.sink474 = phi double [ %308, %303 ], [ %302, %301 ]
+  %.sink473 = phi double [ %308, %303 ], [ %302, %301 ]
   %310 = getelementptr inbounds i8, ptr %75, i64 520
-  store double %.sink474, ptr %310, align 8
+  store double %.sink473, ptr %310, align 8
   %311 = call ptr @proj_list_prime_meridians()
   %312 = call i64 @_Z8pj_paramP6pj_ctxP8ARG_listPKc(ptr noundef %.0337, ptr noundef %38, ptr noundef nonnull @.str.46)
   %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %312 to ptr
@@ -1355,9 +1355,9 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   br label %335
 
 335:                                              ; preds = %309, %.thread414
-  %.sink476 = phi double [ %334, %.thread414 ], [ 0.000000e+00, %309 ]
+  %.sink475 = phi double [ %334, %.thread414 ], [ 0.000000e+00, %309 ]
   %336 = getelementptr inbounds i8, ptr %75, i64 616
-  store double %.sink476, ptr %336, align 8
+  store double %.sink475, ptr %336, align 8
   %337 = call noalias dereferenceable_or_null(408) ptr @calloc(i64 noundef 1, i64 noundef 408) #15
   %338 = getelementptr inbounds i8, ptr %75, i64 80
   store ptr %337, ptr %338, align 8

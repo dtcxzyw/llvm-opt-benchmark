@@ -1025,8 +1025,8 @@ zend_ssa_check_scc_var.exit:                      ; preds = %.loopexit71.i, %340
   br i1 %.not313, label %546, label %.sink.split
 
 .sink.split:                                      ; preds = %535, %479
-  %.sink446 = phi ptr [ %482, %479 ], [ %538, %535 ]
-  %543 = getelementptr inbounds i8, ptr %.sink446, i64 40
+  %.sink444 = phi ptr [ %482, %479 ], [ %538, %535 ]
+  %543 = getelementptr inbounds i8, ptr %.sink444, i64 40
   %544 = load i8, ptr %543, align 8
   %545 = or i8 %544, 2
   store i8 %545, ptr %543, align 8
@@ -1049,8 +1049,8 @@ zend_ssa_check_scc_var.exit:                      ; preds = %.loopexit71.i, %340
   br label %557
 
 557:                                              ; preds = %552, %546
-  %.sink444 = phi i64 [ 24, %546 ], [ %., %552 ]
-  %558 = getelementptr inbounds i8, ptr %548, i64 %.sink444
+  %.sink = phi i64 [ 24, %546 ], [ %., %552 ]
+  %558 = getelementptr inbounds i8, ptr %548, i64 %.sink
   %.0 = load i32, ptr %558, align 4
   %559 = icmp sgt i32 %.0, -1
   br i1 %559, label %.lr.ph362, label %._crit_edge363.loopexit
@@ -27875,8 +27875,8 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   br label %469
 
 469:                                              ; preds = %465, %461
-  %.sink1219 = phi i64 [ 24, %461 ], [ %., %465 ]
-  %470 = getelementptr inbounds i8, ptr %462, i64 %.sink1219
+  %.sink1222 = phi i64 [ 24, %461 ], [ %., %465 ]
+  %470 = getelementptr inbounds i8, ptr %462, i64 %.sink1222
   %.0923 = load i32, ptr %470, align 4
   %471 = icmp sgt i32 %.0923, -1
   br i1 %471, label %239, label %._crit_edge
@@ -27964,8 +27964,8 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   br label %.loopexit1073
 
 .loopexit1073:                                    ; preds = %516, %508
-  %.sink1220 = phi ptr [ %519, %516 ], [ %510, %508 ]
-  %520 = load ptr, ptr %.sink1220, align 8
+  %.sink1223 = phi ptr [ %519, %516 ], [ %510, %508 ]
+  %520 = load ptr, ptr %.sink1223, align 8
   %.not1044 = icmp eq ptr %520, null
   br i1 %.not1044, label %.loopexit1078, label %.lr.ph1101
 
@@ -28229,7 +28229,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   %688 = load i32, ptr %687, align 8
   %689 = and i32 %688, 1024
   %.not1040 = icmp eq i32 %689, 0
-  br i1 %.not1040, label %.sink.split1221, label %770
+  br i1 %.not1040, label %.sink.split1224, label %770
 
 690:                                              ; preds = %621
   %691 = add nuw i32 %.09211107, 1
@@ -28332,14 +28332,14 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   %760 = load i32, ptr %759, align 8
   %761 = and i32 %760, 1024
   %.not1037 = icmp eq i32 %761, 0
-  br i1 %.not1037, label %.sink.split1221, label %770
+  br i1 %.not1037, label %.sink.split1224, label %770
 
-.sink.split1221:                                  ; preds = %757, %685
-  %.sink1267 = phi i32 [ %677, %685 ], [ %749, %757 ]
-  %762 = and i32 %.sink1267, 63
+.sink.split1224:                                  ; preds = %757, %685
+  %.sink1235 = phi i32 [ %677, %685 ], [ %749, %757 ]
+  %762 = and i32 %.sink1235, 63
   %763 = zext nneg i32 %762 to i64
   %764 = shl nuw i64 1, %763
-  %765 = lshr i32 %.sink1267, 6
+  %765 = lshr i32 %.sink1235, 6
   %766 = zext nneg i32 %765 to i64
   %767 = getelementptr inbounds i64, ptr %31, i64 %766
   %768 = load i64, ptr %767, align 8
@@ -28347,7 +28347,7 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   store i64 %769, ptr %767, align 8
   br label %770
 
-770:                                              ; preds = %.sink.split1221, %685, %679, %675, %747, %751, %757, %694, %690
+770:                                              ; preds = %.sink.split1224, %685, %679, %675, %747, %751, %757, %694, %690
   %771 = getelementptr inbounds %struct._zend_ssa_op, ptr %546, i64 %549
   %772 = load i32, ptr %771, align 4
   %773 = icmp eq i32 %772, %.49391118
@@ -28357,12 +28357,12 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   %775 = getelementptr inbounds i8, ptr %771, i64 4
   %776 = load i32, ptr %775, align 4
   %777 = icmp eq i32 %776, %.49391118
-  %.1268 = select i1 %777, i64 28, i64 32
+  %.1281 = select i1 %777, i64 28, i64 32
   br label %778
 
 778:                                              ; preds = %774, %770
-  %.sink1227 = phi i64 [ 24, %770 ], [ %.1268, %774 ]
-  %779 = getelementptr inbounds i8, ptr %771, i64 %.sink1227
+  %.sink1236 = phi i64 [ 24, %770 ], [ %.1281, %774 ]
+  %779 = getelementptr inbounds i8, ptr %771, i64 %.sink1236
   %.0921 = load i32, ptr %779, align 4
   %780 = icmp sgt i32 %.0921, -1
   br i1 %780, label %548, label %._crit_edge1110
@@ -28450,8 +28450,8 @@ zend_ssa_range_widening.exit.thread:              ; preds = %226, %163
   br label %.loopexit1077
 
 .loopexit1077:                                    ; preds = %825, %817
-  %.sink1228 = phi ptr [ %828, %825 ], [ %819, %817 ]
-  %829 = load ptr, ptr %.sink1228, align 8
+  %.sink1237 = phi ptr [ %828, %825 ], [ %819, %817 ]
+  %829 = load ptr, ptr %.sink1237, align 8
   %.not1030 = icmp eq ptr %829, null
   br i1 %.not1030, label %.loopexit1081, label %.lr.ph1116
 
@@ -28823,7 +28823,7 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
   %1060 = load i32, ptr %1059, align 8
   %1061 = and i32 %1060, 1024
   %.not1028 = icmp eq i32 %1061, 0
-  br i1 %.not1028, label %.sink.split1229, label %1142
+  br i1 %.not1028, label %.sink.split1238, label %1142
 
 1062:                                             ; preds = %993
   %1063 = add nuw i32 %.09101121, 1
@@ -28926,14 +28926,14 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
   %1132 = load i32, ptr %1131, align 8
   %1133 = and i32 %1132, 1024
   %.not1025 = icmp eq i32 %1133, 0
-  br i1 %.not1025, label %.sink.split1229, label %1142
+  br i1 %.not1025, label %.sink.split1238, label %1142
 
-.sink.split1229:                                  ; preds = %1129, %1057
-  %.sink1274 = phi i32 [ %1049, %1057 ], [ %1121, %1129 ]
-  %1134 = and i32 %.sink1274, 63
+.sink.split1238:                                  ; preds = %1129, %1057
+  %.sink1249 = phi i32 [ %1049, %1057 ], [ %1121, %1129 ]
+  %1134 = and i32 %.sink1249, 63
   %1135 = zext nneg i32 %1134 to i64
   %1136 = shl nuw i64 1, %1135
-  %1137 = lshr i32 %.sink1274, 6
+  %1137 = lshr i32 %.sink1249, 6
   %1138 = zext nneg i32 %1137 to i64
   %1139 = getelementptr inbounds i64, ptr %31, i64 %1138
   %1140 = load i64, ptr %1139, align 8
@@ -28941,7 +28941,7 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
   store i64 %1141, ptr %1139, align 8
   br label %1142
 
-1142:                                             ; preds = %.sink.split1229, %1057, %1051, %1047, %1119, %1123, %1129, %1066, %1062
+1142:                                             ; preds = %.sink.split1238, %1057, %1051, %1047, %1119, %1123, %1129, %1066, %1062
   %1143 = getelementptr inbounds %struct._zend_ssa_op, ptr %918, i64 %921
   %1144 = load i32, ptr %1143, align 4
   %1145 = icmp eq i32 %1144, %845
@@ -28951,12 +28951,12 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
   %1147 = getelementptr inbounds i8, ptr %1143, i64 4
   %1148 = load i32, ptr %1147, align 4
   %1149 = icmp eq i32 %1148, %845
-  %.1275 = select i1 %1149, i64 28, i64 32
+  %.1282 = select i1 %1149, i64 28, i64 32
   br label %1150
 
 1150:                                             ; preds = %1146, %1142
-  %.sink1235 = phi i64 [ 24, %1142 ], [ %.1275, %1146 ]
-  %1151 = getelementptr inbounds i8, ptr %1143, i64 %.sink1235
+  %.sink1250 = phi i64 [ 24, %1142 ], [ %.1282, %1146 ]
+  %1151 = getelementptr inbounds i8, ptr %1143, i64 %.sink1250
   %.0910 = load i32, ptr %1151, align 4
   %1152 = icmp sgt i32 %.0910, -1
   br i1 %1152, label %920, label %._crit_edge1124
@@ -29044,8 +29044,8 @@ zend_ssa_range_widening.exit1058.thread:          ; preds = %907, %844
   br label %.loopexit1071
 
 .loopexit1071:                                    ; preds = %1197, %1189
-  %.sink1236 = phi ptr [ %1200, %1197 ], [ %1191, %1189 ]
-  %1201 = load ptr, ptr %.sink1236, align 8
+  %.sink1251 = phi ptr [ %1200, %1197 ], [ %1191, %1189 ]
+  %1201 = load ptr, ptr %.sink1251, align 8
   %.not1018 = icmp eq ptr %1201, null
   br i1 %.not1018, label %.loopexit1075, label %.lr.ph1130
 
@@ -29586,7 +29586,7 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   %1520 = load i32, ptr %1519, align 8
   %1521 = and i32 %1520, 1024
   %.not1012 = icmp eq i32 %1521, 0
-  br i1 %.not1012, label %.sink.split1237, label %1602
+  br i1 %.not1012, label %.sink.split1252, label %1602
 
 1522:                                             ; preds = %1453
   %1523 = add nuw i32 %.01140, 1
@@ -29689,14 +29689,14 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   %1592 = load i32, ptr %1591, align 8
   %1593 = and i32 %1592, 1024
   %.not1009 = icmp eq i32 %1593, 0
-  br i1 %.not1009, label %.sink.split1237, label %1602
+  br i1 %.not1009, label %.sink.split1252, label %1602
 
-.sink.split1237:                                  ; preds = %1589, %1517
-  %.sink1281 = phi i32 [ %1509, %1517 ], [ %1581, %1589 ]
-  %1594 = and i32 %.sink1281, 63
+.sink.split1252:                                  ; preds = %1589, %1517
+  %.sink1263 = phi i32 [ %1509, %1517 ], [ %1581, %1589 ]
+  %1594 = and i32 %.sink1263, 63
   %1595 = zext nneg i32 %1594 to i64
   %1596 = shl nuw i64 1, %1595
-  %1597 = lshr i32 %.sink1281, 6
+  %1597 = lshr i32 %.sink1263, 6
   %1598 = zext nneg i32 %1597 to i64
   %1599 = getelementptr inbounds i64, ptr %31, i64 %1598
   %1600 = load i64, ptr %1599, align 8
@@ -29704,7 +29704,7 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   store i64 %1601, ptr %1599, align 8
   br label %1602
 
-1602:                                             ; preds = %.sink.split1237, %1517, %1511, %1507, %1579, %1583, %1589, %1526, %1522
+1602:                                             ; preds = %.sink.split1252, %1517, %1511, %1507, %1579, %1583, %1589, %1526, %1522
   %1603 = getelementptr inbounds %struct._zend_ssa_op, ptr %1378, i64 %1381
   %1604 = load i32, ptr %1603, align 4
   %1605 = icmp eq i32 %1604, %1303
@@ -29714,12 +29714,12 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   %1607 = getelementptr inbounds i8, ptr %1603, i64 4
   %1608 = load i32, ptr %1607, align 4
   %1609 = icmp eq i32 %1608, %1303
-  %.1282 = select i1 %1609, i64 28, i64 32
+  %.1283 = select i1 %1609, i64 28, i64 32
   br label %1610
 
 1610:                                             ; preds = %1606, %1602
-  %.sink1243 = phi i64 [ 24, %1602 ], [ %.1282, %1606 ]
-  %1611 = getelementptr inbounds i8, ptr %1603, i64 %.sink1243
+  %.sink1264 = phi i64 [ 24, %1602 ], [ %.1283, %1606 ]
+  %1611 = getelementptr inbounds i8, ptr %1603, i64 %.sink1264
   %.0 = load i32, ptr %1611, align 4
   %1612 = icmp sgt i32 %.0, -1
   br i1 %1612, label %1380, label %._crit_edge1143
@@ -29807,8 +29807,8 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   br label %.loopexit
 
 .loopexit:                                        ; preds = %1657, %1649
-  %.sink1244 = phi ptr [ %1660, %1657 ], [ %1651, %1649 ]
-  %1661 = load ptr, ptr %.sink1244, align 8
+  %.sink1265 = phi ptr [ %1660, %1657 ], [ %1651, %1649 ]
+  %1661 = load ptr, ptr %.sink1265, align 8
   %.not1000 = icmp eq ptr %1661, null
   br i1 %.not1000, label %._crit_edge1150, label %.lr.ph1149
 
@@ -29873,10 +29873,10 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   br label %.critedge1069
 
 .loopexit1083.sink.split:                         ; preds = %93, %95
-  %.sink1252 = phi i8 [ %103, %95 ], [ 1, %93 ]
+  %.sink1273 = phi i8 [ %103, %95 ], [ 1, %93 ]
   %spec.select.i.sink = phi i64 [ %spec.select.i, %95 ], [ -9223372036854775808, %93 ]
   %.015.i.sink = phi i64 [ %.015.i, %95 ], [ 9223372036854775807, %93 ]
-  %.sink1245 = phi i8 [ %102, %95 ], [ 1, %93 ]
+  %.sink1266 = phi i8 [ %102, %95 ], [ 1, %93 ]
   %1688 = load ptr, ptr %47, align 8
   %1689 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %1688, i64 %84, i32 1
   %1690 = load i8, ptr %1689, align 4
@@ -29884,7 +29884,7 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   store i8 %1691, ptr %1689, align 4
   %1692 = load ptr, ptr %47, align 8
   %1693 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %1692, i64 %84, i32 2, i32 2
-  store i8 %.sink1252, ptr %1693, align 8
+  store i8 %.sink1273, ptr %1693, align 8
   %1694 = load ptr, ptr %47, align 8
   %1695 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %1694, i64 %84, i32 2
   store i64 %spec.select.i.sink, ptr %1695, align 8
@@ -29893,7 +29893,7 @@ zend_ssa_range_narrowing.exit1062.thread:         ; preds = %1367, %1302
   store i64 %.015.i.sink, ptr %1697, align 8
   %1698 = load ptr, ptr %47, align 8
   %1699 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %1698, i64 %84, i32 2, i32 3
-  store i8 %.sink1245, ptr %1699, align 1
+  store i8 %.sink1266, ptr %1699, align 1
   br label %.loopexit1083
 
 .loopexit1083:                                    ; preds = %1291, %.loopexit1083.sink.split, %88
@@ -33189,8 +33189,8 @@ define internal fastcc void @add_usages(ptr nocapture noundef readonly %0, ptr n
   br label %187
 
 187:                                              ; preds = %183, %178
-  %.sink108 = phi i64 [ 24, %178 ], [ %., %183 ]
-  %188 = getelementptr inbounds i8, ptr %180, i64 %.sink108
+  %.sink111 = phi i64 [ 24, %178 ], [ %., %183 ]
+  %188 = getelementptr inbounds i8, ptr %180, i64 %.sink111
   %.079 = load i32, ptr %188, align 4
   %189 = icmp sgt i32 %.079, -1
   br i1 %189, label %54, label %.loopexit
@@ -35392,8 +35392,8 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   br label %435
 
 435:                                              ; preds = %431, %427
-  %.sink344 = phi i64 [ 24, %427 ], [ %., %431 ]
-  %436 = getelementptr inbounds i8, ptr %428, i64 %.sink344
+  %.sink347 = phi i64 [ 24, %427 ], [ %., %431 ]
+  %436 = getelementptr inbounds i8, ptr %428, i64 %.sink347
   %.0 = load i32, ptr %436, align 4
   %437 = icmp sgt i32 %.0, -1
   br i1 %437, label %151, label %._crit_edge
@@ -35491,8 +35491,8 @@ define internal fastcc void @zend_infer_ranges_warmup(ptr noundef %0, ptr nounde
   br label %.loopexit
 
 .loopexit:                                        ; preds = %489, %481
-  %.sink345 = phi ptr [ %492, %489 ], [ %483, %481 ]
-  %493 = load ptr, ptr %.sink345, align 8
+  %.sink348 = phi ptr [ %492, %489 ], [ %483, %481 ]
+  %493 = load ptr, ptr %.sink348, align 8
   %.not291 = icmp eq ptr %493, null
   br i1 %.not291, label %zend_inference_narrowing_meet.exit, label %.lr.ph326
 
@@ -44832,18 +44832,18 @@ zend_fetch_prop_type.exit10375:                   ; preds = %2791, %2792
   br i1 %.not9040, label %thread-pre-split10557, label %thread-pre-split10557.sink.split
 
 thread-pre-split10557.sink.split:                 ; preds = %5007, %5012, %4944, %4949
-  %.sink11710 = phi i64 [ %4945, %4949 ], [ %4945, %4944 ], [ %5008, %5012 ], [ %5008, %5007 ]
+  %.sink11704 = phi i64 [ %4945, %4949 ], [ %4945, %4944 ], [ %5008, %5012 ], [ %5008, %5007 ]
   %.sink = phi ptr [ %4939, %4949 ], [ %4939, %4944 ], [ null, %5012 ], [ null, %5007 ]
-  %.sink11708 = phi ptr [ %4941, %4949 ], [ %4941, %4944 ], [ %5004, %5012 ], [ %5004, %5007 ]
-  %5016 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %371, i64 %.sink11710, i32 3
+  %.sink11702 = phi ptr [ %4941, %4949 ], [ %4941, %4944 ], [ %5004, %5012 ], [ %5004, %5007 ]
+  %5016 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %371, i64 %.sink11704, i32 3
   store ptr %.sink, ptr %5016, align 8
-  %5017 = load i32, ptr %.sink11708, align 4
+  %5017 = load i32, ptr %.sink11702, align 4
   %5018 = sext i32 %5017 to i64
   %5019 = getelementptr inbounds %struct._zend_ssa_var_info, ptr %371, i64 %5018, i32 1
   %5020 = load i8, ptr %5019, align 4
   %5021 = and i8 %5020, -3
   store i8 %5021, ptr %5019, align 4
-  %5022 = load i32, ptr %.sink11708, align 4
+  %5022 = load i32, ptr %.sink11702, align 4
   call fastcc void @add_usages(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5022)
   br label %thread-pre-split10557
 
@@ -45890,7 +45890,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %5601 = and i8 %5599, -3
   %5602 = or disjoint i8 %5601, %5600
   store i8 %5602, ptr %5598, align 4
-  br label %.sink.split11701
+  br label %.sink.split11705
 
 5603:                                             ; preds = %5573, %5570, %5565, %5562
   %5604 = load i32, ptr %5519, align 4
@@ -45921,14 +45921,14 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %5620 = load i8, ptr %5619, align 4
   %5621 = and i8 %5620, -3
   store i8 %5621, ptr %5619, align 4
-  br label %.sink.split11701
+  br label %.sink.split11705
 
-.sink.split11701:                                 ; preds = %5615, %5594
+.sink.split11705:                                 ; preds = %5615, %5594
   %5622 = load i32, ptr %5519, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %5622)
   br label %5623
 
-5623:                                             ; preds = %.sink.split11701, %5590, %5579, %5611, %5603, %5518
+5623:                                             ; preds = %.sink.split11705, %5590, %5579, %5611, %5603, %5518
   %5624 = getelementptr inbounds i8, ptr %.07655, i64 20
   %5625 = load i32, ptr %5624, align 4
   %5626 = icmp sgt i32 %5625, -1
@@ -46859,7 +46859,7 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %6092 = and i8 %6090, -3
   %6093 = or disjoint i8 %6092, %6091
   store i8 %6093, ptr %6089, align 4
-  br label %.sink.split11703
+  br label %.sink.split11707
 
 6094:                                             ; preds = %6064, %6061, %6056, %6053
   %6095 = load i32, ptr %5892, align 4
@@ -46890,14 +46890,14 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   %6111 = load i8, ptr %6110, align 4
   %6112 = and i8 %6111, -3
   store i8 %6112, ptr %6110, align 4
-  br label %.sink.split11703
+  br label %.sink.split11707
 
-.sink.split11703:                                 ; preds = %6106, %6085
+.sink.split11707:                                 ; preds = %6106, %6085
   %6113 = load i32, ptr %5892, align 4
   call fastcc void @add_usages(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull %3, i32 noundef %6113)
   br label %6114
 
-6114:                                             ; preds = %.sink.split11703, %6081, %6070, %6102, %6094, %5891
+6114:                                             ; preds = %.sink.split11707, %6081, %6070, %6102, %6094, %5891
   %6115 = load i8, ptr %634, align 4
   %6116 = icmp ne i8 %6115, 98
   %6117 = and i32 %.0760810479, -67
@@ -46910,13 +46910,13 @@ thread-pre-split10557:                            ; preds = %thread-pre-split105
   ]
 
 6121:                                             ; preds = %6114
-  %spec.select11706 = select i1 %6116, i32 -486539266, i32 -520094722
+  %spec.select11710 = select i1 %6116, i32 -486539266, i32 -520094722
   br label %.thread11347
 
 .thread11347:                                     ; preds = %6114, %6114, %6121
   %.not.i1041911349.in.in = phi i32 [ %6119, %6121 ], [ %.0760810479, %6114 ], [ %.0760810479, %6114 ]
   %6122 = phi i1 [ %6116, %6121 ], [ false, %6114 ], [ false, %6114 ]
-  %6123 = phi i32 [ %spec.select11706, %6121 ], [ -520094722, %6114 ], [ -520094722, %6114 ]
+  %6123 = phi i32 [ %spec.select11710, %6121 ], [ -520094722, %6114 ], [ -520094722, %6114 ]
   %.not.i1041911349.in = and i32 %.not.i1041911349.in.in, 256
   %.not.i1041911349 = icmp eq i32 %.not.i1041911349.in, 0
   %.1.i10420 = select i1 %.not.i1041911349, i32 0, i32 %6123

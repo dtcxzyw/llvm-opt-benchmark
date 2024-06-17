@@ -260,12 +260,12 @@ if.then29.i.i.i:                                  ; preds = %for.end.i.i.i
   br label %if.end37.sink.split.i.i.i
 
 if.end37.sink.split.i.i.i:                        ; preds = %if.then29.i.i.i, %if.then5.i.i.i, %if.then.i.i.i
-  %div18.sink.i.i.i = phi i64 [ %div3420.i.i.i, %if.then29.i.i.i ], [ %div18.i.i.i, %if.then5.i.i.i ], [ %div18.i.i.i, %if.then.i.i.i ]
+  %div3420.sink.i.i.i = phi i64 [ %div3420.i.i.i, %if.then29.i.i.i ], [ %div18.i.i.i, %if.then5.i.i.i ], [ %div18.i.i.i, %if.then.i.i.i ]
   %sub32.sink.i.i.i = phi i64 [ %sub32.i.i.i, %if.then29.i.i.i ], [ %and.i.i.i, %if.then5.i.i.i ], [ %shl.i.i.i, %if.then.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 %div18.sink.i.i.i
-  %14 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %arrayidx.i.i26.i.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 %div3420.sink.i.i.i
+  %14 = load i64, ptr %arrayidx.i.i26.i.i.i, align 8
   %or36.i.i.i = or i64 %14, %sub32.sink.i.i.i
-  store i64 %or36.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
+  store i64 %or36.i.i.i, ptr %arrayidx.i.i26.i.i.i, align 8
   br label %_ZN3ue29CharReachC2Ehh.exit
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %for.end.i.i.i, %if.end37.sink.split.i.i.i
@@ -617,10 +617,10 @@ if.then5.i.i.i:                                   ; preds = %if.then.i.i.i
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %if.then.i.i.i, %if.then5.i.i.i
   %sub32.sink.i.i.i = phi i64 [ %and.i.i.i, %if.then5.i.i.i ], [ -9223372036854775808, %if.then.i.i.i ]
-  %arrayidx.i.i.i.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 %div18.i.i.i
-  %4 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %arrayidx.i.i26.i.i.i = getelementptr inbounds [4 x i64], ptr %ncr, i64 0, i64 %div18.i.i.i
+  %4 = load i64, ptr %arrayidx.i.i26.i.i.i, align 8
   %or36.i.i.i = or i64 %4, %sub32.sink.i.i.i
-  store i64 %or36.i.i.i, ptr %arrayidx.i.i.i.i.i, align 8
+  store i64 %or36.i.i.i, ptr %arrayidx.i.i26.i.i.i, align 8
   %mode = getelementptr inbounds i8, ptr %this, i64 17
   %5 = load i8, ptr %mode, align 1
   %tobool8 = trunc i8 %5 to i1

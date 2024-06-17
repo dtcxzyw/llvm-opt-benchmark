@@ -1002,55 +1002,55 @@ Gia_ManAppendAnd2.exit:                           ; preds = %37, %34, %32, %30, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %113, %208, %110
-  %.sink = phi ptr [ %212, %208 ], [ %112, %110 ], [ %116, %113 ]
-  %.val68.sink = phi ptr [ %.val.i114, %208 ], [ %.val68, %110 ], [ %.val68, %113 ]
-  %.sink152 = phi i32 [ 1, %208 ], [ 1, %110 ], [ 2, %113 ]
-  %.val6.i75 = load ptr, ptr %11, align 8
-  %213 = ptrtoint ptr %.sink to i64
+  %.sink178 = phi ptr [ %112, %110 ], [ %212, %208 ], [ %116, %113 ]
+  %.val68.sink = phi ptr [ %.val68, %110 ], [ %.val.i114, %208 ], [ %.val68, %113 ]
+  %.sink152 = phi i32 [ 1, %110 ], [ 1, %208 ], [ 2, %113 ]
+  %.val6.i = load ptr, ptr %11, align 8
+  %213 = ptrtoint ptr %.sink178 to i64
   %214 = ptrtoint ptr %.val68.sink to i64
   %215 = sub i64 %213, %214
   %216 = sdiv exact i64 %215, 12
   %217 = trunc i64 %216 to i32
   %218 = add nsw i32 %217, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i75, i32 noundef %218)
-  %219 = getelementptr i8, ptr %.val6.i75, i64 8
-  %.val.i.i.i.i76 = load ptr, ptr %219, align 8
-  %sext.i.i77 = shl i64 %216, 32
-  %220 = ashr exact i64 %sext.i.i77, 32
-  %221 = getelementptr inbounds i32, ptr %.val.i.i.i.i76, i64 %220
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val6.i, i32 noundef %218)
+  %219 = getelementptr i8, ptr %.val6.i, i64 8
+  %.val.i.i.i.i = load ptr, ptr %219, align 8
+  %sext.i.i = shl i64 %216, 32
+  %220 = ashr exact i64 %sext.i.i, 32
+  %221 = getelementptr inbounds i32, ptr %.val.i.i.i.i, i64 %220
   %222 = load i32, ptr %221, align 4
   %223 = load i64, ptr %105, align 4
   %224 = lshr i64 %223, 32
   %225 = and i64 %224, 536870911
   %226 = sub nsw i64 0, %225
   %227 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %105, i64 %226
-  %.val7.i78 = load ptr, ptr %9, align 8
-  %.val8.i79 = load ptr, ptr %11, align 8
+  %.val7.i = load ptr, ptr %9, align 8
+  %.val8.i = load ptr, ptr %11, align 8
   %228 = ptrtoint ptr %227 to i64
-  %229 = ptrtoint ptr %.val7.i78 to i64
+  %229 = ptrtoint ptr %.val7.i to i64
   %230 = sub i64 %228, %229
   %231 = sdiv exact i64 %230, 12
   %232 = trunc i64 %231 to i32
   %233 = add nsw i32 %232, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i79, i32 noundef %233)
-  %234 = getelementptr i8, ptr %.val8.i79, i64 8
-  %.val.i.i.i11.i80 = load ptr, ptr %234, align 8
-  %sext.i12.i81 = shl i64 %231, 32
-  %235 = ashr exact i64 %sext.i12.i81, 32
-  %236 = getelementptr inbounds i32, ptr %.val.i.i.i11.i80, i64 %235
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val8.i, i32 noundef %233)
+  %234 = getelementptr i8, ptr %.val8.i, i64 8
+  %.val.i.i.i11.i = load ptr, ptr %234, align 8
+  %sext.i12.i = shl i64 %231, 32
+  %235 = ashr exact i64 %sext.i12.i, 32
+  %236 = getelementptr inbounds i32, ptr %.val.i.i.i11.i, i64 %235
   %237 = load i32, ptr %236, align 4
   %238 = tail call noundef i32 @llvm.smax.i32(i32 %222, i32 %237)
   %239 = add nsw i32 %238, %.sink152
-  %.val9.i82 = load ptr, ptr %9, align 8
-  %.val10.i83 = load ptr, ptr %11, align 8
+  %.val9.i = load ptr, ptr %9, align 8
+  %.val10.i = load ptr, ptr %11, align 8
   %240 = ptrtoint ptr %105 to i64
-  %241 = ptrtoint ptr %.val9.i82 to i64
+  %241 = ptrtoint ptr %.val9.i to i64
   %242 = sub i64 %240, %241
   %243 = sdiv exact i64 %242, 12
   %244 = trunc i64 %243 to i32
   %245 = add nsw i32 %244, 1
-  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i83, i32 noundef %245)
-  %246 = getelementptr i8, ptr %.val10.i83, i64 8
+  tail call fastcc void @Vec_IntFillExtra(ptr noundef %.val10.i, i32 noundef %245)
+  %246 = getelementptr i8, ptr %.val10.i, i64 8
   %.val.i.i.i13.i = load ptr, ptr %246, align 8
   %sext.i14.i = shl i64 %243, 32
   %247 = ashr exact i64 %sext.i14.i, 32

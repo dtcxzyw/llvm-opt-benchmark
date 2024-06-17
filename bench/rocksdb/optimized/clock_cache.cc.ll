@@ -362,7 +362,7 @@ $_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19Auto
 
 $_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E10_M_managerERSt9_Any_dataRKSH_St18_Manager_operation = comdat any
 
-$_ZZNK7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS_6LoggerEEENKUlPKNS0_15ClockCacheShardIS2_EEE_clESC_ = comdat any
+$_ZSt13__invoke_implIvRZNK7rocksdb11clock_cache19BaseHyperClockCacheINS1_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlPKNS1_15ClockCacheShardIS3_EEE_JSD_EET_St14__invoke_otherOT0_DpOT1_ = comdat any
 
 $_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE10PercentStrB5cxx11Emm = comdat any
 
@@ -11611,32 +11611,28 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %7 = load i64, ptr %positive_count_.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %7, 1
   store i64 %inc.i.i.i.i, ptr %positive_count_.i.i.i.i, align 8
-  %cur_pos_run_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
-  %8 = load i64, ptr %cur_pos_run_.i.i.i.i, align 8
-  %inc3.i.i.i.i = add i64 %8, 1
-  store i64 %inc3.i.i.i.i, ptr %cur_pos_run_.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %not.i.i.i.i.i = xor i64 %shl.i.i.i.i.i.i, -1
-  %9 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %and.i.i.i.i.i = and i64 %9, %not.i.i.i.i.i
-  %cur_neg_run_7.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 56
-  %10 = load i64, ptr %cur_neg_run_7.i.i.i.i, align 8
-  %inc8.i.i.i.i = add i64 %10, 1
-  store i64 %inc8.i.i.i.i, ptr %cur_neg_run_7.i.i.i.i, align 8
+  %8 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %and.i.i.i.i.i = and i64 %8, %not.i.i.i.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %and.i.i.sink.i.i.i = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i ], [ %and.i.i.i.i.i, %if.else.i.i.i.i ]
+  %.sink24.i.i.i.i = phi i64 [ 40, %if.then.i.i.i.i ], [ 56, %if.else.i.i.i.i ]
   %.sink20.i.i.i.i = phi i64 [ 32, %if.then.i.i.i.i ], [ 48, %if.else.i.i.i.i ]
-  %inc8.sink.i.i.i.i = phi i64 [ %inc3.i.i.i.i, %if.then.i.i.i.i ], [ %inc8.i.i.i.i, %if.else.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ 56, %if.then.i.i.i.i ], [ 40, %if.else.i.i.i.i ]
   store i64 %and.i.i.sink.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cur_neg_run_7.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink24.i.i.i.i
+  %9 = load i64, ptr %cur_neg_run_7.i.i.i.i, align 8
+  %inc8.i.i.i.i = add i64 %9, 1
+  store i64 %inc8.i.i.i.i, ptr %cur_neg_run_7.i.i.i.i, align 8
   %max_neg_run_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink20.i.i.i.i
-  %11 = load i64, ptr %max_neg_run_.i.i.i.i, align 8
-  %12 = tail call i64 @llvm.umax.i64(i64 %11, i64 %inc8.sink.i.i.i.i)
-  store i64 %12, ptr %max_neg_run_.i.i.i.i, align 8
+  %10 = load i64, ptr %max_neg_run_.i.i.i.i, align 8
+  %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 %inc8.i.i.i.i)
+  store i64 %11, ptr %max_neg_run_.i.i.i.i, align 8
   %cur_pos_run_12.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink.i.i.i.i
   store i64 0, ptr %cur_pos_run_12.i.i.i.i, align 8
   %inc14.i.i.i.i = add i64 %5, 1
@@ -11648,20 +11644,20 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i, %fo
   %__i.05.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %__result.04.i.i.i.i.i.i = phi i64 [ %add.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i.i.i.i, i64 0, i64 %__i.05.i.i.i.i.i.i
-  %13 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
-  %add.i.i.i.i.i.i = add i64 %14, %__result.04.i.i.i.i.i.i
+  %12 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
+  %add.i.i.i.i.i.i = add i64 %13, %__result.04.i.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nuw nsw i64 %__i.05.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i, 8
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNKSt6bitsetILm500EE5countEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !131
 
 _ZNKSt6bitsetILm500EE5countEv.exit.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i
-  %15 = load i64, ptr %2, align 8
-  %.sroa.speculated12.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %15, i64 %add.i.i.i.i.i.i)
+  %14 = load i64, ptr %2, align 8
+  %.sroa.speculated12.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %add.i.i.i.i.i.i)
   store i64 %.sroa.speculated12.i.i.i.i, ptr %2, align 8
   %min_.i.i.i.i = getelementptr inbounds i8, ptr %2, i64 8
-  %16 = load i64, ptr %min_.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 %16)
+  %15 = load i64, ptr %min_.i.i.i.i, align 8
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i.i.i.i, i64 %15)
   store i64 %.sroa.speculated.i.i.i.i, ptr %min_.i.i.i.i, align 8
   br label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i
 
@@ -11673,12 +11669,12 @@ _ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i: ; preds = 
 
 _ZSt10__invoke_rIvRZNK7rocksdb11clock_cache19BaseHyperClockCacheINS1_20FixedHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlPKNS1_15ClockCacheShardIS3_EEE_JSD_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESH_E4typeEOSI_DpOSJ_.exit: ; preds = %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i
   %eviction_effort_exceeded_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 80
-  %17 = load atomic i64, ptr %eviction_effort_exceeded_count_.i.i.i.i monotonic, align 8
-  %18 = getelementptr inbounds i8, ptr %__functor, i64 8
-  %19 = load ptr, ptr %18, align 8
-  %20 = load i64, ptr %19, align 8
-  %add.i.i.i = add i64 %20, %17
-  store i64 %add.i.i.i, ptr %19, align 8
+  %16 = load atomic i64, ptr %eviction_effort_exceeded_count_.i.i.i.i monotonic, align 8
+  %17 = getelementptr inbounds i8, ptr %__functor, i64 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load i64, ptr %18, align 8
+  %add.i.i.i = add i64 %19, %16
+  store i64 %add.i.i.i, ptr %18, align 8
   ret void
 }
 
@@ -12362,8 +12358,7 @@ declare void @_ZN7rocksdb10MemMappingC2EOS0_(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt17_Function_handlerIFvPKN7rocksdb11clock_cache15ClockCacheShardINS1_19AutoHyperClockTableEEEEZNKS1_19BaseHyperClockCacheIS3_E14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlS6_E_E9_M_invokeERKSt9_Any_dataOS6_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args) #0 comdat align 2 {
 entry:
-  %0 = load ptr, ptr %__args, align 8
-  tail call void @_ZZNK7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS_6LoggerEEENKUlPKNS0_15ClockCacheShardIS2_EEE_clESC_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef %0)
+  tail call void @_ZSt13__invoke_implIvRZNK7rocksdb11clock_cache19BaseHyperClockCacheINS1_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlPKNS1_15ClockCacheShardIS3_EEE_JSD_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %__functor, ptr noundef nonnull align 8 dereferenceable(8) %__args)
   ret void
 }
 
@@ -12393,109 +12388,106 @@ sw.epilog:                                        ; preds = %entry, %sw.bb4.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZZNK7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS_6LoggerEEENKUlPKNS0_15ClockCacheShardIS2_EEE_clESC_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %shard) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr void @_ZSt13__invoke_implIvRZNK7rocksdb11clock_cache19BaseHyperClockCacheINS1_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEEUlPKNS1_15ClockCacheShardIS3_EEE_JSD_EET_St14__invoke_otherOT0_DpOT1_(ptr noundef nonnull align 8 dereferenceable(16) %__f, ptr noundef nonnull align 8 dereferenceable(8) %__args) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {
 entry:
-  %length_info_.i.i = getelementptr inbounds i8, ptr %shard, i64 240
-  %0 = load atomic i64, ptr %length_info_.i.i acquire, align 8
-  %shr.i.i.i.i = lshr i64 %0, 8
-  %conv1.i.i.i.i.i = and i64 %0, 255
-  %shl.i.i.i = shl nuw i64 1, %conv1.i.i.i.i.i
-  %add.i.i.i = add nuw i64 %shl.i.i.i, %shr.i.i.i.i
-  %array_.i = getelementptr inbounds i8, ptr %shard, i64 224
-  %umax = tail call i64 @llvm.umax.i64(i64 %add.i.i.i, i64 1)
-  br label %for.body
+  %0 = load ptr, ptr %__args, align 8
+  %length_info_.i.i.i = getelementptr inbounds i8, ptr %0, i64 240
+  %1 = load atomic i64, ptr %length_info_.i.i.i acquire, align 8
+  %shr.i.i.i.i.i = lshr i64 %1, 8
+  %conv1.i.i.i.i.i.i = and i64 %1, 255
+  %shl.i.i.i.i = shl nuw i64 1, %conv1.i.i.i.i.i.i
+  %add.i.i.i.i = add nuw i64 %shl.i.i.i.i, %shr.i.i.i.i.i
+  %array_.i.i = getelementptr inbounds i8, ptr %0, i64 224
+  %umax.i = tail call i64 @llvm.umax.i64(i64 %add.i.i.i.i, i64 1)
+  br label %for.body.i
 
-for.body:                                         ; preds = %entry, %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit
-  %i.09 = phi i64 [ 0, %entry ], [ %inc, %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit ]
-  %1 = load ptr, ptr %this, align 8
-  %2 = load ptr, ptr %array_.i, align 8
-  %meta.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %2, i64 %i.09, i32 0, i32 1
-  %3 = load atomic i64, ptr %meta.i monotonic, align 8
-  %cmp.i = icmp ugt i64 %3, 2305843009213693951
-  %recent_.i = getelementptr inbounds i8, ptr %1, i64 64
-  %samples_.i = getelementptr inbounds i8, ptr %1, i64 24
-  %4 = load i64, ptr %samples_.i, align 8
-  %rem.i = urem i64 %4, 500
-  %div1.i.i.i.i.i = lshr i64 %rem.i, 6
-  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i, i64 0, i64 %div1.i.i.i.i.i
-  %rem.i.i.i.i = and i64 %rem.i, 63
-  %shl.i.i.i5 = shl nuw i64 1, %rem.i.i.i.i
-  br i1 %cmp.i, label %if.then.i, label %if.else.i
+for.body.i:                                       ; preds = %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i, %entry
+  %i.09.i = phi i64 [ 0, %entry ], [ %inc.i, %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i ]
+  %2 = load ptr, ptr %__f, align 8
+  %3 = load ptr, ptr %array_.i.i, align 8
+  %meta.i.i = getelementptr inbounds %"struct.rocksdb::clock_cache::AutoHyperClockTable::HandleImpl", ptr %3, i64 %i.09.i, i32 0, i32 1
+  %4 = load atomic i64, ptr %meta.i.i monotonic, align 8
+  %cmp.i.i = icmp ugt i64 %4, 2305843009213693951
+  %recent_.i.i = getelementptr inbounds i8, ptr %2, i64 64
+  %samples_.i.i = getelementptr inbounds i8, ptr %2, i64 24
+  %5 = load i64, ptr %samples_.i.i, align 8
+  %rem.i.i = urem i64 %5, 500
+  %div1.i.i.i.i.i.i = lshr i64 %rem.i.i, 6
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i.i, i64 0, i64 %div1.i.i.i.i.i.i
+  %rem.i.i.i.i.i = and i64 %rem.i.i, 63
+  %shl.i.i.i5.i = shl nuw i64 1, %rem.i.i.i.i.i
+  br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
-if.then.i:                                        ; preds = %for.body
-  %5 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %or.i.i = or i64 %5, %shl.i.i.i5
-  %positive_count_.i = getelementptr inbounds i8, ptr %1, i64 16
-  %6 = load i64, ptr %positive_count_.i, align 8
-  %inc.i = add i64 %6, 1
-  store i64 %inc.i, ptr %positive_count_.i, align 8
-  %cur_pos_run_.i = getelementptr inbounds i8, ptr %1, i64 40
-  %7 = load i64, ptr %cur_pos_run_.i, align 8
-  %inc3.i = add i64 %7, 1
-  store i64 %inc3.i, ptr %cur_pos_run_.i, align 8
-  br label %if.end.i
+if.then.i.i:                                      ; preds = %for.body.i
+  %6 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %or.i.i.i = or i64 %6, %shl.i.i.i5.i
+  %positive_count_.i.i = getelementptr inbounds i8, ptr %2, i64 16
+  %7 = load i64, ptr %positive_count_.i.i, align 8
+  %inc.i.i = add i64 %7, 1
+  store i64 %inc.i.i, ptr %positive_count_.i.i, align 8
+  br label %if.end.i.i
 
-if.else.i:                                        ; preds = %for.body
-  %not.i.i = xor i64 %shl.i.i.i5, -1
-  %8 = load i64, ptr %arrayidx.i.i.i.i, align 8
-  %and.i.i = and i64 %8, %not.i.i
-  %cur_neg_run_7.i = getelementptr inbounds i8, ptr %1, i64 56
-  %9 = load i64, ptr %cur_neg_run_7.i, align 8
-  %inc8.i = add i64 %9, 1
-  store i64 %inc8.i, ptr %cur_neg_run_7.i, align 8
-  br label %if.end.i
+if.else.i.i:                                      ; preds = %for.body.i
+  %not.i.i.i = xor i64 %shl.i.i.i5.i, -1
+  %8 = load i64, ptr %arrayidx.i.i.i.i.i, align 8
+  %and.i.i.i = and i64 %8, %not.i.i.i
+  br label %if.end.i.i
 
-if.end.i:                                         ; preds = %if.else.i, %if.then.i
-  %and.i.i.sink = phi i64 [ %or.i.i, %if.then.i ], [ %and.i.i, %if.else.i ]
-  %.sink20.i = phi i64 [ 32, %if.then.i ], [ 48, %if.else.i ]
-  %inc8.sink.i = phi i64 [ %inc3.i, %if.then.i ], [ %inc8.i, %if.else.i ]
-  %.sink.i = phi i64 [ 56, %if.then.i ], [ 40, %if.else.i ]
-  store i64 %and.i.i.sink, ptr %arrayidx.i.i.i.i, align 8
-  %max_neg_run_.i = getelementptr inbounds i8, ptr %1, i64 %.sink20.i
-  %10 = load i64, ptr %max_neg_run_.i, align 8
-  %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 %inc8.sink.i)
-  store i64 %11, ptr %max_neg_run_.i, align 8
-  %cur_pos_run_12.i = getelementptr inbounds i8, ptr %1, i64 %.sink.i
-  store i64 0, ptr %cur_pos_run_12.i, align 8
-  %inc14.i = add i64 %4, 1
-  store i64 %inc14.i, ptr %samples_.i, align 8
-  %cmp.i6 = icmp ugt i64 %inc14.i, 499
-  br i1 %cmp.i6, label %for.body.i.i.i, label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit
+if.end.i.i:                                       ; preds = %if.else.i.i, %if.then.i.i
+  %and.i.i.sink.i = phi i64 [ %or.i.i.i, %if.then.i.i ], [ %and.i.i.i, %if.else.i.i ]
+  %.sink24.i.i = phi i64 [ 40, %if.then.i.i ], [ 56, %if.else.i.i ]
+  %.sink20.i.i = phi i64 [ 32, %if.then.i.i ], [ 48, %if.else.i.i ]
+  %.sink.i.i = phi i64 [ 56, %if.then.i.i ], [ 40, %if.else.i.i ]
+  store i64 %and.i.i.sink.i, ptr %arrayidx.i.i.i.i.i, align 8
+  %cur_neg_run_7.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink24.i.i
+  %9 = load i64, ptr %cur_neg_run_7.i.i, align 8
+  %inc8.i.i = add i64 %9, 1
+  store i64 %inc8.i.i, ptr %cur_neg_run_7.i.i, align 8
+  %max_neg_run_.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink20.i.i
+  %10 = load i64, ptr %max_neg_run_.i.i, align 8
+  %11 = tail call i64 @llvm.umax.i64(i64 %10, i64 %inc8.i.i)
+  store i64 %11, ptr %max_neg_run_.i.i, align 8
+  %cur_pos_run_12.i.i = getelementptr inbounds i8, ptr %2, i64 %.sink.i.i
+  store i64 0, ptr %cur_pos_run_12.i.i, align 8
+  %inc14.i.i = add i64 %5, 1
+  store i64 %inc14.i.i, ptr %samples_.i.i, align 8
+  %cmp.i6.i = icmp ugt i64 %inc14.i.i, 499
+  br i1 %cmp.i6.i, label %for.body.i.i.i.i, label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i
 
-for.body.i.i.i:                                   ; preds = %if.end.i, %for.body.i.i.i
-  %__i.05.i.i.i = phi i64 [ %inc.i.i.i, %for.body.i.i.i ], [ 0, %if.end.i ]
-  %__result.04.i.i.i = phi i64 [ %add.i.i.i7, %for.body.i.i.i ], [ 0, %if.end.i ]
-  %arrayidx.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i, i64 0, i64 %__i.05.i.i.i
-  %12 = load i64, ptr %arrayidx.i.i.i, align 8
+for.body.i.i.i.i:                                 ; preds = %if.end.i.i, %for.body.i.i.i.i
+  %__i.05.i.i.i.i = phi i64 [ %inc.i.i.i.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i ]
+  %__result.04.i.i.i.i = phi i64 [ %add.i.i.i7.i, %for.body.i.i.i.i ], [ 0, %if.end.i.i ]
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i.i, i64 0, i64 %__i.05.i.i.i.i
+  %12 = load i64, ptr %arrayidx.i.i.i.i, align 8
   %13 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %12)
-  %add.i.i.i7 = add i64 %13, %__result.04.i.i.i
-  %inc.i.i.i = add nuw nsw i64 %__i.05.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, 8
-  br i1 %exitcond.not.i.i.i, label %_ZNKSt6bitsetILm500EE5countEv.exit.i, label %for.body.i.i.i, !llvm.loop !131
+  %add.i.i.i7.i = add i64 %13, %__result.04.i.i.i.i
+  %inc.i.i.i.i = add nuw nsw i64 %__i.05.i.i.i.i, 1
+  %exitcond.not.i.i.i.i = icmp eq i64 %inc.i.i.i.i, 8
+  br i1 %exitcond.not.i.i.i.i, label %_ZNKSt6bitsetILm500EE5countEv.exit.i.i, label %for.body.i.i.i.i, !llvm.loop !131
 
-_ZNKSt6bitsetILm500EE5countEv.exit.i:             ; preds = %for.body.i.i.i
-  %14 = load i64, ptr %1, align 8
-  %.sroa.speculated12.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %add.i.i.i7)
-  store i64 %.sroa.speculated12.i, ptr %1, align 8
-  %min_.i = getelementptr inbounds i8, ptr %1, i64 8
-  %15 = load i64, ptr %min_.i, align 8
-  %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i7, i64 %15)
-  store i64 %.sroa.speculated.i, ptr %min_.i, align 8
-  br label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit
+_ZNKSt6bitsetILm500EE5countEv.exit.i.i:           ; preds = %for.body.i.i.i.i
+  %14 = load i64, ptr %2, align 8
+  %.sroa.speculated12.i.i = tail call i64 @llvm.umax.i64(i64 %14, i64 %add.i.i.i7.i)
+  store i64 %.sroa.speculated12.i.i, ptr %2, align 8
+  %min_.i.i = getelementptr inbounds i8, ptr %2, i64 8
+  %15 = load i64, ptr %min_.i.i, align 8
+  %.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i7.i, i64 %15)
+  store i64 %.sroa.speculated.i.i, ptr %min_.i.i, align 8
+  br label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i
 
-_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit: ; preds = %if.end.i, %_ZNKSt6bitsetILm500EE5countEv.exit.i
-  %inc = add nuw i64 %i.09, 1
-  %exitcond.not = icmp eq i64 %inc, %umax
-  br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !144
+_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i: ; preds = %_ZNKSt6bitsetILm500EE5countEv.exit.i.i, %if.end.i.i
+  %inc.i = add nuw i64 %i.09.i, 1
+  %exitcond.not.i = icmp eq i64 %inc.i, %umax.i
+  br i1 %exitcond.not.i, label %_ZZNK7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS_6LoggerEEENKUlPKNS0_15ClockCacheShardIS2_EEE_clESC_.exit, label %for.body.i, !llvm.loop !144
 
-for.end:                                          ; preds = %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit
-  %eviction_effort_exceeded_count_.i = getelementptr inbounds i8, ptr %shard, i64 80
-  %16 = load atomic i64, ptr %eviction_effort_exceeded_count_.i monotonic, align 8
-  %17 = getelementptr inbounds i8, ptr %this, i64 8
+_ZZNK7rocksdb11clock_cache19BaseHyperClockCacheINS0_19AutoHyperClockTableEE14ReportProblemsERKSt10shared_ptrINS_6LoggerEEENKUlPKNS0_15ClockCacheShardIS2_EEE_clESC_.exit: ; preds = %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i
+  %eviction_effort_exceeded_count_.i.i = getelementptr inbounds i8, ptr %0, i64 80
+  %16 = load atomic i64, ptr %eviction_effort_exceeded_count_.i.i monotonic, align 8
+  %17 = getelementptr inbounds i8, ptr %__f, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = load i64, ptr %18, align 8
-  %add = add i64 %19, %16
-  store i64 %add, ptr %18, align 8
+  %add.i = add i64 %19, %16
+  store i64 %add.i, ptr %18, align 8
   ret void
 }
 
@@ -12546,32 +12538,28 @@ if.then.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %11 = load i64, ptr %positive_count_.i.i.i.i, align 8
   %inc.i.i.i.i = add i64 %11, 1
   store i64 %inc.i.i.i.i, ptr %positive_count_.i.i.i.i, align 8
-  %cur_pos_run_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 40
-  %12 = load i64, ptr %cur_pos_run_.i.i.i.i, align 8
-  %inc3.i.i.i.i = add i64 %12, 1
-  store i64 %inc3.i.i.i.i, ptr %cur_pos_run_.i.i.i.i, align 8
   br label %if.end.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %for.body.i.i.i
   %not.i.i.i.i.i = xor i64 %shl.i.i.i8.i.i.i, -1
-  %13 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
-  %and.i.i9.i.i.i = and i64 %13, %not.i.i.i.i.i
-  %cur_neg_run_7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 56
-  %14 = load i64, ptr %cur_neg_run_7.i.i.i.i, align 8
-  %inc8.i.i.i.i = add i64 %14, 1
-  store i64 %inc8.i.i.i.i, ptr %cur_neg_run_7.i.i.i.i, align 8
+  %12 = load i64, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %and.i.i9.i.i.i = and i64 %12, %not.i.i.i.i.i
   br label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %if.else.i.i.i.i, %if.then.i.i.i.i
   %and.i.i9.sink.i.i.i = phi i64 [ %or.i.i.i.i.i, %if.then.i.i.i.i ], [ %and.i.i9.i.i.i, %if.else.i.i.i.i ]
+  %.sink24.i.i.i.i = phi i64 [ 40, %if.then.i.i.i.i ], [ 56, %if.else.i.i.i.i ]
   %.sink20.i.i.i.i = phi i64 [ 32, %if.then.i.i.i.i ], [ 48, %if.else.i.i.i.i ]
-  %inc8.sink.i.i.i.i = phi i64 [ %inc3.i.i.i.i, %if.then.i.i.i.i ], [ %inc8.i.i.i.i, %if.else.i.i.i.i ]
   %.sink.i.i.i.i = phi i64 [ 56, %if.then.i.i.i.i ], [ 40, %if.else.i.i.i.i ]
   store i64 %and.i.i9.sink.i.i.i, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %cur_neg_run_7.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sink24.i.i.i.i
+  %13 = load i64, ptr %cur_neg_run_7.i.i.i.i, align 8
+  %inc8.i.i.i.i = add i64 %13, 1
+  store i64 %inc8.i.i.i.i, ptr %cur_neg_run_7.i.i.i.i, align 8
   %max_neg_run_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sink20.i.i.i.i
-  %15 = load i64, ptr %max_neg_run_.i.i.i.i, align 8
-  %16 = tail call i64 @llvm.umax.i64(i64 %15, i64 %inc8.sink.i.i.i.i)
-  store i64 %16, ptr %max_neg_run_.i.i.i.i, align 8
+  %14 = load i64, ptr %max_neg_run_.i.i.i.i, align 8
+  %15 = tail call i64 @llvm.umax.i64(i64 %14, i64 %inc8.i.i.i.i)
+  store i64 %15, ptr %max_neg_run_.i.i.i.i, align 8
   %cur_pos_run_12.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 %.sink.i.i.i.i
   store i64 0, ptr %cur_pos_run_12.i.i.i.i, align 8
   %inc14.i.i.i.i = add i64 %9, 1
@@ -12583,33 +12571,33 @@ for.body.i.i.i.i.i.i:                             ; preds = %if.end.i.i.i.i, %fo
   %__i.05.i.i.i.i.i.i = phi i64 [ %inc.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %__result.04.i.i.i.i.i.i = phi i64 [ %add.i.i.i10.i.i.i, %for.body.i.i.i.i.i.i ], [ 0, %if.end.i.i.i.i ]
   %arrayidx.i.i.i.i.i.i = getelementptr inbounds [8 x i64], ptr %recent_.i.i.i.i, i64 0, i64 %__i.05.i.i.i.i.i.i
-  %17 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
-  %18 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %17)
-  %add.i.i.i10.i.i.i = add i64 %18, %__result.04.i.i.i.i.i.i
+  %16 = load i64, ptr %arrayidx.i.i.i.i.i.i, align 8
+  %17 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %16)
+  %add.i.i.i10.i.i.i = add i64 %17, %__result.04.i.i.i.i.i.i
   %inc.i.i.i.i.i.i = add nuw nsw i64 %__i.05.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %inc.i.i.i.i.i.i, 8
   br i1 %exitcond.not.i.i.i.i.i.i, label %_ZNKSt6bitsetILm500EE5countEv.exit.i.i.i.i, label %for.body.i.i.i.i.i.i, !llvm.loop !131
 
 _ZNKSt6bitsetILm500EE5countEv.exit.i.i.i.i:       ; preds = %for.body.i.i.i.i.i.i
-  %19 = load i64, ptr %7, align 8
-  %.sroa.speculated12.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %19, i64 %add.i.i.i10.i.i.i)
+  %18 = load i64, ptr %7, align 8
+  %.sroa.speculated12.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %18, i64 %add.i.i.i10.i.i.i)
   store i64 %.sroa.speculated12.i.i.i.i, ptr %7, align 8
   %min_.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 8
-  %20 = load i64, ptr %min_.i.i.i.i, align 8
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i10.i.i.i, i64 %20)
+  %19 = load i64, ptr %min_.i.i.i.i, align 8
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %add.i.i.i10.i.i.i, i64 %19)
   store i64 %.sroa.speculated.i.i.i.i, ptr %min_.i.i.i.i, align 8
   br label %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i
 
 _ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i: ; preds = %_ZNKSt6bitsetILm500EE5countEv.exit.i.i.i.i, %if.end.i.i.i.i
-  %21 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %i.017.i.i.i, i64 %sub.i.i.i.i.i)
-  %cmp.i11.i.i.i = icmp ult i64 %21, %shr.i.i.i.i.i
+  %20 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %i.017.i.i.i, i64 %sub.i.i.i.i.i)
+  %cmp.i11.i.i.i = icmp ult i64 %20, %shr.i.i.i.i.i
   %conv.i.i.i.i = zext i1 %cmp.i11.i.i.i to i32
   %add.i12.i.i.i = add nuw nsw i32 %conv.i.i.i.i, %4
   %conv.i.i6.i.i.i.i = zext nneg i32 %add.i12.i.i.i to i64
-  %22 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %i.017.i.i.i, i64 %conv.i.i6.i.i.i.i)
+  %21 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %i.017.i.i.i, i64 %conv.i.i6.i.i.i.i)
   %meta.i.i.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 40
-  %23 = atomicrmw add ptr %meta.i.i.i.i.i, i64 1 acq_rel, align 8
-  %and.i.i13.i.i.i = and i64 %23, 4611686018427387904
+  %22 = atomicrmw add ptr %meta.i.i.i.i.i, i64 1 acq_rel, align 8
+  %and.i.i13.i.i.i = and i64 %22, 4611686018427387904
   %cmp.i.i.i.i.i = icmp eq i64 %and.i.i13.i.i.i, 0
   br i1 %cmp.i.i.i.i.i, label %_ZN7rocksdb11clock_cache12_GLOBAL__N_113IsEntryAtHomeERKNS0_19AutoHyperClockTable10HandleImplEim.exit.i.i.i, label %if.end2.i.i.i.i.i
 
@@ -12619,35 +12607,35 @@ if.end2.i.i.i.i.i:                                ; preds = %_ZN7rocksdb11clock_
 
 land.lhs.true14.i.i.i.i.i:                        ; preds = %if.end2.i.i.i.i.i
   %arrayidx.i.i.i.i14.i.i.i = getelementptr inbounds i8, ptr %arrayidx.i.i.i.i.i, i64 24
-  %24 = load i64, ptr %arrayidx.i.i.i.i14.i.i.i, align 8
-  %25 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %24, i64 %conv.i.i6.i.i.i.i)
-  %cmp18.i.i.i.i.i = icmp eq i64 %25, %22
+  %23 = load i64, ptr %arrayidx.i.i.i.i14.i.i.i, align 8
+  %24 = tail call noundef i64 @llvm.x86.bmi.bzhi.64(i64 %23, i64 %conv.i.i6.i.i.i.i)
+  %cmp18.i.i.i.i.i = icmp eq i64 %24, %21
   br label %return.sink.split.i.i.i.i
 
 return.sink.split.i.i.i.i:                        ; preds = %land.lhs.true14.i.i.i.i.i, %if.end2.i.i.i.i.i
   %retval.0.i4.ph.i.i.i.i = phi i1 [ false, %if.end2.i.i.i.i.i ], [ %cmp18.i.i.i.i.i, %land.lhs.true14.i.i.i.i.i ]
-  %26 = atomicrmw sub ptr %meta.i.i.i.i.i, i64 1 acq_rel, align 8
+  %25 = atomicrmw sub ptr %meta.i.i.i.i.i, i64 1 acq_rel, align 8
   br label %_ZN7rocksdb11clock_cache12_GLOBAL__N_113IsEntryAtHomeERKNS0_19AutoHyperClockTable10HandleImplEim.exit.i.i.i
 
 _ZN7rocksdb11clock_cache12_GLOBAL__N_113IsEntryAtHomeERKNS0_19AutoHyperClockTable10HandleImplEim.exit.i.i.i: ; preds = %return.sink.split.i.i.i.i, %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i
   %retval.0.i4.i.i.i.i = phi i1 [ false, %_ZN7rocksdb11clock_cache17LoadVarianceStatsILm500EE3AddEb.exit.i.i.i ], [ %retval.0.i4.ph.i.i.i.i, %return.sink.split.i.i.i.i ]
   %conv.i.i.i = zext i1 %retval.0.i4.i.i.i.i to i64
-  %27 = load ptr, ptr %5, align 8
-  %28 = load i64, ptr %27, align 8
-  %add.i.i.i = add i64 %28, %conv.i.i.i
-  store i64 %add.i.i.i, ptr %27, align 8
+  %26 = load ptr, ptr %5, align 8
+  %27 = load i64, ptr %26, align 8
+  %add.i.i.i = add i64 %27, %conv.i.i.i
+  store i64 %add.i.i.i, ptr %26, align 8
   %inc.i.i.i = add nuw i64 %i.017.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %inc.i.i.i, %umax.i.i.i
   br i1 %exitcond.not.i.i.i, label %"_ZSt10__invoke_rIvRZNK7rocksdb11clock_cache19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0JPKNS1_15ClockCacheShardINS1_19AutoHyperClockTableEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit", label %for.body.i.i.i, !llvm.loop !145
 
 "_ZSt10__invoke_rIvRZNK7rocksdb11clock_cache19AutoHyperClockCache14ReportProblemsERKSt10shared_ptrINS0_6LoggerEEE3$_0JPKNS1_15ClockCacheShardINS1_19AutoHyperClockTableEEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESG_E4typeEOSH_DpOSI_.exit": ; preds = %_ZN7rocksdb11clock_cache12_GLOBAL__N_113IsEntryAtHomeERKNS0_19AutoHyperClockTable10HandleImplEim.exit.i.i.i
   %yield_count_.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 72
-  %29 = load atomic i64, ptr %yield_count_.i.i.i.i monotonic, align 8
-  %30 = getelementptr inbounds i8, ptr %__functor.val, i64 16
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i64, ptr %31, align 8
-  %add9.i.i.i = add i64 %32, %29
-  store i64 %add9.i.i.i, ptr %31, align 8
+  %28 = load atomic i64, ptr %yield_count_.i.i.i.i monotonic, align 8
+  %29 = getelementptr inbounds i8, ptr %__functor.val, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = load i64, ptr %30, align 8
+  %add9.i.i.i = add i64 %31, %28
+  store i64 %add9.i.i.i, ptr %30, align 8
   ret void
 }
 

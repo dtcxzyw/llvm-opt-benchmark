@@ -274,12 +274,12 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %conv.i = trunc i32 %cond.i to i8
   br label %while.cond.backedge
 
-while.cond.backedge:                              ; preds = %strbuf_avail.exit.i25, %if.then.i34, %strbuf_avail.exit.i40, %if.then.i50, %strbuf_addch.exit
-  %inc.pre-phi.i.sink = phi i64 [ %inc.pre-phi.i, %strbuf_addch.exit ], [ %.pre8.i37, %if.then.i34 ], [ %.neg.i27, %strbuf_avail.exit.i25 ], [ %.pre8.i53, %if.then.i50 ], [ %.neg.i42, %strbuf_avail.exit.i40 ]
-  %.sink77 = phi i64 [ %8, %strbuf_addch.exit ], [ %.pre.i36, %if.then.i34 ], [ %13, %strbuf_avail.exit.i25 ], [ %.pre.i52, %if.then.i50 ], [ %15, %strbuf_avail.exit.i40 ]
-  %conv.i.sink = phi i8 [ %conv.i, %strbuf_addch.exit ], [ 32, %if.then.i34 ], [ 32, %strbuf_avail.exit.i25 ], [ %1, %if.then.i50 ], [ %1, %strbuf_avail.exit.i40 ]
-  %.sink68 = phi i64 [ 3, %strbuf_addch.exit ], [ 1, %if.then.i34 ], [ 1, %strbuf_avail.exit.i25 ], [ 1, %if.then.i50 ], [ 1, %strbuf_avail.exit.i40 ]
-  %.sink = phi i32 [ -3, %strbuf_addch.exit ], [ -1, %if.then.i34 ], [ -1, %strbuf_avail.exit.i25 ], [ -1, %if.then.i50 ], [ -1, %strbuf_avail.exit.i40 ]
+while.cond.backedge:                              ; preds = %strbuf_avail.exit.i25, %strbuf_avail.exit.i40, %if.end28.sink.split, %strbuf_addch.exit
+  %inc.pre-phi.i.sink = phi i64 [ %inc.pre-phi.i, %strbuf_addch.exit ], [ %.neg.i27, %strbuf_avail.exit.i25 ], [ %.neg.i42, %strbuf_avail.exit.i40 ], [ %.pre8.i53, %if.end28.sink.split ]
+  %.sink77 = phi i64 [ %8, %strbuf_addch.exit ], [ %13, %strbuf_avail.exit.i25 ], [ %15, %strbuf_avail.exit.i40 ], [ %.pre.i52, %if.end28.sink.split ]
+  %conv.i.sink = phi i8 [ %conv.i, %strbuf_addch.exit ], [ 32, %strbuf_avail.exit.i25 ], [ %1, %strbuf_avail.exit.i40 ], [ %.sink71.ph, %if.end28.sink.split ]
+  %.sink68 = phi i64 [ 3, %strbuf_addch.exit ], [ 1, %strbuf_avail.exit.i25 ], [ 1, %strbuf_avail.exit.i40 ], [ 1, %if.end28.sink.split ]
+  %.sink = phi i32 [ -3, %strbuf_addch.exit ], [ -1, %strbuf_avail.exit.i25 ], [ -1, %strbuf_avail.exit.i40 ], [ -1, %if.end28.sink.split ]
   %9 = load ptr, ptr %buf.i30, align 8
   store i64 %inc.pre-phi.i.sink, ptr %len.i.i26, align 8
   %arrayidx.i = getelementptr inbounds i8, ptr %9, i64 %.sink77
@@ -301,32 +301,27 @@ if.end20:                                         ; preds = %if.end5
 if.then26:                                        ; preds = %if.end20
   %12 = load i64, ptr %out, align 8
   %tobool.not.i.i24 = icmp eq i64 %12, 0
-  br i1 %tobool.not.i.i24, label %if.then.i34, label %strbuf_avail.exit.i25
+  br i1 %tobool.not.i.i24, label %if.end28.sink.split, label %strbuf_avail.exit.i25
 
 strbuf_avail.exit.i25:                            ; preds = %if.then26
   %13 = load i64, ptr %len.i.i26, align 8
   %.neg.i27 = add i64 %13, 1
   %tobool.not.i28 = icmp eq i64 %12, %.neg.i27
-  br i1 %tobool.not.i28, label %if.then.i34, label %while.cond.backedge
-
-if.then.i34:                                      ; preds = %strbuf_avail.exit.i25, %if.then26
-  tail call void @strbuf_grow(ptr noundef nonnull %out, i64 noundef 1) #9
-  %.pre.i36 = load i64, ptr %len.i.i26, align 8
-  %.pre8.i37 = add i64 %.pre.i36, 1
-  br label %while.cond.backedge
+  br i1 %tobool.not.i28, label %if.end28.sink.split, label %while.cond.backedge
 
 if.else:                                          ; preds = %hex2chr.exit, %if.end20
   %14 = load i64, ptr %out, align 8
   %tobool.not.i.i39 = icmp eq i64 %14, 0
-  br i1 %tobool.not.i.i39, label %if.then.i50, label %strbuf_avail.exit.i40
+  br i1 %tobool.not.i.i39, label %if.end28.sink.split, label %strbuf_avail.exit.i40
 
 strbuf_avail.exit.i40:                            ; preds = %if.else
   %15 = load i64, ptr %len.i.i26, align 8
   %.neg.i42 = add i64 %15, 1
   %tobool.not.i43 = icmp eq i64 %14, %.neg.i42
-  br i1 %tobool.not.i43, label %if.then.i50, label %while.cond.backedge
+  br i1 %tobool.not.i43, label %if.end28.sink.split, label %while.cond.backedge
 
-if.then.i50:                                      ; preds = %strbuf_avail.exit.i40, %if.else
+if.end28.sink.split:                              ; preds = %if.else, %strbuf_avail.exit.i40, %if.then26, %strbuf_avail.exit.i25
+  %.sink71.ph = phi i8 [ 32, %strbuf_avail.exit.i25 ], [ 32, %if.then26 ], [ %1, %strbuf_avail.exit.i40 ], [ %1, %if.else ]
   tail call void @strbuf_grow(ptr noundef nonnull %out, i64 noundef 1) #9
   %.pre.i52 = load i64, ptr %len.i.i26, align 8
   %.pre8.i53 = add i64 %.pre.i52, 1

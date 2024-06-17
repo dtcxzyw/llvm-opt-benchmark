@@ -3615,13 +3615,13 @@ _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit197: ; preds = %_ZN5Ipopt8Smart
           to label %_ZN5Ipopt9TimedTask3EndEv.exit.sink.split unwind label %.loopexit.split-lp423
 
 _ZN5Ipopt9TimedTask3EndEv.exit.sink.split:        ; preds = %.noexc253, %.noexc194
-  %.sink490 = phi ptr [ %288, %.noexc194 ], [ %624, %.noexc253 ]
+  %.sink485 = phi ptr [ %288, %.noexc194 ], [ %624, %.noexc253 ]
   %.sink = phi double [ %309, %.noexc194 ], [ %645, %.noexc253 ]
   %.0110.ph = phi i1 [ false, %.noexc194 ], [ true, %.noexc253 ]
-  %646 = getelementptr inbounds i8, ptr %.sink490, i64 824
+  %646 = getelementptr inbounds i8, ptr %.sink485, i64 824
   %647 = load double, ptr %646, align 8
   %648 = fsub double %.sink, %647
-  %649 = getelementptr inbounds i8, ptr %.sink490, i64 832
+  %649 = getelementptr inbounds i8, ptr %.sink485, i64 832
   %650 = load double, ptr %649, align 8
   %651 = fadd double %650, %648
   store double %651, ptr %649, align 8
@@ -4344,12 +4344,12 @@ _ZN5Ipopt8SmartPtrIKNS_6MatrixEED2Ev.exit320:     ; preds = %978, %973, %_ZN5Ipo
   br i1 %994, label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324.sink.split, label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324
 
 _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324.sink.split: ; preds = %.body.thread415, %52
-  %.sink486 = phi ptr [ %51, %52 ], [ %.sroa.0389.0, %.body.thread415 ]
+  %.sink490 = phi ptr [ %51, %52 ], [ %.sroa.0389.0, %.body.thread415 ]
   %.pn126.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn414.ph = phi { ptr, i32 } [ %50, %52 ], [ %.pn126.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %.body.thread415 ]
-  %995 = load ptr, ptr %.sink486, align 8
+  %995 = load ptr, ptr %.sink490, align 8
   %996 = getelementptr inbounds i8, ptr %995, i64 8
   %997 = load ptr, ptr %996, align 8
-  call void %997(ptr noundef nonnull align 8 dereferenceable(280) %.sink486) #17
+  call void %997(ptr noundef nonnull align 8 dereferenceable(280) %.sink490) #17
   br label %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324
 
 _ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324: ; preds = %_ZN5Ipopt8SmartPtrINS_14IteratesVectorEED2Ev.exit324.sink.split, %52, %49, %.body, %.body.thread415

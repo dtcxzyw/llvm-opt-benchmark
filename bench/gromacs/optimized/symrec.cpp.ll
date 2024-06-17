@@ -1490,36 +1490,28 @@ define void @_ZNK3gmx26SelectionParserSymbolTable13beginIteratorENS_21SelectionP
   %.not9 = icmp eq ptr %7, %5
   br i1 %.not9, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %16
-  %.sroa.05.010 = phi ptr [ %17, %16 ], [ %7, %3 ]
+.lr.ph:                                           ; preds = %3, %14
+  %.sroa.05.010 = phi ptr [ %15, %14 ], [ %7, %3 ]
   %8 = getelementptr inbounds i8, ptr %.sroa.05.010, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = icmp eq i32 %12, %2
-  br i1 %13, label %14, label %16
+  br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
-  store ptr %.sroa.05.010, ptr %15, align 8
-  br label %19
-
-16:                                               ; preds = %.lr.ph
-  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.010) #24
-  %.not = icmp eq ptr %17, %5
+  %15 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.010) #24
+  %.not = icmp eq ptr %15, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %16, %3
-  %18 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !19
-  store ptr %5, ptr %18, align 8, !noalias !19
-  br label %19
-
-19:                                               ; preds = %._crit_edge, %14
-  %.sink14 = phi ptr [ %18, %._crit_edge ], [ %15, %14 ]
-  %20 = getelementptr inbounds i8, ptr %.sink14, i64 8
-  store ptr %5, ptr %20, align 8
-  tail call void @_ZN3gmx29SelectionParserSymbolIteratorC1EPNS0_4ImplE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.sink14)
+._crit_edge:                                      ; preds = %14, %.lr.ph, %3
+  %.sink15 = phi ptr [ %5, %3 ], [ %.sroa.05.010, %.lr.ph ], [ %5, %14 ]
+  %16 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
+  store ptr %.sink15, ptr %16, align 8
+  %17 = getelementptr inbounds i8, ptr %16, i64 8
+  store ptr %5, ptr %17, align 8
+  tail call void @_ZN3gmx29SelectionParserSymbolIteratorC1EPNS0_4ImplE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %16)
   ret void
 }
 
@@ -2148,7 +2140,7 @@ define linkonce_odr void @_ZN3gmx20ExceptionInitializerD2Ev(ptr noundef nonnull 
 _ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i: ; preds = %7, %.lr.ph.i.i.i.i
   %8 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %8, %5
-  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !22
+  br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !19
 
 _ZSt8_DestroyIPNSt15__exception_ptr13exception_ptrES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i: ; preds = %_ZSt8_DestroyINSt15__exception_ptr13exception_ptrEEvPT_.exit.i.i.i.i
   %.pr.i = load ptr, ptr %2, align 8
@@ -2642,7 +2634,4 @@ attributes #24 = { nounwind willreturn memory(read) }
 !16 = distinct !{!16, !9}
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
-!19 = !{!20}
-!20 = distinct !{!20, !21, !"_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv: argument 0"}
-!21 = distinct !{!21, !"_ZNK3gmx26SelectionParserSymbolTable11endIteratorEv"}
-!22 = distinct !{!22, !9}
+!19 = distinct !{!19, !9}

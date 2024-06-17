@@ -757,12 +757,12 @@ _ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.ex
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit102, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit
-  %.sroa.01.0.i41.sink = phi i32 [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit102 ], [ %.sroa.0.0.copyload.i.i103, %.loopexit.sink.split.sink.split ]
+  %.sroa.01.0.i104.sink200 = phi i32 [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit ], [ -1, %_ZNK5draco11CornerTable8PreviousENS_9IndexTypeIjNS_21CornerIndex_tag_type_EEE.exit102 ], [ %.sroa.0.0.copyload.i.i103, %.loopexit.sink.split.sink.split ]
   %190 = load ptr, ptr %26, align 8
-  %191 = lshr i32 %.sroa.01.0.i41.sink, 6
-  %.zext174 = zext nneg i32 %191 to i64
-  %192 = getelementptr inbounds i64, ptr %190, i64 %.zext174
-  %193 = and i32 %.sroa.01.0.i41.sink, 63
+  %191 = lshr i32 %.sroa.01.0.i104.sink200, 6
+  %.zext186 = zext nneg i32 %191 to i64
+  %192 = getelementptr inbounds i64, ptr %190, i64 %.zext186
+  %193 = and i32 %.sroa.01.0.i104.sink200, 63
   %194 = zext nneg i32 %193 to i64
   %195 = shl nuw i64 1, %194
   %196 = load i64, ptr %192, align 8

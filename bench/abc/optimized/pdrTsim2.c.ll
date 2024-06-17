@@ -802,12 +802,12 @@ Gia_ObjIsPi.exit100.thread:                       ; preds = %Gia_ObjIsPi.exit.th
   %81 = load i32, ptr %80, align 4
   %.not79 = icmp ult i32 %79, %81
   %. = select i1 %.not79, i64 %40, i64 %31
-  %.149 = select i1 %.not79, ptr %29, ptr %25
+  %.150 = select i1 %.not79, ptr %29, ptr %25
   br label %.sink.split
 
 .sink.split:                                      ; preds = %77, %75, %69, %Gia_ObjIsPi.exit100, %Gia_ObjIsPi.exit, %43, %35, %32
   %.sink140 = phi i64 [ %34, %32 ], [ %40, %35 ], [ %31, %43 ], [ %31, %Gia_ObjIsPi.exit ], [ %40, %Gia_ObjIsPi.exit100 ], [ %31, %69 ], [ %40, %75 ], [ %., %77 ]
-  %.sink139 = phi ptr [ %29, %32 ], [ %29, %35 ], [ %25, %43 ], [ %25, %Gia_ObjIsPi.exit ], [ %29, %Gia_ObjIsPi.exit100 ], [ %25, %69 ], [ %29, %75 ], [ %.149, %77 ]
+  %.sink139 = phi ptr [ %29, %32 ], [ %29, %35 ], [ %25, %43 ], [ %25, %Gia_ObjIsPi.exit ], [ %29, %Gia_ObjIsPi.exit100 ], [ %25, %69 ], [ %29, %75 ], [ %.150, %77 ]
   %82 = or i64 %.sink140, 4611686018427387904
   store i64 %82, ptr %.sink139, align 4
   br label %83
@@ -1004,12 +1004,12 @@ Vec_IntGrow.exit.i113:                            ; preds = %150, %148
   br label %.sink.split141
 
 .sink.split141:                                   ; preds = %162, %Vec_IntGrow.exit.i113, %.Vec_IntGrow.exit10_crit_edge.i108, %134, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink150 = phi ptr [ %85, %.Vec_IntGrow.exit10_crit_edge.i ], [ %85, %Vec_IntGrow.exit.i ], [ %85, %134 ], [ %86, %.Vec_IntGrow.exit10_crit_edge.i108 ], [ %86, %Vec_IntGrow.exit.i113 ], [ %86, %162 ]
+  %.sink149 = phi ptr [ %85, %.Vec_IntGrow.exit10_crit_edge.i ], [ %85, %Vec_IntGrow.exit.i ], [ %85, %134 ], [ %86, %.Vec_IntGrow.exit10_crit_edge.i108 ], [ %86, %Vec_IntGrow.exit.i113 ], [ %86, %162 ]
   %.sink143 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %124, %Vec_IntGrow.exit.i ], [ %135, %134 ], [ %.pre.i110, %.Vec_IntGrow.exit10_crit_edge.i108 ], [ %152, %Vec_IntGrow.exit.i113 ], [ %163, %162 ]
   %.sink = phi i32 [ %112, %.Vec_IntGrow.exit10_crit_edge.i ], [ %112, %Vec_IntGrow.exit.i ], [ %112, %134 ], [ %140, %.Vec_IntGrow.exit10_crit_edge.i108 ], [ %140, %Vec_IntGrow.exit.i113 ], [ %140, %162 ]
-  %164 = load i32, ptr %.sink150, align 4
+  %164 = load i32, ptr %.sink149, align 4
   %165 = add nsw i32 %164, 1
-  store i32 %165, ptr %.sink150, align 4
+  store i32 %165, ptr %.sink149, align 4
   %166 = sext i32 %164 to i64
   %167 = getelementptr inbounds i32, ptr %.sink143, i64 %166
   store i32 %.sink, ptr %167, align 4

@@ -376,13 +376,13 @@ if.then24:                                        ; preds = %land.lhs.true20
   br i1 %tobool.not.i, label %if.end26, label %if.end26.sink.split
 
 if.end26.sink.split:                              ; preds = %if.then24, %sw.bb1.i
-  %bf.load.i.i.sink = phi i64 [ %bf.load.i.i, %sw.bb1.i ], [ %bf.load.i49, %if.then24 ]
-  %bf.clear3.i.i = and i64 %bf.load.i.i.sink, -549755813889
-  store i64 %bf.clear3.i.i, ptr %0, align 8
-  %num_shutdown_flush.i.i = getelementptr inbounds i8, ptr %qsm, i64 80
-  %16 = load i64, ptr %num_shutdown_flush.i.i, align 8
+  %bf.load.i49.sink = phi i64 [ %bf.load.i.i, %sw.bb1.i ], [ %bf.load.i49, %if.then24 ]
+  %bf.clear3.i = and i64 %bf.load.i49.sink, -549755813889
+  store i64 %bf.clear3.i, ptr %0, align 8
+  %num_shutdown_flush.i = getelementptr inbounds i8, ptr %qsm, i64 80
+  %16 = load i64, ptr %num_shutdown_flush.i, align 8
   %dec.i = add i64 %16, -1
-  store i64 %dec.i, ptr %num_shutdown_flush.i.i, align 8
+  store i64 %dec.i, ptr %num_shutdown_flush.i, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end26.sink.split, %if.then24, %sw.bb1.i, %if.then6, %if.else, %land.lhs.true20

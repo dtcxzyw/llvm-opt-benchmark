@@ -8177,12 +8177,12 @@ _ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructi
   br label %_ZNSt8optionalIKN7rocksdb5SliceEEC2IS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_T_EESt16is_constructibleIS2_JRKS8_EESt14is_convertibleISD_S2_ES6_ISt5__or_IJSB_IS2_JRKS_IS8_EEESB_IS2_JRSI_EESB_IS2_JOSJ_EESB_IS2_JOSI_EESF_ISK_S2_ESF_ISM_S2_ESF_ISO_S2_ESF_ISQ_S2_EEEEEEbE4typeELb1EEESK_.exit130
 
 _ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split: ; preds = %if.end76, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i.thread
-  %_M_engaged.i.i.i.i126770912 = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
-  store i8 0, ptr %_M_engaged.i.i.i.i126770912, align 8
+  %_M_engaged.i.i.i.i126 = getelementptr inbounds i8, ptr %ref.tmp80, i64 16
+  store i8 0, ptr %_M_engaged.i.i.i.i126, align 8
   br label %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129
 
 _ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129: ; preds = %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split, %if.end76.thread
-  %_M_engaged.i.i.i.i126775 = phi ptr [ %_M_engaged.i.i.i.i126770852, %if.end76.thread ], [ %_M_engaged.i.i.i.i126770912, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split ]
+  %_M_engaged.i.i.i.i126775 = phi ptr [ %_M_engaged.i.i.i.i126770852, %if.end76.thread ], [ %_M_engaged.i.i.i.i126, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split ]
   %_M_engaged.i.i113751765774 = phi ptr [ %_M_engaged.i.i113749, %if.end76.thread ], [ %_M_engaged.i.i113898, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split ]
   %45 = phi ptr [ %37, %if.end76.thread ], [ %39, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split ]
   %46 = phi ptr [ %38, %if.end76.thread ], [ %40, %_ZNSt8optionalIKN7rocksdb5SliceEE7emplaceIJRS2_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EES5_E4typeEDpOS7_.exit.i129.sink.split ]

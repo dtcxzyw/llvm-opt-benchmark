@@ -1353,26 +1353,20 @@ if.end167:                                        ; preds = %if.else163, %if.the
 
 if.end168:                                        ; preds = %if.end167, %if.end143
   switch i32 %type.1, label %if.end191 [
-    i32 7, label %if.then171
+    i32 7, label %if.end191.sink.split
     i32 8, label %if.then180
   ]
 
-if.then171:                                       ; preds = %if.end168
-  %call172 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.76) #13
-  %call173 = call ptr @qemu_opts_create(ptr noundef %call172, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #13
-  %call174 = call zeroext i1 @qemu_opt_set(ptr noundef %call173, ptr noundef nonnull @.str.77, ptr noundef nonnull @.str.78, ptr noundef nonnull @error_abort) #13
+if.then180:                                       ; preds = %if.end168
   br label %if.end191.sink.split
 
-if.then180:                                       ; preds = %if.end168
+if.end191.sink.split:                             ; preds = %if.end168, %if.then180
+  %cmp184.sink = phi ptr [ %cmp184, %if.then180 ], [ @.str.78, %if.end168 ]
   %call182 = call ptr @qemu_find_opts(ptr noundef nonnull @.str.76) #13
   %call183 = call ptr @qemu_opts_create(ptr noundef %call182, ptr noundef null, i32 noundef 0, ptr noundef nonnull @error_abort) #13
-  %call187 = call zeroext i1 @qemu_opt_set(ptr noundef %call183, ptr noundef nonnull @.str.77, ptr noundef nonnull %cmp184, ptr noundef nonnull @error_abort) #13
-  br label %if.end191.sink.split
-
-if.end191.sink.split:                             ; preds = %if.then171, %if.then180
-  %call183.sink = phi ptr [ %call183, %if.then180 ], [ %call173, %if.then171 ]
+  %call187 = call zeroext i1 @qemu_opt_set(ptr noundef %call183, ptr noundef nonnull @.str.77, ptr noundef nonnull %cmp184.sink, ptr noundef nonnull @error_abort) #13
   %call188 = call ptr @qdict_get_str(ptr noundef %call39, ptr noundef nonnull @.str.75) #13
-  %call189 = call zeroext i1 @qemu_opt_set(ptr noundef %call183.sink, ptr noundef nonnull @.str.3, ptr noundef %call188, ptr noundef nonnull @error_abort) #13
+  %call189 = call zeroext i1 @qemu_opt_set(ptr noundef %call183, ptr noundef nonnull @.str.3, ptr noundef %call188, ptr noundef nonnull @error_abort) #13
   br label %if.end191
 
 if.end191:                                        ; preds = %if.end191.sink.split, %if.end168

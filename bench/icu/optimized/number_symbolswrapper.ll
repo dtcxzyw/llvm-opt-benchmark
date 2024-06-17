@@ -567,11 +567,11 @@ entry:
   br i1 %switch.i, label %sw.epilog.sink.split.i, label %_ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_.exit
 
 sw.epilog.sink.split.i:                           ; preds = %entry
-  %fPtr.i = getelementptr inbounds i8, ptr %src, i64 8
-  %1 = load ptr, ptr %fPtr.i, align 8
+  %fPtr8.i = getelementptr inbounds i8, ptr %src, i64 8
+  %1 = load ptr, ptr %fPtr8.i, align 8
   %fPtr9.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %1, ptr %fPtr9.i, align 8
-  store ptr null, ptr %fPtr.i, align 8
+  store ptr null, ptr %fPtr8.i, align 8
   br label %_ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_.exit
 
 _ZN6icu_756number4impl14SymbolsWrapper10doMoveFromEOS2_.exit: ; preds = %entry, %sw.epilog.sink.split.i
@@ -588,11 +588,11 @@ entry:
   br i1 %switch, label %sw.epilog.sink.split, label %sw.epilog
 
 sw.epilog.sink.split:                             ; preds = %entry
-  %fPtr = getelementptr inbounds i8, ptr %src, i64 8
-  %1 = load ptr, ptr %fPtr, align 8
+  %fPtr8 = getelementptr inbounds i8, ptr %src, i64 8
+  %1 = load ptr, ptr %fPtr8, align 8
   %fPtr9 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %1, ptr %fPtr9, align 8
-  store ptr null, ptr %fPtr, align 8
+  store ptr null, ptr %fPtr8, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %sw.epilog.sink.split
@@ -732,11 +732,11 @@ _ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit: ; preds = %if.end, %sw.
   br i1 %switch.i, label %sw.epilog.sink.split.i, label %return
 
 sw.epilog.sink.split.i:                           ; preds = %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit
-  %fPtr.i2 = getelementptr inbounds i8, ptr %src, i64 8
-  %6 = load ptr, ptr %fPtr.i2, align 8
+  %fPtr8.i = getelementptr inbounds i8, ptr %src, i64 8
+  %6 = load ptr, ptr %fPtr8.i, align 8
   %fPtr9.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %6, ptr %fPtr9.i, align 8
-  store ptr null, ptr %fPtr.i2, align 8
+  store ptr null, ptr %fPtr8.i, align 8
   br label %return
 
 return:                                           ; preds = %sw.epilog.sink.split.i, %_ZN6icu_756number4impl14SymbolsWrapper9doCleanupEv.exit, %entry

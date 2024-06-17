@@ -6993,10 +6993,10 @@ while.cond.backedge.sink.split:                   ; preds = %while.cond.backedge
   %add.ptr.i98 = getelementptr inbounds ptr, ptr %.sink166, i64 %idx.ext.i97
   store ptr %.sink165, ptr %add.ptr.i98, align 8
   %.sink = load ptr, ptr %todo, align 8
-  %arrayidx10.i99 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %55 = load i32, ptr %arrayidx10.i99, align 4
+  %arrayidx10.i13 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %55 = load i32, ptr %arrayidx10.i13, align 4
   %inc.i14 = add i32 %55, 1
-  store i32 %inc.i14, ptr %arrayidx10.i99, align 4
+  store i32 %inc.i14, ptr %arrayidx10.i13, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i, %while.cond.backedge.sink.split, %invoke.cont59, %if.then30, %if.then61, %invoke.cont10, %invoke.cont7

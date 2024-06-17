@@ -1735,10 +1735,10 @@ define internal fastcc ptr @ole2_convert_utf(ptr nocapture noundef %0, ptr nocap
   br i1 %.not117, label %.preheader._crit_edge, label %.lr.ph198
 
 .loopexit.sink.split:                             ; preds = %86, %.lr.ph198
-  %.str.97.sink = phi ptr [ @.str.97, %.lr.ph198 ], [ @.str.98, %86 ]
+  %.str.98.sink = phi ptr [ @.str.97, %.lr.ph198 ], [ @.str.98, %86 ]
   %.sink185 = phi i32 [ 4096, %.lr.ph198 ], [ 8192, %86 ]
   %.195.ph = phi i64 [ %82, %.lr.ph198 ], [ -1, %86 ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.97.sink) #10
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.98.sink) #10
   %100 = getelementptr inbounds i8, ptr %0, i64 40
   %101 = load i32, ptr %100, align 8
   %102 = or i32 %101, %.sink185

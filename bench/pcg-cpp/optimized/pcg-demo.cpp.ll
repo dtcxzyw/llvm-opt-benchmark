@@ -217,12 +217,12 @@ _ZN10pcg_extras13seed_seq_fromISt13random_deviceED2Ev.exit26: ; preds = %lpad
 if.end10.sink.split:                              ; preds = %entry, %if.end8.thread265
   %rounds.0237.ph = phi i32 [ %call7267, %if.end8.thread265 ], [ 5, %entry ]
   store i64 109, ptr %rng, align 8
-  %state_.i244 = getelementptr inbounds i8, ptr %rng, i64 8
-  store i64 1753877967969059832, ptr %state_.i244, align 8
+  %state_.i268 = getelementptr inbounds i8, ptr %rng, i64 8
+  store i64 1753877967969059832, ptr %state_.i268, align 8
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.sink.split, %invoke.cont
-  %state_.i240 = phi ptr [ %state_.i, %invoke.cont ], [ %state_.i244, %if.end10.sink.split ]
+  %state_.i240 = phi ptr [ %state_.i, %invoke.cont ], [ %state_.i268, %if.end10.sink.split ]
   %rounds.0237 = phi i32 [ %rounds.0238, %invoke.cont ], [ %rounds.0237.ph, %if.end10.sink.split ]
   %call11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.1)
   %call12 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call11, ptr noundef nonnull @.str.2)

@@ -1813,9 +1813,9 @@ define dso_local void @LWLockRelease(ptr noundef %0) local_unnamed_addr #0 {
   %27 = icmp eq i32 %20, 0
   %28 = getelementptr inbounds i8, ptr %0, i64 4
   %. = select i1 %27, i32 16777216, i32 1
-  %.43 = select i1 %27, i32 2130706432, i32 2147483647
+  %.44 = select i1 %27, i32 2130706432, i32 2147483647
   %29 = atomicrmw sub ptr %28, i32 %. seq_cst, align 4
-  %30 = add i32 %29, %.43
+  %30 = add i32 %29, %.44
   %31 = and i32 %30, 1644167167
   %or.cond = icmp eq i32 %31, 1610612736
   br i1 %or.cond, label %32, label %.critedge
@@ -2016,59 +2016,59 @@ proclist_push_tail_offset.exit._crit_edge.i:      ; preds = %96, %proclist_push_
 
 .lr.ph72.i:                                       ; preds = %.split.i, %proclist_delete_offset.exit44.i
   %.sink42 = phi i32 [ %.sroa.19.170.i, %proclist_delete_offset.exit44.i ], [ %103, %.split.i ]
-  %.sink.in = load ptr, ptr @ProcGlobal, align 8
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %116 = sext i32 %.sink42 to i64
-  %117 = getelementptr %struct.PGPROC, ptr %.sink, i64 %116, i32 17
-  %.sroa.19.170.i = load i32, ptr %117, align 4
+  %116 = load ptr, ptr @ProcGlobal, align 8
+  %117 = load ptr, ptr %116, align 8
   %118 = sext i32 %.sink42 to i64
-  %119 = getelementptr %struct.PGPROC, ptr %.sink, i64 %118
-  %120 = getelementptr %struct.PGPROC, ptr %.sink, i64 %118, i32 17
-  %121 = getelementptr inbounds i8, ptr %120, i64 4
-  %122 = load i32, ptr %121, align 4
-  %123 = icmp eq i32 %122, -1
-  %124 = load i32, ptr %120, align 4
-  br i1 %123, label %.cont.i, label %.else.i
+  %119 = getelementptr %struct.PGPROC, ptr %117, i64 %118, i32 17
+  %.sroa.19.170.i = load i32, ptr %119, align 4
+  %120 = sext i32 %.sink42 to i64
+  %121 = getelementptr %struct.PGPROC, ptr %117, i64 %120
+  %122 = getelementptr %struct.PGPROC, ptr %117, i64 %120, i32 17
+  %123 = getelementptr inbounds i8, ptr %122, i64 4
+  %124 = load i32, ptr %123, align 4
+  %125 = icmp eq i32 %124, -1
+  %126 = load i32, ptr %122, align 4
+  br i1 %125, label %.cont.i, label %.else.i
 
 .else.i:                                          ; preds = %.lr.ph72.i
-  %125 = sext i32 %122 to i64
-  %126 = getelementptr %struct.PGPROC, ptr %.sink, i64 %125, i32 17
-  store i32 %124, ptr %126, align 4
+  %127 = sext i32 %124 to i64
+  %128 = getelementptr %struct.PGPROC, ptr %117, i64 %127, i32 17
+  store i32 %126, ptr %128, align 4
   br label %.cont.i
 
 .cont.i:                                          ; preds = %.else.i, %.lr.ph72.i
-  %127 = icmp eq i32 %124, -1
-  br i1 %127, label %proclist_delete_offset.exit44.i, label %128
+  %129 = icmp eq i32 %126, -1
+  br i1 %129, label %proclist_delete_offset.exit44.i, label %130
 
-128:                                              ; preds = %.cont.i
-  %129 = load ptr, ptr @ProcGlobal, align 8
-  %130 = load ptr, ptr %129, align 8
-  %131 = sext i32 %124 to i64
-  %132 = getelementptr %struct.PGPROC, ptr %130, i64 %131, i32 17, i32 1
+130:                                              ; preds = %.cont.i
+  %131 = load ptr, ptr @ProcGlobal, align 8
+  %132 = load ptr, ptr %131, align 8
+  %133 = sext i32 %126 to i64
+  %134 = getelementptr %struct.PGPROC, ptr %132, i64 %133, i32 17, i32 1
   br label %proclist_delete_offset.exit44.i
 
-proclist_delete_offset.exit44.i:                  ; preds = %128, %.cont.i
-  %.sink16.i43.i = phi ptr [ %132, %128 ], [ %.sroa.5.i, %.cont.i ]
-  store i32 %122, ptr %.sink16.i43.i, align 4
-  store i32 0, ptr %121, align 4
-  store i32 0, ptr %120, align 4
+proclist_delete_offset.exit44.i:                  ; preds = %130, %.cont.i
+  %.sink16.i43.i = phi ptr [ %134, %130 ], [ %.sroa.5.i, %.cont.i ]
+  store i32 %124, ptr %.sink16.i43.i, align 4
+  store i32 0, ptr %123, align 4
+  store i32 0, ptr %122, align 4
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !30
-  %133 = getelementptr inbounds i8, ptr %119, i64 90
-  store i8 0, ptr %133, align 2
-  %134 = getelementptr inbounds i8, ptr %119, i64 24
-  %135 = load ptr, ptr %134, align 8
-  call void @PGSemaphoreUnlock(ptr noundef %135) #15
-  %136 = icmp eq i32 %.sroa.19.170.i, -1
-  br i1 %136, label %LWLockWakeup.exit, label %.lr.ph72.i, !llvm.loop !31
+  %135 = getelementptr inbounds i8, ptr %121, i64 90
+  store i8 0, ptr %135, align 2
+  %136 = getelementptr inbounds i8, ptr %121, i64 24
+  %137 = load ptr, ptr %136, align 8
+  call void @PGSemaphoreUnlock(ptr noundef %137) #15
+  %138 = icmp eq i32 %.sroa.19.170.i, -1
+  br i1 %138, label %LWLockWakeup.exit, label %.lr.ph72.i, !llvm.loop !31
 
 LWLockWakeup.exit:                                ; preds = %proclist_delete_offset.exit44.i, %.split.us.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %.sroa.5.i)
   br label %.critedge
 
 .critedge:                                        ; preds = %._crit_edge, %LWLockWakeup.exit
-  %137 = load volatile i32, ptr @InterruptHoldoffCount, align 4
-  %138 = add i32 %137, -1
-  store volatile i32 %138, ptr @InterruptHoldoffCount, align 4
+  %139 = load volatile i32, ptr @InterruptHoldoffCount, align 4
+  %140 = add i32 %139, -1
+  store volatile i32 %140, ptr @InterruptHoldoffCount, align 4
   ret void
 }
 

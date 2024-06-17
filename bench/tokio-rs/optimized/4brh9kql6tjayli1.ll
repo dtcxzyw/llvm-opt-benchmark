@@ -10746,12 +10746,12 @@ define noundef zeroext i1 @_ZN5tokio7runtime4task7harness15can_read_output17h226
   %4 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
   %5 = and i64 %4, 2
   %.not = icmp eq i64 %5, 0
-  br i1 %.not, label %6, label %73
+  br i1 %.not, label %6, label %69
 
 6:                                                ; preds = %3
   %7 = and i64 %4, 16
   %.not24 = icmp eq i64 %7, 0
-  br i1 %.not24, label %8, label %18
+  br i1 %.not24, label %8, label %14
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
@@ -10759,74 +10759,75 @@ define noundef zeroext i1 @_ZN5tokio7runtime4task7harness15can_read_output17h226
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8, !noundef !4
   %13 = tail call { ptr, ptr } %10(ptr noundef %12)
-  %14 = extractvalue { ptr, ptr } %13, 0
-  %15 = extractvalue { ptr, ptr } %13, 1
-  %16 = icmp ne ptr %14, null
-  tail call void @llvm.assume(i1 %16)
-  %17 = tail call { i64, i64 } @_ZN5tokio7runtime4task7harness14set_join_waker17hd086741f8a38e4d6E.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %14, ptr noundef %15, i64 noundef %4)
-  br label %51
+  br label %47
 
-18:                                               ; preds = %6
+14:                                               ; preds = %6
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1809)
-  %19 = getelementptr inbounds i8, ptr %1, i64 16
+  %15 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1812)
-  %20 = load ptr, ptr %19, align 8, !noalias !1815, !noundef !4
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
+  %16 = load ptr, ptr %15, align 8, !noalias !1815, !noundef !4
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %18, label %19
 
-22:                                               ; preds = %18
+18:                                               ; preds = %14
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.8054ef8b3867bf6c530fe4538a3778b6.51.llvm.6686154611312599027, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.8054ef8b3867bf6c530fe4538a3778b6.53.llvm.6686154611312599027) #34, !noalias !1815
   unreachable
 
-23:                                               ; preds = %18
-  %24 = getelementptr inbounds i8, ptr %1, i64 24
-  %25 = load ptr, ptr %24, align 8, !noalias !1815, !noundef !4
-  %26 = getelementptr inbounds i8, ptr %2, i64 8
-  %27 = load ptr, ptr %26, align 8, !noundef !4
-  %28 = icmp eq ptr %25, %27
-  br i1 %28, label %29, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = load ptr, ptr %20, align 8, !noalias !1815, !noundef !4
+  %22 = getelementptr inbounds i8, ptr %2, i64 8
+  %23 = load ptr, ptr %22, align 8, !noundef !4
+  %24 = icmp eq ptr %21, %23
+  br i1 %24, label %25, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
 
-29:                                               ; preds = %23
-  %30 = load ptr, ptr %2, align 8, !alias.scope !1815, !nonnull !4, !align !7, !noundef !4
+25:                                               ; preds = %19
+  %26 = load ptr, ptr %2, align 8, !alias.scope !1815, !nonnull !4, !align !7, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1816)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1819)
-  %31 = load ptr, ptr %20, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
-  %32 = load ptr, ptr %30, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
-  %33 = icmp eq ptr %31, %32
-  br i1 %33, label %34, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
+  %27 = load ptr, ptr %16, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
+  %28 = load ptr, ptr %26, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
+  %29 = icmp eq ptr %27, %28
+  br i1 %29, label %30, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds i8, ptr %20, i64 8
-  %36 = load ptr, ptr %35, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds i8, ptr %30, i64 8
-  %38 = load ptr, ptr %37, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
-  %39 = icmp eq ptr %36, %38
-  br i1 %39, label %40, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
+30:                                               ; preds = %25
+  %31 = getelementptr inbounds i8, ptr %16, i64 8
+  %32 = load ptr, ptr %31, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
+  %33 = getelementptr inbounds i8, ptr %26, i64 8
+  %34 = load ptr, ptr %33, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
+  %35 = icmp eq ptr %32, %34
+  br i1 %35, label %36, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds i8, ptr %20, i64 16
-  %42 = load ptr, ptr %41, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds i8, ptr %30, i64 16
-  %44 = load ptr, ptr %43, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
-  %45 = icmp eq ptr %42, %44
-  br i1 %45, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
+36:                                               ; preds = %30
+  %37 = getelementptr inbounds i8, ptr %16, i64 16
+  %38 = load ptr, ptr %37, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
+  %39 = getelementptr inbounds i8, ptr %26, i64 16
+  %40 = load ptr, ptr %39, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
+  %41 = icmp eq ptr %38, %40
+  br i1 %41, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
 
-_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit: ; preds = %40
-  %46 = getelementptr inbounds i8, ptr %20, i64 24
-  %47 = load ptr, ptr %46, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds i8, ptr %30, i64 24
-  %49 = load ptr, ptr %48, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
-  %50 = icmp eq ptr %47, %49
-  br i1 %50, label %73, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
+_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit: ; preds = %36
+  %42 = getelementptr inbounds i8, ptr %16, i64 24
+  %43 = load ptr, ptr %42, align 8, !alias.scope !1816, !noalias !1821, !nonnull !4, !noundef !4
+  %44 = getelementptr inbounds i8, ptr %26, i64 24
+  %45 = load ptr, ptr %44, align 8, !alias.scope !1819, !noalias !1822, !nonnull !4, !noundef !4
+  %46 = icmp eq ptr %43, %45
+  br i1 %46, label %69, label %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread
 
-51:                                               ; preds = %63, %8
-  %.pn = phi { i64, i64 } [ %17, %8 ], [ %70, %63 ]
-  %.sroa.0.0 = extractvalue { i64, i64 } %.pn, 0
-  %.sroa.7.0 = extractvalue { i64, i64 } %.pn, 1
+47:                                               ; preds = %63, %8
+  %.sink40 = phi { ptr, ptr } [ %66, %63 ], [ %13, %8 ]
+  %.lcssa.sink = phi i64 [ %61, %63 ], [ %4, %8 ]
+  %48 = extractvalue { ptr, ptr } %.sink40, 0
+  %49 = extractvalue { ptr, ptr } %.sink40, 1
+  %50 = icmp ne ptr %48, null
+  tail call void @llvm.assume(i1 %50)
+  %51 = tail call { i64, i64 } @_ZN5tokio7runtime4task7harness14set_join_waker17hd086741f8a38e4d6E.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %48, ptr noundef %49, i64 noundef %.lcssa.sink)
+  %.sroa.0.0 = extractvalue { i64, i64 } %51, 0
+  %.sroa.7.0 = extractvalue { i64, i64 } %51, 1
   %switch = icmp eq i64 %.sroa.0.0, 0
-  br i1 %switch, label %73, label %.thread
+  br i1 %switch, label %69, label %.thread
 
-_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread: ; preds = %29, %34, %40, %23, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit
+_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread: ; preds = %25, %30, %36, %19, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit
   %52 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17hfbd9b699ce2b5a6fE.llvm.5542961546488995764(ptr noundef nonnull %0, i8 noundef 2)
   br label %53
 
@@ -10864,26 +10865,21 @@ _ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit.thread: ;
 63:                                               ; preds = %60
   %64 = load ptr, ptr %2, align 8, !nonnull !4, !align !7, !noundef !4
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !noundef !4
-  %66 = tail call { ptr, ptr } %65(ptr noundef %27)
-  %67 = extractvalue { ptr, ptr } %66, 0
-  %68 = extractvalue { ptr, ptr } %66, 1
-  %69 = icmp ne ptr %67, null
-  tail call void @llvm.assume(i1 %69)
-  %70 = tail call { i64, i64 } @_ZN5tokio7runtime4task7harness14set_join_waker17hd086741f8a38e4d6E.llvm.3285439092171202888(ptr noundef nonnull align 8 %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %67, ptr noundef %68, i64 noundef %61)
-  br label %51
+  %66 = tail call { ptr, ptr } %65(ptr noundef %23)
+  br label %47
 
-.thread:                                          ; preds = %"_ZN5tokio7runtime4task5state5State11unset_waker28_$u7b$$u7b$closure$u7d$$u7d$17h9bb3873dcb39d804E.llvm.3285439092171202888.exit.i.i", %51
-  %.sroa.7.019 = phi i64 [ %.sroa.7.0, %51 ], [ %.0.i.i, %"_ZN5tokio7runtime4task5state5State11unset_waker28_$u7b$$u7b$closure$u7d$$u7d$17h9bb3873dcb39d804E.llvm.3285439092171202888.exit.i.i" ]
-  %71 = and i64 %.sroa.7.019, 2
-  %.not26 = icmp eq i64 %71, 0
-  br i1 %.not26, label %72, label %73
+.thread:                                          ; preds = %"_ZN5tokio7runtime4task5state5State11unset_waker28_$u7b$$u7b$closure$u7d$$u7d$17h9bb3873dcb39d804E.llvm.3285439092171202888.exit.i.i", %47
+  %.sroa.7.019 = phi i64 [ %.sroa.7.0, %47 ], [ %.0.i.i, %"_ZN5tokio7runtime4task5state5State11unset_waker28_$u7b$$u7b$closure$u7d$$u7d$17h9bb3873dcb39d804E.llvm.3285439092171202888.exit.i.i" ]
+  %67 = and i64 %.sroa.7.019, 2
+  %.not26 = icmp eq i64 %67, 0
+  br i1 %.not26, label %68, label %69
 
-72:                                               ; preds = %.thread
+68:                                               ; preds = %.thread
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.437abf4fc75871fa06817f7f17e4beb4.112.llvm.3285439092171202888, i64 noundef 40, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.437abf4fc75871fa06817f7f17e4beb4.114.llvm.3285439092171202888) #34
   unreachable
 
-73:                                               ; preds = %.thread, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit, %51, %3
-  %.1 = phi i1 [ true, %3 ], [ false, %51 ], [ false, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit ], [ true, %.thread ]
+69:                                               ; preds = %.thread, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit, %47, %3
+  %.1 = phi i1 [ true, %3 ], [ false, %47 ], [ false, %_ZN5tokio7runtime4task4core7Trailer9will_wake17hfdc14a5cca636ea2E.exit ], [ true, %.thread ]
   ret i1 %.1
 }
 

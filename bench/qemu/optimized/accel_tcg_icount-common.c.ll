@@ -1076,9 +1076,9 @@ land.lhs.true28:                                  ; preds = %if.end25
 
 if.end49.sink.split:                              ; preds = %land.lhs.true28, %land.lhs.true
   %.sink = phi i16 [ -1, %land.lhs.true ], [ 1, %land.lhs.true28 ]
-  %add46 = add nsw i16 %36, %.sink
-  store atomic i16 %add46, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
-  %.pre32 = sext i16 %add46 to i64
+  %sub22 = add nsw i16 %.sink, %36
+  store atomic i16 %sub22, ptr getelementptr inbounds (i8, ptr @timers_state, i64 26) monotonic, align 2
+  %.pre32 = sext i16 %sub22 to i64
   %.pre33 = and i64 %.pre32, 4294967295
   %.pre34 = shl i64 %34, %.pre33
   br label %if.end49

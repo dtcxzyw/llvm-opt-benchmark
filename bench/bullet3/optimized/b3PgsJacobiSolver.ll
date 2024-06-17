@@ -3716,9 +3716,9 @@ _ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139: ; preds = %_ZNK12b3S
   %36 = fsub <2 x float> %angVelB.sroa.0.1, %angVelA.sroa.0.1
   %37 = fsub <2 x float> %angVelB.sroa.4.1, %angVelA.sroa.4.1
   %sub7.i = extractelement <2 x float> %37, i64 0
-  %retval.sroa.3.12.vec.insert.i.i383 = insertelement <2 x float> %37, float 0.000000e+00, i64 1
+  %retval.sroa.3.12.vec.insert.i.i387 = insertelement <2 x float> %37, float 0.000000e+00, i64 1
   store <2 x float> %36, ptr %relAngVel, align 16
-  store <2 x float> %retval.sroa.3.12.vec.insert.i.i383, ptr %14, align 8
+  store <2 x float> %retval.sroa.3.12.vec.insert.i.i387, ptr %14, align 8
   %38 = load float, ptr %m_combinedRollingFriction, align 8
   %cmp22 = fcmp ogt float %38, 0.000000e+00
   %cmp24 = icmp sgt i32 %rollingFriction.0372, 0
@@ -3758,136 +3758,116 @@ if.then32:                                        ; preds = %if.then28
   %51 = load i32, ptr %m_size.i.i.i147, align 4
   %52 = load i32, ptr %m_capacity.i.i.i148, align 8
   %cmp.i.i = icmp eq i32 %51, %52
-  br i1 %cmp.i.i, label %if.then.i.i, label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit
-
-if.then.i.i:                                      ; preds = %if.then32
-  %tobool.not.i.i.i = icmp eq i32 %51, 0
-  %mul.i.i.i146 = shl nsw i32 %51, 1
-  %cond.i.i.i = select i1 %tobool.not.i.i.i, i32 1, i32 %mul.i.i.i146
-  call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool.i156, i32 noundef %cond.i.i.i)
-  %.pre.i.i = load i32, ptr %m_size.i.i.i147, align 4
-  br label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit
-
-_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit: ; preds = %if.then32, %if.then.i.i
-  %53 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %51, %if.then32 ]
-  %inc.i.i = add nsw i32 %53, 1
-  store i32 %inc.i.i, ptr %m_size.i.i.i147, align 4
-  %54 = load ptr, ptr %m_data.i.i151, align 8
-  %idxprom.i.i = sext i32 %51 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.b3SolverConstraint, ptr %54, i64 %idxprom.i.i
-  %m_frictionIndex.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 140
-  store i32 %18, ptr %m_frictionIndex.i, align 4
-  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %relAngVel, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr nonnull align 16 poison, ptr nonnull align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  br label %if.end50
+  br i1 %cmp.i.i, label %if.end50.sink.split.sink.split, label %if.end50.sink.split
 
 if.else:                                          ; preds = %if.then25
-  %55 = load i32, ptr %m_size.i.i.i147, align 4
-  %56 = load i32, ptr %m_capacity.i.i.i148, align 8
-  %cmp.i.i149 = icmp eq i32 %55, %56
+  %53 = load i32, ptr %m_size.i.i.i147, align 4
+  %54 = load i32, ptr %m_capacity.i.i.i148, align 8
+  %cmp.i.i149 = icmp eq i32 %53, %54
   br i1 %cmp.i.i149, label %if.then.i.i155, label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit161
 
 if.then.i.i155:                                   ; preds = %if.else
-  %tobool.not.i.i.i157 = icmp eq i32 %55, 0
-  %mul.i.i.i158 = shl nsw i32 %55, 1
+  %tobool.not.i.i.i157 = icmp eq i32 %53, 0
+  %mul.i.i.i158 = shl nsw i32 %53, 1
   %cond.i.i.i159 = select i1 %tobool.not.i.i.i157, i32 1, i32 %mul.i.i.i158
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool.i156, i32 noundef %cond.i.i.i159)
   %.pre.i.i160 = load i32, ptr %m_size.i.i.i147, align 4
   br label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit161
 
 _ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit161: ; preds = %if.else, %if.then.i.i155
-  %57 = phi i32 [ %.pre.i.i160, %if.then.i.i155 ], [ %55, %if.else ]
-  %inc.i.i150 = add nsw i32 %57, 1
+  %55 = phi i32 [ %.pre.i.i160, %if.then.i.i155 ], [ %53, %if.else ]
+  %inc.i.i150 = add nsw i32 %55, 1
   store i32 %inc.i.i150, ptr %m_size.i.i.i147, align 4
-  %58 = load ptr, ptr %m_data.i.i151, align 8
-  %idxprom.i.i152 = sext i32 %55 to i64
-  %arrayidx.i.i153 = getelementptr inbounds %struct.b3SolverConstraint, ptr %58, i64 %idxprom.i.i152
+  %56 = load ptr, ptr %m_data.i.i151, align 8
+  %idxprom.i.i152 = sext i32 %53 to i64
+  %arrayidx.i.i153 = getelementptr inbounds %struct.b3SolverConstraint, ptr %56, i64 %idxprom.i.i152
   %m_frictionIndex.i154 = getelementptr inbounds i8, ptr %arrayidx.i.i153, i64 140
   store i32 %18, ptr %m_frictionIndex.i154, align 4
   call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i153, ptr noundef nonnull align 16 dereferenceable(16) %m_normalWorldOnB, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr nonnull align 16 poison, ptr nonnull align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %59 = load float, ptr %arrayidx.i162, align 8
-  %60 = call noundef float @llvm.fabs.f32(float %59)
-  %cmp.i163 = fcmp ogt float %60, 0x3FE6A09E60000000
+  %57 = load float, ptr %arrayidx.i162, align 8
+  %58 = call noundef float @llvm.fabs.f32(float %57)
+  %cmp.i163 = fcmp ogt float %58, 0x3FE6A09E60000000
   br i1 %cmp.i163, label %if.then.i165, label %if.else.i164
 
 if.then.i165:                                     ; preds = %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit161
-  %61 = load float, ptr %arrayidx48.i, align 4
-  %mul10.i = fmul float %59, %59
-  %62 = call float @llvm.fmuladd.f32(float %61, float %61, float %mul10.i)
-  %sqrt.i167 = call float @llvm.sqrt.f32(float %62)
+  %59 = load float, ptr %arrayidx48.i, align 4
+  %mul10.i = fmul float %57, %57
+  %60 = call float @llvm.fmuladd.f32(float %59, float %59, float %mul10.i)
+  %sqrt.i167 = call float @llvm.sqrt.f32(float %60)
   %div.i = fdiv float 1.000000e+00, %sqrt.i167
   store float 0.000000e+00, ptr %axis0, align 16
-  %fneg.i = fneg float %59
+  %fneg.i = fneg float %57
   %mul.i = fmul float %div.i, %fneg.i
   store float %mul.i, ptr %arrayidx65.i, align 4
-  %mul20.i = fmul float %61, %div.i
+  %mul20.i = fmul float %59, %div.i
   store float %mul20.i, ptr %arrayidx22.i, align 8
-  %mul23.i = fmul float %62, %div.i
+  %mul23.i = fmul float %60, %div.i
   store float %mul23.i, ptr %axis1, align 16
-  %63 = load float, ptr %m_normalWorldOnB, align 16
-  %fneg28.i = fneg float %63
+  %61 = load float, ptr %m_normalWorldOnB, align 16
+  %fneg28.i = fneg float %61
   %mul31.i = fmul float %mul20.i, %fneg28.i
   store float %mul31.i, ptr %arrayidx82.i, align 4
-  %mul38.i = fmul float %mul.i, %63
+  %mul38.i = fmul float %mul.i, %61
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
 
 if.else.i164:                                     ; preds = %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit161
-  %64 = load float, ptr %m_normalWorldOnB, align 16
-  %65 = load float, ptr %arrayidx48.i, align 4
-  %mul51.i = fmul float %65, %65
-  %66 = call float @llvm.fmuladd.f32(float %64, float %64, float %mul51.i)
-  %sqrt38.i = call float @llvm.sqrt.f32(float %66)
+  %62 = load float, ptr %m_normalWorldOnB, align 16
+  %63 = load float, ptr %arrayidx48.i, align 4
+  %mul51.i = fmul float %63, %63
+  %64 = call float @llvm.fmuladd.f32(float %62, float %62, float %mul51.i)
+  %sqrt38.i = call float @llvm.sqrt.f32(float %64)
   %div54.i = fdiv float 1.000000e+00, %sqrt38.i
-  %fneg57.i = fneg float %65
+  %fneg57.i = fneg float %63
   %mul58.i = fmul float %div54.i, %fneg57.i
   store float %mul58.i, ptr %axis0, align 16
-  %mul63.i = fmul float %64, %div54.i
+  %mul63.i = fmul float %62, %div54.i
   store float %mul63.i, ptr %arrayidx65.i, align 4
   store float 0.000000e+00, ptr %arrayidx22.i, align 8
-  %fneg70.i = fneg float %59
+  %fneg70.i = fneg float %57
   %mul73.i = fmul float %mul63.i, %fneg70.i
   store float %mul73.i, ptr %axis1, align 16
-  %mul80.i = fmul float %59, %mul58.i
+  %mul80.i = fmul float %57, %mul58.i
   store float %mul80.i, ptr %arrayidx82.i, align 4
-  %mul83.i = fmul float %66, %div54.i
+  %mul83.i = fmul float %64, %div54.i
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
 
 _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit:   ; preds = %if.then.i165, %if.else.i164
   %mul80.i374 = phi float [ %mul31.i, %if.then.i165 ], [ %mul80.i, %if.else.i164 ]
-  %67 = phi float [ %mul20.i, %if.then.i165 ], [ 0.000000e+00, %if.else.i164 ]
+  %65 = phi float [ %mul20.i, %if.then.i165 ], [ 0.000000e+00, %if.else.i164 ]
   %mul63.i373 = phi float [ %mul.i, %if.then.i165 ], [ %mul63.i, %if.else.i164 ]
-  %68 = phi float [ %mul23.i, %if.then.i165 ], [ %mul73.i, %if.else.i164 ]
-  %69 = phi float [ 0.000000e+00, %if.then.i165 ], [ %mul58.i, %if.else.i164 ]
+  %66 = phi float [ %mul23.i, %if.then.i165 ], [ %mul73.i, %if.else.i164 ]
+  %67 = phi float [ 0.000000e+00, %if.then.i165 ], [ %mul58.i, %if.else.i164 ]
   %mul83.sink.i = phi float [ %mul38.i, %if.then.i165 ], [ %mul83.i, %if.else.i164 ]
   store float %mul83.sink.i, ptr %15, align 8
   %mul5.i.i.i169 = fmul float %mul63.i373, %mul63.i373
-  %70 = call float @llvm.fmuladd.f32(float %69, float %69, float %mul5.i.i.i169)
-  %71 = call noundef float @llvm.fmuladd.f32(float %67, float %67, float %70)
-  %sqrt.i171 = call noundef float @llvm.sqrt.f32(float %71)
+  %68 = call float @llvm.fmuladd.f32(float %67, float %67, float %mul5.i.i.i169)
+  %69 = call noundef float @llvm.fmuladd.f32(float %65, float %65, float %68)
+  %sqrt.i171 = call noundef float @llvm.sqrt.f32(float %69)
   %conv38 = fpext float %sqrt.i171 to double
   %cmp39 = fcmp ogt double %conv38, 1.000000e-03
   br i1 %cmp39, label %if.then40, label %if.end42
 
 if.then40:                                        ; preds = %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
-  %72 = load i32, ptr %m_size.i.i.i147, align 4
-  %73 = load i32, ptr %m_capacity.i.i.i148, align 8
-  %cmp.i.i174 = icmp eq i32 %72, %73
+  %70 = load i32, ptr %m_size.i.i.i147, align 4
+  %71 = load i32, ptr %m_capacity.i.i.i148, align 8
+  %cmp.i.i174 = icmp eq i32 %70, %71
   br i1 %cmp.i.i174, label %if.then.i.i180, label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit186
 
 if.then.i.i180:                                   ; preds = %if.then40
-  %tobool.not.i.i.i182 = icmp eq i32 %72, 0
-  %mul.i.i.i183 = shl nsw i32 %72, 1
+  %tobool.not.i.i.i182 = icmp eq i32 %70, 0
+  %mul.i.i.i183 = shl nsw i32 %70, 1
   %cond.i.i.i184 = select i1 %tobool.not.i.i.i182, i32 1, i32 %mul.i.i.i183
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool.i156, i32 noundef %cond.i.i.i184)
   %.pre.i.i185 = load i32, ptr %m_size.i.i.i147, align 4
   br label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit186
 
 _ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit186: ; preds = %if.then40, %if.then.i.i180
-  %74 = phi i32 [ %.pre.i.i185, %if.then.i.i180 ], [ %72, %if.then40 ]
-  %inc.i.i175 = add nsw i32 %74, 1
+  %72 = phi i32 [ %.pre.i.i185, %if.then.i.i180 ], [ %70, %if.then40 ]
+  %inc.i.i175 = add nsw i32 %72, 1
   store i32 %inc.i.i175, ptr %m_size.i.i.i147, align 4
-  %75 = load ptr, ptr %m_data.i.i151, align 8
-  %idxprom.i.i177 = sext i32 %72 to i64
-  %arrayidx.i.i178 = getelementptr inbounds %struct.b3SolverConstraint, ptr %75, i64 %idxprom.i.i177
+  %73 = load ptr, ptr %m_data.i.i151, align 8
+  %idxprom.i.i177 = sext i32 %70 to i64
+  %arrayidx.i.i178 = getelementptr inbounds %struct.b3SolverConstraint, ptr %73, i64 %idxprom.i.i177
   %m_frictionIndex.i179 = getelementptr inbounds i8, ptr %arrayidx.i.i178, i64 140
   store i32 %18, ptr %m_frictionIndex.i179, align 4
   call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i178, ptr noundef nonnull align 16 dereferenceable(16) %axis0, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr nonnull align 16 poison, ptr nonnull align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
@@ -3895,124 +3875,128 @@ _ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3Iner
 
 if.end42:                                         ; preds = %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit186, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit
   %mul5.i.i.i188 = fmul float %mul80.i374, %mul80.i374
-  %76 = call float @llvm.fmuladd.f32(float %68, float %68, float %mul5.i.i.i188)
-  %77 = call noundef float @llvm.fmuladd.f32(float %mul83.sink.i, float %mul83.sink.i, float %76)
-  %sqrt.i190 = call noundef float @llvm.sqrt.f32(float %77)
+  %74 = call float @llvm.fmuladd.f32(float %66, float %66, float %mul5.i.i.i188)
+  %75 = call noundef float @llvm.fmuladd.f32(float %mul83.sink.i, float %mul83.sink.i, float %74)
+  %sqrt.i190 = call noundef float @llvm.sqrt.f32(float %75)
   %conv44 = fpext float %sqrt.i190 to double
   %cmp45 = fcmp ogt double %conv44, 1.000000e-03
   br i1 %cmp45, label %if.then46, label %if.end50
 
 if.then46:                                        ; preds = %if.end42
-  %78 = load i32, ptr %m_size.i.i.i147, align 4
-  %79 = load i32, ptr %m_capacity.i.i.i148, align 8
-  %cmp.i.i193 = icmp eq i32 %78, %79
-  br i1 %cmp.i.i193, label %if.then.i.i199, label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit205
+  %76 = load i32, ptr %m_size.i.i.i147, align 4
+  %77 = load i32, ptr %m_capacity.i.i.i148, align 8
+  %cmp.i.i193 = icmp eq i32 %76, %77
+  br i1 %cmp.i.i193, label %if.end50.sink.split.sink.split, label %if.end50.sink.split
 
-if.then.i.i199:                                   ; preds = %if.then46
-  %tobool.not.i.i.i201 = icmp eq i32 %78, 0
-  %mul.i.i.i202 = shl nsw i32 %78, 1
+if.end50.sink.split.sink.split:                   ; preds = %if.then46, %if.then32
+  %.sink386 = phi i32 [ %51, %if.then32 ], [ %76, %if.then46 ]
+  %relAngVel.sink.ph = phi ptr [ %relAngVel, %if.then32 ], [ %axis1, %if.then46 ]
+  %tobool.not.i.i.i201 = icmp eq i32 %.sink386, 0
+  %mul.i.i.i202 = shl nsw i32 %.sink386, 1
   %cond.i.i.i203 = select i1 %tobool.not.i.i.i201, i32 1, i32 %mul.i.i.i202
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactRollingFrictionConstraintPool.i156, i32 noundef %cond.i.i.i203)
   %.pre.i.i204 = load i32, ptr %m_size.i.i.i147, align 4
-  br label %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit205
+  br label %if.end50.sink.split
 
-_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit205: ; preds = %if.then46, %if.then.i.i199
-  %80 = phi i32 [ %.pre.i.i204, %if.then.i.i199 ], [ %78, %if.then46 ]
-  %inc.i.i194 = add nsw i32 %80, 1
-  store i32 %inc.i.i194, ptr %m_size.i.i.i147, align 4
-  %81 = load ptr, ptr %m_data.i.i151, align 8
-  %idxprom.i.i196 = sext i32 %78 to i64
-  %arrayidx.i.i197 = getelementptr inbounds %struct.b3SolverConstraint, ptr %81, i64 %idxprom.i.i196
-  %m_frictionIndex.i198 = getelementptr inbounds i8, ptr %arrayidx.i.i197, i64 140
-  store i32 %18, ptr %m_frictionIndex.i198, align 4
-  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i197, ptr noundef nonnull align 16 dereferenceable(16) %axis1, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr nonnull align 16 poison, ptr nonnull align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
+if.end50.sink.split:                              ; preds = %if.end50.sink.split.sink.split, %if.then46, %if.then32
+  %.sink = phi i32 [ %51, %if.then32 ], [ %76, %if.then46 ], [ %.pre.i.i204, %if.end50.sink.split.sink.split ]
+  %.sink384 = phi i32 [ %51, %if.then32 ], [ %76, %if.then46 ], [ %.sink386, %if.end50.sink.split.sink.split ]
+  %relAngVel.sink = phi ptr [ %relAngVel, %if.then32 ], [ %axis1, %if.then46 ], [ %relAngVel.sink.ph, %if.end50.sink.split.sink.split ]
+  %inc.i.i = add nsw i32 %.sink, 1
+  store i32 %inc.i.i, ptr %m_size.i.i.i147, align 4
+  %78 = load ptr, ptr %m_data.i.i151, align 8
+  %idxprom.i.i = sext i32 %.sink384 to i64
+  %arrayidx.i.i = getelementptr inbounds %struct.b3SolverConstraint, ptr %78, i64 %idxprom.i.i
+  %m_frictionIndex.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 140
+  store i32 %18, ptr %m_frictionIndex.i, align 4
+  call void @_ZN17b3PgsJacobiSolver30setupRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i, ptr noundef nonnull align 16 dereferenceable(16) %relAngVel.sink, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr nonnull align 16 poison, ptr nonnull align 16 poison, ptr poison, ptr poison, float poison, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %if.end50
 
-if.end50:                                         ; preds = %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit, %if.then28, %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit205, %if.end42, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139
-  %rollingFriction.1 = phi i32 [ 0, %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit ], [ 0, %if.then28 ], [ 0, %_ZN17b3PgsJacobiSolver28addRollingFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit205 ], [ 0, %if.end42 ], [ %rollingFriction.0372, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139 ]
-  %82 = load i32, ptr %m_solverMode, align 4
-  %and = and i32 %82, 32
+if.end50:                                         ; preds = %if.end50.sink.split, %if.then28, %if.end42, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139
+  %rollingFriction.1 = phi i32 [ 0, %if.then28 ], [ 0, %if.end42 ], [ %rollingFriction.0372, %_ZNK12b3SolverBody18getAngularVelocityER9b3Vector3.exit139 ], [ 0, %if.end50.sink.split ]
+  %79 = load i32, ptr %m_solverMode, align 4
+  %and = and i32 %79, 32
   %tobool.not = icmp eq i32 %and, 0
   br i1 %tobool.not, label %if.then52, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end50
-  %83 = load i8, ptr %m_lateralFrictionInitialized, align 4
-  %tobool51 = trunc i8 %83 to i1
+  %80 = load i8, ptr %m_lateralFrictionInitialized, align 4
+  %tobool51 = trunc i8 %80 to i1
   br i1 %tobool51, label %if.else114, label %if.then52
 
 if.then52:                                        ; preds = %lor.lhs.false, %if.end50
-  %84 = load float, ptr %m_normalWorldOnB, align 16
-  %85 = load float, ptr %rel_vel, align 4
-  %mul.i206 = fmul float %84, %85
-  %86 = load float, ptr %vel, align 16
-  %sub.i213 = fsub float %86, %mul.i206
-  %87 = load <2 x float>, ptr %arrayidx48.i, align 4
-  %88 = insertelement <2 x float> poison, float %85, i64 0
-  %89 = shufflevector <2 x float> %88, <2 x float> poison, <2 x i32> zeroinitializer
-  %90 = fmul <2 x float> %89, %87
-  %91 = load <2 x float>, ptr %arrayidx2.i214, align 4
-  %92 = fsub <2 x float> %91, %90
+  %81 = load float, ptr %m_normalWorldOnB, align 16
+  %82 = load float, ptr %rel_vel, align 4
+  %mul.i206 = fmul float %81, %82
+  %83 = load float, ptr %vel, align 16
+  %sub.i213 = fsub float %83, %mul.i206
+  %84 = load <2 x float>, ptr %arrayidx48.i, align 4
+  %85 = insertelement <2 x float> poison, float %82, i64 0
+  %86 = shufflevector <2 x float> %85, <2 x float> poison, <2 x i32> zeroinitializer
+  %87 = fmul <2 x float> %86, %84
+  %88 = load <2 x float>, ptr %arrayidx2.i214, align 4
+  %89 = fsub <2 x float> %88, %87
   %retval.sroa.0.0.vec.insert.i.i220 = insertelement <2 x float> poison, float %sub.i213, i64 0
-  %93 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i220, <2 x float> %92, <2 x i32> <i32 0, i32 2>
-  %94 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %92, <2 x i32> <i32 3, i32 1>
-  store <2 x float> %93, ptr %m_lateralFrictionDir1115, align 16
-  store <2 x float> %94, ptr %ref.tmp.sroa.2.0.m_lateralFrictionDir1.sroa_idx, align 8
-  %95 = fmul <2 x float> %92, %92
-  %mul5.i.i = extractelement <2 x float> %95, i64 0
-  %96 = call float @llvm.fmuladd.f32(float %sub.i213, float %sub.i213, float %mul5.i.i)
-  %97 = extractelement <2 x float> %92, i64 1
-  %98 = call noundef float @llvm.fmuladd.f32(float %97, float %97, float %96)
-  %and64 = and i32 %82, 64
+  %90 = shufflevector <2 x float> %retval.sroa.0.0.vec.insert.i.i220, <2 x float> %89, <2 x i32> <i32 0, i32 2>
+  %91 = shufflevector <2 x float> <float poison, float 0.000000e+00>, <2 x float> %89, <2 x i32> <i32 3, i32 1>
+  store <2 x float> %90, ptr %m_lateralFrictionDir1115, align 16
+  store <2 x float> %91, ptr %ref.tmp.sroa.2.0.m_lateralFrictionDir1.sroa_idx, align 8
+  %92 = fmul <2 x float> %89, %89
+  %mul5.i.i = extractelement <2 x float> %92, i64 0
+  %93 = call float @llvm.fmuladd.f32(float %sub.i213, float %sub.i213, float %mul5.i.i)
+  %94 = extractelement <2 x float> %89, i64 1
+  %95 = call noundef float @llvm.fmuladd.f32(float %94, float %94, float %93)
+  %and64 = and i32 %79, 64
   %tobool65 = icmp eq i32 %and64, 0
-  %cmp67 = fcmp ogt float %98, 0x3E80000000000000
+  %cmp67 = fcmp ogt float %95, 0x3E80000000000000
   %or.cond1 = and i1 %tobool65, %cmp67
   br i1 %or.cond1, label %if.then68, label %if.else90
 
 if.then68:                                        ; preds = %if.then52
-  %sqrt = call float @llvm.sqrt.f32(float %98)
+  %sqrt = call float @llvm.sqrt.f32(float %95)
   %div = fdiv float 1.000000e+00, %sqrt
   %mul.i227 = fmul float %div, %sub.i213
   store float %mul.i227, ptr %m_lateralFrictionDir1115, align 16
-  %99 = insertelement <2 x float> poison, float %div, i64 0
-  %100 = shufflevector <2 x float> %99, <2 x float> poison, <2 x i32> zeroinitializer
-  %101 = fmul <2 x float> %100, %92
-  store <2 x float> %101, ptr %arrayidx3.i.i225, align 4
-  %and74 = and i32 %82, 16
+  %96 = insertelement <2 x float> poison, float %div, i64 0
+  %97 = shufflevector <2 x float> %96, <2 x float> poison, <2 x i32> zeroinitializer
+  %98 = fmul <2 x float> %97, %89
+  store <2 x float> %98, ptr %arrayidx3.i.i225, align 4
+  %and74 = and i32 %79, 16
   %tobool75.not = icmp eq i32 %and74, 0
   %.pre377 = load float, ptr %relaxation, align 4
   %.pre379 = load i32, ptr %m_size.i121, align 4
   br i1 %tobool75.not, label %if.end87, label %if.then76
 
 if.then76:                                        ; preds = %if.then68
-  %102 = shufflevector <2 x float> %101, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %103 = insertelement <2 x float> %102, float %mul.i227, i64 1
-  %104 = fneg <2 x float> %103
-  %105 = extractelement <2 x float> %101, i64 0
-  %106 = fneg float %105
-  %neg17.i = fmul float %84, %106
-  %107 = extractelement <2 x float> %87, i64 0
-  %108 = call float @llvm.fmuladd.f32(float %mul.i227, float %107, float %neg17.i)
-  %retval.sroa.3.12.vec.insert.i.i236 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %108, i64 0
+  %99 = shufflevector <2 x float> %98, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %100 = insertelement <2 x float> %99, float %mul.i227, i64 1
+  %101 = fneg <2 x float> %100
+  %102 = extractelement <2 x float> %98, i64 0
+  %103 = fneg float %102
+  %neg17.i = fmul float %81, %103
+  %104 = extractelement <2 x float> %84, i64 0
+  %105 = call float @llvm.fmuladd.f32(float %mul.i227, float %104, float %neg17.i)
+  %retval.sroa.3.12.vec.insert.i.i236 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %105, i64 0
   store <2 x float> %retval.sroa.3.12.vec.insert.i.i236, ptr %16, align 8
-  %109 = fmul <2 x float> %87, %104
-  %110 = shufflevector <2 x float> %87, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %111 = insertelement <2 x float> %110, float %84, i64 1
-  %112 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %101, <2 x float> %111, <2 x float> %109)
-  %113 = fmul <2 x float> %112, %112
-  %mul5.i.i.i.i240 = extractelement <2 x float> %113, i64 1
-  %114 = extractelement <2 x float> %112, i64 0
-  %115 = call float @llvm.fmuladd.f32(float %114, float %114, float %mul5.i.i.i.i240)
-  %116 = call noundef float @llvm.fmuladd.f32(float %108, float %108, float %115)
-  %sqrt.i.i242 = call noundef float @llvm.sqrt.f32(float %116)
+  %106 = fmul <2 x float> %84, %101
+  %107 = shufflevector <2 x float> %84, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %108 = insertelement <2 x float> %107, float %81, i64 1
+  %109 = call <2 x float> @llvm.fmuladd.v2f32(<2 x float> %98, <2 x float> %108, <2 x float> %106)
+  %110 = fmul <2 x float> %109, %109
+  %mul5.i.i.i.i240 = extractelement <2 x float> %110, i64 1
+  %111 = extractelement <2 x float> %109, i64 0
+  %112 = call float @llvm.fmuladd.f32(float %111, float %111, float %mul5.i.i.i.i240)
+  %113 = call noundef float @llvm.fmuladd.f32(float %105, float %105, float %112)
+  %sqrt.i.i242 = call noundef float @llvm.sqrt.f32(float %113)
   %div.i.i243 = fdiv float 1.000000e+00, %sqrt.i.i242
-  %117 = insertelement <2 x float> poison, float %div.i.i243, i64 0
-  %118 = shufflevector <2 x float> %117, <2 x float> poison, <2 x i32> zeroinitializer
-  %119 = fmul <2 x float> %112, %118
-  store <2 x float> %119, ptr %m_lateralFrictionDir2121, align 16
-  %mul5.i.i.i246 = fmul float %108, %div.i.i243
+  %114 = insertelement <2 x float> poison, float %div.i.i243, i64 0
+  %115 = shufflevector <2 x float> %114, <2 x float> poison, <2 x i32> zeroinitializer
+  %116 = fmul <2 x float> %109, %115
+  store <2 x float> %116, ptr %m_lateralFrictionDir2121, align 16
+  %mul5.i.i.i246 = fmul float %105, %div.i.i243
   store float %mul5.i.i.i246, ptr %16, align 8
-  %120 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i249 = icmp eq i32 %.pre379, %120
+  %117 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i249 = icmp eq i32 %.pre379, %117
   br i1 %cmp.i.i249, label %if.then.i.i255, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit
 
 if.then.i.i255:                                   ; preds = %if.then76
@@ -4024,12 +4008,12 @@ if.then.i.i255:                                   ; preds = %if.then76
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit: ; preds = %if.then76, %if.then.i.i255
-  %121 = phi i32 [ %.pre.i.i259, %if.then.i.i255 ], [ %.pre379, %if.then76 ]
-  %inc.i.i250 = add nsw i32 %121, 1
+  %118 = phi i32 [ %.pre.i.i259, %if.then.i.i255 ], [ %.pre379, %if.then76 ]
+  %inc.i.i250 = add nsw i32 %118, 1
   store i32 %inc.i.i250, ptr %m_size.i121, align 4
-  %122 = load ptr, ptr %m_data.i.i342, align 8
+  %119 = load ptr, ptr %m_data.i.i342, align 8
   %idxprom.i.i252 = sext i32 %.pre379 to i64
-  %arrayidx.i.i253 = getelementptr inbounds %struct.b3SolverConstraint, ptr %122, i64 %idxprom.i.i252
+  %arrayidx.i.i253 = getelementptr inbounds %struct.b3SolverConstraint, ptr %119, i64 %idxprom.i.i252
   %m_frictionIndex.i254 = getelementptr inbounds i8, ptr %arrayidx.i.i253, i64 140
   store i32 %18, ptr %m_frictionIndex.i254, align 4
   call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i253, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
@@ -4037,92 +4021,92 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   br label %if.end87
 
 if.end87:                                         ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit, %if.then68
-  %123 = phi i32 [ %.pre378, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit ], [ %.pre379, %if.then68 ]
-  %124 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i262 = icmp eq i32 %123, %124
+  %120 = phi i32 [ %.pre378, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit ], [ %.pre379, %if.then68 ]
+  %121 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i262 = icmp eq i32 %120, %121
   br i1 %cmp.i.i262, label %if.then.i.i268, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit274
 
 if.then.i.i268:                                   ; preds = %if.end87
-  %tobool.not.i.i.i270 = icmp eq i32 %123, 0
-  %mul.i.i.i271 = shl nsw i32 %123, 1
+  %tobool.not.i.i.i270 = icmp eq i32 %120, 0
+  %mul.i.i.i271 = shl nsw i32 %120, 1
   %cond.i.i.i272 = select i1 %tobool.not.i.i.i270, i32 1, i32 %mul.i.i.i271
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool, i32 noundef %cond.i.i.i272)
   %.pre.i.i273 = load i32, ptr %m_size.i121, align 4
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit274
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit274: ; preds = %if.end87, %if.then.i.i268
-  %125 = phi i32 [ %.pre.i.i273, %if.then.i.i268 ], [ %123, %if.end87 ]
-  %inc.i.i263 = add nsw i32 %125, 1
+  %122 = phi i32 [ %.pre.i.i273, %if.then.i.i268 ], [ %120, %if.end87 ]
+  %inc.i.i263 = add nsw i32 %122, 1
   store i32 %inc.i.i263, ptr %m_size.i121, align 4
-  %126 = load ptr, ptr %m_data.i.i342, align 8
-  %idxprom.i.i265 = sext i32 %123 to i64
-  %arrayidx.i.i266 = getelementptr inbounds %struct.b3SolverConstraint, ptr %126, i64 %idxprom.i.i265
+  %123 = load ptr, ptr %m_data.i.i342, align 8
+  %idxprom.i.i265 = sext i32 %120 to i64
+  %arrayidx.i.i266 = getelementptr inbounds %struct.b3SolverConstraint, ptr %123, i64 %idxprom.i.i265
   %m_frictionIndex.i267 = getelementptr inbounds i8, ptr %arrayidx.i.i266, i64 140
   store i32 %18, ptr %m_frictionIndex.i267, align 4
   call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i266, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre377, float noundef 0.000000e+00, float noundef 0.000000e+00)
   br label %for.inc
 
 if.else90:                                        ; preds = %if.then52
-  %127 = extractelement <2 x float> %87, i64 1
-  %128 = call noundef float @llvm.fabs.f32(float %127)
-  %cmp.i276 = fcmp ogt float %128, 0x3FE6A09E60000000
+  %124 = extractelement <2 x float> %84, i64 1
+  %125 = call noundef float @llvm.fabs.f32(float %124)
+  %cmp.i276 = fcmp ogt float %125, 0x3FE6A09E60000000
   br i1 %cmp.i276, label %if.then.i293, label %if.else.i278
 
 if.then.i293:                                     ; preds = %if.else90
-  %mul10.i295 = fmul float %127, %127
-  %129 = extractelement <2 x float> %87, i64 0
-  %130 = call float @llvm.fmuladd.f32(float %129, float %129, float %mul10.i295)
-  %sqrt.i296 = call float @llvm.sqrt.f32(float %130)
+  %mul10.i295 = fmul float %124, %124
+  %126 = extractelement <2 x float> %84, i64 0
+  %127 = call float @llvm.fmuladd.f32(float %126, float %126, float %mul10.i295)
+  %sqrt.i296 = call float @llvm.sqrt.f32(float %127)
   %div.i297 = fdiv float 1.000000e+00, %sqrt.i296
   store float 0.000000e+00, ptr %m_lateralFrictionDir1115, align 16
-  %fneg.i298 = fneg float %127
+  %fneg.i298 = fneg float %124
   %mul.i299 = fmul float %div.i297, %fneg.i298
   store float %mul.i299, ptr %arrayidx3.i.i225, align 4
-  %mul20.i301 = fmul float %129, %div.i297
+  %mul20.i301 = fmul float %126, %div.i297
   store float %mul20.i301, ptr %ref.tmp.sroa.2.0.m_lateralFrictionDir1.sroa_idx, align 8
-  %fneg28.i303 = fneg float %84
-  %131 = insertelement <2 x float> poison, float %130, i64 0
-  %132 = insertelement <2 x float> %131, float %fneg28.i303, i64 1
-  %133 = insertelement <2 x float> poison, float %div.i297, i64 0
-  %134 = insertelement <2 x float> %133, float %mul20.i301, i64 1
-  %135 = fmul <2 x float> %132, %134
-  store <2 x float> %135, ptr %m_lateralFrictionDir2121, align 16
-  %mul38.i306 = fmul float %84, %mul.i299
+  %fneg28.i303 = fneg float %81
+  %128 = insertelement <2 x float> poison, float %127, i64 0
+  %129 = insertelement <2 x float> %128, float %fneg28.i303, i64 1
+  %130 = insertelement <2 x float> poison, float %div.i297, i64 0
+  %131 = insertelement <2 x float> %130, float %mul20.i301, i64 1
+  %132 = fmul <2 x float> %129, %131
+  store <2 x float> %132, ptr %m_lateralFrictionDir2121, align 16
+  %mul38.i306 = fmul float %81, %mul.i299
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307
 
 if.else.i278:                                     ; preds = %if.else90
-  %136 = extractelement <2 x float> %87, i64 0
-  %137 = fmul <2 x float> %87, %87
-  %mul51.i280 = extractelement <2 x float> %137, i64 0
-  %138 = call float @llvm.fmuladd.f32(float %84, float %84, float %mul51.i280)
-  %sqrt38.i281 = call float @llvm.sqrt.f32(float %138)
+  %133 = extractelement <2 x float> %84, i64 0
+  %134 = fmul <2 x float> %84, %84
+  %mul51.i280 = extractelement <2 x float> %134, i64 0
+  %135 = call float @llvm.fmuladd.f32(float %81, float %81, float %mul51.i280)
+  %sqrt38.i281 = call float @llvm.sqrt.f32(float %135)
   %div54.i282 = fdiv float 1.000000e+00, %sqrt38.i281
-  %fneg57.i283 = fneg float %136
+  %fneg57.i283 = fneg float %133
   %mul58.i284 = fmul float %div54.i282, %fneg57.i283
   store float %mul58.i284, ptr %m_lateralFrictionDir1115, align 16
-  %mul63.i285 = fmul float %84, %div54.i282
+  %mul63.i285 = fmul float %81, %div54.i282
   store float %mul63.i285, ptr %arrayidx3.i.i225, align 4
   store float 0.000000e+00, ptr %ref.tmp.sroa.2.0.m_lateralFrictionDir1.sroa_idx, align 8
-  %fneg70.i287 = fneg float %127
+  %fneg70.i287 = fneg float %124
   %mul73.i288 = fmul float %mul63.i285, %fneg70.i287
   store float %mul73.i288, ptr %m_lateralFrictionDir2121, align 16
-  %mul80.i289 = fmul float %127, %mul58.i284
+  %mul80.i289 = fmul float %124, %mul58.i284
   store float %mul80.i289, ptr %arrayidx82.i290, align 4
-  %mul83.i291 = fmul float %138, %div54.i282
+  %mul83.i291 = fmul float %135, %div54.i282
   br label %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307
 
 _Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307: ; preds = %if.then.i293, %if.else.i278
   %mul83.sink.i292 = phi float [ %mul38.i306, %if.then.i293 ], [ %mul83.i291, %if.else.i278 ]
   store float %mul83.sink.i292, ptr %16, align 8
-  %and95 = and i32 %82, 16
+  %and95 = and i32 %79, 16
   %tobool96.not = icmp eq i32 %and95, 0
   %.pre = load float, ptr %relaxation, align 4
   %.pre376 = load i32, ptr %m_size.i121, align 4
   br i1 %tobool96.not, label %if.end100, label %if.then97
 
 if.then97:                                        ; preds = %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307
-  %139 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i310 = icmp eq i32 %.pre376, %139
+  %136 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i310 = icmp eq i32 %.pre376, %136
   br i1 %cmp.i.i310, label %if.then.i.i316, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322
 
 if.then.i.i316:                                   ; preds = %if.then97
@@ -4134,12 +4118,12 @@ if.then.i.i316:                                   ; preds = %if.then97
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322: ; preds = %if.then97, %if.then.i.i316
-  %140 = phi i32 [ %.pre.i.i321, %if.then.i.i316 ], [ %.pre376, %if.then97 ]
-  %inc.i.i311 = add nsw i32 %140, 1
+  %137 = phi i32 [ %.pre.i.i321, %if.then.i.i316 ], [ %.pre376, %if.then97 ]
+  %inc.i.i311 = add nsw i32 %137, 1
   store i32 %inc.i.i311, ptr %m_size.i121, align 4
-  %141 = load ptr, ptr %m_data.i.i342, align 8
+  %138 = load ptr, ptr %m_data.i.i342, align 8
   %idxprom.i.i313 = sext i32 %.pre376 to i64
-  %arrayidx.i.i314 = getelementptr inbounds %struct.b3SolverConstraint, ptr %141, i64 %idxprom.i.i313
+  %arrayidx.i.i314 = getelementptr inbounds %struct.b3SolverConstraint, ptr %138, i64 %idxprom.i.i313
   %m_frictionIndex.i315 = getelementptr inbounds i8, ptr %arrayidx.i.i314, i64 140
   store i32 %18, ptr %m_frictionIndex.i315, align 4
   call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i314, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
@@ -4147,32 +4131,32 @@ _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaData
   br label %if.end100
 
 if.end100:                                        ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307
-  %142 = phi i32 [ %.pre375, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322 ], [ %.pre376, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307 ]
-  %143 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i325 = icmp eq i32 %142, %143
+  %139 = phi i32 [ %.pre375, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit322 ], [ %.pre376, %_Z13b3PlaneSpace1I9b3Vector3EvRKT_RS1_S4_.exit307 ]
+  %140 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i325 = icmp eq i32 %139, %140
   br i1 %cmp.i.i325, label %if.then.i.i331, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit337
 
 if.then.i.i331:                                   ; preds = %if.end100
-  %tobool.not.i.i.i333 = icmp eq i32 %142, 0
-  %mul.i.i.i334 = shl nsw i32 %142, 1
+  %tobool.not.i.i.i333 = icmp eq i32 %139, 0
+  %mul.i.i.i334 = shl nsw i32 %139, 1
   %cond.i.i.i335 = select i1 %tobool.not.i.i.i333, i32 1, i32 %mul.i.i.i334
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool, i32 noundef %cond.i.i.i335)
   %.pre.i.i336 = load i32, ptr %m_size.i121, align 4
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit337
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit337: ; preds = %if.end100, %if.then.i.i331
-  %144 = phi i32 [ %.pre.i.i336, %if.then.i.i331 ], [ %142, %if.end100 ]
-  %inc.i.i326 = add nsw i32 %144, 1
+  %141 = phi i32 [ %.pre.i.i336, %if.then.i.i331 ], [ %139, %if.end100 ]
+  %inc.i.i326 = add nsw i32 %141, 1
   store i32 %inc.i.i326, ptr %m_size.i121, align 4
-  %145 = load ptr, ptr %m_data.i.i342, align 8
-  %idxprom.i.i328 = sext i32 %142 to i64
-  %arrayidx.i.i329 = getelementptr inbounds %struct.b3SolverConstraint, ptr %145, i64 %idxprom.i.i328
+  %142 = load ptr, ptr %m_data.i.i342, align 8
+  %idxprom.i.i328 = sext i32 %139 to i64
+  %arrayidx.i.i329 = getelementptr inbounds %struct.b3SolverConstraint, ptr %142, i64 %idxprom.i.i328
   %m_frictionIndex.i330 = getelementptr inbounds i8, ptr %arrayidx.i.i329, i64 140
   store i32 %18, ptr %m_frictionIndex.i330, align 4
   call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i329, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %.pre, float noundef 0.000000e+00, float noundef 0.000000e+00)
-  %146 = load i32, ptr %m_solverMode, align 4
-  %147 = and i32 %146, 80
-  %or.cond105.not = icmp eq i32 %147, 80
+  %143 = load i32, ptr %m_solverMode, align 4
+  %144 = and i32 %143, 80
+  %or.cond105.not = icmp eq i32 %144, 80
   br i1 %or.cond105.not, label %if.then110, label %for.inc
 
 if.then110:                                       ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit337
@@ -4180,63 +4164,63 @@ if.then110:                                       ; preds = %_ZN17b3PgsJacobiSol
   br label %for.inc
 
 if.else114:                                       ; preds = %lor.lhs.false
-  %148 = load float, ptr %relaxation, align 4
-  %149 = load float, ptr %m_contactMotion1, align 4
-  %150 = load float, ptr %m_contactCFM1, align 4
-  %151 = load i32, ptr %m_size.i121, align 4
-  %152 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i340 = icmp eq i32 %151, %152
+  %145 = load float, ptr %relaxation, align 4
+  %146 = load float, ptr %m_contactMotion1, align 4
+  %147 = load float, ptr %m_contactCFM1, align 4
+  %148 = load i32, ptr %m_size.i121, align 4
+  %149 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i340 = icmp eq i32 %148, %149
   br i1 %cmp.i.i340, label %if.then.i.i346, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352
 
 if.then.i.i346:                                   ; preds = %if.else114
-  %tobool.not.i.i.i348 = icmp eq i32 %151, 0
-  %mul.i.i.i349 = shl nsw i32 %151, 1
+  %tobool.not.i.i.i348 = icmp eq i32 %148, 0
+  %mul.i.i.i349 = shl nsw i32 %148, 1
   %cond.i.i.i350 = select i1 %tobool.not.i.i.i348, i32 1, i32 %mul.i.i.i349
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool, i32 noundef %cond.i.i.i350)
   %.pre.i.i351 = load i32, ptr %m_size.i121, align 4
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352: ; preds = %if.else114, %if.then.i.i346
-  %153 = phi i32 [ %.pre.i.i351, %if.then.i.i346 ], [ %151, %if.else114 ]
-  %inc.i.i341 = add nsw i32 %153, 1
+  %150 = phi i32 [ %.pre.i.i351, %if.then.i.i346 ], [ %148, %if.else114 ]
+  %inc.i.i341 = add nsw i32 %150, 1
   store i32 %inc.i.i341, ptr %m_size.i121, align 4
-  %154 = load ptr, ptr %m_data.i.i342, align 8
-  %idxprom.i.i343 = sext i32 %151 to i64
-  %arrayidx.i.i344 = getelementptr inbounds %struct.b3SolverConstraint, ptr %154, i64 %idxprom.i.i343
+  %151 = load ptr, ptr %m_data.i.i342, align 8
+  %idxprom.i.i343 = sext i32 %148 to i64
+  %arrayidx.i.i344 = getelementptr inbounds %struct.b3SolverConstraint, ptr %151, i64 %idxprom.i.i343
   %m_frictionIndex.i345 = getelementptr inbounds i8, ptr %arrayidx.i.i344, i64 140
   store i32 %18, ptr %m_frictionIndex.i345, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i344, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %148, float noundef %149, float noundef %150)
-  %155 = load i32, ptr %m_solverMode, align 4
-  %and118 = and i32 %155, 16
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i344, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir1115, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %145, float noundef %146, float noundef %147)
+  %152 = load i32, ptr %m_solverMode, align 4
+  %and118 = and i32 %152, 16
   %tobool119.not = icmp eq i32 %and118, 0
   br i1 %tobool119.not, label %if.end123, label %if.then120
 
 if.then120:                                       ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352
-  %156 = load float, ptr %m_contactMotion2, align 16
-  %157 = load float, ptr %m_contactCFM2, align 8
-  %158 = load i32, ptr %m_size.i121, align 4
-  %159 = load i32, ptr %m_capacity.i.i.i339, align 8
-  %cmp.i.i355 = icmp eq i32 %158, %159
+  %153 = load float, ptr %m_contactMotion2, align 16
+  %154 = load float, ptr %m_contactCFM2, align 8
+  %155 = load i32, ptr %m_size.i121, align 4
+  %156 = load i32, ptr %m_capacity.i.i.i339, align 8
+  %cmp.i.i355 = icmp eq i32 %155, %156
   br i1 %cmp.i.i355, label %if.then.i.i361, label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit367
 
 if.then.i.i361:                                   ; preds = %if.then120
-  %tobool.not.i.i.i363 = icmp eq i32 %158, 0
-  %mul.i.i.i364 = shl nsw i32 %158, 1
+  %tobool.not.i.i.i363 = icmp eq i32 %155, 0
+  %mul.i.i.i364 = shl nsw i32 %155, 1
   %cond.i.i.i365 = select i1 %tobool.not.i.i.i363, i32 1, i32 %mul.i.i.i364
   call void @_ZN20b3AlignedObjectArrayI18b3SolverConstraintE7reserveEi(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverContactFrictionConstraintPool, i32 noundef %cond.i.i.i365)
   %.pre.i.i366 = load i32, ptr %m_size.i121, align 4
   br label %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit367
 
 _ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit367: ; preds = %if.then120, %if.then.i.i361
-  %160 = phi i32 [ %.pre.i.i366, %if.then.i.i361 ], [ %158, %if.then120 ]
-  %inc.i.i356 = add nsw i32 %160, 1
+  %157 = phi i32 [ %.pre.i.i366, %if.then.i.i361 ], [ %155, %if.then120 ]
+  %inc.i.i356 = add nsw i32 %157, 1
   store i32 %inc.i.i356, ptr %m_size.i121, align 4
-  %161 = load ptr, ptr %m_data.i.i342, align 8
-  %idxprom.i.i358 = sext i32 %158 to i64
-  %arrayidx.i.i359 = getelementptr inbounds %struct.b3SolverConstraint, ptr %161, i64 %idxprom.i.i358
+  %158 = load ptr, ptr %m_data.i.i342, align 8
+  %idxprom.i.i358 = sext i32 %155 to i64
+  %arrayidx.i.i359 = getelementptr inbounds %struct.b3SolverConstraint, ptr %158, i64 %idxprom.i.i358
   %m_frictionIndex.i360 = getelementptr inbounds i8, ptr %arrayidx.i.i359, i64 140
   store i32 %18, ptr %m_frictionIndex.i360, align 4
-  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i359, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %148, float noundef %156, float noundef %157)
+  call void @_ZN17b3PgsJacobiSolver23setupFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataR18b3SolverConstraintRK9b3Vector3iiR14b3ContactPointS8_S8_S1_S1_fff(ptr noundef nonnull align 8 dereferenceable(448) %this, ptr noundef %bodies, ptr noundef %inertias, ptr noundef nonnull align 16 dereferenceable(160) %arrayidx.i.i359, ptr noundef nonnull align 16 dereferenceable(16) %m_lateralFrictionDir2121, i32 noundef %call2, i32 noundef %call4, ptr noundef nonnull align 16 dereferenceable(128) %cp, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos1, ptr noundef nonnull align 16 dereferenceable(16) %rel_pos2, ptr poison, ptr poison, float noundef %145, float noundef %153, float noundef %154)
   br label %if.end123
 
 if.end123:                                        ; preds = %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit367, %_ZN17b3PgsJacobiSolver21addFrictionConstraintEP15b3RigidBodyDataP13b3InertiaDataRK9b3Vector3iiiR14b3ContactPointS6_S6_S1_S1_fff.exit352

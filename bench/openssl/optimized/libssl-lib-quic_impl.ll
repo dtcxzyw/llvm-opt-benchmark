@@ -3160,26 +3160,26 @@ if.end:                                           ; preds = %if.end.i
   br label %2
 
 2:                                                ; preds = %if.end.i, %if.end
-  %.pn = phi ptr [ %1, %if.end ], [ %s, %if.end.i ]
+  %.sink20 = phi ptr [ %1, %if.end ], [ %s, %if.end.i ]
   %.sink = phi i64 [ 128, %if.end ], [ 336, %if.end.i ]
-  %.sink19 = getelementptr i8, ptr %.pn, i64 80
-  %.val = load ptr, ptr %.sink19, align 8
+  %3 = getelementptr i8, ptr %.sink20, i64 80
+  %.val = load ptr, ptr %3, align 8
   tail call void @ossl_crypto_mutex_lock(ptr noundef %.val) #8
   %last_error = getelementptr inbounds i8, ptr %s, i64 %.sink
   %cond = load i32, ptr %last_error, align 8
   %switch.tableidx = add i32 %cond, -2
-  %3 = icmp ult i32 %switch.tableidx, 11
-  br i1 %3, label %switch.lookup, label %error_to_want.exit
+  %4 = icmp ult i32 %switch.tableidx, 11
+  br i1 %4, label %switch.lookup, label %error_to_want.exit
 
 switch.lookup:                                    ; preds = %2
-  %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.ossl_quic_want, i64 0, i64 %4
+  %5 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.ossl_quic_want, i64 0, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %error_to_want.exit
 
 error_to_want.exit:                               ; preds = %switch.lookup, %2
   %retval.0.i2 = phi i32 [ 1, %2 ], [ %switch.load, %switch.lookup ]
-  %.val1 = load ptr, ptr %.sink19, align 8
+  %.val1 = load ptr, ptr %3, align 8
   tail call void @ossl_crypto_mutex_unlock(ptr noundef %.val1) #8
   br label %return
 

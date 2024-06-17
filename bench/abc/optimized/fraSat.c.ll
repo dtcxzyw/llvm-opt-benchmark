@@ -473,8 +473,8 @@ Abc_Clock.exit117:                                ; preds = %261, %264
   br label %.sink.split
 
 .sink.split:                                      ; preds = %Abc_Clock.exit103, %Abc_Clock.exit105, %184, %Abc_Clock.exit115, %Abc_Clock.exit117, %Abc_Clock.exit113
-  %.sink127 = phi i64 [ 212, %Abc_Clock.exit105 ], [ 228, %184 ], [ 212, %Abc_Clock.exit115 ], [ 228, %Abc_Clock.exit117 ], [ 220, %Abc_Clock.exit113 ], [ 220, %Abc_Clock.exit103 ]
-  %.0.ph = phi i32 [ 0, %Abc_Clock.exit105 ], [ -1, %184 ], [ 0, %Abc_Clock.exit115 ], [ -1, %Abc_Clock.exit117 ], [ 1, %Abc_Clock.exit113 ], [ 1, %Abc_Clock.exit103 ]
+  %.sink127 = phi i64 [ 220, %Abc_Clock.exit113 ], [ 228, %Abc_Clock.exit117 ], [ 212, %Abc_Clock.exit115 ], [ 228, %184 ], [ 212, %Abc_Clock.exit105 ], [ 220, %Abc_Clock.exit103 ]
+  %.0.ph = phi i32 [ 1, %Abc_Clock.exit113 ], [ -1, %Abc_Clock.exit117 ], [ 0, %Abc_Clock.exit115 ], [ -1, %184 ], [ 0, %Abc_Clock.exit105 ], [ 1, %Abc_Clock.exit103 ]
   %279 = getelementptr inbounds i8, ptr %0, i64 %.sink127
   %280 = load i32, ptr %279, align 4
   %281 = add nsw i32 %280, 1

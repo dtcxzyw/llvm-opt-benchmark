@@ -3865,9 +3865,9 @@ list_length.exit:                                 ; preds = %4
 
 53:                                               ; preds = %47
   %54 = load i32, ptr %51, align 8
-  switch i32 %54, label %165 [
+  switch i32 %54, label %117 [
     i32 1, label %55
-    i32 2, label %84
+    i32 2, label %68
   ]
 
 55:                                               ; preds = %53
@@ -3878,175 +3878,131 @@ list_length.exit:                                 ; preds = %4
 58:                                               ; preds = %55
   %59 = getelementptr inbounds i8, ptr %51, i64 4
   %60 = load i32, ptr %59, align 4
-  %61 = getelementptr inbounds i8, ptr %2, i64 16
-  %62 = load i32, ptr %61, align 8
-  %63 = load ptr, ptr %6, align 8
-  %64 = getelementptr inbounds i8, ptr %63, i64 536
+  %61 = load ptr, ptr %6, align 8
+  %62 = getelementptr inbounds i8, ptr %61, i64 536
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds i8, ptr %63, i64 112
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds i8, ptr %65, i64 112
-  %67 = load ptr, ptr %66, align 8
-  %68 = sext i32 %60 to i64
-  %69 = getelementptr ptr, ptr %67, i64 %68
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds i8, ptr %63, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %72, ptr @CurrentMemoryContext, align 8
-  %74 = getelementptr inbounds i8, ptr %1, i64 24
-  %75 = load ptr, ptr %74, align 8
-  %76 = call ptr @bms_add_member(ptr noundef %75, i32 noundef %60) #10
-  store ptr %76, ptr %74, align 8
-  store ptr %73, ptr @CurrentMemoryContext, align 8
-  %77 = call noundef ptr @palloc0(i64 noundef 28) #10
-  store i32 8, ptr %77, align 4
-  %78 = getelementptr inbounds i8, ptr %77, i64 4
-  store i32 0, ptr %78, align 4
-  %79 = add i32 %60, 1
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
-  store i32 %79, ptr %80, align 4
-  %81 = getelementptr inbounds i8, ptr %77, i64 12
-  %82 = getelementptr inbounds i8, ptr %77, i64 16
-  %83 = getelementptr inbounds i8, ptr %77, i64 20
-  call void @plpgsql_exec_get_datum_type_info(ptr noundef %65, ptr noundef %70, ptr noundef nonnull %81, ptr noundef nonnull %82, ptr noundef nonnull %83) #10
+  %66 = sext i32 %60 to i64
+  %67 = getelementptr ptr, ptr %65, i64 %66
   br label %list_length.exit.thread.sink.split
 
-84:                                               ; preds = %53
-  %85 = load i32, ptr %5, align 4
-  %86 = icmp eq i32 %85, %.059
-  br i1 %86, label %87, label %113
+68:                                               ; preds = %53
+  %69 = load i32, ptr %5, align 4
+  %70 = icmp eq i32 %69, %.059
+  br i1 %70, label %71, label %81
 
-87:                                               ; preds = %84
-  %88 = getelementptr inbounds i8, ptr %51, i64 4
-  %89 = load i32, ptr %88, align 4
-  %90 = getelementptr inbounds i8, ptr %2, i64 16
-  %91 = load i32, ptr %90, align 8
-  %92 = load ptr, ptr %6, align 8
-  %93 = getelementptr inbounds i8, ptr %92, i64 536
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds i8, ptr %94, i64 112
-  %96 = load ptr, ptr %95, align 8
-  %97 = sext i32 %89 to i64
-  %98 = getelementptr ptr, ptr %96, i64 %97
-  %99 = load ptr, ptr %98, align 8
-  %100 = getelementptr inbounds i8, ptr %92, i64 40
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %101, ptr @CurrentMemoryContext, align 8
-  %103 = getelementptr inbounds i8, ptr %1, i64 24
-  %104 = load ptr, ptr %103, align 8
-  %105 = call ptr @bms_add_member(ptr noundef %104, i32 noundef %89) #10
-  store ptr %105, ptr %103, align 8
-  store ptr %102, ptr @CurrentMemoryContext, align 8
-  %106 = call noundef ptr @palloc0(i64 noundef 28) #10
-  store i32 8, ptr %106, align 4
-  %107 = getelementptr inbounds i8, ptr %106, i64 4
-  store i32 0, ptr %107, align 4
-  %108 = add i32 %89, 1
-  %109 = getelementptr inbounds i8, ptr %106, i64 8
-  store i32 %108, ptr %109, align 4
-  %110 = getelementptr inbounds i8, ptr %106, i64 12
-  %111 = getelementptr inbounds i8, ptr %106, i64 16
-  %112 = getelementptr inbounds i8, ptr %106, i64 20
-  call void @plpgsql_exec_get_datum_type_info(ptr noundef %94, ptr noundef %99, ptr noundef nonnull %110, ptr noundef nonnull %111, ptr noundef nonnull %112) #10
+71:                                               ; preds = %68
+  %72 = getelementptr inbounds i8, ptr %51, i64 4
+  %73 = load i32, ptr %72, align 4
+  %74 = load ptr, ptr %6, align 8
+  %75 = getelementptr inbounds i8, ptr %74, i64 536
+  %76 = load ptr, ptr %75, align 8
+  %77 = getelementptr inbounds i8, ptr %76, i64 112
+  %78 = load ptr, ptr %77, align 8
+  %79 = sext i32 %73 to i64
+  %80 = getelementptr ptr, ptr %78, i64 %79
   br label %list_length.exit.thread.sink.split
 
-113:                                              ; preds = %84
-  %114 = icmp eq i32 %85, %.060
-  br i1 %114, label %115, label %list_length.exit.thread
+81:                                               ; preds = %68
+  %82 = icmp eq i32 %69, %.060
+  br i1 %82, label %83, label %list_length.exit.thread
 
-115:                                              ; preds = %113
-  %116 = getelementptr inbounds i8, ptr %9, i64 112
-  %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds i8, ptr %51, i64 4
-  %119 = load i32, ptr %118, align 4
-  %120 = sext i32 %119 to i64
-  %121 = getelementptr ptr, ptr %117, i64 %120
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds i8, ptr %122, i64 44
-  %.05369 = load i32, ptr %123, align 4
-  %124 = icmp sgt i32 %.05369, -1
-  br i1 %124, label %.lr.ph, label %._crit_edge
+83:                                               ; preds = %81
+  %84 = getelementptr inbounds i8, ptr %9, i64 112
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds i8, ptr %51, i64 4
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr ptr, ptr %85, i64 %88
+  %90 = load ptr, ptr %89, align 8
+  %91 = getelementptr inbounds i8, ptr %90, i64 44
+  %.05369 = load i32, ptr %91, align 4
+  %92 = icmp sgt i32 %.05369, -1
+  br i1 %92, label %.lr.ph, label %._crit_edge
 
-125:                                              ; preds = %.lr.ph
-  %126 = getelementptr inbounds i8, ptr %130, i64 20
-  %.053 = load i32, ptr %126, align 4
-  %127 = icmp sgt i32 %.053, -1
-  br i1 %127, label %.lr.ph, label %._crit_edge, !llvm.loop !16
+93:                                               ; preds = %.lr.ph
+  %94 = getelementptr inbounds i8, ptr %98, i64 20
+  %.053 = load i32, ptr %94, align 4
+  %95 = icmp sgt i32 %.053, -1
+  br i1 %95, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
-.lr.ph:                                           ; preds = %115, %125
-  %.05370 = phi i32 [ %.053, %125 ], [ %.05369, %115 ]
-  %128 = zext nneg i32 %.05370 to i64
-  %129 = getelementptr ptr, ptr %117, i64 %128
-  %130 = load ptr, ptr %129, align 8
-  %131 = getelementptr inbounds i8, ptr %130, i64 8
-  %132 = load ptr, ptr %131, align 8
-  %133 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(1) %.057) #12
-  %134 = icmp eq i32 %133, 0
-  br i1 %134, label %135, label %125
+.lr.ph:                                           ; preds = %83, %93
+  %.05370 = phi i32 [ %.053, %93 ], [ %.05369, %83 ]
+  %96 = zext nneg i32 %.05370 to i64
+  %97 = getelementptr ptr, ptr %85, i64 %96
+  %98 = load ptr, ptr %97, align 8
+  %99 = getelementptr inbounds i8, ptr %98, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %100, ptr noundef nonnull dereferenceable(1) %.057) #12
+  %102 = icmp eq i32 %101, 0
+  br i1 %102, label %103, label %93
 
-135:                                              ; preds = %.lr.ph
-  %136 = getelementptr inbounds i8, ptr %2, i64 16
-  %137 = load i32, ptr %136, align 8
-  %138 = load ptr, ptr %6, align 8
-  %139 = getelementptr inbounds i8, ptr %138, i64 536
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %140, i64 112
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr ptr, ptr %142, i64 %128
-  %144 = load ptr, ptr %143, align 8
-  %145 = getelementptr inbounds i8, ptr %138, i64 40
-  %146 = load ptr, ptr %145, align 8
-  %147 = load ptr, ptr @CurrentMemoryContext, align 8
-  store ptr %146, ptr @CurrentMemoryContext, align 8
-  %148 = getelementptr inbounds i8, ptr %1, i64 24
-  %149 = load ptr, ptr %148, align 8
-  %150 = call ptr @bms_add_member(ptr noundef %149, i32 noundef %.05370) #10
-  store ptr %150, ptr %148, align 8
-  store ptr %147, ptr @CurrentMemoryContext, align 8
-  %151 = call noundef ptr @palloc0(i64 noundef 28) #10
-  store i32 8, ptr %151, align 4
-  %152 = getelementptr inbounds i8, ptr %151, i64 4
-  store i32 0, ptr %152, align 4
-  %153 = add nuw i32 %.05370, 1
-  %154 = getelementptr inbounds i8, ptr %151, i64 8
-  store i32 %153, ptr %154, align 4
-  %155 = getelementptr inbounds i8, ptr %151, i64 12
-  %156 = getelementptr inbounds i8, ptr %151, i64 16
-  %157 = getelementptr inbounds i8, ptr %151, i64 20
-  call void @plpgsql_exec_get_datum_type_info(ptr noundef %140, ptr noundef %144, ptr noundef nonnull %155, ptr noundef nonnull %156, ptr noundef nonnull %157) #10
+103:                                              ; preds = %.lr.ph
+  %104 = load ptr, ptr %6, align 8
+  %105 = getelementptr inbounds i8, ptr %104, i64 536
+  %106 = load ptr, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %106, i64 112
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr ptr, ptr %108, i64 %96
   br label %list_length.exit.thread.sink.split
 
-._crit_edge:                                      ; preds = %125, %115
-  br i1 %3, label %158, label %list_length.exit.thread
+._crit_edge:                                      ; preds = %93, %83
+  br i1 %3, label %110, label %list_length.exit.thread
 
-158:                                              ; preds = %._crit_edge
-  %159 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %159)
-  %160 = call i32 @errcode(i32 noundef 50360452) #10
-  %161 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef %48, ptr noundef %.057) #10
-  %162 = getelementptr inbounds i8, ptr %2, i64 16
-  %163 = load i32, ptr %162, align 8
-  %164 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %163) #10
+110:                                              ; preds = %._crit_edge
+  %111 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %111)
+  %112 = call i32 @errcode(i32 noundef 50360452) #10
+  %113 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.52, ptr noundef %48, ptr noundef %.057) #10
+  %114 = getelementptr inbounds i8, ptr %2, i64 16
+  %115 = load i32, ptr %114, align 8
+  %116 = call i32 @parser_errposition(ptr noundef %0, i32 noundef %115) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1317, ptr noundef nonnull @__func__.resolve_column_ref) #10
   unreachable
 
-165:                                              ; preds = %53
-  %166 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
-  call void @llvm.assume(i1 %166)
-  %167 = load i32, ptr %51, align 8
-  %168 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %167) #10
+117:                                              ; preds = %53
+  %118 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #11
+  call void @llvm.assume(i1 %118)
+  %119 = load i32, ptr %51, align 8
+  %120 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %119) #10
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 1321, ptr noundef nonnull @__func__.resolve_column_ref) #10
   unreachable
 
-list_length.exit.thread.sink.split:               ; preds = %58, %87, %135
-  %.sink75 = phi ptr [ %151, %135 ], [ %106, %87 ], [ %77, %58 ]
-  %.sink = phi i32 [ %137, %135 ], [ %91, %87 ], [ %62, %58 ]
-  %169 = getelementptr inbounds i8, ptr %.sink75, i64 24
-  store i32 %.sink, ptr %169, align 4
+list_length.exit.thread.sink.split:               ; preds = %58, %71, %103
+  %.sink99 = phi ptr [ %109, %103 ], [ %80, %71 ], [ %67, %58 ]
+  %.sink98 = phi ptr [ %104, %103 ], [ %74, %71 ], [ %61, %58 ]
+  %.05370.lcssa.sink94 = phi i32 [ %.05370, %103 ], [ %73, %71 ], [ %60, %58 ]
+  %.sink76 = phi ptr [ %106, %103 ], [ %76, %71 ], [ %63, %58 ]
+  %.sink.in = getelementptr inbounds i8, ptr %2, i64 16
+  %.sink = load i32, ptr %.sink.in, align 8
+  %121 = load ptr, ptr %.sink99, align 8
+  %122 = getelementptr inbounds i8, ptr %.sink98, i64 40
+  %123 = load ptr, ptr %122, align 8
+  %124 = load ptr, ptr @CurrentMemoryContext, align 8
+  store ptr %123, ptr @CurrentMemoryContext, align 8
+  %125 = getelementptr inbounds i8, ptr %1, i64 24
+  %126 = load ptr, ptr %125, align 8
+  %127 = call ptr @bms_add_member(ptr noundef %126, i32 noundef %.05370.lcssa.sink94) #10
+  store ptr %127, ptr %125, align 8
+  store ptr %124, ptr @CurrentMemoryContext, align 8
+  %128 = call noundef ptr @palloc0(i64 noundef 28) #10
+  store i32 8, ptr %128, align 4
+  %129 = getelementptr inbounds i8, ptr %128, i64 4
+  store i32 0, ptr %129, align 4
+  %130 = add i32 %.05370.lcssa.sink94, 1
+  %131 = getelementptr inbounds i8, ptr %128, i64 8
+  store i32 %130, ptr %131, align 4
+  %132 = getelementptr inbounds i8, ptr %128, i64 12
+  %133 = getelementptr inbounds i8, ptr %128, i64 16
+  %134 = getelementptr inbounds i8, ptr %128, i64 20
+  call void @plpgsql_exec_get_datum_type_info(ptr noundef %.sink76, ptr noundef %121, ptr noundef nonnull %132, ptr noundef nonnull %133, ptr noundef nonnull %134) #10
+  %135 = getelementptr inbounds i8, ptr %128, i64 24
+  store i32 %.sink, ptr %135, align 4
   br label %list_length.exit.thread
 
-list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %4, %55, %._crit_edge, %113, %47, %list_length.exit
-  %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %113 ], [ null, %._crit_edge ], [ null, %55 ], [ null, %4 ], [ %.sink75, %list_length.exit.thread.sink.split ]
+list_length.exit.thread:                          ; preds = %list_length.exit.thread.sink.split, %4, %55, %._crit_edge, %81, %47, %list_length.exit
+  %.0 = phi ptr [ null, %list_length.exit ], [ null, %47 ], [ null, %81 ], [ null, %._crit_edge ], [ null, %55 ], [ null, %4 ], [ %128, %list_length.exit.thread.sink.split ]
   ret ptr %.0
 }
 

@@ -15526,14 +15526,14 @@ sljit_set_label.exit271:                          ; preds = %492, %498
   br i1 %or.cond.i274, label %sljit_set_label.exit260, label %sljit_set_label.exit260.sink.split
 
 sljit_set_label.exit260.sink.split:               ; preds = %sljit_set_label.exit271, %sljit_emit_op2.exit263, %473
-  %.sink549 = phi ptr [ %475, %473 ], [ %491, %sljit_emit_op2.exit263 ], [ %494, %sljit_set_label.exit271 ]
+  %.sink545 = phi ptr [ %475, %473 ], [ %491, %sljit_emit_op2.exit263 ], [ %494, %sljit_set_label.exit271 ]
   %.sink = phi ptr [ %412, %473 ], [ %412, %sljit_emit_op2.exit263 ], [ %504, %sljit_set_label.exit271 ]
-  %505 = getelementptr inbounds i8, ptr %.sink549, i64 16
+  %505 = getelementptr inbounds i8, ptr %.sink545, i64 16
   %506 = load i64, ptr %505, align 8
   %507 = and i64 %506, -4
   %508 = or disjoint i64 %507, 1
   store i64 %508, ptr %505, align 8
-  %509 = getelementptr inbounds i8, ptr %.sink549, i64 24
+  %509 = getelementptr inbounds i8, ptr %.sink545, i64 24
   store ptr %.sink, ptr %509, align 8
   br label %sljit_set_label.exit260
 
@@ -70543,13 +70543,13 @@ sljit_set_label.exit702:                          ; preds = %sljit_emit_op1.exit
   br i1 %or.cond.i705, label %sljit_set_label.exit693, label %sljit_set_label.exit693.sink.split
 
 sljit_set_label.exit693.sink.split:               ; preds = %sljit_set_label.exit702, %sljit_emit_op1.exit689
-  %.sink1346 = phi ptr [ %590, %sljit_emit_op1.exit689 ], [ %604, %sljit_set_label.exit702 ]
-  %605 = getelementptr inbounds i8, ptr %.sink1346, i64 16
+  %.sink = phi ptr [ %590, %sljit_emit_op1.exit689 ], [ %604, %sljit_set_label.exit702 ]
+  %605 = getelementptr inbounds i8, ptr %.sink, i64 16
   %606 = load i64, ptr %605, align 8
   %607 = and i64 %606, -4
   %608 = or disjoint i64 %607, 1
   store i64 %608, ptr %605, align 8
-  %609 = getelementptr inbounds i8, ptr %.sink1346, i64 24
+  %609 = getelementptr inbounds i8, ptr %.sink, i64 24
   store ptr %558, ptr %609, align 8
   br label %sljit_set_label.exit693
 
@@ -70766,8 +70766,8 @@ sljit_emit_op1.exit741:                           ; preds = %emit_mov.exit1012, 
   br i1 %.not73.i1019, label %sljit_emit_op1.exit711, label %sljit_emit_op1.exit711.sink.split
 
 sljit_emit_op1.exit711.sink.split:                ; preds = %687, %614
-  %.sink = phi ptr [ %616, %614 ], [ %690, %687 ]
-  store i8 -119, ptr %.sink, align 1
+  %.sink1346 = phi ptr [ %616, %614 ], [ %690, %687 ]
+  store i8 -119, ptr %.sink1346, align 1
   br label %sljit_emit_op1.exit711
 
 sljit_emit_op1.exit711:                           ; preds = %sljit_emit_op1.exit711.sink.split, %687, %614, %685, %sljit_set_label.exit693, %sljit_emit_op1.exit741

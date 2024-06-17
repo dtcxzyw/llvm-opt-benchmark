@@ -5144,10 +5144,10 @@ return.sink.split:                                ; preds = %return.sink.split.s
   %.sink7 = phi i64 [ 536, %if.then3 ], [ 544, %if.then7 ], [ %.sink7.ph, %return.sink.split.sink.split ]
   %retval.0.ph = phi i1 [ true, %if.then3 ], [ false, %if.then7 ], [ %call, %return.sink.split.sink.split ]
   %7 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %bloom_sst_hit_count = getelementptr inbounds i8, ptr %7, i64 %.sink7
-  %8 = load i64, ptr %bloom_sst_hit_count, align 8
+  %bloom_sst_miss_count = getelementptr inbounds i8, ptr %7, i64 %.sink7
+  %8 = load i64, ptr %bloom_sst_miss_count, align 8
   %add8 = add i64 %8, 1
-  store i64 %add8, ptr %bloom_sst_hit_count, align 8
+  store i64 %add8, ptr %bloom_sst_miss_count, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_ZTWN7rocksdb10perf_levelE.exit3, %_ZTWN7rocksdb10perf_levelE.exit, %entry

@@ -14572,48 +14572,32 @@ if.then611:                                       ; preds = %if.end606.if.then61
   %300 = select i1 %cmp.i2.i1294, float %298, float %299
   call void @glPointSize(float noundef %300) #24
   %301 = load float, ptr %Thickness631, align 4, !tbaa !120
-  br i1 %tobool612.not, label %if.else629, label %if.then613
-
-if.then613:                                       ; preds = %if.then611
-  %DimSmoothedLine = getelementptr inbounds i8, ptr %this, i64 1216
-  %arrayidx627 = getelementptr inbounds i8, ptr %this, i64 1220
-  %302 = load float, ptr %DimSmoothedLine, align 8
-  %cmp.i.i1291 = fcmp olt float %301, %302
-  %303 = select i1 %cmp.i.i1291, float %302, float %301
-  %304 = load float, ptr %arrayidx627, align 4
-  %cmp.i2.i1292 = fcmp olt float %303, %304
-  %305 = select i1 %cmp.i2.i1292, float %303, float %304
-  br label %if.end648
-
-if.else629:                                       ; preds = %if.then611
-  %DimAliasedLine = getelementptr inbounds i8, ptr %this, i64 1200
-  %arrayidx645 = getelementptr inbounds i8, ptr %this, i64 1204
-  %306 = load float, ptr %DimAliasedLine, align 8
-  %cmp.i.i1295 = fcmp olt float %301, %306
-  %307 = select i1 %cmp.i.i1295, float %306, float %301
-  %308 = load float, ptr %arrayidx645, align 4
-  %cmp.i2.i1296 = fcmp olt float %307, %308
-  %309 = select i1 %cmp.i2.i1296, float %307, float %308
-  br label %if.end648
-
-if.end648:                                        ; preds = %if.else629, %if.then613
-  %.sink1359 = phi float [ %305, %if.then613 ], [ %309, %if.else629 ]
-  call void @glLineWidth(float noundef %.sink1359) #24
+  %.40 = select i1 %tobool612.not, i64 1200, i64 1216
+  %.41 = select i1 %tobool612.not, i64 1204, i64 1220
+  %DimAliasedLine = getelementptr inbounds i8, ptr %this, i64 %.40
+  %arrayidx645 = getelementptr inbounds i8, ptr %this, i64 %.41
+  %302 = load float, ptr %DimAliasedLine, align 8
+  %cmp.i.i1295 = fcmp olt float %301, %302
+  %303 = select i1 %cmp.i.i1295, float %302, float %301
+  %304 = load float, ptr %arrayidx645, align 4
+  %cmp.i2.i1296 = fcmp olt float %303, %304
+  %305 = select i1 %cmp.i2.i1296, float %303, float %304
+  call void @glLineWidth(float noundef %305) #24
   br i1 %resetAllRenderStates, label %land.lhs.true655, label %lor.lhs.false650
 
-lor.lhs.false650:                                 ; preds = %if.end648, %lor.lhs.false608
+lor.lhs.false650:                                 ; preds = %if.then611, %lor.lhs.false608
   %AntiAliasing = getelementptr inbounds i8, ptr %lastmaterial, i64 161
-  %310 = load i8, ptr %AntiAliasing, align 1, !tbaa !122
+  %306 = load i8, ptr %AntiAliasing, align 1, !tbaa !122
   %AntiAliasing652 = getelementptr inbounds i8, ptr %material, i64 161
-  %311 = load i8, ptr %AntiAliasing652, align 1, !tbaa !122
-  %cmp654.not = icmp eq i8 %310, %311
+  %307 = load i8, ptr %AntiAliasing652, align 1, !tbaa !122
+  %cmp654.not = icmp eq i8 %306, %307
   %arrayidx658 = getelementptr inbounds i8, ptr %this, i64 1336
-  %312 = load i8, ptr %arrayidx658, align 8, !range !131
-  %tobool659.not = icmp eq i8 %312, 0
+  %308 = load i8, ptr %arrayidx658, align 8, !range !131
+  %tobool659.not = icmp eq i8 %308, 0
   %or.cond835 = select i1 %cmp654.not, i1 true, i1 %tobool659.not
   br i1 %or.cond835, label %if.end698, label %if.then660
 
-land.lhs.true655:                                 ; preds = %if.end648
+land.lhs.true655:                                 ; preds = %if.then611
   %arrayidx658.old = getelementptr inbounds i8, ptr %this, i64 1336
   %.old = load i8, ptr %arrayidx658.old, align 8, !tbaa !166, !range !131, !noundef !132
   %tobool659.not.old = icmp eq i8 %.old, 0
@@ -14625,10 +14609,10 @@ land.lhs.true655.if.then660_crit_edge:            ; preds = %land.lhs.true655
   br label %if.then660
 
 if.then660:                                       ; preds = %land.lhs.true655.if.then660_crit_edge, %lor.lhs.false650
-  %313 = phi i8 [ %.pre1347, %land.lhs.true655.if.then660_crit_edge ], [ %311, %lor.lhs.false650 ]
+  %309 = phi i8 [ %.pre1347, %land.lhs.true655.if.then660_crit_edge ], [ %307, %lor.lhs.false650 ]
   %AntiAliasing661 = getelementptr inbounds i8, ptr %material, i64 161
-  %314 = and i8 %313, 4
-  %tobool664.not = icmp eq i8 %314, 0
+  %310 = and i8 %309, 4
+  %tobool664.not = icmp eq i8 %310, 0
   br i1 %tobool664.not, label %if.else666, label %if.then665
 
 if.then665:                                       ; preds = %if.then660
@@ -14637,9 +14621,9 @@ if.then665:                                       ; preds = %if.then660
 
 if.else666:                                       ; preds = %if.then660
   %AntiAliasing667 = getelementptr inbounds i8, ptr %lastmaterial, i64 161
-  %315 = load i8, ptr %AntiAliasing667, align 1, !tbaa !122
-  %316 = and i8 %315, 4
-  %tobool670.not = icmp eq i8 %316, 0
+  %311 = load i8, ptr %AntiAliasing667, align 1, !tbaa !122
+  %312 = and i8 %311, 4
+  %tobool670.not = icmp eq i8 %312, 0
   br i1 %tobool670.not, label %if.end673, label %if.then671
 
 if.then671:                                       ; preds = %if.else666
@@ -14648,27 +14632,27 @@ if.then671:                                       ; preds = %if.else666
 
 if.end673:                                        ; preds = %if.then671, %if.else666, %if.then665
   %AntiAlias674 = getelementptr inbounds i8, ptr %this, i64 3574
-  %317 = load i8, ptr %AntiAlias674, align 2, !tbaa !109
-  %cmp676 = icmp ugt i8 %317, 1
+  %313 = load i8, ptr %AntiAlias674, align 2, !tbaa !109
+  %cmp676 = icmp ugt i8 %313, 1
   br i1 %cmp676, label %land.lhs.true677, label %if.else696
 
 land.lhs.true677:                                 ; preds = %if.end673
-  %318 = load i8, ptr %AntiAliasing661, align 1, !tbaa !122
-  %319 = and i8 %318, 3
-  %tobool681.not = icmp eq i8 %319, 0
+  %314 = load i8, ptr %AntiAliasing661, align 1, !tbaa !122
+  %315 = and i8 %314, 3
+  %tobool681.not = icmp eq i8 %315, 0
   br i1 %tobool681.not, label %if.else696, label %if.then682
 
 if.then682:                                       ; preds = %land.lhs.true677
   call void @glEnable(i32 noundef 32925) #24
   %arrayidx685 = getelementptr inbounds i8, ptr %this, i64 1594
-  %320 = load i8, ptr %arrayidx685, align 2, !tbaa !166, !range !131, !noundef !132
-  %tobool686.not = icmp eq i8 %320, 0
+  %316 = load i8, ptr %arrayidx685, align 2, !tbaa !166, !range !131, !noundef !132
+  %tobool686.not = icmp eq i8 %316, 0
   br i1 %tobool686.not, label %if.end698, label %if.then687
 
 if.then687:                                       ; preds = %if.then682
-  %321 = load i8, ptr %AntiAliasing661, align 1, !tbaa !122
-  %322 = and i8 %321, 3
-  %cmp691 = icmp eq i8 %322, 3
+  %317 = load i8, ptr %AntiAliasing661, align 1, !tbaa !122
+  %318 = and i8 %317, 3
+  %cmp691 = icmp eq i8 %318, 3
   br i1 %cmp691, label %if.then692, label %if.else693
 
 if.then692:                                       ; preds = %if.then687
@@ -14686,8 +14670,8 @@ if.else696:                                       ; preds = %land.lhs.true677, %
 if.end698:                                        ; preds = %if.else696, %if.else693, %if.then692, %if.then682, %land.lhs.true655, %lor.lhs.false650
   %vtable700 = load ptr, ptr %this, align 8, !tbaa !3
   %vfn701 = getelementptr inbounds i8, ptr %vtable700, i64 968
-  %323 = load ptr, ptr %vfn701, align 8
-  call void %323(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, i1 noundef zeroext %resetAllRenderStates) #24
+  %319 = load ptr, ptr %vfn701, align 8
+  call void %319(ptr noundef nonnull align 8 dereferenceable(4344) %this, ptr noundef nonnull align 8 dereferenceable(178) %material, i1 noundef zeroext %resetAllRenderStates) #24
   store i32 %tempState.01324, ptr %FixedPipelineState, align 4, !tbaa !126
   ret void
 }

@@ -143,13 +143,13 @@ define dso_local zeroext i1 @intel_dmc_has_payload(ptr nocapture noundef readonl
 define dso_local void @intel_dmc_enable_pipe(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 align 16 {
   %3 = add i32 %1, 1
   %4 = icmp ult i32 %3, 5
-  br i1 %4, label %5, label %40
+  br i1 %4, label %5, label %30
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 2288
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %40, label %9
+  br i1 %8, label %30, label %9
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds i8, ptr %7, i64 56
@@ -157,42 +157,30 @@ define dso_local void @intel_dmc_enable_pipe(ptr noundef %0, i32 noundef %1) loc
   %12 = getelementptr [5 x %struct.dmc_fw_info], ptr %10, i64 0, i64 %11, i32 6
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %40, label %15
+  br i1 %14, label %30, label %.sink.split
 
-15:                                               ; preds = %9
-  %16 = getelementptr inbounds i8, ptr %0, i64 2632
-  %17 = load i16, ptr %16, align 8
-  %18 = icmp ugt i16 %17, 13
-  %19 = shl nsw i32 %1, 2
-  br i1 %18, label %20, label %31
+.sink.split:                                      ; preds = %9
+  %15 = getelementptr inbounds i8, ptr %0, i64 2632
+  %16 = load i16, ptr %15, align 8
+  %17 = icmp ugt i16 %16, 13
+  %18 = shl nsw i32 %1, 2
+  %19 = add i32 %18, 283216
+  %20 = zext nneg i32 %18 to i64
+  %21 = shl nuw i64 1, %20
+  %22 = trunc i64 %21 to i32
+  %.sink9 = select i1 %17, i32 283216, i32 %19
+  %.sink7 = select i1 %17, i32 %22, i32 1
+  %23 = getelementptr inbounds i8, ptr %0, i64 7368
+  %24 = getelementptr inbounds i8, ptr %0, i64 7512
+  %25 = load ptr, ptr %24, align 8
+  %26 = tail call i32 %25(ptr noundef %23, i32 %.sink9, i1 noundef zeroext true) #12
+  %27 = or i32 %26, %.sink7
+  %28 = getelementptr inbounds i8, ptr %0, i64 7544
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef %23, i32 %.sink9, i32 noundef %27, i1 noundef zeroext true) #12
+  br label %30
 
-20:                                               ; preds = %15
-  %21 = zext nneg i32 %19 to i64
-  %22 = shl nuw i64 1, %21
-  %23 = trunc i64 %22 to i32
-  %24 = getelementptr inbounds i8, ptr %0, i64 7368
-  %25 = getelementptr inbounds i8, ptr %0, i64 7512
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call i32 %26(ptr noundef %24, i32 283216, i1 noundef zeroext true) #12
-  %28 = or i32 %27, %23
-  %29 = getelementptr inbounds i8, ptr %0, i64 7544
-  %30 = load ptr, ptr %29, align 8
-  tail call void %30(ptr noundef %24, i32 283216, i32 noundef %28, i1 noundef zeroext true) #12
-  br label %40
-
-31:                                               ; preds = %15
-  %32 = add i32 %19, 283216
-  %33 = getelementptr inbounds i8, ptr %0, i64 7368
-  %34 = getelementptr inbounds i8, ptr %0, i64 7512
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i32 %35(ptr noundef %33, i32 %32, i1 noundef zeroext true) #12
-  %37 = or i32 %36, 1
-  %38 = getelementptr inbounds i8, ptr %0, i64 7544
-  %39 = load ptr, ptr %38, align 8
-  tail call void %39(ptr noundef %33, i32 %32, i32 noundef %37, i1 noundef zeroext true) #12
-  br label %40
-
-40:                                               ; preds = %31, %20, %9, %5, %2
+30:                                               ; preds = %.sink.split, %9, %5, %2
   ret void
 }
 

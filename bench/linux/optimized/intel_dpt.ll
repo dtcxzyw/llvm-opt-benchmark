@@ -786,87 +786,80 @@ define internal void @dpt_insert_entries(ptr nocapture noundef readonly %0, ptr 
   %28 = getelementptr inbounds i8, ptr %0, i64 584
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 %29(i64 noundef 0, i32 noundef %2, i32 noundef %3) #6
-  %31 = getelementptr inbounds i8, ptr %1, i64 248
-  %32 = load i64, ptr %31, align 8
-  %33 = lshr i64 %32, 12
-  %34 = trunc i64 %33 to i32
-  %35 = getelementptr inbounds i8, ptr %1, i64 192
-  %36 = load ptr, ptr %35, align 8
-  %37 = load ptr, ptr %36, align 8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread, label %39
+  %31 = getelementptr inbounds i8, ptr %1, i64 192
+  %32 = load ptr, ptr %31, align 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %.thread, label %35
 
-39:                                               ; preds = %25
-  %40 = getelementptr inbounds i8, ptr %37, i64 24
-  %41 = load i32, ptr %40, align 8, !noalias !32
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread, label %43
+35:                                               ; preds = %25
+  %36 = getelementptr inbounds i8, ptr %33, i64 24
+  %37 = load i32, ptr %36, align 8, !noalias !32
+  %38 = icmp eq i32 %37, 0
+  br i1 %38, label %.thread, label %.sink.split.preheader
 
-43:                                               ; preds = %39
-  %44 = getelementptr inbounds i8, ptr %37, i64 8
-  %45 = load i32, ptr %44, align 8, !noalias !32
-  %46 = add i32 %45, %41
-  br label %.outer
+.sink.split.preheader:                            ; preds = %35
+  %39 = getelementptr inbounds i8, ptr %1, i64 248
+  %40 = load i64, ptr %39, align 8
+  %41 = lshr i64 %40, 12
+  %42 = trunc i64 %41 to i32
+  br label %.sink.split
 
-.outer:                                           ; preds = %77, %43
-  %.ph = phi i32 [ %52, %77 ], [ %34, %43 ]
-  %.ph13 = phi i32 [ %80, %77 ], [ %46, %43 ]
-  %.ph14 = phi i32 [ %79, %77 ], [ %45, %43 ]
-  %.ph16 = phi ptr [ %71, %77 ], [ %37, %43 ]
-  %.ph15.in = getelementptr inbounds i8, ptr %.ph16, i64 16
-  %.ph15 = load i64, ptr %.ph15.in, align 8, !noalias !14
-  br label %47
+.sink.split:                                      ; preds = %.sink.split.preheader, %74
+  %.sink = phi ptr [ %72, %74 ], [ %33, %.sink.split.preheader ]
+  %.sink17 = phi i32 [ %76, %74 ], [ %37, %.sink.split.preheader ]
+  %.ph = phi i32 [ %53, %74 ], [ %42, %.sink.split.preheader ]
+  %43 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %44 = load i32, ptr %43, align 8, !noalias !14
+  %45 = getelementptr inbounds i8, ptr %.sink, i64 16
+  %46 = load i64, ptr %45, align 8, !noalias !14
+  %47 = add i32 %44, %.sink17
+  br label %48
 
-47:                                               ; preds = %.outer, %47
-  %48 = phi i32 [ %52, %47 ], [ %.ph, %.outer ]
-  %49 = phi i32 [ %56, %47 ], [ %.ph14, %.outer ]
-  %50 = zext i32 %49 to i64
-  %51 = add i64 %.ph15, %50
-  %52 = add i32 %48, 1
-  %53 = sext i32 %48 to i64
-  %54 = getelementptr i64, ptr %27, i64 %53
-  %55 = or i64 %51, %30
-  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %55, ptr elementtype(i64) %54) #6, !srcloc !31
-  %56 = add i32 %49, 4096
-  %57 = icmp ult i32 %56, %.ph13
-  br i1 %57, label %47, label %58, !llvm.loop !35
+48:                                               ; preds = %.sink.split, %48
+  %49 = phi i32 [ %53, %48 ], [ %.ph, %.sink.split ]
+  %50 = phi i32 [ %57, %48 ], [ %44, %.sink.split ]
+  %51 = zext i32 %50 to i64
+  %52 = add i64 %46, %51
+  %53 = add i32 %49, 1
+  %54 = sext i32 %49 to i64
+  %55 = getelementptr i64, ptr %27, i64 %54
+  %56 = or i64 %52, %30
+  tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %56, ptr elementtype(i64) %55) #6, !srcloc !31
+  %57 = add i32 %50, 4096
+  %58 = icmp ult i32 %57, %47
+  br i1 %58, label %48, label %59, !llvm.loop !35
 
-58:                                               ; preds = %47
-  %59 = load i64, ptr %.ph16, align 8
-  %60 = and i64 %59, 2
-  %61 = icmp eq i64 %60, 0
-  br i1 %61, label %62, label %.thread
+59:                                               ; preds = %48
+  %60 = load i64, ptr %.sink, align 8
+  %61 = and i64 %60, 2
+  %62 = icmp eq i64 %61, 0
+  br i1 %62, label %63, label %.thread
 
-62:                                               ; preds = %58
-  %63 = getelementptr i8, ptr %.ph16, i64 32
-  %64 = load i64, ptr %63, align 8
-  %65 = and i64 %64, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %70, label %67, !prof !16
+63:                                               ; preds = %59
+  %64 = getelementptr i8, ptr %.sink, i64 32
+  %65 = load i64, ptr %64, align 8
+  %66 = and i64 %65, 1
+  %67 = icmp eq i64 %66, 0
+  br i1 %67, label %71, label %68, !prof !16
 
-67:                                               ; preds = %62
-  %68 = and i64 %64, -4
-  %69 = inttoptr i64 %68 to ptr
-  br label %70
+68:                                               ; preds = %63
+  %69 = and i64 %65, -4
+  %70 = inttoptr i64 %69 to ptr
+  br label %71
 
-70:                                               ; preds = %67, %62
-  %71 = phi ptr [ %69, %67 ], [ %63, %62 ]
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %.thread, label %73
+71:                                               ; preds = %68, %63
+  %72 = phi ptr [ %70, %68 ], [ %64, %63 ]
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %.thread, label %74
 
-73:                                               ; preds = %70
-  %74 = getelementptr inbounds i8, ptr %71, i64 24
-  %75 = load i32, ptr %74, align 8, !noalias !36
-  %76 = icmp eq i32 %75, 0
-  br i1 %76, label %.thread, label %77
+74:                                               ; preds = %71
+  %75 = getelementptr inbounds i8, ptr %72, i64 24
+  %76 = load i32, ptr %75, align 8, !noalias !36
+  %77 = icmp eq i32 %76, 0
+  br i1 %77, label %.thread, label %.sink.split, !llvm.loop !35
 
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds i8, ptr %71, i64 8
-  %79 = load i32, ptr %78, align 8, !noalias !36
-  %80 = add i32 %79, %75
-  br label %.outer, !llvm.loop !35
-
-.thread:                                          ; preds = %58, %70, %73, %25, %39
+.thread:                                          ; preds = %59, %71, %74, %25, %35
   ret void
 }
 

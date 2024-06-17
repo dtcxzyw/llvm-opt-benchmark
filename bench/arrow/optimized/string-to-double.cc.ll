@@ -4049,12 +4049,12 @@ if.then143:                                       ; preds = %_ZN14arrow_vendored
 
 if.end146.sink.split:                             ; preds = %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361, %if.then143
   %is_negative.0.ph = phi i1 [ true, %if.then143 ], [ false, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361 ]
-  %incdec.ptr.i408 = getelementptr inbounds i8, ptr %55, i64 1
-  store ptr %incdec.ptr.i408, ptr %current, align 8
+  %incdec.ptr.i457 = getelementptr inbounds i8, ptr %55, i64 1
+  store ptr %incdec.ptr.i457, ptr %current, align 8
   br label %if.end146
 
 if.end146:                                        ; preds = %if.end146.sink.split, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361
-  %current.promoted659 = phi ptr [ %55, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361 ], [ %incdec.ptr.i408, %if.end146.sink.split ]
+  %current.promoted659 = phi ptr [ %55, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361 ], [ %incdec.ptr.i457, %if.end146.sink.split ]
   %is_negative.0 = phi i1 [ false, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKcEEbPT_tiRS4_.exit361 ], [ %is_negative.0.ph, %if.end146.sink.split ]
   %56 = load i8, ptr %current.promoted659, align 1
   %conv148662 = sext i8 %56 to i32
@@ -6152,12 +6152,12 @@ if.then146:                                       ; preds = %_ZN14arrow_vendored
 
 if.end149.sink.split:                             ; preds = %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363, %if.then146
   %is_negative.0.ph = phi i1 [ true, %if.then146 ], [ false, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363 ]
-  %incdec.ptr.i408 = getelementptr inbounds i8, ptr %57, i64 2
-  store ptr %incdec.ptr.i408, ptr %current, align 8
+  %incdec.ptr.i455 = getelementptr inbounds i8, ptr %57, i64 2
+  store ptr %incdec.ptr.i455, ptr %current, align 8
   br label %if.end149
 
 if.end149:                                        ; preds = %if.end149.sink.split, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363
-  %current.promoted662 = phi ptr [ %57, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363 ], [ %incdec.ptr.i408, %if.end149.sink.split ]
+  %current.promoted662 = phi ptr [ %57, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363 ], [ %incdec.ptr.i455, %if.end149.sink.split ]
   %is_negative.0 = phi i1 [ false, %_ZN14arrow_vendored17double_conversionL7AdvanceIPKtEEbPT_tiRS4_.exit363 ], [ %is_negative.0.ph, %if.end149.sink.split ]
   %58 = load i16, ptr %current.promoted662, align 2
   %conv151665 = zext i16 %58 to i32

@@ -1368,10 +1368,10 @@ define zeroext i1 @directVis(double %0, double %1, i32 noundef %2, double %3, do
   br i1 %exitcond.not, label %.preheader76, label %.lr.ph
 
 .preheader76.sink.split:                          ; preds = %17, %16
-  %.sink121 = phi i32 [ %5, %16 ], [ %2, %17 ]
+  %.sink123 = phi i32 [ %5, %16 ], [ %2, %17 ]
   %33 = getelementptr inbounds i8, ptr %6, i64 16
   %34 = load ptr, ptr %33, align 8
-  %35 = zext nneg i32 %.sink121 to i64
+  %35 = zext nneg i32 %.sink123 to i64
   %36 = getelementptr inbounds i32, ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds i8, ptr %36, i64 4

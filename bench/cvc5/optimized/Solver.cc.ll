@@ -1422,10 +1422,10 @@ land.lhs.true4.i:                                 ; preds = %_ZN4cvc58internal7M
 
 if.end10.sink.split.i:                            ; preds = %land.lhs.true4.i, %land.lhs.true.i155
   %.sink10.i = phi i64 [ 1, %land.lhs.true.i155 ], [ -1, %land.lhs.true4.i ]
-  %dec_vars.i = getelementptr inbounds i8, ptr %this, i64 304
-  %68 = load i64, ptr %dec_vars.i, align 8
+  %dec_vars9.i = getelementptr inbounds i8, ptr %this, i64 304
+  %68 = load i64, ptr %dec_vars9.i, align 8
   %dec.i = add nsw i64 %68, %.sink10.i
-  store i64 %dec.i, ptr %dec_vars.i, align 8
+  store i64 %dec.i, ptr %dec_vars9.i, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end10.sink.split.i, %land.lhs.true4.i, %land.lhs.true.i155

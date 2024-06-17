@@ -1753,7 +1753,7 @@ define dso_local void @intel_guc_capture_process(ptr noundef %0) local_unnamed_a
   %6 = getelementptr inbounds i8, ptr %0, i64 1000
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %573, label %9
+  br i1 %8, label %569, label %9
 
 9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
@@ -2671,64 +2671,55 @@ default.unreachable:                              ; preds = %388
 549:                                              ; preds = %552
   %550 = add nuw nsw i64 %553, 1
   %551 = icmp eq i64 %550, 3
-  br i1 %551, label %560, label %552, !llvm.loop !36
+  br i1 %551, label %.thread39.sink.split, label %552, !llvm.loop !36
 
 552:                                              ; preds = %549, %547
   %553 = phi i64 [ 0, %547 ], [ %550, %549 ]
   %554 = getelementptr [3 x %struct.gcap_reg_list_info], ptr %548, i64 0, i64 %553, i32 2
   %555 = load ptr, ptr %554, align 8
   %556 = icmp eq ptr %555, null
-  br i1 %556, label %549, label %.thread40
-
-.thread40:                                        ; preds = %552
-  %557 = load ptr, ptr %6, align 8
-  %558 = getelementptr inbounds i8, ptr %557, i64 3120
-  %559 = getelementptr inbounds i8, ptr %557, i64 3128
-  br label %.thread39.sink.split
-
-560:                                              ; preds = %549
-  %561 = load ptr, ptr %6, align 8
-  %562 = getelementptr inbounds i8, ptr %561, i64 3096
-  %563 = getelementptr inbounds i8, ptr %561, i64 3104
-  br label %.thread39.sink.split
+  br i1 %556, label %549, label %.thread39.sink.split
 
 .thread39.thread:                                 ; preds = %144, %77, %434, %428, %74
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   br label %.loopexit58
 
-.thread39.sink.split:                             ; preds = %560, %.thread40
-  %.sink197 = phi ptr [ %563, %560 ], [ %559, %.thread40 ]
-  %.sink194 = phi ptr [ %562, %560 ], [ %558, %.thread40 ]
-  %564 = load ptr, ptr %.sink197, align 8
-  store ptr %545, ptr %.sink197, align 8
-  store ptr %.sink194, ptr %545, align 8
-  %565 = getelementptr inbounds i8, ptr %545, i64 8
-  store ptr %564, ptr %565, align 8
-  store volatile ptr %545, ptr %564, align 8
+.thread39.sink.split:                             ; preds = %549, %552
+  %.sink203 = phi i64 [ 3120, %552 ], [ 3096, %549 ]
+  %.sink201 = phi i64 [ 3128, %552 ], [ 3104, %549 ]
+  %557 = load ptr, ptr %6, align 8
+  %558 = getelementptr inbounds i8, ptr %557, i64 %.sink203
+  %559 = getelementptr inbounds i8, ptr %557, i64 %.sink201
+  %560 = load ptr, ptr %559, align 8
+  store ptr %545, ptr %559, align 8
+  store ptr %558, ptr %545, align 8
+  %561 = getelementptr inbounds i8, ptr %545, i64 8
+  store ptr %560, ptr %561, align 8
+  store volatile ptr %545, ptr %560, align 8
   br label %.thread39
 
 .thread39:                                        ; preds = %.thread39.sink.split, %149, %.thread31
-  %566 = phi i32 [ %544, %.thread31 ], [ 0, %149 ], [ %544, %.thread39.sink.split ]
+  %562 = phi i32 [ %544, %.thread31 ], [ 0, %149 ], [ %544, %.thread39.sink.split ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
-  %567 = icmp sgt i32 %566, -1
-  br i1 %567, label %56, label %.loopexit58, !llvm.loop !37
+  %563 = icmp sgt i32 %562, -1
+  br i1 %563, label %56, label %.loopexit58, !llvm.loop !37
 
 .loopexit58:                                      ; preds = %.thread39, %.thread39.thread, %.thread41, %44
   store i32 %45, ptr %15, align 1
-  %568 = load i32, ptr %19, align 1
-  %569 = and i32 %568, -2
-  store i32 %569, ptr %19, align 1
+  %564 = load i32, ptr %19, align 1
+  %565 = and i32 %564, -2
+  store i32 %565, ptr %19, align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   store i32 48, ptr %2, align 4
-  %570 = getelementptr inbounds i8, ptr %2, i64 4
-  store i32 2, ptr %570, align 4
-  %571 = getelementptr inbounds i8, ptr %0, i64 616
-  %572 = call i32 @intel_guc_ct_send(ptr noundef %571, ptr noundef nonnull %2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #13
+  %566 = getelementptr inbounds i8, ptr %2, i64 4
+  store i32 2, ptr %566, align 4
+  %567 = getelementptr inbounds i8, ptr %0, i64 616
+  %568 = call i32 @intel_guc_ct_send(ptr noundef %567, ptr noundef nonnull %2, i32 noundef 2, ptr noundef null, i32 noundef 0, i32 noundef -2147483648) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
-  br label %573
+  br label %569
 
-573:                                              ; preds = %.loopexit58, %1
+569:                                              ; preds = %.loopexit58, %1
   ret void
 }
 

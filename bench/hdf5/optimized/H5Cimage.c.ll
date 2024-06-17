@@ -1481,15 +1481,15 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br label %466
 
 466:                                              ; preds = %461, %460, %455
-  %.sink393.i = phi ptr [ %161, %455 ], [ %157, %461 ], [ %157, %460 ]
-  %.sink389.i = phi ptr [ %162, %455 ], [ %158, %461 ], [ %158, %460 ]
-  %.sink388.i = phi i64 [ %456, %455 ], [ %.pre355.i, %461 ], [ %443, %460 ]
-  %467 = load i32, ptr %.sink393.i, align 8
+  %.sink396.i = phi ptr [ %161, %455 ], [ %157, %461 ], [ %157, %460 ]
+  %.sink392.i = phi ptr [ %162, %455 ], [ %158, %461 ], [ %158, %460 ]
+  %.sink391.i = phi i64 [ %456, %455 ], [ %.pre355.i, %461 ], [ %443, %460 ]
+  %467 = load i32, ptr %.sink396.i, align 8
   %468 = add i32 %467, 1
-  store i32 %468, ptr %.sink393.i, align 8
-  %469 = load i64, ptr %.sink389.i, align 8
-  %470 = add i64 %469, %.sink388.i
-  store i64 %470, ptr %.sink389.i, align 8
+  store i32 %468, ptr %.sink396.i, align 8
+  %469 = load i64, ptr %.sink392.i, align 8
+  %470 = add i64 %469, %.sink391.i
+  store i64 %470, ptr %.sink392.i, align 8
   %471 = load i64, ptr %229, align 8
   %.not329.i = icmp eq i64 %471, 0
   br i1 %.not329.i, label %H5C__decode_cache_image_header.exit.i, label %.lr.ph323.i
@@ -1671,17 +1671,17 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br label %549
 
 549:                                              ; preds = %546, %544, %543, %525, %523, %522
-  %.sink403.i = phi ptr [ %161, %522 ], [ %161, %523 ], [ %161, %525 ], [ %157, %543 ], [ %157, %544 ], [ %157, %546 ]
-  %.sink398.i = phi ptr [ %162, %522 ], [ %162, %523 ], [ %162, %525 ], [ %158, %543 ], [ %158, %544 ], [ %158, %546 ]
+  %.sink406.i = phi ptr [ %161, %522 ], [ %161, %523 ], [ %161, %525 ], [ %157, %543 ], [ %157, %544 ], [ %157, %546 ]
+  %.sink401.i = phi ptr [ %162, %522 ], [ %162, %523 ], [ %162, %525 ], [ %158, %543 ], [ %158, %544 ], [ %158, %546 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %505, i8 0, i64 16, i1 false)
-  %550 = load i32, ptr %.sink403.i, align 8
+  %550 = load i32, ptr %.sink406.i, align 8
   %551 = add i32 %550, -1
-  store i32 %551, ptr %.sink403.i, align 8
+  store i32 %551, ptr %.sink406.i, align 8
   %552 = getelementptr inbounds i8, ptr %.0257316.i, i64 16
   %553 = load i64, ptr %552, align 8
-  %554 = load i64, ptr %.sink398.i, align 8
+  %554 = load i64, ptr %.sink401.i, align 8
   %555 = sub i64 %554, %553
-  store i64 %555, ptr %.sink398.i, align 8
+  store i64 %555, ptr %.sink401.i, align 8
   %556 = load ptr, ptr %163, align 8
   %557 = icmp eq ptr %556, null
   br i1 %557, label %558, label %559
@@ -1812,17 +1812,17 @@ H5C__decode_cache_image_header.exit.preheader.i:  ; preds = %128
   br label %621
 
 621:                                              ; preds = %618, %617, %611, %610
-  %.sink414.i = phi ptr [ %159, %611 ], [ %159, %610 ], [ %155, %618 ], [ %155, %617 ]
-  %.sink413.i = phi ptr [ %161, %611 ], [ %161, %610 ], [ %157, %618 ], [ %157, %617 ]
-  %.sink409.i = phi ptr [ %162, %611 ], [ %162, %610 ], [ %158, %618 ], [ %158, %617 ]
-  store ptr %.0257316.i, ptr %.sink414.i, align 8
-  %622 = load i32, ptr %.sink413.i, align 8
+  %.sink417.i = phi ptr [ %159, %611 ], [ %159, %610 ], [ %155, %618 ], [ %155, %617 ]
+  %.sink416.i = phi ptr [ %161, %611 ], [ %161, %610 ], [ %157, %618 ], [ %157, %617 ]
+  %.sink412.i = phi ptr [ %162, %611 ], [ %162, %610 ], [ %158, %618 ], [ %158, %617 ]
+  store ptr %.0257316.i, ptr %.sink417.i, align 8
+  %622 = load i32, ptr %.sink416.i, align 8
   %623 = add i32 %622, 1
-  store i32 %623, ptr %.sink413.i, align 8
+  store i32 %623, ptr %.sink416.i, align 8
   %624 = load i64, ptr %552, align 8
-  %625 = load i64, ptr %.sink409.i, align 8
+  %625 = load i64, ptr %.sink412.i, align 8
   %626 = add i64 %625, %624
-  store i64 %626, ptr %.sink409.i, align 8
+  store i64 %626, ptr %.sink412.i, align 8
   store i8 0, ptr %570, align 2
   %627 = add i32 %.0260321.i, 1
   %628 = zext i32 %627 to i64

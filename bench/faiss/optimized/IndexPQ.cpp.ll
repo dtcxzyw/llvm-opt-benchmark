@@ -1461,9 +1461,9 @@ define noundef nonnull ptr @_ZNK5faiss7IndexPQ29get_FlatCodesDistanceComputerEv(
   %13 = getelementptr inbounds i8, ptr %4, i64 64
   %14 = getelementptr inbounds i8, ptr %0, i64 96
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  switch i64 %3, label %74 [
+  switch i64 %3, label %32 [
     i64 8, label %16
-    i64 16, label %45
+    i64 16, label %24
   ]
 
 16:                                               ; preds = %1
@@ -1478,11 +1478,7 @@ define noundef nonnull ptr @_ZNK5faiss7IndexPQ29get_FlatCodesDistanceComputerEv(
 
 20:                                               ; preds = %16
   invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %19)
-          to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i unwind label %21
-
-._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i: ; preds = %20
-  %.pre.i = load ptr, ptr %11, align 8
-  br label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit
+          to label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split unwind label %21
 
 21:                                               ; preds = %20
   %22 = landingpad { ptr, i32 }
@@ -1491,162 +1487,97 @@ define noundef nonnull ptr @_ZNK5faiss7IndexPQ29get_FlatCodesDistanceComputerEv(
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %.body, label %.body.sink.split
 
-_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit: ; preds = %16, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i
-  %24 = phi ptr [ %.pre.i, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i ], [ %12, %16 ]
-  %25 = getelementptr inbounds i8, ptr %0, i64 16
-  %26 = load i64, ptr %25, align 8
-  %27 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %26, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %0, i64 8
-  %29 = load i32, ptr %28, align 8
-  %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %30, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 28
-  %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %24, i64 184
-  %36 = getelementptr inbounds i8, ptr %24, i64 192
-  %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %35, align 8
-  %39 = ptrtoint ptr %37 to i64
-  %40 = ptrtoint ptr %38 to i64
-  %41 = sub i64 %39, %40
-  %42 = getelementptr inbounds i8, ptr %24, i64 48
-  %43 = load i64, ptr %42, align 8
-  %44 = mul i64 %43, %43
-  br label %103
-
-45:                                               ; preds = %1
+24:                                               ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEE, i64 16), ptr %4, align 8
   store ptr %12, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %46 = load i64, ptr %14, align 8
-  %47 = load i64, ptr %15, align 8
-  %48 = mul i64 %47, %46
-  %.not.i7 = icmp eq i64 %48, 0
-  br i1 %.not.i7, label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit, label %49
+  %25 = load i64, ptr %14, align 8
+  %26 = load i64, ptr %15, align 8
+  %27 = mul i64 %26, %25
+  %.not.i7 = icmp eq i64 %27, 0
+  br i1 %.not.i7, label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit, label %28
 
-49:                                               ; preds = %45
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %48)
-          to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i10 unwind label %50
+28:                                               ; preds = %24
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %27)
+          to label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split unwind label %29
 
-._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i10: ; preds = %49
-  %.pre.i11 = load ptr, ptr %11, align 8
-  br label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit
-
-50:                                               ; preds = %49
-  %51 = landingpad { ptr, i32 }
+29:                                               ; preds = %28
+  %30 = landingpad { ptr, i32 }
           cleanup
-  %52 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i8 = icmp eq ptr %52, null
+  %31 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i8 = icmp eq ptr %31, null
   br i1 %.not.i.i.i.i8, label %.body, label %.body.sink.split
 
-_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit: ; preds = %45, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i10
-  %53 = phi ptr [ %.pre.i11, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i10 ], [ %12, %45 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 16
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %55, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 8
-  %58 = load i32, ptr %57, align 8
-  %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %59, ptr %60, align 8
-  %61 = getelementptr inbounds i8, ptr %0, i64 28
-  %62 = load i32, ptr %61, align 4
-  %63 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %62, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %53, i64 184
-  %65 = getelementptr inbounds i8, ptr %53, i64 192
-  %66 = load ptr, ptr %65, align 8
-  %67 = load ptr, ptr %64, align 8
-  %68 = ptrtoint ptr %66 to i64
-  %69 = ptrtoint ptr %67 to i64
-  %70 = sub i64 %68, %69
-  %71 = getelementptr inbounds i8, ptr %53, i64 48
-  %72 = load i64, ptr %71, align 8
-  %73 = mul i64 %72, %72
-  br label %103
-
-74:                                               ; preds = %1
+32:                                               ; preds = %1
   store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEE, i64 16), ptr %4, align 8
   store ptr %12, ptr %11, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %13, i8 0, i64 24, i1 false)
-  %75 = load i64, ptr %14, align 8
-  %76 = load i64, ptr %15, align 8
-  %77 = mul i64 %76, %75
-  %.not.i15 = icmp eq i64 %77, 0
-  br i1 %.not.i15, label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit, label %78
+  %33 = load i64, ptr %14, align 8
+  %34 = load i64, ptr %15, align 8
+  %35 = mul i64 %34, %33
+  %.not.i15 = icmp eq i64 %35, 0
+  br i1 %.not.i15, label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit, label %36
 
-78:                                               ; preds = %74
-  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %77)
-          to label %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i18 unwind label %79
+36:                                               ; preds = %32
+  invoke void @_ZNSt6vectorIfSaIfEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %13, i64 noundef %35)
+          to label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split unwind label %37
 
-._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i18: ; preds = %78
-  %.pre.i19 = load ptr, ptr %11, align 8
-  br label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit
-
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+37:                                               ; preds = %36
+  %38 = landingpad { ptr, i32 }
           cleanup
-  %81 = load ptr, ptr %13, align 8
-  %.not.i.i.i.i16 = icmp eq ptr %81, null
+  %39 = load ptr, ptr %13, align 8
+  %.not.i.i.i.i16 = icmp eq ptr %39, null
   br i1 %.not.i.i.i.i16, label %.body, label %.body.sink.split
 
-_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit: ; preds = %74, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i18
-  %82 = phi ptr [ %.pre.i19, %._ZNSt6vectorIfSaIfEE6resizeEm.exit_crit_edge8.i18 ], [ %12, %74 ]
-  %83 = getelementptr inbounds i8, ptr %0, i64 16
-  %84 = load i64, ptr %83, align 8
-  %85 = getelementptr inbounds i8, ptr %4, i64 40
-  store i64 %84, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %0, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds i8, ptr %4, i64 24
-  store i64 %88, ptr %89, align 8
-  %90 = getelementptr inbounds i8, ptr %0, i64 28
-  %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i8, ptr %4, i64 32
-  store i32 %91, ptr %92, align 8
-  %93 = getelementptr inbounds i8, ptr %82, i64 184
-  %94 = getelementptr inbounds i8, ptr %82, i64 192
-  %95 = load ptr, ptr %94, align 8
-  %96 = load ptr, ptr %93, align 8
-  %97 = ptrtoint ptr %95 to i64
-  %98 = ptrtoint ptr %96 to i64
-  %99 = sub i64 %97, %98
-  %100 = getelementptr inbounds i8, ptr %82, i64 48
-  %101 = load i64, ptr %100, align 8
-  %102 = mul i64 %101, %101
-  br label %103
+_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split: ; preds = %36, %28, %20
+  %.pre.i19 = load ptr, ptr %11, align 8
+  br label %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit
 
-103:                                              ; preds = %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit
-  %.sink28 = phi ptr [ %82, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit ], [ %53, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit ], [ %24, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit ]
-  %.sink = phi i64 [ %102, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit ], [ %73, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit ], [ %44, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit ]
-  %.sink24.in = phi i64 [ %99, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit ], [ %70, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit ], [ %41, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit ]
-  %.sink23 = phi ptr [ %96, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEC2ERKNS_7IndexPQE.exit ], [ %67, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEC2ERKNS_7IndexPQE.exit ], [ %38, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit ]
-  %.sink24 = ashr exact i64 %.sink24.in, 2
-  %104 = getelementptr inbounds i8, ptr %.sink28, i64 24
-  %105 = load i64, ptr %104, align 8
-  %106 = mul i64 %.sink, %105
-  %107 = icmp eq i64 %.sink24, %106
-  %spec.select.i20 = select i1 %107, ptr %.sink23, ptr null
-  %108 = getelementptr inbounds i8, ptr %4, i64 56
-  store ptr %spec.select.i20, ptr %108, align 8
-  %109 = getelementptr inbounds i8, ptr %4, i64 88
-  store i64 0, ptr %109, align 8
+_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit: ; preds = %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split, %32, %24, %16
+  %.sink = phi ptr [ %12, %16 ], [ %12, %24 ], [ %12, %32 ], [ %.pre.i19, %_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEC2ERKNS_7IndexPQE.exit.sink.split ]
+  %40 = getelementptr inbounds i8, ptr %0, i64 16
+  %41 = load i64, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %4, i64 40
+  store i64 %41, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %0, i64 8
+  %44 = load i32, ptr %43, align 8
+  %45 = sext i32 %44 to i64
+  %46 = getelementptr inbounds i8, ptr %4, i64 24
+  store i64 %45, ptr %46, align 8
+  %47 = getelementptr inbounds i8, ptr %0, i64 28
+  %48 = load i32, ptr %47, align 4
+  %49 = getelementptr inbounds i8, ptr %4, i64 32
+  store i32 %48, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %.sink, i64 184
+  %51 = getelementptr inbounds i8, ptr %.sink, i64 192
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %50, align 8
+  %54 = ptrtoint ptr %52 to i64
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = ashr exact i64 %56, 2
+  %58 = getelementptr inbounds i8, ptr %.sink, i64 48
+  %59 = load i64, ptr %58, align 8
+  %60 = mul i64 %59, %59
+  %61 = getelementptr inbounds i8, ptr %.sink, i64 24
+  %62 = load i64, ptr %61, align 8
+  %63 = mul i64 %60, %62
+  %64 = icmp eq i64 %57, %63
+  %spec.select.i20 = select i1 %64, ptr %53, ptr null
+  %65 = getelementptr inbounds i8, ptr %4, i64 56
+  store ptr %spec.select.i20, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %4, i64 88
+  store i64 0, ptr %66, align 8
   ret ptr %4
 
-.body.sink.split:                                 ; preds = %79, %50, %21
-  %.sink29 = phi ptr [ %23, %21 ], [ %52, %50 ], [ %81, %79 ]
-  %.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %51, %50 ], [ %80, %79 ]
-  tail call void @_ZdlPv(ptr noundef nonnull %.sink29) #27
+.body.sink.split:                                 ; preds = %37, %29, %21
+  %.sink47 = phi ptr [ %23, %21 ], [ %31, %29 ], [ %39, %37 ]
+  %.pn.ph = phi { ptr, i32 } [ %22, %21 ], [ %30, %29 ], [ %38, %37 ]
+  tail call void @_ZdlPv(ptr noundef nonnull %.sink47) #27
   br label %.body
 
-.body:                                            ; preds = %.body.sink.split, %79, %50, %21
-  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %51, %50 ], [ %80, %79 ], [ %.pn.ph, %.body.sink.split ]
+.body:                                            ; preds = %.body.sink.split, %37, %29, %21
+  %.pn = phi { ptr, i32 } [ %22, %21 ], [ %30, %29 ], [ %38, %37 ], [ %.pn.ph, %.body.sink.split ]
   tail call void @_ZdlPv(ptr noundef nonnull %4) #27
   resume { ptr, i32 } %.pn
 }

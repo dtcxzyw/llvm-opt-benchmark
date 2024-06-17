@@ -2320,10 +2320,10 @@ if.end221:                                        ; preds = %if.end206
   br label %while.body186
 
 sw.epilog226.sink.split:                          ; preds = %if.end199, %for.body121, %if.end83
-  %flags = getelementptr inbounds i8, ptr %call5, i64 28
-  %44 = load i32, ptr %flags, align 4
+  %flags204 = getelementptr inbounds i8, ptr %call5, i64 28
+  %44 = load i32, ptr %flags204, align 4
   %or205 = or i32 %44, 256
-  store i32 %or205, ptr %flags, align 4
+  store i32 %or205, ptr %flags204, align 4
   br label %sw.epilog226
 
 sw.epilog226:                                     ; preds = %if.end206, %for.body170, %if.end141, %if.end88, %sw.epilog226.sink.split, %sw.bb159, %sw.bb106, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55, %if.then55
@@ -14060,15 +14060,15 @@ do.body:                                          ; preds = %if.then37
 if.end42.sink.split.sink.split:                   ; preds = %sw.bb39, %sw.bb, %if.then34
   %.sink = phi i32 [ %3, %if.then34 ], [ %6, %sw.bb ], [ %9, %sw.bb39 ]
   %target_packet_trans.sink.ph = phi ptr [ @target_packet_trans, %if.then34 ], [ @target_netlink_route_trans, %sw.bb ], [ @target_netlink_audit_trans, %sw.bb39 ]
-  %shr.i.i = and i32 %retval.0.i.in, 2147483584
-  %shl.i.i = add nuw i32 %shr.i.i, 64
-  store i32 %shl.i.i, ptr @target_fd_max, align 4
+  %shr.i.i36 = and i32 %retval.0.i.in, 2147483584
+  %shl.i.i37 = add nuw i32 %shr.i.i36, 64
+  store i32 %shl.i.i37, ptr @target_fd_max, align 4
   %10 = load ptr, ptr @target_fd_trans, align 8
-  %conv.i.i = zext i32 %shl.i.i to i64
-  %call.i.i = tail call ptr @g_realloc_n(ptr noundef %10, i64 noundef %conv.i.i, i64 noundef 8) #26
-  store ptr %call.i.i, ptr @target_fd_trans, align 8
+  %conv.i.i38 = zext i32 %shl.i.i37 to i64
+  %call.i.i39 = tail call ptr @g_realloc_n(ptr noundef %10, i64 noundef %conv.i.i38, i64 noundef 8) #26
+  store ptr %call.i.i39, ptr @target_fd_trans, align 8
   %idx.ext.i.i40 = zext nneg i32 %.sink to i64
-  %add.ptr.i.i41 = getelementptr ptr, ptr %call.i.i, i64 %idx.ext.i.i40
+  %add.ptr.i.i41 = getelementptr ptr, ptr %call.i.i39, i64 %idx.ext.i.i40
   %11 = load i32, ptr @target_fd_max, align 4
   %sub.i.i42 = sub i32 %11, %.sink
   %conv1.i.i43 = zext i32 %sub.i.i42 to i64

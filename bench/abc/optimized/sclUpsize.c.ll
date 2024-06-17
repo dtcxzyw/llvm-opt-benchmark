@@ -256,12 +256,12 @@ Vec_IntGrow.exit.i30:                             ; preds = %76, %74
   br label %.sink.split
 
 .sink.split:                                      ; preds = %89, %Vec_IntGrow.exit.i30, %.Vec_IntGrow.exit10_crit_edge.i25, %50, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink = phi ptr [ %26, %.Vec_IntGrow.exit10_crit_edge.i ], [ %26, %Vec_IntGrow.exit.i ], [ %26, %50 ], [ %65, %.Vec_IntGrow.exit10_crit_edge.i25 ], [ %65, %Vec_IntGrow.exit.i30 ], [ %65, %89 ]
+  %.sink40 = phi ptr [ %26, %.Vec_IntGrow.exit10_crit_edge.i ], [ %26, %Vec_IntGrow.exit.i ], [ %26, %50 ], [ %65, %.Vec_IntGrow.exit10_crit_edge.i25 ], [ %65, %Vec_IntGrow.exit.i30 ], [ %65, %89 ]
   %.sink35 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %39, %Vec_IntGrow.exit.i ], [ %51, %50 ], [ %.pre.i27, %.Vec_IntGrow.exit10_crit_edge.i25 ], [ %78, %Vec_IntGrow.exit.i30 ], [ %90, %89 ]
   %.val16.sink = phi i32 [ %.val, %.Vec_IntGrow.exit10_crit_edge.i ], [ %.val, %Vec_IntGrow.exit.i ], [ %.val, %50 ], [ %.val16, %.Vec_IntGrow.exit10_crit_edge.i25 ], [ %.val16, %Vec_IntGrow.exit.i30 ], [ %.val16, %89 ]
-  %91 = load i32, ptr %.sink, align 4
+  %91 = load i32, ptr %.sink40, align 4
   %92 = add nsw i32 %91, 1
-  store i32 %92, ptr %.sink, align 4
+  store i32 %92, ptr %.sink40, align 4
   %93 = sext i32 %91 to i64
   %94 = getelementptr inbounds i32, ptr %.sink35, i64 %93
   store i32 %.val16.sink, ptr %94, align 4

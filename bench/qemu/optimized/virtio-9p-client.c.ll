@@ -2457,44 +2457,41 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
-  %3 = load i64, ptr %r_off.i, align 8
-  %add2.i = add i64 %3, 13
-  store i64 %add2.i, ptr %r_off.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %r_off.i7 = getelementptr inbounds i8, ptr %req, i64 56
-  %4 = load i64, ptr %r_off.i7, align 8
-  %add.i8 = add i64 %4, 13
-  store i64 %add.i8, ptr %r_off.i7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = phi i64 [ %add.i8, %if.else ], [ %add2.i, %if.then ]
+  %r_off.i7.sink10 = phi ptr [ %r_off.i7, %if.else ], [ %r_off.i, %if.then ]
+  %3 = load i64, ptr %r_off.i7.sink10, align 8
+  %add.i8 = add i64 %3, 13
+  store i64 %add.i8, ptr %r_off.i7.sink10, align 8
   %tobool1.not = icmp eq ptr %iounit, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %req, align 8
+  %4 = load ptr, ptr %req, align 8
   %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
-  %7 = load i64, ptr %r_msg.i.i, align 8
+  %5 = load i64, ptr %r_msg.i.i, align 8
   %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
-  %add.i.i = add i64 %5, %7
-  tail call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
-  %8 = load i64, ptr %r_off.i.i, align 8
-  %add2.i.i = add i64 %8, 4
+  %add.i.i = add i64 %add.i8, %5
+  tail call void @qtest_memread(ptr noundef %4, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
+  %6 = load i64, ptr %r_off.i.i, align 8
+  %add2.i.i = add i64 %6, 4
   store i64 %add2.i.i, ptr %r_off.i.i, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %9 = load ptr, ptr @alloc, align 8
+  %7 = load ptr, ptr @alloc, align 8
   %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
-  %10 = load i64, ptr %t_msg.i, align 8
-  tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
-  %11 = load ptr, ptr @alloc, align 8
+  %8 = load i64, ptr %t_msg.i, align 8
+  tail call void @guest_free(ptr noundef %7, i64 noundef %8) #13
+  %9 = load ptr, ptr @alloc, align 8
   %r_msg.i9 = getelementptr inbounds i8, ptr %req, i64 40
-  %12 = load i64, ptr %r_msg.i9, align 8
-  tail call void @guest_free(ptr noundef %11, i64 noundef %12) #13
+  %10 = load i64, ptr %r_msg.i9, align 8
+  tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
   ret void
 }
@@ -3284,44 +3281,41 @@ if.then:                                          ; preds = %entry
   %2 = load i64, ptr %r_off.i, align 8
   %add.i = add i64 %2, %1
   tail call void @qtest_memread(ptr noundef %0, i64 noundef %add.i, ptr noundef nonnull %qid, i64 noundef 13) #13
-  %3 = load i64, ptr %r_off.i, align 8
-  %add2.i = add i64 %3, 13
-  store i64 %add2.i, ptr %r_off.i, align 8
   br label %if.end
 
 if.else:                                          ; preds = %entry
   %r_off.i7 = getelementptr inbounds i8, ptr %req, i64 56
-  %4 = load i64, ptr %r_off.i7, align 8
-  %add.i8 = add i64 %4, 13
-  store i64 %add.i8, ptr %r_off.i7, align 8
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %5 = phi i64 [ %add.i8, %if.else ], [ %add2.i, %if.then ]
+  %r_off.i7.sink10 = phi ptr [ %r_off.i7, %if.else ], [ %r_off.i, %if.then ]
+  %3 = load i64, ptr %r_off.i7.sink10, align 8
+  %add.i8 = add i64 %3, 13
+  store i64 %add.i8, ptr %r_off.i7.sink10, align 8
   %tobool1.not = icmp eq ptr %iounit, null
   br i1 %tobool1.not, label %if.end3, label %if.then2
 
 if.then2:                                         ; preds = %if.end
-  %6 = load ptr, ptr %req, align 8
+  %4 = load ptr, ptr %req, align 8
   %r_msg.i.i = getelementptr inbounds i8, ptr %req, i64 40
-  %7 = load i64, ptr %r_msg.i.i, align 8
+  %5 = load i64, ptr %r_msg.i.i, align 8
   %r_off.i.i = getelementptr inbounds i8, ptr %req, i64 56
-  %add.i.i = add i64 %5, %7
-  tail call void @qtest_memread(ptr noundef %6, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
-  %8 = load i64, ptr %r_off.i.i, align 8
-  %add2.i.i = add i64 %8, 4
+  %add.i.i = add i64 %add.i8, %5
+  tail call void @qtest_memread(ptr noundef %4, i64 noundef %add.i.i, ptr noundef nonnull %iounit, i64 noundef 4) #13
+  %6 = load i64, ptr %r_off.i.i, align 8
+  %add2.i.i = add i64 %6, 4
   store i64 %add2.i.i, ptr %r_off.i.i, align 8
   br label %if.end3
 
 if.end3:                                          ; preds = %if.then2, %if.end
-  %9 = load ptr, ptr @alloc, align 8
+  %7 = load ptr, ptr @alloc, align 8
   %t_msg.i = getelementptr inbounds i8, ptr %req, i64 24
-  %10 = load i64, ptr %t_msg.i, align 8
-  tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
-  %11 = load ptr, ptr @alloc, align 8
+  %8 = load i64, ptr %t_msg.i, align 8
+  tail call void @guest_free(ptr noundef %7, i64 noundef %8) #13
+  %9 = load ptr, ptr @alloc, align 8
   %r_msg.i9 = getelementptr inbounds i8, ptr %req, i64 40
-  %12 = load i64, ptr %r_msg.i9, align 8
-  tail call void @guest_free(ptr noundef %11, i64 noundef %12) #13
+  %10 = load i64, ptr %r_msg.i9, align 8
+  tail call void @guest_free(ptr noundef %9, i64 noundef %10) #13
   tail call void @g_free(ptr noundef nonnull %req) #13
   ret void
 }

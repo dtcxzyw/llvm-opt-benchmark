@@ -183,8 +183,8 @@ define range(i32 -1, 1) i32 @H5G_ent_decode(ptr noundef %0, ptr noundef %1, ptr 
   br label %.sink.split.sink.split
 
 .sink.split.sink.split:                           ; preds = %22, %52
-  %.sink = phi i64 [ %39, %22 ], [ %55, %52 ]
-  %.sink125 = phi i64 [ 24, %22 ], [ 8, %52 ]
+  %.sink = phi i64 [ %55, %52 ], [ %39, %22 ]
+  %.sink125 = phi i64 [ 8, %52 ], [ 24, %22 ]
   store i64 %.sink, ptr %6, align 8
   %56 = load ptr, ptr %1, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 1

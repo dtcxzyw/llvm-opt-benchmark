@@ -8065,12 +8065,12 @@ if.then19.i42:                                    ; preds = %for.end.i40
 
 .noexc13.sink.split:                              ; preds = %if.then3.i47, %if.then19.i42
   %sub.i46.i.sink = phi i64 [ %sub.i46.i, %if.then19.i42 ], [ %and7.i, %if.then3.i47 ]
-  %div.i48.sink = ashr i32 %targetSize, 6
-  %idxprom.i.i = sext i32 %div.i48.sink to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %14, i64 %idxprom.i.i
-  %18 = load i64, ptr %arrayidx.i.i, align 8
+  %div20.i43.sink = ashr i32 %targetSize, 6
+  %idxprom.i54.i = sext i32 %div20.i43.sink to i64
+  %arrayidx.i55.i = getelementptr inbounds i64, ptr %14, i64 %idxprom.i54.i
+  %18 = load i64, ptr %arrayidx.i55.i, align 8
   %or.i56.i = or i64 %18, %sub.i46.i.sink
-  store i64 %or.i56.i, ptr %arrayidx.i.i, align 8
+  store i64 %or.i56.i, ptr %arrayidx.i55.i, align 8
   br label %.noexc13
 
 .noexc13:                                         ; preds = %.noexc13.sink.split, %for.end.i40, %if.end.i9

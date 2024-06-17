@@ -231,8 +231,8 @@ define dso_local void @_ZN4Json13valueToStringB5cxx11El(ptr dead_on_unwind noali
   br i1 %.not.i9, label %_ZN4JsonL12uintToStringEmRPc.exit10, label %27, !llvm.loop !5
 
 _ZN4JsonL12uintToStringEmRPc.exit10.sink.split:   ; preds = %19, %8
-  %.0.lcssa.sink = phi ptr [ %.0, %8 ], [ %.1, %19 ]
-  %33 = getelementptr inbounds i8, ptr %.0.lcssa.sink, i64 -2
+  %.1.lcssa.sink = phi ptr [ %.0, %8 ], [ %.1, %19 ]
+  %33 = getelementptr inbounds i8, ptr %.1.lcssa.sink, i64 -2
   store i8 45, ptr %33, align 1
   br label %_ZN4JsonL12uintToStringEmRPc.exit10
 
@@ -701,7 +701,7 @@ define internal fastcc void @_ZN4JsonL20valueToQuotedStringNB5cxx11EPKcmb(ptr de
 .body:                                            ; preds = %12, %14
   %eh.lpad-body = phi { ptr, i32 } [ %15, %14 ], [ %13, %12 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #19
-  br label %189
+  br label %183
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %1, i64 %2
@@ -950,7 +950,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit45: ; 
 .body43:                                          ; preds = %70, %64, %76
   %.pn.pn = phi { ptr, i32 } [ %.pn, %76 ], [ %71, %70 ], [ %65, %64 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #19
-  br label %189
+  br label %183
 
 77:                                               ; preds = %_ZN4JsonL26doesAnyCharRequireEscapingEPKcm.exit
   %78 = shl i64 %2, 1
@@ -1030,7 +1030,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
-  %storemerge105 = phi ptr [ %186, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit ], [ %1, %.lr.ph ]
+  %storemerge105 = phi ptr [ %180, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit ], [ %1, %.lr.ph ]
   %98 = load i8, ptr %storemerge105, align 1
   switch i8 %98, label %107 [
     i8 34, label %.invoke148
@@ -1042,7 +1042,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
     i8 9, label %106
   ]
 
-.loopexit.split:                                  ; preds = %.invoke148, %175, %.thread64, %178, %183, %176
+.loopexit.split:                                  ; preds = %.invoke148, %164, %.thread64, %172, %177, %165
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -1055,7 +1055,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
 .loopexit:                                        ; preds = %.loopexit.split, %.loopexit.split.us, %.loopexit.split-lp
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ]
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #19
-  br label %189
+  br label %183
 
 .invoke148:                                       ; preds = %.lr.ph.split, %106, %105, %104, %103, %102, %101
   %99 = phi ptr [ @.str.44, %101 ], [ @.str.45, %102 ], [ @.str.46, %103 ], [ @.str.47, %104 ], [ @.str.48, %105 ], [ @.str.49, %106 ], [ @.str.43, %.lr.ph.split ]
@@ -1087,7 +1087,7 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
 
 110:                                              ; preds = %107
   %111 = icmp ult i8 %98, -32
-  br i1 %111, label %112, label %125
+  br i1 %111, label %112, label %120
 
 112:                                              ; preds = %110
   %113 = ptrtoint ptr %storemerge105 to i64
@@ -1099,129 +1099,126 @@ _ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.
   %117 = shl nuw nsw i32 %108, 6
   %118 = and i32 %117, 1984
   %119 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  %120 = load i8, ptr %119, align 1
-  %121 = and i8 %120, 63
-  %122 = zext nneg i8 %121 to i32
-  %123 = or disjoint i32 %118, %122
-  %124 = icmp ult i32 %123, 128
-  %spec.select = select i1 %124, i32 65533, i32 %123
-  br label %.thread64
+  br label %.thread64.sink.split
 
-125:                                              ; preds = %110
-  %126 = icmp ult i8 %98, -16
-  br i1 %126, label %127, label %148
+120:                                              ; preds = %110
+  %121 = icmp ult i8 %98, -16
+  br i1 %121, label %122, label %137
 
-127:                                              ; preds = %125
-  %128 = ptrtoint ptr %storemerge105 to i64
-  %129 = sub i64 %18, %128
-  %130 = icmp slt i64 %129, 3
-  br i1 %130, label %.thread64, label %131
+122:                                              ; preds = %120
+  %123 = ptrtoint ptr %storemerge105 to i64
+  %124 = sub i64 %18, %123
+  %125 = icmp slt i64 %124, 3
+  br i1 %125, label %.thread64, label %126
 
-131:                                              ; preds = %127
-  %132 = shl nuw nsw i32 %108, 12
-  %133 = and i32 %132, 61440
-  %134 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  %135 = load i8, ptr %134, align 1
-  %136 = and i8 %135, 63
-  %137 = zext nneg i8 %136 to i32
-  %138 = shl nuw nsw i32 %137, 6
-  %139 = or disjoint i32 %138, %133
-  %140 = getelementptr inbounds i8, ptr %storemerge105, i64 2
-  %141 = and i32 %139, 63488
-  %or.cond.i = icmp eq i32 %141, 55296
-  br i1 %or.cond.i, label %.thread64, label %142
+126:                                              ; preds = %122
+  %127 = shl nuw nsw i32 %108, 12
+  %128 = and i32 %127, 61440
+  %129 = getelementptr inbounds i8, ptr %storemerge105, i64 1
+  %130 = load i8, ptr %129, align 1
+  %131 = and i8 %130, 63
+  %132 = zext nneg i8 %131 to i32
+  %133 = shl nuw nsw i32 %132, 6
+  %134 = or disjoint i32 %133, %128
+  %135 = getelementptr inbounds i8, ptr %storemerge105, i64 2
+  %136 = and i32 %134, 63488
+  %or.cond.i = icmp eq i32 %136, 55296
+  br i1 %or.cond.i, label %.thread64, label %.thread64.sink.split
 
-142:                                              ; preds = %131
-  %143 = load i8, ptr %140, align 1
-  %144 = and i8 %143, 63
-  %145 = zext nneg i8 %144 to i32
-  %146 = or disjoint i32 %139, %145
-  %147 = icmp ult i32 %146, 2048
-  %spec.select72 = select i1 %147, i32 65533, i32 %146
-  br label %.thread64
+137:                                              ; preds = %120
+  %138 = icmp ugt i8 %98, -9
+  %139 = ptrtoint ptr %storemerge105 to i64
+  %140 = sub i64 %18, %139
+  %141 = icmp slt i64 %140, 4
+  %or.cond37.i = or i1 %141, %138
+  br i1 %or.cond37.i, label %.thread64, label %142
 
-148:                                              ; preds = %125
-  %149 = icmp ugt i8 %98, -9
-  %150 = ptrtoint ptr %storemerge105 to i64
-  %151 = sub i64 %18, %150
-  %152 = icmp slt i64 %151, 4
-  %or.cond37.i = or i1 %152, %149
-  br i1 %or.cond37.i, label %.thread64, label %153
-
-153:                                              ; preds = %148
-  %154 = shl nuw nsw i32 %108, 18
-  %155 = and i32 %154, 1835008
-  %156 = getelementptr inbounds i8, ptr %storemerge105, i64 1
-  %157 = load i8, ptr %156, align 1
-  %158 = and i8 %157, 63
-  %159 = zext nneg i8 %158 to i32
-  %160 = shl nuw nsw i32 %159, 12
-  %161 = or disjoint i32 %160, %155
-  %162 = getelementptr inbounds i8, ptr %storemerge105, i64 2
-  %163 = load i8, ptr %162, align 1
-  %164 = and i8 %163, 63
-  %165 = zext nneg i8 %164 to i32
-  %166 = shl nuw nsw i32 %165, 6
-  %167 = or disjoint i32 %161, %166
-  %168 = getelementptr inbounds i8, ptr %storemerge105, i64 3
-  %169 = load i8, ptr %168, align 1
-  %170 = and i8 %169, 63
-  %171 = zext nneg i8 %170 to i32
-  %172 = or disjoint i32 %167, %171
-  %173 = icmp ult i32 %172, 65536
-  br i1 %173, label %.thread64, label %178
+142:                                              ; preds = %137
+  %143 = shl nuw nsw i32 %108, 18
+  %144 = and i32 %143, 1835008
+  %145 = getelementptr inbounds i8, ptr %storemerge105, i64 1
+  %146 = load i8, ptr %145, align 1
+  %147 = and i8 %146, 63
+  %148 = zext nneg i8 %147 to i32
+  %149 = shl nuw nsw i32 %148, 12
+  %150 = or disjoint i32 %149, %144
+  %151 = getelementptr inbounds i8, ptr %storemerge105, i64 2
+  %152 = load i8, ptr %151, align 1
+  %153 = and i8 %152, 63
+  %154 = zext nneg i8 %153 to i32
+  %155 = shl nuw nsw i32 %154, 6
+  %156 = or disjoint i32 %150, %155
+  %157 = getelementptr inbounds i8, ptr %storemerge105, i64 3
+  %158 = load i8, ptr %157, align 1
+  %159 = and i8 %158, 63
+  %160 = zext nneg i8 %159 to i32
+  %161 = or disjoint i32 %156, %160
+  %162 = icmp ult i32 %161, 65536
+  br i1 %162, label %.thread64, label %172
 
 _ZN4JsonL15utf8ToCodepointERPKcS1_.exit:          ; preds = %107
-  %174 = icmp ult i8 %98, 32
-  br i1 %174, label %175, label %176
+  %163 = icmp ult i8 %98, 32
+  br i1 %163, label %164, label %165
 
-175:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
+164:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
   invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %108)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-176:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
-  %177 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %98)
+165:                                              ; preds = %_ZN4JsonL15utf8ToCodepointERPKcS1_.exit
+  %166 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %98)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-.thread64:                                        ; preds = %142, %116, %153, %112, %127, %131, %148
-  %.0.i596268 = phi i32 [ 65533, %112 ], [ 65533, %127 ], [ 65533, %131 ], [ 65533, %148 ], [ 65533, %153 ], [ %spec.select, %116 ], [ %spec.select72, %142 ]
-  %.0586367 = phi ptr [ %storemerge105, %112 ], [ %storemerge105, %127 ], [ %140, %131 ], [ %storemerge105, %148 ], [ %168, %153 ], [ %119, %116 ], [ %140, %142 ]
+.thread64.sink.split:                             ; preds = %126, %116
+  %.sink155 = phi ptr [ %119, %116 ], [ %135, %126 ]
+  %.sink = phi i32 [ %118, %116 ], [ %134, %126 ]
+  %.sink151 = phi i32 [ 128, %116 ], [ 2048, %126 ]
+  %167 = load i8, ptr %.sink155, align 1
+  %168 = and i8 %167, 63
+  %169 = zext nneg i8 %168 to i32
+  %170 = or disjoint i32 %.sink, %169
+  %171 = icmp ult i32 %170, %.sink151
+  %spec.select72 = select i1 %171, i32 65533, i32 %170
+  br label %.thread64
+
+.thread64:                                        ; preds = %.thread64.sink.split, %142, %112, %122, %126, %137
+  %.0.i596268 = phi i32 [ 65533, %112 ], [ 65533, %122 ], [ 65533, %126 ], [ 65533, %137 ], [ 65533, %142 ], [ %spec.select72, %.thread64.sink.split ]
+  %.0586367 = phi ptr [ %storemerge105, %112 ], [ %storemerge105, %122 ], [ %135, %126 ], [ %storemerge105, %137 ], [ %157, %142 ], [ %.sink155, %.thread64.sink.split ]
   invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %.0.i596268)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-178:                                              ; preds = %153
-  %179 = add nuw nsw i32 %167, 983040
-  %180 = lshr i32 %179, 10
-  %181 = and i32 %180, 1023
-  %182 = or disjoint i32 %181, 55296
-  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %182)
-          to label %183 unwind label %.loopexit.split
+172:                                              ; preds = %142
+  %173 = add nuw nsw i32 %156, 983040
+  %174 = lshr i32 %173, 10
+  %175 = and i32 %174, 1023
+  %176 = or disjoint i32 %175, 55296
+  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %176)
+          to label %177 unwind label %.loopexit.split
 
-183:                                              ; preds = %178
-  %184 = and i32 %172, 1023
-  %185 = or disjoint i32 %184, 56320
-  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %185)
+177:                                              ; preds = %172
+  %178 = and i32 %161, 1023
+  %179 = or disjoint i32 %178, 56320
+  invoke fastcc void @_ZN4JsonL9appendHexERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %179)
           to label %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit unwind label %.loopexit.split
 
-_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.invoke148, %176, %175, %.thread64, %183
-  %.1 = phi ptr [ %storemerge105, %175 ], [ %.0586367, %.thread64 ], [ %168, %183 ], [ %storemerge105, %176 ], [ %storemerge105, %.invoke148 ]
-  %186 = getelementptr inbounds i8, ptr %.1, i64 1
-  %.not = icmp eq ptr %186, %17
+_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %.invoke148, %165, %164, %.thread64, %177
+  %.1 = phi ptr [ %storemerge105, %164 ], [ %.0586367, %.thread64 ], [ %157, %177 ], [ %storemerge105, %165 ], [ %storemerge105, %.invoke148 ]
+  %180 = getelementptr inbounds i8, ptr %.1, i64 1
+  %.not = icmp eq ptr %180, %17
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit, %_ZN4JsonL9appendRawERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit.us, %.preheader
-  %187 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.42)
-          to label %188 unwind label %.loopexit.split-lp
+  %181 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.42)
+          to label %182 unwind label %.loopexit.split-lp
 
 .sink.split:                                      ; preds = %.noexc40, %69
-  %.sink = phi ptr [ %8, %69 ], [ %5, %.noexc40 ]
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink) #19
-  br label %188
+  %.sink156 = phi ptr [ %8, %69 ], [ %5, %.noexc40 ]
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %.sink156) #19
+  br label %182
 
-188:                                              ; preds = %.sink.split, %._crit_edge
+182:                                              ; preds = %.sink.split, %._crit_edge
   ret void
 
-189:                                              ; preds = %.loopexit, %.body43, %.body
+183:                                              ; preds = %.loopexit, %.body43, %.body
   %.pn38 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %lpad.phi, %.loopexit ], [ %.pn.pn, %.body43 ]
   resume { ptr, i32 } %.pn38
 }

@@ -6552,8 +6552,8 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr nocaptur
   br i1 %.not165, label %164, label %.sink.split
 
 .sink.split:                                      ; preds = %158, %21
-  %.sink176 = phi ptr [ %20, %21 ], [ %.0149, %158 ]
-  %161 = load ptr, ptr %.sink176, align 8
+  %.0149.sink = phi ptr [ %20, %21 ], [ %.0149, %158 ]
+  %161 = load ptr, ptr %.0149.sink, align 8
   %162 = load i32, ptr %161, align 4
   %163 = add i32 %162, 1
   store i32 %163, ptr %161, align 4

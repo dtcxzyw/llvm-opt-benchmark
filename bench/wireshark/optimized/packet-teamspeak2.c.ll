@@ -554,7 +554,7 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %20 = load i16, ptr %19, align 2
   %21 = and i16 %20, 8
   %.not98 = icmp eq i16 %21, 0
-  br i1 %.not98, label %22, label %45
+  br i1 %.not98, label %22, label %38
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds i8, ptr %3, i64 32
@@ -562,211 +562,199 @@ define internal fastcc void @ts2_standard_dissect(ptr noundef %0, ptr noundef %1
   %25 = getelementptr inbounds i8, ptr %1, i64 284
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %24, %26
-  br i1 %27, label %28, label %32
+  %.sink125 = select i1 %27, i64 36, i64 44
+  %.sink124 = select i1 %27, i64 40, i64 48
+  %.sink121.idx = select i1 %27, i64 0, i64 4
+  %.sink121 = getelementptr inbounds i8, ptr %3, i64 %.sink121.idx
+  %28 = getelementptr inbounds i8, ptr %3, i64 %.sink125
+  %29 = getelementptr inbounds i8, ptr %3, i64 %.sink124
+  %30 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %.sink121, ptr noundef nonnull %28, ptr noundef nonnull %29, ptr noundef nonnull %6)
+  %31 = getelementptr inbounds i8, ptr %.092, i64 8
+  store i32 %30, ptr %31, align 4
+  %32 = load i32, ptr %29, align 8
+  store i32 %32, ptr %.092, align 4
+  %.sink = load i32, ptr %28, align 4
+  %33 = getelementptr inbounds i8, ptr %.092, i64 4
+  store i32 %.sink, ptr %33, align 4
+  %34 = load i32, ptr %6, align 4
+  %35 = getelementptr inbounds i8, ptr %.092, i64 12
+  store i32 %34, ptr %35, align 4
+  %36 = tail call ptr @wmem_file_scope() #4
+  %37 = load i32, ptr @proto_ts2, align 4
+  tail call void @p_add_proto_data(ptr noundef %36, ptr noundef nonnull %1, i32 noundef %37, i32 noundef 0, ptr noundef nonnull %.092) #4
+  br label %38
 
-28:                                               ; preds = %22
-  %29 = getelementptr inbounds i8, ptr %3, i64 36
-  %30 = getelementptr inbounds i8, ptr %3, i64 40
-  %31 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %3, ptr noundef nonnull %29, ptr noundef nonnull %30, ptr noundef nonnull %6)
-  br label %37
-
-32:                                               ; preds = %22
-  %33 = getelementptr inbounds i8, ptr %3, i64 4
-  %34 = getelementptr inbounds i8, ptr %3, i64 44
-  %35 = getelementptr inbounds i8, ptr %3, i64 48
-  %36 = call fastcc i32 @ts2_standard_find_fragments(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %34, ptr noundef nonnull %35, ptr noundef nonnull %6)
-  br label %37
-
-37:                                               ; preds = %32, %28
-  %.sink119 = phi i32 [ %36, %32 ], [ %31, %28 ]
-  %.sink118 = phi ptr [ %35, %32 ], [ %30, %28 ]
-  %.sink.in = phi ptr [ %34, %32 ], [ %29, %28 ]
-  %38 = getelementptr inbounds i8, ptr %.092, i64 8
-  store i32 %.sink119, ptr %38, align 4
-  %39 = load i32, ptr %.sink118, align 8
-  store i32 %39, ptr %.092, align 4
-  %.sink = load i32, ptr %.sink.in, align 4
-  %40 = getelementptr inbounds i8, ptr %.092, i64 4
-  store i32 %.sink, ptr %40, align 4
-  %41 = load i32, ptr %6, align 4
-  %42 = getelementptr inbounds i8, ptr %.092, i64 12
-  store i32 %41, ptr %42, align 4
-  %43 = tail call ptr @wmem_file_scope() #4
-  %44 = load i32, ptr @proto_ts2, align 4
-  tail call void @p_add_proto_data(ptr noundef %43, ptr noundef nonnull %1, i32 noundef %44, i32 noundef 0, ptr noundef nonnull %.092) #4
-  br label %45
-
-45:                                               ; preds = %37, %16
-  %46 = tail call ptr @wmem_file_scope() #4
-  %47 = load i32, ptr @proto_ts2, align 4
-  %48 = tail call ptr @p_get_proto_data(ptr noundef %46, ptr noundef nonnull %1, i32 noundef %47, i32 noundef 0) #4
-  %49 = load i32, ptr @hf_ts2_resend_count, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648) #4
-  %51 = load i32, ptr @hf_ts2_fragmentnumber, align 4
-  %52 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648) #4
-  %53 = load i32, ptr @hf_ts2_crc32, align 4
-  %54 = load i32, ptr @hf_ts2_crc32_status, align 4
+38:                                               ; preds = %22, %16
+  %39 = tail call ptr @wmem_file_scope() #4
+  %40 = load i32, ptr @proto_ts2, align 4
+  %41 = tail call ptr @p_get_proto_data(ptr noundef %39, ptr noundef nonnull %1, i32 noundef %40, i32 noundef 0) #4
+  %42 = load i32, ptr @hf_ts2_resend_count, align 4
+  %43 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef 16, i32 noundef 2, i32 noundef -2147483648) #4
+  %44 = load i32, ptr @hf_ts2_fragmentnumber, align 4
+  %45 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef 18, i32 noundef 2, i32 noundef -2147483648) #4
+  %46 = load i32, ptr @hf_ts2_crc32, align 4
+  %47 = load i32, ptr @hf_ts2_crc32_status, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
   store i32 0, ptr %5, align 4
-  %55 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 24) #4
-  %56 = icmp slt i32 %55, 0
-  br i1 %56, label %ts2_add_checked_crc32.exit, label %57
+  %48 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 24) #4
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %ts2_add_checked_crc32.exit, label %50
 
-57:                                               ; preds = %45
-  %58 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 20) #4
-  %59 = xor i32 %58, -1
-  %60 = call i32 @crc32_ccitt_seed(ptr noundef nonnull %5, i32 noundef 4, i32 noundef %59) #4
-  %61 = xor i32 %60, -1
-  %62 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 24, i32 noundef %55, i32 noundef %61) #4
-  %63 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %53, i32 noundef %54, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %62, i32 noundef -2147483648, i32 noundef 1) #4
+50:                                               ; preds = %38
+  %51 = tail call i32 @crc32_ccitt_tvb(ptr noundef %0, i32 noundef 20) #4
+  %52 = xor i32 %51, -1
+  %53 = call i32 @crc32_ccitt_seed(ptr noundef nonnull %5, i32 noundef 4, i32 noundef %52) #4
+  %54 = xor i32 %53, -1
+  %55 = call i32 @crc32_ccitt_tvb_offset_seed(ptr noundef %0, i32 noundef 24, i32 noundef %48, i32 noundef %54) #4
+  %56 = call ptr @proto_tree_add_checksum(ptr noundef %2, ptr noundef %0, i32 noundef 20, i32 noundef %46, i32 noundef %47, ptr noundef nonnull @ei_ts2_crc32, ptr noundef nonnull %1, i32 noundef %55, i32 noundef -2147483648, i32 noundef 1) #4
   br label %ts2_add_checked_crc32.exit
 
-ts2_add_checked_crc32.exit:                       ; preds = %45, %57
+ts2_add_checked_crc32.exit:                       ; preds = %38, %50
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
-  %.not99 = icmp eq ptr %48, null
-  br i1 %.not99, label %.thread116, label %65
+  %.not99 = icmp eq ptr %41, null
+  br i1 %.not99, label %.thread116, label %58
 
 .thread116:                                       ; preds = %ts2_add_checked_crc32.exit
-  %64 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
+  %57 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
   br label %.critedge
 
-65:                                               ; preds = %ts2_add_checked_crc32.exit
-  %66 = getelementptr inbounds i8, ptr %48, i64 8
-  %67 = load i32, ptr %66, align 4
-  %.not100 = icmp eq i32 %67, 0
-  br i1 %.not100, label %88, label %68
+58:                                               ; preds = %ts2_add_checked_crc32.exit
+  %59 = getelementptr inbounds i8, ptr %41, i64 8
+  %60 = load i32, ptr %59, align 4
+  %.not100 = icmp eq i32 %60, 0
+  br i1 %.not100, label %81, label %61
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds i8, ptr %1, i64 272
-  %70 = load i32, ptr %69, align 8
-  store i32 1, ptr %69, align 8
-  %71 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 18) #4
-  %72 = zext i16 %7 to i32
-  %73 = load i32, ptr %48, align 4
-  %74 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 24) #4
-  %75 = zext i16 %71 to i32
-  %76 = call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, i32 noundef %72, ptr noundef null, i32 noundef %73, i32 noundef %74, i32 noundef %75) #4
-  %77 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, ptr noundef nonnull @.str.179, ptr noundef %76, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %2) #4
-  %.not101 = icmp eq ptr %76, null
-  %78 = getelementptr inbounds i8, ptr %1, i64 8
-  %79 = load ptr, ptr %78, align 8
-  br i1 %.not101, label %81, label %80
+61:                                               ; preds = %58
+  %62 = getelementptr inbounds i8, ptr %1, i64 272
+  %63 = load i32, ptr %62, align 8
+  store i32 1, ptr %62, align 8
+  %64 = call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 18) #4
+  %65 = zext i16 %7 to i32
+  %66 = load i32, ptr %41, align 4
+  %67 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 24) #4
+  %68 = zext i16 %64 to i32
+  %69 = call ptr @fragment_add_seq_check(ptr noundef nonnull @msg_reassembly_table, ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, i32 noundef %65, ptr noundef null, i32 noundef %66, i32 noundef %67, i32 noundef %68) #4
+  %70 = call ptr @process_reassembled_data(ptr noundef %0, i32 noundef 24, ptr noundef nonnull %1, ptr noundef nonnull @.str.179, ptr noundef %69, ptr noundef nonnull @msg_frag_items, ptr noundef null, ptr noundef %2) #4
+  %.not101 = icmp eq ptr %69, null
+  %71 = getelementptr inbounds i8, ptr %1, i64 8
+  %72 = load ptr, ptr %71, align 8
+  br i1 %.not101, label %74, label %73
 
-80:                                               ; preds = %68
-  call void @col_append_str(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.180) #4
+73:                                               ; preds = %61
+  call void @col_append_str(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.180) #4
+  br label %76
+
+74:                                               ; preds = %61
+  %75 = load i32, ptr %41, align 4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %72, i32 noundef 25, ptr noundef nonnull @.str.181, i32 noundef %75) #4
+  br label %76
+
+76:                                               ; preds = %74, %73
+  %.not102 = icmp eq ptr %70, null
+  br i1 %.not102, label %.thread113, label %79
+
+.thread113:                                       ; preds = %76
+  %77 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
+  %78 = and i32 %63, 255
+  store i32 %78, ptr %62, align 8
   br label %83
 
-81:                                               ; preds = %68
-  %82 = load i32, ptr %48, align 4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.181, i32 noundef %82) #4
+79:                                               ; preds = %76
+  %80 = and i32 %63, 255
+  store i32 %80, ptr %62, align 8
+  br label %85
+
+81:                                               ; preds = %58
+  %82 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
   br label %83
 
-83:                                               ; preds = %81, %80
-  %.not102 = icmp eq ptr %77, null
-  br i1 %.not102, label %.thread113, label %86
+83:                                               ; preds = %81, %.thread113
+  %.1110115 = phi ptr [ %77, %.thread113 ], [ %82, %81 ]
+  %84 = load i32, ptr %59, align 4
+  %.not104 = icmp eq i32 %84, 0
+  br i1 %.not104, label %85, label %102
 
-.thread113:                                       ; preds = %83
-  %84 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
-  %85 = and i32 %70, 255
-  store i32 %85, ptr %69, align 8
-  br label %90
+85:                                               ; preds = %79, %83
+  %.1109 = phi ptr [ %.1110115, %83 ], [ %70, %79 ]
+  %86 = getelementptr inbounds i8, ptr %41, i64 12
+  %87 = load i32, ptr %86, align 4
+  %.not105 = icmp eq i32 %87, 0
+  br i1 %.not105, label %88, label %102
 
-86:                                               ; preds = %83
-  %87 = and i32 %70, 255
-  store i32 %87, ptr %69, align 8
-  br label %92
-
-88:                                               ; preds = %65
-  %89 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 24) #4
-  br label %90
-
-90:                                               ; preds = %88, %.thread113
-  %.1110115 = phi ptr [ %84, %.thread113 ], [ %89, %88 ]
-  %91 = load i32, ptr %66, align 4
-  %.not104 = icmp eq i32 %91, 0
-  br i1 %.not104, label %92, label %109
-
-92:                                               ; preds = %86, %90
-  %.1109 = phi ptr [ %.1110115, %90 ], [ %77, %86 ]
-  %93 = getelementptr inbounds i8, ptr %48, i64 12
-  %94 = load i32, ptr %93, align 4
-  %.not105 = icmp eq i32 %94, 0
-  br i1 %.not105, label %95, label %109
-
-95:                                               ; preds = %92
-  switch i16 %7, label %109 [
-    i16 5, label %96
-    i16 6, label %97
-    i16 7, label %100
-    i16 100, label %101
-    i16 104, label %102
-    i16 101, label %103
-    i16 102, label %104
-    i16 8, label %105
-    i16 304, label %106
-    i16 303, label %107
-    i16 103, label %108
+88:                                               ; preds = %85
+  switch i16 %7, label %102 [
+    i16 5, label %89
+    i16 6, label %90
+    i16 7, label %93
+    i16 100, label %94
+    i16 104, label %95
+    i16 101, label %96
+    i16 102, label %97
+    i16 8, label %98
+    i16 304, label %99
+    i16 303, label %100
+    i16 103, label %101
   ]
 
-96:                                               ; preds = %95
+89:                                               ; preds = %88
   call fastcc void @ts2_parse_loginpart2(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-97:                                               ; preds = %95
-  %98 = getelementptr inbounds i8, ptr %1, i64 408
-  %99 = load ptr, ptr %98, align 8
-  call fastcc void @ts2_parse_channellist(ptr noundef %.1109, ptr noundef %2, ptr noundef %99)
-  br label %109
+90:                                               ; preds = %88
+  %91 = getelementptr inbounds i8, ptr %1, i64 408
+  %92 = load ptr, ptr %91, align 8
+  call fastcc void @ts2_parse_channellist(ptr noundef %.1109, ptr noundef %2, ptr noundef %92)
+  br label %102
 
-100:                                              ; preds = %95
+93:                                               ; preds = %88
   call fastcc void @ts2_parse_playerlist(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-101:                                              ; preds = %95
+94:                                               ; preds = %88
   call fastcc void @ts2_parse_newplayerjoined(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-102:                                              ; preds = %95
+95:                                               ; preds = %88
   call fastcc void @ts2_parse_knownplayerupdate(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-103:                                              ; preds = %95
+96:                                               ; preds = %88
   call fastcc void @ts2_parse_playerleft(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-104:                                              ; preds = %95
+97:                                               ; preds = %88
   call fastcc void @ts2_parse_playerleft(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-105:                                              ; preds = %95
+98:                                               ; preds = %88
   call fastcc void @ts2_parse_loginend(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-106:                                              ; preds = %95
+99:                                               ; preds = %88
   call fastcc void @ts2_parse_changestatus(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-107:                                              ; preds = %95
+100:                                              ; preds = %88
   call fastcc void @ts2_parse_switchchannel(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-108:                                              ; preds = %95
+101:                                              ; preds = %88
   call fastcc void @ts2_parse_channelchange(ptr noundef %.1109, ptr noundef %2)
-  br label %109
+  br label %102
 
-109:                                              ; preds = %90, %92, %108, %107, %106, %105, %104, %103, %102, %101, %100, %97, %96, %95
-  %110 = getelementptr inbounds i8, ptr %48, i64 12
-  %111 = load i32, ptr %110, align 4
-  %.not106 = icmp eq i32 %111, 0
-  br i1 %.not106, label %.critedge, label %112
+102:                                              ; preds = %83, %85, %101, %100, %99, %98, %97, %96, %95, %94, %93, %90, %89, %88
+  %103 = getelementptr inbounds i8, ptr %41, i64 12
+  %104 = load i32, ptr %103, align 4
+  %.not106 = icmp eq i32 %104, 0
+  br i1 %.not106, label %.critedge, label %105
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds i8, ptr %1, i64 8
-  %114 = load ptr, ptr %113, align 8
-  call void @col_append_str(ptr noundef %114, i32 noundef 25, ptr noundef nonnull @.str.182) #4
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds i8, ptr %1, i64 8
+  %107 = load ptr, ptr %106, align 8
+  call void @col_append_str(ptr noundef %107, i32 noundef 25, ptr noundef nonnull @.str.182) #4
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread116, %112, %109
+.critedge:                                        ; preds = %.thread116, %105, %102
   ret void
 }
 

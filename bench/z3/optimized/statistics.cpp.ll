@@ -2676,12 +2676,12 @@ _ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i: ; preds = %if.then.i.i16
   br label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
-  %st.sink.i = phi ptr [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ], [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ]
-  %24 = load ptr, ptr %st.sink.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %24, i64 -4
-  %25 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %m_d_stats.i.sink.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
+  %24 = load ptr, ptr %m_d_stats.i.sink.i, align 8
+  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %24, i64 -4
+  %25 = load i32, ptr %arrayidx10.i.i14.i, align 4
   %inc.i.i15.i = add i32 %25, 1
-  store i32 %inc.i.i15.i, ptr %arrayidx10.i.i.i, align 4
+  store i32 %inc.i.i15.i, ptr %arrayidx10.i.i14.i, align 4
   br label %_ZL16get_uint64_statsR10statisticsPKcy.exit
 
 _ZL16get_uint64_statsR10statisticsPKcy.exit:      ; preds = %if.then.i27, %if.end.sink.split.i
@@ -2769,12 +2769,12 @@ _ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i: ; preds = %if.then.i.i16
   br label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i
-  %st.sink.i = phi ptr [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ], [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ]
-  %10 = load ptr, ptr %st.sink.i, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %10, i64 -4
-  %11 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %m_d_stats.i.sink.i = phi ptr [ %m_d_stats.i.i, %_ZN6vectorISt4pairIPKcdELb0EjE9push_backEOS3_.exit.i.i ], [ %st, %_ZN6vectorISt4pairIPKcjELb0EjE9push_backEOS3_.exit.i.i ]
+  %10 = load ptr, ptr %m_d_stats.i.sink.i, align 8
+  %arrayidx10.i.i14.i = getelementptr inbounds i8, ptr %10, i64 -4
+  %11 = load i32, ptr %arrayidx10.i.i14.i, align 4
   %inc.i.i15.i = add i32 %11, 1
-  store i32 %inc.i.i15.i, ptr %arrayidx10.i.i.i, align 4
+  store i32 %inc.i.i15.i, ptr %arrayidx10.i.i14.i, align 4
   br label %_ZL16get_uint64_statsR10statisticsPKcy.exit
 
 _ZL16get_uint64_statsR10statisticsPKcy.exit:      ; preds = %if.then.i, %if.end.sink.split.i

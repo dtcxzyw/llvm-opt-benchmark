@@ -1597,15 +1597,15 @@ define internal fastcc void @parse_PSM(ptr noundef %0, ptr %.8.val, ptr noundef 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2, ptr nocapture noundef %3, i32 noundef %4, ptr nocapture noundef writeonly %5) unnamed_addr #0 {
   %7 = load i32, ptr %3, align 4
-  switch i32 %4, label %221 [
+  switch i32 %4, label %179 [
     i32 224, label %8
-    i32 225, label %36
-    i32 226, label %71
-    i32 227, label %86
-    i32 228, label %101
-    i32 229, label %136
-    i32 230, label %166
-    i32 231, label %181
+    i32 225, label %30
+    i32 226, label %59
+    i32 227, label %68
+    i32 228, label %77
+    i32 229, label %106
+    i32 230, label %130
+    i32 231, label %139
   ]
 
 8:                                                ; preds = %6
@@ -1634,238 +1634,201 @@ define internal fastcc void @parse_TIDRDMA(ptr noundef %0, ptr nocapture noundef
   %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26) #5
   %28 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %28, ptr noundef %0, i32 noundef %22, i32 noundef 8, i32 noundef 0) #5
-  %30 = add i32 %7, 24
-  %31 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %32 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %31, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #5
-  %33 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %33, ptr noundef %0, i32 noundef %30, i32 noundef 4, i32 noundef 0) #5
-  %35 = add i32 %7, 28
-  br label %221
+  br label %.sink.split
 
-36:                                               ; preds = %6
-  %37 = getelementptr i8, ptr %1, i64 8
-  %.val147 = load ptr, ptr %37, align 8
+30:                                               ; preds = %6
+  %31 = getelementptr i8, ptr %1, i64 8
+  %.val147 = load ptr, ptr %31, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val147, i32 noundef 25, ptr noundef nonnull @.str.322) #5
-  %38 = load i32, ptr @hf_opa_AETH, align 4
-  %39 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
-  %40 = load i32, ptr @ett_aeth, align 4
-  %41 = tail call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #5
-  %42 = load i32, ptr @hf_opa_AETH_syndrome, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
-  %44 = add i32 %7, 1
-  %45 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
-  %46 = tail call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %45, ptr noundef %0, i32 noundef %44, i32 noundef 3, i32 noundef 0) #5
-  %47 = add i32 %7, 4
-  %48 = load ptr, ptr %37, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %48, i32 noundef 25, ptr noundef nonnull @.str.330) #5
-  %49 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %47, i32 noundef 24, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %50, ptr noundef nonnull @.str.331) #5
-  %51 = load i32, ptr @ett_tidrdma, align 4
-  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51) #5
-  %53 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %54 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %53, ptr noundef %0, i32 noundef %47, i32 noundef 12, i32 noundef 0) #5
-  %55 = add i32 %7, 16
-  %56 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %56, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #5
-  %58 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
-  %59 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %58, ptr noundef %0, i32 noundef %55, i32 noundef 4, i32 noundef 0) #5
-  %60 = add i32 %7, 20
-  %61 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
-  %62 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #5
-  %63 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %63, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #5
-  %65 = add i32 %7, 24
-  %66 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %67 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %66, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #5
-  %68 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %69 = tail call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %68, ptr noundef %0, i32 noundef %65, i32 noundef 4, i32 noundef 0) #5
-  %70 = add i32 %7, 28
-  br label %221
+  %32 = load i32, ptr @hf_opa_AETH, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %32, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
+  %34 = load i32, ptr @ett_aeth, align 4
+  %35 = tail call ptr @proto_item_add_subtree(ptr noundef %33, i32 noundef %34) #5
+  %36 = load i32, ptr @hf_opa_AETH_syndrome, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %36, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
+  %38 = add i32 %7, 1
+  %39 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
+  %40 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 3, i32 noundef 0) #5
+  %41 = add i32 %7, 4
+  %42 = load ptr, ptr %31, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %42, i32 noundef 25, ptr noundef nonnull @.str.330) #5
+  %43 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %43, ptr noundef %0, i32 noundef %41, i32 noundef 24, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %44, ptr noundef nonnull @.str.331) #5
+  %45 = load i32, ptr @ett_tidrdma, align 4
+  %46 = tail call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %45) #5
+  %47 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %47, ptr noundef %0, i32 noundef %41, i32 noundef 12, i32 noundef 0) #5
+  %49 = add i32 %7, 16
+  %50 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #5
+  %52 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %52, ptr noundef %0, i32 noundef %49, i32 noundef 4, i32 noundef 0) #5
+  %54 = add i32 %7, 20
+  %55 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
+  %56 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %55, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #5
+  %57 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
+  %58 = tail call ptr @proto_tree_add_item(ptr noundef %46, i32 noundef %57, ptr noundef %0, i32 noundef %54, i32 noundef 4, i32 noundef 0) #5
+  br label %.sink.split
 
-71:                                               ; preds = %6
-  %72 = getelementptr inbounds i8, ptr %1, i64 8
-  %73 = load ptr, ptr %72, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %73, i32 noundef 25, ptr noundef nonnull @.str.332) #5
-  %74 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %75 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %74, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %75, ptr noundef nonnull @.str.333) #5
-  %76 = load i32, ptr @ett_tidrdma, align 4
-  %77 = tail call ptr @proto_item_add_subtree(ptr noundef %75, i32 noundef %76) #5
-  %78 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %79 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %78, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
-  %80 = add i32 %7, 24
-  %81 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %82 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %81, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef 0) #5
-  %83 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %84 = tail call ptr @proto_tree_add_item(ptr noundef %77, i32 noundef %83, ptr noundef %0, i32 noundef %80, i32 noundef 4, i32 noundef 0) #5
-  %85 = add i32 %7, 28
-  br label %221
+59:                                               ; preds = %6
+  %60 = getelementptr inbounds i8, ptr %1, i64 8
+  %61 = load ptr, ptr %60, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %61, i32 noundef 25, ptr noundef nonnull @.str.332) #5
+  %62 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %63 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.333) #5
+  %64 = load i32, ptr @ett_tidrdma, align 4
+  %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64) #5
+  %66 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %67 = tail call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %66, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
+  br label %.sink.split
 
-86:                                               ; preds = %6
-  %87 = getelementptr inbounds i8, ptr %1, i64 8
-  %88 = load ptr, ptr %87, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %88, i32 noundef 25, ptr noundef nonnull @.str.334) #5
-  %89 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %89, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %90, ptr noundef nonnull @.str.335) #5
-  %91 = load i32, ptr @ett_tidrdma, align 4
-  %92 = tail call ptr @proto_item_add_subtree(ptr noundef %90, i32 noundef %91) #5
-  %93 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %94 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %93, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
-  %95 = add i32 %7, 24
-  %96 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %97 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %96, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #5
-  %98 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %92, i32 noundef %98, ptr noundef %0, i32 noundef %95, i32 noundef 4, i32 noundef 0) #5
-  %100 = add i32 %7, 28
-  br label %221
+68:                                               ; preds = %6
+  %69 = getelementptr inbounds i8, ptr %1, i64 8
+  %70 = load ptr, ptr %69, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.334) #5
+  %71 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %72 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %71, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %72, ptr noundef nonnull @.str.335) #5
+  %73 = load i32, ptr @ett_tidrdma, align 4
+  %74 = tail call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %73) #5
+  %75 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %76 = tail call ptr @proto_tree_add_item(ptr noundef %74, i32 noundef %75, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
+  br label %.sink.split
 
-101:                                              ; preds = %6
-  %102 = getelementptr i8, ptr %1, i64 8
-  %.val = load ptr, ptr %102, align 8
+77:                                               ; preds = %6
+  %78 = getelementptr i8, ptr %1, i64 8
+  %.val = load ptr, ptr %78, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.320) #5
-  %103 = load i32, ptr @hf_opa_RETH, align 4
-  %104 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %103, ptr noundef %0, i32 noundef %7, i32 noundef 16, i32 noundef 0) #5
-  %105 = load i32, ptr @ett_reth, align 4
-  %106 = tail call ptr @proto_item_add_subtree(ptr noundef %104, i32 noundef %105) #5
-  %107 = load i32, ptr @hf_opa_RETH_virtual_address, align 4
-  %108 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %107, ptr noundef %0, i32 noundef %7, i32 noundef 8, i32 noundef 0) #5
-  %109 = add i32 %7, 8
-  %110 = load i32, ptr @hf_opa_RETH_remote_key, align 4
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %110, ptr noundef %0, i32 noundef %109, i32 noundef 4, i32 noundef 0) #5
-  %112 = add i32 %7, 12
-  %113 = load i32, ptr @hf_opa_RETH_dma_length, align 4
-  %114 = tail call ptr @proto_tree_add_item(ptr noundef %106, i32 noundef %113, ptr noundef %0, i32 noundef %112, i32 noundef 4, i32 noundef 0) #5
-  %115 = add i32 %7, 16
-  %116 = load ptr, ptr %102, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %116, i32 noundef 25, ptr noundef nonnull @.str.336) #5
-  %117 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %118 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %117, ptr noundef %0, i32 noundef %115, i32 noundef 12, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %118, ptr noundef nonnull @.str.337) #5
-  %119 = load i32, ptr @ett_tidrdma, align 4
-  %120 = tail call ptr @proto_item_add_subtree(ptr noundef %118, i32 noundef %119) #5
-  %121 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
-  %122 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %121, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0) #5
-  %123 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
-  %124 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %123, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0) #5
-  %125 = add i32 %7, 20
-  %126 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
-  %127 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #5
-  %128 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
-  %129 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %128, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #5
-  %130 = add i32 %7, 24
-  %131 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %132 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %131, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef 0) #5
-  %133 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %134 = tail call ptr @proto_tree_add_item(ptr noundef %120, i32 noundef %133, ptr noundef %0, i32 noundef %130, i32 noundef 4, i32 noundef 0) #5
-  %135 = add i32 %7, 28
-  br label %221
+  %79 = load i32, ptr @hf_opa_RETH, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %7, i32 noundef 16, i32 noundef 0) #5
+  %81 = load i32, ptr @ett_reth, align 4
+  %82 = tail call ptr @proto_item_add_subtree(ptr noundef %80, i32 noundef %81) #5
+  %83 = load i32, ptr @hf_opa_RETH_virtual_address, align 4
+  %84 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %83, ptr noundef %0, i32 noundef %7, i32 noundef 8, i32 noundef 0) #5
+  %85 = add i32 %7, 8
+  %86 = load i32, ptr @hf_opa_RETH_remote_key, align 4
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %86, ptr noundef %0, i32 noundef %85, i32 noundef 4, i32 noundef 0) #5
+  %88 = add i32 %7, 12
+  %89 = load i32, ptr @hf_opa_RETH_dma_length, align 4
+  %90 = tail call ptr @proto_tree_add_item(ptr noundef %82, i32 noundef %89, ptr noundef %0, i32 noundef %88, i32 noundef 4, i32 noundef 0) #5
+  %91 = add i32 %7, 16
+  %92 = load ptr, ptr %78, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %92, i32 noundef 25, ptr noundef nonnull @.str.336) #5
+  %93 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %91, i32 noundef 12, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %94, ptr noundef nonnull @.str.337) #5
+  %95 = load i32, ptr @ett_tidrdma, align 4
+  %96 = tail call ptr @proto_item_add_subtree(ptr noundef %94, i32 noundef %95) #5
+  %97 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %97, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef 0) #5
+  %99 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
+  %100 = tail call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %99, ptr noundef %0, i32 noundef %91, i32 noundef 4, i32 noundef 0) #5
+  %101 = add i32 %7, 20
+  %102 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
+  %103 = tail call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %102, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #5
+  %104 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %96, i32 noundef %104, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0) #5
+  br label %.sink.split
 
-136:                                              ; preds = %6
-  %137 = getelementptr i8, ptr %1, i64 8
-  %.val146 = load ptr, ptr %137, align 8
+106:                                              ; preds = %6
+  %107 = getelementptr i8, ptr %1, i64 8
+  %.val146 = load ptr, ptr %107, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val146, i32 noundef 25, ptr noundef nonnull @.str.322) #5
-  %138 = load i32, ptr @hf_opa_AETH, align 4
-  %139 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %138, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
-  %140 = load i32, ptr @ett_aeth, align 4
-  %141 = tail call ptr @proto_item_add_subtree(ptr noundef %139, i32 noundef %140) #5
-  %142 = load i32, ptr @hf_opa_AETH_syndrome, align 4
-  %143 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %142, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
-  %144 = add i32 %7, 1
-  %145 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
-  %146 = tail call ptr @proto_tree_add_item(ptr noundef %141, i32 noundef %145, ptr noundef %0, i32 noundef %144, i32 noundef 3, i32 noundef 0) #5
-  %147 = add i32 %7, 4
-  %148 = load ptr, ptr %137, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %148, i32 noundef 25, ptr noundef nonnull @.str.338) #5
-  %149 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %150 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %149, ptr noundef %0, i32 noundef %147, i32 noundef 24, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %150, ptr noundef nonnull @.str.339) #5
-  %151 = load i32, ptr @ett_tidrdma, align 4
-  %152 = tail call ptr @proto_item_add_subtree(ptr noundef %150, i32 noundef %151) #5
-  %153 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %154 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %153, ptr noundef %0, i32 noundef %147, i32 noundef 16, i32 noundef 0) #5
-  %155 = add i32 %7, 20
-  %156 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN_reserved, align 4
-  %157 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %156, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0) #5
-  %158 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN, align 4
-  %159 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %158, ptr noundef %0, i32 noundef %155, i32 noundef 4, i32 noundef 0) #5
-  %160 = add i32 %7, 24
-  %161 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %162 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %161, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef 0) #5
-  %163 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %164 = tail call ptr @proto_tree_add_item(ptr noundef %152, i32 noundef %163, ptr noundef %0, i32 noundef %160, i32 noundef 4, i32 noundef 0) #5
-  %165 = add i32 %7, 28
-  br label %221
+  %108 = load i32, ptr @hf_opa_AETH, align 4
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %108, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
+  %110 = load i32, ptr @ett_aeth, align 4
+  %111 = tail call ptr @proto_item_add_subtree(ptr noundef %109, i32 noundef %110) #5
+  %112 = load i32, ptr @hf_opa_AETH_syndrome, align 4
+  %113 = tail call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %112, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
+  %114 = add i32 %7, 1
+  %115 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %111, i32 noundef %115, ptr noundef %0, i32 noundef %114, i32 noundef 3, i32 noundef 0) #5
+  %117 = add i32 %7, 4
+  %118 = load ptr, ptr %107, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %118, i32 noundef 25, ptr noundef nonnull @.str.338) #5
+  %119 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %117, i32 noundef 24, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %120, ptr noundef nonnull @.str.339) #5
+  %121 = load i32, ptr @ett_tidrdma, align 4
+  %122 = tail call ptr @proto_item_add_subtree(ptr noundef %120, i32 noundef %121) #5
+  %123 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %123, ptr noundef %0, i32 noundef %117, i32 noundef 16, i32 noundef 0) #5
+  %125 = add i32 %7, 20
+  %126 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN_reserved, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #5
+  %128 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN, align 4
+  %129 = tail call ptr @proto_tree_add_item(ptr noundef %122, i32 noundef %128, ptr noundef %0, i32 noundef %125, i32 noundef 4, i32 noundef 0) #5
+  br label %.sink.split
 
-166:                                              ; preds = %6
-  %167 = getelementptr inbounds i8, ptr %1, i64 8
-  %168 = load ptr, ptr %167, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %168, i32 noundef 25, ptr noundef nonnull @.str.340) #5
-  %169 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %170 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %169, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %170, ptr noundef nonnull @.str.341) #5
-  %171 = load i32, ptr @ett_tidrdma, align 4
-  %172 = tail call ptr @proto_item_add_subtree(ptr noundef %170, i32 noundef %171) #5
-  %173 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %174 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %173, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
-  %175 = add i32 %7, 24
-  %176 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %177 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %176, ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #5
-  %178 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %179 = tail call ptr @proto_tree_add_item(ptr noundef %172, i32 noundef %178, ptr noundef %0, i32 noundef %175, i32 noundef 4, i32 noundef 0) #5
-  %180 = add i32 %7, 28
-  br label %221
+130:                                              ; preds = %6
+  %131 = getelementptr inbounds i8, ptr %1, i64 8
+  %132 = load ptr, ptr %131, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %132, i32 noundef 25, ptr noundef nonnull @.str.340) #5
+  %133 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %133, ptr noundef %0, i32 noundef %7, i32 noundef 28, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %134, ptr noundef nonnull @.str.341) #5
+  %135 = load i32, ptr @ett_tidrdma, align 4
+  %136 = tail call ptr @proto_item_add_subtree(ptr noundef %134, i32 noundef %135) #5
+  %137 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %138 = tail call ptr @proto_tree_add_item(ptr noundef %136, i32 noundef %137, ptr noundef %0, i32 noundef %7, i32 noundef 24, i32 noundef 0) #5
+  br label %.sink.split
 
-181:                                              ; preds = %6
-  %182 = getelementptr i8, ptr %1, i64 8
-  %.val145 = load ptr, ptr %182, align 8
+139:                                              ; preds = %6
+  %140 = getelementptr i8, ptr %1, i64 8
+  %.val145 = load ptr, ptr %140, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %.val145, i32 noundef 25, ptr noundef nonnull @.str.322) #5
-  %183 = load i32, ptr @hf_opa_AETH, align 4
-  %184 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %183, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
-  %185 = load i32, ptr @ett_aeth, align 4
-  %186 = tail call ptr @proto_item_add_subtree(ptr noundef %184, i32 noundef %185) #5
-  %187 = load i32, ptr @hf_opa_AETH_syndrome, align 4
-  %188 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %187, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
-  %189 = add i32 %7, 1
-  %190 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
-  %191 = tail call ptr @proto_tree_add_item(ptr noundef %186, i32 noundef %190, ptr noundef %0, i32 noundef %189, i32 noundef 3, i32 noundef 0) #5
-  %192 = add i32 %7, 4
-  %193 = load ptr, ptr %182, align 8
-  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %193, i32 noundef 25, ptr noundef nonnull @.str.342) #5
-  %194 = load i32, ptr @hf_opa_TIDRDMA, align 4
-  %195 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %194, ptr noundef %0, i32 noundef %192, i32 noundef 24, i32 noundef 0) #5
-  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %195, ptr noundef nonnull @.str.343) #5
-  %196 = load i32, ptr @ett_tidrdma, align 4
-  %197 = tail call ptr @proto_item_add_subtree(ptr noundef %195, i32 noundef %196) #5
-  %198 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
-  %199 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %198, ptr noundef %0, i32 noundef %192, i32 noundef 8, i32 noundef 0) #5
-  %200 = add i32 %7, 12
-  %201 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
-  %202 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %201, ptr noundef %0, i32 noundef %200, i32 noundef 4, i32 noundef 0) #5
-  %203 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
-  %204 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %203, ptr noundef %0, i32 noundef %200, i32 noundef 4, i32 noundef 0) #5
-  %205 = add i32 %7, 16
-  %206 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN_reserved, align 4
-  %207 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %206, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef 0) #5
-  %208 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN, align 4
-  %209 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %208, ptr noundef %0, i32 noundef %205, i32 noundef 4, i32 noundef 0) #5
-  %210 = add i32 %7, 20
-  %211 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
-  %212 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %211, ptr noundef %0, i32 noundef %210, i32 noundef 4, i32 noundef 0) #5
-  %213 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
-  %214 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %213, ptr noundef %0, i32 noundef %210, i32 noundef 4, i32 noundef 0) #5
-  %215 = add i32 %7, 24
-  %216 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
-  %217 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %216, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #5
-  %218 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
-  %219 = tail call ptr @proto_tree_add_item(ptr noundef %197, i32 noundef %218, ptr noundef %0, i32 noundef %215, i32 noundef 4, i32 noundef 0) #5
-  %220 = add i32 %7, 28
-  br label %221
+  %141 = load i32, ptr @hf_opa_AETH, align 4
+  %142 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %141, ptr noundef %0, i32 noundef %7, i32 noundef 4, i32 noundef 0) #5
+  %143 = load i32, ptr @ett_aeth, align 4
+  %144 = tail call ptr @proto_item_add_subtree(ptr noundef %142, i32 noundef %143) #5
+  %145 = load i32, ptr @hf_opa_AETH_syndrome, align 4
+  %146 = tail call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %145, ptr noundef %0, i32 noundef %7, i32 noundef 1, i32 noundef 0) #5
+  %147 = add i32 %7, 1
+  %148 = load i32, ptr @hf_opa_AETH_message_sequence_number, align 4
+  %149 = tail call ptr @proto_tree_add_item(ptr noundef %144, i32 noundef %148, ptr noundef %0, i32 noundef %147, i32 noundef 3, i32 noundef 0) #5
+  %150 = add i32 %7, 4
+  %151 = load ptr, ptr %140, align 8
+  tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %151, i32 noundef 25, ptr noundef nonnull @.str.342) #5
+  %152 = load i32, ptr @hf_opa_TIDRDMA, align 4
+  %153 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %152, ptr noundef %0, i32 noundef %150, i32 noundef 24, i32 noundef 0) #5
+  tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %153, ptr noundef nonnull @.str.343) #5
+  %154 = load i32, ptr @ett_tidrdma, align 4
+  %155 = tail call ptr @proto_item_add_subtree(ptr noundef %153, i32 noundef %154) #5
+  %156 = load i32, ptr @hf_opa_TIDRDMA_reserved, align 4
+  %157 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %156, ptr noundef %0, i32 noundef %150, i32 noundef 8, i32 noundef 0) #5
+  %158 = add i32 %7, 12
+  %159 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN_reserved, align 4
+  %160 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %159, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef 0) #5
+  %161 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowPSN, align 4
+  %162 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %161, ptr noundef %0, i32 noundef %158, i32 noundef 4, i32 noundef 0) #5
+  %163 = add i32 %7, 16
+  %164 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN_reserved, align 4
+  %165 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %164, ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #5
+  %166 = load i32, ptr @hf_opa_TIDRDMA_VerbsPSN, align 4
+  %167 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %166, ptr noundef %0, i32 noundef %163, i32 noundef 4, i32 noundef 0) #5
+  %168 = add i32 %7, 20
+  %169 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP_reserved, align 4
+  %170 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %169, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef 0) #5
+  %171 = load i32, ptr @hf_opa_TIDRDMA_TIDFlowQP, align 4
+  %172 = tail call ptr @proto_tree_add_item(ptr noundef %155, i32 noundef %171, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef 0) #5
+  br label %.sink.split
 
-221:                                              ; preds = %6, %181, %166, %136, %101, %86, %71, %36, %8
-  %.sink = phi i32 [ 0, %181 ], [ 0, %166 ], [ 1, %136 ], [ 0, %101 ], [ 1, %86 ], [ 1, %71 ], [ 0, %36 ], [ 0, %8 ], [ 0, %6 ]
-  %.0 = phi i32 [ %220, %181 ], [ %180, %166 ], [ %165, %136 ], [ %135, %101 ], [ %100, %86 ], [ %85, %71 ], [ %70, %36 ], [ %35, %8 ], [ %7, %6 ]
+.sink.split:                                      ; preds = %8, %30, %59, %68, %77, %106, %130, %139
+  %.sink211 = phi ptr [ %155, %139 ], [ %136, %130 ], [ %122, %106 ], [ %96, %77 ], [ %74, %68 ], [ %65, %59 ], [ %46, %30 ], [ %27, %8 ]
+  %.sink.ph = phi i32 [ 0, %139 ], [ 0, %130 ], [ 1, %106 ], [ 0, %77 ], [ 1, %68 ], [ 1, %59 ], [ 0, %30 ], [ 0, %8 ]
+  %173 = add i32 %7, 24
+  %174 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP_reserved, align 4
+  %175 = tail call ptr @proto_tree_add_item(ptr noundef %.sink211, i32 noundef %174, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #5
+  %176 = load i32, ptr @hf_opa_TIDRDMA_VerbsQP, align 4
+  %177 = tail call ptr @proto_tree_add_item(ptr noundef %.sink211, i32 noundef %176, ptr noundef %0, i32 noundef %173, i32 noundef 4, i32 noundef 0) #5
+  %178 = add i32 %7, 28
+  br label %179
+
+179:                                              ; preds = %.sink.split, %6
+  %.sink = phi i32 [ 0, %6 ], [ %.sink.ph, %.sink.split ]
+  %.0 = phi i32 [ %7, %6 ], [ %178, %.sink.split ]
   store i32 %.sink, ptr %5, align 4
   store i32 %.0, ptr %3, align 4
   ret void

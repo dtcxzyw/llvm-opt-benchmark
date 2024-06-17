@@ -3830,11 +3830,11 @@ if.end9:                                          ; preds = %if.end
   br i1 %tobool.not.i.i9, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end9, %if.then5, %if.then
-  %call.i1.i.sink = phi ptr [ %call.i1.i, %if.then ], [ %3, %if.then5 ], [ %4, %if.end9 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.sink, i64 8
-  %5 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %.sink = phi ptr [ %call.i1.i, %if.then ], [ %3, %if.then5 ], [ %4, %if.end9 ]
+  %m_ref_count.i.i.i.i11 = getelementptr inbounds i8, ptr %.sink, i64 8
+  %5 = load i32, ptr %m_ref_count.i.i.i.i11, align 4
   %inc.i.i.i.i12 = add i32 %5, 1
-  store i32 %inc.i.i.i.i12, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i12, ptr %m_ref_count.i.i.i.i11, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end9, %if.then5, %if.then
@@ -4455,11 +4455,11 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
   resume { ptr, i32 } %.pn
 
 return.sink.split:                                ; preds = %if.then4, %if.then
-  %call.i1.i.sink = phi ptr [ %call.i1.i, %if.then ], [ %call.i.i10, %if.then4 ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.sink, i64 8
-  %91 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %call.i.i10.sink = phi ptr [ %call.i1.i, %if.then ], [ %call.i.i10, %if.then4 ]
+  %m_ref_count.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i.i10.sink, i64 8
+  %91 = load i32, ptr %m_ref_count.i.i.i.i14, align 4
   %inc.i.i.i.i15 = add i32 %91, 1
-  store i32 %inc.i.i.i.i15, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i.i.i15, ptr %m_ref_count.i.i.i.i14, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.then.i.i.i.i.i, %invoke.cont8.i.i, %invoke.cont47, %if.then4, %if.then

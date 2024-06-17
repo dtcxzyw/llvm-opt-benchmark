@@ -974,12 +974,12 @@ if.then19.i:                                      ; preds = %for.end.i
   br label %.noexc.sink.split
 
 .noexc.sink.split:                                ; preds = %if.then3.i, %if.then19.i
-  %idxprom.i.i.sink = phi i64 [ %idxprom.i.i, %if.then3.i ], [ %idxprom.i54.i, %if.then19.i ]
-  %sub.i46.i.sink = phi i64 [ %and7.i, %if.then3.i ], [ %sub.i46.i, %if.then19.i ]
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i.i.sink
-  %7 = load i64, ptr %arrayidx.i.i, align 8
+  %idxprom.i54.i.sink = phi i64 [ %idxprom.i54.i, %if.then19.i ], [ %idxprom.i.i, %if.then3.i ]
+  %sub.i46.i.sink = phi i64 [ %sub.i46.i, %if.then19.i ], [ %and7.i, %if.then3.i ]
+  %arrayidx.i55.i = getelementptr inbounds i64, ptr %3, i64 %idxprom.i54.i.sink
+  %7 = load i64, ptr %arrayidx.i55.i, align 8
   %or.i56.i = or i64 %7, %sub.i46.i.sink
-  store i64 %or.i56.i, ptr %arrayidx.i.i, align 8
+  store i64 %or.i56.i, ptr %arrayidx.i55.i, align 8
   br label %.noexc
 
 .noexc:                                           ; preds = %.noexc.sink.split, %for.end.i, %if.end.i

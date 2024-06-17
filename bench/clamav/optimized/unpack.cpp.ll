@@ -1209,7 +1209,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %.sroa.2.0..sroa_idx5 = getelementptr inbounds i8, ptr %0, i64 3
   store i8 %77, ptr %.sroa.2.0..sroa_idx5, align 1
   store ptr %.sroa.5.0.copyload, ptr %9, align 1
-  br label %163
+  br label %161
 
 92:                                               ; preds = %._crit_edge90, %67
   %93 = phi i16 [ %71, %67 ], [ %.pre, %._crit_edge90 ]
@@ -1227,7 +1227,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %103 = lshr i32 %102, 1
   %.not72 = icmp eq i32 %100, %103
   %.pre91 = load ptr, ptr %9, align 1
-  br i1 %.not72, label %161, label %104
+  br i1 %.not72, label %159, label %104
 
 104:                                              ; preds = %92
   %105 = getelementptr inbounds i8, ptr %1, i64 19158
@@ -1248,7 +1248,7 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %118 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %117
   %119 = load ptr, ptr %118, align 8
   %.not.i = icmp eq ptr %119, null
-  br i1 %.not.i, label %127, label %120
+  br i1 %.not.i, label %125, label %120
 
 120:                                              ; preds = %115
   %121 = load ptr, ptr %119, align 8
@@ -1257,76 +1257,73 @@ define void @_ZN14RARPPM_CONTEXT7rescaleEP8ModelPPM(ptr noundef nonnull align 1 
   %123 = zext nneg i32 %122 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %.pre91, i64 %123, i1 false)
   %124 = zext i8 %109 to i64
-  %125 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %124
-  %126 = load ptr, ptr %125, align 8
-  store ptr %126, ptr %.pre91, align 8
-  store ptr %.pre91, ptr %125, align 8
-  br label %_ZN12SubAllocator11ShrinkUnitsEPvii.exit
+  br label %.sink.split.i
 
-127:                                              ; preds = %115
-  %128 = getelementptr inbounds i8, ptr %1, i64 19120
-  %129 = zext i8 %109 to i64
-  %130 = getelementptr inbounds [38 x i8], ptr %128, i64 0, i64 %129
-  %131 = load i8, ptr %130, align 1
-  %132 = zext i8 %131 to i32
-  %133 = getelementptr inbounds [38 x i8], ptr %128, i64 0, i64 %117
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i32
-  %136 = sub nsw i32 %132, %135
-  %137 = mul nuw nsw i32 %135, 20
-  %138 = zext nneg i32 %137 to i64
-  %139 = getelementptr inbounds i8, ptr %.pre91, i64 %138
-  %140 = add nsw i32 %136, -1
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds [128 x i8], ptr %105, i64 0, i64 %141
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i64
-  %145 = getelementptr inbounds [38 x i8], ptr %128, i64 0, i64 %144
-  %146 = load i8, ptr %145, align 1
-  %147 = zext i8 %146 to i32
-  %.not.i.i = icmp eq i32 %136, %147
-  br i1 %.not.i.i, label %_ZN12SubAllocator10SplitBlockEPvii.exit.i, label %148
+125:                                              ; preds = %115
+  %126 = getelementptr inbounds i8, ptr %1, i64 19120
+  %127 = zext i8 %109 to i64
+  %128 = getelementptr inbounds [38 x i8], ptr %126, i64 0, i64 %127
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i32
+  %131 = getelementptr inbounds [38 x i8], ptr %126, i64 0, i64 %117
+  %132 = load i8, ptr %131, align 1
+  %133 = zext i8 %132 to i32
+  %134 = sub nsw i32 %130, %133
+  %135 = mul nuw nsw i32 %133, 20
+  %136 = zext nneg i32 %135 to i64
+  %137 = getelementptr inbounds i8, ptr %.pre91, i64 %136
+  %138 = add nsw i32 %134, -1
+  %139 = sext i32 %138 to i64
+  %140 = getelementptr inbounds [128 x i8], ptr %105, i64 0, i64 %139
+  %141 = load i8, ptr %140, align 1
+  %142 = zext i8 %141 to i64
+  %143 = getelementptr inbounds [38 x i8], ptr %126, i64 0, i64 %142
+  %144 = load i8, ptr %143, align 1
+  %145 = zext i8 %144 to i32
+  %.not.i.i = icmp eq i32 %134, %145
+  br i1 %.not.i.i, label %.sink.split.i, label %146
 
-148:                                              ; preds = %127
-  %149 = add nsw i64 %144, -1
-  %150 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %149
-  %151 = load ptr, ptr %150, align 8
-  store ptr %151, ptr %139, align 8
-  store ptr %139, ptr %150, align 8
-  %152 = getelementptr inbounds [38 x i8], ptr %128, i64 0, i64 %149
-  %153 = load i8, ptr %152, align 1
-  %154 = zext i8 %153 to i32
-  %155 = mul nuw nsw i32 %154, 20
-  %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds i8, ptr %139, i64 %156
-  %158 = xor i32 %154, -1
-  %.pre.i.i = add nsw i32 %136, %158
+146:                                              ; preds = %125
+  %147 = add nsw i64 %142, -1
+  %148 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %147
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %137, align 8
+  store ptr %137, ptr %148, align 8
+  %150 = getelementptr inbounds [38 x i8], ptr %126, i64 0, i64 %147
+  %151 = load i8, ptr %150, align 1
+  %152 = zext i8 %151 to i32
+  %153 = mul nuw nsw i32 %152, 20
+  %154 = zext nneg i32 %153 to i64
+  %155 = getelementptr inbounds i8, ptr %137, i64 %154
+  %156 = xor i32 %152, -1
+  %.pre.i.i = add nsw i32 %134, %156
   %.pre16.i.i = sext i32 %.pre.i.i to i64
   %.phi.trans.insert.i = getelementptr inbounds [128 x i8], ptr %105, i64 0, i64 %.pre16.i.i
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1
   %.pre20.i = zext i8 %.pre.i to i64
-  br label %_ZN12SubAllocator10SplitBlockEPvii.exit.i
+  br label %.sink.split.i
 
-_ZN12SubAllocator10SplitBlockEPvii.exit.i:        ; preds = %148, %127
-  %.pre-phi.i = phi i64 [ %144, %127 ], [ %.pre20.i, %148 ]
-  %.0.i.i = phi ptr [ %139, %127 ], [ %157, %148 ]
-  %159 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %.pre-phi.i
-  %160 = load ptr, ptr %159, align 8
-  store ptr %160, ptr %.0.i.i, align 8
-  store ptr %.0.i.i, ptr %159, align 8
+.sink.split.i:                                    ; preds = %146, %125, %120
+  %.pre-phi.sink.i = phi i64 [ %124, %120 ], [ %142, %125 ], [ %.pre20.i, %146 ]
+  %.0.i.sink22.i = phi ptr [ %.pre91, %120 ], [ %137, %125 ], [ %155, %146 ]
+  %.0.ph.i = phi ptr [ %119, %120 ], [ %.pre91, %125 ], [ %.pre91, %146 ]
+  %157 = getelementptr inbounds [38 x %"struct.SubAllocator::RAR_NODE"], ptr %116, i64 0, i64 %.pre-phi.sink.i
+  %158 = load ptr, ptr %157, align 8
+  store ptr %158, ptr %.0.i.sink22.i, align 8
+  store ptr %.0.i.sink22.i, ptr %157, align 8
   br label %_ZN12SubAllocator11ShrinkUnitsEPvii.exit
 
-_ZN12SubAllocator11ShrinkUnitsEPvii.exit:         ; preds = %104, %120, %_ZN12SubAllocator10SplitBlockEPvii.exit.i
-  %.0.i = phi ptr [ %119, %120 ], [ %.pre91, %_ZN12SubAllocator10SplitBlockEPvii.exit.i ], [ %.pre91, %104 ]
+_ZN12SubAllocator11ShrinkUnitsEPvii.exit:         ; preds = %104, %.sink.split.i
+  %.0.i = phi ptr [ %.pre91, %104 ], [ %.0.ph.i, %.sink.split.i ]
   store ptr %.0.i, ptr %9, align 1
+  br label %159
+
+159:                                              ; preds = %_ZN12SubAllocator11ShrinkUnitsEPvii.exit, %92
+  %160 = phi ptr [ %.0.i, %_ZN12SubAllocator11ShrinkUnitsEPvii.exit ], [ %.pre91, %92 ]
+  store ptr %160, ptr %7, align 8
   br label %161
 
-161:                                              ; preds = %_ZN12SubAllocator11ShrinkUnitsEPvii.exit, %92
-  %162 = phi ptr [ %.0.i, %_ZN12SubAllocator11ShrinkUnitsEPvii.exit ], [ %.pre91, %92 ]
-  store ptr %162, ptr %7, align 8
-  br label %163
-
-163:                                              ; preds = %161, %80
+161:                                              ; preds = %159, %80
   ret void
 }
 

@@ -251,10 +251,10 @@ if.then.i.i61.i.i:                                ; preds = %if.end.i56.i.i
   br label %tsdn_witness_tsdp_get.exit.sink.split.i.i
 
 tsdn_witness_tsdp_get.exit.sink.split.i.i:        ; preds = %if.then.i.i61.i.i, %if.then.i.i.i.i
-  %n_owner_switches.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 40
-  %11 = load i64, ptr %n_owner_switches.i.i.i.i, align 8
+  %n_owner_switches.i.i62.i.i = getelementptr inbounds i8, ptr %6, i64 40
+  %11 = load i64, ptr %n_owner_switches.i.i62.i.i, align 8
   %inc2.i.i63.i.i = add i64 %11, 1
-  store i64 %inc2.i.i63.i.i, ptr %n_owner_switches.i.i.i.i, align 8
+  store i64 %inc2.i.i63.i.i, ptr %n_owner_switches.i.i62.i.i, align 8
   br label %tsdn_witness_tsdp_get.exit.i.i
 
 tsdn_witness_tsdp_get.exit.i.i:                   ; preds = %tsdn_witness_tsdp_get.exit.sink.split.i.i, %if.end.i56.i.i, %if.end.i.i.i

@@ -1553,8 +1553,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i92
 
 .thread145.sink.split:                            ; preds = %164, %.thread146, %162
   %.sink = phi i64 [ %163, %162 ], [ 0, %.thread146 ], [ 0, %164 ]
-  %.sroa.09.0.copyload = load i32, ptr @_ZN3nix5noPosE, align 4
-  %165 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix15BindingsBuilder5allocESt17basic_string_viewIcSt11char_traitsIcEENS_6PosIdxE(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 8, ptr nonnull @.str.9, i32 %.sroa.09.0.copyload)
+  %.sroa.010.0.copyload = load i32, ptr @_ZN3nix5noPosE, align 4
+  %165 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN3nix15BindingsBuilder5allocESt17basic_string_viewIcSt11char_traitsIcEENS_6PosIdxE(ptr noundef nonnull align 8 dereferenceable(16) %11, i64 8, ptr nonnull @.str.9, i32 %.sroa.010.0.copyload)
   %166 = getelementptr inbounds i8, ptr %165, i64 8
   %167 = getelementptr inbounds i8, ptr %165, i64 16
   store i64 0, ptr %167, align 8

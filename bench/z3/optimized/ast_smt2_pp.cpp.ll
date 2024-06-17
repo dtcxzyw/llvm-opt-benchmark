@@ -16189,15 +16189,15 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 return.sink.split.sink.split:                     ; preds = %if.then, %if.then9
-  %m_frame_stack.i22 = getelementptr inbounds i8, ptr %this, i64 160
-  %55 = load ptr, ptr %m_frame_stack.i22, align 8
-  %arrayidx.i.i23 = getelementptr inbounds i8, ptr %55, i64 -4
-  %56 = load i32, ptr %arrayidx.i.i23, align 4
+  %m_frame_stack.i = getelementptr inbounds i8, ptr %this, i64 160
+  %55 = load ptr, ptr %m_frame_stack.i, align 8
+  %arrayidx.i.i = getelementptr inbounds i8, ptr %55, i64 -4
+  %56 = load i32, ptr %arrayidx.i.i, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %_ZN12smt2_printer10flat_assocEP3appRKNS_5frameE.exit
   %.sink = phi i32 [ %8, %_ZN12smt2_printer10flat_assocEP3appRKNS_5frameE.exit ], [ %56, %return.sink.split.sink.split ]
-  %arrayidx.i.i26.sink = phi ptr [ %arrayidx.i.i26, %_ZN12smt2_printer10flat_assocEP3appRKNS_5frameE.exit ], [ %arrayidx.i.i23, %return.sink.split.sink.split ]
+  %arrayidx.i.i26.sink = phi ptr [ %arrayidx.i.i26, %_ZN12smt2_printer10flat_assocEP3appRKNS_5frameE.exit ], [ %arrayidx.i.i, %return.sink.split.sink.split ]
   %dec.i.i29 = add i32 %.sink, -1
   store i32 %dec.i.i29, ptr %arrayidx.i.i26.sink, align 4
   br label %return
@@ -19972,36 +19972,36 @@ while.cond.backedge:                              ; preds = %sw.bb, %if.then12, 
   br i1 %cmp.not, label %while.body, label %return, !llvm.loop !113
 
 return.sink.split.sink.split:                     ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18, %lor.lhs.false.i.i21, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i, %lor.lhs.false.i.i
-  %m_frame_stack.i.sink63 = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
-  %retval.0.i.i.i.sink.ph = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i19, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
-  %frombool.i.i.sink.in.ph = phi i8 [ %5, %lor.lhs.false.i.i ], [ %5, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %11, %lor.lhs.false.i.i21 ], [ %11, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
-  tail call void @_ZN6vectorIN12smt2_printer5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_frame_stack.i.sink63)
-  %.pre.i.i = load ptr, ptr %m_frame_stack.i.sink63, align 8
-  %arrayidx8.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %m_frame_stack.i13.sink62 = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
+  %.sink60.ph = phi i8 [ %5, %lor.lhs.false.i.i ], [ %5, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %11, %lor.lhs.false.i.i21 ], [ %11, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
+  %retval.0.i.i.i19.sink.ph = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i19, %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit.i18 ]
+  tail call void @_ZN6vectorIN12smt2_printer5frameELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_frame_stack.i13.sink62)
+  %.pre.i.i34 = load ptr, ptr %m_frame_stack.i13.sink62, align 8
+  %arrayidx8.phi.trans.insert.i.i35 = getelementptr inbounds i8, ptr %.pre.i.i34, i64 -4
   %.pre1.i.i36 = load i32, ptr %arrayidx8.phi.trans.insert.i.i35, align 4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %lor.lhs.false.i.i21, %lor.lhs.false.i.i
-  %.sink61 = phi i32 [ %9, %lor.lhs.false.i.i ], [ %15, %lor.lhs.false.i.i21 ], [ %.pre1.i.i36, %return.sink.split.sink.split ]
-  %.sink = phi ptr [ %8, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i.i21 ], [ %.pre.i.i, %return.sink.split.sink.split ]
-  %retval.0.i.i.i.sink = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i.sink.ph, %return.sink.split.sink.split ]
-  %frombool.i.i.sink.in = phi i8 [ %5, %lor.lhs.false.i.i ], [ %11, %lor.lhs.false.i.i21 ], [ %frombool.i.i.sink.in.ph, %return.sink.split.sink.split ]
-  %m_frame_stack.i.sink = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i.sink63, %return.sink.split.sink.split ]
-  %idx.ext.i.i = zext i32 %.sink61 to i64
-  %add.ptr.i.i = getelementptr inbounds %"struct.smt2_printer::frame", ptr %.sink, i64 %idx.ext.i.i
-  store ptr %3, ptr %add.ptr.i.i, align 8
-  %frombool.i.i.sink = and i8 %frombool.i.i.sink.in, 1
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 8
-  store i32 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 12
-  store i32 %retval.0.i.i.i.sink, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 4
-  %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 16
-  store i8 %frombool.i.i.sink, ptr %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i, align 8
-  %18 = load ptr, ptr %m_frame_stack.i.sink, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %18, i64 -4
-  %19 = load i32, ptr %arrayidx10.i.i, align 4
+  %.sink60 = phi i8 [ %5, %lor.lhs.false.i.i ], [ %11, %lor.lhs.false.i.i21 ], [ %.sink60.ph, %return.sink.split.sink.split ]
+  %.sink59 = phi i32 [ %9, %lor.lhs.false.i.i ], [ %15, %lor.lhs.false.i.i21 ], [ %.pre1.i.i36, %return.sink.split.sink.split ]
+  %.sink = phi ptr [ %8, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i.i21 ], [ %.pre.i.i34, %return.sink.split.sink.split ]
+  %retval.0.i.i.i19.sink = phi i32 [ %retval.0.i.i.i, %lor.lhs.false.i.i ], [ %retval.0.i.i.i19, %lor.lhs.false.i.i21 ], [ %retval.0.i.i.i19.sink.ph, %return.sink.split.sink.split ]
+  %m_frame_stack.i13.sink = phi ptr [ %m_frame_stack.i, %lor.lhs.false.i.i ], [ %m_frame_stack.i13, %lor.lhs.false.i.i21 ], [ %m_frame_stack.i13.sink62, %return.sink.split.sink.split ]
+  %frombool.i.i25 = and i8 %.sink60, 1
+  %idx.ext.i.i26 = zext i32 %.sink59 to i64
+  %add.ptr.i.i27 = getelementptr inbounds %"struct.smt2_printer::frame", ptr %.sink, i64 %idx.ext.i.i26
+  store ptr %3, ptr %add.ptr.i.i27, align 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i28 = getelementptr inbounds i8, ptr %add.ptr.i.i27, i64 8
+  store i32 0, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i28, align 8
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i29 = getelementptr inbounds i8, ptr %add.ptr.i.i27, i64 12
+  store i32 %retval.0.i.i.i19.sink, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i29, align 4
+  %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i30 = getelementptr inbounds i8, ptr %add.ptr.i.i27, i64 16
+  store i8 %frombool.i.i25, ptr %ref.tmp.sroa.4.0.add.ptr.i.sroa_idx.i30, align 8
+  %18 = load ptr, ptr %m_frame_stack.i13.sink, align 8
+  %arrayidx10.i.i31 = getelementptr inbounds i8, ptr %18, i64 -4
+  %19 = load i32, ptr %arrayidx10.i.i31, align 4
   %inc.i.i32 = add i32 %19, 1
-  store i32 %inc.i.i32, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i.i32, ptr %arrayidx10.i.i31, align 4
   br label %return
 
 return:                                           ; preds = %while.cond.backedge, %return.sink.split, %entry

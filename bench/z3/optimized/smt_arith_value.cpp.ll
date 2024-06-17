@@ -1395,11 +1395,11 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15: ; preds = %land.lhs.true6, %i
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont10, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15
-  %e.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15 ], [ %call2.i.i9, %invoke.cont10 ]
-  %m_ref_count.i.i.i.i13 = getelementptr inbounds i8, ptr %e.sink, i64 8
-  %13 = load i32, ptr %m_ref_count.i.i.i.i13, align 4
+  %call2.i.i9.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15 ], [ %call2.i.i9, %invoke.cont10 ]
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i9.sink, i64 8
+  %13 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %13, 1
-  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i13, align 4
+  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont10
@@ -1582,11 +1582,11 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15: ; preds = %land.lhs.true6, %i
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont10, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15
-  %e.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15 ], [ %call2.i.i9, %invoke.cont10 ]
-  %m_ref_count.i.i.i.i13 = getelementptr inbounds i8, ptr %e.sink, i64 8
-  %13 = load i32, ptr %m_ref_count.i.i.i.i13, align 4
+  %call2.i.i9.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit15 ], [ %call2.i.i9, %invoke.cont10 ]
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i9.sink, i64 8
+  %13 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %13, 1
-  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i13, align 4
+  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont10
@@ -1763,11 +1763,11 @@ _ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit24: ; preds = %if.then.i.i.i.i, %
   br label %cleanup.sink.split
 
 cleanup.sink.split:                               ; preds = %invoke.cont18, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit24
-  %e.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit24 ], [ %call19, %invoke.cont18 ]
-  %m_ref_count.i.i.i.i22 = getelementptr inbounds i8, ptr %e.sink, i64 8
-  %13 = load i32, ptr %m_ref_count.i.i.i.i22, align 4
+  %call19.sink = phi ptr [ %e, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit24 ], [ %call19, %invoke.cont18 ]
+  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %call19.sink, i64 8
+  %13 = load i32, ptr %m_ref_count.i.i.i.i, align 4
   %inc.i.i.i.i = add i32 %13, 1
-  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i22, align 4
+  store i32 %inc.i.i.i.i, ptr %m_ref_count.i.i.i.i, align 4
   br label %cleanup
 
 cleanup:                                          ; preds = %cleanup.sink.split, %invoke.cont18

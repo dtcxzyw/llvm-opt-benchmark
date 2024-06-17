@@ -489,15 +489,15 @@ invoke.cont11:                                    ; preds = %.noexc16
   br i1 %tobool.not.i18, label %if.end, label %if.end.sink.split
 
 if.end.sink.split:                                ; preds = %invoke.cont11, %if.then
-  %e.sink = phi ptr [ %e, %if.then ], [ %call.i.i17, %invoke.cont11 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %e.sink, i64 8
-  %17 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call.i.i17.sink = phi ptr [ %e, %if.then ], [ %call.i.i17, %invoke.cont11 ]
+  %m_ref_count.i.i.i20 = getelementptr inbounds i8, ptr %call.i.i17.sink, i64 8
+  %17 = load i32, ptr %m_ref_count.i.i.i20, align 4
   %inc.i.i.i21 = add i32 %17, 1
-  store i32 %inc.i.i.i21, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i21, ptr %m_ref_count.i.i.i20, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %invoke.cont11, %if.then
-  %18 = phi ptr [ null, %if.then ], [ null, %invoke.cont11 ], [ %e.sink, %if.end.sink.split ]
+  %18 = phi ptr [ null, %if.then ], [ null, %invoke.cont11 ], [ %call.i.i17.sink, %if.end.sink.split ]
   store ptr %18, ptr %tmp, align 8
   %19 = load ptr, ptr %res, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %e1.addr.i32)

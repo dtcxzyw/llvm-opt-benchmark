@@ -5295,10 +5295,10 @@ for.end52:                                        ; preds = %for.cond22.for.inc5
   br i1 %tobool2.not.i, label %if.end10.i, label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %for.end52
-  %dec_vars.i = getelementptr inbounds i8, ptr %this, i64 304
-  %60 = load i64, ptr %dec_vars.i, align 8
+  %dec_vars9.i = getelementptr inbounds i8, ptr %this, i64 304
+  %60 = load i64, ptr %dec_vars9.i, align 8
   %dec.i = add nsw i64 %60, -1
-  store i64 %dec.i, ptr %dec_vars.i, align 8
+  store i64 %dec.i, ptr %dec_vars9.i, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end10.sink.split.i, %for.end52
@@ -5891,10 +5891,10 @@ if.end:                                           ; preds = %entry
   br i1 %tobool2.not.i, label %if.end10.i, label %if.end10.sink.split.i
 
 if.end10.sink.split.i:                            ; preds = %if.end
-  %dec_vars.i = getelementptr inbounds i8, ptr %this, i64 304
-  %4 = load i64, ptr %dec_vars.i, align 8
+  %dec_vars9.i = getelementptr inbounds i8, ptr %this, i64 304
+  %4 = load i64, ptr %dec_vars9.i, align 8
   %dec.i = add nsw i64 %4, -1
-  store i64 %dec.i, ptr %dec_vars.i, align 8
+  store i64 %dec.i, ptr %dec_vars9.i, align 8
   br label %if.end10.i
 
 if.end10.i:                                       ; preds = %if.end10.sink.split.i, %if.end

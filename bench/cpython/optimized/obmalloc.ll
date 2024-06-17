@@ -1451,10 +1451,10 @@ if.then2.i.i:                                     ; preds = %if.end.i.i60
 
 if.end26.sink.split.i.i:                          ; preds = %if.then2.i.i
   store ptr %48, ptr %free.i.i, align 8
-  %free_is_zero20.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 15
-  %bf.load.i.i = load i8, ptr %free_is_zero20.i.i, align 1
+  %free_is_zero.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 15
+  %bf.load.i.i = load i8, ptr %free_is_zero.i.i, align 1
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %free_is_zero20.i.i, align 1
+  store i8 %bf.clear.i.i, ptr %free_is_zero.i.i, align 1
   br label %_mi_page_free_collect.exit.i
 
 _mi_page_free_collect.exit.i:                     ; preds = %if.end26.sink.split.i.i, %if.then2.i.i, %if.end.i.i60
@@ -3003,10 +3003,10 @@ if.then2.i:                                       ; preds = %if.end.i
 
 if.end26.sink.split.i:                            ; preds = %if.then2.i
   store ptr %20, ptr %free.i, align 8
-  %free_is_zero20.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 15
-  %bf.load.i = load i8, ptr %free_is_zero20.i, align 1
+  %free_is_zero.i = getelementptr inbounds i8, ptr %add.ptr.i.i, i64 15
+  %bf.load.i = load i8, ptr %free_is_zero.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -2
-  store i8 %bf.clear.i, ptr %free_is_zero20.i, align 1
+  store i8 %bf.clear.i, ptr %free_is_zero.i, align 1
   br label %_mi_page_free_collect.exit
 
 _mi_page_free_collect.exit:                       ; preds = %if.then2.i, %if.end.i, %if.end26.sink.split.i
@@ -3190,10 +3190,10 @@ if.end26.sink.split:                              ; preds = %if.then2, %while.en
   %.sink = phi ptr [ %17, %while.end ], [ %13, %if.then2 ]
   store ptr %.sink, ptr %free, align 8
   store ptr null, ptr %local_free, align 8
-  %free_is_zero20 = getelementptr inbounds i8, ptr %page, i64 15
-  %bf.load = load i8, ptr %free_is_zero20, align 1
+  %free_is_zero = getelementptr inbounds i8, ptr %page, i64 15
+  %bf.load = load i8, ptr %free_is_zero, align 1
   %bf.clear = and i8 %bf.load, -2
-  store i8 %bf.clear, ptr %free_is_zero20, align 1
+  store i8 %bf.clear, ptr %free_is_zero, align 1
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end26.sink.split, %if.else, %if.end
@@ -12176,10 +12176,10 @@ if.end26.sink.split.i.i:                          ; preds = %while.end.i.i, %if.
   %.sink.i.i = phi ptr [ %44, %while.end.i.i ], [ %40, %if.then2.i.i ]
   store ptr %.sink.i.i, ptr %free.i.i, align 8
   store ptr null, ptr %local_free.i.i, align 8
-  %free_is_zero20.i.i = getelementptr inbounds i8, ptr %page.0.i3470, i64 15
-  %bf.load.i.i = load i8, ptr %free_is_zero20.i.i, align 1
+  %free_is_zero.i.i = getelementptr inbounds i8, ptr %page.0.i3470, i64 15
+  %bf.load.i.i = load i8, ptr %free_is_zero.i.i, align 1
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %free_is_zero20.i.i, align 1
+  store i8 %bf.clear.i.i, ptr %free_is_zero.i.i, align 1
   br label %_mi_page_free_collect.exit.i
 
 _mi_page_free_collect.exit.i:                     ; preds = %if.end26.sink.split.i.i, %if.end.i.i
@@ -13860,10 +13860,10 @@ if.end26.sink.split.i.i.i:                        ; preds = %while.end.i.i.i, %i
   %.sink.i.i.i = phi ptr [ %28, %while.end.i.i.i ], [ %24, %if.then2.i.i.i ]
   store ptr %.sink.i.i.i, ptr %free.i.i.i, align 8
   store ptr null, ptr %local_free.i.i.i, align 8
-  %free_is_zero20.i.i.i = getelementptr inbounds i8, ptr %11, i64 15
-  %bf.load.i.i.i = load i8, ptr %free_is_zero20.i.i.i, align 1
+  %free_is_zero.i.i.i = getelementptr inbounds i8, ptr %11, i64 15
+  %bf.load.i.i.i = load i8, ptr %free_is_zero.i.i.i, align 1
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, -2
-  store i8 %bf.clear.i.i.i, ptr %free_is_zero20.i.i.i, align 1
+  store i8 %bf.clear.i.i.i, ptr %free_is_zero.i.i.i, align 1
   br label %_mi_page_free_collect.exit.i.i
 
 _mi_page_free_collect.exit.i.i:                   ; preds = %if.end26.sink.split.i.i.i, %if.end.i.i.i
@@ -18704,10 +18704,10 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 
 if.end26.sink.split.i.i:                          ; preds = %if.then2.i.i
   store ptr %29, ptr %free.i.i, align 8
-  %free_is_zero20.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 15
-  %bf.load.i.i = load i8, ptr %free_is_zero20.i.i, align 1
+  %free_is_zero.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 15
+  %bf.load.i.i = load i8, ptr %free_is_zero.i.i, align 1
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %free_is_zero20.i.i, align 1
+  store i8 %bf.clear.i.i, ptr %free_is_zero.i.i, align 1
   br label %_mi_page_free_collect.exit.i
 
 _mi_page_free_collect.exit.i:                     ; preds = %if.end26.sink.split.i.i, %if.then2.i.i, %if.end.i.i
@@ -20006,10 +20006,10 @@ if.then2.i.i:                                     ; preds = %if.end.i.i
 if.end26.sink.split.i.i:                          ; preds = %if.then2.i.i
   store ptr %28, ptr %.phi.trans.insert.i, align 8
   store ptr null, ptr %local_free.i.i, align 8
-  %free_is_zero20.i.i = getelementptr inbounds i8, ptr %14, i64 15
-  %bf.load.i.i = load i8, ptr %free_is_zero20.i.i, align 1
+  %free_is_zero.i.i = getelementptr inbounds i8, ptr %14, i64 15
+  %bf.load.i.i = load i8, ptr %free_is_zero.i.i, align 1
   %bf.clear.i.i = and i8 %bf.load.i.i, -2
-  store i8 %bf.clear.i.i, ptr %free_is_zero20.i.i, align 1
+  store i8 %bf.clear.i.i, ptr %free_is_zero.i.i, align 1
   br label %return.sink.split.i
 
 _mi_page_free_collect.exit.i:                     ; preds = %if.end.i.i
@@ -20113,10 +20113,10 @@ if.then2.i.i.i:                                   ; preds = %if.end.i.i10.i
 if.end26.sink.split.i.i.i:                        ; preds = %if.then2.i.i.i
   store ptr %45, ptr %.phi.trans.insert.i.i, align 8
   store ptr null, ptr %local_free.i.i11.i, align 8
-  %free_is_zero20.i.i.i = getelementptr inbounds i8, ptr %page.052.i.i, i64 15
-  %bf.load.i.i.i = load i8, ptr %free_is_zero20.i.i.i, align 1
+  %free_is_zero.i.i.i = getelementptr inbounds i8, ptr %page.052.i.i, i64 15
+  %bf.load.i.i.i = load i8, ptr %free_is_zero.i.i.i, align 1
   %bf.clear.i.i.i = and i8 %bf.load.i.i.i, -2
-  store i8 %bf.clear.i.i.i, ptr %free_is_zero20.i.i.i, align 1
+  store i8 %bf.clear.i.i.i, ptr %free_is_zero.i.i.i, align 1
   br label %return.sink.split.i
 
 _mi_page_free_collect.exit.i.i:                   ; preds = %if.end.i.i10.i
@@ -20400,10 +20400,10 @@ if.then2.i.i.i18.i:                               ; preds = %if.end.i7.i.i.i
 if.end26.sink.split.i.i.i.i:                      ; preds = %if.then2.i.i.i18.i
   store ptr %84, ptr %.phi.trans.insert.i.i, align 8
   store ptr null, ptr %local_free.i.i11.i, align 8
-  %free_is_zero20.i.i.i.i = getelementptr inbounds i8, ptr %page.052.i.i, i64 15
-  %bf.load.i.i.i.i = load i8, ptr %free_is_zero20.i.i.i.i, align 1
+  %free_is_zero.i.i.i.i = getelementptr inbounds i8, ptr %page.052.i.i, i64 15
+  %bf.load.i.i.i.i = load i8, ptr %free_is_zero.i.i.i.i, align 1
   %bf.clear.i9.i.i.i = and i8 %bf.load.i.i.i.i, -2
-  store i8 %bf.clear.i9.i.i.i, ptr %free_is_zero20.i.i.i.i, align 1
+  store i8 %bf.clear.i9.i.i.i, ptr %free_is_zero.i.i.i.i, align 1
   br label %mi_page_to_full.exit.i.i
 
 mi_page_to_full.exit.i.i:                         ; preds = %if.end26.sink.split.i.i.i.i, %if.then2.i.i.i18.i, %if.end.i7.i.i.i, %if.end6.i.i
@@ -20481,15 +20481,15 @@ _mi_heap_collect_retired.exit.i.i:                ; preds = %for.inc.i.i.i, %if.
   br i1 %brmerge.not.i.i, label %tailrecurse.i.i, label %return
 
 return.sink.split.i:                              ; preds = %_mi_page_free_collect.exit.i.i, %mi_page_extend_free.exit.i.i, %if.end26.sink.split.i.i.i, %if.then2.i.i.i, %_mi_page_free_collect.exit.i, %if.end26.sink.split.i.i, %if.then2.i.i
-  %.sink.i = phi ptr [ %14, %if.end26.sink.split.i.i ], [ %14, %if.then2.i.i ], [ %14, %_mi_page_free_collect.exit.i ], [ %page.052.i.i, %mi_page_extend_free.exit.i.i ], [ %page.052.i.i, %if.end26.sink.split.i.i.i ], [ %page.052.i.i, %if.then2.i.i.i ], [ %page.052.i.i, %_mi_page_free_collect.exit.i.i ]
-  %retire_expire.i = getelementptr inbounds i8, ptr %.sink.i, i64 15
-  %bf.load.i13.i = load i8, ptr %retire_expire.i, align 1
+  %page.052.i71.sink.i = phi ptr [ %14, %if.end26.sink.split.i.i ], [ %14, %if.then2.i.i ], [ %14, %_mi_page_free_collect.exit.i ], [ %page.052.i.i, %mi_page_extend_free.exit.i.i ], [ %page.052.i.i, %if.end26.sink.split.i.i.i ], [ %page.052.i.i, %if.then2.i.i.i ], [ %page.052.i.i, %_mi_page_free_collect.exit.i.i ]
+  %retire_expire.i.i = getelementptr inbounds i8, ptr %page.052.i71.sink.i, i64 15
+  %bf.load.i13.i = load i8, ptr %retire_expire.i.i, align 1
   %bf.clear.i14.i = and i8 %bf.load.i13.i, 1
-  store i8 %bf.clear.i14.i, ptr %retire_expire.i, align 1
+  store i8 %bf.clear.i14.i, ptr %retire_expire.i.i, align 1
   br label %return
 
 return:                                           ; preds = %_mi_heap_collect_retired.exit.i.i, %return.sink.split.i, %mi_large_huge_page_alloc.exit, %if.then11
-  %retval.0 = phi ptr [ null, %if.then11 ], [ %call3.i, %mi_large_huge_page_alloc.exit ], [ %.sink.i, %return.sink.split.i ], [ %call.i.i.i, %_mi_heap_collect_retired.exit.i.i ]
+  %retval.0 = phi ptr [ null, %if.then11 ], [ %call3.i, %mi_large_huge_page_alloc.exit ], [ %page.052.i71.sink.i, %return.sink.split.i ], [ %call.i.i.i, %_mi_heap_collect_retired.exit.i.i ]
   ret ptr %retval.0
 }
 
@@ -21981,10 +21981,10 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end26.sink.split.i:                            ; preds = %if.then2.i
   store ptr %47, ptr %free.i, align 8
   store ptr null, ptr %local_free.i, align 8
-  %free_is_zero20.i = getelementptr inbounds i8, ptr %slice.065, i64 15
-  %bf.load.i = load i8, ptr %free_is_zero20.i, align 1
+  %free_is_zero.i = getelementptr inbounds i8, ptr %slice.065, i64 15
+  %bf.load.i = load i8, ptr %free_is_zero.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -2
-  store i8 %bf.clear.i, ptr %free_is_zero20.i, align 1
+  store i8 %bf.clear.i, ptr %free_is_zero.i, align 1
   br label %_mi_page_free_collect.exit
 
 _mi_page_free_collect.exit:                       ; preds = %if.then2.i, %if.end.i, %if.end26.sink.split.i
@@ -22438,10 +22438,10 @@ if.then2.i:                                       ; preds = %if.end.i
 if.end26.sink.split.i:                            ; preds = %if.then2.i
   store ptr %16, ptr %free.i, align 8
   store ptr null, ptr %local_free.i, align 8
-  %free_is_zero20.i = getelementptr inbounds i8, ptr %slice.022, i64 15
-  %bf.load.i = load i8, ptr %free_is_zero20.i, align 1
+  %free_is_zero.i = getelementptr inbounds i8, ptr %slice.022, i64 15
+  %bf.load.i = load i8, ptr %free_is_zero.i, align 1
   %bf.clear.i = and i8 %bf.load.i, -2
-  store i8 %bf.clear.i, ptr %free_is_zero20.i, align 1
+  store i8 %bf.clear.i, ptr %free_is_zero.i, align 1
   br label %_mi_page_free_collect.exit
 
 _mi_page_free_collect.exit:                       ; preds = %if.then2.i, %if.end.i, %if.end26.sink.split.i

@@ -12368,8 +12368,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   %11 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %11, 48
-  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr6.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -12383,19 +12381,20 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
   %13 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -2
-  store i8 %13, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %incdec.ptr6.i.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i.i, %if.end.i.i.i ]
-  %cmp13.i.i = icmp ugt ptr %retval.0.i.i.i, %micro_buffer
+  %.sink13 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
+  %.sink = phi i8 [ %13, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink13
+  store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
+  %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %for.cond.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
-  %retval.0.i18.i.i = ptrtoint ptr %retval.0.i.i.i to i64
+  %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
   %14 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %14
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %14
   %15 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %15, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
@@ -12480,8 +12479,6 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %_Z
 if.then.i.i:                                      ; preds = %while.end.i.i
   %29 = trunc i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i = add i8 %29, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %conv.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i53:                                     ; preds = %while.end.i.i
@@ -12495,19 +12492,20 @@ if.end.i.i53:                                     ; preds = %while.end.i.i
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %31 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -2
-  store i8 %31, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i53, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i ], [ %incdec.ptr15.i.i, %if.end.i.i53 ]
-  %cmp41.i = icmp ugt ptr %retval.0.i.i, %cond.i
+  %.sink15 = phi i64 [ -2, %if.end.i.i53 ], [ -1, %if.then.i.i ]
+  %.sink14 = phi i8 [ %31, %if.end.i.i53 ], [ %conv.i.i, %if.then.i.i ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink15
+  store i8 %.sink14, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
+  %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
   br i1 %cmp41.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
-  %retval.0.i46.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %32 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %32
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %32
   %33 = sub i64 %retval.0.i46.i, %data45.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %33, i1 false), !tbaa !7
   br label %for.cond.preheader.i
@@ -44666,8 +44664,6 @@ while.end.i.i244:                                 ; preds = %while.body.i.i253, 
 if.then.i.i251:                                   ; preds = %while.end.i.i244
   %30 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i246 to i8
   %conv.i.i252 = or disjoint i8 %30, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i245, i64 -1
-  store i8 %conv.i.i252, ptr %incdec.ptr6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
 
 if.end.i.i248:                                    ; preds = %while.end.i.i244
@@ -44681,19 +44677,20 @@ if.end.i.i248:                                    ; preds = %while.end.i.i244
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %32 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i245, i64 -2
-  store i8 %32, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i: ; preds = %if.end.i.i248, %if.then.i.i251
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i251 ], [ %incdec.ptr15.i.i, %if.end.i.i248 ]
-  %cmp13.i = icmp ugt ptr %retval.0.i.i, %add.ptr
+  %.sink1 = phi i64 [ -2, %if.end.i.i248 ], [ -1, %if.then.i.i251 ]
+  %.sink = phi i8 [ %32, %if.end.i.i248 ], [ %conv.i.i252, %if.then.i.i251 ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i245, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
+  %cmp13.i = icmp ugt ptr %incdec.ptr15.i.i, %add.ptr
   br i1 %cmp13.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
-  %retval.0.i18.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i18.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %33 = sub i64 %micro_buffer17.i, %retval.0.i18.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %33
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %33
   %34 = sub i64 %retval.0.i18.i, %micro_buffer17.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %34, i1 false), !tbaa !7
   br label %for.cond.preheader.i
@@ -45011,8 +45008,6 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %_Z
 if.then.i.i:                                      ; preds = %while.end.i.i
   %15 = trunc i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i = add i8 %15, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %conv.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i:                                       ; preds = %while.end.i.i
@@ -45026,19 +45021,20 @@ if.end.i.i:                                       ; preds = %while.end.i.i
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %17 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -2
-  store i8 %17, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i ], [ %incdec.ptr15.i.i, %if.end.i.i ]
-  %cmp41.i = icmp ugt ptr %retval.0.i.i, %cond.i
+  %.sink6 = phi i64 [ -2, %if.end.i.i ], [ -1, %if.then.i.i ]
+  %.sink = phi i8 [ %17, %if.end.i.i ], [ %conv.i.i, %if.then.i.i ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink6
+  store i8 %.sink, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
+  %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
   br i1 %cmp41.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
-  %retval.0.i46.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %18 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %18
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %18
   %19 = sub i64 %retval.0.i46.i, %data45.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %19, i1 false), !tbaa !7
   br label %for.cond.preheader.i
@@ -45205,8 +45201,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   %3 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %3, 48
-  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr6.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -45220,19 +45214,20 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
   %5 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -2
-  store i8 %5, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %incdec.ptr6.i.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i.i, %if.end.i.i.i ]
-  %cmp13.i.i = icmp ugt ptr %retval.0.i.i.i, %micro_buffer
+  %.sink7 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
+  %.sink = phi i8 [ %5, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink7
+  store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
+  %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %for.cond.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
-  %retval.0.i18.i.i = ptrtoint ptr %retval.0.i.i.i to i64
+  %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
   %6 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %6
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %6
   %7 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %7, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
@@ -45489,8 +45484,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   %3 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %3, 48
-  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr6.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -45504,19 +45497,20 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
   %5 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -2
-  store i8 %5, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %incdec.ptr6.i.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i.i, %if.end.i.i.i ]
-  %cmp13.i.i = icmp ugt ptr %retval.0.i.i.i, %micro_buffer
+  %.sink9 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
+  %.sink = phi i8 [ %5, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink9
+  store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
+  %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %for.cond.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
-  %retval.0.i18.i.i = ptrtoint ptr %retval.0.i.i.i to i64
+  %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
   %6 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %6
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %6
   %7 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %7, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
@@ -45996,8 +45990,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   %11 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %11, 48
-  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr6.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -46011,19 +46003,20 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
   %13 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -2
-  store i8 %13, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %incdec.ptr6.i.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i.i, %if.end.i.i.i ]
-  %cmp13.i.i = icmp ugt ptr %retval.0.i.i.i, %micro_buffer
+  %.sink13 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
+  %.sink = phi i8 [ %13, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink13
+  store i8 %.sink, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !7
+  %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %for.cond.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
-  %retval.0.i18.i.i = ptrtoint ptr %retval.0.i.i.i to i64
+  %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
   %14 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %14
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %14
   %15 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %15, i1 false), !tbaa !7
   br label %for.cond.preheader.i.i
@@ -46109,8 +46102,6 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %_Z
 if.then.i.i:                                      ; preds = %while.end.i.i
   %29 = trunc i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i = add i8 %29, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %conv.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i72:                                     ; preds = %while.end.i.i
@@ -46124,19 +46115,20 @@ if.end.i.i72:                                     ; preds = %while.end.i.i
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %31 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !7
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -2
-  store i8 %31, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i72, %if.then.i.i
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i ], [ %incdec.ptr15.i.i, %if.end.i.i72 ]
-  %cmp41.i = icmp ugt ptr %retval.0.i.i, %cond.i
+  %.sink15 = phi i64 [ -2, %if.end.i.i72 ], [ -1, %if.then.i.i ]
+  %.sink14 = phi i8 [ %31, %if.end.i.i72 ], [ %conv.i.i, %if.then.i.i ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink15
+  store i8 %.sink14, ptr %incdec.ptr15.i.i, align 1, !tbaa !7
+  %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %cond.i
   br i1 %cmp41.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
-  %retval.0.i46.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %32 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %32
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %32
   %33 = sub i64 %retval.0.i46.i, %data45.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %33, i1 false), !tbaa !7
   br label %for.cond.preheader.i
@@ -46704,8 +46696,6 @@ while.end.i:                                      ; preds = %while.body.i, %whil
 if.then.i:                                        ; preds = %while.end.i
   %5 = trunc nuw nsw i64 %value.addr.0.lcssa.i to i8
   %conv6.i = or disjoint i8 %5, 48
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 -1
-  store i8 %conv6.i, ptr %incdec.ptr7.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
 
 if.end.i:                                         ; preds = %while.end.i
@@ -46720,21 +46710,22 @@ if.end.i:                                         ; preds = %while.end.i
   %idxprom15.i = zext nneg i32 %conv10.i to i64
   %arrayidx16.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i
   %7 = load i8, ptr %arrayidx16.i, align 1, !tbaa !7
-  %incdec.ptr17.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 -2
-  store i8 %7, ptr %incdec.ptr17.i, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit: ; preds = %if.end.i, %if.then.i
-  %retval.0.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %incdec.ptr17.i, %if.end.i ]
+  %.sink2 = phi i64 [ -2, %if.end.i ], [ -1, %if.then.i ]
+  %.sink = phi i8 [ %7, %if.end.i ], [ %conv6.i, %if.then.i ]
+  %incdec.ptr17.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 %.sink2
+  store i8 %.sink, ptr %incdec.ptr17.i, align 1, !tbaa !7
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr.addr.050 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %retval.0.i to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr17.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %cmp246 = icmp slt i32 %conv, 17
   br i1 %cmp246, label %for.body.preheader, label %for.cond.cleanup
 
 for.body.preheader:                               ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
-  %scevgep = getelementptr i8, ptr %retval.0.i, i64 -1
+  %scevgep = getelementptr i8, ptr %incdec.ptr17.i, i64 -1
   %reass.sub = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %8 = add i64 %reass.sub, 16
   %9 = and i64 %8, 4294967295
@@ -46745,7 +46736,7 @@ for.body.preheader:                               ; preds = %_ZN6duckdb13Numeric
   br label %for.cond.cleanup
 
 for.cond.cleanup:                                 ; preds = %for.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
-  %ptr.addr.1.lcssa = phi ptr [ %retval.0.i, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit ], [ %scevgep55, %for.body.preheader ]
+  %ptr.addr.1.lcssa = phi ptr [ %incdec.ptr17.i, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit ], [ %scevgep55, %for.body.preheader ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %remainder) #24
   %cmp = icmp sgt i64 %1, 0
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !717
@@ -46786,8 +46777,6 @@ while.end.i12:                                    ; preds = %while.body.i30, %wh
 if.then.i27:                                      ; preds = %while.end.i12
   %14 = trunc nuw nsw i64 %value.addr.0.lcssa.i14 to i8
   %conv6.i28 = or disjoint i8 %14, 48
-  %incdec.ptr7.i29 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 -1
-  store i8 %conv6.i28, ptr %incdec.ptr7.i29, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45
 
 if.end.i16:                                       ; preds = %while.end.i12
@@ -46802,13 +46791,14 @@ if.end.i16:                                       ; preds = %while.end.i12
   %idxprom15.i23 = zext nneg i32 %conv10.i18 to i64
   %arrayidx16.i24 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i23
   %16 = load i8, ptr %arrayidx16.i24, align 1, !tbaa !7
-  %incdec.ptr17.i25 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 -2
-  store i8 %16, ptr %incdec.ptr17.i25, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45: ; preds = %if.end.i16, %if.then.i27
-  %retval.0.i26 = phi ptr [ %incdec.ptr7.i29, %if.then.i27 ], [ %incdec.ptr17.i25, %if.end.i16 ]
-  ret ptr %retval.0.i26
+  %.sink4 = phi i64 [ -2, %if.end.i16 ], [ -1, %if.then.i27 ]
+  %.sink3 = phi i8 [ %16, %if.end.i16 ], [ %conv6.i28, %if.then.i27 ]
+  %incdec.ptr17.i25 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 %.sink4
+  store i8 %.sink3, ptr %incdec.ptr17.i25, align 1, !tbaa !7
+  ret ptr %incdec.ptr17.i25
 }
 
 declare { i64, i64 } @_ZN6duckdb7Hugeint6DivModENS_9hugeint_tES1_RS1_(i64, i64, i64, i64, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #7
@@ -108622,8 +108612,6 @@ while.end.i44:                                    ; preds = %while.body.i59, %if
 if.then.i56:                                      ; preds = %while.end.i44
   %14 = trunc nuw nsw i16 %value.addr.0.lcssa.i46 to i8
   %conv11.i57 = or disjoint i8 %14, 48
-  %incdec.ptr12.i58 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 -1
-  store i8 %conv11.i57, ptr %incdec.ptr12.i58, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
 
 if.end.i48:                                       ; preds = %while.end.i44
@@ -108637,29 +108625,30 @@ if.end.i48:                                       ; preds = %while.end.i44
   %idxprom20.i52 = zext nneg i16 %15 to i64
   %arrayidx21.i53 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom20.i52
   %18 = load i8, ptr %arrayidx21.i53, align 1, !tbaa !7
-  %incdec.ptr22.i54 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 -2
-  store i8 %18, ptr %incdec.ptr22.i54, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
 
 _ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71: ; preds = %if.end.i48, %if.then.i56
-  %retval.0.i55 = phi ptr [ %incdec.ptr12.i58, %if.then.i56 ], [ %incdec.ptr22.i54, %if.end.i48 ]
+  %.sink1 = phi i64 [ -2, %if.end.i48 ], [ -1, %if.then.i56 ]
+  %.sink = phi i8 [ %18, %if.end.i48 ], [ %conv11.i57, %if.then.i56 ]
+  %incdec.ptr22.i54 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr22.i54, align 1, !tbaa !7
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp20101 = icmp ugt ptr %retval.0.i55, %add.ptr19
+  %cmp20101 = icmp ugt ptr %incdec.ptr22.i54, %add.ptr19
   br i1 %cmp20101, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
-  %retval.0.i55104 = ptrtoint ptr %retval.0.i55 to i64
+  %retval.0.i55104 = ptrtoint ptr %incdec.ptr22.i54 to i64
   %19 = add i64 %dst103, %len
   %20 = add i64 %retval.0.i55104, %idxprom
   %21 = sub i64 %19, %20
-  %scevgep = getelementptr i8, ptr %retval.0.i55, i64 %21
+  %scevgep = getelementptr i8, ptr %incdec.ptr22.i54, i64 %21
   %22 = sub i64 %20, %19
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %22, i1 false), !tbaa !7
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i55, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr22.i54, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr21, align 1, !tbaa !7
   %cmp24 = icmp ugt i8 %width, %scale
@@ -108832,8 +108821,6 @@ while.end.i35:                                    ; preds = %while.body.i52, %if
 if.then.i49:                                      ; preds = %while.end.i35
   %8 = trunc nuw nsw i32 %value.addr.0.lcssa.i37 to i8
   %conv.i50 = or disjoint i8 %8, 48
-  %incdec.ptr6.i51 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 -1
-  store i8 %conv.i50, ptr %incdec.ptr6.i51, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
 
 if.end.i39:                                       ; preds = %while.end.i35
@@ -108847,29 +108834,30 @@ if.end.i39:                                       ; preds = %while.end.i35
   %idxprom13.i45 = zext nneg i32 %mul8.i40 to i64
   %arrayidx14.i46 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i45
   %10 = load i8, ptr %arrayidx14.i46, align 1, !tbaa !7
-  %incdec.ptr15.i47 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 -2
-  store i8 %10, ptr %incdec.ptr15.i47, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66: ; preds = %if.end.i39, %if.then.i49
-  %retval.0.i48 = phi ptr [ %incdec.ptr6.i51, %if.then.i49 ], [ %incdec.ptr15.i47, %if.end.i39 ]
+  %.sink1 = phi i64 [ -2, %if.end.i39 ], [ -1, %if.then.i49 ]
+  %.sink = phi i8 [ %10, %if.end.i39 ], [ %conv.i50, %if.then.i49 ]
+  %incdec.ptr15.i47 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr15.i47, align 1, !tbaa !7
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp11100 = icmp ugt ptr %retval.0.i48, %add.ptr10
+  %cmp11100 = icmp ugt ptr %incdec.ptr15.i47, %add.ptr10
   br i1 %cmp11100, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
-  %retval.0.i48103 = ptrtoint ptr %retval.0.i48 to i64
+  %retval.0.i48103 = ptrtoint ptr %incdec.ptr15.i47 to i64
   %11 = add i64 %dst102, %len
   %12 = add i64 %retval.0.i48103, %idxprom
   %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %retval.0.i48, i64 %13
+  %scevgep = getelementptr i8, ptr %incdec.ptr15.i47, i64 %13
   %14 = sub i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false), !tbaa !7
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i48, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr15.i47, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr12 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr12, align 1, !tbaa !7
   %cmp15 = icmp ugt i8 %width, %scale
@@ -109042,8 +109030,6 @@ while.end.i33:                                    ; preds = %while.body.i51, %if
 if.then.i48:                                      ; preds = %while.end.i33
   %8 = trunc nuw nsw i64 %value.addr.0.lcssa.i35 to i8
   %conv6.i49 = or disjoint i8 %8, 48
-  %incdec.ptr7.i50 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 -1
-  store i8 %conv6.i49, ptr %incdec.ptr7.i50, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
 
 if.end.i37:                                       ; preds = %while.end.i33
@@ -109058,29 +109044,30 @@ if.end.i37:                                       ; preds = %while.end.i33
   %idxprom15.i44 = zext nneg i32 %conv10.i39 to i64
   %arrayidx16.i45 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i44
   %10 = load i8, ptr %arrayidx16.i45, align 1, !tbaa !7
-  %incdec.ptr17.i46 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 -2
-  store i8 %10, ptr %incdec.ptr17.i46, align 1, !tbaa !7
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66: ; preds = %if.end.i37, %if.then.i48
-  %retval.0.i47 = phi ptr [ %incdec.ptr7.i50, %if.then.i48 ], [ %incdec.ptr17.i46, %if.end.i37 ]
+  %.sink1 = phi i64 [ -2, %if.end.i37 ], [ -1, %if.then.i48 ]
+  %.sink = phi i8 [ %10, %if.end.i37 ], [ %conv6.i49, %if.then.i48 ]
+  %incdec.ptr17.i46 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr17.i46, align 1, !tbaa !7
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp9102 = icmp ugt ptr %retval.0.i47, %add.ptr8
+  %cmp9102 = icmp ugt ptr %incdec.ptr17.i46, %add.ptr8
   br i1 %cmp9102, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
-  %retval.0.i47105 = ptrtoint ptr %retval.0.i47 to i64
+  %retval.0.i47105 = ptrtoint ptr %incdec.ptr17.i46 to i64
   %11 = add i64 %dst104, %len
   %12 = add i64 %retval.0.i47105, %idxprom
   %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %retval.0.i47, i64 %13
+  %scevgep = getelementptr i8, ptr %incdec.ptr17.i46, i64 %13
   %14 = sub i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false), !tbaa !7
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i47, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr17.i46, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr10 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr10, align 1, !tbaa !7
   %cmp13 = icmp ugt i8 %width, %scale

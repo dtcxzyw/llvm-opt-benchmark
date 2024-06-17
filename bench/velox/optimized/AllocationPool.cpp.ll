@@ -317,23 +317,23 @@ if.then.i59:                                      ; preds = %if.then57
   unreachable
 
 return.sink.split:                                ; preds = %if.then57, %if.then9
-  %retval.0.i.sink = phi i64 [ %retval.0.i, %if.then9 ], [ %retval.0.i41, %if.then57 ]
-  %add.sink = phi i64 [ %add, %if.then9 ], [ %add36, %if.then57 ]
+  %retval.0.i41.sink = phi i64 [ %retval.0.i, %if.then9 ], [ %retval.0.i41, %if.then57 ]
+  %add36.sink = phi i64 [ %add, %if.then9 ], [ %add36, %if.then57 ]
   %.sink = phi ptr [ %4, %if.then9 ], [ %20, %if.then57 ]
   %retval.0.ph = phi ptr [ %add.ptr, %if.then9 ], [ %add.ptr45, %if.then57 ]
-  %21 = xor i64 %retval.0.i.sink, -1
-  %sub.i.i = add i64 %add.sink, %21
-  %22 = and i64 %sub.i.i, -2097152
-  %mul.i.i = add i64 %22, 2097152
-  %add.ptr.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 -32
-  %sub.i3.i = or i64 %sub.i.i, 2097151
-  %mul.i5.i = add i64 %sub.i3.i, 1
-  %div.i2.i = lshr exact i64 %mul.i5.i, 12
-  tail call void @_ZN8facebook5velox6memory20ContiguousAllocation4growEm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i, i64 noundef %div.i2.i)
-  %usedBytes_.i = getelementptr inbounds i8, ptr %this, i64 80
-  %23 = load i64, ptr %usedBytes_.i, align 8
-  %add.i58 = add nsw i64 %mul.i.i, %23
-  store i64 %add.i58, ptr %usedBytes_.i, align 8
+  %21 = xor i64 %retval.0.i41.sink, -1
+  %sub.i.i51 = add i64 %add36.sink, %21
+  %22 = and i64 %sub.i.i51, -2097152
+  %mul.i.i52 = add i64 %22, 2097152
+  %add.ptr.i.i.i53 = getelementptr inbounds i8, ptr %.sink, i64 -32
+  %sub.i3.i54 = or i64 %sub.i.i51, 2097151
+  %mul.i5.i55 = add i64 %sub.i3.i54, 1
+  %div.i2.i56 = lshr exact i64 %mul.i5.i55, 12
+  tail call void @_ZN8facebook5velox6memory20ContiguousAllocation4growEm(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i53, i64 noundef %div.i2.i56)
+  %usedBytes_.i57 = getelementptr inbounds i8, ptr %this, i64 80
+  %23 = load i64, ptr %usedBytes_.i57, align 8
+  %add.i58 = add nsw i64 %mul.i.i52, %23
+  store i64 %add.i58, ptr %usedBytes_.i57, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end51, %if.then4

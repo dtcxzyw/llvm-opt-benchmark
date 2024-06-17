@@ -4410,15 +4410,15 @@ cond.true59:                                      ; preds = %land.lhs.true35
   br label %if.end76.sink.split
 
 if.end76.sink.split:                              ; preds = %land.lhs.true35, %cond.true59
-  %.sink428 = phi i64 [ 45, %cond.true59 ], [ 93, %land.lhs.true35 ]
-  %incdec.ptr42 = getelementptr inbounds i8, ptr %44, i64 1
-  store ptr %incdec.ptr42, ptr %p, align 8
+  %.sink425 = phi i64 [ 45, %cond.true59 ], [ 93, %land.lhs.true35 ]
+  %incdec.ptr61 = getelementptr inbounds i8, ptr %44, i64 1
+  store ptr %incdec.ptr61, ptr %p, align 8
   %46 = load i8, ptr %mask.i, align 8
   %47 = load ptr, ptr %arrayidx53.i, align 8
-  %arrayidx = getelementptr inbounds i8, ptr %47, i64 %.sink428
-  %48 = load i8, ptr %arrayidx, align 1
+  %arrayidx67 = getelementptr inbounds i8, ptr %47, i64 %.sink425
+  %48 = load i8, ptr %arrayidx67, align 1
   %or69109 = or i8 %48, %46
-  store i8 %or69109, ptr %arrayidx, align 1
+  store i8 %or69109, ptr %arrayidx67, align 1
   %49 = load i8, ptr %hash.i, align 1
   %add73 = add i8 %49, %45
   store i8 %add73, ptr %hash.i, align 1
@@ -4780,8 +4780,8 @@ if.then.i.i110.i:                                 ; preds = %while.body.i.i.i, %
   br i1 %cmp.i.i.i112.i, label %seterr.exit.i.i113.i.sink.split, label %seterr.exit.i.i113.i
 
 seterr.exit.i.i113.i.sink.split:                  ; preds = %if.then.i.i110.i, %lor.rhs95.i
-  %.sink425 = phi i32 [ 3, %lor.rhs95.i ], [ 7, %if.then.i.i110.i ]
-  store i32 %.sink425, ptr %error.i100.i, align 8
+  %.sink426 = phi i32 [ 3, %lor.rhs95.i ], [ 7, %if.then.i.i110.i ]
+  store i32 %.sink426, ptr %error.i100.i, align 8
   br label %seterr.exit.i.i113.i
 
 seterr.exit.i.i113.i:                             ; preds = %seterr.exit.i.i113.i.sink.split, %lor.rhs95.i, %if.then.i.i110.i
@@ -4997,8 +4997,8 @@ land.lhs.true138:                                 ; preds = %if.end133
   br i1 %cmp142, label %lor.end, label %lor.rhs
 
 lor.rhs.sink.split:                               ; preds = %lor.rhs184.i, %lor.rhs104.i, %lor.rhs134.i, %lor.rhs40.i, %lor.rhs70.i, %sw.bb14.i
-  %.sink426.sink = phi i32 [ 11, %sw.bb14.i ], [ 7, %lor.rhs40.i ], [ 4, %lor.rhs70.i ], [ 7, %lor.rhs104.i ], [ 3, %lor.rhs134.i ], [ 11, %lor.rhs184.i ]
-  store i32 %.sink426.sink, ptr %error.i100.i, align 8
+  %.sink427.sink = phi i32 [ 11, %sw.bb14.i ], [ 7, %lor.rhs40.i ], [ 4, %lor.rhs70.i ], [ 7, %lor.rhs104.i ], [ 3, %lor.rhs134.i ], [ 11, %lor.rhs184.i ]
+  store i32 %.sink427.sink, ptr %error.i100.i, align 8
   br label %lor.rhs
 
 lor.rhs:                                          ; preds = %lor.rhs.sink.split, %lor.rhs134.i, %lor.rhs104.i, %lor.rhs70.i, %lor.rhs40.i, %lor.rhs184.i, %sw.bb14.i, %land.lhs.true138, %if.end133

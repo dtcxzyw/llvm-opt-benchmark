@@ -2468,8 +2468,8 @@ define hidden void @zim_Phar_mungServer(ptr nocapture noundef readonly %0, ptr n
   br i1 %.not55, label %.critedge6.sink.split, label %.critedge6
 
 .critedge6.sink.split:                            ; preds = %40, %39, %37, %35
-  %.sink63 = phi i32 [ 1, %35 ], [ 2, %37 ], [ 4, %39 ], [ 8, %40 ]
-  %42 = or i32 %28, %.sink63
+  %.sink60 = phi i32 [ 1, %35 ], [ 2, %37 ], [ 4, %39 ], [ 8, %40 ]
+  %42 = or i32 %28, %.sink60
   store i32 %42, ptr getelementptr inbounds (i8, ptr @phar_globals, i64 176), align 8
   br label %.critedge6
 

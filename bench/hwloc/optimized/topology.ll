@@ -7709,7 +7709,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 7:                                                ; preds = %3
   %8 = tail call ptr @__errno_location() #36
   store i32 22, ptr %8, align 4
-  br label %143
+  br label %138
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds i8, ptr %0, i64 240
@@ -7720,7 +7720,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 12:                                               ; preds = %9
   %13 = tail call ptr @__errno_location() #36
   store i32 1, ptr %13, align 4
-  br label %143
+  br label %138
 
 14:                                               ; preds = %9
   %.not103 = icmp ult i64 %2, 32
@@ -7729,7 +7729,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 15:                                               ; preds = %14
   %16 = tail call ptr @__errno_location() #36
   store i32 22, ptr %16, align 4
-  br label %143
+  br label %138
 
 17:                                               ; preds = %14
   %18 = and i64 %2, 8
@@ -7744,7 +7744,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 21:                                               ; preds = %19
   %22 = tail call ptr @__errno_location() #36
   store i32 22, ptr %22, align 4
-  br label %143
+  br label %138
 
 23:                                               ; preds = %17
   %.not105 = icmp ult i64 %2, 16
@@ -7753,7 +7753,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 24:                                               ; preds = %23
   %25 = tail call ptr @__errno_location() #36
   store i32 22, ptr %25, align 4
-  br label %143
+  br label %138
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds i8, ptr %0, i64 456
@@ -7772,7 +7772,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 33:                                               ; preds = %.critedge, %26
   %34 = tail call ptr @__errno_location() #36
   store i32 22, ptr %34, align 4
-  br label %143
+  br label %138
 
 35:                                               ; preds = %26, %.critedge
   %36 = tail call noalias ptr @hwloc_bitmap_alloc() #33
@@ -7785,10 +7785,10 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
 40:                                               ; preds = %35
   tail call void @hwloc_bitmap_free(ptr noundef %36) #33
   tail call void @hwloc_bitmap_free(ptr noundef %37) #33
-  br label %143
+  br label %138
 
 41:                                               ; preds = %35
-  br i1 %.not104, label %80, label %42
+  br i1 %.not104, label %76, label %42
 
 42:                                               ; preds = %41
   %43 = tail call i32 @hwloc_bitmap_not(ptr noundef nonnull %37, ptr noundef %1) #33
@@ -7838,7 +7838,7 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   store i32 22, ptr %66, align 4
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %36) #33
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %37) #33
-  br label %143
+  br label %138
 
 67:                                               ; preds = %61
   %68 = tail call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %36) #34
@@ -7859,152 +7859,150 @@ define range(i32 -1, 1) i32 @hwloc_topology_restrict(ptr noundef %0, ptr noundef
   %74 = load ptr, ptr %73, align 8
   %75 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %74, ptr noundef %74, ptr noundef nonnull %37) #33
   %.not122 = icmp eq ptr %.095, null
-  br i1 %.not122, label %117, label %76
+  br i1 %.not122, label %112, label %.sink.split
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds i8, ptr %0, i64 448
-  %78 = load ptr, ptr %77, align 8
-  %79 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %78, ptr noundef %78, ptr noundef nonnull %.095) #33
-  br label %117
+76:                                               ; preds = %41
+  %77 = tail call i32 @hwloc_bitmap_not(ptr noundef nonnull %36, ptr noundef %1) #33
+  %78 = and i64 %2, 1
+  %.not109 = icmp eq i64 %78, 0
+  br i1 %.not109, label %.critedge130, label %79
 
-80:                                               ; preds = %41
-  %81 = tail call i32 @hwloc_bitmap_not(ptr noundef nonnull %36, ptr noundef %1) #33
-  %82 = and i64 %2, 1
-  %.not109 = icmp eq i64 %82, 0
-  br i1 %.not109, label %.critedge130, label %83
+79:                                               ; preds = %76
+  %80 = tail call fastcc ptr @hwloc_get_obj_by_type(ptr noundef nonnull %0, i32 noundef 13) #34
+  br label %81
 
-83:                                               ; preds = %80
-  %84 = tail call fastcc ptr @hwloc_get_obj_by_type(ptr noundef nonnull %0, i32 noundef 13) #34
-  br label %85
+81:                                               ; preds = %91, %79
+  %.0 = phi ptr [ %80, %79 ], [ %93, %91 ]
+  %82 = getelementptr inbounds i8, ptr %.0, i64 184
+  %83 = load ptr, ptr %82, align 8
+  %84 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %83) #34
+  %.not110 = icmp eq i32 %84, 0
+  br i1 %.not110, label %85, label %87
 
-85:                                               ; preds = %95, %83
-  %.0 = phi ptr [ %84, %83 ], [ %97, %95 ]
-  %86 = getelementptr inbounds i8, ptr %.0, i64 184
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call i32 @hwloc_bitmap_iszero(ptr noundef %87) #34
-  %.not110 = icmp eq i32 %88, 0
-  br i1 %.not110, label %89, label %91
+85:                                               ; preds = %81
+  %86 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %83, ptr noundef nonnull %36) #34
+  %.not111 = icmp eq i32 %86, 0
+  br i1 %.not111, label %91, label %87
 
-89:                                               ; preds = %85
-  %90 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %87, ptr noundef nonnull %36) #34
-  %.not111 = icmp eq i32 %90, 0
-  br i1 %.not111, label %95, label %91
+87:                                               ; preds = %85, %81
+  %88 = getelementptr inbounds i8, ptr %.0, i64 16
+  %89 = load i32, ptr %88, align 8
+  %90 = tail call i32 @hwloc_bitmap_set(ptr noundef nonnull %37, i32 noundef %89) #33
+  br label %91
 
-91:                                               ; preds = %89, %85
-  %92 = getelementptr inbounds i8, ptr %.0, i64 16
-  %93 = load i32, ptr %92, align 8
-  %94 = tail call i32 @hwloc_bitmap_set(ptr noundef nonnull %37, i32 noundef %93) #33
-  br label %95
+91:                                               ; preds = %87, %85
+  %92 = getelementptr inbounds i8, ptr %.0, i64 56
+  %93 = load ptr, ptr %92, align 8
+  %.not112 = icmp eq ptr %93, null
+  br i1 %.not112, label %94, label %81, !llvm.loop !76
 
-95:                                               ; preds = %91, %89
-  %96 = getelementptr inbounds i8, ptr %.0, i64 56
-  %97 = load ptr, ptr %96, align 8
-  %.not112 = icmp eq ptr %97, null
-  br i1 %.not112, label %98, label %85, !llvm.loop !76
+94:                                               ; preds = %91
+  %95 = getelementptr inbounds i8, ptr %0, i64 456
+  %96 = load ptr, ptr %95, align 8
+  %97 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %96, ptr noundef nonnull %37) #34
+  %.not113 = icmp eq i32 %97, 0
+  br i1 %.not113, label %100, label %98
 
-98:                                               ; preds = %95
-  %99 = getelementptr inbounds i8, ptr %0, i64 456
-  %100 = load ptr, ptr %99, align 8
-  %101 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %100, ptr noundef nonnull %37) #34
-  %.not113 = icmp eq i32 %101, 0
-  br i1 %.not113, label %104, label %102
-
-102:                                              ; preds = %98
-  %103 = tail call ptr @__errno_location() #36
-  store i32 22, ptr %103, align 4
+98:                                               ; preds = %94
+  %99 = tail call ptr @__errno_location() #36
+  store i32 22, ptr %99, align 4
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %36) #33
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %37) #33
-  br label %143
+  br label %138
 
-104:                                              ; preds = %98
-  %105 = tail call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %37) #34
-  %.not114 = icmp eq i32 %105, 0
-  br i1 %.not114, label %106, label %.critedge130
+100:                                              ; preds = %94
+  %101 = tail call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %37) #34
+  %.not114 = icmp eq i32 %101, 0
+  br i1 %.not114, label %102, label %.critedge130
 
-.critedge130:                                     ; preds = %80, %104
+.critedge130:                                     ; preds = %76, %100
   tail call void @hwloc_bitmap_free(ptr noundef nonnull %37) #33
-  br label %106
+  br label %102
 
-106:                                              ; preds = %.critedge130, %104
-  %.094 = phi ptr [ null, %.critedge130 ], [ %37, %104 ]
-  %107 = getelementptr inbounds i8, ptr %0, i64 24
-  %108 = load ptr, ptr %107, align 8
-  %109 = load ptr, ptr %108, align 8
-  tail call fastcc void @restrict_object_by_cpuset(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %109, ptr noundef nonnull %36, ptr noundef %.094)
-  %110 = getelementptr inbounds i8, ptr %0, i64 448
-  %111 = load ptr, ptr %110, align 8
-  %112 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %111, ptr noundef %111, ptr noundef nonnull %36) #33
+102:                                              ; preds = %.critedge130, %100
+  %.094 = phi ptr [ null, %.critedge130 ], [ %37, %100 ]
+  %103 = getelementptr inbounds i8, ptr %0, i64 24
+  %104 = load ptr, ptr %103, align 8
+  %105 = load ptr, ptr %104, align 8
+  tail call fastcc void @restrict_object_by_cpuset(ptr noundef nonnull %0, i64 noundef %2, ptr noundef %105, ptr noundef nonnull %36, ptr noundef %.094)
+  %106 = getelementptr inbounds i8, ptr %0, i64 448
+  %107 = load ptr, ptr %106, align 8
+  %108 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %107, ptr noundef %107, ptr noundef nonnull %36) #33
   %.not115 = icmp eq ptr %.094, null
-  br i1 %.not115, label %117, label %113
+  br i1 %.not115, label %112, label %.sink.split
 
-113:                                              ; preds = %106
-  %114 = getelementptr inbounds i8, ptr %0, i64 456
-  %115 = load ptr, ptr %114, align 8
-  %116 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %115, ptr noundef %115, ptr noundef nonnull %.094) #33
-  br label %117
+.sink.split:                                      ; preds = %102, %69
+  %.sink = phi i64 [ 448, %69 ], [ 456, %102 ]
+  %.094.sink = phi ptr [ %.095, %69 ], [ %.094, %102 ]
+  %.196.ph = phi ptr [ %.095, %69 ], [ %36, %102 ]
+  %.1.ph = phi ptr [ %37, %69 ], [ %.094, %102 ]
+  %109 = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %110 = load ptr, ptr %109, align 8
+  %111 = tail call i32 @hwloc_bitmap_andnot(ptr noundef %110, ptr noundef %110, ptr noundef nonnull %.094.sink) #33
+  br label %112
 
-117:                                              ; preds = %106, %113, %69, %76
-  %.196 = phi ptr [ %.095, %76 ], [ null, %69 ], [ %36, %113 ], [ %36, %106 ]
-  %.1 = phi ptr [ %37, %76 ], [ %37, %69 ], [ %.094, %113 ], [ null, %106 ]
+112:                                              ; preds = %.sink.split, %102, %69
+  %.196 = phi ptr [ null, %69 ], [ %36, %102 ], [ %.196.ph, %.sink.split ]
+  %.1 = phi ptr [ %37, %69 ], [ null, %102 ], [ %.1.ph, %.sink.split ]
   tail call void @hwloc_bitmap_free(ptr noundef %.196) #33
   tail call void @hwloc_bitmap_free(ptr noundef %.1) #33
-  %118 = tail call fastcc i32 @hwloc_filter_levels_keep_structure(ptr noundef nonnull %0)
-  %119 = icmp slt i32 %118, 0
-  br i1 %119, label %142, label %120
+  %113 = tail call fastcc i32 @hwloc_filter_levels_keep_structure(ptr noundef nonnull %0)
+  %114 = icmp slt i32 %113, 0
+  br i1 %114, label %137, label %115
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %0, i64 32
-  %122 = load i64, ptr %121, align 8
-  %123 = and i64 %122, 128
-  %.not123 = icmp eq i64 %123, 0
-  br i1 %.not123, label %124, label %125
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds i8, ptr %0, i64 32
+  %117 = load i64, ptr %116, align 8
+  %118 = and i64 %117, 128
+  %.not123 = icmp eq i64 %118, 0
+  br i1 %.not123, label %119, label %120
 
-124:                                              ; preds = %120
+119:                                              ; preds = %115
   tail call void @hwloc_internal_distances_invalidate_cached_objs(ptr noundef nonnull %0) #33
-  %.pre = load i64, ptr %121, align 8
-  br label %125
+  %.pre = load i64, ptr %116, align 8
+  br label %120
 
-125:                                              ; preds = %124, %120
-  %126 = phi i64 [ %.pre, %124 ], [ %122, %120 ]
-  %127 = and i64 %126, 256
-  %.not124 = icmp eq i64 %127, 0
-  br i1 %.not124, label %128, label %129
+120:                                              ; preds = %119, %115
+  %121 = phi i64 [ %.pre, %119 ], [ %117, %115 ]
+  %122 = and i64 %121, 256
+  %.not124 = icmp eq i64 %122, 0
+  br i1 %.not124, label %123, label %124
 
-128:                                              ; preds = %125
+123:                                              ; preds = %120
   tail call void @hwloc_internal_memattrs_need_refresh(ptr noundef nonnull %0) #33
-  %.pre131 = load i64, ptr %121, align 8
-  br label %129
+  %.pre131 = load i64, ptr %116, align 8
+  br label %124
 
-129:                                              ; preds = %128, %125
-  %130 = phi i64 [ %.pre131, %128 ], [ %126, %125 ]
-  %131 = and i64 %130, 512
-  %.not125 = icmp eq i64 %131, 0
-  br i1 %.not125, label %132, label %133
+124:                                              ; preds = %123, %120
+  %125 = phi i64 [ %.pre131, %123 ], [ %121, %120 ]
+  %126 = and i64 %125, 512
+  %.not125 = icmp eq i64 %126, 0
+  br i1 %.not125, label %127, label %128
 
-132:                                              ; preds = %129
+127:                                              ; preds = %124
   tail call void @hwloc_internal_cpukinds_restrict(ptr noundef nonnull %0) #33
-  br label %133
+  br label %128
 
-133:                                              ; preds = %132, %129
-  %134 = getelementptr inbounds i8, ptr %0, i64 24
+128:                                              ; preds = %127, %124
+  %129 = getelementptr inbounds i8, ptr %0, i64 24
+  %130 = load ptr, ptr %129, align 8
+  %131 = load ptr, ptr %130, align 8
+  %132 = load ptr, ptr %131, align 8
+  tail call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef %132)
+  %133 = load ptr, ptr %129, align 8
+  %134 = load ptr, ptr %133, align 8
   %135 = load ptr, ptr %134, align 8
-  %136 = load ptr, ptr %135, align 8
-  %137 = load ptr, ptr %136, align 8
-  tail call fastcc void @hwloc_propagate_symmetric_subtree(ptr noundef %137)
-  %138 = load ptr, ptr %134, align 8
-  %139 = load ptr, ptr %138, align 8
-  %140 = load ptr, ptr %139, align 8
-  tail call fastcc void @propagate_total_memory(ptr noundef %140)
-  %141 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #33
-  br label %143
+  tail call fastcc void @propagate_total_memory(ptr noundef %135)
+  %136 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #33
+  br label %138
 
-142:                                              ; preds = %117
+137:                                              ; preds = %112
   tail call void @hwloc_topology_clear(ptr noundef nonnull %0)
   tail call void @hwloc_topology_setup_defaults(ptr noundef nonnull %0)
-  br label %143
+  br label %138
 
-143:                                              ; preds = %133, %142, %102, %65, %40, %33, %24, %21, %15, %12, %7
-  %.097 = phi i32 [ -1, %12 ], [ -1, %15 ], [ -1, %21 ], [ -1, %65 ], [ -1, %142 ], [ -1, %102 ], [ -1, %40 ], [ -1, %33 ], [ -1, %24 ], [ -1, %7 ], [ 0, %133 ]
+138:                                              ; preds = %128, %137, %98, %65, %40, %33, %24, %21, %15, %12, %7
+  %.097 = phi i32 [ -1, %12 ], [ -1, %15 ], [ -1, %21 ], [ -1, %65 ], [ -1, %137 ], [ -1, %98 ], [ -1, %40 ], [ -1, %33 ], [ -1, %24 ], [ -1, %7 ], [ 0, %128 ]
   ret i32 %.097
 }
 
@@ -10294,15 +10292,15 @@ hwloc_append_special_object.exit98:               ; preds = %30, %36
 42:                                               ; preds = %2
   %43 = add i32 %3, -17
   %44 = icmp ult i32 %43, -3
-  br i1 %44, label %77, label %45
+  br i1 %44, label %70, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr null, ptr %46, align 8
-  switch i32 %3, label %72 [
+  switch i32 %3, label %65 [
     i32 14, label %47
-    i32 15, label %55
-    i32 16, label %63
+    i32 15, label %52
+    i32 16, label %57
   ]
 
 47:                                               ; preds = %45
@@ -10312,132 +10310,123 @@ hwloc_append_special_object.exit98:               ; preds = %30, %36
   %50 = load ptr, ptr %49, align 8
   %.not.i99 = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %0, i64 312
-  br i1 %.not.i99, label %.sink.split, label %52
+  br i1 %.not.i99, label %.sink.split, label %.sink.split.sink.split
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %51, align 8
-  %54 = getelementptr inbounds i8, ptr %53, i64 56
+52:                                               ; preds = %45
+  %53 = getelementptr inbounds i8, ptr %1, i64 48
+  store i32 -5, ptr %53, align 8
+  %54 = getelementptr inbounds i8, ptr %0, i64 336
+  %55 = load ptr, ptr %54, align 8
+  %.not.i103 = icmp eq ptr %55, null
+  %56 = getelementptr inbounds i8, ptr %0, i64 344
+  br i1 %.not.i103, label %.sink.split, label %.sink.split.sink.split
+
+57:                                               ; preds = %45
+  %58 = getelementptr inbounds i8, ptr %1, i64 48
+  store i32 -6, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %0, i64 368
+  %60 = load ptr, ptr %59, align 8
+  %.not.i107 = icmp eq ptr %60, null
+  %61 = getelementptr inbounds i8, ptr %0, i64 376
+  br i1 %.not.i107, label %.sink.split, label %.sink.split.sink.split
+
+.sink.split.sink.split:                           ; preds = %57, %52, %47
+  %.sink180 = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ]
+  %62 = load ptr, ptr %.sink180, align 8
+  %63 = getelementptr inbounds i8, ptr %62, i64 56
   br label %.sink.split
 
-55:                                               ; preds = %45
-  %56 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 -5, ptr %56, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 336
-  %58 = load ptr, ptr %57, align 8
-  %.not.i103 = icmp eq ptr %58, null
-  %59 = getelementptr inbounds i8, ptr %0, i64 344
-  br i1 %.not.i103, label %.sink.split, label %60
-
-60:                                               ; preds = %55
-  %61 = load ptr, ptr %59, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 56
-  br label %.sink.split
-
-63:                                               ; preds = %45
-  %64 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 -6, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %0, i64 368
-  %66 = load ptr, ptr %65, align 8
-  %.not.i107 = icmp eq ptr %66, null
-  %67 = getelementptr inbounds i8, ptr %0, i64 376
-  br i1 %.not.i107, label %.sink.split, label %68
-
-68:                                               ; preds = %63
-  %69 = load ptr, ptr %67, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 56
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %68, %63, %60, %55, %52, %47
-  %.sink172.sink = phi ptr [ %53, %52 ], [ null, %47 ], [ %61, %60 ], [ null, %55 ], [ %69, %68 ], [ null, %63 ]
-  %.sink11.i104.sink = phi ptr [ %54, %52 ], [ %51, %47 ], [ %62, %60 ], [ %59, %55 ], [ %70, %68 ], [ %67, %63 ]
-  %.sink.i105.sink = phi ptr [ %51, %52 ], [ %49, %47 ], [ %59, %60 ], [ %57, %55 ], [ %67, %68 ], [ %65, %63 ]
-  %71 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %.sink172.sink, ptr %71, align 8
+.sink.split:                                      ; preds = %.sink.split.sink.split, %57, %52, %47
+  %.sink172.sink = phi ptr [ null, %47 ], [ null, %52 ], [ null, %57 ], [ %62, %.sink.split.sink.split ]
+  %.sink11.i104.sink = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %63, %.sink.split.sink.split ]
+  %.sink.i105.sink = phi ptr [ %49, %47 ], [ %54, %52 ], [ %59, %57 ], [ %.sink180, %.sink.split.sink.split ]
+  %64 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %.sink172.sink, ptr %64, align 8
   store ptr %1, ptr %.sink11.i104.sink, align 8
   store ptr %1, ptr %.sink.i105.sink, align 8
-  br label %72
+  br label %65
 
-72:                                               ; preds = %.sink.split, %45
-  %73 = getelementptr inbounds i8, ptr %1, i64 160
-  %.4131 = load ptr, ptr %73, align 8
+65:                                               ; preds = %.sink.split, %45
+  %66 = getelementptr inbounds i8, ptr %1, i64 160
+  %.4131 = load ptr, ptr %66, align 8
   %.not85132 = icmp eq ptr %.4131, null
   br i1 %.not85132, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %72, %.lr.ph135
-  %.4133 = phi ptr [ %.4, %.lr.ph135 ], [ %.4131, %72 ]
+.lr.ph135:                                        ; preds = %65, %.lr.ph135
+  %.4133 = phi ptr [ %.4, %.lr.ph135 ], [ %.4131, %65 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.4133)
-  %74 = getelementptr inbounds i8, ptr %.4133, i64 88
-  %.4 = load ptr, ptr %74, align 8
+  %67 = getelementptr inbounds i8, ptr %.4133, i64 88
+  %.4 = load ptr, ptr %67, align 8
   %.not85 = icmp eq ptr %.4, null
   br i1 %.not85, label %._crit_edge136, label %.lr.ph135, !llvm.loop !101
 
-._crit_edge136:                                   ; preds = %.lr.ph135, %72
-  %75 = getelementptr inbounds i8, ptr %1, i64 176
-  %.5137 = load ptr, ptr %75, align 8
+._crit_edge136:                                   ; preds = %.lr.ph135, %65
+  %68 = getelementptr inbounds i8, ptr %1, i64 176
+  %.5137 = load ptr, ptr %68, align 8
   %.not86138 = icmp eq ptr %.5137, null
   br i1 %.not86138, label %.loopexit, label %.lr.ph141
 
 .lr.ph141:                                        ; preds = %._crit_edge136, %.lr.ph141
   %.5139 = phi ptr [ %.5, %.lr.ph141 ], [ %.5137, %._crit_edge136 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.5139)
-  %76 = getelementptr inbounds i8, ptr %.5139, i64 88
-  %.5 = load ptr, ptr %76, align 8
+  %69 = getelementptr inbounds i8, ptr %.5139, i64 88
+  %.5 = load ptr, ptr %69, align 8
   %.not86 = icmp eq ptr %.5, null
   br i1 %.not86, label %.loopexit, label %.lr.ph141, !llvm.loop !102
 
-77:                                               ; preds = %42
-  %78 = getelementptr inbounds i8, ptr %1, i64 120
-  %.6142 = load ptr, ptr %78, align 8
+70:                                               ; preds = %42
+  %71 = getelementptr inbounds i8, ptr %1, i64 120
+  %.6142 = load ptr, ptr %71, align 8
   %.not81143 = icmp eq ptr %.6142, null
   br i1 %.not81143, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph146:                                        ; preds = %77, %.lr.ph146
-  %.6144 = phi ptr [ %.6, %.lr.ph146 ], [ %.6142, %77 ]
+.lr.ph146:                                        ; preds = %70, %.lr.ph146
+  %.6144 = phi ptr [ %.6, %.lr.ph146 ], [ %.6142, %70 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.6144)
-  %79 = getelementptr inbounds i8, ptr %.6144, i64 88
-  %.6 = load ptr, ptr %79, align 8
+  %72 = getelementptr inbounds i8, ptr %.6144, i64 88
+  %.6 = load ptr, ptr %72, align 8
   %.not81 = icmp eq ptr %.6, null
   br i1 %.not81, label %._crit_edge147, label %.lr.ph146, !llvm.loop !103
 
-._crit_edge147:                                   ; preds = %.lr.ph146, %77
-  %80 = getelementptr inbounds i8, ptr %1, i64 144
-  %.7148 = load ptr, ptr %80, align 8
+._crit_edge147:                                   ; preds = %.lr.ph146, %70
+  %73 = getelementptr inbounds i8, ptr %1, i64 144
+  %.7148 = load ptr, ptr %73, align 8
   %.not82149 = icmp eq ptr %.7148, null
   br i1 %.not82149, label %._crit_edge153, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %._crit_edge147, %.lr.ph152
   %.7150 = phi ptr [ %.7, %.lr.ph152 ], [ %.7148, %._crit_edge147 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.7150)
-  %81 = getelementptr inbounds i8, ptr %.7150, i64 88
-  %.7 = load ptr, ptr %81, align 8
+  %74 = getelementptr inbounds i8, ptr %.7150, i64 88
+  %.7 = load ptr, ptr %74, align 8
   %.not82 = icmp eq ptr %.7, null
   br i1 %.not82, label %._crit_edge153, label %.lr.ph152, !llvm.loop !104
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %._crit_edge147
-  %82 = getelementptr inbounds i8, ptr %1, i64 160
-  %.8154 = load ptr, ptr %82, align 8
+  %75 = getelementptr inbounds i8, ptr %1, i64 160
+  %.8154 = load ptr, ptr %75, align 8
   %.not83155 = icmp eq ptr %.8154, null
   br i1 %.not83155, label %._crit_edge159, label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %._crit_edge153, %.lr.ph158
   %.8156 = phi ptr [ %.8, %.lr.ph158 ], [ %.8154, %._crit_edge153 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.8156)
-  %83 = getelementptr inbounds i8, ptr %.8156, i64 88
-  %.8 = load ptr, ptr %83, align 8
+  %76 = getelementptr inbounds i8, ptr %.8156, i64 88
+  %.8 = load ptr, ptr %76, align 8
   %.not83 = icmp eq ptr %.8, null
   br i1 %.not83, label %._crit_edge159, label %.lr.ph158, !llvm.loop !105
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %._crit_edge153
-  %84 = getelementptr inbounds i8, ptr %1, i64 176
-  %.9160 = load ptr, ptr %84, align 8
+  %77 = getelementptr inbounds i8, ptr %1, i64 176
+  %.9160 = load ptr, ptr %77, align 8
   %.not84161 = icmp eq ptr %.9160, null
   br i1 %.not84161, label %.loopexit, label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %._crit_edge159, %.lr.ph164
   %.9162 = phi ptr [ %.9, %.lr.ph164 ], [ %.9160, %._crit_edge159 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.9162)
-  %85 = getelementptr inbounds i8, ptr %.9162, i64 88
-  %.9 = load ptr, ptr %85, align 8
+  %78 = getelementptr inbounds i8, ptr %.9162, i64 88
+  %.9 = load ptr, ptr %78, align 8
   %.not84 = icmp eq ptr %.9, null
   br i1 %.not84, label %.loopexit, label %.lr.ph164, !llvm.loop !106
 

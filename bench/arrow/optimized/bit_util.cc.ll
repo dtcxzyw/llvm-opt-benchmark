@@ -55,15 +55,15 @@ if.end51:                                         ; preds = %if.then46, %if.end2
   br i1 %cmp53, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.end51, %if.then9
-  %div.sink = phi i64 [ %div, %if.then9 ], [ %div3, %if.end51 ]
+  %div3.sink = phi i64 [ %div, %if.then9 ], [ %div3, %if.end51 ]
   %.sink38 = phi i8 [ %cond, %if.then9 ], [ %1, %if.end51 ]
-  %arrayidx16 = getelementptr inbounds i8, ptr %bits, i64 %div.sink
-  %3 = load i8, ptr %arrayidx16, align 1
+  %arrayidx58 = getelementptr inbounds i8, ptr %bits, i64 %div3.sink
+  %3 = load i8, ptr %arrayidx58, align 1
   %and6034 = and i8 %3, %.sink38
   %not64 = xor i8 %.sink38, -1
   %conv67 = select i1 %bits_are_set, i8 %not64, i8 0
   %or71 = or i8 %and6034, %conv67
-  store i8 %or71, ptr %arrayidx16, align 1
+  store i8 %or71, ptr %arrayidx58, align 1
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end51, %entry

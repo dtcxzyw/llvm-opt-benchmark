@@ -56452,20 +56452,20 @@ define dso_local void @_ZNK17cmGeneratorTarget21ComputeTargetManifestERKNSt7__cx
   %29 = alloca %"class.std::__cxx11::basic_string", align 8
   %30 = load ptr, ptr %0, align 8
   %31 = tail call noundef zeroext i1 @_ZNK8cmTarget10IsImportedEv(ptr noundef nonnull align 8 dereferenceable(8) %30)
-  %.sink66.sroa.gep = getelementptr inbounds i8, ptr %18, i64 32
-  %.sink66.sroa.gep67 = getelementptr inbounds i8, ptr %19, i64 32
-  %.sink66.sroa.gep69 = getelementptr inbounds i8, ptr %18, i64 96
-  %.sink66.sroa.gep70 = getelementptr inbounds i8, ptr %19, i64 96
-  %.sink66.sroa.gep72 = getelementptr inbounds i8, ptr %18, i64 160
-  %.sink66.sroa.gep73 = getelementptr inbounds i8, ptr %19, i64 160
-  %.sink66.sroa.gep75 = getelementptr inbounds i8, ptr %18, i64 224
-  %.sink66.sroa.gep76 = getelementptr inbounds i8, ptr %19, i64 224
-  %.sink66.sroa.gep78 = getelementptr inbounds i8, ptr %18, i64 192
-  %.sink66.sroa.gep79 = getelementptr inbounds i8, ptr %19, i64 192
-  %.sink66.sroa.gep81 = getelementptr inbounds i8, ptr %18, i64 128
-  %.sink66.sroa.gep82 = getelementptr inbounds i8, ptr %19, i64 128
-  %.sink66.sroa.gep84 = getelementptr inbounds i8, ptr %18, i64 64
-  %.sink66.sroa.gep85 = getelementptr inbounds i8, ptr %19, i64 64
+  %.sink69.sroa.gep = getelementptr inbounds i8, ptr %18, i64 32
+  %.sink69.sroa.gep70 = getelementptr inbounds i8, ptr %19, i64 32
+  %.sink69.sroa.gep72 = getelementptr inbounds i8, ptr %18, i64 64
+  %.sink69.sroa.gep73 = getelementptr inbounds i8, ptr %19, i64 64
+  %.sink69.sroa.gep75 = getelementptr inbounds i8, ptr %18, i64 96
+  %.sink69.sroa.gep76 = getelementptr inbounds i8, ptr %19, i64 96
+  %.sink69.sroa.gep78 = getelementptr inbounds i8, ptr %18, i64 128
+  %.sink69.sroa.gep79 = getelementptr inbounds i8, ptr %19, i64 128
+  %.sink69.sroa.gep81 = getelementptr inbounds i8, ptr %18, i64 160
+  %.sink69.sroa.gep82 = getelementptr inbounds i8, ptr %19, i64 160
+  %.sink69.sroa.gep84 = getelementptr inbounds i8, ptr %18, i64 192
+  %.sink69.sroa.gep85 = getelementptr inbounds i8, ptr %19, i64 192
+  %.sink69.sroa.gep87 = getelementptr inbounds i8, ptr %18, i64 224
+  %.sink69.sroa.gep88 = getelementptr inbounds i8, ptr %19, i64 224
   br i1 %31, label %211, label %32
 
 32:                                               ; preds = %2
@@ -56537,30 +56537,30 @@ _ZNK17cmGeneratorTarget7GetTypeEv.exit17:         ; preds = %58
           to label %63 unwind label %48
 
 63:                                               ; preds = %62, %47
-  %.sink66.sroa.phi = phi ptr [ %.sink66.sroa.gep, %47 ], [ %.sink66.sroa.gep67, %62 ]
-  %.sink66.sroa.phi68 = phi ptr [ %.sink66.sroa.gep69, %47 ], [ %.sink66.sroa.gep70, %62 ]
-  %.sink66.sroa.phi71 = phi ptr [ %.sink66.sroa.gep72, %47 ], [ %.sink66.sroa.gep73, %62 ]
-  %.sink66.sroa.phi74 = phi ptr [ %.sink66.sroa.gep75, %47 ], [ %.sink66.sroa.gep76, %62 ]
-  %.sink66.sroa.phi77 = phi ptr [ %.sink66.sroa.gep78, %47 ], [ %.sink66.sroa.gep79, %62 ]
-  %.sink66.sroa.phi80 = phi ptr [ %.sink66.sroa.gep81, %47 ], [ %.sink66.sroa.gep82, %62 ]
-  %.sink66.sroa.phi83 = phi ptr [ %.sink66.sroa.gep84, %47 ], [ %.sink66.sroa.gep85, %62 ]
-  %.sink66 = phi ptr [ %18, %47 ], [ %19, %62 ]
-  %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sink66) #29
-  %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi) #29
-  %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi83) #29
-  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi68) #29
-  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi80) #29
-  %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi71) #29
-  %70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi77) #29
-  %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi74) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi74) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi77) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi71) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi80) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi68) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi83) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66.sroa.phi) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink66) #29
+  %.sink69.sroa.phi = phi ptr [ %.sink69.sroa.gep, %47 ], [ %.sink69.sroa.gep70, %62 ]
+  %.sink69.sroa.phi71 = phi ptr [ %.sink69.sroa.gep72, %47 ], [ %.sink69.sroa.gep73, %62 ]
+  %.sink69.sroa.phi74 = phi ptr [ %.sink69.sroa.gep75, %47 ], [ %.sink69.sroa.gep76, %62 ]
+  %.sink69.sroa.phi77 = phi ptr [ %.sink69.sroa.gep78, %47 ], [ %.sink69.sroa.gep79, %62 ]
+  %.sink69.sroa.phi80 = phi ptr [ %.sink69.sroa.gep81, %47 ], [ %.sink69.sroa.gep82, %62 ]
+  %.sink69.sroa.phi83 = phi ptr [ %.sink69.sroa.gep84, %47 ], [ %.sink69.sroa.gep85, %62 ]
+  %.sink69.sroa.phi86 = phi ptr [ %.sink69.sroa.gep87, %47 ], [ %.sink69.sroa.gep88, %62 ]
+  %.sink69 = phi ptr [ %18, %47 ], [ %19, %62 ]
+  %64 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %.sink69) #29
+  %65 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi) #29
+  %66 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi71) #29
+  %67 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi74) #29
+  %68 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi77) #29
+  %69 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi80) #29
+  %70 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi83) #29
+  %71 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi86) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi86) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi83) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi80) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi77) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi74) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi71) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69.sroa.phi) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink69) #29
   invoke void @_ZNK17cmGeneratorTarget12GetDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN12cmStateEnums12ArtifactTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %20, ptr noundef nonnull align 8 dereferenceable(2728) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0)
           to label %72 unwind label %48
 
@@ -80375,8 +80375,8 @@ _ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_trait
   br label %409
 
 .sink.split:                                      ; preds = %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit174, %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit164, %.noexc161, %.noexc322
-  %.sroa.0465.0566.sink = phi ptr [ %374, %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit164 ], [ %367, %.noexc161 ], [ %357, %.noexc322 ], [ %.sroa.0467.0, %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit174 ]
-  %403 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0465.0566.sink) #29
+  %.sroa.0467.0.sink = phi ptr [ %374, %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit164 ], [ %367, %.noexc161 ], [ %357, %.noexc322 ], [ %.sroa.0467.0, %_ZNK17cmGeneratorTarget11GetPropertyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit174 ]
+  %403 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0467.0.sink) #29
   %404 = extractvalue { i64, ptr } %403, 0
   %405 = extractvalue { i64, ptr } %403, 1
   %406 = call noundef zeroext i1 @_ZN7cmValue4IsOnESt17basic_string_viewIcSt11char_traitsIcEE(i64 %404, ptr %405) #29

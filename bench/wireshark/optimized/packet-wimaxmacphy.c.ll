@@ -1293,14 +1293,14 @@ define internal i32 @dissect_wimaxmacphy(ptr noundef %0, ptr noundef %1, ptr nou
   br label %.sink.split.i.i.i.i.i
 
 .sink.split.i.i.i.i.i:                            ; preds = %248, %.lr.ph.i.i.i.i
-  %ett_wimaxmacphy_dl_sub_burst_harq_chase.sink.i.i.i.i.i = phi ptr [ @ett_wimaxmacphy_dl_sub_burst_mimo_chase, %248 ], [ @ett_wimaxmacphy_dl_sub_burst_harq_chase, %.lr.ph.i.i.i.i ]
-  %.str.581.sink.i.i.i.i.i = phi ptr [ @.str.582, %248 ], [ @.str.581, %.lr.ph.i.i.i.i ]
+  %ett_wimaxmacphy_dl_sub_burst_mimo_chase.sink.i.i.i.i.i = phi ptr [ @ett_wimaxmacphy_dl_sub_burst_mimo_chase, %248 ], [ @ett_wimaxmacphy_dl_sub_burst_harq_chase, %.lr.ph.i.i.i.i ]
+  %.str.582.sink.i.i.i.i.i = phi ptr [ @.str.582, %248 ], [ @.str.581, %.lr.ph.i.i.i.i ]
   %hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id.sink.i.i.i.i.i = phi ptr [ @hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id, %248 ], [ @hf_wimaxmacphy_sub_burst_harq_chase_harq_channel_id, %.lr.ph.i.i.i.i ]
   %hf_wimaxmacphy_sub_burst_mimo_chase_harq_sequence_number.sink.i.i.i.i.i = phi ptr [ @hf_wimaxmacphy_sub_burst_mimo_chase_harq_sequence_number, %248 ], [ @hf_wimaxmacphy_sub_burst_harq_chase_harq_sequence_number, %.lr.ph.i.i.i.i ]
   %hf_wimaxmacphy_sub_burst_mimo_chase_flush_unnamed.sink.i.i.i.i.i = phi ptr [ @hf_wimaxmacphy_sub_burst_mimo_chase_flush_unnamed, %248 ], [ @hf_wimaxmacphy_sub_burst_harq_chase_flush_unnamed, %.lr.ph.i.i.i.i ]
   %hf_wimaxmacphy_sub_burst_mimo_chase_layer_index.sink.i.i.i.i.i = phi ptr [ @hf_wimaxmacphy_sub_burst_mimo_chase_layer_index, %248 ], [ @hf_wimaxmacphy_sub_burst_harq_chase_reserved, %.lr.ph.i.i.i.i ]
-  %249 = load i32, ptr %ett_wimaxmacphy_dl_sub_burst_harq_chase.sink.i.i.i.i.i, align 4
-  %250 = call ptr @proto_tree_add_subtree(ptr noundef %207, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %249, ptr noundef null, ptr noundef nonnull %.str.581.sink.i.i.i.i.i) #3
+  %249 = load i32, ptr %ett_wimaxmacphy_dl_sub_burst_mimo_chase.sink.i.i.i.i.i, align 4
+  %250 = call ptr @proto_tree_add_subtree(ptr noundef %207, ptr noundef %0, i32 noundef %247, i32 noundef 4, i32 noundef %249, ptr noundef null, ptr noundef nonnull %.str.582.sink.i.i.i.i.i) #3
   %251 = load i32, ptr %hf_wimaxmacphy_sub_burst_mimo_chase_harq_channel_id.sink.i.i.i.i.i, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %250, i32 noundef %251, ptr noundef %0, i32 noundef %247, i32 noundef 1, i32 noundef 0) #3
   %253 = add i32 %.12.i.i.i.i, 21

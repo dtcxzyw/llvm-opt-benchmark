@@ -707,30 +707,21 @@ declare void @add_conversation_table_data(ptr noundef, ptr noundef, ptr noundef,
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @sll_conv_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   switch i32 %1, label %.thread8 [
-    i32 0, label %3
-    i32 2, label %6
+    i32 0, label %.thread8.sink.split
+    i32 2, label %.thread8.sink.split
   ]
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
-  %switch.selectcmp = icmp eq i32 %5, 2
-  %switch.select = select i1 %switch.selectcmp, ptr @.str.9, ptr @.str.57
-  %switch.selectcmp10 = icmp eq i32 %5, 1
-  %switch.select11 = select i1 %switch.selectcmp10, ptr @.str.7, ptr %switch.select
-  br label %.thread8
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
-  %switch.selectcmp12 = icmp eq i32 %8, 2
+.thread8.sink.split:                              ; preds = %2, %2
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %switch.selectcmp12 = icmp eq i32 %4, 2
   %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.57
-  %switch.selectcmp14 = icmp eq i32 %8, 1
+  %switch.selectcmp14 = icmp eq i32 %4, 1
   %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.7, ptr %switch.select13
   br label %.thread8
 
-.thread8:                                         ; preds = %2, %6, %3
-  %.0 = phi ptr [ %switch.select11, %3 ], [ %switch.select15, %6 ], [ @.str.57, %2 ]
+.thread8:                                         ; preds = %.thread8.sink.split, %2
+  %.0 = phi ptr [ @.str.57, %2 ], [ %switch.select15, %.thread8.sink.split ]
   ret ptr %.0
 }
 
@@ -739,30 +730,21 @@ declare void @add_endpoint_table_data(ptr noundef, ptr noundef, i32 noundef, i32
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define internal nonnull ptr @sll_endpoint_get_filter_type(ptr nocapture noundef readonly %0, i32 noundef %1) #4 {
   switch i32 %1, label %.thread8 [
-    i32 0, label %3
-    i32 2, label %6
+    i32 0, label %.thread8.sink.split
+    i32 2, label %.thread8.sink.split
   ]
 
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = load i32, ptr %4, align 8
-  %switch.selectcmp = icmp eq i32 %5, 2
-  %switch.select = select i1 %switch.selectcmp, ptr @.str.9, ptr @.str.57
-  %switch.selectcmp10 = icmp eq i32 %5, 1
-  %switch.select11 = select i1 %switch.selectcmp10, ptr @.str.7, ptr %switch.select
-  br label %.thread8
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = load i32, ptr %7, align 8
-  %switch.selectcmp12 = icmp eq i32 %8, 2
+.thread8.sink.split:                              ; preds = %2, %2
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8
+  %switch.selectcmp12 = icmp eq i32 %4, 2
   %switch.select13 = select i1 %switch.selectcmp12, ptr @.str.9, ptr @.str.57
-  %switch.selectcmp14 = icmp eq i32 %8, 1
+  %switch.selectcmp14 = icmp eq i32 %4, 1
   %switch.select15 = select i1 %switch.selectcmp14, ptr @.str.7, ptr %switch.select13
   br label %.thread8
 
-.thread8:                                         ; preds = %2, %6, %3
-  %.0 = phi ptr [ %switch.select11, %3 ], [ %switch.select15, %6 ], [ @.str.57, %2 ]
+.thread8:                                         ; preds = %.thread8.sink.split, %2
+  %.0 = phi ptr [ @.str.57, %2 ], [ %switch.select15, %.thread8.sink.split ]
   ret ptr %.0
 }
 

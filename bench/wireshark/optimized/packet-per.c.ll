@@ -4161,14 +4161,14 @@ proto_item_set_hidden.exit:                       ; preds = %18, %15, %12, %6
   unreachable
 
 .cont89.sink.split:                               ; preds = %70, %68, %65, %62
-  %.sink146 = phi i32 [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ]
+  %.sink147 = phi i32 [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ]
   %.sink.ph = phi i32 [ 8, %62 ], [ 16, %65 ], [ 24, %68 ], [ 32, %70 ]
-  store i32 %.sink146, ptr %5, align 4
+  store i32 %.sink147, ptr %5, align 4
   br label %.cont89
 
 .cont89:                                          ; preds = %.cont89.sink.split, %70, %68, %65, %62
   %.sink = phi i32 [ 8, %62 ], [ 16, %65 ], [ 24, %68 ], [ 32, %70 ], [ %.sink.ph, %.cont89.sink.split ]
-  %.10 = phi i32 [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ], [ %.sink146, %.cont89.sink.split ]
+  %.10 = phi i32 [ %64, %62 ], [ %67, %65 ], [ %69, %68 ], [ %71, %70 ], [ %.sink147, %.cont89.sink.split ]
   %78 = add i32 %59, %.sink
   %79 = icmp sgt i32 %4, 0
   br i1 %79, label %82, label %proto_item_set_hidden.exit74
@@ -4212,9 +4212,9 @@ proto_item_set_hidden.exit:                       ; preds = %18, %15, %12, %6
   br i1 %.not5.i76, label %proto_item_set_hidden.exit74, label %proto_item_set_hidden.exit74.sink.split
 
 proto_item_set_hidden.exit74.sink.split:          ; preds = %91, %54
-  %.sink147 = phi ptr [ %56, %54 ], [ %93, %91 ]
+  %.sink146 = phi ptr [ %56, %54 ], [ %93, %91 ]
   %.060.ph = phi i32 [ %.us-phi135, %54 ], [ %.1119124, %91 ]
-  %94 = getelementptr inbounds i8, ptr %.sink147, i64 28
+  %94 = getelementptr inbounds i8, ptr %.sink146, i64 28
   %95 = load i32, ptr %94, align 4
   %96 = or i32 %95, 1
   store i32 %96, ptr %94, align 4

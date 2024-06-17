@@ -1011,17 +1011,13 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41:  ; preds = %if.then.i.i.i39, %i
   store ptr %retval.sroa.2.0.copyload.i, ptr %End.i.i45, align 8
   %debugLoc_.i.i46 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 40
   store ptr %retval.sroa.0.0.copyload.i.i17, ptr %debugLoc_.i.i46, align 8
-  %30 = load ptr, ptr %children, align 8
-  %Next2.i.i.i.i.i47 = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  store ptr %children, ptr %Next2.i.i.i.i.i47, align 8
-  store ptr %30, ptr %retval.0.i.i.i, align 8
   br label %if.end61
 
 if.else47:                                        ; preds = %if.then25
   %call50 = tail call { i64, i8 } @_ZN6hermes6parser6detail12JSParserImpl23parseJSXChildExpressionEN4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, ptr %retval.sroa.0.0.copyload.i.i17)
-  %31 = extractvalue { i64, i8 } %call50, 0
-  %32 = extractvalue { i64, i8 } %call50, 1
-  %tobool.i50 = trunc i8 %32 to i1
+  %30 = extractvalue { i64, i8 } %call50, 0
+  %31 = extractvalue { i64, i8 } %call50, 1
+  %tobool.i50 = trunc i8 %31 to i1
   br i1 %tobool.i50, label %if.end54, label %return
 
 if.end54:                                         ; preds = %if.else47
@@ -1029,19 +1025,18 @@ if.end54:                                         ; preds = %if.else47
   br i1 %call57, label %if.end59, label %return
 
 if.end59:                                         ; preds = %if.end54
-  %33 = inttoptr i64 %31 to ptr
-  %34 = load ptr, ptr %children, align 8
-  %Next2.i.i.i.i.i53 = getelementptr inbounds i8, ptr %33, i64 8
-  store ptr %children, ptr %Next2.i.i.i.i.i53, align 8
-  store ptr %34, ptr %33, align 8
+  %32 = inttoptr i64 %30 to ptr
   br label %if.end61
 
 if.end61:                                         ; preds = %if.end59, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41
-  %.sink89 = phi ptr [ %34, %if.end59 ], [ %30, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
-  %.sink = phi ptr [ %33, %if.end59 ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
-  %Next2.i7.i.i.i.i54 = getelementptr inbounds i8, ptr %.sink89, i64 8
-  store ptr %.sink, ptr %Next2.i7.i.i.i.i54, align 8
-  store ptr %.sink, ptr %children, align 8
+  %.sink92 = phi ptr [ %32, %if.end59 ], [ %retval.0.i.i.i, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit41 ]
+  %33 = load ptr, ptr %children, align 8
+  %Next2.i.i.i.i.i53 = getelementptr inbounds i8, ptr %.sink92, i64 8
+  store ptr %children, ptr %Next2.i.i.i.i.i53, align 8
+  store ptr %33, ptr %.sink92, align 8
+  %Next2.i7.i.i.i.i54 = getelementptr inbounds i8, ptr %33, i64 8
+  store ptr %.sink92, ptr %Next2.i7.i.i.i.i54, align 8
+  store ptr %.sink92, ptr %children, align 8
   %call62 = tail call noundef ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i22) #9
   br label %for.cond.backedge
 
@@ -1053,73 +1048,73 @@ if.else63:                                        ; preds = %for.cond
   br i1 %call66, label %if.end68, label %return
 
 if.end68:                                         ; preds = %if.else63
-  %35 = load ptr, ptr %tok_.i, align 8
-  %36 = load ptr, ptr %this, align 8
-  %state_.i.i.i56 = getelementptr inbounds i8, ptr %36, i64 24
-  %37 = load ptr, ptr %state_.i.i.i56, align 8
-  %38 = load i32, ptr %37, align 8
-  %conv.i.i.i57 = zext i32 %38 to i64
-  %39 = load ptr, ptr %36, align 8
-  %add.ptr.i.i.i.i58 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %39, i64 %conv.i.i.i57
-  %40 = load ptr, ptr %add.ptr.i.i.i.i58, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %offset.i.i.i59 = getelementptr inbounds i8, ptr %37, i64 8
-  %42 = load i64, ptr %offset.i.i.i59, align 8
-  %add.i.i.i.i.i60 = add i64 %41, 7
-  %sub1.i.i.i.i.i61 = add i64 %add.i.i.i.i.i60, %42
-  %43 = and i64 %sub1.i.i.i.i.i61, 7
-  %.neg88 = add i64 %42, 7
-  %sub.i.i.i.i62 = sub i64 %.neg88, %43
+  %34 = load ptr, ptr %tok_.i, align 8
+  %35 = load ptr, ptr %this, align 8
+  %state_.i.i.i56 = getelementptr inbounds i8, ptr %35, i64 24
+  %36 = load ptr, ptr %state_.i.i.i56, align 8
+  %37 = load i32, ptr %36, align 8
+  %conv.i.i.i57 = zext i32 %37 to i64
+  %38 = load ptr, ptr %35, align 8
+  %add.ptr.i.i.i.i58 = getelementptr inbounds %"class.std::unique_ptr.101", ptr %38, i64 %conv.i.i.i57
+  %39 = load ptr, ptr %add.ptr.i.i.i.i58, align 8
+  %40 = ptrtoint ptr %39 to i64
+  %offset.i.i.i59 = getelementptr inbounds i8, ptr %36, i64 8
+  %41 = load i64, ptr %offset.i.i.i59, align 8
+  %add.i.i.i.i.i60 = add i64 %40, 7
+  %sub1.i.i.i.i.i61 = add i64 %add.i.i.i.i.i60, %41
+  %42 = and i64 %sub1.i.i.i.i.i61, 7
+  %.neg88 = add i64 %41, 7
+  %sub.i.i.i.i62 = sub i64 %.neg88, %42
   store i64 %sub.i.i.i.i62, ptr %offset.i.i.i59, align 8
-  %44 = load ptr, ptr %state_.i.i.i56, align 8
-  %offset8.i.i.i63 = getelementptr inbounds i8, ptr %44, i64 8
-  %45 = load i64, ptr %offset8.i.i.i63, align 8
-  %add.i.i.i64 = add i64 %45, 64
+  %43 = load ptr, ptr %state_.i.i.i56, align 8
+  %offset8.i.i.i63 = getelementptr inbounds i8, ptr %43, i64 8
+  %44 = load i64, ptr %offset8.i.i.i63, align 8
+  %add.i.i.i64 = add i64 %44, 64
   %cmp9.i.i.i65 = icmp ugt i64 %add.i.i.i64, 262144
   br i1 %cmp9.i.i.i65, label %if.then.i.i.i69, label %if.end.i.i.i66
 
 if.then.i.i.i69:                                  ; preds = %if.end68
-  %call11.i.i.i70 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %36, i64 noundef 64, i64 noundef 8) #9
+  %call11.i.i.i70 = tail call noundef ptr @_ZN6hermes28BacktrackingBumpPtrAllocator15allocateNewSlabEmm(ptr noundef nonnull align 8 dereferenceable(32) %35, i64 noundef 64, i64 noundef 8) #9
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71
 
 if.end.i.i.i66:                                   ; preds = %if.end68
-  %add14.i.i.i67 = add i64 %45, %41
-  %46 = inttoptr i64 %add14.i.i.i67 to ptr
+  %add14.i.i.i67 = add i64 %44, %40
+  %45 = inttoptr i64 %add14.i.i.i67 to ptr
   store i64 %add.i.i.i64, ptr %offset8.i.i.i63, align 8
   br label %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71
 
 _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit71:  ; preds = %if.then.i.i.i69, %if.end.i.i.i66
-  %retval.0.i.i.i68 = phi ptr [ %call11.i.i.i70, %if.then.i.i.i69 ], [ %46, %if.end.i.i.i66 ]
-  %47 = load ptr, ptr %tok_.i, align 8
-  %stringLiteral_.i = getelementptr inbounds i8, ptr %47, i64 40
-  %48 = load ptr, ptr %stringLiteral_.i, align 8
-  %rawString_.i = getelementptr inbounds i8, ptr %47, i64 56
-  %49 = load ptr, ptr %rawString_.i, align 8
+  %retval.0.i.i.i68 = phi ptr [ %call11.i.i.i70, %if.then.i.i.i69 ], [ %45, %if.end.i.i.i66 ]
+  %46 = load ptr, ptr %tok_.i, align 8
+  %stringLiteral_.i = getelementptr inbounds i8, ptr %46, i64 40
+  %47 = load ptr, ptr %stringLiteral_.i, align 8
+  %rawString_.i = getelementptr inbounds i8, ptr %46, i64 56
+  %48 = load ptr, ptr %rawString_.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %retval.0.i.i.i68, i8 0, i64 16, i1 false)
   %kind_.i.i.i72 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 16
   store i32 108, ptr %kind_.i.i.i72, align 8
   %parens_.i.i.i73 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %parens_.i.i.i73, i8 0, i64 28, i1 false)
   %_value.i = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 48
-  store ptr %48, ptr %_value.i, align 8
+  store ptr %47, ptr %_value.i, align 8
   %_raw.i = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 56
-  store ptr %49, ptr %_raw.i, align 8
-  %range_.i.i.i = getelementptr inbounds i8, ptr %35, i64 8
+  store ptr %48, ptr %_raw.i, align 8
+  %range_.i.i.i = getelementptr inbounds i8, ptr %34, i64 8
   %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %range_.i.i.i, align 8
   %sourceRange_.i.i74 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 24
   store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %sourceRange_.i.i74, align 8
-  %End.i.i.i = getelementptr inbounds i8, ptr %35, i64 16
+  %End.i.i.i = getelementptr inbounds i8, ptr %34, i64 16
   %retval.sroa.0.0.copyload.i.i5.i = load ptr, ptr %End.i.i.i, align 8
   %End.i.i75 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 32
   store ptr %retval.sroa.0.0.copyload.i.i5.i, ptr %End.i.i75, align 8
   %retval.sroa.0.0.copyload.i.i7.i = load ptr, ptr %range_.i.i.i, align 8
   %debugLoc_.i.i76 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 40
   store ptr %retval.sroa.0.0.copyload.i.i7.i, ptr %debugLoc_.i.i76, align 8
-  %50 = load ptr, ptr %children, align 8
+  %49 = load ptr, ptr %children, align 8
   %Next2.i.i.i.i.i77 = getelementptr inbounds i8, ptr %retval.0.i.i.i68, i64 8
   store ptr %children, ptr %Next2.i.i.i.i.i77, align 8
-  store ptr %50, ptr %retval.0.i.i.i68, align 8
-  %Next2.i7.i.i.i.i78 = getelementptr inbounds i8, ptr %50, i64 8
+  store ptr %49, ptr %retval.0.i.i.i68, align 8
+  %Next2.i7.i.i.i.i78 = getelementptr inbounds i8, ptr %49, i64 8
   store ptr %retval.0.i.i.i68, ptr %Next2.i7.i.i.i.i78, align 8
   store ptr %retval.0.i.i.i68, ptr %children, align 8
   %call79 = tail call noundef ptr @_ZN6hermes6parser7JSLexer17advanceInJSXChildEv(ptr noundef nonnull align 8 dereferenceable(1128) %lexer_.i22) #9

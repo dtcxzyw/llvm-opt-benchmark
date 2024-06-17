@@ -931,72 +931,56 @@ if.then3:                                         ; preds = %if.then
 do.end:                                           ; preds = %if.then, %if.then3
   %call8 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp10.not = icmp eq i32 %call8, 0
-  br i1 %cmp10.not, label %do.end75, label %if.then12
-
-if.then12:                                        ; preds = %do.end
-  %call14 = tail call ptr @__errno_location() #25
-  %4 = load i32, ptr %call14, align 4
-  %call15 = tail call ptr @strerror(i32 noundef %4) #22
-  %5 = load ptr, ptr @stderr, align 8
-  %call16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %call15, ptr noundef nonnull @.str.2, i32 noundef 151) #19
-  br label %do.end75.sink.split
+  br i1 %cmp10.not, label %do.end75, label %do.end75.sink.split
 
 if.end20:                                         ; preds = %entry
   %call21 = tail call noundef zeroext i1 @_ZNK3zmq5msg_t6is_vsmEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
-  %6 = load i64, ptr %_matching, align 8
+  %4 = load i64, ptr %_matching, align 8
   br i1 %call21, label %for.cond.preheader, label %if.end42
 
 for.cond.preheader:                               ; preds = %if.end20
-  %cmp2424.not = icmp eq i64 %6, 0
+  %cmp2424.not = icmp eq i64 %4, 0
   br i1 %cmp2424.not, label %for.end, label %for.body
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %i.025 = phi i64 [ %spec.select, %for.body ], [ 0, %for.cond.preheader ]
-  %7 = load ptr, ptr %this, align 8
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %7, i64 %i.025
-  %8 = load ptr, ptr %add.ptr.i.i, align 8
-  %call26 = tail call noundef zeroext i1 @_ZN3zmq6dist_t5writeEPNS_6pipe_tEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %8, ptr noundef nonnull %msg_)
+  %5 = load ptr, ptr %this, align 8
+  %add.ptr.i.i = getelementptr inbounds ptr, ptr %5, i64 %i.025
+  %6 = load ptr, ptr %add.ptr.i.i, align 8
+  %call26 = tail call noundef zeroext i1 @_ZN3zmq6dist_t5writeEPNS_6pipe_tEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %6, ptr noundef nonnull %msg_)
   %inc = zext i1 %call26 to i64
   %spec.select = add nuw i64 %i.025, %inc
-  %9 = load i64, ptr %_matching, align 8
-  %cmp24 = icmp ult i64 %spec.select, %9
+  %7 = load i64, ptr %_matching, align 8
+  %cmp24 = icmp ult i64 %spec.select, %7
   br i1 %cmp24, label %for.body, label %for.end, !llvm.loop !7
 
 for.end:                                          ; preds = %for.body, %for.cond.preheader
   %call30 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp32.not = icmp eq i32 %call30, 0
-  br i1 %cmp32.not, label %do.end75, label %if.then34
-
-if.then34:                                        ; preds = %for.end
-  %call36 = tail call ptr @__errno_location() #25
-  %10 = load i32, ptr %call36, align 4
-  %call37 = tail call ptr @strerror(i32 noundef %10) #22
-  %11 = load ptr, ptr @stderr, align 8
-  %call38 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef nonnull @.str.3, ptr noundef %call37, ptr noundef nonnull @.str.2, i32 noundef 164) #19
-  br label %do.end75.sink.split
+  br i1 %cmp32.not, label %do.end75, label %do.end75.sink.split
 
 if.end42:                                         ; preds = %if.end20
-  %conv = trunc i64 %6 to i32
+  %conv = trunc i64 %4 to i32
   %sub = add nsw i32 %conv, -1
   tail call void @_ZN3zmq5msg_t8add_refsEi(ptr noundef nonnull align 8 dereferenceable(64) %msg_, i32 noundef %sub)
-  %12 = load i64, ptr %_matching, align 8
-  %cmp4721.not = icmp eq i64 %12, 0
+  %8 = load i64, ptr %_matching, align 8
+  %cmp4721.not = icmp eq i64 %8, 0
   br i1 %cmp4721.not, label %if.end61, label %for.body48
 
 for.body48:                                       ; preds = %if.end42, %for.body48
   %i44.023 = phi i64 [ %i44.1, %for.body48 ], [ 0, %if.end42 ]
   %failed.022 = phi i32 [ %failed.1, %for.body48 ], [ 0, %if.end42 ]
-  %13 = load ptr, ptr %this, align 8
-  %add.ptr.i.i20 = getelementptr inbounds ptr, ptr %13, i64 %i44.023
-  %14 = load ptr, ptr %add.ptr.i.i20, align 8
-  %call51 = tail call noundef zeroext i1 @_ZN3zmq6dist_t5writeEPNS_6pipe_tEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %14, ptr noundef nonnull %msg_)
+  %9 = load ptr, ptr %this, align 8
+  %add.ptr.i.i20 = getelementptr inbounds ptr, ptr %9, i64 %i44.023
+  %10 = load ptr, ptr %add.ptr.i.i20, align 8
+  %call51 = tail call noundef zeroext i1 @_ZN3zmq6dist_t5writeEPNS_6pipe_tEPNS_5msg_tE(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %10, ptr noundef nonnull %msg_)
   %not.call51 = xor i1 %call51, true
   %inc53 = zext i1 %not.call51 to i32
   %failed.1 = add nuw nsw i32 %failed.022, %inc53
   %inc55 = zext i1 %call51 to i64
   %i44.1 = add nuw i64 %i44.023, %inc55
-  %15 = load i64, ptr %_matching, align 8
-  %cmp47 = icmp ult i64 %i44.1, %15
+  %11 = load i64, ptr %_matching, align 8
+  %cmp47 = icmp ult i64 %i44.1, %11
   br i1 %cmp47, label %for.body48, label %for.end57, !llvm.loop !8
 
 for.end57:                                        ; preds = %for.body48
@@ -1010,21 +994,18 @@ if.then59:                                        ; preds = %for.end57
 if.end61:                                         ; preds = %if.end42, %if.then59, %for.end57
   %call63 = tail call noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull align 8 dereferenceable(64) %msg_)
   %cmp65.not = icmp eq i32 %call63, 0
-  br i1 %cmp65.not, label %do.end75, label %if.then68
+  br i1 %cmp65.not, label %do.end75, label %do.end75.sink.split
 
-if.then68:                                        ; preds = %if.end61
+do.end75.sink.split:                              ; preds = %if.end61, %for.end, %do.end
+  %.sink29 = phi i32 [ 151, %do.end ], [ 164, %for.end ], [ 188, %if.end61 ]
   %call70 = tail call ptr @__errno_location() #25
-  %16 = load i32, ptr %call70, align 4
-  %call71 = tail call ptr @strerror(i32 noundef %16) #22
-  %17 = load ptr, ptr @stderr, align 8
-  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.3, ptr noundef %call71, ptr noundef nonnull @.str.2, i32 noundef 188) #19
-  br label %do.end75.sink.split
-
-do.end75.sink.split:                              ; preds = %if.then12, %if.then34, %if.then68
-  %call71.sink = phi ptr [ %call71, %if.then68 ], [ %call37, %if.then34 ], [ %call15, %if.then12 ]
-  %18 = load ptr, ptr @stderr, align 8
-  %call73 = tail call i32 @fflush(ptr noundef %18)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call71.sink)
+  %12 = load i32, ptr %call70, align 4
+  %call71 = tail call ptr @strerror(i32 noundef %12) #22
+  %13 = load ptr, ptr @stderr, align 8
+  %call72 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %13, ptr noundef nonnull @.str.3, ptr noundef %call71, ptr noundef nonnull @.str.2, i32 noundef %.sink29) #19
+  %14 = load ptr, ptr @stderr, align 8
+  %call73 = tail call i32 @fflush(ptr noundef %14)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call71)
   br label %do.end75
 
 do.end75:                                         ; preds = %do.end75.sink.split, %if.end61, %for.end, %do.end

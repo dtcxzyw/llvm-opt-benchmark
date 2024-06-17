@@ -12189,12 +12189,12 @@ ehcleanup40:                                      ; preds = %_ZN7testing7Message
 
 if.else48.sink.split:                             ; preds = %for.body.i.i.i75, %_ZN7testing15AssertionResultD2Ev.exit74
   store i8 0, ptr %gtest_ar_41, align 8
-  %message_.i84270 = getelementptr inbounds i8, ptr %gtest_ar_41, i64 8
-  store ptr null, ptr %message_.i84270, align 8
+  %message_.i84280 = getelementptr inbounds i8, ptr %gtest_ar_41, i64 8
+  store ptr null, ptr %message_.i84280, align 8
   br label %if.else48
 
 if.else48:                                        ; preds = %if.else48.sink.split, %_ZN4absl7c_equalINSt7__cxx114listIiSaIiEEEA3_iEEbRKT_RKT0_.exit
-  %message_.i84272 = phi ptr [ %message_.i84, %_ZN4absl7c_equalINSt7__cxx114listIiSaIiEEEA3_iEEbRKT_RKT0_.exit ], [ %message_.i84270, %if.else48.sink.split ]
+  %message_.i84272 = phi ptr [ %message_.i84, %_ZN4absl7c_equalINSt7__cxx114listIiSaIiEEEA3_iEEbRKT_RKT0_.exit ], [ %message_.i84280, %if.else48.sink.split ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp49)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -23359,12 +23359,12 @@ ehcleanup16:                                      ; preds = %_ZN7testing7Message
 
 if.else34.sink.split:                             ; preds = %if.end.i.i.i107, %_ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.i.i.i81
   store i8 0, ptr %gtest_ar_24, align 8
-  %message_.i113260 = getelementptr inbounds i8, ptr %gtest_ar_24, i64 8
-  store ptr null, ptr %message_.i113260, align 8
+  %message_.i113298 = getelementptr inbounds i8, ptr %gtest_ar_24, i64 8
+  store ptr null, ptr %message_.i113298, align 8
   br label %if.else34
 
 if.else34:                                        ; preds = %if.else34.sink.split, %invoke.cont28
-  %message_.i113262 = phi ptr [ %message_.i113, %invoke.cont28 ], [ %message_.i113260, %if.else34.sink.split ]
+  %message_.i113262 = phi ptr [ %message_.i113, %invoke.cont28 ], [ %message_.i113298, %if.else34.sink.split ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp35)
           to label %invoke.cont37 unwind label %lpad36
 
@@ -24328,12 +24328,12 @@ lpad13:                                           ; preds = %_ZNSt8_Rb_treeIiiSt
 
 if.else.sink.split:                               ; preds = %while.body.i.i.i10, %invoke.cont14
   store i8 0, ptr %gtest_ar_, align 8
-  %message_.i35 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
-  store ptr null, ptr %message_.i35, align 8
+  %message_.i44 = getelementptr inbounds i8, ptr %gtest_ar_, i64 8
+  store ptr null, ptr %message_.i44, align 8
   br label %if.else
 
 if.else:                                          ; preds = %if.else.sink.split, %invoke.cont18
-  %message_.i37 = phi ptr [ %message_.i, %invoke.cont18 ], [ %message_.i35, %if.else.sink.split ]
+  %message_.i37 = phi ptr [ %message_.i, %invoke.cont18 ], [ %message_.i44, %if.else.sink.split ]
   invoke void @_ZN7testing7MessageC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22)
           to label %invoke.cont24 unwind label %lpad23
 

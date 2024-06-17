@@ -120,9 +120,9 @@ if.end:                                           ; preds = %entry
   br i1 %cmp.i.i.i.i.not33, label %for.end19, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end
-  %arrayidx.i.i.i.i.i28.i = getelementptr inbounds i8, ptr %ref.tmp21.i, i64 16
-  %arrayidx.i.i.i.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 16
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
+  %arrayidx.i.i26.i.i.i28.i = getelementptr inbounds i8, ptr %ref.tmp21.i, i64 16
+  %arrayidx.i.i26.i.i.i12.i = getelementptr inbounds i8, ptr %ref.tmp12.i, i64 16
+  %arrayidx.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc17
@@ -193,31 +193,31 @@ if.end.i:                                         ; preds = %for.body12
 
 if.then4.i:                                       ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i, i8 0, i64 32, i1 false)
-  store i64 -4294967296, ptr %arrayidx.i.i.i.i.i.i, align 8
+  store i64 -4294967296, ptr %arrayidx.i.i26.i.i.i.i, align 8
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.then11.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12.i, i8 0, i64 32, i1 false)
-  store i64 -65536, ptr %arrayidx.i.i.i.i.i12.i, align 8
+  store i64 -65536, ptr %arrayidx.i.i26.i.i.i12.i, align 8
   %bcmp.i.i.i.i.i.i.i14.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp12.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i15.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i14.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i15.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.then20.i:                                      ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp21.i, i8 0, i64 32, i1 false)
-  store i64 65535, ptr %arrayidx.i.i.i.i.i28.i, align 8
+  store i64 65535, ptr %arrayidx.i.i26.i.i.i28.i, align 8
   %bcmp.i.i.i.i.i.i.i30.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i.i, ptr noundef nonnull dereferenceable(32) %ref.tmp21.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i31.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i30.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i31.i, label %if.end29.sink.split.i, label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 if.end29.sink.split.i:                            ; preds = %if.then20.i, %if.then11.i, %if.then4.i
   %.sink7.i = phi i64 [ 4294967295, %if.then4.i ], [ 65535, %if.then11.i ], [ -65536, %if.then20.i ]
-  %arrayidx.i.i22.i.i.i = getelementptr inbounds i8, ptr %3, i64 32
-  %5 = load i64, ptr %arrayidx.i.i22.i.i.i, align 8
+  %arrayidx.i.i22.i.i23.i = getelementptr inbounds i8, ptr %3, i64 32
+  %5 = load i64, ptr %arrayidx.i.i22.i.i23.i, align 8
   %or17.i.i24.i = or i64 %5, %.sink7.i
-  store i64 %or17.i.i24.i, ptr %arrayidx.i.i22.i.i.i, align 8
+  store i64 %or17.i.i24.i, ptr %arrayidx.i.i22.i.i23.i, align 8
   br label %_ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit
 
 _ZN3ue2L12allowIllegalERNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEEh.exit: ; preds = %for.body12, %if.end.i, %if.then4.i, %if.then11.i, %if.then20.i, %if.end29.sink.split.i
@@ -919,13 +919,13 @@ for.body.lr.ph:                                   ; preds = %invoke.cont
   %m_size.i.i403.i = getelementptr inbounds i8, ptr %a_succs.i, i64 8
   %m_capacity.i.i.i.i.i420.i = getelementptr inbounds i8, ptr %a_succs.i, i64 16
   %m_storage_start.i.i.i.i.i.i.i.i535.i = getelementptr inbounds i8, ptr %a_succs.i, i64 24
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp54.i, i64 16
-  %arrayidx.i.i.i.i.i175.i = getelementptr inbounds i8, ptr %ref.tmp90.i, i64 24
-  %arrayidx.i.i.i.i.i182.i = getelementptr inbounds i8, ptr %ref.tmp114.i, i64 24
-  %arrayidx.i.i.i.i.i249.i = getelementptr inbounds i8, ptr %ref.tmp161.i, i64 24
-  %arrayidx.i.i.i.i.i258.i = getelementptr inbounds i8, ptr %ref.tmp177.i, i64 16
-  %arrayidx.i.i.i.i.i270.i = getelementptr inbounds i8, ptr %ref.tmp200.i, i64 16
-  %arrayidx.i.i.i.i.i191.i = getelementptr inbounds i8, ptr %ref.tmp130.i, i64 16
+  %arrayidx.i.i26.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp54.i, i64 16
+  %arrayidx.i.i26.i.i.i175.i = getelementptr inbounds i8, ptr %ref.tmp90.i, i64 24
+  %arrayidx.i.i26.i.i.i182.i = getelementptr inbounds i8, ptr %ref.tmp114.i, i64 24
+  %arrayidx.i.i26.i.i.i249.i = getelementptr inbounds i8, ptr %ref.tmp161.i, i64 24
+  %arrayidx.i.i26.i.i.i258.i = getelementptr inbounds i8, ptr %ref.tmp177.i, i64 16
+  %arrayidx.i.i26.i.i.i270.i = getelementptr inbounds i8, ptr %ref.tmp200.i, i64 16
+  %arrayidx.i.i26.i.i.i191.i = getelementptr inbounds i8, ptr %ref.tmp130.i, i64 16
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %invoke.cont5
@@ -2319,7 +2319,7 @@ land.end.i:                                       ; preds = %for.inc.i.i.i.i150.
   %150 = phi ptr [ %145, %land.rhs.i.i142.i.thread ], [ %146, %land.rhs.i.i142.i ], [ %146, %for.inc.i.i.i.i150.i ]
   %props.i155.i = getelementptr inbounds i8, ptr %.fr.i.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp54.i, i8 0, i64 32, i1 false)
-  store i64 -1, ptr %arrayidx.i.i.i.i.i.i, align 8
+  store i64 -1, ptr %arrayidx.i.i26.i.i.i.i, align 8
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i155.i, ptr noundef nonnull dereferenceable(32) %ref.tmp54.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i, label %do.end61.i, label %if.end65.i
@@ -2504,7 +2504,7 @@ invoke.cont81.i21:                                ; preds = %invoke.cont81.i21.o
 invoke.cont91.i:                                  ; preds = %invoke.cont81.i21
   %props.i174.i = getelementptr inbounds i8, ptr %s.sroa.0.0.copyload.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90.i, i8 0, i64 24, i1 false)
-  store i64 4294967295, ptr %arrayidx.i.i.i.i.i175.i, align 8
+  store i64 4294967295, ptr %arrayidx.i.i26.i.i.i175.i, align 8
   %call93.i = invoke noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %props.i174.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp90.i)
           to label %invoke.cont92.i unwind label %lpad3.loopexit.i.loopexit
 
@@ -2572,7 +2572,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
 
 invoke.cont115.i:                                 ; preds = %invoke.cont92.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114.i, i8 0, i64 24, i1 false)
-  store i64 281470681743360, ptr %arrayidx.i.i.i.i.i182.i, align 8
+  store i64 281470681743360, ptr %arrayidx.i.i26.i.i.i182.i, align 8
   %call117.i = invoke noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %props.i174.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp114.i)
           to label %invoke.cont116.i unwind label %lpad3.loopexit.i.loopexit
 
@@ -2586,7 +2586,7 @@ invoke.cont132.i:                                 ; preds = %invoke.cont116.i
   %169 = load ptr, ptr %target.i.i.i186.i, align 8
   %props.i190.i = getelementptr inbounds i8, ptr %169, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp130.i, i8 0, i64 32, i1 false)
-  store i64 -1, ptr %arrayidx.i.i.i.i.i191.i, align 8
+  store i64 -1, ptr %arrayidx.i.i26.i.i.i191.i, align 8
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i190.i, ptr noundef nonnull dereferenceable(32) %ref.tmp130.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i.not.i, label %invoke.cont135.i, label %for.inc242.i
@@ -2658,7 +2658,7 @@ _ZNKSt4lessIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderE
 
 invoke.cont162.i:                                 ; preds = %invoke.cont116.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161.i, i8 0, i64 24, i1 false)
-  store i64 8725724278030336, ptr %arrayidx.i.i.i.i.i249.i, align 8
+  store i64 8725724278030336, ptr %arrayidx.i.i26.i.i.i249.i, align 8
   %call164.i = invoke noundef zeroext i1 @_ZNK3ue29CharReach10isSubsetOfERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %props.i174.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp161.i)
           to label %invoke.cont163.i unwind label %lpad3.loopexit.i.loopexit
 
@@ -2672,7 +2672,7 @@ invoke.cont179.i:                                 ; preds = %invoke.cont163.i
   %178 = load ptr, ptr %target.i.i.i253.i, align 8
   %props.i257.i = getelementptr inbounds i8, ptr %178, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp177.i, i8 0, i64 32, i1 false)
-  store i64 -1, ptr %arrayidx.i.i.i.i.i258.i, align 8
+  store i64 -1, ptr %arrayidx.i.i26.i.i.i258.i, align 8
   %bcmp.i.i.i.i.i.i.i.i260.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i257.i, ptr noundef nonnull dereferenceable(32) %ref.tmp177.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i261.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i260.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i261.not.i, label %invoke.cont183.i, label %for.inc242.i
@@ -2690,7 +2690,7 @@ invoke.cont202.i:                                 ; preds = %invoke.cont183.i
   %181 = load ptr, ptr %target.i.i.i265.i, align 8
   %props.i269.i = getelementptr inbounds i8, ptr %181, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp200.i, i8 0, i64 32, i1 false)
-  store i64 -1, ptr %arrayidx.i.i.i.i.i270.i, align 8
+  store i64 -1, ptr %arrayidx.i.i26.i.i.i270.i, align 8
   %bcmp.i.i.i.i.i.i.i.i272.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %props.i269.i, ptr noundef nonnull dereferenceable(32) %ref.tmp200.i, i64 32)
   %tobool1.not.i.i.i.i.i.i.i.i273.not.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i272.i, 0
   br i1 %tobool1.not.i.i.i.i.i.i.i.i273.not.i, label %invoke.cont206.i, label %for.inc242.i

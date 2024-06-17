@@ -1638,18 +1638,18 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 
 .sink.split:                                      ; preds = %91, %94
   %.sink = phi i32 [ %98, %94 ], [ %89, %91 ]
-  %.096.sink = phi ptr [ %96, %94 ], [ %.096, %91 ]
+  %.sink134 = phi ptr [ %96, %94 ], [ %.096, %91 ]
   %100 = and i32 %.sink, 65280
   %101 = icmp ne i32 %100, 0
   tail call void @llvm.assume(i1 %101)
-  %102 = load ptr, ptr %.096.sink, align 8
+  %102 = load ptr, ptr %.sink134, align 8
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   br label %105
 
 105:                                              ; preds = %.sink.split, %87, %94
-  %.098 = phi ptr [ %96, %94 ], [ %.096, %87 ], [ %.096.sink, %.sink.split ]
+  %.098 = phi ptr [ %96, %94 ], [ %.096, %87 ], [ %.sink134, %.sink.split ]
   %106 = load ptr, ptr %.098, align 8
   %107 = getelementptr inbounds i8, ptr %.098, i64 8
   %108 = load i32, ptr %107, align 8
@@ -1856,18 +1856,18 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 
 .sink.split:                                      ; preds = %92, %95
   %.sink = phi i32 [ %99, %95 ], [ %90, %92 ]
-  %.096.sink = phi ptr [ %97, %95 ], [ %.096, %92 ]
+  %.sink134 = phi ptr [ %97, %95 ], [ %.096, %92 ]
   %101 = and i32 %.sink, 65280
   %102 = icmp ne i32 %101, 0
   tail call void @llvm.assume(i1 %102)
-  %103 = load ptr, ptr %.096.sink, align 8
+  %103 = load ptr, ptr %.sink134, align 8
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
   br label %106
 
 106:                                              ; preds = %.sink.split, %88, %95
-  %.098 = phi ptr [ %97, %95 ], [ %.096, %88 ], [ %.096.sink, %.sink.split ]
+  %.098 = phi ptr [ %97, %95 ], [ %.096, %88 ], [ %.sink134, %.sink.split ]
   %107 = load ptr, ptr %.098, align 8
   %108 = getelementptr inbounds i8, ptr %.098, i64 8
   %109 = load i32, ptr %108, align 8
@@ -2074,18 +2074,18 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 
 .sink.split:                                      ; preds = %92, %95
   %.sink = phi i32 [ %99, %95 ], [ %90, %92 ]
-  %.096.sink = phi ptr [ %97, %95 ], [ %.096, %92 ]
+  %.sink134 = phi ptr [ %97, %95 ], [ %.096, %92 ]
   %101 = and i32 %.sink, 65280
   %102 = icmp ne i32 %101, 0
   tail call void @llvm.assume(i1 %102)
-  %103 = load ptr, ptr %.096.sink, align 8
+  %103 = load ptr, ptr %.sink134, align 8
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
   br label %106
 
 106:                                              ; preds = %.sink.split, %88, %95
-  %.098 = phi ptr [ %97, %95 ], [ %.096, %88 ], [ %.096.sink, %.sink.split ]
+  %.098 = phi ptr [ %97, %95 ], [ %.096, %88 ], [ %.sink134, %.sink.split ]
   %107 = load ptr, ptr %.098, align 8
   %108 = getelementptr inbounds i8, ptr %.098, i64 8
   %109 = load i32, ptr %108, align 8
@@ -2292,18 +2292,18 @@ get_ht_for_iap.exit:                              ; preds = %.thread131, %53
 
 .sink.split:                                      ; preds = %91, %94
   %.sink = phi i32 [ %98, %94 ], [ %89, %91 ]
-  %.096.sink = phi ptr [ %96, %94 ], [ %.096, %91 ]
+  %.sink134 = phi ptr [ %96, %94 ], [ %.096, %91 ]
   %100 = and i32 %.sink, 65280
   %101 = icmp ne i32 %100, 0
   tail call void @llvm.assume(i1 %101)
-  %102 = load ptr, ptr %.096.sink, align 8
+  %102 = load ptr, ptr %.sink134, align 8
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   br label %105
 
 105:                                              ; preds = %.sink.split, %87, %94
-  %.098 = phi ptr [ %96, %94 ], [ %.096, %87 ], [ %.096.sink, %.sink.split ]
+  %.098 = phi ptr [ %96, %94 ], [ %.096, %87 ], [ %.sink134, %.sink.split ]
   %106 = load ptr, ptr %.098, align 8
   %107 = getelementptr inbounds i8, ptr %.098, i64 8
   %108 = load i32, ptr %107, align 8
@@ -2408,18 +2408,18 @@ get_ht_for_iap.exit:                              ; preds = %13, %15
 
 .sink.split:                                      ; preds = %38, %41
   %.sink = phi i32 [ %45, %41 ], [ %36, %38 ]
-  %.069.sink = phi ptr [ %43, %41 ], [ %.069, %38 ]
+  %.sink96 = phi ptr [ %43, %41 ], [ %.069, %38 ]
   %47 = and i32 %.sink, 65280
   %48 = icmp ne i32 %47, 0
   tail call void @llvm.assume(i1 %48)
-  %49 = load ptr, ptr %.069.sink, align 8
+  %49 = load ptr, ptr %.sink96, align 8
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4
   br label %52
 
 52:                                               ; preds = %.sink.split, %34, %41
-  %.071 = phi ptr [ %43, %41 ], [ %.069, %34 ], [ %.069.sink, %.sink.split ]
+  %.071 = phi ptr [ %43, %41 ], [ %.069, %34 ], [ %.sink96, %.sink.split ]
   %53 = load ptr, ptr %.071, align 8
   %54 = getelementptr inbounds i8, ptr %.071, i64 8
   %55 = load i32, ptr %54, align 8
@@ -7509,18 +7509,18 @@ define internal fastcc i64 @php_extract_prefix_if_exists(ptr nocapture noundef r
 
 .sink.split:                                      ; preds = %37, %40
   %.sink = phi i32 [ %44, %40 ], [ %35, %37 ]
-  %.0129171.sink = phi ptr [ %42, %40 ], [ %.0129171, %37 ]
+  %.sink179 = phi ptr [ %42, %40 ], [ %.0129171, %37 ]
   %46 = and i32 %.sink, 65280
   %47 = icmp ne i32 %46, 0
   tail call void @llvm.assume(i1 %47)
-  %48 = load ptr, ptr %.0129171.sink, align 8
+  %48 = load ptr, ptr %.sink179, align 8
   %49 = load i32, ptr %48, align 4
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4
   br label %51
 
 51:                                               ; preds = %.sink.split, %34, %40
-  %.0130 = phi ptr [ %42, %40 ], [ %.0129171, %34 ], [ %.0129171.sink, %.sink.split ]
+  %.0130 = phi ptr [ %42, %40 ], [ %.0129171, %34 ], [ %.sink179, %.sink.split ]
   %52 = load ptr, ptr %.0130, align 8
   %53 = getelementptr inbounds i8, ptr %.0130, i64 8
   %54 = load i32, ptr %53, align 8
@@ -7841,18 +7841,18 @@ define internal fastcc i64 @php_extract_prefix_same(ptr nocapture noundef readon
 
 .sink.split:                                      ; preds = %41, %44
   %.sink = phi i32 [ %48, %44 ], [ %39, %41 ]
-  %.0173227.sink = phi ptr [ %46, %44 ], [ %.0173227, %41 ]
+  %.sink237 = phi ptr [ %46, %44 ], [ %.0173227, %41 ]
   %50 = and i32 %.sink, 65280
   %51 = icmp ne i32 %50, 0
   tail call void @llvm.assume(i1 %51)
-  %52 = load ptr, ptr %.0173227.sink, align 8
+  %52 = load ptr, ptr %.sink237, align 8
   %53 = load i32, ptr %52, align 4
   %54 = add i32 %53, 1
   store i32 %54, ptr %52, align 4
   br label %55
 
 55:                                               ; preds = %.sink.split, %38, %44
-  %.0171 = phi ptr [ %46, %44 ], [ %.0173227, %38 ], [ %.0173227.sink, %.sink.split ]
+  %.0171 = phi ptr [ %46, %44 ], [ %.0173227, %38 ], [ %.sink237, %.sink.split ]
   %56 = load ptr, ptr %.0171, align 8
   %57 = getelementptr inbounds i8, ptr %.0171, i64 8
   %58 = load i32, ptr %57, align 8
@@ -9116,18 +9116,18 @@ define internal fastcc i64 @php_extract_skip(ptr nocapture noundef readonly %0, 
 
 .sink.split:                                      ; preds = %69, %72
   %.sink = phi i32 [ %76, %72 ], [ %67, %69 ]
-  %.088108.sink = phi ptr [ %74, %72 ], [ %.088108, %69 ]
+  %.sink112 = phi ptr [ %74, %72 ], [ %.088108, %69 ]
   %78 = and i32 %.sink, 65280
   %79 = icmp ne i32 %78, 0
   tail call void @llvm.assume(i1 %79)
-  %80 = load ptr, ptr %.088108.sink, align 8
+  %80 = load ptr, ptr %.sink112, align 8
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
   br label %83
 
 83:                                               ; preds = %.sink.split, %66, %72
-  %.085 = phi ptr [ %74, %72 ], [ %.088108, %66 ], [ %.088108.sink, %.sink.split ]
+  %.085 = phi ptr [ %74, %72 ], [ %.088108, %66 ], [ %.sink112, %.sink.split ]
   %84 = load ptr, ptr %.085, align 8
   %85 = getelementptr inbounds i8, ptr %.085, i64 8
   %86 = load i32, ptr %85, align 8
@@ -11508,21 +11508,21 @@ define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonl
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds i8, ptr %31, i64 16
   %42 = zext i32 %40 to i64
-  br i1 %.not151, label %.preheader, label %.preheader212
+  br i1 %.not151, label %.preheader, label %.preheader214
 
-.preheader212:                                    ; preds = %35, %44
+.preheader214:                                    ; preds = %35, %44
   %indvars.iv = phi i64 [ %45, %44 ], [ %42, %35 ]
   %43 = icmp eq i64 %indvars.iv, 0
   br i1 %43, label %.loopexit, label %44
 
-44:                                               ; preds = %.preheader212
+44:                                               ; preds = %.preheader214
   %45 = add nsw i64 %indvars.iv, -1
   %46 = load ptr, ptr %41, align 8
   %47 = getelementptr inbounds %struct._zval_struct, ptr %46, i64 %45
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8
   %.not156 = icmp eq i8 %49, 0
-  br i1 %.not156, label %.preheader212, label %50
+  br i1 %.not156, label %.preheader214, label %50
 
 50:                                               ; preds = %44
   %51 = getelementptr inbounds i8, ptr %47, i64 8
@@ -11547,18 +11547,18 @@ define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonl
 
 .sink.split:                                      ; preds = %54, %57
   %.sink = phi i32 [ %61, %57 ], [ %52, %54 ]
-  %.lcssa199.sink = phi ptr [ %59, %57 ], [ %47, %54 ]
+  %.sink203 = phi ptr [ %59, %57 ], [ %47, %54 ]
   %63 = and i32 %.sink, 65280
   %64 = icmp ne i32 %63, 0
   tail call void @llvm.assume(i1 %64)
-  %65 = load ptr, ptr %.lcssa199.sink, align 8
+  %65 = load ptr, ptr %.sink203, align 8
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
   br label %68
 
 68:                                               ; preds = %.sink.split, %50, %57
-  %.0127 = phi ptr [ %59, %57 ], [ %47, %50 ], [ %.lcssa199.sink, %.sink.split ]
+  %.0127 = phi ptr [ %59, %57 ], [ %47, %50 ], [ %.sink203, %.sink.split ]
   %69 = load ptr, ptr %.0127, align 8
   %70 = getelementptr inbounds i8, ptr %.0127, i64 8
   %71 = load i32, ptr %70, align 8
@@ -11605,7 +11605,7 @@ define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonl
 91:                                               ; preds = %87
   %92 = and i32 %89, 255
   %93 = icmp eq i32 %92, 10
-  br i1 %93, label %94, label %.sink.split203
+  br i1 %93, label %94, label %.sink.split205
 
 94:                                               ; preds = %91
   %95 = load ptr, ptr %84, align 8
@@ -11614,22 +11614,22 @@ define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonl
   %98 = load i32, ptr %97, align 8
   %99 = and i32 %98, 65280
   %.not154 = icmp eq i32 %99, 0
-  br i1 %.not154, label %105, label %.sink.split203
+  br i1 %.not154, label %105, label %.sink.split205
 
-.sink.split203:                                   ; preds = %91, %94
-  %.sink211 = phi i32 [ %98, %94 ], [ %89, %91 ]
-  %.lcssa200.sink = phi ptr [ %96, %94 ], [ %84, %91 ]
-  %100 = and i32 %.sink211, 65280
+.sink.split205:                                   ; preds = %91, %94
+  %.sink213 = phi i32 [ %98, %94 ], [ %89, %91 ]
+  %.sink210 = phi ptr [ %96, %94 ], [ %84, %91 ]
+  %100 = and i32 %.sink213, 65280
   %101 = icmp ne i32 %100, 0
   tail call void @llvm.assume(i1 %101)
-  %102 = load ptr, ptr %.lcssa200.sink, align 8
+  %102 = load ptr, ptr %.sink210, align 8
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   br label %105
 
-105:                                              ; preds = %.sink.split203, %87, %94
-  %.0122 = phi ptr [ %96, %94 ], [ %84, %87 ], [ %.lcssa200.sink, %.sink.split203 ]
+105:                                              ; preds = %.sink.split205, %87, %94
+  %.0122 = phi ptr [ %96, %94 ], [ %84, %87 ], [ %.sink210, %.sink.split205 ]
   %106 = load ptr, ptr %.0122, align 8
   %107 = getelementptr inbounds i8, ptr %.0122, i64 8
   %108 = load i32, ptr %107, align 8
@@ -11667,7 +11667,7 @@ define hidden void @zif_array_pop(ptr noundef %0, ptr nocapture noundef writeonl
   tail call void @zend_hash_internal_pointer_reset_ex(ptr noundef %123, ptr noundef nonnull %124) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader212, %.preheader, %.thread, %122, %.thread160
+.loopexit:                                        ; preds = %.preheader214, %.preheader, %.thread, %122, %.thread160
   ret void
 }
 
@@ -11811,18 +11811,18 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
 
 .sink.split:                                      ; preds = %57, %60
   %.sink = phi i32 [ %64, %60 ], [ %55, %57 ]
-  %.lcssa350.sink = phi ptr [ %62, %60 ], [ %50, %57 ]
+  %.sink355 = phi ptr [ %62, %60 ], [ %50, %57 ]
   %66 = and i32 %.sink, 65280
   %67 = icmp ne i32 %66, 0
   tail call void @llvm.assume(i1 %67)
-  %68 = load ptr, ptr %.lcssa350.sink, align 8
+  %68 = load ptr, ptr %.sink355, align 8
   %69 = load i32, ptr %68, align 4
   %70 = add i32 %69, 1
   store i32 %70, ptr %68, align 4
   br label %71
 
 71:                                               ; preds = %.sink.split, %53, %60
-  %.0196 = phi ptr [ %62, %60 ], [ %50, %53 ], [ %.lcssa350.sink, %.sink.split ]
+  %.0196 = phi ptr [ %62, %60 ], [ %50, %53 ], [ %.sink355, %.sink.split ]
   %72 = load ptr, ptr %.0196, align 8
   %73 = getelementptr inbounds i8, ptr %.0196, i64 8
   %74 = load i32, ptr %73, align 8
@@ -12000,7 +12000,7 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
 159:                                              ; preds = %155
   %160 = and i32 %157, 255
   %161 = icmp eq i32 %160, 10
-  br i1 %161, label %162, label %.sink.split355
+  br i1 %161, label %162, label %.sink.split357
 
 162:                                              ; preds = %159
   %163 = load ptr, ptr %152, align 8
@@ -12009,22 +12009,22 @@ define hidden void @zif_array_shift(ptr noundef %0, ptr nocapture noundef writeo
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 65280
   %.not233 = icmp eq i32 %167, 0
-  br i1 %.not233, label %173, label %.sink.split355
+  br i1 %.not233, label %173, label %.sink.split357
 
-.sink.split355:                                   ; preds = %159, %162
-  %.sink363 = phi i32 [ %166, %162 ], [ %157, %159 ]
-  %.lcssa351.sink = phi ptr [ %164, %162 ], [ %152, %159 ]
-  %168 = and i32 %.sink363, 65280
+.sink.split357:                                   ; preds = %159, %162
+  %.sink365 = phi i32 [ %166, %162 ], [ %157, %159 ]
+  %.sink362 = phi ptr [ %164, %162 ], [ %152, %159 ]
+  %168 = and i32 %.sink365, 65280
   %169 = icmp ne i32 %168, 0
   tail call void @llvm.assume(i1 %169)
-  %170 = load ptr, ptr %.lcssa351.sink, align 8
+  %170 = load ptr, ptr %.sink362, align 8
   %171 = load i32, ptr %170, align 4
   %172 = add i32 %171, 1
   store i32 %172, ptr %170, align 4
   br label %173
 
-173:                                              ; preds = %.sink.split355, %155, %162
-  %.0179 = phi ptr [ %164, %162 ], [ %152, %155 ], [ %.lcssa351.sink, %.sink.split355 ]
+173:                                              ; preds = %.sink.split357, %155, %162
+  %.0179 = phi ptr [ %164, %162 ], [ %152, %155 ], [ %.sink362, %.sink.split357 ]
   %174 = load ptr, ptr %.0179, align 8
   %175 = getelementptr inbounds i8, ptr %.0179, i64 8
   %176 = load i32, ptr %175, align 8

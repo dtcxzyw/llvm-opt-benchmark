@@ -2336,36 +2336,26 @@ _ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit15.i: ; preds = %_ZNKSt14
 
 _ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit: ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EED2Ev.exit.i
   %23 = icmp eq ptr %12, %1
-  br i1 %23, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread, label %28
+  br i1 %23, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread, label %24
 
-_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread: ; preds = %2, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8
+24:                                               ; preds = %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit
+  %25 = getelementptr inbounds i8, ptr %0, i64 24
   %26 = load ptr, ptr %25, align 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %1)
-  br label %35
+  store ptr %12, ptr %25, align 8
+  %.not.i.i8 = icmp eq ptr %26, null
+  br i1 %.not.i.i8, label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9
 
-28:                                               ; preds = %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit
-  %29 = getelementptr inbounds i8, ptr %0, i64 24
+_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9: ; preds = %24
+  tail call void @_ZdaPv(ptr noundef nonnull %26) #16
+  br label %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread
+
+_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread: ; preds = %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9, %24, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit, %2
+  %.lcssa.sink = phi ptr [ %1, %2 ], [ %1, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit ], [ %12, %24 ], [ %12, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9 ]
+  %27 = getelementptr inbounds i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
-  store ptr %12, ptr %29, align 8
-  %.not.i.i8 = icmp eq ptr %30, null
-  br i1 %.not.i.i8, label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, label %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9
-
-_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9: ; preds = %28
-  tail call void @_ZdaPv(ptr noundef nonnull %30) #16
-  br label %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit
-
-_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit: ; preds = %28, %_ZNKSt14default_deleteIA_KfEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i9
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = load ptr, ptr %32, align 8
-  %34 = load ptr, ptr %33, align 8
-  tail call void %34(ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef %12)
-  br label %35
-
-35:                                               ; preds = %_ZNSt10unique_ptrIA_KfSt14default_deleteIS1_EE5resetIPS0_vEEvT_.exit, %_ZNK5faiss17IndexPreTransform11apply_chainElPKf.exit.thread
+  tail call void %30(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef %.lcssa.sink)
   ret void
 }
 

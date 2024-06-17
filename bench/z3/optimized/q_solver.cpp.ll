@@ -2939,22 +2939,22 @@ invoke.cont230:                                   ; preds = %if.then.i3.i313, %_
           to label %cleanup239 unwind label %lpad3.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 cleanup239.sink.split.sink.split:                 ; preds = %if.then.i.i30.invoke
-  %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i60 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %.pre.i.i59 = load ptr, ptr %m_nodes.i, align 8
+  %arrayidx8.phi.trans.insert.i.i60 = getelementptr inbounds i8, ptr %.pre.i.i59, i64 -4
   %.pre1.i.i61 = load i32, ptr %arrayidx8.phi.trans.insert.i.i60, align 4
   br label %cleanup239.sink.split
 
 cleanup239.sink.split:                            ; preds = %cleanup239.sink.split.sink.split, %lor.lhs.false.i.i50, %lor.lhs.false.i.i
   %.sink394 = phi i32 [ %28, %lor.lhs.false.i.i ], [ %36, %lor.lhs.false.i.i50 ], [ %.pre1.i.i61, %cleanup239.sink.split.sink.split ]
-  %.sink = phi ptr [ %27, %lor.lhs.false.i.i ], [ %35, %lor.lhs.false.i.i50 ], [ %.pre.i.i, %cleanup239.sink.split.sink.split ]
-  %idx.ext.i.i = zext i32 %.sink394 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i
-  store ptr %25, ptr %add.ptr.i.i, align 8
+  %.sink = phi ptr [ %27, %lor.lhs.false.i.i ], [ %35, %lor.lhs.false.i.i50 ], [ %.pre.i.i59, %cleanup239.sink.split.sink.split ]
+  %idx.ext.i.i54 = zext i32 %.sink394 to i64
+  %add.ptr.i.i55 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i54
+  store ptr %25, ptr %add.ptr.i.i55, align 8
   %135 = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %135, i64 -4
-  %136 = load i32, ptr %arrayidx10.i.i, align 4
+  %arrayidx10.i.i56 = getelementptr inbounds i8, ptr %135, i64 -4
+  %136 = load i32, ptr %arrayidx10.i.i56, align 4
   %inc.i.i57 = add i32 %136, 1
-  store i32 %inc.i.i57, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i.i57, ptr %arrayidx10.i.i56, align 4
   br label %cleanup239
 
 cleanup239:                                       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit294, %cleanup239.sink.split, %if.end181, %if.end79, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit301, %invoke.cont230, %if.end51, %_ZN7obj_refI4expr11ast_managerED2Ev.exit247

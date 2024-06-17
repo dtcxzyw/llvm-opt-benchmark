@@ -2205,18 +2205,18 @@ unreachable:                                      ; preds = %77
 
 .sink.split:                                      ; preds = %106, %109
   %.sink = phi i32 [ %113, %109 ], [ %104, %106 ]
-  %.sink378 = phi ptr [ %111, %109 ], [ %.0289, %106 ]
+  %.0289.sink = phi ptr [ %111, %109 ], [ %.0289, %106 ]
   %115 = and i32 %.sink, 65280
   %116 = icmp ne i32 %115, 0
   call void @llvm.assume(i1 %116)
-  %117 = load ptr, ptr %.sink378, align 8
+  %117 = load ptr, ptr %.0289.sink, align 8
   %118 = load i32, ptr %117, align 4
   %119 = add i32 %118, 1
   store i32 %119, ptr %117, align 4
   br label %120
 
 120:                                              ; preds = %.sink.split, %109, %102
-  %.0301 = phi ptr [ %111, %109 ], [ %.0289, %102 ], [ %.sink378, %.sink.split ]
+  %.0301 = phi ptr [ %111, %109 ], [ %.0289, %102 ], [ %.0289.sink, %.sink.split ]
   %121 = load ptr, ptr %.0301, align 8
   %122 = getelementptr inbounds i8, ptr %.0301, i64 8
   %123 = load i32, ptr %122, align 8
@@ -2470,7 +2470,7 @@ _zval_undefined_op2.exit:                         ; preds = %161
 245:                                              ; preds = %242
   %246 = and i32 %243, 255
   %247 = icmp eq i32 %246, 10
-  br i1 %247, label %248, label %.sink.split373
+  br i1 %247, label %248, label %.sink.split374
 
 248:                                              ; preds = %245
   %249 = load ptr, ptr %238, align 8
@@ -2479,22 +2479,22 @@ _zval_undefined_op2.exit:                         ; preds = %161
   %252 = load i32, ptr %251, align 8
   %253 = and i32 %252, 65280
   %.not326 = icmp eq i32 %253, 0
-  br i1 %.not326, label %259, label %.sink.split373
+  br i1 %.not326, label %259, label %.sink.split374
 
-.sink.split373:                                   ; preds = %245, %248
-  %.sink383 = phi i32 [ %252, %248 ], [ %243, %245 ]
-  %.sink380 = phi ptr [ %250, %248 ], [ %238, %245 ]
-  %254 = and i32 %.sink383, 65280
+.sink.split374:                                   ; preds = %245, %248
+  %.sink382 = phi i32 [ %252, %248 ], [ %243, %245 ]
+  %.sink379 = phi ptr [ %250, %248 ], [ %238, %245 ]
+  %254 = and i32 %.sink382, 65280
   %255 = icmp ne i32 %254, 0
   tail call void @llvm.assume(i1 %255)
-  %256 = load ptr, ptr %.sink380, align 8
+  %256 = load ptr, ptr %.sink379, align 8
   %257 = load i32, ptr %256, align 4
   %258 = add i32 %257, 1
   store i32 %258, ptr %256, align 4
   br label %259
 
-259:                                              ; preds = %.sink.split373, %248, %242
-  %.0293 = phi ptr [ %250, %248 ], [ %238, %242 ], [ %.sink380, %.sink.split373 ]
+259:                                              ; preds = %.sink.split374, %248, %242
+  %.0293 = phi ptr [ %250, %248 ], [ %238, %242 ], [ %.sink379, %.sink.split374 ]
   %260 = load ptr, ptr %.0293, align 8
   %261 = getelementptr inbounds i8, ptr %.0293, i64 8
   %262 = load i32, ptr %261, align 8
@@ -45313,18 +45313,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_CONST_HANDLE
 
 .sink.split:                                      ; preds = %195, %198
   %.sink = phi i32 [ %202, %198 ], [ %193, %195 ]
-  %.0218.sink = phi ptr [ %200, %198 ], [ %.0218, %195 ]
+  %.sink252 = phi ptr [ %200, %198 ], [ %.0218, %195 ]
   %204 = and i32 %.sink, 65280
   %205 = icmp ne i32 %204, 0
   tail call void @llvm.assume(i1 %205)
-  %206 = load ptr, ptr %.0218.sink, align 8
+  %206 = load ptr, ptr %.sink252, align 8
   %207 = load i32, ptr %206, align 4
   %208 = add i32 %207, 1
   store i32 %208, ptr %206, align 4
   br label %209
 
 209:                                              ; preds = %.sink.split, %191, %198
-  %.0216 = phi ptr [ %200, %198 ], [ %.0218, %191 ], [ %.0218.sink, %.sink.split ]
+  %.0216 = phi ptr [ %200, %198 ], [ %.0218, %191 ], [ %.sink252, %.sink.split ]
   %210 = getelementptr inbounds i8, ptr %3, i64 16
   %211 = load i32, ptr %210, align 8
   %212 = sext i32 %211 to i64
@@ -45716,18 +45716,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_TMP_HANDLER(
 
 .sink.split:                                      ; preds = %179, %182
   %.sink = phi i32 [ %186, %182 ], [ %177, %179 ]
-  %.0225.sink = phi ptr [ %184, %182 ], [ %.0225, %179 ]
+  %.sink260 = phi ptr [ %184, %182 ], [ %.0225, %179 ]
   %188 = and i32 %.sink, 65280
   %189 = icmp ne i32 %188, 0
   tail call void @llvm.assume(i1 %189)
-  %190 = load ptr, ptr %.0225.sink, align 8
+  %190 = load ptr, ptr %.sink260, align 8
   %191 = load i32, ptr %190, align 4
   %192 = add i32 %191, 1
   store i32 %192, ptr %190, align 4
   br label %193
 
 193:                                              ; preds = %.sink.split, %175, %182
-  %.0223 = phi ptr [ %184, %182 ], [ %.0225, %175 ], [ %.0225.sink, %.sink.split ]
+  %.0223 = phi ptr [ %184, %182 ], [ %.0225, %175 ], [ %.sink260, %.sink.split ]
   %194 = getelementptr inbounds i8, ptr %3, i64 16
   %195 = load i32, ptr %194, align 8
   %196 = sext i32 %195 to i64
@@ -46238,18 +46238,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_CONST_OP_DATA_VAR_HANDLER(
 
 .sink.split:                                      ; preds = %233, %236
   %.sink = phi i32 [ %240, %236 ], [ %231, %233 ]
-  %.2.sink = phi ptr [ %238, %236 ], [ %.2, %233 ]
+  %.sink289 = phi ptr [ %238, %236 ], [ %.2, %233 ]
   %242 = and i32 %.sink, 65280
   %243 = icmp ne i32 %242, 0
   tail call void @llvm.assume(i1 %243)
-  %244 = load ptr, ptr %.2.sink, align 8
+  %244 = load ptr, ptr %.sink289, align 8
   %245 = load i32, ptr %244, align 4
   %246 = add i32 %245, 1
   store i32 %246, ptr %244, align 4
   br label %247
 
 247:                                              ; preds = %.sink.split, %229, %236
-  %.0246 = phi ptr [ %238, %236 ], [ %.2, %229 ], [ %.2.sink, %.sink.split ]
+  %.0246 = phi ptr [ %238, %236 ], [ %.2, %229 ], [ %.sink289, %.sink.split ]
   %248 = getelementptr inbounds i8, ptr %4, i64 16
   %249 = load i32, ptr %248, align 8
   %250 = sext i32 %249 to i64
@@ -46654,15 +46654,15 @@ zval_undefined_cv.exit:                           ; preds = %24, %21, %13
   br i1 %.not253, label %182, label %.sink.split
 
 .sink.split:                                      ; preds = %176, %171
-  %.sink278 = phi ptr [ %173, %171 ], [ %.0236, %176 ]
-  %179 = load ptr, ptr %.sink278, align 8
+  %.0236.sink = phi ptr [ %173, %171 ], [ %.0236, %176 ]
+  %179 = load ptr, ptr %.0236.sink, align 8
   %180 = load i32, ptr %179, align 4
   %181 = add i32 %180, 1
   store i32 %181, ptr %179, align 4
   br label %182
 
 182:                                              ; preds = %.sink.split, %176, %171
-  %.0238 = phi ptr [ %173, %171 ], [ %.0236, %176 ], [ %.sink278, %.sink.split ]
+  %.0238 = phi ptr [ %173, %171 ], [ %.0236, %176 ], [ %.0236.sink, %.sink.split ]
   %183 = load ptr, ptr %138, align 8
   %184 = tail call ptr @zend_hash_add_new(ptr noundef %183, ptr noundef %137, ptr noundef nonnull %.0238) #27
   %185 = getelementptr inbounds i8, ptr %3, i64 31
@@ -46752,18 +46752,18 @@ zval_undefined_cv.exit:                           ; preds = %24, %21, %13
 
 .sink.split273:                                   ; preds = %231, %234
   %.sink = phi i32 [ %238, %234 ], [ %229, %231 ]
-  %.2.sink = phi ptr [ %236, %234 ], [ %.2, %231 ]
+  %.sink276 = phi ptr [ %236, %234 ], [ %.2, %231 ]
   %240 = and i32 %.sink, 65280
   %241 = icmp ne i32 %240, 0
   tail call void @llvm.assume(i1 %241)
-  %242 = load ptr, ptr %.2.sink, align 8
+  %242 = load ptr, ptr %.sink276, align 8
   %243 = load i32, ptr %242, align 4
   %244 = add i32 %243, 1
   store i32 %244, ptr %242, align 4
   br label %245
 
 245:                                              ; preds = %.sink.split273, %227, %234
-  %.0235 = phi ptr [ %236, %234 ], [ %.2, %227 ], [ %.2.sink, %.sink.split273 ]
+  %.0235 = phi ptr [ %236, %234 ], [ %.2, %227 ], [ %.sink276, %.sink.split273 ]
   %246 = getelementptr inbounds i8, ptr %3, i64 16
   %247 = load i32, ptr %246, align 8
   %248 = sext i32 %247 to i64
@@ -46920,7 +46920,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_TMPVAR_OP_DATA_CONST_HANDL
   %48 = getelementptr inbounds i8, ptr %2, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = sext i32 %49 to i64
-  br label %.sink.split136
+  br label %.sink.split138
 
 51:                                               ; preds = %.thread, %41
   %.0133 = phi ptr [ %40, %.thread ], [ %42, %41 ]
@@ -46985,18 +46985,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_TMPVAR_OP_DATA_CONST_HANDL
 
 .sink.split:                                      ; preds = %76, %79
   %.sink = phi i32 [ %83, %79 ], [ %74, %76 ]
-  %.0115.sink = phi ptr [ %81, %79 ], [ %.0115, %76 ]
+  %.sink136 = phi ptr [ %81, %79 ], [ %.0115, %76 ]
   %85 = and i32 %.sink, 65280
   %86 = icmp ne i32 %85, 0
   tail call void @llvm.assume(i1 %86)
-  %87 = load ptr, ptr %.0115.sink, align 8
+  %87 = load ptr, ptr %.sink136, align 8
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %72, %79
-  %.0116 = phi ptr [ %81, %79 ], [ %.0115, %72 ], [ %.0115.sink, %.sink.split ]
+  %.0116 = phi ptr [ %81, %79 ], [ %.0115, %72 ], [ %.sink136, %.sink.split ]
   %91 = getelementptr inbounds i8, ptr %2, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -47005,17 +47005,17 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_TMPVAR_OP_DATA_CONST_HANDL
   %96 = getelementptr inbounds i8, ptr %.0116, i64 8
   %97 = load i32, ptr %96, align 8
   store ptr %95, ptr %94, align 8
-  br label %.sink.split136
+  br label %.sink.split138
 
-.sink.split136:                                   ; preds = %90, %47
+.sink.split138:                                   ; preds = %90, %47
   %98 = phi i64 [ %50, %47 ], [ %93, %90 ]
-  %.sink137 = phi i32 [ 0, %47 ], [ %97, %90 ]
+  %.sink139 = phi i32 [ 0, %47 ], [ %97, %90 ]
   %99 = getelementptr inbounds i8, ptr %0, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 8
-  store i32 %.sink137, ptr %100, align 8
+  store i32 %.sink139, ptr %100, align 8
   br label %101
 
-101:                                              ; preds = %.sink.split136, %43, %67
+101:                                              ; preds = %.sink.split138, %43, %67
   %102 = getelementptr inbounds i8, ptr %2, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = sext i32 %103 to i64
@@ -47244,18 +47244,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_TMPVAR_OP_DATA_TMP_HANDLER
 
 .sink.split:                                      ; preds = %90, %93
   %.sink = phi i32 [ %97, %93 ], [ %88, %90 ]
-  %.0136.sink = phi ptr [ %95, %93 ], [ %.0136, %90 ]
+  %.sink161 = phi ptr [ %95, %93 ], [ %.0136, %90 ]
   %99 = and i32 %.sink, 65280
   %100 = icmp ne i32 %99, 0
   tail call void @llvm.assume(i1 %100)
-  %101 = load ptr, ptr %.0136.sink, align 8
+  %101 = load ptr, ptr %.sink161, align 8
   %102 = load i32, ptr %101, align 4
   %103 = add i32 %102, 1
   store i32 %103, ptr %101, align 4
   br label %104
 
 104:                                              ; preds = %.sink.split, %86, %93
-  %.0137 = phi ptr [ %95, %93 ], [ %.0136, %86 ], [ %.0136.sink, %.sink.split ]
+  %.0137 = phi ptr [ %95, %93 ], [ %.0136, %86 ], [ %.sink161, %.sink.split ]
   %105 = getelementptr inbounds i8, ptr %2, i64 16
   %106 = load i32, ptr %105, align 8
   %107 = sext i32 %106 to i64
@@ -47533,18 +47533,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_VAR_TMPVAR_OP_DATA_VAR_HANDLER
 
 .sink.split:                                      ; preds = %97, %100
   %.sink = phi i32 [ %104, %100 ], [ %95, %97 ]
-  %.1.sink = phi ptr [ %102, %100 ], [ %.1, %97 ]
+  %.sink164 = phi ptr [ %102, %100 ], [ %.1, %97 ]
   %106 = and i32 %.sink, 65280
   %107 = icmp ne i32 %106, 0
   tail call void @llvm.assume(i1 %107)
-  %108 = load ptr, ptr %.1.sink, align 8
+  %108 = load ptr, ptr %.sink164, align 8
   %109 = load i32, ptr %108, align 4
   %110 = add i32 %109, 1
   store i32 %110, ptr %108, align 4
   br label %111
 
 111:                                              ; preds = %.sink.split, %93, %100
-  %.0140 = phi ptr [ %102, %100 ], [ %.1, %93 ], [ %.1.sink, %.sink.split ]
+  %.0140 = phi ptr [ %102, %100 ], [ %.1, %93 ], [ %.sink164, %.sink.split ]
   %112 = getelementptr inbounds i8, ptr %2, i64 16
   %113 = load i32, ptr %112, align 8
   %114 = sext i32 %113 to i64
@@ -47742,7 +47742,7 @@ zval_undefined_cv.exit:                           ; preds = %23, %20, %12
   %64 = getelementptr inbounds i8, ptr %2, i64 16
   %65 = load i32, ptr %64, align 8
   %66 = sext i32 %65 to i64
-  br label %.sink.split148
+  br label %.sink.split150
 
 67:                                               ; preds = %.thread, %57
   %.0145 = phi ptr [ %56, %.thread ], [ %58, %57 ]
@@ -47819,18 +47819,18 @@ zval_undefined_cv.exit:                           ; preds = %23, %20, %12
 
 .sink.split:                                      ; preds = %99, %102
   %.sink = phi i32 [ %106, %102 ], [ %97, %99 ]
-  %.1.sink = phi ptr [ %104, %102 ], [ %.1, %99 ]
+  %.sink148 = phi ptr [ %104, %102 ], [ %.1, %99 ]
   %108 = and i32 %.sink, 65280
   %109 = icmp ne i32 %108, 0
   tail call void @llvm.assume(i1 %109)
-  %110 = load ptr, ptr %.1.sink, align 8
+  %110 = load ptr, ptr %.sink148, align 8
   %111 = load i32, ptr %110, align 4
   %112 = add i32 %111, 1
   store i32 %112, ptr %110, align 4
   br label %113
 
 113:                                              ; preds = %.sink.split, %95, %102
-  %.0128 = phi ptr [ %104, %102 ], [ %.1, %95 ], [ %.1.sink, %.sink.split ]
+  %.0128 = phi ptr [ %104, %102 ], [ %.1, %95 ], [ %.sink148, %.sink.split ]
   %114 = getelementptr inbounds i8, ptr %2, i64 16
   %115 = load i32, ptr %114, align 8
   %116 = sext i32 %115 to i64
@@ -47839,17 +47839,17 @@ zval_undefined_cv.exit:                           ; preds = %23, %20, %12
   %119 = getelementptr inbounds i8, ptr %.0128, i64 8
   %120 = load i32, ptr %119, align 8
   store ptr %118, ptr %117, align 8
-  br label %.sink.split148
+  br label %.sink.split150
 
-.sink.split148:                                   ; preds = %113, %63
+.sink.split150:                                   ; preds = %113, %63
   %121 = phi i64 [ %66, %63 ], [ %116, %113 ]
-  %.sink149 = phi i32 [ 0, %63 ], [ %120, %113 ]
+  %.sink151 = phi i32 [ 0, %63 ], [ %120, %113 ]
   %122 = getelementptr inbounds i8, ptr %0, i64 %121
   %123 = getelementptr inbounds i8, ptr %122, i64 8
-  store i32 %.sink149, ptr %123, align 8
+  store i32 %.sink151, ptr %123, align 8
   br label %124
 
-124:                                              ; preds = %.sink.split148, %59, %90
+124:                                              ; preds = %.sink.split150, %59, %90
   %125 = getelementptr inbounds i8, ptr %2, i64 12
   %126 = load i32, ptr %125, align 4
   %127 = sext i32 %126 to i64
@@ -48037,7 +48037,7 @@ zval_undefined_cv.exit130:                        ; preds = %59, %56, %47
   %80 = getelementptr inbounds i8, ptr %2, i64 16
   %81 = load i32, ptr %80, align 8
   %82 = sext i32 %81 to i64
-  br label %.sink.split138
+  br label %.sink.split140
 
 83:                                               ; preds = %.thread, %73
   %.0135 = phi ptr [ %72, %.thread ], [ %74, %73 ]
@@ -48102,18 +48102,18 @@ zval_undefined_cv.exit130:                        ; preds = %59, %56, %47
 
 .sink.split:                                      ; preds = %108, %111
   %.sink = phi i32 [ %115, %111 ], [ %106, %108 ]
-  %.0119.sink = phi ptr [ %113, %111 ], [ %.0119, %108 ]
+  %.sink138 = phi ptr [ %113, %111 ], [ %.0119, %108 ]
   %117 = and i32 %.sink, 65280
   %118 = icmp ne i32 %117, 0
   tail call void @llvm.assume(i1 %118)
-  %119 = load ptr, ptr %.0119.sink, align 8
+  %119 = load ptr, ptr %.sink138, align 8
   %120 = load i32, ptr %119, align 4
   %121 = add i32 %120, 1
   store i32 %121, ptr %119, align 4
   br label %122
 
 122:                                              ; preds = %.sink.split, %104, %111
-  %.0118 = phi ptr [ %113, %111 ], [ %.0119, %104 ], [ %.0119.sink, %.sink.split ]
+  %.0118 = phi ptr [ %113, %111 ], [ %.0119, %104 ], [ %.sink138, %.sink.split ]
   %123 = getelementptr inbounds i8, ptr %2, i64 16
   %124 = load i32, ptr %123, align 8
   %125 = sext i32 %124 to i64
@@ -48122,17 +48122,17 @@ zval_undefined_cv.exit130:                        ; preds = %59, %56, %47
   %128 = getelementptr inbounds i8, ptr %.0118, i64 8
   %129 = load i32, ptr %128, align 8
   store ptr %127, ptr %126, align 8
-  br label %.sink.split138
+  br label %.sink.split140
 
-.sink.split138:                                   ; preds = %122, %79
+.sink.split140:                                   ; preds = %122, %79
   %130 = phi i64 [ %82, %79 ], [ %125, %122 ]
-  %.sink139 = phi i32 [ 0, %79 ], [ %129, %122 ]
+  %.sink141 = phi i32 [ 0, %79 ], [ %129, %122 ]
   %131 = getelementptr inbounds i8, ptr %0, i64 %130
   %132 = getelementptr inbounds i8, ptr %131, i64 8
-  store i32 %.sink139, ptr %132, align 8
+  store i32 %.sink141, ptr %132, align 8
   br label %133
 
-133:                                              ; preds = %.sink.split138, %75, %99
+133:                                              ; preds = %.sink.split140, %75, %99
   %134 = load i32, ptr %3, align 8
   %135 = sext i32 %134 to i64
   %136 = getelementptr inbounds i8, ptr %0, i64 %135
@@ -48386,18 +48386,18 @@ zval_undefined_cv.exit155:                        ; preds = %58, %55, %46
 
 .sink.split:                                      ; preds = %122, %125
   %.sink = phi i32 [ %129, %125 ], [ %120, %122 ]
-  %.0140.sink = phi ptr [ %127, %125 ], [ %.0140, %122 ]
+  %.sink163 = phi ptr [ %127, %125 ], [ %.0140, %122 ]
   %131 = and i32 %.sink, 65280
   %132 = icmp ne i32 %131, 0
   tail call void @llvm.assume(i1 %132)
-  %133 = load ptr, ptr %.0140.sink, align 8
+  %133 = load ptr, ptr %.sink163, align 8
   %134 = load i32, ptr %133, align 4
   %135 = add i32 %134, 1
   store i32 %135, ptr %133, align 4
   br label %136
 
 136:                                              ; preds = %.sink.split, %118, %125
-  %.0139 = phi ptr [ %127, %125 ], [ %.0140, %118 ], [ %.0140.sink, %.sink.split ]
+  %.0139 = phi ptr [ %127, %125 ], [ %.0140, %118 ], [ %.sink163, %.sink.split ]
   %137 = getelementptr inbounds i8, ptr %2, i64 16
   %138 = load i32, ptr %137, align 8
   %139 = sext i32 %138 to i64
@@ -48700,18 +48700,18 @@ zval_undefined_cv.exit158:                        ; preds = %58, %55, %46
 
 .sink.split:                                      ; preds = %129, %132
   %.sink = phi i32 [ %136, %132 ], [ %127, %129 ]
-  %.1.sink = phi ptr [ %134, %132 ], [ %.1, %129 ]
+  %.sink166 = phi ptr [ %134, %132 ], [ %.1, %129 ]
   %138 = and i32 %.sink, 65280
   %139 = icmp ne i32 %138, 0
   tail call void @llvm.assume(i1 %139)
-  %140 = load ptr, ptr %.1.sink, align 8
+  %140 = load ptr, ptr %.sink166, align 8
   %141 = load i32, ptr %140, align 4
   %142 = add i32 %141, 1
   store i32 %142, ptr %140, align 4
   br label %143
 
 143:                                              ; preds = %.sink.split, %125, %132
-  %.0142 = phi ptr [ %134, %132 ], [ %.1, %125 ], [ %.1.sink, %.sink.split ]
+  %.0142 = phi ptr [ %134, %132 ], [ %.1, %125 ], [ %.sink166, %.sink.split ]
   %144 = getelementptr inbounds i8, ptr %2, i64 16
   %145 = load i32, ptr %144, align 8
   %146 = sext i32 %145 to i64
@@ -48934,7 +48934,7 @@ zval_undefined_cv.exit143:                        ; preds = %75, %72, %63
   %96 = getelementptr inbounds i8, ptr %2, i64 16
   %97 = load i32, ptr %96, align 8
   %98 = sext i32 %97 to i64
-  br label %.sink.split151
+  br label %.sink.split153
 
 99:                                               ; preds = %.thread, %89
   %.0148 = phi ptr [ %88, %.thread ], [ %90, %89 ]
@@ -49011,18 +49011,18 @@ zval_undefined_cv.exit143:                        ; preds = %75, %72, %63
 
 .sink.split:                                      ; preds = %131, %134
   %.sink = phi i32 [ %138, %134 ], [ %129, %131 ]
-  %.1.sink = phi ptr [ %136, %134 ], [ %.1, %131 ]
+  %.sink151 = phi ptr [ %136, %134 ], [ %.1, %131 ]
   %140 = and i32 %.sink, 65280
   %141 = icmp ne i32 %140, 0
   tail call void @llvm.assume(i1 %141)
-  %142 = load ptr, ptr %.1.sink, align 8
+  %142 = load ptr, ptr %.sink151, align 8
   %143 = load i32, ptr %142, align 4
   %144 = add i32 %143, 1
   store i32 %144, ptr %142, align 4
   br label %145
 
 145:                                              ; preds = %.sink.split, %127, %134
-  %.0129 = phi ptr [ %136, %134 ], [ %.1, %127 ], [ %.1.sink, %.sink.split ]
+  %.0129 = phi ptr [ %136, %134 ], [ %.1, %127 ], [ %.sink151, %.sink.split ]
   %146 = getelementptr inbounds i8, ptr %2, i64 16
   %147 = load i32, ptr %146, align 8
   %148 = sext i32 %147 to i64
@@ -49031,17 +49031,17 @@ zval_undefined_cv.exit143:                        ; preds = %75, %72, %63
   %151 = getelementptr inbounds i8, ptr %.0129, i64 8
   %152 = load i32, ptr %151, align 8
   store ptr %150, ptr %149, align 8
-  br label %.sink.split151
+  br label %.sink.split153
 
-.sink.split151:                                   ; preds = %145, %95
+.sink.split153:                                   ; preds = %145, %95
   %153 = phi i64 [ %98, %95 ], [ %148, %145 ]
-  %.sink152 = phi i32 [ 0, %95 ], [ %152, %145 ]
+  %.sink154 = phi i32 [ 0, %95 ], [ %152, %145 ]
   %154 = getelementptr inbounds i8, ptr %0, i64 %153
   %155 = getelementptr inbounds i8, ptr %154, i64 8
-  store i32 %.sink152, ptr %155, align 8
+  store i32 %.sink154, ptr %155, align 8
   br label %156
 
-156:                                              ; preds = %.sink.split151, %91, %122
+156:                                              ; preds = %.sink.split153, %91, %122
   %157 = load i32, ptr %3, align 8
   %158 = sext i32 %157 to i64
   %159 = getelementptr inbounds i8, ptr %0, i64 %158
@@ -49452,18 +49452,18 @@ zend_assign_to_typed_ref_ex.exit:                 ; preds = %79, %82, %85, %90
 
 .sink.split:                                      ; preds = %211, %214
   %.sink = phi i32 [ %218, %214 ], [ %209, %211 ]
-  %.0187.sink = phi ptr [ %216, %214 ], [ %.0187, %211 ]
+  %.sink218 = phi ptr [ %216, %214 ], [ %.0187, %211 ]
   %220 = and i32 %.sink, 65280
   %221 = icmp ne i32 %220, 0
   tail call void @llvm.assume(i1 %221)
-  %222 = load ptr, ptr %.0187.sink, align 8
+  %222 = load ptr, ptr %.sink218, align 8
   %223 = load i32, ptr %222, align 4
   %224 = add i32 %223, 1
   store i32 %224, ptr %222, align 4
   br label %225
 
 225:                                              ; preds = %.sink.split, %207, %214
-  %.0188 = phi ptr [ %216, %214 ], [ %.0187, %207 ], [ %.0187.sink, %.sink.split ]
+  %.0188 = phi ptr [ %216, %214 ], [ %.0187, %207 ], [ %.sink218, %.sink.split ]
   %226 = getelementptr inbounds i8, ptr %4, i64 16
   %227 = load i32, ptr %226, align 8
   %228 = sext i32 %227 to i64
@@ -49788,18 +49788,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_CONST_OP_DATA_TMP_HANDL
 
 .sink.split:                                      ; preds = %156, %159
   %.sink = phi i32 [ %163, %159 ], [ %154, %156 ]
-  %.0194.sink = phi ptr [ %161, %159 ], [ %.0194, %156 ]
+  %.sink225 = phi ptr [ %161, %159 ], [ %.0194, %156 ]
   %165 = and i32 %.sink, 65280
   %166 = icmp ne i32 %165, 0
   tail call void @llvm.assume(i1 %166)
-  %167 = load ptr, ptr %.0194.sink, align 8
+  %167 = load ptr, ptr %.sink225, align 8
   %168 = load i32, ptr %167, align 4
   %169 = add i32 %168, 1
   store i32 %169, ptr %167, align 4
   br label %170
 
 170:                                              ; preds = %.sink.split, %152, %159
-  %.0195 = phi ptr [ %161, %159 ], [ %.0194, %152 ], [ %.0194.sink, %.sink.split ]
+  %.0195 = phi ptr [ %161, %159 ], [ %.0194, %152 ], [ %.sink225, %.sink.split ]
   %171 = getelementptr inbounds i8, ptr %3, i64 16
   %172 = load i32, ptr %171, align 8
   %173 = sext i32 %172 to i64
@@ -50243,18 +50243,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_CONST_OP_DATA_VAR_HANDL
 
 .sink.split:                                      ; preds = %210, %213
   %.sink = phi i32 [ %217, %213 ], [ %208, %210 ]
-  %.2.sink = phi ptr [ %215, %213 ], [ %.2, %210 ]
+  %.sink254 = phi ptr [ %215, %213 ], [ %.2, %210 ]
   %219 = and i32 %.sink, 65280
   %220 = icmp ne i32 %219, 0
   tail call void @llvm.assume(i1 %220)
-  %221 = load ptr, ptr %.2.sink, align 8
+  %221 = load ptr, ptr %.sink254, align 8
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, 1
   store i32 %223, ptr %221, align 4
   br label %224
 
 224:                                              ; preds = %.sink.split, %206, %213
-  %.0219 = phi ptr [ %215, %213 ], [ %.2, %206 ], [ %.2.sink, %.sink.split ]
+  %.0219 = phi ptr [ %215, %213 ], [ %.2, %206 ], [ %.sink254, %.sink.split ]
   %225 = getelementptr inbounds i8, ptr %4, i64 16
   %226 = load i32, ptr %225, align 8
   %227 = sext i32 %226 to i64
@@ -50672,15 +50672,15 @@ zend_assign_to_typed_ref_ex.exit:                 ; preds = %94, %97, %100, %105
   br i1 %.not221, label %197, label %.sink.split
 
 .sink.split:                                      ; preds = %191, %186
-  %.sink245 = phi ptr [ %188, %186 ], [ %.0206, %191 ]
-  %194 = load ptr, ptr %.sink245, align 8
+  %.0206.sink = phi ptr [ %188, %186 ], [ %.0206, %191 ]
+  %194 = load ptr, ptr %.0206.sink, align 8
   %195 = load i32, ptr %194, align 4
   %196 = add i32 %195, 1
   store i32 %196, ptr %194, align 4
   br label %197
 
 197:                                              ; preds = %.sink.split, %191, %186
-  %.0208 = phi ptr [ %188, %186 ], [ %.0206, %191 ], [ %.sink245, %.sink.split ]
+  %.0208 = phi ptr [ %188, %186 ], [ %.0206, %191 ], [ %.0206.sink, %.sink.split ]
   %198 = load ptr, ptr %153, align 8
   %199 = tail call ptr @zend_hash_add_new(ptr noundef %198, ptr noundef %152, ptr noundef nonnull %.0208) #27
   %200 = getelementptr inbounds i8, ptr %4, i64 31
@@ -50770,18 +50770,18 @@ zend_assign_to_typed_ref_ex.exit:                 ; preds = %94, %97, %100, %105
 
 .sink.split240:                                   ; preds = %246, %249
   %.sink = phi i32 [ %253, %249 ], [ %244, %246 ]
-  %.2.sink = phi ptr [ %251, %249 ], [ %.2, %246 ]
+  %.sink243 = phi ptr [ %251, %249 ], [ %.2, %246 ]
   %255 = and i32 %.sink, 65280
   %256 = icmp ne i32 %255, 0
   tail call void @llvm.assume(i1 %256)
-  %257 = load ptr, ptr %.2.sink, align 8
+  %257 = load ptr, ptr %.sink243, align 8
   %258 = load i32, ptr %257, align 4
   %259 = add i32 %258, 1
   store i32 %259, ptr %257, align 4
   br label %260
 
 260:                                              ; preds = %.sink.split240, %242, %249
-  %.0207 = phi ptr [ %251, %249 ], [ %.2, %242 ], [ %.2.sink, %.sink.split240 ]
+  %.0207 = phi ptr [ %251, %249 ], [ %.2, %242 ], [ %.sink243, %.sink.split240 ]
   %261 = getelementptr inbounds i8, ptr %4, i64 16
   %262 = load i32, ptr %261, align 8
   %263 = sext i32 %262 to i64
@@ -50871,7 +50871,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_TMPVAR_OP_DATA_CONST_HA
   %25 = getelementptr inbounds i8, ptr %2, i64 16
   %26 = load i32, ptr %25, align 8
   %27 = sext i32 %26 to i64
-  br label %.sink.split99
+  br label %.sink.split101
 
 28:                                               ; preds = %.thread, %18
   %.096 = phi ptr [ %17, %.thread ], [ %19, %18 ]
@@ -50935,18 +50935,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_TMPVAR_OP_DATA_CONST_HA
 
 .sink.split:                                      ; preds = %53, %56
   %.sink = phi i32 [ %60, %56 ], [ %51, %53 ]
-  %.sink103 = phi ptr [ %58, %56 ], [ %33, %53 ]
+  %.sink99 = phi ptr [ %58, %56 ], [ %33, %53 ]
   %62 = and i32 %.sink, 65280
   %63 = icmp ne i32 %62, 0
   tail call void @llvm.assume(i1 %63)
-  %64 = load ptr, ptr %.sink103, align 8
+  %64 = load ptr, ptr %.sink99, align 8
   %65 = load i32, ptr %64, align 4
   %66 = add i32 %65, 1
   store i32 %66, ptr %64, align 4
   br label %67
 
 67:                                               ; preds = %.sink.split, %49, %56
-  %.082 = phi ptr [ %58, %56 ], [ %33, %49 ], [ %.sink103, %.sink.split ]
+  %.082 = phi ptr [ %58, %56 ], [ %33, %49 ], [ %.sink99, %.sink.split ]
   %68 = getelementptr inbounds i8, ptr %2, i64 16
   %69 = load i32, ptr %68, align 8
   %70 = sext i32 %69 to i64
@@ -50955,17 +50955,17 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_UNUSED_TMPVAR_OP_DATA_CONST_HA
   %73 = getelementptr inbounds i8, ptr %.082, i64 8
   %74 = load i32, ptr %73, align 8
   store ptr %72, ptr %71, align 8
-  br label %.sink.split99
+  br label %.sink.split101
 
-.sink.split99:                                    ; preds = %67, %24
+.sink.split101:                                   ; preds = %67, %24
   %75 = phi i64 [ %27, %24 ], [ %70, %67 ]
-  %.sink100 = phi i32 [ 0, %24 ], [ %74, %67 ]
+  %.sink102 = phi i32 [ 0, %24 ], [ %74, %67 ]
   %76 = getelementptr inbounds i8, ptr %0, i64 %75
   %77 = getelementptr inbounds i8, ptr %76, i64 8
-  store i32 %.sink100, ptr %77, align 8
+  store i32 %.sink102, ptr %77, align 8
   br label %78
 
-78:                                               ; preds = %.sink.split99, %20, %44
+78:                                               ; preds = %.sink.split101, %20, %44
   %79 = load i32, ptr %10, align 4
   %80 = sext i32 %79 to i64
   %81 = getelementptr inbounds i8, ptr %0, i64 %80
@@ -51487,7 +51487,7 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
   %40 = getelementptr inbounds i8, ptr %2, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = sext i32 %41 to i64
-  br label %.sink.split112
+  br label %.sink.split114
 
 43:                                               ; preds = %.thread, %33
   %.0109 = phi ptr [ %32, %.thread ], [ %34, %33 ]
@@ -51563,18 +51563,18 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
 
 .sink.split:                                      ; preds = %75, %78
   %.sink = phi i32 [ %82, %78 ], [ %73, %75 ]
-  %.sink116 = phi ptr [ %80, %78 ], [ %55, %75 ]
+  %.sink112 = phi ptr [ %80, %78 ], [ %55, %75 ]
   %84 = and i32 %.sink, 65280
   %85 = icmp ne i32 %84, 0
   tail call void @llvm.assume(i1 %85)
-  %86 = load ptr, ptr %.sink116, align 8
+  %86 = load ptr, ptr %.sink112, align 8
   %87 = load i32, ptr %86, align 4
   %88 = add i32 %87, 1
   store i32 %88, ptr %86, align 4
   br label %89
 
 89:                                               ; preds = %.sink.split, %71, %78
-  %.095 = phi ptr [ %80, %78 ], [ %55, %71 ], [ %.sink116, %.sink.split ]
+  %.095 = phi ptr [ %80, %78 ], [ %55, %71 ], [ %.sink112, %.sink.split ]
   %90 = getelementptr inbounds i8, ptr %2, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = sext i32 %91 to i64
@@ -51583,17 +51583,17 @@ zval_undefined_cv.exit:                           ; preds = %14, %11, %1
   %95 = getelementptr inbounds i8, ptr %.095, i64 8
   %96 = load i32, ptr %95, align 8
   store ptr %94, ptr %93, align 8
-  br label %.sink.split112
+  br label %.sink.split114
 
-.sink.split112:                                   ; preds = %89, %39
+.sink.split114:                                   ; preds = %89, %39
   %97 = phi i64 [ %42, %39 ], [ %92, %89 ]
-  %.sink113 = phi i32 [ 0, %39 ], [ %96, %89 ]
+  %.sink115 = phi i32 [ 0, %39 ], [ %96, %89 ]
   %98 = getelementptr inbounds i8, ptr %0, i64 %97
   %99 = getelementptr inbounds i8, ptr %98, i64 8
-  store i32 %.sink113, ptr %99, align 8
+  store i32 %.sink115, ptr %99, align 8
   br label %100
 
-100:                                              ; preds = %.sink.split112, %35, %66
+100:                                              ; preds = %.sink.split114, %35, %66
   %101 = load i32, ptr %25, align 4
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds i8, ptr %0, i64 %102
@@ -51688,7 +51688,7 @@ zval_undefined_cv.exit:                           ; preds = %20, %17, %1
   %41 = getelementptr inbounds i8, ptr %2, i64 16
   %42 = load i32, ptr %41, align 8
   %43 = sext i32 %42 to i64
-  br label %.sink.split94
+  br label %.sink.split96
 
 44:                                               ; preds = %.thread, %34
   %.091 = phi ptr [ %33, %.thread ], [ %35, %34 ]
@@ -51752,18 +51752,18 @@ zval_undefined_cv.exit:                           ; preds = %20, %17, %1
 
 .sink.split:                                      ; preds = %69, %72
   %.sink = phi i32 [ %76, %72 ], [ %67, %69 ]
-  %.sink98 = phi ptr [ %74, %72 ], [ %49, %69 ]
+  %.sink94 = phi ptr [ %74, %72 ], [ %49, %69 ]
   %78 = and i32 %.sink, 65280
   %79 = icmp ne i32 %78, 0
   tail call void @llvm.assume(i1 %79)
-  %80 = load ptr, ptr %.sink98, align 8
+  %80 = load ptr, ptr %.sink94, align 8
   %81 = load i32, ptr %80, align 4
   %82 = add i32 %81, 1
   store i32 %82, ptr %80, align 4
   br label %83
 
 83:                                               ; preds = %.sink.split, %65, %72
-  %.079 = phi ptr [ %74, %72 ], [ %49, %65 ], [ %.sink98, %.sink.split ]
+  %.079 = phi ptr [ %74, %72 ], [ %49, %65 ], [ %.sink94, %.sink.split ]
   %84 = getelementptr inbounds i8, ptr %2, i64 16
   %85 = load i32, ptr %84, align 8
   %86 = sext i32 %85 to i64
@@ -51772,17 +51772,17 @@ zval_undefined_cv.exit:                           ; preds = %20, %17, %1
   %89 = getelementptr inbounds i8, ptr %.079, i64 8
   %90 = load i32, ptr %89, align 8
   store ptr %88, ptr %87, align 8
-  br label %.sink.split94
+  br label %.sink.split96
 
-.sink.split94:                                    ; preds = %83, %40
+.sink.split96:                                    ; preds = %83, %40
   %91 = phi i64 [ %43, %40 ], [ %86, %83 ]
-  %.sink95 = phi i32 [ 0, %40 ], [ %90, %83 ]
+  %.sink97 = phi i32 [ 0, %40 ], [ %90, %83 ]
   %92 = getelementptr inbounds i8, ptr %0, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 8
-  store i32 %.sink95, ptr %93, align 8
+  store i32 %.sink97, ptr %93, align 8
   br label %94
 
-94:                                               ; preds = %.sink.split94, %36, %60
+94:                                               ; preds = %.sink.split96, %36, %60
   %95 = load ptr, ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %95, i64 64
   store ptr %96, ptr %0, align 8
@@ -52307,7 +52307,7 @@ zval_undefined_cv.exit100:                        ; preds = %35, %32, %zval_unde
   %56 = getelementptr inbounds i8, ptr %2, i64 16
   %57 = load i32, ptr %56, align 8
   %58 = sext i32 %57 to i64
-  br label %.sink.split108
+  br label %.sink.split110
 
 59:                                               ; preds = %.thread, %49
   %.0105 = phi ptr [ %48, %.thread ], [ %50, %49 ]
@@ -52383,18 +52383,18 @@ zval_undefined_cv.exit100:                        ; preds = %35, %32, %zval_unde
 
 .sink.split:                                      ; preds = %91, %94
   %.sink = phi i32 [ %98, %94 ], [ %89, %91 ]
-  %.sink112 = phi ptr [ %96, %94 ], [ %71, %91 ]
+  %.sink108 = phi ptr [ %96, %94 ], [ %71, %91 ]
   %100 = and i32 %.sink, 65280
   %101 = icmp ne i32 %100, 0
   tail call void @llvm.assume(i1 %101)
-  %102 = load ptr, ptr %.sink112, align 8
+  %102 = load ptr, ptr %.sink108, align 8
   %103 = load i32, ptr %102, align 4
   %104 = add i32 %103, 1
   store i32 %104, ptr %102, align 4
   br label %105
 
 105:                                              ; preds = %.sink.split, %87, %94
-  %.092 = phi ptr [ %96, %94 ], [ %71, %87 ], [ %.sink112, %.sink.split ]
+  %.092 = phi ptr [ %96, %94 ], [ %71, %87 ], [ %.sink108, %.sink.split ]
   %106 = getelementptr inbounds i8, ptr %2, i64 16
   %107 = load i32, ptr %106, align 8
   %108 = sext i32 %107 to i64
@@ -52403,17 +52403,17 @@ zval_undefined_cv.exit100:                        ; preds = %35, %32, %zval_unde
   %111 = getelementptr inbounds i8, ptr %.092, i64 8
   %112 = load i32, ptr %111, align 8
   store ptr %110, ptr %109, align 8
-  br label %.sink.split108
+  br label %.sink.split110
 
-.sink.split108:                                   ; preds = %105, %55
+.sink.split110:                                   ; preds = %105, %55
   %113 = phi i64 [ %58, %55 ], [ %108, %105 ]
-  %.sink109 = phi i32 [ 0, %55 ], [ %112, %105 ]
+  %.sink111 = phi i32 [ 0, %55 ], [ %112, %105 ]
   %114 = getelementptr inbounds i8, ptr %0, i64 %113
   %115 = getelementptr inbounds i8, ptr %114, i64 8
-  store i32 %.sink109, ptr %115, align 8
+  store i32 %.sink111, ptr %115, align 8
   br label %116
 
-116:                                              ; preds = %.sink.split108, %51, %82
+116:                                              ; preds = %.sink.split110, %51, %82
   %117 = load ptr, ptr %0, align 8
   %118 = getelementptr inbounds i8, ptr %117, i64 64
   store ptr %118, ptr %0, align 8
@@ -52752,18 +52752,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_CONST_HANDLER
 
 .sink.split:                                      ; preds = %190, %193
   %.sink = phi i32 [ %197, %193 ], [ %188, %190 ]
-  %.0202.sink = phi ptr [ %195, %193 ], [ %.0202, %190 ]
+  %.sink233 = phi ptr [ %195, %193 ], [ %.0202, %190 ]
   %199 = and i32 %.sink, 65280
   %200 = icmp ne i32 %199, 0
   tail call void @llvm.assume(i1 %200)
-  %201 = load ptr, ptr %.0202.sink, align 8
+  %201 = load ptr, ptr %.sink233, align 8
   %202 = load i32, ptr %201, align 4
   %203 = add i32 %202, 1
   store i32 %203, ptr %201, align 4
   br label %204
 
 204:                                              ; preds = %.sink.split, %186, %193
-  %.0201 = phi ptr [ %195, %193 ], [ %.0202, %186 ], [ %.0202.sink, %.sink.split ]
+  %.0201 = phi ptr [ %195, %193 ], [ %.0202, %186 ], [ %.sink233, %.sink.split ]
   %205 = getelementptr inbounds i8, ptr %3, i64 16
   %206 = load i32, ptr %205, align 8
   %207 = sext i32 %206 to i64
@@ -53119,18 +53119,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_TMP_HANDLER(p
 
 .sink.split:                                      ; preds = %174, %177
   %.sink = phi i32 [ %181, %177 ], [ %172, %174 ]
-  %.0209.sink = phi ptr [ %179, %177 ], [ %.0209, %174 ]
+  %.sink241 = phi ptr [ %179, %177 ], [ %.0209, %174 ]
   %183 = and i32 %.sink, 65280
   %184 = icmp ne i32 %183, 0
   tail call void @llvm.assume(i1 %184)
-  %185 = load ptr, ptr %.0209.sink, align 8
+  %185 = load ptr, ptr %.sink241, align 8
   %186 = load i32, ptr %185, align 4
   %187 = add i32 %186, 1
   store i32 %187, ptr %185, align 4
   br label %188
 
 188:                                              ; preds = %.sink.split, %170, %177
-  %.0208 = phi ptr [ %179, %177 ], [ %.0209, %170 ], [ %.0209.sink, %.sink.split ]
+  %.0208 = phi ptr [ %179, %177 ], [ %.0209, %170 ], [ %.sink241, %.sink.split ]
   %189 = getelementptr inbounds i8, ptr %3, i64 16
   %190 = load i32, ptr %189, align 8
   %191 = sext i32 %190 to i64
@@ -53605,18 +53605,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_CONST_OP_DATA_VAR_HANDLER(p
 
 .sink.split:                                      ; preds = %228, %231
   %.sink = phi i32 [ %235, %231 ], [ %226, %228 ]
-  %.2.sink = phi ptr [ %233, %231 ], [ %.2, %228 ]
+  %.sink270 = phi ptr [ %233, %231 ], [ %.2, %228 ]
   %237 = and i32 %.sink, 65280
   %238 = icmp ne i32 %237, 0
   tail call void @llvm.assume(i1 %238)
-  %239 = load ptr, ptr %.2.sink, align 8
+  %239 = load ptr, ptr %.sink270, align 8
   %240 = load i32, ptr %239, align 4
   %241 = add i32 %240, 1
   store i32 %241, ptr %239, align 4
   br label %242
 
 242:                                              ; preds = %.sink.split, %224, %231
-  %.0231 = phi ptr [ %233, %231 ], [ %.2, %224 ], [ %.2.sink, %.sink.split ]
+  %.0231 = phi ptr [ %233, %231 ], [ %.2, %224 ], [ %.sink270, %.sink.split ]
   %243 = getelementptr inbounds i8, ptr %4, i64 16
   %244 = load i32, ptr %243, align 8
   %245 = sext i32 %244 to i64
@@ -53986,15 +53986,15 @@ zval_undefined_cv.exit:                           ; preds = %18, %15, %1
   br i1 %.not237, label %176, label %.sink.split
 
 .sink.split:                                      ; preds = %170, %165
-  %.sink260 = phi ptr [ %167, %165 ], [ %.0219, %170 ]
-  %173 = load ptr, ptr %.sink260, align 8
+  %.0219.sink = phi ptr [ %167, %165 ], [ %.0219, %170 ]
+  %173 = load ptr, ptr %.0219.sink, align 8
   %174 = load i32, ptr %173, align 4
   %175 = add i32 %174, 1
   store i32 %175, ptr %173, align 4
   br label %176
 
 176:                                              ; preds = %.sink.split, %170, %165
-  %.0222 = phi ptr [ %167, %165 ], [ %.0219, %170 ], [ %.sink260, %.sink.split ]
+  %.0222 = phi ptr [ %167, %165 ], [ %.0219, %170 ], [ %.0219.sink, %.sink.split ]
   %177 = load ptr, ptr %132, align 8
   %178 = tail call ptr @zend_hash_add_new(ptr noundef %177, ptr noundef %131, ptr noundef nonnull %.0222) #27
   %179 = getelementptr inbounds i8, ptr %3, i64 31
@@ -54084,18 +54084,18 @@ zval_undefined_cv.exit:                           ; preds = %18, %15, %1
 
 .sink.split255:                                   ; preds = %225, %228
   %.sink = phi i32 [ %232, %228 ], [ %223, %225 ]
-  %.2.sink = phi ptr [ %230, %228 ], [ %.2, %225 ]
+  %.sink258 = phi ptr [ %230, %228 ], [ %.2, %225 ]
   %234 = and i32 %.sink, 65280
   %235 = icmp ne i32 %234, 0
   tail call void @llvm.assume(i1 %235)
-  %236 = load ptr, ptr %.2.sink, align 8
+  %236 = load ptr, ptr %.sink258, align 8
   %237 = load i32, ptr %236, align 4
   %238 = add i32 %237, 1
   store i32 %238, ptr %236, align 4
   br label %239
 
 239:                                              ; preds = %.sink.split255, %221, %228
-  %.0220 = phi ptr [ %230, %228 ], [ %.2, %221 ], [ %.2.sink, %.sink.split255 ]
+  %.0220 = phi ptr [ %230, %228 ], [ %.2, %221 ], [ %.sink258, %.sink.split255 ]
   %240 = getelementptr inbounds i8, ptr %3, i64 16
   %241 = load i32, ptr %240, align 8
   %242 = sext i32 %241 to i64
@@ -54216,7 +54216,7 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_CONST_HANDLE
   %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
-  br label %.sink.split118
+  br label %.sink.split120
 
 46:                                               ; preds = %.thread, %36
   %.0115 = phi ptr [ %35, %.thread ], [ %37, %36 ]
@@ -54281,18 +54281,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_CONST_HANDLE
 
 .sink.split:                                      ; preds = %71, %74
   %.sink = phi i32 [ %78, %74 ], [ %69, %71 ]
-  %.099.sink = phi ptr [ %76, %74 ], [ %.099, %71 ]
+  %.sink118 = phi ptr [ %76, %74 ], [ %.099, %71 ]
   %80 = and i32 %.sink, 65280
   %81 = icmp ne i32 %80, 0
   tail call void @llvm.assume(i1 %81)
-  %82 = load ptr, ptr %.099.sink, align 8
+  %82 = load ptr, ptr %.sink118, align 8
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
   br label %85
 
 85:                                               ; preds = %.sink.split, %67, %74
-  %.0100 = phi ptr [ %76, %74 ], [ %.099, %67 ], [ %.099.sink, %.sink.split ]
+  %.0100 = phi ptr [ %76, %74 ], [ %.099, %67 ], [ %.sink118, %.sink.split ]
   %86 = getelementptr inbounds i8, ptr %2, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
@@ -54301,17 +54301,17 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_CONST_HANDLE
   %91 = getelementptr inbounds i8, ptr %.0100, i64 8
   %92 = load i32, ptr %91, align 8
   store ptr %90, ptr %89, align 8
-  br label %.sink.split118
+  br label %.sink.split120
 
-.sink.split118:                                   ; preds = %85, %42
+.sink.split120:                                   ; preds = %85, %42
   %93 = phi i64 [ %45, %42 ], [ %88, %85 ]
-  %.sink119 = phi i32 [ 0, %42 ], [ %92, %85 ]
+  %.sink121 = phi i32 [ 0, %42 ], [ %92, %85 ]
   %94 = getelementptr inbounds i8, ptr %0, i64 %93
   %95 = getelementptr inbounds i8, ptr %94, i64 8
-  store i32 %.sink119, ptr %95, align 8
+  store i32 %.sink121, ptr %95, align 8
   br label %96
 
-96:                                               ; preds = %.sink.split118, %38, %62
+96:                                               ; preds = %.sink.split120, %38, %62
   %97 = getelementptr inbounds i8, ptr %2, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = sext i32 %98 to i64
@@ -54504,18 +54504,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_TMP_HANDLER(
 
 .sink.split:                                      ; preds = %85, %88
   %.sink = phi i32 [ %92, %88 ], [ %83, %85 ]
-  %.0120.sink = phi ptr [ %90, %88 ], [ %.0120, %85 ]
+  %.sink143 = phi ptr [ %90, %88 ], [ %.0120, %85 ]
   %94 = and i32 %.sink, 65280
   %95 = icmp ne i32 %94, 0
   tail call void @llvm.assume(i1 %95)
-  %96 = load ptr, ptr %.0120.sink, align 8
+  %96 = load ptr, ptr %.sink143, align 8
   %97 = load i32, ptr %96, align 4
   %98 = add i32 %97, 1
   store i32 %98, ptr %96, align 4
   br label %99
 
 99:                                               ; preds = %.sink.split, %81, %88
-  %.0121 = phi ptr [ %90, %88 ], [ %.0120, %81 ], [ %.0120.sink, %.sink.split ]
+  %.0121 = phi ptr [ %90, %88 ], [ %.0120, %81 ], [ %.sink143, %.sink.split ]
   %100 = getelementptr inbounds i8, ptr %2, i64 16
   %101 = load i32, ptr %100, align 8
   %102 = sext i32 %101 to i64
@@ -54757,18 +54757,18 @@ define internal noundef i32 @ZEND_ASSIGN_OBJ_SPEC_CV_TMPVAR_OP_DATA_VAR_HANDLER(
 
 .sink.split:                                      ; preds = %92, %95
   %.sink = phi i32 [ %99, %95 ], [ %90, %92 ]
-  %.1.sink = phi ptr [ %97, %95 ], [ %.1, %92 ]
+  %.sink146 = phi ptr [ %97, %95 ], [ %.1, %92 ]
   %101 = and i32 %.sink, 65280
   %102 = icmp ne i32 %101, 0
   tail call void @llvm.assume(i1 %102)
-  %103 = load ptr, ptr %.1.sink, align 8
+  %103 = load ptr, ptr %.sink146, align 8
   %104 = load i32, ptr %103, align 4
   %105 = add i32 %104, 1
   store i32 %105, ptr %103, align 4
   br label %106
 
 106:                                              ; preds = %.sink.split, %88, %95
-  %.0124 = phi ptr [ %97, %95 ], [ %.1, %88 ], [ %.1.sink, %.sink.split ]
+  %.0124 = phi ptr [ %97, %95 ], [ %.1, %88 ], [ %.sink146, %.sink.split ]
   %107 = getelementptr inbounds i8, ptr %2, i64 16
   %108 = load i32, ptr %107, align 8
   %109 = sext i32 %108 to i64
@@ -54931,7 +54931,7 @@ zval_undefined_cv.exit:                           ; preds = %17, %14, %1
   %58 = getelementptr inbounds i8, ptr %2, i64 16
   %59 = load i32, ptr %58, align 8
   %60 = sext i32 %59 to i64
-  br label %.sink.split130
+  br label %.sink.split132
 
 61:                                               ; preds = %.thread, %51
   %.0127 = phi ptr [ %50, %.thread ], [ %52, %51 ]
@@ -55008,18 +55008,18 @@ zval_undefined_cv.exit:                           ; preds = %17, %14, %1
 
 .sink.split:                                      ; preds = %93, %96
   %.sink = phi i32 [ %100, %96 ], [ %91, %93 ]
-  %.1.sink = phi ptr [ %98, %96 ], [ %.1, %93 ]
+  %.sink130 = phi ptr [ %98, %96 ], [ %.1, %93 ]
   %102 = and i32 %.sink, 65280
   %103 = icmp ne i32 %102, 0
   tail call void @llvm.assume(i1 %103)
-  %104 = load ptr, ptr %.1.sink, align 8
+  %104 = load ptr, ptr %.sink130, align 8
   %105 = load i32, ptr %104, align 4
   %106 = add i32 %105, 1
   store i32 %106, ptr %104, align 4
   br label %107
 
 107:                                              ; preds = %.sink.split, %89, %96
-  %.0112 = phi ptr [ %98, %96 ], [ %.1, %89 ], [ %.1.sink, %.sink.split ]
+  %.0112 = phi ptr [ %98, %96 ], [ %.1, %89 ], [ %.sink130, %.sink.split ]
   %108 = getelementptr inbounds i8, ptr %2, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = sext i32 %109 to i64
@@ -55028,17 +55028,17 @@ zval_undefined_cv.exit:                           ; preds = %17, %14, %1
   %113 = getelementptr inbounds i8, ptr %.0112, i64 8
   %114 = load i32, ptr %113, align 8
   store ptr %112, ptr %111, align 8
-  br label %.sink.split130
+  br label %.sink.split132
 
-.sink.split130:                                   ; preds = %107, %57
+.sink.split132:                                   ; preds = %107, %57
   %115 = phi i64 [ %60, %57 ], [ %110, %107 ]
-  %.sink131 = phi i32 [ 0, %57 ], [ %114, %107 ]
+  %.sink133 = phi i32 [ 0, %57 ], [ %114, %107 ]
   %116 = getelementptr inbounds i8, ptr %0, i64 %115
   %117 = getelementptr inbounds i8, ptr %116, i64 8
-  store i32 %.sink131, ptr %117, align 8
+  store i32 %.sink133, ptr %117, align 8
   br label %118
 
-118:                                              ; preds = %.sink.split130, %53, %84
+118:                                              ; preds = %.sink.split132, %53, %84
   %119 = getelementptr inbounds i8, ptr %2, i64 12
   %120 = load i32, ptr %119, align 4
   %121 = sext i32 %120 to i64
@@ -55190,7 +55190,7 @@ zval_undefined_cv.exit112:                        ; preds = %54, %51, %42
   %75 = getelementptr inbounds i8, ptr %2, i64 16
   %76 = load i32, ptr %75, align 8
   %77 = sext i32 %76 to i64
-  br label %.sink.split120
+  br label %.sink.split122
 
 78:                                               ; preds = %.thread, %68
   %.0117 = phi ptr [ %67, %.thread ], [ %69, %68 ]
@@ -55255,18 +55255,18 @@ zval_undefined_cv.exit112:                        ; preds = %54, %51, %42
 
 .sink.split:                                      ; preds = %103, %106
   %.sink = phi i32 [ %110, %106 ], [ %101, %103 ]
-  %.0102.sink = phi ptr [ %108, %106 ], [ %.0102, %103 ]
+  %.sink120 = phi ptr [ %108, %106 ], [ %.0102, %103 ]
   %112 = and i32 %.sink, 65280
   %113 = icmp ne i32 %112, 0
   tail call void @llvm.assume(i1 %113)
-  %114 = load ptr, ptr %.0102.sink, align 8
+  %114 = load ptr, ptr %.sink120, align 8
   %115 = load i32, ptr %114, align 4
   %116 = add i32 %115, 1
   store i32 %116, ptr %114, align 4
   br label %117
 
 117:                                              ; preds = %.sink.split, %99, %106
-  %.0103 = phi ptr [ %108, %106 ], [ %.0102, %99 ], [ %.0102.sink, %.sink.split ]
+  %.0103 = phi ptr [ %108, %106 ], [ %.0102, %99 ], [ %.sink120, %.sink.split ]
   %118 = getelementptr inbounds i8, ptr %2, i64 16
   %119 = load i32, ptr %118, align 8
   %120 = sext i32 %119 to i64
@@ -55275,17 +55275,17 @@ zval_undefined_cv.exit112:                        ; preds = %54, %51, %42
   %123 = getelementptr inbounds i8, ptr %.0103, i64 8
   %124 = load i32, ptr %123, align 8
   store ptr %122, ptr %121, align 8
-  br label %.sink.split120
+  br label %.sink.split122
 
-.sink.split120:                                   ; preds = %117, %74
+.sink.split122:                                   ; preds = %117, %74
   %125 = phi i64 [ %77, %74 ], [ %120, %117 ]
-  %.sink121 = phi i32 [ 0, %74 ], [ %124, %117 ]
+  %.sink123 = phi i32 [ 0, %74 ], [ %124, %117 ]
   %126 = getelementptr inbounds i8, ptr %0, i64 %125
   %127 = getelementptr inbounds i8, ptr %126, i64 8
-  store i32 %.sink121, ptr %127, align 8
+  store i32 %.sink123, ptr %127, align 8
   br label %128
 
-128:                                              ; preds = %.sink.split120, %70, %94
+128:                                              ; preds = %.sink.split122, %70, %94
   %129 = load ptr, ptr %0, align 8
   %130 = getelementptr inbounds i8, ptr %129, i64 64
   store ptr %130, ptr %0, align 8
@@ -55503,18 +55503,18 @@ zval_undefined_cv.exit137:                        ; preds = %53, %50, %41
 
 .sink.split:                                      ; preds = %117, %120
   %.sink = phi i32 [ %124, %120 ], [ %115, %117 ]
-  %.0123.sink = phi ptr [ %122, %120 ], [ %.0123, %117 ]
+  %.sink145 = phi ptr [ %122, %120 ], [ %.0123, %117 ]
   %126 = and i32 %.sink, 65280
   %127 = icmp ne i32 %126, 0
   tail call void @llvm.assume(i1 %127)
-  %128 = load ptr, ptr %.0123.sink, align 8
+  %128 = load ptr, ptr %.sink145, align 8
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 4
   br label %131
 
 131:                                              ; preds = %.sink.split, %113, %120
-  %.0124 = phi ptr [ %122, %120 ], [ %.0123, %113 ], [ %.0123.sink, %.sink.split ]
+  %.0124 = phi ptr [ %122, %120 ], [ %.0123, %113 ], [ %.sink145, %.sink.split ]
   %132 = getelementptr inbounds i8, ptr %2, i64 16
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
@@ -55781,18 +55781,18 @@ zval_undefined_cv.exit140:                        ; preds = %53, %50, %41
 
 .sink.split:                                      ; preds = %124, %127
   %.sink = phi i32 [ %131, %127 ], [ %122, %124 ]
-  %.1.sink = phi ptr [ %129, %127 ], [ %.1, %124 ]
+  %.sink148 = phi ptr [ %129, %127 ], [ %.1, %124 ]
   %133 = and i32 %.sink, 65280
   %134 = icmp ne i32 %133, 0
   tail call void @llvm.assume(i1 %134)
-  %135 = load ptr, ptr %.1.sink, align 8
+  %135 = load ptr, ptr %.sink148, align 8
   %136 = load i32, ptr %135, align 4
   %137 = add i32 %136, 1
   store i32 %137, ptr %135, align 4
   br label %138
 
 138:                                              ; preds = %.sink.split, %120, %127
-  %.0127 = phi ptr [ %129, %127 ], [ %.1, %120 ], [ %.1.sink, %.sink.split ]
+  %.0127 = phi ptr [ %129, %127 ], [ %.1, %120 ], [ %.sink148, %.sink.split ]
   %139 = getelementptr inbounds i8, ptr %2, i64 16
   %140 = load i32, ptr %139, align 8
   %141 = sext i32 %140 to i64
@@ -55980,7 +55980,7 @@ zval_undefined_cv.exit125:                        ; preds = %69, %66, %57
   %90 = getelementptr inbounds i8, ptr %2, i64 16
   %91 = load i32, ptr %90, align 8
   %92 = sext i32 %91 to i64
-  br label %.sink.split133
+  br label %.sink.split135
 
 93:                                               ; preds = %.thread, %83
   %.0130 = phi ptr [ %82, %.thread ], [ %84, %83 ]
@@ -56057,18 +56057,18 @@ zval_undefined_cv.exit125:                        ; preds = %69, %66, %57
 
 .sink.split:                                      ; preds = %125, %128
   %.sink = phi i32 [ %132, %128 ], [ %123, %125 ]
-  %.1.sink = phi ptr [ %130, %128 ], [ %.1, %125 ]
+  %.sink133 = phi ptr [ %130, %128 ], [ %.1, %125 ]
   %134 = and i32 %.sink, 65280
   %135 = icmp ne i32 %134, 0
   tail call void @llvm.assume(i1 %135)
-  %136 = load ptr, ptr %.1.sink, align 8
+  %136 = load ptr, ptr %.sink133, align 8
   %137 = load i32, ptr %136, align 4
   %138 = add i32 %137, 1
   store i32 %138, ptr %136, align 4
   br label %139
 
 139:                                              ; preds = %.sink.split, %121, %128
-  %.0114 = phi ptr [ %130, %128 ], [ %.1, %121 ], [ %.1.sink, %.sink.split ]
+  %.0114 = phi ptr [ %130, %128 ], [ %.1, %121 ], [ %.sink133, %.sink.split ]
   %140 = getelementptr inbounds i8, ptr %2, i64 16
   %141 = load i32, ptr %140, align 8
   %142 = sext i32 %141 to i64
@@ -56077,17 +56077,17 @@ zval_undefined_cv.exit125:                        ; preds = %69, %66, %57
   %145 = getelementptr inbounds i8, ptr %.0114, i64 8
   %146 = load i32, ptr %145, align 8
   store ptr %144, ptr %143, align 8
-  br label %.sink.split133
+  br label %.sink.split135
 
-.sink.split133:                                   ; preds = %139, %89
+.sink.split135:                                   ; preds = %139, %89
   %147 = phi i64 [ %92, %89 ], [ %142, %139 ]
-  %.sink134 = phi i32 [ 0, %89 ], [ %146, %139 ]
+  %.sink136 = phi i32 [ 0, %89 ], [ %146, %139 ]
   %148 = getelementptr inbounds i8, ptr %0, i64 %147
   %149 = getelementptr inbounds i8, ptr %148, i64 8
-  store i32 %.sink134, ptr %149, align 8
+  store i32 %.sink136, ptr %149, align 8
   br label %150
 
-150:                                              ; preds = %.sink.split133, %85, %116
+150:                                              ; preds = %.sink.split135, %85, %116
   %151 = load ptr, ptr %0, align 8
   %152 = getelementptr inbounds i8, ptr %151, i64 64
   store ptr %152, ptr %0, align 8
@@ -81438,18 +81438,18 @@ _zval_undefined_op1.exit:                         ; preds = %30, %33
 
 .sink.split:                                      ; preds = %74, %62
   %.sink = phi i32 [ %28, %62 ], [ %78, %74 ]
-  %.0190.sink = phi ptr [ %.0190, %62 ], [ %76, %74 ]
+  %.sink238 = phi ptr [ %.0190, %62 ], [ %76, %74 ]
   %80 = and i32 %.sink, 65280
   %81 = icmp ne i32 %80, 0
   tail call void @llvm.assume(i1 %81)
-  %82 = load ptr, ptr %.0190.sink, align 8
+  %82 = load ptr, ptr %.sink238, align 8
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
   br label %85
 
 85:                                               ; preds = %.sink.split, %58, %74
-  %.0121 = phi ptr [ %76, %74 ], [ %.0190, %58 ], [ %.0190.sink, %.sink.split ]
+  %.0121 = phi ptr [ %76, %74 ], [ %.0190, %58 ], [ %.sink238, %.sink.split ]
   %86 = load ptr, ptr %.0121, align 8
   %87 = getelementptr inbounds i8, ptr %.0121, i64 8
   %88 = load i32, ptr %87, align 8
@@ -83800,18 +83800,18 @@ _zval_undefined_op1.exit:                         ; preds = %61, %64
 
 .sink.split:                                      ; preds = %78, %81
   %.sink = phi i32 [ %85, %81 ], [ %59, %78 ]
-  %.sink97 = phi ptr [ %83, %81 ], [ %57, %78 ]
+  %.sink95 = phi ptr [ %83, %81 ], [ %57, %78 ]
   %87 = and i32 %.sink, 65280
   %88 = icmp ne i32 %87, 0
   tail call void @llvm.assume(i1 %88)
-  %89 = load ptr, ptr %.sink97, align 8
+  %89 = load ptr, ptr %.sink95, align 8
   %90 = load i32, ptr %89, align 4
   %91 = add i32 %90, 1
   store i32 %91, ptr %89, align 4
   br label %92
 
 92:                                               ; preds = %.sink.split, %76, %81
-  %.084 = phi ptr [ %83, %81 ], [ %57, %76 ], [ %.sink97, %.sink.split ]
+  %.084 = phi ptr [ %83, %81 ], [ %57, %76 ], [ %.sink95, %.sink.split ]
   %93 = load ptr, ptr %.084, align 8
   %94 = getelementptr inbounds i8, ptr %.084, i64 8
   %95 = load i32, ptr %94, align 8
@@ -83824,8 +83824,8 @@ _zval_undefined_op1.exit:                         ; preds = %61, %64
   br label %98
 
 98:                                               ; preds = %92, %_zval_undefined_op1.exit, %50
-  %.sink96 = phi ptr [ %2, %92 ], [ %75, %_zval_undefined_op1.exit ], [ %2, %50 ]
-  %99 = getelementptr inbounds i8, ptr %.sink96, i64 32
+  %.sink98 = phi ptr [ %2, %92 ], [ %75, %_zval_undefined_op1.exit ], [ %2, %50 ]
+  %99 = getelementptr inbounds i8, ptr %.sink98, i64 32
   store ptr %99, ptr %0, align 8
   ret i32 0
 }
@@ -83956,18 +83956,18 @@ _zval_undefined_op1.exit:                         ; preds = %47, %50
 
 .sink.split:                                      ; preds = %64, %67
   %.sink = phi i32 [ %71, %67 ], [ %45, %64 ]
-  %.sink82 = phi ptr [ %69, %67 ], [ %21, %64 ]
+  %.sink80 = phi ptr [ %69, %67 ], [ %21, %64 ]
   %73 = and i32 %.sink, 65280
   %74 = icmp ne i32 %73, 0
   tail call void @llvm.assume(i1 %74)
-  %75 = load ptr, ptr %.sink82, align 8
+  %75 = load ptr, ptr %.sink80, align 8
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
   br label %78
 
 78:                                               ; preds = %.sink.split, %62, %67
-  %.073 = phi ptr [ %69, %67 ], [ %21, %62 ], [ %.sink82, %.sink.split ]
+  %.073 = phi ptr [ %69, %67 ], [ %21, %62 ], [ %.sink80, %.sink.split ]
   %79 = load ptr, ptr %.073, align 8
   %80 = getelementptr inbounds i8, ptr %.073, i64 8
   %81 = load i32, ptr %80, align 8
@@ -83980,8 +83980,8 @@ _zval_undefined_op1.exit:                         ; preds = %47, %50
   br label %84
 
 84:                                               ; preds = %78, %_zval_undefined_op1.exit, %40
-  %.sink81 = phi ptr [ %2, %78 ], [ %61, %_zval_undefined_op1.exit ], [ %2, %40 ]
-  %85 = getelementptr inbounds i8, ptr %.sink81, i64 32
+  %.sink83 = phi ptr [ %2, %78 ], [ %61, %_zval_undefined_op1.exit ], [ %2, %40 ]
+  %85 = getelementptr inbounds i8, ptr %.sink83, i64 32
   store ptr %85, ptr %0, align 8
   ret i32 0
 }
@@ -97179,18 +97179,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
 
 .sink.split:                                      ; preds = %50, %53
   %.sink = phi i32 [ %57, %53 ], [ %48, %50 ]
-  %.0133.sink = phi ptr [ %55, %53 ], [ %.0133, %50 ]
+  %.sink165 = phi ptr [ %55, %53 ], [ %.0133, %50 ]
   %59 = and i32 %.sink, 65280
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
-  %61 = load ptr, ptr %.0133.sink, align 8
+  %61 = load ptr, ptr %.sink165, align 8
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
   br label %64
 
 64:                                               ; preds = %.sink.split, %46, %53
-  %.0134 = phi ptr [ %55, %53 ], [ %.0133, %46 ], [ %.0133.sink, %.sink.split ]
+  %.0134 = phi ptr [ %55, %53 ], [ %.0133, %46 ], [ %.sink165, %.sink.split ]
   %65 = getelementptr inbounds i8, ptr %3, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
@@ -97416,18 +97416,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_TMPVAR_HANDLER(ptr nou
 
 .sink.split:                                      ; preds = %76, %79
   %.sink = phi i32 [ %83, %79 ], [ %74, %76 ]
-  %.0143.sink = phi ptr [ %81, %79 ], [ %.0143, %76 ]
+  %.sink176 = phi ptr [ %81, %79 ], [ %.0143, %76 ]
   %85 = and i32 %.sink, 65280
   %86 = icmp ne i32 %85, 0
   call void @llvm.assume(i1 %86)
-  %87 = load ptr, ptr %.0143.sink, align 8
+  %87 = load ptr, ptr %.sink176, align 8
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %72, %79
-  %.0144 = phi ptr [ %81, %79 ], [ %.0143, %72 ], [ %.0143.sink, %.sink.split ]
+  %.0144 = phi ptr [ %81, %79 ], [ %.0143, %72 ], [ %.sink176, %.sink.split ]
   %91 = getelementptr inbounds i8, ptr %4, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -97672,18 +97672,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_TMPVAR_CV_HANDLER(ptr noundef
 
 .sink.split:                                      ; preds = %76, %79
   %.sink = phi i32 [ %83, %79 ], [ %74, %76 ]
-  %.0131.sink = phi ptr [ %81, %79 ], [ %.0131, %76 ]
+  %.sink162 = phi ptr [ %81, %79 ], [ %.0131, %76 ]
   %85 = and i32 %.sink, 65280
   %86 = icmp ne i32 %85, 0
   call void @llvm.assume(i1 %86)
-  %87 = load ptr, ptr %.0131.sink, align 8
+  %87 = load ptr, ptr %.sink162, align 8
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %72, %79
-  %.0132 = phi ptr [ %81, %79 ], [ %.0131, %72 ], [ %.0131.sink, %.sink.split ]
+  %.0132 = phi ptr [ %81, %79 ], [ %.0131, %72 ], [ %.sink162, %.sink.split ]
   %91 = getelementptr inbounds i8, ptr %4, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -97858,18 +97858,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CONST_HANDLER(ptr noundef 
 
 .sink.split:                                      ; preds = %50, %53
   %.sink = phi i32 [ %57, %53 ], [ %48, %50 ]
-  %.0121.sink = phi ptr [ %55, %53 ], [ %.0121, %50 ]
+  %.sink151 = phi ptr [ %55, %53 ], [ %.0121, %50 ]
   %59 = and i32 %.sink, 65280
   %60 = icmp ne i32 %59, 0
   tail call void @llvm.assume(i1 %60)
-  %61 = load ptr, ptr %.0121.sink, align 8
+  %61 = load ptr, ptr %.sink151, align 8
   %62 = load i32, ptr %61, align 4
   %63 = add i32 %62, 1
   store i32 %63, ptr %61, align 4
   br label %64
 
 64:                                               ; preds = %.sink.split, %46, %53
-  %.0122 = phi ptr [ %55, %53 ], [ %.0121, %46 ], [ %.0121.sink, %.sink.split ]
+  %.0122 = phi ptr [ %55, %53 ], [ %.0121, %46 ], [ %.sink151, %.sink.split ]
   %65 = getelementptr inbounds i8, ptr %3, i64 16
   %66 = load i32, ptr %65, align 8
   %67 = sext i32 %66 to i64
@@ -98071,18 +98071,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_TMPVAR_HANDLER(ptr noundef
 
 .sink.split:                                      ; preds = %76, %79
   %.sink = phi i32 [ %83, %79 ], [ %74, %76 ]
-  %.0131.sink = phi ptr [ %81, %79 ], [ %.0131, %76 ]
+  %.sink162 = phi ptr [ %81, %79 ], [ %.0131, %76 ]
   %85 = and i32 %.sink, 65280
   %86 = icmp ne i32 %85, 0
   call void @llvm.assume(i1 %86)
-  %87 = load ptr, ptr %.0131.sink, align 8
+  %87 = load ptr, ptr %.sink162, align 8
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %72, %79
-  %.0132 = phi ptr [ %81, %79 ], [ %.0131, %72 ], [ %.0131.sink, %.sink.split ]
+  %.0132 = phi ptr [ %81, %79 ], [ %.0131, %72 ], [ %.sink162, %.sink.split ]
   %91 = getelementptr inbounds i8, ptr %4, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -98303,18 +98303,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_SPEC_CV_CV_HANDLER(ptr noundef %0)
 
 .sink.split:                                      ; preds = %76, %79
   %.sink = phi i32 [ %83, %79 ], [ %74, %76 ]
-  %.0119.sink = phi ptr [ %81, %79 ], [ %.0119, %76 ]
+  %.sink148 = phi ptr [ %81, %79 ], [ %.0119, %76 ]
   %85 = and i32 %.sink, 65280
   %86 = icmp ne i32 %85, 0
   call void @llvm.assume(i1 %86)
-  %87 = load ptr, ptr %.0119.sink, align 8
+  %87 = load ptr, ptr %.sink148, align 8
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 1
   store i32 %89, ptr %87, align 4
   br label %90
 
 90:                                               ; preds = %.sink.split, %72, %79
-  %.0120 = phi ptr [ %81, %79 ], [ %.0119, %72 ], [ %.0119.sink, %.sink.split ]
+  %.0120 = phi ptr [ %81, %79 ], [ %.0119, %72 ], [ %.sink148, %.sink.split ]
   %91 = getelementptr inbounds i8, ptr %4, i64 16
   %92 = load i32, ptr %91, align 8
   %93 = sext i32 %92 to i64
@@ -98660,18 +98660,18 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_TMPVAR_CONST_HANDLER(ptr noun
 
 .sink.split:                                      ; preds = %118, %121
   %.sink = phi i32 [ %125, %121 ], [ %116, %118 ]
-  %.0134.sink = phi ptr [ %123, %121 ], [ %.0134, %118 ]
+  %.sink160 = phi ptr [ %123, %121 ], [ %.0134, %118 ]
   %127 = and i32 %.sink, 65280
   %128 = icmp ne i32 %127, 0
   tail call void @llvm.assume(i1 %128)
-  %129 = load ptr, ptr %.0134.sink, align 8
+  %129 = load ptr, ptr %.sink160, align 8
   %130 = load i32, ptr %129, align 4
   %131 = add i32 %130, 1
   store i32 %131, ptr %129, align 4
   br label %132
 
 132:                                              ; preds = %.sink.split, %114, %121
-  %.0135 = phi ptr [ %123, %121 ], [ %.0134, %114 ], [ %.0134.sink, %.sink.split ]
+  %.0135 = phi ptr [ %123, %121 ], [ %.0134, %114 ], [ %.sink160, %.sink.split ]
   %133 = getelementptr inbounds i8, ptr %2, i64 16
   %134 = load i32, ptr %133, align 8
   %135 = sext i32 %134 to i64
@@ -99360,18 +99360,18 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_UNUSED_CONST_HANDLER(ptr noun
 
 .sink.split:                                      ; preds = %29, %32
   %.sink = phi i32 [ %36, %32 ], [ %27, %29 ]
-  %.sink163 = phi ptr [ %34, %32 ], [ %.0134, %29 ]
+  %.0134.sink = phi ptr [ %34, %32 ], [ %.0134, %29 ]
   %38 = and i32 %.sink, 65280
   %39 = icmp ne i32 %38, 0
   tail call void @llvm.assume(i1 %39)
-  %40 = load ptr, ptr %.sink163, align 8
+  %40 = load ptr, ptr %.0134.sink, align 8
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4
   br label %43
 
 43:                                               ; preds = %.sink.split, %32, %25
-  %.0135 = phi ptr [ %34, %32 ], [ %.0134, %25 ], [ %.sink163, %.sink.split ]
+  %.0135 = phi ptr [ %34, %32 ], [ %.0134, %25 ], [ %.0134.sink, %.sink.split ]
   %44 = getelementptr inbounds i8, ptr %2, i64 16
   %45 = load i32, ptr %44, align 8
   %46 = sext i32 %45 to i64
@@ -99496,7 +99496,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_UNUSED_CONST_HANDLER(ptr noun
 124:                                              ; preds = %121
   %125 = and i32 %122, 255
   %126 = icmp eq i32 %125, 10
-  br i1 %126, label %127, label %.sink.split158
+  br i1 %126, label %127, label %.sink.split159
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr %116, align 8
@@ -99505,22 +99505,22 @@ define internal noundef i32 @ZEND_FETCH_OBJ_R_SPEC_UNUSED_CONST_HANDLER(ptr noun
   %131 = load i32, ptr %130, align 8
   %132 = and i32 %131, 65280
   %.not151 = icmp eq i32 %132, 0
-  br i1 %.not151, label %138, label %.sink.split158
+  br i1 %.not151, label %138, label %.sink.split159
 
-.sink.split158:                                   ; preds = %124, %127
-  %.sink168 = phi i32 [ %131, %127 ], [ %122, %124 ]
-  %.sink165 = phi ptr [ %129, %127 ], [ %116, %124 ]
-  %133 = and i32 %.sink168, 65280
+.sink.split159:                                   ; preds = %124, %127
+  %.sink167 = phi i32 [ %131, %127 ], [ %122, %124 ]
+  %.sink164 = phi ptr [ %129, %127 ], [ %116, %124 ]
+  %133 = and i32 %.sink167, 65280
   %134 = icmp ne i32 %133, 0
   tail call void @llvm.assume(i1 %134)
-  %135 = load ptr, ptr %.sink165, align 8
+  %135 = load ptr, ptr %.sink164, align 8
   %136 = load i32, ptr %135, align 4
   %137 = add i32 %136, 1
   store i32 %137, ptr %135, align 4
   br label %138
 
-138:                                              ; preds = %.sink.split158, %127, %121
-  %.0136 = phi ptr [ %129, %127 ], [ %116, %121 ], [ %.sink165, %.sink.split158 ]
+138:                                              ; preds = %.sink.split159, %127, %121
+  %.0136 = phi ptr [ %129, %127 ], [ %116, %121 ], [ %.sink164, %.sink.split159 ]
   %139 = load i32, ptr %112, align 8
   %140 = sext i32 %139 to i64
   %141 = getelementptr inbounds i8, ptr %0, i64 %140
@@ -100099,18 +100099,18 @@ _zval_undefined_op1.exit:                         ; preds = %19, %._crit_edge
 
 .sink.split:                                      ; preds = %64, %67
   %.sink = phi i32 [ %71, %67 ], [ %62, %64 ]
-  %.sink186 = phi ptr [ %69, %67 ], [ %.0151, %64 ]
+  %.0151.sink = phi ptr [ %69, %67 ], [ %.0151, %64 ]
   %73 = and i32 %.sink, 65280
   %74 = icmp ne i32 %73, 0
   tail call void @llvm.assume(i1 %74)
-  %75 = load ptr, ptr %.sink186, align 8
+  %75 = load ptr, ptr %.0151.sink, align 8
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
   br label %78
 
 78:                                               ; preds = %.sink.split, %67, %60
-  %.0153 = phi ptr [ %69, %67 ], [ %.0151, %60 ], [ %.sink186, %.sink.split ]
+  %.0153 = phi ptr [ %69, %67 ], [ %.0151, %60 ], [ %.0151.sink, %.sink.split ]
   %79 = getelementptr inbounds i8, ptr %2, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = sext i32 %80 to i64
@@ -100235,7 +100235,7 @@ _zval_undefined_op1.exit:                         ; preds = %19, %._crit_edge
 159:                                              ; preds = %156
   %160 = and i32 %157, 255
   %161 = icmp eq i32 %160, 10
-  br i1 %161, label %162, label %.sink.split181
+  br i1 %161, label %162, label %.sink.split182
 
 162:                                              ; preds = %159
   %163 = load ptr, ptr %151, align 8
@@ -100244,22 +100244,22 @@ _zval_undefined_op1.exit:                         ; preds = %19, %._crit_edge
   %166 = load i32, ptr %165, align 8
   %167 = and i32 %166, 65280
   %.not171 = icmp eq i32 %167, 0
-  br i1 %.not171, label %173, label %.sink.split181
+  br i1 %.not171, label %173, label %.sink.split182
 
-.sink.split181:                                   ; preds = %159, %162
-  %.sink191 = phi i32 [ %166, %162 ], [ %157, %159 ]
-  %.sink188 = phi ptr [ %164, %162 ], [ %151, %159 ]
-  %168 = and i32 %.sink191, 65280
+.sink.split182:                                   ; preds = %159, %162
+  %.sink190 = phi i32 [ %166, %162 ], [ %157, %159 ]
+  %.sink187 = phi ptr [ %164, %162 ], [ %151, %159 ]
+  %168 = and i32 %.sink190, 65280
   %169 = icmp ne i32 %168, 0
   tail call void @llvm.assume(i1 %169)
-  %170 = load ptr, ptr %.sink188, align 8
+  %170 = load ptr, ptr %.sink187, align 8
   %171 = load i32, ptr %170, align 4
   %172 = add i32 %171, 1
   store i32 %172, ptr %170, align 4
   br label %173
 
-173:                                              ; preds = %.sink.split181, %162, %156
-  %.0152 = phi ptr [ %164, %162 ], [ %151, %156 ], [ %.sink188, %.sink.split181 ]
+173:                                              ; preds = %.sink.split182, %162, %156
+  %.0152 = phi ptr [ %164, %162 ], [ %151, %156 ], [ %.sink187, %.sink.split182 ]
   %174 = load i32, ptr %147, align 8
   %175 = sext i32 %174 to i64
   %176 = getelementptr inbounds i8, ptr %0, i64 %175
@@ -106359,18 +106359,18 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_TMPVAR_CONST_HANDLER(ptr nou
 
 .sink.split:                                      ; preds = %113, %116
   %.sink = phi i32 [ %120, %116 ], [ %111, %113 ]
-  %.0132.sink = phi ptr [ %118, %116 ], [ %.0132, %113 ]
+  %.sink157 = phi ptr [ %118, %116 ], [ %.0132, %113 ]
   %122 = and i32 %.sink, 65280
   %123 = icmp ne i32 %122, 0
   tail call void @llvm.assume(i1 %123)
-  %124 = load ptr, ptr %.0132.sink, align 8
+  %124 = load ptr, ptr %.sink157, align 8
   %125 = load i32, ptr %124, align 4
   %126 = add i32 %125, 1
   store i32 %126, ptr %124, align 4
   br label %127
 
 127:                                              ; preds = %.sink.split, %109, %116
-  %.0133 = phi ptr [ %118, %116 ], [ %.0132, %109 ], [ %.0132.sink, %.sink.split ]
+  %.0133 = phi ptr [ %118, %116 ], [ %.0132, %109 ], [ %.sink157, %.sink.split ]
   %128 = getelementptr inbounds i8, ptr %2, i64 16
   %129 = load i32, ptr %128, align 8
   %130 = sext i32 %129 to i64
@@ -107047,18 +107047,18 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_UNUSED_CONST_HANDLER(ptr nou
 
 .sink.split:                                      ; preds = %28, %31
   %.sink = phi i32 [ %35, %31 ], [ %26, %28 ]
-  %.0134.sink = phi ptr [ %33, %31 ], [ %.0134, %28 ]
+  %.sink158 = phi ptr [ %33, %31 ], [ %.0134, %28 ]
   %37 = and i32 %.sink, 65280
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %.0134.sink, align 8
+  %39 = load ptr, ptr %.sink158, align 8
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
   br label %42
 
 42:                                               ; preds = %.sink.split, %24, %31
-  %.0136 = phi ptr [ %33, %31 ], [ %.0134, %24 ], [ %.0134.sink, %.sink.split ]
+  %.0136 = phi ptr [ %33, %31 ], [ %.0134, %24 ], [ %.sink158, %.sink.split ]
   %43 = getelementptr inbounds i8, ptr %2, i64 16
   %44 = load i32, ptr %43, align 8
   %45 = sext i32 %44 to i64
@@ -107183,7 +107183,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_UNUSED_CONST_HANDLER(ptr nou
 123:                                              ; preds = %120
   %124 = and i32 %121, 255
   %125 = icmp eq i32 %124, 10
-  br i1 %125, label %126, label %.sink.split158
+  br i1 %125, label %126, label %.sink.split160
 
 126:                                              ; preds = %123
   %127 = load ptr, ptr %115, align 8
@@ -107192,22 +107192,22 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_UNUSED_CONST_HANDLER(ptr nou
   %130 = load i32, ptr %129, align 8
   %131 = and i32 %130, 65280
   %.not151 = icmp eq i32 %131, 0
-  br i1 %.not151, label %137, label %.sink.split158
+  br i1 %.not151, label %137, label %.sink.split160
 
-.sink.split158:                                   ; preds = %123, %126
-  %.sink167 = phi i32 [ %130, %126 ], [ %121, %123 ]
-  %.sink164 = phi ptr [ %128, %126 ], [ %115, %123 ]
-  %132 = and i32 %.sink167, 65280
+.sink.split160:                                   ; preds = %123, %126
+  %.sink168 = phi i32 [ %130, %126 ], [ %121, %123 ]
+  %.sink165 = phi ptr [ %128, %126 ], [ %115, %123 ]
+  %132 = and i32 %.sink168, 65280
   %133 = icmp ne i32 %132, 0
   tail call void @llvm.assume(i1 %133)
-  %134 = load ptr, ptr %.sink164, align 8
+  %134 = load ptr, ptr %.sink165, align 8
   %135 = load i32, ptr %134, align 4
   %136 = add i32 %135, 1
   store i32 %136, ptr %134, align 4
   br label %137
 
-137:                                              ; preds = %.sink.split158, %120, %126
-  %.0135 = phi ptr [ %128, %126 ], [ %115, %120 ], [ %.sink164, %.sink.split158 ]
+137:                                              ; preds = %.sink.split160, %120, %126
+  %.0135 = phi ptr [ %128, %126 ], [ %115, %120 ], [ %.sink165, %.sink.split160 ]
   %138 = load i32, ptr %111, align 8
   %139 = sext i32 %138 to i64
   %140 = getelementptr inbounds i8, ptr %0, i64 %139
@@ -107758,18 +107758,18 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_CV_CONST_HANDLER(ptr noundef
 
 .sink.split:                                      ; preds = %46, %49
   %.sink = phi i32 [ %53, %49 ], [ %44, %46 ]
-  %.0149.sink = phi ptr [ %51, %49 ], [ %.0149, %46 ]
+  %.sink174 = phi ptr [ %51, %49 ], [ %.0149, %46 ]
   %55 = and i32 %.sink, 65280
   %56 = icmp ne i32 %55, 0
   tail call void @llvm.assume(i1 %56)
-  %57 = load ptr, ptr %.0149.sink, align 8
+  %57 = load ptr, ptr %.sink174, align 8
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   br label %60
 
 60:                                               ; preds = %.sink.split, %42, %49
-  %.0150 = phi ptr [ %51, %49 ], [ %.0149, %42 ], [ %.0149.sink, %.sink.split ]
+  %.0150 = phi ptr [ %51, %49 ], [ %.0149, %42 ], [ %.sink174, %.sink.split ]
   %61 = getelementptr inbounds i8, ptr %2, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
@@ -107894,7 +107894,7 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_CV_CONST_HANDLER(ptr noundef
 141:                                              ; preds = %138
   %142 = and i32 %139, 255
   %143 = icmp eq i32 %142, 10
-  br i1 %143, label %144, label %.sink.split174
+  br i1 %143, label %144, label %.sink.split176
 
 144:                                              ; preds = %141
   %145 = load ptr, ptr %133, align 8
@@ -107903,22 +107903,22 @@ define internal noundef i32 @ZEND_FETCH_OBJ_IS_SPEC_CV_CONST_HANDLER(ptr noundef
   %148 = load i32, ptr %147, align 8
   %149 = and i32 %148, 65280
   %.not167 = icmp eq i32 %149, 0
-  br i1 %.not167, label %155, label %.sink.split174
+  br i1 %.not167, label %155, label %.sink.split176
 
-.sink.split174:                                   ; preds = %141, %144
-  %.sink183 = phi i32 [ %148, %144 ], [ %139, %141 ]
-  %.sink180 = phi ptr [ %146, %144 ], [ %133, %141 ]
-  %150 = and i32 %.sink183, 65280
+.sink.split176:                                   ; preds = %141, %144
+  %.sink184 = phi i32 [ %148, %144 ], [ %139, %141 ]
+  %.sink181 = phi ptr [ %146, %144 ], [ %133, %141 ]
+  %150 = and i32 %.sink184, 65280
   %151 = icmp ne i32 %150, 0
   tail call void @llvm.assume(i1 %151)
-  %152 = load ptr, ptr %.sink180, align 8
+  %152 = load ptr, ptr %.sink181, align 8
   %153 = load i32, ptr %152, align 4
   %154 = add i32 %153, 1
   store i32 %154, ptr %152, align 4
   br label %155
 
-155:                                              ; preds = %.sink.split174, %138, %144
-  %.0148 = phi ptr [ %146, %144 ], [ %133, %138 ], [ %.sink180, %.sink.split174 ]
+155:                                              ; preds = %.sink.split176, %138, %144
+  %.0148 = phi ptr [ %146, %144 ], [ %133, %138 ], [ %.sink181, %.sink.split176 ]
   %156 = load i32, ptr %129, align 8
   %157 = sext i32 %156 to i64
   %158 = getelementptr inbounds i8, ptr %0, i64 %157
@@ -147504,14 +147504,13 @@ define internal noundef i32 @ZEND_MAKE_REF_SPEC_CV_UNUSED_HANDLER(ptr nocapture 
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds i8, ptr %0, i64 %32
   store ptr %.sink, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 %32
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 266, ptr %35, align 8
-  %36 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
-  %.not = icmp eq ptr %36, null
+  %34 = getelementptr inbounds i8, ptr %33, i64 8
+  store i32 266, ptr %34, align 8
+  %35 = load ptr, ptr getelementptr inbounds (i8, ptr @executor_globals, i64 864), align 8
+  %.not = icmp eq ptr %35, null
   tail call void @llvm.assume(i1 %.not)
-  %37 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr %37, ptr %0, align 8
+  %36 = getelementptr inbounds i8, ptr %2, i64 32
+  store ptr %36, ptr %0, align 8
   ret i32 0
 }
 
@@ -159053,18 +159052,18 @@ _get_zval_cv_lookup.exit:                         ; preds = %25, %13, %10
 
 .sink.split:                                      ; preds = %56, %59
   %.sink = phi i32 [ %63, %59 ], [ %54, %56 ]
-  %.0102112118.sink = phi ptr [ %61, %59 ], [ %.0102112118, %56 ]
+  %.sink121 = phi ptr [ %61, %59 ], [ %.0102112118, %56 ]
   %65 = and i32 %.sink, 65280
   %66 = icmp ne i32 %65, 0
   tail call void @llvm.assume(i1 %66)
-  %67 = load ptr, ptr %.0102112118.sink, align 8
+  %67 = load ptr, ptr %.sink121, align 8
   %68 = load i32, ptr %67, align 4
   %69 = add i32 %68, 1
   store i32 %69, ptr %67, align 4
   br label %70
 
 70:                                               ; preds = %.sink.split, %.thread, %59
-  %.0103 = phi ptr [ %61, %59 ], [ %.0102112118, %.thread ], [ %.0102112118.sink, %.sink.split ]
+  %.0103 = phi ptr [ %61, %59 ], [ %.0102112118, %.thread ], [ %.sink121, %.sink.split ]
   %71 = getelementptr inbounds i8, ptr %4, i64 104
   %72 = load ptr, ptr %.0103, align 8
   %73 = getelementptr inbounds i8, ptr %.0103, i64 8
@@ -159287,18 +159286,18 @@ zval_undefined_cv.exit:                           ; preds = %15, %12, %1
 
 .sink.split:                                      ; preds = %28, %31
   %.sink = phi i32 [ %35, %31 ], [ %26, %28 ]
-  %.0.sink = phi ptr [ %33, %31 ], [ %.0, %28 ]
+  %.sink40 = phi ptr [ %33, %31 ], [ %.0, %28 ]
   %37 = and i32 %.sink, 65280
   %38 = icmp ne i32 %37, 0
   tail call void @llvm.assume(i1 %38)
-  %39 = load ptr, ptr %.0.sink, align 8
+  %39 = load ptr, ptr %.sink40, align 8
   %40 = load i32, ptr %39, align 4
   %41 = add i32 %40, 1
   store i32 %41, ptr %39, align 4
   br label %42
 
 42:                                               ; preds = %.sink.split, %zval_undefined_cv.exit, %31
-  %.036 = phi ptr [ %33, %31 ], [ %.0, %zval_undefined_cv.exit ], [ %.0.sink, %.sink.split ]
+  %.036 = phi ptr [ %33, %31 ], [ %.0, %zval_undefined_cv.exit ], [ %.sink40, %.sink.split ]
   %43 = getelementptr inbounds i8, ptr %4, i64 104
   %44 = load ptr, ptr %.036, align 8
   %45 = getelementptr inbounds i8, ptr %.036, i64 8
@@ -161070,29 +161069,29 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
 
 .sink.split:                                      ; preds = %284, %287
   %.sink = phi i32 [ %291, %287 ], [ %282, %284 ]
-  %.0492628.sink = phi ptr [ %289, %287 ], [ %.0492628, %284 ]
+  %.sink669 = phi ptr [ %289, %287 ], [ %.0492628, %284 ]
   %293 = and i32 %.sink, 65280
   %294 = icmp ne i32 %293, 0
   tail call void @llvm.assume(i1 %294)
-  %295 = load ptr, ptr %.0492628.sink, align 8
+  %295 = load ptr, ptr %.sink669, align 8
   %296 = load i32, ptr %295, align 4
   %297 = add i32 %296, 1
   store i32 %297, ptr %295, align 4
   br label %298
 
 298:                                              ; preds = %.sink.split, %.critedge578, %287
-  %.0486 = phi ptr [ %289, %287 ], [ %.0492628, %.critedge578 ], [ %.0492628.sink, %.sink.split ]
+  %.0486 = phi ptr [ %289, %287 ], [ %.0492628, %.critedge578 ], [ %.sink669, %.sink.split ]
   %299 = load ptr, ptr %.0486, align 8
   %300 = getelementptr inbounds i8, ptr %.0486, i64 8
   %301 = load i32, ptr %300, align 8
   br label %302
 
 302:                                              ; preds = %248, %274, %259, %298
-  %.sink671 = phi ptr [ %255, %248 ], [ %275, %274 ], [ %260, %259 ], [ %299, %298 ]
-  %.sink669 = phi i32 [ 266, %248 ], [ 266, %274 ], [ 266, %259 ], [ %301, %298 ]
-  store ptr %.sink671, ptr %.0469, align 8
+  %.sink673 = phi ptr [ %255, %248 ], [ %275, %274 ], [ %260, %259 ], [ %299, %298 ]
+  %.sink671 = phi i32 [ 266, %248 ], [ 266, %274 ], [ 266, %259 ], [ %301, %298 ]
+  store ptr %.sink673, ptr %.0469, align 8
   %303 = getelementptr inbounds i8, ptr %.0469, i64 8
-  store i32 %.sink669, ptr %303, align 8
+  store i32 %.sink671, ptr %303, align 8
   %304 = add i32 %226, 1
   store i32 %304, ptr %2, align 4
   br label %305
@@ -161370,11 +161369,11 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %446
 
 446:                                              ; preds = %.critedge580, %431
-  %.sink674 = phi ptr [ %444, %.critedge580 ], [ %437, %431 ]
-  %.sink672 = phi i32 [ %445, %.critedge580 ], [ 266, %431 ]
-  store ptr %.sink674, ptr %375, align 8
+  %.sink676 = phi ptr [ %444, %.critedge580 ], [ %437, %431 ]
+  %.sink674 = phi i32 [ %445, %.critedge580 ], [ 266, %431 ]
+  store ptr %.sink676, ptr %375, align 8
   %447 = getelementptr inbounds i8, ptr %375, i64 8
-  store i32 %.sink672, ptr %447, align 8
+  store i32 %.sink674, ptr %447, align 8
   %448 = getelementptr inbounds i8, ptr %373, i64 4
   %449 = load i32, ptr %448, align 4
   %450 = and i32 %449, 64
@@ -161531,11 +161530,11 @@ define internal noundef i32 @ZEND_SEND_UNPACK_SPEC_HANDLER(ptr noundef %0) #1 {
   br label %534
 
 534:                                              ; preds = %.critedge582, %519
-  %.sink677 = phi ptr [ %532, %.critedge582 ], [ %525, %519 ]
-  %.sink675 = phi i32 [ %533, %.critedge582 ], [ 266, %519 ]
-  store ptr %.sink677, ptr %478, align 8
+  %.sink679 = phi ptr [ %532, %.critedge582 ], [ %525, %519 ]
+  %.sink677 = phi i32 [ %533, %.critedge582 ], [ 266, %519 ]
+  store ptr %.sink679, ptr %478, align 8
   %535 = getelementptr i8, ptr %477, i64 72
-  store i32 %.sink675, ptr %535, align 8
+  store i32 %.sink677, ptr %535, align 8
   %536 = load ptr, ptr %23, align 8
   %537 = getelementptr inbounds i8, ptr %536, i64 44
   %538 = load i32, ptr %537, align 4
@@ -186337,18 +186336,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CONST_TMPVARCV_HANDLER(
 
 .sink.split:                                      ; preds = %46, %49
   %.sink = phi i32 [ %53, %49 ], [ %44, %46 ]
-  %.062.sink = phi ptr [ %51, %49 ], [ %.062, %46 ]
+  %.sink71 = phi ptr [ %51, %49 ], [ %.062, %46 ]
   %55 = and i32 %.sink, 65280
   %56 = icmp ne i32 %55, 0
   tail call void @llvm.assume(i1 %56)
-  %57 = load ptr, ptr %.062.sink, align 8
+  %57 = load ptr, ptr %.sink71, align 8
   %58 = load i32, ptr %57, align 4
   %59 = add i32 %58, 1
   store i32 %59, ptr %57, align 4
   br label %60
 
 60:                                               ; preds = %.sink.split, %42, %49
-  %.063 = phi ptr [ %51, %49 ], [ %.062, %42 ], [ %.062.sink, %.sink.split ]
+  %.063 = phi ptr [ %51, %49 ], [ %.062, %42 ], [ %.sink71, %.sink.split ]
   %61 = getelementptr inbounds i8, ptr %2, i64 16
   %62 = load i32, ptr %61, align 8
   %63 = sext i32 %62 to i64
@@ -186383,8 +186382,8 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CONST_TMPVARCV_HANDLER(
   br label %80
 
 80:                                               ; preds = %73, %70, %60, %24
-  %.sink72 = phi ptr [ %79, %73 ], [ %72, %70 ], [ %2, %60 ], [ %26, %24 ]
-  %81 = getelementptr inbounds i8, ptr %.sink72, i64 32
+  %.sink74 = phi ptr [ %79, %73 ], [ %72, %70 ], [ %2, %60 ], [ %26, %24 ]
+  %81 = getelementptr inbounds i8, ptr %.sink74, i64 32
   store ptr %81, ptr %0, align 8
   ret i32 0
 }
@@ -186443,7 +186442,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
   %34 = add i32 %32, -1
   store i32 %34, ptr %31, align 4
   %.not116 = icmp eq i32 %34, 0
-  br i1 %.not116, label %.sink.split130, label %125
+  br i1 %.not116, label %.sink.split131, label %125
 
 35:                                               ; preds = %17
   %36 = getelementptr inbounds i8, ptr %19, i64 24
@@ -186490,18 +186489,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
 
 .sink.split:                                      ; preds = %54, %57
   %.sink = phi i32 [ %61, %57 ], [ %52, %54 ]
-  %.0110.sink = phi ptr [ %59, %57 ], [ %.0110, %54 ]
+  %.sink127 = phi ptr [ %59, %57 ], [ %.0110, %54 ]
   %63 = and i32 %.sink, 65280
   %64 = icmp ne i32 %63, 0
   tail call void @llvm.assume(i1 %64)
-  %65 = load ptr, ptr %.0110.sink, align 8
+  %65 = load ptr, ptr %.sink127, align 8
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
   br label %68
 
 68:                                               ; preds = %.sink.split, %50, %57
-  %.0111 = phi ptr [ %59, %57 ], [ %.0110, %50 ], [ %.0110.sink, %.sink.split ]
+  %.0111 = phi ptr [ %59, %57 ], [ %.0110, %50 ], [ %.sink127, %.sink.split ]
   %69 = getelementptr inbounds i8, ptr %2, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
@@ -186528,7 +186527,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
   %86 = add i32 %84, -1
   store i32 %86, ptr %83, align 4
   %.not121 = icmp eq i32 %86, 0
-  br i1 %.not121, label %.sink.split130, label %125
+  br i1 %.not121, label %.sink.split131, label %125
 
 87:                                               ; preds = %1
   %88 = load ptr, ptr %6, align 8
@@ -186564,7 +186563,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
   %107 = add i32 %105, -1
   store i32 %107, ptr %104, align 4
   %.not114 = icmp eq i32 %107, 0
-  br i1 %.not114, label %.sink.split130, label %125
+  br i1 %.not114, label %.sink.split131, label %125
 
 108:                                              ; preds = %40, %35, %47
   %109 = getelementptr inbounds i8, ptr %2, i64 16
@@ -186590,15 +186589,15 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_CONST_HANDLER(pt
   %123 = add i32 %121, -1
   store i32 %123, ptr %120, align 4
   %.not123 = icmp eq i32 %123, 0
-  br i1 %.not123, label %.sink.split130, label %125
+  br i1 %.not123, label %.sink.split131, label %125
 
-.sink.split130:                                   ; preds = %119, %103, %82, %30
-  %.sink132 = phi ptr [ %27, %30 ], [ %79, %82 ], [ %100, %103 ], [ %116, %119 ]
-  %124 = load ptr, ptr %.sink132, align 8
+.sink.split131:                                   ; preds = %119, %103, %82, %30
+  %.sink133 = phi ptr [ %27, %30 ], [ %79, %82 ], [ %100, %103 ], [ %116, %119 ]
+  %124 = load ptr, ptr %.sink133, align 8
   tail call void @rc_dtor_func(ptr noundef %124) #27
   br label %125
 
-125:                                              ; preds = %.sink.split130, %108, %119, %93, %103, %68, %82, %23, %30
+125:                                              ; preds = %.sink.split131, %108, %119, %93, %103, %68, %82, %23, %30
   %126 = load ptr, ptr %0, align 8
   %127 = getelementptr inbounds i8, ptr %126, i64 32
   store ptr %127, ptr %0, align 8
@@ -186659,7 +186658,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
   %34 = add i32 %32, -1
   store i32 %34, ptr %31, align 4
   %.not113 = icmp eq i32 %34, 0
-  br i1 %.not113, label %.sink.split127, label %122
+  br i1 %.not113, label %.sink.split128, label %122
 
 35:                                               ; preds = %17
   %36 = getelementptr inbounds i8, ptr %19, i64 24
@@ -186706,18 +186705,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
 
 .sink.split:                                      ; preds = %54, %57
   %.sink = phi i32 [ %61, %57 ], [ %52, %54 ]
-  %.0107.sink = phi ptr [ %59, %57 ], [ %.0107, %54 ]
+  %.sink124 = phi ptr [ %59, %57 ], [ %.0107, %54 ]
   %63 = and i32 %.sink, 65280
   %64 = icmp ne i32 %63, 0
   tail call void @llvm.assume(i1 %64)
-  %65 = load ptr, ptr %.0107.sink, align 8
+  %65 = load ptr, ptr %.sink124, align 8
   %66 = load i32, ptr %65, align 4
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4
   br label %68
 
 68:                                               ; preds = %.sink.split, %50, %57
-  %.0108 = phi ptr [ %59, %57 ], [ %.0107, %50 ], [ %.0107.sink, %.sink.split ]
+  %.0108 = phi ptr [ %59, %57 ], [ %.0107, %50 ], [ %.sink124, %.sink.split ]
   %69 = getelementptr inbounds i8, ptr %2, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = sext i32 %70 to i64
@@ -186744,7 +186743,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
   %86 = add i32 %84, -1
   store i32 %86, ptr %83, align 4
   %.not118 = icmp eq i32 %86, 0
-  br i1 %.not118, label %.sink.split127, label %122
+  br i1 %.not118, label %.sink.split128, label %122
 
 87:                                               ; preds = %1
   %88 = load ptr, ptr %6, align 8
@@ -186775,7 +186774,7 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
   %104 = add i32 %102, -1
   store i32 %104, ptr %101, align 4
   %.not111 = icmp eq i32 %104, 0
-  br i1 %.not111, label %.sink.split127, label %122
+  br i1 %.not111, label %.sink.split128, label %122
 
 105:                                              ; preds = %40, %35, %47
   %106 = getelementptr inbounds i8, ptr %2, i64 16
@@ -186801,15 +186800,15 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_TMPVAR_TMPVARCV_HANDLER
   %120 = add i32 %118, -1
   store i32 %120, ptr %117, align 4
   %.not120 = icmp eq i32 %120, 0
-  br i1 %.not120, label %.sink.split127, label %122
+  br i1 %.not120, label %.sink.split128, label %122
 
-.sink.split127:                                   ; preds = %116, %100, %82, %30
-  %.sink129 = phi ptr [ %27, %30 ], [ %79, %82 ], [ %97, %100 ], [ %113, %116 ]
-  %121 = load ptr, ptr %.sink129, align 8
+.sink.split128:                                   ; preds = %116, %100, %82, %30
+  %.sink130 = phi ptr [ %27, %30 ], [ %79, %82 ], [ %97, %100 ], [ %113, %116 ]
+  %121 = load ptr, ptr %.sink130, align 8
   tail call void @rc_dtor_func(ptr noundef %121) #27
   br label %122
 
-122:                                              ; preds = %.sink.split127, %105, %116, %93, %100, %68, %82, %23, %30
+122:                                              ; preds = %.sink.split128, %105, %116, %93, %100, %68, %82, %23, %30
   %123 = load ptr, ptr %0, align 8
   %124 = getelementptr inbounds i8, ptr %123, i64 32
   store ptr %124, ptr %0, align 8
@@ -186902,18 +186901,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_CONST_HANDLER(ptr no
 
 .sink.split:                                      ; preds = %45, %48
   %.sink = phi i32 [ %52, %48 ], [ %43, %45 ]
-  %.071.sink = phi ptr [ %50, %48 ], [ %.071, %45 ]
+  %.sink81 = phi ptr [ %50, %48 ], [ %.071, %45 ]
   %54 = and i32 %.sink, 65280
   %55 = icmp ne i32 %54, 0
   tail call void @llvm.assume(i1 %55)
-  %56 = load ptr, ptr %.071.sink, align 8
+  %56 = load ptr, ptr %.sink81, align 8
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4
   br label %59
 
 59:                                               ; preds = %.sink.split, %41, %48
-  %.072 = phi ptr [ %50, %48 ], [ %.071, %41 ], [ %.071.sink, %.sink.split ]
+  %.072 = phi ptr [ %50, %48 ], [ %.071, %41 ], [ %.sink81, %.sink.split ]
   %60 = getelementptr inbounds i8, ptr %2, i64 16
   %61 = load i32, ptr %60, align 8
   %62 = sext i32 %61 to i64
@@ -186962,8 +186961,8 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_CONST_HANDLER(ptr no
   br label %88
 
 88:                                               ; preds = %81, %75, %59, %23
-  %.sink82 = phi ptr [ %87, %81 ], [ %80, %75 ], [ %2, %59 ], [ %25, %23 ]
-  %89 = getelementptr inbounds i8, ptr %.sink82, i64 32
+  %.sink84 = phi ptr [ %87, %81 ], [ %80, %75 ], [ %2, %59 ], [ %25, %23 ]
+  %89 = getelementptr inbounds i8, ptr %.sink84, i64 32
   store ptr %89, ptr %0, align 8
   ret i32 0
 }
@@ -187054,18 +187053,18 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_TMPVARCV_HANDLER(ptr
 
 .sink.split:                                      ; preds = %45, %48
   %.sink = phi i32 [ %52, %48 ], [ %43, %45 ]
-  %.068.sink = phi ptr [ %50, %48 ], [ %.068, %45 ]
+  %.sink78 = phi ptr [ %50, %48 ], [ %.068, %45 ]
   %54 = and i32 %.sink, 65280
   %55 = icmp ne i32 %54, 0
   tail call void @llvm.assume(i1 %55)
-  %56 = load ptr, ptr %.068.sink, align 8
+  %56 = load ptr, ptr %.sink78, align 8
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, 1
   store i32 %58, ptr %56, align 4
   br label %59
 
 59:                                               ; preds = %.sink.split, %41, %48
-  %.069 = phi ptr [ %50, %48 ], [ %.068, %41 ], [ %.068.sink, %.sink.split ]
+  %.069 = phi ptr [ %50, %48 ], [ %.068, %41 ], [ %.sink78, %.sink.split ]
   %60 = getelementptr inbounds i8, ptr %2, i64 16
   %61 = load i32, ptr %60, align 8
   %62 = sext i32 %61 to i64
@@ -187109,8 +187108,8 @@ define internal noundef i32 @ZEND_FETCH_DIM_R_INDEX_SPEC_CV_TMPVARCV_HANDLER(ptr
   br label %85
 
 85:                                               ; preds = %78, %75, %59, %23
-  %.sink79 = phi ptr [ %84, %78 ], [ %77, %75 ], [ %2, %59 ], [ %25, %23 ]
-  %86 = getelementptr inbounds i8, ptr %.sink79, i64 32
+  %.sink81 = phi ptr [ %84, %78 ], [ %77, %75 ], [ %2, %59 ], [ %25, %23 ]
+  %86 = getelementptr inbounds i8, ptr %.sink81, i64 32
   store ptr %86, ptr %0, align 8
   ret i32 0
 }
@@ -200279,18 +200278,18 @@ define internal fastcc void @zend_fetch_var_address_helper_SPEC_CONST_UNUSED(i32
 
 .sink.split:                                      ; preds = %117, %120
   %.sink = phi i32 [ %124, %120 ], [ %115, %117 ]
-  %.0106.sink = phi ptr [ %122, %120 ], [ %.0106, %117 ]
+  %.sink130 = phi ptr [ %122, %120 ], [ %.0106, %117 ]
   %126 = and i32 %.sink, 65280
   %127 = icmp ne i32 %126, 0
   tail call void @llvm.assume(i1 %127)
-  %128 = load ptr, ptr %.0106.sink, align 8
+  %128 = load ptr, ptr %.sink130, align 8
   %129 = load i32, ptr %128, align 4
   %130 = add i32 %129, 1
   store i32 %130, ptr %128, align 4
   br label %131
 
 131:                                              ; preds = %.sink.split, %113, %120
-  %.0107 = phi ptr [ %122, %120 ], [ %.0106, %113 ], [ %.0106.sink, %.sink.split ]
+  %.0107 = phi ptr [ %122, %120 ], [ %.0106, %113 ], [ %.sink130, %.sink.split ]
   %132 = getelementptr inbounds i8, ptr %3, i64 16
   %133 = load i32, ptr %132, align 8
   %134 = sext i32 %133 to i64
@@ -200716,18 +200715,18 @@ zend_fetch_this_var.exit:                         ; preds = %78, %84, %90, %96, 
 
 .sink.split:                                      ; preds = %189, %192
   %.sink = phi i32 [ %196, %192 ], [ %187, %189 ]
-  %.0165.sink = phi ptr [ %194, %192 ], [ %.0165, %189 ]
+  %.sink199 = phi ptr [ %194, %192 ], [ %.0165, %189 ]
   %198 = and i32 %.sink, 65280
   %199 = icmp ne i32 %198, 0
   tail call void @llvm.assume(i1 %199)
-  %200 = load ptr, ptr %.0165.sink, align 8
+  %200 = load ptr, ptr %.sink199, align 8
   %201 = load i32, ptr %200, align 4
   %202 = add i32 %201, 1
   store i32 %202, ptr %200, align 4
   br label %203
 
 203:                                              ; preds = %.sink.split, %185, %192
-  %.0164 = phi ptr [ %194, %192 ], [ %.0165, %185 ], [ %.0165.sink, %.sink.split ]
+  %.0164 = phi ptr [ %194, %192 ], [ %.0165, %185 ], [ %.sink199, %.sink.split ]
   %204 = getelementptr inbounds i8, ptr %3, i64 16
   %205 = load i32, ptr %204, align 8
   %206 = sext i32 %205 to i64
@@ -200750,10 +200749,10 @@ zend_fetch_this_var.exit:                         ; preds = %78, %84, %90, %96, 
 
 218:                                              ; preds = %211, %203
   %219 = phi i64 [ %217, %211 ], [ %206, %203 ]
-  %.sink199 = phi i32 [ 12, %211 ], [ %210, %203 ]
+  %.sink201 = phi i32 [ 12, %211 ], [ %210, %203 ]
   %220 = getelementptr inbounds i8, ptr %1, i64 %219
   %221 = getelementptr inbounds i8, ptr %220, i64 8
-  store i32 %.sink199, ptr %221, align 8
+  store i32 %.sink201, ptr %221, align 8
   %222 = load ptr, ptr %1, align 8
   %223 = getelementptr inbounds i8, ptr %222, i64 32
   store ptr %223, ptr %1, align 8
@@ -201162,18 +201161,18 @@ zend_fetch_this_var.exit:                         ; preds = %73, %79, %85, %91, 
 
 .sink.split196:                                   ; preds = %187, %190
   %.sink = phi i32 [ %194, %190 ], [ %185, %187 ]
-  %.1.sink = phi ptr [ %192, %190 ], [ %.1, %187 ]
+  %.sink199 = phi ptr [ %192, %190 ], [ %.1, %187 ]
   %196 = and i32 %.sink, 65280
   %197 = icmp ne i32 %196, 0
   tail call void @llvm.assume(i1 %197)
-  %198 = load ptr, ptr %.1.sink, align 8
+  %198 = load ptr, ptr %.sink199, align 8
   %199 = load i32, ptr %198, align 4
   %200 = add i32 %199, 1
   store i32 %200, ptr %198, align 4
   br label %201
 
 201:                                              ; preds = %.sink.split196, %183, %190
-  %.0160 = phi ptr [ %192, %190 ], [ %.1, %183 ], [ %.1.sink, %.sink.split196 ]
+  %.0160 = phi ptr [ %192, %190 ], [ %.1, %183 ], [ %.sink199, %.sink.split196 ]
   %202 = getelementptr inbounds i8, ptr %3, i64 16
   %203 = load i32, ptr %202, align 8
   %204 = sext i32 %203 to i64
@@ -201196,10 +201195,10 @@ zend_fetch_this_var.exit:                         ; preds = %73, %79, %85, %91, 
 
 216:                                              ; preds = %209, %201
   %217 = phi i64 [ %215, %209 ], [ %204, %201 ]
-  %.sink199 = phi i32 [ 12, %209 ], [ %208, %201 ]
+  %.sink201 = phi i32 [ 12, %209 ], [ %208, %201 ]
   %218 = getelementptr inbounds i8, ptr %1, i64 %217
   %219 = getelementptr inbounds i8, ptr %218, i64 8
-  store i32 %.sink199, ptr %219, align 8
+  store i32 %.sink201, ptr %219, align 8
   %220 = load ptr, ptr %1, align 8
   %221 = getelementptr inbounds i8, ptr %220, i64 32
   store ptr %221, ptr %1, align 8
@@ -201802,18 +201801,18 @@ define internal fastcc void @zend_fetch_dimension_address_read_R(ptr noundef %0,
 
 .sink.split:                                      ; preds = %74, %77
   %.sink = phi i32 [ %81, %77 ], [ %72, %74 ]
-  %.sink36 = phi ptr [ %79, %77 ], [ %.0292, %74 ]
+  %.0292.sink = phi ptr [ %79, %77 ], [ %.0292, %74 ]
   %83 = and i32 %.sink, 65280
   %84 = icmp ne i32 %83, 0
   call void @llvm.assume(i1 %84)
-  %85 = load ptr, ptr %.sink36, align 8
+  %85 = load ptr, ptr %.0292.sink, align 8
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, 1
   store i32 %87, ptr %85, align 4
   br label %88
 
 88:                                               ; preds = %.sink.split, %77, %70
-  %.0304 = phi ptr [ %79, %77 ], [ %.0292, %70 ], [ %.sink36, %.sink.split ]
+  %.0304 = phi ptr [ %79, %77 ], [ %.0292, %70 ], [ %.0292.sink, %.sink.split ]
   %89 = load ptr, ptr %.0304, align 8
   %90 = getelementptr inbounds i8, ptr %.0304, i64 8
   %91 = load i32, ptr %90, align 8
@@ -202099,7 +202098,7 @@ _zval_undefined_op2.exit:                         ; preds = %132, %135
 233:                                              ; preds = %230
   %234 = and i32 %231, 255
   %235 = icmp eq i32 %234, 10
-  br i1 %235, label %236, label %.sink.split31
+  br i1 %235, label %236, label %.sink.split32
 
 236:                                              ; preds = %233
   %237 = load ptr, ptr %226, align 8
@@ -202108,22 +202107,22 @@ _zval_undefined_op2.exit:                         ; preds = %132, %135
   %240 = load i32, ptr %239, align 8
   %241 = and i32 %240, 65280
   %.not326 = icmp eq i32 %241, 0
-  br i1 %.not326, label %247, label %.sink.split31
+  br i1 %.not326, label %247, label %.sink.split32
 
-.sink.split31:                                    ; preds = %233, %236
-  %.sink41 = phi i32 [ %240, %236 ], [ %231, %233 ]
-  %.sink38 = phi ptr [ %238, %236 ], [ %226, %233 ]
-  %242 = and i32 %.sink41, 65280
+.sink.split32:                                    ; preds = %233, %236
+  %.sink40 = phi i32 [ %240, %236 ], [ %231, %233 ]
+  %.sink37 = phi ptr [ %238, %236 ], [ %226, %233 ]
+  %242 = and i32 %.sink40, 65280
   %243 = icmp ne i32 %242, 0
   tail call void @llvm.assume(i1 %243)
-  %244 = load ptr, ptr %.sink38, align 8
+  %244 = load ptr, ptr %.sink37, align 8
   %245 = load i32, ptr %244, align 4
   %246 = add i32 %245, 1
   store i32 %246, ptr %244, align 4
   br label %247
 
-247:                                              ; preds = %.sink.split31, %236, %230
-  %.0300 = phi ptr [ %238, %236 ], [ %226, %230 ], [ %.sink38, %.sink.split31 ]
+247:                                              ; preds = %.sink.split32, %236, %230
+  %.0300 = phi ptr [ %238, %236 ], [ %226, %230 ], [ %.sink37, %.sink.split32 ]
   %248 = load ptr, ptr %.0300, align 8
   %249 = getelementptr inbounds i8, ptr %.0300, i64 8
   %250 = load i32, ptr %249, align 8
@@ -203455,18 +203454,18 @@ define internal fastcc void @zend_fetch_dimension_address_read_IS(ptr nocapture 
 
 .sink.split:                                      ; preds = %71, %74
   %.sink = phi i32 [ %78, %74 ], [ %69, %71 ]
-  %.sink32 = phi ptr [ %76, %74 ], [ %.0292, %71 ]
+  %.0292.sink = phi ptr [ %76, %74 ], [ %.0292, %71 ]
   %80 = and i32 %.sink, 65280
   %81 = icmp ne i32 %80, 0
   call void @llvm.assume(i1 %81)
-  %82 = load ptr, ptr %.sink32, align 8
+  %82 = load ptr, ptr %.0292.sink, align 8
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
   br label %85
 
 85:                                               ; preds = %.sink.split, %74, %67
-  %.0304 = phi ptr [ %76, %74 ], [ %.0292, %67 ], [ %.sink32, %.sink.split ]
+  %.0304 = phi ptr [ %76, %74 ], [ %.0292, %67 ], [ %.0292.sink, %.sink.split ]
   %86 = load ptr, ptr %.0304, align 8
   %87 = getelementptr inbounds i8, ptr %.0304, i64 8
   %88 = load i32, ptr %87, align 8
@@ -203721,7 +203720,7 @@ _zval_undefined_op2.exit340:                      ; preds = %193, %190, %183
 223:                                              ; preds = %220
   %224 = and i32 %221, 255
   %225 = icmp eq i32 %224, 10
-  br i1 %225, label %226, label %.sink.split27
+  br i1 %225, label %226, label %.sink.split28
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %216, align 8
@@ -203730,22 +203729,22 @@ _zval_undefined_op2.exit340:                      ; preds = %193, %190, %183
   %230 = load i32, ptr %229, align 8
   %231 = and i32 %230, 65280
   %.not326 = icmp eq i32 %231, 0
-  br i1 %.not326, label %237, label %.sink.split27
+  br i1 %.not326, label %237, label %.sink.split28
 
-.sink.split27:                                    ; preds = %223, %226
-  %.sink37 = phi i32 [ %230, %226 ], [ %221, %223 ]
-  %.sink34 = phi ptr [ %228, %226 ], [ %216, %223 ]
-  %232 = and i32 %.sink37, 65280
+.sink.split28:                                    ; preds = %223, %226
+  %.sink36 = phi i32 [ %230, %226 ], [ %221, %223 ]
+  %.sink33 = phi ptr [ %228, %226 ], [ %216, %223 ]
+  %232 = and i32 %.sink36, 65280
   %233 = icmp ne i32 %232, 0
   tail call void @llvm.assume(i1 %233)
-  %234 = load ptr, ptr %.sink34, align 8
+  %234 = load ptr, ptr %.sink33, align 8
   %235 = load i32, ptr %234, align 4
   %236 = add i32 %235, 1
   store i32 %236, ptr %234, align 4
   br label %237
 
-237:                                              ; preds = %.sink.split27, %226, %220
-  %.0300 = phi ptr [ %228, %226 ], [ %216, %220 ], [ %.sink34, %.sink.split27 ]
+237:                                              ; preds = %.sink.split28, %226, %220
+  %.0300 = phi ptr [ %228, %226 ], [ %216, %220 ], [ %.sink33, %.sink.split28 ]
   %238 = load ptr, ptr %.0300, align 8
   %239 = getelementptr inbounds i8, ptr %.0300, i64 8
   %240 = load i32, ptr %239, align 8
@@ -204496,18 +204495,18 @@ define internal fastcc void @zend_fetch_dimension_address_LIST_r(ptr nocapture n
 
 .sink.split:                                      ; preds = %72, %75
   %.sink = phi i32 [ %79, %75 ], [ %70, %72 ]
-  %.sink18 = phi ptr [ %77, %75 ], [ %.0292, %72 ]
+  %.0292.sink = phi ptr [ %77, %75 ], [ %.0292, %72 ]
   %81 = and i32 %.sink, 65280
   %82 = icmp ne i32 %81, 0
   call void @llvm.assume(i1 %82)
-  %83 = load ptr, ptr %.sink18, align 8
+  %83 = load ptr, ptr %.0292.sink, align 8
   %84 = load i32, ptr %83, align 4
   %85 = add i32 %84, 1
   store i32 %85, ptr %83, align 4
   br label %86
 
 86:                                               ; preds = %.sink.split, %75, %68
-  %.0304 = phi ptr [ %77, %75 ], [ %.0292, %68 ], [ %.sink18, %.sink.split ]
+  %.0304 = phi ptr [ %77, %75 ], [ %.0292, %68 ], [ %.0292.sink, %.sink.split ]
   %87 = load ptr, ptr %.0304, align 8
   %88 = getelementptr inbounds i8, ptr %.0304, i64 8
   %89 = load i32, ptr %88, align 8
@@ -204602,7 +204601,7 @@ _zval_undefined_op2.exit:                         ; preds = %108, %105, %98
 138:                                              ; preds = %135
   %139 = and i32 %136, 255
   %140 = icmp eq i32 %139, 10
-  br i1 %140, label %141, label %.sink.split13
+  br i1 %140, label %141, label %.sink.split14
 
 141:                                              ; preds = %138
   %142 = load ptr, ptr %131, align 8
@@ -204611,22 +204610,22 @@ _zval_undefined_op2.exit:                         ; preds = %108, %105, %98
   %145 = load i32, ptr %144, align 8
   %146 = and i32 %145, 65280
   %.not326 = icmp eq i32 %146, 0
-  br i1 %.not326, label %152, label %.sink.split13
+  br i1 %.not326, label %152, label %.sink.split14
 
-.sink.split13:                                    ; preds = %138, %141
-  %.sink23 = phi i32 [ %145, %141 ], [ %136, %138 ]
-  %.sink20 = phi ptr [ %143, %141 ], [ %131, %138 ]
-  %147 = and i32 %.sink23, 65280
+.sink.split14:                                    ; preds = %138, %141
+  %.sink22 = phi i32 [ %145, %141 ], [ %136, %138 ]
+  %.sink19 = phi ptr [ %143, %141 ], [ %131, %138 ]
+  %147 = and i32 %.sink22, 65280
   %148 = icmp ne i32 %147, 0
   tail call void @llvm.assume(i1 %148)
-  %149 = load ptr, ptr %.sink20, align 8
+  %149 = load ptr, ptr %.sink19, align 8
   %150 = load i32, ptr %149, align 4
   %151 = add i32 %150, 1
   store i32 %151, ptr %149, align 4
   br label %152
 
-152:                                              ; preds = %.sink.split13, %141, %135
-  %.0300 = phi ptr [ %143, %141 ], [ %131, %135 ], [ %.sink20, %.sink.split13 ]
+152:                                              ; preds = %.sink.split14, %141, %135
+  %.0300 = phi ptr [ %143, %141 ], [ %131, %135 ], [ %.sink19, %.sink.split14 ]
   %153 = load ptr, ptr %.0300, align 8
   %154 = getelementptr inbounds i8, ptr %.0300, i64 8
   %155 = load i32, ptr %154, align 8
@@ -207258,18 +207257,18 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
 
 .sink.split:                                      ; preds = %71, %74
   %.sink = phi i32 [ %78, %74 ], [ %69, %71 ]
-  %.sink84 = phi ptr [ %76, %74 ], [ %67, %71 ]
+  %.sink81 = phi ptr [ %76, %74 ], [ %67, %71 ]
   %80 = and i32 %.sink, 65280
   %81 = icmp ne i32 %80, 0
   call void @llvm.assume(i1 %81)
-  %82 = load ptr, ptr %.sink84, align 8
+  %82 = load ptr, ptr %.sink81, align 8
   %83 = load i32, ptr %82, align 4
   %84 = add i32 %83, 1
   store i32 %84, ptr %82, align 4
   br label %85
 
 85:                                               ; preds = %.sink.split, %66, %74
-  %.068 = phi ptr [ %76, %74 ], [ %67, %66 ], [ %.sink84, %.sink.split ]
+  %.068 = phi ptr [ %76, %74 ], [ %67, %66 ], [ %.sink81, %.sink.split ]
   %86 = getelementptr inbounds i8, ptr %7, i64 16
   %87 = load i32, ptr %86, align 8
   %88 = sext i32 %87 to i64
@@ -207293,10 +207292,10 @@ define internal fastcc void @zend_fetch_static_prop_helper_SPEC(i32 noundef %0, 
 
 101:                                              ; preds = %93, %85
   %102 = phi i64 [ %100, %93 ], [ %88, %85 ]
-  %.sink81 = phi i32 [ 12, %93 ], [ %92, %85 ]
+  %.sink83 = phi i32 [ 12, %93 ], [ %92, %85 ]
   %103 = getelementptr inbounds i8, ptr %1, i64 %102
   %104 = getelementptr inbounds i8, ptr %103, i64 8
-  store i32 %.sink81, ptr %104, align 8
+  store i32 %.sink83, ptr %104, align 8
   %105 = load ptr, ptr %1, align 8
   %106 = getelementptr inbounds i8, ptr %105, i64 32
   store ptr %106, ptr %1, align 8

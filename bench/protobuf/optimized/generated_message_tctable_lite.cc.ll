@@ -2536,12 +2536,12 @@ if.then19.i:                                      ; preds = %do.body.i
 
 common.ret62.sink.split:                          ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %11, %if.then28.i ], [ %8, %if.then19.i ]
-  %conv2.i.i53 = trunc i64 %hasbits to i32
-  %conv3.i.i54 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i54
-  %9 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i47 = or i32 %9, %conv2.i.i53
-  store i32 %or.i.i47, ptr %add.ptr.i.i, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i56 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %9 = load i32, ptr %add.ptr.i56, align 4
+  %or.i.i47 = or i32 %9, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i56, align 4
   br label %common.ret62
 
 common.ret62:                                     ; preds = %common.ret62.sink.split, %if.then28.i, %if.then19.i
@@ -2628,12 +2628,12 @@ if.then19.i:                                      ; preds = %do.body.i
 
 common.ret64.sink.split:                          ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %10, %if.then28.i ], [ %7, %if.then19.i ]
-  %conv2.i.i53 = trunc i64 %hasbits to i32
-  %conv3.i.i54 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i54
-  %8 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i47 = or i32 %8, %conv2.i.i53
-  store i32 %or.i.i47, ptr %add.ptr.i.i, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i56 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %8 = load i32, ptr %add.ptr.i56, align 4
+  %or.i.i47 = or i32 %8, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i56, align 4
   br label %common.ret64
 
 common.ret64:                                     ; preds = %common.ret64.sink.split, %if.then28.i, %if.then19.i
@@ -2744,12 +2744,12 @@ if.then20.i:                                      ; preds = %if.end.i52, %do.bod
 common.ret69.sink.split:                          ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %17, %if.then29.i ], [ %14, %if.then20.i ]
   %common.ret69.op.ph = phi ptr [ %call.i53, %if.then29.i ], [ null, %if.then20.i ]
-  %conv2.i.i57 = trunc i64 %hasbits to i32
-  %conv3.i.i58 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i58
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i47 = or i32 %15, %conv2.i.i57
-  store i32 %or.i.i47, ptr %add.ptr.i.i, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i61 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %15 = load i32, ptr %add.ptr.i61, align 4
+  %or.i.i47 = or i32 %15, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i61, align 4
   br label %common.ret69
 
 common.ret69:                                     ; preds = %common.ret69.sink.split, %if.then29.i, %if.then20.i
@@ -2866,12 +2866,12 @@ if.then20.i:                                      ; preds = %if.end.i52, %do.bod
 common.ret73.sink.split:                          ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %16, %if.then29.i ], [ %13, %if.then20.i ]
   %common.ret73.op.ph = phi ptr [ %call.i53, %if.then29.i ], [ null, %if.then20.i ]
-  %conv2.i.i59 = trunc i64 %hasbits to i32
-  %conv3.i.i60 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i60
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i47 = or i32 %14, %conv2.i.i59
-  store i32 %or.i.i47, ptr %add.ptr.i.i, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i63 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %14 = load i32, ptr %add.ptr.i63, align 4
+  %or.i.i47 = or i32 %14, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i63, align 4
   br label %common.ret73
 
 common.ret73:                                     ; preds = %common.ret73.sink.split, %if.then29.i, %if.then20.i
@@ -3093,12 +3093,12 @@ if.then19.i:                                      ; preds = %_ZZN6google8protobu
 common.ret131.sink.split:                         ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %32, %if.then28.i ], [ %30, %if.then19.i ]
   %common.ret131.op.ph = phi ptr [ %ptr.addr.i.i59.2, %if.then28.i ], [ null, %if.then19.i ]
-  %conv2.i.i95 = trunc i64 %hasbits to i32
-  %conv3.i.i96 = zext i16 %.sink to i64
-  %add.ptr.i.i97 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i96
-  %31 = load i32, ptr %add.ptr.i.i97, align 4
-  %or.i.i47 = or i32 %31, %conv2.i.i95
-  store i32 %or.i.i47, ptr %add.ptr.i.i97, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i100 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %31 = load i32, ptr %add.ptr.i100, align 4
+  %or.i.i47 = or i32 %31, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i100, align 4
   br label %common.ret131
 
 common.ret131:                                    ; preds = %common.ret131.sink.split, %if.then28.i, %if.then19.i
@@ -3320,12 +3320,12 @@ if.then19.i:                                      ; preds = %_ZZN6google8protobu
 common.ret133.sink.split:                         ; preds = %if.then19.i, %if.then28.i
   %.sink = phi i16 [ %31, %if.then28.i ], [ %29, %if.then19.i ]
   %common.ret133.op.ph = phi ptr [ %ptr.addr.i.i59.2, %if.then28.i ], [ null, %if.then19.i ]
-  %conv2.i.i96 = trunc i64 %hasbits to i32
-  %conv3.i.i97 = zext i16 %.sink to i64
-  %add.ptr.i.i98 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i97
-  %30 = load i32, ptr %add.ptr.i.i98, align 4
-  %or.i.i47 = or i32 %30, %conv2.i.i96
-  store i32 %or.i.i47, ptr %add.ptr.i.i98, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %30 = load i32, ptr %add.ptr.i101, align 4
+  %or.i.i47 = or i32 %30, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i101, align 4
   br label %common.ret133
 
 common.ret133:                                    ; preds = %common.ret133.sink.split, %if.then28.i, %if.then19.i
@@ -3512,12 +3512,12 @@ if.then20.i:                                      ; preds = %_ZZN6google8protobu
 common.ret101.sink.split:                         ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %28, %if.then29.i ], [ %25, %if.then20.i ]
   %common.ret101.op.ph = phi ptr [ %ptr.addr.i.i.2, %if.then29.i ], [ null, %if.then20.i ]
-  %conv2.i.i77 = trunc i64 %hasbits to i32
-  %conv3.i.i78 = zext i16 %.sink to i64
-  %add.ptr.i.i79 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i78
-  %26 = load i32, ptr %add.ptr.i.i79, align 4
-  %or.i.i47 = or i32 %26, %conv2.i.i77
-  store i32 %or.i.i47, ptr %add.ptr.i.i79, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i82 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %26 = load i32, ptr %add.ptr.i82, align 4
+  %or.i.i47 = or i32 %26, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i82, align 4
   br label %common.ret101
 
 common.ret101:                                    ; preds = %common.ret101.sink.split, %if.then29.i, %if.then20.i
@@ -3710,12 +3710,12 @@ if.then20.i:                                      ; preds = %_ZZN6google8protobu
 common.ret105.sink.split:                         ; preds = %if.then20.i, %if.then29.i
   %.sink = phi i16 [ %27, %if.then29.i ], [ %24, %if.then20.i ]
   %common.ret105.op.ph = phi ptr [ %ptr.addr.i.i.2, %if.then29.i ], [ null, %if.then20.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i82 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %25 = load i32, ptr %add.ptr.i.i82, align 4
-  %or.i.i47 = or i32 %25, %conv2.i.i80
-  store i32 %or.i.i47, ptr %add.ptr.i.i82, align 4
+  %conv2.i.i44 = trunc i64 %hasbits to i32
+  %conv3.i.i45 = zext i16 %.sink to i64
+  %add.ptr.i85 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i45
+  %25 = load i32, ptr %add.ptr.i85, align 4
+  %or.i.i47 = or i32 %25, %conv2.i.i44
+  store i32 %or.i.i47, ptr %add.ptr.i85, align 4
   br label %common.ret105
 
 common.ret105:                                    ; preds = %common.ret105.sink.split, %if.then29.i, %if.then20.i
@@ -4893,15 +4893,15 @@ if.then10.i:                                      ; preds = %if.end50.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then10.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then10.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then10.i ]
   %.sink = phi i16 [ %14, %if.then.i.i ], [ %11, %if.then10.i ]
   %common.ret.op.ph = phi ptr [ %retval.i.0.ph, %if.then.i.i ], [ null, %if.then10.i ]
-  %conv2.i.i65 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i66 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i66
-  %12 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %12, %conv2.i.i65
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i74 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %12 = load i32, ptr %add.ptr.i74, align 4
+  %or.i.i = or i32 %12, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i74, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then10.i
@@ -5161,15 +5161,15 @@ if.then10.i:                                      ; preds = %if.end47.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then10.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then10.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then10.i ]
   %.sink = phi i16 [ %16, %if.then.i.i ], [ %13, %if.then10.i ]
   %common.ret.op.ph = phi ptr [ %retval.i.0.ph, %if.then.i.i ], [ null, %if.then10.i ]
-  %conv2.i.i87 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i88 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i88
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i87
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i95 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i95, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i95, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then10.i
@@ -5728,12 +5728,12 @@ if.then14.i:                                      ; preds = %if.then92.i
 common.ret99.sink.split:                          ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %24, %if.then24.i ], [ %14, %if.then14.i ]
   %common.ret99.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %15, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i89 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %15 = load i32, ptr %add.ptr.i89, align 4
+  %or.i.i = or i32 %15, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i89, align 4
   br label %common.ret99
 
 common.ret99:                                     ; preds = %common.ret99.sink.split, %if.then24.i, %if.then14.i
@@ -5929,12 +5929,12 @@ if.then14.i:                                      ; preds = %if.then92.i
 common.ret101.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %23, %if.then24.i ], [ %13, %if.then14.i ]
   %common.ret101.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i89 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i89, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i89, align 4
   br label %common.ret101
 
 common.ret101:                                    ; preds = %common.ret101.sink.split, %if.then24.i, %if.then14.i
@@ -6127,12 +6127,12 @@ if.then14.i:                                      ; preds = %if.end50.i.i
 common.ret118.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %22, %if.then24.i ], [ %12, %if.then14.i ]
   %common.ret118.op.ph = phi ptr [ %retval.i.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %13 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %13, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i87 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %13 = load i32, ptr %add.ptr.i87, align 4
+  %or.i.i = or i32 %13, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i87, align 4
   br label %common.ret118
 
 common.ret118:                                    ; preds = %common.ret118.sink.split, %if.then24.i, %if.then14.i
@@ -6327,12 +6327,12 @@ if.then14.i:                                      ; preds = %if.end50.i.i
 common.ret120.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %21, %if.then24.i ], [ %11, %if.then14.i ]
   %common.ret120.op.ph = phi ptr [ %retval.i.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %12 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %12, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i87 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %12 = load i32, ptr %add.ptr.i87, align 4
+  %or.i.i = or i32 %12, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i87, align 4
   br label %common.ret120
 
 common.ret120:                                    ; preds = %common.ret120.sink.split, %if.then24.i, %if.then14.i
@@ -6555,12 +6555,12 @@ if.then14.i:                                      ; preds = %if.end47.i
 common.ret142.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %24, %if.then24.i ], [ %14, %if.then14.i ]
   %common.ret142.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i102 = trunc i64 %hasbits to i32
-  %conv3.i.i103 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i103
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %15, %conv2.i.i102
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i109 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %15 = load i32, ptr %add.ptr.i109, align 4
+  %or.i.i = or i32 %15, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i109, align 4
   br label %common.ret142
 
 common.ret142:                                    ; preds = %common.ret142.sink.split, %if.then24.i, %if.then14.i
@@ -6783,12 +6783,12 @@ if.then14.i:                                      ; preds = %if.end47.i
 common.ret144.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %23, %if.then24.i ], [ %13, %if.then14.i ]
   %common.ret144.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i102 = trunc i64 %hasbits to i32
-  %conv3.i.i103 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i103
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i102
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i109 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i109, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i109, align 4
   br label %common.ret144
 
 common.ret144:                                    ; preds = %common.ret144.sink.split, %if.then24.i, %if.then14.i
@@ -6981,12 +6981,12 @@ if.then14.i:                                      ; preds = %if.end50.i
 common.ret119.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %22, %if.then24.i ], [ %12, %if.then14.i ]
   %common.ret119.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %13 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %13, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i88 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %13 = load i32, ptr %add.ptr.i88, align 4
+  %or.i.i = or i32 %13, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i88, align 4
   br label %common.ret119
 
 common.ret119:                                    ; preds = %common.ret119.sink.split, %if.then24.i, %if.then14.i
@@ -7185,12 +7185,12 @@ if.then14.i:                                      ; preds = %if.end50.i
 common.ret121.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %21, %if.then24.i ], [ %11, %if.then14.i ]
   %common.ret121.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i80 = trunc i64 %hasbits to i32
-  %conv3.i.i81 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i81
-  %12 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %12, %conv2.i.i80
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i88 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %12 = load i32, ptr %add.ptr.i88, align 4
+  %or.i.i = or i32 %12, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i88, align 4
   br label %common.ret121
 
 common.ret121:                                    ; preds = %common.ret121.sink.split, %if.then24.i, %if.then14.i
@@ -7417,12 +7417,12 @@ if.then14.i:                                      ; preds = %if.end47.i
 common.ret143.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %24, %if.then24.i ], [ %14, %if.then14.i ]
   %common.ret143.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i102 = trunc i64 %hasbits to i32
-  %conv3.i.i103 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i103
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %15, %conv2.i.i102
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i110 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %15 = load i32, ptr %add.ptr.i110, align 4
+  %or.i.i = or i32 %15, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i110, align 4
   br label %common.ret143
 
 common.ret143:                                    ; preds = %common.ret143.sink.split, %if.then24.i, %if.then14.i
@@ -7649,12 +7649,12 @@ if.then14.i:                                      ; preds = %if.end47.i
 common.ret145.sink.split:                         ; preds = %if.then14.i, %if.then24.i
   %.sink = phi i16 [ %23, %if.then24.i ], [ %13, %if.then14.i ]
   %common.ret145.op.ph = phi ptr [ %retval.i.0.ph, %if.then24.i ], [ null, %if.then14.i ]
-  %conv2.i.i102 = trunc i64 %hasbits to i32
-  %conv3.i.i103 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i103
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i102
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i110 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i110, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i110, align 4
   br label %common.ret145
 
 common.ret145:                                    ; preds = %common.ret145.sink.split, %if.then24.i, %if.then14.i
@@ -8101,12 +8101,12 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then, %if.then.i, %if.then8
   %.sink = phi i16 [ %18, %if.then8 ], [ %22, %if.then.i ], [ %4, %if.then ]
   %common.ret.op.ph = phi ptr [ null, %if.then8 ], [ %retval.i.0.ph, %if.then.i ], [ null, %if.then ]
-  %conv2.i.i86 = trunc i64 %hasbits to i32
-  %conv3.i.i87 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i87
-  %5 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %5, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i109 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %5 = load i32, ptr %add.ptr.i109, align 4
+  %or.i.i = or i32 %5, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i109, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then8, %if.then
@@ -8419,12 +8419,12 @@ if.then:                                          ; preds = %if.end47.i
 common.ret.sink.split:                            ; preds = %if.then, %if.then.i
   %.sink = phi i16 [ %17, %if.then.i ], [ %12, %if.then ]
   %common.ret.op.ph = phi ptr [ %retval.i.0.ph, %if.then.i ], [ null, %if.then ]
-  %conv2.i.i83 = trunc i64 %hasbits to i32
-  %conv3.i.i84 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i84
-  %13 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %13, %conv2.i.i83
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %13 = load i32, ptr %add.ptr.i, align 4
+  %or.i.i = or i32 %13, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -8618,15 +8618,15 @@ if.then15.i:                                      ; preds = %if.end47.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then15.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
   %.sink = phi i16 [ %22, %if.then.i.i ], [ %17, %if.then15.i ]
   %common.ret.op.ph = phi ptr [ %retval.i52.0.ph, %if.then.i.i ], [ null, %if.then15.i ]
-  %conv2.i.i125 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i126 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i126
-  %18 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %18, %conv2.i.i125
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i133 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %18 = load i32, ptr %add.ptr.i133, align 4
+  %or.i.i = or i32 %18, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i133, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then15.i
@@ -8837,15 +8837,15 @@ if.then15.i:                                      ; preds = %if.end47.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then15.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
   %.sink = phi i16 [ %22, %if.then.i.i ], [ %17, %if.then15.i ]
   %common.ret.op.ph = phi ptr [ %retval.i52.0.ph, %if.then.i.i ], [ null, %if.then15.i ]
-  %conv2.i.i125 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i126 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i126
-  %18 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %18, %conv2.i.i125
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i133 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %18 = load i32, ptr %add.ptr.i133, align 4
+  %or.i.i = or i32 %18, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i133, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then15.i
@@ -9056,15 +9056,15 @@ if.then15.i:                                      ; preds = %if.end47.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then15.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
   %.sink = phi i16 [ %30, %if.then.i.i ], [ %17, %if.then15.i ]
   %common.ret.op.ph = phi ptr [ %retval.i52.0.ph, %if.then.i.i ], [ null, %if.then15.i ]
-  %conv2.i.i127 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i128 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
-  %18 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %18, %conv2.i.i127
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i135 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %18 = load i32, ptr %add.ptr.i135, align 4
+  %or.i.i = or i32 %18, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i135, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then15.i
@@ -9323,15 +9323,15 @@ if.then15.i:                                      ; preds = %if.end47.i
   br i1 %tobool.i.not.i, label %common.ret, label %common.ret.sink.split
 
 common.ret.sink.split:                            ; preds = %if.then15.i, %if.then.i.i
-  %hasbits.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
+  %or.i.sink = phi i64 [ %or.i, %if.then.i.i ], [ %hasbits, %if.then15.i ]
   %.sink = phi i16 [ %30, %if.then.i.i ], [ %17, %if.then15.i ]
   %common.ret.op.ph = phi ptr [ %retval.i52.0.ph, %if.then.i.i ], [ null, %if.then15.i ]
-  %conv2.i.i127 = trunc i64 %hasbits.sink to i32
-  %conv3.i.i128 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
-  %18 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %18, %conv2.i.i127
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %or.i.sink to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i135 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %18 = load i32, ptr %add.ptr.i135, align 4
+  %or.i.i = or i32 %18, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i135, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then15.i
@@ -9616,12 +9616,12 @@ if.then19.i:                                      ; preds = %if.end47.i77
 common.ret182.sink.split:                         ; preds = %if.then19.i, %if.then41.i
   %.sink = phi i16 [ %31, %if.then41.i ], [ %20, %if.then19.i ]
   %common.ret182.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
-  %conv2.i.i138 = trunc i64 %hasbits to i32
-  %conv3.i.i139 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i139
-  %21 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %21, %conv2.i.i138
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %21 = load i32, ptr %add.ptr.i147, align 4
+  %or.i.i = or i32 %21, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i147, align 4
   br label %common.ret182
 
 common.ret182:                                    ; preds = %common.ret182.sink.split, %if.then41.i, %if.then19.i
@@ -9871,12 +9871,12 @@ if.then19.i:                                      ; preds = %if.end47.i77
 common.ret184.sink.split:                         ; preds = %if.then19.i, %if.then41.i
   %.sink = phi i16 [ %30, %if.then41.i ], [ %19, %if.then19.i ]
   %common.ret184.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
-  %conv2.i.i138 = trunc i64 %hasbits to i32
-  %conv3.i.i139 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i139
-  %20 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %20, %conv2.i.i138
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i147 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %20 = load i32, ptr %add.ptr.i147, align 4
+  %or.i.i = or i32 %20, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i147, align 4
   br label %common.ret184
 
 common.ret184:                                    ; preds = %common.ret184.sink.split, %if.then41.i, %if.then19.i
@@ -10121,12 +10121,12 @@ if.then19.i:                                      ; preds = %if.end47.i77
 common.ret185.sink.split:                         ; preds = %if.then19.i, %if.then41.i
   %.sink = phi i16 [ %36, %if.then41.i ], [ %18, %if.then19.i ]
   %common.ret185.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
-  %conv2.i.i140 = trunc i64 %hasbits to i32
-  %conv3.i.i141 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i141
-  %19 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %19, %conv2.i.i140
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %19 = load i32, ptr %add.ptr.i150, align 4
+  %or.i.i = or i32 %19, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i150, align 4
   br label %common.ret185
 
 common.ret185:                                    ; preds = %common.ret185.sink.split, %if.then41.i, %if.then19.i
@@ -10423,12 +10423,12 @@ if.then19.i:                                      ; preds = %if.end47.i77
 common.ret187.sink.split:                         ; preds = %if.then19.i, %if.then41.i
   %.sink = phi i16 [ %35, %if.then41.i ], [ %17, %if.then19.i ]
   %common.ret187.op.ph = phi ptr [ %retval.i67.0.ph, %if.then41.i ], [ null, %if.then19.i ]
-  %conv2.i.i140 = trunc i64 %hasbits to i32
-  %conv3.i.i141 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i141
-  %18 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %18, %conv2.i.i140
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i150 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %18 = load i32, ptr %add.ptr.i150, align 4
+  %or.i.i = or i32 %18, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i150, align 4
   br label %common.ret187
 
 common.ret187:                                    ; preds = %common.ret187.sink.split, %if.then41.i, %if.then19.i
@@ -12001,12 +12001,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i
   %.sink = phi i16 [ %12, %if.then.i.i ], [ %9, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.i.073, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i58 = trunc i64 %or.i to i32
-  %conv3.i.i59 = zext i16 %.sink to i64
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i59
-  %10 = load i32, ptr %add.ptr.i.i60, align 4
-  %or.i.i = or i32 %10, %conv2.i.i58
-  store i32 %or.i.i, ptr %add.ptr.i.i60, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %10 = load i32, ptr %add.ptr.i62, align 4
+  %or.i.i = or i32 %10, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i62, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then24.i
@@ -12146,12 +12146,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i
   %.sink = phi i16 [ %12, %if.then.i.i ], [ %9, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.i.074, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i58 = trunc i64 %or.i to i32
-  %conv3.i.i59 = zext i16 %.sink to i64
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i59
-  %10 = load i32, ptr %add.ptr.i.i60, align 4
-  %or.i.i = or i32 %10, %conv2.i.i58
-  store i32 %or.i.i, ptr %add.ptr.i.i60, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %10 = load i32, ptr %add.ptr.i62, align 4
+  %or.i.i = or i32 %10, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i62, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then24.i
@@ -12291,12 +12291,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i
   %.sink = phi i16 [ %12, %if.then.i.i ], [ %9, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.i.073, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i58 = trunc i64 %or.i to i32
-  %conv3.i.i59 = zext i16 %.sink to i64
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i59
-  %10 = load i32, ptr %add.ptr.i.i60, align 4
-  %or.i.i = or i32 %10, %conv2.i.i58
-  store i32 %or.i.i, ptr %add.ptr.i.i60, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %10 = load i32, ptr %add.ptr.i62, align 4
+  %or.i.i = or i32 %10, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i62, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then24.i
@@ -12436,12 +12436,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i
   %.sink = phi i16 [ %12, %if.then.i.i ], [ %9, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.i.074, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i58 = trunc i64 %or.i to i32
-  %conv3.i.i59 = zext i16 %.sink to i64
-  %add.ptr.i.i60 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i59
-  %10 = load i32, ptr %add.ptr.i.i60, align 4
-  %or.i.i = or i32 %10, %conv2.i.i58
-  store i32 %or.i.i, ptr %add.ptr.i.i60, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i62 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %10 = load i32, ptr %add.ptr.i62, align 4
+  %or.i.i = or i32 %10, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i62, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.then24.i
@@ -12582,12 +12582,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i, %if.end34.i
   %.sink = phi i16 [ %18, %if.end34.i ], [ %19, %if.then.i.i ], [ %10, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ null, %if.end34.i ], [ %ptr.addr.i.088, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i65 = trunc i64 %or.i to i32
-  %conv3.i.i66 = zext i16 %.sink to i64
-  %add.ptr.i.i67 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i66
-  %11 = load i32, ptr %add.ptr.i.i67, align 4
-  %or.i.i = or i32 %11, %conv2.i.i65
-  store i32 %or.i.i, ptr %add.ptr.i.i67, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i77 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %11 = load i32, ptr %add.ptr.i77, align 4
+  %or.i.i = or i32 %11, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i77, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.end34.i, %if.then24.i
@@ -12746,12 +12746,12 @@ if.then24.i:                                      ; preds = %_ZN6google8protobuf
 common.ret.sink.split:                            ; preds = %if.then24.i, %if.then.i.i, %if.end34.i
   %.sink = phi i16 [ %17, %if.end34.i ], [ %18, %if.then.i.i ], [ %9, %if.then24.i ]
   %common.ret.op.ph = phi ptr [ null, %if.end34.i ], [ %ptr.addr.i.090, %if.then.i.i ], [ null, %if.then24.i ]
-  %conv2.i.i65 = trunc i64 %or.i to i32
-  %conv3.i.i66 = zext i16 %.sink to i64
-  %add.ptr.i.i67 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i66
-  %10 = load i32, ptr %add.ptr.i.i67, align 4
-  %or.i.i = or i32 %10, %conv2.i.i65
-  store i32 %or.i.i, ptr %add.ptr.i.i67, align 4
+  %conv2.i.i = trunc i64 %or.i to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %10 = load i32, ptr %add.ptr.i78, align 4
+  %or.i.i = or i32 %10, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i78, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i.i, %if.end34.i, %if.then24.i
@@ -13088,12 +13088,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %35, %do.body37.i.split ], [ %39, %if.then.i.i ], [ %44, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %32 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %32, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %32 = load i32, ptr %add.ptr.i125, align 4
+  %or.i.i41 = or i32 %32, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i125, align 4
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -13364,12 +13364,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %33, %do.body37.i.split ], [ %36, %if.then.i.i ], [ %41, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %31 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %31, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i127 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %31 = load i32, ptr %add.ptr.i127, align 4
+  %or.i.i41 = or i32 %31, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i127, align 4
   br label %common.ret153
 
 common.ret153:                                    ; preds = %common.ret153.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -13640,12 +13640,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret150.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %35, %do.body37.i.split ], [ %39, %if.then.i.i ], [ %44, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret150.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %32 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %32, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %32 = load i32, ptr %add.ptr.i125, align 4
+  %or.i.i41 = or i32 %32, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i125, align 4
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -13916,12 +13916,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret153.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %do.body37.i.split
   %.sink = phi i16 [ %33, %do.body37.i.split ], [ %36, %if.then.i.i ], [ %41, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret153.op.ph = phi ptr [ null, %do.body37.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %31 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %31, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i127 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %31 = load i32, ptr %add.ptr.i127, align 4
+  %or.i.i41 = or i32 %31, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i127, align 4
   br label %common.ret153
 
 common.ret153:                                    ; preds = %common.ret153.sink.split, %if.then.i.i, %parse_loop.i, %do.body37.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -14189,12 +14189,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret170.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split
   %.sink = phi i16 [ %40, %lor.rhs.i.split ], [ %43, %do.body37.i.split ], [ %51, %lor.rhs42.i.split ], [ %55, %if.then.i.i ], [ %60, %parse_loop.i ], [ %31, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret170.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %32 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %32, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i142 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %32 = load i32, ptr %add.ptr.i142, align 4
+  %or.i.i41 = or i32 %32, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i142, align 4
   br label %common.ret170
 
 common.ret170:                                    ; preds = %common.ret170.sink.split, %if.then.i.i, %parse_loop.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -14520,12 +14520,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret178.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop.i, %if.then.i.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split
   %.sink = phi i16 [ %39, %lor.rhs.i.split ], [ %41, %do.body37.i.split ], [ %49, %lor.rhs42.i.split ], [ %52, %if.then.i.i ], [ %57, %parse_loop.i ], [ %30, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret178.op.ph = phi ptr [ null, %lor.rhs.i.split ], [ null, %do.body37.i.split ], [ null, %lor.rhs42.i.split ], [ %ptr.addr.i.2, %if.then.i.i ], [ %ptr.addr.i.3, %parse_loop.i ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i98 = trunc i64 %hasbits to i32
-  %conv3.i.i99 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i99
-  %31 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i41 = or i32 %31, %conv2.i.i98
-  store i32 %or.i.i41, ptr %add.ptr.i.i, align 4
+  %conv2.i.i38 = trunc i64 %hasbits to i32
+  %conv3.i.i39 = zext i16 %.sink to i64
+  %add.ptr.i149 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i39
+  %31 = load i32, ptr %add.ptr.i149, align 4
+  %or.i.i41 = or i32 %31, %conv2.i.i38
+  store i32 %or.i.i41, ptr %add.ptr.i149, align 4
   br label %common.ret178
 
 common.ret178:                                    ; preds = %common.ret178.sink.split, %if.then.i.i, %parse_loop.i, %lor.rhs42.i.split, %do.body37.i.split, %lor.rhs.i.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -16517,12 +16517,12 @@ if.then30:                                        ; preds = %if.end47.i
 common.ret.sink.split:                            ; preds = %if.then30, %if.then.i
   %.sink = phi i16 [ %28, %if.then.i ], [ %14, %if.then30 ]
   %common.ret.op.ph = phi ptr [ %retval.i148.0.ph, %if.then.i ], [ null, %if.then30 ]
-  %conv2.i.i159 = trunc i64 %hasbits to i32
-  %conv3.i.i160 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i160
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %15, %conv2.i.i159
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i176 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %15 = load i32, ptr %add.ptr.i176, align 4
+  %or.i.i = or i32 %15, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i176, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then30
@@ -17009,12 +17009,12 @@ if.then29:                                        ; preds = %if.end26
 
 common.ret.sink.split:                            ; preds = %if.then29, %if.then.i
   %.sink = phi i16 [ %9, %if.then.i ], [ %6, %if.then29 ]
-  %conv2.i.i47 = trunc i64 %hasbits to i32
-  %conv3.i.i48 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i48
-  %7 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %7, %conv2.i.i47
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i51 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %7 = load i32, ptr %add.ptr.i51, align 4
+  %or.i.i = or i32 %7, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i51, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then29
@@ -17327,12 +17327,12 @@ if.then90:                                        ; preds = %sw.epilog.thread, %
 common.ret.sink.split:                            ; preds = %if.then90, %if.then.i
   %.sink = phi i16 [ %39, %if.then.i ], [ %36, %if.then90 ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.1, %if.then.i ], [ null, %if.then90 ]
-  %conv2.i.i110 = trunc i64 %hasbits to i32
-  %conv3.i.i111 = zext i16 %.sink to i64
-  %add.ptr.i.i112 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i111
-  %37 = load i32, ptr %add.ptr.i.i112, align 4
-  %or.i.i = or i32 %37, %conv2.i.i110
-  store i32 %or.i.i, ptr %add.ptr.i.i112, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i115 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %37 = load i32, ptr %add.ptr.i115, align 4
+  %or.i.i = or i32 %37, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i115, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then90
@@ -18237,12 +18237,12 @@ if.then66:                                        ; preds = %if.end63
 common.ret257.sink.split:                         ; preds = %if.then66, %if.then76
   %.sink = phi i16 [ %54, %if.then76 ], [ %51, %if.then66 ]
   %common.ret257.op.ph = phi ptr [ %retval.i199.0255, %if.then76 ], [ null, %if.then66 ]
-  %conv2.i.i206 = trunc i64 %hasbits to i32
-  %conv3.i.i207 = zext i16 %.sink to i64
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i207
-  %52 = load i32, ptr %add.ptr.i.i208, align 4
-  %or.i.i121 = or i32 %52, %conv2.i.i206
-  store i32 %or.i.i121, ptr %add.ptr.i.i208, align 4
+  %conv2.i.i118 = trunc i64 %hasbits to i32
+  %conv3.i.i119 = zext i16 %.sink to i64
+  %add.ptr.i211 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i119
+  %52 = load i32, ptr %add.ptr.i211, align 4
+  %or.i.i121 = or i32 %52, %conv2.i.i118
+  store i32 %or.i.i121, ptr %add.ptr.i211, align 4
   br label %common.ret257
 
 common.ret257:                                    ; preds = %common.ret257.sink.split, %if.then76, %if.then66
@@ -18506,12 +18506,12 @@ if.then30:                                        ; preds = %if.end47.i
 common.ret.sink.split:                            ; preds = %if.then30, %if.then.i
   %.sink = phi i16 [ %40, %if.then.i ], [ %14, %if.then30 ]
   %common.ret.op.ph = phi ptr [ %retval.i148.0.ph, %if.then.i ], [ null, %if.then30 ]
-  %conv2.i.i159 = trunc i64 %hasbits to i32
-  %conv3.i.i160 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i160
-  %15 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %15, %conv2.i.i159
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i182 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %15 = load i32, ptr %add.ptr.i182, align 4
+  %or.i.i = or i32 %15, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i182, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then30
@@ -19184,12 +19184,12 @@ if.then29:                                        ; preds = %if.end26
 
 common.ret.sink.split:                            ; preds = %if.then29, %if.then.i
   %.sink = phi i16 [ %32, %if.then.i ], [ %29, %if.then29 ]
-  %conv2.i.i73 = trunc i64 %hasbits to i32
-  %conv3.i.i74 = zext i16 %.sink to i64
-  %add.ptr.i.i75 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i74
-  %30 = load i32, ptr %add.ptr.i.i75, align 4
-  %or.i.i = or i32 %30, %conv2.i.i73
-  store i32 %or.i.i, ptr %add.ptr.i.i75, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i78 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %30 = load i32, ptr %add.ptr.i78, align 4
+  %or.i.i = or i32 %30, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i78, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then29
@@ -19559,12 +19559,12 @@ if.then90:                                        ; preds = %sw.epilog.thread, %
 common.ret.sink.split:                            ; preds = %if.then90, %if.then.i
   %.sink = phi i16 [ %49, %if.then.i ], [ %46, %if.then90 ]
   %common.ret.op.ph = phi ptr [ %ptr.addr.1, %if.then.i ], [ null, %if.then90 ]
-  %conv2.i.i119 = trunc i64 %hasbits to i32
-  %conv3.i.i120 = zext i16 %.sink to i64
-  %add.ptr.i.i121 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i120
-  %47 = load i32, ptr %add.ptr.i.i121, align 4
-  %or.i.i = or i32 %47, %conv2.i.i119
-  store i32 %or.i.i, ptr %add.ptr.i.i121, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i124 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %47 = load i32, ptr %add.ptr.i124, align 4
+  %or.i.i = or i32 %47, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i124, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then90
@@ -20583,12 +20583,12 @@ if.then66:                                        ; preds = %if.end63
 common.ret264.sink.split:                         ; preds = %if.then66, %if.then76
   %.sink = phi i16 [ %63, %if.then76 ], [ %60, %if.then66 ]
   %common.ret264.op.ph = phi ptr [ %retval.i199.0262, %if.then76 ], [ null, %if.then66 ]
-  %conv2.i.i213 = trunc i64 %hasbits to i32
-  %conv3.i.i214 = zext i16 %.sink to i64
-  %add.ptr.i.i215 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i214
-  %61 = load i32, ptr %add.ptr.i.i215, align 4
-  %or.i.i121 = or i32 %61, %conv2.i.i213
-  store i32 %or.i.i121, ptr %add.ptr.i.i215, align 4
+  %conv2.i.i118 = trunc i64 %hasbits to i32
+  %conv3.i.i119 = zext i16 %.sink to i64
+  %add.ptr.i218 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i119
+  %61 = load i32, ptr %add.ptr.i218, align 4
+  %or.i.i121 = or i32 %61, %conv2.i.i118
+  store i32 %or.i.i121, ptr %add.ptr.i218, align 4
   br label %common.ret264
 
 common.ret264:                                    ; preds = %common.ret264.sink.split, %if.then76, %if.then66
@@ -20918,12 +20918,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end13.split
   %.sink = phi i16 [ %27, %if.end13.split ], [ %28, %parse_loop ], [ %13, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end13.split ], [ %retval.i.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i78 = trunc i64 %hasbits to i32
-  %conv3.i.i79 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i79
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i78
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i101, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i101, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end13.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -21150,12 +21150,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end14.split
   %.sink = phi i16 [ %27, %if.end14.split ], [ %28, %parse_loop ], [ %13, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end14.split ], [ %retval.i.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i79 = trunc i64 %hasbits to i32
-  %conv3.i.i80 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i80
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i79
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i104 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i104, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i104, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end14.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -21386,12 +21386,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end14.split
   %.sink = phi i16 [ %27, %if.end14.split ], [ %28, %parse_loop ], [ %13, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end14.split ], [ %retval.i.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i78 = trunc i64 %hasbits to i32
-  %conv3.i.i79 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i79
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i78
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i101, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i101, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end14.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -21619,12 +21619,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end17.split
   %.sink = phi i16 [ %27, %if.end17.split ], [ %28, %parse_loop ], [ %13, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end17.split ], [ %retval.i.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i78 = trunc i64 %hasbits to i32
-  %conv3.i.i79 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i79
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i78
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i103 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i103, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i103, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end17.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -21870,12 +21870,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end26.split
   %.sink = phi i16 [ %41, %if.end26.split ], [ %42, %parse_loop ], [ %19, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end26.split ], [ %retval.i55.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i113 = trunc i64 %hasbits to i32
-  %conv3.i.i114 = zext i16 %.sink to i64
-  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i114
-  %20 = load i32, ptr %add.ptr.i.i115, align 4
-  %or.i.i = or i32 %20, %conv2.i.i113
-  store i32 %or.i.i, ptr %add.ptr.i.i115, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i136 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %20 = load i32, ptr %add.ptr.i136, align 4
+  %or.i.i = or i32 %20, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i136, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end26.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -22180,12 +22180,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end26.split
   %.sink = phi i16 [ %34, %if.end26.split ], [ %35, %parse_loop ], [ %19, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end26.split ], [ %retval.i55.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i108 = trunc i64 %hasbits to i32
-  %conv3.i.i109 = zext i16 %.sink to i64
-  %add.ptr.i.i110 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i109
-  %20 = load i32, ptr %add.ptr.i.i110, align 4
-  %or.i.i = or i32 %20, %conv2.i.i108
-  store i32 %or.i.i, ptr %add.ptr.i.i110, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i129 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %20 = load i32, ptr %add.ptr.i129, align 4
+  %or.i.i = or i32 %20, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i129, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end26.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -22423,12 +22423,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end13.split
   %.sink = phi i16 [ %27, %if.end13.split ], [ %28, %parse_loop ], [ %13, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end13.split ], [ %retval.i.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i78 = trunc i64 %hasbits to i32
-  %conv3.i.i79 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i79
-  %14 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %14, %conv2.i.i78
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i101 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %14 = load i32, ptr %add.ptr.i101, align 4
+  %or.i.i = or i32 %14, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i101, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end13.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -25424,12 +25424,12 @@ if.then.i:                                        ; preds = %if.end70
 common.ret140.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %31, %parse_loop ], [ %32, %error ], [ %25, %if.then.i ]
   %common.ret140.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i112 = trunc i64 %hasbits to i32
-  %conv3.i.i113 = zext i16 %.sink to i64
-  %add.ptr.i121 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i113
-  %26 = load i32, ptr %add.ptr.i121, align 4
-  %or.i.i125 = or i32 %26, %conv2.i.i112
-  store i32 %or.i.i125, ptr %add.ptr.i121, align 4
+  %conv2.i.i123 = trunc i64 %hasbits to i32
+  %conv3.i.i124 = zext i16 %.sink to i64
+  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i124
+  %26 = load i32, ptr %add.ptr.i.i, align 4
+  %or.i.i125 = or i32 %26, %conv2.i.i123
+  store i32 %or.i.i125, ptr %add.ptr.i.i, align 4
   br label %common.ret140
 
 common.ret140:                                    ; preds = %common.ret140.sink.split, %error, %if.then.i, %parse_loop
@@ -26051,12 +26051,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret238.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop, %if.then.i, %lor.rhs51.split, %do.body47.split, %lor.rhs.split
   %.sink = phi i16 [ %51, %lor.rhs.split ], [ %57, %do.body47.split ], [ %69, %lor.rhs51.split ], [ %76, %if.then.i ], [ %81, %parse_loop ], [ %33, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret238.op.ph = phi ptr [ null, %lor.rhs.split ], [ null, %do.body47.split ], [ null, %lor.rhs51.split ], [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i109 = trunc i64 %hasbits to i32
-  %conv3.i.i110 = zext i16 %.sink to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i110
-  %34 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %34, %conv2.i.i109
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i209 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %34 = load i32, ptr %add.ptr.i209, align 4
+  %or.i.i = or i32 %34, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i209, align 4
   br label %common.ret238
 
 common.ret238:                                    ; preds = %common.ret238.sink.split, %if.then.i, %parse_loop, %lor.rhs51.split, %do.body47.split, %lor.rhs.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -26659,12 +26659,12 @@ if.then.i:                                        ; preds = %if.end77
 common.ret159.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %51, %parse_loop ], [ %52, %error ], [ %45, %if.then.i ]
   %common.ret159.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i119 = trunc i64 %hasbits to i32
-  %conv3.i.i120 = zext i16 %.sink to i64
-  %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i120
-  %46 = load i32, ptr %add.ptr.i125, align 4
-  %or.i.i130 = or i32 %46, %conv2.i.i119
-  store i32 %or.i.i130, ptr %add.ptr.i125, align 4
+  %conv2.i.i127 = trunc i64 %hasbits to i32
+  %conv3.i.i128 = zext i16 %.sink to i64
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
+  %46 = load i32, ptr %add.ptr.i.i129, align 4
+  %or.i.i130 = or i32 %46, %conv2.i.i127
+  store i32 %or.i.i130, ptr %add.ptr.i.i129, align 4
   br label %common.ret159
 
 common.ret159:                                    ; preds = %common.ret159.sink.split, %error, %if.then.i, %parse_loop
@@ -26983,12 +26983,12 @@ if.then.i:                                        ; preds = %if.end77
 common.ret130.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %53, %parse_loop ], [ %54, %error ], [ %47, %if.then.i ]
   %common.ret130.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i119 = trunc i64 %hasbits to i32
-  %conv3.i.i120 = zext i16 %.sink to i64
-  %add.ptr.i105 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i120
-  %48 = load i32, ptr %add.ptr.i105, align 4
-  %or.i.i110 = or i32 %48, %conv2.i.i119
-  store i32 %or.i.i110, ptr %add.ptr.i105, align 4
+  %conv2.i.i107 = trunc i64 %hasbits to i32
+  %conv3.i.i108 = zext i16 %.sink to i64
+  %add.ptr.i.i109 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i108
+  %48 = load i32, ptr %add.ptr.i.i109, align 4
+  %or.i.i110 = or i32 %48, %conv2.i.i107
+  store i32 %or.i.i110, ptr %add.ptr.i.i109, align 4
   br label %common.ret130
 
 common.ret130:                                    ; preds = %common.ret130.sink.split, %error, %if.then.i, %parse_loop
@@ -30069,12 +30069,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end42.split
   %.sink = phi i16 [ %55, %if.end42.split ], [ %56, %parse_loop ], [ %40, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end42.split ], [ %retval.i71.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i131 = trunc i64 %hasbits to i32
-  %conv3.i.i132 = zext i16 %.sink to i64
-  %add.ptr.i.i133 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i132
-  %41 = load i32, ptr %add.ptr.i.i133, align 4
-  %or.i.i = or i32 %41, %conv2.i.i131
-  store i32 %or.i.i, ptr %add.ptr.i.i133, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %41 = load i32, ptr %add.ptr.i163, align 4
+  %or.i.i = or i32 %41, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i163, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end42.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -30471,12 +30471,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end45.split
   %.sink = phi i16 [ %55, %if.end45.split ], [ %56, %parse_loop ], [ %40, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end45.split ], [ %retval.i74.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i132 = trunc i64 %hasbits to i32
-  %conv3.i.i133 = zext i16 %.sink to i64
-  %add.ptr.i.i134 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i133
-  %41 = load i32, ptr %add.ptr.i.i134, align 4
-  %or.i.i = or i32 %41, %conv2.i.i132
-  store i32 %or.i.i, ptr %add.ptr.i.i134, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i164 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %41 = load i32, ptr %add.ptr.i164, align 4
+  %or.i.i = or i32 %41, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i164, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end45.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -30876,12 +30876,12 @@ _ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split: ;
 common.ret.sink.split:                            ; preds = %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split, %parse_loop, %if.end45.split
   %.sink = phi i16 [ %55, %if.end45.split ], [ %56, %parse_loop ], [ %40, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
   %common.ret.op.ph = phi ptr [ null, %if.end45.split ], [ %retval.i74.0.ph, %parse_loop ], [ null, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split ]
-  %conv2.i.i132 = trunc i64 %hasbits to i32
-  %conv3.i.i133 = zext i16 %.sink to i64
-  %add.ptr.i.i134 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i133
-  %41 = load i32, ptr %add.ptr.i.i134, align 4
-  %or.i.i = or i32 %41, %conv2.i.i132
-  store i32 %or.i.i, ptr %add.ptr.i.i134, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i163 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %41 = load i32, ptr %add.ptr.i163, align 4
+  %or.i.i = or i32 %41, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i163, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %parse_loop, %if.end45.split, %_ZN6google8protobuf8internal19ShiftMixParseVarintImLi10EEEPKcS4_Rl.exit.split
@@ -33887,12 +33887,12 @@ if.then.i:                                        ; preds = %if.end70
 common.ret169.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %55, %parse_loop ], [ %56, %error ], [ %49, %if.then.i ]
   %common.ret169.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i112 = trunc i64 %hasbits to i32
-  %conv3.i.i113 = zext i16 %.sink to i64
-  %add.ptr.i149 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i113
-  %50 = load i32, ptr %add.ptr.i149, align 4
-  %or.i.i154 = or i32 %50, %conv2.i.i112
-  store i32 %or.i.i154, ptr %add.ptr.i149, align 4
+  %conv2.i.i151 = trunc i64 %hasbits to i32
+  %conv3.i.i152 = zext i16 %.sink to i64
+  %add.ptr.i.i153 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i152
+  %50 = load i32, ptr %add.ptr.i.i153, align 4
+  %or.i.i154 = or i32 %50, %conv2.i.i151
+  store i32 %or.i.i154, ptr %add.ptr.i.i153, align 4
   br label %common.ret169
 
 common.ret169:                                    ; preds = %common.ret169.sink.split, %error, %if.then.i, %parse_loop
@@ -34240,12 +34240,12 @@ _ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialA
 common.ret255.sink.split:                         ; preds = %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split, %parse_loop, %if.then.i, %lor.rhs51.split, %do.body47.split, %lor.rhs.split
   %.sink = phi i16 [ %68, %lor.rhs.split ], [ %74, %do.body47.split ], [ %85, %lor.rhs51.split ], [ %92, %if.then.i ], [ %97, %parse_loop ], [ %51, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
   %common.ret255.op.ph = phi ptr [ null, %lor.rhs.split ], [ null, %do.body47.split ], [ null, %lor.rhs51.split ], [ %ptr.addr.0, %if.then.i ], [ %ptr.addr.1, %parse_loop ], [ null, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split ]
-  %conv2.i.i121 = trunc i64 %hasbits to i32
-  %conv3.i.i122 = zext i16 %.sink to i64
-  %add.ptr.i.i123 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i122
-  %52 = load i32, ptr %add.ptr.i.i123, align 4
-  %or.i.i = or i32 %52, %conv2.i.i121
-  store i32 %or.i.i, ptr %add.ptr.i.i123, align 4
+  %conv2.i.i = trunc i64 %hasbits to i32
+  %conv3.i.i = zext i16 %.sink to i64
+  %add.ptr.i226 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i
+  %52 = load i32, ptr %add.ptr.i226, align 4
+  %or.i.i = or i32 %52, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i226, align 4
   br label %common.ret255
 
 common.ret255:                                    ; preds = %common.ret255.sink.split, %if.then.i, %parse_loop, %lor.rhs51.split, %do.body47.split, %lor.rhs.split, %_ZN6google8protobuf8internal8TcParser23ParseRepeatedStringOnceEPKcPNS1_11SerialArenaEPNS1_12ParseContextERNS0_16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.split
@@ -34906,12 +34906,12 @@ if.then.i:                                        ; preds = %if.end77
 common.ret183.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %68, %parse_loop ], [ %69, %error ], [ %62, %if.then.i ]
   %common.ret183.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i119 = trunc i64 %hasbits to i32
-  %conv3.i.i120 = zext i16 %.sink to i64
-  %add.ptr.i149 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i120
-  %63 = load i32, ptr %add.ptr.i149, align 4
-  %or.i.i154 = or i32 %63, %conv2.i.i119
-  store i32 %or.i.i154, ptr %add.ptr.i149, align 4
+  %conv2.i.i151 = trunc i64 %hasbits to i32
+  %conv3.i.i152 = zext i16 %.sink to i64
+  %add.ptr.i.i153 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i152
+  %63 = load i32, ptr %add.ptr.i.i153, align 4
+  %or.i.i154 = or i32 %63, %conv2.i.i151
+  store i32 %or.i.i154, ptr %add.ptr.i.i153, align 4
   br label %common.ret183
 
 common.ret183:                                    ; preds = %common.ret183.sink.split, %error, %if.then.i, %parse_loop
@@ -35335,12 +35335,12 @@ if.then.i:                                        ; preds = %if.end77
 common.ret150.sink.split:                         ; preds = %if.then.i, %error, %parse_loop
   %.sink = phi i16 [ %70, %parse_loop ], [ %71, %error ], [ %64, %if.then.i ]
   %common.ret150.op.ph = phi ptr [ %ptr.addr.1, %parse_loop ], [ null, %error ], [ %ptr.addr.0, %if.then.i ]
-  %conv2.i.i119 = trunc i64 %hasbits to i32
-  %conv3.i.i120 = zext i16 %.sink to i64
-  %add.ptr.i125 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i120
-  %65 = load i32, ptr %add.ptr.i125, align 4
-  %or.i.i130 = or i32 %65, %conv2.i.i119
-  store i32 %or.i.i130, ptr %add.ptr.i125, align 4
+  %conv2.i.i127 = trunc i64 %hasbits to i32
+  %conv3.i.i128 = zext i16 %.sink to i64
+  %add.ptr.i.i129 = getelementptr inbounds i8, ptr %msg, i64 %conv3.i.i128
+  %65 = load i32, ptr %add.ptr.i.i129, align 4
+  %or.i.i130 = or i32 %65, %conv2.i.i127
+  store i32 %or.i.i130, ptr %add.ptr.i.i129, align 4
   br label %common.ret150
 
 common.ret150:                                    ; preds = %common.ret150.sink.split, %error, %if.then.i, %parse_loop
@@ -35525,12 +35525,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink121 to i32
-  %conv3.i.i87 = zext i16 %.sink120 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink121 to i32
+  %conv3.i.i = zext i16 %.sink120 to i64
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i91, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i91, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -35718,12 +35718,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink121 to i32
-  %conv3.i.i87 = zext i16 %.sink120 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink121 to i32
+  %conv3.i.i = zext i16 %.sink120 to i64
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i91, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i91, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -35910,12 +35910,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink120 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink121 to i32
-  %conv3.i.i87 = zext i16 %.sink120 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink121 to i32
+  %conv3.i.i = zext i16 %.sink120 to i64
+  %add.ptr.i91 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i91, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i91, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -36101,12 +36101,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink122 to i32
-  %conv3.i.i87 = zext i16 %.sink121 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink122 to i32
+  %conv3.i.i = zext i16 %.sink121 to i64
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i92, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i92, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -36297,12 +36297,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i40.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink122 to i32
-  %conv3.i.i87 = zext i16 %.sink121 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink122 to i32
+  %conv3.i.i = zext i16 %.sink121 to i64
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i92, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i92, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -36493,12 +36493,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink122 to i32
-  %conv3.i.i87 = zext i16 %.sink121 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink122 to i32
+  %conv3.i.i = zext i16 %.sink121 to i64
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i92, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i92, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then
@@ -36688,12 +36688,12 @@ common.ret.sink.split:                            ; preds = %if.then.i, %if.then
   %.sink121 = phi i16 [ %13, %if.then.i.i85 ], [ %22, %if.then.i ]
   %.sink = phi ptr [ %15, %if.then.i.i85 ], [ %18, %if.then.i ]
   %common.ret.op.ph = phi ptr [ null, %if.then.i.i85 ], [ %p.addr.i39.1, %if.then.i ]
-  %conv2.i.i86 = trunc i64 %.sink122 to i32
-  %conv3.i.i87 = zext i16 %.sink121 to i64
-  %add.ptr.i.i = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i87
-  %16 = load i32, ptr %add.ptr.i.i, align 4
-  %or.i.i = or i32 %16, %conv2.i.i86
-  store i32 %or.i.i, ptr %add.ptr.i.i, align 4
+  %conv2.i.i = trunc i64 %.sink122 to i32
+  %conv3.i.i = zext i16 %.sink121 to i64
+  %add.ptr.i92 = getelementptr inbounds i8, ptr %.sink, i64 %conv3.i.i
+  %16 = load i32, ptr %add.ptr.i92, align 4
+  %or.i.i = or i32 %16, %conv2.i.i
+  store i32 %or.i.i, ptr %add.ptr.i92, align 4
   br label %common.ret
 
 common.ret:                                       ; preds = %common.ret.sink.split, %if.then.i, %if.then

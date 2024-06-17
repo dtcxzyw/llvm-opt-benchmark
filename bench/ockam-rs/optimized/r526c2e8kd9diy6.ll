@@ -6676,9 +6676,9 @@ default.unreachable:                              ; preds = %"_ZN3std2io5impls74
   ]
 
 .sink.split.i:                                    ; preds = %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit48.i", %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit46.i"
-  %.sink32 = phi i64 [ 8, %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit48.i" ], [ 2, %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit46.i" ]
+  %.sink56.i = phi i64 [ 8, %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit48.i" ], [ 2, %"_ZN3std2io5impls74_$LT$impl$u20$std..io..Write$u20$for$u20$alloc..vec..Vec$LT$u8$C$A$GT$$GT$9write_all17h8486b50871cfc77bE.exit46.i" ]
   %50 = load i64, ptr %38, align 8, !alias.scope !779, !noalias !796, !noundef !5
-  %51 = add i64 %50, %.sink32
+  %51 = add i64 %50, %.sink56.i
   store i64 %51, ptr %38, align 8, !alias.scope !779, !noalias !796
   br label %52
 

@@ -968,10 +968,10 @@ freereg.exit19.i:                                 ; preds = %if.then.i16.i, %if.
   br i1 %cmp.not.i21.i, label %freeregs.exit, label %if.end.sink.split.i
 
 if.end.sink.split.i:                              ; preds = %freereg.exit19.i, %freereg.exit.i
-  %freereg.i11.i = getelementptr inbounds i8, ptr %fs, i64 68
-  %25 = load i8, ptr %freereg.i11.i, align 4
+  %freereg.i23.i = getelementptr inbounds i8, ptr %fs, i64 68
+  %25 = load i8, ptr %freereg.i23.i, align 4
   %dec.i24.i = add i8 %25, -1
-  store i8 %dec.i24.i, ptr %freereg.i11.i, align 4
+  store i8 %dec.i24.i, ptr %freereg.i23.i, align 4
   br label %freeregs.exit
 
 freeregs.exit:                                    ; preds = %freereg.exit.i, %freereg.exit19.i, %if.end.sink.split.i
@@ -3519,10 +3519,10 @@ freereg.exit19.i.i.i:                             ; preds = %if.then.i16.i.i.i, 
   br i1 %cmp.not.i21.i.i.i, label %codeeq.exit, label %if.end.sink.split.i.i.i
 
 if.end.sink.split.i.i.i:                          ; preds = %freereg.exit19.i.i.i, %freereg.exit.i.i.i
-  %freereg.i11.i.i.i = getelementptr inbounds i8, ptr %fs, i64 68
-  %83 = load i8, ptr %freereg.i11.i.i.i, align 4
+  %freereg.i23.i.i.i = getelementptr inbounds i8, ptr %fs, i64 68
+  %83 = load i8, ptr %freereg.i23.i.i.i, align 4
   %dec.i24.i.i.i = add i8 %83, -1
-  store i8 %dec.i24.i.i.i, ptr %freereg.i11.i.i.i, align 4
+  store i8 %dec.i24.i.i.i, ptr %freereg.i23.i.i.i, align 4
   br label %codeeq.exit
 
 codeeq.exit:                                      ; preds = %freereg.exit.i.i.i, %freereg.exit19.i.i.i, %if.end.sink.split.i.i.i
@@ -3711,10 +3711,10 @@ freereg.exit19.i.i.i216:                          ; preds = %if.then.i16.i.i.i21
   br i1 %cmp.not.i21.i.i.i218, label %codeorder.exit, label %if.end.sink.split.i.i.i219
 
 if.end.sink.split.i.i.i219:                       ; preds = %freereg.exit19.i.i.i216, %freereg.exit.i.i.i236
-  %freereg.i11.i.i.i220 = getelementptr inbounds i8, ptr %fs, i64 68
-  %104 = load i8, ptr %freereg.i11.i.i.i220, align 4
+  %freereg.i23.i.i.i220 = getelementptr inbounds i8, ptr %fs, i64 68
+  %104 = load i8, ptr %freereg.i23.i.i.i220, align 4
   %dec.i24.i.i.i221 = add i8 %104, -1
-  store i8 %dec.i24.i.i.i221, ptr %freereg.i11.i.i.i220, align 4
+  store i8 %dec.i24.i.i.i221, ptr %freereg.i23.i.i.i220, align 4
   br label %codeorder.exit
 
 codeorder.exit:                                   ; preds = %freereg.exit.i.i.i236, %freereg.exit19.i.i.i216, %if.end.sink.split.i.i.i219
@@ -4771,10 +4771,10 @@ freereg.exit19.i.i:                               ; preds = %if.then.i16.i.i, %i
   br i1 %cmp.not.i21.i.i, label %freeexps.exit, label %if.end.sink.split.i.i
 
 if.end.sink.split.i.i:                            ; preds = %freereg.exit19.i.i, %freereg.exit.i.i
-  %freereg.i11.i.i = getelementptr inbounds i8, ptr %fs, i64 68
-  %6 = load i8, ptr %freereg.i11.i.i, align 4
+  %freereg.i23.i.i = getelementptr inbounds i8, ptr %fs, i64 68
+  %6 = load i8, ptr %freereg.i23.i.i, align 4
   %dec.i24.i.i = add i8 %6, -1
-  store i8 %dec.i24.i.i, ptr %freereg.i11.i.i, align 4
+  store i8 %dec.i24.i.i, ptr %freereg.i23.i.i, align 4
   br label %freeexps.exit
 
 freeexps.exit:                                    ; preds = %freereg.exit.i.i, %freereg.exit19.i.i, %if.end.sink.split.i.i

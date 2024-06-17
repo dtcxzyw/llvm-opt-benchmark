@@ -916,61 +916,14 @@ if.end37:                                         ; preds = %if.then26, %if.else
   %height39 = getelementptr inbounds i8, ptr %add.ptr19, i64 36
   %15 = load i32, ptr %height39, align 4
   %cmp40 = icmp sgt i32 %14, %15
-  %upperBound.i = getelementptr inbounds i8, ptr %add.ptr4, i64 8
-  br i1 %cmp40, label %if.then41, label %if.else58
-
-if.then41:                                        ; preds = %if.end37
-  store i32 %6, ptr %child213, align 8
-  store i32 %7, ptr %child2, align 8
-  %16 = getelementptr inbounds i8, ptr %add.ptr19, i64 24
-  store i32 %iA, ptr %16, align 8
-  %17 = load <2 x float>, ptr %add.ptr4, align 4
-  %18 = load <2 x float>, ptr %add.ptr19, align 4
-  %19 = fcmp olt <2 x float> %17, %18
-  %20 = select <2 x i1> %19, <2 x float> %17, <2 x float> %18
-  store <2 x float> %20, ptr %add.ptr, align 4
-  %upperBound5.i = getelementptr inbounds i8, ptr %add.ptr19, i64 8
-  %upperBound7.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %21 = load <2 x float>, ptr %add.ptr16, align 4
-  %22 = fcmp ogt <2 x float> %21, %20
-  %23 = select <2 x i1> %22, <2 x float> %20, <2 x float> %21
-  store <2 x float> %23, ptr %add.ptr7, align 4
-  %upperBound5.i124 = getelementptr inbounds i8, ptr %add.ptr16, i64 8
-  %24 = load <2 x float>, ptr %upperBound.i, align 4
-  %25 = load <2 x float>, ptr %upperBound5.i, align 4
-  %26 = fcmp ogt <2 x float> %24, %25
-  %27 = select <2 x i1> %26, <2 x float> %24, <2 x float> %25
-  store <2 x float> %27, ptr %upperBound7.i, align 4
-  %28 = load <2 x float>, ptr %upperBound5.i124, align 4
-  %29 = fcmp olt <2 x float> %28, %27
-  %30 = select <2 x i1> %29, <2 x float> %27, <2 x float> %28
-  br label %return.sink.split
-
-if.else58:                                        ; preds = %if.end37
-  store i32 %7, ptr %child213, align 8
-  store i32 %6, ptr %child2, align 8
-  %31 = getelementptr inbounds i8, ptr %add.ptr16, i64 24
-  store i32 %iA, ptr %31, align 8
-  %32 = load <2 x float>, ptr %add.ptr4, align 4
-  %33 = load <2 x float>, ptr %add.ptr16, align 4
-  %34 = fcmp olt <2 x float> %32, %33
-  %35 = select <2 x i1> %34, <2 x float> %32, <2 x float> %33
-  store <2 x float> %35, ptr %add.ptr, align 4
-  %upperBound5.i144 = getelementptr inbounds i8, ptr %add.ptr16, i64 8
-  %upperBound7.i153 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %36 = load <2 x float>, ptr %add.ptr19, align 4
-  %37 = fcmp ogt <2 x float> %36, %35
-  %38 = select <2 x i1> %37, <2 x float> %35, <2 x float> %36
-  store <2 x float> %38, ptr %add.ptr7, align 4
-  %upperBound5.i163 = getelementptr inbounds i8, ptr %add.ptr19, i64 8
-  %39 = load <2 x float>, ptr %upperBound.i, align 4
-  %40 = load <2 x float>, ptr %upperBound5.i144, align 4
-  %41 = fcmp ogt <2 x float> %39, %40
-  %42 = select <2 x i1> %41, <2 x float> %39, <2 x float> %40
-  store <2 x float> %42, ptr %upperBound7.i153, align 4
-  %43 = load <2 x float>, ptr %upperBound5.i163, align 4
-  %44 = fcmp olt <2 x float> %43, %42
-  %45 = select <2 x i1> %44, <2 x float> %42, <2 x float> %43
+  %. = select i1 %cmp40, i32 %6, i32 %7
+  %.382 = select i1 %cmp40, i32 %7, i32 %6
+  %add.ptr19.add.ptr16 = select i1 %cmp40, ptr %add.ptr19, ptr %add.ptr16
+  %add.ptr16.add.ptr19 = select i1 %cmp40, ptr %add.ptr16, ptr %add.ptr19
+  %.383 = tail call i32 @llvm.smin.i32(i32 %14, i32 %15)
+  %height38.height39 = select i1 %cmp40, ptr %height38, ptr %height39
+  store i32 %., ptr %child213, align 8
+  store i32 %.382, ptr %child2, align 8
   br label %return.sink.split
 
 if.end78:                                         ; preds = %if.end
@@ -979,30 +932,30 @@ if.end78:                                         ; preds = %if.end
 
 if.then80:                                        ; preds = %if.end78
   %child181 = getelementptr inbounds i8, ptr %add.ptr4, i64 28
-  %46 = load i32, ptr %child181, align 4
+  %16 = load i32, ptr %child181, align 4
   %child282 = getelementptr inbounds i8, ptr %add.ptr4, i64 32
-  %47 = load i32, ptr %child282, align 8
-  %idx.ext84 = sext i32 %46 to i64
+  %17 = load i32, ptr %child282, align 8
+  %idx.ext84 = sext i32 %16 to i64
   %add.ptr85 = getelementptr inbounds %struct.b2TreeNode, ptr %0, i64 %idx.ext84
-  %idx.ext87 = sext i32 %47 to i64
+  %idx.ext87 = sext i32 %17 to i64
   %add.ptr88 = getelementptr inbounds %struct.b2TreeNode, ptr %0, i64 %idx.ext87
   store i32 %iA, ptr %child181, align 4
-  %48 = getelementptr inbounds i8, ptr %add.ptr, i64 24
-  %49 = load i32, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %add.ptr4, i64 24
-  store i32 %49, ptr %50, align 8
-  store i32 %1, ptr %48, align 8
-  %51 = load i32, ptr %50, align 8
-  %cmp90.not = icmp eq i32 %51, -1
+  %18 = getelementptr inbounds i8, ptr %add.ptr, i64 24
+  %19 = load i32, ptr %18, align 8
+  %20 = getelementptr inbounds i8, ptr %add.ptr4, i64 24
+  store i32 %19, ptr %20, align 8
+  store i32 %1, ptr %18, align 8
+  %21 = load i32, ptr %20, align 8
+  %cmp90.not = icmp eq i32 %21, -1
   br i1 %cmp90.not, label %if.else108, label %if.then91
 
 if.then91:                                        ; preds = %if.then80
-  %52 = load ptr, ptr %m_nodes, align 8
-  %idxprom93 = sext i32 %51 to i64
-  %arrayidx94 = getelementptr inbounds %struct.b2TreeNode, ptr %52, i64 %idxprom93
+  %22 = load ptr, ptr %m_nodes, align 8
+  %idxprom93 = sext i32 %21 to i64
+  %arrayidx94 = getelementptr inbounds %struct.b2TreeNode, ptr %22, i64 %idxprom93
   %child195 = getelementptr inbounds i8, ptr %arrayidx94, i64 28
-  %53 = load i32, ptr %child195, align 4
-  %cmp96 = icmp eq i32 %53, %iA
+  %23 = load i32, ptr %child195, align 4
+  %cmp96 = icmp eq i32 %23, %iA
   br i1 %cmp96, label %if.then97, label %if.else102
 
 if.then97:                                        ; preds = %if.then91
@@ -1020,83 +973,61 @@ if.else108:                                       ; preds = %if.then80
 
 if.end110:                                        ; preds = %if.then97, %if.else102, %if.else108
   %height111 = getelementptr inbounds i8, ptr %add.ptr85, i64 36
-  %54 = load i32, ptr %height111, align 4
+  %24 = load i32, ptr %height111, align 4
   %height112 = getelementptr inbounds i8, ptr %add.ptr88, i64 36
-  %55 = load i32, ptr %height112, align 4
-  %cmp113 = icmp sgt i32 %54, %55
-  %upperBound.i183 = getelementptr inbounds i8, ptr %add.ptr7, i64 8
-  br i1 %cmp113, label %if.then114, label %if.else133
-
-if.then114:                                       ; preds = %if.end110
-  store i32 %46, ptr %child282, align 8
-  store i32 %47, ptr %child1.i, align 4
-  %56 = getelementptr inbounds i8, ptr %add.ptr88, i64 24
-  store i32 %iA, ptr %56, align 8
-  %57 = load <2 x float>, ptr %add.ptr7, align 4
-  %58 = load <2 x float>, ptr %add.ptr88, align 4
-  %59 = fcmp olt <2 x float> %57, %58
-  %60 = select <2 x i1> %59, <2 x float> %57, <2 x float> %58
-  store <2 x float> %60, ptr %add.ptr, align 4
-  %upperBound5.i184 = getelementptr inbounds i8, ptr %add.ptr88, i64 8
-  %upperBound7.i193 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %61 = load <2 x float>, ptr %add.ptr85, align 4
-  %62 = fcmp ogt <2 x float> %61, %60
-  %63 = select <2 x i1> %62, <2 x float> %60, <2 x float> %61
-  store <2 x float> %63, ptr %add.ptr4, align 4
-  %upperBound5.i203 = getelementptr inbounds i8, ptr %add.ptr85, i64 8
-  %64 = load <2 x float>, ptr %upperBound.i183, align 4
-  %65 = load <2 x float>, ptr %upperBound5.i184, align 4
-  %66 = fcmp ogt <2 x float> %64, %65
-  %67 = select <2 x i1> %66, <2 x float> %64, <2 x float> %65
-  store <2 x float> %67, ptr %upperBound7.i193, align 4
-  %68 = load <2 x float>, ptr %upperBound5.i203, align 4
-  %69 = fcmp olt <2 x float> %68, %67
-  %70 = select <2 x i1> %69, <2 x float> %67, <2 x float> %68
+  %25 = load i32, ptr %height112, align 4
+  %cmp113 = icmp sgt i32 %24, %25
+  %.384 = select i1 %cmp113, i32 %16, i32 %17
+  %.385 = select i1 %cmp113, i32 %17, i32 %16
+  %add.ptr88.add.ptr85 = select i1 %cmp113, ptr %add.ptr88, ptr %add.ptr85
+  %add.ptr85.add.ptr88 = select i1 %cmp113, ptr %add.ptr85, ptr %add.ptr88
+  %.386 = tail call i32 @llvm.smin.i32(i32 %24, i32 %25)
+  %height111.height112 = select i1 %cmp113, ptr %height111, ptr %height112
+  store i32 %.384, ptr %child282, align 8
+  store i32 %.385, ptr %child1.i, align 4
   br label %return.sink.split
 
-if.else133:                                       ; preds = %if.end110
-  store i32 %47, ptr %child282, align 8
-  store i32 %46, ptr %child1.i, align 4
-  %71 = getelementptr inbounds i8, ptr %add.ptr85, i64 24
-  store i32 %iA, ptr %71, align 8
-  %72 = load <2 x float>, ptr %add.ptr7, align 4
-  %73 = load <2 x float>, ptr %add.ptr85, align 4
-  %74 = fcmp olt <2 x float> %72, %73
-  %75 = select <2 x i1> %74, <2 x float> %72, <2 x float> %73
-  store <2 x float> %75, ptr %add.ptr, align 4
-  %upperBound5.i224 = getelementptr inbounds i8, ptr %add.ptr85, i64 8
+return.sink.split:                                ; preds = %if.end37, %if.end110
+  %add.ptr85.sink340.sink = phi ptr [ %add.ptr88.add.ptr85, %if.end110 ], [ %add.ptr19.add.ptr16, %if.end37 ]
+  %add.ptr7.sink380 = phi ptr [ %add.ptr7, %if.end110 ], [ %add.ptr4, %if.end37 ]
+  %add.ptr88.sink315.sink = phi ptr [ %add.ptr85.add.ptr88, %if.end110 ], [ %add.ptr16.add.ptr19, %if.end37 ]
+  %add.ptr4.sink353 = phi ptr [ %add.ptr4, %if.end110 ], [ %add.ptr7, %if.end37 ]
+  %height8.sink = phi ptr [ %height8, %if.end110 ], [ %height9, %if.end37 ]
+  %.sink300.sink = phi i32 [ %.386, %if.end110 ], [ %.383, %if.end37 ]
+  %height112.sink.sink = phi ptr [ %height111.height112, %if.end110 ], [ %height38.height39, %if.end37 ]
+  %height9.sink = phi ptr [ %height9, %if.end110 ], [ %height8, %if.end37 ]
+  %retval.0.ph = phi i32 [ %1, %if.end110 ], [ %3, %if.end37 ]
+  %upperBound.i183.sink = getelementptr inbounds i8, ptr %add.ptr7.sink380, i64 8
+  %26 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 24
+  store i32 %iA, ptr %26, align 8
+  %27 = load <2 x float>, ptr %add.ptr7.sink380, align 4
+  %28 = load <2 x float>, ptr %add.ptr85.sink340.sink, align 4
+  %29 = fcmp olt <2 x float> %27, %28
+  %30 = select <2 x i1> %29, <2 x float> %27, <2 x float> %28
+  store <2 x float> %30, ptr %add.ptr, align 4
+  %upperBound5.i224 = getelementptr inbounds i8, ptr %add.ptr85.sink340.sink, i64 8
+  %31 = load <2 x float>, ptr %upperBound.i183.sink, align 4
+  %32 = load <2 x float>, ptr %upperBound5.i224, align 4
+  %33 = fcmp ogt <2 x float> %31, %32
+  %34 = select <2 x i1> %33, <2 x float> %31, <2 x float> %32
   %upperBound7.i233 = getelementptr inbounds i8, ptr %add.ptr, i64 8
-  %76 = load <2 x float>, ptr %add.ptr88, align 4
-  %77 = fcmp ogt <2 x float> %76, %75
-  %78 = select <2 x i1> %77, <2 x float> %75, <2 x float> %76
-  store <2 x float> %78, ptr %add.ptr4, align 4
-  %upperBound5.i243 = getelementptr inbounds i8, ptr %add.ptr88, i64 8
-  %79 = load <2 x float>, ptr %upperBound.i183, align 4
-  %80 = load <2 x float>, ptr %upperBound5.i224, align 4
-  %81 = fcmp ogt <2 x float> %79, %80
-  %82 = select <2 x i1> %81, <2 x float> %79, <2 x float> %80
-  store <2 x float> %82, ptr %upperBound7.i233, align 4
-  %83 = load <2 x float>, ptr %upperBound5.i243, align 4
-  %84 = fcmp olt <2 x float> %83, %82
-  %85 = select <2 x i1> %84, <2 x float> %82, <2 x float> %83
-  br label %return.sink.split
-
-return.sink.split:                                ; preds = %if.then114, %if.else133, %if.then41, %if.else58
-  %height9.sink267 = phi ptr [ %height9, %if.else58 ], [ %height9, %if.then41 ], [ %height8, %if.else133 ], [ %height8, %if.then114 ]
-  %.sink265.sink = phi i32 [ %14, %if.else58 ], [ %15, %if.then41 ], [ %54, %if.else133 ], [ %55, %if.then114 ]
-  %height112.sink.sink = phi ptr [ %height39, %if.else58 ], [ %height38, %if.then41 ], [ %height112, %if.else133 ], [ %height111, %if.then114 ]
-  %add.ptr4.sink = phi ptr [ %add.ptr7, %if.else58 ], [ %add.ptr7, %if.then41 ], [ %add.ptr4, %if.else133 ], [ %add.ptr4, %if.then114 ]
-  %height9.sink = phi ptr [ %height8, %if.else58 ], [ %height8, %if.then41 ], [ %height9, %if.else133 ], [ %height9, %if.then114 ]
-  %retval.0.ph = phi i32 [ %3, %if.else58 ], [ %3, %if.then41 ], [ %1, %if.else133 ], [ %1, %if.then114 ]
-  %86 = phi <2 x float> [ %45, %if.else58 ], [ %30, %if.then41 ], [ %85, %if.else133 ], [ %70, %if.then114 ]
-  %87 = load i32, ptr %height9.sink267, align 4
-  %cond.i173 = tail call noundef i32 @llvm.smax.i32(i32 %87, i32 %.sink265.sink)
-  %add70 = add nsw i32 %cond.i173, 1
-  store i32 %add70, ptr %height, align 4
-  %88 = load i32, ptr %height112.sink.sink, align 4
-  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add70, i32 %88)
-  %89 = getelementptr inbounds i8, ptr %add.ptr4.sink, i64 8
-  store <2 x float> %86, ptr %89, align 4
+  store <2 x float> %34, ptr %upperBound7.i233, align 4
+  %35 = load <2 x float>, ptr %add.ptr88.sink315.sink, align 4
+  %36 = fcmp ogt <2 x float> %35, %30
+  %37 = select <2 x i1> %36, <2 x float> %30, <2 x float> %35
+  store <2 x float> %37, ptr %add.ptr4.sink353, align 4
+  %upperBound5.i243 = getelementptr inbounds i8, ptr %add.ptr88.sink315.sink, i64 8
+  %38 = load <2 x float>, ptr %upperBound5.i243, align 4
+  %39 = fcmp olt <2 x float> %38, %34
+  %40 = select <2 x i1> %39, <2 x float> %34, <2 x float> %38
+  %41 = load i32, ptr %height8.sink, align 4
+  %cond.i253 = tail call noundef i32 @llvm.smax.i32(i32 %41, i32 %.sink300.sink)
+  %add145 = add nsw i32 %cond.i253, 1
+  store i32 %add145, ptr %height, align 4
+  %42 = load i32, ptr %height112.sink.sink, align 4
+  %cond.i254 = tail call noundef i32 @llvm.smax.i32(i32 %add145, i32 %42)
+  %43 = getelementptr inbounds i8, ptr %add.ptr4.sink353, i64 8
+  store <2 x float> %40, ptr %43, align 4
   %storemerge = add nsw i32 %cond.i254, 1
   store i32 %storemerge, ptr %height9.sink, align 4
   br label %return
@@ -1555,6 +1486,9 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #15
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

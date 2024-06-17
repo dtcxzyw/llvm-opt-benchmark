@@ -1517,12 +1517,12 @@ _ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit:  ; preds = %lor.lhs.false.i.i39
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit
-  %m_to_merge.i.sink = phi ptr [ %m_to_merge.i, %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit ], [ %m_updates.i, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit ]
-  %47 = load ptr, ptr %m_to_merge.i.sink, align 8
-  %arrayidx10.i.i44 = getelementptr inbounds i8, ptr %47, i64 -4
-  %48 = load i32, ptr %arrayidx10.i.i44, align 4
+  %m_updates.i.sink = phi ptr [ %m_updates.i, %_ZN3euf6egraph15update_childrenEPNS_5enodeE.exit ], [ %m_to_merge.i, %_ZN3euf6egraph10push_mergeEPNS_5enodeES2_b.exit ]
+  %47 = load ptr, ptr %m_updates.i.sink, align 8
+  %arrayidx10.i.i = getelementptr inbounds i8, ptr %47, i64 -4
+  %48 = load i32, ptr %arrayidx10.i.i, align 4
   %inc.i.i = add i32 %48, 1
-  store i32 %inc.i.i, ptr %arrayidx10.i.i44, align 4
+  store i32 %inc.i.i, ptr %arrayidx10.i.i, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end6
@@ -6503,32 +6503,32 @@ lor.lhs.false.i.i.i56:                            ; preds = %if.then.i.i53
 
 for.inc.sink.split.sink.split:                    ; preds = %if.then.i.i53, %lor.lhs.false.i.i.i56, %if.then.i.i, %lor.lhs.false.i.i.i
   tail call void @_ZN6vectorIN3euf6egraph8to_mergeELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_merge.i.i54)
-  %.pre.i.i.i = load ptr, ptr %m_to_merge.i.i54, align 8
-  %arrayidx8.phi.trans.insert.i.i.i72 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
+  %.pre.i.i.i71 = load ptr, ptr %m_to_merge.i.i54, align 8
+  %arrayidx8.phi.trans.insert.i.i.i72 = getelementptr inbounds i8, ptr %.pre.i.i.i71, i64 -4
   %.pre1.i.i.i73 = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i72, align 4
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.inc.sink.split.sink.split, %lor.lhs.false.i.i.i56, %lor.lhs.false.i.i.i
   %.sink100 = phi i32 [ %29, %lor.lhs.false.i.i.i ], [ %46, %lor.lhs.false.i.i.i56 ], [ %.pre1.i.i.i73, %for.inc.sink.split.sink.split ]
-  %.sink = phi ptr [ %28, %lor.lhs.false.i.i.i ], [ %45, %lor.lhs.false.i.i.i56 ], [ %.pre.i.i.i, %for.inc.sink.split.sink.split ]
-  %idx.ext.i.i.i = zext i32 %.sink100 to i64
-  %add.ptr.i.i.i = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %.sink, i64 %idx.ext.i.i.i
-  store ptr %3, ptr %add.ptr.i.i.i, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 8
-  store ptr null, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 16
-  store i32 3, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.41.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 24
-  store i32 0, ptr %ref.tmp.sroa.41.0.add.ptr.i.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.52.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 32
-  store i8 0, ptr %ref.tmp.sroa.52.0.add.ptr.i.sroa_idx.i.i, align 8
-  %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i, i64 40
-  store ptr null, ptr %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i, align 8
+  %.sink = phi ptr [ %28, %lor.lhs.false.i.i.i ], [ %45, %lor.lhs.false.i.i.i56 ], [ %.pre.i.i.i71, %for.inc.sink.split.sink.split ]
+  %idx.ext.i.i.i61 = zext i32 %.sink100 to i64
+  %add.ptr.i.i.i62 = getelementptr inbounds %"struct.euf::egraph::to_merge", ptr %.sink, i64 %idx.ext.i.i.i61
+  store ptr %3, ptr %add.ptr.i.i.i62, align 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i63 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 8
+  store ptr null, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i.i63, align 8
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i64 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 16
+  store i32 3, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i.i64, align 8
+  %ref.tmp.sroa.41.0.add.ptr.i.sroa_idx.i.i65 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 24
+  store i32 0, ptr %ref.tmp.sroa.41.0.add.ptr.i.sroa_idx.i.i65, align 8
+  %ref.tmp.sroa.52.0.add.ptr.i.sroa_idx.i.i66 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 32
+  store i8 0, ptr %ref.tmp.sroa.52.0.add.ptr.i.sroa_idx.i.i66, align 8
+  %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i67 = getelementptr inbounds i8, ptr %add.ptr.i.i.i62, i64 40
+  store ptr null, ptr %ref.tmp.sroa.63.0.add.ptr.i.sroa_idx.i.i67, align 8
   %48 = load ptr, ptr %m_to_merge.i.i54, align 8
-  %arrayidx10.i.i.i = getelementptr inbounds i8, ptr %48, i64 -4
-  %49 = load i32, ptr %arrayidx10.i.i.i, align 4
+  %arrayidx10.i.i.i68 = getelementptr inbounds i8, ptr %48, i64 -4
+  %49 = load i32, ptr %arrayidx10.i.i.i68, align 4
   %inc.i.i.i69 = add i32 %49, 1
-  store i32 %inc.i.i.i69, ptr %arrayidx10.i.i.i, align 4
+  store i32 %inc.i.i.i69, ptr %arrayidx10.i.i.i68, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %land.lhs.true.i44, %_ZN6vectorIPN3euf5enodeELb0EjE9push_backERKS2_.exit41, %land.lhs.true.i, %if.then16, %if.end14, %if.else18, %for.body

@@ -2354,10 +2354,10 @@ switch.lookup1681:                                ; preds = %366
   br label %947
 
 944:                                              ; preds = %936, %933, %935, %940
-  %.sink1635 = phi i64 [ 1, %935 ], [ 3, %940 ], [ 2, %933 ], [ 2, %936 ]
+  %.sink1638 = phi i64 [ 1, %935 ], [ 3, %940 ], [ 2, %933 ], [ 2, %936 ]
   %945 = ptrtoint ptr %.sroa.0.0.copyload to i64
   %.sroa.0.0.insert.mask219 = and i64 %945, -256
-  %.sroa.0.0.insert.insert220 = or disjoint i64 %.sroa.0.0.insert.mask219, %.sink1635
+  %.sroa.0.0.insert.insert220 = or disjoint i64 %.sroa.0.0.insert.mask219, %.sink1638
   %946 = inttoptr i64 %.sroa.0.0.insert.insert220 to ptr
   %.pr1589 = load i32, ptr %13, align 8
   %.not1314 = icmp eq i32 %.pr1589, 0

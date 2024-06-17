@@ -981,12 +981,12 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   br label %11
 
 11:                                               ; preds = %92, %3
-  %.sink300 = phi i32 [ %88, %92 ], [ 0, %3 ]
+  %.sink250 = phi i32 [ %88, %92 ], [ 0, %3 ]
   %12 = load i32, ptr @hf_h264_nal_unit, align 4
-  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %.sink300, i32 noundef -1, i32 noundef 0) #6
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %12, ptr noundef %0, i32 noundef %.sink250, i32 noundef -1, i32 noundef 0) #6
   %14 = load i32, ptr @ett_h264_nal_unit, align 4
   %15 = tail call ptr @proto_item_add_subtree(ptr noundef %13, i32 noundef %14) #6
-  %16 = shl nsw i32 %.sink300, 3
+  %16 = shl nsw i32 %.sink250, 3
   %17 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %16) #6
   %18 = icmp sgt i32 %17, 3
   br i1 %18, label %19, label %27
@@ -997,18 +997,18 @@ define hidden void @dissect_h264_nal_unit(ptr noundef %0, ptr noundef %1, ptr no
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
-  %23 = add nsw i32 %.sink300, 4
+  %23 = add nsw i32 %.sink250, 4
   br label %27
 
 24:                                               ; preds = %19
   %.mask = and i32 %20, -256
   %25 = icmp eq i32 %.mask, 256
-  %26 = add nsw i32 %.sink300, 3
-  %spec.select = select i1 %25, i32 %26, i32 %.sink300
+  %26 = add nsw i32 %.sink250, 3
+  %spec.select = select i1 %25, i32 %26, i32 %.sink250
   br label %27
 
 27:                                               ; preds = %24, %22, %11
-  %.1 = phi i32 [ %23, %22 ], [ %.sink300, %11 ], [ %spec.select, %24 ]
+  %.1 = phi i32 [ %23, %22 ], [ %.sink250, %11 ], [ %spec.select, %24 ]
   %28 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.1) #6
   %29 = and i8 %28, 31
   %30 = load i32, ptr @hf_h264_forbidden_zero_bit, align 4

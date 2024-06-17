@@ -532,10 +532,10 @@ return.sink.split.sink.split:                     ; preds = %land.lhs.true23, %l
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %land.lhs.true23, %land.lhs.true
-  %timecond = getelementptr inbounds i8, ptr %data, i64 5284
-  %bf.load36 = load i8, ptr %timecond, align 4
+  %timecond35 = getelementptr inbounds i8, ptr %data, i64 5284
+  %bf.load36 = load i8, ptr %timecond35, align 4
   %bf.set38 = or i8 %bf.load36, 1
-  store i8 %bf.set38, ptr %timecond, align 4
+  store i8 %bf.set38, ptr %timecond35, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %sw.default, %sw.bb15, %entry, %lor.lhs.false

@@ -5741,23 +5741,17 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i24
   store i32 0, ptr %call5.i.i.i.i2.i.i254, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i254, i64 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %213, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont101.thread2843, label %invoke.cont101
-
-invoke.cont101.thread2843:                        ; preds = %call5.i.i.i.i2.i.i.noexc
-  %_M_finish.i.i7.i2845 = getelementptr inbounds i8, ptr %sortedIndices, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i2845, align 8
-  br label %for.body.i256.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.i256.preheader, label %invoke.cont101
 
 invoke.cont101:                                   ; preds = %call5.i.i.i.i2.i.i.noexc
   %221 = add nsw i64 %mul.i.i.i.i.i.i250, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %221, i1 false)
-  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %sortedIndices, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i256.preheader
 
-for.body.i256.preheader:                          ; preds = %invoke.cont101, %invoke.cont101.thread2843
-  %_M_finish.i.i7.i2848 = phi ptr [ %_M_finish.i.i7.i2845, %invoke.cont101.thread2843 ], [ %_M_finish.i.i7.i, %invoke.cont101 ]
-  %__first.addr.0.i.i.i.i.i2847 = phi ptr [ %incdec.ptr.i.i.i.i.i, %invoke.cont101.thread2843 ], [ %add.ptr.i.i.i, %invoke.cont101 ]
+for.body.i256.preheader:                          ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont101
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %invoke.cont101 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %sortedIndices, i64 8
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.i256
 
 for.body.i256:                                    ; preds = %for.body.i256.preheader, %for.body.i256
@@ -5766,11 +5760,11 @@ for.body.i256:                                    ; preds = %for.body.i256.prehe
   store i32 %__value.addr.06.i, ptr %__first.sroa.0.05.i, align 4
   %inc.i = add nsw i32 %__value.addr.06.i, 1
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.05.i, i64 4
-  %cmp.i.not.i257 = icmp eq ptr %incdec.ptr.i.i, %__first.addr.0.i.i.i.i.i2847
+  %cmp.i.not.i257 = icmp eq ptr %incdec.ptr.i.i, %add.ptr.i.i.i.sink
   br i1 %cmp.i.not.i257, label %_ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit, label %for.body.i256, !llvm.loop !39
 
 _ZSt4iotaIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEEiEvT_S7_T0_.exit: ; preds = %for.body.i256, %invoke.cont101.thread
-  %_M_finish.i.i7.i2842 = phi ptr [ %_M_finish.i.i7.i2840, %invoke.cont101.thread ], [ %_M_finish.i.i7.i2848, %for.body.i256 ]
+  %_M_finish.i.i7.i2842 = phi ptr [ %_M_finish.i.i7.i2840, %invoke.cont101.thread ], [ %_M_finish.i.i7.i, %for.body.i256 ]
   %222 = load ptr, ptr %keysElements93, align 16
   %vtable114 = load ptr, ptr %222, align 8
   %vfn115 = getelementptr inbounds i8, ptr %vtable114, i64 88

@@ -21253,8 +21253,8 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit: ; pred
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i, %entry, %_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit
-  %cmp.i41 = phi i1 [ true, %_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit ], [ false, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ true, %entry ], [ false, %for.body.i.i.i.i.i.i.i.i.i ], [ false, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ]
-  %__y.addr.0.lcssa.i.i.i40 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit ], [ %__y.addr.0.lcssa.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.0.lcssa.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ]
+  %cmp.i46 = phi i1 [ true, %_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit ], [ false, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ true, %entry ], [ false, %for.body.i.i.i.i.i.i.i.i.i ], [ false, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ]
+  %__y.addr.0.lcssa.i.i.i45 = phi ptr [ %__y.addr.0.lcssa.i.i.i, %_ZNSt3mapIN3ue212_GLOBAL__N_121raw_gough_report_listEjSt4lessIS2_ESaISt4pairIKS2_jEEE11lower_boundERS6_.exit ], [ %__y.addr.0.lcssa.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ %add.ptr.i.i.i, %entry ], [ %__y.addr.0.lcssa.i.i.i, %for.body.i.i.i.i.i.i.i.i.i ], [ %__y.addr.0.lcssa.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ]
   %call5.i.i.i.i.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #33
   %14 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 40
   store i32 0, ptr %14, align 8
@@ -21336,16 +21336,17 @@ unreachable.i.i.i.i:                              ; preds = %lpad.i.i.i.i
 invoke.cont.i:                                    ; preds = %invoke.cont.i.i.i.i.i.i.i.i.i.i.i, %if.then
   %25 = phi ptr [ %call3.i.i6.i.i.i.i.i.i.i2.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i.i ], [ null, %if.then ]
   %26 = phi ptr [ %__x.addr.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %invoke.cont.i.i.i.i.i.i.i.i.i.i.i ], [ %14, %if.then ]
+  %.fr = freeze ptr %26
   %second.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 80
   store i32 0, ptr %second.i.i.i.i.i.i.i.i, align 8
   %_M_storage.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i, i64 32
-  br i1 %cmp.i41, label %if.then.i.i, label %if.else12.i.i
+  br i1 %cmp.i46, label %if.then.i.i, label %if.else12.i.i
 
 if.then.i.i:                                      ; preds = %invoke.cont.i
   %27 = getelementptr inbounds i8, ptr %this, i64 40
   %this.val.i.i35 = load i64, ptr %27, align 8
   %cmp5.not.i.i = icmp eq i64 %this.val.i.i35, 0
-  br i1 %cmp5.not.i.i, label %if.else.i.i, label %land.lhs.true.i.i
+  br i1 %cmp5.not.i.i, label %invoke.cont7.sink.split.i, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.then.i.i
   %_M_right.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -21354,13 +21355,13 @@ land.lhs.true.i.i:                                ; preds = %if.then.i.i
   %29 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %28, i64 40
   %cmp.i26.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %29, %add.ptr.i.i.i.i.i.i.i
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %26, %14
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %.fr, %14
   %or.cond28.i.i.i.i.i.i.i.i.i.i.i = and i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i, %cmp.i26.i.i.i.i.i.i.i.i.i.i.i
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %land.lhs.true.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i
   %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ], [ %29, %land.lhs.true.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ], [ %26, %land.lhs.true.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ], [ %.fr, %land.lhs.true.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %30 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
@@ -21370,7 +21371,7 @@ for.body.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %land.lhs.true.i.i, 
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i
   %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %31, %30
-  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont7.sink.split.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i
   %slot.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i, i64 36
@@ -21382,7 +21383,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_r
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i
   %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %33, %32
-  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i
+  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont7.sink.split.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i
   %call.i.i.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i) #30
@@ -21393,52 +21394,46 @@ for.inc.i.i.i.i.i.i.i.i.i.i.i:                    ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i, !llvm.loop !692
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i.i, %land.lhs.true.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %26, %land.lhs.true.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.fr, %land.lhs.true.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ]
   %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %29, %land.lhs.true.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i ]
   %cmp.i14.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i.i.i
   %cmp.i15.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i, %14
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = and i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i, %cmp.i14.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont7.i, label %if.else.i.i
-
-if.else.i.i:                                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i, %if.then.i.i
-  %call11.i.i = call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i)
-  %34 = extractvalue { ptr, ptr } %call11.i.i, 0
-  %35 = extractvalue { ptr, ptr } %call11.i.i, 1
-  br label %invoke.cont7.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i.i, label %invoke.cont7.i, label %invoke.cont7.sink.split.i
 
 if.else12.i.i:                                    ; preds = %invoke.cont.i
-  %_M_left.i3.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i40, i64 56
-  %36 = load ptr, ptr %_M_left.i3.i.i.i.i14.i.i, align 8
-  %add.ptr.i4.i.i.i.i15.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i40, i64 40
-  %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i = icmp ne ptr %26, %14
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i17.i.i = icmp ne ptr %36, %add.ptr.i4.i.i.i.i15.i.i
+  %_M_left.i3.i.i.i.i14.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i45, i64 56
+  %34 = load ptr, ptr %_M_left.i3.i.i.i.i14.i.i, align 8
+  %add.ptr.i4.i.i.i.i15.i.i = getelementptr inbounds i8, ptr %__y.addr.0.lcssa.i.i.i45, i64 40
+  %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i = icmp ne ptr %.fr, %14
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i17.i.i = icmp ne ptr %34, %add.ptr.i4.i.i.i.i15.i.i
   %or.cond28.i.i.i.i.i.i.i.i.i18.i.i = select i1 %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i, i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i17.i.i, i1 false
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i18.i.i, label %for.body.i.i.i.i.i.i.i.i.i26.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i
 
 for.body.i.i.i.i.i.i.i.i.i26.i.i:                 ; preds = %if.else12.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i27.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i41.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ], [ %26, %if.else12.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i28.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i42.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ], [ %36, %if.else12.i.i ]
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i27.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i41.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ], [ %.fr, %if.else12.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i28.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i42.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ], [ %34, %if.else12.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i29.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i27.i.i, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i30.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i28.i.i, i64 32
-  %37 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i29.i.i, align 4
-  %38 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i30.i.i, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i31.i.i = icmp ult i32 %37, %38
+  %35 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i29.i.i, align 4
+  %36 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i30.i.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i31.i.i = icmp ult i32 %35, %36
   br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i31.i.i, label %if.then18.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i32.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i32.i.i:               ; preds = %for.body.i.i.i.i.i.i.i.i.i26.i.i
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i33.i.i = icmp ult i32 %38, %37
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i33.i.i = icmp ult i32 %36, %35
   br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i33.i.i, label %if.else44.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i34.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i34.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i32.i.i
   %slot.i.i.i.i.i.i.i.i.i.i.i35.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i27.i.i, i64 36
-  %39 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i35.i.i, align 4
+  %37 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i35.i.i, align 4
   %slot9.i.i.i.i.i.i.i.i.i.i.i36.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i28.i.i, i64 36
-  %40 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i36.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i37.i.i = icmp ult i32 %39, %40
+  %38 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i36.i.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i37.i.i = icmp ult i32 %37, %38
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i37.i.i, label %if.then18.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i38.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i38.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i34.i.i
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i39.i.i = icmp ult i32 %40, %39
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i39.i.i = icmp ult i32 %38, %37
   br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i39.i.i, label %if.else44.i.i, label %for.inc.i.i.i.i.i.i.i.i.i40.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i40.i.i:                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i38.i.i
@@ -21450,8 +21445,8 @@ for.inc.i.i.i.i.i.i.i.i.i40.i.i:                  ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i45.i.i, label %for.body.i.i.i.i.i.i.i.i.i26.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i, !llvm.loop !692
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i40.i.i, %if.else12.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i20.i.i = phi ptr [ %36, %if.else12.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i42.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i21.i.i = phi ptr [ %26, %if.else12.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i41.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i20.i.i = phi ptr [ %34, %if.else12.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i42.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i21.i.i = phi ptr [ %.fr, %if.else12.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i41.i.i, %for.inc.i.i.i.i.i.i.i.i.i40.i.i ]
   %cmp.i14.i.i.i.i.i.i.i.i.i22.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i21.i.i, %14
   %cmp.i15.i.i.i.i.i.i.i.i.i23.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i20.i.i, %add.ptr.i4.i.i.i.i15.i.i
   %spec.select.i.i.i.i.i.i.i.i.i24.i.i = select i1 %cmp.i14.i.i.i.i.i.i.i.i.i22.i.i, i1 %cmp.i15.i.i.i.i.i.i.i.i.i23.i.i, i1 false
@@ -21459,44 +21454,44 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i: 
 
 if.then18.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i34.i.i, %for.body.i.i.i.i.i.i.i.i.i26.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
-  %41 = load ptr, ptr %_M_left.i.i.i, align 8
-  %cmp21.i.i = icmp eq ptr %41, %__y.addr.0.lcssa.i.i.i40
+  %39 = load ptr, ptr %_M_left.i.i.i, align 8
+  %cmp21.i.i = icmp eq ptr %39, %__y.addr.0.lcssa.i.i.i45
   br i1 %cmp21.i.i, label %invoke.cont7.i, label %if.else25.i.i
 
 if.else25.i.i:                                    ; preds = %if.then18.i.i
-  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i40) #30
+  %call.i.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i45) #30
   %_M_left.i.i.i.i.i51.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
-  %42 = load ptr, ptr %_M_left.i.i.i.i.i51.i.i, align 8
+  %40 = load ptr, ptr %_M_left.i.i.i.i.i51.i.i, align 8
   %add.ptr.i.i.i.i.i52.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 40
-  %cmp.i26.i.i.i.i.i.i.i.i.i55.i.i = icmp ne ptr %42, %add.ptr.i.i.i.i.i52.i.i
+  %cmp.i26.i.i.i.i.i.i.i.i.i55.i.i = icmp ne ptr %40, %add.ptr.i.i.i.i.i52.i.i
   %or.cond28.i.i.i.i.i.i.i.i.i57.i.i = and i1 %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i, %cmp.i26.i.i.i.i.i.i.i.i.i55.i.i
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i57.i.i, label %for.body.i.i.i.i.i.i.i.i.i65.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i
 
 for.body.i.i.i.i.i.i.i.i.i65.i.i:                 ; preds = %if.else25.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i66.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i80.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ], [ %42, %if.else25.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i67.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i81.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ], [ %26, %if.else25.i.i ]
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i66.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i80.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ], [ %40, %if.else25.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i67.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i81.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ], [ %.fr, %if.else25.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i68.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i66.i.i, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i69.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i67.i.i, i64 32
-  %43 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i68.i.i, align 4
-  %44 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i69.i.i, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i70.i.i = icmp ult i32 %43, %44
+  %41 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i68.i.i, align 4
+  %42 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i69.i.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i70.i.i = icmp ult i32 %41, %42
   br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i70.i.i, label %if.then32.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i71.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i71.i.i:               ; preds = %for.body.i.i.i.i.i.i.i.i.i65.i.i
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i72.i.i = icmp ult i32 %44, %43
-  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i72.i.i, label %if.else42.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i73.i.i
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i72.i.i = icmp ult i32 %42, %41
+  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i72.i.i, label %invoke.cont7.sink.split.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i73.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i73.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i71.i.i
   %slot.i.i.i.i.i.i.i.i.i.i.i74.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i66.i.i, i64 36
-  %45 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i74.i.i, align 4
+  %43 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i74.i.i, align 4
   %slot9.i.i.i.i.i.i.i.i.i.i.i75.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i67.i.i, i64 36
-  %46 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i75.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i76.i.i = icmp ult i32 %45, %46
+  %44 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i75.i.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i76.i.i = icmp ult i32 %43, %44
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i76.i.i, label %if.then32.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i77.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i77.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i73.i.i
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i78.i.i = icmp ult i32 %46, %45
-  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i78.i.i, label %if.else42.i.i, label %for.inc.i.i.i.i.i.i.i.i.i79.i.i
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i78.i.i = icmp ult i32 %44, %43
+  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i78.i.i, label %invoke.cont7.sink.split.i, label %for.inc.i.i.i.i.i.i.i.i.i79.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i79.i.i:                  ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i77.i.i
   %call.i.i.i.i.i.i.i.i.i.i80.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i66.i.i) #30
@@ -21507,53 +21502,47 @@ for.inc.i.i.i.i.i.i.i.i.i79.i.i:                  ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i84.i.i, label %for.body.i.i.i.i.i.i.i.i.i65.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i, !llvm.loop !692
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i79.i.i, %if.else25.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i59.i.i = phi ptr [ %26, %if.else25.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i81.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i60.i.i = phi ptr [ %42, %if.else25.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i80.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i59.i.i = phi ptr [ %.fr, %if.else25.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i81.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i60.i.i = phi ptr [ %40, %if.else25.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i80.i.i, %for.inc.i.i.i.i.i.i.i.i.i79.i.i ]
   %cmp.i14.i.i.i.i.i.i.i.i.i61.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i60.i.i, %add.ptr.i.i.i.i.i52.i.i
   %cmp.i15.i.i.i.i.i.i.i.i.i62.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i59.i.i, %14
   %spec.select.i.i.i.i.i.i.i.i.i63.i.i = and i1 %cmp.i15.i.i.i.i.i.i.i.i.i62.i.i, %cmp.i14.i.i.i.i.i.i.i.i.i61.i.i
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i63.i.i, label %if.then32.i.i, label %if.else42.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i63.i.i, label %if.then32.i.i, label %invoke.cont7.sink.split.i
 
 if.then32.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i73.i.i, %for.body.i.i.i.i.i.i.i.i.i65.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i
-  %47 = getelementptr i8, ptr %call.i.i.i, i64 24
-  %.val9.i.i = load ptr, ptr %47, align 8
+  %45 = getelementptr i8, ptr %call.i.i.i, i64 24
+  %.val9.i.i = load ptr, ptr %45, align 8
   %cmp35.i.i = icmp eq ptr %.val9.i.i, null
   br i1 %cmp35.i.i, label %if.then.i, label %invoke.cont7.i
-
-if.else42.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i77.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i71.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i
-  %call43.i.i = call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i)
-  %48 = extractvalue { ptr, ptr } %call43.i.i, 0
-  %49 = extractvalue { ptr, ptr } %call43.i.i, 1
-  br label %invoke.cont7.i
 
 if.else44.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i38.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i32.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit46.i.i
   %or.cond28.i.i.i.i.i.i.i.i.i95.i.i = and i1 %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i, %cmp.i.i27.i.i.i.i.i.i.i.i.i17.i.i
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i95.i.i, label %for.body.i.i.i.i.i.i.i.i.i103.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i
 
 for.body.i.i.i.i.i.i.i.i.i103.i.i:                ; preds = %if.else44.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i104.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i118.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ], [ %36, %if.else44.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i105.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i119.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ], [ %26, %if.else44.i.i ]
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i104.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i118.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ], [ %34, %if.else44.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i105.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i119.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ], [ %.fr, %if.else44.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i106.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i104.i.i, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i107.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i105.i.i, i64 32
-  %50 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i106.i.i, align 4
-  %51 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i107.i.i, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i108.i.i = icmp ult i32 %50, %51
+  %46 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i106.i.i, align 4
+  %47 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i107.i.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i108.i.i = icmp ult i32 %46, %47
   br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i108.i.i, label %if.then50.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i.i103.i.i
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i110.i.i = icmp ult i32 %51, %50
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i110.i.i = icmp ult i32 %47, %46
   br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i110.i.i, label %if.then.i5.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i111.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i111.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i
   %slot.i.i.i.i.i.i.i.i.i.i.i112.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i104.i.i, i64 36
-  %52 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i112.i.i, align 4
+  %48 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i112.i.i, align 4
   %slot9.i.i.i.i.i.i.i.i.i.i.i113.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i105.i.i, i64 36
-  %53 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i113.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i114.i.i = icmp ult i32 %52, %53
+  %49 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i113.i.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i114.i.i = icmp ult i32 %48, %49
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i114.i.i, label %if.then50.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i111.i.i
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i116.i.i = icmp ult i32 %53, %52
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i116.i.i = icmp ult i32 %49, %48
   br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i116.i.i, label %if.then.i5.i, label %for.inc.i.i.i.i.i.i.i.i.i117.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i117.i.i:                 ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i
@@ -21565,8 +21554,8 @@ for.inc.i.i.i.i.i.i.i.i.i117.i.i:                 ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i122.i.i, label %for.body.i.i.i.i.i.i.i.i.i103.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i, !llvm.loop !692
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i117.i.i, %if.else44.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i97.i.i = phi ptr [ %26, %if.else44.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i119.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i98.i.i = phi ptr [ %36, %if.else44.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i118.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i97.i.i = phi ptr [ %.fr, %if.else44.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i119.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i98.i.i = phi ptr [ %34, %if.else44.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i118.i.i, %for.inc.i.i.i.i.i.i.i.i.i117.i.i ]
   %cmp.i14.i.i.i.i.i.i.i.i.i99.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i98.i.i, %add.ptr.i4.i.i.i.i15.i.i
   %cmp.i15.i.i.i.i.i.i.i.i.i100.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i97.i.i, %14
   %spec.select.i.i.i.i.i.i.i.i.i101.i.i = and i1 %cmp.i15.i.i.i.i.i.i.i.i.i100.i.i, %cmp.i14.i.i.i.i.i.i.i.i.i99.i.i
@@ -21574,44 +21563,44 @@ _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i:
 
 if.then50.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i111.i.i, %for.body.i.i.i.i.i.i.i.i.i103.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i
   %_M_right.i124.i.i = getelementptr inbounds i8, ptr %this, i64 32
-  %54 = load ptr, ptr %_M_right.i124.i.i, align 8
-  %cmp53.i.i = icmp eq ptr %54, %__y.addr.0.lcssa.i.i.i40
+  %50 = load ptr, ptr %_M_right.i124.i.i, align 8
+  %cmp53.i.i = icmp eq ptr %50, %__y.addr.0.lcssa.i.i.i45
   br i1 %cmp53.i.i, label %invoke.cont7.i, label %if.else57.i.i
 
 if.else57.i.i:                                    ; preds = %if.then50.i.i
-  %call.i127.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i40) #30
+  %call.i127.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef %__y.addr.0.lcssa.i.i.i45) #30
   %_M_left.i3.i.i.i.i131.i.i = getelementptr inbounds i8, ptr %call.i127.i.i, i64 56
-  %55 = load ptr, ptr %_M_left.i3.i.i.i.i131.i.i, align 8
+  %51 = load ptr, ptr %_M_left.i3.i.i.i.i131.i.i, align 8
   %add.ptr.i4.i.i.i.i132.i.i = getelementptr inbounds i8, ptr %call.i127.i.i, i64 40
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i134.i.i = icmp ne ptr %55, %add.ptr.i4.i.i.i.i132.i.i
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i134.i.i = icmp ne ptr %51, %add.ptr.i4.i.i.i.i132.i.i
   %or.cond28.i.i.i.i.i.i.i.i.i135.i.i = select i1 %cmp.i26.i.i.i.i.i.i.i.i.i16.i.i, i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i134.i.i, i1 false
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i135.i.i, label %for.body.i.i.i.i.i.i.i.i.i143.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i
 
 for.body.i.i.i.i.i.i.i.i.i143.i.i:                ; preds = %if.else57.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i144.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i158.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ], [ %26, %if.else57.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i145.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i159.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ], [ %55, %if.else57.i.i ]
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i144.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i158.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ], [ %.fr, %if.else57.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i145.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i159.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ], [ %51, %if.else57.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i146.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i144.i.i, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i147.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i145.i.i, i64 32
-  %56 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i146.i.i, align 4
-  %57 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i147.i.i, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i148.i.i = icmp ult i32 %56, %57
+  %52 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i146.i.i, align 4
+  %53 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i147.i.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i148.i.i = icmp ult i32 %52, %53
   br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i148.i.i, label %if.then64.i.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i149.i.i
 
 if.end.i.i.i.i.i.i.i.i.i.i.i149.i.i:              ; preds = %for.body.i.i.i.i.i.i.i.i.i143.i.i
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i150.i.i = icmp ult i32 %57, %56
-  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i150.i.i, label %if.else74.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i151.i.i
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i150.i.i = icmp ult i32 %53, %52
+  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i150.i.i, label %invoke.cont7.sink.split.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i151.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i151.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i149.i.i
   %slot.i.i.i.i.i.i.i.i.i.i.i152.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i144.i.i, i64 36
-  %58 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i152.i.i, align 4
+  %54 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i152.i.i, align 4
   %slot9.i.i.i.i.i.i.i.i.i.i.i153.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i145.i.i, i64 36
-  %59 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i153.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i154.i.i = icmp ult i32 %58, %59
+  %55 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i153.i.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i154.i.i = icmp ult i32 %54, %55
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i154.i.i, label %if.then64.i.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i155.i.i
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i155.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i151.i.i
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i156.i.i = icmp ult i32 %59, %58
-  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i156.i.i, label %if.else74.i.i, label %for.inc.i.i.i.i.i.i.i.i.i157.i.i
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i156.i.i = icmp ult i32 %55, %54
+  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i156.i.i, label %invoke.cont7.sink.split.i, label %for.inc.i.i.i.i.i.i.i.i.i157.i.i
 
 for.inc.i.i.i.i.i.i.i.i.i157.i.i:                 ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i155.i.i
   %call.i.i.i.i.i.i.i.i.i.i158.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i144.i.i) #30
@@ -21622,34 +21611,179 @@ for.inc.i.i.i.i.i.i.i.i.i157.i.i:                 ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i162.i.i, label %for.body.i.i.i.i.i.i.i.i.i143.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i, !llvm.loop !692
 
 _ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i157.i.i, %if.else57.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i137.i.i = phi ptr [ %55, %if.else57.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i159.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i138.i.i = phi ptr [ %26, %if.else57.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i158.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i137.i.i = phi ptr [ %51, %if.else57.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i159.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i138.i.i = phi ptr [ %.fr, %if.else57.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i158.i.i, %for.inc.i.i.i.i.i.i.i.i.i157.i.i ]
   %cmp.i14.i.i.i.i.i.i.i.i.i139.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i138.i.i, %14
   %cmp.i15.i.i.i.i.i.i.i.i.i140.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i137.i.i, %add.ptr.i4.i.i.i.i132.i.i
   %spec.select.i.i.i.i.i.i.i.i.i141.i.i = select i1 %cmp.i14.i.i.i.i.i.i.i.i.i139.i.i, i1 %cmp.i15.i.i.i.i.i.i.i.i.i140.i.i, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i141.i.i, label %if.then64.i.i, label %if.else74.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i141.i.i, label %if.then64.i.i, label %invoke.cont7.sink.split.i
 
 if.then64.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i151.i.i, %for.body.i.i.i.i.i.i.i.i.i143.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i
-  %60 = getelementptr i8, ptr %__y.addr.0.lcssa.i.i.i40, i64 24
-  %.val.i.i = load ptr, ptr %60, align 8
+  %56 = getelementptr i8, ptr %__y.addr.0.lcssa.i.i.i45, i64 24
+  %.val.i.i = load ptr, ptr %56, align 8
   %cmp67.i.i = icmp eq ptr %.val.i.i, null
   br i1 %cmp67.i.i, label %if.then.i, label %invoke.cont7.i
 
-if.else74.i.i:                                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i155.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i149.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i
-  %call75.i.i = call fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i)
-  %61 = extractvalue { ptr, ptr } %call75.i.i, 0
-  %62 = extractvalue { ptr, ptr } %call75.i.i, 1
-  br label %invoke.cont7.i
+invoke.cont7.sink.split.i:                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i155.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i149.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i77.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i71.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit163.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit85.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i, %if.then.i.i
+  %__x.061.i = load ptr, ptr %0, align 8
+  %cmp.not62.i = icmp eq ptr %__x.061.i, null
+  br i1 %cmp.not62.i, label %if.then.i39, label %while.body.lr.ph.i
 
-invoke.cont7.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i, %if.else74.i.i, %if.then64.i.i, %if.then50.i.i, %if.else42.i.i, %if.then32.i.i, %if.then18.i.i, %if.else.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i
-  %retval.sroa.0.0.i.i = phi ptr [ %34, %if.else.i.i ], [ %48, %if.else42.i.i ], [ %61, %if.else74.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i ], [ %41, %if.then18.i.i ], [ null, %if.then50.i.i ], [ %__y.addr.0.lcssa.i.i.i40, %if.then32.i.i ], [ %call.i127.i.i, %if.then64.i.i ], [ null, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
-  %retval.sroa.12.0.i.i = phi ptr [ %35, %if.else.i.i ], [ %49, %if.else42.i.i ], [ %62, %if.else74.i.i ], [ %28, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i ], [ %41, %if.then18.i.i ], [ %54, %if.then50.i.i ], [ %__y.addr.0.lcssa.i.i.i40, %if.then32.i.i ], [ %call.i127.i.i, %if.then64.i.i ], [ %28, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
+while.body.lr.ph.i:                               ; preds = %invoke.cont7.sink.split.i
+  %cmp.i26.i.i.i.i.i.i.i.i.i.i.not = icmp eq ptr %.fr, %14
+  br i1 %cmp.i26.i.i.i.i.i.i.i.i.i.i.not, label %while.body.us.i, label %while.body.i
+
+while.body.us.i:                                  ; preds = %while.body.lr.ph.i, %while.body.us.i
+  %__x.063.us.i = phi ptr [ %__x.0.us.i, %while.body.us.i ], [ %__x.061.i, %while.body.lr.ph.i ]
+  %_M_left.i3.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__x.063.us.i, i64 56
+  %57 = load ptr, ptr %_M_left.i3.i.i.i.i.us.i, align 8
+  %add.ptr.i4.i.i.i.i.us.i = getelementptr inbounds i8, ptr %__x.063.us.i, i64 40
+  %cmp.i15.i.i.i.i.i.i.i.i.i.us.i = icmp ne ptr %57, %add.ptr.i4.i.i.i.i.us.i
+  %cond.in.us.v.i = select i1 %cmp.i15.i.i.i.i.i.i.i.i.i.us.i, i64 16, i64 24
+  %cond.in.us.i = getelementptr i8, ptr %__x.063.us.i, i64 %cond.in.us.v.i
+  %__x.0.us.i = load ptr, ptr %cond.in.us.i, align 8
+  %cmp.not.us.i = icmp eq ptr %__x.0.us.i, null
+  br i1 %cmp.not.us.i, label %while.end.i, label %while.body.us.i, !llvm.loop !693
+
+while.body.i:                                     ; preds = %while.body.lr.ph.i, %cond.end.i
+  %__x.063.i = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.061.i, %while.body.lr.ph.i ]
+  %_M_left.i3.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.063.i, i64 56
+  %58 = load ptr, ptr %_M_left.i3.i.i.i.i.i, align 8
+  %add.ptr.i4.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.063.i, i64 40
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i.not.i = icmp eq ptr %58, %add.ptr.i4.i.i.i.i.i
+  br i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i.not.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i, label %for.body.i.i.i.i.i.i.i.i.i.i
+
+for.body.i.i.i.i.i.i.i.i.i.i:                     ; preds = %while.body.i, %for.inc.i.i.i.i.i.i.i.i.i.i
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %.fr, %while.body.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ], [ %58, %while.body.i ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i, i64 32
+  %59 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %60 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %59, %60
+  br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i.i, label %cond.end.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i
+
+if.end.i.i.i.i.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i.i
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %60, %59
+  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i.i, label %cond.false.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i
+  %slot.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i, i64 36
+  %61 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %slot9.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i, i64 36
+  %62 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %61, %62
+  br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i.i, label %cond.end.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %62, %61
+  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i, label %cond.false.i, label %for.inc.i.i.i.i.i.i.i.i.i.i
+
+for.inc.i.i.i.i.i.i.i.i.i.i:                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i
+  %call.i.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i) #30
+  %call.i13.i.i.i.i.i.i.i.i.i.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i) #30
+  %cmp.i.i.i.i.i.i.i.i.i.i.i41 = icmp ne ptr %call.i.i.i.i.i.i.i.i.i.i.i, %14
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i42 = icmp ne ptr %call.i13.i.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i.i41, %cmp.i.i.i.i.i.i.i.i.i.i.i.i42
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i, !llvm.loop !692
+
+_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i, %while.body.i
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %58, %while.body.i ], [ %call.i13.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.fr, %while.body.i ], [ %call.i.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i ]
+  %cmp.i14.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, %14
+  %cmp.i15.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i.i
+  %spec.select.i.i.i.i.i.i.i.i.i.i = and i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i, %cmp.i14.i.i.i.i.i.i.i.i.i.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i.i, label %cond.end.i, label %cond.false.i
+
+cond.false.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i
+  br label %cond.end.i
+
+cond.end.i:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i, %cond.false.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i
+  %.sink.i = phi i64 [ 24, %cond.false.i ], [ 16, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i ], [ 16, %for.body.i.i.i.i.i.i.i.i.i.i ], [ 16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i ]
+  %retval.0.i.i.i.i.i.i.i.i.i51.i = phi i1 [ false, %cond.false.i ], [ true, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i ], [ true, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i ]
+  %63 = getelementptr i8, ptr %__x.063.i, i64 %.sink.i
+  %__x.0.i = load ptr, ptr %63, align 8
+  %cmp.not.i = icmp eq ptr %__x.0.i, null
+  br i1 %cmp.not.i, label %while.end.i, label %while.body.i, !llvm.loop !693
+
+while.end.i:                                      ; preds = %cond.end.i, %while.body.us.i
+  %__y.0.lcssa.i = phi ptr [ %__x.063.us.i, %while.body.us.i ], [ %__x.063.i, %cond.end.i ]
+  %__comp.0.lcssa.i = phi i1 [ %cmp.i15.i.i.i.i.i.i.i.i.i.us.i, %while.body.us.i ], [ %retval.0.i.i.i.i.i.i.i.i.i51.i, %cond.end.i ]
+  br i1 %__comp.0.lcssa.i, label %if.then.i39, label %if.end12.i
+
+if.then.i39:                                      ; preds = %while.end.i, %invoke.cont7.sink.split.i
+  %__y.0.lcssa77.i = phi ptr [ %__y.0.lcssa.i, %while.end.i ], [ %add.ptr.i.i.i, %invoke.cont7.sink.split.i ]
+  %64 = getelementptr inbounds i8, ptr %this, i64 24
+  %this.val4.i = load ptr, ptr %64, align 8
+  %cmp.i.i40 = icmp eq ptr %__y.0.lcssa77.i, %this.val4.i
+  br i1 %cmp.i.i40, label %if.then.i, label %if.else.i
+
+if.else.i:                                        ; preds = %if.then.i39
+  %call.i.i = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa77.i) #30
+  br label %if.end12.i
+
+if.end12.i:                                       ; preds = %if.else.i, %while.end.i
+  %__y.0.lcssa76.i = phi ptr [ %__y.0.lcssa77.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
+  %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__y.0.lcssa.i, %while.end.i ]
+  %_M_left.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 56
+  %65 = load ptr, ptr %_M_left.i.i.i.i.i6.i, align 8
+  %add.ptr.i.i.i.i.i7.i = getelementptr inbounds i8, ptr %__j.sroa.0.0.i, i64 40
+  %cmp.i26.i.i.i.i.i.i.i.i.i10.i = icmp ne ptr %65, %add.ptr.i.i.i.i.i7.i
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i11.i = icmp ne ptr %.fr, %14
+  %or.cond28.i.i.i.i.i.i.i.i.i12.i = and i1 %cmp.i26.i.i.i.i.i.i.i.i.i10.i, %cmp.i.i27.i.i.i.i.i.i.i.i.i11.i
+  br i1 %or.cond28.i.i.i.i.i.i.i.i.i12.i, label %for.body.i.i.i.i.i.i.i.i.i20.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i
+
+for.body.i.i.i.i.i.i.i.i.i20.i:                   ; preds = %if.end12.i, %for.inc.i.i.i.i.i.i.i.i.i34.i
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i35.i, %for.inc.i.i.i.i.i.i.i.i.i34.i ], [ %65, %if.end12.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i36.i, %for.inc.i.i.i.i.i.i.i.i.i34.i ], [ %.fr, %if.end12.i ]
+  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i23.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21.i, i64 32
+  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i24.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22.i, i64 32
+  %66 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i23.i, align 4
+  %67 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i24.i, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i25.i = icmp ult i32 %66, %67
+  br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i25.i, label %invoke.cont7.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i26.i
+
+if.end.i.i.i.i.i.i.i.i.i.i.i26.i:                 ; preds = %for.body.i.i.i.i.i.i.i.i.i20.i
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i27.i = icmp ult i32 %67, %66
+  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i27.i, label %if.then.i5.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i26.i
+  %slot.i.i.i.i.i.i.i.i.i.i.i29.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21.i, i64 36
+  %68 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i29.i, align 4
+  %slot9.i.i.i.i.i.i.i.i.i.i.i30.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22.i, i64 36
+  %69 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i30.i, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i31.i = icmp ult i32 %68, %69
+  br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i31.i, label %invoke.cont7.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32.i
+
+_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i33.i = icmp ult i32 %69, %68
+  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i33.i, label %if.then.i5.i, label %for.inc.i.i.i.i.i.i.i.i.i34.i
+
+for.inc.i.i.i.i.i.i.i.i.i34.i:                    ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32.i
+  %call.i.i.i.i.i.i.i.i.i.i35.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21.i) #30
+  %call.i13.i.i.i.i.i.i.i.i.i36.i = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22.i) #30
+  %cmp.i.i.i.i.i.i.i.i.i.i37.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i.i35.i, %add.ptr.i.i.i.i.i7.i
+  %cmp.i.i.i.i.i.i.i.i.i.i.i38.i = icmp ne ptr %call.i13.i.i.i.i.i.i.i.i.i36.i, %14
+  %or.cond.i.i.i.i.i.i.i.i.i39.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i37.i, %cmp.i.i.i.i.i.i.i.i.i.i.i38.i
+  br i1 %or.cond.i.i.i.i.i.i.i.i.i39.i, label %for.body.i.i.i.i.i.i.i.i.i20.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i, !llvm.loop !692
+
+_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i: ; preds = %for.inc.i.i.i.i.i.i.i.i.i34.i, %if.end12.i
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i14.i = phi ptr [ %.fr, %if.end12.i ], [ %call.i13.i.i.i.i.i.i.i.i.i36.i, %for.inc.i.i.i.i.i.i.i.i.i34.i ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i15.i = phi ptr [ %65, %if.end12.i ], [ %call.i.i.i.i.i.i.i.i.i.i35.i, %for.inc.i.i.i.i.i.i.i.i.i34.i ]
+  %cmp.i14.i.i.i.i.i.i.i.i.i16.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i15.i, %add.ptr.i.i.i.i.i7.i
+  %cmp.i15.i.i.i.i.i.i.i.i.i17.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i14.i, %14
+  %spec.select.i.i.i.i.i.i.i.i.i18.i = and i1 %cmp.i14.i.i.i.i.i.i.i.i.i16.i, %cmp.i15.i.i.i.i.i.i.i.i.i17.i
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i18.i, label %invoke.cont7.i, label %if.then.i5.i
+
+invoke.cont7.i:                                   ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i, %for.body.i.i.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i, %for.body.i.i.i.i.i.i.i.i.i20.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i, %if.then64.i.i, %if.then50.i.i, %if.then32.i.i, %if.then18.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i
+  %retval.sroa.0.0.i.i = phi ptr [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i ], [ %39, %if.then18.i.i ], [ null, %if.then50.i.i ], [ %__y.addr.0.lcssa.i.i.i45, %if.then32.i.i ], [ %call.i127.i.i, %if.then64.i.i ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i ], [ null, %for.body.i.i.i.i.i.i.i.i.i20.i ], [ null, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i ], [ null, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ null, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
+  %retval.sroa.12.0.i.i = phi ptr [ %28, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit.i.i ], [ %39, %if.then18.i.i ], [ %50, %if.then50.i.i ], [ %__y.addr.0.lcssa.i.i.i45, %if.then32.i.i ], [ %call.i127.i.i, %if.then64.i.i ], [ %__y.0.lcssa76.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i ], [ %__y.0.lcssa76.i, %for.body.i.i.i.i.i.i.i.i.i20.i ], [ %__y.0.lcssa76.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28.i ], [ %28, %for.body.i.i.i.i.i.i.i.i.i.i.i ], [ %28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i ]
   %tobool.not.i = icmp eq ptr %retval.sroa.12.0.i.i, null
   br i1 %tobool.not.i, label %if.then.i5.i, label %if.then.i
 
-if.then.i:                                        ; preds = %invoke.cont7.i, %if.then64.i.i, %if.then32.i.i
-  %retval.sroa.12.0.i16.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %call.i.i.i, %if.then32.i.i ], [ %__y.addr.0.lcssa.i.i.i40, %if.then64.i.i ]
-  %retval.sroa.0.0.i15.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then32.i.i ], [ null, %if.then64.i.i ]
+if.then.i:                                        ; preds = %if.then.i39, %invoke.cont7.i, %if.then64.i.i, %if.then32.i.i
+  %retval.sroa.12.0.i16.i = phi ptr [ %retval.sroa.12.0.i.i, %invoke.cont7.i ], [ %call.i.i.i, %if.then32.i.i ], [ %__y.addr.0.lcssa.i.i.i45, %if.then64.i.i ], [ %__y.0.lcssa77.i, %if.then.i39 ]
+  %retval.sroa.0.0.i15.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ null, %if.then32.i.i ], [ null, %if.then64.i.i ], [ null, %if.then.i39 ]
   %cmp.not.i.i.i7 = icmp ne ptr %retval.sroa.0.0.i15.i, null
   %cmp2.i.i.i = icmp eq ptr %add.ptr.i.i.i, %retval.sroa.12.0.i16.i
   %or.cond.i.i.i = select i1 %cmp.not.i.i.i7, i1 true, i1 %cmp2.i.i.i
@@ -21657,37 +21791,37 @@ if.then.i:                                        ; preds = %invoke.cont7.i, %if
 
 lor.rhs.i.i.i:                                    ; preds = %if.then.i
   %_M_left.i3.i.i.i.i.i.i.i8 = getelementptr inbounds i8, ptr %retval.sroa.12.0.i16.i, i64 56
-  %63 = load ptr, ptr %_M_left.i3.i.i.i.i.i.i.i8, align 8
+  %70 = load ptr, ptr %_M_left.i3.i.i.i.i.i.i.i8, align 8
   %add.ptr.i4.i.i.i.i.i.i.i9 = getelementptr inbounds i8, ptr %retval.sroa.12.0.i16.i, i64 40
-  %cmp.i26.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %26, %14
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i.i10 = icmp ne ptr %63, %add.ptr.i4.i.i.i.i.i.i.i9
+  %cmp.i26.i.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %.fr, %14
+  %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i.i10 = icmp ne ptr %70, %add.ptr.i4.i.i.i.i.i.i.i9
   %or.cond28.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i26.i.i.i.i.i.i.i.i.i.i.i.i, i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i.i.i.i10, i1 false
   br i1 %or.cond28.i.i.i.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i16, label %for.end.i.i.i.i.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i.i.i.i.i16:               ; preds = %lor.rhs.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i.i17 = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ], [ %26, %lor.rhs.i.i.i ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i.i18 = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ], [ %63, %lor.rhs.i.i.i ]
+  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i.i17 = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ], [ %.fr, %lor.rhs.i.i.i ]
+  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i.i18 = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ], [ %70, %lor.rhs.i.i.i ]
   %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19 = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i.i17, i64 32
   %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i20 = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i.i18, i64 32
-  %64 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19, align 4
-  %65 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i20, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp ult i32 %64, %65
+  %71 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i19, align 4
+  %72 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i20, align 4
+  %cmp.i.i1.i.i.i.i.i.i.i.i.i.i.i.i21 = icmp ult i32 %71, %72
   br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i.i.i.i21, label %cleanup.i, label %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22
 
 if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22:             ; preds = %for.body.i.i.i.i.i.i.i.i.i.i.i.i16
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i.i23 = icmp ult i32 %65, %64
+  %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i.i23 = icmp ult i32 %72, %71
   br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i.i.i.i23, label %cleanup.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22
   %slot.i.i.i.i.i.i.i.i.i.i.i.i.i.i25 = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i.i.i.i17, i64 36
-  %66 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, align 4
+  %73 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i.i.i.i25, align 4
   %slot9.i.i.i.i.i.i.i.i.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i.i.i.i18, i64 36
-  %67 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i.i.i.i26, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i.i.i27 = icmp ult i32 %66, %67
+  %74 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i.i.i.i26, align 4
+  %cmp10.i.i.i.i.i.i.i.i.i.i.i.i.i.i27 = icmp ult i32 %73, %74
   br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i.i.i.i27, label %cleanup.i, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i.i29 = icmp ult i32 %67, %66
+  %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i.i29 = icmp ult i32 %74, %73
   br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i.i.i.i29, label %cleanup.i, label %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30
 
 for.inc.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28
@@ -21699,32 +21833,32 @@ for.inc.i.i.i.i.i.i.i.i.i.i.i.i30:                ; preds = %_ZNK9__gnu_cxx5__op
   br i1 %or.cond.i.i.i.i.i.i.i.i.i.i.i.i34, label %for.body.i.i.i.i.i.i.i.i.i.i.i.i16, label %for.end.i.i.i.i.i.i.i.i.i.i.i.i, !llvm.loop !692
 
 for.end.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30, %lor.rhs.i.i.i
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i11 = phi ptr [ %63, %lor.rhs.i.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i12 = phi ptr [ %26, %lor.rhs.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ]
+  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i11 = phi ptr [ %70, %lor.rhs.i.i.i ], [ %call.i13.i.i.i.i.i.i.i.i.i.i.i.i32, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ]
+  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i12 = phi ptr [ %.fr, %lor.rhs.i.i.i ], [ %call.i.i.i.i.i.i.i.i.i.i.i.i.i31, %for.inc.i.i.i.i.i.i.i.i.i.i.i.i30 ]
   %cmp.i14.i.i.i.i.i.i.i.i.i.i.i.i13 = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i12, %14
   %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i14 = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i.i.i.i11, %add.ptr.i4.i.i.i.i.i.i.i9
   %spec.select.i.i.i.i.i.i.i.i.i.i.i.i15 = select i1 %cmp.i14.i.i.i.i.i.i.i.i.i.i.i.i13, i1 %cmp.i15.i.i.i.i.i.i.i.i.i.i.i.i14, i1 false
   br label %cleanup.i
 
 cleanup.i:                                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22, %for.body.i.i.i.i.i.i.i.i.i.i.i.i16, %for.end.i.i.i.i.i.i.i.i.i.i.i.i, %if.then.i
-  %68 = phi i1 [ true, %if.then.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i15, %for.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22 ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i.i.i16 ], [ false, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28 ], [ true, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %68, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef %retval.sroa.12.0.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #28
+  %75 = phi i1 [ true, %if.then.i ], [ %spec.select.i.i.i.i.i.i.i.i.i.i.i.i15, %for.end.i.i.i.i.i.i.i.i.i.i.i.i ], [ false, %if.end.i.i.i.i.i.i.i.i.i.i.i.i.i.i22 ], [ true, %for.body.i.i.i.i.i.i.i.i.i.i.i.i16 ], [ false, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i.i.i.i28 ], [ true, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i.i.i.i24 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %75, ptr noundef nonnull %call5.i.i.i.i.i.i, ptr noundef %retval.sroa.12.0.i16.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #28
   %_M_node_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
-  %69 = load i64, ptr %_M_node_count.i.i.i, align 8
-  %inc.i.i.i = add i64 %69, 1
+  %76 = load i64, ptr %_M_node_count.i.i.i, align 8
+  %inc.i.i.i = add i64 %76, 1
   store i64 %inc.i.i.i, ptr %_M_node_count.i.i.i, align 8
   br label %if.end
 
-if.then.i5.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i, %invoke.cont7.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i
-  %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ %__y.addr.0.lcssa.i.i.i40, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i ], [ %__y.addr.0.lcssa.i.i.i40, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i ], [ %__y.addr.0.lcssa.i.i.i40, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i ]
+if.then.i5.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32.i, %if.end.i.i.i.i.i.i.i.i.i.i.i26.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i, %invoke.cont7.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i
+  %retval.sroa.0.0.ph.i = phi ptr [ %retval.sroa.0.0.i.i, %invoke.cont7.i ], [ %__y.addr.0.lcssa.i.i.i45, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit123.i.i ], [ %__j.sroa.0.0.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40.i ], [ %__j.sroa.0.0.i, %if.end.i.i.i.i.i.i.i.i.i.i.i26.i ], [ %__j.sroa.0.0.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32.i ], [ %__y.addr.0.lcssa.i.i.i45, %if.end.i.i.i.i.i.i.i.i.i.i.i109.i.i ], [ %__y.addr.0.lcssa.i.i.i45, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i115.i.i ]
   invoke void @_ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %_M_storage.i.i.i.i, ptr noundef %25)
           to label %_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i:               ; preds = %if.then.i5.i
-  %70 = landingpad { ptr, i32 }
+  %77 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #29
+  %78 = extractvalue { ptr, i32 } %77, 0
+  call void @__clang_call_terminate(ptr %78) #29
   unreachable
 
 _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i.i: ; preds = %if.then.i5.i
@@ -21889,30 +22023,30 @@ invoke.cont.i:                                    ; preds = %invoke.cont.i.i.i.i
 for.body.i.i.i.i:                                 ; preds = %invoke.cont.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i
   %__cur.03.i.i.i.i = phi ptr [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %cond.i19.i, %invoke.cont.i ]
   %__first.addr.02.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ], [ %this.val.i, %invoke.cont.i ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !693)
-  call void @llvm.experimental.noalias.scope.decl(metadata !696)
+  call void @llvm.experimental.noalias.scope.decl(metadata !694)
+  call void @llvm.experimental.noalias.scope.decl(metadata !697)
   %14 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 8
   %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 16
-  %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  %15 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %15, null
   br i1 %cmp.not.i.i.i.i.i.i.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i
   %add.ptr.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 8
-  %16 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  %16 = load i32, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 24
-  %17 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  %17 = load ptr, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 32
-  %18 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  %18 = load ptr, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr %14, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !698
+  store ptr %14, ptr %_M_parent16.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !699
   %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 40
-  %19 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  %19 = load i64, ptr %_M_node_count.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 40
-  store i64 %19, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !693, !noalias !696
-  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
-  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !696, !noalias !693
+  store i64 %19, ptr %_M_node_count17.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !694, !noalias !697
+  store ptr null, ptr %_M_parent.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_left.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
+  store ptr %add.ptr.i.i.i.i.i.i.i.i.i.i.i, ptr %_M_right.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !697, !noalias !694
   br label %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i
 
 if.else.i.i.i.i.i.i.i.i.i.i.i.i:                  ; preds = %for.body.i.i.i.i
@@ -21931,11 +22065,11 @@ _ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EE
   store ptr %.sink4.i.i.i.i, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 32
   store ptr %.sink.i.i.i.i, ptr %22, align 8
-  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !698
+  store i64 0, ptr %_M_node_count.i5.sink.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !699
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.02.i.i.i.i, i64 48
   %incdec.ptr1.i.i.i.i = getelementptr inbounds i8, ptr %__cur.03.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %0
-  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit45.i, label %for.body.i.i.i.i, !llvm.loop !699
+  br i1 %cmp.not.i.i.i.i, label %_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit45.i, label %for.body.i.i.i.i, !llvm.loop !700
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit45.i: ; preds = %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i, %invoke.cont.i
   %__cur.0.lcssa.i.i.i.i = phi ptr [ %cond.i19.i, %invoke.cont.i ], [ %incdec.ptr1.i.i.i.i, %_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_.exit.i.i.i.i ]
@@ -22033,7 +22167,7 @@ terminate.lpad.i.i.i.i.i.i.i.i:                   ; preds = %for.body.i.i.i.i
 _ZSt8_DestroyIN3ue212_GLOBAL__N_121raw_gough_report_listEEvPT_.exit.i.i.i.i: ; preds = %for.body.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i, i64 48
   %cmp.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !700
+  br i1 %cmp.not.i.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i.i, !llvm.loop !701
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZSt8_DestroyIN3ue212_GLOBAL__N_121raw_gough_report_listEEvPT_.exit.i.i.i.i
   %this.val.pr.i = load ptr, ptr %rl, align 8
@@ -22081,7 +22215,7 @@ terminate.lpad.i.i.i.i.i.i.i.i.i:                 ; preds = %for.body.i.i.i.i.i
 _ZSt8_DestroyIN3ue212_GLOBAL__N_121raw_gough_report_listEEvPT_.exit.i.i.i.i.i: ; preds = %for.body.i.i.i.i.i
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.04.i.i.i.i.i, i64 48
   %cmp.not.i.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %1
-  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !700
+  br i1 %cmp.not.i.i.i.i.i, label %invoke.contthread-pre-split.i.i, label %for.body.i.i.i.i.i, !llvm.loop !701
 
 invoke.contthread-pre-split.i.i:                  ; preds = %_ZSt8_DestroyIN3ue212_GLOBAL__N_121raw_gough_report_listEEvPT_.exit.i.i.i.i.i
   %this.val.pr.i.i = load ptr, ptr %rl.i, align 8
@@ -22365,7 +22499,7 @@ cond.end.i:                                       ; preds = %_ZNKSt4lessIN3ue210
 
 while.body.i.backedge:                            ; preds = %cond.end.i, %cond.end.i.thread
   %__x.036.i.be = phi ptr [ %__x.0.i, %cond.end.i ], [ %__x.0.i20, %cond.end.i.thread ]
-  br label %while.body.i, !llvm.loop !701
+  br label %while.body.i, !llvm.loop !702
 
 cond.end.i.thread:                                ; preds = %if.end.i.i.i, %_ZNKSt4lessIN3ue210som_reportEEclERKS1_S4_.exit.i
   %_M_right.i.i19 = getelementptr inbounds i8, ptr %__x.036.i, i64 24
@@ -22460,7 +22594,7 @@ while.body:                                       ; preds = %entry, %while.body
   %1 = load ptr, ptr %_M_left.i, align 8
   tail call void @_ZdlPv(ptr noundef nonnull %__x.addr.05) #31
   %cmp.not = icmp eq ptr %1, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !702
+  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !703
 
 while.end:                                        ; preds = %while.body, %entry
   ret void
@@ -22558,7 +22692,7 @@ if.end16:                                         ; preds = %invoke.cont13, %inv
   %__x.addr.0.in = getelementptr inbounds i8, ptr %__x.addr.037, i64 16
   %__x.addr.0 = load ptr, ptr %__x.addr.0.in, align 8
   %cmp.not = icmp eq ptr %__x.addr.0, null
-  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !703
+  br i1 %cmp.not, label %try.cont, label %while.body, !llvm.loop !704
 
 lpad18:                                           ; preds = %invoke.cont19, %lpad
   %8 = landingpad { ptr, i32 }
@@ -22581,191 +22715,6 @@ terminate.lpad:                                   ; preds = %lpad18
 
 unreachable:                                      ; preds = %invoke.cont19
   unreachable
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define internal fastcc { ptr, ptr } @_ZNSt8_Rb_treeIN3ue212_GLOBAL__N_121raw_gough_report_listESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE24_M_get_insert_unique_posERS4_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %__k) unnamed_addr #9 align 2 {
-entry:
-  %0 = getelementptr inbounds i8, ptr %this, i64 16
-  %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  %__x.061 = load ptr, ptr %0, align 8
-  %cmp.not62 = icmp eq ptr %__x.061, null
-  br i1 %cmp.not62, label %if.then, label %while.body.lr.ph
-
-while.body.lr.ph:                                 ; preds = %entry
-  %_M_left.i.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 24
-  %1 = load ptr, ptr %_M_left.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__k, i64 8
-  %cmp.i26.i.i.i.i.i.i.i.i.i = icmp ne ptr %1, %add.ptr.i.i.i.i.i
-  %cmp.i26.i.i.i.i.i.i.i.i.i.fr = freeze i1 %cmp.i26.i.i.i.i.i.i.i.i.i
-  br i1 %cmp.i26.i.i.i.i.i.i.i.i.i.fr, label %while.body, label %while.body.lr.ph.split.us
-
-while.body.lr.ph.split.us:                        ; preds = %while.body.lr.ph
-  %cmp.i14.i.i.i.i.i.i.i.i.i.us = icmp eq ptr %1, %add.ptr.i.i.i.i.i
-  %cmp.i14.i.i.i.i.i.i.i.i.i.us.fr = freeze i1 %cmp.i14.i.i.i.i.i.i.i.i.i.us
-  br i1 %cmp.i14.i.i.i.i.i.i.i.i.i.us.fr, label %while.body.us, label %while.body.us.us
-
-while.body.us.us:                                 ; preds = %while.body.lr.ph.split.us, %while.body.us.us
-  %__x.063.us.us = phi ptr [ %__x.0.us.us, %while.body.us.us ], [ %__x.061, %while.body.lr.ph.split.us ]
-  %2 = getelementptr i8, ptr %__x.063.us.us, i64 24
-  %__x.0.us.us = load ptr, ptr %2, align 8
-  %cmp.not.us.us = icmp eq ptr %__x.0.us.us, null
-  br i1 %cmp.not.us.us, label %if.end12, label %while.body.us.us, !llvm.loop !704
-
-while.body.us:                                    ; preds = %while.body.lr.ph.split.us, %while.body.us
-  %__x.063.us = phi ptr [ %__x.0.us, %while.body.us ], [ %__x.061, %while.body.lr.ph.split.us ]
-  %_M_left.i3.i.i.i.i.us = getelementptr inbounds i8, ptr %__x.063.us, i64 56
-  %3 = load ptr, ptr %_M_left.i3.i.i.i.i.us, align 8
-  %add.ptr.i4.i.i.i.i.us = getelementptr inbounds i8, ptr %__x.063.us, i64 40
-  %cmp.i15.i.i.i.i.i.i.i.i.i.us = icmp ne ptr %3, %add.ptr.i4.i.i.i.i.us
-  %cond.in.us.v = select i1 %cmp.i15.i.i.i.i.i.i.i.i.i.us, i64 16, i64 24
-  %cond.in.us = getelementptr i8, ptr %__x.063.us, i64 %cond.in.us.v
-  %__x.0.us = load ptr, ptr %cond.in.us, align 8
-  %cmp.not.us = icmp eq ptr %__x.0.us, null
-  br i1 %cmp.not.us, label %while.end, label %while.body.us, !llvm.loop !704
-
-while.body:                                       ; preds = %while.body.lr.ph, %cond.end
-  %__x.063 = phi ptr [ %__x.0, %cond.end ], [ %__x.061, %while.body.lr.ph ]
-  %_M_left.i3.i.i.i.i = getelementptr inbounds i8, ptr %__x.063, i64 56
-  %4 = load ptr, ptr %_M_left.i3.i.i.i.i, align 8
-  %add.ptr.i4.i.i.i.i = getelementptr inbounds i8, ptr %__x.063, i64 40
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i.not = icmp eq ptr %4, %add.ptr.i4.i.i.i.i
-  br i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i.not, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit, label %for.body.i.i.i.i.i.i.i.i.i
-
-for.body.i.i.i.i.i.i.i.i.i:                       ; preds = %while.body, %for.inc.i.i.i.i.i.i.i.i.i
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %1, %while.body ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ], [ %4, %while.body ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i, i64 32
-  %5 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %6 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i = icmp ult i32 %5, %6
-  br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i, label %cond.end, label %if.end.i.i.i.i.i.i.i.i.i.i.i
-
-if.end.i.i.i.i.i.i.i.i.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i.i.i
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %6, %5
-  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i, label %cond.false, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i
-  %slot.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i, i64 36
-  %7 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %slot9.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i, i64 36
-  %8 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %7, %8
-  br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i, label %cond.end, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i = icmp ult i32 %8, %7
-  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i, label %cond.false, label %for.inc.i.i.i.i.i.i.i.i.i
-
-for.inc.i.i.i.i.i.i.i.i.i:                        ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i
-  %call.i.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i) #30
-  %call.i13.i.i.i.i.i.i.i.i.i = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i) #30
-  %cmp.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  %cmp.i.i.i.i.i.i.i.i.i.i.i = icmp ne ptr %call.i13.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
-  %or.cond.i.i.i.i.i.i.i.i.i = and i1 %cmp.i.i.i.i.i.i.i.i.i.i, %cmp.i.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i.i, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit, !llvm.loop !692
-
-_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit: ; preds = %for.inc.i.i.i.i.i.i.i.i.i, %while.body
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %4, %while.body ], [ %call.i13.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %while.body ], [ %call.i.i.i.i.i.i.i.i.i.i, %for.inc.i.i.i.i.i.i.i.i.i ]
-  %cmp.i14.i.i.i.i.i.i.i.i.i = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i, %add.ptr.i.i.i.i.i
-  %cmp.i15.i.i.i.i.i.i.i.i.i = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i, %add.ptr.i4.i.i.i.i
-  %spec.select.i.i.i.i.i.i.i.i.i = and i1 %cmp.i14.i.i.i.i.i.i.i.i.i, %cmp.i15.i.i.i.i.i.i.i.i.i
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %cond.end, label %cond.false
-
-cond.false:                                       ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i, %if.end.i.i.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit
-  br label %cond.end
-
-cond.end:                                         ; preds = %for.body.i.i.i.i.i.i.i.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit, %cond.false
-  %.sink = phi i64 [ 24, %cond.false ], [ 16, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ 16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ], [ 16, %for.body.i.i.i.i.i.i.i.i.i ]
-  %retval.0.i.i.i.i.i.i.i.i.i51 = phi i1 [ false, %cond.false ], [ true, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit ], [ true, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i ], [ true, %for.body.i.i.i.i.i.i.i.i.i ]
-  %9 = getelementptr i8, ptr %__x.063, i64 %.sink
-  %__x.0 = load ptr, ptr %9, align 8
-  %cmp.not = icmp eq ptr %__x.0, null
-  br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !704
-
-while.end:                                        ; preds = %while.body.us, %cond.end
-  %__y.0.lcssa = phi ptr [ %__x.063, %cond.end ], [ %__x.063.us, %while.body.us ]
-  %__comp.0.lcssa = phi i1 [ %retval.0.i.i.i.i.i.i.i.i.i51, %cond.end ], [ %cmp.i15.i.i.i.i.i.i.i.i.i.us, %while.body.us ]
-  br i1 %__comp.0.lcssa, label %if.then, label %if.end12
-
-if.then:                                          ; preds = %entry, %while.end
-  %__y.0.lcssa77 = phi ptr [ %__y.0.lcssa, %while.end ], [ %add.ptr.i, %entry ]
-  %10 = getelementptr inbounds i8, ptr %this, i64 24
-  %this.val4 = load ptr, ptr %10, align 8
-  %cmp.i = icmp eq ptr %__y.0.lcssa77, %this.val4
-  br i1 %cmp.i, label %return, label %if.else
-
-if.else:                                          ; preds = %if.then
-  %call.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa77) #30
-  br label %if.end12
-
-if.end12:                                         ; preds = %while.body.us.us, %if.else, %while.end
-  %__y.0.lcssa76 = phi ptr [ %__y.0.lcssa77, %if.else ], [ %__y.0.lcssa, %while.end ], [ %__x.063.us.us, %while.body.us.us ]
-  %__j.sroa.0.0 = phi ptr [ %call.i, %if.else ], [ %__y.0.lcssa, %while.end ], [ %__x.063.us.us, %while.body.us.us ]
-  %_M_left.i.i.i.i.i6 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 56
-  %11 = load ptr, ptr %_M_left.i.i.i.i.i6, align 8
-  %add.ptr.i.i.i.i.i7 = getelementptr inbounds i8, ptr %__j.sroa.0.0, i64 40
-  %_M_left.i3.i.i.i.i8 = getelementptr inbounds i8, ptr %__k, i64 24
-  %12 = load ptr, ptr %_M_left.i3.i.i.i.i8, align 8
-  %add.ptr.i4.i.i.i.i9 = getelementptr inbounds i8, ptr %__k, i64 8
-  %cmp.i26.i.i.i.i.i.i.i.i.i10 = icmp ne ptr %11, %add.ptr.i.i.i.i.i7
-  %cmp.i.i27.i.i.i.i.i.i.i.i.i11 = icmp ne ptr %12, %add.ptr.i4.i.i.i.i9
-  %or.cond28.i.i.i.i.i.i.i.i.i12 = select i1 %cmp.i26.i.i.i.i.i.i.i.i.i10, i1 %cmp.i.i27.i.i.i.i.i.i.i.i.i11, i1 false
-  br i1 %or.cond28.i.i.i.i.i.i.i.i.i12, label %for.body.i.i.i.i.i.i.i.i.i20, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40
-
-for.body.i.i.i.i.i.i.i.i.i20:                     ; preds = %if.end12, %for.inc.i.i.i.i.i.i.i.i.i34
-  %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21 = phi ptr [ %call.i.i.i.i.i.i.i.i.i.i35, %for.inc.i.i.i.i.i.i.i.i.i34 ], [ %11, %if.end12 ]
-  %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22 = phi ptr [ %call.i13.i.i.i.i.i.i.i.i.i36, %for.inc.i.i.i.i.i.i.i.i.i34 ], [ %12, %if.end12 ]
-  %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21, i64 32
-  %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i24 = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22, i64 32
-  %13 = load i32, ptr %_M_storage.i.i.i.i.i.i.i.i.i.i.i.i23, align 4
-  %14 = load i32, ptr %_M_storage.i.i1.i.i.i.i.i.i.i.i.i.i24, align 4
-  %cmp.i.i1.i.i.i.i.i.i.i.i.i25 = icmp ult i32 %13, %14
-  br i1 %cmp.i.i1.i.i.i.i.i.i.i.i.i25, label %return, label %if.end.i.i.i.i.i.i.i.i.i.i.i26
-
-if.end.i.i.i.i.i.i.i.i.i.i.i26:                   ; preds = %for.body.i.i.i.i.i.i.i.i.i20
-  %cmp5.i.i.i.i.i.i.i.i.i.i.i27 = icmp ult i32 %14, %13
-  br i1 %cmp5.i.i.i.i.i.i.i.i.i.i.i27, label %if.end18, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28: ; preds = %if.end.i.i.i.i.i.i.i.i.i.i.i26
-  %slot.i.i.i.i.i.i.i.i.i.i.i29 = getelementptr inbounds i8, ptr %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21, i64 36
-  %15 = load i32, ptr %slot.i.i.i.i.i.i.i.i.i.i.i29, align 4
-  %slot9.i.i.i.i.i.i.i.i.i.i.i30 = getelementptr inbounds i8, ptr %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22, i64 36
-  %16 = load i32, ptr %slot9.i.i.i.i.i.i.i.i.i.i.i30, align 4
-  %cmp10.i.i.i.i.i.i.i.i.i.i.i31 = icmp ult i32 %15, %16
-  br i1 %cmp10.i.i.i.i.i.i.i.i.i.i.i31, label %return, label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32
-
-_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28
-  %cmp10.i.i10.i.i.i.i.i.i.i.i.i33 = icmp ult i32 %16, %15
-  br i1 %cmp10.i.i10.i.i.i.i.i.i.i.i.i33, label %if.end18, label %for.inc.i.i.i.i.i.i.i.i.i34
-
-for.inc.i.i.i.i.i.i.i.i.i34:                      ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32
-  %call.i.i.i.i.i.i.i.i.i.i35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first1.sroa.0.030.i.i.i.i.i.i.i.i.i21) #30
-  %call.i13.i.i.i.i.i.i.i.i.i36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %__first2.sroa.0.029.i.i.i.i.i.i.i.i.i22) #30
-  %cmp.i.i.i.i.i.i.i.i.i.i37 = icmp ne ptr %call.i.i.i.i.i.i.i.i.i.i35, %add.ptr.i.i.i.i.i7
-  %cmp.i.i.i.i.i.i.i.i.i.i.i38 = icmp ne ptr %call.i13.i.i.i.i.i.i.i.i.i36, %add.ptr.i4.i.i.i.i9
-  %or.cond.i.i.i.i.i.i.i.i.i39 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i37, i1 %cmp.i.i.i.i.i.i.i.i.i.i.i38, i1 false
-  br i1 %or.cond.i.i.i.i.i.i.i.i.i39, label %for.body.i.i.i.i.i.i.i.i.i20, label %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40, !llvm.loop !692
-
-_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40: ; preds = %for.inc.i.i.i.i.i.i.i.i.i34, %if.end12
-  %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i14 = phi ptr [ %12, %if.end12 ], [ %call.i13.i.i.i.i.i.i.i.i.i36, %for.inc.i.i.i.i.i.i.i.i.i34 ]
-  %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i15 = phi ptr [ %11, %if.end12 ], [ %call.i.i.i.i.i.i.i.i.i.i35, %for.inc.i.i.i.i.i.i.i.i.i34 ]
-  %cmp.i14.i.i.i.i.i.i.i.i.i16 = icmp eq ptr %__first1.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i15, %add.ptr.i.i.i.i.i7
-  %cmp.i15.i.i.i.i.i.i.i.i.i17 = icmp ne ptr %__first2.sroa.0.0.lcssa.i.i.i.i.i.i.i.i.i14, %add.ptr.i4.i.i.i.i9
-  %spec.select.i.i.i.i.i.i.i.i.i18 = select i1 %cmp.i14.i.i.i.i.i.i.i.i.i16, i1 %cmp.i15.i.i.i.i.i.i.i.i.i17, i1 false
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i18, label %return, label %if.end18
-
-if.end18:                                         ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit12.i.i.i.i.i.i.i.i.i32, %if.end.i.i.i.i.i.i.i.i.i.i.i26, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40
-  br label %return
-
-return:                                           ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28, %for.body.i.i.i.i.i.i.i.i.i20, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40, %if.then, %if.end18
-  %retval.sroa.0.0 = phi ptr [ %__j.sroa.0.0, %if.end18 ], [ null, %if.then ], [ null, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40 ], [ null, %for.body.i.i.i.i.i.i.i.i.i20 ], [ null, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28 ]
-  %retval.sroa.4.0 = phi ptr [ null, %if.end18 ], [ %__y.0.lcssa77, %if.then ], [ %__y.0.lcssa76, %_ZNKSt4lessIN3ue212_GLOBAL__N_121raw_gough_report_listEEclERKS2_S5_.exit40 ], [ %__y.0.lcssa76, %for.body.i.i.i.i.i.i.i.i.i20 ], [ %__y.0.lcssa76, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt23_Rb_tree_const_iteratorIN3ue210som_reportEES6_EEbT_T0_.exit.i.i.i.i.i.i.i.i.i28 ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %retval.sroa.0.0, 0
-  %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %retval.sroa.4.0, 1
-  ret { ptr, ptr } %.fca.1.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -27824,13 +27773,13 @@ attributes #33 = { builtin allocsize(0) }
 !690 = distinct !{!690, !6}
 !691 = distinct !{!691, !6}
 !692 = distinct !{!692, !6}
-!693 = !{!694}
-!694 = distinct !{!694, !695, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
-!695 = distinct !{!695, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_"}
-!696 = !{!697}
-!697 = distinct !{!697, !695, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
-!698 = !{!694, !697}
-!699 = distinct !{!699, !6}
+!693 = distinct !{!693, !6}
+!694 = !{!695}
+!695 = distinct !{!695, !696, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_: %__dest"}
+!696 = distinct !{!696, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_"}
+!697 = !{!698}
+!698 = distinct !{!698, !696, !"_ZSt19__relocate_object_aIN3ue212_GLOBAL__N_121raw_gough_report_listES2_SaIS2_EEvPT_PT0_RT1_: %__orig"}
+!699 = !{!695, !698}
 !700 = distinct !{!700, !6}
 !701 = distinct !{!701, !6}
 !702 = distinct !{!702, !6}

@@ -311,12 +311,12 @@ if.end15:                                         ; preds = %if.then4
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then6, %if.end15
-  %.sink = phi i64 [ 8, %if.then6 ], [ 16, %if.end15 ]
-  %.sink29 = phi i64 [ -1, %if.then6 ], [ 1, %if.end15 ]
-  %numadd = getelementptr inbounds i8, ptr %ctx, i64 %.sink
-  %4 = load i64, ptr %numadd, align 8
+  %.sink = phi i64 [ 16, %if.end15 ], [ 8, %if.then6 ]
+  %.sink29 = phi i64 [ 1, %if.end15 ], [ -1, %if.then6 ]
+  %numdel = getelementptr inbounds i8, ptr %ctx, i64 %.sink
+  %4 = load i64, ptr %numdel, align 8
   %inc = add i64 %4, %.sink29
-  store i64 %inc, ptr %numadd, align 8
+  store i64 %inc, ptr %numdel, align 8
   br label %return
 
 return:                                           ; preds = %while.cond.backedge, %return.sink.split, %entry

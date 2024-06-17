@@ -963,9 +963,9 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %34, %37
-  %hf_scsi_mmc_session.sink = phi ptr [ @hf_scsi_mmc_session, %37 ], [ @hf_scsi_mmc_track, %34 ]
+  %hf_scsi_mmc_track.sink = phi ptr [ @hf_scsi_mmc_session, %37 ], [ @hf_scsi_mmc_track, %34 ]
   %.sink123 = phi i16 [ 1024, %37 ], [ 512, %34 ]
-  %38 = load i32, ptr %hf_scsi_mmc_session.sink, align 4
+  %38 = load i32, ptr %hf_scsi_mmc_track.sink, align 4
   %39 = add i32 %3, 5
   %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 1, i32 noundef 0) #5
   %41 = load ptr, ptr %21, align 8
@@ -1134,9 +1134,9 @@ define internal void @dissect_mmc4_readtocpmaatip(ptr noundef %0, ptr noundef %1
 
 127:                                              ; preds = %125, %123
   %.0..0..0.33.sink = phi i32 [ %.0..0..0..0.33, %125 ], [ %.0..0..0..0.32, %123 ]
-  %.sink124 = phi i32 [ %126, %125 ], [ %124, %123 ]
+  %.sink = phi i32 [ %126, %125 ], [ %124, %123 ]
   %128 = add i32 %.0..0..0.33.sink, 4
-  %129 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.sink124, ptr noundef %62, i32 noundef %128, i32 noundef 4, i32 noundef 0) #5
+  %129 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.sink, ptr noundef %62, i32 noundef %128, i32 noundef 4, i32 noundef 0) #5
   %.0..0..0..0.34 = load volatile i32, ptr %9, align 4
   %130 = add i32 %.0..0..0..0.34, 8
   store volatile i32 %130, ptr %9, align 4

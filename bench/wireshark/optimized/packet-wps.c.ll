@@ -2058,21 +2058,17 @@ define internal noundef i32 @dissect_wps(ptr noundef %0, ptr noundef %1, ptr nou
   %.not41 = icmp eq i8 %24, 0
   br i1 %.not41, label %.split37, label %.split
 
-.split37:                                         ; preds = %14
-  %25 = add i32 %5, -2
-  tail call void @dissect_wps_tlvs(ptr noundef %2, ptr noundef %0, i32 noundef 2, i32 noundef %25, ptr noundef %1)
-  br label %29
-
 .split:                                           ; preds = %14
-  %26 = load i32, ptr @hf_eapwps_msglen, align 4
-  %27 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %26, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
-  %28 = add i32 %5, -4
-  tail call void @dissect_wps_tlvs(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef %28, ptr noundef %1)
-  br label %29
+  %25 = load i32, ptr @hf_eapwps_msglen, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef 0) #3
+  br label %.split37
 
-29:                                               ; preds = %.split37, %.split
-  %.0 = phi i32 [ %28, %.split ], [ %25, %.split37 ]
-  ret i32 %.0
+.split37:                                         ; preds = %14, %.split
+  %.sink43 = phi i32 [ -4, %.split ], [ -2, %14 ]
+  %.sink = phi i32 [ 4, %.split ], [ 2, %14 ]
+  %27 = add i32 %5, %.sink43
+  tail call void @dissect_wps_tlvs(ptr noundef %2, ptr noundef %0, i32 noundef %.sink, i32 noundef %27, ptr noundef %1)
+  ret i32 %27
 }
 
 ; Function Attrs: nounwind uwtable

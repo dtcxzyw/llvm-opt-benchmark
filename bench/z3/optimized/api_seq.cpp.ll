@@ -2605,8 +2605,8 @@ if.end73:                                         ; preds = %if.end73.sink.split
   %idx.ext.i140 = zext i32 %.sink300 to i64
   %add.ptr.i141 = getelementptr inbounds i8, ptr %.sink299, i64 %idx.ext.i140
   store i8 %conv70.sink, ptr %add.ptr.i141, align 1
-  %.sink298 = load ptr, ptr %buff, align 8
-  %arrayidx10.i142 = getelementptr inbounds i8, ptr %.sink298, i64 -4
+  %.sink = load ptr, ptr %buff, align 8
+  %arrayidx10.i142 = getelementptr inbounds i8, ptr %.sink, i64 -4
   %47 = load i32, ptr %arrayidx10.i142, align 4
   %inc.i143 = add i32 %47, 1
   store i32 %inc.i143, ptr %arrayidx10.i142, align 4
@@ -2820,11 +2820,11 @@ _ZN6bufferIcLb0ELj16EE6expandEv.exit.i245:        ; preds = %.noexc255, %for.end
   br label %for.inc
 
 for.inc:                                          ; preds = %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245, %entry.if.end_crit_edge.i251, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210, %entry.if.end_crit_edge.i216
-  %.sink297 = phi i32 [ %61, %entry.if.end_crit_edge.i216 ], [ %.pre1.i211, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210 ], [ %6, %entry.if.end_crit_edge.i251 ], [ %.pre1.i246, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245 ]
-  %.sink = phi ptr [ %.pre.i217, %entry.if.end_crit_edge.i216 ], [ %call.i.i219, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210 ], [ %.pre.i252, %entry.if.end_crit_edge.i251 ], [ %call.i.i254, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245 ]
+  %.sink298 = phi i32 [ %61, %entry.if.end_crit_edge.i216 ], [ %.pre1.i211, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210 ], [ %6, %entry.if.end_crit_edge.i251 ], [ %.pre1.i246, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245 ]
+  %.sink297 = phi ptr [ %.pre.i217, %entry.if.end_crit_edge.i216 ], [ %call.i.i219, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210 ], [ %.pre.i252, %entry.if.end_crit_edge.i251 ], [ %call.i.i254, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245 ]
   %conv86.sink = phi i8 [ 125, %entry.if.end_crit_edge.i216 ], [ 125, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i210 ], [ %conv86, %entry.if.end_crit_edge.i251 ], [ %conv86, %_ZN6bufferIcLb0ELj16EE6expandEv.exit.i245 ]
-  %idx.ext.i248 = zext i32 %.sink297 to i64
-  %add.ptr.i249 = getelementptr inbounds i8, ptr %.sink, i64 %idx.ext.i248
+  %idx.ext.i248 = zext i32 %.sink298 to i64
+  %add.ptr.i249 = getelementptr inbounds i8, ptr %.sink297, i64 %idx.ext.i248
   store i8 %conv86.sink, ptr %add.ptr.i249, align 1
   %storemerge.in = load i32, ptr %m_pos.i, align 8
   %storemerge = add i32 %storemerge.in, 1

@@ -2175,10 +2175,10 @@ ehcleanup225:                                     ; preds = %ehcleanup223, %lpad
 
 nrvo.skipdtor.sink.split:                         ; preds = %if.end13, %invoke.cont6, %invoke.cont, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131
   %q.sink675 = phi ptr [ %q, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit131 ], [ %q, %invoke.cont ], [ %3, %invoke.cont6 ], [ %q, %if.end13 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %q.sink675, i64 8
-  %172 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %m_ref_count.i.i.i120 = getelementptr inbounds i8, ptr %q.sink675, i64 8
+  %172 = load i32, ptr %m_ref_count.i.i.i120, align 4
   %inc.i.i.i121 = add i32 %172, 1
-  store i32 %inc.i.i.i121, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i121, ptr %m_ref_count.i.i.i120, align 4
   store ptr %q.sink675, ptr %agg.result, align 8
   br label %nrvo.skipdtor
 

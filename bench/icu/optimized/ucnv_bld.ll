@@ -2106,11 +2106,11 @@ sw.bb328:                                         ; preds = %if.else291
   br label %sw.epilog336.sink.split
 
 sw.epilog336.sink.split:                          ; preds = %if.else291, %if.else291, %if.else291, %sw.bb328
-  %swapArray16.sink = phi ptr [ %swapArray32235, %sw.bb328 ], [ %swapArray16, %if.else291 ], [ %swapArray16, %if.else291 ], [ %swapArray16, %if.else291 ]
-  %58 = load ptr, ptr %swapArray16.sink, align 8
-  %idx.ext323 = zext i32 %call164 to i64
-  %add.ptr331 = getelementptr inbounds i8, ptr %add.ptr87362, i64 %idx.ext323
-  %add.ptr333 = getelementptr inbounds i8, ptr %spec.select363, i64 %idx.ext323
+  %swapArray32235.sink = phi ptr [ %swapArray32235, %sw.bb328 ], [ %swapArray16, %if.else291 ], [ %swapArray16, %if.else291 ], [ %swapArray16, %if.else291 ]
+  %58 = load ptr, ptr %swapArray32235.sink, align 8
+  %idx.ext330 = zext i32 %call164 to i64
+  %add.ptr331 = getelementptr inbounds i8, ptr %add.ptr87362, i64 %idx.ext330
+  %add.ptr333 = getelementptr inbounds i8, ptr %spec.select363, i64 %idx.ext330
   %call334 = tail call noundef i32 %58(ptr noundef nonnull %ds, ptr noundef nonnull %add.ptr331, i32 noundef %cond319, ptr noundef %add.ptr333, ptr noundef nonnull %pErrorCode)
   br label %sw.epilog336
 

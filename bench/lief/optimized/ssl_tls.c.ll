@@ -5322,7 +5322,7 @@ define internal fastcc i32 @ssl_tls12_populate_transform(ptr noundef %0, i32 nou
 
 16:                                               ; preds = %9
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7202, ptr noundef nonnull @.str.127, i32 noundef %1) #22
-  br label %175
+  br label %164
 
 17:                                               ; preds = %9
   %18 = getelementptr inbounds i8, ptr %14, i64 16
@@ -5378,7 +5378,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   %40 = load i8, ptr %18, align 8
   %41 = zext i8 %40 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7232, ptr noundef nonnull @.str.128, i32 noundef %41) #22
-  br label %175
+  br label %164
 
 42:                                               ; preds = %34
   %43 = getelementptr inbounds i8, ptr %14, i64 17
@@ -5392,7 +5392,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   %49 = load i8, ptr %43, align 1
   %50 = zext i8 %49 to i32
   tail call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7250, ptr noundef nonnull @.str.129, i32 noundef %50) #22
-  br label %175
+  br label %164
 
 51:                                               ; preds = %42
   %52 = call i32 %4(ptr noundef %2, i64 noundef 48, ptr noundef nonnull @.str.130, ptr noundef nonnull %5, i64 noundef 64, ptr noundef nonnull %10, i64 noundef 256) #22
@@ -5401,7 +5401,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
 
 53:                                               ; preds = %51
   call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7281, ptr noundef nonnull @.str.106, i32 noundef %52) #22
-  br label %175
+  br label %164
 
 54:                                               ; preds = %51
   %55 = call ptr @mbedtls_ssl_get_ciphersuite_name(i32 noundef %1) #22
@@ -5450,7 +5450,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
 77:                                               ; preds = %74, %68
   %.0166 = phi i32 [ %73, %68 ], [ %76, %74 ]
   call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7354, ptr noundef nonnull @.str.74, i32 noundef %.0166) #22
-  br label %174
+  br label %163
 
 78:                                               ; preds = %74
   %79 = call zeroext i8 @mbedtls_md_get_size(ptr noundef nonnull %46) #22
@@ -5491,7 +5491,7 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
 
 96:                                               ; preds = %92
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7401, ptr noundef nonnull @.str.1) #22
-  br label %174
+  br label %163
 
 97:                                               ; preds = %78, %94, %59
   %.sink = phi i64 [ %95, %94 ], [ %67, %59 ], [ %80, %78 ]
@@ -5502,9 +5502,9 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   %101 = getelementptr inbounds i8, ptr %0, i64 8
   %102 = trunc nuw nsw i64 %99 to i32
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 7418, ptr noundef nonnull @.str.134, i32 noundef %57, i32 noundef %100, i32 noundef %98, i32 noundef %102) #22
-  switch i32 %7, label %133 [
+  switch i32 %7, label %117 [
     i32 0, label %103
-    i32 1, label %118
+    i32 1, label %110
   ]
 
 103:                                              ; preds = %97
@@ -5515,161 +5515,154 @@ mbedtls_ssl_get_mode_from_ciphersuite.exit:       ; preds = %17, %22, %24, %.fol
   %108 = getelementptr inbounds i8, ptr %0, i64 16
   %109 = load i64, ptr %108, align 8
   %.not197 = icmp eq i64 %109, 0
-  br i1 %.not197, label %110, label %112
+  br i1 %.not197, label %.sink.split, label %119
 
-110:                                              ; preds = %103
-  %111 = load i64, ptr %101, align 8
-  br label %112
+110:                                              ; preds = %97
+  %111 = shl nuw nsw i64 %99, 1
+  %112 = getelementptr inbounds i8, ptr %10, i64 %111
+  %113 = getelementptr inbounds i8, ptr %112, i64 %58
+  %114 = getelementptr inbounds i8, ptr %10, i64 %99
+  %115 = getelementptr inbounds i8, ptr %0, i64 16
+  %116 = load i64, ptr %115, align 8
+  %.not196 = icmp eq i64 %116, 0
+  br i1 %.not196, label %.sink.split, label %119
 
-112:                                              ; preds = %103, %110
-  %113 = phi i64 [ %111, %110 ], [ %109, %103 ]
-  %114 = getelementptr inbounds i8, ptr %0, i64 40
-  %115 = getelementptr inbounds i8, ptr %106, i64 %58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %114, ptr nonnull align 1 %115, i64 %113, i1 false)
-  %116 = getelementptr inbounds i8, ptr %0, i64 56
-  %117 = getelementptr inbounds i8, ptr %115, i64 %113
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %116, ptr nonnull align 1 %117, i64 %113, i1 false)
-  br label %134
-
-118:                                              ; preds = %97
-  %119 = shl nuw nsw i64 %99, 1
-  %120 = getelementptr inbounds i8, ptr %10, i64 %119
-  %121 = getelementptr inbounds i8, ptr %120, i64 %58
-  %122 = getelementptr inbounds i8, ptr %10, i64 %99
-  %123 = getelementptr inbounds i8, ptr %0, i64 16
-  %124 = load i64, ptr %123, align 8
-  %.not196 = icmp eq i64 %124, 0
-  br i1 %.not196, label %125, label %127
-
-125:                                              ; preds = %118
-  %126 = load i64, ptr %101, align 8
-  br label %127
-
-127:                                              ; preds = %118, %125
-  %128 = phi i64 [ %126, %125 ], [ %124, %118 ]
-  %129 = getelementptr inbounds i8, ptr %0, i64 56
-  %130 = getelementptr inbounds i8, ptr %121, i64 %58
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %129, ptr nonnull align 1 %130, i64 %128, i1 false)
-  %131 = getelementptr inbounds i8, ptr %0, i64 40
-  %132 = getelementptr inbounds i8, ptr %130, i64 %128
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %131, ptr nonnull align 1 %132, i64 %128, i1 false)
-  br label %134
-
-133:                                              ; preds = %97
+117:                                              ; preds = %97
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7458, ptr noundef nonnull @.str.1) #22
-  br label %174
+  br label %163
 
-134:                                              ; preds = %127, %112
-  %.0170 = phi ptr [ %107, %112 ], [ %10, %127 ]
-  %.0169 = phi ptr [ %10, %112 ], [ %122, %127 ]
-  %.0168 = phi ptr [ %106, %112 ], [ %120, %127 ]
-  %.0167 = phi ptr [ %105, %112 ], [ %121, %127 ]
+.sink.split:                                      ; preds = %110, %103
+  %.sink224.ph = phi i64 [ 40, %103 ], [ 56, %110 ]
+  %.sink223.ph = phi ptr [ %106, %103 ], [ %113, %110 ]
+  %.sink219.ph = phi i64 [ 56, %103 ], [ 40, %110 ]
+  %.0170.ph = phi ptr [ %107, %103 ], [ %10, %110 ]
+  %.0169.ph = phi ptr [ %10, %103 ], [ %114, %110 ]
+  %.0168.ph = phi ptr [ %106, %103 ], [ %112, %110 ]
+  %.0167.ph = phi ptr [ %105, %103 ], [ %113, %110 ]
+  %118 = load i64, ptr %101, align 8
+  br label %119
+
+119:                                              ; preds = %.sink.split, %110, %103
+  %.sink224 = phi i64 [ 40, %103 ], [ 56, %110 ], [ %.sink224.ph, %.sink.split ]
+  %.sink223 = phi ptr [ %106, %103 ], [ %113, %110 ], [ %.sink223.ph, %.sink.split ]
+  %.sink222 = phi i64 [ %109, %103 ], [ %116, %110 ], [ %118, %.sink.split ]
+  %.sink219 = phi i64 [ 56, %103 ], [ 40, %110 ], [ %.sink219.ph, %.sink.split ]
+  %.0170 = phi ptr [ %107, %103 ], [ %10, %110 ], [ %.0170.ph, %.sink.split ]
+  %.0169 = phi ptr [ %10, %103 ], [ %114, %110 ], [ %.0169.ph, %.sink.split ]
+  %.0168 = phi ptr [ %106, %103 ], [ %112, %110 ], [ %.0168.ph, %.sink.split ]
+  %.0167 = phi ptr [ %105, %103 ], [ %113, %110 ], [ %.0167.ph, %.sink.split ]
+  %120 = getelementptr inbounds i8, ptr %0, i64 %.sink224
+  %121 = getelementptr inbounds i8, ptr %.sink223, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %120, ptr nonnull align 1 %121, i64 %.sink222, i1 false)
+  %122 = getelementptr inbounds i8, ptr %0, i64 %.sink219
+  %123 = getelementptr inbounds i8, ptr %121, i64 %.sink222
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %122, ptr nonnull align 1 %123, i64 %.sink222, i1 false)
   %.not198 = icmp eq ptr %8, null
-  br i1 %.not198, label %144, label %135
+  br i1 %.not198, label %133, label %124
 
-135:                                              ; preds = %134
-  %136 = getelementptr inbounds i8, ptr %8, i64 480
-  %137 = load ptr, ptr %136, align 8
-  %.not199 = icmp eq ptr %137, null
-  br i1 %.not199, label %144, label %138
+124:                                              ; preds = %119
+  %125 = getelementptr inbounds i8, ptr %8, i64 480
+  %126 = load ptr, ptr %125, align 8
+  %.not199 = icmp eq ptr %126, null
+  br i1 %.not199, label %133, label %127
 
-138:                                              ; preds = %135
-  %139 = getelementptr inbounds i8, ptr %8, i64 488
-  %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr inbounds i8, ptr %5, i64 32
-  %142 = icmp eq ptr %4, @tls_prf_sha384
-  %143 = icmp eq ptr %4, @tls_prf_sha256
-  %..i = select i1 %143, i32 2, i32 0
-  %.0.i212 = select i1 %142, i32 1, i32 %..i
-  call void %137(ptr noundef %140, i32 noundef 0, ptr noundef %2, i64 noundef 48, ptr noundef nonnull %141, ptr noundef nonnull %5, i32 noundef %.0.i212) #22
-  br label %144
+127:                                              ; preds = %124
+  %128 = getelementptr inbounds i8, ptr %8, i64 488
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %5, i64 32
+  %131 = icmp eq ptr %4, @tls_prf_sha384
+  %132 = icmp eq ptr %4, @tls_prf_sha256
+  %..i = select i1 %132, i32 2, i32 0
+  %.0.i212 = select i1 %131, i32 1, i32 %..i
+  call void %126(ptr noundef %129, i32 noundef 0, ptr noundef %2, i64 noundef 48, ptr noundef nonnull %130, ptr noundef nonnull %5, i32 noundef %.0.i212) #22
+  br label %133
 
-144:                                              ; preds = %138, %135, %134
-  %145 = getelementptr inbounds i8, ptr %0, i64 128
-  %146 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %145, ptr noundef nonnull %37) #22
-  %.not200 = icmp eq i32 %146, 0
-  br i1 %.not200, label %148, label %147
+133:                                              ; preds = %127, %124, %119
+  %134 = getelementptr inbounds i8, ptr %0, i64 128
+  %135 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %134, ptr noundef nonnull %37) #22
+  %.not200 = icmp eq i32 %135, 0
+  br i1 %.not200, label %137, label %136
+
+136:                                              ; preds = %133
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7509, ptr noundef nonnull @.str.135, i32 noundef %135) #22
+  br label %163
+
+137:                                              ; preds = %133
+  %138 = getelementptr inbounds i8, ptr %0, i64 224
+  %139 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %138, ptr noundef nonnull %37) #22
+  %.not201 = icmp eq i32 %139, 0
+  br i1 %.not201, label %141, label %140
+
+140:                                              ; preds = %137
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7516, ptr noundef nonnull @.str.135, i32 noundef %139) #22
+  br label %163
+
+141:                                              ; preds = %137
+  %.val210 = load i32, ptr %56, align 8
+  %142 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %134, ptr noundef nonnull %.0167, i32 noundef %.val210, i32 noundef 1) #22
+  %.not202 = icmp eq i32 %142, 0
+  br i1 %.not202, label %144, label %143
+
+143:                                              ; preds = %141
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7524, ptr noundef nonnull @.str.136, i32 noundef %142) #22
+  br label %163
+
+144:                                              ; preds = %141
+  %.val211 = load i32, ptr %56, align 8
+  %145 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %138, ptr noundef nonnull %.0168, i32 noundef %.val211, i32 noundef 0) #22
+  %.not203 = icmp eq i32 %145, 0
+  br i1 %.not203, label %147, label %146
+
+146:                                              ; preds = %144
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7532, ptr noundef nonnull @.str.136, i32 noundef %145) #22
+  br label %163
 
 147:                                              ; preds = %144
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7509, ptr noundef nonnull @.str.135, i32 noundef %146) #22
-  br label %174
+  %148 = getelementptr i8, ptr %37, i64 4
+  %.val = load i32, ptr %148, align 4
+  %149 = icmp eq i32 %.val, 2
+  br i1 %149, label %150, label %156
 
-148:                                              ; preds = %144
-  %149 = getelementptr inbounds i8, ptr %0, i64 224
-  %150 = call i32 @mbedtls_cipher_setup(ptr noundef nonnull %149, ptr noundef nonnull %37) #22
-  %.not201 = icmp eq i32 %150, 0
-  br i1 %.not201, label %152, label %151
+150:                                              ; preds = %147
+  %151 = call i32 @mbedtls_cipher_set_padding_mode(ptr noundef nonnull %134, i32 noundef 4) #22
+  %.not204 = icmp eq i32 %151, 0
+  br i1 %.not204, label %153, label %152
 
-151:                                              ; preds = %148
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7516, ptr noundef nonnull @.str.135, i32 noundef %150) #22
-  br label %174
+152:                                              ; preds = %150
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7542, ptr noundef nonnull @.str.137, i32 noundef %151) #22
+  br label %163
 
-152:                                              ; preds = %148
-  %.val210 = load i32, ptr %56, align 8
-  %153 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %145, ptr noundef nonnull %.0167, i32 noundef %.val210, i32 noundef 1) #22
-  %.not202 = icmp eq i32 %153, 0
-  br i1 %.not202, label %155, label %154
+153:                                              ; preds = %150
+  %154 = call i32 @mbedtls_cipher_set_padding_mode(ptr noundef nonnull %138, i32 noundef 4) #22
+  %.not205 = icmp eq i32 %154, 0
+  br i1 %.not205, label %156, label %155
 
-154:                                              ; preds = %152
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7524, ptr noundef nonnull @.str.136, i32 noundef %153) #22
-  br label %174
+155:                                              ; preds = %153
+  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7549, ptr noundef nonnull @.str.137, i32 noundef %154) #22
+  br label %163
 
-155:                                              ; preds = %152
-  %.val211 = load i32, ptr %56, align 8
-  %156 = call i32 @mbedtls_cipher_setkey(ptr noundef nonnull %149, ptr noundef nonnull %.0168, i32 noundef %.val211, i32 noundef 0) #22
-  %.not203 = icmp eq i32 %156, 0
-  br i1 %.not203, label %158, label %157
-
-157:                                              ; preds = %155
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7532, ptr noundef nonnull @.str.136, i32 noundef %156) #22
-  br label %174
-
-158:                                              ; preds = %155
-  %159 = getelementptr i8, ptr %37, i64 4
-  %.val = load i32, ptr %159, align 4
-  %160 = icmp eq i32 %.val, 2
-  br i1 %160, label %161, label %167
-
-161:                                              ; preds = %158
-  %162 = call i32 @mbedtls_cipher_set_padding_mode(ptr noundef nonnull %145, i32 noundef 4) #22
-  %.not204 = icmp eq i32 %162, 0
-  br i1 %.not204, label %164, label %163
-
-163:                                              ; preds = %161
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7542, ptr noundef nonnull @.str.137, i32 noundef %162) #22
-  br label %174
-
-164:                                              ; preds = %161
-  %165 = call i32 @mbedtls_cipher_set_padding_mode(ptr noundef nonnull %149, i32 noundef 4) #22
-  %.not205 = icmp eq i32 %165, 0
-  br i1 %.not205, label %167, label %166
-
-166:                                              ; preds = %164
-  call void @mbedtls_debug_print_ret(ptr noundef %8, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 7549, ptr noundef nonnull @.str.137, i32 noundef %165) #22
-  br label %174
-
-167:                                              ; preds = %164, %158
+156:                                              ; preds = %153, %147
   %.not206 = icmp eq i64 %99, 0
-  br i1 %.not206, label %174, label %168
+  br i1 %.not206, label %163, label %157
 
-168:                                              ; preds = %167
-  %169 = getelementptr inbounds i8, ptr %0, i64 72
-  %170 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %169, ptr noundef nonnull %.0169, i64 noundef %99) #22
-  %.not207 = icmp eq i32 %170, 0
-  br i1 %.not207, label %171, label %174
+157:                                              ; preds = %156
+  %158 = getelementptr inbounds i8, ptr %0, i64 72
+  %159 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %158, ptr noundef nonnull %.0169, i64 noundef %99) #22
+  %.not207 = icmp eq i32 %159, 0
+  br i1 %.not207, label %160, label %163
 
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %0, i64 96
-  %173 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %172, ptr noundef nonnull %.0170, i64 noundef %99) #22
-  br label %174
+160:                                              ; preds = %157
+  %161 = getelementptr inbounds i8, ptr %0, i64 96
+  %162 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %161, ptr noundef nonnull %.0170, i64 noundef %99) #22
+  br label %163
 
-174:                                              ; preds = %171, %167, %168, %166, %163, %157, %154, %151, %147, %133, %96, %77
-  %.2 = phi i32 [ %146, %147 ], [ %150, %151 ], [ %153, %154 ], [ %156, %157 ], [ %162, %163 ], [ %165, %166 ], [ %170, %168 ], [ %173, %171 ], [ 0, %167 ], [ -27648, %133 ], [ %.0166, %77 ], [ -27648, %96 ]
+163:                                              ; preds = %160, %156, %157, %155, %152, %146, %143, %140, %136, %117, %96, %77
+  %.2 = phi i32 [ %135, %136 ], [ %139, %140 ], [ %142, %143 ], [ %145, %146 ], [ %151, %152 ], [ %154, %155 ], [ %159, %157 ], [ %162, %160 ], [ 0, %156 ], [ -27648, %117 ], [ %.0166, %77 ], [ -27648, %96 ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 256) #22
-  br label %175
+  br label %164
 
-175:                                              ; preds = %174, %53, %48, %39, %16
-  %.0 = phi i32 [ -28928, %16 ], [ -28928, %39 ], [ -28928, %48 ], [ %52, %53 ], [ %.2, %174 ]
+164:                                              ; preds = %163, %53, %48, %39, %16
+  %.0 = phi i32 [ -28928, %16 ], [ -28928, %39 ], [ -28928, %48 ], [ %52, %53 ], [ %.2, %163 ]
   ret i32 %.0
 }
 

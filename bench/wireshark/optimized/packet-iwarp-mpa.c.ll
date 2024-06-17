@@ -993,9 +993,9 @@ define internal fastcc range(i32 0, 2) i32 @dissect_mpa_req_rep(ptr noundef %0, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %13, %18
-  %hf_mpa_rep.sink = phi ptr [ @hf_mpa_rep, %18 ], [ @hf_mpa_req, %13 ]
+  %hf_mpa_req.sink = phi ptr [ @hf_mpa_rep, %18 ], [ @hf_mpa_req, %13 ]
   %hf_mpa_key_req.sink = phi ptr [ @hf_mpa_key_rep, %18 ], [ @hf_mpa_key_req, %13 ]
-  %19 = load i32, ptr %hf_mpa_rep.sink, align 4
+  %19 = load i32, ptr %hf_mpa_req.sink, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #5
   %21 = load i32, ptr @ett_mpa, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #5

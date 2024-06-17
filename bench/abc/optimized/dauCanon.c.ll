@@ -3407,7 +3407,7 @@ define internal fastcc range(i32 -1, 2) i32 @Abc_TtCompare2VarCofsRev(ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define i32 @Abc_TtCofactorPerm(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr nocapture noundef %4, ptr nocapture noundef %5, i32 noundef %6) local_unnamed_addr #3 {
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %27, label %8
+  br i1 %.not, label %17, label %8
 
 8:                                                ; preds = %7
   %9 = tail call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 1, i32 noundef 0)
@@ -3422,143 +3422,131 @@ define i32 @Abc_TtCofactorPerm(ptr noundef %0, i32 noundef %1, i32 noundef %2, i
   %15 = xor i32 %12, %14
   %16 = and i32 %15, 1
   %.not65 = icmp eq i32 %16, 0
-  br i1 %.not65, label %20, label %17
+  br i1 %.not65, label %Abc_TtCopy.exit72.sink.split, label %Abc_TtCopy.exit72.sink.split.sink.split
 
-17:                                               ; preds = %10
-  %18 = shl i32 3, %1
-  %19 = xor i32 %11, %18
-  store i32 %19, ptr %5, align 4
-  br label %20
+17:                                               ; preds = %7
+  %18 = icmp sgt i32 %2, 0
+  br i1 %18, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
 
-20:                                               ; preds = %17, %10
-  %21 = sext i32 %1 to i64
-  %22 = getelementptr inbounds i8, ptr %4, i64 %21
-  %23 = load i8, ptr %22, align 1
-  %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds i8, ptr %4, i64 %24
-  %26 = load i8, ptr %25, align 1
-  store i8 %26, ptr %22, align 1
-  store i8 %23, ptr %25, align 1
-  br label %Abc_TtCopy.exit72
-
-27:                                               ; preds = %7
-  %28 = icmp sgt i32 %2, 0
-  br i1 %28, label %.lr.ph18.preheader.i, label %Abc_TtCopy.exit
-
-.lr.ph18.preheader.i:                             ; preds = %27
+.lr.ph18.preheader.i:                             ; preds = %17
   %wide.trip.count24.i = zext nneg i32 %2 to i64
   br label %.lr.ph18.i
 
 .lr.ph18.i:                                       ; preds = %.lr.ph18.i, %.lr.ph18.preheader.i
   %indvars.iv21.i = phi i64 [ 0, %.lr.ph18.preheader.i ], [ %indvars.iv.next22.i, %.lr.ph18.i ]
-  %29 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i
-  store i64 %30, ptr %31, align 8
+  %19 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i
+  %20 = load i64, ptr %19, align 8
+  %21 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i
+  store i64 %20, ptr %21, align 8
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next22.i, %wide.trip.count24.i
   br i1 %exitcond25.not.i, label %Abc_TtCopy.exit, label %.lr.ph18.i, !llvm.loop !18
 
-Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %27
-  %32 = tail call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %6)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %Abc_TtCopy.exit72, label %34
+Abc_TtCopy.exit:                                  ; preds = %.lr.ph18.i, %17
+  %22 = tail call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %6)
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %Abc_TtCopy.exit72, label %24
 
-34:                                               ; preds = %Abc_TtCopy.exit
-  %35 = zext i32 %2 to i64
-  br label %36
+24:                                               ; preds = %Abc_TtCopy.exit
+  %25 = zext i32 %2 to i64
+  br label %26
 
-36:                                               ; preds = %39, %34
-  %indvars.iv.i = phi i64 [ %40, %39 ], [ %35, %34 ]
-  %37 = trunc nuw i64 %indvars.iv.i to i32
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %39, label %select.unfold
+26:                                               ; preds = %29, %24
+  %indvars.iv.i = phi i64 [ %30, %29 ], [ %25, %24 ]
+  %27 = trunc nuw i64 %indvars.iv.i to i32
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %29, label %select.unfold
 
-39:                                               ; preds = %36
-  %40 = add nsw i64 %indvars.iv.i, -1
-  %41 = getelementptr inbounds i64, ptr %0, i64 %40
-  %42 = load i64, ptr %41, align 8
-  %43 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %40
-  %44 = load i64, ptr %43, align 8
-  %.not.i = icmp eq i64 %42, %44
-  br i1 %.not.i, label %36, label %45, !llvm.loop !30
+29:                                               ; preds = %26
+  %30 = add nsw i64 %indvars.iv.i, -1
+  %31 = getelementptr inbounds i64, ptr %0, i64 %30
+  %32 = load i64, ptr %31, align 8
+  %33 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %30
+  %34 = load i64, ptr %33, align 8
+  %.not.i = icmp eq i64 %32, %34
+  br i1 %.not.i, label %26, label %35, !llvm.loop !30
 
-45:                                               ; preds = %39
-  %46 = icmp ult i64 %42, %44
-  br i1 %46, label %select.unfold, label %Abc_TtCompareRev.exit
+35:                                               ; preds = %29
+  %36 = icmp ult i64 %32, %34
+  br i1 %36, label %select.unfold, label %Abc_TtCompareRev.exit
 
-Abc_TtCompareRev.exit:                            ; preds = %45
-  br i1 %28, label %.lr.ph18.i68, label %Abc_TtCopy.exit72
+Abc_TtCompareRev.exit:                            ; preds = %35
+  br i1 %18, label %.lr.ph18.i68, label %Abc_TtCopy.exit72
 
 .lr.ph18.i68:                                     ; preds = %Abc_TtCompareRev.exit, %.lr.ph18.i68
   %indvars.iv21.i69 = phi i64 [ %indvars.iv.next22.i70, %.lr.ph18.i68 ], [ 0, %Abc_TtCompareRev.exit ]
-  %47 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69
-  %48 = load i64, ptr %47, align 8
-  %49 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69
-  store i64 %48, ptr %49, align 8
+  %37 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69
+  %38 = load i64, ptr %37, align 8
+  %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69
+  store i64 %38, ptr %39, align 8
   %indvars.iv.next22.i70 = add nuw nsw i64 %indvars.iv21.i69, 1
-  %exitcond25.not.i71 = icmp eq i64 %indvars.iv.next22.i70, %35
+  %exitcond25.not.i71 = icmp eq i64 %indvars.iv.next22.i70, %25
   br i1 %exitcond25.not.i71, label %Abc_TtCopy.exit72, label %.lr.ph18.i68, !llvm.loop !18
 
-select.unfold:                                    ; preds = %36, %45
-  %50 = and i32 %32, 1
-  %.not60 = icmp eq i32 %50, 0
-  br i1 %.not60, label %55, label %51
+select.unfold:                                    ; preds = %26, %35
+  %40 = and i32 %22, 1
+  %.not60 = icmp eq i32 %40, 0
+  br i1 %.not60, label %45, label %41
 
-51:                                               ; preds = %select.unfold
-  %52 = shl nuw i32 1, %1
-  %53 = load i32, ptr %5, align 4
-  %54 = xor i32 %53, %52
-  store i32 %54, ptr %5, align 4
-  br label %55
+41:                                               ; preds = %select.unfold
+  %42 = shl nuw i32 1, %1
+  %43 = load i32, ptr %5, align 4
+  %44 = xor i32 %43, %42
+  store i32 %44, ptr %5, align 4
+  br label %45
 
-55:                                               ; preds = %51, %select.unfold
-  %56 = and i32 %32, 2
-  %.not61 = icmp eq i32 %56, 0
-  br i1 %.not61, label %62, label %57
+45:                                               ; preds = %41, %select.unfold
+  %46 = and i32 %22, 2
+  %.not61 = icmp eq i32 %46, 0
+  br i1 %.not61, label %52, label %47
 
-57:                                               ; preds = %55
-  %58 = add nsw i32 %1, 1
-  %59 = shl nuw i32 1, %58
-  %60 = load i32, ptr %5, align 4
-  %61 = xor i32 %60, %59
-  store i32 %61, ptr %5, align 4
-  br label %62
+47:                                               ; preds = %45
+  %48 = add nsw i32 %1, 1
+  %49 = shl nuw i32 1, %48
+  %50 = load i32, ptr %5, align 4
+  %51 = xor i32 %50, %49
+  store i32 %51, ptr %5, align 4
+  br label %52
 
-62:                                               ; preds = %57, %55
-  %63 = and i32 %32, 4
-  %.not62 = icmp eq i32 %63, 0
-  br i1 %.not62, label %Abc_TtCopy.exit72, label %64
+52:                                               ; preds = %47, %45
+  %53 = and i32 %22, 4
+  %.not62 = icmp eq i32 %53, 0
+  br i1 %.not62, label %Abc_TtCopy.exit72, label %54
 
-64:                                               ; preds = %62
-  %65 = load i32, ptr %5, align 4
-  %66 = lshr i32 %65, %1
-  %67 = add nsw i32 %1, 1
-  %68 = lshr i32 %65, %67
-  %69 = xor i32 %66, %68
-  %70 = and i32 %69, 1
-  %.not63 = icmp eq i32 %70, 0
-  br i1 %.not63, label %74, label %71
+54:                                               ; preds = %52
+  %55 = load i32, ptr %5, align 4
+  %56 = lshr i32 %55, %1
+  %57 = add nsw i32 %1, 1
+  %58 = lshr i32 %55, %57
+  %59 = xor i32 %56, %58
+  %60 = and i32 %59, 1
+  %.not63 = icmp eq i32 %60, 0
+  br i1 %.not63, label %Abc_TtCopy.exit72.sink.split, label %Abc_TtCopy.exit72.sink.split.sink.split
 
-71:                                               ; preds = %64
-  %72 = shl i32 3, %1
-  %73 = xor i32 %65, %72
-  store i32 %73, ptr %5, align 4
-  br label %74
+Abc_TtCopy.exit72.sink.split.sink.split:          ; preds = %54, %10
+  %.sink84 = phi i32 [ %11, %10 ], [ %55, %54 ]
+  %.sink82.ph = phi i32 [ %13, %10 ], [ %57, %54 ]
+  %.0.ph.ph = phi i32 [ %9, %10 ], [ %22, %54 ]
+  %61 = shl i32 3, %1
+  %62 = xor i32 %.sink84, %61
+  store i32 %62, ptr %5, align 4
+  br label %Abc_TtCopy.exit72.sink.split
 
-74:                                               ; preds = %71, %64
-  %75 = sext i32 %1 to i64
-  %76 = getelementptr inbounds i8, ptr %4, i64 %75
-  %77 = load i8, ptr %76, align 1
-  %78 = sext i32 %67 to i64
-  %79 = getelementptr inbounds i8, ptr %4, i64 %78
-  %80 = load i8, ptr %79, align 1
-  store i8 %80, ptr %76, align 1
-  store i8 %77, ptr %79, align 1
+Abc_TtCopy.exit72.sink.split:                     ; preds = %Abc_TtCopy.exit72.sink.split.sink.split, %54, %10
+  %.sink82 = phi i32 [ %13, %10 ], [ %57, %54 ], [ %.sink82.ph, %Abc_TtCopy.exit72.sink.split.sink.split ]
+  %.0.ph = phi i32 [ %9, %10 ], [ %22, %54 ], [ %.0.ph.ph, %Abc_TtCopy.exit72.sink.split.sink.split ]
+  %63 = sext i32 %1 to i64
+  %64 = getelementptr inbounds i8, ptr %4, i64 %63
+  %65 = load i8, ptr %64, align 1
+  %66 = sext i32 %.sink82 to i64
+  %67 = getelementptr inbounds i8, ptr %4, i64 %66
+  %68 = load i8, ptr %67, align 1
+  store i8 %68, ptr %64, align 1
+  store i8 %65, ptr %67, align 1
   br label %Abc_TtCopy.exit72
 
-Abc_TtCopy.exit72:                                ; preds = %.lr.ph18.i68, %Abc_TtCompareRev.exit, %62, %74, %Abc_TtCopy.exit, %8, %20
-  %.0 = phi i32 [ %9, %20 ], [ 0, %8 ], [ 0, %Abc_TtCopy.exit ], [ %32, %74 ], [ %32, %62 ], [ 0, %Abc_TtCompareRev.exit ], [ 0, %.lr.ph18.i68 ]
+Abc_TtCopy.exit72:                                ; preds = %.lr.ph18.i68, %Abc_TtCopy.exit72.sink.split, %Abc_TtCompareRev.exit, %52, %Abc_TtCopy.exit, %8
+  %.0 = phi i32 [ 0, %8 ], [ 0, %Abc_TtCopy.exit ], [ %22, %52 ], [ 0, %Abc_TtCompareRev.exit ], [ %.0.ph, %Abc_TtCopy.exit72.sink.split ], [ 0, %.lr.ph18.i68 ]
   ret i32 %.0
 }
 
@@ -3583,28 +3571,28 @@ define i32 @Abc_TtCanonicize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   %wide.trip.count = zext nneg i32 %16 to i64
   br label %19
 
-19:                                               ; preds = %._crit_edge110, %3
-  %.035114 = phi i32 [ 0, %3 ], [ %278, %._crit_edge110 ]
-  %.087113 = phi i32 [ %9, %3 ], [ %.14, %._crit_edge110 ]
+19:                                               ; preds = %._crit_edge117, %3
+  %.035121 = phi i32 [ 0, %3 ], [ %266, %._crit_edge117 ]
+  %.094120 = phi i32 [ %9, %3 ], [ %.12, %._crit_edge117 ]
   br i1 %11, label %.lr.ph, label %._crit_edge.thread
 
-.lr.ph:                                           ; preds = %19, %148
-  %indvars.iv = phi i64 [ %indvars.iv.next, %148 ], [ %18, %19 ]
-  %.0104 = phi i32 [ %.1, %148 ], [ 0, %19 ]
-  %.188101 = phi i32 [ %.7, %148 ], [ %.087113, %19 ]
+.lr.ph:                                           ; preds = %19, %142
+  %indvars.iv = phi i64 [ %indvars.iv.next, %142 ], [ %18, %19 ]
+  %.0111 = phi i32 [ %.1, %142 ], [ 0, %19 ]
+  %.195108 = phi i32 [ %.6, %142 ], [ %.094120, %19 ]
   %20 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
   %22 = add nuw nsw i64 %indvars.iv, 1
   %23 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = icmp eq i32 %21, %24
-  br i1 %25, label %26, label %148
+  br i1 %25, label %26, label %142
 
 26:                                               ; preds = %.lr.ph
   %27 = load i32, ptr %13, align 4
   %28 = sdiv i32 %27, 2
-  %.not97 = icmp eq i32 %21, %28
-  br i1 %.not97, label %44, label %29
+  %.not104 = icmp eq i32 %21, %28
+  br i1 %.not104, label %38, label %29
 
 29:                                               ; preds = %26
   %30 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3613,451 +3601,453 @@ define i32 @Abc_TtCanonicize(ptr noundef %0, i32 noundef %1, ptr nocapture nound
   br i1 %.not64.i, label %Abc_TtCofactorPerm.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = lshr i32 %.188101, %30
+  %33 = lshr i32 %.195108, %30
   %34 = trunc nuw nsw i64 %22 to i32
-  %35 = lshr i32 %.188101, %34
+  %35 = lshr i32 %.195108, %34
   %36 = xor i32 %35, %33
   %37 = and i32 %36, 1
   %.not65.i = icmp eq i32 %37, 0
-  %38 = shl i32 3, %30
-  %39 = select i1 %.not65.i, i32 0, i32 %38
-  %.289 = xor i32 %39, %.188101
-  %40 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds i8, ptr %2, i64 %22
-  %43 = load i8, ptr %42, align 1
-  store i8 %43, ptr %40, align 1
-  store i8 %41, ptr %42, align 1
-  br label %Abc_TtCofactorPerm.exit
+  br i1 %.not65.i, label %Abc_TtCopy.exit72.sink.split.i, label %Abc_TtCopy.exit72.sink.split.sink.split.i
 
-44:                                               ; preds = %26
+38:                                               ; preds = %26
   br i1 %14, label %.lr.ph18.i.i, label %Abc_TtCopy.exit.i.thread
 
-.lr.ph18.i.i:                                     ; preds = %44, %.lr.ph18.i.i
-  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph18.i.i ], [ 0, %44 ]
-  %45 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i.i
-  %46 = load i64, ptr %45, align 8
-  %47 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i.i
-  store i64 %46, ptr %47, align 8
+.lr.ph18.i.i:                                     ; preds = %38, %.lr.ph18.i.i
+  %indvars.iv21.i.i = phi i64 [ %indvars.iv.next22.i.i, %.lr.ph18.i.i ], [ 0, %38 ]
+  %39 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i.i
+  %40 = load i64, ptr %39, align 8
+  %41 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i.i
+  store i64 %40, ptr %41, align 8
   %indvars.iv.next22.i.i = add nuw nsw i64 %indvars.iv21.i.i, 1
   %exitcond25.not.i.i = icmp eq i64 %indvars.iv.next22.i.i, %wide.trip.count24.i.i
   br i1 %exitcond25.not.i.i, label %Abc_TtCopy.exit.i, label %.lr.ph18.i.i, !llvm.loop !18
 
 Abc_TtCopy.exit.i:                                ; preds = %.lr.ph18.i.i
-  br i1 %15, label %48, label %Abc_TtCopy.exit.i.thread
+  br i1 %15, label %42, label %Abc_TtCopy.exit.i.thread
 
-48:                                               ; preds = %Abc_TtCopy.exit.i
-  %49 = load i64, ptr %0, align 8
-  %50 = trunc nuw nsw i64 %indvars.iv to i32
-  %51 = shl nuw i32 1, %50
-  %52 = zext i32 %51 to i64
-  %53 = shl i64 %49, %52
-  %54 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
-  %55 = load i64, ptr %54, align 8
-  %56 = and i64 %55, %53
-  %57 = and i64 %55, %49
-  %58 = lshr i64 %57, %52
-  %59 = or i64 %58, %56
-  %60 = icmp ugt i64 %49, %59
-  %spec.select.i = call i64 @llvm.umin.i64(i64 %49, i64 %59)
-  %spec.select66.i = zext i1 %60 to i32
-  %61 = shl nuw i32 2, %50
-  %62 = zext i32 %61 to i64
-  %63 = shl i64 %59, %62
-  %64 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %22
-  %65 = load i64, ptr %64, align 8
-  %66 = and i64 %63, %65
-  %67 = and i64 %59, %65
-  %68 = lshr i64 %67, %62
+42:                                               ; preds = %Abc_TtCopy.exit.i
+  %43 = load i64, ptr %0, align 8
+  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  %45 = shl nuw i32 1, %44
+  %46 = zext i32 %45 to i64
+  %47 = shl i64 %43, %46
+  %48 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, %47
+  %51 = and i64 %49, %43
+  %52 = lshr i64 %51, %46
+  %53 = or i64 %52, %50
+  %54 = icmp ugt i64 %43, %53
+  %spec.select.i = call i64 @llvm.umin.i64(i64 %43, i64 %53)
+  %spec.select66.i = zext i1 %54 to i32
+  %55 = shl nuw i32 2, %44
+  %56 = zext i32 %55 to i64
+  %57 = shl i64 %53, %56
+  %58 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %22
+  %59 = load i64, ptr %58, align 8
+  %60 = and i64 %57, %59
+  %61 = and i64 %53, %59
+  %62 = lshr i64 %61, %56
+  %63 = or i64 %62, %60
+  %64 = icmp ugt i64 %spec.select.i, %63
+  %.150.i = call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %63)
+  %.1.i = select i1 %64, i32 3, i32 %spec.select66.i
+  %65 = shl i64 %63, %46
+  %66 = and i64 %65, %49
+  %67 = and i64 %63, %49
+  %68 = lshr i64 %67, %46
   %69 = or i64 %68, %66
-  %70 = icmp ugt i64 %spec.select.i, %69
-  %.150.i = call i64 @llvm.umin.i64(i64 %spec.select.i, i64 %69)
-  %.1.i = select i1 %70, i32 3, i32 %spec.select66.i
-  %71 = shl i64 %69, %52
-  %72 = and i64 %71, %55
-  %73 = and i64 %69, %55
-  %74 = lshr i64 %73, %52
-  %75 = or i64 %74, %72
-  %76 = icmp ugt i64 %.150.i, %75
-  %.251.i = call i64 @llvm.umin.i64(i64 %.150.i, i64 %75)
-  %.2.i = select i1 %76, i32 2, i32 %.1.i
-  %77 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv
-  %78 = load i64, ptr %77, align 8
-  %79 = and i64 %75, %78
-  %80 = getelementptr inbounds i8, ptr %77, i64 8
-  %81 = load i64, ptr %80, align 8
-  %82 = and i64 %75, %81
-  %83 = shl i64 %82, %52
-  %84 = or i64 %83, %79
-  %85 = getelementptr inbounds i8, ptr %77, i64 16
-  %86 = load i64, ptr %85, align 8
-  %87 = and i64 %75, %86
-  %88 = lshr i64 %87, %52
-  %89 = or i64 %84, %88
-  %90 = icmp ugt i64 %.251.i, %89
-  %.352.i = call i64 @llvm.umin.i64(i64 %.251.i, i64 %89)
-  %.3.i = select i1 %90, i32 6, i32 %.2.i
-  %91 = shl i64 %89, %62
-  %92 = and i64 %91, %65
-  %93 = and i64 %89, %65
-  %94 = lshr i64 %93, %62
+  %70 = icmp ugt i64 %.150.i, %69
+  %.251.i = call i64 @llvm.umin.i64(i64 %.150.i, i64 %69)
+  %.2.i = select i1 %70, i32 2, i32 %.1.i
+  %71 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv
+  %72 = load i64, ptr %71, align 8
+  %73 = and i64 %69, %72
+  %74 = getelementptr inbounds i8, ptr %71, i64 8
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %69, %75
+  %77 = shl i64 %76, %46
+  %78 = or i64 %77, %73
+  %79 = getelementptr inbounds i8, ptr %71, i64 16
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %69, %80
+  %82 = lshr i64 %81, %46
+  %83 = or i64 %78, %82
+  %84 = icmp ugt i64 %.251.i, %83
+  %.352.i = call i64 @llvm.umin.i64(i64 %.251.i, i64 %83)
+  %.3.i = select i1 %84, i32 6, i32 %.2.i
+  %85 = shl i64 %83, %56
+  %86 = and i64 %85, %59
+  %87 = and i64 %83, %59
+  %88 = lshr i64 %87, %56
+  %89 = or i64 %88, %86
+  %90 = icmp ugt i64 %.352.i, %89
+  %.453.i = call i64 @llvm.umin.i64(i64 %.352.i, i64 %89)
+  %.4.i = select i1 %90, i32 7, i32 %.3.i
+  %91 = shl i64 %89, %46
+  %92 = and i64 %91, %49
+  %93 = and i64 %89, %49
+  %94 = lshr i64 %93, %46
   %95 = or i64 %94, %92
-  %96 = icmp ugt i64 %.352.i, %95
-  %.453.i = call i64 @llvm.umin.i64(i64 %.352.i, i64 %95)
-  %.4.i = select i1 %96, i32 7, i32 %.3.i
-  %97 = shl i64 %95, %52
-  %98 = and i64 %97, %55
-  %99 = and i64 %95, %55
-  %100 = lshr i64 %99, %52
+  %96 = icmp ugt i64 %.453.i, %95
+  %.554.i = call i64 @llvm.umin.i64(i64 %.453.i, i64 %95)
+  %.5.i = select i1 %96, i32 5, i32 %.4.i
+  %97 = shl i64 %95, %56
+  %98 = and i64 %97, %59
+  %99 = and i64 %95, %59
+  %100 = lshr i64 %99, %56
   %101 = or i64 %100, %98
-  %102 = icmp ugt i64 %.453.i, %101
-  %.554.i = call i64 @llvm.umin.i64(i64 %.453.i, i64 %101)
-  %.5.i = select i1 %102, i32 5, i32 %.4.i
-  %103 = shl i64 %101, %62
-  %104 = and i64 %103, %65
-  %105 = and i64 %101, %65
-  %106 = lshr i64 %105, %62
-  %107 = or i64 %106, %104
-  %108 = icmp ugt i64 %.554.i, %107
-  %.655.i = call i64 @llvm.umin.i64(i64 %.554.i, i64 %107)
+  %102 = icmp ugt i64 %.554.i, %101
+  %.655.i = call i64 @llvm.umin.i64(i64 %.554.i, i64 %101)
   store i64 %.655.i, ptr %0, align 8
-  br i1 %108, label %Abc_TtCofactorPermConfig.exit.thread, label %Abc_TtCofactorPermConfig.exit
+  br i1 %102, label %Abc_TtCofactorPermConfig.exit.thread, label %Abc_TtCofactorPermConfig.exit
 
-Abc_TtCopy.exit.i.thread:                         ; preds = %44, %Abc_TtCopy.exit.i
-  %109 = trunc nuw nsw i64 %indvars.iv to i32
-  %110 = call i32 @Abc_TtCofactorPermNaive(ptr noundef %0, i32 noundef %109, i32 noundef %8, i32 noundef 0)
+Abc_TtCopy.exit.i.thread:                         ; preds = %38, %Abc_TtCopy.exit.i
+  %103 = trunc nuw nsw i64 %indvars.iv to i32
+  %104 = call i32 @Abc_TtCofactorPermNaive(ptr noundef %0, i32 noundef %103, i32 noundef %8, i32 noundef 0)
   br label %Abc_TtCofactorPermConfig.exit
 
-Abc_TtCofactorPermConfig.exit:                    ; preds = %48, %Abc_TtCopy.exit.i.thread
-  %.0112.i = phi i32 [ %.5.i, %48 ], [ %110, %Abc_TtCopy.exit.i.thread ]
-  %111 = icmp eq i32 %.0112.i, 0
-  br i1 %111, label %Abc_TtCofactorPerm.exit, label %Abc_TtCofactorPermConfig.exit.thread
+Abc_TtCofactorPermConfig.exit:                    ; preds = %42, %Abc_TtCopy.exit.i.thread
+  %.0112.i = phi i32 [ %.5.i, %42 ], [ %104, %Abc_TtCopy.exit.i.thread ]
+  %105 = icmp eq i32 %.0112.i, 0
+  br i1 %105, label %Abc_TtCofactorPerm.exit, label %Abc_TtCofactorPermConfig.exit.thread
 
-Abc_TtCofactorPermConfig.exit.thread:             ; preds = %48, %Abc_TtCofactorPermConfig.exit
-  %.0112.i92 = phi i32 [ %.0112.i, %Abc_TtCofactorPermConfig.exit ], [ 4, %48 ]
-  br label %112
+Abc_TtCofactorPermConfig.exit.thread:             ; preds = %42, %Abc_TtCofactorPermConfig.exit
+  %.0112.i99 = phi i32 [ %.0112.i, %Abc_TtCofactorPermConfig.exit ], [ 4, %42 ]
+  br label %106
 
-112:                                              ; preds = %115, %Abc_TtCofactorPermConfig.exit.thread
-  %indvars.iv.i.i = phi i64 [ %116, %115 ], [ %wide.trip.count24.i.i, %Abc_TtCofactorPermConfig.exit.thread ]
-  %113 = trunc nuw i64 %indvars.iv.i.i to i32
-  %114 = icmp sgt i32 %113, 0
-  br i1 %114, label %115, label %select.unfold.i
+106:                                              ; preds = %109, %Abc_TtCofactorPermConfig.exit.thread
+  %indvars.iv.i.i = phi i64 [ %110, %109 ], [ %wide.trip.count24.i.i, %Abc_TtCofactorPermConfig.exit.thread ]
+  %107 = trunc nuw i64 %indvars.iv.i.i to i32
+  %108 = icmp sgt i32 %107, 0
+  br i1 %108, label %109, label %select.unfold.i
 
-115:                                              ; preds = %112
-  %116 = add nsw i64 %indvars.iv.i.i, -1
-  %117 = getelementptr inbounds i64, ptr %0, i64 %116
-  %118 = load i64, ptr %117, align 8
-  %119 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %116
-  %120 = load i64, ptr %119, align 8
-  %.not.i.i = icmp eq i64 %118, %120
-  br i1 %.not.i.i, label %112, label %121, !llvm.loop !30
+109:                                              ; preds = %106
+  %110 = add nsw i64 %indvars.iv.i.i, -1
+  %111 = getelementptr inbounds i64, ptr %0, i64 %110
+  %112 = load i64, ptr %111, align 8
+  %113 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %110
+  %114 = load i64, ptr %113, align 8
+  %.not.i.i = icmp eq i64 %112, %114
+  br i1 %.not.i.i, label %106, label %115, !llvm.loop !30
 
-121:                                              ; preds = %115
-  %122 = icmp ult i64 %118, %120
-  br i1 %122, label %select.unfold.i, label %Abc_TtCompareRev.exit.i
+115:                                              ; preds = %109
+  %116 = icmp ult i64 %112, %114
+  br i1 %116, label %select.unfold.i, label %Abc_TtCompareRev.exit.i
 
-Abc_TtCompareRev.exit.i:                          ; preds = %121
+Abc_TtCompareRev.exit.i:                          ; preds = %115
   br i1 %14, label %.lr.ph18.i68.i, label %Abc_TtCofactorPerm.exit
 
 .lr.ph18.i68.i:                                   ; preds = %Abc_TtCompareRev.exit.i, %.lr.ph18.i68.i
   %indvars.iv21.i69.i = phi i64 [ %indvars.iv.next22.i70.i, %.lr.ph18.i68.i ], [ 0, %Abc_TtCompareRev.exit.i ]
-  %123 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69.i
-  %124 = load i64, ptr %123, align 8
-  %125 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69.i
-  store i64 %124, ptr %125, align 8
+  %117 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69.i
+  %118 = load i64, ptr %117, align 8
+  %119 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69.i
+  store i64 %118, ptr %119, align 8
   %indvars.iv.next22.i70.i = add nuw nsw i64 %indvars.iv21.i69.i, 1
   %exitcond25.not.i71.i = icmp eq i64 %indvars.iv.next22.i70.i, %wide.trip.count24.i.i
   br i1 %exitcond25.not.i71.i, label %Abc_TtCofactorPerm.exit, label %.lr.ph18.i68.i, !llvm.loop !18
 
-select.unfold.i:                                  ; preds = %112, %121
-  %126 = and i32 %.0112.i92, 1
-  %.not60.i = icmp eq i32 %126, 0
-  %127 = trunc nuw nsw i64 %indvars.iv to i32
-  %128 = shl nuw i32 1, %127
-  %129 = select i1 %.not60.i, i32 0, i32 %128
-  %130 = and i32 %.0112.i92, 2
-  %.not61.i = icmp eq i32 %130, 0
-  %131 = shl nuw i32 2, %127
-  %132 = select i1 %.not61.i, i32 0, i32 %131
-  %133 = xor i32 %132, %129
-  %.4 = xor i32 %133, %.188101
-  %134 = and i32 %.0112.i92, 4
-  %.not62.i = icmp eq i32 %134, 0
-  br i1 %.not62.i, label %Abc_TtCofactorPerm.exit, label %135
+select.unfold.i:                                  ; preds = %106, %115
+  %120 = and i32 %.0112.i99, 1
+  %.not60.i = icmp eq i32 %120, 0
+  %121 = trunc nuw nsw i64 %indvars.iv to i32
+  %122 = shl nuw i32 1, %121
+  %123 = select i1 %.not60.i, i32 0, i32 %122
+  %124 = and i32 %.0112.i99, 2
+  %.not61.i = icmp eq i32 %124, 0
+  %125 = shl nuw i32 2, %121
+  %126 = select i1 %.not61.i, i32 0, i32 %125
+  %127 = xor i32 %126, %123
+  %.397 = xor i32 %127, %.195108
+  %128 = and i32 %.0112.i99, 4
+  %.not62.i = icmp eq i32 %128, 0
+  br i1 %.not62.i, label %Abc_TtCofactorPerm.exit, label %129
 
-135:                                              ; preds = %select.unfold.i
-  %136 = lshr i32 %.4, %127
-  %137 = trunc nuw nsw i64 %22 to i32
-  %138 = lshr i32 %.4, %137
-  %139 = xor i32 %136, %138
-  %140 = and i32 %139, 1
-  %.not63.i = icmp eq i32 %140, 0
-  %141 = shl i32 3, %127
-  %142 = select i1 %.not63.i, i32 0, i32 %141
-  %.5 = xor i32 %142, %.4
-  %143 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
-  %144 = load i8, ptr %143, align 1
-  %145 = getelementptr inbounds i8, ptr %2, i64 %22
-  %146 = load i8, ptr %145, align 1
-  store i8 %146, ptr %143, align 1
-  store i8 %144, ptr %145, align 1
+129:                                              ; preds = %select.unfold.i
+  %130 = lshr i32 %.397, %121
+  %131 = trunc nuw nsw i64 %22 to i32
+  %132 = lshr i32 %.397, %131
+  %133 = xor i32 %130, %132
+  %134 = and i32 %133, 1
+  %.not63.i = icmp eq i32 %134, 0
+  br i1 %.not63.i, label %Abc_TtCopy.exit72.sink.split.i, label %Abc_TtCopy.exit72.sink.split.sink.split.i
+
+Abc_TtCopy.exit72.sink.split.sink.split.i:        ; preds = %129, %32
+  %.pre-phi130 = phi i32 [ %121, %129 ], [ %30, %32 ]
+  %.sink84.i = phi i32 [ %.397, %129 ], [ %.195108, %32 ]
+  %.0.ph.ph.i = phi i32 [ %.0112.i99, %129 ], [ %31, %32 ]
+  %135 = shl i32 3, %.pre-phi130
+  %136 = xor i32 %.sink84.i, %135
+  br label %Abc_TtCopy.exit72.sink.split.i
+
+Abc_TtCopy.exit72.sink.split.i:                   ; preds = %Abc_TtCopy.exit72.sink.split.sink.split.i, %129, %32
+  %.4 = phi i32 [ %.397, %129 ], [ %136, %Abc_TtCopy.exit72.sink.split.sink.split.i ], [ %.195108, %32 ]
+  %.0.ph.i = phi i32 [ %.0112.i99, %129 ], [ %.0.ph.ph.i, %Abc_TtCopy.exit72.sink.split.sink.split.i ], [ %31, %32 ]
+  %137 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv
+  %138 = load i8, ptr %137, align 1
+  %139 = getelementptr inbounds i8, ptr %2, i64 %22
+  %140 = load i8, ptr %139, align 1
+  store i8 %140, ptr %137, align 1
+  store i8 %138, ptr %139, align 1
   br label %Abc_TtCofactorPerm.exit
 
-Abc_TtCofactorPerm.exit:                          ; preds = %.lr.ph18.i68.i, %29, %32, %Abc_TtCofactorPermConfig.exit, %Abc_TtCompareRev.exit.i, %select.unfold.i, %135
-  %.6 = phi i32 [ %.188101, %Abc_TtCofactorPermConfig.exit ], [ %.4, %select.unfold.i ], [ %.5, %135 ], [ %.188101, %Abc_TtCompareRev.exit.i ], [ %.188101, %29 ], [ %.289, %32 ], [ %.188101, %.lr.ph18.i68.i ]
-  %.0.i = phi i32 [ 0, %Abc_TtCofactorPermConfig.exit ], [ %.0112.i92, %select.unfold.i ], [ %.0112.i92, %135 ], [ 0, %Abc_TtCompareRev.exit.i ], [ 0, %29 ], [ %31, %32 ], [ 0, %.lr.ph18.i68.i ]
-  %147 = or i32 %.0.i, %.0104
-  br label %148
+Abc_TtCofactorPerm.exit:                          ; preds = %.lr.ph18.i68.i, %29, %Abc_TtCofactorPermConfig.exit, %Abc_TtCompareRev.exit.i, %select.unfold.i, %Abc_TtCopy.exit72.sink.split.i
+  %.5 = phi i32 [ %.195108, %Abc_TtCofactorPermConfig.exit ], [ %.397, %select.unfold.i ], [ %.4, %Abc_TtCopy.exit72.sink.split.i ], [ %.195108, %Abc_TtCompareRev.exit.i ], [ %.195108, %29 ], [ %.195108, %.lr.ph18.i68.i ]
+  %.0.i = phi i32 [ 0, %Abc_TtCofactorPermConfig.exit ], [ %.0112.i99, %select.unfold.i ], [ %.0.ph.i, %Abc_TtCopy.exit72.sink.split.i ], [ 0, %Abc_TtCompareRev.exit.i ], [ 0, %29 ], [ 0, %.lr.ph18.i68.i ]
+  %141 = or i32 %.0.i, %.0111
+  br label %142
 
-148:                                              ; preds = %.lr.ph, %Abc_TtCofactorPerm.exit
-  %.7 = phi i32 [ %.6, %Abc_TtCofactorPerm.exit ], [ %.188101, %.lr.ph ]
-  %.1 = phi i32 [ %147, %Abc_TtCofactorPerm.exit ], [ %.0104, %.lr.ph ]
+142:                                              ; preds = %.lr.ph, %Abc_TtCofactorPerm.exit
+  %.6 = phi i32 [ %.5, %Abc_TtCofactorPerm.exit ], [ %.195108, %.lr.ph ]
+  %.1 = phi i32 [ %141, %Abc_TtCofactorPerm.exit ], [ %.0111, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %149 = icmp sgt i64 %indvars.iv, 0
-  br i1 %149, label %.lr.ph, label %._crit_edge, !llvm.loop !38
+  %143 = icmp sgt i64 %indvars.iv, 0
+  br i1 %143, label %.lr.ph, label %._crit_edge, !llvm.loop !38
 
-._crit_edge:                                      ; preds = %148
+._crit_edge:                                      ; preds = %142
   %.not = icmp eq i32 %.1, 0
   %brmerge = or i1 %.not, %17
-  br i1 %brmerge, label %._crit_edge.thread, label %.lr.ph109
+  br i1 %brmerge, label %._crit_edge.thread, label %.lr.ph116
 
-.lr.ph109:                                        ; preds = %._crit_edge, %277
-  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %277 ], [ 1, %._crit_edge ]
-  %.2108 = phi i32 [ %.3, %277 ], [ 0, %._crit_edge ]
-  %.8106 = phi i32 [ %.14, %277 ], [ %.7, %._crit_edge ]
-  %150 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv119
-  %151 = load i32, ptr %150, align 4
-  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
-  %152 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv.next120
-  %153 = load i32, ptr %152, align 4
-  %154 = icmp eq i32 %151, %153
-  br i1 %154, label %155, label %277
+.lr.ph116:                                        ; preds = %._crit_edge, %265
+  %indvars.iv126 = phi i64 [ %indvars.iv.next127, %265 ], [ 1, %._crit_edge ]
+  %.2115 = phi i32 [ %.3, %265 ], [ 0, %._crit_edge ]
+  %.7113 = phi i32 [ %.12, %265 ], [ %.6, %._crit_edge ]
+  %144 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv126
+  %145 = load i32, ptr %144, align 4
+  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %146 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv.next127
+  %147 = load i32, ptr %146, align 4
+  %148 = icmp eq i32 %145, %147
+  br i1 %148, label %149, label %265
 
-155:                                              ; preds = %.lr.ph109
-  %156 = load i32, ptr %13, align 4
-  %157 = sdiv i32 %156, 2
-  %.not96 = icmp eq i32 %151, %157
-  br i1 %.not96, label %173, label %158
+149:                                              ; preds = %.lr.ph116
+  %150 = load i32, ptr %13, align 4
+  %151 = sdiv i32 %150, 2
+  %.not103 = icmp eq i32 %145, %151
+  br i1 %.not103, label %161, label %152
 
-158:                                              ; preds = %155
-  %159 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %160 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %159, i32 noundef %8, i32 noundef 1, i32 noundef 0)
-  %.not64.i40 = icmp eq i32 %160, 0
-  br i1 %.not64.i40, label %Abc_TtCofactorPerm.exit62, label %161
+152:                                              ; preds = %149
+  %153 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %154 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %153, i32 noundef %8, i32 noundef 1, i32 noundef 0)
+  %.not64.i40 = icmp eq i32 %154, 0
+  br i1 %.not64.i40, label %Abc_TtCofactorPerm.exit69, label %155
 
-161:                                              ; preds = %158
-  %162 = lshr i32 %.8106, %159
-  %163 = trunc nuw nsw i64 %indvars.iv.next120 to i32
-  %164 = lshr i32 %.8106, %163
-  %165 = xor i32 %164, %162
-  %166 = and i32 %165, 1
-  %.not65.i41 = icmp eq i32 %166, 0
-  %167 = shl i32 3, %159
-  %168 = select i1 %.not65.i41, i32 0, i32 %167
-  %.9 = xor i32 %168, %.8106
-  %169 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv119
-  %170 = load i8, ptr %169, align 1
-  %171 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next120
-  %172 = load i8, ptr %171, align 1
-  store i8 %172, ptr %169, align 1
-  store i8 %170, ptr %171, align 1
-  br label %Abc_TtCofactorPerm.exit62
+155:                                              ; preds = %152
+  %156 = lshr i32 %.7113, %153
+  %157 = trunc nuw nsw i64 %indvars.iv.next127 to i32
+  %158 = lshr i32 %.7113, %157
+  %159 = xor i32 %158, %156
+  %160 = and i32 %159, 1
+  %.not65.i41 = icmp eq i32 %160, 0
+  br i1 %.not65.i41, label %Abc_TtCopy.exit72.sink.split.i46, label %Abc_TtCopy.exit72.sink.split.sink.split.i42
 
-173:                                              ; preds = %155
-  br i1 %14, label %.lr.ph18.i.i58, label %Abc_TtCopy.exit.i43.thread
+161:                                              ; preds = %149
+  br i1 %14, label %.lr.ph18.i.i65, label %Abc_TtCopy.exit.i50.thread
 
-.lr.ph18.i.i58:                                   ; preds = %173, %.lr.ph18.i.i58
-  %indvars.iv21.i.i59 = phi i64 [ %indvars.iv.next22.i.i60, %.lr.ph18.i.i58 ], [ 0, %173 ]
-  %174 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i.i59
-  %175 = load i64, ptr %174, align 8
-  %176 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i.i59
-  store i64 %175, ptr %176, align 8
-  %indvars.iv.next22.i.i60 = add nuw nsw i64 %indvars.iv21.i.i59, 1
-  %exitcond25.not.i.i61 = icmp eq i64 %indvars.iv.next22.i.i60, %wide.trip.count24.i.i
-  br i1 %exitcond25.not.i.i61, label %Abc_TtCopy.exit.i43, label %.lr.ph18.i.i58, !llvm.loop !18
+.lr.ph18.i.i65:                                   ; preds = %161, %.lr.ph18.i.i65
+  %indvars.iv21.i.i66 = phi i64 [ %indvars.iv.next22.i.i67, %.lr.ph18.i.i65 ], [ 0, %161 ]
+  %162 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i.i66
+  %163 = load i64, ptr %162, align 8
+  %164 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i.i66
+  store i64 %163, ptr %164, align 8
+  %indvars.iv.next22.i.i67 = add nuw nsw i64 %indvars.iv21.i.i66, 1
+  %exitcond25.not.i.i68 = icmp eq i64 %indvars.iv.next22.i.i67, %wide.trip.count24.i.i
+  br i1 %exitcond25.not.i.i68, label %Abc_TtCopy.exit.i50, label %.lr.ph18.i.i65, !llvm.loop !18
 
-Abc_TtCopy.exit.i43:                              ; preds = %.lr.ph18.i.i58
-  br i1 %15, label %177, label %Abc_TtCopy.exit.i43.thread
+Abc_TtCopy.exit.i50:                              ; preds = %.lr.ph18.i.i65
+  br i1 %15, label %165, label %Abc_TtCopy.exit.i50.thread
 
-177:                                              ; preds = %Abc_TtCopy.exit.i43
-  %178 = load i64, ptr %0, align 8
-  %179 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %180 = shl nuw i32 1, %179
-  %181 = zext i32 %180 to i64
-  %182 = shl i64 %178, %181
-  %183 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv119
-  %184 = load i64, ptr %183, align 8
-  %185 = and i64 %184, %182
-  %186 = and i64 %184, %178
-  %187 = lshr i64 %186, %181
-  %188 = or i64 %187, %185
-  %189 = icmp ugt i64 %178, %188
-  %spec.select.i65 = call i64 @llvm.umin.i64(i64 %178, i64 %188)
-  %spec.select66.i66 = zext i1 %189 to i32
-  %190 = shl nuw i32 2, %179
-  %191 = zext i32 %190 to i64
-  %192 = shl i64 %188, %191
-  %193 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next120
-  %194 = load i64, ptr %193, align 8
-  %195 = and i64 %192, %194
-  %196 = and i64 %188, %194
-  %197 = lshr i64 %196, %191
-  %198 = or i64 %197, %195
-  %199 = icmp ugt i64 %spec.select.i65, %198
-  %.150.i67 = call i64 @llvm.umin.i64(i64 %spec.select.i65, i64 %198)
-  %.1.i68 = select i1 %199, i32 3, i32 %spec.select66.i66
-  %200 = shl i64 %198, %181
-  %201 = and i64 %200, %184
-  %202 = and i64 %198, %184
-  %203 = lshr i64 %202, %181
-  %204 = or i64 %203, %201
-  %205 = icmp ugt i64 %.150.i67, %204
-  %.251.i69 = call i64 @llvm.umin.i64(i64 %.150.i67, i64 %204)
-  %.2.i70 = select i1 %205, i32 2, i32 %.1.i68
-  %206 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv119
-  %207 = load i64, ptr %206, align 8
-  %208 = and i64 %204, %207
-  %209 = getelementptr inbounds i8, ptr %206, i64 8
-  %210 = load i64, ptr %209, align 8
-  %211 = and i64 %204, %210
-  %212 = shl i64 %211, %181
-  %213 = or i64 %212, %208
-  %214 = getelementptr inbounds i8, ptr %206, i64 16
-  %215 = load i64, ptr %214, align 8
-  %216 = and i64 %204, %215
-  %217 = lshr i64 %216, %181
-  %218 = or i64 %213, %217
-  %219 = icmp ugt i64 %.251.i69, %218
-  %.352.i71 = call i64 @llvm.umin.i64(i64 %.251.i69, i64 %218)
-  %.3.i72 = select i1 %219, i32 6, i32 %.2.i70
-  %220 = shl i64 %218, %191
-  %221 = and i64 %220, %194
-  %222 = and i64 %218, %194
-  %223 = lshr i64 %222, %191
+165:                                              ; preds = %Abc_TtCopy.exit.i50
+  %166 = load i64, ptr %0, align 8
+  %167 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %168 = shl nuw i32 1, %167
+  %169 = zext i32 %168 to i64
+  %170 = shl i64 %166, %169
+  %171 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv126
+  %172 = load i64, ptr %171, align 8
+  %173 = and i64 %172, %170
+  %174 = and i64 %172, %166
+  %175 = lshr i64 %174, %169
+  %176 = or i64 %175, %173
+  %177 = icmp ugt i64 %166, %176
+  %spec.select.i72 = call i64 @llvm.umin.i64(i64 %166, i64 %176)
+  %spec.select66.i73 = zext i1 %177 to i32
+  %178 = shl nuw i32 2, %167
+  %179 = zext i32 %178 to i64
+  %180 = shl i64 %176, %179
+  %181 = getelementptr inbounds [6 x i64], ptr @s_Truths6, i64 0, i64 %indvars.iv.next127
+  %182 = load i64, ptr %181, align 8
+  %183 = and i64 %180, %182
+  %184 = and i64 %176, %182
+  %185 = lshr i64 %184, %179
+  %186 = or i64 %185, %183
+  %187 = icmp ugt i64 %spec.select.i72, %186
+  %.150.i74 = call i64 @llvm.umin.i64(i64 %spec.select.i72, i64 %186)
+  %.1.i75 = select i1 %187, i32 3, i32 %spec.select66.i73
+  %188 = shl i64 %186, %169
+  %189 = and i64 %188, %172
+  %190 = and i64 %186, %172
+  %191 = lshr i64 %190, %169
+  %192 = or i64 %191, %189
+  %193 = icmp ugt i64 %.150.i74, %192
+  %.251.i76 = call i64 @llvm.umin.i64(i64 %.150.i74, i64 %192)
+  %.2.i77 = select i1 %193, i32 2, i32 %.1.i75
+  %194 = getelementptr inbounds [5 x [3 x i64]], ptr @s_PMasks, i64 0, i64 %indvars.iv126
+  %195 = load i64, ptr %194, align 8
+  %196 = and i64 %192, %195
+  %197 = getelementptr inbounds i8, ptr %194, i64 8
+  %198 = load i64, ptr %197, align 8
+  %199 = and i64 %192, %198
+  %200 = shl i64 %199, %169
+  %201 = or i64 %200, %196
+  %202 = getelementptr inbounds i8, ptr %194, i64 16
+  %203 = load i64, ptr %202, align 8
+  %204 = and i64 %192, %203
+  %205 = lshr i64 %204, %169
+  %206 = or i64 %201, %205
+  %207 = icmp ugt i64 %.251.i76, %206
+  %.352.i78 = call i64 @llvm.umin.i64(i64 %.251.i76, i64 %206)
+  %.3.i79 = select i1 %207, i32 6, i32 %.2.i77
+  %208 = shl i64 %206, %179
+  %209 = and i64 %208, %182
+  %210 = and i64 %206, %182
+  %211 = lshr i64 %210, %179
+  %212 = or i64 %211, %209
+  %213 = icmp ugt i64 %.352.i78, %212
+  %.453.i80 = call i64 @llvm.umin.i64(i64 %.352.i78, i64 %212)
+  %.4.i81 = select i1 %213, i32 7, i32 %.3.i79
+  %214 = shl i64 %212, %169
+  %215 = and i64 %214, %172
+  %216 = and i64 %212, %172
+  %217 = lshr i64 %216, %169
+  %218 = or i64 %217, %215
+  %219 = icmp ugt i64 %.453.i80, %218
+  %.554.i82 = call i64 @llvm.umin.i64(i64 %.453.i80, i64 %218)
+  %.5.i83 = select i1 %219, i32 5, i32 %.4.i81
+  %220 = shl i64 %218, %179
+  %221 = and i64 %220, %182
+  %222 = and i64 %218, %182
+  %223 = lshr i64 %222, %179
   %224 = or i64 %223, %221
-  %225 = icmp ugt i64 %.352.i71, %224
-  %.453.i73 = call i64 @llvm.umin.i64(i64 %.352.i71, i64 %224)
-  %.4.i74 = select i1 %225, i32 7, i32 %.3.i72
-  %226 = shl i64 %224, %181
-  %227 = and i64 %226, %184
-  %228 = and i64 %224, %184
-  %229 = lshr i64 %228, %181
-  %230 = or i64 %229, %227
-  %231 = icmp ugt i64 %.453.i73, %230
-  %.554.i75 = call i64 @llvm.umin.i64(i64 %.453.i73, i64 %230)
-  %.5.i76 = select i1 %231, i32 5, i32 %.4.i74
-  %232 = shl i64 %230, %191
-  %233 = and i64 %232, %194
-  %234 = and i64 %230, %194
-  %235 = lshr i64 %234, %191
-  %236 = or i64 %235, %233
-  %237 = icmp ugt i64 %.554.i75, %236
-  %.655.i77 = call i64 @llvm.umin.i64(i64 %.554.i75, i64 %236)
-  store i64 %.655.i77, ptr %0, align 8
-  br i1 %237, label %Abc_TtCofactorPermConfig.exit64.thread, label %Abc_TtCofactorPermConfig.exit64
+  %225 = icmp ugt i64 %.554.i82, %224
+  %.655.i84 = call i64 @llvm.umin.i64(i64 %.554.i82, i64 %224)
+  store i64 %.655.i84, ptr %0, align 8
+  br i1 %225, label %Abc_TtCofactorPermConfig.exit71.thread, label %Abc_TtCofactorPermConfig.exit71
 
-Abc_TtCopy.exit.i43.thread:                       ; preds = %173, %Abc_TtCopy.exit.i43
-  %238 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %239 = call i32 @Abc_TtCofactorPermNaive(ptr noundef %0, i32 noundef %238, i32 noundef %8, i32 noundef 0)
-  br label %Abc_TtCofactorPermConfig.exit64
+Abc_TtCopy.exit.i50.thread:                       ; preds = %161, %Abc_TtCopy.exit.i50
+  %226 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %227 = call i32 @Abc_TtCofactorPermNaive(ptr noundef %0, i32 noundef %226, i32 noundef %8, i32 noundef 0)
+  br label %Abc_TtCofactorPermConfig.exit71
 
-Abc_TtCofactorPermConfig.exit64:                  ; preds = %177, %Abc_TtCopy.exit.i43.thread
-  %.0112.i63 = phi i32 [ %.5.i76, %177 ], [ %239, %Abc_TtCopy.exit.i43.thread ]
-  %240 = icmp eq i32 %.0112.i63, 0
-  br i1 %240, label %Abc_TtCofactorPerm.exit62, label %Abc_TtCofactorPermConfig.exit64.thread
+Abc_TtCofactorPermConfig.exit71:                  ; preds = %165, %Abc_TtCopy.exit.i50.thread
+  %.0112.i70 = phi i32 [ %.5.i83, %165 ], [ %227, %Abc_TtCopy.exit.i50.thread ]
+  %228 = icmp eq i32 %.0112.i70, 0
+  br i1 %228, label %Abc_TtCofactorPerm.exit69, label %Abc_TtCofactorPermConfig.exit71.thread
 
-Abc_TtCofactorPermConfig.exit64.thread:           ; preds = %177, %Abc_TtCofactorPermConfig.exit64
-  %.0112.i6395 = phi i32 [ %.0112.i63, %Abc_TtCofactorPermConfig.exit64 ], [ 4, %177 ]
-  br label %241
+Abc_TtCofactorPermConfig.exit71.thread:           ; preds = %165, %Abc_TtCofactorPermConfig.exit71
+  %.0112.i70102 = phi i32 [ %.0112.i70, %Abc_TtCofactorPermConfig.exit71 ], [ 4, %165 ]
+  br label %229
 
-241:                                              ; preds = %244, %Abc_TtCofactorPermConfig.exit64.thread
-  %indvars.iv.i.i44 = phi i64 [ %245, %244 ], [ %wide.trip.count24.i.i, %Abc_TtCofactorPermConfig.exit64.thread ]
-  %242 = trunc nuw i64 %indvars.iv.i.i44 to i32
-  %243 = icmp sgt i32 %242, 0
-  br i1 %243, label %244, label %select.unfold.i45
+229:                                              ; preds = %232, %Abc_TtCofactorPermConfig.exit71.thread
+  %indvars.iv.i.i51 = phi i64 [ %233, %232 ], [ %wide.trip.count24.i.i, %Abc_TtCofactorPermConfig.exit71.thread ]
+  %230 = trunc nuw i64 %indvars.iv.i.i51 to i32
+  %231 = icmp sgt i32 %230, 0
+  br i1 %231, label %232, label %select.unfold.i52
 
-244:                                              ; preds = %241
-  %245 = add nsw i64 %indvars.iv.i.i44, -1
-  %246 = getelementptr inbounds i64, ptr %0, i64 %245
-  %247 = load i64, ptr %246, align 8
-  %248 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %245
-  %249 = load i64, ptr %248, align 8
-  %.not.i.i50 = icmp eq i64 %247, %249
-  br i1 %.not.i.i50, label %241, label %250, !llvm.loop !30
+232:                                              ; preds = %229
+  %233 = add nsw i64 %indvars.iv.i.i51, -1
+  %234 = getelementptr inbounds i64, ptr %0, i64 %233
+  %235 = load i64, ptr %234, align 8
+  %236 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %233
+  %237 = load i64, ptr %236, align 8
+  %.not.i.i57 = icmp eq i64 %235, %237
+  br i1 %.not.i.i57, label %229, label %238, !llvm.loop !30
 
-250:                                              ; preds = %244
-  %251 = icmp ult i64 %247, %249
-  br i1 %251, label %select.unfold.i45, label %Abc_TtCompareRev.exit.i51
+238:                                              ; preds = %232
+  %239 = icmp ult i64 %235, %237
+  br i1 %239, label %select.unfold.i52, label %Abc_TtCompareRev.exit.i58
 
-Abc_TtCompareRev.exit.i51:                        ; preds = %250
-  br i1 %14, label %.lr.ph18.i68.i52, label %Abc_TtCofactorPerm.exit62
+Abc_TtCompareRev.exit.i58:                        ; preds = %238
+  br i1 %14, label %.lr.ph18.i68.i59, label %Abc_TtCofactorPerm.exit69
 
-.lr.ph18.i68.i52:                                 ; preds = %Abc_TtCompareRev.exit.i51, %.lr.ph18.i68.i52
-  %indvars.iv21.i69.i53 = phi i64 [ %indvars.iv.next22.i70.i54, %.lr.ph18.i68.i52 ], [ 0, %Abc_TtCompareRev.exit.i51 ]
-  %252 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69.i53
-  %253 = load i64, ptr %252, align 8
-  %254 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69.i53
-  store i64 %253, ptr %254, align 8
-  %indvars.iv.next22.i70.i54 = add nuw nsw i64 %indvars.iv21.i69.i53, 1
-  %exitcond25.not.i71.i55 = icmp eq i64 %indvars.iv.next22.i70.i54, %wide.trip.count24.i.i
-  br i1 %exitcond25.not.i71.i55, label %Abc_TtCofactorPerm.exit62, label %.lr.ph18.i68.i52, !llvm.loop !18
+.lr.ph18.i68.i59:                                 ; preds = %Abc_TtCompareRev.exit.i58, %.lr.ph18.i68.i59
+  %indvars.iv21.i69.i60 = phi i64 [ %indvars.iv.next22.i70.i61, %.lr.ph18.i68.i59 ], [ 0, %Abc_TtCompareRev.exit.i58 ]
+  %240 = getelementptr inbounds i64, ptr @Abc_TtCofactorPerm.pCopy1, i64 %indvars.iv21.i69.i60
+  %241 = load i64, ptr %240, align 8
+  %242 = getelementptr inbounds i64, ptr %0, i64 %indvars.iv21.i69.i60
+  store i64 %241, ptr %242, align 8
+  %indvars.iv.next22.i70.i61 = add nuw nsw i64 %indvars.iv21.i69.i60, 1
+  %exitcond25.not.i71.i62 = icmp eq i64 %indvars.iv.next22.i70.i61, %wide.trip.count24.i.i
+  br i1 %exitcond25.not.i71.i62, label %Abc_TtCofactorPerm.exit69, label %.lr.ph18.i68.i59, !llvm.loop !18
 
-select.unfold.i45:                                ; preds = %241, %250
-  %255 = and i32 %.0112.i6395, 1
-  %.not60.i46 = icmp eq i32 %255, 0
-  %256 = trunc nuw nsw i64 %indvars.iv119 to i32
-  %257 = shl nuw i32 1, %256
-  %258 = select i1 %.not60.i46, i32 0, i32 %257
-  %259 = and i32 %.0112.i6395, 2
-  %.not61.i47 = icmp eq i32 %259, 0
-  %260 = shl nuw i32 2, %256
-  %261 = select i1 %.not61.i47, i32 0, i32 %260
-  %262 = xor i32 %261, %258
-  %.11 = xor i32 %262, %.8106
-  %263 = and i32 %.0112.i6395, 4
-  %.not62.i48 = icmp eq i32 %263, 0
-  br i1 %.not62.i48, label %Abc_TtCofactorPerm.exit62, label %264
+select.unfold.i52:                                ; preds = %229, %238
+  %243 = and i32 %.0112.i70102, 1
+  %.not60.i53 = icmp eq i32 %243, 0
+  %244 = trunc nuw nsw i64 %indvars.iv126 to i32
+  %245 = shl nuw i32 1, %244
+  %246 = select i1 %.not60.i53, i32 0, i32 %245
+  %247 = and i32 %.0112.i70102, 2
+  %.not61.i54 = icmp eq i32 %247, 0
+  %248 = shl nuw i32 2, %244
+  %249 = select i1 %.not61.i54, i32 0, i32 %248
+  %250 = xor i32 %249, %246
+  %.9 = xor i32 %250, %.7113
+  %251 = and i32 %.0112.i70102, 4
+  %.not62.i55 = icmp eq i32 %251, 0
+  br i1 %.not62.i55, label %Abc_TtCofactorPerm.exit69, label %252
 
-264:                                              ; preds = %select.unfold.i45
-  %265 = lshr i32 %.11, %256
-  %266 = trunc nuw nsw i64 %indvars.iv.next120 to i32
-  %267 = lshr i32 %.11, %266
-  %268 = xor i32 %265, %267
-  %269 = and i32 %268, 1
-  %.not63.i49 = icmp eq i32 %269, 0
-  %270 = shl i32 3, %256
-  %271 = select i1 %.not63.i49, i32 0, i32 %270
-  %.12 = xor i32 %271, %.11
-  %272 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv119
-  %273 = load i8, ptr %272, align 1
-  %274 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next120
-  %275 = load i8, ptr %274, align 1
-  store i8 %275, ptr %272, align 1
-  store i8 %273, ptr %274, align 1
-  br label %Abc_TtCofactorPerm.exit62
+252:                                              ; preds = %select.unfold.i52
+  %253 = lshr i32 %.9, %244
+  %254 = trunc nuw nsw i64 %indvars.iv.next127 to i32
+  %255 = lshr i32 %.9, %254
+  %256 = xor i32 %253, %255
+  %257 = and i32 %256, 1
+  %.not63.i56 = icmp eq i32 %257, 0
+  br i1 %.not63.i56, label %Abc_TtCopy.exit72.sink.split.i46, label %Abc_TtCopy.exit72.sink.split.sink.split.i42
 
-Abc_TtCofactorPerm.exit62:                        ; preds = %.lr.ph18.i68.i52, %158, %161, %Abc_TtCofactorPermConfig.exit64, %Abc_TtCompareRev.exit.i51, %select.unfold.i45, %264
-  %.13 = phi i32 [ %.8106, %Abc_TtCofactorPermConfig.exit64 ], [ %.11, %select.unfold.i45 ], [ %.12, %264 ], [ %.8106, %Abc_TtCompareRev.exit.i51 ], [ %.8106, %158 ], [ %.9, %161 ], [ %.8106, %.lr.ph18.i68.i52 ]
-  %.0.i42 = phi i32 [ 0, %Abc_TtCofactorPermConfig.exit64 ], [ %.0112.i6395, %select.unfold.i45 ], [ %.0112.i6395, %264 ], [ 0, %Abc_TtCompareRev.exit.i51 ], [ 0, %158 ], [ %160, %161 ], [ 0, %.lr.ph18.i68.i52 ]
-  %276 = or i32 %.0.i42, %.2108
-  br label %277
+Abc_TtCopy.exit72.sink.split.sink.split.i42:      ; preds = %252, %155
+  %.pre-phi = phi i32 [ %244, %252 ], [ %153, %155 ]
+  %.sink84.i43 = phi i32 [ %.9, %252 ], [ %.7113, %155 ]
+  %.0.ph.ph.i45 = phi i32 [ %.0112.i70102, %252 ], [ %154, %155 ]
+  %258 = shl i32 3, %.pre-phi
+  %259 = xor i32 %.sink84.i43, %258
+  br label %Abc_TtCopy.exit72.sink.split.i46
 
-277:                                              ; preds = %.lr.ph109, %Abc_TtCofactorPerm.exit62
-  %.14 = phi i32 [ %.13, %Abc_TtCofactorPerm.exit62 ], [ %.8106, %.lr.ph109 ]
-  %.3 = phi i32 [ %276, %Abc_TtCofactorPerm.exit62 ], [ %.2108, %.lr.ph109 ]
-  %exitcond.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge110, label %.lr.ph109, !llvm.loop !39
+Abc_TtCopy.exit72.sink.split.i46:                 ; preds = %Abc_TtCopy.exit72.sink.split.sink.split.i42, %252, %155
+  %.10 = phi i32 [ %.9, %252 ], [ %259, %Abc_TtCopy.exit72.sink.split.sink.split.i42 ], [ %.7113, %155 ]
+  %.0.ph.i48 = phi i32 [ %.0112.i70102, %252 ], [ %.0.ph.ph.i45, %Abc_TtCopy.exit72.sink.split.sink.split.i42 ], [ %154, %155 ]
+  %260 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv126
+  %261 = load i8, ptr %260, align 1
+  %262 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next127
+  %263 = load i8, ptr %262, align 1
+  store i8 %263, ptr %260, align 1
+  store i8 %261, ptr %262, align 1
+  br label %Abc_TtCofactorPerm.exit69
 
-._crit_edge110:                                   ; preds = %277
+Abc_TtCofactorPerm.exit69:                        ; preds = %.lr.ph18.i68.i59, %152, %Abc_TtCofactorPermConfig.exit71, %Abc_TtCompareRev.exit.i58, %select.unfold.i52, %Abc_TtCopy.exit72.sink.split.i46
+  %.11 = phi i32 [ %.7113, %Abc_TtCofactorPermConfig.exit71 ], [ %.9, %select.unfold.i52 ], [ %.10, %Abc_TtCopy.exit72.sink.split.i46 ], [ %.7113, %Abc_TtCompareRev.exit.i58 ], [ %.7113, %152 ], [ %.7113, %.lr.ph18.i68.i59 ]
+  %.0.i49 = phi i32 [ 0, %Abc_TtCofactorPermConfig.exit71 ], [ %.0112.i70102, %select.unfold.i52 ], [ %.0.ph.i48, %Abc_TtCopy.exit72.sink.split.i46 ], [ 0, %Abc_TtCompareRev.exit.i58 ], [ 0, %152 ], [ 0, %.lr.ph18.i68.i59 ]
+  %264 = or i32 %.0.i49, %.2115
+  br label %265
+
+265:                                              ; preds = %.lr.ph116, %Abc_TtCofactorPerm.exit69
+  %.12 = phi i32 [ %.11, %Abc_TtCofactorPerm.exit69 ], [ %.7113, %.lr.ph116 ]
+  %.3 = phi i32 [ %264, %Abc_TtCofactorPerm.exit69 ], [ %.2115, %.lr.ph116 ]
+  %exitcond.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge117, label %.lr.ph116, !llvm.loop !39
+
+._crit_edge117:                                   ; preds = %265
   %.not38 = icmp eq i32 %.3, 0
-  %278 = add nuw nsw i32 %.035114, 1
-  %exitcond122.not = icmp eq i32 %278, 5
-  %or.cond = select i1 %.not38, i1 true, i1 %exitcond122.not
+  %266 = add nuw nsw i32 %.035121, 1
+  %exitcond129.not = icmp eq i32 %266, 5
+  %or.cond = select i1 %.not38, i1 true, i1 %exitcond129.not
   br i1 %or.cond, label %._crit_edge.thread, label %19, !llvm.loop !40
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %19, %._crit_edge110
-  %.15 = phi i32 [ %.7, %._crit_edge ], [ %.14, %._crit_edge110 ], [ %.087113, %19 ]
-  ret i32 %.15
+._crit_edge.thread:                               ; preds = %._crit_edge, %19, %._crit_edge117
+  %.13 = phi i32 [ %.6, %._crit_edge ], [ %.12, %._crit_edge117 ], [ %.094120, %19 ]
+  ret i32 %.13
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4415,129 +4405,129 @@ define i32 @Abc_TtCanonicizePerm(ptr noundef %0, i32 noundef %1, ptr nocapture n
   %12 = call fastcc i32 @Abc_TtSemiCanonicize(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull %4, i32 noundef 1)
   %13 = icmp sgt i32 %1, 1
   %14 = icmp slt i32 %1, 3
-  br i1 %13, label %.lr.ph57.us.preheader, label %.split70.us
+  br i1 %13, label %.lr.ph59.us.preheader, label %.split72.us
 
-.lr.ph57.us.preheader:                            ; preds = %._crit_edge
+.lr.ph59.us.preheader:                            ; preds = %._crit_edge
   %15 = add nsw i32 %1, -1
   %16 = add nsw i32 %1, -2
   %17 = zext nneg i32 %16 to i64
-  %wide.trip.count100 = zext nneg i32 %15 to i64
-  br label %.lr.ph57.us
+  %wide.trip.count103 = zext nneg i32 %15 to i64
+  br label %.lr.ph59.us
 
-.lr.ph57.us:                                      ; preds = %.lr.ph57.us.preheader, %._crit_edge64.us
-  %.03868.us = phi i32 [ %18, %._crit_edge64.us ], [ 0, %.lr.ph57.us.preheader ]
-  %.04767.us = phi i32 [ %.8.us, %._crit_edge64.us ], [ %12, %.lr.ph57.us.preheader ]
-  br label %42
-
-._crit_edge64.us:                                 ; preds = %41
-  %.not40.us = icmp ne i32 %.3.us, 0
-  %18 = add nuw nsw i32 %.03868.us, 1
-  %19 = icmp ult i32 %.03868.us, 4
-  %or.cond = select i1 %.not40.us, i1 %19, i1 false
-  br i1 %or.cond, label %.lr.ph57.us, label %.split70.us, !llvm.loop !47
-
-.lr.ph63.us:                                      ; preds = %._crit_edge58.us, %41
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %41 ], [ 1, %._crit_edge58.us ]
-  %.262.us = phi i32 [ %.3.us, %41 ], [ 0, %._crit_edge58.us ]
-  %.560.us = phi i32 [ %.8.us, %41 ], [ %.4.us, %._crit_edge58.us ]
-  %20 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv97
-  %21 = load i32, ptr %20, align 4
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %22 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv.next98
-  %23 = load i32, ptr %22, align 4
-  %24 = icmp eq i32 %21, %23
-  br i1 %24, label %25, label %41
-
-25:                                               ; preds = %.lr.ph63.us
-  %26 = trunc nuw nsw i64 %indvars.iv97 to i32
-  %27 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %26, i32 noundef %8, i32 noundef 1, i32 noundef 0)
-  %.not64.i41.us = icmp eq i32 %27, 0
-  br i1 %.not64.i41.us, label %Abc_TtCofactorPerm.exit44.us, label %28
-
-28:                                               ; preds = %25
-  %29 = lshr i32 %.560.us, %26
-  %30 = trunc nuw nsw i64 %indvars.iv.next98 to i32
-  %31 = lshr i32 %.560.us, %30
-  %32 = xor i32 %31, %29
-  %33 = and i32 %32, 1
-  %.not65.i42.us = icmp eq i32 %33, 0
-  %34 = shl i32 3, %26
-  %35 = select i1 %.not65.i42.us, i32 0, i32 %34
-  %.6.us = xor i32 %35, %.560.us
-  %36 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv97
-  %37 = load i8, ptr %36, align 1
-  %38 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next98
-  %39 = load i8, ptr %38, align 1
-  store i8 %39, ptr %36, align 1
-  store i8 %37, ptr %38, align 1
-  br label %Abc_TtCofactorPerm.exit44.us
-
-Abc_TtCofactorPerm.exit44.us:                     ; preds = %28, %25
-  %.7.us = phi i32 [ %.560.us, %25 ], [ %.6.us, %28 ]
-  %40 = or i32 %27, %.262.us
+.lr.ph59.us:                                      ; preds = %.lr.ph59.us.preheader, %._crit_edge66.us
+  %.03870.us = phi i32 [ %18, %._crit_edge66.us ], [ 0, %.lr.ph59.us.preheader ]
+  %.04969.us = phi i32 [ %.8.us, %._crit_edge66.us ], [ %12, %.lr.ph59.us.preheader ]
   br label %41
 
-41:                                               ; preds = %Abc_TtCofactorPerm.exit44.us, %.lr.ph63.us
-  %.8.us = phi i32 [ %.7.us, %Abc_TtCofactorPerm.exit44.us ], [ %.560.us, %.lr.ph63.us ]
-  %.3.us = phi i32 [ %40, %Abc_TtCofactorPerm.exit44.us ], [ %.262.us, %.lr.ph63.us ]
-  %exitcond101.not = icmp eq i64 %indvars.iv.next98, %wide.trip.count100
-  br i1 %exitcond101.not, label %._crit_edge64.us, label %.lr.ph63.us, !llvm.loop !48
+._crit_edge66.us:                                 ; preds = %40
+  %.not40.us = icmp ne i32 %.3.us, 0
+  %18 = add nuw nsw i32 %.03870.us, 1
+  %19 = icmp ult i32 %.03870.us, 4
+  %or.cond = select i1 %.not40.us, i1 %19, i1 false
+  br i1 %or.cond, label %.lr.ph59.us, label %.split72.us, !llvm.loop !47
 
-42:                                               ; preds = %.lr.ph57.us, %65
-  %indvars.iv94 = phi i64 [ %17, %.lr.ph57.us ], [ %indvars.iv.next95, %65 ]
-  %.055.us = phi i32 [ 0, %.lr.ph57.us ], [ %.1.us, %65 ]
-  %.14852.us = phi i32 [ %.04767.us, %.lr.ph57.us ], [ %.4.us, %65 ]
-  %43 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv94
-  %44 = load i32, ptr %43, align 4
-  %45 = add nuw nsw i64 %indvars.iv94, 1
-  %46 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %45
-  %47 = load i32, ptr %46, align 4
-  %48 = icmp eq i32 %44, %47
-  br i1 %48, label %49, label %65
+.lr.ph65.us:                                      ; preds = %._crit_edge60.us, %40
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %40 ], [ 1, %._crit_edge60.us ]
+  %.264.us = phi i32 [ %.3.us, %40 ], [ 0, %._crit_edge60.us ]
+  %.562.us = phi i32 [ %.8.us, %40 ], [ %.4.us, %._crit_edge60.us ]
+  %20 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv100
+  %21 = load i32, ptr %20, align 4
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %22 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv.next101
+  %23 = load i32, ptr %22, align 4
+  %24 = icmp eq i32 %21, %23
+  br i1 %24, label %25, label %40
 
-49:                                               ; preds = %42
-  %50 = trunc nuw nsw i64 %indvars.iv94 to i32
-  %51 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %50, i32 noundef %8, i32 noundef 1, i32 noundef 0)
-  %.not64.i.us = icmp eq i32 %51, 0
-  br i1 %.not64.i.us, label %Abc_TtCofactorPerm.exit.us, label %52
+25:                                               ; preds = %.lr.ph65.us
+  %26 = trunc nuw nsw i64 %indvars.iv100 to i32
+  %27 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %26, i32 noundef %8, i32 noundef 1, i32 noundef 0)
+  %.not64.i41.us = icmp eq i32 %27, 0
+  br i1 %.not64.i41.us, label %Abc_TtCofactorPerm.exit46.us, label %Abc_TtCopy.exit72.sink.split.i44.us
 
-52:                                               ; preds = %49
-  %53 = lshr i32 %.14852.us, %50
-  %54 = trunc nuw nsw i64 %45 to i32
-  %55 = lshr i32 %.14852.us, %54
-  %56 = xor i32 %55, %53
-  %57 = and i32 %56, 1
-  %.not65.i.us = icmp eq i32 %57, 0
-  %58 = shl i32 3, %50
-  %59 = select i1 %.not65.i.us, i32 0, i32 %58
-  %.249.us = xor i32 %59, %.14852.us
-  %60 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv94
+Abc_TtCopy.exit72.sink.split.i44.us:              ; preds = %25
+  %28 = lshr i32 %.562.us, %26
+  %29 = trunc nuw nsw i64 %indvars.iv.next101 to i32
+  %30 = lshr i32 %.562.us, %29
+  %31 = xor i32 %30, %28
+  %32 = and i32 %31, 1
+  %.not65.i42.us = icmp eq i32 %32, 0
+  %33 = shl i32 3, %26
+  %34 = select i1 %.not65.i42.us, i32 0, i32 %33
+  %.6.us = xor i32 %34, %.562.us
+  %35 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv100
+  %36 = load i8, ptr %35, align 1
+  %37 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv.next101
+  %38 = load i8, ptr %37, align 1
+  store i8 %38, ptr %35, align 1
+  store i8 %36, ptr %37, align 1
+  br label %Abc_TtCofactorPerm.exit46.us
+
+Abc_TtCofactorPerm.exit46.us:                     ; preds = %Abc_TtCopy.exit72.sink.split.i44.us, %25
+  %.7.us = phi i32 [ %.562.us, %25 ], [ %.6.us, %Abc_TtCopy.exit72.sink.split.i44.us ]
+  %39 = or i32 %27, %.264.us
+  br label %40
+
+40:                                               ; preds = %Abc_TtCofactorPerm.exit46.us, %.lr.ph65.us
+  %.8.us = phi i32 [ %.7.us, %Abc_TtCofactorPerm.exit46.us ], [ %.562.us, %.lr.ph65.us ]
+  %.3.us = phi i32 [ %39, %Abc_TtCofactorPerm.exit46.us ], [ %.264.us, %.lr.ph65.us ]
+  %exitcond104.not = icmp eq i64 %indvars.iv.next101, %wide.trip.count103
+  br i1 %exitcond104.not, label %._crit_edge66.us, label %.lr.ph65.us, !llvm.loop !48
+
+41:                                               ; preds = %.lr.ph59.us, %63
+  %indvars.iv97 = phi i64 [ %17, %.lr.ph59.us ], [ %indvars.iv.next98, %63 ]
+  %.057.us = phi i32 [ 0, %.lr.ph59.us ], [ %.1.us, %63 ]
+  %.15054.us = phi i32 [ %.04969.us, %.lr.ph59.us ], [ %.4.us, %63 ]
+  %42 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %indvars.iv97
+  %43 = load i32, ptr %42, align 4
+  %44 = add nuw nsw i64 %indvars.iv97, 1
+  %45 = getelementptr inbounds [17 x i32], ptr %4, i64 0, i64 %44
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %43, %46
+  br i1 %47, label %48, label %63
+
+48:                                               ; preds = %41
+  %49 = trunc nuw nsw i64 %indvars.iv97 to i32
+  %50 = call i32 @Abc_TtCofactorPermConfig(ptr noundef %0, i32 noundef %49, i32 noundef %8, i32 noundef 1, i32 noundef 0)
+  %.not64.i.us = icmp eq i32 %50, 0
+  br i1 %.not64.i.us, label %Abc_TtCofactorPerm.exit.us, label %Abc_TtCopy.exit72.sink.split.i.us
+
+Abc_TtCopy.exit72.sink.split.i.us:                ; preds = %48
+  %51 = lshr i32 %.15054.us, %49
+  %52 = trunc nuw nsw i64 %44 to i32
+  %53 = lshr i32 %.15054.us, %52
+  %54 = xor i32 %53, %51
+  %55 = and i32 %54, 1
+  %.not65.i.us = icmp eq i32 %55, 0
+  %56 = shl i32 3, %49
+  %57 = select i1 %.not65.i.us, i32 0, i32 %56
+  %.251.us = xor i32 %57, %.15054.us
+  %58 = getelementptr inbounds i8, ptr %2, i64 %indvars.iv97
+  %59 = load i8, ptr %58, align 1
+  %60 = getelementptr inbounds i8, ptr %2, i64 %44
   %61 = load i8, ptr %60, align 1
-  %62 = getelementptr inbounds i8, ptr %2, i64 %45
-  %63 = load i8, ptr %62, align 1
-  store i8 %63, ptr %60, align 1
-  store i8 %61, ptr %62, align 1
+  store i8 %61, ptr %58, align 1
+  store i8 %59, ptr %60, align 1
   br label %Abc_TtCofactorPerm.exit.us
 
-Abc_TtCofactorPerm.exit.us:                       ; preds = %52, %49
-  %.350.us = phi i32 [ %.14852.us, %49 ], [ %.249.us, %52 ]
-  %64 = or i32 %51, %.055.us
-  br label %65
+Abc_TtCofactorPerm.exit.us:                       ; preds = %Abc_TtCopy.exit72.sink.split.i.us, %48
+  %.352.us = phi i32 [ %.15054.us, %48 ], [ %.251.us, %Abc_TtCopy.exit72.sink.split.i.us ]
+  %62 = or i32 %50, %.057.us
+  br label %63
 
-65:                                               ; preds = %Abc_TtCofactorPerm.exit.us, %42
-  %.4.us = phi i32 [ %.350.us, %Abc_TtCofactorPerm.exit.us ], [ %.14852.us, %42 ]
-  %.1.us = phi i32 [ %64, %Abc_TtCofactorPerm.exit.us ], [ %.055.us, %42 ]
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, -1
-  %66 = icmp sgt i64 %indvars.iv94, 0
-  br i1 %66, label %42, label %._crit_edge58.us, !llvm.loop !49
+63:                                               ; preds = %Abc_TtCofactorPerm.exit.us, %41
+  %.4.us = phi i32 [ %.352.us, %Abc_TtCofactorPerm.exit.us ], [ %.15054.us, %41 ]
+  %.1.us = phi i32 [ %62, %Abc_TtCofactorPerm.exit.us ], [ %.057.us, %41 ]
+  %indvars.iv.next98 = add nsw i64 %indvars.iv97, -1
+  %64 = icmp sgt i64 %indvars.iv97, 0
+  br i1 %64, label %41, label %._crit_edge60.us, !llvm.loop !49
 
-._crit_edge58.us:                                 ; preds = %65
+._crit_edge60.us:                                 ; preds = %63
   %.not.us = icmp eq i32 %.1.us, 0
   %brmerge = or i1 %.not.us, %14
-  br i1 %brmerge, label %.split70.us, label %.lr.ph63.us
+  br i1 %brmerge, label %.split72.us, label %.lr.ph65.us
 
-.split70.us:                                      ; preds = %._crit_edge64.us, %._crit_edge58.us, %._crit_edge
-  %.us-phi = phi i32 [ %12, %._crit_edge ], [ %.4.us, %._crit_edge58.us ], [ %.8.us, %._crit_edge64.us ]
+.split72.us:                                      ; preds = %._crit_edge66.us, %._crit_edge60.us, %._crit_edge
+  %.us-phi = phi i32 [ %12, %._crit_edge ], [ %.4.us, %._crit_edge60.us ], [ %.8.us, %._crit_edge66.us ]
   ret i32 %.us-phi
 }
 

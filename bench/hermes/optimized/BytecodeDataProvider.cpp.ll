@@ -811,28 +811,18 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhE
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
-  br i1 %cmp.i1.i, label %if.then.i.i193, label %lor.rhs.i.i186
+  br i1 %cmp.i1.i, label %if.then.i.i191, label %lor.rhs.i.i186
 
 lor.rhs.i.i186:                                   ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i187 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i.i188 = sub i64 %sub.ptr.lhs.cast.i.i187, %and.i.i.i184
   %div7.i.i189 = lshr i64 %sub.ptr.sub.i.i188, 3
   %cmp1.i.i190 = icmp ult i64 %div7.i.i189, %conv8.i
-  br i1 %cmp1.i.i190, label %if.then.i.i193, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit.i
+  br i1 %cmp1.i.i190, label %if.then.i.i191, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
-if.then.i.i193:                                   ; preds = %lor.rhs.i.i186, %if.then.i
+if.then.i.i191:                                   ; preds = %lor.rhs.i.i186, %if.then.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
-
-_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit.i: ; preds = %lor.rhs.i.i186
-  %mul.i.i191 = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %93, i64 %mul.i.i191
-  store ptr %add.ptr.i.i192, ptr %buf.i, align 8
-  %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTableStatic.i = getelementptr inbounds i8, ptr %98, i64 232
-  store ptr %93, ptr %cjsModuleTableStatic.i, align 8
-  %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 240
-  br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.else.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
   br i1 %cmp.i1.i, label %if.then.i12.i, label %lor.rhs.i2.i
@@ -842,59 +832,57 @@ lor.rhs.i2.i:                                     ; preds = %if.else.i
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %and.i.i.i184
   %div7.i6.i = lshr i64 %sub.ptr.sub.i5.i, 3
   %cmp1.i7.i = icmp ult i64 %div7.i6.i, %conv8.i
-  br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit13.i
+  br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.else.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
 
-_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit13.i: ; preds = %lor.rhs.i2.i
+_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %lor.rhs.i.i186, %lor.rhs.i2.i
+  %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
+  %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
-  %99 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds i8, ptr %99, i64 216
+  %98 = load ptr, ptr %visitor, align 8
+  %cjsModuleTable.i = getelementptr inbounds i8, ptr %98, i64 %.sink16.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %99, i64 224
-  br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 %.sink14.i
+  store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
+  %99 = load ptr, ptr %buf.i, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %sub.i.i.i193 = add i64 %100, 3
+  %and.i.i.i194 = and i64 %sub.i.i.i193, -4
+  %101 = inttoptr i64 %and.i.i.i194 to ptr
+  store ptr %101, ptr %buf.i, align 8
+  %102 = load ptr, ptr %h.i, align 8
+  %functionSourceCount.i = getelementptr inbounds i8, ptr %102, i64 100
+  %103 = load i32, ptr %functionSourceCount.i, align 1
+  %conv.i196 = zext i32 %103 to i64
+  %104 = load ptr, ptr %end.i, align 8
+  %cmp.i.i198 = icmp ult ptr %104, %101
+  br i1 %cmp.i.i198, label %if.then.i.i206, label %lor.rhs.i.i199
 
-_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit13.i
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.sink.i = phi ptr [ %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit13.i ], [ %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh8ArrayRefIT_EERPKhmSA_.exit.i ]
-  store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.sink.i, align 8
-  %100 = load ptr, ptr %buf.i, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %sub.i.i.i195 = add i64 %101, 3
-  %and.i.i.i196 = and i64 %sub.i.i.i195, -4
-  %102 = inttoptr i64 %and.i.i.i196 to ptr
-  store ptr %102, ptr %buf.i, align 8
-  %103 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds i8, ptr %103, i64 100
-  %104 = load i32, ptr %functionSourceCount.i, align 1
-  %conv.i198 = zext i32 %104 to i64
-  %105 = load ptr, ptr %end.i, align 8
-  %cmp.i.i200 = icmp ult ptr %105, %102
-  br i1 %cmp.i.i200, label %if.then.i.i209, label %lor.rhs.i.i201
+lor.rhs.i.i199:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+  %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %104 to i64
+  %sub.ptr.sub.i.i201 = sub i64 %sub.ptr.lhs.cast.i.i200, %and.i.i.i194
+  %div7.i.i202 = lshr i64 %sub.ptr.sub.i.i201, 3
+  %cmp1.i.i203 = icmp ult i64 %div7.i.i202, %conv.i196
+  br i1 %cmp1.i.i203, label %if.then.i.i206, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
 
-lor.rhs.i.i201:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
-  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %105 to i64
-  %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i202, %and.i.i.i196
-  %div7.i.i204 = lshr i64 %sub.ptr.sub.i.i203, 3
-  %cmp1.i.i205 = icmp ult i64 %div7.i.i204, %conv.i198
-  br i1 %cmp1.i.i205, label %if.then.i.i209, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
-
-if.then.i.i209:                                   ; preds = %lor.rhs.i.i201, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
 
-_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i201
-  %mul.i.i207 = shl nuw nsw i64 %conv.i198, 3
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %102, i64 %mul.i.i207
-  store ptr %add.ptr.i.i208, ptr %buf.i, align 8
-  %106 = load ptr, ptr %visitor, align 8
-  %functionSourceTable.i = getelementptr inbounds i8, ptr %106, i64 248
-  store ptr %102, ptr %functionSourceTable.i, align 8
-  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %106, i64 256
-  store i64 %conv.i198, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
+_ZZN6hermes3hbc18BytecodeFileFieldsILb0EE18populateFromBufferEN4llvh8ArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i199
+  %mul.i.i204 = shl nuw nsw i64 %conv.i196, 3
+  %add.ptr.i.i205 = getelementptr inbounds i8, ptr %101, i64 %mul.i.i204
+  store ptr %add.ptr.i.i205, ptr %buf.i, align 8
+  %105 = load ptr, ptr %visitor, align 8
+  %functionSourceTable.i = getelementptr inbounds i8, ptr %105, i64 248
+  store ptr %101, ptr %functionSourceTable.i, align 8
+  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %105, i64 256
+  store i64 %conv.i196, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void
 }
 
@@ -1366,28 +1354,18 @@ _ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArr
   br i1 %bf.cast.not.i, label %if.else.i, label %if.then.i
 
 if.then.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
-  br i1 %cmp.i1.i, label %if.then.i.i193, label %lor.rhs.i.i186
+  br i1 %cmp.i1.i, label %if.then.i.i191, label %lor.rhs.i.i186
 
 lor.rhs.i.i186:                                   ; preds = %if.then.i
   %sub.ptr.lhs.cast.i.i187 = ptrtoint ptr %97 to i64
   %sub.ptr.sub.i.i188 = sub i64 %sub.ptr.lhs.cast.i.i187, %and.i.i.i184
   %div7.i.i189 = lshr i64 %sub.ptr.sub.i.i188, 3
   %cmp1.i.i190 = icmp ult i64 %div7.i.i189, %conv8.i
-  br i1 %cmp1.i.i190, label %if.then.i.i193, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit.i
+  br i1 %cmp1.i.i190, label %if.then.i.i191, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
-if.then.i.i193:                                   ; preds = %lor.rhs.i.i186, %if.then.i
+if.then.i.i191:                                   ; preds = %lor.rhs.i.i186, %if.then.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
-
-_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit.i: ; preds = %lor.rhs.i.i186
-  %mul.i.i191 = shl nuw nsw i64 %conv8.i, 3
-  %add.ptr.i.i192 = getelementptr inbounds i8, ptr %93, i64 %mul.i.i191
-  store ptr %add.ptr.i.i192, ptr %buf.i, align 8
-  %98 = load ptr, ptr %visitor, align 8
-  %cjsModuleTableStatic.i = getelementptr inbounds i8, ptr %98, i64 232
-  store ptr %93, ptr %cjsModuleTableStatic.i, align 8
-  %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 240
-  br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.else.i:                                        ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator18visitRegExpStorageEv.exit
   br i1 %cmp.i1.i, label %if.then.i12.i, label %lor.rhs.i2.i
@@ -1397,59 +1375,57 @@ lor.rhs.i2.i:                                     ; preds = %if.else.i
   %sub.ptr.sub.i5.i = sub i64 %sub.ptr.lhs.cast.i3.i, %and.i.i.i184
   %div7.i6.i = lshr i64 %sub.ptr.sub.i5.i, 3
   %cmp1.i7.i = icmp ult i64 %div7.i6.i, %conv8.i
-  br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit13.i
+  br i1 %cmp1.i7.i, label %if.then.i12.i, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
 
 if.then.i12.i:                                    ; preds = %lor.rhs.i2.i, %if.else.i
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
 
-_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit13.i: ; preds = %lor.rhs.i2.i
+_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %lor.rhs.i.i186, %lor.rhs.i2.i
+  %.sink16.i = phi i64 [ 232, %lor.rhs.i.i186 ], [ 216, %lor.rhs.i2.i ]
+  %.sink14.i = phi i64 [ 240, %lor.rhs.i.i186 ], [ 224, %lor.rhs.i2.i ]
   %mul.i8.i = shl nuw nsw i64 %conv8.i, 3
   %add.ptr.i9.i = getelementptr inbounds i8, ptr %93, i64 %mul.i8.i
   store ptr %add.ptr.i9.i, ptr %buf.i, align 8
-  %99 = load ptr, ptr %visitor, align 8
-  %cjsModuleTable.i = getelementptr inbounds i8, ptr %99, i64 216
+  %98 = load ptr, ptr %visitor, align 8
+  %cjsModuleTable.i = getelementptr inbounds i8, ptr %98, i64 %.sink16.i
   store ptr %93, ptr %cjsModuleTable.i, align 8
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %99, i64 224
-  br label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i = getelementptr inbounds i8, ptr %98, i64 %.sink14.i
+  store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, align 8
+  %99 = load ptr, ptr %buf.i, align 8
+  %100 = ptrtoint ptr %99 to i64
+  %sub.i.i.i193 = add i64 %100, 3
+  %and.i.i.i194 = and i64 %sub.i.i.i193, -4
+  %101 = inttoptr i64 %and.i.i.i194 to ptr
+  store ptr %101, ptr %buf.i, align 8
+  %102 = load ptr, ptr %h.i, align 8
+  %functionSourceCount.i = getelementptr inbounds i8, ptr %102, i64 100
+  %103 = load i32, ptr %functionSourceCount.i, align 1
+  %conv.i196 = zext i32 %103 to i64
+  %104 = load ptr, ptr %end.i, align 8
+  %cmp.i.i198 = icmp ult ptr %104, %101
+  br i1 %cmp.i.i198, label %if.then.i.i206, label %lor.rhs.i.i199
 
-_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit: ; preds = %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit13.i
-  %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.sink.i = phi ptr [ %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit13.i ], [ %ref.tmp.sroa.2.0.cjsModuleTableStatic.sroa_idx.i, %_ZN6hermes3hbc12_GLOBAL__N_112castArrayRefISt4pairIjjEEEN4llvh15MutableArrayRefIT_EERPhmPKh.exit.i ]
-  store i64 %conv8.i, ptr %ref.tmp4.sroa.2.0.cjsModuleTable.sroa_idx.sink.i, align 8
-  %100 = load ptr, ptr %buf.i, align 8
-  %101 = ptrtoint ptr %100 to i64
-  %sub.i.i.i195 = add i64 %101, 3
-  %and.i.i.i196 = and i64 %sub.i.i.i195, -4
-  %102 = inttoptr i64 %and.i.i.i196 to ptr
-  store ptr %102, ptr %buf.i, align 8
-  %103 = load ptr, ptr %h.i, align 8
-  %functionSourceCount.i = getelementptr inbounds i8, ptr %103, i64 100
-  %104 = load i32, ptr %functionSourceCount.i, align 1
-  %conv.i198 = zext i32 %104 to i64
-  %105 = load ptr, ptr %end.i, align 8
-  %cmp.i.i200 = icmp ult ptr %105, %102
-  br i1 %cmp.i.i200, label %if.then.i.i209, label %lor.rhs.i.i201
+lor.rhs.i.i199:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+  %sub.ptr.lhs.cast.i.i200 = ptrtoint ptr %104 to i64
+  %sub.ptr.sub.i.i201 = sub i64 %sub.ptr.lhs.cast.i.i200, %and.i.i.i194
+  %div7.i.i202 = lshr i64 %sub.ptr.sub.i.i201, 3
+  %cmp1.i.i203 = icmp ult i64 %div7.i.i202, %conv.i196
+  br i1 %cmp1.i.i203, label %if.then.i.i206, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
 
-lor.rhs.i.i201:                                   ; preds = %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
-  %sub.ptr.lhs.cast.i.i202 = ptrtoint ptr %105 to i64
-  %sub.ptr.sub.i.i203 = sub i64 %sub.ptr.lhs.cast.i.i202, %and.i.i.i196
-  %div7.i.i204 = lshr i64 %sub.ptr.sub.i.i203, 3
-  %cmp1.i.i205 = icmp ult i64 %div7.i.i204, %conv.i198
-  br i1 %cmp1.i.i205, label %if.then.i.i209, label %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit
-
-if.then.i.i209:                                   ; preds = %lor.rhs.i.i201, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
+if.then.i.i206:                                   ; preds = %lor.rhs.i.i199, %_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator19visitCJSModuleTableEv.exit
   tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str.9) #20
   unreachable
 
-_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i201
-  %mul.i.i207 = shl nuw nsw i64 %conv.i198, 3
-  %add.ptr.i.i208 = getelementptr inbounds i8, ptr %102, i64 %mul.i.i207
-  store ptr %add.ptr.i.i208, ptr %buf.i, align 8
-  %106 = load ptr, ptr %visitor, align 8
-  %functionSourceTable.i = getelementptr inbounds i8, ptr %106, i64 248
-  store ptr %102, ptr %functionSourceTable.i, align 8
-  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %106, i64 256
-  store i64 %conv.i198, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
+_ZZN6hermes3hbc18BytecodeFileFieldsILb1EE18populateFromBufferEN4llvh15MutableArrayRefIhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_12BytecodeFormEEN27BytecodeFileFieldsPopulator24visitFunctionSourceTableEv.exit: ; preds = %lor.rhs.i.i199
+  %mul.i.i204 = shl nuw nsw i64 %conv.i196, 3
+  %add.ptr.i.i205 = getelementptr inbounds i8, ptr %101, i64 %mul.i.i204
+  store ptr %add.ptr.i.i205, ptr %buf.i, align 8
+  %105 = load ptr, ptr %visitor, align 8
+  %functionSourceTable.i = getelementptr inbounds i8, ptr %105, i64 248
+  store ptr %101, ptr %functionSourceTable.i, align 8
+  %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i = getelementptr inbounds i8, ptr %105, i64 256
+  store i64 %conv.i196, ptr %ref.tmp.sroa.2.0.functionSourceTable.sroa_idx.i, align 8
   ret void
 }
 

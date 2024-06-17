@@ -7555,11 +7555,11 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %._crit_edge.i, %936
-  %.sink896.i = phi ptr [ %946, %._crit_edge.i ], [ %942, %936 ]
-  %spec.select876.sink.i = phi i32 [ %spec.select876.i, %._crit_edge.i ], [ %521, %936 ]
-  %.sink879.i = phi i16 [ 4, %._crit_edge.i ], [ 2048, %936 ]
-  %963 = getelementptr inbounds i8, ptr %.sink896.i, i64 44
-  store i32 %spec.select876.sink.i, ptr %963, align 4
+  %.sink882.i = phi ptr [ %942, %936 ], [ %946, %._crit_edge.i ]
+  %.sink.i = phi i32 [ %521, %936 ], [ %spec.select876.i, %._crit_edge.i ]
+  %.sink879.i = phi i16 [ 2048, %936 ], [ 4, %._crit_edge.i ]
+  %963 = getelementptr inbounds i8, ptr %.sink882.i, i64 44
+  store i32 %.sink.i, ptr %963, align 4
   %964 = load ptr, ptr %901, align 8
   %965 = getelementptr inbounds i8, ptr %964, i64 48
   %966 = load i16, ptr %965, align 8
@@ -7724,8 +7724,8 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
 1053:                                             ; preds = %1050
   %1054 = getelementptr [4 x i32], ptr %1049, i64 0, i64 %indvars.iv.next.i
   %1055 = load i32, ptr %1054, align 4
-  %.not898.i = icmp ugt i32 %1005, %1055
-  br i1 %.not898.i, label %.backedge871.i, label %.critedge697.i
+  %.not900.i = icmp ugt i32 %1005, %1055
+  br i1 %.not900.i, label %.backedge871.i, label %.critedge697.i
 
 .backedge871.i:                                   ; preds = %1053, %1050
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -7754,11 +7754,11 @@ tcp_analyze_get_acked_struct.exit721.i:           ; preds = %916, %903
   %1070 = icmp eq i32 %1069, 0
   %.pre837.i = load i64, ptr %1011, align 8
   %1071 = icmp eq i64 %.pre837.i, 0
-  %or.cond880.i = select i1 %1070, i1 %1071, i1 false
+  %or.cond883.i = select i1 %1070, i1 %1071, i1 false
   %1072 = sext i32 %1069 to i64
   %1073 = mul i64 %.pre837.i, 1000000000
   %1074 = add i64 %1073, %1072
-  %.0537.i = select i1 %or.cond880.i, i64 3000000, i64 %1074
+  %.0537.i = select i1 %or.cond883.i, i64 3000000, i64 %1074
   %.1531782.i = load ptr, ptr %974, align 8
   %.not620783.not.i = icmp eq ptr %.1531782.i, null
   br i1 %.not620783.not.i, label %._crit_edge787.i, label %.lr.ph786.i
@@ -7932,16 +7932,16 @@ tcp_analyze_get_acked_struct.exit723.i:           ; preds = %1111, %1098
   br i1 %.not632.i, label %.thread758.i, label %.lr.ph793.i, !llvm.loop !16
 
 .thread758.sink.split.sink.split.i:               ; preds = %1094, %1088, %1056, %1042, %1002
-  %.sink884.ph.i = phi i16 [ 512, %1094 ], [ 512, %1088 ], [ 1024, %1056 ], [ 1024, %1042 ], [ 16384, %1002 ]
+  %.sink887.ph.i = phi i16 [ 512, %1094 ], [ 512, %1088 ], [ 1024, %1056 ], [ 1024, %1042 ], [ 16384, %1002 ]
   %.pre839.i = load ptr, ptr %980, align 8
   br label %.thread758.sink.split.i
 
 .thread758.sink.split.i:                          ; preds = %.thread758.sink.split.sink.split.i, %1093, %1087, %.critedge.i, %1041, %1001
-  %.sink.i = phi ptr [ %981, %1001 ], [ %981, %1041 ], [ %981, %.critedge.i ], [ %981, %1087 ], [ %981, %1093 ], [ %.pre839.i, %.thread758.sink.split.sink.split.i ]
-  %.sink884.i = phi i16 [ 16384, %1001 ], [ 1024, %1041 ], [ 1024, %.critedge.i ], [ 512, %1087 ], [ 512, %1093 ], [ %.sink884.ph.i, %.thread758.sink.split.sink.split.i ]
-  %1149 = getelementptr inbounds i8, ptr %.sink.i, i64 48
+  %.sink889.i = phi ptr [ %981, %1001 ], [ %981, %1041 ], [ %981, %.critedge.i ], [ %981, %1087 ], [ %981, %1093 ], [ %.pre839.i, %.thread758.sink.split.sink.split.i ]
+  %.sink887.i = phi i16 [ 16384, %1001 ], [ 1024, %1041 ], [ 1024, %.critedge.i ], [ 512, %1087 ], [ 512, %1093 ], [ %.sink887.ph.i, %.thread758.sink.split.sink.split.i ]
+  %1149 = getelementptr inbounds i8, ptr %.sink889.i, i64 48
   %1150 = load i16, ptr %1149, align 8
-  %1151 = or i16 %1150, %.sink884.i
+  %1151 = or i16 %1150, %.sink887.i
   store i16 %1151, ptr %1149, align 8
   br label %.thread758.i
 
@@ -8192,10 +8192,10 @@ switch.lookup:                                    ; preds = %1162
   br label %1296
 
 1296:                                             ; preds = %1292, %1289
-  %.sink892.i = phi i32 [ %1295, %1292 ], [ 0, %1289 ]
+  %.sink897.i = phi i32 [ %1295, %1292 ], [ 0, %1289 ]
   %1297 = load ptr, ptr %878, align 8
   %1298 = getelementptr inbounds i8, ptr %1297, i64 60
-  store i32 %.sink892.i, ptr %1298, align 4
+  store i32 %.sink897.i, ptr %1298, align 4
   %1299 = load ptr, ptr %892, align 8
   %1300 = getelementptr inbounds i8, ptr %1299, i64 48
   %1301 = load ptr, ptr %1300, align 8
@@ -9478,8 +9478,8 @@ proto_item_set_generated.exit1098:                ; preds = %proto_item_set_gene
   br i1 %.not5.i1106, label %proto_item_set_generated.exit1101, label %proto_item_set_generated.exit1101.sink.split
 
 proto_item_set_generated.exit1101.sink.split:     ; preds = %1954, %1946, %1940
-  %.sink1294 = phi ptr [ %1942, %1940 ], [ %1948, %1946 ], [ %1956, %1954 ]
-  %1957 = getelementptr inbounds i8, ptr %.sink1294, i64 28
+  %.sink1289 = phi ptr [ %1942, %1940 ], [ %1948, %1946 ], [ %1956, %1954 ]
+  %1957 = getelementptr inbounds i8, ptr %.sink1289, i64 28
   %1958 = load i32, ptr %1957, align 4
   %1959 = or i32 %1958, 2
   store i32 %1959, ptr %1957, align 4
@@ -9573,21 +9573,21 @@ proto_item_set_generated.exit1101:                ; preds = %proto_item_set_gene
   %2008 = getelementptr inbounds i8, ptr %2007, i64 44
   %2009 = load i32, ptr %2008, align 4
   %.not984 = icmp eq i32 %2009, 0
-  br i1 %.not984, label %2010, label %.sink.split1287
+  br i1 %.not984, label %2010, label %.sink.split1290
 
 2010:                                             ; preds = %2004
   %2011 = getelementptr inbounds i8, ptr %.18771154, i64 208
   %2012 = load ptr, ptr %2011, align 8
   %2013 = getelementptr inbounds i8, ptr %2012, i64 44
   store i32 1, ptr %2013, align 4
-  br label %.sink.split1287
+  br label %.sink.split1290
 
-.sink.split1287:                                  ; preds = %2004, %2010
+.sink.split1290:                                  ; preds = %2004, %2010
   %ei_tcp_connection_fin_active.sink = phi ptr [ @ei_tcp_connection_fin_active, %2010 ], [ @ei_tcp_connection_fin_passive, %2004 ]
   %2014 = call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.1, ptr noundef nonnull %ei_tcp_connection_fin_active.sink) #20
   br label %2015
 
-2015:                                             ; preds = %.sink.split1287, %2001
+2015:                                             ; preds = %.sink.split1290, %2001
   %2016 = load i16, ptr %190, align 8
   %2017 = and i16 %2016, 4
   %.not985 = icmp eq i16 %2017, 0
@@ -9715,11 +9715,11 @@ proto_item_set_generated.exit1101:                ; preds = %proto_item_set_gene
   unreachable
 
 2079:                                             ; preds = %2066, %2075
-  %.sink1288 = phi i32 [ 4, %2066 ], [ 8, %2075 ]
+  %.sink1291 = phi i32 [ 4, %2066 ], [ 8, %2075 ]
   %2080 = getelementptr inbounds i8, ptr %65, i64 32
   store ptr %66, ptr %2080, align 16
   %2081 = getelementptr inbounds i8, ptr %65, i64 40
-  store i32 %.sink1288, ptr %2081, align 8
+  store i32 %.sink1291, ptr %2081, align 8
   %2082 = getelementptr inbounds i8, ptr %65, i64 48
   %2083 = getelementptr inbounds i8, ptr %65, i64 56
   store i32 %440, ptr %2083, align 8
@@ -11573,8 +11573,8 @@ mptcp_add_analysis_subtree.exit:                  ; preds = %mptcp_add_duplicate
   %3006 = icmp eq i32 %3005, 0
   %.pre1235 = load i32, ptr %198, align 4
   %3007 = icmp eq i32 %3005, %.pre1235
-  %or.cond1291 = select i1 %3006, i1 true, i1 %3007
-  br i1 %or.cond1291, label %3008, label %3043
+  %or.cond1294 = select i1 %3006, i1 true, i1 %3007
+  br i1 %or.cond1294, label %3008, label %3043
 
 3008:                                             ; preds = %3003
   store i32 %.pre1235, ptr %3004, align 8

@@ -11067,8 +11067,8 @@ sw.bb131:                                         ; preds = %invoke.cont29
   br label %sw.bb131.invoke
 
 sw.bb131.invoke:                                  ; preds = %sw.bb124, %sw.bb131
-  %.sink86 = phi double [ %25, %sw.bb124 ], [ %div, %sw.bb131 ]
-  %conv129 = fptrunc double %.sink86 to float
+  %.sink = phi double [ %25, %sw.bb124 ], [ %div, %sw.bb131 ]
+  %conv129 = fptrunc double %.sink to float
   invoke void @_ZN19OpenColorIO_v2_4dev19Add_Surround_ShaderERSt10shared_ptrINS_16GpuShaderCreatorEERNS_13GpuShaderTextEf(ptr noundef nonnull align 8 dereferenceable(16) %shaderCreator, ptr noundef nonnull align 8 dereferenceable(764) %ss, float noundef %conv129)
           to label %sw.epilog unwind label %lpad
 

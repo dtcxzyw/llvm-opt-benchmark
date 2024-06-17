@@ -120,8 +120,8 @@ define dso_local { i64, i32 } @DefineView(ptr nocapture noundef %0, ptr noundef 
   br label %._crit_edge170.sink.split
 
 ._crit_edge170.sink.split:                        ; preds = %43, %46
-  %.str.5.sink = phi ptr [ @.str.6, %46 ], [ @.str.5, %43 ]
-  %47 = tail call ptr @makeString(ptr noundef nonnull %.str.5.sink) #6
+  %.str.6.sink = phi ptr [ @.str.6, %46 ], [ @.str.5, %43 ]
+  %47 = tail call ptr @makeString(ptr noundef nonnull %.str.6.sink) #6
   %48 = tail call ptr @makeDefElem(ptr noundef nonnull @.str.4, ptr noundef %47, i32 noundef -1) #6
   %49 = tail call ptr @lappend(ptr noundef %.pre, ptr noundef %48) #6
   store ptr %49, ptr %.phi.trans.insert, align 8

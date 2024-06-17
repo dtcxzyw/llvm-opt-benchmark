@@ -40495,12 +40495,8 @@ if.then:                                          ; preds = %entry
   %bf.load.i.i50 = load i8, ptr %m_kind.i.i49, align 4
   %bf.clear.i.i51 = and i8 %bf.load.i.i50, -2
   store i8 %bf.clear.i.i51, ptr %m_kind.i.i49, align 4
-  %4 = load ptr, ptr %a_ij.i.i, align 8
-  %5 = load i32, ptr %n.i.i, align 4
-  %add.i.i = add i32 %5, 1
-  %idxprom.i.i54 = zext i32 %add.i.i to i64
-  %arrayidx.i.i55 = getelementptr inbounds %class.mpz, ptr %4, i64 %idxprom.i.i54
-  store i32 1, ptr %arrayidx.i.i55, align 8
+  %4 = load i32, ptr %n.i.i, align 4
+  %add.i.i = add i32 %4, 1
   br label %return.sink.split
 
 if.else:                                          ; preds = %entry
@@ -40515,35 +40511,31 @@ if.then11:                                        ; preds = %if.else
   %A.i60 = getelementptr inbounds i8, ptr %M, i64 8
   tail call void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %m_mm.i59, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %A.i60)
   %a_ij.i.i61 = getelementptr inbounds i8, ptr %M, i64 16
-  %6 = load ptr, ptr %a_ij.i.i61, align 8
+  %5 = load ptr, ptr %a_ij.i.i61, align 8
   %n.i.i62 = getelementptr inbounds i8, ptr %M, i64 12
-  store i32 1, ptr %6, align 8
-  %m_kind.i.i66 = getelementptr inbounds i8, ptr %6, i64 4
+  store i32 1, ptr %5, align 8
+  %m_kind.i.i66 = getelementptr inbounds i8, ptr %5, i64 4
   %bf.load.i.i67 = load i8, ptr %m_kind.i.i66, align 4
   %bf.clear.i.i68 = and i8 %bf.load.i.i67, -2
   store i8 %bf.clear.i.i68, ptr %m_kind.i.i66, align 4
-  %7 = load ptr, ptr %a_ij.i.i61, align 8
-  %arrayidx.i.i73 = getelementptr inbounds i8, ptr %7, i64 16
+  %6 = load ptr, ptr %a_ij.i.i61, align 8
+  %arrayidx.i.i73 = getelementptr inbounds i8, ptr %6, i64 16
   store i32 1, ptr %arrayidx.i.i73, align 8
-  %m_kind.i.i74 = getelementptr inbounds i8, ptr %7, i64 20
+  %m_kind.i.i74 = getelementptr inbounds i8, ptr %6, i64 20
   %bf.load.i.i75 = load i8, ptr %m_kind.i.i74, align 4
   %bf.clear.i.i76 = and i8 %bf.load.i.i75, -2
   store i8 %bf.clear.i.i76, ptr %m_kind.i.i74, align 4
-  %8 = load ptr, ptr %a_ij.i.i61, align 8
-  %9 = load i32, ptr %n.i.i62, align 4
-  %idxprom.i.i80 = zext i32 %9 to i64
-  %arrayidx.i.i81 = getelementptr inbounds %class.mpz, ptr %8, i64 %idxprom.i.i80
+  %7 = load ptr, ptr %a_ij.i.i61, align 8
+  %8 = load i32, ptr %n.i.i62, align 4
+  %idxprom.i.i80 = zext i32 %8 to i64
+  %arrayidx.i.i81 = getelementptr inbounds %class.mpz, ptr %7, i64 %idxprom.i.i80
   store i32 0, ptr %arrayidx.i.i81, align 8
   %m_kind.i.i82 = getelementptr inbounds i8, ptr %arrayidx.i.i81, i64 4
   %bf.load.i.i83 = load i8, ptr %m_kind.i.i82, align 4
   %bf.clear.i.i84 = and i8 %bf.load.i.i83, -2
   store i8 %bf.clear.i.i84, ptr %m_kind.i.i82, align 4
-  %10 = load ptr, ptr %a_ij.i.i61, align 8
-  %11 = load i32, ptr %n.i.i62, align 4
-  %add.i.i87 = add i32 %11, 1
-  %idxprom.i.i88 = zext i32 %add.i.i87 to i64
-  %arrayidx.i.i89 = getelementptr inbounds %class.mpz, ptr %10, i64 %idxprom.i.i88
-  store i32 -1, ptr %arrayidx.i.i89, align 8
+  %9 = load i32, ptr %n.i.i62, align 4
+  %add.i.i87 = add i32 %9, 1
   br label %return.sink.split
 
 if.else14:                                        ; preds = %if.else
@@ -40557,35 +40549,31 @@ if.then20:                                        ; preds = %if.else14
   %A.i94 = getelementptr inbounds i8, ptr %M, i64 8
   tail call void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %m_mm.i93, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %A.i94)
   %a_ij.i.i95 = getelementptr inbounds i8, ptr %M, i64 16
-  %12 = load ptr, ptr %a_ij.i.i95, align 8
+  %10 = load ptr, ptr %a_ij.i.i95, align 8
   %n.i.i96 = getelementptr inbounds i8, ptr %M, i64 12
-  store i32 1, ptr %12, align 8
-  %m_kind.i.i100 = getelementptr inbounds i8, ptr %12, i64 4
+  store i32 1, ptr %10, align 8
+  %m_kind.i.i100 = getelementptr inbounds i8, ptr %10, i64 4
   %bf.load.i.i101 = load i8, ptr %m_kind.i.i100, align 4
   %bf.clear.i.i102 = and i8 %bf.load.i.i101, -2
   store i8 %bf.clear.i.i102, ptr %m_kind.i.i100, align 4
-  %13 = load ptr, ptr %a_ij.i.i95, align 8
-  %arrayidx.i.i107 = getelementptr inbounds i8, ptr %13, i64 16
+  %11 = load ptr, ptr %a_ij.i.i95, align 8
+  %arrayidx.i.i107 = getelementptr inbounds i8, ptr %11, i64 16
   store i32 1, ptr %arrayidx.i.i107, align 8
-  %m_kind.i.i108 = getelementptr inbounds i8, ptr %13, i64 20
+  %m_kind.i.i108 = getelementptr inbounds i8, ptr %11, i64 20
   %bf.load.i.i109 = load i8, ptr %m_kind.i.i108, align 4
   %bf.clear.i.i110 = and i8 %bf.load.i.i109, -2
   store i8 %bf.clear.i.i110, ptr %m_kind.i.i108, align 4
-  %14 = load ptr, ptr %a_ij.i.i95, align 8
-  %15 = load i32, ptr %n.i.i96, align 4
-  %idxprom.i.i114 = zext i32 %15 to i64
-  %arrayidx.i.i115 = getelementptr inbounds %class.mpz, ptr %14, i64 %idxprom.i.i114
+  %12 = load ptr, ptr %a_ij.i.i95, align 8
+  %13 = load i32, ptr %n.i.i96, align 4
+  %idxprom.i.i114 = zext i32 %13 to i64
+  %arrayidx.i.i115 = getelementptr inbounds %class.mpz, ptr %12, i64 %idxprom.i.i114
   store i32 1, ptr %arrayidx.i.i115, align 8
   %m_kind.i.i116 = getelementptr inbounds i8, ptr %arrayidx.i.i115, i64 4
   %bf.load.i.i117 = load i8, ptr %m_kind.i.i116, align 4
   %bf.clear.i.i118 = and i8 %bf.load.i.i117, -2
   store i8 %bf.clear.i.i118, ptr %m_kind.i.i116, align 4
-  %16 = load ptr, ptr %a_ij.i.i95, align 8
-  %17 = load i32, ptr %n.i.i96, align 4
-  %add.i.i121 = add i32 %17, 1
-  %idxprom.i.i122 = zext i32 %add.i.i121 to i64
-  %arrayidx.i.i123 = getelementptr inbounds %class.mpz, ptr %16, i64 %idxprom.i.i122
-  store i32 -1, ptr %arrayidx.i.i123, align 8
+  %14 = load i32, ptr %n.i.i96, align 4
+  %add.i.i121 = add i32 %14, 1
   br label %return.sink.split
 
 if.else23:                                        ; preds = %if.else14
@@ -40597,92 +40585,94 @@ if.then29:                                        ; preds = %if.else23
   %A.i128 = getelementptr inbounds i8, ptr %M, i64 8
   tail call void @_ZN18mpz_matrix_manager2mkEjjR10mpz_matrix(ptr noundef nonnull align 8 dereferenceable(16) %m_mm.i127, i32 noundef 3, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(16) %A.i128)
   %a_ij.i.i129 = getelementptr inbounds i8, ptr %M, i64 16
-  %18 = load ptr, ptr %a_ij.i.i129, align 8
+  %15 = load ptr, ptr %a_ij.i.i129, align 8
   %n.i.i130 = getelementptr inbounds i8, ptr %M, i64 12
-  store i32 1, ptr %18, align 8
-  %m_kind.i.i134 = getelementptr inbounds i8, ptr %18, i64 4
+  store i32 1, ptr %15, align 8
+  %m_kind.i.i134 = getelementptr inbounds i8, ptr %15, i64 4
   %bf.load.i.i135 = load i8, ptr %m_kind.i.i134, align 4
   %bf.clear.i.i136 = and i8 %bf.load.i.i135, -2
   store i8 %bf.clear.i.i136, ptr %m_kind.i.i134, align 4
-  %19 = load ptr, ptr %a_ij.i.i129, align 8
-  %arrayidx.i.i141 = getelementptr inbounds i8, ptr %19, i64 16
+  %16 = load ptr, ptr %a_ij.i.i129, align 8
+  %arrayidx.i.i141 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 1, ptr %arrayidx.i.i141, align 8
-  %m_kind.i.i142 = getelementptr inbounds i8, ptr %19, i64 20
+  %m_kind.i.i142 = getelementptr inbounds i8, ptr %16, i64 20
   %bf.load.i.i143 = load i8, ptr %m_kind.i.i142, align 4
   %bf.clear.i.i144 = and i8 %bf.load.i.i143, -2
   store i8 %bf.clear.i.i144, ptr %m_kind.i.i142, align 4
-  %20 = load ptr, ptr %a_ij.i.i129, align 8
-  %arrayidx.i.i149 = getelementptr inbounds i8, ptr %20, i64 32
+  %17 = load ptr, ptr %a_ij.i.i129, align 8
+  %arrayidx.i.i149 = getelementptr inbounds i8, ptr %17, i64 32
   store i32 1, ptr %arrayidx.i.i149, align 8
-  %m_kind.i.i150 = getelementptr inbounds i8, ptr %20, i64 36
+  %m_kind.i.i150 = getelementptr inbounds i8, ptr %17, i64 36
   %bf.load.i.i151 = load i8, ptr %m_kind.i.i150, align 4
   %bf.clear.i.i152 = and i8 %bf.load.i.i151, -2
   store i8 %bf.clear.i.i152, ptr %m_kind.i.i150, align 4
-  %21 = load ptr, ptr %a_ij.i.i129, align 8
-  %22 = load i32, ptr %n.i.i130, align 4
-  %idxprom.i.i156 = zext i32 %22 to i64
-  %arrayidx.i.i157 = getelementptr inbounds %class.mpz, ptr %21, i64 %idxprom.i.i156
+  %18 = load ptr, ptr %a_ij.i.i129, align 8
+  %19 = load i32, ptr %n.i.i130, align 4
+  %idxprom.i.i156 = zext i32 %19 to i64
+  %arrayidx.i.i157 = getelementptr inbounds %class.mpz, ptr %18, i64 %idxprom.i.i156
   store i32 0, ptr %arrayidx.i.i157, align 8
   %m_kind.i.i158 = getelementptr inbounds i8, ptr %arrayidx.i.i157, i64 4
   %bf.load.i.i159 = load i8, ptr %m_kind.i.i158, align 4
   %bf.clear.i.i160 = and i8 %bf.load.i.i159, -2
   store i8 %bf.clear.i.i160, ptr %m_kind.i.i158, align 4
-  %23 = load ptr, ptr %a_ij.i.i129, align 8
-  %24 = load i32, ptr %n.i.i130, align 4
-  %add.i.i163 = add i32 %24, 1
+  %20 = load ptr, ptr %a_ij.i.i129, align 8
+  %21 = load i32, ptr %n.i.i130, align 4
+  %add.i.i163 = add i32 %21, 1
   %idxprom.i.i164 = zext i32 %add.i.i163 to i64
-  %arrayidx.i.i165 = getelementptr inbounds %class.mpz, ptr %23, i64 %idxprom.i.i164
+  %arrayidx.i.i165 = getelementptr inbounds %class.mpz, ptr %20, i64 %idxprom.i.i164
   store i32 1, ptr %arrayidx.i.i165, align 8
   %m_kind.i.i166 = getelementptr inbounds i8, ptr %arrayidx.i.i165, i64 4
   %bf.load.i.i167 = load i8, ptr %m_kind.i.i166, align 4
   %bf.clear.i.i168 = and i8 %bf.load.i.i167, -2
   store i8 %bf.clear.i.i168, ptr %m_kind.i.i166, align 4
-  %25 = load ptr, ptr %a_ij.i.i129, align 8
-  %26 = load i32, ptr %n.i.i130, align 4
-  %add.i.i171 = add i32 %26, 2
+  %22 = load ptr, ptr %a_ij.i.i129, align 8
+  %23 = load i32, ptr %n.i.i130, align 4
+  %add.i.i171 = add i32 %23, 2
   %idxprom.i.i172 = zext i32 %add.i.i171 to i64
-  %arrayidx.i.i173 = getelementptr inbounds %class.mpz, ptr %25, i64 %idxprom.i.i172
+  %arrayidx.i.i173 = getelementptr inbounds %class.mpz, ptr %22, i64 %idxprom.i.i172
   store i32 -1, ptr %arrayidx.i.i173, align 8
   %m_kind.i.i174 = getelementptr inbounds i8, ptr %arrayidx.i.i173, i64 4
   %bf.load.i.i175 = load i8, ptr %m_kind.i.i174, align 4
   %bf.clear.i.i176 = and i8 %bf.load.i.i175, -2
   store i8 %bf.clear.i.i176, ptr %m_kind.i.i174, align 4
-  %27 = load ptr, ptr %a_ij.i.i129, align 8
-  %28 = load i32, ptr %n.i.i130, align 4
-  %mul.i.i = shl i32 %28, 1
+  %24 = load ptr, ptr %a_ij.i.i129, align 8
+  %25 = load i32, ptr %n.i.i130, align 4
+  %mul.i.i = shl i32 %25, 1
   %idxprom.i.i180 = zext i32 %mul.i.i to i64
-  %arrayidx.i.i181 = getelementptr inbounds %class.mpz, ptr %27, i64 %idxprom.i.i180
+  %arrayidx.i.i181 = getelementptr inbounds %class.mpz, ptr %24, i64 %idxprom.i.i180
   store i32 0, ptr %arrayidx.i.i181, align 8
   %m_kind.i.i182 = getelementptr inbounds i8, ptr %arrayidx.i.i181, i64 4
   %bf.load.i.i183 = load i8, ptr %m_kind.i.i182, align 4
   %bf.clear.i.i184 = and i8 %bf.load.i.i183, -2
   store i8 %bf.clear.i.i184, ptr %m_kind.i.i182, align 4
-  %29 = load ptr, ptr %a_ij.i.i129, align 8
-  %30 = load i32, ptr %n.i.i130, align 4
-  %mul.i.i187 = shl i32 %30, 1
+  %26 = load ptr, ptr %a_ij.i.i129, align 8
+  %27 = load i32, ptr %n.i.i130, align 4
+  %mul.i.i187 = shl i32 %27, 1
   %add.i.i188 = or disjoint i32 %mul.i.i187, 1
   %idxprom.i.i189 = zext i32 %add.i.i188 to i64
-  %arrayidx.i.i190 = getelementptr inbounds %class.mpz, ptr %29, i64 %idxprom.i.i189
+  %arrayidx.i.i190 = getelementptr inbounds %class.mpz, ptr %26, i64 %idxprom.i.i189
   store i32 1, ptr %arrayidx.i.i190, align 8
   %m_kind.i.i191 = getelementptr inbounds i8, ptr %arrayidx.i.i190, i64 4
   %bf.load.i.i192 = load i8, ptr %m_kind.i.i191, align 4
   %bf.clear.i.i193 = and i8 %bf.load.i.i192, -2
   store i8 %bf.clear.i.i193, ptr %m_kind.i.i191, align 4
-  %31 = load ptr, ptr %a_ij.i.i129, align 8
-  %32 = load i32, ptr %n.i.i130, align 4
-  %mul.i.i196 = shl i32 %32, 1
+  %28 = load i32, ptr %n.i.i130, align 4
+  %mul.i.i196 = shl i32 %28, 1
   %add.i.i197 = add i32 %mul.i.i196, 2
-  %idxprom.i.i198 = zext i32 %add.i.i197 to i64
-  %arrayidx.i.i199 = getelementptr inbounds %class.mpz, ptr %31, i64 %idxprom.i.i198
-  store i32 1, ptr %arrayidx.i.i199, align 8
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %if.then, %if.then11, %if.then20, %if.then29
-  %arrayidx.i.i55.sink = phi ptr [ %arrayidx.i.i55, %if.then ], [ %arrayidx.i.i89, %if.then11 ], [ %arrayidx.i.i123, %if.then20 ], [ %arrayidx.i.i199, %if.then29 ]
-  %m_kind.i.i56 = getelementptr inbounds i8, ptr %arrayidx.i.i55.sink, i64 4
-  %bf.load.i.i201 = load i8, ptr %m_kind.i.i56, align 4
+  %add.i.i197.sink = phi i32 [ %add.i.i197, %if.then29 ], [ %add.i.i121, %if.then20 ], [ %add.i.i87, %if.then11 ], [ %add.i.i, %if.then ]
+  %.sink205.in = phi ptr [ %a_ij.i.i129, %if.then29 ], [ %a_ij.i.i95, %if.then20 ], [ %a_ij.i.i61, %if.then11 ], [ %a_ij.i.i, %if.then ]
+  %.sink = phi i32 [ 1, %if.then29 ], [ -1, %if.then20 ], [ -1, %if.then11 ], [ 1, %if.then ]
+  %.sink205 = load ptr, ptr %.sink205.in, align 8
+  %idxprom.i.i198 = zext i32 %add.i.i197.sink to i64
+  %arrayidx.i.i199 = getelementptr inbounds %class.mpz, ptr %.sink205, i64 %idxprom.i.i198
+  store i32 %.sink, ptr %arrayidx.i.i199, align 8
+  %m_kind.i.i200 = getelementptr inbounds i8, ptr %arrayidx.i.i199, i64 4
+  %bf.load.i.i201 = load i8, ptr %m_kind.i.i200, align 4
   %bf.clear.i.i202 = and i8 %bf.load.i.i201, -2
-  store i8 %bf.clear.i.i202, ptr %m_kind.i.i56, align 4
+  store i8 %bf.clear.i.i202, ptr %m_kind.i.i200, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else23

@@ -782,9 +782,9 @@ sw.bb6:                                           ; preds = %_ZN11mpq_managerILb
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb3, %sw.bb6
-  %m_den.i.i = getelementptr inbounds i8, ptr %a, i64 48
-  tail call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
-  store i32 1, ptr %m_den.i.i, align 8
+  %m_den.i.i11 = getelementptr inbounds i8, ptr %a, i64 48
+  tail call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i11)
+  store i32 1, ptr %m_den.i.i11, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN11mpq_managerILb1EE3setER3mpqRKS1_.exit
@@ -4021,9 +4021,9 @@ sw.bb6:                                           ; preds = %_ZN11mpq_managerILb
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.bb, %sw.bb3, %sw.bb6
-  %m_den.i.i = getelementptr inbounds i8, ptr %a, i64 48
-  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i)
-  store i32 1, ptr %m_den.i.i, align 8
+  %m_den.i.i11 = getelementptr inbounds i8, ptr %a, i64 48
+  tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull %this, ptr noundef nonnull align 8 dereferenceable(16) %m_den.i.i11)
+  store i32 1, ptr %m_den.i.i11, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %_ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit

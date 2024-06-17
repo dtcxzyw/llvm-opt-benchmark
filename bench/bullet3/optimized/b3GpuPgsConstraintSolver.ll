@@ -7277,29 +7277,29 @@ terminate.lpad.i126:                              ; preds = %lpad117
   unreachable
 
 if.end148.sink.split:                             ; preds = %if.then136, %if.then138
-  %m_linearVelocity.i131 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 112
+  %m_linearVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 112
   %125 = load <2 x float>, ptr %arrayidx.i116, align 16
-  %126 = load <2 x float>, ptr %m_linearVelocity.i131, align 16
+  %126 = load <2 x float>, ptr %m_linearVelocity.i, align 16
   %127 = fadd <2 x float> %125, %126
-  store <2 x float> %127, ptr %m_linearVelocity.i131, align 16
-  %arrayidx6.i.i136 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 8
-  %128 = load float, ptr %arrayidx6.i.i136, align 8
-  %arrayidx7.i.i137 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 120
-  %129 = load float, ptr %arrayidx7.i.i137, align 8
-  %add8.i.i138 = fadd float %128, %129
-  store float %add8.i.i138, ptr %arrayidx7.i.i137, align 8
-  %m_deltaAngularVelocity.i139 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 16
-  %m_angularVelocity.i140 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 128
-  %130 = load <2 x float>, ptr %m_deltaAngularVelocity.i139, align 16
-  %131 = load <2 x float>, ptr %m_angularVelocity.i140, align 16
+  store <2 x float> %127, ptr %m_linearVelocity.i, align 16
+  %arrayidx6.i.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 8
+  %128 = load float, ptr %arrayidx6.i.i, align 8
+  %arrayidx7.i.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 120
+  %129 = load float, ptr %arrayidx7.i.i, align 8
+  %add8.i.i = fadd float %128, %129
+  store float %add8.i.i, ptr %arrayidx7.i.i, align 8
+  %m_deltaAngularVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 16
+  %m_angularVelocity.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 128
+  %130 = load <2 x float>, ptr %m_deltaAngularVelocity.i, align 16
+  %131 = load <2 x float>, ptr %m_angularVelocity.i, align 16
   %132 = fadd <2 x float> %130, %131
-  store <2 x float> %132, ptr %m_angularVelocity.i140, align 16
-  %arrayidx6.i5.i145 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 24
-  %133 = load float, ptr %arrayidx6.i5.i145, align 8
-  %arrayidx7.i6.i146 = getelementptr inbounds i8, ptr %arrayidx.i116, i64 136
-  %134 = load float, ptr %arrayidx7.i6.i146, align 8
+  store <2 x float> %132, ptr %m_angularVelocity.i, align 16
+  %arrayidx6.i5.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 24
+  %133 = load float, ptr %arrayidx6.i5.i, align 8
+  %arrayidx7.i6.i = getelementptr inbounds i8, ptr %arrayidx.i116, i64 136
+  %134 = load float, ptr %arrayidx7.i6.i, align 8
   %add8.i7.i = fadd float %133, %134
-  store float %add8.i7.i, ptr %arrayidx7.i6.i146, align 8
+  store float %add8.i7.i, ptr %arrayidx7.i6.i, align 8
   br label %if.end148
 
 if.end148:                                        ; preds = %if.end148.sink.split, %if.then138

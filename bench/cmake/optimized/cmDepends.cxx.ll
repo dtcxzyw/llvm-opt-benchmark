@@ -1332,8 +1332,8 @@ define dso_local void @_ZN9cmDepends26SetIncludePathFromLanguageERKNSt7__cxx1112
   br i1 %.not17, label %_Z12cmExpandListSt17basic_string_viewIcSt11char_traitsIcEERSt6vectorINSt7__cxx1112basic_stringIcS1_SaIcEEESaIS7_EEN6cmList13EmptyElementsE.exit, label %.invoke
 
 .invoke:                                          ; preds = %35, %20
-  %.sink = phi ptr [ %19, %20 ], [ %34, %35 ]
-  %36 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink) #16
+  %.sink19 = phi ptr [ %19, %20 ], [ %34, %35 ]
+  %36 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %.sink19) #16
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
   %39 = getelementptr inbounds i8, ptr %0, i64 96

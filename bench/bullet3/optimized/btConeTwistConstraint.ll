@@ -4442,30 +4442,30 @@ if.then.i1125:                                    ; preds = %_ZN12btSolverBody20
   br label %if.end222.sink.split
 
 if.end222.sink.split:                             ; preds = %if.then.i890, %if.then.i1125
-  %sqrt.i794.sink = phi float [ %sqrt.i794, %if.then.i890 ], [ %sqrt.i1029, %if.then.i1125 ]
-  %fneg219.sink1745 = phi float [ %fneg173, %if.then.i890 ], [ %fneg219, %if.then.i1125 ]
-  %.sink1740 = phi float [ %761, %if.then.i890 ], [ %876, %if.then.i1125 ]
-  %m_deltaAngularVelocity.i940.sink1738 = phi ptr [ %m_deltaAngularVelocity.i276, %if.then.i890 ], [ %m_deltaAngularVelocity.i940, %if.then.i1125 ]
-  %arrayidx7.i.i943.sink1737 = phi ptr [ %arrayidx7.i.i279, %if.then.i890 ], [ %arrayidx7.i.i943, %if.then.i1125 ]
-  %arrayidx13.i.i946.sink1736 = phi ptr [ %arrayidx13.i.i282, %if.then.i890 ], [ %arrayidx13.i.i946, %if.then.i1125 ]
-  %877 = phi <2 x float> [ %756, %if.then.i890 ], [ %871, %if.then.i1125 ]
-  %mul.i.i891 = fmul float %sqrt.i794.sink, -0.000000e+00
-  %m_linearFactor.i896 = getelementptr inbounds i8, ptr %bodyB, i64 112
-  %arrayidx13.i.i900 = getelementptr inbounds i8, ptr %bodyB, i64 120
-  %878 = load float, ptr %arrayidx13.i.i900, align 8
-  %mul14.i.i901 = fmul float %mul.i.i891, %878
-  %m_deltaLinearVelocity.i902 = getelementptr inbounds i8, ptr %bodyB, i64 64
-  %879 = load <2 x float>, ptr %m_linearFactor.i896, align 8
-  %880 = insertelement <2 x float> poison, float %mul.i.i891, i64 0
+  %sqrt.i1029.sink = phi float [ %sqrt.i1029, %if.then.i1125 ], [ %sqrt.i794, %if.then.i890 ]
+  %fneg219.sink1745 = phi float [ %fneg219, %if.then.i1125 ], [ %fneg173, %if.then.i890 ]
+  %.sink1740 = phi float [ %876, %if.then.i1125 ], [ %761, %if.then.i890 ]
+  %m_deltaAngularVelocity.i940.sink1738 = phi ptr [ %m_deltaAngularVelocity.i940, %if.then.i1125 ], [ %m_deltaAngularVelocity.i276, %if.then.i890 ]
+  %arrayidx7.i.i943.sink1737 = phi ptr [ %arrayidx7.i.i943, %if.then.i1125 ], [ %arrayidx7.i.i279, %if.then.i890 ]
+  %arrayidx13.i.i946.sink1736 = phi ptr [ %arrayidx13.i.i946, %if.then.i1125 ], [ %arrayidx13.i.i282, %if.then.i890 ]
+  %877 = phi <2 x float> [ %871, %if.then.i1125 ], [ %756, %if.then.i890 ]
+  %mul.i.i1126 = fmul float %sqrt.i1029.sink, -0.000000e+00
+  %m_linearFactor.i1131 = getelementptr inbounds i8, ptr %bodyB, i64 112
+  %arrayidx13.i.i1135 = getelementptr inbounds i8, ptr %bodyB, i64 120
+  %878 = load float, ptr %arrayidx13.i.i1135, align 8
+  %mul14.i.i1136 = fmul float %mul.i.i1126, %878
+  %m_deltaLinearVelocity.i1137 = getelementptr inbounds i8, ptr %bodyB, i64 64
+  %879 = load <2 x float>, ptr %m_linearFactor.i1131, align 8
+  %880 = insertelement <2 x float> poison, float %mul.i.i1126, i64 0
   %881 = shufflevector <2 x float> %880, <2 x float> poison, <2 x i32> zeroinitializer
   %882 = fmul <2 x float> %881, %879
-  %883 = load <2 x float>, ptr %m_deltaLinearVelocity.i902, align 8
+  %883 = load <2 x float>, ptr %m_deltaLinearVelocity.i1137, align 8
   %884 = fadd <2 x float> %882, %883
-  store <2 x float> %884, ptr %m_deltaLinearVelocity.i902, align 8
-  %arrayidx12.i.i906 = getelementptr inbounds i8, ptr %bodyB, i64 72
-  %885 = load float, ptr %arrayidx12.i.i906, align 8
-  %add13.i.i1142 = fadd float %mul14.i.i901, %885
-  store float %add13.i.i1142, ptr %arrayidx12.i.i906, align 8
+  store <2 x float> %884, ptr %m_deltaLinearVelocity.i1137, align 8
+  %arrayidx12.i.i1141 = getelementptr inbounds i8, ptr %bodyB, i64 72
+  %885 = load float, ptr %arrayidx12.i.i1141, align 8
+  %add13.i.i1142 = fadd float %mul14.i.i1136, %885
+  store float %add13.i.i1142, ptr %arrayidx12.i.i1141, align 8
   %m_angularFactor.i1143 = getelementptr inbounds i8, ptr %bodyB, i64 96
   %886 = load float, ptr %m_angularFactor.i1143, align 8
   %mul.i.i.i1144 = fmul float %886, %fneg219.sink1745

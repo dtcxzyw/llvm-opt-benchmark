@@ -8004,13 +8004,13 @@ for.end:                                          ; preds = %for.body, %sw.bb42
   br label %if.end75.sink.split
 
 if.end75.sink.split:                              ; preds = %for.end, %do.end25
-  %.sink = phi i64 [ 32, %for.end ], [ %cond-lvalue.idx.i, %do.end25 ]
-  %remote = getelementptr inbounds i8, ptr %endpoint_uri_pair_, i64 %.sink
-  %call35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %remote) #29
+  %cond-lvalue.idx.i.sink = phi i64 [ %cond-lvalue.idx.i, %do.end25 ], [ 32, %for.end ]
+  %cond-lvalue.i = getelementptr inbounds i8, ptr %endpoint_uri_pair_, i64 %cond-lvalue.idx.i.sink
+  %call35 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i) #29
   %call36 = call i32 @zmq_msg_init_size(ptr noundef nonnull %msg, i64 noundef %call35)
   %call37 = call ptr @zmq_msg_data(ptr noundef nonnull %msg)
-  %call38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %remote) #29
-  %call39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %remote) #29
+  %call38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i) #29
+  %call39 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i) #29
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %call37, ptr align 1 %call38, i64 %call39, i1 false)
   %17 = load ptr, ptr %_monitor_socket, align 8
   %call41 = call i32 @zmq_msg_send(ptr noundef nonnull %msg, ptr noundef %17, i32 noundef 0)

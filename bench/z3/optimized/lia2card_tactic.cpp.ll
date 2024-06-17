@@ -10997,18 +10997,18 @@ if.then.i.i85:                                    ; preds = %lor.lhs.false.i.i77
           to label %if.end44.sink.split unwind label %lpad.loopexit.split-lp
 
 if.end44.sink.split:                              ; preds = %if.then.i.i85, %if.then.i.i62
-  %m_nodes.i52.sink = phi ptr [ %m_nodes.i52, %if.then.i.i62 ], [ %m_nodes.i75, %if.then.i.i85 ]
+  %m_nodes.i75.sink160 = phi ptr [ %m_nodes.i52, %if.then.i.i62 ], [ %m_nodes.i75, %if.then.i.i85 ]
   %call41.sink.ph = phi ptr [ %36, %if.then.i.i62 ], [ %call41, %if.then.i.i85 ]
-  %.pre.i.i63 = load ptr, ptr %m_nodes.i52.sink, align 8
-  %arrayidx8.phi.trans.insert.i.i87 = getelementptr inbounds i8, ptr %.pre.i.i63, i64 -4
+  %.pre.i.i86 = load ptr, ptr %m_nodes.i75.sink160, align 8
+  %arrayidx8.phi.trans.insert.i.i87 = getelementptr inbounds i8, ptr %.pre.i.i86, i64 -4
   %.pre1.i.i88 = load i32, ptr %arrayidx8.phi.trans.insert.i.i87, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.sink.split, %lor.lhs.false.i.i77, %lor.lhs.false.i.i54
   %.sink159 = phi i32 [ %39, %lor.lhs.false.i.i54 ], [ %45, %lor.lhs.false.i.i77 ], [ %.pre1.i.i88, %if.end44.sink.split ]
-  %.sink = phi ptr [ %38, %lor.lhs.false.i.i54 ], [ %44, %lor.lhs.false.i.i77 ], [ %.pre.i.i63, %if.end44.sink.split ]
+  %.sink = phi ptr [ %38, %lor.lhs.false.i.i54 ], [ %44, %lor.lhs.false.i.i77 ], [ %.pre.i.i86, %if.end44.sink.split ]
   %call41.sink = phi ptr [ %36, %lor.lhs.false.i.i54 ], [ %call41, %lor.lhs.false.i.i77 ], [ %call41.sink.ph, %if.end44.sink.split ]
-  %m_nodes.i75.sink = phi ptr [ %m_nodes.i52, %lor.lhs.false.i.i54 ], [ %m_nodes.i75, %lor.lhs.false.i.i77 ], [ %m_nodes.i52.sink, %if.end44.sink.split ]
+  %m_nodes.i75.sink = phi ptr [ %m_nodes.i52, %lor.lhs.false.i.i54 ], [ %m_nodes.i75, %lor.lhs.false.i.i77 ], [ %m_nodes.i75.sink160, %if.end44.sink.split ]
   %idx.ext.i.i81 = zext i32 %.sink159 to i64
   %add.ptr.i.i82 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i81
   store ptr %call41.sink, ptr %add.ptr.i.i82, align 8

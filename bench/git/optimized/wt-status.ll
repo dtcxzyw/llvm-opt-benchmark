@@ -1206,32 +1206,23 @@ land.lhs.true27:                                  ; preds = %if.then26
   %cherry_pick_in_progress28 = getelementptr inbounds i8, ptr %state, i64 20
   %3 = load i32, ptr %cherry_pick_in_progress28, align 4
   %tobool29.not = icmp eq i32 %3, 0
-  br i1 %tobool29.not, label %if.then30, label %if.end45
-
-if.then30:                                        ; preds = %land.lhs.true27
-  store i32 1, ptr %cherry_pick_in_progress28, align 4
-  %cherry_pick_head_oid32 = getelementptr inbounds i8, ptr %state, i64 144
-  %call33 = call ptr @null_oid() #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cherry_pick_head_oid32, ptr noundef nonnull align 4 dereferenceable(32) %call33, i64 32, i1 false)
-  br label %if.end45.sink.split
+  br i1 %tobool29.not, label %if.end45.sink.split, label %if.end45
 
 land.lhs.true36:                                  ; preds = %if.then26
   %revert_in_progress37 = getelementptr inbounds i8, ptr %state, i64 28
   %4 = load i32, ptr %revert_in_progress37, align 4
   %tobool38.not = icmp eq i32 %4, 0
-  br i1 %tobool38.not, label %if.then39, label %if.end45
+  br i1 %tobool38.not, label %if.end45.sink.split, label %if.end45
 
-if.then39:                                        ; preds = %land.lhs.true36
-  store i32 1, ptr %revert_in_progress37, align 4
-  %revert_head_oid41 = getelementptr inbounds i8, ptr %state, i64 108
-  %call42 = call ptr @null_oid() #19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %revert_head_oid41, ptr noundef nonnull align 4 dereferenceable(32) %call42, i64 32, i1 false)
-  br label %if.end45.sink.split
-
-if.end45.sink.split:                              ; preds = %if.then39, %if.then30
-  %call33.sink = phi ptr [ %call33, %if.then30 ], [ %call42, %if.then39 ]
-  %.sink38 = phi i64 [ 176, %if.then30 ], [ 140, %if.then39 ]
-  %algo.i25 = getelementptr inbounds i8, ptr %call33.sink, i64 32
+if.end45.sink.split:                              ; preds = %land.lhs.true36, %land.lhs.true27
+  %cherry_pick_in_progress28.sink = phi ptr [ %cherry_pick_in_progress28, %land.lhs.true27 ], [ %revert_in_progress37, %land.lhs.true36 ]
+  %.sink = phi i64 [ 144, %land.lhs.true27 ], [ 108, %land.lhs.true36 ]
+  %.sink38 = phi i64 [ 176, %land.lhs.true27 ], [ 140, %land.lhs.true36 ]
+  store i32 1, ptr %cherry_pick_in_progress28.sink, align 4
+  %cherry_pick_head_oid32 = getelementptr inbounds i8, ptr %state, i64 %.sink
+  %call33 = call ptr @null_oid() #19
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %cherry_pick_head_oid32, ptr noundef nonnull align 4 dereferenceable(32) %call33, i64 32, i1 false)
+  %algo.i25 = getelementptr inbounds i8, ptr %call33, i64 32
   %5 = load i32, ptr %algo.i25, align 4
   %algo3.i26 = getelementptr inbounds i8, ptr %state, i64 %.sink38
   store i32 %5, ptr %algo3.i26, align 4

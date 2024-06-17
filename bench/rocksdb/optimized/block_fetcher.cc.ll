@@ -887,12 +887,12 @@ ehcleanup68:                                      ; preds = %lpad48, %lpad43
   br label %ehcleanup173
 
 if.end70.sink.split.sink.split:                   ; preds = %if.then4.i.i109, %if.then4.i.i252
-  %block_read_time41.sink463 = phi ptr [ %block_read_time41, %if.then4.i.i252 ], [ %block_read_time, %if.then4.i.i109 ]
+  %block_read_time41.sink464 = phi ptr [ %block_read_time41, %if.then4.i.i252 ], [ %block_read_time, %if.then4.i.i109 ]
   %sub.i.i242.sink = phi i64 [ %sub.i.i242, %if.then4.i.i252 ], [ %sub.i.i99, %if.then4.i.i109 ]
   %start_.i123448.sink.ph = phi ptr [ %start_.i123448, %if.then4.i.i252 ], [ %start_.i436, %if.then4.i.i109 ]
-  %101 = load i64, ptr %block_read_time41.sink463, align 8
+  %101 = load i64, ptr %block_read_time41.sink464, align 8
   %add.i.i254 = add i64 %101, %sub.i.i242.sink
-  store i64 %add.i.i254, ptr %block_read_time41.sink463, align 8
+  store i64 %add.i.i254, ptr %block_read_time41.sink464, align 8
   br label %if.end70.sink.split
 
 if.end70.sink.split:                              ; preds = %if.end70.sink.split.sink.split, %call5.i.i.noexc.i241, %call5.i.i.noexc.i98
@@ -965,17 +965,17 @@ if.then85:                                        ; preds = %_ZTWN7rocksdb10perf
   br i1 %.not.i266, label %sw.epilog.sink.split, label %sw.epilog.sink.split.sink.split
 
 sw.epilog.sink.split.sink.split:                  ; preds = %if.then85, %if.then79, %if.then73
-  %.sink464.ph = phi i64 [ 88, %if.then73 ], [ 96, %if.then79 ], [ 72, %if.then85 ]
+  %.sink463.ph = phi i64 [ 88, %if.then73 ], [ 96, %if.then79 ], [ 72, %if.then85 ]
   call void @_ZTHN7rocksdb12perf_contextE()
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %if.then85, %if.then79, %if.then73
-  %.sink464 = phi i64 [ 88, %if.then73 ], [ 96, %if.then79 ], [ 72, %if.then85 ], [ %.sink464.ph, %sw.epilog.sink.split.sink.split ]
+  %.sink463 = phi i64 [ 88, %if.then73 ], [ 96, %if.then79 ], [ 72, %if.then85 ], [ %.sink463.ph, %sw.epilog.sink.split.sink.split ]
   %112 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %filter_block_read_count = getelementptr inbounds i8, ptr %112, i64 %.sink464
-  %113 = load i64, ptr %filter_block_read_count, align 8
+  %index_block_read_count = getelementptr inbounds i8, ptr %112, i64 %.sink463
+  %113 = load i64, ptr %index_block_read_count, align 8
   %add86 = add i64 %113, 1
-  store i64 %add86, ptr %filter_block_read_count, align 8
+  store i64 %add86, ptr %index_block_read_count, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end70, %_ZTWN7rocksdb10perf_levelE.exit265, %_ZTWN7rocksdb10perf_levelE.exit261, %_ZTWN7rocksdb10perf_levelE.exit257

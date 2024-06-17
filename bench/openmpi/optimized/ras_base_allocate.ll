@@ -432,8 +432,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %14
   br i1 %26, label %._crit_edge, label %.preheader52
 
 .preheader52:                                     ; preds = %.preheader52.lr.ph, %.loopexit53
-  %27 = phi ptr [ %64, %.loopexit53 ], [ %23, %.preheader52.lr.ph ]
-  %28 = phi ptr [ %65, %.loopexit53 ], [ %23, %.preheader52.lr.ph ]
+  %27 = phi ptr [ %61, %.loopexit53 ], [ %23, %.preheader52.lr.ph ]
+  %28 = phi ptr [ %62, %.loopexit53 ], [ %23, %.preheader52.lr.ph ]
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.loopexit53 ], [ 0, %.preheader52.lr.ph ]
   %29 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv68
   %30 = getelementptr inbounds i8, ptr %28, i64 128
@@ -461,61 +461,54 @@ pmix_pointer_array_get_item.exit49:               ; preds = %pmix_pointer_array_
   %43 = load ptr, ptr %29, align 8
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %49
+  br i1 %45, label %.loopexit53.sink.split, label %46
 
 46:                                               ; preds = %40
-  %47 = getelementptr inbounds i8, ptr %38, i64 240
+  %47 = getelementptr inbounds i8, ptr %38, i64 168
   %48 = load ptr, ptr %47, align 8
-  tail call fastcc void @display_cpus(ptr noundef %48, ptr noundef %0, ptr noundef %43)
-  %.pre = load ptr, ptr @prte_node_pool, align 8
-  br label %.loopexit53
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %.loopexit51, label %.preheader50
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds i8, ptr %38, i64 168
-  %51 = load ptr, ptr %50, align 8
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.loopexit51, label %.preheader50
-
-.preheader50:                                     ; preds = %49
-  %53 = load ptr, ptr %51, align 8
-  %.not4555 = icmp eq ptr %53, null
+.preheader50:                                     ; preds = %46
+  %50 = load ptr, ptr %48, align 8
+  %.not4555 = icmp eq ptr %50, null
   br i1 %.not4555, label %.loopexit51, label %.lr.ph
 
-54:                                               ; preds = %.lr.ph
+51:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv.next
-  %56 = load ptr, ptr %55, align 8
-  %.not45 = icmp eq ptr %56, null
+  %52 = getelementptr inbounds ptr, ptr %48, i64 %indvars.iv.next
+  %53 = load ptr, ptr %52, align 8
+  %.not45 = icmp eq ptr %53, null
   br i1 %.not45, label %.loopexit51, label %.lr.ph, !llvm.loop !7
 
-.lr.ph:                                           ; preds = %.preheader50, %54
-  %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader50 ]
-  %57 = phi ptr [ %56, %54 ], [ %53, %.preheader50 ]
-  %58 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %57) #16
-  %59 = icmp eq i32 %58, 0
-  br i1 %59, label %.loopexit51.thread, label %54
+.lr.ph:                                           ; preds = %.preheader50, %51
+  %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %.preheader50 ]
+  %54 = phi ptr [ %53, %51 ], [ %50, %.preheader50 ]
+  %55 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %54) #16
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %.loopexit53.sink.split, label %51
 
-.loopexit51.thread:                               ; preds = %.lr.ph
-  %60 = getelementptr inbounds i8, ptr %38, i64 240
-  %61 = load ptr, ptr %60, align 8
-  tail call fastcc void @display_cpus(ptr noundef %61, ptr noundef %0, ptr noundef %43)
+.loopexit51:                                      ; preds = %51, %.preheader50, %46, %pmix_pointer_array_get_item.exit49
+  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
+  %57 = load i32, ptr %33, align 8
+  %58 = sext i32 %57 to i64
+  %.not89 = icmp slt i64 %indvars.iv.next67, %58
+  br i1 %.not89, label %pmix_pointer_array_get_item.exit49, label %.loopexit53, !llvm.loop !8
+
+.loopexit53.sink.split:                           ; preds = %40, %.lr.ph
+  %59 = getelementptr inbounds i8, ptr %38, i64 240
+  %60 = load ptr, ptr %59, align 8
+  tail call fastcc void @display_cpus(ptr noundef %60, ptr noundef %0, ptr noundef %43)
   %.pre78 = load ptr, ptr @prte_node_pool, align 8
   br label %.loopexit53
 
-.loopexit51:                                      ; preds = %54, %.preheader50, %49, %pmix_pointer_array_get_item.exit49
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %62 = load i32, ptr %33, align 8
-  %63 = sext i32 %62 to i64
-  %.not87 = icmp slt i64 %indvars.iv.next67, %63
-  br i1 %.not87, label %pmix_pointer_array_get_item.exit49, label %.loopexit53, !llvm.loop !8
-
-.loopexit53:                                      ; preds = %.loopexit51, %.loopexit51.thread, %.preheader52, %46
-  %64 = phi ptr [ %27, %.preheader52 ], [ %.pre, %46 ], [ %.pre78, %.loopexit51.thread ], [ %27, %.loopexit51 ]
-  %65 = phi ptr [ %28, %.preheader52 ], [ %.pre, %46 ], [ %.pre78, %.loopexit51.thread ], [ %27, %.loopexit51 ]
+.loopexit53:                                      ; preds = %.loopexit51, %.loopexit53.sink.split, %.preheader52
+  %61 = phi ptr [ %27, %.preheader52 ], [ %.pre78, %.loopexit53.sink.split ], [ %27, %.loopexit51 ]
+  %62 = phi ptr [ %28, %.preheader52 ], [ %.pre78, %.loopexit53.sink.split ], [ %27, %.loopexit51 ]
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %66 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next69
-  %67 = load ptr, ptr %66, align 8
-  %.not = icmp eq ptr %67, null
+  %63 = getelementptr inbounds ptr, ptr %21, i64 %indvars.iv.next69
+  %64 = load ptr, ptr %63, align 8
+  %.not = icmp eq ptr %64, null
   br i1 %.not, label %._crit_edge, label %.preheader52, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %.loopexit53, %.preheader52.lr.ph, %20

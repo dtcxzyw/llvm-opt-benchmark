@@ -6461,12 +6461,12 @@ for.inc111:                                       ; preds = %land.lhs.true89, %_
 
 return.sink.split:                                ; preds = %land.lhs.true51, %land.lhs.true, %for.end106.us, %for.inc104.us, %land.lhs.true89
   %.us-phi.sink = phi ptr [ %__begin378.sroa.0.0158, %land.lhs.true89 ], [ %__begin378.sroa.0.0158.us, %for.inc104.us ], [ %__begin378.sroa.0.0158.us, %for.end106.us ], [ %__begin3.sroa.0.0149, %land.lhs.true ], [ %__begin334.sroa.0.0146, %land.lhs.true51 ]
-  %m_max_generation.i = getelementptr inbounds i8, ptr %this, i64 80
+  %m_max_generation.i117 = getelementptr inbounds i8, ptr %this, i64 80
   %m_generation.i.i118 = getelementptr inbounds i8, ptr %.us-phi.sink, i64 40
   %62 = load i32, ptr %m_generation.i.i118, align 8
-  %63 = load i32, ptr %m_max_generation.i, align 8
+  %63 = load i32, ptr %m_max_generation.i117, align 8
   %.sroa.speculated.i119 = tail call i32 @llvm.umax.i32(i32 %63, i32 %62)
-  store i32 %.sroa.speculated.i119, ptr %m_max_generation.i, align 8
+  store i32 %.sroa.speculated.i119, ptr %m_max_generation.i117, align 8
   br label %return
 
 return:                                           ; preds = %for.inc59, %for.inc, %for.inc111.us, %for.inc111, %return.sink.split, %for.cond82.preheader.thread, %sw.bb17, %sw.bb, %for.cond82.preheader
@@ -14902,7 +14902,7 @@ if.then.i799:                                     ; preds = %lor.lhs.false.i790,
 
 sw.epilog.sink.split.sink.split:                  ; preds = %_ZN6vectorIPN1q11instructionELb0EjE13expand_vectorEv.exit1088, %if.then.i183, %if.then.i274, %if.then.i289, %if.then.i393, %if.then.i408, %if.then.i483, %if.then.i498, %if.then.i611, %if.then.i730, %if.then.i769, %if.then.i784, %if.then.i799
   %.pre.i800.sink = phi ptr [ %.pre.i800, %if.then.i799 ], [ %.pre.i785, %if.then.i784 ], [ %.pre.i770, %if.then.i769 ], [ %.pre.i731, %if.then.i730 ], [ %.pre.i612, %if.then.i611 ], [ %.pre.i499, %if.then.i498 ], [ %.pre.i484, %if.then.i483 ], [ %.pre.i409, %if.then.i408 ], [ %.pre.i394, %if.then.i393 ], [ %.pre.i290, %if.then.i289 ], [ %.pre.i275, %if.then.i274 ], [ %.pre.i184, %if.then.i183 ], [ %.pre.i119, %_ZN6vectorIPN1q11instructionELb0EjE13expand_vectorEv.exit1088 ]
-  %m_incompatible.sink.ph = phi ptr [ %m_incompatible, %if.then.i799 ], [ %m_incompatible, %if.then.i784 ], [ %m_incompatible, %if.then.i769 ], [ %m_compatible, %if.then.i730 ], [ %m_compatible, %if.then.i611 ], [ %m_incompatible, %if.then.i498 ], [ %m_compatible, %if.then.i483 ], [ %m_incompatible, %if.then.i408 ], [ %m_compatible, %if.then.i393 ], [ %m_incompatible, %if.then.i289 ], [ %m_incompatible, %if.then.i274 ], [ %m_compatible, %if.then.i183 ], [ %m_incompatible, %_ZN6vectorIPN1q11instructionELb0EjE13expand_vectorEv.exit1088 ]
+  %m_compatible.sink.ph = phi ptr [ %m_incompatible, %if.then.i799 ], [ %m_incompatible, %if.then.i784 ], [ %m_incompatible, %if.then.i769 ], [ %m_compatible, %if.then.i730 ], [ %m_compatible, %if.then.i611 ], [ %m_incompatible, %if.then.i498 ], [ %m_compatible, %if.then.i483 ], [ %m_incompatible, %if.then.i408 ], [ %m_compatible, %if.then.i393 ], [ %m_incompatible, %if.then.i289 ], [ %m_incompatible, %if.then.i274 ], [ %m_compatible, %if.then.i183 ], [ %m_incompatible, %_ZN6vectorIPN1q11instructionELb0EjE13expand_vectorEv.exit1088 ]
   %arrayidx8.phi.trans.insert.i801 = getelementptr inbounds i8, ptr %.pre.i800.sink, i64 -4
   %.pre1.i802 = load i32, ptr %arrayidx8.phi.trans.insert.i801, align 4
   br label %sw.epilog.sink.split
@@ -14910,15 +14910,15 @@ sw.epilog.sink.split.sink.split:                  ; preds = %_ZN6vectorIPN1q11in
 sw.epilog.sink.split:                             ; preds = %sw.epilog.sink.split.sink.split, %lor.lhs.false.i790, %lor.lhs.false.i775, %lor.lhs.false.i760, %lor.lhs.false.i721, %lor.lhs.false.i602, %lor.lhs.false.i489, %lor.lhs.false.i474, %lor.lhs.false.i399, %lor.lhs.false.i384, %lor.lhs.false.i280, %lor.lhs.false.i265, %lor.lhs.false.i174, %lor.lhs.false.i110
   %.sink1626 = phi i32 [ %78, %lor.lhs.false.i110 ], [ %107, %lor.lhs.false.i174 ], [ %147, %lor.lhs.false.i265 ], [ %150, %lor.lhs.false.i280 ], [ %191, %lor.lhs.false.i384 ], [ %194, %lor.lhs.false.i399 ], [ %222, %lor.lhs.false.i474 ], [ %225, %lor.lhs.false.i489 ], [ %257, %lor.lhs.false.i602 ], [ %290, %lor.lhs.false.i721 ], [ %303, %lor.lhs.false.i760 ], [ %306, %lor.lhs.false.i775 ], [ %309, %lor.lhs.false.i790 ], [ %.pre1.i802, %sw.epilog.sink.split.sink.split ]
   %.sink1625 = phi ptr [ %77, %lor.lhs.false.i110 ], [ %106, %lor.lhs.false.i174 ], [ %146, %lor.lhs.false.i265 ], [ %149, %lor.lhs.false.i280 ], [ %190, %lor.lhs.false.i384 ], [ %193, %lor.lhs.false.i399 ], [ %221, %lor.lhs.false.i474 ], [ %224, %lor.lhs.false.i489 ], [ %256, %lor.lhs.false.i602 ], [ %289, %lor.lhs.false.i721 ], [ %302, %lor.lhs.false.i760 ], [ %305, %lor.lhs.false.i775 ], [ %308, %lor.lhs.false.i790 ], [ %.pre.i800.sink, %sw.epilog.sink.split.sink.split ]
-  %m_incompatible.sink = phi ptr [ %m_incompatible, %lor.lhs.false.i110 ], [ %m_compatible, %lor.lhs.false.i174 ], [ %m_incompatible, %lor.lhs.false.i265 ], [ %m_incompatible, %lor.lhs.false.i280 ], [ %m_compatible, %lor.lhs.false.i384 ], [ %m_incompatible, %lor.lhs.false.i399 ], [ %m_compatible, %lor.lhs.false.i474 ], [ %m_incompatible, %lor.lhs.false.i489 ], [ %m_compatible, %lor.lhs.false.i602 ], [ %m_compatible, %lor.lhs.false.i721 ], [ %m_incompatible, %lor.lhs.false.i760 ], [ %m_incompatible, %lor.lhs.false.i775 ], [ %m_incompatible, %lor.lhs.false.i790 ], [ %m_incompatible.sink.ph, %sw.epilog.sink.split.sink.split ]
-  %idx.ext.i795 = zext i32 %.sink1626 to i64
-  %add.ptr.i796 = getelementptr inbounds ptr, ptr %.sink1625, i64 %idx.ext.i795
-  store ptr %storemerge1482, ptr %add.ptr.i796, align 8
-  %311 = load ptr, ptr %m_incompatible.sink, align 8
-  %arrayidx10.i797 = getelementptr inbounds i8, ptr %311, i64 -4
-  %312 = load i32, ptr %arrayidx10.i797, align 4
+  %m_compatible.sink = phi ptr [ %m_incompatible, %lor.lhs.false.i110 ], [ %m_compatible, %lor.lhs.false.i174 ], [ %m_incompatible, %lor.lhs.false.i265 ], [ %m_incompatible, %lor.lhs.false.i280 ], [ %m_compatible, %lor.lhs.false.i384 ], [ %m_incompatible, %lor.lhs.false.i399 ], [ %m_compatible, %lor.lhs.false.i474 ], [ %m_incompatible, %lor.lhs.false.i489 ], [ %m_compatible, %lor.lhs.false.i602 ], [ %m_compatible, %lor.lhs.false.i721 ], [ %m_incompatible, %lor.lhs.false.i760 ], [ %m_incompatible, %lor.lhs.false.i775 ], [ %m_incompatible, %lor.lhs.false.i790 ], [ %m_compatible.sink.ph, %sw.epilog.sink.split.sink.split ]
+  %idx.ext.i607 = zext i32 %.sink1626 to i64
+  %add.ptr.i608 = getelementptr inbounds ptr, ptr %.sink1625, i64 %idx.ext.i607
+  store ptr %storemerge1482, ptr %add.ptr.i608, align 8
+  %311 = load ptr, ptr %m_compatible.sink, align 8
+  %arrayidx10.i609 = getelementptr inbounds i8, ptr %311, i64 -4
+  %312 = load i32, ptr %arrayidx10.i609, align 4
   %inc.i610 = add i32 %312, 1
-  store i32 %inc.i610, ptr %arrayidx10.i797, align 4
+  store i32 %inc.i610, ptr %arrayidx10.i609, align 4
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %_ZN6vectorIjLb0EjE9push_backEOj.exit, %sw.epilog.sink.split, %_ZN6vectorIPN1q11instructionELb0EjE9push_backERKS2_.exit

@@ -7658,22 +7658,22 @@ land.rhs82:                                       ; preds = %land.lhs.true63
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %land.rhs82, %land.rhs
-  %.sink268.in = phi ptr [ %arrayidx.i.i204, %land.rhs82 ], [ %g, %land.rhs ]
-  %.sink = phi ptr [ %18, %land.rhs82 ], [ %6, %land.rhs ]
-  %.sink268 = load ptr, ptr %.sink268.in, align 8, !noalias !79
-  %d_kind.i.i.i.i207 = getelementptr inbounds i8, ptr %.sink268, i64 8
-  %bf.load.i.i.i.i208 = load i16, ptr %d_kind.i.i.i.i207, align 8, !noalias !79
-  %bf.clear.i.i.i.i209 = and i16 %bf.load.i.i.i.i208, 1023
-  %bf.cast.i.i.i.i52 = zext nneg i16 %bf.clear.i.i.i.i209 to i32
-  %cmp.i.i.i.i.i53 = icmp eq i16 %bf.clear.i.i.i.i209, 1023
+  %g.sink = phi ptr [ %g, %land.rhs ], [ %arrayidx.i.i204, %land.rhs82 ]
+  %.sink = phi ptr [ %6, %land.rhs ], [ %18, %land.rhs82 ]
+  %20 = load ptr, ptr %g.sink, align 8, !noalias !79
+  %d_kind.i.i.i.i49 = getelementptr inbounds i8, ptr %20, i64 8
+  %bf.load.i.i.i.i50 = load i16, ptr %d_kind.i.i.i.i49, align 8, !noalias !79
+  %bf.clear.i.i.i.i51 = and i16 %bf.load.i.i.i.i50, 1023
+  %bf.cast.i.i.i.i52 = zext nneg i16 %bf.clear.i.i.i.i51 to i32
+  %cmp.i.i.i.i.i53 = icmp eq i16 %bf.clear.i.i.i.i51, 1023
   %cond.i.i.i.i.i54 = select i1 %cmp.i.i.i.i.i53, i32 -1, i32 %bf.cast.i.i.i.i52
   %call2.i.i.i5562 = tail call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %cond.i.i.i.i.i54)
   %cmp.i.i56 = icmp eq i32 %call2.i.i.i5562, 2
-  %d_children.i.i59 = getelementptr inbounds i8, ptr %.sink268, i64 16
+  %d_children.i.i59 = getelementptr inbounds i8, ptr %20, i64 16
   %idxprom.i.i60 = zext i1 %cmp.i.i56 to i64
   %arrayidx.i.i61 = getelementptr inbounds [0 x ptr], ptr %d_children.i.i59, i64 0, i64 %idxprom.i.i60
-  %20 = load ptr, ptr %arrayidx.i.i61, align 8, !noalias !79
-  %cmp.i64 = icmp eq ptr %.sink, %20
+  %21 = load ptr, ptr %arrayidx.i.i61, align 8, !noalias !79
+  %cmp.i64 = icmp eq ptr %.sink, %21
   br label %return
 
 return:                                           ; preds = %return.sink.split, %land.lhs.true4, %land.lhs.true63, %land.lhs.true55, %invoke.cont52, %if.end44, %entry

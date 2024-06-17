@@ -53324,8 +53324,8 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit105.sink.split.i.i.i: ; preds = %_ZN5Yosys5RTLI
   br label %_ZN5Yosys5RTLIL8IdStringD2Ev.exit105.i.i.i
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit105.i.i.i:       ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit105.sink.split.i.i.i, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i132.i.i.i, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i128.i.i.i, %773, %766, %761
-  %.sink220.i.i.i = phi i32 [ 0, %773 ], [ 0, %766 ], [ 0, %761 ], [ 0, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i128.i.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i132.i.i.i ], [ %.sink230.i.i.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit105.sink.split.i.i.i ]
-  store i32 %.sink220.i.i.i, ptr %157, align 4
+  %.sink222.i.i.i = phi i32 [ 0, %773 ], [ 0, %766 ], [ 0, %761 ], [ 0, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i128.i.i.i ], [ 0, %_ZN5Yosys5RTLIL8IdString13put_referenceEi.exit.i132.i.i.i ], [ %.sink230.i.i.i, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit105.sink.split.i.i.i ]
+  store i32 %.sink222.i.i.i, ptr %157, align 4
   %911 = load ptr, ptr %146, align 8
   %912 = load i32, ptr %172, align 4
   %.not.i.i135.i.i.i = icmp eq i32 %912, 0
@@ -53577,9 +53577,9 @@ common.resume:                                    ; preds = %_ZN5Yosys5RTLIL5Con
   resume { ptr, i32 } %common.resume.op
 
 1009:                                             ; preds = %1007, %1005, %972, %970, %774
-  %.sink221.i.i.i = phi ptr [ %7, %1007 ], [ %6, %1005 ], [ %2, %774 ], [ %4, %972 ], [ %4, %970 ]
+  %.sink223.i.i.i = phi ptr [ %7, %1007 ], [ %6, %1005 ], [ %2, %774 ], [ %4, %972 ], [ %4, %970 ]
   %.pn45.i.i.i = phi { ptr, i32 } [ %1008, %1007 ], [ %1006, %1005 ], [ %775, %774 ], [ %lpad.phi.i.i, %972 ], [ %971, %970 ]
-  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink221.i.i.i) #21
+  call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %.sink223.i.i.i) #21
   br label %common.resume
 
 _ZN12_GLOBAL__N_113xilinx_srl_pm8block_16Ei.exit.i.i: ; preds = %1004, %997, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit151.i.i.i

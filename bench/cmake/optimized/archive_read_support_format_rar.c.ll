@@ -1501,11 +1501,11 @@ tailrecurse.i:                                    ; preds = %358
   br label %read_data_compressed.exit.thread
 
 .sink.split.i:                                    ; preds = %431, %._crit_edge.loopexit.i251.i, %._crit_edge.loopexit.i.i, %345
-  %.sink433 = phi i64 [ %439, %431 ], [ %430, %._crit_edge.loopexit.i251.i ], [ %399, %._crit_edge.loopexit.i.i ], [ %353, %345 ]
-  %.sink432 = phi i64 [ 1, %431 ], [ %429, %._crit_edge.loopexit.i251.i ], [ %398, %._crit_edge.loopexit.i.i ], [ 1, %345 ]
-  store i64 %.sink433, ptr %107, align 8
+  %.sink.i = phi i64 [ %353, %345 ], [ %439, %431 ], [ %430, %._crit_edge.loopexit.i251.i ], [ %399, %._crit_edge.loopexit.i.i ]
+  %.sink506.i = phi i64 [ 1, %345 ], [ 1, %431 ], [ %429, %._crit_edge.loopexit.i251.i ], [ %398, %._crit_edge.loopexit.i.i ]
+  store i64 %.sink.i, ptr %107, align 8
   %453 = load i64, ptr %93, align 8
-  %454 = add nsw i64 %453, %.sink432
+  %454 = add nsw i64 %453, %.sink506.i
   store i64 %454, ptr %93, align 8
   br label %455
 

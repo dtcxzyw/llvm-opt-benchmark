@@ -1050,11 +1050,11 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_byte_string(ptr noundef
   br label %.loopexit
 
 .sink.split:                                      ; preds = %25, %28, %29, %30
-  %.sink100 = phi i32 [ 2, %28 ], [ 4, %29 ], [ 8, %30 ], [ 1, %25 ]
+  %.sink98 = phi i32 [ 8, %30 ], [ 4, %29 ], [ 2, %28 ], [ 1, %25 ]
   %77 = load i32, ptr @hf_cbor_item_length, align 4
-  %78 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %.sink100, i32 noundef 0, ptr noundef nonnull %6) #6
+  %78 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %11, i32 noundef %77, ptr noundef %0, i32 noundef %27, i32 noundef %.sink98, i32 noundef 0, ptr noundef nonnull %6) #6
   %79 = load i32, ptr %3, align 4
-  %80 = add i32 %79, %.sink100
+  %80 = add i32 %79, %.sink98
   store i32 %80, ptr %3, align 4
   br label %81
 
@@ -1223,11 +1223,11 @@ define internal fastcc range(i32 0, 2) i32 @dissect_cbor_text_string(ptr noundef
   br label %.loopexit
 
 .sink.split:                                      ; preds = %26, %29, %30, %31
-  %.sink101 = phi i32 [ 2, %29 ], [ 4, %30 ], [ 8, %31 ], [ 1, %26 ]
+  %.sink99 = phi i32 [ 8, %31 ], [ 4, %30 ], [ 2, %29 ], [ 1, %26 ]
   %78 = load i32, ptr @hf_cbor_item_length, align 4
-  %79 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %12, i32 noundef %78, ptr noundef %0, i32 noundef %28, i32 noundef %.sink101, i32 noundef 0, ptr noundef nonnull %7) #6
+  %79 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %12, i32 noundef %78, ptr noundef %0, i32 noundef %28, i32 noundef %.sink99, i32 noundef 0, ptr noundef nonnull %7) #6
   %80 = load i32, ptr %3, align 4
-  %81 = add i32 %80, %.sink101
+  %81 = add i32 %80, %.sink99
   store i32 %81, ptr %3, align 4
   br label %82
 

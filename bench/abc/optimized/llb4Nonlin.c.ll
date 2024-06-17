@@ -1063,9 +1063,9 @@ define void @Llb_Nonlin4CreateOrder_rec(ptr noundef %0, ptr nocapture noundef %1
   %28 = and i32 %27, 16777215
   %29 = icmp ugt i32 %23, %28
   %. = select i1 %29, ptr %14, ptr %18
-  %.51 = select i1 %29, ptr %18, ptr %14
+  %.52 = select i1 %29, ptr %18, ptr %14
   tail call void @Llb_Nonlin4CreateOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %., ptr noundef %2, ptr noundef %3)
-  tail call void @Llb_Nonlin4CreateOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %.51, ptr noundef %2, ptr noundef %3)
+  tail call void @Llb_Nonlin4CreateOrder_rec(ptr noundef nonnull %0, ptr noundef nonnull %.52, ptr noundef %2, ptr noundef %3)
   %30 = load i64, ptr %8, align 8
   %31 = and i64 %30, 16
   %.not33 = icmp eq i64 %31, 0
@@ -1073,13 +1073,13 @@ define void @Llb_Nonlin4CreateOrder_rec(ptr noundef %0, ptr nocapture noundef %1
 
 .sink.split:                                      ; preds = %10, %7
   %32 = getelementptr i8, ptr %1, i64 36
-  %.val34 = load i32, ptr %32, align 4
+  %.val = load i32, ptr %32, align 4
   %33 = load i32, ptr %3, align 4
   %34 = add nsw i32 %33, 1
   store i32 %34, ptr %3, align 4
   %35 = getelementptr i8, ptr %2, i64 8
   %.val37 = load ptr, ptr %35, align 8
-  %36 = sext i32 %.val34 to i64
+  %36 = sext i32 %.val to i64
   %37 = getelementptr inbounds i32, ptr %.val37, i64 %36
   store i32 %33, ptr %37, align 4
   br label %38

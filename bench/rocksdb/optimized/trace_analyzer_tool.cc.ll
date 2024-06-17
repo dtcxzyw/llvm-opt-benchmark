@@ -4865,34 +4865,34 @@ if.end7:                                          ; preds = %if.end
 
 cleanup.sink.split:                               ; preds = %if.end7, %if.then.i.i
   %state_.i.i4.sink = phi ptr [ %state_.i.i, %if.then.i.i ], [ %state_.i.i4, %if.end7 ]
-  %subcode_.i.i = getelementptr inbounds i8, ptr %s, i64 1
-  %4 = load i8, ptr %subcode_.i.i, align 1
-  %subcode_5.i.i = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 %4, ptr %subcode_5.i.i, align 1
-  %sev_.i.i = getelementptr inbounds i8, ptr %s, i64 2
-  %5 = load i8, ptr %sev_.i.i, align 2
-  %sev_7.i.i = getelementptr inbounds i8, ptr %agg.result, i64 2
-  store i8 %5, ptr %sev_7.i.i, align 2
-  %retryable_.i.i = getelementptr inbounds i8, ptr %s, i64 3
-  %6 = load i8, ptr %retryable_.i.i, align 1
-  %retryable_9.i.i = getelementptr inbounds i8, ptr %agg.result, i64 3
-  %frombool.i.i = and i8 %6, 1
-  store i8 %frombool.i.i, ptr %retryable_9.i.i, align 1
+  %subcode_.i.i7 = getelementptr inbounds i8, ptr %s, i64 1
+  %4 = load i8, ptr %subcode_.i.i7, align 1
+  %subcode_5.i.i8 = getelementptr inbounds i8, ptr %agg.result, i64 1
+  store i8 %4, ptr %subcode_5.i.i8, align 1
+  %sev_.i.i9 = getelementptr inbounds i8, ptr %s, i64 2
+  %5 = load i8, ptr %sev_.i.i9, align 2
+  %sev_7.i.i10 = getelementptr inbounds i8, ptr %agg.result, i64 2
+  store i8 %5, ptr %sev_7.i.i10, align 2
+  %retryable_.i.i11 = getelementptr inbounds i8, ptr %s, i64 3
+  %6 = load i8, ptr %retryable_.i.i11, align 1
+  %retryable_9.i.i12 = getelementptr inbounds i8, ptr %agg.result, i64 3
+  %frombool.i.i13 = and i8 %6, 1
+  store i8 %frombool.i.i13, ptr %retryable_9.i.i12, align 1
   store <4 x i8> zeroinitializer, ptr %s, align 8
-  %data_loss_.i.i = getelementptr inbounds i8, ptr %s, i64 4
-  %7 = load i8, ptr %data_loss_.i.i, align 4
-  %data_loss_12.i.i = getelementptr inbounds i8, ptr %agg.result, i64 4
-  %frombool13.i.i = and i8 %7, 1
-  store i8 %frombool13.i.i, ptr %data_loss_12.i.i, align 4
-  store i8 0, ptr %data_loss_.i.i, align 4
-  %scope_.i.i = getelementptr inbounds i8, ptr %s, i64 5
-  %8 = load i8, ptr %scope_.i.i, align 1
-  %scope_15.i.i = getelementptr inbounds i8, ptr %agg.result, i64 5
-  store i8 %8, ptr %scope_15.i.i, align 1
-  store i8 0, ptr %scope_.i.i, align 1
-  %state_.i2.i = getelementptr inbounds i8, ptr %s, i64 8
-  %9 = load ptr, ptr %state_.i2.i, align 8
-  store ptr null, ptr %state_.i2.i, align 8
+  %data_loss_.i.i14 = getelementptr inbounds i8, ptr %s, i64 4
+  %7 = load i8, ptr %data_loss_.i.i14, align 4
+  %data_loss_12.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 4
+  %frombool13.i.i16 = and i8 %7, 1
+  store i8 %frombool13.i.i16, ptr %data_loss_12.i.i15, align 4
+  store i8 0, ptr %data_loss_.i.i14, align 4
+  %scope_.i.i17 = getelementptr inbounds i8, ptr %s, i64 5
+  %8 = load i8, ptr %scope_.i.i17, align 1
+  %scope_15.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 5
+  store i8 %8, ptr %scope_15.i.i18, align 1
+  store i8 0, ptr %scope_.i.i17, align 1
+  %state_.i2.i19 = getelementptr inbounds i8, ptr %s, i64 8
+  %9 = load ptr, ptr %state_.i2.i19, align 8
+  store ptr null, ptr %state_.i2.i19, align 8
   store ptr %9, ptr %state_.i.i4.sink, align 8
   br label %cleanup
 

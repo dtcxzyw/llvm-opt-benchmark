@@ -5922,12 +5922,12 @@ quic_get_long_packet_type.exit.sink.split:        ; preds = %4
   %9 = and i8 %8, 3
   %switch.table.quic_max_packet_number.16.switch.table.quic_max_packet_number = select i1 %.not.i, ptr @switch.table.quic_max_packet_number.16, ptr @switch.table.quic_max_packet_number
   %10 = zext nneg i8 %9 to i64
-  %switch.gep45 = getelementptr inbounds [4 x i64], ptr %switch.table.quic_max_packet_number.16.switch.table.quic_max_packet_number, i64 0, i64 %10
-  %switch.load46 = load i64, ptr %switch.gep45, align 8
+  %switch.gep47 = getelementptr inbounds [4 x i64], ptr %switch.table.quic_max_packet_number.16.switch.table.quic_max_packet_number, i64 0, i64 %10
+  %switch.load48 = load i64, ptr %switch.gep47, align 8
   br label %quic_get_long_packet_type.exit
 
 quic_get_long_packet_type.exit:                   ; preds = %quic_get_long_packet_type.exit.sink.split, %4
-  %.029 = phi i64 [ 2, %4 ], [ %switch.load46, %quic_get_long_packet_type.exit.sink.split ]
+  %.029 = phi i64 [ 2, %4 ], [ %switch.load48, %quic_get_long_packet_type.exit.sink.split ]
   %11 = getelementptr i8, ptr %0, i64 34
   %.val = load i16, ptr %11, align 2
   %12 = and i16 %.val, 192
@@ -5935,68 +5935,63 @@ quic_get_long_packet_type.exit:                   ; preds = %quic_get_long_packe
   %14 = icmp ne i64 %1, 0
   %or.cond = and i1 %14, %13
   %.not32 = icmp eq i32 %2, 0
-  br i1 %or.cond, label %15, label %42
+  br i1 %or.cond, label %15, label %38
 
 15:                                               ; preds = %quic_get_long_packet_type.exit
-  br i1 %.not32, label %23, label %16
+  br i1 %.not32, label %20, label %16
 
 16:                                               ; preds = %15
   %17 = getelementptr inbounds i8, ptr %0, i64 424
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %30
+  br i1 %19, label %.sink.split, label %26
 
-20:                                               ; preds = %16
-  %21 = tail call ptr @wmem_file_scope() #15
-  %22 = tail call noalias ptr @wmem_map_new(ptr noundef %21, ptr noundef nonnull @wmem_int64_hash, ptr noundef nonnull @g_int64_equal) #15
-  store ptr %22, ptr %17, align 8
-  br label %30
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds i8, ptr %0, i64 416
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %.sink.split, label %26
 
-23:                                               ; preds = %15
-  %24 = getelementptr inbounds i8, ptr %0, i64 416
-  %25 = load ptr, ptr %24, align 8
-  %26 = icmp eq ptr %25, null
-  br i1 %26, label %27, label %30
+.sink.split:                                      ; preds = %20, %16
+  %.sink44 = phi ptr [ %17, %16 ], [ %21, %20 ]
+  %24 = tail call ptr @wmem_file_scope() #15
+  %25 = tail call noalias ptr @wmem_map_new(ptr noundef %24, ptr noundef nonnull @wmem_int64_hash, ptr noundef nonnull @g_int64_equal) #15
+  store ptr %25, ptr %.sink44, align 8
+  br label %26
 
-27:                                               ; preds = %23
-  %28 = tail call ptr @wmem_file_scope() #15
-  %29 = tail call noalias ptr @wmem_map_new(ptr noundef %28, ptr noundef nonnull @wmem_int64_hash, ptr noundef nonnull @g_int64_equal) #15
-  store ptr %29, ptr %24, align 8
-  br label %30
+26:                                               ; preds = %.sink.split, %20, %16
+  %27 = phi ptr [ %18, %16 ], [ %22, %20 ], [ %25, %.sink.split ]
+  %.028 = phi ptr [ %17, %16 ], [ %21, %20 ], [ %.sink44, %.sink.split ]
+  %28 = call ptr @wmem_map_lookup(ptr noundef %27, ptr noundef nonnull %5) #15
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %30, label %45
 
-30:                                               ; preds = %23, %27, %16, %20
-  %31 = phi ptr [ %22, %20 ], [ %18, %16 ], [ %29, %27 ], [ %25, %23 ]
-  %.028 = phi ptr [ %17, %20 ], [ %17, %16 ], [ %24, %27 ], [ %24, %23 ]
-  %32 = call ptr @wmem_map_lookup(ptr noundef %31, ptr noundef nonnull %5) #15
-  %33 = icmp eq ptr %32, null
-  br i1 %33, label %34, label %49
+30:                                               ; preds = %26
+  %31 = call ptr @wmem_file_scope() #15
+  %32 = call noalias ptr @wmem_alloc(ptr noundef %31, i64 noundef 8) #15
+  %33 = load i64, ptr %5, align 8
+  store i64 %33, ptr %32, align 8
+  %34 = call ptr @wmem_file_scope() #15
+  %35 = call noalias ptr @wmem_alloc0(ptr noundef %34, i64 noundef 8) #15
+  %36 = load ptr, ptr %.028, align 8
+  %37 = call ptr @wmem_map_insert(ptr noundef %36, ptr noundef nonnull %32, ptr noundef %35) #15
+  br label %45
 
-34:                                               ; preds = %30
-  %35 = call ptr @wmem_file_scope() #15
-  %36 = call noalias ptr @wmem_alloc(ptr noundef %35, i64 noundef 8) #15
-  %37 = load i64, ptr %5, align 8
-  store i64 %37, ptr %36, align 8
-  %38 = call ptr @wmem_file_scope() #15
-  %39 = call noalias ptr @wmem_alloc0(ptr noundef %38, i64 noundef 8) #15
-  %40 = load ptr, ptr %.028, align 8
-  %41 = call ptr @wmem_map_insert(ptr noundef %40, ptr noundef nonnull %36, ptr noundef %39) #15
-  br label %49
+38:                                               ; preds = %quic_get_long_packet_type.exit
+  br i1 %.not32, label %42, label %39
 
-42:                                               ; preds = %quic_get_long_packet_type.exit
-  br i1 %.not32, label %46, label %43
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds i8, ptr %0, i64 392
+  %41 = getelementptr [3 x i64], ptr %40, i64 0, i64 %.029
+  br label %45
 
-43:                                               ; preds = %42
-  %44 = getelementptr inbounds i8, ptr %0, i64 392
-  %45 = getelementptr [3 x i64], ptr %44, i64 0, i64 %.029
-  br label %49
+42:                                               ; preds = %38
+  %43 = getelementptr inbounds i8, ptr %0, i64 368
+  %44 = getelementptr [3 x i64], ptr %43, i64 0, i64 %.029
+  br label %45
 
-46:                                               ; preds = %42
-  %47 = getelementptr inbounds i8, ptr %0, i64 368
-  %48 = getelementptr [3 x i64], ptr %47, i64 0, i64 %.029
-  br label %49
-
-49:                                               ; preds = %30, %34, %46, %43
-  %.0 = phi ptr [ %45, %43 ], [ %48, %46 ], [ %39, %34 ], [ %32, %30 ]
+45:                                               ; preds = %26, %30, %42, %39
+  %.0 = phi ptr [ %41, %39 ], [ %44, %42 ], [ %35, %30 ], [ %28, %26 ]
   ret ptr %.0
 }
 

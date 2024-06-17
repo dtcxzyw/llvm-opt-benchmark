@@ -975,8 +975,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %174, label %17, label %.loopexit59, !llvm.loop !11
 
 .loopexit59.sink.split:                           ; preds = %59, %85, %127, %140, %163
-  %.lcssa162.sink = phi ptr [ %86, %85 ], [ %128, %127 ], [ %141, %140 ], [ %164, %163 ], [ %60, %59 ]
-  %175 = getelementptr inbounds i8, ptr %.lcssa162.sink, i64 120
+  %.sink176 = phi ptr [ %164, %163 ], [ %141, %140 ], [ %128, %127 ], [ %86, %85 ], [ %60, %59 ]
+  %175 = getelementptr inbounds i8, ptr %.sink176, i64 120
   %176 = load i64, ptr %175, align 8
   %177 = add i64 %176, -1
   store i64 %177, ptr %175, align 8

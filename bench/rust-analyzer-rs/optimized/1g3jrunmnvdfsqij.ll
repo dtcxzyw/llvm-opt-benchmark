@@ -2494,8 +2494,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h7a0473d558dcf099E.exit.th
   br i1 %89, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit.sink.split", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit.sink.split": ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7a0473d558dcf099E.exit.thread, %21
-  %.sink = phi i64 [ %20, %21 ], [ %86, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7a0473d558dcf099E.exit.thread ]
-  %90 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, i64 noundef %.sink, i64 noundef 1), !noalias !9
+  %.lcssa.sink = phi i64 [ %20, %21 ], [ %86, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h7a0473d558dcf099E.exit.thread ]
+  %90 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, i64 noundef %.lcssa.sink, i64 noundef 1), !noalias !9
   %91 = extractvalue { i64, i64 } %90, 0
   %92 = extractvalue { i64, i64 } %90, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.6171212519519096039(i64 noundef %91, i64 %92), !noalias !9
@@ -2808,8 +2808,8 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17h0898e6191e12973aE.exit.th
   br i1 %99, label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit.sink.split", label %"_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit"
 
 "_ZN83_$LT$serde_json..ser..Compound$LT$W$C$F$GT$$u20$as$u20$serde..ser..SerializeSeq$GT$3end17he6c84e4f24043958E.exit.sink.split": ; preds = %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0898e6191e12973aE.exit.thread, %22
-  %.sink = phi i64 [ %21, %22 ], [ %96, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0898e6191e12973aE.exit.thread ]
-  %100 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, i64 noundef %.sink, i64 noundef 1), !noalias !9
+  %.lcssa20.sink = phi i64 [ %21, %22 ], [ %96, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17h0898e6191e12973aE.exit.thread ]
+  %100 = tail call { i64, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14grow_amortized17hdf86ab8c8f3492c5E.llvm.6171212519519096039"(ptr noalias noundef nonnull align 8 dereferenceable(16) %.val.i, i64 noundef %.lcssa20.sink, i64 noundef 1), !noalias !9
   %101 = extractvalue { i64, i64 } %100, 0
   %102 = extractvalue { i64, i64 } %100, 1
   tail call void @_ZN5alloc7raw_vec14handle_reserve17hf0112dc2ee693d5aE.llvm.6171212519519096039(i64 noundef %101, i64 %102), !noalias !9

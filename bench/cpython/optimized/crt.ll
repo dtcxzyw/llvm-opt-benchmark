@@ -161,16 +161,6 @@ if.then:                                          ; preds = %entry
   %shl = shl i64 %conv2.i, 32
   %add = add i64 %shl, %sub
   %cmp2 = icmp ult i64 %add, %shl
-  %inc = zext i1 %cmp2 to i64
-  %hi.1 = add nsw i64 %spec.select, %inc
-  %shr5 = lshr i64 %hi.1, 32
-  %sub6 = sub i64 %add, %hi.1
-  %cmp7 = icmp ugt i64 %hi.1, %add
-  %dec9 = sext i1 %cmp7 to i64
-  %hi.2 = add nsw i64 %shr5, %dec9
-  %shl11 = shl i64 %hi.1, 32
-  %add12 = add i64 %shl11, %sub6
-  %cmp13 = icmp ult i64 %add12, %shl11
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -197,16 +187,6 @@ if.then22:                                        ; preds = %if.else
   %shl41 = shl i64 %hi.5, 34
   %add42 = add i64 %shl41, %sub36
   %cmp43 = icmp ult i64 %add42, %shl41
-  %inc45 = zext i1 %cmp43 to i64
-  %hi.7 = add nsw i64 %hi.6, %inc45
-  %shr47 = lshr i64 %hi.7, 30
-  %sub48 = sub i64 %add42, %hi.7
-  %cmp49 = icmp ugt i64 %hi.7, %add42
-  %dec51 = sext i1 %cmp49 to i64
-  %hi.8 = add nsw i64 %shr47, %dec51
-  %shl53 = shl i64 %hi.7, 34
-  %add54 = add i64 %shl53, %sub48
-  %cmp55 = icmp ult i64 %add54, %shl53
   br label %return
 
 if.else67:                                        ; preds = %if.else
@@ -225,28 +205,30 @@ if.else67:                                        ; preds = %if.else
   %shl86 = shl i64 %hi.11, 40
   %add87 = add i64 %shl86, %sub81
   %cmp88 = icmp ult i64 %add87, %shl86
-  %inc90 = zext i1 %cmp88 to i64
-  %hi.13 = add nsw i64 %hi.12, %inc90
-  %shr92 = lshr i64 %hi.13, 24
-  %sub93 = sub i64 %add87, %hi.13
-  %cmp94 = icmp ugt i64 %hi.13, %add87
-  %dec96 = sext i1 %cmp94 to i64
-  %hi.14 = add nsw i64 %shr92, %dec96
-  %shl98 = shl i64 %hi.13, 40
-  %add99 = add i64 %shl98, %sub93
-  %cmp100 = icmp ult i64 %add99, %shl98
   br label %return
 
 return:                                           ; preds = %if.else67, %if.then22, %if.then
-  %cmp100.sink = phi i1 [ %cmp100, %if.else67 ], [ %cmp55, %if.then22 ], [ %cmp13, %if.then ]
-  %hi.14.sink = phi i64 [ %hi.14, %if.else67 ], [ %hi.8, %if.then22 ], [ %hi.2, %if.then ]
-  %add99.sink94 = phi i64 [ %add99, %if.else67 ], [ %add54, %if.then22 ], [ %add12, %if.then ]
-  %inc102.neg = sext i1 %cmp100.sink to i64
-  %tobool104.not = icmp eq i64 %hi.14.sink, %inc102.neg
-  %cmp106.not = icmp ult i64 %add99.sink94, %m
+  %cmp88.sink = phi i1 [ %cmp88, %if.else67 ], [ %cmp43, %if.then22 ], [ %cmp2, %if.then ]
+  %hi.12.sink = phi i64 [ %hi.12, %if.else67 ], [ %hi.6, %if.then22 ], [ %spec.select, %if.then ]
+  %.sink101 = phi i64 [ 24, %if.else67 ], [ 30, %if.then22 ], [ 32, %if.then ]
+  %add87.sink98 = phi i64 [ %add87, %if.else67 ], [ %add42, %if.then22 ], [ %add, %if.then ]
+  %.sink = phi i64 [ 40, %if.else67 ], [ 34, %if.then22 ], [ 32, %if.then ]
+  %inc90 = zext i1 %cmp88.sink to i64
+  %hi.13 = add nsw i64 %hi.12.sink, %inc90
+  %shr92 = lshr i64 %hi.13, %.sink101
+  %sub93 = sub i64 %add87.sink98, %hi.13
+  %cmp94 = icmp ugt i64 %hi.13, %add87.sink98
+  %dec96 = sext i1 %cmp94 to i64
+  %hi.14 = add nsw i64 %shr92, %dec96
+  %shl98 = shl i64 %hi.13, %.sink
+  %add99 = add i64 %shl98, %sub93
+  %cmp100 = icmp ult i64 %add99, %shl98
+  %inc102.neg = sext i1 %cmp100 to i64
+  %tobool104.not = icmp eq i64 %hi.14, %inc102.neg
+  %cmp106.not = icmp ult i64 %add99, %m
   %or.cond57 = select i1 %tobool104.not, i1 %cmp106.not, i1 false
   %sub108 = select i1 %or.cond57, i64 0, i64 %m
-  %spec.select93 = sub i64 %add99.sink94, %sub108
+  %spec.select93 = sub i64 %add99, %sub108
   ret i64 %spec.select93
 }
 

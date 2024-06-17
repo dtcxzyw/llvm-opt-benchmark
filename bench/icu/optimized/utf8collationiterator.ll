@@ -1125,12 +1125,12 @@ land.lhs.true89:                                  ; preds = %land.lhs.true84
 
 do.end.sink.split:                                ; preds = %land.lhs.true89, %if.then54, %land.lhs.true42
   %.sink = phi i32 [ 3, %land.lhs.true42 ], [ 2, %if.then54 ], [ 4, %land.lhs.true89 ]
-  %inc51 = add nsw i32 %3, %.sink
-  store i32 %inc51, ptr %pos, align 8
+  %inc59 = add nsw i32 %3, %.sink
+  store i32 %inc59, ptr %pos, align 8
   br label %do.end
 
 do.end:                                           ; preds = %do.end.sink.split, %do.body9, %if.then54, %land.lhs.true89, %land.lhs.true84, %land.lhs.true77, %land.lhs.true72, %if.else61, %if.then30, %land.lhs.true37, %land.lhs.true42
-  %16 = phi i32 [ %inc, %do.body9 ], [ %inc, %if.then54 ], [ %inc86, %land.lhs.true89 ], [ %1, %land.lhs.true84 ], [ %inc74, %land.lhs.true77 ], [ %1, %land.lhs.true72 ], [ %inc, %if.else61 ], [ %inc, %if.then30 ], [ %1, %land.lhs.true37 ], [ %inc39, %land.lhs.true42 ], [ %inc51, %do.end.sink.split ]
+  %16 = phi i32 [ %inc, %do.body9 ], [ %inc, %if.then54 ], [ %inc86, %land.lhs.true89 ], [ %1, %land.lhs.true84 ], [ %inc74, %land.lhs.true77 ], [ %1, %land.lhs.true72 ], [ %inc, %if.else61 ], [ %inc, %if.then30 ], [ %1, %land.lhs.true37 ], [ %inc39, %land.lhs.true42 ], [ %inc59, %do.end.sink.split ]
   %dec = add nsw i32 %__N.012, -1
   %cmp = icmp sgt i32 %__N.012, 1
   br i1 %cmp, label %land.rhs, label %do.end103, !llvm.loop !4

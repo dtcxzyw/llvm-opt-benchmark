@@ -21617,7 +21617,7 @@ define internal fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4p
 5:                                                ; preds = %2
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %.0.val, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, ptr nonnull @_ZTIN5osgeo4proj3crs11GeodeticCRSE, i64 -1) #28
   %.not13 = icmp eq ptr %6, null
-  br i1 %.not13, label %22, label %7
+  br i1 %.not13, label %13, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %6, align 8
@@ -21625,37 +21625,32 @@ define internal fastcc noundef zeroext i1 @_ZL7is3DCRSRKSt10shared_ptrIN5osgeo4p
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %6, i64 %10
   %12 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs9SingleCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(72) %11) #31
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56) %13) #31
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %14, align 8
-  %18 = ptrtoint ptr %16 to i64
-  %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %21 = icmp eq i64 %20, 48
+  br label %.thread3.sink.split
+
+13:                                               ; preds = %5
+  %14 = tail call ptr @__dynamic_cast(ptr nonnull %.0.val, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, ptr nonnull @_ZTIN5osgeo4proj3crs12ProjectedCRSE, i64 -1) #28
+  %.not14 = icmp eq ptr %14, null
+  br i1 %.not14, label %.thread3, label %15
+
+15:                                               ; preds = %13
+  %16 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %14) #31
+  br label %.thread3.sink.split
+
+.thread3.sink.split:                              ; preds = %7, %15
+  %.sink10 = phi ptr [ %16, %15 ], [ %12, %7 ]
+  %17 = load ptr, ptr %.sink10, align 8
+  %18 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56) %17) #31
+  %19 = getelementptr inbounds i8, ptr %18, i64 8
+  %20 = load ptr, ptr %19, align 8
+  %21 = load ptr, ptr %18, align 8
+  %22 = ptrtoint ptr %20 to i64
+  %23 = ptrtoint ptr %21 to i64
+  %24 = sub i64 %22, %23
+  %25 = icmp eq i64 %24, 48
   br label %.thread3
 
-22:                                               ; preds = %5
-  %23 = tail call ptr @__dynamic_cast(ptr nonnull %.0.val, ptr nonnull @_ZTIN5osgeo4proj3crs3CRSE, ptr nonnull @_ZTIN5osgeo4proj3crs12ProjectedCRSE, i64 -1) #28
-  %.not14 = icmp eq ptr %23, null
-  br i1 %.not14, label %.thread3, label %24
-
-24:                                               ; preds = %22
-  %25 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK5osgeo4proj3crs12ProjectedCRS16coordinateSystemEv(ptr noundef nonnull align 8 dereferenceable(104) %23) #31
-  %26 = load ptr, ptr %25, align 8
-  %27 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56) %26) #31
-  %28 = getelementptr inbounds i8, ptr %27, i64 8
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %27, align 8
-  %31 = ptrtoint ptr %29 to i64
-  %32 = ptrtoint ptr %30 to i64
-  %33 = sub i64 %31, %32
-  %34 = icmp eq i64 %33, 48
-  br label %.thread3
-
-.thread3:                                         ; preds = %0, %22, %2, %24, %7
-  %.0 = phi i1 [ %21, %7 ], [ %34, %24 ], [ true, %2 ], [ false, %22 ], [ false, %0 ]
+.thread3:                                         ; preds = %.thread3.sink.split, %0, %13, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %13 ], [ false, %0 ], [ %25, %.thread3.sink.split ]
   ret i1 %.0
 }
 

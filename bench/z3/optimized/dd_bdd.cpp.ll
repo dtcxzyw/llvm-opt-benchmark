@@ -5369,18 +5369,18 @@ lor.lhs.false.i103:                               ; preds = %_ZN2dd11bdd_manager
   br i1 %cmp5.i106, label %if.end26.sink.split, label %if.end26
 
 if.end26.sink.split:                              ; preds = %_ZN2dd11bdd_manager14reorder_decrefEj.exit101, %lor.lhs.false.i103, %if.then21, %lor.lhs.false.i
-  %m_S.sink600 = phi ptr [ %m_S, %lor.lhs.false.i ], [ %m_S, %if.then21 ], [ %m_T, %lor.lhs.false.i103 ], [ %m_T, %_ZN2dd11bdd_manager14reorder_decrefEj.exit101 ]
-  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_S.sink600)
-  %.pre.i = load ptr, ptr %m_S.sink600, align 8
-  %arrayidx8.phi.trans.insert.i113 = getelementptr inbounds i8, ptr %.pre.i, i64 -4
+  %m_T.sink602 = phi ptr [ %m_S, %lor.lhs.false.i ], [ %m_S, %if.then21 ], [ %m_T, %lor.lhs.false.i103 ], [ %m_T, %_ZN2dd11bdd_manager14reorder_decrefEj.exit101 ]
+  tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_T.sink602)
+  %.pre.i112 = load ptr, ptr %m_T.sink602, align 8
+  %arrayidx8.phi.trans.insert.i113 = getelementptr inbounds i8, ptr %.pre.i112, i64 -4
   %.pre1.i114 = load i32, ptr %arrayidx8.phi.trans.insert.i113, align 4
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end26.sink.split, %lor.lhs.false.i103, %lor.lhs.false.i
-  %.sink596 = phi i32 [ %16, %lor.lhs.false.i ], [ %23, %lor.lhs.false.i103 ], [ %.pre1.i114, %if.end26.sink.split ]
-  %.sink = phi ptr [ %15, %lor.lhs.false.i ], [ %22, %lor.lhs.false.i103 ], [ %.pre.i, %if.end26.sink.split ]
-  %m_T.sink = phi ptr [ %m_S, %lor.lhs.false.i ], [ %m_T, %lor.lhs.false.i103 ], [ %m_S.sink600, %if.end26.sink.split ]
-  %idx.ext.i107 = zext i32 %.sink596 to i64
+  %.sink595 = phi i32 [ %16, %lor.lhs.false.i ], [ %23, %lor.lhs.false.i103 ], [ %.pre1.i114, %if.end26.sink.split ]
+  %.sink = phi ptr [ %15, %lor.lhs.false.i ], [ %22, %lor.lhs.false.i103 ], [ %.pre.i112, %if.end26.sink.split ]
+  %m_T.sink = phi ptr [ %m_S, %lor.lhs.false.i ], [ %m_T, %lor.lhs.false.i103 ], [ %m_T.sink602, %if.end26.sink.split ]
+  %idx.ext.i107 = zext i32 %.sink595 to i64
   %add.ptr.i108 = getelementptr inbounds i32, ptr %.sink, i64 %idx.ext.i107
   store i32 %10, ptr %add.ptr.i108, align 4
   %25 = load ptr, ptr %m_T.sink, align 8
@@ -5542,19 +5542,19 @@ lor.lhs.false.i161:                               ; preds = %if.else55
   br i1 %cmp5.i164, label %for.inc62.sink.split, label %for.inc62
 
 for.inc62.sink.split:                             ; preds = %if.else55, %lor.lhs.false.i161, %if.then52, %lor.lhs.false.i145
-  %m_to_free.sink602 = phi ptr [ %m_to_free, %lor.lhs.false.i145 ], [ %m_to_free, %if.then52 ], [ %arrayidx.i159, %lor.lhs.false.i161 ], [ %arrayidx.i159, %if.else55 ]
-  call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_to_free.sink602)
-  %.pre.i154 = load ptr, ptr %m_to_free.sink602, align 8
-  %arrayidx8.phi.trans.insert.i171 = getelementptr inbounds i8, ptr %.pre.i154, i64 -4
+  %arrayidx.i159.sink603 = phi ptr [ %m_to_free, %lor.lhs.false.i145 ], [ %m_to_free, %if.then52 ], [ %arrayidx.i159, %lor.lhs.false.i161 ], [ %arrayidx.i159, %if.else55 ]
+  call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %arrayidx.i159.sink603)
+  %.pre.i170 = load ptr, ptr %arrayidx.i159.sink603, align 8
+  %arrayidx8.phi.trans.insert.i171 = getelementptr inbounds i8, ptr %.pre.i170, i64 -4
   %.pre1.i172 = load i32, ptr %arrayidx8.phi.trans.insert.i171, align 4
   br label %for.inc62
 
 for.inc62:                                        ; preds = %for.inc62.sink.split, %lor.lhs.false.i161, %lor.lhs.false.i145
-  %.sink599 = phi i32 [ %50, %lor.lhs.false.i145 ], [ %54, %lor.lhs.false.i161 ], [ %.pre1.i172, %for.inc62.sink.split ]
-  %.sink598 = phi ptr [ %49, %lor.lhs.false.i145 ], [ %53, %lor.lhs.false.i161 ], [ %.pre.i154, %for.inc62.sink.split ]
-  %m_to_free.sink = phi ptr [ %m_to_free, %lor.lhs.false.i145 ], [ %arrayidx.i159, %lor.lhs.false.i161 ], [ %m_to_free.sink602, %for.inc62.sink.split ]
-  %idx.ext.i149 = zext i32 %.sink599 to i64
-  %add.ptr.i150 = getelementptr inbounds i32, ptr %.sink598, i64 %idx.ext.i149
+  %.sink600 = phi i32 [ %50, %lor.lhs.false.i145 ], [ %54, %lor.lhs.false.i161 ], [ %.pre1.i172, %for.inc62.sink.split ]
+  %.sink599 = phi ptr [ %49, %lor.lhs.false.i145 ], [ %53, %lor.lhs.false.i161 ], [ %.pre.i170, %for.inc62.sink.split ]
+  %m_to_free.sink = phi ptr [ %m_to_free, %lor.lhs.false.i145 ], [ %arrayidx.i159, %lor.lhs.false.i161 ], [ %arrayidx.i159.sink603, %for.inc62.sink.split ]
+  %idx.ext.i149 = zext i32 %.sink600 to i64
+  %add.ptr.i150 = getelementptr inbounds i32, ptr %.sink599, i64 %idx.ext.i149
   store i32 %45, ptr %add.ptr.i150, align 4
   %56 = load ptr, ptr %m_to_free.sink, align 8
   %arrayidx10.i151 = getelementptr inbounds i8, ptr %56, i64 -4
@@ -5786,12 +5786,12 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i:         ; preds = %_ZN6vectorIjLb0EjE9
   br i1 %cmp4.i, label %while.cond.i.i.preheader, label %_ZN6vectorIjLb0EjE7reserveEj.exit
 
 while.cond.i.i.preheader:                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i275, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i
-  %.ph609 = phi ptr [ %97, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i275 ]
+  %.ph610 = phi ptr [ %97, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ null, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i275 ]
   %retval.0.i16.i.i.ph = phi i32 [ %98, %_ZNK6vectorIjLb0EjE4sizeEv.exit.thread.i ], [ 0, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i275 ]
   br label %while.cond.i.i
 
 while.cond.i.i:                                   ; preds = %while.cond.i.i.preheader, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit
-  %99 = phi ptr [ %.pr.pre.i.i, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %.ph609, %while.cond.i.i.preheader ]
+  %99 = phi ptr [ %.pr.pre.i.i, %_ZN6vectorIjLb0EjE13expand_vectorEv.exit ], [ %.ph610, %while.cond.i.i.preheader ]
   %cmp.i10.i.i = icmp eq ptr %99, null
   br i1 %cmp.i10.i.i, label %if.then.i480, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i.thread
 

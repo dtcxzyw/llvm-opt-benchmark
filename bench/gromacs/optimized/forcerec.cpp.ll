@@ -2164,9 +2164,9 @@ _ZN19interaction_const_tD2Ev.exit:                ; preds = %_ZNSt10unique_ptrI2
 switch.hole_check:                                ; preds = %_ZN19interaction_const_tD2Ev.exit
   %switch.shifted = lshr i32 123835, %386
   %switch.lobit = trunc i32 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup502, label %390
+  br i1 %switch.lobit, label %switch.lookup501, label %390
 
-switch.lookup502:                                 ; preds = %switch.hole_check
+switch.lookup501:                                 ; preds = %switch.hole_check
   %397 = zext nneg i32 %386 to i64
   %switch.gep = getelementptr inbounds [17 x i32], ptr @switch.table._Z13init_forcerecP8_IO_FILERKN3gmx8MDLoggerERKNS1_18SimulationWorkloadEP10t_forcerecRK10t_inputrecRK10gmx_mtop_tPK9t_commrecPA3_fPKcSM_NS1_8ArrayRefIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEf, i64 0, i64 %397
   %switch.load = load i32, ptr %switch.gep, align 4
@@ -2185,7 +2185,7 @@ switch.lookup502:                                 ; preds = %switch.hole_check
     i32 3, label %411
   ]
 
-403:                                              ; preds = %switch.lookup502
+403:                                              ; preds = %switch.lookup501
   %404 = load i8, ptr %158, align 8
   %405 = trunc i8 %404 to i1
   %406 = getelementptr inbounds i8, ptr %3, i64 52
@@ -2199,17 +2199,17 @@ switch.lookup502:                                 ; preds = %switch.hole_check
   store i32 1, ptr %406, align 4
   br label %420
 
-409:                                              ; preds = %switch.lookup502
+409:                                              ; preds = %switch.lookup501
   %410 = getelementptr inbounds i8, ptr %3, i64 52
   store i32 4, ptr %410, align 4
   br label %420
 
-411:                                              ; preds = %switch.lookup502, %switch.lookup502, %switch.lookup502
+411:                                              ; preds = %switch.lookup501, %switch.lookup501, %switch.lookup501
   %412 = getelementptr inbounds i8, ptr %3, i64 52
   store i32 3, ptr %412, align 4
   br label %420
 
-413:                                              ; preds = %switch.lookup502
+413:                                              ; preds = %switch.lookup501
   call void @_ZNSt10filesystem7__cxx114pathC2IA124_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %24, ptr noundef nonnull align 1 dereferenceable(124) @.str.11, i8 noundef zeroext 2)
   %414 = load i32, ptr %384, align 8
   %415 = invoke noundef ptr @_Z17enumValueToString15VanDerWaalsType(i32 noundef %414)
@@ -2329,29 +2329,29 @@ _ZL28usingUserTableElectrostaticsRK22CoulombInteractionType.exit: ; preds = %431
   %.val288 = load i32, ptr %385, align 4
   %switch.tableidx = add i32 %.val288, -3
   %471 = icmp ult i32 %switch.tableidx, 13
-  br i1 %471, label %switch.hole_check504, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
+  br i1 %471, label %switch.hole_check503, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
 
 _ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit: ; preds = %469
   %.old = and i32 %.val288, -3
-  %.old509 = icmp eq i32 %.old, 4
-  br i1 %.old509, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, label %472
+  %.old508 = icmp eq i32 %.old, 4
+  br i1 %.old508, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, label %472
 
-472:                                              ; preds = %switch.hole_check504, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
+472:                                              ; preds = %switch.hole_check503, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
   %.val280 = load i32, ptr %384, align 4
   %473 = icmp eq i32 %.val280, 5
   br label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread
 
-switch.hole_check504:                             ; preds = %469
+switch.hole_check503:                             ; preds = %469
   %switch.maskindex = trunc nuw i32 %switch.tableidx to i16
-  %switch.shifted506 = lshr i16 7173, %switch.maskindex
-  %switch.lobit507 = trunc i16 %switch.shifted506 to i1
+  %switch.shifted505 = lshr i16 7173, %switch.maskindex
+  %switch.lobit506 = trunc i16 %switch.shifted505 to i1
   %474 = and i32 %.val288, 13
   %475 = icmp eq i32 %474, 4
-  %or.cond510 = or i1 %475, %switch.lobit507
-  br i1 %or.cond510, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, label %472
+  %or.cond509 = or i1 %475, %switch.lobit506
+  br i1 %or.cond509, label %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread, label %472
 
-_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread: ; preds = %switch.hole_check504, %472, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
-  %476 = phi i1 [ true, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit ], [ %473, %472 ], [ true, %switch.hole_check504 ]
+_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit.thread: ; preds = %switch.hole_check503, %472, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit
+  %476 = phi i1 [ true, %_ZL23usingFullElectrostaticsRK22CoulombInteractionType.exit ], [ %473, %472 ], [ true, %switch.hole_check503 ]
   %.not269 = xor i1 %470, true
   %477 = getelementptr inbounds i8, ptr %3, i64 288
   %478 = getelementptr inbounds i8, ptr %3, i64 296
@@ -3711,8 +3711,8 @@ _ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.n
   %.not.i365.not = icmp ne i64 %indvars.iv395.i, %1062
   %1063 = getelementptr inbounds i8, ptr %.sroa.0.0336.i, i64 4
   %.not279.i = icmp eq ptr %1063, %1058
-  %or.cond508 = select i1 %.not.i365.not, i1 true, i1 %.not279.i
-  br i1 %or.cond508, label %._crit_edge340.i, label %.lr.ph339.i
+  %or.cond507 = select i1 %.not.i365.not, i1 true, i1 %.not279.i
+  br i1 %or.cond507, label %._crit_edge340.i, label %.lr.ph339.i
 
 .loopexit.i:                                      ; preds = %1006
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -3750,9 +3750,9 @@ _ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.n
 1067:                                             ; preds = %._crit_edge340.i
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %._crit_edge340.i, %1067
-  %.sink489 = phi i64 [ 2097152, %1067 ], [ 1048576, %._crit_edge340.i ]
-  %1068 = or i64 %1019, %.sink489
+.sink.split.i:                                    ; preds = %1067, %._crit_edge340.i
+  %.sink413.i = phi i64 [ 2097152, %1067 ], [ 1048576, %._crit_edge340.i ]
+  %1068 = or i64 %.sink413.i, %1019
   store i64 %1068, ptr %1011, align 8
   br label %1069
 
@@ -3763,13 +3763,13 @@ _ZNSt6vectorI21ConstraintTypeForAtomSaIS0_EEC2EmRKS0_RKS1_.exit.i: ; preds = %.n
   %1073 = or i64 %1072, 8388608
   %1074 = select i1 %1041, i64 %1073, i64 %1072
   %1075 = or i64 %1074, 16777216
-  %spec.select413.i = select i1 %1050, i64 %1075, i64 %1074
-  %.not415.i = or i1 %1041, %.not279.lcssa.not.i
-  %1076 = or i1 %1050, %.not415.i
+  %spec.select414.i = select i1 %1050, i64 %1075, i64 %1074
+  %.not416.i = or i1 %1041, %.not279.lcssa.not.i
+  %1076 = or i1 %1050, %.not416.i
   br i1 %1076, label %1077, label %1078
 
 1077:                                             ; preds = %1069
-  store i64 %spec.select413.i, ptr %1011, align 8
+  store i64 %spec.select414.i, ptr %1011, align 8
   br label %1078
 
 1078:                                             ; preds = %1077, %1069
@@ -3799,7 +3799,7 @@ _Z9PERTURBEDRK6t_atom.exit.i:                     ; preds = %1085
   br i1 %.not280.i, label %1094, label %_Z9PERTURBEDRK6t_atom.exit.thread.i
 
 _Z9PERTURBEDRK6t_atom.exit.thread.i:              ; preds = %_Z9PERTURBEDRK6t_atom.exit.i, %1085, %1080
-  %1093 = or i64 %spec.select413.i, 32768
+  %1093 = or i64 %spec.select414.i, 32768
   store i64 %1093, ptr %1011, align 8
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %1008, i64 12
   %.pre399.i = load float, ptr %.phi.trans.insert.i, align 4
@@ -3807,7 +3807,7 @@ _Z9PERTURBEDRK6t_atom.exit.thread.i:              ; preds = %_Z9PERTURBEDRK6t_at
   br label %1094
 
 1094:                                             ; preds = %_Z9PERTURBEDRK6t_atom.exit.thread.i, %_Z9PERTURBEDRK6t_atom.exit.i
-  %1095 = phi i64 [ %1093, %_Z9PERTURBEDRK6t_atom.exit.thread.i ], [ %spec.select413.i, %_Z9PERTURBEDRK6t_atom.exit.i ]
+  %1095 = phi i64 [ %1093, %_Z9PERTURBEDRK6t_atom.exit.thread.i ], [ %spec.select414.i, %_Z9PERTURBEDRK6t_atom.exit.i ]
   %1096 = phi float [ %.pre400.i, %_Z9PERTURBEDRK6t_atom.exit.thread.i ], [ %1088, %_Z9PERTURBEDRK6t_atom.exit.i ]
   %1097 = phi float [ %.pre399.i, %_Z9PERTURBEDRK6t_atom.exit.thread.i ], [ %1087, %_Z9PERTURBEDRK6t_atom.exit.i ]
   %1098 = fcmp une float %1097, %1096

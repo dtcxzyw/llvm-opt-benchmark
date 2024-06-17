@@ -4900,27 +4900,21 @@ while.end:                                        ; preds = %while.body, %switch
   %len.0.lcssa = phi i64 [ 0, %_ZN10ODDLParser16lookForNextTokenIcEEPT_S2_S2_.exit ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %len.023, %switch.early.test ], [ %2, %while.body ]
   %call4 = tail call i32 @strncmp(ptr noundef nonnull @.str.37, ptr noundef %in.addr.0.lcssa.i, i64 noundef %len.0.lcssa) #30
   %cmp5.not = icmp eq i32 %call4, 0
-  br i1 %cmp5.not, label %if.else, label %if.then6
+  br i1 %cmp5.not, label %return.sink.split, label %if.then6
 
 if.then6:                                         ; preds = %while.end
   %call7 = tail call i32 @strncmp(ptr noundef nonnull @.str.38, ptr noundef %in.addr.0.lcssa.i, i64 noundef %len.0.lcssa) #30
   %cmp8.not = icmp eq i32 %call7, 0
-  br i1 %cmp8.not, label %if.end10, label %return
+  br i1 %cmp8.not, label %return.sink.split, label %return
 
-if.end10:                                         ; preds = %if.then6
+return.sink.split:                                ; preds = %while.end, %if.then6
   %call11 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef 0, i64 noundef 1)
   store ptr %call11, ptr %boolean, align 8
-  tail call void @_ZN10ODDLParser5Value7setBoolEb(ptr noundef nonnull align 8 dereferenceable(32) %call11, i1 noundef zeroext false)
+  tail call void @_ZN10ODDLParser5Value7setBoolEb(ptr noundef nonnull align 8 dereferenceable(32) %call11, i1 noundef zeroext %cmp5.not)
   br label %return
 
-if.else:                                          ; preds = %while.end
-  %call12 = tail call noundef ptr @_ZN10ODDLParser14ValueAllocator13allocPrimDataENS_5Value9ValueTypeEm(i32 noundef 0, i64 noundef 1)
-  store ptr %call12, ptr %boolean, align 8
-  tail call void @_ZN10ODDLParser5Value7setBoolEb(ptr noundef nonnull align 8 dereferenceable(32) %call12, i1 noundef zeroext true)
-  br label %return
-
-return:                                           ; preds = %if.then6, %if.end10, %if.else, %entry
-  %retval.0 = phi ptr [ %in, %entry ], [ %in.addr.0.lcssa, %if.else ], [ %in.addr.0.lcssa, %if.end10 ], [ %in.addr.0.lcssa, %if.then6 ]
+return:                                           ; preds = %return.sink.split, %if.then6, %entry
+  %retval.0 = phi ptr [ %in, %entry ], [ %in.addr.0.lcssa, %if.then6 ], [ %in.addr.0.lcssa, %return.sink.split ]
   ret ptr %retval.0
 }
 

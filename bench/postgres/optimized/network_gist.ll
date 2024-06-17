@@ -831,12 +831,12 @@ calc_inet_union_params.exit:                      ; preds = %42
   %49 = zext i8 %48 to i32
   %.not93 = icmp eq i32 %.144.i, %49
   %. = select i1 %.not93, ptr %17, ptr %16
-  %.208 = select i1 %.not93, ptr %14, ptr %13
+  %.207 = select i1 %.not93, ptr %14, ptr %13
   %50 = load i32, ptr %., align 8
   %51 = add i32 %50, 1
   store i32 %51, ptr %., align 8
   %52 = sext i32 %50 to i64
-  %53 = getelementptr i16, ptr %.208, i64 %52
+  %53 = getelementptr i16, ptr %.207, i64 %52
   store i16 %.0180, ptr %53, align 2
   %54 = add i16 %.0180, 1
   %55 = zext i16 %54 to i32
@@ -880,13 +880,13 @@ calc_inet_union_params.exit.thread:               ; preds = %1, %calc_inet_union
   %72 = zext i8 %71 to i32
   %73 = and i32 %61, %72
   %74 = icmp eq i32 %73, 0
-  %.209 = select i1 %74, ptr %16, ptr %17
-  %.210 = select i1 %74, ptr %13, ptr %14
-  %75 = load i32, ptr %.209, align 8
+  %.208 = select i1 %74, ptr %16, ptr %17
+  %.209 = select i1 %74, ptr %13, ptr %14
+  %75 = load i32, ptr %.208, align 8
   %76 = add i32 %75, 1
-  store i32 %76, ptr %.209, align 8
+  store i32 %76, ptr %.208, align 8
   %77 = sext i32 %75 to i64
-  %78 = getelementptr i16, ptr %.210, i64 %77
+  %78 = getelementptr i16, ptr %.209, i64 %77
   store i16 %.1182, ptr %78, align 2
   %79 = add i16 %.1182, 1
   %80 = zext i16 %79 to i32

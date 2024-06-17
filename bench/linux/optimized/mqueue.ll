@@ -2414,7 +2414,7 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
   %9 = phi ptr [ %7, %4 ], [ %10, %12 ]
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %7
-  br i1 %11, label %27, label %12
+  br i1 %11, label %22, label %12
 
 12:                                               ; preds = %8
   %13 = getelementptr i8, ptr %10, i64 -8
@@ -2428,90 +2428,77 @@ define internal fastcc noundef range(i32 -512, 1) i32 @wq_sleep(ptr noundef %0, 
   %21 = icmp sgt i32 %16, %20
   br i1 %21, label %8, label %22, !llvm.loop !15
 
-22:                                               ; preds = %12
+22:                                               ; preds = %8, %12
+  %.sink13 = phi ptr [ %10, %12 ], [ %7, %8 ]
   %23 = getelementptr inbounds i8, ptr %3, i64 8
-  %24 = getelementptr inbounds i8, ptr %10, i64 8
+  %24 = getelementptr inbounds i8, ptr %.sink13, i64 8
   %25 = load ptr, ptr %24, align 8
   store ptr %23, ptr %24, align 8
-  store ptr %10, ptr %23, align 8
+  store ptr %.sink13, ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8
   store volatile ptr %23, ptr %25, align 8
-  br label %32
+  %27 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
+  %28 = inttoptr i64 %27 to ptr
+  %29 = getelementptr inbounds i8, ptr %28, i64 24
+  %30 = getelementptr inbounds i8, ptr %3, i64 32
+  br label %31
 
-27:                                               ; preds = %8
-  %28 = getelementptr inbounds i8, ptr %3, i64 8
-  %29 = getelementptr inbounds i8, ptr %7, i64 8
-  %30 = load ptr, ptr %29, align 8
-  store ptr %28, ptr %29, align 8
-  store ptr %7, ptr %28, align 8
-  %31 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr %30, ptr %31, align 8
-  store volatile ptr %28, ptr %30, align 8
-  br label %32
-
-32:                                               ; preds = %27, %22
-  %33 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !7
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds i8, ptr %34, i64 24
-  %36 = getelementptr inbounds i8, ptr %3, i64 32
-  br label %37
-
-37:                                               ; preds = %53, %32
-  store volatile i32 1, ptr %35, align 8
+31:                                               ; preds = %47, %22
+  store volatile i32 1, ptr %29, align 8
   tail call void @_raw_spin_unlock(ptr noundef %0) #15
-  %38 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %2, i64 noundef 0, i32 noundef 0, i32 noundef 0) #15
-  %39 = load volatile i32, ptr %36, align 8
-  %40 = icmp eq i32 %39, 1
-  br i1 %40, label %41, label %42
+  %32 = tail call i32 @schedule_hrtimeout_range_clock(ptr noundef %2, i64 noundef 0, i32 noundef 0, i32 noundef 0) #15
+  %33 = load volatile i32, ptr %30, align 8
+  %34 = icmp eq i32 %33, 1
+  br i1 %34, label %35, label %36
 
-41:                                               ; preds = %37
+35:                                               ; preds = %31
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  br label %62
+  br label %56
 
-42:                                               ; preds = %37
+36:                                               ; preds = %31
   tail call void @_raw_spin_lock(ptr noundef %0) #15
-  %43 = load volatile i32, ptr %36, align 8
-  %44 = icmp eq i32 %43, 1
-  br i1 %44, label %.loopexit, label %45
+  %37 = load volatile i32, ptr %30, align 8
+  %38 = icmp eq i32 %37, 1
+  br i1 %38, label %.loopexit, label %39
 
-45:                                               ; preds = %42
-  %46 = load volatile i64, ptr %34, align 8
-  %47 = and i64 %46, 131072
-  %48 = icmp eq i64 %47, 0
-  br i1 %48, label %49, label %.thread, !prof !11
+39:                                               ; preds = %36
+  %40 = load volatile i64, ptr %28, align 8
+  %41 = and i64 %40, 131072
+  %42 = icmp eq i64 %41, 0
+  br i1 %42, label %43, label %.thread, !prof !11
 
-49:                                               ; preds = %45
-  %50 = load volatile i64, ptr %34, align 8
-  %51 = and i64 %50, 4
-  %52 = icmp eq i64 %51, 0
-  br i1 %52, label %53, label %.thread
+43:                                               ; preds = %39
+  %44 = load volatile i64, ptr %28, align 8
+  %45 = and i64 %44, 4
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %.thread
 
-53:                                               ; preds = %49
-  %54 = icmp eq i32 %38, 0
-  br i1 %54, label %.thread, label %37, !llvm.loop !19
+47:                                               ; preds = %43
+  %48 = icmp eq i32 %32, 0
+  br i1 %48, label %.thread, label %31, !llvm.loop !19
 
-.thread:                                          ; preds = %45, %53, %49
-  %55 = phi i32 [ -512, %49 ], [ -110, %53 ], [ -512, %45 ]
-  %56 = getelementptr inbounds i8, ptr %3, i64 8
-  %57 = getelementptr inbounds i8, ptr %3, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = load ptr, ptr %56, align 8
-  %60 = getelementptr inbounds i8, ptr %59, i64 8
-  store ptr %58, ptr %60, align 8
-  store volatile ptr %59, ptr %58, align 8
-  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %56, align 8
-  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %57, align 8
+.thread:                                          ; preds = %39, %47, %43
+  %49 = phi i32 [ -512, %43 ], [ -110, %47 ], [ -512, %39 ]
+  %50 = getelementptr inbounds i8, ptr %3, i64 8
+  %51 = getelementptr inbounds i8, ptr %3, i64 16
+  %52 = load ptr, ptr %51, align 8
+  %53 = load ptr, ptr %50, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 8
+  store ptr %52, ptr %54, align 8
+  store volatile ptr %53, ptr %52, align 8
+  store ptr inttoptr (i64 -2401263026318606080 to ptr), ptr %50, align 8
+  store ptr inttoptr (i64 -2401263026318606046 to ptr), ptr %51, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %42, %.thread
-  %61 = phi i32 [ %55, %.thread ], [ 0, %42 ]
+.loopexit:                                        ; preds = %36, %.thread
+  %55 = phi i32 [ %49, %.thread ], [ 0, %36 ]
   tail call void @_raw_spin_unlock(ptr noundef %0) #15
-  br label %62
+  br label %56
 
-62:                                               ; preds = %.loopexit, %41
-  %63 = phi i32 [ 0, %41 ], [ %61, %.loopexit ]
-  ret i32 %63
+56:                                               ; preds = %.loopexit, %35
+  %57 = phi i32 [ 0, %35 ], [ %55, %.loopexit ]
+  ret i32 %57
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

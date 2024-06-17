@@ -3252,82 +3252,63 @@ if.then23:                                        ; preds = %if.then21
   call void %121(ptr noundef nonnull align 8 dereferenceable(52) %118, i32 noundef %119, i32 noundef %120)
   %122 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
   %cmp.i.i39 = icmp eq ptr %122, null
-  br i1 %cmp.i.i39, label %if.then.i.i40, label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
-
-if.then.i.i40:                                    ; preds = %if.then23
-  %123 = load ptr, ptr %m_collisionObject.i1.i.i57, align 8
-  %124 = load ptr, ptr %m_collisionObject.i.i.i56, align 8
-  %125 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
-  %vtable.i.i.i = load ptr, ptr %125, align 8
-  %vfn.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i, i64 24
-  %126 = load ptr, ptr %vfn.i.i.i, align 8
-  %call.i.i.i = call noundef ptr %126(ptr noundef nonnull align 8 dereferenceable(8) %125, ptr noundef %123, ptr noundef %124)
-  store ptr %call.i.i.i, ptr %m_manifoldPtr.i.i.i50, align 8
-  br label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit
-
-_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit: ; preds = %if.then23, %if.then.i.i40
-  %127 = phi ptr [ %call.i.i.i, %if.then.i.i40 ], [ %122, %if.then23 ]
-  %128 = load ptr, ptr %m_resultOut.i41, align 8
-  %m_manifoldPtr.i4.i.i = getelementptr inbounds i8, ptr %128, i64 8
-  store ptr %127, ptr %m_manifoldPtr.i4.i.i, align 8
-  %129 = load ptr, ptr %m_resultOut.i41, align 8
-  %vtable6.i = load ptr, ptr %129, align 8
-  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
-  %130 = load ptr, ptr %vfn7.i, align 8
-  call void %130(ptr noundef nonnull align 8 dereferenceable(52) %129, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp24, ptr noundef nonnull align 4 dereferenceable(16) %vertex, float noundef %sub19)
-  br label %if.end28
+  br i1 %cmp.i.i39, label %if.end28.sink.split.sink.split, label %if.end28.sink.split
 
 if.else:                                          ; preds = %if.then21
-  %131 = load ptr, ptr %m_resultOut.i41, align 8
-  %132 = load i32, ptr %m_part0.i42, align 4
-  %133 = load i32, ptr %m_triface0.i43, align 8
-  %vtable.i44 = load ptr, ptr %131, align 8
+  %123 = load ptr, ptr %m_resultOut.i41, align 8
+  %124 = load i32, ptr %m_part0.i42, align 4
+  %125 = load i32, ptr %m_triface0.i43, align 8
+  %vtable.i44 = load ptr, ptr %123, align 8
   %vfn.i45 = getelementptr inbounds i8, ptr %vtable.i44, i64 16
-  %134 = load ptr, ptr %vfn.i45, align 8
-  call void %134(ptr noundef nonnull align 8 dereferenceable(52) %131, i32 noundef %132, i32 noundef %133)
-  %135 = load ptr, ptr %m_resultOut.i41, align 8
-  %136 = load i32, ptr %m_part1.i46, align 4
-  %137 = load i32, ptr %m_triface1.i47, align 8
-  %vtable3.i48 = load ptr, ptr %135, align 8
+  %126 = load ptr, ptr %vfn.i45, align 8
+  call void %126(ptr noundef nonnull align 8 dereferenceable(52) %123, i32 noundef %124, i32 noundef %125)
+  %127 = load ptr, ptr %m_resultOut.i41, align 8
+  %128 = load i32, ptr %m_part1.i46, align 4
+  %129 = load i32, ptr %m_triface1.i47, align 8
+  %vtable3.i48 = load ptr, ptr %127, align 8
   %vfn4.i49 = getelementptr inbounds i8, ptr %vtable3.i48, i64 24
-  %138 = load ptr, ptr %vfn4.i49, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(52) %135, i32 noundef %136, i32 noundef %137)
-  %139 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
-  %cmp.i.i51 = icmp eq ptr %139, null
-  br i1 %cmp.i.i51, label %if.then.i.i55, label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit62
+  %130 = load ptr, ptr %vfn4.i49, align 8
+  call void %130(ptr noundef nonnull align 8 dereferenceable(52) %127, i32 noundef %128, i32 noundef %129)
+  %131 = load ptr, ptr %m_manifoldPtr.i.i.i50, align 8
+  %cmp.i.i51 = icmp eq ptr %131, null
+  br i1 %cmp.i.i51, label %if.end28.sink.split.sink.split, label %if.end28.sink.split
 
-if.then.i.i55:                                    ; preds = %if.else
-  %140 = load ptr, ptr %m_collisionObject.i.i.i56, align 8
-  %141 = load ptr, ptr %m_collisionObject.i1.i.i57, align 8
-  %142 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
-  %vtable.i.i.i59 = load ptr, ptr %142, align 8
+if.end28.sink.split.sink.split:                   ; preds = %if.else, %if.then23
+  %m_collisionObject.i.i.i56.sink = phi ptr [ %m_collisionObject.i1.i.i57, %if.then23 ], [ %m_collisionObject.i.i.i56, %if.else ]
+  %m_collisionObject.i1.i.i57.sink = phi ptr [ %m_collisionObject.i.i.i56, %if.then23 ], [ %m_collisionObject.i1.i.i57, %if.else ]
+  %ref.tmp24.sink.ph = phi ptr [ %ref.tmp24, %if.then23 ], [ %plane, %if.else ]
+  %132 = load ptr, ptr %m_collisionObject.i.i.i56.sink, align 8
+  %133 = load ptr, ptr %m_collisionObject.i1.i.i57.sink, align 8
+  %134 = load ptr, ptr %m_dispatcher.i.i.i58, align 8
+  %vtable.i.i.i59 = load ptr, ptr %134, align 8
   %vfn.i.i.i60 = getelementptr inbounds i8, ptr %vtable.i.i.i59, i64 24
-  %143 = load ptr, ptr %vfn.i.i.i60, align 8
-  %call.i.i.i61 = call noundef ptr %143(ptr noundef nonnull align 8 dereferenceable(8) %142, ptr noundef %140, ptr noundef %141)
+  %135 = load ptr, ptr %vfn.i.i.i60, align 8
+  %call.i.i.i61 = call noundef ptr %135(ptr noundef nonnull align 8 dereferenceable(8) %134, ptr noundef %132, ptr noundef %133)
   store ptr %call.i.i.i61, ptr %m_manifoldPtr.i.i.i50, align 8
-  br label %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit62
+  br label %if.end28.sink.split
 
-_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit62: ; preds = %if.else, %if.then.i.i55
-  %144 = phi ptr [ %call.i.i.i61, %if.then.i.i55 ], [ %139, %if.else ]
-  %145 = load ptr, ptr %m_resultOut.i41, align 8
-  %m_manifoldPtr.i4.i.i52 = getelementptr inbounds i8, ptr %145, i64 8
-  store ptr %144, ptr %m_manifoldPtr.i4.i.i52, align 8
-  %146 = load ptr, ptr %m_resultOut.i41, align 8
-  %vtable6.i53 = load ptr, ptr %146, align 8
-  %vfn7.i54 = getelementptr inbounds i8, ptr %vtable6.i53, i64 32
-  %147 = load ptr, ptr %vfn7.i54, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(52) %146, ptr noundef nonnull align 4 dereferenceable(16) %plane, ptr noundef nonnull align 4 dereferenceable(16) %vertex, float noundef %sub19)
+if.end28.sink.split:                              ; preds = %if.end28.sink.split.sink.split, %if.else, %if.then23
+  %.sink = phi ptr [ %122, %if.then23 ], [ %131, %if.else ], [ %call.i.i.i61, %if.end28.sink.split.sink.split ]
+  %ref.tmp24.sink = phi ptr [ %ref.tmp24, %if.then23 ], [ %plane, %if.else ], [ %ref.tmp24.sink.ph, %if.end28.sink.split.sink.split ]
+  %136 = load ptr, ptr %m_resultOut.i41, align 8
+  %m_manifoldPtr.i4.i.i = getelementptr inbounds i8, ptr %136, i64 8
+  store ptr %.sink, ptr %m_manifoldPtr.i4.i.i, align 8
+  %137 = load ptr, ptr %m_resultOut.i41, align 8
+  %vtable6.i = load ptr, ptr %137, align 8
+  %vfn7.i = getelementptr inbounds i8, ptr %vtable6.i, i64 32
+  %138 = load ptr, ptr %vfn7.i, align 8
+  call void %138(ptr noundef nonnull align 8 dereferenceable(52) %137, ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp24.sink, ptr noundef nonnull align 4 dereferenceable(16) %vertex, float noundef %sub19)
   br label %if.end28
 
-if.end28:                                         ; preds = %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit, %_ZN27btGImpactCollisionAlgorithm15addContactPointEPK24btCollisionObjectWrapperS2_RK9btVector3S5_f.exit62, %_ZNK22btGImpactMeshShapePart9getVertexEiR9btVector3.exit
+if.end28:                                         ; preds = %if.end28.sink.split, %_ZNK22btGImpactMeshShapePart9getVertexEiR9btVector3.exit
   %tobool.not = icmp eq i32 %dec78, 0
   br i1 %tobool.not, label %while.end, label %while.body, !llvm.loop !37
 
 while.end:                                        ; preds = %if.end28, %if.end
   %vtable29 = load ptr, ptr %shape0, align 8
   %vfn30 = getelementptr inbounds i8, ptr %vtable29, i64 232
-  %148 = load ptr, ptr %vfn30, align 8
-  call void %148(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
+  %139 = load ptr, ptr %vfn30, align 8
+  call void %139(ptr noundef nonnull align 8 dereferenceable(280) %shape0)
   br label %return
 
 return:                                           ; preds = %entry, %while.end

@@ -46052,8 +46052,8 @@ _ZN5Eigen8internalL21first_default_alignedINS_3MapIKNS_6MatrixIiLin1ELi1ELi0ELin
   %182 = bitcast <2 x i64> %.sroa.067.1.i.i.i.i.i141 to <4 x i32>
   %183 = shufflevector <4 x i32> %182, <4 x i32> poison, <4 x i32> <i32 2, i32 3, i32 poison, i32 poison>
   %184 = add <4 x i32> %183, %181
-  %shift346 = shufflevector <4 x i32> %184, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
-  %185 = add nsw <4 x i32> %184, %shift346
+  %shift348 = shufflevector <4 x i32> %184, <4 x i32> poison, <4 x i32> <i32 1, i32 poison, i32 poison, i32 poison>
+  %185 = add nsw <4 x i32> %184, %shift348
   %186 = extractelement <4 x i32> %185, i64 0
   %187 = icmp sgt i64 %.0.i.i.i.i.i.i.i.i.i138, 0
   br i1 %187, label %.lr.ph85.i.i.i.i.i152, label %.preheader.i.i.i.i.i144

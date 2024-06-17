@@ -5077,7 +5077,7 @@ if.end:                                           ; preds = %find_mapping_for_cl
   %arrayidx6 = getelementptr [4097 x i8], ptr %path2, i64 0, i64 %idxprom5
   store i8 0, ptr %arrayidx6, align 1
   %tobool.not = icmp eq ptr %retval.0.i, null
-  br i1 %tobool.not, label %if.else28, label %if.then7
+  br i1 %tobool.not, label %if.end30.sink.split, label %if.then7
 
 if.then7:                                         ; preds = %if.end
   %path8 = getelementptr inbounds i8, ptr %retval.0.i, i64 24
@@ -5114,28 +5114,17 @@ if.end20:                                         ; preds = %if.end14
   store i32 %and22, ptr %mode, align 8
   %call23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i87, ptr noundef nonnull dereferenceable(1) %retval.0.i91) #19
   %tobool24.not = icmp eq i32 %call23, 0
-  br i1 %tobool24.not, label %if.end30, label %if.then25
+  br i1 %tobool24.not, label %if.end30, label %if.end30.sink.split
 
-if.then25:                                        ; preds = %if.end20
+if.end30.sink.split:                              ; preds = %if.end, %if.end20
+  %.sink = phi i32 [ 0, %if.end20 ], [ 3, %if.end ]
   %call26 = call noalias ptr @g_strdup(ptr noundef %path) #18
   %commits.i = getelementptr inbounds i8, ptr %s, i64 33032
   %call.i92 = call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i)
   store ptr %call26, ptr %call.i92, align 8
-  br label %if.end30.sink.split
-
-if.else28:                                        ; preds = %if.end
-  %call29 = call noalias ptr @g_strdup(ptr noundef %path) #18
-  %commits.i93 = getelementptr inbounds i8, ptr %s, i64 33032
-  %call.i94 = call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i93)
-  store ptr %call29, ptr %call.i94, align 8
-  br label %if.end30.sink.split
-
-if.end30.sink.split:                              ; preds = %if.else28, %if.then25
-  %call.i92.sink251 = phi ptr [ %call.i92, %if.then25 ], [ %call.i94, %if.else28 ]
-  %.sink = phi i32 [ 0, %if.then25 ], [ 3, %if.else28 ]
-  %param.i = getelementptr inbounds i8, ptr %call.i92.sink251, i64 8
+  %param.i = getelementptr inbounds i8, ptr %call.i92, i64 8
   store i32 %cluster_num, ptr %param.i, align 8
-  %action.i = getelementptr inbounds i8, ptr %call.i92.sink251, i64 16
+  %action.i = getelementptr inbounds i8, ptr %call.i92, i64 16
   store i32 %.sink, ptr %action.i, align 8
   br label %if.end30
 
@@ -5925,14 +5914,7 @@ if.end18:                                         ; preds = %if.end8
   %retval.0.i82 = select i1 %cmp.i80, ptr %12, ptr %add.ptr.i81
   %call19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %retval.0.i82, ptr noundef nonnull dereferenceable(1) %retval.0.i) #19
   %tobool20.not = icmp eq i32 %call19, 0
-  br i1 %tobool20.not, label %if.end32, label %if.then21
-
-if.then21:                                        ; preds = %if.end18
-  %call22 = tail call noalias ptr @g_strdup(ptr noundef %path) #18
-  %commits.i = getelementptr inbounds i8, ptr %s, i64 33032
-  %call.i83 = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i)
-  store ptr %call22, ptr %call.i83, align 8
-  br label %if.end32.sink.split
+  br i1 %tobool20.not, label %if.end32, label %if.end32.sink.split
 
 if.else24:                                        ; preds = %array_get.exit.i, %if.then1
   %13 = getelementptr i8, ptr %direntry, i64 11
@@ -5954,26 +5936,22 @@ land.rhs.i:                                       ; preds = %is_short_name.exit.
   %tobool.not.i.i84 = icmp eq i8 %14, 0
   %cmp.i.i.not = icmp eq i8 %direntry.val4.i.i, -27
   %or.cond193 = or i1 %tobool.not.i.i84, %cmp.i.i.not
-  br i1 %or.cond193, label %if.then27, label %if.else29
-
-if.then27:                                        ; preds = %land.rhs.i
-  %call28 = tail call noalias ptr @g_strdup(ptr noundef %path) #18
-  %commits.i85 = getelementptr inbounds i8, ptr %s, i64 33032
-  %call.i86 = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i85)
-  store ptr %call28, ptr %call.i86, align 8
-  br label %if.end32.sink.split
+  br i1 %or.cond193, label %if.end32.sink.split, label %if.else29
 
 if.else29:                                        ; preds = %land.rhs.i, %if.else24, %if.else24, %is_short_name.exit.i, %is_short_name.exit.i
   tail call void @abort() #20
   unreachable
 
-if.end32.sink.split:                              ; preds = %if.then21, %if.then27
-  %call.i86.sink206 = phi ptr [ %call.i86, %if.then27 ], [ %call.i83, %if.then21 ]
-  %.sink = phi i32 [ 2, %if.then27 ], [ 0, %if.then21 ]
-  %mapping.0.ph = phi ptr [ null, %if.then27 ], [ %add.ptr.i.i, %if.then21 ]
-  %param.i87 = getelementptr inbounds i8, ptr %call.i86.sink206, i64 8
+if.end32.sink.split:                              ; preds = %land.rhs.i, %if.end18
+  %.sink = phi i32 [ 0, %if.end18 ], [ 2, %land.rhs.i ]
+  %mapping.0.ph = phi ptr [ %add.ptr.i.i, %if.end18 ], [ null, %land.rhs.i ]
+  %call28 = tail call noalias ptr @g_strdup(ptr noundef %path) #18
+  %commits.i85 = getelementptr inbounds i8, ptr %s, i64 33032
+  %call.i86 = tail call fastcc ptr @array_get_next(ptr noundef nonnull %commits.i85)
+  store ptr %call28, ptr %call.i86, align 8
+  %param.i87 = getelementptr inbounds i8, ptr %call.i86, i64 8
   store i32 %or.i, ptr %param.i87, align 8
-  %action.i88 = getelementptr inbounds i8, ptr %call.i86.sink206, i64 16
+  %action.i88 = getelementptr inbounds i8, ptr %call.i86, i64 16
   store i32 %.sink, ptr %action.i88, align 8
   br label %if.end32
 

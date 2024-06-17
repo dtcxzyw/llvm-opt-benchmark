@@ -3170,10 +3170,10 @@ lpad32:                                           ; preds = %_ZN4cvc58internal12
   br label %eh.resume
 
 if.end35.sink.split:                              ; preds = %entry, %_ZN4cvc57context3CDOIbEaSERKb.exit
-  %d_assertNoLearnCount = getelementptr inbounds i8, ptr %this, i64 632
-  %47 = load i64, ptr %d_assertNoLearnCount, align 8
+  %d_assertNoLearnCount11 = getelementptr inbounds i8, ptr %this, i64 632
+  %47 = load i64, ptr %d_assertNoLearnCount11, align 8
   %inc12 = add i64 %47, 1
-  store i64 %inc12, ptr %d_assertNoLearnCount, align 8
+  store i64 %inc12, ptr %d_assertNoLearnCount11, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end35.sink.split, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit

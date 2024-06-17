@@ -1627,11 +1627,11 @@ cond.end30:                                       ; preds = %cond.false25, %cond
   br i1 %cmp33, label %if.end52.sink.split, label %if.end52
 
 if.end52.sink.split:                              ; preds = %cond.end30, %if.then5
-  %arrayidx.sink = phi ptr [ %arrayidx, %if.then5 ], [ %cond31, %cond.end30 ]
-  %7 = load i64, ptr %arrayidx.sink, align 8
-  %shr = ashr i64 %7, 47
-  %cmp38 = icmp ult i64 %shr, -13
-  %not44 = xor i64 %shr, -1
+  %cond31.sink = phi ptr [ %arrayidx, %if.then5 ], [ %cond31, %cond.end30 ]
+  %7 = load i64, ptr %cond31.sink, align 8
+  %shr36 = ashr i64 %7, 47
+  %cmp38 = icmp ult i64 %shr36, -13
+  %not44 = xor i64 %shr36, -1
   %spec.select18 = select i1 %cmp38, i64 13, i64 %not44
   %arrayidx48 = getelementptr inbounds [14 x ptr], ptr @lj_obj_itypename, i64 0, i64 %spec.select18
   br label %if.end52

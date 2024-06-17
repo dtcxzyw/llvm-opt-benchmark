@@ -314,12 +314,12 @@ invoke.cont101:                                   ; preds = %if.end
   br i1 %cmp.i88, label %if.then.i91.invoke.sink.split, label %invoke.cont106
 
 if.then.i91.invoke.sink.split:                    ; preds = %invoke.cont101, %if.end
-  %exception.i92 = tail call ptr @__cxa_allocate_exception(i64 8) #13
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i92, align 8
+  %exception.i = tail call ptr @__cxa_allocate_exception(i64 8) #13
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9exception, i64 16), ptr %exception.i, align 8
   br label %if.then.i91.invoke
 
 if.then.i91.invoke:                               ; preds = %if.then.i91.invoke.sink.split, %if.then.i.i78
-  %41 = phi ptr [ %exception.i.i, %if.then.i.i78 ], [ %exception.i92, %if.then.i91.invoke.sink.split ]
+  %41 = phi ptr [ %exception.i.i, %if.then.i.i78 ], [ %exception.i, %if.then.i91.invoke.sink.split ]
   %42 = phi ptr [ @_ZTIN3ue218ResourceLimitErrorE, %if.then.i.i78 ], [ @_ZTISt9exception, %if.then.i91.invoke.sink.split ]
   %43 = phi ptr [ @_ZN3ue218ResourceLimitErrorD1Ev, %if.then.i.i78 ], [ @_ZNSt9exceptionD1Ev, %if.then.i91.invoke.sink.split ]
   invoke void @__cxa_throw(ptr nonnull %41, ptr nonnull %42, ptr nonnull %43) #14

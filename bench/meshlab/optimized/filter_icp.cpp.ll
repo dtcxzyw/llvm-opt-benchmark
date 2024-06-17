@@ -56580,22 +56580,17 @@ _ZSt7advanceISt20_List_const_iteratorIdEiEvRT_T0_.exit: ; preds = %.lr.ph.i.i, %
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QtMetaTypePrivate23QSequentialIterableImpl10moveToImplINSt7__cxx114listIdSaIdEEEEEvPKvPPvNS0_8PositionE(ptr noundef %0, ptr noundef %1, i32 noundef %2) #9 comdat align 2 {
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %5, label %8
+  br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
   %6 = load ptr, ptr %0, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
-  store ptr %6, ptr %7, align 8
-  br label %10
+  br label %7
 
-8:                                                ; preds = %3
-  %9 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
-  store ptr %0, ptr %9, align 8
-  br label %10
-
-10:                                               ; preds = %8, %5
-  %storemerge = phi ptr [ %9, %8 ], [ %7, %5 ]
-  store ptr %storemerge, ptr %1, align 8
+7:                                                ; preds = %3, %5
+  %.sink = phi ptr [ %6, %5 ], [ %0, %3 ]
+  %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
+  store ptr %.sink, ptr %8, align 8
+  store ptr %8, ptr %1, align 8
   ret void
 }
 
@@ -58000,24 +57995,12 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKSt4pairIjjESt6vectorIS3_SaIS3_EEEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN17QtMetaTypePrivate23QSequentialIterableImpl10moveToImplISt6vectorISt4pairIjjESaIS4_EEEEvPKvPPvNS0_8PositionE(ptr noundef %0, ptr noundef %1, i32 noundef %2) #9 comdat align 2 {
   %4 = icmp eq i32 %2, 0
-  br i1 %4, label %5, label %8
-
-5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8
-  %7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
-  store ptr %6, ptr %7, align 8
-  br label %12
-
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8
-  %11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
-  store ptr %10, ptr %11, align 8
-  br label %12
-
-12:                                               ; preds = %8, %5
-  %storemerge = phi ptr [ %11, %8 ], [ %7, %5 ]
-  store ptr %storemerge, ptr %1, align 8
+  %.sink5.idx = select i1 %4, i64 0, i64 8
+  %.sink5 = getelementptr inbounds i8, ptr %0, i64 %.sink5.idx
+  %5 = load ptr, ptr %.sink5, align 8
+  %6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #37
+  store ptr %5, ptr %6, align 8
+  store ptr %6, ptr %1, align 8
   ret void
 }
 

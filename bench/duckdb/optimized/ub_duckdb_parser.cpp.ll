@@ -27828,9 +27828,9 @@ for.body.preheader.split:                         ; preds = %entry
   br label %for.body
 
 for.body:                                         ; preds = %for.inc, %for.body.preheader.split
-  %sub3.sink.in = phi i64 [ %sub3.sink, %for.inc ], [ %sub.ptr.div.i, %for.body.preheader.split ]
-  %sub3.sink = add i64 %sub3.sink.in, -1
-  %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_14ResultModifierESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %modifiers, i64 noundef %sub3.sink)
+  %.sink = phi i64 [ %sub.ptr.div.i, %for.body.preheader.split ], [ %sub3, %for.inc ]
+  %sub3 = add i64 %.sink, -1
+  %call34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb6vectorINS_10unique_ptrINS_14ResultModifierESt14default_deleteIS2_ELb1EEELb1EEixEm(ptr noundef nonnull align 8 dereferenceable(24) %modifiers, i64 noundef %sub3)
   %call4 = tail call noundef nonnull align 8 dereferenceable(9) ptr @_ZNK6duckdb10unique_ptrINS_14ResultModifierESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %call34)
   %type = getelementptr inbounds i8, ptr %call4, i64 8
   %2 = load i8, ptr %type, align 8, !tbaa !184
@@ -27850,7 +27850,7 @@ if.then:                                          ; preds = %for.body
   br i1 %cmp.i.i, label %return, label %for.inc
 
 for.inc:                                          ; preds = %if.then, %for.body
-  %cmp.not = icmp eq i64 %sub3.sink, 0
+  %cmp.not = icmp eq i64 %sub3, 0
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !537
 
 for.end.loopexit:                                 ; preds = %for.inc, %for.body, %for.body

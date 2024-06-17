@@ -96,7 +96,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   %14 = icmp ult i64 %2, 8
   %15 = and i1 %13, %14
   call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %12, i8 0, i64 16, i1 false)
-  br i1 %15, label %69, label %16
+  br i1 %15, label %62, label %16
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %7, i64 912
@@ -153,43 +153,40 @@ define internal range(i64 -2147483648, 2147483648) i64 @rtc_dev_read(ptr nocaptu
   %44 = phi i64 [ 0, %16 ], [ -11, %24 ], [ -512, %.preheader ], [ -512, %35 ], [ -11, %28 ], [ 0, %39 ]
   %45 = call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %19, i32 0, ptr elementtype(i32) %19) #9, !srcloc !10
   call void @remove_wait_queue(ptr noundef %17, ptr noundef nonnull %5) #9
-  br i1 %43, label %69, label %46
+  br i1 %43, label %62, label %46
 
 46:                                               ; preds = %.thread
   %47 = icmp eq i64 %2, 4
-  br i1 %47, label %48, label %59
+  br i1 %47, label %48, label %52
 
 48:                                               ; preds = %46
   %49 = trunc i64 %42 to i32
   %50 = call i64 @llvm.read_register.i64(metadata !0)
   %51 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i32 %49, i64 4, i64 %50) #9, !srcloc !11
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %53 = extractvalue { ptr, i64 } %51, 1
-  %54 = ptrtoint ptr %52 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %53)
-  %55 = shl i64 %54, 32
-  %56 = ashr exact i64 %55, 32
-  %57 = icmp eq i64 %55, 0
-  %58 = select i1 %57, i64 4, i64 %56
-  br label %69
+  br label %.sink.split
 
-59:                                               ; preds = %46
-  %60 = call i64 @llvm.read_register.i64(metadata !0)
-  %61 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %42, i64 8, i64 %60) #9, !srcloc !12
-  %62 = extractvalue { ptr, i64 } %61, 0
-  %63 = extractvalue { ptr, i64 } %61, 1
-  %64 = ptrtoint ptr %62 to i64
-  call void @llvm.write_register.i64(metadata !0, i64 %63)
-  %65 = shl i64 %64, 32
-  %66 = ashr exact i64 %65, 32
-  %67 = icmp eq i64 %65, 0
-  %68 = select i1 %67, i64 8, i64 %66
-  br label %69
+52:                                               ; preds = %46
+  %53 = call i64 @llvm.read_register.i64(metadata !0)
+  %54 = call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr %1, i64 %42, i64 8, i64 %53) #9, !srcloc !12
+  br label %.sink.split
 
-69:                                               ; preds = %59, %48, %.thread, %4
-  %70 = phi i64 [ -22, %4 ], [ %58, %48 ], [ %68, %59 ], [ %44, %.thread ]
+.sink.split:                                      ; preds = %48, %52
+  %.sink = phi { ptr, i64 } [ %54, %52 ], [ %51, %48 ]
+  %.sink11 = phi i64 [ 8, %52 ], [ 4, %48 ]
+  %55 = extractvalue { ptr, i64 } %.sink, 0
+  %56 = extractvalue { ptr, i64 } %.sink, 1
+  %57 = ptrtoint ptr %55 to i64
+  call void @llvm.write_register.i64(metadata !0, i64 %56)
+  %58 = shl i64 %57, 32
+  %59 = ashr exact i64 %58, 32
+  %60 = icmp eq i64 %58, 0
+  %61 = select i1 %60, i64 %.sink11, i64 %59
+  br label %62
+
+62:                                               ; preds = %.sink.split, %.thread, %4
+  %63 = phi i64 [ -22, %4 ], [ %44, %.thread ], [ %61, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #9
-  ret i64 %70
+  ret i64 %63
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

@@ -957,8 +957,8 @@ _ZN5mmu_t9pte_storeEmmmb11access_typem.exit:      ; preds = %153, %152, %144
   unreachable
 
 208:                                              ; preds = %176, %_Z14decode_vm_infoibmm.exit
-  %.sink245 = phi i64 [ %186, %176 ], [ %42, %_Z14decode_vm_infoibmm.exit ]
-  %209 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %.sink245, i32 noundef %4, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext %12, i1 noundef zeroext false)
+  %.sink252 = phi i64 [ %186, %176 ], [ %42, %_Z14decode_vm_infoibmm.exit ]
+  %209 = tail call noundef i64 @_ZN5mmu_t7s2xlateEmm11access_typeS0_bbb(ptr noundef nonnull align 8 dereferenceable(43168) %0, i64 noundef %5, i64 noundef %.sink252, i32 noundef %4, i32 noundef %4, i1 noundef zeroext %8, i1 noundef zeroext %12, i1 noundef zeroext false)
   %.0118 = and i64 %209, -4096
   ret i64 %.0118
 }

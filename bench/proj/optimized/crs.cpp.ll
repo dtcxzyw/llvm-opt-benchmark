@@ -27375,12 +27375,12 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %.lr.p
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %24, %30
-  %.sink = phi ptr [ %21, %19 ], [ %27, %24 ], [ %33, %30 ]
+  %.sink = phi ptr [ %33, %30 ], [ %27, %24 ], [ %21, %19 ]
   %34 = load ptr, ptr %.sink, align 8
   %35 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj2cs16CoordinateSystem8axisListEv(ptr noundef nonnull align 8 dereferenceable(56) %34) #40
-  %.val = load ptr, ptr %35, align 8
-  %.val20.val = load ptr, ptr %.val, align 8
-  %36 = getelementptr i8, ptr %.val, i64 16
+  %.val20 = load ptr, ptr %35, align 8
+  %.val20.val = load ptr, ptr %.val20, align 8
+  %36 = getelementptr i8, ptr %.val20, i64 16
   %.val20.val21 = load ptr, ptr %36, align 8
   %37 = tail call fastcc noundef zeroext i1 @_ZN5osgeo4proj3crsL47mustAxisOrderBeSwitchedForVisualizationInternalERKSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrINS0_2cs20CoordinateSystemAxisEEEESaISA_EE(ptr %.val20.val, ptr %.val20.val21)
   br label %38
@@ -71663,8 +71663,8 @@ _ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12
   br label %626
 
 626:                                              ; preds = %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit101, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit92, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit95, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit98, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit81
-  %.sink153 = phi ptr [ %610, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit101 ], [ %554, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit92 ], [ %574, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit95 ], [ %592, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit98 ], [ %330, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit ], [ %356, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit81 ]
-  %627 = getelementptr inbounds i8, ptr %.sink153, i64 16
+  %.sink152 = phi ptr [ %610, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit101 ], [ %554, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit92 ], [ %574, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit95 ], [ %592, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit98 ], [ %330, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit ], [ %356, %_ZNSt7__cxx114listISt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEEiESaISC_EE12emplace_backIJRKSB_iEEEvDpOT_.exit81 ]
+  %627 = getelementptr inbounds i8, ptr %.sink152, i64 16
   %628 = load i64, ptr %627, align 8
   %629 = add i64 %628, 1
   store i64 %629, ptr %627, align 8
@@ -71706,9 +71706,9 @@ _ZNSt4pairIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj3crs12ProjectedCRSEEEE
   ret void
 
 650:                                              ; preds = %353, %354, %347, %570
-  %.sink152 = phi ptr [ %10, %570 ], [ %6, %347 ], [ %6, %354 ], [ %6, %353 ]
+  %.sink = phi ptr [ %10, %570 ], [ %6, %347 ], [ %6, %354 ], [ %6, %353 ]
   %.pn55 = phi { ptr, i32 } [ %571, %570 ], [ %348, %347 ], [ %.pn, %354 ], [ %.pn, %353 ]
-  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink152) #37
+  call void @_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22GeodeticReferenceFrameEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #37
   resume { ptr, i32 } %.pn55
 }
 

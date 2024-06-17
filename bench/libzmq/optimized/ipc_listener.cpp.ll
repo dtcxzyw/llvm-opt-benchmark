@@ -125,19 +125,13 @@ do.end:                                           ; preds = %entry, %if.then
 do.body7:                                         ; preds = %do.end
   %call8 = tail call ptr @__errno_location() #13
   %4 = load i32, ptr %call8, align 4
-  switch i32 %4, label %lor.rhs [
+  switch i32 %4, label %return.sink.split [
     i32 11, label %return
     i32 4, label %return
     i32 103, label %return
     i32 71, label %return
     i32 23, label %return
   ]
-
-lor.rhs:                                          ; preds = %do.body7
-  %call26 = tail call ptr @strerror(i32 noundef %4) #11
-  %5 = load ptr, ptr @stderr, align 8
-  %call27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %5, ptr noundef nonnull @.str.3, ptr noundef %call26, ptr noundef nonnull @.str.2, i32 noundef 299) #12
-  br label %return.sink.split
 
 if.end31:                                         ; preds = %do.end
   tail call void @_ZN3zmq26make_socket_noninheritableEi(i32 noundef %call4)
@@ -147,15 +141,7 @@ if.end31:                                         ; preds = %do.end
 if.then33:                                        ; preds = %if.end31
   %call34 = tail call i32 @close(i32 noundef %call4)
   %cmp36.not = icmp eq i32 %call34, 0
-  br i1 %cmp36.not, label %return, label %if.then38
-
-if.then38:                                        ; preds = %if.then33
-  %call40 = tail call ptr @__errno_location() #13
-  %6 = load i32, ptr %call40, align 4
-  %call41 = tail call ptr @strerror(i32 noundef %6) #11
-  %7 = load ptr, ptr @stderr, align 8
-  %call42 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.3, ptr noundef %call41, ptr noundef nonnull @.str.2, i32 noundef 310) #12
-  br label %return.sink.split
+  br i1 %cmp36.not, label %return, label %return.sink.split.sink.split
 
 if.end46:                                         ; preds = %if.end31
   %call47 = tail call noundef i32 @_ZN3zmq13set_nosigpipeEi(i32 noundef %call4)
@@ -165,21 +151,23 @@ if.end46:                                         ; preds = %if.end31
 if.then48:                                        ; preds = %if.end46
   %call50 = tail call i32 @close(i32 noundef %call4)
   %cmp52.not = icmp eq i32 %call50, 0
-  br i1 %cmp52.not, label %return, label %if.then54
+  br i1 %cmp52.not, label %return, label %return.sink.split.sink.split
 
-if.then54:                                        ; preds = %if.then48
-  %call56 = tail call ptr @__errno_location() #13
-  %8 = load i32, ptr %call56, align 4
-  %call57 = tail call ptr @strerror(i32 noundef %8) #11
-  %9 = load ptr, ptr @stderr, align 8
-  %call58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %call57, ptr noundef nonnull @.str.2, i32 noundef 321) #12
+return.sink.split.sink.split:                     ; preds = %if.then48, %if.then33
+  %.sink11.ph = phi i32 [ 310, %if.then33 ], [ 321, %if.then48 ]
+  %call40 = tail call ptr @__errno_location() #13
+  %5 = load i32, ptr %call40, align 4
   br label %return.sink.split
 
-return.sink.split:                                ; preds = %lor.rhs, %if.then38, %if.then54
-  %call57.sink = phi ptr [ %call57, %if.then54 ], [ %call41, %if.then38 ], [ %call26, %lor.rhs ]
-  %10 = load ptr, ptr @stderr, align 8
-  %call59 = tail call i32 @fflush(ptr noundef %10)
-  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call57.sink)
+return.sink.split:                                ; preds = %return.sink.split.sink.split, %do.body7
+  %.sink = phi i32 [ %4, %do.body7 ], [ %5, %return.sink.split.sink.split ]
+  %.sink11 = phi i32 [ 299, %do.body7 ], [ %.sink11.ph, %return.sink.split.sink.split ]
+  %call57 = tail call ptr @strerror(i32 noundef %.sink) #11
+  %6 = load ptr, ptr @stderr, align 8
+  %call58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.3, ptr noundef %call57, ptr noundef nonnull @.str.2, i32 noundef %.sink11) #12
+  %7 = load ptr, ptr @stderr, align 8
+  %call59 = tail call i32 @fflush(ptr noundef %7)
+  tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call57)
   br label %return
 
 return:                                           ; preds = %return.sink.split, %do.body7, %if.end46, %if.then48, %if.then33, %do.body7, %do.body7, %do.body7, %do.body7

@@ -2223,27 +2223,27 @@ for.inc53:                                        ; preds = %land.lhs.true, %for
   br i1 %cmp25.not, label %for.end55, label %for.body
 
 for.end55.sink.split.sink.split:                  ; preds = %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i88, %lor.lhs.false.i2.i95, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i23, %lor.lhs.false.i2.i30, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i, %lor.lhs.false.i2.i
-  %m_queue.i.sink178 = phi ptr [ %m_queue.i, %lor.lhs.false.i2.i ], [ %m_queue.i, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i ], [ %m_queue.i28, %lor.lhs.false.i2.i30 ], [ %m_queue.i28, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i23 ], [ %m_queue.i93, %lor.lhs.false.i2.i95 ], [ %m_queue.i93, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i88 ]
-  tail call void @_ZN6vectorISt4pairIN3sat7literalEPN3euf5enodeEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_queue.i.sink178)
-  %.pre.i11.i = load ptr, ptr %m_queue.i.sink178, align 8
-  %arrayidx8.phi.trans.insert.i12.i106 = getelementptr inbounds i8, ptr %.pre.i11.i, i64 -4
+  %m_queue.i93.sink178 = phi ptr [ %m_queue.i, %lor.lhs.false.i2.i ], [ %m_queue.i, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i ], [ %m_queue.i28, %lor.lhs.false.i2.i30 ], [ %m_queue.i28, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i23 ], [ %m_queue.i93, %lor.lhs.false.i2.i95 ], [ %m_queue.i93, %_ZN6vectorISt4pairIN3euf9relevancy6updateEjELb0EjE9push_backEOS4_.exit.i88 ]
+  tail call void @_ZN6vectorISt4pairIN3sat7literalEPN3euf5enodeEELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_queue.i93.sink178)
+  %.pre.i11.i105 = load ptr, ptr %m_queue.i93.sink178, align 8
+  %arrayidx8.phi.trans.insert.i12.i106 = getelementptr inbounds i8, ptr %.pre.i11.i105, i64 -4
   %.pre1.i13.i107 = load i32, ptr %arrayidx8.phi.trans.insert.i12.i106, align 4
   br label %for.end55.sink.split
 
 for.end55.sink.split:                             ; preds = %for.end55.sink.split.sink.split, %lor.lhs.false.i2.i95, %lor.lhs.false.i2.i30, %lor.lhs.false.i2.i
   %.sink176 = phi i32 [ %24, %lor.lhs.false.i2.i ], [ %39, %lor.lhs.false.i2.i30 ], [ %86, %lor.lhs.false.i2.i95 ], [ %.pre1.i13.i107, %for.end55.sink.split.sink.split ]
-  %.sink = phi ptr [ %23, %lor.lhs.false.i2.i ], [ %38, %lor.lhs.false.i2.i30 ], [ %85, %lor.lhs.false.i2.i95 ], [ %.pre.i11.i, %for.end55.sink.split.sink.split ]
-  %m_queue.i.sink = phi ptr [ %m_queue.i, %lor.lhs.false.i2.i ], [ %m_queue.i28, %lor.lhs.false.i2.i30 ], [ %m_queue.i93, %lor.lhs.false.i2.i95 ], [ %m_queue.i.sink178, %for.end55.sink.split.sink.split ]
-  %idx.ext.i6.i = zext i32 %.sink176 to i64
-  %add.ptr.i7.i = getelementptr inbounds %"struct.std::pair.187", ptr %.sink, i64 %idx.ext.i6.i
-  store i32 %lit.coerce, ptr %add.ptr.i7.i, align 8
-  %ref.tmp6.sroa.214.0.add.ptr.i7.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i7.i, i64 8
-  store ptr null, ptr %ref.tmp6.sroa.214.0.add.ptr.i7.sroa_idx.i, align 8
-  %88 = load ptr, ptr %m_queue.i.sink, align 8
-  %arrayidx10.i8.i = getelementptr inbounds i8, ptr %88, i64 -4
-  %89 = load i32, ptr %arrayidx10.i8.i, align 4
+  %.sink = phi ptr [ %23, %lor.lhs.false.i2.i ], [ %38, %lor.lhs.false.i2.i30 ], [ %85, %lor.lhs.false.i2.i95 ], [ %.pre.i11.i105, %for.end55.sink.split.sink.split ]
+  %m_queue.i93.sink = phi ptr [ %m_queue.i, %lor.lhs.false.i2.i ], [ %m_queue.i28, %lor.lhs.false.i2.i30 ], [ %m_queue.i93, %lor.lhs.false.i2.i95 ], [ %m_queue.i93.sink178, %for.end55.sink.split.sink.split ]
+  %idx.ext.i6.i99 = zext i32 %.sink176 to i64
+  %add.ptr.i7.i100 = getelementptr inbounds %"struct.std::pair.187", ptr %.sink, i64 %idx.ext.i6.i99
+  store i32 %lit.coerce, ptr %add.ptr.i7.i100, align 8
+  %ref.tmp6.sroa.214.0.add.ptr.i7.sroa_idx.i101 = getelementptr inbounds i8, ptr %add.ptr.i7.i100, i64 8
+  store ptr null, ptr %ref.tmp6.sroa.214.0.add.ptr.i7.sroa_idx.i101, align 8
+  %88 = load ptr, ptr %m_queue.i93.sink, align 8
+  %arrayidx10.i8.i102 = getelementptr inbounds i8, ptr %88, i64 -4
+  %89 = load i32, ptr %arrayidx10.i8.i102, align 4
   %inc.i9.i103 = add i32 %89, 1
-  store i32 %inc.i9.i103, ptr %arrayidx10.i8.i, align 4
+  store i32 %inc.i9.i103, ptr %arrayidx10.i8.i102, align 4
   br label %for.end55
 
 for.end55:                                        ; preds = %for.inc53, %for.inc53.us, %for.inc53.us.us, %for.end55.sink.split, %_ZN3euf9relevancy6occursEN3sat7literalE.exit, %_ZN6vectorIjLb0EjE3endEv.exit, %entry

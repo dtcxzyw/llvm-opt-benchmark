@@ -1821,8 +1821,8 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_1010BaseRAPass13buildLivenessEv(ptr
   br i1 %134, label %.sink.split, label %136
 
 .sink.split:                                      ; preds = %129, %104
-  %.sink299 = phi i32 [ 262144, %104 ], [ 131072, %129 ]
-  %135 = or i32 %114, %.sink299
+  %.sink253 = phi i32 [ 262144, %104 ], [ 131072, %129 ]
+  %135 = or i32 %114, %.sink253
   store i32 %135, ptr %113, align 4, !tbaa !182
   br label %136
 

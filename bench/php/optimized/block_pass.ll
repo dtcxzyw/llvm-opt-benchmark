@@ -487,13 +487,13 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
 
 .sink.split.i:                                    ; preds = %222, %214, %207, %207
   %.sink.i = phi i32 [ %211, %207 ], [ %211, %207 ], [ %211, %214 ], [ %226, %222 ]
-  %.sink295.i = phi ptr [ %.0207.i, %207 ], [ %.0207.i, %207 ], [ %.0320, %214 ], [ %.0320, %222 ]
+  %.sink294.i = phi ptr [ %.0207.i, %207 ], [ %.0207.i, %207 ], [ %.0320, %214 ], [ %.0320, %222 ]
   %234 = and i32 %.sink.i, 63
   %235 = zext nneg i32 %234 to i64
   %236 = shl nuw i64 1, %235
   %237 = lshr i32 %.sink.i, 6
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds i64, ptr %.sink295.i, i64 %238
+  %239 = getelementptr inbounds i64, ptr %.sink294.i, i64 %238
   %240 = load i64, ptr %239, align 8
   %241 = or i64 %236, %240
   store i64 %241, ptr %239, align 8
@@ -610,9 +610,9 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   %309 = shl nuw i64 1, %308
   %310 = and i64 %307, %309
   %.not238.i = icmp eq i64 %310, 0
-  br i1 %.not238.i, label %315, label %.sink.split294.i
+  br i1 %.not238.i, label %315, label %.sink.split298.i
 
-.sink.split294.i:                                 ; preds = %.lr.ph253.i
+.sink.split298.i:                                 ; preds = %.lr.ph253.i
   %311 = trunc nuw i8 %.0204250.i to i1
   %312 = load ptr, ptr @stderr, align 8
   %313 = trunc nuw i64 %indvars.iv279.i to i32
@@ -622,9 +622,9 @@ define hidden void @zend_optimize_cfg(ptr noundef %0, ptr noundef %1) local_unna
   %.pre663 = load i32, ptr %16, align 8
   br label %315
 
-315:                                              ; preds = %.sink.split294.i, %.lr.ph253.i
-  %316 = phi i32 [ %304, %.lr.ph253.i ], [ %.pre663, %.sink.split294.i ]
-  %.1.i = phi i8 [ %.0204250.i, %.lr.ph253.i ], [ %.0204250..i, %.sink.split294.i ]
+315:                                              ; preds = %.sink.split298.i, %.lr.ph253.i
+  %316 = phi i32 [ %304, %.lr.ph253.i ], [ %.pre663, %.sink.split298.i ]
+  %.1.i = phi i8 [ %.0204250.i, %.lr.ph253.i ], [ %.0204250..i, %.sink.split298.i ]
   %indvars.iv.next280.i = add nuw nsw i64 %indvars.iv279.i, 1
   %317 = zext i32 %316 to i64
   %318 = icmp ult i64 %indvars.iv.next280.i, %317

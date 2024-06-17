@@ -588,7 +588,7 @@ Mop_ManIsSpace.exit72.thread:                     ; preds = %47, %47, %47, %47, 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %72, %75
-  %.sink162 = phi i32 [ %74, %72 ], [ %78, %75 ]
+  %.sink162 = phi i32 [ %78, %75 ], [ %74, %72 ]
   %.sink160 = load ptr, ptr %53, align 8
   %79 = zext nneg i32 %.sink162 to i64
   %80 = shl nuw i64 1, %79

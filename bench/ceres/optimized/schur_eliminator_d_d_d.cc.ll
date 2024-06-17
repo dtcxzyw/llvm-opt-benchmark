@@ -14661,51 +14661,49 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
   %30 = getelementptr inbounds i8, ptr %1, i64 73
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 184
-  %35 = load i64, ptr %3, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef 1, i64 noundef %35)
-  br label %44
+  %34 = getelementptr inbounds i8, ptr %1, i64 74
+  %35 = load i8, ptr %34, align 2
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 74
-  %38 = load i8, ptr %37, align 2
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 88
+  br label %.sink.split
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 184
+.sink.split:                                      ; preds = %29, %37
+  %.sink14 = phi ptr [ %38, %37 ], [ %3, %29 ]
+  %.sink = getelementptr inbounds i8, ptr %0, i64 184
+  %39 = load i64, ptr %.sink14, align 8
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 noundef %39, i64 noundef 1, i64 noundef %39)
+  br label %40
+
+40:                                               ; preds = %.sink.split, %33
+  %41 = load i64, ptr %3, align 8
   %42 = getelementptr inbounds i8, ptr %1, i64 88
   %43 = load i64, ptr %42, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef 1, i64 noundef %43)
-  br label %44
+  %44 = icmp eq i64 %41, 0
+  %45 = icmp eq i64 %43, 0
+  %or.cond.i = or i1 %44, %45
+  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit, label %46
 
-44:                                               ; preds = %36, %40, %33
-  %45 = load i64, ptr %3, align 8
-  %46 = getelementptr inbounds i8, ptr %1, i64 88
-  %47 = load i64, ptr %46, align 8
-  %48 = icmp eq i64 %45, 0
-  %49 = icmp eq i64 %47, 0
-  %or.cond.i = or i1 %48, %49
-  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit, label %50
+46:                                               ; preds = %40
+  %47 = sdiv i64 9223372036854775807, %43
+  %48 = icmp slt i64 %47, %41
+  br i1 %48, label %49, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
 
-50:                                               ; preds = %44
-  %51 = sdiv i64 9223372036854775807, %47
-  %52 = icmp slt i64 %51, %45
-  br i1 %52, label %53, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit
-
-53:                                               ; preds = %50
-  %54 = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %54, align 8
-  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
+49:                                               ; preds = %46
+  %50 = tail call ptr @__cxa_allocate_exception(i64 8) #27
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %50, align 8
+  tail call void @__cxa_throw(ptr nonnull %50, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #30
   unreachable
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit: ; preds = %44, %50
-  %55 = getelementptr inbounds i8, ptr %0, i64 160
-  %56 = mul nsw i64 %47, %45
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %55, i64 noundef %56, i64 noundef %45, i64 noundef %47)
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE6resizeEll.exit: ; preds = %40, %46
+  %51 = getelementptr inbounds i8, ptr %0, i64 160
+  %52 = mul nsw i64 %43, %41
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(24) %51, i64 noundef %52, i64 noundef %41, i64 noundef %43)
   ret void
 }
 
@@ -14757,28 +14755,26 @@ define linkonce_odr hidden void @_ZN5Eigen8internal22qr_preconditioner_implINS_6
   %30 = getelementptr inbounds i8, ptr %1, i64 71
   %31 = load i8, ptr %30, align 1
   %32 = trunc i8 %31 to i1
-  br i1 %32, label %33, label %36
+  br i1 %32, label %.sink.split, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 160
-  %35 = load i64, ptr %3, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef %35, i64 noundef 1)
-  br label %44
+  %34 = getelementptr inbounds i8, ptr %1, i64 72
+  %35 = load i8, ptr %34, align 8
+  %36 = trunc i8 %35 to i1
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %29
-  %37 = getelementptr inbounds i8, ptr %1, i64 72
-  %38 = load i8, ptr %37, align 8
-  %39 = trunc i8 %38 to i1
-  br i1 %39, label %40, label %44
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds i8, ptr %1, i64 96
+  br label %.sink.split
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds i8, ptr %0, i64 160
-  %42 = getelementptr inbounds i8, ptr %1, i64 96
-  %43 = load i64, ptr %42, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %41, i64 noundef %43, i64 noundef %43, i64 noundef 1)
-  br label %44
+.sink.split:                                      ; preds = %29, %37
+  %.sink12 = phi ptr [ %38, %37 ], [ %3, %29 ]
+  %.sink = getelementptr inbounds i8, ptr %0, i64 160
+  %39 = load i64, ptr %.sink12, align 8
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi1ELi0EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %.sink, i64 noundef %39, i64 noundef %39, i64 noundef 1)
+  br label %40
 
-44:                                               ; preds = %36, %40, %33
+40:                                               ; preds = %.sink.split, %33
   ret void
 }
 

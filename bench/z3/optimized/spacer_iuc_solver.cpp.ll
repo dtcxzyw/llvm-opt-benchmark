@@ -4762,16 +4762,16 @@ if.then.i.i180:                                   ; preds = %ehcleanup153
   br label %ehcleanup208
 
 if.end154.sink.split:                             ; preds = %_ZN7obj_refI3app11ast_managerED2Ev.exit168, %if.end82
-  %m_hyp_reduce1_sw.sink = phi ptr [ %m_hyp_reduce1_sw, %if.end82 ], [ %m_hyp_reduce2_sw, %_ZN7obj_refI3app11ast_managerED2Ev.exit168 ]
+  %m_hyp_reduce2_sw.sink = phi ptr [ %m_hyp_reduce1_sw, %if.end82 ], [ %m_hyp_reduce2_sw, %_ZN7obj_refI3app11ast_managerED2Ev.exit168 ]
   %.sink = phi i64 [ 264, %if.end82 ], [ 288, %_ZN7obj_refI3app11ast_managerED2Ev.exit168 ]
   %m_running.i.i80.sink = phi ptr [ %m_running.i.i61, %if.end82 ], [ %m_running.i.i80, %_ZN7obj_refI3app11ast_managerED2Ev.exit168 ]
-  %call.i.i.i69 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
-  %retval.sroa.0.0.copyload.i1.i.i.i = load i64, ptr %m_hyp_reduce1_sw.sink, align 8
-  %sub.i.i.i.i = sub i64 %call.i.i.i69, %retval.sroa.0.0.copyload.i1.i.i.i
-  %m_elapsed.i.i = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %114 = load i64, ptr %m_elapsed.i.i, align 8
-  %add.i.i.i176 = add nsw i64 %sub.i.i.i.i, %114
-  store i64 %add.i.i.i176, ptr %m_elapsed.i.i, align 8
+  %call.i.i.i172 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #21
+  %retval.sroa.0.0.copyload.i1.i.i.i173 = load i64, ptr %m_hyp_reduce2_sw.sink, align 8
+  %sub.i.i.i.i174 = sub i64 %call.i.i.i172, %retval.sroa.0.0.copyload.i1.i.i.i173
+  %m_elapsed.i.i175 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %114 = load i64, ptr %m_elapsed.i.i175, align 8
+  %add.i.i.i176 = add nsw i64 %sub.i.i.i.i174, %114
+  store i64 %add.i.i.i176, ptr %m_elapsed.i.i175, align 8
   store i8 0, ptr %m_running.i.i80.sink, align 8
   br label %if.end154
 

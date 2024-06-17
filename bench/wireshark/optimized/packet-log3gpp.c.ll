@@ -628,7 +628,7 @@ define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef
   %54 = select i1 %53, i32 85, i32 68
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %8, ptr noundef nonnull @.str.197, ptr noundef %52, i32 noundef %54, ptr noundef %48) #5
   %.not124 = icmp eq i32 %50, 0
-  br i1 %.not124, label %81, label %55
+  br i1 %.not124, label %76, label %55
 
 55:                                               ; preds = %40
   %56 = load ptr, ptr %46, align 8
@@ -638,94 +638,85 @@ define internal i32 @dissect_log3gpp(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not.i, label %look_for_dissector.exit.thread136, label %59
 
 59:                                               ; preds = %55
-  br i1 %53, label %60, label %68
+  br i1 %53, label %60, label %64
 
 60:                                               ; preds = %59
   %61 = getelementptr inbounds i8, ptr %58, i64 24
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %look_for_dissector.exit.thread
+  br i1 %63, label %look_for_dissector.exit, label %look_for_dissector.exit.thread
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds i8, ptr %58, i64 8
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds i8, ptr %58, i64 32
   %66 = load ptr, ptr %65, align 8
-  %67 = tail call ptr @find_dissector(ptr noundef %66) #5
-  store ptr %67, ptr %61, align 8
-  br label %look_for_dissector.exit
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %look_for_dissector.exit, label %look_for_dissector.exit.thread
 
-68:                                               ; preds = %59
-  %69 = getelementptr inbounds i8, ptr %58, i64 32
-  %70 = load ptr, ptr %69, align 8
-  %71 = icmp eq ptr %70, null
-  br i1 %71, label %72, label %look_for_dissector.exit.thread
-
-72:                                               ; preds = %68
-  %73 = getelementptr inbounds i8, ptr %58, i64 16
-  %74 = load ptr, ptr %73, align 8
-  %75 = tail call ptr @find_dissector(ptr noundef %74) #5
-  store ptr %75, ptr %69, align 8
-  br label %look_for_dissector.exit
-
-look_for_dissector.exit:                          ; preds = %64, %72
-  %.0.i = phi ptr [ %67, %64 ], [ %75, %72 ]
-  %.not125 = icmp eq ptr %.0.i, null
+look_for_dissector.exit:                          ; preds = %60, %64
+  %.sink3.i = phi i64 [ 8, %60 ], [ 16, %64 ]
+  %.sink1.i = phi ptr [ %61, %60 ], [ %65, %64 ]
+  %68 = getelementptr inbounds i8, ptr %58, i64 %.sink3.i
+  %69 = load ptr, ptr %68, align 8
+  %70 = tail call ptr @find_dissector(ptr noundef %69) #5
+  store ptr %70, ptr %.sink1.i, align 8
+  %.not125 = icmp eq ptr %70, null
   br i1 %.not125, label %look_for_dissector.exit.thread136, label %look_for_dissector.exit.thread
 
-look_for_dissector.exit.thread:                   ; preds = %68, %60, %look_for_dissector.exit
-  %.0.i135 = phi ptr [ %.0.i, %look_for_dissector.exit ], [ %70, %68 ], [ %62, %60 ]
-  %76 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %77 = sub i32 %76, %41
-  %78 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef %77) #5
-  %79 = tail call i32 @call_dissector(ptr noundef nonnull %.0.i135, ptr noundef %78, ptr noundef nonnull %1, ptr noundef %2) #5
-  %80 = icmp eq i32 %79, 0
-  br i1 %80, label %look_for_dissector.exit.thread136, label %96
+look_for_dissector.exit.thread:                   ; preds = %64, %60, %look_for_dissector.exit
+  %.0.i135 = phi ptr [ %70, %look_for_dissector.exit ], [ %66, %64 ], [ %62, %60 ]
+  %71 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %72 = sub i32 %71, %41
+  %73 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef %72) #5
+  %74 = tail call i32 @call_dissector(ptr noundef nonnull %.0.i135, ptr noundef %73, ptr noundef nonnull %1, ptr noundef %2) #5
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %look_for_dissector.exit.thread136, label %91
 
-81:                                               ; preds = %40
-  %82 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
-  %83 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %82, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #5
-  %84 = load ptr, ptr %5, align 8
-  %85 = load ptr, ptr %46, align 8
-  %86 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %87 = sub i32 %86, %41
-  %88 = tail call ptr @tvb_get_string_enc(ptr noundef %85, ptr noundef %0, i32 noundef %41, i32 noundef %87, i32 noundef 2) #5
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.195, ptr noundef %88) #5
-  br label %108
+76:                                               ; preds = %40
+  %77 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
+  %78 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %77, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #5
+  %79 = load ptr, ptr %5, align 8
+  %80 = load ptr, ptr %46, align 8
+  %81 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %82 = sub i32 %81, %41
+  %83 = tail call ptr @tvb_get_string_enc(ptr noundef %80, ptr noundef %0, i32 noundef %41, i32 noundef %82, i32 noundef 2) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.195, ptr noundef %83) #5
+  br label %103
 
 look_for_dissector.exit.thread136:                ; preds = %55, %look_for_dissector.exit.thread, %look_for_dissector.exit
-  %89 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %89, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #5
-  %91 = load ptr, ptr %5, align 8
-  %92 = load ptr, ptr %46, align 8
-  %93 = tail call ptr @tvb_get_string_enc(ptr noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef 2) #5
-  %94 = load ptr, ptr %46, align 8
-  %95 = tail call ptr @tvb_get_string_enc(ptr noundef %94, ptr noundef %0, i32 noundef %11, i32 noundef %43, i32 noundef 2) #5
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %91, i32 noundef 25, ptr noundef nonnull @.str.198, ptr noundef %93, i32 noundef %54, ptr noundef %95) #5
-  br label %108
+  %84 = load i32, ptr @hf_log3gpp_unparsed_data, align 4
+  %85 = tail call ptr @proto_tree_add_item(ptr noundef %10, i32 noundef %84, ptr noundef %0, i32 noundef %41, i32 noundef -1, i32 noundef 0) #5
+  %86 = load ptr, ptr %5, align 8
+  %87 = load ptr, ptr %46, align 8
+  %88 = tail call ptr @tvb_get_string_enc(ptr noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef %11, i32 noundef 2) #5
+  %89 = load ptr, ptr %46, align 8
+  %90 = tail call ptr @tvb_get_string_enc(ptr noundef %89, ptr noundef %0, i32 noundef %11, i32 noundef %43, i32 noundef 2) #5
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %86, i32 noundef 25, ptr noundef nonnull @.str.198, ptr noundef %88, i32 noundef %54, ptr noundef %90) #5
+  br label %103
 
-96:                                               ; preds = %look_for_dissector.exit.thread
-  %97 = load i32, ptr @hf_log3gpp_dissected_length, align 4
-  %98 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  %99 = sub i32 %98, %41
-  %100 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %97, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %99) #5
-  %.not.i129 = icmp eq ptr %100, null
-  br i1 %.not.i129, label %108, label %101
+91:                                               ; preds = %look_for_dissector.exit.thread
+  %92 = load i32, ptr @hf_log3gpp_dissected_length, align 4
+  %93 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  %94 = sub i32 %93, %41
+  %95 = tail call ptr @proto_tree_add_uint(ptr noundef %10, i32 noundef %92, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %94) #5
+  %.not.i129 = icmp eq ptr %95, null
+  br i1 %.not.i129, label %103, label %96
 
-101:                                              ; preds = %96
-  %102 = getelementptr inbounds i8, ptr %100, i64 32
-  %103 = load ptr, ptr %102, align 8
-  %.not5.i = icmp eq ptr %103, null
-  br i1 %.not5.i, label %108, label %104
+96:                                               ; preds = %91
+  %97 = getelementptr inbounds i8, ptr %95, i64 32
+  %98 = load ptr, ptr %97, align 8
+  %.not5.i = icmp eq ptr %98, null
+  br i1 %.not5.i, label %103, label %99
 
-104:                                              ; preds = %101
-  %105 = getelementptr inbounds i8, ptr %103, i64 28
-  %106 = load i32, ptr %105, align 4
-  %107 = or i32 %106, 2
-  store i32 %107, ptr %105, align 4
-  br label %108
+99:                                               ; preds = %96
+  %100 = getelementptr inbounds i8, ptr %98, i64 28
+  %101 = load i32, ptr %100, align 4
+  %102 = or i32 %101, 2
+  store i32 %102, ptr %100, align 4
+  br label %103
 
-108:                                              ; preds = %look_for_dissector.exit.thread136, %81, %96, %101, %104
-  %109 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
-  ret i32 %109
+103:                                              ; preds = %look_for_dissector.exit.thread136, %76, %91, %96, %99
+  %104 = tail call i32 @tvb_reported_length(ptr noundef %0) #5
+  ret i32 %104
 }
 
 declare ptr @bsearch(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1

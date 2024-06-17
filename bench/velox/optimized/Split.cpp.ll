@@ -12983,11 +12983,11 @@ _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131: ; preds = %
   br i1 %tobool.i.i.i137, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
-  %childWriter_.i.sink = phi ptr [ %childWriter_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %childWriter_.i.i.i56, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
+  %childWriter_.i.i.i56.sink = phi ptr [ %childWriter_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %childWriter_.i.i.i56, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %needCommit_.i.i.i34.sink = phi ptr [ %needCommit_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %needCommit_.i.i.i34, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %length_.i32.sink11.ph = phi ptr [ %length_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %length_.i32, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %valuesOffset_.i.i.i37.sink10.ph = phi ptr [ %valuesOffset_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %valuesOffset_.i.i.i37, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
-  %81 = load ptr, ptr %childWriter_.i.sink, align 8
+  %81 = load ptr, ptr %childWriter_.i.i.i56.sink, align 8
   %vtable.i.i2.i141 = load ptr, ptr %81, align 8
   %vfn.i.i3.i142 = getelementptr inbounds i8, ptr %vtable.i.i2.i141, i64 8
   %82 = load ptr, ptr %vfn.i.i3.i142, align 8
@@ -14084,11 +14084,11 @@ _ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131: ; preds = %
   br i1 %tobool.i.i.i137, label %return.sink.split, label %return
 
 return.sink.split:                                ; preds = %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i
-  %childWriter_.i.sink = phi ptr [ %childWriter_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %childWriter_.i.i.i56, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
+  %childWriter_.i.i.i56.sink = phi ptr [ %childWriter_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %childWriter_.i.i.i56, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %needCommit_.i.i.i34.sink = phi ptr [ %needCommit_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %needCommit_.i.i.i34, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %length_.i32.sink13.ph = phi ptr [ %length_.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %length_.i32, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
   %valuesOffset_.i.i.i37.sink12.ph = phi ptr [ %valuesOffset_.i.i.i, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i ], [ %valuesOffset_.i.i.i37, %_ZN8facebook5velox15ArrayVectorBase16setOffsetAndSizeEiii.exit.i131 ]
-  %82 = load ptr, ptr %childWriter_.i.sink, align 8
+  %82 = load ptr, ptr %childWriter_.i.i.i56.sink, align 8
   %vtable.i.i2.i141 = load ptr, ptr %82, align 8
   %vfn.i.i3.i142 = getelementptr inbounds i8, ptr %vtable.i.i2.i141, i64 8
   %83 = load ptr, ptr %vfn.i.i3.i142, align 8

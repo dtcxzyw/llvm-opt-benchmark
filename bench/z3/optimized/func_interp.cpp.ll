@@ -4571,11 +4571,11 @@ _ZN11ast_manager7inc_refEP3ast.exit:              ; preds = %if.end
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit, %_ZN11ast_manager7inc_refEP3ast.exit
-  %.sink = phi ptr [ %0, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ], [ %2, %_ZN11ast_manager7inc_refEP3ast.exit ]
-  %m_ref_count.i.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %3 = load i32, ptr %m_ref_count.i.i.i.i, align 4
+  %.sink = phi ptr [ %2, %_ZN11ast_manager7inc_refEP3ast.exit ], [ %0, %_ZN7obj_refI4expr11ast_managerEC2EPS0_RS1_.exit ]
+  %m_ref_count.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
+  %3 = load i32, ptr %m_ref_count.i.i, align 4
   %inc.i.i = add i32 %3, 1
-  store i32 %inc.i.i, ptr %m_ref_count.i.i.i.i, align 4
+  store i32 %inc.i.i, ptr %m_ref_count.i.i, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end

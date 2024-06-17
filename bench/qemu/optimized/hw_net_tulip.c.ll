@@ -2046,10 +2046,10 @@ if.end29.i:                                       ; preds = %land.lhs.true.i, %i
 
 do.body.preheader.sink.split:                     ; preds = %land.lhs.true.i, %if.end7.i
   %.sink47 = phi i32 [ 1073741824, %if.end7.i ], [ 1024, %land.lhs.true.i ]
-  %rx_status25.i = getelementptr inbounds i8, ptr %s, i64 15592
-  %17 = load i32, ptr %rx_status25.i, align 8
+  %rx_status.i = getelementptr inbounds i8, ptr %s, i64 15592
+  %17 = load i32, ptr %rx_status.i, align 8
   %18 = or i32 %17, %.sink47
-  store i32 %18, ptr %rx_status25.i, align 8
+  store i32 %18, ptr %rx_status.i, align 8
   br label %do.body.preheader
 
 do.body.preheader:                                ; preds = %do.body.preheader.sink.split, %if.end29.i, %for.end.i

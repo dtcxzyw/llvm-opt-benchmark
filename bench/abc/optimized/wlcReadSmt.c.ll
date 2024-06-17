@@ -3726,11 +3726,11 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br label %.critedge13.sink.split
 
 .critedge13.sink.split:                           ; preds = %323, %329
-  %.sink388 = phi i32 [ %328, %323 ], [ %331, %329 ]
+  %.sink388 = phi i32 [ %331, %329 ], [ %328, %323 ]
   %332 = getelementptr i8, ptr %0, i64 640
-  %.val273 = load ptr, ptr %332, align 8
+  %.val272 = load ptr, ptr %332, align 8
   %333 = sext i32 %.sink388 to i64
-  %334 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val273, i64 %333
+  %334 = getelementptr inbounds %struct.Wlc_Obj_t_, ptr %.val272, i64 %333
   %335 = getelementptr i8, ptr %334, i64 8
   %.val278 = load i32, ptr %335, align 8
   %336 = getelementptr i8, ptr %334, i64 12

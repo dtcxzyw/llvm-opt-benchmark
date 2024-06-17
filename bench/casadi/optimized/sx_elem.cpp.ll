@@ -865,9 +865,9 @@ _ZN6casadi10RealtypeSX6createEd.exit:             ; preds = %39, %46
   br label %48
 
 48:                                               ; preds = %23, %_ZN6casadi10RealtypeSX6createEd.exit, %28, %10, %14, %18, %16, %12
-  %.sink12.sink17 = phi ptr [ %13, %12 ], [ %17, %16 ], [ %20, %18 ], [ %15, %14 ], [ %11, %10 ], [ %32, %28 ], [ %.0.in.sroa.speculated.i, %_ZN6casadi10RealtypeSX6createEd.exit ], [ %24, %23 ]
-  store ptr %.sink12.sink17, ptr %0, align 8
-  %49 = getelementptr inbounds i8, ptr %.sink12.sink17, i64 12
+  %.sink12.sink = phi ptr [ %13, %12 ], [ %17, %16 ], [ %20, %18 ], [ %15, %14 ], [ %11, %10 ], [ %32, %28 ], [ %.0.in.sroa.speculated.i, %_ZN6casadi10RealtypeSX6createEd.exit ], [ %24, %23 ]
+  store ptr %.sink12.sink, ptr %0, align 8
+  %49 = getelementptr inbounds i8, ptr %.sink12.sink, i64 12
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4

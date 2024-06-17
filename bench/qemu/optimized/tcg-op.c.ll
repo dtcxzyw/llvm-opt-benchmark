@@ -1095,83 +1095,67 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   %call.i.i.i = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %2, i32 noundef 16) #5
-  br label %tcg_gen_br.exit
+  br label %if.end3.sink.split
 
 if.else.i.i.i:                                    ; preds = %if.then
   store ptr %add.ptr.i.i.i, ptr %2, align 8
-  br label %tcg_gen_br.exit
-
-tcg_gen_br.exit:                                  ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ]
-  %5 = load ptr, ptr %1, align 8
-  %tql_prev.i.i.i = getelementptr inbounds i8, ptr %5, i64 29344
-  %6 = load ptr, ptr %tql_prev.i.i.i, align 8
-  %tql_prev1.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %tql_prev1.i.i.i, align 8
-  %8 = load ptr, ptr %7, align 8
-  %op.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  store ptr %8, ptr %op.i.i, align 8
-  store ptr null, ptr %retval.0.i.i.i, align 8
-  %sqh_last.i.i = getelementptr inbounds i8, ptr %l, i64 24
-  %9 = load ptr, ptr %sqh_last.i.i, align 8
-  store ptr %retval.0.i.i.i, ptr %9, align 8
-  store ptr %retval.0.i.i.i, ptr %sqh_last.i.i, align 8
-  br label %if.end3
+  br label %if.end3.sink.split
 
 if.then2:                                         ; preds = %entry
   %conv = zext i32 %cond to i64
-  %10 = ptrtoint ptr %l to i64
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %arg1 to i64
-  %add.ptr.i.i.i5 = getelementptr i8, ptr %12, i64 %13
-  %14 = ptrtoint ptr %add.ptr.i.i.i5 to i64
-  %15 = ptrtoint ptr %arg2 to i64
-  %add.ptr.i.i1.i = getelementptr i8, ptr %12, i64 %15
-  %16 = ptrtoint ptr %add.ptr.i.i1.i to i64
+  %5 = ptrtoint ptr %l to i64
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i.i5 = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i5 to i64
+  %10 = ptrtoint ptr %arg2 to i64
+  %add.ptr.i.i1.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i1.i to i64
   %call.i.i6 = tail call ptr @tcg_emit_op(i32 noundef 38, i32 noundef 4) #5
   %args.i.i7 = getelementptr inbounds i8, ptr %call.i.i6, i64 32
-  store i64 %14, ptr %args.i.i7, align 8
+  store i64 %9, ptr %args.i.i7, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i6, i64 40
-  store i64 %16, ptr %arrayidx2.i.i, align 8
+  store i64 %11, ptr %arrayidx2.i.i, align 8
   %arrayidx4.i.i = getelementptr i8, ptr %call.i.i6, i64 48
   store i64 %conv, ptr %arrayidx4.i.i, align 8
   %arrayidx6.i.i = getelementptr i8, ptr %call.i.i6, i64 56
-  store i64 %10, ptr %arrayidx6.i.i, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %17, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %18, i64 16
-  %pool_end.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %pool_end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %19
+  store i64 %5, ptr %arrayidx6.i.i, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %13, i64 16
+  %pool_end.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %pool_end.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %call.i.i8 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %17, i32 noundef 16) #5
-  br label %add_last_as_label_use.exit
+  %call.i.i8 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %12, i32 noundef 16) #5
+  br label %if.end3.sink.split
 
 if.else.i.i:                                      ; preds = %if.then2
-  store ptr %add.ptr.i.i, ptr %17, align 8
-  br label %add_last_as_label_use.exit
+  store ptr %add.ptr.i.i, ptr %12, align 8
+  br label %if.end3.sink.split
 
-add_last_as_label_use.exit:                       ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i8, %if.then.i.i ], [ %18, %if.else.i.i ]
-  %20 = load ptr, ptr %11, align 8
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %20, i64 29344
-  %21 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %tql_prev1.i.i, align 8
-  %23 = load ptr, ptr %22, align 8
-  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  store ptr %23, ptr %op.i, align 8
-  store ptr null, ptr %retval.0.i.i, align 8
+if.end3.sink.split:                               ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i, %if.then.i.i.i
+  %.sink14 = phi ptr [ %1, %if.then.i.i.i ], [ %1, %if.else.i.i.i ], [ %6, %if.then.i.i ], [ %6, %if.else.i.i ]
+  %retval.0.i.i.sink12 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ], [ %call.i.i8, %if.then.i.i ], [ %13, %if.else.i.i ]
+  %15 = load ptr, ptr %.sink14, align 8
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %15, i64 29344
+  %16 = load ptr, ptr %tql_prev.i.i, align 8
+  %tql_prev1.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %tql_prev1.i.i, align 8
+  %18 = load ptr, ptr %17, align 8
+  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink12, i64 8
+  store ptr %18, ptr %op.i, align 8
+  store ptr null, ptr %retval.0.i.i.sink12, align 8
   %sqh_last.i = getelementptr inbounds i8, ptr %l, i64 24
-  %24 = load ptr, ptr %sqh_last.i, align 8
-  store ptr %retval.0.i.i, ptr %24, align 8
-  store ptr %retval.0.i.i, ptr %sqh_last.i, align 8
+  %19 = load ptr, ptr %sqh_last.i, align 8
+  store ptr %retval.0.i.i.sink12, ptr %19, align 8
+  store ptr %retval.0.i.i.sink12, ptr %sqh_last.i, align 8
   br label %if.end3
 
-if.end3:                                          ; preds = %entry, %add_last_as_label_use.exit, %tcg_gen_br.exit
+if.end3:                                          ; preds = %if.end3.sink.split, %entry
   ret void
 }
 
@@ -5611,83 +5595,67 @@ if.then:                                          ; preds = %entry
 
 if.then.i.i.i:                                    ; preds = %if.then
   %call.i.i.i = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %2, i32 noundef 16) #5
-  br label %tcg_gen_br.exit
+  br label %if.end3.sink.split
 
 if.else.i.i.i:                                    ; preds = %if.then
   store ptr %add.ptr.i.i.i, ptr %2, align 8
-  br label %tcg_gen_br.exit
-
-tcg_gen_br.exit:                                  ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %retval.0.i.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ]
-  %5 = load ptr, ptr %1, align 8
-  %tql_prev.i.i.i = getelementptr inbounds i8, ptr %5, i64 29344
-  %6 = load ptr, ptr %tql_prev.i.i.i, align 8
-  %tql_prev1.i.i.i = getelementptr inbounds i8, ptr %6, i64 8
-  %7 = load ptr, ptr %tql_prev1.i.i.i, align 8
-  %8 = load ptr, ptr %7, align 8
-  %op.i.i = getelementptr inbounds i8, ptr %retval.0.i.i.i, i64 8
-  store ptr %8, ptr %op.i.i, align 8
-  store ptr null, ptr %retval.0.i.i.i, align 8
-  %sqh_last.i.i = getelementptr inbounds i8, ptr %l, i64 24
-  %9 = load ptr, ptr %sqh_last.i.i, align 8
-  store ptr %retval.0.i.i.i, ptr %9, align 8
-  store ptr %retval.0.i.i.i, ptr %sqh_last.i.i, align 8
-  br label %if.end3
+  br label %if.end3.sink.split
 
 if.then2:                                         ; preds = %entry
   %conv = zext i32 %cond to i64
-  %10 = ptrtoint ptr %l to i64
-  %11 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
-  %12 = load ptr, ptr %11, align 8
-  %13 = ptrtoint ptr %arg1 to i64
-  %add.ptr.i.i.i.i = getelementptr i8, ptr %12, i64 %13
-  %14 = ptrtoint ptr %add.ptr.i.i.i.i to i64
-  %15 = ptrtoint ptr %arg2 to i64
-  %add.ptr.i.i.i1.i = getelementptr i8, ptr %12, i64 %15
-  %16 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
+  %5 = ptrtoint ptr %l to i64
+  %6 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
+  %7 = load ptr, ptr %6, align 8
+  %8 = ptrtoint ptr %arg1 to i64
+  %add.ptr.i.i.i.i = getelementptr i8, ptr %7, i64 %8
+  %9 = ptrtoint ptr %add.ptr.i.i.i.i to i64
+  %10 = ptrtoint ptr %arg2 to i64
+  %add.ptr.i.i.i1.i = getelementptr i8, ptr %7, i64 %10
+  %11 = ptrtoint ptr %add.ptr.i.i.i1.i to i64
   %call.i.i5 = tail call ptr @tcg_emit_op(i32 noundef 103, i32 noundef 4) #5
   %args.i.i6 = getelementptr inbounds i8, ptr %call.i.i5, i64 32
-  store i64 %14, ptr %args.i.i6, align 8
+  store i64 %9, ptr %args.i.i6, align 8
   %arrayidx2.i.i = getelementptr i8, ptr %call.i.i5, i64 40
-  store i64 %16, ptr %arrayidx2.i.i, align 8
+  store i64 %11, ptr %arrayidx2.i.i, align 8
   %arrayidx4.i.i = getelementptr i8, ptr %call.i.i5, i64 48
   store i64 %conv, ptr %arrayidx4.i.i, align 8
   %arrayidx6.i.i = getelementptr i8, ptr %call.i.i5, i64 56
-  store i64 %10, ptr %arrayidx6.i.i, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %17, align 8
-  %add.ptr.i.i = getelementptr i8, ptr %18, i64 16
-  %pool_end.i.i = getelementptr inbounds i8, ptr %17, i64 8
-  %19 = load ptr, ptr %pool_end.i.i, align 8
-  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %19
+  store i64 %5, ptr %arrayidx6.i.i, align 8
+  %12 = load ptr, ptr %6, align 8
+  %13 = load ptr, ptr %12, align 8
+  %add.ptr.i.i = getelementptr i8, ptr %13, i64 16
+  %pool_end.i.i = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load ptr, ptr %pool_end.i.i, align 8
+  %cmp.i.i = icmp ugt ptr %add.ptr.i.i, %14
   br i1 %cmp.i.i, label %if.then.i.i, label %if.else.i.i
 
 if.then.i.i:                                      ; preds = %if.then2
-  %call.i.i7 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %17, i32 noundef 16) #5
-  br label %add_last_as_label_use.exit
+  %call.i.i7 = tail call ptr @tcg_malloc_internal(ptr noundef nonnull %12, i32 noundef 16) #5
+  br label %if.end3.sink.split
 
 if.else.i.i:                                      ; preds = %if.then2
-  store ptr %add.ptr.i.i, ptr %17, align 8
-  br label %add_last_as_label_use.exit
+  store ptr %add.ptr.i.i, ptr %12, align 8
+  br label %if.end3.sink.split
 
-add_last_as_label_use.exit:                       ; preds = %if.then.i.i, %if.else.i.i
-  %retval.0.i.i = phi ptr [ %call.i.i7, %if.then.i.i ], [ %18, %if.else.i.i ]
-  %20 = load ptr, ptr %11, align 8
-  %tql_prev.i.i = getelementptr inbounds i8, ptr %20, i64 29344
-  %21 = load ptr, ptr %tql_prev.i.i, align 8
-  %tql_prev1.i.i = getelementptr inbounds i8, ptr %21, i64 8
-  %22 = load ptr, ptr %tql_prev1.i.i, align 8
-  %23 = load ptr, ptr %22, align 8
-  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 8
-  store ptr %23, ptr %op.i, align 8
-  store ptr null, ptr %retval.0.i.i, align 8
+if.end3.sink.split:                               ; preds = %if.else.i.i, %if.then.i.i, %if.else.i.i.i, %if.then.i.i.i
+  %.sink13 = phi ptr [ %1, %if.then.i.i.i ], [ %1, %if.else.i.i.i ], [ %6, %if.then.i.i ], [ %6, %if.else.i.i ]
+  %retval.0.i.i.sink11 = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %3, %if.else.i.i.i ], [ %call.i.i7, %if.then.i.i ], [ %13, %if.else.i.i ]
+  %15 = load ptr, ptr %.sink13, align 8
+  %tql_prev.i.i = getelementptr inbounds i8, ptr %15, i64 29344
+  %16 = load ptr, ptr %tql_prev.i.i, align 8
+  %tql_prev1.i.i = getelementptr inbounds i8, ptr %16, i64 8
+  %17 = load ptr, ptr %tql_prev1.i.i, align 8
+  %18 = load ptr, ptr %17, align 8
+  %op.i = getelementptr inbounds i8, ptr %retval.0.i.i.sink11, i64 8
+  store ptr %18, ptr %op.i, align 8
+  store ptr null, ptr %retval.0.i.i.sink11, align 8
   %sqh_last.i = getelementptr inbounds i8, ptr %l, i64 24
-  %24 = load ptr, ptr %sqh_last.i, align 8
-  store ptr %retval.0.i.i, ptr %24, align 8
-  store ptr %retval.0.i.i, ptr %sqh_last.i, align 8
+  %19 = load ptr, ptr %sqh_last.i, align 8
+  store ptr %retval.0.i.i.sink11, ptr %19, align 8
+  store ptr %retval.0.i.i.sink11, ptr %sqh_last.i, align 8
   br label %if.end3
 
-if.end3:                                          ; preds = %entry, %add_last_as_label_use.exit, %tcg_gen_br.exit
+if.end3:                                          ; preds = %if.end3.sink.split, %entry
   ret void
 }
 

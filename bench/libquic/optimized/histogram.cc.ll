@@ -4283,28 +4283,23 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %if.then.i.i.i.i.i
   store i32 0, ptr %call5.i.i.i.i2.i.i6, align 4
   %incdec.ptr.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i6, i64 4
   %cmp.i.i.i.i.i.i.i = icmp eq i32 %sub, 1
-  br i1 %cmp.i.i.i.i.i.i.i, label %invoke.cont2.thread38, label %invoke.cont2
-
-invoke.cont2.thread38:                            ; preds = %call5.i.i.i.i2.i.i.noexc
-  %_M_finish.i.i7.i40 = getelementptr inbounds i8, ptr %sample_ranges, i64 8
-  store ptr %incdec.ptr.i.i.i.i.i, ptr %_M_finish.i.i7.i40, align 8
-  br label %for.body.preheader
+  br i1 %cmp.i.i.i.i.i.i.i, label %for.body.preheader, label %invoke.cont2
 
 invoke.cont2:                                     ; preds = %call5.i.i.i.i2.i.i.noexc
   %3 = add nsw i64 %mul.i.i.i.i.i.i, -4
   call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i.i.i, i8 0, i64 %3, i1 false)
-  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %sample_ranges, i64 8
-  store ptr %add.ptr.i.i.i, ptr %_M_finish.i.i7.i, align 8
   br label %for.body.preheader
 
-for.body.preheader:                               ; preds = %invoke.cont2, %invoke.cont2.thread38
-  %_M_finish.i.i7.i46 = phi ptr [ %_M_finish.i.i7.i40, %invoke.cont2.thread38 ], [ %_M_finish.i.i7.i, %invoke.cont2 ]
+for.body.preheader:                               ; preds = %call5.i.i.i.i2.i.i.noexc, %invoke.cont2
+  %add.ptr.i.i.i.sink = phi ptr [ %add.ptr.i.i.i, %invoke.cont2 ], [ %incdec.ptr.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc ]
+  %_M_finish.i.i7.i = getelementptr inbounds i8, ptr %sample_ranges, i64 8
+  store ptr %add.ptr.i.i.i.sink, ptr %_M_finish.i.i7.i, align 8
   br label %for.body
 
 for.cond:                                         ; preds = %invoke.cont8
   %inc = add i32 %i.024, 1
   %conv3 = zext i32 %inc to i64
-  %4 = load ptr, ptr %_M_finish.i.i7.i46, align 8
+  %4 = load ptr, ptr %_M_finish.i.i7.i, align 8
   %5 = load ptr, ptr %sample_ranges, align 8
   %sub.ptr.lhs.cast.i = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i = ptrtoint ptr %5 to i64

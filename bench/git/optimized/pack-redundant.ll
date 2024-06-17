@@ -2474,10 +2474,10 @@ if.end14.sink.split.i.i:                          ; preds = %if.else10.i.i, %if.
 
 return.sink.split:                                ; preds = %if.end14.sink.split.i.i, %if.then.i.i18, %if.end14.sink.split.i, %if.then.i13
   %retval.0.ph = phi ptr [ %new_item.0.i.i, %if.then.i13 ], [ %new_item.0.i.i, %if.end14.sink.split.i ], [ %new_item.0.i.i.i, %if.then.i.i18 ], [ %new_item.0.i.i.i, %if.end14.sink.split.i.i ]
-  %size15.i = getelementptr inbounds i8, ptr %list, i64 16
-  %27 = load i64, ptr %size15.i, align 8
+  %size15.i.i = getelementptr inbounds i8, ptr %list, i64 16
+  %27 = load i64, ptr %size15.i.i, align 8
   %inc.i.i = add i64 %27, 1
-  store i64 %inc.i.i, ptr %size15.i, align 8
+  store i64 %inc.i.i, ptr %size15.i.i, align 8
   br label %return
 
 return:                                           ; preds = %if.end, %return.sink.split

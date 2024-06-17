@@ -2482,8 +2482,8 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   br label %.sink.split
 
 .sink.split:                                      ; preds = %53, %45
-  %.sink = phi float [ %56, %53 ], [ %48, %45 ]
-  %.sink456 = phi i32 [ 1, %53 ], [ -1, %45 ]
+  %.sink = phi float [ %48, %45 ], [ %56, %53 ]
+  %.sink456 = phi i32 [ -1, %45 ], [ 1, %53 ]
   store float %.sink, ptr %40, align 4
   %57 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvars.iv443
   %58 = load i32, ptr %57, align 4
@@ -2696,9 +2696,9 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   br label %.sink.split463
 
 .sink.split463:                                   ; preds = %171, %179
-  %.sink482 = phi float [ %174, %171 ], [ %182, %179 ]
-  %.sink467 = phi i32 [ -1, %171 ], [ 1, %179 ]
-  store float %.sink482, ptr %166, align 4
+  %.sink469 = phi float [ %182, %179 ], [ %174, %171 ]
+  %.sink467 = phi i32 [ 1, %179 ], [ -1, %171 ]
+  store float %.sink469, ptr %166, align 4
   %183 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvars.iv427
   %184 = load i32, ptr %183, align 4
   %185 = add nsw i32 %184, %.sink467
@@ -2736,7 +2736,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   store float %200, ptr %198, align 4
   %indvars.iv.next417 = add nsw i64 %indvars.iv416, -1
   %201 = icmp sgt i64 %indvars.iv416, 0
-  br i1 %201, label %.lr.ph331, label %.sink.split469, !llvm.loop !48
+  br i1 %201, label %.lr.ph331, label %.sink.split470, !llvm.loop !48
 
 202:                                              ; preds = %190
   %203 = getelementptr inbounds [3 x float], ptr %27, i64 0, i64 %indvars.iv411
@@ -2754,17 +2754,17 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   store float %210, ptr %208, align 4
   %indvars.iv.next414 = add nsw i64 %indvars.iv413, -1
   %211 = icmp sgt i64 %indvars.iv413, 0
-  br i1 %211, label %.lr.ph, label %.sink.split469, !llvm.loop !49
+  br i1 %211, label %.lr.ph, label %.sink.split470, !llvm.loop !49
 
-.sink.split469:                                   ; preds = %.lr.ph, %.lr.ph331
-  %.sink473 = phi i32 [ -1, %.lr.ph331 ], [ 1, %.lr.ph ]
+.sink.split470:                                   ; preds = %.lr.ph, %.lr.ph331
+  %.sink474 = phi i32 [ -1, %.lr.ph331 ], [ 1, %.lr.ph ]
   %212 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvars.iv411
   %213 = load i32, ptr %212, align 4
-  %214 = add nsw i32 %213, %.sink473
+  %214 = add nsw i32 %213, %.sink474
   store i32 %214, ptr %212, align 4
   br label %215
 
-215:                                              ; preds = %.sink.split469, %202
+215:                                              ; preds = %.sink.split470, %202
   %216 = load float, ptr %191, align 4
   %217 = tail call float @llvm.fmuladd.f32(float %216, float %216, float %.2336)
   br label %218
@@ -3073,7 +3073,7 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   %405 = getelementptr inbounds [3 x float], ptr %397, i64 0, i64 %indvars.iv
   %406 = load float, ptr %405, align 4
   %407 = fsub float %400, %406
-  br label %.sink.split475
+  br label %.sink.split476
 
 408:                                              ; preds = %398
   %409 = getelementptr inbounds [3 x float], ptr %396, i64 0, i64 %indvars.iv
@@ -3085,19 +3085,19 @@ define noundef range(i32 -2147483646, -2147483648) i32 @_Z11pbc_dx_aiucPK5t_pbcP
   %413 = getelementptr inbounds [3 x float], ptr %397, i64 0, i64 %indvars.iv
   %414 = load float, ptr %413, align 4
   %415 = fadd float %400, %414
-  br label %.sink.split475
+  br label %.sink.split476
 
-.sink.split475:                                   ; preds = %412, %404
-  %.sink483 = phi float [ %415, %412 ], [ %407, %404 ]
-  %.sink479 = phi i32 [ 1, %412 ], [ -1, %404 ]
-  store float %.sink483, ptr %399, align 4
+.sink.split476:                                   ; preds = %412, %404
+  %.sink482 = phi float [ %407, %404 ], [ %415, %412 ]
+  %.sink480 = phi i32 [ -1, %404 ], [ 1, %412 ]
+  store float %.sink482, ptr %399, align 4
   %416 = getelementptr inbounds [3 x i32], ptr %6, i64 0, i64 %indvars.iv
   %417 = load i32, ptr %416, align 4
-  %418 = add nsw i32 %417, %.sink479
+  %418 = add nsw i32 %417, %.sink480
   store i32 %418, ptr %416, align 4
   br label %419
 
-419:                                              ; preds = %.sink.split475, %408
+419:                                              ; preds = %.sink.split476, %408
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.critedge, label %398, !llvm.loop !53
@@ -3172,9 +3172,9 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %437, %440
   ret i32 %434
 
 444:                                              ; preds = %441, %422
-  %.sink481 = phi ptr [ %8, %441 ], [ %7, %422 ]
+  %.sink483 = phi ptr [ %8, %441 ], [ %7, %422 ]
   %.pn = phi { ptr, i32 } [ %442, %441 ], [ %423, %422 ]
-  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink481) #16
+  call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink483) #16
   resume { ptr, i32 } %.pn
 }
 

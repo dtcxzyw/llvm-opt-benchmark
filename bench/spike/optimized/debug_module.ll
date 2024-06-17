@@ -2941,14 +2941,14 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %322
 
 .thread:                                          ; preds = %128, %127
-  %.sink114 = phi i8 [ 32, %127 ], [ 48, %128 ]
-  %.sink137 = getelementptr inbounds i8, ptr %0, i64 60
+  %.sink117 = phi i8 [ 32, %127 ], [ 48, %128 ]
+  %.sink121 = getelementptr inbounds i8, ptr %0, i64 60
   %130 = shl nuw nsw i32 %.071, 2
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %.sink137, i64 %131
+  %132 = getelementptr inbounds i8, ptr %.sink121, i64 %131
   store i8 35, ptr %132, align 4
   %133 = getelementptr inbounds i8, ptr %132, i64 1
-  store i8 %.sink114, ptr %133, align 1
+  store i8 %.sink117, ptr %133, align 1
   %.tr = trunc i32 %20 to i8
   %134 = shl i8 %.tr, 4
   %135 = getelementptr inbounds i8, ptr %132, i64 2
@@ -2962,11 +2962,11 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %259
 
 140:                                              ; preds = %128, %127
-  %.sink144 = phi i32 [ 939532291, %127 ], [ 939536387, %128 ]
+  %.sink140 = phi i32 [ 939532291, %127 ], [ 939536387, %128 ]
   %141 = getelementptr inbounds i8, ptr %0, i64 60
   %142 = shl nuw nsw i32 %20, 7
   %143 = and i32 %142, 3968
-  %144 = or disjoint i32 %143, %.sink144
+  %144 = or disjoint i32 %143, %.sink140
   %145 = shl nuw nsw i32 %.071, 2
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds i8, ptr %141, i64 %146
@@ -3179,10 +3179,10 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread91, %.thread94
-  %.sink130 = phi ptr [ %123, %.thread94 ], [ %269, %.thread91 ]
+  %.sink142 = phi ptr [ %123, %.thread94 ], [ %269, %.thread91 ]
   %.6.ph.in = phi i32 [ %.1, %.thread94 ], [ %.593, %.thread91 ]
   %.6.ph = add nuw nsw i32 %.6.ph.in, 3
-  store i8 123, ptr %.sink130, align 1
+  store i8 123, ptr %.sink142, align 1
   br label %270
 
 270:                                              ; preds = %.sink.split, %259, %52
@@ -3239,10 +3239,10 @@ _ZN14debug_module_t19selected_hart_stateEv.exit:  ; preds = %22
 
 308:                                              ; preds = %302, %274
   %309 = phi i64 [ %304, %302 ], [ %292, %274 ]
-  %.sink131 = phi i8 [ 0, %302 ], [ %301, %274 ]
+  %.sink143 = phi i8 [ 0, %302 ], [ %301, %274 ]
   %310 = getelementptr inbounds i8, ptr %273, i64 %309
   %311 = getelementptr inbounds i8, ptr %310, i64 3
-  store i8 %.sink131, ptr %311, align 1
+  store i8 %.sink143, ptr %311, align 1
   %312 = getelementptr inbounds i8, ptr %0, i64 152
   %313 = tail call noundef i64 @_ZNK14debug_module_t16selected_hart_idEv(ptr noundef nonnull align 8 dereferenceable(1372) %0)
   %314 = getelementptr inbounds [1024 x i8], ptr %312, i64 0, i64 %313

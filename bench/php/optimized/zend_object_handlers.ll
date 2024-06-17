@@ -2531,18 +2531,18 @@ is_protected_compatible_scope.exit.thread428:     ; preds = %85, %zend_get_paren
 
 .sink.split:                                      ; preds = %227, %230
   %.sink = phi i32 [ %234, %230 ], [ %225, %227 ]
-  %.0304.sink = phi ptr [ %232, %230 ], [ %.0304, %227 ]
+  %.sink470 = phi ptr [ %232, %230 ], [ %.0304, %227 ]
   %236 = and i32 %.sink, 65280
   %237 = icmp ne i32 %236, 0
   call void @llvm.assume(i1 %237)
-  %238 = load ptr, ptr %.0304.sink, align 8
+  %238 = load ptr, ptr %.sink470, align 8
   %239 = load i32, ptr %238, align 4
   %240 = add i32 %239, 1
   store i32 %240, ptr %238, align 4
   br label %241
 
 241:                                              ; preds = %.sink.split, %223, %230
-  %.0314 = phi ptr [ %232, %230 ], [ %.0304, %223 ], [ %.0304.sink, %.sink.split ]
+  %.0314 = phi ptr [ %232, %230 ], [ %.0304, %223 ], [ %.sink470, %.sink.split ]
   %242 = load ptr, ptr %208, align 8
   %243 = getelementptr inbounds i8, ptr %242, i64 16
   %244 = load i32, ptr %243, align 8
@@ -3537,18 +3537,18 @@ define void @zend_std_write_dimension(ptr noundef %0, ptr noundef readonly %1, p
 
 .sink.split:                                      ; preds = %14, %17
   %.sink = phi i32 [ %21, %17 ], [ %12, %14 ]
-  %.sink45 = phi ptr [ %19, %17 ], [ %1, %14 ]
+  %.sink43 = phi ptr [ %19, %17 ], [ %1, %14 ]
   %23 = and i32 %.sink, 65280
   %24 = icmp ne i32 %23, 0
   tail call void @llvm.assume(i1 %24)
-  %25 = load ptr, ptr %.sink45, align 8
+  %25 = load ptr, ptr %.sink43, align 8
   %26 = load i32, ptr %25, align 4
   %27 = add i32 %26, 1
   store i32 %27, ptr %25, align 4
   br label %28
 
 28:                                               ; preds = %.sink.split, %10, %17
-  %.0 = phi ptr [ %19, %17 ], [ %1, %10 ], [ %.sink45, %.sink.split ]
+  %.0 = phi ptr [ %19, %17 ], [ %1, %10 ], [ %.sink43, %.sink.split ]
   %29 = load ptr, ptr %.0, align 8
   %30 = getelementptr inbounds i8, ptr %.0, i64 8
   %31 = load i32, ptr %30, align 8
@@ -3556,9 +3556,9 @@ define void @zend_std_write_dimension(ptr noundef %0, ptr noundef readonly %1, p
   br label %32
 
 32:                                               ; preds = %9, %28
-  %.sink43 = phi i32 [ %31, %28 ], [ 1, %9 ]
+  %.sink45 = phi i32 [ %31, %28 ], [ 1, %9 ]
   %33 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 %.sink43, ptr %33, align 8
+  store i32 %.sink45, ptr %33, align 8
   %34 = load i32, ptr %0, align 4
   %35 = add i32 %34, 1
   store i32 %35, ptr %0, align 4

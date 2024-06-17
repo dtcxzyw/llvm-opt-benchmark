@@ -1729,8 +1729,8 @@ attribute_stats.exit80:                           ; preds = %._crit_edge.i74, %2
   br label %377
 
 377:                                              ; preds = %372, %371
-  %.sink223.i = phi i64 [ 576, %372 ], [ 568, %371 ]
-  %378 = getelementptr inbounds i8, ptr %3, i64 %.sink223.i
+  %.sink219.i = phi i64 [ 576, %372 ], [ 568, %371 ]
+  %378 = getelementptr inbounds i8, ptr %3, i64 %.sink219.i
   %379 = load i64, ptr %378, align 8
   %380 = add i64 %379, %304
   store i64 %380, ptr %378, align 8
@@ -2195,10 +2195,10 @@ ceil_log10.exit.i44:                              ; preds = %.lr.ph.i.i40, %446
   %644 = icmp ult i32 %642, 7
   %645 = zext nneg i32 %642 to i64
   %646 = getelementptr inbounds [8 x i64], ptr %640, i64 0, i64 %645
-  %.sink222.i = select i1 %644, ptr %646, ptr %639
-  %647 = load i64, ptr %.sink222.i, align 8
+  %.sink.i = select i1 %644, ptr %646, ptr %639
+  %647 = load i64, ptr %.sink.i, align 8
   %648 = add i64 %647, 1
-  store i64 %648, ptr %.sink222.i, align 8
+  store i64 %648, ptr %.sink.i, align 8
   br label %649
 
 649:                                              ; preds = %.sink.split.i, %641

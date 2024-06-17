@@ -5639,12 +5639,12 @@ Vec_IntGrow.exit.i363:                            ; preds = %360, %358
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %373, %Vec_IntGrow.exit.i363, %.Vec_IntGrow.exit10_crit_edge.i358, %344, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink782 = phi ptr [ %320, %.Vec_IntGrow.exit10_crit_edge.i ], [ %320, %Vec_IntGrow.exit.i ], [ %320, %344 ], [ %349, %.Vec_IntGrow.exit10_crit_edge.i358 ], [ %349, %Vec_IntGrow.exit.i363 ], [ %349, %373 ]
+  %.sink778 = phi ptr [ %320, %.Vec_IntGrow.exit10_crit_edge.i ], [ %320, %Vec_IntGrow.exit.i ], [ %320, %344 ], [ %349, %.Vec_IntGrow.exit10_crit_edge.i358 ], [ %349, %Vec_IntGrow.exit.i363 ], [ %349, %373 ]
   %.sink772 = phi ptr [ %.pre.i357, %.Vec_IntGrow.exit10_crit_edge.i ], [ %333, %Vec_IntGrow.exit.i ], [ %345, %344 ], [ %.pre.i360, %.Vec_IntGrow.exit10_crit_edge.i358 ], [ %362, %Vec_IntGrow.exit.i363 ], [ %374, %373 ]
   %.sink = phi i32 [ %319, %.Vec_IntGrow.exit10_crit_edge.i ], [ %319, %Vec_IntGrow.exit.i ], [ %319, %344 ], [ %348, %.Vec_IntGrow.exit10_crit_edge.i358 ], [ %348, %Vec_IntGrow.exit.i363 ], [ %348, %373 ]
-  %375 = load i32, ptr %.sink782, align 4
+  %375 = load i32, ptr %.sink778, align 4
   %376 = add nsw i32 %375, 1
-  store i32 %376, ptr %.sink782, align 4
+  store i32 %376, ptr %.sink778, align 4
   %377 = sext i32 %375 to i64
   %378 = getelementptr inbounds i32, ptr %.sink772, i64 %377
   store i32 %.sink, ptr %378, align 4

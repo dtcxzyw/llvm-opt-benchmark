@@ -1646,29 +1646,24 @@ entry:
 cond.true.i.i.i:                                  ; preds = %entry
   %conv2 = zext nneg i32 %index to i64
   %add.ptr.i = getelementptr inbounds i32, ptr %1, i64 %conv2
-  %_M_finish.i4 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i5 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #25
   %2 = load i32, ptr %add.ptr.i, align 4
   store i32 %2, ptr %call5.i.i.i.i.i5, align 4
-  %incdec.ptr.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i5, i64 4
-  store ptr %call5.i.i.i.i.i5, ptr %agg.result, align 8
-  store ptr %incdec.ptr.i.i, ptr %_M_finish.i4, align 8
-  store ptr %incdec.ptr.i.i, ptr %_M_end_of_storage.i, align 8
   br label %nrvo.skipdtor
 
 cond.true.i.i.i.i:                                ; preds = %entry
-  %_M_finish.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %_M_end_of_storage.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %call5.i.i.i.i.i.i10 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #25
   store i32 0, ptr %call5.i.i.i.i.i.i10, align 4
-  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i10, i64 4
-  store ptr %call5.i.i.i.i.i.i10, ptr %agg.result, align 8
-  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8
-  store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %cond.true.i.i.i.i, %cond.true.i.i.i
+  %call5.i.i.i.i.i.i10.sink13 = phi ptr [ %call5.i.i.i.i.i.i10, %cond.true.i.i.i.i ], [ %call5.i.i.i.i.i5, %cond.true.i.i.i ]
+  %_M_end_of_storage.i.i.sink = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %_M_finish.i.i.sink = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i10.sink13, i64 4
+  store ptr %call5.i.i.i.i.i.i10.sink13, ptr %agg.result, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.sink, align 8
+  store ptr %incdec.ptr.i.i.i, ptr %_M_end_of_storage.i.i.sink, align 8
   ret void
 }
 

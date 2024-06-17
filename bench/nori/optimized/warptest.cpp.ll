@@ -8586,8 +8586,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %570 = fmul <2 x float> %563, %569
   %571 = fmul <2 x float> %431, %570
   store <2 x float> %571, ptr %45, align 8
-  %shift790 = shufflevector <2 x float> %566, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %572 = fmul <2 x float> %566, %shift790
+  %shift789 = shufflevector <2 x float> %566, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %572 = fmul <2 x float> %566, %shift789
   %573 = extractelement <2 x float> %572, i64 0
   %574 = fmul float %.1766, %573
   store float %574, ptr %425, align 8
@@ -8691,8 +8691,8 @@ _ZN5Eigen8internal31unaligned_dense_assignment_loopILb0EE3runINS0_31generic_dens
   %623 = fmul <2 x float> %616, %622
   %624 = fmul <2 x float> %431, %623
   store <2 x float> %624, ptr %48, align 8
-  %shift791 = shufflevector <2 x float> %619, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %625 = fmul <2 x float> %619, %shift791
+  %shift790 = shufflevector <2 x float> %619, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %625 = fmul <2 x float> %619, %shift790
   %626 = extractelement <2 x float> %625, i64 0
   %627 = fmul float %.1766, %626
   store float %627, ptr %428, align 8
@@ -9432,9 +9432,9 @@ _ZN7nanogui7TextBox9set_unitsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   br label %.body343
 
 910:                                              ; preds = %887, %905, %856
-  %.sink788 = phi ptr [ %63, %887 ], [ %67, %905 ], [ %59, %856 ]
-  %911 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %.sink788) #29
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink788) #29
+  %.sink787 = phi ptr [ %63, %887 ], [ %67, %905 ], [ %59, %856 ]
+  %911 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %.sink787) #29
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink787) #29
   %912 = getelementptr inbounds i8, ptr %0, i64 456
   %913 = load ptr, ptr %912, align 8
   %914 = getelementptr inbounds i8, ptr %913, i64 144

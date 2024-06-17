@@ -4039,9 +4039,9 @@ proto_item_set_generated.exit488:                 ; preds = %334, %339, %342
   br i1 %.not5.i493, label %proto_item_set_generated.exit491, label %proto_item_set_generated.exit491.sink.split
 
 proto_item_set_generated.exit491.sink.split:      ; preds = %393, %389
-  %.sink529 = phi ptr [ %391, %389 ], [ %395, %393 ]
+  %.sink525 = phi ptr [ %391, %389 ], [ %395, %393 ]
   %.sink524 = phi i32 [ 2, %389 ], [ 1, %393 ]
-  %396 = getelementptr inbounds i8, ptr %.sink529, i64 28
+  %396 = getelementptr inbounds i8, ptr %.sink525, i64 28
   %397 = load i32, ptr %396, align 4
   %398 = or i32 %397, %.sink524
   store i32 %398, ptr %396, align 4
@@ -4782,8 +4782,8 @@ show_extra_phy_parameters.exit:                   ; preds = %513, %proto_item_se
   br i1 %.not5.i516, label %proto_item_set_hidden.exit514, label %proto_item_set_hidden.exit514.sink.split
 
 proto_item_set_hidden.exit514.sink.split:         ; preds = %811, %805
-  %.sink = phi ptr [ %807, %805 ], [ %813, %811 ]
-  %814 = getelementptr inbounds i8, ptr %.sink, i64 28
+  %.sink528 = phi ptr [ %807, %805 ], [ %813, %811 ]
+  %814 = getelementptr inbounds i8, ptr %.sink528, i64 28
   %815 = load i32, ptr %814, align 4
   %816 = or i32 %815, 1
   store i32 %816, ptr %814, align 4
@@ -10639,9 +10639,9 @@ proto_item_set_generated.exit1994:                ; preds = %2083, %2084, %2087
   br label %.sink.split
 
 .sink.split:                                      ; preds = %2109, %2120
-  %.sink2294 = phi i64 [ %2110, %2109 ], [ %2127, %2120 ]
+  %.sink2284 = phi i64 [ %2127, %2120 ], [ %2110, %2109 ]
   %.sink2282 = and i32 %2107, 65535
-  %2128 = getelementptr [33 x i32], ptr %2094, i64 0, i64 %.sink2294
+  %2128 = getelementptr [33 x i32], ptr %2094, i64 0, i64 %.sink2284
   %2129 = load i32, ptr %2128, align 4
   %2130 = add i32 %2129, %.sink2282
   store i32 %2130, ptr %2128, align 4
@@ -10780,11 +10780,11 @@ proto_item_set_hidden.exit:                       ; preds = %2146, %2147, %2150
 
 .thread2069.sink.split:                           ; preds = %2184, %2192, %2203
   %hf_mac_lte_control_data_vol_power_headroom_level.sink = phi ptr [ @hf_mac_lte_control_data_vol_power_headroom_level_4_bits, %2203 ], [ @hf_mac_lte_control_data_vol_power_headroom_level, %2192 ], [ @hf_mac_lte_control_data_vol_power_headroom_level, %2184 ]
-  %.sink2287 = phi ptr [ %2207, %2203 ], [ %2188, %2192 ], [ %2188, %2184 ]
+  %.sink2288 = phi ptr [ %2207, %2203 ], [ %2188, %2192 ], [ %2188, %2184 ]
   %2208 = load i32, ptr %hf_mac_lte_control_data_vol_power_headroom_level.sink, align 4
-  %2209 = call ptr @proto_tree_add_item(ptr noundef %.sink2287, i32 noundef %2208, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
+  %2209 = call ptr @proto_tree_add_item(ptr noundef %.sink2288, i32 noundef %2208, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
   %2210 = load i32, ptr @hf_mac_lte_control_data_vol_power_headroom_data_vol, align 4
-  %2211 = call ptr @proto_tree_add_item(ptr noundef %.sink2287, i32 noundef %2210, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
+  %2211 = call ptr @proto_tree_add_item(ptr noundef %.sink2288, i32 noundef %2210, ptr noundef %0, i32 noundef %.82162, i32 noundef 1, i32 noundef 0) #16
   %2212 = add i32 %.82162, 1
   %2213 = sext i1 %2169 to i16
   %spec.select1905 = add i16 %2174, %2213
@@ -11356,7 +11356,7 @@ proto_item_set_hidden.exit2016:                   ; preds = %2422, %2424, %2427
   %2444 = load i32, ptr %2443, align 4
   %2445 = add i32 %2444, 1
   store i32 %2445, ptr %2443, align 4
-  br label %.sink.split2289
+  br label %.sink.split2290
 
 2446:                                             ; preds = %.critedge.thread, %.critedge
   %2447 = phi i32 [ %2438, %.critedge.thread ], [ %2439, %.critedge ]
@@ -11379,19 +11379,19 @@ proto_item_set_hidden.exit2016:                   ; preds = %2422, %2424, %2427
   %2459 = add i32 %2458, 1
   store i32 %2459, ptr %2457, align 4
   %2460 = add nsw i64 %2454, -21
-  br label %.sink.split2289
+  br label %.sink.split2290
 
-.sink.split2289:                                  ; preds = %2453, %2441
-  %.sink2295 = phi i64 [ %2460, %2453 ], [ %2442, %2441 ]
-  %.ph = phi i32 [ %2447, %2453 ], [ %2439, %2441 ]
+.sink.split2290:                                  ; preds = %2453, %2441
+  %.sink2295 = phi i64 [ %2442, %2441 ], [ %2460, %2453 ]
+  %.ph = phi i32 [ %2439, %2441 ], [ %2447, %2453 ]
   %2461 = getelementptr [33 x i32], ptr %2160, i64 0, i64 %.sink2295
   %2462 = load i32, ptr %2461, align 4
   %2463 = add i32 %2462, %2220
   store i32 %2463, ptr %2461, align 4
   br label %2464
 
-2464:                                             ; preds = %.sink.split2289, %2449, %2446
-  %2465 = phi i32 [ %2447, %2449 ], [ %2447, %2446 ], [ %.ph, %.sink.split2289 ]
+2464:                                             ; preds = %.sink.split2290, %2449, %2446
+  %2465 = phi i32 [ %2447, %2449 ], [ %2447, %2446 ], [ %.ph, %.sink.split2290 ]
   %2466 = add nuw nsw i16 %.217142161, 1
   %exitcond2207.not = icmp eq i16 %2466, %indvars.iv2198
   br i1 %exitcond2207.not, label %._crit_edge, label %2161, !llvm.loop !30

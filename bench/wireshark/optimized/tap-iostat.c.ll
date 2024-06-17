@@ -1632,7 +1632,7 @@ switch.lookup511:                                 ; preds = %switch.hole_check51
   br i1 %544, label %512, label %thread-pre-split, !llvm.loop !17
 
 thread-pre-split.sink.split:                      ; preds = %81, %71
-  %.sink.in = phi ptr [ %82, %81 ], [ %74, %71 ]
+  %.sink.in = phi ptr [ %74, %71 ], [ %82, %81 ]
   %.sink = load i32, ptr %.sink.in, align 4
   %545 = zext i32 %.sink to i64
   %546 = getelementptr inbounds i8, ptr %.0376.lcssa, i64 56

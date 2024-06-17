@@ -151,82 +151,81 @@ if.then.i:                                        ; preds = %if.end
   store i8 %conv1.i, ptr %arrayidx.i, align 1
   %15 = load i16, ptr %bi_buf.i, align 8
   %16 = lshr i16 %15, 8
-  %conv4.i = trunc nuw i16 %16 to i8
-  %17 = load ptr, ptr %pending_buf.i, align 8
-  %18 = load i64, ptr %pending.i, align 8
-  %inc7.i = add i64 %18, 1
-  store i64 %inc7.i, ptr %pending.i, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %17, i64 %18
-  store i8 %conv4.i, ptr %arrayidx8.i, align 1
-  br label %bi_windup.exit
+  br label %if.end19.sink.split.i
 
 if.else.i:                                        ; preds = %if.end
   %cmp10.i = icmp sgt i32 %storemerge, 0
   br i1 %cmp10.i, label %if.then12.i, label %bi_windup.exit
 
 if.then12.i:                                      ; preds = %if.else.i
-  %conv14.i = trunc i16 %12 to i8
   %pending_buf15.i = getelementptr inbounds i8, ptr %s, i64 16
-  %19 = load ptr, ptr %pending_buf15.i, align 8
   %pending16.i = getelementptr inbounds i8, ptr %s, i64 40
-  %20 = load i64, ptr %pending16.i, align 8
-  %inc17.i = add i64 %20, 1
-  store i64 %inc17.i, ptr %pending16.i, align 8
-  %arrayidx18.i = getelementptr inbounds i8, ptr %19, i64 %20
-  store i8 %conv14.i, ptr %arrayidx18.i, align 1
+  br label %if.end19.sink.split.i
+
+if.end19.sink.split.i:                            ; preds = %if.then12.i, %if.then.i
+  %pending16.sink15.i = phi ptr [ %pending16.i, %if.then12.i ], [ %pending.i, %if.then.i ]
+  %.sink.in.i = phi ptr [ %pending_buf15.i, %if.then12.i ], [ %pending_buf.i, %if.then.i ]
+  %conv14.sink.in.i = phi i16 [ %12, %if.then12.i ], [ %16, %if.then.i ]
+  %conv14.sink.i = trunc i16 %conv14.sink.in.i to i8
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %17 = load i64, ptr %pending16.sink15.i, align 8
+  %inc17.i = add i64 %17, 1
+  store i64 %inc17.i, ptr %pending16.sink15.i, align 8
+  %arrayidx18.i = getelementptr inbounds i8, ptr %.sink.i, i64 %17
+  store i8 %conv14.sink.i, ptr %arrayidx18.i, align 1
   br label %bi_windup.exit
 
-bi_windup.exit:                                   ; preds = %if.then.i, %if.else.i, %if.then12.i
+bi_windup.exit:                                   ; preds = %if.else.i, %if.end19.sink.split.i
   %bi_buf20.i = getelementptr inbounds i8, ptr %s, i64 5936
   store i16 0, ptr %bi_buf20.i, align 8
   store i32 0, ptr %bi_valid, align 4
   %conv39 = trunc i64 %stored_len to i8
   %pending_buf40 = getelementptr inbounds i8, ptr %s, i64 16
-  %21 = load ptr, ptr %pending_buf40, align 8
+  %18 = load ptr, ptr %pending_buf40, align 8
   %pending41 = getelementptr inbounds i8, ptr %s, i64 40
-  %22 = load i64, ptr %pending41, align 8
-  %inc42 = add i64 %22, 1
+  %19 = load i64, ptr %pending41, align 8
+  %inc42 = add i64 %19, 1
   store i64 %inc42, ptr %pending41, align 8
-  %arrayidx43 = getelementptr inbounds i8, ptr %21, i64 %22
+  %arrayidx43 = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 %conv39, ptr %arrayidx43, align 1
   %conv3737 = lshr i64 %stored_len, 8
   %conv47 = trunc i64 %conv3737 to i8
+  %20 = load ptr, ptr %pending_buf40, align 8
+  %21 = load i64, ptr %pending41, align 8
+  %inc50 = add i64 %21, 1
+  store i64 %inc50, ptr %pending41, align 8
+  %arrayidx51 = getelementptr inbounds i8, ptr %20, i64 %21
+  store i8 %conv47, ptr %arrayidx51, align 1
+  %22 = trunc i64 %stored_len to i32
+  %conv53 = xor i32 %22, 65535
+  %conv55 = trunc i32 %conv53 to i8
   %23 = load ptr, ptr %pending_buf40, align 8
   %24 = load i64, ptr %pending41, align 8
-  %inc50 = add i64 %24, 1
-  store i64 %inc50, ptr %pending41, align 8
-  %arrayidx51 = getelementptr inbounds i8, ptr %23, i64 %24
-  store i8 %conv47, ptr %arrayidx51, align 1
-  %25 = trunc i64 %stored_len to i32
-  %conv53 = xor i32 %25, 65535
-  %conv55 = trunc i32 %conv53 to i8
-  %26 = load ptr, ptr %pending_buf40, align 8
-  %27 = load i64, ptr %pending41, align 8
-  %inc58 = add i64 %27, 1
+  %inc58 = add i64 %24, 1
   store i64 %inc58, ptr %pending41, align 8
-  %arrayidx59 = getelementptr inbounds i8, ptr %26, i64 %27
+  %arrayidx59 = getelementptr inbounds i8, ptr %23, i64 %24
   store i8 %conv55, ptr %arrayidx59, align 1
   %shr63 = lshr i32 %conv53, 8
   %conv64 = trunc i32 %shr63 to i8
-  %28 = load ptr, ptr %pending_buf40, align 8
-  %29 = load i64, ptr %pending41, align 8
-  %inc67 = add i64 %29, 1
+  %25 = load ptr, ptr %pending_buf40, align 8
+  %26 = load i64, ptr %pending41, align 8
+  %inc67 = add i64 %26, 1
   store i64 %inc67, ptr %pending41, align 8
-  %arrayidx68 = getelementptr inbounds i8, ptr %28, i64 %29
+  %arrayidx68 = getelementptr inbounds i8, ptr %25, i64 %26
   store i8 %conv64, ptr %arrayidx68, align 1
   %tobool.not = icmp eq i64 %stored_len, 0
   br i1 %tobool.not, label %if.end72, label %if.then69
 
 if.then69:                                        ; preds = %bi_windup.exit
-  %30 = load ptr, ptr %pending_buf40, align 8
-  %31 = load i64, ptr %pending41, align 8
-  %add.ptr = getelementptr inbounds i8, ptr %30, i64 %31
+  %27 = load ptr, ptr %pending_buf40, align 8
+  %28 = load i64, ptr %pending41, align 8
+  %add.ptr = getelementptr inbounds i8, ptr %27, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr, ptr align 1 %buf, i64 %stored_len, i1 false)
   br label %if.end72
 
 if.end72:                                         ; preds = %if.then69, %bi_windup.exit
-  %32 = load i64, ptr %pending41, align 8
-  %add74 = add i64 %32, %stored_len
+  %29 = load i64, ptr %pending41, align 8
+  %add74 = add i64 %29, %stored_len
   store i64 %add74, ptr %pending41, align 8
   ret void
 }
@@ -1202,14 +1201,7 @@ if.then.i101:                                     ; preds = %if.then129
   store i8 %conv1.i, ptr %arrayidx.i106, align 1
   %111 = load i16, ptr %bi_buf.i102, align 8
   %112 = lshr i16 %111, 8
-  %conv4.i = trunc nuw i16 %112 to i8
-  %113 = load ptr, ptr %pending_buf.i103, align 8
-  %114 = load i64, ptr %pending.i104, align 8
-  %inc7.i = add i64 %114, 1
-  store i64 %inc7.i, ptr %pending.i104, align 8
-  %arrayidx8.i = getelementptr inbounds i8, ptr %113, i64 %114
-  store i8 %conv4.i, ptr %arrayidx8.i, align 1
-  br label %bi_windup.exit
+  br label %if.end19.sink.split.i
 
 if.else.i100:                                     ; preds = %if.then129
   %cmp10.i = icmp sgt i32 %107, 0
@@ -1217,19 +1209,25 @@ if.else.i100:                                     ; preds = %if.then129
 
 if.then12.i:                                      ; preds = %if.else.i100
   %bi_buf13.i = getelementptr inbounds i8, ptr %s, i64 5936
-  %115 = load i16, ptr %bi_buf13.i, align 8
-  %conv14.i = trunc i16 %115 to i8
+  %113 = load i16, ptr %bi_buf13.i, align 8
   %pending_buf15.i = getelementptr inbounds i8, ptr %s, i64 16
-  %116 = load ptr, ptr %pending_buf15.i, align 8
   %pending16.i = getelementptr inbounds i8, ptr %s, i64 40
-  %117 = load i64, ptr %pending16.i, align 8
-  %inc17.i = add i64 %117, 1
-  store i64 %inc17.i, ptr %pending16.i, align 8
-  %arrayidx18.i = getelementptr inbounds i8, ptr %116, i64 %117
-  store i8 %conv14.i, ptr %arrayidx18.i, align 1
+  br label %if.end19.sink.split.i
+
+if.end19.sink.split.i:                            ; preds = %if.then12.i, %if.then.i101
+  %pending16.sink15.i = phi ptr [ %pending16.i, %if.then12.i ], [ %pending.i104, %if.then.i101 ]
+  %.sink.in.i = phi ptr [ %pending_buf15.i, %if.then12.i ], [ %pending_buf.i103, %if.then.i101 ]
+  %conv14.sink.in.i = phi i16 [ %113, %if.then12.i ], [ %112, %if.then.i101 ]
+  %conv14.sink.i = trunc i16 %conv14.sink.in.i to i8
+  %.sink.i = load ptr, ptr %.sink.in.i, align 8
+  %114 = load i64, ptr %pending16.sink15.i, align 8
+  %inc17.i = add i64 %114, 1
+  store i64 %inc17.i, ptr %pending16.sink15.i, align 8
+  %arrayidx18.i = getelementptr inbounds i8, ptr %.sink.i, i64 %114
+  store i8 %conv14.sink.i, ptr %arrayidx18.i, align 1
   br label %bi_windup.exit
 
-bi_windup.exit:                                   ; preds = %if.then.i101, %if.else.i100, %if.then12.i
+bi_windup.exit:                                   ; preds = %if.else.i100, %if.end19.sink.split.i
   %bi_buf20.i = getelementptr inbounds i8, ptr %s, i64 5936
   store i16 0, ptr %bi_buf20.i, align 8
   store i32 0, ptr %bi_valid.i98, align 4

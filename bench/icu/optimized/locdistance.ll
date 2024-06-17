@@ -1179,8 +1179,8 @@ if.then69:                                        ; preds = %if.end65
   br label %for.cond, !llvm.loop !8
 
 return.sink.split:                                ; preds = %if.then11, %if.end13
-  %pos_.i.sink = phi ptr [ %pos_.i, %if.then11 ], [ %pos_.i.i, %if.end13 ]
-  %21 = load ptr, ptr %pos_.i.sink, align 8
+  %pos_.i.i.sink = phi ptr [ %pos_.i.i, %if.end13 ], [ %pos_.i, %if.then11 ]
+  %21 = load ptr, ptr %pos_.i.i.sink, align 8
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %21, i64 1
   %22 = load i8, ptr %21, align 1
   %23 = lshr i8 %22, 1

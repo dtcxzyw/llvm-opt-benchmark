@@ -96,10 +96,10 @@ if.else:                                          ; preds = %entry
   br i1 %tobool34.not, label %return, label %return.sink.split
 
 return.sink.split:                                ; preds = %if.else, %if.then
-  %key_set37 = getelementptr inbounds i8, ptr %vctx, i64 868
-  %bf.load11 = load i8, ptr %key_set37, align 4
+  %key_set = getelementptr inbounds i8, ptr %vctx, i64 868
+  %bf.load11 = load i8, ptr %key_set, align 4
   %bf.set = or i8 %bf.load11, 1
-  store i8 %bf.set, ptr %key_set37, align 4
+  store i8 %bf.set, ptr %key_set, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.else, %if.then

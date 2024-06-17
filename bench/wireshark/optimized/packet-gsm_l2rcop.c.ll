@@ -73,8 +73,8 @@ define internal i32 @dissect_l2rcop(ptr noundef %0, ptr noundef %1, ptr noundef 
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %53
-  %.06977 = phi i32 [ %.1, %53 ], [ 0, %4 ]
+.lr.ph:                                           ; preds = %4, %44
+  %.06977 = phi i32 [ %48, %44 ], [ 0, %4 ]
   %6 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.06977) #2
   %7 = zext i8 %6 to i32
   %8 = and i8 %6, 31
@@ -92,7 +92,7 @@ define internal i32 @dissect_l2rcop(ptr noundef %0, ptr noundef %1, ptr noundef 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %19, ptr noundef %0, i32 noundef %.06977, i32 noundef 1, i32 noundef 0) #2
   %21 = load i32, ptr @hf_l2rcop_addr, align 4
   %22 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %21, ptr noundef %0, i32 noundef %.06977, i32 noundef 1, i32 noundef 0) #2
-  switch i8 %8, label %48 [
+  switch i8 %8, label %44 [
     i8 31, label %.loopexit
     i8 30, label %23
     i8 29, label %29
@@ -130,25 +130,19 @@ define internal i32 @dissect_l2rcop(ptr noundef %0, ptr noundef %1, ptr noundef 
   %41 = zext nneg i8 %38 to i32
   %42 = load i32, ptr @hf_l2rcop_addr, align 4
   %43 = tail call ptr @proto_tree_add_uint(ptr noundef %14, i32 noundef %42, ptr noundef %0, i32 noundef %36, i32 noundef 1, i32 noundef %41) #2
-  %44 = add i32 %.06977, 2
-  %45 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %44, i32 noundef %41) #2
-  %46 = tail call i32 @call_data_dissector(ptr noundef %45, ptr noundef %1, ptr noundef %14) #2
-  %47 = add i32 %44, %41
-  br label %53
+  br label %44
 
-48:                                               ; preds = %.lr.ph
-  %49 = add nuw i32 %.06977, 1
-  %50 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %49, i32 noundef %9) #2
-  %51 = tail call i32 @call_data_dissector(ptr noundef %50, ptr noundef %1, ptr noundef %14) #2
-  %52 = add i32 %49, %9
-  br label %53
+44:                                               ; preds = %.lr.ph, %40
+  %.sink97 = phi i32 [ 2, %40 ], [ 1, %.lr.ph ]
+  %.sink96 = phi i32 [ %41, %40 ], [ %9, %.lr.ph ]
+  %45 = add i32 %.06977, %.sink97
+  %46 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %45, i32 noundef %.sink96) #2
+  %47 = tail call i32 @call_data_dissector(ptr noundef %46, ptr noundef %1, ptr noundef %14) #2
+  %48 = add i32 %45, %.sink96
+  %49 = icmp ult i32 %48, %5
+  br i1 %49, label %.lr.ph, label %.loopexit, !llvm.loop !4
 
-53:                                               ; preds = %48, %40
-  %.1 = phi i32 [ %52, %48 ], [ %47, %40 ]
-  %54 = icmp ult i32 %.1, %5
-  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !4
-
-.loopexit:                                        ; preds = %35, %.lr.ph, %.lr.ph, %53, %4, %32, %29, %23
+.loopexit:                                        ; preds = %35, %.lr.ph, %.lr.ph, %44, %4, %32, %29, %23
   ret i32 %5
 }
 

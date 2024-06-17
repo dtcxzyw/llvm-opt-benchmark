@@ -5232,24 +5232,24 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEESaIS2_EED2Ev.exit.i.i.i.i.i113: ; preds = %16
   br label %.sink.split
 
 .sink.split:                                      ; preds = %90, %169
-  %.192228.sink291 = phi i64 [ %.293, %169 ], [ %.192228, %90 ]
+  %.293.sink292 = phi i64 [ %.293, %169 ], [ %.192228, %90 ]
   %.290.ph = phi ptr [ %171, %169 ], [ %.088229, %90 ]
   %178 = load ptr, ptr %0, align 8
-  %179 = sdiv i64 %.192228.sink291, 64
+  %179 = sdiv i64 %.293.sink292, 64
   %180 = getelementptr inbounds i64, ptr %178, i64 %179
-  %181 = and i64 %.192228.sink291, -9223372036854775745
+  %181 = and i64 %.293.sink292, -9223372036854775745
   %182 = icmp ugt i64 %181, -9223372036854775808
-  %storemerge.idx.i.i.i.i.i125 = select i1 %182, i64 -8, i64 0
-  %storemerge.i.i.i.i.i126 = getelementptr inbounds i8, ptr %180, i64 %storemerge.idx.i.i.i.i.i125
-  %183 = and i64 %.192228.sink291, 63
+  %storemerge.idx.i.i.i.i.i121 = select i1 %182, i64 -8, i64 0
+  %storemerge.i.i.i.i.i122 = getelementptr inbounds i8, ptr %180, i64 %storemerge.idx.i.i.i.i.i121
+  %183 = and i64 %.293.sink292, 63
   %184 = shl nuw i64 1, %183
-  %185 = load i64, ptr %storemerge.i.i.i.i.i126, align 8
+  %185 = load i64, ptr %storemerge.i.i.i.i.i122, align 8
   %186 = or i64 %185, %184
-  store i64 %186, ptr %storemerge.i.i.i.i.i126, align 8
+  store i64 %186, ptr %storemerge.i.i.i.i.i122, align 8
   br label %187
 
 187:                                              ; preds = %.sink.split, %145
-  %.394 = phi i64 [ %.293, %145 ], [ %.192228.sink291, %.sink.split ]
+  %.394 = phi i64 [ %.293, %145 ], [ %.293.sink292, %.sink.split ]
   %.290 = phi ptr [ %.189, %145 ], [ %.290.ph, %.sink.split ]
   %188 = load i32, ptr %.290, align 8
   %189 = sext i32 %188 to i64

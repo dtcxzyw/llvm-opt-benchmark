@@ -8,7 +8,7 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %22, label %.sink.split
+  br i1 %5, label %21, label %.sink.split
 
 .sink.split:                                      ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 32
@@ -23,18 +23,16 @@ define void @Fraig_NodeAddFaninFanout(ptr noundef %0, ptr noundef %1) local_unna
   %15 = and i64 %14, -2
   %16 = inttoptr i64 %15 to ptr
   %17 = icmp eq ptr %16, %0
-  %18 = getelementptr inbounds i8, ptr %4, i64 152
-  %19 = getelementptr inbounds i8, ptr %4, i64 144
-  %.sink31 = select i1 %11, ptr %19, ptr %18
-  %.sink.ph = select i1 %11, ptr %19, ptr %18
-  %20 = load ptr, ptr %.sink31, align 8
+  %. = select i1 %11, i64 144, i64 152
+  %18 = getelementptr inbounds i8, ptr %4, i64 %.
+  %19 = load ptr, ptr %18, align 8
   %.30 = select i1 %17, i64 144, i64 152
-  %21 = getelementptr inbounds i8, ptr %1, i64 %.30
-  store ptr %20, ptr %21, align 8
-  br label %22
+  %20 = getelementptr inbounds i8, ptr %1, i64 %.30
+  store ptr %19, ptr %20, align 8
+  br label %21
 
-22:                                               ; preds = %.sink.split, %2
-  %.sink = phi ptr [ %3, %2 ], [ %.sink.ph, %.sink.split ]
+21:                                               ; preds = %.sink.split, %2
+  %.sink = phi ptr [ %3, %2 ], [ %18, %.sink.split ]
   store ptr %1, ptr %.sink, align 8
   ret void
 }

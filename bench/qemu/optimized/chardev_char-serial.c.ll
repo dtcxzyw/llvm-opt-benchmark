@@ -403,12 +403,12 @@ sw.bb108:                                         ; preds = %sw.epilog
 
 sw.epilog111.sink.split:                          ; preds = %sw.epilog, %sw.bb108
   %.sink = phi i32 [ 768, %sw.bb108 ], [ 256, %sw.epilog ]
-  %or107 = or i32 %and92.sink, %.sink
-  store i32 %or107, ptr %c_cflag, align 8
+  %or110 = or i32 %and92.sink, %.sink
+  store i32 %or110, ptr %c_cflag, align 8
   br label %sw.epilog111
 
 sw.epilog111:                                     ; preds = %sw.epilog111.sink.split, %sw.epilog
-  %4 = phi i32 [ %and92.sink, %sw.epilog ], [ %or107, %sw.epilog111.sink.split ]
+  %4 = phi i32 [ %and92.sink, %sw.epilog ], [ %or110, %sw.epilog111.sink.split ]
   %cmp112 = icmp eq i32 %stop_bits, 2
   br i1 %cmp112, label %if.then113, label %if.end116
 

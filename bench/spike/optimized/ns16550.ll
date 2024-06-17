@@ -274,47 +274,36 @@ _ZNSt5queueIhSt5dequeIhSaIhEEE3popEv.exit:        ; preds = %20, %22
   br i1 %.not8, label %select.unfold, label %.thread
 
 select.unfold:                                    ; preds = %50, %42
-  %.not9 = icmp eq i8 %.0, 0
-  br i1 %.not9, label %53, label %.thread
+  %.not9.not = icmp eq i8 %.0, 0
+  %spec.select27 = select i1 %.not9.not, i8 1, i8 %spec.select
+  %.0.lobit = lshr exact i8 %.0, 2
+  %spec.select28 = zext nneg i8 %.0.lobit to i32
+  br label %.thread
 
-53:                                               ; preds = %select.unfold
-  %54 = getelementptr inbounds i8, ptr %0, i64 114
-  store i8 1, ptr %54, align 2
-  %55 = getelementptr inbounds i8, ptr %0, i64 8
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds i8, ptr %0, i64 16
-  %58 = load i32, ptr %57, align 8
-  %59 = load ptr, ptr %56, align 8
-  %60 = load ptr, ptr %59, align 8
-  tail call void %60(ptr noundef nonnull align 8 dereferenceable(8) %56, i32 noundef %58, i32 noundef 0)
-  br label %68
+.thread:                                          ; preds = %select.unfold, %50
+  %.114.sink = phi i8 [ %52, %50 ], [ %spec.select27, %select.unfold ]
+  %.sink21 = phi i32 [ 1, %50 ], [ %spec.select28, %select.unfold ]
+  %53 = getelementptr inbounds i8, ptr %0, i64 114
+  store i8 %.114.sink, ptr %53, align 2
+  %54 = getelementptr inbounds i8, ptr %0, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %0, i64 16
+  %57 = load i32, ptr %56, align 8
+  %58 = load ptr, ptr %55, align 8
+  %59 = load ptr, ptr %58, align 8
+  tail call void %59(ptr noundef nonnull align 8 dereferenceable(8) %55, i32 noundef %57, i32 noundef %.sink21)
+  %60 = load i8, ptr %44, align 1
+  %61 = and i8 %60, 2
+  %.not10 = icmp eq i8 %61, 0
+  br i1 %.not10, label %62, label %65
 
-.thread:                                          ; preds = %50, %select.unfold
-  %.114 = phi i8 [ %spec.select, %select.unfold ], [ %52, %50 ]
-  %61 = getelementptr inbounds i8, ptr %0, i64 114
-  store i8 %.114, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %0, i64 8
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %0, i64 16
-  %65 = load i32, ptr %64, align 8
-  %66 = load ptr, ptr %63, align 8
-  %67 = load ptr, ptr %66, align 8
-  tail call void %67(ptr noundef nonnull align 8 dereferenceable(8) %63, i32 noundef %65, i32 noundef 1)
-  br label %68
+62:                                               ; preds = %.thread
+  %63 = load i8, ptr %47, align 1
+  %64 = or i8 %63, 96
+  store i8 %64, ptr %47, align 1
+  br label %65
 
-68:                                               ; preds = %.thread, %53
-  %69 = load i8, ptr %44, align 1
-  %70 = and i8 %69, 2
-  %.not10 = icmp eq i8 %70, 0
-  br i1 %.not10, label %71, label %74
-
-71:                                               ; preds = %68
-  %72 = load i8, ptr %47, align 1
-  %73 = or i8 %72, 96
-  store i8 %73, ptr %47, align 1
-  br label %74
-
-74:                                               ; preds = %71, %68
+65:                                               ; preds = %62, %.thread
   ret void
 }
 

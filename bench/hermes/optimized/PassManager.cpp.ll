@@ -103,65 +103,43 @@ entry:
   %cmp.i.i.i.i.i.i.i = icmp ne i32 %1, 1
   %tobool.not28 = icmp eq ptr %0, null
   %tobool.not = or i1 %tobool.not28, %cmp.i.i.i.i.i.i.i
-  br i1 %tobool.not, label %if.else, label %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
-  store ptr null, ptr %pass, align 8
-  %2 = load ptr, ptr %this, align 8
-  %call4 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14
-  %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16, !noalias !6
-  %name.i.i.i = getelementptr inbounds i8, ptr %0, i64 16
-  %retval.sroa.0.0.copyload.i.i.i = load ptr, ptr %name.i.i.i, align 8, !noalias !6
-  %retval.sroa.2.0.name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %0, i64 24
-  %retval.sroa.2.0.copyload.i.i.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i, align 8, !noalias !6
-  %kind.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
-  store i32 1, ptr %kind.i.i.i.i, align 8, !noalias !6
-  %name2.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i, ptr %name2.i.i.i.i, align 8, !noalias !6
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !6
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %call.i, align 8, !noalias !6
-  br label %return
+  br i1 %tobool.not, label %if.else, label %return
 
 if.else:                                          ; preds = %entry
   %cmp.i.i.i.i.i.i.i7 = icmp ne i32 %1, 0
   %tobool8.not = or i1 %tobool.not28, %cmp.i.i.i.i.i.i.i7
-  br i1 %tobool8.not, label %if.else15, label %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit
-
-_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.else
-  store ptr null, ptr %pass, align 8
-  %3 = load ptr, ptr %this, align 8
-  %call13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14
-  %call.i9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16, !noalias !9
-  %name.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 16
-  %retval.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %name.i.i.i10, align 8, !noalias !9
-  %retval.sroa.2.0.name.sroa_idx.i.i.i12 = getelementptr inbounds i8, ptr %0, i64 24
-  %retval.sroa.2.0.copyload.i.i.i13 = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12, align 8, !noalias !9
-  %kind.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i9, i64 8
-  store i32 0, ptr %kind.i.i.i.i14, align 8, !noalias !9
-  %name2.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i9, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i11, ptr %name2.i.i.i.i15, align 8, !noalias !9
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i9, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16, align 8, !noalias !9
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %call.i9, align 8, !noalias !9
-  br label %return
+  br i1 %tobool8.not, label %if.else15, label %return
 
 if.else15:                                        ; preds = %if.else
-  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #17
+  tail call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #16
   unreachable
 
-return:                                           ; preds = %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit
-  %call.i9.sink32 = phi ptr [ %call.i9, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit ], [ %call.i, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit ]
-  %.sink31 = phi ptr [ %3, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit ], [ %2, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit ]
-  %call13.sink = phi ptr [ %call13, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit ], [ %call4, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit ]
-  %.sink = ptrtoint ptr %0 to i64
-  %cgSettings_.i.i17 = getelementptr inbounds i8, ptr %call.i9.sink32, i64 32
-  store ptr %.sink31, ptr %cgSettings_.i.i17, align 8, !noalias !12
-  %outs_.i.i18 = getelementptr inbounds i8, ptr %call.i9.sink32, i64 40
-  store ptr %call13.sink, ptr %outs_.i.i18, align 8, !noalias !12
-  %pass_.i.i19 = getelementptr inbounds i8, ptr %call.i9.sink32, i64 48
-  store i64 %.sink, ptr %pass_.i.i19, align 8, !noalias !12
-  store ptr %call.i9.sink32, ptr %agg.result, align 8
+return:                                           ; preds = %if.else, %entry
+  %.sink37 = phi i32 [ 1, %entry ], [ 0, %if.else ]
+  %.sink33 = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %entry ], [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else ]
+  store ptr null, ptr %pass, align 8
+  %2 = load ptr, ptr %this, align 8
+  %call13 = tail call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14
+  %call.i9 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !6
+  %3 = ptrtoint ptr %0 to i64
+  %name.i.i.i10 = getelementptr inbounds i8, ptr %0, i64 16
+  %retval.sroa.0.0.copyload.i.i.i11 = load ptr, ptr %name.i.i.i10, align 8, !noalias !6
+  %retval.sroa.2.0.name.sroa_idx.i.i.i12 = getelementptr inbounds i8, ptr %0, i64 24
+  %retval.sroa.2.0.copyload.i.i.i13 = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12, align 8, !noalias !6
+  %kind.i.i.i.i14 = getelementptr inbounds i8, ptr %call.i9, i64 8
+  store i32 %.sink37, ptr %kind.i.i.i.i14, align 8, !noalias !6
+  %name2.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i9, i64 16
+  store ptr %retval.sroa.0.0.copyload.i.i.i11, ptr %name2.i.i.i.i15, align 8, !noalias !6
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i9, i64 24
+  store i64 %retval.sroa.2.0.copyload.i.i.i13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16, align 8, !noalias !6
+  store ptr %.sink33, ptr %call.i9, align 8, !noalias !6
+  %cgSettings_.i.i17 = getelementptr inbounds i8, ptr %call.i9, i64 32
+  store ptr %2, ptr %cgSettings_.i.i17, align 8, !noalias !6
+  %outs_.i.i18 = getelementptr inbounds i8, ptr %call.i9, i64 40
+  store ptr %call13, ptr %outs_.i.i18, align 8, !noalias !6
+  %pass_.i.i19 = getelementptr inbounds i8, ptr %call.i9, i64 48
+  store i64 %3, ptr %pass_.i.i19, align 8, !noalias !6
+  store ptr %call.i9, ptr %agg.result, align 8
   ret void
 }
 
@@ -237,97 +215,76 @@ if.then:                                          ; preds = %_ZN6hermes12_GLOBAL
   %13 = inttoptr i64 %12 to ptr
   store ptr null, ptr %P, align 8
   %kind.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 8
-  %14 = load i32, ptr %kind.i.i.i.i.i.i.i.i.i, align 8, !noalias !13
+  %14 = load i32, ptr %kind.i.i.i.i.i.i.i.i.i, align 8, !noalias !7
   %cmp.i.i.i.i.i.i.i.i = icmp ne i32 %14, 1
   %tobool.not28.i = icmp eq i64 %12, 0
   %tobool.not.i = or i1 %tobool.not28.i, %cmp.i.i.i.i.i.i.i.i
-  br i1 %tobool.not.i, label %if.else.i, label %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %if.then
-  %15 = load ptr, ptr %this, align 8, !noalias !13
-  %call4.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !13
-  %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16, !noalias !16
-  %name.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 16
-  %retval.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %name.i.i.i.i, align 8, !noalias !16
-  %retval.sroa.2.0.name.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %13, i64 24
-  %retval.sroa.2.0.copyload.i.i.i.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i.i, align 8, !noalias !16
-  %kind.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
-  store i32 1, ptr %kind.i.i.i.i.i, align 8, !noalias !16
-  %name2.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i.i, ptr %name2.i.i.i.i.i, align 8, !noalias !16
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i.i, align 8, !noalias !16
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), ptr %call.i.i, align 8, !noalias !16
-  br label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
+  br i1 %tobool.not.i, label %if.else.i, label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
 
 if.else.i:                                        ; preds = %if.then
   %cmp.i.i.i.i.i.i.i7.i = icmp ne i32 %14, 0
   %tobool8.not.i = or i1 %tobool.not28.i, %cmp.i.i.i.i.i.i.i7.i
-  br i1 %tobool8.not.i, label %if.else15.i, label %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i
-
-_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %if.else.i
-  %16 = load ptr, ptr %this, align 8, !noalias !13
-  %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !13
-  %call.i9.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16, !noalias !19
-  %name.i.i.i10.i = getelementptr inbounds i8, ptr %13, i64 16
-  %retval.sroa.0.0.copyload.i.i.i11.i = load ptr, ptr %name.i.i.i10.i, align 8, !noalias !19
-  %retval.sroa.2.0.name.sroa_idx.i.i.i12.i = getelementptr inbounds i8, ptr %13, i64 24
-  %retval.sroa.2.0.copyload.i.i.i13.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12.i, align 8, !noalias !19
-  %kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %call.i9.i, i64 8
-  store i32 0, ptr %kind.i.i.i.i14.i, align 8, !noalias !19
-  %name2.i.i.i.i15.i = getelementptr inbounds i8, ptr %call.i9.i, i64 16
-  store ptr %retval.sroa.0.0.copyload.i.i.i11.i, ptr %name2.i.i.i.i15.i, align 8, !noalias !19
-  %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i = getelementptr inbounds i8, ptr %call.i9.i, i64 24
-  store i64 %retval.sroa.2.0.copyload.i.i.i13.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i, align 8, !noalias !19
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), ptr %call.i9.i, align 8, !noalias !19
-  br label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
+  br i1 %tobool8.not.i, label %if.else15.i, label %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
 
 if.else15.i:                                      ; preds = %if.else.i
-  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #17, !noalias !13
+  call void @_ZN6hermes12hermes_fatalEPKc(ptr noundef nonnull @.str) #16, !noalias !7
   unreachable
 
-_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i
-  %call.i9.sink32.i = phi ptr [ %call.i9.i, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i ], [ %call.i.i, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i ]
-  %.sink31.i = phi ptr [ %16, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i ], [ %15, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i ]
-  %call13.sink.i = phi ptr [ %call13.i, %_ZNSt10unique_ptrIN6hermes12FunctionPassESt14default_deleteIS1_EED2Ev.exit.i ], [ %call4.i, %_ZNSt10unique_ptrIN6hermes10ModulePassESt14default_deleteIS1_EED2Ev.exit.i ]
-  %cgSettings_.i.i17.i = getelementptr inbounds i8, ptr %call.i9.sink32.i, i64 32
-  store ptr %.sink31.i, ptr %cgSettings_.i.i17.i, align 8, !noalias !13
-  %outs_.i.i18.i = getelementptr inbounds i8, ptr %call.i9.sink32.i, i64 40
-  store ptr %call13.sink.i, ptr %outs_.i.i18.i, align 8, !noalias !13
-  %pass_.i.i19.i = getelementptr inbounds i8, ptr %call.i9.sink32.i, i64 48
-  store i64 %12, ptr %pass_.i.i19.i, align 8, !noalias !13
-  %17 = load ptr, ptr %P, align 8
-  store ptr %call.i9.sink32.i, ptr %P, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %17, null
+_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit: ; preds = %if.else.i, %if.then
+  %.sink37.i = phi i32 [ 1, %if.then ], [ 0, %if.else.i ]
+  %.sink33.i = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_110DumpModuleE, i64 16), %if.then ], [ getelementptr inbounds (i8, ptr @_ZTVN6hermes12_GLOBAL__N_112DumpFunctionE, i64 16), %if.else.i ]
+  %15 = load ptr, ptr %this, align 8, !noalias !7
+  %call13.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh4dbgsEv() #14, !noalias !7
+  %call.i9.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17, !noalias !7
+  %name.i.i.i10.i = getelementptr inbounds i8, ptr %13, i64 16
+  %retval.sroa.0.0.copyload.i.i.i11.i = load ptr, ptr %name.i.i.i10.i, align 8, !noalias !7
+  %retval.sroa.2.0.name.sroa_idx.i.i.i12.i = getelementptr inbounds i8, ptr %13, i64 24
+  %retval.sroa.2.0.copyload.i.i.i13.i = load i64, ptr %retval.sroa.2.0.name.sroa_idx.i.i.i12.i, align 8, !noalias !7
+  %kind.i.i.i.i14.i = getelementptr inbounds i8, ptr %call.i9.i, i64 8
+  store i32 %.sink37.i, ptr %kind.i.i.i.i14.i, align 8, !noalias !7
+  %name2.i.i.i.i15.i = getelementptr inbounds i8, ptr %call.i9.i, i64 16
+  store ptr %retval.sroa.0.0.copyload.i.i.i11.i, ptr %name2.i.i.i.i15.i, align 8, !noalias !7
+  %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i = getelementptr inbounds i8, ptr %call.i9.i, i64 24
+  store i64 %retval.sroa.2.0.copyload.i.i.i13.i, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i16.i, align 8, !noalias !7
+  store ptr %.sink33.i, ptr %call.i9.i, align 8, !noalias !7
+  %cgSettings_.i.i17.i = getelementptr inbounds i8, ptr %call.i9.i, i64 32
+  store ptr %15, ptr %cgSettings_.i.i17.i, align 8, !noalias !7
+  %outs_.i.i18.i = getelementptr inbounds i8, ptr %call.i9.i, i64 40
+  store ptr %call13.i, ptr %outs_.i.i18.i, align 8, !noalias !7
+  %pass_.i.i19.i = getelementptr inbounds i8, ptr %call.i9.i, i64 48
+  store i64 %12, ptr %pass_.i.i19.i, align 8, !noalias !7
+  %16 = load ptr, ptr %P, align 8
+  store ptr %call.i9.i, ptr %P, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %16, null
   br i1 %tobool.not.i.i.i.i, label %if.end, label %_ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i.i.i
 
 _ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i.i.i: ; preds = %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit
-  %vtable.i.i.i.i.i = load ptr, ptr %17, align 8
+  %vtable.i.i.i.i.i = load ptr, ptr %16, align 8
   %vfn.i.i.i.i.i = getelementptr inbounds i8, ptr %vtable.i.i.i.i.i, i64 8
-  %18 = load ptr, ptr %vfn.i.i.i.i.i, align 8
-  call void %18(ptr noundef nonnull align 8 dereferenceable(32) %17) #14
+  %17 = load ptr, ptr %vfn.i.i.i.i.i, align 8
+  call void %17(ptr noundef nonnull align 8 dereferenceable(32) %16) #14
   br label %if.end
 
 if.end:                                           ; preds = %_ZNSt10unique_ptrIN6hermes4PassESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN6hermes4PassEEclEPS1_.exit.i.i.i.i, %_ZN6hermes12_GLOBAL__N_110shouldDumpERKNS_35CodeGenerationSettings_DumpSettingsERKNS_4PassE.exit9
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
-  %19 = load ptr, ptr %_M_finish.i, align 8
+  %18 = load ptr, ptr %_M_finish.i, align 8
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 24
-  %20 = load ptr, ptr %_M_end_of_storage.i, align 8
-  %cmp.not.i15 = icmp eq ptr %19, %20
+  %19 = load ptr, ptr %_M_end_of_storage.i, align 8
+  %cmp.not.i15 = icmp eq ptr %18, %19
   br i1 %cmp.not.i15, label %if.else.i16, label %if.then.i
 
 if.then.i:                                        ; preds = %if.end
-  %21 = load i64, ptr %P, align 8
-  store i64 %21, ptr %19, align 8
+  %20 = load i64, ptr %P, align 8
+  store i64 %20, ptr %18, align 8
   store ptr null, ptr %P, align 8
-  %22 = load ptr, ptr %_M_finish.i, align 8
-  %incdec.ptr.i = getelementptr inbounds i8, ptr %22, i64 8
+  %21 = load ptr, ptr %_M_finish.i, align 8
+  %incdec.ptr.i = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
 
 if.else.i16:                                      ; preds = %if.end
   %pipeline_ = getelementptr inbounds i8, ptr %this, i64 8
-  call void @_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %pipeline_, ptr %19, ptr noundef nonnull align 8 dereferenceable(8) %P)
+  call void @_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %pipeline_, ptr %18, ptr noundef nonnull align 8 dereferenceable(8) %P)
   br label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit
 
 _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS5_EEERS5_DpOT_.exit: ; preds = %if.then.i, %if.else.i16
@@ -526,7 +483,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us.us: ; preds = %_
   %spec.select.us.us = select i1 %or.cond.not.us.us, ptr %add.ptr.us.us, ptr %FoundTombstone.0.us.us
   %inc.us.us = add i32 %ProbeAmt.0.us.us, 1
   %add.us.us = add i32 %BucketNo.0.us.us, %ProbeAmt.0.us.us
-  br label %while.body.us.us, !llvm.loop !22
+  br label %while.body.us.us, !llvm.loop !10
 
 while.body.us:                                    ; preds = %if.end.split.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us
   %ProbeAmt.0.us = phi i32 [ %inc.us, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us ], [ 1, %if.end.split.us ]
@@ -562,7 +519,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us: ; preds = %whil
   %spec.select.us = select i1 %or.cond.not.us, ptr %add.ptr.us, ptr %FoundTombstone.0.us
   %inc.us = add i32 %ProbeAmt.0.us, 1
   %add.us = add i32 %BucketNo.0.us, %ProbeAmt.0.us
-  br label %while.body.us, !llvm.loop !22
+  br label %while.body.us, !llvm.loop !10
 
 if.end.split:                                     ; preds = %if.end
   br i1 %cmp18.i, label %while.body.us54, label %if.end.split.split
@@ -603,7 +560,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us72: ; preds = %_Z
   %spec.select.us76 = select i1 %or.cond.not.us75, ptr %add.ptr.us60, ptr %FoundTombstone.0.us57
   %inc.us77 = add i32 %ProbeAmt.0.us55, 1
   %add.us78 = add i32 %BucketNo.0.us58, %ProbeAmt.0.us55
-  br label %while.body.us54, !llvm.loop !22
+  br label %while.body.us54, !llvm.loop !10
 
 if.end.split.split:                               ; preds = %if.end.split
   br i1 %cmp7.i, label %while.body.us87, label %while.body
@@ -644,7 +601,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44.us106: ; preds = %w
   %spec.select.us110 = select i1 %or.cond.not.us109, ptr %add.ptr.us93, ptr %FoundTombstone.0.us90
   %inc.us111 = add i32 %ProbeAmt.0.us88, 1
   %add.us112 = add i32 %BucketNo.0.us91, %ProbeAmt.0.us88
-  br label %while.body.us87, !llvm.loop !22
+  br label %while.body.us87, !llvm.loop !10
 
 while.body:                                       ; preds = %if.end.split.split, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44
   %ProbeAmt.0 = phi i32 [ %inc, %_ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44 ], [ 1, %if.end.split.split ]
@@ -689,7 +646,7 @@ _ZN4llvh12DenseMapInfoINS_9StringRefEE7isEqualES1_S1_.exit44: ; preds = %while.b
   %spec.select = select i1 %or.cond.not, ptr %add.ptr, ptr %FoundTombstone.0
   %inc = add i32 %ProbeAmt.0, 1
   %add = add i32 %BucketNo.0, %ProbeAmt.0
-  br label %while.body, !llvm.loop !22
+  br label %while.body, !llvm.loop !10
 
 return:                                           ; preds = %land.rhs.i.i, %land.rhs.i.i.us102, %while.body.us87, %while.body.us54, %land.rhs.i.i.us69, %if.then.i.us, %if.end19.i.us, %if.then.i.us.us, %while.body.us.us, %if.end19.i.us.us, %entry, %if.then15
   %cond.sink = phi ptr [ %cond, %if.then15 ], [ null, %entry ], [ %add.ptr.us.us, %if.end19.i.us.us ], [ %add.ptr.us.us, %while.body.us.us ], [ %add.ptr.us.us, %if.then.i.us.us ], [ %add.ptr.us, %if.end19.i.us ], [ %add.ptr.us, %if.then.i.us ], [ %add.ptr.us60, %land.rhs.i.i.us69 ], [ %add.ptr.us60, %while.body.us54 ], [ %add.ptr.us93, %while.body.us87 ], [ %add.ptr.us93, %land.rhs.i.i.us102 ], [ %add.ptr, %land.rhs.i.i ]
@@ -1252,7 +1209,7 @@ entry:
   br i1 %cmp.i, label %if.then.i, label %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
 
 if.then.i:                                        ; preds = %entry
-  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #17
+  tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.10) #16
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit: ; preds = %entry
@@ -1270,7 +1227,7 @@ _ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_
 
 cond.true.i:                                      ; preds = %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit
   %mul.i.i.i = shl nuw nsw i64 %cond.i, 3
-  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #16
+  %call5.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #17
   br label %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
 
 _ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE12_M_check_lenEmPKc.exit, %cond.true.i
@@ -1285,15 +1242,15 @@ _ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_E
 for.body.i.i.i:                                   ; preds = %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit, %for.body.i.i.i
   %__cur.07.i.i.i = phi ptr [ %incdec.ptr1.i.i.i, %for.body.i.i.i ], [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
   %__first.addr.06.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %for.body.i.i.i ], [ %1, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
-  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !26, !noalias !23
-  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !23, !noalias !26
-  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !26, !noalias !23
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !11)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
+  %4 = load i64, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !14, !noalias !11
+  store i64 %4, ptr %__cur.07.i.i.i, align 8, !alias.scope !11, !noalias !14
+  store ptr null, ptr %__first.addr.06.i.i.i, align 8, !alias.scope !14, !noalias !11
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i, i64 8
   %incdec.ptr1.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i, i64 8
   %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %__position.coerce
-  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !28
+  br i1 %cmp.not.i.i.i, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, label %for.body.i.i.i, !llvm.loop !16
 
 _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit: ; preds = %for.body.i.i.i, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit
   %__cur.0.lcssa.i.i.i = phi ptr [ %cond.i10, %_ZNSt12_Vector_baseISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_M_allocateEm.exit ], [ %incdec.ptr1.i.i.i, %for.body.i.i.i ]
@@ -1304,15 +1261,15 @@ _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_r
 for.body.i.i.i12:                                 ; preds = %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %for.body.i.i.i12
   %__cur.07.i.i.i13 = phi ptr [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ], [ %incdec.ptr, %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
   %__first.addr.06.i.i.i14 = phi ptr [ %incdec.ptr.i.i.i15, %for.body.i.i.i12 ], [ %__position.coerce, %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ]
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !32)
-  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !32, !noalias !29
-  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !29, !noalias !32
-  store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !32, !noalias !29
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
+  %5 = load i64, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !20, !noalias !17
+  store i64 %5, ptr %__cur.07.i.i.i13, align 8, !alias.scope !17, !noalias !20
+  store ptr null, ptr %__first.addr.06.i.i.i14, align 8, !alias.scope !20, !noalias !17
   %incdec.ptr.i.i.i15 = getelementptr inbounds i8, ptr %__first.addr.06.i.i.i14, i64 8
   %incdec.ptr1.i.i.i16 = getelementptr inbounds i8, ptr %__cur.07.i.i.i13, i64 8
   %cmp.not.i.i.i17 = icmp eq ptr %incdec.ptr.i.i.i15, %0
-  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !28
+  br i1 %cmp.not.i.i.i17, label %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19, label %for.body.i.i.i12, !llvm.loop !16
 
 _ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit19: ; preds = %for.body.i.i.i12, %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit
   %__cur.0.lcssa.i.i.i18 = phi ptr [ %incdec.ptr, %_ZNSt6vectorISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit ], [ %incdec.ptr1.i.i.i16, %for.body.i.i.i12 ]
@@ -1375,8 +1332,8 @@ attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nounwind }
 attributes #15 = { builtin nounwind }
-attributes #16 = { builtin nounwind allocsize(0) }
-attributes #17 = { noreturn nounwind }
+attributes #16 = { noreturn nounwind }
+attributes #17 = { builtin nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -1386,31 +1343,19 @@ attributes #17 = { noreturn nounwind }
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = !{!7}
-!7 = distinct !{!7, !8, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_110DumpModuleEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_10ModulePassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!8 = distinct !{!8, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_110DumpModuleEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_10ModulePassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!9 = !{!10}
-!10 = distinct !{!10, !11, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_112DumpFunctionEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_12FunctionPassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!11 = distinct !{!11, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_112DumpFunctionEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_12FunctionPassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!12 = !{}
-!13 = !{!14}
-!14 = distinct !{!14, !15, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE: %agg.result"}
-!15 = distinct !{!15, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE"}
-!16 = !{!17, !14}
-!17 = distinct !{!17, !18, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_110DumpModuleEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_10ModulePassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!18 = distinct !{!18, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_110DumpModuleEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_10ModulePassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!19 = !{!20, !14}
-!20 = distinct !{!20, !21, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_112DumpFunctionEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_12FunctionPassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: %agg.result"}
-!21 = distinct !{!21, !"_ZSt11make_uniqueIN6hermes12_GLOBAL__N_112DumpFunctionEJRKNS0_22CodeGenerationSettingsERN4llvh11raw_ostreamESt10unique_ptrINS0_12FunctionPassESt14default_deleteISA_EEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
-!22 = distinct !{!22, !5}
-!23 = !{!24}
-!24 = distinct !{!24, !25, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!25 = distinct !{!25, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!26 = !{!27}
-!27 = distinct !{!27, !25, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
-!28 = distinct !{!28, !5}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
-!31 = distinct !{!31, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
-!32 = !{!33}
-!33 = distinct !{!33, !31, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!6 = !{}
+!7 = !{!8}
+!8 = distinct !{!8, !9, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE: %agg.result"}
+!9 = distinct !{!9, !"_ZN6hermes11PassManager12makeDumpPassESt10unique_ptrINS_4PassESt14default_deleteIS2_EE"}
+!10 = distinct !{!10, !5}
+!11 = !{!12}
+!12 = distinct !{!12, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!13 = distinct !{!13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!14 = !{!15}
+!15 = distinct !{!15, !13, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}
+!16 = distinct !{!16, !5}
+!17 = !{!18}
+!18 = distinct !{!18, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__dest"}
+!19 = distinct !{!19, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_"}
+!20 = !{!21}
+!21 = distinct !{!21, !19, !"_ZSt19__relocate_object_aISt10unique_ptrIN6hermes4PassESt14default_deleteIS2_EES5_SaIS5_EEvPT_PT0_RT1_: %__orig"}

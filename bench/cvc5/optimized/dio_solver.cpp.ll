@@ -6874,24 +6874,24 @@ cond.false.i.i.i.i70:                             ; preds = %for.end
   br label %cond.end.i.i.i.i72
 
 cond.end.i.i.i.i72:                               ; preds = %cond.false.i.i.i.i70, %cond.true.i.i.i.i81
-  %sub10.i.i.i.i46.pn = phi i64 [ %sub10.i.i.i.i46, %cond.false.i.i.i.i70 ], [ %div911.i.i.i.i57, %cond.true.i.i.i.i81 ]
-  %.sink.in = getelementptr inbounds ptr, ptr %22, i64 %sub10.i.i.i.i46.pn
-  %.sink = load ptr, ptr %.sink.in, align 8, !noalias !38
+  %sub10.i.i.i.i46.sink = phi i64 [ %sub10.i.i.i.i46, %cond.false.i.i.i.i70 ], [ %div911.i.i.i.i57, %cond.true.i.i.i.i81 ]
+  %add.ptr11.i.i.i.i49 = getelementptr inbounds ptr, ptr %22, i64 %sub10.i.i.i.i46.sink
+  %25 = load ptr, ptr %add.ptr11.i.i.i.i49, align 8, !noalias !38
   %sub14.i.i.i.i51 = and i64 %add.i.i.i.i43, 63
-  %add.ptr15.i.i.i.i52 = getelementptr inbounds i64, ptr %.sink, i64 %sub14.i.i.i.i51
-  %mul.i.i.i.i75 = shl nsw i64 %sub10.i.i.i.i46.pn, 6
+  %add.ptr15.i.i.i.i52 = getelementptr inbounds i64, ptr %25, i64 %sub14.i.i.i.i51
+  %mul.i.i.i.i75 = shl nsw i64 %sub10.i.i.i.i46.sink, 6
   %sub14.i.i.i.i76 = sub nsw i64 %add.i.i.i.i43, %mul.i.i.i.i75
-  %add.ptr15.i.i.i.i77 = getelementptr inbounds i64, ptr %.sink, i64 %sub14.i.i.i.i76
+  %add.ptr15.i.i.i.i77 = getelementptr inbounds i64, ptr %25, i64 %sub14.i.i.i.i76
   br label %_ZNSt5dequeImSaImEEixEm.exit85
 
 _ZNSt5dequeImSaImEEixEm.exit85:                   ; preds = %if.then.i.i.i.i83, %cond.end.i.i.i.i72
   %.in95 = phi ptr [ %add.ptr15.i.i.i.i52, %cond.end.i.i.i.i72 ], [ %add.ptr.i.i.i.i59, %if.then.i.i.i.i83 ]
   %storemerge.i.i.i.i78 = phi ptr [ %add.ptr15.i.i.i.i77, %cond.end.i.i.i.i72 ], [ %add.ptr.i.i.i.i59, %if.then.i.i.i.i83 ]
-  %25 = load i64, ptr %.in95, align 8
-  %26 = load i64, ptr %23, align 8
-  store i64 %26, ptr %storemerge.i.i.i.i78, align 8
-  %27 = load ptr, ptr %_M_start.i, align 8, !noalias !51
-  store i64 %25, ptr %27, align 8
+  %26 = load i64, ptr %.in95, align 8
+  %27 = load i64, ptr %23, align 8
+  store i64 %27, ptr %storemerge.i.i.i.i78, align 8
+  %28 = load ptr, ptr %_M_start.i, align 8, !noalias !51
+  store i64 %26, ptr %28, align 8
   call void @_ZN4cvc58internal6theory5arith6linear8MonomialD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %minMonomial) #21
   ret void
 

@@ -10493,7 +10493,7 @@ for.body.lr.ph:                                   ; preds = %invoke.cont27
   %_M_index.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp180, i64 24
   %storage_.i.i435 = getelementptr inbounds i8, ptr %ref.tmp180, i64 8
   %_M_refcount.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %casted, i64 8
-  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp180, i64 16
+  %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp180, i64 16
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %casted, i64 16
   %_M_finish.i439 = getelementptr inbounds i8, ptr %columns, i64 8
   %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp101, i64 8
@@ -11564,8 +11564,8 @@ do.end215:                                        ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.experimental.noalias.scope.decl(metadata !157)
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %187 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !163
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %187, 0
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %invoke.cont216.thread, label %invoke.cont216
+  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %187, 0
+  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %invoke.cont216.thread, label %invoke.cont216
 
 invoke.cont216.thread:                            ; preds = %do.end215
   store i8 0, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !163
@@ -11573,7 +11573,7 @@ invoke.cont216.thread:                            ; preds = %do.end215
 
 invoke.cont216:                                   ; preds = %do.end215
   %188 = load <2 x ptr>, ptr %storage_.i.i435, align 8, !noalias !163
-  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !163
+  store ptr null, ptr %_M_refcount4.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !163
   store <2 x ptr> %188, ptr %casted, align 16, !alias.scope !163
   store ptr null, ptr %storage_.i.i435, align 8, !noalias !163
   store i8 %187, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 16, !alias.scope !163

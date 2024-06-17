@@ -14668,12 +14668,12 @@ if.then56:                                        ; preds = %if.else54
 
 if.end73.sink.split:                              ; preds = %if.then56, %land.lhs.true, %if.then32
   %.sink = phi i32 [ 64, %if.then32 ], [ 512, %land.lhs.true ], [ %., %if.then56 ]
-  %or39 = or i32 %19, %.sink
-  store i32 %or39, ptr %failure_flags34, align 8
+  %or53 = or i32 %19, %.sink
+  store i32 %or53, ptr %failure_flags34, align 8
   br label %if.end73
 
 if.end73:                                         ; preds = %if.end73.sink.split, %if.else54
-  %22 = phi i32 [ %19, %if.else54 ], [ %or39, %if.end73.sink.split ]
+  %22 = phi i32 [ %19, %if.else54 ], [ %or53, %if.end73.sink.split ]
   %23 = and i32 %22, 576
   %or.cond = icmp eq i32 %23, 0
   br i1 %or.cond, label %lor.end, label %lor.end.thread

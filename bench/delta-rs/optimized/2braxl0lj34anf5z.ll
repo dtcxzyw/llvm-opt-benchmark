@@ -131007,10 +131007,10 @@ define void @_ZN14deltalake_core16delta_datafusion29join_batches_with_add_action
   br label %169
 
 136:                                              ; preds = %101, %88
-  %.sink380 = phi { i64, ptr } [ %89, %88 ], [ %102, %101 ]
+  %.sink = phi { i64, ptr } [ %89, %88 ], [ %102, %101 ]
   %.sroa.9225.sink = phi ptr [ %.sroa.9, %88 ], [ %.sroa.9225, %101 ]
-  %137 = extractvalue { i64, ptr } %.sink380, 0
-  %138 = extractvalue { i64, ptr } %.sink380, 1
+  %137 = extractvalue { i64, ptr } %.sink, 0
+  %138 = extractvalue { i64, ptr } %.sink, 1
   %139 = icmp ne ptr %138, null
   call void @llvm.assume(i1 %139)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(37) %138, ptr noundef nonnull align 1 dereferenceable(37) @anon.af2c6469e34a74e5b434b49a924e5785.572, i64 37, i1 false)
@@ -142710,36 +142710,24 @@ define hidden noundef zeroext i1 @"_ZN96_$LT$deltalake_core..kernel..models..act
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @"_ZN14deltalake_core6kernel6models7actions1_104_$LT$impl$u20$serde..ser..Serialize$u20$for$u20$deltalake_core..kernel..models..actions..StorageType$GT$9serialize17h32cb993f96a2293eE"(ptr noalias nocapture noundef writeonly sret({ i8, [31 x i8] }) align 8 dereferenceable(32) %0, ptr noalias nocapture noundef readonly align 1 dereferenceable(1) %1) unnamed_addr #1 {
-  %3 = load i8, ptr %1, align 1, !range !39, !noundef !4
-  %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8ca70dbaa644b566E"(i64 noundef 1, i1 noundef zeroext false), !noalias !4
-  %5 = extractvalue { i64, ptr } %4, 1
-  %6 = icmp ne ptr %5, null
-  tail call void @llvm.assume(i1 %6)
-  switch i8 %3, label %default.unreachable7 [
-    i8 0, label %9
-    i8 1, label %7
-    i8 2, label %8
-  ]
-
-default.unreachable7:                             ; preds = %2
-  unreachable
-
-7:                                                ; preds = %2
-  br label %9
-
-8:                                                ; preds = %2
-  br label %9
-
-9:                                                ; preds = %2, %8, %7
-  %.sink9 = phi i8 [ 112, %8 ], [ 105, %7 ], [ 117, %2 ]
-  store i8 %.sink9, ptr %5, align 1
-  %.sink8 = extractvalue { i64, ptr } %4, 0
+switch.lookup:
+  %2 = load i8, ptr %1, align 1, !range !39, !noundef !4
+  %3 = shl nuw nsw i8 %2, 3
+  %switch.shiftamt = zext nneg i8 %3 to i24
+  %switch.downshift = lshr i24 7367029, %switch.shiftamt
+  %switch.masked = trunc i24 %switch.downshift to i8
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 24
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 16
   %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h8ca70dbaa644b566E"(i64 noundef 1, i1 noundef zeroext false), !noalias !4
+  %5 = extractvalue { i64, ptr } %4, 0
+  %6 = extractvalue { i64, ptr } %4, 1
+  %7 = icmp ne ptr %6, null
+  tail call void @llvm.assume(i1 %7)
+  store i8 %switch.masked, ptr %6, align 1
   store i8 3, ptr %0, align 8, !noalias !4
-  store i64 %.sink8, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !4
-  store ptr %5, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !4
+  store i64 %5, ptr %.sroa.4.sroa.3.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !4
+  store ptr %6, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !4
   store i64 1, ptr %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !4
   ret void
 }

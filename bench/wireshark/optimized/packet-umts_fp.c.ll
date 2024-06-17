@@ -1709,8 +1709,8 @@ addresses_equal.exit:                             ; preds = %58, %50, %.thread29
   br i1 %.not5.i242, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %79, %71
-  %.sink326 = phi ptr [ %73, %71 ], [ %81, %79 ]
-  %82 = getelementptr inbounds i8, ptr %.sink326, i64 28
+  %.sink325 = phi ptr [ %73, %71 ], [ %81, %79 ]
+  %82 = getelementptr inbounds i8, ptr %.sink325, i64 28
   %83 = load i32, ptr %82, align 4
   %84 = or i32 %83, 2
   store i32 %84, ptr %82, align 4

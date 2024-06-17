@@ -1248,10 +1248,10 @@ for.inc:                                          ; preds = %for.body, %land.lhs
 
 for.end.sink.split:                               ; preds = %land.lhs.true30, %land.lhs.true20
   %.sink28 = phi i32 [ 128, %land.lhs.true20 ], [ 256, %land.lhs.true30 ]
-  %http_flags = getelementptr inbounds i8, ptr %stream, i64 212
-  %7 = load i32, ptr %http_flags, align 4
+  %http_flags37 = getelementptr inbounds i8, ptr %stream, i64 212
+  %7 = load i32, ptr %http_flags37, align 4
   %or38 = or i32 %7, %.sink28
-  store i32 %or38, ptr %http_flags, align 4
+  store i32 %or38, ptr %http_flags37, align 4
   br label %for.end
 
 for.end:                                          ; preds = %for.inc, %for.end.sink.split, %sw.epilog, %if.end, %land.lhs.true20, %land.lhs.true30, %entry

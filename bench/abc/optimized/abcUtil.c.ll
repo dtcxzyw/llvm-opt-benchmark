@@ -6792,8 +6792,8 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
   %.val47 = load i32, ptr %4, align 4
   %5 = and i32 %.val47, 15
   switch i32 %5, label %6 [
-    i32 5, label %54
-    i32 2, label %54
+    i32 5, label %55
+    i32 2, label %55
   ]
 
 6:                                                ; preds = %3
@@ -6884,22 +6884,22 @@ define range(i32 0, 2) i32 @Abc_NtkCrossCut_rec(ptr nocapture noundef %0, ptr no
   br label %.sink.split
 
 .sink.split:                                      ; preds = %6, %42
-  %.sink68 = getelementptr inbounds i8, ptr %0, i64 64
-  %45 = load ptr, ptr %.sink68, align 8
-  %46 = ptrtoint ptr %45 to i64
-  %47 = trunc i64 %46 to i32
-  %48 = add nsw i32 %47, 1
-  %49 = sext i32 %48 to i64
-  %50 = inttoptr i64 %49 to ptr
-  store ptr %50, ptr %.sink68, align 8
-  %51 = getelementptr i8, ptr %0, i64 44
-  %.val.i53 = load i32, ptr %51, align 4
-  %52 = icmp eq i32 %48, %.val.i53
-  %53 = zext i1 %52 to i32
-  br label %54
+  %45 = getelementptr inbounds i8, ptr %0, i64 64
+  %46 = load ptr, ptr %45, align 8
+  %47 = ptrtoint ptr %46 to i64
+  %48 = trunc i64 %47 to i32
+  %49 = add nsw i32 %48, 1
+  %50 = sext i32 %49 to i64
+  %51 = inttoptr i64 %50 to ptr
+  store ptr %51, ptr %45, align 8
+  %52 = getelementptr i8, ptr %0, i64 44
+  %.val.i53 = load i32, ptr %52, align 4
+  %53 = icmp eq i32 %49, %.val.i53
+  %54 = zext i1 %53 to i32
+  br label %55
 
-54:                                               ; preds = %.sink.split, %3, %3
-  %.0.shrunk = phi i32 [ 0, %3 ], [ 0, %3 ], [ %53, %.sink.split ]
+55:                                               ; preds = %.sink.split, %3, %3
+  %.0.shrunk = phi i32 [ 0, %3 ], [ 0, %3 ], [ %54, %.sink.split ]
   ret i32 %.0.shrunk
 }
 
@@ -9223,12 +9223,12 @@ Vec_IntGrow.exit.i58:                             ; preds = %116, %114
   br label %.sink.split
 
 .sink.split:                                      ; preds = %129, %Vec_IntGrow.exit.i58, %.Vec_IntGrow.exit10_crit_edge.i53, %48, %Vec_IntGrow.exit.i, %.Vec_IntGrow.exit10_crit_edge.i
-  %.sink = phi ptr [ %24, %.Vec_IntGrow.exit10_crit_edge.i ], [ %24, %Vec_IntGrow.exit.i ], [ %24, %48 ], [ %105, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %105, %Vec_IntGrow.exit.i58 ], [ %105, %129 ]
+  %.sink84 = phi ptr [ %24, %.Vec_IntGrow.exit10_crit_edge.i ], [ %24, %Vec_IntGrow.exit.i ], [ %24, %48 ], [ %105, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %105, %Vec_IntGrow.exit.i58 ], [ %105, %129 ]
   %.sink79 = phi ptr [ %.pre.i, %.Vec_IntGrow.exit10_crit_edge.i ], [ %37, %Vec_IntGrow.exit.i ], [ %49, %48 ], [ %.pre.i55, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %118, %Vec_IntGrow.exit.i58 ], [ %130, %129 ]
   %.val39.sink = phi i32 [ %.val40, %.Vec_IntGrow.exit10_crit_edge.i ], [ %.val40, %Vec_IntGrow.exit.i ], [ %.val40, %48 ], [ %.val39, %.Vec_IntGrow.exit10_crit_edge.i53 ], [ %.val39, %Vec_IntGrow.exit.i58 ], [ %.val39, %129 ]
-  %131 = load i32, ptr %.sink, align 4
+  %131 = load i32, ptr %.sink84, align 4
   %132 = add nsw i32 %131, 1
-  store i32 %132, ptr %.sink, align 4
+  store i32 %132, ptr %.sink84, align 4
   %133 = sext i32 %131 to i64
   %134 = getelementptr inbounds i32, ptr %.sink79, i64 %133
   store i32 %.val39.sink, ptr %134, align 4

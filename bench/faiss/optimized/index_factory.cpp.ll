@@ -8700,9 +8700,9 @@ _ZNKSt7__cxx1113match_resultsIN9__gnu_cxx17__normal_iteratorIPKcNS_12basic_strin
   br label %_ZNSt6vectorImSaImEED2Ev.exit239
 
 _ZNSt6vectorImSaImEED2Ev.exit.sink.split:         ; preds = %564, %471
-  %.sink441 = phi ptr [ %472, %471 ], [ %565, %564 ]
+  %.sink = phi ptr [ %472, %471 ], [ %565, %564 ]
   %.2.ph = phi ptr [ %.0, %471 ], [ %.1, %564 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink441) #32
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #32
   br label %.sink.split
 
 _ZNSt6vectorImSaImEED2Ev.exit239:                 ; preds = %568, %566, %475, %473, %937, %915, %913, %911, %909, %822, %801, %799, %797, %725, %723, %722, %646, %644, %643, %531, %529, %440, %438
@@ -8711,9 +8711,9 @@ _ZNSt6vectorImSaImEED2Ev.exit239:                 ; preds = %568, %566, %475, %4
   br label %942
 
 .sink.split:                                      ; preds = %635, %714, %795, %820, %906, %934, %929, %"_ZZN5faiss12_GLOBAL__N_119parse_other_indexesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEENK3$_0clES8_.exit363", %471, %564, %_ZNSt6vectorImSaImEED2Ev.exit.sink.split, %352
-  %.sink442 = phi ptr [ %21, %352 ], [ %25, %_ZNSt6vectorImSaImEED2Ev.exit.sink.split ], [ %25, %564 ], [ %25, %471 ], [ %25, %"_ZZN5faiss12_GLOBAL__N_119parse_other_indexesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEENK3$_0clES8_.exit363" ], [ %25, %929 ], [ %25, %934 ], [ %25, %906 ], [ %25, %820 ], [ %25, %795 ], [ %25, %714 ], [ %25, %635 ]
+  %.sink441 = phi ptr [ %21, %352 ], [ %25, %_ZNSt6vectorImSaImEED2Ev.exit.sink.split ], [ %25, %564 ], [ %25, %471 ], [ %25, %"_ZZN5faiss12_GLOBAL__N_119parse_other_indexesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEENK3$_0clES8_.exit363" ], [ %25, %929 ], [ %25, %934 ], [ %25, %906 ], [ %25, %820 ], [ %25, %795 ], [ %25, %714 ], [ %25, %635 ]
   %.3.ph = phi ptr [ %337, %352 ], [ %.2.ph, %_ZNSt6vectorImSaImEED2Ev.exit.sink.split ], [ %.1, %564 ], [ %.0, %471 ], [ null, %"_ZZN5faiss12_GLOBAL__N_119parse_other_indexesERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS_10MetricTypeEENK3$_0clES8_.exit363" ], [ null, %929 ], [ %933, %934 ], [ %905, %906 ], [ %819, %820 ], [ %794, %795 ], [ %713, %714 ], [ %634, %635 ]
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink442) #27
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink441) #27
   br label %939
 
 939:                                              ; preds = %.sink.split, %399, %277, %261, %143, %59

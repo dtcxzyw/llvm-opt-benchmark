@@ -137376,8 +137376,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12st
   br label %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
 
 "_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i": ; preds = %33, %29
-  %.16.val.sink.i.i = phi i64 [ %.val14, %33 ], [ %30, %29 ]
-  %34 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink.i.i, i1 noundef zeroext false)
+  %.16.val.sink8.i.i = phi i64 [ %.val14, %33 ], [ %30, %29 ]
+  %34 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink8.i.i, i1 noundef zeroext false)
           to label %36 unwind label %.thread39
 
 .thread39:                                        ; preds = %32, %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
@@ -137390,13 +137390,13 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12st
   %38 = extractvalue { i64, ptr } %34, 1
   %39 = icmp ne ptr %38, null
   tail call void @llvm.assume(i1 %39)
-  %40 = shl i64 %.16.val.sink.i.i, 4
+  %40 = shl i64 %.16.val.sink8.i.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr nonnull align 8 %.val13, i64 %40, i1 false)
   store i64 %37, ptr %9, align 8, !alias.scope !24416
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %38, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24416
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 16
-  store i64 %.16.val.sink.i.i, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24416
+  store i64 %.16.val.sink8.i.i, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24416
   %41 = getelementptr inbounds i8, ptr %1, i64 24
   %.sroa.0.0.copyload = load i64, ptr %41, align 8
   store i64 -9223372036854775808, ptr %41, align 8
@@ -137455,12 +137455,12 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$12st
   %.val16 = load i64, ptr %55, align 8, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24434)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24437)
-  %.not.i.i = icmp eq i64 %.val16, %.16.val.sink.i.i
+  %.not.i.i = icmp eq i64 %.val16, %.16.val.sink8.i.i
   br i1 %.not.i.i, label %.preheader.split.i.i, label %.loopexit
 
 .preheader.split.i.i:                             ; preds = %54, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i"
   %.sroa.01.0.i.i = phi i64 [ %63, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i" ], [ 0, %54 ]
-  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink.i.i
+  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink8.i.i
   br i1 %exitcond.not.i.not.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h012042eb3be66a48E.exit", label %56
 
 56:                                               ; preds = %.preheader.split.i.i
@@ -137936,8 +137936,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   br label %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
 
 "_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i": ; preds = %71, %67
-  %.16.val.sink.i.i = phi i64 [ %.val44, %71 ], [ %68, %67 ]
-  %72 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink.i.i, i1 noundef zeroext false)
+  %.16.val.sink8.i.i = phi i64 [ %.val44, %71 ], [ %68, %67 ]
+  %72 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink8.i.i, i1 noundef zeroext false)
           to label %73 unwind label %.thread87.loopexit
 
 .thread87.loopexit:                               ; preds = %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
@@ -137955,11 +137955,11 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %75 = extractvalue { i64, ptr } %72, 1
   %76 = icmp ne ptr %75, null
   call void @llvm.assume(i1 %76)
-  %77 = shl i64 %.16.val.sink.i.i, 4
+  %77 = shl i64 %.16.val.sink8.i.i, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %75, ptr nonnull align 8 %.val43, i64 %77, i1 false)
   store i64 %74, ptr %14, align 8, !alias.scope !24516
   store ptr %75, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24516
-  store i64 %.16.val.sink.i.i, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24516
+  store i64 %.16.val.sink8.i.i, ptr %.sroa.6.0..sroa_idx.i.i.i.i, align 8, !alias.scope !24516
   %.sroa.0.0.copyload = load i64, ptr %48, align 8
   store i64 -9223372036854775808, ptr %48, align 8
   %78 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
@@ -138012,12 +138012,12 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$14st
   %.val46 = load i64, ptr %49, align 8, !noundef !12
   call void @llvm.experimental.noalias.scope.decl(metadata !24534)
   call void @llvm.experimental.noalias.scope.decl(metadata !24537)
-  %.not.i.i = icmp eq i64 %.val46, %.16.val.sink.i.i
+  %.not.i.i = icmp eq i64 %.val46, %.16.val.sink8.i.i
   br i1 %.not.i.i, label %.preheader.split.i.i, label %.loopexit
 
 .preheader.split.i.i:                             ; preds = %88, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i"
   %.sroa.01.0.i.i = phi i64 [ %96, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i" ], [ 0, %88 ]
-  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink.i.i
+  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink8.i.i
   br i1 %exitcond.not.i.not.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h012042eb3be66a48E.exit", label %89
 
 89:                                               ; preds = %.preheader.split.i.i
@@ -138539,8 +138539,8 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   br label %"_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i"
 
 "_ZN14deltalake_core5table11state_arrow63_$LT$impl$u20$deltalake_core..table..state..DeltaTableState$GT$14stats_as_batch28_$u7b$$u7b$closure$u7d$$u7d$17he77ac086c361faa3E.exit.i": ; preds = %32, %28
-  %.16.val.sink.i.i = phi i64 [ %.val16, %32 ], [ %29, %28 ]
-  %33 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink.i.i, i1 noundef zeroext false)
+  %.16.val.sink8.i.i = phi i64 [ %.val16, %32 ], [ %29, %28 ]
+  %33 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h42d04186632281f7E"(i64 noundef %.16.val.sink8.i.i, i1 noundef zeroext false)
           to label %37 unwind label %.thread31
 
 34:                                               ; preds = %71
@@ -138559,19 +138559,19 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   %39 = extractvalue { i64, ptr } %33, 1
   %40 = icmp ne ptr %39, null
   tail call void @llvm.assume(i1 %40)
-  %41 = shl i64 %.16.val.sink.i.i, 4
+  %41 = shl i64 %.16.val.sink8.i.i, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %39, ptr nonnull align 8 %.val15, i64 %41, i1 false)
   %.val17 = load ptr, ptr %.sroa.5.0..sroa_idx2, align 8, !nonnull !12, !noundef !12
   %42 = getelementptr inbounds i8, ptr %7, i64 16
   %.val18 = load i64, ptr %42, align 8, !noundef !12
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24617)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24620)
-  %.not.i.i = icmp eq i64 %.val18, %.16.val.sink.i.i
+  %.not.i.i = icmp eq i64 %.val18, %.16.val.sink8.i.i
   br i1 %.not.i.i, label %.preheader.split.i.i, label %.loopexit
 
 .preheader.split.i.i:                             ; preds = %37, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i"
   %.sroa.01.0.i.i = phi i64 [ %50, %"_ZN4core3cmp5impls69_$LT$impl$u20$core..cmp..PartialEq$LT$$RF$B$GT$$u20$for$u20$$RF$A$GT$2ne17h089b658f1158bb24E.llvm.8226331118977765550.exit.i.i" ], [ 0, %37 ]
-  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink.i.i
+  %exitcond.not.i.not.i = icmp eq i64 %.sroa.01.0.i.i, %.16.val.sink8.i.i
   br i1 %exitcond.not.i.not.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h012042eb3be66a48E.exit", label %43
 
 43:                                               ; preds = %.preheader.split.i.i
@@ -138640,7 +138640,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   %.sroa.549.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %39, ptr %.sroa.549.0..sroa_idx, align 8
   %.sroa.6.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %.16.val.sink.i.i, ptr %.sroa.6.0..sroa_idx, align 8
+  store i64 %.16.val.sink8.i.i, ptr %.sroa.6.0..sroa_idx, align 8
   br label %74
 
 "_ZN4core3ptr79drop_in_place$LT$core..option..Option$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$$GT$17hf3e4df96afdf8d1fE.exit": ; preds = %"_ZN4core3ptr51drop_in_place$LT$alloc..vec..Vec$LT$$RF$str$GT$$GT$17heff91ebafd2baa57E.exit.i", %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2ne17h012042eb3be66a48E.exit"
@@ -138648,7 +138648,7 @@ define hidden void @"_ZN9itertools11groupbylazy27GroupInner$LT$K$C$I$C$F$GT$9gro
   %.sroa.549.0..sroa_idx50 = getelementptr inbounds i8, ptr %1, i64 32
   store ptr %39, ptr %.sroa.549.0..sroa_idx50, align 8
   %.sroa.6.0..sroa_idx52 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 %.16.val.sink.i.i, ptr %.sroa.6.0..sroa_idx52, align 8
+  store i64 %.16.val.sink8.i.i, ptr %.sroa.6.0..sroa_idx52, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, i64 72, i1 false)
   %68 = getelementptr inbounds i8, ptr %1, i64 48

@@ -1279,32 +1279,26 @@ define internal i64 @H5O__fill_new_shared_size(ptr noundef %0, i1 noundef zeroex
   %14 = getelementptr inbounds i8, ptr %2, i64 40
   %15 = load i32, ptr %14, align 8
   %16 = icmp ult i32 %15, 3
-  br i1 %16, label %17, label %26
+  br i1 %16, label %17, label %.sink.split.i
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds i8, ptr %2, i64 80
   %19 = load i8, ptr %18, align 8
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %H5O__fill_new_size.exit
+  br i1 %20, label %.sink.split.i, label %H5O__fill_new_size.exit
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds i8, ptr %2, i64 56
-  %23 = load i64, ptr %22, align 8
-  %24 = icmp sgt i64 %23, 0
-  %25 = add nuw i64 %23, 8
-  %spec.select.i = select i1 %24, i64 %25, i64 8
+.sink.split.i:                                    ; preds = %17, %13
+  %.sink4.i = phi i64 [ 8, %17 ], [ 6, %13 ]
+  %.sink2.i = phi i64 [ 8, %17 ], [ 2, %13 ]
+  %21 = getelementptr inbounds i8, ptr %2, i64 56
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp sgt i64 %22, 0
+  %24 = add nuw i64 %22, %.sink4.i
+  %spec.select11.i = select i1 %23, i64 %24, i64 %.sink2.i
   br label %H5O__fill_new_size.exit
 
-26:                                               ; preds = %13
-  %27 = getelementptr inbounds i8, ptr %2, i64 56
-  %28 = load i64, ptr %27, align 8
-  %29 = icmp sgt i64 %28, 0
-  %30 = add nuw i64 %28, 6
-  %spec.select11.i = select i1 %29, i64 %30, i64 2
-  br label %H5O__fill_new_size.exit
-
-H5O__fill_new_size.exit:                          ; preds = %26, %21, %17, %6, %9
-  %.0 = phi i64 [ 0, %9 ], [ %7, %6 ], [ %spec.select.i, %21 ], [ 4, %17 ], [ %spec.select11.i, %26 ]
+H5O__fill_new_size.exit:                          ; preds = %.sink.split.i, %17, %6, %9
+  %.0 = phi i64 [ 0, %9 ], [ %7, %6 ], [ 4, %17 ], [ %spec.select11.i, %.sink.split.i ]
   ret i64 %.0
 }
 

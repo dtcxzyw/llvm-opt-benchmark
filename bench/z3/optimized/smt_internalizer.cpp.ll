@@ -3034,13 +3034,13 @@ sw.epilog:                                        ; preds = %for.inc, %sw.bb, %i
   invoke void %128(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef %n)
           to label %.noexc340.invoke unwind label %lpad.loopexit.split-lp
 
-.noexc340.invoke:                                 ; preds = %invoke.cont141, %sw.epilog
-  %.sink.in = phi ptr [ %m_relevancy_propagator.i, %sw.epilog ], [ %m_relevancy_propagator.i350, %invoke.cont141 ]
-  %.sink = load ptr, ptr %.sink.in, align 8
-  %vtable4.i353 = load ptr, ptr %.sink, align 8
+.noexc340.invoke:                                 ; preds = %sw.epilog, %invoke.cont141
+  %m_relevancy_propagator.i350.sink = phi ptr [ %m_relevancy_propagator.i350, %invoke.cont141 ], [ %m_relevancy_propagator.i, %sw.epilog ]
+  %129 = load ptr, ptr %m_relevancy_propagator.i350.sink, align 8
+  %vtable4.i353 = load ptr, ptr %129, align 8
   %vfn5.i354 = getelementptr inbounds i8, ptr %vtable4.i353, i64 64
-  %129 = load ptr, ptr %vfn5.i354, align 8
-  invoke void %129(ptr noundef nonnull align 8 dereferenceable(16) %.sink)
+  %130 = load ptr, ptr %vfn5.i354, align 8
+  invoke void %130(ptr noundef nonnull align 8 dereferenceable(16) %129)
           to label %if.end145 unwind label %lpad.loopexit.split-lp
 
 if.else:                                          ; preds = %invoke.cont6.if.else_crit_edge, %_ZNK3app13get_decl_kindEv.exit.i, %land.lhs.true.i, %invoke.cont5, %_ZNK3app13get_family_idEv.exit.i
@@ -3051,20 +3051,20 @@ if.else:                                          ; preds = %invoke.cont6.if.els
 
 land.rhs.i.i:                                     ; preds = %if.else
   %m_decl.i.i.i346 = getelementptr inbounds i8, ptr %n, i64 16
-  %130 = load ptr, ptr %m_decl.i.i.i346, align 8
-  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %130, i64 24
-  %131 = load ptr, ptr %m_info.i.i.i.i, align 8
-  %tobool.not.i.i.i.i = icmp eq ptr %131, null
+  %131 = load ptr, ptr %m_decl.i.i.i346, align 8
+  %m_info.i.i.i.i = getelementptr inbounds i8, ptr %131, i64 24
+  %132 = load ptr, ptr %m_info.i.i.i.i, align 8
+  %tobool.not.i.i.i.i = icmp eq ptr %132, null
   br i1 %tobool.not.i.i.i.i, label %if.else143, label %invoke.cont136
 
 invoke.cont136:                                   ; preds = %land.rhs.i.i
-  %132 = load i32, ptr %131, align 8
-  %cmp.i.i.i.i.i348 = icmp eq i32 %132, 0
-  %m_kind.i.i.i.i.i349 = getelementptr inbounds i8, ptr %131, i64 4
-  %133 = load i32, ptr %m_kind.i.i.i.i.i349, align 4
-  %cmp2.i.i.i.i.i = icmp eq i32 %133, 3
-  %134 = select i1 %cmp.i.i.i.i.i348, i1 %cmp2.i.i.i.i.i, i1 false
-  br i1 %134, label %if.then138, label %if.else143
+  %133 = load i32, ptr %132, align 8
+  %cmp.i.i.i.i.i348 = icmp eq i32 %133, 0
+  %m_kind.i.i.i.i.i349 = getelementptr inbounds i8, ptr %132, i64 4
+  %134 = load i32, ptr %m_kind.i.i.i.i.i349, align 4
+  %cmp2.i.i.i.i.i = icmp eq i32 %134, 3
+  %135 = select i1 %cmp.i.i.i.i.i348, i1 %cmp2.i.i.i.i.i, i1 false
+  br i1 %135, label %if.then138, label %if.else143
 
 if.then138:                                       ; preds = %invoke.cont136
   invoke void @_ZN3smt7context15assert_distinctEP3appS2_(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef nonnull %n, ptr noundef %pr)
@@ -3072,11 +3072,11 @@ if.then138:                                       ; preds = %invoke.cont136
 
 invoke.cont141:                                   ; preds = %if.then138
   %m_relevancy_propagator.i350 = getelementptr inbounds i8, ptr %this, i64 7512
-  %135 = load ptr, ptr %m_relevancy_propagator.i350, align 8
-  %vtable.i351 = load ptr, ptr %135, align 8
+  %136 = load ptr, ptr %m_relevancy_propagator.i350, align 8
+  %vtable.i351 = load ptr, ptr %136, align 8
   %vfn.i352 = getelementptr inbounds i8, ptr %vtable.i351, i64 48
-  %136 = load ptr, ptr %vfn.i352, align 8
-  invoke void %136(ptr noundef nonnull align 8 dereferenceable(16) %135, ptr noundef nonnull %n)
+  %137 = load ptr, ptr %vfn.i352, align 8
+  invoke void %137(ptr noundef nonnull align 8 dereferenceable(16) %136, ptr noundef nonnull %n)
           to label %.noexc340.invoke unwind label %lpad.loopexit.split-lp
 
 if.else143:                                       ; preds = %land.rhs.i.i, %if.else, %invoke.cont136
@@ -6729,33 +6729,33 @@ lor.lhs.false.i.i37:                              ; preds = %if.then.i34
   br i1 %cmp5.i.i40, label %if.end24.sink.split.sink.split, label %if.end24.sink.split
 
 if.end24.sink.split.sink.split:                   ; preds = %if.then.i34, %lor.lhs.false.i.i37, %if.then.i, %lor.lhs.false.i.i13
-  %m_eq_propagation_queue.i.sink59 = phi ptr [ %m_eq_propagation_queue.i, %lor.lhs.false.i.i13 ], [ %m_eq_propagation_queue.i, %if.then.i ], [ %m_eq_propagation_queue.i35, %lor.lhs.false.i.i37 ], [ %m_eq_propagation_queue.i35, %if.then.i34 ]
+  %m_eq_propagation_queue.i35.sink59 = phi ptr [ %m_eq_propagation_queue.i, %lor.lhs.false.i.i13 ], [ %m_eq_propagation_queue.i, %if.then.i ], [ %m_eq_propagation_queue.i35, %lor.lhs.false.i.i37 ], [ %m_eq_propagation_queue.i35, %if.then.i34 ]
   %.sink.ph = phi ptr [ %11, %lor.lhs.false.i.i13 ], [ %11, %if.then.i ], [ %17, %lor.lhs.false.i.i37 ], [ %17, %if.then.i34 ]
-  %or.i30.sink.ph = phi i64 [ %or.i, %lor.lhs.false.i.i13 ], [ %or.i, %if.then.i ], [ %or.i30, %lor.lhs.false.i.i37 ], [ %or.i30, %if.then.i34 ]
-  tail call void @_ZN6vectorIN3smt7context6new_eqELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_eq_propagation_queue.i.sink59)
-  %.pre.i.i22 = load ptr, ptr %m_eq_propagation_queue.i.sink59, align 8
-  %arrayidx8.phi.trans.insert.i.i50 = getelementptr inbounds i8, ptr %.pre.i.i22, i64 -4
+  %or.i.sink.ph = phi i64 [ %or.i, %lor.lhs.false.i.i13 ], [ %or.i, %if.then.i ], [ %or.i30, %lor.lhs.false.i.i37 ], [ %or.i30, %if.then.i34 ]
+  tail call void @_ZN6vectorIN3smt7context6new_eqELb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_eq_propagation_queue.i35.sink59)
+  %.pre.i.i49 = load ptr, ptr %m_eq_propagation_queue.i35.sink59, align 8
+  %arrayidx8.phi.trans.insert.i.i50 = getelementptr inbounds i8, ptr %.pre.i.i49, i64 -4
   %.pre1.i.i51 = load i32, ptr %arrayidx8.phi.trans.insert.i.i50, align 4
   br label %if.end24.sink.split
 
 if.end24.sink.split:                              ; preds = %if.end24.sink.split.sink.split, %lor.lhs.false.i.i37, %lor.lhs.false.i.i13
   %.sink58 = phi i32 [ %14, %lor.lhs.false.i.i13 ], [ %20, %lor.lhs.false.i.i37 ], [ %.pre1.i.i51, %if.end24.sink.split.sink.split ]
-  %.sink57 = phi ptr [ %13, %lor.lhs.false.i.i13 ], [ %19, %lor.lhs.false.i.i37 ], [ %.pre.i.i22, %if.end24.sink.split.sink.split ]
+  %.sink57 = phi ptr [ %13, %lor.lhs.false.i.i13 ], [ %19, %lor.lhs.false.i.i37 ], [ %.pre.i.i49, %if.end24.sink.split.sink.split ]
   %.sink = phi ptr [ %11, %lor.lhs.false.i.i13 ], [ %17, %lor.lhs.false.i.i37 ], [ %.sink.ph, %if.end24.sink.split.sink.split ]
-  %or.i30.sink = phi i64 [ %or.i, %lor.lhs.false.i.i13 ], [ %or.i30, %lor.lhs.false.i.i37 ], [ %or.i30.sink.ph, %if.end24.sink.split.sink.split ]
-  %m_eq_propagation_queue.i35.sink = phi ptr [ %m_eq_propagation_queue.i, %lor.lhs.false.i.i13 ], [ %m_eq_propagation_queue.i35, %lor.lhs.false.i.i37 ], [ %m_eq_propagation_queue.i.sink59, %if.end24.sink.split.sink.split ]
-  %idx.ext.i.i42 = zext i32 %.sink58 to i64
-  %add.ptr.i.i43 = getelementptr inbounds %"struct.smt::context::new_eq", ptr %.sink57, i64 %idx.ext.i.i42
-  store ptr %n, ptr %add.ptr.i.i43, align 8
-  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i44 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 8
-  store ptr %.sink, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i44, align 8
-  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i45 = getelementptr inbounds i8, ptr %add.ptr.i.i43, i64 16
-  store i64 %or.i30.sink, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i45, align 8
-  %22 = load ptr, ptr %m_eq_propagation_queue.i35.sink, align 8
-  %arrayidx10.i.i46 = getelementptr inbounds i8, ptr %22, i64 -4
-  %23 = load i32, ptr %arrayidx10.i.i46, align 4
+  %or.i.sink = phi i64 [ %or.i, %lor.lhs.false.i.i13 ], [ %or.i30, %lor.lhs.false.i.i37 ], [ %or.i.sink.ph, %if.end24.sink.split.sink.split ]
+  %m_eq_propagation_queue.i.sink = phi ptr [ %m_eq_propagation_queue.i, %lor.lhs.false.i.i13 ], [ %m_eq_propagation_queue.i35, %lor.lhs.false.i.i37 ], [ %m_eq_propagation_queue.i35.sink59, %if.end24.sink.split.sink.split ]
+  %idx.ext.i.i17 = zext i32 %.sink58 to i64
+  %add.ptr.i.i18 = getelementptr inbounds %"struct.smt::context::new_eq", ptr %.sink57, i64 %idx.ext.i.i17
+  store ptr %n, ptr %add.ptr.i.i18, align 8
+  %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i18, i64 8
+  store ptr %.sink, ptr %ref.tmp.sroa.2.0.add.ptr.i.sroa_idx.i, align 8
+  %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i = getelementptr inbounds i8, ptr %add.ptr.i.i18, i64 16
+  store i64 %or.i.sink, ptr %ref.tmp.sroa.3.0.add.ptr.i.sroa_idx.i, align 8
+  %22 = load ptr, ptr %m_eq_propagation_queue.i.sink, align 8
+  %arrayidx10.i.i19 = getelementptr inbounds i8, ptr %22, i64 -4
+  %23 = load i32, ptr %arrayidx10.i.i19, align 4
   %inc.i.i20 = add i32 %23, 1
-  store i32 %inc.i.i20, ptr %arrayidx10.i.i46, align 4
+  store i32 %inc.i.i20, ptr %arrayidx10.i.i19, align 4
   br label %if.end24
 
 if.end24:                                         ; preds = %if.end24.sink.split, %if.end, %sw.bb7, %sw.bb14, %entry

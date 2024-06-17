@@ -1634,14 +1634,14 @@ if.then.i.i91:                                    ; preds = %lor.lhs.false.i.i83
 
 for.inc.sink.split:                               ; preds = %if.then.i.i91, %if.then.i.i68, %if.then.i.i44, %if.then.i.i
   %call.i75.sink.ph = phi ptr [ %4, %if.then.i.i ], [ %call.i28, %if.then.i.i44 ], [ %call.i51, %if.then.i.i68 ], [ %call.i75, %if.then.i.i91 ]
-  %.pre.i.i = load ptr, ptr %m_nodes.i, align 8
-  %arrayidx8.phi.trans.insert.i.i93 = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %.pre.i.i92 = load ptr, ptr %m_nodes.i, align 8
+  %arrayidx8.phi.trans.insert.i.i93 = getelementptr inbounds i8, ptr %.pre.i.i92, i64 -4
   %.pre1.i.i94 = load i32, ptr %arrayidx8.phi.trans.insert.i.i93, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i.i83, %lor.lhs.false.i.i60, %lor.lhs.false.i.i36, %lor.lhs.false.i.i
   %.sink112 = phi i32 [ %14, %lor.lhs.false.i.i ], [ %37, %lor.lhs.false.i.i36 ], [ %42, %lor.lhs.false.i.i60 ], [ %47, %lor.lhs.false.i.i83 ], [ %.pre1.i.i94, %for.inc.sink.split ]
-  %.sink = phi ptr [ %13, %lor.lhs.false.i.i ], [ %36, %lor.lhs.false.i.i36 ], [ %41, %lor.lhs.false.i.i60 ], [ %46, %lor.lhs.false.i.i83 ], [ %.pre.i.i, %for.inc.sink.split ]
+  %.sink = phi ptr [ %13, %lor.lhs.false.i.i ], [ %36, %lor.lhs.false.i.i36 ], [ %41, %lor.lhs.false.i.i60 ], [ %46, %lor.lhs.false.i.i83 ], [ %.pre.i.i92, %for.inc.sink.split ]
   %call.i75.sink = phi ptr [ %4, %lor.lhs.false.i.i ], [ %call.i28, %lor.lhs.false.i.i36 ], [ %call.i51, %lor.lhs.false.i.i60 ], [ %call.i75, %lor.lhs.false.i.i83 ], [ %call.i75.sink.ph, %for.inc.sink.split ]
   %idx.ext.i.i87 = zext i32 %.sink112 to i64
   %add.ptr.i.i88 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i87
@@ -9419,17 +9419,17 @@ terminate.lpad.i456:                              ; preds = %if.then2.i.i.i455
   unreachable
 
 cleanup212.sink.split:                            ; preds = %if.else77, %if.then.i.i.i.i105, %if.then48, %if.then.i.i.i.i89
-  %.sink531 = phi i32 [ %26, %if.then.i.i.i.i89 ], [ %26, %if.then48 ], [ %42, %if.then.i.i.i.i105 ], [ %42, %if.else77 ]
-  %m_data.i.i.i.i.i.i92 = getelementptr inbounds i8, ptr %this, i64 152
-  %200 = load ptr, ptr %m_data.i.i.i.i.i.i92, align 8
-  %div1.i.i.i.i.i.i93 = lshr i32 %.sink531, 5
-  %idxprom.i.i.i.i.i.i94 = zext nneg i32 %div1.i.i.i.i.i.i93 to i64
-  %arrayidx.i.i.i.i.i.i95 = getelementptr inbounds i32, ptr %200, i64 %idxprom.i.i.i.i.i.i94
-  %201 = load i32, ptr %arrayidx.i.i.i.i.i.i95, align 4
-  %rem.i.i.i.i.i.i112 = and i32 %.sink531, 31
+  %.sink529 = phi i32 [ %26, %if.then.i.i.i.i89 ], [ %26, %if.then48 ], [ %42, %if.then.i.i.i.i105 ], [ %42, %if.else77 ]
+  %m_data.i.i.i.i.i.i108 = getelementptr inbounds i8, ptr %this, i64 152
+  %200 = load ptr, ptr %m_data.i.i.i.i.i.i108, align 8
+  %div1.i.i.i.i.i.i109 = lshr i32 %.sink529, 5
+  %idxprom.i.i.i.i.i.i110 = zext nneg i32 %div1.i.i.i.i.i.i109 to i64
+  %arrayidx.i.i.i.i.i.i111 = getelementptr inbounds i32, ptr %200, i64 %idxprom.i.i.i.i.i.i110
+  %201 = load i32, ptr %arrayidx.i.i.i.i.i.i111, align 4
+  %rem.i.i.i.i.i.i112 = and i32 %.sink529, 31
   %shl.i.i.i.i.i.i113 = shl nuw i32 1, %rem.i.i.i.i.i.i112
   %xor4.i.i.i.i.i114 = or i32 %201, %shl.i.i.i.i.i.i113
-  store i32 %xor4.i.i.i.i.i114, ptr %arrayidx.i.i.i.i.i.i95, align 4
+  store i32 %xor4.i.i.i.i.i114, ptr %arrayidx.i.i.i.i.i.i111, align 4
   br label %cleanup212
 
 cleanup212:                                       ; preds = %cleanup212.sink.split, %if.then2.i.i.i455, %if.then.i.i.i450, %_ZN7obj_refI4expr11ast_managerED2Ev.exit448, %if.then65, %if.then71
@@ -9506,16 +9506,16 @@ terminate.lpad.i478:                              ; preds = %.noexc.i, %if.then.
 
 cleanup218.sink.split:                            ; preds = %if.then30, %if.then.i.i.i.i74, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i, %if.then.i.i.i4.i
   %.sink532 = phi i32 [ %9, %if.then.i.i.i4.i ], [ %9, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit.i ], [ %23, %if.then.i.i.i.i74 ], [ %23, %if.then30 ]
-  %m_data.i.i.i.i.i6.i = getelementptr inbounds i8, ptr %this, i64 152
-  %216 = load ptr, ptr %m_data.i.i.i.i.i6.i, align 8
-  %div1.i.i.i.i.i7.i = lshr i32 %.sink532, 5
-  %idxprom.i.i.i.i.i8.i = zext nneg i32 %div1.i.i.i.i.i7.i to i64
-  %arrayidx.i.i.i.i.i9.i = getelementptr inbounds i32, ptr %216, i64 %idxprom.i.i.i.i.i8.i
-  %217 = load i32, ptr %arrayidx.i.i.i.i.i9.i, align 4
+  %m_data.i.i.i.i.i.i77 = getelementptr inbounds i8, ptr %this, i64 152
+  %216 = load ptr, ptr %m_data.i.i.i.i.i.i77, align 8
+  %div1.i.i.i.i.i.i78 = lshr i32 %.sink532, 5
+  %idxprom.i.i.i.i.i.i79 = zext nneg i32 %div1.i.i.i.i.i.i78 to i64
+  %arrayidx.i.i.i.i.i.i80 = getelementptr inbounds i32, ptr %216, i64 %idxprom.i.i.i.i.i.i79
+  %217 = load i32, ptr %arrayidx.i.i.i.i.i.i80, align 4
   %rem.i.i.i.i.i.i81 = and i32 %.sink532, 31
   %shl.i.i.i.i.i.i82 = shl nuw i32 1, %rem.i.i.i.i.i.i81
   %xor4.i.i.i.i.i83 = or i32 %217, %shl.i.i.i.i.i.i82
-  store i32 %xor4.i.i.i.i.i83, ptr %arrayidx.i.i.i.i.i9.i, align 4
+  store i32 %xor4.i.i.i.i.i83, ptr %arrayidx.i.i.i.i.i.i80, align 4
   br label %cleanup218
 
 cleanup218:                                       ; preds = %cleanup218.sink.split, %.noexc.i, %_ZN7obj_refI4expr11ast_managerED2Ev.exit475
@@ -12548,10 +12548,10 @@ invoke.cont39:                                    ; preds = %if.then.i.i.i.i, %i
 
 if.end44.sink.split:                              ; preds = %invoke.cont39, %invoke.cont34, %if.then18, %if.then
   %.sink122 = phi ptr [ %11, %if.then ], [ %19, %if.then18 ], [ %call2.i64, %invoke.cont34 ], [ %36, %invoke.cont39 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink122, i64 8
-  %37 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %m_ref_count.i.i.i83 = getelementptr inbounds i8, ptr %.sink122, i64 8
+  %37 = load i32, ptr %m_ref_count.i.i.i83, align 4
   %inc.i.i.i84 = add i32 %37, 1
-  store i32 %inc.i.i.i84, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i84, ptr %m_ref_count.i.i.i83, align 4
   br label %if.end44
 
 if.end44:                                         ; preds = %if.end44.sink.split, %invoke.cont39, %invoke.cont34, %if.then18, %if.then
@@ -13537,78 +13537,78 @@ for.end21:                                        ; preds = %for.cond12.preheade
   unreachable
 
 for.inc23.sink.split:                             ; preds = %for.body8, %for.body14
-  %target_curr.068.sink109 = phi ptr [ %target_curr.170, %for.body14 ], [ %target_curr.068, %for.body8 ]
-  store ptr %0, ptr %target_curr.068.sink109, align 8
-  %m_value.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 8
-  %m_value3.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 8
-  %4 = load i32, ptr %m_value.i.i, align 4
-  %5 = load i32, ptr %m_value3.i.i, align 4
-  store i32 %5, ptr %m_value.i.i, align 4
-  store i32 %4, ptr %m_value3.i.i, align 4
-  %m_ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 16
-  %m_ptr3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 16
-  %6 = load ptr, ptr %m_ptr.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %m_ptr3.i.i.i.i.i.i, align 8
-  store ptr %7, ptr %m_ptr.i.i.i.i.i.i, align 8
-  store ptr %6, ptr %m_ptr3.i.i.i.i.i.i, align 8
-  %m_owner.i.i.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 12
-  %bf.load.i.i.i.i.i.i = load i8, ptr %m_owner.i.i.i.i.i.i, align 4
-  %bf.clear.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i, 2
-  %m_owner4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 12
-  %bf.load5.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i, align 4
-  %bf.clear7.i.i.i.i.i.i = and i8 %bf.load5.i.i.i.i.i.i, 2
-  %bf.clear11.i.i.i.i.i.i = and i8 %bf.load.i.i.i.i.i.i, -3
-  %bf.set.i.i.i.i.i.i = or disjoint i8 %bf.clear7.i.i.i.i.i.i, %bf.clear11.i.i.i.i.i.i
-  store i8 %bf.set.i.i.i.i.i.i, ptr %m_owner.i.i.i.i.i.i, align 4
-  %bf.load13.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i, align 4
-  %bf.clear16.i.i.i.i.i.i = and i8 %bf.load13.i.i.i.i.i.i, -3
-  %bf.set17.i.i.i.i.i.i = or disjoint i8 %bf.clear16.i.i.i.i.i.i, %bf.clear.i.i.i.i.i.i
-  store i8 %bf.set17.i.i.i.i.i.i, ptr %m_owner4.i.i.i.i.i.i, align 4
-  %bf.load18.i.i.i.i.i.i = load i8, ptr %m_owner.i.i.i.i.i.i, align 4
-  %bf.clear19.i.i.i.i.i.i = and i8 %bf.load18.i.i.i.i.i.i, 1
-  %bf.clear23.i.i.i.i.i.i = and i8 %bf.load13.i.i.i.i.i.i, 1
-  %bf.clear28.i.i.i.i.i.i = and i8 %bf.load18.i.i.i.i.i.i, -2
-  %bf.set29.i.i.i.i.i.i = or disjoint i8 %bf.clear28.i.i.i.i.i.i, %bf.clear23.i.i.i.i.i.i
-  store i8 %bf.set29.i.i.i.i.i.i, ptr %m_owner.i.i.i.i.i.i, align 4
-  %bf.load31.i.i.i.i.i.i = load i8, ptr %m_owner4.i.i.i.i.i.i, align 4
-  %bf.clear33.i.i.i.i.i.i = and i8 %bf.load31.i.i.i.i.i.i, -2
-  %bf.set34.i.i.i.i.i.i = or disjoint i8 %bf.clear33.i.i.i.i.i.i, %bf.clear19.i.i.i.i.i.i
-  store i8 %bf.set34.i.i.i.i.i.i, ptr %m_owner4.i.i.i.i.i.i, align 4
-  %m_den.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 24
-  %m_den3.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 24
-  %8 = load i32, ptr %m_den.i.i.i.i, align 4
-  %9 = load i32, ptr %m_den3.i.i.i.i, align 4
-  store i32 %9, ptr %m_den.i.i.i.i, align 4
-  store i32 %8, ptr %m_den3.i.i.i.i, align 4
-  %m_ptr.i.i2.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 32
-  %m_ptr3.i.i3.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 32
-  %10 = load ptr, ptr %m_ptr.i.i2.i.i.i.i, align 8
-  %11 = load ptr, ptr %m_ptr3.i.i3.i.i.i.i, align 8
-  store ptr %11, ptr %m_ptr.i.i2.i.i.i.i, align 8
-  store ptr %10, ptr %m_ptr3.i.i3.i.i.i.i, align 8
-  %m_owner.i.i4.i.i.i.i = getelementptr inbounds i8, ptr %target_curr.068.sink109, i64 28
-  %bf.load.i.i5.i.i.i.i = load i8, ptr %m_owner.i.i4.i.i.i.i, align 4
-  %m_owner4.i.i7.i.i.i.i = getelementptr inbounds i8, ptr %source_curr.072, i64 28
-  %bf.load5.i.i8.i.i.i.i = load i8, ptr %m_owner4.i.i7.i.i.i.i, align 4
-  %bf.clear7.i.i9.i.i.i.i = and i8 %bf.load5.i.i8.i.i.i.i, 2
-  %bf.clear11.i.i10.i.i.i.i = and i8 %bf.load.i.i5.i.i.i.i, -3
-  %bf.set.i.i11.i.i.i.i = or disjoint i8 %bf.clear7.i.i9.i.i.i.i, %bf.clear11.i.i10.i.i.i.i
-  store i8 %bf.set.i.i11.i.i.i.i, ptr %m_owner.i.i4.i.i.i.i, align 4
-  %bf.load13.i.i12.i.i.i.i.sink = load i8, ptr %m_owner4.i.i7.i.i.i.i, align 4
-  %bf.clear.i.i6.i.i.i.i.sink = and i8 %bf.load.i.i5.i.i.i.i, 2
-  %bf.clear16.i.i13.i.i.i.i = and i8 %bf.load13.i.i12.i.i.i.i.sink, -3
-  %bf.set17.i.i14.i.i.i.i = or disjoint i8 %bf.clear16.i.i13.i.i.i.i, %bf.clear.i.i6.i.i.i.i.sink
-  store i8 %bf.set17.i.i14.i.i.i.i, ptr %m_owner4.i.i7.i.i.i.i, align 4
-  %bf.load18.i.i15.i.i.i.i = load i8, ptr %m_owner.i.i4.i.i.i.i, align 4
-  %bf.clear19.i.i16.i.i.i.i58 = and i8 %bf.load18.i.i15.i.i.i.i, 1
-  %bf.clear23.i.i17.i.i.i.i59 = and i8 %bf.load13.i.i12.i.i.i.i.sink, 1
-  %bf.clear28.i.i18.i.i.i.i60 = and i8 %bf.load18.i.i15.i.i.i.i, -2
+  %target_curr.170.lcssa.sink116 = phi ptr [ %target_curr.170, %for.body14 ], [ %target_curr.068, %for.body8 ]
+  store ptr %0, ptr %target_curr.170.lcssa.sink116, align 8
+  %m_value.i.i19 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 8
+  %m_value3.i.i20 = getelementptr inbounds i8, ptr %source_curr.072, i64 8
+  %4 = load i32, ptr %m_value.i.i19, align 4
+  %5 = load i32, ptr %m_value3.i.i20, align 4
+  store i32 %5, ptr %m_value.i.i19, align 4
+  store i32 %4, ptr %m_value3.i.i20, align 4
+  %m_ptr.i.i.i.i.i.i21 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 16
+  %m_ptr3.i.i.i.i.i.i22 = getelementptr inbounds i8, ptr %source_curr.072, i64 16
+  %6 = load ptr, ptr %m_ptr.i.i.i.i.i.i21, align 8
+  %7 = load ptr, ptr %m_ptr3.i.i.i.i.i.i22, align 8
+  store ptr %7, ptr %m_ptr.i.i.i.i.i.i21, align 8
+  store ptr %6, ptr %m_ptr3.i.i.i.i.i.i22, align 8
+  %m_owner.i.i.i.i.i.i23 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 12
+  %bf.load.i.i.i.i.i.i24 = load i8, ptr %m_owner.i.i.i.i.i.i23, align 4
+  %bf.clear.i.i.i.i.i.i25 = and i8 %bf.load.i.i.i.i.i.i24, 2
+  %m_owner4.i.i.i.i.i.i26 = getelementptr inbounds i8, ptr %source_curr.072, i64 12
+  %bf.load5.i.i.i.i.i.i27 = load i8, ptr %m_owner4.i.i.i.i.i.i26, align 4
+  %bf.clear7.i.i.i.i.i.i28 = and i8 %bf.load5.i.i.i.i.i.i27, 2
+  %bf.clear11.i.i.i.i.i.i29 = and i8 %bf.load.i.i.i.i.i.i24, -3
+  %bf.set.i.i.i.i.i.i30 = or disjoint i8 %bf.clear7.i.i.i.i.i.i28, %bf.clear11.i.i.i.i.i.i29
+  store i8 %bf.set.i.i.i.i.i.i30, ptr %m_owner.i.i.i.i.i.i23, align 4
+  %bf.load13.i.i.i.i.i.i31 = load i8, ptr %m_owner4.i.i.i.i.i.i26, align 4
+  %bf.clear16.i.i.i.i.i.i32 = and i8 %bf.load13.i.i.i.i.i.i31, -3
+  %bf.set17.i.i.i.i.i.i33 = or disjoint i8 %bf.clear16.i.i.i.i.i.i32, %bf.clear.i.i.i.i.i.i25
+  store i8 %bf.set17.i.i.i.i.i.i33, ptr %m_owner4.i.i.i.i.i.i26, align 4
+  %bf.load18.i.i.i.i.i.i34 = load i8, ptr %m_owner.i.i.i.i.i.i23, align 4
+  %bf.clear19.i.i.i.i.i.i35 = and i8 %bf.load18.i.i.i.i.i.i34, 1
+  %bf.clear23.i.i.i.i.i.i36 = and i8 %bf.load13.i.i.i.i.i.i31, 1
+  %bf.clear28.i.i.i.i.i.i37 = and i8 %bf.load18.i.i.i.i.i.i34, -2
+  %bf.set29.i.i.i.i.i.i38 = or disjoint i8 %bf.clear28.i.i.i.i.i.i37, %bf.clear23.i.i.i.i.i.i36
+  store i8 %bf.set29.i.i.i.i.i.i38, ptr %m_owner.i.i.i.i.i.i23, align 4
+  %bf.load31.i.i.i.i.i.i39 = load i8, ptr %m_owner4.i.i.i.i.i.i26, align 4
+  %bf.clear33.i.i.i.i.i.i40 = and i8 %bf.load31.i.i.i.i.i.i39, -2
+  %bf.set34.i.i.i.i.i.i41 = or disjoint i8 %bf.clear33.i.i.i.i.i.i40, %bf.clear19.i.i.i.i.i.i35
+  store i8 %bf.set34.i.i.i.i.i.i41, ptr %m_owner4.i.i.i.i.i.i26, align 4
+  %m_den.i.i.i.i42 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 24
+  %m_den3.i.i.i.i43 = getelementptr inbounds i8, ptr %source_curr.072, i64 24
+  %8 = load i32, ptr %m_den.i.i.i.i42, align 4
+  %9 = load i32, ptr %m_den3.i.i.i.i43, align 4
+  store i32 %9, ptr %m_den.i.i.i.i42, align 4
+  store i32 %8, ptr %m_den3.i.i.i.i43, align 4
+  %m_ptr.i.i2.i.i.i.i44 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 32
+  %m_ptr3.i.i3.i.i.i.i45 = getelementptr inbounds i8, ptr %source_curr.072, i64 32
+  %10 = load ptr, ptr %m_ptr.i.i2.i.i.i.i44, align 8
+  %11 = load ptr, ptr %m_ptr3.i.i3.i.i.i.i45, align 8
+  store ptr %11, ptr %m_ptr.i.i2.i.i.i.i44, align 8
+  store ptr %10, ptr %m_ptr3.i.i3.i.i.i.i45, align 8
+  %m_owner.i.i4.i.i.i.i46 = getelementptr inbounds i8, ptr %target_curr.170.lcssa.sink116, i64 28
+  %bf.load.i.i5.i.i.i.i47 = load i8, ptr %m_owner.i.i4.i.i.i.i46, align 4
+  %bf.clear.i.i6.i.i.i.i48 = and i8 %bf.load.i.i5.i.i.i.i47, 2
+  %m_owner4.i.i7.i.i.i.i49 = getelementptr inbounds i8, ptr %source_curr.072, i64 28
+  %bf.load5.i.i8.i.i.i.i50 = load i8, ptr %m_owner4.i.i7.i.i.i.i49, align 4
+  %bf.clear7.i.i9.i.i.i.i51 = and i8 %bf.load5.i.i8.i.i.i.i50, 2
+  %bf.clear11.i.i10.i.i.i.i52 = and i8 %bf.load.i.i5.i.i.i.i47, -3
+  %bf.set.i.i11.i.i.i.i53 = or disjoint i8 %bf.clear7.i.i9.i.i.i.i51, %bf.clear11.i.i10.i.i.i.i52
+  store i8 %bf.set.i.i11.i.i.i.i53, ptr %m_owner.i.i4.i.i.i.i46, align 4
+  %bf.load13.i.i12.i.i.i.i54 = load i8, ptr %m_owner4.i.i7.i.i.i.i49, align 4
+  %bf.clear16.i.i13.i.i.i.i55 = and i8 %bf.load13.i.i12.i.i.i.i54, -3
+  %bf.set17.i.i14.i.i.i.i56 = or disjoint i8 %bf.clear16.i.i13.i.i.i.i55, %bf.clear.i.i6.i.i.i.i48
+  store i8 %bf.set17.i.i14.i.i.i.i56, ptr %m_owner4.i.i7.i.i.i.i49, align 4
+  %bf.load18.i.i15.i.i.i.i57 = load i8, ptr %m_owner.i.i4.i.i.i.i46, align 4
+  %bf.clear19.i.i16.i.i.i.i58 = and i8 %bf.load18.i.i15.i.i.i.i57, 1
+  %bf.clear23.i.i17.i.i.i.i59 = and i8 %bf.load13.i.i12.i.i.i.i54, 1
+  %bf.clear28.i.i18.i.i.i.i60 = and i8 %bf.load18.i.i15.i.i.i.i57, -2
   %bf.set29.i.i19.i.i.i.i61 = or disjoint i8 %bf.clear28.i.i18.i.i.i.i60, %bf.clear23.i.i17.i.i.i.i59
-  store i8 %bf.set29.i.i19.i.i.i.i61, ptr %m_owner.i.i4.i.i.i.i, align 4
-  %bf.load31.i.i20.i.i.i.i62 = load i8, ptr %m_owner4.i.i7.i.i.i.i, align 4
+  store i8 %bf.set29.i.i19.i.i.i.i61, ptr %m_owner.i.i4.i.i.i.i46, align 4
+  %bf.load31.i.i20.i.i.i.i62 = load i8, ptr %m_owner4.i.i7.i.i.i.i49, align 4
   %bf.clear33.i.i21.i.i.i.i63 = and i8 %bf.load31.i.i20.i.i.i.i62, -2
   %bf.set34.i.i22.i.i.i.i64 = or disjoint i8 %bf.clear33.i.i21.i.i.i.i63, %bf.clear19.i.i16.i.i.i.i58
-  store i8 %bf.set34.i.i22.i.i.i.i64, ptr %m_owner4.i.i7.i.i.i.i, align 4
+  store i8 %bf.set34.i.i22.i.i.i.i64, ptr %m_owner4.i.i7.i.i.i.i49, align 4
   br label %for.inc23
 
 for.inc23:                                        ; preds = %for.inc23.sink.split, %for.body
@@ -16581,29 +16581,29 @@ if.else13:                                        ; preds = %if.then.i.i.i.i.i27
   br label %if.end16
 
 if.end16:                                         ; preds = %if.then9, %if.else13, %if.then12, %if.then2, %if.else5, %if.then4
-  %m_kind.i.i.i.i.i.i.i.sink375 = phi ptr [ %m_kind.i.i.i.i.i.i.i, %if.then9 ], [ %m_kind.i.i.i.i.i.i.i251, %if.else13 ], [ %m_owner4.i.i8.i.i.i.i310, %if.then12 ], [ %m_kind.i.i.i.i.i.i.i20, %if.then2 ], [ %m_kind.i.i.i.i.i.i.i, %if.else5 ], [ %m_owner4.i.i8.i.i.i.i114, %if.then4 ]
-  %m_owner.i.i5.i.i.i.i231.sink = getelementptr inbounds i8, ptr %__result, i64 20
-  %bf.load.i.i6.i.i.i.i232.sink = load i8, ptr %m_owner.i.i5.i.i.i.i231.sink, align 4
+  %m_kind.i.i.i.i.i.i.i.sink377 = phi ptr [ %m_kind.i.i.i.i.i.i.i, %if.then9 ], [ %m_kind.i.i.i.i.i.i.i251, %if.else13 ], [ %m_owner4.i.i8.i.i.i.i310, %if.then12 ], [ %m_kind.i.i.i.i.i.i.i20, %if.then2 ], [ %m_kind.i.i.i.i.i.i.i, %if.else5 ], [ %m_owner4.i.i8.i.i.i.i114, %if.then4 ]
+  %m_owner.i.i5.i.i.i.i231.sink376 = getelementptr inbounds i8, ptr %__result, i64 20
+  %bf.load.i.i6.i.i.i.i232.sink = load i8, ptr %m_owner.i.i5.i.i.i.i231.sink376, align 4
   %bf.clear.i.i7.i.i.i.i233.sink = and i8 %bf.load.i.i6.i.i.i.i232.sink, 2
-  %bf.load5.i.i9.i.i.i.i235 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink375, align 4
+  %bf.load5.i.i9.i.i.i.i235 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink377, align 4
   %bf.clear7.i.i10.i.i.i.i236 = and i8 %bf.load5.i.i9.i.i.i.i235, 2
   %bf.clear11.i.i11.i.i.i.i237 = and i8 %bf.load.i.i6.i.i.i.i232.sink, -3
   %bf.set.i.i12.i.i.i.i238 = or disjoint i8 %bf.clear7.i.i10.i.i.i.i236, %bf.clear11.i.i11.i.i.i.i237
-  store i8 %bf.set.i.i12.i.i.i.i238, ptr %m_owner.i.i5.i.i.i.i231.sink, align 4
-  %bf.load13.i.i13.i.i.i.i239 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink375, align 4
+  store i8 %bf.set.i.i12.i.i.i.i238, ptr %m_owner.i.i5.i.i.i.i231.sink376, align 4
+  %bf.load13.i.i13.i.i.i.i239 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink377, align 4
   %bf.clear16.i.i14.i.i.i.i240 = and i8 %bf.load13.i.i13.i.i.i.i239, -3
   %bf.set17.i.i15.i.i.i.i241 = or disjoint i8 %bf.clear16.i.i14.i.i.i.i240, %bf.clear.i.i7.i.i.i.i233.sink
-  store i8 %bf.set17.i.i15.i.i.i.i241, ptr %m_kind.i.i.i.i.i.i.i.sink375, align 4
-  %bf.load18.i.i16.i.i.i.i242 = load i8, ptr %m_owner.i.i5.i.i.i.i231.sink, align 4
+  store i8 %bf.set17.i.i15.i.i.i.i241, ptr %m_kind.i.i.i.i.i.i.i.sink377, align 4
+  %bf.load18.i.i16.i.i.i.i242 = load i8, ptr %m_owner.i.i5.i.i.i.i231.sink376, align 4
   %bf.clear19.i.i17.i.i.i.i243 = and i8 %bf.load18.i.i16.i.i.i.i242, 1
   %bf.clear23.i.i18.i.i.i.i244 = and i8 %bf.load13.i.i13.i.i.i.i239, 1
   %bf.clear28.i.i19.i.i.i.i245 = and i8 %bf.load18.i.i16.i.i.i.i242, -2
   %bf.set29.i.i20.i.i.i.i246 = or disjoint i8 %bf.clear28.i.i19.i.i.i.i245, %bf.clear23.i.i18.i.i.i.i244
-  store i8 %bf.set29.i.i20.i.i.i.i246, ptr %m_owner.i.i5.i.i.i.i231.sink, align 4
-  %bf.load31.i.i21.i.i.i.i247 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink375, align 4
+  store i8 %bf.set29.i.i20.i.i.i.i246, ptr %m_owner.i.i5.i.i.i.i231.sink376, align 4
+  %bf.load31.i.i21.i.i.i.i247 = load i8, ptr %m_kind.i.i.i.i.i.i.i.sink377, align 4
   %bf.clear33.i.i22.i.i.i.i248 = and i8 %bf.load31.i.i21.i.i.i.i247, -2
   %bf.set34.i.i23.i.i.i.i249 = or disjoint i8 %bf.clear33.i.i22.i.i.i.i248, %bf.clear19.i.i17.i.i.i.i243
-  store i8 %bf.set34.i.i23.i.i.i.i249, ptr %m_kind.i.i.i.i.i.i.i.sink375, align 4
+  store i8 %bf.set34.i.i23.i.i.i.i249, ptr %m_kind.i.i.i.i.i.i.i.sink377, align 4
   ret void
 }
 

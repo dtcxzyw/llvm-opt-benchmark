@@ -2073,13 +2073,13 @@ switch.lookup:                                    ; preds = %6
   %switch.gep = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep110 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 0, i64 %9
-  %switch.load111 = load ptr, ptr %switch.gep110, align 8
+  %switch.gep119 = getelementptr inbounds [10 x ptr], ptr @switch.table.dissect_e212_mcc_mnc_wmem_packet_str.1, i64 0, i64 %9
+  %switch.load120 = load ptr, ptr %switch.gep119, align 8
   br label %10
 
 10:                                               ; preds = %6, %switch.lookup
   %.0103.in = phi ptr [ %switch.load, %switch.lookup ], [ @hf_E212_mcc, %6 ]
-  %.0.in = phi ptr [ %switch.load111, %switch.lookup ], [ @hf_E212_mnc, %6 ]
+  %.0.in = phi ptr [ %switch.load120, %switch.lookup ], [ @hf_E212_mnc, %6 ]
   %.0 = load i32, ptr %.0.in, align 4
   %.0103 = load i32, ptr %.0103.in, align 4
   %11 = tail call i32 @tvb_get_ntoh24(ptr noundef %0, i32 noundef %3) #3
@@ -2147,55 +2147,39 @@ switch.lookup:                                    ; preds = %6
 
 54:                                               ; preds = %42, %52
   %55 = load ptr, ptr %43, align 8
-  br i1 %or.cond, label %56, label %66
+  %.str.3..str.8 = select i1 %or.cond, ptr @.str.3, ptr @.str.8
+  %. = select i1 %or.cond, i32 1000, i32 100
+  %mcc_mnc_3digits_codes_ext.mcc_mnc_2digits_codes_ext = select i1 %or.cond, ptr @mcc_mnc_3digits_codes_ext, ptr @mcc_mnc_2digits_codes_ext
+  %.str.6..str.9 = select i1 %or.cond, ptr @.str.6, ptr @.str.9
+  %56 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %55, ptr noundef nonnull %.str.3..str.8, i32 noundef %.0107.in) #3
+  %57 = mul nuw nsw i32 %28, %.
+  %58 = add nuw nsw i32 %.0107.in, %57
+  %59 = tail call ptr @val_to_str_ext_const(i32 noundef %58, ptr noundef nonnull %mcc_mnc_3digits_codes_ext.mcc_mnc_2digits_codes_ext, ptr noundef nonnull @.str.5) #3
+  %60 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %.0, ptr noundef %0, i32 noundef %15, i32 noundef 2, ptr noundef %56, ptr noundef nonnull @.str.4, ptr noundef %59, ptr noundef %56) #3
+  %61 = load ptr, ptr %43, align 8
+  %62 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.7) #3
+  %63 = tail call ptr @val_to_str_ext_const(i32 noundef %58, ptr noundef nonnull %mcc_mnc_3digits_codes_ext.mcc_mnc_2digits_codes_ext, ptr noundef nonnull @.str.7) #3
+  %64 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %61, ptr noundef nonnull %.str.6..str.9, i32 noundef %28, ptr noundef %62, i32 noundef %.0107.in, ptr noundef %63) #3
+  %65 = icmp ugt i8 %21, 9
+  %66 = icmp ugt i8 %20, -97
+  %or.cond12 = or i1 %66, %65
+  br i1 %or.cond12, label %69, label %67
 
-56:                                               ; preds = %54
-  %57 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %55, ptr noundef nonnull @.str.3, i32 noundef %.0107.in) #3
-  %58 = mul nuw nsw i32 %28, 1000
-  %59 = add nuw nsw i32 %.0107.in, %58
-  %60 = tail call ptr @val_to_str_ext_const(i32 noundef %59, ptr noundef nonnull @mcc_mnc_3digits_codes_ext, ptr noundef nonnull @.str.5) #3
-  %61 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %.0, ptr noundef %0, i32 noundef %15, i32 noundef 2, ptr noundef %57, ptr noundef nonnull @.str.4, ptr noundef %60, ptr noundef %57) #3
-  %62 = load ptr, ptr %43, align 8
-  %63 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.7) #3
-  %64 = tail call ptr @val_to_str_ext_const(i32 noundef %59, ptr noundef nonnull @mcc_mnc_3digits_codes_ext, ptr noundef nonnull @.str.7) #3
-  %65 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %62, ptr noundef nonnull @.str.6, i32 noundef %28, ptr noundef %63, i32 noundef %.0107.in, ptr noundef %64) #3
-  br label %76
-
-66:                                               ; preds = %54
-  %67 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %55, ptr noundef nonnull @.str.8, i32 noundef %.0107.in) #3
-  %68 = mul nuw nsw i32 %28, 100
-  %69 = add nuw nsw i32 %.0107.in, %68
-  %70 = tail call ptr @val_to_str_ext_const(i32 noundef %69, ptr noundef nonnull @mcc_mnc_2digits_codes_ext, ptr noundef nonnull @.str.5) #3
-  %71 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %2, i32 noundef %.0, ptr noundef %0, i32 noundef %15, i32 noundef 2, ptr noundef %67, ptr noundef nonnull @.str.4, ptr noundef %70, ptr noundef %67) #3
-  %72 = load ptr, ptr %43, align 8
-  %73 = tail call ptr @val_to_str_ext_const(i32 noundef %28, ptr noundef nonnull @E212_codes_ext, ptr noundef nonnull @.str.7) #3
-  %74 = tail call ptr @val_to_str_ext_const(i32 noundef %69, ptr noundef nonnull @mcc_mnc_2digits_codes_ext, ptr noundef nonnull @.str.7) #3
-  %75 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %72, ptr noundef nonnull @.str.9, i32 noundef %28, ptr noundef %73, i32 noundef %.0107.in, ptr noundef %74) #3
-  br label %76
-
-76:                                               ; preds = %66, %56
-  %.0106 = phi ptr [ %61, %56 ], [ %71, %66 ]
-  %.0105 = phi ptr [ %65, %56 ], [ %75, %66 ]
-  %77 = icmp ugt i8 %21, 9
-  %78 = icmp ugt i8 %20, -97
-  %or.cond12 = or i1 %78, %77
-  br i1 %or.cond12, label %81, label %79
-
-79:                                               ; preds = %76
-  %80 = icmp ugt i8 %16, -97
-  %or.cond15 = and i1 %80, %33
+67:                                               ; preds = %54
+  %68 = icmp ugt i8 %16, -97
+  %or.cond15 = and i1 %68, %33
   %or.cond17 = select i1 %or.cond15, i1 %51, i1 false
-  br i1 %or.cond17, label %82, label %84
+  br i1 %or.cond17, label %70, label %72
 
-81:                                               ; preds = %76
-  br i1 %51, label %82, label %84
+69:                                               ; preds = %54
+  br i1 %51, label %70, label %72
 
-82:                                               ; preds = %79, %81
-  %83 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %.0106, ptr noundef nonnull @ei_E212_mnc_non_decimal) #3
-  br label %84
+70:                                               ; preds = %67, %69
+  %71 = tail call ptr @expert_add_info(ptr noundef nonnull %1, ptr noundef %60, ptr noundef nonnull @ei_E212_mnc_non_decimal) #3
+  br label %72
 
-84:                                               ; preds = %82, %81, %79
-  ret ptr %.0105
+72:                                               ; preds = %70, %69, %67
+  ret ptr %64
 }
 
 declare i32 @tvb_get_ntoh24(ptr noundef, i32 noundef) local_unnamed_addr #0

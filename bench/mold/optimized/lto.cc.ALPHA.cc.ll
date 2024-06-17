@@ -560,7 +560,7 @@ entry:
   %strtab = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp78 = alloca %"class.std::allocator", align 1
   %ref.tmp87.sroa.2 = alloca i16, align 2
-  %ref.tmp87.sroa.9 = alloca i16, align 2
+  %ref.tmp87.sroa.8 = alloca i16, align 2
   %.b37 = load i1, ptr @_ZN4mold3elfL20is_gcc_linker_api_v1E, align 1
   br i1 %.b37, label %if.end, label %if.else4.i
 
@@ -1028,7 +1028,7 @@ for.body84:                                       ; preds = %_ZNSt6vectorIN4mold
   %add.ptr.i68 = getelementptr inbounds %"struct.mold::PluginSymbol", ptr %45, i64 %i.0122
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
   store i16 0, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  store i16 0, ptr %ref.tmp87.sroa.9, align 2, !alias.scope !14
+  store i16 0, ptr %ref.tmp87.sroa.8, align 2, !alias.scope !14
   %def.i = getelementptr inbounds i8, ptr %add.ptr.i68, i64 16
   %46 = load i8, ptr %def.i, align 8, !noalias !14
   switch i8 %46, label %sw.epilog.i [
@@ -1039,7 +1039,7 @@ for.body84:                                       ; preds = %_ZNSt6vectorIN4mold
   ]
 
 sw.bb1.i:                                         ; preds = %for.body84
-  store i16 -15, ptr %ref.tmp87.sroa.9, align 2, !alias.scope !14
+  store i16 -15, ptr %ref.tmp87.sroa.8, align 2, !alias.scope !14
   br label %sw.epilog.sink.split.i
 
 sw.bb7.i:                                         ; preds = %for.body84
@@ -1049,7 +1049,7 @@ sw.bb14.i:                                        ; preds = %for.body84
   br label %sw.epilog.sink.split.i
 
 sw.epilog.sink.split.i:                           ; preds = %sw.bb14.i, %sw.bb7.i, %sw.bb1.i, %for.body84
-  %.sink6.i.sroa.phi = phi ptr [ %ref.tmp87.sroa.9, %sw.bb14.i ], [ %ref.tmp87.sroa.2, %sw.bb7.i ], [ %ref.tmp87.sroa.2, %sw.bb1.i ], [ %ref.tmp87.sroa.9, %for.body84 ]
+  %.sink6.i.sroa.phi = phi ptr [ %ref.tmp87.sroa.8, %sw.bb14.i ], [ %ref.tmp87.sroa.2, %sw.bb7.i ], [ %ref.tmp87.sroa.2, %sw.bb1.i ], [ %ref.tmp87.sroa.8, %for.body84 ]
   %.sink.i = phi i16 [ -14, %sw.bb14.i ], [ 32, %sw.bb7.i ], [ 32, %sw.bb1.i ], [ -15, %for.body84 ]
   %bf.load25.ph.i = phi i16 [ 0, %sw.bb14.i ], [ 32, %sw.bb7.i ], [ 32, %sw.bb1.i ], [ 0, %for.body84 ]
   store i16 %.sink.i, ptr %.sink6.i.sroa.phi, align 2, !alias.scope !14
@@ -1061,21 +1061,20 @@ sw.epilog.i:                                      ; preds = %sw.epilog.sink.spli
   %47 = load i8, ptr %symbol_type.i, align 1, !noalias !14
   switch i8 %47, label %sw.epilog28.i [
     i8 2, label %sw.bb23.i
-    i8 1, label %sw.bb19.i
+    i8 1, label %sw.epilog28.sink.split.i
   ]
 
-sw.bb19.i:                                        ; preds = %sw.epilog.i
-  %bf.set22.i = or disjoint i16 %bf.load25.i, 2
-  store i16 %bf.set22.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
-  br label %sw.epilog28.i
-
 sw.bb23.i:                                        ; preds = %sw.epilog.i
-  %bf.set27.i = or disjoint i16 %bf.load25.i, 1
+  br label %sw.epilog28.sink.split.i
+
+sw.epilog28.sink.split.i:                         ; preds = %sw.bb23.i, %sw.epilog.i
+  %.sink7.i = phi i16 [ 1, %sw.bb23.i ], [ 2, %sw.epilog.i ]
+  %bf.set27.i = or disjoint i16 %.sink7.i, %bf.load25.i
   store i16 %bf.set27.i, ptr %ref.tmp87.sroa.2, align 2, !alias.scope !14
   br label %sw.epilog28.i
 
-sw.epilog28.i:                                    ; preds = %sw.bb23.i, %sw.bb19.i, %sw.epilog.i
-  %bf.load41.i = phi i16 [ %bf.set27.i, %sw.bb23.i ], [ %bf.set22.i, %sw.bb19.i ], [ %bf.load25.i, %sw.epilog.i ]
+sw.epilog28.i:                                    ; preds = %sw.epilog28.sink.split.i, %sw.epilog.i
+  %bf.load41.i = phi i16 [ %bf.load25.i, %sw.epilog.i ], [ %bf.set27.i, %sw.epilog28.sink.split.i ]
   %visibility.i69 = getelementptr inbounds i8, ptr %add.ptr.i68, i64 20
   %48 = load i32, ptr %visibility.i69, align 4, !noalias !14
   switch i32 %48, label %sw.epilog28.i._ZN4mold3elfL10to_elf_symINS0_5ALPHAEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit_crit_edge [
@@ -1115,13 +1114,13 @@ _ZN4mold3elfL10to_elf_symINS0_5ALPHAEEENS0_6ElfSymIT_EERNS_12PluginSymbolE.exit:
   store i32 0, ptr %add.ptr.i70, align 1
   %ref.tmp87.sroa.2.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 4
   store i16 %ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.ref.tmp87.sroa.2.0.copyload, ptr %ref.tmp87.sroa.2.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.9.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 6
-  %ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.copyload = load i16, ptr %ref.tmp87.sroa.9, align 2
-  store i16 %ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.ref.tmp87.sroa.9.0.copyload, ptr %ref.tmp87.sroa.9.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.12.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 8
-  store i64 0, ptr %ref.tmp87.sroa.12.0.add.ptr.i70.sroa_idx, align 1
-  %ref.tmp87.sroa.1294.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 16
-  store i64 %49, ptr %ref.tmp87.sroa.1294.0.add.ptr.i70.sroa_idx, align 1
+  %ref.tmp87.sroa.8.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 6
+  %ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.copyload = load i16, ptr %ref.tmp87.sroa.8, align 2
+  store i16 %ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.ref.tmp87.sroa.8.0.copyload, ptr %ref.tmp87.sroa.8.0.add.ptr.i70.sroa_idx, align 1
+  %ref.tmp87.sroa.11.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 8
+  store i64 0, ptr %ref.tmp87.sroa.11.0.add.ptr.i70.sroa_idx, align 1
+  %ref.tmp87.sroa.1194.0.add.ptr.i70.sroa_idx = getelementptr inbounds i8, ptr %add.ptr.i70, i64 16
+  store i64 %49, ptr %ref.tmp87.sroa.1194.0.add.ptr.i70.sroa_idx, align 1
   %conv = trunc i64 %strtab_offset.0123 to i32
   %51 = load ptr, ptr %lto_elf_syms, align 8
   %add.ptr.i71 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %51, i64 %add89

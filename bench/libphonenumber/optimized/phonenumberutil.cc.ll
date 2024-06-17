@@ -4834,8 +4834,8 @@ define internal fastcc void @_ZN4i18n12phonenumbers12_GLOBAL__N_128GetSupportedT
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit: ; preds = %7, %8, %9, %10, %11, %12, %13, %14, %15, %16, %17
-  %.sink23.i = phi i64 [ 136, %17 ], [ 232, %16 ], [ 216, %15 ], [ 200, %14 ], [ 184, %13 ], [ 192, %12 ], [ 176, %11 ], [ 144, %10 ], [ 152, %9 ], [ 160, %8 ], [ 168, %7 ]
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.sink23.i
+  %.sink.i = phi i64 [ 136, %17 ], [ 232, %16 ], [ 216, %15 ], [ 200, %14 ], [ 184, %13 ], [ 192, %12 ], [ 176, %11 ], [ 144, %10 ], [ 152, %9 ], [ 160, %8 ], [ 168, %7 ]
+  %18 = getelementptr inbounds i8, ptr %0, i64 %.sink.i
   %19 = load ptr, ptr %18, align 8
   %.not.i.i21.i = icmp eq ptr %19, null
   %20 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %19
@@ -12686,8 +12686,8 @@ switch.lookup:                                    ; preds = %_ZNK4i18n12phonenum
   br label %87
 
 87:                                               ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %switch.lookup
-  %.sink23.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
-  %88 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink23.i
+  %.sink.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %_ZNK4i18n12phonenumbers15PhoneNumberUtil20GetMetadataForRegionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ]
+  %88 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink.i
   %89 = load ptr, ptr %88, align 8
   %.not.i.i21.i = icmp eq ptr %89, null
   %90 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %89
@@ -13387,8 +13387,8 @@ switch.lookup:                                    ; preds = %_ZNK4i18n12phonenum
   br label %137
 
 137:                                              ; preds = %_ZNK4i18n12phonenumbers15PhoneNumberUtil35GetMetadataForNonGeographicalRegionEi.exit, %switch.lookup
-  %.sink23.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %_ZNK4i18n12phonenumbers15PhoneNumberUtil35GetMetadataForNonGeographicalRegionEi.exit ]
-  %138 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink23.i
+  %.sink.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %_ZNK4i18n12phonenumbers15PhoneNumberUtil35GetMetadataForNonGeographicalRegionEi.exit ]
+  %138 = getelementptr inbounds i8, ptr %.0.i, i64 %.sink.i
   %139 = load ptr, ptr %138, align 8
   %.not.i.i21.i = icmp eq ptr %139, null
   %140 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %139
@@ -16982,8 +16982,8 @@ switch.lookup:                                    ; preds = %3
   br label %_ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit
 
 _ZN4i18n12phonenumbers12_GLOBAL__N_119GetNumberDescByTypeERKNS0_13PhoneMetadataENS0_15PhoneNumberUtil15PhoneNumberTypeE.exit: ; preds = %3, %switch.lookup
-  %.sink23.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %3 ]
-  %8 = getelementptr inbounds i8, ptr %1, i64 %.sink23.i
+  %.sink.i = phi i64 [ %switch.load, %switch.lookup ], [ 136, %3 ]
+  %8 = getelementptr inbounds i8, ptr %1, i64 %.sink.i
   %9 = load ptr, ptr %8, align 8
   %.not.i.i21.i = icmp eq ptr %9, null
   %10 = select i1 %.not.i.i21.i, ptr @_ZN4i18n12phonenumbers34_PhoneNumberDesc_default_instance_E, ptr %9

@@ -29025,7 +29025,7 @@ _ZN7AstNode9privateAsI11AstNodeBiopP11AstNodeExprEEPT_PS_.exit42: ; preds = %_ZN
   %44 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %43, ptr noundef null)
   tail call void @_ZN7AstNode11replaceWithEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull %5)
   %45 = tail call noundef zeroext i1 @_ZN12ConstVisitor12operandsSameEP7AstNodeS1_(ptr noundef %20, ptr noundef %41)
-  br i1 %45, label %46, label %55
+  br i1 %45, label %46, label %52
 
 46:                                               ; preds = %_ZN7AstNode9privateAsI11AstNodeBiopP11AstNodeExprEEPT_PS_.exit42
   tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %20)
@@ -29039,56 +29039,51 @@ _ZN7AstNode9privateAsI11AstNodeBiopP11AstNodeExprEEPT_PS_.exit42: ; preds = %_ZN
 
 51:                                               ; preds = %46
   store ptr %48, ptr %49, align 8
-  %52 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %53 = add i64 %52, 1
-  store i64 %53, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  br label %_ZN7AstNode9dtypeFromEPKS_.exit
+  br label %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split
 
-_ZN7AstNode9dtypeFromEPKS_.exit:                  ; preds = %46, %51
-  tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %23)
-  tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %44)
-  %54 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef nonnull %26)
-  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %54, ptr noundef %41)
-  br label %70
+52:                                               ; preds = %_ZN7AstNode9privateAsI11AstNodeBiopP11AstNodeExprEEPT_PS_.exit42
+  %53 = tail call noundef zeroext i1 @_ZN12ConstVisitor12operandsSameEP7AstNodeS1_(ptr noundef %23, ptr noundef %44)
+  br i1 %53, label %54, label %60
 
-55:                                               ; preds = %_ZN7AstNode9privateAsI11AstNodeBiopP11AstNodeExprEEPT_PS_.exit42
-  %56 = tail call noundef zeroext i1 @_ZN12ConstVisitor12operandsSameEP7AstNodeS1_(ptr noundef %23, ptr noundef %44)
-  br i1 %56, label %57, label %66
-
-57:                                               ; preds = %55
+54:                                               ; preds = %52
   tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef nonnull %1)
   tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %5, ptr noundef %44)
-  %58 = getelementptr inbounds i8, ptr %1, i64 72
-  %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds i8, ptr %5, i64 72
-  %61 = load ptr, ptr %60, align 8
-  %.not.i.i45 = icmp eq ptr %61, %59
-  br i1 %.not.i.i45, label %_ZN7AstNode9dtypeFromEPKS_.exit46, label %62
+  %55 = getelementptr inbounds i8, ptr %1, i64 72
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %5, i64 72
+  %58 = load ptr, ptr %57, align 8
+  %.not.i.i45 = icmp eq ptr %58, %56
+  br i1 %.not.i.i45, label %_ZN7AstNode9dtypeFromEPKS_.exit, label %59
 
-62:                                               ; preds = %57
-  store ptr %59, ptr %60, align 8
-  %63 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  %64 = add i64 %63, 1
-  store i64 %64, ptr @_ZN7AstNode12s_editCntGblE, align 8
-  br label %_ZN7AstNode9dtypeFromEPKS_.exit46
+59:                                               ; preds = %54
+  store ptr %56, ptr %57, align 8
+  br label %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split
 
-_ZN7AstNode9dtypeFromEPKS_.exit46:                ; preds = %57, %62
-  tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %20)
-  tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %41)
-  %65 = getelementptr inbounds i8, ptr %0, i64 8
-  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull %26)
-  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef %23)
-  br label %70
-
-66:                                               ; preds = %55
-  %67 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.1, i32 noundef 1776, i1 noundef zeroext true)
-  %68 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %69 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %68, ptr noundef nonnull @.str.553)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %69) #25
+60:                                               ; preds = %52
+  %61 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.1, i32 noundef 1776, i1 noundef zeroext true)
+  %62 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %63 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %62, ptr noundef nonnull @.str.553)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(112) %63) #25
   unreachable
 
-70:                                               ; preds = %_ZN7AstNode9dtypeFromEPKS_.exit46, %_ZN7AstNode9dtypeFromEPKS_.exit
+_ZN7AstNode9dtypeFromEPKS_.exit.sink.split:       ; preds = %51, %59
+  %.sink49.ph = phi ptr [ %20, %59 ], [ %23, %51 ]
+  %.sink.ph = phi ptr [ %41, %59 ], [ %44, %51 ]
+  %.sink47.ph = phi ptr [ %23, %59 ], [ %41, %51 ]
+  %64 = load i64, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  %65 = add i64 %64, 1
+  store i64 %65, ptr @_ZN7AstNode12s_editCntGblE, align 8
+  br label %_ZN7AstNode9dtypeFromEPKS_.exit
+
+_ZN7AstNode9dtypeFromEPKS_.exit:                  ; preds = %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split, %54, %46
+  %.sink49 = phi ptr [ %23, %46 ], [ %20, %54 ], [ %.sink49.ph, %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split ]
+  %.sink = phi ptr [ %44, %46 ], [ %41, %54 ], [ %.sink.ph, %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split ]
+  %.sink47 = phi ptr [ %41, %46 ], [ %23, %54 ], [ %.sink47.ph, %_ZN7AstNode9dtypeFromEPKS_.exit.sink.split ]
+  tail call void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %.sink49)
+  tail call void @_ZN7AstNode7setOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef %.sink)
+  %66 = getelementptr inbounds i8, ptr %0, i64 8
+  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull %26)
+  tail call void @_ZN9VNDeleter11pushDeletepEP7AstNode(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef %.sink47)
   ret void
 }
 

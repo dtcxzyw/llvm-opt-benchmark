@@ -2627,8 +2627,8 @@ rb_num2long_inline.exit.thread:                   ; preds = %1078, %rb_num2long_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1105, %1118, %1131, %1163, %1175, %1147
-  %.sink = phi i32 [ %1106, %1105 ], [ %1119, %1118 ], [ %1132, %1131 ], [ %1164, %1163 ], [ %1176, %1175 ], [ %1148, %1147 ]
-  %.11890.ph = phi i32 [ %1097, %1105 ], [ %1110, %1118 ], [ %1123, %1131 ], [ %1156, %1163 ], [ %1168, %1175 ], [ %1139, %1147 ]
+  %.sink = phi i32 [ %1148, %1147 ], [ %1176, %1175 ], [ %1164, %1163 ], [ %1132, %1131 ], [ %1119, %1118 ], [ %1106, %1105 ]
+  %.11890.ph = phi i32 [ %1139, %1147 ], [ %1168, %1175 ], [ %1156, %1163 ], [ %1123, %1131 ], [ %1110, %1118 ], [ %1097, %1105 ]
   %1177 = sext i32 %.sink to i64
   %1178 = call fastcc ptr @resize_buffer(i64 noundef %0, ptr noundef %80, ptr noundef nonnull %11, ptr noundef nonnull %12, i64 noundef %1177, i64 noundef %9)
   call fastcc void @buffer_size_check(ptr noundef %1178, ptr noundef nonnull %27, i64 noundef %2, ptr noundef %.01871)
@@ -4463,21 +4463,21 @@ rbimpl_rstring_getmem.exit2799:                   ; preds = %buffer_size_check.e
   %2004 = icmp eq i32 %2003, 12
   %2005 = icmp eq i32 %2000, 1
   %or.cond36 = select i1 %2004, i1 %2005, i1 false
-  br i1 %or.cond36, label %.sink.split4308, label %2006
+  br i1 %or.cond36, label %.sink.split4309, label %2006
 
 2006:                                             ; preds = %1998
   %2007 = icmp eq i32 %2003, 1
   %2008 = icmp sgt i32 %2000, 51
   %or.cond38 = select i1 %2007, i1 %2008, i1 false
-  br i1 %or.cond38, label %.sink.split4308, label %2010
+  br i1 %or.cond38, label %.sink.split4309, label %2010
 
-.sink.split4308:                                  ; preds = %2006, %1998
-  %.sink4309 = phi i64 [ 43, %1998 ], [ 45, %2006 ]
-  %2009 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1999, i64 noundef %.sink4309, i32 noundef 1, i64 noundef 3) #10
+.sink.split4309:                                  ; preds = %2006, %1998
+  %.sink4310 = phi i64 [ 43, %1998 ], [ 45, %2006 ]
+  %2009 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %1999, i64 noundef %.sink4310, i32 noundef 1, i64 noundef 3) #10
   br label %2010
 
-2010:                                             ; preds = %.sink.split4308, %2006
-  %.01887 = phi i64 [ %1999, %2006 ], [ %2009, %.sink.split4308 ]
+2010:                                             ; preds = %.sink.split4309, %2006
+  %.01887 = phi i64 [ %1999, %2006 ], [ %2009, %.sink.split4309 ]
   %2011 = load i8, ptr %83, align 1
   %2012 = icmp eq i8 %2011, 71
   br i1 %2012, label %2013, label %2120

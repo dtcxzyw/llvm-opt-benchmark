@@ -217,10 +217,10 @@ land.lhs.true:                                    ; preds = %_ZN6vectorI15expr_d
 while.cond.backedge.sink.split:                   ; preds = %land.lhs.true, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit147
   %.sink175 = phi i32 [ 1, %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit147 ], [ -1, %land.lhs.true ]
   %24 = load ptr, ptr %m_todo, align 8
-  %arrayidx.i51 = getelementptr inbounds i8, ptr %24, i64 -4
-  %25 = load i32, ptr %arrayidx.i51, align 4
+  %arrayidx10.i141 = getelementptr inbounds i8, ptr %24, i64 -4
+  %25 = load i32, ptr %arrayidx10.i141, align 4
   %inc.i142 = add i32 %25, %.sink175
-  store i32 %inc.i142, ptr %arrayidx.i51, align 4
+  store i32 %inc.i142, ptr %arrayidx10.i141, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %_ZN6vectorI15expr_delta_pairLb0EjE9push_backEOS0_.exit71, %while.cond.backedge.sink.split, %if.end40, %if.end52, %sw.bb31, %if.end18, %sw.bb

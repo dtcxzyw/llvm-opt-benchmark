@@ -31735,15 +31735,6 @@ invoke.cont14:                                    ; preds = %invoke.cont4
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %mul.i.i.i.neg.i.i = mul nsw i64 %conv.i.i.i.i.i.i, -86400000
   %sub.i.i8 = add i64 %mul.i.i.i.neg.i.i, %retval.sroa.0.0.copyload.i.i
-  %spec.select.i.i = call i64 @llvm.abs.i64(i64 %sub.i.i8, i1 true)
-  %div.i.i11.i = udiv i64 %spec.select.i.i, 3600000
-  %div.i.i212.i = udiv i64 %spec.select.i.i, 60000
-  %mul.i.i.i.neg.i.i9 = mul nsw i64 %div.i.i11.i, -60
-  %sub.i.i10 = add nsw i64 %mul.i.i.i.neg.i.i9, %div.i.i212.i
-  %mul.i.i.i.neg.i4.i = mul nsw i64 %div.i.i11.i, -3600000
-  %sub.i5.i = add nsw i64 %mul.i.i.i.neg.i4.i, %spec.select.i.i
-  %mul.i.i.i.neg.i6.i = mul nsw i64 %sub.i.i10, -60000
-  %sub.i7.i = add i64 %sub.i5.i, %mul.i.i.i.neg.i6.i
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -31808,7 +31799,12 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %mul.i.i.i.i.i.neg = mul nsw i64 %conv.i.i.i.i.i.i, -86400000
   %sub.i.i63.neg = add nsw i64 %retval.sroa.0.0.copyload.i.i, 86400000
   %sub.i = add i64 %sub.i.i63.neg, %mul.i.i.i.i.i.neg
-  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
+  %sub.i.sink = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
+  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
+  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i67 = udiv i64 %spec.select.i.i66, 3600000
   %div.i.i212.i69 = udiv i64 %spec.select.i.i66, 60000
   %mul.i.i.i.neg.i.i70 = mul nsw i64 %div.i.i11.i67, -60
@@ -31817,26 +31813,18 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %sub.i5.i73 = add nsw i64 %mul.i.i.i.neg.i4.i72, %spec.select.i.i66
   %mul.i.i.i.neg.i6.i74 = mul nsw i64 %sub.i.i71, -60000
   %sub.i7.i75 = add i64 %sub.i5.i73, %mul.i.i.i.neg.i6.i74
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
-  %sub.i7.i75.sink = phi i64 [ %sub.i7.i75, %invoke.cont42 ], [ %sub.i7.i, %invoke.cont14 ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
-  %div.i.i11.i67.sink = phi i64 [ %div.i.i11.i67, %invoke.cont42 ], [ %div.i.i11.i, %invoke.cont14 ]
-  %sub.i.i71.sink = phi i64 [ %sub.i.i71, %invoke.cont42 ], [ %sub.i.i10, %invoke.cont14 ]
-  %frombool.i.sink.in.in = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
-  %div.i.i.i.i77.sink = sdiv i64 %sub.i7.i75.sink, 1000
-  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77.sink, -1000
-  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75.sink
+  %div.i.i.i.i77 = sdiv i64 %sub.i7.i75, 1000
+  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77, -1000
+  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75
   store i32 %storemerge, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
-  store i64 %div.i.i11.i67.sink, ptr %tod.i, align 8
+  store i64 %div.i.i11.i67, ptr %tod.i, align 8
   %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
-  store i64 %sub.i.i71.sink, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
-  %frombool.i.sink.in = lshr i64 %frombool.i.sink.in.in, 63
+  store i64 %sub.i.i71, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
+  %frombool.i.sink.in = lshr i64 %sub.i.sink, 63
   %frombool.i.sink = trunc nuw nsw i64 %frombool.i.sink.in to i8
   %5 = getelementptr inbounds i8, ptr %fds, i64 24
-  store i64 %div.i.i.i.i77.sink, ptr %5, align 8
+  store i64 %div.i.i.i.i77, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %fds, i64 32
   store i64 %sub.i.i.i79, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %fds, i64 40
@@ -36654,15 +36642,6 @@ invoke.cont14:                                    ; preds = %invoke.cont4
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %mul.i.i.i.neg.i.i = mul nsw i64 %div.i.i.i, -86400000000000
   %sub.i.i8 = add i64 %mul.i.i.i.neg.i.i, %retval.sroa.0.0.copyload.i.i
-  %spec.select.i.i = call i64 @llvm.abs.i64(i64 %sub.i.i8, i1 true)
-  %div.i.i11.i = udiv i64 %spec.select.i.i, 3600000000000
-  %div.i.i212.i = udiv i64 %spec.select.i.i, 60000000000
-  %mul.i.i.i.neg.i.i9 = mul nsw i64 %div.i.i11.i, -60
-  %sub.i.i10 = add nsw i64 %mul.i.i.i.neg.i.i9, %div.i.i212.i
-  %mul.i.i.i.neg.i4.i = mul nsw i64 %div.i.i11.i, -3600000000000
-  %sub.i5.i = add nsw i64 %mul.i.i.i.neg.i4.i, %spec.select.i.i
-  %mul.i.i.i.neg.i6.i = mul nsw i64 %sub.i.i10, -60000000000
-  %sub.i7.i = add i64 %sub.i5.i, %mul.i.i.i.neg.i6.i
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -36724,7 +36703,12 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %mul.i.i.i.i.i.neg = mul nsw i64 %div.i.i.i, -86400000000000
   %sub.i.i63.neg = add i64 %retval.sroa.0.0.copyload.i.i, 86400000000000
   %sub.i = add i64 %sub.i.i63.neg, %mul.i.i.i.i.i.neg
-  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
+  %sub.i.sink = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
+  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
+  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i67 = udiv i64 %spec.select.i.i66, 3600000000000
   %div.i.i212.i69 = udiv i64 %spec.select.i.i66, 60000000000
   %mul.i.i.i.neg.i.i70 = mul nsw i64 %div.i.i11.i67, -60
@@ -36733,26 +36717,18 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %sub.i5.i73 = add nsw i64 %mul.i.i.i.neg.i4.i72, %spec.select.i.i66
   %mul.i.i.i.neg.i6.i74 = mul nsw i64 %sub.i.i71, -60000000000
   %sub.i7.i75 = add i64 %sub.i5.i73, %mul.i.i.i.neg.i6.i74
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
-  %sub.i7.i75.sink = phi i64 [ %sub.i7.i75, %invoke.cont42 ], [ %sub.i7.i, %invoke.cont14 ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
-  %div.i.i11.i67.sink = phi i64 [ %div.i.i11.i67, %invoke.cont42 ], [ %div.i.i11.i, %invoke.cont14 ]
-  %sub.i.i71.sink = phi i64 [ %sub.i.i71, %invoke.cont42 ], [ %sub.i.i10, %invoke.cont14 ]
-  %frombool.i.sink.in.in = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
-  %div.i.i.i.i77.sink = sdiv i64 %sub.i7.i75.sink, 1000000000
-  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77.sink, -1000000000
-  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75.sink
+  %div.i.i.i.i77 = sdiv i64 %sub.i7.i75, 1000000000
+  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77, -1000000000
+  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75
   store i32 %storemerge, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
-  store i64 %div.i.i11.i67.sink, ptr %tod.i, align 8
+  store i64 %div.i.i11.i67, ptr %tod.i, align 8
   %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
-  store i64 %sub.i.i71.sink, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
-  %frombool.i.sink.in = lshr i64 %frombool.i.sink.in.in, 63
+  store i64 %sub.i.i71, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
+  %frombool.i.sink.in = lshr i64 %sub.i.sink, 63
   %frombool.i.sink = trunc nuw nsw i64 %frombool.i.sink.in to i8
   %5 = getelementptr inbounds i8, ptr %fds, i64 24
-  store i64 %div.i.i.i.i77.sink, ptr %5, align 8
+  store i64 %div.i.i.i.i77, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %fds, i64 32
   store i64 %sub.i.i.i79, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %fds, i64 40
@@ -41295,15 +41271,6 @@ invoke.cont14:                                    ; preds = %invoke.cont4
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %mul.i.i.i.neg.i.i = mul nsw i64 %div.i.i.i, -86400000000
   %sub.i.i8 = add i64 %mul.i.i.i.neg.i.i, %retval.sroa.0.0.copyload.i.i
-  %spec.select.i.i = call i64 @llvm.abs.i64(i64 %sub.i.i8, i1 true)
-  %div.i.i11.i = udiv i64 %spec.select.i.i, 3600000000
-  %div.i.i212.i = udiv i64 %spec.select.i.i, 60000000
-  %mul.i.i.i.neg.i.i9 = mul nsw i64 %div.i.i11.i, -60
-  %sub.i.i10 = add nsw i64 %mul.i.i.i.neg.i.i9, %div.i.i212.i
-  %mul.i.i.i.neg.i4.i = mul nsw i64 %div.i.i11.i, -3600000000
-  %sub.i5.i = add nsw i64 %mul.i.i.i.neg.i4.i, %spec.select.i.i
-  %mul.i.i.i.neg.i6.i = mul nsw i64 %sub.i.i10, -60000000
-  %sub.i7.i = add i64 %sub.i5.i, %mul.i.i.i.neg.i6.i
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -41368,7 +41335,12 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %mul.i.i.i.i.i.neg = mul nsw i64 %div.i.i.i, -86400000000
   %sub.i.i63.neg = add i64 %retval.sroa.0.0.copyload.i.i, 86400000000
   %sub.i = add i64 %sub.i.i63.neg, %mul.i.i.i.i.i.neg
-  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
+  br label %if.end
+
+if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
+  %sub.i.sink = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
+  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
+  %spec.select.i.i66 = call i64 @llvm.abs.i64(i64 %sub.i.sink, i1 true)
   %div.i.i11.i67 = udiv i64 %spec.select.i.i66, 3600000000
   %div.i.i212.i69 = udiv i64 %spec.select.i.i66, 60000000
   %mul.i.i.i.neg.i.i70 = mul nsw i64 %div.i.i11.i67, -60
@@ -41377,26 +41349,18 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %sub.i5.i73 = add nsw i64 %mul.i.i.i.neg.i4.i72, %spec.select.i.i66
   %mul.i.i.i.neg.i6.i74 = mul nsw i64 %sub.i.i71, -60000000
   %sub.i7.i75 = add i64 %sub.i5.i73, %mul.i.i.i.neg.i6.i74
-  br label %if.end
-
-if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
-  %sub.i7.i75.sink = phi i64 [ %sub.i7.i75, %invoke.cont42 ], [ %sub.i7.i, %invoke.cont14 ]
-  %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i57, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
-  %div.i.i11.i67.sink = phi i64 [ %div.i.i11.i67, %invoke.cont42 ], [ %div.i.i11.i, %invoke.cont14 ]
-  %sub.i.i71.sink = phi i64 [ %sub.i.i71, %invoke.cont42 ], [ %sub.i.i10, %invoke.cont14 ]
-  %frombool.i.sink.in.in = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
-  %div.i.i.i.i77.sink = sdiv i64 %sub.i7.i75.sink, 1000000
-  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77.sink, -1000000
-  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75.sink
+  %div.i.i.i.i77 = sdiv i64 %sub.i7.i75, 1000000
+  %mul.i.i.i.neg.i.i.i78 = mul nsw i64 %div.i.i.i.i77, -1000000
+  %sub.i.i.i79 = add i64 %mul.i.i.i.neg.i.i.i78, %sub.i7.i75
   store i32 %storemerge, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
-  store i64 %div.i.i11.i67.sink, ptr %tod.i, align 8
+  store i64 %div.i.i11.i67, ptr %tod.i, align 8
   %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
-  store i64 %sub.i.i71.sink, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
-  %frombool.i.sink.in = lshr i64 %frombool.i.sink.in.in, 63
+  store i64 %sub.i.i71, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
+  %frombool.i.sink.in = lshr i64 %sub.i.sink, 63
   %frombool.i.sink = trunc nuw nsw i64 %frombool.i.sink.in to i8
   %5 = getelementptr inbounds i8, ptr %fds, i64 24
-  store i64 %div.i.i.i.i77.sink, ptr %5, align 8
+  store i64 %div.i.i.i.i77, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %fds, i64 32
   store i64 %sub.i.i.i79, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %fds, i64 40
@@ -45940,10 +45904,6 @@ invoke.cont14:                                    ; preds = %invoke.cont4
   %retval.sroa.0.0.insert.ext.i.i = and i32 %add33.i.i, 65535
   %retval.sroa.0.0.insert.insert.i.i = or disjoint i32 %retval.sroa.2.0.insert.insert.i.i, %retval.sroa.0.0.insert.ext.i.i
   %sub.i.i8 = sub nsw i64 %retval.sroa.0.0.copyload.i.i, %mul.i.i.i.i.i.i
-  %div.i.i10.i = udiv i64 %sub.i.i8, 3600
-  %div.i.i211.i = udiv i64 %sub.i.i8, 60
-  %mul.i.i.i.neg.i.i = mul nsw i64 %div.i.i10.i, -60
-  %sub.i.i9 = add nsw i64 %mul.i.i.i.neg.i.i, %div.i.i211.i
   br label %if.end
 
 lpad:                                             ; preds = %call.i.noexc, %entry
@@ -46008,27 +45968,25 @@ invoke.cont42:                                    ; preds = %invoke.cont4
   %sub.i.i62.neg = sub i64 %retval.sroa.0.0.copyload.i.i, %mul.i.i.i.i.i.i
   %sub.i = add i64 %sub.i.i62.neg, 86400
   %spec.select.i.i65 = call i64 @llvm.abs.i64(i64 %sub.i, i1 true)
-  %div.i.i10.i66 = udiv i64 %spec.select.i.i65, 3600
-  %div.i.i211.i68 = udiv i64 %spec.select.i.i65, 60
-  %mul.i.i.i.neg.i.i69 = mul nsw i64 %div.i.i10.i66, -60
-  %sub.i.i70 = add nsw i64 %mul.i.i.i.neg.i.i69, %div.i.i211.i68
   br label %if.end
 
 if.end:                                           ; preds = %invoke.cont42, %invoke.cont14
-  %div.i.i10.i66.sink90 = phi i64 [ %div.i.i10.i66, %invoke.cont42 ], [ %div.i.i10.i, %invoke.cont14 ]
-  %spec.select.i.i65.sink = phi i64 [ %spec.select.i.i65, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
-  %sub.i.i70.sink89 = phi i64 [ %sub.i.i70, %invoke.cont42 ], [ %sub.i.i9, %invoke.cont14 ]
+  %spec.select.i.i65.sink93 = phi i64 [ %spec.select.i.i65, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
   %storemerge = phi i32 [ %retval.sroa.0.0.insert.insert.i.i56, %invoke.cont42 ], [ %retval.sroa.0.0.insert.insert.i.i, %invoke.cont14 ]
   %frombool.i.sink.in.in = phi i64 [ %sub.i, %invoke.cont42 ], [ %sub.i.i8, %invoke.cont14 ]
-  %mul.i.i.i.neg.i4.i71 = mul nsw i64 %div.i.i10.i66.sink90, -3600
-  %sub.i5.i72 = add nsw i64 %mul.i.i.i.neg.i4.i71, %spec.select.i.i65.sink
-  %mul.i.i.i.neg.i6.i73 = mul nsw i64 %sub.i.i70.sink89, -60
+  %div.i.i10.i66 = udiv i64 %spec.select.i.i65.sink93, 3600
+  %div.i.i211.i68 = udiv i64 %spec.select.i.i65.sink93, 60
+  %mul.i.i.i.neg.i.i69 = mul nsw i64 %div.i.i10.i66, -60
+  %sub.i.i70 = add nsw i64 %mul.i.i.i.neg.i.i69, %div.i.i211.i68
+  %mul.i.i.i.neg.i4.i71 = mul nsw i64 %div.i.i10.i66, -3600
+  %sub.i5.i72 = add nsw i64 %mul.i.i.i.neg.i4.i71, %spec.select.i.i65.sink93
+  %mul.i.i.i.neg.i6.i73 = mul nsw i64 %sub.i.i70, -60
   %sub.i7.i74 = add i64 %sub.i5.i72, %mul.i.i.i.neg.i6.i73
   store i32 %storemerge, ptr %fds, align 8
   store i8 8, ptr %wd.i, align 4
-  store i64 %div.i.i10.i66.sink90, ptr %tod.i, align 8
+  store i64 %div.i.i10.i66, ptr %tod.i, align 8
   %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx = getelementptr inbounds i8, ptr %fds, i64 16
-  store i64 %sub.i.i70.sink89, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
+  store i64 %sub.i.i70, ptr %ref.tmp19.sroa.3.sroa.2.0.ref.tmp19.sroa.3.0.fds.sroa_idx.sroa_idx, align 8
   %frombool.i.sink.in = lshr i64 %frombool.i.sink.in.in, 63
   %frombool.i.sink = trunc nuw nsw i64 %frombool.i.sink.in to i8
   %5 = getelementptr inbounds i8, ptr %fds, i64 24

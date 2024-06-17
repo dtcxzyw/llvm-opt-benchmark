@@ -1144,7 +1144,7 @@ entry:
   br label %do.body
 
 do.body:                                          ; preds = %if.end78, %entry
-  %0 = phi i8 [ %15, %if.end78 ], [ %.pre, %entry ]
+  %0 = phi i8 [ %16, %if.end78 ], [ %.pre, %entry ]
   %conv = zext i8 %0 to i32
   %and = and i32 %conv, 64
   %tobool.not = icmp eq i32 %and, 0
@@ -1196,20 +1196,20 @@ if.else26:                                        ; preds = %if.end9
   br label %if.end32.sink.split
 
 if.end32.sink.split:                              ; preds = %if.end16, %if.else26
-  %.sink.in = phi i8 [ %0, %if.else26 ], [ %.pre42, %if.end16 ]
-  %.sink = or i8 %.sink.in, 32
-  store i8 %.sink, ptr %lsr, align 1
+  %.pre42.sink = phi i8 [ %0, %if.else26 ], [ %.pre42, %if.end16 ]
+  %6 = or i8 %.pre42.sink, 32
+  store i8 %6, ptr %lsr, align 1
   br label %if.end32
 
 if.end32:                                         ; preds = %if.end32.sink.split, %if.end16
-  %6 = phi i8 [ %.pre42, %if.end16 ], [ %.sink, %if.end32.sink.split ]
-  %7 = and i8 %6, 32
-  %tobool36.not = icmp eq i8 %7, 0
+  %7 = phi i8 [ %.pre42, %if.end16 ], [ %6, %if.end32.sink.split ]
+  %8 = and i8 %7, 32
+  %tobool36.not = icmp eq i8 %8, 0
   br i1 %tobool36.not, label %if.end41, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end32
-  %8 = load i32, ptr %thr_ipending, align 16
-  %tobool37.not = icmp eq i32 %8, 0
+  %9 = load i32, ptr %thr_ipending, align 16
+  %tobool37.not = icmp eq i32 %9, 0
   br i1 %tobool37.not, label %if.then38, label %if.end41
 
 if.then38:                                        ; preds = %land.lhs.true
@@ -1218,9 +1218,9 @@ if.then38:                                        ; preds = %land.lhs.true
   br label %if.end41
 
 if.end41:                                         ; preds = %if.end32, %land.lhs.true, %if.then38, %if.end
-  %9 = load i8, ptr %mcr, align 8
-  %10 = and i8 %9, 16
-  %tobool44.not = icmp eq i8 %10, 0
+  %10 = load i8, ptr %mcr, align 8
+  %11 = and i8 %10, 16
+  %tobool44.not = icmp eq i8 %11, 0
   br i1 %tobool44.not, label %if.else47, label %if.then45
 
 if.then45:                                        ; preds = %if.end41
@@ -1236,18 +1236,18 @@ if.else47:                                        ; preds = %if.end41
 
 land.lhs.true54:                                  ; preds = %if.else47
   %call55 = tail call ptr @__errno_location() #12
-  %11 = load i32, ptr %call55, align 4
-  %cmp56 = icmp eq i32 %11, 11
+  %12 = load i32, ptr %call55, align 4
+  %cmp56 = icmp eq i32 %12, 11
   br i1 %cmp56, label %land.lhs.true58, label %if.end78
 
 land.lhs.true58:                                  ; preds = %if.else47, %land.lhs.true54
-  %12 = load i32, ptr %tsr_retry, align 16
-  %cmp60 = icmp ult i32 %12, 4
+  %13 = load i32, ptr %tsr_retry, align 16
+  %cmp60 = icmp ult i32 %13, 4
   br i1 %cmp60, label %if.then62, label %if.end78
 
 if.then62:                                        ; preds = %land.lhs.true58
-  %13 = load i32, ptr %watch_tag, align 4
-  %cmp63 = icmp eq i32 %13, 0
+  %14 = load i32, ptr %watch_tag, align 4
+  %cmp63 = icmp eq i32 %14, 0
   br i1 %cmp63, label %if.end67, label %if.else66
 
 if.else66:                                        ; preds = %if.then62
@@ -1261,25 +1261,25 @@ if.end67:                                         ; preds = %if.then62
   br i1 %cmp72.not, label %if.end78, label %if.then74
 
 if.then74:                                        ; preds = %if.end67
-  %14 = load i32, ptr %tsr_retry, align 16
-  %inc = add i32 %14, 1
+  %15 = load i32, ptr %tsr_retry, align 16
+  %inc = add i32 %15, 1
   store i32 %inc, ptr %tsr_retry, align 16
   br label %return
 
 if.end78:                                         ; preds = %if.else47, %land.lhs.true54, %land.lhs.true58, %if.end67, %if.then45
   store i32 0, ptr %tsr_retry, align 16
-  %15 = load i8, ptr %lsr, align 1
-  %16 = and i8 %15, 32
-  %tobool83.not = icmp eq i8 %16, 0
+  %16 = load i8, ptr %lsr, align 1
+  %17 = and i8 %16, 32
+  %tobool83.not = icmp eq i8 %17, 0
   br i1 %tobool83.not, label %do.body, label %do.end, !llvm.loop !5
 
 do.end:                                           ; preds = %if.end78
   %call84 = tail call i64 @qemu_clock_get_ns(i32 noundef 1) #10
   %last_xmit_ts = getelementptr inbounds i8, ptr %s, i64 272
   store i64 %call84, ptr %last_xmit_ts, align 16
-  %17 = load i8, ptr %lsr, align 1
-  %18 = or i8 %17, 64
-  store i8 %18, ptr %lsr, align 1
+  %18 = load i8, ptr %lsr, align 1
+  %19 = or i8 %18, 64
+  store i8 %19, ptr %lsr, align 1
   br label %return
 
 return:                                           ; preds = %do.end, %if.then74

@@ -11843,18 +11843,18 @@ _ZL25fstReaderVarint32WithSkipP8_IO_FILEPj.exit:  ; preds = %728
   %781 = icmp eq i32 %780, 1
   %782 = zext i32 %698 to i64
   %783 = getelementptr inbounds i8, ptr %132, i64 %782
-  br i1 %781, label %.preheader1755, label %.preheader1756
+  br i1 %781, label %.preheader1756, label %.preheader1757
 
-.preheader1755:                                   ; preds = %777, %.preheader1755
-  %.09.i1109 = phi ptr [ %785, %.preheader1755 ], [ %783, %777 ]
+.preheader1756:                                   ; preds = %777, %.preheader1756
+  %.09.i1109 = phi ptr [ %785, %.preheader1756 ], [ %783, %777 ]
   %784 = load i8, ptr %.09.i1109, align 1
   %.not.i1110 = icmp sgt i8 %784, -1
   %785 = getelementptr inbounds i8, ptr %.09.i1109, i64 1
-  br i1 %.not.i1110, label %.preheader.i1111, label %.preheader1755, !llvm.loop !89
+  br i1 %.not.i1110, label %.preheader.i1111, label %.preheader1756, !llvm.loop !89
 
-.preheader.i1111:                                 ; preds = %.preheader1755, %.preheader.i1111
-  %.1.i1112 = phi ptr [ %792, %.preheader.i1111 ], [ %.09.i1109, %.preheader1755 ]
-  %.0.i1113 = phi i32 [ %790, %.preheader.i1111 ], [ 0, %.preheader1755 ]
+.preheader.i1111:                                 ; preds = %.preheader1756, %.preheader.i1111
+  %.1.i1112 = phi ptr [ %792, %.preheader.i1111 ], [ %.09.i1109, %.preheader1756 ]
+  %.0.i1113 = phi i32 [ %790, %.preheader.i1111 ], [ 0, %.preheader1756 ]
   %786 = shl i32 %.0.i1113, 7
   %787 = load i8, ptr %.1.i1112, align 1
   %788 = and i8 %787, 127
@@ -11870,16 +11870,16 @@ _ZL20fstGetVarint32NoSkipPh.exit:                 ; preds = %.preheader.i1111
   %795 = lshr i32 %790, %794
   br label %806
 
-.preheader1756:                                   ; preds = %777, %.preheader1756
-  %.09.i1114 = phi ptr [ %797, %.preheader1756 ], [ %783, %777 ]
+.preheader1757:                                   ; preds = %777, %.preheader1757
+  %.09.i1114 = phi ptr [ %797, %.preheader1757 ], [ %783, %777 ]
   %796 = load i8, ptr %.09.i1114, align 1
   %.not.i1115 = icmp sgt i8 %796, -1
   %797 = getelementptr inbounds i8, ptr %.09.i1114, i64 1
-  br i1 %.not.i1115, label %.preheader.i1116, label %.preheader1756, !llvm.loop !89
+  br i1 %.not.i1115, label %.preheader.i1116, label %.preheader1757, !llvm.loop !89
 
-.preheader.i1116:                                 ; preds = %.preheader1756, %.preheader.i1116
-  %.1.i1117 = phi ptr [ %804, %.preheader.i1116 ], [ %.09.i1114, %.preheader1756 ]
-  %.0.i1118 = phi i32 [ %802, %.preheader.i1116 ], [ 0, %.preheader1756 ]
+.preheader.i1116:                                 ; preds = %.preheader1757, %.preheader.i1116
+  %.1.i1117 = phi ptr [ %804, %.preheader.i1116 ], [ %.09.i1114, %.preheader1757 ]
+  %.0.i1118 = phi i32 [ %802, %.preheader.i1116 ], [ 0, %.preheader1757 ]
   %798 = shl i32 %.0.i1118, 7
   %799 = load i8, ptr %.1.i1117, align 1
   %800 = and i8 %799, 127
@@ -12792,9 +12792,9 @@ _ZL20fstGetVarint32NoSkipPh.exit1185:             ; preds = %.preheader.i1182
   br label %thread-pre-split1641
 
 thread-pre-split1641:                             ; preds = %_ZL20fstGetVarint32NoSkipPh.exit1163, %_ZL20fstGetVarint32NoSkipPh.exit1139, %_ZL20fstGetVarint32NoSkipPh.exit1185
-  %.sink = phi i32 [ %1050, %_ZL20fstGetVarint32NoSkipPh.exit1163 ], [ %959, %_ZL20fstGetVarint32NoSkipPh.exit1139 ], [ %1244, %_ZL20fstGetVarint32NoSkipPh.exit1185 ]
+  %.sink1755 = phi i32 [ %1050, %_ZL20fstGetVarint32NoSkipPh.exit1163 ], [ %959, %_ZL20fstGetVarint32NoSkipPh.exit1139 ], [ %1244, %_ZL20fstGetVarint32NoSkipPh.exit1185 ]
   %.sink1752 = phi ptr [ %1035, %_ZL20fstGetVarint32NoSkipPh.exit1163 ], [ %942, %_ZL20fstGetVarint32NoSkipPh.exit1139 ], [ %1229, %_ZL20fstGetVarint32NoSkipPh.exit1185 ]
-  %1245 = add i32 %.sink, %.48401452
+  %1245 = add i32 %.sink1755, %.48401452
   %1246 = zext i32 %1245 to i64
   %1247 = getelementptr inbounds i32, ptr %215, i64 %1246
   %1248 = load i32, ptr %1247, align 4

@@ -83419,12 +83419,12 @@ common.resume.i:                                  ; preds = %16, %12
   br label %common.resume.i
 
 _ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_I14OptionalHolderI26ReferenceSensitiveOptionalZ18test_submodule_stlRNS_7module_EE15MoveOutDetectorEJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSG_DpRKT0_EUlRNS2_16value_and_holderEE_vJSP_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSG_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES16_.exit: ; preds = %10, %14
-  %.sink6.i = phi ptr [ %11, %10 ], [ %15, %14 ]
-  store ptr %.sink6.i, ptr %9, align 8
-  %18 = getelementptr inbounds i8, ptr %.sink6.i, i64 1
+  %.sink.i = phi ptr [ %11, %10 ], [ %15, %14 ]
+  store ptr %.sink.i, ptr %9, align 8
+  %18 = getelementptr inbounds i8, ptr %.sink.i, i64 1
   %19 = getelementptr inbounds i8, ptr %9, i64 16
   store ptr %18, ptr %19, align 8
-  store i8 1, ptr %.sink6.i, align 1
+  store i8 1, ptr %.sink.i, align 1
   %20 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %18, ptr %20, align 8
   store ptr %9, ptr %.val15.val.i, align 8
@@ -84316,12 +84316,12 @@ common.resume.i:                                  ; preds = %15, %11
   br label %common.resume.i
 
 _ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_I18OptionalPropertiesI26ReferenceSensitiveOptionalEJEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSD_DpRKT0_EUlRNS2_16value_and_holderEE_vJSM_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSD_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES13_.exit: ; preds = %9, %13
-  %.sink23.i = phi ptr [ %10, %9 ], [ %14, %13 ]
-  store ptr %.sink23.i, ptr %8, align 8
-  %17 = getelementptr inbounds i8, ptr %.sink23.i, i64 4
+  %.sink.i = phi ptr [ %10, %9 ], [ %14, %13 ]
+  store ptr %.sink.i, ptr %8, align 8
+  %17 = getelementptr inbounds i8, ptr %.sink.i, i64 4
   %18 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %17, ptr %18, align 8
-  store i32 42, ptr %.sink23.i, align 4
+  store i32 42, ptr %.sink.i, align 4
   %19 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %17, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24

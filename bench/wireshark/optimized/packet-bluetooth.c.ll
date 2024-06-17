@@ -5270,8 +5270,8 @@ proto_item_set_hidden.exit93:                     ; preds = %97, %102, %105
   br i1 %.not5.i95, label %.critedge, label %.critedge.sink.split
 
 .critedge.sink.split:                             ; preds = %112, %94
-  %.sink115 = phi ptr [ %96, %94 ], [ %114, %112 ]
-  %115 = getelementptr inbounds i8, ptr %.sink115, i64 28
+  %.sink111 = phi ptr [ %96, %94 ], [ %114, %112 ]
+  %115 = getelementptr inbounds i8, ptr %.sink111, i64 28
   %116 = load i32, ptr %115, align 4
   %117 = or i32 %116, 2
   store i32 %117, ptr %115, align 4
@@ -5357,8 +5357,8 @@ proto_item_set_hidden.exit105:                    ; preds = %138, %143, %146
   br i1 %.not5.i107, label %.critedge87, label %.critedge87.sink.split
 
 .critedge87.sink.split:                           ; preds = %153, %135
-  %.sink = phi ptr [ %137, %135 ], [ %155, %153 ]
-  %156 = getelementptr inbounds i8, ptr %.sink, i64 28
+  %.sink114 = phi ptr [ %137, %135 ], [ %155, %153 ]
+  %156 = getelementptr inbounds i8, ptr %.sink114, i64 28
   %157 = load i32, ptr %156, align 4
   %158 = or i32 %157, 2
   store i32 %158, ptr %156, align 4

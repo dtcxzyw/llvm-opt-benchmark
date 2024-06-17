@@ -6893,14 +6893,14 @@ if.then64:                                        ; preds = %for.body32
           to label %for.inc80.sink.split unwind label %lpad.loopexit
 
 for.inc80.sink.split:                             ; preds = %if.then64, %if.then50
-  %call75.pn = phi { i64, i64 } [ %call58, %if.then50 ], [ %call75, %if.then64 ]
-  %.sink72 = load ptr, ptr %agg.result, align 8
-  %.sink71 = extractvalue { i64, i64 } %call75.pn, 0
-  %arrayidx.i57 = getelementptr inbounds %"struct.sat::cut_val", ptr %.sink72, i64 %indvars.iv
-  store i64 %.sink71, ptr %arrayidx.i57, align 8
-  %.sink = extractvalue { i64, i64 } %call75.pn, 1
-  %ref.tmp51.sroa.2.0.call60.sroa_idx = getelementptr inbounds %"struct.sat::cut_val", ptr %.sink72, i64 %indvars.iv, i32 1
-  store i64 %.sink, ptr %ref.tmp51.sroa.2.0.call60.sroa_idx, align 8
+  %call58.sink71 = phi { i64, i64 } [ %call58, %if.then50 ], [ %call75, %if.then64 ]
+  %24 = extractvalue { i64, i64 } %call58.sink71, 0
+  %25 = extractvalue { i64, i64 } %call58.sink71, 1
+  %26 = load ptr, ptr %agg.result, align 8
+  %arrayidx.i47 = getelementptr inbounds %"struct.sat::cut_val", ptr %26, i64 %indvars.iv
+  store i64 %24, ptr %arrayidx.i47, align 8
+  %ref.tmp51.sroa.2.0.call60.sroa_idx = getelementptr inbounds i8, ptr %arrayidx.i47, i64 8
+  store i64 %25, ptr %ref.tmp51.sroa.2.0.call60.sroa_idx, align 8
   br label %for.inc80
 
 for.inc80:                                        ; preds = %for.inc80.sink.split, %if.then, %land.lhs.true, %_ZNK6vectorIN3sat8aig_cuts4nodeELb0EjE5emptyEv.exit

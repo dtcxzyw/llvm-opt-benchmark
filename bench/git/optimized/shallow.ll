@@ -1436,12 +1436,12 @@ land.lhs.true:                                    ; preds = %if.then13
   br i1 %cmp17, label %for.inc, label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %for.body, %if.then13, %land.lhs.true
-  %theirs.sink = phi ptr [ %ours, %land.lhs.true ], [ %ours, %if.then13 ], [ %theirs, %for.body ]
-  %nr_theirs.sink = phi ptr [ %nr_ours, %land.lhs.true ], [ %nr_ours, %if.then13 ], [ %nr_theirs, %for.body ]
-  %10 = load ptr, ptr %theirs.sink, align 8
-  %11 = load i32, ptr %nr_theirs.sink, align 8
+  %ours.sink = phi ptr [ %ours, %land.lhs.true ], [ %ours, %if.then13 ], [ %theirs, %for.body ]
+  %nr_ours.sink32 = phi ptr [ %nr_ours, %land.lhs.true ], [ %nr_ours, %if.then13 ], [ %nr_theirs, %for.body ]
+  %10 = load ptr, ptr %ours.sink, align 8
+  %11 = load i32, ptr %nr_ours.sink32, align 8
   %inc = add nsw i32 %11, 1
-  store i32 %inc, ptr %nr_theirs.sink, align 8
+  store i32 %inc, ptr %nr_ours.sink32, align 8
   %idxprom22 = sext i32 %11 to i64
   %arrayidx23 = getelementptr inbounds i32, ptr %10, i64 %idxprom22
   %12 = trunc nuw nsw i64 %indvars.iv to i32

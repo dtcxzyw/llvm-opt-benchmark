@@ -3198,22 +3198,22 @@ if.end5.i57:                                      ; preds = %if.end.i.i54
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %.noexc68, %if.else5, %.noexc43, %if.else, %.noexc, %if.then2
-  %.sink2.i.sink = phi i32 [ %17, %.noexc ], [ %2, %if.then2 ], [ %21, %.noexc43 ], [ %1, %if.else ], [ %24, %.noexc68 ], [ %3, %if.else5 ]
-  %add21.i.sink = phi i8 [ %add21.i, %.noexc ], [ %add21.i, %if.then2 ], [ 37, %.noexc43 ], [ 37, %if.else ], [ %4, %.noexc68 ], [ %4, %if.else5 ]
+  %.sink2.i61.sink = phi i32 [ %17, %.noexc ], [ %2, %if.then2 ], [ %21, %.noexc43 ], [ %1, %if.else ], [ %24, %.noexc68 ], [ %3, %if.else5 ]
+  %.sink = phi i8 [ %add21.i, %.noexc ], [ %add21.i, %if.then2 ], [ 37, %.noexc43 ], [ 37, %if.else ], [ %4, %.noexc68 ], [ %4, %if.else5 ]
   %i.1.ph = phi i32 [ %add23.i, %.noexc ], [ %add23.i, %if.then2 ], [ %storemerge191, %.noexc43 ], [ %storemerge191, %if.else ], [ %storemerge191, %.noexc68 ], [ %storemerge191, %if.else5 ]
-  %.sink.i = load ptr, ptr %buffer_.i.i, align 8
-  %idxprom8.i = sext i32 %.sink2.i.sink to i64
-  %arrayidx9.i = getelementptr inbounds i8, ptr %.sink.i, i64 %idxprom8.i
-  store i8 %add21.i.sink, ptr %arrayidx9.i, align 1
+  %.sink.i63 = load ptr, ptr %buffer_.i.i, align 8
+  %idxprom8.i64 = sext i32 %.sink2.i61.sink to i64
+  %arrayidx9.i65 = getelementptr inbounds i8, ptr %.sink.i63, i64 %idxprom8.i64
+  store i8 %.sink, ptr %arrayidx9.i65, align 1
   %25 = load i32, ptr %cur_len_.i45, align 4
-  %inc11.i = add nsw i32 %25, 1
-  store i32 %inc11.i, ptr %cur_len_.i45, align 4
+  %inc11.i66 = add nsw i32 %25, 1
+  store i32 %inc11.i66, ptr %cur_len_.i45, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %do.body.i.i51, %do.body.i.i, %do.body.i.i26, %for.inc.sink.split
-  %26 = phi i32 [ %inc11.i, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %1, %do.body.i.i ], [ %1, %do.body.i.i51 ]
-  %27 = phi i32 [ %inc11.i, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %2, %do.body.i.i51 ]
-  %28 = phi i32 [ %inc11.i, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %3, %do.body.i.i51 ]
+  %26 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %1, %do.body.i.i ], [ %1, %do.body.i.i51 ]
+  %27 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %2, %do.body.i.i51 ]
+  %28 = phi i32 [ %inc11.i66, %for.inc.sink.split ], [ %1, %do.body.i.i26 ], [ %2, %do.body.i.i ], [ %3, %do.body.i.i51 ]
   %i.1 = phi i32 [ %i.1.ph, %for.inc.sink.split ], [ %storemerge191, %do.body.i.i26 ], [ %add23.i, %do.body.i.i ], [ %storemerge191, %do.body.i.i51 ]
   %inc = add nsw i32 %i.1, 1
   %cmp = icmp slt i32 %inc, %length

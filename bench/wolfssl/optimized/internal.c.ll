@@ -12346,10 +12346,10 @@ if.end77:                                         ; preds = %if.end53
   br i1 %tobool79.not, label %sw.bb102, label %do.end82
 
 do.end82:                                         ; preds = %if.end77
-  %dontFreeDigest.i = getelementptr inbounds i8, ptr %ssl, i64 1008
-  %bf.load36.i = load i64, ptr %dontFreeDigest.i, align 8
+  %dontFreeDigest35.i = getelementptr inbounds i8, ptr %ssl, i64 1008
+  %bf.load36.i = load i64, ptr %dontFreeDigest35.i, align 8
   %bf.set38.i = or i64 %bf.load36.i, 4398046511104
-  store i64 %bf.set38.i, ptr %dontFreeDigest.i, align 8
+  store i64 %bf.set38.i, ptr %dontFreeDigest35.i, align 8
   %hsHashes39.i = getelementptr inbounds i8, ptr %ssl, i64 120
   %17 = load ptr, ptr %hsHashes39.i, align 8
   %sha512.i = getelementptr inbounds i8, ptr %17, i64 196
@@ -12547,10 +12547,10 @@ switch.lookup177:                                 ; preds = %switch.hole_check17
   %44 = zext nneg i8 %switch.tableidx175 to i64
   %switch.gep182 = getelementptr inbounds [5 x i32], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %44
   %switch.load183 = load i32, ptr %switch.gep182, align 4
-  %dontFreeDigest.i114 = getelementptr inbounds i8, ptr %ssl, i64 1008
-  %bf.load36.i115 = load i64, ptr %dontFreeDigest.i114, align 8
+  %dontFreeDigest35.i114 = getelementptr inbounds i8, ptr %ssl, i64 1008
+  %bf.load36.i115 = load i64, ptr %dontFreeDigest35.i114, align 8
   %bf.set38.i116 = or i64 %bf.load36.i115, 4398046511104
-  store i64 %bf.set38.i116, ptr %dontFreeDigest.i114, align 8
+  store i64 %bf.set38.i116, ptr %dontFreeDigest35.i114, align 8
   %hsHashes39.i117 = getelementptr inbounds i8, ptr %ssl, i64 120
   %45 = load ptr, ptr %hsHashes39.i117, align 8
   %sha512.i118 = getelementptr inbounds i8, ptr %45, i64 %switch.load181
@@ -12598,10 +12598,10 @@ switch.lookup191:                                 ; preds = %switch.hole_check19
   %52 = zext nneg i8 %switch.tableidx175 to i64
   %switch.gep196 = getelementptr inbounds [5 x i32], ptr @switch.table.SendCertificateVerify.21, i64 0, i64 %52
   %switch.load197 = load i32, ptr %switch.gep196, align 4
-  %dontFreeDigest.i130 = getelementptr inbounds i8, ptr %ssl, i64 1008
-  %bf.load36.i131 = load i64, ptr %dontFreeDigest.i130, align 8
+  %dontFreeDigest35.i130 = getelementptr inbounds i8, ptr %ssl, i64 1008
+  %bf.load36.i131 = load i64, ptr %dontFreeDigest35.i130, align 8
   %bf.set38.i132 = or i64 %bf.load36.i131, 4398046511104
-  store i64 %bf.set38.i132, ptr %dontFreeDigest.i130, align 8
+  store i64 %bf.set38.i132, ptr %dontFreeDigest35.i130, align 8
   %hsHashes39.i133 = getelementptr inbounds i8, ptr %ssl, i64 120
   %53 = load ptr, ptr %hsHashes39.i133, align 8
   %sha512.i134 = getelementptr inbounds i8, ptr %53, i64 %switch.load195
@@ -15857,13 +15857,13 @@ if.else952:                                       ; preds = %do.end921
   br i1 %cmp958.not, label %return, label %if.end977.sink.split
 
 if.end977.sink.split:                             ; preds = %if.else952, %if.then929
-  %add937.pn = phi i32 [ %add937, %if.then929 ], [ %253, %if.else952 ]
-  %sub947.sink = sub i32 %247, %add937.pn
-  store i32 %sub947.sink, ptr %idx, align 4
+  %add937.sink = phi i32 [ %add937, %if.then929 ], [ %253, %if.else952 ]
+  %sub947 = sub i32 %247, %add937.sink
+  store i32 %sub947, ptr %idx, align 4
   br label %if.end977
 
 if.end977:                                        ; preds = %if.end977.sink.split, %do.end914, %IsEncryptionOn.exit479, %if.else902
-  %254 = phi i32 [ %247, %do.end914 ], [ %247, %IsEncryptionOn.exit479 ], [ %247, %if.else902 ], [ %sub947.sink, %if.end977.sink.split ]
+  %254 = phi i32 [ %247, %do.end914 ], [ %247, %IsEncryptionOn.exit479 ], [ %247, %if.else902 ], [ %sub947, %if.end977.sink.split ]
   %cmp978 = icmp eq i32 %ret.15568, 0
   br i1 %cmp978, label %land.lhs.true980, label %for.cond.backedge
 
@@ -21673,13 +21673,13 @@ do.end111:                                        ; preds = %if.end94
 
 if.end131.sink.split:                             ; preds = %if.end94, %do.end111
   %.sink = phi i64 [ -32769, %do.end111 ], [ -49153, %if.end94 ]
-  %bf.clear115 = and i64 %bf.load, %.sink
-  store i64 %bf.clear115, ptr %dtls, align 8
+  %bf.clear107 = and i64 %bf.load, %.sink
+  store i64 %bf.clear107, ptr %dtls, align 8
   br label %if.end131
 
 if.end131:                                        ; preds = %if.end131.sink.split, %if.end94, %if.end94, %if.end94, %if.end94, %if.end46
   %7 = phi i8 [ %pv.sroa.3.0.extract.trunc, %if.end94 ], [ %pv.sroa.3.0.extract.trunc, %if.end94 ], [ %pv.sroa.3.0.extract.trunc, %if.end94 ], [ %pv.sroa.3.0.extract.trunc, %if.end94 ], [ %3, %if.end46 ], [ %pv.sroa.3.0.extract.trunc, %if.end131.sink.split ]
-  %bf.load134 = phi i64 [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end46 ], [ %bf.clear115, %if.end131.sink.split ]
+  %bf.load134 = phi i64 [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end94 ], [ %bf.load, %if.end46 ], [ %bf.clear107, %if.end131.sink.split ]
   %8 = and i64 %bf.load134, 263168
   %or.cond45.not = icmp eq i64 %8, 1024
   br i1 %or.cond45.not, label %land.lhs.true148, label %if.end245
@@ -23227,13 +23227,13 @@ if.end209.sink.split:                             ; preds = %TypeHash.exit, %if.
   %46 = load i16, ptr %length, align 4
   %47 = load ptr, ptr %verify, align 8
   %48 = load i32, ptr %extraSz, align 4
-  %idx.ext = zext i32 %48 to i64
-  %add.ptr = getelementptr inbounds i8, ptr %47, i64 %idx.ext
+  %idx.ext206 = zext i32 %48 to i64
+  %add.ptr207 = getelementptr inbounds i8, ptr %47, i64 %idx.ext206
   %shr.i220 = lshr i16 %46, 8
   %conv1.i221 = trunc nuw i16 %shr.i220 to i8
-  store i8 %conv1.i221, ptr %add.ptr, align 1
+  store i8 %conv1.i221, ptr %add.ptr207, align 1
   %conv4.i222 = trunc i16 %46 to i8
-  %arrayidx5.i223 = getelementptr inbounds i8, ptr %add.ptr, i64 1
+  %arrayidx5.i223 = getelementptr inbounds i8, ptr %add.ptr207, i64 1
   store i8 %conv4.i222, ptr %arrayidx5.i223, align 1
   br label %if.end209
 

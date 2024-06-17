@@ -3114,10 +3114,10 @@ proto_item_set_hidden.exit434:                    ; preds = %477, %proto_item_se
   br i1 %.not5.i442, label %thread-pre-split, label %thread-pre-split.sink.split
 
 thread-pre-split.sink.split:                      ; preds = %520, %497
-  %.sink560 = phi ptr [ %499, %497 ], [ %.pre536, %520 ]
+  %.pre536.sink = phi ptr [ %499, %497 ], [ %.pre536, %520 ]
   %.sink558 = phi i32 [ 2, %497 ], [ 1, %520 ]
   %.sink.ph = phi i32 [ 2, %497 ], [ 8, %520 ]
-  %524 = getelementptr inbounds i8, ptr %.sink560, i64 28
+  %524 = getelementptr inbounds i8, ptr %.pre536.sink, i64 28
   %525 = load i32, ptr %524, align 4
   %526 = or i32 %525, %.sink558
   store i32 %526, ptr %524, align 4
@@ -9759,8 +9759,8 @@ proto_item_set_generated.exit.i93:                ; preds = %257, %254, %251
   br i1 %.not5.i112.i, label %proto_item_set_generated.exit110.i, label %proto_item_set_generated.exit110.sink.split.i
 
 proto_item_set_generated.exit110.sink.split.i:    ; preds = %288, %276
-  %.sink178.i = phi ptr [ %278, %276 ], [ %290, %288 ]
-  %291 = getelementptr inbounds i8, ptr %.sink178.i, i64 28
+  %.sink170.i = phi ptr [ %278, %276 ], [ %290, %288 ]
+  %291 = getelementptr inbounds i8, ptr %.sink170.i, i64 28
   %292 = load i32, ptr %291, align 4
   %293 = or i32 %292, 2
   store i32 %293, ptr %291, align 4
@@ -9909,8 +9909,8 @@ proto_item_set_generated.exit127.i:               ; preds = %354, %351, %346
   br i1 %.not5.i132.i, label %proto_item_set_generated.exit124.i, label %proto_item_set_generated.exit124.sink.split.i
 
 proto_item_set_generated.exit124.sink.split.i:    ; preds = %364, %342
-  %.pre158.sink.i = phi ptr [ %.pre158.i, %342 ], [ %.pre.i, %364 ]
-  %368 = getelementptr inbounds i8, ptr %.pre158.sink.i, i64 28
+  %.pre.sink.i = phi ptr [ %.pre158.i, %342 ], [ %.pre.i, %364 ]
+  %368 = getelementptr inbounds i8, ptr %.pre.sink.i, i64 28
   %369 = load i32, ptr %368, align 4
   %370 = or i32 %369, 2
   store i32 %370, ptr %368, align 4
@@ -10017,8 +10017,8 @@ proto_item_set_generated.exit145.i:               ; preds = %407, %404, %400
   br i1 %.not5.i150.i, label %proto_item_set_generated.exit142.i, label %proto_item_set_generated.exit142.sink.split.i
 
 proto_item_set_generated.exit142.sink.split.i:    ; preds = %417, %396
-  %.pre160.sink.i = phi ptr [ %.pre160.i, %396 ], [ %.pre159.i, %417 ]
-  %421 = getelementptr inbounds i8, ptr %.pre160.sink.i, i64 28
+  %.pre159.sink.i = phi ptr [ %.pre160.i, %396 ], [ %.pre159.i, %417 ]
+  %421 = getelementptr inbounds i8, ptr %.pre159.sink.i, i64 28
   %422 = load i32, ptr %421, align 4
   %423 = or i32 %422, 2
   store i32 %423, ptr %421, align 4

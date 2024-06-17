@@ -3260,19 +3260,19 @@ lor.lhs.false.i.i.i18:                            ; preds = %_ZN7obj_mapI4exprN2
   br i1 %cmp5.i.i.i21, label %if.end.sink.split, label %if.end
 
 if.end.sink.split:                                ; preds = %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit, %lor.lhs.false.i.i.i18, %if.then, %lor.lhs.false.i.i.i
-  %m_trail.i.sink49 = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i, %if.then ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i13, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit ]
+  %m_trail.i13.sink50 = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i, %if.then ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i13, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit ]
   %call.i.i.i31.sink.ph = phi ptr [ %call.i.i.i9, %lor.lhs.false.i.i.i ], [ %call.i.i.i9, %if.then ], [ %call.i.i.i31, %lor.lhs.false.i.i.i18 ], [ %call.i.i.i31, %_ZN7obj_mapI4exprN2bv6solver16internalize_modeEEixEPS0_.exit ]
-  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i.sink49)
-  %.pre.i.i.i = load ptr, ptr %m_trail.i.sink49, align 8
-  %arrayidx8.phi.trans.insert.i.i.i28 = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
+  tail call void @_ZN6vectorIP5trailLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %m_trail.i13.sink50)
+  %.pre.i.i.i27 = load ptr, ptr %m_trail.i13.sink50, align 8
+  %arrayidx8.phi.trans.insert.i.i.i28 = getelementptr inbounds i8, ptr %.pre.i.i.i27, i64 -4
   %.pre1.i.i.i29 = load i32, ptr %arrayidx8.phi.trans.insert.i.i.i28, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %lor.lhs.false.i.i.i18, %lor.lhs.false.i.i.i
   %.sink48 = phi i32 [ %9, %lor.lhs.false.i.i.i ], [ %18, %lor.lhs.false.i.i.i18 ], [ %.pre1.i.i.i29, %if.end.sink.split ]
-  %.sink = phi ptr [ %8, %lor.lhs.false.i.i.i ], [ %17, %lor.lhs.false.i.i.i18 ], [ %.pre.i.i.i, %if.end.sink.split ]
+  %.sink = phi ptr [ %8, %lor.lhs.false.i.i.i ], [ %17, %lor.lhs.false.i.i.i18 ], [ %.pre.i.i.i27, %if.end.sink.split ]
   %call.i.i.i31.sink = phi ptr [ %call.i.i.i9, %lor.lhs.false.i.i.i ], [ %call.i.i.i31, %lor.lhs.false.i.i.i18 ], [ %call.i.i.i31.sink.ph, %if.end.sink.split ]
-  %m_trail.i13.sink = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i.sink49, %if.end.sink.split ]
+  %m_trail.i13.sink = phi ptr [ %m_trail.i, %lor.lhs.false.i.i.i ], [ %m_trail.i13, %lor.lhs.false.i.i.i18 ], [ %m_trail.i13.sink50, %if.end.sink.split ]
   %idx.ext.i.i.i22 = zext i32 %.sink48 to i64
   %add.ptr.i.i.i23 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i.i22
   store ptr %call.i.i.i31.sink, ptr %add.ptr.i.i.i23, align 8

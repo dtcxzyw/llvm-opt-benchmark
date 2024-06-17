@@ -11067,51 +11067,34 @@ define internal noundef i32 @gsm_map_stat_packet(ptr nocapture noundef readonly 
   %53 = load i32, ptr %3, align 4
   %.not60 = icmp eq i32 %53, 0
   %54 = load i32, ptr %11, align 4
-  br i1 %.not60, label %65, label %55
-
-55:                                               ; preds = %44
-  %56 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %54, i32 noundef 4) #5
-  %57 = uitofp i32 %48 to float
-  %58 = uitofp i32 %46 to float
-  %59 = fdiv float %57, %58
-  %60 = fpext float %59 to double
-  %61 = getelementptr inbounds i8, ptr %56, i64 8
-  %62 = load double, ptr %61, align 8
-  %63 = fadd double %62, %60
-  store double %63, ptr %61, align 8
+  %. = select i1 %.not60, i32 7, i32 4
+  %.71 = select i1 %.not60, i32 %52, i32 %48
+  %.72 = select i1 %.not60, i32 %50, i32 %46
+  %55 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %54, i32 noundef %.) #5
+  %56 = uitofp i32 %.71 to float
+  %57 = uitofp i32 %.72 to float
+  %58 = fdiv float %56, %57
+  %59 = fpext float %58 to double
+  %60 = getelementptr inbounds i8, ptr %55, i64 8
+  %61 = load double, ptr %60, align 8
+  %62 = fadd double %61, %59
+  store double %62, ptr %60, align 8
+  %63 = load i32, ptr %11, align 4
+  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %63, i32 noundef %., ptr noundef %55) #5
   %64 = load i32, ptr %11, align 4
-  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %64, i32 noundef 4, ptr noundef %56) #5
-  br label %75
-
-65:                                               ; preds = %44
-  %66 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %54, i32 noundef 7) #5
-  %67 = uitofp i32 %52 to float
-  %68 = uitofp i32 %50 to float
-  %69 = fdiv float %67, %68
-  %70 = fpext float %69 to double
-  %71 = getelementptr inbounds i8, ptr %66, i64 8
-  %72 = load double, ptr %71, align 8
-  %73 = fadd double %72, %70
-  store double %73, ptr %71, align 8
-  %74 = load i32, ptr %11, align 4
-  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %74, i32 noundef 7, ptr noundef %66) #5
-  br label %75
-
-75:                                               ; preds = %65, %55
-  %76 = load i32, ptr %11, align 4
-  %77 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %76, i32 noundef 9) #5
-  %78 = add i32 %52, %48
-  %79 = uitofp i32 %78 to float
-  %80 = add i32 %50, %46
-  %81 = uitofp i32 %80 to float
-  %82 = fdiv float %79, %81
-  %83 = fpext float %82 to double
-  %84 = getelementptr inbounds i8, ptr %77, i64 8
-  %85 = load double, ptr %84, align 8
-  %86 = fadd double %85, %83
-  store double %86, ptr %84, align 8
-  %87 = load i32, ptr %11, align 4
-  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %87, i32 noundef 9, ptr noundef %77) #5
+  %65 = tail call ptr @stat_tap_get_field_data(ptr noundef %10, i32 noundef %64, i32 noundef 9) #5
+  %66 = add i32 %52, %48
+  %67 = uitofp i32 %66 to float
+  %68 = add i32 %50, %46
+  %69 = uitofp i32 %68 to float
+  %70 = fdiv float %67, %69
+  %71 = fpext float %70 to double
+  %72 = getelementptr inbounds i8, ptr %65, i64 8
+  %73 = load double, ptr %72, align 8
+  %74 = fadd double %73, %71
+  store double %74, ptr %72, align 8
+  %75 = load i32, ptr %11, align 4
+  tail call void @stat_tap_set_field_data(ptr noundef %10, i32 noundef %75, i32 noundef 9, ptr noundef %65) #5
   ret i32 1
 }
 

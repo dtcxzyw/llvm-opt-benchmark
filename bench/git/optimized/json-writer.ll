@@ -1530,67 +1530,46 @@ if.end13:                                         ; preds = %for.body.i, %strbuf
   br i1 %cmp, label %if.then16, label %if.else
 
 if.then16:                                        ; preds = %if.end13
-  br i1 %tobool.not.i.i19, label %if.then.i30, label %strbuf_avail.exit.i20
+  br i1 %tobool.not.i.i19, label %if.end19.sink.split, label %strbuf_avail.exit.i20
 
 strbuf_avail.exit.i20:                            ; preds = %if.then16
   %len.i.i21 = getelementptr inbounds i8, ptr %jw, i64 8
   %15 = load i64, ptr %len.i.i21, align 8
   %.neg.i22 = add i64 %15, 1
   %tobool.not.i23 = icmp eq i64 %14, %.neg.i22
-  br i1 %tobool.not.i23, label %if.then.i30, label %strbuf_addch.exit34
-
-if.then.i30:                                      ; preds = %strbuf_avail.exit.i20, %if.then16
-  tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
-  %len.phi.trans.insert.i31 = getelementptr inbounds i8, ptr %jw, i64 8
-  %.pre.i32 = load i64, ptr %len.phi.trans.insert.i31, align 8
-  %.pre8.i33 = add i64 %.pre.i32, 1
-  br label %strbuf_addch.exit34
-
-strbuf_addch.exit34:                              ; preds = %strbuf_avail.exit.i20, %if.then.i30
-  %inc.pre-phi.i25 = phi i64 [ %.pre8.i33, %if.then.i30 ], [ %.neg.i22, %strbuf_avail.exit.i20 ]
-  %16 = phi i64 [ %.pre.i32, %if.then.i30 ], [ %15, %strbuf_avail.exit.i20 ]
-  %buf.i26 = getelementptr inbounds i8, ptr %jw, i64 16
-  %17 = load ptr, ptr %buf.i26, align 8
-  %len.i27 = getelementptr inbounds i8, ptr %jw, i64 8
-  store i64 %inc.pre-phi.i25, ptr %len.i27, align 8
-  %arrayidx.i28 = getelementptr inbounds i8, ptr %17, i64 %16
-  store i8 125, ptr %arrayidx.i28, align 1
-  br label %if.end19
+  br i1 %tobool.not.i23, label %if.end19.sink.split, label %if.end19
 
 if.else:                                          ; preds = %if.end13
-  br i1 %tobool.not.i.i19, label %if.then.i46, label %strbuf_avail.exit.i36
+  br i1 %tobool.not.i.i19, label %if.end19.sink.split, label %strbuf_avail.exit.i36
 
 strbuf_avail.exit.i36:                            ; preds = %if.else
   %len.i.i37 = getelementptr inbounds i8, ptr %jw, i64 8
-  %18 = load i64, ptr %len.i.i37, align 8
-  %.neg.i38 = add i64 %18, 1
+  %16 = load i64, ptr %len.i.i37, align 8
+  %.neg.i38 = add i64 %16, 1
   %tobool.not.i39 = icmp eq i64 %14, %.neg.i38
-  br i1 %tobool.not.i39, label %if.then.i46, label %strbuf_addch.exit50
+  br i1 %tobool.not.i39, label %if.end19.sink.split, label %if.end19
 
-if.then.i46:                                      ; preds = %strbuf_avail.exit.i36, %if.else
+if.end19.sink.split:                              ; preds = %if.else, %strbuf_avail.exit.i36, %if.then16, %strbuf_avail.exit.i20
+  %.sink.ph = phi i8 [ 125, %strbuf_avail.exit.i20 ], [ 125, %if.then16 ], [ 93, %strbuf_avail.exit.i36 ], [ 93, %if.else ]
   tail call void @strbuf_grow(ptr noundef nonnull %jw, i64 noundef 1) #8
   %len.phi.trans.insert.i47 = getelementptr inbounds i8, ptr %jw, i64 8
   %.pre.i48 = load i64, ptr %len.phi.trans.insert.i47, align 8
   %.pre8.i49 = add i64 %.pre.i48, 1
-  br label %strbuf_addch.exit50
-
-strbuf_addch.exit50:                              ; preds = %strbuf_avail.exit.i36, %if.then.i46
-  %inc.pre-phi.i41 = phi i64 [ %.pre8.i49, %if.then.i46 ], [ %.neg.i38, %strbuf_avail.exit.i36 ]
-  %19 = phi i64 [ %.pre.i48, %if.then.i46 ], [ %18, %strbuf_avail.exit.i36 ]
-  %buf.i42 = getelementptr inbounds i8, ptr %jw, i64 16
-  %20 = load ptr, ptr %buf.i42, align 8
-  %len.i43 = getelementptr inbounds i8, ptr %jw, i64 8
-  store i64 %inc.pre-phi.i41, ptr %len.i43, align 8
-  %arrayidx.i44 = getelementptr inbounds i8, ptr %20, i64 %19
-  store i8 93, ptr %arrayidx.i44, align 1
   br label %if.end19
 
-if.end19:                                         ; preds = %strbuf_addch.exit50, %strbuf_addch.exit34
-  %buf.i42.sink = phi ptr [ %buf.i42, %strbuf_addch.exit50 ], [ %buf.i26, %strbuf_addch.exit34 ]
-  %len.i43.sink = phi ptr [ %len.i43, %strbuf_addch.exit50 ], [ %len.i27, %strbuf_addch.exit34 ]
-  %21 = load ptr, ptr %buf.i42.sink, align 8
-  %22 = load i64, ptr %len.i43.sink, align 8
-  %arrayidx3.i45 = getelementptr inbounds i8, ptr %21, i64 %22
+if.end19:                                         ; preds = %if.end19.sink.split, %strbuf_avail.exit.i36, %strbuf_avail.exit.i20
+  %inc.pre-phi.i41.sink = phi i64 [ %.neg.i22, %strbuf_avail.exit.i20 ], [ %.neg.i38, %strbuf_avail.exit.i36 ], [ %.pre8.i49, %if.end19.sink.split ]
+  %.sink53 = phi i64 [ %15, %strbuf_avail.exit.i20 ], [ %16, %strbuf_avail.exit.i36 ], [ %.pre.i48, %if.end19.sink.split ]
+  %.sink = phi i8 [ 125, %strbuf_avail.exit.i20 ], [ 93, %strbuf_avail.exit.i36 ], [ %.sink.ph, %if.end19.sink.split ]
+  %buf.i42 = getelementptr inbounds i8, ptr %jw, i64 16
+  %17 = load ptr, ptr %buf.i42, align 8
+  %len.i43 = getelementptr inbounds i8, ptr %jw, i64 8
+  store i64 %inc.pre-phi.i41.sink, ptr %len.i43, align 8
+  %arrayidx.i44 = getelementptr inbounds i8, ptr %17, i64 %.sink53
+  store i8 %.sink, ptr %arrayidx.i44, align 1
+  %18 = load ptr, ptr %buf.i42, align 8
+  %19 = load i64, ptr %len.i43, align 8
+  %arrayidx3.i45 = getelementptr inbounds i8, ptr %18, i64 %19
   store i8 0, ptr %arrayidx3.i45, align 1
   ret void
 }

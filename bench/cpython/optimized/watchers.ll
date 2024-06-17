@@ -1349,10 +1349,10 @@ if.then2.i:                                       ; preds = %entry
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then2.i, %entry
-  %num_code_object_destroyed_events.sink.i = phi ptr [ @num_code_object_destroyed_events, %if.then2.i ], [ @num_code_object_created_events, %entry ]
-  %0 = load i32, ptr %num_code_object_destroyed_events.sink.i, align 4
+  %num_code_object_created_events.sink.i = phi ptr [ @num_code_object_destroyed_events, %if.then2.i ], [ @num_code_object_created_events, %entry ]
+  %0 = load i32, ptr %num_code_object_created_events.sink.i, align 4
   %inc.i = add i32 %0, 1
-  store i32 %inc.i, ptr %num_code_object_destroyed_events.sink.i, align 4
+  store i32 %inc.i, ptr %num_code_object_created_events.sink.i, align 4
   br label %handle_code_object_event.exit
 
 handle_code_object_event.exit:                    ; preds = %entry, %return.sink.split.i
@@ -1372,11 +1372,11 @@ if.then2.i:                                       ; preds = %entry
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then2.i, %entry
-  %num_code_object_destroyed_events.sink.i = phi ptr [ @num_code_object_destroyed_events, %if.then2.i ], [ @num_code_object_created_events, %entry ]
-  %arrayidx4.i = getelementptr i8, ptr %num_code_object_destroyed_events.sink.i, i64 4
-  %0 = load i32, ptr %arrayidx4.i, align 4
+  %num_code_object_created_events.sink.i = phi ptr [ @num_code_object_destroyed_events, %if.then2.i ], [ @num_code_object_created_events, %entry ]
+  %arrayidx.i = getelementptr i8, ptr %num_code_object_created_events.sink.i, i64 4
+  %0 = load i32, ptr %arrayidx.i, align 4
   %inc.i = add i32 %0, 1
-  store i32 %inc.i, ptr %arrayidx4.i, align 4
+  store i32 %inc.i, ptr %arrayidx.i, align 4
   br label %handle_code_object_event.exit
 
 handle_code_object_event.exit:                    ; preds = %entry, %return.sink.split.i

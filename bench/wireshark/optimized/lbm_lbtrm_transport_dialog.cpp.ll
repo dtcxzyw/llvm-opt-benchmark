@@ -8656,8 +8656,8 @@ define void @_ZN19LBMLBTRMSourceEntry13processPacketEPK12_packet_infoPK20lbm_lbt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %46, %38, %69, %54
-  %.sink70 = phi i64 [ 152, %46 ], [ 168, %38 ], [ 208, %69 ], [ 184, %54 ]
-  %.sink69 = phi i64 [ %53, %46 ], [ %45, %38 ], [ %77, %69 ], [ %68, %54 ]
+  %.sink70 = phi i64 [ 184, %54 ], [ 208, %69 ], [ 168, %38 ], [ 152, %46 ]
+  %.sink69 = phi i64 [ %68, %54 ], [ %77, %69 ], [ %45, %38 ], [ %53, %46 ]
   %78 = getelementptr inbounds i8, ptr %0, i64 %.sink70
   %79 = load i64, ptr %78, align 8
   %80 = add i64 %79, %.sink69

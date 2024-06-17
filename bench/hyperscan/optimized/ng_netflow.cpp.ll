@@ -4514,7 +4514,7 @@ while.body.lr.ph:                                 ; preds = %entry
 
 while.body:                                       ; preds = %while.body.lr.ph, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit
   %call379.pn = phi { ptr, i64 } [ %call379, %while.body.lr.ph ], [ %call, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit ]
-  %3 = phi ptr [ %0, %while.body.lr.ph ], [ %168, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit ]
+  %3 = phi ptr [ %0, %while.body.lr.ph ], [ %160, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit ]
   %4 = extractvalue { ptr, i64 } %call379.pn, 1
   %props.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
   %5 = load i64, ptr %index_map.i.i.i, align 8
@@ -4825,7 +4825,7 @@ if.end85:                                         ; preds = %if.else71.if.end85_
   br i1 %cmp.i.i.i.i145.not377, label %if.end155, label %for.body90
 
 for.body90:                                       ; preds = %if.end85, %for.inc151
-  %88 = phi ptr [ %157, %for.inc151 ], [ %87, %if.end85 ]
+  %88 = phi ptr [ %149, %for.inc151 ], [ %87, %if.end85 ]
   %props.i.i.i.i151 = getelementptr inbounds i8, ptr %88, i64 56
   %89 = load i64, ptr %index.i.i150, align 8
   %memptr.offset.i.i.i.i152 = getelementptr inbounds i8, ptr %props.i.i.i.i151, i64 %89
@@ -4954,96 +4954,64 @@ if.else.i.i18.i239:                               ; preds = %_ZN5boost3putINS_21
 
 _ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E15add_active_nodeENSL_17vertex_descriptorISF_EE.exit241: ; preds = %if.then.i227, %if.then4.i230, %if.then.i.i17.i237, %if.else.i.i18.i239
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %v.i208)
-  %119 = load i64, ptr %index.i.i7.i281, align 8
-  %memptr.offset.i.i.i.i245 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %119
-  %120 = load i64, ptr %memptr.offset.i.i.i.i245, align 8
-  %121 = load ptr, ptr %m_dist_map.i280, align 8
-  %add.ptr.i.i.i246 = getelementptr inbounds i32, ptr %121, i64 %120
-  %122 = load i32, ptr %add.ptr.i.i.i246, align 4
-  %add118 = add nsw i32 %122, 1
-  %memptr.offset.i.i.i.i249 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %119
-  %123 = load i64, ptr %memptr.offset.i.i.i.i249, align 8
-  %add.ptr.i.i.i250 = getelementptr inbounds i32, ptr %121, i64 %123
-  store i32 %add118, ptr %add.ptr.i.i.i250, align 4
-  %124 = load i64, ptr %index.i.i.i271, align 8
-  %memptr.offset.i.i.i.i254 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %124
-  %125 = load i64, ptr %memptr.offset.i.i.i.i254, align 8
-  %126 = load ptr, ptr %m_time_map.i270, align 8
-  %add.ptr.i.i.i255 = getelementptr inbounds i64, ptr %126, i64 %125
   br label %for.inc151.sink.split
 
 if.then128:                                       ; preds = %if.then98
-  %127 = load i64, ptr %index.i.i.i271, align 8
-  %memptr.offset.i.i.i.i.i273 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %127
-  %128 = load i64, ptr %memptr.offset.i.i.i.i.i273, align 8
-  %129 = load ptr, ptr %m_time_map.i270, align 8
-  %add.ptr.i.i.i.i274 = getelementptr inbounds i64, ptr %129, i64 %128
-  %130 = load i64, ptr %add.ptr.i.i.i.i274, align 8
-  %memptr.offset.i.i.i.i4.i276 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %127
-  %131 = load i64, ptr %memptr.offset.i.i.i.i4.i276, align 8
-  %add.ptr.i.i.i5.i277 = getelementptr inbounds i64, ptr %129, i64 %131
-  %132 = load i64, ptr %add.ptr.i.i.i5.i277, align 8
-  %cmp.not.i278 = icmp sgt i64 %130, %132
+  %119 = load i64, ptr %index.i.i.i271, align 8
+  %memptr.offset.i.i.i.i.i273 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %119
+  %120 = load i64, ptr %memptr.offset.i.i.i.i.i273, align 8
+  %121 = load ptr, ptr %m_time_map.i270, align 8
+  %add.ptr.i.i.i.i274 = getelementptr inbounds i64, ptr %121, i64 %120
+  %122 = load i64, ptr %add.ptr.i.i.i.i274, align 8
+  %memptr.offset.i.i.i.i4.i276 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %119
+  %123 = load i64, ptr %memptr.offset.i.i.i.i4.i276, align 8
+  %add.ptr.i.i.i5.i277 = getelementptr inbounds i64, ptr %121, i64 %123
+  %124 = load i64, ptr %add.ptr.i.i.i5.i277, align 8
+  %cmp.not.i278 = icmp sgt i64 %122, %124
   br i1 %cmp.not.i278, label %for.inc151, label %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E21is_closer_to_terminalENSL_17vertex_descriptorISF_EES19_.exit288
 
 _ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E21is_closer_to_terminalENSL_17vertex_descriptorISF_EES19_.exit288: ; preds = %if.then128
-  %133 = load i64, ptr %index.i.i7.i281, align 8
-  %memptr.offset.i.i.i.i9.i282 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %133
-  %134 = load i64, ptr %memptr.offset.i.i.i.i9.i282, align 8
-  %135 = load ptr, ptr %m_dist_map.i280, align 8
-  %add.ptr.i.i.i10.i283 = getelementptr inbounds i32, ptr %135, i64 %134
-  %136 = load i32, ptr %add.ptr.i.i.i10.i283, align 4
-  %memptr.offset.i.i.i.i14.i284 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %133
-  %137 = load i64, ptr %memptr.offset.i.i.i.i14.i284, align 8
-  %add.ptr.i.i.i15.i285 = getelementptr inbounds i32, ptr %135, i64 %137
-  %138 = load i32, ptr %add.ptr.i.i.i15.i285, align 4
-  %add.i286 = add nsw i32 %138, 1
-  %cmp7.i287 = icmp sgt i32 %136, %add.i286
+  %125 = load i64, ptr %index.i.i7.i281, align 8
+  %memptr.offset.i.i.i.i9.i282 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %125
+  %126 = load i64, ptr %memptr.offset.i.i.i.i9.i282, align 8
+  %127 = load ptr, ptr %m_dist_map.i280, align 8
+  %add.ptr.i.i.i10.i283 = getelementptr inbounds i32, ptr %127, i64 %126
+  %128 = load i32, ptr %add.ptr.i.i.i10.i283, align 4
+  %memptr.offset.i.i.i.i14.i284 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %125
+  %129 = load i64, ptr %memptr.offset.i.i.i.i14.i284, align 8
+  %add.ptr.i.i.i15.i285 = getelementptr inbounds i32, ptr %127, i64 %129
+  %130 = load i32, ptr %add.ptr.i.i.i15.i285, align 4
+  %add.i286 = add nsw i32 %130, 1
+  %cmp7.i287 = icmp sgt i32 %128, %add.i286
   br i1 %cmp7.i287, label %if.then132, label %for.inc151
 
 if.then132:                                       ; preds = %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E21is_closer_to_terminalENSL_17vertex_descriptorISF_EES19_.exit288
-  %139 = load i64, ptr %index.i.i.i291, align 8
-  %memptr.offset.i.i.i.i.i293 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %139
-  %140 = load i64, ptr %memptr.offset.i.i.i.i.i293, align 8
-  %141 = load ptr, ptr %m_pre_map.i290, align 8
-  %add.ptr.i.i.i.i294 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor", ptr %141, i64 %140
+  %131 = load i64, ptr %index.i.i.i291, align 8
+  %memptr.offset.i.i.i.i.i293 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %131
+  %132 = load i64, ptr %memptr.offset.i.i.i.i.i293, align 8
+  %133 = load ptr, ptr %m_pre_map.i290, align 8
+  %add.ptr.i.i.i.i294 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor", ptr %133, i64 %132
   store ptr %in_edge.sroa.0.0.copyload, ptr %add.ptr.i.i.i.i294, align 8
   %f_edge_to_parent.sroa.2.0.add.ptr.i.i.i.sroa_idx.i295 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i294, i64 8
   store i64 %in_edge.sroa.6.0.copyload, ptr %f_edge_to_parent.sroa.2.0.add.ptr.i.i.i.sroa_idx.i295, align 8
-  %142 = load i64, ptr %index.i.i2.i297, align 8
-  %memptr.offset.i.i.i.i4.i298 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %142
-  %143 = load i64, ptr %memptr.offset.i.i.i.i4.i298, align 8
+  %134 = load i64, ptr %index.i.i2.i297, align 8
+  %memptr.offset.i.i.i.i4.i298 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %134
+  %135 = load i64, ptr %memptr.offset.i.i.i.i4.i298, align 8
   %retval.sroa.0.0.copyload.i.i.i.i299 = load ptr, ptr %m_has_parent_map.i296, align 8
   %retval.sroa.4.0.copyload.i.i.i.i301 = load i32, ptr %retval.sroa.4.0.__x.sroa_idx.i.i.i.i300, align 8
   %conv.i.i.i.i.i.i302 = zext i32 %retval.sroa.4.0.copyload.i.i.i.i301 to i64
-  %add.i.i.i.i.i.i303 = add nsw i64 %143, %conv.i.i.i.i.i.i302
+  %add.i.i.i.i.i.i303 = add nsw i64 %135, %conv.i.i.i.i.i.i302
   %div.i.i.i.i.i.i304 = sdiv i64 %add.i.i.i.i.i.i303, 64
   %add.ptr.i.i.i.i.i.i305 = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i.i.i299, i64 %div.i.i.i.i.i.i304
-  %144 = and i64 %add.i.i.i.i.i.i303, -9223372036854775745
-  %cmp.i.i.i.i.i.i306 = icmp ugt i64 %144, -9223372036854775808
+  %136 = and i64 %add.i.i.i.i.i.i303, -9223372036854775745
+  %cmp.i.i.i.i.i.i306 = icmp ugt i64 %136, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i307 = select i1 %cmp.i.i.i.i.i.i306, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i308 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i305, i64 %storemerge.idx.i.i.i.i.i.i307
   %conv4.i.i.i.i.i.i309 = and i64 %add.i.i.i.i.i.i303, 63
   %shl.i.i.i.i310 = shl nuw i64 1, %conv4.i.i.i.i.i.i309
-  %145 = load i64, ptr %storemerge.i.i.i.i.i.i308, align 8
-  %or.i.i.i311 = or i64 %shl.i.i.i.i310, %145
+  %137 = load i64, ptr %storemerge.i.i.i.i.i.i308, align 8
+  %or.i.i.i311 = or i64 %shl.i.i.i.i310, %137
   store i64 %or.i.i.i311, ptr %storemerge.i.i.i.i.i.i308, align 8
-  %146 = load i64, ptr %index.i.i7.i281, align 8
-  %memptr.offset.i.i.i.i315 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %146
-  %147 = load i64, ptr %memptr.offset.i.i.i.i315, align 8
-  %148 = load ptr, ptr %m_dist_map.i280, align 8
-  %add.ptr.i.i.i316 = getelementptr inbounds i32, ptr %148, i64 %147
-  %149 = load i32, ptr %add.ptr.i.i.i316, align 4
-  %add140 = add nsw i32 %149, 1
-  %memptr.offset.i.i.i.i319 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %146
-  %150 = load i64, ptr %memptr.offset.i.i.i.i319, align 8
-  %add.ptr.i.i.i320 = getelementptr inbounds i32, ptr %148, i64 %150
-  store i32 %add140, ptr %add.ptr.i.i.i320, align 4
-  %151 = load i64, ptr %index.i.i.i271, align 8
-  %memptr.offset.i.i.i.i324 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %151
-  %152 = load i64, ptr %memptr.offset.i.i.i.i324, align 8
-  %153 = load ptr, ptr %m_time_map.i270, align 8
-  %add.ptr.i.i.i325 = getelementptr inbounds i64, ptr %153, i64 %152
   br label %for.inc151.sink.split
 
 if.else146:                                       ; preds = %if.then98
@@ -5055,73 +5023,86 @@ if.else146:                                       ; preds = %if.then98
   br label %return
 
 for.inc151.sink.split:                            ; preds = %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E15add_active_nodeENSL_17vertex_descriptorISF_EE.exit241, %if.then132
-  %add.ptr.i.i.i325.sink = phi ptr [ %add.ptr.i.i.i325, %if.then132 ], [ %add.ptr.i.i.i255, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E15add_active_nodeENSL_17vertex_descriptorISF_EE.exit241 ]
-  %.sink398 = phi i64 [ %151, %if.then132 ], [ %124, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E15add_active_nodeENSL_17vertex_descriptorISF_EE.exit241 ]
-  %.sink396 = phi ptr [ %153, %if.then132 ], [ %126, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E15add_active_nodeENSL_17vertex_descriptorISF_EE.exit241 ]
-  %154 = load i64, ptr %add.ptr.i.i.i325.sink, align 8
-  %memptr.offset.i.i.i.i328 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %.sink398
-  %155 = load i64, ptr %memptr.offset.i.i.i.i328, align 8
-  %add.ptr.i.i.i329 = getelementptr inbounds i64, ptr %.sink396, i64 %155
-  store i64 %154, ptr %add.ptr.i.i.i329, align 8
+  %138 = load i64, ptr %index.i.i7.i281, align 8
+  %memptr.offset.i.i.i.i315 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %138
+  %139 = load i64, ptr %memptr.offset.i.i.i.i315, align 8
+  %140 = load ptr, ptr %m_dist_map.i280, align 8
+  %add.ptr.i.i.i316 = getelementptr inbounds i32, ptr %140, i64 %139
+  %141 = load i32, ptr %add.ptr.i.i.i316, align 4
+  %add140 = add nsw i32 %141, 1
+  %memptr.offset.i.i.i.i319 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %138
+  %142 = load i64, ptr %memptr.offset.i.i.i.i319, align 8
+  %add.ptr.i.i.i320 = getelementptr inbounds i32, ptr %140, i64 %142
+  store i32 %add140, ptr %add.ptr.i.i.i320, align 4
+  %143 = load i64, ptr %index.i.i.i271, align 8
+  %memptr.offset.i.i.i.i324 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %143
+  %144 = load i64, ptr %memptr.offset.i.i.i.i324, align 8
+  %145 = load ptr, ptr %m_time_map.i270, align 8
+  %add.ptr.i.i.i325 = getelementptr inbounds i64, ptr %145, i64 %144
+  %146 = load i64, ptr %add.ptr.i.i.i325, align 8
+  %memptr.offset.i.i.i.i328 = getelementptr inbounds i8, ptr %props.i.i.i.i.i163, i64 %143
+  %147 = load i64, ptr %memptr.offset.i.i.i.i328, align 8
+  %add.ptr.i.i.i329 = getelementptr inbounds i64, ptr %145, i64 %147
+  store i64 %146, ptr %add.ptr.i.i.i329, align 8
   br label %for.inc151
 
 for.inc151:                                       ; preds = %for.inc151.sink.split, %if.then128, %for.body90, %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E21is_closer_to_terminalENSL_17vertex_descriptorISF_EES19_.exit288
-  %156 = load ptr, ptr %m_last_grow_edge_it82, align 8
-  %157 = load ptr, ptr %156, align 8
-  store ptr %157, ptr %m_last_grow_edge_it82, align 8
-  %158 = load ptr, ptr %m_last_grow_edge_end83, align 8
-  %cmp.i.i.i.i145.not = icmp eq ptr %157, %158
+  %148 = load ptr, ptr %m_last_grow_edge_it82, align 8
+  %149 = load ptr, ptr %148, align 8
+  store ptr %149, ptr %m_last_grow_edge_it82, align 8
+  %150 = load ptr, ptr %m_last_grow_edge_end83, align 8
+  %cmp.i.i.i.i145.not = icmp eq ptr %149, %150
   br i1 %cmp.i.i.i.i145.not, label %if.end155, label %for.body90, !llvm.loop !167
 
 if.end155:                                        ; preds = %for.inc151, %for.inc, %if.end85, %if.end
-  %159 = load ptr, ptr %_M_start.i.i.i, align 8
-  %160 = load ptr, ptr %_M_last.i.i.i332, align 8
-  %add.ptr.i.i.i333 = getelementptr inbounds i8, ptr %160, i64 -16
-  %cmp.not.i.i.i334 = icmp eq ptr %159, %add.ptr.i.i.i333
+  %151 = load ptr, ptr %_M_start.i.i.i, align 8
+  %152 = load ptr, ptr %_M_last.i.i.i332, align 8
+  %add.ptr.i.i.i333 = getelementptr inbounds i8, ptr %152, i64 -16
+  %cmp.not.i.i.i334 = icmp eq ptr %151, %add.ptr.i.i.i333
   br i1 %cmp.not.i.i.i334, label %if.else.i.i.i, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end155
-  %incdec.ptr.i.i.i335 = getelementptr inbounds i8, ptr %159, i64 16
+  %incdec.ptr.i.i.i335 = getelementptr inbounds i8, ptr %151, i64 16
   br label %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit
 
 if.else.i.i.i:                                    ; preds = %if.end155
-  %161 = load ptr, ptr %_M_first.i.i.i.i, align 8
-  call void @_ZdlPv(ptr noundef %161) #20
-  %162 = load ptr, ptr %_M_node.i.i.i.i, align 8
-  %add.ptr.i.i.i.i356 = getelementptr inbounds i8, ptr %162, i64 8
+  %153 = load ptr, ptr %_M_first.i.i.i.i, align 8
+  call void @_ZdlPv(ptr noundef %153) #20
+  %154 = load ptr, ptr %_M_node.i.i.i.i, align 8
+  %add.ptr.i.i.i.i356 = getelementptr inbounds i8, ptr %154, i64 8
   store ptr %add.ptr.i.i.i.i356, ptr %_M_node.i.i.i.i, align 8
-  %163 = load ptr, ptr %add.ptr.i.i.i.i356, align 8
-  store ptr %163, ptr %_M_first.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %163, i64 512
+  %155 = load ptr, ptr %add.ptr.i.i.i.i356, align 8
+  store ptr %155, ptr %_M_first.i.i.i.i, align 8
+  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %155, i64 512
   store ptr %add.ptr.i.i.i.i.i, ptr %_M_last.i.i.i332, align 8
   br label %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit
 
 _ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
-  %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i335, %if.then.i.i.i ], [ %163, %if.else.i.i.i ]
+  %storemerge.i.i.i = phi ptr [ %incdec.ptr.i.i.i335, %if.then.i.i.i ], [ %155, %if.else.i.i.i ]
   store ptr %storemerge.i.i.i, ptr %_M_start.i.i.i, align 8
-  %164 = load i64, ptr %index.i.i.i210, align 8
-  %memptr.offset.i.i.i.i.i340 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %164
-  %165 = load i64, ptr %memptr.offset.i.i.i.i.i340, align 8
+  %156 = load i64, ptr %index.i.i.i210, align 8
+  %memptr.offset.i.i.i.i.i340 = getelementptr inbounds i8, ptr %props.i.i.i.i.i, i64 %156
+  %157 = load i64, ptr %memptr.offset.i.i.i.i.i340, align 8
   %retval.sroa.0.0.copyload.i.i.i.i341 = load ptr, ptr %m_in_active_list_map.i209, align 8
   %retval.sroa.4.0.copyload.i.i.i.i343 = load i32, ptr %retval.sroa.4.0.__x.sroa_idx.i.i.i.i214, align 8
   %conv.i.i.i.i.i.i344 = zext i32 %retval.sroa.4.0.copyload.i.i.i.i343 to i64
-  %add.i.i.i.i.i.i345 = add nsw i64 %165, %conv.i.i.i.i.i.i344
+  %add.i.i.i.i.i.i345 = add nsw i64 %157, %conv.i.i.i.i.i.i344
   %div.i.i.i.i.i.i346 = sdiv i64 %add.i.i.i.i.i.i345, 64
   %add.ptr.i.i.i.i.i.i347 = getelementptr inbounds i64, ptr %retval.sroa.0.0.copyload.i.i.i.i341, i64 %div.i.i.i.i.i.i346
-  %166 = and i64 %add.i.i.i.i.i.i345, -9223372036854775745
-  %cmp.i.i.i.i.i.i348 = icmp ugt i64 %166, -9223372036854775808
+  %158 = and i64 %add.i.i.i.i.i.i345, -9223372036854775745
+  %cmp.i.i.i.i.i.i348 = icmp ugt i64 %158, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i349 = select i1 %cmp.i.i.i.i.i.i348, i64 -8, i64 0
   %storemerge.i.i.i.i.i.i350 = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i347, i64 %storemerge.idx.i.i.i.i.i.i349
   %conv4.i.i.i.i.i.i351 = and i64 %add.i.i.i.i.i.i345, 63
   %shl.i.i.i.i352 = shl nuw i64 1, %conv4.i.i.i.i.i.i351
   %not.i.i.i353 = xor i64 %shl.i.i.i.i352, -1
-  %167 = load i64, ptr %storemerge.i.i.i.i.i.i350, align 8
-  %and.i.i.i354 = and i64 %167, %not.i.i.i353
+  %159 = load i64, ptr %storemerge.i.i.i.i.i.i350, align 8
+  %and.i.i.i354 = and i64 %159, %not.i.i.i353
   store i64 %and.i.i.i354, ptr %storemerge.i.i.i.i.i.i350, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_last_grow_vertex74, i8 0, i64 16, i1 false)
   %call = call { ptr, i64 } @_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E20get_next_active_nodeEv(ptr noundef nonnull align 8 dereferenceable(560) %this)
-  %168 = extractvalue { ptr, i64 } %call, 0
-  %cmp.i.i.not = icmp eq ptr %168, null
+  %160 = extractvalue { ptr, i64 } %call, 0
+  %cmp.i.i.not = icmp eq ptr %160, null
   br i1 %cmp.i.i.not, label %while.end, label %while.body, !llvm.loop !168
 
 while.end:                                        ; preds = %_ZN5boost6detail11bk_max_flowIN3ue28NGHolderENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS2_9ue2_graphIS3_NS2_19NFAGraphVertexPropsENS2_17NFAGraphEdgePropsEE8prop_mapIRmSE_EEyRyEESK_NS4_INS6_IPNS2_12graph_detail15edge_descriptorISF_EES8_ISN_SaISN_EEEESI_SN_RSN_EENS4_ISR_NSG_ISH_SD_EESN_SS_EENS2_15small_color_mapINSG_IRKmSD_EEEENS4_INS6_IPiS8_IiSaIiEEEESU_iRiEESU_E11finish_nodeENSL_17vertex_descriptorISF_EE.exit, %entry

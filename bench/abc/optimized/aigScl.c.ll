@@ -439,12 +439,12 @@ Vec_IntGrow.exit.i172:                            ; preds = %202, %200
   br label %.sink.split
 
 .sink.split:                                      ; preds = %215, %Vec_IntGrow.exit.i172, %.Vec_IntGrow.exit10_crit_edge.i167, %188, %Vec_IntGrow.exit.i165, %.Vec_IntGrow.exit10_crit_edge.i160
-  %.sink = phi ptr [ %164, %.Vec_IntGrow.exit10_crit_edge.i160 ], [ %164, %Vec_IntGrow.exit.i165 ], [ %164, %188 ], [ %191, %.Vec_IntGrow.exit10_crit_edge.i167 ], [ %191, %Vec_IntGrow.exit.i172 ], [ %191, %215 ]
+  %.sink225 = phi ptr [ %164, %.Vec_IntGrow.exit10_crit_edge.i160 ], [ %164, %Vec_IntGrow.exit.i165 ], [ %164, %188 ], [ %191, %.Vec_IntGrow.exit10_crit_edge.i167 ], [ %191, %Vec_IntGrow.exit.i172 ], [ %191, %215 ]
   %.sink220 = phi ptr [ %.pre.i162, %.Vec_IntGrow.exit10_crit_edge.i160 ], [ %177, %Vec_IntGrow.exit.i165 ], [ %189, %188 ], [ %.pre.i169, %.Vec_IntGrow.exit10_crit_edge.i167 ], [ %204, %Vec_IntGrow.exit.i172 ], [ %216, %215 ]
   %.val146.sink = phi i32 [ -1, %.Vec_IntGrow.exit10_crit_edge.i160 ], [ -1, %Vec_IntGrow.exit.i165 ], [ -1, %188 ], [ %.val146, %.Vec_IntGrow.exit10_crit_edge.i167 ], [ %.val146, %Vec_IntGrow.exit.i172 ], [ %.val146, %215 ]
-  %217 = load i32, ptr %.sink, align 4
+  %217 = load i32, ptr %.sink225, align 4
   %218 = add nsw i32 %217, 1
-  store i32 %218, ptr %.sink, align 4
+  store i32 %218, ptr %.sink225, align 4
   %219 = sext i32 %217 to i64
   %220 = getelementptr inbounds i32, ptr %.sink220, i64 %219
   store i32 %.val146.sink, ptr %220, align 4
@@ -531,7 +531,7 @@ Vec_IntGrow.exit.i172:                            ; preds = %202, %200
   %257 = ptrtoint ptr %.val149 to i64
   %258 = and i64 %257, -2
   %.not.i174 = icmp eq i64 %258, 0
-  br i1 %.not.i174, label %.sink.split225, label %259
+  br i1 %.not.i174, label %.sink.split226, label %259
 
 259:                                              ; preds = %255
   %260 = inttoptr i64 %258 to ptr
@@ -541,7 +541,7 @@ Vec_IntGrow.exit.i172:                            ; preds = %202, %200
   %264 = ptrtoint ptr %262 to i64
   %265 = xor i64 %263, %264
   %266 = inttoptr i64 %265 to ptr
-  br label %.sink.split225
+  br label %.sink.split226
 
 267:                                              ; preds = %252
   %268 = trunc i64 %.val148 to i32
@@ -590,15 +590,15 @@ Aig_ObjChild0Copy.exit176:                        ; preds = %271, %275
 Aig_ObjChild1Copy.exit:                           ; preds = %Aig_ObjChild0Copy.exit176, %287
   %295 = phi ptr [ %294, %287 ], [ null, %Aig_ObjChild0Copy.exit176 ]
   %296 = tail call ptr @Aig_And(ptr noundef nonnull %5, ptr noundef %283, ptr noundef %295) #14
-  br label %.sink.split225
+  br label %.sink.split226
 
-.sink.split225:                                   ; preds = %259, %255, %Aig_ObjChild1Copy.exit
-  %.sink226 = phi ptr [ %296, %Aig_ObjChild1Copy.exit ], [ %266, %259 ], [ null, %255 ]
+.sink.split226:                                   ; preds = %259, %255, %Aig_ObjChild1Copy.exit
+  %.sink = phi ptr [ %296, %Aig_ObjChild1Copy.exit ], [ %266, %259 ], [ null, %255 ]
   %297 = getelementptr inbounds i8, ptr %250, i64 40
-  store ptr %.sink226, ptr %297, align 8
+  store ptr %.sink, ptr %297, align 8
   br label %298
 
-298:                                              ; preds = %.sink.split225, %.lr.ph195, %267
+298:                                              ; preds = %.sink.split226, %.lr.ph195, %267
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
   %299 = load ptr, ptr %3, align 8
   %300 = getelementptr i8, ptr %299, i64 4

@@ -871,10 +871,10 @@ define i32 @cuddZddSwapInPlace(ptr noundef %0, i32 noundef %1, i32 noundef %2) l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %105, %76, %113
-  %.0236.sink = phi ptr [ %.0236, %113 ], [ %.0236, %76 ], [ %.1233291, %105 ]
+  %.1233291.lcssa.sink = phi ptr [ %.0236, %113 ], [ %.0236, %76 ], [ %.1233291, %105 ]
   %.4.ph = phi i32 [ %117, %113 ], [ %.3251302, %76 ], [ %.3251302, %105 ]
   %.2234.ph = phi ptr [ %111, %113 ], [ %.0236, %76 ], [ %.1233291, %105 ]
-  %123 = getelementptr inbounds i8, ptr %.0236.sink, i64 4
+  %123 = getelementptr inbounds i8, ptr %.1233291.lcssa.sink, i64 4
   %124 = load i32, ptr %123, align 4
   %125 = add i32 %124, 1
   store i32 %125, ptr %123, align 4

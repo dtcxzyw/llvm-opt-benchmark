@@ -1909,7 +1909,7 @@ define range(i32 0, 2) i32 @pqRowProcessor(ptr nocapture noundef %0, ptr nocaptu
   %.sink = phi ptr [ %33, %35 ], [ %21, %22 ]
   %41 = getelementptr %struct.pgresAttValue, ptr %17, i64 %indvars.iv
   store i32 %.sink63, ptr %41, align 8
-  %42 = getelementptr %struct.pgresAttValue, ptr %17, i64 %indvars.iv, i32 1
+  %42 = getelementptr inbounds i8, ptr %41, i64 8
   store ptr %.sink, ptr %42, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

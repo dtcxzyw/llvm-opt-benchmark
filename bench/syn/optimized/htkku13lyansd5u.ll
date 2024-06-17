@@ -1541,69 +1541,43 @@ define hidden void @"_ZN85_$LT$proc_macro..bridge..Ident$LT$Span$C$Symbol$GT$$u2
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !35, !noundef !4
-  switch i64 %2, label %default.unreachable5 [
-    i64 0, label %3
-    i64 1, label %6
-    i64 2, label %9
-  ]
+  %switch = icmp ult i64 %2, 2
+  br i1 %switch, label %.sink.split, label %5
 
-default.unreachable5:                             ; preds = %1
-  unreachable
+.sink.split:                                      ; preds = %1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  %.fca.0.extract1 = extractvalue { ptr, ptr } %4, 0
+  %.fca.1.extract3 = extractvalue { ptr, ptr } %4, 1
+  br label %5
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
-  %.fca.0.extract = extractvalue { ptr, ptr } %5, 0
-  %.fca.1.extract = extractvalue { ptr, ptr } %5, 1
-  br label %9
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-  %.fca.0.extract1 = extractvalue { ptr, ptr } %8, 0
-  %.fca.1.extract3 = extractvalue { ptr, ptr } %8, 1
-  br label %9
-
-9:                                                ; preds = %1, %6, %3
-  %.sroa.4.0 = phi ptr [ %.fca.1.extract3, %6 ], [ %.fca.1.extract, %3 ], [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ]
-  %.sroa.0.0 = phi ptr [ %.fca.0.extract1, %6 ], [ %.fca.0.extract, %3 ], [ inttoptr (i64 1 to ptr), %1 ]
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %11
+5:                                                ; preds = %1, %.sink.split
+  %.sroa.4.0 = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ], [ %.fca.1.extract3, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1, %.sink.split ]
+  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !35, !noundef !4
-  switch i64 %2, label %default.unreachable5 [
-    i64 0, label %3
-    i64 1, label %6
-    i64 2, label %9
-  ]
+  %switch = icmp ult i64 %2, 2
+  br i1 %switch, label %.sink.split, label %5
 
-default.unreachable5:                             ; preds = %1
-  unreachable
+.sink.split:                                      ; preds = %1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
+  %.fca.0.extract1 = extractvalue { ptr, ptr } %4, 0
+  %.fca.1.extract3 = extractvalue { ptr, ptr } %4, 1
+  br label %5
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
-  %.fca.0.extract = extractvalue { ptr, ptr } %5, 0
-  %.fca.1.extract = extractvalue { ptr, ptr } %5, 1
-  br label %9
-
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  %.fca.0.extract1 = extractvalue { ptr, ptr } %8, 0
-  %.fca.1.extract3 = extractvalue { ptr, ptr } %8, 1
-  br label %9
-
-9:                                                ; preds = %1, %6, %3
-  %.sroa.4.0 = phi ptr [ %.fca.1.extract3, %6 ], [ %.fca.1.extract, %3 ], [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ]
-  %.sroa.0.0 = phi ptr [ %.fca.0.extract1, %6 ], [ %.fca.0.extract, %3 ], [ inttoptr (i64 1 to ptr), %1 ]
-  %10 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %11 = insertvalue { ptr, ptr } %10, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %11
+5:                                                ; preds = %1, %.sink.split
+  %.sroa.4.0 = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ], [ %.fca.1.extract3, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1, %.sink.split ]
+  %6 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %7 = insertvalue { ptr, ptr } %6, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1725,69 +1699,43 @@ default.unreachable1:                             ; preds = %2
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN83_$LT$$RF$syn..data..Fields$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h40df67c965857dd4E"(ptr noalias noundef readonly align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !35, !alias.scope !300, !noundef !4
-  switch i64 %2, label %default.unreachable [
-    i64 0, label %3
-    i64 1, label %6
-    i64 2, label %_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit
-  ]
+  %switch.i = icmp ult i64 %2, 2
+  br i1 %switch.i, label %.sink.split.i, label %_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %4)
-  %.fca.0.extract.i = extractvalue { ptr, ptr } %5, 0
-  %.fca.1.extract.i = extractvalue { ptr, ptr } %5, 1
+.sink.split.i:                                    ; preds = %1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
+  %.fca.0.extract1.i = extractvalue { ptr, ptr } %4, 0
+  %.fca.1.extract3.i = extractvalue { ptr, ptr } %4, 1
   br label %_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$4iter17ha09418e6ca544beeE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %7)
-  %.fca.0.extract1.i = extractvalue { ptr, ptr } %8, 0
-  %.fca.1.extract3.i = extractvalue { ptr, ptr } %8, 1
-  br label %_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit
-
-_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit: ; preds = %1, %3, %6
-  %.sroa.4.0.i = phi ptr [ %.fca.1.extract3.i, %6 ], [ %.fca.1.extract.i, %3 ], [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ]
-  %.sroa.0.0.i = phi ptr [ %.fca.0.extract1.i, %6 ], [ %.fca.0.extract.i, %3 ], [ inttoptr (i64 1 to ptr), %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %10
+_ZN3syn4data6Fields4iter17h6c0e6c7980c8ba4dE.exit: ; preds = %1, %.sink.split.i
+  %.sroa.4.0.i = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.29, %1 ], [ %.fca.1.extract3.i, %.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1.i, %.sink.split.i ]
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
 define { ptr, ptr } @"_ZN91_$LT$$RF$mut$u20$syn..data..Fields$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17h2453f73818e9472bE"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #3 personality ptr @rust_eh_personality {
   %2 = load i64, ptr %0, align 8, !range !35, !alias.scope !303, !noundef !4
-  switch i64 %2, label %default.unreachable [
-    i64 0, label %3
-    i64 1, label %6
-    i64 2, label %_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit
-  ]
+  %switch.i = icmp ult i64 %2, 2
+  br i1 %switch.i, label %.sink.split.i, label %_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit
 
-default.unreachable:                              ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 8
-  %5 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4)
-  %.fca.0.extract.i = extractvalue { ptr, ptr } %5, 0
-  %.fca.1.extract.i = extractvalue { ptr, ptr } %5, 1
+.sink.split.i:                                    ; preds = %1
+  %3 = getelementptr inbounds i8, ptr %0, i64 8
+  %4 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3)
+  %.fca.0.extract1.i = extractvalue { ptr, ptr } %4, 0
+  %.fca.1.extract3.i = extractvalue { ptr, ptr } %4, 1
   br label %_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit
 
-6:                                                ; preds = %1
-  %7 = getelementptr inbounds i8, ptr %0, i64 8
-  %8 = tail call { ptr, ptr } @"_ZN3syn10punctuated23Punctuated$LT$T$C$P$GT$8iter_mut17hc999525c4eec8f19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7)
-  %.fca.0.extract1.i = extractvalue { ptr, ptr } %8, 0
-  %.fca.1.extract3.i = extractvalue { ptr, ptr } %8, 1
-  br label %_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit
-
-_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit: ; preds = %1, %3, %6
-  %.sroa.4.0.i = phi ptr [ %.fca.1.extract3.i, %6 ], [ %.fca.1.extract.i, %3 ], [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ]
-  %.sroa.0.0.i = phi ptr [ %.fca.0.extract1.i, %6 ], [ %.fca.0.extract.i, %3 ], [ inttoptr (i64 1 to ptr), %1 ]
-  %9 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.4.0.i, 1
-  ret { ptr, ptr } %10
+_ZN3syn4data6Fields8iter_mut17h739cafc5f3d50012E.exit: ; preds = %1, %.sink.split.i
+  %.sroa.4.0.i = phi ptr [ @anon.67b65e521e72d52680c2b83e26507c19.31, %1 ], [ %.fca.1.extract3.i, %.sink.split.i ]
+  %.sroa.0.0.i = phi ptr [ inttoptr (i64 1 to ptr), %1 ], [ %.fca.0.extract1.i, %.sink.split.i ]
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr %.sroa.4.0.i, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

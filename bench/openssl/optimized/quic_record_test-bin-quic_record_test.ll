@@ -1747,10 +1747,10 @@ cond.end:                                         ; preds = %if.end211
   %and219 = and i32 %shl, %conv216
   %cmp220.not = icmp eq i32 %and219, 0
   %counts_u.counts_c = select i1 %cmp220.not, ptr @counts_u, ptr @counts_c
-  %arrayidx231 = getelementptr inbounds [3 x [37 x i32]], ptr %counts_u.counts_c, i64 0, i64 %idxprom223, i64 %add212
-  %39 = load i32, ptr %arrayidx231, align 4
+  %arrayidx226 = getelementptr inbounds [3 x [37 x i32]], ptr %counts_u.counts_c, i64 0, i64 %idxprom223, i64 %add212
+  %39 = load i32, ptr %arrayidx226, align 4
   %inc = add i32 %39, 1
-  store i32 %inc, ptr %arrayidx231, align 4
+  store i32 %inc, ptr %arrayidx226, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %cond.end, %for.body206

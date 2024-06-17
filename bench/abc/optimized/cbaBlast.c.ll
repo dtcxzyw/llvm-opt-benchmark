@@ -1235,11 +1235,11 @@ define void @Cba_BlastShiftLeft(ptr noundef %0, ptr nocapture noundef readonly %
   br label %37
 
 37:                                               ; preds = %.lr.ph.split.us.us, %33
-  %.sink77 = phi i32 [ %36, %33 ], [ %12, %.lr.ph.split.us.us ]
+  %.sink76 = phi i32 [ %36, %33 ], [ %12, %.lr.ph.split.us.us ]
   %.2.us.us = phi i32 [ 0, %33 ], [ 1, %.lr.ph.split.us.us ]
   %38 = getelementptr inbounds i32, ptr %8, i64 %indvars.iv64
   %39 = load i32, ptr %38, align 4
-  %40 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %32, i32 noundef %.sink77, i32 noundef %39) #20
+  %40 = tail call i32 @Gia_ManHashMux(ptr noundef %0, i32 noundef %32, i32 noundef %.sink76, i32 noundef %39) #20
   store i32 %40, ptr %38, align 4
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
   %.not38.not.us.us = icmp sgt i64 %indvars.iv64, %16

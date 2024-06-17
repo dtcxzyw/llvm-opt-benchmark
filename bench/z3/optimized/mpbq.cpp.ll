@@ -1356,13 +1356,13 @@ if.end.i30:                                       ; preds = %if.else13
 return.sink.split.sink.split:                     ; preds = %if.end.i30, %if.then10, %if.end.i
   %retval.0.ph.ph = phi i1 [ %call, %if.end.i ], [ false, %if.then10 ], [ false, %if.end.i30 ]
   %5 = load ptr, ptr %this, align 8
-  %call7.i22 = call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %a)
+  %call7.i33 = call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %5, ptr noundef nonnull align 8 dereferenceable(16) %a)
   %6 = load i32, ptr %m_k, align 8
-  %spec.select.i23 = call i32 @llvm.umin.i32(i32 %call7.i22, i32 %6)
+  %spec.select.i34 = call i32 @llvm.umin.i32(i32 %call7.i33, i32 %6)
   %7 = load ptr, ptr %this, align 8
-  call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %spec.select.i23)
+  call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %7, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %spec.select.i34)
   %8 = load i32, ptr %m_k, align 8
-  %sub.i35 = sub i32 %8, %spec.select.i23
+  %sub.i35 = sub i32 %8, %spec.select.i34
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end.i30, %if.end.i
@@ -1424,13 +1424,13 @@ if.end.i28:                                       ; preds = %if.else10
 return.sink.split.sink.split:                     ; preds = %if.end.i28, %if.then6, %if.end.i
   %retval.0.ph.ph = phi i1 [ %call, %if.end.i ], [ false, %if.then6 ], [ false, %if.end.i28 ]
   %4 = load ptr, ptr %this, align 8
-  %call7.i20 = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %a)
+  %call7.i31 = tail call noundef i32 @_ZN11mpz_managerILb0EE21power_of_two_multipleERK3mpz(ptr noundef nonnull align 8 dereferenceable(600) %4, ptr noundef nonnull align 8 dereferenceable(16) %a)
   %5 = load i32, ptr %m_k, align 8
-  %spec.select.i21 = tail call i32 @llvm.umin.i32(i32 %call7.i20, i32 %5)
+  %spec.select.i32 = tail call i32 @llvm.umin.i32(i32 %call7.i31, i32 %5)
   %6 = load ptr, ptr %this, align 8
-  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %6, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %spec.select.i21)
+  tail call void @_ZN11mpz_managerILb0EE13machine_div2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %6, ptr noundef nonnull align 8 dereferenceable(16) %a, i32 noundef %spec.select.i32)
   %7 = load i32, ptr %m_k, align 8
-  %sub.i33 = sub i32 %7, %spec.select.i21
+  %sub.i33 = sub i32 %7, %spec.select.i32
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.end.i28, %if.end.i

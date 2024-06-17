@@ -1786,7 +1786,7 @@ _ZN6icu_7522RuleBasedBreakIterator10BreakCache12addFollowingEiiNS1_20UpdatePosit
 return.sink.split.sink.split:                     ; preds = %if.then20, %if.then
   %.sink = phi i32 [ %15, %if.then ], [ %35, %if.then20 ]
   %fStartBufIdx.i53.sink = phi ptr [ %fStartBufIdx.i, %if.then ], [ %fStartBufIdx.i53, %if.then20 ]
-  %and.i.i.sink.ph = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ]
+  %and.i.i52.sink130.ph = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ]
   %pos.1.sink128.ph = phi i32 [ %pos.0, %if.then ], [ %pos.1, %if.then20 ]
   %ruleStatusIdx.1.sink.ph = phi i32 [ %ruleStatusIdx.0, %if.then ], [ %ruleStatusIdx.1, %if.then20 ]
   %add3.i65 = add i32 %.sink, 7
@@ -1795,18 +1795,18 @@ return.sink.split.sink.split:                     ; preds = %if.then20, %if.then
   br label %return.sink.split
 
 return.sink.split:                                ; preds = %return.sink.split.sink.split, %if.then20, %if.then
-  %and.i.i.sink = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ], [ %and.i.i.sink.ph, %return.sink.split.sink.split ]
+  %and.i.i52.sink130 = phi i32 [ %and.i.i, %if.then ], [ %and.i.i52, %if.then20 ], [ %and.i.i52.sink130.ph, %return.sink.split.sink.split ]
   %pos.1.sink128 = phi i32 [ %pos.0, %if.then ], [ %pos.1, %if.then20 ], [ %pos.1.sink128.ph, %return.sink.split.sink.split ]
   %ruleStatusIdx.1.sink = phi i32 [ %ruleStatusIdx.0, %if.then ], [ %ruleStatusIdx.1, %if.then20 ], [ %ruleStatusIdx.1.sink.ph, %return.sink.split.sink.split ]
-  %idxprom.i = zext nneg i32 %and.i.i.sink to i64
-  %arrayidx.i58 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i
+  %idxprom.i57 = zext nneg i32 %and.i.i52.sink130 to i64
+  %arrayidx.i58 = getelementptr inbounds [128 x i32], ptr %fBoundaries, i64 0, i64 %idxprom.i57
   store i32 %pos.1.sink128, ptr %arrayidx.i58, align 4
   %conv.i59 = trunc i32 %ruleStatusIdx.1.sink to i16
-  %arrayidx7.i61 = getelementptr inbounds [128 x i16], ptr %fStatuses, i64 0, i64 %idxprom.i
+  %arrayidx7.i61 = getelementptr inbounds [128 x i16], ptr %fStatuses, i64 0, i64 %idxprom.i57
   store i16 %conv.i59, ptr %arrayidx7.i61, align 2
-  store i32 %and.i.i.sink, ptr %fEndBufIdx, align 4
+  store i32 %and.i.i52.sink130, ptr %fEndBufIdx, align 4
   %fBufIdx.i62 = getelementptr inbounds i8, ptr %this, i64 28
-  store i32 %and.i.i.sink, ptr %fBufIdx.i62, align 4
+  store i32 %and.i.i52.sink130, ptr %fBufIdx.i62, align 4
   %fTextIdx.i63 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 %pos.1.sink128, ptr %fTextIdx.i63, align 8
   br label %return

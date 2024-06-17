@@ -80691,9 +80691,9 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
           to label %.invoke unwind label %364
 
 .invoke:                                          ; preds = %360, %387
-  %.sink169 = phi ptr [ %388, %387 ], [ %361, %360 ]
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink169, align 8
-  invoke void @__cxa_throw(ptr nonnull %.sink169, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
+  %.sink168 = phi ptr [ %388, %387 ], [ %361, %360 ]
+  store ptr getelementptr inbounds (i8, ptr @_ZTVN5osgeo4proj2io16ParsingExceptionE, i64 16), ptr %.sink168, align 8
+  invoke void @__cxa_throw(ptr nonnull %.sink168, ptr nonnull @_ZTIN5osgeo4proj2io16ParsingExceptionE, ptr nonnull @_ZN5osgeo4proj2io16ParsingExceptionD1Ev) #38
           to label %.cont unwind label %.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
@@ -81414,23 +81414,23 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common12ObjectDomainEEED2Ev.ex
   br i1 %654, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split, label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split.sink.split: ; preds = %629, %534
-  %.sink177 = phi ptr [ %535, %534 ], [ %630, %629 ]
-  %.sink176 = phi ptr [ %533, %534 ], [ %628, %629 ]
-  store i32 0, ptr %.sink177, align 8
-  %655 = getelementptr inbounds i8, ptr %.sink176, i64 12
+  %.sink175 = phi ptr [ %535, %534 ], [ %630, %629 ]
+  %.sink174 = phi ptr [ %533, %534 ], [ %628, %629 ]
+  store i32 0, ptr %.sink175, align 8
+  %655 = getelementptr inbounds i8, ptr %.sink174, i64 12
   store i32 0, ptr %655, align 4
-  %656 = load ptr, ptr %.sink176, align 8
+  %656 = load ptr, ptr %.sink174, align 8
   %657 = getelementptr inbounds i8, ptr %656, i64 16
   %658 = load ptr, ptr %657, align 8
-  call void %658(ptr noundef nonnull align 8 dereferenceable(16) %.sink176) #37
+  call void %658(ptr noundef nonnull align 8 dereferenceable(16) %.sink174) #37
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split.sink.split, %653, %558
-  %.sink168 = phi ptr [ %533, %558 ], [ %628, %653 ], [ %.sink176, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split.sink.split ]
-  %659 = load ptr, ptr %.sink168, align 8
+  %.sink167 = phi ptr [ %533, %558 ], [ %628, %653 ], [ %.sink174, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split.sink.split ]
+  %659 = load ptr, ptr %.sink167, align 8
   %660 = getelementptr inbounds i8, ptr %659, i64 24
   %661 = load ptr, ptr %660, align 8
-  call void %661(ptr noundef nonnull align 8 dereferenceable(16) %.sink168) #37
+  call void %661(ptr noundef nonnull align 8 dereferenceable(16) %.sink167) #37
   br label %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116
 
 _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116: ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj4util17ArrayOfBaseObjectEEED2Ev.exit116.sink.split, %653, %640, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj6common12ObjectDomainEEED2Ev.exit132, %558, %545, %_ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEED2Ev.exit109
@@ -99119,9 +99119,9 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io15DatabaseContextEEED2Ev.exi
   br label %.loopexit167
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE3getIS8_S8_EEDTcldtclL_ZSt7declvalIRKSC_EDTcl9__declvalIT_ELi0EEEvEE8get_implIT0_EtlNS_6detail12priority_tagILj4EEEEEEv.exit: ; preds = %186, %162
-  %.sink185 = phi ptr [ %17, %162 ], [ %18, %186 ]
-  %195 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sink185) #37
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink185) #37
+  %.sink184 = phi ptr [ %17, %162 ], [ %18, %186 ]
+  %195 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %.sink184) #37
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.sink184) #37
   %196 = load ptr, ptr %13, align 8
   invoke void @_ZNK5osgeo4proj2io16AuthorityFactory11createDatumERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.653") align 8 %19, ptr noundef nonnull align 8 dereferenceable(8) %196, ptr noundef nonnull align 8 dereferenceable(32) %16)
           to label %197 unwind label %242
@@ -100381,8 +100381,8 @@ _ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameE
   br label %714
 
 .sink.split:                                      ; preds = %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum9EllipsoidEEED2Ev.exit, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEEED2Ev.exit
-  %.sink186 = phi ptr [ %33, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEEED2Ev.exit ], [ %28, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum9EllipsoidEEED2Ev.exit ]
-  call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink186) #37
+  %.sink185 = phi ptr [ %33, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum22VerticalReferenceFrameEEED2Ev.exit ], [ %28, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj5datum9EllipsoidEEED2Ev.exit ]
+  call void @_ZN5osgeo4proj4util11PropertyMapD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.sink185) #37
   br label %704
 
 704:                                              ; preds = %.sink.split, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj2io16AuthorityFactoryEEED2Ev.exit114

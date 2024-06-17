@@ -11247,10 +11247,10 @@ if.end17.sink.split.i.i.i.loopexit:               ; preds = %for.body.i.i.i
 
 if.end17.sink.split.i.i.i:                        ; preds = %if.end17.sink.split.i.i.i.loopexit, %if.then.i1.i.i
   %next_7.le.sink.i.i.i = phi ptr [ %timer_queues_.i.i, %if.then.i1.i.i ], [ %next_7.i.i.i.le, %if.end17.sink.split.i.i.i.loopexit ]
-  %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i, align 8
+  %next_12.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i: ; preds = %for.cond.i.i.i, %if.end17.sink.split.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i
@@ -11320,10 +11320,10 @@ if.end17.sink.split.i.i.i.i.loopexit:             ; preds = %for.body.i.i.i.i
 
 if.end17.sink.split.i.i.i.i:                      ; preds = %if.end17.sink.split.i.i.i.i.loopexit, %if.then.i1.i.i.i
   %next_7.le.sink.i.i.i.i = phi ptr [ %timer_queues_.i.i.i, %if.then.i1.i.i.i ], [ %next_7.i.i.i.i.le, %if.end17.sink.split.i.i.i.i.loopexit ]
-  %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
-  %4 = load ptr, ptr %next_.i.i.i.i, align 8
+  %next_12.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
+  %4 = load ptr, ptr %next_12.i.i.i.i, align 8
   store ptr %4, ptr %next_7.le.sink.i.i.i.i, align 8
-  store ptr null, ptr %next_.i.i.i.i, align 8
+  store ptr null, ptr %next_12.i.i.i.i, align 8
   br label %_ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i
 
 _ZN4asio6detail15timer_queue_set5eraseEPNS0_16timer_queue_baseE.exit.i.i.i: ; preds = %for.cond.i.i.i.i, %if.end17.sink.split.i.i.i.i, %_ZN4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS1_.exit.i.i.i
@@ -42213,8 +42213,8 @@ if.then.i.i167:                                   ; preds = %if.end75
   %106 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i.i.i.i = icmp eq ptr %106, %103
   %107 = load i64, ptr %103, align 8
-  %cmp.not.i.i.i.i201 = icmp ult i64 %107, 16
-  %cmp.not.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i201
+  %cmp.not.i.i.i.i199 = icmp ult i64 %107, 16
+  %cmp.not.i.i.i.i = select i1 %cmp.i.i.i.i.i.i, i1 true, i1 %cmp.not.i.i.i.i199
   br i1 %cmp.not.i.i.i.i, label %if.else.i.i.i.i, label %if.then12.i.i.i.i
 
 if.else.i.i.i.i:                                  ; preds = %if.then.i.i167
@@ -42315,18 +42315,14 @@ sw.bb.i:                                          ; preds = %.noexc
   store i32 -1647314314, ptr %add.ptr.i, align 1
   %size.0.extract.trunc.i.i = trunc nuw i64 %115 to i8
   store i8 %size.0.extract.trunc.i.i, ptr %add.ptr.i.i, align 1
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %_M_str.i.i.i = getelementptr inbounds i8, ptr %err_msg, i64 8
-  %117 = load ptr, ptr %_M_str.i.i.i, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %117, i64 %115, i1 false)
-  br label %if.end84
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb1.i:                                         ; preds = %.noexc
   store i32 -1647314313, ptr %add.ptr.i, align 1
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %118 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %118, label %default.unreachable.i.i [
+  %117 = lshr exact i8 %retval.i.sroa.10.1, 3
+  switch i8 %117, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
@@ -42335,62 +42331,63 @@ sw.bb1.i:                                         ; preds = %.noexc
 sw.bb.i.i:                                        ; preds = %sw.bb1.i
   %size2.0.extract.trunc10.i.i = trunc i64 %115 to i16
   store i16 %size2.0.extract.trunc10.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb5.i.i:                                       ; preds = %sw.bb1.i
   %size2.0.extract.trunc.i.i = trunc i64 %115 to i32
   store i32 %size2.0.extract.trunc.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb7.i.i:                                       ; preds = %sw.bb1.i
   store i64 %115, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
-_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
-  %.sink12.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
-  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 %.sink12.i.i
+_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit: ; preds = %sw.bb.i, %sw.bb.i.i, %sw.bb5.i.i, %sw.bb7.i.i
+  %real_writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i, %sw.bb.i ], [ %add.ptr.i.i24.i, %sw.bb7.i.i ], [ %add.ptr.i.i24.i, %sw.bb5.i.i ], [ %add.ptr.i.i24.i, %sw.bb.i.i ]
+  %.sink12.i.sink.i = phi i64 [ 1, %sw.bb.i ], [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
+  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 %.sink12.i.sink.i
   %_M_str.i.i8.i = getelementptr inbounds i8, ptr %err_msg, i64 8
-  %119 = load ptr, ptr %_M_str.i.i8.i, align 8
+  %118 = load ptr, ptr %_M_str.i.i8.i, align 8
   %cmp.i.i9.i = icmp ult i64 %115, 9223372036854775807
   call void @llvm.assume(i1 %cmp.i.i9.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %119, i64 %115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %118, i64 %115, i1 false)
   br label %if.end84
 
 lpad76:                                           ; preds = %if.else.i.i.i.i, %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJSt17basic_string_viewIcSt11char_traitsIcEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
-  %120 = landingpad { ptr, i32 }
+  %119 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #30
   br label %ehcleanup88
 
-if.end84:                                         ; preds = %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i, %sw.bb.i, %invoke.cont77
-  %_M_string_length.i175 = getelementptr inbounds i8, ptr %rpc_result, i64 8
-  %121 = load i64, ptr %_M_string_length.i175, align 8
-  %conv86 = trunc i64 %121 to i32
+if.end84:                                         ; preds = %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit, %invoke.cont77
+  %_M_string_length.i174 = getelementptr inbounds i8, ptr %rpc_result, i64 8
+  %120 = load i64, ptr %_M_string_length.i174, align 8
+  %conv86 = trunc i64 %120 to i32
   %length = getelementptr inbounds i8, ptr %110, i64 8
   store i32 %conv86, ptr %length, align 4
-  %122 = load ptr, ptr %err_msg_buf, align 8
-  %cmp.i.i.i176 = icmp eq ptr %122, %0
-  br i1 %cmp.i.i.i176, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179, label %if.then.i.i177
+  %121 = load ptr, ptr %err_msg_buf, align 8
+  %cmp.i.i.i175 = icmp eq ptr %121, %0
+  br i1 %cmp.i.i.i175, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178, label %if.then.i.i176
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179: ; preds = %if.end84
-  %123 = load i64, ptr %_M_string_length.i.i.i, align 8
-  %cmp3.i.i.i181 = icmp ult i64 %123, 16
-  call void @llvm.assume(i1 %cmp3.i.i.i181)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178: ; preds = %if.end84
+  %122 = load i64, ptr %_M_string_length.i.i.i, align 8
+  %cmp3.i.i.i180 = icmp ult i64 %122, 16
+  call void @llvm.assume(i1 %cmp3.i.i.i180)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181
 
-if.then.i.i177:                                   ; preds = %if.end84
-  call void @_ZdlPv(ptr noundef %122) #33
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182
+if.then.i.i176:                                   ; preds = %if.end84
+  call void @_ZdlPv(ptr noundef %121) #33
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i179, %if.then.i.i177
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit181: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i178, %if.then.i.i176
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %err_msg_buf) #30
   ret void
 
 ehcleanup88:                                      ; preds = %lpad.i, %lpad.i60, %lpad, %lpad76, %ehcleanup71, %lpad53.body, %ehcleanup, %lpad13.body
-  %.pn17 = phi { ptr, i32 } [ %120, %lpad76 ], [ %.pn15, %ehcleanup ], [ %eh.lpad-body27, %lpad13.body ], [ %.pn, %ehcleanup71 ], [ %eh.lpad-body77, %lpad53.body ], [ %5, %lpad.i ], [ %7, %lpad ], [ %56, %lpad.i60 ]
+  %.pn17 = phi { ptr, i32 } [ %119, %lpad76 ], [ %.pn15, %ehcleanup ], [ %eh.lpad-body27, %lpad13.body ], [ %.pn, %ehcleanup71 ], [ %eh.lpad-body77, %lpad53.body ], [ %5, %lpad.i ], [ %7, %lpad ], [ %56, %lpad.i60 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %err_msg_buf) #30
   resume { ptr, i32 } %.pn17
 }
@@ -54387,60 +54384,52 @@ sw.bb.i:                                          ; preds = %.noexc
   %5 = load i64, ptr %_M_string_length.i.i, align 8
   %size.0.extract.trunc.i.i = trunc i64 %5 to i8
   store i8 %size.0.extract.trunc.i.i, ptr %add.ptr.i.i.i, align 1
-  %add.ptr.i.i.i6.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %6 = load ptr, ptr %t, align 8
-  %7 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp.i.i.i = icmp ult i64 %7, 9223372036854775807
-  call void @llvm.assume(i1 %cmp.i.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i6.i, ptr align 1 %6, i64 %7, i1 false)
   br label %_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit
 
 sw.bb1.i:                                         ; preds = %.noexc
   store i32 -1647314313, ptr %add.ptr.i, align 1
   store i8 %retval.i.sroa.10.1, ptr %add.ptr.i.i.i, align 1
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i, i64 5
-  %8 = load i64, ptr %_M_string_length.i.i, align 8
-  %9 = lshr exact i8 %retval.i.sroa.10.1, 3
-  switch i8 %9, label %default.unreachable.i.i [
+  %6 = load i64, ptr %_M_string_length.i.i, align 8
+  %7 = lshr exact i8 %retval.i.sroa.10.1, 3
+  switch i8 %7, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.bb1.i
-  %size2.0.extract.trunc10.i.i = trunc i64 %8 to i16
+  %size2.0.extract.trunc10.i.i = trunc i64 %6 to i16
   store i16 %size2.0.extract.trunc10.i.i, ptr %add.ptr.i.i.i.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit
 
 sw.bb5.i.i:                                       ; preds = %sw.bb1.i
-  %size2.0.extract.trunc.i.i = trunc i64 %8 to i32
+  %size2.0.extract.trunc.i.i = trunc i64 %6 to i32
   store i32 %size2.0.extract.trunc.i.i, ptr %add.ptr.i.i.i.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit
 
 sw.bb7.i.i:                                       ; preds = %sw.bb1.i
-  store i64 %8, ptr %add.ptr.i.i.i.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i
+  store i64 %6, ptr %add.ptr.i.i.i.i, align 1
+  br label %_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit
 
 default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
-_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
-  %.sink14.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
-  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i, i64 %.sink14.i.i
-  %10 = load ptr, ptr %t, align 8
-  %11 = load i64, ptr %_M_string_length.i.i, align 8
-  %cmp.i.i10.i = icmp ult i64 %11, 9223372036854775807
-  call void @llvm.assume(i1 %cmp.i.i10.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %10, i64 %11, i1 false)
-  br label %_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit
-
 lpad.i:                                           ; preds = %_ZN11struct_pack6detail26get_serialize_runtime_infoILm0EJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENS_21serialize_buffer_sizeEDpRKT0_.exit
-  %12 = landingpad { ptr, i32 }
+  %8 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.result) #30
-  resume { ptr, i32 } %12
+  resume { ptr, i32 } %8
 
-_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit: ; preds = %_ZN11struct_pack6detail6packerINS0_13memory_writerENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13serialize_oneILm2ELm18446744073709551615ELm0ES8_EEvRKT2_.exit.i, %sw.bb.i
+_ZN11struct_pack9serializeITkNS_6detail18struct_pack_bufferENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS7_EEET_DpRKT0_.exit: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i, %sw.bb.i
+  %real_writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i.i, %sw.bb.i ], [ %add.ptr.i.i.i.i, %sw.bb7.i.i ], [ %add.ptr.i.i.i.i, %sw.bb5.i.i ], [ %add.ptr.i.i.i.i, %sw.bb.i.i ]
+  %.sink14.i.sink.i = phi i64 [ 1, %sw.bb.i ], [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
+  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %real_writer.i.sroa.0.0, i64 %.sink14.i.sink.i
+  %9 = load ptr, ptr %t, align 8
+  %10 = load i64, ptr %_M_string_length.i.i, align 8
+  %cmp.i.i10.i = icmp ult i64 %10, 9223372036854775807
+  call void @llvm.assume(i1 %cmp.i.i10.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %9, i64 %10, i1 false)
   ret void
 }
 
@@ -55594,56 +55583,47 @@ sw.bb.i:                                          ; preds = %_ZN11struct_pack6de
   %5 = load i64, ptr %args, align 8
   %size.0.extract.trunc.i.i = trunc i64 %5 to i8
   store i8 %size.0.extract.trunc.i.i, ptr %add.ptr.i.i, align 1
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
-  %_M_str.i.i.i = getelementptr inbounds i8, ptr %args, i64 8
-  %6 = load ptr, ptr %_M_str.i.i.i, align 8
-  %7 = load i64, ptr %args, align 8
-  %cmp.i.i.i = icmp ult i64 %7, 9223372036854775807
-  tail call void @llvm.assume(i1 %cmp.i.i.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i.i.i, ptr align 1 %6, i64 %7, i1 false)
   br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb1.i:                                         ; preds = %_ZN11struct_pack6detail6resizeISt4byteEEvRSt6vectorIT_SaIS4_EEm.exit
   store i32 -1647314313, ptr %add.ptr6.i, align 1
   store i8 %retval.i.i.sroa.10.1, ptr %add.ptr.i.i, align 1
   %add.ptr.i.i24.i = getelementptr inbounds i8, ptr %add.ptr6.i, i64 5
-  %8 = load i64, ptr %args, align 8
-  %9 = lshr exact i8 %retval.i.i.sroa.10.1, 3
-  switch i8 %9, label %default.unreachable.i.i [
+  %6 = load i64, ptr %args, align 8
+  %7 = lshr exact i8 %retval.i.i.sroa.10.1, 3
+  switch i8 %7, label %default.unreachable.i.i [
     i8 1, label %sw.bb.i.i
     i8 2, label %sw.bb5.i.i
     i8 3, label %sw.bb7.i.i
   ]
 
 sw.bb.i.i:                                        ; preds = %sw.bb1.i
-  %size2.0.extract.trunc10.i.i = trunc i64 %8 to i16
+  %size2.0.extract.trunc10.i.i = trunc i64 %6 to i16
   store i16 %size2.0.extract.trunc10.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb5.i.i:                                       ; preds = %sw.bb1.i
-  %size2.0.extract.trunc.i.i = trunc i64 %8 to i32
+  %size2.0.extract.trunc.i.i = trunc i64 %6 to i32
   store i32 %size2.0.extract.trunc.i.i, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 sw.bb7.i.i:                                       ; preds = %sw.bb1.i
-  store i64 %8, ptr %add.ptr.i.i24.i, align 1
-  br label %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  store i64 %6, ptr %add.ptr.i.i24.i, align 1
+  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
 
 default.unreachable.i.i:                          ; preds = %sw.bb1.i
   unreachable
 
-_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i: ; preds = %sw.bb7.i.i, %sw.bb5.i.i, %sw.bb.i.i
-  %.sink12.i.i = phi i64 [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
-  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i24.i, i64 %.sink12.i.i
+_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit: ; preds = %sw.bb.i, %sw.bb.i.i, %sw.bb5.i.i, %sw.bb7.i.i
+  %writer.i.sroa.0.0 = phi ptr [ %add.ptr.i.i, %sw.bb.i ], [ %add.ptr.i.i24.i, %sw.bb7.i.i ], [ %add.ptr.i.i24.i, %sw.bb5.i.i ], [ %add.ptr.i.i24.i, %sw.bb.i.i ]
+  %.sink12.i.sink.i = phi i64 [ 1, %sw.bb.i ], [ 8, %sw.bb7.i.i ], [ 4, %sw.bb5.i.i ], [ 2, %sw.bb.i.i ]
+  %add.ptr.i.i33.i.i = getelementptr inbounds i8, ptr %writer.i.sroa.0.0, i64 %.sink12.i.sink.i
   %_M_str.i.i8.i = getelementptr inbounds i8, ptr %args, i64 8
-  %10 = load ptr, ptr %_M_str.i.i8.i, align 8
-  %11 = load i64, ptr %args, align 8
-  %cmp.i.i9.i = icmp ult i64 %11, 9223372036854775807
+  %8 = load ptr, ptr %_M_str.i.i8.i, align 8
+  %9 = load i64, ptr %args, align 8
+  %cmp.i.i9.i = icmp ult i64 %9, 9223372036854775807
   tail call void @llvm.assume(i1 %cmp.i.i9.i)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %10, i64 %11, i1 false)
-  br label %_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit
-
-_ZN11struct_pack6detail12serialize_toILm0ETkNS_8writer_tENS0_13memory_writerEJSt17basic_string_viewIcSt11char_traitsIcEEEEEvRT0_RKNS_21serialize_buffer_sizeEDpRKT1_.exit: ; preds = %sw.bb.i, %_ZN11struct_pack6detail6packerINS0_13memory_writerESt17basic_string_viewIcSt11char_traitsIcEEE13serialize_oneILm2ELm18446744073709551615ELm0ES6_EEvRKT2_.exit.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr.i.i33.i.i, ptr align 1 %8, i64 %9, i1 false)
   ret void
 }
 

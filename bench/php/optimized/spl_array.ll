@@ -4242,18 +4242,18 @@ spl_array_get_hash_table.exit:                    ; preds = %tailrecurse._crit_e
 
 .sink.split:                                      ; preds = %81, %84
   %.sink = phi i32 [ %88, %84 ], [ %79, %81 ]
-  %.0.sink = phi ptr [ %86, %84 ], [ %.0, %81 ]
+  %.sink47 = phi ptr [ %86, %84 ], [ %.0, %81 ]
   %90 = and i32 %.sink, 65280
   %91 = icmp ne i32 %90, 0
   tail call void @llvm.assume(i1 %91)
-  %92 = load ptr, ptr %.0.sink, align 8
+  %92 = load ptr, ptr %.sink47, align 8
   %93 = load i32, ptr %92, align 4
   %94 = add i32 %93, 1
   store i32 %94, ptr %92, align 4
   br label %95
 
 95:                                               ; preds = %.sink.split, %77, %84
-  %.038 = phi ptr [ %86, %84 ], [ %.0, %77 ], [ %.0.sink, %.sink.split ]
+  %.038 = phi ptr [ %86, %84 ], [ %.0, %77 ], [ %.sink47, %.sink.split ]
   %96 = load ptr, ptr %.038, align 8
   %97 = getelementptr inbounds i8, ptr %.038, i64 8
   %98 = load i32, ptr %97, align 8

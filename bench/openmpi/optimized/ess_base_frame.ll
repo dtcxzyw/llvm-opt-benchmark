@@ -582,18 +582,18 @@ pmix_obj_new_tma.exit91:                          ; preds = %.lr.ph.i.i88, %145,
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %pmix_obj_new_tma.exit91, %pmix_obj_new_tma.exit84
-  %.sink151 = phi ptr [ %141, %pmix_obj_new_tma.exit91 ], [ %104, %pmix_obj_new_tma.exit84 ]
-  %.sink = phi ptr [ %159, %pmix_obj_new_tma.exit91 ], [ %122, %pmix_obj_new_tma.exit84 ]
-  %160 = getelementptr inbounds i8, ptr %.sink151, i64 144
-  store ptr %.sink, ptr %160, align 8
+  %.sink152 = phi ptr [ %104, %pmix_obj_new_tma.exit84 ], [ %141, %pmix_obj_new_tma.exit91 ]
+  %.sink150 = phi ptr [ %122, %pmix_obj_new_tma.exit84 ], [ %159, %pmix_obj_new_tma.exit91 ]
+  %160 = getelementptr inbounds i8, ptr %.sink152, i64 144
+  store ptr %.sink150, ptr %160, align 8
   %161 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 248), align 8
-  %162 = getelementptr inbounds i8, ptr %.sink151, i64 128
+  %162 = getelementptr inbounds i8, ptr %.sink152, i64 128
   store ptr %161, ptr %162, align 8
   %163 = getelementptr inbounds i8, ptr %161, i64 120
-  store volatile ptr %.sink151, ptr %163, align 8
-  %164 = getelementptr inbounds i8, ptr %.sink151, i64 120
+  store volatile ptr %.sink152, ptr %163, align 8
+  %164 = getelementptr inbounds i8, ptr %.sink152, i64 120
   store ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 120), ptr %164, align 8
-  store ptr %.sink151, ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 248), align 8
+  store ptr %.sink152, ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 248), align 8
   %165 = load volatile i64, ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 264), align 8
   %166 = add i64 %165, 1
   store volatile i64 %166, ptr getelementptr inbounds (i8, ptr @prte_ess_base_signals, i64 264), align 8

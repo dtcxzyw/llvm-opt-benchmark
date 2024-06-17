@@ -576,45 +576,39 @@ define internal fastcc i32 @dissect_mint_common(ptr noundef %0, ptr noundef %1, 
 
 191:                                              ; preds = %6
   %192 = sub i32 %4, %41
-  switch i32 %5, label %201 [
-    i32 24576, label %193
-    i32 34691, label %193
-    i32 24577, label %197
+  switch i32 %5, label %194 [
+    i32 24576, label %195
+    i32 34691, label %195
+    i32 24577, label %193
   ]
 
-193:                                              ; preds = %191, %191
-  %194 = load i32, ptr @hf_mint_control_unknown1, align 4
-  %195 = and i32 %192, 65535
-  %196 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %194, ptr noundef %0, i32 noundef %41, i32 noundef %195, i32 noundef 0) #4
-  br label %202
+193:                                              ; preds = %191
+  br label %195
 
-197:                                              ; preds = %191
-  %198 = load i32, ptr @hf_mint_data_unknown1, align 4
-  %199 = and i32 %192, 65535
-  %200 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %198, ptr noundef %0, i32 noundef %41, i32 noundef %199, i32 noundef 0) #4
-  br label %202
-
-201:                                              ; preds = %191
+194:                                              ; preds = %191
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.152, ptr noundef nonnull @.str.153, i32 noundef 540) #5
   unreachable
 
-202:                                              ; preds = %197, %193
-  %.pre-phi = phi i32 [ %199, %197 ], [ %195, %193 ]
-  %203 = add nuw nsw i32 %.pre-phi, %41
+195:                                              ; preds = %191, %191, %193
+  %hf_mint_data_unknown1.sink = phi ptr [ @hf_mint_data_unknown1, %193 ], [ @hf_mint_control_unknown1, %191 ], [ @hf_mint_control_unknown1, %191 ]
+  %196 = load i32, ptr %hf_mint_data_unknown1.sink, align 4
+  %197 = and i32 %192, 65535
+  %198 = tail call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %196, ptr noundef %0, i32 noundef %41, i32 noundef %197, i32 noundef 0) #4
+  %199 = add nuw nsw i32 %197, %41
   br label %.loopexit258
 
-.loopexit258:                                     ; preds = %.lr.ph, %187, %132, %.loopexit, %163, %118, %56, %72, %42, %52, %202, %149
-  %.6 = phi i32 [ %203, %202 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.0, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.4, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
-  %204 = load i32, ptr @ett_mint, align 4
+.loopexit258:                                     ; preds = %.lr.ph, %187, %132, %.loopexit, %163, %118, %56, %72, %42, %52, %195, %149
+  %.6 = phi i32 [ %199, %195 ], [ %162, %149 ], [ %75, %72 ], [ %70, %56 ], [ %55, %52 ], [ %50, %42 ], [ %.0, %118 ], [ %174, %163 ], [ %135, %132 ], [ %.4, %.loopexit ], [ %183, %.lr.ph ], [ %185, %187 ]
+  %200 = load i32, ptr @ett_mint, align 4
+  tail call void @tree_expanded_set(i32 noundef %200, i32 noundef 1) #4
+  %201 = load i32, ptr @ett_mint_ethshim, align 4
+  tail call void @tree_expanded_set(i32 noundef %201, i32 noundef 1) #4
+  %202 = load i32, ptr @ett_mint_header, align 4
+  tail call void @tree_expanded_set(i32 noundef %202, i32 noundef 1) #4
+  %203 = load i32, ptr @ett_mint_ctrl, align 4
+  tail call void @tree_expanded_set(i32 noundef %203, i32 noundef 1) #4
+  %204 = load i32, ptr @ett_mint_data, align 4
   tail call void @tree_expanded_set(i32 noundef %204, i32 noundef 1) #4
-  %205 = load i32, ptr @ett_mint_ethshim, align 4
-  tail call void @tree_expanded_set(i32 noundef %205, i32 noundef 1) #4
-  %206 = load i32, ptr @ett_mint_header, align 4
-  tail call void @tree_expanded_set(i32 noundef %206, i32 noundef 1) #4
-  %207 = load i32, ptr @ett_mint_ctrl, align 4
-  tail call void @tree_expanded_set(i32 noundef %207, i32 noundef 1) #4
-  %208 = load i32, ptr @ett_mint_data, align 4
-  tail call void @tree_expanded_set(i32 noundef %208, i32 noundef 1) #4
   ret i32 %.6
 }
 

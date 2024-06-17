@@ -18227,7 +18227,7 @@ define internal fastcc noundef ptr @logop(ptr noundef %0, i64 noundef %1, ptr no
 
 value_expr_gen.exit:                              ; preds = %6, %37, %50
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %95, label %53
+  br i1 %.not, label %91, label %53
 
 53:                                               ; preds = %value_expr_gen.exit
   %.val45 = load i64, ptr %2, align 8
@@ -18235,7 +18235,7 @@ value_expr_gen.exit:                              ; preds = %6, %37, %50
   %55 = lshr i32 %54, 8
   %56 = and i32 %55, 127
   %57 = icmp eq i32 %56, %10
-  br i1 %57, label %.preheader, label %95
+  br i1 %57, label %.preheader, label %91
 
 .preheader:                                       ; preds = %53, %60
   %.041 = phi ptr [ %59, %60 ], [ %2, %53 ]
@@ -18254,112 +18254,86 @@ value_expr_gen.exit:                              ; preds = %6, %37, %50
 
 .critedge:                                        ; preds = %.preheader, %60
   %65 = getelementptr inbounds i8, ptr %.041, i64 40
-  switch i64 %1, label %69 [
-    i64 3505, label %66
-    i64 148, label %66
-  ]
-
-66:                                               ; preds = %.critedge, %.critedge
+  %switch.selectcmp.case1 = icmp eq i64 %1, 3505
+  %switch.selectcmp.case2 = icmp eq i64 %1, 148
+  %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
+  %66 = select i1 %switch.selectcmp, i32 22, i32 23
   %67 = getelementptr i8, ptr %0, i64 312
-  %.val.i.i = load ptr, ptr %67, align 8
-  %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 22, i64 noundef 48, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %68, i32 noundef 22) #24
-  br label %72
+  %.val.i.i46 = load ptr, ptr %67, align 8
+  %68 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46, i32 noundef %66, i64 noundef 48, i64 noundef 8) #24
+  tail call void @rb_node_init(ptr noundef %68, i32 noundef %66) #24
+  %69 = getelementptr inbounds i8, ptr %68, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  %70 = load i64, ptr %68, align 8
+  %71 = and i64 %70, 32767
+  %72 = load i32, ptr %5, align 4
+  %73 = sext i32 %72 to i64
+  %74 = shl nsw i64 %73, 15
+  %75 = or disjoint i64 %74, %71
+  store i64 %75, ptr %68, align 8
+  %76 = getelementptr inbounds i8, ptr %0, i64 320
+  %77 = load i32, ptr %76, align 8
+  %78 = add nsw i32 %77, 1
+  store i32 %78, ptr %76, align 8
+  %79 = getelementptr inbounds i8, ptr %68, i64 24
+  store i32 %77, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %68, i64 32
+  store ptr %59, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %68, i64 40
+  store ptr %3, ptr %81, align 8
+  store ptr %68, ptr %65, align 8
+  %82 = load i64, ptr %68, align 8
+  %83 = and i64 %82, 32767
+  %84 = load i32, ptr %4, align 4
+  %85 = sext i32 %84 to i64
+  %86 = shl nsw i64 %85, 15
+  %87 = or disjoint i64 %86, %83
+  store i64 %87, ptr %68, align 8
+  %88 = getelementptr inbounds i8, ptr %2, i64 16
+  %89 = getelementptr inbounds i8, ptr %5, i64 8
+  %90 = load i64, ptr %89, align 4
+  store i64 %90, ptr %88, align 8
+  br label %114
 
-69:                                               ; preds = %.critedge
-  %70 = getelementptr i8, ptr %0, i64 312
-  %.val.i.i46 = load ptr, ptr %70, align 8
-  %71 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i46, i32 noundef 23, i64 noundef 48, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %71, i32 noundef 23) #24
-  br label %72
+91:                                               ; preds = %53, %value_expr_gen.exit
+  %switch.selectcmp.case183 = icmp eq i64 %1, 3505
+  %switch.selectcmp.case284 = icmp eq i64 %1, 148
+  %switch.selectcmp85 = or i1 %switch.selectcmp.case183, %switch.selectcmp.case284
+  %92 = select i1 %switch.selectcmp85, i32 22, i32 23
+  %93 = getelementptr i8, ptr %0, i64 312
+  %.val.i.i48 = load ptr, ptr %93, align 8
+  %94 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef %92, i64 noundef 48, i64 noundef 8) #24
+  tail call void @rb_node_init(ptr noundef %94, i32 noundef %92) #24
+  %95 = getelementptr inbounds i8, ptr %94, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %95, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
+  %96 = load i64, ptr %94, align 8
+  %97 = and i64 %96, 32767
+  %98 = load i32, ptr %5, align 4
+  %99 = sext i32 %98 to i64
+  %100 = shl nsw i64 %99, 15
+  %101 = or disjoint i64 %100, %97
+  store i64 %101, ptr %94, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 320
+  %103 = load i32, ptr %102, align 8
+  %104 = add nsw i32 %103, 1
+  store i32 %104, ptr %102, align 8
+  %105 = getelementptr inbounds i8, ptr %94, i64 24
+  store i32 %103, ptr %105, align 8
+  %106 = getelementptr inbounds i8, ptr %94, i64 32
+  store ptr %2, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %94, i64 40
+  store ptr %3, ptr %107, align 8
+  %108 = load i64, ptr %94, align 8
+  %109 = and i64 %108, 32767
+  %110 = load i32, ptr %4, align 4
+  %111 = sext i32 %110 to i64
+  %112 = shl nsw i64 %111, 15
+  %113 = or disjoint i64 %112, %109
+  store i64 %113, ptr %94, align 8
+  br label %114
 
-72:                                               ; preds = %69, %66
-  %.sink74 = phi ptr [ %71, %69 ], [ %68, %66 ]
-  %73 = getelementptr inbounds i8, ptr %.sink74, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %73, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
-  %74 = load i64, ptr %.sink74, align 8
-  %75 = and i64 %74, 32767
-  %76 = load i32, ptr %5, align 4
-  %77 = sext i32 %76 to i64
-  %78 = shl nsw i64 %77, 15
-  %79 = or disjoint i64 %78, %75
-  store i64 %79, ptr %.sink74, align 8
-  %80 = getelementptr inbounds i8, ptr %0, i64 320
-  %81 = load i32, ptr %80, align 8
-  %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %80, align 8
-  %83 = getelementptr inbounds i8, ptr %.sink74, i64 24
-  store i32 %81, ptr %83, align 8
-  %84 = getelementptr inbounds i8, ptr %.sink74, i64 32
-  store ptr %59, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %.sink74, i64 40
-  store ptr %3, ptr %85, align 8
-  store ptr %.sink74, ptr %65, align 8
-  %86 = load i64, ptr %.sink74, align 8
-  %87 = and i64 %86, 32767
-  %88 = load i32, ptr %4, align 4
-  %89 = sext i32 %88 to i64
-  %90 = shl nsw i64 %89, 15
-  %91 = or disjoint i64 %90, %87
-  store i64 %91, ptr %.sink74, align 8
-  %92 = getelementptr inbounds i8, ptr %2, i64 16
-  %93 = getelementptr inbounds i8, ptr %5, i64 8
-  %94 = load i64, ptr %93, align 4
-  store i64 %94, ptr %92, align 8
-  br label %122
-
-95:                                               ; preds = %53, %value_expr_gen.exit
-  switch i64 %1, label %99 [
-    i64 3505, label %96
-    i64 148, label %96
-  ]
-
-96:                                               ; preds = %95, %95
-  %97 = getelementptr i8, ptr %0, i64 312
-  %.val.i.i47 = load ptr, ptr %97, align 8
-  %98 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i47, i32 noundef 22, i64 noundef 48, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %98, i32 noundef 22) #24
-  br label %102
-
-99:                                               ; preds = %95
-  %100 = getelementptr i8, ptr %0, i64 312
-  %.val.i.i48 = load ptr, ptr %100, align 8
-  %101 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i48, i32 noundef 23, i64 noundef 48, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %101, i32 noundef 23) #24
-  br label %102
-
-102:                                              ; preds = %99, %96
-  %.sink80 = phi ptr [ %101, %99 ], [ %98, %96 ]
-  %103 = getelementptr inbounds i8, ptr %.sink80, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
-  %104 = load i64, ptr %.sink80, align 8
-  %105 = and i64 %104, 32767
-  %106 = load i32, ptr %5, align 4
-  %107 = sext i32 %106 to i64
-  %108 = shl nsw i64 %107, 15
-  %109 = or disjoint i64 %108, %105
-  store i64 %109, ptr %.sink80, align 8
-  %110 = getelementptr inbounds i8, ptr %0, i64 320
-  %111 = load i32, ptr %110, align 8
-  %112 = add nsw i32 %111, 1
-  store i32 %112, ptr %110, align 8
-  %113 = getelementptr inbounds i8, ptr %.sink80, i64 24
-  store i32 %111, ptr %113, align 8
-  %114 = getelementptr inbounds i8, ptr %.sink80, i64 32
-  store ptr %2, ptr %114, align 8
-  %115 = getelementptr inbounds i8, ptr %.sink80, i64 40
-  store ptr %3, ptr %115, align 8
-  %116 = load i64, ptr %.sink80, align 8
-  %117 = and i64 %116, 32767
-  %118 = load i32, ptr %4, align 4
-  %119 = sext i32 %118 to i64
-  %120 = shl nsw i64 %119, 15
-  %121 = or disjoint i64 %120, %117
-  store i64 %121, ptr %.sink80, align 8
-  br label %122
-
-122:                                              ; preds = %102, %72
-  %.0 = phi ptr [ %2, %72 ], [ %.sink80, %102 ]
+114:                                              ; preds = %91, %.critedge
+  %.0 = phi ptr [ %2, %.critedge ], [ %94, %91 ]
   ret ptr %.0
 }
 
@@ -18558,49 +18532,38 @@ define internal fastcc noundef ptr @new_qcall(ptr nocapture noundef %0, i64 noun
   %8 = icmp eq i64 %1, 150
   %9 = getelementptr i8, ptr %0, i64 312
   %.val.i.i = load ptr, ptr %9, align 8
-  br i1 %8, label %10, label %12
-
-10:                                               ; preds = %7
-  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 40, i64 noundef 56, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %11, i32 noundef 40) #24
-  br label %14
-
-12:                                               ; preds = %7
-  %13 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %13, i32 noundef 36) #24
-  br label %14
-
-14:                                               ; preds = %12, %10
-  %.sink27 = phi ptr [ %13, %12 ], [ %11, %10 ]
-  %15 = getelementptr inbounds i8, ptr %0, i64 320
-  %16 = getelementptr inbounds i8, ptr %.sink27, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
-  %17 = load i64, ptr %.sink27, align 8
-  %18 = and i64 %17, 32767
-  %19 = load i32, ptr %6, align 4
-  %20 = sext i32 %19 to i64
-  %21 = shl nsw i64 %20, 15
-  %22 = or disjoint i64 %21, %18
-  store i64 %22, ptr %.sink27, align 8
-  %23 = load i32, ptr %15, align 8
-  %24 = add nsw i32 %23, 1
-  store i32 %24, ptr %15, align 8
-  %25 = getelementptr inbounds i8, ptr %.sink27, i64 24
-  store i32 %23, ptr %25, align 8
-  %26 = getelementptr inbounds i8, ptr %.sink27, i64 32
-  store ptr %2, ptr %26, align 8
-  %27 = getelementptr inbounds i8, ptr %.sink27, i64 40
-  store i64 %3, ptr %27, align 8
-  %28 = getelementptr inbounds i8, ptr %.sink27, i64 48
-  store ptr %4, ptr %28, align 8
-  %29 = load i64, ptr %.sink27, align 8
-  %30 = and i64 %29, 32767
-  %31 = load i32, ptr %5, align 4
-  %32 = sext i32 %31 to i64
-  %33 = shl nsw i64 %32, 15
-  %34 = or disjoint i64 %33, %30
-  store i64 %34, ptr %.sink27, align 8
-  ret ptr %.sink27
+  %10 = getelementptr inbounds i8, ptr %0, i64 320
+  %. = select i1 %8, i32 40, i32 36
+  %11 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i, i32 noundef %., i64 noundef 56, i64 noundef 8) #24
+  tail call void @rb_node_init(ptr noundef %11, i32 noundef %.) #24
+  %12 = getelementptr inbounds i8, ptr %11, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false)
+  %13 = load i64, ptr %11, align 8
+  %14 = and i64 %13, 32767
+  %15 = load i32, ptr %6, align 4
+  %16 = sext i32 %15 to i64
+  %17 = shl nsw i64 %16, 15
+  %18 = or disjoint i64 %17, %14
+  store i64 %18, ptr %11, align 8
+  %19 = load i32, ptr %10, align 8
+  %20 = add nsw i32 %19, 1
+  store i32 %20, ptr %10, align 8
+  %21 = getelementptr inbounds i8, ptr %11, i64 24
+  store i32 %19, ptr %21, align 8
+  %22 = getelementptr inbounds i8, ptr %11, i64 32
+  store ptr %2, ptr %22, align 8
+  %23 = getelementptr inbounds i8, ptr %11, i64 40
+  store i64 %3, ptr %23, align 8
+  %24 = getelementptr inbounds i8, ptr %11, i64 48
+  store ptr %4, ptr %24, align 8
+  %25 = load i64, ptr %11, align 8
+  %26 = and i64 %25, 32767
+  %27 = load i32, ptr %5, align 4
+  %28 = sext i32 %27 to i64
+  %29 = shl nsw i64 %28, 15
+  %30 = or disjoint i64 %29, %26
+  store i64 %30, ptr %11, align 8
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -18652,74 +18615,63 @@ block_dup_check.exit:                             ; preds = %13, %10, %8
   %14 = icmp eq i64 %1, 150
   %15 = getelementptr i8, ptr %0, i64 312
   %.val.i.i.i = load ptr, ptr %15, align 8
-  br i1 %14, label %16, label %18
+  %16 = getelementptr inbounds i8, ptr %0, i64 320
+  %..i = select i1 %14, i32 40, i32 36
+  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef %..i, i64 noundef 56, i64 noundef 8) #24
+  tail call void @rb_node_init(ptr noundef %17, i32 noundef %..i) #24
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  %19 = load i64, ptr %17, align 8
+  %20 = and i64 %19, 32767
+  %21 = load i32, ptr %7, align 4
+  %22 = sext i32 %21 to i64
+  %23 = shl nsw i64 %22, 15
+  %24 = or disjoint i64 %23, %20
+  store i64 %24, ptr %17, align 8
+  %25 = load i32, ptr %16, align 8
+  %26 = add nsw i32 %25, 1
+  store i32 %26, ptr %16, align 8
+  %27 = getelementptr inbounds i8, ptr %17, i64 24
+  store i32 %25, ptr %27, align 8
+  %28 = getelementptr inbounds i8, ptr %17, i64 32
+  store ptr %2, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %17, i64 40
+  store i64 %3, ptr %29, align 8
+  %30 = getelementptr inbounds i8, ptr %17, i64 48
+  store ptr %4, ptr %30, align 8
+  %31 = load i64, ptr %17, align 8
+  %32 = and i64 %31, 32767
+  %33 = load i32, ptr %6, align 4
+  %34 = sext i32 %33 to i64
+  %35 = shl nsw i64 %34, 15
+  %36 = or disjoint i64 %35, %32
+  store i64 %36, ptr %17, align 8
+  br i1 %.not, label %37, label %40
 
-16:                                               ; preds = %block_dup_check.exit
-  %17 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 40, i64 noundef 56, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %17, i32 noundef 40) #24
-  br label %new_qcall.exit
+37:                                               ; preds = %block_dup_check.exit
+  %38 = getelementptr inbounds i8, ptr %5, i64 40
+  store ptr %17, ptr %38, align 8
+  %39 = getelementptr inbounds i8, ptr %5, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
+  br label %40
 
-18:                                               ; preds = %block_dup_check.exit
-  %19 = tail call ptr @rb_ast_newnode(ptr noundef %.val.i.i.i, i32 noundef 36, i64 noundef 56, i64 noundef 8) #24
-  tail call void @rb_node_init(ptr noundef %19, i32 noundef 36) #24
-  br label %new_qcall.exit
-
-new_qcall.exit:                                   ; preds = %16, %18
-  %.sink27.i = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %20 = getelementptr inbounds i8, ptr %0, i64 320
-  %21 = getelementptr inbounds i8, ptr %.sink27.i, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  %22 = load i64, ptr %.sink27.i, align 8
-  %23 = and i64 %22, 32767
-  %24 = load i32, ptr %7, align 4
-  %25 = sext i32 %24 to i64
-  %26 = shl nsw i64 %25, 15
-  %27 = or disjoint i64 %26, %23
-  store i64 %27, ptr %.sink27.i, align 8
-  %28 = load i32, ptr %20, align 8
-  %29 = add nsw i32 %28, 1
-  store i32 %29, ptr %20, align 8
-  %30 = getelementptr inbounds i8, ptr %.sink27.i, i64 24
-  store i32 %28, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %.sink27.i, i64 32
-  store ptr %2, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %.sink27.i, i64 40
-  store i64 %3, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %.sink27.i, i64 48
-  store ptr %4, ptr %33, align 8
-  %34 = load i64, ptr %.sink27.i, align 8
-  %35 = and i64 %34, 32767
-  %36 = load i32, ptr %6, align 4
-  %37 = sext i32 %36 to i64
-  %38 = shl nsw i64 %37, 15
-  %39 = or disjoint i64 %38, %35
-  store i64 %39, ptr %.sink27.i, align 8
-  br i1 %.not, label %40, label %43
-
-40:                                               ; preds = %new_qcall.exit
-  %41 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr %.sink27.i, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %5, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  br label %43
-
-43:                                               ; preds = %40, %new_qcall.exit
-  %.0 = phi ptr [ %5, %40 ], [ %.sink27.i, %new_qcall.exit ]
+40:                                               ; preds = %37, %block_dup_check.exit
+  %.0 = phi ptr [ %5, %37 ], [ %17, %block_dup_check.exit ]
   %.not20 = icmp eq ptr %2, null
-  br i1 %.not20, label %fixpos.exit, label %44
+  br i1 %.not20, label %fixpos.exit, label %41
 
-44:                                               ; preds = %43
-  %45 = load i64, ptr %.0, align 8
-  %46 = and i64 %45, 32767
-  %47 = load i64, ptr %2, align 8
-  %48 = shl i64 %47, 17
-  %49 = ashr exact i64 %48, 17
-  %50 = and i64 %49, -32768
-  %51 = or disjoint i64 %50, %46
-  store i64 %51, ptr %.0, align 8
+41:                                               ; preds = %40
+  %42 = load i64, ptr %.0, align 8
+  %43 = and i64 %42, 32767
+  %44 = load i64, ptr %2, align 8
+  %45 = shl i64 %44, 17
+  %46 = ashr exact i64 %45, 17
+  %47 = and i64 %46, -32768
+  %48 = or disjoint i64 %47, %43
+  store i64 %48, ptr %.0, align 8
   br label %fixpos.exit
 
-fixpos.exit:                                      ; preds = %43, %44
+fixpos.exit:                                      ; preds = %40, %41
   ret ptr %.0
 }
 
@@ -26835,12 +26787,12 @@ define internal fastcc void @ripper_formal_argument(ptr nocapture noundef %0, i6
   %6 = and i32 %5, 14
   %.0.i = select i1 %4, i32 %6, i32 -1
   %7 = tail call i32 @llvm.fshl.i32(i32 %.0.i, i32 %.0.i, i32 31)
-  switch i32 %7, label %56 [
-    i32 0, label %71
+  switch i32 %7, label %28 [
+    i32 0, label %43
     i32 5, label %8
-    i32 1, label %20
-    i32 3, label %32
-    i32 6, label %44
+    i32 1, label %13
+    i32 3, label %18
+    i32 6, label %23
   ]
 
 8:                                                ; preds = %3
@@ -26848,84 +26800,54 @@ define internal fastcc void @ripper_formal_argument(ptr nocapture noundef %0, i6
   %10 = getelementptr inbounds i8, ptr %0, i64 232
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.555, i64 noundef 36, ptr noundef %11) #24
-  %13 = getelementptr i8, ptr %0, i64 376
-  %.val23 = load i64, ptr %13, align 8
-  %14 = load i64, ptr @rb_ripper_none, align 8
-  %15 = icmp eq i64 %14, %12
-  %16 = select i1 %15, i64 4, i64 %12
-  %17 = icmp eq i64 %14, %2
-  %18 = select i1 %17, i64 4, i64 %2
-  %19 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val23, i64 noundef %9, i32 noundef 2, i64 noundef %16, i64 noundef %18) #24
   br label %.sink.split
 
-20:                                               ; preds = %3
-  %21 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 232
-  %23 = load ptr, ptr %22, align 8
-  %24 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.556, i64 noundef 46, ptr noundef %23) #24
-  %25 = getelementptr i8, ptr %0, i64 376
-  %.val22 = load i64, ptr %25, align 8
-  %26 = load i64, ptr @rb_ripper_none, align 8
-  %27 = icmp eq i64 %26, %24
-  %28 = select i1 %27, i64 4, i64 %24
-  %29 = icmp eq i64 %26, %2
-  %30 = select i1 %29, i64 4, i64 %2
-  %31 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val22, i64 noundef %21, i32 noundef 2, i64 noundef %28, i64 noundef %30) #24
+13:                                               ; preds = %3
+  %14 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %15 = getelementptr inbounds i8, ptr %0, i64 232
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.556, i64 noundef 46, ptr noundef %16) #24
   br label %.sink.split
 
-32:                                               ; preds = %3
-  %33 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
-  %34 = getelementptr inbounds i8, ptr %0, i64 232
-  %35 = load ptr, ptr %34, align 8
-  %36 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.557, i64 noundef 43, ptr noundef %35) #24
-  %37 = getelementptr i8, ptr %0, i64 376
-  %.val21 = load i64, ptr %37, align 8
-  %38 = load i64, ptr @rb_ripper_none, align 8
-  %39 = icmp eq i64 %38, %36
-  %40 = select i1 %39, i64 4, i64 %36
-  %41 = icmp eq i64 %38, %2
-  %42 = select i1 %41, i64 4, i64 %2
-  %43 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val21, i64 noundef %33, i32 noundef 2, i64 noundef %40, i64 noundef %42) #24
+18:                                               ; preds = %3
+  %19 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %20 = getelementptr inbounds i8, ptr %0, i64 232
+  %21 = load ptr, ptr %20, align 8
+  %22 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.557, i64 noundef 43, ptr noundef %21) #24
   br label %.sink.split
 
-44:                                               ; preds = %3
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
-  %46 = getelementptr inbounds i8, ptr %0, i64 232
-  %47 = load ptr, ptr %46, align 8
-  %48 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.558, i64 noundef 42, ptr noundef %47) #24
-  %49 = getelementptr i8, ptr %0, i64 376
-  %.val20 = load i64, ptr %49, align 8
-  %50 = load i64, ptr @rb_ripper_none, align 8
-  %51 = icmp eq i64 %50, %48
-  %52 = select i1 %51, i64 4, i64 %48
-  %53 = icmp eq i64 %50, %2
-  %54 = select i1 %53, i64 4, i64 %2
-  %55 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val20, i64 noundef %45, i32 noundef 2, i64 noundef %52, i64 noundef %54) #24
+23:                                               ; preds = %3
+  %24 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %25 = getelementptr inbounds i8, ptr %0, i64 232
+  %26 = load ptr, ptr %25, align 8
+  %27 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.558, i64 noundef 42, ptr noundef %26) #24
   br label %.sink.split
 
-56:                                               ; preds = %3
-  %57 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
-  %58 = getelementptr inbounds i8, ptr %0, i64 232
-  %59 = load ptr, ptr %58, align 8
-  %60 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.559, i64 noundef 38, ptr noundef %59) #24
-  %61 = getelementptr i8, ptr %0, i64 376
-  %.val = load i64, ptr %61, align 8
-  %62 = load i64, ptr @rb_ripper_none, align 8
-  %63 = icmp eq i64 %62, %60
-  %64 = select i1 %63, i64 4, i64 %60
-  %65 = icmp eq i64 %62, %2
-  %66 = select i1 %65, i64 4, i64 %2
-  %67 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val, i64 noundef %57, i32 noundef 2, i64 noundef %64, i64 noundef %66) #24
+28:                                               ; preds = %3
+  %29 = load i64, ptr getelementptr inbounds (i8, ptr @ripper_parser_ids, i64 632), align 8
+  %30 = getelementptr inbounds i8, ptr %0, i64 232
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call i64 @rb_enc_str_new_static(ptr noundef nonnull @.str.559, i64 noundef 38, ptr noundef %31) #24
   br label %.sink.split
 
-.sink.split:                                      ; preds = %8, %20, %32, %44, %56
-  %68 = getelementptr inbounds i8, ptr %0, i64 368
-  %69 = load i16, ptr %68, align 8
-  %70 = or i16 %69, 512
-  store i16 %70, ptr %68, align 8
-  br label %71
+.sink.split:                                      ; preds = %8, %13, %18, %23, %28
+  %.sink33 = phi i64 [ %32, %28 ], [ %27, %23 ], [ %22, %18 ], [ %17, %13 ], [ %12, %8 ]
+  %.sink = phi i64 [ %29, %28 ], [ %24, %23 ], [ %19, %18 ], [ %14, %13 ], [ %9, %8 ]
+  %33 = getelementptr i8, ptr %0, i64 376
+  %.val = load i64, ptr %33, align 8
+  %34 = load i64, ptr @rb_ripper_none, align 8
+  %35 = icmp eq i64 %34, %.sink33
+  %36 = select i1 %35, i64 4, i64 %.sink33
+  %37 = icmp eq i64 %34, %2
+  %38 = select i1 %37, i64 4, i64 %2
+  %39 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.val, i64 noundef %.sink, i32 noundef 2, i64 noundef %36, i64 noundef %38) #24
+  %40 = getelementptr inbounds i8, ptr %0, i64 368
+  %41 = load i16, ptr %40, align 8
+  %42 = or i16 %41, 512
+  store i16 %42, ptr %40, align 8
+  br label %43
 
-71:                                               ; preds = %.sink.split, %3
+43:                                               ; preds = %.sink.split, %3
   ret void
 }
 

@@ -283,7 +283,7 @@ define hidden ptr @wmem_tree_insert(ptr nocapture noundef %0, ptr noundef %1, pt
   %19 = getelementptr inbounds i8, ptr %14, i64 45
   store i8 0, ptr %19, align 1
   store ptr %14, ptr %5, align 8
-  br label %56
+  br label %45
 
 .preheader._crit_edge:                            ; preds = %.preheader, %.preheader.preheader
   %.04053.lcssa = phi ptr [ %6, %.preheader.preheader ], [ %.141, %.preheader ]
@@ -293,81 +293,58 @@ define hidden ptr @wmem_tree_insert(ptr nocapture noundef %0, ptr noundef %1, pt
   %21 = getelementptr inbounds i8, ptr %.04053.lcssa, i64 45
   %22 = zext i1 %.not50 to i8
   store i8 %22, ptr %21, align 1
-  br label %56
+  br label %45
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %23 = phi i32 [ %53, %.preheader ], [ %10, %.preheader.preheader ]
-  %.0405366 = phi ptr [ %.141, %.preheader ], [ %6, %.preheader.preheader ]
+  %23 = phi i32 [ %33, %.preheader ], [ %10, %.preheader.preheader ]
+  %.0405382 = phi ptr [ %.141, %.preheader ], [ %6, %.preheader.preheader ]
   %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %38
+  br i1 %24, label %25, label %28
 
 25:                                               ; preds = %.lr.ph
-  %26 = getelementptr inbounds i8, ptr %.0405366, i64 8
+  %26 = getelementptr inbounds i8, ptr %.0405382, i64 8
   %27 = load ptr, ptr %26, align 8
   %.not49 = icmp eq ptr %27, null
-  br i1 %.not49, label %28, label %.preheader
+  br i1 %.not49, label %35, label %.preheader
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds i8, ptr %.0405366, i64 8
-  %30 = load ptr, ptr %7, align 8
-  %31 = tail call noalias ptr @wmem_alloc(ptr noundef %30, i64 noundef 48) #9
-  %32 = getelementptr inbounds i8, ptr %31, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store ptr %.0405366, ptr %31, align 8
-  %33 = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr %1, ptr %33, align 8
-  %34 = getelementptr inbounds i8, ptr %31, i64 32
-  store ptr %2, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %31, i64 40
-  store i32 0, ptr %35, align 8
-  %36 = getelementptr inbounds i8, ptr %31, i64 44
-  store i8 0, ptr %36, align 4
-  %37 = getelementptr inbounds i8, ptr %31, i64 45
-  store i8 0, ptr %37, align 1
-  store ptr %31, ptr %29, align 8
-  br label %55
+28:                                               ; preds = %.lr.ph
+  %29 = getelementptr inbounds i8, ptr %.0405382, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %.not48 = icmp eq ptr %30, null
+  br i1 %.not48, label %35, label %.preheader
 
-38:                                               ; preds = %.lr.ph
-  %39 = getelementptr inbounds i8, ptr %.0405366, i64 16
-  %40 = load ptr, ptr %39, align 8
-  %.not48 = icmp eq ptr %40, null
-  br i1 %.not48, label %41, label %.preheader
+.preheader:                                       ; preds = %28, %25
+  %.141 = phi ptr [ %27, %25 ], [ %30, %28 ]
+  %31 = getelementptr inbounds i8, ptr %.141, i64 24
+  %32 = load ptr, ptr %31, align 8
+  %33 = tail call i32 %3(ptr noundef %1, ptr noundef %32) #9
+  %34 = icmp eq i32 %33, 0
+  br i1 %34, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !4
 
-41:                                               ; preds = %38
-  %42 = getelementptr inbounds i8, ptr %.0405366, i64 16
-  %43 = load ptr, ptr %7, align 8
-  %44 = tail call noalias ptr @wmem_alloc(ptr noundef %43, i64 noundef 48) #9
-  %45 = getelementptr inbounds i8, ptr %44, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, i8 0, i64 16, i1 false)
-  store ptr %.0405366, ptr %44, align 8
-  %46 = getelementptr inbounds i8, ptr %44, i64 24
-  store ptr %1, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %44, i64 32
-  store ptr %2, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %44, i64 40
-  store i32 0, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %44, i64 44
-  store i8 0, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %44, i64 45
-  store i8 0, ptr %50, align 1
-  store ptr %44, ptr %42, align 8
-  br label %55
+35:                                               ; preds = %28, %25
+  %.sink = phi i64 [ 8, %25 ], [ 16, %28 ]
+  %36 = getelementptr inbounds i8, ptr %.0405382, i64 %.sink
+  %37 = load ptr, ptr %7, align 8
+  %38 = tail call noalias ptr @wmem_alloc(ptr noundef %37, i64 noundef 48) #9
+  %39 = getelementptr inbounds i8, ptr %38, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
+  store ptr %.0405382, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %38, i64 24
+  store ptr %1, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %38, i64 32
+  store ptr %2, ptr %41, align 8
+  %42 = getelementptr inbounds i8, ptr %38, i64 40
+  store i32 0, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %38, i64 44
+  store i8 0, ptr %43, align 4
+  %44 = getelementptr inbounds i8, ptr %38, i64 45
+  store i8 0, ptr %44, align 1
+  store ptr %38, ptr %36, align 8
+  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %38)
+  br label %45
 
-.preheader:                                       ; preds = %38, %25
-  %.141 = phi ptr [ %27, %25 ], [ %40, %38 ]
-  %51 = getelementptr inbounds i8, ptr %.141, i64 24
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 %3(ptr noundef %1, ptr noundef %52) #9
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %.preheader._crit_edge, label %.lr.ph, !llvm.loop !4
-
-55:                                               ; preds = %28, %41
-  %.1.ph = phi ptr [ %44, %41 ], [ %31, %28 ]
-  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %.1.ph)
-  br label %56
-
-56:                                               ; preds = %55, %.preheader._crit_edge, %12
-  %.0 = phi ptr [ %.04053.lcssa, %.preheader._crit_edge ], [ %.1.ph, %55 ], [ %14, %12 ]
+45:                                               ; preds = %35, %.preheader._crit_edge, %12
+  %.0 = phi ptr [ %.04053.lcssa, %.preheader._crit_edge ], [ %38, %35 ], [ %14, %12 ]
   ret ptr %.0
 }
 
@@ -665,7 +642,7 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.not.i, label %53, label %.preheader.i
+  br i1 %.not.i, label %39, label %.preheader.i
 
 .preheader.i:                                     ; preds = %6
   %10 = zext i32 %1 to i64
@@ -686,10 +663,10 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
   br i1 %17, label %.split.us.i.thread32, label %.lr.ph20
 
 .lr.ph20:                                         ; preds = %.preheader.split.us.split.us.i.preheader, %.preheader.split.us.split.us.i
-  %18 = phi i32 [ %51, %.preheader.split.us.split.us.i ], [ %16, %.preheader.split.us.split.us.i.preheader ]
+  %18 = phi i32 [ %37, %.preheader.split.us.split.us.i ], [ %16, %.preheader.split.us.split.us.i.preheader ]
   %.05372.us.us.i19 = phi ptr [ %.154.us.us.i, %.preheader.split.us.split.us.i ], [ %8, %.preheader.split.us.split.us.i.preheader ]
   %19 = icmp ugt i32 %18, %1
-  br i1 %19, label %35, label %20
+  br i1 %19, label %28, label %20
 
 20:                                               ; preds = %.lr.ph20
   %21 = icmp ult i32 %18, %1
@@ -704,90 +681,60 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
 25:                                               ; preds = %22
   %26 = getelementptr inbounds i8, ptr %.05372.us.us.i19, i64 16
   %27 = load ptr, ptr %9, align 8
-  %28 = tail call noalias ptr @wmem_alloc(ptr noundef %27, i64 noundef 48) #9
-  %29 = getelementptr inbounds i8, ptr %28, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
-  store ptr %.05372.us.us.i19, ptr %28, align 8
-  %30 = getelementptr inbounds i8, ptr %28, i64 24
-  store ptr %11, ptr %30, align 8
-  %31 = getelementptr inbounds i8, ptr %28, i64 32
-  store ptr %3, ptr %31, align 8
-  %32 = getelementptr inbounds i8, ptr %28, i64 40
-  store i32 0, ptr %32, align 8
-  %33 = getelementptr inbounds i8, ptr %28, i64 44
-  store i8 %12, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %28, i64 45
-  store i8 0, ptr %34, align 1
-  store ptr %28, ptr %26, align 8
   br label %.split74.us.i
 
-35:                                               ; preds = %.lr.ph20
-  %36 = getelementptr inbounds i8, ptr %.05372.us.us.i19, i64 8
-  %37 = load ptr, ptr %36, align 8
-  %.not67.us.us.i = icmp eq ptr %37, null
-  br i1 %.not67.us.us.i, label %38, label %.preheader.split.us.split.us.i
+28:                                               ; preds = %.lr.ph20
+  %29 = getelementptr inbounds i8, ptr %.05372.us.us.i19, i64 8
+  %30 = load ptr, ptr %29, align 8
+  %.not67.us.us.i = icmp eq ptr %30, null
+  br i1 %.not67.us.us.i, label %31, label %.preheader.split.us.split.us.i
 
-38:                                               ; preds = %35
-  %39 = getelementptr inbounds i8, ptr %.05372.us.us.i19, i64 8
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds i8, ptr %.05372.us.us.i19, i64 8
+  %33 = load ptr, ptr %9, align 8
+  br label %.split74.us.i
+
+.preheader.split.us.split.us.i:                   ; preds = %28, %22, %20
+  %.154.us.us.i = phi ptr [ %.05372.us.us.i19, %20 ], [ %30, %28 ], [ %24, %22 ]
+  %34 = getelementptr inbounds i8, ptr %.154.us.us.i, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = ptrtoint ptr %35 to i64
+  %37 = trunc i64 %36 to i32
+  %38 = icmp eq i32 %37, %1
+  br i1 %38, label %.split.us.i, label %.lr.ph20, !llvm.loop !6
+
+39:                                               ; preds = %6
   %40 = load ptr, ptr %9, align 8
-  %41 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef 48) #9
-  %42 = getelementptr inbounds i8, ptr %41, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
-  store ptr %.05372.us.us.i19, ptr %41, align 8
-  %43 = getelementptr inbounds i8, ptr %41, i64 24
-  store ptr %11, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr %3, ptr %44, align 8
-  %45 = getelementptr inbounds i8, ptr %41, i64 40
-  store i32 0, ptr %45, align 8
-  %46 = getelementptr inbounds i8, ptr %41, i64 44
-  store i8 %12, ptr %46, align 4
-  %47 = getelementptr inbounds i8, ptr %41, i64 45
-  store i8 0, ptr %47, align 1
-  store ptr %41, ptr %39, align 8
-  br label %.split74.us.i
-
-.preheader.split.us.split.us.i:                   ; preds = %35, %22, %20
-  %.154.us.us.i = phi ptr [ %.05372.us.us.i19, %20 ], [ %37, %35 ], [ %24, %22 ]
-  %48 = getelementptr inbounds i8, ptr %.154.us.us.i, i64 24
-  %49 = load ptr, ptr %48, align 8
-  %50 = ptrtoint ptr %49 to i64
-  %51 = trunc i64 %50 to i32
-  %52 = icmp eq i32 %51, %1
-  br i1 %52, label %.split.us.i, label %.lr.ph20, !llvm.loop !6
-
-53:                                               ; preds = %6
-  %54 = load ptr, ptr %9, align 8
-  %55 = zext i32 %1 to i64
-  %56 = inttoptr i64 %55 to ptr
+  %41 = zext i32 %1 to i64
+  %42 = inttoptr i64 %41 to ptr
   %.not63.i = icmp eq ptr %2, null
-  br i1 %.not63.i, label %59, label %57
+  br i1 %.not63.i, label %45, label %43
 
-57:                                               ; preds = %53
-  %58 = tail call ptr %2(ptr noundef %3) #9, !callees !7
-  br label %59
+43:                                               ; preds = %39
+  %44 = tail call ptr %2(ptr noundef %3) #9, !callees !7
+  br label %45
 
-59:                                               ; preds = %57, %53
-  %60 = phi ptr [ %58, %57 ], [ %3, %53 ]
-  %61 = zext i1 %4 to i8
-  %62 = tail call noalias ptr @wmem_alloc(ptr noundef %54, i64 noundef 48) #9
-  %63 = getelementptr inbounds i8, ptr %62, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %62, i8 0, i64 24, i1 false)
-  store ptr %56, ptr %63, align 8
-  %64 = getelementptr inbounds i8, ptr %62, i64 32
-  store ptr %60, ptr %64, align 8
-  %65 = getelementptr inbounds i8, ptr %62, i64 40
-  store i32 1, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %62, i64 44
-  store i8 %61, ptr %66, align 4
-  %67 = getelementptr inbounds i8, ptr %62, i64 45
-  store i8 0, ptr %67, align 1
-  store ptr %62, ptr %7, align 8
+45:                                               ; preds = %43, %39
+  %46 = phi ptr [ %44, %43 ], [ %3, %39 ]
+  %47 = zext i1 %4 to i8
+  %48 = tail call noalias ptr @wmem_alloc(ptr noundef %40, i64 noundef 48) #9
+  %49 = getelementptr inbounds i8, ptr %48, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %48, i8 0, i64 24, i1 false)
+  store ptr %42, ptr %49, align 8
+  %50 = getelementptr inbounds i8, ptr %48, i64 32
+  store ptr %46, ptr %50, align 8
+  %51 = getelementptr inbounds i8, ptr %48, i64 40
+  store i32 1, ptr %51, align 8
+  %52 = getelementptr inbounds i8, ptr %48, i64 44
+  store i8 %47, ptr %52, align 4
+  %53 = getelementptr inbounds i8, ptr %48, i64 45
+  store i8 0, ptr %53, align 1
+  store ptr %48, ptr %7, align 8
   br label %lookup_or_insert32_node.exit
 
 .split.us.i:                                      ; preds = %.preheader.split.split.i, %.preheader.split.us.split.us.i
   %.us-phi.i = phi ptr [ %.154.us.us.i, %.preheader.split.us.split.us.i ], [ %.154.i, %.preheader.split.split.i ]
-  br i1 %5, label %68, label %lookup_or_insert32_node.exit
+  br i1 %5, label %54, label %lookup_or_insert32_node.exit
 
 .split.us.i.thread32:                             ; preds = %.preheader.split.us.split.us.i.preheader
   br i1 %5, label %.thread34, label %lookup_or_insert32_node.exit
@@ -795,100 +742,88 @@ define internal fastcc void @lookup_or_insert32(ptr nocapture noundef %0, i32 no
 .split.us.i.thread:                               ; preds = %.preheader.split.split.i.preheader
   br i1 %5, label %.thread, label %lookup_or_insert32_node.exit
 
-68:                                               ; preds = %.split.us.i
+54:                                               ; preds = %.split.us.i
   br i1 %.not66.i, label %.thread34, label %.thread
 
-.thread:                                          ; preds = %.split.us.i.thread, %68
-  %.us-phi.i2830 = phi ptr [ %.us-phi.i, %68 ], [ %8, %.split.us.i.thread ]
-  %69 = tail call ptr %2(ptr noundef %3) #9, !callees !7
+.thread:                                          ; preds = %.split.us.i.thread, %54
+  %.us-phi.i2830 = phi ptr [ %.us-phi.i, %54 ], [ %8, %.split.us.i.thread ]
+  %55 = tail call ptr %2(ptr noundef %3) #9, !callees !7
   br label %.thread34
 
-.thread34:                                        ; preds = %.split.us.i.thread32, %.thread, %68
-  %.us-phi.i2831 = phi ptr [ %.us-phi.i2830, %.thread ], [ %.us-phi.i, %68 ], [ %8, %.split.us.i.thread32 ]
-  %70 = phi ptr [ %69, %.thread ], [ %3, %68 ], [ %3, %.split.us.i.thread32 ]
-  %71 = getelementptr inbounds i8, ptr %.us-phi.i2831, i64 32
-  store ptr %70, ptr %71, align 8
+.thread34:                                        ; preds = %.split.us.i.thread32, %.thread, %54
+  %.us-phi.i2831 = phi ptr [ %.us-phi.i2830, %.thread ], [ %.us-phi.i, %54 ], [ %8, %.split.us.i.thread32 ]
+  %56 = phi ptr [ %55, %.thread ], [ %3, %54 ], [ %3, %.split.us.i.thread32 ]
+  %57 = getelementptr inbounds i8, ptr %.us-phi.i2831, i64 32
+  store ptr %56, ptr %57, align 8
   br label %lookup_or_insert32_node.exit
 
 .lr.ph:                                           ; preds = %.preheader.split.split.i.preheader, %.preheader.split.split.i
-  %72 = phi i32 [ %107, %.preheader.split.split.i ], [ %16, %.preheader.split.split.i.preheader ]
+  %58 = phi i32 [ %79, %.preheader.split.split.i ], [ %16, %.preheader.split.split.i.preheader ]
   %.05372.i16 = phi ptr [ %.154.i, %.preheader.split.split.i ], [ %8, %.preheader.split.split.i.preheader ]
-  %73 = icmp ugt i32 %72, %1
-  br i1 %73, label %74, label %88
+  %59 = icmp ugt i32 %58, %1
+  br i1 %59, label %60, label %67
 
-74:                                               ; preds = %.lr.ph
-  %75 = getelementptr inbounds i8, ptr %.05372.i16, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %.not67.i = icmp eq ptr %76, null
-  br i1 %.not67.i, label %77, label %.preheader.split.split.i
+60:                                               ; preds = %.lr.ph
+  %61 = getelementptr inbounds i8, ptr %.05372.i16, i64 8
+  %62 = load ptr, ptr %61, align 8
+  %.not67.i = icmp eq ptr %62, null
+  br i1 %.not67.i, label %63, label %.preheader.split.split.i
 
-77:                                               ; preds = %74
-  %78 = getelementptr inbounds i8, ptr %.05372.i16, i64 8
-  %79 = load ptr, ptr %9, align 8
-  %80 = tail call ptr %2(ptr noundef %3) #9, !callees !7
-  %81 = tail call noalias ptr @wmem_alloc(ptr noundef %79, i64 noundef 48) #9
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds i8, ptr %.05372.i16, i64 8
+  %65 = load ptr, ptr %9, align 8
+  %66 = tail call ptr %2(ptr noundef %3) #9, !callees !7
+  br label %.split74.us.i
+
+67:                                               ; preds = %.lr.ph
+  %68 = icmp ult i32 %58, %1
+  br i1 %68, label %69, label %.preheader.split.split.i
+
+69:                                               ; preds = %67
+  %70 = getelementptr inbounds i8, ptr %.05372.i16, i64 16
+  %71 = load ptr, ptr %70, align 8
+  %.not65.i = icmp eq ptr %71, null
+  br i1 %.not65.i, label %72, label %.preheader.split.split.i
+
+72:                                               ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %.05372.i16, i64 16
+  %74 = load ptr, ptr %9, align 8
+  %75 = tail call ptr %2(ptr noundef %3) #9, !callees !7
+  br label %.split74.us.i
+
+.preheader.split.split.i:                         ; preds = %69, %67, %60
+  %.154.i = phi ptr [ %.05372.i16, %67 ], [ %62, %60 ], [ %71, %69 ]
+  %76 = getelementptr inbounds i8, ptr %.154.i, i64 24
+  %77 = load ptr, ptr %76, align 8
+  %78 = ptrtoint ptr %77 to i64
+  %79 = trunc i64 %78 to i32
+  %80 = icmp eq i32 %79, %1
+  br i1 %80, label %.split.us.i, label %.lr.ph, !llvm.loop !6
+
+.split74.us.i:                                    ; preds = %72, %63, %31, %25
+  %.sink129.i = phi ptr [ %74, %72 ], [ %65, %63 ], [ %27, %25 ], [ %33, %31 ]
+  %.05372.lcssa110.sink.i = phi ptr [ %.05372.i16, %72 ], [ %.05372.i16, %63 ], [ %.05372.us.us.i19, %25 ], [ %.05372.us.us.i19, %31 ]
+  %.sink121.i = phi ptr [ %75, %72 ], [ %66, %63 ], [ %3, %25 ], [ %3, %31 ]
+  %.sink114.i = phi ptr [ %73, %72 ], [ %64, %63 ], [ %26, %25 ], [ %32, %31 ]
+  %81 = tail call noalias ptr @wmem_alloc(ptr noundef %.sink129.i, i64 noundef 48) #9
   %82 = getelementptr inbounds i8, ptr %81, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, i8 0, i64 16, i1 false)
-  store ptr %.05372.i16, ptr %81, align 8
+  store ptr %.05372.lcssa110.sink.i, ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 24
   store ptr %11, ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %81, i64 32
-  store ptr %80, ptr %84, align 8
+  store ptr %.sink121.i, ptr %84, align 8
   %85 = getelementptr inbounds i8, ptr %81, i64 40
   store i32 0, ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %81, i64 44
   store i8 %12, ptr %86, align 4
   %87 = getelementptr inbounds i8, ptr %81, i64 45
   store i8 0, ptr %87, align 1
-  store ptr %81, ptr %78, align 8
-  br label %.split74.us.i
-
-88:                                               ; preds = %.lr.ph
-  %89 = icmp ult i32 %72, %1
-  br i1 %89, label %90, label %.preheader.split.split.i
-
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %.05372.i16, i64 16
-  %92 = load ptr, ptr %91, align 8
-  %.not65.i = icmp eq ptr %92, null
-  br i1 %.not65.i, label %93, label %.preheader.split.split.i
-
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %.05372.i16, i64 16
-  %95 = load ptr, ptr %9, align 8
-  %96 = tail call ptr %2(ptr noundef %3) #9, !callees !7
-  %97 = tail call noalias ptr @wmem_alloc(ptr noundef %95, i64 noundef 48) #9
-  %98 = getelementptr inbounds i8, ptr %97, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %98, i8 0, i64 16, i1 false)
-  store ptr %.05372.i16, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %97, i64 24
-  store ptr %11, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %97, i64 32
-  store ptr %96, ptr %100, align 8
-  %101 = getelementptr inbounds i8, ptr %97, i64 40
-  store i32 0, ptr %101, align 8
-  %102 = getelementptr inbounds i8, ptr %97, i64 44
-  store i8 %12, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %97, i64 45
-  store i8 0, ptr %103, align 1
-  store ptr %97, ptr %94, align 8
-  br label %.split74.us.i
-
-.preheader.split.split.i:                         ; preds = %90, %88, %74
-  %.154.i = phi ptr [ %.05372.i16, %88 ], [ %76, %74 ], [ %92, %90 ]
-  %104 = getelementptr inbounds i8, ptr %.154.i, i64 24
-  %105 = load ptr, ptr %104, align 8
-  %106 = ptrtoint ptr %105 to i64
-  %107 = trunc i64 %106 to i32
-  %108 = icmp eq i32 %107, %1
-  br i1 %108, label %.split.us.i, label %.lr.ph, !llvm.loop !6
-
-.split74.us.i:                                    ; preds = %93, %77, %38, %25
-  %.us-phi75.i = phi ptr [ %28, %25 ], [ %41, %38 ], [ %97, %93 ], [ %81, %77 ]
-  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %.us-phi75.i)
+  store ptr %81, ptr %.sink114.i, align 8
+  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %81)
   br label %lookup_or_insert32_node.exit
 
-lookup_or_insert32_node.exit:                     ; preds = %.split.us.i.thread32, %.split.us.i.thread, %59, %.split.us.i, %.thread34, %.split74.us.i
+lookup_or_insert32_node.exit:                     ; preds = %.split.us.i.thread32, %.split.us.i.thread, %45, %.split.us.i, %.thread34, %.split74.us.i
   ret void
 }
 
@@ -1186,185 +1121,139 @@ define void @wmem_tree_insert_string(ptr nocapture noundef %0, ptr noundef %1, p
   br label %wmem_tree_insert.exit
 
 .lr.ph:                                           ; preds = %.preheader.i.preheader, %.preheader.i
-  %26 = phi i32 [ %56, %.preheader.i ], [ %13, %.preheader.i.preheader ]
-  %.04053.i27 = phi ptr [ %.141.i, %.preheader.i ], [ %10, %.preheader.i.preheader ]
+  %26 = phi i32 [ %36, %.preheader.i ], [ %13, %.preheader.i.preheader ]
+  %.04053.i25 = phi ptr [ %.141.i, %.preheader.i ], [ %10, %.preheader.i.preheader ]
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %28, label %41
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.04053.i27, i64 8
+  %29 = getelementptr inbounds i8, ptr %.04053.i25, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not49.i = icmp eq ptr %30, null
-  br i1 %.not49.i, label %31, label %.preheader.i
+  br i1 %.not49.i, label %.split.loop.exit, label %.preheader.i
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds i8, ptr %.04053.i27, i64 8
-  %33 = load ptr, ptr %5, align 8
-  %34 = tail call noalias ptr @wmem_alloc(ptr noundef %33, i64 noundef 48) #9
-  %35 = getelementptr inbounds i8, ptr %34, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store ptr %.04053.i27, ptr %34, align 8
-  %36 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr %7, ptr %36, align 8
-  %37 = getelementptr inbounds i8, ptr %34, i64 32
-  store ptr %2, ptr %37, align 8
-  %38 = getelementptr inbounds i8, ptr %34, i64 40
-  store i32 0, ptr %38, align 8
-  %39 = getelementptr inbounds i8, ptr %34, i64 44
-  store i8 0, ptr %39, align 4
-  %40 = getelementptr inbounds i8, ptr %34, i64 45
-  store i8 0, ptr %40, align 1
-  store ptr %34, ptr %32, align 8
-  br label %58
+31:                                               ; preds = %.lr.ph
+  %32 = getelementptr inbounds i8, ptr %.04053.i25, i64 16
+  %33 = load ptr, ptr %32, align 8
+  %.not48.i = icmp eq ptr %33, null
+  br i1 %.not48.i, label %.split.loop.exit, label %.preheader.i
 
-41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds i8, ptr %.04053.i27, i64 16
-  %43 = load ptr, ptr %42, align 8
-  %.not48.i = icmp eq ptr %43, null
-  br i1 %.not48.i, label %44, label %.preheader.i
+.preheader.i:                                     ; preds = %31, %28
+  %.141.i = phi ptr [ %30, %28 ], [ %33, %31 ]
+  %34 = getelementptr inbounds i8, ptr %.141.i, i64 24
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call i32 @g_ascii_strcasecmp(ptr noundef %7, ptr noundef %35) #9
+  %37 = icmp eq i32 %36, 0
+  br i1 %37, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !4
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds i8, ptr %.04053.i27, i64 16
-  %46 = load ptr, ptr %5, align 8
-  %47 = tail call noalias ptr @wmem_alloc(ptr noundef %46, i64 noundef 48) #9
-  %48 = getelementptr inbounds i8, ptr %47, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
-  store ptr %.04053.i27, ptr %47, align 8
-  %49 = getelementptr inbounds i8, ptr %47, i64 24
-  store ptr %7, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %47, i64 32
-  store ptr %2, ptr %50, align 8
-  %51 = getelementptr inbounds i8, ptr %47, i64 40
-  store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds i8, ptr %47, i64 44
-  store i8 0, ptr %52, align 4
-  %53 = getelementptr inbounds i8, ptr %47, i64 45
-  store i8 0, ptr %53, align 1
-  store ptr %47, ptr %45, align 8
-  br label %58
-
-.preheader.i:                                     ; preds = %41, %28
-  %.141.i = phi ptr [ %30, %28 ], [ %43, %41 ]
-  %54 = getelementptr inbounds i8, ptr %.141.i, i64 24
-  %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @g_ascii_strcasecmp(ptr noundef %7, ptr noundef %55) #9
-  %57 = icmp eq i32 %56, 0
-  br i1 %57, label %.preheader.i._crit_edge, label %.lr.ph, !llvm.loop !4
-
-58:                                               ; preds = %44, %31
-  %.1.ph.i = phi ptr [ %47, %44 ], [ %34, %31 ]
-  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %.1.ph.i)
+.split.loop.exit:                                 ; preds = %31, %28
+  %.sink = phi i64 [ 8, %28 ], [ 16, %31 ]
+  %38 = getelementptr inbounds i8, ptr %.04053.i25, i64 %.sink
+  %39 = load ptr, ptr %5, align 8
+  %40 = tail call noalias ptr @wmem_alloc(ptr noundef %39, i64 noundef 48) #9
+  %41 = getelementptr inbounds i8, ptr %40, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+  store ptr %.04053.i25, ptr %40, align 8
+  %42 = getelementptr inbounds i8, ptr %40, i64 24
+  store ptr %7, ptr %42, align 8
+  %43 = getelementptr inbounds i8, ptr %40, i64 32
+  store ptr %2, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %40, i64 40
+  store i32 0, ptr %44, align 8
+  %45 = getelementptr inbounds i8, ptr %40, i64 44
+  store i8 0, ptr %45, align 4
+  %46 = getelementptr inbounds i8, ptr %40, i64 45
+  store i8 0, ptr %46, align 1
+  store ptr %40, ptr %38, align 8
+  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %40)
   br label %wmem_tree_insert.exit
 
 .split:                                           ; preds = %4
-  br i1 %.not.i8, label %63, label %.preheader.i9.preheader
+  br i1 %.not.i8, label %51, label %.preheader.i9.preheader
 
 .preheader.i9.preheader:                          ; preds = %.split
-  %59 = getelementptr inbounds i8, ptr %10, i64 24
-  %60 = load ptr, ptr %59, align 8
-  %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %60) #9
-  %62 = icmp eq i32 %61, 0
-  br i1 %62, label %.preheader.i9._crit_edge, label %.lr.ph31
+  %47 = getelementptr inbounds i8, ptr %10, i64 24
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %48) #9
+  %50 = icmp eq i32 %49, 0
+  br i1 %50, label %.preheader.i9._crit_edge, label %.lr.ph33
 
-63:                                               ; preds = %.split
-  %64 = load ptr, ptr %5, align 8
-  %65 = tail call noalias ptr @wmem_alloc(ptr noundef %64, i64 noundef 48) #9
-  %66 = getelementptr inbounds i8, ptr %65, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, i8 0, i64 24, i1 false)
-  store ptr %7, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %65, i64 32
-  store ptr %2, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %65, i64 40
-  store i32 1, ptr %68, align 8
-  %69 = getelementptr inbounds i8, ptr %65, i64 44
-  store i8 0, ptr %69, align 4
-  %70 = getelementptr inbounds i8, ptr %65, i64 45
-  store i8 0, ptr %70, align 1
-  store ptr %65, ptr %9, align 8
+51:                                               ; preds = %.split
+  %52 = load ptr, ptr %5, align 8
+  %53 = tail call noalias ptr @wmem_alloc(ptr noundef %52, i64 noundef 48) #9
+  %54 = getelementptr inbounds i8, ptr %53, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
+  store ptr %7, ptr %54, align 8
+  %55 = getelementptr inbounds i8, ptr %53, i64 32
+  store ptr %2, ptr %55, align 8
+  %56 = getelementptr inbounds i8, ptr %53, i64 40
+  store i32 1, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %53, i64 44
+  store i8 0, ptr %57, align 4
+  %58 = getelementptr inbounds i8, ptr %53, i64 45
+  store i8 0, ptr %58, align 1
+  store ptr %53, ptr %9, align 8
   br label %wmem_tree_insert.exit
 
 .preheader.i9._crit_edge:                         ; preds = %.preheader.i9, %.preheader.i9.preheader
   %.04053.i10.lcssa = phi ptr [ %10, %.preheader.i9.preheader ], [ %.141.i12, %.preheader.i9 ]
-  %71 = getelementptr inbounds i8, ptr %.04053.i10.lcssa, i64 32
-  store ptr %2, ptr %71, align 8
+  %59 = getelementptr inbounds i8, ptr %.04053.i10.lcssa, i64 32
+  store ptr %2, ptr %59, align 8
   %.not50.i16 = icmp eq ptr %2, null
-  %72 = getelementptr inbounds i8, ptr %.04053.i10.lcssa, i64 45
-  %73 = zext i1 %.not50.i16 to i8
-  store i8 %73, ptr %72, align 1
+  %60 = getelementptr inbounds i8, ptr %.04053.i10.lcssa, i64 45
+  %61 = zext i1 %.not50.i16 to i8
+  store i8 %61, ptr %60, align 1
   br label %wmem_tree_insert.exit
 
-.lr.ph31:                                         ; preds = %.preheader.i9.preheader, %.preheader.i9
-  %74 = phi i32 [ %104, %.preheader.i9 ], [ %61, %.preheader.i9.preheader ]
-  %.04053.i1030 = phi ptr [ %.141.i12, %.preheader.i9 ], [ %10, %.preheader.i9.preheader ]
-  %75 = icmp slt i32 %74, 0
-  br i1 %75, label %76, label %89
+.lr.ph33:                                         ; preds = %.preheader.i9.preheader, %.preheader.i9
+  %62 = phi i32 [ %72, %.preheader.i9 ], [ %49, %.preheader.i9.preheader ]
+  %.04053.i1032 = phi ptr [ %.141.i12, %.preheader.i9 ], [ %10, %.preheader.i9.preheader ]
+  %63 = icmp slt i32 %62, 0
+  br i1 %63, label %64, label %67
 
-76:                                               ; preds = %.lr.ph31
-  %77 = getelementptr inbounds i8, ptr %.04053.i1030, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %.not49.i15 = icmp eq ptr %78, null
-  br i1 %.not49.i15, label %79, label %.preheader.i9
+64:                                               ; preds = %.lr.ph33
+  %65 = getelementptr inbounds i8, ptr %.04053.i1032, i64 8
+  %66 = load ptr, ptr %65, align 8
+  %.not49.i15 = icmp eq ptr %66, null
+  br i1 %.not49.i15, label %.split.loop.exit26, label %.preheader.i9
 
-79:                                               ; preds = %76
-  %80 = getelementptr inbounds i8, ptr %.04053.i1030, i64 8
-  %81 = load ptr, ptr %5, align 8
-  %82 = tail call noalias ptr @wmem_alloc(ptr noundef %81, i64 noundef 48) #9
-  %83 = getelementptr inbounds i8, ptr %82, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
-  store ptr %.04053.i1030, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %82, i64 24
-  store ptr %7, ptr %84, align 8
-  %85 = getelementptr inbounds i8, ptr %82, i64 32
-  store ptr %2, ptr %85, align 8
-  %86 = getelementptr inbounds i8, ptr %82, i64 40
-  store i32 0, ptr %86, align 8
-  %87 = getelementptr inbounds i8, ptr %82, i64 44
-  store i8 0, ptr %87, align 4
-  %88 = getelementptr inbounds i8, ptr %82, i64 45
-  store i8 0, ptr %88, align 1
-  store ptr %82, ptr %80, align 8
-  br label %106
+67:                                               ; preds = %.lr.ph33
+  %68 = getelementptr inbounds i8, ptr %.04053.i1032, i64 16
+  %69 = load ptr, ptr %68, align 8
+  %.not48.i11 = icmp eq ptr %69, null
+  br i1 %.not48.i11, label %.split.loop.exit26, label %.preheader.i9
 
-89:                                               ; preds = %.lr.ph31
-  %90 = getelementptr inbounds i8, ptr %.04053.i1030, i64 16
-  %91 = load ptr, ptr %90, align 8
-  %.not48.i11 = icmp eq ptr %91, null
-  br i1 %.not48.i11, label %92, label %.preheader.i9
+.preheader.i9:                                    ; preds = %67, %64
+  %.141.i12 = phi ptr [ %66, %64 ], [ %69, %67 ]
+  %70 = getelementptr inbounds i8, ptr %.141.i12, i64 24
+  %71 = load ptr, ptr %70, align 8
+  %72 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %71) #9
+  %73 = icmp eq i32 %72, 0
+  br i1 %73, label %.preheader.i9._crit_edge, label %.lr.ph33, !llvm.loop !4
 
-92:                                               ; preds = %89
-  %93 = getelementptr inbounds i8, ptr %.04053.i1030, i64 16
-  %94 = load ptr, ptr %5, align 8
-  %95 = tail call noalias ptr @wmem_alloc(ptr noundef %94, i64 noundef 48) #9
-  %96 = getelementptr inbounds i8, ptr %95, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %96, i8 0, i64 16, i1 false)
-  store ptr %.04053.i1030, ptr %95, align 8
-  %97 = getelementptr inbounds i8, ptr %95, i64 24
-  store ptr %7, ptr %97, align 8
-  %98 = getelementptr inbounds i8, ptr %95, i64 32
-  store ptr %2, ptr %98, align 8
-  %99 = getelementptr inbounds i8, ptr %95, i64 40
-  store i32 0, ptr %99, align 8
-  %100 = getelementptr inbounds i8, ptr %95, i64 44
-  store i8 0, ptr %100, align 4
-  %101 = getelementptr inbounds i8, ptr %95, i64 45
-  store i8 0, ptr %101, align 1
-  store ptr %95, ptr %93, align 8
-  br label %106
-
-.preheader.i9:                                    ; preds = %89, %76
-  %.141.i12 = phi ptr [ %78, %76 ], [ %91, %89 ]
-  %102 = getelementptr inbounds i8, ptr %.141.i12, i64 24
-  %103 = load ptr, ptr %102, align 8
-  %104 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %103) #9
-  %105 = icmp eq i32 %104, 0
-  br i1 %105, label %.preheader.i9._crit_edge, label %.lr.ph31, !llvm.loop !4
-
-106:                                              ; preds = %92, %79
-  %.1.ph.i13 = phi ptr [ %95, %92 ], [ %82, %79 ]
-  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %.1.ph.i13)
+.split.loop.exit26:                               ; preds = %67, %64
+  %.sink59 = phi i64 [ 8, %64 ], [ 16, %67 ]
+  %74 = getelementptr inbounds i8, ptr %.04053.i1032, i64 %.sink59
+  %75 = load ptr, ptr %5, align 8
+  %76 = tail call noalias ptr @wmem_alloc(ptr noundef %75, i64 noundef 48) #9
+  %77 = getelementptr inbounds i8, ptr %76, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, i8 0, i64 16, i1 false)
+  store ptr %.04053.i1032, ptr %76, align 8
+  %78 = getelementptr inbounds i8, ptr %76, i64 24
+  store ptr %7, ptr %78, align 8
+  %79 = getelementptr inbounds i8, ptr %76, i64 32
+  store ptr %2, ptr %79, align 8
+  %80 = getelementptr inbounds i8, ptr %76, i64 40
+  store i32 0, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %76, i64 44
+  store i8 0, ptr %81, align 4
+  %82 = getelementptr inbounds i8, ptr %76, i64 45
+  store i8 0, ptr %82, align 1
+  store ptr %76, ptr %74, align 8
+  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %0, ptr noundef nonnull %76)
   br label %wmem_tree_insert.exit
 
-wmem_tree_insert.exit:                            ; preds = %106, %.preheader.i9._crit_edge, %63, %58, %.preheader.i._crit_edge, %15
+wmem_tree_insert.exit:                            ; preds = %.split.loop.exit26, %.preheader.i9._crit_edge, %51, %.split.loop.exit, %.preheader.i._crit_edge, %15
   ret void
 }
 
@@ -1523,49 +1412,49 @@ wmem_tree_lookup_string.exit.thread:              ; preds = %13, %21, %15, %.spl
 ; Function Attrs: nounwind uwtable
 define void @wmem_tree_insert32_array(ptr noundef %0, ptr nocapture noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
-  %.not29 = icmp eq i32 %4, 0
-  br i1 %.not29, label %._crit_edge33, label %.preheader.lr.ph
+  %.not30 = icmp eq i32 %4, 0
+  br i1 %.not30, label %._crit_edge34, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %3
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.preheader.lr.ph
-  %6 = phi i32 [ %4, %.preheader.lr.ph ], [ %85, %._crit_edge ]
-  %.032 = phi i32 [ 0, %.preheader.lr.ph ], [ %81, %._crit_edge ]
-  %.01631 = phi ptr [ %1, %.preheader.lr.ph ], [ %84, %._crit_edge ]
-  %.01730 = phi ptr [ null, %.preheader.lr.ph ], [ %.2, %._crit_edge ]
-  %7 = getelementptr inbounds i8, ptr %.01631, i64 8
+  %6 = phi i32 [ %4, %.preheader.lr.ph ], [ %71, %._crit_edge ]
+  %.033 = phi i32 [ 0, %.preheader.lr.ph ], [ %67, %._crit_edge ]
+  %.01632 = phi ptr [ %1, %.preheader.lr.ph ], [ %70, %._crit_edge ]
+  %.01731 = phi ptr [ null, %.preheader.lr.ph ], [ %.2, %._crit_edge ]
+  %7 = getelementptr inbounds i8, ptr %.01632, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %77
-  %9 = phi i32 [ %6, %.lr.ph ], [ %78, %77 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
-  %.127 = phi i32 [ %.032, %.lr.ph ], [ %81, %77 ]
-  %.11825 = phi ptr [ %.01730, %.lr.ph ], [ %.2, %77 ]
-  %.not19 = icmp eq ptr %.11825, null
-  br i1 %.not19, label %77, label %10
+8:                                                ; preds = %.lr.ph, %63
+  %9 = phi i32 [ %6, %.lr.ph ], [ %64, %63 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
+  %.128 = phi i32 [ %.033, %.lr.ph ], [ %67, %63 ]
+  %.11826 = phi ptr [ %.01731, %.lr.ph ], [ %.2, %63 ]
+  %.not19 = icmp eq ptr %.11826, null
+  br i1 %.not19, label %63, label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds i8, ptr %.11825, i64 16
+  %11 = getelementptr inbounds i8, ptr %.11826, i64 16
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
-  %13 = getelementptr inbounds i8, ptr %.11825, i64 8
+  %13 = getelementptr inbounds i8, ptr %.11826, i64 8
   br i1 %.not.i.i, label %21, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %10
-  %14 = zext i32 %.127 to i64
+  %14 = zext i32 %.128 to i64
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds i8, ptr %12, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i32
-  %20 = icmp eq i32 %.127, %19
+  %20 = icmp eq i32 %.128, %19
   br i1 %20, label %lookup_or_insert32.exit, label %.lr.ph.i
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr %13, align 8
-  %23 = zext i32 %.127 to i64
+  %23 = zext i32 %.128 to i64
   %24 = inttoptr i64 %23 to ptr
   %25 = load ptr, ptr %5, align 8
   %26 = tail call noalias noundef ptr @wmem_alloc0(ptr noundef %25, i64 noundef 40) #9
@@ -1588,118 +1477,90 @@ define void @wmem_tree_insert32_array(ptr noundef %0, ptr nocapture noundef read
   br label %lookup_or_insert32.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i.i, %.preheader.split.split.i.i
-  %34 = phi i32 [ %73, %.preheader.split.split.i.i ], [ %19, %.preheader.i.i ]
+  %34 = phi i32 [ %47, %.preheader.split.split.i.i ], [ %19, %.preheader.i.i ]
   %.05372.i16.i = phi ptr [ %.154.i.i, %.preheader.split.split.i.i ], [ %12, %.preheader.i.i ]
-  %35 = icmp ugt i32 %34, %.127
-  br i1 %35, label %36, label %52
+  %35 = icmp ugt i32 %34, %.128
+  br i1 %35, label %36, label %39
 
 36:                                               ; preds = %.lr.ph.i
   %37 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 8
   %38 = load ptr, ptr %37, align 8
   %.not67.i.i = icmp eq ptr %38, null
-  br i1 %.not67.i.i, label %39, label %.preheader.split.split.i.i
+  br i1 %.not67.i.i, label %.split74.us.i.i, label %.preheader.split.split.i.i
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 8
-  %41 = load ptr, ptr %13, align 8
-  %42 = load ptr, ptr %5, align 8
-  %43 = tail call noalias noundef ptr @wmem_alloc0(ptr noundef %42, i64 noundef 40) #9
-  store ptr %42, ptr %43, align 8
-  %44 = getelementptr inbounds i8, ptr %43, i64 8
-  store ptr %42, ptr %44, align 8
-  %45 = tail call noalias ptr @wmem_alloc(ptr noundef %41, i64 noundef 48) #9
-  %46 = getelementptr inbounds i8, ptr %45, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %46, i8 0, i64 16, i1 false)
-  store ptr %.05372.i16.i, ptr %45, align 8
-  %47 = getelementptr inbounds i8, ptr %45, i64 24
-  store ptr %15, ptr %47, align 8
-  %48 = getelementptr inbounds i8, ptr %45, i64 32
-  store ptr %43, ptr %48, align 8
-  %49 = getelementptr inbounds i8, ptr %45, i64 40
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds i8, ptr %45, i64 44
-  store i8 1, ptr %50, align 4
-  %51 = getelementptr inbounds i8, ptr %45, i64 45
-  store i8 0, ptr %51, align 1
-  store ptr %45, ptr %40, align 8
-  br label %.split74.us.i.i
+39:                                               ; preds = %.lr.ph.i
+  %40 = icmp ult i32 %34, %.128
+  br i1 %40, label %41, label %.preheader.split.split.i.i
 
-52:                                               ; preds = %.lr.ph.i
-  %53 = icmp ult i32 %34, %.127
-  br i1 %53, label %54, label %.preheader.split.split.i.i
+41:                                               ; preds = %39
+  %42 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 16
+  %43 = load ptr, ptr %42, align 8
+  %.not65.i.i = icmp eq ptr %43, null
+  br i1 %.not65.i.i, label %.split74.us.i.i, label %.preheader.split.split.i.i
 
-54:                                               ; preds = %52
-  %55 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %.not65.i.i = icmp eq ptr %56, null
-  br i1 %.not65.i.i, label %57, label %.preheader.split.split.i.i
+.preheader.split.split.i.i:                       ; preds = %41, %39, %36
+  %.154.i.i = phi ptr [ %.05372.i16.i, %39 ], [ %38, %36 ], [ %43, %41 ]
+  %44 = getelementptr inbounds i8, ptr %.154.i.i, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = ptrtoint ptr %45 to i64
+  %47 = trunc i64 %46 to i32
+  %48 = icmp eq i32 %.128, %47
+  br i1 %48, label %lookup_or_insert32.exit, label %.lr.ph.i, !llvm.loop !6
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 16
-  %59 = load ptr, ptr %13, align 8
-  %60 = load ptr, ptr %5, align 8
-  %61 = tail call noalias noundef ptr @wmem_alloc0(ptr noundef %60, i64 noundef 40) #9
-  store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 8
-  store ptr %60, ptr %62, align 8
-  %63 = tail call noalias ptr @wmem_alloc(ptr noundef %59, i64 noundef 48) #9
-  %64 = getelementptr inbounds i8, ptr %63, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  store ptr %.05372.i16.i, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %63, i64 24
-  store ptr %15, ptr %65, align 8
-  %66 = getelementptr inbounds i8, ptr %63, i64 32
-  store ptr %61, ptr %66, align 8
-  %67 = getelementptr inbounds i8, ptr %63, i64 40
-  store i32 0, ptr %67, align 8
-  %68 = getelementptr inbounds i8, ptr %63, i64 44
-  store i8 1, ptr %68, align 4
-  %69 = getelementptr inbounds i8, ptr %63, i64 45
-  store i8 0, ptr %69, align 1
-  store ptr %63, ptr %58, align 8
-  br label %.split74.us.i.i
-
-.preheader.split.split.i.i:                       ; preds = %54, %52, %36
-  %.154.i.i = phi ptr [ %.05372.i16.i, %52 ], [ %38, %36 ], [ %56, %54 ]
-  %70 = getelementptr inbounds i8, ptr %.154.i.i, i64 24
-  %71 = load ptr, ptr %70, align 8
-  %72 = ptrtoint ptr %71 to i64
-  %73 = trunc i64 %72 to i32
-  %74 = icmp eq i32 %.127, %73
-  br i1 %74, label %lookup_or_insert32.exit, label %.lr.ph.i, !llvm.loop !6
-
-.split74.us.i.i:                                  ; preds = %57, %39
-  %.us-phi75.i.i = phi ptr [ %63, %57 ], [ %45, %39 ]
-  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %.11825, ptr noundef nonnull %.us-phi75.i.i)
+.split74.us.i.i:                                  ; preds = %41, %36
+  %.sink = phi i64 [ 8, %36 ], [ 16, %41 ]
+  %49 = getelementptr inbounds i8, ptr %.05372.i16.i, i64 %.sink
+  %50 = load ptr, ptr %13, align 8
+  %51 = load ptr, ptr %5, align 8
+  %52 = tail call noalias noundef ptr @wmem_alloc0(ptr noundef %51, i64 noundef 40) #9
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds i8, ptr %52, i64 8
+  store ptr %51, ptr %53, align 8
+  %54 = tail call noalias ptr @wmem_alloc(ptr noundef %50, i64 noundef 48) #9
+  %55 = getelementptr inbounds i8, ptr %54, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
+  store ptr %.05372.i16.i, ptr %54, align 8
+  %56 = getelementptr inbounds i8, ptr %54, i64 24
+  store ptr %15, ptr %56, align 8
+  %57 = getelementptr inbounds i8, ptr %54, i64 32
+  store ptr %52, ptr %57, align 8
+  %58 = getelementptr inbounds i8, ptr %54, i64 40
+  store i32 0, ptr %58, align 8
+  %59 = getelementptr inbounds i8, ptr %54, i64 44
+  store i8 1, ptr %59, align 4
+  %60 = getelementptr inbounds i8, ptr %54, i64 45
+  store i8 0, ptr %60, align 1
+  store ptr %54, ptr %49, align 8
+  tail call fastcc void @rb_insert_case1(ptr noundef nonnull %.11826, ptr noundef nonnull %54)
   br label %lookup_or_insert32.exit
 
 lookup_or_insert32.exit:                          ; preds = %.preheader.split.split.i.i, %.preheader.i.i, %21, %.split74.us.i.i
-  %.055.i.i = phi ptr [ %.us-phi75.i.i, %.split74.us.i.i ], [ %28, %21 ], [ %12, %.preheader.i.i ], [ %.154.i.i, %.preheader.split.split.i.i ]
-  %75 = getelementptr inbounds i8, ptr %.055.i.i, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %.pre = load i32, ptr %.01631, align 8
-  br label %77
+  %.055.i.i = phi ptr [ %54, %.split74.us.i.i ], [ %28, %21 ], [ %12, %.preheader.i.i ], [ %.154.i.i, %.preheader.split.split.i.i ]
+  %61 = getelementptr inbounds i8, ptr %.055.i.i, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %.pre = load i32, ptr %.01632, align 8
+  br label %63
 
-77:                                               ; preds = %8, %lookup_or_insert32.exit
-  %78 = phi i32 [ %.pre, %lookup_or_insert32.exit ], [ %9, %8 ]
-  %.2 = phi ptr [ %76, %lookup_or_insert32.exit ], [ %0, %8 ]
-  %79 = load ptr, ptr %7, align 8
-  %80 = getelementptr i32, ptr %79, i64 %indvars.iv
-  %81 = load i32, ptr %80, align 4
+63:                                               ; preds = %8, %lookup_or_insert32.exit
+  %64 = phi i32 [ %.pre, %lookup_or_insert32.exit ], [ %9, %8 ]
+  %.2 = phi ptr [ %62, %lookup_or_insert32.exit ], [ %0, %8 ]
+  %65 = load ptr, ptr %7, align 8
+  %66 = getelementptr i32, ptr %65, i64 %indvars.iv
+  %67 = load i32, ptr %66, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %82 = zext i32 %78 to i64
-  %83 = icmp ult i64 %indvars.iv.next, %82
-  br i1 %83, label %8, label %._crit_edge, !llvm.loop !13
+  %68 = zext i32 %64 to i64
+  %69 = icmp ult i64 %indvars.iv.next, %68
+  br i1 %69, label %8, label %._crit_edge, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %77
-  %84 = getelementptr i8, ptr %.01631, i64 16
-  %85 = load i32, ptr %84, align 8
-  %.not = icmp eq i32 %85, 0
-  br i1 %.not, label %._crit_edge33, label %.lr.ph, !llvm.loop !14
+._crit_edge:                                      ; preds = %63
+  %70 = getelementptr i8, ptr %.01632, i64 16
+  %71 = load i32, ptr %70, align 8
+  %.not = icmp eq i32 %71, 0
+  br i1 %.not, label %._crit_edge34, label %.lr.ph, !llvm.loop !14
 
-._crit_edge33:                                    ; preds = %._crit_edge, %3
+._crit_edge34:                                    ; preds = %._crit_edge, %3
   %.017.lcssa = phi ptr [ null, %3 ], [ %.2, %._crit_edge ]
-  %.0.lcssa = phi i32 [ 0, %3 ], [ %81, %._crit_edge ]
+  %.0.lcssa = phi i32 [ 0, %3 ], [ %67, %._crit_edge ]
   tail call fastcc void @lookup_or_insert32(ptr noundef %.017.lcssa, i32 noundef %.0.lcssa, ptr noundef null, ptr noundef %2, i1 noundef zeroext false, i1 noundef zeroext true)
   ret void
 }

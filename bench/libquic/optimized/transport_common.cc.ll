@@ -129,44 +129,36 @@ if.end25:                                         ; preds = %if.end18
   %ai_family26 = getelementptr inbounds i8, ptr %6, i64 4
   %7 = load i32, ptr %ai_family26, align 4
   switch i32 %7, label %sw.epilog [
-    i32 2, label %sw.bb
+    i32 2, label %sw.epilog.sink.split
     i32 10, label %sw.bb32
   ]
 
-sw.bb:                                            ; preds = %if.end25
-  %ai_addr = getelementptr inbounds i8, ptr %6, i64 24
-  %8 = load ptr, ptr %ai_addr, align 8
-  %9 = load ptr, ptr @stderr, align 8
-  %sin_addr = getelementptr inbounds i8, ptr %8, i64 4
-  %call28 = call ptr @inet_ntop(i32 noundef 2, ptr noundef nonnull %sin_addr, ptr noundef nonnull %buf, i32 noundef 256) #12
-  %sin_port = getelementptr inbounds i8, ptr %8, i64 2
-  %10 = load i16, ptr %sin_port, align 2
-  %call29 = call zeroext i16 @ntohs(i16 noundef zeroext %10) #14
-  %conv = zext i16 %call29 to i32
-  %call31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull @.str.3, ptr noundef %call28, i32 noundef %conv) #13
-  br label %sw.epilog
-
 sw.bb32:                                          ; preds = %if.end25
+  br label %sw.epilog.sink.split
+
+sw.epilog.sink.split:                             ; preds = %if.end25, %sw.bb32
+  %.sink15 = phi i64 [ 8, %sw.bb32 ], [ 4, %if.end25 ]
+  %.str.4.sink = phi ptr [ @.str.4, %sw.bb32 ], [ @.str.3, %if.end25 ]
   %ai_addr33 = getelementptr inbounds i8, ptr %6, i64 24
-  %11 = load ptr, ptr %ai_addr33, align 8
-  %12 = load ptr, ptr @stderr, align 8
-  %sin6_addr = getelementptr inbounds i8, ptr %11, i64 8
-  %call36 = call ptr @inet_ntop(i32 noundef 10, ptr noundef nonnull %sin6_addr, ptr noundef nonnull %buf, i32 noundef 256) #12
-  %sin6_port = getelementptr inbounds i8, ptr %11, i64 2
-  %13 = load i16, ptr %sin6_port, align 2
-  %call37 = call zeroext i16 @ntohs(i16 noundef zeroext %13) #14
+  %8 = load ptr, ptr %ai_addr33, align 8
+  %9 = load ptr, ptr @stderr, align 8
+  %sin6_addr = getelementptr inbounds i8, ptr %8, i64 %.sink15
+  %call36 = call ptr @inet_ntop(i32 noundef %7, ptr noundef nonnull %sin6_addr, ptr noundef nonnull %buf, i32 noundef 256) #12
+  %sin6_port = getelementptr inbounds i8, ptr %8, i64 2
+  %10 = load i16, ptr %sin6_port, align 2
+  %call37 = call zeroext i16 @ntohs(i16 noundef zeroext %10) #14
   %conv38 = zext i16 %call37 to i32
-  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.4, ptr noundef %call36, i32 noundef %conv38) #13
+  %call40 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %9, ptr noundef nonnull %.str.4.sink, ptr noundef %call36, i32 noundef %conv38) #13
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb32, %sw.bb, %if.end25
-  %14 = load i32, ptr %out_sock, align 4
-  %15 = load ptr, ptr %result, align 8
-  %ai_addr41 = getelementptr inbounds i8, ptr %15, i64 24
-  %16 = load ptr, ptr %ai_addr41, align 8
-  %ai_addrlen = getelementptr inbounds i8, ptr %15, i64 16
-  %17 = load i32, ptr %ai_addrlen, align 8
-  %call43 = invoke i32 @connect(i32 noundef %14, ptr noundef %16, i32 noundef %17)
+sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end25
+  %11 = load i32, ptr %out_sock, align 4
+  %12 = load ptr, ptr %result, align 8
+  %ai_addr41 = getelementptr inbounds i8, ptr %12, i64 24
+  %13 = load ptr, ptr %ai_addr41, align 8
+  %ai_addrlen = getelementptr inbounds i8, ptr %12, i64 16
+  %14 = load i32, ptr %ai_addrlen, align 8
+  %call43 = invoke i32 @connect(i32 noundef %11, ptr noundef %13, i32 noundef %14)
           to label %invoke.cont42 unwind label %lpad
 
 invoke.cont42:                                    ; preds = %sw.epilog
@@ -180,8 +172,8 @@ out.sink.split:                                   ; preds = %invoke.cont42, %if.
 
 out:                                              ; preds = %out.sink.split, %invoke.cont42
   %ok.0 = phi i1 [ true, %invoke.cont42 ], [ false, %out.sink.split ]
-  %18 = load ptr, ptr %result, align 8
-  call void @freeaddrinfo(ptr noundef %18) #12
+  %15 = load ptr, ptr %result, align 8
+  call void @freeaddrinfo(ptr noundef %15) #12
   br label %cleanup
 
 cleanup:                                          ; preds = %out, %if.then14

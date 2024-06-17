@@ -3541,19 +3541,19 @@ for.body.us.us.epil:                              ; preds = %for.body.us.us.preh
   br label %if.end35.sink.split
 
 if.end35.sink.split:                              ; preds = %for.body.us.us.us.epil, %cond.true.i64.us.us.us.epil, %for.body.us.us.us137.epil, %for.body.us.us.us150.epil, %for.body.us.us.epil
-  %cond.i67.us.us.us.epil.sink = phi i64 [ %i.0109.us.us.us138.unr15, %for.body.us.us.us137.epil ], [ %conv.i66.us.us.us156.epil, %for.body.us.us.us150.epil ], [ %conv.i66.us.us.epil, %for.body.us.us.epil ], [ %conv.i66.us.us.us.epil, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
-  %i.0109.us.us.us.unr12.sink = phi i64 [ %conv.i60.us.us.us.epil, %for.body.us.us.us137.epil ], [ %conv.i60.us.us.us154.epil, %for.body.us.us.us150.epil ], [ %conv.i60.us.us.epil, %for.body.us.us.epil ], [ %i.0109.us.us.us.unr12, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
-  %arrayidx.us.us.us.epil = getelementptr inbounds ptr, ptr %states, i64 %cond.i67.us.us.us.epil.sink
-  %88 = load ptr, ptr %arrayidx.us.us.us.epil, align 8, !tbaa !44
-  %arrayidx15.us.us.us.epil = getelementptr inbounds double, ptr %bdata, i64 %i.0109.us.us.us.unr12.sink
-  %89 = load double, ptr %arrayidx15.us.us.us.epil, align 8, !tbaa !68
+  %conv.i66.us.us.epil.sink = phi i64 [ %conv.i66.us.us.epil, %for.body.us.us.epil ], [ %conv.i66.us.us.us156.epil, %for.body.us.us.us150.epil ], [ %i.0109.us.us.us138.unr15, %for.body.us.us.us137.epil ], [ %conv.i66.us.us.us.epil, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
+  %conv.i60.us.us.epil.sink = phi i64 [ %conv.i60.us.us.epil, %for.body.us.us.epil ], [ %conv.i60.us.us.us154.epil, %for.body.us.us.us150.epil ], [ %conv.i60.us.us.us.epil, %for.body.us.us.us137.epil ], [ %i.0109.us.us.us.unr12, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
+  %arrayidx.us.us.epil = getelementptr inbounds ptr, ptr %states, i64 %conv.i66.us.us.epil.sink
+  %88 = load ptr, ptr %arrayidx.us.us.epil, align 8, !tbaa !44
+  %arrayidx15.us.us.epil = getelementptr inbounds double, ptr %bdata, i64 %conv.i60.us.us.epil.sink
+  %89 = load double, ptr %arrayidx15.us.us.epil, align 8, !tbaa !68
   %90 = load double, ptr %88, align 8, !tbaa !45
-  %add.i.us.us.us.epil = fadd double %89, %90
-  store double %add.i.us.us.us.epil, ptr %88, align 8, !tbaa !45
-  %count.i.us.us.us.epil = getelementptr inbounds i8, ptr %88, i64 8
-  %91 = load i64, ptr %count.i.us.us.us.epil, align 8, !tbaa !48
+  %add.i.us.us.epil = fadd double %89, %90
+  store double %add.i.us.us.epil, ptr %88, align 8, !tbaa !45
+  %count.i.us.us.epil = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = load i64, ptr %count.i.us.us.epil, align 8, !tbaa !48
   %inc.i.us.us.epil = add i64 %91, 1
-  store i64 %inc.i.us.us.epil, ptr %count.i.us.us.us.epil, align 8, !tbaa !48
+  store i64 %inc.i.us.us.epil, ptr %count.i.us.us.epil, align 8, !tbaa !48
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end, %if.end.us134, %if.end.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit97, %if.end35.sink.split, %if.end35.loopexit197.unr-lcssa, %if.end35.loopexit196.unr-lcssa, %if.end35.loopexit195.unr-lcssa, %if.end35.loopexit194.unr-lcssa, %for.cond17.preheader, %for.cond.preheader
@@ -5838,19 +5838,19 @@ for.body.us.us.epil:                              ; preds = %for.body.us.us.preh
   br label %if.end35.sink.split
 
 if.end35.sink.split:                              ; preds = %for.body.us.us.us.epil, %cond.true.i64.us.us.us.epil, %for.body.us.us.us137.epil, %for.body.us.us.us150.epil, %for.body.us.us.epil
-  %cond.i67.us.us.us.epil.sink = phi i64 [ %i.0109.us.us.us138.unr15, %for.body.us.us.us137.epil ], [ %conv.i66.us.us.us156.epil, %for.body.us.us.us150.epil ], [ %conv.i66.us.us.epil, %for.body.us.us.epil ], [ %conv.i66.us.us.us.epil, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
-  %i.0109.us.us.us.unr12.sink = phi i64 [ %conv.i.us.us.us.epil, %for.body.us.us.us137.epil ], [ %conv.i.us.us.us153.epil, %for.body.us.us.us150.epil ], [ %conv.i.us.us.epil, %for.body.us.us.epil ], [ %i.0109.us.us.us.unr12, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
-  %arrayidx.us.us.us.epil = getelementptr inbounds ptr, ptr %states, i64 %cond.i67.us.us.us.epil.sink
-  %88 = load ptr, ptr %arrayidx.us.us.us.epil, align 8, !tbaa !44
-  %arrayidx13.us.us.us.epil = getelementptr inbounds double, ptr %adata, i64 %i.0109.us.us.us.unr12.sink
-  %89 = load double, ptr %arrayidx13.us.us.us.epil, align 8, !tbaa !68
+  %conv.i66.us.us.epil.sink = phi i64 [ %conv.i66.us.us.epil, %for.body.us.us.epil ], [ %conv.i66.us.us.us156.epil, %for.body.us.us.us150.epil ], [ %i.0109.us.us.us138.unr15, %for.body.us.us.us137.epil ], [ %conv.i66.us.us.us.epil, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
+  %conv.i.us.us.epil.sink = phi i64 [ %conv.i.us.us.epil, %for.body.us.us.epil ], [ %conv.i.us.us.us153.epil, %for.body.us.us.us150.epil ], [ %conv.i.us.us.us.epil, %for.body.us.us.us137.epil ], [ %i.0109.us.us.us.unr12, %cond.true.i64.us.us.us.epil ], [ %i.0109.us.us.us.unr12, %for.body.us.us.us.epil ]
+  %arrayidx.us.us.epil = getelementptr inbounds ptr, ptr %states, i64 %conv.i66.us.us.epil.sink
+  %88 = load ptr, ptr %arrayidx.us.us.epil, align 8, !tbaa !44
+  %arrayidx13.us.us.epil = getelementptr inbounds double, ptr %adata, i64 %conv.i.us.us.epil.sink
+  %89 = load double, ptr %arrayidx13.us.us.epil, align 8, !tbaa !68
   %90 = load double, ptr %88, align 8, !tbaa !45
-  %add.i.us.us.us.epil = fadd double %89, %90
-  store double %add.i.us.us.us.epil, ptr %88, align 8, !tbaa !45
-  %count.i.us.us.us.epil = getelementptr inbounds i8, ptr %88, i64 8
-  %91 = load i64, ptr %count.i.us.us.us.epil, align 8, !tbaa !48
+  %add.i.us.us.epil = fadd double %89, %90
+  store double %add.i.us.us.epil, ptr %88, align 8, !tbaa !45
+  %count.i.us.us.epil = getelementptr inbounds i8, ptr %88, i64 8
+  %91 = load i64, ptr %count.i.us.us.epil, align 8, !tbaa !48
   %inc.i.us.us.epil = add i64 %91, 1
-  store i64 %inc.i.us.us.epil, ptr %count.i.us.us.us.epil, align 8, !tbaa !48
+  store i64 %inc.i.us.us.epil, ptr %count.i.us.us.epil, align 8, !tbaa !48
   br label %if.end35
 
 if.end35:                                         ; preds = %if.end, %if.end.us134, %if.end.us, %_ZNK6duckdb15SelectionVector9get_indexEm.exit97, %if.end35.sink.split, %if.end35.loopexit197.unr-lcssa, %if.end35.loopexit196.unr-lcssa, %if.end35.loopexit195.unr-lcssa, %if.end35.loopexit194.unr-lcssa, %for.cond17.preheader, %for.cond.preheader
@@ -13091,7 +13091,7 @@ for.body18.preheader.new:                         ; preds = %for.body18.preheade
   br label %for.body18
 
 for.body18.us.preheader:                          ; preds = %for.body18.lr.ph
-  br i1 %22, label %for.body18.us.epil, label %for.body18.us.preheader.new
+  br i1 %22, label %for.cond15.if.end30.loopexit_crit_edge.sink.split, label %for.body18.us.preheader.new
 
 for.body18.us.preheader.new:                      ; preds = %for.body18.us.preheader
   %unroll_iter156 = and i64 %count, -2
@@ -13231,24 +13231,7 @@ for.body18:                                       ; preds = %for.body18, %for.bo
 
 for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa: ; preds = %for.body18.us
   %lcmp.mod153.not = icmp eq i64 %xtraiter152, 0
-  br i1 %lcmp.mod153.not, label %for.cond15.if.end30.loopexit_crit_edge, label %for.body18.us.epil
-
-for.body18.us.epil:                               ; preds = %for.body18.us.preheader, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
-  %i14.0126.us.unr15 = phi i64 [ %unroll_iter156, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ 0, %for.body18.us.preheader ]
-  %inc.i.i80128.us.unr14 = phi i64 [ %inc.i.i80.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %var_pop.i79.promoted, %for.body18.us.preheader ]
-  %add.i3.i85129.us.unr13 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.us.preheader ]
-  %add6.i.i89130.us.unr12 = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.us.preheader ]
-  %arrayidx26.us.epil = getelementptr inbounds double, ptr %bdata, i64 %i14.0126.us.unr15
-  %inc.i.i80.us.epil = add i64 %inc.i.i80128.us.unr14, 1
-  %39 = load double, ptr %arrayidx26.us.epil, align 8, !tbaa !68
-  %sub.i.i82.us.epil = fsub double %39, %add.i3.i85129.us.unr13
-  %conv.i.i83.us.epil = uitofp i64 %inc.i.i80.us.epil to double
-  %div.i.i84.us.epil = fdiv double %sub.i.i82.us.epil, %conv.i.i83.us.epil
-  %add.i3.i85.us.epil = fadd double %add.i3.i85129.us.unr13, %div.i.i84.us.epil
-  %sub3.i.i86.us.epil = fsub double %39, %add.i3.i85.us.epil
-  %mul.i.i87.us.epil = fmul double %sub.i.i82.us.epil, %sub3.i.i86.us.epil
-  %add6.i.i89.us.epil = fadd double %add6.i.i89130.us.unr12, %mul.i.i87.us.epil
-  br label %for.cond15.if.end30.loopexit_crit_edge
+  br i1 %lcmp.mod153.not, label %for.cond15.if.end30.loopexit_crit_edge, label %for.cond15.if.end30.loopexit_crit_edge.sink.split
 
 for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa: ; preds = %for.body18
   %lcmp.mod.not = icmp eq i64 %xtraiter152, 0
@@ -13260,23 +13243,30 @@ for.body18.epil:                                  ; preds = %for.body18.preheade
   %add.i3.i85129.unr24 = phi double [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.preheader ]
   %add6.i.i89130.unr23 = phi double [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.preheader ]
   %arrayidx.i74.epil = getelementptr inbounds i32, ptr %21, i64 %i14.0126.unr26
-  %40 = load i32, ptr %arrayidx.i74.epil, align 4, !tbaa !64
-  %conv.i75.epil = zext i32 %40 to i64
-  %arrayidx26.epil = getelementptr inbounds double, ptr %bdata, i64 %conv.i75.epil
-  %inc.i.i80.epil = add i64 %inc.i.i80128.unr25, 1
-  %41 = load double, ptr %arrayidx26.epil, align 8, !tbaa !68
-  %sub.i.i82.epil = fsub double %41, %add.i3.i85129.unr24
+  %39 = load i32, ptr %arrayidx.i74.epil, align 4, !tbaa !64
+  %conv.i75.epil = zext i32 %39 to i64
+  br label %for.cond15.if.end30.loopexit_crit_edge.sink.split
+
+for.cond15.if.end30.loopexit_crit_edge.sink.split: ; preds = %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa, %for.body18.us.preheader, %for.body18.epil
+  %conv.i75.epil.sink = phi i64 [ %conv.i75.epil, %for.body18.epil ], [ %unroll_iter156, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ 0, %for.body18.us.preheader ]
+  %inc.i.i80128.unr25.sink = phi i64 [ %inc.i.i80128.unr25, %for.body18.epil ], [ %inc.i.i80.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %var_pop.i79.promoted, %for.body18.us.preheader ]
+  %add.i3.i85129.unr24.sink35 = phi double [ %add.i3.i85129.unr24, %for.body18.epil ], [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.us.preheader ]
+  %add6.i.i89130.unr23.sink = phi double [ %add6.i.i89130.unr23, %for.body18.epil ], [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.us.preheader ]
+  %arrayidx26.epil = getelementptr inbounds double, ptr %bdata, i64 %conv.i75.epil.sink
+  %inc.i.i80.epil = add i64 %inc.i.i80128.unr25.sink, 1
+  %40 = load double, ptr %arrayidx26.epil, align 8, !tbaa !68
+  %sub.i.i82.epil = fsub double %40, %add.i3.i85129.unr24.sink35
   %conv.i.i83.epil = uitofp i64 %inc.i.i80.epil to double
   %div.i.i84.epil = fdiv double %sub.i.i82.epil, %conv.i.i83.epil
-  %add.i3.i85.epil = fadd double %add.i3.i85129.unr24, %div.i.i84.epil
-  %sub3.i.i86.epil = fsub double %41, %add.i3.i85.epil
+  %add.i3.i85.epil = fadd double %add.i3.i85129.unr24.sink35, %div.i.i84.epil
+  %sub3.i.i86.epil = fsub double %40, %add.i3.i85.epil
   %mul.i.i87.epil = fmul double %sub.i.i82.epil, %sub3.i.i86.epil
-  %add6.i.i89.epil = fadd double %add6.i.i89130.unr23, %mul.i.i87.epil
+  %add6.i.i89.epil = fadd double %add6.i.i89130.unr23.sink, %mul.i.i87.epil
   br label %for.cond15.if.end30.loopexit_crit_edge
 
-for.cond15.if.end30.loopexit_crit_edge:           ; preds = %for.body18.epil, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa, %for.body18.us.epil, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
-  %.us-phi = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add6.i.i89.us.epil, %for.body18.us.epil ], [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add6.i.i89.epil, %for.body18.epil ]
-  %.us-phi131 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add.i3.i85.us.epil, %for.body18.us.epil ], [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add.i3.i85.epil, %for.body18.epil ]
+for.cond15.if.end30.loopexit_crit_edge:           ; preds = %for.cond15.if.end30.loopexit_crit_edge.sink.split, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
+  %.us-phi = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add6.i.i89.epil, %for.cond15.if.end30.loopexit_crit_edge.sink.split ]
+  %.us-phi131 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add.i3.i85.epil, %for.cond15.if.end30.loopexit_crit_edge.sink.split ]
   %.us-phi133 = add i64 %state.promoted, %count
   %.us-phi132 = add i64 %var_pop.i79.promoted, %count
   store i64 %.us-phi133, ptr %state, align 8, !tbaa !70
@@ -14520,7 +14510,7 @@ for.body18.preheader.new:                         ; preds = %for.body18.preheade
   br label %for.body18
 
 for.body18.us.preheader:                          ; preds = %for.body18.lr.ph
-  br i1 %22, label %for.body18.us.epil, label %for.body18.us.preheader.new
+  br i1 %22, label %for.cond15.if.end30.loopexit_crit_edge.sink.split, label %for.body18.us.preheader.new
 
 for.body18.us.preheader.new:                      ; preds = %for.body18.us.preheader
   %unroll_iter156 = and i64 %count, -2
@@ -14660,24 +14650,7 @@ for.body18:                                       ; preds = %for.body18, %for.bo
 
 for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa: ; preds = %for.body18.us
   %lcmp.mod153.not = icmp eq i64 %xtraiter152, 0
-  br i1 %lcmp.mod153.not, label %for.cond15.if.end30.loopexit_crit_edge, label %for.body18.us.epil
-
-for.body18.us.epil:                               ; preds = %for.body18.us.preheader, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
-  %i14.0126.us.unr15 = phi i64 [ %unroll_iter156, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ 0, %for.body18.us.preheader ]
-  %inc.i.i80128.us.unr14 = phi i64 [ %inc.i.i80.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %var_pop.i79.promoted, %for.body18.us.preheader ]
-  %add.i3.i85129.us.unr13 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.us.preheader ]
-  %add6.i.i89130.us.unr12 = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.us.preheader ]
-  %arrayidx24.us.epil = getelementptr inbounds double, ptr %adata, i64 %i14.0126.us.unr15
-  %inc.i.i80.us.epil = add i64 %inc.i.i80128.us.unr14, 1
-  %39 = load double, ptr %arrayidx24.us.epil, align 8, !tbaa !68
-  %sub.i.i82.us.epil = fsub double %39, %add.i3.i85129.us.unr13
-  %conv.i.i83.us.epil = uitofp i64 %inc.i.i80.us.epil to double
-  %div.i.i84.us.epil = fdiv double %sub.i.i82.us.epil, %conv.i.i83.us.epil
-  %add.i3.i85.us.epil = fadd double %add.i3.i85129.us.unr13, %div.i.i84.us.epil
-  %sub3.i.i86.us.epil = fsub double %39, %add.i3.i85.us.epil
-  %mul.i.i87.us.epil = fmul double %sub.i.i82.us.epil, %sub3.i.i86.us.epil
-  %add6.i.i89.us.epil = fadd double %add6.i.i89130.us.unr12, %mul.i.i87.us.epil
-  br label %for.cond15.if.end30.loopexit_crit_edge
+  br i1 %lcmp.mod153.not, label %for.cond15.if.end30.loopexit_crit_edge, label %for.cond15.if.end30.loopexit_crit_edge.sink.split
 
 for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa: ; preds = %for.body18
   %lcmp.mod.not = icmp eq i64 %xtraiter152, 0
@@ -14689,23 +14662,30 @@ for.body18.epil:                                  ; preds = %for.body18.preheade
   %add.i3.i85129.unr24 = phi double [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.preheader ]
   %add6.i.i89130.unr23 = phi double [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.preheader ]
   %arrayidx.i68.epil = getelementptr inbounds i32, ptr %21, i64 %i14.0126.unr26
-  %40 = load i32, ptr %arrayidx.i68.epil, align 4, !tbaa !64
-  %conv.i69.epil = zext i32 %40 to i64
-  %arrayidx24.epil = getelementptr inbounds double, ptr %adata, i64 %conv.i69.epil
-  %inc.i.i80.epil = add i64 %inc.i.i80128.unr25, 1
-  %41 = load double, ptr %arrayidx24.epil, align 8, !tbaa !68
-  %sub.i.i82.epil = fsub double %41, %add.i3.i85129.unr24
+  %39 = load i32, ptr %arrayidx.i68.epil, align 4, !tbaa !64
+  %conv.i69.epil = zext i32 %39 to i64
+  br label %for.cond15.if.end30.loopexit_crit_edge.sink.split
+
+for.cond15.if.end30.loopexit_crit_edge.sink.split: ; preds = %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa, %for.body18.us.preheader, %for.body18.epil
+  %conv.i69.epil.sink = phi i64 [ %conv.i69.epil, %for.body18.epil ], [ %unroll_iter156, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ 0, %for.body18.us.preheader ]
+  %inc.i.i80128.unr25.sink = phi i64 [ %inc.i.i80128.unr25, %for.body18.epil ], [ %inc.i.i80.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %var_pop.i79.promoted, %for.body18.us.preheader ]
+  %add.i3.i85129.unr24.sink35 = phi double [ %add.i3.i85129.unr24, %for.body18.epil ], [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %mean.i.i81.promoted, %for.body18.us.preheader ]
+  %add6.i.i89130.unr23.sink = phi double [ %add6.i.i89130.unr23, %for.body18.epil ], [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %dsquared.i.i88.promoted, %for.body18.us.preheader ]
+  %arrayidx24.epil = getelementptr inbounds double, ptr %adata, i64 %conv.i69.epil.sink
+  %inc.i.i80.epil = add i64 %inc.i.i80128.unr25.sink, 1
+  %40 = load double, ptr %arrayidx24.epil, align 8, !tbaa !68
+  %sub.i.i82.epil = fsub double %40, %add.i3.i85129.unr24.sink35
   %conv.i.i83.epil = uitofp i64 %inc.i.i80.epil to double
   %div.i.i84.epil = fdiv double %sub.i.i82.epil, %conv.i.i83.epil
-  %add.i3.i85.epil = fadd double %add.i3.i85129.unr24, %div.i.i84.epil
-  %sub3.i.i86.epil = fsub double %41, %add.i3.i85.epil
+  %add.i3.i85.epil = fadd double %add.i3.i85129.unr24.sink35, %div.i.i84.epil
+  %sub3.i.i86.epil = fsub double %40, %add.i3.i85.epil
   %mul.i.i87.epil = fmul double %sub.i.i82.epil, %sub3.i.i86.epil
-  %add6.i.i89.epil = fadd double %add6.i.i89130.unr23, %mul.i.i87.epil
+  %add6.i.i89.epil = fadd double %add6.i.i89130.unr23.sink, %mul.i.i87.epil
   br label %for.cond15.if.end30.loopexit_crit_edge
 
-for.cond15.if.end30.loopexit_crit_edge:           ; preds = %for.body18.epil, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa, %for.body18.us.epil, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
-  %.us-phi = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add6.i.i89.us.epil, %for.body18.us.epil ], [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add6.i.i89.epil, %for.body18.epil ]
-  %.us-phi131 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add.i3.i85.us.epil, %for.body18.us.epil ], [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add.i3.i85.epil, %for.body18.epil ]
+for.cond15.if.end30.loopexit_crit_edge:           ; preds = %for.cond15.if.end30.loopexit_crit_edge.sink.split, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa
+  %.us-phi = phi double [ %add6.i.i89.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add6.i.i89.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add6.i.i89.epil, %for.cond15.if.end30.loopexit_crit_edge.sink.split ]
+  %.us-phi131 = phi double [ %add.i3.i85.us.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit.unr-lcssa ], [ %add.i3.i85.1, %for.cond15.if.end30.loopexit_crit_edge.loopexit147.unr-lcssa ], [ %add.i3.i85.epil, %for.cond15.if.end30.loopexit_crit_edge.sink.split ]
   %.us-phi133 = add i64 %state.promoted, %count
   %.us-phi132 = add i64 %var_pop.i79.promoted, %count
   store i64 %.us-phi133, ptr %state, align 8, !tbaa !70

@@ -7343,18 +7343,18 @@ define hidden void @zim_CachingIterator_offsetGet(ptr nocapture noundef readonly
 
 .sink.split:                                      ; preds = %66, %69
   %.sink = phi i32 [ %73, %69 ], [ %64, %66 ]
-  %.044.sink = phi ptr [ %71, %69 ], [ %.044, %66 ]
+  %.sink53 = phi ptr [ %71, %69 ], [ %.044, %66 ]
   %75 = and i32 %.sink, 65280
   %76 = icmp ne i32 %75, 0
   call void @llvm.assume(i1 %76)
-  %77 = load ptr, ptr %.044.sink, align 8
+  %77 = load ptr, ptr %.sink53, align 8
   %78 = load i32, ptr %77, align 4
   %79 = add i32 %78, 1
   store i32 %79, ptr %77, align 4
   br label %80
 
 80:                                               ; preds = %.sink.split, %62, %69
-  %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.044.sink, %.sink.split ]
+  %.045 = phi ptr [ %71, %69 ], [ %.044, %62 ], [ %.sink53, %.sink.split ]
   %81 = load ptr, ptr %.045, align 8
   %82 = getelementptr inbounds i8, ptr %.045, i64 8
   %83 = load i32, ptr %82, align 8

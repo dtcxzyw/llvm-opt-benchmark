@@ -13817,10 +13817,10 @@ if.end12:                                         ; preds = %if.then8
 return.sink.split:                                ; preds = %if.end5, %if.end12, %if.then8
   %.sink = phi ptr [ %4, %if.then8 ], [ %.pre, %if.end12 ], [ %4, %if.end5 ]
   %.sink3 = phi i32 [ 1, %if.then8 ], [ 1, %if.end12 ], [ 16, %if.end5 ]
-  %todo_before_sleep.i = getelementptr inbounds i8, ptr %.sink, i64 393352
-  %6 = load i32, ptr %todo_before_sleep.i, align 8
+  %todo_before_sleep.i1 = getelementptr inbounds i8, ptr %.sink, i64 393352
+  %6 = load i32, ptr %todo_before_sleep.i1, align 8
   %or.i2 = or i32 %6, %.sink3
-  store i32 %or.i2, ptr %todo_before_sleep.i, align 8
+  store i32 %or.i2, ptr %todo_before_sleep.i1, align 8
   br label %return
 
 return:                                           ; preds = %return.sink.split, %if.end2, %if.end, %entry
@@ -14501,10 +14501,10 @@ if.end12.i:                                       ; preds = %if.then8.i
 return.sink.split.i:                              ; preds = %if.end12.i, %if.then8.i, %if.end5.i90
   %.sink.i = phi ptr [ %100, %if.then8.i ], [ %.pre.i92, %if.end12.i ], [ %100, %if.end5.i90 ]
   %.sink3.i = phi i32 [ 1, %if.then8.i ], [ 1, %if.end12.i ], [ 16, %if.end5.i90 ]
-  %todo_before_sleep.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 393352
-  %102 = load i32, ptr %todo_before_sleep.i.i, align 8
+  %todo_before_sleep.i1.i = getelementptr inbounds i8, ptr %.sink.i, i64 393352
+  %102 = load i32, ptr %todo_before_sleep.i1.i, align 8
   %or.i2.i = or i32 %102, %.sink3.i
-  store i32 %or.i2.i, ptr %todo_before_sleep.i.i, align 8
+  store i32 %or.i2.i, ptr %todo_before_sleep.i1.i, align 8
   br label %clusterHandleManualFailover.exit
 
 clusterHandleManualFailover.exit:                 ; preds = %if.then171, %if.end.i88, %if.end2.i, %return.sink.split.i
@@ -14608,10 +14608,10 @@ if.end12.i:                                       ; preds = %if.then8.i
 return.sink.split.i:                              ; preds = %if.end12.i, %if.then8.i, %if.end5.i
   %.sink.i = phi ptr [ %7, %if.then8.i ], [ %.pre.i, %if.end12.i ], [ %7, %if.end5.i ]
   %.sink3.i = phi i32 [ 1, %if.then8.i ], [ 1, %if.end12.i ], [ 16, %if.end5.i ]
-  %todo_before_sleep.i.i = getelementptr inbounds i8, ptr %.sink.i, i64 393352
-  %9 = load i32, ptr %todo_before_sleep.i.i, align 8
+  %todo_before_sleep.i1.i = getelementptr inbounds i8, ptr %.sink.i, i64 393352
+  %9 = load i32, ptr %todo_before_sleep.i1.i, align 8
   %or.i2.i = or i32 %9, %.sink3.i
-  store i32 %or.i2.i, ptr %todo_before_sleep.i.i, align 8
+  store i32 %or.i2.i, ptr %todo_before_sleep.i1.i, align 8
   br label %clusterHandleManualFailover.exit
 
 clusterHandleManualFailover.exit:                 ; preds = %if.then5, %if.end.i, %if.end2.i, %return.sink.split.i

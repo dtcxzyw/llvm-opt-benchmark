@@ -380,11 +380,11 @@ sw.bb:                                            ; preds = %entry
   br label %return
 
 sw.bb1:                                           ; preds = %entry
-  %lower.sroa.7.0.agg.result.sroa_idx267 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx273 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx265 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx271 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !8
-  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx267, align 8, !alias.scope !8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx273, i8 0, i64 16, i1 false)
+  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx265, align 8, !alias.scope !8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx271, i8 0, i64 16, i1 false)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
@@ -411,17 +411,17 @@ if.else:                                          ; preds = %sw.bb2
   store i64 1024, ptr %agg.result, align 8
   %ref.tmp4.sroa.4.0.agg.result.sroa_idx = getelementptr inbounds i8, ptr %agg.result, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp4.sroa.4.0.agg.result.sroa_idx, i8 0, i64 24, i1 false)
-  br label %for.body.i.i.i47
+  br label %for.body.i.i.i46
 
-for.body.i.i.i47:                                 ; preds = %for.body.i.i.i47, %if.else
-  %__begin0.0.idx5.i.i.i48 = phi i64 [ 0, %if.else ], [ %__begin0.0.add.i.i.i51, %for.body.i.i.i47 ]
-  %__begin0.0.ptr.i.i.i49 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i48
-  %2 = load i64, ptr %__begin0.0.ptr.i.i.i49, align 8, !alias.scope !14
-  %not.i.i.i50 = xor i64 %2, -1
-  store i64 %not.i.i.i50, ptr %__begin0.0.ptr.i.i.i49, align 8, !alias.scope !14
-  %__begin0.0.add.i.i.i51 = add nuw nsw i64 %__begin0.0.idx5.i.i.i48, 8
-  %cmp.not.i.i.i52 = icmp eq i64 %__begin0.0.add.i.i.i51, 32
-  br i1 %cmp.not.i.i.i52, label %return, label %for.body.i.i.i47
+for.body.i.i.i46:                                 ; preds = %for.body.i.i.i46, %if.else
+  %__begin0.0.idx5.i.i.i47 = phi i64 [ 0, %if.else ], [ %__begin0.0.add.i.i.i50, %for.body.i.i.i46 ]
+  %__begin0.0.ptr.i.i.i48 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i47
+  %2 = load i64, ptr %__begin0.0.ptr.i.i.i48, align 8, !alias.scope !14
+  %not.i.i.i49 = xor i64 %2, -1
+  store i64 %not.i.i.i49, ptr %__begin0.0.ptr.i.i.i48, align 8, !alias.scope !14
+  %__begin0.0.add.i.i.i50 = add nuw nsw i64 %__begin0.0.idx5.i.i.i47, 8
+  %cmp.not.i.i.i51 = icmp eq i64 %__begin0.0.add.i.i.i50, 32
+  br i1 %cmp.not.i.i.i51, label %return, label %for.body.i.i.i46
 
 _ZN3ue29CharReachC2Ehh.exit:                      ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -472,8 +472,8 @@ sw.bb15:                                          ; preds = %entry
   %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, i8 0, i64 16, i1 false)
   store i64 -8589934592, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 9223372036854775807, ptr %arrayidx.i.i.i.i.i73, align 8
+  %arrayidx.i.i26.i.i.i71 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i71, align 8
   br label %return
 
 sw.bb16:                                          ; preds = %entry
@@ -514,11 +514,11 @@ sw.bb30:                                          ; preds = %entry
   br i1 %tobool31, label %if.then32, label %if.else33
 
 if.then32:                                        ; preds = %sw.bb30
-  %lower.sroa.7.0.agg.result.sroa_idx269 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx275 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx267 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx273 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !20
-  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx269, align 8, !alias.scope !20
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx275, i8 0, i64 16, i1 false)
+  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx267, align 8, !alias.scope !20
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx273, i8 0, i64 16, i1 false)
   br label %return
 
 if.else33:                                        ; preds = %sw.bb30
@@ -533,8 +533,8 @@ sw.bb34:                                          ; preds = %entry
   %10 = getelementptr inbounds i8, ptr %agg.result, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 16, i1 false)
   store i64 -4294967296, ptr %agg.result, align 8
-  %arrayidx.i.i.i.i.i90 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store i64 9223372036854775807, ptr %arrayidx.i.i.i.i.i90, align 8
+  %arrayidx.i.i26.i.i.i88 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  store i64 9223372036854775807, ptr %arrayidx.i.i26.i.i.i88, align 8
   br label %return
 
 sw.bb35:                                          ; preds = %entry
@@ -589,11 +589,11 @@ sw.bb61:                                          ; preds = %entry
   br i1 %tobool63, label %if.then64, label %if.else65
 
 if.then64:                                        ; preds = %sw.bb61
-  %lower.sroa.7.0.agg.result.sroa_idx271 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %lower.sroa.11.0.agg.result.sroa_idx277 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %lower.sroa.7.0.agg.result.sroa_idx269 = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %lower.sroa.11.0.agg.result.sroa_idx275 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 0, ptr %agg.result, align 8, !alias.scope !26
-  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx271, align 8, !alias.scope !26
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx277, i8 0, i64 16, i1 false)
+  store i64 576460743847706622, ptr %lower.sroa.7.0.agg.result.sroa_idx269, align 8, !alias.scope !26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %lower.sroa.11.0.agg.result.sroa_idx275, i8 0, i64 16, i1 false)
   br label %return
 
 if.else65:                                        ; preds = %sw.bb61
@@ -883,12 +883,12 @@ sw.bb263:                                         ; preds = %entry, %entry
   %19 = load <2 x i64>, ptr %agg.result, align 8, !alias.scope !32
   %20 = or <2 x i64> %19, %18
   store <2 x i64> %20, ptr %agg.result, align 8, !alias.scope !32
-  %arrayidx.i.i21.i.i183 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
-  %arrayidx.i.i22.i.i184 = getelementptr inbounds i8, ptr %agg.result, i64 16
-  %21 = load <2 x i64>, ptr %arrayidx.i.i21.i.i183, align 16, !noalias !32
-  %22 = load <2 x i64>, ptr %arrayidx.i.i22.i.i184, align 8, !alias.scope !32
+  %arrayidx.i.i21.i.i181 = getelementptr inbounds i8, ptr %ref.tmp265, i64 16
+  %arrayidx.i.i22.i.i182 = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %21 = load <2 x i64>, ptr %arrayidx.i.i21.i.i181, align 16, !noalias !32
+  %22 = load <2 x i64>, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
   %23 = or <2 x i64> %22, %21
-  store <2 x i64> %23, ptr %arrayidx.i.i22.i.i184, align 8, !alias.scope !32
+  store <2 x i64> %23, ptr %arrayidx.i.i22.i.i182, align 8, !alias.scope !32
   br label %return
 
 sw.bb266:                                         ; preds = %entry
@@ -1493,23 +1493,23 @@ sw.bb761:                                         ; preds = %entry
 
 sw.bb766:                                         ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
-  br label %for.body.i.i.i189
+  br label %for.body.i.i.i187
 
-for.body.i.i.i189:                                ; preds = %for.body.i.i.i189, %sw.bb766
-  %__begin0.0.idx5.i.i.i190 = phi i64 [ 0, %sw.bb766 ], [ %__begin0.0.add.i.i.i193, %for.body.i.i.i189 ]
-  %__begin0.0.ptr.i.i.i191 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i190
-  %24 = load i64, ptr %__begin0.0.ptr.i.i.i191, align 8, !alias.scope !35
-  %not.i.i.i192 = xor i64 %24, -1
-  store i64 %not.i.i.i192, ptr %__begin0.0.ptr.i.i.i191, align 8, !alias.scope !35
-  %__begin0.0.add.i.i.i193 = add nuw nsw i64 %__begin0.0.idx5.i.i.i190, 8
-  %cmp.not.i.i.i194 = icmp eq i64 %__begin0.0.add.i.i.i193, 32
-  br i1 %cmp.not.i.i.i194, label %return, label %for.body.i.i.i189
+for.body.i.i.i187:                                ; preds = %for.body.i.i.i187, %sw.bb766
+  %__begin0.0.idx5.i.i.i188 = phi i64 [ 0, %sw.bb766 ], [ %__begin0.0.add.i.i.i191, %for.body.i.i.i187 ]
+  %__begin0.0.ptr.i.i.i189 = getelementptr inbounds i8, ptr %agg.result, i64 %__begin0.0.idx5.i.i.i188
+  %24 = load i64, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
+  %not.i.i.i190 = xor i64 %24, -1
+  store i64 %not.i.i.i190, ptr %__begin0.0.ptr.i.i.i189, align 8, !alias.scope !35
+  %__begin0.0.add.i.i.i191 = add nuw nsw i64 %__begin0.0.idx5.i.i.i188, 8
+  %cmp.not.i.i.i192 = icmp eq i64 %__begin0.0.add.i.i.i191, 32
+  br i1 %cmp.not.i.i.i192, label %return, label %for.body.i.i.i187
 
 sw.epilog:                                        ; preds = %entry
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, i8 0, i64 32, i1 false)
   br label %return
 
-return:                                           ; preds = %for.body.i.i.i189, %for.body.i.i.i47, %for.body.i.i.i, %sw.epilog, %sw.bb761, %sw.bb756, %sw.bb751, %sw.bb746, %sw.bb741, %sw.bb736, %sw.bb731, %sw.bb726, %sw.bb721, %sw.bb716, %sw.bb711, %sw.bb706, %sw.bb701, %sw.bb696, %sw.bb691, %sw.bb686, %sw.bb681, %sw.bb676, %sw.bb671, %sw.bb666, %sw.bb661, %sw.bb656, %sw.bb651, %sw.bb646, %sw.bb641, %sw.bb636, %sw.bb631, %sw.bb626, %sw.bb621, %sw.bb616, %sw.bb611, %sw.bb606, %sw.bb601, %sw.bb596, %sw.bb591, %sw.bb586, %sw.bb581, %sw.bb576, %sw.bb571, %sw.bb566, %sw.bb561, %sw.bb556, %sw.bb551, %sw.bb546, %sw.bb541, %sw.bb536, %sw.bb531, %sw.bb526, %sw.bb521, %sw.bb516, %sw.bb511, %sw.bb506, %sw.bb501, %sw.bb496, %sw.bb491, %sw.bb486, %sw.bb481, %sw.bb476, %sw.bb471, %sw.bb466, %sw.bb461, %sw.bb456, %sw.bb451, %sw.bb446, %sw.bb441, %sw.bb436, %sw.bb431, %sw.bb426, %sw.bb421, %sw.bb416, %sw.bb411, %sw.bb406, %sw.bb401, %sw.bb396, %sw.bb391, %sw.bb386, %sw.bb381, %sw.bb376, %sw.bb371, %sw.bb366, %sw.bb361, %sw.bb356, %sw.bb351, %sw.bb346, %sw.bb341, %sw.bb336, %sw.bb331, %sw.bb326, %sw.bb321, %sw.bb316, %sw.bb311, %sw.bb306, %sw.bb301, %sw.bb296, %sw.bb291, %sw.bb286, %sw.bb281, %sw.bb276, %sw.bb271, %sw.bb266, %sw.bb263, %sw.bb258, %sw.bb253, %sw.bb248, %sw.bb243, %sw.bb238, %sw.bb233, %sw.bb228, %sw.bb223, %sw.bb218, %sw.bb213, %sw.bb208, %sw.bb203, %sw.bb198, %sw.bb193, %sw.bb188, %sw.bb183, %sw.bb178, %sw.bb173, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb143, %sw.bb138, %sw.bb133, %sw.bb128, %sw.bb123, %sw.bb118, %sw.bb113, %sw.bb108, %sw.bb103, %sw.bb98, %sw.bb93, %sw.bb88, %invoke.cont85, %sw.bb75, %invoke.cont72, %if.else65, %if.then64, %invoke.cont58, %sw.bb47, %sw.bb40, %sw.bb35, %sw.bb34, %if.else33, %if.then32, %invoke.cont27, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb11, %invoke.cont10, %_ZN3ue29CharReachC2Ehh.exit, %sw.bb1, %sw.bb
+return:                                           ; preds = %for.body.i.i.i187, %for.body.i.i.i46, %for.body.i.i.i, %sw.epilog, %sw.bb761, %sw.bb756, %sw.bb751, %sw.bb746, %sw.bb741, %sw.bb736, %sw.bb731, %sw.bb726, %sw.bb721, %sw.bb716, %sw.bb711, %sw.bb706, %sw.bb701, %sw.bb696, %sw.bb691, %sw.bb686, %sw.bb681, %sw.bb676, %sw.bb671, %sw.bb666, %sw.bb661, %sw.bb656, %sw.bb651, %sw.bb646, %sw.bb641, %sw.bb636, %sw.bb631, %sw.bb626, %sw.bb621, %sw.bb616, %sw.bb611, %sw.bb606, %sw.bb601, %sw.bb596, %sw.bb591, %sw.bb586, %sw.bb581, %sw.bb576, %sw.bb571, %sw.bb566, %sw.bb561, %sw.bb556, %sw.bb551, %sw.bb546, %sw.bb541, %sw.bb536, %sw.bb531, %sw.bb526, %sw.bb521, %sw.bb516, %sw.bb511, %sw.bb506, %sw.bb501, %sw.bb496, %sw.bb491, %sw.bb486, %sw.bb481, %sw.bb476, %sw.bb471, %sw.bb466, %sw.bb461, %sw.bb456, %sw.bb451, %sw.bb446, %sw.bb441, %sw.bb436, %sw.bb431, %sw.bb426, %sw.bb421, %sw.bb416, %sw.bb411, %sw.bb406, %sw.bb401, %sw.bb396, %sw.bb391, %sw.bb386, %sw.bb381, %sw.bb376, %sw.bb371, %sw.bb366, %sw.bb361, %sw.bb356, %sw.bb351, %sw.bb346, %sw.bb341, %sw.bb336, %sw.bb331, %sw.bb326, %sw.bb321, %sw.bb316, %sw.bb311, %sw.bb306, %sw.bb301, %sw.bb296, %sw.bb291, %sw.bb286, %sw.bb281, %sw.bb276, %sw.bb271, %sw.bb266, %sw.bb263, %sw.bb258, %sw.bb253, %sw.bb248, %sw.bb243, %sw.bb238, %sw.bb233, %sw.bb228, %sw.bb223, %sw.bb218, %sw.bb213, %sw.bb208, %sw.bb203, %sw.bb198, %sw.bb193, %sw.bb188, %sw.bb183, %sw.bb178, %sw.bb173, %sw.bb168, %sw.bb163, %sw.bb158, %sw.bb153, %sw.bb148, %sw.bb143, %sw.bb138, %sw.bb133, %sw.bb128, %sw.bb123, %sw.bb118, %sw.bb113, %sw.bb108, %sw.bb103, %sw.bb98, %sw.bb93, %sw.bb88, %invoke.cont85, %sw.bb75, %invoke.cont72, %if.else65, %if.then64, %invoke.cont58, %sw.bb47, %sw.bb40, %sw.bb35, %sw.bb34, %if.else33, %if.then32, %invoke.cont27, %sw.bb16, %sw.bb15, %sw.bb14, %sw.bb11, %invoke.cont10, %_ZN3ue29CharReachC2Ehh.exit, %sw.bb1, %sw.bb
   ret void
 
 eh.resume:                                        ; preds = %lpad82, %lpad84, %lpad69, %lpad71, %lpad55, %lpad57, %lpad24, %lpad26, %lpad, %lpad9
@@ -1655,12 +1655,12 @@ if.then29.i.i:                                    ; preds = %for.end.i.i
   br label %if.end37.sink.split.i.i
 
 if.end37.sink.split.i.i:                          ; preds = %if.then29.i.i, %if.then5.i.i, %if.then.i.i
-  %div18.sink.i.i = phi i64 [ %div3420.i.i, %if.then29.i.i ], [ %div18.i.i, %if.then5.i.i ], [ %div18.i.i, %if.then.i.i ]
+  %div3420.sink.i.i = phi i64 [ %div3420.i.i, %if.then29.i.i ], [ %div18.i.i, %if.then5.i.i ], [ %div18.i.i, %if.then.i.i ]
   %sub32.sink.i.i = phi i64 [ %sub32.i.i, %if.then29.i.i ], [ %and.i.i, %if.then5.i.i ], [ %shl.i.i, %if.then.i.i ]
-  %arrayidx.i.i.i.i = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div18.sink.i.i
-  %13 = load i64, ptr %arrayidx.i.i.i.i, align 8
+  %arrayidx.i.i26.i.i = getelementptr inbounds [4 x i64], ptr %agg.result, i64 0, i64 %div3420.sink.i.i
+  %13 = load i64, ptr %arrayidx.i.i26.i.i, align 8
   %or36.i.i = or i64 %13, %sub32.sink.i.i
-  store i64 %or36.i.i, ptr %arrayidx.i.i.i.i, align 8
+  store i64 %or36.i.i, ptr %arrayidx.i.i26.i.i, align 8
   br label %_ZN3ue29CharReach8setRangeEhh.exit
 
 _ZN3ue29CharReach8setRangeEhh.exit:               ; preds = %for.end.i.i, %if.end37.sink.split.i.i

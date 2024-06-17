@@ -1698,10 +1698,10 @@ if.end53.sink.split.sink.split:                   ; preds = %if.then49, %if.then
 if.end53.sink.split:                              ; preds = %if.end53.sink.split.sink.split, %if.then49, %if.then39
   %.sink59 = phi i64 [ 64, %if.then39 ], [ 56, %if.then49 ], [ %.sink59.ph, %if.end53.sink.split.sink.split ]
   %33 = call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb12perf_contextE)
-  %block_cache_real_handle_count = getelementptr inbounds i8, ptr %33, i64 %.sink59
-  %34 = load i64, ptr %block_cache_real_handle_count, align 8
+  %block_cache_standalone_handle_count50 = getelementptr inbounds i8, ptr %33, i64 %.sink59
+  %34 = load i64, ptr %block_cache_standalone_handle_count50, align 8
   %add51 = add i64 %34, 1
-  store i64 %add51, ptr %block_cache_real_handle_count, align 8
+  store i64 %add51, ptr %block_cache_standalone_handle_count50, align 8
   br label %if.end53
 
 if.end53:                                         ; preds = %if.end53.sink.split, %_ZTWN7rocksdb10perf_levelE.exit48, %_ZTWN7rocksdb10perf_levelE.exit40

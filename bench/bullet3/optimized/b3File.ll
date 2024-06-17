@@ -2033,47 +2033,61 @@ if.then:                                          ; preds = %entry
   %1 = load i32, ptr %dataPtr, align 4
   %and2 = and i32 %1, 65535
   %cmp = icmp eq i32 %and2, 0
-  br i1 %cmp, label %if.then3, label %if.end
+  br i1 %cmp, label %if.then3, label %if.end73
 
 if.then3:                                         ; preds = %if.then
   %shr = ashr exact i32 %1, 16
   store i32 %shr, ptr %dataPtr, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %if.then3, %if.then
-  %len = getelementptr inbounds i8, ptr %dataPtr, i64 4
-  %2 = load <4 x i8>, ptr %len, align 1
-  %3 = shufflevector <4 x i8> %2, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %3, ptr %len, align 1
-  %dna_nr = getelementptr inbounds i8, ptr %dataPtr, i64 12
-  %4 = load <8 x i8>, ptr %dna_nr, align 1
-  %5 = shufflevector <8 x i8> %4, <8 x i8> poison, <8 x i32> <i32 3, i32 2, i32 1, i32 0, i32 7, i32 6, i32 5, i32 4>
-  store <8 x i8> %5, ptr %dna_nr, align 1
   br label %if.end73
 
 if.else:                                          ; preds = %entry
-  %6 = load i32, ptr %dataPtr, align 8
-  %and34 = and i32 %6, 65535
+  %2 = load i32, ptr %dataPtr, align 8
+  %and34 = and i32 %2, 65535
   %cmp35 = icmp eq i32 %and34, 0
-  br i1 %cmp35, label %if.then36, label %if.end39
+  br i1 %cmp35, label %if.then36, label %if.end73
 
 if.then36:                                        ; preds = %if.else
-  %shr38 = ashr exact i32 %6, 16
+  %shr38 = ashr exact i32 %2, 16
   store i32 %shr38, ptr %dataPtr, align 8
-  br label %if.end39
-
-if.end39:                                         ; preds = %if.then36, %if.else
-  %len42 = getelementptr inbounds i8, ptr %dataPtr, i64 4
-  %7 = load <4 x i8>, ptr %len42, align 1
-  %8 = shufflevector <4 x i8> %7, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
-  store <4 x i8> %8, ptr %len42, align 1
-  %dna_nr53 = getelementptr inbounds i8, ptr %dataPtr, i64 16
-  %9 = load <8 x i8>, ptr %dna_nr53, align 1
-  %10 = shufflevector <8 x i8> %9, <8 x i8> poison, <8 x i32> <i32 3, i32 2, i32 1, i32 0, i32 7, i32 6, i32 5, i32 4>
-  store <8 x i8> %10, ptr %dna_nr53, align 1
   br label %if.end73
 
-if.end73:                                         ; preds = %if.end39, %if.end
+if.end73:                                         ; preds = %if.else, %if.then36, %if.then, %if.then3
+  %.sink79 = phi i64 [ 12, %if.then3 ], [ 12, %if.then ], [ 16, %if.then36 ], [ 16, %if.else ]
+  %.sink77 = phi i64 [ 15, %if.then3 ], [ 15, %if.then ], [ 19, %if.then36 ], [ 19, %if.else ]
+  %.sink73 = phi i64 [ 13, %if.then3 ], [ 13, %if.then ], [ 17, %if.then36 ], [ 17, %if.else ]
+  %.sink71 = phi i64 [ 14, %if.then3 ], [ 14, %if.then ], [ 18, %if.then36 ], [ 18, %if.else ]
+  %.sink67 = phi i64 [ 16, %if.then3 ], [ 16, %if.then ], [ 20, %if.then36 ], [ 20, %if.else ]
+  %.sink65 = phi i64 [ 19, %if.then3 ], [ 19, %if.then ], [ 23, %if.then36 ], [ 23, %if.else ]
+  %.sink = phi i64 [ 17, %if.then3 ], [ 17, %if.then ], [ 21, %if.then36 ], [ 21, %if.else ]
+  %.sink60 = phi i64 [ 18, %if.then3 ], [ 18, %if.then ], [ 22, %if.then36 ], [ 22, %if.else ]
+  %len42 = getelementptr inbounds i8, ptr %dataPtr, i64 4
+  %3 = load <4 x i8>, ptr %len42, align 1
+  %4 = shufflevector <4 x i8> %3, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x i8> %4, ptr %len42, align 1
+  %dna_nr53 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink79
+  %5 = load i8, ptr %dna_nr53, align 1
+  %arrayidx55 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink77
+  %6 = load i8, ptr %arrayidx55, align 1
+  store i8 %6, ptr %dna_nr53, align 1
+  store i8 %5, ptr %arrayidx55, align 1
+  %arrayidx58 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink73
+  %7 = load i8, ptr %arrayidx58, align 1
+  %arrayidx59 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink71
+  %8 = load i8, ptr %arrayidx59, align 1
+  store i8 %8, ptr %arrayidx58, align 1
+  store i8 %7, ptr %arrayidx59, align 1
+  %nr64 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink67
+  %9 = load i8, ptr %nr64, align 1
+  %arrayidx66 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink65
+  %10 = load i8, ptr %arrayidx66, align 1
+  store i8 %10, ptr %nr64, align 1
+  store i8 %9, ptr %arrayidx66, align 1
+  %arrayidx69 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink
+  %11 = load i8, ptr %arrayidx69, align 1
+  %arrayidx70 = getelementptr inbounds i8, ptr %dataPtr, i64 %.sink60
+  %12 = load i8, ptr %arrayidx70, align 1
+  store i8 %12, ptr %arrayidx69, align 1
+  store i8 %11, ptr %arrayidx70, align 1
   ret void
 }
 
@@ -2321,28 +2335,91 @@ if.then23:                                        ; preds = %while.body, %while.
 if.else24:                                        ; preds = %while.body
   %5 = load i32, ptr %mFlags, align 8
   %call26 = tail call noundef i32 @_ZN6bParse10ChunkUtils9getOffsetEi(i32 noundef %5)
-  tail call void @_ZN6bParse5bFile7swapLenEPc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %dataPtr.0)
-  %6 = load i32, ptr %dna_nr, align 8
-  %cmp29 = icmp sgt i32 %6, -1
+  %6 = load i32, ptr %mFlags, align 8
+  %and.i = and i32 %6, 16
+  %tobool.not.i = icmp eq i32 %and.i, 0
+  br i1 %tobool.not.i, label %if.else.i, label %if.then.i
+
+if.then.i:                                        ; preds = %if.else24
+  %7 = load i32, ptr %dataPtr.0, align 4
+  %and2.i = and i32 %7, 65535
+  %cmp.i = icmp eq i32 %and2.i, 0
+  br i1 %cmp.i, label %if.then3.i, label %_ZN6bParse5bFile7swapLenEPc.exit
+
+if.then3.i:                                       ; preds = %if.then.i
+  %shr.i = ashr exact i32 %7, 16
+  store i32 %shr.i, ptr %dataPtr.0, align 4
+  br label %_ZN6bParse5bFile7swapLenEPc.exit
+
+if.else.i:                                        ; preds = %if.else24
+  %8 = load i32, ptr %dataPtr.0, align 8
+  %and34.i = and i32 %8, 65535
+  %cmp35.i = icmp eq i32 %and34.i, 0
+  br i1 %cmp35.i, label %if.then36.i, label %_ZN6bParse5bFile7swapLenEPc.exit
+
+if.then36.i:                                      ; preds = %if.else.i
+  %shr38.i = ashr exact i32 %8, 16
+  store i32 %shr38.i, ptr %dataPtr.0, align 8
+  br label %_ZN6bParse5bFile7swapLenEPc.exit
+
+_ZN6bParse5bFile7swapLenEPc.exit:                 ; preds = %if.then.i, %if.then3.i, %if.else.i, %if.then36.i
+  %.sink79.i = phi i64 [ 12, %if.then3.i ], [ 12, %if.then.i ], [ 16, %if.then36.i ], [ 16, %if.else.i ]
+  %.sink77.i = phi i64 [ 15, %if.then3.i ], [ 15, %if.then.i ], [ 19, %if.then36.i ], [ 19, %if.else.i ]
+  %.sink73.i = phi i64 [ 13, %if.then3.i ], [ 13, %if.then.i ], [ 17, %if.then36.i ], [ 17, %if.else.i ]
+  %.sink71.i = phi i64 [ 14, %if.then3.i ], [ 14, %if.then.i ], [ 18, %if.then36.i ], [ 18, %if.else.i ]
+  %.sink67.i = phi i64 [ 16, %if.then3.i ], [ 16, %if.then.i ], [ 20, %if.then36.i ], [ 20, %if.else.i ]
+  %.sink65.i = phi i64 [ 19, %if.then3.i ], [ 19, %if.then.i ], [ 23, %if.then36.i ], [ 23, %if.else.i ]
+  %.sink.i = phi i64 [ 17, %if.then3.i ], [ 17, %if.then.i ], [ 21, %if.then36.i ], [ 21, %if.else.i ]
+  %.sink60.i = phi i64 [ 18, %if.then3.i ], [ 18, %if.then.i ], [ 22, %if.then36.i ], [ 22, %if.else.i ]
+  %len42.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 4
+  %9 = load <4 x i8>, ptr %len42.i, align 1
+  %10 = shufflevector <4 x i8> %9, <4 x i8> poison, <4 x i32> <i32 3, i32 2, i32 1, i32 0>
+  store <4 x i8> %10, ptr %len42.i, align 1
+  %dna_nr53.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink79.i
+  %11 = load i8, ptr %dna_nr53.i, align 1
+  %arrayidx55.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink77.i
+  %12 = load i8, ptr %arrayidx55.i, align 1
+  store i8 %12, ptr %dna_nr53.i, align 1
+  store i8 %11, ptr %arrayidx55.i, align 1
+  %arrayidx58.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink73.i
+  %13 = load i8, ptr %arrayidx58.i, align 1
+  %arrayidx59.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink71.i
+  %14 = load i8, ptr %arrayidx59.i, align 1
+  store i8 %14, ptr %arrayidx58.i, align 1
+  store i8 %13, ptr %arrayidx59.i, align 1
+  %nr64.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink67.i
+  %15 = load i8, ptr %nr64.i, align 1
+  %arrayidx66.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink65.i
+  %16 = load i8, ptr %arrayidx66.i, align 1
+  store i8 %16, ptr %nr64.i, align 1
+  store i8 %15, ptr %arrayidx66.i, align 1
+  %arrayidx69.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink.i
+  %17 = load i8, ptr %arrayidx69.i, align 1
+  %arrayidx70.i = getelementptr inbounds i8, ptr %dataPtr.0, i64 %.sink60.i
+  %18 = load i8, ptr %arrayidx70.i, align 1
+  store i8 %18, ptr %arrayidx69.i, align 1
+  store i8 %17, ptr %arrayidx70.i, align 1
+  %19 = load i32, ptr %dna_nr, align 8
+  %cmp29 = icmp sgt i32 %19, -1
   br i1 %cmp29, label %if.then30, label %if.end33
 
-if.then30:                                        ; preds = %if.else24
+if.then30:                                        ; preds = %_ZN6bParse5bFile7swapLenEPc.exit
   %idx.ext27 = sext i32 %call26 to i64
   %add.ptr28 = getelementptr inbounds i8, ptr %dataPtr.0, i64 %idx.ext27
   call void @_ZN6bParse5bFile4swapEPcRNS_9bChunkIndEb(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %add.ptr28, ptr noundef nonnull align 8 dereferenceable(24) %dataChunk, i1 noundef zeroext true)
   br label %if.end33
 
-if.end33:                                         ; preds = %if.then30, %if.else24
+if.end33:                                         ; preds = %if.then30, %_ZN6bParse5bFile7swapLenEPc.exit
   %idx.ext34 = sext i32 %seek.0 to i64
   %add.ptr35 = getelementptr inbounds i8, ptr %dataPtr.0, i64 %idx.ext34
-  %7 = load i32, ptr %mFlags, align 8
-  %call37 = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dataChunk, ptr noundef %add.ptr35, i32 noundef %7)
+  %20 = load i32, ptr %mFlags, align 8
+  %call37 = call noundef i32 @_ZN6bParse5bFile12getNextBlockEPNS_9bChunkIndEPKci(ptr nonnull align 8 poison, ptr noundef nonnull %dataChunk, ptr noundef %add.ptr35, i32 noundef %20)
   %cmp38 = icmp slt i32 %call37, 0
   br i1 %cmp38, label %while.end, label %while.body, !llvm.loop !26
 
 while.end:                                        ; preds = %if.end33, %if.then23
-  %8 = load i32, ptr %mFlags, align 8
-  %storemerge10 = xor i32 %8, 4
+  %21 = load i32, ptr %mFlags, align 8
+  %storemerge10 = xor i32 %21, 4
   store i32 %storemerge10, ptr %mFlags, align 8
   ret void
 }

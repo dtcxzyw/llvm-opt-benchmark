@@ -2056,9 +2056,9 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %31 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %32 = getelementptr inbounds i8, ptr %31, i64 32
   %33 = icmp ult i32 %.pr, 8
-  br i1 %33, label %.lr.ph20499, label %41
+  br i1 %33, label %.lr.ph20498, label %41
 
-.lr.ph20499:                                      ; preds = %.lr.ph9472.preheader
+.lr.ph20498:                                      ; preds = %.lr.ph9472.preheader
   %.promoted = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   %34 = getelementptr inbounds i8, ptr %29, i64 2
   switch i32 %.pr, label %7339 [
@@ -2072,7 +2072,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
 
 36:                                               ; preds = %._crit_edge9473
   %.not6063 = icmp eq i32 %.pr, 1
-  br i1 %.not6063, label %6567, label %.loopexit20795
+  br i1 %.not6063, label %6567, label %.loopexit20794
 
 37:                                               ; preds = %._crit_edge9473
   %38 = getelementptr inbounds i8, ptr %29, i64 2
@@ -2085,20 +2085,20 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   ]
 
 41:                                               ; preds = %.backedge7120, %.lr.ph9472.preheader
-  %.lcssa17135 = phi ptr [ %7292, %.backedge7120 ], [ %29, %.lr.ph9472.preheader ]
-  %.lcssa17126 = phi i32 [ 8, %.backedge7120 ], [ %.pr, %.lr.ph9472.preheader ]
-  %42 = icmp eq i32 %.lcssa17126, 8
+  %.lcssa17134 = phi ptr [ %7292, %.backedge7120 ], [ %29, %.lr.ph9472.preheader ]
+  %.lcssa17125 = phi i32 [ 8, %.backedge7120 ], [ %.pr, %.lr.ph9472.preheader ]
+  %42 = icmp eq i32 %.lcssa17125, 8
   br i1 %42, label %7616, label %43
 
 43:                                               ; preds = %41
-  %44 = icmp ult i32 %.lcssa17126, 10
-  %45 = getelementptr inbounds i8, ptr %.lcssa17135, i64 1
+  %44 = icmp ult i32 %.lcssa17125, 10
+  %45 = getelementptr inbounds i8, ptr %.lcssa17134, i64 1
   %46 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 32
   %.not5985 = icmp ult ptr %45, %47
   br i1 %44, label %7800, label %7816
 
-.loopexit20795:                                   ; preds = %36, %.thread13171
+.loopexit20794:                                   ; preds = %36, %.thread13171
   %.promoted103951316013175 = phi ptr [ %.pre13076, %.thread13171 ], [ %29, %36 ]
   %48 = getelementptr inbounds i8, ptr %.promoted103951316013175, i64 16
   %49 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
@@ -2107,7 +2107,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %.not6071 = icmp ult ptr %48, %51
   br i1 %.not6071, label %52, label %.loopexit
 
-52:                                               ; preds = %.loopexit20795
+52:                                               ; preds = %.loopexit20794
   %53 = load i8, ptr %.promoted103951316013175, align 1
   %54 = zext i8 %53 to i64
   %55 = or disjoint i64 %54, 256
@@ -2269,7 +2269,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ou
   %73 = load i8, ptr %72, align 1
   %74 = and i8 %73, 32
   %.not6597 = icmp eq i8 %74, 0
-  br i1 %.not6597, label %.loopexit16934, label %.preheader7117
+  br i1 %.not6597, label %.loopexit16933, label %.preheader7117
 
 75:                                               ; preds = %59, %59
   %76 = getelementptr inbounds i8, ptr %.promoted103951316013175, i64 1
@@ -6260,12 +6260,12 @@ split:                                            ; preds = %1330, %._crit_edge1
   %.promoted1007810086.ph = phi ptr [ %4167, %4650 ], [ %3649, %4171 ], [ %3650, %3668 ], [ %3650, %3678 ], [ %3650, %3674 ], [ %3650, %3671 ], [ %3650, %3663 ]
   br label %.preheader6952
 
-.preheader6952.loopexit20668:                     ; preds = %4145, %4172
+.preheader6952.loopexit20667:                     ; preds = %4145, %4172
   br label %.preheader6952
 
-.preheader6952:                                   ; preds = %.preheader6952.loopexit20668, %.preheader6952.loopexit, %4149, %1008, %2457, %4165, %4641
-  %.promoted1007810086 = phi ptr [ %4158, %4641 ], [ %3649, %4165 ], [ %2449, %2457 ], [ %1006, %1008 ], [ %4147, %4149 ], [ %.promoted1007810086.ph, %.preheader6952.loopexit ], [ %3649, %.preheader6952.loopexit20668 ]
-  %.13.ph = phi i32 [ %.219969, %4641 ], [ %.219969, %4165 ], [ %.16.ph, %2457 ], [ %.35313, %1008 ], [ 26, %4149 ], [ %.219969, %.preheader6952.loopexit ], [ %.219969, %.preheader6952.loopexit20668 ]
+.preheader6952:                                   ; preds = %.preheader6952.loopexit20667, %.preheader6952.loopexit, %4149, %1008, %2457, %4165, %4641
+  %.promoted1007810086 = phi ptr [ %4158, %4641 ], [ %3649, %4165 ], [ %2449, %2457 ], [ %1006, %1008 ], [ %4147, %4149 ], [ %.promoted1007810086.ph, %.preheader6952.loopexit ], [ %3649, %.preheader6952.loopexit20667 ]
+  %.13.ph = phi i32 [ %.219969, %4641 ], [ %.219969, %4165 ], [ %.16.ph, %2457 ], [ %.35313, %1008 ], [ 26, %4149 ], [ %.219969, %.preheader6952.loopexit ], [ %.219969, %.preheader6952.loopexit20667 ]
   br label %1722
 
 1722:                                             ; preds = %.preheader6952, %1726
@@ -6579,11 +6579,11 @@ strip_underscores.exit6698:                       ; preds = %1817
   br i1 %or.cond286, label %.thread6762, label %.preheader7029.preheader
 
 .preheader7029.preheader:                         ; preds = %1225, %1849
-  %.ph20730 = phi ptr [ %1847, %1849 ], [ %1218, %1225 ]
+  %.ph20729 = phi ptr [ %1847, %1849 ], [ %1218, %1225 ]
   br label %.preheader7029
 
 .preheader7029:                                   ; preds = %.preheader7029.preheader, %1858
-  %1852 = phi ptr [ %1853, %1858 ], [ %.ph20730, %.preheader7029.preheader ]
+  %1852 = phi ptr [ %1853, %1858 ], [ %.ph20729, %.preheader7029.preheader ]
   %1853 = getelementptr inbounds i8, ptr %1852, i64 1
   store ptr %1853, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store ptr %1853, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
@@ -11149,12 +11149,12 @@ strip_underscores.exit6706:                       ; preds = %1936
   %.promoted9889.ph = phi ptr [ %5024, %5351 ], [ %5025, %5045 ], [ %5025, %5040 ], [ %5347, %5615 ], [ %5025, %5043 ], [ %5025, %5035 ]
   br label %.preheader7072
 
-.preheader7072.loopexit20703:                     ; preds = %5344, %5352
+.preheader7072.loopexit20702:                     ; preds = %5344, %5352
   br label %.preheader7072
 
-.preheader7072:                                   ; preds = %4357, %.preheader7072.loopexit20703, %.preheader7072.loopexit, %4358, %5054, %5062, %5370, %5381, %5623, %5631, %5860, %5868, %6087, %6095, %6213, %6221, %6332, %6340, %6424, %6484, %3378, %5059, %5359, %5369, %5380, %5614, %5622, %5630, %5859, %5867, %6086, %6094, %6212, %6220, %6331, %6339, %6416, %6423, %6483
-  %.promoted9889 = phi ptr [ %6419, %6483 ], [ %6335, %6423 ], [ %6326, %6416 ], [ %6216, %6339 ], [ %6325, %6331 ], [ %6090, %6220 ], [ %6082, %6212 ], [ %5863, %6094 ], [ %5855, %6086 ], [ %5626, %5867 ], [ %5618, %5859 ], [ %5374, %5630 ], [ %5363, %5622 ], [ %5347, %5614 ], [ %5373, %5380 ], [ %5362, %5369 ], [ %5355, %5359 ], [ %3375, %3378 ], [ %5025, %5062 ], [ %5025, %5059 ], [ %5025, %5054 ], [ %5373, %5381 ], [ %5374, %5631 ], [ %5626, %5868 ], [ %5863, %6095 ], [ %6090, %6221 ], [ %6216, %6340 ], [ %6335, %6424 ], [ %6419, %6484 ], [ %5362, %5370 ], [ %5363, %5623 ], [ %5618, %5860 ], [ %5855, %6087 ], [ %6082, %6213 ], [ %6325, %6332 ], [ %4352, %4358 ], [ %.promoted9889.ph, %.preheader7072.loopexit ], [ %5024, %.preheader7072.loopexit20703 ], [ %4352, %4357 ]
-  %.25.ph = phi i32 [ 53, %6483 ], [ 53, %6423 ], [ 93, %6416 ], [ 53, %6339 ], [ 53, %6331 ], [ 53, %6220 ], [ 53, %6212 ], [ 53, %6094 ], [ 53, %6086 ], [ 53, %5867 ], [ 53, %5859 ], [ 53, %5630 ], [ 53, %5622 ], [ %.369769, %5614 ], [ 53, %5380 ], [ 53, %5369 ], [ 53, %5359 ], [ %.20, %3378 ], [ %.369769, %5062 ], [ %.369769, %5059 ], [ %.369769, %5054 ], [ 53, %5381 ], [ 53, %5631 ], [ 53, %5868 ], [ 53, %6095 ], [ 53, %6221 ], [ 53, %6340 ], [ 53, %6424 ], [ 53, %6484 ], [ 53, %5370 ], [ 53, %5623 ], [ 53, %5860 ], [ 53, %6087 ], [ 53, %6213 ], [ 53, %6332 ], [ %.29.ph, %4358 ], [ %.369769, %.preheader7072.loopexit ], [ %.369769, %.preheader7072.loopexit20703 ], [ %.29.ph, %4357 ]
+.preheader7072:                                   ; preds = %4357, %.preheader7072.loopexit20702, %.preheader7072.loopexit, %4358, %5054, %5062, %5370, %5381, %5623, %5631, %5860, %5868, %6087, %6095, %6213, %6221, %6332, %6340, %6424, %6484, %3378, %5059, %5359, %5369, %5380, %5614, %5622, %5630, %5859, %5867, %6086, %6094, %6212, %6220, %6331, %6339, %6416, %6423, %6483
+  %.promoted9889 = phi ptr [ %6419, %6483 ], [ %6335, %6423 ], [ %6326, %6416 ], [ %6216, %6339 ], [ %6325, %6331 ], [ %6090, %6220 ], [ %6082, %6212 ], [ %5863, %6094 ], [ %5855, %6086 ], [ %5626, %5867 ], [ %5618, %5859 ], [ %5374, %5630 ], [ %5363, %5622 ], [ %5347, %5614 ], [ %5373, %5380 ], [ %5362, %5369 ], [ %5355, %5359 ], [ %3375, %3378 ], [ %5025, %5062 ], [ %5025, %5059 ], [ %5025, %5054 ], [ %5373, %5381 ], [ %5374, %5631 ], [ %5626, %5868 ], [ %5863, %6095 ], [ %6090, %6221 ], [ %6216, %6340 ], [ %6335, %6424 ], [ %6419, %6484 ], [ %5362, %5370 ], [ %5363, %5623 ], [ %5618, %5860 ], [ %5855, %6087 ], [ %6082, %6213 ], [ %6325, %6332 ], [ %4352, %4358 ], [ %.promoted9889.ph, %.preheader7072.loopexit ], [ %5024, %.preheader7072.loopexit20702 ], [ %4352, %4357 ]
+  %.25.ph = phi i32 [ 53, %6483 ], [ 53, %6423 ], [ 93, %6416 ], [ 53, %6339 ], [ 53, %6331 ], [ 53, %6220 ], [ 53, %6212 ], [ 53, %6094 ], [ 53, %6086 ], [ 53, %5867 ], [ 53, %5859 ], [ 53, %5630 ], [ 53, %5622 ], [ %.369769, %5614 ], [ 53, %5380 ], [ 53, %5369 ], [ 53, %5359 ], [ %.20, %3378 ], [ %.369769, %5062 ], [ %.369769, %5059 ], [ %.369769, %5054 ], [ 53, %5381 ], [ 53, %5631 ], [ 53, %5868 ], [ 53, %6095 ], [ 53, %6221 ], [ 53, %6340 ], [ 53, %6424 ], [ 53, %6484 ], [ 53, %5370 ], [ 53, %5623 ], [ 53, %5860 ], [ 53, %6087 ], [ 53, %6213 ], [ 53, %6332 ], [ %.29.ph, %4358 ], [ %.369769, %.preheader7072.loopexit ], [ %.369769, %.preheader7072.loopexit20702 ], [ %.29.ph, %4357 ]
   %3917 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %3918 = getelementptr inbounds i8, ptr %3917, i64 32
   br label %3919
@@ -11428,12 +11428,12 @@ strip_underscores.exit6706:                       ; preds = %1936
 .preheader7108.loopexit:                          ; preds = %4533, %4537
   br label %.preheader7108
 
-.preheader7108.loopexit20760:                     ; preds = %4511, %4510
+.preheader7108.loopexit20759:                     ; preds = %4511, %4510
   br label %.preheader7108
 
-.preheader7108:                                   ; preds = %4858, %.preheader7108.loopexit20760, %.preheader7108.loopexit, %4887, %5989, %6367, %3597, %5998, %3599, %3599, %4857, %4871, %4871, %5209, %5209, %5533, %5533, %5988, %6000, %6000
-  %.promoted9481 = phi ptr [ %5763, %6000 ], [ %5763, %5988 ], [ %5201, %5533 ], [ %4863, %5209 ], [ %4862, %4871 ], [ %4522, %4857 ], [ %3587, %3599 ], [ %3587, %3599 ], [ %5763, %6000 ], [ %5763, %5998 ], [ %5763, %5989 ], [ %5201, %5533 ], [ %4863, %5209 ], [ %4862, %4871 ], [ %6273, %6367 ], [ %4881, %4887 ], [ %3587, %3597 ], [ %4523, %.preheader7108.loopexit ], [ %4507, %.preheader7108.loopexit20760 ], [ %4522, %4858 ]
-  %.26.ph = phi i32 [ 91, %6000 ], [ 91, %5988 ], [ %.32.ph69819715, %5533 ], [ %.32.ph69819715, %5209 ], [ %.32.ph69819715, %4871 ], [ %.32.ph69819715, %4857 ], [ 50, %3599 ], [ 50, %3599 ], [ 91, %6000 ], [ 91, %5998 ], [ 91, %5989 ], [ %.32.ph69819715, %5533 ], [ %.32.ph69819715, %5209 ], [ %.32.ph69819715, %4871 ], [ 91, %6367 ], [ %.35.ph7093, %4887 ], [ 50, %3597 ], [ %.32.ph69819715, %.preheader7108.loopexit ], [ %.31.ph, %.preheader7108.loopexit20760 ], [ %.32.ph69819715, %4858 ]
+.preheader7108:                                   ; preds = %4858, %.preheader7108.loopexit20759, %.preheader7108.loopexit, %4887, %5989, %6367, %3597, %5998, %3599, %3599, %4857, %4871, %4871, %5209, %5209, %5533, %5533, %5988, %6000, %6000
+  %.promoted9481 = phi ptr [ %5763, %6000 ], [ %5763, %5988 ], [ %5201, %5533 ], [ %4863, %5209 ], [ %4862, %4871 ], [ %4522, %4857 ], [ %3587, %3599 ], [ %3587, %3599 ], [ %5763, %6000 ], [ %5763, %5998 ], [ %5763, %5989 ], [ %5201, %5533 ], [ %4863, %5209 ], [ %4862, %4871 ], [ %6273, %6367 ], [ %4881, %4887 ], [ %3587, %3597 ], [ %4523, %.preheader7108.loopexit ], [ %4507, %.preheader7108.loopexit20759 ], [ %4522, %4858 ]
+  %.26.ph = phi i32 [ 91, %6000 ], [ 91, %5988 ], [ %.32.ph69819715, %5533 ], [ %.32.ph69819715, %5209 ], [ %.32.ph69819715, %4871 ], [ %.32.ph69819715, %4857 ], [ 50, %3599 ], [ 50, %3599 ], [ 91, %6000 ], [ 91, %5998 ], [ 91, %5989 ], [ %.32.ph69819715, %5533 ], [ %.32.ph69819715, %5209 ], [ %.32.ph69819715, %4871 ], [ 91, %6367 ], [ %.35.ph7093, %4887 ], [ 50, %3597 ], [ %.32.ph69819715, %.preheader7108.loopexit ], [ %.31.ph, %.preheader7108.loopexit20759 ], [ %.32.ph69819715, %4858 ]
   %4056 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4057 = getelementptr inbounds i8, ptr %4056, i64 32
   %4058 = getelementptr inbounds i8, ptr %.promoted9481, i64 1
@@ -11665,7 +11665,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4145:                                             ; preds = %4142
   %4146 = icmp eq i8 %4133, 91
-  br i1 %4146, label %.preheader6952.loopexit20668, label %.backedge6921
+  br i1 %4146, label %.preheader6952.loopexit20667, label %.backedge6921
 
 .loopexit6892:                                    ; preds = %3673, %4641
   %.promoted1007810089 = phi ptr [ %4158, %4641 ], [ %3650, %3673 ]
@@ -11729,7 +11729,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 4172:                                             ; preds = %4168
   %4173 = icmp eq i8 %4169, 47
-  br i1 %4173, label %.backedge6921, label %.preheader6952.loopexit20668
+  br i1 %4173, label %.backedge6921, label %.preheader6952.loopexit20667
 
 4174:                                             ; preds = %3707
   store ptr %3699, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
@@ -12441,12 +12441,12 @@ strip_underscores.exit6706:                       ; preds = %1936
 4510:                                             ; preds = %.lr.ph9721
   switch i8 %4508, label %.backedge7091 [
     i8 0, label %.loopexit6867
-    i8 10, label %.preheader7108.loopexit20760
+    i8 10, label %.preheader7108.loopexit20759
   ]
 
 4511:                                             ; preds = %.lr.ph9721
   %4512 = icmp eq i8 %4508, 13
-  br i1 %4512, label %.preheader7108.loopexit20760, label %.backedge7091
+  br i1 %4512, label %.preheader7108.loopexit20759, label %.backedge7091
 
 .backedge7091:                                    ; preds = %4511, %4510
   %4513 = getelementptr inbounds i8, ptr %4507, i64 1
@@ -12531,19 +12531,19 @@ strip_underscores.exit6706:                       ; preds = %1936
   %4545 = icmp eq i8 %4525, 102
   br i1 %4545, label %4861, label %.preheader7087
 
-.preheader7097.loopexit20658:                     ; preds = %5486, %5490, %5972, %6501, %6505, %5494, %5497, %5747, %6510
+.preheader7097.loopexit20657:                     ; preds = %5486, %5490, %5972, %6501, %6505, %5494, %5497, %5747, %6510
   %.promoted9717.ph = phi ptr [ %5479, %5486 ], [ %5479, %5490 ], [ %6427, %6501 ], [ %6427, %6505 ], [ %5743, %5972 ], [ %5479, %5494 ], [ %5479, %5497 ], [ %5742, %5747 ], [ %6427, %6510 ]
   %.33.ph7098.ph = phi i32 [ %.409571, %5486 ], [ %.409571, %5490 ], [ 91, %6501 ], [ 91, %6505 ], [ %.44, %5972 ], [ %.409571, %5494 ], [ %.409571, %5497 ], [ %.44, %5747 ], [ 91, %6510 ]
   br label %.preheader7097
 
-.preheader7097.loopexit20684:                     ; preds = %5739, %5748
-  %.promoted9717.ph20685 = phi ptr [ %5742, %5748 ], [ %5725, %5739 ]
-  %.33.ph7098.ph20686 = phi i32 [ %.44, %5748 ], [ %.43, %5739 ]
+.preheader7097.loopexit20683:                     ; preds = %5739, %5748
+  %.promoted9717.ph20684 = phi ptr [ %5742, %5748 ], [ %5725, %5739 ]
+  %.33.ph7098.ph20685 = phi i32 [ %.44, %5748 ], [ %.43, %5739 ]
   br label %.preheader7097
 
-.preheader7097:                                   ; preds = %4886, %6507, %.preheader7097.loopexit20684, %.preheader7097.loopexit20658, %4887, %5500, %5501, %6284, %6367, %6513, %6514, %5760, %5980, %6156, %6280, %4092, %5759, %5971, %5979, %6155, %6359, %6366, %6287
-  %.promoted9717 = phi ptr [ %6273, %6366 ], [ %6273, %6359 ], [ %6151, %6287 ], [ %5975, %6155 ], [ %5753, %5979 ], [ %5743, %5971 ], [ %5752, %5759 ], [ %4089, %4092 ], [ %5479, %5501 ], [ %5479, %5500 ], [ %6427, %6514 ], [ %5752, %5760 ], [ %5753, %5980 ], [ %5975, %6156 ], [ %6151, %6284 ], [ %6151, %6280 ], [ %6273, %6367 ], [ %6427, %6513 ], [ %4881, %4887 ], [ %.promoted9717.ph, %.preheader7097.loopexit20658 ], [ %.promoted9717.ph20685, %.preheader7097.loopexit20684 ], [ %6427, %6507 ], [ %4881, %4886 ]
-  %.33.ph7098 = phi i32 [ 91, %6366 ], [ 91, %6359 ], [ %.45, %6287 ], [ %.45, %6155 ], [ %.45, %5979 ], [ %.44, %5971 ], [ %.45, %5759 ], [ %.28, %4092 ], [ %.409571, %5501 ], [ %.409571, %5500 ], [ 91, %6514 ], [ %.45, %5760 ], [ %.45, %5980 ], [ %.45, %6156 ], [ %.45, %6284 ], [ %.45, %6280 ], [ 91, %6367 ], [ 91, %6513 ], [ %.35.ph7093, %4887 ], [ %.33.ph7098.ph, %.preheader7097.loopexit20658 ], [ %.33.ph7098.ph20686, %.preheader7097.loopexit20684 ], [ 91, %6507 ], [ %.35.ph7093, %4886 ]
+.preheader7097:                                   ; preds = %4886, %6507, %.preheader7097.loopexit20683, %.preheader7097.loopexit20657, %4887, %5500, %5501, %6284, %6367, %6513, %6514, %5760, %5980, %6156, %6280, %4092, %5759, %5971, %5979, %6155, %6359, %6366, %6287
+  %.promoted9717 = phi ptr [ %6273, %6366 ], [ %6273, %6359 ], [ %6151, %6287 ], [ %5975, %6155 ], [ %5753, %5979 ], [ %5743, %5971 ], [ %5752, %5759 ], [ %4089, %4092 ], [ %5479, %5501 ], [ %5479, %5500 ], [ %6427, %6514 ], [ %5752, %5760 ], [ %5753, %5980 ], [ %5975, %6156 ], [ %6151, %6284 ], [ %6151, %6280 ], [ %6273, %6367 ], [ %6427, %6513 ], [ %4881, %4887 ], [ %.promoted9717.ph, %.preheader7097.loopexit20657 ], [ %.promoted9717.ph20684, %.preheader7097.loopexit20683 ], [ %6427, %6507 ], [ %4881, %4886 ]
+  %.33.ph7098 = phi i32 [ 91, %6366 ], [ 91, %6359 ], [ %.45, %6287 ], [ %.45, %6155 ], [ %.45, %5979 ], [ %.44, %5971 ], [ %.45, %5759 ], [ %.28, %4092 ], [ %.409571, %5501 ], [ %.409571, %5500 ], [ 91, %6514 ], [ %.45, %5760 ], [ %.45, %5980 ], [ %.45, %6156 ], [ %.45, %6284 ], [ %.45, %6280 ], [ 91, %6367 ], [ 91, %6513 ], [ %.35.ph7093, %4887 ], [ %.33.ph7098.ph, %.preheader7097.loopexit20657 ], [ %.33.ph7098.ph20685, %.preheader7097.loopexit20683 ], [ 91, %6507 ], [ %.35.ph7093, %4886 ]
   %4546 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %4547 = getelementptr inbounds i8, ptr %4546, i64 32
   br label %4548
@@ -14236,7 +14236,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5344:                                             ; preds = %5341
   %5345 = icmp eq i8 %5332, 91
-  br i1 %5345, label %.preheader7072.loopexit20703, label %.backedge6974
+  br i1 %5345, label %.preheader7072.loopexit20702, label %.backedge6974
 
 5346:                                             ; preds = %5045
   store ptr %5024, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
@@ -14257,7 +14257,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5352:                                             ; preds = %5348
   %5353 = icmp eq i8 %5349, 47
-  br i1 %5353, label %.backedge6974, label %.preheader7072.loopexit20703
+  br i1 %5353, label %.backedge6974, label %.preheader7072.loopexit20702
 
 5354:                                             ; preds = %5059, %5062, %5054, %5050
   %5355 = getelementptr inbounds i8, ptr %5026, i64 2
@@ -14561,7 +14561,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 5486:                                             ; preds = %5484
   %5487 = add nsw i8 %5480, -9
   %or.cond1243 = icmp ult i8 %5487, 2
-  br i1 %or.cond1243, label %.backedge6914, label %.preheader7097.loopexit20658
+  br i1 %or.cond1243, label %.backedge6914, label %.preheader7097.loopexit20657
 
 5488:                                             ; preds = %5482
   %5489 = icmp ult i8 %5480, 32
@@ -14569,7 +14569,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5490:                                             ; preds = %5488
   %5491 = icmp eq i8 %5480, 13
-  br i1 %5491, label %.backedge6914, label %.preheader7097.loopexit20658
+  br i1 %5491, label %.backedge6914, label %.preheader7097.loopexit20657
 
 .backedge6914:                                    ; preds = %6507, %6133, %5945, %5490, %5951, %5972, %6143, %6265, %6350, %6505, %5486, %6501, %5494, %6132, %6142, %6251, %6251, %6264, %6349, %6490, %6491, %6525, %6525
   %.promoted94949497 = phi ptr [ %5479, %5486 ], [ %5479, %5490 ], [ %5479, %5494 ], [ %5935, %5951 ], [ %6128, %6251 ], [ %6135, %6143 ], [ %6136, %6265 ], [ %6258, %6350 ], [ %6427, %6501 ], [ %6427, %6505 ], [ %5743, %5972 ], [ %6427, %6491 ], [ %6427, %6525 ], [ %5934, %6132 ], [ %6135, %6142 ], [ %6128, %6251 ], [ %6136, %6264 ], [ %6258, %6349 ], [ %6427, %6490 ], [ %6427, %6525 ], [ %5935, %5945 ], [ %5934, %6133 ], [ %6427, %6507 ]
@@ -14581,7 +14581,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %.not6110, label %.lr.ph9572, label %.loopexit
 
 5494:                                             ; preds = %5488
-  switch i8 %5480, label %.preheader7097.loopexit20658 [
+  switch i8 %5480, label %.preheader7097.loopexit20657 [
     i8 32, label %.backedge6914
     i8 35, label %.preheader6876
   ]
@@ -14591,7 +14591,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5496, label %5497, label %5498
 
 5497:                                             ; preds = %5495
-  switch i8 %5480, label %.preheader7097.loopexit20658 [
+  switch i8 %5480, label %.preheader7097.loopexit20657 [
     i8 42, label %.preheader7092
     i8 47, label %5741
   ]
@@ -15184,7 +15184,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5739:                                             ; preds = %5736
   %5740 = icmp eq i8 %5728, 91
-  br i1 %5740, label %.preheader7097.loopexit20684, label %.backedge6943
+  br i1 %5740, label %.preheader7097.loopexit20683, label %.backedge6943
 
 5741:                                             ; preds = %6510, %5497
   %.promoted94949496 = phi ptr [ %5479, %5497 ], [ %6427, %6510 ]
@@ -15201,14 +15201,14 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %5746, label %5747, label %5748
 
 5747:                                             ; preds = %5744
-  switch i8 %5745, label %.preheader7097.loopexit20658 [
+  switch i8 %5745, label %.preheader7097.loopexit20657 [
     i8 0, label %.loopexit6867
     i8 42, label %5966
   ]
 
 5748:                                             ; preds = %5744
   %5749 = icmp eq i8 %5745, 47
-  br i1 %5749, label %.backedge6943, label %.preheader7097.loopexit20684
+  br i1 %5749, label %.backedge6943, label %.preheader7097.loopexit20683
 
 5750:                                             ; preds = %6514, %6513, %5501, %5500
   %5751 = phi ptr [ %6427, %6513 ], [ %6427, %6514 ], [ %5479, %5500 ], [ %5479, %5501 ]
@@ -15749,7 +15749,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 5972:                                             ; preds = %5968
   %5973 = icmp eq i8 %5969, 47
-  br i1 %5973, label %.backedge6914, label %.preheader7097.loopexit20658
+  br i1 %5973, label %.backedge6914, label %.preheader7097.loopexit20657
 
 5974:                                             ; preds = %5760
   store ptr %5753, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
@@ -17099,7 +17099,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 6501:                                             ; preds = %6499
   %6502 = add nsw i8 %6495, -9
   %or.cond1405 = icmp ult i8 %6502, 2
-  br i1 %or.cond1405, label %.backedge6914, label %.preheader7097.loopexit20658
+  br i1 %or.cond1405, label %.backedge6914, label %.preheader7097.loopexit20657
 
 6503:                                             ; preds = %6497
   %6504 = icmp ult i8 %6495, 32
@@ -17107,7 +17107,7 @@ strip_underscores.exit6706:                       ; preds = %1936
 
 6505:                                             ; preds = %6503
   %6506 = icmp eq i8 %6495, 13
-  br i1 %6506, label %.backedge6914, label %.preheader7097.loopexit20658
+  br i1 %6506, label %.backedge6914, label %.preheader7097.loopexit20657
 
 6507:                                             ; preds = %6503
   switch i8 %6495, label %.preheader7097 [
@@ -17120,7 +17120,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   br i1 %6509, label %6510, label %6511
 
 6510:                                             ; preds = %6508
-  switch i8 %6495, label %.preheader7097.loopexit20658 [
+  switch i8 %6495, label %.preheader7097.loopexit20657 [
     i8 42, label %.preheader7092
     i8 47, label %5741
   ]
@@ -17352,7 +17352,7 @@ strip_underscores.exit6706:                       ; preds = %1936
   %6602 = load i8, ptr %6601, align 1
   %6603 = and i8 %6602, 64
   %.not6069 = icmp eq i8 %6603, 0
-  br i1 %.not6069, label %.loopexit16934, label %.preheader6990
+  br i1 %.not6069, label %.loopexit16933, label %.preheader6990
 
 6604:                                             ; preds = %6581
   %6605 = getelementptr inbounds i8, ptr %29, i64 1
@@ -18800,7 +18800,7 @@ switch.early.test6687:                            ; preds = %7094
   store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7963
 
-7277:                                             ; preds = %.lr.ph20499
+7277:                                             ; preds = %.lr.ph20498
   %7278 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7279 = getelementptr inbounds i8, ptr %7278, i64 32
   %.not6031 = icmp ult ptr %34, %7279
@@ -18842,7 +18842,7 @@ switch.early.test6687:                            ; preds = %7094
   store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   %.pre13076 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store ptr %.pre13076, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 32), align 8
-  br label %.loopexit20795
+  br label %.loopexit20794
 
 .backedge7120:                                    ; preds = %7601, %7610
   %7292 = phi ptr [ %7607, %7610 ], [ %29, %7601 ]
@@ -18941,7 +18941,7 @@ switch.early.test6687:                            ; preds = %7094
   store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br label %7963
 
-7339:                                             ; preds = %.lr.ph20499
+7339:                                             ; preds = %.lr.ph20498
   %7340 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7341 = getelementptr inbounds i8, ptr %7340, i64 32
   %.not6005 = icmp ult ptr %34, %7341
@@ -19328,7 +19328,7 @@ switch.early.test6687:                            ; preds = %7094
   br label %7963
 
 .preheader6832:                                   ; preds = %.preheader6832.preheader, %7515
-  %7509 = phi ptr [ %7510, %7515 ], [ %.ph20576, %.preheader6832.preheader ]
+  %7509 = phi ptr [ %7510, %7515 ], [ %.ph20575, %.preheader6832.preheader ]
   %7510 = getelementptr inbounds i8, ptr %7509, i64 1
   store ptr %7510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store ptr %7510, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
@@ -19465,7 +19465,7 @@ switch.early.test6687:                            ; preds = %7094
 
 .preheader6832.preheader:                         ; preds = %7413, %7567
   %7570 = phi ptr [ %7563, %7567 ], [ %29, %7413 ]
-  %.ph20576 = phi ptr [ %7565, %7567 ], [ %7406, %7413 ]
+  %.ph20575 = phi ptr [ %7565, %7567 ], [ %7406, %7413 ]
   br label %.preheader6832
 
 .preheader6835:                                   ; preds = %7544, %7574
@@ -19527,7 +19527,7 @@ switch.early.test6687:                            ; preds = %7094
   %7596 = icmp eq i8 %7591, 95
   br i1 %7596, label %.preheader6849, label %.loopexit6834
 
-7597:                                             ; preds = %.lr.ph20499
+7597:                                             ; preds = %.lr.ph20498
   %.not6001 = icmp ult ptr %34, %32
   br i1 %.not6001, label %7598, label %.loopexit
 
@@ -19573,27 +19573,27 @@ switch.early.test6687:                            ; preds = %7094
   br label %.backedge7120
 
 7616:                                             ; preds = %41
-  %7617 = getelementptr inbounds i8, ptr %.lcssa17135, i64 7
+  %7617 = getelementptr inbounds i8, ptr %.lcssa17134, i64 7
   %7618 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 56), align 8
   %7619 = getelementptr inbounds i8, ptr %7618, i64 32
   %.not5986 = icmp ult ptr %7617, %7619
   br i1 %.not5986, label %7620, label %.loopexit
 
 7620:                                             ; preds = %7616
-  %7621 = load i8, ptr %.lcssa17135, align 1
+  %7621 = load i8, ptr %.lcssa17134, align 1
   %7622 = icmp eq i8 %7621, 60
-  %7623 = getelementptr inbounds i8, ptr %.lcssa17135, i64 1
+  %7623 = getelementptr inbounds i8, ptr %.lcssa17134, i64 1
   store ptr %7623, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br i1 %7622, label %7739, label %.loopexit7122
 
 .loopexit7122.loopexit:                           ; preds = %7739
-  %7624 = getelementptr inbounds i8, ptr %.lcssa17135, i64 1
+  %7624 = getelementptr inbounds i8, ptr %.lcssa17134, i64 1
   br label %.loopexit7122
 
 .loopexit7122:                                    ; preds = %7620, %.loopexit7122.loopexit
   %7625 = phi ptr [ %7624, %.loopexit7122.loopexit ], [ %7623, %7620 ]
   %7626 = ptrtoint ptr %7625 to i64
-  %7627 = ptrtoint ptr %.lcssa17135 to i64
+  %7627 = ptrtoint ptr %.lcssa17134 to i64
   %7628 = sub i64 %7626, %7627
   %7629 = trunc i64 %7628 to i32
   store i32 %7629, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
@@ -19710,7 +19710,7 @@ check_nesting_at_end.exit:                        ; preds = %7631, %report_bad_n
 .loopexit6858:                                    ; preds = %7673, %.loopexit7123, %7671
   %7679 = phi ptr [ %7652, %.loopexit7123 ], [ %7672, %7671 ], [ %7678, %7673 ]
   %7680 = ptrtoint ptr %7679 to i64
-  %7681 = ptrtoint ptr %.lcssa17135 to i64
+  %7681 = ptrtoint ptr %.lcssa17134 to i64
   %7682 = sub i64 %7680, %7681
   %7683 = trunc i64 %7682 to i32
   store i32 %7683, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
@@ -19722,7 +19722,7 @@ check_nesting_at_end.exit:                        ; preds = %7631, %report_bad_n
   store ptr null, ptr %23, align 8
   store i64 0, ptr %24, align 8
   %7686 = and i64 %7682, 4294967295
-  %7687 = call i64 %7684(ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %.lcssa17135, i64 noundef %7686) #17
+  %7687 = call i64 %7684(ptr noundef nonnull %23, ptr noundef nonnull %24, ptr noundef nonnull %.lcssa17134, i64 noundef %7686) #17
   %7688 = load ptr, ptr %23, align 8
   %7689 = load i64, ptr %24, align 8
   %7690 = and i64 %7689, -8
@@ -19761,7 +19761,7 @@ check_nesting_at_end.exit:                        ; preds = %7631, %report_bad_n
   br i1 %7707, label %7708, label %7713
 
 7708:                                             ; preds = %7706
-  %7709 = load i8, ptr %.lcssa17135, align 1
+  %7709 = load i8, ptr %.lcssa17134, align 1
   %7710 = zext i8 %7709 to i64
   %7711 = getelementptr inbounds [256 x ptr], ptr @zend_one_char_string, i64 0, i64 %7710
   %7712 = load ptr, ptr %7711, align 8
@@ -19780,16 +19780,16 @@ check_nesting_at_end.exit:                        ; preds = %7631, %report_bad_n
   %7720 = getelementptr inbounds i8, ptr %7717, i64 16
   store i64 %7714, ptr %7720, align 8
   %7721 = getelementptr inbounds i8, ptr %7717, i64 24
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7721, ptr nonnull align 1 %.lcssa17135, i64 %7714, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %7721, ptr nonnull align 1 %.lcssa17134, i64 %7714, i1 false)
   %7722 = getelementptr inbounds [1 x i8], ptr %7721, i64 0, i64 %7714
   store i8 0, ptr %7722, align 1
   br label %thread-pre-split13155
 
 thread-pre-split13155:                            ; preds = %7708, %7713
-  %.sink16837 = phi ptr [ %7712, %7708 ], [ %7717, %7713 ]
-  %.sink16836 = phi i32 [ 6, %7708 ], [ 262, %7713 ]
-  store ptr %.sink16837, ptr %0, align 8
-  store i32 %.sink16836, ptr %28, align 8
+  %.sink16836 = phi ptr [ %7712, %7708 ], [ %7717, %7713 ]
+  %.sink = phi i32 [ 6, %7708 ], [ 262, %7713 ]
+  store ptr %.sink16836, ptr %0, align 8
+  store i32 %.sink, ptr %28, align 8
   %.pr13156 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %7723
 
@@ -19837,7 +19837,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br i1 %.not5987, label %7741, label %.loopexit7122.loopexit
 
 7741:                                             ; preds = %7739
-  %7742 = getelementptr inbounds i8, ptr %.lcssa17135, i64 2
+  %7742 = getelementptr inbounds i8, ptr %.lcssa17134, i64 2
   store ptr %7742, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store ptr %7742, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 48), align 8
   %7743 = load i8, ptr %7742, align 1
@@ -19864,14 +19864,14 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br i1 %.not5988, label %.loopexit7124, label %8042
 
 7753:                                             ; preds = %7745
-  %7754 = getelementptr inbounds i8, ptr %.lcssa17135, i64 3
+  %7754 = getelementptr inbounds i8, ptr %.lcssa17134, i64 3
   store ptr %7754, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   store i32 3, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 64), align 8
   br i1 %.not5988, label %.loopexit7124, label %.thread6770
 
 7755:                                             ; preds = %7747
-  %7756 = getelementptr inbounds i8, ptr %.lcssa17135, i64 3
+  %7756 = getelementptr inbounds i8, ptr %.lcssa17134, i64 3
   store ptr %7756, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7757 = load i8, ptr %7756, align 1
   %7758 = and i8 %7757, -33
@@ -19883,7 +19883,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br label %7749
 
 7760:                                             ; preds = %7755
-  %7761 = getelementptr inbounds i8, ptr %.lcssa17135, i64 4
+  %7761 = getelementptr inbounds i8, ptr %.lcssa17134, i64 4
   store ptr %7761, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7762 = load i8, ptr %7761, align 1
   %7763 = and i8 %7762, -33
@@ -19891,7 +19891,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br i1 %or.cond1516.not, label %7764, label %7759
 
 7764:                                             ; preds = %7760
-  %7765 = getelementptr inbounds i8, ptr %.lcssa17135, i64 5
+  %7765 = getelementptr inbounds i8, ptr %.lcssa17134, i64 5
   store ptr %7765, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7766 = load i8, ptr %7765, align 1
   %7767 = icmp ult i8 %7766, 13
@@ -19930,7 +19930,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
 
 7778:                                             ; preds = %7770, %7768, %7796
   %7779 = phi i64 [ 5, %7770 ], [ 5, %7768 ], [ 6, %7796 ]
-  %7780 = getelementptr inbounds i8, ptr %.lcssa17135, i64 %7779
+  %7780 = getelementptr inbounds i8, ptr %.lcssa17134, i64 %7779
   %7781 = getelementptr inbounds i8, ptr %7780, i64 1
   store ptr %7781, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   br label %7782
@@ -19938,13 +19938,13 @@ thread-pre-split13155:                            ; preds = %7708, %7713
 7782:                                             ; preds = %7796, %7778
   %7783 = phi ptr [ %7797, %7796 ], [ %7781, %7778 ]
   %7784 = ptrtoint ptr %7783 to i64
-  %7785 = ptrtoint ptr %.lcssa17135 to i64
+  %7785 = ptrtoint ptr %.lcssa17134 to i64
   %7786 = sub i64 %7784, %7785
   %7787 = trunc i64 %7786 to i32
   store i32 %7787, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7788 = add i64 %7786, 4294967295
   %7789 = and i64 %7788, 4294967295
-  %7790 = getelementptr inbounds i8, ptr %.lcssa17135, i64 %7789
+  %7790 = getelementptr inbounds i8, ptr %.lcssa17134, i64 %7789
   %7791 = load i8, ptr %7790, align 1
   switch i8 %7791, label %7795 [
     i8 10, label %7792
@@ -19962,7 +19962,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br i1 %.not5988, label %.loopexit7124, label %8042
 
 7796:                                             ; preds = %7770
-  %7797 = getelementptr inbounds i8, ptr %.lcssa17135, i64 6
+  %7797 = getelementptr inbounds i8, ptr %.lcssa17134, i64 6
   store ptr %7797, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
   %7798 = load i8, ptr %7797, align 1
   %7799 = icmp eq i8 %7798, 10
@@ -20002,7 +20002,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
 
 7817:                                             ; preds = %7816
   store ptr %45, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %7818 = ptrtoint ptr %.lcssa17135 to i64
+  %7818 = ptrtoint ptr %.lcssa17134 to i64
   store i32 1, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7819 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 104), align 8
   %7820 = load i32, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 96), align 8
@@ -20021,8 +20021,8 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br label %.loopexit7124
 
 7828:                                             ; preds = %7817
-  store ptr %.lcssa17135, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
-  %7829 = icmp ult ptr %.lcssa17135, %46
+  store ptr %.lcssa17134, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 40), align 8
+  %7829 = icmp ult ptr %.lcssa17134, %46
   br i1 %7829, label %.lr.ph10246, label %.loopexit6860
 
 .lr.ph10246:                                      ; preds = %7828
@@ -20032,7 +20032,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br label %7833
 
 7833:                                             ; preds = %.lr.ph10246, %.backedge6861
-  %7834 = phi ptr [ %.lcssa17135, %.lr.ph10246 ], [ %7893, %.backedge6861 ]
+  %7834 = phi ptr [ %.lcssa17134, %.lr.ph10246 ], [ %7893, %.backedge6861 ]
   %.0533110244 = phi i32 [ -1, %.lr.ph10246 ], [ %.05331.be, %.backedge6861 ]
   %.0533610243 = phi i32 [ 0, %.lr.ph10246 ], [ %.05336.be, %.backedge6861 ]
   %7835 = getelementptr inbounds i8, ptr %7834, i64 1
@@ -20099,7 +20099,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   %7855 = trunc i64 %7854 to i32
   store i32 %7855, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   %7856 = and i64 %7854, 4294967295
-  %7857 = getelementptr inbounds i8, ptr %.lcssa17135, i64 %7856
+  %7857 = getelementptr inbounds i8, ptr %.lcssa17134, i64 %7856
   %.not10398 = icmp eq i64 %7856, 0
   br i1 %.not10398, label %._crit_edge10257, label %.lr.ph10256.preheader
 
@@ -20108,7 +20108,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br label %.lr.ph10256
 
 .lr.ph10256:                                      ; preds = %.lr.ph10256.preheader, %7865
-  %.0533010254 = phi ptr [ %7867, %7865 ], [ %.lcssa17135, %.lr.ph10256.preheader ]
+  %.0533010254 = phi ptr [ %7867, %7865 ], [ %.lcssa17134, %.lr.ph10256.preheader ]
   %7858 = phi i32 [ %7866, %7865 ], [ %.promoted10253, %.lr.ph10256.preheader ]
   %7859 = load i8, ptr %.0533010254, align 1
   switch i8 %7859, label %7865 [
@@ -20238,8 +20238,8 @@ thread-pre-split13155:                            ; preds = %7708, %7713
 
 .loopexit6860:                                    ; preds = %.backedge6861, %7828, %7914
   %.pre-phi13150 = phi i64 [ %7818, %7828 ], [ %.pre13149, %7914 ], [ %7818, %.backedge6861 ]
-  %7919 = phi ptr [ %.lcssa17135, %7828 ], [ %.pre13073, %7914 ], [ %.lcssa17135, %.backedge6861 ]
-  %7920 = phi ptr [ %.lcssa17135, %7828 ], [ %.pre13072, %7914 ], [ %7893, %.backedge6861 ]
+  %7919 = phi ptr [ %.lcssa17134, %7828 ], [ %.pre13073, %7914 ], [ %.lcssa17134, %.backedge6861 ]
+  %7920 = phi ptr [ %.lcssa17134, %7828 ], [ %.pre13072, %7914 ], [ %7893, %.backedge6861 ]
   %.15341 = phi i32 [ 0, %7828 ], [ %.05340, %7914 ], [ 0, %.backedge6861 ]
   %.35339 = phi i32 [ 0, %7828 ], [ %.15337.lcssa, %7914 ], [ %.05336.be, %.backedge6861 ]
   %.45335 = phi i32 [ -1, %7828 ], [ %.15332.lcssa, %7914 ], [ %.05331.be, %.backedge6861 ]
@@ -20425,10 +20425,10 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br label %.loopexit
 
 .loopexit6800.sink.split:                         ; preds = %split, %.loopexit7193, %.loopexit7172, %.loopexit7166, %.loopexit7155, %.loopexit7206, %.loopexit7194, %.loopexit7170, %.loopexit7156, %.loopexit7142, %.loopexit7140, %.loopexit7139, %.loopexit7137, %.loopexit7201, %.loopexit7192, %.loopexit7190, %.loopexit7177, %.loopexit7176, %.loopexit7167, %.loopexit7158, %.loopexit7205, %.loopexit7204, %.loopexit7202, %.loopexit7200, %.loopexit7199, %.loopexit7197, %.loopexit7189, %.loopexit7185, %.loopexit7173, %.loopexit7159, %.loopexit7157, %.loopexit7154, %.loopexit7144, %.loopexit7143, %.loopexit7141, %.loopexit7138, %.loopexit7134, %.loopexit7191, %.loopexit7186, %.loopexit6932, %.loopexit7168, %.loopexit7151, %.loopexit7147, %.loopexit7146, %.loopexit7145, %.loopexit7196, %.loopexit7195, %.loopexit7175, %.loopexit7174, %.loopexit7171, %.loopexit7163, %.loopexit7153, %.loopexit7148, %.loopexit7132, %.loopexit7207, %.loopexit7203, %.loopexit7198, %.loopexit7183, %.loopexit7169, %.loopexit7150, %.loopexit7131, %.loopexit7128, %.loopexit7184, %.loopexit7160, %.loopexit7162, %5165, %.loopexit7152, %.loopexit7133, %.loopexit7125, %.loopexit7188, %.loopexit7187, %.loopexit7165, %.loopexit7161, %.loopexit7127, %.loopexit7164, %.loopexit7149, %.loopexit7130, %.loopexit7126, %.loopexit7129
-  %.sink16838 = phi i32 [ %6383, %.loopexit7129 ], [ %6176, %.loopexit7126 ], [ %6020, %.loopexit7130 ], [ %5933, %.loopexit7149 ], [ %5918, %.loopexit7164 ], [ %5561, %.loopexit7127 ], [ %5446, %.loopexit7161 ], [ %5427, %.loopexit7165 ], [ %5320, %.loopexit7187 ], [ %5305, %.loopexit7188 ], [ %5260, %.loopexit7125 ], [ %5229, %.loopexit7133 ], [ %5186, %.loopexit7152 ], [ %5171, %5165 ], [ %5155, %.loopexit7162 ], [ %5140, %.loopexit7160 ], [ %5015, %.loopexit7184 ], [ %4930, %.loopexit7128 ], [ %4907, %.loopexit7131 ], [ %4835, %.loopexit7150 ], [ %4792, %.loopexit7169 ], [ %4732, %.loopexit7183 ], [ %4705, %.loopexit7198 ], [ %4690, %.loopexit7203 ], [ %4675, %.loopexit7207 ], [ %4572, %.loopexit7132 ], [ %4497, %.loopexit7148 ], [ %4466, %.loopexit7153 ], [ %4435, %.loopexit7163 ], [ %4404, %.loopexit7171 ], [ %4389, %.loopexit7174 ], [ %4374, %.loopexit7175 ], [ %4256, %.loopexit7195 ], [ %4241, %.loopexit7196 ], [ %4055, %.loopexit7145 ], [ %4040, %.loopexit7146 ], [ %4025, %.loopexit7147 ], [ %4002, %.loopexit7151 ], [ %3955, %.loopexit7168 ], [ 4, %.loopexit6932 ], [ %3853, %.loopexit7186 ], [ %3820, %.loopexit7191 ], [ %3612, %.loopexit7134 ], [ %3585, %.loopexit7138 ], [ %3570, %.loopexit7141 ], [ %3555, %.loopexit7143 ], [ %3540, %.loopexit7144 ], [ %3493, %.loopexit7154 ], [ %3474, %.loopexit7157 ], [ %3459, %.loopexit7159 ], [ %3412, %.loopexit7173 ], [ %3311, %.loopexit7185 ], [ %3288, %.loopexit7189 ], [ %3257, %.loopexit7197 ], [ %3242, %.loopexit7199 ], [ %3227, %.loopexit7200 ], [ %3212, %.loopexit7202 ], [ %3193, %.loopexit7204 ], [ %3178, %.loopexit7205 ], [ %2784, %.loopexit7158 ], [ %2743, %.loopexit7167 ], [ %2708, %.loopexit7176 ], [ %2693, %.loopexit7177 ], [ %2639, %.loopexit7190 ], [ %2610, %.loopexit7192 ], [ %2567, %.loopexit7201 ], [ %2357, %.loopexit7137 ], [ %2338, %.loopexit7139 ], [ %2323, %.loopexit7140 ], [ %2304, %.loopexit7142 ], [ %2243, %.loopexit7156 ], [ %2184, %.loopexit7170 ], [ %2120, %.loopexit7194 ], [ %2026, %.loopexit7206 ], [ %1563, %.loopexit7155 ], [ %1506, %.loopexit7166 ], [ %1475, %.loopexit7172 ], [ %1420, %.loopexit7193 ], [ %1337, %split ]
+  %.sink16837 = phi i32 [ %6383, %.loopexit7129 ], [ %6176, %.loopexit7126 ], [ %6020, %.loopexit7130 ], [ %5933, %.loopexit7149 ], [ %5918, %.loopexit7164 ], [ %5561, %.loopexit7127 ], [ %5446, %.loopexit7161 ], [ %5427, %.loopexit7165 ], [ %5320, %.loopexit7187 ], [ %5305, %.loopexit7188 ], [ %5260, %.loopexit7125 ], [ %5229, %.loopexit7133 ], [ %5186, %.loopexit7152 ], [ %5171, %5165 ], [ %5155, %.loopexit7162 ], [ %5140, %.loopexit7160 ], [ %5015, %.loopexit7184 ], [ %4930, %.loopexit7128 ], [ %4907, %.loopexit7131 ], [ %4835, %.loopexit7150 ], [ %4792, %.loopexit7169 ], [ %4732, %.loopexit7183 ], [ %4705, %.loopexit7198 ], [ %4690, %.loopexit7203 ], [ %4675, %.loopexit7207 ], [ %4572, %.loopexit7132 ], [ %4497, %.loopexit7148 ], [ %4466, %.loopexit7153 ], [ %4435, %.loopexit7163 ], [ %4404, %.loopexit7171 ], [ %4389, %.loopexit7174 ], [ %4374, %.loopexit7175 ], [ %4256, %.loopexit7195 ], [ %4241, %.loopexit7196 ], [ %4055, %.loopexit7145 ], [ %4040, %.loopexit7146 ], [ %4025, %.loopexit7147 ], [ %4002, %.loopexit7151 ], [ %3955, %.loopexit7168 ], [ 4, %.loopexit6932 ], [ %3853, %.loopexit7186 ], [ %3820, %.loopexit7191 ], [ %3612, %.loopexit7134 ], [ %3585, %.loopexit7138 ], [ %3570, %.loopexit7141 ], [ %3555, %.loopexit7143 ], [ %3540, %.loopexit7144 ], [ %3493, %.loopexit7154 ], [ %3474, %.loopexit7157 ], [ %3459, %.loopexit7159 ], [ %3412, %.loopexit7173 ], [ %3311, %.loopexit7185 ], [ %3288, %.loopexit7189 ], [ %3257, %.loopexit7197 ], [ %3242, %.loopexit7199 ], [ %3227, %.loopexit7200 ], [ %3212, %.loopexit7202 ], [ %3193, %.loopexit7204 ], [ %3178, %.loopexit7205 ], [ %2784, %.loopexit7158 ], [ %2743, %.loopexit7167 ], [ %2708, %.loopexit7176 ], [ %2693, %.loopexit7177 ], [ %2639, %.loopexit7190 ], [ %2610, %.loopexit7192 ], [ %2567, %.loopexit7201 ], [ %2357, %.loopexit7137 ], [ %2338, %.loopexit7139 ], [ %2323, %.loopexit7140 ], [ %2304, %.loopexit7142 ], [ %2243, %.loopexit7156 ], [ %2184, %.loopexit7170 ], [ %2120, %.loopexit7194 ], [ %2026, %.loopexit7206 ], [ %1563, %.loopexit7155 ], [ %1506, %.loopexit7166 ], [ %1475, %.loopexit7172 ], [ %1420, %.loopexit7193 ], [ %1337, %split ]
   %.ph = phi ptr [ %6378, %.loopexit7129 ], [ %6171, %.loopexit7126 ], [ %6015, %.loopexit7130 ], [ %5928, %.loopexit7149 ], [ %5913, %.loopexit7164 ], [ %5556, %.loopexit7127 ], [ %5442, %.loopexit7161 ], [ %5423, %.loopexit7165 ], [ %5315, %.loopexit7187 ], [ %5301, %.loopexit7188 ], [ %5256, %.loopexit7125 ], [ %5225, %.loopexit7133 ], [ %5182, %.loopexit7152 ], [ %5166, %5165 ], [ %5151, %.loopexit7162 ], [ %5136, %.loopexit7160 ], [ %5011, %.loopexit7184 ], [ %4926, %.loopexit7128 ], [ %4903, %.loopexit7131 ], [ %4831, %.loopexit7150 ], [ %4788, %.loopexit7169 ], [ %4728, %.loopexit7183 ], [ %4701, %.loopexit7198 ], [ %4686, %.loopexit7203 ], [ %4671, %.loopexit7207 ], [ %4568, %.loopexit7132 ], [ %4493, %.loopexit7148 ], [ %4462, %.loopexit7153 ], [ %4431, %.loopexit7163 ], [ %4400, %.loopexit7171 ], [ %4385, %.loopexit7174 ], [ %4370, %.loopexit7175 ], [ %4252, %.loopexit7195 ], [ %4237, %.loopexit7196 ], [ %4051, %.loopexit7145 ], [ %4036, %.loopexit7146 ], [ %4021, %.loopexit7147 ], [ %3998, %.loopexit7151 ], [ %3951, %.loopexit7168 ], [ %3862, %.loopexit6932 ], [ %3848, %.loopexit7186 ], [ %3816, %.loopexit7191 ], [ %3607, %.loopexit7134 ], [ %3580, %.loopexit7138 ], [ %3565, %.loopexit7141 ], [ %3551, %.loopexit7143 ], [ %3536, %.loopexit7144 ], [ %3489, %.loopexit7154 ], [ %3470, %.loopexit7157 ], [ %3455, %.loopexit7159 ], [ %3408, %.loopexit7173 ], [ %3307, %.loopexit7185 ], [ %3284, %.loopexit7189 ], [ %3253, %.loopexit7197 ], [ %3238, %.loopexit7199 ], [ %3223, %.loopexit7200 ], [ %3208, %.loopexit7202 ], [ %3189, %.loopexit7204 ], [ %3174, %.loopexit7205 ], [ %2780, %.loopexit7158 ], [ %2739, %.loopexit7167 ], [ %2704, %.loopexit7176 ], [ %2689, %.loopexit7177 ], [ %2635, %.loopexit7190 ], [ %2606, %.loopexit7192 ], [ %2563, %.loopexit7201 ], [ %2352, %.loopexit7137 ], [ %2334, %.loopexit7139 ], [ %2319, %.loopexit7140 ], [ %2300, %.loopexit7142 ], [ %2239, %.loopexit7156 ], [ %2180, %.loopexit7170 ], [ %2116, %.loopexit7194 ], [ %2022, %.loopexit7206 ], [ %1559, %.loopexit7155 ], [ %1502, %.loopexit7166 ], [ %1471, %.loopexit7172 ], [ %1416, %.loopexit7193 ], [ %1332, %split ]
   %.3.ph = phi i32 [ 332, %.loopexit7129 ], [ 350, %.loopexit7126 ], [ 349, %.loopexit7130 ], [ 276, %.loopexit7149 ], [ 273, %.loopexit7164 ], [ 348, %.loopexit7127 ], [ 283, %.loopexit7161 ], [ 338, %.loopexit7165 ], [ 298, %.loopexit7187 ], [ 300, %.loopexit7188 ], [ 347, %.loopexit7125 ], [ 346, %.loopexit7133 ], [ 325, %.loopexit7152 ], [ 339, %5165 ], [ 335, %.loopexit7162 ], [ 319, %.loopexit7160 ], [ 303, %.loopexit7184 ], [ 343, %.loopexit7128 ], [ 344, %.loopexit7131 ], [ 327, %.loopexit7150 ], [ 310, %.loopexit7169 ], [ 294, %.loopexit7183 ], [ 308, %.loopexit7198 ], [ 342, %.loopexit7203 ], [ 322, %.loopexit7207 ], [ 345, %.loopexit7132 ], [ 275, %.loopexit7148 ], [ 324, %.loopexit7153 ], [ 272, %.loopexit7163 ], [ 297, %.loopexit7171 ], [ 316, %.loopexit7174 ], [ 337, %.loopexit7175 ], [ 305, %.loopexit7195 ], [ 299, %.loopexit7196 ], [ 302, %.loopexit7145 ], [ 321, %.loopexit7146 ], [ 313, %.loopexit7147 ], [ 326, %.loopexit7151 ], [ 320, %.loopexit7168 ], [ 336, %.loopexit6932 ], [ 296, %.loopexit7186 ], [ 288, %.loopexit7191 ], [ 281, %.loopexit7134 ], [ 293, %.loopexit7138 ], [ 329, %.loopexit7141 ], [ 334, %.loopexit7143 ], [ 317, %.loopexit7144 ], [ 280, %.loopexit7154 ], [ 306, %.loopexit7157 ], [ 330, %.loopexit7159 ], [ 323, %.loopexit7173 ], [ 290, %.loopexit7185 ], [ 331, %.loopexit7189 ], [ 312, %.loopexit7197 ], [ 285, %.loopexit7199 ], [ 333, %.loopexit7200 ], [ 315, %.loopexit7202 ], [ 307, %.loopexit7204 ], [ 341, %.loopexit7205 ], [ 340, %.loopexit7158 ], [ 309, %.loopexit7167 ], [ 286, %.loopexit7176 ], [ 274, %.loopexit7177 ], [ 289, %.loopexit7190 ], [ 291, %.loopexit7192 ], [ 304, %.loopexit7201 ], [ 278, %.loopexit7137 ], [ 328, %.loopexit7139 ], [ 318, %.loopexit7140 ], [ 314, %.loopexit7142 ], [ 284, %.loopexit7156 ], [ 295, %.loopexit7170 ], [ 286, %.loopexit7194 ], [ 279, %.loopexit7206 ], [ 277, %.loopexit7155 ], [ 287, %.loopexit7166 ], [ 311, %.loopexit7172 ], [ 292, %.loopexit7193 ], [ 301, %split ]
-  store i32 %.sink16838, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
+  store i32 %.sink16837, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 16), align 8
   br label %.loopexit6800
 
 .loopexit6800:                                    ; preds = %5720, %.loopexit6800.sink.split, %.loopexit6913
@@ -20437,7 +20437,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   br i1 %.not5988, label %8015, label %.thread6770
 
 .thread6770:                                      ; preds = %7753, %.loopexit6800
-  %8014 = phi ptr [ %8013, %.loopexit6800 ], [ %.lcssa17135, %7753 ]
+  %8014 = phi ptr [ %8013, %.loopexit6800 ], [ %.lcssa17134, %7753 ]
   %.36773 = phi i32 [ %.3, %.loopexit6800 ], [ 291, %7753 ]
   store ptr %8014, ptr %1, align 8
   br label %8015
@@ -20456,7 +20456,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   tail call void %8016(i32 noundef 0, i32 noundef %.36774, i32 noundef %.05304.ph.ph, ptr noundef %8018, i64 noundef %8020, ptr noundef %8021) #17
   br label %.loopexit
 
-.loopexit16934:                                   ; preds = %68, %6598
+.loopexit16933:                                   ; preds = %68, %6598
   %.lcssa13491.sink = phi ptr [ %6596, %6598 ], [ %66, %68 ]
   %.promoted103951316013175.sink = phi ptr [ %29, %6598 ], [ %.promoted103951316013175, %68 ]
   %8022 = ptrtoint ptr %.lcssa13491.sink to i64
@@ -20469,7 +20469,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   %.not10405 = icmp eq i64 %8025, 0
   br i1 %.not10405, label %._crit_edge10228, label %.lr.ph10227.preheader
 
-.lr.ph10227.preheader:                            ; preds = %.loopexit16934
+.lr.ph10227.preheader:                            ; preds = %.loopexit16933
   %.promoted10224 = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %.lr.ph10227
 
@@ -20499,7 +20499,7 @@ thread-pre-split13155:                            ; preds = %7708, %7713
   %8037 = icmp ult ptr %8036, %8026
   br i1 %8037, label %.lr.ph10227, label %._crit_edge10228
 
-._crit_edge10228:                                 ; preds = %8034, %.loopexit16934
+._crit_edge10228:                                 ; preds = %8034, %.loopexit16933
   %8038 = load ptr, ptr getelementptr inbounds (i8, ptr @language_scanner_globals, i64 232), align 8
   %.not6598 = icmp eq ptr %8038, null
   br i1 %.not6598, label %8041, label %8039
@@ -20530,8 +20530,8 @@ thread-pre-split.outer.backedge:                  ; preds = %8042, %8044, %8041
   %.05304.ph.ph.be = load i32, ptr getelementptr inbounds (i8, ptr @compiler_globals, i64 40), align 8
   br label %thread-pre-split.outer
 
-.loopexit:                                        ; preds = %6567, %8041, %7616, %6478, %6418, %6414, %6361, %6357, %6334, %6322, %6272, %6223, %6215, %6207, %6150, %6105, %6097, %6089, %6081, %.loopexit7104, %5974, %5889, %5870, %5862, %5854, %5750, %5648, %5633, %5625, %5617, %5398, %5383, %5372, %5361, %5354, %5099, %5084, %4762, %4746, %4330, %4312, %4301, %.loopexit7107, %3712, %3372, %._crit_edge13099, %2925, %1845, %1778, %1240, %1082, %661, %498, %.loopexit20795, %.preheader7112, %.preheader7108, %.preheader7087, %.preheader7083, %.preheader7075, %.preheader7063, %.preheader7059, %.preheader7054, %.preheader7032, %.preheader7022, %.preheader7018, %.preheader7014, %.preheader7010, %.preheader7006, %.preheader7003, %7277, %7597, %.preheader6988, %.lr.ph, %.preheader7117, %.backedge7116, %2362, %.backedge7111, %5991, %5762, %5524, %5200, %4861, %4077, %.preheader6975, %4548, %4879, %.backedge7091, %.backedge7086, %.loopexit6973, %4292, %.preheader6968, %3919, %4350, %.backedge7067, %.backedge7062, %.backedge7058, %2988, %2970, %.preheader7044, %.preheader7040, %.preheader7036, %.backedge7035, %.preheader7029, %1015, %.backedge7025, %.backedge7021, %.backedge7017, %.backedge7013, %.backedge7009, %.backedge7005, %4633, %4157, %.loopexit6892, %2885, %2431, %.loopexit6957, %1005, %988, %.loopexit6956, %.preheader6954, %1338, %.preheader6944, %.preheader6990, %.loopexit6941, %4852, %.preheader6935, %.backedge7080, %4281, %.backedge6974, %.preheader6925, %.preheader6966, %.preheader6964, %.preheader6962, %.loopexit6920, %2438, %.preheader6915, %1722, %2447, %1676, %.backedge6947, %.backedge6982, %4844, %.backedge6943, %.preheader6906, %.backedge6934, %5329, %5346, %5609, %5814, %5822, %5838, %6051, %6066, %6177, %6192, %6292, %6307, %6384, %6399, %6445, %6463, %6531, %6538, %6552, %.preheader6896, %5063, %.backedge6959, %2411, %.backedge6921, %.preheader6887, %.backedge6914, %5741, %5966, %.loopexit6880, %6516, %5503, %.backedge6902, %5800, %5807, %6033, %.backedge6895, %4130, %4166, %4642, %4954, %4967, %5261, %.preheader6869, %3680, %6492, %6426, %6342, %6257, %6134, %.preheader6876, %.preheader6862, %.backedge6875, %4943, %4982, %5276, %.backedge6868, %6120, %6127, %6242, %.preheader6855, %.preheader6853, %.preheader6849, %.preheader6847, %.preheader6843, %.preheader6841, %.preheader6837, %.preheader6835, %.preheader6832, %.backedge6831, %.preheader6827, %.preheader6822, %.preheader6818, %.preheader6813, %.preheader6809, %.backedge6812, %.backedge6804, %.preheader, %.preheader6829, %.preheader6802, %8015, %8017, %.loopexit7124, %8008, %7816, %7800, %7562, %7339, %6981, %6803, %6632
-  %.0 = phi i32 [ 0, %6632 ], [ 0, %6803 ], [ 0, %6981 ], [ 0, %7339 ], [ 0, %7562 ], [ 0, %7800 ], [ 0, %7816 ], [ %.2, %8008 ], [ %.2, %.loopexit7124 ], [ %.36774, %8017 ], [ %.36774, %8015 ], [ 0, %.preheader6802 ], [ 0, %.preheader6829 ], [ 0, %.preheader ], [ 0, %.backedge6804 ], [ 0, %.backedge6812 ], [ 0, %.preheader6809 ], [ 0, %.preheader6813 ], [ 0, %.preheader6818 ], [ 0, %.preheader6822 ], [ 0, %.preheader6827 ], [ 0, %.backedge6831 ], [ 0, %.preheader6832 ], [ 0, %.preheader6835 ], [ 0, %.preheader6837 ], [ 0, %.preheader6841 ], [ 0, %.preheader6843 ], [ 0, %.preheader6847 ], [ 0, %.preheader6849 ], [ 0, %.preheader6853 ], [ 0, %.preheader6855 ], [ 0, %6242 ], [ 0, %6127 ], [ 0, %6120 ], [ 0, %.backedge6868 ], [ 0, %5276 ], [ 0, %4982 ], [ 0, %4943 ], [ 0, %.backedge6875 ], [ 0, %.preheader6862 ], [ 0, %.preheader6876 ], [ 0, %6134 ], [ 0, %6257 ], [ 0, %6342 ], [ 0, %6426 ], [ 0, %6492 ], [ 0, %3680 ], [ 0, %.preheader6869 ], [ 0, %5261 ], [ 0, %4967 ], [ 0, %4954 ], [ 0, %4642 ], [ 0, %4166 ], [ 0, %4130 ], [ 0, %.backedge6895 ], [ 0, %6033 ], [ 0, %5807 ], [ 0, %5800 ], [ 0, %.backedge6902 ], [ 0, %5503 ], [ 0, %6516 ], [ 0, %.loopexit6880 ], [ 0, %5966 ], [ 0, %5741 ], [ 0, %.backedge6914 ], [ 0, %.preheader6887 ], [ 0, %.backedge6921 ], [ 0, %2411 ], [ 0, %.backedge6959 ], [ 0, %5063 ], [ 0, %.preheader6896 ], [ 0, %6552 ], [ 0, %6538 ], [ 0, %6531 ], [ 0, %6463 ], [ 0, %6445 ], [ 0, %6399 ], [ 0, %6384 ], [ 0, %6307 ], [ 0, %6292 ], [ 0, %6192 ], [ 0, %6177 ], [ 0, %6066 ], [ 0, %6051 ], [ 0, %5838 ], [ 0, %5822 ], [ 0, %5814 ], [ 0, %5609 ], [ 0, %5346 ], [ 0, %5329 ], [ 0, %.backedge6934 ], [ 0, %.preheader6906 ], [ 0, %.backedge6943 ], [ 0, %4844 ], [ 0, %.backedge6982 ], [ 0, %.backedge6947 ], [ 0, %1676 ], [ 0, %2447 ], [ 0, %1722 ], [ 0, %.preheader6915 ], [ 0, %2438 ], [ 0, %.loopexit6920 ], [ 0, %.preheader6962 ], [ 0, %.preheader6964 ], [ 0, %.preheader6966 ], [ 0, %.preheader6925 ], [ 0, %.backedge6974 ], [ 0, %4281 ], [ 0, %.backedge7080 ], [ 0, %.preheader6935 ], [ 0, %4852 ], [ 0, %.loopexit6941 ], [ 0, %.preheader6990 ], [ 0, %.preheader6944 ], [ 0, %1338 ], [ 0, %.preheader6954 ], [ 0, %.loopexit6956 ], [ 0, %988 ], [ 0, %1005 ], [ 0, %.loopexit6957 ], [ 0, %2431 ], [ 0, %2885 ], [ 0, %.loopexit6892 ], [ 0, %4157 ], [ 0, %4633 ], [ 0, %.backedge7005 ], [ 0, %.backedge7009 ], [ 0, %.backedge7013 ], [ 0, %.backedge7017 ], [ 0, %.backedge7021 ], [ 0, %.backedge7025 ], [ 0, %1015 ], [ 0, %.preheader7029 ], [ 0, %.backedge7035 ], [ 0, %.preheader7036 ], [ 0, %.preheader7040 ], [ 0, %.preheader7044 ], [ 0, %2970 ], [ 0, %2988 ], [ 0, %.backedge7058 ], [ 0, %.backedge7062 ], [ 0, %.backedge7067 ], [ 0, %4350 ], [ 0, %3919 ], [ 0, %.preheader6968 ], [ 0, %4292 ], [ 0, %.loopexit6973 ], [ 0, %.backedge7086 ], [ 0, %.backedge7091 ], [ 0, %4879 ], [ 0, %4548 ], [ 0, %.preheader6975 ], [ 0, %4077 ], [ 0, %4861 ], [ 0, %5200 ], [ 0, %5524 ], [ 0, %5762 ], [ 0, %5991 ], [ 0, %.backedge7111 ], [ 0, %2362 ], [ 0, %.backedge7116 ], [ 0, %.preheader7117 ], [ 0, %.lr.ph ], [ 0, %.preheader6988 ], [ 0, %6567 ], [ 0, %7597 ], [ 0, %7277 ], [ 0, %.loopexit20795 ], [ 0, %498 ], [ 0, %661 ], [ 0, %1082 ], [ 0, %1240 ], [ 0, %1778 ], [ 0, %1845 ], [ 0, %2925 ], [ 0, %._crit_edge13099 ], [ 0, %3372 ], [ 0, %3712 ], [ 0, %.loopexit7107 ], [ 0, %4301 ], [ 0, %4312 ], [ 0, %4330 ], [ 0, %4746 ], [ 0, %4762 ], [ 0, %5084 ], [ 0, %5099 ], [ 0, %5354 ], [ 0, %5361 ], [ 0, %5372 ], [ 0, %5383 ], [ 0, %5398 ], [ 0, %5617 ], [ 0, %5625 ], [ 0, %5633 ], [ 0, %5648 ], [ 0, %5750 ], [ 0, %5854 ], [ 0, %5862 ], [ 0, %5870 ], [ 0, %5889 ], [ 0, %5974 ], [ 0, %.loopexit7104 ], [ 0, %6081 ], [ 0, %6089 ], [ 0, %6097 ], [ 0, %6105 ], [ 0, %6150 ], [ 0, %6207 ], [ 0, %6215 ], [ 0, %6223 ], [ 0, %6272 ], [ 0, %6322 ], [ 0, %6334 ], [ 0, %6357 ], [ 0, %6361 ], [ 0, %6414 ], [ 0, %6418 ], [ 0, %6478 ], [ 0, %7616 ], [ 392, %8041 ], [ 0, %.preheader7112 ], [ 0, %.preheader7108 ], [ 0, %.preheader7087 ], [ 0, %.preheader7083 ], [ 0, %.preheader7075 ], [ 0, %.preheader7063 ], [ 0, %.preheader7059 ], [ 0, %.preheader7054 ], [ 0, %.preheader7032 ], [ 0, %.preheader7022 ], [ 0, %.preheader7018 ], [ 0, %.preheader7014 ], [ 0, %.preheader7010 ], [ 0, %.preheader7006 ], [ 0, %.preheader7003 ]
+.loopexit:                                        ; preds = %6567, %8041, %7616, %6478, %6418, %6414, %6361, %6357, %6334, %6322, %6272, %6223, %6215, %6207, %6150, %6105, %6097, %6089, %6081, %.loopexit7104, %5974, %5889, %5870, %5862, %5854, %5750, %5648, %5633, %5625, %5617, %5398, %5383, %5372, %5361, %5354, %5099, %5084, %4762, %4746, %4330, %4312, %4301, %.loopexit7107, %3712, %3372, %._crit_edge13099, %2925, %1845, %1778, %1240, %1082, %661, %498, %.loopexit20794, %.preheader7112, %.preheader7108, %.preheader7087, %.preheader7083, %.preheader7075, %.preheader7063, %.preheader7059, %.preheader7054, %.preheader7032, %.preheader7022, %.preheader7018, %.preheader7014, %.preheader7010, %.preheader7006, %.preheader7003, %7277, %7597, %.preheader6988, %.lr.ph, %.preheader7117, %.backedge7116, %2362, %.backedge7111, %5991, %5762, %5524, %5200, %4861, %4077, %.preheader6975, %4548, %4879, %.backedge7091, %.backedge7086, %.loopexit6973, %4292, %.preheader6968, %3919, %4350, %.backedge7067, %.backedge7062, %.backedge7058, %2988, %2970, %.preheader7044, %.preheader7040, %.preheader7036, %.backedge7035, %.preheader7029, %1015, %.backedge7025, %.backedge7021, %.backedge7017, %.backedge7013, %.backedge7009, %.backedge7005, %4633, %4157, %.loopexit6892, %2885, %2431, %.loopexit6957, %1005, %988, %.loopexit6956, %.preheader6954, %1338, %.preheader6944, %.preheader6990, %.loopexit6941, %4852, %.preheader6935, %.backedge7080, %4281, %.backedge6974, %.preheader6925, %.preheader6966, %.preheader6964, %.preheader6962, %.loopexit6920, %2438, %.preheader6915, %1722, %2447, %1676, %.backedge6947, %.backedge6982, %4844, %.backedge6943, %.preheader6906, %.backedge6934, %5329, %5346, %5609, %5814, %5822, %5838, %6051, %6066, %6177, %6192, %6292, %6307, %6384, %6399, %6445, %6463, %6531, %6538, %6552, %.preheader6896, %5063, %.backedge6959, %2411, %.backedge6921, %.preheader6887, %.backedge6914, %5741, %5966, %.loopexit6880, %6516, %5503, %.backedge6902, %5800, %5807, %6033, %.backedge6895, %4130, %4166, %4642, %4954, %4967, %5261, %.preheader6869, %3680, %6492, %6426, %6342, %6257, %6134, %.preheader6876, %.preheader6862, %.backedge6875, %4943, %4982, %5276, %.backedge6868, %6120, %6127, %6242, %.preheader6855, %.preheader6853, %.preheader6849, %.preheader6847, %.preheader6843, %.preheader6841, %.preheader6837, %.preheader6835, %.preheader6832, %.backedge6831, %.preheader6827, %.preheader6822, %.preheader6818, %.preheader6813, %.preheader6809, %.backedge6812, %.backedge6804, %.preheader, %.preheader6829, %.preheader6802, %8015, %8017, %.loopexit7124, %8008, %7816, %7800, %7562, %7339, %6981, %6803, %6632
+  %.0 = phi i32 [ 0, %6632 ], [ 0, %6803 ], [ 0, %6981 ], [ 0, %7339 ], [ 0, %7562 ], [ 0, %7800 ], [ 0, %7816 ], [ %.2, %8008 ], [ %.2, %.loopexit7124 ], [ %.36774, %8017 ], [ %.36774, %8015 ], [ 0, %.preheader6802 ], [ 0, %.preheader6829 ], [ 0, %.preheader ], [ 0, %.backedge6804 ], [ 0, %.backedge6812 ], [ 0, %.preheader6809 ], [ 0, %.preheader6813 ], [ 0, %.preheader6818 ], [ 0, %.preheader6822 ], [ 0, %.preheader6827 ], [ 0, %.backedge6831 ], [ 0, %.preheader6832 ], [ 0, %.preheader6835 ], [ 0, %.preheader6837 ], [ 0, %.preheader6841 ], [ 0, %.preheader6843 ], [ 0, %.preheader6847 ], [ 0, %.preheader6849 ], [ 0, %.preheader6853 ], [ 0, %.preheader6855 ], [ 0, %6242 ], [ 0, %6127 ], [ 0, %6120 ], [ 0, %.backedge6868 ], [ 0, %5276 ], [ 0, %4982 ], [ 0, %4943 ], [ 0, %.backedge6875 ], [ 0, %.preheader6862 ], [ 0, %.preheader6876 ], [ 0, %6134 ], [ 0, %6257 ], [ 0, %6342 ], [ 0, %6426 ], [ 0, %6492 ], [ 0, %3680 ], [ 0, %.preheader6869 ], [ 0, %5261 ], [ 0, %4967 ], [ 0, %4954 ], [ 0, %4642 ], [ 0, %4166 ], [ 0, %4130 ], [ 0, %.backedge6895 ], [ 0, %6033 ], [ 0, %5807 ], [ 0, %5800 ], [ 0, %.backedge6902 ], [ 0, %5503 ], [ 0, %6516 ], [ 0, %.loopexit6880 ], [ 0, %5966 ], [ 0, %5741 ], [ 0, %.backedge6914 ], [ 0, %.preheader6887 ], [ 0, %.backedge6921 ], [ 0, %2411 ], [ 0, %.backedge6959 ], [ 0, %5063 ], [ 0, %.preheader6896 ], [ 0, %6552 ], [ 0, %6538 ], [ 0, %6531 ], [ 0, %6463 ], [ 0, %6445 ], [ 0, %6399 ], [ 0, %6384 ], [ 0, %6307 ], [ 0, %6292 ], [ 0, %6192 ], [ 0, %6177 ], [ 0, %6066 ], [ 0, %6051 ], [ 0, %5838 ], [ 0, %5822 ], [ 0, %5814 ], [ 0, %5609 ], [ 0, %5346 ], [ 0, %5329 ], [ 0, %.backedge6934 ], [ 0, %.preheader6906 ], [ 0, %.backedge6943 ], [ 0, %4844 ], [ 0, %.backedge6982 ], [ 0, %.backedge6947 ], [ 0, %1676 ], [ 0, %2447 ], [ 0, %1722 ], [ 0, %.preheader6915 ], [ 0, %2438 ], [ 0, %.loopexit6920 ], [ 0, %.preheader6962 ], [ 0, %.preheader6964 ], [ 0, %.preheader6966 ], [ 0, %.preheader6925 ], [ 0, %.backedge6974 ], [ 0, %4281 ], [ 0, %.backedge7080 ], [ 0, %.preheader6935 ], [ 0, %4852 ], [ 0, %.loopexit6941 ], [ 0, %.preheader6990 ], [ 0, %.preheader6944 ], [ 0, %1338 ], [ 0, %.preheader6954 ], [ 0, %.loopexit6956 ], [ 0, %988 ], [ 0, %1005 ], [ 0, %.loopexit6957 ], [ 0, %2431 ], [ 0, %2885 ], [ 0, %.loopexit6892 ], [ 0, %4157 ], [ 0, %4633 ], [ 0, %.backedge7005 ], [ 0, %.backedge7009 ], [ 0, %.backedge7013 ], [ 0, %.backedge7017 ], [ 0, %.backedge7021 ], [ 0, %.backedge7025 ], [ 0, %1015 ], [ 0, %.preheader7029 ], [ 0, %.backedge7035 ], [ 0, %.preheader7036 ], [ 0, %.preheader7040 ], [ 0, %.preheader7044 ], [ 0, %2970 ], [ 0, %2988 ], [ 0, %.backedge7058 ], [ 0, %.backedge7062 ], [ 0, %.backedge7067 ], [ 0, %4350 ], [ 0, %3919 ], [ 0, %.preheader6968 ], [ 0, %4292 ], [ 0, %.loopexit6973 ], [ 0, %.backedge7086 ], [ 0, %.backedge7091 ], [ 0, %4879 ], [ 0, %4548 ], [ 0, %.preheader6975 ], [ 0, %4077 ], [ 0, %4861 ], [ 0, %5200 ], [ 0, %5524 ], [ 0, %5762 ], [ 0, %5991 ], [ 0, %.backedge7111 ], [ 0, %2362 ], [ 0, %.backedge7116 ], [ 0, %.preheader7117 ], [ 0, %.lr.ph ], [ 0, %.preheader6988 ], [ 0, %6567 ], [ 0, %7597 ], [ 0, %7277 ], [ 0, %.loopexit20794 ], [ 0, %498 ], [ 0, %661 ], [ 0, %1082 ], [ 0, %1240 ], [ 0, %1778 ], [ 0, %1845 ], [ 0, %2925 ], [ 0, %._crit_edge13099 ], [ 0, %3372 ], [ 0, %3712 ], [ 0, %.loopexit7107 ], [ 0, %4301 ], [ 0, %4312 ], [ 0, %4330 ], [ 0, %4746 ], [ 0, %4762 ], [ 0, %5084 ], [ 0, %5099 ], [ 0, %5354 ], [ 0, %5361 ], [ 0, %5372 ], [ 0, %5383 ], [ 0, %5398 ], [ 0, %5617 ], [ 0, %5625 ], [ 0, %5633 ], [ 0, %5648 ], [ 0, %5750 ], [ 0, %5854 ], [ 0, %5862 ], [ 0, %5870 ], [ 0, %5889 ], [ 0, %5974 ], [ 0, %.loopexit7104 ], [ 0, %6081 ], [ 0, %6089 ], [ 0, %6097 ], [ 0, %6105 ], [ 0, %6150 ], [ 0, %6207 ], [ 0, %6215 ], [ 0, %6223 ], [ 0, %6272 ], [ 0, %6322 ], [ 0, %6334 ], [ 0, %6357 ], [ 0, %6361 ], [ 0, %6414 ], [ 0, %6418 ], [ 0, %6478 ], [ 0, %7616 ], [ 392, %8041 ], [ 0, %.preheader7112 ], [ 0, %.preheader7108 ], [ 0, %.preheader7087 ], [ 0, %.preheader7083 ], [ 0, %.preheader7075 ], [ 0, %.preheader7063 ], [ 0, %.preheader7059 ], [ 0, %.preheader7054 ], [ 0, %.preheader7032 ], [ 0, %.preheader7022 ], [ 0, %.preheader7018 ], [ 0, %.preheader7014 ], [ 0, %.preheader7010 ], [ 0, %.preheader7006 ], [ 0, %.preheader7003 ]
   ret i32 %.0
 }
 

@@ -656,10 +656,10 @@ if.else:                                          ; preds = %if.end21
   br i1 %cmp33.not, label %if.end38, label %if.end38.sink.split
 
 if.end38.sink.split:                              ; preds = %if.else, %setup_idp.exit
-  %flags30 = getelementptr inbounds i8, ptr %0, i64 132
-  %34 = load i32, ptr %flags30, align 4
+  %flags35 = getelementptr inbounds i8, ptr %0, i64 132
+  %34 = load i32, ptr %flags35, align 4
   %or36 = or i32 %34, 128
-  store i32 %or36, ptr %flags30, align 4
+  store i32 %or36, ptr %flags35, align 4
   br label %if.end38
 
 if.end38:                                         ; preds = %if.end38.sink.split, %if.else, %setup_idp.exit
@@ -715,10 +715,10 @@ land.lhs.true70:                                  ; preds = %if.end67
   br i1 %tobool72.not, label %if.end76.sink.split, label %if.end76
 
 if.end76.sink.split:                              ; preds = %land.lhs.true70, %if.end57
-  %flags74 = getelementptr inbounds i8, ptr %0, i64 132
-  %41 = load i32, ptr %flags74, align 4
+  %flags65 = getelementptr inbounds i8, ptr %0, i64 132
+  %41 = load i32, ptr %flags65, align 4
   %or66 = or i32 %41, 128
-  store i32 %or66, ptr %flags74, align 4
+  store i32 %or66, ptr %flags65, align 4
   br label %if.end76
 
 if.end76:                                         ; preds = %if.end76.sink.split, %land.lhs.true70, %if.end67

@@ -47923,8 +47923,8 @@ _ZN17cranelift_codegen2ir5types4Type10lane_count17h4544b729d3d3bd7bE.exit.i.i3.i
   store i8 35, ptr %405, align 8, !noalias !7264
   %.sroa.4.0..sroa_idx.i.i.i44 = getelementptr inbounds i8, ptr %405, i64 1
   store i8 61, ptr %.sroa.4.0..sroa_idx.i.i.i44, align 1, !noalias !7264
-  %.sroa.77.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %405, i64 8
-  store i64 %403, ptr %.sroa.77.0..sroa_idx.i.i.i, align 8, !noalias !7264
+  %.sroa.76.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %405, i64 8
+  store i64 %403, ptr %.sroa.76.0..sroa_idx.i.i.i, align 8, !noalias !7264
   %406 = getelementptr inbounds i8, ptr %1, i64 64
   %407 = load ptr, ptr %406, align 8, !alias.scope !7281, !noalias !7264, !nonnull !4, !noundef !4
   %408 = getelementptr inbounds i8, ptr %1, i64 72

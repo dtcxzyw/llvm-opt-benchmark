@@ -235,13 +235,13 @@ define range(i32 -47, 1) i32 @arkAdapt(ptr noundef %0, ptr nocapture noundef %1,
   %83 = call double @llvm.fabs.f64(double %82)
   %84 = call double @llvm.fabs.f64(double %60)
   %85 = fcmp olt double %83, %84
-  %.90 = select i1 %85, i64 136, i64 144
-  %.91 = select i1 %85, double %83, double %84
-  %86 = getelementptr inbounds i8, ptr %1, i64 %.90
+  %.sink89 = select i1 %85, i64 136, i64 144
+  %.85 = select i1 %85, double %83, double %84
+  %86 = getelementptr inbounds i8, ptr %1, i64 %.sink89
   %87 = load i64, ptr %86, align 8
   %88 = add nsw i64 %87, 1
   store i64 %88, ptr %86, align 8
-  %89 = fmul double %49, %.91
+  %89 = fmul double %49, %.85
   %90 = fcmp ugt double %5, 1.000000e+00
   br i1 %90, label %107, label %91
 

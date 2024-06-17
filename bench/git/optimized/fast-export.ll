@@ -2009,10 +2009,10 @@ sw.default:                                       ; preds = %for.body
   unreachable
 
 for.inc.sink.split:                               ; preds = %cond.end, %if.else, %sw.bb
-  %path62 = getelementptr inbounds i8, ptr %6, i64 40
-  %30 = load ptr, ptr %path62, align 8
+  %path = getelementptr inbounds i8, ptr %6, i64 40
+  %30 = load ptr, ptr %path, align 8
   tail call fastcc void @print_path(ptr noundef %30)
-  %31 = load ptr, ptr %path62, align 8
+  %31 = load ptr, ptr %path, align 8
   %call12 = tail call ptr @string_list_insert(ptr noundef %data, ptr noundef %31) #18
   %call13 = tail call i32 @putchar(i32 noundef 10)
   br label %for.inc

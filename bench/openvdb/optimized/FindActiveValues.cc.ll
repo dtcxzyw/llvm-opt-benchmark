@@ -54574,13 +54574,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -71031,13 +71031,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -87496,13 +87496,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -103961,13 +103961,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -120426,13 +120426,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -136891,13 +136891,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -153356,13 +153356,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 
@@ -169821,13 +169821,13 @@ cond.false.i.i109:                                ; preds = %if.else23
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %cond.false.i.i109, %if.else23, %if.else, %if.then19
-  %mul8.i95.pn = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
-  %add22.sink = add i64 %16, %mul8.i95.pn
-  store i64 %add22.sink, ptr %this, align 8
+  %mul8.i95.sink = phi i64 [ %mul8.i95, %if.then19 ], [ %mul8.i, %if.else ], [ %27, %cond.false.i.i109 ], [ 0, %if.else23 ]
+  %add22 = add i64 %16, %mul8.i95.sink
+  store i64 %add22, ptr %this, align 8
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %for.body
-  %28 = phi i64 [ %16, %for.body ], [ %add22.sink, %for.inc.sink.split ]
+  %28 = phi i64 [ %16, %for.body ], [ %add22, %for.inc.sink.split ]
   %cmp.i.i.not.i.i = icmp eq ptr %iter.sroa.3.0271, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %if.end.i.i, label %if.then.i.i
 

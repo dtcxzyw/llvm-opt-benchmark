@@ -9246,9 +9246,9 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i48: ; preds = %149, %_ZN5Yosys5R
   unreachable
 
 _ZN5Yosys5RTLIL7SigSpecixEi.exit:                 ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i48, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i
-  %.sink = phi ptr [ %124, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i ], [ %151, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i48 ]
+  %.sink83 = phi ptr [ %124, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i ], [ %151, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i48 ]
   %.sroa.2.0.i.sink = phi i32 [ %.sroa.2.0.i, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i ], [ %.sroa.2.0.i44, %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i48 ]
-  %157 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %.sink, i64 %indvars.iv
+  %157 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %.sink83, i64 %indvars.iv
   store ptr %110, ptr %157, align 8
   %.sroa.252.0..sroa_idx = getelementptr inbounds i8, ptr %157, i64 8
   store i32 %.sroa.2.0.i.sink, ptr %.sroa.252.0..sroa_idx, align 8
@@ -9262,9 +9262,9 @@ _ZN5Yosys5RTLIL7SigSpecixEi.exit:                 ; preds = %_ZNK5Yosys5RTLIL7Si
   ret void
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit40.sink.split:      ; preds = %134, %130
-  %.sink83 = phi ptr [ %133, %130 ], [ %137, %134 ]
+  %.sink = phi ptr [ %133, %130 ], [ %137, %134 ]
   %.pn.ph = phi { ptr, i32 } [ %131, %130 ], [ %135, %134 ]
-  call void @_ZdlPv(ptr noundef nonnull %.sink83) #18
+  call void @_ZdlPv(ptr noundef nonnull %.sink) #18
   br label %_ZN5Yosys5RTLIL5ConstD2Ev.exit40
 
 _ZN5Yosys5RTLIL5ConstD2Ev.exit40:                 ; preds = %_ZN5Yosys5RTLIL5ConstD2Ev.exit40.sink.split, %134, %130

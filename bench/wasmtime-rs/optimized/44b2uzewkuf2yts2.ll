@@ -5216,114 +5216,114 @@ _ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llv
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i
   %.sink44 = phi i32 [ %36, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i ], [ %45, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i ]
-  %.sink48.in = getelementptr inbounds i8, ptr %0, i64 144
-  %.sink48 = load ptr, ptr %.sink48.in, align 16, !noalias !4, !nonnull !4, !noundef !4
-  %.sink49 = getelementptr inbounds i8, ptr %0, i64 160
-  %46 = ptrtoint ptr %.sink49 to i64
-  %47 = ptrtoint ptr %.sink48 to i64
-  %48 = sub i64 %46, %47
-  %49 = getelementptr i8, ptr %.sink48, i64 %48
-  %50 = zext i32 %.sink44 to i64
-  %51 = getelementptr inbounds i8, ptr %49, i64 %50
-  %.sink5.i = load ptr, ptr %51, align 8, !noalias !681, !noundef !4
-  %52 = load ptr, ptr %.sink5.i, align 8, !noalias !681, !noundef !4
-  %53 = getelementptr inbounds i8, ptr %.sink5.i, i64 8
-  %54 = load atomic i64, ptr %53 monotonic, align 8, !noalias !681
+  %46 = getelementptr inbounds i8, ptr %0, i64 160
+  %47 = getelementptr inbounds i8, ptr %0, i64 144
+  %48 = load ptr, ptr %47, align 16, !noalias !4, !nonnull !4, !noundef !4
+  %49 = ptrtoint ptr %46 to i64
+  %50 = ptrtoint ptr %48 to i64
+  %51 = sub i64 %49, %50
+  %52 = getelementptr i8, ptr %48, i64 %51
+  %53 = zext i32 %.sink44 to i64
+  %54 = getelementptr inbounds i8, ptr %52, i64 %53
+  %.sink5.i = load ptr, ptr %54, align 8, !noalias !681, !noundef !4
+  %55 = load ptr, ptr %.sink5.i, align 8, !noalias !681, !noundef !4
+  %56 = getelementptr inbounds i8, ptr %.sink5.i, i64 8
+  %57 = load atomic i64, ptr %56 monotonic, align 8, !noalias !681
   tail call void @llvm.experimental.noalias.scope.decl(metadata !700)
-  %55 = load ptr, ptr %0, align 16, !alias.scope !700, !noalias !703, !nonnull !4, !noundef !4
-  %56 = load ptr, ptr %8, align 8, !alias.scope !700, !noalias !703, !nonnull !4, !align !82, !noundef !4
-  %57 = getelementptr inbounds i8, ptr %56, i64 16
-  %58 = load i64, ptr %57, align 8, !range !76, !invariant.load !4, !noalias !705
-  %59 = add i64 %58, -1
-  %60 = and i64 %59, -16
-  %61 = getelementptr i8, ptr %55, i64 %60
-  %62 = getelementptr i8, ptr %61, i64 16
-  %63 = getelementptr inbounds i8, ptr %56, i64 24
-  %64 = load ptr, ptr %63, align 8, !invariant.load !4, !noalias !706, !nonnull !4
-  %65 = tail call noundef align 8 dereferenceable(8) ptr %64(ptr noundef align 1 %62), !noalias !706
-  %66 = load ptr, ptr %65, align 8, !noalias !705, !nonnull !4, !noundef !4
-  %67 = zext i32 %1 to i64
-  %68 = getelementptr inbounds i8, ptr %66, i64 456
-  %69 = load i64, ptr %68, align 8, !noalias !705, !noundef !4
-  %.not.i18 = icmp ugt i64 %69, %67
-  %70 = trunc i64 %69 to i32
-  %71 = sub i32 %1, %70
-  %72 = getelementptr inbounds i8, ptr %56, i64 104
-  %73 = load ptr, ptr %72, align 8, !invariant.load !4, !noalias !705, !nonnull !4
-  %74 = tail call noundef align 4 dereferenceable(116) ptr %73(ptr noundef align 1 %62), !noalias !705
-  br i1 %.not.i18, label %84, label %75
+  %58 = load ptr, ptr %0, align 16, !alias.scope !700, !noalias !703, !nonnull !4, !noundef !4
+  %59 = load ptr, ptr %8, align 8, !alias.scope !700, !noalias !703, !nonnull !4, !align !82, !noundef !4
+  %60 = getelementptr inbounds i8, ptr %59, i64 16
+  %61 = load i64, ptr %60, align 8, !range !76, !invariant.load !4, !noalias !705
+  %62 = add i64 %61, -1
+  %63 = and i64 %62, -16
+  %64 = getelementptr i8, ptr %58, i64 %63
+  %65 = getelementptr i8, ptr %64, i64 16
+  %66 = getelementptr inbounds i8, ptr %59, i64 24
+  %67 = load ptr, ptr %66, align 8, !invariant.load !4, !noalias !706, !nonnull !4
+  %68 = tail call noundef align 8 dereferenceable(8) ptr %67(ptr noundef align 1 %65), !noalias !706
+  %69 = load ptr, ptr %68, align 8, !noalias !705, !nonnull !4, !noundef !4
+  %70 = zext i32 %1 to i64
+  %71 = getelementptr inbounds i8, ptr %69, i64 456
+  %72 = load i64, ptr %71, align 8, !noalias !705, !noundef !4
+  %.not.i18 = icmp ugt i64 %72, %70
+  %73 = trunc i64 %72 to i32
+  %74 = sub i32 %1, %73
+  %75 = getelementptr inbounds i8, ptr %59, i64 104
+  %76 = load ptr, ptr %75, align 8, !invariant.load !4, !noalias !705, !nonnull !4
+  %77 = tail call noundef align 4 dereferenceable(116) ptr %76(ptr noundef align 1 %65), !noalias !705
+  br i1 %.not.i18, label %87, label %78
 
-75:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
-  %76 = getelementptr inbounds i8, ptr %74, i64 20
-  %77 = load i32, ptr %76, align 4, !noalias !709, !noundef !4
-  %78 = icmp ugt i32 %77, %71
-  br i1 %78, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19, label %79
+78:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
+  %79 = getelementptr inbounds i8, ptr %77, i64 20
+  %80 = load i32, ptr %79, align 4, !noalias !709, !noundef !4
+  %81 = icmp ugt i32 %80, %74
+  br i1 %81, label %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19, label %82
 
-79:                                               ; preds = %75
+82:                                               ; preds = %78
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5370cc5e4c9bad4a34a3533d54186f9f.52.llvm.3622975676230304285, i64 noundef 60, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.53.llvm.3622975676230304285) #27, !noalias !709
   unreachable
 
-_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19: ; preds = %75
-  %80 = getelementptr inbounds i8, ptr %74, i64 96
-  %81 = load i32, ptr %80, align 4, !noalias !709, !noundef !4
-  %82 = shl i32 %71, 3
-  %83 = add i32 %81, %82
+_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19: ; preds = %78
+  %83 = getelementptr inbounds i8, ptr %77, i64 96
+  %84 = load i32, ptr %83, align 4, !noalias !709, !noundef !4
+  %85 = shl i32 %74, 3
+  %86 = add i32 %84, %85
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23
 
-84:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
+87:                                               ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit
   tail call void @llvm.experimental.noalias.scope.decl(metadata !715)
-  %85 = getelementptr inbounds i8, ptr %74, i64 8
-  %86 = load i32, ptr %85, align 4, !alias.scope !715, !noalias !718, !noundef !4
-  %87 = icmp ugt i32 %86, %1
-  br i1 %87, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22, label %88
+  %88 = getelementptr inbounds i8, ptr %77, i64 8
+  %89 = load i32, ptr %88, align 4, !alias.scope !715, !noalias !718, !noundef !4
+  %90 = icmp ugt i32 %89, %1
+  br i1 %90, label %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22, label %91
 
-88:                                               ; preds = %84
+91:                                               ; preds = %87
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.5370cc5e4c9bad4a34a3533d54186f9f.10.llvm.3622975676230304285, i64 noundef 61, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.5370cc5e4c9bad4a34a3533d54186f9f.11.llvm.3622975676230304285) #27, !noalias !721
   unreachable
 
-_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22: ; preds = %84
-  %89 = getelementptr inbounds i8, ptr %74, i64 84
-  %90 = load i32, ptr %89, align 4, !alias.scope !715, !noalias !718, !noundef !4
-  %91 = mul i32 %1, 24
-  %92 = add i32 %90, %91
+_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22: ; preds = %87
+  %92 = getelementptr inbounds i8, ptr %77, i64 84
+  %93 = load i32, ptr %92, align 4, !alias.scope !715, !noalias !718, !noundef !4
+  %94 = mul i32 %1, 24
+  %95 = add i32 %93, %94
   br label %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23
 
 _ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23: ; preds = %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22
-  %.sink51 = phi i32 [ %83, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19 ], [ %92, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22 ]
-  %93 = getelementptr inbounds i8, ptr %0, i64 160
-  %94 = ptrtoint ptr %93 to i64
-  %95 = ptrtoint ptr %.sink48 to i64
-  %96 = sub i64 %94, %95
-  %97 = getelementptr i8, ptr %.sink48, i64 %96
-  %98 = zext i32 %.sink51 to i64
-  %99 = getelementptr inbounds i8, ptr %97, i64 %98
-  %.sink5.i21 = load ptr, ptr %99, align 8, !noalias !703, !noundef !4
-  %100 = load ptr, ptr %.sink5.i21, align 8, !noalias !703, !noundef !4
-  %101 = getelementptr inbounds i8, ptr %.sink5.i21, i64 8
-  %102 = load atomic i64, ptr %101 monotonic, align 8, !noalias !703
-  %103 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 %5)
-  %104 = extractvalue { i64, i1 } %103, 1
-  %105 = extractvalue { i64, i1 } %103, 0
-  %106 = icmp ugt i64 %105, %54
-  %or.cond = select i1 %104, i1 true, i1 %106
-  br i1 %or.cond, label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread, label %107
+  %.sink51 = phi i32 [ %86, %_ZN16wasmtime_runtime8instance8Instance6memory17he284ab4db47a4980E.llvm.3622975676230304285.exit.i19 ], [ %95, %_ZN16wasmtime_runtime8instance8Instance15imported_memory17h52567f7cc5fbb1a2E.llvm.3622975676230304285.exit.i22 ]
+  %96 = getelementptr inbounds i8, ptr %0, i64 160
+  %97 = ptrtoint ptr %96 to i64
+  %98 = ptrtoint ptr %48 to i64
+  %99 = sub i64 %97, %98
+  %100 = getelementptr i8, ptr %48, i64 %99
+  %101 = zext i32 %.sink51 to i64
+  %102 = getelementptr inbounds i8, ptr %100, i64 %101
+  %.sink5.i21 = load ptr, ptr %102, align 8, !noalias !703, !noundef !4
+  %103 = load ptr, ptr %.sink5.i21, align 8, !noalias !703, !noundef !4
+  %104 = getelementptr inbounds i8, ptr %.sink5.i21, i64 8
+  %105 = load atomic i64, ptr %104 monotonic, align 8, !noalias !703
+  %106 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 %5)
+  %107 = extractvalue { i64, i1 } %106, 1
+  %108 = extractvalue { i64, i1 } %106, 0
+  %109 = icmp ugt i64 %108, %57
+  %or.cond = select i1 %107, i1 true, i1 %109
+  br i1 %or.cond, label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread, label %110
 
-107:                                              ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23
-  %108 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %2, i64 %5)
-  %109 = extractvalue { i64, i1 } %108, 1
-  %110 = extractvalue { i64, i1 } %108, 0
-  %111 = icmp ugt i64 %110, %102
-  %or.cond42 = select i1 %109, i1 true, i1 %111
-  br i1 %or.cond42, label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread, label %112
+110:                                              ; preds = %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23
+  %111 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %2, i64 %5)
+  %112 = extractvalue { i64, i1 } %111, 1
+  %113 = extractvalue { i64, i1 } %111, 0
+  %114 = icmp ugt i64 %113, %105
+  %or.cond42 = select i1 %112, i1 true, i1 %114
+  br i1 %or.cond42, label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread, label %115
 
-112:                                              ; preds = %107
-  %113 = getelementptr inbounds i8, ptr %100, i64 %2
-  %114 = getelementptr inbounds i8, ptr %52, i64 %4
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %113, ptr align 1 %114, i64 %5, i1 false)
+115:                                              ; preds = %110
+  %116 = getelementptr inbounds i8, ptr %103, i64 %2
+  %117 = getelementptr inbounds i8, ptr %55, i64 %4
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %116, ptr align 1 %117, i64 %5, i1 false)
   br label %_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread
 
-_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %107, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23, %112
-  %.0 = phi i8 [ 17, %112 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23 ], [ 1, %107 ]
+_ZN16wasmtime_runtime8instance8Instance17validate_inbounds17h3544896a8963374aE.llvm.3622975676230304285.exit.thread: ; preds = %110, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23, %115
+  %.0 = phi i8 [ 17, %115 ], [ 1, %_ZN16wasmtime_runtime8instance8Instance10get_memory17h512ff75963bc6f3fE.exit23 ], [ 1, %110 ]
   ret i8 %.0
 }
 

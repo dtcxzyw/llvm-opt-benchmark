@@ -253,6 +253,8 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.LoadImageFromMemory = private unnamed_addr constant [4 x i32] [i32 1, i32 2, i32 4, i32 7], align 4
 @switch.table.ExportImageToMemory = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 4, i32 3, i32 4, i32 4, i32 4], align 4
 @switch.table.ImageDraw.27 = private unnamed_addr constant [24 x i32] [i32 8, i32 16, i32 16, i32 24, i32 16, i32 16, i32 32, i32 32, i32 96, i32 128, i32 16, i32 48, i32 64, i32 4, i32 4, i32 8, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 2], align 4
+@switch.table.ImageResize = private unnamed_addr constant [7 x i32] [i32 1, i32 2, i32 1, i32 3, i32 1, i32 1, i32 4], align 4
+@switch.table.SetTextureWrap = private unnamed_addr constant [4 x i32] [i32 10497, i32 33071, i32 33648, i32 34626], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
 define hidden ptr @stbi_failure_reason() local_unnamed_addr #0 {
@@ -17337,87 +17339,69 @@ define void @ImageResizeNN(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
 define void @ImageResize(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %50, label %6
+  br i1 %5, label %35, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %50, label %10
+  br i1 %9, label %35, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, 0
-  br i1 %13, label %50, label %14
+  br i1 %13, label %35, label %14
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds i8, ptr %0, i64 20
   %16 = load i32, ptr %15, align 4
   %17 = mul nsw i32 %2, %1
-  switch i32 %16, label %40 [
-    i32 1, label %18
-    i32 2, label %22
-    i32 7, label %32
-    i32 4, label %27
-  ]
+  %switch.tableidx = add i32 %16, -1
+  %18 = icmp ult i32 %switch.tableidx, 7
+  br i1 %18, label %switch.hole_check, label %25
 
-18:                                               ; preds = %14
-  %19 = sext i32 %17 to i64
-  %20 = tail call noalias ptr @malloc(i64 noundef %19) #50
-  %21 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %20, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 1)
-  br label %37
+switch.hole_check:                                ; preds = %14
+  %switch.maskindex = trunc nuw i32 %switch.tableidx to i8
+  %switch.shifted = lshr i8 75, %switch.maskindex
+  %switch.lobit = trunc i8 %switch.shifted to i1
+  br i1 %switch.lobit, label %switch.lookup, label %25
 
-22:                                               ; preds = %14
-  %23 = shl nsw i32 %17, 1
-  %24 = sext i32 %23 to i64
-  %25 = tail call noalias ptr @malloc(i64 noundef %24) #50
-  %26 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %25, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 2)
-  br label %37
-
-27:                                               ; preds = %14
-  %28 = mul nsw i32 %17, 3
-  %29 = sext i32 %28 to i64
-  %30 = tail call noalias ptr @malloc(i64 noundef %29) #50
-  %31 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %30, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 3)
-  br label %37
-
-32:                                               ; preds = %14
-  %33 = shl nsw i32 %17, 2
-  %34 = sext i32 %33 to i64
-  %35 = tail call noalias ptr @malloc(i64 noundef %34) #50
-  %36 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %35, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 4)
-  br label %37
-
-37:                                               ; preds = %32, %27, %22, %18
-  %38 = phi ptr [ %35, %32 ], [ %30, %27 ], [ %25, %22 ], [ %20, %18 ]
-  %39 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %39) #49
-  store ptr %38, ptr %0, align 8
+switch.lookup:                                    ; preds = %switch.hole_check
+  %19 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table.ImageResize, i64 0, i64 %19
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %20 = mul nsw i32 %17, %switch.load
+  %21 = sext i32 %20 to i64
+  %22 = tail call noalias ptr @malloc(i64 noundef %21) #50
+  %23 = tail call ptr @stbir_resize_uint8_linear(ptr noundef nonnull %4, i32 noundef %8, i32 noundef %12, i32 noundef 0, ptr noundef %22, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef %switch.load)
+  %24 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %24) #49
+  store ptr %22, ptr %0, align 8
   store i32 %1, ptr %7, align 8
   store i32 %2, ptr %11, align 4
-  br label %50
+  br label %35
 
-40:                                               ; preds = %14
-  %41 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
-  %42 = sext i32 %17 to i64
-  %43 = shl nsw i64 %42, 2
-  %44 = tail call noalias ptr @malloc(i64 noundef %43) #50
-  %45 = load i32, ptr %7, align 8
-  %46 = load i32, ptr %11, align 4
-  %47 = tail call ptr @stbir_resize_uint8_linear(ptr noundef %41, i32 noundef %45, i32 noundef %46, i32 noundef 0, ptr noundef %44, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 4)
-  %48 = load i32, ptr %15, align 4
-  tail call void @free(ptr noundef %41) #49
-  %49 = load ptr, ptr %0, align 8
-  tail call void @free(ptr noundef %49) #49
-  store ptr %44, ptr %0, align 8
+25:                                               ; preds = %switch.hole_check, %14
+  %26 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
+  %27 = sext i32 %17 to i64
+  %28 = shl nsw i64 %27, 2
+  %29 = tail call noalias ptr @malloc(i64 noundef %28) #50
+  %30 = load i32, ptr %7, align 8
+  %31 = load i32, ptr %11, align 4
+  %32 = tail call ptr @stbir_resize_uint8_linear(ptr noundef %26, i32 noundef %30, i32 noundef %31, i32 noundef 0, ptr noundef %29, i32 noundef %1, i32 noundef %2, i32 noundef 0, i32 noundef 4)
+  %33 = load i32, ptr %15, align 4
+  tail call void @free(ptr noundef %26) #49
+  %34 = load ptr, ptr %0, align 8
+  tail call void @free(ptr noundef %34) #49
+  store ptr %29, ptr %0, align 8
   store i32 %1, ptr %7, align 8
   store i32 %2, ptr %11, align 4
   store i32 7, ptr %15, align 4
-  tail call void @ImageFormat(ptr noundef nonnull %0, i32 noundef %48)
-  br label %50
+  tail call void @ImageFormat(ptr noundef nonnull %0, i32 noundef %33)
+  br label %35
 
-50:                                               ; preds = %3, %6, %10, %40, %37
+35:                                               ; preds = %3, %6, %10, %25, %switch.lookup
   ret void
 }
 
@@ -24084,38 +24068,19 @@ declare void @rlTextureParameters(i32 noundef, i32 noundef, i32 noundef) local_u
 
 ; Function Attrs: nounwind uwtable
 define void @SetTextureWrap(ptr nocapture noundef readonly byval(%struct.Texture) align 8 %0, i32 noundef %1) local_unnamed_addr #4 {
-  switch i32 %1, label %11 [
-    i32 0, label %3
-    i32 1, label %5
-    i32 2, label %7
-    i32 3, label %9
-  ]
+  %3 = icmp ult i32 %1, 4
+  br i1 %3, label %switch.lookup, label %6
 
-3:                                                ; preds = %2
-  %4 = load i32, ptr %0, align 8
-  tail call void @rlTextureParameters(i32 noundef %4, i32 noundef 10242, i32 noundef 10497) #49
-  tail call void @rlTextureParameters(i32 noundef %4, i32 noundef 10243, i32 noundef 10497) #49
-  br label %11
+switch.lookup:                                    ; preds = %2
+  %4 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.SetTextureWrap, i64 0, i64 %4
+  %switch.load = load i32, ptr %switch.gep, align 4
+  %5 = load i32, ptr %0, align 8
+  tail call void @rlTextureParameters(i32 noundef %5, i32 noundef 10242, i32 noundef %switch.load) #49
+  tail call void @rlTextureParameters(i32 noundef %5, i32 noundef 10243, i32 noundef %switch.load) #49
+  br label %6
 
-5:                                                ; preds = %2
-  %6 = load i32, ptr %0, align 8
-  tail call void @rlTextureParameters(i32 noundef %6, i32 noundef 10242, i32 noundef 33071) #49
-  tail call void @rlTextureParameters(i32 noundef %6, i32 noundef 10243, i32 noundef 33071) #49
-  br label %11
-
-7:                                                ; preds = %2
-  %8 = load i32, ptr %0, align 8
-  tail call void @rlTextureParameters(i32 noundef %8, i32 noundef 10242, i32 noundef 33648) #49
-  tail call void @rlTextureParameters(i32 noundef %8, i32 noundef 10243, i32 noundef 33648) #49
-  br label %11
-
-9:                                                ; preds = %2
-  %10 = load i32, ptr %0, align 8
-  tail call void @rlTextureParameters(i32 noundef %10, i32 noundef 10242, i32 noundef 34626) #49
-  tail call void @rlTextureParameters(i32 noundef %10, i32 noundef 10243, i32 noundef 34626) #49
-  br label %11
-
-11:                                               ; preds = %2, %9, %7, %5, %3
+6:                                                ; preds = %2, %switch.lookup
   ret void
 }
 
@@ -24163,7 +24128,7 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   %.sroa.485.0.extract.trunc = trunc nuw i32 %.sroa.485.0.extract.shift to i8
   %9 = load i32, ptr %0, align 8
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %78, label %10
+  br i1 %.not, label %88, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds i8, ptr %0, i64 4
@@ -24180,8 +24145,8 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   %.sroa.19.12.vec.extract = extractelement <2 x float> %2, i64 1
   %19 = fcmp olt float %.sroa.19.12.vec.extract, 0.000000e+00
   %20 = fsub <2 x float> %1, %.sroa.19.0
-  %sel172 = select i1 %19, <2 x float> %20, <2 x float> %1
-  %.sroa.0116.0 = shufflevector <2 x float> %1, <2 x float> %sel172, <2 x i32> <i32 0, i32 3>
+  %sel176 = select i1 %19, <2 x float> %20, <2 x float> %1
+  %.sroa.0116.0 = shufflevector <2 x float> %1, <2 x float> %sel176, <2 x i32> <i32 0, i32 3>
   %21 = fcmp oeq float %6, 0.000000e+00
   br i1 %21, label %22, label %31
 
@@ -24245,51 +24210,57 @@ define void @DrawTexturePro(ptr nocapture noundef readonly byval(%struct.Texture
   tail call void @rlColor4ub(i8 noundef zeroext %.sroa.083.0.extract.trunc, i8 noundef zeroext %.sroa.284.0.extract.trunc, i8 noundef zeroext %.sroa.3.0.extract.trunc, i8 noundef zeroext %.sroa.485.0.extract.trunc) #49
   tail call void @rlNormal3f(float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 1.000000e+00) #49
   %.sroa.0116.0.vec.extract = extractelement <2 x float> %1, i64 0
-  br i1 %17, label %61, label %69
+  br i1 %17, label %61, label %72
 
 61:                                               ; preds = %60
   %62 = fadd <2 x float> %.sroa.19.0, %.sroa.0116.0
   %63 = extractelement <2 x float> %62, i64 0
   %64 = fdiv float %63, %13
-  %.sroa.0116.4.vec.extract133 = extractelement <2 x float> %sel172, i64 1
-  %65 = fdiv float %.sroa.0116.4.vec.extract133, %16
-  tail call void @rlTexCoord2f(float noundef %64, float noundef %65) #49
+  %65 = fadd <2 x float> %.sroa.19.0, %.sroa.0116.0
+  %66 = shufflevector <2 x float> %.sroa.0116.0, <2 x float> %65, <2 x i32> <i32 3, i32 1>
+  %67 = insertelement <2 x float> poison, float %16, i64 0
+  %68 = shufflevector <2 x float> %67, <2 x float> poison, <2 x i32> zeroinitializer
+  %69 = fdiv <2 x float> %66, %68
+  %70 = extractelement <2 x float> %69, i64 1
+  tail call void @rlTexCoord2f(float noundef %64, float noundef %70) #49
   tail call void @rlVertex2f(float noundef %.sroa.059.0, float noundef %.sroa.460.0) #49
-  %66 = fadd float %.sroa.19.12.vec.extract, %.sroa.0116.4.vec.extract133
-  %67 = fdiv float %66, %16
-  tail call void @rlTexCoord2f(float noundef %64, float noundef %67) #49
+  %71 = extractelement <2 x float> %69, i64 0
+  tail call void @rlTexCoord2f(float noundef %64, float noundef %71) #49
   tail call void @rlVertex2f(float noundef %.sroa.055.0, float noundef %.sroa.456.0) #49
-  %68 = fdiv float %.sroa.0116.0.vec.extract, %13
-  tail call void @rlTexCoord2f(float noundef %68, float noundef %67) #49
-  tail call void @rlVertex2f(float noundef %.sroa.054.0, float noundef %.sroa.4.0) #49
-  tail call void @rlTexCoord2f(float noundef %68, float noundef %65) #49
-  br label %77
+  br label %83
 
-69:                                               ; preds = %60
-  %70 = fdiv float %.sroa.0116.0.vec.extract, %13
-  %.sroa.0116.4.vec.extract135 = extractelement <2 x float> %sel172, i64 1
-  %71 = fdiv float %.sroa.0116.4.vec.extract135, %16
-  tail call void @rlTexCoord2f(float noundef %70, float noundef %71) #49
-  tail call void @rlVertex2f(float noundef %.sroa.059.0, float noundef %.sroa.460.0) #49
-  %72 = fadd float %.sroa.19.12.vec.extract, %.sroa.0116.4.vec.extract135
-  %73 = fdiv float %72, %16
-  tail call void @rlTexCoord2f(float noundef %70, float noundef %73) #49
-  tail call void @rlVertex2f(float noundef %.sroa.055.0, float noundef %.sroa.456.0) #49
+72:                                               ; preds = %60
+  %73 = fdiv float %.sroa.0116.0.vec.extract, %13
   %74 = fadd <2 x float> %.sroa.19.0, %.sroa.0116.0
-  %75 = extractelement <2 x float> %74, i64 0
-  %76 = fdiv float %75, %13
-  tail call void @rlTexCoord2f(float noundef %76, float noundef %73) #49
-  tail call void @rlVertex2f(float noundef %.sroa.054.0, float noundef %.sroa.4.0) #49
-  tail call void @rlTexCoord2f(float noundef %76, float noundef %71) #49
-  br label %77
+  %75 = shufflevector <2 x float> %.sroa.0116.0, <2 x float> %74, <2 x i32> <i32 3, i32 1>
+  %76 = insertelement <2 x float> poison, float %16, i64 0
+  %77 = shufflevector <2 x float> %76, <2 x float> poison, <2 x i32> zeroinitializer
+  %78 = fdiv <2 x float> %75, %77
+  %79 = extractelement <2 x float> %78, i64 1
+  tail call void @rlTexCoord2f(float noundef %73, float noundef %79) #49
+  tail call void @rlVertex2f(float noundef %.sroa.059.0, float noundef %.sroa.460.0) #49
+  %80 = extractelement <2 x float> %78, i64 0
+  tail call void @rlTexCoord2f(float noundef %73, float noundef %80) #49
+  tail call void @rlVertex2f(float noundef %.sroa.055.0, float noundef %.sroa.456.0) #49
+  %81 = fadd <2 x float> %.sroa.19.0, %.sroa.0116.0
+  %82 = extractelement <2 x float> %81, i64 0
+  br label %83
 
-77:                                               ; preds = %69, %61
+83:                                               ; preds = %72, %61
+  %.sink175 = phi float [ %82, %72 ], [ %.sroa.0116.0.vec.extract, %61 ]
+  %84 = phi <2 x float> [ %78, %72 ], [ %69, %61 ]
+  %85 = fdiv float %.sink175, %13
+  %86 = extractelement <2 x float> %84, i64 0
+  tail call void @rlTexCoord2f(float noundef %85, float noundef %86) #49
+  tail call void @rlVertex2f(float noundef %.sroa.054.0, float noundef %.sroa.4.0) #49
+  %87 = extractelement <2 x float> %84, i64 1
+  tail call void @rlTexCoord2f(float noundef %85, float noundef %87) #49
   tail call void @rlVertex2f(float noundef %.sroa.057.0, float noundef %.sroa.458.0) #49
   tail call void @rlEnd() #49
   tail call void @rlSetTexture(i32 noundef 0) #49
-  br label %78
+  br label %88
 
-78:                                               ; preds = %77, %8
+88:                                               ; preds = %83, %8
   ret void
 }
 
@@ -34056,170 +34027,156 @@ define internal fastcc void @stbir__set_sampler(ptr nocapture noundef %0, i32 no
   %45 = getelementptr inbounds i8, ptr %5, i64 8
   %46 = load float, ptr %45, align 4
   %47 = fcmp ult float %46, 1.000000e+00
-  br i1 %47, label %56, label %48
+  br i1 %47, label %52, label %48
 
 48:                                               ; preds = %42
   %49 = fdiv float 1.000000e+00, %46
   %50 = tail call float %43(float noundef %49, ptr noundef %7) #49
   %51 = fmul float %50, 2.000000e+00
-  %52 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %51, i64 0
-  %53 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %52)
-  %54 = sitofp <4 x i32> %53 to <4 x float>
-  %55 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %54, <4 x float> %52, i8 1)
   br label %stbir__get_filter_pixel_width.exit
 
-56:                                               ; preds = %42
-  %57 = tail call float %43(float noundef %46, ptr noundef %7) #49
-  %58 = fmul float %57, 2.000000e+00
-  %59 = fdiv float %58, %46
-  %60 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %59, i64 0
-  %61 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %60)
-  %62 = sitofp <4 x i32> %61 to <4 x float>
-  %63 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %62, <4 x float> %60, i8 1)
+52:                                               ; preds = %42
+  %53 = tail call float %43(float noundef %46, ptr noundef %7) #49
+  %54 = fmul float %53, 2.000000e+00
+  %55 = fdiv float %54, %46
   br label %stbir__get_filter_pixel_width.exit
 
-stbir__get_filter_pixel_width.exit:               ; preds = %48, %56
-  %.sink12.i = phi <4 x float> [ %63, %56 ], [ %55, %48 ]
-  %.sink10.i = phi <4 x float> [ %62, %56 ], [ %54, %48 ]
-  %64 = bitcast <4 x float> %.sink12.i to <4 x i32>
-  %65 = and <4 x i32> %64, <i32 1065353216, i32 poison, i32 poison, i32 poison>
-  %66 = bitcast <4 x i32> %65 to <4 x float>
-  %67 = fadd <4 x float> %.sink10.i, %66
-  %68 = extractelement <4 x float> %67, i64 0
-  %.0.i = fptosi float %68 to i32
-  %69 = getelementptr inbounds i8, ptr %0, i64 96
-  store i32 %.0.i, ptr %69, align 8
-  %70 = getelementptr inbounds i8, ptr %0, i64 128
-  store i32 0, ptr %70, align 8
-  %71 = load float, ptr %45, align 4
-  %72 = fcmp ult float %71, 1.000000e+00
-  br i1 %72, label %73, label %75
+stbir__get_filter_pixel_width.exit:               ; preds = %48, %52
+  %.sink15.i = phi float [ %55, %52 ], [ %51, %48 ]
+  %56 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %.sink15.i, i64 0
+  %57 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %56)
+  %58 = sitofp <4 x i32> %57 to <4 x float>
+  %59 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %58, <4 x float> %56, i8 1)
+  %60 = bitcast <4 x float> %59 to <4 x i32>
+  %61 = and <4 x i32> %60, <i32 1065353216, i32 poison, i32 poison, i32 poison>
+  %62 = bitcast <4 x i32> %61 to <4 x float>
+  %63 = fadd <4 x float> %58, %62
+  %64 = extractelement <4 x float> %63, i64 0
+  %.0.i = fptosi float %64 to i32
+  %65 = getelementptr inbounds i8, ptr %0, i64 96
+  store i32 %.0.i, ptr %65, align 8
+  %66 = getelementptr inbounds i8, ptr %0, i64 128
+  store i32 0, ptr %66, align 8
+  %67 = load float, ptr %45, align 4
+  %68 = fcmp ult float %67, 1.000000e+00
+  br i1 %68, label %69, label %71
 
-73:                                               ; preds = %stbir__get_filter_pixel_width.exit
+69:                                               ; preds = %stbir__get_filter_pixel_width.exit
   %.not = icmp ne i32 %6, 0
-  %74 = icmp slt i32 %.0.i, 33
-  %or.cond79 = select i1 %.not, i1 true, i1 %74
-  br i1 %or.cond79, label %84, label %93
+  %70 = icmp slt i32 %.0.i, 33
+  %or.cond79 = select i1 %.not, i1 true, i1 %70
+  br i1 %or.cond79, label %76, label %81
 
-75:                                               ; preds = %stbir__get_filter_pixel_width.exit
-  store i32 1, ptr %70, align 8
+71:                                               ; preds = %stbir__get_filter_pixel_width.exit
+  store i32 1, ptr %66, align 8
   %.val6671 = load ptr, ptr %38, align 8
-  %76 = getelementptr i8, ptr %0, i64 40
-  %.val70 = load float, ptr %76, align 8
-  %77 = fdiv float 1.000000e+00, %.val70
-  %78 = tail call float %.val6671(float noundef %77, ptr noundef %7) #49
-  %79 = fmul float %78, 2.000000e+00
-  %80 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %79, i64 0
-  %81 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %80)
-  %82 = sitofp <4 x i32> %81 to <4 x float>
-  %83 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %82, <4 x float> %80, i8 1)
+  %72 = getelementptr i8, ptr %0, i64 40
+  %.val70 = load float, ptr %72, align 8
+  %73 = fdiv float 1.000000e+00, %.val70
+  %74 = tail call float %.val6671(float noundef %73, ptr noundef %7) #49
+  %75 = fmul float %74, 2.000000e+00
   br label %stbir__get_coefficient_width.exit
 
-84:                                               ; preds = %73
-  store i32 2, ptr %70, align 8
+76:                                               ; preds = %69
+  store i32 2, ptr %66, align 8
   %.val6676 = load ptr, ptr %38, align 8
-  %85 = getelementptr i8, ptr %0, i64 40
-  %.val75 = load float, ptr %85, align 8
-  %86 = tail call float %.val6676(float noundef %.val75, ptr noundef %7) #49
-  %87 = fmul float %86, 2.000000e+00
-  %88 = fdiv float %87, %.val75
-  %89 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %88, i64 0
-  %90 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %89)
-  %91 = sitofp <4 x i32> %90 to <4 x float>
-  %92 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %91, <4 x float> %89, i8 1)
+  %77 = getelementptr i8, ptr %0, i64 40
+  %.val75 = load float, ptr %77, align 8
+  %78 = tail call float %.val6676(float noundef %.val75, ptr noundef %7) #49
+  %79 = fmul float %78, 2.000000e+00
+  %80 = fdiv float %79, %.val75
   br label %stbir__get_coefficient_width.exit
 
-93:                                               ; preds = %73
+81:                                               ; preds = %69
   %.val66 = load ptr, ptr %38, align 8
-  %94 = getelementptr i8, ptr %0, i64 40
-  %.val = load float, ptr %94, align 8
-  %95 = tail call float %.val66(float noundef %.val, ptr noundef %7) #49
-  %96 = fmul float %95, 2.000000e+00
-  %97 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %96, i64 0
-  %98 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %97)
-  %99 = sitofp <4 x i32> %98 to <4 x float>
-  %100 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %99, <4 x float> %97, i8 1)
+  %82 = getelementptr i8, ptr %0, i64 40
+  %.val = load float, ptr %82, align 8
+  %83 = tail call float %.val66(float noundef %.val, ptr noundef %7) #49
+  %84 = fmul float %83, 2.000000e+00
   br label %stbir__get_coefficient_width.exit
 
-stbir__get_coefficient_width.exit:                ; preds = %75, %84, %93
-  %.sink83 = phi <4 x float> [ %83, %75 ], [ %92, %84 ], [ %100, %93 ]
-  %.sink81 = phi <4 x float> [ %82, %75 ], [ %91, %84 ], [ %99, %93 ]
-  %101 = bitcast <4 x float> %.sink83 to <4 x i32>
-  %102 = and <4 x i32> %101, <i32 1065353216, i32 poison, i32 poison, i32 poison>
-  %103 = bitcast <4 x i32> %102 to <4 x float>
-  %104 = fadd <4 x float> %.sink81, %103
-  %105 = extractelement <4 x float> %104, i64 0
-  %.0.i67 = fptosi float %105 to i32
-  %106 = getelementptr inbounds i8, ptr %0, i64 92
-  store i32 %.0.i67, ptr %106, align 4
-  %107 = icmp eq i32 %4, 2
-  %.pre = load i32, ptr %69, align 8
-  br i1 %107, label %108, label %113
+stbir__get_coefficient_width.exit:                ; preds = %71, %76, %81
+  %.sink10.i = phi float [ %84, %81 ], [ %80, %76 ], [ %75, %71 ]
+  %85 = insertelement <4 x float> <float poison, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00>, float %.sink10.i, i64 0
+  %86 = tail call <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float> %85)
+  %87 = sitofp <4 x i32> %86 to <4 x float>
+  %88 = tail call <4 x float> @llvm.x86.sse.cmp.ss(<4 x float> %87, <4 x float> %85, i8 1)
+  %89 = bitcast <4 x float> %88 to <4 x i32>
+  %90 = and <4 x i32> %89, <i32 1065353216, i32 poison, i32 poison, i32 poison>
+  %91 = bitcast <4 x i32> %90 to <4 x float>
+  %92 = fadd <4 x float> %87, %91
+  %93 = extractelement <4 x float> %92, i64 0
+  %94 = fptosi float %93 to i32
+  %.pre.pre = load i32, ptr %65, align 8
+  %95 = getelementptr inbounds i8, ptr %0, i64 92
+  store i32 %94, ptr %95, align 4
+  %96 = icmp eq i32 %4, 2
+  br i1 %96, label %97, label %102
 
-108:                                              ; preds = %stbir__get_coefficient_width.exit
-  %109 = load i32, ptr %5, align 4
-  %110 = shl nsw i32 %109, 1
-  %111 = icmp sgt i32 %.pre, %110
-  br i1 %111, label %112, label %113
+97:                                               ; preds = %stbir__get_coefficient_width.exit
+  %98 = load i32, ptr %5, align 4
+  %99 = shl nsw i32 %98, 1
+  %100 = icmp sgt i32 %.pre.pre, %99
+  br i1 %100, label %101, label %102
 
-112:                                              ; preds = %108
-  store i32 %110, ptr %69, align 8
-  br label %113
+101:                                              ; preds = %97
+  store i32 %99, ptr %65, align 8
+  br label %102
 
-113:                                              ; preds = %108, %112, %stbir__get_coefficient_width.exit
-  %114 = phi i32 [ %.pre, %108 ], [ %110, %112 ], [ %.pre, %stbir__get_coefficient_width.exit ]
-  %115 = sdiv i32 %114, 2
-  %116 = getelementptr inbounds i8, ptr %0, i64 100
-  store i32 %115, ptr %116, align 4
-  %117 = load i32, ptr %70, align 8
-  %.not.i = icmp eq i32 %117, 0
-  br i1 %.not.i, label %121, label %118
+102:                                              ; preds = %97, %101, %stbir__get_coefficient_width.exit
+  %103 = phi i32 [ %.pre.pre, %97 ], [ %99, %101 ], [ %.pre.pre, %stbir__get_coefficient_width.exit ]
+  %104 = sdiv i32 %103, 2
+  %105 = getelementptr inbounds i8, ptr %0, i64 100
+  store i32 %104, ptr %105, align 4
+  %106 = load i32, ptr %66, align 8
+  %.not.i = icmp eq i32 %106, 0
+  br i1 %.not.i, label %110, label %107
 
-118:                                              ; preds = %113
-  %119 = getelementptr inbounds i8, ptr %0, i64 36
-  %120 = load i32, ptr %119, align 4
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds i8, ptr %0, i64 36
+  %109 = load i32, ptr %108, align 4
   br label %stbir__get_contributors.exit
 
-121:                                              ; preds = %113
-  %122 = getelementptr inbounds i8, ptr %0, i64 32
-  %123 = load i32, ptr %122, align 8
-  %124 = shl nsw i32 %115, 1
-  %125 = add nsw i32 %123, %124
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds i8, ptr %0, i64 32
+  %112 = load i32, ptr %111, align 8
+  %113 = shl nsw i32 %104, 1
+  %114 = add nsw i32 %112, %113
   br label %stbir__get_contributors.exit
 
-stbir__get_contributors.exit:                     ; preds = %118, %121
-  %.0.i68 = phi i32 [ %120, %118 ], [ %125, %121 ]
-  %126 = getelementptr inbounds i8, ptr %0, i64 104
-  store i32 %.0.i68, ptr %126, align 8
-  %127 = shl i32 %.0.i68, 3
-  %128 = getelementptr inbounds i8, ptr %0, i64 108
-  store i32 %127, ptr %128, align 4
-  %129 = shl i32 %.0.i67, 2
-  %130 = mul i32 %129, %.0.i68
-  %131 = add i32 %130, 4
-  %132 = getelementptr inbounds i8, ptr %0, i64 112
+stbir__get_contributors.exit:                     ; preds = %107, %110
+  %.0.i68 = phi i32 [ %109, %107 ], [ %114, %110 ]
+  %115 = getelementptr inbounds i8, ptr %0, i64 104
+  store i32 %.0.i68, ptr %115, align 8
+  %116 = shl i32 %.0.i68, 3
+  %117 = getelementptr inbounds i8, ptr %0, i64 108
+  store i32 %116, ptr %117, align 4
+  %118 = shl i32 %94, 2
+  %119 = mul i32 %118, %.0.i68
+  %120 = add i32 %119, 4
+  %121 = getelementptr inbounds i8, ptr %0, i64 112
+  store i32 %120, ptr %121, align 8
+  %122 = getelementptr inbounds i8, ptr %0, i64 16
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %122, i8 0, i64 16, i1 false)
+  br i1 %.not.i, label %123, label %133
+
+123:                                              ; preds = %stbir__get_contributors.exit
+  %124 = getelementptr inbounds i8, ptr %0, i64 136
+  store i32 %103, ptr %124, align 8
+  %125 = getelementptr inbounds i8, ptr %0, i64 36
+  %126 = load i32, ptr %125, align 4
+  %127 = getelementptr inbounds i8, ptr %0, i64 132
+  store i32 %126, ptr %127, align 4
+  %128 = shl i32 %126, 3
+  %129 = getelementptr inbounds i8, ptr %0, i64 140
+  store i32 %128, ptr %129, align 4
+  %130 = shl i32 %103, 2
+  %131 = mul i32 %130, %126
+  %132 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 %131, ptr %132, align 8
-  %133 = getelementptr inbounds i8, ptr %0, i64 16
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %133, i8 0, i64 16, i1 false)
-  br i1 %.not.i, label %134, label %144
+  br label %133
 
-134:                                              ; preds = %stbir__get_contributors.exit
-  %135 = getelementptr inbounds i8, ptr %0, i64 136
-  store i32 %114, ptr %135, align 8
-  %136 = getelementptr inbounds i8, ptr %0, i64 36
-  %137 = load i32, ptr %136, align 4
-  %138 = getelementptr inbounds i8, ptr %0, i64 132
-  store i32 %137, ptr %138, align 4
-  %139 = shl i32 %137, 3
-  %140 = getelementptr inbounds i8, ptr %0, i64 140
-  store i32 %139, ptr %140, align 4
-  %141 = shl i32 %114, 2
-  %142 = mul i32 %141, %137
-  %143 = getelementptr inbounds i8, ptr %0, i64 144
-  store i32 %142, ptr %143, align 8
-  br label %144
-
-144:                                              ; preds = %134, %stbir__get_contributors.exit
+133:                                              ; preds = %123, %stbir__get_contributors.exit
   ret void
 }
 

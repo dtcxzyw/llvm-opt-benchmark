@@ -5594,35 +5594,23 @@ define internal fastcc i32 @bvec_npages(ptr nocapture noundef readonly %0, i32 n
 define dso_local ptr @dup_iter(ptr nocapture noundef %0, ptr nocapture noundef readonly %1, i32 noundef %2) #0 align 16 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %1, i64 40, i1 false)
   %4 = load i8, ptr %0, align 8
-  switch i8 %4, label %19 [
-    i8 2, label %5
-    i8 3, label %12
-    i8 1, label %12
-  ]
+  %.off = add i8 %4, -1
+  %switch = icmp ult i8 %.off, 3
+  br i1 %switch, label %.sink.split, label %11
 
-5:                                                ; preds = %3
-  %6 = getelementptr inbounds i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8
-  %10 = shl i64 %9, 4
-  %11 = tail call ptr @kmemdup(ptr noundef %7, i64 noundef %10, i32 noundef %2) #18
-  store ptr %11, ptr %6, align 8
-  br label %19
+.sink.split:                                      ; preds = %3
+  %5 = getelementptr inbounds i8, ptr %0, i64 16
+  %6 = load ptr, ptr %5, align 8
+  %7 = getelementptr inbounds i8, ptr %0, i64 32
+  %8 = load i64, ptr %7, align 8
+  %9 = shl i64 %8, 4
+  %10 = tail call ptr @kmemdup(ptr noundef %6, i64 noundef %9, i32 noundef %2) #18
+  store ptr %10, ptr %5, align 8
+  br label %11
 
-12:                                               ; preds = %3, %3
-  %13 = getelementptr inbounds i8, ptr %0, i64 16
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %0, i64 32
-  %16 = load i64, ptr %15, align 8
-  %17 = shl i64 %16, 4
-  %18 = tail call ptr @kmemdup(ptr noundef %14, i64 noundef %17, i32 noundef %2) #18
-  store ptr %18, ptr %13, align 8
-  br label %19
-
-19:                                               ; preds = %12, %5, %3
-  %20 = phi ptr [ %11, %5 ], [ %18, %12 ], [ null, %3 ]
-  ret ptr %20
+11:                                               ; preds = %3, %.sink.split
+  %12 = phi ptr [ null, %3 ], [ %10, %.sink.split ]
+  ret ptr %12
 }
 
 ; Function Attrs: null_pointer_is_valid allocsize(1)

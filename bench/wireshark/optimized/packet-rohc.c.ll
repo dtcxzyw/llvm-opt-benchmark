@@ -3466,9 +3466,9 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %50, %51
-  %hf_rohc_comp_ip_id.sink225 = phi ptr [ @hf_rohc_ts, %51 ], [ @hf_rohc_comp_ip_id, %50 ]
+  %hf_rohc_ts.sink221 = phi ptr [ @hf_rohc_ts, %51 ], [ @hf_rohc_comp_ip_id, %50 ]
   %hf_rohc_comp_ip_id.sink = phi ptr [ @hf_rohc_comp_ip_id, %51 ], [ @hf_rohc_ts, %50 ]
-  %52 = load i32, ptr %hf_rohc_comp_ip_id.sink225, align 4
+  %52 = load i32, ptr %hf_rohc_ts.sink221, align 4
   %53 = shl i32 %3, 3
   %54 = or disjoint i32 %53, 5
   %55 = tail call ptr @proto_tree_add_bits_item(ptr noundef %17, i32 noundef %52, ptr noundef %0, i32 noundef %54, i32 noundef 3, i32 noundef 0) #7
@@ -3503,28 +3503,28 @@ define internal fastcc i32 @dissect_rohc_ext_format(ptr noundef %0, ptr noundef 
 
 75:                                               ; preds = %62
   switch i8 %4, label %85 [
-    i8 0, label %.sink.split219
+    i8 0, label %.sink.split222
     i8 1, label %76
   ]
 
 76:                                               ; preds = %75
-  br label %.sink.split219
+  br label %.sink.split222
 
-.sink.split219:                                   ; preds = %75, %76
-  %hf_rohc_comp_ip_id.sink228 = phi ptr [ @hf_rohc_ts, %76 ], [ @hf_rohc_comp_ip_id, %75 ]
-  %hf_rohc_comp_ip_id.sink222 = phi ptr [ @hf_rohc_comp_ip_id, %76 ], [ @hf_rohc_ts, %75 ]
-  %77 = load i32, ptr %hf_rohc_comp_ip_id.sink228, align 4
+.sink.split222:                                   ; preds = %75, %76
+  %hf_rohc_ts.sink228 = phi ptr [ @hf_rohc_ts, %76 ], [ @hf_rohc_comp_ip_id, %75 ]
+  %hf_rohc_comp_ip_id.sink225 = phi ptr [ @hf_rohc_comp_ip_id, %76 ], [ @hf_rohc_ts, %75 ]
+  %77 = load i32, ptr %hf_rohc_ts.sink228, align 4
   %78 = shl i32 %3, 3
   %79 = or disjoint i32 %78, 5
   %80 = tail call ptr @proto_tree_add_bits_item(ptr noundef %17, i32 noundef %77, ptr noundef %0, i32 noundef %79, i32 noundef 11, i32 noundef 0) #7
   %81 = add i32 %3, 2
-  %82 = load i32, ptr %hf_rohc_comp_ip_id.sink222, align 4
+  %82 = load i32, ptr %hf_rohc_comp_ip_id.sink225, align 4
   %83 = shl i32 %81, 3
   %84 = tail call ptr @proto_tree_add_bits_item(ptr noundef %17, i32 noundef %82, ptr noundef %0, i32 noundef %83, i32 noundef 8, i32 noundef 0) #7
   br label %85
 
-85:                                               ; preds = %.sink.split219, %75
-  %.1 = phi i32 [ %3, %75 ], [ %81, %.sink.split219 ]
+85:                                               ; preds = %.sink.split222, %75
+  %.1 = phi i32 [ %3, %75 ], [ %81, %.sink.split222 ]
   %86 = add i32 %.1, 1
   br label %263
 

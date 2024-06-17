@@ -965,12 +965,12 @@ define noundef i64 @_ZN11cache_sim_t9victimizeEm(ptr nocapture noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereferenceable(153) %0, i64 noundef %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #3 align 2 {
   %. = select i1 %3, i64 88, i64 64
-  %.32 = select i1 %3, i64 104, i64 80
+  %.29 = select i1 %3, i64 104, i64 80
   %5 = getelementptr inbounds i8, ptr %0, i64 %.
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, 1
   store i64 %7, ptr %5, align 8
-  %8 = getelementptr inbounds i8, ptr %0, i64 %.32
+  %8 = getelementptr inbounds i8, ptr %0, i64 %.29
   %9 = load i64, ptr %8, align 8
   %10 = add i64 %9, %2
   store i64 %10, ptr %8, align 8
@@ -985,8 +985,8 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
   br i1 %3, label %.sink.split, label %69
 
 16:                                               ; preds = %4
-  %.33 = select i1 %3, i64 96, i64 72
-  %17 = getelementptr inbounds i8, ptr %0, i64 %.33
+  %.30 = select i1 %3, i64 96, i64 72
+  %17 = getelementptr inbounds i8, ptr %0, i64 %.30
   %18 = load i64, ptr %17, align 8
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8
@@ -1063,10 +1063,10 @@ define void @_ZN11cache_sim_t6accessEmmb(ptr noundef nonnull align 8 dereference
   br label %.sink.split
 
 .sink.split:                                      ; preds = %15, %62
-  %.sink30 = phi ptr [ %66, %62 ], [ %14, %15 ]
-  %67 = load i64, ptr %.sink30, align 8
+  %.sink = phi ptr [ %66, %62 ], [ %14, %15 ]
+  %67 = load i64, ptr %.sink, align 8
   %68 = or i64 %67, 4611686018427387904
-  store i64 %68, ptr %.sink30, align 8
+  store i64 %68, ptr %.sink, align 8
   br label %69
 
 69:                                               ; preds = %.sink.split, %15, %61

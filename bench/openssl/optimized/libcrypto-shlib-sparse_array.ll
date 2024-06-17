@@ -574,10 +574,10 @@ land.lhs.true50:                                  ; preds = %for.end39
 
 if.end57.sink.split:                              ; preds = %land.lhs.true50, %land.lhs.true43
   %.sink56 = phi i64 [ -1, %land.lhs.true43 ], [ 1, %land.lhs.true50 ]
-  %nelem = getelementptr inbounds i8, ptr %sa, i64 16
-  %8 = load i64, ptr %nelem, align 8
+  %nelem54 = getelementptr inbounds i8, ptr %sa, i64 16
+  %8 = load i64, ptr %nelem54, align 8
   %inc55 = add i64 %8, %.sink56
-  store i64 %inc55, ptr %nelem, align 8
+  store i64 %inc55, ptr %nelem54, align 8
   br label %if.end57
 
 if.end57:                                         ; preds = %if.end57.sink.split, %land.lhs.true43, %land.lhs.true50

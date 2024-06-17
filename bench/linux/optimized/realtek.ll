@@ -175,49 +175,40 @@ declare dso_local i32 @genphy_write_mmd_unsupported(ptr noundef, i32 noundef, i1
 define internal range(i32 -2147483648, 1) i32 @rtl8211_config_aneg(ptr noundef %0) #2 align 16 {
   %2 = tail call i32 @__genphy_config_aneg(ptr noundef %0, i1 noundef zeroext false) #8
   %3 = icmp slt i32 %2, 0
-  br i1 %3, label %32, label %4
+  br i1 %3, label %24, label %4
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 1016
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, 100
-  br i1 %7, label %8, label %19
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 988
   %10 = load i32, ptr %9, align 4
   %11 = and i32 %10, 8192
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %19
+  br i1 %12, label %14, label %13
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds i8, ptr %0, i64 728
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds i8, ptr %0, i64 792
-  %17 = load i32, ptr %16, align 8
-  %18 = tail call i32 @mdiobus_write(ptr noundef %15, i32 noundef %17, i32 noundef 23, i16 noundef zeroext 8504) #8
-  br label %25
+13:                                               ; preds = %8, %4
+  br label %14
 
-19:                                               ; preds = %8, %4
-  %20 = getelementptr inbounds i8, ptr %0, i64 728
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds i8, ptr %0, i64 792
-  %23 = load i32, ptr %22, align 8
-  %24 = tail call i32 @mdiobus_write(ptr noundef %21, i32 noundef %23, i32 noundef 23, i16 noundef zeroext 8456) #8
-  br label %25
+14:                                               ; preds = %8, %13
+  %.sink2 = phi i16 [ 8456, %13 ], [ 8504, %8 ]
+  %15 = phi i16 [ 0, %13 ], [ 608, %8 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 728
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 792
+  %19 = load i32, ptr %18, align 8
+  %20 = tail call i32 @mdiobus_write(ptr noundef %17, i32 noundef %19, i32 noundef 23, i16 noundef zeroext %.sink2) #8
+  %21 = load ptr, ptr %16, align 8
+  %22 = load i32, ptr %18, align 8
+  %23 = tail call i32 @mdiobus_write(ptr noundef %21, i32 noundef %22, i32 noundef 14, i16 noundef zeroext %15) #8
+  br label %24
 
-25:                                               ; preds = %19, %13
-  %26 = phi ptr [ %14, %13 ], [ %20, %19 ]
-  %27 = phi ptr [ %16, %13 ], [ %22, %19 ]
-  %28 = phi i16 [ 608, %13 ], [ 0, %19 ]
-  %29 = load ptr, ptr %26, align 8
-  %30 = load i32, ptr %27, align 8
-  %31 = tail call i32 @mdiobus_write(ptr noundef %29, i32 noundef %30, i32 noundef 14, i16 noundef zeroext %28) #8
-  br label %32
-
-32:                                               ; preds = %25, %1
-  %33 = phi i32 [ %2, %1 ], [ 0, %25 ]
-  ret i32 %33
+24:                                               ; preds = %14, %1
+  %25 = phi i32 [ %2, %1 ], [ 0, %14 ]
+  ret i32 %25
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -747,58 +738,38 @@ define internal i32 @rtlgen_read_mmd(ptr nocapture noundef readonly %0, i32 noun
   %4 = icmp eq i32 %1, 3
   %5 = icmp eq i16 %2, 20
   %6 = and i1 %4, %5
-  br i1 %6, label %7, label %13
+  br i1 %6, label %14, label %7
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds i8, ptr %0, i64 728
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds i8, ptr %0, i64 792
-  %11 = load i32, ptr %10, align 8
-  %12 = tail call i32 @__mdiobus_write(ptr noundef %9, i32 noundef %11, i32 noundef 31, i16 noundef zeroext 2652) #8
-  br label %32
+  %8 = icmp eq i32 %1, 7
+  %9 = icmp eq i16 %2, 60
+  %10 = and i1 %8, %9
+  br i1 %10, label %14, label %11
 
-13:                                               ; preds = %3
-  %14 = icmp eq i32 %1, 7
-  %15 = icmp eq i16 %2, 60
-  %16 = and i1 %14, %15
-  br i1 %16, label %17, label %23
+11:                                               ; preds = %7
+  %12 = icmp eq i16 %2, 61
+  %13 = and i1 %8, %12
+  br i1 %13, label %14, label %27
 
-17:                                               ; preds = %13
-  %18 = getelementptr inbounds i8, ptr %0, i64 728
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 792
-  %21 = load i32, ptr %20, align 8
-  %22 = tail call i32 @__mdiobus_write(ptr noundef %19, i32 noundef %21, i32 noundef 31, i16 noundef zeroext 2653) #8
-  br label %32
+14:                                               ; preds = %11, %7, %3
+  %.sink2 = phi i16 [ 2652, %3 ], [ 2653, %7 ], [ 2653, %11 ]
+  %15 = phi i32 [ 18, %3 ], [ 16, %7 ], [ 17, %11 ]
+  %16 = getelementptr inbounds i8, ptr %0, i64 728
+  %17 = load ptr, ptr %16, align 8
+  %18 = getelementptr inbounds i8, ptr %0, i64 792
+  %19 = load i32, ptr %18, align 8
+  %20 = tail call i32 @__mdiobus_write(ptr noundef %17, i32 noundef %19, i32 noundef 31, i16 noundef zeroext %.sink2) #8
+  %21 = load ptr, ptr %16, align 8
+  %22 = load i32, ptr %18, align 8
+  %23 = tail call i32 @__mdiobus_read(ptr noundef %21, i32 noundef %22, i32 noundef %15) #8
+  %24 = load ptr, ptr %16, align 8
+  %25 = load i32, ptr %18, align 8
+  %26 = tail call i32 @__mdiobus_write(ptr noundef %24, i32 noundef %25, i32 noundef 31, i16 noundef zeroext 0) #8
+  br label %27
 
-23:                                               ; preds = %13
-  %24 = icmp eq i16 %2, 61
-  %25 = and i1 %14, %24
-  br i1 %25, label %26, label %42
-
-26:                                               ; preds = %23
-  %27 = getelementptr inbounds i8, ptr %0, i64 728
-  %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds i8, ptr %0, i64 792
-  %30 = load i32, ptr %29, align 8
-  %31 = tail call i32 @__mdiobus_write(ptr noundef %28, i32 noundef %30, i32 noundef 31, i16 noundef zeroext 2653) #8
-  br label %32
-
-32:                                               ; preds = %26, %17, %7
-  %33 = phi ptr [ %18, %17 ], [ %27, %26 ], [ %8, %7 ]
-  %34 = phi ptr [ %20, %17 ], [ %29, %26 ], [ %10, %7 ]
-  %35 = phi i32 [ 16, %17 ], [ 17, %26 ], [ 18, %7 ]
-  %36 = load ptr, ptr %33, align 8
-  %37 = load i32, ptr %34, align 8
-  %38 = tail call i32 @__mdiobus_read(ptr noundef %36, i32 noundef %37, i32 noundef %35) #8
-  %39 = load ptr, ptr %33, align 8
-  %40 = load i32, ptr %34, align 8
-  %41 = tail call i32 @__mdiobus_write(ptr noundef %39, i32 noundef %40, i32 noundef 31, i16 noundef zeroext 0) #8
-  br label %42
-
-42:                                               ; preds = %32, %23
-  %43 = phi i32 [ -95, %23 ], [ %38, %32 ]
-  ret i32 %43
+27:                                               ; preds = %14, %11
+  %28 = phi i32 [ -95, %11 ], [ %23, %14 ]
+  ret i32 %28
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1048,66 +1019,74 @@ define internal range(i32 0, 2) i32 @rtl8226_match_phy_device(ptr nocapture noun
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal i32 @rtl822x_read_mmd(ptr nocapture noundef readonly %0, i32 noundef %1, i16 noundef zeroext %2) #2 align 16 {
-  %4 = tail call i32 @rtlgen_read_mmd(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2)
-  %5 = icmp eq i32 %4, -95
-  br i1 %5, label %6, label %45
+  %4 = icmp eq i32 %1, 3
+  %5 = icmp eq i16 %2, 20
+  %6 = and i1 %4, %5
+  br i1 %6, label %rtlgen_read_mmd.exit, label %7
 
-6:                                                ; preds = %3
-  %7 = icmp eq i32 %1, 3
-  %8 = icmp eq i16 %2, 21
-  %9 = and i1 %7, %8
-  br i1 %9, label %10, label %16
+7:                                                ; preds = %3
+  %8 = icmp eq i32 %1, 7
+  %9 = icmp eq i16 %2, 60
+  %10 = and i1 %8, %9
+  br i1 %10, label %rtlgen_read_mmd.exit, label %11
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 728
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds i8, ptr %0, i64 792
-  %14 = load i32, ptr %13, align 8
-  %15 = tail call i32 @__mdiobus_write(ptr noundef %12, i32 noundef %14, i32 noundef 31, i16 noundef zeroext 2670) #8
-  br label %35
+11:                                               ; preds = %7
+  %12 = icmp eq i16 %2, 61
+  %13 = and i1 %8, %12
+  br i1 %13, label %rtlgen_read_mmd.exit, label %rtlgen_read_mmd.exit.thread
 
-16:                                               ; preds = %6
-  %17 = icmp eq i32 %1, 7
-  %18 = icmp eq i16 %2, 62
-  %19 = and i1 %17, %18
-  br i1 %19, label %20, label %26
+rtlgen_read_mmd.exit:                             ; preds = %3, %7, %11
+  %.sink2.i = phi i16 [ 2652, %3 ], [ 2653, %7 ], [ 2653, %11 ]
+  %14 = phi i32 [ 18, %3 ], [ 16, %7 ], [ 17, %11 ]
+  %15 = getelementptr inbounds i8, ptr %0, i64 728
+  %16 = load ptr, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 792
+  %18 = load i32, ptr %17, align 8
+  %19 = tail call i32 @__mdiobus_write(ptr noundef %16, i32 noundef %18, i32 noundef 31, i16 noundef zeroext %.sink2.i) #8
+  %20 = load ptr, ptr %15, align 8
+  %21 = load i32, ptr %17, align 8
+  %22 = tail call i32 @__mdiobus_read(ptr noundef %20, i32 noundef %21, i32 noundef %14) #8
+  %23 = load ptr, ptr %15, align 8
+  %24 = load i32, ptr %17, align 8
+  %25 = tail call i32 @__mdiobus_write(ptr noundef %23, i32 noundef %24, i32 noundef 31, i16 noundef zeroext 0) #8
+  %26 = icmp eq i32 %22, -95
+  br i1 %26, label %rtlgen_read_mmd.exit.thread, label %49
 
-20:                                               ; preds = %16
-  %21 = getelementptr inbounds i8, ptr %0, i64 728
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i8, ptr %0, i64 792
-  %24 = load i32, ptr %23, align 8
-  %25 = tail call i32 @__mdiobus_write(ptr noundef %22, i32 noundef %24, i32 noundef 31, i16 noundef zeroext 2669) #8
-  br label %35
+rtlgen_read_mmd.exit.thread:                      ; preds = %11, %rtlgen_read_mmd.exit
+  %27 = icmp eq i16 %2, 21
+  %28 = and i1 %4, %27
+  br i1 %28, label %36, label %29
 
-26:                                               ; preds = %16
-  %27 = icmp eq i16 %2, 63
-  %28 = and i1 %17, %27
-  br i1 %28, label %29, label %45
+29:                                               ; preds = %rtlgen_read_mmd.exit.thread
+  %30 = icmp eq i32 %1, 7
+  %31 = icmp eq i16 %2, 62
+  %32 = and i1 %30, %31
+  br i1 %32, label %36, label %33
 
-29:                                               ; preds = %26
-  %30 = getelementptr inbounds i8, ptr %0, i64 728
-  %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr inbounds i8, ptr %0, i64 792
-  %33 = load i32, ptr %32, align 8
-  %34 = tail call i32 @__mdiobus_write(ptr noundef %31, i32 noundef %33, i32 noundef 31, i16 noundef zeroext 2669) #8
-  br label %35
+33:                                               ; preds = %29
+  %34 = icmp eq i16 %2, 63
+  %35 = and i1 %30, %34
+  br i1 %35, label %36, label %49
 
-35:                                               ; preds = %29, %20, %10
-  %36 = phi ptr [ %11, %10 ], [ %30, %29 ], [ %21, %20 ]
-  %37 = phi ptr [ %13, %10 ], [ %32, %29 ], [ %23, %20 ]
-  %38 = phi i32 [ 22, %10 ], [ 16, %29 ], [ 18, %20 ]
-  %39 = load ptr, ptr %36, align 8
-  %40 = load i32, ptr %37, align 8
-  %41 = tail call i32 @__mdiobus_read(ptr noundef %39, i32 noundef %40, i32 noundef %38) #8
-  %42 = load ptr, ptr %36, align 8
-  %43 = load i32, ptr %37, align 8
-  %44 = tail call i32 @__mdiobus_write(ptr noundef %42, i32 noundef %43, i32 noundef 31, i16 noundef zeroext 0) #8
-  br label %45
+36:                                               ; preds = %33, %29, %rtlgen_read_mmd.exit.thread
+  %.sink2 = phi i16 [ 2670, %rtlgen_read_mmd.exit.thread ], [ 2669, %29 ], [ 2669, %33 ]
+  %37 = phi i32 [ 22, %rtlgen_read_mmd.exit.thread ], [ 18, %29 ], [ 16, %33 ]
+  %38 = getelementptr inbounds i8, ptr %0, i64 728
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds i8, ptr %0, i64 792
+  %41 = load i32, ptr %40, align 8
+  %42 = tail call i32 @__mdiobus_write(ptr noundef %39, i32 noundef %41, i32 noundef 31, i16 noundef zeroext %.sink2) #8
+  %43 = load ptr, ptr %38, align 8
+  %44 = load i32, ptr %40, align 8
+  %45 = tail call i32 @__mdiobus_read(ptr noundef %43, i32 noundef %44, i32 noundef %37) #8
+  %46 = load ptr, ptr %38, align 8
+  %47 = load i32, ptr %40, align 8
+  %48 = tail call i32 @__mdiobus_write(ptr noundef %46, i32 noundef %47, i32 noundef 31, i16 noundef zeroext 0) #8
+  br label %49
 
-45:                                               ; preds = %35, %26, %3
-  %46 = phi i32 [ %4, %3 ], [ -95, %26 ], [ %41, %35 ]
-  ret i32 %46
+49:                                               ; preds = %36, %33, %rtlgen_read_mmd.exit
+  %50 = phi i32 [ %22, %rtlgen_read_mmd.exit ], [ -95, %33 ], [ %45, %36 ]
+  ret i32 %50
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -1115,44 +1094,32 @@ define internal i32 @rtl822x_write_mmd(ptr nocapture noundef readonly %0, i32 no
   %5 = icmp eq i32 %1, 7
   %6 = icmp eq i16 %2, 60
   %7 = and i1 %5, %6
-  br i1 %7, label %8, label %14
+  br i1 %7, label %.thread1.sink.split, label %8
 
 8:                                                ; preds = %4
-  %9 = getelementptr inbounds i8, ptr %0, i64 728
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds i8, ptr %0, i64 792
-  %12 = load i32, ptr %11, align 8
-  %13 = tail call i32 @__mdiobus_write(ptr noundef %10, i32 noundef %12, i32 noundef 31, i16 noundef zeroext 2653) #8
-  br label %.thread1.sink.split
+  %9 = icmp eq i16 %2, 62
+  %10 = and i1 %5, %9
+  br i1 %10, label %.thread1.sink.split, label %.thread1
 
-14:                                               ; preds = %4
-  %15 = icmp eq i16 %2, 62
-  %16 = and i1 %5, %15
-  br i1 %16, label %17, label %.thread1
-
-17:                                               ; preds = %14
-  %18 = getelementptr inbounds i8, ptr %0, i64 728
-  %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds i8, ptr %0, i64 792
-  %21 = load i32, ptr %20, align 8
-  %22 = tail call i32 @__mdiobus_write(ptr noundef %19, i32 noundef %21, i32 noundef 31, i16 noundef zeroext 2669) #8
-  br label %.thread1.sink.split
-
-.thread1.sink.split:                              ; preds = %17, %8
-  %.sink8 = phi ptr [ %9, %8 ], [ %18, %17 ]
-  %.sink7 = phi ptr [ %11, %8 ], [ %20, %17 ]
-  %.sink6 = phi i32 [ 16, %8 ], [ 18, %17 ]
-  %23 = load ptr, ptr %.sink8, align 8
-  %24 = load i32, ptr %.sink7, align 8
-  %25 = tail call i32 @__mdiobus_write(ptr noundef %23, i32 noundef %24, i32 noundef %.sink6, i16 noundef zeroext %3) #8
-  %26 = load ptr, ptr %.sink8, align 8
-  %27 = load i32, ptr %.sink7, align 8
-  %28 = tail call i32 @__mdiobus_write(ptr noundef %26, i32 noundef %27, i32 noundef 31, i16 noundef zeroext 0) #8
+.thread1.sink.split:                              ; preds = %8, %4
+  %.sink10 = phi i16 [ 2653, %4 ], [ 2669, %8 ]
+  %.sink6 = phi i32 [ 16, %4 ], [ 18, %8 ]
+  %11 = getelementptr inbounds i8, ptr %0, i64 728
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %0, i64 792
+  %14 = load i32, ptr %13, align 8
+  %15 = tail call i32 @__mdiobus_write(ptr noundef %12, i32 noundef %14, i32 noundef 31, i16 noundef zeroext %.sink10) #8
+  %16 = load ptr, ptr %11, align 8
+  %17 = load i32, ptr %13, align 8
+  %18 = tail call i32 @__mdiobus_write(ptr noundef %16, i32 noundef %17, i32 noundef %.sink6, i16 noundef zeroext %3) #8
+  %19 = load ptr, ptr %11, align 8
+  %20 = load i32, ptr %13, align 8
+  %21 = tail call i32 @__mdiobus_write(ptr noundef %19, i32 noundef %20, i32 noundef 31, i16 noundef zeroext 0) #8
   br label %.thread1
 
-.thread1:                                         ; preds = %.thread1.sink.split, %14
-  %29 = phi i32 [ -95, %14 ], [ %25, %.thread1.sink.split ]
-  ret i32 %29
+.thread1:                                         ; preds = %.thread1.sink.split, %8
+  %22 = phi i32 [ -95, %8 ], [ %18, %.thread1.sink.split ]
+  ret i32 %22
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

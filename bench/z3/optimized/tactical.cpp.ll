@@ -8571,7 +8571,7 @@ if.then73:                                        ; preds = %for.end71.thread, %
   %62 = load i32, ptr %ex_kind, align 4
   switch i32 %62, label %sw.default [
     i32 2, label %sw.bb
-    i32 0, label %sw.bb78
+    i32 0, label %sw.default.invoke.sink.split
   ]
 
 sw.bb:                                            ; preds = %if.then73
@@ -8587,27 +8587,22 @@ lpad75:                                           ; preds = %sw.bb
   call void @__cxa_free_exception(ptr %exception74) #16
   br label %ehcleanup89
 
-sw.bb78:                                          ; preds = %if.then73
-  %exception79 = call ptr @__cxa_allocate_exception(i64 40) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16tactic_exception, i64 16), ptr %exception79, align 8
-  br label %sw.default.invoke.sink.split
-
 sw.default:                                       ; preds = %if.then73
-  %exception83 = call ptr @__cxa_allocate_exception(i64 40) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception83, align 8
   br label %sw.default.invoke.sink.split
 
-sw.default.invoke.sink.split:                     ; preds = %sw.default, %sw.bb78
-  %exception79.sink = phi ptr [ %exception79, %sw.bb78 ], [ %exception83, %sw.default ]
-  %.ph144 = phi ptr [ @_ZTI16tactic_exception, %sw.bb78 ], [ @_ZTI17default_exception, %sw.default ]
-  %.ph145 = phi ptr [ @_ZN16tactic_exceptionD2Ev, %sw.bb78 ], [ @_ZN17default_exceptionD2Ev, %sw.default ]
-  %ex_msg.sink = getelementptr inbounds i8, ptr %this, i64 24
-  %m_msg.i73 = getelementptr inbounds i8, ptr %exception79.sink, i64 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i73, ptr noundef nonnull align 8 dereferenceable(32) %ex_msg.sink) #16
+sw.default.invoke.sink.split:                     ; preds = %if.then73, %sw.default
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), %sw.default ], [ getelementptr inbounds (i8, ptr @_ZTV16tactic_exception, i64 16), %if.then73 ]
+  %.ph144 = phi ptr [ @_ZTI17default_exception, %sw.default ], [ @_ZTI16tactic_exception, %if.then73 ]
+  %.ph145 = phi ptr [ @_ZN17default_exceptionD2Ev, %sw.default ], [ @_ZN16tactic_exceptionD2Ev, %if.then73 ]
+  %exception79 = call ptr @__cxa_allocate_exception(i64 40) #16
+  %ex_msg = getelementptr inbounds i8, ptr %this, i64 24
+  store ptr %.sink, ptr %exception79, align 8
+  %m_msg.i73 = getelementptr inbounds i8, ptr %exception79, i64 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i73, ptr noundef nonnull align 8 dereferenceable(32) %ex_msg) #16
   br label %sw.default.invoke
 
 sw.default.invoke:                                ; preds = %sw.default.invoke.sink.split, %sw.bb
-  %65 = phi ptr [ %exception74, %sw.bb ], [ %exception79.sink, %sw.default.invoke.sink.split ]
+  %65 = phi ptr [ %exception74, %sw.bb ], [ %exception79, %sw.default.invoke.sink.split ]
   %66 = phi ptr [ @_ZTI8z3_error, %sw.bb ], [ %.ph144, %sw.default.invoke.sink.split ]
   %67 = phi ptr [ @_ZN8z3_errorD2Ev, %sw.bb ], [ %.ph145, %sw.default.invoke.sink.split ]
   invoke void @__cxa_throw(ptr nonnull %65, ptr nonnull %66, ptr nonnull %67) #17
@@ -11189,7 +11184,7 @@ if.then98:                                        ; preds = %for.end96
   %110 = load i32, ptr %ex_kind, align 4
   switch i32 %110, label %sw.default [
     i32 2, label %sw.bb
-    i32 0, label %sw.bb103
+    i32 0, label %sw.default.invoke.sink.split
   ]
 
 sw.bb:                                            ; preds = %if.then98
@@ -11204,26 +11199,21 @@ lpad100:                                          ; preds = %sw.bb
   call void @__cxa_free_exception(ptr %exception99) #16
   br label %ehcleanup235
 
-sw.bb103:                                         ; preds = %if.then98
-  %exception104 = call ptr @__cxa_allocate_exception(i64 40) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV16tactic_exception, i64 16), ptr %exception104, align 8
-  br label %sw.default.invoke.sink.split
-
 sw.default:                                       ; preds = %if.then98
-  %exception108 = call ptr @__cxa_allocate_exception(i64 40) #16
-  store ptr getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), ptr %exception108, align 8
   br label %sw.default.invoke.sink.split
 
-sw.default.invoke.sink.split:                     ; preds = %sw.default, %sw.bb103
-  %exception104.sink = phi ptr [ %exception104, %sw.bb103 ], [ %exception108, %sw.default ]
-  %.ph631 = phi ptr [ @_ZTI16tactic_exception, %sw.bb103 ], [ @_ZTI17default_exception, %sw.default ]
-  %.ph632 = phi ptr [ @_ZN16tactic_exceptionD2Ev, %sw.bb103 ], [ @_ZN17default_exceptionD2Ev, %sw.default ]
-  %m_msg.i147 = getelementptr inbounds i8, ptr %exception104.sink, i64 8
+sw.default.invoke.sink.split:                     ; preds = %if.then98, %sw.default
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTV17default_exception, i64 16), %sw.default ], [ getelementptr inbounds (i8, ptr @_ZTV16tactic_exception, i64 16), %if.then98 ]
+  %.ph631 = phi ptr [ @_ZTI17default_exception, %sw.default ], [ @_ZTI16tactic_exception, %if.then98 ]
+  %.ph632 = phi ptr [ @_ZN17default_exceptionD2Ev, %sw.default ], [ @_ZN16tactic_exceptionD2Ev, %if.then98 ]
+  %exception104 = call ptr @__cxa_allocate_exception(i64 40) #16
+  store ptr %.sink, ptr %exception104, align 8
+  %m_msg.i147 = getelementptr inbounds i8, ptr %exception104, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i147, ptr noundef nonnull align 8 dereferenceable(32) %ex_msg) #16
   br label %sw.default.invoke
 
 sw.default.invoke:                                ; preds = %sw.default.invoke.sink.split, %sw.bb
-  %113 = phi ptr [ %exception99, %sw.bb ], [ %exception104.sink, %sw.default.invoke.sink.split ]
+  %113 = phi ptr [ %exception99, %sw.bb ], [ %exception104, %sw.default.invoke.sink.split ]
   %114 = phi ptr [ @_ZTI8z3_error, %sw.bb ], [ %.ph631, %sw.default.invoke.sink.split ]
   %115 = phi ptr [ @_ZN8z3_errorD2Ev, %sw.bb ], [ %.ph632, %sw.default.invoke.sink.split ]
   invoke void @__cxa_throw(ptr nonnull %113, ptr nonnull %114, ptr nonnull %115) #17

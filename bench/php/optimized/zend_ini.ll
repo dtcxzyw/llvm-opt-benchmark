@@ -1239,32 +1239,28 @@ define ptr @zend_ini_string(ptr noundef %0, i64 noundef %1, i32 noundef %2) loca
 6:                                                ; preds = %3
   %7 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
   %.not28.i = icmp eq i32 %2, 0
-  br i1 %.not28.i, label %15, label %8
+  br i1 %.not28.i, label %11, label %8
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 70
   %10 = load i8, ptr %9, align 2
   %.not29.i = icmp eq i8 %10, 0
-  br i1 %.not29.i, label %15, label %11
+  br i1 %.not29.i, label %11, label %zend_ini_string_ex.exit.sink.split
 
-11:                                               ; preds = %8
-  %12 = getelementptr inbounds i8, ptr %7, i64 48
+11:                                               ; preds = %8, %6
+  br label %zend_ini_string_ex.exit.sink.split
+
+zend_ini_string_ex.exit.sink.split:               ; preds = %8, %11
+  %.sink = phi i64 [ 40, %11 ], [ 48, %8 ]
+  %12 = getelementptr inbounds i8, ptr %7, i64 %.sink
   %13 = load ptr, ptr %12, align 8
   %.not31.i = icmp eq ptr %13, null
   %14 = getelementptr inbounds i8, ptr %13, i64 24
   %spec.select.i = select i1 %.not31.i, ptr null, ptr %14
   br label %zend_ini_string_ex.exit
 
-15:                                               ; preds = %8, %6
-  %16 = getelementptr inbounds i8, ptr %7, i64 40
-  %17 = load ptr, ptr %16, align 8
-  %.not30.i = icmp eq ptr %17, null
-  %18 = getelementptr inbounds i8, ptr %17, i64 24
-  %spec.select32.i = select i1 %.not30.i, ptr null, ptr %18
-  br label %zend_ini_string_ex.exit
-
-zend_ini_string_ex.exit:                          ; preds = %3, %11, %15
-  %.020.i = phi ptr [ %spec.select32.i, %15 ], [ %spec.select.i, %11 ], [ null, %3 ]
+zend_ini_string_ex.exit:                          ; preds = %zend_ini_string_ex.exit.sink.split, %3
+  %.020.i = phi ptr [ null, %3 ], [ %spec.select.i, %zend_ini_string_ex.exit.sink.split ]
   %.not = icmp eq ptr %.020.i, null
   %spec.store.select = select i1 %.not, ptr @.str, ptr %.020.i
   %.0 = select i1 %.not.i.not, ptr null, ptr %spec.store.select

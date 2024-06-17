@@ -46,12 +46,12 @@ define range(i32 -1, 1) i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr nounde
 7:                                                ; preds = %3
   %8 = tail call ptr @gvplugin_list(ptr noundef %0, i32 noundef 1, ptr noundef %2) #8
   %9 = tail call i32 (i32, ptr, ...) @agerr(i32 noundef 1, ptr noundef nonnull @.str.2, ptr noundef %2, ptr noundef %8) #8
-  br label %59
+  br label %39
 
 10:                                               ; preds = %3
   %11 = tail call i32 @gvLayoutJobs(ptr noundef %0, ptr noundef %1) #8
   %12 = icmp eq i32 %11, -1
-  br i1 %12, label %59, label %13
+  br i1 %12, label %39, label %13
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds i8, ptr %1, i64 16
@@ -61,70 +61,40 @@ define range(i32 -1, 1) i32 @gvLayout(ptr noundef %0, ptr noundef %1, ptr nounde
   %18 = getelementptr inbounds i8, ptr %17, i64 81
   %19 = load i8, ptr %18, align 1
   %20 = trunc i8 %19 to i1
-  br i1 %20, label %21, label %39
+  %. = select i1 %20, i64 40, i64 32
+  %.77 = select i1 %20, i64 32, i64 40
+  %.78 = select i1 %20, i64 56, i64 48
+  %.79 = select i1 %20, i64 48, i64 56
+  %21 = getelementptr inbounds i8, ptr %15, i64 %.
+  %22 = load double, ptr %21, align 8
+  %23 = fcmp ult double %22, 0.000000e+00
+  %.in.v = select i1 %23, double -5.000000e-01, double 5.000000e-01
+  %.in = fadd double %22, %.in.v
+  %24 = fptosi double %.in to i32
+  %25 = getelementptr inbounds i8, ptr %15, i64 %.77
+  %26 = load double, ptr %25, align 8
+  %27 = fcmp ult double %26, 0.000000e+00
+  %.in49.v = select i1 %27, double -5.000000e-01, double 5.000000e-01
+  %.in49 = fadd double %26, %.in49.v
+  %28 = fptosi double %.in49 to i32
+  %29 = getelementptr inbounds i8, ptr %15, i64 %.78
+  %30 = load double, ptr %29, align 8
+  %31 = fcmp ult double %30, 0.000000e+00
+  %.in50.v = select i1 %31, double -5.000000e-01, double 5.000000e-01
+  %.in50 = fadd double %30, %.in50.v
+  %32 = fptosi double %.in50 to i32
+  %33 = getelementptr inbounds i8, ptr %15, i64 %.79
+  %34 = load double, ptr %33, align 8
+  %35 = fcmp ult double %34, 0.000000e+00
+  %.in51.v = select i1 %35, double -5.000000e-01, double 5.000000e-01
+  %.in51 = fadd double %34, %.in51.v
+  %36 = fptosi double %.in51 to i32
+  %37 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.3, i32 noundef %24, i32 noundef %28, i32 noundef %32, i32 noundef %36) #8
+  %38 = call i32 @agsafeset(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #8
+  br label %39
 
-21:                                               ; preds = %13
-  %22 = getelementptr inbounds i8, ptr %15, i64 40
-  %23 = load double, ptr %22, align 8
-  %24 = fcmp ult double %23, 0.000000e+00
-  %.in52.v = select i1 %24, double -5.000000e-01, double 5.000000e-01
-  %.in52 = fadd double %23, %.in52.v
-  %25 = fptosi double %.in52 to i32
-  %26 = getelementptr inbounds i8, ptr %15, i64 32
-  %27 = load double, ptr %26, align 8
-  %28 = fcmp ult double %27, 0.000000e+00
-  %.in53.v = select i1 %28, double -5.000000e-01, double 5.000000e-01
-  %.in53 = fadd double %27, %.in53.v
-  %29 = fptosi double %.in53 to i32
-  %30 = getelementptr inbounds i8, ptr %15, i64 56
-  %31 = load double, ptr %30, align 8
-  %32 = fcmp ult double %31, 0.000000e+00
-  %.in54.v = select i1 %32, double -5.000000e-01, double 5.000000e-01
-  %.in54 = fadd double %31, %.in54.v
-  %33 = fptosi double %.in54 to i32
-  %34 = getelementptr inbounds i8, ptr %15, i64 48
-  %35 = load double, ptr %34, align 8
-  %36 = fcmp ult double %35, 0.000000e+00
-  %.in55.v = select i1 %36, double -5.000000e-01, double 5.000000e-01
-  %.in55 = fadd double %35, %.in55.v
-  %37 = fptosi double %.in55 to i32
-  %38 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.3, i32 noundef %25, i32 noundef %29, i32 noundef %33, i32 noundef %37) #8
-  br label %57
-
-39:                                               ; preds = %13
-  %40 = getelementptr inbounds i8, ptr %15, i64 32
-  %41 = load double, ptr %40, align 8
-  %42 = fcmp ult double %41, 0.000000e+00
-  %.in.v = select i1 %42, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %41, %.in.v
-  %43 = fptosi double %.in to i32
-  %44 = getelementptr inbounds i8, ptr %15, i64 40
-  %45 = load double, ptr %44, align 8
-  %46 = fcmp ult double %45, 0.000000e+00
-  %.in49.v = select i1 %46, double -5.000000e-01, double 5.000000e-01
-  %.in49 = fadd double %45, %.in49.v
-  %47 = fptosi double %.in49 to i32
-  %48 = getelementptr inbounds i8, ptr %15, i64 48
-  %49 = load double, ptr %48, align 8
-  %50 = fcmp ult double %49, 0.000000e+00
-  %.in50.v = select i1 %50, double -5.000000e-01, double 5.000000e-01
-  %.in50 = fadd double %49, %.in50.v
-  %51 = fptosi double %.in50 to i32
-  %52 = getelementptr inbounds i8, ptr %15, i64 56
-  %53 = load double, ptr %52, align 8
-  %54 = fcmp ult double %53, 0.000000e+00
-  %.in51.v = select i1 %54, double -5.000000e-01, double 5.000000e-01
-  %.in51 = fadd double %53, %.in51.v
-  %55 = fptosi double %.in51 to i32
-  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 256, ptr noundef nonnull @.str.3, i32 noundef %43, i32 noundef %47, i32 noundef %51, i32 noundef %55) #8
-  br label %57
-
-57:                                               ; preds = %39, %21
-  %58 = call i32 @agsafeset(ptr noundef nonnull %1, ptr noundef nonnull @.str.4, ptr noundef nonnull %4, ptr noundef nonnull @.str.5) #8
-  br label %59
-
-59:                                               ; preds = %10, %57, %7
-  %.0 = phi i32 [ -1, %7 ], [ 0, %57 ], [ -1, %10 ]
+39:                                               ; preds = %10, %13, %7
+  %.0 = phi i32 [ -1, %7 ], [ 0, %13 ], [ -1, %10 ]
   ret i32 %.0
 }
 

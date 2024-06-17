@@ -497,7 +497,7 @@ entry:
   ret ptr %this
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128dVERKS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right) local_unnamed_addr #6 align 2 {
 entry:
   %remainder = alloca %"class.arrow::BasicDecimal128", align 8
@@ -506,7 +506,7 @@ entry:
   ret ptr %this
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef range(i32 0, 3) i32 @_ZNK5arrow15BasicDecimal1286DivideERKS0_PS0_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %divisor, ptr nocapture noundef %result, ptr nocapture noundef %remainder) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result_array.i160.sroa.0.i = alloca i64, align 8
@@ -557,60 +557,61 @@ if.then.i.i:                                      ; preds = %_ZN5arrow15BasicDec
   %dividend_was_negative.0.i = phi i8 [ 1, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %frombool.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
   %result.sroa.0.0.i9.i.i = phi i64 [ 0, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %result.sroa.0.0.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
   %result.sroa.4.0.i8.i.i = phi i64 [ %add.i.i.i.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.thread.i.i ], [ %result.sroa.4.0.i.i.i, %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i ]
-  %cmp8.i.i = icmp ugt i64 %result.sroa.4.0.i8.i.i, 4294967295
-  br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end.i.i
+  %cmp8.i.i = icmp ult i64 %result.sroa.4.0.i8.i.i, 4294967296
+  br i1 %cmp8.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i, label %if.then9.i.i
 
 if.then9.i.i:                                     ; preds = %if.then.i.i
   %shr.i.i = lshr i64 %result.sroa.4.0.i8.i.i, 32
   %conv10.i.i = trunc nuw i64 %shr.i.i to i32
   store i32 %conv10.i.i, ptr %add.ptr.i, align 4
-  %conv11.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
-  store i32 %conv11.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
-  %shr13.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
-  %conv14.i.i = trunc nuw i64 %shr13.i.i to i32
-  store i32 %conv14.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
-  %conv16.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
-  store i32 %conv16.i.i, ptr %retval.0.i.sroa.gep.i, align 16
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
-
-if.end.i.i:                                       ; preds = %if.then.i.i
-  %conv18.i.i = trunc nuw i64 %result.sroa.4.0.i8.i.i to i32
-  store i32 %conv18.i.i, ptr %add.ptr.i, align 4
-  %shr20.i.i = lshr i64 %result.sroa.0.0.i9.i.i, 32
-  %conv21.i.i = trunc nuw i64 %shr20.i.i to i32
-  store i32 %conv21.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
-  %conv23.i.i = trunc i64 %result.sroa.0.0.i9.i.i to i32
-  store i32 %conv23.i.i, ptr %retval.0.i.sroa.gep3.i, align 4
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i
 
 if.end25.i.i:                                     ; preds = %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i.i
   %cmp28.i.i = icmp ugt i64 %result.sroa.0.0.i.i.i, 4294967295
-  br i1 %cmp28.i.i, label %if.then29.i.i, label %if.end35.i.i
-
-if.then29.i.i:                                    ; preds = %if.end25.i.i
-  %shr30.i.i = lshr i64 %result.sroa.0.0.i.i.i, 32
-  %conv31.i.i = trunc nuw i64 %shr30.i.i to i32
-  store i32 %conv31.i.i, ptr %add.ptr.i, align 4
-  %conv33.i.i = trunc i64 %result.sroa.0.0.i.i.i to i32
-  store i32 %conv33.i.i, ptr %retval.0.i.sroa.gep4.i, align 8
-  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
+  br i1 %cmp28.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i, label %if.end35.i.i
 
 if.end35.i.i:                                     ; preds = %if.end25.i.i
   %cmp36.i.i = icmp eq i64 %result.sroa.0.0.i.i.i, 0
-  br i1 %cmp36.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i, label %if.end38.i.i
+  br i1 %cmp36.i.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i, label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i
 
-if.end38.i.i:                                     ; preds = %if.end35.i.i
-  %conv39.i.i = trunc nuw i64 %result.sroa.0.0.i.i.i to i32
-  store i32 %conv39.i.i, ptr %add.ptr.i, align 4
+_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i: ; preds = %if.then9.i.i, %if.then.i.i
+  %retval.0.i.sroa.gep4.sink.i = phi ptr [ %retval.0.i.sroa.gep4.i, %if.then9.i.i ], [ %add.ptr.i, %if.then.i.i ]
+  %add.ptr.sink.ph.i = phi ptr [ %retval.0.i.sroa.gep3.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep4.i, %if.then.i.i ]
+  %retval.0.i.sroa.gep.sink.ph.ph.i = phi ptr [ %retval.0.i.sroa.gep.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep3.i, %if.then.i.i ]
+  %retval.0.i.ph.ph.ph.i = phi i64 [ 4, %if.then9.i.i ], [ 3, %if.then.i.i ]
+  %conv11.i.i = trunc i64 %result.sroa.4.0.i8.i.i to i32
+  store i32 %conv11.i.i, ptr %retval.0.i.sroa.gep4.sink.i, align 4
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i
+
+_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i, %if.end25.i.i
+  %result.sroa.0.0.i.i.sink.i = phi i64 [ %result.sroa.0.0.i.i.i, %if.end25.i.i ], [ %result.sroa.0.0.i9.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %add.ptr.sink.i = phi ptr [ %add.ptr.i, %if.end25.i.i ], [ %add.ptr.sink.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %retval.0.i.sroa.gep.sink.ph.i = phi ptr [ %retval.0.i.sroa.gep4.i, %if.end25.i.i ], [ %retval.0.i.sroa.gep.sink.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %dividend_was_negative.1.ph.ph.i = phi i8 [ %frombool.i.i, %if.end25.i.i ], [ %dividend_was_negative.0.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %.ph73.ph.i = phi i1 [ true, %if.end25.i.i ], [ %cmp8.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %retval.0.i.ph.ph.i = phi i64 [ 2, %if.end25.i.i ], [ %retval.0.i.ph.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.sink.split.i ]
+  %shr30.i.i = lshr i64 %result.sroa.0.0.i.i.sink.i, 32
+  %conv31.i.i = trunc nuw i64 %shr30.i.i to i32
+  store i32 %conv31.i.i, ptr %add.ptr.sink.i, align 4
+  br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i
+
+_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i, %if.end35.i.i
+  %result.sroa.0.0.i9.i.sink.i = phi i64 [ %result.sroa.0.0.i.i.i, %if.end35.i.i ], [ %result.sroa.0.0.i.i.sink.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
+  %retval.0.i.sroa.gep.sink.i = phi ptr [ %add.ptr.i, %if.end35.i.i ], [ %retval.0.i.sroa.gep.sink.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
+  %dividend_was_negative.1.ph.i = phi i8 [ %frombool.i.i, %if.end35.i.i ], [ %dividend_was_negative.1.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
+  %.ph73.i = phi i1 [ true, %if.end35.i.i ], [ %.ph73.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
+  %retval.0.i.ph.i = phi i64 [ 1, %if.end35.i.i ], [ %retval.0.i.ph.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.sink.split.i ]
+  %conv16.i.i = trunc i64 %result.sroa.0.0.i9.i.sink.i to i32
+  store i32 %conv16.i.i, ptr %retval.0.i.sroa.gep.sink.i, align 4
   br label %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i
 
-_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i: ; preds = %if.end38.i.i, %if.end35.i.i, %if.then29.i.i, %if.end.i.i, %if.then9.i.i
-  %2 = phi i32 [ %conv16.i.i, %if.then9.i.i ], [ %conv23.i.i, %if.end.i.i ], [ %conv33.i.i, %if.then29.i.i ], [ 0, %if.end35.i.i ], [ %conv39.i.i, %if.end38.i.i ]
-  %dividend_was_negative.1.i = phi i8 [ %dividend_was_negative.0.i, %if.then9.i.i ], [ %dividend_was_negative.0.i, %if.end.i.i ], [ %frombool.i.i, %if.then29.i.i ], [ %frombool.i.i, %if.end35.i.i ], [ %frombool.i.i, %if.end38.i.i ]
-  %retval.0.i.sroa.phi.i = phi ptr [ %retval.0.i.sroa.gep.i, %if.then9.i.i ], [ %retval.0.i.sroa.gep3.i, %if.end.i.i ], [ %retval.0.i.sroa.gep4.i, %if.then29.i.i ], [ %dividend_array.i, %if.end35.i.i ], [ %add.ptr.i, %if.end38.i.i ]
-  %3 = phi i1 [ false, %if.then9.i.i ], [ true, %if.end.i.i ], [ true, %if.then29.i.i ], [ true, %if.end35.i.i ], [ true, %if.end38.i.i ]
-  %cmp213.i128.i = phi i1 [ true, %if.then9.i.i ], [ true, %if.end.i.i ], [ true, %if.then29.i.i ], [ false, %if.end35.i.i ], [ true, %if.end38.i.i ]
-  %retval.0.i.i = phi i64 [ 4, %if.then9.i.i ], [ 3, %if.end.i.i ], [ 2, %if.then29.i.i ], [ 0, %if.end35.i.i ], [ 1, %if.end38.i.i ]
+_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.i: ; preds = %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i, %if.end35.i.i
+  %2 = phi i32 [ 0, %if.end35.i.i ], [ %conv16.i.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+  %dividend_was_negative.1.i = phi i8 [ %frombool.i.i, %if.end35.i.i ], [ %dividend_was_negative.1.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+  %retval.0.i.sroa.phi.i = phi ptr [ %dividend_array.i, %if.end35.i.i ], [ %retval.0.i.sroa.gep.sink.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+  %3 = phi i1 [ true, %if.end35.i.i ], [ %.ph73.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+  %cmp213.i128.i = phi i1 [ false, %if.end35.i.i ], [ true, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
+  %retval.0.i.i = phi i64 [ 0, %if.end35.i.i ], [ %retval.0.i.ph.i, %_ZN5arrowL11FillInArrayERKNS_15BasicDecimal128EPjRb.exit.sink.split.i ]
   %add.i = add nuw nsw i64 %retval.0.i.i, 1
   %cmp.i.i.i.i65.i = icmp slt i64 %divisor.val1, 0
   br i1 %cmp.i.i.i.i65.i, label %cond.true.i.i.i104.i, label %_ZN5arrow15BasicDecimal1283AbsERKS0_.exit.i66.i
@@ -1601,7 +1602,7 @@ _ZN5arrow15BasicDecimal128mLERKS0_.exit:          ; preds = %_ZN5arrow15BasicDec
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZN5arrowdvERKNS_15BasicDecimal128ES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right) local_unnamed_addr #6 {
 entry:
   %retval = alloca %"class.arrow::BasicDecimal128", align 8
@@ -1617,7 +1618,7 @@ entry:
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZN5arrowrmERKNS_15BasicDecimal128ES2_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %right) local_unnamed_addr #6 {
 entry:
   %retval = alloca %"class.arrow::BasicDecimal128", align 8
@@ -1794,7 +1795,7 @@ return:                                           ; preds = %7, %_ZN5arrowL25Res
   ret i32 %retval.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZNK5arrow15BasicDecimal12819GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
 entry:
   %multiplier = alloca %"class.arrow::BasicDecimal128", align 8
@@ -1915,7 +1916,7 @@ _ZN5arrowmlERKNS_15BasicDecimal128ES2_.exit:      ; preds = %_ZN5arrow15BasicDec
   ret { i64, i64 } %.fca.1.insert.i
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define { i64, i64 } @_ZNK5arrow15BasicDecimal12813ReduceScaleByEib(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %"class.arrow::BasicDecimal128", align 8
@@ -2021,7 +2022,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull returned align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2566NegateEv(ptr noundef nonnull returned align 8 dereferenceable(32) %this) local_unnamed_addr #8 align 2 {
 entry:
   br label %for.body
 
@@ -2045,7 +2046,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2563AbsEv(ptr noundef nonnull returned align 8 dereferenceable(32) %this) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal2563AbsEv(ptr noundef nonnull returned align 8 dereferenceable(32) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %arrayidx.i.i.i.i, align 8
@@ -2121,7 +2122,7 @@ cond.end31:                                       ; preds = %cond.true13, %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %in) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15BasicDecimal2563AbsERKS0_(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %in) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(32) %in, i64 32, i1 false)
@@ -2151,7 +2152,7 @@ _ZN5arrow15BasicDecimal2563AbsEv.exit:            ; preds = %for.body.i.i, %entr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256pLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 align 2 {
 entry:
   br label %for.body
 
@@ -2179,7 +2180,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 align 2 {
 entry:
   %result.i = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result.i, ptr noundef nonnull align 8 dereferenceable(32) %right, i64 32, i1 false)
@@ -2224,7 +2225,7 @@ _ZN5arrow15BasicDecimal256pLERKS0_.exit:          ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %operand) local_unnamed_addr #6 {
+define void @_ZN5arrowngERKNS_15BasicDecimal256E(ptr noalias nocapture writeonly sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %operand) local_unnamed_addr #8 {
 entry:
   %result = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %result, ptr noundef nonnull align 8 dereferenceable(32) %operand, i64 32, i1 false)
@@ -2251,7 +2252,7 @@ _ZN5arrow15BasicDecimal2566NegateEv.exit:         ; preds = %for.body.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i32 noundef %bits) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i32 noundef %bits) local_unnamed_addr #8 align 2 {
 entry:
   %cmp = icmp eq i32 %bits, 0
   br i1 %cmp, label %return, label %if.end
@@ -2345,7 +2346,7 @@ return:                                           ; preds = %for.body28.preheade
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256rSEj(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i32 noundef %bits) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256rSEj(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i32 noundef %bits) local_unnamed_addr #8 align 2 {
 entry:
   %array_le = alloca %"struct.std::array.2", align 8
   %shifted_le = alloca %"struct.std::array.2", align 8
@@ -2441,7 +2442,7 @@ return:                                           ; preds = %for.body.i.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i5 = alloca %"class.arrow::BasicDecimal256", align 8
   %result.i = alloca %"class.arrow::BasicDecimal256", align 8
@@ -2559,7 +2560,7 @@ if.end:                                           ; preds = %for.body.i, %_ZN5ar
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %divisor, ptr nocapture noundef %result, ptr nocapture noundef %remainder) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK5arrow15BasicDecimal2566DivideERKS0_PS0_S3_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %divisor, ptr nocapture noundef %result, ptr nocapture noundef %remainder) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result_array.i163.i = alloca %"struct.std::array.2", align 8
   %result_array.i152.i = alloca %"struct.std::array.2", align 8
@@ -3433,7 +3434,7 @@ return:                                           ; preds = %_ZN5arrowL25Rescale
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %increase_by) local_unnamed_addr #6 align 2 {
+define void @_ZNK5arrow15BasicDecimal25615IncreaseScaleByEi(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %increase_by) local_unnamed_addr #8 align 2 {
 entry:
   %idxprom = sext i32 %increase_by to i64
   %arrayidx = getelementptr inbounds [77 x %"class.arrow::BasicDecimal256"], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 0, i64 %idxprom
@@ -3443,7 +3444,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowmlERKNS_15BasicDecimal256ES2_(ptr noalias nonnull sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %left, i64 32, i1 false)
   %call = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %right)
@@ -3451,7 +3452,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK5arrow15BasicDecimal25613ReduceScaleByEib(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %reduce_by, i1 noundef zeroext %round) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %divisor = alloca %"class.arrow::BasicDecimal256", align 8
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
@@ -3581,7 +3582,7 @@ return:                                           ; preds = %for.body.i, %cond.t
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %precision) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5arrow15BasicDecimal25615FitsInPrecisionEi(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %precision) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %result.i = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %result.i)
@@ -3660,7 +3661,7 @@ _ZN5arrowltERKNS_15BasicDecimal256ES2_.exit:      ; preds = %cond.true.i, %cond.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #6 align 2 {
+define void @_ZNK5arrow15BasicDecimal25619GetWholeAndFractionEiPS0_S1_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %this, i32 noundef %scale, ptr nocapture noundef %whole, ptr nocapture noundef %fraction) local_unnamed_addr #8 align 2 {
 entry:
   %multiplier = alloca %"class.arrow::BasicDecimal256", align 8
   %idxprom = sext i32 %scale to i64
@@ -3687,7 +3688,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, i32 noundef %precision) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow15BasicDecimal25611GetMaxValueEi(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, i32 noundef %precision) local_unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.arrow::BasicDecimal256", align 8
   %idxprom = sext i32 %precision to i64
@@ -3721,7 +3722,7 @@ _ZN5arrowplERKNS_15BasicDecimal256ES2_.exit:      ; preds = %for.body.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowplERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %left, i64 32, i1 false)
   br label %for.body.i
@@ -3764,7 +3765,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256dVERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256dVERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 align 2 {
 entry:
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, i8 0, i64 32, i1 false)
@@ -3773,7 +3774,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #6 {
+define void @_ZN5arrowdvERKNS_15BasicDecimal256ES2_(ptr noalias nocapture sret(%"class.arrow::BasicDecimal256") align 8 %agg.result, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %left, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #8 {
 entry:
   %remainder = alloca %"class.arrow::BasicDecimal256", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %remainder, i8 0, i64 32, i1 false)
@@ -3783,31 +3784,31 @@ entry:
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #9
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
+declare i32 @llvm.ctlz.i32(i32, i1 immarg) #10
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #10
+declare i32 @bcmp(ptr nocapture, ptr nocapture, i64) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #11
+declare void @llvm.experimental.noalias.scope.decl(metadata) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #12
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #13
+declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #14
+declare i32 @llvm.smin.i32(i32, i32) #15
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
@@ -3815,15 +3816,16 @@ attributes #2 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-w
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #12 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+crc32,+cx8,+fxsr,+mmx,+popcnt,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

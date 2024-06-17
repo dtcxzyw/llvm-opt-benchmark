@@ -6009,8 +6009,8 @@ proto_item_set_generated.exit311:                 ; preds = %394, %397, %400
   br i1 %.not5.i313, label %proto_item_set_generated.exit, label %proto_item_set_generated.exit.sink.split
 
 proto_item_set_generated.exit.sink.split:         ; preds = %408, %388
-  %.sink370 = phi ptr [ %390, %388 ], [ %410, %408 ]
-  %411 = getelementptr inbounds i8, ptr %.sink370, i64 28
+  %.sink369 = phi ptr [ %390, %388 ], [ %410, %408 ]
+  %411 = getelementptr inbounds i8, ptr %.sink369, i64 28
   %412 = load i32, ptr %411, align 4
   %413 = or i32 %412, 2
   store i32 %413, ptr %411, align 4

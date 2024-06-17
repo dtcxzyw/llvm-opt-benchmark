@@ -216,29 +216,23 @@ define internal { double, double } @_ZL15goode_s_inverse5PJ_XYP8PJconsts(double 
   %5 = load ptr, ptr %4, align 8
   %6 = tail call double @llvm.fabs.f64(double %1)
   %7 = fcmp ugt double %6, 0x3FE6BFF1E94A3A44
-  br i1 %7, label %13, label %8
+  br i1 %7, label %8, label %13
 
 8:                                                ; preds = %3
-  %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds i8, ptr %9, i64 112
-  %11 = load ptr, ptr %10, align 8
-  %12 = tail call { double, double } %11(double %0, double %1, ptr noundef %9)
-  br label %22
+  %9 = fcmp oge double %1, 0.000000e+00
+  %10 = select i1 %9, double 5.280000e-02, double -5.280000e-02
+  %11 = fadd double %10, %1
+  %12 = getelementptr inbounds i8, ptr %5, i64 8
+  br label %13
 
-13:                                               ; preds = %3
-  %14 = fcmp oge double %1, 0.000000e+00
-  %15 = select i1 %14, double 5.280000e-02, double -5.280000e-02
-  %16 = fadd double %15, %1
-  %17 = getelementptr inbounds i8, ptr %5, i64 8
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %18, i64 112
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call { double, double } %20(double %0, double %16, ptr noundef %18)
-  br label %22
-
-22:                                               ; preds = %13, %8
-  %.pn = phi { double, double } [ %12, %8 ], [ %21, %13 ]
-  ret { double, double } %.pn
+13:                                               ; preds = %3, %8
+  %.sink21 = phi ptr [ %12, %8 ], [ %5, %3 ]
+  %.sink = phi double [ %11, %8 ], [ %1, %3 ]
+  %14 = load ptr, ptr %.sink21, align 8
+  %15 = getelementptr inbounds i8, ptr %14, i64 112
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call { double, double } %16(double %0, double %.sink, ptr noundef %14)
+  ret { double, double } %17
 }
 
 declare ptr @proj_destroy(ptr noundef) local_unnamed_addr #1

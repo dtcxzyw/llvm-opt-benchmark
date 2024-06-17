@@ -804,15 +804,15 @@ entry:
   %arrayidx = getelementptr inbounds i8, ptr %doit, i64 25
   %kem.promoted = load i32, ptr %kem, align 4
   %ffdh.promoted = load i32, ptr %ffdh, align 4
-  %indvars.iv2758.sroa.gep3653 = getelementptr inbounds i8, ptr %eddsa_doit, i64 1
-  %indvars.iv2747.sroa.gep3654 = getelementptr inbounds i8, ptr %dsa_doit, i64 1
+  %indvars.iv2758.sroa.gep3650 = getelementptr inbounds i8, ptr %eddsa_doit, i64 1
+  %indvars.iv2747.sroa.gep3651 = getelementptr inbounds i8, ptr %dsa_doit, i64 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %entry
   %call1013165 = phi i32 [ %ffdh.promoted, %entry ], [ %call1013165.be, %while.cond.backedge ]
   %call1013150 = phi i32 [ %kem.promoted, %entry ], [ %call1013150.be, %while.cond.backedge ]
   %0 = phi i8 [ 0, %entry ], [ %.be, %while.cond.backedge ]
-  %1 = phi i8 [ 0, %entry ], [ %.be3437, %while.cond.backedge ]
+  %1 = phi i8 [ 0, %entry ], [ %.be3434, %while.cond.backedge ]
   %call1012114 = phi i32 [ 10, %entry ], [ %call1012114.be, %while.cond.backedge ]
   %call1012099 = phi i32 [ 3, %entry ], [ %call1012099.be, %while.cond.backedge ]
   %size_num.0 = phi i32 [ 6, %entry ], [ %size_num.0.be, %while.cond.backedge ]
@@ -861,7 +861,7 @@ while.cond.backedge:                              ; preds = %while.cond, %sw.bb9
   %call1013165.be = phi i32 [ %call1013165, %sw.bb102 ], [ %call101, %sw.bb100 ], [ %call1013165, %sw.bb98 ], [ %call1013165, %sw.bb91 ], [ %call1013165, %sw.bb86 ], [ %call1013165, %sw.bb104 ], [ %call1013165, %sw.bb105 ], [ %call1013165, %sw.bb80 ], [ %call1013165, %sw.bb106 ], [ %call1013165, %sw.bb107 ], [ %call1013165, %sw.bb78 ], [ %call1013165, %sw.bb77 ], [ %call1013165, %sw.bb70 ], [ %call1013165, %if.end64 ], [ %call1013165, %sw.bb51 ], [ %call1013165, %sw.bb49 ], [ %call1013165, %sw.bb48 ], [ %call1013165, %if.end45 ], [ %call1013165, %if.end35 ], [ %call1013165, %if.end25 ], [ %call1013165, %sw.bb4 ], [ %call1013165, %while.cond ]
   %call1013150.be = phi i32 [ %call1013150, %sw.bb102 ], [ %call101, %sw.bb100 ], [ %call1013150, %sw.bb98 ], [ %call1013150, %sw.bb91 ], [ %call1013150, %sw.bb86 ], [ %call1013150, %sw.bb104 ], [ %call1013150, %sw.bb105 ], [ %call1013150, %sw.bb80 ], [ %call1013150, %sw.bb106 ], [ %call1013150, %sw.bb107 ], [ %call1013150, %sw.bb78 ], [ %call1013150, %sw.bb77 ], [ %call1013150, %sw.bb70 ], [ %call1013150, %if.end64 ], [ %call1013150, %sw.bb51 ], [ %call1013150, %sw.bb49 ], [ %call1013150, %sw.bb48 ], [ %call1013150, %if.end45 ], [ %call1013150, %if.end35 ], [ %call1013150, %if.end25 ], [ %call1013150, %sw.bb4 ], [ %call1013150, %while.cond ]
   %.be = phi i8 [ %0, %sw.bb102 ], [ %0, %sw.bb100 ], [ %0, %sw.bb98 ], [ %0, %sw.bb91 ], [ %0, %sw.bb86 ], [ %0, %sw.bb104 ], [ %0, %sw.bb105 ], [ %0, %sw.bb80 ], [ %0, %sw.bb106 ], [ %0, %sw.bb107 ], [ %0, %sw.bb78 ], [ %0, %sw.bb77 ], [ %0, %sw.bb70 ], [ %0, %if.end64 ], [ %0, %sw.bb51 ], [ %0, %sw.bb49 ], [ %0, %sw.bb48 ], [ %0, %if.end45 ], [ %0, %if.end35 ], [ 1, %if.end25 ], [ %0, %sw.bb4 ], [ %0, %while.cond ]
-  %.be3437 = phi i8 [ %1, %sw.bb102 ], [ %1, %sw.bb100 ], [ %1, %sw.bb98 ], [ %1, %sw.bb91 ], [ %1, %sw.bb86 ], [ %1, %sw.bb104 ], [ %1, %sw.bb105 ], [ %1, %sw.bb80 ], [ %1, %sw.bb106 ], [ %1, %sw.bb107 ], [ %1, %sw.bb78 ], [ %1, %sw.bb77 ], [ %1, %sw.bb70 ], [ %1, %if.end64 ], [ %1, %sw.bb51 ], [ %1, %sw.bb49 ], [ %1, %sw.bb48 ], [ 1, %if.end45 ], [ %1, %if.end35 ], [ %1, %if.end25 ], [ %1, %sw.bb4 ], [ %1, %while.cond ]
+  %.be3434 = phi i8 [ %1, %sw.bb102 ], [ %1, %sw.bb100 ], [ %1, %sw.bb98 ], [ %1, %sw.bb91 ], [ %1, %sw.bb86 ], [ %1, %sw.bb104 ], [ %1, %sw.bb105 ], [ %1, %sw.bb80 ], [ %1, %sw.bb106 ], [ %1, %sw.bb107 ], [ %1, %sw.bb78 ], [ %1, %sw.bb77 ], [ %1, %sw.bb70 ], [ %1, %if.end64 ], [ %1, %sw.bb51 ], [ %1, %sw.bb49 ], [ %1, %sw.bb48 ], [ 1, %if.end45 ], [ %1, %if.end35 ], [ %1, %if.end25 ], [ %1, %sw.bb4 ], [ %1, %while.cond ]
   %call1012114.be = phi i32 [ %call1012114, %sw.bb102 ], [ %call101, %sw.bb100 ], [ %call1012114, %sw.bb98 ], [ %call1012114, %sw.bb91 ], [ %call1012114, %sw.bb86 ], [ %call1012114, %sw.bb104 ], [ %call1012114, %sw.bb105 ], [ %call1012114, %sw.bb80 ], [ %call1012114, %sw.bb106 ], [ %call1012114, %sw.bb107 ], [ %call1012114, %sw.bb78 ], [ %call1012114, %sw.bb77 ], [ %call1012114, %sw.bb70 ], [ %call1012114, %if.end64 ], [ %call1012114, %sw.bb51 ], [ %call1012114, %sw.bb49 ], [ %call1012114, %sw.bb48 ], [ %call1012114, %if.end45 ], [ %call1012114, %if.end35 ], [ %call1012114, %if.end25 ], [ %call1012114, %sw.bb4 ], [ %call1012114, %while.cond ]
   %call1012099.be = phi i32 [ %call1012099, %sw.bb102 ], [ %call101, %sw.bb100 ], [ %call1012099, %sw.bb98 ], [ %call1012099, %sw.bb91 ], [ %call1012099, %sw.bb86 ], [ %call1012099, %sw.bb104 ], [ %call1012099, %sw.bb105 ], [ %call1012099, %sw.bb80 ], [ %call1012099, %sw.bb106 ], [ %call1012099, %sw.bb107 ], [ %call1012099, %sw.bb78 ], [ %call1012099, %sw.bb77 ], [ %call1012099, %sw.bb70 ], [ %call1012099, %if.end64 ], [ %call1012099, %sw.bb51 ], [ %call1012099, %sw.bb49 ], [ %call1012099, %sw.bb48 ], [ %call1012099, %if.end45 ], [ %call1012099, %if.end35 ], [ %call1012099, %if.end25 ], [ %call1012099, %sw.bb4 ], [ %call1012099, %while.cond ]
   %size_num.0.be = phi i32 [ 1, %sw.bb102 ], [ %size_num.0, %sw.bb100 ], [ %size_num.0, %sw.bb98 ], [ %size_num.0, %sw.bb91 ], [ %size_num.0, %sw.bb86 ], [ %size_num.0, %sw.bb104 ], [ %size_num.0, %sw.bb105 ], [ %size_num.0, %sw.bb80 ], [ %size_num.0, %sw.bb106 ], [ %size_num.0, %sw.bb107 ], [ %size_num.0, %sw.bb78 ], [ %size_num.0, %sw.bb77 ], [ %size_num.0, %sw.bb70 ], [ %size_num.0, %if.end64 ], [ %size_num.0, %sw.bb51 ], [ %size_num.0, %sw.bb49 ], [ %size_num.0, %sw.bb48 ], [ %size_num.0, %if.end45 ], [ %size_num.0, %if.end35 ], [ %size_num.0, %if.end25 ], [ %size_num.0, %sw.bb4 ], [ %size_num.0, %while.cond ]
@@ -5126,8 +5126,8 @@ for.body2815:                                     ; preds = %for.body2805, %for.
   %658 = load ptr, ptr %arrayidx2830, align 8
   %cmp2831 = icmp eq ptr %658, null
   %cmp2839 = icmp eq ptr %call2821, null
-  %or.cond3182 = select i1 %cmp2831, i1 true, i1 %cmp2839
-  br i1 %or.cond3182, label %if.then2927, label %if.end2842
+  %or.cond3180 = select i1 %cmp2831, i1 true, i1 %cmp2839
+  br i1 %or.cond3180, label %if.then2927, label %if.end2842
 
 if.end2842:                                       ; preds = %for.body2815
   store ptr null, ptr %sm2_pkey, align 8
@@ -6602,7 +6602,7 @@ for.end3985:                                      ; preds = %for.inc3983
 
 for.body3989:                                     ; preds = %for.end3985, %for.inc4031
   %cmp3987 = phi i1 [ true, %for.end3985 ], [ false, %for.inc4031 ]
-  %indvars.iv2747.sroa.phi = phi ptr [ %dsa_doit, %for.end3985 ], [ %indvars.iv2747.sroa.gep3654, %for.inc4031 ]
+  %indvars.iv2747.sroa.phi = phi ptr [ %dsa_doit, %for.end3985 ], [ %indvars.iv2747.sroa.gep3651, %for.inc4031 ]
   %indvars.iv2747 = phi i64 [ 0, %for.end3985 ], [ 1, %for.inc4031 ]
   %873 = load i8, ptr %indvars.iv2747.sroa.phi, align 1
   %tobool3992.not = icmp eq i8 %873, 0
@@ -6766,7 +6766,7 @@ for.end4134:                                      ; preds = %for.inc4132
 
 for.body4139:                                     ; preds = %for.end4134, %for.inc4189
   %cmp4137 = phi i1 [ true, %for.end4134 ], [ false, %for.inc4189 ]
-  %indvars.iv2758.sroa.phi = phi ptr [ %eddsa_doit, %for.end4134 ], [ %indvars.iv2758.sroa.gep3653, %for.inc4189 ]
+  %indvars.iv2758.sroa.phi = phi ptr [ %eddsa_doit, %for.end4134 ], [ %indvars.iv2758.sroa.gep3650, %for.inc4189 ]
   %indvars.iv2758 = phi i64 [ 0, %for.end4134 ], [ 1, %for.inc4189 ]
   %900 = load i8, ptr %indvars.iv2758.sroa.phi, align 1
   %tobool4142.not = icmp eq i8 %900, 0

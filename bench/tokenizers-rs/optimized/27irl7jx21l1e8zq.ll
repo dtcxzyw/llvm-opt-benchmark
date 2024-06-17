@@ -33184,10 +33184,10 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %24
   br label %.thread
 
 .thread:                                          ; preds = %65, %.noexc26, %.noexc29, %71, %60, %.noexc23
-  %.sink48 = phi i64 [ %.pre.i22, %.noexc23 ], [ %49, %60 ], [ %.pre.i28, %.noexc29 ], [ %49, %71 ], [ %.pre.i25, %.noexc26 ], [ %49, %65 ]
+  %.sink49 = phi i64 [ %.pre.i22, %.noexc23 ], [ %49, %60 ], [ %.pre.i28, %.noexc29 ], [ %49, %71 ], [ %.pre.i25, %.noexc26 ], [ %49, %65 ]
   %.sink45 = phi i64 [ %61, %.noexc23 ], [ %61, %60 ], [ %72, %.noexc29 ], [ %72, %71 ], [ %67, %.noexc26 ], [ %67, %65 ]
   %76 = load ptr, ptr %38, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %77 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %76, i64 %.sink48
+  %77 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %76, i64 %.sink49
   store i64 %2, ptr %77, align 8
   %.sroa.10.0..sroa_idx36 = getelementptr inbounds i8, ptr %77, i64 8
   store i64 %.sink45, ptr %.sroa.10.0..sroa_idx36, align 8
@@ -33374,10 +33374,10 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %19
   br label %.thread
 
 .thread:                                          ; preds = %60, %.noexc26, %.noexc29, %66, %55, %.noexc23
-  %.sink48 = phi i64 [ %.pre.i22, %.noexc23 ], [ %44, %55 ], [ %.pre.i28, %.noexc29 ], [ %44, %66 ], [ %.pre.i25, %.noexc26 ], [ %44, %60 ]
+  %.sink49 = phi i64 [ %.pre.i22, %.noexc23 ], [ %44, %55 ], [ %.pre.i28, %.noexc29 ], [ %44, %66 ], [ %.pre.i25, %.noexc26 ], [ %44, %60 ]
   %.sink45 = phi i64 [ %56, %.noexc23 ], [ %56, %55 ], [ %67, %.noexc29 ], [ %67, %66 ], [ %62, %.noexc26 ], [ %62, %60 ]
   %71 = load ptr, ptr %33, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %71, i64 %.sink48
+  %72 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %71, i64 %.sink49
   store i64 %2, ptr %72, align 8
   %.sroa.10.0..sroa_idx36 = getelementptr inbounds i8, ptr %72, i64 8
   store i64 %.sink45, ptr %.sroa.10.0..sroa_idx36, align 8
@@ -33564,10 +33564,10 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %19
   br label %.thread
 
 .thread:                                          ; preds = %60, %.noexc26, %.noexc29, %66, %55, %.noexc23
-  %.sink48 = phi i64 [ %.pre.i22, %.noexc23 ], [ %44, %55 ], [ %.pre.i28, %.noexc29 ], [ %44, %66 ], [ %.pre.i25, %.noexc26 ], [ %44, %60 ]
+  %.sink49 = phi i64 [ %.pre.i22, %.noexc23 ], [ %44, %55 ], [ %.pre.i28, %.noexc29 ], [ %44, %66 ], [ %.pre.i25, %.noexc26 ], [ %44, %60 ]
   %.sink45 = phi i64 [ %56, %.noexc23 ], [ %56, %55 ], [ %67, %.noexc29 ], [ %67, %66 ], [ %62, %.noexc26 ], [ %62, %60 ]
   %71 = load ptr, ptr %33, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %72 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %71, i64 %.sink48
+  %72 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %71, i64 %.sink49
   store i64 %2, ptr %72, align 8
   %.sroa.10.0..sroa_idx36 = getelementptr inbounds i8, ptr %72, i64 8
   store i64 %.sink45, ptr %.sroa.10.0..sroa_idx36, align 8
@@ -33756,10 +33756,10 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %_ZN4core3
   br label %.thread50
 
 .thread50:                                        ; preds = %59, %.noexc26, %.noexc29, %65, %54, %.noexc23
-  %.sink55 = phi i64 [ %.pre.i22, %.noexc23 ], [ %43, %54 ], [ %.pre.i28, %.noexc29 ], [ %43, %65 ], [ %.pre.i25, %.noexc26 ], [ %43, %59 ]
+  %.sink56 = phi i64 [ %.pre.i22, %.noexc23 ], [ %43, %54 ], [ %.pre.i28, %.noexc29 ], [ %43, %65 ], [ %.pre.i25, %.noexc26 ], [ %43, %59 ]
   %.sink52 = phi i64 [ %55, %.noexc23 ], [ %55, %54 ], [ %66, %.noexc29 ], [ %66, %65 ], [ %61, %.noexc26 ], [ %61, %59 ]
   %70 = load ptr, ptr %32, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %71 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %70, i64 %.sink55
+  %71 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %70, i64 %.sink56
   store i64 %2, ptr %71, align 8
   %.sroa.10.0..sroa_idx36 = getelementptr inbounds i8, ptr %71, i64 8
   store i64 %.sink52, ptr %.sroa.10.0..sroa_idx36, align 8
@@ -33995,10 +33995,10 @@ _ZN5alloc7raw_vec14handle_reserve17h1111f65bc787995dE.exit: ; preds = %_ZN4core3
   br label %.thread
 
 .thread:                                          ; preds = %79, %.noexc26, %.noexc29, %85, %74, %.noexc23
-  %.sink53 = phi i64 [ %.pre.i22, %.noexc23 ], [ %63, %74 ], [ %.pre.i28, %.noexc29 ], [ %63, %85 ], [ %.pre.i25, %.noexc26 ], [ %63, %79 ]
+  %.sink54 = phi i64 [ %.pre.i22, %.noexc23 ], [ %63, %74 ], [ %.pre.i28, %.noexc29 ], [ %63, %85 ], [ %.pre.i25, %.noexc26 ], [ %63, %79 ]
   %.sink50 = phi i64 [ %75, %.noexc23 ], [ %75, %74 ], [ %86, %.noexc29 ], [ %86, %85 ], [ %81, %.noexc26 ], [ %81, %79 ]
   %90 = load ptr, ptr %52, align 8, !noalias !4, !nonnull !4, !noundef !4
-  %91 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %90, i64 %.sink53
+  %91 = getelementptr inbounds { { i64, i64 }, i8, [7 x i8] }, ptr %90, i64 %.sink54
   store i64 %2, ptr %91, align 8
   %.sroa.10.0..sroa_idx36 = getelementptr inbounds i8, ptr %91, i64 8
   store i64 %.sink50, ptr %.sroa.10.0..sroa_idx36, align 8

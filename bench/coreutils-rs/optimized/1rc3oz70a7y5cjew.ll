@@ -3799,7 +3799,7 @@ _ZN7uu_tail6follow5files12FileHandling20only_stdin_remaining17h1652335bec2e7d2aE
   br label %.loopexit362
 
 .loopexit362:                                     ; preds = %1158, %.loopexit362.sink.split, %1087, %183
-  %.sroa.11.0 = phi ptr [ @anon.3949a2edd4b15aa2c2251f6dc99c65da.31.llvm.16008789196938893882, %183 ], [ %.sroa.11.2, %1087 ], [ %.sink699, %.loopexit362.sink.split ], [ %1161, %1158 ]
+  %.sroa.11.0 = phi ptr [ @anon.3949a2edd4b15aa2c2251f6dc99c65da.31.llvm.16008789196938893882, %183 ], [ %.sroa.11.2, %1087 ], [ %1171, %.loopexit362.sink.split ], [ %1161, %1158 ]
   %.sroa.0.0 = phi ptr [ %176, %183 ], [ %.sroa.0.2, %1087 ], [ %.sroa.0.4.ph, %.loopexit362.sink.split ], [ %1159, %1158 ]
   %184 = load i64, ptr %0, align 8, !range !451, !alias.scope !577, !noundef !4
   %185 = icmp eq i64 %184, 3
@@ -6672,11 +6672,11 @@ _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread: ; preds = %969, %97
   br i1 %1170, label %"_ZN69_$LT$std..fs..Metadata$u20$as$u20$uu_tail..paths..MetadataExtTail$GT$11is_tailable17he7e52c249e8e5d05E.exit.thread", label %.loopexit362.sink.split
 
 .loopexit362.sink.split:                          ; preds = %1168, %1154
-  %.pn700 = phi { ptr, ptr } [ %1153, %1154 ], [ %1167, %1168 ]
+  %.lcssa648.sink = phi { ptr, ptr } [ %1153, %1154 ], [ %1167, %1168 ]
   %.sroa.0.4.ph = phi ptr [ %1155, %1154 ], [ %1169, %1168 ]
-  %.sink699 = extractvalue { ptr, ptr } %.pn700, 1
-  %1171 = icmp ne ptr %.sink699, null
-  call void @llvm.assume(i1 %1171)
+  %1171 = extractvalue { ptr, ptr } %.lcssa648.sink, 1
+  %1172 = icmp ne ptr %1171, null
+  call void @llvm.assume(i1 %1172)
   br label %.loopexit362
 }
 

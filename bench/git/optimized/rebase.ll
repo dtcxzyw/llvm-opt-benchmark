@@ -1296,12 +1296,7 @@ if.then559:                                       ; preds = %apply_dir.exit64
   store i32 0, ptr %options, align 8
   %21 = load ptr, ptr @apply_dir.ret, align 8
   %tobool.not.i65 = icmp eq ptr %21, null
-  br i1 %tobool.not.i65, label %if.then.i66, label %if.end588.sink.split
-
-if.then.i66:                                      ; preds = %if.then559
-  %call.i67 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.206) #19
-  store ptr %call.i67, ptr @apply_dir.ret, align 8
-  br label %if.end588.sink.split
+  br i1 %tobool.not.i65, label %if.end588.sink.split.sink.split, label %if.end588.sink.split
 
 if.else:                                          ; preds = %apply_dir.exit64
   %22 = load ptr, ptr @merge_dir.ret, align 8
@@ -1395,15 +1390,17 @@ if.then581:                                       ; preds = %merge_dir.exit93
 if.end584:                                        ; preds = %merge_dir.exit93, %if.then581
   %34 = load ptr, ptr @merge_dir.ret, align 8
   %tobool.not.i94 = icmp eq ptr %34, null
-  br i1 %tobool.not.i94, label %if.then.i95, label %if.end588.sink.split
+  br i1 %tobool.not.i94, label %if.end588.sink.split.sink.split, label %if.end588.sink.split
 
-if.then.i95:                                      ; preds = %if.end584
-  %call.i96 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.207) #19
-  store ptr %call.i96, ptr @merge_dir.ret, align 8
+if.end588.sink.split.sink.split:                  ; preds = %if.end584, %if.then559
+  %.str.207.sink = phi ptr [ @.str.206, %if.then559 ], [ @.str.207, %if.end584 ]
+  %merge_dir.ret.sink = phi ptr [ @apply_dir.ret, %if.then559 ], [ @merge_dir.ret, %if.end584 ]
+  %call.i96 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull %.str.207.sink) #19
+  store ptr %call.i96, ptr %merge_dir.ret.sink, align 8
   br label %if.end588.sink.split
 
-if.end588.sink.split:                             ; preds = %if.then.i95, %if.end584, %if.then.i66, %if.then559
-  %.sink = phi ptr [ %call.i67, %if.then.i66 ], [ %21, %if.then559 ], [ %call.i96, %if.then.i95 ], [ %34, %if.end584 ]
+if.end588.sink.split:                             ; preds = %if.end588.sink.split.sink.split, %if.end584, %if.then559
+  %.sink = phi ptr [ %21, %if.then559 ], [ %34, %if.end584 ], [ %call.i96, %if.end588.sink.split.sink.split ]
   %state_dir586 = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %.sink, ptr %state_dir586, align 8
   br label %if.end588
@@ -2481,29 +2478,26 @@ if.end1119:                                       ; preds = %if.then1115, %if.en
 sw.bb1121:                                        ; preds = %land.lhs.true1112, %if.end1119
   %160 = load ptr, ptr @merge_dir.ret, align 8
   %tobool.not.i164 = icmp eq ptr %160, null
-  br i1 %tobool.not.i164, label %if.then.i166, label %sw.epilog1128
-
-if.then.i166:                                     ; preds = %sw.bb1121
-  %call.i167 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.207) #19
-  store ptr %call.i167, ptr @merge_dir.ret, align 8
-  br label %sw.epilog1128
+  br i1 %tobool.not.i164, label %sw.epilog1128.sink.split, label %sw.epilog1128
 
 sw.bb1124:                                        ; preds = %if.end1119.thread425, %if.end1119
   %161 = load ptr, ptr @apply_dir.ret, align 8
   %tobool.not.i169 = icmp eq ptr %161, null
-  br i1 %tobool.not.i169, label %if.then.i171, label %sw.epilog1128
-
-if.then.i171:                                     ; preds = %sw.bb1124
-  %call.i172 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull @.str.206) #19
-  store ptr %call.i172, ptr @apply_dir.ret, align 8
-  br label %sw.epilog1128
+  br i1 %tobool.not.i169, label %sw.epilog1128.sink.split, label %sw.epilog1128
 
 sw.default1127:                                   ; preds = %if.end1119
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.100, i32 noundef 1548, ptr noundef nonnull @.str.148) #18
   unreachable
 
-sw.epilog1128:                                    ; preds = %if.then.i171, %sw.bb1124, %if.then.i166, %sw.bb1121
-  %.sink433 = phi ptr [ %call.i167, %if.then.i166 ], [ %160, %sw.bb1121 ], [ %call.i172, %if.then.i171 ], [ %161, %sw.bb1124 ]
+sw.epilog1128.sink.split:                         ; preds = %sw.bb1124, %sw.bb1121
+  %.str.206.sink = phi ptr [ @.str.207, %sw.bb1121 ], [ @.str.206, %sw.bb1124 ]
+  %apply_dir.ret.sink = phi ptr [ @merge_dir.ret, %sw.bb1121 ], [ @apply_dir.ret, %sw.bb1124 ]
+  %call.i172 = call ptr (ptr, ...) @git_pathdup(ptr noundef nonnull %.str.206.sink) #19
+  store ptr %call.i172, ptr %apply_dir.ret.sink, align 8
+  br label %sw.epilog1128
+
+sw.epilog1128:                                    ; preds = %sw.epilog1128.sink.split, %sw.bb1124, %sw.bb1121
+  %.sink433 = phi ptr [ %160, %sw.bb1121 ], [ %161, %sw.bb1124 ], [ %call.i172, %sw.epilog1128.sink.split ]
   %state_dir1126 = getelementptr inbounds i8, ptr %options, i64 16
   store ptr %.sink433, ptr %state_dir1126, align 8
   %162 = load i32, ptr %empty, align 4

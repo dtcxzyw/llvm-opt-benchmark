@@ -606,17 +606,17 @@ define internal void @densmatr_mixDampingLocal.omp_outlined(ptr noalias nocaptur
   br label %.sink.split
 
 .sink.split:                                      ; preds = %26, %41
-  %.sink52 = phi ptr [ %9, %41 ], [ %7, %26 ]
-  %.040.sink51 = phi i64 [ %42, %41 ], [ %.040, %26 ]
-  %57 = load double, ptr %.sink52, align 8
+  %.sink53 = phi ptr [ %9, %41 ], [ %7, %26 ]
+  %.sink52 = phi i64 [ %42, %41 ], [ %.040, %26 ]
+  %57 = load double, ptr %.sink53, align 8
   %58 = load ptr, ptr %24, align 8
-  %59 = getelementptr inbounds double, ptr %58, i64 %.040.sink51
+  %59 = getelementptr inbounds double, ptr %58, i64 %.sink52
   %60 = load double, ptr %59, align 8
   %61 = fmul double %57, %60
   store double %61, ptr %59, align 8
-  %62 = load double, ptr %.sink52, align 8
+  %62 = load double, ptr %.sink53, align 8
   %63 = load ptr, ptr %25, align 8
-  %64 = getelementptr inbounds double, ptr %63, i64 %.040.sink51
+  %64 = getelementptr inbounds double, ptr %63, i64 %.sink52
   %65 = load double, ptr %64, align 8
   %66 = fmul double %62, %65
   store double %66, ptr %64, align 8

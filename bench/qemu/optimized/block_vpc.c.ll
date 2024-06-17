@@ -1255,9 +1255,9 @@ if.then17:                                        ; preds = %if.then13
 
 if.end20.sink.split:                              ; preds = %if.then23.i, %if.end10.i
   %14 = load i32, ptr %block_size41, align 8
-  %conv42 = zext i32 %14 to i64
-  %rem = srem i64 %offset.addr.060, %conv42
-  %sub = sub nsw i64 %conv42, %rem
+  %conv = zext i32 %14 to i64
+  %rem = srem i64 %offset.addr.060, %conv
+  %sub = sub nsw i64 %conv, %rem
   %cond = call i64 @llvm.smin.i64(i64 %bytes.addr.059, i64 %sub)
   br label %if.end20
 

@@ -415,10 +415,10 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %170
 
 170:                                              ; preds = %79, %168, %169, %167
-  %.sink721 = phi i32 [ -2147483646, %168 ], [ 1, %169 ], [ 268435462, %167 ], [ 4, %79 ]
+  %.sink720 = phi i32 [ -2147483646, %168 ], [ 1, %169 ], [ 268435462, %167 ], [ 4, %79 ]
   %171 = getelementptr inbounds i8, ptr %2, i64 744
   %172 = load i32, ptr %171, align 8
-  %173 = or i32 %172, %.sink721
+  %173 = or i32 %172, %.sink720
   store i32 %173, ptr %171, align 8
   %174 = icmp ugt i64 %83, 3
   br i1 %174, label %175, label %180
@@ -487,10 +487,10 @@ define void @pmix_ptl_base_connection_handler(i32 noundef %0, i16 noundef signex
   br label %208
 
 208:                                              ; preds = %79, %207
-  %.sink726 = phi i32 [ 268435462, %207 ], [ 4, %79 ]
+  %.sink723 = phi i32 [ 268435462, %207 ], [ 4, %79 ]
   %209 = getelementptr inbounds i8, ptr %2, i64 744
   %210 = load i32, ptr %209, align 8
-  %211 = or i32 %210, %.sink726
+  %211 = or i32 %210, %.sink723
   store i32 %211, ptr %209, align 8
   %212 = icmp ugt i64 %83, 3
   br i1 %212, label %213, label %218

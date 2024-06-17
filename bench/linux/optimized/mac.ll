@@ -1572,89 +1572,70 @@ define dso_local i32 @e1000e_id_led_init_generic(ptr noundef %0) local_unnamed_a
   %16 = zext i16 %15 to i32
   br label %17
 
-17:                                               ; preds = %59, %7
-  %18 = phi i32 [ %11, %7 ], [ %60, %59 ]
-  %19 = phi i32 [ %11, %7 ], [ %61, %59 ]
-  %20 = phi i32 [ 0, %7 ], [ %62, %59 ]
+17:                                               ; preds = %42, %7
+  %18 = phi i32 [ %11, %7 ], [ %43, %42 ]
+  %19 = phi i32 [ %11, %7 ], [ %44, %42 ]
+  %20 = phi i32 [ 0, %7 ], [ %45, %42 ]
   %21 = shl nuw nsw i32 %20, 2
   %22 = lshr i32 %16, %21
   %23 = and i32 %22, 15
-  switch i32 %23, label %59 [
-    i32 4, label %24
-    i32 5, label %24
-    i32 6, label %24
-    i32 7, label %31
-    i32 8, label %31
-    i32 9, label %31
-    i32 2, label %40
-    i32 3, label %48
+  switch i32 %23, label %42 [
+    i32 4, label %25
+    i32 5, label %25
+    i32 6, label %25
+    i32 7, label %24
+    i32 8, label %24
+    i32 9, label %24
+    i32 2, label %34
+    i32 3, label %32
   ]
 
 24:                                               ; preds = %17, %17, %17
-  %25 = shl nuw nsw i32 %20, 3
-  %26 = shl nuw i32 255, %25
-  %27 = xor i32 %26, -1
-  %28 = and i32 %19, %27
-  %29 = shl nuw nsw i32 14, %25
-  %30 = or i32 %28, %29
-  br label %38
+  br label %25
 
-31:                                               ; preds = %17, %17, %17
-  %32 = shl nuw nsw i32 %20, 3
-  %33 = shl nuw i32 255, %32
-  %34 = xor i32 %33, -1
-  %35 = and i32 %19, %34
-  %36 = shl nuw nsw i32 15, %32
-  %37 = or i32 %35, %36
-  br label %38
-
-38:                                               ; preds = %31, %24
-  %39 = phi i32 [ %37, %31 ], [ %30, %24 ]
-  store i32 %39, ptr %13, align 8
-  switch i32 %23, label %59 [
-    i32 9, label %48
-    i32 5, label %40
-    i32 8, label %40
-    i32 6, label %48
+25:                                               ; preds = %17, %17, %17, %24
+  %.sink3 = phi i32 [ 15, %24 ], [ 14, %17 ], [ 14, %17 ], [ 14, %17 ]
+  %26 = shl nuw nsw i32 %20, 3
+  %27 = shl nuw i32 255, %26
+  %28 = xor i32 %27, -1
+  %29 = and i32 %19, %28
+  %30 = shl nuw nsw i32 %.sink3, %26
+  %31 = or i32 %29, %30
+  store i32 %31, ptr %13, align 8
+  switch i32 %23, label %42 [
+    i32 9, label %32
+    i32 5, label %34
+    i32 8, label %34
+    i32 6, label %32
   ]
 
-40:                                               ; preds = %38, %38, %17
-  %41 = phi i32 [ %39, %38 ], [ %39, %38 ], [ %19, %17 ]
-  %42 = shl nuw nsw i32 %20, 3
-  %43 = shl nuw i32 255, %42
-  %44 = xor i32 %43, -1
-  %45 = and i32 %18, %44
-  %46 = shl nuw nsw i32 14, %42
-  %47 = or i32 %45, %46
-  br label %56
+32:                                               ; preds = %25, %25, %17
+  %33 = phi i32 [ %31, %25 ], [ %31, %25 ], [ %19, %17 ]
+  br label %34
 
-48:                                               ; preds = %38, %38, %17
-  %49 = phi i32 [ %39, %38 ], [ %39, %38 ], [ %19, %17 ]
-  %50 = shl nuw nsw i32 %20, 3
-  %51 = shl nuw i32 255, %50
-  %52 = xor i32 %51, -1
-  %53 = and i32 %18, %52
-  %54 = shl nuw nsw i32 15, %50
-  %55 = or i32 %53, %54
-  br label %56
+34:                                               ; preds = %17, %25, %25, %32
+  %.sink8 = phi i32 [ 15, %32 ], [ 14, %25 ], [ 14, %25 ], [ 14, %17 ]
+  %35 = phi i32 [ %33, %32 ], [ %31, %25 ], [ %31, %25 ], [ %19, %17 ]
+  %36 = shl nuw nsw i32 %20, 3
+  %37 = shl nuw i32 255, %36
+  %38 = xor i32 %37, -1
+  %39 = and i32 %18, %38
+  %40 = shl nuw nsw i32 %.sink8, %36
+  %41 = or i32 %39, %40
+  store i32 %41, ptr %14, align 4
+  br label %42
 
-56:                                               ; preds = %48, %40
-  %57 = phi i32 [ %41, %40 ], [ %49, %48 ]
-  %58 = phi i32 [ %47, %40 ], [ %55, %48 ]
-  store i32 %58, ptr %14, align 4
-  br label %59
+42:                                               ; preds = %34, %25, %17
+  %43 = phi i32 [ %41, %34 ], [ %18, %25 ], [ %18, %17 ]
+  %44 = phi i32 [ %35, %34 ], [ %31, %25 ], [ %19, %17 ]
+  %45 = add nuw nsw i32 %20, 1
+  %46 = icmp eq i32 %45, 4
+  br i1 %46, label %.loopexit, label %17, !llvm.loop !22
 
-59:                                               ; preds = %56, %38, %17
-  %60 = phi i32 [ %58, %56 ], [ %18, %38 ], [ %18, %17 ]
-  %61 = phi i32 [ %57, %56 ], [ %39, %38 ], [ %19, %17 ]
-  %62 = add nuw nsw i32 %20, 1
-  %63 = icmp eq i32 %62, 4
-  br i1 %63, label %.loopexit, label %17, !llvm.loop !22
-
-.loopexit:                                        ; preds = %59, %1
-  %64 = phi i32 [ %5, %1 ], [ 0, %59 ]
+.loopexit:                                        ; preds = %42, %1
+  %47 = phi i32 [ %5, %1 ], [ 0, %42 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %2) #6
-  ret i32 %64
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

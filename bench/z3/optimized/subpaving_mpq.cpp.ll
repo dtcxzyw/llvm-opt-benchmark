@@ -5840,18 +5840,18 @@ if.then.i47:                                      ; preds = %lor.lhs.false.i39, 
   br label %if.end56.sink.split
 
 if.end56.sink.split:                              ; preds = %if.then.i47, %lor.lhs.false.i39, %if.then.i34, %lor.lhs.false.i26, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit
-  %.sink96 = phi i32 [ %4, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre1.i37, %if.then.i34 ], [ %30, %lor.lhs.false.i26 ], [ %.pre1.i50, %if.then.i47 ], [ %33, %lor.lhs.false.i39 ]
-  %.sink95 = phi ptr [ %5, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre.i35, %if.then.i34 ], [ %29, %lor.lhs.false.i26 ], [ %.pre.i48, %if.then.i47 ], [ %32, %lor.lhs.false.i39 ]
-  %.sink = phi ptr [ %7, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %call4, %if.then.i34 ], [ %call4, %lor.lhs.false.i26 ], [ %call4, %if.then.i47 ], [ %call4, %lor.lhs.false.i39 ]
-  %m_unit_clauses.i.sink = phi ptr [ %m_unit_clauses.i, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %m_clauses, %if.then.i34 ], [ %m_clauses, %lor.lhs.false.i26 ], [ %m_lemmas, %if.then.i47 ], [ %m_lemmas, %lor.lhs.false.i39 ]
-  %idx.ext.i.i = zext i32 %.sink96 to i64
-  %add.ptr.i.i = getelementptr inbounds ptr, ptr %.sink95, i64 %idx.ext.i.i
-  store ptr %.sink, ptr %add.ptr.i.i, align 8
-  %35 = load ptr, ptr %m_unit_clauses.i.sink, align 8
-  %arrayidx10.i.i = getelementptr inbounds i8, ptr %35, i64 -4
-  %36 = load i32, ptr %arrayidx10.i.i, align 4
+  %.sink95 = phi i32 [ %4, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre1.i37, %if.then.i34 ], [ %30, %lor.lhs.false.i26 ], [ %.pre1.i50, %if.then.i47 ], [ %33, %lor.lhs.false.i39 ]
+  %.sink = phi ptr [ %5, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %.pre.i35, %if.then.i34 ], [ %29, %lor.lhs.false.i26 ], [ %.pre.i48, %if.then.i47 ], [ %32, %lor.lhs.false.i39 ]
+  %call4.sink = phi ptr [ %7, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %call4, %if.then.i34 ], [ %call4, %lor.lhs.false.i26 ], [ %call4, %if.then.i47 ], [ %call4, %lor.lhs.false.i39 ]
+  %m_lemmas.sink = phi ptr [ %m_unit_clauses.i, %_ZN9subpaving9context_tINS_10config_mpqEE15add_unit_clauseEPNS2_4ineqEb.exit ], [ %m_clauses, %if.then.i34 ], [ %m_clauses, %lor.lhs.false.i26 ], [ %m_lemmas, %if.then.i47 ], [ %m_lemmas, %lor.lhs.false.i39 ]
+  %idx.ext.i43 = zext i32 %.sink95 to i64
+  %add.ptr.i44 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i43
+  store ptr %call4.sink, ptr %add.ptr.i44, align 8
+  %35 = load ptr, ptr %m_lemmas.sink, align 8
+  %arrayidx10.i45 = getelementptr inbounds i8, ptr %35, i64 -4
+  %36 = load i32, ptr %arrayidx10.i45, align 4
   %inc.i46 = add i32 %36, 1
-  store i32 %inc.i46, ptr %arrayidx10.i.i, align 4
+  store i32 %inc.i46, ptr %arrayidx10.i45, align 4
   br label %if.end56
 
 if.end56:                                         ; preds = %if.end56.sink.split, %if.end37.thread, %if.else
@@ -7959,13 +7959,13 @@ if.else.i.i7.i312.invoke:                         ; preds = %_ZN11mpq_managerILb
           to label %invoke.cont81 unwind label %lpad
 
 invoke.cont81.sink.split:                         ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i305, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i280
-  %m_den.i306.sink = phi ptr [ %m_den.i281, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i280 ], [ %m_den.i306, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i305 ]
+  %m_den.i281.sink = phi ptr [ %m_den.i281, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i280 ], [ %m_den.i306, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i305 ]
   %79 = load i32, ptr %m_den.i213, align 8
-  store i32 %79, ptr %m_den.i306.sink, align 8
-  %m_kind.i.i9.i314 = getelementptr inbounds i8, ptr %this, i64 1172
-  %bf.load.i.i10.i290 = load i8, ptr %m_kind.i.i9.i314, align 4
+  store i32 %79, ptr %m_den.i281.sink, align 8
+  %m_kind.i.i9.i289 = getelementptr inbounds i8, ptr %this, i64 1172
+  %bf.load.i.i10.i290 = load i8, ptr %m_kind.i.i9.i289, align 4
   %bf.clear.i.i11.i291 = and i8 %bf.load.i.i10.i290, -2
-  store i8 %bf.clear.i.i11.i291, ptr %m_kind.i.i9.i314, align 4
+  store i8 %bf.clear.i.i11.i291, ptr %m_kind.i.i9.i289, align 4
   br label %invoke.cont81
 
 invoke.cont81:                                    ; preds = %invoke.cont81.sink.split, %if.else.i.i7.i312.invoke, %invoke.cont70, %if.then.i.i.i267, %call4.i.i.i.noexc269
@@ -8716,13 +8716,13 @@ if.else.i.i7.i748.invoke:                         ; preds = %_ZN11mpq_managerILb
           to label %invoke.cont195 unwind label %lpad
 
 invoke.cont195.sink.split:                        ; preds = %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i741, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i716
-  %m_den.i742.sink = phi ptr [ %m_den.i717, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i716 ], [ %m_den.i742, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i741 ]
+  %m_den.i717.sink = phi ptr [ %m_den.i717, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i716 ], [ %m_den.i742, %_ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i741 ]
   %158 = load i32, ptr %m_den.i633, align 8
-  store i32 %158, ptr %m_den.i742.sink, align 8
-  %m_kind.i.i9.i750 = getelementptr inbounds i8, ptr %this, i64 1172
-  %bf.load.i.i10.i726 = load i8, ptr %m_kind.i.i9.i750, align 4
+  store i32 %158, ptr %m_den.i717.sink, align 8
+  %m_kind.i.i9.i725 = getelementptr inbounds i8, ptr %this, i64 1172
+  %bf.load.i.i10.i726 = load i8, ptr %m_kind.i.i9.i725, align 4
   %bf.clear.i.i11.i727 = and i8 %bf.load.i.i10.i726, -2
-  store i8 %bf.clear.i.i11.i727, ptr %m_kind.i.i9.i750, align 4
+  store i8 %bf.clear.i.i11.i727, ptr %m_kind.i.i9.i725, align 4
   br label %invoke.cont195
 
 invoke.cont195:                                   ; preds = %invoke.cont195.sink.split, %if.else.i.i7.i748.invoke, %invoke.cont181, %if.then.i.i.i703, %call4.i.i.i.noexc705

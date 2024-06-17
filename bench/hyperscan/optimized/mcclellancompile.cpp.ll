@@ -11140,9 +11140,9 @@ if.end36:                                         ; preds = %_ZN3ue210verify_u16
 
 if.end51.sink.split:                              ; preds = %if.end36, %_ZN3ue210verify_u16ImEEtT_.exit
   %.sink = phi i32 [ 1, %_ZN3ue210verify_u16ImEEtT_.exit ], [ 2, %if.end36 ]
-  %add45 = add nuw nsw i32 %.sink, %conv.i.i
-  store i32 %add45, ptr %scratchStateSize, align 8
-  store i32 %add45, ptr %streamStateSize, align 4
+  %add = add nuw nsw i32 %.sink, %conv.i.i
+  store i32 %add, ptr %scratchStateSize, align 8
+  store i32 %add, ptr %streamStateSize, align 4
   br label %if.end51
 
 if.end51:                                         ; preds = %if.end51.sink.split, %if.end36

@@ -56,7 +56,7 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %.1146..1144182, ptr %7, align 4
   store float %.1144..1146183, ptr %6, align 4
   store float 1.000000e+00, ptr %5, align 4
-  br label %116
+  br label %.thread172
 
 32:                                               ; preds = %23, %21
   %.1139.ph = phi i32 [ %.0138, %21 ], [ 2, %23 ]
@@ -126,8 +126,8 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   %81 = insertelement <2 x float> poison, float %41, i64 0
   %82 = shufflevector <2 x float> %81, <2 x float> poison, <2 x i32> zeroinitializer
   %83 = fdiv <2 x float> %82, %80
-  %shift190 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
-  %84 = fadd <2 x float> %83, %shift190
+  %shift197 = shufflevector <2 x float> %83, <2 x float> poison, <2 x i32> <i32 1, i32 poison>
+  %84 = fadd <2 x float> %83, %shift197
   %85 = extractelement <2 x float> %84, i64 0
   %86 = fpext float %85 to double
   %87 = fpext float %52 to double
@@ -171,78 +171,63 @@ define void @slasv2_(ptr nocapture noundef readonly %0, ptr nocapture noundef re
   store float %.1146..1144, ptr %7, align 4
   store float %.1144..1146, ptr %6, align 4
   store float %.1148..1142, ptr %5, align 4
-  switch i32 %.2140, label %123 [
+  switch i32 %.2140, label %110 [
     i32 1, label %.thread169
-    i32 2, label %116
+    i32 2, label %.thread172
   ]
 
 .thread169:                                       ; preds = %108
   %109 = load float, ptr %6, align 4
-  %110 = fcmp ogt float %109, 0.000000e+00
-  %111 = load float, ptr %8, align 4
-  %112 = fcmp ogt float %111, 0.000000e+00
-  %113 = select i1 %112, double 1.000000e+00, double -1.000000e+00
-  %114 = fneg double %113
-  %115 = select i1 %110, double %113, double %114
   br label %.thread172
 
-116:                                              ; preds = %.thread, %108
-  %.1148..1142185 = phi float [ 1.000000e+00, %.thread ], [ %.1148..1142, %108 ]
-  %117 = fcmp ogt float %.1148..1142185, 0.000000e+00
-  %118 = load float, ptr %8, align 4
-  %119 = fcmp ogt float %118, 0.000000e+00
-  %120 = select i1 %119, double 1.000000e+00, double -1.000000e+00
-  %121 = fneg double %120
-  %122 = select i1 %117, double %120, double %121
+110:                                              ; preds = %108
   br label %.thread172
 
-123:                                              ; preds = %108
-  %124 = fcmp ogt float %.1148..1142, 0.000000e+00
-  %125 = load float, ptr %7, align 4
-  %126 = fcmp ogt float %125, 0.000000e+00
-  %127 = select i1 %126, double 1.000000e+00, double -1.000000e+00
-  %128 = fneg double %127
-  %129 = select i1 %124, double %127, double %128
-  br label %.thread172
+.thread172:                                       ; preds = %108, %.thread, %.thread169, %110
+  %.1148..1142185.sink = phi float [ %109, %.thread169 ], [ %.1148..1142, %110 ], [ 1.000000e+00, %.thread ], [ %.1148..1142, %108 ]
+  %.sink196 = phi ptr [ %8, %.thread169 ], [ %7, %110 ], [ %8, %.thread ], [ %8, %108 ]
+  %.sink = phi ptr [ %0, %.thread169 ], [ %2, %110 ], [ %1, %.thread ], [ %1, %108 ]
+  %111 = fcmp ogt float %.1148..1142185.sink, 0.000000e+00
+  %112 = load float, ptr %.sink196, align 4
+  %113 = fcmp ogt float %112, 0.000000e+00
+  %114 = select i1 %113, double 1.000000e+00, double -1.000000e+00
+  %115 = fneg double %114
+  %116 = select i1 %111, double %114, double %115
+  %117 = load float, ptr %.sink, align 4
+  %118 = fcmp ogt float %117, 0.000000e+00
+  %119 = fneg double %116
+  %120 = select i1 %118, double %116, double %119
+  %.2 = fptrunc double %120 to float
+  %121 = fcmp olt float %.2, 0.000000e+00
+  br i1 %121, label %122, label %125
 
-.thread172:                                       ; preds = %116, %.thread169, %123
-  %.sink = phi ptr [ %1, %116 ], [ %0, %.thread169 ], [ %2, %123 ]
-  %.sink188 = phi double [ %122, %116 ], [ %115, %.thread169 ], [ %129, %123 ]
-  %130 = load float, ptr %.sink, align 4
-  %131 = fcmp ogt float %130, 0.000000e+00
-  %132 = fneg double %.sink188
-  %133 = select i1 %131, double %.sink188, double %132
-  %.2 = fptrunc double %133 to float
-  %134 = fcmp olt float %.2, 0.000000e+00
-  br i1 %134, label %135, label %138
+122:                                              ; preds = %.thread172
+  %123 = load float, ptr %4, align 4
+  %124 = fneg float %123
+  store float %124, ptr %4, align 4
+  br label %125
 
-135:                                              ; preds = %.thread172
-  %136 = load float, ptr %4, align 4
-  %137 = fneg float %136
-  store float %137, ptr %4, align 4
-  br label %138
+125:                                              ; preds = %122, %.thread172
+  %126 = fpext float %.2 to double
+  %127 = load float, ptr %0, align 4
+  %128 = fcmp ogt float %127, 0.000000e+00
+  %129 = fneg double %126
+  %130 = select i1 %128, double %126, double %129
+  %131 = load float, ptr %2, align 4
+  %132 = fcmp ogt float %131, 0.000000e+00
+  %133 = fneg double %130
+  %134 = select i1 %132, double %130, double %133
+  %135 = fptrunc double %134 to float
+  %136 = fcmp olt float %135, 0.000000e+00
+  br i1 %136, label %137, label %140
 
-138:                                              ; preds = %135, %.thread172
-  %139 = fpext float %.2 to double
-  %140 = load float, ptr %0, align 4
-  %141 = fcmp ogt float %140, 0.000000e+00
-  %142 = fneg double %139
-  %143 = select i1 %141, double %139, double %142
-  %144 = load float, ptr %2, align 4
-  %145 = fcmp ogt float %144, 0.000000e+00
-  %146 = fneg double %143
-  %147 = select i1 %145, double %143, double %146
-  %148 = fptrunc double %147 to float
-  %149 = fcmp olt float %148, 0.000000e+00
-  br i1 %149, label %150, label %153
+137:                                              ; preds = %125
+  %138 = load float, ptr %3, align 4
+  %139 = fneg float %138
+  store float %139, ptr %3, align 4
+  br label %140
 
-150:                                              ; preds = %138
-  %151 = load float, ptr %3, align 4
-  %152 = fneg float %151
-  store float %152, ptr %3, align 4
-  br label %153
-
-153:                                              ; preds = %150, %138
+140:                                              ; preds = %137, %125
   ret void
 }
 

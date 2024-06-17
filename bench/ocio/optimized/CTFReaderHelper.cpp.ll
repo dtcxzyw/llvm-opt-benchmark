@@ -41998,7 +41998,7 @@ ehcleanup66:                                      ; preds = %lpad63, %lpad61
   br label %ehcleanup97
 
 if.end67:                                         ; preds = %invoke.cont64, %if.then56
-  br i1 %basePathFound.0.lcssa, label %if.then69, label %if.end78
+  br i1 %basePathFound.0.lcssa, label %if.then69, label %if.end78.invoke
 
 if.then69:                                        ; preds = %if.end67
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71) #28
@@ -42007,12 +42007,7 @@ if.then69:                                        ; preds = %if.end67
 
 invoke.cont73:                                    ; preds = %if.then69
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70)
-          to label %invoke.cont75 unwind label %lpad74
-
-invoke.cont75:                                    ; preds = %invoke.cont73
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70) #28
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71) #28
-  br label %if.end78
+          to label %if.end78.invoke.sink.split unwind label %lpad74
 
 lpad72:                                           ; preds = %if.then69
   %28 = landingpad { ptr, i32 }
@@ -42030,22 +42025,30 @@ ehcleanup77:                                      ; preds = %lpad74, %lpad72
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71) #28
   br label %ehcleanup97
 
-if.end78:                                         ; preds = %invoke.cont75, %if.end67
-  %m_reference = getelementptr inbounds i8, ptr %this, i64 104
-  %30 = load ptr, ptr %m_reference, align 8
-  %m_referenceStyle.i = getelementptr inbounds i8, ptr %30, i64 168
-  store i32 1, ptr %m_referenceStyle.i, align 8
-  %m_alias.i = getelementptr inbounds i8, ptr %30, i64 208
+if.end78.invoke.sink.split:                       ; preds = %invoke.cont73, %invoke.cont87
+  %ref.tmp70.sink = phi ptr [ %ref.tmp84, %invoke.cont87 ], [ %ref.tmp70, %invoke.cont73 ]
+  %ref.tmp71.sink = phi ptr [ %ref.tmp85, %invoke.cont87 ], [ %ref.tmp71, %invoke.cont73 ]
+  %.sink41.ph = phi i32 [ 0, %invoke.cont87 ], [ 1, %invoke.cont73 ]
+  %.sink40.ph = phi i64 [ 176, %invoke.cont87 ], [ 208, %invoke.cont73 ]
+  %.ph = phi ptr [ %path, %invoke.cont87 ], [ %alias, %invoke.cont73 ]
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp70.sink) #28
+  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp71.sink) #28
   br label %if.end78.invoke
 
-if.end78.invoke:                                  ; preds = %if.end92, %if.end78
-  %31 = phi ptr [ %m_alias.i, %if.end78 ], [ %m_path.i, %if.end92 ]
-  %32 = phi ptr [ %alias, %if.end78 ], [ %path, %if.end92 ]
-  %33 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %32)
+if.end78.invoke:                                  ; preds = %if.end78.invoke.sink.split, %if.end67, %if.else81
+  %.sink41 = phi i32 [ 0, %if.else81 ], [ 1, %if.end67 ], [ %.sink41.ph, %if.end78.invoke.sink.split ]
+  %.sink40 = phi i64 [ 176, %if.else81 ], [ 208, %if.end67 ], [ %.sink40.ph, %if.end78.invoke.sink.split ]
+  %30 = phi ptr [ %path, %if.else81 ], [ %alias, %if.end67 ], [ %.ph, %if.end78.invoke.sink.split ]
+  %m_reference93 = getelementptr inbounds i8, ptr %this, i64 104
+  %31 = load ptr, ptr %m_reference93, align 8
+  %m_referenceStyle.i28 = getelementptr inbounds i8, ptr %31, i64 168
+  store i32 %.sink41, ptr %m_referenceStyle.i28, align 8
+  %m_path.i = getelementptr inbounds i8, ptr %31, i64 %.sink40
+  %32 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_path.i, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %if.end96 unwind label %lpad.loopexit.split-lp
 
 if.else81:                                        ; preds = %while.end
-  br i1 %call82, label %if.then83, label %if.end92
+  br i1 %call82, label %if.then83, label %if.end78.invoke
 
 if.then83:                                        ; preds = %if.else81
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #28
@@ -42054,36 +42057,23 @@ if.then83:                                        ; preds = %if.else81
 
 invoke.cont87:                                    ; preds = %if.then83
   invoke void @_ZNK19OpenColorIO_v2_4dev16XmlReaderElement12throwMessageERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84)
-          to label %invoke.cont89 unwind label %lpad88
-
-invoke.cont89:                                    ; preds = %invoke.cont87
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84) #28
-  call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #28
-  br label %if.end92
+          to label %if.end78.invoke.sink.split unwind label %lpad88
 
 lpad86:                                           ; preds = %if.then83
-  %34 = landingpad { ptr, i32 }
+  %33 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup91
 
 lpad88:                                           ; preds = %invoke.cont87
-  %35 = landingpad { ptr, i32 }
+  %34 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp84) #28
   br label %ehcleanup91
 
 ehcleanup91:                                      ; preds = %lpad88, %lpad86
-  %.pn20 = phi { ptr, i32 } [ %35, %lpad88 ], [ %34, %lpad86 ]
+  %.pn20 = phi { ptr, i32 } [ %34, %lpad88 ], [ %33, %lpad86 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp85) #28
   br label %ehcleanup97
-
-if.end92:                                         ; preds = %invoke.cont89, %if.else81
-  %m_reference93 = getelementptr inbounds i8, ptr %this, i64 104
-  %36 = load ptr, ptr %m_reference93, align 8
-  %m_referenceStyle.i28 = getelementptr inbounds i8, ptr %36, i64 168
-  store i32 0, ptr %m_referenceStyle.i28, align 8
-  %m_path.i = getelementptr inbounds i8, ptr %36, i64 176
-  br label %if.end78.invoke
 
 if.end96:                                         ; preds = %if.end78.invoke
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path) #28

@@ -3201,15 +3201,15 @@ lpad:                                             ; preds = %if.then.i.i121, %if
   resume { ptr, i32 } %24
 
 if.end.sink.split:                                ; preds = %invoke.cont14, %invoke.cont
-  %.sink = phi ptr [ %21, %invoke.cont ], [ %call15, %invoke.cont14 ]
-  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %.sink, i64 8
-  %25 = load i32, ptr %m_ref_count.i.i.i, align 4
+  %call15.sink = phi ptr [ %21, %invoke.cont ], [ %call15, %invoke.cont14 ]
+  %m_ref_count.i.i.i40 = getelementptr inbounds i8, ptr %call15.sink, i64 8
+  %25 = load i32, ptr %m_ref_count.i.i.i40, align 4
   %inc.i.i.i41 = add i32 %25, 1
-  store i32 %inc.i.i.i41, ptr %m_ref_count.i.i.i, align 4
+  store i32 %inc.i.i.i41, ptr %m_ref_count.i.i.i40, align 4
   br label %if.end
 
 if.end:                                           ; preds = %if.end.sink.split, %invoke.cont14
-  %26 = phi ptr [ null, %invoke.cont14 ], [ %.sink, %if.end.sink.split ]
+  %26 = phi ptr [ null, %invoke.cont14 ], [ %call15.sink, %if.end.sink.split ]
   store ptr %26, ptr %value, align 8
   %m_values2val = getelementptr inbounds i8, ptr %this, i64 448
   %m_hash.i.i.i.i.i.i.i52 = getelementptr inbounds i8, ptr %key, i64 12

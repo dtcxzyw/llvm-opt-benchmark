@@ -943,14 +943,14 @@ if.then33.i:                                      ; preds = %for.end.i
   br label %return.sink.split.i
 
 return.sink.split.i:                              ; preds = %if.then33.i, %if.then4.i
-  %div17.sink.i = phi i32 [ %div17.i, %if.then4.i ], [ %div3619.i, %if.then33.i ]
-  %notmask.sink.i = phi i64 [ %not.i, %if.then4.i ], [ %notmask.i, %if.then33.i ]
-  %conv.i = zext nneg i32 %div17.sink.i to i64
+  %div3619.sink.i = phi i32 [ %div3619.i, %if.then33.i ], [ %div17.i, %if.then4.i ]
+  %notmask.sink.i = phi i64 [ %notmask.i, %if.then33.i ], [ %not.i, %if.then4.i ]
+  %conv37.i = zext nneg i32 %div3619.sink.i to i64
   %8 = load ptr, ptr %this, align 8
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %8, i64 %conv.i
-  %9 = load i64, ptr %arrayidx.i.i, align 8
+  %arrayidx.i23.i = getelementptr inbounds i64, ptr %8, i64 %conv37.i
+  %9 = load i64, ptr %arrayidx.i23.i, align 8
   %and39.i = and i64 %9, %notmask.sink.i
-  store i64 %and39.i, ptr %arrayidx.i.i, align 8
+  store i64 %and39.i, ptr %arrayidx.i23.i, align 8
   br label %_ZN4llvh9BitVector5resetEjj.exit
 
 _ZN4llvh9BitVector5resetEjj.exit:                 ; preds = %while.end, %for.end.i, %return.sink.split.i

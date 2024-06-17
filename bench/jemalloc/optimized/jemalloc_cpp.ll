@@ -349,10 +349,10 @@ terminate.lpad.i63:                               ; preds = %if.end.i67, %if.end
 _ZL16imalloc_fastpathmPFPvmE.exit.sink.split:     ; preds = %if.then39.i, %if.then43.i
   %retval.i.0.ph = phi ptr [ %16, %if.then43.i ], [ %14, %if.then39.i ]
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i, align 8
-  %tstats.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %20 = load i64, ptr %tstats.i21, align 8
+  %tstats.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %20 = load i64, ptr %tstats.i, align 8
   %inc.i = add i64 %20, 1
-  store i64 %inc.i, ptr %tstats.i21, align 8
+  store i64 %inc.i, ptr %tstats.i, align 8
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
 _ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %_ZL16imalloc_fastpathmPFPvmE.exit.sink.split, %if.end.i67, %invoke.cont.i64, %if.end.i59, %invoke.cont.i56, %if.end.i, %invoke.cont.i
@@ -475,10 +475,10 @@ terminate.lpad.i63:                               ; preds = %if.end.i67, %if.end
 _ZL16imalloc_fastpathmPFPvmE.exit.sink.split:     ; preds = %if.then39.i, %if.then43.i
   %retval.i.0.ph = phi ptr [ %16, %if.then43.i ], [ %14, %if.then39.i ]
   store i64 %add.i, ptr %cant_access_tsd_items_directly_use_a_getter_or_setter_thread_allocated.i, align 8
-  %tstats.i21 = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
-  %20 = load i64, ptr %tstats.i21, align 8
+  %tstats.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 8
+  %20 = load i64, ptr %tstats.i, align 8
   %inc.i = add i64 %20, 1
-  store i64 %inc.i, ptr %tstats.i21, align 8
+  store i64 %inc.i, ptr %tstats.i, align 8
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
 _ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %_ZL16imalloc_fastpathmPFPvmE.exit.sink.split, %if.end.i67, %invoke.cont.i64, %if.end.i59, %invoke.cont.i56, %if.end.i, %invoke.cont.i

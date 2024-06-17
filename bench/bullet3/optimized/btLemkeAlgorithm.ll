@@ -1620,19 +1620,19 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit149: ; preds = %_ZNK20btAlignedOb
   br label %for.inc.sink.split
 
 for.inc.sink.split:                               ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149
-  %.sink423 = phi i32 [ %13, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ], [ %22, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %.pre2.i135, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ]
-  %.sink = phi ptr [ %14, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ], [ %23, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %call.i.i.i.i147, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ]
-  %currentMin.1.ph = phi float [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ], [ %currentMin.0387, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ]
-  %idxprom.i = sext i32 %.sink423 to i64
-  %arrayidx.i = getelementptr inbounds i32, ptr %.sink, i64 %idxprom.i
-  store i32 %storemerge386, ptr %arrayidx.i, align 4
+  %.pre2.i135.sink = phi i32 [ %.pre2.i135, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %22, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %13, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
+  %call.i.i.i.i147.sink = phi ptr [ %call.i.i.i.i147, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %23, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %14, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
+  %currentMin.1.ph = phi float [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit149 ], [ %currentMin.0387, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit98 ], [ %div, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit ]
+  %idxprom.i110 = sext i32 %.pre2.i135.sink to i64
+  %arrayidx.i111 = getelementptr inbounds i32, ptr %call.i.i.i.i147.sink, i64 %idxprom.i110
+  store i32 %storemerge386, ptr %arrayidx.i111, align 4
   %30 = load i32, ptr %m_size.i.i, align 4
-  %inc.i112.sink = add nsw i32 %30, 1
-  store i32 %inc.i112.sink, ptr %m_size.i.i, align 4
+  %inc.i112 = add nsw i32 %30, 1
+  store i32 %inc.i112, ptr %m_size.i.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %_Z9btMachEpsv.exit, %if.else17
-  %31 = phi i32 [ %1, %if.else17 ], [ %1, %_Z9btMachEpsv.exit ], [ %inc.i112.sink, %for.inc.sink.split ]
+  %31 = phi i32 [ %1, %if.else17 ], [ %1, %_Z9btMachEpsv.exit ], [ %inc.i112, %for.inc.sink.split ]
   %currentMin.1 = phi float [ %currentMin.0387, %if.else17 ], [ %currentMin.0387, %_Z9btMachEpsv.exit ], [ %currentMin.1.ph, %for.inc.sink.split ]
   %firstRow.1 = phi i1 [ false, %if.else17 ], [ %firstRow.0388, %_Z9btMachEpsv.exit ], [ false, %for.inc.sink.split ]
   %inc = add nuw nsw i32 %storemerge386, 1
@@ -2042,19 +2042,19 @@ _ZN20btAlignedObjectArrayIiE9push_backERKi.exit344: ; preds = %_ZNK20btAlignedOb
   br label %for.inc91.sink.split
 
 for.inc91.sink.split:                             ; preds = %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344
-  %.sink425 = phi i32 [ %57, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ], [ %67, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %.pre2.i330, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ]
-  %.sink424 = phi ptr [ %58, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ], [ %68, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %call.i.i.i.i342, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ]
-  %currentMin.4.ph = phi float [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ], [ %currentMin.3392, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ]
-  %idxprom.i196 = sext i32 %.sink425 to i64
-  %arrayidx.i197 = getelementptr inbounds i32, ptr %.sink424, i64 %idxprom.i196
-  store i32 %45, ptr %arrayidx.i197, align 4
+  %.pre2.i330.sink = phi i32 [ %.pre2.i330, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %67, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %57, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
+  %call.i.i.i.i342.sink = phi ptr [ %call.i.i.i.i342, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %68, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %58, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
+  %currentMin.4.ph = phi float [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit344 ], [ %currentMin.3392, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit289 ], [ %div71, %_ZN20btAlignedObjectArrayIiE9push_backERKi.exit235 ]
+  %idxprom.i305 = sext i32 %.pre2.i330.sink to i64
+  %arrayidx.i306 = getelementptr inbounds i32, ptr %call.i.i.i.i342.sink, i64 %idxprom.i305
+  store i32 %45, ptr %arrayidx.i306, align 4
   %75 = load i32, ptr %m_size.i.i, align 4
-  %inc.i307.sink = add nsw i32 %75, 1
-  store i32 %inc.i307.sink, ptr %m_size.i.i, align 4
+  %inc.i307 = add nsw i32 %75, 1
+  store i32 %inc.i307, ptr %m_size.i.i, align 4
   br label %for.inc91
 
 for.inc91:                                        ; preds = %for.inc91.sink.split, %if.else83
-  %76 = phi i32 [ %44, %if.else83 ], [ %inc.i307.sink, %for.inc91.sink.split ]
+  %76 = phi i32 [ %44, %if.else83 ], [ %inc.i307, %for.inc91.sink.split ]
   %currentMin.4 = phi float [ %currentMin.3392, %if.else83 ], [ %currentMin.4.ph, %for.inc91.sink.split ]
   %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
   %cmp61 = icmp ult i64 %indvars.iv.next406, %43

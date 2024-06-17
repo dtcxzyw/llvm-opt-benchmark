@@ -8301,52 +8301,46 @@ define internal void @dissect_gtpv2_mbms_ip_mc_dist(ptr noundef %0, ptr nocaptur
   %32 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #10
   %33 = and i8 %32, 63
   %34 = icmp eq i8 %33, 4
-  br i1 %34, label %35, label %43
+  br i1 %34, label %.sink.split75, label %35
 
 35:                                               ; preds = %27
-  %36 = add nuw nsw i32 %.0, 1
-  %37 = load i32, ptr @hf_gtpv2_mbms_ip_mc_src_addrv4, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %36, i32 noundef 4, i32 noundef 0) #10
-  %39 = getelementptr inbounds i8, ptr %1, i64 408
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call ptr @tvb_address_to_str(ptr noundef %40, ptr noundef %0, i32 noundef 2, i32 noundef %36) #10
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1707, ptr noundef %41) #10
-  %42 = add nuw nsw i32 %.0, 5
-  br label %55
+  %36 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #10
+  %37 = and i8 %36, 63
+  %38 = icmp eq i8 %37, 16
+  br i1 %38, label %.sink.split75, label %46
 
-43:                                               ; preds = %27
-  %44 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0) #10
-  %45 = and i8 %44, 63
-  %46 = icmp eq i8 %45, 16
-  br i1 %46, label %47, label %55
+.sink.split75:                                    ; preds = %35, %27
+  %hf_gtpv2_mbms_ip_mc_src_addrv6.sink = phi ptr [ @hf_gtpv2_mbms_ip_mc_src_addrv4, %27 ], [ @hf_gtpv2_mbms_ip_mc_src_addrv6, %35 ]
+  %.sink83 = phi i32 [ 4, %27 ], [ 16, %35 ]
+  %.sink78 = phi i32 [ 2, %27 ], [ 3, %35 ]
+  %.str.1708.sink = phi ptr [ @.str.1707, %27 ], [ @.str.1708, %35 ]
+  %.sink = phi i32 [ 5, %27 ], [ 17, %35 ]
+  %39 = add nuw nsw i32 %.0, 1
+  %40 = load i32, ptr %hf_gtpv2_mbms_ip_mc_src_addrv6.sink, align 4
+  %41 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef %.sink83, i32 noundef 0) #10
+  %42 = getelementptr inbounds i8, ptr %1, i64 408
+  %43 = load ptr, ptr %42, align 8
+  %44 = tail call ptr @tvb_address_to_str(ptr noundef %43, ptr noundef %0, i32 noundef %.sink78, i32 noundef %39) #10
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull %.str.1708.sink, ptr noundef %44) #10
+  %45 = add nuw nsw i32 %.0, %.sink
+  br label %46
 
-47:                                               ; preds = %43
-  %48 = add nuw nsw i32 %.0, 1
-  %49 = load i32, ptr @hf_gtpv2_mbms_ip_mc_src_addrv6, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef 16, i32 noundef 0) #10
-  %51 = getelementptr inbounds i8, ptr %1, i64 408
-  %52 = load ptr, ptr %51, align 8
-  %53 = tail call ptr @tvb_address_to_str(ptr noundef %52, ptr noundef %0, i32 noundef 3, i32 noundef %48) #10
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %3, ptr noundef nonnull @.str.1708, ptr noundef %53) #10
-  %54 = add nuw nsw i32 %.0, 17
-  br label %55
+46:                                               ; preds = %.sink.split75, %35
+  %.1 = phi i32 [ %.0, %35 ], [ %45, %.sink.split75 ]
+  %47 = load i32, ptr @hf_gtpv2_mbms_hc_indicator, align 4
+  %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #10
+  %49 = add nuw nsw i32 %.1, 1
+  %50 = zext i16 %4 to i32
+  %51 = icmp ult i32 %49, %50
+  br i1 %51, label %52, label %56
 
-55:                                               ; preds = %43, %47, %35
-  %.1 = phi i32 [ %42, %35 ], [ %54, %47 ], [ %.0, %43 ]
-  %56 = load i32, ptr @hf_gtpv2_mbms_hc_indicator, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %.1, i32 noundef 1, i32 noundef 0) #10
-  %58 = add nuw nsw i32 %.1, 1
-  %59 = zext i16 %4 to i32
-  %60 = icmp ult i32 %58, %59
-  br i1 %60, label %61, label %65
+52:                                               ; preds = %46
+  %53 = load i32, ptr @hf_gtpv2_spare_bytes, align 4
+  %54 = sub nsw i32 %50, %49
+  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %53, ptr noundef %0, i32 noundef %49, i32 noundef %54, i32 noundef 0) #10
+  br label %56
 
-61:                                               ; preds = %55
-  %62 = load i32, ptr @hf_gtpv2_spare_bytes, align 4
-  %63 = sub nsw i32 %59, %58
-  %64 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %58, i32 noundef %63, i32 noundef 0) #10
-  br label %65
-
-65:                                               ; preds = %61, %55
+56:                                               ; preds = %52, %46
   ret void
 }
 

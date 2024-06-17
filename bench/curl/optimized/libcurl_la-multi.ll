@@ -3506,10 +3506,10 @@ if.else.i.i375:                                   ; preds = %if.then.i.i374
 
 if.end18.sink.split.i.i:                          ; preds = %if.else.i.i375, %if.then.i.i374
   %.sink.i.i = phi ptr [ %69, %if.then.i.i374 ], [ %70, %if.else.i.i375 ]
-  %in_callback10.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 457
-  %bf.load.i.i = load i8, ptr %in_callback10.i.i, align 1
+  %in_callback.i.i = getelementptr inbounds i8, ptr %.sink.i.i, i64 457
+  %bf.load.i.i = load i8, ptr %in_callback.i.i, align 1
   %bf.set.i.i = or i8 %bf.load.i.i, 4
-  store i8 %bf.set.i.i, ptr %in_callback10.i.i, align 1
+  store i8 %bf.set.i.i, ptr %in_callback.i.i, align 1
   %.pre.i = load ptr, ptr %seek_func.i, align 8
   br label %if.then.i36.i
 
@@ -3528,10 +3528,10 @@ if.else.i45.i:                                    ; preds = %if.then.i36.i
 
 if.end18.sink.split.i39.i:                        ; preds = %if.else.i45.i, %if.then.i36.i
   %.sink.i40.i = phi ptr [ %73, %if.then.i36.i ], [ %74, %if.else.i45.i ]
-  %in_callback10.i41.i = getelementptr inbounds i8, ptr %.sink.i40.i, i64 457
-  %bf.load.i42.i = load i8, ptr %in_callback10.i41.i, align 1
+  %in_callback.i41.i = getelementptr inbounds i8, ptr %.sink.i40.i, i64 457
+  %bf.load.i42.i = load i8, ptr %in_callback.i41.i, align 1
   %bf.clear.i43.i = and i8 %bf.load.i42.i, -5
-  store i8 %bf.clear.i43.i, ptr %in_callback10.i41.i, align 1
+  store i8 %bf.clear.i43.i, ptr %in_callback.i41.i, align 1
   br label %Curl_set_in_callback.exit48.i
 
 Curl_set_in_callback.exit48.i:                    ; preds = %if.end18.sink.split.i39.i, %if.else.i45.i
@@ -3559,10 +3559,10 @@ if.else.i59.i:                                    ; preds = %if.then.i50.i
 
 if.end18.sink.split.i53.i:                        ; preds = %if.else.i59.i, %if.then.i50.i
   %.sink.i54.i = phi ptr [ %76, %if.then.i50.i ], [ %77, %if.else.i59.i ]
-  %in_callback10.i55.i = getelementptr inbounds i8, ptr %.sink.i54.i, i64 457
-  %bf.load.i56.i = load i8, ptr %in_callback10.i55.i, align 1
+  %in_callback.i55.i = getelementptr inbounds i8, ptr %.sink.i54.i, i64 457
+  %bf.load.i56.i = load i8, ptr %in_callback.i55.i, align 1
   %bf.set.i58.i = or i8 %bf.load.i56.i, 4
-  store i8 %bf.set.i58.i, ptr %in_callback10.i55.i, align 1
+  store i8 %bf.set.i58.i, ptr %in_callback.i55.i, align 1
   %.pre77.i = load ptr, ptr %ioctl_func.i, align 8
   br label %if.then.i64.i
 
@@ -3581,10 +3581,10 @@ if.else.i73.i:                                    ; preds = %if.then.i64.i
 
 if.end18.sink.split.i67.i:                        ; preds = %if.else.i73.i, %if.then.i64.i
   %.sink.i68.i = phi ptr [ %80, %if.then.i64.i ], [ %81, %if.else.i73.i ]
-  %in_callback10.i69.i = getelementptr inbounds i8, ptr %.sink.i68.i, i64 457
-  %bf.load.i70.i = load i8, ptr %in_callback10.i69.i, align 1
+  %in_callback.i69.i = getelementptr inbounds i8, ptr %.sink.i68.i, i64 457
+  %bf.load.i70.i = load i8, ptr %in_callback.i69.i, align 1
   %bf.clear.i71.i = and i8 %bf.load.i70.i, -5
-  store i8 %bf.clear.i71.i, ptr %in_callback10.i69.i, align 1
+  store i8 %bf.clear.i71.i, ptr %in_callback.i69.i, align 1
   br label %Curl_set_in_callback.exit76.i
 
 Curl_set_in_callback.exit76.i:                    ; preds = %if.end18.sink.split.i67.i, %if.else.i73.i
@@ -3799,10 +3799,10 @@ if.else.i416:                                     ; preds = %if.then.i412
 
 if.end18.sink.split.i:                            ; preds = %if.else.i416, %if.then.i412
   %.sink.i = phi ptr [ %101, %if.then.i412 ], [ %102, %if.else.i416 ]
-  %in_callback10.i = getelementptr inbounds i8, ptr %.sink.i, i64 457
-  %bf.load.i413 = load i8, ptr %in_callback10.i, align 1
+  %in_callback.i = getelementptr inbounds i8, ptr %.sink.i, i64 457
+  %bf.load.i413 = load i8, ptr %in_callback.i, align 1
   %bf.set.i415 = or i8 %bf.load.i413, 4
-  store i8 %bf.set.i415, ptr %in_callback10.i, align 1
+  store i8 %bf.set.i415, ptr %in_callback.i, align 1
   %.pre726 = load ptr, ptr %fprereq, align 8
   br label %if.then.i420
 
@@ -3823,10 +3823,10 @@ if.else.i429:                                     ; preds = %if.then.i420
 
 if.end18.sink.split.i423:                         ; preds = %if.else.i429, %if.then.i420
   %.sink.i424 = phi ptr [ %107, %if.then.i420 ], [ %108, %if.else.i429 ]
-  %in_callback10.i425 = getelementptr inbounds i8, ptr %.sink.i424, i64 457
-  %bf.load.i426 = load i8, ptr %in_callback10.i425, align 1
+  %in_callback.i425 = getelementptr inbounds i8, ptr %.sink.i424, i64 457
+  %bf.load.i426 = load i8, ptr %in_callback.i425, align 1
   %bf.clear.i427 = and i8 %bf.load.i426, -5
-  store i8 %bf.clear.i427, ptr %in_callback10.i425, align 1
+  store i8 %bf.clear.i427, ptr %in_callback.i425, align 1
   br label %Curl_set_in_callback.exit432
 
 Curl_set_in_callback.exit432:                     ; preds = %if.else.i429, %if.end18.sink.split.i423
@@ -6312,12 +6312,12 @@ if.else:                                          ; preds = %if.then
 
 if.end18.sink.split:                              ; preds = %if.else, %if.then
   %.sink = phi ptr [ %0, %if.then ], [ %1, %if.else ]
-  %in_callback10 = getelementptr inbounds i8, ptr %.sink, i64 457
-  %bf.load = load i8, ptr %in_callback10, align 1
+  %in_callback = getelementptr inbounds i8, ptr %.sink, i64 457
+  %bf.load = load i8, ptr %in_callback, align 1
   %bf.shl = select i1 %value, i8 4, i8 0
   %bf.clear = and i8 %bf.load, -5
   %bf.set = or disjoint i8 %bf.clear, %bf.shl
-  store i8 %bf.set, ptr %in_callback10, align 1
+  store i8 %bf.set, ptr %in_callback, align 1
   br label %if.end18
 
 if.end18:                                         ; preds = %if.end18.sink.split, %if.else, %entry

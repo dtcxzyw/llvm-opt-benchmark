@@ -4311,20 +4311,20 @@ lpad:                                             ; preds = %if.else.invoke, %lo
 
 if.else.invoke:                                   ; preds = %invoke.cont5, %for.body
   %.sink = phi i64 [ 16, %for.body ], [ %spec.select, %invoke.cont5 ]
-  %.pn = load ptr, ptr %m_data.i, align 8
-  %.sink16.in = getelementptr inbounds ptr, ptr %.pn, i64 %indvars.iv
-  %.sink16 = load ptr, ptr %.sink16.in, align 8
-  %vtable11 = load ptr, ptr %.sink16, align 8
+  %6 = load ptr, ptr %m_data.i, align 8
+  %arrayidx.i9 = getelementptr inbounds ptr, ptr %6, i64 %indvars.iv
+  %7 = load ptr, ptr %arrayidx.i9, align 8
+  %vtable11 = load ptr, ptr %7, align 8
   %vfn12 = getelementptr inbounds i8, ptr %vtable11, i64 %.sink
-  %6 = load ptr, ptr %vfn12, align 8
-  invoke void %6(ptr noundef nonnull align 8 dereferenceable(48) %.sink16, float noundef %dt, ptr noundef nonnull align 8 dereferenceable(25) %residual)
+  %8 = load ptr, ptr %vfn12, align 8
+  invoke void %8(ptr noundef nonnull align 8 dereferenceable(48) %7, float noundef %dt, ptr noundef nonnull align 8 dereferenceable(25) %residual)
           to label %for.inc unwind label %lpad
 
 for.inc:                                          ; preds = %if.else.invoke
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %7 = load i32, ptr %m_size.i, align 4
-  %8 = sext i32 %7 to i64
-  %cmp = icmp slt i64 %indvars.iv.next, %8
+  %9 = load i32, ptr %m_size.i, align 4
+  %10 = sext i32 %9 to i64
+  %cmp = icmp slt i64 %indvars.iv.next, %10
   br i1 %cmp, label %for.body, label %for.end, !llvm.loop !43
 
 for.end:                                          ; preds = %for.inc, %entry

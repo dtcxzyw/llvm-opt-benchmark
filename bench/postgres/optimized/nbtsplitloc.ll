@@ -352,30 +352,30 @@ BTreeTupleIsPosting.exit.thread.i178:             ; preds = %_bt_recsplitloc.exi
   br i1 %or.cond4.i169, label %_bt_recsplitloc.exit.sink.split, label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit.sink.split:                  ; preds = %166, %124, %91
-  %.160.in.i.sink = phi i32 [ %.160.in.i, %91 ], [ %.160.in.i94, %124 ], [ %.160.in.i166, %166 ]
-  %.1.in.i473.sink = phi i32 [ %.1.in.i473, %91 ], [ %.1.in.i93483, %124 ], [ %.1.in.i165493, %166 ]
-  %.sroa.122.0573.sink = phi i64 [ %.sroa.122.0573, %91 ], [ %.sroa.122.0573, %124 ], [ %.sroa.122.3, %166 ]
-  %.sroa.136.0574.sink = phi i32 [ %.sroa.136.0574, %91 ], [ %.sroa.136.0574, %124 ], [ %.sroa.136.3, %166 ]
+  %.160.in.i166.sink = phi i32 [ %.160.in.i, %91 ], [ %.160.in.i94, %124 ], [ %.160.in.i166, %166 ]
+  %.1.in.i165493.sink = phi i32 [ %.1.in.i473, %91 ], [ %.1.in.i93483, %124 ], [ %.1.in.i165493, %166 ]
+  %.sroa.122.3.sink = phi i64 [ %.sroa.122.0573, %91 ], [ %.sroa.122.0573, %124 ], [ %.sroa.122.3, %166 ]
+  %.sroa.136.3.sink612 = phi i32 [ %.sroa.136.0574, %91 ], [ %.sroa.136.0574, %124 ], [ %.sroa.136.3, %166 ]
   %.sink = phi i8 [ 0, %91 ], [ 1, %124 ], [ 1, %166 ]
-  %.160.i = trunc i32 %.160.in.i.sink to i16
-  %.1.i = trunc i32 %.1.in.i473.sink to i16
-  %..061.i = tail call i64 @llvm.umin.i64(i64 %.sroa.122.0573.sink, i64 %66)
-  %171 = sext i32 %.sroa.136.0574.sink to i64
+  %.160.i170 = trunc i32 %.160.in.i166.sink to i16
+  %.1.i171 = trunc i32 %.1.in.i165493.sink to i16
+  %..061.i172 = tail call i64 @llvm.umin.i64(i64 %.sroa.122.3.sink, i64 %66)
+  %171 = sext i32 %.sroa.136.3.sink612 to i64
   %172 = getelementptr %struct.SplitPoint, ptr %49, i64 %171
   store i16 0, ptr %172, align 2
   %173 = getelementptr %struct.SplitPoint, ptr %49, i64 %171, i32 1
-  store i16 %.1.i, ptr %173, align 2
+  store i16 %.1.i171, ptr %173, align 2
   %174 = getelementptr %struct.SplitPoint, ptr %49, i64 %171, i32 2
-  store i16 %.160.i, ptr %174, align 2
+  store i16 %.160.i170, ptr %174, align 2
   %175 = getelementptr %struct.SplitPoint, ptr %49, i64 %171, i32 3
   store i16 %.074575, ptr %175, align 2
   %176 = getelementptr %struct.SplitPoint, ptr %49, i64 %171, i32 4
   store i8 %.sink, ptr %176, align 2
-  %177 = add i32 %.sroa.136.0574.sink, 1
+  %177 = add i32 %.sroa.136.3.sink612, 1
   br label %_bt_recsplitloc.exit
 
 _bt_recsplitloc.exit:                             ; preds = %_bt_recsplitloc.exit.sink.split, %166, %124, %91
-  %.sroa.122.5 = phi i64 [ %.sroa.122.0573, %91 ], [ %.sroa.122.0573, %124 ], [ %.sroa.122.3, %166 ], [ %..061.i, %_bt_recsplitloc.exit.sink.split ]
+  %.sroa.122.5 = phi i64 [ %.sroa.122.0573, %91 ], [ %.sroa.122.0573, %124 ], [ %.sroa.122.3, %166 ], [ %..061.i172, %_bt_recsplitloc.exit.sink.split ]
   %.sroa.136.5 = phi i32 [ %.sroa.136.0574, %91 ], [ %.sroa.136.0574, %124 ], [ %.sroa.136.3, %166 ], [ %177, %_bt_recsplitloc.exit.sink.split ]
   %178 = add i32 %65, %.073576
   %179 = add i16 %.074575, 1

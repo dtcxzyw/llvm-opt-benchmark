@@ -6541,18 +6541,18 @@ if.then.i.i79:                                    ; preds = %lor.lhs.false.i.i71
           to label %if.end39.sink.split unwind label %lpad
 
 if.end39.sink.split:                              ; preds = %if.then.i.i79, %if.then.i.i56
-  %m_nodes.i46.sink = phi ptr [ %m_nodes.i46, %if.then.i.i56 ], [ %m_nodes.i69, %if.then.i.i79 ]
+  %m_nodes.i69.sink106 = phi ptr [ %m_nodes.i46, %if.then.i.i56 ], [ %m_nodes.i69, %if.then.i.i79 ]
   %call36.sink.ph = phi ptr [ %29, %if.then.i.i56 ], [ %call36, %if.then.i.i79 ]
-  %.pre.i.i57 = load ptr, ptr %m_nodes.i46.sink, align 8
-  %arrayidx8.phi.trans.insert.i.i81 = getelementptr inbounds i8, ptr %.pre.i.i57, i64 -4
+  %.pre.i.i80 = load ptr, ptr %m_nodes.i69.sink106, align 8
+  %arrayidx8.phi.trans.insert.i.i81 = getelementptr inbounds i8, ptr %.pre.i.i80, i64 -4
   %.pre1.i.i82 = load i32, ptr %arrayidx8.phi.trans.insert.i.i81, align 4
   br label %if.end39
 
 if.end39:                                         ; preds = %if.end39.sink.split, %lor.lhs.false.i.i71, %lor.lhs.false.i.i48
   %.sink105 = phi i32 [ %32, %lor.lhs.false.i.i48 ], [ %38, %lor.lhs.false.i.i71 ], [ %.pre1.i.i82, %if.end39.sink.split ]
-  %.sink = phi ptr [ %31, %lor.lhs.false.i.i48 ], [ %37, %lor.lhs.false.i.i71 ], [ %.pre.i.i57, %if.end39.sink.split ]
+  %.sink = phi ptr [ %31, %lor.lhs.false.i.i48 ], [ %37, %lor.lhs.false.i.i71 ], [ %.pre.i.i80, %if.end39.sink.split ]
   %call36.sink = phi ptr [ %29, %lor.lhs.false.i.i48 ], [ %call36, %lor.lhs.false.i.i71 ], [ %call36.sink.ph, %if.end39.sink.split ]
-  %m_nodes.i69.sink = phi ptr [ %m_nodes.i46, %lor.lhs.false.i.i48 ], [ %m_nodes.i69, %lor.lhs.false.i.i71 ], [ %m_nodes.i46.sink, %if.end39.sink.split ]
+  %m_nodes.i69.sink = phi ptr [ %m_nodes.i46, %lor.lhs.false.i.i48 ], [ %m_nodes.i69, %lor.lhs.false.i.i71 ], [ %m_nodes.i69.sink106, %if.end39.sink.split ]
   %idx.ext.i.i75 = zext i32 %.sink105 to i64
   %add.ptr.i.i76 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i75
   store ptr %call36.sink, ptr %add.ptr.i.i76, align 8

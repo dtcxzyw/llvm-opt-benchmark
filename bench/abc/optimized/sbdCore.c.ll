@@ -4699,8 +4699,8 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge2, %229
   %267 = getelementptr inbounds i8, ptr %0, i64 24
   %268 = load ptr, ptr %267, align 8
   %269 = getelementptr i8, ptr %268, i64 8
-  %.val106 = load ptr, ptr %269, align 8
-  %270 = getelementptr inbounds i32, ptr %.val106, i64 %18
+  %.val105 = load ptr, ptr %269, align 8
+  %270 = getelementptr inbounds i32, ptr %.val105, i64 %18
   store i32 0, ptr %270, align 4
   %271 = getelementptr inbounds i8, ptr %0, i64 112
   %272 = load i32, ptr %271, align 8

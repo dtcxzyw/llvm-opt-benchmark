@@ -367,7 +367,7 @@ define internal i32 @phar_stream_seek(ptr nocapture noundef readonly %0, i64 nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr nocapture noundef readonly %0, ptr noundef writeonly %1) #1 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %48, label %3
+  br i1 %.not, label %42, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %0, i64 8
@@ -380,73 +380,64 @@ define internal range(i32 -1, 1) i32 @phar_stream_stat(ptr nocapture noundef rea
   %10 = load i16, ptr %9, align 2
   %11 = and i16 %10, 8
   %.not.i = icmp eq i16 %11, 0
-  br i1 %.not.i, label %12, label %21
+  br i1 %.not.i, label %12, label %16
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %8, align 8
   %14 = zext i32 %13 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 48
   store i64 %14, ptr %15, align 8
-  %16 = getelementptr inbounds i8, ptr %8, i64 16
-  %17 = load i32, ptr %16, align 8
-  %18 = and i32 %17, 511
-  %19 = getelementptr inbounds i8, ptr %1, i64 24
-  %20 = or disjoint i32 %18, 32768
-  store i32 %20, ptr %19, align 8
-  br label %27
+  br label %16
 
-21:                                               ; preds = %3
-  %22 = getelementptr inbounds i8, ptr %8, i64 16
-  %23 = load i32, ptr %22, align 8
-  %24 = and i32 %23, 511
-  %25 = getelementptr inbounds i8, ptr %1, i64 24
-  %26 = or disjoint i32 %24, 16384
-  store i32 %26, ptr %25, align 8
-  br label %27
-
-27:                                               ; preds = %21, %12
-  %28 = phi i32 [ %26, %21 ], [ %20, %12 ]
-  %.sink9 = getelementptr inbounds i8, ptr %8, i64 4
-  %29 = load i32, ptr %.sink9, align 4
-  %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds i8, ptr %1, i64 88
-  store i64 %30, ptr %31, align 8
-  %.sink.in = load i32, ptr %.sink9, align 4
+16:                                               ; preds = %3, %12
+  %.sink13 = phi i32 [ 32768, %12 ], [ 16384, %3 ]
+  %17 = getelementptr inbounds i8, ptr %8, i64 16
+  %18 = load i32, ptr %17, align 8
+  %19 = and i32 %18, 511
+  %20 = getelementptr inbounds i8, ptr %1, i64 24
+  %21 = or disjoint i32 %19, %.sink13
+  store i32 %21, ptr %20, align 8
+  %22 = getelementptr inbounds i8, ptr %8, i64 4
+  %23 = load i32, ptr %22, align 4
+  %24 = zext i32 %23 to i64
+  %25 = getelementptr inbounds i8, ptr %1, i64 88
+  store i64 %24, ptr %25, align 8
+  %.sink.in = load i32, ptr %22, align 4
   %.sink = zext i32 %.sink.in to i64
-  %32 = getelementptr inbounds i8, ptr %1, i64 72
-  store i64 %.sink, ptr %32, align 8
-  %.sink49.i = load i32, ptr %.sink9, align 4
-  %33 = zext i32 %.sink49.i to i64
-  %34 = getelementptr inbounds i8, ptr %1, i64 104
-  store i64 %33, ptr %34, align 8
-  %35 = getelementptr inbounds i8, ptr %6, i64 324
-  %36 = load i16, ptr %35, align 4
-  %37 = and i16 %36, 4
-  %.not47.i = icmp eq i16 %37, 0
-  br i1 %.not47.i, label %38, label %phar_dostat.exit
+  %26 = getelementptr inbounds i8, ptr %1, i64 72
+  store i64 %.sink, ptr %26, align 8
+  %.sink49.i = load i32, ptr %22, align 4
+  %27 = zext i32 %.sink49.i to i64
+  %28 = getelementptr inbounds i8, ptr %1, i64 104
+  store i64 %27, ptr %28, align 8
+  %29 = getelementptr inbounds i8, ptr %6, i64 324
+  %30 = load i16, ptr %29, align 4
+  %31 = and i16 %30, 4
+  %.not47.i = icmp eq i16 %31, 0
+  br i1 %.not47.i, label %32, label %phar_dostat.exit
 
-38:                                               ; preds = %27
-  %39 = getelementptr inbounds i8, ptr %1, i64 24
-  %40 = and i32 %28, -147
-  store i32 %40, ptr %39, align 8
+32:                                               ; preds = %16
+  %33 = getelementptr inbounds i8, ptr %1, i64 24
+  %34 = and i32 %21, 49517
+  store i32 %34, ptr %33, align 8
   br label %phar_dostat.exit
 
-phar_dostat.exit:                                 ; preds = %27, %38
-  %41 = getelementptr inbounds i8, ptr %1, i64 16
-  store i64 1, ptr %41, align 8
-  %42 = getelementptr inbounds i8, ptr %1, i64 40
-  store i64 -1, ptr %42, align 8
+phar_dostat.exit:                                 ; preds = %16, %32
+  %35 = getelementptr inbounds i8, ptr %1, i64 16
+  store i64 1, ptr %35, align 8
+  %36 = getelementptr inbounds i8, ptr %1, i64 40
+  store i64 -1, ptr %36, align 8
   store i64 12, ptr %1, align 8
-  %43 = getelementptr inbounds i8, ptr %8, i64 152
-  %44 = load i16, ptr %43, align 8
-  %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds i8, ptr %1, i64 8
-  store i64 %45, ptr %46, align 8
-  %47 = getelementptr inbounds i8, ptr %1, i64 56
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %47, i8 -1, i64 16, i1 false)
-  br label %48
+  %37 = getelementptr inbounds i8, ptr %8, i64 152
+  %38 = load i16, ptr %37, align 8
+  %39 = zext i16 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %1, i64 8
+  store i64 %39, ptr %40, align 8
+  %41 = getelementptr inbounds i8, ptr %1, i64 56
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 -1, i64 16, i1 false)
+  br label %42
 
-48:                                               ; preds = %2, %phar_dostat.exit
+42:                                               ; preds = %2, %phar_dostat.exit
   %.0 = phi i32 [ 0, %phar_dostat.exit ], [ -1, %2 ]
   ret i32 %.0
 }

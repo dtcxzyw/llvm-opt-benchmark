@@ -10123,17 +10123,7 @@ _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.e
   %30 = icmp ne <64 x i8> %29, zeroinitializer
   %31 = bitcast <64 x i1> %30 to i64
   %cmp.i68.not = icmp eq i64 %31, 0
-  br i1 %cmp.i68.not, label %if.end10, label %if.then
-
-if.then:                                          ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit56
-  %spec.select = tail call i64 @llvm.usub.sat.i64(i64 %count.0837, i64 1)
-  %add.ptr7 = getelementptr inbounds i8, ptr %buf, i64 %spec.select
-  %sub = sub i64 %len, %spec.select
-  %call8 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr7, i64 noundef %sub) #54
-  %32 = extractvalue { i32, i64 } %call8, 0
-  %33 = extractvalue { i32, i64 } %call8, 1
-  %add = add i64 %33, %spec.select
-  br label %return
+  br i1 %cmp.i68.not, label %if.end10, label %return.sink.split
 
 if.end10:                                         ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit56
   %add11 = add i64 %count.0837, 64
@@ -10142,12 +10132,12 @@ if.end10:                                         ; preds = %_ZN7simdutf7icelake
   br i1 %cmp.not, label %for.end.loopexit, label %for.body, !llvm.loop !108
 
 for.end.loopexit:                                 ; preds = %if.end10
-  %34 = bitcast <8 x i64> %checker.sroa.13.1 to <16 x i32>
+  %32 = bitcast <8 x i64> %checker.sroa.13.1 to <16 x i32>
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %entry
   %checker.sroa.18.0.lcssa = phi <8 x i64> [ zeroinitializer, %entry ], [ %checker.sroa.18.1, %for.end.loopexit ]
-  %checker.sroa.13.0.lcssa = phi <16 x i32> [ zeroinitializer, %entry ], [ %34, %for.end.loopexit ]
+  %checker.sroa.13.0.lcssa = phi <16 x i32> [ zeroinitializer, %entry ], [ %32, %for.end.loopexit ]
   %checker.sroa.0.0.lcssa = phi <8 x i64> [ zeroinitializer, %entry ], [ %checker.sroa.0.1, %for.end.loopexit ]
   %count.0.lcssa = phi i64 [ 0, %entry ], [ %add11, %for.end.loopexit ]
   %ptr.0.lcssa = phi ptr [ %buf, %entry ], [ %add.ptr2839, %for.end.loopexit ]
@@ -10156,68 +10146,69 @@ for.end:                                          ; preds = %for.end.loopexit, %
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %notmask = shl nsw i64 -1, %sub.ptr.sub
   %sub14 = xor i64 %notmask, -1
-  %35 = bitcast i64 %sub14 to <64 x i1>
-  %36 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %ptr.0.lcssa, i32 1, <64 x i1> %35, <64 x i8> zeroinitializer)
-  %37 = icmp slt <64 x i8> %36, zeroinitializer
-  %38 = bitcast <64 x i1> %37 to i64
-  %cmp.i = icmp eq i64 %38, 0
+  %33 = bitcast i64 %sub14 to <64 x i1>
+  %34 = tail call <64 x i8> @llvm.masked.load.v64i8.p0(ptr %ptr.0.lcssa, i32 1, <64 x i1> %33, <64 x i8> zeroinitializer)
+  %35 = icmp slt <64 x i8> %34, zeroinitializer
+  %36 = bitcast <64 x i1> %35 to i64
+  %cmp.i = icmp eq i64 %36, 0
   br i1 %cmp.i, label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit, label %if.else.i
 
 if.else.i:                                        ; preds = %for.end
-  %39 = bitcast <64 x i8> %36 to <16 x i32>
-  %40 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %39, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa)
-  %41 = bitcast <16 x i32> %40 to <64 x i8>
-  %palignr.i821 = shufflevector <64 x i8> %41, <64 x i8> %36, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
-  %42 = bitcast <64 x i8> %palignr.i821 to <32 x i16>
-  %43 = lshr <32 x i16> %42, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %44 = bitcast <32 x i16> %43 to <64 x i8>
-  %45 = and <64 x i8> %44, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %46 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %45)
-  %47 = bitcast <64 x i8> %46 to <8 x i64>
-  %48 = and <64 x i8> %palignr.i821, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %49 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %48)
-  %50 = bitcast <64 x i8> %49 to <8 x i64>
-  %51 = bitcast <64 x i8> %36 to <32 x i16>
-  %52 = lshr <32 x i16> %51, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
-  %53 = bitcast <32 x i16> %52 to <64 x i8>
-  %54 = and <64 x i8> %53, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
-  %55 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %54)
-  %56 = bitcast <64 x i8> %55 to <8 x i64>
-  %57 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %47, <8 x i64> %50, <8 x i64> %56, i32 128)
-  %palignr.i822 = shufflevector <64 x i8> %41, <64 x i8> %36, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
-  %palignr.i823 = shufflevector <64 x i8> %41, <64 x i8> %36, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
+  %37 = bitcast <64 x i8> %34 to <16 x i32>
+  %38 = tail call <16 x i32> @llvm.x86.avx512.vpermi2var.d.512(<16 x i32> %37, <16 x i32> <i32 28, i32 29, i32 30, i32 31, i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 9, i32 10, i32 11>, <16 x i32> %checker.sroa.13.0.lcssa)
+  %39 = bitcast <16 x i32> %38 to <64 x i8>
+  %palignr.i821 = shufflevector <64 x i8> %39, <64 x i8> %34, <64 x i32> <i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 78, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 94, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 110, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125, i32 126>
+  %40 = bitcast <64 x i8> %palignr.i821 to <32 x i16>
+  %41 = lshr <32 x i16> %40, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %42 = bitcast <32 x i16> %41 to <64 x i8>
+  %43 = and <64 x i8> %42, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %44 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 2, i8 -128, i8 -128, i8 -128, i8 -128, i8 33, i8 1, i8 21, i8 73>, <64 x i8> %43)
+  %45 = bitcast <64 x i8> %44 to <8 x i64>
+  %46 = and <64 x i8> %palignr.i821, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %47 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53, i8 -25, i8 -93, i8 -125, i8 -125, i8 -117, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -53, i8 -37, i8 -53, i8 -53>, <64 x i8> %46)
+  %48 = bitcast <64 x i8> %47 to <8 x i64>
+  %49 = bitcast <64 x i8> %34 to <32 x i16>
+  %50 = lshr <32 x i16> %49, <i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4, i16 4>
+  %51 = bitcast <32 x i16> %50 to <64 x i8>
+  %52 = and <64 x i8> %51, <i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15, i8 15>
+  %53 = tail call <64 x i8> @llvm.x86.avx512.pshuf.b.512(<64 x i8> <i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 1, i8 -26, i8 -82, i8 -70, i8 -70, i8 1, i8 1, i8 1, i8 1>, <64 x i8> %52)
+  %54 = bitcast <64 x i8> %53 to <8 x i64>
+  %55 = tail call noundef <8 x i64> @llvm.x86.avx512.pternlog.q.512(<8 x i64> %45, <8 x i64> %48, <8 x i64> %54, i32 128)
+  %palignr.i822 = shufflevector <64 x i8> %39, <64 x i8> %34, <64 x i32> <i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 77, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 93, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 109, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124, i32 125>
+  %palignr.i823 = shufflevector <64 x i8> %39, <64 x i8> %34, <64 x i32> <i32 13, i32 14, i32 15, i32 64, i32 65, i32 66, i32 67, i32 68, i32 69, i32 70, i32 71, i32 72, i32 73, i32 74, i32 75, i32 76, i32 29, i32 30, i32 31, i32 80, i32 81, i32 82, i32 83, i32 84, i32 85, i32 86, i32 87, i32 88, i32 89, i32 90, i32 91, i32 92, i32 45, i32 46, i32 47, i32 96, i32 97, i32 98, i32 99, i32 100, i32 101, i32 102, i32 103, i32 104, i32 105, i32 106, i32 107, i32 108, i32 61, i32 62, i32 63, i32 112, i32 113, i32 114, i32 115, i32 116, i32 117, i32 118, i32 119, i32 120, i32 121, i32 122, i32 123, i32 124>
   %elt.sat.i960 = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i822, <64 x i8> <i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33, i8 -33>)
   %elt.sat.i953 = tail call <64 x i8> @llvm.usub.sat.v64i8(<64 x i8> %palignr.i823, <64 x i8> <i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17, i8 -17>)
   %or.i.i507815 = or <64 x i8> %elt.sat.i960, %elt.sat.i953
   %elt.sat.i988 = add nuw <64 x i8> %or.i.i507815, <i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127, i8 127>
-  %58 = bitcast <64 x i8> %elt.sat.i988 to <16 x i32>
-  %59 = bitcast <8 x i64> %57 to <16 x i32>
-  %60 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %58, <16 x i32> <i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144>, <16 x i32> %59, i32 106)
-  %61 = bitcast <16 x i32> %60 to <8 x i64>
+  %56 = bitcast <64 x i8> %elt.sat.i988 to <16 x i32>
+  %57 = bitcast <8 x i64> %55 to <16 x i32>
+  %58 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %56, <16 x i32> <i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144, i32 -2139062144>, <16 x i32> %57, i32 106)
+  %59 = bitcast <16 x i32> %58 to <8 x i64>
   br label %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit
 
 _ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit: ; preds = %for.end, %if.else.i
-  %checker.sroa.18.0.pn = phi <8 x i64> [ %61, %if.else.i ], [ %checker.sroa.18.0.lcssa, %for.end ]
+  %checker.sroa.18.0.pn = phi <8 x i64> [ %59, %if.else.i ], [ %checker.sroa.18.0.lcssa, %for.end ]
   %checker.sroa.0.2 = or <8 x i64> %checker.sroa.18.0.pn, %checker.sroa.0.0.lcssa
-  %62 = bitcast <8 x i64> %checker.sroa.0.2 to <64 x i8>
-  %63 = icmp ne <64 x i8> %62, zeroinitializer
-  %64 = bitcast <64 x i1> %63 to i64
-  %cmp.i62.not = icmp eq i64 %64, 0
-  br i1 %cmp.i62.not, label %return, label %if.then19
+  %60 = bitcast <8 x i64> %checker.sroa.0.2 to <64 x i8>
+  %61 = icmp ne <64 x i8> %60, zeroinitializer
+  %62 = bitcast <64 x i1> %61 to i64
+  %cmp.i62.not = icmp eq i64 %62, 0
+  br i1 %cmp.i62.not, label %return, label %return.sink.split
 
-if.then19:                                        ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit
-  %spec.select818 = tail call i64 @llvm.usub.sat.i64(i64 %count.0.lcssa, i64 1)
+return.sink.split:                                ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit56, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit
+  %count.0.lcssa.sink = phi i64 [ %count.0.lcssa, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit ], [ %count.0837, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit56 ]
+  %spec.select818 = tail call i64 @llvm.usub.sat.i64(i64 %count.0.lcssa.sink, i64 1)
   %add.ptr24 = getelementptr inbounds i8, ptr %buf, i64 %spec.select818
   %sub25 = sub i64 %len, %spec.select818
   %call26 = tail call fastcc { i32, i64 } @_ZN7simdutf6scalar12_GLOBAL__N_14utf831rewind_and_validate_with_errorsEPKcS4_m(ptr noundef %buf, ptr noundef %add.ptr24, i64 noundef %sub25) #54
-  %65 = extractvalue { i32, i64 } %call26, 0
-  %66 = extractvalue { i32, i64 } %call26, 1
-  %add28 = add i64 %66, %spec.select818
+  %63 = extractvalue { i32, i64 } %call26, 0
+  %64 = extractvalue { i32, i64 } %call26, 1
+  %add28 = add i64 %64, %spec.select818
   br label %return
 
-return:                                           ; preds = %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit, %if.then19, %if.then
-  %retval.sroa.4.0 = phi i64 [ %add, %if.then ], [ %add28, %if.then19 ], [ %len, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit ]
-  %retval.sroa.0.0 = phi i32 [ %32, %if.then ], [ %65, %if.then19 ], [ 0, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit ]
+return:                                           ; preds = %return.sink.split, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit
+  %retval.sroa.4.0 = phi i64 [ %len, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit ], [ %add28, %return.sink.split ]
+  %retval.sroa.0.0 = phi i32 [ 0, %_ZN7simdutf7icelake12_GLOBAL__N_119avx512_utf8_checker16check_next_inputEDv8_x.exit ], [ %63, %return.sink.split ]
   %.fca.0.insert = insertvalue { i32, i64 } poison, i32 %retval.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i32, i64 } %.fca.0.insert, i64 %retval.sroa.4.0, 1
   ret { i32, i64 } %.fca.1.insert

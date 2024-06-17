@@ -4279,10 +4279,10 @@ fail.sink.split.sink.split:                       ; preds = %if.end130, %if.then
 
 fail.sink.split:                                  ; preds = %if.then32, %fail.sink.split.sink.split
   %ret.0.ph = phi i32 [ %call.i.lcssa.sink, %fail.sink.split.sink.split ], [ %call40, %if.then32 ]
-  %check_errors44 = getelementptr inbounds i8, ptr %res, i64 8
-  %69 = load i32, ptr %check_errors44, align 8
+  %check_errors141 = getelementptr inbounds i8, ptr %res, i64 8
+  %69 = load i32, ptr %check_errors141, align 8
   %inc142 = add i32 %69, 1
-  store i32 %inc142, ptr %check_errors44, align 8
+  store i32 %inc142, ptr %check_errors141, align 8
   br label %fail
 
 fail:                                             ; preds = %for.inc148, %fail.sink.split, %if.end8
@@ -6585,10 +6585,10 @@ for.inc60:                                        ; preds = %if.end53, %for.body
 cleanup.sink.split:                               ; preds = %if.end3, %if.then12
   %l1_table.0.ph = phi ptr [ %call4, %if.then12 ], [ null, %if.end3 ]
   %retval.0.ph = phi i32 [ %call.i, %if.then12 ], [ -12, %if.end3 ]
-  %check_errors = getelementptr inbounds i8, ptr %res, i64 8
-  %14 = load i32, ptr %check_errors, align 8
+  %check_errors14 = getelementptr inbounds i8, ptr %res, i64 8
+  %14 = load i32, ptr %check_errors14, align 8
   %inc15 = add i32 %14, 1
-  store i32 %inc15, ptr %check_errors, align 8
+  store i32 %inc15, ptr %check_errors14, align 8
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end37, %if.end53, %for.inc60, %cleanup.sink.split, %for.cond.preheader, %for.cond20.preheader, %if.end, %entry

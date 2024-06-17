@@ -2090,7 +2090,7 @@ define internal fastcc noundef i32 @decode_pk_data(ptr noundef %0, ptr nocapture
   %19 = load ptr, ptr %5, align 8
   %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.394, ptr noundef nonnull dereferenceable(1) %19) #6
   %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %21, label %72
+  br i1 %.not, label %21, label %35
 
 21:                                               ; preds = %4
   %22 = add i32 %17, %3
@@ -2106,123 +2106,69 @@ define internal fastcc noundef i32 @decode_pk_data(ptr noundef %0, ptr nocapture
   %32 = add i32 %22, 4
   %33 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef %24, i32 noundef 0) #5
   %34 = add i32 %25, %17
-  %35 = add i32 %34, %3
-  %36 = load i32, ptr @hf_do_irp_pkrec_dsa_p, align 4
-  %37 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %35, i32 noundef 0) #5
-  %38 = add i32 %37, 4
-  %39 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %36, ptr noundef %0, i32 noundef %35, i32 noundef %38, i32 noundef 0) #5
-  %40 = load i32, ptr @ett_do_irp_string, align 4
-  %41 = call ptr @proto_item_add_subtree(ptr noundef %39, i32 noundef %40) #5
-  %42 = load i32, ptr @hf_do_irp_data_len, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %0, i32 noundef %35, i32 noundef 4, i32 noundef 0) #5
-  %44 = load i32, ptr @hf_do_irp_data_value, align 4
-  %45 = add i32 %35, 4
-  %46 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %0, i32 noundef %45, i32 noundef %37, i32 noundef 0) #5
-  %47 = add i32 %38, %34
-  %48 = add i32 %47, %3
-  %49 = load i32, ptr @hf_do_irp_pkrec_dsa_g, align 4
-  %50 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %48, i32 noundef 0) #5
-  %51 = add i32 %50, 4
-  %52 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef %48, i32 noundef %51, i32 noundef 0) #5
-  %53 = load i32, ptr @ett_do_irp_string, align 4
-  %54 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %53) #5
-  %55 = load i32, ptr @hf_do_irp_data_len, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %55, ptr noundef %0, i32 noundef %48, i32 noundef 4, i32 noundef 0) #5
-  %57 = load i32, ptr @hf_do_irp_data_value, align 4
-  %58 = add i32 %48, 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %57, ptr noundef %0, i32 noundef %58, i32 noundef %50, i32 noundef 0) #5
-  %60 = add i32 %48, %51
-  %61 = load i32, ptr @hf_do_irp_pkrec_dsa_y, align 4
-  %62 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %60, i32 noundef 0) #5
-  %63 = add i32 %62, 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef %63, i32 noundef 0) #5
-  %65 = load i32, ptr @ett_do_irp_string, align 4
-  %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #5
-  %67 = load i32, ptr @hf_do_irp_data_len, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %67, ptr noundef %0, i32 noundef %60, i32 noundef 4, i32 noundef 0) #5
-  %69 = load i32, ptr @hf_do_irp_data_value, align 4
-  %70 = add i32 %60, 4
-  %71 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %69, ptr noundef %0, i32 noundef %70, i32 noundef %62, i32 noundef 0) #5
-  br label %139
+  br label %.sink.split.sink.split
 
-72:                                               ; preds = %4
-  %73 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.395, ptr noundef nonnull dereferenceable(1) %19) #6
-  %.not64 = icmp eq i32 %73, 0
-  br i1 %.not64, label %74, label %99
+35:                                               ; preds = %4
+  %36 = call i32 @strcmp(ptr noundef nonnull dereferenceable(12) @.str.395, ptr noundef nonnull dereferenceable(1) %19) #6
+  %.not64 = icmp eq i32 %36, 0
+  br i1 %.not64, label %.sink.split, label %37
 
-74:                                               ; preds = %72
-  %75 = add i32 %17, %3
-  %76 = load i32, ptr @hf_do_irp_pkrec_rsa_exp, align 4
-  %77 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %75, i32 noundef 0) #5
-  %78 = add i32 %77, 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef %78, i32 noundef 0) #5
-  %80 = load i32, ptr @ett_do_irp_string, align 4
-  %81 = call ptr @proto_item_add_subtree(ptr noundef %79, i32 noundef %80) #5
-  %82 = load i32, ptr @hf_do_irp_data_len, align 4
-  %83 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %82, ptr noundef %0, i32 noundef %75, i32 noundef 4, i32 noundef 0) #5
-  %84 = load i32, ptr @hf_do_irp_data_value, align 4
-  %85 = add i32 %75, 4
-  %86 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %84, ptr noundef %0, i32 noundef %85, i32 noundef %77, i32 noundef 0) #5
-  %87 = add i32 %75, %78
-  %88 = load i32, ptr @hf_do_irp_pkrec_rsa_mod, align 4
-  %89 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %87, i32 noundef 0) #5
-  %90 = add i32 %89, 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %88, ptr noundef %0, i32 noundef %87, i32 noundef %90, i32 noundef 0) #5
-  %92 = load i32, ptr @ett_do_irp_string, align 4
-  %93 = call ptr @proto_item_add_subtree(ptr noundef %91, i32 noundef %92) #5
-  %94 = load i32, ptr @hf_do_irp_data_len, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %94, ptr noundef %0, i32 noundef %87, i32 noundef 4, i32 noundef 0) #5
-  %96 = load i32, ptr @hf_do_irp_data_value, align 4
-  %97 = add i32 %87, 4
-  %98 = call ptr @proto_tree_add_item(ptr noundef %93, i32 noundef %96, ptr noundef %0, i32 noundef %97, i32 noundef %89, i32 noundef 0) #5
-  br label %139
+37:                                               ; preds = %35
+  %38 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.396, ptr noundef nonnull dereferenceable(1) %19) #6
+  %.not65 = icmp eq i32 %38, 0
+  br i1 %.not65, label %.sink.split.sink.split, label %76
 
-99:                                               ; preds = %72
-  %100 = call i32 @strcmp(ptr noundef nonnull dereferenceable(11) @.str.396, ptr noundef nonnull dereferenceable(1) %19) #6
-  %.not65 = icmp eq i32 %100, 0
-  br i1 %.not65, label %101, label %139
+.sink.split.sink.split:                           ; preds = %37, %21
+  %.sink111 = phi i32 [ %34, %21 ], [ %17, %37 ]
+  %hf_do_irp_pkrec_dsa_p.sink = phi ptr [ @hf_do_irp_pkrec_dsa_p, %21 ], [ @hf_do_irp_pkrec_dh_y, %37 ]
+  %hf_do_irp_pkrec_rsa_exp.sink.ph = phi ptr [ @hf_do_irp_pkrec_dsa_g, %21 ], [ @hf_do_irp_pkrec_dh_p, %37 ]
+  %hf_do_irp_pkrec_rsa_mod.sink.ph = phi ptr [ @hf_do_irp_pkrec_dsa_y, %21 ], [ @hf_do_irp_pkrec_dh_g, %37 ]
+  %39 = add i32 %.sink111, %3
+  %40 = load i32, ptr %hf_do_irp_pkrec_dsa_p.sink, align 4
+  %41 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %39, i32 noundef 0) #5
+  %42 = add i32 %41, 4
+  %43 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %40, ptr noundef %0, i32 noundef %39, i32 noundef %42, i32 noundef 0) #5
+  %44 = load i32, ptr @ett_do_irp_string, align 4
+  %45 = call ptr @proto_item_add_subtree(ptr noundef %43, i32 noundef %44) #5
+  %46 = load i32, ptr @hf_do_irp_data_len, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %46, ptr noundef %0, i32 noundef %39, i32 noundef 4, i32 noundef 0) #5
+  %48 = load i32, ptr @hf_do_irp_data_value, align 4
+  %49 = add i32 %39, 4
+  %50 = call ptr @proto_tree_add_item(ptr noundef %45, i32 noundef %48, ptr noundef %0, i32 noundef %49, i32 noundef %41, i32 noundef 0) #5
+  %51 = add i32 %42, %.sink111
+  br label %.sink.split
 
-101:                                              ; preds = %99
-  %102 = add i32 %17, %3
-  %103 = load i32, ptr @hf_do_irp_pkrec_dh_y, align 4
-  %104 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %102, i32 noundef 0) #5
-  %105 = add i32 %104, 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef %105, i32 noundef 0) #5
-  %107 = load i32, ptr @ett_do_irp_string, align 4
-  %108 = call ptr @proto_item_add_subtree(ptr noundef %106, i32 noundef %107) #5
-  %109 = load i32, ptr @hf_do_irp_data_len, align 4
-  %110 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %109, ptr noundef %0, i32 noundef %102, i32 noundef 4, i32 noundef 0) #5
-  %111 = load i32, ptr @hf_do_irp_data_value, align 4
-  %112 = add i32 %102, 4
-  %113 = call ptr @proto_tree_add_item(ptr noundef %108, i32 noundef %111, ptr noundef %0, i32 noundef %112, i32 noundef %104, i32 noundef 0) #5
-  %114 = add i32 %105, %17
-  %115 = add i32 %114, %3
-  %116 = load i32, ptr @hf_do_irp_pkrec_dh_p, align 4
-  %117 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %115, i32 noundef 0) #5
-  %118 = add i32 %117, 4
-  %119 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %116, ptr noundef %0, i32 noundef %115, i32 noundef %118, i32 noundef 0) #5
-  %120 = load i32, ptr @ett_do_irp_string, align 4
-  %121 = call ptr @proto_item_add_subtree(ptr noundef %119, i32 noundef %120) #5
-  %122 = load i32, ptr @hf_do_irp_data_len, align 4
-  %123 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %115, i32 noundef 4, i32 noundef 0) #5
-  %124 = load i32, ptr @hf_do_irp_data_value, align 4
-  %125 = add i32 %115, 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %124, ptr noundef %0, i32 noundef %125, i32 noundef %117, i32 noundef 0) #5
-  %127 = add i32 %115, %118
-  %128 = load i32, ptr @hf_do_irp_pkrec_dh_g, align 4
-  %129 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %127, i32 noundef 0) #5
-  %130 = add i32 %129, 4
-  %131 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %128, ptr noundef %0, i32 noundef %127, i32 noundef %130, i32 noundef 0) #5
-  %132 = load i32, ptr @ett_do_irp_string, align 4
-  %133 = call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132) #5
-  %134 = load i32, ptr @hf_do_irp_data_len, align 4
-  %135 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %134, ptr noundef %0, i32 noundef %127, i32 noundef 4, i32 noundef 0) #5
-  %136 = load i32, ptr @hf_do_irp_data_value, align 4
-  %137 = add i32 %127, 4
-  %138 = call ptr @proto_tree_add_item(ptr noundef %133, i32 noundef %136, ptr noundef %0, i32 noundef %137, i32 noundef %129, i32 noundef 0) #5
-  br label %139
+.sink.split:                                      ; preds = %.sink.split.sink.split, %35
+  %.sink95 = phi i32 [ %17, %35 ], [ %51, %.sink.split.sink.split ]
+  %hf_do_irp_pkrec_rsa_exp.sink = phi ptr [ @hf_do_irp_pkrec_rsa_exp, %35 ], [ %hf_do_irp_pkrec_rsa_exp.sink.ph, %.sink.split.sink.split ]
+  %hf_do_irp_pkrec_rsa_mod.sink = phi ptr [ @hf_do_irp_pkrec_rsa_mod, %35 ], [ %hf_do_irp_pkrec_rsa_mod.sink.ph, %.sink.split.sink.split ]
+  %52 = add i32 %.sink95, %3
+  %53 = load i32, ptr %hf_do_irp_pkrec_rsa_exp.sink, align 4
+  %54 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %52, i32 noundef 0) #5
+  %55 = add i32 %54, 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %53, ptr noundef %0, i32 noundef %52, i32 noundef %55, i32 noundef 0) #5
+  %57 = load i32, ptr @ett_do_irp_string, align 4
+  %58 = call ptr @proto_item_add_subtree(ptr noundef %56, i32 noundef %57) #5
+  %59 = load i32, ptr @hf_do_irp_data_len, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %59, ptr noundef %0, i32 noundef %52, i32 noundef 4, i32 noundef 0) #5
+  %61 = load i32, ptr @hf_do_irp_data_value, align 4
+  %62 = add i32 %52, 4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %58, i32 noundef %61, ptr noundef %0, i32 noundef %62, i32 noundef %54, i32 noundef 0) #5
+  %64 = add i32 %52, %55
+  %65 = load i32, ptr %hf_do_irp_pkrec_rsa_mod.sink, align 4
+  %66 = call i32 @tvb_get_gint32(ptr noundef %0, i32 noundef %64, i32 noundef 0) #5
+  %67 = add i32 %66, 4
+  %68 = call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %65, ptr noundef %0, i32 noundef %64, i32 noundef %67, i32 noundef 0) #5
+  %69 = load i32, ptr @ett_do_irp_string, align 4
+  %70 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %69) #5
+  %71 = load i32, ptr @hf_do_irp_data_len, align 4
+  %72 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %71, ptr noundef %0, i32 noundef %64, i32 noundef 4, i32 noundef 0) #5
+  %73 = load i32, ptr @hf_do_irp_data_value, align 4
+  %74 = add i32 %64, 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %70, i32 noundef %73, ptr noundef %0, i32 noundef %74, i32 noundef %66, i32 noundef 0) #5
+  br label %76
 
-139:                                              ; preds = %74, %101, %99, %21
+76:                                               ; preds = %.sink.split, %37
   ret i32 %8
 }
 

@@ -121,53 +121,41 @@ land.lhs.true45:                                  ; preds = %land.lhs.true38
   %formatVersion = getelementptr inbounds i8, ptr %1, i64 16
   %10 = load i8, ptr %formatVersion, align 2
   %cmp50 = icmp eq i8 %10, 1
-  br i1 %cmp50, label %udata_getHeaderSize_75.exit, label %if.then107.sink.split
-
-udata_getHeaderSize_75.exit:                      ; preds = %land.lhs.true45
-  store ptr @_ZL9CmnDFuncs, ptr %udm, align 8
-  %11 = load i8, ptr %isBigEndian, align 2
-  %cmp1.i = icmp eq i8 %11, 0
-  %12 = load i16, ptr %1, align 2
-  %or.i = tail call i16 @llvm.bswap.i16(i16 %12)
-  %spec.select.i = select i1 %cmp1.i, i16 %12, i16 %or.i
-  br label %if.end104
+  br i1 %cmp50, label %if.end104, label %if.then107.sink.split
 
 land.lhs.true63:                                  ; preds = %if.else19
   %arrayidx67 = getelementptr inbounds i8, ptr %1, i64 13
-  %13 = load i8, ptr %arrayidx67, align 1
-  %cmp69 = icmp eq i8 %13, 111
+  %11 = load i8, ptr %arrayidx67, align 1
+  %cmp69 = icmp eq i8 %11, 111
   br i1 %cmp69, label %land.lhs.true70, label %if.then107.sink.split
 
 land.lhs.true70:                                  ; preds = %land.lhs.true63
   %arrayidx74 = getelementptr inbounds i8, ptr %1, i64 14
-  %14 = load i8, ptr %arrayidx74, align 2
-  %cmp76 = icmp eq i8 %14, 67
+  %12 = load i8, ptr %arrayidx74, align 2
+  %cmp76 = icmp eq i8 %12, 67
   br i1 %cmp76, label %land.lhs.true77, label %if.then107.sink.split
 
 land.lhs.true77:                                  ; preds = %land.lhs.true70
   %arrayidx81 = getelementptr inbounds i8, ptr %1, i64 15
-  %15 = load i8, ptr %arrayidx81, align 1
-  %cmp83 = icmp eq i8 %15, 80
+  %13 = load i8, ptr %arrayidx81, align 1
+  %cmp83 = icmp eq i8 %13, 80
   br i1 %cmp83, label %land.lhs.true84, label %if.then107.sink.split
 
 land.lhs.true84:                                  ; preds = %land.lhs.true77
   %formatVersion87 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i8, ptr %formatVersion87, align 2
-  %cmp90 = icmp eq i8 %16, 1
-  br i1 %cmp90, label %udata_getHeaderSize_75.exit37, label %if.then107.sink.split
+  %14 = load i8, ptr %formatVersion87, align 2
+  %cmp90 = icmp eq i8 %14, 1
+  br i1 %cmp90, label %if.end104, label %if.then107.sink.split
 
-udata_getHeaderSize_75.exit37:                    ; preds = %land.lhs.true84
-  store ptr @_ZL9ToCPFuncs, ptr %udm, align 8
-  %17 = load i8, ptr %isBigEndian, align 2
-  %cmp1.i33 = icmp eq i8 %17, 0
-  %18 = load i16, ptr %1, align 2
-  %or.i34 = tail call i16 @llvm.bswap.i16(i16 %18)
-  %spec.select.i35 = select i1 %cmp1.i33, i16 %18, i16 %or.i34
-  br label %if.end104
-
-if.end104:                                        ; preds = %udata_getHeaderSize_75.exit37, %udata_getHeaderSize_75.exit
-  %spec.select.i35.sink = phi i16 [ %spec.select.i35, %udata_getHeaderSize_75.exit37 ], [ %spec.select.i, %udata_getHeaderSize_75.exit ]
-  %idx.ext97 = zext i16 %spec.select.i35.sink to i64
+if.end104:                                        ; preds = %land.lhs.true84, %land.lhs.true45
+  %_ZL9ToCPFuncs.sink = phi ptr [ @_ZL9CmnDFuncs, %land.lhs.true45 ], [ @_ZL9ToCPFuncs, %land.lhs.true84 ]
+  store ptr %_ZL9ToCPFuncs.sink, ptr %udm, align 8
+  %15 = load i8, ptr %isBigEndian, align 2
+  %cmp1.i33 = icmp eq i8 %15, 0
+  %16 = load i16, ptr %1, align 2
+  %or.i34 = tail call i16 @llvm.bswap.i16(i16 %16)
+  %spec.select.i35 = select i1 %cmp1.i33, i16 %16, i16 %or.i34
+  %idx.ext97 = zext i16 %spec.select.i35 to i64
   %add.ptr98 = getelementptr inbounds i8, ptr %1, i64 %idx.ext97
   %toc99 = getelementptr inbounds i8, ptr %udm, i64 16
   store ptr %add.ptr98, ptr %toc99, align 8

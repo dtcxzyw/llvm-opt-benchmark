@@ -3196,12 +3196,12 @@ Vec_PtrGrow.exit.i60:                             ; preds = %104, %102
   br label %.backedge.sink.split
 
 .backedge.sink.split:                             ; preds = %116, %Vec_PtrGrow.exit.i60, %.Vec_PtrGrow.exit11_crit_edge.i55, %264, %Vec_PtrGrow.exit.i95, %.Vec_PtrGrow.exit11_crit_edge.i90
-  %.sink120 = phi ptr [ %31, %.Vec_PtrGrow.exit11_crit_edge.i90 ], [ %31, %Vec_PtrGrow.exit.i95 ], [ %31, %264 ], [ %79, %.Vec_PtrGrow.exit11_crit_edge.i55 ], [ %79, %Vec_PtrGrow.exit.i60 ], [ %79, %116 ]
+  %.sink118 = phi ptr [ %31, %.Vec_PtrGrow.exit11_crit_edge.i90 ], [ %31, %Vec_PtrGrow.exit.i95 ], [ %31, %264 ], [ %79, %.Vec_PtrGrow.exit11_crit_edge.i55 ], [ %79, %Vec_PtrGrow.exit.i60 ], [ %79, %116 ]
   %.sink112 = phi ptr [ %.pre.i92, %.Vec_PtrGrow.exit11_crit_edge.i90 ], [ %254, %Vec_PtrGrow.exit.i95 ], [ %265, %264 ], [ %.pre.i57, %.Vec_PtrGrow.exit11_crit_edge.i55 ], [ %106, %Vec_PtrGrow.exit.i60 ], [ %117, %116 ]
   %.sink = phi ptr [ null, %.Vec_PtrGrow.exit11_crit_edge.i90 ], [ null, %Vec_PtrGrow.exit.i95 ], [ null, %264 ], [ %91, %.Vec_PtrGrow.exit11_crit_edge.i55 ], [ %91, %Vec_PtrGrow.exit.i60 ], [ %91, %116 ]
-  %118 = load i32, ptr %.sink120, align 4
+  %118 = load i32, ptr %.sink118, align 4
   %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %.sink120, align 4
+  store i32 %119, ptr %.sink118, align 4
   %120 = sext i32 %118 to i64
   %121 = getelementptr inbounds ptr, ptr %.sink112, i64 %120
   store ptr %.sink, ptr %121, align 8
@@ -3233,14 +3233,14 @@ Vec_PtrGrow.exit.i67:                             ; preds = %126
   br label %Vec_PtrPush.exit68.sink.split
 
 Vec_PtrPush.exit68.sink.split:                    ; preds = %129, %Vec_PtrGrow.exit.i67
-  %.sink119 = phi ptr [ %128, %Vec_PtrGrow.exit.i67 ], [ %133, %129 ]
-  %.sink118 = phi i32 [ 16, %Vec_PtrGrow.exit.i67 ], [ %130, %129 ]
-  store ptr %.sink119, ptr %78, align 8
-  store i32 %.sink118, ptr %0, align 8
+  %.sink120 = phi ptr [ %128, %Vec_PtrGrow.exit.i67 ], [ %133, %129 ]
+  %.sink119 = phi i32 [ 16, %Vec_PtrGrow.exit.i67 ], [ %130, %129 ]
+  store ptr %.sink120, ptr %78, align 8
+  store i32 %.sink119, ptr %0, align 8
   br label %Vec_PtrPush.exit68
 
 Vec_PtrPush.exit68:                               ; preds = %Vec_PtrPush.exit68.sink.split, %123
-  %134 = phi ptr [ %81, %123 ], [ %.sink119, %Vec_PtrPush.exit68.sink.split ]
+  %134 = phi ptr [ %81, %123 ], [ %.sink120, %Vec_PtrPush.exit68.sink.split ]
   %135 = load i32, ptr %31, align 4
   %136 = add nsw i32 %135, 1
   store i32 %136, ptr %31, align 4

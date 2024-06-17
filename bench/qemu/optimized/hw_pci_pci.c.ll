@@ -3145,15 +3145,15 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %2 = zext nneg i32 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds [9 x ptr], ptr @switch.table.pci_vga_init, i64 0, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
-  %call.i.i.i = tail call ptr @qdev_new(ptr noundef nonnull %switch.load) #23
-  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.162, i32 noundef -1) #23
-  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
-  %call.i.i.i.i = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
-  %call.i.i16 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i.i, ptr noundef %bus, ptr noundef nonnull @error_fatal) #23
+  %call.i.i.i14 = tail call ptr @qdev_new(ptr noundef nonnull %switch.load) #23
+  tail call void @qdev_prop_set_int32(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.162, i32 noundef -1) #23
+  tail call void @qdev_prop_set_bit(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.163, i1 noundef zeroext false) #23
+  %call.i.i.i.i15 = tail call ptr @object_dynamic_cast_assert(ptr noundef %call.i.i.i14, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.164, i32 noundef 10, ptr noundef nonnull @__func__.PCI_DEVICE) #23
+  %call.i.i16 = tail call zeroext i1 @qdev_realize_and_unref(ptr noundef %call.i.i.i.i15, ptr noundef %bus, ptr noundef nonnull @error_fatal) #23
   br label %return
 
 return:                                           ; preds = %switch.hole_check, %entry, %switch.lookup
-  %retval.0 = phi ptr [ null, %entry ], [ %call.i.i.i.i, %switch.lookup ], [ null, %switch.hole_check ]
+  %retval.0 = phi ptr [ null, %entry ], [ %call.i.i.i.i15, %switch.lookup ], [ null, %switch.hole_check ]
   ret ptr %retval.0
 }
 

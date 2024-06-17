@@ -17730,7 +17730,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.050.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -17793,7 +17793,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i30.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.339.i.i.i.i = phi i64 [ %position.050.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.339.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -17820,32 +17820,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i29.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i28.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i29.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i29.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i29.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i29.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.339.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !61
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i30.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.050.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.050.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.050.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !62
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -18236,7 +18236,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.054.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -18309,7 +18309,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i34.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.343.i.i.i.i = phi i64 [ %position.054.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.343.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -18346,42 +18346,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i33.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i32.i.i.i.i, %conv.i.i.i.i.i.i.i.i27.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i33.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i33.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i33.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i34.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i33.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.343.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !73
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i34.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.054.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.054.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.054.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !74
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -18628,7 +18628,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.050.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -18691,7 +18691,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i30.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.339.i.i.i.i = phi i64 [ %position.050.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.339.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -18718,32 +18718,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i29.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i28.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i29.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i29.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i29.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i30.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i29.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.339.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !85
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i30.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.050.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.050.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.050.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !86
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -18808,7 +18808,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.060.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -18887,7 +18887,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i40.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.349.i.i.i.i = phi i64 [ %position.060.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.349.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -18930,42 +18930,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i39.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i38.i.i.i.i, %conv.i.i.i.i.i.i.i.i33.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i39.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i39.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i39.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i40.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i39.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.349.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !91
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i40.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.060.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.060.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.060.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !92
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -19210,7 +19210,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.048.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -19271,7 +19271,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.337.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.337.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -19296,32 +19296,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i27.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i26.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i27.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i27.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.337.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !103
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.048.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.048.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !104
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -19386,7 +19386,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.058.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -19463,7 +19463,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.347.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.347.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -19504,42 +19504,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i37.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i36.i.i.i.i, %conv.i.i.i.i.i.i.i.i33.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i37.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i37.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.347.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !109
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.058.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.058.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !110
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -19784,7 +19784,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.048.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -19845,7 +19845,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.337.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.337.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -19870,32 +19870,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i27.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i26.i.i.i.i, %conv.i.i.i.i.i.i.i.i23.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i27.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i27.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.337.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !121
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.048.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.048.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !122
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -19960,7 +19960,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.058.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -20037,7 +20037,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.347.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.347.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -20078,42 +20078,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %spec.select.i.i.i.i.i.i37.i.i.i.i = add nsw i32 %sub.i.i.i.i.i.i.i36.i.i.i.i, %conv.i.i.i.i.i.i.i.i33.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %spec.select.i.i.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %spec.select.i.i.i.i.i.i37.sink.i.i.i.i = phi i32 [ %spec.select.i.i.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %spec.select.i.i.i.i.i.i37.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.347.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !127
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.058.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.058.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !128
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -20241,7 +20241,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp46.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date32TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.047.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -20306,7 +20306,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.336.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.336.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -20332,16 +20332,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i26.i.i.i.i6 = invoke noundef i32 @_ZNK5arrow7compute8internal9ParseDateINS_10Date32TypeEE4CallIiSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 1 dereferenceable(1) %functor, ptr noundef %ctx, i64 %conv.i24.i.i.i.i, ptr nonnull %add.ptr.i21.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i26.sink.i.i.i.i = phi i32 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %call.i.i.i26.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.336.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !141
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.047.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.047.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date32TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !142
@@ -20351,27 +20351,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10Strin
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -21150,7 +21150,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp43.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date32TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.044.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -21213,7 +21213,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.333.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.333.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -21237,16 +21237,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i23.i.i.i.i6 = invoke noundef i32 @_ZNK5arrow7compute8internal9ParseDateINS_10Date32TypeEE4CallIiSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 1 dereferenceable(1) %functor, ptr noundef %ctx, i64 %sub.i21.i.i.i.i, ptr nonnull %add.ptr.i19.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i23.sink.i.i.i.i = phi i32 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i24.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %call.i.i.i23.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.333.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !164
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.044.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.044.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date32TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !165
@@ -21256,27 +21256,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15Large
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -22226,7 +22226,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -22291,7 +22291,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -22320,32 +22320,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i31.i.i.i.i = mul nsw i64 %conv.i.i.i.i30.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i31.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !198
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !199
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -22410,7 +22410,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.056.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -22485,7 +22485,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.345.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.345.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -22524,42 +22524,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i35.i.i.i.i = mul nsw i64 %conv.i.i.i.i34.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i35.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i35.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.345.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !204
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.056.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.056.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !205
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -22804,7 +22804,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -22869,7 +22869,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -22898,32 +22898,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i31.i.i.i.i = mul nsw i64 %conv.i.i.i.i30.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i31.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !216
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !217
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -22988,7 +22988,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.062.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -23069,7 +23069,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.351.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.351.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -23114,42 +23114,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i41.i.i.i.i = mul nsw i64 %conv.i.i.i.i40.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i41.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i41.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.351.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !222
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.062.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.062.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !223
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -23394,7 +23394,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.048.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -23455,7 +23455,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.337.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.337.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -23480,32 +23480,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i27.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i26.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i27.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i27.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.337.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !234
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.048.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.048.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !235
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -23570,7 +23570,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.058.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -23647,7 +23647,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.347.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.347.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -23688,42 +23688,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i37.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i36.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i37.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i37.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.347.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !240
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.058.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.058.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !241
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -23968,7 +23968,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.048.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -24029,7 +24029,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.337.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.337.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -24054,32 +24054,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i27.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i26.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i27.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i27.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i28.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i27.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.337.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %8
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !252
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i28.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.048.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %10, %for.body12.i.i.i.i.preheader ], [ %position.048.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.048.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %8, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !253
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -24144,7 +24144,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.058.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -24221,7 +24221,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.347.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.347.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -24262,42 +24262,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i37.i.i.i.i = mul nsw i64 %spec.select.i.i.i.i.i.i36.i.i.i.i, 86400000
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i37.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i37.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.347.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !258
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.058.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.058.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !259
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -24376,7 +24376,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp46.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date64TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.047.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -24441,7 +24441,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.336.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.336.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -24467,16 +24467,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i26.i.i.i.i6 = invoke noundef i64 @_ZNK5arrow7compute8internal9ParseDateINS_10Date64TypeEE4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 1 dereferenceable(1) %functor, ptr noundef %ctx, i64 %conv.i24.i.i.i.i, ptr nonnull %add.ptr.i21.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i26.sink.i.i.i.i = phi i64 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %call.i.i.i26.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.336.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !269
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.047.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.047.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date64TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !270
@@ -24486,27 +24486,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10Strin
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -25206,7 +25206,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp43.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date64TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.044.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -25269,7 +25269,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.333.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.333.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -25293,16 +25293,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i23.i.i.i.i6 = invoke noundef i64 @_ZNK5arrow7compute8internal9ParseDateINS_10Date64TypeEE4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 1 dereferenceable(1) %functor, ptr noundef %ctx, i64 %sub.i21.i.i.i.i, ptr nonnull %add.ptr.i19.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i23.sink.i.i.i.i = phi i64 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i24.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %call.i.i.i23.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.333.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !292
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.044.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.044.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_10Date64TypeES3_NS7_9ParseDateISB_EEE9ArrayExecISB_vE4ExecERKSE_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSG_4ExecESI_SK_SN_SP_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESN_OSX_OT1_EUlST_E_SV_EEvSN_OT_S11_EUllE_SV_EEvPKhllS16_S11_.exit.i.i.i, !llvm.loop !293
@@ -25312,27 +25312,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15Large
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -27795,7 +27795,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.055.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -27862,7 +27862,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i35.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.344.i.i.i.i = phi i64 [ %position.055.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.344.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -27893,32 +27893,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i34.i.i.i.i = trunc i64 %mul.i.i.i.i33.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i34.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i34.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i34.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i35.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i34.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.344.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !340
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i35.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.055.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.055.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.055.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !341
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -27984,7 +27984,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.058.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -28061,7 +28061,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.347.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.347.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -28102,42 +28102,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i37.i.i.i.i = trunc i64 %mul.i.i.i.i36.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i37.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i37.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i38.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i37.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.347.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !346
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i38.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.058.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.058.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.058.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !347
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -28387,7 +28387,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.055.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -28454,7 +28454,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i35.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.344.i.i.i.i = phi i64 [ %position.055.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.344.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -28485,32 +28485,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i34.i.i.i.i = trunc i64 %mul.i.i.i.i33.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i34.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i34.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i34.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i35.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i34.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.344.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !358
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i35.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.055.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.055.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.055.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !359
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -28576,7 +28576,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.064.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -28659,7 +28659,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i44.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.353.i.i.i.i = phi i64 [ %position.064.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.353.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -28706,42 +28706,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i43.i.i.i.i = trunc i64 %mul.i.i.i.i42.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i43.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i43.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i43.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i44.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i43.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.353.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !364
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i44.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.064.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.064.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.064.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !365
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -28991,7 +28991,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.053.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -29056,7 +29056,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.342.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.342.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -29085,32 +29085,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i32.i.i.i.i = trunc i64 %mul.i.i.i.i31.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i32.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i32.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.342.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !376
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.053.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.053.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !377
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -29176,7 +29176,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.062.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -29257,7 +29257,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.351.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.351.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -29302,42 +29302,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i41.i.i.i.i = trunc i64 %mul.i.i.i.i40.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i41.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i41.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.351.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !382
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.062.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.062.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !383
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -29587,7 +29587,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.053.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -29652,7 +29652,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.342.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.342.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -29681,32 +29681,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i32.i.i.i.i = trunc i64 %mul.i.i.i.i31.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i32.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i32.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.342.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !394
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.053.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.053.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !395
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -29772,7 +29772,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.062.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -29853,7 +29853,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.351.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.351.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -29898,42 +29898,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i41.i.i.i.i = trunc i64 %mul.i.i.i.i40.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i41.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i41.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.351.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !400
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.062.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.062.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !401
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -30183,7 +30183,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.057.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -30252,7 +30252,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i37.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.346.i.i.i.i = phi i64 [ %position.057.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.346.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -30285,32 +30285,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i36.i.i.i.i = trunc i64 %div.i.i.i.i35.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i36.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i36.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i36.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i37.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i36.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.346.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !412
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i37.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.057.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.057.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.057.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !413
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -30376,7 +30376,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.060.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -30455,7 +30455,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i40.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.349.i.i.i.i = phi i64 [ %position.060.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.349.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -30498,42 +30498,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i39.i.i.i.i = trunc i64 %div.i.i.i.i38.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i39.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i39.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i39.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i40.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i39.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.349.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !418
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i40.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.060.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.060.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.060.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !419
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -30783,7 +30783,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.057.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -30852,7 +30852,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i37.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.346.i.i.i.i = phi i64 [ %position.057.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.346.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -30885,32 +30885,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i36.i.i.i.i = trunc i64 %div.i.i.i.i35.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i36.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i36.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i36.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i37.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i36.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.346.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !430
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i37.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.057.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.057.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.057.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !431
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -30976,7 +30976,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.066.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -31061,7 +31061,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i46.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.355.i.i.i.i = phi i64 [ %position.066.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.355.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -31110,42 +31110,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i45.i.i.i.i = trunc i64 %div.i.i.i.i44.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i45.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i45.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i45.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i46.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i45.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.355.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !436
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i46.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.066.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.066.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.066.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !437
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -31395,7 +31395,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.053.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -31460,7 +31460,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.342.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.342.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -31489,32 +31489,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i32.i.i.i.i = trunc i64 %div.i.i.i.i31.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i32.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i32.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.342.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !448
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.053.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.053.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !449
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -31580,7 +31580,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.062.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -31661,7 +31661,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.351.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.351.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -31706,42 +31706,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i41.i.i.i.i = trunc i64 %div.i.i.i.i40.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i41.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i41.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.351.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !454
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.062.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.062.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !455
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -31991,7 +31991,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.053.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -32056,7 +32056,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.342.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.342.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -32085,32 +32085,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i32.i.i.i.i = trunc i64 %div.i.i.i.i31.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %conv.i.i.i.i32.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i32.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i33.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i32.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.342.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !466
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i33.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.053.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.053.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.053.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !467
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -32176,7 +32176,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.062.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -32257,7 +32257,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.351.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.351.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -32302,42 +32302,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %conv.i.i.i.i41.i.i.i.i = trunc i64 %div.i.i.i.i40.i.i.i.i to i32
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %conv.i.i.i.i41.sink.i.i.i.i = phi i32 [ %conv.i.i.i.i41.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i42.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %conv.i.i.i.i41.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.351.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !472
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i42.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.062.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.062.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.062.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !473
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -32595,7 +32595,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0121.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -32806,7 +32806,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3110.i.i.i.i = phi i64 [ %position.0121.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3110.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -32981,42 +32981,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i63.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i63.sink.i.i.i.i = phi i32 [ %retval.0.i63.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i63.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3110.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !496
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0121.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0121.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0121.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !497
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i45.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i90.i.i.i.i, %lpad.i97.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i90.i.i.i.i ], [ %36, %lpad.i97.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i90.i.i.i.i ], [ %36, %lpad.i97.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -33090,7 +33090,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0125.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -33311,7 +33311,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3114.i.i.i.i = phi i64 [ %position.0125.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3114.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -33496,42 +33496,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i28.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit89.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i67.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit89.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit89.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i67.sink.i.i.i.i = phi i32 [ %retval.0.i67.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit89.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i67.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3114.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !514
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0125.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0125.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0125.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !515
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i49.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i94.i.i.i.i, %lpad.i101.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i94.i.i.i.i ], [ %40, %lpad.i101.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i94.i.i.i.i ], [ %40, %lpad.i101.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -33789,7 +33789,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0121.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -34000,7 +34000,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3110.i.i.i.i = phi i64 [ %position.0121.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3110.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -34175,42 +34175,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i63.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i63.sink.i.i.i.i = phi i32 [ %retval.0.i63.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit85.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i63.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3110.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !538
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0121.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0121.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0121.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !539
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i45.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i90.i.i.i.i, %lpad.i97.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i90.i.i.i.i ], [ %36, %lpad.i97.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i90.i.i.i.i ], [ %36, %lpad.i97.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -34284,7 +34284,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0131.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -34511,7 +34511,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3120.i.i.i.i = phi i64 [ %position.0131.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3120.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -34702,42 +34702,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i28.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit95.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i73.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit95.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit95.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i73.sink.i.i.i.i = phi i32 [ %retval.0.i73.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit95.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i73.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3120.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !556
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0131.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0131.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0131.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !557
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i55.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i100.i.i.i.i, %lpad.i107.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i100.i.i.i.i ], [ %40, %lpad.i107.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i100.i.i.i.i ], [ %40, %lpad.i107.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -34995,7 +34995,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0117.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -35202,7 +35202,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3106.i.i.i.i = phi i64 [ %position.0117.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3106.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -35373,42 +35373,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i59.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i59.sink.i.i.i.i = phi i32 [ %retval.0.i59.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i59.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3106.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !580
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0117.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0117.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0117.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !581
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i41.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i86.i.i.i.i, %lpad.i93.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i86.i.i.i.i ], [ %36, %lpad.i93.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i86.i.i.i.i ], [ %36, %lpad.i93.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -35482,7 +35482,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0127.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -35705,7 +35705,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3116.i.i.i.i = phi i64 [ %position.0127.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3116.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -35892,42 +35892,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i28.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i69.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i69.sink.i.i.i.i = phi i32 [ %retval.0.i69.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i69.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3116.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !598
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0127.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0127.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0127.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !599
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i51.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i96.i.i.i.i, %lpad.i103.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i96.i.i.i.i ], [ %40, %lpad.i103.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i96.i.i.i.i ], [ %40, %lpad.i103.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -36185,7 +36185,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0117.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -36392,7 +36392,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3106.i.i.i.i = phi i64 [ %position.0117.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3106.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -36563,42 +36563,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i59.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i59.sink.i.i.i.i = phi i32 [ %retval.0.i59.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit81.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i59.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3106.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !622
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0117.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0117.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0117.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !623
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i41.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i86.i.i.i.i, %lpad.i93.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i86.i.i.i.i ], [ %36, %lpad.i93.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i86.i.i.i.i ], [ %36, %lpad.i93.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -36672,7 +36672,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0127.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -36895,7 +36895,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3116.i.i.i.i = phi i64 [ %position.0127.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3116.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -37082,42 +37082,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp12.i28.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i
-  %storemerge = phi i32 [ %retval.0.i69.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 4
-  store i32 %storemerge, ptr %out_data.3, align 4
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i69.sink.i.i.i.i = phi i32 [ %retval.0.i69.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit91.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 4
+  store i32 %retval.0.i69.sink.i.i.i.i, ptr %out_data.3, align 4
   %inc29.i.i.i.i = add i64 %position.3116.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !640
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0127.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0127.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0127.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIilEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !641
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i51.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i96.i.i.i.i, %lpad.i103.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i96.i.i.i.i ], [ %40, %lpad.i103.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i96.i.i.i.i ], [ %40, %lpad.i103.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -38477,7 +38477,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.056.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -38545,7 +38545,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.345.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.345.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -38577,32 +38577,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i35.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i34.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i35.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i35.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.345.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !676
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.056.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.056.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !677
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -38668,7 +38668,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.059.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -38746,7 +38746,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i39.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.348.i.i.i.i = phi i64 [ %position.059.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.348.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -38788,42 +38788,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i38.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i36.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i38.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i38.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i38.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i39.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i38.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.348.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !682
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i39.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.059.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.059.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.059.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !683
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -39073,7 +39073,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.056.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -39141,7 +39141,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.345.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.345.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -39173,32 +39173,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i35.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i34.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i35.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i35.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.345.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !694
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.056.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.056.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !695
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -39264,7 +39264,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.065.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -39348,7 +39348,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i45.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.354.i.i.i.i = phi i64 [ %position.065.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.354.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -39396,42 +39396,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i44.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i42.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i44.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i44.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i44.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i45.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i44.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.354.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !700
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i45.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.065.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.065.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.065.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !701
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -39681,7 +39681,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -39745,7 +39745,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -39773,32 +39773,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i31.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i30.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i31.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !712
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !713
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -39864,7 +39864,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.061.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -39944,7 +39944,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.350.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.350.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -39988,42 +39988,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i40.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i38.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i40.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i41.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i40.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.350.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !718
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.061.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.061.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !719
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -40273,7 +40273,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -40337,7 +40337,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -40365,32 +40365,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i31.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i30.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %mul.i.i.i.i31.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !730
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !731
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -40456,7 +40456,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.061.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -40536,7 +40536,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.350.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.350.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -40580,42 +40580,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %mul.i.i.i.i40.i.i.i.i = mul nsw i64 %sub.i.i.i.i.i.i38.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %mul.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %mul.i.i.i.i40.sink.i.i.i.i = phi i64 [ %mul.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i41.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %mul.i.i.i.i40.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.350.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !736
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.061.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.061.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !737
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -40865,7 +40865,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.056.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -40933,7 +40933,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.345.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.345.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -40965,32 +40965,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i35.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i34.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %div.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %div.i.i.i.i35.sink.i.i.i.i = phi i64 [ %div.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i35.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.345.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !748
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.056.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.056.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !749
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -41056,7 +41056,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.059.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -41134,7 +41134,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i39.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.348.i.i.i.i = phi i64 [ %position.059.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.348.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -41176,42 +41176,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i38.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i36.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %div.i.i.i.i38.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %div.i.i.i.i38.sink.i.i.i.i = phi i64 [ %div.i.i.i.i38.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i39.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i38.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.348.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !754
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i39.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.059.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.059.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.059.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !755
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -41461,7 +41461,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.056.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -41529,7 +41529,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.345.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.345.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -41561,32 +41561,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i35.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i34.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %div.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %div.i.i.i.i35.sink.i.i.i.i = phi i64 [ %div.i.i.i.i35.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i36.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i35.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.345.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !766
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i36.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.056.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.056.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.056.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !767
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -41652,7 +41652,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.065.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -41736,7 +41736,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i45.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.354.i.i.i.i = phi i64 [ %position.065.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.354.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -41784,42 +41784,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i44.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i42.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %div.i.i.i.i44.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %div.i.i.i.i44.sink.i.i.i.i = phi i64 [ %div.i.i.i.i44.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i45.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i44.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.354.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !772
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i45.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.065.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.065.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.065.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !773
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -42069,7 +42069,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -42133,7 +42133,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -42161,32 +42161,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i31.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i30.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %div.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %div.i.i.i.i31.sink.i.i.i.i = phi i64 [ %div.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !784
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !785
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -42252,7 +42252,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.061.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -42332,7 +42332,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.350.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.350.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -42376,42 +42376,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i40.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i38.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %div.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %div.i.i.i.i40.sink.i.i.i.i = phi i64 [ %div.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i41.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i40.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.350.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !790
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.061.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.061.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !791
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -42661,7 +42661,7 @@ while.body.i.i.i.i.preheader:                     ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %while.body.i.i.i.i.preheader, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %while.body.i.i.i.i.preheader ]
   %position.052.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %while.body.i.i.i.i.preheader ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit
@@ -42725,7 +42725,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.341.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.341.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -42753,32 +42753,32 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i31.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i30.i.i.i.i, %visit_not_null.val16.val.val19.val.i.i.i.i
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %div.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %div.i.i.i.i31.sink.i.i.i.i = phi i64 [ %div.i.i.i.i31.i.i.i.i, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i32.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i31.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.341.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %9
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !802
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %for.body.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %for.body.i.i.i.i ], [ %incdec.ptr.i.i.i32.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.052.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %11, %for.body12.i.i.i.i.preheader ], [ %position.052.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.052.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %for.body.i.i.i.i ], [ %9, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !803
 
 lpad.loopexit:                                    ; preds = %while.body.i.i.i.i
-  %lpad.loopexit10 = landingpad { ptr, i32 }
+  %lpad.loopexit8 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp:                           ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp11 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp9 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit.split-lp11, %lpad.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit8, %lpad.loopexit ], [ %lpad.loopexit.split-lp9, %lpad.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -42844,7 +42844,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.061.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -42924,7 +42924,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.350.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.350.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -42968,42 +42968,42 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %div.i.i.i.i40.i.i.i.i = sdiv i64 %sub.i.i.i.i.i.i38.i.i.i.i, %21
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %.noexc6
-  %storemerge = phi i64 [ %div.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %.noexc6, %for.body23.i.i.i.i
+  %div.i.i.i.i40.sink.i.i.i.i = phi i64 [ %div.i.i.i.i40.i.i.i.i, %.noexc6 ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i41.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %div.i.i.i.i40.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.350.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %11
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !808
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %.noexc5, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %.noexc5 ], [ %incdec.ptr.i.i.i41.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.061.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %13, %for.body12.i.i.i.i.preheader ], [ %position.061.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.061.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %.noexc5 ], [ %11, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !809
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit13 = landingpad { ptr, i32 }
+  %lpad.loopexit10 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit15 = landingpad { ptr, i32 }
+  %lpad.loopexit12 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit19 = landingpad { ptr, i32 }
+  %lpad.loopexit16 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit10, %lpad.loopexit ], [ %lpad.loopexit12, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -43261,7 +43261,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0116.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -43466,7 +43466,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3105.i.i.i.i = phi i64 [ %position.0116.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3105.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -43635,42 +43635,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i60.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i60.sink.i.i.i.i = phi i64 [ %retval.0.i60.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i60.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3105.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !832
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0116.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0116.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0116.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !833
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i42.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i85.i.i.i.i, %lpad.i92.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i85.i.i.i.i ], [ %36, %lpad.i92.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i85.i.i.i.i ], [ %36, %lpad.i92.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -43744,7 +43744,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0120.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -43959,7 +43959,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3109.i.i.i.i = phi i64 [ %position.0120.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3109.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -44138,42 +44138,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit84.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i64.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit84.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit84.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i64.sink.i.i.i.i = phi i64 [ %retval.0.i64.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit84.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i64.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3109.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !850
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0120.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0120.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0120.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !851
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i46.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i89.i.i.i.i, %lpad.i96.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i89.i.i.i.i ], [ %40, %lpad.i96.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i89.i.i.i.i ], [ %40, %lpad.i96.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -44431,7 +44431,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0116.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -44636,7 +44636,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3105.i.i.i.i = phi i64 [ %position.0116.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3105.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -44805,42 +44805,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i60.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i60.sink.i.i.i.i = phi i64 [ %retval.0.i60.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit80.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i60.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3105.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !874
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0116.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0116.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0116.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !875
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i42.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i85.i.i.i.i, %lpad.i92.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i85.i.i.i.i ], [ %36, %lpad.i92.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i85.i.i.i.i ], [ %36, %lpad.i92.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -44914,7 +44914,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0126.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -45135,7 +45135,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3115.i.i.i.i = phi i64 [ %position.0126.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3115.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -45320,42 +45320,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit90.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i70.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit90.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit90.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i70.sink.i.i.i.i = phi i64 [ %retval.0.i70.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit90.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i70.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3115.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !892
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0126.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0126.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0126.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !893
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i52.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i95.i.i.i.i, %lpad.i102.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i95.i.i.i.i ], [ %40, %lpad.i102.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i95.i.i.i.i ], [ %40, %lpad.i102.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -45613,7 +45613,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0112.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -45814,7 +45814,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3101.i.i.i.i = phi i64 [ %position.0112.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3101.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -45979,42 +45979,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i56.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i56.sink.i.i.i.i = phi i64 [ %retval.0.i56.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i56.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3101.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !916
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0112.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0112.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0112.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !917
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i38.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i81.i.i.i.i, %lpad.i88.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i81.i.i.i.i ], [ %36, %lpad.i88.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i81.i.i.i.i ], [ %36, %lpad.i88.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -46088,7 +46088,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0122.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -46305,7 +46305,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3111.i.i.i.i = phi i64 [ %position.0122.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3111.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -46486,42 +46486,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i66.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i66.sink.i.i.i.i = phi i64 [ %retval.0.i66.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i66.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3111.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !934
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0122.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0122.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0122.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !935
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i48.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i91.i.i.i.i, %lpad.i98.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i91.i.i.i.i ], [ %40, %lpad.i98.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i91.i.i.i.i ], [ %40, %lpad.i98.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -46779,7 +46779,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0112.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -46980,7 +46980,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3101.i.i.i.i = phi i64 [ %position.0112.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3101.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -47145,42 +47145,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i26.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i56.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i56.sink.i.i.i.i = phi i64 [ %retval.0.i56.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit76.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i56.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3101.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %25
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !958
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0112.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %27, %for.body12.i.i.i.i.preheader ], [ %position.0112.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0112.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_17NonZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %25, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !959
 
 lpad.loopexit:                                    ; preds = %if.then.i.i.i.i.i
-  %lpad.loopexit14 = landingpad { ptr, i32 }
+  %lpad.loopexit11 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i38.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit20 = landingpad { ptr, i32 }
+  %lpad.loopexit17 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp21 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp18 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i81.i.i.i.i, %lpad.i88.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i81.i.i.i.i ], [ %36, %lpad.i88.i.i.i.i ], [ %lpad.loopexit14, %lpad.loopexit ], [ %lpad.loopexit16, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp21, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %10, %lpad.i.i.i.i.i.i ], [ %11, %lpad.i.i.i.i.i ], [ %35, %lpad.i.i81.i.i.i.i ], [ %36, %lpad.i88.i.i.i.i ], [ %lpad.loopexit11, %lpad.loopexit ], [ %lpad.loopexit13, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit17, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp18, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -47254,7 +47254,7 @@ while.body.lr.ph.i.i.i.i:                         ; preds = %.noexc3
   br label %while.body.i.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %if.end32.i.i.i.i, %while.body.lr.ph.i.i.i.i
-  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.5, %if.end32.i.i.i.i ]
+  %out_data.0 = phi ptr [ %add.ptr.i.i, %while.body.lr.ph.i.i.i.i ], [ %out_data.4, %if.end32.i.i.i.i ]
   %position.0122.i.i.i.i = phi i64 [ 0, %while.body.lr.ph.i.i.i.i ], [ %position.4.i.i.i.i, %if.end32.i.i.i.i ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -47471,7 +47471,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.3111.i.i.i.i = phi i64 [ %position.0122.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.3111.i.i.i.i, %3
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -47652,42 +47652,42 @@ _ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratio
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp11.i27.i.i.i.i)
   br label %for.inc27.i.i.i.i
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i
-  %storemerge = phi i64 [ %retval.0.i66.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i, %for.body23.i.i.i.i
+  %retval.0.i66.sink.i.i.i.i = phi i64 [ %retval.0.i66.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit86.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
+  %incdec.ptr.i.i.i23.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %retval.0.i66.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.3111.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %27
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !976
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %incdec.ptr.i.i.i23.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.0122.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %29, %for.body12.i.i.i.i.preheader ], [ %position.0122.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.0122.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %_ZNK5arrow7compute8internal21ExtractTimeDownscaledINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEENS1_14ZonedLocalizerEE4CallIllEET_PNS0_13KernelContextET0_PNS_6StatusE.exit.i.i.i.i ], [ %27, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %6
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %nrvo.skipdtor, !llvm.loop !977
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i, %if.then.i.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then.i48.i.i.i.i, %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %invoke.cont1
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit, %lpad.i.i.i.i.i.i, %lpad.i.i.i.i.i, %lpad.i.i91.i.i.i.i, %lpad.i98.i.i.i.i
-  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i91.i.i.i.i ], [ %40, %lpad.i98.i.i.i.i ], [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %eh.lpad-body = phi { ptr, i32 } [ %12, %lpad.i.i.i.i.i.i ], [ %13, %lpad.i.i.i.i.i ], [ %39, %lpad.i.i91.i.i.i.i ], [ %40, %lpad.i98.i.i.i.i ], [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %eh.lpad-body
 
@@ -48756,7 +48756,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp46.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13TimestampTypeES3_NS7_14ParseTimestampEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.047.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -48821,7 +48821,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.336.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.336.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -48847,16 +48847,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i26.i.i.i.i6 = invoke noundef i64 @_ZNK5arrow7compute8internal14ParseTimestamp4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %functor, ptr noundef %ctx, i64 %conv.i24.i.i.i.i, ptr nonnull %add.ptr.i21.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i26.sink.i.i.i.i = phi i64 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i26.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i27.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %call.i.i.i26.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.336.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !1009
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i27.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.047.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.047.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.047.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10StringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13TimestampTypeES3_NS7_14ParseTimestampEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1010
@@ -48866,27 +48866,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_10Strin
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 
@@ -50341,7 +50341,7 @@ if.end.i.i.i:                                     ; preds = %invoke.cont1
   br i1 %cmp43.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13TimestampTypeES3_NS7_14ParseTimestampEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i
 
 while.body.i.i.i.i:                               ; preds = %.noexc3, %if.end32.i.i.i.i
-  %out_data.0 = phi ptr [ %out_data.5, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
+  %out_data.0 = phi ptr [ %out_data.4, %if.end32.i.i.i.i ], [ %add.ptr.i.i, %.noexc3 ]
   %position.044.i.i.i.i = phi i64 [ %position.4.i.i.i.i, %if.end32.i.i.i.i ], [ 0, %.noexc3 ]
   %call.i.i.i.i4 = invoke i32 @_ZN5arrow8internal23OptionalBitBlockCounter9NextBlockEv(ptr noundef nonnull align 8 dereferenceable(48) %bit_counter.i.i.i.i)
           to label %call.i.i.i.i.noexc unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -50404,7 +50404,7 @@ for.body12.i.i.i.i.preheader:                     ; preds = %for.cond8.preheader
   br label %if.end32.i.i.i.i
 
 for.body23.i.i.i.i:                               ; preds = %for.inc27.i.i.i.i, %for.body23.preheader.i.i.i.i
-  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.3 = phi ptr [ %out_data.0, %for.body23.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.333.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.body23.preheader.i.i.i.i ], [ %inc29.i.i.i.i, %for.inc27.i.i.i.i ]
   %add.i.i.i.i = add nsw i64 %position.333.i.i.i.i, %4
   %shr.i.i.i.i.i = lshr i64 %add.i.i.i.i, 3
@@ -50428,16 +50428,16 @@ if.then25.i.i.i.i:                                ; preds = %for.body23.i.i.i.i
   %call.i.i.i23.i.i.i.i6 = invoke noundef i64 @_ZNK5arrow7compute8internal14ParseTimestamp4CallIlSt17basic_string_viewIcSt11char_traitsIcEEEET_PNS0_13KernelContextET0_PNS_6StatusE(ptr noundef nonnull align 8 dereferenceable(9) %functor, ptr noundef %ctx, i64 %sub.i21.i.i.i.i, ptr nonnull %add.ptr.i19.i.i.i.i, ptr noundef nonnull %agg.result)
           to label %for.inc27.i.i.i.i unwind label %lpad.loopexit.split-lp.loopexit
 
-for.inc27.i.i.i.i:                                ; preds = %for.body23.i.i.i.i, %if.then25.i.i.i.i
-  %storemerge = phi i64 [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ], [ 0, %for.body23.i.i.i.i ]
-  %out_data.4 = getelementptr inbounds i8, ptr %out_data.3, i64 8
-  store i64 %storemerge, ptr %out_data.3, align 8
+for.inc27.i.i.i.i:                                ; preds = %if.then25.i.i.i.i, %for.body23.i.i.i.i
+  %call.i.i.i23.sink.i.i.i.i = phi i64 [ 0, %for.body23.i.i.i.i ], [ %call.i.i.i23.i.i.i.i6, %if.then25.i.i.i.i ]
+  %incdec.ptr.i.i.i24.i.i.i.i = getelementptr inbounds i8, ptr %out_data.3, i64 8
+  store i64 %call.i.i.i23.sink.i.i.i.i, ptr %out_data.3, align 8
   %inc29.i.i.i.i = add i64 %position.333.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %inc29.i.i.i.i, %10
   br i1 %exitcond.not.i.i.i.i, label %if.end32.i.i.i.i, label %for.body23.i.i.i.i, !llvm.loop !1027
 
 if.end32.i.i.i.i:                                 ; preds = %for.inc27.i.i.i.i, %call.i.i.i.i.i.i.i.noexc, %for.body12.i.i.i.i.preheader, %for.cond8.preheader.i.i.i.i, %for.cond19.preheader.i.i.i.i, %for.cond.preheader.i.i.i.i
-  %out_data.5 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %out_data.4, %for.inc27.i.i.i.i ]
+  %out_data.4 = phi ptr [ %out_data.0, %for.cond.preheader.i.i.i.i ], [ %scevgep, %for.body12.i.i.i.i.preheader ], [ %out_data.0, %for.cond8.preheader.i.i.i.i ], [ %out_data.0, %for.cond19.preheader.i.i.i.i ], [ %incdec.ptr.i.i.i.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %incdec.ptr.i.i.i24.i.i.i.i, %for.inc27.i.i.i.i ]
   %position.4.i.i.i.i = phi i64 [ %position.044.i.i.i.i, %for.cond.preheader.i.i.i.i ], [ %12, %for.body12.i.i.i.i.preheader ], [ %position.044.i.i.i.i, %for.cond8.preheader.i.i.i.i ], [ %position.044.i.i.i.i, %for.cond19.preheader.i.i.i.i ], [ %inc4.i.i.i.i, %call.i.i.i.i.i.i.i.noexc ], [ %10, %for.inc27.i.i.i.i ]
   %cmp.i.i.i.i = icmp slt i64 %position.4.i.i.i.i, %3
   br i1 %cmp.i.i.i.i, label %while.body.i.i.i.i, label %_ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15LargeStringTypeEvE9VisitVoidIZNS_7compute8internalL22VisitArrayValuesInlineIS3_ZNS7_10applicator26ScalarUnaryNotNullStatefulINS_13TimestampTypeES3_NS7_14ParseTimestampEE9ArrayExecISB_vE4ExecERKSD_PNS6_13KernelContextERKNS_9ArraySpanEPNS6_10ExecResultEEUlSt17basic_string_viewIcSt11char_traitsIcEEE_ZNSF_4ExecESH_SJ_SM_SO_EUlvE_EENSt9enable_ifIXsr3std7is_sameIDTcl16return_type_impladsr3std5decayIT0_E4typeEonclEEvEE5valueEvE4typeESM_OSW_OT1_EUlSS_E_SU_EEvSM_OT_S10_EUllE_SU_EEvPKhllS15_S10_.exit.i.i.i, !llvm.loop !1028
@@ -50447,27 +50447,27 @@ _ZN5arrow8internalL18VisitBitBlocksVoidIZNS0_22ArraySpanInlineVisitorINS_15Large
   br label %nrvo.skipdtor
 
 lpad.loopexit:                                    ; preds = %for.body.i.i.i.i
-  %lpad.loopexit16 = landingpad { ptr, i32 }
+  %lpad.loopexit13 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit:                  ; preds = %if.then25.i.i.i.i
-  %lpad.loopexit18 = landingpad { ptr, i32 }
+  %lpad.loopexit15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit: ; preds = %while.body.i.i.i.i
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp: ; preds = %if.then.i.i.i, %if.end.i.i.i
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           cleanup
   br label %lpad
 
 lpad:                                             ; preds = %lpad.loopexit.split-lp.loopexit, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit, %lpad.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit16, %lpad.loopexit ], [ %lpad.loopexit18, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit22, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit13, %lpad.loopexit ], [ %lpad.loopexit15, %lpad.loopexit.split-lp.loopexit ], [ %lpad.loopexit19, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN5arrow6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #21
   resume { ptr, i32 } %lpad.phi
 

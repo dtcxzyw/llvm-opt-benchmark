@@ -1981,8 +1981,8 @@ if.end:                                           ; preds = %entry.if.end_crit_e
   %z.i11 = getelementptr inbounds i8, ptr %velocity, i64 8
   %26 = load float, ptr %z.i11, align 8
   %cmp25.i = fcmp ogt float %26, 0.000000e+00
-  %.sink15.i = select i1 %cmp25.i, i64 24, i64 8
-  %z36.i = getelementptr inbounds i8, ptr %volume, i64 %.sink15.i
+  %.sink16.i = select i1 %cmp25.i, i64 24, i64 8
+  %z36.i = getelementptr inbounds i8, ptr %volume, i64 %.sink16.i
   %27 = load float, ptr %z36.i, align 8
   %add39.i = fadd float %26, %27
   store float %add39.i, ptr %z36.i, align 8
@@ -2095,8 +2095,8 @@ if.end:                                           ; preds = %entry, %land.lhs.tr
   %z.i7 = getelementptr inbounds i8, ptr %velocity, i64 8
   %16 = load float, ptr %z.i7, align 8
   %cmp25.i = fcmp ogt float %16, 0.000000e+00
-  %.sink15.i = select i1 %cmp25.i, i64 24, i64 8
-  %z36.i = getelementptr inbounds i8, ptr %volume, i64 %.sink15.i
+  %.sink16.i = select i1 %cmp25.i, i64 24, i64 8
+  %z36.i = getelementptr inbounds i8, ptr %volume, i64 %.sink16.i
   %17 = load float, ptr %z36.i, align 8
   %add39.i = fadd float %16, %17
   store float %add39.i, ptr %z36.i, align 8

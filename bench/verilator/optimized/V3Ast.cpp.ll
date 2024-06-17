@@ -3704,115 +3704,94 @@ define dso_local noundef nonnull ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(pt
   %54 = getelementptr inbounds i8, ptr %0, i64 80
   %55 = load ptr, ptr %54, align 8
   %.not90 = icmp eq ptr %55, null
-  br i1 %.not90, label %96, label %.sink.split97
+  br i1 %.not90, label %85, label %.sink.split100
 
 56:                                               ; preds = %44
   %57 = getelementptr inbounds i8, ptr %4, i64 24
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, %0
-  br i1 %59, label %60, label %63
+  br i1 %59, label %76, label %60
 
 60:                                               ; preds = %56
-  %61 = getelementptr inbounds i8, ptr %0, i64 8
+  %61 = getelementptr inbounds i8, ptr %4, i64 32
   %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %57, align 8
-  br label %88
+  %63 = icmp eq ptr %62, %0
+  br i1 %63, label %76, label %64
 
-63:                                               ; preds = %56
-  %64 = getelementptr inbounds i8, ptr %4, i64 32
-  %65 = load ptr, ptr %64, align 8
-  %66 = icmp eq ptr %65, %0
-  br i1 %66, label %67, label %70
+64:                                               ; preds = %60
+  %65 = getelementptr inbounds i8, ptr %4, i64 40
+  %66 = load ptr, ptr %65, align 8
+  %67 = icmp eq ptr %66, %0
+  br i1 %67, label %76, label %68
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds i8, ptr %0, i64 8
-  %69 = load ptr, ptr %68, align 8
-  store ptr %69, ptr %64, align 8
-  br label %88
+68:                                               ; preds = %64
+  %69 = getelementptr inbounds i8, ptr %4, i64 48
+  %70 = load ptr, ptr %69, align 8
+  %71 = icmp eq ptr %70, %0
+  br i1 %71, label %76, label %72
 
-70:                                               ; preds = %63
-  %71 = getelementptr inbounds i8, ptr %4, i64 40
-  %72 = load ptr, ptr %71, align 8
-  %73 = icmp eq ptr %72, %0
-  br i1 %73, label %74, label %77
-
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8
-  store ptr %76, ptr %71, align 8
-  br label %88
-
-77:                                               ; preds = %70
-  %78 = getelementptr inbounds i8, ptr %4, i64 48
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp eq ptr %79, %0
-  br i1 %80, label %81, label %84
-
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds i8, ptr %0, i64 8
-  %83 = load ptr, ptr %82, align 8
-  store ptr %83, ptr %78, align 8
-  br label %88
-
-84:                                               ; preds = %77
-  %85 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 636, i1 noundef zeroext false)
-  %86 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
-  %87 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %86, ptr noundef nonnull @.str.614)
-  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %87) #25
+72:                                               ; preds = %68
+  %73 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error19v3errorPrepFileLineB5cxx11E11V3ErrorCodePKcib(i8 4, ptr noundef nonnull @.str.557, i32 noundef 636, i1 noundef zeroext false)
+  %74 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZN7V3Error10v3errorStrB5cxx11Ev()
+  %75 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef nonnull @.str.614)
+  tail call void @_ZNK7AstNode15v3errorEndFatalERNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef nonnull align 8 dereferenceable(112) %75) #25
   unreachable
 
-88:                                               ; preds = %67, %81, %74, %60
-  %89 = phi ptr [ %69, %67 ], [ %83, %81 ], [ %76, %74 ], [ %62, %60 ]
-  %.not88 = icmp eq ptr %89, null
-  br i1 %.not88, label %96, label %90
+76:                                               ; preds = %68, %64, %60, %56
+  %.sink98 = phi ptr [ %57, %56 ], [ %61, %60 ], [ %65, %64 ], [ %69, %68 ]
+  %77 = getelementptr inbounds i8, ptr %0, i64 8
+  %78 = load ptr, ptr %77, align 8
+  store ptr %78, ptr %.sink98, align 8
+  %.not88 = icmp eq ptr %78, null
+  br i1 %.not88, label %85, label %79
 
-90:                                               ; preds = %88
-  %91 = getelementptr inbounds i8, ptr %89, i64 16
-  store ptr %4, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %0, i64 80
-  %93 = load ptr, ptr %92, align 8
-  br label %.sink.split97
+79:                                               ; preds = %76
+  %80 = getelementptr inbounds i8, ptr %78, i64 16
+  store ptr %4, ptr %80, align 8
+  %81 = getelementptr inbounds i8, ptr %0, i64 80
+  %82 = load ptr, ptr %81, align 8
+  br label %.sink.split100
 
-.sink.split97:                                    ; preds = %53, %90
-  %.sink103 = phi ptr [ %89, %90 ], [ %4, %53 ]
-  %.sink101 = phi ptr [ %93, %90 ], [ %55, %53 ]
-  %94 = getelementptr inbounds i8, ptr %.sink103, i64 80
-  store ptr %.sink101, ptr %94, align 8
-  %95 = getelementptr inbounds i8, ptr %.sink101, i64 80
-  store ptr %.sink103, ptr %95, align 8
+.sink.split100:                                   ; preds = %53, %79
+  %.sink106 = phi ptr [ %78, %79 ], [ %4, %53 ]
+  %.sink104 = phi ptr [ %82, %79 ], [ %55, %53 ]
+  %83 = getelementptr inbounds i8, ptr %.sink106, i64 80
+  store ptr %.sink104, ptr %83, align 8
+  %84 = getelementptr inbounds i8, ptr %.sink104, i64 80
+  store ptr %.sink106, ptr %84, align 8
+  br label %85
+
+85:                                               ; preds = %.sink.split100, %76, %53
+  %86 = getelementptr inbounds i8, ptr %0, i64 56
+  %87 = load ptr, ptr %86, align 8
+  %.not91 = icmp eq ptr %87, null
+  br i1 %.not91, label %96, label %88
+
+88:                                               ; preds = %85
+  %89 = getelementptr inbounds i8, ptr %0, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %.not92 = icmp eq ptr %90, null
+  br i1 %.not92, label %93, label %91
+
+91:                                               ; preds = %88
+  %92 = getelementptr inbounds i8, ptr %90, i64 56
+  store ptr %87, ptr %92, align 8
+  %.pre = load ptr, ptr %89, align 8
+  %.pre95 = load ptr, ptr %86, align 8
+  br label %93
+
+93:                                               ; preds = %91, %88
+  %94 = phi ptr [ %.pre95, %91 ], [ %87, %88 ]
+  %95 = phi ptr [ %.pre, %91 ], [ null, %88 ]
+  store ptr %95, ptr %94, align 8
+  store ptr null, ptr %86, align 8
   br label %96
 
-96:                                               ; preds = %.sink.split97, %88, %53
-  %97 = getelementptr inbounds i8, ptr %0, i64 56
-  %98 = load ptr, ptr %97, align 8
-  %.not91 = icmp eq ptr %98, null
-  br i1 %.not91, label %107, label %99
-
-99:                                               ; preds = %96
-  %100 = getelementptr inbounds i8, ptr %0, i64 8
-  %101 = load ptr, ptr %100, align 8
-  %.not92 = icmp eq ptr %101, null
-  br i1 %.not92, label %104, label %102
-
-102:                                              ; preds = %99
-  %103 = getelementptr inbounds i8, ptr %101, i64 56
-  store ptr %98, ptr %103, align 8
-  %.pre = load ptr, ptr %100, align 8
-  %.pre95 = load ptr, ptr %97, align 8
-  br label %104
-
-104:                                              ; preds = %102, %99
-  %105 = phi ptr [ %.pre95, %102 ], [ %98, %99 ]
-  %106 = phi ptr [ %.pre, %102 ], [ null, %99 ]
-  store ptr %106, ptr %105, align 8
-  store ptr null, ptr %97, align 8
-  br label %107
-
-107:                                              ; preds = %104, %96
-  %108 = getelementptr inbounds i8, ptr %0, i64 8
-  %109 = getelementptr inbounds i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
-  store ptr %0, ptr %109, align 8
+96:                                               ; preds = %93, %85
+  %97 = getelementptr inbounds i8, ptr %0, i64 8
+  %98 = getelementptr inbounds i8, ptr %0, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %97, i8 0, i64 16, i1 false)
+  store ptr %0, ptr %98, align 8
   ret ptr %0
 }
 

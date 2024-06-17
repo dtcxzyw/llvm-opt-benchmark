@@ -1662,10 +1662,10 @@ for.inc.sink.split:                               ; preds = %for.inc.sink.split.
   %add.ptr.i = getelementptr inbounds ptr, ptr %.sink221, i64 %idx.ext.i
   store ptr %call53.sink, ptr %add.ptr.i, align 8
   %.sink = load ptr, ptr %new_lits, align 8
-  %arrayidx10.i = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %89 = load i32, ptr %arrayidx10.i, align 4
+  %arrayidx10.i95 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %89 = load i32, ptr %arrayidx10.i95, align 4
   %inc.i96 = add i32 %89, 1
-  store i32 %inc.i96, ptr %arrayidx10.i, align 4
+  store i32 %inc.i96, ptr %arrayidx10.i95, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %if.else

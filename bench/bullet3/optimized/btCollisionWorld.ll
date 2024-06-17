@@ -7768,7 +7768,6 @@ entry:
   %arrayidx11.i = getelementptr inbounds i8, ptr %pointInWorld, i64 8
   %11 = load float, ptr %arrayidx11.i, align 4
   %add14.i = fadd float %mul8.i, %11
-  %retval.sroa.3.12.vec.insert.i11 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
   br i1 %cmp.not, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
@@ -7858,27 +7857,33 @@ if.else:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %if.then
-  %.sink145 = phi ptr [ %59, %if.else ], [ %3, %if.then ]
-  %m_body1Wrap46.val = phi ptr [ %58, %if.else ], [ %12, %if.then ]
+  %.m_body1Wrap46.val = phi ptr [ %2, %if.else ], [ %12, %if.then ]
+  %m_body1Wrap46.val. = phi ptr [ %58, %if.else ], [ %2, %if.then ]
+  %.148 = phi i64 [ 44, %if.else ], [ 40, %if.then ]
+  %.147 = phi i64 [ 40, %if.else ], [ 44, %if.then ]
+  %.146 = phi i64 [ 36, %if.else ], [ 32, %if.then ]
+  %. = phi i64 [ 32, %if.else ], [ 36, %if.then ]
+  %.sink141 = phi ptr [ %59, %if.else ], [ %3, %if.then ]
   %localA.sroa.3.0 = phi <2 x float> [ %retval.sroa.3.12.vec.insert.i4.i64, %if.else ], [ %retval.sroa.3.12.vec.insert.i4.i, %if.then ]
   %localA.sroa.0.0 = phi <2 x float> [ %55, %if.else ], [ %33, %if.then ]
-  %m_worldTransform.i68 = getelementptr inbounds i8, ptr %.sink145, i64 8
-  %m_origin.i69 = getelementptr inbounds i8, ptr %.sink145, i64 56
+  %retval.sroa.3.12.vec.insert.i11 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %add14.i, i64 0
+  %m_worldTransform.i68 = getelementptr inbounds i8, ptr %.sink141, i64 8
+  %m_origin.i69 = getelementptr inbounds i8, ptr %.sink141, i64 56
   %60 = load float, ptr %m_origin.i69, align 4
   %61 = extractelement <2 x float> %9, i64 0
   %sub.i.i70 = fsub float %61, %60
-  %arrayidx7.i.i72 = getelementptr inbounds i8, ptr %.sink145, i64 60
+  %arrayidx7.i.i72 = getelementptr inbounds i8, ptr %.sink141, i64 60
   %62 = load float, ptr %arrayidx7.i.i72, align 4
   %63 = extractelement <2 x float> %9, i64 1
   %sub8.i.i73 = fsub float %63, %62
-  %arrayidx13.i.i75 = getelementptr inbounds i8, ptr %.sink145, i64 64
+  %arrayidx13.i.i75 = getelementptr inbounds i8, ptr %.sink141, i64 64
   %64 = load float, ptr %arrayidx13.i.i75, align 4
   %sub14.i.i76 = fsub float %11, %64
-  %arrayidx3.i.i77 = getelementptr inbounds i8, ptr %.sink145, i64 24
-  %arrayidx6.i.i78 = getelementptr inbounds i8, ptr %.sink145, i64 40
-  %arrayidx.i3.i.i82 = getelementptr inbounds i8, ptr %.sink145, i64 16
-  %arrayidx.i4.i.i83 = getelementptr inbounds i8, ptr %.sink145, i64 32
-  %arrayidx.i5.i.i84 = getelementptr inbounds i8, ptr %.sink145, i64 48
+  %arrayidx3.i.i77 = getelementptr inbounds i8, ptr %.sink141, i64 24
+  %arrayidx6.i.i78 = getelementptr inbounds i8, ptr %.sink141, i64 40
+  %arrayidx.i3.i.i82 = getelementptr inbounds i8, ptr %.sink141, i64 16
+  %arrayidx.i4.i.i83 = getelementptr inbounds i8, ptr %.sink141, i64 32
+  %arrayidx.i5.i.i84 = getelementptr inbounds i8, ptr %.sink141, i64 48
   %65 = load float, ptr %arrayidx.i3.i.i82, align 4, !noalias !10
   %66 = load float, ptr %arrayidx.i4.i.i83, align 4, !noalias !10
   %67 = load float, ptr %arrayidx.i5.i.i84, align 4, !noalias !10
@@ -7911,6 +7916,7 @@ if.end:                                           ; preds = %if.else, %if.then
   %m_distance1.i = getelementptr inbounds i8, ptr %newPt, i64 80
   store float %depth, ptr %m_distance1.i, align 8
   %m_combinedFriction.i = getelementptr inbounds i8, ptr %newPt, i64 84
+  %m_partId0.i = getelementptr inbounds i8, ptr %newPt, i64 100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_combinedFriction.i, i8 0, i64 16, i1 false)
   %m_userPersistentData.i = getelementptr inbounds i8, ptr %newPt, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(84) %m_userPersistentData.i, i8 0, i64 84, i1 false)
@@ -7919,23 +7925,10 @@ if.end:                                           ; preds = %if.else, %if.then
   %pointA.sroa.6.0.m_positionWorldOnA.sroa_idx = getelementptr inbounds i8, ptr %newPt, i64 56
   store <2 x float> %retval.sroa.3.12.vec.insert.i11, ptr %pointA.sroa.6.0.m_positionWorldOnA.sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_positionWorldOnB.i, ptr noundef nonnull align 4 dereferenceable(16) %pointInWorld, i64 16, i1 false)
-  br i1 %cmp.not, label %if.else35, label %if.end44
-
-if.else35:                                        ; preds = %if.end
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.end, %if.else35
-  %.sink138 = phi i64 [ 32, %if.else35 ], [ 36, %if.end ]
-  %.sink137 = phi i64 [ 36, %if.else35 ], [ 32, %if.end ]
-  %.sink136 = phi i64 [ 40, %if.else35 ], [ 44, %if.end ]
-  %.sink135 = phi i64 [ 44, %if.else35 ], [ 40, %if.end ]
-  %cond54 = phi ptr [ %m_body1Wrap46.val, %if.else35 ], [ %2, %if.end ]
-  %cond = phi ptr [ %2, %if.else35 ], [ %m_body1Wrap46.val, %if.end ]
-  %m_partId0.i = getelementptr inbounds i8, ptr %newPt, i64 100
-  %m_partId036 = getelementptr inbounds i8, ptr %this, i64 %.sink138
-  %m_partId138 = getelementptr inbounds i8, ptr %this, i64 %.sink137
-  %m_index040 = getelementptr inbounds i8, ptr %this, i64 %.sink136
-  %m_index142 = getelementptr inbounds i8, ptr %this, i64 %.sink135
+  %m_partId036 = getelementptr inbounds i8, ptr %this, i64 %.
+  %m_partId138 = getelementptr inbounds i8, ptr %this, i64 %.146
+  %m_index040 = getelementptr inbounds i8, ptr %this, i64 %.147
+  %m_index142 = getelementptr inbounds i8, ptr %this, i64 %.148
   %.sink = load i32, ptr %m_index142, align 4
   %.sink102 = load i32, ptr %m_index040, align 4
   %.sink103 = load i32, ptr %m_partId138, align 4
@@ -7952,7 +7945,7 @@ if.end44:                                         ; preds = %if.end, %if.else35
   %vtable = load ptr, ptr %85, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %86 = load ptr, ptr %vfn, align 8
-  %call59 = call noundef float %86(ptr noundef nonnull align 8 dereferenceable(20) %85, ptr noundef nonnull align 8 dereferenceable(204) %newPt, ptr noundef nonnull %cond, i32 noundef %.sink104, i32 noundef %.sink102, ptr noundef nonnull %cond54, i32 noundef %.sink103, i32 noundef %.sink)
+  %call59 = call noundef float %86(ptr noundef nonnull align 8 dereferenceable(20) %85, ptr noundef nonnull align 8 dereferenceable(204) %newPt, ptr noundef nonnull %.m_body1Wrap46.val, i32 noundef %.sink104, i32 noundef %.sink102, ptr noundef nonnull %m_body1Wrap46.val., i32 noundef %.sink103, i32 noundef %.sink)
   ret void
 }
 

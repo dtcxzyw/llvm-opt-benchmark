@@ -170,8 +170,8 @@ objputrec.exit.sink.split:                        ; preds = %41, %20
   %.021.i.lcssa39.sink = phi ptr [ %.021.i, %20 ], [ %24, %41 ]
   %43 = and i32 %.sink, 3
   %44 = icmp eq i32 %43, 3
-  %.v.i.i20 = select i1 %44, i64 -64, i64 64
-  %45 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i20
+  %.v.i.i = select i1 %44, i64 -64, i64 64
+  %45 = getelementptr inbounds i8, ptr %0, i64 %.v.i.i
   %46 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %.021.i.lcssa39.sink, ptr %46, align 8
   %47 = load i32, ptr %45, align 8

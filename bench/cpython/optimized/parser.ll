@@ -6602,7 +6602,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %21, %if.end22 ]
+  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %22, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -6702,22 +6702,22 @@ if.end63.i:                                       ; preds = %if.end59.i
 
 bitwise_or_raw.exit:                              ; preds = %if.end37.i, %land.lhs.true44.i, %if.end59.i, %if.end63.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %if.end63.i ], [ %call60.i, %if.end59.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %19 = load i32, ptr %level, align 8
+  %dec.i = add i32 %19, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %19 = load i32, ptr %level, align 8
-  %dec50.i = add i32 %19, -1
+  %20 = load i32, ptr %level, align 8
+  %dec50.i = add i32 %20, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %bitwise_or_raw.exit, %if.then14.sink.split
-  %20 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i.sink, %bitwise_or_raw.exit ]
-  %dec16 = add i32 %20, -1
+  %21 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i, %bitwise_or_raw.exit ]
+  %dec16 = add i32 %21, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -6726,8 +6726,8 @@ if.end17:                                         ; preds = %bitwise_or_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %21 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %21, %_resmark.030
+  %22 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %22, %_resmark.030
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -6738,13 +6738,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.030, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %19, -2
   store i32 %dec26, ptr %level, align 8
-  %22 = load ptr, ptr %_res, align 8
+  %23 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %22, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %23, %while.end ]
   ret ptr %retval.0
 }
 
@@ -6997,7 +6997,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %21, %if.end22 ]
+  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %22, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -7097,22 +7097,22 @@ if.end63.i:                                       ; preds = %if.end59.i
 
 bitwise_xor_raw.exit:                             ; preds = %if.end37.i, %land.lhs.true44.i, %if.end59.i, %if.end63.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %if.end63.i ], [ %call60.i, %if.end59.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %19 = load i32, ptr %level, align 8
+  %dec.i = add i32 %19, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %19 = load i32, ptr %level, align 8
-  %dec50.i = add i32 %19, -1
+  %20 = load i32, ptr %level, align 8
+  %dec50.i = add i32 %20, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %bitwise_xor_raw.exit, %if.then14.sink.split
-  %20 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i.sink, %bitwise_xor_raw.exit ]
-  %dec16 = add i32 %20, -1
+  %21 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i, %bitwise_xor_raw.exit ]
+  %dec16 = add i32 %21, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -7121,8 +7121,8 @@ if.end17:                                         ; preds = %bitwise_xor_raw.exi
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %21 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %21, %_resmark.030
+  %22 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %22, %_resmark.030
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -7133,13 +7133,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.030, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %19, -2
   store i32 %dec26, ptr %level, align 8
-  %22 = load ptr, ptr %_res, align 8
+  %23 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %22, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %23, %while.end ]
   ret ptr %retval.0
 }
 
@@ -7196,7 +7196,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %21, %if.end22 ]
+  %_resmark.030 = phi i32 [ %3, %if.end10.lr.ph ], [ %22, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -7296,22 +7296,22 @@ if.end63.i:                                       ; preds = %if.end59.i
 
 bitwise_and_raw.exit:                             ; preds = %if.end37.i, %land.lhs.true44.i, %if.end59.i, %if.end63.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %if.end63.i ], [ %call60.i, %if.end59.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %19 = load i32, ptr %level, align 8
+  %dec.i = add i32 %19, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %19 = load i32, ptr %level, align 8
-  %dec50.i = add i32 %19, -1
+  %20 = load i32, ptr %level, align 8
+  %dec50.i = add i32 %20, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %bitwise_and_raw.exit, %if.then14.sink.split
-  %20 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i.sink, %bitwise_and_raw.exit ]
-  %dec16 = add i32 %20, -1
+  %21 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i, %bitwise_and_raw.exit ]
+  %dec16 = add i32 %21, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -7320,8 +7320,8 @@ if.end17:                                         ; preds = %bitwise_and_raw.exi
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %21 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %21, %_resmark.030
+  %22 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %22, %_resmark.030
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -7332,13 +7332,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.030, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %19, -2
   store i32 %dec26, ptr %level, align 8
-  %22 = load ptr, ptr %_res, align 8
+  %23 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %22, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %23, %while.end ]
   ret ptr %retval.0
 }
 
@@ -7393,7 +7393,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.032 = phi i32 [ %3, %if.end10.lr.ph ], [ %25, %if.end22 ]
+  %_resmark.032 = phi i32 [ %3, %if.end10.lr.ph ], [ %26, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -7534,22 +7534,22 @@ if.end109.i:                                      ; preds = %if.end105.i
 
 shift_expr_raw.exit:                              ; preds = %if.end37.i, %land.lhs.true44.i, %if.end78.i, %land.lhs.true90.i, %if.end105.i, %if.end109.i, %if.end98.i, %if.then71.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %if.then71.i ], [ null, %if.end98.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %land.lhs.true90.i ], [ %call88.i, %if.end78.i ], [ null, %if.end109.i ], [ %call106.i, %if.end105.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %23 = load i32, ptr %level, align 8
+  %dec.i = add i32 %23, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true90.i, %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %23 = load i32, ptr %level, align 8
-  %dec96.i = add i32 %23, -1
+  %24 = load i32, ptr %level, align 8
+  %dec96.i = add i32 %24, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %shift_expr_raw.exit, %if.then14.sink.split
-  %24 = phi i32 [ %dec96.i, %if.then14.sink.split ], [ %dec.i.sink, %shift_expr_raw.exit ]
-  %dec16 = add i32 %24, -1
+  %25 = phi i32 [ %dec96.i, %if.then14.sink.split ], [ %dec.i, %shift_expr_raw.exit ]
+  %dec16 = add i32 %25, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -7558,8 +7558,8 @@ if.end17:                                         ; preds = %shift_expr_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %25 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %25, %_resmark.032
+  %26 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %26, %_resmark.032
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -7570,13 +7570,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.032, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %23, -2
   store i32 %dec26, ptr %level, align 8
-  %26 = load ptr, ptr %_res, align 8
+  %27 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %26, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %27, %while.end ]
   ret ptr %retval.0
 }
 
@@ -7631,7 +7631,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.032 = phi i32 [ %3, %if.end10.lr.ph ], [ %25, %if.end22 ]
+  %_resmark.032 = phi i32 [ %3, %if.end10.lr.ph ], [ %26, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -7772,22 +7772,22 @@ if.end109.i:                                      ; preds = %if.end105.i
 
 sum_raw.exit:                                     ; preds = %if.end37.i, %land.lhs.true44.i, %if.end78.i, %land.lhs.true90.i, %if.end105.i, %if.end109.i, %if.end98.i, %if.then71.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %if.then71.i ], [ null, %if.end98.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %land.lhs.true90.i ], [ %call88.i, %if.end78.i ], [ null, %if.end109.i ], [ %call106.i, %if.end105.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %23 = load i32, ptr %level, align 8
+  %dec.i = add i32 %23, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true90.i, %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %23 = load i32, ptr %level, align 8
-  %dec96.i = add i32 %23, -1
+  %24 = load i32, ptr %level, align 8
+  %dec96.i = add i32 %24, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %sum_raw.exit, %if.then14.sink.split
-  %24 = phi i32 [ %dec96.i, %if.then14.sink.split ], [ %dec.i.sink, %sum_raw.exit ]
-  %dec16 = add i32 %24, -1
+  %25 = phi i32 [ %dec96.i, %if.then14.sink.split ], [ %dec.i, %sum_raw.exit ]
+  %dec16 = add i32 %25, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -7796,8 +7796,8 @@ if.end17:                                         ; preds = %sum_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %25 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %25, %_resmark.032
+  %26 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %26, %_resmark.032
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -7808,13 +7808,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.032, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %23, -2
   store i32 %dec26, ptr %level, align 8
-  %26 = load ptr, ptr %_res, align 8
+  %27 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %26, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %27, %while.end ]
   ret ptr %retval.0
 }
 
@@ -7869,7 +7869,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.038 = phi i32 [ %3, %if.end10.lr.ph ], [ %37, %if.end22 ]
+  %_resmark.038 = phi i32 [ %3, %if.end10.lr.ph ], [ %38, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -8134,22 +8134,22 @@ if.end248.i:                                      ; preds = %if.end244.i
 
 term_raw.exit:                                    ; preds = %if.end37.i, %land.lhs.true44.i, %if.end78.i, %land.lhs.true90.i, %if.end124.i, %land.lhs.true136.i, %if.end170.i, %land.lhs.true182.i, %if.end216.i, %land.lhs.true229.i, %if.end244.i, %if.end248.i, %if.end237.i, %if.then209.i, %if.end190.i, %if.then163.i, %if.end144.i, %if.then117.i, %if.end98.i, %if.then71.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %if.then71.i ], [ null, %if.end98.i ], [ null, %if.then117.i ], [ null, %if.end144.i ], [ null, %if.then163.i ], [ null, %if.end190.i ], [ null, %if.then209.i ], [ null, %if.end237.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %land.lhs.true90.i ], [ %call88.i, %if.end78.i ], [ null, %land.lhs.true136.i ], [ %call134.i, %if.end124.i ], [ null, %land.lhs.true182.i ], [ %call180.i, %if.end170.i ], [ null, %land.lhs.true229.i ], [ %call227.i, %if.end216.i ], [ null, %if.end248.i ], [ %call245.i, %if.end244.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %35 = load i32, ptr %level, align 8
+  %dec.i = add i32 %35, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true229.i, %land.lhs.true182.i, %land.lhs.true136.i, %land.lhs.true90.i, %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %35 = load i32, ptr %level, align 8
-  %dec235.i = add i32 %35, -1
+  %36 = load i32, ptr %level, align 8
+  %dec235.i = add i32 %36, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %term_raw.exit, %if.then14.sink.split
-  %36 = phi i32 [ %dec235.i, %if.then14.sink.split ], [ %dec.i.sink, %term_raw.exit ]
-  %dec16 = add i32 %36, -1
+  %37 = phi i32 [ %dec235.i, %if.then14.sink.split ], [ %dec.i, %term_raw.exit ]
+  %dec16 = add i32 %37, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -8158,8 +8158,8 @@ if.end17:                                         ; preds = %term_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %37 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %37, %_resmark.038
+  %38 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %38, %_resmark.038
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -8170,13 +8170,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.038, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %35, -2
   store i32 %dec26, ptr %level, align 8
-  %38 = load ptr, ptr %_res, align 8
+  %39 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %38, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %39, %while.end ]
   ret ptr %retval.0
 }
 
@@ -8804,7 +8804,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.044 = phi i32 [ %3, %if.end10.lr.ph ], [ %36, %if.end22 ]
+  %_resmark.044 = phi i32 [ %3, %if.end10.lr.ph ], [ %37, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -9057,22 +9057,22 @@ primary_raw.exit.sink.split:                      ; preds = %if.end211.i, %land.
 
 primary_raw.exit:                                 ; preds = %primary_raw.exit.sink.split, %if.end37.i, %land.lhs.true44.i, %CHECK_CALL.exit, %land.lhs.true88.i, %cond.end141.i, %land.lhs.true146.i, %if.end184.i, %land.lhs.true196.i, %if.end211.i, %if.end204.i, %if.then177.i, %if.end154.i, %if.then119.i, %if.end96.i, %if.then67.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %if.end52.i ], [ null, %if.then67.i ], [ null, %if.end96.i ], [ null, %if.then119.i ], [ null, %if.end154.i ], [ null, %if.then177.i ], [ null, %if.end204.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %land.lhs.true88.i ], [ %call86.i, %CHECK_CALL.exit ], [ null, %land.lhs.true146.i ], [ %call144.i, %cond.end141.i ], [ null, %land.lhs.true196.i ], [ %call194.i, %if.end184.i ], [ %call212.i, %if.end211.i ], [ null, %primary_raw.exit.sink.split ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %34 = load i32, ptr %level, align 8
+  %dec.i = add i32 %34, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr26 = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr26, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true196.i, %land.lhs.true146.i, %land.lhs.true88.i, %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %34 = load i32, ptr %level, align 8
-  %dec202.i = add i32 %34, -1
+  %35 = load i32, ptr %level, align 8
+  %dec202.i = add i32 %35, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %primary_raw.exit, %if.then14.sink.split
-  %35 = phi i32 [ %dec202.i, %if.then14.sink.split ], [ %dec.i.sink, %primary_raw.exit ]
-  %dec16 = add i32 %35, -1
+  %36 = phi i32 [ %dec202.i, %if.then14.sink.split ], [ %dec.i, %primary_raw.exit ]
+  %dec16 = add i32 %36, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -9081,8 +9081,8 @@ if.end17:                                         ; preds = %primary_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %36 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %36, %_resmark.044
+  %37 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %37, %_resmark.044
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -9093,13 +9093,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.044, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %34, -2
   store i32 %dec26, ptr %level, align 8
-  %37 = load ptr, ptr %_res, align 8
+  %38 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %37, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %38, %while.end ]
   ret ptr %retval.0
 }
 
@@ -12227,7 +12227,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.044 = phi i32 [ %3, %if.end10.lr.ph ], [ %36, %if.end22 ]
+  %_resmark.044 = phi i32 [ %3, %if.end10.lr.ph ], [ %37, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -12505,22 +12505,22 @@ t_primary_raw.exit.sink.split:                    ; preds = %if.end223.i, %land.
 
 t_primary_raw.exit:                               ; preds = %t_primary_raw.exit.sink.split, %if.end40.i, %land.lhs.true47.i, %if.end87.i, %land.lhs.true99.i, %CHECK_CALL.exit, %land.lhs.true146.i, %cond.end203.i, %land.lhs.true208.i, %land.lhs.true227.i, %if.end216.i, %if.then181.i, %if.end154.i, %if.then125.i, %if.end107.i, %if.then80.i, %if.end55.i, %if.then34.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then34.i ], [ null, %if.end55.i ], [ null, %if.then80.i ], [ null, %if.end107.i ], [ null, %if.then125.i ], [ null, %if.end154.i ], [ null, %if.then181.i ], [ null, %if.end216.i ], [ null, %land.lhs.true47.i ], [ %call45.i, %if.end40.i ], [ null, %land.lhs.true99.i ], [ %call97.i, %if.end87.i ], [ null, %land.lhs.true146.i ], [ %call144.i, %CHECK_CALL.exit ], [ null, %land.lhs.true208.i ], [ %call206.i, %cond.end203.i ], [ %call225.i, %land.lhs.true227.i ], [ null, %t_primary_raw.exit.sink.split ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %34 = load i32, ptr %level, align 8
+  %dec.i = add i32 %34, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr26 = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr26, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true208.i, %land.lhs.true146.i, %land.lhs.true99.i, %land.lhs.true47.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %34 = load i32, ptr %level, align 8
-  %dec214.i = add i32 %34, -1
+  %35 = load i32, ptr %level, align 8
+  %dec214.i = add i32 %35, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %t_primary_raw.exit, %if.then14.sink.split
-  %35 = phi i32 [ %dec214.i, %if.then14.sink.split ], [ %dec.i.sink, %t_primary_raw.exit ]
-  %dec16 = add i32 %35, -1
+  %36 = phi i32 [ %dec214.i, %if.then14.sink.split ], [ %dec.i, %t_primary_raw.exit ]
+  %dec16 = add i32 %36, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -12529,8 +12529,8 @@ if.end17:                                         ; preds = %t_primary_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %36 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %36, %_resmark.044
+  %37 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %37, %_resmark.044
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -12541,13 +12541,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.044, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %34, -2
   store i32 %dec26, ptr %level, align 8
-  %37 = load ptr, ptr %_res, align 8
+  %38 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %37, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %38, %while.end ]
   ret ptr %retval.0
 }
 
@@ -16147,13 +16147,13 @@ if.then45:                                        ; preds = %land.lhs.true42
   br label %return
 
 if.end50.sink.split:                              ; preds = %if.end.i54, %if.end.i, %if.end15.i.sink.split, %if.end3.i
-  %storemerge.i59104.sink.in = load i32, ptr %level, align 8
-  %storemerge.i59104.sink = add i32 %storemerge.i59104.sink.in, -1
-  store i32 %storemerge.i59104.sink, ptr %level, align 8
+  %storemerge.in.i58103 = load i32, ptr %level, align 8
+  %storemerge.i59104 = add i32 %storemerge.in.i58103, -1
+  store i32 %storemerge.i59104, ptr %level, align 8
   br label %if.end50
 
 if.end50:                                         ; preds = %if.end50.sink.split, %_gather_123_rule.exit
-  %29 = phi i32 [ %storemerge.i, %_gather_123_rule.exit ], [ %storemerge.i59104.sink, %if.end50.sink.split ]
+  %29 = phi i32 [ %storemerge.i, %_gather_123_rule.exit ], [ %storemerge.i59104, %if.end50.sink.split ]
   %.pr106 = load i32, ptr %error_indicator, align 8
   store i32 %3, ptr %mark, align 8
   %tobool53.not = icmp eq i32 %.pr106, 0
@@ -19775,14 +19775,14 @@ if.end.i:                                         ; preds = %if.end3
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   %.pre = load i32, ptr %error_indicator, align 8
   %tobool.not.i = icmp eq i32 %.pre, 0
-  br i1 %tobool.not.i, label %if.end.i.if.end3.i_crit_edge, label %if.end12.thread239
+  br i1 %tobool.not.i, label %if.end.i.if.end3.i_crit_edge, label %if.end12.thread237
 
 if.end.i.if.end3.i_crit_edge:                     ; preds = %if.end.i
-  %.pre270 = load i32, ptr %mark, align 8
+  %.pre268 = load i32, ptr %mark, align 8
   br label %if.end3.i
 
 if.end3.i:                                        ; preds = %if.end.i.if.end3.i_crit_edge, %if.end3
-  %5 = phi i32 [ %.pre270, %if.end.i.if.end3.i_crit_edge ], [ %3, %if.end3 ]
+  %5 = phi i32 [ %.pre268, %if.end.i.if.end3.i_crit_edge ], [ %3, %if.end3 ]
   %fill.i = getelementptr inbounds i8, ptr %p, i64 20
   %6 = load i32, ptr %fill.i, align 4
   %cmp5.i = icmp eq i32 %5, %6
@@ -19812,8 +19812,8 @@ if.end11.i:                                       ; preds = %land.lhs.true.i
 if.end22.i:                                       ; preds = %if.end11.i.thread, %if.end11.i
   %.pn.in = phi ptr [ %arrayidx.i130, %if.end11.i.thread ], [ %arrayidx.i, %if.end11.i ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.in146 = getelementptr inbounds i8, ptr %.pn, i64 20
-  %9 = load i32, ptr %.in146, align 4
+  %.in144 = getelementptr inbounds i8, ptr %.pn, i64 20
+  %9 = load i32, ptr %.in144, align 4
   %.in = getelementptr inbounds i8, ptr %.pn, i64 24
   %10 = load i32, ptr %.in, align 8
   %call23.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
@@ -19895,7 +19895,7 @@ double_starred_kvpairs_rule.exit:                 ; preds = %_gather_117_rule.ex
   %storemerge.i = add i32 %storemerge.in.i, -1
   store i32 %storemerge.i, ptr %level, align 8
   %tobool28.not.i = icmp eq i32 %.pr.pr, 0
-  br i1 %tobool28.not.i, label %land.lhs.true29.i, label %if.end12.thread239
+  br i1 %tobool28.not.i, label %land.lhs.true29.i, label %if.end12.thread237
 
 land.lhs.true29.i:                                ; preds = %land.lhs.true.i83, %double_starred_kvpairs_rule.exit
   %retval.0.i8093 = phi ptr [ null, %double_starred_kvpairs_rule.exit ], [ %call14.i.i, %land.lhs.true.i83 ]
@@ -19946,7 +19946,7 @@ if.end57.i:                                       ; preds = %double_starred_kvpa
   %.pr135.pr = load i32, ptr %error_indicator, align 8
   store i32 %5, ptr %mark, align 8
   %tobool60.not.i = icmp eq i32 %.pr135.pr, 0
-  br i1 %tobool60.not.i, label %if.end64.i, label %if.end12.thread239
+  br i1 %tobool60.not.i, label %if.end64.i, label %if.end12.thread237
 
 if.end64.i:                                       ; preds = %if.end57.i
   %call67.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
@@ -19955,55 +19955,55 @@ if.end64.i:                                       ; preds = %if.end57.i
 
 land.lhs.true69.i:                                ; preds = %if.end64.i
   %19 = load i32, ptr %level, align 8
-  %inc.i152 = add i32 %19, 1
-  store i32 %inc.i152, ptr %level, align 8
-  %cmp.i153 = icmp eq i32 %19, 6000
-  br i1 %cmp.i153, label %if.then.i, label %if.end.i154
+  %inc.i150 = add i32 %19, 1
+  store i32 %inc.i150, ptr %level, align 8
+  %cmp.i151 = icmp eq i32 %19, 6000
+  br i1 %cmp.i151, label %if.then.i, label %if.end.i152
 
 if.then.i:                                        ; preds = %land.lhs.true69.i
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  br label %if.end.i154
+  br label %if.end.i152
 
-if.end.i154:                                      ; preds = %if.then.i, %land.lhs.true69.i
+if.end.i152:                                      ; preds = %if.then.i, %land.lhs.true69.i
   %20 = load i32, ptr %error_indicator, align 8
-  %tobool.not.i155 = icmp eq i32 %20, 0
-  br i1 %tobool.not.i155, label %if.end3.i156, label %if.then1.i
+  %tobool.not.i153 = icmp eq i32 %20, 0
+  br i1 %tobool.not.i153, label %if.end3.i154, label %if.then1.i
 
-if.then1.i:                                       ; preds = %if.end.i154
+if.then1.i:                                       ; preds = %if.end.i152
   %21 = load i32, ptr %level, align 8
   br label %invalid_double_starred_kvpairs_rule.exit
 
-if.end3.i156:                                     ; preds = %if.end.i154
+if.end3.i154:                                     ; preds = %if.end.i152
   %22 = load i32, ptr %mark, align 8
   %23 = load i32, ptr %level, align 8
-  %inc.i.i157 = add i32 %23, 1
-  store i32 %inc.i.i157, ptr %level, align 8
-  %cmp.i.i158 = icmp eq i32 %23, 6000
-  br i1 %cmp.i.i158, label %if.end.i.i178, label %if.end3.i.i159
+  %inc.i.i155 = add i32 %23, 1
+  store i32 %inc.i.i155, ptr %level, align 8
+  %cmp.i.i156 = icmp eq i32 %23, 6000
+  br i1 %cmp.i.i156, label %if.end.i.i176, label %if.end3.i.i157
 
-if.end.i.i178:                                    ; preds = %if.end3.i156
+if.end.i.i176:                                    ; preds = %if.end3.i154
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   %.pre.i = load i32, ptr %error_indicator, align 8
-  %tobool.not.i.i179 = icmp eq i32 %.pre.i, 0
-  br i1 %tobool.not.i.i179, label %if.end3.i.i159, label %if.end18.sink.split.i
+  %tobool.not.i.i177 = icmp eq i32 %.pre.i, 0
+  br i1 %tobool.not.i.i177, label %if.end3.i.i157, label %if.end18.sink.split.i
 
-if.end3.i.i159:                                   ; preds = %if.end.i.i178, %if.end3.i156
-  %call.i.i160 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %p)
-  %tobool10.not.i.i161 = icmp eq ptr %call.i.i160, null
-  br i1 %tobool10.not.i.i161, label %if.end18.sink.split.i, label %land.lhs.true.i.i162
+if.end3.i.i157:                                   ; preds = %if.end.i.i176, %if.end3.i154
+  %call.i.i158 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %p)
+  %tobool10.not.i.i159 = icmp eq ptr %call.i.i158, null
+  br i1 %tobool10.not.i.i159, label %if.end18.sink.split.i, label %land.lhs.true.i.i160
 
-land.lhs.true.i.i162:                             ; preds = %if.end3.i.i159
+land.lhs.true.i.i160:                             ; preds = %if.end3.i.i157
   %24 = load i32, ptr %level, align 8
   %inc.i56.i = add i32 %24, 1
   store i32 %inc.i56.i, ptr %level, align 8
   %cmp.i57.i = icmp eq i32 %24, 6000
   br i1 %cmp.i57.i, label %if.then.i71.i, label %if.end.i58.i
 
-if.then.i71.i:                                    ; preds = %land.lhs.true.i.i162
+if.then.i71.i:                                    ; preds = %land.lhs.true.i.i160
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   br label %if.end.i58.i
 
-if.end.i58.i:                                     ; preds = %if.then.i71.i, %land.lhs.true.i.i162
+if.end.i58.i:                                     ; preds = %if.then.i71.i, %land.lhs.true.i.i160
   %25 = load i32, ptr %error_indicator, align 8
   %tobool.not.i60.i = icmp eq i32 %25, 0
   br i1 %tobool.not.i60.i, label %if.end3.i64.i, label %if.end15.i.sink.split.i
@@ -20025,9 +20025,9 @@ while.cond.i.preheader.i:                         ; preds = %if.end10.i.i
   br i1 %tobool18.not.i83.i, label %while.end.i.i, label %land.rhs.i.i.preheader
 
 land.rhs.i.i.preheader:                           ; preds = %while.cond.i.preheader.i
-  %call19.i.i258 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %p)
-  %tobool20.not.i.i259 = icmp eq ptr %call19.i.i258, null
-  br i1 %tobool20.not.i.i259, label %while.end.i.i, label %if.end28.i.i
+  %call19.i.i256 = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %p)
+  %tobool20.not.i.i257 = icmp eq ptr %call19.i.i256, null
+  br i1 %tobool20.not.i.i257, label %while.end.i.i, label %if.end28.i.i
 
 land.rhs.i.i:                                     ; preds = %if.end40.i.i
   %call19.i.i = tail call fastcc ptr @double_starred_kvpair_rule(ptr noundef nonnull %p)
@@ -20035,29 +20035,29 @@ land.rhs.i.i:                                     ; preds = %if.end40.i.i
   br i1 %tobool20.not.i.i, label %while.end.i.i, label %if.end28.i.i, !llvm.loop !66
 
 if.end28.i.i:                                     ; preds = %land.rhs.i.i.preheader, %land.rhs.i.i
-  %call19.i.i263 = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i.i258, %land.rhs.i.i.preheader ]
-  %_children_capacity.0.i84.i262 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
-  %_n.0.i85.i261 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
-  %_children.0.i86.i260 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i66.i, %land.rhs.i.i.preheader ]
-  %cmp29.i.i = icmp eq i64 %_n.0.i85.i261, %_children_capacity.0.i84.i262
+  %call19.i.i261 = phi ptr [ %call19.i.i, %land.rhs.i.i ], [ %call19.i.i256, %land.rhs.i.i.preheader ]
+  %_children_capacity.0.i84.i260 = phi i64 [ %_children_capacity.1.i.i, %land.rhs.i.i ], [ 1, %land.rhs.i.i.preheader ]
+  %_n.0.i85.i259 = phi i64 [ %inc41.i.i, %land.rhs.i.i ], [ 0, %land.rhs.i.i.preheader ]
+  %_children.0.i86.i258 = phi ptr [ %_children.1.i.i, %land.rhs.i.i ], [ %call.i66.i, %land.rhs.i.i.preheader ]
+  %cmp29.i.i = icmp eq i64 %_n.0.i85.i259, %_children_capacity.0.i84.i260
   br i1 %cmp29.i.i, label %if.then30.i.i, label %if.end40.i.i
 
 if.then30.i.i:                                    ; preds = %if.end28.i.i
-  %mul31.i.i = shl i64 %_children_capacity.0.i84.i262, 4
-  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i86.i260, i64 noundef %mul31.i.i) #4
+  %mul31.i.i = shl i64 %_children_capacity.0.i84.i260, 4
+  %call32.i.i = tail call ptr @PyMem_Realloc(ptr noundef %_children.0.i86.i258, i64 noundef %mul31.i.i) #4
   %tobool33.not.i.i = icmp eq ptr %call32.i.i, null
   br i1 %tobool33.not.i.i, label %if.end15.i.sink.split.sink.split.sink.split.i, label %if.end39.i.i
 
 if.end39.i.i:                                     ; preds = %if.then30.i.i
-  %mul.i.i = shl i64 %_children_capacity.0.i84.i262, 1
+  %mul.i.i = shl i64 %_children_capacity.0.i84.i260, 1
   br label %if.end40.i.i
 
 if.end40.i.i:                                     ; preds = %if.end39.i.i, %if.end28.i.i
-  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i84.i262, %if.end28.i.i ]
-  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i86.i260, %if.end28.i.i ]
-  %inc41.i.i = add i64 %_n.0.i85.i261, 1
-  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i85.i261
-  store ptr %call19.i.i263, ptr %arrayidx.i.i, align 8
+  %_children_capacity.1.i.i = phi i64 [ %mul.i.i, %if.end39.i.i ], [ %_children_capacity.0.i84.i260, %if.end28.i.i ]
+  %_children.1.i.i = phi ptr [ %call32.i.i, %if.end39.i.i ], [ %_children.0.i86.i258, %if.end28.i.i ]
+  %inc41.i.i = add i64 %_n.0.i85.i259, 1
+  %arrayidx.i.i = getelementptr ptr, ptr %_children.1.i.i, i64 %_n.0.i85.i259
+  store ptr %call19.i.i261, ptr %arrayidx.i.i, align 8
   %28 = load i32, ptr %mark, align 8
   %call17.i.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
   %tobool18.not.i.i = icmp eq ptr %call17.i.i, null
@@ -20096,7 +20096,7 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   br i1 %cmp52.i.i, label %for.body.i.i, label %_gather_229_rule.exit.i, !llvm.loop !67
 
 if.end15.i.sink.split.sink.split.sink.split.i:    ; preds = %if.then30.i.i, %while.end.i.i
-  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i86.i260, %if.then30.i.i ]
+  %_children.0.i.lcssa.sink.i = phi ptr [ %_children.0.i.lcssa.i, %while.end.i.i ], [ %_children.0.i86.i258, %if.then30.i.i ]
   tail call void @PyMem_Free(ptr noundef %_children.0.i.lcssa.sink.i) #4
   br label %if.end15.i.sink.split.sink.split.i
 
@@ -20116,19 +20116,19 @@ _gather_229_rule.exit.i:                          ; preds = %for.body.i.i, %for.
   %33 = load i32, ptr %level, align 8
   %dec59.i.i = add i32 %33, -1
   store i32 %dec59.i.i, ptr %level, align 8
-  %call14.i.i172 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i160, ptr noundef nonnull %call44.i.i) #4
-  %storemerge.in.i.i173 = load i32, ptr %level, align 8
-  %storemerge.i.i174 = add i32 %storemerge.in.i.i173, -1
-  store i32 %storemerge.i.i174, ptr %level, align 8
-  %tobool10.not.i175 = icmp eq ptr %call14.i.i172, null
-  br i1 %tobool10.not.i175, label %if.end18.i, label %land.lhs.true.i176
+  %call14.i.i170 = tail call ptr @_PyPegen_seq_insert_in_front(ptr noundef %p, ptr noundef nonnull %call.i.i158, ptr noundef nonnull %call44.i.i) #4
+  %storemerge.in.i.i171 = load i32, ptr %level, align 8
+  %storemerge.i.i172 = add i32 %storemerge.in.i.i171, -1
+  store i32 %storemerge.i.i172, ptr %level, align 8
+  %tobool10.not.i173 = icmp eq ptr %call14.i.i170, null
+  br i1 %tobool10.not.i173, label %if.end18.i, label %land.lhs.true.i174
 
-land.lhs.true.i176:                               ; preds = %_gather_229_rule.exit.i
-  %call11.i177 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
-  %tobool12.not.i = icmp eq ptr %call11.i177, null
+land.lhs.true.i174:                               ; preds = %_gather_229_rule.exit.i
+  %call11.i175 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 12) #4
+  %tobool12.not.i = icmp eq ptr %call11.i175, null
   br i1 %tobool12.not.i, label %if.end18.i, label %land.lhs.true13.i
 
-land.lhs.true13.i:                                ; preds = %land.lhs.true.i176
+land.lhs.true13.i:                                ; preds = %land.lhs.true.i174
   %34 = load i32, ptr %level, align 8
   %inc.i41.i = add i32 %34, 1
   store i32 %inc.i41.i, ptr %level, align 8
@@ -20257,13 +20257,13 @@ if.end18.thread.i:                                ; preds = %if.then80.i.i, %if.
   %dec98.i.i = add i32 %51, -1
   br label %invalid_double_starred_kvpairs_rule.exit
 
-if.end18.sink.split.i:                            ; preds = %if.end3.i.i159, %if.end15.i.sink.split.i, %if.then80.i.i, %land.lhs.true77.i.i, %land.lhs.true74.i.i, %if.end69.i.i, %if.end62.i.i, %if.then47.i.i, %if.end27.i.i, %if.then13.i53.i, %if.end.i43.i, %if.end.i.i178
+if.end18.sink.split.i:                            ; preds = %if.end3.i.i157, %if.end15.i.sink.split.i, %if.then80.i.i, %land.lhs.true77.i.i, %land.lhs.true74.i.i, %if.end69.i.i, %if.end62.i.i, %if.then47.i.i, %if.end27.i.i, %if.then13.i53.i, %if.end.i43.i, %if.end.i.i176
   %52 = load i32, ptr %level, align 8
   %dec103.i.i = add i32 %52, -1
   store i32 %dec103.i.i, ptr %level, align 8
   br label %if.end18.i
 
-if.end18.i:                                       ; preds = %if.end18.sink.split.i, %land.lhs.true.i176, %_gather_229_rule.exit.i
+if.end18.i:                                       ; preds = %if.end18.sink.split.i, %land.lhs.true.i174, %_gather_229_rule.exit.i
   %.pr.i = load i32, ptr %error_indicator, align 8
   store i32 %22, ptr %mark, align 8
   %tobool21.not.i = icmp eq i32 %.pr.i, 0
@@ -20275,17 +20275,17 @@ if.end18.if.then22_crit_edge.i:                   ; preds = %if.end18.i
 
 if.end25.i:                                       ; preds = %if.end18.i
   %call27.i = tail call fastcc ptr @expression_rule(ptr noundef nonnull %p)
-  %tobool28.not.i163 = icmp eq ptr %call27.i, null
-  br i1 %tobool28.not.i163, label %if.end51.i, label %land.lhs.true29.i164
+  %tobool28.not.i161 = icmp eq ptr %call27.i, null
+  br i1 %tobool28.not.i161, label %if.end51.i, label %land.lhs.true29.i162
 
-land.lhs.true29.i164:                             ; preds = %if.end25.i
-  %call30.i165 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
-  %tobool31.not.i166 = icmp eq ptr %call30.i165, null
-  br i1 %tobool31.not.i166, label %if.end51.i, label %land.lhs.true32.i
+land.lhs.true29.i162:                             ; preds = %if.end25.i
+  %call30.i163 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 11) #4
+  %tobool31.not.i164 = icmp eq ptr %call30.i163, null
+  br i1 %tobool31.not.i164, label %if.end51.i, label %land.lhs.true32.i
 
-land.lhs.true32.i:                                ; preds = %land.lhs.true29.i164
-  %call33.i167 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
-  %tobool34.not.i = icmp eq ptr %call33.i167, null
+land.lhs.true32.i:                                ; preds = %land.lhs.true29.i162
+  %call33.i165 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 16) #4
+  %tobool34.not.i = icmp eq ptr %call33.i165, null
   br i1 %tobool34.not.i, label %if.end51.i, label %land.lhs.true35.i
 
 land.lhs.true35.i:                                ; preds = %land.lhs.true32.i
@@ -20295,10 +20295,10 @@ land.lhs.true35.i:                                ; preds = %land.lhs.true32.i
 
 if.then38.i:                                      ; preds = %land.lhs.true35.i
   %53 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i = getelementptr inbounds i8, ptr %call33.i167, i64 20
+  %lineno.i = getelementptr inbounds i8, ptr %call33.i165, i64 20
   %54 = load i32, ptr %lineno.i, align 4
   %conv.i = sext i32 %54 to i64
-  %col_offset.i = getelementptr inbounds i8, ptr %call33.i167, i64 24
+  %col_offset.i = getelementptr inbounds i8, ptr %call33.i165, i64 24
   %55 = load i32, ptr %col_offset.i, align 8
   %conv39.i = sext i32 %55 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %53, i64 noundef %conv.i, i64 noundef %conv39.i, i64 noundef -5, i64 noundef -5, ptr noundef nonnull @.str.81)
@@ -20311,7 +20311,7 @@ if.then46.i:                                      ; preds = %if.then38.i
   %56 = load i32, ptr %level, align 8
   br label %invalid_double_starred_kvpairs_rule.exit
 
-if.end51.i:                                       ; preds = %land.lhs.true35.i, %land.lhs.true32.i, %land.lhs.true29.i164, %if.end25.i
+if.end51.i:                                       ; preds = %land.lhs.true35.i, %land.lhs.true32.i, %land.lhs.true29.i162, %if.end25.i
   store i32 %22, ptr %mark, align 8
   %57 = load i32, ptr %error_indicator, align 8
   %tobool54.not.i = icmp eq i32 %57, 0
@@ -20332,9 +20332,9 @@ land.lhs.true63.i:                                ; preds = %if.end58.i
   br i1 %tobool65.not.i, label %if.end87.i, label %land.lhs.true66.i
 
 land.lhs.true66.i:                                ; preds = %land.lhs.true63.i
-  %call67.i168 = tail call i32 @_PyPegen_lookahead(i32 noundef 1, ptr noundef nonnull @_tmp_231_rule, ptr noundef nonnull %p) #4
-  %tobool68.not.i169 = icmp eq i32 %call67.i168, 0
-  br i1 %tobool68.not.i169, label %if.end87.i, label %if.then69.i
+  %call67.i166 = tail call i32 @_PyPegen_lookahead(i32 noundef 1, ptr noundef nonnull @_tmp_231_rule, ptr noundef nonnull %p) #4
+  %tobool68.not.i167 = icmp eq i32 %call67.i166, 0
+  br i1 %tobool68.not.i167, label %if.end87.i, label %if.then69.i
 
 if.then69.i:                                      ; preds = %land.lhs.true66.i
   %59 = load ptr, ptr @PyExc_SyntaxError, align 8
@@ -20344,11 +20344,11 @@ if.then69.i:                                      ; preds = %land.lhs.true66.i
   %col_offset72.i = getelementptr inbounds i8, ptr %call64.i, i64 24
   %61 = load i32, ptr %col_offset72.i, align 8
   %conv73.i = sext i32 %61 to i64
-  %end_lineno.i170 = getelementptr inbounds i8, ptr %call64.i, i64 28
-  %62 = load i32, ptr %end_lineno.i170, align 4
+  %end_lineno.i168 = getelementptr inbounds i8, ptr %call64.i, i64 28
+  %62 = load i32, ptr %end_lineno.i168, align 4
   %conv74.i = sext i32 %62 to i64
-  %end_col_offset.i171 = getelementptr inbounds i8, ptr %call64.i, i64 32
-  %63 = load i32, ptr %end_col_offset.i171, align 8
+  %end_col_offset.i169 = getelementptr inbounds i8, ptr %call64.i, i64 32
+  %63 = load i32, ptr %end_col_offset.i169, align 8
   %conv75.i = sext i32 %63 to i64
   tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %59, i64 noundef %conv71.i, i64 noundef %conv73.i, i64 noundef %conv74.i, i64 noundef %conv75.i, ptr noundef nonnull @.str.82)
   %call80.i = tail call ptr @PyErr_Occurred() #4
@@ -20387,19 +20387,19 @@ if.end12.thread:                                  ; preds = %land.lhs.true49.i, 
   store i32 %3, ptr %mark, align 8
   br label %return
 
-if.end12.thread239:                               ; preds = %if.end57.i, %double_starred_kvpairs_rule.exit, %if.end.i
+if.end12.thread237:                               ; preds = %if.end57.i, %double_starred_kvpairs_rule.exit, %if.end.i
   %67 = load i32, ptr %level, align 8
-  %dec63.i241 = add i32 %67, -1
-  store i32 %dec63.i241, ptr %level, align 8
+  %dec63.i239 = add i32 %67, -1
+  store i32 %dec63.i239, ptr %level, align 8
   store i32 %3, ptr %mark, align 8
   br label %return
 
 if.end12:                                         ; preds = %land.lhs.true.i83, %land.lhs.true49.i, %invalid_double_starred_kvpairs_rule.exit, %if.end64.i, %if.then32.i, %if.end11.i
-  %.pr.pr238 = load i32, ptr %error_indicator, align 8
+  %.pr.pr236 = load i32, ptr %error_indicator, align 8
   %68 = load i32, ptr %level, align 8
   %dec63.i = add i32 %68, -1
   store i32 %3, ptr %mark, align 8
-  %tobool15.not = icmp eq i32 %.pr.pr238, 0
+  %tobool15.not = icmp eq i32 %.pr.pr236, 0
   br i1 %tobool15.not, label %if.end19, label %return
 
 if.end19:                                         ; preds = %if.end12
@@ -20411,20 +20411,20 @@ if.end.i28:                                       ; preds = %if.end19
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   %.pre125 = load i32, ptr %error_indicator, align 8
   %69 = icmp eq i32 %.pre125, 0
-  br i1 %69, label %if.end.i28.if.end3.i34_crit_edge, label %if.end23.thread243
+  br i1 %69, label %if.end.i28.if.end3.i34_crit_edge, label %if.end23.thread241
 
 if.end.i28.if.end3.i34_crit_edge:                 ; preds = %if.end.i28
-  %.pre272 = load i32, ptr %mark, align 8
+  %.pre270 = load i32, ptr %mark, align 8
   br label %if.end3.i34
 
-if.end23.thread243:                               ; preds = %if.end.i28
+if.end23.thread241:                               ; preds = %if.end.i28
   %70 = load i32, ptr %level, align 8
-  %dec36.i245 = add i32 %70, -1
+  %dec36.i243 = add i32 %70, -1
   store i32 %3, ptr %mark, align 8
   br label %return
 
 if.end3.i34:                                      ; preds = %if.end.i28.if.end3.i34_crit_edge, %if.end19
-  %71 = phi i32 [ %.pre272, %if.end.i28.if.end3.i34_crit_edge ], [ %3, %if.end19 ]
+  %71 = phi i32 [ %.pre270, %if.end.i28.if.end3.i34_crit_edge ], [ %3, %if.end19 ]
   %72 = load i32, ptr %fill.i, align 4
   %cmp5.i37 = icmp eq i32 %71, %72
   br i1 %cmp5.i37, label %land.lhs.true.i59, label %if.end11.i38.thread
@@ -20451,12 +20451,12 @@ if.end11.i38:                                     ; preds = %land.lhs.true.i59
   br i1 %74, label %if.end22.i47, label %if.end23
 
 if.end22.i47:                                     ; preds = %if.end11.i38.thread, %if.end11.i38
-  %.pn149.in = phi ptr [ %arrayidx.i41141, %if.end11.i38.thread ], [ %arrayidx.i41, %if.end11.i38 ]
-  %.pn149 = load ptr, ptr %.pn149.in, align 8
-  %.in150 = getelementptr inbounds i8, ptr %.pn149, i64 20
-  %76 = load i32, ptr %.in150, align 4
-  %.in148 = getelementptr inbounds i8, ptr %.pn149, i64 24
-  %77 = load i32, ptr %.in148, align 8
+  %.pn147.in = phi ptr [ %arrayidx.i41141, %if.end11.i38.thread ], [ %arrayidx.i41, %if.end11.i38 ]
+  %.pn147 = load ptr, ptr %.pn147.in, align 8
+  %.in148 = getelementptr inbounds i8, ptr %.pn147, i64 20
+  %76 = load i32, ptr %.in148, align 4
+  %.in146 = getelementptr inbounds i8, ptr %.pn147, i64 24
+  %77 = load i32, ptr %.in146, align 8
   %call23.i48 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool24.not.i49 = icmp eq ptr %call23.i48, null
   br i1 %tobool24.not.i49, label %if.end23, label %land.lhs.true25.i50
@@ -20515,95 +20515,95 @@ if.end23:                                         ; preds = %land.lhs.true44.i, 
 
 if.end30:                                         ; preds = %if.end23
   store i32 %82, ptr %level, align 8
-  %cmp.i182 = icmp eq i32 %dec36.i, 6000
-  br i1 %cmp.i182, label %if.end.i183, label %if.end3.i187
+  %cmp.i180 = icmp eq i32 %dec36.i, 6000
+  br i1 %cmp.i180, label %if.end.i181, label %if.end3.i185
 
-if.end.i183:                                      ; preds = %if.end30
+if.end.i181:                                      ; preds = %if.end30
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  %.pre273 = load i32, ptr %error_indicator, align 8
-  %tobool.not.i185 = icmp eq i32 %.pre273, 0
-  br i1 %tobool.not.i185, label %if.end3.i187, label %if.end34.thread281
+  %.pre271 = load i32, ptr %error_indicator, align 8
+  %tobool.not.i183 = icmp eq i32 %.pre271, 0
+  br i1 %tobool.not.i183, label %if.end3.i185, label %if.end34.thread279
 
-if.end3.i187:                                     ; preds = %if.end30, %if.end.i183
+if.end3.i185:                                     ; preds = %if.end30, %if.end.i181
   %83 = load i32, ptr %mark, align 8
   %84 = load i32, ptr %fill.i, align 4
-  %cmp5.i190 = icmp eq i32 %83, %84
-  br i1 %cmp5.i190, label %land.lhs.true.i226, label %if.end11.thread.i
+  %cmp5.i188 = icmp eq i32 %83, %84
+  br i1 %cmp5.i188, label %land.lhs.true.i224, label %if.end11.thread.i
 
-if.end11.thread.i:                                ; preds = %if.end3.i187
+if.end11.thread.i:                                ; preds = %if.end3.i185
   %tokens53.i = getelementptr inbounds i8, ptr %p, i64 8
   %85 = load ptr, ptr %tokens53.i, align 8
   %idxprom54.i = sext i32 %83 to i64
   %arrayidx55.i = getelementptr ptr, ptr %85, i64 %idxprom54.i
-  br label %if.end22.i191
+  br label %if.end22.i189
 
-land.lhs.true.i226:                               ; preds = %if.end3.i187
-  %call.i227 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %p) #4
-  %cmp6.i228 = icmp slt i32 %call.i227, 0
-  br i1 %cmp6.i228, label %if.end34.thread281.sink.split, label %if.end11.i229
+land.lhs.true.i224:                               ; preds = %if.end3.i185
+  %call.i225 = tail call i32 @_PyPegen_fill_token(ptr noundef nonnull %p) #4
+  %cmp6.i226 = icmp slt i32 %call.i225, 0
+  br i1 %cmp6.i226, label %if.end34.thread279.sink.split, label %if.end11.i227
 
-if.end11.i229:                                    ; preds = %land.lhs.true.i226
-  %.pre.i230 = load i32, ptr %error_indicator, align 8
-  %tokens.i231 = getelementptr inbounds i8, ptr %p, i64 8
-  %86 = load ptr, ptr %tokens.i231, align 8
-  %idxprom.i232 = sext i32 %83 to i64
-  %arrayidx.i233 = getelementptr ptr, ptr %86, i64 %idxprom.i232
-  %tobool18.not.i234 = icmp eq i32 %.pre.i230, 0
-  br i1 %tobool18.not.i234, label %if.end22.i191, label %if.end34
+if.end11.i227:                                    ; preds = %land.lhs.true.i224
+  %.pre.i228 = load i32, ptr %error_indicator, align 8
+  %tokens.i229 = getelementptr inbounds i8, ptr %p, i64 8
+  %86 = load ptr, ptr %tokens.i229, align 8
+  %idxprom.i230 = sext i32 %83 to i64
+  %arrayidx.i231 = getelementptr ptr, ptr %86, i64 %idxprom.i230
+  %tobool18.not.i232 = icmp eq i32 %.pre.i228, 0
+  br i1 %tobool18.not.i232, label %if.end22.i189, label %if.end34
 
-if.end22.i191:                                    ; preds = %if.end11.i229, %if.end11.thread.i
-  %.pn.in.i = phi ptr [ %arrayidx55.i, %if.end11.thread.i ], [ %arrayidx.i233, %if.end11.i229 ]
+if.end22.i189:                                    ; preds = %if.end11.i227, %if.end11.thread.i
+  %.pn.in.i = phi ptr [ %arrayidx55.i, %if.end11.thread.i ], [ %arrayidx.i231, %if.end11.i227 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
   %.in60.i = getelementptr inbounds i8, ptr %.pn.i, i64 20
   %87 = load i32, ptr %.in60.i, align 4
   %.in.i = getelementptr inbounds i8, ptr %.pn.i, i64 24
   %88 = load i32, ptr %.in.i, align 8
-  %call23.i192 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
-  %tobool24.not.i193 = icmp eq ptr %call23.i192, null
-  br i1 %tobool24.not.i193, label %if.end55.i, label %land.lhs.true25.i194
+  %call23.i190 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
+  %tobool24.not.i191 = icmp eq ptr %call23.i190, null
+  br i1 %tobool24.not.i191, label %if.end55.i, label %land.lhs.true25.i192
 
-land.lhs.true25.i194:                             ; preds = %if.end22.i191
+land.lhs.true25.i192:                             ; preds = %if.end22.i189
   %call26.i = tail call fastcc ptr @kvpair_rule(ptr noundef nonnull %p)
-  %tobool27.not.i195 = icmp eq ptr %call26.i, null
-  br i1 %tobool27.not.i195, label %if.end55.i, label %land.lhs.true28.i196
+  %tobool27.not.i193 = icmp eq ptr %call26.i, null
+  br i1 %tobool27.not.i193, label %if.end55.i, label %land.lhs.true28.i194
 
-land.lhs.true28.i196:                             ; preds = %land.lhs.true25.i194
+land.lhs.true28.i194:                             ; preds = %land.lhs.true25.i192
   %89 = load i32, ptr %level, align 8
-  %inc.i.i197 = add i32 %89, 1
-  store i32 %inc.i.i197, ptr %level, align 8
-  %cmp.i.i198 = icmp eq i32 %89, 6000
-  br i1 %cmp.i.i198, label %if.then.i.i, label %if.end.i.i199
+  %inc.i.i195 = add i32 %89, 1
+  store i32 %inc.i.i195, ptr %level, align 8
+  %cmp.i.i196 = icmp eq i32 %89, 6000
+  br i1 %cmp.i.i196, label %if.then.i.i, label %if.end.i.i197
 
-if.then.i.i:                                      ; preds = %land.lhs.true28.i196
+if.then.i.i:                                      ; preds = %land.lhs.true28.i194
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
-  br label %if.end.i.i199
+  br label %if.end.i.i197
 
-if.end.i.i199:                                    ; preds = %if.then.i.i, %land.lhs.true28.i196
+if.end.i.i197:                                    ; preds = %if.then.i.i, %land.lhs.true28.i194
   %90 = load i32, ptr %error_indicator, align 8
-  %tobool.not.i.i200 = icmp eq i32 %90, 0
-  br i1 %tobool.not.i.i200, label %if.end3.i.i216, label %if.end.i.i199.for_if_clauses_rule.exit.thread.i_crit_edge
+  %tobool.not.i.i198 = icmp eq i32 %90, 0
+  br i1 %tobool.not.i.i198, label %if.end3.i.i214, label %if.end.i.i197.for_if_clauses_rule.exit.thread.i_crit_edge
 
-if.end.i.i199.for_if_clauses_rule.exit.thread.i_crit_edge: ; preds = %if.end.i.i199
+if.end.i.i197.for_if_clauses_rule.exit.thread.i_crit_edge: ; preds = %if.end.i.i197
   %storemerge.in.i49.i.pre = load i32, ptr %level, align 8
   br label %for_if_clauses_rule.exit.thread.i
 
-if.end3.i.i216:                                   ; preds = %if.end.i.i199
-  %call.i.i217 = tail call fastcc ptr @_loop1_119_rule(ptr noundef nonnull %p)
-  %tobool10.not.i.i218 = icmp eq ptr %call.i.i217, null
-  %storemerge.in.i49.i.pre274 = load i32, ptr %level, align 8
-  br i1 %tobool10.not.i.i218, label %for_if_clauses_rule.exit.thread.i, label %land.lhs.true31.i
+if.end3.i.i214:                                   ; preds = %if.end.i.i197
+  %call.i.i215 = tail call fastcc ptr @_loop1_119_rule(ptr noundef nonnull %p)
+  %tobool10.not.i.i216 = icmp eq ptr %call.i.i215, null
+  %storemerge.in.i49.i.pre272 = load i32, ptr %level, align 8
+  br i1 %tobool10.not.i.i216, label %for_if_clauses_rule.exit.thread.i, label %land.lhs.true31.i
 
-for_if_clauses_rule.exit.thread.i:                ; preds = %if.end.i.i199.for_if_clauses_rule.exit.thread.i_crit_edge, %if.end3.i.i216
-  %storemerge.in.i49.i = phi i32 [ %storemerge.in.i49.i.pre, %if.end.i.i199.for_if_clauses_rule.exit.thread.i_crit_edge ], [ %storemerge.in.i49.i.pre274, %if.end3.i.i216 ]
+for_if_clauses_rule.exit.thread.i:                ; preds = %if.end.i.i197.for_if_clauses_rule.exit.thread.i_crit_edge, %if.end3.i.i214
+  %storemerge.in.i49.i = phi i32 [ %storemerge.in.i49.i.pre, %if.end.i.i197.for_if_clauses_rule.exit.thread.i_crit_edge ], [ %storemerge.in.i49.i.pre272, %if.end3.i.i214 ]
   %storemerge.i50.i = add i32 %storemerge.in.i49.i, -1
   store i32 %storemerge.i50.i, ptr %level, align 8
   br label %if.end55.i
 
-land.lhs.true31.i:                                ; preds = %if.end3.i.i216
-  %storemerge.i.i220 = add i32 %storemerge.in.i49.i.pre274, -1
-  store i32 %storemerge.i.i220, ptr %level, align 8
-  %call32.i221 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
-  %tobool33.not.i = icmp eq ptr %call32.i221, null
+land.lhs.true31.i:                                ; preds = %if.end3.i.i214
+  %storemerge.i.i218 = add i32 %storemerge.in.i49.i.pre272, -1
+  store i32 %storemerge.i.i218, ptr %level, align 8
+  %call32.i219 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
+  %tobool33.not.i = icmp eq ptr %call32.i219, null
   br i1 %tobool33.not.i, label %if.end55.i, label %if.then34.i
 
 if.then34.i:                                      ; preds = %land.lhs.true31.i
@@ -20612,25 +20612,25 @@ if.then34.i:                                      ; preds = %land.lhs.true31.i
   br i1 %cmp36.i, label %if.end34, label %if.end40.i
 
 if.end40.i:                                       ; preds = %if.then34.i
-  %end_lineno.i222 = getelementptr inbounds i8, ptr %call35.i, i64 28
-  %91 = load i32, ptr %end_lineno.i222, align 4
-  %end_col_offset.i223 = getelementptr inbounds i8, ptr %call35.i, i64 32
-  %92 = load i32, ptr %end_col_offset.i223, align 8
+  %end_lineno.i220 = getelementptr inbounds i8, ptr %call35.i, i64 28
+  %91 = load i32, ptr %end_lineno.i220, align 4
+  %end_col_offset.i221 = getelementptr inbounds i8, ptr %call35.i, i64 32
+  %92 = load i32, ptr %end_col_offset.i221, align 8
   %93 = load ptr, ptr %call26.i, align 8
   %value.i = getelementptr inbounds i8, ptr %call26.i, i64 8
   %94 = load ptr, ptr %value.i, align 8
-  %arena.i224 = getelementptr inbounds i8, ptr %p, i64 32
-  %95 = load ptr, ptr %arena.i224, align 8
-  %call45.i225 = tail call ptr @_PyAST_DictComp(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %call.i.i217, i32 noundef %87, i32 noundef %88, i32 noundef %91, i32 noundef %92, ptr noundef %95) #4
-  %cmp46.i = icmp eq ptr %call45.i225, null
+  %arena.i222 = getelementptr inbounds i8, ptr %p, i64 32
+  %95 = load ptr, ptr %arena.i222, align 8
+  %call45.i223 = tail call ptr @_PyAST_DictComp(ptr noundef %93, ptr noundef %94, ptr noundef nonnull %call.i.i215, i32 noundef %87, i32 noundef %88, i32 noundef %91, i32 noundef %92, ptr noundef %95) #4
+  %cmp46.i = icmp eq ptr %call45.i223, null
   br i1 %cmp46.i, label %land.lhs.true47.i, label %dictcomp_rule.exit
 
 land.lhs.true47.i:                                ; preds = %if.end40.i
   %call48.i = tail call ptr @PyErr_Occurred() #4
   %tobool49.not.i = icmp eq ptr %call48.i, null
-  br i1 %tobool49.not.i, label %if.end34, label %if.end34.thread281.sink.split
+  br i1 %tobool49.not.i, label %if.end34, label %if.end34.thread279.sink.split
 
-if.end55.i:                                       ; preds = %land.lhs.true31.i, %for_if_clauses_rule.exit.thread.i, %land.lhs.true25.i194, %if.end22.i191
+if.end55.i:                                       ; preds = %land.lhs.true31.i, %for_if_clauses_rule.exit.thread.i, %land.lhs.true25.i192, %if.end22.i189
   store i32 %83, ptr %mark, align 8
   %call_invalid_rules.i = getelementptr inbounds i8, ptr %p, i64 148
   %96 = load i32, ptr %call_invalid_rules.i, align 4
@@ -20639,67 +20639,67 @@ if.end55.i:                                       ; preds = %land.lhs.true31.i, 
 
 if.then58.i:                                      ; preds = %if.end55.i
   %97 = load i32, ptr %error_indicator, align 8
-  %tobool60.not.i201 = icmp eq i32 %97, 0
+  %tobool60.not.i199 = icmp eq i32 %97, 0
   %98 = load i32, ptr %level, align 8
-  br i1 %tobool60.not.i201, label %if.end64.i202, label %if.end34.thread
+  br i1 %tobool60.not.i199, label %if.end64.i200, label %if.end34.thread
 
 if.end34.thread:                                  ; preds = %if.then58.i
-  %dec72.i251280 = add i32 %98, -1
+  %dec72.i249278 = add i32 %98, -1
   store i32 %3, ptr %mark, align 8
   br label %return
 
-if.end64.i202:                                    ; preds = %if.then58.i
+if.end64.i200:                                    ; preds = %if.then58.i
   %inc.i38.i = add i32 %98, 1
   store i32 %inc.i38.i, ptr %level, align 8
   %cmp.i39.i = icmp eq i32 %98, 6000
   br i1 %cmp.i39.i, label %if.end.i40.i, label %if.end3.i43.i
 
-if.end.i40.i:                                     ; preds = %if.end64.i202
+if.end.i40.i:                                     ; preds = %if.end64.i200
   tail call void @_Pypegen_stack_overflow(ptr noundef nonnull %p) #4
   %.pre52.i = load i32, ptr %error_indicator, align 8
   %99 = icmp eq i32 %.pre52.i, 0
   br i1 %99, label %if.end3.i43.i, label %invalid_dict_comprehension_rule.exit.i
 
-if.end3.i43.i:                                    ; preds = %if.end.i40.i, %if.end64.i202
+if.end3.i43.i:                                    ; preds = %if.end.i40.i, %if.end64.i200
   %call.i45.i = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 25) #4
   %tobool10.not.i46.i = icmp eq ptr %call.i45.i, null
-  br i1 %tobool10.not.i46.i, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true.i.i203
+  br i1 %tobool10.not.i46.i, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true.i.i201
 
-land.lhs.true.i.i203:                             ; preds = %if.end3.i43.i
-  %call11.i.i204 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 35) #4
-  %tobool12.not.i.i205 = icmp eq ptr %call11.i.i204, null
-  br i1 %tobool12.not.i.i205, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true13.i.i
+land.lhs.true.i.i201:                             ; preds = %if.end3.i43.i
+  %call11.i.i202 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 35) #4
+  %tobool12.not.i.i203 = icmp eq ptr %call11.i.i202, null
+  br i1 %tobool12.not.i.i203, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true13.i.i
 
-land.lhs.true13.i.i:                              ; preds = %land.lhs.true.i.i203
-  %call14.i.i206 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %p)
-  %tobool15.not.i.i = icmp eq ptr %call14.i.i206, null
+land.lhs.true13.i.i:                              ; preds = %land.lhs.true.i.i201
+  %call14.i.i204 = tail call fastcc ptr @bitwise_or_rule(ptr noundef nonnull %p)
+  %tobool15.not.i.i = icmp eq ptr %call14.i.i204, null
   br i1 %tobool15.not.i.i, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true16.i.i
 
 land.lhs.true16.i.i:                              ; preds = %land.lhs.true13.i.i
-  %call17.i.i207 = tail call fastcc ptr @for_if_clauses_rule(ptr noundef nonnull %p)
-  %tobool18.not.i.i208 = icmp eq ptr %call17.i.i207, null
-  br i1 %tobool18.not.i.i208, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true19.i.i
+  %call17.i.i205 = tail call fastcc ptr @for_if_clauses_rule(ptr noundef nonnull %p)
+  %tobool18.not.i.i206 = icmp eq ptr %call17.i.i205, null
+  br i1 %tobool18.not.i.i206, label %invalid_dict_comprehension_rule.exit.i, label %land.lhs.true19.i.i
 
 land.lhs.true19.i.i:                              ; preds = %land.lhs.true16.i.i
-  %call20.i.i209 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
-  %tobool21.not.i.i210 = icmp eq ptr %call20.i.i209, null
-  br i1 %tobool21.not.i.i210, label %invalid_dict_comprehension_rule.exit.i, label %if.then22.i.i
+  %call20.i.i207 = tail call ptr @_PyPegen_expect_token(ptr noundef nonnull %p, i32 noundef 26) #4
+  %tobool21.not.i.i208 = icmp eq ptr %call20.i.i207, null
+  br i1 %tobool21.not.i.i208, label %invalid_dict_comprehension_rule.exit.i, label %if.then22.i.i
 
 if.then22.i.i:                                    ; preds = %land.lhs.true19.i.i
   %100 = load ptr, ptr @PyExc_SyntaxError, align 8
-  %lineno.i.i211 = getelementptr inbounds i8, ptr %call11.i.i204, i64 20
-  %101 = load i32, ptr %lineno.i.i211, align 4
-  %conv.i.i212 = sext i32 %101 to i64
-  %col_offset.i.i213 = getelementptr inbounds i8, ptr %call11.i.i204, i64 24
-  %102 = load i32, ptr %col_offset.i.i213, align 8
+  %lineno.i.i209 = getelementptr inbounds i8, ptr %call11.i.i202, i64 20
+  %101 = load i32, ptr %lineno.i.i209, align 4
+  %conv.i.i210 = sext i32 %101 to i64
+  %col_offset.i.i211 = getelementptr inbounds i8, ptr %call11.i.i202, i64 24
+  %102 = load i32, ptr %col_offset.i.i211, align 8
   %conv23.i.i = sext i32 %102 to i64
-  %end_lineno.i.i214 = getelementptr inbounds i8, ptr %call11.i.i204, i64 28
-  %103 = load i32, ptr %end_lineno.i.i214, align 4
+  %end_lineno.i.i212 = getelementptr inbounds i8, ptr %call11.i.i202, i64 28
+  %103 = load i32, ptr %end_lineno.i.i212, align 4
   %conv24.i.i = sext i32 %103 to i64
-  %end_col_offset.i.i215 = getelementptr inbounds i8, ptr %call11.i.i204, i64 32
-  %104 = load i32, ptr %end_col_offset.i.i215, align 8
+  %end_col_offset.i.i213 = getelementptr inbounds i8, ptr %call11.i.i202, i64 32
+  %104 = load i32, ptr %end_col_offset.i.i213, align 8
   %conv25.i.i = sext i32 %104 to i64
-  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %100, i64 noundef %conv.i.i212, i64 noundef %conv23.i.i, i64 noundef %conv24.i.i, i64 noundef %conv25.i.i, ptr noundef nonnull @.str.84)
+  tail call void (ptr, ptr, i64, i64, i64, i64, ptr, ...) @RAISE_ERROR_KNOWN_LOCATION(ptr noundef nonnull %p, ptr noundef %100, i64 noundef %conv.i.i210, i64 noundef %conv23.i.i, i64 noundef %conv24.i.i, i64 noundef %conv25.i.i, ptr noundef nonnull @.str.84)
   %call30.i.i = tail call ptr @PyErr_Occurred() #4
   %tobool31.not.i.i = icmp eq ptr %call30.i.i, null
   br i1 %tobool31.not.i.i, label %invalid_dict_comprehension_rule.exit.i, label %if.then32.i.i
@@ -20708,7 +20708,7 @@ if.then32.i.i:                                    ; preds = %if.then22.i.i
   store i32 1, ptr %error_indicator, align 8
   br label %invalid_dict_comprehension_rule.exit.i
 
-invalid_dict_comprehension_rule.exit.i:           ; preds = %if.then32.i.i, %if.then22.i.i, %land.lhs.true19.i.i, %land.lhs.true16.i.i, %land.lhs.true13.i.i, %land.lhs.true.i.i203, %if.end3.i43.i, %if.end.i40.i
+invalid_dict_comprehension_rule.exit.i:           ; preds = %if.then32.i.i, %if.then22.i.i, %land.lhs.true19.i.i, %land.lhs.true16.i.i, %land.lhs.true13.i.i, %land.lhs.true.i.i201, %if.end3.i43.i, %if.end.i40.i
   %105 = load i32, ptr %level, align 8
   %dec.i.i = add i32 %105, -1
   store i32 %dec.i.i, ptr %level, align 8
@@ -20720,22 +20720,22 @@ dictcomp_rule.exit:                               ; preds = %if.end40.i
   store i32 %dec72.i, ptr %level, align 8
   br label %done
 
-if.end34.thread281.sink.split:                    ; preds = %land.lhs.true47.i, %land.lhs.true.i226
+if.end34.thread279.sink.split:                    ; preds = %land.lhs.true47.i, %land.lhs.true.i224
   store i32 1, ptr %error_indicator, align 8
-  br label %if.end34.thread281
+  br label %if.end34.thread279
 
-if.end34.thread281:                               ; preds = %if.end34.thread281.sink.split, %if.end.i183
+if.end34.thread279:                               ; preds = %if.end34.thread279.sink.split, %if.end.i181
   %107 = load i32, ptr %level, align 8
-  %dec72.i251283 = add i32 %107, -1
+  %dec72.i249281 = add i32 %107, -1
   store i32 %3, ptr %mark, align 8
   br label %return
 
-if.end34:                                         ; preds = %if.end55.i, %invalid_dict_comprehension_rule.exit.i, %land.lhs.true47.i, %if.then34.i, %if.end11.i229
-  %.pre276.pr = load i32, ptr %error_indicator, align 8
+if.end34:                                         ; preds = %if.end55.i, %invalid_dict_comprehension_rule.exit.i, %land.lhs.true47.i, %if.then34.i, %if.end11.i227
+  %.pre274.pr = load i32, ptr %error_indicator, align 8
   %108 = load i32, ptr %level, align 8
-  %109 = icmp eq i32 %.pre276.pr, 0
-  %dec72.i251 = add i32 %108, -1
-  store i32 %dec72.i251, ptr %level, align 8
+  %109 = icmp eq i32 %.pre274.pr, 0
+  %dec72.i249 = add i32 %108, -1
+  store i32 %dec72.i249, ptr %level, align 8
   store i32 %3, ptr %mark, align 8
   br i1 %109, label %if.end41, label %return
 
@@ -20749,13 +20749,13 @@ if.end45:                                         ; preds = %if.end41
   br label %done
 
 done:                                             ; preds = %dictcomp_rule.exit, %set_rule.exit, %dict_rule.exit, %if.end41, %if.end45
-  %_res.0 = phi ptr [ null, %if.end45 ], [ %call47.i, %dict_rule.exit ], [ %call42.i, %set_rule.exit ], [ %call45.i225, %dictcomp_rule.exit ], [ %call42, %if.end41 ]
+  %_res.0 = phi ptr [ null, %if.end45 ], [ %call47.i, %dict_rule.exit ], [ %call42.i, %set_rule.exit ], [ %call45.i223, %dictcomp_rule.exit ], [ %call42, %if.end41 ]
   %110 = load i32, ptr %level, align 8
   br label %return
 
-return:                                           ; preds = %if.end34.thread281, %if.end34.thread, %if.end34, %if.end23.thread243, %if.end12.thread239, %if.end23, %if.end23.thread, %if.end12, %if.end12.thread, %done, %if.then1
-  %.sink = phi i32 [ %110, %done ], [ %2, %if.then1 ], [ %storemerge, %if.end12.thread ], [ %dec63.i, %if.end12 ], [ %storemerge121, %if.end23.thread ], [ %dec36.i, %if.end23 ], [ %dec63.i241, %if.end12.thread239 ], [ %dec36.i245, %if.end23.thread243 ], [ %dec72.i251, %if.end34 ], [ %dec72.i251280, %if.end34.thread ], [ %dec72.i251283, %if.end34.thread281 ]
-  %retval.0 = phi ptr [ %_res.0, %done ], [ null, %if.then1 ], [ null, %if.end12.thread ], [ null, %if.end12 ], [ null, %if.end23.thread ], [ null, %if.end23 ], [ null, %if.end12.thread239 ], [ null, %if.end23.thread243 ], [ null, %if.end34 ], [ null, %if.end34.thread ], [ null, %if.end34.thread281 ]
+return:                                           ; preds = %if.end34.thread279, %if.end34.thread, %if.end34, %if.end23.thread241, %if.end12.thread237, %if.end23, %if.end23.thread, %if.end12, %if.end12.thread, %done, %if.then1
+  %.sink = phi i32 [ %110, %done ], [ %2, %if.then1 ], [ %storemerge, %if.end12.thread ], [ %dec63.i, %if.end12 ], [ %storemerge121, %if.end23.thread ], [ %dec36.i, %if.end23 ], [ %dec63.i239, %if.end12.thread237 ], [ %dec36.i243, %if.end23.thread241 ], [ %dec72.i249, %if.end34 ], [ %dec72.i249278, %if.end34.thread ], [ %dec72.i249281, %if.end34.thread279 ]
+  %retval.0 = phi ptr [ %_res.0, %done ], [ null, %if.then1 ], [ null, %if.end12.thread ], [ null, %if.end12 ], [ null, %if.end23.thread ], [ null, %if.end23 ], [ null, %if.end12.thread237 ], [ null, %if.end23.thread241 ], [ null, %if.end34 ], [ null, %if.end34.thread ], [ null, %if.end34.thread279 ]
   %dec48 = add i32 %.sink, -1
   store i32 %dec48, ptr %level, align 8
   ret ptr %retval.0
@@ -25402,13 +25402,13 @@ if.end65.sink.split.sink.split:                   ; preds = %if.end3.i127, %if.t
   br label %if.end65.sink.split
 
 if.end65.sink.split:                              ; preds = %if.end65.sink.split.sink.split, %if.end10.i131, %if.end.i121
-  %dec9.i178.sink.in = load i32, ptr %level, align 8
-  %dec9.i178.sink = add i32 %dec9.i178.sink.in, -1
-  store i32 %dec9.i178.sink, ptr %level, align 8
+  %33 = load i32, ptr %level, align 8
+  %dec9.i178 = add i32 %33, -1
+  store i32 %dec9.i178, ptr %level, align 8
   br label %if.end65
 
 if.end65:                                         ; preds = %if.end65.sink.split, %if.end39
-  %.pre366 = phi i32 [ %.pre366.pre, %if.end39 ], [ %dec9.i178.sink, %if.end65.sink.split ]
+  %.pre366 = phi i32 [ %.pre366.pre, %if.end39 ], [ %dec9.i178, %if.end65.sink.split ]
   %.pr297 = load i32, ptr %error_indicator, align 8
   store i32 %2, ptr %mark, align 8
   %tobool68.not = icmp eq i32 %.pr297, 0
@@ -25427,7 +25427,7 @@ if.end.i183:                                      ; preds = %if.end72
   br i1 %tobool.not.i185, label %if.end3.i187, label %if.end97
 
 if.end3.i187:                                     ; preds = %if.end72, %if.end.i183
-  %33 = load i32, ptr %mark, align 8
+  %34 = load i32, ptr %mark, align 8
   %call.i189 = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not.i190 = icmp eq ptr %call.i189, null
   br i1 %tobool4.not.i190, label %if.then5.i219, label %if.end10.i191
@@ -25438,8 +25438,8 @@ if.then5.i219:                                    ; preds = %if.end3.i187
   br label %if.end97
 
 if.end10.i191:                                    ; preds = %if.end3.i187
-  %34 = load i32, ptr %error_indicator, align 8
-  %tobool12.not.i192 = icmp eq i32 %34, 0
+  %35 = load i32, ptr %error_indicator, align 8
+  %tobool12.not.i192 = icmp eq i32 %35, 0
   br i1 %tobool12.not.i192, label %while.cond.preheader.i193, label %if.end97
 
 while.cond.preheader.i193:                        ; preds = %if.end10.i191
@@ -25448,7 +25448,7 @@ while.cond.preheader.i193:                        ; preds = %if.end10.i191
   br i1 %tobool18.not43.i, label %while.end.thread.i, label %while.body.i194
 
 while.end.thread.i:                               ; preds = %while.cond.preheader.i193
-  store i32 %33, ptr %mark, align 8
+  store i32 %34, ptr %mark, align 8
   br label %if.then37.i
 
 while.body.i194:                                  ; preds = %while.cond.preheader.i193, %if.end30.i196
@@ -25481,19 +25481,19 @@ if.end30.i196:                                    ; preds = %if.end29.i215, %whi
   %inc31.i199 = add i64 %_n.046.i, 1
   %arrayidx.i200 = getelementptr ptr, ptr %_children.1.i197, i64 %_n.046.i
   store ptr %call1747.i, ptr %arrayidx.i200, align 8
-  %35 = load i32, ptr %mark, align 8
+  %36 = load i32, ptr %mark, align 8
   %call17.i201 = tail call fastcc ptr @lambda_param_no_default_rule(ptr noundef nonnull %p)
   %tobool18.not.i202 = icmp eq ptr %call17.i201, null
   br i1 %tobool18.not.i202, label %while.end.i203, label %while.body.i194, !llvm.loop !82
 
 while.end.i203:                                   ; preds = %if.end30.i196
-  store i32 %35, ptr %mark, align 8
+  store i32 %36, ptr %mark, align 8
   %cmp34.i = icmp eq i64 %inc31.i199, 0
   br i1 %cmp34.i, label %if.then37.i, label %lor.lhs.false.i
 
 lor.lhs.false.i:                                  ; preds = %while.end.i203
-  %36 = load i32, ptr %error_indicator, align 8
-  %tobool36.not.i = icmp eq i32 %36, 0
+  %37 = load i32, ptr %error_indicator, align 8
+  %tobool36.not.i = icmp eq i32 %37, 0
   br i1 %tobool36.not.i, label %if.end40.i, label %if.then37.i
 
 if.then37.i:                                      ; preds = %lor.lhs.false.i, %while.end.i203, %while.end.thread.i
@@ -25503,8 +25503,8 @@ if.then37.i:                                      ; preds = %lor.lhs.false.i, %w
 
 if.end40.i:                                       ; preds = %lor.lhs.false.i
   %arena.i204 = getelementptr inbounds i8, ptr %p, i64 32
-  %37 = load ptr, ptr %arena.i204, align 8
-  %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i199, ptr noundef %37) #4
+  %38 = load ptr, ptr %arena.i204, align 8
+  %call41.i = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %inc31.i199, ptr noundef %38) #4
   %tobool42.not.i = icmp eq ptr %call41.i, null
   br i1 %tobool42.not.i, label %if.then43.i, label %for.cond.preheader.i205
 
@@ -25526,10 +25526,10 @@ for.body.i209:                                    ; preds = %for.body.i209, %for
   %conv52.i = phi i64 [ 0, %for.body.lr.ph.i207 ], [ %conv.i210, %for.body.i209 ]
   %i.051.i = phi i32 [ 0, %for.body.lr.ph.i207 ], [ %inc54.i, %for.body.i209 ]
   %arrayidx51.i = getelementptr ptr, ptr %_children.1.i197, i64 %conv52.i
-  %38 = load ptr, ptr %arrayidx51.i, align 8
-  %39 = load ptr, ptr %elements.i208, align 8
-  %arrayidx53.i = getelementptr ptr, ptr %39, i64 %conv52.i
-  store ptr %38, ptr %arrayidx53.i, align 8
+  %39 = load ptr, ptr %arrayidx51.i, align 8
+  %40 = load ptr, ptr %elements.i208, align 8
+  %arrayidx53.i = getelementptr ptr, ptr %40, i64 %conv52.i
+  store ptr %39, ptr %arrayidx53.i, align 8
   %inc54.i = add i32 %i.051.i, 1
   %conv.i210 = sext i32 %inc54.i to i64
   %cmp49.i = icmp sgt i64 %inc31.i199, %conv.i210
@@ -25537,8 +25537,8 @@ for.body.i209:                                    ; preds = %for.body.i209, %for
 
 land.lhs.true78:                                  ; preds = %for.body.i209, %for.cond.preheader.i205
   tail call void @PyMem_Free(ptr noundef nonnull %_children.1.i197) #4
-  %40 = load i32, ptr %level, align 8
-  %cmp.i224 = icmp eq i32 %40, 6001
+  %41 = load i32, ptr %level, align 8
+  %cmp.i224 = icmp eq i32 %41, 6001
   br i1 %cmp.i224, label %if.then.i283, label %if.end.i225
 
 if.then.i283:                                     ; preds = %land.lhs.true78
@@ -25546,12 +25546,12 @@ if.then.i283:                                     ; preds = %land.lhs.true78
   br label %if.end.i225
 
 if.end.i225:                                      ; preds = %if.then.i283, %land.lhs.true78
-  %41 = load i32, ptr %error_indicator, align 8
-  %tobool.not.i227 = icmp eq i32 %41, 0
+  %42 = load i32, ptr %error_indicator, align 8
+  %tobool.not.i227 = icmp eq i32 %42, 0
   br i1 %tobool.not.i227, label %if.end3.i231, label %if.end97
 
 if.end3.i231:                                     ; preds = %if.end.i225
-  %42 = load i32, ptr %mark, align 8
+  %43 = load i32, ptr %mark, align 8
   %call.i233 = tail call ptr @PyMem_Malloc(i64 noundef 8) #4
   %tobool4.not.i234 = icmp eq ptr %call.i233, null
   br i1 %tobool4.not.i234, label %if.then5.i280, label %if.end10.i235
@@ -25562,8 +25562,8 @@ if.then5.i280:                                    ; preds = %if.end3.i231
   br label %if.end97
 
 if.end10.i235:                                    ; preds = %if.end3.i231
-  %43 = load i32, ptr %error_indicator, align 8
-  %tobool12.not.i236 = icmp eq i32 %43, 0
+  %44 = load i32, ptr %error_indicator, align 8
+  %tobool12.not.i236 = icmp eq i32 %44, 0
   br i1 %tobool12.not.i236, label %while.cond.i239.preheader, label %if.end97
 
 while.cond.i239.preheader:                        ; preds = %if.end10.i235
@@ -25601,7 +25601,7 @@ if.end30.i248:                                    ; preds = %if.end29.i257, %whi
   %inc31.i251 = add i64 %_n.0.i242348, 1
   %arrayidx.i252 = getelementptr ptr, ptr %_children.1.i249, i64 %_n.0.i242348
   store ptr %call17.i244349, ptr %arrayidx.i252, align 8
-  %44 = load i32, ptr %mark, align 8
+  %45 = load i32, ptr %mark, align 8
   %call17.i244 = tail call fastcc ptr @lambda_param_with_default_rule(ptr noundef nonnull %p)
   %tobool18.not.i245 = icmp eq ptr %call17.i244, null
   br i1 %tobool18.not.i245, label %while.end.i262, label %while.body.i246, !llvm.loop !84
@@ -25609,10 +25609,10 @@ if.end30.i248:                                    ; preds = %if.end29.i257, %whi
 while.end.i262:                                   ; preds = %if.end30.i248, %while.cond.i239.preheader
   %_children.0.i240.lcssa = phi ptr [ %call.i233, %while.cond.i239.preheader ], [ %_children.1.i249, %if.end30.i248 ]
   %_n.0.i242.lcssa = phi i64 [ 0, %while.cond.i239.preheader ], [ %inc31.i251, %if.end30.i248 ]
-  %_mark.0.i243.lcssa = phi i32 [ %42, %while.cond.i239.preheader ], [ %44, %if.end30.i248 ]
+  %_mark.0.i243.lcssa = phi i32 [ %43, %while.cond.i239.preheader ], [ %45, %if.end30.i248 ]
   store i32 %_mark.0.i243.lcssa, ptr %mark, align 8
-  %45 = load ptr, ptr %arena.i204, align 8
-  %call34.i264 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i242.lcssa, ptr noundef %45) #4
+  %46 = load ptr, ptr %arena.i204, align 8
+  %call34.i264 = tail call ptr @_Py_asdl_generic_seq_new(i64 noundef %_n.0.i242.lcssa, ptr noundef %46) #4
   %tobool35.not.i265 = icmp eq ptr %call34.i264, null
   br i1 %tobool35.not.i265, label %if.then36.i277, label %for.cond.i266.preheader
 
@@ -25634,10 +25634,10 @@ for.body.i272:                                    ; preds = %for.body.i272.lr.ph
   %conv.i268355 = phi i64 [ 0, %for.body.i272.lr.ph ], [ %conv.i268, %for.body.i272 ]
   %i.0.i267354 = phi i32 [ 0, %for.body.i272.lr.ph ], [ %inc47.i276, %for.body.i272 ]
   %arrayidx44.i273 = getelementptr ptr, ptr %_children.0.i240.lcssa, i64 %conv.i268355
-  %46 = load ptr, ptr %arrayidx44.i273, align 8
-  %47 = load ptr, ptr %elements.i274, align 8
-  %arrayidx46.i275 = getelementptr ptr, ptr %47, i64 %conv.i268355
-  store ptr %46, ptr %arrayidx46.i275, align 8
+  %47 = load ptr, ptr %arrayidx44.i273, align 8
+  %48 = load ptr, ptr %elements.i274, align 8
+  %arrayidx46.i275 = getelementptr ptr, ptr %48, i64 %conv.i268355
+  store ptr %47, ptr %arrayidx46.i275, align 8
   %inc47.i276 = add i32 %i.0.i267354, 1
   %conv.i268 = sext i32 %inc47.i276 to i64
   %cmp42.i269 = icmp sgt i64 %_n.0.i242.lcssa, %conv.i268
@@ -25645,12 +25645,12 @@ for.body.i272:                                    ; preds = %for.body.i272.lr.ph
 
 land.lhs.true81:                                  ; preds = %for.body.i272, %for.cond.i266.preheader
   tail call void @PyMem_Free(ptr noundef nonnull %_children.0.i240.lcssa) #4
-  %48 = load i32, ptr %level, align 8
-  %dec49.i271 = add i32 %48, -1
+  %49 = load i32, ptr %level, align 8
+  %dec49.i271 = add i32 %49, -1
   store i32 %dec49.i271, ptr %level, align 8
   %call82 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef %p)
-  %49 = load i32, ptr %error_indicator, align 8
-  %tobool84.not = icmp eq i32 %49, 0
+  %50 = load i32, ptr %error_indicator, align 8
+  %tobool84.not = icmp eq i32 %50, 0
   br i1 %tobool84.not, label %if.then86, label %if.end97.thread
 
 if.end97.thread:                                  ; preds = %land.lhs.true81
@@ -25672,8 +25672,8 @@ if.then92:                                        ; preds = %land.lhs.true89
   br label %return.sink.split
 
 if.end97:                                         ; preds = %if.end10.i235, %if.end.i225, %if.end10.i191, %if.end.i183, %if.then5.i219, %if.then43.i, %if.then37.i, %if.then24.i217, %if.then5.i280, %if.then36.i277, %if.then24.i259
-  %50 = load i32, ptr %level, align 8
-  %dec9.i282 = add i32 %50, -1
+  %51 = load i32, ptr %level, align 8
+  %dec9.i282 = add i32 %51, -1
   store i32 %dec9.i282, ptr %level, align 8
   %.pr304 = load i32, ptr %error_indicator, align 8
   store i32 %2, ptr %mark, align 8
@@ -25687,8 +25687,8 @@ if.end104:                                        ; preds = %if.end97
 
 land.lhs.true109:                                 ; preds = %if.end104
   %call110 = tail call fastcc ptr @lambda_star_etc_rule(ptr noundef nonnull %p)
-  %51 = load i32, ptr %error_indicator, align 8
-  %tobool112.not = icmp eq i32 %51, 0
+  %52 = load i32, ptr %error_indicator, align 8
+  %tobool112.not = icmp eq i32 %52, 0
   br i1 %tobool112.not, label %if.then114, label %if.end125.thread
 
 if.end125.thread:                                 ; preds = %land.lhs.true109
@@ -46558,7 +46558,7 @@ if.then7:                                         ; preds = %if.end22, %if.end3
   br label %return
 
 if.end10:                                         ; preds = %if.end10.lr.ph, %if.end22
-  %_resmark.053 = phi i32 [ %3, %if.end10.lr.ph ], [ %26, %if.end22 ]
+  %_resmark.053 = phi i32 [ %3, %if.end10.lr.ph ], [ %27, %if.end22 ]
   store i32 %3, ptr %mark, align 8
   %7 = load i32, ptr %level, align 8
   %inc.i = add i32 %7, 1
@@ -46684,22 +46684,22 @@ if.end52.i:                                       ; preds = %if.end52.i.sink.spl
 
 attr_raw.exit:                                    ; preds = %if.end37.i, %land.lhs.true44.i, %if.end52.i, %if.then31.i, %if.end11.i, %if.end.i
   %retval.0.i.ph = phi ptr [ null, %if.end.i ], [ null, %if.end11.i ], [ null, %if.then31.i ], [ null, %land.lhs.true44.i ], [ %call42.i, %if.end37.i ], [ null, %if.end52.i ]
-  %dec.i.sink.in = load i32, ptr %level, align 8
-  %dec.i.sink = add i32 %dec.i.sink.in, -1
-  store i32 %dec.i.sink, ptr %level, align 8
+  %24 = load i32, ptr %level, align 8
+  %dec.i = add i32 %24, -1
+  store i32 %dec.i, ptr %level, align 8
   %.pr = load i32, ptr %error_indicator.i, align 8
   %tobool13.not = icmp eq i32 %.pr, 0
   br i1 %tobool13.not, label %if.end17, label %if.then14
 
 if.then14.sink.split:                             ; preds = %land.lhs.true44.i, %land.lhs.true.i
   store i32 1, ptr %error_indicator.i, align 8
-  %24 = load i32, ptr %level, align 8
-  %dec50.i = add i32 %24, -1
+  %25 = load i32, ptr %level, align 8
+  %dec50.i = add i32 %25, -1
   br label %if.then14
 
 if.then14:                                        ; preds = %attr_raw.exit, %if.then14.sink.split
-  %25 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i.sink, %attr_raw.exit ]
-  %dec16 = add i32 %25, -1
+  %26 = phi i32 [ %dec50.i, %if.then14.sink.split ], [ %dec.i, %attr_raw.exit ]
+  %dec16 = add i32 %26, -1
   store i32 %dec16, ptr %level, align 8
   br label %return
 
@@ -46708,8 +46708,8 @@ if.end17:                                         ; preds = %attr_raw.exit
   br i1 %cmp18, label %while.end, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %if.end17
-  %26 = load i32, ptr %mark, align 8
-  %cmp20.not = icmp sgt i32 %26, %_resmark.053
+  %27 = load i32, ptr %mark, align 8
+  %cmp20.not = icmp sgt i32 %27, %_resmark.053
   br i1 %cmp20.not, label %if.end22, label %while.end
 
 if.end22:                                         ; preds = %lor.lhs.false
@@ -46720,13 +46720,13 @@ if.end22:                                         ; preds = %lor.lhs.false
 
 while.end:                                        ; preds = %if.end17, %lor.lhs.false
   store i32 %_resmark.053, ptr %mark, align 8
-  %dec26 = add i32 %dec.i.sink.in, -2
+  %dec26 = add i32 %24, -2
   store i32 %dec26, ptr %level, align 8
-  %27 = load ptr, ptr %_res, align 8
+  %28 = load ptr, ptr %_res, align 8
   br label %return
 
 return:                                           ; preds = %while.end, %if.then14, %if.then7, %if.then1
-  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %27, %while.end ]
+  %retval.0 = phi ptr [ %2, %if.then1 ], [ %6, %if.then7 ], [ null, %if.then14 ], [ %28, %while.end ]
   ret ptr %retval.0
 }
 

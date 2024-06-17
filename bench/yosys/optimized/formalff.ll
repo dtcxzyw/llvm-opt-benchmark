@@ -81007,11 +81007,7 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %15, %9
 
 25:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i
   %26 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %20, i64 %17
-  %.sroa.0.0.copyload = load ptr, ptr %26, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 8
-  %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.5.sroa.5.0.extract.shift = and i32 %.sroa.5.0.copyload, -256
-  br label %58
+  br label %.sink.split
 
 27:                                               ; preds = %.invoke, %44, %15, %31, %29
   %28 = landingpad { ptr, i32 }
@@ -81028,12 +81024,12 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i: ; preds = %15, %9
           to label %33 unwind label %27
 
 33:                                               ; preds = %31
-  br i1 %32, label %34, label %58
+  br i1 %32, label %34, label %59
 
 34:                                               ; preds = %33
   %35 = load i32, ptr %5, align 8
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %37, label %58
+  br i1 %36, label %37, label %59
 
 37:                                               ; preds = %34
   %38 = add nsw i32 %35, -1
@@ -81072,66 +81068,70 @@ _ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i6: ; preds = %44, %37
 
 56:                                               ; preds = %_ZNK5Yosys5RTLIL7SigSpec13inline_unpackEv.exit.i6
   %57 = getelementptr inbounds %"struct.Yosys::RTLIL::SigBit", ptr %49, i64 %46
-  %.sroa.0.0.copyload11 = load ptr, ptr %57, align 8
-  %.sroa.5.0..sroa_idx12 = getelementptr inbounds i8, ptr %57, i64 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %25, %56
+  %.sink19 = phi ptr [ %57, %56 ], [ %26, %25 ]
+  %.sroa.0.0.copyload11 = load ptr, ptr %.sink19, align 8
+  %.sroa.5.0..sroa_idx12 = getelementptr inbounds i8, ptr %.sink19, i64 8
   %.sroa.5.0.copyload13 = load i32, ptr %.sroa.5.0..sroa_idx12, align 8
   %.sroa.5.sroa.5.0.extract.shift17 = and i32 %.sroa.5.0.copyload13, -256
-  br label %58
+  %58 = and i32 %.sroa.5.0.copyload13, 255
+  br label %59
 
-58:                                               ; preds = %33, %34, %56, %25
-  %.sroa.5.sroa.5.sroa.0.0 = phi i32 [ %.sroa.5.sroa.5.0.extract.shift, %25 ], [ %.sroa.5.sroa.5.0.extract.shift17, %56 ], [ 0, %34 ], [ 0, %33 ]
-  %.sroa.5.sroa.0.0 = phi i32 [ %.sroa.5.0.copyload, %25 ], [ %.sroa.5.0.copyload13, %56 ], [ 2, %34 ], [ 0, %33 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %25 ], [ %.sroa.0.0.copyload11, %56 ], [ null, %34 ], [ null, %33 ]
-  %59 = getelementptr inbounds i8, ptr %5, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i.i = icmp eq ptr %60, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i, label %61
+59:                                               ; preds = %.sink.split, %33, %34
+  %.sroa.5.sroa.5.sroa.0.0 = phi i32 [ 0, %34 ], [ 0, %33 ], [ %.sroa.5.sroa.5.0.extract.shift17, %.sink.split ]
+  %.sroa.5.sroa.0.0 = phi i32 [ 2, %34 ], [ 0, %33 ], [ %58, %.sink.split ]
+  %.sroa.0.0 = phi ptr [ null, %34 ], [ null, %33 ], [ %.sroa.0.0.copyload11, %.sink.split ]
+  %60 = getelementptr inbounds i8, ptr %5, i64 40
+  %61 = load ptr, ptr %60, align 8
+  %.not.i.i.i.i = icmp eq ptr %61, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i, label %62
 
-61:                                               ; preds = %58
-  call void @_ZdlPv(ptr noundef nonnull %60) #21
+62:                                               ; preds = %59
+  call void @_ZdlPv(ptr noundef nonnull %61) #21
   br label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i
 
-_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i: ; preds = %61, %58
-  %62 = getelementptr inbounds i8, ptr %5, i64 16
-  %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds i8, ptr %5, i64 24
-  %65 = load ptr, ptr %64, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %63, %65
+_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i: ; preds = %62, %59
+  %63 = getelementptr inbounds i8, ptr %5, i64 16
+  %64 = load ptr, ptr %63, align 8
+  %65 = getelementptr inbounds i8, ptr %5, i64 24
+  %66 = load ptr, ptr %65, align 8
+  %.not4.i.i.i.i.i = icmp eq ptr %64, %66
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %69, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i ], [ %63, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i ]
-  %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %67, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i, label %68
+  %.05.i.i.i.i.i = phi ptr [ %70, %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i ], [ %64, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i ]
+  %67 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 8
+  %68 = load ptr, ptr %67, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %68, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i, label %69
 
-68:                                               ; preds = %.lr.ph.i.i.i.i.i
-  call void @_ZdlPv(ptr noundef nonnull %67) #21
+69:                                               ; preds = %.lr.ph.i.i.i.i.i
+  call void @_ZdlPv(ptr noundef nonnull %68) #21
   br label %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i
 
-_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i: ; preds = %68, %.lr.ph.i.i.i.i.i
-  %69 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
-  %.not.i.i.i.i.i = icmp eq ptr %69, %65
+_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i: ; preds = %69, %.lr.ph.i.i.i.i.i
+  %70 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 40
+  %.not.i.i.i.i.i = icmp eq ptr %70, %66
   br i1 %.not.i.i.i.i.i, label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !12
 
 _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN5Yosys5RTLIL8SigChunkEEvPT_.exit.i.i.i.i.i
-  %.pr.i.i = load ptr, ptr %62, align 8
+  %.pr.i.i = load ptr, ptr %63, align 8
   br label %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i
 
 _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i
-  %70 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %63, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i ]
-  %.not.i.i.i1.i = icmp eq ptr %70, null
-  br i1 %.not.i.i.i1.i, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit, label %71
+  %71 = phi ptr [ %.pr.i.i, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exitthread-pre-split.i.i ], [ %64, %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i ]
+  %.not.i.i.i1.i = icmp eq ptr %71, null
+  br i1 %.not.i.i.i1.i, label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit, label %72
 
-71:                                               ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i
-  call void @_ZdlPv(ptr noundef nonnull %70) #21
+72:                                               ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i
+  call void @_ZdlPv(ptr noundef nonnull %71) #21
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit
 
-_ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %71
+_ZN5Yosys5RTLIL7SigSpecD2Ev.exit:                 ; preds = %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i, %72
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.0, 0
-  %.sroa.5.sroa.0.0.insert.ext = and i32 %.sroa.5.sroa.0.0, 255
-  %.sroa.5.sroa.0.0.insert.insert = or disjoint i32 %.sroa.5.sroa.0.0.insert.ext, %.sroa.5.sroa.5.sroa.0.0
+  %.sroa.5.sroa.0.0.insert.insert = or disjoint i32 %.sroa.5.sroa.0.0, %.sroa.5.sroa.5.sroa.0.0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.sroa.0.0.insert.insert, 1
   ret { ptr, i32 } %.fca.1.insert
 }

@@ -6283,10 +6283,10 @@ define internal noundef i64 @top_include(i32 noundef %0, ptr nocapture noundef r
   br label %10
 
 10:                                               ; preds = %3, %9
-  %.sink.in = phi ptr [ %7, %9 ], [ @rb_cObject, %3 ]
-  %.sink = load i64, ptr %.sink.in, align 8
-  %11 = tail call i64 @rb_mod_include(i32 noundef %0, ptr noundef %1, i64 noundef %.sink)
-  ret i64 %.sink
+  %rb_cObject.sink = phi ptr [ %7, %9 ], [ @rb_cObject, %3 ]
+  %11 = load i64, ptr %rb_cObject.sink, align 8
+  %12 = tail call i64 @rb_mod_include(i32 noundef %0, ptr noundef %1, i64 noundef %11)
+  ret i64 %11
 }
 
 ; Function Attrs: nounwind sspstrong uwtable

@@ -1952,9 +1952,9 @@ _ZN12OutputStream4growEm.exit.i.i29:              ; preds = %if.then.i._ZN12Outp
   br label %if.end
 
 if.end:                                           ; preds = %_ZN12OutputStream4growEm.exit.i.i29, %_ZN12OutputStream4growEm.exit.i.i
-  %.sink135 = phi i64 [ 25, %_ZN12OutputStream4growEm.exit.i.i29 ], [ 31, %_ZN12OutputStream4growEm.exit.i.i ]
+  %.sink134 = phi i64 [ 25, %_ZN12OutputStream4growEm.exit.i.i29 ], [ 31, %_ZN12OutputStream4growEm.exit.i.i ]
   %7 = load i64, ptr %CurrentPosition.i.i.i, align 8
-  %add.i.i31 = add i64 %7, %.sink135
+  %add.i.i31 = add i64 %7, %.sink134
   store i64 %add.i.i31, ptr %CurrentPosition.i.i.i, align 8
   %Variable = getelementptr inbounds i8, ptr %this, i64 24
   %8 = load ptr, ptr %Variable, align 8
@@ -4489,33 +4489,33 @@ _ZN12OutputStream4growEm.exit.i.i89:              ; preds = %if.then.i._ZN12Outp
   br label %if.end27.sink.split
 
 if.end27.sink.split:                              ; preds = %_ZN12OutputStream4growEm.exit.i.i38, %_ZN12OutputStream4growEm.exit.i.i89
-  %add.i.i91.sink.in = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i91.sink = add i64 %add.i.i91.sink.in, 1
-  store i64 %add.i.i91.sink, ptr %CurrentPosition.i.i, align 8
+  %34 = load i64, ptr %CurrentPosition.i.i, align 8
+  %add.i.i91 = add i64 %34, 1
+  store i64 %add.i.i91, ptr %CurrentPosition.i.i, align 8
   br label %if.end27
 
 if.end27:                                         ; preds = %if.end27.sink.split, %if.end8
-  %34 = phi i64 [ %18, %if.end8 ], [ %add.i.i91.sink, %if.end27.sink.split ]
+  %35 = phi i64 [ %18, %if.end8 ], [ %add.i.i91, %if.end27.sink.split ]
   %ClassParent = getelementptr inbounds i8, ptr %this, i64 24
-  %35 = load ptr, ptr %ClassParent, align 8
-  %tobool28.not = icmp eq ptr %35, null
+  %36 = load ptr, ptr %ClassParent, align 8
+  %tobool28.not = icmp eq ptr %36, null
   br i1 %tobool28.not, label %if.end35, label %if.then29
 
 if.then29:                                        ; preds = %if.end27
-  %vtable31 = load ptr, ptr %35, align 8
+  %vtable31 = load ptr, ptr %36, align 8
   %vfn32 = getelementptr inbounds i8, ptr %vtable31, i64 16
-  %36 = load ptr, ptr %vfn32, align 8
-  tail call void %36(ptr noundef nonnull align 8 dereferenceable(24) %35, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
-  %37 = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i.i103 = add i64 %37, 2
+  %37 = load ptr, ptr %vfn32, align 8
+  tail call void %37(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(32) %OS, i32 noundef %Flags) #11
+  %38 = load i64, ptr %CurrentPosition.i.i, align 8
+  %add.i.i.i103 = add i64 %38, 2
   %BufferCapacity.i.i.i104 = getelementptr inbounds i8, ptr %OS, i64 16
-  %38 = load i64, ptr %BufferCapacity.i.i.i104, align 8
-  %cmp.not.i.i.i105 = icmp ult i64 %add.i.i.i103, %38
+  %39 = load i64, ptr %BufferCapacity.i.i.i104, align 8
+  %cmp.not.i.i.i105 = icmp ult i64 %add.i.i.i103, %39
   %.pre.i.i106 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i105, label %_ZN12OutputStream4growEm.exit.i.i114, label %if.then.i.i.i107
 
 if.then.i.i.i107:                                 ; preds = %if.then29
-  %mul.i.i.i108 = shl i64 %38, 1
+  %mul.i.i.i108 = shl i64 %39, 1
   %spec.store.select.i.i.i109 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i108, i64 %add.i.i.i103)
   store i64 %spec.store.select.i.i.i109, ptr %BufferCapacity.i.i.i104, align 8
   %call.i.i.i110 = tail call ptr @realloc(ptr noundef %.pre.i.i106, i64 noundef %spec.store.select.i.i.i109) #9
@@ -4532,35 +4532,35 @@ if.then15.i.i.i117:                               ; preds = %if.then.i.i.i107
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i114:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i112, %if.then29
-  %39 = phi i64 [ %37, %if.then29 ], [ %.pre5.i.i113, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i112 ]
-  %40 = phi ptr [ %.pre.i.i106, %if.then29 ], [ %call.i.i.i110, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i112 ]
-  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %40, i64 %39
+  %40 = phi i64 [ %38, %if.then29 ], [ %.pre5.i.i113, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i112 ]
+  %41 = phi ptr [ %.pre.i.i106, %if.then29 ], [ %call.i.i.i110, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i112 ]
+  %add.ptr.i.i115 = getelementptr inbounds i8, ptr %41, i64 %40
   store i16 14906, ptr %add.ptr.i.i115, align 1
-  %41 = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i116 = add i64 %41, 2
+  %42 = load i64, ptr %CurrentPosition.i.i, align 8
+  %add.i.i116 = add i64 %42, 2
   store i64 %add.i.i116, ptr %CurrentPosition.i.i, align 8
   br label %if.end35
 
 if.end35:                                         ; preds = %_ZN12OutputStream4growEm.exit.i.i114, %if.end27
-  %42 = phi i64 [ %add.i.i116, %_ZN12OutputStream4growEm.exit.i.i114 ], [ %34, %if.end27 ]
+  %43 = phi i64 [ %add.i.i116, %_ZN12OutputStream4growEm.exit.i.i114 ], [ %35, %if.end27 ]
   %Affinity = getelementptr inbounds i8, ptr %this, i64 16
-  %43 = load i32, ptr %Affinity, align 8
-  switch i32 %43, label %sw.epilog [
+  %44 = load i32, ptr %Affinity, align 8
+  switch i32 %44, label %sw.epilog [
     i32 1, label %if.end.i.i126
     i32 2, label %if.end.i.i151
     i32 3, label %if.end.i.i176
   ]
 
 if.end.i.i126:                                    ; preds = %if.end35
-  %add.i.i.i128 = add i64 %42, 1
+  %add.i.i.i128 = add i64 %43, 1
   %BufferCapacity.i.i.i129 = getelementptr inbounds i8, ptr %OS, i64 16
-  %44 = load i64, ptr %BufferCapacity.i.i.i129, align 8
-  %cmp.not.i.i.i130 = icmp ult i64 %add.i.i.i128, %44
+  %45 = load i64, ptr %BufferCapacity.i.i.i129, align 8
+  %cmp.not.i.i.i130 = icmp ult i64 %add.i.i.i128, %45
   %.pre.i.i131 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i130, label %_ZN12OutputStream4growEm.exit.i.i139, label %if.then.i.i.i132
 
 if.then.i.i.i132:                                 ; preds = %if.end.i.i126
-  %mul.i.i.i133 = shl i64 %44, 1
+  %mul.i.i.i133 = shl i64 %45, 1
   %spec.store.select.i.i.i134 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i133, i64 %add.i.i.i128)
   store i64 %spec.store.select.i.i.i134, ptr %BufferCapacity.i.i.i129, align 8
   %call.i.i.i135 = tail call ptr @realloc(ptr noundef %.pre.i.i131, i64 noundef %spec.store.select.i.i.i134) #9
@@ -4577,22 +4577,22 @@ if.then15.i.i.i142:                               ; preds = %if.then.i.i.i132
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i139:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i137, %if.end.i.i126
-  %45 = phi i64 [ %42, %if.end.i.i126 ], [ %.pre5.i.i138, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i137 ]
-  %46 = phi ptr [ %.pre.i.i131, %if.end.i.i126 ], [ %call.i.i.i135, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i137 ]
-  %add.ptr.i.i140 = getelementptr inbounds i8, ptr %46, i64 %45
+  %46 = phi i64 [ %43, %if.end.i.i126 ], [ %.pre5.i.i138, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i137 ]
+  %47 = phi ptr [ %.pre.i.i131, %if.end.i.i126 ], [ %call.i.i.i135, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i137 ]
+  %add.ptr.i.i140 = getelementptr inbounds i8, ptr %47, i64 %46
   store i8 42, ptr %add.ptr.i.i140, align 1
   br label %sw.epilog.sink.split
 
 if.end.i.i151:                                    ; preds = %if.end35
-  %add.i.i.i153 = add i64 %42, 1
+  %add.i.i.i153 = add i64 %43, 1
   %BufferCapacity.i.i.i154 = getelementptr inbounds i8, ptr %OS, i64 16
-  %47 = load i64, ptr %BufferCapacity.i.i.i154, align 8
-  %cmp.not.i.i.i155 = icmp ult i64 %add.i.i.i153, %47
+  %48 = load i64, ptr %BufferCapacity.i.i.i154, align 8
+  %cmp.not.i.i.i155 = icmp ult i64 %add.i.i.i153, %48
   %.pre.i.i156 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i155, label %_ZN12OutputStream4growEm.exit.i.i164, label %if.then.i.i.i157
 
 if.then.i.i.i157:                                 ; preds = %if.end.i.i151
-  %mul.i.i.i158 = shl i64 %47, 1
+  %mul.i.i.i158 = shl i64 %48, 1
   %spec.store.select.i.i.i159 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i158, i64 %add.i.i.i153)
   store i64 %spec.store.select.i.i.i159, ptr %BufferCapacity.i.i.i154, align 8
   %call.i.i.i160 = tail call ptr @realloc(ptr noundef %.pre.i.i156, i64 noundef %spec.store.select.i.i.i159) #9
@@ -4609,22 +4609,22 @@ if.then15.i.i.i167:                               ; preds = %if.then.i.i.i157
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i164:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i162, %if.end.i.i151
-  %48 = phi i64 [ %42, %if.end.i.i151 ], [ %.pre5.i.i163, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i162 ]
-  %49 = phi ptr [ %.pre.i.i156, %if.end.i.i151 ], [ %call.i.i.i160, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i162 ]
-  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %49, i64 %48
+  %49 = phi i64 [ %43, %if.end.i.i151 ], [ %.pre5.i.i163, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i162 ]
+  %50 = phi ptr [ %.pre.i.i156, %if.end.i.i151 ], [ %call.i.i.i160, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i162 ]
+  %add.ptr.i.i165 = getelementptr inbounds i8, ptr %50, i64 %49
   store i8 38, ptr %add.ptr.i.i165, align 1
   br label %sw.epilog.sink.split
 
 if.end.i.i176:                                    ; preds = %if.end35
-  %add.i.i.i178 = add i64 %42, 2
+  %add.i.i.i178 = add i64 %43, 2
   %BufferCapacity.i.i.i179 = getelementptr inbounds i8, ptr %OS, i64 16
-  %50 = load i64, ptr %BufferCapacity.i.i.i179, align 8
-  %cmp.not.i.i.i180 = icmp ult i64 %add.i.i.i178, %50
+  %51 = load i64, ptr %BufferCapacity.i.i.i179, align 8
+  %cmp.not.i.i.i180 = icmp ult i64 %add.i.i.i178, %51
   %.pre.i.i181 = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i180, label %_ZN12OutputStream4growEm.exit.i.i189, label %if.then.i.i.i182
 
 if.then.i.i.i182:                                 ; preds = %if.end.i.i176
-  %mul.i.i.i183 = shl i64 %50, 1
+  %mul.i.i.i183 = shl i64 %51, 1
   %spec.store.select.i.i.i184 = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i183, i64 %add.i.i.i178)
   store i64 %spec.store.select.i.i.i184, ptr %BufferCapacity.i.i.i179, align 8
   %call.i.i.i185 = tail call ptr @realloc(ptr noundef %.pre.i.i181, i64 noundef %spec.store.select.i.i.i184) #9
@@ -4641,40 +4641,40 @@ if.then15.i.i.i192:                               ; preds = %if.then.i.i.i182
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i189:             ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i187, %if.end.i.i176
-  %51 = phi i64 [ %42, %if.end.i.i176 ], [ %.pre5.i.i188, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i187 ]
-  %52 = phi ptr [ %.pre.i.i181, %if.end.i.i176 ], [ %call.i.i.i185, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i187 ]
-  %add.ptr.i.i190 = getelementptr inbounds i8, ptr %52, i64 %51
+  %52 = phi i64 [ %43, %if.end.i.i176 ], [ %.pre5.i.i188, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i187 ]
+  %53 = phi ptr [ %.pre.i.i181, %if.end.i.i176 ], [ %call.i.i.i185, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i187 ]
+  %add.ptr.i.i190 = getelementptr inbounds i8, ptr %53, i64 %52
   store i16 9766, ptr %add.ptr.i.i190, align 1
   br label %sw.epilog.sink.split
 
 sw.epilog.sink.split:                             ; preds = %_ZN12OutputStream4growEm.exit.i.i139, %_ZN12OutputStream4growEm.exit.i.i164, %_ZN12OutputStream4growEm.exit.i.i189
-  %.sink215 = phi i64 [ 1, %_ZN12OutputStream4growEm.exit.i.i139 ], [ 1, %_ZN12OutputStream4growEm.exit.i.i164 ], [ 2, %_ZN12OutputStream4growEm.exit.i.i189 ]
-  %53 = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i141 = add i64 %53, %.sink215
-  store i64 %add.i.i141, ptr %CurrentPosition.i.i, align 8
+  %.sink214 = phi i64 [ 2, %_ZN12OutputStream4growEm.exit.i.i189 ], [ 1, %_ZN12OutputStream4growEm.exit.i.i164 ], [ 1, %_ZN12OutputStream4growEm.exit.i.i139 ]
+  %54 = load i64, ptr %CurrentPosition.i.i, align 8
+  %add.i.i191 = add i64 %54, %.sink214
+  store i64 %add.i.i191, ptr %CurrentPosition.i.i, align 8
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.epilog.sink.split, %if.end35
-  %54 = phi i64 [ %42, %if.end35 ], [ %add.i.i141, %sw.epilog.sink.split ]
-  %55 = load i8, ptr %Quals, align 4
-  %cmp.i194 = icmp eq i8 %55, 0
+  %55 = phi i64 [ %43, %if.end35 ], [ %add.i.i191, %sw.epilog.sink.split ]
+  %56 = load i8, ptr %Quals, align 4
+  %cmp.i194 = icmp eq i8 %56, 0
   br i1 %cmp.i194, label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %sw.epilog
-  %and4.i = and i8 %55, 1
+  %and4.i = and i8 %56, 1
   %tobool.not.i = icmp ne i8 %and4.i, 0
   br i1 %tobool.not.i, label %if.end.i213, label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
 
 if.end.i213:                                      ; preds = %if.end.i
-  %add.i.i.i.i.i = add i64 %54, 5
+  %add.i.i.i.i.i = add i64 %55, 5
   %BufferCapacity.i.i.i.i.i = getelementptr inbounds i8, ptr %OS, i64 16
-  %56 = load i64, ptr %BufferCapacity.i.i.i.i.i, align 8
-  %cmp.not.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %56
+  %57 = load i64, ptr %BufferCapacity.i.i.i.i.i, align 8
+  %cmp.not.i.i.i.i.i = icmp ult i64 %add.i.i.i.i.i, %57
   %.pre.i.i.i.i = load ptr, ptr %OS, align 8
   br i1 %cmp.not.i.i.i.i.i, label %_ZN12OutputStream4growEm.exit.i.i.i.i, label %if.then.i.i.i.i.i
 
 if.then.i.i.i.i.i:                                ; preds = %if.end.i213
-  %mul.i.i.i.i.i = shl i64 %56, 1
+  %mul.i.i.i.i.i = shl i64 %57, 1
   %spec.store.select.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %mul.i.i.i.i.i, i64 %add.i.i.i.i.i)
   store i64 %spec.store.select.i.i.i.i.i, ptr %BufferCapacity.i.i.i.i.i, align 8
   %call.i.i.i.i.i = tail call ptr @realloc(ptr noundef %.pre.i.i.i.i, i64 noundef %spec.store.select.i.i.i.i.i) #9
@@ -4691,18 +4691,18 @@ if.then15.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i.i
   unreachable
 
 _ZN12OutputStream4growEm.exit.i.i.i.i:            ; preds = %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i, %if.end.i213
-  %57 = phi i64 [ %54, %if.end.i213 ], [ %.pre5.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
-  %58 = phi ptr [ %.pre.i.i.i.i, %if.end.i213 ], [ %call.i.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %58, i64 %57
+  %58 = phi i64 [ %55, %if.end.i213 ], [ %.pre5.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
+  %59 = phi ptr [ %.pre.i.i.i.i, %if.end.i213 ], [ %call.i.i.i.i.i, %if.then.i._ZN12OutputStream4growEm.exit_crit_edge.i.i.i.i ]
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %59, i64 %58
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %add.ptr.i.i.i.i, ptr noundef nonnull align 1 dereferenceable(5) @.str.139, i64 5, i1 false)
-  %59 = load i64, ptr %CurrentPosition.i.i, align 8
-  %add.i.i50.i.i = add i64 %59, 5
+  %60 = load i64, ptr %CurrentPosition.i.i, align 8
+  %add.i.i50.i.i = add i64 %60, 5
   store i64 %add.i.i50.i.i, ptr %CurrentPosition.i.i, align 8
   br label %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
 
 _ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit: ; preds = %if.end.i, %_ZN12OutputStream4growEm.exit.i.i.i.i
-  %call5.i = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %55, i8 noundef zeroext 2, i1 noundef zeroext %tobool.not.i)
-  %call8.i = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %55, i8 noundef zeroext 32, i1 noundef zeroext %call5.i)
+  %call5.i = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %56, i8 noundef zeroext 2, i1 noundef zeroext %tobool.not.i)
+  %call8.i = tail call fastcc noundef zeroext i1 @_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b(ptr noundef nonnull align 8 dereferenceable(32) %OS, i8 noundef zeroext %56, i8 noundef zeroext 32, i1 noundef zeroext %call5.i)
   br label %_ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit
 
 _ZL16outputQualifiersR12OutputStreamN4llvh11ms_demangle10QualifiersEbb.exit: ; preds = %sw.epilog, %_ZL24outputQualifierIfPresentR12OutputStreamN4llvh11ms_demangle10QualifiersES3_b.exit
@@ -4911,14 +4911,14 @@ _ZN12OutputStream4growEm.exit.i.i77:              ; preds = %if.then.i._ZN12Outp
   br label %if.end.i.i89.sink.split
 
 if.end.i.i89.sink.split:                          ; preds = %_ZN12OutputStream4growEm.exit.i.i77, %_ZN12OutputStream4growEm.exit.i.i52, %_ZN12OutputStream4growEm.exit.i.i27, %_ZN12OutputStream4growEm.exit.i.i
-  %.sink108 = phi i64 [ 4, %_ZN12OutputStream4growEm.exit.i.i77 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i52 ], [ 6, %_ZN12OutputStream4growEm.exit.i.i27 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i ]
+  %.sink108 = phi i64 [ 5, %_ZN12OutputStream4growEm.exit.i.i ], [ 6, %_ZN12OutputStream4growEm.exit.i.i27 ], [ 5, %_ZN12OutputStream4growEm.exit.i.i52 ], [ 4, %_ZN12OutputStream4growEm.exit.i.i77 ]
   %13 = load i64, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
-  %add.i.i79 = add i64 %13, %.sink108
-  store i64 %add.i.i79, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
+  %add.i.i = add i64 %13, %.sink108
+  store i64 %add.i.i, ptr %CurrentPosition.i.i.i90.phi.trans.insert, align 8
   br label %if.end.i.i89
 
 if.end.i.i89:                                     ; preds = %if.end.i.i89.sink.split, %entry
-  %14 = phi i64 [ %.pre, %entry ], [ %add.i.i79, %if.end.i.i89.sink.split ]
+  %14 = phi i64 [ %.pre, %entry ], [ %add.i.i, %if.end.i.i89.sink.split ]
   %CurrentPosition.i.i.i90 = getelementptr inbounds i8, ptr %OS, i64 8
   %add.i.i.i91 = add i64 %14, 1
   %BufferCapacity.i.i.i92 = getelementptr inbounds i8, ptr %OS, i64 16

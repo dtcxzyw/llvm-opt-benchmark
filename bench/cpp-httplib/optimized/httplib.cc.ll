@@ -85918,9 +85918,9 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %0 = load ptr, ptr %__functor, align 8
   %call.i.i.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #37
-  %.sink.idx.i.i.i = select i1 %call.i.i.i, i64 0, i64 8
-  %.sink.i.i.i = getelementptr inbounds i8, ptr %__functor, i64 %.sink.idx.i.i.i
-  %1 = load ptr, ptr %.sink.i.i.i, align 8
+  %.sink8.idx.i.i.i = select i1 %call.i.i.i, i64 0, i64 8
+  %.sink8.i.i.i = getelementptr inbounds i8, ptr %__functor, i64 %.sink8.idx.i.i.i
+  %1 = load ptr, ptr %.sink8.i.i.i, align 8
   %call.i3.i.i.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #37
   %call4.i4.i.i.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #37
   %call8.i5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %call.i3.i.i.i, ptr %call4.i4.i.i.i, ptr noundef %__args.val, ptr noundef %__args1.val)
@@ -86359,9 +86359,9 @@ entry:
   %__args1.val = load ptr, ptr %__args1, align 8
   %0 = load ptr, ptr %__functor, align 8
   %call.i.i.i = tail call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #37
-  %.sink.idx.i.i.i = select i1 %call.i.i.i, i64 0, i64 8
-  %.sink.i.i.i = getelementptr inbounds i8, ptr %__functor, i64 %.sink.idx.i.i.i
-  %1 = load ptr, ptr %.sink.i.i.i, align 8
+  %.sink8.idx.i.i.i = select i1 %call.i.i.i, i64 0, i64 8
+  %.sink8.i.i.i = getelementptr inbounds i8, ptr %__functor, i64 %.sink8.idx.i.i.i
+  %1 = load ptr, ptr %.sink8.i.i.i, align 8
   %call.i3.i.i.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #37
   %call4.i4.i.i.i = tail call ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE3endEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #37
   %call8.i5.i.i.i = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7replaceEN9__gnu_cxx17__normal_iteratorIPKcS4_EES9_S8_S8_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr %call.i3.i.i.i, ptr %call4.i4.i.i.i, ptr noundef %__args.val, ptr noundef %__args1.val)

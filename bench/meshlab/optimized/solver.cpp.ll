@@ -577,8 +577,8 @@ define noundef double @_ZN6SolverclEiPd(ptr noundef nonnull align 8 dereferencea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
   %45 = icmp sgt i32 %24, 0
   %46 = icmp sgt i32 %22, 0
-  %or.cond222 = select i1 %45, i1 %46, i1 false
-  br i1 %or.cond222, label %.preheader154.us, label %.loopexit149
+  %or.cond223 = select i1 %45, i1 %46, i1 false
+  br i1 %or.cond223, label %.preheader154.us, label %.loopexit149
 
 .preheader154.us:                                 ; preds = %37, %..loopexit155_crit_edge.us
   %.0123162.us.in = phi i32 [ %.0123162.us, %..loopexit155_crit_edge.us ], [ %24, %37 ]

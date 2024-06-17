@@ -369,17 +369,17 @@ if.else:                                          ; preds = %invoke.cont52.threa
   br i1 %tobool.not.i35, label %if.end80, label %if.end80.sink.split
 
 if.end80.sink.split:                              ; preds = %if.else, %invoke.cont72
-  %body.sink = phi ptr [ %call73, %invoke.cont72 ], [ %body, %if.else ]
+  %call73.sink = phi ptr [ %call73, %invoke.cont72 ], [ %body, %if.else ]
   %.ph = phi ptr [ %14, %invoke.cont72 ], [ %18, %if.else ]
-  %m_ref_count.i.i.i37 = getelementptr inbounds i8, ptr %body.sink, i64 8
-  %19 = load i32, ptr %m_ref_count.i.i.i37, align 4
+  %m_ref_count.i.i.i = getelementptr inbounds i8, ptr %call73.sink, i64 8
+  %19 = load i32, ptr %m_ref_count.i.i.i, align 4
   %inc.i.i.i = add i32 %19, 1
-  store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i37, align 4
+  store i32 %inc.i.i.i, ptr %m_ref_count.i.i.i, align 4
   br label %if.end80
 
 if.end80:                                         ; preds = %if.end80.sink.split, %invoke.cont72, %if.else
   %20 = phi ptr [ %18, %if.else ], [ %14, %invoke.cont72 ], [ %.ph, %if.end80.sink.split ]
-  %21 = phi ptr [ null, %if.else ], [ null, %invoke.cont72 ], [ %body.sink, %if.end80.sink.split ]
+  %21 = phi ptr [ null, %if.else ], [ null, %invoke.cont72 ], [ %call73.sink, %if.end80.sink.split ]
   store ptr %21, ptr %result, align 8
   invoke void @_ZN3api7context14save_ast_trailEP3ast(ptr noundef nonnull align 8 dereferenceable(3048) %c, ptr noundef %21)
           to label %invoke.cont85 unwind label %lpad57

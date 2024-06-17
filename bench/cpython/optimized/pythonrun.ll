@@ -3485,10 +3485,10 @@ error:                                            ; preds = %if.end.i16.i, %if.t
 return.sink.split:                                ; preds = %print_exception.exit, %if.end19.i, %if.then1.i26.i, %if.end.i23.i, %error
   %retval.0.ph = phi i32 [ -1, %error ], [ 0, %if.end.i23.i ], [ 0, %if.then1.i26.i ], [ 0, %if.end19.i ], [ 0, %print_exception.exit ]
   %67 = load ptr, ptr %0, align 8
-  %c_recursion_remaining.i.i = getelementptr inbounds i8, ptr %67, i64 44
-  %68 = load i32, ptr %c_recursion_remaining.i.i, align 4
+  %c_recursion_remaining.i.i18 = getelementptr inbounds i8, ptr %67, i64 44
+  %68 = load i32, ptr %c_recursion_remaining.i.i18, align 4
   %inc.i.i19 = add i32 %68, 1
-  store i32 %inc.i.i19, ptr %c_recursion_remaining.i.i, align 4
+  store i32 %inc.i.i19, ptr %c_recursion_remaining.i.i18, align 4
   br label %return
 
 return:                                           ; preds = %return.sink.split, %_Py_EnterRecursiveCall.exit

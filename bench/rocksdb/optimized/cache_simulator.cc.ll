@@ -589,10 +589,10 @@ if.then22:                                        ; preds = %if.end17
 
 if.end25.sink.split:                              ; preds = %if.end17.thread, %if.then22
   %.sink = phi i64 [ 24, %if.then22 ], [ 16, %if.end17.thread ]
-  %user_misses_ = getelementptr inbounds i8, ptr %this, i64 %.sink
-  %10 = load i64, ptr %user_misses_, align 8
+  %user_accesses_4 = getelementptr inbounds i8, ptr %this, i64 %.sink
+  %10 = load i64, ptr %user_accesses_4, align 8
   %add205 = add i64 %10, 1
-  store i64 %add205, ptr %user_misses_, align 8
+  store i64 %add205, ptr %user_accesses_4, align 8
   br label %if.end25
 
 if.end25:                                         ; preds = %if.end25.sink.split, %if.end17.thread, %if.end17
@@ -1016,10 +1016,10 @@ call11.i.noexc:                                   ; preds = %if.then.i50
   br label %_ZN7rocksdb14MissRatioStats13UpdateMetricsEmbb.exit
 
 _ZN7rocksdb14MissRatioStats13UpdateMetricsEmbb.exit: ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i, %call11.i.noexc
-  %user_misses_.i = getelementptr inbounds i8, ptr %this, i64 24
-  %16 = load i64, ptr %user_misses_.i, align 8
+  %user_accesses_4.i = getelementptr inbounds i8, ptr %this, i64 24
+  %16 = load i64, ptr %user_accesses_4.i, align 8
   %add205.i = add i64 %16, 1
-  store i64 %add205.i, ptr %user_misses_.i, align 8
+  store i64 %add205.i, ptr %user_accesses_4.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timestamp_in_seconds.i)
   br label %cleanup
 
@@ -1171,10 +1171,10 @@ call11.i.noexc85:                                 ; preds = %if.then.i83
   br label %_ZN7rocksdb14MissRatioStats13UpdateMetricsEmbb.exit87
 
 _ZN7rocksdb14MissRatioStats13UpdateMetricsEmbb.exit87: ; preds = %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.i78, %call11.i.noexc85
-  %user_misses_.i81 = getelementptr inbounds i8, ptr %this, i64 24
-  %35 = load i64, ptr %user_misses_.i81, align 8
+  %user_accesses_4.i81 = getelementptr inbounds i8, ptr %this, i64 24
+  %35 = load i64, ptr %user_accesses_4.i81, align 8
   %add205.i82 = add i64 %35, 1
-  store i64 %add205.i82, ptr %user_misses_.i81, align 8
+  store i64 %add205.i82, ptr %user_accesses_4.i81, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %timestamp_in_seconds.i55)
   br label %cleanup
 

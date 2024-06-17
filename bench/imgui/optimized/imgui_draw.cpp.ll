@@ -14957,12 +14957,12 @@ for.inc.sink.split.i.i:                           ; preds = %sw.bb.i.i, %sw.bb.i
   %243 = load i8, ptr %arrayidx8.i817.i.i, align 1
   %conv9.i818.i.i = zext i8 %243 to i32
   %add10.i819.i.i = or disjoint i32 %add7.i816.i.i, %conv9.i818.i.i
-  %add113.sink.i.i = add i32 %add10.i819.i.i, %retval.0.i825.i.i
-  store i32 %add113.sink.i.i, ptr %index_map.i.i, align 8
+  %add113.i.i = add i32 %add10.i819.i.i, %retval.0.i825.i.i
+  store i32 %add113.i.i, ptr %index_map.i.i, align 8
   br label %for.inc.i.i
 
 for.inc.i.i:                                      ; preds = %for.inc.sink.split.i.i, %sw.bb.i.i, %for.body.i.i
-  %244 = phi i32 [ %236, %for.body.i.i ], [ %236, %sw.bb.i.i ], [ %add113.sink.i.i, %for.inc.sink.split.i.i ]
+  %244 = phi i32 [ %236, %for.body.i.i ], [ %236, %sw.bb.i.i ], [ %add113.i.i, %for.inc.sink.split.i.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %for.end.i.i, label %for.body.i.i, !llvm.loop !53
@@ -20855,7 +20855,7 @@ if.then5:                                         ; preds = %if.then
 entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i: ; preds = %if.then5
   %Data.i.phi.trans.insert.i = getelementptr inbounds i8, ptr %atlas, i64 112
   %.pre.i = load ptr, ptr %Data.i.phi.trans.insert.i, align 8
-  br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit
+  br label %if.end10.sink.split
 
 if.then.i.i:                                      ; preds = %if.then5
   %add.i.i = add nsw i32 %5, 1
@@ -20891,14 +20891,6 @@ if.end7.i.i.i:                                    ; preds = %if.then2.i.i.i, %if
   store ptr %call.i.i.i, ptr %Data.i.i.i, align 8
   store i32 %cond7.i.i.i, ptr %Capacity.i.i, align 4
   %.pre.i.i = load i32, ptr %CustomRects.i, align 8
-  br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit
-
-_ZN11ImFontAtlas20AddCustomRectRegularEii.exit:   ; preds = %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i, %if.end7.i.i.i
-  %10 = phi ptr [ %call.i.i.i, %if.end7.i.i.i ], [ %.pre.i, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i ]
-  %11 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %5, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i ]
-  %idxprom.i.i = sext i32 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %10, i64 %idxprom.i.i
-  store i16 245, ptr %arrayidx.i.i, align 8
   br label %if.end10.sink.split
 
 if.else:                                          ; preds = %if.then
@@ -20907,7 +20899,7 @@ if.else:                                          ; preds = %if.then
 entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19: ; preds = %if.else
   %Data.i.phi.trans.insert.i20 = getelementptr inbounds i8, ptr %atlas, i64 112
   %.pre.i21 = load ptr, ptr %Data.i.phi.trans.insert.i20, align 8
-  br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48
+  br label %if.end10.sink.split
 
 if.then.i.i29:                                    ; preds = %if.else
   %add.i.i30 = add nsw i32 %5, 1
@@ -20926,68 +20918,62 @@ if.end.i.i.i35:                                   ; preds = %cond.true.i.i.i32, 
   %mul.i.i.i39 = shl nsw i64 %conv.i.i.i38, 5
   %call.i.i.i40 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i39)
   %Data.i.i.i41 = getelementptr inbounds i8, ptr %atlas, i64 112
-  %12 = load ptr, ptr %Data.i.i.i41, align 8
-  %tobool.not.i2.i.i42 = icmp eq ptr %12, null
+  %10 = load ptr, ptr %Data.i.i.i41, align 8
+  %tobool.not.i2.i.i42 = icmp eq ptr %10, null
   br i1 %tobool.not.i2.i.i42, label %if.end7.i.i.i46, label %if.then2.i.i.i43
 
 if.then2.i.i.i43:                                 ; preds = %if.end.i.i.i35
-  %13 = load i32, ptr %CustomRects.i, align 8
-  %conv4.i.i.i44 = sext i32 %13 to i64
+  %11 = load i32, ptr %CustomRects.i, align 8
+  %conv4.i.i.i44 = sext i32 %11 to i64
   %mul5.i.i.i45 = shl nsw i64 %conv4.i.i.i44, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i40, ptr nonnull align 8 %12, i64 %mul5.i.i.i45, i1 false)
-  %14 = load ptr, ptr %Data.i.i.i41, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %14)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i40, ptr nonnull align 8 %10, i64 %mul5.i.i.i45, i1 false)
+  %12 = load ptr, ptr %Data.i.i.i41, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %12)
   br label %if.end7.i.i.i46
 
 if.end7.i.i.i46:                                  ; preds = %if.then2.i.i.i43, %if.end.i.i.i35
   store ptr %call.i.i.i40, ptr %Data.i.i.i41, align 8
   store i32 %cond7.i.i.i37, ptr %Capacity.i.i, align 4
   %.pre.i.i47 = load i32, ptr %CustomRects.i, align 8
-  br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48
-
-_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48: ; preds = %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19, %if.end7.i.i.i46
-  %15 = phi ptr [ %call.i.i.i40, %if.end7.i.i.i46 ], [ %.pre.i21, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19 ]
-  %16 = phi i32 [ %.pre.i.i47, %if.end7.i.i.i46 ], [ %5, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19 ]
-  %idxprom.i.i22 = sext i32 %16 to i64
-  %arrayidx.i.i23 = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %15, i64 %idxprom.i.i22
-  store i16 2, ptr %arrayidx.i.i23, align 8
   br label %if.end10.sink.split
 
-if.end10.sink.split:                              ; preds = %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit
-  %arrayidx.i.i23.sink87 = phi ptr [ %arrayidx.i.i23, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48 ], [ %arrayidx.i.i, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit ]
-  %.sink = phi i16 [ 2, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit48 ], [ 27, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit ]
-  %r.sroa.3.0.arrayidx.i.sroa_idx.i24 = getelementptr inbounds i8, ptr %arrayidx.i.i23.sink87, i64 2
-  store i16 %.sink, ptr %r.sroa.3.0.arrayidx.i.sroa_idx.i24, align 2
-  %r.sroa.5.0.arrayidx.i.sroa_idx.i25 = getelementptr inbounds i8, ptr %arrayidx.i.i23.sink87, i64 4
-  store i16 -1, ptr %r.sroa.5.0.arrayidx.i.sroa_idx.i25, align 4
-  %r.sroa.6.0.arrayidx.i.sroa_idx.i26 = getelementptr inbounds i8, ptr %arrayidx.i.i23.sink87, i64 6
-  store i16 -1, ptr %r.sroa.6.0.arrayidx.i.sroa_idx.i26, align 2
-  %r.sroa.7.0.arrayidx.i.sroa_idx.i27 = getelementptr inbounds i8, ptr %arrayidx.i.i23.sink87, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %r.sroa.7.0.arrayidx.i.sroa_idx.i27, i8 0, i64 24, i1 false)
-  %17 = load i32, ptr %CustomRects.i, align 8
-  %inc.i.i = add nsw i32 %17, 1
+if.end10.sink.split:                              ; preds = %if.end7.i.i.i46, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19, %if.end7.i.i.i, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i
+  %.sink91 = phi i32 [ %.pre.i.i, %if.end7.i.i.i ], [ %5, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i ], [ %.pre.i.i47, %if.end7.i.i.i46 ], [ %5, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19 ]
+  %.sink90 = phi ptr [ %call.i.i.i, %if.end7.i.i.i ], [ %.pre.i, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i ], [ %call.i.i.i40, %if.end7.i.i.i46 ], [ %.pre.i21, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19 ]
+  %13 = phi <2 x i16> [ <i16 245, i16 27>, %if.end7.i.i.i ], [ <i16 245, i16 27>, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i ], [ <i16 2, i16 2>, %if.end7.i.i.i46 ], [ <i16 2, i16 2>, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i19 ]
+  %idxprom.i.i = sext i32 %.sink91 to i64
+  %arrayidx.i.i = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %.sink90, i64 %idxprom.i.i
+  store <2 x i16> %13, ptr %arrayidx.i.i, align 8
+  %r.sroa.5.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 4
+  store i16 -1, ptr %r.sroa.5.0.arrayidx.i.sroa_idx.i, align 4
+  %r.sroa.6.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 6
+  store i16 -1, ptr %r.sroa.6.0.arrayidx.i.sroa_idx.i, align 2
+  %r.sroa.7.0.arrayidx.i.sroa_idx.i = getelementptr inbounds i8, ptr %arrayidx.i.i, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %r.sroa.7.0.arrayidx.i.sroa_idx.i, i8 0, i64 24, i1 false)
+  %14 = load i32, ptr %CustomRects.i, align 8
+  %inc.i.i = add nsw i32 %14, 1
   store i32 %inc.i.i, ptr %CustomRects.i, align 8
-  store i32 %17, ptr %PackIdMouseCursors, align 4
+  store i32 %14, ptr %PackIdMouseCursors, align 4
   br label %if.end10
 
 if.end10:                                         ; preds = %if.end10.sink.split, %for.end
   %PackIdLines = getelementptr inbounds i8, ptr %atlas, i64 1176
-  %18 = load i32, ptr %PackIdLines, align 8
-  %cmp11 = icmp slt i32 %18, 0
+  %15 = load i32, ptr %PackIdLines, align 8
+  %cmp11 = icmp slt i32 %15, 0
   br i1 %cmp11, label %if.then12, label %if.end20
 
 if.then12:                                        ; preds = %if.end10
-  %19 = load i32, ptr %atlas, align 8
-  %and14 = and i32 %19, 4
+  %16 = load i32, ptr %atlas, align 8
+  %and14 = and i32 %16, 4
   %tobool15.not = icmp eq i32 %and14, 0
   br i1 %tobool15.not, label %if.then16, label %if.end20
 
 if.then16:                                        ; preds = %if.then12
   %CustomRects.i49 = getelementptr inbounds i8, ptr %atlas, i64 104
-  %20 = load i32, ptr %CustomRects.i49, align 8
+  %17 = load i32, ptr %CustomRects.i49, align 8
   %Capacity.i.i50 = getelementptr inbounds i8, ptr %atlas, i64 108
-  %21 = load i32, ptr %Capacity.i.i50, align 4
-  %cmp.i.i51 = icmp eq i32 %20, %21
+  %18 = load i32, ptr %Capacity.i.i50, align 4
+  %cmp.i.i51 = icmp eq i32 %17, %18
   br i1 %cmp.i.i51, label %if.then.i.i62, label %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52
 
 entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52: ; preds = %if.then16
@@ -20996,13 +20982,13 @@ entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52: 
   br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit81
 
 if.then.i.i62:                                    ; preds = %if.then16
-  %add.i.i63 = add nsw i32 %20, 1
-  %tobool.not.i.i.i64 = icmp eq i32 %20, 0
+  %add.i.i63 = add nsw i32 %17, 1
+  %tobool.not.i.i.i64 = icmp eq i32 %17, 0
   br i1 %tobool.not.i.i.i64, label %if.end.i.i.i68, label %cond.true.i.i.i65
 
 cond.true.i.i.i65:                                ; preds = %if.then.i.i62
-  %div.i.i.i66 = sdiv i32 %20, 2
-  %add.i.i.i67 = add nsw i32 %div.i.i.i66, %20
+  %div.i.i.i66 = sdiv i32 %17, 2
+  %add.i.i.i67 = add nsw i32 %div.i.i.i66, %17
   br label %if.end.i.i.i68
 
 if.end.i.i.i68:                                   ; preds = %cond.true.i.i.i65, %if.then.i.i62
@@ -21012,17 +20998,17 @@ if.end.i.i.i68:                                   ; preds = %cond.true.i.i.i65, 
   %mul.i.i.i72 = shl nsw i64 %conv.i.i.i71, 5
   %call.i.i.i73 = tail call noundef ptr @_ZN5ImGui8MemAllocEm(i64 noundef %mul.i.i.i72)
   %Data.i.i.i74 = getelementptr inbounds i8, ptr %atlas, i64 112
-  %22 = load ptr, ptr %Data.i.i.i74, align 8
-  %tobool.not.i2.i.i75 = icmp eq ptr %22, null
+  %19 = load ptr, ptr %Data.i.i.i74, align 8
+  %tobool.not.i2.i.i75 = icmp eq ptr %19, null
   br i1 %tobool.not.i2.i.i75, label %if.end7.i.i.i79, label %if.then2.i.i.i76
 
 if.then2.i.i.i76:                                 ; preds = %if.end.i.i.i68
-  %23 = load i32, ptr %CustomRects.i49, align 8
-  %conv4.i.i.i77 = sext i32 %23 to i64
+  %20 = load i32, ptr %CustomRects.i49, align 8
+  %conv4.i.i.i77 = sext i32 %20 to i64
   %mul5.i.i.i78 = shl nsw i64 %conv4.i.i.i77, 5
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i73, ptr nonnull align 8 %22, i64 %mul5.i.i.i78, i1 false)
-  %24 = load ptr, ptr %Data.i.i.i74, align 8
-  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %24)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %call.i.i.i73, ptr nonnull align 8 %19, i64 %mul5.i.i.i78, i1 false)
+  %21 = load ptr, ptr %Data.i.i.i74, align 8
+  tail call void @_ZN5ImGui7MemFreeEPv(ptr noundef %21)
   br label %if.end7.i.i.i79
 
 if.end7.i.i.i79:                                  ; preds = %if.then2.i.i.i76, %if.end.i.i.i68
@@ -21032,17 +21018,17 @@ if.end7.i.i.i79:                                  ; preds = %if.then2.i.i.i76, %
   br label %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit81
 
 _ZN11ImFontAtlas20AddCustomRectRegularEii.exit81: ; preds = %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52, %if.end7.i.i.i79
-  %25 = phi ptr [ %call.i.i.i73, %if.end7.i.i.i79 ], [ %.pre.i54, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52 ]
-  %26 = phi i32 [ %.pre.i.i80, %if.end7.i.i.i79 ], [ %20, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52 ]
-  %idxprom.i.i55 = sext i32 %26 to i64
-  %arrayidx.i.i56 = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %25, i64 %idxprom.i.i55
+  %22 = phi ptr [ %call.i.i.i73, %if.end7.i.i.i79 ], [ %.pre.i54, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52 ]
+  %23 = phi i32 [ %.pre.i.i80, %if.end7.i.i.i79 ], [ %17, %entry._ZN8ImVectorI21ImFontAtlasCustomRectE9push_backERKS0_.exit_crit_edge.i52 ]
+  %idxprom.i.i55 = sext i32 %23 to i64
+  %arrayidx.i.i56 = getelementptr inbounds %struct.ImFontAtlasCustomRect, ptr %22, i64 %idxprom.i.i55
   store <4 x i16> <i16 65, i16 64, i16 -1, i16 -1>, ptr %arrayidx.i.i56, align 8
   %r.sroa.7.0.arrayidx.i.sroa_idx.i60 = getelementptr inbounds i8, ptr %arrayidx.i.i56, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %r.sroa.7.0.arrayidx.i.sroa_idx.i60, i8 0, i64 24, i1 false)
-  %27 = load i32, ptr %CustomRects.i49, align 8
-  %inc.i.i61 = add nsw i32 %27, 1
+  %24 = load i32, ptr %CustomRects.i49, align 8
+  %inc.i.i61 = add nsw i32 %24, 1
   store i32 %inc.i.i61, ptr %CustomRects.i49, align 8
-  store i32 %27, ptr %PackIdLines, align 8
+  store i32 %24, ptr %PackIdLines, align 8
   br label %if.end20
 
 if.end20:                                         ; preds = %if.then12, %_ZN11ImFontAtlas20AddCustomRectRegularEii.exit81, %if.end10
@@ -26449,12 +26435,12 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i45.i.i:   ; preds = %if.end.i.i52.i.i, %
   br i1 %exitcond.not.i51.i.i, label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, label %for.body.i39.i.i, !llvm.loop !52
 
 _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i: ; preds = %if.then14.i.i, %if.then5.i.i
-  %inc.i31.i.sink.i = add nsw i32 %inc.i.i7075.i, 2
-  store i32 %inc.i31.i.sink.i, ptr %cursor.i.i, align 8
+  %inc.i31.i.i = add nsw i32 %inc.i.i7075.i, 2
+  store i32 %inc.i31.i.i, ptr %cursor.i.i, align 8
   br label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i
 
 _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i: ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i45.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i, %if.else22.i.i, %if.then14.i.i, %if.then5.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i52.i
-  %cursor.i.promoted81.i = phi i32 [ %add.i.i.i, %if.then14.i.i ], [ %add.i.i.i, %if.then5.i.i ], [ %add.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i52.i ], [ %add.i.i.i, %if.else22.i.i ], [ %inc.i31.i.sink.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %inc.i6.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %inc.i6.i46.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i45.i.i ]
+  %cursor.i.promoted81.i = phi i32 [ %add.i.i.i, %if.then14.i.i ], [ %add.i.i.i, %if.then5.i.i ], [ %add.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i52.i ], [ %add.i.i.i, %if.else22.i.i ], [ %inc.i31.i.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %inc.i6.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %inc.i6.i46.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i45.i.i ]
   %cmp.not.i.i = icmp slt i32 %cursor.i.promoted81.i, %0
   br i1 %cmp.not.i.i, label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.i, label %if.end.i, !llvm.loop !144
 

@@ -4381,9 +4381,9 @@ define internal fastcc void @dissect_sec_eccpoint(ptr noundef %0, ptr nocapture 
   br label %.sink.split
 
 .sink.split:                                      ; preds = %21, %24
-  %.sink2 = phi i32 [ 32, %21 ], [ %25, %24 ]
+  %.sink36 = phi i32 [ %25, %24 ], [ 32, %21 ]
   %29 = load i32, ptr %1, align 4
-  %30 = add i32 %29, %.sink2
+  %30 = add i32 %29, %.sink36
   store i32 %30, ptr %1, align 4
   br label %31
 

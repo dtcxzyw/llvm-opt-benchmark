@@ -39619,7 +39619,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
 8:                                                ; preds = %5
   %9 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
 10:                                               ; preds = %1
   %11 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %0) #26
@@ -39638,13 +39638,13 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
 16:                                               ; preds = %13
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
 18:                                               ; preds = %10
   %19 = icmp ne i64 %11, 1
   %20 = icmp ult i64 %11, 5
   %or.cond = and i1 %19, %20
-  br i1 %or.cond, label %21, label %52
+  br i1 %or.cond, label %21, label %51
 
 21:                                               ; preds = %18
   %22 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0)
@@ -39665,14 +39665,14 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
 33:                                               ; preds = %21, %26
   %34 = phi i64 [ %32, %26 ], [ 1, %21 ]
   %35 = icmp eq i64 %34, %11
-  br i1 %35, label %36, label %52
+  br i1 %35, label %36, label %51
 
 36:                                               ; preds = %33
   %37 = icmp eq i64 %11, 2
   %38 = and i32 %24, 252
   %39 = icmp eq i32 %38, 192
   %or.cond26 = and i1 %39, %37
-  br i1 %or.cond26, label %40, label %47
+  br i1 %or.cond26, label %40, label %46
 
 40:                                               ; preds = %36
   %41 = shl i8 %23, 6
@@ -39680,57 +39680,55 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
   %43 = load i8, ptr %42, align 1
   %44 = and i8 %43, 63
   %45 = or disjoint i8 %44, %41
-  %46 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 %45, ptr %46, align 1
-  br label %62
+  br label %60
 
-47:                                               ; preds = %36
-  %48 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1111value_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull @.str.207)
-          to label %49 unwind label %50
+46:                                               ; preds = %36
+  %47 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1111value_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %47, ptr noundef nonnull @.str.207)
+          to label %48 unwind label %49
 
-49:                                               ; preds = %47
-  tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTIN8pybind1111value_errorE, ptr nonnull @_ZN8pybind1111value_errorD2Ev) #30
+48:                                               ; preds = %46
+  tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTIN8pybind1111value_errorE, ptr nonnull @_ZN8pybind1111value_errorD2Ev) #30
   unreachable
 
-50:                                               ; preds = %47
-  %51 = landingpad { ptr, i32 }
+49:                                               ; preds = %46
+  %50 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %62
 
-52:                                               ; preds = %18, %33
+51:                                               ; preds = %18, %33
   %.not = icmp eq i64 %11, 1
-  br i1 %.not, label %58, label %53
+  br i1 %.not, label %57, label %52
 
-53:                                               ; preds = %52
-  %54 = tail call ptr @__cxa_allocate_exception(i64 16) #26
-  invoke void @_ZN8pybind1111value_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull @.str.208)
-          to label %55 unwind label %56
+52:                                               ; preds = %51
+  %53 = tail call ptr @__cxa_allocate_exception(i64 16) #26
+  invoke void @_ZN8pybind1111value_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %53, ptr noundef nonnull @.str.208)
+          to label %54 unwind label %55
 
-55:                                               ; preds = %53
-  tail call void @__cxa_throw(ptr nonnull %54, ptr nonnull @_ZTIN8pybind1111value_errorE, ptr nonnull @_ZN8pybind1111value_errorD2Ev) #30
+54:                                               ; preds = %52
+  tail call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTIN8pybind1111value_errorE, ptr nonnull @_ZN8pybind1111value_errorD2Ev) #30
   unreachable
 
-56:                                               ; preds = %53
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %52
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %63
-
-58:                                               ; preds = %52
-  %59 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0)
-  %60 = load i8, ptr %59, align 1
-  %61 = getelementptr inbounds i8, ptr %0, i64 33
-  store i8 %60, ptr %61, align 1
   br label %62
 
-62:                                               ; preds = %58, %40
-  %.0 = phi ptr [ %46, %40 ], [ %61, %58 ]
-  ret ptr %.0
+57:                                               ; preds = %51
+  %58 = tail call noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0)
+  %59 = load i8, ptr %58, align 1
+  br label %60
 
-63:                                               ; preds = %56, %50, %16, %8
-  %.sink = phi ptr [ %54, %56 ], [ %48, %50 ], [ %14, %16 ], [ %6, %8 ]
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %51, %50 ], [ %17, %16 ], [ %9, %8 ]
-  tail call void @__cxa_free_exception(ptr %.sink) #26
+60:                                               ; preds = %57, %40
+  %.sink = phi i8 [ %59, %57 ], [ %45, %40 ]
+  %61 = getelementptr inbounds i8, ptr %0, i64 33
+  store i8 %.sink, ptr %61, align 1
+  ret ptr %61
+
+62:                                               ; preds = %55, %49, %16, %8
+  %.sink28 = phi ptr [ %53, %55 ], [ %47, %49 ], [ %14, %16 ], [ %6, %8 ]
+  %.pn = phi { ptr, i32 } [ %56, %55 ], [ %50, %49 ], [ %17, %16 ], [ %9, %8 ]
+  tail call void @__cxa_free_exception(ptr %.sink28) #26
   resume { ptr, i32 } %.pn
 }
 

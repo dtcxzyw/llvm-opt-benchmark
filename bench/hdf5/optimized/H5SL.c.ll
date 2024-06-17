@@ -14218,8 +14218,8 @@ define ptr @H5SL_below(ptr nocapture noundef readonly %0, ptr noundef %1) local_
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.thread273, %.thread
-  %.sink = phi ptr [ %272, %.thread273 ], [ %273, %.thread ]
-  %274 = load ptr, ptr %.sink, align 8
+  %.sink370 = phi ptr [ %273, %.thread ], [ %272, %.thread273 ]
+  %274 = load ptr, ptr %.sink370, align 8
   %275 = load ptr, ptr %3, align 8
   %.not267 = icmp eq ptr %274, %275
   %.269 = select i1 %.not267, ptr null, ptr %274

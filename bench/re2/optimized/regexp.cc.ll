@@ -3248,14 +3248,15 @@ entry:
 
 cond.true:                                        ; preds = %entry
   %cmp.i = icmp ult i16 %1, 2
-  %2 = getelementptr inbounds i8, ptr %this, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %retval.0.i = select i1 %cmp.i, ptr %2, ptr %3
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %cond.true, %if.then
-  %retval.0.i21.sink = phi ptr [ %retval.0.i21, %if.then ], [ %retval.0.i, %cond.true ]
-  %4 = load ptr, ptr %retval.0.i21.sink, align 8
+  %.sink37 = phi ptr [ %9, %if.then ], [ %this, %cond.true ]
+  %cmp.i20.sink = phi i1 [ %cmp.i20, %if.then ], [ %cmp.i, %cond.true ]
+  %2 = getelementptr inbounds i8, ptr %.sink37, i64 8
+  %3 = load ptr, ptr %2, align 8
+  %retval.0.i21 = select i1 %cmp.i20.sink, ptr %2, ptr %3
+  %4 = load ptr, ptr %retval.0.i21, align 8
   br label %while.cond.preheader
 
 while.cond.preheader:                             ; preds = %entry, %while.cond.sink.split
@@ -3294,37 +3295,34 @@ while.cond.backedge:                              ; preds = %land.lhs.true12, %w
 
 if.then:                                          ; preds = %land.lhs.true12
   %cmp.i20 = icmp eq i16 %11, 1
-  %12 = getelementptr inbounds i8, ptr %9, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %retval.0.i21 = select i1 %cmp.i20, ptr %12, ptr %13
   br label %while.cond.sink.split, !llvm.loop !26
 
 if.end26:                                         ; preds = %while.cond, %while.cond
   %parse_flags_.i = getelementptr inbounds i8, ptr %re.0, i64 2
-  %14 = load i16, ptr %parse_flags_.i, align 2
-  %15 = and i16 %14, 32
-  %cmp29 = icmp ne i16 %15, 0
+  %12 = load i16, ptr %parse_flags_.i, align 2
+  %13 = and i16 %12, 32
+  %cmp29 = icmp ne i16 %13, 0
   %cmp32 = icmp eq i8 %5, 3
   br i1 %cmp32, label %cond.end35.thread, label %cond.false41
 
 cond.end35.thread:                                ; preds = %if.end26
-  %16 = getelementptr inbounds i8, ptr %re.0, i64 24
+  %14 = getelementptr inbounds i8, ptr %re.0, i64 24
   br label %cond.end42
 
 cond.false41:                                     ; preds = %if.end26
   %runes_ = getelementptr inbounds i8, ptr %re.0, i64 32
-  %17 = load ptr, ptr %runes_, align 8
-  %18 = getelementptr inbounds i8, ptr %re.0, i64 24
-  %19 = load i32, ptr %18, align 8
+  %15 = load ptr, ptr %runes_, align 8
+  %16 = getelementptr inbounds i8, ptr %re.0, i64 24
+  %17 = load i32, ptr %16, align 8
   br label %cond.end42
 
 cond.end42:                                       ; preds = %cond.end35.thread, %cond.false41
-  %cond3626 = phi ptr [ %17, %cond.false41 ], [ %16, %cond.end35.thread ]
-  %cond43 = phi i32 [ %19, %cond.false41 ], [ 1, %cond.end35.thread ]
+  %cond3626 = phi ptr [ %15, %cond.false41 ], [ %14, %cond.end35.thread ]
+  %cond43 = phi i32 [ %17, %cond.false41 ], [ 1, %cond.end35.thread ]
   tail call void @_ZN3re219ConvertRunesToBytesEbPiiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(i1 noundef zeroext %cmp29, ptr noundef %cond3626, i32 noundef %cond43, ptr noundef nonnull %prefix)
-  %20 = load i16, ptr %parse_flags_.i, align 2
-  %21 = trunc i16 %20 to i8
-  %frombool47 = and i8 %21, 1
+  %18 = load i16, ptr %parse_flags_.i, align 2
+  %19 = trunc i16 %18 to i8
+  %frombool47 = and i8 %19, 1
   store i8 %frombool47, ptr %foldcase, align 1
   br label %return
 

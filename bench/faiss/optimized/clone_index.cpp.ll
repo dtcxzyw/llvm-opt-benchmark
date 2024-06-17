@@ -7598,77 +7598,64 @@ define noalias noundef nonnull ptr @_ZN5faiss24clone_IndexRowwiseMinMaxEPKNS_22I
 5:                                                ; preds = %1
   %6 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxBaseE, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxFP16E, i64 0) #20
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %13, label %7
+  br i1 %.not, label %7, label %16
 
 7:                                                ; preds = %5
-  %8 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-  %9 = getelementptr inbounds i8, ptr %8, i64 8
-  %10 = getelementptr inbounds i8, ptr %6, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %9, ptr noundef nonnull align 8 dereferenceable(28) %10, i64 28, i1 false)
-  %11 = getelementptr inbounds i8, ptr %8, i64 40
-  %12 = getelementptr inbounds i8, ptr %6, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %11, ptr noundef nonnull align 8 dereferenceable(9) %12, i64 9, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i64 16), ptr %8, align 8
-  br label %28
+  %8 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxBaseE, ptr nonnull @_ZTIN5faiss18IndexRowwiseMinMaxE, i64 0) #20
+  %.not16 = icmp eq ptr %8, null
+  br i1 %.not16, label %.thread20, label %16
 
-13:                                               ; preds = %5
-  %14 = tail call ptr @__dynamic_cast(ptr nonnull %0, ptr nonnull @_ZTIN5faiss22IndexRowwiseMinMaxBaseE, ptr nonnull @_ZTIN5faiss18IndexRowwiseMinMaxE, i64 0) #20
-  %.not16 = icmp eq ptr %14, null
-  br i1 %.not16, label %.thread20, label %15
-
-15:                                               ; preds = %13
-  %16 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-  %17 = getelementptr inbounds i8, ptr %16, i64 8
-  %18 = getelementptr inbounds i8, ptr %14, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %17, ptr noundef nonnull align 8 dereferenceable(28) %18, i64 28, i1 false)
-  %19 = getelementptr inbounds i8, ptr %16, i64 40
-  %20 = getelementptr inbounds i8, ptr %14, i64 40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %19, ptr noundef nonnull align 8 dereferenceable(9) %20, i64 9, i1 false)
-  store ptr getelementptr inbounds (i8, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i64 16), ptr %16, align 8
-  br label %28
-
-.thread20:                                        ; preds = %1, %13
-  %21 = tail call ptr @__cxa_allocate_exception(i64 40) #20
+.thread20:                                        ; preds = %1, %7
+  %9 = tail call ptr @__cxa_allocate_exception(i64 40) #20
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %22 unwind label %.thread22
+          to label %10 unwind label %.thread22
 
-22:                                               ; preds = %.thread20
-  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %21, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss24clone_IndexRowwiseMinMaxEPKNS_22IndexRowwiseMinMaxBaseE, ptr noundef nonnull @.str.1, i32 noundef 155)
-          to label %23 unwind label %25
+10:                                               ; preds = %.thread20
+  invoke void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcSA_i(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN5faiss24clone_IndexRowwiseMinMaxEPKNS_22IndexRowwiseMinMaxBaseE, ptr noundef nonnull @.str.1, i32 noundef 155)
+          to label %11 unwind label %13
 
-23:                                               ; preds = %22
-  invoke void @__cxa_throw(ptr nonnull %21, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #22
-          to label %30 unwind label %25
+11:                                               ; preds = %10
+  invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN5faiss14FaissExceptionE, ptr nonnull @_ZN5faiss14FaissExceptionD2Ev) #22
+          to label %23 unwind label %13
 
 .thread22:                                        ; preds = %.thread20
-  %24 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  br label %27
+  br label %15
 
-25:                                               ; preds = %22, %23
-  %.0 = phi i1 [ false, %23 ], [ true, %22 ]
-  %26 = landingpad { ptr, i32 }
+13:                                               ; preds = %10, %11
+  %.0 = phi i1 [ false, %11 ], [ true, %10 ]
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #20
-  br i1 %.0, label %27, label %29
+  br i1 %.0, label %15, label %22
 
-27:                                               ; preds = %.thread22, %25
-  %.pn26 = phi { ptr, i32 } [ %24, %.thread22 ], [ %26, %25 ]
-  call void @__cxa_free_exception(ptr %21) #20
-  br label %29
+15:                                               ; preds = %.thread22, %13
+  %.pn26 = phi { ptr, i32 } [ %12, %.thread22 ], [ %14, %13 ]
+  call void @__cxa_free_exception(ptr %9) #20
+  br label %22
 
-28:                                               ; preds = %15, %7
-  %.011 = phi ptr [ %8, %7 ], [ %16, %15 ]
-  ret ptr %.011
+16:                                               ; preds = %7, %5
+  %.sink34 = phi ptr [ %6, %5 ], [ %8, %7 ]
+  %.sink = phi ptr [ getelementptr inbounds (i8, ptr @_ZTVN5faiss22IndexRowwiseMinMaxFP16E, i64 16), %5 ], [ getelementptr inbounds (i8, ptr @_ZTVN5faiss18IndexRowwiseMinMaxE, i64 16), %7 ]
+  %17 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
+  %18 = getelementptr inbounds i8, ptr %17, i64 8
+  %19 = getelementptr inbounds i8, ptr %.sink34, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef nonnull align 8 dereferenceable(28) %19, i64 28, i1 false)
+  %20 = getelementptr inbounds i8, ptr %17, i64 40
+  %21 = getelementptr inbounds i8, ptr %.sink34, i64 40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %20, ptr noundef nonnull align 8 dereferenceable(9) %21, i64 9, i1 false)
+  store ptr %.sink, ptr %17, align 8
+  ret ptr %17
 
-29:                                               ; preds = %25, %27
-  %.pn25 = phi { ptr, i32 } [ %26, %25 ], [ %.pn26, %27 ]
+22:                                               ; preds = %13, %15
+  %.pn25 = phi { ptr, i32 } [ %14, %13 ], [ %.pn26, %15 ]
   resume { ptr, i32 } %.pn25
 
-30:                                               ; preds = %23
+23:                                               ; preds = %11
   unreachable
 }
 

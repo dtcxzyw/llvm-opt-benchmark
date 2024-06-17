@@ -12488,7 +12488,7 @@ RB_FLOAT_TYPE_P.exit.thread43:                    ; preds = %16, %.critedge
   %35 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %33, i64 noundef 3553, i32 noundef 1, i64 noundef %34) #23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  br label %104
+  br label %99
 
 rb_float_value_inline.exit:                       ; preds = %30, %24, %23, %20, %8
   %.0 = phi double [ %10, %8 ], [ %21, %20 ], [ %32, %30 ], [ %29, %24 ], [ 0.000000e+00, %23 ]
@@ -12550,98 +12550,90 @@ rb_float_value_inline.exit36:                     ; preds = %38, %39, %45
   %.0.i37 = phi double [ %60, %59 ], [ %.0.i33, %53 ]
   %62 = fcmp oeq double %.pre50.i, 0x7FF0000000000000
   %or.cond49.i = or i1 %62, %.pre-phi.i
-  br i1 %or.cond49.i, label %.thread, label %69
+  br i1 %or.cond49.i, label %.thread, label %66
 
 .thread:                                          ; preds = %55, %._crit_edge.i
   %.0.i3752 = phi double [ %.0.i37, %._crit_edge.i ], [ %.0.i33, %55 ]
   %63 = fsub double %.0.i33, %.0.i3752
   %64 = fdiv double %63, %.0
   %65 = tail call double @llvm.round.f64(double %64)
-  %66 = fmul double %.0, %.0.i3752
-  %67 = fcmp olt double %66, 0.000000e+00
-  %68 = fadd double %65, -1.000000e+00
-  %.13653.i = select i1 %67, double %68, double %65
-  br label %73
+  br label %66
 
-69:                                               ; preds = %._crit_edge.i
-  %70 = fmul double %.0, %.0.i37
-  %71 = fcmp olt double %70, 0.000000e+00
-  %72 = fadd double %.0.i33, -1.000000e+00
-  %.136.i = select i1 %71, double %72, double %.0.i33
-  br label %73
-
-73:                                               ; preds = %69, %.thread
-  %.0.i3751 = phi double [ %.0.i3752, %.thread ], [ %.0.i37, %69 ]
-  %.13655.i = phi double [ %.13653.i, %.thread ], [ %.136.i, %69 ]
-  %74 = phi i1 [ %67, %.thread ], [ %71, %69 ]
-  %75 = fadd double %.0, %.0.i3751
-  %.1.i = select i1 %74, double %75, double %.0.i3751
+66:                                               ; preds = %._crit_edge.i, %.thread
+  %.0.i37.sink = phi double [ %.0.i3752, %.thread ], [ %.0.i37, %._crit_edge.i ]
+  %.0.i33.sink54 = phi double [ %65, %.thread ], [ %.0.i33, %._crit_edge.i ]
+  %67 = fmul double %.0, %.0.i37.sink
+  %68 = fcmp olt double %67, 0.000000e+00
+  %69 = fadd double %.0.i33.sink54, -1.000000e+00
+  %.136.i = select i1 %68, double %69, double %.0.i33.sink54
+  %70 = fadd double %.0, %.0.i37.sink
+  %.1.i = select i1 %68, double %70, double %.0.i37.sink
   br label %flodivmod.exit
 
-flodivmod.exit:                                   ; preds = %rb_float_value_inline.exit36, %73
-  %.041 = phi double [ %.1.i, %73 ], [ %.0, %rb_float_value_inline.exit36 ]
-  %.sink.i = phi double [ %.13655.i, %73 ], [ %.0, %rb_float_value_inline.exit36 ]
-  %76 = fcmp olt double %.sink.i, 0x43D0000000000000
-  %77 = fcmp oge double %.sink.i, 0xC3D0000000000000
-  %or.cond.i = and i1 %76, %77
-  br i1 %or.cond.i, label %78, label %82
+flodivmod.exit:                                   ; preds = %rb_float_value_inline.exit36, %66
+  %.041 = phi double [ %.1.i, %66 ], [ %.0, %rb_float_value_inline.exit36 ]
+  %.sink.i = phi double [ %.136.i, %66 ], [ %.0, %rb_float_value_inline.exit36 ]
+  %71 = fcmp olt double %.sink.i, 0x43D0000000000000
+  %72 = fcmp oge double %.sink.i, 0xC3D0000000000000
+  %or.cond.i = and i1 %71, %72
+  br i1 %or.cond.i, label %73, label %77
 
-78:                                               ; preds = %flodivmod.exit
-  %79 = fptosi double %.sink.i to i64
-  %80 = shl i64 %79, 1
-  %81 = or disjoint i64 %80, 1
+73:                                               ; preds = %flodivmod.exit
+  %74 = fptosi double %.sink.i to i64
+  %75 = shl i64 %74, 1
+  %76 = or disjoint i64 %75, 1
   br label %dbl2ival.exit
 
-82:                                               ; preds = %flodivmod.exit
-  %83 = tail call i64 @rb_dbl2big(double noundef %.sink.i) #23
+77:                                               ; preds = %flodivmod.exit
+  %78 = tail call i64 @rb_dbl2big(double noundef %.sink.i) #23
   br label %dbl2ival.exit
 
-dbl2ival.exit:                                    ; preds = %78, %82
-  %.0.i38 = phi i64 [ %81, %78 ], [ %83, %82 ]
+dbl2ival.exit:                                    ; preds = %73, %77
+  %.0.i38 = phi i64 [ %76, %73 ], [ %78, %77 ]
   store volatile i64 %.0.i38, ptr %5, align 8
-  %84 = bitcast double %.041 to i64
-  %cond.i = icmp eq i64 %84, 3458764513820540928
-  br i1 %cond.i, label %96, label %85
+  %79 = bitcast double %.041 to i64
+  %cond.i = icmp eq i64 %79, 3458764513820540928
+  br i1 %cond.i, label %91, label %80
 
-85:                                               ; preds = %dbl2ival.exit
-  %86 = lshr i64 %84, 60
-  %87 = trunc nuw nsw i64 %86 to i32
-  %88 = and i32 %87, 7
-  %89 = add nsw i32 %88, -3
-  %.not7.i = icmp ult i32 %89, 2
-  br i1 %.not7.i, label %90, label %94
+80:                                               ; preds = %dbl2ival.exit
+  %81 = lshr i64 %79, 60
+  %82 = trunc nuw nsw i64 %81 to i32
+  %83 = and i32 %82, 7
+  %84 = add nsw i32 %83, -3
+  %.not7.i = icmp ult i32 %84, 2
+  br i1 %.not7.i, label %85, label %89
 
-90:                                               ; preds = %85
-  %91 = tail call noundef i64 @llvm.fshl.i64(i64 %84, i64 %84, i64 3)
-  %92 = and i64 %91, -4
-  %93 = or disjoint i64 %92, 2
+85:                                               ; preds = %80
+  %86 = tail call noundef i64 @llvm.fshl.i64(i64 %79, i64 %79, i64 3)
+  %87 = and i64 %86, -4
+  %88 = or disjoint i64 %87, 2
   br label %rb_float_new_inline.exit
 
-94:                                               ; preds = %85
-  %95 = icmp eq i64 %84, 0
-  br i1 %95, label %rb_float_new_inline.exit, label %96
+89:                                               ; preds = %80
+  %90 = icmp eq i64 %79, 0
+  br i1 %90, label %rb_float_new_inline.exit, label %91
 
-96:                                               ; preds = %94, %dbl2ival.exit
-  %97 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
-  %98 = load ptr, ptr %97, align 8
-  %99 = load i64, ptr @rb_cFloat, align 8
-  %100 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %98, i64 noundef %99, i64 noundef 4, i64 noundef 24) #23
-  %101 = inttoptr i64 %100 to ptr
-  %102 = getelementptr inbounds i8, ptr %101, i64 16
-  store double %.041, ptr %102, align 8
-  tail call void @rb_obj_freeze_inline(i64 noundef %100) #23
+91:                                               ; preds = %89, %dbl2ival.exit
+  %92 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
+  %93 = load ptr, ptr %92, align 8
+  %94 = load i64, ptr @rb_cFloat, align 8
+  %95 = tail call i64 @rb_wb_protected_newobj_of(ptr noundef %93, i64 noundef %94, i64 noundef 4, i64 noundef 24) #23
+  %96 = inttoptr i64 %95 to ptr
+  %97 = getelementptr inbounds i8, ptr %96, i64 16
+  store double %.041, ptr %97, align 8
+  tail call void @rb_obj_freeze_inline(i64 noundef %95) #23
   br label %rb_float_new_inline.exit
 
-rb_float_new_inline.exit:                         ; preds = %90, %94, %96
-  %.0.i39 = phi i64 [ %100, %96 ], [ %93, %90 ], [ -9223372036854775806, %94 ]
+rb_float_new_inline.exit:                         ; preds = %85, %89, %91
+  %.0.i39 = phi i64 [ %95, %91 ], [ %88, %85 ], [ -9223372036854775806, %89 ]
   store volatile i64 %.0.i39, ptr %6, align 8
   %.0..0..0..0.1 = load volatile i64, ptr %5, align 8
   %.0..0..0..0. = load volatile i64, ptr %6, align 8
-  %103 = tail call i64 @rb_assoc_new(i64 noundef %.0..0..0..0.1, i64 noundef %.0..0..0..0.) #23
-  br label %104
+  %98 = tail call i64 @rb_assoc_new(i64 noundef %.0..0..0..0.1, i64 noundef %.0..0..0..0.) #23
+  br label %99
 
-104:                                              ; preds = %rb_float_new_inline.exit, %RB_FLOAT_TYPE_P.exit.thread43
-  %.031 = phi i64 [ %103, %rb_float_new_inline.exit ], [ %35, %RB_FLOAT_TYPE_P.exit.thread43 ]
+99:                                               ; preds = %rb_float_new_inline.exit, %RB_FLOAT_TYPE_P.exit.thread43
+  %.031 = phi i64 [ %98, %rb_float_new_inline.exit ], [ %35, %RB_FLOAT_TYPE_P.exit.thread43 ]
   ret i64 %.031
 }
 

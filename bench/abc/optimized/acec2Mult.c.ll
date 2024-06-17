@@ -5343,15 +5343,15 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %narrow.i23, label %.sink.split, label %64
 
 .sink.split:                                      ; preds = %55, %44
-  %.sink30 = phi i64 [ %54, %44 ], [ %.val14, %55 ]
+  %.val14.sink = phi i64 [ %54, %44 ], [ %.val14, %55 ]
   %.sink28 = load ptr, ptr %8, align 8
-  %56 = trunc i64 %.sink30 to i32
+  %56 = trunc i64 %.val14.sink to i32
   %57 = and i32 %56, 536870911
   %58 = sub nsw i32 %1, %57
   %59 = getelementptr i8, ptr %.sink28, i64 8
-  %.val19 = load ptr, ptr %59, align 8
+  %.val18 = load ptr, ptr %59, align 8
   %60 = sext i32 %58 to i64
-  %61 = getelementptr inbounds i32, ptr %.val19, i64 %60
+  %61 = getelementptr inbounds i32, ptr %.val18, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 4

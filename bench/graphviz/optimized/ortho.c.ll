@@ -111,8 +111,8 @@ define void @orthoEdges(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.preheader, %17, %18, %19, %20
-  %.sink335 = phi i32 [ 18, %17 ], [ 1, %18 ], [ 4, %19 ], [ 2, %20 ], [ 8, %.preheader ]
-  %21 = or i32 %14, %.sink335
+  %.sink311 = phi i32 [ 2, %20 ], [ 4, %19 ], [ 1, %18 ], [ 18, %17 ], [ 8, %.preheader ]
+  %21 = or i32 %14, %.sink311
   store i32 %21, ptr @odb_flags, align 4
   br label %22
 
@@ -973,10 +973,10 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
 .lr.ph257.preheader:                              ; preds = %.lr.ph.i168.preheader
   %451 = load i32, ptr %450, align 8
   %452 = and i32 %451, 1
-  %.not37.i326 = icmp eq i32 %452, 0
-  br i1 %.not37.i326, label %.lr.ph327, label %.critedge2.i
+  %.not37.i327 = icmp eq i32 %452, 0
+  br i1 %.not37.i327, label %.lr.ph328, label %.critedge2.i
 
-.lr.ph.i168:                                      ; preds = %.lr.ph327
+.lr.ph.i168:                                      ; preds = %.lr.ph328
   %453 = getelementptr inbounds i8, ptr %462, i64 40
   %454 = load ptr, ptr %453, align 8
   %.not36.i = icmp eq ptr %454, null
@@ -986,9 +986,9 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
   %455 = load i32, ptr %454, align 8
   %456 = and i32 %455, 1
   %.not37.i = icmp eq i32 %456, 0
-  br i1 %.not37.i, label %.lr.ph327, label %.critedge2.i
+  br i1 %.not37.i, label %.lr.ph328, label %.critedge2.i
 
-.lr.ph327:                                        ; preds = %.lr.ph257.preheader, %.lr.ph257
+.lr.ph328:                                        ; preds = %.lr.ph257.preheader, %.lr.ph257
   %457 = phi i32 [ %455, %.lr.ph257 ], [ %451, %.lr.ph257.preheader ]
   %458 = phi ptr [ %454, %.lr.ph257 ], [ %450, %.lr.ph257.preheader ]
   %459 = or i32 %457, 4
@@ -999,8 +999,8 @@ gv_alloc.exit.i:                                  ; preds = %.critedge.i
   %.not35.i = icmp eq ptr %462, null
   br i1 %.not35.i, label %.critedge2.i, label %.lr.ph.i168
 
-.critedge2.i:                                     ; preds = %.lr.ph327, %.lr.ph257, %.lr.ph.i168, %.lr.ph257.preheader, %.lr.ph.i168.preheader, %gv_alloc.exit.i
-  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i168.preheader ], [ %.0.i, %.lr.ph257.preheader ], [ %458, %.lr.ph.i168 ], [ %458, %.lr.ph257 ], [ %458, %.lr.ph327 ]
+.critedge2.i:                                     ; preds = %.lr.ph328, %.lr.ph257, %.lr.ph.i168, %.lr.ph257.preheader, %.lr.ph.i168.preheader, %gv_alloc.exit.i
+  %.1.lcssa.i = phi ptr [ %.0.i, %gv_alloc.exit.i ], [ %.0.i, %.lr.ph.i168.preheader ], [ %.0.i, %.lr.ph257.preheader ], [ %458, %.lr.ph.i168 ], [ %458, %.lr.ph257 ], [ %458, %.lr.ph328 ]
   %463 = getelementptr inbounds i8, ptr %.1.lcssa.i, i64 88
   %464 = load double, ptr %463, align 8
   %465 = getelementptr inbounds i8, ptr %435, i64 24
@@ -1100,10 +1100,10 @@ gv_alloc.exit.i182:                               ; preds = %.critedge.i181
 .lr.ph265.preheader:                              ; preds = %.lr.ph.i184.preheader
   %512 = load i32, ptr %511, align 8
   %513 = and i32 %512, 1
-  %.not37.i187330 = icmp eq i32 %513, 0
-  br i1 %.not37.i187330, label %.lr.ph331, label %.critedge2.i188
+  %.not37.i187331 = icmp eq i32 %513, 0
+  br i1 %.not37.i187331, label %.lr.ph332, label %.critedge2.i188
 
-.lr.ph.i184:                                      ; preds = %.lr.ph331
+.lr.ph.i184:                                      ; preds = %.lr.ph332
   %514 = getelementptr inbounds i8, ptr %524, i64 40
   %515 = load ptr, ptr %514, align 8
   %.not36.i186 = icmp eq ptr %515, null
@@ -1113,9 +1113,9 @@ gv_alloc.exit.i182:                               ; preds = %.critedge.i181
   %516 = load i32, ptr %515, align 8
   %517 = and i32 %516, 1
   %.not37.i187 = icmp eq i32 %517, 0
-  br i1 %.not37.i187, label %.lr.ph331, label %.critedge2.i188
+  br i1 %.not37.i187, label %.lr.ph332, label %.critedge2.i188
 
-.lr.ph331:                                        ; preds = %.lr.ph265.preheader, %.lr.ph265
+.lr.ph332:                                        ; preds = %.lr.ph265.preheader, %.lr.ph265
   %518 = phi i32 [ %516, %.lr.ph265 ], [ %512, %.lr.ph265.preheader ]
   %519 = phi ptr [ %515, %.lr.ph265 ], [ %511, %.lr.ph265.preheader ]
   %520 = or i32 %518, 2
@@ -1127,8 +1127,8 @@ gv_alloc.exit.i182:                               ; preds = %.critedge.i181
   %.not35.i191 = icmp eq ptr %524, null
   br i1 %.not35.i191, label %.critedge2.i188, label %.lr.ph.i184
 
-.critedge2.i188:                                  ; preds = %.lr.ph331, %.lr.ph265, %.lr.ph.i184, %.lr.ph265.preheader, %.lr.ph.i184.preheader, %gv_alloc.exit.i182
-  %.1.lcssa.i189 = phi ptr [ %.0.i177, %gv_alloc.exit.i182 ], [ %.0.i177, %.lr.ph.i184.preheader ], [ %.0.i177, %.lr.ph265.preheader ], [ %519, %.lr.ph.i184 ], [ %519, %.lr.ph265 ], [ %519, %.lr.ph331 ]
+.critedge2.i188:                                  ; preds = %.lr.ph332, %.lr.ph265, %.lr.ph.i184, %.lr.ph265.preheader, %.lr.ph.i184.preheader, %gv_alloc.exit.i182
+  %.1.lcssa.i189 = phi ptr [ %.0.i177, %gv_alloc.exit.i182 ], [ %.0.i177, %.lr.ph.i184.preheader ], [ %.0.i177, %.lr.ph265.preheader ], [ %519, %.lr.ph.i184 ], [ %519, %.lr.ph265 ], [ %519, %.lr.ph332 ]
   %525 = getelementptr inbounds i8, ptr %.1.lcssa.i189, i64 96
   %526 = load double, ptr %525, align 8
   %527 = getelementptr inbounds i8, ptr %495, i64 24
@@ -3936,8 +3936,8 @@ define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture no
   br label %98
 
 58:                                               ; preds = %51
-  %.0.i..0.i109125 = select i1 %55, ptr %.0.i, ptr %.0.i109
-  %.0.i109..0.i126 = select i1 %55, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109126 = select i1 %55, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i127 = select i1 %55, ptr %.0.i109, ptr %.0.i
   br label %98
 
 59:                                               ; preds = %36
@@ -3949,13 +3949,13 @@ define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture no
   br i1 %62, label %65, label %66
 
 65:                                               ; preds = %59
-  %.0.i..0.i109127 = select i1 %63, ptr %.0.i, ptr %.0.i109
-  %.0.i109..0.i128 = select i1 %63, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109128 = select i1 %63, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i129 = select i1 %63, ptr %.0.i109, ptr %.0.i
   br label %98
 
 66:                                               ; preds = %59
-  %.0.i109..0.i129 = select i1 %63, ptr %.0.i109, ptr %.0.i
-  %.0.i..0.i109130 = select i1 %63, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i130 = select i1 %63, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109131 = select i1 %63, ptr %.0.i, ptr %.0.i109
   br label %98
 
 67:                                               ; preds = %27
@@ -3984,13 +3984,13 @@ define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture no
   br i1 %85, label %88, label %89
 
 88:                                               ; preds = %82
-  %.0.i..0.i109131 = select i1 %86, ptr %.0.i, ptr %.0.i109
-  %.0.i109..0.i132 = select i1 %86, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109132 = select i1 %86, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i133 = select i1 %86, ptr %.0.i109, ptr %.0.i
   br label %98
 
 89:                                               ; preds = %82
-  %.0.i109..0.i133 = select i1 %86, ptr %.0.i109, ptr %.0.i
-  %.0.i..0.i109134 = select i1 %86, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i134 = select i1 %86, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109135 = select i1 %86, ptr %.0.i, ptr %.0.i109
   br label %98
 
 90:                                               ; preds = %67
@@ -4002,25 +4002,25 @@ define internal fastcc void @set_parallel_edges(ptr noundef %0, ptr nocapture no
   br i1 %93, label %96, label %97
 
 96:                                               ; preds = %90
-  %.0.i109..0.i135 = select i1 %94, ptr %.0.i109, ptr %.0.i
-  %.0.i..0.i109136 = select i1 %94, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i136 = select i1 %94, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109137 = select i1 %94, ptr %.0.i, ptr %.0.i109
   br label %98
 
 97:                                               ; preds = %90
-  %.0.i..0.i109137 = select i1 %94, ptr %.0.i, ptr %.0.i109
-  %.0.i109..0.i138 = select i1 %94, ptr %.0.i109, ptr %.0.i
+  %.0.i..0.i109138 = select i1 %94, ptr %.0.i, ptr %.0.i109
+  %.0.i109..0.i139 = select i1 %94, ptr %.0.i109, ptr %.0.i
   br label %98
 
 98:                                               ; preds = %97, %96, %89, %88, %66, %65, %58, %57
-  %.0.i109.sink = phi ptr [ %.0.i109..0.i, %57 ], [ %.0.i..0.i109125, %58 ], [ %.0.i..0.i109127, %65 ], [ %.0.i109..0.i129, %66 ], [ %.0.i..0.i109131, %88 ], [ %.0.i109..0.i133, %89 ], [ %.0.i109..0.i135, %96 ], [ %.0.i..0.i109137, %97 ]
-  %.0.i.sink = phi ptr [ %.0.i..0.i109, %57 ], [ %.0.i109..0.i126, %58 ], [ %.0.i109..0.i128, %65 ], [ %.0.i..0.i109130, %66 ], [ %.0.i109..0.i132, %88 ], [ %.0.i..0.i109134, %89 ], [ %.0.i..0.i109136, %96 ], [ %.0.i109..0.i138, %97 ]
-  %.sink117 = phi ptr [ %56, %57 ], [ %56, %58 ], [ %64, %65 ], [ %64, %66 ], [ %87, %88 ], [ %87, %89 ], [ %95, %96 ], [ %95, %97 ]
+  %.0.i109.sink = phi ptr [ %.0.i109..0.i, %57 ], [ %.0.i..0.i109126, %58 ], [ %.0.i..0.i109128, %65 ], [ %.0.i109..0.i130, %66 ], [ %.0.i..0.i109132, %88 ], [ %.0.i109..0.i134, %89 ], [ %.0.i109..0.i136, %96 ], [ %.0.i..0.i109138, %97 ]
+  %.0.i.sink = phi ptr [ %.0.i..0.i109, %57 ], [ %.0.i109..0.i127, %58 ], [ %.0.i109..0.i129, %65 ], [ %.0.i..0.i109131, %66 ], [ %.0.i109..0.i133, %88 ], [ %.0.i..0.i109135, %89 ], [ %.0.i..0.i109137, %96 ], [ %.0.i109..0.i139, %97 ]
+  %.sink121 = phi ptr [ %56, %57 ], [ %56, %58 ], [ %64, %65 ], [ %64, %66 ], [ %87, %88 ], [ %87, %89 ], [ %95, %96 ], [ %95, %97 ]
   %.0103 = phi ptr [ %43, %57 ], [ %43, %58 ], [ %43, %65 ], [ %43, %66 ], [ %74, %88 ], [ %74, %89 ], [ %74, %96 ], [ %74, %97 ]
   %99 = getelementptr inbounds i8, ptr %.0.i109.sink, i64 40
   %100 = load i32, ptr %99, align 8
   %101 = getelementptr inbounds i8, ptr %.0.i.sink, i64 40
   %102 = load i32, ptr %101, align 8
-  tail call void @insert_edge(ptr noundef %.sink117, i32 noundef %100, i32 noundef %102) #17
+  tail call void @insert_edge(ptr noundef %.sink121, i32 noundef %100, i32 noundef %102) #17
   %103 = add nuw i32 %.0105111, 1
   %exitcond.not = icmp eq i32 %.0105111, %4
   br i1 %exitcond.not, label %._crit_edge, label %27

@@ -863,8 +863,8 @@ land.lhs.true.i58:                                ; preds = %sw.epilog.i
   %switch.offset541 = zext nneg i8 %narrow to i32
   %retval.0.i57430.ph = select i1 %or.cond569, i32 %switch.offset541, i32 60
   store ptr %10, ptr %sw, align 8
-  %statistics_.i428 = getelementptr inbounds i8, ptr %sw, i64 8
-  store ptr %11, ptr %statistics_.i428, align 8
+  %statistics_.i468 = getelementptr inbounds i8, ptr %sw, i64 8
+  store ptr %11, ptr %statistics_.i468, align 8
   %hist_type_1_.i469 = getelementptr inbounds i8, ptr %sw, i64 16
   br label %land.lhs.true15.i
 
@@ -880,7 +880,7 @@ switch.lookup:                                    ; preds = %if.end16
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true.i58, %switch.lookup
   %hist_type_1_.i437 = phi ptr [ %hist_type_1_.i, %switch.lookup ], [ %hist_type_1_.i469, %land.lhs.true.i58 ]
-  %statistics_.i436 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i428, %land.lhs.true.i58 ]
+  %statistics_.i436 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i468, %land.lhs.true.i58 ]
   %retval.0.i57430 = phi i32 [ %switch.offset, %switch.lookup ], [ %retval.0.i57430.ph, %land.lhs.true.i58 ]
   %vtable.i = load ptr, ptr %11, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 248
@@ -2949,8 +2949,8 @@ land.lhs.true.i:                                  ; preds = %sw.epilog.i
   %switch.offset423 = zext nneg i8 %narrow to i32
   %retval.0.i315.ph = select i1 %or.cond425, i32 %switch.offset423, i32 60
   store ptr %4, ptr %sw, align 8
-  %statistics_.i313 = getelementptr inbounds i8, ptr %sw, i64 8
-  store ptr %5, ptr %statistics_.i313, align 8
+  %statistics_.i331 = getelementptr inbounds i8, ptr %sw, i64 8
+  store ptr %5, ptr %statistics_.i331, align 8
   %hist_type_1_.i332 = getelementptr inbounds i8, ptr %sw, i64 16
   br label %land.lhs.true15.i
 
@@ -2966,7 +2966,7 @@ switch.lookup:                                    ; preds = %for.end
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true.i, %switch.lookup
   %hist_type_1_.i322 = phi ptr [ %hist_type_1_.i, %switch.lookup ], [ %hist_type_1_.i332, %land.lhs.true.i ]
-  %statistics_.i321 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i313, %land.lhs.true.i ]
+  %statistics_.i321 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i331, %land.lhs.true.i ]
   %retval.0.i315 = phi i32 [ %switch.offset, %switch.lookup ], [ %retval.0.i315.ph, %land.lhs.true.i ]
   %vtable.i = load ptr, ptr %5, align 8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 248
@@ -4911,8 +4911,8 @@ land.lhs.true.i67:                                ; preds = %sw.epilog.i
   %switch.offset423 = zext nneg i8 %narrow to i32
   %retval.0.i66330.ph = select i1 %or.cond, i32 %switch.offset423, i32 60
   store ptr %53, ptr %sw, align 8
-  %statistics_.i328 = getelementptr inbounds i8, ptr %sw, i64 8
-  store ptr %54, ptr %statistics_.i328, align 8
+  %statistics_.i362 = getelementptr inbounds i8, ptr %sw, i64 8
+  store ptr %54, ptr %statistics_.i362, align 8
   %hist_type_1_.i363 = getelementptr inbounds i8, ptr %sw, i64 16
   br label %land.lhs.true15.i
 
@@ -4928,7 +4928,7 @@ switch.lookup:                                    ; preds = %invoke.cont43
 
 land.lhs.true15.i:                                ; preds = %land.lhs.true.i67, %switch.lookup
   %hist_type_1_.i337 = phi ptr [ %hist_type_1_.i, %switch.lookup ], [ %hist_type_1_.i363, %land.lhs.true.i67 ]
-  %statistics_.i336 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i328, %land.lhs.true.i67 ]
+  %statistics_.i336 = phi ptr [ %statistics_.i, %switch.lookup ], [ %statistics_.i362, %land.lhs.true.i67 ]
   %retval.0.i66330 = phi i32 [ %switch.offset, %switch.lookup ], [ %retval.0.i66330.ph, %land.lhs.true.i67 ]
   %vtable.i70 = load ptr, ptr %54, align 8
   %vfn.i71 = getelementptr inbounds i8, ptr %vtable.i70, i64 248
@@ -5347,8 +5347,8 @@ land.lhs.true.i139:                               ; preds = %sw.epilog.i137
   %switch.offset430 = zext nneg i8 %narrow432 to i32
   %retval.0.i135346.ph = select i1 %or.cond434, i32 %switch.offset430, i32 60
   store ptr %114, ptr %sw77, align 8
-  %statistics_.i149344 = getelementptr inbounds i8, ptr %sw77, i64 8
-  store ptr %115, ptr %statistics_.i149344, align 8
+  %statistics_.i149378 = getelementptr inbounds i8, ptr %sw77, i64 8
+  store ptr %115, ptr %statistics_.i149378, align 8
   %hist_type_1_.i150379 = getelementptr inbounds i8, ptr %sw77, i64 16
   br label %land.lhs.true15.i152
 
@@ -5364,7 +5364,7 @@ switch.lookup424:                                 ; preds = %if.else
 
 land.lhs.true15.i152:                             ; preds = %land.lhs.true.i139, %switch.lookup424
   %hist_type_1_.i150353 = phi ptr [ %hist_type_1_.i150, %switch.lookup424 ], [ %hist_type_1_.i150379, %land.lhs.true.i139 ]
-  %statistics_.i149352 = phi ptr [ %statistics_.i149, %switch.lookup424 ], [ %statistics_.i149344, %land.lhs.true.i139 ]
+  %statistics_.i149352 = phi ptr [ %statistics_.i149, %switch.lookup424 ], [ %statistics_.i149378, %land.lhs.true.i139 ]
   %retval.0.i135346 = phi i32 [ %switch.offset426, %switch.lookup424 ], [ %retval.0.i135346.ph, %land.lhs.true.i139 ]
   %vtable.i153 = load ptr, ptr %115, align 8
   %vfn.i154 = getelementptr inbounds i8, ptr %vtable.i153, i64 248

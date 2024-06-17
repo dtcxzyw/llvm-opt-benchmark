@@ -7209,11 +7209,7 @@ if.then:                                          ; preds = %_ZN6hermes2vm6Handl
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr nonnull %retval.sroa.0.0.i, ptr noundef nonnull align 8 dereferenceable(9832) %this, i32 140, ptr nonnull %retval.sroa.0.0.i, i32 0, ptr noundef null) #26
   %8 = extractvalue { i32, i64 } %call.i, 0
   %cmp.i = icmp eq i32 %8, 0
-  br i1 %cmp.i, label %if.then17, label %if.end40.thread136
-
-if.end40.thread136:                               ; preds = %if.then
-  %add.ptr.i.i.i.i.i.i139 = getelementptr inbounds i8, ptr %tmp, i64 16
-  br label %lor.rhs
+  br i1 %cmp.i, label %if.then17, label %lor.rhs
 
 if.then17:                                        ; preds = %if.then
   %formattingStackTrace_.i = getelementptr inbounds i8, ptr %this, i64 9097
@@ -7263,16 +7259,12 @@ if.then.i.i31:                                    ; preds = %if.then.i
   br label %"_ZN4llvh6detail10scope_exitIZN6hermes2vm7Runtime14printExceptionERNS_11raw_ostreamENS3_6HandleINS3_11HermesValueEEEE3$_0ED2Ev.exit"
 
 "_ZN4llvh6detail10scope_exitIZN6hermes2vm7Runtime14printExceptionERNS_11raw_ostreamENS3_6HandleINS3_11HermesValueEEEE3$_0ED2Ev.exit": ; preds = %if.then.i, %if.then.i.i31
-  br i1 %cmp.i14.not, label %cleanup.cont99, label %if.end40
+  br i1 %cmp.i14.not, label %cleanup.cont99, label %lor.rhs
 
-if.end40:                                         ; preds = %"_ZN4llvh6detail10scope_exitIZN6hermes2vm7Runtime14printExceptionERNS_11raw_ostreamENS3_6HandleINS3_11HermesValueEEEE3$_0ED2Ev.exit"
+lor.rhs:                                          ; preds = %"_ZN4llvh6detail10scope_exitIZN6hermes2vm7Runtime14printExceptionERNS_11raw_ostreamENS3_6HandleINS3_11HermesValueEEEE3$_0ED2Ev.exit", %if.then
+  %call.i.pn = phi { i32, i64 } [ %call.i, %if.then ], [ %call.i13, %"_ZN4llvh6detail10scope_exitIZN6hermes2vm7Runtime14printExceptionERNS_11raw_ostreamENS3_6HandleINS3_11HermesValueEEEE3$_0ED2Ev.exit" ]
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 16
-  br label %lor.rhs
-
-lor.rhs:                                          ; preds = %if.end40, %if.end40.thread136
-  %storemerge = phi ptr [ %add.ptr.i.i.i.i.i.i139, %if.end40.thread136 ], [ %add.ptr.i.i.i.i.i.i, %if.end40 ]
-  %call.i.pn = phi { i32, i64 } [ %call.i, %if.end40.thread136 ], [ %call.i13, %if.end40 ]
-  store ptr %storemerge, ptr %tmp, align 8
+  store ptr %add.ptr.i.i.i.i.i.i, ptr %tmp, align 8
   %Size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store i32 0, ptr %Size.i.i.i.i.i.i, align 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %tmp, i64 12
@@ -7284,7 +7276,7 @@ lor.rhs:                                          ; preds = %if.end40, %if.end40
 
 if.then45:                                        ; preds = %if.end40.thread, %lor.rhs
   %Size.i.i.i.i.i.i135 = phi ptr [ %Size.i.i.i.i.i.i130, %if.end40.thread ], [ %Size.i.i.i.i.i.i, %lor.rhs ]
-  %add.ptr.i.i.i.i.i.i134 = phi ptr [ %add.ptr.i.i.i.i.i.i129, %if.end40.thread ], [ %storemerge, %lor.rhs ]
+  %add.ptr.i.i.i.i.i.i134 = phi ptr [ %add.ptr.i.i.i.i.i.i129, %if.end40.thread ], [ %add.ptr.i.i.i.i.i.i, %lor.rhs ]
   %call49 = call ptr @_ZN6hermes2vm12toString_RJSERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEE(ptr noundef nonnull align 8 dereferenceable(9832) %this, ptr nonnull %valueHandle.coerce) #26
   %cmp.i.i34.not = icmp eq ptr %call49, inttoptr (i64 -1 to ptr)
   br i1 %cmp.i.i34.not, label %if.then53, label %if.end55
@@ -7437,7 +7429,7 @@ if.then4.i.i116:                                  ; preds = %if.end92
   br label %cleanup97
 
 cleanup97:                                        ; preds = %if.then4.i.i116, %if.then.i.i119, %if.then4.i.i98, %if.then.i.i101, %if.then4.i.i80, %if.then.i.i83, %if.then4.i.i60, %if.then.i.i63, %if.then4.i.i45, %if.then.i.i48
-  %add.ptr.i.i.i.i.i.i133 = phi ptr [ %add.ptr.i.i.i.i.i.i134, %if.then.i.i48 ], [ %add.ptr.i.i.i.i.i.i134, %if.then4.i.i45 ], [ %add.ptr.i.i.i.i.i.i134, %if.then.i.i63 ], [ %add.ptr.i.i.i.i.i.i134, %if.then4.i.i60 ], [ %storemerge, %if.then.i.i83 ], [ %storemerge, %if.then4.i.i80 ], [ %storemerge, %if.then.i.i101 ], [ %storemerge, %if.then4.i.i98 ], [ %storemerge, %if.then.i.i119 ], [ %storemerge, %if.then4.i.i116 ]
+  %add.ptr.i.i.i.i.i.i133 = phi ptr [ %add.ptr.i.i.i.i.i.i134, %if.then.i.i48 ], [ %add.ptr.i.i.i.i.i.i134, %if.then4.i.i45 ], [ %add.ptr.i.i.i.i.i.i134, %if.then.i.i63 ], [ %add.ptr.i.i.i.i.i.i134, %if.then4.i.i60 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i83 ], [ %add.ptr.i.i.i.i.i.i, %if.then4.i.i80 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i101 ], [ %add.ptr.i.i.i.i.i.i, %if.then4.i.i98 ], [ %add.ptr.i.i.i.i.i.i, %if.then.i.i119 ], [ %add.ptr.i.i.i.i.i.i, %if.then4.i.i116 ]
   %40 = load ptr, ptr %tmp, align 8
   %cmp.i.i.i.i = icmp eq ptr %40, %add.ptr.i.i.i.i.i.i133
   br i1 %cmp.i.i.i.i, label %cleanup.cont99, label %if.then.i.i.i

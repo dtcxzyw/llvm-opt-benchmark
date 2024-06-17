@@ -1511,8 +1511,8 @@ if.else194.i:                                     ; preds = %land.lhs.true188.i,
   br i1 %tobool.not.i119.i, label %if.then198.i, label %if.end196.sink.split.i
 
 if.end196.sink.split.i:                           ; preds = %if.else194.i, %if.then.i115.i
-  %call195.i.sink = phi ptr [ %call193.i, %if.then.i115.i ], [ %call195.i, %if.else194.i ]
-  %call.i121.i = call ptr @xstrdup(ptr noundef nonnull %call195.i.sink) #21
+  %call195.sink.i = phi ptr [ %call193.i, %if.then.i115.i ], [ %call195.i, %if.else194.i ]
+  %call.i121.i = call ptr @xstrdup(ptr noundef nonnull %call195.sink.i) #21
   store ptr %call.i121.i, ptr @curl_http_proxy, align 8
   br label %if.end196.i
 

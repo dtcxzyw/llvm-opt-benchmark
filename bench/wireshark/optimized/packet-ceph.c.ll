@@ -3626,47 +3626,42 @@ define internal fastcc noundef i32 @c_dissect_entityaddr(ptr noundef %0, i32 nou
   %23 = load i32, ptr @hf_inet_family, align 4
   %24 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %23, ptr noundef %3, i32 noundef %16, i32 noundef 2, i32 noundef 0) #8
   switch i16 %21, label %c_dissect_sockaddr.exit [
-    i16 2, label %25
-    i16 10, label %35
+    i16 2, label %.sink.split.i
+    i16 10, label %25
   ]
 
 25:                                               ; preds = %5
+  br label %.sink.split.i
+
+.sink.split.i:                                    ; preds = %25, %5
+  %.sink38.i = phi i32 [ 8, %25 ], [ 4, %5 ]
+  %.sink36.i = phi i32 [ 3, %25 ], [ 2, %5 ]
+  %hf_addr_ipv6.sink.i = phi ptr [ @hf_addr_ipv6, %25 ], [ @hf_addr_ipv4, %5 ]
+  %.sink34.i = phi i32 [ 16, %25 ], [ 4, %5 ]
   %26 = add i32 %4, 10
   %27 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %26) #8
   %28 = tail call ptr @wmem_packet_scope() #8
-  %29 = add i32 %4, 12
-  %30 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %3, i32 noundef 2, i32 noundef %29) #8
+  %29 = add i32 %.sink38.i, %16
+  %30 = tail call ptr @tvb_address_to_str(ptr noundef %28, ptr noundef %3, i32 noundef %.sink36.i, i32 noundef %29) #8
   %31 = load i32, ptr @hf_port, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %31, ptr noundef %3, i32 noundef %26, i32 noundef 2, i32 noundef 0) #8
-  %33 = load i32, ptr @hf_addr_ipv4, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %33, ptr noundef %3, i32 noundef %29, i32 noundef 4, i32 noundef 0) #8
+  %33 = load i32, ptr %hf_addr_ipv6.sink.i, align 4
+  %34 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %33, ptr noundef %3, i32 noundef %29, i32 noundef %.sink34.i, i32 noundef 0) #8
   br label %c_dissect_sockaddr.exit
 
-35:                                               ; preds = %5
-  %36 = add i32 %4, 10
-  %37 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %3, i32 noundef %36) #8
-  %38 = tail call ptr @wmem_packet_scope() #8
-  %39 = add i32 %4, 16
-  %40 = tail call ptr @tvb_address_to_str(ptr noundef %38, ptr noundef %3, i32 noundef 3, i32 noundef %39) #8
-  %41 = load i32, ptr @hf_port, align 4
-  %42 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %41, ptr noundef %3, i32 noundef %36, i32 noundef 2, i32 noundef 0) #8
-  %43 = load i32, ptr @hf_addr_ipv6, align 4
-  %44 = tail call ptr @proto_tree_add_item(ptr noundef %20, i32 noundef %43, ptr noundef %3, i32 noundef %39, i32 noundef 16, i32 noundef 0) #8
-  br label %c_dissect_sockaddr.exit
-
-c_dissect_sockaddr.exit:                          ; preds = %5, %25, %35
-  %.sroa.9.0.i = phi i16 [ %37, %35 ], [ %27, %25 ], [ 0, %5 ]
-  %.sroa.3.0.i = phi ptr [ %40, %35 ], [ %30, %25 ], [ @.str.1580, %5 ]
-  %45 = tail call ptr @wmem_packet_scope() #8
-  %46 = zext i16 %.sroa.9.0.i to i32
-  %47 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %45, ptr noundef nonnull @.str.1581, ptr noundef %.sroa.3.0.i, i32 noundef %46) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.1582, ptr noundef %47) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.1578, ptr noundef %10, ptr noundef %47) #8
+c_dissect_sockaddr.exit:                          ; preds = %5, %.sink.split.i
+  %.sroa.9.0.i = phi i16 [ 0, %5 ], [ %27, %.sink.split.i ]
+  %.sroa.3.0.i = phi ptr [ @.str.1580, %5 ], [ %30, %.sink.split.i ]
+  %35 = tail call ptr @wmem_packet_scope() #8
+  %36 = zext i16 %.sroa.9.0.i to i32
+  %37 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %35, ptr noundef nonnull @.str.1581, ptr noundef %.sroa.3.0.i, i32 noundef %36) #8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %18, ptr noundef nonnull @.str.1582, ptr noundef %37) #8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %6, ptr noundef nonnull @.str.1578, ptr noundef %10, ptr noundef %37) #8
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %49, label %48
+  br i1 %.not, label %39, label %38
 
-48:                                               ; preds = %c_dissect_sockaddr.exit
-  store ptr %47, ptr %2, align 8
+38:                                               ; preds = %c_dissect_sockaddr.exit
+  store ptr %37, ptr %2, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 16
@@ -3677,11 +3672,11 @@ c_dissect_sockaddr.exit:                          ; preds = %5, %25, %35
   store ptr %10, ptr %.sroa.621.0..sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds i8, ptr %2, i64 32
   store i32 %9, ptr %.sroa.8.0..sroa_idx, align 8
-  br label %49
+  br label %39
 
-49:                                               ; preds = %48, %c_dissect_sockaddr.exit
-  %50 = add i32 %4, 136
-  ret i32 %50
+39:                                               ; preds = %38, %c_dissect_sockaddr.exit
+  %40 = add i32 %4, 136
+  ret i32 %40
 }
 
 declare ptr @val_to_str(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1

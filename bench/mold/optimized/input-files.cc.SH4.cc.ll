@@ -8979,78 +8979,48 @@ _ZNK4mold3elf6SymbolINS0_3SH4EE8is_localERNS0_7ContextIS2_EE.exit: ; preds = %if
 
 if.then29:                                        ; preds = %_ZNK4mold3elf6SymbolINS0_3SH4EE8is_localERNS0_7ContextIS2_EE.exit
   %inc30 = add nsw i64 %local_symtab_idx.2103, 1
-  br i1 %tobool.not.i22, label %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43, label %if.then.i23
-
-if.then.i23:                                      ; preds = %if.then29
-  %28 = load ptr, ptr %buf, align 8
-  %sh_offset.i25 = getelementptr inbounds i8, ptr %27, i64 40
-  %x.0.copyload.i.i26 = load i32, ptr %sh_offset.i25, align 1
-  %idx.ext.i27 = zext i32 %x.0.copyload.i.i26 to i64
-  %add.ptr.i28 = getelementptr inbounds i8, ptr %28, i64 %idx.ext.i27
-  %add.ptr3.i29 = getelementptr inbounds %"class.mold::LittleEndian.250", ptr %add.ptr.i28, i64 %local_symtab_idx.2103
-  br label %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43
-
-_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43: ; preds = %if.then29, %if.then.i23
-  %xindex.0.i31 = phi ptr [ %add.ptr3.i29, %if.then.i23 ], [ null, %if.then29 ]
-  %conv.i32 = trunc i64 %strtab_off.2100 to i32
-  %call4.i33 = tail call { i64, i64 } @_ZN4mold3elf14to_output_esymINS0_3SH4EEENS0_6ElfSymIT_EERNS0_7ContextIS4_EERNS0_6SymbolIS4_EEjPNSt11conditionalIXsrS4_5is_leENS_12LittleEndianIjLi4EEENS_9BigEndianIjLi4EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(51) %20, i32 noundef %conv.i32, ptr noundef %xindex.0.i31) #14
-  %29 = extractvalue { i64, i64 } %call4.i33, 0
-  %30 = extractvalue { i64, i64 } %call4.i33, 1
-  %arrayidx.i34 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %add.ptr, i64 %local_symtab_idx.2103
-  store i64 %29, ptr %arrayidx.i34, align 1
-  %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i35 = getelementptr inbounds i8, ptr %arrayidx.i34, i64 8
-  store i64 %30, ptr %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i35, align 1
-  %add.ptr5.i36 = getelementptr inbounds i8, ptr %add.ptr7, i64 %strtab_off.2100
-  %nameptr.i.i37 = getelementptr inbounds i8, ptr %20, i64 24
-  %31 = load ptr, ptr %nameptr.i.i37, align 8
-  %namelen.i.i38 = getelementptr inbounds i8, ptr %20, i64 32
-  %32 = load i32, ptr %namelen.i.i38, align 8
-  %conv.i.i39 = sext i32 %32 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr5.i36, ptr align 1 %31, i64 %conv.i.i39, i1 false)
-  %add.ptr.i.i40 = getelementptr inbounds i8, ptr %add.ptr5.i36, i64 %conv.i.i39
-  br label %for.inc34.sink.split
+  br i1 %tobool.not.i22, label %for.inc34.sink.split, label %for.inc34.sink.split.sink.split
 
 if.else:                                          ; preds = %_ZNK4mold3elf6SymbolINS0_3SH4EE8is_localERNS0_7ContextIS2_EE.exit
   %inc31 = add nsw i64 %global_symtab_idx.0101, 1
-  br i1 %tobool.not.i22, label %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66, label %if.then.i46
+  br i1 %tobool.not.i22, label %for.inc34.sink.split, label %for.inc34.sink.split.sink.split
 
-if.then.i46:                                      ; preds = %if.else
-  %33 = load ptr, ptr %buf, align 8
+for.inc34.sink.split.sink.split:                  ; preds = %if.else, %if.then29
+  %global_symtab_idx.0101.sink114 = phi i64 [ %local_symtab_idx.2103, %if.then29 ], [ %global_symtab_idx.0101, %if.else ]
+  %global_symtab_idx.1.ph.ph = phi i64 [ %global_symtab_idx.0101, %if.then29 ], [ %inc31, %if.else ]
+  %local_symtab_idx.3.ph.ph = phi i64 [ %inc30, %if.then29 ], [ %local_symtab_idx.2103, %if.else ]
+  %28 = load ptr, ptr %buf, align 8
   %sh_offset.i48 = getelementptr inbounds i8, ptr %27, i64 40
   %x.0.copyload.i.i49 = load i32, ptr %sh_offset.i48, align 1
   %idx.ext.i50 = zext i32 %x.0.copyload.i.i49 to i64
-  %add.ptr.i51 = getelementptr inbounds i8, ptr %33, i64 %idx.ext.i50
-  %add.ptr3.i52 = getelementptr inbounds %"class.mold::LittleEndian.250", ptr %add.ptr.i51, i64 %global_symtab_idx.0101
-  br label %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66
-
-_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66: ; preds = %if.else, %if.then.i46
-  %xindex.0.i54 = phi ptr [ %add.ptr3.i52, %if.then.i46 ], [ null, %if.else ]
-  %conv.i55 = trunc i64 %strtab_off.2100 to i32
-  %call4.i56 = tail call { i64, i64 } @_ZN4mold3elf14to_output_esymINS0_3SH4EEENS0_6ElfSymIT_EERNS0_7ContextIS4_EERNS0_6SymbolIS4_EEjPNSt11conditionalIXsrS4_5is_leENS_12LittleEndianIjLi4EEENS_9BigEndianIjLi4EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(51) %20, i32 noundef %conv.i55, ptr noundef %xindex.0.i54) #14
-  %34 = extractvalue { i64, i64 } %call4.i56, 0
-  %35 = extractvalue { i64, i64 } %call4.i56, 1
-  %arrayidx.i57 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %add.ptr, i64 %global_symtab_idx.0101
-  store i64 %34, ptr %arrayidx.i57, align 1
-  %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i58 = getelementptr inbounds i8, ptr %arrayidx.i57, i64 8
-  store i64 %35, ptr %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i58, align 1
-  %add.ptr5.i59 = getelementptr inbounds i8, ptr %add.ptr7, i64 %strtab_off.2100
-  %nameptr.i.i60 = getelementptr inbounds i8, ptr %20, i64 24
-  %36 = load ptr, ptr %nameptr.i.i60, align 8
-  %namelen.i.i61 = getelementptr inbounds i8, ptr %20, i64 32
-  %37 = load i32, ptr %namelen.i.i61, align 8
-  %conv.i.i62 = sext i32 %37 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr5.i59, ptr align 1 %36, i64 %conv.i.i62, i1 false)
-  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %add.ptr5.i59, i64 %conv.i.i62
+  %add.ptr.i51 = getelementptr inbounds i8, ptr %28, i64 %idx.ext.i50
+  %add.ptr3.i52 = getelementptr inbounds %"class.mold::LittleEndian.250", ptr %add.ptr.i51, i64 %global_symtab_idx.0101.sink114
   br label %for.inc34.sink.split
 
-for.inc34.sink.split:                             ; preds = %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66
-  %add.ptr.i.i63.sink = phi ptr [ %add.ptr.i.i63, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66 ], [ %add.ptr.i.i40, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43 ]
-  %conv.i.i62.sink = phi i64 [ %conv.i.i62, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66 ], [ %conv.i.i39, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43 ]
-  %global_symtab_idx.1.ph = phi i64 [ %inc31, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66 ], [ %global_symtab_idx.0101, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43 ]
-  %local_symtab_idx.3.ph = phi i64 [ %local_symtab_idx.2103, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit66 ], [ %inc30, %_ZZN4mold3elf10ObjectFileINS0_3SH4EE15populate_symtabERNS0_7ContextIS2_EEENKUlRNS0_6SymbolIS2_EElE_clES9_l.exit43 ]
-  store i8 0, ptr %add.ptr.i.i63.sink, align 1
+for.inc34.sink.split:                             ; preds = %for.inc34.sink.split.sink.split, %if.else, %if.then29
+  %xindex.0.i54.sink = phi ptr [ null, %if.then29 ], [ null, %if.else ], [ %add.ptr3.i52, %for.inc34.sink.split.sink.split ]
+  %global_symtab_idx.0101.sink = phi i64 [ %local_symtab_idx.2103, %if.then29 ], [ %global_symtab_idx.0101, %if.else ], [ %global_symtab_idx.0101.sink114, %for.inc34.sink.split.sink.split ]
+  %global_symtab_idx.1.ph = phi i64 [ %global_symtab_idx.0101, %if.then29 ], [ %inc31, %if.else ], [ %global_symtab_idx.1.ph.ph, %for.inc34.sink.split.sink.split ]
+  %local_symtab_idx.3.ph = phi i64 [ %inc30, %if.then29 ], [ %local_symtab_idx.2103, %if.else ], [ %local_symtab_idx.3.ph.ph, %for.inc34.sink.split.sink.split ]
+  %conv.i55 = trunc i64 %strtab_off.2100 to i32
+  %call4.i56 = tail call { i64, i64 } @_ZN4mold3elf14to_output_esymINS0_3SH4EEENS0_6ElfSymIT_EERNS0_7ContextIS4_EERNS0_6SymbolIS4_EEjPNSt11conditionalIXsrS4_5is_leENS_12LittleEndianIjLi4EEENS_9BigEndianIjLi4EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(4568) %ctx, ptr noundef nonnull align 8 dereferenceable(51) %20, i32 noundef %conv.i55, ptr noundef %xindex.0.i54.sink) #14
+  %29 = extractvalue { i64, i64 } %call4.i56, 0
+  %30 = extractvalue { i64, i64 } %call4.i56, 1
+  %arrayidx.i57 = getelementptr inbounds %"struct.mold::elf::ElfSym", ptr %add.ptr, i64 %global_symtab_idx.0101.sink
+  store i64 %29, ptr %arrayidx.i57, align 1
+  %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i58 = getelementptr inbounds i8, ptr %arrayidx.i57, i64 8
+  store i64 %30, ptr %ref.tmp.sroa.2.0.arrayidx.sroa_idx.i58, align 1
+  %add.ptr5.i59 = getelementptr inbounds i8, ptr %add.ptr7, i64 %strtab_off.2100
+  %nameptr.i.i60 = getelementptr inbounds i8, ptr %20, i64 24
+  %31 = load ptr, ptr %nameptr.i.i60, align 8
+  %namelen.i.i61 = getelementptr inbounds i8, ptr %20, i64 32
+  %32 = load i32, ptr %namelen.i.i61, align 8
+  %conv.i.i62 = sext i32 %32 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %add.ptr5.i59, ptr align 1 %31, i64 %conv.i.i62, i1 false)
+  %add.ptr.i.i63 = getelementptr inbounds i8, ptr %add.ptr5.i59, i64 %conv.i.i62
+  store i8 0, ptr %add.ptr.i.i63, align 1
   %add.i.i64 = add i64 %strtab_off.2100, 1
-  %add.i65 = add i64 %add.i.i64, %conv.i.i62.sink
+  %add.i65 = add i64 %add.i.i64, %conv.i.i62
   br label %for.inc34
 
 for.inc34:                                        ; preds = %for.inc34.sink.split, %for.body17, %land.lhs.true
@@ -9058,8 +9028,8 @@ for.inc34:                                        ; preds = %for.inc34.sink.spli
   %global_symtab_idx.1 = phi i64 [ %global_symtab_idx.0101, %land.lhs.true ], [ %global_symtab_idx.0101, %for.body17 ], [ %global_symtab_idx.1.ph, %for.inc34.sink.split ]
   %local_symtab_idx.3 = phi i64 [ %local_symtab_idx.2103, %land.lhs.true ], [ %local_symtab_idx.2103, %for.body17 ], [ %local_symtab_idx.3.ph, %for.inc34.sink.split ]
   %inc35 = add nuw nsw i64 %i12.0102, 1
-  %38 = load i64, ptr %_M_extent.i, align 8
-  %cmp16 = icmp ult i64 %inc35, %38
+  %33 = load i64, ptr %_M_extent.i, align 8
+  %cmp16 = icmp ult i64 %inc35, %33
   br i1 %cmp16, label %for.body17, label %for.end36, !llvm.loop !108
 
 for.end36:                                        ; preds = %for.inc34, %for.cond14.preheader

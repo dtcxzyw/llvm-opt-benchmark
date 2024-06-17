@@ -8126,9 +8126,9 @@ cond.false:                                       ; preds = %land.rhs
 
 land.end.sink.split:                              ; preds = %cond.false, %cond.true
   %.sink = phi i32 [ %23, %cond.true ], [ %26, %cond.false ]
-  %sub.i.i.i = sub i32 %sub.i.i.i.i.i.i, %.sink
-  store i32 %sub.i.i.i, ptr %max_ops.i.i.i.i.i.i, align 4
-  %cmp7.i.i.i56 = icmp sgt i32 %sub.i.i.i, 0
+  %sub.i.i.i55 = sub i32 %sub.i.i.i.i.i.i, %.sink
+  store i32 %sub.i.i.i55, ptr %max_ops.i.i.i.i.i.i, align 4
+  %cmp7.i.i.i56 = icmp sgt i32 %sub.i.i.i55, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.end.sink.split, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit, %lor.lhs.false.i, %land.lhs.true.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true5, %cond.false, %cond.true, %land.lhs.true, %entry
@@ -9107,52 +9107,44 @@ sw.bb:                                            ; preds = %if.end
 
 land.lhs.true.i:                                  ; preds = %sw.bb
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
-  %mapCount.i = getelementptr inbounds i8, ptr %this, i64 2
-  %5 = load i8, ptr %mapCount.i, align 1
-  %conv.i.i5.i = zext i8 %5 to i32
-  %shl.i.i.i = shl nuw nsw i32 %conv.i.i5.i, 8
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
-  %6 = load i8, ptr %arrayidx3.i.i.i, align 1
-  %conv4.i.i.i = zext i8 %6 to i32
-  %add.i.i6.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
-  %7 = load i8, ptr %add.ptr.i.i, align 1
-  %8 = lshr i8 %7, 4
-  %9 = and i8 %8, 3
-  %narrow.i.i = add nuw nsw i8 %9, 1
-  %add.i.i = zext nneg i8 %narrow.i.i to i32
-  %10 = mul nuw nsw i32 %add.i.i6.i, %add.i.i
-  %11 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i9.i = ptrtoint ptr %11 to i64
+  %5 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i9.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i10.i = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i9.i
-  %12 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i12.i = zext i32 %12 to i64
+  %6 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i12.i = zext i32 %6 to i64
   %cmp.i.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i10.i, %conv.i.i12.i
   br i1 %cmp.i.not.i.i, label %return, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i
+  %mapCount.i = getelementptr inbounds i8, ptr %this, i64 2
+  %7 = load i8, ptr %mapCount.i, align 1
+  %conv.i.i5.i = zext i8 %7 to i32
+  %shl.i.i.i = shl nuw nsw i32 %conv.i.i5.i, 8
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
+  %8 = load i8, ptr %arrayidx3.i.i.i, align 1
+  %conv4.i.i.i = zext i8 %8 to i32
+  %add.i.i6.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
+  %9 = load i8, ptr %add.ptr.i.i, align 1
+  %10 = lshr i8 %9, 4
+  %11 = and i8 %10, 3
+  %narrow.i.i = add nuw nsw i8 %11, 1
+  %add.i.i = zext nneg i8 %narrow.i.i to i32
+  %12 = mul nuw nsw i32 %add.i.i6.i, %add.i.i
   %13 = load ptr, ptr %end.i.i.i, align 8
   %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub4.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i, %sub.ptr.lhs.cast.i.i.i5
   %conv5.i.i.i = trunc i64 %sub.ptr.sub4.i.i.i to i32
-  %cmp6.i.not.i.i = icmp ugt i32 %10, %conv5.i.i.i
-  br i1 %cmp6.i.not.i.i, label %return, label %land.rhs.i.i.i
-
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %max_ops.i.i.i = getelementptr inbounds i8, ptr %c, i64 28
-  %14 = load i32, ptr %max_ops.i.i.i, align 4
-  %sub.i.i.i = sub i32 %14, %10
-  store i32 %sub.i.i.i, ptr %max_ops.i.i.i, align 4
-  %cmp7.i.i.i = icmp sgt i32 %sub.i.i.i, 0
-  br label %return
+  %cmp6.i.not.i.i = icmp ugt i32 %12, %conv5.i.i.i
+  br i1 %cmp6.i.not.i.i, label %return, label %return.sink.split
 
 sw.bb10:                                          ; preds = %if.end
   %add.ptr.i.i11 = getelementptr inbounds i8, ptr %this, i64 6
-  %15 = load ptr, ptr %start.i.i.i, align 8
+  %14 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i13 = ptrtoint ptr %add.ptr.i.i11 to i64
-  %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i.i14
-  %16 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i17 = zext i32 %16 to i64
+  %15 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i17 = zext i32 %15 to i64
   %cmp.i.i.not.i18 = icmp ugt i64 %sub.ptr.sub.i.i.i15, %conv.i.i.i17
   %end.i.i.i19 = getelementptr inbounds i8, ptr %c, i64 16
   br i1 %cmp.i.i.not.i18, label %return, label %land.lhs.true.i20
@@ -9160,60 +9152,61 @@ sw.bb10:                                          ; preds = %if.end
 land.lhs.true.i20:                                ; preds = %sw.bb10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #13, !srcloc !7
   %mapCount.i21 = getelementptr inbounds i8, ptr %this, i64 2
-  %17 = load i8, ptr %mapCount.i21, align 1
-  %conv.i.i5.i22 = zext i8 %17 to i32
+  %16 = load i8, ptr %mapCount.i21, align 1
+  %conv.i.i5.i22 = zext i8 %16 to i32
   %shl.i.i.i23 = shl nuw i32 %conv.i.i5.i22, 24
   %arrayidx3.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 3
-  %18 = load i8, ptr %arrayidx3.i.i.i24, align 1
-  %conv4.i.i.i25 = zext i8 %18 to i32
+  %17 = load i8, ptr %arrayidx3.i.i.i24, align 1
+  %conv4.i.i.i25 = zext i8 %17 to i32
   %shl5.i.i.i = shl nuw nsw i32 %conv4.i.i.i25, 16
   %add.i.i6.i26 = or disjoint i32 %shl5.i.i.i, %shl.i.i.i23
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %19 = load i8, ptr %arrayidx7.i.i.i, align 1
-  %conv8.i.i.i = zext i8 %19 to i32
+  %18 = load i8, ptr %arrayidx7.i.i.i, align 1
+  %conv8.i.i.i = zext i8 %18 to i32
   %shl9.i.i.i = shl nuw nsw i32 %conv8.i.i.i, 8
   %add10.i.i.i = or disjoint i32 %add.i.i6.i26, %shl9.i.i.i
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
-  %20 = load i8, ptr %arrayidx12.i.i.i, align 1
-  %conv13.i.i.i = zext i8 %20 to i32
+  %19 = load i8, ptr %arrayidx12.i.i.i, align 1
+  %conv13.i.i.i = zext i8 %19 to i32
   %add14.i.i.i = or disjoint i32 %add10.i.i.i, %conv13.i.i.i
-  %21 = load i8, ptr %add.ptr.i.i, align 1
-  %22 = lshr i8 %21, 4
-  %23 = and i8 %22, 3
-  %narrow.i.i28 = add nuw nsw i8 %23, 1
+  %20 = load i8, ptr %add.ptr.i.i, align 1
+  %21 = lshr i8 %20, 4
+  %22 = and i8 %21, 3
+  %narrow.i.i28 = add nuw nsw i8 %22, 1
   %add.i.i29 = zext nneg i8 %narrow.i.i28 to i32
-  %24 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %add14.i.i.i, i32 %add.i.i29)
-  %25 = extractvalue { i32, i1 } %24, 0
-  %26 = extractvalue { i32, i1 } %24, 1
-  br i1 %26, label %return, label %land.rhs.i.i
+  %23 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %add14.i.i.i, i32 %add.i.i29)
+  %24 = extractvalue { i32, i1 } %23, 0
+  %25 = extractvalue { i32, i1 } %23, 1
+  br i1 %25, label %return, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i20
-  %27 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i9.i30 = ptrtoint ptr %27 to i64
+  %26 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i9.i30 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i10.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i9.i30
-  %28 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i12.i32 = zext i32 %28 to i64
+  %27 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i12.i32 = zext i32 %27 to i64
   %cmp.i.not.i.i33 = icmp ugt i64 %sub.ptr.sub.i.i10.i31, %conv.i.i12.i32
   br i1 %cmp.i.not.i.i33, label %return, label %land.lhs.true.i.i.i34
 
 land.lhs.true.i.i.i34:                            ; preds = %land.rhs.i.i
-  %29 = load ptr, ptr %end.i.i.i19, align 8
-  %sub.ptr.lhs.cast2.i.i.i35 = ptrtoint ptr %29 to i64
+  %28 = load ptr, ptr %end.i.i.i19, align 8
+  %sub.ptr.lhs.cast2.i.i.i35 = ptrtoint ptr %28 to i64
   %sub.ptr.sub4.i.i.i36 = sub i64 %sub.ptr.lhs.cast2.i.i.i35, %sub.ptr.lhs.cast.i.i.i13
   %conv5.i.i.i37 = trunc i64 %sub.ptr.sub4.i.i.i36 to i32
-  %cmp6.i.not.i.i38 = icmp ugt i32 %25, %conv5.i.i.i37
-  br i1 %cmp6.i.not.i.i38, label %return, label %land.rhs.i.i.i39
+  %cmp6.i.not.i.i38 = icmp ugt i32 %24, %conv5.i.i.i37
+  br i1 %cmp6.i.not.i.i38, label %return, label %return.sink.split
 
-land.rhs.i.i.i39:                                 ; preds = %land.lhs.true.i.i.i34
+return.sink.split:                                ; preds = %land.lhs.true.i.i.i34, %land.lhs.true.i.i.i
+  %.sink47 = phi i32 [ %12, %land.lhs.true.i.i.i ], [ %24, %land.lhs.true.i.i.i34 ]
   %max_ops.i.i.i40 = getelementptr inbounds i8, ptr %c, i64 28
-  %30 = load i32, ptr %max_ops.i.i.i40, align 4
-  %sub.i.i.i41 = sub i32 %30, %25
+  %29 = load i32, ptr %max_ops.i.i.i40, align 4
+  %sub.i.i.i41 = sub i32 %29, %.sink47
   store i32 %sub.i.i.i41, ptr %max_ops.i.i.i40, align 4
   %cmp7.i.i.i42 = icmp sgt i32 %sub.i.i.i41, 0
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i.i39, %land.lhs.true.i.i.i34, %land.rhs.i.i, %land.lhs.true.i20, %sw.bb10, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true.i, %sw.bb, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true.i ], [ %cmp7.i.i.i, %land.rhs.i.i.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i20 ], [ false, %land.lhs.true.i.i.i34 ], [ false, %land.rhs.i.i ], [ %cmp7.i.i.i42, %land.rhs.i.i.i39 ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true.i.i.i34, %land.rhs.i.i, %land.lhs.true.i20, %sw.bb10, %land.lhs.true.i.i.i, %land.lhs.true.i, %sw.bb, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i20 ], [ false, %land.lhs.true.i.i.i34 ], [ false, %land.rhs.i.i ], [ %cmp7.i.i.i42, %return.sink.split ]
   ret i1 %retval.0
 }
 

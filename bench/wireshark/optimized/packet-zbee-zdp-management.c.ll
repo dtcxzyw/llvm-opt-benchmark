@@ -566,82 +566,71 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_nwk_disc(ptr noundef %0, ptr nound
 
 .lr.ph:                                           ; preds = %27
   %29 = icmp ugt i8 %3, 1
+  %..i = select i1 %29, i32 12, i32 6
+  %.45.i = select i1 %29, i32 8, i32 2
   %.pre25 = load i32, ptr %5, align 4
   br label %30
 
 30:                                               ; preds = %.lr.ph, %zdp_parse_nwk_desc.exit
-  %31 = phi i32 [ %.pre25, %.lr.ph ], [ %72, %zdp_parse_nwk_desc.exit ]
-  %.024 = phi i32 [ 0, %.lr.ph ], [ %73, %zdp_parse_nwk_desc.exit ]
+  %31 = phi i32 [ %.pre25, %.lr.ph ], [ %65, %zdp_parse_nwk_desc.exit ]
+  %.024 = phi i32 [ 0, %.lr.ph ], [ %66, %zdp_parse_nwk_desc.exit ]
   %32 = load i32, ptr @ett_zbee_zdp_nwk_desc, align 4
-  br i1 %29, label %33, label %38
-
-33:                                               ; preds = %30
-  %34 = call ptr @proto_tree_add_subtree(ptr noundef %.022, ptr noundef %0, i32 noundef %31, i32 noundef 12, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.13) #3
-  %35 = load i32, ptr @hf_zbee_zdp_pan_eui64, align 4
-  %36 = load i32, ptr %5, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %34, i32 noundef %35, ptr noundef %0, i32 noundef %36, i32 noundef 8, i32 noundef -2147483648) #3
-  br label %43
-
-38:                                               ; preds = %30
-  %39 = call ptr @proto_tree_add_subtree(ptr noundef %.022, ptr noundef %0, i32 noundef %31, i32 noundef 6, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.13) #3
-  %40 = load i32, ptr @hf_zbee_zdp_pan_uint, align 4
+  %33 = call ptr @proto_tree_add_subtree(ptr noundef %.022, ptr noundef %0, i32 noundef %31, i32 noundef %..i, i32 noundef %32, ptr noundef null, ptr noundef nonnull @.str.13) #3
+  %hf_zbee_zdp_pan_eui64.val.i = load i32, ptr @hf_zbee_zdp_pan_eui64, align 4
+  %hf_zbee_zdp_pan_uint.val.i = load i32, ptr @hf_zbee_zdp_pan_uint, align 4
+  %34 = select i1 %29, i32 %hf_zbee_zdp_pan_eui64.val.i, i32 %hf_zbee_zdp_pan_uint.val.i
+  %35 = load i32, ptr %5, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef %.45.i, i32 noundef -2147483648) #3
+  %37 = load i32, ptr %5, align 4
+  %38 = add i32 %37, %.45.i
+  store i32 %38, ptr %5, align 4
+  %39 = load i32, ptr @hf_zbee_zdp_channel, align 4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 1, i32 noundef -2147483648) #3
   %41 = load i32, ptr %5, align 4
-  %42 = call ptr @proto_tree_add_item(ptr noundef %39, i32 noundef %40, ptr noundef %0, i32 noundef %41, i32 noundef 2, i32 noundef -2147483648) #3
-  br label %43
-
-43:                                               ; preds = %38, %33
-  %.sink40.i = phi i32 [ 2, %38 ], [ 8, %33 ]
-  %.0.i = phi ptr [ %39, %38 ], [ %34, %33 ]
-  %44 = load i32, ptr %5, align 4
-  %45 = add i32 %44, %.sink40.i
-  store i32 %45, ptr %5, align 4
-  %46 = load i32, ptr @hf_zbee_zdp_channel, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %46, ptr noundef %0, i32 noundef %45, i32 noundef 1, i32 noundef -2147483648) #3
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %5, align 4
+  %43 = load i32, ptr @hf_zbee_zdp_profile, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %43, ptr noundef %0, i32 noundef %42, i32 noundef 1, i32 noundef -2147483648) #3
+  %45 = load i32, ptr @hf_zbee_zdp_profile_version, align 4
+  %46 = load i32, ptr %5, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %45, ptr noundef %0, i32 noundef %46, i32 noundef 1, i32 noundef -2147483648) #3
   %48 = load i32, ptr %5, align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr %5, align 4
-  %50 = load i32, ptr @hf_zbee_zdp_profile, align 4
-  %51 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648) #3
-  %52 = load i32, ptr @hf_zbee_zdp_profile_version, align 4
+  %50 = load i32, ptr @hf_zbee_zdp_beacon, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %50, ptr noundef %0, i32 noundef %49, i32 noundef 1, i32 noundef -2147483648) #3
+  %52 = load i32, ptr @hf_zbee_zdp_superframe, align 4
   %53 = load i32, ptr %5, align 4
-  %54 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648) #3
+  %54 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %52, ptr noundef %0, i32 noundef %53, i32 noundef 1, i32 noundef -2147483648) #3
   %55 = load i32, ptr %5, align 4
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %5, align 4
-  %57 = load i32, ptr @hf_zbee_zdp_beacon, align 4
-  %58 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %57, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef -2147483648) #3
-  %59 = load i32, ptr @hf_zbee_zdp_superframe, align 4
-  %60 = load i32, ptr %5, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %59, ptr noundef %0, i32 noundef %60, i32 noundef 1, i32 noundef -2147483648) #3
-  %62 = load i32, ptr %5, align 4
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %62) #3
-  %64 = and i8 %63, 15
-  %65 = icmp eq i8 %64, 15
-  br i1 %65, label %66, label %zdp_parse_nwk_desc.exit
+  %56 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %55) #3
+  %57 = and i8 %56, 15
+  %58 = icmp eq i8 %57, 15
+  br i1 %58, label %59, label %zdp_parse_nwk_desc.exit
 
-66:                                               ; preds = %43
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %58, ptr noundef nonnull @.str.14) #3
+59:                                               ; preds = %30
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %51, ptr noundef nonnull @.str.14) #3
   br label %zdp_parse_nwk_desc.exit
 
-zdp_parse_nwk_desc.exit:                          ; preds = %43, %66
-  %67 = load i32, ptr %5, align 4
-  %68 = add i32 %67, 1
-  store i32 %68, ptr %5, align 4
-  %69 = load i32, ptr @hf_zbee_zdp_permit_joining, align 4
-  %70 = call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 1, i32 noundef -2147483648) #3
-  %71 = load i32, ptr %5, align 4
-  %72 = add i32 %71, 1
-  store i32 %72, ptr %5, align 4
-  %73 = add nuw i32 %.024, 1
-  %74 = load i32, ptr %6, align 4
-  %75 = icmp ult i32 %73, %74
-  br i1 %75, label %30, label %._crit_edge, !llvm.loop !9
+zdp_parse_nwk_desc.exit:                          ; preds = %30, %59
+  %60 = load i32, ptr %5, align 4
+  %61 = add i32 %60, 1
+  store i32 %61, ptr %5, align 4
+  %62 = load i32, ptr @hf_zbee_zdp_permit_joining, align 4
+  %63 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %62, ptr noundef %0, i32 noundef %61, i32 noundef 1, i32 noundef -2147483648) #3
+  %64 = load i32, ptr %5, align 4
+  %65 = add i32 %64, 1
+  store i32 %65, ptr %5, align 4
+  %66 = add nuw i32 %.024, 1
+  %67 = load i32, ptr %6, align 4
+  %68 = icmp ult i32 %66, %67
+  br i1 %68, label %30, label %._crit_edge, !llvm.loop !9
 
 ._crit_edge:                                      ; preds = %zdp_parse_nwk_desc.exit, %27
-  %76 = call ptr @zdp_status_name(i8 noundef zeroext %7) #3
-  call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %76) #3
-  %77 = load i32, ptr %5, align 4
-  call void @zdp_dump_excess(ptr noundef %0, i32 noundef %77, ptr noundef %1, ptr noundef %2) #3
+  %69 = call ptr @zdp_status_name(i8 noundef zeroext %7) #3
+  call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %69) #3
+  %70 = load i32, ptr %5, align 4
+  call void @zdp_dump_excess(ptr noundef %0, i32 noundef %70, ptr noundef %1, ptr noundef %2) #3
   ret void
 }
 
@@ -685,123 +674,110 @@ define hidden void @dissect_zbee_zdp_rsp_mgmt_lqi(ptr noundef %0, ptr noundef %1
 
 .lr.ph:                                           ; preds = %23
   %27 = icmp ugt i8 %3, 1
+  %..i = select i1 %27, i32 8, i32 2
+  %28 = add nuw nsw i32 %..i, 8
+  %29 = add nuw nsw i32 %..i, 10
   %.not.i = icmp eq ptr %25, null
   %.pre = load i32, ptr %6, align 4
-  br label %28
+  br label %30
 
-28:                                               ; preds = %.lr.ph, %zdp_parse_neighbor_table_entry.exit
-  %29 = phi i32 [ %.pre, %.lr.ph ], [ %99, %zdp_parse_neighbor_table_entry.exit ]
-  %.020 = phi i32 [ 0, %.lr.ph ], [ %100, %zdp_parse_neighbor_table_entry.exit ]
+30:                                               ; preds = %.lr.ph, %zdp_parse_neighbor_table_entry.exit
+  %31 = phi i32 [ %.pre, %.lr.ph ], [ %91, %zdp_parse_neighbor_table_entry.exit ]
+  %.020 = phi i32 [ 0, %.lr.ph ], [ %92, %zdp_parse_neighbor_table_entry.exit ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr null, ptr %5, align 8
-  %30 = load i32, ptr @ett_zbee_zdp_table_entry, align 4
-  br i1 %27, label %31, label %36
+  %32 = load i32, ptr @ett_zbee_zdp_table_entry, align 4
+  %33 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %31, i32 noundef %..i, i32 noundef %32, ptr noundef nonnull %5, ptr noundef nonnull @.str.15) #3
+  %hf_zbee_zdp_extended_pan.val.i = load i32, ptr @hf_zbee_zdp_extended_pan, align 4
+  %hf_zbee_zdp_pan_uint.val.i = load i32, ptr @hf_zbee_zdp_pan_uint, align 4
+  %34 = select i1 %27, i32 %hf_zbee_zdp_extended_pan.val.i, i32 %hf_zbee_zdp_pan_uint.val.i
+  %35 = load i32, ptr %6, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %34, ptr noundef %0, i32 noundef %35, i32 noundef %..i, i32 noundef -2147483648) #3
+  %37 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
+  %38 = load i32, ptr %6, align 4
+  %39 = add i32 %38, %..i
+  %40 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %37, ptr noundef %0, i32 noundef %39, i32 noundef 8, i32 noundef -2147483648) #3
+  %41 = load i32, ptr @hf_zbee_zdp_addr, align 4
+  %42 = load i32, ptr %6, align 4
+  %43 = add i32 %28, %42
+  %44 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %41, ptr noundef %0, i32 noundef %43, i32 noundef 2, i32 noundef -2147483648) #3
+  %45 = load i32, ptr @hf_zbee_zdp_table_entry_type, align 4
+  %46 = load i32, ptr %6, align 4
+  %47 = add i32 %46, %29
+  %48 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %45, ptr noundef %0, i32 noundef %47, i32 noundef 1, i32 noundef 0) #3
+  %49 = load i32, ptr %6, align 4
+  %50 = add i32 %49, %29
+  br i1 %27, label %51, label %58
 
-31:                                               ; preds = %28
-  %32 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %29, i32 noundef 8, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull @.str.15) #3
-  %33 = load i32, ptr @hf_zbee_zdp_extended_pan, align 4
-  %34 = load i32, ptr %6, align 4
-  %35 = call ptr @proto_tree_add_item(ptr noundef %32, i32 noundef %33, ptr noundef %0, i32 noundef %34, i32 noundef 8, i32 noundef -2147483648) #3
-  br label %41
+51:                                               ; preds = %30
+  %52 = load i32, ptr @hf_zbee_zdp_table_entry_idle_rx_0c, align 4
+  %53 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %52, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0) #3
+  %54 = load i32, ptr @hf_zbee_zdp_table_entry_relationship_70, align 4
+  %55 = load i32, ptr %6, align 4
+  %56 = add i32 %55, %29
+  %57 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %54, ptr noundef %0, i32 noundef %56, i32 noundef 1, i32 noundef 0) #3
+  br label %69
 
-36:                                               ; preds = %28
-  %37 = call ptr @proto_tree_add_subtree(ptr noundef %25, ptr noundef %0, i32 noundef %29, i32 noundef 2, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull @.str.15) #3
-  %38 = load i32, ptr @hf_zbee_zdp_pan_uint, align 4
-  %39 = load i32, ptr %6, align 4
-  %40 = call ptr @proto_tree_add_item(ptr noundef %37, i32 noundef %38, ptr noundef %0, i32 noundef %39, i32 noundef 2, i32 noundef -2147483648) #3
-  br label %41
+58:                                               ; preds = %30
+  %59 = load i32, ptr @hf_zbee_zdp_table_entry_idle_rx_04, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %59, ptr noundef %0, i32 noundef %50, i32 noundef 1, i32 noundef 0) #3
+  %61 = load i32, ptr @hf_zbee_zdp_table_entry_relationship_18, align 4
+  %62 = load i32, ptr %6, align 4
+  %63 = add i32 %62, %29
+  %64 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %61, ptr noundef %0, i32 noundef %63, i32 noundef 1, i32 noundef 0) #3
+  %65 = load i32, ptr @hf_zbee_zdp_depth, align 4
+  %66 = load i32, ptr %6, align 4
+  %67 = add i32 %66, 13
+  %68 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %65, ptr noundef %0, i32 noundef %67, i32 noundef 1, i32 noundef 0) #3
+  br label %69
 
-41:                                               ; preds = %36, %31
-  %.076.i = phi ptr [ %32, %31 ], [ %37, %36 ]
-  %.0.i = phi i32 [ 8, %31 ], [ 2, %36 ]
-  %42 = load i32, ptr @hf_zbee_zdp_ext_addr, align 4
-  %43 = load i32, ptr %6, align 4
-  %44 = add i32 %43, %.0.i
-  %45 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %42, ptr noundef %0, i32 noundef %44, i32 noundef 8, i32 noundef -2147483648) #3
-  %46 = add nuw nsw i32 %.0.i, 8
-  %47 = load i32, ptr @hf_zbee_zdp_addr, align 4
-  %48 = load i32, ptr %6, align 4
-  %49 = add i32 %46, %48
-  %50 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %47, ptr noundef %0, i32 noundef %49, i32 noundef 2, i32 noundef -2147483648) #3
-  %51 = add nuw nsw i32 %.0.i, 10
-  %52 = load i32, ptr @hf_zbee_zdp_table_entry_type, align 4
-  %53 = load i32, ptr %6, align 4
-  %54 = add i32 %53, %51
-  %55 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %52, ptr noundef %0, i32 noundef %54, i32 noundef 1, i32 noundef 0) #3
-  %56 = load i32, ptr %6, align 4
-  %57 = add i32 %56, %51
-  %58 = add nuw nsw i32 %.0.i, 11
-  br i1 %27, label %59, label %66
+69:                                               ; preds = %58, %51
+  %.sink.i = phi i32 [ 11, %51 ], [ 12, %58 ]
+  %70 = add nuw nsw i32 %.sink.i, %..i
+  %71 = load i32, ptr @hf_zbee_zdp_permit_joining_03, align 4
+  %72 = load i32, ptr %6, align 4
+  %73 = add i32 %72, %70
+  %74 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %71, ptr noundef %0, i32 noundef %73, i32 noundef 1, i32 noundef 0) #3
+  %75 = add nuw nsw i32 %70, 1
+  br i1 %27, label %76, label %82
 
-59:                                               ; preds = %41
-  %60 = load i32, ptr @hf_zbee_zdp_table_entry_idle_rx_0c, align 4
-  %61 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %60, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #3
-  %62 = load i32, ptr @hf_zbee_zdp_table_entry_relationship_70, align 4
-  %63 = load i32, ptr %6, align 4
-  %64 = add i32 %63, %51
-  %65 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %62, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef 0) #3
-  br label %78
+76:                                               ; preds = %69
+  %77 = load i32, ptr @hf_zbee_zdp_depth, align 4
+  %78 = load i32, ptr %6, align 4
+  %79 = add i32 %78, %75
+  %80 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %77, ptr noundef %0, i32 noundef %79, i32 noundef 1, i32 noundef 0) #3
+  %81 = add nuw nsw i32 %70, 2
+  br label %82
 
-66:                                               ; preds = %41
-  %67 = load i32, ptr @hf_zbee_zdp_table_entry_idle_rx_04, align 4
-  %68 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %67, ptr noundef %0, i32 noundef %57, i32 noundef 1, i32 noundef 0) #3
-  %69 = load i32, ptr @hf_zbee_zdp_table_entry_relationship_18, align 4
-  %70 = load i32, ptr %6, align 4
-  %71 = add i32 %70, %51
-  %72 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %69, ptr noundef %0, i32 noundef %71, i32 noundef 1, i32 noundef 0) #3
-  %73 = load i32, ptr @hf_zbee_zdp_depth, align 4
-  %74 = load i32, ptr %6, align 4
-  %75 = add i32 %74, %58
-  %76 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %73, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0) #3
-  %77 = add nuw nsw i32 %.0.i, 12
-  br label %78
+82:                                               ; preds = %76, %69
+  %.2.i = phi i32 [ %81, %76 ], [ %75, %69 ]
+  %83 = load i32, ptr @hf_zbee_zdp_lqi, align 4
+  %84 = load i32, ptr %6, align 4
+  %85 = add i32 %84, %.2.i
+  %86 = call ptr @proto_tree_add_item(ptr noundef %33, i32 noundef %83, ptr noundef %0, i32 noundef %85, i32 noundef 1, i32 noundef 0) #3
+  %87 = add nuw nsw i32 %.2.i, 1
+  br i1 %.not.i, label %zdp_parse_neighbor_table_entry.exit, label %88
 
-78:                                               ; preds = %66, %59
-  %.1.i = phi i32 [ %77, %66 ], [ %58, %59 ]
-  %79 = load i32, ptr @hf_zbee_zdp_permit_joining_03, align 4
-  %80 = load i32, ptr %6, align 4
-  %81 = add i32 %80, %.1.i
-  %82 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %79, ptr noundef %0, i32 noundef %81, i32 noundef 1, i32 noundef 0) #3
-  %83 = add nuw nsw i32 %.1.i, 1
-  br i1 %27, label %84, label %90
-
-84:                                               ; preds = %78
-  %85 = load i32, ptr @hf_zbee_zdp_depth, align 4
-  %86 = load i32, ptr %6, align 4
-  %87 = add i32 %86, %83
-  %88 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %85, ptr noundef %0, i32 noundef %87, i32 noundef 1, i32 noundef 0) #3
-  %89 = add nuw nsw i32 %.1.i, 2
-  br label %90
-
-90:                                               ; preds = %84, %78
-  %.2.i = phi i32 [ %89, %84 ], [ %83, %78 ]
-  %91 = load i32, ptr @hf_zbee_zdp_lqi, align 4
-  %92 = load i32, ptr %6, align 4
-  %93 = add i32 %92, %.2.i
-  %94 = call ptr @proto_tree_add_item(ptr noundef %.076.i, i32 noundef %91, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef 0) #3
-  %95 = add nuw nsw i32 %.2.i, 1
-  br i1 %.not.i, label %zdp_parse_neighbor_table_entry.exit, label %96
-
-96:                                               ; preds = %90
-  %97 = load ptr, ptr %5, align 8
-  call void @proto_item_set_len(ptr noundef %97, i32 noundef %95) #3
+88:                                               ; preds = %82
+  %89 = load ptr, ptr %5, align 8
+  call void @proto_item_set_len(ptr noundef %89, i32 noundef %87) #3
   br label %zdp_parse_neighbor_table_entry.exit
 
-zdp_parse_neighbor_table_entry.exit:              ; preds = %90, %96
-  %98 = load i32, ptr %6, align 4
-  %99 = add i32 %98, %95
-  store i32 %99, ptr %6, align 4
+zdp_parse_neighbor_table_entry.exit:              ; preds = %82, %88
+  %90 = load i32, ptr %6, align 4
+  %91 = add i32 %90, %87
+  store i32 %91, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  %100 = add nuw i32 %.020, 1
-  %101 = load i32, ptr %7, align 4
-  %102 = icmp ult i32 %100, %101
-  br i1 %102, label %28, label %.loopexit, !llvm.loop !10
+  %92 = add nuw i32 %.020, 1
+  %93 = load i32, ptr %7, align 4
+  %94 = icmp ult i32 %92, %93
+  br i1 %94, label %30, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %zdp_parse_neighbor_table_entry.exit, %23, %4
-  %103 = call ptr @zdp_status_name(i8 noundef zeroext %8) #3
-  call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %103) #3
-  %104 = load i32, ptr %6, align 4
-  call void @zdp_dump_excess(ptr noundef %0, i32 noundef %104, ptr noundef %1, ptr noundef %2) #3
+  %95 = call ptr @zdp_status_name(i8 noundef zeroext %8) #3
+  call void (ptr, ptr, ptr, ...) @zbee_append_info(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %95) #3
+  %96 = load i32, ptr %6, align 4
+  call void @zdp_dump_excess(ptr noundef %0, i32 noundef %96, ptr noundef %1, ptr noundef %2) #3
   ret void
 }
 

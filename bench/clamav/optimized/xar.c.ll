@@ -152,7 +152,7 @@ fmap_readn.exit:                                  ; preds = %29
 
 fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn.exit
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #9
-  br label %392
+  br label %393
 
 33:                                               ; preds = %fmap_readn.exit
   %.0..0..0. = load i32, ptr %3, align 8
@@ -164,30 +164,30 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 36:                                               ; preds = %33
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1) #9
   %.4..4..4..sroa_idx = getelementptr inbounds i8, ptr %3, i64 4
-  %.4..4..4.380 = load i16, ptr %.4..4..4..sroa_idx, align 4
-  %rev = tail call i16 @llvm.bswap.i16(i16 %.4..4..4.380)
-  %.4..4..4..sroa_idx970 = getelementptr inbounds i8, ptr %3, i64 4
-  store i16 %rev, ptr %.4..4..4..sroa_idx970, align 4
+  %.4..4..4.386 = load i16, ptr %.4..4..4..sroa_idx, align 4
+  %rev = tail call i16 @llvm.bswap.i16(i16 %.4..4..4.386)
+  %.4..4..4..sroa_idx974 = getelementptr inbounds i8, ptr %3, i64 4
+  store i16 %rev, ptr %.4..4..4..sroa_idx974, align 4
   %.6..6..6..sroa_idx = getelementptr inbounds i8, ptr %3, i64 6
   %.6..6..6. = load i16, ptr %.6..6..6..sroa_idx, align 2
   %rev295 = tail call i16 @llvm.bswap.i16(i16 %.6..6..6.)
-  %.6..6..6..sroa_idx972 = getelementptr inbounds i8, ptr %3, i64 6
-  store i16 %rev295, ptr %.6..6..6..sroa_idx972, align 2
+  %.6..6..6..sroa_idx976 = getelementptr inbounds i8, ptr %3, i64 6
+  store i16 %rev295, ptr %.6..6..6..sroa_idx976, align 2
   %.8..8..8..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
-  %.8..8..8.392 = load i64, ptr %.8..8..8..sroa_idx, align 8
-  %37 = tail call i64 @llvm.bswap.i64(i64 %.8..8..8.392)
-  %.8..8..8..sroa_idx973 = getelementptr inbounds i8, ptr %3, i64 8
-  store i64 %37, ptr %.8..8..8..sroa_idx973, align 8
+  %.8..8..8.398 = load i64, ptr %.8..8..8..sroa_idx, align 8
+  %37 = tail call i64 @llvm.bswap.i64(i64 %.8..8..8.398)
+  %.8..8..8..sroa_idx977 = getelementptr inbounds i8, ptr %3, i64 8
+  store i64 %37, ptr %.8..8..8..sroa_idx977, align 8
   %.16..16..16..sroa_idx = getelementptr inbounds i8, ptr %3, i64 16
-  %.16..16..16.408 = load i64, ptr %.16..16..16..sroa_idx, align 8
-  %38 = tail call i64 @llvm.bswap.i64(i64 %.16..16..16.408)
-  %.16..16..16..sroa_idx975 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %38, ptr %.16..16..16..sroa_idx975, align 8
+  %.16..16..16.414 = load i64, ptr %.16..16..16..sroa_idx, align 8
+  %38 = tail call i64 @llvm.bswap.i64(i64 %.16..16..16.414)
+  %.16..16..16..sroa_idx979 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %38, ptr %.16..16..16..sroa_idx979, align 8
   %.24..24..24..sroa_idx = getelementptr inbounds i8, ptr %3, i64 24
   %.24..24..24. = load i32, ptr %.24..24..24..sroa_idx, align 8
   %39 = tail call i32 @llvm.bswap.i32(i32 %.24..24..24.)
-  %.24..24..24..sroa_idx977 = getelementptr inbounds i8, ptr %3, i64 24
-  store i32 %39, ptr %.24..24..24..sroa_idx977, align 8
+  %.24..24..24..sroa_idx981 = getelementptr inbounds i8, ptr %3, i64 24
+  store i32 %39, ptr %.24..24..24..sroa_idx981, align 8
   %40 = load ptr, ptr %25, align 8
   %41 = zext i16 %rev to i64
   %42 = getelementptr inbounds i8, ptr %40, i64 104
@@ -199,11 +199,11 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 46:                                               ; preds = %33
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.2) #9
-  br label %392
+  br label %393
 
 47:                                               ; preds = %36
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #9
-  br label %392
+  br label %393
 
 48:                                               ; preds = %36
   %49 = trunc i64 %37 to i32
@@ -216,7 +216,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 54:                                               ; preds = %48
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4) #9
-  br label %392
+  br label %393
 
 55:                                               ; preds = %48
   %56 = getelementptr inbounds i8, ptr %52, i64 %38
@@ -232,7 +232,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 61:                                               ; preds = %55
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6, i32 noundef %60) #9
-  br label %.thread434
+  br label %.thread440
 
 62:                                               ; preds = %55
   %63 = call i32 @inflate(ptr noundef nonnull %8, i32 noundef 2) #9
@@ -242,7 +242,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 65:                                               ; preds = %62
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.7, i32 noundef %63) #9
-  br label %.thread434
+  br label %.thread440
 
 66:                                               ; preds = %62
   %.not314 = icmp eq i32 %64, 0
@@ -250,7 +250,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 67:                                               ; preds = %66
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8, i32 noundef %64) #9
-  br label %.thread434
+  br label %.thread440
 
 68:                                               ; preds = %66
   %69 = getelementptr inbounds i8, ptr %8, i64 40
@@ -264,16 +264,16 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %73 = getelementptr inbounds i8, ptr %52, i64 %72
   store i8 0, ptr %73, align 1
   %74 = load i64, ptr %69, align 8
-  %.16..16..16..sroa_idx976 = getelementptr inbounds i8, ptr %3, i64 16
-  store i64 %74, ptr %.16..16..16..sroa_idx976, align 8
+  %.16..16..16..sroa_idx980 = getelementptr inbounds i8, ptr %3, i64 16
+  store i64 %74, ptr %.16..16..16..sroa_idx980, align 8
   br label %75
 
 75:                                               ; preds = %71, %68
-  %.16..16.396 = phi i64 [ %74, %71 ], [ %38, %68 ]
+  %.16..16.402 = phi i64 [ %74, %71 ], [ %38, %68 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.10) #9
-  %76 = call i32 @cli_magic_scan_buff(ptr noundef nonnull %52, i64 noundef %.16..16.396, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #9
+  %76 = call i32 @cli_magic_scan_buff(ptr noundef nonnull %52, i64 noundef %.16..16.402, ptr noundef nonnull %0, ptr noundef null, i32 noundef 0) #9
   %.not316 = icmp eq i32 %76, 0
-  br i1 %.not316, label %77, label %386
+  br i1 %.not316, label %77, label %387
 
 77:                                               ; preds = %75
   %78 = getelementptr inbounds i8, ptr %0, i64 48
@@ -292,11 +292,11 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 86:                                               ; preds = %82
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.11) #9
-  br label %386
+  br label %387
 
 87:                                               ; preds = %82
   %88 = load i32, ptr %2, align 4
-  %89 = call i64 @cli_writen(i32 noundef %88, ptr noundef nonnull %52, i64 noundef %.16..16.396) #9
+  %89 = call i64 @cli_writen(i32 noundef %88, ptr noundef nonnull %52, i64 noundef %.16..16.402) #9
   %90 = icmp eq i64 %89, -1
   br i1 %90, label %91, label %95
 
@@ -305,7 +305,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %92 = load i32, ptr %2, align 4
   %93 = load ptr, ptr %9, align 8
   %94 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef nonnull %0, i32 noundef %92, ptr noundef %93)
-  br label %.thread434
+  br label %.thread440
 
 95:                                               ; preds = %87
   %96 = load i32, ptr %2, align 4
@@ -313,17 +313,17 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %98 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef nonnull %0, i32 noundef %96, ptr noundef %97)
   store ptr null, ptr %9, align 8
   %.not319 = icmp eq i32 %98, 0
-  br i1 %.not319, label %99, label %.thread434
+  br i1 %.not319, label %99, label %.thread440
 
 99:                                               ; preds = %95, %77
-  %100 = trunc i64 %.16..16.396 to i32
+  %100 = trunc i64 %.16..16.402 to i32
   %101 = call ptr @xmlReaderForMemory(ptr noundef nonnull %52, i32 noundef %100, ptr noundef nonnull @.str.13, ptr noundef null, i32 noundef 2080) #9
   %102 = icmp eq ptr %101, null
   br i1 %102, label %103, label %104
 
 103:                                              ; preds = %99
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.14) #9
-  br label %.thread434
+  br label %.thread440
 
 104:                                              ; preds = %99
   %105 = call fastcc i32 @xar_scan_subdocuments(ptr noundef nonnull %101, ptr noundef nonnull %0)
@@ -332,16 +332,16 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 106:                                              ; preds = %104
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15, i32 noundef %105) #9
-  br label %xar_hash_final.exit371
+  br label %xar_hash_final.exit377
 
 107:                                              ; preds = %104
   store i32 -1, ptr %2, align 4
   store ptr null, ptr %9, align 8
   %108 = call fastcc i32 @xar_get_toc_data_values(ptr noundef nonnull %101, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11)
   %109 = icmp eq i32 %108, 0
-  br i1 %109, label %.lr.ph551, label %.loopexit451
+  br i1 %109, label %.lr.ph555, label %.loopexit457
 
-.lr.ph551:                                        ; preds = %107
+.lr.ph555:                                        ; preds = %107
   %110 = getelementptr inbounds i8, ptr %0, i64 16
   %111 = getelementptr inbounds i8, ptr %21, i64 168
   %112 = getelementptr inbounds i8, ptr %21, i64 184
@@ -349,13 +349,13 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %114 = getelementptr inbounds i8, ptr %21, i64 192
   %115 = getelementptr inbounds i8, ptr %26, i64 40
   %116 = getelementptr inbounds i8, ptr %8, i64 48
-  %.8..8..8..sroa_idx974 = getelementptr inbounds i8, ptr %3, i64 8
-  %.4..4..4..sroa_idx971 = getelementptr inbounds i8, ptr %3, i64 4
+  %.8..8..8..sroa_idx978 = getelementptr inbounds i8, ptr %3, i64 8
+  %.4..4..4..sroa_idx975 = getelementptr inbounds i8, ptr %3, i64 4
   br label %117
 
-117:                                              ; preds = %.lr.ph551, %363
-  %.0209546 = phi i32 [ 0, %.lr.ph551 ], [ %.7216, %363 ]
-  %.0218545 = phi i32 [ 0, %.lr.ph551 ], [ %.5223415672, %363 ]
+117:                                              ; preds = %.lr.ph555, %364
+  %.0209550 = phi i32 [ 0, %.lr.ph555 ], [ %.7216, %364 ]
+  %.0218549 = phi i32 [ 0, %.lr.ph555 ], [ %.5223421676, %364 ]
   %118 = load i32, ptr %2, align 4
   %119 = icmp sgt i32 %118, -1
   %120 = load ptr, ptr %9, align 8
@@ -367,14 +367,14 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %123 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef %0, i32 noundef %118, ptr noundef nonnull %120)
   store ptr null, ptr %9, align 8
   %.not321 = icmp eq i32 %123, 0
-  br i1 %.not321, label %124, label %xar_hash_final.exit371
+  br i1 %.not321, label %124, label %xar_hash_final.exit377
 
 124:                                              ; preds = %122, %117
   %125 = load i64, ptr %5, align 8
-  %.8..8..8.385 = load i64, ptr %.8..8..8..sroa_idx974, align 8
-  %126 = add i64 %.8..8..8.385, %125
-  %.4..4..4.375 = load i16, ptr %.4..4..4..sroa_idx971, align 4
-  %127 = zext i16 %.4..4..4.375 to i64
+  %.8..8..8.391 = load i64, ptr %.8..8..8..sroa_idx978, align 8
+  %126 = add i64 %.8..8..8.391, %125
+  %.4..4..4.381 = load i16, ptr %.4..4..4..sroa_idx975, align 4
+  %127 = zext i16 %.4..4..4.381 to i64
   %128 = add i64 %126, %127
   %129 = load ptr, ptr %110, align 8
   %130 = call i32 @cli_gentempfd(ptr noundef %129, ptr noundef nonnull %9, ptr noundef nonnull %2) #9
@@ -383,7 +383,7 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
 
 131:                                              ; preds = %124
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16) #9
-  br label %xar_hash_final.exit371
+  br label %xar_hash_final.exit377
 
 132:                                              ; preds = %124
   %133 = load ptr, ptr %9, align 8
@@ -391,726 +391,757 @@ fmap_readn.exit.thread:                           ; preds = %29, %1, %fmap_readn
   %135 = load i64, ptr %4, align 8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.17, ptr noundef %133, i64 noundef %134, i64 noundef %125, i64 noundef %135) #9
   %136 = load i32, ptr %10, align 4
-  %137 = call fastcc ptr @xar_hash_init(i32 noundef %136, ptr noundef nonnull %16, ptr noundef nonnull %18)
-  %138 = load i32, ptr %11, align 4
-  %139 = call fastcc ptr @xar_hash_init(i32 noundef %138, ptr noundef nonnull %17, ptr noundef nonnull %19)
-  %.fr = freeze ptr %139
-  %140 = load i32, ptr %7, align 4
-  switch i32 %140, label %291 [
-    i32 516, label %141
-    i32 541, label %216
+  switch i32 %136, label %xar_hash_init.exit [
+    i32 1, label %.sink.split.i
+    i32 2, label %137
   ]
 
-141:                                              ; preds = %132
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
-  %142 = call i32 @inflateInit_(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, i32 noundef 112) #9
-  %.not326 = icmp eq i32 %142, 0
-  br i1 %.not326, label %.preheader, label %147
+137:                                              ; preds = %132
+  br label %.sink.split.i
 
-.preheader:                                       ; preds = %141
-  %143 = add i64 %135, %128
-  %144 = load i64, ptr %27, align 8
-  %145 = icmp ult i64 %128, %144
-  %146 = icmp ult i64 %128, %143
-  %or.cond442537 = and i1 %145, %146
-  br i1 %or.cond442537, label %.lr.ph, label %.critedge
+.sink.split.i:                                    ; preds = %137, %132
+  %.str.83.sink.i = phi ptr [ @.str.83, %137 ], [ @.str.82, %132 ]
+  %.sink14.i = phi ptr [ %18, %137 ], [ %16, %132 ]
+  %138 = call ptr @cl_hash_init(ptr noundef nonnull %.str.83.sink.i) #9
+  store ptr %138, ptr %.sink14.i, align 8
+  br label %xar_hash_init.exit
+
+xar_hash_init.exit:                               ; preds = %132, %.sink.split.i
+  %.0.i352 = phi ptr [ null, %132 ], [ %138, %.sink.split.i ]
+  %139 = load i32, ptr %11, align 4
+  switch i32 %139, label %xar_hash_init.exit357 [
+    i32 1, label %.sink.split.i354
+    i32 2, label %140
+  ]
+
+140:                                              ; preds = %xar_hash_init.exit
+  br label %.sink.split.i354
+
+.sink.split.i354:                                 ; preds = %140, %xar_hash_init.exit
+  %.str.83.sink.i355 = phi ptr [ @.str.83, %140 ], [ @.str.82, %xar_hash_init.exit ]
+  %.sink14.i356 = phi ptr [ %19, %140 ], [ %17, %xar_hash_init.exit ]
+  %141 = call ptr @cl_hash_init(ptr noundef nonnull %.str.83.sink.i355) #9
+  store ptr %141, ptr %.sink14.i356, align 8
+  br label %xar_hash_init.exit357
+
+xar_hash_init.exit357:                            ; preds = %xar_hash_init.exit, %.sink.split.i354
+  %.0.i353 = phi ptr [ null, %xar_hash_init.exit ], [ %141, %.sink.split.i354 ]
+  %.0.i353.fr = freeze ptr %.0.i353
+  %142 = load i32, ptr %7, align 4
+  switch i32 %142, label %293 [
+    i32 516, label %143
+    i32 541, label %218
+  ]
+
+143:                                              ; preds = %xar_hash_init.exit357
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %8, i8 0, i64 112, i1 false)
+  %144 = call i32 @inflateInit_(ptr noundef nonnull %8, ptr noundef nonnull @.str.5, i32 noundef 112) #9
+  %.not326 = icmp eq i32 %144, 0
+  br i1 %.not326, label %.preheader, label %149
+
+.preheader:                                       ; preds = %143
+  %145 = add i64 %135, %128
+  %146 = load i64, ptr %27, align 8
+  %147 = icmp ult i64 %128, %146
+  %148 = icmp ult i64 %128, %145
+  %or.cond448541 = and i1 %147, %148
+  br i1 %or.cond448541, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
-  %.not328 = icmp eq ptr %.fr, null
-  %.not333 = icmp eq ptr %137, null
-  br label %149
+  %.not328 = icmp eq ptr %.0.i353.fr, null
+  %.not333 = icmp eq ptr %.0.i352, null
+  br label %151
 
-147:                                              ; preds = %141
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, i32 noundef %142) #9
-  %148 = add i32 %.0218545, 1
-  br label %312
+149:                                              ; preds = %143
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.18, i32 noundef %144) #9
+  %150 = add i32 %.0218549, 1
+  br label %314
 
-149:                                              ; preds = %.lr.ph, %xar_hash_update.exit352
-  %150 = phi i64 [ %144, %.lr.ph ], [ %212, %xar_hash_update.exit352 ]
-  %.1219539 = phi i32 [ %.0218545, %.lr.ph ], [ %.2220, %xar_hash_update.exit352 ]
-  %.0227538 = phi i64 [ %128, %.lr.ph ], [ %161, %xar_hash_update.exit352 ]
-  %151 = sub i64 %150, %.0227538
-  %152 = load i64, ptr %115, align 8
-  %. = call i64 @llvm.umin.i64(i64 %151, i64 %152)
-  %153 = and i64 %., 4294967295
-  %154 = call i64 @llvm.umin.i64(i64 %135, i64 %153)
-  %155 = trunc nuw i64 %154 to i32
-  %156 = load ptr, ptr %30, align 8
-  %157 = call ptr %156(ptr noundef nonnull %26, i64 noundef %.0227538, i64 noundef %154, i32 noundef 0) #9
-  store ptr %157, ptr %8, align 8
-  %.not327 = icmp eq ptr %157, null
-  br i1 %.not327, label %158, label %160
+151:                                              ; preds = %.lr.ph, %xar_hash_update.exit358
+  %152 = phi i64 [ %146, %.lr.ph ], [ %214, %xar_hash_update.exit358 ]
+  %.1219543 = phi i32 [ %.0218549, %.lr.ph ], [ %.2220, %xar_hash_update.exit358 ]
+  %.0227542 = phi i64 [ %128, %.lr.ph ], [ %163, %xar_hash_update.exit358 ]
+  %153 = sub i64 %152, %.0227542
+  %154 = load i64, ptr %115, align 8
+  %. = call i64 @llvm.umin.i64(i64 %153, i64 %154)
+  %155 = and i64 %., 4294967295
+  %156 = call i64 @llvm.umin.i64(i64 %135, i64 %155)
+  %157 = trunc nuw i64 %156 to i32
+  %158 = load ptr, ptr %30, align 8
+  %159 = call ptr %158(ptr noundef nonnull %26, i64 noundef %.0227542, i64 noundef %156, i32 noundef 0) #9
+  store ptr %159, ptr %8, align 8
+  %.not327 = icmp eq ptr %159, null
+  br i1 %.not327, label %160, label %162
 
-158:                                              ; preds = %149
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, i32 noundef %155, i64 noundef %.0227538) #9
-  %159 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
-  br label %.loopexit451
+160:                                              ; preds = %151
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.19, i32 noundef %157, i64 noundef %.0227542) #9
+  %161 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
+  br label %.loopexit457
 
-160:                                              ; preds = %149
-  %161 = add i64 %154, %.0227538
-  store i32 %155, ptr %50, align 8
+162:                                              ; preds = %151
+  %163 = add i64 %156, %.0227542
+  store i32 %157, ptr %50, align 8
   br i1 %.not328, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %160, %175
+.split.us:                                        ; preds = %162, %177
   store i32 8192, ptr %58, align 8
   store ptr %20, ptr %59, align 8
-  %162 = call i32 @inflate(ptr noundef nonnull %8, i32 noundef 2) #9
-  %163 = icmp ne i32 %162, 1
-  switch i32 %162, label %.split529.us [
+  %164 = call i32 @inflate(ptr noundef nonnull %8, i32 noundef 2) #9
+  %165 = icmp ne i32 %164, 1
+  switch i32 %164, label %.split533.us [
     i32 -5, label %xar_hash_update.exit.us
     i32 1, label %xar_hash_update.exit.us
     i32 0, label %xar_hash_update.exit.us
   ]
 
 xar_hash_update.exit.us:                          ; preds = %.split.us, %.split.us, %.split.us
-  %164 = load i32, ptr %58, align 8
-  %165 = sub i32 8192, %164
-  %166 = load i32, ptr %2, align 4
-  %167 = zext i32 %165 to i64
-  %168 = call i64 @cli_writen(i32 noundef %166, ptr noundef nonnull %20, i64 noundef %167) #9
-  %169 = icmp eq i64 %168, -1
-  br i1 %169, label %.split531.us, label %170
+  %166 = load i32, ptr %58, align 8
+  %167 = sub i32 8192, %166
+  %168 = load i32, ptr %2, align 4
+  %169 = zext i32 %167 to i64
+  %170 = call i64 @cli_writen(i32 noundef %168, ptr noundef nonnull %20, i64 noundef %169) #9
+  %171 = icmp eq i64 %170, -1
+  br i1 %171, label %.split535.us, label %172
 
-170:                                              ; preds = %xar_hash_update.exit.us
-  %171 = load i32, ptr %58, align 8
-  %172 = sub i32 8192, %171
-  %173 = sext i32 %172 to i64
-  %174 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %173, i64 noundef 0, i64 noundef 0) #9
-  %.not329.us = icmp eq i32 %174, 0
-  br i1 %.not329.us, label %175, label %.loopexit
+172:                                              ; preds = %xar_hash_update.exit.us
+  %173 = load i32, ptr %58, align 8
+  %174 = sub i32 8192, %173
+  %175 = sext i32 %174 to i64
+  %176 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %175, i64 noundef 0, i64 noundef 0) #9
+  %.not329.us = icmp eq i32 %176, 0
+  br i1 %.not329.us, label %177, label %.loopexit
 
-175:                                              ; preds = %170
-  %176 = load i32, ptr %58, align 8
-  %177 = icmp eq i32 %176, 0
-  %or.cond10.us = select i1 %163, i1 %177, i1 false
+177:                                              ; preds = %172
+  %178 = load i32, ptr %58, align 8
+  %179 = icmp eq i32 %178, 0
+  %or.cond10.us = select i1 %165, i1 %179, i1 false
   br i1 %or.cond10.us, label %.split.us, label %.loopexit
 
-.split:                                           ; preds = %160, %200
+.split:                                           ; preds = %162, %202
   store i32 8192, ptr %58, align 8
   store ptr %20, ptr %59, align 8
-  %178 = call i32 @inflate(ptr noundef nonnull %8, i32 noundef 2) #9
-  %179 = icmp ne i32 %178, 1
-  switch i32 %178, label %.split529.us [
-    i32 -5, label %183
-    i32 1, label %183
-    i32 0, label %183
+  %180 = call i32 @inflate(ptr noundef nonnull %8, i32 noundef 2) #9
+  %181 = icmp ne i32 %180, 1
+  switch i32 %180, label %.split533.us [
+    i32 -5, label %185
+    i32 1, label %185
+    i32 0, label %185
   ]
 
-.split529.us:                                     ; preds = %.split, %.split.us
-  %.us-phi = phi i32 [ %162, %.split.us ], [ %178, %.split ]
-  %180 = load ptr, ptr %116, align 8
-  %.not330 = icmp eq ptr %180, null
-  %181 = select i1 %.not330, ptr @.str.21, ptr %180
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %.us-phi, ptr noundef nonnull %181) #9
-  %182 = add i32 %.1219539, 1
+.split533.us:                                     ; preds = %.split, %.split.us
+  %.us-phi = phi i32 [ %164, %.split.us ], [ %180, %.split ]
+  %182 = load ptr, ptr %116, align 8
+  %.not330 = icmp eq ptr %182, null
+  %183 = select i1 %.not330, ptr @.str.21, ptr %182
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20, i32 noundef %.us-phi, ptr noundef nonnull %183) #9
+  %184 = add i32 %.1219543, 1
   br label %.loopexit
 
-183:                                              ; preds = %.split, %.split, %.split
-  %184 = load i32, ptr %58, align 8
-  %185 = sub i32 8192, %184
-  %186 = zext i32 %185 to i64
-  %.not446 = icmp eq i32 %184, 8192
-  br i1 %.not446, label %xar_hash_update.exit, label %187
+185:                                              ; preds = %.split, %.split, %.split
+  %186 = load i32, ptr %58, align 8
+  %187 = sub i32 8192, %186
+  %188 = zext i32 %187 to i64
+  %.not452 = icmp eq i32 %186, 8192
+  br i1 %.not452, label %xar_hash_update.exit, label %189
 
-187:                                              ; preds = %183
-  switch i32 %138, label %188 [
+189:                                              ; preds = %185
+  switch i32 %139, label %190 [
     i32 0, label %xar_hash_update.exit
     i32 3, label %xar_hash_update.exit
   ]
 
-188:                                              ; preds = %187
-  %189 = call i32 @cl_update_hash(ptr noundef nonnull %.fr, ptr noundef nonnull %20, i64 noundef %186) #9
+190:                                              ; preds = %189
+  %191 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i353.fr, ptr noundef nonnull %20, i64 noundef %188) #9
   br label %xar_hash_update.exit
 
-xar_hash_update.exit:                             ; preds = %188, %187, %187, %183
-  %190 = load i32, ptr %2, align 4
-  %191 = call i64 @cli_writen(i32 noundef %190, ptr noundef nonnull %20, i64 noundef %186) #9
-  %192 = icmp eq i64 %191, -1
-  br i1 %192, label %.split531.us, label %195
+xar_hash_update.exit:                             ; preds = %190, %189, %189, %185
+  %192 = load i32, ptr %2, align 4
+  %193 = call i64 @cli_writen(i32 noundef %192, ptr noundef nonnull %20, i64 noundef %188) #9
+  %194 = icmp eq i64 %193, -1
+  br i1 %194, label %.split535.us, label %197
 
-.split531.us:                                     ; preds = %xar_hash_update.exit, %xar_hash_update.exit.us
-  %.fr645 = phi ptr [ null, %xar_hash_update.exit.us ], [ %.fr, %xar_hash_update.exit ]
-  %193 = load ptr, ptr %9, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, ptr noundef %193) #9
-  %194 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
-  br label %.loopexit451
+.split535.us:                                     ; preds = %xar_hash_update.exit, %xar_hash_update.exit.us
+  %.0.i353.fr659 = phi ptr [ null, %xar_hash_update.exit.us ], [ %.0.i353.fr, %xar_hash_update.exit ]
+  %195 = load ptr, ptr %9, align 8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.22, ptr noundef %195) #9
+  %196 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
+  br label %.loopexit457
 
-195:                                              ; preds = %xar_hash_update.exit
-  %196 = load i32, ptr %58, align 8
-  %197 = sub i32 8192, %196
-  %198 = sext i32 %197 to i64
-  %199 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %198, i64 noundef 0, i64 noundef 0) #9
-  %.not329 = icmp eq i32 %199, 0
-  br i1 %.not329, label %200, label %.loopexit
+197:                                              ; preds = %xar_hash_update.exit
+  %198 = load i32, ptr %58, align 8
+  %199 = sub i32 8192, %198
+  %200 = sext i32 %199 to i64
+  %201 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %200, i64 noundef 0, i64 noundef 0) #9
+  %.not329 = icmp eq i32 %201, 0
+  br i1 %.not329, label %202, label %.loopexit
 
-200:                                              ; preds = %195
-  %201 = load i32, ptr %58, align 8
-  %202 = icmp eq i32 %201, 0
-  %or.cond10 = select i1 %179, i1 %202, i1 false
+202:                                              ; preds = %197
+  %203 = load i32, ptr %58, align 8
+  %204 = icmp eq i32 %203, 0
+  %or.cond10 = select i1 %181, i1 %204, i1 false
   br i1 %or.cond10, label %.split, label %.loopexit
 
-.loopexit:                                        ; preds = %195, %200, %175, %170, %.split529.us
-  %203 = phi i32 [ %.us-phi, %.split529.us ], [ %162, %170 ], [ %162, %175 ], [ %178, %200 ], [ %178, %195 ]
-  %.2220 = phi i32 [ %182, %.split529.us ], [ %.1219539, %170 ], [ %.1219539, %175 ], [ %.1219539, %200 ], [ %.1219539, %195 ]
-  %.2 = phi i32 [ 26, %.split529.us ], [ 0, %170 ], [ 0, %175 ], [ 0, %200 ], [ 0, %195 ]
-  switch i32 %203, label %.critedge [
-    i32 -5, label %204
-    i32 1, label %204
-    i32 0, label %204
+.loopexit:                                        ; preds = %197, %202, %177, %172, %.split533.us
+  %205 = phi i32 [ %.us-phi, %.split533.us ], [ %164, %172 ], [ %164, %177 ], [ %180, %202 ], [ %180, %197 ]
+  %.2220 = phi i32 [ %184, %.split533.us ], [ %.1219543, %172 ], [ %.1219543, %177 ], [ %.1219543, %202 ], [ %.1219543, %197 ]
+  %.2 = phi i32 [ 26, %.split533.us ], [ 0, %172 ], [ 0, %177 ], [ 0, %202 ], [ 0, %197 ]
+  switch i32 %205, label %.critedge [
+    i32 -5, label %206
+    i32 1, label %206
+    i32 0, label %206
   ]
 
-204:                                              ; preds = %.loopexit, %.loopexit, %.loopexit
-  br i1 %.not333, label %xar_hash_update.exit352, label %205
+206:                                              ; preds = %.loopexit, %.loopexit, %.loopexit
+  br i1 %.not333, label %xar_hash_update.exit358, label %207
 
-205:                                              ; preds = %204
-  %206 = load i32, ptr %50, align 8
-  %207 = zext i32 %206 to i64
-  %208 = sub nsw i64 %154, %207
-  %.not447 = icmp eq i64 %154, %207
-  br i1 %.not447, label %xar_hash_update.exit352, label %209
+207:                                              ; preds = %206
+  %208 = load i32, ptr %50, align 8
+  %209 = zext i32 %208 to i64
+  %210 = sub nsw i64 %156, %209
+  %.not453 = icmp eq i64 %156, %209
+  br i1 %.not453, label %xar_hash_update.exit358, label %211
 
-209:                                              ; preds = %205
-  switch i32 %136, label %210 [
-    i32 0, label %xar_hash_update.exit352
-    i32 3, label %xar_hash_update.exit352
-  ]
-
-210:                                              ; preds = %209
-  %211 = call i32 @cl_update_hash(ptr noundef nonnull %137, ptr noundef nonnull %157, i64 noundef %208) #9
-  br label %xar_hash_update.exit352
-
-xar_hash_update.exit352:                          ; preds = %210, %209, %209, %205, %204
-  %212 = load i64, ptr %27, align 8
-  %213 = icmp ult i64 %161, %212
-  %214 = icmp ult i64 %161, %143
-  %or.cond442 = and i1 %213, %214
-  br i1 %or.cond442, label %149, label %.critedge
-
-.critedge:                                        ; preds = %xar_hash_update.exit352, %.loopexit, %.preheader
-  %.3221 = phi i32 [ %.0218545, %.preheader ], [ %.2220, %.loopexit ], [ %.2220, %xar_hash_update.exit352 ]
-  %.3 = phi i32 [ 0, %.preheader ], [ 0, %xar_hash_update.exit352 ], [ %.2, %.loopexit ]
-  %215 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
-  br label %312
-
-216:                                              ; preds = %132
-  %217 = load i64, ptr %27, align 8
-  %218 = sub i64 %217, %128
-  %.350 = call i64 @llvm.umin.i64(i64 %135, i64 %218)
-  %219 = call ptr @__lzma_wrap_alloc(ptr noundef null, i64 noundef 1048576) #9
-  %220 = icmp ult i64 %218, %135
-  br i1 %220, label %221, label %222
-
-221:                                              ; preds = %216
-  store i64 %.350, ptr %4, align 8
-  br label %222
-
-222:                                              ; preds = %221, %216
-  %223 = phi i64 [ %.350, %221 ], [ %135, %216 ]
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, i8 0, i64 200, i1 false)
-  %224 = icmp eq ptr %219, null
-  br i1 %224, label %225, label %226
-
-225:                                              ; preds = %222
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #9
-  br label %.loopexit451
-
-226:                                              ; preds = %222
-  %227 = load ptr, ptr %30, align 8
-  %228 = call ptr %227(ptr noundef nonnull %26, i64 noundef %128, i64 noundef 13, i32 noundef 0) #9
-  %229 = icmp eq ptr %228, null
-  br i1 %229, label %230, label %234
-
-230:                                              ; preds = %226
-  %231 = tail call ptr @__errno_location() #10
-  %232 = load i32, ptr %231, align 4
-  %233 = call ptr @cli_strerror(i32 noundef %232, ptr noundef nonnull %22, i64 noundef 128) #9
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i32 noundef 13, i64 noundef %128, ptr noundef nonnull %22) #9
-  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %219) #9
-  br label %.loopexit451
-
-234:                                              ; preds = %226
-  store ptr %228, ptr %111, align 8
-  store i64 13, ptr %112, align 8
-  %.not323 = icmp ne ptr %137, null
-  br i1 %.not323, label %235, label %xar_hash_update.exit354
-
-235:                                              ; preds = %234
-  switch i32 %136, label %236 [
-    i32 0, label %xar_hash_update.exit354
-    i32 3, label %xar_hash_update.exit354
-  ]
-
-236:                                              ; preds = %235
-  %237 = call i32 @cl_update_hash(ptr noundef nonnull %137, ptr noundef nonnull %228, i64 noundef 13) #9
-  br label %xar_hash_update.exit354
-
-xar_hash_update.exit354:                          ; preds = %236, %235, %235, %234
-  %238 = call i32 @cli_LzmaInit(ptr noundef nonnull %21, i64 noundef 0) #9
-  %.not324 = icmp eq i32 %238, 0
-  br i1 %.not324, label %241, label %239
-
-239:                                              ; preds = %xar_hash_update.exit354
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, i32 noundef %238) #9
-  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %219) #9
-  %240 = add i32 %.0218545, 1
-  br label %312
-
-241:                                              ; preds = %xar_hash_update.exit354
-  %242 = add i64 %128, 13
-  %243 = add i64 %.350, -13
-  %244 = add i64 %223, %128
-  %.not325 = icmp ne ptr %.fr, null
-  br label %245
-
-245:                                              ; preds = %286, %241
-  %.0230 = phi i64 [ %243, %241 ], [ %267, %286 ]
-  %.0229 = phi i64 [ 0, %241 ], [ %287, %286 ]
-  %.1228 = phi i64 [ %242, %241 ], [ %268, %286 ]
-  %246 = load i64, ptr %27, align 8
-  %247 = icmp ult i64 %.1228, %246
-  %248 = icmp ult i64 %.1228, %244
-  %or.cond559 = select i1 %247, i1 %248, i1 false
-  br i1 %or.cond559, label %249, label %.critedge12
-
-249:                                              ; preds = %245
-  store ptr %219, ptr %113, align 8
-  store i64 1048576, ptr %114, align 8
-  %250 = call i64 @llvm.umin.i64(i64 %.0230, i64 262144)
-  store i64 %250, ptr %112, align 8
-  %251 = load ptr, ptr %30, align 8
-  %252 = call ptr %251(ptr noundef nonnull %26, i64 noundef %.1228, i64 noundef %250, i32 noundef 0) #9
-  store ptr %252, ptr %111, align 8
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %254, label %259
-
-254:                                              ; preds = %249
-  %255 = tail call ptr @__errno_location() #10
-  %256 = load i32, ptr %255, align 4
-  %257 = call ptr @cli_strerror(i32 noundef %256, ptr noundef nonnull %23, i64 noundef 128) #9
-  %258 = load i64, ptr %112, align 8
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i64 noundef %258, i64 noundef %.1228, ptr noundef nonnull %23) #9
-  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %219) #9
-  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
-  br label %.loopexit451
-
-259:                                              ; preds = %249
-  %260 = call i32 @cli_LzmaDecode(ptr noundef nonnull %21) #9
-  %261 = and i32 %260, -3
-  %or.cond14.not = icmp eq i32 %261, 0
-  br i1 %or.cond14.not, label %264, label %262
-
-262:                                              ; preds = %259
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, i32 noundef %260) #9
-  %263 = add i32 %.0218545, 1
-  br label %.critedge12
-
-264:                                              ; preds = %259
-  %265 = load i64, ptr %112, align 8
-  %266 = sub i64 %250, %265
-  %267 = sub i64 %.0230, %266
-  %268 = add i64 %266, %.1228
-  %269 = load i64, ptr %114, align 8
-  %270 = sub i64 1048576, %269
-  %271 = icmp eq i64 %269, 1048576
-  br i1 %271, label %272, label %273
-
-272:                                              ; preds = %264
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %250, i64 noundef 0) #9
-  br label %273
-
-273:                                              ; preds = %272, %264
-  %274 = icmp ne i64 %250, %265
-  %or.cond443 = select i1 %.not323, i1 %274, i1 false
-  br i1 %or.cond443, label %275, label %xar_hash_update.exit356
-
-275:                                              ; preds = %273
-  switch i32 %136, label %276 [
-    i32 0, label %xar_hash_update.exit356
-    i32 3, label %xar_hash_update.exit356
-  ]
-
-276:                                              ; preds = %275
-  %277 = call i32 @cl_update_hash(ptr noundef nonnull %137, ptr noundef nonnull %252, i64 noundef %266) #9
-  br label %xar_hash_update.exit356
-
-xar_hash_update.exit356:                          ; preds = %276, %275, %275, %273
-  %278 = icmp ne i64 %269, 1048576
-  %or.cond444 = and i1 %.not325, %278
-  br i1 %or.cond444, label %279, label %xar_hash_update.exit358
-
-279:                                              ; preds = %xar_hash_update.exit356
-  switch i32 %138, label %280 [
+211:                                              ; preds = %207
+  switch i32 %136, label %212 [
     i32 0, label %xar_hash_update.exit358
     i32 3, label %xar_hash_update.exit358
   ]
 
-280:                                              ; preds = %279
-  %281 = call i32 @cl_update_hash(ptr noundef nonnull %.fr, ptr noundef nonnull %219, i64 noundef %270) #9
+212:                                              ; preds = %211
+  %213 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i352, ptr noundef nonnull %159, i64 noundef %210) #9
   br label %xar_hash_update.exit358
 
-xar_hash_update.exit358:                          ; preds = %280, %279, %279, %xar_hash_update.exit356
-  %282 = load i32, ptr %2, align 4
-  %283 = call i64 @cli_writen(i32 noundef %282, ptr noundef nonnull %219, i64 noundef %270) #9
-  %284 = icmp eq i64 %283, -1
-  br i1 %284, label %285, label %286
+xar_hash_update.exit358:                          ; preds = %212, %211, %211, %207, %206
+  %214 = load i64, ptr %27, align 8
+  %215 = icmp ult i64 %163, %214
+  %216 = icmp ult i64 %163, %145
+  %or.cond448 = and i1 %215, %216
+  br i1 %or.cond448, label %151, label %.critedge
 
-285:                                              ; preds = %xar_hash_update.exit358
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, i64 noundef %270) #9
-  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %219) #9
-  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
-  br label %.loopexit451
+.critedge:                                        ; preds = %xar_hash_update.exit358, %.loopexit, %.preheader
+  %.3221 = phi i32 [ %.0218549, %.preheader ], [ %.2220, %.loopexit ], [ %.2220, %xar_hash_update.exit358 ]
+  %.3 = phi i32 [ 0, %.preheader ], [ 0, %xar_hash_update.exit358 ], [ %.2, %.loopexit ]
+  %217 = call i32 @inflateEnd(ptr noundef nonnull %8) #9
+  br label %314
 
-286:                                              ; preds = %xar_hash_update.exit358
-  %287 = add i64 %270, %.0229
-  %288 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %287, i64 noundef 0, i64 noundef 0) #9
-  %289 = icmp ne i32 %288, 0
-  %290 = icmp eq i32 %260, 2
-  %or.cond16 = or i1 %290, %289
-  br i1 %or.cond16, label %.critedge12, label %245
+218:                                              ; preds = %xar_hash_init.exit357
+  %219 = load i64, ptr %27, align 8
+  %220 = sub i64 %219, %128
+  %.350 = call i64 @llvm.umin.i64(i64 %135, i64 %220)
+  %221 = call ptr @__lzma_wrap_alloc(ptr noundef null, i64 noundef 1048576) #9
+  %222 = icmp ult i64 %220, %135
+  br i1 %222, label %223, label %224
 
-.critedge12:                                      ; preds = %245, %286, %262
-  %.4222 = phi i32 [ %263, %262 ], [ %.0218545, %286 ], [ %.0218545, %245 ]
-  %.4 = phi i32 [ 26, %262 ], [ 0, %286 ], [ 0, %245 ]
-  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
-  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %219) #9
-  br label %312
+223:                                              ; preds = %218
+  store i64 %.350, ptr %4, align 8
+  br label %224
 
-291:                                              ; preds = %132
-  %292 = load i64, ptr %27, align 8
-  %293 = sub i64 %292, %128
-  %.351 = call i64 @llvm.umin.i64(i64 %293, i64 %135)
-  %294 = load ptr, ptr %78, align 8
-  %295 = getelementptr inbounds i8, ptr %294, i64 72
-  %296 = load i64, ptr %295, align 8
-  %.not334 = icmp eq i64 %296, 0
-  %..351 = call i64 @llvm.umin.i64(i64 %296, i64 %.351)
-  %.0 = select i1 %.not334, i64 %.351, i64 %..351
-  %297 = load ptr, ptr %30, align 8
-  %298 = call ptr %297(ptr noundef %26, i64 noundef %128, i64 noundef %.0, i32 noundef 0) #9
-  %.not335 = icmp eq ptr %298, null
-  br i1 %.not335, label %299, label %303
+224:                                              ; preds = %223, %218
+  %225 = phi i64 [ %.350, %223 ], [ %135, %218 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %21, i8 0, i64 200, i1 false)
+  %226 = icmp eq ptr %221, null
+  br i1 %226, label %227, label %228
 
-299:                                              ; preds = %291
-  %300 = tail call ptr @__errno_location() #10
-  %301 = load i32, ptr %300, align 4
-  %302 = call ptr @cli_strerror(i32 noundef %301, ptr noundef nonnull %24, i64 noundef 128) #9
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31, i64 noundef %.0, i64 noundef %128, ptr noundef nonnull %24) #9
-  br label %.loopexit451
+227:                                              ; preds = %224
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #9
+  br label %.loopexit457
 
-303:                                              ; preds = %291
-  %.not336 = icmp ne ptr %137, null
-  %304 = icmp ne i64 %.0, 0
-  %or.cond445 = and i1 %.not336, %304
-  br i1 %or.cond445, label %305, label %xar_hash_update.exit360
+228:                                              ; preds = %224
+  %229 = load ptr, ptr %30, align 8
+  %230 = call ptr %229(ptr noundef nonnull %26, i64 noundef %128, i64 noundef 13, i32 noundef 0) #9
+  %231 = icmp eq ptr %230, null
+  br i1 %231, label %232, label %236
 
-305:                                              ; preds = %303
-  switch i32 %136, label %306 [
+232:                                              ; preds = %228
+  %233 = tail call ptr @__errno_location() #10
+  %234 = load i32, ptr %233, align 4
+  %235 = call ptr @cli_strerror(i32 noundef %234, ptr noundef nonnull %22, i64 noundef 128) #9
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25, i32 noundef 13, i64 noundef %128, ptr noundef nonnull %22) #9
+  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %221) #9
+  br label %.loopexit457
+
+236:                                              ; preds = %228
+  store ptr %230, ptr %111, align 8
+  store i64 13, ptr %112, align 8
+  %.not323 = icmp ne ptr %.0.i352, null
+  br i1 %.not323, label %237, label %xar_hash_update.exit360
+
+237:                                              ; preds = %236
+  switch i32 %136, label %238 [
     i32 0, label %xar_hash_update.exit360
     i32 3, label %xar_hash_update.exit360
   ]
 
-306:                                              ; preds = %305
-  %307 = call i32 @cl_update_hash(ptr noundef nonnull %137, ptr noundef nonnull %298, i64 noundef %.0) #9
+238:                                              ; preds = %237
+  %239 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i352, ptr noundef nonnull %230, i64 noundef 13) #9
   br label %xar_hash_update.exit360
 
-xar_hash_update.exit360:                          ; preds = %306, %305, %305, %303
-  %308 = load i32, ptr %2, align 4
-  %309 = call i64 @cli_writen(i32 noundef %308, ptr noundef nonnull %298, i64 noundef %.0) #9
-  %310 = icmp eq i64 %309, -1
-  br i1 %310, label %311, label %.thread
+xar_hash_update.exit360:                          ; preds = %238, %237, %237, %236
+  %240 = call i32 @cli_LzmaInit(ptr noundef nonnull %21, i64 noundef 0) #9
+  %.not324 = icmp eq i32 %240, 0
+  br i1 %.not324, label %243, label %241
 
-311:                                              ; preds = %xar_hash_update.exit360
+241:                                              ; preds = %xar_hash_update.exit360
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.26, i32 noundef %240) #9
+  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %221) #9
+  %242 = add i32 %.0218549, 1
+  br label %314
+
+243:                                              ; preds = %xar_hash_update.exit360
+  %244 = add i64 %128, 13
+  %245 = add i64 %.350, -13
+  %246 = add i64 %225, %128
+  %.not325 = icmp ne ptr %.0.i353.fr, null
+  br label %247
+
+247:                                              ; preds = %288, %243
+  %.0230 = phi i64 [ %245, %243 ], [ %269, %288 ]
+  %.0229 = phi i64 [ 0, %243 ], [ %289, %288 ]
+  %.1228 = phi i64 [ %244, %243 ], [ %270, %288 ]
+  %248 = load i64, ptr %27, align 8
+  %249 = icmp ult i64 %.1228, %248
+  %250 = icmp ult i64 %.1228, %246
+  %or.cond563 = select i1 %249, i1 %250, i1 false
+  br i1 %or.cond563, label %251, label %.critedge12
+
+251:                                              ; preds = %247
+  store ptr %221, ptr %113, align 8
+  store i64 1048576, ptr %114, align 8
+  %252 = call i64 @llvm.umin.i64(i64 %.0230, i64 262144)
+  store i64 %252, ptr %112, align 8
+  %253 = load ptr, ptr %30, align 8
+  %254 = call ptr %253(ptr noundef nonnull %26, i64 noundef %.1228, i64 noundef %252, i32 noundef 0) #9
+  store ptr %254, ptr %111, align 8
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %256, label %261
+
+256:                                              ; preds = %251
+  %257 = tail call ptr @__errno_location() #10
+  %258 = load i32, ptr %257, align 4
+  %259 = call ptr @cli_strerror(i32 noundef %258, ptr noundef nonnull %23, i64 noundef 128) #9
+  %260 = load i64, ptr %112, align 8
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27, i64 noundef %260, i64 noundef %.1228, ptr noundef nonnull %23) #9
+  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %221) #9
+  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
+  br label %.loopexit457
+
+261:                                              ; preds = %251
+  %262 = call i32 @cli_LzmaDecode(ptr noundef nonnull %21) #9
+  %263 = and i32 %262, -3
+  %or.cond14.not = icmp eq i32 %263, 0
+  br i1 %or.cond14.not, label %266, label %264
+
+264:                                              ; preds = %261
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.28, i32 noundef %262) #9
+  %265 = add i32 %.0218549, 1
+  br label %.critedge12
+
+266:                                              ; preds = %261
+  %267 = load i64, ptr %112, align 8
+  %268 = sub i64 %252, %267
+  %269 = sub i64 %.0230, %268
+  %270 = add i64 %268, %.1228
+  %271 = load i64, ptr %114, align 8
+  %272 = sub i64 1048576, %271
+  %273 = icmp eq i64 %271, 1048576
+  br i1 %273, label %274, label %275
+
+274:                                              ; preds = %266
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, i64 noundef %252, i64 noundef 0) #9
+  br label %275
+
+275:                                              ; preds = %274, %266
+  %276 = icmp ne i64 %252, %267
+  %or.cond449 = select i1 %.not323, i1 %276, i1 false
+  br i1 %or.cond449, label %277, label %xar_hash_update.exit362
+
+277:                                              ; preds = %275
+  switch i32 %136, label %278 [
+    i32 0, label %xar_hash_update.exit362
+    i32 3, label %xar_hash_update.exit362
+  ]
+
+278:                                              ; preds = %277
+  %279 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i352, ptr noundef nonnull %254, i64 noundef %268) #9
+  br label %xar_hash_update.exit362
+
+xar_hash_update.exit362:                          ; preds = %278, %277, %277, %275
+  %280 = icmp ne i64 %271, 1048576
+  %or.cond450 = and i1 %.not325, %280
+  br i1 %or.cond450, label %281, label %xar_hash_update.exit364
+
+281:                                              ; preds = %xar_hash_update.exit362
+  switch i32 %139, label %282 [
+    i32 0, label %xar_hash_update.exit364
+    i32 3, label %xar_hash_update.exit364
+  ]
+
+282:                                              ; preds = %281
+  %283 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i353.fr, ptr noundef nonnull %221, i64 noundef %272) #9
+  br label %xar_hash_update.exit364
+
+xar_hash_update.exit364:                          ; preds = %282, %281, %281, %xar_hash_update.exit362
+  %284 = load i32, ptr %2, align 4
+  %285 = call i64 @cli_writen(i32 noundef %284, ptr noundef nonnull %221, i64 noundef %272) #9
+  %286 = icmp eq i64 %285, -1
+  br i1 %286, label %287, label %288
+
+287:                                              ; preds = %xar_hash_update.exit364
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.30, i64 noundef %272) #9
+  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %221) #9
+  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
+  br label %.loopexit457
+
+288:                                              ; preds = %xar_hash_update.exit364
+  %289 = add i64 %272, %.0229
+  %290 = call i32 @cli_checklimits(ptr noundef nonnull @.str.23, ptr noundef %0, i64 noundef %289, i64 noundef 0, i64 noundef 0) #9
+  %291 = icmp ne i32 %290, 0
+  %292 = icmp eq i32 %262, 2
+  %or.cond16 = or i1 %292, %291
+  br i1 %or.cond16, label %.critedge12, label %247
+
+.critedge12:                                      ; preds = %247, %288, %264
+  %.4222 = phi i32 [ %265, %264 ], [ %.0218549, %288 ], [ %.0218549, %247 ]
+  %.4 = phi i32 [ 26, %264 ], [ 0, %288 ], [ 0, %247 ]
+  call void @cli_LzmaShutdown(ptr noundef nonnull %21) #9
+  call void @__lzma_wrap_free(ptr noundef null, ptr noundef nonnull %221) #9
+  br label %314
+
+293:                                              ; preds = %xar_hash_init.exit357
+  %294 = load i64, ptr %27, align 8
+  %295 = sub i64 %294, %128
+  %.351 = call i64 @llvm.umin.i64(i64 %295, i64 %135)
+  %296 = load ptr, ptr %78, align 8
+  %297 = getelementptr inbounds i8, ptr %296, i64 72
+  %298 = load i64, ptr %297, align 8
+  %.not334 = icmp eq i64 %298, 0
+  %..351 = call i64 @llvm.umin.i64(i64 %298, i64 %.351)
+  %.0 = select i1 %.not334, i64 %.351, i64 %..351
+  %299 = load ptr, ptr %30, align 8
+  %300 = call ptr %299(ptr noundef %26, i64 noundef %128, i64 noundef %.0, i32 noundef 0) #9
+  %.not335 = icmp eq ptr %300, null
+  br i1 %.not335, label %301, label %305
+
+301:                                              ; preds = %293
+  %302 = tail call ptr @__errno_location() #10
+  %303 = load i32, ptr %302, align 4
+  %304 = call ptr @cli_strerror(i32 noundef %303, ptr noundef nonnull %24, i64 noundef 128) #9
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.31, i64 noundef %.0, i64 noundef %128, ptr noundef nonnull %24) #9
+  br label %.loopexit457
+
+305:                                              ; preds = %293
+  %.not336 = icmp ne ptr %.0.i352, null
+  %306 = icmp ne i64 %.0, 0
+  %or.cond451 = and i1 %.not336, %306
+  br i1 %or.cond451, label %307, label %xar_hash_update.exit366
+
+307:                                              ; preds = %305
+  switch i32 %136, label %308 [
+    i32 0, label %xar_hash_update.exit366
+    i32 3, label %xar_hash_update.exit366
+  ]
+
+308:                                              ; preds = %307
+  %309 = call i32 @cl_update_hash(ptr noundef nonnull %.0.i352, ptr noundef nonnull %300, i64 noundef %.0) #9
+  br label %xar_hash_update.exit366
+
+xar_hash_update.exit366:                          ; preds = %308, %307, %307, %305
+  %310 = load i32, ptr %2, align 4
+  %311 = call i64 @cli_writen(i32 noundef %310, ptr noundef nonnull %300, i64 noundef %.0) #9
+  %312 = icmp eq i64 %311, -1
+  br i1 %312, label %313, label %.thread
+
+313:                                              ; preds = %xar_hash_update.exit366
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.32, i64 noundef %.0, i64 noundef %128) #9
-  br label %.loopexit451
+  br label %.loopexit457
 
-312:                                              ; preds = %.critedge12, %239, %.critedge, %147
-  %.5223 = phi i32 [ %240, %239 ], [ %.4222, %.critedge12 ], [ %148, %147 ], [ %.3221, %.critedge ]
-  %.5 = phi i32 [ 26, %239 ], [ %.4, %.critedge12 ], [ 26, %147 ], [ %.3, %.critedge ]
-  %.not337 = icmp eq ptr %137, null
-  br i1 %.not337, label %317, label %313
+314:                                              ; preds = %.critedge12, %241, %.critedge, %149
+  %.5223 = phi i32 [ %242, %241 ], [ %.4222, %.critedge12 ], [ %150, %149 ], [ %.3221, %.critedge ]
+  %.5 = phi i32 [ 26, %241 ], [ %.4, %.critedge12 ], [ 26, %149 ], [ %.3, %.critedge ]
+  %.not337 = icmp eq ptr %.0.i352, null
+  br i1 %.not337, label %319, label %315
 
-.thread:                                          ; preds = %xar_hash_update.exit360
-  %.not337414 = icmp eq ptr %137, null
-  br i1 %.not337414, label %xar_hash_final.exit.thread, label %313
+.thread:                                          ; preds = %xar_hash_update.exit366
+  %.not337420 = icmp eq ptr %.0.i352, null
+  br i1 %.not337420, label %xar_hash_final.exit.thread, label %315
 
-313:                                              ; preds = %.thread, %312
-  %.5419 = phi i32 [ 0, %.thread ], [ %.5, %312 ]
-  %.5223416 = phi i32 [ %.0218545, %.thread ], [ %.5223, %312 ]
-  %314 = phi i1 [ false, %.thread ], [ true, %312 ]
-  switch i32 %136, label %315 [
+315:                                              ; preds = %.thread, %314
+  %.5425 = phi i32 [ 0, %.thread ], [ %.5, %314 ]
+  %.5223422 = phi i32 [ %.0218549, %.thread ], [ %.5223, %314 ]
+  %316 = phi i1 [ false, %.thread ], [ true, %314 ]
+  switch i32 %136, label %317 [
     i32 3, label %xar_hash_final.exit
     i32 0, label %xar_hash_final.exit
   ]
 
-315:                                              ; preds = %313
-  %316 = call i32 @cl_finish_hash(ptr noundef nonnull %137, ptr noundef nonnull %15) #9
+317:                                              ; preds = %315
+  %318 = call i32 @cl_finish_hash(ptr noundef nonnull %.0.i352, ptr noundef nonnull %15) #9
   br label %xar_hash_final.exit
 
-317:                                              ; preds = %312
-  %318 = icmp eq i32 %.5, 0
-  br i1 %318, label %xar_hash_final.exit.thread, label %xar_hash_final.exit
+319:                                              ; preds = %314
+  %320 = icmp eq i32 %.5, 0
+  br i1 %320, label %xar_hash_final.exit.thread, label %xar_hash_final.exit
 
-xar_hash_final.exit:                              ; preds = %315, %313, %313, %317
-  %.5418 = phi i32 [ %.5, %317 ], [ %.5419, %313 ], [ %.5419, %313 ], [ %.5419, %315 ]
-  %.5223415 = phi i32 [ %.5223, %317 ], [ %.5223416, %313 ], [ %.5223416, %313 ], [ %.5223416, %315 ]
-  %319 = phi i1 [ true, %317 ], [ %314, %313 ], [ %314, %313 ], [ %314, %315 ]
-  %.not338 = icmp eq ptr %.fr, null
-  br i1 %.not338, label %326, label %322
+xar_hash_final.exit:                              ; preds = %317, %315, %315, %319
+  %.5424 = phi i32 [ %.5, %319 ], [ %.5425, %315 ], [ %.5425, %315 ], [ %.5425, %317 ]
+  %.5223421 = phi i32 [ %.5223, %319 ], [ %.5223422, %315 ], [ %.5223422, %315 ], [ %.5223422, %317 ]
+  %321 = phi i1 [ true, %319 ], [ %316, %315 ], [ %316, %315 ], [ %316, %317 ]
+  %.not338 = icmp eq ptr %.0.i353.fr, null
+  br i1 %.not338, label %328, label %324
 
-xar_hash_final.exit.thread:                       ; preds = %317, %.thread
-  %320 = phi i1 [ true, %317 ], [ false, %.thread ]
-  %.5223417425 = phi i32 [ %.5223, %317 ], [ %.0218545, %.thread ]
+xar_hash_final.exit.thread:                       ; preds = %319, %.thread
+  %322 = phi i1 [ true, %319 ], [ false, %.thread ]
+  %.5223423431 = phi i32 [ %.5223, %319 ], [ %.0218549, %.thread ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33) #9
-  %321 = add i32 %.0209546, 1
-  %.not338669 = icmp eq ptr %.fr, null
-  br i1 %.not338669, label %xar_hash_final.exit363.thread, label %322
+  %323 = add i32 %.0209550, 1
+  %.not338673 = icmp eq ptr %.0.i353.fr, null
+  br i1 %.not338673, label %xar_hash_final.exit369.thread, label %324
 
-322:                                              ; preds = %xar_hash_final.exit.thread, %xar_hash_final.exit
-  %.1210678 = phi i32 [ %321, %xar_hash_final.exit.thread ], [ %.0209546, %xar_hash_final.exit ]
-  %323 = phi i1 [ %320, %xar_hash_final.exit.thread ], [ %319, %xar_hash_final.exit ]
-  %.5223415674 = phi i32 [ %.5223417425, %xar_hash_final.exit.thread ], [ %.5223415, %xar_hash_final.exit ]
-  %.5418670 = phi i32 [ 0, %xar_hash_final.exit.thread ], [ %.5418, %xar_hash_final.exit ]
-  switch i32 %138, label %324 [
-    i32 3, label %xar_hash_final.exit363
-    i32 0, label %xar_hash_final.exit363
-  ]
-
-324:                                              ; preds = %322
-  %325 = call i32 @cl_finish_hash(ptr noundef nonnull %.fr, ptr noundef nonnull %14) #9
-  br label %xar_hash_final.exit363
-
-326:                                              ; preds = %xar_hash_final.exit
-  %327 = icmp eq i32 %.5418, 0
-  br i1 %327, label %xar_hash_final.exit363.thread, label %xar_hash_final.exit363.thread428
-
-xar_hash_final.exit363.thread:                    ; preds = %xar_hash_final.exit.thread, %326
-  %.5223415675684 = phi i32 [ %.5223415, %326 ], [ %.5223417425, %xar_hash_final.exit.thread ]
-  %328 = phi i1 [ %319, %326 ], [ %320, %xar_hash_final.exit.thread ]
-  %.1210677683 = phi i32 [ %.0209546, %326 ], [ %321, %xar_hash_final.exit.thread ]
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #9
-  %329 = add i32 %.1210677683, 1
-  br label %331
-
-xar_hash_final.exit363:                           ; preds = %324, %322, %322
-  %330 = icmp eq i32 %.5418670, 0
-  br i1 %330, label %331, label %xar_hash_final.exit363.thread428
-
-331:                                              ; preds = %xar_hash_final.exit363.thread, %xar_hash_final.exit363
-  %332 = phi i1 [ %328, %xar_hash_final.exit363.thread ], [ %323, %xar_hash_final.exit363 ]
-  %.5223415673 = phi i32 [ %.5223415675684, %xar_hash_final.exit363.thread ], [ %.5223415674, %xar_hash_final.exit363 ]
-  %.2211427 = phi i32 [ %329, %xar_hash_final.exit363.thread ], [ %.1210678, %xar_hash_final.exit363 ]
-  %333 = load ptr, ptr %12, align 8
-  %.not339 = icmp eq ptr %333, null
-  br i1 %.not339, label %341, label %334
-
-334:                                              ; preds = %331
-  %335 = call ptr @cli_hex2str(ptr noundef nonnull %333) #9
-  %.not448 = icmp eq ptr %335, null
-  br i1 %.not448, label %xar_hash_check.exit.thread, label %336
-
-336:                                              ; preds = %334
-  switch i32 %136, label %xar_hash_check.exit.thread [
-    i32 1, label %xar_hash_check.exit
-    i32 2, label %337
-  ]
-
-337:                                              ; preds = %336
-  br label %xar_hash_check.exit
-
-xar_hash_check.exit:                              ; preds = %336, %337
-  %.0.i364 = phi i64 [ 16, %337 ], [ 20, %336 ]
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %335, i64 %.0.i364)
-  %.not340 = icmp eq i32 %bcmp, 0
-  br i1 %.not340, label %339, label %xar_hash_check.exit.thread
-
-xar_hash_check.exit.thread:                       ; preds = %336, %334, %xar_hash_check.exit
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #9
-  %338 = add i32 %.2211427, 1
-  br label %340
-
-339:                                              ; preds = %xar_hash_check.exit
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36) #9
-  br label %340
-
-340:                                              ; preds = %339, %xar_hash_check.exit.thread
-  %.3212 = phi i32 [ %338, %xar_hash_check.exit.thread ], [ %.2211427, %339 ]
-  call void @free(ptr noundef %335) #9
-  br label %341
-
-341:                                              ; preds = %340, %331
-  %.4213 = phi i32 [ %.3212, %340 ], [ %.2211427, %331 ]
-  %342 = load ptr, ptr %13, align 8
-  %343 = icmp ne ptr %342, null
-  %or.cond18 = and i1 %332, %343
-  br i1 %or.cond18, label %344, label %352
-
-344:                                              ; preds = %341
-  %345 = call ptr @cli_hex2str(ptr noundef nonnull %342) #9
-  %.not449 = icmp eq ptr %345, null
-  br i1 %.not449, label %xar_hash_check.exit367.thread, label %346
-
-346:                                              ; preds = %344
-  %347 = load i32, ptr %11, align 4
-  switch i32 %347, label %xar_hash_check.exit367.thread [
-    i32 1, label %xar_hash_check.exit367
-    i32 2, label %348
-  ]
-
-348:                                              ; preds = %346
-  br label %xar_hash_check.exit367
-
-xar_hash_check.exit367:                           ; preds = %346, %348
-  %.0.i366 = phi i64 [ 16, %348 ], [ 20, %346 ]
-  %bcmp450 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %345, i64 %.0.i366)
-  %.not341 = icmp eq i32 %bcmp450, 0
-  br i1 %.not341, label %350, label %xar_hash_check.exit367.thread
-
-xar_hash_check.exit367.thread:                    ; preds = %346, %344, %xar_hash_check.exit367
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37) #9
-  %349 = add i32 %.4213, 1
-  br label %351
-
-350:                                              ; preds = %xar_hash_check.exit367
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38) #9
-  br label %351
-
-351:                                              ; preds = %350, %xar_hash_check.exit367.thread
-  %.5214 = phi i32 [ %349, %xar_hash_check.exit367.thread ], [ %.4213, %350 ]
-  call void @free(ptr noundef %345) #9
-  br label %352
-
-352:                                              ; preds = %351, %341
-  %.6215 = phi i32 [ %.5214, %351 ], [ %.4213, %341 ]
-  %353 = load i32, ptr %2, align 4
-  %354 = load ptr, ptr %9, align 8
-  %355 = call i32 @cli_magic_scan_desc(i32 noundef %353, ptr noundef %354, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
-  %.not342 = icmp eq i32 %355, 0
-  br i1 %.not342, label %xar_hash_final.exit363.thread428, label %.loopexit451
-
-xar_hash_final.exit363.thread428:                 ; preds = %326, %352, %xar_hash_final.exit363
-  %.5223415672 = phi i32 [ %.5223415673, %352 ], [ %.5223415674, %xar_hash_final.exit363 ], [ %.5223415, %326 ]
-  %.7216 = phi i32 [ %.6215, %352 ], [ %.1210678, %xar_hash_final.exit363 ], [ %.0209546, %326 ]
-  %356 = load ptr, ptr %12, align 8
-  %.not343 = icmp eq ptr %356, null
-  br i1 %.not343, label %359, label %357
-
-357:                                              ; preds = %xar_hash_final.exit363.thread428
-  %358 = load ptr, ptr @xmlFree, align 8
-  call void %358(ptr noundef nonnull %356) #9
-  store ptr null, ptr %12, align 8
-  br label %359
-
-359:                                              ; preds = %357, %xar_hash_final.exit363.thread428
-  %360 = load ptr, ptr %13, align 8
-  %.not344 = icmp eq ptr %360, null
-  br i1 %.not344, label %363, label %361
-
-361:                                              ; preds = %359
-  %362 = load ptr, ptr @xmlFree, align 8
-  call void %362(ptr noundef nonnull %360) #9
-  store ptr null, ptr %13, align 8
-  br label %363
-
-363:                                              ; preds = %361, %359
-  %364 = call fastcc i32 @xar_get_toc_data_values(ptr noundef nonnull %101, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11)
-  %365 = icmp eq i32 %364, 0
-  br i1 %365, label %117, label %.loopexit451
-
-.loopexit451:                                     ; preds = %352, %363, %107, %311, %299, %285, %254, %230, %225, %.split531.us, %158
-  %.2237 = phi ptr [ %.fr, %311 ], [ %.fr, %299 ], [ %.fr, %225 ], [ %.fr, %230 ], [ %.fr, %254 ], [ %.fr, %285 ], [ %.fr645, %.split531.us ], [ %.fr, %158 ], [ null, %107 ], [ null, %363 ], [ null, %352 ]
-  %.2233 = phi ptr [ %137, %311 ], [ %137, %299 ], [ %137, %225 ], [ %137, %230 ], [ %137, %254 ], [ %137, %285 ], [ %137, %.split531.us ], [ %137, %158 ], [ null, %107 ], [ null, %363 ], [ null, %352 ]
-  %.6224 = phi i32 [ %.0218545, %311 ], [ %.0218545, %299 ], [ %.0218545, %225 ], [ %.0218545, %230 ], [ %.0218545, %254 ], [ %.0218545, %285 ], [ %.1219539, %.split531.us ], [ %.1219539, %158 ], [ 0, %107 ], [ %.5223415673, %352 ], [ %.5223415672, %363 ]
-  %.8217 = phi i32 [ %.0209546, %311 ], [ %.0209546, %299 ], [ %.0209546, %225 ], [ %.0209546, %230 ], [ %.0209546, %254 ], [ %.0209546, %285 ], [ %.0209546, %.split531.us ], [ %.0209546, %158 ], [ 0, %107 ], [ %.6215, %352 ], [ %.7216, %363 ]
-  %.6 = phi i32 [ 14, %311 ], [ 12, %299 ], [ 20, %225 ], [ 12, %230 ], [ 12, %254 ], [ 14, %285 ], [ 14, %.split531.us ], [ 12, %158 ], [ %108, %107 ], [ %355, %352 ], [ %364, %363 ]
-  %366 = load i32, ptr %2, align 4
-  %367 = load ptr, ptr %9, align 8
-  %368 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef %0, i32 noundef %366, ptr noundef %367)
-  %.not345 = icmp eq ptr %.2233, null
-  br i1 %.not345, label %xar_hash_final.exit369, label %369
-
-369:                                              ; preds = %.loopexit451
-  %370 = load i32, ptr %10, align 4
-  switch i32 %370, label %371 [
+324:                                              ; preds = %xar_hash_final.exit.thread, %xar_hash_final.exit
+  %.1210682 = phi i32 [ %323, %xar_hash_final.exit.thread ], [ %.0209550, %xar_hash_final.exit ]
+  %325 = phi i1 [ %322, %xar_hash_final.exit.thread ], [ %321, %xar_hash_final.exit ]
+  %.5223421678 = phi i32 [ %.5223423431, %xar_hash_final.exit.thread ], [ %.5223421, %xar_hash_final.exit ]
+  %.5424674 = phi i32 [ 0, %xar_hash_final.exit.thread ], [ %.5424, %xar_hash_final.exit ]
+  switch i32 %139, label %326 [
     i32 3, label %xar_hash_final.exit369
     i32 0, label %xar_hash_final.exit369
   ]
 
-371:                                              ; preds = %369
-  %372 = call i32 @cl_finish_hash(ptr noundef nonnull %.2233, ptr noundef nonnull %15) #9
+326:                                              ; preds = %324
+  %327 = call i32 @cl_finish_hash(ptr noundef nonnull %.0.i353.fr, ptr noundef nonnull %14) #9
   br label %xar_hash_final.exit369
 
-xar_hash_final.exit369:                           ; preds = %371, %369, %369, %.loopexit451
-  %.not346 = icmp eq ptr %.2237, null
-  br i1 %.not346, label %xar_hash_final.exit371, label %373
+328:                                              ; preds = %xar_hash_final.exit
+  %329 = icmp eq i32 %.5424, 0
+  br i1 %329, label %xar_hash_final.exit369.thread, label %xar_hash_final.exit369.thread434
 
-373:                                              ; preds = %xar_hash_final.exit369
-  %374 = load i32, ptr %11, align 4
-  switch i32 %374, label %375 [
-    i32 3, label %xar_hash_final.exit371
-    i32 0, label %xar_hash_final.exit371
+xar_hash_final.exit369.thread:                    ; preds = %xar_hash_final.exit.thread, %328
+  %.5223421679688 = phi i32 [ %.5223421, %328 ], [ %.5223423431, %xar_hash_final.exit.thread ]
+  %330 = phi i1 [ %321, %328 ], [ %322, %xar_hash_final.exit.thread ]
+  %.1210681687 = phi i32 [ %.0209550, %328 ], [ %323, %xar_hash_final.exit.thread ]
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34) #9
+  %331 = add i32 %.1210681687, 1
+  br label %333
+
+xar_hash_final.exit369:                           ; preds = %326, %324, %324
+  %332 = icmp eq i32 %.5424674, 0
+  br i1 %332, label %333, label %xar_hash_final.exit369.thread434
+
+333:                                              ; preds = %xar_hash_final.exit369.thread, %xar_hash_final.exit369
+  %334 = phi i1 [ %330, %xar_hash_final.exit369.thread ], [ %325, %xar_hash_final.exit369 ]
+  %.5223421677 = phi i32 [ %.5223421679688, %xar_hash_final.exit369.thread ], [ %.5223421678, %xar_hash_final.exit369 ]
+  %.2211433 = phi i32 [ %331, %xar_hash_final.exit369.thread ], [ %.1210682, %xar_hash_final.exit369 ]
+  %335 = load ptr, ptr %12, align 8
+  %.not339 = icmp eq ptr %335, null
+  br i1 %.not339, label %343, label %336
+
+336:                                              ; preds = %333
+  %337 = call ptr @cli_hex2str(ptr noundef nonnull %335) #9
+  %.not454 = icmp eq ptr %337, null
+  br i1 %.not454, label %xar_hash_check.exit.thread, label %338
+
+338:                                              ; preds = %336
+  switch i32 %136, label %xar_hash_check.exit.thread [
+    i32 1, label %xar_hash_check.exit
+    i32 2, label %339
   ]
 
-375:                                              ; preds = %373
-  %376 = call i32 @cl_finish_hash(ptr noundef nonnull %.2237, ptr noundef nonnull %14) #9
-  br label %xar_hash_final.exit371
+339:                                              ; preds = %338
+  br label %xar_hash_check.exit
 
-xar_hash_final.exit371:                           ; preds = %122, %375, %373, %373, %xar_hash_final.exit369, %131, %106
-  %.7225 = phi i32 [ 0, %106 ], [ %.0218545, %131 ], [ %.6224, %xar_hash_final.exit369 ], [ %.6224, %373 ], [ %.6224, %373 ], [ %.6224, %375 ], [ %.0218545, %122 ]
-  %.9 = phi i32 [ 0, %106 ], [ %.0209546, %131 ], [ %.8217, %xar_hash_final.exit369 ], [ %.8217, %373 ], [ %.8217, %373 ], [ %.8217, %375 ], [ %.0209546, %122 ]
-  %.7 = phi i32 [ %105, %106 ], [ %130, %131 ], [ %.6, %xar_hash_final.exit369 ], [ %.6, %373 ], [ %.6, %373 ], [ %.6, %375 ], [ %123, %122 ]
-  %377 = load ptr, ptr %12, align 8
-  %.not347 = icmp eq ptr %377, null
-  br i1 %.not347, label %380, label %378
+xar_hash_check.exit:                              ; preds = %338, %339
+  %.0.i370 = phi i64 [ 16, %339 ], [ 20, %338 ]
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %337, i64 %.0.i370)
+  %.not340 = icmp eq i32 %bcmp, 0
+  br i1 %.not340, label %341, label %xar_hash_check.exit.thread
 
-378:                                              ; preds = %xar_hash_final.exit371
-  %379 = load ptr, ptr @xmlFree, align 8
-  call void %379(ptr noundef nonnull %377) #9
-  br label %380
+xar_hash_check.exit.thread:                       ; preds = %338, %336, %xar_hash_check.exit
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.35) #9
+  %340 = add i32 %.2211433, 1
+  br label %342
 
-380:                                              ; preds = %378, %xar_hash_final.exit371
-  %381 = load ptr, ptr %13, align 8
-  %.not348 = icmp eq ptr %381, null
-  br i1 %.not348, label %384, label %382
+341:                                              ; preds = %xar_hash_check.exit
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.36) #9
+  br label %342
 
-382:                                              ; preds = %380
-  %383 = load ptr, ptr @xmlFree, align 8
-  call void %383(ptr noundef nonnull %381) #9
-  br label %384
+342:                                              ; preds = %341, %xar_hash_check.exit.thread
+  %.3212 = phi i32 [ %340, %xar_hash_check.exit.thread ], [ %.2211433, %341 ]
+  call void @free(ptr noundef %337) #9
+  br label %343
 
-384:                                              ; preds = %382, %380
-  %385 = call i32 @xmlTextReaderClose(ptr noundef nonnull %101) #9
+343:                                              ; preds = %342, %333
+  %.4213 = phi i32 [ %.3212, %342 ], [ %.2211433, %333 ]
+  %344 = load ptr, ptr %13, align 8
+  %345 = icmp ne ptr %344, null
+  %or.cond18 = and i1 %334, %345
+  br i1 %or.cond18, label %346, label %353
+
+346:                                              ; preds = %343
+  %347 = call ptr @cli_hex2str(ptr noundef nonnull %344) #9
+  %.not455 = icmp eq ptr %347, null
+  br i1 %.not455, label %xar_hash_check.exit373.thread, label %348
+
+348:                                              ; preds = %346
+  switch i32 %139, label %xar_hash_check.exit373.thread [
+    i32 1, label %xar_hash_check.exit373
+    i32 2, label %349
+  ]
+
+349:                                              ; preds = %348
+  br label %xar_hash_check.exit373
+
+xar_hash_check.exit373:                           ; preds = %348, %349
+  %.0.i372 = phi i64 [ 16, %349 ], [ 20, %348 ]
+  %bcmp456 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(1) %347, i64 %.0.i372)
+  %.not341 = icmp eq i32 %bcmp456, 0
+  br i1 %.not341, label %351, label %xar_hash_check.exit373.thread
+
+xar_hash_check.exit373.thread:                    ; preds = %348, %346, %xar_hash_check.exit373
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.37) #9
+  %350 = add i32 %.4213, 1
+  br label %352
+
+351:                                              ; preds = %xar_hash_check.exit373
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.38) #9
+  br label %352
+
+352:                                              ; preds = %351, %xar_hash_check.exit373.thread
+  %.5214 = phi i32 [ %350, %xar_hash_check.exit373.thread ], [ %.4213, %351 ]
+  call void @free(ptr noundef %347) #9
+  br label %353
+
+353:                                              ; preds = %352, %343
+  %.6215 = phi i32 [ %.5214, %352 ], [ %.4213, %343 ]
+  %354 = load i32, ptr %2, align 4
+  %355 = load ptr, ptr %9, align 8
+  %356 = call i32 @cli_magic_scan_desc(i32 noundef %354, ptr noundef %355, ptr noundef %0, ptr noundef null, i32 noundef 0) #9
+  %.not342 = icmp eq i32 %356, 0
+  br i1 %.not342, label %xar_hash_final.exit369.thread434, label %.loopexit457
+
+xar_hash_final.exit369.thread434:                 ; preds = %328, %353, %xar_hash_final.exit369
+  %.5223421676 = phi i32 [ %.5223421677, %353 ], [ %.5223421678, %xar_hash_final.exit369 ], [ %.5223421, %328 ]
+  %.7216 = phi i32 [ %.6215, %353 ], [ %.1210682, %xar_hash_final.exit369 ], [ %.0209550, %328 ]
+  %357 = load ptr, ptr %12, align 8
+  %.not343 = icmp eq ptr %357, null
+  br i1 %.not343, label %360, label %358
+
+358:                                              ; preds = %xar_hash_final.exit369.thread434
+  %359 = load ptr, ptr @xmlFree, align 8
+  call void %359(ptr noundef nonnull %357) #9
+  store ptr null, ptr %12, align 8
+  br label %360
+
+360:                                              ; preds = %358, %xar_hash_final.exit369.thread434
+  %361 = load ptr, ptr %13, align 8
+  %.not344 = icmp eq ptr %361, null
+  br i1 %.not344, label %364, label %362
+
+362:                                              ; preds = %360
+  %363 = load ptr, ptr @xmlFree, align 8
+  call void %363(ptr noundef nonnull %361) #9
+  store ptr null, ptr %13, align 8
+  br label %364
+
+364:                                              ; preds = %362, %360
+  %365 = call fastcc i32 @xar_get_toc_data_values(ptr noundef nonnull %101, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %12, ptr noundef nonnull %10, ptr noundef nonnull %13, ptr noundef nonnull %11)
+  %366 = icmp eq i32 %365, 0
+  br i1 %366, label %117, label %.loopexit457
+
+.loopexit457:                                     ; preds = %353, %364, %107, %313, %301, %287, %256, %232, %227, %.split535.us, %160
+  %.2237 = phi ptr [ %.0.i353.fr, %313 ], [ %.0.i353.fr, %301 ], [ %.0.i353.fr, %227 ], [ %.0.i353.fr, %232 ], [ %.0.i353.fr, %256 ], [ %.0.i353.fr, %287 ], [ %.0.i353.fr659, %.split535.us ], [ %.0.i353.fr, %160 ], [ null, %107 ], [ null, %364 ], [ null, %353 ]
+  %.2233 = phi ptr [ %.0.i352, %313 ], [ %.0.i352, %301 ], [ %.0.i352, %227 ], [ %.0.i352, %232 ], [ %.0.i352, %256 ], [ %.0.i352, %287 ], [ %.0.i352, %.split535.us ], [ %.0.i352, %160 ], [ null, %107 ], [ null, %364 ], [ null, %353 ]
+  %.6224 = phi i32 [ %.0218549, %313 ], [ %.0218549, %301 ], [ %.0218549, %227 ], [ %.0218549, %232 ], [ %.0218549, %256 ], [ %.0218549, %287 ], [ %.1219543, %.split535.us ], [ %.1219543, %160 ], [ 0, %107 ], [ %.5223421677, %353 ], [ %.5223421676, %364 ]
+  %.8217 = phi i32 [ %.0209550, %313 ], [ %.0209550, %301 ], [ %.0209550, %227 ], [ %.0209550, %232 ], [ %.0209550, %256 ], [ %.0209550, %287 ], [ %.0209550, %.split535.us ], [ %.0209550, %160 ], [ 0, %107 ], [ %.6215, %353 ], [ %.7216, %364 ]
+  %.6 = phi i32 [ 14, %313 ], [ 12, %301 ], [ 20, %227 ], [ 12, %232 ], [ 12, %256 ], [ 14, %287 ], [ 14, %.split535.us ], [ 12, %160 ], [ %108, %107 ], [ %356, %353 ], [ %365, %364 ]
+  %367 = load i32, ptr %2, align 4
+  %368 = load ptr, ptr %9, align 8
+  %369 = call fastcc i32 @xar_cleanup_temp_file(ptr noundef %0, i32 noundef %367, ptr noundef %368)
+  %.not345 = icmp eq ptr %.2233, null
+  br i1 %.not345, label %xar_hash_final.exit375, label %370
+
+370:                                              ; preds = %.loopexit457
+  %371 = load i32, ptr %10, align 4
+  switch i32 %371, label %372 [
+    i32 3, label %xar_hash_final.exit375
+    i32 0, label %xar_hash_final.exit375
+  ]
+
+372:                                              ; preds = %370
+  %373 = call i32 @cl_finish_hash(ptr noundef nonnull %.2233, ptr noundef nonnull %15) #9
+  br label %xar_hash_final.exit375
+
+xar_hash_final.exit375:                           ; preds = %372, %370, %370, %.loopexit457
+  %.not346 = icmp eq ptr %.2237, null
+  br i1 %.not346, label %xar_hash_final.exit377, label %374
+
+374:                                              ; preds = %xar_hash_final.exit375
+  %375 = load i32, ptr %11, align 4
+  switch i32 %375, label %376 [
+    i32 3, label %xar_hash_final.exit377
+    i32 0, label %xar_hash_final.exit377
+  ]
+
+376:                                              ; preds = %374
+  %377 = call i32 @cl_finish_hash(ptr noundef nonnull %.2237, ptr noundef nonnull %14) #9
+  br label %xar_hash_final.exit377
+
+xar_hash_final.exit377:                           ; preds = %122, %376, %374, %374, %xar_hash_final.exit375, %131, %106
+  %.7225 = phi i32 [ 0, %106 ], [ %.0218549, %131 ], [ %.6224, %xar_hash_final.exit375 ], [ %.6224, %374 ], [ %.6224, %374 ], [ %.6224, %376 ], [ %.0218549, %122 ]
+  %.9 = phi i32 [ 0, %106 ], [ %.0209550, %131 ], [ %.8217, %xar_hash_final.exit375 ], [ %.8217, %374 ], [ %.8217, %374 ], [ %.8217, %376 ], [ %.0209550, %122 ]
+  %.7 = phi i32 [ %105, %106 ], [ %130, %131 ], [ %.6, %xar_hash_final.exit375 ], [ %.6, %374 ], [ %.6, %374 ], [ %.6, %376 ], [ %123, %122 ]
+  %378 = load ptr, ptr %12, align 8
+  %.not347 = icmp eq ptr %378, null
+  br i1 %.not347, label %381, label %379
+
+379:                                              ; preds = %xar_hash_final.exit377
+  %380 = load ptr, ptr @xmlFree, align 8
+  call void %380(ptr noundef nonnull %378) #9
+  br label %381
+
+381:                                              ; preds = %379, %xar_hash_final.exit377
+  %382 = load ptr, ptr %13, align 8
+  %.not348 = icmp eq ptr %382, null
+  br i1 %.not348, label %385, label %383
+
+383:                                              ; preds = %381
+  %384 = load ptr, ptr @xmlFree, align 8
+  call void %384(ptr noundef nonnull %382) #9
+  br label %385
+
+385:                                              ; preds = %383, %381
+  %386 = call i32 @xmlTextReaderClose(ptr noundef nonnull %101) #9
   call void @xmlFreeTextReader(ptr noundef nonnull %101) #9
-  br label %386
+  br label %387
 
-.thread434:                                       ; preds = %61, %65, %67, %91, %95, %103
+.thread440:                                       ; preds = %61, %65, %67, %91, %95, %103
   %.8.ph = phi i32 [ 0, %103 ], [ %98, %95 ], [ 14, %91 ], [ 26, %67 ], [ 26, %65 ], [ 26, %61 ]
   call void @free(ptr noundef nonnull %52) #9
-  br label %388
+  br label %389
 
-386:                                              ; preds = %75, %384, %86
-  %.8226 = phi i32 [ 0, %75 ], [ 0, %86 ], [ %.7225, %384 ]
-  %.10 = phi i32 [ 0, %75 ], [ 0, %86 ], [ %.9, %384 ]
-  %.8 = phi i32 [ %76, %75 ], [ %85, %86 ], [ %.7, %384 ]
+387:                                              ; preds = %75, %385, %86
+  %.8226 = phi i32 [ 0, %75 ], [ 0, %86 ], [ %.7225, %385 ]
+  %.10 = phi i32 [ 0, %75 ], [ 0, %86 ], [ %.9, %385 ]
+  %.8 = phi i32 [ %76, %75 ], [ %85, %86 ], [ %.7, %385 ]
   %.8.fr = freeze i32 %.8
   call void @free(ptr noundef %52) #9
-  %387 = icmp eq i32 %.8.fr, 22
-  %spec.select = select i1 %387, i32 0, i32 %.8.fr
-  br label %388
+  %388 = icmp eq i32 %.8.fr, 22
+  %spec.select = select i1 %388, i32 0, i32 %.8.fr
+  br label %389
 
-388:                                              ; preds = %386, %.thread434
-  %.10440 = phi i32 [ 0, %.thread434 ], [ %.10, %386 ]
-  %.8226439 = phi i32 [ 0, %.thread434 ], [ %.8226, %386 ]
-  %389 = phi i32 [ %.8.ph, %.thread434 ], [ %spec.select, %386 ]
-  %390 = sub i32 0, %.8226439
-  %.not349 = icmp eq i32 %.10440, %390
-  br i1 %.not349, label %392, label %391
+389:                                              ; preds = %387, %.thread440
+  %.10446 = phi i32 [ 0, %.thread440 ], [ %.10, %387 ]
+  %.8226445 = phi i32 [ 0, %.thread440 ], [ %.8226, %387 ]
+  %390 = phi i32 [ %.8.ph, %.thread440 ], [ %spec.select, %387 ]
+  %391 = sub i32 0, %.8226445
+  %.not349 = icmp eq i32 %.10446, %391
+  br i1 %.not349, label %393, label %392
 
-391:                                              ; preds = %388
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, i32 noundef %.10440, i32 noundef %.8226439) #9
-  br label %392
+392:                                              ; preds = %389
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.39, i32 noundef %.10446, i32 noundef %.8226445) #9
+  br label %393
 
-392:                                              ; preds = %388, %391, %54, %47, %46, %fmap_readn.exit.thread
-  %.0207 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 12, %47 ], [ 20, %54 ], [ 26, %46 ], [ %389, %391 ], [ %389, %388 ]
+393:                                              ; preds = %389, %392, %54, %47, %46, %fmap_readn.exit.thread
+  %.0207 = phi i32 [ 26, %fmap_readn.exit.thread ], [ 12, %47 ], [ 20, %54 ], [ 26, %46 ], [ %390, %392 ], [ %390, %389 ]
   ret i32 %.0207
 }
 
@@ -1592,34 +1623,6 @@ define internal fastcc range(i32 0, 27) i32 @xar_get_toc_data_values(ptr noundef
   %. = select i1 %115, i32 22, i32 26
   %.182 = select i1 %or.cond5, i32 0, i32 %.
   ret i32 %.182
-}
-
-; Function Attrs: nounwind uwtable
-define internal fastcc ptr @xar_hash_init(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #0 {
-  %4 = icmp ne ptr %1, null
-  %5 = icmp ne ptr %2, null
-  %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %6, label %11
-
-6:                                                ; preds = %3
-  switch i32 %0, label %11 [
-    i32 1, label %7
-    i32 2, label %9
-  ]
-
-7:                                                ; preds = %6
-  %8 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str.82) #9
-  store ptr %8, ptr %1, align 8
-  br label %11
-
-9:                                                ; preds = %6
-  %10 = tail call ptr @cl_hash_init(ptr noundef nonnull @.str.83) #9
-  store ptr %10, ptr %2, align 8
-  br label %11
-
-11:                                               ; preds = %6, %9, %7, %3
-  %.0 = phi ptr [ null, %3 ], [ %8, %7 ], [ %10, %9 ], [ null, %6 ]
-  ret ptr %.0
 }
 
 declare i32 @cli_checklimits(ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2

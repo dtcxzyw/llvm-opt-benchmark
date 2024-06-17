@@ -4056,7 +4056,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   %31 = add i32 %.0164258, 1
   %32 = zext i32 %.0164258 to i64
   %33 = getelementptr inbounds [6 x %struct.AsmArgType], ptr %26, i64 0, i64 %32
-  switch i8 %29, label %.preheader365 [
+  switch i8 %29, label %.preheader362 [
     i8 119, label %34
     i8 114, label %36
   ]
@@ -4064,29 +4064,29 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
 34:                                               ; preds = %30
   %35 = getelementptr inbounds i8, ptr %28, i64 2
   store ptr %35, ptr %5, align 8
-  br label %.preheader365
+  br label %.preheader362
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds i8, ptr %28, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = icmp eq i8 %38, 119
-  br i1 %39, label %40, label %.preheader365
+  br i1 %39, label %40, label %.preheader362
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds i8, ptr %28, i64 3
   store ptr %41, ptr %5, align 8
-  br label %.preheader365
+  br label %.preheader362
 
-.preheader365:                                    ; preds = %30, %36, %40, %34
+.preheader362:                                    ; preds = %30, %36, %40, %34
   %.ph = phi ptr [ %28, %30 ], [ %28, %36 ], [ %41, %40 ], [ %35, %34 ]
   %.sroa.055.1.ph = phi i64 [ 0, %30 ], [ 0, %36 ], [ 3, %40 ], [ 1, %34 ]
   br label %42
 
-42:                                               ; preds = %.preheader365, %175
-  %43 = phi ptr [ %176, %175 ], [ %.ph, %.preheader365 ]
-  %.0167 = phi ptr [ %.1, %175 ], [ %5, %.preheader365 ]
-  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %175 ], [ %.sroa.055.1.ph, %.preheader365 ]
-  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %175 ], [ 0, %.preheader365 ]
+42:                                               ; preds = %.preheader362, %175
+  %43 = phi ptr [ %176, %175 ], [ %.ph, %.preheader362 ]
+  %.0167 = phi ptr [ %.1, %175 ], [ %5, %.preheader362 ]
+  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %175 ], [ %.sroa.055.1.ph, %.preheader362 ]
+  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %175 ], [ 0, %.preheader362 ]
   %44 = getelementptr inbounds i8, ptr %43, i64 1
   store ptr %44, ptr %.0167, align 8
   %45 = load i8, ptr %43, align 1
@@ -4144,9 +4144,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 63:                                               ; preds = %60, %58, %56, %54, %52, %50, %48, %46
-  %.sink361 = phi i64 [ 3, %46 ], [ 2, %48 ], [ 3, %50 ], [ 3, %52 ], [ 3, %54 ], [ 4, %56 ], [ 4, %58 ], [ 4, %60 ]
+  %.sink325 = phi i64 [ 3, %46 ], [ 2, %48 ], [ 3, %50 ], [ 3, %52 ], [ 3, %54 ], [ 4, %56 ], [ 4, %58 ], [ 4, %60 ]
   %.0165 = phi i64 [ 36028797018963968, %46 ], [ 281474976710656, %48 ], [ 562949953421312, %50 ], [ 1125899906842624, %52 ], [ 2251799813685248, %54 ], [ 4503599627370496, %56 ], [ 9007199254740992, %58 ], [ 18014398509481984, %60 ]
-  %64 = getelementptr inbounds i8, ptr %43, i64 %.sink361
+  %64 = getelementptr inbounds i8, ptr %43, i64 %.sink325
   store ptr %64, ptr %.0167, align 8
   %65 = or i64 %.0165, %.sroa.055.1
   br label %172
@@ -4211,9 +4211,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 89:                                               ; preds = %86, %84, %82, %80, %78, %76, %74, %72
-  %.sink = phi i64 [ 3, %72 ], [ 2, %74 ], [ 3, %76 ], [ 3, %78 ], [ 3, %80 ], [ 4, %82 ], [ 4, %84 ], [ 4, %86 ]
+  %.sink326 = phi i64 [ 3, %72 ], [ 2, %74 ], [ 3, %76 ], [ 3, %78 ], [ 3, %80 ], [ 4, %82 ], [ 4, %84 ], [ 4, %86 ]
   %.0163 = phi i32 [ 8388608, %72 ], [ 65536, %74 ], [ 131072, %76 ], [ 262144, %78 ], [ 524288, %80 ], [ 1048576, %82 ], [ 2097152, %84 ], [ 4194304, %86 ]
-  %90 = getelementptr inbounds i8, ptr %43, i64 %.sink
+  %90 = getelementptr inbounds i8, ptr %43, i64 %.sink326
   store ptr %90, ptr %.0167, align 8
   %91 = or i32 %.0163, %.sroa.25.0
   br label %172
@@ -4279,9 +4279,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 115:                                              ; preds = %112, %110, %108, %106, %104, %102, %100, %97
-  %.sink362 = phi i64 [ 6, %97 ], [ 5, %100 ], [ 6, %102 ], [ 6, %104 ], [ 6, %106 ], [ 7, %108 ], [ 7, %110 ], [ 7, %112 ]
+  %.sink327 = phi i64 [ 6, %97 ], [ 5, %100 ], [ 6, %102 ], [ 6, %104 ], [ 6, %106 ], [ 7, %108 ], [ 7, %110 ], [ 7, %112 ]
   %.0162 = phi i64 [ 549755813888, %97 ], [ 4294967296, %100 ], [ 8589934592, %102 ], [ 17179869184, %104 ], [ 34359738368, %106 ], [ 68719476736, %108 ], [ 137438953472, %110 ], [ 274877906944, %112 ]
-  %116 = getelementptr inbounds i8, ptr %43, i64 %.sink362
+  %116 = getelementptr inbounds i8, ptr %43, i64 %.sink327
   store ptr %116, ptr %.0167, align 8
   %117 = or i64 %.0162, %.sroa.055.1
   br label %172
@@ -4333,9 +4333,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 137:                                              ; preds = %134, %132, %130, %128, %126, %124, %122, %118
-  %.sink363 = phi i64 [ 2, %118 ], [ 1, %122 ], [ 2, %124 ], [ 2, %126 ], [ 2, %128 ], [ 3, %130 ], [ 3, %132 ], [ 3, %134 ]
+  %.sink328 = phi i64 [ 2, %118 ], [ 1, %122 ], [ 2, %124 ], [ 2, %126 ], [ 2, %128 ], [ 3, %130 ], [ 3, %132 ], [ 3, %134 ]
   %.0161 = phi i64 [ 1024, %118 ], [ 8, %122 ], [ 16, %124 ], [ 32, %126 ], [ 64, %128 ], [ 128, %130 ], [ 256, %132 ], [ 512, %134 ]
-  %138 = getelementptr inbounds i8, ptr %120, i64 %.sink363
+  %138 = getelementptr inbounds i8, ptr %120, i64 %.sink328
   store ptr %138, ptr %119, align 8
   %139 = or i64 %.0161, %.sroa.055.1
   br label %172
@@ -4384,9 +4384,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %3
   unreachable
 
 157:                                              ; preds = %154, %152, %150, %148, %146, %144, %142, %140
-  %.sink364 = phi i64 [ 5, %140 ], [ 4, %142 ], [ 5, %144 ], [ 5, %146 ], [ 5, %148 ], [ 6, %150 ], [ 6, %152 ], [ 6, %154 ]
+  %.sink329 = phi i64 [ 5, %140 ], [ 4, %142 ], [ 5, %144 ], [ 5, %146 ], [ 5, %148 ], [ 6, %150 ], [ 6, %152 ], [ 6, %154 ]
   %.0 = phi i32 [ 128, %140 ], [ 1, %142 ], [ 2, %144 ], [ 4, %146 ], [ 8, %148 ], [ 16, %150 ], [ 32, %152 ], [ 64, %154 ]
-  %158 = getelementptr inbounds i8, ptr %43, i64 %.sink364
+  %158 = getelementptr inbounds i8, ptr %43, i64 %.sink329
   store ptr %158, ptr %.0167, align 8
   %159 = lshr i64 %.sroa.055.1, 32
   %160 = trunc nuw i64 %159 to i32
@@ -4522,7 +4522,7 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 29:                                               ; preds = %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %30 = getelementptr inbounds [6 x %struct.AsmArgType], ptr %25, i64 0, i64 %indvars.iv
-  switch i8 %28, label %.preheader366 [
+  switch i8 %28, label %.preheader363 [
     i8 119, label %31
     i8 114, label %33
   ]
@@ -4530,29 +4530,29 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
 31:                                               ; preds = %29
   %32 = getelementptr inbounds i8, ptr %27, i64 2
   store ptr %32, ptr %4, align 8
-  br label %.preheader366
+  br label %.preheader363
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds i8, ptr %27, i64 1
   %35 = load i8, ptr %34, align 1
   %36 = icmp eq i8 %35, 119
-  br i1 %36, label %37, label %.preheader366
+  br i1 %36, label %37, label %.preheader363
 
 37:                                               ; preds = %33
   %38 = getelementptr inbounds i8, ptr %27, i64 3
   store ptr %38, ptr %4, align 8
-  br label %.preheader366
+  br label %.preheader363
 
-.preheader366:                                    ; preds = %29, %33, %37, %31
+.preheader363:                                    ; preds = %29, %33, %37, %31
   %.ph = phi ptr [ %27, %29 ], [ %27, %33 ], [ %38, %37 ], [ %32, %31 ]
   %.sroa.055.1.ph = phi i64 [ 0, %29 ], [ 0, %33 ], [ 3, %37 ], [ 1, %31 ]
   br label %39
 
-39:                                               ; preds = %.preheader366, %172
-  %40 = phi ptr [ %173, %172 ], [ %.ph, %.preheader366 ]
-  %.0167 = phi ptr [ %.1, %172 ], [ %4, %.preheader366 ]
-  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %172 ], [ %.sroa.055.1.ph, %.preheader366 ]
-  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %172 ], [ 0, %.preheader366 ]
+39:                                               ; preds = %.preheader363, %172
+  %40 = phi ptr [ %173, %172 ], [ %.ph, %.preheader363 ]
+  %.0167 = phi ptr [ %.1, %172 ], [ %4, %.preheader363 ]
+  %.sroa.055.1 = phi i64 [ %.sroa.055.2, %172 ], [ %.sroa.055.1.ph, %.preheader363 ]
+  %.sroa.25.0 = phi i32 [ %.sroa.25.1, %172 ], [ 0, %.preheader363 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 1
   store ptr %41, ptr %.0167, align 8
   %42 = load i8, ptr %40, align 1
@@ -4610,9 +4610,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 60:                                               ; preds = %57, %55, %53, %51, %49, %47, %45, %43
-  %.sink362 = phi i64 [ 3, %43 ], [ 2, %45 ], [ 3, %47 ], [ 3, %49 ], [ 3, %51 ], [ 4, %53 ], [ 4, %55 ], [ 4, %57 ]
+  %.sink326 = phi i64 [ 3, %43 ], [ 2, %45 ], [ 3, %47 ], [ 3, %49 ], [ 3, %51 ], [ 4, %53 ], [ 4, %55 ], [ 4, %57 ]
   %.0165 = phi i64 [ 36028797018963968, %43 ], [ 281474976710656, %45 ], [ 562949953421312, %47 ], [ 1125899906842624, %49 ], [ 2251799813685248, %51 ], [ 4503599627370496, %53 ], [ 9007199254740992, %55 ], [ 18014398509481984, %57 ]
-  %61 = getelementptr inbounds i8, ptr %40, i64 %.sink362
+  %61 = getelementptr inbounds i8, ptr %40, i64 %.sink326
   store ptr %61, ptr %.0167, align 8
   %62 = or i64 %.0165, %.sroa.055.1
   br label %169
@@ -4677,9 +4677,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 86:                                               ; preds = %83, %81, %79, %77, %75, %73, %71, %69
-  %.sink = phi i64 [ 3, %69 ], [ 2, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %77 ], [ 4, %79 ], [ 4, %81 ], [ 4, %83 ]
+  %.sink327 = phi i64 [ 3, %69 ], [ 2, %71 ], [ 3, %73 ], [ 3, %75 ], [ 3, %77 ], [ 4, %79 ], [ 4, %81 ], [ 4, %83 ]
   %.0163 = phi i32 [ 8388608, %69 ], [ 65536, %71 ], [ 131072, %73 ], [ 262144, %75 ], [ 524288, %77 ], [ 1048576, %79 ], [ 2097152, %81 ], [ 4194304, %83 ]
-  %87 = getelementptr inbounds i8, ptr %40, i64 %.sink
+  %87 = getelementptr inbounds i8, ptr %40, i64 %.sink327
   store ptr %87, ptr %.0167, align 8
   %88 = or i32 %.0163, %.sroa.25.0
   br label %169
@@ -4745,9 +4745,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 112:                                              ; preds = %109, %107, %105, %103, %101, %99, %97, %94
-  %.sink363 = phi i64 [ 6, %94 ], [ 5, %97 ], [ 6, %99 ], [ 6, %101 ], [ 6, %103 ], [ 7, %105 ], [ 7, %107 ], [ 7, %109 ]
+  %.sink328 = phi i64 [ 6, %94 ], [ 5, %97 ], [ 6, %99 ], [ 6, %101 ], [ 6, %103 ], [ 7, %105 ], [ 7, %107 ], [ 7, %109 ]
   %.0162 = phi i64 [ 549755813888, %94 ], [ 4294967296, %97 ], [ 8589934592, %99 ], [ 17179869184, %101 ], [ 34359738368, %103 ], [ 68719476736, %105 ], [ 137438953472, %107 ], [ 274877906944, %109 ]
-  %113 = getelementptr inbounds i8, ptr %40, i64 %.sink363
+  %113 = getelementptr inbounds i8, ptr %40, i64 %.sink328
   store ptr %113, ptr %.0167, align 8
   %114 = or i64 %.0162, %.sroa.055.1
   br label %169
@@ -4799,9 +4799,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 134:                                              ; preds = %131, %129, %127, %125, %123, %121, %119, %115
-  %.sink364 = phi i64 [ 2, %115 ], [ 1, %119 ], [ 2, %121 ], [ 2, %123 ], [ 2, %125 ], [ 3, %127 ], [ 3, %129 ], [ 3, %131 ]
+  %.sink329 = phi i64 [ 2, %115 ], [ 1, %119 ], [ 2, %121 ], [ 2, %123 ], [ 2, %125 ], [ 3, %127 ], [ 3, %129 ], [ 3, %131 ]
   %.0161 = phi i64 [ 1024, %115 ], [ 8, %119 ], [ 16, %121 ], [ 32, %123 ], [ 64, %125 ], [ 128, %127 ], [ 256, %129 ], [ 512, %131 ]
-  %135 = getelementptr inbounds i8, ptr %117, i64 %.sink364
+  %135 = getelementptr inbounds i8, ptr %117, i64 %.sink329
   store ptr %135, ptr %116, align 8
   %136 = or i64 %.0161, %.sroa.055.1
   br label %169
@@ -4850,9 +4850,9 @@ fnv1a.exit:                                       ; preds = %.lr.ph.i, %2
   unreachable
 
 154:                                              ; preds = %151, %149, %147, %145, %143, %141, %139, %137
-  %.sink365 = phi i64 [ 5, %137 ], [ 4, %139 ], [ 5, %141 ], [ 5, %143 ], [ 5, %145 ], [ 6, %147 ], [ 6, %149 ], [ 6, %151 ]
+  %.sink330 = phi i64 [ 5, %137 ], [ 4, %139 ], [ 5, %141 ], [ 5, %143 ], [ 5, %145 ], [ 6, %147 ], [ 6, %149 ], [ 6, %151 ]
   %.0 = phi i32 [ 128, %137 ], [ 1, %139 ], [ 2, %141 ], [ 4, %143 ], [ 8, %145 ], [ 16, %147 ], [ 32, %149 ], [ 64, %151 ]
-  %155 = getelementptr inbounds i8, ptr %40, i64 %.sink365
+  %155 = getelementptr inbounds i8, ptr %40, i64 %.sink330
   store ptr %155, ptr %.0167, align 8
   %156 = lshr i64 %.sroa.055.1, 32
   %157 = trunc nuw i64 %156 to i32

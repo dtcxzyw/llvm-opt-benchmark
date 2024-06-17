@@ -425,11 +425,11 @@ if.end233.sink.split:                             ; preds = %if.else, %if.else21
   %.sink140 = phi i8 [ 2, %if.else217 ], [ 1, %if.else ]
   %bandwidth.sink = phi ptr [ %bandwidth, %if.else217 ], [ %latency, %if.else ]
   %47 = load i16, ptr %target, align 2
-  %idxprom126 = zext i16 %47 to i64
-  %lb_info_provided = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom126, i32 4
-  %48 = load i8, ptr %lb_info_provided, align 2
+  %idxprom222 = zext i16 %47 to i64
+  %lb_info_provided224 = getelementptr %struct.NodeInfo, ptr %nodes, i64 %idxprom222, i32 4
+  %48 = load i8, ptr %lb_info_provided224, align 2
   %49 = or i8 %48, %.sink140
-  store i8 %49, ptr %lb_info_provided, align 2
+  store i8 %49, ptr %lb_info_provided224, align 2
   %.pre136 = load i64, ptr %bandwidth.sink, align 8
   br label %if.end233
 

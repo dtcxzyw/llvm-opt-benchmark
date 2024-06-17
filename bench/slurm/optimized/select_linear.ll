@@ -2220,8 +2220,8 @@ _add_tot_job.exit:                                ; preds = %_add_tot_job.exit.l
   br label %.sink.split
 
 .sink.split:                                      ; preds = %100, %112, %107
-  %.sink = phi i32 [ %105, %100 ], [ %.pre132.pre133.pre, %112 ], [ %108, %107 ]
-  %.071111115.sink = phi i64 [ %104, %100 ], [ %114, %112 ], [ %.071111115, %107 ]
+  %.sink = phi i32 [ %108, %107 ], [ %.pre132.pre133.pre, %112 ], [ %105, %100 ]
+  %.071111115.sink = phi i64 [ %.071111115, %107 ], [ %114, %112 ], [ %104, %100 ]
   %.sink142 = load ptr, ptr %0, align 8
   %115 = sext i32 %.sink to i64
   %116 = getelementptr inbounds %struct.node_cr_record, ptr %.sink142, i64 %115, i32 1

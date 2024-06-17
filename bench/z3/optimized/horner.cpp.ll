@@ -6361,18 +6361,18 @@ if.then.i:                                        ; preds = %lor.lhs.false.i, %i
           to label %for.inc.sink.split unwind label %lpad.loopexit
 
 for.inc.sink.split:                               ; preds = %if.then.i, %if.then.i.i19
-  %m_args.i.sink = phi ptr [ %m_args.i, %if.then.i.i19 ], [ %m_b_split_vec, %if.then.i ]
+  %m_b_split_vec.sink51 = phi ptr [ %m_args.i, %if.then.i.i19 ], [ %m_b_split_vec, %if.then.i ]
   %.sink.ph = phi ptr [ %call8, %if.then.i.i19 ], [ %5, %if.then.i ]
-  %.pre.i.i = load ptr, ptr %m_args.i.sink, align 8
-  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
+  %.pre.i = load ptr, ptr %m_b_split_vec.sink51, align 8
+  %arrayidx8.phi.trans.insert.i = getelementptr inbounds i8, ptr %.pre.i, i64 -4
   %.pre1.i = load i32, ptr %arrayidx8.phi.trans.insert.i, align 4
   br label %for.inc
 
 for.inc:                                          ; preds = %for.inc.sink.split, %lor.lhs.false.i, %lor.lhs.false.i.i
   %.sink50 = phi i32 [ %12, %lor.lhs.false.i.i ], [ %15, %lor.lhs.false.i ], [ %.pre1.i, %for.inc.sink.split ]
-  %.sink49 = phi ptr [ %11, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i ], [ %.pre.i.i, %for.inc.sink.split ]
+  %.sink49 = phi ptr [ %11, %lor.lhs.false.i.i ], [ %14, %lor.lhs.false.i ], [ %.pre.i, %for.inc.sink.split ]
   %.sink = phi ptr [ %call8, %lor.lhs.false.i.i ], [ %5, %lor.lhs.false.i ], [ %.sink.ph, %for.inc.sink.split ]
-  %m_b_split_vec.sink = phi ptr [ %m_args.i, %lor.lhs.false.i.i ], [ %m_b_split_vec, %lor.lhs.false.i ], [ %m_args.i.sink, %for.inc.sink.split ]
+  %m_b_split_vec.sink = phi ptr [ %m_args.i, %lor.lhs.false.i.i ], [ %m_b_split_vec, %lor.lhs.false.i ], [ %m_b_split_vec.sink51, %for.inc.sink.split ]
   %idx.ext.i = zext i32 %.sink50 to i64
   %add.ptr.i21 = getelementptr inbounds ptr, ptr %.sink49, i64 %idx.ext.i
   store ptr %.sink, ptr %add.ptr.i21, align 8

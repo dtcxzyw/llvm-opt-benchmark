@@ -27297,8 +27297,6 @@ while.end.i.i:                                    ; preds = %while.body.i.i, %_Z
 if.then.i.i65:                                    ; preds = %while.end.i.i
   %37 = trunc i32 %value.addr.0.lcssa.i.i to i8
   %conv.i.i = add i8 %37, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -1
-  store i8 %conv.i.i, ptr %incdec.ptr6.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 if.end.i.i58:                                     ; preds = %while.end.i.i
@@ -27312,19 +27310,20 @@ if.end.i.i58:                                     ; preds = %while.end.i.i
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %39 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !116
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 -2
-  store i8 %39, ptr %incdec.ptr15.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i: ; preds = %if.end.i.i58, %if.then.i.i65
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i65 ], [ %incdec.ptr15.i.i, %if.end.i.i58 ]
-  %cmp41.i = icmp ugt ptr %retval.0.i.i, %call.i
+  %.sink4 = phi i64 [ -2, %if.end.i.i58 ], [ -1, %if.then.i.i65 ]
+  %.sink3 = phi i8 [ %39, %if.end.i.i58 ], [ %conv.i.i, %if.then.i.i65 ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i, i64 %.sink4
+  store i8 %.sink3, ptr %incdec.ptr15.i.i, align 1, !tbaa !116
+  %cmp41.i = icmp ugt ptr %incdec.ptr15.i.i, %call.i
   br i1 %cmp41.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIiEEPcT_S2_.exit.i
-  %retval.0.i46.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i46.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %40 = sub i64 %data45.i, %retval.0.i46.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %40
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %40
   %41 = sub i64 %retval.0.i46.i, %data45.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %41, i1 false), !tbaa !116
   br label %for.cond.preheader.i
@@ -36908,8 +36907,6 @@ while.end.i.i280:                                 ; preds = %while.body.i.i289, 
 if.then.i.i287:                                   ; preds = %while.end.i.i280
   %30 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i282 to i8
   %conv.i.i288 = or disjoint i8 %30, 48
-  %incdec.ptr6.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i281, i64 -1
-  store i8 %conv.i.i288, ptr %incdec.ptr6.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
 
 if.end.i.i284:                                    ; preds = %while.end.i.i280
@@ -36923,19 +36920,20 @@ if.end.i.i284:                                    ; preds = %while.end.i.i280
   %idxprom13.i.i = zext nneg i32 %mul8.i.i to i64
   %arrayidx14.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i
   %32 = load i8, ptr %arrayidx14.i.i, align 1, !tbaa !116
-  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i281, i64 -2
-  store i8 %32, ptr %incdec.ptr15.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i: ; preds = %if.end.i.i284, %if.then.i.i287
-  %retval.0.i.i = phi ptr [ %incdec.ptr6.i.i, %if.then.i.i287 ], [ %incdec.ptr15.i.i, %if.end.i.i284 ]
-  %cmp13.i = icmp ugt ptr %retval.0.i.i, %add.ptr
+  %.sink1 = phi i64 [ -2, %if.end.i.i284 ], [ -1, %if.then.i.i287 ]
+  %.sink = phi i8 [ %32, %if.end.i.i284 ], [ %conv.i.i288, %if.then.i.i287 ]
+  %incdec.ptr15.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i281, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr15.i.i, align 1, !tbaa !116
+  %cmp13.i = icmp ugt ptr %incdec.ptr15.i.i, %add.ptr
   br i1 %cmp13.i, label %while.body.preheader.i, label %for.cond.preheader.i
 
 while.body.preheader.i:                           ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i
-  %retval.0.i18.i = ptrtoint ptr %retval.0.i.i to i64
+  %retval.0.i18.i = ptrtoint ptr %incdec.ptr15.i.i to i64
   %33 = sub i64 %micro_buffer17.i, %retval.0.i18.i
-  %scevgep.i = getelementptr i8, ptr %retval.0.i.i, i64 %33
+  %scevgep.i = getelementptr i8, ptr %incdec.ptr15.i.i, i64 %33
   %34 = sub i64 %retval.0.i18.i, %micro_buffer17.i
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i, i8 48, i64 %34, i1 false), !tbaa !116
   br label %for.cond.preheader.i
@@ -37958,54 +37956,43 @@ while.body47.us.us.us.preheader:                  ; preds = %middle.block379.whi
   %month_diff.1246.us.us.us.ph = phi i32 [ %90, %middle.block379.while.body47.us.us.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split.us.split.us ]
   %day_diff.2245.us.us.us.ph = phi i32 [ %ind.end385, %middle.block379.while.body47.us.us.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split.us.split.us ]
   %91 = icmp ne i32 %smax81.pre-phi, %.pre-phi
-  %umin82 = zext i1 %91 to i32
-  %92 = add i32 %.pre-phi, %umin82
-  %93 = sub i32 %smax81.pre-phi, %92
-  %umax83 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us.us, i32 1)
-  %94 = udiv i32 %93, %umax83
-  %95 = add i32 %94, %umin82
-  %96 = add i32 %95, 1
-  %97 = mul i32 %cond.pn.us.us.us, %96
-  %98 = xor i32 %95, -1
-  %99 = add i32 %month_diff.1246.us.us.us.ph, %98
-  %100 = add i32 %day_diff.2245.us.us.us.ph, %97
-  br label %while.cond68.preheader
+  br label %while.cond68.preheader.sink.split
 
 while.body47.lr.ph.split.us.split.us.split:       ; preds = %while.body47.lr.ph.split.us.split.us
   %cond.pn.us.us = load i32, ptr %arrayidx202, align 4, !tbaa !197
-  %101 = add nsw i32 %cond.pn.us.us, %day_diff.1.lcssa
-  %smax358 = tail call i32 @llvm.smax.i32(i32 %101, i32 0)
-  %.lobit399.neg48 = ashr i32 %101, 31
-  %.lobit399 = lshr i32 %101, 31
-  %.neg20 = sub i32 %.lobit399.neg48, %101
-  %102 = add i32 %.neg20, %smax358
-  %103 = udiv i32 %102, %cond.pn.us.us
-  %104 = add i32 %103, 1
-  %105 = add i32 %104, %.lobit399
-  %min.iters.check362 = icmp ult i32 %105, 8
+  %92 = add nsw i32 %cond.pn.us.us, %day_diff.1.lcssa
+  %smax358 = tail call i32 @llvm.smax.i32(i32 %92, i32 0)
+  %.lobit399.neg48 = ashr i32 %92, 31
+  %.lobit399 = lshr i32 %92, 31
+  %.neg20 = sub i32 %.lobit399.neg48, %92
+  %93 = add i32 %.neg20, %smax358
+  %94 = udiv i32 %93, %cond.pn.us.us
+  %95 = add i32 %94, 1
+  %96 = add i32 %95, %.lobit399
+  %min.iters.check362 = icmp ult i32 %96, 8
   br i1 %min.iters.check362, label %while.body47.us.us.preheader, label %vector.ph363
 
 vector.ph363:                                     ; preds = %while.body47.lr.ph.split.us.split.us.split
-  %n.vec365 = and i32 %105, -8
-  %106 = mul i32 %n.vec365, %cond.pn.us.us
-  %107 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
+  %n.vec365 = and i32 %96, -8
+  %97 = mul i32 %n.vec365, %cond.pn.us.us
+  %98 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
   br label %vector.body369
 
 vector.body369:                                   ; preds = %vector.body369, %vector.ph363
   %index370 = phi i32 [ 0, %vector.ph363 ], [ %index.next374, %vector.body369 ]
-  %vec.phi371 = phi <4 x i32> [ %107, %vector.ph363 ], [ %108, %vector.body369 ]
-  %vec.phi372 = phi <4 x i32> [ zeroinitializer, %vector.ph363 ], [ %109, %vector.body369 ]
-  %108 = add <4 x i32> %vec.phi371, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %109 = add <4 x i32> %vec.phi372, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %vec.phi371 = phi <4 x i32> [ %98, %vector.ph363 ], [ %99, %vector.body369 ]
+  %vec.phi372 = phi <4 x i32> [ zeroinitializer, %vector.ph363 ], [ %100, %vector.body369 ]
+  %99 = add <4 x i32> %vec.phi371, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %100 = add <4 x i32> %vec.phi372, <i32 -1, i32 -1, i32 -1, i32 -1>
   %index.next374 = add nuw i32 %index370, 8
-  %110 = icmp eq i32 %index.next374, %n.vec365
-  br i1 %110, label %middle.block360, label %vector.body369, !llvm.loop !816
+  %101 = icmp eq i32 %index.next374, %n.vec365
+  br i1 %101, label %middle.block360, label %vector.body369, !llvm.loop !816
 
 middle.block360:                                  ; preds = %vector.body369
-  %ind.end366 = add i32 %106, %day_diff.1.lcssa
-  %bin.rdx375 = add <4 x i32> %109, %108
-  %111 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx375)
-  %cmp.n368 = icmp eq i32 %105, %n.vec365
+  %ind.end366 = add i32 %97, %day_diff.1.lcssa
+  %bin.rdx375 = add <4 x i32> %100, %99
+  %102 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx375)
+  %cmp.n368 = icmp eq i32 %96, %n.vec365
   br i1 %cmp.n368, label %while.cond68.preheader, label %middle.block360.while.body47.us.us.preheader_crit_edge
 
 middle.block360.while.body47.us.us.preheader_crit_edge: ; preds = %middle.block360
@@ -38015,58 +38002,47 @@ middle.block360.while.body47.us.us.preheader_crit_edge: ; preds = %middle.block3
 
 while.body47.us.us.preheader:                     ; preds = %middle.block360.while.body47.us.us.preheader_crit_edge, %while.body47.lr.ph.split.us.split.us.split
   %smax78.pre-phi = phi i32 [ %.pre87, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %smax358, %while.body47.lr.ph.split.us.split.us.split ]
-  %.pre-phi86 = phi i32 [ %.pre85, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %101, %while.body47.lr.ph.split.us.split.us.split ]
-  %month_diff.1246.us.us.ph = phi i32 [ %111, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split.us.split ]
+  %.pre-phi86 = phi i32 [ %.pre85, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %92, %while.body47.lr.ph.split.us.split.us.split ]
+  %month_diff.1246.us.us.ph = phi i32 [ %102, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split.us.split ]
   %day_diff.2245.us.us.ph = phi i32 [ %ind.end366, %middle.block360.while.body47.us.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split.us.split ]
-  %112 = icmp ne i32 %smax78.pre-phi, %.pre-phi86
-  %umin79 = zext i1 %112 to i32
-  %113 = add i32 %.pre-phi86, %umin79
-  %114 = sub i32 %smax78.pre-phi, %113
-  %umax80 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us.us, i32 1)
-  %115 = udiv i32 %114, %umax80
-  %116 = add i32 %115, %umin79
-  %117 = add i32 %116, 1
-  %118 = mul i32 %cond.pn.us.us, %117
-  %119 = xor i32 %116, -1
-  %120 = add i32 %month_diff.1246.us.us.ph, %119
-  %121 = add i32 %day_diff.2245.us.us.ph, %118
-  br label %while.cond68.preheader
+  %103 = icmp ne i32 %smax78.pre-phi, %.pre-phi86
+  br label %while.cond68.preheader.sink.split
 
 while.body47.lr.ph.split.us.split:                ; preds = %while.body47.lr.ph.split.us
   %cond.pn.us = load i32, ptr %arrayidx52209, align 4, !tbaa !197
-  %122 = add nsw i32 %cond.pn.us, %day_diff.1.lcssa
-  %smax339 = tail call i32 @llvm.smax.i32(i32 %122, i32 0)
-  %.lobit398.neg47 = ashr i32 %122, 31
-  %.lobit398 = lshr i32 %122, 31
-  %.neg18 = sub i32 %.lobit398.neg47, %122
-  %123 = add i32 %.neg18, %smax339
-  %124 = udiv i32 %123, %cond.pn.us
-  %125 = add i32 %124, 1
-  %126 = add i32 %125, %.lobit398
-  %min.iters.check343 = icmp ult i32 %126, 8
+  %104 = add nsw i32 %cond.pn.us, %day_diff.1.lcssa
+  %smax339 = tail call i32 @llvm.smax.i32(i32 %104, i32 0)
+  %.lobit398.neg47 = ashr i32 %104, 31
+  %.lobit398 = lshr i32 %104, 31
+  %.neg18 = sub i32 %.lobit398.neg47, %104
+  %105 = add i32 %.neg18, %smax339
+  %106 = udiv i32 %105, %cond.pn.us
+  %107 = add i32 %106, 1
+  %108 = add i32 %107, %.lobit398
+  %min.iters.check343 = icmp ult i32 %108, 8
   br i1 %min.iters.check343, label %while.body47.us.preheader, label %vector.ph344
 
 vector.ph344:                                     ; preds = %while.body47.lr.ph.split.us.split
-  %n.vec346 = and i32 %126, -8
-  %127 = mul i32 %n.vec346, %cond.pn.us
-  %128 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
+  %n.vec346 = and i32 %108, -8
+  %109 = mul i32 %n.vec346, %cond.pn.us
+  %110 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
   br label %vector.body350
 
 vector.body350:                                   ; preds = %vector.body350, %vector.ph344
   %index351 = phi i32 [ 0, %vector.ph344 ], [ %index.next355, %vector.body350 ]
-  %vec.phi352 = phi <4 x i32> [ %128, %vector.ph344 ], [ %129, %vector.body350 ]
-  %vec.phi353 = phi <4 x i32> [ zeroinitializer, %vector.ph344 ], [ %130, %vector.body350 ]
-  %129 = add <4 x i32> %vec.phi352, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %130 = add <4 x i32> %vec.phi353, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %vec.phi352 = phi <4 x i32> [ %110, %vector.ph344 ], [ %111, %vector.body350 ]
+  %vec.phi353 = phi <4 x i32> [ zeroinitializer, %vector.ph344 ], [ %112, %vector.body350 ]
+  %111 = add <4 x i32> %vec.phi352, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %112 = add <4 x i32> %vec.phi353, <i32 -1, i32 -1, i32 -1, i32 -1>
   %index.next355 = add nuw i32 %index351, 8
-  %131 = icmp eq i32 %index.next355, %n.vec346
-  br i1 %131, label %middle.block341, label %vector.body350, !llvm.loop !817
+  %113 = icmp eq i32 %index.next355, %n.vec346
+  br i1 %113, label %middle.block341, label %vector.body350, !llvm.loop !817
 
 middle.block341:                                  ; preds = %vector.body350
-  %ind.end347 = add i32 %127, %day_diff.1.lcssa
-  %bin.rdx356 = add <4 x i32> %130, %129
-  %132 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx356)
-  %cmp.n349 = icmp eq i32 %126, %n.vec346
+  %ind.end347 = add i32 %109, %day_diff.1.lcssa
+  %bin.rdx356 = add <4 x i32> %112, %111
+  %114 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx356)
+  %cmp.n349 = icmp eq i32 %108, %n.vec346
   br i1 %cmp.n349, label %while.cond68.preheader, label %middle.block341.while.body47.us.preheader_crit_edge
 
 middle.block341.while.body47.us.preheader_crit_edge: ; preds = %middle.block341
@@ -38076,26 +38052,15 @@ middle.block341.while.body47.us.preheader_crit_edge: ; preds = %middle.block341
 
 while.body47.us.preheader:                        ; preds = %middle.block341.while.body47.us.preheader_crit_edge, %while.body47.lr.ph.split.us.split
   %smax75.pre-phi = phi i32 [ %.pre90, %middle.block341.while.body47.us.preheader_crit_edge ], [ %smax339, %while.body47.lr.ph.split.us.split ]
-  %.pre-phi89 = phi i32 [ %.pre88, %middle.block341.while.body47.us.preheader_crit_edge ], [ %122, %while.body47.lr.ph.split.us.split ]
-  %month_diff.1246.us.ph = phi i32 [ %132, %middle.block341.while.body47.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split ]
+  %.pre-phi89 = phi i32 [ %.pre88, %middle.block341.while.body47.us.preheader_crit_edge ], [ %104, %while.body47.lr.ph.split.us.split ]
+  %month_diff.1246.us.ph = phi i32 [ %114, %middle.block341.while.body47.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.us.split ]
   %day_diff.2245.us.ph = phi i32 [ %ind.end347, %middle.block341.while.body47.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.us.split ]
-  %133 = icmp ne i32 %smax75.pre-phi, %.pre-phi89
-  %umin76 = zext i1 %133 to i32
-  %134 = add i32 %.pre-phi89, %umin76
-  %135 = sub i32 %smax75.pre-phi, %134
-  %umax77 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us, i32 1)
-  %136 = udiv i32 %135, %umax77
-  %137 = add i32 %136, %umin76
-  %138 = add i32 %137, 1
-  %139 = mul i32 %cond.pn.us, %138
-  %140 = xor i32 %137, -1
-  %141 = add i32 %month_diff.1246.us.ph, %140
-  %142 = add i32 %day_diff.2245.us.ph, %139
-  br label %while.cond68.preheader
+  %115 = icmp ne i32 %smax75.pre-phi, %.pre-phi89
+  br label %while.cond68.preheader.sink.split
 
 while.body47.lr.ph.split:                         ; preds = %while.body47.lr.ph
-  %143 = and i32 %add11.i.i132.fr, 3
-  %cmp.i181 = icmp eq i32 %143, 0
+  %116 = and i32 %add11.i.i132.fr, 3
+  %cmp.i181 = icmp eq i32 %116, 0
   br i1 %cmp.i181, label %while.body47.lr.ph.split.split.us, label %while.body47.lr.ph.split.split
 
 while.body47.lr.ph.split.split.us:                ; preds = %while.body47.lr.ph.split
@@ -38103,39 +38068,39 @@ while.body47.lr.ph.split.split.us:                ; preds = %while.body47.lr.ph.
 
 while.body47.lr.ph.split.split.us.split.us:       ; preds = %while.body47.lr.ph.split.split.us
   %cond.pn.us256.us = load i32, ptr %spec.select222, align 4, !tbaa !197
-  %144 = add nsw i32 %cond.pn.us256.us, %day_diff.1.lcssa
-  %smax320 = tail call i32 @llvm.smax.i32(i32 %144, i32 0)
-  %.lobit397.neg46 = ashr i32 %144, 31
-  %.lobit397 = lshr i32 %144, 31
-  %.neg16 = sub i32 %.lobit397.neg46, %144
-  %145 = add i32 %.neg16, %smax320
-  %146 = udiv i32 %145, %cond.pn.us256.us
-  %147 = add i32 %146, 1
-  %148 = add i32 %147, %.lobit397
-  %min.iters.check324 = icmp ult i32 %148, 8
+  %117 = add nsw i32 %cond.pn.us256.us, %day_diff.1.lcssa
+  %smax320 = tail call i32 @llvm.smax.i32(i32 %117, i32 0)
+  %.lobit397.neg46 = ashr i32 %117, 31
+  %.lobit397 = lshr i32 %117, 31
+  %.neg16 = sub i32 %.lobit397.neg46, %117
+  %118 = add i32 %.neg16, %smax320
+  %119 = udiv i32 %118, %cond.pn.us256.us
+  %120 = add i32 %119, 1
+  %121 = add i32 %120, %.lobit397
+  %min.iters.check324 = icmp ult i32 %121, 8
   br i1 %min.iters.check324, label %while.body47.us250.us.preheader, label %vector.ph325
 
 vector.ph325:                                     ; preds = %while.body47.lr.ph.split.split.us.split.us
-  %n.vec327 = and i32 %148, -8
-  %149 = mul i32 %n.vec327, %cond.pn.us256.us
-  %150 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
+  %n.vec327 = and i32 %121, -8
+  %122 = mul i32 %n.vec327, %cond.pn.us256.us
+  %123 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
   br label %vector.body331
 
 vector.body331:                                   ; preds = %vector.body331, %vector.ph325
   %index332 = phi i32 [ 0, %vector.ph325 ], [ %index.next336, %vector.body331 ]
-  %vec.phi333 = phi <4 x i32> [ %150, %vector.ph325 ], [ %151, %vector.body331 ]
-  %vec.phi334 = phi <4 x i32> [ zeroinitializer, %vector.ph325 ], [ %152, %vector.body331 ]
-  %151 = add <4 x i32> %vec.phi333, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %152 = add <4 x i32> %vec.phi334, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %vec.phi333 = phi <4 x i32> [ %123, %vector.ph325 ], [ %124, %vector.body331 ]
+  %vec.phi334 = phi <4 x i32> [ zeroinitializer, %vector.ph325 ], [ %125, %vector.body331 ]
+  %124 = add <4 x i32> %vec.phi333, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %125 = add <4 x i32> %vec.phi334, <i32 -1, i32 -1, i32 -1, i32 -1>
   %index.next336 = add nuw i32 %index332, 8
-  %153 = icmp eq i32 %index.next336, %n.vec327
-  br i1 %153, label %middle.block322, label %vector.body331, !llvm.loop !818
+  %126 = icmp eq i32 %index.next336, %n.vec327
+  br i1 %126, label %middle.block322, label %vector.body331, !llvm.loop !818
 
 middle.block322:                                  ; preds = %vector.body331
-  %ind.end328 = add i32 %149, %day_diff.1.lcssa
-  %bin.rdx337 = add <4 x i32> %152, %151
-  %154 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx337)
-  %cmp.n330 = icmp eq i32 %148, %n.vec327
+  %ind.end328 = add i32 %122, %day_diff.1.lcssa
+  %bin.rdx337 = add <4 x i32> %125, %124
+  %127 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx337)
+  %cmp.n330 = icmp eq i32 %121, %n.vec327
   br i1 %cmp.n330, label %while.cond68.preheader, label %middle.block322.while.body47.us250.us.preheader_crit_edge
 
 middle.block322.while.body47.us250.us.preheader_crit_edge: ; preds = %middle.block322
@@ -38145,58 +38110,47 @@ middle.block322.while.body47.us250.us.preheader_crit_edge: ; preds = %middle.blo
 
 while.body47.us250.us.preheader:                  ; preds = %middle.block322.while.body47.us250.us.preheader_crit_edge, %while.body47.lr.ph.split.split.us.split.us
   %smax72.pre-phi = phi i32 [ %.pre93, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %smax320, %while.body47.lr.ph.split.split.us.split.us ]
-  %.pre-phi92 = phi i32 [ %.pre91, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %144, %while.body47.lr.ph.split.split.us.split.us ]
-  %month_diff.1246.us251.us.ph = phi i32 [ %154, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split.us ]
+  %.pre-phi92 = phi i32 [ %.pre91, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %117, %while.body47.lr.ph.split.split.us.split.us ]
+  %month_diff.1246.us251.us.ph = phi i32 [ %127, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split.us ]
   %day_diff.2245.us252.us.ph = phi i32 [ %ind.end328, %middle.block322.while.body47.us250.us.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split.us.split.us ]
-  %155 = icmp ne i32 %smax72.pre-phi, %.pre-phi92
-  %umin73 = zext i1 %155 to i32
-  %156 = add i32 %.pre-phi92, %umin73
-  %157 = sub i32 %smax72.pre-phi, %156
-  %umax74 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us256.us, i32 1)
-  %158 = udiv i32 %157, %umax74
-  %159 = add i32 %158, %umin73
-  %160 = add i32 %159, 1
-  %161 = mul i32 %cond.pn.us256.us, %160
-  %162 = xor i32 %159, -1
-  %163 = add i32 %month_diff.1246.us251.us.ph, %162
-  %164 = add i32 %day_diff.2245.us252.us.ph, %161
-  br label %while.cond68.preheader
+  %128 = icmp ne i32 %smax72.pre-phi, %.pre-phi92
+  br label %while.cond68.preheader.sink.split
 
 while.body47.lr.ph.split.split.us.split:          ; preds = %while.body47.lr.ph.split.split.us
   %cond.pn.us256 = load i32, ptr %arrayidx58213, align 4, !tbaa !197
-  %165 = add nsw i32 %cond.pn.us256, %day_diff.1.lcssa
-  %smax301 = tail call i32 @llvm.smax.i32(i32 %165, i32 0)
-  %.lobit396.neg45 = ashr i32 %165, 31
-  %.lobit396 = lshr i32 %165, 31
-  %.neg14 = sub i32 %.lobit396.neg45, %165
-  %166 = add i32 %.neg14, %smax301
-  %167 = udiv i32 %166, %cond.pn.us256
-  %168 = add i32 %167, 1
-  %169 = add i32 %168, %.lobit396
-  %min.iters.check305 = icmp ult i32 %169, 8
+  %129 = add nsw i32 %cond.pn.us256, %day_diff.1.lcssa
+  %smax301 = tail call i32 @llvm.smax.i32(i32 %129, i32 0)
+  %.lobit396.neg45 = ashr i32 %129, 31
+  %.lobit396 = lshr i32 %129, 31
+  %.neg14 = sub i32 %.lobit396.neg45, %129
+  %130 = add i32 %.neg14, %smax301
+  %131 = udiv i32 %130, %cond.pn.us256
+  %132 = add i32 %131, 1
+  %133 = add i32 %132, %.lobit396
+  %min.iters.check305 = icmp ult i32 %133, 8
   br i1 %min.iters.check305, label %while.body47.us250.preheader, label %vector.ph306
 
 vector.ph306:                                     ; preds = %while.body47.lr.ph.split.split.us.split
-  %n.vec308 = and i32 %169, -8
-  %170 = mul i32 %n.vec308, %cond.pn.us256
-  %171 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
+  %n.vec308 = and i32 %133, -8
+  %134 = mul i32 %n.vec308, %cond.pn.us256
+  %135 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
   br label %vector.body312
 
 vector.body312:                                   ; preds = %vector.body312, %vector.ph306
   %index313 = phi i32 [ 0, %vector.ph306 ], [ %index.next317, %vector.body312 ]
-  %vec.phi314 = phi <4 x i32> [ %171, %vector.ph306 ], [ %172, %vector.body312 ]
-  %vec.phi315 = phi <4 x i32> [ zeroinitializer, %vector.ph306 ], [ %173, %vector.body312 ]
-  %172 = add <4 x i32> %vec.phi314, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %173 = add <4 x i32> %vec.phi315, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %vec.phi314 = phi <4 x i32> [ %135, %vector.ph306 ], [ %136, %vector.body312 ]
+  %vec.phi315 = phi <4 x i32> [ zeroinitializer, %vector.ph306 ], [ %137, %vector.body312 ]
+  %136 = add <4 x i32> %vec.phi314, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %137 = add <4 x i32> %vec.phi315, <i32 -1, i32 -1, i32 -1, i32 -1>
   %index.next317 = add nuw i32 %index313, 8
-  %174 = icmp eq i32 %index.next317, %n.vec308
-  br i1 %174, label %middle.block303, label %vector.body312, !llvm.loop !819
+  %138 = icmp eq i32 %index.next317, %n.vec308
+  br i1 %138, label %middle.block303, label %vector.body312, !llvm.loop !819
 
 middle.block303:                                  ; preds = %vector.body312
-  %ind.end309 = add i32 %170, %day_diff.1.lcssa
-  %bin.rdx318 = add <4 x i32> %173, %172
-  %175 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx318)
-  %cmp.n311 = icmp eq i32 %169, %n.vec308
+  %ind.end309 = add i32 %134, %day_diff.1.lcssa
+  %bin.rdx318 = add <4 x i32> %137, %136
+  %139 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx318)
+  %cmp.n311 = icmp eq i32 %133, %n.vec308
   br i1 %cmp.n311, label %while.cond68.preheader, label %middle.block303.while.body47.us250.preheader_crit_edge
 
 middle.block303.while.body47.us250.preheader_crit_edge: ; preds = %middle.block303
@@ -38206,58 +38160,47 @@ middle.block303.while.body47.us250.preheader_crit_edge: ; preds = %middle.block3
 
 while.body47.us250.preheader:                     ; preds = %middle.block303.while.body47.us250.preheader_crit_edge, %while.body47.lr.ph.split.split.us.split
   %smax69.pre-phi = phi i32 [ %.pre96, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %smax301, %while.body47.lr.ph.split.split.us.split ]
-  %.pre-phi95 = phi i32 [ %.pre94, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %165, %while.body47.lr.ph.split.split.us.split ]
-  %month_diff.1246.us251.ph = phi i32 [ %175, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split ]
+  %.pre-phi95 = phi i32 [ %.pre94, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %129, %while.body47.lr.ph.split.split.us.split ]
+  %month_diff.1246.us251.ph = phi i32 [ %139, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split.us.split ]
   %day_diff.2245.us252.ph = phi i32 [ %ind.end309, %middle.block303.while.body47.us250.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split.us.split ]
-  %176 = icmp ne i32 %smax69.pre-phi, %.pre-phi95
-  %umin70 = zext i1 %176 to i32
-  %177 = add i32 %.pre-phi95, %umin70
-  %178 = sub i32 %smax69.pre-phi, %177
-  %umax71 = tail call i32 @llvm.umax.i32(i32 %cond.pn.us256, i32 1)
-  %179 = udiv i32 %178, %umax71
-  %180 = add i32 %179, %umin70
-  %181 = add i32 %180, 1
-  %182 = mul i32 %cond.pn.us256, %181
-  %183 = xor i32 %180, -1
-  %184 = add i32 %month_diff.1246.us251.ph, %183
-  %185 = add i32 %day_diff.2245.us252.ph, %182
-  br label %while.cond68.preheader
+  %140 = icmp ne i32 %smax69.pre-phi, %.pre-phi95
+  br label %while.cond68.preheader.sink.split
 
 while.body47.lr.ph.split.split:                   ; preds = %while.body47.lr.ph.split
   %cond.pn = load i32, ptr %arrayidx61220, align 4, !tbaa !197
-  %186 = add nsw i32 %cond.pn, %day_diff.1.lcssa
-  %smax = tail call i32 @llvm.smax.i32(i32 %186, i32 0)
-  %.lobit.neg44 = ashr i32 %186, 31
-  %.lobit = lshr i32 %186, 31
-  %.neg12 = sub i32 %.lobit.neg44, %186
-  %187 = add i32 %.neg12, %smax
-  %188 = udiv i32 %187, %cond.pn
-  %189 = add i32 %188, 1
-  %190 = add i32 %189, %.lobit
-  %min.iters.check = icmp ult i32 %190, 8
+  %141 = add nsw i32 %cond.pn, %day_diff.1.lcssa
+  %smax = tail call i32 @llvm.smax.i32(i32 %141, i32 0)
+  %.lobit.neg44 = ashr i32 %141, 31
+  %.lobit = lshr i32 %141, 31
+  %.neg12 = sub i32 %.lobit.neg44, %141
+  %142 = add i32 %.neg12, %smax
+  %143 = udiv i32 %142, %cond.pn
+  %144 = add i32 %143, 1
+  %145 = add i32 %144, %.lobit
+  %min.iters.check = icmp ult i32 %145, 8
   br i1 %min.iters.check, label %while.body47.preheader, label %vector.ph
 
 vector.ph:                                        ; preds = %while.body47.lr.ph.split.split
-  %n.vec = and i32 %190, -8
-  %191 = mul i32 %n.vec, %cond.pn
-  %192 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
+  %n.vec = and i32 %145, -8
+  %146 = mul i32 %n.vec, %cond.pn
+  %147 = insertelement <4 x i32> <i32 poison, i32 0, i32 0, i32 0>, i32 %month_diff.0, i64 0
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i32 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %vec.phi = phi <4 x i32> [ %192, %vector.ph ], [ %193, %vector.body ]
-  %vec.phi300 = phi <4 x i32> [ zeroinitializer, %vector.ph ], [ %194, %vector.body ]
-  %193 = add <4 x i32> %vec.phi, <i32 -1, i32 -1, i32 -1, i32 -1>
-  %194 = add <4 x i32> %vec.phi300, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %vec.phi = phi <4 x i32> [ %147, %vector.ph ], [ %148, %vector.body ]
+  %vec.phi300 = phi <4 x i32> [ zeroinitializer, %vector.ph ], [ %149, %vector.body ]
+  %148 = add <4 x i32> %vec.phi, <i32 -1, i32 -1, i32 -1, i32 -1>
+  %149 = add <4 x i32> %vec.phi300, <i32 -1, i32 -1, i32 -1, i32 -1>
   %index.next = add nuw i32 %index, 8
-  %195 = icmp eq i32 %index.next, %n.vec
-  br i1 %195, label %middle.block, label %vector.body, !llvm.loop !820
+  %150 = icmp eq i32 %index.next, %n.vec
+  br i1 %150, label %middle.block, label %vector.body, !llvm.loop !820
 
 middle.block:                                     ; preds = %vector.body
-  %ind.end = add i32 %191, %day_diff.1.lcssa
-  %bin.rdx = add <4 x i32> %194, %193
-  %196 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)
-  %cmp.n = icmp eq i32 %190, %n.vec
+  %ind.end = add i32 %146, %day_diff.1.lcssa
+  %bin.rdx = add <4 x i32> %149, %148
+  %151 = tail call i32 @llvm.vector.reduce.add.v4i32(<4 x i32> %bin.rdx)
+  %cmp.n = icmp eq i32 %145, %n.vec
   br i1 %cmp.n, label %while.cond68.preheader, label %middle.block.while.body47.preheader_crit_edge
 
 middle.block.while.body47.preheader_crit_edge:    ; preds = %middle.block
@@ -38267,47 +38210,56 @@ middle.block.while.body47.preheader_crit_edge:    ; preds = %middle.block
 
 while.body47.preheader:                           ; preds = %middle.block.while.body47.preheader_crit_edge, %while.body47.lr.ph.split.split
   %smax67.pre-phi = phi i32 [ %.pre99, %middle.block.while.body47.preheader_crit_edge ], [ %smax, %while.body47.lr.ph.split.split ]
-  %.pre-phi98 = phi i32 [ %.pre97, %middle.block.while.body47.preheader_crit_edge ], [ %186, %while.body47.lr.ph.split.split ]
-  %month_diff.1246.ph = phi i32 [ %196, %middle.block.while.body47.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split ]
+  %.pre-phi98 = phi i32 [ %.pre97, %middle.block.while.body47.preheader_crit_edge ], [ %141, %while.body47.lr.ph.split.split ]
+  %month_diff.1246.ph = phi i32 [ %151, %middle.block.while.body47.preheader_crit_edge ], [ %month_diff.0, %while.body47.lr.ph.split.split ]
   %day_diff.2245.ph = phi i32 [ %ind.end, %middle.block.while.body47.preheader_crit_edge ], [ %day_diff.1.lcssa, %while.body47.lr.ph.split.split ]
-  %197 = icmp ne i32 %smax67.pre-phi, %.pre-phi98
-  %umin68 = zext i1 %197 to i32
-  %198 = add i32 %.pre-phi98, %umin68
-  %199 = sub i32 %smax67.pre-phi, %198
-  %umax = tail call i32 @llvm.umax.i32(i32 %cond.pn, i32 1)
-  %200 = udiv i32 %199, %umax
-  %201 = add i32 %200, %umin68
-  %202 = add i32 %201, 1
-  %203 = mul i32 %cond.pn, %202
-  %204 = xor i32 %201, -1
-  %205 = add i32 %month_diff.1246.ph, %204
-  %206 = add i32 %day_diff.2245.ph, %203
+  %152 = icmp ne i32 %smax67.pre-phi, %.pre-phi98
+  br label %while.cond68.preheader.sink.split
+
+while.cond68.preheader.sink.split:                ; preds = %while.body47.us.us.us.preheader, %while.body47.us.us.preheader, %while.body47.us.preheader, %while.body47.us250.us.preheader, %while.body47.us250.preheader, %while.body47.preheader
+  %.sink = phi i1 [ %152, %while.body47.preheader ], [ %140, %while.body47.us250.preheader ], [ %128, %while.body47.us250.us.preheader ], [ %115, %while.body47.us.preheader ], [ %103, %while.body47.us.us.preheader ], [ %91, %while.body47.us.us.us.preheader ]
+  %.pre-phi98.sink = phi i32 [ %.pre-phi98, %while.body47.preheader ], [ %.pre-phi95, %while.body47.us250.preheader ], [ %.pre-phi92, %while.body47.us250.us.preheader ], [ %.pre-phi89, %while.body47.us.preheader ], [ %.pre-phi86, %while.body47.us.us.preheader ], [ %.pre-phi, %while.body47.us.us.us.preheader ]
+  %smax67.pre-phi.sink = phi i32 [ %smax67.pre-phi, %while.body47.preheader ], [ %smax69.pre-phi, %while.body47.us250.preheader ], [ %smax72.pre-phi, %while.body47.us250.us.preheader ], [ %smax75.pre-phi, %while.body47.us.preheader ], [ %smax78.pre-phi, %while.body47.us.us.preheader ], [ %smax81.pre-phi, %while.body47.us.us.us.preheader ]
+  %cond.pn.sink115 = phi i32 [ %cond.pn, %while.body47.preheader ], [ %cond.pn.us256, %while.body47.us250.preheader ], [ %cond.pn.us256.us, %while.body47.us250.us.preheader ], [ %cond.pn.us, %while.body47.us.preheader ], [ %cond.pn.us.us, %while.body47.us.us.preheader ], [ %cond.pn.us.us.us, %while.body47.us.us.us.preheader ]
+  %month_diff.1246.ph.sink = phi i32 [ %month_diff.1246.ph, %while.body47.preheader ], [ %month_diff.1246.us251.ph, %while.body47.us250.preheader ], [ %month_diff.1246.us251.us.ph, %while.body47.us250.us.preheader ], [ %month_diff.1246.us.ph, %while.body47.us.preheader ], [ %month_diff.1246.us.us.ph, %while.body47.us.us.preheader ], [ %month_diff.1246.us.us.us.ph, %while.body47.us.us.us.preheader ]
+  %day_diff.2245.ph.sink = phi i32 [ %day_diff.2245.ph, %while.body47.preheader ], [ %day_diff.2245.us252.ph, %while.body47.us250.preheader ], [ %day_diff.2245.us252.us.ph, %while.body47.us250.us.preheader ], [ %day_diff.2245.us.ph, %while.body47.us.preheader ], [ %day_diff.2245.us.us.ph, %while.body47.us.us.preheader ], [ %day_diff.2245.us.us.us.ph, %while.body47.us.us.us.preheader ]
+  %umin68 = zext i1 %.sink to i32
+  %153 = add i32 %.pre-phi98.sink, %umin68
+  %154 = sub i32 %smax67.pre-phi.sink, %153
+  %umax = tail call i32 @llvm.umax.i32(i32 %cond.pn.sink115, i32 1)
+  %155 = udiv i32 %154, %umax
+  %156 = add i32 %155, %umin68
+  %157 = add i32 %156, 1
+  %158 = mul i32 %cond.pn.sink115, %157
+  %159 = xor i32 %156, -1
+  %160 = add i32 %month_diff.1246.ph.sink, %159
+  %161 = add i32 %day_diff.2245.ph.sink, %158
   br label %while.cond68.preheader
 
-while.cond68.preheader:                           ; preds = %while.body47.preheader, %while.body47.us250.preheader, %while.body47.us250.us.preheader, %while.body47.us.preheader, %while.body47.us.us.preheader, %while.body47.us.us.us.preheader, %middle.block, %middle.block303, %middle.block322, %middle.block341, %middle.block360, %middle.block379, %while.cond45.preheader
-  %day_diff.2.lcssa = phi i32 [ %day_diff.1.lcssa, %while.cond45.preheader ], [ %ind.end385, %middle.block379 ], [ %ind.end366, %middle.block360 ], [ %ind.end347, %middle.block341 ], [ %ind.end328, %middle.block322 ], [ %ind.end309, %middle.block303 ], [ %ind.end, %middle.block ], [ %100, %while.body47.us.us.us.preheader ], [ %121, %while.body47.us.us.preheader ], [ %142, %while.body47.us.preheader ], [ %164, %while.body47.us250.us.preheader ], [ %185, %while.body47.us250.preheader ], [ %206, %while.body47.preheader ]
-  %month_diff.1.lcssa = phi i32 [ %month_diff.0, %while.cond45.preheader ], [ %90, %middle.block379 ], [ %111, %middle.block360 ], [ %132, %middle.block341 ], [ %154, %middle.block322 ], [ %175, %middle.block303 ], [ %196, %middle.block ], [ %99, %while.body47.us.us.us.preheader ], [ %120, %while.body47.us.us.preheader ], [ %141, %while.body47.us.preheader ], [ %163, %while.body47.us250.us.preheader ], [ %184, %while.body47.us250.preheader ], [ %205, %while.body47.preheader ]
+while.cond68.preheader:                           ; preds = %while.cond68.preheader.sink.split, %middle.block, %middle.block303, %middle.block322, %middle.block341, %middle.block360, %middle.block379, %while.cond45.preheader
+  %day_diff.2.lcssa = phi i32 [ %day_diff.1.lcssa, %while.cond45.preheader ], [ %ind.end385, %middle.block379 ], [ %ind.end366, %middle.block360 ], [ %ind.end347, %middle.block341 ], [ %ind.end328, %middle.block322 ], [ %ind.end309, %middle.block303 ], [ %ind.end, %middle.block ], [ %161, %while.cond68.preheader.sink.split ]
+  %month_diff.1.lcssa = phi i32 [ %month_diff.0, %while.cond45.preheader ], [ %90, %middle.block379 ], [ %102, %middle.block360 ], [ %114, %middle.block341 ], [ %127, %middle.block322 ], [ %139, %middle.block303 ], [ %151, %middle.block ], [ %160, %while.cond68.preheader.sink.split ]
   %cmp69269 = icmp slt i32 %month_diff.1.lcssa, 0
   br i1 %cmp69269, label %while.body70.preheader, label %while.end73
 
 while.body70.preheader:                           ; preds = %while.cond68.preheader
-  %207 = icmp ult i32 %month_diff.1.lcssa, -12
-  %umin288.neg50 = sext i1 %207 to i32
-  %umin288 = zext i1 %207 to i32
+  %162 = icmp ult i32 %month_diff.1.lcssa, -12
+  %umin288.neg50 = sext i1 %162 to i32
+  %umin288 = zext i1 %162 to i32
   %.neg23 = tail call i32 @llvm.usub.sat.i32(i32 -12, i32 %month_diff.1.lcssa)
-  %208 = add nsw i32 %.neg23, %umin288.neg50
-  %209 = udiv i32 %208, 12
-  %210 = add nuw nsw i32 %209, %umin288
-  %211 = mul i32 %210, 12
-  %212 = add nsw i32 %month_diff.1.lcssa, 12
-  %213 = add i32 %212, %211
-  %214 = xor i32 %210, -1
-  %215 = add i32 %year_diff.0, %214
+  %163 = add nsw i32 %.neg23, %umin288.neg50
+  %164 = udiv i32 %163, 12
+  %165 = add nuw nsw i32 %164, %umin288
+  %166 = mul i32 %165, 12
+  %167 = add nsw i32 %month_diff.1.lcssa, 12
+  %168 = add i32 %167, %166
+  %169 = xor i32 %165, -1
+  %170 = add i32 %year_diff.0, %169
   br label %while.end73
 
 while.end73:                                      ; preds = %while.body70.preheader, %while.cond68.preheader
-  %month_diff.3.lcssa = phi i32 [ %month_diff.1.lcssa, %while.cond68.preheader ], [ %213, %while.body70.preheader ]
-  %year_diff.1.lcssa = phi i32 [ %year_diff.0, %while.cond68.preheader ], [ %215, %while.body70.preheader ]
+  %month_diff.3.lcssa = phi i32 [ %month_diff.1.lcssa, %while.cond68.preheader ], [ %168, %while.body70.preheader ]
+  %year_diff.1.lcssa = phi i32 [ %year_diff.0, %while.cond68.preheader ], [ %170, %while.body70.preheader ]
   br i1 %cmp.i178, label %if.then74, label %if.end82
 
 if.then74:                                        ; preds = %while.end73
@@ -45160,8 +45112,6 @@ while.end.i.i.i:                                  ; preds = %while.body.i.i.i, %
 if.then.i.i.i:                                    ; preds = %while.end.i.i.i
   %2 = trunc nuw nsw i32 %value.addr.0.lcssa.i.i.i to i8
   %conv.i.i.i = or disjoint i8 %2, 48
-  %incdec.ptr6.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -1
-  store i8 %conv.i.i.i, ptr %incdec.ptr6.i.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 if.end.i.i.i:                                     ; preds = %while.end.i.i.i
@@ -45175,19 +45125,20 @@ if.end.i.i.i:                                     ; preds = %while.end.i.i.i
   %idxprom13.i.i.i = zext nneg i32 %mul8.i.i.i to i64
   %arrayidx14.i.i.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i.i.i
   %4 = load i8, ptr %arrayidx14.i.i.i, align 1, !tbaa !116
-  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 -2
-  store i8 %4, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
-  %retval.0.i.i.i = phi ptr [ %incdec.ptr6.i.i.i, %if.then.i.i.i ], [ %incdec.ptr15.i.i.i, %if.end.i.i.i ]
-  %cmp13.i.i = icmp ugt ptr %retval.0.i.i.i, %micro_buffer
+  %.sink2 = phi i64 [ -2, %if.end.i.i.i ], [ -1, %if.then.i.i.i ]
+  %.sink1 = phi i8 [ %4, %if.end.i.i.i ], [ %conv.i.i.i, %if.then.i.i.i ]
+  %incdec.ptr15.i.i.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i.i.i, i64 %.sink2
+  store i8 %.sink1, ptr %incdec.ptr15.i.i.i, align 1, !tbaa !116
+  %cmp13.i.i = icmp ugt ptr %incdec.ptr15.i.i.i, %micro_buffer
   br i1 %cmp13.i.i, label %while.body.preheader.i.i, label %for.cond.preheader.i.i
 
 while.body.preheader.i.i:                         ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit.i.i
-  %retval.0.i18.i.i = ptrtoint ptr %retval.0.i.i.i to i64
+  %retval.0.i18.i.i = ptrtoint ptr %incdec.ptr15.i.i.i to i64
   %5 = sub i64 %micro_buffer17.i.i, %retval.0.i18.i.i
-  %scevgep.i.i = getelementptr i8, ptr %retval.0.i.i.i, i64 %5
+  %scevgep.i.i = getelementptr i8, ptr %incdec.ptr15.i.i.i, i64 %5
   %6 = sub i64 %retval.0.i18.i.i, %micro_buffer17.i.i
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep.i.i, i8 48, i64 %6, i1 false), !tbaa !116
   br label %for.cond.preheader.i.i
@@ -116024,7 +115975,7 @@ entry:
   br i1 %cmp49, label %while.body.i.i.preheader, label %while.end
 
 while.cond.loopexit:                              ; preds = %for.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
-  %ptr.addr.1.lcssa = phi ptr [ %retval.0.i, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit ], [ %scevgep55, %for.body.preheader ]
+  %ptr.addr.1.lcssa = phi ptr [ %incdec.ptr17.i, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit ], [ %scevgep55, %for.body.preheader ]
   %cmp = icmp sgt i64 %add.i.i, 0
   br i1 %cmp, label %while.body.i.i.preheader, label %while.end, !llvm.loop !2053
 
@@ -116105,8 +116056,6 @@ while.end.i:                                      ; preds = %while.body.i, %_ZN6
 if.then.i:                                        ; preds = %while.end.i
   %5 = trunc nuw nsw i64 %value.addr.0.lcssa.i to i8
   %conv6.i = or disjoint i8 %5, 48
-  %incdec.ptr7.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 -1
-  store i8 %conv6.i, ptr %incdec.ptr7.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
 
 if.end.i:                                         ; preds = %while.end.i
@@ -116121,21 +116070,22 @@ if.end.i:                                         ; preds = %while.end.i
   %idxprom15.i = zext nneg i32 %conv10.i to i64
   %arrayidx16.i = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i
   %7 = load i8, ptr %arrayidx16.i, align 1, !tbaa !116
-  %incdec.ptr17.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 -2
-  store i8 %7, ptr %incdec.ptr17.i, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit: ; preds = %if.end.i, %if.then.i
-  %retval.0.i = phi ptr [ %incdec.ptr7.i, %if.then.i ], [ %incdec.ptr17.i, %if.end.i ]
+  %.sink1 = phi i64 [ -2, %if.end.i ], [ -1, %if.then.i ]
+  %.sink = phi i8 [ %7, %if.end.i ], [ %conv6.i, %if.then.i ]
+  %incdec.ptr17.i = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr17.i, align 1, !tbaa !116
   %sub.ptr.lhs.cast = ptrtoint ptr %ptr.addr.050 to i64
-  %sub.ptr.rhs.cast = ptrtoint ptr %retval.0.i to i64
+  %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr17.i to i64
   %sub.ptr.sub = sub i64 %sub.ptr.lhs.cast, %sub.ptr.rhs.cast
   %conv = trunc i64 %sub.ptr.sub to i32
   %cmp246 = icmp slt i32 %conv, 17
   br i1 %cmp246, label %for.body.preheader, label %while.cond.loopexit
 
 for.body.preheader:                               ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit
-  %scevgep = getelementptr i8, ptr %retval.0.i, i64 -1
+  %scevgep = getelementptr i8, ptr %incdec.ptr17.i, i64 -1
   %reass.sub = sub i64 %sub.ptr.rhs.cast, %sub.ptr.lhs.cast
   %8 = add i64 %reass.sub, 16
   %9 = and i64 %8, 4294967295
@@ -116181,8 +116131,6 @@ while.end.i12:                                    ; preds = %while.body.i30, %wh
 if.then.i27:                                      ; preds = %while.end.i12
   %14 = trunc nuw nsw i64 %value.addr.0.lcssa.i14 to i8
   %conv6.i28 = or disjoint i8 %14, 48
-  %incdec.ptr7.i29 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 -1
-  store i8 %conv6.i28, ptr %incdec.ptr7.i29, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45
 
 if.end.i16:                                       ; preds = %while.end.i12
@@ -116197,13 +116145,14 @@ if.end.i16:                                       ; preds = %while.end.i12
   %idxprom15.i23 = zext nneg i32 %conv10.i18 to i64
   %arrayidx16.i24 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i23
   %16 = load i8, ptr %arrayidx16.i24, align 1, !tbaa !116
-  %incdec.ptr17.i25 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 -2
-  store i8 %16, ptr %incdec.ptr17.i25, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit45: ; preds = %if.end.i16, %if.then.i27
-  %retval.0.i26 = phi ptr [ %incdec.ptr7.i29, %if.then.i27 ], [ %incdec.ptr17.i25, %if.end.i16 ]
-  ret ptr %retval.0.i26
+  %.sink3 = phi i64 [ -2, %if.end.i16 ], [ -1, %if.then.i27 ]
+  %.sink2 = phi i8 [ %16, %if.end.i16 ], [ %conv6.i28, %if.then.i27 ]
+  %incdec.ptr17.i25 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i13, i64 %.sink3
+  store i8 %.sink2, ptr %incdec.ptr17.i25, align 1, !tbaa !116
+  ret ptr %incdec.ptr17.i25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -123131,8 +123080,6 @@ while.end.i44:                                    ; preds = %while.body.i59, %if
 if.then.i56:                                      ; preds = %while.end.i44
   %14 = trunc nuw nsw i16 %value.addr.0.lcssa.i46 to i8
   %conv11.i57 = or disjoint i8 %14, 48
-  %incdec.ptr12.i58 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 -1
-  store i8 %conv11.i57, ptr %incdec.ptr12.i58, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
 
 if.end.i48:                                       ; preds = %while.end.i44
@@ -123146,29 +123093,30 @@ if.end.i48:                                       ; preds = %while.end.i44
   %idxprom20.i52 = zext nneg i16 %15 to i64
   %arrayidx21.i53 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom20.i52
   %18 = load i8, ptr %arrayidx21.i53, align 1, !tbaa !116
-  %incdec.ptr22.i54 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 -2
-  store i8 %18, ptr %incdec.ptr22.i54, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
 
 _ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71: ; preds = %if.end.i48, %if.then.i56
-  %retval.0.i55 = phi ptr [ %incdec.ptr12.i58, %if.then.i56 ], [ %incdec.ptr22.i54, %if.end.i48 ]
+  %.sink1 = phi i64 [ -2, %if.end.i48 ], [ -1, %if.then.i56 ]
+  %.sink = phi i8 [ %18, %if.end.i48 ], [ %conv11.i57, %if.then.i56 ]
+  %incdec.ptr22.i54 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i45, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr22.i54, align 1, !tbaa !116
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr19 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp20101 = icmp ugt ptr %retval.0.i55, %add.ptr19
+  %cmp20101 = icmp ugt ptr %incdec.ptr22.i54, %add.ptr19
   br i1 %cmp20101, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
-  %retval.0.i55104 = ptrtoint ptr %retval.0.i55 to i64
+  %retval.0.i55104 = ptrtoint ptr %incdec.ptr22.i54 to i64
   %19 = add i64 %dst103, %len
   %20 = add i64 %retval.0.i55104, %idxprom
   %21 = sub i64 %19, %20
-  %scevgep = getelementptr i8, ptr %retval.0.i55, i64 %21
+  %scevgep = getelementptr i8, ptr %incdec.ptr22.i54, i64 %21
   %22 = sub i64 %20, %19
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %22, i1 false), !tbaa !116
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i55, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr22.i54, %_ZN6duckdb13NumericHelper14FormatUnsignedItEEPcT_S2_.exit71 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr21 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr21, align 1, !tbaa !116
   %cmp24 = icmp ugt i8 %width, %scale
@@ -123339,8 +123287,6 @@ while.end.i35:                                    ; preds = %while.body.i52, %if
 if.then.i49:                                      ; preds = %while.end.i35
   %8 = trunc nuw nsw i32 %value.addr.0.lcssa.i37 to i8
   %conv.i50 = or disjoint i8 %8, 48
-  %incdec.ptr6.i51 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 -1
-  store i8 %conv.i50, ptr %incdec.ptr6.i51, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
 
 if.end.i39:                                       ; preds = %while.end.i35
@@ -123354,29 +123300,30 @@ if.end.i39:                                       ; preds = %while.end.i35
   %idxprom13.i45 = zext nneg i32 %mul8.i40 to i64
   %arrayidx14.i46 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom13.i45
   %10 = load i8, ptr %arrayidx14.i46, align 1, !tbaa !116
-  %incdec.ptr15.i47 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 -2
-  store i8 %10, ptr %incdec.ptr15.i47, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
 
 _ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66: ; preds = %if.end.i39, %if.then.i49
-  %retval.0.i48 = phi ptr [ %incdec.ptr6.i51, %if.then.i49 ], [ %incdec.ptr15.i47, %if.end.i39 ]
+  %.sink1 = phi i64 [ -2, %if.end.i39 ], [ -1, %if.then.i49 ]
+  %.sink = phi i8 [ %10, %if.end.i39 ], [ %conv.i50, %if.then.i49 ]
+  %incdec.ptr15.i47 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i36, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr15.i47, align 1, !tbaa !116
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr10 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp11100 = icmp ugt ptr %retval.0.i48, %add.ptr10
+  %cmp11100 = icmp ugt ptr %incdec.ptr15.i47, %add.ptr10
   br i1 %cmp11100, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
-  %retval.0.i48103 = ptrtoint ptr %retval.0.i48 to i64
+  %retval.0.i48103 = ptrtoint ptr %incdec.ptr15.i47 to i64
   %11 = add i64 %dst102, %len
   %12 = add i64 %retval.0.i48103, %idxprom
   %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %retval.0.i48, i64 %13
+  %scevgep = getelementptr i8, ptr %incdec.ptr15.i47, i64 %13
   %14 = sub i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false), !tbaa !116
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i48, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr15.i47, %_ZN6duckdb13NumericHelper14FormatUnsignedIjEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr12 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr12, align 1, !tbaa !116
   %cmp15 = icmp ugt i8 %width, %scale
@@ -123671,8 +123618,6 @@ while.end.i33:                                    ; preds = %while.body.i51, %if
 if.then.i48:                                      ; preds = %while.end.i33
   %8 = trunc nuw nsw i64 %value.addr.0.lcssa.i35 to i8
   %conv6.i49 = or disjoint i8 %8, 48
-  %incdec.ptr7.i50 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 -1
-  store i8 %conv6.i49, ptr %incdec.ptr7.i50, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
 
 if.end.i37:                                       ; preds = %while.end.i33
@@ -123687,29 +123632,30 @@ if.end.i37:                                       ; preds = %while.end.i33
   %idxprom15.i44 = zext nneg i32 %conv10.i39 to i64
   %arrayidx16.i45 = getelementptr inbounds [0 x i8], ptr @_ZN10duckdb_fmt2v68internal10basic_dataIvE6digitsE, i64 0, i64 %idxprom15.i44
   %10 = load i8, ptr %arrayidx16.i45, align 1, !tbaa !116
-  %incdec.ptr17.i46 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 -2
-  store i8 %10, ptr %incdec.ptr17.i46, align 1, !tbaa !116
   br label %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
 
 _ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66: ; preds = %if.end.i37, %if.then.i48
-  %retval.0.i47 = phi ptr [ %incdec.ptr7.i50, %if.then.i48 ], [ %incdec.ptr17.i46, %if.end.i37 ]
+  %.sink1 = phi i64 [ -2, %if.end.i37 ], [ -1, %if.then.i48 ]
+  %.sink = phi i8 [ %10, %if.end.i37 ], [ %conv6.i49, %if.then.i48 ]
+  %incdec.ptr17.i46 = getelementptr inbounds i8, ptr %ptr.addr.0.lcssa.i34, i64 %.sink1
+  store i8 %.sink, ptr %incdec.ptr17.i46, align 1, !tbaa !116
   %idx.neg = sub nsw i64 0, %idxprom
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 %idx.neg
-  %cmp9102 = icmp ugt ptr %retval.0.i47, %add.ptr8
+  %cmp9102 = icmp ugt ptr %incdec.ptr17.i46, %add.ptr8
   br i1 %cmp9102, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
-  %retval.0.i47105 = ptrtoint ptr %retval.0.i47 to i64
+  %retval.0.i47105 = ptrtoint ptr %incdec.ptr17.i46 to i64
   %11 = add i64 %dst104, %len
   %12 = add i64 %retval.0.i47105, %idxprom
   %13 = sub i64 %11, %12
-  %scevgep = getelementptr i8, ptr %retval.0.i47, i64 %13
+  %scevgep = getelementptr i8, ptr %incdec.ptr17.i46, i64 %13
   %14 = sub i64 %12, %11
   tail call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 48, i64 %14, i1 false), !tbaa !116
   br label %while.end
 
 while.end:                                        ; preds = %while.body.preheader, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66
-  %dst.addr.0.lcssa = phi ptr [ %retval.0.i47, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
+  %dst.addr.0.lcssa = phi ptr [ %incdec.ptr17.i46, %_ZN6duckdb13NumericHelper14FormatUnsignedImEEPcT_S2_.exit66 ], [ %scevgep, %while.body.preheader ]
   %incdec.ptr10 = getelementptr inbounds i8, ptr %dst.addr.0.lcssa, i64 -1
   store i8 46, ptr %incdec.ptr10, align 1, !tbaa !116
   %cmp13 = icmp ugt i8 %width, %scale

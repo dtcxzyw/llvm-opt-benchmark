@@ -2861,15 +2861,15 @@ define hidden void @phpdbg_dequeue_elements_for_recreation() local_unnamed_addr 
   br i1 %62, label %.sink.split.sink.split, label %.sink.split
 
 .sink.split.sink.split:                           ; preds = %.critedge.i44, %.critedge.i
-  %.0.i.lcssa.sink = phi ptr [ %.0.i, %.critedge.i ], [ %.0.i41, %.critedge.i44 ]
+  %.0.i41.lcssa.sink65 = phi ptr [ %.0.i, %.critedge.i ], [ %.0.i41, %.critedge.i44 ]
   %63 = load i32, ptr getelementptr inbounds (i8, ptr @phpdbg_globals, i64 1500), align 4
-  %64 = getelementptr inbounds i8, ptr %.0.i.lcssa.sink, i64 112
+  %64 = getelementptr inbounds i8, ptr %.0.i41.lcssa.sink65, i64 112
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds i8, ptr %65, i64 16
   %67 = load i64, ptr %66, align 8
   %68 = trunc i64 %67 to i32
   %69 = getelementptr inbounds i8, ptr %65, i64 24
-  %70 = getelementptr inbounds i8, ptr %.0.i.lcssa.sink, i64 16
+  %70 = getelementptr inbounds i8, ptr %.0.i41.lcssa.sink65, i64 16
   %71 = load i8, ptr %70, align 8
   %72 = and i8 %71, 32
   %.not11.i45 = icmp eq i8 %72, 0

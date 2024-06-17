@@ -885,8 +885,8 @@ if.then325:                                       ; preds = %invoke.cont323
   %cmp.not.i.i.i746 = icmp eq i8 %104, 3
   %105 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i475, align 8
   %cmp.not.i.i.i753 = icmp eq i8 %105, 3
-  %or.cond2812 = select i1 %cmp.not.i.i.i746, i1 %cmp.not.i.i.i753, i1 false
-  br i1 %or.cond2812, label %invoke.cont328, label %if.then.i.i.i629.invoke
+  %or.cond2395 = select i1 %cmp.not.i.i.i746, i1 %cmp.not.i.i.i753, i1 false
+  br i1 %or.cond2395, label %invoke.cont328, label %if.then.i.i.i629.invoke
 
 invoke.cont328:                                   ; preds = %if.then325
   %106 = load ptr, ptr %p1204, align 8

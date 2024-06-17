@@ -198,10 +198,10 @@ invoke.cont9:                                     ; preds = %if.end
 while.cond.backedge.sink.split:                   ; preds = %if.then36, %invoke.cont9, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit43
   %.sink96 = phi i32 [ 1, %_ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit43 ], [ -1, %invoke.cont9 ], [ -1, %if.then36 ]
   %.sink = load ptr, ptr %todo, align 8
-  %arrayidx.i6 = getelementptr inbounds i8, ptr %.sink, i64 -4
-  %10 = load i32, ptr %arrayidx.i6, align 4
+  %arrayidx.i23 = getelementptr inbounds i8, ptr %.sink, i64 -4
+  %10 = load i32, ptr %arrayidx.i23, align 4
   %dec.i24 = add i32 %10, %.sink96
-  store i32 %dec.i24, ptr %arrayidx.i6, align 4
+  store i32 %dec.i24, ptr %arrayidx.i23, align 4
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %for.inc.thread, %while.cond.backedge.sink.split, %sw.bb72.invoke, %for.end
@@ -367,11 +367,11 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit43:   ; preds = %lor.lhs.false.i30, 
   br label %while.cond.backedge.sink.split
 
 sw.bb72.invoke.sink.split:                        ; preds = %if.end13, %sw.bb41
-  %.sink99 = load ptr, ptr %todo, align 8
-  %arrayidx.i44 = getelementptr inbounds i8, ptr %.sink99, i64 -4
-  %29 = load i32, ptr %arrayidx.i44, align 4
+  %.sink100 = load ptr, ptr %todo, align 8
+  %arrayidx.i25 = getelementptr inbounds i8, ptr %.sink100, i64 -4
+  %29 = load i32, ptr %arrayidx.i25, align 4
   %dec.i26 = add i32 %29, -1
-  store i32 %dec.i26, ptr %arrayidx.i44, align 4
+  store i32 %dec.i26, ptr %arrayidx.i25, align 4
   br label %sw.bb72.invoke
 
 sw.bb72.invoke:                                   ; preds = %sw.bb72.invoke.sink.split, %invoke.cont59, %if.then61

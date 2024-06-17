@@ -4485,26 +4485,26 @@ if.then.i.i:                                      ; preds = %lor.lhs.false.i.i, 
   br label %if.end34.sink.split.sink.split
 
 if.end34.sink.split.sink.split:                   ; preds = %if.then.i13, %if.then.i34, %if.then.i64, %if.then.i.i
-  %.sink116 = phi ptr [ %11, %if.then.i13 ], [ %m_consts, %if.then.i34 ], [ %m_as_arrays, %if.then.i64 ], [ %m_trail_stack.i, %if.then.i.i ]
-  %n.sink.ph = phi ptr [ %n, %if.then.i13 ], [ %n, %if.then.i34 ], [ %n, %if.then.i64 ], [ %call.i.i99, %if.then.i.i ]
-  %.pre.i14 = load ptr, ptr %.sink116, align 8
-  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i14, i64 -4
+  %m_trail_stack.i.sink = phi ptr [ %m_trail_stack.i, %if.then.i.i ], [ %m_as_arrays, %if.then.i64 ], [ %m_consts, %if.then.i34 ], [ %11, %if.then.i13 ]
+  %n.sink.ph = phi ptr [ %call.i.i99, %if.then.i.i ], [ %n, %if.then.i64 ], [ %n, %if.then.i34 ], [ %n, %if.then.i13 ]
+  %.pre.i.i = load ptr, ptr %m_trail_stack.i.sink, align 8
+  %arrayidx8.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre1.i.i = load i32, ptr %arrayidx8.phi.trans.insert.i.i, align 4
   br label %if.end34.sink.split
 
 if.end34.sink.split:                              ; preds = %if.end34.sink.split.sink.split, %lor.lhs.false.i.i, %lor.lhs.false.i56, %lor.lhs.false.i26, %lor.lhs.false.i5
-  %.sink115 = phi i32 [ %20, %lor.lhs.false.i5 ], [ %24, %lor.lhs.false.i26 ], [ %29, %lor.lhs.false.i56 ], [ %48, %lor.lhs.false.i.i ], [ %.pre1.i.i, %if.end34.sink.split.sink.split ]
-  %.sink = phi ptr [ %19, %lor.lhs.false.i5 ], [ %23, %lor.lhs.false.i26 ], [ %28, %lor.lhs.false.i56 ], [ %47, %lor.lhs.false.i.i ], [ %.pre.i14, %if.end34.sink.split.sink.split ]
+  %.sink114 = phi i32 [ %20, %lor.lhs.false.i5 ], [ %24, %lor.lhs.false.i26 ], [ %29, %lor.lhs.false.i56 ], [ %48, %lor.lhs.false.i.i ], [ %.pre1.i.i, %if.end34.sink.split.sink.split ]
+  %.sink = phi ptr [ %19, %lor.lhs.false.i5 ], [ %23, %lor.lhs.false.i26 ], [ %28, %lor.lhs.false.i56 ], [ %47, %lor.lhs.false.i.i ], [ %.pre.i.i, %if.end34.sink.split.sink.split ]
   %n.sink = phi ptr [ %n, %lor.lhs.false.i5 ], [ %n, %lor.lhs.false.i26 ], [ %n, %lor.lhs.false.i56 ], [ %call.i.i99, %lor.lhs.false.i.i ], [ %n.sink.ph, %if.end34.sink.split.sink.split ]
-  %.sink114 = phi ptr [ %11, %lor.lhs.false.i5 ], [ %m_consts, %lor.lhs.false.i26 ], [ %m_as_arrays, %lor.lhs.false.i56 ], [ %m_trail_stack.i, %lor.lhs.false.i.i ], [ %.sink116, %if.end34.sink.split.sink.split ]
-  %idx.ext.i9 = zext i32 %.sink115 to i64
-  %add.ptr.i10 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i9
-  store ptr %n.sink, ptr %add.ptr.i10, align 8
-  %50 = load ptr, ptr %.sink114, align 8
-  %arrayidx10.i11 = getelementptr inbounds i8, ptr %50, i64 -4
-  %51 = load i32, ptr %arrayidx10.i11, align 4
+  %m_consts.sink = phi ptr [ %11, %lor.lhs.false.i5 ], [ %m_consts, %lor.lhs.false.i26 ], [ %m_as_arrays, %lor.lhs.false.i56 ], [ %m_trail_stack.i, %lor.lhs.false.i.i ], [ %m_trail_stack.i.sink, %if.end34.sink.split.sink.split ]
+  %idx.ext.i30 = zext i32 %.sink114 to i64
+  %add.ptr.i31 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i30
+  store ptr %n.sink, ptr %add.ptr.i31, align 8
+  %50 = load ptr, ptr %m_consts.sink, align 8
+  %arrayidx10.i32 = getelementptr inbounds i8, ptr %50, i64 -4
+  %51 = load i32, ptr %arrayidx10.i32, align 4
   %inc.i33 = add i32 %51, 1
-  store i32 %inc.i33, ptr %arrayidx10.i11, align 4
+  store i32 %inc.i33, ptr %arrayidx10.i32, align 4
   br label %if.end34
 
 if.end34:                                         ; preds = %if.end34.sink.split, %if.else21, %_ZNK3smt17theory_array_base10is_defaultEPKNS_5enodeE.exit

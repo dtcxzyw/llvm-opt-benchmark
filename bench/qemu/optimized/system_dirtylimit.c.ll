@@ -690,10 +690,10 @@ if.end16.sink.split:                              ; preds = %if.else, %if.then
   %.sink = phi ptr [ %8, %if.then ], [ %11, %if.else ]
   %.sink8 = phi i32 [ 1, %if.then ], [ -1, %if.else ]
   %.ph = phi ptr [ %9, %if.then ], [ %12, %if.else ]
-  %limited_nvcpu = getelementptr inbounds i8, ptr %.sink, i64 12
-  %14 = load i32, ptr %limited_nvcpu, align 4
+  %limited_nvcpu14 = getelementptr inbounds i8, ptr %.sink, i64 12
+  %14 = load i32, ptr %limited_nvcpu14, align 4
   %dec = add i32 %14, %.sink8
-  store i32 %dec, ptr %limited_nvcpu, align 4
+  store i32 %dec, ptr %limited_nvcpu14, align 4
   br label %if.end16
 
 if.end16:                                         ; preds = %if.end16.sink.split, %if.else, %if.then

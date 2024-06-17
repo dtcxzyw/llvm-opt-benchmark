@@ -2665,7 +2665,7 @@ w_long.exit:                                      ; preds = %83, %87, %92
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %97, %95
-  %.sink17.i = phi i64 [ %96, %95 ], [ %98, %97 ]
+  %.sink17.i = phi i64 [ %98, %97 ], [ %96, %95 ]
   %99 = call i64 @rb_id2sym(i64 noundef %.sink17.i) #21
   call fastcc void @w_symbol(i64 noundef %99, ptr noundef nonnull %1)
   call fastcc void @w_object(i64 noundef %.0, ptr noundef nonnull %1, i32 noundef 2)
@@ -3434,7 +3434,7 @@ define internal fastcc void @w_ivar(i64 noundef %0, i64 noundef %1, i64 noundef 
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %13, %11
-  %.sink17.i = phi i64 [ %12, %11 ], [ %14, %13 ]
+  %.sink17.i = phi i64 [ %14, %13 ], [ %12, %11 ]
   %15 = tail call i64 @rb_id2sym(i64 noundef %.sink17.i) #21
   %16 = load ptr, ptr %5, align 8
   tail call fastcc void @w_symbol(i64 noundef %15, ptr noundef %16)

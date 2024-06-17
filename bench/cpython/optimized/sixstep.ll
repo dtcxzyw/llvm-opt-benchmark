@@ -57,13 +57,13 @@ if.end:                                           ; preds = %entry
 
 for.cond.preheader:                               ; preds = %if.end
   %add.ptr = getelementptr i64, ptr %a, i64 %n
-  %cmp8550 = icmp ugt ptr %add.ptr, %a
-  br i1 %cmp8550, label %for.body, label %for.end
+  %cmp8460 = icmp ugt ptr %add.ptr, %a
+  br i1 %cmp8460, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %x.0551 = phi ptr [ %add.ptr10, %for.body ], [ %a, %for.cond.preheader ]
-  tail call void @fnt_dif2(ptr noundef %x.0551, i64 noundef %shl2, ptr noundef nonnull %call4) #4
-  %add.ptr10 = getelementptr i64, ptr %x.0551, i64 %shl2
+  %x.0461 = phi ptr [ %add.ptr10, %for.body ], [ %a, %for.cond.preheader ]
+  tail call void @fnt_dif2(ptr noundef %x.0461, i64 noundef %shl2, ptr noundef nonnull %call4) #4
+  %add.ptr10 = getelementptr i64, ptr %x.0461, i64 %shl2
   %cmp8 = icmp ult ptr %add.ptr10, %add.ptr
   br i1 %cmp8, label %for.body, label %for.end, !llvm.loop !4
 
@@ -77,25 +77,25 @@ if.end14:                                         ; preds = %for.end
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %call15 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef -1, i32 noundef %modnum) #4
-  %cmp17555.not = icmp eq i32 %sub.i, 0
-  br i1 %cmp17555.not, label %for.end41, label %for.body19.lr.ph
+  %cmp17465.not = icmp eq i32 %sub.i, 0
+  br i1 %cmp17465.not, label %for.end41, label %for.body19.lr.ph
 
 for.body19.lr.ph:                                 ; preds = %if.end14
   %and.i62 = and i64 %0, 4294967296
   %tobool.not.i63 = icmp eq i64 %and.i62, 0
-  %and20.i105 = and i64 %0, 17179869184
-  %tobool21.not.i106 = icmp eq i64 %and20.i105, 0
+  %and20.i107 = and i64 %0, 17179869184
+  %tobool21.not.i108 = icmp eq i64 %and20.i107, 0
   %umax = tail call i64 @llvm.umax.i64(i64 %shl2, i64 2)
   br label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %for.inc40, %for.body19.lr.ph
-  %i.0556 = phi i64 [ 1, %for.body19.lr.ph ], [ %inc, %for.inc40 ]
+  %i.0466 = phi i64 [ 1, %for.body19.lr.ph ], [ %inc, %for.inc40 ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
   %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
   %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call15, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0556, %while.body.i.preheader ]
+  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %while.body.i.preheader ]
   %and.i = and i64 %exp.addr.08.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
@@ -111,7 +111,7 @@ if.then.i:                                        ; preds = %while.body.i
   %shr.i.i71 = lshr i128 %mul.i.i70, 64
   %conv2.i.i72 = trunc nuw i128 %shr.i.i71 to i64
   %conv3.i.i73 = trunc i128 %mul.i.i70 to i64
-  br i1 %tobool.not.i63, label %if.else.i104, label %if.then.i76
+  br i1 %tobool.not.i63, label %if.else.i106, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.then.i
   %shr.i77 = lshr i64 %conv2.i.i72, 32
@@ -122,95 +122,77 @@ if.then.i76:                                      ; preds = %if.then.i
   %shl.i82 = shl i64 %conv2.i.i72, 32
   %add.i83 = add i64 %shl.i82, %sub.i78
   %cmp2.i84 = icmp ult i64 %add.i83, %shl.i82
-  %inc.i85 = zext i1 %cmp2.i84 to i64
-  %hi.1.i86 = add nsw i64 %spec.select.i81, %inc.i85
-  %shr5.i87 = lshr i64 %hi.1.i86, 32
-  %sub6.i88 = sub i64 %add.i83, %hi.1.i86
-  %cmp7.i89 = icmp ugt i64 %hi.1.i86, %add.i83
-  %dec9.i90 = sext i1 %cmp7.i89 to i64
-  %hi.2.i91 = add nsw i64 %shr5.i87, %dec9.i90
-  %shl11.i92 = shl i64 %hi.1.i86, 32
-  %add12.i93 = add i64 %shl11.i92, %sub6.i88
-  %cmp13.i94 = icmp ult i64 %add12.i93, %shl11.i92
-  br label %x64_mulmod.exit162
+  br label %x64_mulmod.exit144
 
-if.else.i104:                                     ; preds = %if.then.i
-  %sub69.i107 = sub i64 %conv3.i.i73, %conv2.i.i72
-  %cmp70.i108 = icmp ugt i64 %conv2.i.i72, %conv3.i.i73
-  %dec72.i109 = sext i1 %cmp70.i108 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i136, label %if.then22.i110
+if.else.i106:                                     ; preds = %if.then.i
+  %sub69.i109 = sub i64 %conv3.i.i73, %conv2.i.i72
+  %cmp70.i110 = icmp ugt i64 %conv2.i.i72, %conv3.i.i73
+  %dec72.i111 = sext i1 %cmp70.i110 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i128, label %if.then22.i112
 
-if.then22.i110:                                   ; preds = %if.else.i104
-  %shr23.i111 = lshr i64 %conv2.i.i72, 30
-  %spec.select89.i112 = add nsw i64 %shr23.i111, %dec72.i109
-  %shl29.i113 = shl i64 %conv2.i.i72, 34
-  %add30.i114 = add i64 %shl29.i113, %sub69.i107
-  %cmp31.i115 = icmp ult i64 %add30.i114, %shl29.i113
-  %inc33.i116 = zext i1 %cmp31.i115 to i64
-  %hi.5.i117 = add nsw i64 %spec.select89.i112, %inc33.i116
-  %shr35.i118 = lshr i64 %hi.5.i117, 30
-  %sub36.i119 = sub i64 %add30.i114, %hi.5.i117
-  %cmp37.i120 = icmp ugt i64 %hi.5.i117, %add30.i114
-  %dec39.i121 = sext i1 %cmp37.i120 to i64
-  %hi.6.i122 = add nsw i64 %shr35.i118, %dec39.i121
-  %shl41.i123 = shl i64 %hi.5.i117, 34
-  %add42.i124 = add i64 %shl41.i123, %sub36.i119
-  %cmp43.i125 = icmp ult i64 %add42.i124, %shl41.i123
-  %inc45.i126 = zext i1 %cmp43.i125 to i64
-  %hi.7.i127 = add nsw i64 %hi.6.i122, %inc45.i126
-  %shr47.i128 = lshr i64 %hi.7.i127, 30
-  %sub48.i129 = sub i64 %add42.i124, %hi.7.i127
-  %cmp49.i130 = icmp ugt i64 %hi.7.i127, %add42.i124
-  %dec51.i131 = sext i1 %cmp49.i130 to i64
-  %hi.8.i132 = add nsw i64 %shr47.i128, %dec51.i131
-  %shl53.i133 = shl i64 %hi.7.i127, 34
-  %add54.i134 = add i64 %shl53.i133, %sub48.i129
-  %cmp55.i135 = icmp ult i64 %add54.i134, %shl53.i133
-  br label %x64_mulmod.exit162
+if.then22.i112:                                   ; preds = %if.else.i106
+  %shr23.i113 = lshr i64 %conv2.i.i72, 30
+  %spec.select89.i114 = add nsw i64 %shr23.i113, %dec72.i111
+  %shl29.i115 = shl i64 %conv2.i.i72, 34
+  %add30.i116 = add i64 %shl29.i115, %sub69.i109
+  %cmp31.i117 = icmp ult i64 %add30.i116, %shl29.i115
+  %inc33.i118 = zext i1 %cmp31.i117 to i64
+  %hi.5.i119 = add nsw i64 %spec.select89.i114, %inc33.i118
+  %shr35.i120 = lshr i64 %hi.5.i119, 30
+  %sub36.i121 = sub i64 %add30.i116, %hi.5.i119
+  %cmp37.i122 = icmp ugt i64 %hi.5.i119, %add30.i116
+  %dec39.i123 = sext i1 %cmp37.i122 to i64
+  %hi.6.i124 = add nsw i64 %shr35.i120, %dec39.i123
+  %shl41.i125 = shl i64 %hi.5.i119, 34
+  %add42.i126 = add i64 %shl41.i125, %sub36.i121
+  %cmp43.i127 = icmp ult i64 %add42.i126, %shl41.i125
+  br label %x64_mulmod.exit144
 
-if.else67.i136:                                   ; preds = %if.else.i104
-  %shr68.i137 = lshr i64 %conv2.i.i72, 24
-  %spec.select90.i138 = add nsw i64 %shr68.i137, %dec72.i109
-  %shl74.i139 = shl i64 %conv2.i.i72, 40
-  %add75.i140 = add i64 %shl74.i139, %sub69.i107
-  %cmp76.i141 = icmp ult i64 %add75.i140, %shl74.i139
-  %inc78.i142 = zext i1 %cmp76.i141 to i64
-  %hi.11.i143 = add nsw i64 %spec.select90.i138, %inc78.i142
-  %shr80.i144 = lshr i64 %hi.11.i143, 24
-  %sub81.i145 = sub i64 %add75.i140, %hi.11.i143
-  %cmp82.i146 = icmp ugt i64 %hi.11.i143, %add75.i140
-  %dec84.i147 = sext i1 %cmp82.i146 to i64
-  %hi.12.i148 = add nsw i64 %shr80.i144, %dec84.i147
-  %shl86.i149 = shl i64 %hi.11.i143, 40
-  %add87.i150 = add i64 %shl86.i149, %sub81.i145
-  %cmp88.i151 = icmp ult i64 %add87.i150, %shl86.i149
-  %inc90.i152 = zext i1 %cmp88.i151 to i64
-  %hi.13.i153 = add nsw i64 %hi.12.i148, %inc90.i152
-  %shr92.i154 = lshr i64 %hi.13.i153, 24
-  %sub93.i155 = sub i64 %add87.i150, %hi.13.i153
-  %cmp94.i156 = icmp ugt i64 %hi.13.i153, %add87.i150
-  %dec96.i157 = sext i1 %cmp94.i156 to i64
-  %hi.14.i158 = add nsw i64 %shr92.i154, %dec96.i157
-  %shl98.i159 = shl i64 %hi.13.i153, 40
-  %add99.i160 = add i64 %shl98.i159, %sub93.i155
-  %cmp100.i161 = icmp ult i64 %add99.i160, %shl98.i159
-  br label %x64_mulmod.exit162
+if.else67.i128:                                   ; preds = %if.else.i106
+  %shr68.i129 = lshr i64 %conv2.i.i72, 24
+  %spec.select90.i130 = add nsw i64 %shr68.i129, %dec72.i111
+  %shl74.i131 = shl i64 %conv2.i.i72, 40
+  %add75.i132 = add i64 %shl74.i131, %sub69.i109
+  %cmp76.i133 = icmp ult i64 %add75.i132, %shl74.i131
+  %inc78.i134 = zext i1 %cmp76.i133 to i64
+  %hi.11.i135 = add nsw i64 %spec.select90.i130, %inc78.i134
+  %shr80.i136 = lshr i64 %hi.11.i135, 24
+  %sub81.i137 = sub i64 %add75.i132, %hi.11.i135
+  %cmp82.i138 = icmp ugt i64 %hi.11.i135, %add75.i132
+  %dec84.i139 = sext i1 %cmp82.i138 to i64
+  %hi.12.i140 = add nsw i64 %shr80.i136, %dec84.i139
+  %shl86.i141 = shl i64 %hi.11.i135, 40
+  %add87.i142 = add i64 %shl86.i141, %sub81.i137
+  %cmp88.i143 = icmp ult i64 %add87.i142, %shl86.i141
+  br label %x64_mulmod.exit144
 
-x64_mulmod.exit162:                               ; preds = %if.then.i76, %if.then22.i110, %if.else67.i136
-  %cmp100.sink.i95 = phi i1 [ %cmp100.i161, %if.else67.i136 ], [ %cmp55.i135, %if.then22.i110 ], [ %cmp13.i94, %if.then.i76 ]
-  %hi.14.sink.i96 = phi i64 [ %hi.14.i158, %if.else67.i136 ], [ %hi.8.i132, %if.then22.i110 ], [ %hi.2.i91, %if.then.i76 ]
-  %add99.sink94.i97 = phi i64 [ %add99.i160, %if.else67.i136 ], [ %add54.i134, %if.then22.i110 ], [ %add12.i93, %if.then.i76 ]
-  %inc102.neg.i98 = sext i1 %cmp100.sink.i95 to i64
-  %tobool104.not.i99 = icmp eq i64 %hi.14.sink.i96, %inc102.neg.i98
-  %cmp106.not.i100 = icmp ult i64 %add99.sink94.i97, %0
-  %or.cond57.i101 = select i1 %tobool104.not.i99, i1 %cmp106.not.i100, i1 false
-  %sub108.i102 = select i1 %or.cond57.i101, i64 0, i64 %0
-  %spec.select93.i103 = sub i64 %add99.sink94.i97, %sub108.i102
+x64_mulmod.exit144:                               ; preds = %if.then.i76, %if.then22.i112, %if.else67.i128
+  %cmp88.sink.i85 = phi i1 [ %cmp88.i143, %if.else67.i128 ], [ %cmp43.i127, %if.then22.i112 ], [ %cmp2.i84, %if.then.i76 ]
+  %hi.12.sink.i86 = phi i64 [ %hi.12.i140, %if.else67.i128 ], [ %hi.6.i124, %if.then22.i112 ], [ %spec.select.i81, %if.then.i76 ]
+  %.sink101.i87 = phi i64 [ 24, %if.else67.i128 ], [ 30, %if.then22.i112 ], [ 32, %if.then.i76 ]
+  %add87.sink98.i88 = phi i64 [ %add87.i142, %if.else67.i128 ], [ %add42.i126, %if.then22.i112 ], [ %add.i83, %if.then.i76 ]
+  %.sink.i89 = phi i64 [ 40, %if.else67.i128 ], [ 34, %if.then22.i112 ], [ 32, %if.then.i76 ]
+  %inc90.i90 = zext i1 %cmp88.sink.i85 to i64
+  %hi.13.i91 = add nsw i64 %hi.12.sink.i86, %inc90.i90
+  %shr92.i92 = lshr i64 %hi.13.i91, %.sink101.i87
+  %sub93.i93 = sub i64 %add87.sink98.i88, %hi.13.i91
+  %cmp94.i94 = icmp ugt i64 %hi.13.i91, %add87.sink98.i88
+  %dec96.i95 = sext i1 %cmp94.i94 to i64
+  %hi.14.i96 = add nsw i64 %shr92.i92, %dec96.i95
+  %shl98.i97 = shl i64 %hi.13.i91, %.sink.i89
+  %add99.i98 = add i64 %shl98.i97, %sub93.i93
+  %cmp100.i99 = icmp ult i64 %add99.i98, %shl98.i97
+  %inc102.neg.i100 = sext i1 %cmp100.i99 to i64
+  %tobool104.not.i101 = icmp eq i64 %hi.14.i96, %inc102.neg.i100
+  %cmp106.not.i102 = icmp ult i64 %add99.i98, %0
+  %or.cond57.i103 = select i1 %tobool104.not.i101, i1 %cmp106.not.i102, i1 false
+  %sub108.i104 = select i1 %or.cond57.i103, i64 0, i64 %0
+  %spec.select93.i105 = sub i64 %add99.i98, %sub108.i104
   br label %if.end.i
 
-if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit162
-  %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i69, %x64_mulmod.exit162 ]
-  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i103, %x64_mulmod.exit162 ]
+if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit144
+  %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i69, %x64_mulmod.exit144 ]
+  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i105, %x64_mulmod.exit144 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv2.i.i = trunc nuw i128 %shr.i.i to i64
@@ -226,23 +208,13 @@ if.then.i64:                                      ; preds = %if.end.i
   %shl.i = shl i64 %conv2.i.i, 32
   %add.i = add i64 %shl.i, %sub.i66
   %cmp2.i = icmp ult i64 %add.i, %shl.i
-  %inc.i = zext i1 %cmp2.i to i64
-  %hi.1.i = add nsw i64 %spec.select.i67, %inc.i
-  %shr5.i = lshr i64 %hi.1.i, 32
-  %sub6.i = sub i64 %add.i, %hi.1.i
-  %cmp7.i = icmp ugt i64 %hi.1.i, %add.i
-  %dec9.i = sext i1 %cmp7.i to i64
-  %hi.2.i = add nsw i64 %shr5.i, %dec9.i
-  %shl11.i = shl i64 %hi.1.i, 32
-  %add12.i = add i64 %shl11.i, %sub6.i
-  %cmp13.i = icmp ult i64 %add12.i, %shl11.i
   br label %x64_mulmod.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %sub69.i = sub i64 %conv3.i.i, %conv2.i.i
   %cmp70.i = icmp ugt i64 %conv2.i.i, %conv3.i.i
   %dec72.i = sext i1 %cmp70.i to i64
-  br i1 %tobool21.not.i106, label %if.else67.i, label %if.then22.i
+  br i1 %tobool21.not.i108, label %if.else67.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else.i
   %shr23.i = lshr i64 %conv2.i.i, 30
@@ -260,16 +232,6 @@ if.then22.i:                                      ; preds = %if.else.i
   %shl41.i = shl i64 %hi.5.i, 34
   %add42.i = add i64 %shl41.i, %sub36.i
   %cmp43.i = icmp ult i64 %add42.i, %shl41.i
-  %inc45.i = zext i1 %cmp43.i to i64
-  %hi.7.i = add nsw i64 %hi.6.i, %inc45.i
-  %shr47.i = lshr i64 %hi.7.i, 30
-  %sub48.i = sub i64 %add42.i, %hi.7.i
-  %cmp49.i = icmp ugt i64 %hi.7.i, %add42.i
-  %dec51.i = sext i1 %cmp49.i to i64
-  %hi.8.i = add nsw i64 %shr47.i, %dec51.i
-  %shl53.i = shl i64 %hi.7.i, 34
-  %add54.i = add i64 %shl53.i, %sub48.i
-  %cmp55.i = icmp ult i64 %add54.i, %shl53.i
   br label %x64_mulmod.exit
 
 if.else67.i:                                      ; preds = %if.else.i
@@ -288,455 +250,385 @@ if.else67.i:                                      ; preds = %if.else.i
   %shl86.i = shl i64 %hi.11.i, 40
   %add87.i = add i64 %shl86.i, %sub81.i
   %cmp88.i = icmp ult i64 %add87.i, %shl86.i
-  %inc90.i = zext i1 %cmp88.i to i64
-  %hi.13.i = add nsw i64 %hi.12.i, %inc90.i
-  %shr92.i = lshr i64 %hi.13.i, 24
-  %sub93.i = sub i64 %add87.i, %hi.13.i
-  %cmp94.i = icmp ugt i64 %hi.13.i, %add87.i
-  %dec96.i = sext i1 %cmp94.i to i64
-  %hi.14.i = add nsw i64 %shr92.i, %dec96.i
-  %shl98.i = shl i64 %hi.13.i, 40
-  %add99.i = add i64 %shl98.i, %sub93.i
-  %cmp100.i = icmp ult i64 %add99.i, %shl98.i
   br label %x64_mulmod.exit
 
 x64_mulmod.exit:                                  ; preds = %if.then.i64, %if.then22.i, %if.else67.i
-  %cmp100.sink.i = phi i1 [ %cmp100.i, %if.else67.i ], [ %cmp55.i, %if.then22.i ], [ %cmp13.i, %if.then.i64 ]
-  %hi.14.sink.i = phi i64 [ %hi.14.i, %if.else67.i ], [ %hi.8.i, %if.then22.i ], [ %hi.2.i, %if.then.i64 ]
-  %add99.sink94.i = phi i64 [ %add99.i, %if.else67.i ], [ %add54.i, %if.then22.i ], [ %add12.i, %if.then.i64 ]
-  %inc102.neg.i = sext i1 %cmp100.sink.i to i64
-  %tobool104.not.i = icmp eq i64 %hi.14.sink.i, %inc102.neg.i
-  %cmp106.not.i = icmp ult i64 %add99.sink94.i, %0
+  %cmp88.sink.i = phi i1 [ %cmp88.i, %if.else67.i ], [ %cmp43.i, %if.then22.i ], [ %cmp2.i, %if.then.i64 ]
+  %hi.12.sink.i = phi i64 [ %hi.12.i, %if.else67.i ], [ %hi.6.i, %if.then22.i ], [ %spec.select.i67, %if.then.i64 ]
+  %.sink101.i = phi i64 [ 24, %if.else67.i ], [ 30, %if.then22.i ], [ 32, %if.then.i64 ]
+  %add87.sink98.i = phi i64 [ %add87.i, %if.else67.i ], [ %add42.i, %if.then22.i ], [ %add.i, %if.then.i64 ]
+  %.sink.i = phi i64 [ 40, %if.else67.i ], [ 34, %if.then22.i ], [ 32, %if.then.i64 ]
+  %inc90.i = zext i1 %cmp88.sink.i to i64
+  %hi.13.i = add nsw i64 %hi.12.sink.i, %inc90.i
+  %shr92.i = lshr i64 %hi.13.i, %.sink101.i
+  %sub93.i = sub i64 %add87.sink98.i, %hi.13.i
+  %cmp94.i = icmp ugt i64 %hi.13.i, %add87.sink98.i
+  %dec96.i = sext i1 %cmp94.i to i64
+  %hi.14.i = add nsw i64 %shr92.i, %dec96.i
+  %shl98.i = shl i64 %hi.13.i, %.sink.i
+  %add99.i = add i64 %shl98.i, %sub93.i
+  %cmp100.i = icmp ult i64 %add99.i, %shl98.i
+  %inc102.neg.i = sext i1 %cmp100.i to i64
+  %tobool104.not.i = icmp eq i64 %hi.14.i, %inc102.neg.i
+  %cmp106.not.i = icmp ult i64 %add99.i, %0
   %or.cond57.i = select i1 %tobool104.not.i, i1 %cmp106.not.i, i1 false
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
-  %spec.select93.i = sub i64 %add99.sink94.i, %sub108.i
+  %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i56 = lshr i64 %exp.addr.08.i, 1
   %cmp.not.i57 = icmp ult i64 %exp.addr.08.i, 2
   br i1 %cmp.not.i57, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
   %call21 = tail call fastcc i64 @x64_mulmod(i64 noundef %r.1.i, i64 noundef %r.1.i, i64 noundef %0)
-  %mul55 = shl i64 %i.0556, %div54
+  %mul55 = shl i64 %i.0466, %div54
   %1 = getelementptr i64, ptr %a, i64 %mul55
-  %conv1.i.i449 = zext i64 %call21 to i128
+  %conv1.i.i377 = zext i64 %call21 to i128
   br label %for.body25
 
-for.body25:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit447
-  %k.0554 = phi i64 [ 0, %x64_powmod.exit ], [ %add38, %x64_mulmod.exit447 ]
-  %w1.0553 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i388, %x64_mulmod.exit447 ]
-  %w0.0552 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i483, %x64_mulmod.exit447 ]
-  %arrayidx = getelementptr i64, ptr %1, i64 %k.0554
+for.body25:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit375
+  %k.0464 = phi i64 [ 0, %x64_powmod.exit ], [ %add38, %x64_mulmod.exit375 ]
+  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
+  %w0.0462 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
+  %arrayidx = getelementptr i64, ptr %1, i64 %k.0464
   %2 = load i64, ptr %arrayidx, align 8
   %arrayidx29 = getelementptr i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx29, align 8
-  %conv.i.i258 = zext i64 %2 to i128
-  %conv1.i.i259 = zext i64 %w0.0552 to i128
-  %mul.i.i260 = mul nuw i128 %conv.i.i258, %conv1.i.i259
-  %shr.i.i261 = lshr i128 %mul.i.i260, 64
-  %conv2.i.i262 = trunc nuw i128 %shr.i.i261 to i64
-  %conv3.i.i263 = trunc i128 %mul.i.i260 to i64
-  br i1 %tobool.not.i63, label %if.else.i294, label %if.then.i266
+  %conv.i.i222 = zext i64 %2 to i128
+  %conv1.i.i223 = zext i64 %w0.0462 to i128
+  %mul.i.i224 = mul nuw i128 %conv.i.i222, %conv1.i.i223
+  %shr.i.i225 = lshr i128 %mul.i.i224, 64
+  %conv2.i.i226 = trunc nuw i128 %shr.i.i225 to i64
+  %conv3.i.i227 = trunc i128 %mul.i.i224 to i64
+  br i1 %tobool.not.i63, label %if.else.i260, label %if.then.i230
 
-if.then.i266:                                     ; preds = %for.body25
-  %shr.i267 = lshr i64 %conv2.i.i262, 32
-  %sub.i268 = sub i64 %conv3.i.i263, %conv2.i.i262
-  %cmp.i269 = icmp ugt i64 %conv2.i.i262, %conv3.i.i263
-  %dec.i270 = sext i1 %cmp.i269 to i64
-  %spec.select.i271 = add nsw i64 %shr.i267, %dec.i270
-  %shl.i272 = shl i64 %conv2.i.i262, 32
-  %add.i273 = add i64 %shl.i272, %sub.i268
-  %cmp2.i274 = icmp ult i64 %add.i273, %shl.i272
-  %inc.i275 = zext i1 %cmp2.i274 to i64
-  %hi.1.i276 = add nsw i64 %spec.select.i271, %inc.i275
-  %shr5.i277 = lshr i64 %hi.1.i276, 32
-  %sub6.i278 = sub i64 %add.i273, %hi.1.i276
-  %cmp7.i279 = icmp ugt i64 %hi.1.i276, %add.i273
-  %dec9.i280 = sext i1 %cmp7.i279 to i64
-  %hi.2.i281 = add nsw i64 %shr5.i277, %dec9.i280
-  %shl11.i282 = shl i64 %hi.1.i276, 32
-  %add12.i283 = add i64 %shl11.i282, %sub6.i278
-  %cmp13.i284 = icmp ult i64 %add12.i283, %shl11.i282
-  br label %x64_mulmod.exit352
+if.then.i230:                                     ; preds = %for.body25
+  %shr.i231 = lshr i64 %conv2.i.i226, 32
+  %sub.i232 = sub i64 %conv3.i.i227, %conv2.i.i226
+  %cmp.i233 = icmp ugt i64 %conv2.i.i226, %conv3.i.i227
+  %dec.i234 = sext i1 %cmp.i233 to i64
+  %spec.select.i235 = add nsw i64 %shr.i231, %dec.i234
+  %shl.i236 = shl i64 %conv2.i.i226, 32
+  %add.i237 = add i64 %shl.i236, %sub.i232
+  %cmp2.i238 = icmp ult i64 %add.i237, %shl.i236
+  br label %x64_mulmod.exit298
 
-if.else.i294:                                     ; preds = %for.body25
-  %sub69.i297 = sub i64 %conv3.i.i263, %conv2.i.i262
-  %cmp70.i298 = icmp ugt i64 %conv2.i.i262, %conv3.i.i263
-  %dec72.i299 = sext i1 %cmp70.i298 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i326, label %if.then22.i300
+if.else.i260:                                     ; preds = %for.body25
+  %sub69.i263 = sub i64 %conv3.i.i227, %conv2.i.i226
+  %cmp70.i264 = icmp ugt i64 %conv2.i.i226, %conv3.i.i227
+  %dec72.i265 = sext i1 %cmp70.i264 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i282, label %if.then22.i266
 
-if.then22.i300:                                   ; preds = %if.else.i294
-  %shr23.i301 = lshr i64 %conv2.i.i262, 30
-  %spec.select89.i302 = add nsw i64 %shr23.i301, %dec72.i299
-  %shl29.i303 = shl i64 %conv2.i.i262, 34
-  %add30.i304 = add i64 %shl29.i303, %sub69.i297
-  %cmp31.i305 = icmp ult i64 %add30.i304, %shl29.i303
-  %inc33.i306 = zext i1 %cmp31.i305 to i64
-  %hi.5.i307 = add nsw i64 %spec.select89.i302, %inc33.i306
-  %shr35.i308 = lshr i64 %hi.5.i307, 30
-  %sub36.i309 = sub i64 %add30.i304, %hi.5.i307
-  %cmp37.i310 = icmp ugt i64 %hi.5.i307, %add30.i304
-  %dec39.i311 = sext i1 %cmp37.i310 to i64
-  %hi.6.i312 = add nsw i64 %shr35.i308, %dec39.i311
-  %shl41.i313 = shl i64 %hi.5.i307, 34
-  %add42.i314 = add i64 %shl41.i313, %sub36.i309
-  %cmp43.i315 = icmp ult i64 %add42.i314, %shl41.i313
-  %inc45.i316 = zext i1 %cmp43.i315 to i64
-  %hi.7.i317 = add nsw i64 %hi.6.i312, %inc45.i316
-  %shr47.i318 = lshr i64 %hi.7.i317, 30
-  %sub48.i319 = sub i64 %add42.i314, %hi.7.i317
-  %cmp49.i320 = icmp ugt i64 %hi.7.i317, %add42.i314
-  %dec51.i321 = sext i1 %cmp49.i320 to i64
-  %hi.8.i322 = add nsw i64 %shr47.i318, %dec51.i321
-  %shl53.i323 = shl i64 %hi.7.i317, 34
-  %add54.i324 = add i64 %shl53.i323, %sub48.i319
-  %cmp55.i325 = icmp ult i64 %add54.i324, %shl53.i323
-  br label %x64_mulmod.exit352
+if.then22.i266:                                   ; preds = %if.else.i260
+  %shr23.i267 = lshr i64 %conv2.i.i226, 30
+  %spec.select89.i268 = add nsw i64 %shr23.i267, %dec72.i265
+  %shl29.i269 = shl i64 %conv2.i.i226, 34
+  %add30.i270 = add i64 %shl29.i269, %sub69.i263
+  %cmp31.i271 = icmp ult i64 %add30.i270, %shl29.i269
+  %inc33.i272 = zext i1 %cmp31.i271 to i64
+  %hi.5.i273 = add nsw i64 %spec.select89.i268, %inc33.i272
+  %shr35.i274 = lshr i64 %hi.5.i273, 30
+  %sub36.i275 = sub i64 %add30.i270, %hi.5.i273
+  %cmp37.i276 = icmp ugt i64 %hi.5.i273, %add30.i270
+  %dec39.i277 = sext i1 %cmp37.i276 to i64
+  %hi.6.i278 = add nsw i64 %shr35.i274, %dec39.i277
+  %shl41.i279 = shl i64 %hi.5.i273, 34
+  %add42.i280 = add i64 %shl41.i279, %sub36.i275
+  %cmp43.i281 = icmp ult i64 %add42.i280, %shl41.i279
+  br label %x64_mulmod.exit298
 
-if.else67.i326:                                   ; preds = %if.else.i294
-  %shr68.i327 = lshr i64 %conv2.i.i262, 24
-  %spec.select90.i328 = add nsw i64 %shr68.i327, %dec72.i299
-  %shl74.i329 = shl i64 %conv2.i.i262, 40
-  %add75.i330 = add i64 %shl74.i329, %sub69.i297
-  %cmp76.i331 = icmp ult i64 %add75.i330, %shl74.i329
-  %inc78.i332 = zext i1 %cmp76.i331 to i64
-  %hi.11.i333 = add nsw i64 %spec.select90.i328, %inc78.i332
-  %shr80.i334 = lshr i64 %hi.11.i333, 24
-  %sub81.i335 = sub i64 %add75.i330, %hi.11.i333
-  %cmp82.i336 = icmp ugt i64 %hi.11.i333, %add75.i330
-  %dec84.i337 = sext i1 %cmp82.i336 to i64
-  %hi.12.i338 = add nsw i64 %shr80.i334, %dec84.i337
-  %shl86.i339 = shl i64 %hi.11.i333, 40
-  %add87.i340 = add i64 %shl86.i339, %sub81.i335
-  %cmp88.i341 = icmp ult i64 %add87.i340, %shl86.i339
-  %inc90.i342 = zext i1 %cmp88.i341 to i64
-  %hi.13.i343 = add nsw i64 %hi.12.i338, %inc90.i342
-  %shr92.i344 = lshr i64 %hi.13.i343, 24
-  %sub93.i345 = sub i64 %add87.i340, %hi.13.i343
-  %cmp94.i346 = icmp ugt i64 %hi.13.i343, %add87.i340
-  %dec96.i347 = sext i1 %cmp94.i346 to i64
-  %hi.14.i348 = add nsw i64 %shr92.i344, %dec96.i347
-  %shl98.i349 = shl i64 %hi.13.i343, 40
-  %add99.i350 = add i64 %shl98.i349, %sub93.i345
-  %cmp100.i351 = icmp ult i64 %add99.i350, %shl98.i349
-  br label %x64_mulmod.exit352
+if.else67.i282:                                   ; preds = %if.else.i260
+  %shr68.i283 = lshr i64 %conv2.i.i226, 24
+  %spec.select90.i284 = add nsw i64 %shr68.i283, %dec72.i265
+  %shl74.i285 = shl i64 %conv2.i.i226, 40
+  %add75.i286 = add i64 %shl74.i285, %sub69.i263
+  %cmp76.i287 = icmp ult i64 %add75.i286, %shl74.i285
+  %inc78.i288 = zext i1 %cmp76.i287 to i64
+  %hi.11.i289 = add nsw i64 %spec.select90.i284, %inc78.i288
+  %shr80.i290 = lshr i64 %hi.11.i289, 24
+  %sub81.i291 = sub i64 %add75.i286, %hi.11.i289
+  %cmp82.i292 = icmp ugt i64 %hi.11.i289, %add75.i286
+  %dec84.i293 = sext i1 %cmp82.i292 to i64
+  %hi.12.i294 = add nsw i64 %shr80.i290, %dec84.i293
+  %shl86.i295 = shl i64 %hi.11.i289, 40
+  %add87.i296 = add i64 %shl86.i295, %sub81.i291
+  %cmp88.i297 = icmp ult i64 %add87.i296, %shl86.i295
+  br label %x64_mulmod.exit298
 
-x64_mulmod.exit352:                               ; preds = %if.then.i266, %if.then22.i300, %if.else67.i326
-  %cmp100.sink.i285 = phi i1 [ %cmp100.i351, %if.else67.i326 ], [ %cmp55.i325, %if.then22.i300 ], [ %cmp13.i284, %if.then.i266 ]
-  %hi.14.sink.i286 = phi i64 [ %hi.14.i348, %if.else67.i326 ], [ %hi.8.i322, %if.then22.i300 ], [ %hi.2.i281, %if.then.i266 ]
-  %add99.sink94.i287 = phi i64 [ %add99.i350, %if.else67.i326 ], [ %add54.i324, %if.then22.i300 ], [ %add12.i283, %if.then.i266 ]
-  %inc102.neg.i288 = sext i1 %cmp100.sink.i285 to i64
-  %tobool104.not.i289 = icmp eq i64 %hi.14.sink.i286, %inc102.neg.i288
-  %cmp106.not.i290 = icmp ult i64 %add99.sink94.i287, %0
-  %or.cond57.i291 = select i1 %tobool104.not.i289, i1 %cmp106.not.i290, i1 false
-  %sub108.i292 = select i1 %or.cond57.i291, i64 0, i64 %0
-  %spec.select93.i293 = sub i64 %add99.sink94.i287, %sub108.i292
-  %conv.i.i163 = zext i64 %3 to i128
-  %conv1.i.i164 = zext i64 %w1.0553 to i128
-  %mul.i.i165 = mul nuw i128 %conv.i.i163, %conv1.i.i164
-  %shr.i.i166 = lshr i128 %mul.i.i165, 64
-  %conv2.i.i167 = trunc nuw i128 %shr.i.i166 to i64
-  %conv3.i.i168 = trunc i128 %mul.i.i165 to i64
-  br i1 %tobool.not.i63, label %if.else.i199, label %if.then.i171
+x64_mulmod.exit298:                               ; preds = %if.then.i230, %if.then22.i266, %if.else67.i282
+  %cmp88.sink.i239 = phi i1 [ %cmp88.i297, %if.else67.i282 ], [ %cmp43.i281, %if.then22.i266 ], [ %cmp2.i238, %if.then.i230 ]
+  %hi.12.sink.i240 = phi i64 [ %hi.12.i294, %if.else67.i282 ], [ %hi.6.i278, %if.then22.i266 ], [ %spec.select.i235, %if.then.i230 ]
+  %.sink101.i241 = phi i64 [ 24, %if.else67.i282 ], [ 30, %if.then22.i266 ], [ 32, %if.then.i230 ]
+  %add87.sink98.i242 = phi i64 [ %add87.i296, %if.else67.i282 ], [ %add42.i280, %if.then22.i266 ], [ %add.i237, %if.then.i230 ]
+  %.sink.i243 = phi i64 [ 40, %if.else67.i282 ], [ 34, %if.then22.i266 ], [ 32, %if.then.i230 ]
+  %inc90.i244 = zext i1 %cmp88.sink.i239 to i64
+  %hi.13.i245 = add nsw i64 %hi.12.sink.i240, %inc90.i244
+  %shr92.i246 = lshr i64 %hi.13.i245, %.sink101.i241
+  %sub93.i247 = sub i64 %add87.sink98.i242, %hi.13.i245
+  %cmp94.i248 = icmp ugt i64 %hi.13.i245, %add87.sink98.i242
+  %dec96.i249 = sext i1 %cmp94.i248 to i64
+  %hi.14.i250 = add nsw i64 %shr92.i246, %dec96.i249
+  %shl98.i251 = shl i64 %hi.13.i245, %.sink.i243
+  %add99.i252 = add i64 %shl98.i251, %sub93.i247
+  %cmp100.i253 = icmp ult i64 %add99.i252, %shl98.i251
+  %inc102.neg.i254 = sext i1 %cmp100.i253 to i64
+  %tobool104.not.i255 = icmp eq i64 %hi.14.i250, %inc102.neg.i254
+  %cmp106.not.i256 = icmp ult i64 %add99.i252, %0
+  %or.cond57.i257 = select i1 %tobool104.not.i255, i1 %cmp106.not.i256, i1 false
+  %sub108.i258 = select i1 %or.cond57.i257, i64 0, i64 %0
+  %spec.select93.i259 = sub i64 %add99.i252, %sub108.i258
+  %conv.i.i145 = zext i64 %3 to i128
+  %conv1.i.i146 = zext i64 %w1.0463 to i128
+  %mul.i.i147 = mul nuw i128 %conv.i.i145, %conv1.i.i146
+  %shr.i.i148 = lshr i128 %mul.i.i147, 64
+  %conv2.i.i149 = trunc nuw i128 %shr.i.i148 to i64
+  %conv3.i.i150 = trunc i128 %mul.i.i147 to i64
+  br i1 %tobool.not.i63, label %if.else.i183, label %if.then.i153
 
-if.then.i171:                                     ; preds = %x64_mulmod.exit352
-  %shr.i172 = lshr i64 %conv2.i.i167, 32
-  %sub.i173 = sub i64 %conv3.i.i168, %conv2.i.i167
-  %cmp.i174 = icmp ugt i64 %conv2.i.i167, %conv3.i.i168
-  %dec.i175 = sext i1 %cmp.i174 to i64
-  %spec.select.i176 = add nsw i64 %shr.i172, %dec.i175
-  %shl.i177 = shl i64 %conv2.i.i167, 32
-  %add.i178 = add i64 %shl.i177, %sub.i173
-  %cmp2.i179 = icmp ult i64 %add.i178, %shl.i177
-  %inc.i180 = zext i1 %cmp2.i179 to i64
-  %hi.1.i181 = add nsw i64 %spec.select.i176, %inc.i180
-  %shr5.i182 = lshr i64 %hi.1.i181, 32
-  %sub6.i183 = sub i64 %add.i178, %hi.1.i181
-  %cmp7.i184 = icmp ugt i64 %hi.1.i181, %add.i178
-  %dec9.i185 = sext i1 %cmp7.i184 to i64
-  %hi.2.i186 = add nsw i64 %shr5.i182, %dec9.i185
-  %shl11.i187 = shl i64 %hi.1.i181, 32
-  %add12.i188 = add i64 %shl11.i187, %sub6.i183
-  %cmp13.i189 = icmp ult i64 %add12.i188, %shl11.i187
-  br label %x64_mulmod.exit257
+if.then.i153:                                     ; preds = %x64_mulmod.exit298
+  %shr.i154 = lshr i64 %conv2.i.i149, 32
+  %sub.i155 = sub i64 %conv3.i.i150, %conv2.i.i149
+  %cmp.i156 = icmp ugt i64 %conv2.i.i149, %conv3.i.i150
+  %dec.i157 = sext i1 %cmp.i156 to i64
+  %spec.select.i158 = add nsw i64 %shr.i154, %dec.i157
+  %shl.i159 = shl i64 %conv2.i.i149, 32
+  %add.i160 = add i64 %shl.i159, %sub.i155
+  %cmp2.i161 = icmp ult i64 %add.i160, %shl.i159
+  br label %x64_mulmod.exit221
 
-if.else.i199:                                     ; preds = %x64_mulmod.exit352
-  %sub69.i202 = sub i64 %conv3.i.i168, %conv2.i.i167
-  %cmp70.i203 = icmp ugt i64 %conv2.i.i167, %conv3.i.i168
-  %dec72.i204 = sext i1 %cmp70.i203 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i231, label %if.then22.i205
+if.else.i183:                                     ; preds = %x64_mulmod.exit298
+  %sub69.i186 = sub i64 %conv3.i.i150, %conv2.i.i149
+  %cmp70.i187 = icmp ugt i64 %conv2.i.i149, %conv3.i.i150
+  %dec72.i188 = sext i1 %cmp70.i187 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i205, label %if.then22.i189
 
-if.then22.i205:                                   ; preds = %if.else.i199
-  %shr23.i206 = lshr i64 %conv2.i.i167, 30
-  %spec.select89.i207 = add nsw i64 %shr23.i206, %dec72.i204
-  %shl29.i208 = shl i64 %conv2.i.i167, 34
-  %add30.i209 = add i64 %shl29.i208, %sub69.i202
-  %cmp31.i210 = icmp ult i64 %add30.i209, %shl29.i208
-  %inc33.i211 = zext i1 %cmp31.i210 to i64
-  %hi.5.i212 = add nsw i64 %spec.select89.i207, %inc33.i211
-  %shr35.i213 = lshr i64 %hi.5.i212, 30
-  %sub36.i214 = sub i64 %add30.i209, %hi.5.i212
-  %cmp37.i215 = icmp ugt i64 %hi.5.i212, %add30.i209
-  %dec39.i216 = sext i1 %cmp37.i215 to i64
-  %hi.6.i217 = add nsw i64 %shr35.i213, %dec39.i216
-  %shl41.i218 = shl i64 %hi.5.i212, 34
-  %add42.i219 = add i64 %shl41.i218, %sub36.i214
-  %cmp43.i220 = icmp ult i64 %add42.i219, %shl41.i218
-  %inc45.i221 = zext i1 %cmp43.i220 to i64
-  %hi.7.i222 = add nsw i64 %hi.6.i217, %inc45.i221
-  %shr47.i223 = lshr i64 %hi.7.i222, 30
-  %sub48.i224 = sub i64 %add42.i219, %hi.7.i222
-  %cmp49.i225 = icmp ugt i64 %hi.7.i222, %add42.i219
-  %dec51.i226 = sext i1 %cmp49.i225 to i64
-  %hi.8.i227 = add nsw i64 %shr47.i223, %dec51.i226
-  %shl53.i228 = shl i64 %hi.7.i222, 34
-  %add54.i229 = add i64 %shl53.i228, %sub48.i224
-  %cmp55.i230 = icmp ult i64 %add54.i229, %shl53.i228
-  br label %x64_mulmod.exit257
+if.then22.i189:                                   ; preds = %if.else.i183
+  %shr23.i190 = lshr i64 %conv2.i.i149, 30
+  %spec.select89.i191 = add nsw i64 %shr23.i190, %dec72.i188
+  %shl29.i192 = shl i64 %conv2.i.i149, 34
+  %add30.i193 = add i64 %shl29.i192, %sub69.i186
+  %cmp31.i194 = icmp ult i64 %add30.i193, %shl29.i192
+  %inc33.i195 = zext i1 %cmp31.i194 to i64
+  %hi.5.i196 = add nsw i64 %spec.select89.i191, %inc33.i195
+  %shr35.i197 = lshr i64 %hi.5.i196, 30
+  %sub36.i198 = sub i64 %add30.i193, %hi.5.i196
+  %cmp37.i199 = icmp ugt i64 %hi.5.i196, %add30.i193
+  %dec39.i200 = sext i1 %cmp37.i199 to i64
+  %hi.6.i201 = add nsw i64 %shr35.i197, %dec39.i200
+  %shl41.i202 = shl i64 %hi.5.i196, 34
+  %add42.i203 = add i64 %shl41.i202, %sub36.i198
+  %cmp43.i204 = icmp ult i64 %add42.i203, %shl41.i202
+  br label %x64_mulmod.exit221
 
-if.else67.i231:                                   ; preds = %if.else.i199
-  %shr68.i232 = lshr i64 %conv2.i.i167, 24
-  %spec.select90.i233 = add nsw i64 %shr68.i232, %dec72.i204
-  %shl74.i234 = shl i64 %conv2.i.i167, 40
-  %add75.i235 = add i64 %shl74.i234, %sub69.i202
-  %cmp76.i236 = icmp ult i64 %add75.i235, %shl74.i234
-  %inc78.i237 = zext i1 %cmp76.i236 to i64
-  %hi.11.i238 = add nsw i64 %spec.select90.i233, %inc78.i237
-  %shr80.i239 = lshr i64 %hi.11.i238, 24
-  %sub81.i240 = sub i64 %add75.i235, %hi.11.i238
-  %cmp82.i241 = icmp ugt i64 %hi.11.i238, %add75.i235
-  %dec84.i242 = sext i1 %cmp82.i241 to i64
-  %hi.12.i243 = add nsw i64 %shr80.i239, %dec84.i242
-  %shl86.i244 = shl i64 %hi.11.i238, 40
-  %add87.i245 = add i64 %shl86.i244, %sub81.i240
-  %cmp88.i246 = icmp ult i64 %add87.i245, %shl86.i244
-  %inc90.i247 = zext i1 %cmp88.i246 to i64
-  %hi.13.i248 = add nsw i64 %hi.12.i243, %inc90.i247
-  %shr92.i249 = lshr i64 %hi.13.i248, 24
-  %sub93.i250 = sub i64 %add87.i245, %hi.13.i248
-  %cmp94.i251 = icmp ugt i64 %hi.13.i248, %add87.i245
-  %dec96.i252 = sext i1 %cmp94.i251 to i64
-  %hi.14.i253 = add nsw i64 %shr92.i249, %dec96.i252
-  %shl98.i254 = shl i64 %hi.13.i248, 40
-  %add99.i255 = add i64 %shl98.i254, %sub93.i250
-  %cmp100.i256 = icmp ult i64 %add99.i255, %shl98.i254
-  br label %x64_mulmod.exit257
+if.else67.i205:                                   ; preds = %if.else.i183
+  %shr68.i206 = lshr i64 %conv2.i.i149, 24
+  %spec.select90.i207 = add nsw i64 %shr68.i206, %dec72.i188
+  %shl74.i208 = shl i64 %conv2.i.i149, 40
+  %add75.i209 = add i64 %shl74.i208, %sub69.i186
+  %cmp76.i210 = icmp ult i64 %add75.i209, %shl74.i208
+  %inc78.i211 = zext i1 %cmp76.i210 to i64
+  %hi.11.i212 = add nsw i64 %spec.select90.i207, %inc78.i211
+  %shr80.i213 = lshr i64 %hi.11.i212, 24
+  %sub81.i214 = sub i64 %add75.i209, %hi.11.i212
+  %cmp82.i215 = icmp ugt i64 %hi.11.i212, %add75.i209
+  %dec84.i216 = sext i1 %cmp82.i215 to i64
+  %hi.12.i217 = add nsw i64 %shr80.i213, %dec84.i216
+  %shl86.i218 = shl i64 %hi.11.i212, 40
+  %add87.i219 = add i64 %shl86.i218, %sub81.i214
+  %cmp88.i220 = icmp ult i64 %add87.i219, %shl86.i218
+  br label %x64_mulmod.exit221
 
-x64_mulmod.exit257:                               ; preds = %if.then.i171, %if.then22.i205, %if.else67.i231
-  %cmp100.sink.i190 = phi i1 [ %cmp100.i256, %if.else67.i231 ], [ %cmp55.i230, %if.then22.i205 ], [ %cmp13.i189, %if.then.i171 ]
-  %hi.14.sink.i191 = phi i64 [ %hi.14.i253, %if.else67.i231 ], [ %hi.8.i227, %if.then22.i205 ], [ %hi.2.i186, %if.then.i171 ]
-  %add99.sink94.i192 = phi i64 [ %add99.i255, %if.else67.i231 ], [ %add54.i229, %if.then22.i205 ], [ %add12.i188, %if.then.i171 ]
-  %inc102.neg.i193 = sext i1 %cmp100.sink.i190 to i64
-  %tobool104.not.i194 = icmp eq i64 %hi.14.sink.i191, %inc102.neg.i193
-  %cmp106.not.i195 = icmp ult i64 %add99.sink94.i192, %0
-  %or.cond57.i196 = select i1 %tobool104.not.i194, i1 %cmp106.not.i195, i1 false
-  %sub108.i197 = select i1 %or.cond57.i196, i64 0, i64 %0
-  %spec.select93.i198 = sub i64 %add99.sink94.i192, %sub108.i197
-  %mul.i.i450 = mul nuw i128 %conv1.i.i259, %conv1.i.i449
-  %shr.i.i451 = lshr i128 %mul.i.i450, 64
-  %conv2.i.i452 = trunc nuw i128 %shr.i.i451 to i64
-  %conv3.i.i453 = trunc i128 %mul.i.i450 to i64
-  br i1 %tobool.not.i63, label %if.else.i484, label %if.then.i456
+x64_mulmod.exit221:                               ; preds = %if.then.i153, %if.then22.i189, %if.else67.i205
+  %cmp88.sink.i162 = phi i1 [ %cmp88.i220, %if.else67.i205 ], [ %cmp43.i204, %if.then22.i189 ], [ %cmp2.i161, %if.then.i153 ]
+  %hi.12.sink.i163 = phi i64 [ %hi.12.i217, %if.else67.i205 ], [ %hi.6.i201, %if.then22.i189 ], [ %spec.select.i158, %if.then.i153 ]
+  %.sink101.i164 = phi i64 [ 24, %if.else67.i205 ], [ 30, %if.then22.i189 ], [ 32, %if.then.i153 ]
+  %add87.sink98.i165 = phi i64 [ %add87.i219, %if.else67.i205 ], [ %add42.i203, %if.then22.i189 ], [ %add.i160, %if.then.i153 ]
+  %.sink.i166 = phi i64 [ 40, %if.else67.i205 ], [ 34, %if.then22.i189 ], [ 32, %if.then.i153 ]
+  %inc90.i167 = zext i1 %cmp88.sink.i162 to i64
+  %hi.13.i168 = add nsw i64 %hi.12.sink.i163, %inc90.i167
+  %shr92.i169 = lshr i64 %hi.13.i168, %.sink101.i164
+  %sub93.i170 = sub i64 %add87.sink98.i165, %hi.13.i168
+  %cmp94.i171 = icmp ugt i64 %hi.13.i168, %add87.sink98.i165
+  %dec96.i172 = sext i1 %cmp94.i171 to i64
+  %hi.14.i173 = add nsw i64 %shr92.i169, %dec96.i172
+  %shl98.i174 = shl i64 %hi.13.i168, %.sink.i166
+  %add99.i175 = add i64 %shl98.i174, %sub93.i170
+  %cmp100.i176 = icmp ult i64 %add99.i175, %shl98.i174
+  %inc102.neg.i177 = sext i1 %cmp100.i176 to i64
+  %tobool104.not.i178 = icmp eq i64 %hi.14.i173, %inc102.neg.i177
+  %cmp106.not.i179 = icmp ult i64 %add99.i175, %0
+  %or.cond57.i180 = select i1 %tobool104.not.i178, i1 %cmp106.not.i179, i1 false
+  %sub108.i181 = select i1 %or.cond57.i180, i64 0, i64 %0
+  %spec.select93.i182 = sub i64 %add99.i175, %sub108.i181
+  %mul.i.i378 = mul nuw i128 %conv1.i.i223, %conv1.i.i377
+  %shr.i.i379 = lshr i128 %mul.i.i378, 64
+  %conv2.i.i380 = trunc nuw i128 %shr.i.i379 to i64
+  %conv3.i.i381 = trunc i128 %mul.i.i378 to i64
+  br i1 %tobool.not.i63, label %if.else.i414, label %if.then.i384
 
-if.then.i456:                                     ; preds = %x64_mulmod.exit257
-  %shr.i457 = lshr i64 %conv2.i.i452, 32
-  %sub.i458 = sub i64 %conv3.i.i453, %conv2.i.i452
-  %cmp.i459 = icmp ugt i64 %conv2.i.i452, %conv3.i.i453
-  %dec.i460 = sext i1 %cmp.i459 to i64
-  %spec.select.i461 = add nsw i64 %shr.i457, %dec.i460
-  %shl.i462 = shl i64 %conv2.i.i452, 32
-  %add.i463 = add i64 %shl.i462, %sub.i458
-  %cmp2.i464 = icmp ult i64 %add.i463, %shl.i462
-  %inc.i465 = zext i1 %cmp2.i464 to i64
-  %hi.1.i466 = add nsw i64 %spec.select.i461, %inc.i465
-  %shr5.i467 = lshr i64 %hi.1.i466, 32
-  %sub6.i468 = sub i64 %add.i463, %hi.1.i466
-  %cmp7.i469 = icmp ugt i64 %hi.1.i466, %add.i463
-  %dec9.i470 = sext i1 %cmp7.i469 to i64
-  %hi.2.i471 = add nsw i64 %shr5.i467, %dec9.i470
-  %shl11.i472 = shl i64 %hi.1.i466, 32
-  %add12.i473 = add i64 %shl11.i472, %sub6.i468
-  %cmp13.i474 = icmp ult i64 %add12.i473, %shl11.i472
-  br label %x64_mulmod.exit542
+if.then.i384:                                     ; preds = %x64_mulmod.exit221
+  %shr.i385 = lshr i64 %conv2.i.i380, 32
+  %sub.i386 = sub i64 %conv3.i.i381, %conv2.i.i380
+  %cmp.i387 = icmp ugt i64 %conv2.i.i380, %conv3.i.i381
+  %dec.i388 = sext i1 %cmp.i387 to i64
+  %spec.select.i389 = add nsw i64 %shr.i385, %dec.i388
+  %shl.i390 = shl i64 %conv2.i.i380, 32
+  %add.i391 = add i64 %shl.i390, %sub.i386
+  %cmp2.i392 = icmp ult i64 %add.i391, %shl.i390
+  br label %x64_mulmod.exit452
 
-if.else.i484:                                     ; preds = %x64_mulmod.exit257
-  %sub69.i487 = sub i64 %conv3.i.i453, %conv2.i.i452
-  %cmp70.i488 = icmp ugt i64 %conv2.i.i452, %conv3.i.i453
-  %dec72.i489 = sext i1 %cmp70.i488 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i516, label %if.then22.i490
+if.else.i414:                                     ; preds = %x64_mulmod.exit221
+  %sub69.i417 = sub i64 %conv3.i.i381, %conv2.i.i380
+  %cmp70.i418 = icmp ugt i64 %conv2.i.i380, %conv3.i.i381
+  %dec72.i419 = sext i1 %cmp70.i418 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i436, label %if.then22.i420
 
-if.then22.i490:                                   ; preds = %if.else.i484
-  %shr23.i491 = lshr i64 %conv2.i.i452, 30
-  %spec.select89.i492 = add nsw i64 %shr23.i491, %dec72.i489
-  %shl29.i493 = shl i64 %conv2.i.i452, 34
-  %add30.i494 = add i64 %shl29.i493, %sub69.i487
-  %cmp31.i495 = icmp ult i64 %add30.i494, %shl29.i493
-  %inc33.i496 = zext i1 %cmp31.i495 to i64
-  %hi.5.i497 = add nsw i64 %spec.select89.i492, %inc33.i496
-  %shr35.i498 = lshr i64 %hi.5.i497, 30
-  %sub36.i499 = sub i64 %add30.i494, %hi.5.i497
-  %cmp37.i500 = icmp ugt i64 %hi.5.i497, %add30.i494
-  %dec39.i501 = sext i1 %cmp37.i500 to i64
-  %hi.6.i502 = add nsw i64 %shr35.i498, %dec39.i501
-  %shl41.i503 = shl i64 %hi.5.i497, 34
-  %add42.i504 = add i64 %shl41.i503, %sub36.i499
-  %cmp43.i505 = icmp ult i64 %add42.i504, %shl41.i503
-  %inc45.i506 = zext i1 %cmp43.i505 to i64
-  %hi.7.i507 = add nsw i64 %hi.6.i502, %inc45.i506
-  %shr47.i508 = lshr i64 %hi.7.i507, 30
-  %sub48.i509 = sub i64 %add42.i504, %hi.7.i507
-  %cmp49.i510 = icmp ugt i64 %hi.7.i507, %add42.i504
-  %dec51.i511 = sext i1 %cmp49.i510 to i64
-  %hi.8.i512 = add nsw i64 %shr47.i508, %dec51.i511
-  %shl53.i513 = shl i64 %hi.7.i507, 34
-  %add54.i514 = add i64 %shl53.i513, %sub48.i509
-  %cmp55.i515 = icmp ult i64 %add54.i514, %shl53.i513
-  br label %x64_mulmod.exit542
+if.then22.i420:                                   ; preds = %if.else.i414
+  %shr23.i421 = lshr i64 %conv2.i.i380, 30
+  %spec.select89.i422 = add nsw i64 %shr23.i421, %dec72.i419
+  %shl29.i423 = shl i64 %conv2.i.i380, 34
+  %add30.i424 = add i64 %shl29.i423, %sub69.i417
+  %cmp31.i425 = icmp ult i64 %add30.i424, %shl29.i423
+  %inc33.i426 = zext i1 %cmp31.i425 to i64
+  %hi.5.i427 = add nsw i64 %spec.select89.i422, %inc33.i426
+  %shr35.i428 = lshr i64 %hi.5.i427, 30
+  %sub36.i429 = sub i64 %add30.i424, %hi.5.i427
+  %cmp37.i430 = icmp ugt i64 %hi.5.i427, %add30.i424
+  %dec39.i431 = sext i1 %cmp37.i430 to i64
+  %hi.6.i432 = add nsw i64 %shr35.i428, %dec39.i431
+  %shl41.i433 = shl i64 %hi.5.i427, 34
+  %add42.i434 = add i64 %shl41.i433, %sub36.i429
+  %cmp43.i435 = icmp ult i64 %add42.i434, %shl41.i433
+  br label %x64_mulmod.exit452
 
-if.else67.i516:                                   ; preds = %if.else.i484
-  %shr68.i517 = lshr i64 %conv2.i.i452, 24
-  %spec.select90.i518 = add nsw i64 %shr68.i517, %dec72.i489
-  %shl74.i519 = shl i64 %conv2.i.i452, 40
-  %add75.i520 = add i64 %shl74.i519, %sub69.i487
-  %cmp76.i521 = icmp ult i64 %add75.i520, %shl74.i519
-  %inc78.i522 = zext i1 %cmp76.i521 to i64
-  %hi.11.i523 = add nsw i64 %spec.select90.i518, %inc78.i522
-  %shr80.i524 = lshr i64 %hi.11.i523, 24
-  %sub81.i525 = sub i64 %add75.i520, %hi.11.i523
-  %cmp82.i526 = icmp ugt i64 %hi.11.i523, %add75.i520
-  %dec84.i527 = sext i1 %cmp82.i526 to i64
-  %hi.12.i528 = add nsw i64 %shr80.i524, %dec84.i527
-  %shl86.i529 = shl i64 %hi.11.i523, 40
-  %add87.i530 = add i64 %shl86.i529, %sub81.i525
-  %cmp88.i531 = icmp ult i64 %add87.i530, %shl86.i529
-  %inc90.i532 = zext i1 %cmp88.i531 to i64
-  %hi.13.i533 = add nsw i64 %hi.12.i528, %inc90.i532
-  %shr92.i534 = lshr i64 %hi.13.i533, 24
-  %sub93.i535 = sub i64 %add87.i530, %hi.13.i533
-  %cmp94.i536 = icmp ugt i64 %hi.13.i533, %add87.i530
-  %dec96.i537 = sext i1 %cmp94.i536 to i64
-  %hi.14.i538 = add nsw i64 %shr92.i534, %dec96.i537
-  %shl98.i539 = shl i64 %hi.13.i533, 40
-  %add99.i540 = add i64 %shl98.i539, %sub93.i535
-  %cmp100.i541 = icmp ult i64 %add99.i540, %shl98.i539
-  br label %x64_mulmod.exit542
+if.else67.i436:                                   ; preds = %if.else.i414
+  %shr68.i437 = lshr i64 %conv2.i.i380, 24
+  %spec.select90.i438 = add nsw i64 %shr68.i437, %dec72.i419
+  %shl74.i439 = shl i64 %conv2.i.i380, 40
+  %add75.i440 = add i64 %shl74.i439, %sub69.i417
+  %cmp76.i441 = icmp ult i64 %add75.i440, %shl74.i439
+  %inc78.i442 = zext i1 %cmp76.i441 to i64
+  %hi.11.i443 = add nsw i64 %spec.select90.i438, %inc78.i442
+  %shr80.i444 = lshr i64 %hi.11.i443, 24
+  %sub81.i445 = sub i64 %add75.i440, %hi.11.i443
+  %cmp82.i446 = icmp ugt i64 %hi.11.i443, %add75.i440
+  %dec84.i447 = sext i1 %cmp82.i446 to i64
+  %hi.12.i448 = add nsw i64 %shr80.i444, %dec84.i447
+  %shl86.i449 = shl i64 %hi.11.i443, 40
+  %add87.i450 = add i64 %shl86.i449, %sub81.i445
+  %cmp88.i451 = icmp ult i64 %add87.i450, %shl86.i449
+  br label %x64_mulmod.exit452
 
-x64_mulmod.exit542:                               ; preds = %if.then.i456, %if.then22.i490, %if.else67.i516
-  %cmp100.sink.i475 = phi i1 [ %cmp100.i541, %if.else67.i516 ], [ %cmp55.i515, %if.then22.i490 ], [ %cmp13.i474, %if.then.i456 ]
-  %hi.14.sink.i476 = phi i64 [ %hi.14.i538, %if.else67.i516 ], [ %hi.8.i512, %if.then22.i490 ], [ %hi.2.i471, %if.then.i456 ]
-  %add99.sink94.i477 = phi i64 [ %add99.i540, %if.else67.i516 ], [ %add54.i514, %if.then22.i490 ], [ %add12.i473, %if.then.i456 ]
-  %inc102.neg.i478 = sext i1 %cmp100.sink.i475 to i64
-  %tobool104.not.i479 = icmp eq i64 %hi.14.sink.i476, %inc102.neg.i478
-  %cmp106.not.i480 = icmp ult i64 %add99.sink94.i477, %0
-  %or.cond57.i481 = select i1 %tobool104.not.i479, i1 %cmp106.not.i480, i1 false
-  %sub108.i482 = select i1 %or.cond57.i481, i64 0, i64 %0
-  %spec.select93.i483 = sub i64 %add99.sink94.i477, %sub108.i482
-  %mul.i.i355 = mul nuw i128 %conv1.i.i164, %conv1.i.i449
-  %shr.i.i356 = lshr i128 %mul.i.i355, 64
-  %conv2.i.i357 = trunc nuw i128 %shr.i.i356 to i64
-  %conv3.i.i358 = trunc i128 %mul.i.i355 to i64
-  br i1 %tobool.not.i63, label %if.else.i389, label %if.then.i361
+x64_mulmod.exit452:                               ; preds = %if.then.i384, %if.then22.i420, %if.else67.i436
+  %cmp88.sink.i393 = phi i1 [ %cmp88.i451, %if.else67.i436 ], [ %cmp43.i435, %if.then22.i420 ], [ %cmp2.i392, %if.then.i384 ]
+  %hi.12.sink.i394 = phi i64 [ %hi.12.i448, %if.else67.i436 ], [ %hi.6.i432, %if.then22.i420 ], [ %spec.select.i389, %if.then.i384 ]
+  %.sink101.i395 = phi i64 [ 24, %if.else67.i436 ], [ 30, %if.then22.i420 ], [ 32, %if.then.i384 ]
+  %add87.sink98.i396 = phi i64 [ %add87.i450, %if.else67.i436 ], [ %add42.i434, %if.then22.i420 ], [ %add.i391, %if.then.i384 ]
+  %.sink.i397 = phi i64 [ 40, %if.else67.i436 ], [ 34, %if.then22.i420 ], [ 32, %if.then.i384 ]
+  %inc90.i398 = zext i1 %cmp88.sink.i393 to i64
+  %hi.13.i399 = add nsw i64 %hi.12.sink.i394, %inc90.i398
+  %shr92.i400 = lshr i64 %hi.13.i399, %.sink101.i395
+  %sub93.i401 = sub i64 %add87.sink98.i396, %hi.13.i399
+  %cmp94.i402 = icmp ugt i64 %hi.13.i399, %add87.sink98.i396
+  %dec96.i403 = sext i1 %cmp94.i402 to i64
+  %hi.14.i404 = add nsw i64 %shr92.i400, %dec96.i403
+  %shl98.i405 = shl i64 %hi.13.i399, %.sink.i397
+  %add99.i406 = add i64 %shl98.i405, %sub93.i401
+  %cmp100.i407 = icmp ult i64 %add99.i406, %shl98.i405
+  %inc102.neg.i408 = sext i1 %cmp100.i407 to i64
+  %tobool104.not.i409 = icmp eq i64 %hi.14.i404, %inc102.neg.i408
+  %cmp106.not.i410 = icmp ult i64 %add99.i406, %0
+  %or.cond57.i411 = select i1 %tobool104.not.i409, i1 %cmp106.not.i410, i1 false
+  %sub108.i412 = select i1 %or.cond57.i411, i64 0, i64 %0
+  %spec.select93.i413 = sub i64 %add99.i406, %sub108.i412
+  %mul.i.i301 = mul nuw i128 %conv1.i.i146, %conv1.i.i377
+  %shr.i.i302 = lshr i128 %mul.i.i301, 64
+  %conv2.i.i303 = trunc nuw i128 %shr.i.i302 to i64
+  %conv3.i.i304 = trunc i128 %mul.i.i301 to i64
+  br i1 %tobool.not.i63, label %if.else.i337, label %if.then.i307
 
-if.then.i361:                                     ; preds = %x64_mulmod.exit542
-  %shr.i362 = lshr i64 %conv2.i.i357, 32
-  %sub.i363 = sub i64 %conv3.i.i358, %conv2.i.i357
-  %cmp.i364 = icmp ugt i64 %conv2.i.i357, %conv3.i.i358
-  %dec.i365 = sext i1 %cmp.i364 to i64
-  %spec.select.i366 = add nsw i64 %shr.i362, %dec.i365
-  %shl.i367 = shl i64 %conv2.i.i357, 32
-  %add.i368 = add i64 %shl.i367, %sub.i363
-  %cmp2.i369 = icmp ult i64 %add.i368, %shl.i367
-  %inc.i370 = zext i1 %cmp2.i369 to i64
-  %hi.1.i371 = add nsw i64 %spec.select.i366, %inc.i370
-  %shr5.i372 = lshr i64 %hi.1.i371, 32
-  %sub6.i373 = sub i64 %add.i368, %hi.1.i371
-  %cmp7.i374 = icmp ugt i64 %hi.1.i371, %add.i368
-  %dec9.i375 = sext i1 %cmp7.i374 to i64
-  %hi.2.i376 = add nsw i64 %shr5.i372, %dec9.i375
-  %shl11.i377 = shl i64 %hi.1.i371, 32
-  %add12.i378 = add i64 %shl11.i377, %sub6.i373
-  %cmp13.i379 = icmp ult i64 %add12.i378, %shl11.i377
-  br label %x64_mulmod.exit447
+if.then.i307:                                     ; preds = %x64_mulmod.exit452
+  %shr.i308 = lshr i64 %conv2.i.i303, 32
+  %sub.i309 = sub i64 %conv3.i.i304, %conv2.i.i303
+  %cmp.i310 = icmp ugt i64 %conv2.i.i303, %conv3.i.i304
+  %dec.i311 = sext i1 %cmp.i310 to i64
+  %spec.select.i312 = add nsw i64 %shr.i308, %dec.i311
+  %shl.i313 = shl i64 %conv2.i.i303, 32
+  %add.i314 = add i64 %shl.i313, %sub.i309
+  %cmp2.i315 = icmp ult i64 %add.i314, %shl.i313
+  br label %x64_mulmod.exit375
 
-if.else.i389:                                     ; preds = %x64_mulmod.exit542
-  %sub69.i392 = sub i64 %conv3.i.i358, %conv2.i.i357
-  %cmp70.i393 = icmp ugt i64 %conv2.i.i357, %conv3.i.i358
-  %dec72.i394 = sext i1 %cmp70.i393 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i421, label %if.then22.i395
+if.else.i337:                                     ; preds = %x64_mulmod.exit452
+  %sub69.i340 = sub i64 %conv3.i.i304, %conv2.i.i303
+  %cmp70.i341 = icmp ugt i64 %conv2.i.i303, %conv3.i.i304
+  %dec72.i342 = sext i1 %cmp70.i341 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i359, label %if.then22.i343
 
-if.then22.i395:                                   ; preds = %if.else.i389
-  %shr23.i396 = lshr i64 %conv2.i.i357, 30
-  %spec.select89.i397 = add nsw i64 %shr23.i396, %dec72.i394
-  %shl29.i398 = shl i64 %conv2.i.i357, 34
-  %add30.i399 = add i64 %shl29.i398, %sub69.i392
-  %cmp31.i400 = icmp ult i64 %add30.i399, %shl29.i398
-  %inc33.i401 = zext i1 %cmp31.i400 to i64
-  %hi.5.i402 = add nsw i64 %spec.select89.i397, %inc33.i401
-  %shr35.i403 = lshr i64 %hi.5.i402, 30
-  %sub36.i404 = sub i64 %add30.i399, %hi.5.i402
-  %cmp37.i405 = icmp ugt i64 %hi.5.i402, %add30.i399
-  %dec39.i406 = sext i1 %cmp37.i405 to i64
-  %hi.6.i407 = add nsw i64 %shr35.i403, %dec39.i406
-  %shl41.i408 = shl i64 %hi.5.i402, 34
-  %add42.i409 = add i64 %shl41.i408, %sub36.i404
-  %cmp43.i410 = icmp ult i64 %add42.i409, %shl41.i408
-  %inc45.i411 = zext i1 %cmp43.i410 to i64
-  %hi.7.i412 = add nsw i64 %hi.6.i407, %inc45.i411
-  %shr47.i413 = lshr i64 %hi.7.i412, 30
-  %sub48.i414 = sub i64 %add42.i409, %hi.7.i412
-  %cmp49.i415 = icmp ugt i64 %hi.7.i412, %add42.i409
-  %dec51.i416 = sext i1 %cmp49.i415 to i64
-  %hi.8.i417 = add nsw i64 %shr47.i413, %dec51.i416
-  %shl53.i418 = shl i64 %hi.7.i412, 34
-  %add54.i419 = add i64 %shl53.i418, %sub48.i414
-  %cmp55.i420 = icmp ult i64 %add54.i419, %shl53.i418
-  br label %x64_mulmod.exit447
+if.then22.i343:                                   ; preds = %if.else.i337
+  %shr23.i344 = lshr i64 %conv2.i.i303, 30
+  %spec.select89.i345 = add nsw i64 %shr23.i344, %dec72.i342
+  %shl29.i346 = shl i64 %conv2.i.i303, 34
+  %add30.i347 = add i64 %shl29.i346, %sub69.i340
+  %cmp31.i348 = icmp ult i64 %add30.i347, %shl29.i346
+  %inc33.i349 = zext i1 %cmp31.i348 to i64
+  %hi.5.i350 = add nsw i64 %spec.select89.i345, %inc33.i349
+  %shr35.i351 = lshr i64 %hi.5.i350, 30
+  %sub36.i352 = sub i64 %add30.i347, %hi.5.i350
+  %cmp37.i353 = icmp ugt i64 %hi.5.i350, %add30.i347
+  %dec39.i354 = sext i1 %cmp37.i353 to i64
+  %hi.6.i355 = add nsw i64 %shr35.i351, %dec39.i354
+  %shl41.i356 = shl i64 %hi.5.i350, 34
+  %add42.i357 = add i64 %shl41.i356, %sub36.i352
+  %cmp43.i358 = icmp ult i64 %add42.i357, %shl41.i356
+  br label %x64_mulmod.exit375
 
-if.else67.i421:                                   ; preds = %if.else.i389
-  %shr68.i422 = lshr i64 %conv2.i.i357, 24
-  %spec.select90.i423 = add nsw i64 %shr68.i422, %dec72.i394
-  %shl74.i424 = shl i64 %conv2.i.i357, 40
-  %add75.i425 = add i64 %shl74.i424, %sub69.i392
-  %cmp76.i426 = icmp ult i64 %add75.i425, %shl74.i424
-  %inc78.i427 = zext i1 %cmp76.i426 to i64
-  %hi.11.i428 = add nsw i64 %spec.select90.i423, %inc78.i427
-  %shr80.i429 = lshr i64 %hi.11.i428, 24
-  %sub81.i430 = sub i64 %add75.i425, %hi.11.i428
-  %cmp82.i431 = icmp ugt i64 %hi.11.i428, %add75.i425
-  %dec84.i432 = sext i1 %cmp82.i431 to i64
-  %hi.12.i433 = add nsw i64 %shr80.i429, %dec84.i432
-  %shl86.i434 = shl i64 %hi.11.i428, 40
-  %add87.i435 = add i64 %shl86.i434, %sub81.i430
-  %cmp88.i436 = icmp ult i64 %add87.i435, %shl86.i434
-  %inc90.i437 = zext i1 %cmp88.i436 to i64
-  %hi.13.i438 = add nsw i64 %hi.12.i433, %inc90.i437
-  %shr92.i439 = lshr i64 %hi.13.i438, 24
-  %sub93.i440 = sub i64 %add87.i435, %hi.13.i438
-  %cmp94.i441 = icmp ugt i64 %hi.13.i438, %add87.i435
-  %dec96.i442 = sext i1 %cmp94.i441 to i64
-  %hi.14.i443 = add nsw i64 %shr92.i439, %dec96.i442
-  %shl98.i444 = shl i64 %hi.13.i438, 40
-  %add99.i445 = add i64 %shl98.i444, %sub93.i440
-  %cmp100.i446 = icmp ult i64 %add99.i445, %shl98.i444
-  br label %x64_mulmod.exit447
+if.else67.i359:                                   ; preds = %if.else.i337
+  %shr68.i360 = lshr i64 %conv2.i.i303, 24
+  %spec.select90.i361 = add nsw i64 %shr68.i360, %dec72.i342
+  %shl74.i362 = shl i64 %conv2.i.i303, 40
+  %add75.i363 = add i64 %shl74.i362, %sub69.i340
+  %cmp76.i364 = icmp ult i64 %add75.i363, %shl74.i362
+  %inc78.i365 = zext i1 %cmp76.i364 to i64
+  %hi.11.i366 = add nsw i64 %spec.select90.i361, %inc78.i365
+  %shr80.i367 = lshr i64 %hi.11.i366, 24
+  %sub81.i368 = sub i64 %add75.i363, %hi.11.i366
+  %cmp82.i369 = icmp ugt i64 %hi.11.i366, %add75.i363
+  %dec84.i370 = sext i1 %cmp82.i369 to i64
+  %hi.12.i371 = add nsw i64 %shr80.i367, %dec84.i370
+  %shl86.i372 = shl i64 %hi.11.i366, 40
+  %add87.i373 = add i64 %shl86.i372, %sub81.i368
+  %cmp88.i374 = icmp ult i64 %add87.i373, %shl86.i372
+  br label %x64_mulmod.exit375
 
-x64_mulmod.exit447:                               ; preds = %if.then.i361, %if.then22.i395, %if.else67.i421
-  %cmp100.sink.i380 = phi i1 [ %cmp100.i446, %if.else67.i421 ], [ %cmp55.i420, %if.then22.i395 ], [ %cmp13.i379, %if.then.i361 ]
-  %hi.14.sink.i381 = phi i64 [ %hi.14.i443, %if.else67.i421 ], [ %hi.8.i417, %if.then22.i395 ], [ %hi.2.i376, %if.then.i361 ]
-  %add99.sink94.i382 = phi i64 [ %add99.i445, %if.else67.i421 ], [ %add54.i419, %if.then22.i395 ], [ %add12.i378, %if.then.i361 ]
-  %inc102.neg.i383 = sext i1 %cmp100.sink.i380 to i64
-  %tobool104.not.i384 = icmp eq i64 %hi.14.sink.i381, %inc102.neg.i383
-  %cmp106.not.i385 = icmp ult i64 %add99.sink94.i382, %0
-  %or.cond57.i386 = select i1 %tobool104.not.i384, i1 %cmp106.not.i385, i1 false
-  %sub108.i387 = select i1 %or.cond57.i386, i64 0, i64 %0
-  %spec.select93.i388 = sub i64 %add99.sink94.i382, %sub108.i387
-  store i64 %spec.select93.i293, ptr %arrayidx, align 8
-  store i64 %spec.select93.i198, ptr %arrayidx29, align 8
-  %add38 = add nuw i64 %k.0554, 2
+x64_mulmod.exit375:                               ; preds = %if.then.i307, %if.then22.i343, %if.else67.i359
+  %cmp88.sink.i316 = phi i1 [ %cmp88.i374, %if.else67.i359 ], [ %cmp43.i358, %if.then22.i343 ], [ %cmp2.i315, %if.then.i307 ]
+  %hi.12.sink.i317 = phi i64 [ %hi.12.i371, %if.else67.i359 ], [ %hi.6.i355, %if.then22.i343 ], [ %spec.select.i312, %if.then.i307 ]
+  %.sink101.i318 = phi i64 [ 24, %if.else67.i359 ], [ 30, %if.then22.i343 ], [ 32, %if.then.i307 ]
+  %add87.sink98.i319 = phi i64 [ %add87.i373, %if.else67.i359 ], [ %add42.i357, %if.then22.i343 ], [ %add.i314, %if.then.i307 ]
+  %.sink.i320 = phi i64 [ 40, %if.else67.i359 ], [ 34, %if.then22.i343 ], [ 32, %if.then.i307 ]
+  %inc90.i321 = zext i1 %cmp88.sink.i316 to i64
+  %hi.13.i322 = add nsw i64 %hi.12.sink.i317, %inc90.i321
+  %shr92.i323 = lshr i64 %hi.13.i322, %.sink101.i318
+  %sub93.i324 = sub i64 %add87.sink98.i319, %hi.13.i322
+  %cmp94.i325 = icmp ugt i64 %hi.13.i322, %add87.sink98.i319
+  %dec96.i326 = sext i1 %cmp94.i325 to i64
+  %hi.14.i327 = add nsw i64 %shr92.i323, %dec96.i326
+  %shl98.i328 = shl i64 %hi.13.i322, %.sink.i320
+  %add99.i329 = add i64 %shl98.i328, %sub93.i324
+  %cmp100.i330 = icmp ult i64 %add99.i329, %shl98.i328
+  %inc102.neg.i331 = sext i1 %cmp100.i330 to i64
+  %tobool104.not.i332 = icmp eq i64 %hi.14.i327, %inc102.neg.i331
+  %cmp106.not.i333 = icmp ult i64 %add99.i329, %0
+  %or.cond57.i334 = select i1 %tobool104.not.i332, i1 %cmp106.not.i333, i1 false
+  %sub108.i335 = select i1 %or.cond57.i334, i64 0, i64 %0
+  %spec.select93.i336 = sub i64 %add99.i329, %sub108.i335
+  store i64 %spec.select93.i259, ptr %arrayidx, align 8
+  store i64 %spec.select93.i182, ptr %arrayidx29, align 8
+  %add38 = add nuw i64 %k.0464, 2
   %cmp23 = icmp ult i64 %add38, %shl
   br i1 %cmp23, label %for.body25, label %for.inc40, !llvm.loop !7
 
-for.inc40:                                        ; preds = %x64_mulmod.exit447
-  %inc = add nuw i64 %i.0556, 1
+for.inc40:                                        ; preds = %x64_mulmod.exit375
+  %inc = add nuw i64 %i.0466, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end41, label %while.body.i.preheader, !llvm.loop !8
 
@@ -753,12 +645,12 @@ if.then44:                                        ; preds = %for.end41
 
 if.end50:                                         ; preds = %if.then44, %for.end41
   %tparams.0 = phi ptr [ %call45, %if.then44 ], [ %call4, %for.end41 ]
-  br i1 %cmp8550, label %for.body55, label %return.sink.split
+  br i1 %cmp8460, label %for.body55, label %return.sink.split
 
 for.body55:                                       ; preds = %if.end50, %for.body55
-  %x.1558 = phi ptr [ %add.ptr57, %for.body55 ], [ %a, %if.end50 ]
-  tail call void @fnt_dif2(ptr noundef %x.1558, i64 noundef %shl, ptr noundef nonnull %tparams.0) #4
-  %add.ptr57 = getelementptr i64, ptr %x.1558, i64 %shl
+  %x.1468 = phi ptr [ %add.ptr57, %for.body55 ], [ %a, %if.end50 ]
+  tail call void @fnt_dif2(ptr noundef %x.1468, i64 noundef %shl, ptr noundef nonnull %tparams.0) #4
+  %add.ptr57 = getelementptr i64, ptr %x.1468, i64 %shl
   %cmp53 = icmp ult ptr %add.ptr57, %add.ptr
   br i1 %cmp53, label %for.body55, label %return.sink.split, !llvm.loop !9
 
@@ -804,16 +696,6 @@ if.then:                                          ; preds = %entry
   %shl = shl i64 %conv2.i, 32
   %add = add i64 %shl, %sub
   %cmp2 = icmp ult i64 %add, %shl
-  %inc = zext i1 %cmp2 to i64
-  %hi.1 = add nsw i64 %spec.select, %inc
-  %shr5 = lshr i64 %hi.1, 32
-  %sub6 = sub i64 %add, %hi.1
-  %cmp7 = icmp ugt i64 %hi.1, %add
-  %dec9 = sext i1 %cmp7 to i64
-  %hi.2 = add nsw i64 %shr5, %dec9
-  %shl11 = shl i64 %hi.1, 32
-  %add12 = add i64 %shl11, %sub6
-  %cmp13 = icmp ult i64 %add12, %shl11
   br label %return
 
 if.else:                                          ; preds = %entry
@@ -840,16 +722,6 @@ if.then22:                                        ; preds = %if.else
   %shl41 = shl i64 %hi.5, 34
   %add42 = add i64 %shl41, %sub36
   %cmp43 = icmp ult i64 %add42, %shl41
-  %inc45 = zext i1 %cmp43 to i64
-  %hi.7 = add nsw i64 %hi.6, %inc45
-  %shr47 = lshr i64 %hi.7, 30
-  %sub48 = sub i64 %add42, %hi.7
-  %cmp49 = icmp ugt i64 %hi.7, %add42
-  %dec51 = sext i1 %cmp49 to i64
-  %hi.8 = add nsw i64 %shr47, %dec51
-  %shl53 = shl i64 %hi.7, 34
-  %add54 = add i64 %shl53, %sub48
-  %cmp55 = icmp ult i64 %add54, %shl53
   br label %return
 
 if.else67:                                        ; preds = %if.else
@@ -868,28 +740,30 @@ if.else67:                                        ; preds = %if.else
   %shl86 = shl i64 %hi.11, 40
   %add87 = add i64 %shl86, %sub81
   %cmp88 = icmp ult i64 %add87, %shl86
-  %inc90 = zext i1 %cmp88 to i64
-  %hi.13 = add nsw i64 %hi.12, %inc90
-  %shr92 = lshr i64 %hi.13, 24
-  %sub93 = sub i64 %add87, %hi.13
-  %cmp94 = icmp ugt i64 %hi.13, %add87
-  %dec96 = sext i1 %cmp94 to i64
-  %hi.14 = add nsw i64 %shr92, %dec96
-  %shl98 = shl i64 %hi.13, 40
-  %add99 = add i64 %shl98, %sub93
-  %cmp100 = icmp ult i64 %add99, %shl98
   br label %return
 
 return:                                           ; preds = %if.else67, %if.then22, %if.then
-  %cmp100.sink = phi i1 [ %cmp100, %if.else67 ], [ %cmp55, %if.then22 ], [ %cmp13, %if.then ]
-  %hi.14.sink = phi i64 [ %hi.14, %if.else67 ], [ %hi.8, %if.then22 ], [ %hi.2, %if.then ]
-  %add99.sink94 = phi i64 [ %add99, %if.else67 ], [ %add54, %if.then22 ], [ %add12, %if.then ]
-  %inc102.neg = sext i1 %cmp100.sink to i64
-  %tobool104.not = icmp eq i64 %hi.14.sink, %inc102.neg
-  %cmp106.not = icmp ult i64 %add99.sink94, %m
+  %cmp88.sink = phi i1 [ %cmp88, %if.else67 ], [ %cmp43, %if.then22 ], [ %cmp2, %if.then ]
+  %hi.12.sink = phi i64 [ %hi.12, %if.else67 ], [ %hi.6, %if.then22 ], [ %spec.select, %if.then ]
+  %.sink101 = phi i64 [ 24, %if.else67 ], [ 30, %if.then22 ], [ 32, %if.then ]
+  %add87.sink98 = phi i64 [ %add87, %if.else67 ], [ %add42, %if.then22 ], [ %add, %if.then ]
+  %.sink = phi i64 [ 40, %if.else67 ], [ 34, %if.then22 ], [ 32, %if.then ]
+  %inc90 = zext i1 %cmp88.sink to i64
+  %hi.13 = add nsw i64 %hi.12.sink, %inc90
+  %shr92 = lshr i64 %hi.13, %.sink101
+  %sub93 = sub i64 %add87.sink98, %hi.13
+  %cmp94 = icmp ugt i64 %hi.13, %add87.sink98
+  %dec96 = sext i1 %cmp94 to i64
+  %hi.14 = add nsw i64 %shr92, %dec96
+  %shl98 = shl i64 %hi.13, %.sink
+  %add99 = add i64 %shl98, %sub93
+  %cmp100 = icmp ult i64 %add99, %shl98
+  %inc102.neg = sext i1 %cmp100 to i64
+  %tobool104.not = icmp eq i64 %hi.14, %inc102.neg
+  %cmp106.not = icmp ult i64 %add99, %m
   %or.cond57 = select i1 %tobool104.not, i1 %cmp106.not, i1 false
   %sub108 = select i1 %or.cond57, i64 0, i64 %m
-  %spec.select93 = sub i64 %add99.sink94, %sub108
+  %spec.select93 = sub i64 %add99, %sub108
   ret i64 %spec.select93
 }
 
@@ -939,13 +813,13 @@ entry:
 
 for.cond.preheader:                               ; preds = %entry
   %add.ptr = getelementptr i64, ptr %a, i64 %n
-  %cmp5550 = icmp ugt ptr %add.ptr, %a
-  br i1 %cmp5550, label %for.body, label %for.end
+  %cmp5460 = icmp ugt ptr %add.ptr, %a
+  br i1 %cmp5460, label %for.body, label %for.end
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
-  %x.0551 = phi ptr [ %add.ptr7, %for.body ], [ %a, %for.cond.preheader ]
-  tail call void @fnt_dif2(ptr noundef %x.0551, i64 noundef %shl, ptr noundef nonnull %call3) #4
-  %add.ptr7 = getelementptr i64, ptr %x.0551, i64 %shl
+  %x.0461 = phi ptr [ %add.ptr7, %for.body ], [ %a, %for.cond.preheader ]
+  tail call void @fnt_dif2(ptr noundef %x.0461, i64 noundef %shl, ptr noundef nonnull %call3) #4
+  %add.ptr7 = getelementptr i64, ptr %x.0461, i64 %shl
   %cmp5 = icmp ult ptr %add.ptr7, %add.ptr
   br i1 %cmp5, label %for.body, label %for.end, !llvm.loop !10
 
@@ -954,25 +828,25 @@ for.end:                                          ; preds = %for.body, %for.cond
   %arrayidx.i = getelementptr [0 x i64], ptr @mpd_moduli, i64 0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %call8 = tail call i64 @_mpd_getkernel(i64 noundef %n, i32 noundef 1, i32 noundef %modnum) #4
-  %cmp10555.not = icmp eq i32 %sub.i, 0
-  br i1 %cmp10555.not, label %for.end34, label %for.body12.lr.ph
+  %cmp10465.not = icmp eq i32 %sub.i, 0
+  br i1 %cmp10465.not, label %for.end34, label %for.body12.lr.ph
 
 for.body12.lr.ph:                                 ; preds = %for.end
   %and.i62 = and i64 %0, 4294967296
   %tobool.not.i63 = icmp eq i64 %and.i62, 0
-  %and20.i105 = and i64 %0, 17179869184
-  %tobool21.not.i106 = icmp eq i64 %and20.i105, 0
+  %and20.i107 = and i64 %0, 17179869184
+  %tobool21.not.i108 = icmp eq i64 %and20.i107, 0
   %umax = tail call i64 @llvm.umax.i64(i64 %shl2, i64 2)
   br label %while.body.i.preheader
 
 while.body.i.preheader:                           ; preds = %for.inc33, %for.body12.lr.ph
-  %i.0556 = phi i64 [ 1, %for.body12.lr.ph ], [ %inc, %for.inc33 ]
+  %i.0466 = phi i64 [ 1, %for.body12.lr.ph ], [ %inc, %for.inc33 ]
   br label %while.body.i
 
 while.body.i:                                     ; preds = %while.body.i.preheader, %x64_mulmod.exit
   %r.010.i = phi i64 [ %r.1.i, %x64_mulmod.exit ], [ 1, %while.body.i.preheader ]
   %base.addr.09.i = phi i64 [ %spec.select93.i, %x64_mulmod.exit ], [ %call8, %while.body.i.preheader ]
-  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0556, %while.body.i.preheader ]
+  %exp.addr.08.i = phi i64 [ %shr.i56, %x64_mulmod.exit ], [ %i.0466, %while.body.i.preheader ]
   %and.i = and i64 %exp.addr.08.i, 1
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %while.body.i.if.end.i_crit_edge, label %if.then.i
@@ -988,7 +862,7 @@ if.then.i:                                        ; preds = %while.body.i
   %shr.i.i71 = lshr i128 %mul.i.i70, 64
   %conv2.i.i72 = trunc nuw i128 %shr.i.i71 to i64
   %conv3.i.i73 = trunc i128 %mul.i.i70 to i64
-  br i1 %tobool.not.i63, label %if.else.i104, label %if.then.i76
+  br i1 %tobool.not.i63, label %if.else.i106, label %if.then.i76
 
 if.then.i76:                                      ; preds = %if.then.i
   %shr.i77 = lshr i64 %conv2.i.i72, 32
@@ -999,95 +873,77 @@ if.then.i76:                                      ; preds = %if.then.i
   %shl.i82 = shl i64 %conv2.i.i72, 32
   %add.i83 = add i64 %shl.i82, %sub.i78
   %cmp2.i84 = icmp ult i64 %add.i83, %shl.i82
-  %inc.i85 = zext i1 %cmp2.i84 to i64
-  %hi.1.i86 = add nsw i64 %spec.select.i81, %inc.i85
-  %shr5.i87 = lshr i64 %hi.1.i86, 32
-  %sub6.i88 = sub i64 %add.i83, %hi.1.i86
-  %cmp7.i89 = icmp ugt i64 %hi.1.i86, %add.i83
-  %dec9.i90 = sext i1 %cmp7.i89 to i64
-  %hi.2.i91 = add nsw i64 %shr5.i87, %dec9.i90
-  %shl11.i92 = shl i64 %hi.1.i86, 32
-  %add12.i93 = add i64 %shl11.i92, %sub6.i88
-  %cmp13.i94 = icmp ult i64 %add12.i93, %shl11.i92
-  br label %x64_mulmod.exit162
+  br label %x64_mulmod.exit144
 
-if.else.i104:                                     ; preds = %if.then.i
-  %sub69.i107 = sub i64 %conv3.i.i73, %conv2.i.i72
-  %cmp70.i108 = icmp ugt i64 %conv2.i.i72, %conv3.i.i73
-  %dec72.i109 = sext i1 %cmp70.i108 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i136, label %if.then22.i110
+if.else.i106:                                     ; preds = %if.then.i
+  %sub69.i109 = sub i64 %conv3.i.i73, %conv2.i.i72
+  %cmp70.i110 = icmp ugt i64 %conv2.i.i72, %conv3.i.i73
+  %dec72.i111 = sext i1 %cmp70.i110 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i128, label %if.then22.i112
 
-if.then22.i110:                                   ; preds = %if.else.i104
-  %shr23.i111 = lshr i64 %conv2.i.i72, 30
-  %spec.select89.i112 = add nsw i64 %shr23.i111, %dec72.i109
-  %shl29.i113 = shl i64 %conv2.i.i72, 34
-  %add30.i114 = add i64 %shl29.i113, %sub69.i107
-  %cmp31.i115 = icmp ult i64 %add30.i114, %shl29.i113
-  %inc33.i116 = zext i1 %cmp31.i115 to i64
-  %hi.5.i117 = add nsw i64 %spec.select89.i112, %inc33.i116
-  %shr35.i118 = lshr i64 %hi.5.i117, 30
-  %sub36.i119 = sub i64 %add30.i114, %hi.5.i117
-  %cmp37.i120 = icmp ugt i64 %hi.5.i117, %add30.i114
-  %dec39.i121 = sext i1 %cmp37.i120 to i64
-  %hi.6.i122 = add nsw i64 %shr35.i118, %dec39.i121
-  %shl41.i123 = shl i64 %hi.5.i117, 34
-  %add42.i124 = add i64 %shl41.i123, %sub36.i119
-  %cmp43.i125 = icmp ult i64 %add42.i124, %shl41.i123
-  %inc45.i126 = zext i1 %cmp43.i125 to i64
-  %hi.7.i127 = add nsw i64 %hi.6.i122, %inc45.i126
-  %shr47.i128 = lshr i64 %hi.7.i127, 30
-  %sub48.i129 = sub i64 %add42.i124, %hi.7.i127
-  %cmp49.i130 = icmp ugt i64 %hi.7.i127, %add42.i124
-  %dec51.i131 = sext i1 %cmp49.i130 to i64
-  %hi.8.i132 = add nsw i64 %shr47.i128, %dec51.i131
-  %shl53.i133 = shl i64 %hi.7.i127, 34
-  %add54.i134 = add i64 %shl53.i133, %sub48.i129
-  %cmp55.i135 = icmp ult i64 %add54.i134, %shl53.i133
-  br label %x64_mulmod.exit162
+if.then22.i112:                                   ; preds = %if.else.i106
+  %shr23.i113 = lshr i64 %conv2.i.i72, 30
+  %spec.select89.i114 = add nsw i64 %shr23.i113, %dec72.i111
+  %shl29.i115 = shl i64 %conv2.i.i72, 34
+  %add30.i116 = add i64 %shl29.i115, %sub69.i109
+  %cmp31.i117 = icmp ult i64 %add30.i116, %shl29.i115
+  %inc33.i118 = zext i1 %cmp31.i117 to i64
+  %hi.5.i119 = add nsw i64 %spec.select89.i114, %inc33.i118
+  %shr35.i120 = lshr i64 %hi.5.i119, 30
+  %sub36.i121 = sub i64 %add30.i116, %hi.5.i119
+  %cmp37.i122 = icmp ugt i64 %hi.5.i119, %add30.i116
+  %dec39.i123 = sext i1 %cmp37.i122 to i64
+  %hi.6.i124 = add nsw i64 %shr35.i120, %dec39.i123
+  %shl41.i125 = shl i64 %hi.5.i119, 34
+  %add42.i126 = add i64 %shl41.i125, %sub36.i121
+  %cmp43.i127 = icmp ult i64 %add42.i126, %shl41.i125
+  br label %x64_mulmod.exit144
 
-if.else67.i136:                                   ; preds = %if.else.i104
-  %shr68.i137 = lshr i64 %conv2.i.i72, 24
-  %spec.select90.i138 = add nsw i64 %shr68.i137, %dec72.i109
-  %shl74.i139 = shl i64 %conv2.i.i72, 40
-  %add75.i140 = add i64 %shl74.i139, %sub69.i107
-  %cmp76.i141 = icmp ult i64 %add75.i140, %shl74.i139
-  %inc78.i142 = zext i1 %cmp76.i141 to i64
-  %hi.11.i143 = add nsw i64 %spec.select90.i138, %inc78.i142
-  %shr80.i144 = lshr i64 %hi.11.i143, 24
-  %sub81.i145 = sub i64 %add75.i140, %hi.11.i143
-  %cmp82.i146 = icmp ugt i64 %hi.11.i143, %add75.i140
-  %dec84.i147 = sext i1 %cmp82.i146 to i64
-  %hi.12.i148 = add nsw i64 %shr80.i144, %dec84.i147
-  %shl86.i149 = shl i64 %hi.11.i143, 40
-  %add87.i150 = add i64 %shl86.i149, %sub81.i145
-  %cmp88.i151 = icmp ult i64 %add87.i150, %shl86.i149
-  %inc90.i152 = zext i1 %cmp88.i151 to i64
-  %hi.13.i153 = add nsw i64 %hi.12.i148, %inc90.i152
-  %shr92.i154 = lshr i64 %hi.13.i153, 24
-  %sub93.i155 = sub i64 %add87.i150, %hi.13.i153
-  %cmp94.i156 = icmp ugt i64 %hi.13.i153, %add87.i150
-  %dec96.i157 = sext i1 %cmp94.i156 to i64
-  %hi.14.i158 = add nsw i64 %shr92.i154, %dec96.i157
-  %shl98.i159 = shl i64 %hi.13.i153, 40
-  %add99.i160 = add i64 %shl98.i159, %sub93.i155
-  %cmp100.i161 = icmp ult i64 %add99.i160, %shl98.i159
-  br label %x64_mulmod.exit162
+if.else67.i128:                                   ; preds = %if.else.i106
+  %shr68.i129 = lshr i64 %conv2.i.i72, 24
+  %spec.select90.i130 = add nsw i64 %shr68.i129, %dec72.i111
+  %shl74.i131 = shl i64 %conv2.i.i72, 40
+  %add75.i132 = add i64 %shl74.i131, %sub69.i109
+  %cmp76.i133 = icmp ult i64 %add75.i132, %shl74.i131
+  %inc78.i134 = zext i1 %cmp76.i133 to i64
+  %hi.11.i135 = add nsw i64 %spec.select90.i130, %inc78.i134
+  %shr80.i136 = lshr i64 %hi.11.i135, 24
+  %sub81.i137 = sub i64 %add75.i132, %hi.11.i135
+  %cmp82.i138 = icmp ugt i64 %hi.11.i135, %add75.i132
+  %dec84.i139 = sext i1 %cmp82.i138 to i64
+  %hi.12.i140 = add nsw i64 %shr80.i136, %dec84.i139
+  %shl86.i141 = shl i64 %hi.11.i135, 40
+  %add87.i142 = add i64 %shl86.i141, %sub81.i137
+  %cmp88.i143 = icmp ult i64 %add87.i142, %shl86.i141
+  br label %x64_mulmod.exit144
 
-x64_mulmod.exit162:                               ; preds = %if.then.i76, %if.then22.i110, %if.else67.i136
-  %cmp100.sink.i95 = phi i1 [ %cmp100.i161, %if.else67.i136 ], [ %cmp55.i135, %if.then22.i110 ], [ %cmp13.i94, %if.then.i76 ]
-  %hi.14.sink.i96 = phi i64 [ %hi.14.i158, %if.else67.i136 ], [ %hi.8.i132, %if.then22.i110 ], [ %hi.2.i91, %if.then.i76 ]
-  %add99.sink94.i97 = phi i64 [ %add99.i160, %if.else67.i136 ], [ %add54.i134, %if.then22.i110 ], [ %add12.i93, %if.then.i76 ]
-  %inc102.neg.i98 = sext i1 %cmp100.sink.i95 to i64
-  %tobool104.not.i99 = icmp eq i64 %hi.14.sink.i96, %inc102.neg.i98
-  %cmp106.not.i100 = icmp ult i64 %add99.sink94.i97, %0
-  %or.cond57.i101 = select i1 %tobool104.not.i99, i1 %cmp106.not.i100, i1 false
-  %sub108.i102 = select i1 %or.cond57.i101, i64 0, i64 %0
-  %spec.select93.i103 = sub i64 %add99.sink94.i97, %sub108.i102
+x64_mulmod.exit144:                               ; preds = %if.then.i76, %if.then22.i112, %if.else67.i128
+  %cmp88.sink.i85 = phi i1 [ %cmp88.i143, %if.else67.i128 ], [ %cmp43.i127, %if.then22.i112 ], [ %cmp2.i84, %if.then.i76 ]
+  %hi.12.sink.i86 = phi i64 [ %hi.12.i140, %if.else67.i128 ], [ %hi.6.i124, %if.then22.i112 ], [ %spec.select.i81, %if.then.i76 ]
+  %.sink101.i87 = phi i64 [ 24, %if.else67.i128 ], [ 30, %if.then22.i112 ], [ 32, %if.then.i76 ]
+  %add87.sink98.i88 = phi i64 [ %add87.i142, %if.else67.i128 ], [ %add42.i126, %if.then22.i112 ], [ %add.i83, %if.then.i76 ]
+  %.sink.i89 = phi i64 [ 40, %if.else67.i128 ], [ 34, %if.then22.i112 ], [ 32, %if.then.i76 ]
+  %inc90.i90 = zext i1 %cmp88.sink.i85 to i64
+  %hi.13.i91 = add nsw i64 %hi.12.sink.i86, %inc90.i90
+  %shr92.i92 = lshr i64 %hi.13.i91, %.sink101.i87
+  %sub93.i93 = sub i64 %add87.sink98.i88, %hi.13.i91
+  %cmp94.i94 = icmp ugt i64 %hi.13.i91, %add87.sink98.i88
+  %dec96.i95 = sext i1 %cmp94.i94 to i64
+  %hi.14.i96 = add nsw i64 %shr92.i92, %dec96.i95
+  %shl98.i97 = shl i64 %hi.13.i91, %.sink.i89
+  %add99.i98 = add i64 %shl98.i97, %sub93.i93
+  %cmp100.i99 = icmp ult i64 %add99.i98, %shl98.i97
+  %inc102.neg.i100 = sext i1 %cmp100.i99 to i64
+  %tobool104.not.i101 = icmp eq i64 %hi.14.i96, %inc102.neg.i100
+  %cmp106.not.i102 = icmp ult i64 %add99.i98, %0
+  %or.cond57.i103 = select i1 %tobool104.not.i101, i1 %cmp106.not.i102, i1 false
+  %sub108.i104 = select i1 %or.cond57.i103, i64 0, i64 %0
+  %spec.select93.i105 = sub i64 %add99.i98, %sub108.i104
   br label %if.end.i
 
-if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit162
-  %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i69, %x64_mulmod.exit162 ]
-  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i103, %x64_mulmod.exit162 ]
+if.end.i:                                         ; preds = %while.body.i.if.end.i_crit_edge, %x64_mulmod.exit144
+  %conv.i.i.pre-phi = phi i128 [ %.pre, %while.body.i.if.end.i_crit_edge ], [ %conv1.i.i69, %x64_mulmod.exit144 ]
+  %r.1.i = phi i64 [ %r.010.i, %while.body.i.if.end.i_crit_edge ], [ %spec.select93.i105, %x64_mulmod.exit144 ]
   %mul.i.i = mul nuw i128 %conv.i.i.pre-phi, %conv.i.i.pre-phi
   %shr.i.i = lshr i128 %mul.i.i, 64
   %conv2.i.i = trunc nuw i128 %shr.i.i to i64
@@ -1103,23 +959,13 @@ if.then.i64:                                      ; preds = %if.end.i
   %shl.i = shl i64 %conv2.i.i, 32
   %add.i = add i64 %shl.i, %sub.i66
   %cmp2.i = icmp ult i64 %add.i, %shl.i
-  %inc.i = zext i1 %cmp2.i to i64
-  %hi.1.i = add nsw i64 %spec.select.i67, %inc.i
-  %shr5.i = lshr i64 %hi.1.i, 32
-  %sub6.i = sub i64 %add.i, %hi.1.i
-  %cmp7.i = icmp ugt i64 %hi.1.i, %add.i
-  %dec9.i = sext i1 %cmp7.i to i64
-  %hi.2.i = add nsw i64 %shr5.i, %dec9.i
-  %shl11.i = shl i64 %hi.1.i, 32
-  %add12.i = add i64 %shl11.i, %sub6.i
-  %cmp13.i = icmp ult i64 %add12.i, %shl11.i
   br label %x64_mulmod.exit
 
 if.else.i:                                        ; preds = %if.end.i
   %sub69.i = sub i64 %conv3.i.i, %conv2.i.i
   %cmp70.i = icmp ugt i64 %conv2.i.i, %conv3.i.i
   %dec72.i = sext i1 %cmp70.i to i64
-  br i1 %tobool21.not.i106, label %if.else67.i, label %if.then22.i
+  br i1 %tobool21.not.i108, label %if.else67.i, label %if.then22.i
 
 if.then22.i:                                      ; preds = %if.else.i
   %shr23.i = lshr i64 %conv2.i.i, 30
@@ -1137,16 +983,6 @@ if.then22.i:                                      ; preds = %if.else.i
   %shl41.i = shl i64 %hi.5.i, 34
   %add42.i = add i64 %shl41.i, %sub36.i
   %cmp43.i = icmp ult i64 %add42.i, %shl41.i
-  %inc45.i = zext i1 %cmp43.i to i64
-  %hi.7.i = add nsw i64 %hi.6.i, %inc45.i
-  %shr47.i = lshr i64 %hi.7.i, 30
-  %sub48.i = sub i64 %add42.i, %hi.7.i
-  %cmp49.i = icmp ugt i64 %hi.7.i, %add42.i
-  %dec51.i = sext i1 %cmp49.i to i64
-  %hi.8.i = add nsw i64 %shr47.i, %dec51.i
-  %shl53.i = shl i64 %hi.7.i, 34
-  %add54.i = add i64 %shl53.i, %sub48.i
-  %cmp55.i = icmp ult i64 %add54.i, %shl53.i
   br label %x64_mulmod.exit
 
 if.else67.i:                                      ; preds = %if.else.i
@@ -1165,455 +1001,385 @@ if.else67.i:                                      ; preds = %if.else.i
   %shl86.i = shl i64 %hi.11.i, 40
   %add87.i = add i64 %shl86.i, %sub81.i
   %cmp88.i = icmp ult i64 %add87.i, %shl86.i
-  %inc90.i = zext i1 %cmp88.i to i64
-  %hi.13.i = add nsw i64 %hi.12.i, %inc90.i
-  %shr92.i = lshr i64 %hi.13.i, 24
-  %sub93.i = sub i64 %add87.i, %hi.13.i
-  %cmp94.i = icmp ugt i64 %hi.13.i, %add87.i
-  %dec96.i = sext i1 %cmp94.i to i64
-  %hi.14.i = add nsw i64 %shr92.i, %dec96.i
-  %shl98.i = shl i64 %hi.13.i, 40
-  %add99.i = add i64 %shl98.i, %sub93.i
-  %cmp100.i = icmp ult i64 %add99.i, %shl98.i
   br label %x64_mulmod.exit
 
 x64_mulmod.exit:                                  ; preds = %if.then.i64, %if.then22.i, %if.else67.i
-  %cmp100.sink.i = phi i1 [ %cmp100.i, %if.else67.i ], [ %cmp55.i, %if.then22.i ], [ %cmp13.i, %if.then.i64 ]
-  %hi.14.sink.i = phi i64 [ %hi.14.i, %if.else67.i ], [ %hi.8.i, %if.then22.i ], [ %hi.2.i, %if.then.i64 ]
-  %add99.sink94.i = phi i64 [ %add99.i, %if.else67.i ], [ %add54.i, %if.then22.i ], [ %add12.i, %if.then.i64 ]
-  %inc102.neg.i = sext i1 %cmp100.sink.i to i64
-  %tobool104.not.i = icmp eq i64 %hi.14.sink.i, %inc102.neg.i
-  %cmp106.not.i = icmp ult i64 %add99.sink94.i, %0
+  %cmp88.sink.i = phi i1 [ %cmp88.i, %if.else67.i ], [ %cmp43.i, %if.then22.i ], [ %cmp2.i, %if.then.i64 ]
+  %hi.12.sink.i = phi i64 [ %hi.12.i, %if.else67.i ], [ %hi.6.i, %if.then22.i ], [ %spec.select.i67, %if.then.i64 ]
+  %.sink101.i = phi i64 [ 24, %if.else67.i ], [ 30, %if.then22.i ], [ 32, %if.then.i64 ]
+  %add87.sink98.i = phi i64 [ %add87.i, %if.else67.i ], [ %add42.i, %if.then22.i ], [ %add.i, %if.then.i64 ]
+  %.sink.i = phi i64 [ 40, %if.else67.i ], [ 34, %if.then22.i ], [ 32, %if.then.i64 ]
+  %inc90.i = zext i1 %cmp88.sink.i to i64
+  %hi.13.i = add nsw i64 %hi.12.sink.i, %inc90.i
+  %shr92.i = lshr i64 %hi.13.i, %.sink101.i
+  %sub93.i = sub i64 %add87.sink98.i, %hi.13.i
+  %cmp94.i = icmp ugt i64 %hi.13.i, %add87.sink98.i
+  %dec96.i = sext i1 %cmp94.i to i64
+  %hi.14.i = add nsw i64 %shr92.i, %dec96.i
+  %shl98.i = shl i64 %hi.13.i, %.sink.i
+  %add99.i = add i64 %shl98.i, %sub93.i
+  %cmp100.i = icmp ult i64 %add99.i, %shl98.i
+  %inc102.neg.i = sext i1 %cmp100.i to i64
+  %tobool104.not.i = icmp eq i64 %hi.14.i, %inc102.neg.i
+  %cmp106.not.i = icmp ult i64 %add99.i, %0
   %or.cond57.i = select i1 %tobool104.not.i, i1 %cmp106.not.i, i1 false
   %sub108.i = select i1 %or.cond57.i, i64 0, i64 %0
-  %spec.select93.i = sub i64 %add99.sink94.i, %sub108.i
+  %spec.select93.i = sub i64 %add99.i, %sub108.i
   %shr.i56 = lshr i64 %exp.addr.08.i, 1
   %cmp.not.i57 = icmp ult i64 %exp.addr.08.i, 2
   br i1 %cmp.not.i57, label %x64_powmod.exit, label %while.body.i, !llvm.loop !6
 
 x64_powmod.exit:                                  ; preds = %x64_mulmod.exit
   %call14 = tail call fastcc i64 @x64_mulmod(i64 noundef %r.1.i, i64 noundef %r.1.i, i64 noundef %0)
-  %mul55 = shl i64 %i.0556, %div54
+  %mul55 = shl i64 %i.0466, %div54
   %1 = getelementptr i64, ptr %a, i64 %mul55
-  %conv1.i.i449 = zext i64 %call14 to i128
+  %conv1.i.i377 = zext i64 %call14 to i128
   br label %for.body18
 
-for.body18:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit447
-  %k.0554 = phi i64 [ 0, %x64_powmod.exit ], [ %add31, %x64_mulmod.exit447 ]
-  %w1.0553 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i388, %x64_mulmod.exit447 ]
-  %w0.0552 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i483, %x64_mulmod.exit447 ]
-  %arrayidx = getelementptr i64, ptr %1, i64 %k.0554
+for.body18:                                       ; preds = %x64_powmod.exit, %x64_mulmod.exit375
+  %k.0464 = phi i64 [ 0, %x64_powmod.exit ], [ %add31, %x64_mulmod.exit375 ]
+  %w1.0463 = phi i64 [ %r.1.i, %x64_powmod.exit ], [ %spec.select93.i336, %x64_mulmod.exit375 ]
+  %w0.0462 = phi i64 [ 1, %x64_powmod.exit ], [ %spec.select93.i413, %x64_mulmod.exit375 ]
+  %arrayidx = getelementptr i64, ptr %1, i64 %k.0464
   %2 = load i64, ptr %arrayidx, align 8
   %arrayidx22 = getelementptr i8, ptr %arrayidx, i64 8
   %3 = load i64, ptr %arrayidx22, align 8
-  %conv.i.i258 = zext i64 %2 to i128
-  %conv1.i.i259 = zext i64 %w0.0552 to i128
-  %mul.i.i260 = mul nuw i128 %conv.i.i258, %conv1.i.i259
-  %shr.i.i261 = lshr i128 %mul.i.i260, 64
-  %conv2.i.i262 = trunc nuw i128 %shr.i.i261 to i64
-  %conv3.i.i263 = trunc i128 %mul.i.i260 to i64
-  br i1 %tobool.not.i63, label %if.else.i294, label %if.then.i266
+  %conv.i.i222 = zext i64 %2 to i128
+  %conv1.i.i223 = zext i64 %w0.0462 to i128
+  %mul.i.i224 = mul nuw i128 %conv.i.i222, %conv1.i.i223
+  %shr.i.i225 = lshr i128 %mul.i.i224, 64
+  %conv2.i.i226 = trunc nuw i128 %shr.i.i225 to i64
+  %conv3.i.i227 = trunc i128 %mul.i.i224 to i64
+  br i1 %tobool.not.i63, label %if.else.i260, label %if.then.i230
 
-if.then.i266:                                     ; preds = %for.body18
-  %shr.i267 = lshr i64 %conv2.i.i262, 32
-  %sub.i268 = sub i64 %conv3.i.i263, %conv2.i.i262
-  %cmp.i269 = icmp ugt i64 %conv2.i.i262, %conv3.i.i263
-  %dec.i270 = sext i1 %cmp.i269 to i64
-  %spec.select.i271 = add nsw i64 %shr.i267, %dec.i270
-  %shl.i272 = shl i64 %conv2.i.i262, 32
-  %add.i273 = add i64 %shl.i272, %sub.i268
-  %cmp2.i274 = icmp ult i64 %add.i273, %shl.i272
-  %inc.i275 = zext i1 %cmp2.i274 to i64
-  %hi.1.i276 = add nsw i64 %spec.select.i271, %inc.i275
-  %shr5.i277 = lshr i64 %hi.1.i276, 32
-  %sub6.i278 = sub i64 %add.i273, %hi.1.i276
-  %cmp7.i279 = icmp ugt i64 %hi.1.i276, %add.i273
-  %dec9.i280 = sext i1 %cmp7.i279 to i64
-  %hi.2.i281 = add nsw i64 %shr5.i277, %dec9.i280
-  %shl11.i282 = shl i64 %hi.1.i276, 32
-  %add12.i283 = add i64 %shl11.i282, %sub6.i278
-  %cmp13.i284 = icmp ult i64 %add12.i283, %shl11.i282
-  br label %x64_mulmod.exit352
+if.then.i230:                                     ; preds = %for.body18
+  %shr.i231 = lshr i64 %conv2.i.i226, 32
+  %sub.i232 = sub i64 %conv3.i.i227, %conv2.i.i226
+  %cmp.i233 = icmp ugt i64 %conv2.i.i226, %conv3.i.i227
+  %dec.i234 = sext i1 %cmp.i233 to i64
+  %spec.select.i235 = add nsw i64 %shr.i231, %dec.i234
+  %shl.i236 = shl i64 %conv2.i.i226, 32
+  %add.i237 = add i64 %shl.i236, %sub.i232
+  %cmp2.i238 = icmp ult i64 %add.i237, %shl.i236
+  br label %x64_mulmod.exit298
 
-if.else.i294:                                     ; preds = %for.body18
-  %sub69.i297 = sub i64 %conv3.i.i263, %conv2.i.i262
-  %cmp70.i298 = icmp ugt i64 %conv2.i.i262, %conv3.i.i263
-  %dec72.i299 = sext i1 %cmp70.i298 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i326, label %if.then22.i300
+if.else.i260:                                     ; preds = %for.body18
+  %sub69.i263 = sub i64 %conv3.i.i227, %conv2.i.i226
+  %cmp70.i264 = icmp ugt i64 %conv2.i.i226, %conv3.i.i227
+  %dec72.i265 = sext i1 %cmp70.i264 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i282, label %if.then22.i266
 
-if.then22.i300:                                   ; preds = %if.else.i294
-  %shr23.i301 = lshr i64 %conv2.i.i262, 30
-  %spec.select89.i302 = add nsw i64 %shr23.i301, %dec72.i299
-  %shl29.i303 = shl i64 %conv2.i.i262, 34
-  %add30.i304 = add i64 %shl29.i303, %sub69.i297
-  %cmp31.i305 = icmp ult i64 %add30.i304, %shl29.i303
-  %inc33.i306 = zext i1 %cmp31.i305 to i64
-  %hi.5.i307 = add nsw i64 %spec.select89.i302, %inc33.i306
-  %shr35.i308 = lshr i64 %hi.5.i307, 30
-  %sub36.i309 = sub i64 %add30.i304, %hi.5.i307
-  %cmp37.i310 = icmp ugt i64 %hi.5.i307, %add30.i304
-  %dec39.i311 = sext i1 %cmp37.i310 to i64
-  %hi.6.i312 = add nsw i64 %shr35.i308, %dec39.i311
-  %shl41.i313 = shl i64 %hi.5.i307, 34
-  %add42.i314 = add i64 %shl41.i313, %sub36.i309
-  %cmp43.i315 = icmp ult i64 %add42.i314, %shl41.i313
-  %inc45.i316 = zext i1 %cmp43.i315 to i64
-  %hi.7.i317 = add nsw i64 %hi.6.i312, %inc45.i316
-  %shr47.i318 = lshr i64 %hi.7.i317, 30
-  %sub48.i319 = sub i64 %add42.i314, %hi.7.i317
-  %cmp49.i320 = icmp ugt i64 %hi.7.i317, %add42.i314
-  %dec51.i321 = sext i1 %cmp49.i320 to i64
-  %hi.8.i322 = add nsw i64 %shr47.i318, %dec51.i321
-  %shl53.i323 = shl i64 %hi.7.i317, 34
-  %add54.i324 = add i64 %shl53.i323, %sub48.i319
-  %cmp55.i325 = icmp ult i64 %add54.i324, %shl53.i323
-  br label %x64_mulmod.exit352
+if.then22.i266:                                   ; preds = %if.else.i260
+  %shr23.i267 = lshr i64 %conv2.i.i226, 30
+  %spec.select89.i268 = add nsw i64 %shr23.i267, %dec72.i265
+  %shl29.i269 = shl i64 %conv2.i.i226, 34
+  %add30.i270 = add i64 %shl29.i269, %sub69.i263
+  %cmp31.i271 = icmp ult i64 %add30.i270, %shl29.i269
+  %inc33.i272 = zext i1 %cmp31.i271 to i64
+  %hi.5.i273 = add nsw i64 %spec.select89.i268, %inc33.i272
+  %shr35.i274 = lshr i64 %hi.5.i273, 30
+  %sub36.i275 = sub i64 %add30.i270, %hi.5.i273
+  %cmp37.i276 = icmp ugt i64 %hi.5.i273, %add30.i270
+  %dec39.i277 = sext i1 %cmp37.i276 to i64
+  %hi.6.i278 = add nsw i64 %shr35.i274, %dec39.i277
+  %shl41.i279 = shl i64 %hi.5.i273, 34
+  %add42.i280 = add i64 %shl41.i279, %sub36.i275
+  %cmp43.i281 = icmp ult i64 %add42.i280, %shl41.i279
+  br label %x64_mulmod.exit298
 
-if.else67.i326:                                   ; preds = %if.else.i294
-  %shr68.i327 = lshr i64 %conv2.i.i262, 24
-  %spec.select90.i328 = add nsw i64 %shr68.i327, %dec72.i299
-  %shl74.i329 = shl i64 %conv2.i.i262, 40
-  %add75.i330 = add i64 %shl74.i329, %sub69.i297
-  %cmp76.i331 = icmp ult i64 %add75.i330, %shl74.i329
-  %inc78.i332 = zext i1 %cmp76.i331 to i64
-  %hi.11.i333 = add nsw i64 %spec.select90.i328, %inc78.i332
-  %shr80.i334 = lshr i64 %hi.11.i333, 24
-  %sub81.i335 = sub i64 %add75.i330, %hi.11.i333
-  %cmp82.i336 = icmp ugt i64 %hi.11.i333, %add75.i330
-  %dec84.i337 = sext i1 %cmp82.i336 to i64
-  %hi.12.i338 = add nsw i64 %shr80.i334, %dec84.i337
-  %shl86.i339 = shl i64 %hi.11.i333, 40
-  %add87.i340 = add i64 %shl86.i339, %sub81.i335
-  %cmp88.i341 = icmp ult i64 %add87.i340, %shl86.i339
-  %inc90.i342 = zext i1 %cmp88.i341 to i64
-  %hi.13.i343 = add nsw i64 %hi.12.i338, %inc90.i342
-  %shr92.i344 = lshr i64 %hi.13.i343, 24
-  %sub93.i345 = sub i64 %add87.i340, %hi.13.i343
-  %cmp94.i346 = icmp ugt i64 %hi.13.i343, %add87.i340
-  %dec96.i347 = sext i1 %cmp94.i346 to i64
-  %hi.14.i348 = add nsw i64 %shr92.i344, %dec96.i347
-  %shl98.i349 = shl i64 %hi.13.i343, 40
-  %add99.i350 = add i64 %shl98.i349, %sub93.i345
-  %cmp100.i351 = icmp ult i64 %add99.i350, %shl98.i349
-  br label %x64_mulmod.exit352
+if.else67.i282:                                   ; preds = %if.else.i260
+  %shr68.i283 = lshr i64 %conv2.i.i226, 24
+  %spec.select90.i284 = add nsw i64 %shr68.i283, %dec72.i265
+  %shl74.i285 = shl i64 %conv2.i.i226, 40
+  %add75.i286 = add i64 %shl74.i285, %sub69.i263
+  %cmp76.i287 = icmp ult i64 %add75.i286, %shl74.i285
+  %inc78.i288 = zext i1 %cmp76.i287 to i64
+  %hi.11.i289 = add nsw i64 %spec.select90.i284, %inc78.i288
+  %shr80.i290 = lshr i64 %hi.11.i289, 24
+  %sub81.i291 = sub i64 %add75.i286, %hi.11.i289
+  %cmp82.i292 = icmp ugt i64 %hi.11.i289, %add75.i286
+  %dec84.i293 = sext i1 %cmp82.i292 to i64
+  %hi.12.i294 = add nsw i64 %shr80.i290, %dec84.i293
+  %shl86.i295 = shl i64 %hi.11.i289, 40
+  %add87.i296 = add i64 %shl86.i295, %sub81.i291
+  %cmp88.i297 = icmp ult i64 %add87.i296, %shl86.i295
+  br label %x64_mulmod.exit298
 
-x64_mulmod.exit352:                               ; preds = %if.then.i266, %if.then22.i300, %if.else67.i326
-  %cmp100.sink.i285 = phi i1 [ %cmp100.i351, %if.else67.i326 ], [ %cmp55.i325, %if.then22.i300 ], [ %cmp13.i284, %if.then.i266 ]
-  %hi.14.sink.i286 = phi i64 [ %hi.14.i348, %if.else67.i326 ], [ %hi.8.i322, %if.then22.i300 ], [ %hi.2.i281, %if.then.i266 ]
-  %add99.sink94.i287 = phi i64 [ %add99.i350, %if.else67.i326 ], [ %add54.i324, %if.then22.i300 ], [ %add12.i283, %if.then.i266 ]
-  %inc102.neg.i288 = sext i1 %cmp100.sink.i285 to i64
-  %tobool104.not.i289 = icmp eq i64 %hi.14.sink.i286, %inc102.neg.i288
-  %cmp106.not.i290 = icmp ult i64 %add99.sink94.i287, %0
-  %or.cond57.i291 = select i1 %tobool104.not.i289, i1 %cmp106.not.i290, i1 false
-  %sub108.i292 = select i1 %or.cond57.i291, i64 0, i64 %0
-  %spec.select93.i293 = sub i64 %add99.sink94.i287, %sub108.i292
-  %conv.i.i163 = zext i64 %3 to i128
-  %conv1.i.i164 = zext i64 %w1.0553 to i128
-  %mul.i.i165 = mul nuw i128 %conv.i.i163, %conv1.i.i164
-  %shr.i.i166 = lshr i128 %mul.i.i165, 64
-  %conv2.i.i167 = trunc nuw i128 %shr.i.i166 to i64
-  %conv3.i.i168 = trunc i128 %mul.i.i165 to i64
-  br i1 %tobool.not.i63, label %if.else.i199, label %if.then.i171
+x64_mulmod.exit298:                               ; preds = %if.then.i230, %if.then22.i266, %if.else67.i282
+  %cmp88.sink.i239 = phi i1 [ %cmp88.i297, %if.else67.i282 ], [ %cmp43.i281, %if.then22.i266 ], [ %cmp2.i238, %if.then.i230 ]
+  %hi.12.sink.i240 = phi i64 [ %hi.12.i294, %if.else67.i282 ], [ %hi.6.i278, %if.then22.i266 ], [ %spec.select.i235, %if.then.i230 ]
+  %.sink101.i241 = phi i64 [ 24, %if.else67.i282 ], [ 30, %if.then22.i266 ], [ 32, %if.then.i230 ]
+  %add87.sink98.i242 = phi i64 [ %add87.i296, %if.else67.i282 ], [ %add42.i280, %if.then22.i266 ], [ %add.i237, %if.then.i230 ]
+  %.sink.i243 = phi i64 [ 40, %if.else67.i282 ], [ 34, %if.then22.i266 ], [ 32, %if.then.i230 ]
+  %inc90.i244 = zext i1 %cmp88.sink.i239 to i64
+  %hi.13.i245 = add nsw i64 %hi.12.sink.i240, %inc90.i244
+  %shr92.i246 = lshr i64 %hi.13.i245, %.sink101.i241
+  %sub93.i247 = sub i64 %add87.sink98.i242, %hi.13.i245
+  %cmp94.i248 = icmp ugt i64 %hi.13.i245, %add87.sink98.i242
+  %dec96.i249 = sext i1 %cmp94.i248 to i64
+  %hi.14.i250 = add nsw i64 %shr92.i246, %dec96.i249
+  %shl98.i251 = shl i64 %hi.13.i245, %.sink.i243
+  %add99.i252 = add i64 %shl98.i251, %sub93.i247
+  %cmp100.i253 = icmp ult i64 %add99.i252, %shl98.i251
+  %inc102.neg.i254 = sext i1 %cmp100.i253 to i64
+  %tobool104.not.i255 = icmp eq i64 %hi.14.i250, %inc102.neg.i254
+  %cmp106.not.i256 = icmp ult i64 %add99.i252, %0
+  %or.cond57.i257 = select i1 %tobool104.not.i255, i1 %cmp106.not.i256, i1 false
+  %sub108.i258 = select i1 %or.cond57.i257, i64 0, i64 %0
+  %spec.select93.i259 = sub i64 %add99.i252, %sub108.i258
+  %conv.i.i145 = zext i64 %3 to i128
+  %conv1.i.i146 = zext i64 %w1.0463 to i128
+  %mul.i.i147 = mul nuw i128 %conv.i.i145, %conv1.i.i146
+  %shr.i.i148 = lshr i128 %mul.i.i147, 64
+  %conv2.i.i149 = trunc nuw i128 %shr.i.i148 to i64
+  %conv3.i.i150 = trunc i128 %mul.i.i147 to i64
+  br i1 %tobool.not.i63, label %if.else.i183, label %if.then.i153
 
-if.then.i171:                                     ; preds = %x64_mulmod.exit352
-  %shr.i172 = lshr i64 %conv2.i.i167, 32
-  %sub.i173 = sub i64 %conv3.i.i168, %conv2.i.i167
-  %cmp.i174 = icmp ugt i64 %conv2.i.i167, %conv3.i.i168
-  %dec.i175 = sext i1 %cmp.i174 to i64
-  %spec.select.i176 = add nsw i64 %shr.i172, %dec.i175
-  %shl.i177 = shl i64 %conv2.i.i167, 32
-  %add.i178 = add i64 %shl.i177, %sub.i173
-  %cmp2.i179 = icmp ult i64 %add.i178, %shl.i177
-  %inc.i180 = zext i1 %cmp2.i179 to i64
-  %hi.1.i181 = add nsw i64 %spec.select.i176, %inc.i180
-  %shr5.i182 = lshr i64 %hi.1.i181, 32
-  %sub6.i183 = sub i64 %add.i178, %hi.1.i181
-  %cmp7.i184 = icmp ugt i64 %hi.1.i181, %add.i178
-  %dec9.i185 = sext i1 %cmp7.i184 to i64
-  %hi.2.i186 = add nsw i64 %shr5.i182, %dec9.i185
-  %shl11.i187 = shl i64 %hi.1.i181, 32
-  %add12.i188 = add i64 %shl11.i187, %sub6.i183
-  %cmp13.i189 = icmp ult i64 %add12.i188, %shl11.i187
-  br label %x64_mulmod.exit257
+if.then.i153:                                     ; preds = %x64_mulmod.exit298
+  %shr.i154 = lshr i64 %conv2.i.i149, 32
+  %sub.i155 = sub i64 %conv3.i.i150, %conv2.i.i149
+  %cmp.i156 = icmp ugt i64 %conv2.i.i149, %conv3.i.i150
+  %dec.i157 = sext i1 %cmp.i156 to i64
+  %spec.select.i158 = add nsw i64 %shr.i154, %dec.i157
+  %shl.i159 = shl i64 %conv2.i.i149, 32
+  %add.i160 = add i64 %shl.i159, %sub.i155
+  %cmp2.i161 = icmp ult i64 %add.i160, %shl.i159
+  br label %x64_mulmod.exit221
 
-if.else.i199:                                     ; preds = %x64_mulmod.exit352
-  %sub69.i202 = sub i64 %conv3.i.i168, %conv2.i.i167
-  %cmp70.i203 = icmp ugt i64 %conv2.i.i167, %conv3.i.i168
-  %dec72.i204 = sext i1 %cmp70.i203 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i231, label %if.then22.i205
+if.else.i183:                                     ; preds = %x64_mulmod.exit298
+  %sub69.i186 = sub i64 %conv3.i.i150, %conv2.i.i149
+  %cmp70.i187 = icmp ugt i64 %conv2.i.i149, %conv3.i.i150
+  %dec72.i188 = sext i1 %cmp70.i187 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i205, label %if.then22.i189
 
-if.then22.i205:                                   ; preds = %if.else.i199
-  %shr23.i206 = lshr i64 %conv2.i.i167, 30
-  %spec.select89.i207 = add nsw i64 %shr23.i206, %dec72.i204
-  %shl29.i208 = shl i64 %conv2.i.i167, 34
-  %add30.i209 = add i64 %shl29.i208, %sub69.i202
-  %cmp31.i210 = icmp ult i64 %add30.i209, %shl29.i208
-  %inc33.i211 = zext i1 %cmp31.i210 to i64
-  %hi.5.i212 = add nsw i64 %spec.select89.i207, %inc33.i211
-  %shr35.i213 = lshr i64 %hi.5.i212, 30
-  %sub36.i214 = sub i64 %add30.i209, %hi.5.i212
-  %cmp37.i215 = icmp ugt i64 %hi.5.i212, %add30.i209
-  %dec39.i216 = sext i1 %cmp37.i215 to i64
-  %hi.6.i217 = add nsw i64 %shr35.i213, %dec39.i216
-  %shl41.i218 = shl i64 %hi.5.i212, 34
-  %add42.i219 = add i64 %shl41.i218, %sub36.i214
-  %cmp43.i220 = icmp ult i64 %add42.i219, %shl41.i218
-  %inc45.i221 = zext i1 %cmp43.i220 to i64
-  %hi.7.i222 = add nsw i64 %hi.6.i217, %inc45.i221
-  %shr47.i223 = lshr i64 %hi.7.i222, 30
-  %sub48.i224 = sub i64 %add42.i219, %hi.7.i222
-  %cmp49.i225 = icmp ugt i64 %hi.7.i222, %add42.i219
-  %dec51.i226 = sext i1 %cmp49.i225 to i64
-  %hi.8.i227 = add nsw i64 %shr47.i223, %dec51.i226
-  %shl53.i228 = shl i64 %hi.7.i222, 34
-  %add54.i229 = add i64 %shl53.i228, %sub48.i224
-  %cmp55.i230 = icmp ult i64 %add54.i229, %shl53.i228
-  br label %x64_mulmod.exit257
+if.then22.i189:                                   ; preds = %if.else.i183
+  %shr23.i190 = lshr i64 %conv2.i.i149, 30
+  %spec.select89.i191 = add nsw i64 %shr23.i190, %dec72.i188
+  %shl29.i192 = shl i64 %conv2.i.i149, 34
+  %add30.i193 = add i64 %shl29.i192, %sub69.i186
+  %cmp31.i194 = icmp ult i64 %add30.i193, %shl29.i192
+  %inc33.i195 = zext i1 %cmp31.i194 to i64
+  %hi.5.i196 = add nsw i64 %spec.select89.i191, %inc33.i195
+  %shr35.i197 = lshr i64 %hi.5.i196, 30
+  %sub36.i198 = sub i64 %add30.i193, %hi.5.i196
+  %cmp37.i199 = icmp ugt i64 %hi.5.i196, %add30.i193
+  %dec39.i200 = sext i1 %cmp37.i199 to i64
+  %hi.6.i201 = add nsw i64 %shr35.i197, %dec39.i200
+  %shl41.i202 = shl i64 %hi.5.i196, 34
+  %add42.i203 = add i64 %shl41.i202, %sub36.i198
+  %cmp43.i204 = icmp ult i64 %add42.i203, %shl41.i202
+  br label %x64_mulmod.exit221
 
-if.else67.i231:                                   ; preds = %if.else.i199
-  %shr68.i232 = lshr i64 %conv2.i.i167, 24
-  %spec.select90.i233 = add nsw i64 %shr68.i232, %dec72.i204
-  %shl74.i234 = shl i64 %conv2.i.i167, 40
-  %add75.i235 = add i64 %shl74.i234, %sub69.i202
-  %cmp76.i236 = icmp ult i64 %add75.i235, %shl74.i234
-  %inc78.i237 = zext i1 %cmp76.i236 to i64
-  %hi.11.i238 = add nsw i64 %spec.select90.i233, %inc78.i237
-  %shr80.i239 = lshr i64 %hi.11.i238, 24
-  %sub81.i240 = sub i64 %add75.i235, %hi.11.i238
-  %cmp82.i241 = icmp ugt i64 %hi.11.i238, %add75.i235
-  %dec84.i242 = sext i1 %cmp82.i241 to i64
-  %hi.12.i243 = add nsw i64 %shr80.i239, %dec84.i242
-  %shl86.i244 = shl i64 %hi.11.i238, 40
-  %add87.i245 = add i64 %shl86.i244, %sub81.i240
-  %cmp88.i246 = icmp ult i64 %add87.i245, %shl86.i244
-  %inc90.i247 = zext i1 %cmp88.i246 to i64
-  %hi.13.i248 = add nsw i64 %hi.12.i243, %inc90.i247
-  %shr92.i249 = lshr i64 %hi.13.i248, 24
-  %sub93.i250 = sub i64 %add87.i245, %hi.13.i248
-  %cmp94.i251 = icmp ugt i64 %hi.13.i248, %add87.i245
-  %dec96.i252 = sext i1 %cmp94.i251 to i64
-  %hi.14.i253 = add nsw i64 %shr92.i249, %dec96.i252
-  %shl98.i254 = shl i64 %hi.13.i248, 40
-  %add99.i255 = add i64 %shl98.i254, %sub93.i250
-  %cmp100.i256 = icmp ult i64 %add99.i255, %shl98.i254
-  br label %x64_mulmod.exit257
+if.else67.i205:                                   ; preds = %if.else.i183
+  %shr68.i206 = lshr i64 %conv2.i.i149, 24
+  %spec.select90.i207 = add nsw i64 %shr68.i206, %dec72.i188
+  %shl74.i208 = shl i64 %conv2.i.i149, 40
+  %add75.i209 = add i64 %shl74.i208, %sub69.i186
+  %cmp76.i210 = icmp ult i64 %add75.i209, %shl74.i208
+  %inc78.i211 = zext i1 %cmp76.i210 to i64
+  %hi.11.i212 = add nsw i64 %spec.select90.i207, %inc78.i211
+  %shr80.i213 = lshr i64 %hi.11.i212, 24
+  %sub81.i214 = sub i64 %add75.i209, %hi.11.i212
+  %cmp82.i215 = icmp ugt i64 %hi.11.i212, %add75.i209
+  %dec84.i216 = sext i1 %cmp82.i215 to i64
+  %hi.12.i217 = add nsw i64 %shr80.i213, %dec84.i216
+  %shl86.i218 = shl i64 %hi.11.i212, 40
+  %add87.i219 = add i64 %shl86.i218, %sub81.i214
+  %cmp88.i220 = icmp ult i64 %add87.i219, %shl86.i218
+  br label %x64_mulmod.exit221
 
-x64_mulmod.exit257:                               ; preds = %if.then.i171, %if.then22.i205, %if.else67.i231
-  %cmp100.sink.i190 = phi i1 [ %cmp100.i256, %if.else67.i231 ], [ %cmp55.i230, %if.then22.i205 ], [ %cmp13.i189, %if.then.i171 ]
-  %hi.14.sink.i191 = phi i64 [ %hi.14.i253, %if.else67.i231 ], [ %hi.8.i227, %if.then22.i205 ], [ %hi.2.i186, %if.then.i171 ]
-  %add99.sink94.i192 = phi i64 [ %add99.i255, %if.else67.i231 ], [ %add54.i229, %if.then22.i205 ], [ %add12.i188, %if.then.i171 ]
-  %inc102.neg.i193 = sext i1 %cmp100.sink.i190 to i64
-  %tobool104.not.i194 = icmp eq i64 %hi.14.sink.i191, %inc102.neg.i193
-  %cmp106.not.i195 = icmp ult i64 %add99.sink94.i192, %0
-  %or.cond57.i196 = select i1 %tobool104.not.i194, i1 %cmp106.not.i195, i1 false
-  %sub108.i197 = select i1 %or.cond57.i196, i64 0, i64 %0
-  %spec.select93.i198 = sub i64 %add99.sink94.i192, %sub108.i197
-  %mul.i.i450 = mul nuw i128 %conv1.i.i259, %conv1.i.i449
-  %shr.i.i451 = lshr i128 %mul.i.i450, 64
-  %conv2.i.i452 = trunc nuw i128 %shr.i.i451 to i64
-  %conv3.i.i453 = trunc i128 %mul.i.i450 to i64
-  br i1 %tobool.not.i63, label %if.else.i484, label %if.then.i456
+x64_mulmod.exit221:                               ; preds = %if.then.i153, %if.then22.i189, %if.else67.i205
+  %cmp88.sink.i162 = phi i1 [ %cmp88.i220, %if.else67.i205 ], [ %cmp43.i204, %if.then22.i189 ], [ %cmp2.i161, %if.then.i153 ]
+  %hi.12.sink.i163 = phi i64 [ %hi.12.i217, %if.else67.i205 ], [ %hi.6.i201, %if.then22.i189 ], [ %spec.select.i158, %if.then.i153 ]
+  %.sink101.i164 = phi i64 [ 24, %if.else67.i205 ], [ 30, %if.then22.i189 ], [ 32, %if.then.i153 ]
+  %add87.sink98.i165 = phi i64 [ %add87.i219, %if.else67.i205 ], [ %add42.i203, %if.then22.i189 ], [ %add.i160, %if.then.i153 ]
+  %.sink.i166 = phi i64 [ 40, %if.else67.i205 ], [ 34, %if.then22.i189 ], [ 32, %if.then.i153 ]
+  %inc90.i167 = zext i1 %cmp88.sink.i162 to i64
+  %hi.13.i168 = add nsw i64 %hi.12.sink.i163, %inc90.i167
+  %shr92.i169 = lshr i64 %hi.13.i168, %.sink101.i164
+  %sub93.i170 = sub i64 %add87.sink98.i165, %hi.13.i168
+  %cmp94.i171 = icmp ugt i64 %hi.13.i168, %add87.sink98.i165
+  %dec96.i172 = sext i1 %cmp94.i171 to i64
+  %hi.14.i173 = add nsw i64 %shr92.i169, %dec96.i172
+  %shl98.i174 = shl i64 %hi.13.i168, %.sink.i166
+  %add99.i175 = add i64 %shl98.i174, %sub93.i170
+  %cmp100.i176 = icmp ult i64 %add99.i175, %shl98.i174
+  %inc102.neg.i177 = sext i1 %cmp100.i176 to i64
+  %tobool104.not.i178 = icmp eq i64 %hi.14.i173, %inc102.neg.i177
+  %cmp106.not.i179 = icmp ult i64 %add99.i175, %0
+  %or.cond57.i180 = select i1 %tobool104.not.i178, i1 %cmp106.not.i179, i1 false
+  %sub108.i181 = select i1 %or.cond57.i180, i64 0, i64 %0
+  %spec.select93.i182 = sub i64 %add99.i175, %sub108.i181
+  %mul.i.i378 = mul nuw i128 %conv1.i.i223, %conv1.i.i377
+  %shr.i.i379 = lshr i128 %mul.i.i378, 64
+  %conv2.i.i380 = trunc nuw i128 %shr.i.i379 to i64
+  %conv3.i.i381 = trunc i128 %mul.i.i378 to i64
+  br i1 %tobool.not.i63, label %if.else.i414, label %if.then.i384
 
-if.then.i456:                                     ; preds = %x64_mulmod.exit257
-  %shr.i457 = lshr i64 %conv2.i.i452, 32
-  %sub.i458 = sub i64 %conv3.i.i453, %conv2.i.i452
-  %cmp.i459 = icmp ugt i64 %conv2.i.i452, %conv3.i.i453
-  %dec.i460 = sext i1 %cmp.i459 to i64
-  %spec.select.i461 = add nsw i64 %shr.i457, %dec.i460
-  %shl.i462 = shl i64 %conv2.i.i452, 32
-  %add.i463 = add i64 %shl.i462, %sub.i458
-  %cmp2.i464 = icmp ult i64 %add.i463, %shl.i462
-  %inc.i465 = zext i1 %cmp2.i464 to i64
-  %hi.1.i466 = add nsw i64 %spec.select.i461, %inc.i465
-  %shr5.i467 = lshr i64 %hi.1.i466, 32
-  %sub6.i468 = sub i64 %add.i463, %hi.1.i466
-  %cmp7.i469 = icmp ugt i64 %hi.1.i466, %add.i463
-  %dec9.i470 = sext i1 %cmp7.i469 to i64
-  %hi.2.i471 = add nsw i64 %shr5.i467, %dec9.i470
-  %shl11.i472 = shl i64 %hi.1.i466, 32
-  %add12.i473 = add i64 %shl11.i472, %sub6.i468
-  %cmp13.i474 = icmp ult i64 %add12.i473, %shl11.i472
-  br label %x64_mulmod.exit542
+if.then.i384:                                     ; preds = %x64_mulmod.exit221
+  %shr.i385 = lshr i64 %conv2.i.i380, 32
+  %sub.i386 = sub i64 %conv3.i.i381, %conv2.i.i380
+  %cmp.i387 = icmp ugt i64 %conv2.i.i380, %conv3.i.i381
+  %dec.i388 = sext i1 %cmp.i387 to i64
+  %spec.select.i389 = add nsw i64 %shr.i385, %dec.i388
+  %shl.i390 = shl i64 %conv2.i.i380, 32
+  %add.i391 = add i64 %shl.i390, %sub.i386
+  %cmp2.i392 = icmp ult i64 %add.i391, %shl.i390
+  br label %x64_mulmod.exit452
 
-if.else.i484:                                     ; preds = %x64_mulmod.exit257
-  %sub69.i487 = sub i64 %conv3.i.i453, %conv2.i.i452
-  %cmp70.i488 = icmp ugt i64 %conv2.i.i452, %conv3.i.i453
-  %dec72.i489 = sext i1 %cmp70.i488 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i516, label %if.then22.i490
+if.else.i414:                                     ; preds = %x64_mulmod.exit221
+  %sub69.i417 = sub i64 %conv3.i.i381, %conv2.i.i380
+  %cmp70.i418 = icmp ugt i64 %conv2.i.i380, %conv3.i.i381
+  %dec72.i419 = sext i1 %cmp70.i418 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i436, label %if.then22.i420
 
-if.then22.i490:                                   ; preds = %if.else.i484
-  %shr23.i491 = lshr i64 %conv2.i.i452, 30
-  %spec.select89.i492 = add nsw i64 %shr23.i491, %dec72.i489
-  %shl29.i493 = shl i64 %conv2.i.i452, 34
-  %add30.i494 = add i64 %shl29.i493, %sub69.i487
-  %cmp31.i495 = icmp ult i64 %add30.i494, %shl29.i493
-  %inc33.i496 = zext i1 %cmp31.i495 to i64
-  %hi.5.i497 = add nsw i64 %spec.select89.i492, %inc33.i496
-  %shr35.i498 = lshr i64 %hi.5.i497, 30
-  %sub36.i499 = sub i64 %add30.i494, %hi.5.i497
-  %cmp37.i500 = icmp ugt i64 %hi.5.i497, %add30.i494
-  %dec39.i501 = sext i1 %cmp37.i500 to i64
-  %hi.6.i502 = add nsw i64 %shr35.i498, %dec39.i501
-  %shl41.i503 = shl i64 %hi.5.i497, 34
-  %add42.i504 = add i64 %shl41.i503, %sub36.i499
-  %cmp43.i505 = icmp ult i64 %add42.i504, %shl41.i503
-  %inc45.i506 = zext i1 %cmp43.i505 to i64
-  %hi.7.i507 = add nsw i64 %hi.6.i502, %inc45.i506
-  %shr47.i508 = lshr i64 %hi.7.i507, 30
-  %sub48.i509 = sub i64 %add42.i504, %hi.7.i507
-  %cmp49.i510 = icmp ugt i64 %hi.7.i507, %add42.i504
-  %dec51.i511 = sext i1 %cmp49.i510 to i64
-  %hi.8.i512 = add nsw i64 %shr47.i508, %dec51.i511
-  %shl53.i513 = shl i64 %hi.7.i507, 34
-  %add54.i514 = add i64 %shl53.i513, %sub48.i509
-  %cmp55.i515 = icmp ult i64 %add54.i514, %shl53.i513
-  br label %x64_mulmod.exit542
+if.then22.i420:                                   ; preds = %if.else.i414
+  %shr23.i421 = lshr i64 %conv2.i.i380, 30
+  %spec.select89.i422 = add nsw i64 %shr23.i421, %dec72.i419
+  %shl29.i423 = shl i64 %conv2.i.i380, 34
+  %add30.i424 = add i64 %shl29.i423, %sub69.i417
+  %cmp31.i425 = icmp ult i64 %add30.i424, %shl29.i423
+  %inc33.i426 = zext i1 %cmp31.i425 to i64
+  %hi.5.i427 = add nsw i64 %spec.select89.i422, %inc33.i426
+  %shr35.i428 = lshr i64 %hi.5.i427, 30
+  %sub36.i429 = sub i64 %add30.i424, %hi.5.i427
+  %cmp37.i430 = icmp ugt i64 %hi.5.i427, %add30.i424
+  %dec39.i431 = sext i1 %cmp37.i430 to i64
+  %hi.6.i432 = add nsw i64 %shr35.i428, %dec39.i431
+  %shl41.i433 = shl i64 %hi.5.i427, 34
+  %add42.i434 = add i64 %shl41.i433, %sub36.i429
+  %cmp43.i435 = icmp ult i64 %add42.i434, %shl41.i433
+  br label %x64_mulmod.exit452
 
-if.else67.i516:                                   ; preds = %if.else.i484
-  %shr68.i517 = lshr i64 %conv2.i.i452, 24
-  %spec.select90.i518 = add nsw i64 %shr68.i517, %dec72.i489
-  %shl74.i519 = shl i64 %conv2.i.i452, 40
-  %add75.i520 = add i64 %shl74.i519, %sub69.i487
-  %cmp76.i521 = icmp ult i64 %add75.i520, %shl74.i519
-  %inc78.i522 = zext i1 %cmp76.i521 to i64
-  %hi.11.i523 = add nsw i64 %spec.select90.i518, %inc78.i522
-  %shr80.i524 = lshr i64 %hi.11.i523, 24
-  %sub81.i525 = sub i64 %add75.i520, %hi.11.i523
-  %cmp82.i526 = icmp ugt i64 %hi.11.i523, %add75.i520
-  %dec84.i527 = sext i1 %cmp82.i526 to i64
-  %hi.12.i528 = add nsw i64 %shr80.i524, %dec84.i527
-  %shl86.i529 = shl i64 %hi.11.i523, 40
-  %add87.i530 = add i64 %shl86.i529, %sub81.i525
-  %cmp88.i531 = icmp ult i64 %add87.i530, %shl86.i529
-  %inc90.i532 = zext i1 %cmp88.i531 to i64
-  %hi.13.i533 = add nsw i64 %hi.12.i528, %inc90.i532
-  %shr92.i534 = lshr i64 %hi.13.i533, 24
-  %sub93.i535 = sub i64 %add87.i530, %hi.13.i533
-  %cmp94.i536 = icmp ugt i64 %hi.13.i533, %add87.i530
-  %dec96.i537 = sext i1 %cmp94.i536 to i64
-  %hi.14.i538 = add nsw i64 %shr92.i534, %dec96.i537
-  %shl98.i539 = shl i64 %hi.13.i533, 40
-  %add99.i540 = add i64 %shl98.i539, %sub93.i535
-  %cmp100.i541 = icmp ult i64 %add99.i540, %shl98.i539
-  br label %x64_mulmod.exit542
+if.else67.i436:                                   ; preds = %if.else.i414
+  %shr68.i437 = lshr i64 %conv2.i.i380, 24
+  %spec.select90.i438 = add nsw i64 %shr68.i437, %dec72.i419
+  %shl74.i439 = shl i64 %conv2.i.i380, 40
+  %add75.i440 = add i64 %shl74.i439, %sub69.i417
+  %cmp76.i441 = icmp ult i64 %add75.i440, %shl74.i439
+  %inc78.i442 = zext i1 %cmp76.i441 to i64
+  %hi.11.i443 = add nsw i64 %spec.select90.i438, %inc78.i442
+  %shr80.i444 = lshr i64 %hi.11.i443, 24
+  %sub81.i445 = sub i64 %add75.i440, %hi.11.i443
+  %cmp82.i446 = icmp ugt i64 %hi.11.i443, %add75.i440
+  %dec84.i447 = sext i1 %cmp82.i446 to i64
+  %hi.12.i448 = add nsw i64 %shr80.i444, %dec84.i447
+  %shl86.i449 = shl i64 %hi.11.i443, 40
+  %add87.i450 = add i64 %shl86.i449, %sub81.i445
+  %cmp88.i451 = icmp ult i64 %add87.i450, %shl86.i449
+  br label %x64_mulmod.exit452
 
-x64_mulmod.exit542:                               ; preds = %if.then.i456, %if.then22.i490, %if.else67.i516
-  %cmp100.sink.i475 = phi i1 [ %cmp100.i541, %if.else67.i516 ], [ %cmp55.i515, %if.then22.i490 ], [ %cmp13.i474, %if.then.i456 ]
-  %hi.14.sink.i476 = phi i64 [ %hi.14.i538, %if.else67.i516 ], [ %hi.8.i512, %if.then22.i490 ], [ %hi.2.i471, %if.then.i456 ]
-  %add99.sink94.i477 = phi i64 [ %add99.i540, %if.else67.i516 ], [ %add54.i514, %if.then22.i490 ], [ %add12.i473, %if.then.i456 ]
-  %inc102.neg.i478 = sext i1 %cmp100.sink.i475 to i64
-  %tobool104.not.i479 = icmp eq i64 %hi.14.sink.i476, %inc102.neg.i478
-  %cmp106.not.i480 = icmp ult i64 %add99.sink94.i477, %0
-  %or.cond57.i481 = select i1 %tobool104.not.i479, i1 %cmp106.not.i480, i1 false
-  %sub108.i482 = select i1 %or.cond57.i481, i64 0, i64 %0
-  %spec.select93.i483 = sub i64 %add99.sink94.i477, %sub108.i482
-  %mul.i.i355 = mul nuw i128 %conv1.i.i164, %conv1.i.i449
-  %shr.i.i356 = lshr i128 %mul.i.i355, 64
-  %conv2.i.i357 = trunc nuw i128 %shr.i.i356 to i64
-  %conv3.i.i358 = trunc i128 %mul.i.i355 to i64
-  br i1 %tobool.not.i63, label %if.else.i389, label %if.then.i361
+x64_mulmod.exit452:                               ; preds = %if.then.i384, %if.then22.i420, %if.else67.i436
+  %cmp88.sink.i393 = phi i1 [ %cmp88.i451, %if.else67.i436 ], [ %cmp43.i435, %if.then22.i420 ], [ %cmp2.i392, %if.then.i384 ]
+  %hi.12.sink.i394 = phi i64 [ %hi.12.i448, %if.else67.i436 ], [ %hi.6.i432, %if.then22.i420 ], [ %spec.select.i389, %if.then.i384 ]
+  %.sink101.i395 = phi i64 [ 24, %if.else67.i436 ], [ 30, %if.then22.i420 ], [ 32, %if.then.i384 ]
+  %add87.sink98.i396 = phi i64 [ %add87.i450, %if.else67.i436 ], [ %add42.i434, %if.then22.i420 ], [ %add.i391, %if.then.i384 ]
+  %.sink.i397 = phi i64 [ 40, %if.else67.i436 ], [ 34, %if.then22.i420 ], [ 32, %if.then.i384 ]
+  %inc90.i398 = zext i1 %cmp88.sink.i393 to i64
+  %hi.13.i399 = add nsw i64 %hi.12.sink.i394, %inc90.i398
+  %shr92.i400 = lshr i64 %hi.13.i399, %.sink101.i395
+  %sub93.i401 = sub i64 %add87.sink98.i396, %hi.13.i399
+  %cmp94.i402 = icmp ugt i64 %hi.13.i399, %add87.sink98.i396
+  %dec96.i403 = sext i1 %cmp94.i402 to i64
+  %hi.14.i404 = add nsw i64 %shr92.i400, %dec96.i403
+  %shl98.i405 = shl i64 %hi.13.i399, %.sink.i397
+  %add99.i406 = add i64 %shl98.i405, %sub93.i401
+  %cmp100.i407 = icmp ult i64 %add99.i406, %shl98.i405
+  %inc102.neg.i408 = sext i1 %cmp100.i407 to i64
+  %tobool104.not.i409 = icmp eq i64 %hi.14.i404, %inc102.neg.i408
+  %cmp106.not.i410 = icmp ult i64 %add99.i406, %0
+  %or.cond57.i411 = select i1 %tobool104.not.i409, i1 %cmp106.not.i410, i1 false
+  %sub108.i412 = select i1 %or.cond57.i411, i64 0, i64 %0
+  %spec.select93.i413 = sub i64 %add99.i406, %sub108.i412
+  %mul.i.i301 = mul nuw i128 %conv1.i.i146, %conv1.i.i377
+  %shr.i.i302 = lshr i128 %mul.i.i301, 64
+  %conv2.i.i303 = trunc nuw i128 %shr.i.i302 to i64
+  %conv3.i.i304 = trunc i128 %mul.i.i301 to i64
+  br i1 %tobool.not.i63, label %if.else.i337, label %if.then.i307
 
-if.then.i361:                                     ; preds = %x64_mulmod.exit542
-  %shr.i362 = lshr i64 %conv2.i.i357, 32
-  %sub.i363 = sub i64 %conv3.i.i358, %conv2.i.i357
-  %cmp.i364 = icmp ugt i64 %conv2.i.i357, %conv3.i.i358
-  %dec.i365 = sext i1 %cmp.i364 to i64
-  %spec.select.i366 = add nsw i64 %shr.i362, %dec.i365
-  %shl.i367 = shl i64 %conv2.i.i357, 32
-  %add.i368 = add i64 %shl.i367, %sub.i363
-  %cmp2.i369 = icmp ult i64 %add.i368, %shl.i367
-  %inc.i370 = zext i1 %cmp2.i369 to i64
-  %hi.1.i371 = add nsw i64 %spec.select.i366, %inc.i370
-  %shr5.i372 = lshr i64 %hi.1.i371, 32
-  %sub6.i373 = sub i64 %add.i368, %hi.1.i371
-  %cmp7.i374 = icmp ugt i64 %hi.1.i371, %add.i368
-  %dec9.i375 = sext i1 %cmp7.i374 to i64
-  %hi.2.i376 = add nsw i64 %shr5.i372, %dec9.i375
-  %shl11.i377 = shl i64 %hi.1.i371, 32
-  %add12.i378 = add i64 %shl11.i377, %sub6.i373
-  %cmp13.i379 = icmp ult i64 %add12.i378, %shl11.i377
-  br label %x64_mulmod.exit447
+if.then.i307:                                     ; preds = %x64_mulmod.exit452
+  %shr.i308 = lshr i64 %conv2.i.i303, 32
+  %sub.i309 = sub i64 %conv3.i.i304, %conv2.i.i303
+  %cmp.i310 = icmp ugt i64 %conv2.i.i303, %conv3.i.i304
+  %dec.i311 = sext i1 %cmp.i310 to i64
+  %spec.select.i312 = add nsw i64 %shr.i308, %dec.i311
+  %shl.i313 = shl i64 %conv2.i.i303, 32
+  %add.i314 = add i64 %shl.i313, %sub.i309
+  %cmp2.i315 = icmp ult i64 %add.i314, %shl.i313
+  br label %x64_mulmod.exit375
 
-if.else.i389:                                     ; preds = %x64_mulmod.exit542
-  %sub69.i392 = sub i64 %conv3.i.i358, %conv2.i.i357
-  %cmp70.i393 = icmp ugt i64 %conv2.i.i357, %conv3.i.i358
-  %dec72.i394 = sext i1 %cmp70.i393 to i64
-  br i1 %tobool21.not.i106, label %if.else67.i421, label %if.then22.i395
+if.else.i337:                                     ; preds = %x64_mulmod.exit452
+  %sub69.i340 = sub i64 %conv3.i.i304, %conv2.i.i303
+  %cmp70.i341 = icmp ugt i64 %conv2.i.i303, %conv3.i.i304
+  %dec72.i342 = sext i1 %cmp70.i341 to i64
+  br i1 %tobool21.not.i108, label %if.else67.i359, label %if.then22.i343
 
-if.then22.i395:                                   ; preds = %if.else.i389
-  %shr23.i396 = lshr i64 %conv2.i.i357, 30
-  %spec.select89.i397 = add nsw i64 %shr23.i396, %dec72.i394
-  %shl29.i398 = shl i64 %conv2.i.i357, 34
-  %add30.i399 = add i64 %shl29.i398, %sub69.i392
-  %cmp31.i400 = icmp ult i64 %add30.i399, %shl29.i398
-  %inc33.i401 = zext i1 %cmp31.i400 to i64
-  %hi.5.i402 = add nsw i64 %spec.select89.i397, %inc33.i401
-  %shr35.i403 = lshr i64 %hi.5.i402, 30
-  %sub36.i404 = sub i64 %add30.i399, %hi.5.i402
-  %cmp37.i405 = icmp ugt i64 %hi.5.i402, %add30.i399
-  %dec39.i406 = sext i1 %cmp37.i405 to i64
-  %hi.6.i407 = add nsw i64 %shr35.i403, %dec39.i406
-  %shl41.i408 = shl i64 %hi.5.i402, 34
-  %add42.i409 = add i64 %shl41.i408, %sub36.i404
-  %cmp43.i410 = icmp ult i64 %add42.i409, %shl41.i408
-  %inc45.i411 = zext i1 %cmp43.i410 to i64
-  %hi.7.i412 = add nsw i64 %hi.6.i407, %inc45.i411
-  %shr47.i413 = lshr i64 %hi.7.i412, 30
-  %sub48.i414 = sub i64 %add42.i409, %hi.7.i412
-  %cmp49.i415 = icmp ugt i64 %hi.7.i412, %add42.i409
-  %dec51.i416 = sext i1 %cmp49.i415 to i64
-  %hi.8.i417 = add nsw i64 %shr47.i413, %dec51.i416
-  %shl53.i418 = shl i64 %hi.7.i412, 34
-  %add54.i419 = add i64 %shl53.i418, %sub48.i414
-  %cmp55.i420 = icmp ult i64 %add54.i419, %shl53.i418
-  br label %x64_mulmod.exit447
+if.then22.i343:                                   ; preds = %if.else.i337
+  %shr23.i344 = lshr i64 %conv2.i.i303, 30
+  %spec.select89.i345 = add nsw i64 %shr23.i344, %dec72.i342
+  %shl29.i346 = shl i64 %conv2.i.i303, 34
+  %add30.i347 = add i64 %shl29.i346, %sub69.i340
+  %cmp31.i348 = icmp ult i64 %add30.i347, %shl29.i346
+  %inc33.i349 = zext i1 %cmp31.i348 to i64
+  %hi.5.i350 = add nsw i64 %spec.select89.i345, %inc33.i349
+  %shr35.i351 = lshr i64 %hi.5.i350, 30
+  %sub36.i352 = sub i64 %add30.i347, %hi.5.i350
+  %cmp37.i353 = icmp ugt i64 %hi.5.i350, %add30.i347
+  %dec39.i354 = sext i1 %cmp37.i353 to i64
+  %hi.6.i355 = add nsw i64 %shr35.i351, %dec39.i354
+  %shl41.i356 = shl i64 %hi.5.i350, 34
+  %add42.i357 = add i64 %shl41.i356, %sub36.i352
+  %cmp43.i358 = icmp ult i64 %add42.i357, %shl41.i356
+  br label %x64_mulmod.exit375
 
-if.else67.i421:                                   ; preds = %if.else.i389
-  %shr68.i422 = lshr i64 %conv2.i.i357, 24
-  %spec.select90.i423 = add nsw i64 %shr68.i422, %dec72.i394
-  %shl74.i424 = shl i64 %conv2.i.i357, 40
-  %add75.i425 = add i64 %shl74.i424, %sub69.i392
-  %cmp76.i426 = icmp ult i64 %add75.i425, %shl74.i424
-  %inc78.i427 = zext i1 %cmp76.i426 to i64
-  %hi.11.i428 = add nsw i64 %spec.select90.i423, %inc78.i427
-  %shr80.i429 = lshr i64 %hi.11.i428, 24
-  %sub81.i430 = sub i64 %add75.i425, %hi.11.i428
-  %cmp82.i431 = icmp ugt i64 %hi.11.i428, %add75.i425
-  %dec84.i432 = sext i1 %cmp82.i431 to i64
-  %hi.12.i433 = add nsw i64 %shr80.i429, %dec84.i432
-  %shl86.i434 = shl i64 %hi.11.i428, 40
-  %add87.i435 = add i64 %shl86.i434, %sub81.i430
-  %cmp88.i436 = icmp ult i64 %add87.i435, %shl86.i434
-  %inc90.i437 = zext i1 %cmp88.i436 to i64
-  %hi.13.i438 = add nsw i64 %hi.12.i433, %inc90.i437
-  %shr92.i439 = lshr i64 %hi.13.i438, 24
-  %sub93.i440 = sub i64 %add87.i435, %hi.13.i438
-  %cmp94.i441 = icmp ugt i64 %hi.13.i438, %add87.i435
-  %dec96.i442 = sext i1 %cmp94.i441 to i64
-  %hi.14.i443 = add nsw i64 %shr92.i439, %dec96.i442
-  %shl98.i444 = shl i64 %hi.13.i438, 40
-  %add99.i445 = add i64 %shl98.i444, %sub93.i440
-  %cmp100.i446 = icmp ult i64 %add99.i445, %shl98.i444
-  br label %x64_mulmod.exit447
+if.else67.i359:                                   ; preds = %if.else.i337
+  %shr68.i360 = lshr i64 %conv2.i.i303, 24
+  %spec.select90.i361 = add nsw i64 %shr68.i360, %dec72.i342
+  %shl74.i362 = shl i64 %conv2.i.i303, 40
+  %add75.i363 = add i64 %shl74.i362, %sub69.i340
+  %cmp76.i364 = icmp ult i64 %add75.i363, %shl74.i362
+  %inc78.i365 = zext i1 %cmp76.i364 to i64
+  %hi.11.i366 = add nsw i64 %spec.select90.i361, %inc78.i365
+  %shr80.i367 = lshr i64 %hi.11.i366, 24
+  %sub81.i368 = sub i64 %add75.i363, %hi.11.i366
+  %cmp82.i369 = icmp ugt i64 %hi.11.i366, %add75.i363
+  %dec84.i370 = sext i1 %cmp82.i369 to i64
+  %hi.12.i371 = add nsw i64 %shr80.i367, %dec84.i370
+  %shl86.i372 = shl i64 %hi.11.i366, 40
+  %add87.i373 = add i64 %shl86.i372, %sub81.i368
+  %cmp88.i374 = icmp ult i64 %add87.i373, %shl86.i372
+  br label %x64_mulmod.exit375
 
-x64_mulmod.exit447:                               ; preds = %if.then.i361, %if.then22.i395, %if.else67.i421
-  %cmp100.sink.i380 = phi i1 [ %cmp100.i446, %if.else67.i421 ], [ %cmp55.i420, %if.then22.i395 ], [ %cmp13.i379, %if.then.i361 ]
-  %hi.14.sink.i381 = phi i64 [ %hi.14.i443, %if.else67.i421 ], [ %hi.8.i417, %if.then22.i395 ], [ %hi.2.i376, %if.then.i361 ]
-  %add99.sink94.i382 = phi i64 [ %add99.i445, %if.else67.i421 ], [ %add54.i419, %if.then22.i395 ], [ %add12.i378, %if.then.i361 ]
-  %inc102.neg.i383 = sext i1 %cmp100.sink.i380 to i64
-  %tobool104.not.i384 = icmp eq i64 %hi.14.sink.i381, %inc102.neg.i383
-  %cmp106.not.i385 = icmp ult i64 %add99.sink94.i382, %0
-  %or.cond57.i386 = select i1 %tobool104.not.i384, i1 %cmp106.not.i385, i1 false
-  %sub108.i387 = select i1 %or.cond57.i386, i64 0, i64 %0
-  %spec.select93.i388 = sub i64 %add99.sink94.i382, %sub108.i387
-  store i64 %spec.select93.i293, ptr %arrayidx, align 8
-  store i64 %spec.select93.i198, ptr %arrayidx22, align 8
-  %add31 = add nuw i64 %k.0554, 2
+x64_mulmod.exit375:                               ; preds = %if.then.i307, %if.then22.i343, %if.else67.i359
+  %cmp88.sink.i316 = phi i1 [ %cmp88.i374, %if.else67.i359 ], [ %cmp43.i358, %if.then22.i343 ], [ %cmp2.i315, %if.then.i307 ]
+  %hi.12.sink.i317 = phi i64 [ %hi.12.i371, %if.else67.i359 ], [ %hi.6.i355, %if.then22.i343 ], [ %spec.select.i312, %if.then.i307 ]
+  %.sink101.i318 = phi i64 [ 24, %if.else67.i359 ], [ 30, %if.then22.i343 ], [ 32, %if.then.i307 ]
+  %add87.sink98.i319 = phi i64 [ %add87.i373, %if.else67.i359 ], [ %add42.i357, %if.then22.i343 ], [ %add.i314, %if.then.i307 ]
+  %.sink.i320 = phi i64 [ 40, %if.else67.i359 ], [ 34, %if.then22.i343 ], [ 32, %if.then.i307 ]
+  %inc90.i321 = zext i1 %cmp88.sink.i316 to i64
+  %hi.13.i322 = add nsw i64 %hi.12.sink.i317, %inc90.i321
+  %shr92.i323 = lshr i64 %hi.13.i322, %.sink101.i318
+  %sub93.i324 = sub i64 %add87.sink98.i319, %hi.13.i322
+  %cmp94.i325 = icmp ugt i64 %hi.13.i322, %add87.sink98.i319
+  %dec96.i326 = sext i1 %cmp94.i325 to i64
+  %hi.14.i327 = add nsw i64 %shr92.i323, %dec96.i326
+  %shl98.i328 = shl i64 %hi.13.i322, %.sink.i320
+  %add99.i329 = add i64 %shl98.i328, %sub93.i324
+  %cmp100.i330 = icmp ult i64 %add99.i329, %shl98.i328
+  %inc102.neg.i331 = sext i1 %cmp100.i330 to i64
+  %tobool104.not.i332 = icmp eq i64 %hi.14.i327, %inc102.neg.i331
+  %cmp106.not.i333 = icmp ult i64 %add99.i329, %0
+  %or.cond57.i334 = select i1 %tobool104.not.i332, i1 %cmp106.not.i333, i1 false
+  %sub108.i335 = select i1 %or.cond57.i334, i64 0, i64 %0
+  %spec.select93.i336 = sub i64 %add99.i329, %sub108.i335
+  store i64 %spec.select93.i259, ptr %arrayidx, align 8
+  store i64 %spec.select93.i182, ptr %arrayidx22, align 8
+  %add31 = add nuw i64 %k.0464, 2
   %cmp16 = icmp ult i64 %add31, %shl
   br i1 %cmp16, label %for.body18, label %for.inc33, !llvm.loop !11
 
-for.inc33:                                        ; preds = %x64_mulmod.exit447
-  %inc = add nuw i64 %i.0556, 1
+for.inc33:                                        ; preds = %x64_mulmod.exit375
+  %inc = add nuw i64 %i.0466, 1
   %exitcond.not = icmp eq i64 %inc, %umax
   br i1 %exitcond.not, label %for.end34, label %while.body.i.preheader, !llvm.loop !12
 
@@ -1640,12 +1406,12 @@ if.then40:                                        ; preds = %if.end37
 
 if.end46:                                         ; preds = %if.then40, %if.end37
   %tparams.0 = phi ptr [ %call41, %if.then40 ], [ %call3, %if.end37 ]
-  br i1 %cmp5550, label %for.body51, label %for.end54
+  br i1 %cmp5460, label %for.body51, label %for.end54
 
 for.body51:                                       ; preds = %if.end46, %for.body51
-  %x.1558 = phi ptr [ %add.ptr53, %for.body51 ], [ %a, %if.end46 ]
-  tail call void @fnt_dif2(ptr noundef %x.1558, i64 noundef %shl2, ptr noundef nonnull %tparams.0) #4
-  %add.ptr53 = getelementptr i64, ptr %x.1558, i64 %shl2
+  %x.1468 = phi ptr [ %add.ptr53, %for.body51 ], [ %a, %if.end46 ]
+  tail call void @fnt_dif2(ptr noundef %x.1468, i64 noundef %shl2, ptr noundef nonnull %tparams.0) #4
+  %add.ptr53 = getelementptr i64, ptr %x.1468, i64 %shl2
   %cmp49 = icmp ult ptr %add.ptr53, %add.ptr
   br i1 %cmp49, label %for.body51, label %for.end54, !llvm.loop !13
 

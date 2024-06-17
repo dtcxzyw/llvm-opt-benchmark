@@ -18671,52 +18671,44 @@ sw.bb:                                            ; preds = %if.end
 
 land.lhs.true.i:                                  ; preds = %sw.bb
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %mapCount.i = getelementptr inbounds i8, ptr %this, i64 2
-  %5 = load i8, ptr %mapCount.i, align 1
-  %conv.i.i5.i = zext i8 %5 to i32
-  %shl.i.i.i = shl nuw nsw i32 %conv.i.i5.i, 8
-  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
-  %6 = load i8, ptr %arrayidx3.i.i.i, align 1
-  %conv4.i.i.i = zext i8 %6 to i32
-  %add.i.i6.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
-  %7 = load i8, ptr %add.ptr.i.i, align 1
-  %8 = lshr i8 %7, 4
-  %9 = and i8 %8, 3
-  %narrow.i.i = add nuw nsw i8 %9, 1
-  %add.i.i = zext nneg i8 %narrow.i.i to i32
-  %10 = mul nuw nsw i32 %add.i.i6.i, %add.i.i
-  %11 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i9.i = ptrtoint ptr %11 to i64
+  %5 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i9.i = ptrtoint ptr %5 to i64
   %sub.ptr.sub.i.i10.i = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i9.i
-  %12 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i12.i = zext i32 %12 to i64
+  %6 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i12.i = zext i32 %6 to i64
   %cmp.i.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i10.i, %conv.i.i12.i
   br i1 %cmp.i.not.i.i, label %return, label %land.lhs.true.i.i.i
 
 land.lhs.true.i.i.i:                              ; preds = %land.lhs.true.i
+  %mapCount.i = getelementptr inbounds i8, ptr %this, i64 2
+  %7 = load i8, ptr %mapCount.i, align 1
+  %conv.i.i5.i = zext i8 %7 to i32
+  %shl.i.i.i = shl nuw nsw i32 %conv.i.i5.i, 8
+  %arrayidx3.i.i.i = getelementptr inbounds i8, ptr %this, i64 3
+  %8 = load i8, ptr %arrayidx3.i.i.i, align 1
+  %conv4.i.i.i = zext i8 %8 to i32
+  %add.i.i6.i = or disjoint i32 %shl.i.i.i, %conv4.i.i.i
+  %9 = load i8, ptr %add.ptr.i.i, align 1
+  %10 = lshr i8 %9, 4
+  %11 = and i8 %10, 3
+  %narrow.i.i = add nuw nsw i8 %11, 1
+  %add.i.i = zext nneg i8 %narrow.i.i to i32
+  %12 = mul nuw nsw i32 %add.i.i6.i, %add.i.i
   %13 = load ptr, ptr %end.i.i.i, align 8
   %sub.ptr.lhs.cast2.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub4.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i, %sub.ptr.lhs.cast.i.i.i5
   %conv5.i.i.i = trunc i64 %sub.ptr.sub4.i.i.i to i32
-  %cmp6.i.not.i.i = icmp ugt i32 %10, %conv5.i.i.i
-  br i1 %cmp6.i.not.i.i, label %return, label %land.rhs.i.i.i
-
-land.rhs.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
-  %max_ops.i.i.i = getelementptr inbounds i8, ptr %c, i64 28
-  %14 = load i32, ptr %max_ops.i.i.i, align 4
-  %sub.i.i.i = sub i32 %14, %10
-  store i32 %sub.i.i.i, ptr %max_ops.i.i.i, align 4
-  %cmp7.i.i.i = icmp sgt i32 %sub.i.i.i, 0
-  br label %return
+  %cmp6.i.not.i.i = icmp ugt i32 %12, %conv5.i.i.i
+  br i1 %cmp6.i.not.i.i, label %return, label %return.sink.split
 
 sw.bb10:                                          ; preds = %if.end
   %add.ptr.i.i11 = getelementptr inbounds i8, ptr %this, i64 6
-  %15 = load ptr, ptr %start.i.i.i, align 8
+  %14 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i13 = ptrtoint ptr %add.ptr.i.i11 to i64
-  %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %15 to i64
+  %sub.ptr.rhs.cast.i.i.i14 = ptrtoint ptr %14 to i64
   %sub.ptr.sub.i.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i.i14
-  %16 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i17 = zext i32 %16 to i64
+  %15 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i17 = zext i32 %15 to i64
   %cmp.i.i.not.i18 = icmp ugt i64 %sub.ptr.sub.i.i.i15, %conv.i.i.i17
   %end.i.i.i19 = getelementptr inbounds i8, ptr %c, i64 16
   br i1 %cmp.i.i.not.i18, label %return, label %land.lhs.true.i20
@@ -18724,60 +18716,61 @@ sw.bb10:                                          ; preds = %if.end
 land.lhs.true.i20:                                ; preds = %sw.bb10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
   %mapCount.i21 = getelementptr inbounds i8, ptr %this, i64 2
-  %17 = load i8, ptr %mapCount.i21, align 1
-  %conv.i.i5.i22 = zext i8 %17 to i32
+  %16 = load i8, ptr %mapCount.i21, align 1
+  %conv.i.i5.i22 = zext i8 %16 to i32
   %shl.i.i.i23 = shl nuw i32 %conv.i.i5.i22, 24
   %arrayidx3.i.i.i24 = getelementptr inbounds i8, ptr %this, i64 3
-  %18 = load i8, ptr %arrayidx3.i.i.i24, align 1
-  %conv4.i.i.i25 = zext i8 %18 to i32
+  %17 = load i8, ptr %arrayidx3.i.i.i24, align 1
+  %conv4.i.i.i25 = zext i8 %17 to i32
   %shl5.i.i.i = shl nuw nsw i32 %conv4.i.i.i25, 16
   %add.i.i6.i26 = or disjoint i32 %shl5.i.i.i, %shl.i.i.i23
   %arrayidx7.i.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %19 = load i8, ptr %arrayidx7.i.i.i, align 1
-  %conv8.i.i.i = zext i8 %19 to i32
+  %18 = load i8, ptr %arrayidx7.i.i.i, align 1
+  %conv8.i.i.i = zext i8 %18 to i32
   %shl9.i.i.i = shl nuw nsw i32 %conv8.i.i.i, 8
   %add10.i.i.i = or disjoint i32 %add.i.i6.i26, %shl9.i.i.i
   %arrayidx12.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
-  %20 = load i8, ptr %arrayidx12.i.i.i, align 1
-  %conv13.i.i.i = zext i8 %20 to i32
+  %19 = load i8, ptr %arrayidx12.i.i.i, align 1
+  %conv13.i.i.i = zext i8 %19 to i32
   %add14.i.i.i = or disjoint i32 %add10.i.i.i, %conv13.i.i.i
-  %21 = load i8, ptr %add.ptr.i.i, align 1
-  %22 = lshr i8 %21, 4
-  %23 = and i8 %22, 3
-  %narrow.i.i28 = add nuw nsw i8 %23, 1
+  %20 = load i8, ptr %add.ptr.i.i, align 1
+  %21 = lshr i8 %20, 4
+  %22 = and i8 %21, 3
+  %narrow.i.i28 = add nuw nsw i8 %22, 1
   %add.i.i29 = zext nneg i8 %narrow.i.i28 to i32
-  %24 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %add14.i.i.i, i32 %add.i.i29)
-  %25 = extractvalue { i32, i1 } %24, 0
-  %26 = extractvalue { i32, i1 } %24, 1
-  br i1 %26, label %return, label %land.rhs.i.i
+  %23 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %add14.i.i.i, i32 %add.i.i29)
+  %24 = extractvalue { i32, i1 } %23, 0
+  %25 = extractvalue { i32, i1 } %23, 1
+  br i1 %25, label %return, label %land.rhs.i.i
 
 land.rhs.i.i:                                     ; preds = %land.lhs.true.i20
-  %27 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i9.i30 = ptrtoint ptr %27 to i64
+  %26 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i9.i30 = ptrtoint ptr %26 to i64
   %sub.ptr.sub.i.i10.i31 = sub i64 %sub.ptr.lhs.cast.i.i.i13, %sub.ptr.rhs.cast.i.i9.i30
-  %28 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i12.i32 = zext i32 %28 to i64
+  %27 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i12.i32 = zext i32 %27 to i64
   %cmp.i.not.i.i33 = icmp ugt i64 %sub.ptr.sub.i.i10.i31, %conv.i.i12.i32
   br i1 %cmp.i.not.i.i33, label %return, label %land.lhs.true.i.i.i34
 
 land.lhs.true.i.i.i34:                            ; preds = %land.rhs.i.i
-  %29 = load ptr, ptr %end.i.i.i19, align 8
-  %sub.ptr.lhs.cast2.i.i.i35 = ptrtoint ptr %29 to i64
+  %28 = load ptr, ptr %end.i.i.i19, align 8
+  %sub.ptr.lhs.cast2.i.i.i35 = ptrtoint ptr %28 to i64
   %sub.ptr.sub4.i.i.i36 = sub i64 %sub.ptr.lhs.cast2.i.i.i35, %sub.ptr.lhs.cast.i.i.i13
   %conv5.i.i.i37 = trunc i64 %sub.ptr.sub4.i.i.i36 to i32
-  %cmp6.i.not.i.i38 = icmp ugt i32 %25, %conv5.i.i.i37
-  br i1 %cmp6.i.not.i.i38, label %return, label %land.rhs.i.i.i39
+  %cmp6.i.not.i.i38 = icmp ugt i32 %24, %conv5.i.i.i37
+  br i1 %cmp6.i.not.i.i38, label %return, label %return.sink.split
 
-land.rhs.i.i.i39:                                 ; preds = %land.lhs.true.i.i.i34
+return.sink.split:                                ; preds = %land.lhs.true.i.i.i34, %land.lhs.true.i.i.i
+  %.sink47 = phi i32 [ %12, %land.lhs.true.i.i.i ], [ %24, %land.lhs.true.i.i.i34 ]
   %max_ops.i.i.i40 = getelementptr inbounds i8, ptr %c, i64 28
-  %30 = load i32, ptr %max_ops.i.i.i40, align 4
-  %sub.i.i.i41 = sub i32 %30, %25
+  %29 = load i32, ptr %max_ops.i.i.i40, align 4
+  %sub.i.i.i41 = sub i32 %29, %.sink47
   store i32 %sub.i.i.i41, ptr %max_ops.i.i.i40, align 4
   %cmp7.i.i.i42 = icmp sgt i32 %sub.i.i.i41, 0
   br label %return
 
-return:                                           ; preds = %land.rhs.i.i.i39, %land.lhs.true.i.i.i34, %land.rhs.i.i, %land.lhs.true.i20, %sw.bb10, %land.rhs.i.i.i, %land.lhs.true.i.i.i, %land.lhs.true.i, %sw.bb, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true.i ], [ %cmp7.i.i.i, %land.rhs.i.i.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i20 ], [ false, %land.lhs.true.i.i.i34 ], [ false, %land.rhs.i.i ], [ %cmp7.i.i.i42, %land.rhs.i.i.i39 ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true.i.i.i34, %land.rhs.i.i, %land.lhs.true.i20, %sw.bb10, %land.lhs.true.i.i.i, %land.lhs.true.i, %sw.bb, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i ], [ false, %land.lhs.true.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i20 ], [ false, %land.lhs.true.i.i.i34 ], [ false, %land.rhs.i.i ], [ %cmp7.i.i.i42, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -28402,9 +28395,9 @@ cond.false:                                       ; preds = %land.rhs
 
 land.end.sink.split:                              ; preds = %cond.false, %cond.true
   %.sink = phi i32 [ %23, %cond.true ], [ %26, %cond.false ]
-  %sub.i.i.i = sub i32 %sub.i.i.i.i.i.i, %.sink
-  store i32 %sub.i.i.i, ptr %max_ops.i.i.i.i.i.i, align 4
-  %cmp7.i.i.i56 = icmp sgt i32 %sub.i.i.i, 0
+  %sub.i.i.i55 = sub i32 %sub.i.i.i.i.i.i, %.sink
+  store i32 %sub.i.i.i55, ptr %max_ops.i.i.i.i.i.i, align 4
+  %cmp7.i.i.i56 = icmp sgt i32 %sub.i.i.i55, 0
   br label %land.end
 
 land.end:                                         ; preds = %land.end.sink.split, %_ZN21hb_sanitize_context_t8dispatchIN2OT14UnsizedArrayOfINS1_7HBFixedINS1_7IntTypeIsLj2EEELj14EEEEEJjEEEDTcl9_dispatchfp_cv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEERKT_DpOSA_.exit, %lor.lhs.false.i, %land.lhs.true.i.i.i.i.i.i, %land.rhs.i.i.i.i.i, %land.lhs.true5, %cond.false, %cond.true, %land.lhs.true, %entry
@@ -40334,87 +40327,80 @@ sw.bb.i:                                          ; preds = %if.end.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %6 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i.i11.i.i = zext i8 %6 to i32
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %obj, i64 3
-  %7 = load i8, ptr %arrayidx3.i.i.i.i, align 1
-  %conv4.i.i.i.i = zext i8 %7 to i32
-  %8 = shl nuw nsw i32 %conv.i.i11.i.i, 9
-  %9 = shl nuw nsw i32 %conv4.i.i.i.i, 1
-  %mul.i.i.i = or disjoint i32 %9, %8
-  %10 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
+  %6 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
-  %11 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i = zext i32 %11 to i64
+  %7 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i = zext i32 %7 to i64
   %cmp.i.i.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.lhs.true.i.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %obj, i64 3
+  %8 = load i8, ptr %arrayidx3.i.i.i.i, align 1
+  %conv4.i.i.i.i = zext i8 %8 to i32
+  %9 = shl nuw nsw i32 %conv4.i.i.i.i, 1
+  %10 = load i8, ptr %add.ptr.i.i, align 1
+  %conv.i.i11.i.i = zext i8 %10 to i32
+  %11 = shl nuw nsw i32 %conv.i.i11.i.i, 9
+  %mul.i.i.i = or disjoint i32 %9, %11
   %end.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %12 = load ptr, ptr %end.i.i.i.i, align 8
   %sub.ptr.lhs.cast2.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub4.i.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i.i, %sub.ptr.lhs.cast.i.i.i.i.i
   %conv5.i.i.i.i = trunc i64 %sub.ptr.sub4.i.i.i.i to i32
   %cmp6.i.i.not.i.i = icmp ugt i32 %mul.i.i.i, %conv5.i.i.i.i
-  br i1 %cmp6.i.i.not.i.i, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i
-
-_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i: ; preds = %land.lhs.true.i.i.i.i
-  %max_ops.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 28
-  %13 = load i32, ptr %max_ops.i.i.i.i, align 4
-  %sub.i.i.i.i = sub i32 %13, %mul.i.i.i
-  store i32 %sub.i.i.i.i, ptr %max_ops.i.i.i.i, align 4
-  %cmp7.i.i.i.i = icmp sgt i32 %sub.i.i.i.i, 0
-  br label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit
+  br i1 %cmp6.i.i.not.i.i, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit.sink.split
 
 sw.bb10.i:                                        ; preds = %if.end.i
   %add.ptr.i.i10.i.i4 = getelementptr inbounds i8, ptr %obj, i64 4
-  %14 = load ptr, ptr %start.i.i.i, align 8
+  %13 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i6 = ptrtoint ptr %add.ptr.i.i10.i.i4 to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i7 = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i7 = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i.i8 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i6, %sub.ptr.rhs.cast.i.i.i.i.i7
-  %15 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i.i10 = zext i32 %15 to i64
+  %14 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i.i10 = zext i32 %14 to i64
   %cmp.i.i.i.not.i.i11 = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i8, %conv.i.i.i.i.i10
   br i1 %cmp.i.i.i.not.i.i11, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %land.lhs.true.i.i12
 
 land.lhs.true.i.i12:                              ; preds = %sw.bb10.i
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %16 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i.i11.i.i13 = zext i8 %16 to i32
-  %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i13, 8
-  %arrayidx3.i.i.i.i14 = getelementptr inbounds i8, ptr %obj, i64 3
-  %17 = load i8, ptr %arrayidx3.i.i.i.i14, align 1
-  %conv4.i.i.i.i15 = zext i8 %17 to i32
-  %add.i.i12.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i15
-  %mul.i.i.i16 = mul nuw nsw i32 %add.i.i12.i.i, 6
-  %18 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i17 = ptrtoint ptr %18 to i64
+  %15 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i.i.i17 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i18 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i6, %sub.ptr.rhs.cast.i.i.i.i17
-  %19 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i19 = zext i32 %19 to i64
+  %16 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i19 = zext i32 %16 to i64
   %cmp.i.i.not.i.i20 = icmp ugt i64 %sub.ptr.sub.i.i.i.i18, %conv.i.i.i.i19
   br i1 %cmp.i.i.not.i.i20, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %land.lhs.true.i.i.i.i21
 
 land.lhs.true.i.i.i.i21:                          ; preds = %land.lhs.true.i.i12
+  %17 = load i8, ptr %add.ptr.i.i, align 1
+  %conv.i.i11.i.i13 = zext i8 %17 to i32
+  %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i13, 8
+  %arrayidx3.i.i.i.i14 = getelementptr inbounds i8, ptr %obj, i64 3
+  %18 = load i8, ptr %arrayidx3.i.i.i.i14, align 1
+  %conv4.i.i.i.i15 = zext i8 %18 to i32
+  %add.i.i12.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i15
+  %mul.i.i.i16 = mul nuw nsw i32 %add.i.i12.i.i, 6
   %end.i.i.i.i22 = getelementptr inbounds i8, ptr %this, i64 16
-  %20 = load ptr, ptr %end.i.i.i.i22, align 8
-  %sub.ptr.lhs.cast2.i.i.i.i23 = ptrtoint ptr %20 to i64
+  %19 = load ptr, ptr %end.i.i.i.i22, align 8
+  %sub.ptr.lhs.cast2.i.i.i.i23 = ptrtoint ptr %19 to i64
   %sub.ptr.sub4.i.i.i.i24 = sub i64 %sub.ptr.lhs.cast2.i.i.i.i23, %sub.ptr.lhs.cast.i.i.i.i.i6
   %conv5.i.i.i.i25 = trunc i64 %sub.ptr.sub4.i.i.i.i24 to i32
   %cmp6.i.i.not.i.i26 = icmp ugt i32 %mul.i.i.i16, %conv5.i.i.i.i25
-  br i1 %cmp6.i.i.not.i.i26, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i
+  br i1 %cmp6.i.i.not.i.i26, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit, label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit.sink.split
 
-_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i: ; preds = %land.lhs.true.i.i.i.i21
+_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit.sink.split: ; preds = %land.lhs.true.i.i.i.i21, %land.lhs.true.i.i.i.i
+  %mul.i.i.i16.sink = phi i32 [ %mul.i.i.i, %land.lhs.true.i.i.i.i ], [ %mul.i.i.i16, %land.lhs.true.i.i.i.i21 ]
   %max_ops.i.i.i.i27 = getelementptr inbounds i8, ptr %this, i64 28
-  %21 = load i32, ptr %max_ops.i.i.i.i27, align 4
-  %sub.i.i.i.i28 = sub i32 %21, %mul.i.i.i16
+  %20 = load i32, ptr %max_ops.i.i.i.i27, align 4
+  %sub.i.i.i.i28 = sub i32 %20, %mul.i.i.i16.sink
   store i32 %sub.i.i.i.i28, ptr %max_ops.i.i.i.i27, align 4
   %cmp7.i.i.i.i29 = icmp sgt i32 %sub.i.i.i.i28, 0
   br label %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit
 
-_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i, %land.lhs.true.i.i.i.i21, %land.lhs.true.i.i12, %sw.bb10.i, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %sw.bb.i, %if.end.i, %entry
-  %retval.i.0 = phi i1 [ false, %entry ], [ true, %if.end.i ], [ false, %sw.bb.i ], [ false, %land.lhs.true.i.i.i.i ], [ false, %land.lhs.true.i.i ], [ %cmp7.i.i.i.i, %_ZNK2OT7ArrayOfINS_11HBGlyphID16ENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i ], [ false, %sw.bb10.i ], [ false, %land.lhs.true.i.i.i.i21 ], [ false, %land.lhs.true.i.i12 ], [ %cmp7.i.i.i.i29, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i ]
+_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit: ; preds = %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit.sink.split, %land.lhs.true.i.i.i.i21, %land.lhs.true.i.i12, %sw.bb10.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %sw.bb.i, %if.end.i, %entry
+  %retval.i.0 = phi i1 [ false, %entry ], [ true, %if.end.i ], [ false, %sw.bb.i ], [ false, %land.lhs.true.i.i.i.i ], [ false, %land.lhs.true.i.i ], [ false, %sw.bb10.i ], [ false, %land.lhs.true.i.i.i.i21 ], [ false, %land.lhs.true.i.i12 ], [ %cmp7.i.i.i.i29, %_ZNK2OT6Layout6Common8Coverage8sanitizeEP21hb_sanitize_context_t.exit.sink.split ]
   ret i1 %retval.i.0
 }
 
@@ -41813,88 +41799,81 @@ sw.bb:                                            ; preds = %if.end
   br i1 %cmp.i.i.not.i, label %return, label %land.lhs.true.i.i
 
 land.lhs.true.i.i:                                ; preds = %sw.bb
-  %classValue.i = getelementptr inbounds i8, ptr %this, i64 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %6 = load i8, ptr %classValue.i, align 1
-  %conv.i.i11.i.i = zext i8 %6 to i32
-  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
-  %7 = load i8, ptr %arrayidx3.i.i.i.i, align 1
-  %conv4.i.i.i.i = zext i8 %7 to i32
-  %8 = shl nuw nsw i32 %conv.i.i11.i.i, 9
-  %9 = shl nuw nsw i32 %conv4.i.i.i.i, 1
-  %mul.i.i.i = or disjoint i32 %9, %8
-  %10 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %10 to i64
+  %6 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %6 to i64
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i5, %sub.ptr.rhs.cast.i.i.i.i
-  %11 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i = zext i32 %11 to i64
+  %7 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i = zext i32 %7 to i64
   %cmp.i.i.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i, %conv.i.i.i.i
   br i1 %cmp.i.i.not.i.i, label %return, label %land.lhs.true.i.i.i.i
 
 land.lhs.true.i.i.i.i:                            ; preds = %land.lhs.true.i.i
+  %arrayidx3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 5
+  %8 = load i8, ptr %arrayidx3.i.i.i.i, align 1
+  %conv4.i.i.i.i = zext i8 %8 to i32
+  %9 = shl nuw nsw i32 %conv4.i.i.i.i, 1
+  %classValue.i = getelementptr inbounds i8, ptr %this, i64 4
+  %10 = load i8, ptr %classValue.i, align 1
+  %conv.i.i11.i.i = zext i8 %10 to i32
+  %11 = shl nuw nsw i32 %conv.i.i11.i.i, 9
+  %mul.i.i.i = or disjoint i32 %9, %11
   %12 = load ptr, ptr %end.i.i.i, align 8
   %sub.ptr.lhs.cast2.i.i.i.i = ptrtoint ptr %12 to i64
   %sub.ptr.sub4.i.i.i.i = sub i64 %sub.ptr.lhs.cast2.i.i.i.i, %sub.ptr.lhs.cast.i.i.i5
   %conv5.i.i.i.i = trunc i64 %sub.ptr.sub4.i.i.i.i to i32
   %cmp6.i.i.not.i.i = icmp ugt i32 %mul.i.i.i, %conv5.i.i.i.i
-  br i1 %cmp6.i.i.not.i.i, label %return, label %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i
-
-_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i: ; preds = %land.lhs.true.i.i.i.i
-  %max_ops.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 28
-  %13 = load i32, ptr %max_ops.i.i.i.i, align 4
-  %sub.i.i.i.i = sub i32 %13, %mul.i.i.i
-  store i32 %sub.i.i.i.i, ptr %max_ops.i.i.i.i, align 4
-  %cmp7.i.i.i.i = icmp sgt i32 %sub.i.i.i.i, 0
-  br label %return
+  br i1 %cmp6.i.i.not.i.i, label %return, label %return.sink.split
 
 sw.bb10:                                          ; preds = %if.end
   %add.ptr.i.i10.i.i = getelementptr inbounds i8, ptr %this, i64 4
-  %14 = load ptr, ptr %start.i.i.i, align 8
+  %13 = load ptr, ptr %start.i.i.i, align 8
   %sub.ptr.lhs.cast.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i10.i.i to i64
-  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %14 to i64
+  %sub.ptr.rhs.cast.i.i.i.i.i = ptrtoint ptr %13 to i64
   %sub.ptr.sub.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i
-  %15 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i.i = zext i32 %15 to i64
+  %14 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i.i = zext i32 %14 to i64
   %cmp.i.i.i.not.i.i = icmp ugt i64 %sub.ptr.sub.i.i.i.i.i, %conv.i.i.i.i.i
   br i1 %cmp.i.i.i.not.i.i, label %return, label %land.lhs.true.i.i11
 
 land.lhs.true.i.i11:                              ; preds = %sw.bb10
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !5
-  %16 = load i8, ptr %add.ptr.i.i, align 1
-  %conv.i.i11.i.i12 = zext i8 %16 to i32
-  %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i12, 8
-  %arrayidx3.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 3
-  %17 = load i8, ptr %arrayidx3.i.i.i.i13, align 1
-  %conv4.i.i.i.i14 = zext i8 %17 to i32
-  %add.i.i12.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i14
-  %mul.i.i.i15 = mul nuw nsw i32 %add.i.i12.i.i, 6
-  %18 = load ptr, ptr %start.i.i.i, align 8
-  %sub.ptr.rhs.cast.i.i.i.i16 = ptrtoint ptr %18 to i64
+  %15 = load ptr, ptr %start.i.i.i, align 8
+  %sub.ptr.rhs.cast.i.i.i.i16 = ptrtoint ptr %15 to i64
   %sub.ptr.sub.i.i.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i16
-  %19 = load i32, ptr %length.i.i.i, align 8
-  %conv.i.i.i.i18 = zext i32 %19 to i64
+  %16 = load i32, ptr %length.i.i.i, align 8
+  %conv.i.i.i.i18 = zext i32 %16 to i64
   %cmp.i.i.not.i.i19 = icmp ugt i64 %sub.ptr.sub.i.i.i.i17, %conv.i.i.i.i18
   br i1 %cmp.i.i.not.i.i19, label %return, label %land.lhs.true.i.i.i.i20
 
 land.lhs.true.i.i.i.i20:                          ; preds = %land.lhs.true.i.i11
+  %17 = load i8, ptr %add.ptr.i.i, align 1
+  %conv.i.i11.i.i12 = zext i8 %17 to i32
+  %shl.i.i.i.i = shl nuw nsw i32 %conv.i.i11.i.i12, 8
+  %arrayidx3.i.i.i.i13 = getelementptr inbounds i8, ptr %this, i64 3
+  %18 = load i8, ptr %arrayidx3.i.i.i.i13, align 1
+  %conv4.i.i.i.i14 = zext i8 %18 to i32
+  %add.i.i12.i.i = or disjoint i32 %shl.i.i.i.i, %conv4.i.i.i.i14
+  %mul.i.i.i15 = mul nuw nsw i32 %add.i.i12.i.i, 6
   %end.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 16
-  %20 = load ptr, ptr %end.i.i.i.i, align 8
-  %sub.ptr.lhs.cast2.i.i.i.i21 = ptrtoint ptr %20 to i64
+  %19 = load ptr, ptr %end.i.i.i.i, align 8
+  %sub.ptr.lhs.cast2.i.i.i.i21 = ptrtoint ptr %19 to i64
   %sub.ptr.sub4.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast2.i.i.i.i21, %sub.ptr.lhs.cast.i.i.i.i.i
   %conv5.i.i.i.i23 = trunc i64 %sub.ptr.sub4.i.i.i.i22 to i32
   %cmp6.i.i.not.i.i24 = icmp ugt i32 %mul.i.i.i15, %conv5.i.i.i.i23
-  br i1 %cmp6.i.i.not.i.i24, label %return, label %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i
+  br i1 %cmp6.i.i.not.i.i24, label %return, label %return.sink.split
 
-_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i: ; preds = %land.lhs.true.i.i.i.i20
+return.sink.split:                                ; preds = %land.lhs.true.i.i.i.i20, %land.lhs.true.i.i.i.i
+  %mul.i.i.i15.sink = phi i32 [ %mul.i.i.i, %land.lhs.true.i.i.i.i ], [ %mul.i.i.i15, %land.lhs.true.i.i.i.i20 ]
   %max_ops.i.i.i.i25 = getelementptr inbounds i8, ptr %c, i64 28
-  %21 = load i32, ptr %max_ops.i.i.i.i25, align 4
-  %sub.i.i.i.i26 = sub i32 %21, %mul.i.i.i15
+  %20 = load i32, ptr %max_ops.i.i.i.i25, align 4
+  %sub.i.i.i.i26 = sub i32 %20, %mul.i.i.i15.sink
   store i32 %sub.i.i.i.i26, ptr %max_ops.i.i.i.i25, align 4
   %cmp7.i.i.i.i27 = icmp sgt i32 %sub.i.i.i.i26, 0
   br label %return
 
-return:                                           ; preds = %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i, %land.lhs.true.i.i.i.i20, %land.lhs.true.i.i11, %sw.bb10, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %sw.bb, %if.end, %entry
-  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i.i ], [ false, %land.lhs.true.i.i ], [ %cmp7.i.i.i.i, %_ZNK2OT7ArrayOfINS_7IntTypeItLj2EEES2_E16sanitize_shallowEP21hb_sanitize_context_t.exit.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i.i.i.i20 ], [ false, %land.lhs.true.i.i11 ], [ %cmp7.i.i.i.i27, %_ZNK2OT7ArrayOfINS_6Layout6Common11RangeRecordINS1_10SmallTypesEEENS_7IntTypeItLj2EEEE16sanitize_shallowEP21hb_sanitize_context_t.exit.i ]
+return:                                           ; preds = %return.sink.split, %land.lhs.true.i.i.i.i20, %land.lhs.true.i.i11, %sw.bb10, %land.lhs.true.i.i.i.i, %land.lhs.true.i.i, %sw.bb, %if.end, %entry
+  %retval.0 = phi i1 [ false, %entry ], [ true, %if.end ], [ false, %sw.bb ], [ false, %land.lhs.true.i.i.i.i ], [ false, %land.lhs.true.i.i ], [ false, %sw.bb10 ], [ false, %land.lhs.true.i.i.i.i20 ], [ false, %land.lhs.true.i.i11 ], [ %cmp7.i.i.i.i27, %return.sink.split ]
   ret i1 %retval.0
 }
 
@@ -51402,16 +51381,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i9.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tIS0_IS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_7RuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_16ContextFormat1_4ISB_EEELSU_0ELSP_0EEZNKS11_10intersectsEPSK_EUlRKSC_E_LSU_0ELSP_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1F_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1F_Efp_EEEOS1F_OS1K_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 40
   %b.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.inc.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i
   %3 = phi i32 [ %2, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i ], [ %24, %for.inc.i.i ]
-  %4 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %4 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 2
   %6 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %6 to i32
@@ -51671,8 +51650,8 @@ entry:
   br i1 %switch.i.i.i.i11.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i, label %"_ZN24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5EclI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS9_8OffsetToINS9_7RuleSetINSA_10SmallTypesEEENS9_7IntTypeItLj2EEEvLb1EEEEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISQ_S2_S5_LDnEESQ_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %u3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %j.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %b.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -51683,8 +51662,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i
   %1 = phi i32 [ %.pre.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %25, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i ]
   %2 = phi i32 [ %0, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %26, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i ]
-  %3 = load i32, ptr %i.i.i.i.i.i.i.i, align 8, !alias.scope !384
-  %4 = load ptr, ptr %u.i.i.i.i.i.i, align 8, !alias.scope !384
+  %3 = load i32, ptr %i.i1.i.i.i.i.i.i, align 8, !alias.scope !384
+  %4 = load ptr, ptr %u3.i.i.i.i.i.i, align 8, !alias.scope !384
   %rangeRecord.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   %5 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i = zext i8 %5 to i32
@@ -52008,8 +51987,8 @@ entry:
   %length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %b.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %backwards_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %p.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %j.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %do.body.i.i.i.i.i
@@ -52039,8 +52018,8 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i, label %"_ZN13hb_map_iter_tIS_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS2_7RuleSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS2_16ContextFormat1_4ISA_EEELST_0ELSO_0EE8__next__Ev.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_7RuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i.i.i.i
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -54909,16 +54888,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i8.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tIS0_IS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_12ChainRuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_21ChainContextFormat1_4ISB_EEELSU_0ELSP_0EEZNKS11_10intersectsEPSK_EUlRKSC_E_LSU_0ELSP_0EERK4$_34TnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1F_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1F_Efp_EEEOS1F_OS1K_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 40
   %b.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it.i.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %for.inc.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i
   %3 = phi i32 [ %2, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i.lr.ph.i.i ], [ %43, %for.inc.i.i ]
-  %4 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %4 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 2
   %6 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %6 to i32
@@ -55154,8 +55133,8 @@ entry:
   br i1 %switch.i.i.i.i11.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i, label %"_ZN24hb_filter_iter_factory_tIRK8hb_set_tRK3$_5EclI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS9_8OffsetToINS9_12ChainRuleSetINSA_10SmallTypesEEENS9_7IntTypeItLj2EEEvLb1EEEEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSQ_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISQ_S2_S5_LDnEESQ_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %u3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %j.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %b.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -55166,8 +55145,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i
   %1 = phi i32 [ %.pre.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %25, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i ]
   %2 = phi i32 [ %0, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %26, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i ]
-  %3 = load i32, ptr %i.i.i.i.i.i.i.i, align 8, !alias.scope !406
-  %4 = load ptr, ptr %u.i.i.i.i.i.i, align 8, !alias.scope !406
+  %3 = load i32, ptr %i.i1.i.i.i.i.i.i, align 8, !alias.scope !406
+  %4 = load ptr, ptr %u3.i.i.i.i.i.i, align 8, !alias.scope !406
   %rangeRecord.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   %5 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i = zext i8 %5 to i32
@@ -55624,8 +55603,8 @@ entry:
   %length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %b.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %backwards_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %p.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %j.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %do.body.i.i.i.i.i
@@ -55655,8 +55634,8 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i, label %"_ZN13hb_map_iter_tIS_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS2_12ChainRuleSetINS3_10SmallTypesEEENS2_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS2_21ChainContextFormat1_4ISA_EEELST_0ELSO_0EE8__next__Ev.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_12ChainRuleSetINS2_10SmallTypesEEENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSE_EEppEv.exit.i.i.i.i.i
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -56998,16 +56977,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i.i.i3.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_7RuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_16ContextFormat1_4ISB_EEELSU_0ELSP_0EE10hb_apply_tIZNKS11_15closure_lookupsEPNS3_28hb_closure_lookups_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1E_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1E_Efp_EEEOS1E_OS1J_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %12, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
   %4 = phi i32 [ %3, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ], [ %15, %12 ]
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -58183,16 +58162,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i.i.i3.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_12ChainRuleSetINS4_10SmallTypesEEENS3_7IntTypeItLj2EEEvLb1EEEEERK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSP_0EE12hb_partial_tILj2EPK4$_39PKNS3_21ChainContextFormat1_4ISB_EEELSU_0ELSP_0EE10hb_apply_tIZNKS11_15closure_lookupsEPNS3_28hb_closure_lookups_context_tEEUlRKSC_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1E_6item_tEEE5valueEvE4typeELSP_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1E_Efp_EEEOS1E_OS1J_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %12, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
   %4 = phi i32 [ %3, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ], [ %15, %12 ]
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -70666,8 +70645,8 @@ if.then:                                          ; preds = %entry
   br i1 %switch.i.i.i.i.i.i.i.i.i.i86.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_21MathGlyphConstructionENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12MathVariantsEELST_0ELSO_0EE10hb_apply_tIZNKSZ_14closure_glyphsESJ_PSH_EUlRKSA_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSO_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i: ; preds = %if.then
-  %u.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   %s.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %variant_glyphs, i64 16
@@ -70681,8 +70660,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZNK4$_12clIRZNK2OT12MathVariants14closure_glyphsEPK8hb_set_tPS3_EUlRKNS1_21MathGlyphConstructionEE_JS9_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSC_DpOSF_.exit.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i
   %8 = phi i32 [ %7, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i ], [ %51, %"_ZNK4$_12clIRZNK2OT12MathVariants14closure_glyphsEPK8hb_set_tPS3_EUlRKNS1_21MathGlyphConstructionEE_JS9_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSC_DpOSF_.exit.i.i" ]
-  %9 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %10 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %9 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i, align 8
+  %10 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %10, i64 2
   %11 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i = zext i8 %11 to i32
@@ -71109,8 +71088,8 @@ if.then32:                                        ; preds = %if.end
   br i1 %switch.i.i.i.i.i.i.i.i.i.i86.i.i68, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i69, label %"_ZorI13hb_map_iter_tIS0_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_8OffsetToINS3_21MathGlyphConstructionENS3_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSO_0EE12hb_partial_tILj2EPK4$_39PKNS3_12MathVariantsEELST_0ELSO_0EE10hb_apply_tIZNKSZ_14closure_glyphsESJ_PSH_EUlRKSA_E0_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS1B_6item_tEEE5valueEvE4typeELSO_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS1B_Efp_EEEOS1B_OS1G_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i69: ; preds = %if.then32
-  %u.i.i.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 40
   %b.i.i.i.i.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %agg.tmp1.i66, i64 32
   %s.i.i.i.i.i.i.i.i.i119 = getelementptr inbounds i8, ptr %variant_glyphs, i64 16
@@ -71124,8 +71103,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.l
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.i.i74: ; preds = %"_ZNK4$_12clIRZNK2OT12MathVariants14closure_glyphsEPK8hb_set_tPS3_EUlRKNS1_21MathGlyphConstructionEE0_JS9_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSC_DpOSF_.exit.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i69
   %60 = phi i32 [ %59, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i.lr.ph.i.i69 ], [ %103, %"_ZNK4$_12clIRZNK2OT12MathVariants14closure_glyphsEPK8hb_set_tPS3_EUlRKNS1_21MathGlyphConstructionEE0_JS9_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSC_DpOSF_.exit.i.i" ]
-  %61 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i.i.i71, align 8
-  %62 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i.i.i70, align 8
+  %61 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i.i.i71, align 8
+  %62 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i.i.i70, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i75 = getelementptr inbounds i8, ptr %62, i64 2
   %63 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i.i.i75, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i.i.i76 = zext i8 %63 to i32
@@ -71519,8 +71498,8 @@ entry:
   br i1 %switch.i.i.i.i11.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i, label %"_ZN24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5EclI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNSA_8OffsetToINSA_21MathGlyphConstructionENSA_7IntTypeItLj2EEEvLb1EEEEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSP_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISP_S3_S6_LDnEESP_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %u3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %j.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %b.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -71531,8 +71510,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEppEv.exit.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i
   %1 = phi i32 [ %.pre.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %26, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEppEv.exit.i.i ]
   %2 = phi i32 [ %0, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %27, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEppEv.exit.i.i ]
-  %3 = load i32, ptr %i.i.i.i.i.i.i.i, align 8, !alias.scope !498
-  %4 = load ptr, ptr %u.i.i.i.i.i.i, align 8, !alias.scope !498
+  %3 = load i32, ptr %i.i1.i.i.i.i.i.i, align 8, !alias.scope !498
+  %4 = load ptr, ptr %u3.i.i.i.i.i.i, align 8, !alias.scope !498
   %rangeRecord.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   %5 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i = zext i8 %5 to i32
@@ -71852,8 +71831,8 @@ entry:
   %length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %b.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %backwards_length.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %u.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %p.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %j.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %do.body.i.i.i.i.i
@@ -71883,8 +71862,8 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i, label %"_ZN13hb_map_iter_tIS_I16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_8OffsetToINS2_21MathGlyphConstructionENS2_7IntTypeItLj2EEEvLb1EEEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSN_0EE12hb_partial_tILj2EPK4$_39PKNS2_12MathVariantsEELSS_0ELSN_0EE8__next__Ev.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS1_8OffsetToINS1_21MathGlyphConstructionENS1_7IntTypeItLj2EEEvLb1EEEEE9hb_pair_tIjRSC_EEppEv.exit.i.i.i.i.i
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -85257,10 +85236,10 @@ if.end:                                           ; preds = %entry
   br i1 %switch.i.i.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i, label %for.end
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds = %if.end
-  %u.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 8
-  %i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 16
-  %8 = load i32, ptr %i.i.i.i.i.i.i.i, align 8
-  %9 = load ptr, ptr %u.i.i.i.i.i.i, align 8
+  %u3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 8
+  %i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %it, i64 16
+  %8 = load i32, ptr %i.i1.i.i.i.i.i.i, align 8
+  %9 = load ptr, ptr %u3.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %9, i64 2
   %10 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i = zext i8 %10 to i32
@@ -85569,8 +85548,8 @@ entry:
   br i1 %switch.i.i.i.i11.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i, label %"_ZN13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE15hb_range_iter_tIjjEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSH_0EE8__next__Ev.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %end_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 36
   %p.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %j.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -85579,8 +85558,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i: 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i: ; preds = %do.body.backedge.i.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i
   %3 = phi i32 [ %2, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i ], [ %27, %do.body.backedge.i.i.i ]
   %add.i.i.i.i12.i.i.i = phi i32 [ %add.i.i.i.i9.i.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i.i ], [ %add.i.i.i.i.i.i.i, %do.body.backedge.i.i.i ]
-  %4 = load i32, ptr %i.i.i.i.i.i.i.i.i, align 8
-  %5 = load ptr, ptr %u.i.i.i.i.i.i.i, align 8
+  %4 = load i32, ptr %i.i1.i.i.i.i.i.i.i, align 8
+  %5 = load ptr, ptr %u3.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %5, i64 2
   %6 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i = zext i8 %6 to i32
@@ -85742,8 +85721,8 @@ entry:
   store ptr %p_, ptr %p, align 8
   %f = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %f_, ptr %f, align 8
-  %u.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %b.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i32, ptr %this, align 8
   %.off.i.i.i.i9 = add i32 %0, -1
@@ -85758,8 +85737,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph: ; pred
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i: ; preds = %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph, %while.body
   %1 = phi i32 [ %0, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph ], [ %26, %while.body ]
-  %2 = load i32, ptr %i.i.i.i.i.i, align 8
-  %3 = load ptr, ptr %u.i.i.i.i, align 8
+  %2 = load i32, ptr %i.i1.i.i.i.i, align 8
+  %3 = load ptr, ptr %u3.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i = getelementptr inbounds i8, ptr %3, i64 2
   %4 = load i8, ptr %rangeRecord.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i = zext i8 %4 to i32
@@ -89584,16 +89563,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i4.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EE10hb_apply_tIZNKS9_20MarkBasePosFormat1_2INS4_10SmallTypesEE25collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSL_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i: ; preds = %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl20MarkBasePosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i
   %5 = phi i32 [ %4, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ], [ %21, %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl20MarkBasePosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i" ]
-  %6 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 2
   %8 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i = zext i8 %8 to i32
@@ -90159,8 +90138,8 @@ entry:
   br i1 %switch.i.i.i.i11.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i, label %"_ZN24hb_filter_iter_factory_tIRPK8hb_set_tRK3$_5EclI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNSB_9GPOS_impl10MarkRecordEEETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELPv0EEE16hb_filter_iter_tISM_S3_S6_LDnEESM_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  %i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
+  %u3.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
+  %i.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   %length.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 40
   %j.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
   %b.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 32
@@ -90171,8 +90150,8 @@ _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i: ; 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEppEv.exit.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i
   %1 = phi i32 [ %.pre.i.i, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %26, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEppEv.exit.i.i ]
   %2 = phi i32 [ %0, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.lr.ph.i.i ], [ %27, %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEppEv.exit.i.i ]
-  %3 = load i32, ptr %i.i.i.i.i.i.i.i, align 8, !alias.scope !701
-  %4 = load ptr, ptr %u.i.i.i.i.i.i, align 8, !alias.scope !701
+  %3 = load i32, ptr %i.i1.i.i.i.i.i.i, align 8, !alias.scope !701
+  %4 = load ptr, ptr %u3.i.i.i.i.i.i, align 8, !alias.scope !701
   %rangeRecord.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %4, i64 2
   %5 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i = zext i8 %5 to i32
@@ -91172,8 +91151,8 @@ entry:
   %length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %b.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %backwards_length.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 44
-  %u.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  %i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
+  %u3.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
+  %i.i1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %p.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %j.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   br label %do.body.i.i.i
@@ -91203,8 +91182,8 @@ _ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIK
   br i1 %switch.i.i.i.i.i.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i, label %"_ZN13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS3_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSK_0EE8__next__Ev.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS2_9GPOS_impl10MarkRecordEEE9hb_pair_tIjRS9_EEppEv.exit.i.i.i
-  %5 = load i32, ptr %i.i.i.i.i.i.i.i.i, align 8
-  %6 = load ptr, ptr %u.i.i.i.i.i.i.i, align 8
+  %5 = load i32, ptr %i.i1.i.i.i.i.i.i.i, align 8
+  %6 = load ptr, ptr %u3.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %6, i64 2
   %7 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i = zext i8 %7 to i32
@@ -91400,16 +91379,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i4.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EE10hb_apply_tIZNKS9_19MarkLigPosFormat1_2INS4_10SmallTypesEE25collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSL_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i: ; preds = %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl19MarkLigPosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i
   %5 = phi i32 [ %4, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ], [ %21, %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl19MarkLigPosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i" ]
-  %6 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 2
   %8 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i = zext i8 %8 to i32
@@ -92441,16 +92420,16 @@ entry:
   br i1 %switch.i.i.i.i.i.i.i.i4.i.i, label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i, label %"_ZorI13hb_map_iter_tI16hb_filter_iter_tI13hb_zip_iter_tIN2OT6Layout6Common8Coverage6iter_tE10hb_array_tIKNS4_9GPOS_impl10MarkRecordEEERPK8hb_set_tRK3$_5LPv0EERK3$_6L24hb_function_sortedness_t0ELSL_0EE10hb_apply_tIZNKS9_20MarkMarkPosFormat1_2INS4_10SmallTypesEE25collect_variation_indicesEPNS3_38hb_collect_variation_indices_context_tEEUlRSB_E_ETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NS12_6item_tEEE5valueEvE4typeELSL_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardIS12_Efp_EEEOS12_OS17_.exit"
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i: ; preds = %entry
-  %u.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
-  %i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
+  %u3.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 8
+  %i.i1.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 16
   %length.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 40
   %b.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp1.i, i64 32
   br label %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.i.i: ; preds = %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl20MarkMarkPosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i", %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i
   %5 = phi i32 [ %4, %_ZNK9hb_iter_tIN2OT6Layout6Common8Coverage6iter_tEjEcvbEv.exit.i.i.i.i.i.i.lr.ph.i.i ], [ %21, %"_ZNK4$_12clIRZNK2OT6Layout9GPOS_impl20MarkMarkPosFormat1_2INS2_10SmallTypesEE25collect_variation_indicesEPNS1_38hb_collect_variation_indices_context_tEEUlRKNS3_10MarkRecordEE_JSB_EEEDTcl4implclsr3stdE7forwardIT_Efp_Ecv11hb_priorityILj16EE_Espclsr3stdE7forwardIT0_Efp0_EEEOSE_DpOSH_.exit.i.i" ]
-  %6 = load i32, ptr %i.i.i.i.i.i.i.i.i.i.i.i, align 8
-  %7 = load ptr, ptr %u.i.i.i.i.i.i.i.i.i.i, align 8
+  %6 = load i32, ptr %i.i1.i.i.i.i.i.i.i.i.i.i, align 8
+  %7 = load ptr, ptr %u3.i.i.i.i.i.i.i.i.i.i, align 8
   %rangeRecord.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %7, i64 2
   %8 = load i8, ptr %rangeRecord.i.i.i.i.i.i.i.i.i.i.i, align 1
   %conv.i.i.i2.i.i.i.i.i.i.i.i.i.i = zext i8 %8 to i32

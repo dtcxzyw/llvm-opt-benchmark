@@ -10659,8 +10659,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 .sink.split.i:                                    ; preds = %47, %44
   %.02432.i.lcssa17 = phi ptr [ %.02429.i, %44 ], [ %.024.i, %47 ]
-  %.sink42.i = phi ptr [ %46, %44 ], [ %.02432.i10, %47 ]
-  %51 = ptrtoint ptr %.sink42.i to i64
+  %.02331.lcssa.sink.i = phi ptr [ %46, %44 ], [ %.02432.i10, %47 ]
+  %51 = ptrtoint ptr %.02331.lcssa.sink.i to i64
   %52 = lshr i64 %51, 12
   %53 = lshr i64 %51, 18
   %54 = and i64 %53, 4095
@@ -11100,8 +11100,8 @@ GC_lock.exit:                                     ; preds = %.preheader.i.i, %GC
 
 .sink.split.i:                                    ; preds = %47, %44
   %.02432.i.lcssa17 = phi ptr [ %.02429.i, %44 ], [ %.024.i, %47 ]
-  %.sink42.i = phi ptr [ %46, %44 ], [ %.02432.i10, %47 ]
-  %51 = ptrtoint ptr %.sink42.i to i64
+  %.02331.lcssa.sink.i = phi ptr [ %46, %44 ], [ %.02432.i10, %47 ]
+  %51 = ptrtoint ptr %.02331.lcssa.sink.i to i64
   %52 = lshr i64 %51, 12
   %53 = lshr i64 %51, 18
   %54 = and i64 %53, 4095
@@ -33872,8 +33872,8 @@ GC_set_mark_bit.exit.i:                           ; preds = %289, %GC_find_heade
   br i1 %.b89.i, label %.sink.split.i, label %318
 
 .sink.split.i:                                    ; preds = %308, %305
-  %.sink220.i = phi ptr [ %307, %305 ], [ %.073173.i, %308 ]
-  %310 = ptrtoint ptr %.sink220.i to i64
+  %.073173.sink.i = phi ptr [ %307, %305 ], [ %.073173.i, %308 ]
+  %310 = ptrtoint ptr %.073173.sink.i to i64
   %311 = lshr i64 %310, 12
   %312 = lshr i64 %310, 18
   %313 = and i64 %312, 4095
@@ -33953,8 +33953,8 @@ GC_set_mark_bit.exit.i:                           ; preds = %289, %GC_find_heade
   %.not.i41 = icmp eq i32 %347, 0
   %.3186.i = load ptr, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 368), align 8
   %.not92187.i = icmp eq ptr %.3186.i, null
-  %or.cond221.i = select i1 %.not.i41, i1 true, i1 %.not92187.i
-  br i1 %or.cond221.i, label %.loopexit.i, label %.lr.ph189.i
+  %or.cond220.i = select i1 %.not.i41, i1 true, i1 %.not92187.i
+  br i1 %or.cond220.i, label %.loopexit.i, label %.lr.ph189.i
 
 .lr.ph189.i:                                      ; preds = %._crit_edge184.i, %GC_set_mark_bit.exit130.i
   %.3188.i = phi ptr [ %.3.i, %GC_set_mark_bit.exit130.i ], [ %.3186.i, %._crit_edge184.i ]
@@ -34471,13 +34471,13 @@ GC_find_header.exit.i44:                          ; preds = %599
 
 .sink.split77:                                    ; preds = %.sink.split77.loopexit, %GC_find_header.exit.i44
   %.sink80 = phi i64 [ %594, %GC_find_header.exit.i44 ], [ %635, %.sink.split77.loopexit ]
-  %.0.i.i43.sink = phi ptr [ %.0.i.i43, %GC_find_header.exit.i44 ], [ %.0.i34.i, %.sink.split77.loopexit ]
+  %.0.i34.i.sink = phi ptr [ %.0.i.i43, %GC_find_header.exit.i44 ], [ %.0.i34.i, %.sink.split77.loopexit ]
   %.029.i.ph = phi i64 [ %606, %GC_find_header.exit.i44 ], [ %636, %.sink.split77.loopexit ]
   %.027.i.ph = phi ptr [ %607, %GC_find_header.exit.i44 ], [ %637, %.sink.split77.loopexit ]
   %.0.i45.ph = phi ptr [ %592, %GC_find_header.exit.i44 ], [ %632, %.sink.split77.loopexit ]
   %608 = lshr i64 %.sink80, 12
   %609 = and i64 %608, 1023
-  %610 = getelementptr inbounds [1024 x ptr], ptr %.0.i.i43.sink, i64 0, i64 %609
+  %610 = getelementptr inbounds [1024 x ptr], ptr %.0.i34.i.sink, i64 0, i64 %609
   %611 = load ptr, ptr %610, align 8
   %612 = getelementptr inbounds i8, ptr %611, i64 32
   %613 = load i64, ptr %612, align 8
@@ -43658,14 +43658,14 @@ GC_find_header.exit:                              ; preds = %10
   %25 = getelementptr i8, ptr %24, i64 -8
   %26 = load i64, ptr %25, align 8
   %27 = icmp eq i64 %26, 0
-  br i1 %27, label %48, label %28
+  br i1 %27, label %45, label %28
 
 28:                                               ; preds = %GC_find_header.exit
   %29 = inttoptr i64 %26 to ptr
   %30 = getelementptr inbounds i8, ptr %2, i64 -16
   %31 = tail call fastcc ptr @GC_push_complex_descriptor(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef %1, ptr noundef nonnull %30)
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %33, label %45
+  br i1 %32, label %33, label %.sink.split
 
 33:                                               ; preds = %28
   %34 = icmp eq ptr %1, null
@@ -43682,32 +43682,24 @@ GC_find_header.exit:                              ; preds = %10
   %39 = load i64, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 264), align 8
   %40 = getelementptr inbounds %struct.GC_ms_entry, ptr %38, i64 %39
   %41 = icmp eq ptr %40, %2
-  br i1 %41, label %42, label %43
+  br i1 %41, label %42, label %.sink.split
 
 42:                                               ; preds = %37
   store i32 1, ptr getelementptr inbounds (i8, ptr @GC_arrays, i64 176), align 8
-  br label %43
-
-43:                                               ; preds = %42, %37
-  %44 = getelementptr inbounds i8, ptr %1, i64 16
-  store ptr %0, ptr %44, align 8
   br label %.sink.split
 
-45:                                               ; preds = %28
-  %46 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr %25, ptr %46, align 8
-  br label %.sink.split
+.sink.split:                                      ; preds = %28, %37, %42
+  %.sink34 = phi ptr [ %1, %42 ], [ %1, %37 ], [ %31, %28 ]
+  %.sink32 = phi ptr [ %0, %42 ], [ %0, %37 ], [ %25, %28 ]
+  %.sink = phi i64 [ %22, %42 ], [ %22, %37 ], [ 8, %28 ]
+  %43 = getelementptr inbounds i8, ptr %.sink34, i64 16
+  store ptr %.sink32, ptr %43, align 8
+  %44 = getelementptr inbounds i8, ptr %.sink34, i64 24
+  store i64 %.sink, ptr %44, align 8
+  br label %45
 
-.sink.split:                                      ; preds = %45, %43
-  %.sink31 = phi ptr [ %1, %43 ], [ %31, %45 ]
-  %.sink = phi i64 [ %22, %43 ], [ 8, %45 ]
-  %.026.ph = phi ptr [ %44, %43 ], [ %46, %45 ]
-  %47 = getelementptr inbounds i8, ptr %.sink31, i64 24
-  store i64 %.sink, ptr %47, align 8
-  br label %48
-
-48:                                               ; preds = %.sink.split, %GC_find_header.exit
-  %.026 = phi ptr [ %1, %GC_find_header.exit ], [ %.026.ph, %.sink.split ]
+45:                                               ; preds = %.sink.split, %GC_find_header.exit
+  %.026 = phi ptr [ %1, %GC_find_header.exit ], [ %43, %.sink.split ]
   ret ptr %.026
 }
 

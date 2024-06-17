@@ -4562,11 +4562,11 @@ if.then129:                                       ; preds = %if.end102
   br label %if.end134.sink.split
 
 if.end134.sink.split:                             ; preds = %if.end102, %if.end102, %if.end102, %if.then129, %if.then120
-  %.sink = phi i64 [ 1944, %if.then129 ], [ 1952, %if.then120 ], [ 1936, %if.end102 ], [ 1936, %if.end102 ], [ 1936, %if.end102 ]
-  %num_deletions = getelementptr inbounds i8, ptr %0, i64 %.sink
-  %51 = load i64, ptr %num_deletions, align 8
+  %.sink = phi i64 [ 1952, %if.then120 ], [ 1944, %if.then129 ], [ 1936, %if.end102 ], [ 1936, %if.end102 ], [ 1936, %if.end102 ]
+  %num_range_deletions = getelementptr inbounds i8, ptr %0, i64 %.sink
+  %51 = load i64, ptr %num_range_deletions, align 8
   %inc125 = add i64 %51, 1
-  store i64 %inc125, ptr %num_deletions, align 8
+  store i64 %inc125, ptr %num_range_deletions, align 8
   br label %if.end134
 
 if.end134:                                        ; preds = %if.end134.sink.split, %if.end102, %_ZNK7rocksdb22BlockBasedTableBuilder2okEv.exit

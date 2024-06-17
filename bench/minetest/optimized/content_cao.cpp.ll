@@ -9050,34 +9050,27 @@ invoke.cont431:                                   ; preds = %invoke.cont427
 
 if.then438:                                       ; preds = %invoke.cont431
   %add.ptr.i943 = getelementptr inbounds i8, ptr %174, i64 4
-  %AmbientColor442 = getelementptr inbounds i8, ptr %call428, i64 132
-  %175 = load i32, ptr %add.ptr.i943, align 4, !tbaa !103
-  store i32 %175, ptr %AmbientColor442, align 4, !tbaa !103
   br label %if.end469.sink.split
 
 lpad426:                                          ; preds = %invoke.cont427, %invoke.cont420
-  %176 = landingpad { ptr, i32 }
+  %175 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup481
 
 if.else451:                                       ; preds = %invoke.cont431
   %cmp.i.i947 = icmp eq ptr %174, %173
-  br i1 %cmp.i.i947, label %if.end469, label %if.then455
+  br i1 %cmp.i.i947, label %if.end469, label %if.end469.sink.split
 
-if.then455:                                       ; preds = %if.else451
+if.end469.sink.split:                             ; preds = %if.else451, %if.then438
+  %.sink37 = phi ptr [ %add.ptr.i943, %if.then438 ], [ %174, %if.else451 ]
   %AmbientColor459 = getelementptr inbounds i8, ptr %call428, i64 132
-  %177 = load i32, ptr %174, align 4, !tbaa !103
-  store i32 %177, ptr %AmbientColor459, align 4, !tbaa !103
-  br label %if.end469.sink.split
-
-if.end469.sink.split:                             ; preds = %if.then455, %if.then438
-  %.sink = phi i32 [ %177, %if.then455 ], [ %175, %if.then438 ]
-  %.sink1094 = phi ptr [ %174, %if.then455 ], [ %add.ptr.i943, %if.then438 ]
+  %176 = load i32, ptr %.sink37, align 4, !tbaa !103
+  store i32 %176, ptr %AmbientColor459, align 4, !tbaa !103
   %DiffuseColor463 = getelementptr inbounds i8, ptr %call428, i64 136
-  store i32 %.sink, ptr %DiffuseColor463, align 8, !tbaa !103
+  store i32 %176, ptr %DiffuseColor463, align 8, !tbaa !103
   %SpecularColor467 = getelementptr inbounds i8, ptr %call428, i64 144
-  %178 = load i32, ptr %.sink1094, align 4, !tbaa !103
-  store i32 %178, ptr %SpecularColor467, align 8, !tbaa !103
+  %177 = load i32, ptr %.sink37, align 4, !tbaa !103
+  store i32 %177, ptr %SpecularColor467, align 8, !tbaa !103
   br label %if.end469
 
 if.end469:                                        ; preds = %if.end469.sink.split, %if.else451
@@ -9100,54 +9093,54 @@ if.end469:                                        ; preds = %if.end469.sink.spli
           to label %invoke.cont478 unwind label %lpad477
 
 invoke.cont478:                                   ; preds = %.noexc965
-  %179 = load ptr, ptr %tname391, align 8, !tbaa !11
-  %cmp.i.i.i967 = icmp eq ptr %179, %159
+  %178 = load ptr, ptr %tname391, align 8, !tbaa !11
+  %cmp.i.i.i967 = icmp eq ptr %178, %159
   br i1 %cmp.i.i.i967, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i969, label %if.then.i.i968
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i969: ; preds = %invoke.cont478
-  %180 = load i64, ptr %_M_string_length.i.i.i.i903, align 8, !tbaa !14
-  %cmp3.i.i.i971 = icmp ult i64 %180, 16
+  %179 = load i64, ptr %_M_string_length.i.i.i.i903, align 8, !tbaa !14
+  %cmp3.i.i.i971 = icmp ult i64 %179, 16
   call void @llvm.assume(i1 %cmp3.i.i.i971)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972
 
 if.then.i.i968:                                   ; preds = %invoke.cont478
-  call void @_ZdlPv(ptr noundef %179) #34
+  call void @_ZdlPv(ptr noundef %178) #34
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972: ; preds = %if.then.i.i968, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i969
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %tname391) #27
-  %181 = load ptr, ptr %colors362, align 8, !tbaa !106
-  %182 = load ptr, ptr %_M_finish.i.i872, align 8, !tbaa !106
-  %cmp.i.i974 = icmp ne ptr %181, %182
+  %180 = load ptr, ptr %colors362, align 8, !tbaa !106
+  %181 = load ptr, ptr %_M_finish.i.i872, align 8, !tbaa !106
+  %cmp.i.i974 = icmp ne ptr %180, %181
   %glow = getelementptr inbounds i8, ptr %this, i64 420
-  %183 = load i8, ptr %glow, align 4
-  %cmp488 = icmp slt i8 %183, 0
+  %182 = load i8, ptr %glow, align 4
+  %cmp488 = icmp slt i8 %182, 0
   %or.cond = select i1 %cmp.i.i974, i1 %cmp488, i1 false
   br i1 %or.cond, label %if.then489, label %if.end499
 
 if.then489:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972
-  call void @_Z12setMeshColorPN3irr5scene5IMeshERKNS_5video6SColorE(ptr noundef %call330, ptr noundef nonnull align 4 dereferenceable(4) %181)
+  call void @_Z12setMeshColorPN3irr5scene5IMeshERKNS_5video6SColorE(ptr noundef %call330, ptr noundef nonnull align 4 dereferenceable(4) %180)
   br label %if.end499
 
 lpad477:                                          ; preds = %.noexc965, %.noexc964, %.noexc963, %if.end469
-  %184 = landingpad { ptr, i32 }
+  %183 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup481
 
 ehcleanup481:                                     ; preds = %lpad477, %lpad426, %lpad405
-  %.pn589.pn = phi { ptr, i32 } [ %165, %lpad405 ], [ %184, %lpad477 ], [ %176, %lpad426 ]
-  %185 = load ptr, ptr %tname391, align 8, !tbaa !11
-  %cmp.i.i.i975 = icmp eq ptr %185, %159
+  %.pn589.pn = phi { ptr, i32 } [ %165, %lpad405 ], [ %183, %lpad477 ], [ %175, %lpad426 ]
+  %184 = load ptr, ptr %tname391, align 8, !tbaa !11
+  %cmp.i.i.i975 = icmp eq ptr %184, %159
   br i1 %cmp.i.i.i975, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i977, label %if.then.i.i976
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i977: ; preds = %ehcleanup481
-  %186 = load i64, ptr %_M_string_length.i.i.i.i903, align 8, !tbaa !14
-  %cmp3.i.i.i979 = icmp ult i64 %186, 16
+  %185 = load i64, ptr %_M_string_length.i.i.i.i903, align 8, !tbaa !14
+  %cmp3.i.i.i979 = icmp ult i64 %185, 16
   call void @llvm.assume(i1 %cmp3.i.i.i979)
   br label %ehcleanup482
 
 if.then.i.i976:                                   ; preds = %ehcleanup481
-  call void @_ZdlPv(ptr noundef %185) #34
+  call void @_ZdlPv(ptr noundef %184) #34
   br label %ehcleanup482
 
 ehcleanup482:                                     ; preds = %if.then.i.i976, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i977
@@ -9156,8 +9149,8 @@ ehcleanup482:                                     ; preds = %if.then.i.i976, %_Z
 
 if.end499:                                        ; preds = %for.body198, %land.rhs190, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit838, %if.then489, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit972, %if.else322, %if.else224, %for.cond.cleanup, %if.then90, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit694, %if.then
   %m_is_local_player = getelementptr inbounds i8, ptr %this, i64 65
-  %187 = load i8, ptr %m_is_local_player, align 1, !tbaa !161, !range !32, !noundef !33
-  %tobool500.not = icmp eq i8 %187, 0
+  %186 = load i8, ptr %m_is_local_player, align 1, !tbaa !161, !range !32, !noundef !33
+  %tobool500.not = icmp eq i8 %186, 0
   br i1 %tobool500.not, label %if.end502, label %if.then501
 
 if.then501:                                       ; preds = %if.end499

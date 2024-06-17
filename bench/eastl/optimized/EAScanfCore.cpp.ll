@@ -3727,13 +3727,13 @@ if.then233:                                       ; preds = %if.end230
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %if.end260, %if.then233
-  %pFormatCurrent.7.sink = phi ptr [ %pFormatCurrent.7, %if.end260 ], [ %pFormatCurrent.4, %if.then233 ]
-  %incdec.ptr261 = getelementptr inbounds i8, ptr %pFormatCurrent.7.sink, i64 1
-  %22 = load i8, ptr %incdec.ptr261, align 1
+  %pFormatCurrent.4.sink = phi ptr [ %pFormatCurrent.4, %if.then233 ], [ %pFormatCurrent.7, %if.end260 ]
+  %incdec.ptr235 = getelementptr inbounds i8, ptr %pFormatCurrent.4.sink, i64 1
+  %22 = load i8, ptr %incdec.ptr235, align 1
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end230
-  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end230 ], [ %incdec.ptr261, %while.cond.sink.split ]
+  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end230 ], [ %incdec.ptr235, %while.cond.sink.split ]
   %c.6 = phi i8 [ %c.4, %if.end230 ], [ %22, %while.cond.sink.split ]
   switch i8 %c.6, label %while.body [
     i8 0, label %if.else269
@@ -5043,13 +5043,13 @@ if.then233:                                       ; preds = %if.end230
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %if.end260, %if.then233
-  %pFormatCurrent.7.sink = phi ptr [ %pFormatCurrent.7, %if.end260 ], [ %pFormatCurrent.4, %if.then233 ]
-  %incdec.ptr261 = getelementptr inbounds i8, ptr %pFormatCurrent.7.sink, i64 2
-  %20 = load i16, ptr %incdec.ptr261, align 2
+  %pFormatCurrent.4.sink = phi ptr [ %pFormatCurrent.4, %if.then233 ], [ %pFormatCurrent.7, %if.end260 ]
+  %incdec.ptr235 = getelementptr inbounds i8, ptr %pFormatCurrent.4.sink, i64 2
+  %20 = load i16, ptr %incdec.ptr235, align 2
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end230
-  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end230 ], [ %incdec.ptr261, %while.cond.sink.split ]
+  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end230 ], [ %incdec.ptr235, %while.cond.sink.split ]
   %c.6 = phi i16 [ %c.4, %if.end230 ], [ %20, %while.cond.sink.split ]
   switch i16 %c.6, label %while.body [
     i16 0, label %if.else269
@@ -6405,13 +6405,13 @@ if.then210:                                       ; preds = %if.end208
   br label %while.cond.sink.split
 
 while.cond.sink.split:                            ; preds = %if.end232, %if.then210
-  %pFormatCurrent.7.sink = phi ptr [ %pFormatCurrent.7, %if.end232 ], [ %pFormatCurrent.4, %if.then210 ]
-  %incdec.ptr233 = getelementptr inbounds i8, ptr %pFormatCurrent.7.sink, i64 4
-  %20 = load i32, ptr %incdec.ptr233, align 4
+  %pFormatCurrent.4.sink = phi ptr [ %pFormatCurrent.4, %if.then210 ], [ %pFormatCurrent.7, %if.end232 ]
+  %incdec.ptr212 = getelementptr inbounds i8, ptr %pFormatCurrent.4.sink, i64 4
+  %20 = load i32, ptr %incdec.ptr212, align 4
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.sink.split, %if.end208
-  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end208 ], [ %incdec.ptr233, %while.cond.sink.split ]
+  %pFormatCurrent.6 = phi ptr [ %pFormatCurrent.4, %if.end208 ], [ %incdec.ptr212, %while.cond.sink.split ]
   %c.6 = phi i32 [ %c.4, %if.end208 ], [ %20, %while.cond.sink.split ]
   switch i32 %c.6, label %while.body [
     i32 0, label %if.else241

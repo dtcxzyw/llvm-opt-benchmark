@@ -775,10 +775,10 @@ switch.lookup:                                    ; preds = %entry
   %switch.shiftamt = zext nneg i32 %2 to i48
   %switch.downshift = lshr i48 -139635829144576, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i16
-  %sts = getelementptr i8, ptr %notifier, i64 -304
-  %3 = load i16, ptr %sts, align 16
+  %sts12 = getelementptr i8, ptr %notifier, i64 -304
+  %3 = load i16, ptr %sts12, align 16
   %4 = or i16 %3, %switch.masked
-  store i16 %4, ptr %sts, align 16
+  store i16 %4, ptr %sts12, align 16
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %entry, %switch.lookup

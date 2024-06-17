@@ -2173,13 +2173,13 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %10 = getelementptr inbounds i8, ptr %0, i64 40
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 19
-  br i1 %12, label %13, label %90
+  br i1 %12, label %13, label %86
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 110
-  br i1 %16, label %17, label %90
+  br i1 %16, label %17, label %86
 
 17:                                               ; preds = %13
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -2192,7 +2192,7 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %22 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %22, ptr noundef nonnull @.str.12, ptr noundef %21) #5
   %23 = load ptr, ptr @poisoned_ast, align 8
-  br label %102
+  br label %98
 
 .critedge100:                                     ; preds = %17
   tail call void @advance(ptr noundef nonnull %0) #5
@@ -2211,7 +2211,7 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %27 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %27, ptr noundef nonnull %.str.23.sink.i, ptr noundef nonnull @.str.21) #5
   %28 = load ptr, ptr @poisoned_ast, align 8
-  br label %102
+  br label %98
 
 29:                                               ; preds = %.critedge100
   %30 = load i64, ptr %2, align 8
@@ -2260,98 +2260,91 @@ define internal fastcc ptr @parse_defer_stmt(ptr noundef %0) unnamed_addr #0 {
   %60 = load i64, ptr %2, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %60, ptr noundef nonnull @.str.12, ptr noundef %59) #5
   %61 = load ptr, ptr @poisoned_ast, align 8
-  br label %102
+  br label %98
 
 .critedge102:                                     ; preds = %29
   tail call void @advance(ptr noundef nonnull %0) #5
   %62 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.split92, label %67
+  br i1 %63, label %.critedge, label %64
 
-.split92:                                         ; preds = %.critedge102
-  %64 = load ptr, ptr @ast_arena, align 8
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 0, %65
+64:                                               ; preds = %.critedge102
+  %65 = getelementptr inbounds i8, ptr %62, i64 12
+  %66 = load i8, ptr %65, align 4
+  %.not = icmp eq i8 %66, 0
+  br i1 %.not, label %68, label %.split
+
+.split:                                           ; preds = %64
+  %67 = ptrtoint ptr %62 to i64
   br label %.critedge
 
-67:                                               ; preds = %.critedge102
-  %68 = getelementptr inbounds i8, ptr %62, i64 12
-  %69 = load i8, ptr %68, align 4
-  %.not = icmp eq i8 %69, 0
-  br i1 %.not, label %74, label %.split
+68:                                               ; preds = %64
+  %69 = load ptr, ptr @poisoned_ast, align 8
+  br label %98
 
-.split:                                           ; preds = %67
-  %70 = load ptr, ptr @ast_arena, align 8
-  %71 = ptrtoint ptr %62 to i64
-  %72 = ptrtoint ptr %70 to i64
-  %73 = sub i64 %71, %72
-  br label %.critedge
-
-74:                                               ; preds = %67
-  %75 = load ptr, ptr @poisoned_ast, align 8
-  br label %102
-
-.critedge:                                        ; preds = %.split92, %.split
-  %.pre-phi = phi i64 [ %65, %.split92 ], [ %72, %.split ]
-  %phi.call.in.in = phi i64 [ %66, %.split92 ], [ %73, %.split ]
-  %phi.call.in = sdiv exact i64 %phi.call.in.in, 48
+.critedge:                                        ; preds = %.critedge102, %.split
+  %.sink = phi i64 [ %67, %.split ], [ 0, %.critedge102 ]
+  %.sink105 = load ptr, ptr @ast_arena, align 8
+  %70 = ptrtoint ptr %.sink105 to i64
+  %71 = sub i64 %.sink, %70
+  %phi.call.in = sdiv exact i64 %71, 48
   %phi.call = trunc i64 %phi.call.in to i32
-  %76 = getelementptr inbounds i8, ptr %34, i64 8
-  store i32 %phi.call, ptr %76, align 8
-  %77 = ptrtoint ptr %34 to i64
-  %78 = sub i64 %77, %.pre-phi
-  %79 = sdiv exact i64 %78, 48
-  %80 = trunc i64 %79 to i32
-  %81 = getelementptr inbounds i8, ptr %31, i64 16
-  store i32 %80, ptr %81, align 8
-  %82 = ptrtoint ptr %31 to i64
-  %83 = sub i64 %82, %.pre-phi
-  %84 = sdiv exact i64 %83, 48
-  %85 = trunc i64 %84 to i32
-  %86 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %85, ptr %86, align 4
-  br label %102
+  %72 = getelementptr inbounds i8, ptr %34, i64 8
+  store i32 %phi.call, ptr %72, align 8
+  %73 = ptrtoint ptr %34 to i64
+  %74 = sub i64 %73, %70
+  %75 = sdiv exact i64 %74, 48
+  %76 = trunc i64 %75 to i32
+  %77 = getelementptr inbounds i8, ptr %31, i64 16
+  store i32 %76, ptr %77, align 8
+  %78 = ptrtoint ptr %31 to i64
+  %79 = sub i64 %78, %70
+  %80 = sdiv exact i64 %79, 48
+  %81 = trunc i64 %80 to i32
+  %82 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %81, ptr %82, align 4
+  br label %98
 
 .sink.split:                                      ; preds = %7, %1
-  %.sink106 = phi i8 [ 1, %1 ], [ 2, %7 ]
-  %87 = getelementptr inbounds i8, ptr %4, i64 24
-  %88 = load i8, ptr %87, align 8
-  %89 = or i8 %88, %.sink106
-  store i8 %89, ptr %87, align 8
-  br label %90
+  %.sink109 = phi i8 [ 1, %1 ], [ 2, %7 ]
+  %83 = getelementptr inbounds i8, ptr %4, i64 24
+  %84 = load i8, ptr %83, align 8
+  %85 = or i8 %84, %.sink109
+  store i8 %85, ptr %83, align 8
+  br label %86
 
-90:                                               ; preds = %.sink.split, %13, %9
-  %91 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
-  %92 = icmp eq ptr %91, null
-  br i1 %92, label %.critedge2, label %93
+86:                                               ; preds = %.sink.split, %13, %9
+  %87 = tail call ptr @parse_stmt(ptr noundef nonnull %0)
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %.critedge2, label %89
 
-93:                                               ; preds = %90
-  %94 = getelementptr inbounds i8, ptr %91, i64 12
-  %95 = load i8, ptr %94, align 4
-  %.not98 = icmp eq i8 %95, 0
-  br i1 %.not98, label %97, label %.split93
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %87, i64 12
+  %91 = load i8, ptr %90, align 4
+  %.not98 = icmp eq i8 %91, 0
+  br i1 %.not98, label %93, label %.split93
 
-.split93:                                         ; preds = %93
-  %96 = ptrtoint ptr %91 to i64
+.split93:                                         ; preds = %89
+  %92 = ptrtoint ptr %87 to i64
   br label %.critedge2
 
-97:                                               ; preds = %93
-  %98 = load ptr, ptr @poisoned_ast, align 8
-  br label %102
+93:                                               ; preds = %89
+  %94 = load ptr, ptr @poisoned_ast, align 8
+  br label %98
 
-.critedge2:                                       ; preds = %90, %.split93
-  %.sink107 = phi i64 [ %96, %.split93 ], [ 0, %90 ]
-  %.sink109 = load ptr, ptr @ast_arena, align 8
-  %99 = ptrtoint ptr %.sink109 to i64
-  %100 = sub i64 %.sink107, %99
-  %phi.call95.in = sdiv exact i64 %100, 48
+.critedge2:                                       ; preds = %86, %.split93
+  %.sink111 = phi i64 [ %92, %.split93 ], [ 0, %86 ]
+  %.sink113 = load ptr, ptr @ast_arena, align 8
+  %95 = ptrtoint ptr %.sink113 to i64
+  %96 = sub i64 %.sink111, %95
+  %phi.call95.in = sdiv exact i64 %96, 48
   %phi.call95 = trunc i64 %phi.call95.in to i32
-  %101 = getelementptr inbounds i8, ptr %4, i64 20
-  store i32 %phi.call95, ptr %101, align 4
-  br label %102
+  %97 = getelementptr inbounds i8, ptr %4, i64 20
+  store i32 %phi.call95, ptr %97, align 4
+  br label %98
 
-102:                                              ; preds = %.critedge2, %97, %.critedge, %74, %58, %26, %20
-  %.091 = phi ptr [ %4, %.critedge2 ], [ %98, %97 ], [ %4, %.critedge ], [ %75, %74 ], [ %61, %58 ], [ %28, %26 ], [ %23, %20 ]
+98:                                               ; preds = %.critedge2, %93, %.critedge, %68, %58, %26, %20
+  %.091 = phi ptr [ %4, %.critedge2 ], [ %94, %93 ], [ %4, %.critedge ], [ %69, %68 ], [ %61, %58 ], [ %28, %26 ], [ %23, %20 ]
   ret ptr %.091
 }
 

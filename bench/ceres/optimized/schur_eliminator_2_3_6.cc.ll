@@ -8878,49 +8878,44 @@ _ZN5Eigen19ColPivHouseholderQRINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEEC2Ell.exit: 
   %27 = getelementptr inbounds i8, ptr %1, i64 137
   %28 = load i8, ptr %27, align 1
   %29 = trunc i8 %28 to i1
-  br i1 %29, label %30, label %33
+  br i1 %29, label %.sink.split, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %0, i64 216
-  %32 = load i64, ptr %3, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %31, i64 noundef %32, i64 noundef 1, i64 noundef %32)
-  br label %40
+  %31 = getelementptr inbounds i8, ptr %1, i64 138
+  %32 = load i8, ptr %31, align 2
+  %33 = trunc i8 %32 to i1
+  br i1 %33, label %.sink.split, label %36
 
-33:                                               ; preds = %26
-  %34 = getelementptr inbounds i8, ptr %1, i64 138
-  %35 = load i8, ptr %34, align 2
-  %36 = trunc i8 %35 to i1
-  br i1 %36, label %37, label %40
+.sink.split:                                      ; preds = %30, %26
+  %.sink15 = phi ptr [ %3, %26 ], [ %7, %30 ]
+  %34 = getelementptr inbounds i8, ptr %0, i64 216
+  %35 = load i64, ptr %.sink15, align 8
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %34, i64 noundef %35, i64 noundef 1, i64 noundef %35)
+  br label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
-  %39 = load i64, ptr %7, align 8
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELi1ELin1ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %38, i64 noundef %39, i64 noundef 1, i64 noundef %39)
-  br label %40
+36:                                               ; preds = %.sink.split, %30
+  %37 = load i64, ptr %3, align 8
+  %38 = load i64, ptr %7, align 8
+  %39 = icmp eq i64 %37, 0
+  %40 = icmp eq i64 %38, 0
+  %or.cond.i = or i1 %39, %40
+  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit, label %41
 
-40:                                               ; preds = %33, %37, %30
-  %41 = load i64, ptr %3, align 8
-  %42 = load i64, ptr %7, align 8
-  %43 = icmp eq i64 %41, 0
-  %44 = icmp eq i64 %42, 0
-  %or.cond.i = or i1 %43, %44
-  br i1 %or.cond.i, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit, label %45
+41:                                               ; preds = %36
+  %42 = sdiv i64 9223372036854775807, %38
+  %43 = icmp slt i64 %42, %37
+  br i1 %43, label %44, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit
 
-45:                                               ; preds = %40
-  %46 = sdiv i64 9223372036854775807, %42
-  %47 = icmp slt i64 %46, %41
-  br i1 %47, label %48, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit
-
-48:                                               ; preds = %45
-  %49 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %49, align 8
-  tail call void @__cxa_throw(ptr nonnull %49, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
+44:                                               ; preds = %41
+  %45 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %45, align 8
+  tail call void @__cxa_throw(ptr nonnull %45, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
   unreachable
 
-_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit: ; preds = %40, %45
-  %50 = getelementptr inbounds i8, ptr %0, i64 200
-  %51 = mul nsw i64 %42, %41
-  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi3ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %50, i64 noundef %51, i64 noundef %41, i64 noundef %42)
+_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi3ELi1ELin1ELi3EEEE6resizeEll.exit: ; preds = %36, %41
+  %46 = getelementptr inbounds i8, ptr %0, i64 200
+  %47 = mul nsw i64 %38, %37
+  tail call void @_ZN5Eigen12DenseStorageIdLin1ELin1ELi3ELi1EE6resizeElll(ptr noundef nonnull align 8 dereferenceable(16) %46, i64 noundef %47, i64 noundef %37, i64 noundef %38)
   ret void
 }
 
