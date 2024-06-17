@@ -42233,7 +42233,7 @@ define internal fastcc void @_ZN13rustc_apfloat4ieee3sig3mul17h2972bef38cb3a0e9E
 
 .split.i.i.us:                                    ; preds = %34
   %42 = shl nuw nsw i64 %41, 6
-  %43 = lshr i64 %41, 1
+  %43 = and i64 %.sroa.04.031.i.us, %.sroa.0.032.i.us
   %44 = and i64 %42, 64
   %.not18.i.i.us = icmp eq i64 %44, 0
   %45 = zext nneg i64 %44 to i128
