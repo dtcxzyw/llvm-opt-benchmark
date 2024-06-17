@@ -3805,7 +3805,7 @@ _ZN12VNUser1InUseC2Ev.exit.preheader:             ; preds = %._crit_edge
   %39 = getelementptr inbounds i8, ptr %33, i64 24
   %40 = load ptr, ptr %39, align 8
   %.not137 = icmp eq ptr %40, null
-  br i1 %.not137, label %41, label %69
+  br i1 %.not137, label %41, label %_ZN12VNUser1InUseC2Ev.exit.backedge
 
 41:                                               ; preds = %38
   store i64 0, ptr %30, align 8
@@ -3873,10 +3873,10 @@ _ZNSt8functionIFvR9DfgVertexEED2Ev.exit:          ; preds = %_ZN9DfgVertex13forE
   invoke void @_ZN9DfgVertex12unlinkDeleteER8DfgGraph(ptr noundef nonnull align 8 dereferenceable(72) %33, ptr noundef nonnull align 8 dereferenceable(104) %0)
           to label %_ZN12VNUser1InUseC2Ev.exit.backedge unwind label %.loopexit154
 
-_ZN12VNUser1InUseC2Ev.exit.backedge:              ; preds = %97, %93, %.noexc82, %.noexc81, %77, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit, %69, %111, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %137, %131, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105, %87, %102
-  %.sroa.13.0.be = phi ptr [ %.sroa.13.0221, %69 ], [ %.sroa.13.0221, %111 ], [ %.sroa.13.0221, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.13.0221, %131 ], [ %.sroa.13.0221, %137 ], [ %.sroa.13.2, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.13.0221, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.13.0221, %87 ], [ %.sroa.13.0221, %102 ], [ %.sroa.13.0221, %77 ], [ %.sroa.13.0221, %.noexc81 ], [ %.sroa.13.0221, %.noexc82 ], [ %.sroa.13.0221, %93 ], [ %.sroa.13.0221, %97 ]
-  %.sroa.7.0.be = phi ptr [ %.sroa.7.0222, %69 ], [ %.sroa.7.0222, %111 ], [ %.sroa.7.0222, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.7.0222, %131 ], [ %.sroa.7.0222, %137 ], [ %.sroa.7.2, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.7.0222, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.7.0222, %87 ], [ %.sroa.7.0222, %102 ], [ %.sroa.7.0222, %77 ], [ %.sroa.7.0222, %.noexc81 ], [ %.sroa.7.0222, %.noexc82 ], [ %.sroa.7.0222, %93 ], [ %.sroa.7.0222, %97 ]
-  %.sroa.0123.0.be = phi ptr [ %.sroa.0123.0223, %69 ], [ %.sroa.0123.0223, %111 ], [ %.sroa.0123.0223, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.0123.0223, %131 ], [ %.sroa.0123.0223, %137 ], [ %.sroa.0123.3, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.0123.0223, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.0123.0223, %87 ], [ %.sroa.0123.0223, %102 ], [ %.sroa.0123.0223, %77 ], [ %.sroa.0123.0223, %.noexc81 ], [ %.sroa.0123.0223, %.noexc82 ], [ %.sroa.0123.0223, %93 ], [ %.sroa.0123.0223, %97 ]
+_ZN12VNUser1InUseC2Ev.exit.backedge:              ; preds = %97, %38, %93, %.noexc82, %.noexc81, %77, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit, %69, %111, %_ZNK9DfgVertex16hasMultipleSinksEv.exit, %137, %131, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105, %87, %102
+  %.sroa.13.0.be = phi ptr [ %.sroa.13.0221, %69 ], [ %.sroa.13.0221, %111 ], [ %.sroa.13.0221, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.13.0221, %131 ], [ %.sroa.13.0221, %137 ], [ %.sroa.13.2, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.13.0221, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.13.0221, %87 ], [ %.sroa.13.0221, %102 ], [ %.sroa.13.0221, %77 ], [ %.sroa.13.0221, %.noexc81 ], [ %.sroa.13.0221, %.noexc82 ], [ %.sroa.13.0221, %93 ], [ %.sroa.13.0221, %38 ], [ %.sroa.13.0221, %97 ]
+  %.sroa.7.0.be = phi ptr [ %.sroa.7.0222, %69 ], [ %.sroa.7.0222, %111 ], [ %.sroa.7.0222, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.7.0222, %131 ], [ %.sroa.7.0222, %137 ], [ %.sroa.7.2, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.7.0222, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.7.0222, %87 ], [ %.sroa.7.0222, %102 ], [ %.sroa.7.0222, %77 ], [ %.sroa.7.0222, %.noexc81 ], [ %.sroa.7.0222, %.noexc82 ], [ %.sroa.7.0222, %93 ], [ %.sroa.7.0222, %38 ], [ %.sroa.7.0222, %97 ]
+  %.sroa.0123.0.be = phi ptr [ %.sroa.0123.0223, %69 ], [ %.sroa.0123.0223, %111 ], [ %.sroa.0123.0223, %_ZNK9DfgVertex16hasMultipleSinksEv.exit ], [ %.sroa.0123.0223, %131 ], [ %.sroa.0123.0223, %137 ], [ %.sroa.0123.3, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit105 ], [ %.sroa.0123.0223, %_ZNSt8functionIFvR9DfgVertexEED2Ev.exit ], [ %.sroa.0123.0223, %87 ], [ %.sroa.0123.0223, %102 ], [ %.sroa.0123.0223, %77 ], [ %.sroa.0123.0223, %.noexc81 ], [ %.sroa.0123.0223, %.noexc82 ], [ %.sroa.0123.0223, %93 ], [ %.sroa.0123.0223, %38 ], [ %.sroa.0123.0223, %97 ]
   %61 = load ptr, ptr %6, align 8
   %.not68 = icmp eq ptr %61, %0
   br i1 %.not68, label %_ZN12VNUser1InUseC2Ev.exit._crit_edge, label %32, !llvm.loop !31
@@ -3929,9 +3929,9 @@ _ZN12VNUser1InUseC2Ev.exit.backedge:              ; preds = %97, %93, %.noexc82,
   call void @__clang_call_terminate(ptr %68) #27
   unreachable
 
-69:                                               ; preds = %32, %38
-  %.not300 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 153
-  br i1 %.not300, label %70, label %_ZN12VNUser1InUseC2Ev.exit.backedge
+69:                                               ; preds = %32
+  %.not303 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 153
+  br i1 %.not303, label %70, label %_ZN12VNUser1InUseC2Ev.exit.backedge
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %33, align 8
@@ -4576,7 +4576,7 @@ _ZN6AstVar12unlinkFrBackEP10VNRelinker.exit110:   ; preds = %.lr.ph229
   unreachable
 
 _ZN9VNDeleterD2Ev.exit:                           ; preds = %_ZN12VNUser1InUseC2Ev.exit.preheader, %314, %312, %_ZN12VNUser1InUseC2Ev.exit._crit_edge
-  %.sroa.0123.0.lcssa265 = phi ptr [ %.sroa.0123.0.be, %314 ], [ %.sroa.0123.0.be, %312 ], [ %.sroa.0123.0.be, %_ZN12VNUser1InUseC2Ev.exit._crit_edge ], [ null, %_ZN12VNUser1InUseC2Ev.exit.preheader ]
+  %.sroa.0123.0.lcssa268 = phi ptr [ %.sroa.0123.0.be, %314 ], [ %.sroa.0123.0.be, %312 ], [ %.sroa.0123.0.be, %_ZN12VNUser1InUseC2Ev.exit._crit_edge ], [ null, %_ZN12VNUser1InUseC2Ev.exit.preheader ]
   invoke void @_ZN15VNUserInUseBase4freeEiRjRb(i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) @_ZN12VNUser1InUse12s_userCntGblE, ptr noundef nonnull align 1 dereferenceable(1) @_ZN12VNUser1InUse10s_userBusyE)
           to label %_ZN12VNUser1InUseD2Ev.exit unwind label %318
 
@@ -4588,11 +4588,11 @@ _ZN9VNDeleterD2Ev.exit:                           ; preds = %_ZN12VNUser1InUseC2
   unreachable
 
 _ZN12VNUser1InUseD2Ev.exit:                       ; preds = %_ZN9VNDeleterD2Ev.exit
-  %.not.i.i.i111 = icmp eq ptr %.sroa.0123.0.lcssa265, null
+  %.not.i.i.i111 = icmp eq ptr %.sroa.0123.0.lcssa268, null
   br i1 %.not.i.i.i111, label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit, label %321
 
 321:                                              ; preds = %_ZN12VNUser1InUseD2Ev.exit
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.0123.0.lcssa265) #28
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.0123.0.lcssa268) #28
   br label %_ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit
 
 _ZNSt6vectorIP6AstVarSaIS1_EED2Ev.exit:           ; preds = %_ZN12VNUser1InUseD2Ev.exit, %321

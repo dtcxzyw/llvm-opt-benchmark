@@ -51069,7 +51069,7 @@ invoke.cont45:                                    ; preds = %if.end.i.i.i.i.i, %
   br i1 %cmp.i.i112, label %if.then.i.i.i106.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i113
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i113: ; preds = %invoke.cont45
-  %add.i.i114 = add i64 %73, 4
+  %add.i.i114 = add nsw i64 %73, 4
   %75 = load ptr, ptr %ref.tmp36, align 8
   %cmp.i.i.i.i115 = icmp eq ptr %75, %31
   br i1 %cmp.i.i.i.i115, label %if.then.i.i.i.i128, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i116
@@ -51490,7 +51490,7 @@ invoke.cont111:                                   ; preds = %if.end.i.i.i.i.i232
   br i1 %cmp.i.i245, label %if.then.i.i.i238.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i246
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i246: ; preds = %invoke.cont111
-  %add.i.i247 = add i64 %118, 4
+  %add.i.i247 = add nsw i64 %118, 4
   %120 = load ptr, ptr %ref.tmp100, align 8
   %cmp.i.i.i.i248 = icmp eq ptr %120, %36
   br i1 %cmp.i.i.i.i248, label %if.then.i.i.i.i261, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i249

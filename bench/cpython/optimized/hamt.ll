@@ -1933,14 +1933,10 @@ if.end62.i:                                       ; preds = %if.end59.i
   %self.val.i = load i64, ptr %40, align 8
   %41 = and i64 %self.val.i, -2
   %cmp64.i = icmp eq i64 %41, 2
-  br i1 %cmp64.i, label %hamt_node_bitmap_without.exit, label %if.end66.i
+  br i1 %cmp64.i, label %hamt_node_bitmap_without.exit, label %if.end.i.i55
 
-if.end66.i:                                       ; preds = %if.end62.i
+if.end.i.i55:                                     ; preds = %if.end62.i
   %sub.i53 = add i64 %self.val.i, -2
-  %cmp.i.i54 = icmp eq i64 %sub.i53, 0
-  br i1 %cmp.i.i54, label %if.end.i67, label %if.end.i.i55
-
-if.end.i.i55:                                     ; preds = %if.end66.i
   %call.i.i56 = tail call ptr @_PyObject_GC_NewVar(ptr noundef nonnull @_PyHamt_BitmapNode_Type, i64 noundef %sub.i53) #11
   %cmp1.i.i57 = icmp eq ptr %call.i.i56, null
   br i1 %cmp1.i.i57, label %hamt_node_bitmap_clone_without.exit, label %if.end3.i.i
@@ -1949,15 +1945,15 @@ if.end3.i.i:                                      ; preds = %if.end.i.i55
   %ob_size.i.i.i58 = getelementptr inbounds i8, ptr %call.i.i56, i64 16
   store i64 %sub.i53, ptr %ob_size.i.i.i58, align 8
   %cmp411.i.i = icmp sgt i64 %sub.i53, 0
-  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i79, label %for.end.i.i
+  br i1 %cmp411.i.i, label %for.body.lr.ph.i.i79, label %if.end.i67
 
 for.body.lr.ph.i.i79:                             ; preds = %if.end3.i.i
   %b_array.i.i80 = getelementptr inbounds i8, ptr %call.i.i56, i64 32
   %42 = shl nuw i64 %sub.i53, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %b_array.i.i80, i8 0, i64 %42, i1 false)
-  br label %for.end.i.i
+  br label %if.end.i67
 
-for.end.i.i:                                      ; preds = %for.body.lr.ph.i.i79, %if.end3.i.i
+if.end.i67:                                       ; preds = %if.end3.i.i, %for.body.lr.ph.i.i79
   %b_bitmap.i.i59 = getelementptr inbounds i8, ptr %call.i.i56, i64 24
   store i32 0, ptr %b_bitmap.i.i59, align 8
   %add.ptr.i.i.i.i60 = getelementptr i8, ptr %call.i.i56, i64 -16
@@ -1980,10 +1976,6 @@ for.end.i.i:                                      ; preds = %for.body.lr.ph.i.i7
   %51 = ptrtoint ptr %46 to i64
   store i64 %51, ptr %add.ptr.i.i.i.i60, align 8
   store i64 %49, ptr %_gc_prev.i.i.i63, align 8
-  br label %if.end.i67
-
-if.end.i67:                                       ; preds = %for.end.i.i, %if.end66.i
-  %retval.0.i.ph.i = phi ptr [ getelementptr inbounds (i8, ptr @_PyRuntime, i64 76896), %if.end66.i ], [ %call.i.i56, %for.end.i.i ]
   %52 = load i32, ptr %b_bitmap.i, align 8
   %and.i.i = and i32 %52, %sub.i123
   %53 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %and.i.i)
@@ -1992,7 +1984,7 @@ if.end.i67:                                       ; preds = %for.end.i.i, %if.en
   br i1 %cmp329.not.i, label %for.end.i74, label %for.body.lr.ph.i70
 
 for.body.lr.ph.i70:                               ; preds = %if.end.i67
-  %b_array5.i = getelementptr i8, ptr %retval.0.i.ph.i, i64 32
+  %b_array5.i = getelementptr i8, ptr %call.i.i56, i64 32
   %umax.i = tail call i32 @llvm.umax.i32(i32 %mul.i69, i32 1)
   %wide.trip.count.i = zext nneg i32 %umax.i to i64
   br label %for.body.i72
@@ -2029,7 +2021,7 @@ for.end.i74:                                      ; preds = %_Py_XNewRef.exit.i,
   br i1 %cmp1133.i, label %for.body13.lr.ph.i, label %for.end24.i
 
 for.body13.lr.ph.i:                               ; preds = %for.end.i74
-  %b_array18.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 32
+  %b_array18.i = getelementptr inbounds i8, ptr %call.i.i56, i64 32
   %56 = zext nneg i32 %add8.i75 to i64
   br label %for.body13.i
 
@@ -2064,14 +2056,13 @@ for.end24.i:                                      ; preds = %_Py_XNewRef.exit25.
   %61 = load i32, ptr %b_bitmap.i, align 8
   %not.i = xor i32 %shl.i126, -1
   %and.i76 = and i32 %61, %not.i
-  %b_bitmap26.i = getelementptr inbounds i8, ptr %retval.0.i.ph.i, i64 24
+  %b_bitmap26.i = getelementptr inbounds i8, ptr %call.i.i56, i64 24
   store i32 %and.i76, ptr %b_bitmap26.i, align 8
   br label %hamt_node_bitmap_clone_without.exit
 
 hamt_node_bitmap_clone_without.exit:              ; preds = %if.end.i.i55, %for.end24.i
-  %retval.0.i77 = phi ptr [ %retval.0.i.ph.i, %for.end24.i ], [ null, %if.end.i.i55 ]
-  store ptr %retval.0.i77, ptr %new_node, align 8
-  %cmp68.i = icmp eq ptr %retval.0.i77, null
+  store ptr %call.i.i56, ptr %new_node, align 8
+  %cmp68.i = icmp eq ptr %call.i.i56, null
   %..i = select i1 %cmp68.i, i32 0, i32 3
   br label %hamt_node_bitmap_without.exit
 

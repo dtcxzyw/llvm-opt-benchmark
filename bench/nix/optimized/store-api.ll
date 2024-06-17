@@ -29202,7 +29202,7 @@ define void @_ZN3nix14StoreDirConfig9showPathsB5cxx11ERKSt3setINS_9StorePathESt4
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %24
-  %28 = add i64 %23, 2
+  %28 = add nsw i64 %23, 2
   %29 = load ptr, ptr %0, align 8
   %30 = icmp eq ptr %29, %8
   br i1 %30, label %31, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i

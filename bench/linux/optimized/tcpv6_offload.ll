@@ -142,7 +142,7 @@ define dso_local ptr @tcp6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %98, label %112, label %99
 
 99:                                               ; preds = %93
-  %100 = add i8 %96, 32
+  %100 = add nsw i8 %96, 32
   %101 = and i8 %100, 96
   %102 = zext nneg i8 %101 to i24
   %103 = and i24 %95, -97

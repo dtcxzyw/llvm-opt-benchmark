@@ -1434,10 +1434,10 @@ define internal i32 @pg_wchar2utf_with_len(ptr nocapture noundef readonly %0, pt
   br i1 %4, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %pg_utf_mblen.exit
-  %.019 = phi ptr [ %58, %pg_utf_mblen.exit ], [ %0, %3 ]
-  %.01218 = phi i32 [ %55, %pg_utf_mblen.exit ], [ 0, %3 ]
-  %.01317 = phi i32 [ %59, %pg_utf_mblen.exit ], [ %2, %3 ]
-  %.01416 = phi ptr [ %57, %pg_utf_mblen.exit ], [ %1, %3 ]
+  %.019 = phi ptr [ %55, %pg_utf_mblen.exit ], [ %0, %3 ]
+  %.01218 = phi i32 [ %52, %pg_utf_mblen.exit ], [ 0, %3 ]
+  %.01317 = phi i32 [ %56, %pg_utf_mblen.exit ], [ %2, %3 ]
+  %.01416 = phi ptr [ %54, %pg_utf_mblen.exit ], [ %1, %3 ]
   %5 = load i32, ptr %.019, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.critedge, label %6
@@ -1515,27 +1515,22 @@ unicode_to_utf8.exit.thread:                      ; preds = %6
 49:                                               ; preds = %41
   %50 = and i32 %46, 240
   %51 = icmp eq i32 %50, 224
-  br i1 %51, label %pg_utf_mblen.exit, label %52
-
-52:                                               ; preds = %49
-  %53 = and i32 %46, 248
-  %54 = icmp eq i32 %53, 240
-  %..i = select i1 %54, i32 4, i32 1
+  %spec.select = select i1 %51, i32 3, i32 4
   br label %pg_utf_mblen.exit
 
-pg_utf_mblen.exit:                                ; preds = %unicode_to_utf8.exit.thread, %41, %49, %52
-  %.0.i = phi i32 [ 2, %41 ], [ 3, %49 ], [ %..i, %52 ], [ 1, %unicode_to_utf8.exit.thread ]
-  %55 = add i32 %.0.i, %.01218
-  %56 = zext nneg i32 %.0.i to i64
-  %57 = getelementptr i8, ptr %.01416, i64 %56
-  %58 = getelementptr i8, ptr %.019, i64 4
-  %59 = add nsw i32 %.01317, -1
-  %60 = icmp sgt i32 %.01317, 1
-  br i1 %60, label %.lr.ph, label %.critedge, !llvm.loop !15
+pg_utf_mblen.exit:                                ; preds = %49, %unicode_to_utf8.exit.thread, %41
+  %.0.i = phi i32 [ 2, %41 ], [ 1, %unicode_to_utf8.exit.thread ], [ %spec.select, %49 ]
+  %52 = add i32 %.0.i, %.01218
+  %53 = zext nneg i32 %.0.i to i64
+  %54 = getelementptr i8, ptr %.01416, i64 %53
+  %55 = getelementptr i8, ptr %.019, i64 4
+  %56 = add nsw i32 %.01317, -1
+  %57 = icmp sgt i32 %.01317, 1
+  br i1 %57, label %.lr.ph, label %.critedge, !llvm.loop !15
 
 .critedge:                                        ; preds = %.lr.ph, %pg_utf_mblen.exit, %3
-  %.014.lcssa = phi ptr [ %1, %3 ], [ %57, %pg_utf_mblen.exit ], [ %.01416, %.lr.ph ]
-  %.012.lcssa = phi i32 [ 0, %3 ], [ %55, %pg_utf_mblen.exit ], [ %.01218, %.lr.ph ]
+  %.014.lcssa = phi ptr [ %1, %3 ], [ %54, %pg_utf_mblen.exit ], [ %.01416, %.lr.ph ]
+  %.012.lcssa = phi i32 [ 0, %3 ], [ %52, %pg_utf_mblen.exit ], [ %.01218, %.lr.ph ]
   store i8 0, ptr %.014.lcssa, align 1
   ret i32 %.012.lcssa
 }

@@ -1085,7 +1085,7 @@ define dso_local ptr @tcp4_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %99, label %113, label %100
 
 100:                                              ; preds = %94
-  %101 = add i8 %97, 32
+  %101 = add nsw i8 %97, 32
   %102 = and i8 %101, 96
   %103 = zext nneg i8 %102 to i24
   %104 = and i24 %96, -97

@@ -55109,10 +55109,10 @@ compile_builtin_function_call.exit:               ; preds = %72, %102, %108, %11
   br label %446
 
 iseq_builtin_function_name.exit.thread:           ; preds = %57, %rbimpl_intern_const.exit18.i, %rbimpl_intern_const.exit.i, %42, %41, %38, %iseq_builtin_function_name.exit, %get_node_call_nd_mid.exit
-  br i1 %6, label %369, label %250
+  br i1 %6, label %370, label %250
 
 250:                                              ; preds = %iseq_builtin_function_name.exit.thread
-  switch i32 %3, label %357 [
+  switch i32 %3, label %358 [
     i32 40, label %251
     i32 37, label %251
     i32 36, label %251
@@ -55324,41 +55324,41 @@ iseq_compile_each.exit:                           ; preds = %private_recv_p.exit
   br i1 %.not80, label %446, label %355
 
 355:                                              ; preds = %iseq_compile_each.exit.thread, %328, %iseq_compile_each.exit, %iseq_block_param_id_p.exit
-  switch i32 %3, label %370 [
-    i32 40, label %.thread
+  switch i32 %3, label %.thread [
+    i32 40, label %356
     i32 39, label %382
   ]
 
-.thread:                                          ; preds = %355
-  %356 = call fastcc ptr @qcall_branch_start(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef %4)
+356:                                              ; preds = %355
+  %357 = call fastcc ptr @qcall_branch_start(ptr noundef %0, ptr noundef nonnull %11, ptr noundef nonnull %15, ptr noundef nonnull %2, ptr noundef %4)
+  br label %.thread
+
+358:                                              ; preds = %250
+  %359 = and i32 %3, -2
+  %or.cond5 = icmp eq i32 %359, 38
+  br i1 %or.cond5, label %360, label %.thread
+
+360:                                              ; preds = %358
+  %361 = load i64, ptr %4, align 8
+  %362 = lshr i64 %361, 15
+  %363 = trunc i64 %362 to i32
+  %364 = getelementptr inbounds i8, ptr %4, i64 24
+  %365 = load i32, ptr %364, align 8
+  %366 = call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %363, i32 noundef %365, i32 noundef 18, i32 noundef 0, ptr noundef null)
+  %367 = load ptr, ptr %31, align 8
+  %368 = getelementptr inbounds i8, ptr %366, i64 16
+  store ptr %367, ptr %368, align 8
+  %369 = getelementptr inbounds i8, ptr %367, i64 8
+  store ptr %366, ptr %369, align 8
+  store ptr %366, ptr %31, align 8
   br label %370
 
-357:                                              ; preds = %250
-  %358 = and i32 %3, -2
-  %or.cond5 = icmp eq i32 %358, 38
-  br i1 %or.cond5, label %359, label %369
-
-359:                                              ; preds = %357
-  %360 = load i64, ptr %4, align 8
-  %361 = lshr i64 %360, 15
-  %362 = trunc i64 %361 to i32
-  %363 = getelementptr inbounds i8, ptr %4, i64 24
-  %364 = load i32, ptr %363, align 8
-  %365 = call fastcc noundef ptr @new_insn_core(ptr noundef %0, i32 noundef %362, i32 noundef %364, i32 noundef 18, i32 noundef 0, ptr noundef null)
-  %366 = load ptr, ptr %31, align 8
-  %367 = getelementptr inbounds i8, ptr %365, i64 16
-  store ptr %366, ptr %367, align 8
-  %368 = getelementptr inbounds i8, ptr %366, i64 8
-  store ptr %365, ptr %368, align 8
-  store ptr %365, ptr %31, align 8
-  br label %369
-
-369:                                              ; preds = %357, %359, %iseq_builtin_function_name.exit.thread
+370:                                              ; preds = %360, %iseq_builtin_function_name.exit.thread
   %.not81 = icmp eq i32 %3, 39
-  br i1 %.not81, label %382, label %370
+  br i1 %.not81, label %382, label %.thread
 
-370:                                              ; preds = %355, %.thread, %369
-  %.073149 = phi ptr [ %356, %.thread ], [ null, %369 ], [ null, %355 ]
+.thread:                                          ; preds = %355, %358, %356, %370
+  %.073149 = phi ptr [ null, %370 ], [ null, %358 ], [ %357, %356 ], [ null, %355 ]
   %371 = load i64, ptr %2, align 8
   %372 = trunc i64 %371 to i32
   %373 = lshr i32 %372, 8
@@ -55372,29 +55372,29 @@ iseq_compile_each.exit:                           ; preds = %private_recv_p.exit
     i32 104, label %.sink.split.i
   ]
 
-375:                                              ; preds = %370
+375:                                              ; preds = %.thread
   br label %.sink.split.i
 
-376:                                              ; preds = %370
+376:                                              ; preds = %.thread
   %377 = call ptr @ruby_node_name(i32 noundef %374) #37
   call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.74, ptr noundef %377) #38
   unreachable
 
-.sink.split.i:                                    ; preds = %375, %370, %370, %370, %370
-  %.sink8.i = phi i64 [ 40, %375 ], [ 48, %370 ], [ 48, %370 ], [ 48, %370 ], [ 48, %370 ]
+.sink.split.i:                                    ; preds = %375, %.thread, %.thread, %.thread, %.thread
+  %.sink8.i = phi i64 [ 40, %375 ], [ 48, %.thread ], [ 48, %.thread ], [ 48, %.thread ], [ 48, %.thread ]
   %378 = getelementptr inbounds i8, ptr %2, i64 %.sink8.i
   %379 = load ptr, ptr %378, align 8
   br label %get_nd_args.exit
 
-get_nd_args.exit:                                 ; preds = %370, %.sink.split.i
-  %.0.i106 = phi ptr [ null, %370 ], [ %379, %.sink.split.i ]
+get_nd_args.exit:                                 ; preds = %.thread, %.sink.split.i
+  %.0.i106 = phi ptr [ null, %.thread ], [ %379, %.sink.split.i ]
   %380 = call fastcc i64 @setup_args(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %.0.i106, ptr noundef nonnull %13, ptr noundef nonnull %14)
   %381 = icmp eq i64 %380, 4
   br i1 %381, label %446, label %382
 
-382:                                              ; preds = %355, %369, %get_nd_args.exit
-  %.073150 = phi ptr [ %.073149, %get_nd_args.exit ], [ null, %369 ], [ null, %355 ]
-  %.074 = phi i64 [ %380, %get_nd_args.exit ], [ 1, %369 ], [ 1, %355 ]
+382:                                              ; preds = %355, %370, %get_nd_args.exit
+  %.073150 = phi ptr [ %.073149, %get_nd_args.exit ], [ null, %370 ], [ null, %355 ]
+  %.074 = phi i64 [ %380, %get_nd_args.exit ], [ 1, %370 ], [ 1, %355 ]
   %383 = getelementptr inbounds i8, ptr %11, i64 8
   %384 = load ptr, ptr %383, align 8
   %.not.i107 = icmp eq ptr %384, null

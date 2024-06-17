@@ -19473,7 +19473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %73
-  %79 = add i64 %75, 2
+  %79 = add nsw i64 %75, 2
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 16
   %82 = icmp eq ptr %80, %81
@@ -25352,7 +25352,7 @@ define linkonce_odr void @_ZNK8nlohmann6detail13binary_readerINS_10basic_jsonISt
   br i1 %18, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %14
-  %19 = add i64 %16, 4
+  %19 = add nsw i64 %16, 4
   %20 = load ptr, ptr %6, align 8
   %21 = getelementptr inbounds i8, ptr %6, i64 16
   %22 = icmp eq ptr %20, %21
@@ -25482,7 +25482,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit28: ; preds = %6
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i29: ; preds = %68
-  %73 = add i64 %70, 4
+  %73 = add nsw i64 %70, 4
   %74 = load ptr, ptr %6, align 8
   %75 = getelementptr inbounds i8, ptr %6, i64 16
   %76 = icmp eq ptr %74, %75

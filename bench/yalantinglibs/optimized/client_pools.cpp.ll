@@ -33605,7 +33605,7 @@ invoke.cont26:                                    ; preds = %invoke.cont21
   br i1 %cmp.i.i.i35, label %if.then.i.i.i29.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i36
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i36: ; preds = %invoke.cont26
-  %add.i.i.i37 = add i64 %39, 8
+  %add.i.i.i37 = add nsw i64 %39, 8
   %41 = load ptr, ptr %ss_.i31, align 8
   %42 = getelementptr inbounds i8, ptr %call27, i64 64
   %cmp.i.i.i.i.i38 = icmp eq ptr %41, %42
@@ -51748,7 +51748,7 @@ if.then.i.i:                                      ; preds = %cond.true
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i: ; preds = %cond.true
-  %add.i.i = add i64 %1, 4
+  %add.i.i = add nsw i64 %1, 4
   %3 = load ptr, ptr %ss_, align 8
   %4 = getelementptr inbounds i8, ptr %this, i64 64
   %cmp.i.i.i.i = icmp eq ptr %3, %4
@@ -73474,7 +73474,7 @@ if.then.i.i.i30:                                  ; preds = %invoke.cont34
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i13: ; preds = %invoke.cont34
-  %add.i.i.i14 = add i64 %14, 8
+  %add.i.i.i14 = add nsw i64 %14, 8
   %16 = load ptr, ptr %ss_.i8, align 8
   %17 = getelementptr inbounds i8, ptr %call35, i64 64
   %cmp.i.i.i.i.i15 = icmp eq ptr %16, %17
@@ -73717,7 +73717,7 @@ if.then.i.i.i157.cont:                            ; preds = %if.then.i.i.i157.in
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i140: ; preds = %invoke.cont56
-  %add.i.i.i141 = add i64 %48, 16
+  %add.i.i.i141 = add nsw i64 %48, 16
   %50 = load ptr, ptr %ss_.i135, align 8
   %51 = getelementptr inbounds i8, ptr %call57, i64 64
   %cmp.i.i.i.i.i142 = icmp eq ptr %50, %51
@@ -74178,7 +74178,7 @@ if.then.i.i.i277:                                 ; preds = %invoke.cont167
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i260: ; preds = %invoke.cont167
-  %add.i.i.i261 = add i64 %120, 2
+  %add.i.i.i261 = add nsw i64 %120, 2
   %122 = load ptr, ptr %ss_.i255, align 8
   %123 = getelementptr inbounds i8, ptr %call168, i64 64
   %cmp.i.i.i.i.i262 = icmp eq ptr %122, %123
@@ -75083,7 +75083,7 @@ if.then.i.i.i596:                                 ; preds = %invoke.cont357
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i579: ; preds = %invoke.cont357
-  %add.i.i.i580 = add i64 %245, 8
+  %add.i.i.i580 = add nsw i64 %245, 8
   %247 = load ptr, ptr %ss_.i574, align 8
   %248 = getelementptr inbounds i8, ptr %call358, i64 64
   %cmp.i.i.i.i.i581 = icmp eq ptr %247, %248
@@ -82530,7 +82530,7 @@ if.then.i.i.i387:                                 ; preds = %invoke.cont209
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i370: ; preds = %invoke.cont209
-  %add.i.i.i371 = add i64 %169, 16
+  %add.i.i.i371 = add nsw i64 %169, 16
   %171 = load ptr, ptr %ss_.i365, align 8
   %172 = getelementptr inbounds i8, ptr %ref.tmp196, i64 64
   %cmp.i.i.i.i.i372 = icmp eq ptr %171, %172
@@ -83522,7 +83522,7 @@ if.then.i.i.i702:                                 ; preds = %invoke.cont372
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i685: ; preds = %invoke.cont372
-  %add.i.i.i686 = add i64 %290, 16
+  %add.i.i.i686 = add nsw i64 %290, 16
   %292 = load ptr, ptr %ss_.i680, align 8
   %293 = getelementptr inbounds i8, ptr %ref.tmp359, i64 64
   %cmp.i.i.i.i.i687 = icmp eq ptr %292, %293
@@ -84932,7 +84932,7 @@ if.then.i.i.i1231:                                ; preds = %invoke.cont562
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i1214: ; preds = %invoke.cont562
-  %add.i.i.i1215 = add i64 %445, 16
+  %add.i.i.i1215 = add nsw i64 %445, 16
   %447 = load ptr, ptr %ss_.i1209, align 8
   %448 = getelementptr inbounds i8, ptr %ref.tmp549, i64 64
   %cmp.i.i.i.i.i1216 = icmp eq ptr %447, %448
@@ -90975,7 +90975,7 @@ invoke.cont88:                                    ; preds = %if.else74
   br i1 %cmp.i.i.i75, label %if.then.i.i.i144.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i76
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i76: ; preds = %invoke.cont88
-  %add.i.i.i77 = add i64 %62, 16
+  %add.i.i.i77 = add nsw i64 %62, 16
   %64 = load ptr, ptr %ss_.i71, align 8
   %65 = getelementptr inbounds i8, ptr %ref.tmp75, i64 64
   %cmp.i.i.i.i.i78 = icmp eq ptr %64, %65

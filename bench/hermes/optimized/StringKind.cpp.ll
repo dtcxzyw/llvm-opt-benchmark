@@ -153,7 +153,7 @@ _ZNSt6vectorIN6hermes10StringKind5EntryESaIS2_EE17_M_realloc_insertIJRNS1_4KindE
   br label %if.end13
 
 if.else:                                          ; preds = %if.end
-  %inc.i = add i32 %4, 1
+  %inc.i = add nsw i32 %4, 1
   store i32 %inc.i, ptr %add.ptr.i.i4, align 4
   br label %if.end13
 

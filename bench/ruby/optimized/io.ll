@@ -1477,7 +1477,7 @@ define dso_local i64 @rb_io_wait(i64 noundef %0, i64 noundef %1, i64 noundef %2)
 
 6:                                                ; preds = %3
   %7 = tail call i64 @rb_fiber_scheduler_io_wait(i64 noundef %5, i64 noundef %0, i64 noundef %1, i64 noundef %2) #24
-  br label %60
+  br label %58
 
 8:                                                ; preds = %3
   %9 = and i64 %0, 7
@@ -1526,79 +1526,76 @@ rb_io_check_initialized.exit.i:                   ; preds = %rb_io_taint_check.e
 rb_io_check_closed.exit:                          ; preds = %rb_io_check_initialized.exit.i
   %29 = and i64 %2, -33
   %30 = icmp eq i64 %29, 4
-  br i1 %30, label %31, label %34
+  br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %rb_io_check_closed.exit
   %32 = getelementptr inbounds i8, ptr %21, i64 200
   %33 = load i64, ptr %32, align 8
-  br label %34
+  %.not22 = icmp eq i64 %33, 4
+  br i1 %.not22, label %37, label %.thread
 
-34:                                               ; preds = %31, %rb_io_check_closed.exit
-  %.018 = phi i64 [ %33, %31 ], [ %2, %rb_io_check_closed.exit ]
-  %.not22 = icmp eq i64 %.018, 4
-  br i1 %.not22, label %39, label %35
-
-35:                                               ; preds = %34
-  %36 = tail call { i64, i64 } @rb_time_interval(i64 noundef %.018) #24
-  %37 = extractvalue { i64, i64 } %36, 0
-  %38 = extractvalue { i64, i64 } %36, 1
-  store i64 %37, ptr %4, align 8
+.thread:                                          ; preds = %rb_io_check_closed.exit, %31
+  %.01829 = phi i64 [ %33, %31 ], [ %2, %rb_io_check_closed.exit ]
+  %34 = tail call { i64, i64 } @rb_time_interval(i64 noundef %.01829) #24
+  %35 = extractvalue { i64, i64 } %34, 0
+  %36 = extractvalue { i64, i64 } %34, 1
+  store i64 %35, ptr %4, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %38, ptr %.sroa.2.0..sroa_idx, align 8
+  store i64 %36, ptr %.sroa.2.0..sroa_idx, align 8
   %.pre = load i32, ptr %24, align 8
-  br label %39
+  br label %37
 
-39:                                               ; preds = %35, %34
-  %40 = phi i32 [ %.pre, %35 ], [ %25, %34 ]
-  %.019 = phi ptr [ %4, %35 ], [ null, %34 ]
-  %41 = and i64 %1, 1
-  %.not.i = icmp eq i64 %41, 0
-  br i1 %.not.i, label %44, label %42
+37:                                               ; preds = %.thread, %31
+  %38 = phi i32 [ %.pre, %.thread ], [ %25, %31 ]
+  %.019 = phi ptr [ %4, %.thread ], [ null, %31 ]
+  %39 = and i64 %1, 1
+  %.not.i = icmp eq i64 %39, 0
+  br i1 %.not.i, label %42, label %40
 
-42:                                               ; preds = %39
-  %43 = tail call i64 @rb_fix2int(i64 noundef %1) #24
+40:                                               ; preds = %37
+  %41 = tail call i64 @rb_fix2int(i64 noundef %1) #24
   br label %rb_num2int_inline.exit
 
-44:                                               ; preds = %39
-  %45 = tail call i64 @rb_num2int(i64 noundef %1) #24
+42:                                               ; preds = %37
+  %43 = tail call i64 @rb_num2int(i64 noundef %1) #24
   br label %rb_num2int_inline.exit
 
-rb_num2int_inline.exit:                           ; preds = %42, %44
-  %.0.i = phi i64 [ %43, %42 ], [ %45, %44 ]
-  %46 = trunc i64 %.0.i to i32
-  %47 = call i32 @rb_thread_wait_for_single_fd(i32 noundef %40, i32 noundef %46, ptr noundef %.019) #24
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %rb_io_check_initialized.exit.i25
+rb_num2int_inline.exit:                           ; preds = %40, %42
+  %.0.i = phi i64 [ %41, %40 ], [ %43, %42 ]
+  %44 = trunc i64 %.0.i to i32
+  %45 = call i32 @rb_thread_wait_for_single_fd(i32 noundef %38, i32 noundef %44, ptr noundef %.019) #24
+  %46 = icmp slt i32 %45, 0
+  br i1 %46, label %47, label %rb_io_check_initialized.exit.i25
 
-49:                                               ; preds = %rb_num2int_inline.exit
-  %50 = call ptr @rb_errno_ptr() #24
-  %51 = load i32, ptr %50, align 4
-  call void @rb_syserr_fail(i32 noundef %51, ptr noundef null) #26
+47:                                               ; preds = %rb_num2int_inline.exit
+  %48 = call ptr @rb_errno_ptr() #24
+  %49 = load i32, ptr %48, align 4
+  call void @rb_syserr_fail(i32 noundef %49, ptr noundef null) #26
   unreachable
 
 rb_io_check_initialized.exit.i25:                 ; preds = %rb_num2int_inline.exit
-  %52 = load i32, ptr %24, align 8
-  %53 = icmp slt i32 %52, 0
-  br i1 %53, label %54, label %rb_io_check_closed.exit26
+  %50 = load i32, ptr %24, align 8
+  %51 = icmp slt i32 %50, 0
+  br i1 %51, label %52, label %rb_io_check_closed.exit26
 
-54:                                               ; preds = %rb_io_check_initialized.exit.i25
+52:                                               ; preds = %rb_io_check_initialized.exit.i25
   call void @rb_thread_check_ints() #24
-  %55 = load i64, ptr @rb_eIOError, align 8
-  call void (i64, ptr, ...) @rb_raise(i64 noundef %55, ptr noundef nonnull @closed_stream) #26
+  %53 = load i64, ptr @rb_eIOError, align 8
+  call void (i64, ptr, ...) @rb_raise(i64 noundef %53, ptr noundef nonnull @closed_stream) #26
   unreachable
 
 rb_io_check_closed.exit26:                        ; preds = %rb_io_check_initialized.exit.i25
-  %.not23 = icmp eq i32 %47, 0
-  br i1 %.not23, label %60, label %56
+  %.not23 = icmp eq i32 %45, 0
+  br i1 %.not23, label %58, label %54
 
-56:                                               ; preds = %rb_io_check_closed.exit26
-  %57 = shl nuw i32 %47, 1
-  %58 = or disjoint i32 %57, 1
-  %59 = zext i32 %58 to i64
-  br label %60
+54:                                               ; preds = %rb_io_check_closed.exit26
+  %55 = shl nuw i32 %45, 1
+  %56 = or disjoint i32 %55, 1
+  %57 = zext i32 %56 to i64
+  br label %58
 
-60:                                               ; preds = %rb_io_check_closed.exit26, %56, %6
-  %.0 = phi i64 [ %7, %6 ], [ %59, %56 ], [ 0, %rb_io_check_closed.exit26 ]
+58:                                               ; preds = %rb_io_check_closed.exit26, %54, %6
+  %.0 = phi i64 [ %7, %6 ], [ %57, %54 ], [ 0, %rb_io_check_closed.exit26 ]
   ret i64 %.0
 }
 

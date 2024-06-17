@@ -1138,7 +1138,7 @@ define void @_ZN3nix9print_mapESt3mapINSt7__cxx1112basic_stringIcSt11char_traits
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %11
-  %15 = add i64 %12, 2
+  %15 = add nsw i64 %12, 2
   %16 = load ptr, ptr %0, align 8
   %17 = icmp eq ptr %16, %10
   br i1 %17, label %18, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i

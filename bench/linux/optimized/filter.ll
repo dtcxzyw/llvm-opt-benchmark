@@ -3012,7 +3012,7 @@ define dso_local range(i64 -22, 4) i64 @bpf_csum_level(i64 noundef %0, i64 nound
   br i1 %17, label %70, label %18
 
 18:                                               ; preds = %12
-  %19 = add i8 %15, 32
+  %19 = add nsw i8 %15, 32
   %20 = and i8 %19, 96
   %21 = zext nneg i8 %20 to i24
   %22 = and i24 %14, -97

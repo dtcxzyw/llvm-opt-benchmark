@@ -6868,90 +6868,85 @@ _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit67.thread70: ; pred
   %.fca.1.extract31.i59 = extractvalue { i32, i32 } %132, 1
   %133 = icmp eq i32 %.fca.1.extract31.i59, 1114112
   %134 = select i1 %switch36.i58, i1 true, i1 %133
-  br i1 %134, label %135, label %138
+  br i1 %134, label %135, label %select.unfold29
 
 135:                                              ; preds = %125
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.451e762c733db03501c72f969938ebf7.24, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.195) #26
   unreachable
 
-_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; preds = %select.unfold29, %138, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123", %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
-  %.025 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %162, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %138 ], [ 0, %select.unfold29 ]
+_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit: ; preds = %select.unfold29, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123", %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit
+  %.025 = phi i8 [ 0, %_ZN14regex_automata4util4look12is_word_char3rev17haa1e71ab59be6165E.exit ], [ %159, %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123" ], [ 0, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80 ], [ 0, %select.unfold29 ]
   %136 = xor i8 %.027, %.025
   %137 = xor i8 %136, 1
   br label %_ZN14regex_automata4util4utf811decode_last17h4128c193d6e9ba16E.exit106.thread
 
-138:                                              ; preds = %125
+select.unfold29:                                  ; preds = %125
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !833
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10), !noalias !833
-  %139 = and i8 %112, -64
-  %140 = icmp eq i8 %139, -128
-  br i1 %140, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %select.unfold29
+  %138 = icmp ult i8 %112, -32
+  %139 = icmp ult i8 %112, -16
+  %spec.select = select i1 %139, i64 3, i64 4
+  %.sroa.7.0.i117.ph = select i1 %138, i64 2, i64 %spec.select
+  %140 = icmp ugt i64 %.sroa.7.0.i117.ph, %110
+  br i1 %140, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %141
 
-select.unfold29:                                  ; preds = %138
-  %141 = icmp ult i8 %112, -32
-  %142 = icmp ult i8 %112, -16
-  %spec.select = select i1 %142, i64 3, i64 4
-  %.sroa.7.0.i117.ph = select i1 %141, i64 2, i64 %spec.select
-  %143 = icmp ugt i64 %.sroa.7.0.i117.ph, %110
-  br i1 %143, label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit, label %144
-
-144:                                              ; preds = %select.unfold29
+141:                                              ; preds = %select.unfold29
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12), !noalias !836
-  %145 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.17849184579231348327"(i64 noundef 0, i64 noundef %.sroa.7.0.i117.ph, ptr noalias noundef nonnull readonly align 1 %111, i64 noundef %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.194)
-  %146 = extractvalue { ptr, i64 } %145, 0
-  %147 = extractvalue { ptr, i64 } %145, 1
-  call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %146, i64 noundef %147)
-  %148 = load i64, ptr %12, align 8, !range !806, !noalias !836, !noundef !4
-  %trunc.i43 = trunc nuw i64 %148 to i1
-  br i1 %trunc.i43, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, label %150
+  %142 = tail call { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.17849184579231348327"(i64 noundef 0, i64 noundef %.sroa.7.0.i117.ph, ptr noalias noundef nonnull readonly align 1 %111, i64 noundef %110, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.194)
+  %143 = extractvalue { ptr, i64 } %142, 0
+  %144 = extractvalue { ptr, i64 } %142, 1
+  call void @_ZN4core3str8converts9from_utf817hc5206d8edcf9d82eE(ptr noalias nocapture noundef nonnull sret({ i64, [2 x i64] }) align 8 dereferenceable(24) %12, ptr noalias noundef nonnull readonly align 1 %143, i64 noundef %144)
+  %145 = load i64, ptr %12, align 8, !range !806, !noalias !836, !noundef !4
+  %trunc.i43 = trunc nuw i64 %145 to i1
+  br i1 %trunc.i43, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80, label %147
 
 _ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74: ; preds = %109
-  %149 = zext nneg i8 %112 to i32
-  br label %161
+  %146 = zext nneg i8 %112 to i32
+  br label %158
 
-150:                                              ; preds = %144
-  %151 = getelementptr inbounds i8, ptr %12, i64 8
-  %152 = load ptr, ptr %151, align 8, !noalias !836, !nonnull !4, !align !5, !noundef !4
-  %153 = getelementptr inbounds i8, ptr %12, i64 16
-  %154 = load i64, ptr %153, align 8, !noalias !836, !noundef !4
+147:                                              ; preds = %141
+  %148 = getelementptr inbounds i8, ptr %12, i64 8
+  %149 = load ptr, ptr %148, align 8, !noalias !836, !nonnull !4, !align !5, !noundef !4
+  %150 = getelementptr inbounds i8, ptr %12, i64 16
+  %151 = load i64, ptr %150, align 8, !noalias !836, !noundef !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11), !noalias !836
-  %155 = getelementptr inbounds i8, ptr %152, i64 %154
-  store ptr %152, ptr %11, align 8, !noalias !836
-  %156 = getelementptr inbounds i8, ptr %11, i64 8
-  store ptr %155, ptr %156, align 8, !noalias !836
-  %157 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
-  %.fca.0.extract30.i = extractvalue { i32, i32 } %157, 0
+  %152 = getelementptr inbounds i8, ptr %149, i64 %151
+  store ptr %149, ptr %11, align 8, !noalias !836
+  %153 = getelementptr inbounds i8, ptr %11, i64 8
+  store ptr %152, ptr %153, align 8, !noalias !836
+  %154 = call fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 dereferenceable(16) %11)
+  %.fca.0.extract30.i = extractvalue { i32, i32 } %154, 0
   %switch36.i = icmp eq i32 %.fca.0.extract30.i, 0
-  %.fca.1.extract31.i = extractvalue { i32, i32 } %157, 1
-  %158 = icmp eq i32 %.fca.1.extract31.i, 1114112
-  %159 = select i1 %switch36.i, i1 true, i1 %158
-  br i1 %159, label %160, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
+  %.fca.1.extract31.i = extractvalue { i32, i32 } %154, 1
+  %155 = icmp eq i32 %.fca.1.extract31.i, 1114112
+  %156 = select i1 %switch36.i, i1 true, i1 %155
+  br i1 %156, label %157, label %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit
 
-160:                                              ; preds = %150
+157:                                              ; preds = %147
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.451e762c733db03501c72f969938ebf7.24, i64 noundef 43, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.195) #26
   unreachable
 
-_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80: ; preds = %144
+_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread80: ; preds = %141
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !836
   br label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 
-_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %150
+_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit: ; preds = %147
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11), !noalias !836
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12), !noalias !836
-  br label %161
+  br label %158
 
-161:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74
-  %.sroa.7.sroa.0.0.i78.in = phi i32 [ %149, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74 ], [ %.fca.1.extract31.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ]
-  %162 = tail call noundef i8 @_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E(i32 noundef %.sroa.7.sroa.0.0.i78.in), !range !128
+158:                                              ; preds = %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74
+  %.sroa.7.sroa.0.0.i78.in = phi i32 [ %146, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit.thread74 ], [ %.fca.1.extract31.i, %_ZN14regex_automata4util4utf86decode17hd69cc87f474d359bE.exit ]
+  %159 = tail call noundef i8 @_ZN12regex_syntax21try_is_word_character17he6593f9dbf0a5fb1E(i32 noundef %.sroa.7.sroa.0.0.i78.in), !range !128
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %4)
-  %163 = icmp eq i8 %162, 2
-  br i1 %163, label %164, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123"
+  %160 = icmp eq i8 %159, 2
+  br i1 %160, label %161, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123"
 
-164:                                              ; preds = %161
+161:                                              ; preds = %158
   call void @_ZN4core6result13unwrap_failed17h03d8a5018196e1cdE(ptr noalias noundef nonnull readonly align 1 @anon.451e762c733db03501c72f969938ebf7.170, i64 noundef 120, ptr noundef nonnull align 1 %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.13, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.451e762c733db03501c72f969938ebf7.171) #26
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123": ; preds = %161
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h9bfcd5dff3958f8cE.exit123": ; preds = %158
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %4)
   br label %_ZN14regex_automata4util4look12is_word_char3fwd17h9b311c8ef074a7d9E.exit
 

@@ -865,8 +865,8 @@ if.end:                                           ; preds = %entry
   %add.i.i.i.i.i = add i64 %6, 7
   %sub1.i.i.i.i.i = add i64 %add.i.i.i.i.i, %7
   %8 = and i64 %sub1.i.i.i.i.i, 7
-  %.neg184 = add i64 %7, 7
-  %sub.i.i.i.i = sub i64 %.neg184, %8
+  %.neg188 = add i64 %7, 7
+  %sub.i.i.i.i = sub i64 %.neg188, %8
   store i64 %sub.i.i.i.i, ptr %offset.i.i.i, align 8
   %9 = load ptr, ptr %state_.i.i.i, align 8
   %offset8.i.i.i = getelementptr inbounds i8, ptr %9, i64 8
@@ -934,7 +934,7 @@ if.end17:                                         ; preds = %if.end15, %_ZN6herm
   %typeParams.0 = phi ptr [ %17, %if.end15 ], [ null, %_ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit ]
   %18 = and i32 %kind, -2
   %or.cond = icmp eq i32 %18, 2
-  br i1 %or.cond, label %land.lhs.true, label %if.end28
+  br i1 %or.cond, label %land.lhs.true, label %if.then30
 
 land.lhs.true:                                    ; preds = %if.end17
   %call19 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl11checkAndEatENS0_9TokenKindENS0_7JSLexer14GrammarContextE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 92, i32 noundef 3) #10
@@ -961,12 +961,13 @@ if.end26:                                         ; preds = %if.then20
   %22 = inttoptr i64 %21 to ptr
   br label %if.end28
 
-if.end28:                                         ; preds = %if.end17, %if.end26, %land.lhs.true
-  %supertype.0 = phi ptr [ %22, %if.end26 ], [ null, %land.lhs.true ], [ null, %if.end17 ]
+if.end28:                                         ; preds = %if.end26, %land.lhs.true
+  %supertype.0 = phi ptr [ %22, %if.end26 ], [ null, %land.lhs.true ]
   %cmp29.not = icmp eq i32 %kind, 3
   br i1 %cmp29.not, label %if.end43, label %if.then30
 
-if.then30:                                        ; preds = %if.end28
+if.then30:                                        ; preds = %if.end17, %if.end28
+  %supertype.0178 = phi ptr [ %supertype.0, %if.end28 ], [ null, %if.end17 ]
   %call33 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl3eatENS0_9TokenKindENS0_7JSLexer14GrammarContextEPKcS7_N4llvh5SMLocE(ptr noundef nonnull align 8 dereferenceable(2752) %this, i32 noundef 93, i32 noundef 3, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr %start.coerce) #10
   br i1 %call33, label %if.end35, label %return
 
@@ -986,12 +987,13 @@ if.then40:                                        ; preds = %if.end35
 
 if.end41:                                         ; preds = %if.end35
   %25 = extractvalue { i64, i8 } %call.i27, 0
-  %frombool.i.i31178 = and i8 %23, 1
-  store i8 %frombool.i.i31178, ptr %allowAnonFunctionType_.i26, align 4
+  %frombool.i.i31182 = and i8 %23, 1
+  store i8 %frombool.i.i31182, ptr %allowAnonFunctionType_.i26, align 4
   %26 = inttoptr i64 %25 to ptr
   br label %if.end43
 
 if.end43:                                         ; preds = %if.end41, %if.end28
+  %supertype.0179 = phi ptr [ %supertype.0178, %if.end41 ], [ %supertype.0, %if.end28 ]
   %right.0 = phi ptr [ %26, %if.end41 ], [ null, %if.end28 ]
   %call44 = tail call noundef zeroext i1 @_ZN6hermes6parser6detail12JSParserImpl7eatSemiEb(ptr noundef nonnull align 8 dereferenceable(2752) %this, i1 noundef zeroext false) #10
   br i1 %call44, label %if.end46, label %return
@@ -1013,8 +1015,8 @@ if.end46:                                         ; preds = %if.end43
   %add.i.i.i.i.i148 = add i64 %32, 7
   %sub1.i.i.i.i.i149 = add i64 %add.i.i.i.i.i148, %33
   %34 = and i64 %sub1.i.i.i.i.i149, 7
-  %.neg196 = add i64 %33, 7
-  %sub.i.i.i.i150 = sub i64 %.neg196, %34
+  %.neg200 = add i64 %33, 7
+  %sub.i.i.i.i150 = sub i64 %.neg200, %34
   store i64 %sub.i.i.i.i150, ptr %offset.i.i.i147, align 8
   %35 = load ptr, ptr %state_.i.i.i144, align 8
   %offset8.i.i.i151 = getelementptr inbounds i8, ptr %35, i64 8
@@ -1054,7 +1056,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit83:  ; preds = %if.then.i.i.i81, %i
   %_impltype.i = getelementptr inbounds i8, ptr %retval.0.i.i.i80, i64 64
   store ptr %right.0, ptr %_impltype.i, align 8
   %_supertype.i = getelementptr inbounds i8, ptr %retval.0.i.i.i80, i64 72
-  store ptr %supertype.0, ptr %_supertype.i, align 8
+  store ptr %supertype.0179, ptr %_supertype.i, align 8
   %sourceRange_.i.i84 = getelementptr inbounds i8, ptr %retval.0.i.i.i80, i64 24
   store ptr %start.coerce, ptr %sourceRange_.i.i84, align 8
   %End.i.i85 = getelementptr inbounds i8, ptr %retval.0.i.i.i80, i64 32
@@ -1130,7 +1132,7 @@ _ZN6hermes6ESTree4NodenwEmRNS_7ContextEm.exit131: ; preds = %if.then.i.i.i129, %
   %_impltype.i136 = getelementptr inbounds i8, ptr %retval.0.i.i.i128, i64 64
   store ptr %right.0, ptr %_impltype.i136, align 8
   %_supertype.i137 = getelementptr inbounds i8, ptr %retval.0.i.i.i128, i64 72
-  store ptr %supertype.0, ptr %_supertype.i137, align 8
+  store ptr %supertype.0179, ptr %_supertype.i137, align 8
   %sourceRange_.i.i138 = getelementptr inbounds i8, ptr %retval.0.i.i.i128, i64 24
   store ptr %start.coerce, ptr %sourceRange_.i.i138, align 8
   %End.i.i139 = getelementptr inbounds i8, ptr %retval.0.i.i.i128, i64 32

@@ -122,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.92 = private unnamed_addr constant [18 x i8] c"spank_set_job_env\00", align 1
 @switch.table._do_call_stack = private unnamed_addr constant [13 x ptr] [ptr @.str.59, ptr @.str.71, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70], align 8
 @switch.table._do_call_stack.7 = private unnamed_addr constant [13 x i64] [i64 40, i64 40, i64 48, i64 56, i64 64, i64 72, i64 80, i64 88, i64 96, i64 104, i64 112, i64 120, i64 128], align 8
-@switch.table.spank_get_item = private unnamed_addr constant [9 x i32] [i32 3001, i32 3001, i32 3001, i32 3006, i32 3006, i32 3001, i32 3006, i32 3001, i32 3001], align 4
+@switch.table.spank_get_item = private unnamed_addr constant [11 x i32] [i32 3001, i32 3001, i32 3001, i32 3001, i32 3001, i32 3006, i32 3006, i32 3001, i32 3006, i32 3001, i32 3001], align 4
 
 ; Function Attrs: nounwind uwtable
 define ptr @spank_stack_init(i32 noundef %0) local_unnamed_addr #0 {
@@ -2171,8 +2171,7 @@ _check_spank_item_validity.exit.thread304:        ; preds = %18
   br label %36
 
 22:                                               ; preds = %17
-  %switch.tableidx = add i32 %1, -2
-  %23 = icmp ult i32 %switch.tableidx, 9
+  %23 = icmp ult i32 %1, 11
   br i1 %23, label %switch.lookup, label %_check_spank_item_validity.exit.thread
 
 _check_spank_item_validity.exit:                  ; preds = %7, %9
@@ -3724,8 +3723,8 @@ job_task_info_by_pid.exit.thread:                 ; preds = %608, %563, %598, %5
   br label %_check_spank_item_validity.exit.thread
 
 switch.lookup:                                    ; preds = %22
-  %856 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [9 x i32], ptr @switch.table.spank_get_item, i64 0, i64 %856
+  %856 = zext nneg i32 %1 to i64
+  %switch.gep = getelementptr inbounds [11 x i32], ptr @switch.table.spank_get_item, i64 0, i64 %856
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_check_spank_item_validity.exit.thread
 

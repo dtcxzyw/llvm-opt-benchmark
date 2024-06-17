@@ -7548,7 +7548,7 @@ define internal void @intel_pmu_disable_event(ptr noundef %0) #1 align 16 {
   %62 = shl nuw nsw i32 %57, 2
   %63 = add nsw i32 %62, -128
   %64 = zext nneg i32 %63 to i64
-  %65 = shl i64 15, %64
+  %65 = shl nuw i64 15, %64
   %66 = xor i64 %65, -1
   %67 = getelementptr inbounds i8, ptr %42, i64 2432
   %68 = load i64, ptr %67, align 8

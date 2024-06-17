@@ -4228,11 +4228,11 @@ define internal range(i32 0, 2) i32 @dissect_csim_parameter(ptr noundef %0, ptr 
   %15 = icmp eq i32 %4, 1
   %16 = icmp eq i16 %5, 58
   %or.cond5 = and i1 %15, %16
-  br i1 %or.cond5, label %17, label %74
+  br i1 %or.cond5, label %17, label %73
 
 17:                                               ; preds = %14, %11
   %18 = icmp ugt i32 %7, 1
-  br i1 %18, label %74, label %19
+  br i1 %18, label %73, label %19
 
 19:                                               ; preds = %17
   %trunc = trunc nuw i32 %7 to i1
@@ -4252,7 +4252,7 @@ define internal range(i32 0, 2) i32 @dissect_csim_parameter(ptr noundef %0, ptr 
   %29 = trunc i64 %28 to i32
   %30 = load i32, ptr @hf_csim_length, align 4
   %31 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %30, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %29) #9
-  br label %74
+  br label %73
 
 32:                                               ; preds = %19
   %hf_csim_command.val = load i32, ptr @hf_csim_command, align 4
@@ -4266,74 +4266,69 @@ define internal range(i32 0, 2) i32 @dissect_csim_parameter(ptr noundef %0, ptr 
 
 38:                                               ; preds = %32
   %39 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_odd_len) #9
-  br label %74
+  br label %73
 
 40:                                               ; preds = %32
   %41 = icmp slt i32 %35, 1
-  br i1 %41, label %42, label %44
+  br i1 %41, label %42, label %.lr.ph
 
 42:                                               ; preds = %40
   %43 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_empty_hex) #9
-  br label %74
+  br label %73
 
-44:                                               ; preds = %40
-  %45 = lshr i32 %35, 1
-  %46 = getelementptr inbounds i8, ptr %1, i64 408
-  %47 = load ptr, ptr %46, align 8
-  %48 = zext nneg i32 %45 to i64
-  %49 = tail call noalias ptr @wmem_alloc0(ptr noundef %47, i64 noundef %48) #9
-  %.not72 = icmp eq i32 %35, 1
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+.lr.ph:                                           ; preds = %40
+  %44 = lshr i32 %35, 1
+  %45 = getelementptr inbounds i8, ptr %1, i64 408
+  %46 = load ptr, ptr %45, align 8
+  %47 = zext nneg i32 %44 to i64
+  %48 = tail call noalias ptr @wmem_alloc0(ptr noundef %46, i64 noundef %47) #9
+  %49 = getelementptr i8, ptr %6, i64 1
+  %50 = load ptr, ptr @g_ascii_table, align 8
+  %wide.trip.count = zext nneg i32 %44 to i64
+  br label %51
 
-.lr.ph:                                           ; preds = %44
-  %50 = getelementptr i8, ptr %6, i64 1
-  %51 = load ptr, ptr @g_ascii_table, align 8
-  %umax = tail call i32 @llvm.umax.i32(i32 %45, i32 1)
-  %wide.trip.count = zext nneg i32 %umax to i64
-  br label %52
+51:                                               ; preds = %.lr.ph, %66
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %66 ]
+  %.071 = phi ptr [ %49, %.lr.ph ], [ %69, %66 ]
+  %52 = load i8, ptr %.071, align 1
+  %53 = zext i8 %52 to i64
+  %54 = getelementptr i16, ptr %50, i64 %53
+  %55 = load i16, ptr %54, align 2
+  %56 = and i16 %55, 1024
+  %.not = icmp eq i16 %56, 0
+  br i1 %.not, label %64, label %57
 
-52:                                               ; preds = %.lr.ph, %67
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %.071 = phi ptr [ %50, %.lr.ph ], [ %70, %67 ]
-  %53 = load i8, ptr %.071, align 1
-  %54 = zext i8 %53 to i64
-  %55 = getelementptr i16, ptr %51, i64 %54
-  %56 = load i16, ptr %55, align 2
-  %57 = and i16 %56, 1024
-  %.not = icmp eq i16 %57, 0
-  br i1 %.not, label %65, label %58
+57:                                               ; preds = %51
+  %58 = getelementptr i8, ptr %.071, i64 1
+  %59 = load i8, ptr %58, align 1
+  %60 = zext i8 %59 to i64
+  %61 = getelementptr i16, ptr %50, i64 %60
+  %62 = load i16, ptr %61, align 2
+  %63 = and i16 %62, 1024
+  %.not69 = icmp eq i16 %63, 0
+  br i1 %.not69, label %64, label %66
 
-58:                                               ; preds = %52
-  %59 = getelementptr i8, ptr %.071, i64 1
-  %60 = load i8, ptr %59, align 1
-  %61 = zext i8 %60 to i64
-  %62 = getelementptr i16, ptr %51, i64 %61
-  %63 = load i16, ptr %62, align 2
-  %64 = and i16 %63, 1024
-  %.not69 = icmp eq i16 %64, 0
-  br i1 %.not69, label %65, label %67
+64:                                               ; preds = %57, %51
+  %65 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_invalid_hex) #9
+  br label %73
 
-65:                                               ; preds = %58, %52
-  %66 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_invalid_hex) #9
-  br label %74
-
-67:                                               ; preds = %58
-  %68 = getelementptr i8, ptr %49, i64 %indvars.iv
-  %69 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.071, ptr noundef nonnull @.str.596, ptr noundef %68) #9
-  %70 = getelementptr i8, ptr %.071, i64 2
+66:                                               ; preds = %57
+  %67 = getelementptr i8, ptr %48, i64 %indvars.iv
+  %68 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %.071, ptr noundef nonnull @.str.596, ptr noundef %67) #9
+  %69 = getelementptr i8, ptr %.071, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %52, !llvm.loop !17
+  br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %67, %44
-  %71 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %49, i32 noundef %45, i32 noundef %45) #9
-  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %71, ptr noundef nonnull @.str.601) #9
-  %72 = load ptr, ptr @gsm_sim_handle, align 8
-  %73 = tail call i32 @call_dissector_with_data(ptr noundef %72, ptr noundef %71, ptr noundef %1, ptr noundef %2, ptr noundef %10) #9
-  br label %74
+._crit_edge:                                      ; preds = %66
+  %70 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %48, i32 noundef %44, i32 noundef %44) #9
+  tail call void @add_new_data_source(ptr noundef %1, ptr noundef %70, ptr noundef nonnull @.str.601) #9
+  %71 = load ptr, ptr @gsm_sim_handle, align 8
+  %72 = tail call i32 @call_dissector_with_data(ptr noundef %71, ptr noundef %70, ptr noundef %1, ptr noundef %2, ptr noundef %10) #9
+  br label %73
 
-74:                                               ; preds = %20, %._crit_edge, %17, %14, %65, %42, %38
-  %.063 = phi i32 [ 1, %38 ], [ 1, %42 ], [ 1, %65 ], [ 0, %14 ], [ 1, %17 ], [ 1, %._crit_edge ], [ 1, %20 ]
+73:                                               ; preds = %20, %._crit_edge, %17, %14, %64, %42, %38
+  %.063 = phi i32 [ 1, %38 ], [ 1, %42 ], [ 1, %64 ], [ 0, %14 ], [ 1, %17 ], [ 1, %._crit_edge ], [ 1, %20 ]
   ret i32 %.063
 }
 
@@ -4958,9 +4953,6 @@ declare ptr @tvb_new_subset_length(ptr noundef, i32 noundef, i32 noundef) local_
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #7
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #8

@@ -66,11 +66,11 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
 
 25:                                               ; preds = %18
   %26 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.4, i32 noundef 3) #4
-  br label %.thread153
+  br label %.thread154
 
 27:                                               ; preds = %20, %12
-  %.sink208 = phi ptr [ %2, %20 ], [ %17, %12 ]
-  %28 = load ptr, ptr %.sink208, align 8
+  %.sink181 = phi ptr [ %2, %20 ], [ %17, %12 ]
+  %28 = load ptr, ptr %.sink181, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %28, ptr %29, align 8
   %30 = call i32 @slurmdb_report_set_start_end_time(ptr noundef nonnull %6, ptr noundef nonnull %7) #4
@@ -82,12 +82,12 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   store i64 %33, ptr %34, align 8
   %35 = call ptr @acct_storage_g_get_clusters(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %5) #4
   %.not = icmp eq ptr %35, null
-  br i1 %.not, label %.thread155, label %38
+  br i1 %.not, label %.thread156, label %38
 
-.thread155:                                       ; preds = %27
+.thread156:                                       ; preds = %27
   %36 = load ptr, ptr @stderr, align 8
   %37 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %36, ptr noundef nonnull @.str.5, ptr noundef %1) #5
-  br label %239
+  br label %233
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %6, align 8
@@ -101,7 +101,7 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   store i64 %41, ptr %42, align 8
   %43 = call ptr @acct_storage_g_get_wckeys(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2) #4
   %.not103132 = icmp eq ptr %43, null
-  br i1 %.not103132, label %236, label %.thread134
+  br i1 %.not103132, label %230, label %.thread134
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds i8, ptr %2, i64 80
@@ -111,7 +111,7 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   store i64 %46, ptr %47, align 8
   %48 = call ptr @acct_storage_g_get_assocs(ptr noundef %0, i32 noundef %8, ptr noundef nonnull %2) #4
   %.not103 = icmp eq ptr %48, null
-  br i1 %.not103, label %236, label %49
+  br i1 %.not103, label %230, label %49
 
 49:                                               ; preds = %44
   %50 = call ptr @slurmdb_get_hierarchical_sorted_assoc_list(ptr noundef nonnull %48) #4
@@ -123,460 +123,435 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   %51 = call ptr @list_iterator_create(ptr noundef nonnull %35) #4
   %52 = call ptr @list_iterator_create(ptr noundef %.195) #4
   %53 = call ptr @list_next(ptr noundef %51) #4
-  %.not104166 = icmp eq ptr %53, null
-  br i1 %.not104166, label %._crit_edge, label %.lr.ph
+  %.not104167 = icmp eq ptr %53, null
+  br i1 %.not104167, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread134
-  %54 = icmp eq i32 %3, 2
-  %trunc = trunc i32 %3 to i1
-  br i1 %or.cond, label %.lr.ph.split.us, label %.lr.ph.split.split.us.preheader
+  %54 = and i32 %3, -3
+  %trunc = trunc nuw i32 %3 to i1
+  %55 = and i32 %3, -2
+  %or.cond17 = icmp eq i32 %55, 2
+  %56 = icmp eq i32 %3, 2
+  br label %57
 
-.lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph
-  %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec = select i1 %trunc, ptr @slurmdb_destroy_report_assoc_rec, ptr @slurmdb_destroy_report_user_rec
-  %. = select i1 %trunc, i64 8, i64 32
-  br label %.lr.ph.split.split.us
+57:                                               ; preds = %.lr.ph, %.backedge
+  %58 = phi ptr [ %53, %.lr.ph ], [ %62, %.backedge ]
+  %59 = load ptr, ptr %58, align 8
+  %.not109 = icmp eq ptr %59, null
+  br i1 %.not109, label %.backedge, label %60
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %55 = phi ptr [ %147, %.backedge.us ], [ %53, %.lr.ph ]
-  %56 = load ptr, ptr %55, align 8
-  %.not109.us = icmp eq ptr %56, null
-  br i1 %.not109.us, label %.backedge.us, label %57
+60:                                               ; preds = %57
+  %61 = call i32 @list_count(ptr noundef nonnull %59) #4
+  %.not110 = icmp eq i32 %61, 0
+  br i1 %.not110, label %.backedge, label %63
 
-57:                                               ; preds = %.lr.ph.split.us
-  %58 = call i32 @list_count(ptr noundef nonnull %56) #4
-  %.not110.us = icmp eq i32 %58, 0
-  br i1 %.not110.us, label %.backedge.us, label %59
+.backedge:                                        ; preds = %57, %60, %_process_assoc_type.exit
+  %62 = call ptr @list_next(ptr noundef %51) #4
+  %.not104 = icmp eq ptr %62, null
+  br i1 %.not104, label %._crit_edge, label %57, !llvm.loop !6
 
-59:                                               ; preds = %57
-  %60 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %55) #4
-  call void @list_append(ptr noundef %9, ptr noundef %60) #4
-  %61 = getelementptr inbounds i8, ptr %55, i64 272
-  br i1 %trunc, label %.thread195, label %.thread
+63:                                               ; preds = %60
+  %64 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %58) #4
+  call void @list_append(ptr noundef %9, ptr noundef %64) #4
+  switch i32 %54, label %.thread136 [
+    i32 0, label %66
+    i32 1, label %65
+  ]
 
-.thread195:                                       ; preds = %59
-  %62 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_assoc_rec) #4
-  %63 = getelementptr inbounds i8, ptr %60, i64 8
-  store ptr %62, ptr %63, align 8
-  %64 = load ptr, ptr %61, align 8
-  %65 = call ptr @list_next(ptr noundef %52) #4
-  %.not23.i.us196 = icmp eq ptr %65, null
-  br i1 %.not23.i.us196, label %_process_assoc_type.exit.us, label %.lr.ph.i.us.thread197
+65:                                               ; preds = %63
+  br label %66
 
-.lr.ph.i.us.thread197:                            ; preds = %.thread195
-  %66 = getelementptr inbounds i8, ptr %60, i64 8
-  br label %.lr.ph.split.split.us.i.us
-
-.thread:                                          ; preds = %59
-  %67 = call ptr @list_create(ptr noundef nonnull @slurmdb_destroy_report_user_rec) #4
-  %68 = getelementptr inbounds i8, ptr %60, i64 32
+66:                                               ; preds = %63, %65
+  %slurmdb_destroy_report_assoc_rec.sink = phi ptr [ @slurmdb_destroy_report_assoc_rec, %65 ], [ @slurmdb_destroy_report_user_rec, %63 ]
+  %.sink183 = phi i64 [ 8, %65 ], [ 32, %63 ]
+  %67 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_assoc_rec.sink) #4
+  %68 = getelementptr inbounds i8, ptr %64, i64 %.sink183
   store ptr %67, ptr %68, align 8
-  %69 = load ptr, ptr %61, align 8
-  %70 = call ptr @list_next(ptr noundef %52) #4
-  %.not23.i.us194 = icmp eq ptr %70, null
-  br i1 %.not23.i.us194, label %_process_assoc_type.exit.us, label %.lr.ph.i.us.thread
+  br i1 %or.cond, label %69, label %.thread136
 
-.lr.ph.i.us.thread:                               ; preds = %.thread
-  %71 = getelementptr inbounds i8, ptr %60, i64 32
-  br label %.lr.ph.split.us.i.us
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds i8, ptr %58, i64 272
+  %71 = load ptr, ptr %70, align 8
+  %72 = call ptr @list_next(ptr noundef %52) #4
+  %.not23.i = icmp eq ptr %72, null
+  br i1 %.not23.i, label %_process_assoc_type.exit, label %.lr.ph.i
 
-.lr.ph.split.split.us.i.us:                       ; preds = %.lr.ph.i.us.thread197, %.backedge.us26.i.us
-  %72 = phi ptr [ %99, %.backedge.us26.i.us ], [ %65, %.lr.ph.i.us.thread197 ]
-  %73 = load ptr, ptr %72, align 8
-  %.not16.us24.i.us = icmp eq ptr %73, null
-  br i1 %.not16.us24.i.us, label %.backedge.us26.sink.split.i.us, label %74
+.lr.ph.i:                                         ; preds = %69
+  %73 = getelementptr inbounds i8, ptr %64, i64 8
+  %74 = getelementptr inbounds i8, ptr %64, i64 32
+  br i1 %trunc, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
 
-74:                                               ; preds = %.lr.ph.split.split.us.i.us
-  %75 = call i32 @list_count(ptr noundef nonnull %73) #4
-  %.not17.us25.i.us = icmp eq i32 %75, 0
-  br i1 %.not17.us25.i.us, label %.backedge.us26.sink.split.i.us, label %.thread.us.i.us
+.lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.backedge.us.i
+  %75 = phi ptr [ %121, %.backedge.us.i ], [ %72, %.lr.ph.i ]
+  %76 = load ptr, ptr %75, align 8
+  %.not16.us.i = icmp eq ptr %76, null
+  br i1 %.not16.us.i, label %.backedge.us.sink.split.i, label %77
 
-.thread.us.i.us:                                  ; preds = %74
-  %76 = getelementptr inbounds i8, ptr %72, i64 40
-  %77 = load ptr, ptr %76, align 8
-  %78 = call i32 @xstrcmp(ptr noundef %64, ptr noundef %77) #4
-  %.not1920.us.i.us = icmp eq i32 %78, 0
-  br i1 %.not1920.us.i.us, label %79, label %.backedge.us26.i.us
+77:                                               ; preds = %.lr.ph.split.us.i
+  %78 = call i32 @list_count(ptr noundef nonnull %76) #4
+  %.not17.us.i = icmp eq i32 %78, 0
+  br i1 %.not17.us.i, label %.backedge.us.sink.split.i, label %79
 
-79:                                               ; preds = %.thread.us.i.us
-  %80 = load ptr, ptr %66, align 8
-  %81 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 101, ptr noundef nonnull @__func__._process_au) #4
-  call void @list_append(ptr noundef %80, ptr noundef %81) #4
-  %82 = getelementptr inbounds i8, ptr %72, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = call ptr @xstrdup(ptr noundef %83) #4
-  store ptr %84, ptr %81, align 8
-  %85 = load ptr, ptr %76, align 8
-  %86 = call ptr @xstrdup(ptr noundef %85) #4
-  %87 = getelementptr inbounds i8, ptr %81, i64 8
-  store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds i8, ptr %72, i64 256
-  %89 = load ptr, ptr %88, align 8
-  %90 = call ptr @xstrdup(ptr noundef %89) #4
-  %91 = getelementptr inbounds i8, ptr %81, i64 16
-  store ptr %90, ptr %91, align 8
-  %92 = getelementptr inbounds i8, ptr %72, i64 320
-  %93 = load ptr, ptr %92, align 8
-  %94 = call ptr @xstrdup(ptr noundef %93) #4
-  %95 = getelementptr inbounds i8, ptr %81, i64 32
-  store ptr %94, ptr %95, align 8
-  %96 = load ptr, ptr %72, align 8
-  %97 = getelementptr inbounds i8, ptr %81, i64 24
-  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %96, ptr noundef nonnull %97) #4
-  br label %.backedge.us26.sink.split.i.us
+79:                                               ; preds = %77
+  %80 = getelementptr inbounds i8, ptr %75, i64 320
+  %81 = load ptr, ptr %80, align 8
+  %.not18.us.i = icmp eq ptr %81, null
+  br i1 %.not18.us.i, label %.backedge.us.sink.split.i, label %82
 
-.backedge.us26.sink.split.i.us:                   ; preds = %79, %74, %.lr.ph.split.split.us.i.us
-  %98 = call i32 @list_delete_item(ptr noundef %52) #4
-  br label %.backedge.us26.i.us
+82:                                               ; preds = %79
+  %83 = getelementptr inbounds i8, ptr %75, i64 40
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @xstrcmp(ptr noundef %71, ptr noundef %84) #4
+  %.not19.us.i = icmp eq i32 %85, 0
+  br i1 %.not19.us.i, label %86, label %.backedge.us.i
 
-.backedge.us26.i.us:                              ; preds = %.backedge.us26.sink.split.i.us, %.thread.us.i.us
-  %99 = call ptr @list_next(ptr noundef %52) #4
-  %.not.us27.i.us = icmp eq ptr %99, null
-  br i1 %.not.us27.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.split.us.i.us, !llvm.loop !6
+86:                                               ; preds = %82
+  %87 = load ptr, ptr %74, align 8
+  %88 = call ptr @list_iterator_create(ptr noundef %87) #4
+  %89 = call ptr @list_next(ptr noundef %88) #4
+  %.not27.i.us.i = icmp eq ptr %89, null
+  br i1 %.not27.i.us.i, label %._crit_edge.i.us.i, label %.lr.ph.i.us.i
 
-.lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us.thread, %.backedge.us.i.us
-  %100 = phi ptr [ %146, %.backedge.us.i.us ], [ %70, %.lr.ph.i.us.thread ]
-  %101 = load ptr, ptr %100, align 8
-  %.not16.us.i.us = icmp eq ptr %101, null
-  br i1 %.not16.us.i.us, label %.backedge.us.sink.split.i.us, label %102
+.lr.ph.i.us.i:                                    ; preds = %86
+  %90 = getelementptr inbounds i8, ptr %75, i64 8
+  br label %91
 
-102:                                              ; preds = %.lr.ph.split.us.i.us
-  %103 = call i32 @list_count(ptr noundef nonnull %101) #4
-  %.not17.us.i.us = icmp eq i32 %103, 0
-  br i1 %.not17.us.i.us, label %.backedge.us.sink.split.i.us, label %104
+91:                                               ; preds = %101, %.lr.ph.i.us.i
+  %92 = phi ptr [ %89, %.lr.ph.i.us.i ], [ %102, %101 ]
+  %93 = getelementptr inbounds i8, ptr %92, i64 24
+  %94 = load ptr, ptr %93, align 8
+  %95 = load ptr, ptr %80, align 8
+  %96 = call i32 @xstrcmp(ptr noundef %94, ptr noundef %95) #4
+  %.not23.i.us.i = icmp eq i32 %96, 0
+  br i1 %.not23.i.us.i, label %97, label %101
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds i8, ptr %100, i64 320
-  %106 = load ptr, ptr %105, align 8
-  %.not18.us.i.us = icmp eq ptr %106, null
-  br i1 %.not18.us.i.us, label %.backedge.us.sink.split.i.us, label %107
+97:                                               ; preds = %91
+  %98 = load ptr, ptr %92, align 8
+  %99 = load ptr, ptr %90, align 8
+  %100 = call i32 @xstrcmp(ptr noundef %98, ptr noundef %99) #4
+  %.not24.i.us.i = icmp eq i32 %100, 0
+  br i1 %.not24.i.us.i, label %103, label %101
 
-107:                                              ; preds = %104
-  %108 = getelementptr inbounds i8, ptr %100, i64 40
-  %109 = load ptr, ptr %108, align 8
-  %110 = call i32 @xstrcmp(ptr noundef %69, ptr noundef %109) #4
-  %.not19.us.i.us = icmp eq i32 %110, 0
-  br i1 %.not19.us.i.us, label %111, label %.backedge.us.i.us
+101:                                              ; preds = %97, %91
+  %102 = call ptr @list_next(ptr noundef %88) #4
+  %.not.i.us.i = icmp eq ptr %102, null
+  br i1 %.not.i.us.i, label %._crit_edge.i.us.i, label %91, !llvm.loop !8
 
-111:                                              ; preds = %107
-  %112 = load ptr, ptr %71, align 8
-  %113 = call ptr @list_iterator_create(ptr noundef %112) #4
-  %114 = call ptr @list_next(ptr noundef %113) #4
-  %.not27.i.us.i.us = icmp eq ptr %114, null
-  br i1 %.not27.i.us.i.us, label %._crit_edge.i.us.i.us, label %.lr.ph.i.us.i.us
+103:                                              ; preds = %97
+  call void @list_iterator_destroy(ptr noundef %88) #4
+  br label %_process_ua.exit.us.i
 
-.lr.ph.i.us.i.us:                                 ; preds = %111
-  %115 = getelementptr inbounds i8, ptr %100, i64 8
-  br label %116
+._crit_edge.i.us.i:                               ; preds = %101, %86
+  call void @list_iterator_destroy(ptr noundef %88) #4
+  %104 = load ptr, ptr %80, align 8
+  %105 = call ptr @getpwnam(ptr noundef %104)
+  %.not25.i.us.i = icmp eq ptr %105, null
+  br i1 %.not25.i.us.i, label %109, label %106
 
-116:                                              ; preds = %126, %.lr.ph.i.us.i.us
-  %117 = phi ptr [ %114, %.lr.ph.i.us.i.us ], [ %127, %126 ]
-  %118 = getelementptr inbounds i8, ptr %117, i64 24
-  %119 = load ptr, ptr %118, align 8
-  %120 = load ptr, ptr %105, align 8
-  %121 = call i32 @xstrcmp(ptr noundef %119, ptr noundef %120) #4
-  %.not23.i.us.i.us = icmp eq i32 %121, 0
-  br i1 %.not23.i.us.i.us, label %122, label %126
+106:                                              ; preds = %._crit_edge.i.us.i
+  %107 = getelementptr inbounds i8, ptr %105, i64 16
+  %108 = load i32, ptr %107, align 8
+  br label %109
 
-122:                                              ; preds = %116
-  %123 = load ptr, ptr %117, align 8
-  %124 = load ptr, ptr %115, align 8
-  %125 = call i32 @xstrcmp(ptr noundef %123, ptr noundef %124) #4
-  %.not24.i.us.i.us = icmp eq i32 %125, 0
-  br i1 %.not24.i.us.i.us, label %128, label %126
+109:                                              ; preds = %106, %._crit_edge.i.us.i
+  %.0.i.us.i = phi i32 [ %108, %106 ], [ -2, %._crit_edge.i.us.i ]
+  %110 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 84, ptr noundef nonnull @__func__._process_ua) #4
+  %111 = load ptr, ptr %80, align 8
+  %112 = call ptr @xstrdup(ptr noundef %111) #4
+  %113 = getelementptr inbounds i8, ptr %110, i64 24
+  store ptr %112, ptr %113, align 8
+  %114 = getelementptr inbounds i8, ptr %110, i64 40
+  store i32 %.0.i.us.i, ptr %114, align 8
+  %115 = getelementptr inbounds i8, ptr %75, i64 8
+  %116 = load ptr, ptr %115, align 8
+  %117 = call ptr @xstrdup(ptr noundef %116) #4
+  store ptr %117, ptr %110, align 8
+  call void @list_append(ptr noundef %87, ptr noundef nonnull %110) #4
+  br label %_process_ua.exit.us.i
 
-126:                                              ; preds = %122, %116
-  %127 = call ptr @list_next(ptr noundef %113) #4
-  %.not.i.us.i.us = icmp eq ptr %127, null
-  br i1 %.not.i.us.i.us, label %._crit_edge.i.us.i.us, label %116, !llvm.loop !8
+_process_ua.exit.us.i:                            ; preds = %109, %103
+  %.020.i.us.i = phi ptr [ %92, %103 ], [ %110, %109 ]
+  %118 = load ptr, ptr %75, align 8
+  %119 = getelementptr inbounds i8, ptr %.020.i.us.i, i64 32
+  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %118, ptr noundef nonnull %119) #4
+  br label %.backedge.us.sink.split.i
 
-128:                                              ; preds = %122
-  call void @list_iterator_destroy(ptr noundef %113) #4
-  br label %_process_ua.exit.us.i.us
+.backedge.us.sink.split.i:                        ; preds = %_process_ua.exit.us.i, %79, %77, %.lr.ph.split.us.i
+  %120 = call i32 @list_delete_item(ptr noundef %52) #4
+  br label %.backedge.us.i
 
-._crit_edge.i.us.i.us:                            ; preds = %126, %111
-  call void @list_iterator_destroy(ptr noundef %113) #4
-  %129 = load ptr, ptr %105, align 8
-  %130 = call ptr @getpwnam(ptr noundef %129)
-  %.not25.i.us.i.us = icmp eq ptr %130, null
-  br i1 %.not25.i.us.i.us, label %134, label %131
+.backedge.us.i:                                   ; preds = %.backedge.us.sink.split.i, %82
+  %121 = call ptr @list_next(ptr noundef %52) #4
+  %.not.us.i = icmp eq ptr %121, null
+  br i1 %.not.us.i, label %_process_assoc_type.exit, label %.lr.ph.split.us.i, !llvm.loop !9
 
-131:                                              ; preds = %._crit_edge.i.us.i.us
-  %132 = getelementptr inbounds i8, ptr %130, i64 16
-  %133 = load i32, ptr %132, align 8
-  br label %134
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %.backedge.us26.i
+  %122 = phi ptr [ %149, %.backedge.us26.i ], [ %72, %.lr.ph.i ]
+  %123 = load ptr, ptr %122, align 8
+  %.not16.us24.i = icmp eq ptr %123, null
+  br i1 %.not16.us24.i, label %.backedge.us26.sink.split.i, label %124
 
-134:                                              ; preds = %131, %._crit_edge.i.us.i.us
-  %.0.i.us.i.us = phi i32 [ %133, %131 ], [ -2, %._crit_edge.i.us.i.us ]
-  %135 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 84, ptr noundef nonnull @__func__._process_ua) #4
-  %136 = load ptr, ptr %105, align 8
-  %137 = call ptr @xstrdup(ptr noundef %136) #4
-  %138 = getelementptr inbounds i8, ptr %135, i64 24
-  store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds i8, ptr %135, i64 40
-  store i32 %.0.i.us.i.us, ptr %139, align 8
-  %140 = getelementptr inbounds i8, ptr %100, i64 8
-  %141 = load ptr, ptr %140, align 8
-  %142 = call ptr @xstrdup(ptr noundef %141) #4
-  store ptr %142, ptr %135, align 8
-  call void @list_append(ptr noundef %112, ptr noundef nonnull %135) #4
-  br label %_process_ua.exit.us.i.us
+124:                                              ; preds = %.lr.ph.split.split.us.i
+  %125 = call i32 @list_count(ptr noundef nonnull %123) #4
+  %.not17.us25.i = icmp eq i32 %125, 0
+  br i1 %.not17.us25.i, label %.backedge.us26.sink.split.i, label %.thread.us.i
 
-_process_ua.exit.us.i.us:                         ; preds = %134, %128
-  %.020.i.us.i.us = phi ptr [ %117, %128 ], [ %135, %134 ]
-  %143 = load ptr, ptr %100, align 8
-  %144 = getelementptr inbounds i8, ptr %.020.i.us.i.us, i64 32
-  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %143, ptr noundef nonnull %144) #4
-  br label %.backedge.us.sink.split.i.us
+.thread.us.i:                                     ; preds = %124
+  %126 = getelementptr inbounds i8, ptr %122, i64 40
+  %127 = load ptr, ptr %126, align 8
+  %128 = call i32 @xstrcmp(ptr noundef %71, ptr noundef %127) #4
+  %.not1920.us.i = icmp eq i32 %128, 0
+  br i1 %.not1920.us.i, label %129, label %.backedge.us26.i
 
-.backedge.us.sink.split.i.us:                     ; preds = %_process_ua.exit.us.i.us, %104, %102, %.lr.ph.split.us.i.us
-  %145 = call i32 @list_delete_item(ptr noundef %52) #4
-  br label %.backedge.us.i.us
+129:                                              ; preds = %.thread.us.i
+  %130 = load ptr, ptr %73, align 8
+  %131 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 101, ptr noundef nonnull @__func__._process_au) #4
+  call void @list_append(ptr noundef %130, ptr noundef %131) #4
+  %132 = getelementptr inbounds i8, ptr %122, i64 8
+  %133 = load ptr, ptr %132, align 8
+  %134 = call ptr @xstrdup(ptr noundef %133) #4
+  store ptr %134, ptr %131, align 8
+  %135 = load ptr, ptr %126, align 8
+  %136 = call ptr @xstrdup(ptr noundef %135) #4
+  %137 = getelementptr inbounds i8, ptr %131, i64 8
+  store ptr %136, ptr %137, align 8
+  %138 = getelementptr inbounds i8, ptr %122, i64 256
+  %139 = load ptr, ptr %138, align 8
+  %140 = call ptr @xstrdup(ptr noundef %139) #4
+  %141 = getelementptr inbounds i8, ptr %131, i64 16
+  store ptr %140, ptr %141, align 8
+  %142 = getelementptr inbounds i8, ptr %122, i64 320
+  %143 = load ptr, ptr %142, align 8
+  %144 = call ptr @xstrdup(ptr noundef %143) #4
+  %145 = getelementptr inbounds i8, ptr %131, i64 32
+  store ptr %144, ptr %145, align 8
+  %146 = load ptr, ptr %122, align 8
+  %147 = getelementptr inbounds i8, ptr %131, i64 24
+  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %146, ptr noundef nonnull %147) #4
+  br label %.backedge.us26.sink.split.i
 
-.backedge.us.i.us:                                ; preds = %.backedge.us.sink.split.i.us, %107
-  %146 = call ptr @list_next(ptr noundef %52) #4
-  %.not.us.i.us = icmp eq ptr %146, null
-  br i1 %.not.us.i.us, label %_process_assoc_type.exit.us, label %.lr.ph.split.us.i.us, !llvm.loop !6
+.backedge.us26.sink.split.i:                      ; preds = %129, %124, %.lr.ph.split.split.us.i
+  %148 = call i32 @list_delete_item(ptr noundef %52) #4
+  br label %.backedge.us26.i
 
-_process_assoc_type.exit.us:                      ; preds = %.backedge.us.i.us, %.backedge.us26.i.us, %.thread195, %.thread
-  call void @list_iterator_reset(ptr noundef %52) #4
-  br label %.backedge.us
+.backedge.us26.i:                                 ; preds = %.backedge.us26.sink.split.i, %.thread.us.i
+  %149 = call ptr @list_next(ptr noundef %52) #4
+  %.not.us27.i = icmp eq ptr %149, null
+  br i1 %.not.us27.i, label %_process_assoc_type.exit, label %.lr.ph.split.split.us.i, !llvm.loop !9
 
-.backedge.us:                                     ; preds = %.lr.ph.split.us, %57, %_process_assoc_type.exit.us
-  %147 = call ptr @list_next(ptr noundef %51) #4
-  %.not104.us = icmp eq ptr %147, null
-  br i1 %.not104.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+.thread136:                                       ; preds = %63, %66
+  br i1 %or.cond17, label %150, label %_process_assoc_type.exit
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %.backedge.us170
-  %148 = phi ptr [ %232, %.backedge.us170 ], [ %53, %.lr.ph.split.split.us.preheader ]
-  %149 = load ptr, ptr %148, align 8
-  %.not109.us167 = icmp eq ptr %149, null
-  br i1 %.not109.us167, label %.backedge.us170, label %150
+150:                                              ; preds = %.thread136
+  %151 = getelementptr inbounds i8, ptr %58, i64 272
+  %152 = load ptr, ptr %151, align 8
+  %153 = call ptr @list_next(ptr noundef %52) #4
+  %.not25.i = icmp eq ptr %153, null
+  br i1 %.not25.i, label %_process_assoc_type.exit, label %.lr.ph.i111
 
-150:                                              ; preds = %.lr.ph.split.split.us
-  %151 = call i32 @list_count(ptr noundef nonnull %149) #4
-  %.not110.us168 = icmp eq i32 %151, 0
-  br i1 %.not110.us168, label %.backedge.us170, label %152
+.lr.ph.i111:                                      ; preds = %150
+  %154 = getelementptr inbounds i8, ptr %64, i64 8
+  %155 = getelementptr inbounds i8, ptr %64, i64 32
+  br i1 %56, label %.lr.ph.split.us.i118, label %.lr.ph.split.i
 
-152:                                              ; preds = %150
-  %153 = call ptr @slurmdb_cluster_rec_2_report(ptr noundef nonnull %148) #4
-  call void @list_append(ptr noundef %9, ptr noundef %153) #4
-  %154 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_user_rec.slurmdb_destroy_report_assoc_rec) #4
-  %155 = getelementptr inbounds i8, ptr %153, i64 %.
-  store ptr %154, ptr %155, align 8
-  %156 = getelementptr inbounds i8, ptr %148, i64 272
+.lr.ph.split.us.i118:                             ; preds = %.lr.ph.i111, %.backedge.us.i123
+  %156 = phi ptr [ %185, %.backedge.us.i123 ], [ %153, %.lr.ph.i111 ]
   %157 = load ptr, ptr %156, align 8
-  %158 = call ptr @list_next(ptr noundef %52) #4
-  %.not25.i.us = icmp eq ptr %158, null
-  br i1 %.not25.i.us, label %_process_assoc_type.exit.us169, label %.lr.ph.i111.us
+  %.not16.us.i119 = icmp eq ptr %157, null
+  br i1 %.not16.us.i119, label %.backedge.us.sink.split.i127, label %158
 
-.lr.ph.i111.us:                                   ; preds = %152
-  %159 = getelementptr inbounds i8, ptr %153, i64 8
-  %160 = getelementptr inbounds i8, ptr %153, i64 32
-  br i1 %54, label %.lr.ph.split.us.i118.us, label %.lr.ph.split.i.us
+158:                                              ; preds = %.lr.ph.split.us.i118
+  %159 = call i32 @list_count(ptr noundef nonnull %157) #4
+  %.not17.us.i120 = icmp eq i32 %159, 0
+  br i1 %.not17.us.i120, label %.backedge.us.sink.split.i127, label %160
 
-.lr.ph.split.i.us:                                ; preds = %.lr.ph.i111.us, %.backedge.i115.us
-  %161 = phi ptr [ %201, %.backedge.i115.us ], [ %158, %.lr.ph.i111.us ]
+160:                                              ; preds = %158
+  %161 = getelementptr inbounds i8, ptr %156, i64 48
   %162 = load ptr, ptr %161, align 8
-  %.not16.i112.us = icmp eq ptr %162, null
-  br i1 %.not16.i112.us, label %.backedge.sink.split.i117.us, label %163
+  %.not18.us.i121 = icmp eq ptr %162, null
+  br i1 %.not18.us.i121, label %.backedge.us.sink.split.i127, label %163
 
-163:                                              ; preds = %.lr.ph.split.i.us
-  %164 = call i32 @list_count(ptr noundef nonnull %162) #4
-  %.not17.i113.us = icmp eq i32 %164, 0
-  br i1 %.not17.i113.us, label %.backedge.sink.split.i117.us, label %.thread.i114.us
+163:                                              ; preds = %160
+  %164 = getelementptr inbounds i8, ptr %156, i64 8
+  %165 = load ptr, ptr %164, align 8
+  %166 = call i32 @xstrcmp(ptr noundef %152, ptr noundef %165) #4
+  %.not19.us.i122 = icmp eq i32 %166, 0
+  br i1 %.not19.us.i122, label %167, label %.backedge.us.i123
 
-.thread.i114.us:                                  ; preds = %163
-  %165 = getelementptr inbounds i8, ptr %161, i64 8
-  %166 = load ptr, ptr %165, align 8
-  %167 = call i32 @xstrcmp(ptr noundef %157, ptr noundef %166) #4
-  %.not1922.i.us = icmp eq i32 %167, 0
-  br i1 %.not1922.i.us, label %168, label %.backedge.i115.us
+167:                                              ; preds = %163
+  %168 = load ptr, ptr %155, align 8
+  %169 = load ptr, ptr %161, align 8
+  %170 = call ptr @getpwnam(ptr noundef %169)
+  %.not.i.us.i125 = icmp eq ptr %170, null
+  br i1 %.not.i.us.i125, label %_process_uw.exit.us.i, label %171
 
-168:                                              ; preds = %.thread.i114.us
-  %169 = load ptr, ptr %159, align 8
-  %170 = call ptr @list_iterator_create(ptr noundef %169) #4
-  %171 = call ptr @list_next(ptr noundef %170) #4
-  %.not25.i.i.us = icmp eq ptr %171, null
-  br i1 %.not25.i.i.us, label %._crit_edge.i.i.us, label %.lr.ph.i.i.us
+171:                                              ; preds = %167
+  %172 = getelementptr inbounds i8, ptr %170, i64 16
+  %173 = load i32, ptr %172, align 8
+  br label %_process_uw.exit.us.i
 
-.lr.ph.i.i.us:                                    ; preds = %168
-  %172 = getelementptr inbounds i8, ptr %161, i64 32
-  br label %173
+_process_uw.exit.us.i:                            ; preds = %171, %167
+  %.0.i.us.i126 = phi i32 [ %173, %171 ], [ -2, %167 ]
+  %174 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 131, ptr noundef nonnull @__func__._process_uw) #4
+  %175 = load ptr, ptr %161, align 8
+  %176 = call ptr @xstrdup(ptr noundef %175) #4
+  %177 = getelementptr inbounds i8, ptr %174, i64 24
+  store ptr %176, ptr %177, align 8
+  %178 = getelementptr inbounds i8, ptr %174, i64 40
+  store i32 %.0.i.us.i126, ptr %178, align 8
+  %179 = getelementptr inbounds i8, ptr %156, i64 32
+  %180 = load ptr, ptr %179, align 8
+  %181 = call ptr @xstrdup(ptr noundef %180) #4
+  store ptr %181, ptr %174, align 8
+  call void @list_append(ptr noundef %168, ptr noundef nonnull %174) #4
+  %182 = load ptr, ptr %156, align 8
+  %183 = getelementptr inbounds i8, ptr %174, i64 32
+  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %182, ptr noundef nonnull %183) #4
+  br label %.backedge.us.sink.split.i127
 
-173:                                              ; preds = %181, %.lr.ph.i.i.us
-  %174 = phi ptr [ %171, %.lr.ph.i.i.us ], [ %182, %181 ]
-  %175 = getelementptr inbounds i8, ptr %174, i64 32
-  %176 = load ptr, ptr %175, align 8
-  %.not22.i.i.us = icmp eq ptr %176, null
-  br i1 %.not22.i.i.us, label %177, label %181
+.backedge.us.sink.split.i127:                     ; preds = %_process_uw.exit.us.i, %160, %158, %.lr.ph.split.us.i118
+  %184 = call i32 @list_delete_item(ptr noundef %52) #4
+  br label %.backedge.us.i123
 
-177:                                              ; preds = %173
-  %178 = load ptr, ptr %174, align 8
-  %179 = load ptr, ptr %172, align 8
-  %180 = call i32 @xstrcmp(ptr noundef %178, ptr noundef %179) #4
-  %.not23.i.i.us = icmp eq i32 %180, 0
-  br i1 %.not23.i.i.us, label %183, label %181
+.backedge.us.i123:                                ; preds = %.backedge.us.sink.split.i127, %163
+  %185 = call ptr @list_next(ptr noundef %52) #4
+  %.not.us.i124 = icmp eq ptr %185, null
+  br i1 %.not.us.i124, label %_process_assoc_type.exit, label %.lr.ph.split.us.i118, !llvm.loop !10
 
-181:                                              ; preds = %177, %173
-  %182 = call ptr @list_next(ptr noundef %170) #4
-  %.not.i20.i.us = icmp eq ptr %182, null
-  br i1 %.not.i20.i.us, label %._crit_edge.i.i.us, label %173, !llvm.loop !10
+.lr.ph.split.i:                                   ; preds = %.lr.ph.i111, %.backedge.i115
+  %186 = phi ptr [ %194, %.backedge.i115 ], [ %153, %.lr.ph.i111 ]
+  %187 = load ptr, ptr %186, align 8
+  %.not16.i112 = icmp eq ptr %187, null
+  br i1 %.not16.i112, label %.backedge.sink.split.i117, label %188
 
-183:                                              ; preds = %177
-  call void @list_iterator_destroy(ptr noundef %170) #4
-  br label %_process_wu.exit.i.us
+188:                                              ; preds = %.lr.ph.split.i
+  %189 = call i32 @list_count(ptr noundef nonnull %187) #4
+  %.not17.i113 = icmp eq i32 %189, 0
+  br i1 %.not17.i113, label %.backedge.sink.split.i117, label %.thread.i114
 
-._crit_edge.i.i.us:                               ; preds = %181, %168
-  call void @list_iterator_destroy(ptr noundef %170) #4
-  %184 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 159, ptr noundef nonnull @__func__._process_wu) #4
-  call void @list_append(ptr noundef %169, ptr noundef %184) #4
-  %185 = getelementptr inbounds i8, ptr %161, i64 32
-  %186 = load ptr, ptr %185, align 8
-  %187 = call ptr @xstrdup(ptr noundef %186) #4
-  store ptr %187, ptr %184, align 8
-  br label %_process_wu.exit.i.us
+.thread.i114:                                     ; preds = %188
+  %190 = getelementptr inbounds i8, ptr %186, i64 8
+  %191 = load ptr, ptr %190, align 8
+  %192 = call i32 @xstrcmp(ptr noundef %152, ptr noundef %191) #4
+  %.not1922.i = icmp eq i32 %192, 0
+  br i1 %.not1922.i, label %195, label %.backedge.i115
 
-_process_wu.exit.i.us:                            ; preds = %._crit_edge.i.i.us, %183
-  %.0.i21.i.us = phi ptr [ %174, %183 ], [ %184, %._crit_edge.i.i.us ]
-  %188 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 167, ptr noundef nonnull @__func__._process_wu) #4
-  call void @list_append(ptr noundef %169, ptr noundef %188) #4
-  %189 = getelementptr inbounds i8, ptr %161, i64 32
-  %190 = load ptr, ptr %189, align 8
-  %191 = call ptr @xstrdup(ptr noundef %190) #4
-  store ptr %191, ptr %188, align 8
-  %192 = getelementptr inbounds i8, ptr %161, i64 48
-  %193 = load ptr, ptr %192, align 8
-  %194 = call ptr @xstrdup(ptr noundef %193) #4
-  %195 = getelementptr inbounds i8, ptr %188, i64 32
-  store ptr %194, ptr %195, align 8
-  %196 = load ptr, ptr %161, align 8
-  %197 = getelementptr inbounds i8, ptr %188, i64 24
-  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %196, ptr noundef nonnull %197) #4
-  %198 = load ptr, ptr %161, align 8
-  %199 = getelementptr inbounds i8, ptr %.0.i21.i.us, i64 24
-  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %198, ptr noundef nonnull %199) #4
-  br label %.backedge.sink.split.i117.us
+.backedge.sink.split.i117:                        ; preds = %_process_wu.exit.i, %188, %.lr.ph.split.i
+  %193 = call i32 @list_delete_item(ptr noundef %52) #4
+  br label %.backedge.i115
 
-.backedge.sink.split.i117.us:                     ; preds = %_process_wu.exit.i.us, %163, %.lr.ph.split.i.us
-  %200 = call i32 @list_delete_item(ptr noundef %52) #4
-  br label %.backedge.i115.us
+.backedge.i115:                                   ; preds = %.backedge.sink.split.i117, %.thread.i114
+  %194 = call ptr @list_next(ptr noundef %52) #4
+  %.not.i116 = icmp eq ptr %194, null
+  br i1 %.not.i116, label %_process_assoc_type.exit, label %.lr.ph.split.i, !llvm.loop !10
 
-.backedge.i115.us:                                ; preds = %.backedge.sink.split.i117.us, %.thread.i114.us
-  %201 = call ptr @list_next(ptr noundef %52) #4
-  %.not.i116.us = icmp eq ptr %201, null
-  br i1 %.not.i116.us, label %_process_assoc_type.exit.us169, label %.lr.ph.split.i.us, !llvm.loop !11
+195:                                              ; preds = %.thread.i114
+  %196 = load ptr, ptr %154, align 8
+  %197 = call ptr @list_iterator_create(ptr noundef %196) #4
+  %198 = call ptr @list_next(ptr noundef %197) #4
+  %.not25.i.i = icmp eq ptr %198, null
+  br i1 %.not25.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
-.lr.ph.split.us.i118.us:                          ; preds = %.lr.ph.i111.us, %.backedge.us.i123.us
-  %202 = phi ptr [ %231, %.backedge.us.i123.us ], [ %158, %.lr.ph.i111.us ]
+.lr.ph.i.i:                                       ; preds = %195
+  %199 = getelementptr inbounds i8, ptr %186, i64 32
+  br label %200
+
+200:                                              ; preds = %208, %.lr.ph.i.i
+  %201 = phi ptr [ %198, %.lr.ph.i.i ], [ %209, %208 ]
+  %202 = getelementptr inbounds i8, ptr %201, i64 32
   %203 = load ptr, ptr %202, align 8
-  %.not16.us.i119.us = icmp eq ptr %203, null
-  br i1 %.not16.us.i119.us, label %.backedge.us.sink.split.i127.us, label %204
+  %.not22.i.i = icmp eq ptr %203, null
+  br i1 %.not22.i.i, label %204, label %208
 
-204:                                              ; preds = %.lr.ph.split.us.i118.us
-  %205 = call i32 @list_count(ptr noundef nonnull %203) #4
-  %.not17.us.i120.us = icmp eq i32 %205, 0
-  br i1 %.not17.us.i120.us, label %.backedge.us.sink.split.i127.us, label %206
+204:                                              ; preds = %200
+  %205 = load ptr, ptr %201, align 8
+  %206 = load ptr, ptr %199, align 8
+  %207 = call i32 @xstrcmp(ptr noundef %205, ptr noundef %206) #4
+  %.not23.i.i = icmp eq i32 %207, 0
+  br i1 %.not23.i.i, label %210, label %208
 
-206:                                              ; preds = %204
-  %207 = getelementptr inbounds i8, ptr %202, i64 48
-  %208 = load ptr, ptr %207, align 8
-  %.not18.us.i121.us = icmp eq ptr %208, null
-  br i1 %.not18.us.i121.us, label %.backedge.us.sink.split.i127.us, label %209
+208:                                              ; preds = %204, %200
+  %209 = call ptr @list_next(ptr noundef %197) #4
+  %.not.i20.i = icmp eq ptr %209, null
+  br i1 %.not.i20.i, label %._crit_edge.i.i, label %200, !llvm.loop !11
 
-209:                                              ; preds = %206
-  %210 = getelementptr inbounds i8, ptr %202, i64 8
-  %211 = load ptr, ptr %210, align 8
-  %212 = call i32 @xstrcmp(ptr noundef %157, ptr noundef %211) #4
-  %.not19.us.i122.us = icmp eq i32 %212, 0
-  br i1 %.not19.us.i122.us, label %213, label %.backedge.us.i123.us
+210:                                              ; preds = %204
+  call void @list_iterator_destroy(ptr noundef %197) #4
+  br label %_process_wu.exit.i
 
-213:                                              ; preds = %209
-  %214 = load ptr, ptr %160, align 8
-  %215 = load ptr, ptr %207, align 8
-  %216 = call ptr @getpwnam(ptr noundef %215)
-  %.not.i.us.i125.us = icmp eq ptr %216, null
-  br i1 %.not.i.us.i125.us, label %_process_uw.exit.us.i.us, label %217
+._crit_edge.i.i:                                  ; preds = %208, %195
+  call void @list_iterator_destroy(ptr noundef %197) #4
+  %211 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 159, ptr noundef nonnull @__func__._process_wu) #4
+  call void @list_append(ptr noundef %196, ptr noundef %211) #4
+  %212 = getelementptr inbounds i8, ptr %186, i64 32
+  %213 = load ptr, ptr %212, align 8
+  %214 = call ptr @xstrdup(ptr noundef %213) #4
+  store ptr %214, ptr %211, align 8
+  br label %_process_wu.exit.i
 
-217:                                              ; preds = %213
-  %218 = getelementptr inbounds i8, ptr %216, i64 16
-  %219 = load i32, ptr %218, align 8
-  br label %_process_uw.exit.us.i.us
+_process_wu.exit.i:                               ; preds = %._crit_edge.i.i, %210
+  %.0.i21.i = phi ptr [ %201, %210 ], [ %211, %._crit_edge.i.i ]
+  %215 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 167, ptr noundef nonnull @__func__._process_wu) #4
+  call void @list_append(ptr noundef %196, ptr noundef %215) #4
+  %216 = getelementptr inbounds i8, ptr %186, i64 32
+  %217 = load ptr, ptr %216, align 8
+  %218 = call ptr @xstrdup(ptr noundef %217) #4
+  store ptr %218, ptr %215, align 8
+  %219 = getelementptr inbounds i8, ptr %186, i64 48
+  %220 = load ptr, ptr %219, align 8
+  %221 = call ptr @xstrdup(ptr noundef %220) #4
+  %222 = getelementptr inbounds i8, ptr %215, i64 32
+  store ptr %221, ptr %222, align 8
+  %223 = load ptr, ptr %186, align 8
+  %224 = getelementptr inbounds i8, ptr %215, i64 24
+  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %223, ptr noundef nonnull %224) #4
+  %225 = load ptr, ptr %186, align 8
+  %226 = getelementptr inbounds i8, ptr %.0.i21.i, i64 24
+  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %225, ptr noundef nonnull %226) #4
+  br label %.backedge.sink.split.i117
 
-_process_uw.exit.us.i.us:                         ; preds = %217, %213
-  %.0.i.us.i126.us = phi i32 [ %219, %217 ], [ -2, %213 ]
-  %220 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.7, i32 noundef 131, ptr noundef nonnull @__func__._process_uw) #4
-  %221 = load ptr, ptr %207, align 8
-  %222 = call ptr @xstrdup(ptr noundef %221) #4
-  %223 = getelementptr inbounds i8, ptr %220, i64 24
-  store ptr %222, ptr %223, align 8
-  %224 = getelementptr inbounds i8, ptr %220, i64 40
-  store i32 %.0.i.us.i126.us, ptr %224, align 8
-  %225 = getelementptr inbounds i8, ptr %202, i64 32
-  %226 = load ptr, ptr %225, align 8
-  %227 = call ptr @xstrdup(ptr noundef %226) #4
-  store ptr %227, ptr %220, align 8
-  call void @list_append(ptr noundef %214, ptr noundef nonnull %220) #4
-  %228 = load ptr, ptr %202, align 8
-  %229 = getelementptr inbounds i8, ptr %220, i64 32
-  call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %228, ptr noundef nonnull %229) #4
-  br label %.backedge.us.sink.split.i127.us
-
-.backedge.us.sink.split.i127.us:                  ; preds = %_process_uw.exit.us.i.us, %206, %204, %.lr.ph.split.us.i118.us
-  %230 = call i32 @list_delete_item(ptr noundef %52) #4
-  br label %.backedge.us.i123.us
-
-.backedge.us.i123.us:                             ; preds = %.backedge.us.sink.split.i127.us, %209
-  %231 = call ptr @list_next(ptr noundef %52) #4
-  %.not.us.i124.us = icmp eq ptr %231, null
-  br i1 %.not.us.i124.us, label %_process_assoc_type.exit.us169, label %.lr.ph.split.us.i118.us, !llvm.loop !11
-
-_process_assoc_type.exit.us169:                   ; preds = %.backedge.i115.us, %.backedge.us.i123.us, %152
+_process_assoc_type.exit:                         ; preds = %.backedge.us.i, %.backedge.us26.i, %.backedge.i115, %.backedge.us.i123, %150, %69, %.thread136
   call void @list_iterator_reset(ptr noundef %52) #4
-  br label %.backedge.us170
+  br label %.backedge
 
-.backedge.us170:                                  ; preds = %.lr.ph.split.split.us, %150, %_process_assoc_type.exit.us169
-  %232 = call ptr @list_next(ptr noundef %51) #4
-  %.not104.us171 = icmp eq ptr %232, null
-  br i1 %.not104.us171, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !9
-
-._crit_edge:                                      ; preds = %.backedge.us170, %.backedge.us, %.thread134
+._crit_edge:                                      ; preds = %.backedge, %.thread134
   call void @list_iterator_destroy(ptr noundef %52) #4
   call void @list_iterator_destroy(ptr noundef %51) #4
   %.not105 = icmp eq ptr %.195, null
-  br i1 %.not105, label %234, label %233
+  br i1 %.not105, label %228, label %227
 
-233:                                              ; preds = %._crit_edge
+227:                                              ; preds = %._crit_edge
   call void @list_destroy(ptr noundef nonnull %.195) #4
-  br label %234
+  br label %228
 
-234:                                              ; preds = %233, %._crit_edge
+228:                                              ; preds = %227, %._crit_edge
   %.not106 = icmp eq ptr %.093, null
-  br i1 %.not106, label %.thread157, label %235
+  br i1 %.not106, label %.thread158, label %229
 
-235:                                              ; preds = %234
+229:                                              ; preds = %228
   call void @list_destroy(ptr noundef nonnull %.093) #4
-  br label %.thread157
+  br label %.thread158
 
-.thread157:                                       ; preds = %234, %235
+.thread158:                                       ; preds = %228, %229
   call void @list_destroy(ptr noundef nonnull %35) #4
-  br label %.thread153
+  br label %.thread154
 
-236:                                              ; preds = %44, %.thread130
-  %237 = load ptr, ptr @stderr, align 8
-  %238 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %237, ptr noundef nonnull @.str.6, ptr noundef %1) #5
+230:                                              ; preds = %44, %.thread130
+  %231 = load ptr, ptr @stderr, align 8
+  %232 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.6, ptr noundef %1) #5
   call void @list_destroy(ptr noundef nonnull %35) #4
-  br label %239
+  br label %233
 
-239:                                              ; preds = %236, %.thread155
+233:                                              ; preds = %230, %.thread156
   %.not108 = icmp eq ptr %9, null
-  br i1 %.not108, label %.thread153, label %240
+  br i1 %.not108, label %.thread154, label %234
 
-240:                                              ; preds = %239
+234:                                              ; preds = %233
   call void @list_destroy(ptr noundef nonnull %9) #4
-  br label %.thread153
+  br label %.thread154
 
-.thread153:                                       ; preds = %.thread157, %240, %239, %25
-  %.091 = phi ptr [ null, %25 ], [ null, %240 ], [ null, %239 ], [ %9, %.thread157 ]
+.thread154:                                       ; preds = %.thread158, %234, %233, %25
+  %.091 = phi ptr [ null, %25 ], [ null, %234 ], [ null, %233 ], [ %9, %.thread158 ]
   ret ptr %.091
 }
 

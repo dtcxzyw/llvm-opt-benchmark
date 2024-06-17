@@ -47339,14 +47339,14 @@ define i64 @_ZN7hir_def8resolver8Resolver11generic_def17h68846eefb6ac40d4E(ptr n
   %.val.i = load i32, ptr %11, align 8, !range !4360, !alias.scope !7613, !noalias !7616, !noundef !118
   %12 = getelementptr i8, ptr %8, i64 -16
   %.val16.i = load i64, ptr %12, align 8, !alias.scope !7613, !noalias !7616
-  %13 = icmp eq i32 %.val.i, 6
-  %.sroa.0.0.insert.insert.i.i.i = select i1 %13, i64 %.val16.i, i64 11
-  %14 = and i64 %.sroa.0.0.insert.insert.i.i.i, 4294967295
+  %13 = icmp ne i32 %.val.i, 6
+  %14 = and i64 %.val16.i, 4294967295
   %15 = icmp eq i64 %14, 11
-  br i1 %15, label %7, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17haee61cc80a76fd76E.exit
+  %16 = select i1 %13, i1 true, i1 %15
+  br i1 %16, label %7, label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17haee61cc80a76fd76E.exit
 
 _ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17haee61cc80a76fd76E.exit: ; preds = %7, %10
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %10 ], [ 11, %7 ]
+  %.sroa.0.0.i = phi i64 [ %.val16.i, %10 ], [ 11, %7 ]
   ret i64 %.sroa.0.0.i
 }
 

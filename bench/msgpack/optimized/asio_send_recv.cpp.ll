@@ -1654,7 +1654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %7
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %14
-  %18 = add i64 %12, 2
+  %18 = add nsw i64 %12, 2
   %19 = load ptr, ptr %3, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 48
   %21 = icmp eq ptr %19, %20

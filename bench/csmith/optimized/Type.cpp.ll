@@ -1346,74 +1346,70 @@ define dso_local noundef zeroext i1 @_ZNK28NonVoidNonVolatileTypeFilter6filterEi
   %10 = getelementptr inbounds i8, ptr %6, i64 16
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %43, label %.thread
+  br i1 %12, label %41, label %thread-pre-split16.thread
 
 13:                                               ; preds = %2
   %14 = and i32 %7, -2
   %spec.select.i = icmp eq i32 %14, 2
-  br i1 %spec.select.i, label %15, label %thread-pre-split
+  br i1 %spec.select.i, label %15, label %thread-pre-split16.thread
 
 15:                                               ; preds = %13
   %16 = tail call noundef zeroext i1 @_ZNK4Type24is_volatile_struct_unionEv(ptr noundef nonnull align 8 dereferenceable(136) %6)
-  br i1 %16, label %43, label %.thread-pre-split_crit_edge
+  br i1 %16, label %41, label %.thread
 
-.thread-pre-split_crit_edge:                      ; preds = %15
+.thread:                                          ; preds = %15
   %.pr.pre = load i32, ptr %6, align 8
-  br label %thread-pre-split
+  %17 = icmp eq i32 %.pr.pre, 3
+  br i1 %17, label %18, label %thread-pre-split16
 
-thread-pre-split:                                 ; preds = %.thread-pre-split_crit_edge, %13
-  %17 = phi i32 [ %7, %13 ], [ %.pr.pre, %.thread-pre-split_crit_edge ]
-  %18 = icmp eq i32 %17, 3
-  br i1 %18, label %19, label %21
+18:                                               ; preds = %.thread
+  %19 = tail call noundef zeroext i1 @_ZN9CGOptions11arg_structsEv()
+  br i1 %19, label %.thread-pre-split16_crit_edge, label %41
 
-19:                                               ; preds = %thread-pre-split
-  %20 = tail call noundef zeroext i1 @_ZN9CGOptions11arg_structsEv()
-  br i1 %20, label %._crit_edge, label %43
+.thread-pre-split16_crit_edge:                    ; preds = %18
+  %.pr17.pre = load i32, ptr %6, align 8
+  br label %thread-pre-split16
 
-._crit_edge:                                      ; preds = %19
-  %.pre = load i32, ptr %6, align 8
-  br label %21
+thread-pre-split16:                               ; preds = %.thread-pre-split16_crit_edge, %.thread
+  %20 = phi i32 [ %.pr.pre, %.thread ], [ %.pr17.pre, %.thread-pre-split16_crit_edge ]
+  %21 = icmp eq i32 %20, 2
+  br i1 %21, label %22, label %thread-pre-split16.thread
 
-21:                                               ; preds = %._crit_edge, %thread-pre-split
-  %22 = phi i32 [ %.pre, %._crit_edge ], [ %17, %thread-pre-split ]
-  %23 = icmp eq i32 %22, 2
-  br i1 %23, label %24, label %.thread
+22:                                               ; preds = %thread-pre-split16
+  %23 = tail call noundef zeroext i1 @_ZN9CGOptions10arg_unionsEv()
+  br i1 %23, label %thread-pre-split16.thread, label %41
 
-24:                                               ; preds = %21
-  %25 = tail call noundef zeroext i1 @_ZN9CGOptions10arg_unionsEv()
-  br i1 %25, label %.thread, label %43
+thread-pre-split16.thread:                        ; preds = %9, %13, %22, %thread-pre-split16
+  %24 = getelementptr inbounds i8, ptr %6, i64 76
+  %25 = load i8, ptr %24, align 4
+  %26 = trunc i8 %25 to i1
+  br i1 %26, label %28, label %27
 
-.thread:                                          ; preds = %9, %24, %21
-  %26 = getelementptr inbounds i8, ptr %6, i64 76
-  %27 = load i8, ptr %26, align 4
-  %28 = trunc i8 %27 to i1
-  br i1 %28, label %30, label %29
-
-29:                                               ; preds = %.thread
+27:                                               ; preds = %thread-pre-split16.thread
   tail call void @_ZN10Bookkeeper26record_type_with_bitfieldsEPK4Type(ptr noundef nonnull %6)
-  store i8 1, ptr %26, align 4
-  br label %30
+  store i8 1, ptr %24, align 4
+  br label %28
 
-30:                                               ; preds = %29, %.thread
-  %31 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr %6, ptr %31, align 8
-  %32 = load i32, ptr %6, align 8
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %43
+28:                                               ; preds = %27, %thread-pre-split16.thread
+  %29 = getelementptr inbounds i8, ptr %0, i64 16
+  store ptr %6, ptr %29, align 8
+  %30 = load i32, ptr %6, align 8
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %41
 
-34:                                               ; preds = %30
-  %35 = tail call noundef ptr @_ZN13Probabilities15get_prob_filterE8ProbName(i32 noundef 76)
-  %36 = load ptr, ptr %31, align 8
-  %37 = getelementptr inbounds i8, ptr %36, i64 16
-  %38 = load i32, ptr %37, align 8
-  %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr inbounds i8, ptr %39, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(16) %35, i32 noundef %38)
-  br label %43
+32:                                               ; preds = %28
+  %33 = tail call noundef ptr @_ZN13Probabilities15get_prob_filterE8ProbName(i32 noundef 76)
+  %34 = load ptr, ptr %29, align 8
+  %35 = getelementptr inbounds i8, ptr %34, i64 16
+  %36 = load i32, ptr %35, align 8
+  %37 = load ptr, ptr %33, align 8
+  %38 = getelementptr inbounds i8, ptr %37, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = tail call noundef zeroext i1 %39(ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %36)
+  br label %41
 
-43:                                               ; preds = %30, %24, %19, %15, %9, %34
-  %.0 = phi i1 [ %42, %34 ], [ true, %9 ], [ true, %15 ], [ true, %19 ], [ true, %24 ], [ false, %30 ]
+41:                                               ; preds = %28, %22, %18, %15, %9, %32
+  %.0 = phi i1 [ %40, %32 ], [ true, %9 ], [ true, %15 ], [ true, %18 ], [ true, %22 ], [ false, %28 ]
   ret i1 %.0
 }
 

@@ -191,7 +191,7 @@ define dso_local ptr @udp6_gro_receive(ptr noundef %0, ptr noundef %1) #0 align 
   br i1 %125, label %138, label %126
 
 126:                                              ; preds = %120
-  %127 = add i8 %123, 32
+  %127 = add nsw i8 %123, 32
   %128 = and i8 %127, 96
   %129 = zext nneg i8 %128 to i24
   %130 = and i24 %122, -97
@@ -374,7 +374,7 @@ define dso_local i32 @udp6_gro_complete(ptr noundef %0, i32 noundef %1) #0 align
   br i1 %48, label %75, label %49
 
 49:                                               ; preds = %43
-  %50 = add i8 %46, 32
+  %50 = add nsw i8 %46, 32
   %51 = and i8 %50, 96
   %52 = zext nneg i8 %51 to i24
   %53 = and i24 %45, -97

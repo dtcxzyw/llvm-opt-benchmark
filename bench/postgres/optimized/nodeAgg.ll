@@ -3577,7 +3577,7 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   %15 = getelementptr inbounds i8, ptr %0, i64 432
   %16 = load i8, ptr %15, align 8
   %17 = trunc i8 %16 to i1
-  br i1 %17, label %18, label %175
+  br i1 %17, label %18, label %174
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds i8, ptr %5, i64 104
@@ -3612,7 +3612,7 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %.sink.i, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 336
   store i32 0, ptr %40, align 8
-  br label %175
+  br label %174
 
 41:                                               ; preds = %18, %22, %26, %1
   %42 = getelementptr inbounds i8, ptr %0, i64 236
@@ -3772,7 +3772,7 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   %117 = load i32, ptr %11, align 8
   %118 = and i32 %117, -2
   %switch = icmp eq i32 %118, 2
-  br i1 %switch, label %119, label %143
+  br i1 %switch, label %119, label %.preheader
 
 119:                                              ; preds = %.loopexit128
   tail call fastcc void @hashagg_reset_spill_state(ptr noundef nonnull %0)
@@ -3797,7 +3797,7 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   %130 = getelementptr inbounds i8, ptr %.030.i, i64 56
   %131 = load ptr, ptr %130, align 8
   %132 = icmp eq ptr %131, null
-  br i1 %132, label %133, label %hashagg_recompile_expressions.exit
+  br i1 %132, label %133, label %141
 
 133:                                              ; preds = %119
   %134 = getelementptr inbounds i8, ptr %0, i64 168
@@ -3811,83 +3811,79 @@ define dso_local void @ExecReScanAgg(ptr noundef %0) local_unnamed_addr #1 {
   store ptr %135, ptr %134, align 8
   store i8 %138, ptr %136, align 1
   %.pre.i = load ptr, ptr %130, align 8
-  br label %hashagg_recompile_expressions.exit
+  br label %141
 
-hashagg_recompile_expressions.exit:               ; preds = %119, %133
-  %141 = phi ptr [ %.pre.i, %133 ], [ %131, %119 ]
-  %142 = getelementptr inbounds i8, ptr %.030.i, i64 48
-  store ptr %141, ptr %142, align 8
+141:                                              ; preds = %133, %119
+  %142 = phi ptr [ %.pre.i, %133 ], [ %131, %119 ]
+  %143 = getelementptr inbounds i8, ptr %.030.i, i64 48
+  store ptr %142, ptr %143, align 8
   %.pr = load i32, ptr %11, align 8
-  br label %143
+  %.not125 = icmp eq i32 %.pr, 2
+  br i1 %.not125, label %169, label %.preheader
 
-143:                                              ; preds = %.loopexit128, %hashagg_recompile_expressions.exit
-  %144 = phi i32 [ %117, %.loopexit128 ], [ %.pr, %hashagg_recompile_expressions.exit ]
-  %.not125 = icmp eq i32 %144, 2
-  br i1 %.not125, label %170, label %.preheader
+.preheader:                                       ; preds = %.loopexit128, %141
+  %144 = getelementptr inbounds i8, ptr %0, i64 416
+  br label %145
 
-.preheader:                                       ; preds = %143
-  %145 = getelementptr inbounds i8, ptr %0, i64 416
-  br label %146
-
-146:                                              ; preds = %.preheader, %.loopexit
+145:                                              ; preds = %.preheader, %.loopexit
   %indvars.iv153 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next154, %.loopexit ]
-  %147 = load ptr, ptr %145, align 8
-  %148 = getelementptr ptr, ptr %147, i64 %indvars.iv153
-  %149 = load ptr, ptr %148, align 8
-  %150 = load i32, ptr %78, align 8
-  %151 = sext i32 %150 to i64
-  %152 = shl nsw i64 %151, 4
-  %153 = ptrtoint ptr %149 to i64
-  %154 = and i64 %153, 7
-  %155 = icmp eq i64 %154, 0
-  %156 = icmp ult i64 %152, 1025
-  %or.cond127 = select i1 %155, i1 %156, i1 false
-  br i1 %or.cond127, label %157, label %166
+  %146 = load ptr, ptr %144, align 8
+  %147 = getelementptr ptr, ptr %146, i64 %indvars.iv153
+  %148 = load ptr, ptr %147, align 8
+  %149 = load i32, ptr %78, align 8
+  %150 = sext i32 %149 to i64
+  %151 = shl nsw i64 %150, 4
+  %152 = ptrtoint ptr %148 to i64
+  %153 = and i64 %152, 7
+  %154 = icmp eq i64 %153, 0
+  %155 = icmp ult i64 %151, 1025
+  %or.cond127 = select i1 %154, i1 %155, i1 false
+  br i1 %or.cond127, label %156, label %165
 
-157:                                              ; preds = %146
-  %158 = getelementptr i8, ptr %149, i64 %152
-  %159 = icmp ult ptr %149, %158
-  br i1 %159, label %.lr.ph139.preheader, label %.loopexit
+156:                                              ; preds = %145
+  %157 = getelementptr i8, ptr %148, i64 %151
+  %158 = icmp ult ptr %148, %157
+  br i1 %158, label %.lr.ph139.preheader, label %.loopexit
 
-.lr.ph139.preheader:                              ; preds = %157
-  %160 = add i64 %152, %153
-  %161 = add i64 %153, 8
-  %umax152 = tail call i64 @llvm.umax.i64(i64 %160, i64 %161)
-  %162 = xor i64 %153, -1
-  %163 = add i64 %umax152, %162
-  %164 = and i64 %163, -8
-  %165 = add i64 %164, 8
-  tail call void @llvm.memset.p0.i64(ptr align 8 %149, i8 0, i64 %165, i1 false)
+.lr.ph139.preheader:                              ; preds = %156
+  %159 = add i64 %151, %152
+  %160 = add i64 %152, 8
+  %umax152 = tail call i64 @llvm.umax.i64(i64 %159, i64 %160)
+  %161 = xor i64 %152, -1
+  %162 = add i64 %umax152, %161
+  %163 = and i64 %162, -8
+  %164 = add i64 %163, 8
+  tail call void @llvm.memset.p0.i64(ptr align 8 %148, i8 0, i64 %164, i1 false)
   br label %.loopexit
 
-166:                                              ; preds = %146
-  tail call void @llvm.memset.p0.i64(ptr align 1 %149, i8 0, i64 %152, i1 false)
+165:                                              ; preds = %145
+  tail call void @llvm.memset.p0.i64(ptr align 1 %148, i8 0, i64 %151, i1 false)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph139.preheader, %157, %166
+.loopexit:                                        ; preds = %.lr.ph139.preheader, %156, %165
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %exitcond158.not = icmp eq i64 %indvars.iv.next154, %wide.trip.count149.pre-phi
-  br i1 %exitcond158.not, label %167, label %146, !llvm.loop !35
+  br i1 %exitcond158.not, label %166, label %145, !llvm.loop !35
 
-167:                                              ; preds = %.loopexit
+166:                                              ; preds = %.loopexit
   tail call fastcc void @initialize_phase(ptr noundef nonnull %0, i32 noundef 1)
-  %168 = getelementptr inbounds i8, ptr %0, i64 328
-  store i8 0, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %0, i64 332
-  store i32 -1, ptr %169, align 4
-  br label %170
+  %167 = getelementptr inbounds i8, ptr %0, i64 328
+  store i8 0, ptr %167, align 8
+  %168 = getelementptr inbounds i8, ptr %0, i64 332
+  store i32 -1, ptr %168, align 4
+  br label %169
 
-170:                                              ; preds = %167, %143
-  %171 = getelementptr inbounds i8, ptr %5, i64 104
-  %172 = load ptr, ptr %171, align 8
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %175
+169:                                              ; preds = %166, %141
+  %170 = getelementptr inbounds i8, ptr %5, i64 104
+  %171 = load ptr, ptr %170, align 8
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %173, label %174
 
-174:                                              ; preds = %170
+173:                                              ; preds = %169
   tail call void @ExecReScan(ptr noundef nonnull %5) #12
-  br label %175
+  br label %174
 
-175:                                              ; preds = %14, %174, %170, %32
+174:                                              ; preds = %14, %173, %169, %32
   ret void
 }
 

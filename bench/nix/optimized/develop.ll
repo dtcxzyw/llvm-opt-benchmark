@@ -18080,7 +18080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i: ; preds = %
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136.i
-  %384 = add i64 %380, 4
+  %384 = add nsw i64 %380, 4
   %385 = load ptr, ptr %378, align 8, !noalias !63
   %386 = getelementptr inbounds i8, ptr %11, i64 256
   %387 = icmp eq ptr %385, %386
@@ -42207,7 +42207,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit39: ; preds = %_ZN
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %73
-  %79 = add i64 %75, 2
+  %79 = add nsw i64 %75, 2
   %80 = load ptr, ptr %0, align 8
   %81 = getelementptr inbounds i8, ptr %0, i64 16
   %82 = icmp eq ptr %80, %81

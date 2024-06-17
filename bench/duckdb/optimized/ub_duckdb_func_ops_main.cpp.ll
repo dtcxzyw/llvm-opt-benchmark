@@ -13734,7 +13734,7 @@ unreachable.i48:                                  ; preds = %invoke.cont3.i47
   unreachable
 
 _ZN6duckdb14NegateOperator9OperationIllEET0_T_.exit: ; preds = %_ZN6duckdb14NegateOperator9OperationIiiEET0_T_.exit27
-  %sub.i = sub i64 0, %input.coerce0
+  %sub.i = sub nsw i64 0, %input.coerce0
   %sub.i31 = sub nsw i64 0, %input.coerce1
   %retval.sroa.0.0.insert.ext = and i64 %sub.i, 4294967295
   %retval.sroa.0.0.insert.insert = sub i64 %retval.sroa.0.0.insert.ext, %input.sroa.2.0.extract.shift.mask

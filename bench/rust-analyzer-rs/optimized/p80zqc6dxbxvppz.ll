@@ -76825,7 +76825,7 @@ define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..Ru
 
 44:                                               ; preds = %38
   %45 = trunc i16 %.sroa.08.sroa.4.0.copyload to i1
-  %switch.offset52 = add nsw i8 %.sroa.6.0, 1
+  %switch.offset52 = add nsw i8 %.sroa.529.0.extract.trunc, 1
   br label %46
 
 46:                                               ; preds = %44, %42

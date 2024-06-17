@@ -2160,7 +2160,7 @@ if.then.i.i.i216.cont:                            ; preds = %if.then.i.i.i216.in
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i199: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit194
-  %add.i.i.i200 = add i64 %73, 8
+  %add.i.i.i200 = add nsw i64 %73, 8
   %75 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i.i.i201 = icmp eq ptr %75, %0
   br i1 %cmp.i.i.i.i.i201, label %if.then.i.i.i.i.i214, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i202
@@ -3728,7 +3728,7 @@ _ZN9struct_pb8compiler14FieldGeneratorD2Ev.exit:  ; preds = %_ZNKSt7__cxx1112bas
   br i1 %cmp.i.i.i27, label %if.then.i.i.i118.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i: ; preds = %_ZN9struct_pb8compiler14FieldGeneratorD2Ev.exit
-  %add.i.i.i = add i64 %47, 2
+  %add.i.i.i = add nsw i64 %47, 2
   %49 = load ptr, ptr %agg.result, align 8
   %cmp.i.i.i.i.i28 = icmp eq ptr %49, %37
   br i1 %cmp.i.i.i.i.i28, label %if.then.i.i.i.i.i32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i

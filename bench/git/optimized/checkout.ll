@@ -5560,13 +5560,9 @@ if.end:                                           ; preds = %entry
   %ce_namelen = getelementptr inbounds i8, ptr %call3, i64 64
   store i32 %conv, ptr %ce_namelen, align 8
   %cmp.i = icmp eq i32 %and, 40960
-  br i1 %cmp.i, label %create_ce_mode.exit, label %if.end.i
+  br i1 %cmp.i, label %create_ce_mode.exit, label %if.end3.i
 
-if.end.i:                                         ; preds = %if.end
-  %cmp1.i = icmp eq i32 %mode, 16384
-  br i1 %cmp1.i, label %create_ce_mode.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
+if.end3.i:                                        ; preds = %if.end
   %trunc.i = trunc nuw i32 %and to i16
   switch i16 %trunc.i, label %if.end9.i [
     i16 16384, label %create_ce_mode.exit
@@ -5579,8 +5575,8 @@ if.end9.i:                                        ; preds = %if.end3.i
   %or.i = select i1 %tobool.not.i, i32 33188, i32 33261
   br label %create_ce_mode.exit
 
-create_ce_mode.exit:                              ; preds = %if.end, %if.end.i, %if.end3.i, %if.end3.i, %if.end9.i
-  %retval.0.i = phi i32 [ %or.i, %if.end9.i ], [ 40960, %if.end ], [ 16384, %if.end.i ], [ 57344, %if.end3.i ], [ 57344, %if.end3.i ]
+create_ce_mode.exit:                              ; preds = %if.end, %if.end3.i, %if.end3.i, %if.end9.i
+  %retval.0.i = phi i32 [ %or.i, %if.end9.i ], [ 40960, %if.end ], [ 57344, %if.end3.i ], [ 57344, %if.end3.i ]
   %ce_mode = getelementptr inbounds i8, ptr %call3, i64 52
   store i32 %retval.0.i, ptr %ce_mode, align 4
   %call16 = tail call i32 @index_name_pos(ptr noundef nonnull @the_index, ptr noundef nonnull %name, i32 noundef %conv) #15

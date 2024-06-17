@@ -14529,7 +14529,7 @@ if.then.i.i.i88:                                  ; preds = %if.end43
   unreachable
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i71: ; preds = %if.end43
-  %add.i.i.i72 = add i64 %45, 2
+  %add.i.i.i72 = add nsw i64 %45, 2
   %47 = load ptr, ptr %agg.tmp45, align 8, !alias.scope !177
   %cmp.i.i.i.i.i73 = icmp eq ptr %47, %30
   br i1 %cmp.i.i.i.i.i73, label %if.then.i.i.i.i.i86, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i74

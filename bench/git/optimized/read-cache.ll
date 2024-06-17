@@ -9954,13 +9954,9 @@ make_empty_cache_entry.exit:                      ; preds = %if.end.i.i, %if.the
   %mem_pool_allocated.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 60
   store i32 1, ptr %mem_pool_allocated.i.i, align 4
   %cmp.i = icmp eq i32 %and, 40960
-  br i1 %cmp.i, label %create_ce_mode.exit, label %if.end.i
+  br i1 %cmp.i, label %create_ce_mode.exit, label %if.end3.i
 
-if.end.i:                                         ; preds = %make_empty_cache_entry.exit
-  %cmp1.i = icmp eq i32 %mode, 16384
-  br i1 %cmp1.i, label %create_ce_mode.exit, label %if.end3.i
-
-if.end3.i:                                        ; preds = %if.end.i
+if.end3.i:                                        ; preds = %make_empty_cache_entry.exit
   %trunc.i = trunc nuw i32 %and to i16
   switch i16 %trunc.i, label %if.end9.i [
     i16 16384, label %create_ce_mode.exit
@@ -9973,8 +9969,8 @@ if.end9.i:                                        ; preds = %if.end3.i
   %or.i = select i1 %tobool.not.i, i32 33188, i32 33261
   br label %create_ce_mode.exit
 
-create_ce_mode.exit:                              ; preds = %make_empty_cache_entry.exit, %if.end.i, %if.end3.i, %if.end3.i, %if.end9.i
-  %retval.0.i = phi i32 [ %or.i, %if.end9.i ], [ 40960, %make_empty_cache_entry.exit ], [ 16384, %if.end.i ], [ 57344, %if.end3.i ], [ 57344, %if.end3.i ]
+create_ce_mode.exit:                              ; preds = %make_empty_cache_entry.exit, %if.end3.i, %if.end3.i, %if.end9.i
+  %retval.0.i = phi i32 [ %or.i, %if.end9.i ], [ 40960, %make_empty_cache_entry.exit ], [ 57344, %if.end3.i ], [ 57344, %if.end3.i ]
   %ce_mode = getelementptr inbounds i8, ptr %call.i1.i, i64 52
   store i32 %retval.0.i, ptr %ce_mode, align 4
   %ce_flags = getelementptr inbounds i8, ptr %call.i1.i, i64 56

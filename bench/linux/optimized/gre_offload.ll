@@ -904,7 +904,7 @@ define internal fastcc void @skb_gro_incr_csum_unnecessary(ptr nocapture noundef
   br i1 %21, label %34, label %22
 
 22:                                               ; preds = %16
-  %23 = add i8 %19, 32
+  %23 = add nsw i8 %19, 32
   %24 = and i8 %23, 96
   %25 = zext nneg i8 %24 to i24
   %26 = and i24 %18, -97

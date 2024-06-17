@@ -732,19 +732,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 3, %sw.bb1.i7 ], [ 1, %cond.false ]
   %position_.i.i10 = getelementptr inbounds i8, ptr %this, i64 104
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -752,10 +755,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 132
@@ -767,17 +770,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
-  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
+  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %storemerge, label %land.rhs.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit
@@ -785,12 +788,12 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 land.rhs.i.i:                                     ; preds = %cond.end
-  %15 = bitcast i32 %storemerge to float
-  %16 = fcmp ord float %15, 0.000000e+00
+  %13 = bitcast i32 %storemerge to float
+  %14 = fcmp ord float %13, 0.000000e+00
   br label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit: ; preds = %cond.end, %cond.end, %cond.end, %land.rhs.i.i
-  %lnot.i = phi i1 [ true, %cond.end ], [ %16, %land.rhs.i.i ], [ true, %cond.end ], [ true, %cond.end ]
+  %lnot.i = phi i1 [ true, %cond.end ], [ %14, %land.rhs.i.i ], [ true, %cond.end ], [ true, %cond.end ]
   ret i1 %lnot.i
 }
 
@@ -1027,19 +1030,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 1, %sw.bb1.i7 ], [ 3, %cond.false ]
   %position_.i.i10 = getelementptr inbounds i8, ptr %this, i64 104
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -1047,10 +1053,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 132
@@ -1062,17 +1068,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
-  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
+  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %storemerge, label %land.rhs.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValue11isUndefinedEv.exit
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValue11isUndefinedEv.exit
@@ -1080,12 +1086,12 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 land.rhs.i:                                       ; preds = %cond.end
-  %15 = bitcast i32 %storemerge to float
-  %16 = fcmp ord float %15, 0.000000e+00
+  %13 = bitcast i32 %storemerge to float
+  %14 = fcmp ord float %13, 0.000000e+00
   br label %_ZNK8facebook4yoga12CompactValue11isUndefinedEv.exit
 
 _ZNK8facebook4yoga12CompactValue11isUndefinedEv.exit: ; preds = %cond.end, %cond.end, %cond.end, %land.rhs.i
-  %lnot = phi i1 [ true, %cond.end ], [ %16, %land.rhs.i ], [ true, %cond.end ], [ true, %cond.end ]
+  %lnot = phi i1 [ true, %cond.end ], [ %14, %land.rhs.i ], [ true, %cond.end ], [ true, %cond.end ]
   ret i1 %lnot
 }
 
@@ -1322,19 +1328,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 3, %sw.bb1.i7 ], [ 1, %cond.false ]
   %position_.i.i10 = getelementptr inbounds i8, ptr %this, i64 104
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -1342,10 +1351,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 132
@@ -1357,17 +1366,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
-  %leadingPosition.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
+  %leadingPosition.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %leadingPosition.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -1375,9 +1384,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %leadingPosition.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %leadingPosition.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %leadingPosition.sroa.0.0, -1073741825
@@ -1388,27 +1397,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %axisSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %axisSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -1416,7 +1425,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %cmp.i.i.i18.inv = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cond.i19 = select i1 %cmp.i.i.i18.inv, float %retval.sroa.0.0.i.i, float 0.000000e+00
   ret float %cond.i19
@@ -1693,19 +1702,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 1, %sw.bb1.i7 ], [ 3, %cond.false ]
   %position_.i.i10 = getelementptr inbounds i8, ptr %this, i64 104
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %position_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -1713,10 +1725,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 132
@@ -1728,17 +1740,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 136
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
-  %trailingPosition.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
+  %trailingPosition.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %trailingPosition.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -1746,9 +1758,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %trailingPosition.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %trailingPosition.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %trailingPosition.sroa.0.0, -1073741825
@@ -1759,27 +1771,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %axisSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %axisSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -1787,7 +1799,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %cmp.i.i.i18.inv = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cond.i19 = select i1 %cmp.i.i.i18.inv, float %retval.sroa.0.0.i.i, float 0.000000e+00
   ret float %cond.i19
@@ -2064,30 +2076,33 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 3, %sw.bb1.i7 ], [ 1, %cond.false ]
   %margin_.i.i10 = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i10, i64 0, i64 %switch.load
-  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i10, i64 0, i64 %retval.0.i5
+  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 8
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
     i32 2140081935, label %cond.end
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2099,17 +2114,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 100
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
-  %leadingMargin.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
+  %leadingMargin.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %leadingMargin.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -2117,9 +2132,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %leadingMargin.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %leadingMargin.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %leadingMargin.sroa.0.0, -1073741825
@@ -2130,27 +2145,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %widthSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %widthSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2158,7 +2173,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %cmp.i.i.i18.inv = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cond.i19 = select i1 %cmp.i.i.i18.inv, float %retval.sroa.0.0.i.i, float 0.000000e+00
   ret float %cond.i19
@@ -2435,30 +2450,33 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 1, %sw.bb1.i7 ], [ 3, %cond.false ]
   %margin_.i.i10 = getelementptr inbounds i8, ptr %this, i64 68
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i10, i64 0, i64 %switch.load
-  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %margin_.i.i10, i64 0, i64 %retval.0.i5
+  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 8
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
     i32 2140081935, label %cond.end
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -2470,17 +2488,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 100
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
-  %trailingMargin.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
+  %trailingMargin.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %trailingMargin.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -2488,9 +2506,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %trailingMargin.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %trailingMargin.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %trailingMargin.sroa.0.0, -1073741825
@@ -2501,27 +2519,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %widthSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %widthSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -2529,7 +2547,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %cmp.i.i.i18.inv = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cond.i19 = select i1 %cmp.i.i.i18.inv, float %retval.sroa.0.0.i.i, float 0.000000e+00
   ret float %cond.i19
@@ -2960,19 +2978,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 3, %sw.bb1.i7 ], [ 1, %cond.false ]
   %border_.i.i10 = getelementptr inbounds i8, ptr %this, i64 176
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -2980,10 +3001,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 204
@@ -2995,17 +3016,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 208
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
-  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
+  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %storemerge, label %sw.epilog.i19 [
     i32 2141891242, label %sw.bb.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -3017,9 +3038,9 @@ sw.bb.i:                                          ; preds = %cond.end
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.epilog.i19:                                    ; preds = %cond.end
-  %15 = bitcast i32 %storemerge to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %if.then.i, label %if.end.i
+  %13 = bitcast i32 %storemerge to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.epilog.i19
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
@@ -3031,13 +3052,13 @@ if.end.i:                                         ; preds = %sw.epilog.i19
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.end, %sw.bb.i, %if.then.i, %if.end.i
-  %17 = phi i32 [ %retval.sroa.0.0.copyload13.i, %if.then.i ], [ %add.i, %if.end.i ], [ %retval.sroa.0.0.copyload4.i, %sw.bb.i ], [ 0, %cond.end ], [ 0, %cond.end ]
-  %18 = bitcast i32 %17 to float
-  %or.cond.i = fcmp ord float %18, 0.000000e+00
-  %cmp.i2.i = fcmp uno float %18, 0.000000e+00
-  %cmp.i.i21 = fcmp olt float %18, 0.000000e+00
+  %15 = phi i32 [ %retval.sroa.0.0.copyload13.i, %if.then.i ], [ %add.i, %if.end.i ], [ %retval.sroa.0.0.copyload4.i, %sw.bb.i ], [ 0, %cond.end ], [ 0, %cond.end ]
+  %16 = bitcast i32 %15 to float
+  %or.cond.i = fcmp ord float %16, 0.000000e+00
+  %cmp.i2.i = fcmp uno float %16, 0.000000e+00
+  %cmp.i.i21 = fcmp olt float %16, 0.000000e+00
   %cmp.i2.sink.i = select i1 %or.cond.i, i1 %cmp.i.i21, i1 %cmp.i2.i
-  %cond.i22 = select i1 %cmp.i2.sink.i, float 0.000000e+00, float %18
+  %cond.i22 = select i1 %cmp.i2.sink.i, float 0.000000e+00, float %16
   ret float %cond.i22
 }
 
@@ -3293,19 +3314,22 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 1, %sw.bb1.i7 ], [ 3, %cond.false ]
   %border_.i.i10 = getelementptr inbounds i8, ptr %this, i64 176
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i10, i64 0, i64 %switch.load
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %border_.i.i10, i64 0, i64 %retval.0.i5
   %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
@@ -3313,10 +3337,10 @@ switch.lookup:                                    ; preds = %cond.false
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 204
@@ -3328,17 +3352,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 208
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 8
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
-  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
+  %storemerge = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %storemerge, label %sw.epilog.i19 [
     i32 2141891242, label %sw.bb.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
@@ -3350,9 +3374,9 @@ sw.bb.i:                                          ; preds = %cond.end
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 sw.epilog.i19:                                    ; preds = %cond.end
-  %15 = bitcast i32 %storemerge to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %if.then.i, label %if.end.i
+  %13 = bitcast i32 %storemerge to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %if.then.i, label %if.end.i
 
 if.then.i:                                        ; preds = %sw.epilog.i19
   %retval.sroa.0.0.copyload13.i = load i32, ptr @YGValueUndefined, align 4
@@ -3364,13 +3388,13 @@ if.end.i:                                         ; preds = %sw.epilog.i19
   br label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit: ; preds = %cond.end, %cond.end, %sw.bb.i, %if.then.i, %if.end.i
-  %17 = phi i32 [ %retval.sroa.0.0.copyload13.i, %if.then.i ], [ %add.i, %if.end.i ], [ %retval.sroa.0.0.copyload4.i, %sw.bb.i ], [ 0, %cond.end ], [ 0, %cond.end ]
-  %18 = bitcast i32 %17 to float
-  %or.cond.i = fcmp ord float %18, 0.000000e+00
-  %cmp.i2.i = fcmp uno float %18, 0.000000e+00
-  %cmp.i.i21 = fcmp olt float %18, 0.000000e+00
+  %15 = phi i32 [ %retval.sroa.0.0.copyload13.i, %if.then.i ], [ %add.i, %if.end.i ], [ %retval.sroa.0.0.copyload4.i, %sw.bb.i ], [ 0, %cond.end ], [ 0, %cond.end ]
+  %16 = bitcast i32 %15 to float
+  %or.cond.i = fcmp ord float %16, 0.000000e+00
+  %cmp.i2.i = fcmp uno float %16, 0.000000e+00
+  %cmp.i.i21 = fcmp olt float %16, 0.000000e+00
   %cmp.i2.sink.i = select i1 %or.cond.i, i1 %cmp.i.i21, i1 %cmp.i2.i
-  %cond.i22 = select i1 %cmp.i2.sink.i, float 0.000000e+00, float %18
+  %cond.i22 = select i1 %cmp.i2.sink.i, float 0.000000e+00, float %16
   ret float %cond.i22
 }
 
@@ -3648,30 +3672,33 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node23getFlexStartMarginValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 3, %sw.bb1.i7 ], [ 1, %cond.false ]
   %padding_.i.i10 = getelementptr inbounds i8, ptr %this, i64 140
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i10, i64 0, i64 %switch.load
-  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i10, i64 0, i64 %retval.0.i5
+  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 8
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
     i32 2140081935, label %cond.end
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -3683,17 +3710,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 172
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
-  %leadingPadding.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit
+  %leadingPadding.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga13flexStartEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %leadingPadding.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -3701,9 +3728,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %leadingPadding.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %leadingPadding.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %leadingPadding.sroa.0.0, -1073741825
@@ -3714,27 +3741,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %widthSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %widthSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -3742,7 +3769,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %or.cond.i = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cmp.i2.i = fcmp uno float %retval.sroa.0.0.i.i, 0.000000e+00
   %cmp.i.i18 = fcmp olt float %retval.sroa.0.0.i.i, 0.000000e+00
@@ -4025,30 +4052,33 @@ if.else50.i:                                      ; preds = %_ZNK8facebook4yoga1
   br label %cond.end
 
 cond.false:                                       ; preds = %entry
-  %9 = icmp ult i8 %axis, 4
-  br i1 %9, label %switch.lookup, label %sw.epilog.i8
+  switch i8 %axis, label %sw.epilog.i8 [
+    i8 0, label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+    i8 1, label %sw.bb1.i7
+  ]
+
+sw.bb1.i7:                                        ; preds = %cond.false
+  br label %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
 
 sw.epilog.i8:                                     ; preds = %cond.false
   tail call void @_ZN8facebook4yoga16fatalWithMessageEPKc(ptr noundef nonnull @.str.6) #23
   unreachable
 
-switch.lookup:                                    ; preds = %cond.false
-  %10 = zext nneg i8 %axis to i64
-  %switch.gep = getelementptr inbounds [4 x i64], ptr @switch.table._ZNK8facebook4yoga4Node19marginTrailingValueENS0_13FlexDirectionE, i64 0, i64 %10
-  %switch.load = load i64, ptr %switch.gep, align 8
+_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9: ; preds = %cond.false, %sw.bb1.i7
+  %retval.0.i5 = phi i64 [ 1, %sw.bb1.i7 ], [ 3, %cond.false ]
   %padding_.i.i10 = getelementptr inbounds i8, ptr %this, i64 140
-  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i10, i64 0, i64 %switch.load
-  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 4
+  %arrayidx.i.i.i.i12 = getelementptr inbounds [9 x %"class.facebook::yoga::CompactValue"], ptr %padding_.i.i10, i64 0, i64 %retval.0.i5
+  %retval.sroa.0.0.copyload.i.i13 = load i32, ptr %arrayidx.i.i.i.i12, align 8
   switch i32 %retval.sroa.0.0.copyload.i.i13, label %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 [
     i32 2141891242, label %cond.end
     i32 2140081935, label %cond.end
     i32 2139156720, label %cond.end
   ]
 
-_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %switch.lookup
-  %11 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
-  %12 = fcmp ord float %11, 0.000000e+00
-  br i1 %12, label %cond.end, label %if.else.i16
+_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15: ; preds = %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9
+  %9 = bitcast i32 %retval.sroa.0.0.copyload.i.i13 to float
+  %10 = fcmp ord float %9, 0.000000e+00
+  br i1 %10, label %cond.end, label %if.else.i16
 
 if.else.i16:                                      ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15
   %arrayidx.i.i.i7.i = getelementptr inbounds i8, ptr %this, i64 168
@@ -4060,17 +4090,17 @@ if.else.i16:                                      ; preds = %_ZNK8facebook4yoga1
   ]
 
 _ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i: ; preds = %if.else.i16
-  %13 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
-  %14 = fcmp ord float %13, 0.000000e+00
-  br i1 %14, label %cond.end, label %if.else30.i17
+  %11 = bitcast i32 %retval.sroa.0.0.copyload.i8.i to float
+  %12 = fcmp ord float %11, 0.000000e+00
+  br i1 %12, label %cond.end, label %if.else30.i17
 
 if.else30.i17:                                    ; preds = %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i
   %arrayidx.i.i.i16.i = getelementptr inbounds i8, ptr %this, i64 172
   %retval.sroa.0.0.copyload.i17.i = load i32, ptr %arrayidx.i.i.i16.i, align 4
   br label %cond.end
 
-cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %switch.lookup, %switch.lookup, %switch.lookup, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
-  %trailingPadding.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i.i13, %switch.lookup ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
+cond.end:                                         ; preds = %if.else30.i17, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i, %if.else.i16, %if.else.i16, %if.else.i16, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9, %if.else50.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i, %if.else30.i, %if.else30.i, %if.else30.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i, %if.else.i, %if.else.i, %if.else.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit
+  %trailingPadding.sroa.0.0 = phi i32 [ %retval.sroa.0.0.copyload.i29.i, %if.else50.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i ], [ %retval.sroa.0.0.copyload.i10.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit13.i ], [ %retval.sroa.0.0.copyload.i20.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit23.i ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i.i, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i10.i, %if.else.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i20.i, %if.else30.i ], [ %retval.sroa.0.0.copyload.i17.i, %if.else30.i17 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit.i15 ], [ %retval.sroa.0.0.copyload.i8.i, %_ZNK8facebook4yoga12CompactValue9isDefinedEv.exit11.i ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i.i13, %_ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit9 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ], [ %retval.sroa.0.0.copyload.i8.i, %if.else.i16 ]
   switch i32 %trailingPadding.sroa.0.0, label %sw.epilog.i.i [
     i32 2141891242, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i
     i32 2140081935, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i
@@ -4078,9 +4108,9 @@ cond.end:                                         ; preds = %if.else30.i17, %_ZN
   ]
 
 sw.epilog.i.i:                                    ; preds = %cond.end
-  %15 = bitcast i32 %trailingPadding.sroa.0.0 to float
-  %16 = fcmp uno float %15, 0.000000e+00
-  br i1 %16, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
+  %13 = bitcast i32 %trailingPadding.sroa.0.0 to float
+  %14 = fcmp uno float %13, 0.000000e+00
+  br i1 %14, label %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %sw.epilog.i.i
   %and.i.i = and i32 %trailingPadding.sroa.0.0, -1073741825
@@ -4091,27 +4121,27 @@ if.end.i.i:                                       ; preds = %sw.epilog.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i: ; preds = %if.end.i.i, %cond.end
   %.ph.i = phi i32 [ 0, %cond.end ], [ %add.i.i, %if.end.i.i ]
-  %17 = bitcast i32 %.ph.i to float
+  %15 = bitcast i32 %.ph.i to float
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i: ; preds = %if.end.i.i, %cond.end
   %.ph8.i = phi i32 [ %add.i.i, %if.end.i.i ], [ 0, %cond.end ]
-  %18 = bitcast i32 %.ph8.i to float
+  %16 = bitcast i32 %.ph8.i to float
   br label %sw.bb2.i.i
 
 _ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i: ; preds = %sw.epilog.i.i, %cond.end
   %.in.i = phi ptr [ @YGValueAuto, %cond.end ], [ @YGValueUndefined, %sw.epilog.i.i ]
   %retval.sroa.6.0.i.in.i = phi ptr [ getelementptr inbounds (i8, ptr @YGValueAuto, i64 4), %cond.end ], [ getelementptr inbounds (i8, ptr @YGValueUndefined, i64 4), %sw.epilog.i.i ]
   %retval.sroa.6.0.i.i = load i32, ptr %retval.sroa.6.0.i.in.i, align 4
-  %19 = load float, ptr %.in.i, align 4
+  %17 = load float, ptr %.in.i, align 4
   switch i32 %retval.sroa.6.0.i.i, label %sw.default.i.i [
     i32 1, label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
     i32 2, label %sw.bb2.i.i
   ]
 
 sw.bb2.i.i:                                       ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i
-  %20 = phi float [ %18, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
-  %mul.i.i = fmul float %20, %widthSize
+  %18 = phi float [ %16, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread9.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ]
+  %mul.i.i = fmul float %18, %widthSize
   %mul4.i.i = fmul float %mul.i.i, 0x3F847AE140000000
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
@@ -4119,7 +4149,7 @@ sw.default.i.i:                                   ; preds = %_ZNK8facebook4yoga1
   br label %_ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit
 
 _ZN8facebook4yoga12resolveValueENS0_12CompactValueEf.exit: ; preds = %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i, %sw.bb2.i.i, %sw.default.i.i
-  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %19, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
+  %retval.sroa.0.0.i.i = phi float [ 0x7FF8000000000000, %sw.default.i.i ], [ %mul4.i.i, %sw.bb2.i.i ], [ %17, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.i ], [ %15, %_ZNK8facebook4yoga12CompactValuecv7YGValueEv.exit.thread.i ]
   %or.cond.i = fcmp ord float %retval.sroa.0.0.i.i, 0.000000e+00
   %cmp.i2.i = fcmp uno float %retval.sroa.0.0.i.i, 0.000000e+00
   %cmp.i.i18 = fcmp olt float %retval.sroa.0.0.i.i, 0.000000e+00

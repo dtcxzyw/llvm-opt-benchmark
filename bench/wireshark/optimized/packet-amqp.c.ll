@@ -11438,9 +11438,9 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %.critedge, label %.lr.ph102
 
-.lr.ph102:                                        ; preds = %2, %81
-  %.0101 = phi i32 [ %82, %81 ], [ 0, %2 ]
-  %.073100 = phi i32 [ %.174, %81 ], [ 4, %2 ]
+.lr.ph102:                                        ; preds = %2, %75
+  %.0101 = phi i32 [ %76, %75 ], [ 0, %2 ]
+  %.073100 = phi i32 [ %.174, %75 ], [ 4, %2 ]
   %9 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.073100) #12
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %.critedge
@@ -11494,7 +11494,7 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   %39 = add nuw nsw i32 %38, %36
   %40 = load ptr, ptr %3, align 8
   %41 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %37, ptr noundef %0, i32 noundef %.073100, i32 noundef %39, ptr noundef nonnull @.str.1440, ptr noundef %16, ptr noundef %30, ptr noundef %40) #12
-  br label %81
+  br label %75
 
 .loopexit:                                        ; preds = %.lr.ph, %11
   %42 = zext i8 %18 to i32
@@ -11509,77 +11509,67 @@ define internal fastcc void @dissect_amqp_0_10_map(ptr noundef %0, ptr noundef %
   %47 = add nuw nsw i32 %13, 6
   %48 = add nuw nsw i32 %47, %45
   %49 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %46, ptr noundef %0, i32 noundef %.073100, i32 noundef %48, ptr noundef nonnull @.str.1441, ptr noundef %16, i32 noundef %45) #12
-  br label %79
+  br label %73
 
 50:                                               ; preds = %.loopexit
   %51 = lshr i32 %42, 4
   %52 = and i32 %51, 7
   %53 = shl nuw nsw i32 1, %52
-  br i1 %.not.i, label %73, label %54
+  br i1 %.not.i, label %67, label %54
 
 54:                                               ; preds = %50
   %55 = and i32 %42, 192
   %56 = icmp eq i32 %55, 192
-  br i1 %56, label %73, label %57
+  br i1 %56, label %67, label %57
 
 57:                                               ; preds = %54
-  %58 = and i32 %42, 208
-  %59 = icmp eq i32 %58, 208
-  br i1 %59, label %73, label %60
-
-60:                                               ; preds = %57
-  %61 = and i32 %42, 240
-  %62 = icmp eq i32 %61, 240
-  br i1 %62, label %73, label %63
-
-63:                                               ; preds = %60
   %trunc = trunc nuw i32 %53 to i8
-  switch i8 %trunc, label %73 [
-    i8 1, label %64
-    i8 2, label %67
-    i8 4, label %70
+  switch i8 %trunc, label %67 [
+    i8 1, label %58
+    i8 2, label %61
+    i8 4, label %64
   ]
 
-64:                                               ; preds = %63
-  %65 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #12
-  %66 = zext i8 %65 to i32
+58:                                               ; preds = %57
+  %59 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %19) #12
+  %60 = zext i8 %59 to i32
+  br label %67
+
+61:                                               ; preds = %57
+  %62 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19) #12
+  %63 = zext i16 %62 to i32
+  br label %67
+
+64:                                               ; preds = %57
+  %65 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19) #12
+  %66 = call i32 @llvm.umin.i32(i32 %65, i32 65536)
+  br label %67
+
+67:                                               ; preds = %57, %54, %50, %58, %61, %64
+  %.2 = phi ptr [ @.str.1442, %50 ], [ @.str.1442, %54 ], [ @.str.1442, %64 ], [ @.str.1442, %61 ], [ @.str.1442, %58 ], [ @.str.1443, %57 ]
+  %.075 = phi i32 [ %53, %50 ], [ 5, %54 ], [ %66, %64 ], [ %63, %61 ], [ %60, %58 ], [ 1, %57 ]
+  %.072 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 4, %64 ], [ 2, %61 ], [ 1, %58 ], [ %53, %57 ]
+  %68 = load i32, ptr @hf_amqp_field, align 4
+  %69 = add nuw nsw i32 %13, 2
+  %70 = add nuw nsw i32 %69, %.075
+  %71 = add nuw nsw i32 %70, %.072
+  %72 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %68, ptr noundef %0, i32 noundef %.073100, i32 noundef %71, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.075) #12
   br label %73
 
-67:                                               ; preds = %63
-  %68 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %19) #12
-  %69 = zext i16 %68 to i32
-  br label %73
+73:                                               ; preds = %67, %43
+  %.176 = phi i32 [ %.075, %67 ], [ %45, %43 ]
+  %.1 = phi i32 [ %.072, %67 ], [ 4, %43 ]
+  %74 = add nuw nsw i32 %.1, %.176
+  br label %75
 
-70:                                               ; preds = %63
-  %71 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %19) #12
-  %72 = call i32 @llvm.umin.i32(i32 %71, i32 65536)
-  br label %73
-
-73:                                               ; preds = %63, %60, %57, %54, %50, %64, %67, %70
-  %.2 = phi ptr [ @.str.1442, %50 ], [ @.str.1442, %54 ], [ @.str.1442, %57 ], [ @.str.1442, %60 ], [ @.str.1442, %70 ], [ @.str.1442, %67 ], [ @.str.1442, %64 ], [ @.str.1443, %63 ]
-  %.075 = phi i32 [ %53, %50 ], [ 5, %54 ], [ 9, %57 ], [ 0, %60 ], [ %72, %70 ], [ %69, %67 ], [ %66, %64 ], [ 1, %63 ]
-  %.072 = phi i32 [ 0, %50 ], [ 0, %54 ], [ 0, %57 ], [ 0, %60 ], [ 4, %70 ], [ 2, %67 ], [ 1, %64 ], [ %53, %63 ]
-  %74 = load i32, ptr @hf_amqp_field, align 4
-  %75 = add nuw nsw i32 %13, 2
-  %76 = add nuw nsw i32 %75, %.075
-  %77 = add nuw nsw i32 %76, %.072
-  %78 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %5, i32 noundef %74, ptr noundef %0, i32 noundef %.073100, i32 noundef %77, ptr noundef nonnull @.str.1446, ptr noundef %16, ptr noundef nonnull %.2, i32 noundef %.075) #12
-  br label %79
-
-79:                                               ; preds = %73, %43
-  %.176 = phi i32 [ %.075, %73 ], [ %45, %43 ]
-  %.1 = phi i32 [ %.072, %73 ], [ 4, %43 ]
-  %80 = add nuw nsw i32 %.1, %.176
-  br label %81
-
-81:                                               ; preds = %.lr.ph.i._crit_edge, %79
-  %.pn = phi i32 [ %36, %.lr.ph.i._crit_edge ], [ %80, %79 ]
+75:                                               ; preds = %.lr.ph.i._crit_edge, %73
+  %.pn = phi i32 [ %36, %.lr.ph.i._crit_edge ], [ %74, %73 ]
   %.174 = add i32 %.pn, %19
-  %82 = add nuw i32 %.0101, 1
-  %exitcond.not = icmp eq i32 %82, %6
+  %76 = add nuw i32 %.0101, 1
+  %exitcond.not = icmp eq i32 %76, %6
   br i1 %exitcond.not, label %.critedge, label %.lr.ph102, !llvm.loop !14
 
-.critedge:                                        ; preds = %.lr.ph102, %81, %2
+.critedge:                                        ; preds = %.lr.ph102, %75, %2
   ret void
 }
 

@@ -1777,8 +1777,8 @@ if.end284:                                        ; preds = %if.end277, %if.then
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc noundef i32 @_ZL25handleTashkeelWithTatweelPDsiijP10UErrorCode(ptr nocapture noundef %dest, i32 noundef returned %sourceLength) unnamed_addr #6 {
 entry:
-  %cmp13 = icmp sgt i32 %sourceLength, 0
-  br i1 %cmp13, label %for.body.preheader, label %for.end
+  %cmp15 = icmp sgt i32 %sourceLength, 0
+  br i1 %cmp15, label %for.body.preheader, label %for.end
 
 for.body.preheader:                               ; preds = %entry
   %wide.trip.count = zext nneg i32 %sourceLength to i64
@@ -1790,14 +1790,19 @@ for.body:                                         ; preds = %for.body.preheader,
   %0 = load i16, ptr %arrayidx, align 2
   %1 = and i16 %0, -16
   %or.cond.i = icmp eq i16 %1, -400
-  br i1 %or.cond.i, label %switch.early.test.i, label %if.else.i17
+  br i1 %or.cond.i, label %switch.early.test.i, label %if.else.i
 
 switch.early.test.i:                              ; preds = %for.body
   switch i16 %0, label %_ZL23isTashkeelOnTatweelCharDs.exit [
     i16 -387, label %for.inc.sink.split
-    i16 -395, label %if.else.i27
-    i16 -397, label %if.else.i27
+    i16 -395, label %if.else.i29
+    i16 -397, label %if.else.i29
   ]
+
+if.else.i:                                        ; preds = %for.body
+  %.off = add i16 %0, 782
+  %switch = icmp ult i16 %.off, 3
+  br i1 %switch, label %for.inc.sink.split, label %if.else.i29
 
 _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
   %2 = and i16 %0, 15
@@ -1805,45 +1810,37 @@ _ZL23isTashkeelOnTatweelCharDs.exit:              ; preds = %switch.early.test.i
   %3 = lshr i64 43650, %idxprom.i
   %4 = and i64 %3, 1
   %cmp3.not = icmp eq i64 %4, 0
-  br i1 %cmp3.not, label %switch.early.test.i20, label %for.inc.sink.split
+  br i1 %cmp3.not, label %switch.early.test.i22, label %for.inc.sink.split
 
-switch.early.test.i20:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
-  switch i16 %0, label %if.then.i30 [
+switch.early.test.i22:                            ; preds = %_ZL23isTashkeelOnTatweelCharDs.exit
+  switch i16 %0, label %if.then.i32 [
     i16 -387, label %for.inc.sink.split
-    i16 -395, label %if.else.i27
-    i16 -397, label %if.else.i27
+    i16 -395, label %if.else.i29
+    i16 -397, label %if.else.i29
   ]
 
-if.else.i17:                                      ; preds = %for.body
-  switch i16 %0, label %if.else.i27 [
-    i16 -387, label %for.inc.sink.split
-    i16 -780, label %for.inc.sink.split
-    i16 -781, label %for.inc.sink.split
-    i16 -782, label %for.inc.sink.split
-  ]
-
-if.then.i30:                                      ; preds = %switch.early.test.i20
-  %arrayidx.i32 = getelementptr inbounds [16 x i8], ptr @_ZL14tashkeelMedial, i64 0, i64 %idxprom.i
-  %5 = load i8, ptr %arrayidx.i32, align 1
+if.then.i32:                                      ; preds = %switch.early.test.i22
+  %arrayidx.i34 = getelementptr inbounds [16 x i8], ptr @_ZL14tashkeelMedial, i64 0, i64 %idxprom.i
+  %5 = load i8, ptr %arrayidx.i34, align 1
   %conv10.i = zext i8 %5 to i32
   %sub11.i = sub nsw i32 1, %conv10.i
   br label %_ZL22isIsolatedTashkeelCharDs.exit
 
-if.else.i27:                                      ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i20, %switch.early.test.i20, %if.else.i17
+if.else.i29:                                      ; preds = %if.else.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i22, %switch.early.test.i22
   %6 = add i16 %0, 930
   %or.cond3.i = icmp ult i16 %6, 6
   %..i = zext i1 %or.cond3.i to i32
   br label %_ZL22isIsolatedTashkeelCharDs.exit
 
-_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %if.then.i30, %if.else.i27
-  %retval.0.i28 = phi i32 [ %sub11.i, %if.then.i30 ], [ %..i, %if.else.i27 ]
-  %tobool.not = icmp eq i32 %retval.0.i28, 0
+_ZL22isIsolatedTashkeelCharDs.exit:               ; preds = %if.then.i32, %if.else.i29
+  %retval.0.i30 = phi i32 [ %sub11.i, %if.then.i32 ], [ %..i, %if.else.i29 ]
+  %tobool.not = icmp eq i32 %retval.0.i30, 0
   %cmp19.not = icmp eq i16 %0, -388
-  %or.cond = or i1 %cmp19.not, %tobool.not
-  br i1 %or.cond, label %for.inc, label %for.inc.sink.split
+  %or.cond14 = or i1 %cmp19.not, %tobool.not
+  br i1 %or.cond14, label %for.inc, label %for.inc.sink.split
 
-for.inc.sink.split:                               ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %if.else.i17, %if.else.i17, %if.else.i17, %if.else.i17, %switch.early.test.i20, %switch.early.test.i, %_ZL23isTashkeelOnTatweelCharDs.exit
-  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ %0, %switch.early.test.i ], [ %0, %switch.early.test.i20 ], [ -387, %if.else.i17 ], [ -387, %if.else.i17 ], [ -387, %if.else.i17 ], [ -387, %if.else.i17 ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
+for.inc.sink.split:                               ; preds = %_ZL22isIsolatedTashkeelCharDs.exit, %switch.early.test.i22, %switch.early.test.i, %if.else.i, %_ZL23isTashkeelOnTatweelCharDs.exit
+  %.sink = phi i16 [ 1600, %_ZL23isTashkeelOnTatweelCharDs.exit ], [ -387, %if.else.i ], [ %0, %switch.early.test.i ], [ %0, %switch.early.test.i22 ], [ 32, %_ZL22isIsolatedTashkeelCharDs.exit ]
   store i16 %.sink, ptr %arrayidx, align 2
   br label %for.inc
 

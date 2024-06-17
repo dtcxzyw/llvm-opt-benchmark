@@ -7740,7 +7740,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit33: ; preds = %1
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i34: ; preds = %._crit_edge, %121
   %126 = phi i64 [ %122, %121 ], [ 0, %._crit_edge ]
-  %127 = add i64 %126, 2
+  %127 = add nsw i64 %126, 2
   %128 = load ptr, ptr %0, align 8
   %129 = icmp eq ptr %128, %10
   br i1 %129, label %130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i35

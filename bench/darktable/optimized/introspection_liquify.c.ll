@@ -2421,7 +2421,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %15 = getelementptr inbounds i8, ptr %0, i64 680
   %16 = load ptr, ptr %15, align 8, !tbaa !123
   %17 = icmp eq ptr %14, null
-  br i1 %17, label %1336, label %18
+  br i1 %17, label %1333, label %18
 
 18:                                               ; preds = %7
   %19 = getelementptr inbounds i8, ptr %12, i64 96
@@ -2433,7 +2433,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %25 = fcmp reassoc nsz arcp contract afn olt float %2, 1.000000e+00
   %26 = fcmp reassoc nsz arcp contract afn olt float %3, 1.000000e+00
   %27 = or i1 %25, %26
-  br i1 %27, label %1336, label %28
+  br i1 %27, label %1333, label %28
 
 28:                                               ; preds = %18
   %29 = getelementptr inbounds i8, ptr %0, i64 712
@@ -2540,12 +2540,12 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %99 = getelementptr inbounds i8, ptr %97, i64 88
   %100 = getelementptr inbounds i8, ptr %97, i64 96
   %101 = getelementptr inbounds i8, ptr %97, i64 104
-  br label %1279
+  br label %1276
 
-102:                                              ; preds = %1332
+102:                                              ; preds = %1329
   %103 = fmul reassoc nsz arcp contract afn float %24, %6
   %104 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %103
-  %105 = call ptr @g_list_reverse(ptr noundef %1333) #29
+  %105 = call ptr @g_list_reverse(ptr noundef %1330) #29
   %106 = load ptr, ptr %13, align 16, !tbaa !122
   call void @cairo_set_line_cap(ptr noundef %1, i32 noundef 1) #29
   %107 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
@@ -2588,8 +2588,8 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %134 = icmp eq ptr %128, null
   br label %135
 
-135:                                              ; preds = %1275, %130
-  %136 = phi ptr [ %105, %130 ], [ %1277, %1275 ]
+135:                                              ; preds = %1272, %130
+  %136 = phi ptr [ %105, %130 ], [ %1274, %1272 ]
   %137 = load ptr, ptr %136, align 8, !tbaa !54
   %138 = ptrtoint ptr %137 to i64
   %139 = trunc i64 %138 to i32
@@ -2626,12 +2626,12 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %165 = icmp eq i32 %139, 18
   br label %166
 
-166:                                              ; preds = %1266, %150
-  %167 = phi i64 [ 0, %150 ], [ %1267, %1266 ]
+166:                                              ; preds = %1263, %150
+  %167 = phi i64 [ 0, %150 ], [ %1264, %1263 ]
   %168 = getelementptr inbounds [100 x %struct.dt_liquify_path_data_t], ptr %9, i64 0, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !116
   %170 = icmp eq i32 %169, 0
-  br i1 %170, label %1269, label %171
+  br i1 %170, label %1266, label %171
 
 171:                                              ; preds = %166
   %172 = getelementptr i8, ptr %168, i64 16
@@ -2648,7 +2648,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %181 = getelementptr inbounds i8, ptr %168, i64 8
   %182 = load i32, ptr %181, align 4, !tbaa !117
   %183 = icmp eq i32 %182, 0
-  br i1 %183, label %1266, label %184
+  br i1 %183, label %1263, label %184
 
 184:                                              ; preds = %180, %171
   %185 = and i32 %177, 2
@@ -2656,13 +2656,13 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   br i1 %186, label %192, label %187
 
 187:                                              ; preds = %184
-  br i1 %174, label %1266, label %188
+  br i1 %174, label %1263, label %188
 
 188:                                              ; preds = %187
   %189 = getelementptr inbounds i8, ptr %176, i64 8
   %190 = load i32, ptr %189, align 4, !tbaa !117
   %191 = icmp eq i32 %190, 0
-  br i1 %191, label %1266, label %192
+  br i1 %191, label %1263, label %192
 
 192:                                              ; preds = %188, %184
   %193 = load <2 x float>, ptr %142, align 4, !tbaa.struct !142
@@ -2985,7 +2985,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %413 = load i32, ptr %168, align 4, !tbaa !116
   %414 = and i32 %413, -2
   %415 = icmp eq i32 %414, 2
-  br i1 %415, label %416, label %585
+  br i1 %415, label %416, label %.thread
 
 416:                                              ; preds = %412
   %417 = getelementptr inbounds i8, ptr %176, i64 20
@@ -3092,7 +3092,7 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   %499 = load i32, ptr %168, align 4, !tbaa !116
   %500 = add i32 %499, -1
   %501 = icmp ult i32 %500, 3
-  br i1 %501, label %502, label %773
+  br i1 %501, label %502, label %.thread
 
 502:                                              ; preds = %498
   %503 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 12), align 4, !tbaa !11
@@ -3218,985 +3218,981 @@ define void @gui_post_expose(ptr noundef %0, ptr noundef %1, float noundef %2, f
   call void @cairo_stroke(ptr noundef %1) #29
   br label %583
 
-583:                                              ; preds = %554, %453, %.loopexit17, %.loopexit16, %.loopexit14, %.loopexit, %218
+583:                                              ; preds = %218, %.loopexit, %.loopexit14, %.loopexit16, %.loopexit17, %453, %554
   %584 = load i32, ptr %168, align 4, !tbaa !116
-  br label %585
+  %585 = icmp eq i32 %584, 3
+  br i1 %585, label %586, label %.thread
 
-585:                                              ; preds = %583, %412
-  %586 = phi i32 [ %584, %583 ], [ %413, %412 ]
-  %587 = icmp eq i32 %586, 3
-  br i1 %587, label %588, label %773
+586:                                              ; preds = %583
+  br i1 %153, label %587, label %629
 
-588:                                              ; preds = %585
-  br i1 %153, label %589, label %631
+587:                                              ; preds = %586
+  br i1 %174, label %592, label %588
 
-589:                                              ; preds = %588
-  br i1 %174, label %594, label %590
+588:                                              ; preds = %587
+  %589 = getelementptr inbounds i8, ptr %176, i64 4
+  %590 = load i32, ptr %589, align 4, !tbaa !121
+  %591 = icmp eq i32 %590, 3
+  br i1 %591, label %1263, label %592
 
-590:                                              ; preds = %589
-  %591 = getelementptr inbounds i8, ptr %176, i64 4
-  %592 = load i32, ptr %591, align 4, !tbaa !121
-  %593 = icmp eq i32 %592, 3
-  br i1 %593, label %1266, label %594
-
-594:                                              ; preds = %590, %589
-  %595 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %596 = fpext float %595 to double
-  %597 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %598 = getelementptr inbounds i8, ptr %597, i64 1448
-  %599 = load double, ptr %598, align 8, !tbaa !105
-  %600 = fmul reassoc nsz arcp contract afn double %596, %131
-  %601 = fmul reassoc nsz arcp contract afn double %600, %599
-  %602 = fptrunc double %601 to float
-  %603 = fpext float %602 to double
-  %604 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %605 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %604) #29
-  %606 = icmp eq i32 %605, 0
-  %607 = select reassoc nsz arcp contract afn i1 %606, double 1.000000e+00, double 5.000000e-01
-  %608 = fmul reassoc nsz arcp contract afn double %607, %603
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %608) #29
-  %609 = extractelement <2 x float> %206, i64 0
+592:                                              ; preds = %588, %587
+  %593 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %594 = fpext float %593 to double
+  %595 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %596 = getelementptr inbounds i8, ptr %595, i64 1448
+  %597 = load double, ptr %596, align 8, !tbaa !105
+  %598 = fmul reassoc nsz arcp contract afn double %594, %131
+  %599 = fmul reassoc nsz arcp contract afn double %598, %597
+  %600 = fptrunc double %599 to float
+  %601 = fpext float %600 to double
+  %602 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %603 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %602) #29
+  %604 = icmp eq i32 %603, 0
+  %605 = select reassoc nsz arcp contract afn i1 %604, double 1.000000e+00, double 5.000000e-01
+  %606 = fmul reassoc nsz arcp contract afn double %605, %601
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %606) #29
+  %607 = extractelement <2 x float> %206, i64 0
+  %608 = fpext float %607 to double
+  %609 = extractelement <2 x float> %206, i64 1
   %610 = fpext float %609 to double
-  %611 = extractelement <2 x float> %206, i64 1
+  %611 = extractelement <2 x float> %207, i64 0
   %612 = fpext float %611 to double
-  %613 = extractelement <2 x float> %207, i64 0
+  %613 = extractelement <2 x float> %207, i64 1
   %614 = fpext float %613 to double
-  %615 = extractelement <2 x float> %207, i64 1
-  %616 = fpext float %615 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %610, double noundef %612, double noundef %614, double noundef %616) #29
-  %617 = getelementptr inbounds i8, ptr %176, i64 20
-  %618 = select i1 %174, ptr inttoptr (i64 20 to ptr), ptr %617
-  %619 = load float, ptr %618, align 4
-  %620 = getelementptr inbounds i8, ptr %176, i64 24
-  %621 = select i1 %174, ptr inttoptr (i64 24 to ptr), ptr %620
-  %622 = fpext float %619 to double
-  %623 = load float, ptr %621, align 4
-  %624 = fpext float %623 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %622, double noundef %624) #29
-  %625 = getelementptr inbounds i8, ptr %168, i64 60
-  %626 = load float, ptr %625, align 4
-  %627 = getelementptr inbounds i8, ptr %168, i64 64
-  %628 = fpext float %626 to double
-  %629 = load float, ptr %627, align 4
-  %630 = fpext float %629 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %628, double noundef %630) #29
-  br label %1265
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %608, double noundef %610, double noundef %612, double noundef %614) #29
+  %615 = getelementptr inbounds i8, ptr %176, i64 20
+  %616 = select i1 %174, ptr inttoptr (i64 20 to ptr), ptr %615
+  %617 = load float, ptr %616, align 4
+  %618 = getelementptr inbounds i8, ptr %176, i64 24
+  %619 = select i1 %174, ptr inttoptr (i64 24 to ptr), ptr %618
+  %620 = fpext float %617 to double
+  %621 = load float, ptr %619, align 4
+  %622 = fpext float %621 to double
+  call void @cairo_move_to(ptr noundef %1, double noundef %620, double noundef %622) #29
+  %623 = getelementptr inbounds i8, ptr %168, i64 60
+  %624 = load float, ptr %623, align 4
+  %625 = getelementptr inbounds i8, ptr %168, i64 64
+  %626 = fpext float %624 to double
+  %627 = load float, ptr %625, align 4
+  %628 = fpext float %627 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %626, double noundef %628) #29
+  br label %1262
 
-631:                                              ; preds = %588
-  br i1 %155, label %632, label %669
+629:                                              ; preds = %586
+  br i1 %155, label %630, label %667
 
-632:                                              ; preds = %631
-  %633 = getelementptr inbounds i8, ptr %168, i64 4
-  %634 = load i32, ptr %633, align 4, !tbaa !121
-  %635 = icmp eq i32 %634, 3
-  br i1 %635, label %1266, label %636
+630:                                              ; preds = %629
+  %631 = getelementptr inbounds i8, ptr %168, i64 4
+  %632 = load i32, ptr %631, align 4, !tbaa !121
+  %633 = icmp eq i32 %632, 3
+  br i1 %633, label %1263, label %634
 
-636:                                              ; preds = %632
-  %637 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %638 = fpext float %637 to double
-  %639 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %640 = getelementptr inbounds i8, ptr %639, i64 1448
-  %641 = load double, ptr %640, align 8, !tbaa !105
-  %642 = fmul reassoc nsz arcp contract afn double %638, %131
-  %643 = fmul reassoc nsz arcp contract afn double %642, %641
-  %644 = fptrunc double %643 to float
-  %645 = fpext float %644 to double
-  %646 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %647 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %646) #29
-  %648 = icmp eq i32 %647, 0
-  %649 = select reassoc nsz arcp contract afn i1 %648, double 1.000000e+00, double 5.000000e-01
-  %650 = fmul reassoc nsz arcp contract afn double %649, %645
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %650) #29
-  %651 = extractelement <2 x float> %206, i64 0
+634:                                              ; preds = %630
+  %635 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %636 = fpext float %635 to double
+  %637 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %638 = getelementptr inbounds i8, ptr %637, i64 1448
+  %639 = load double, ptr %638, align 8, !tbaa !105
+  %640 = fmul reassoc nsz arcp contract afn double %636, %131
+  %641 = fmul reassoc nsz arcp contract afn double %640, %639
+  %642 = fptrunc double %641 to float
+  %643 = fpext float %642 to double
+  %644 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %645 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %644) #29
+  %646 = icmp eq i32 %645, 0
+  %647 = select reassoc nsz arcp contract afn i1 %646, double 1.000000e+00, double 5.000000e-01
+  %648 = fmul reassoc nsz arcp contract afn double %647, %643
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %648) #29
+  %649 = extractelement <2 x float> %206, i64 0
+  %650 = fpext float %649 to double
+  %651 = extractelement <2 x float> %206, i64 1
   %652 = fpext float %651 to double
-  %653 = extractelement <2 x float> %206, i64 1
+  %653 = extractelement <2 x float> %207, i64 0
   %654 = fpext float %653 to double
-  %655 = extractelement <2 x float> %207, i64 0
+  %655 = extractelement <2 x float> %207, i64 1
   %656 = fpext float %655 to double
-  %657 = extractelement <2 x float> %207, i64 1
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %650, double noundef %652, double noundef %654, double noundef %656) #29
+  %657 = load float, ptr %208, align 4
   %658 = fpext float %657 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %652, double noundef %654, double noundef %656, double noundef %658) #29
-  %659 = load float, ptr %208, align 4
+  %659 = load float, ptr %209, align 4
   %660 = fpext float %659 to double
-  %661 = load float, ptr %209, align 4
-  %662 = fpext float %661 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %660, double noundef %662) #29
-  %663 = getelementptr inbounds i8, ptr %168, i64 68
-  %664 = load float, ptr %663, align 4
-  %665 = getelementptr inbounds i8, ptr %168, i64 72
-  %666 = fpext float %664 to double
-  %667 = load float, ptr %665, align 4
-  %668 = fpext float %667 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %666, double noundef %668) #29
-  br label %1265
+  call void @cairo_move_to(ptr noundef %1, double noundef %658, double noundef %660) #29
+  %661 = getelementptr inbounds i8, ptr %168, i64 68
+  %662 = load float, ptr %661, align 4
+  %663 = getelementptr inbounds i8, ptr %168, i64 72
+  %664 = fpext float %662 to double
+  %665 = load float, ptr %663, align 4
+  %666 = fpext float %665 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %664, double noundef %666) #29
+  br label %1262
 
-669:                                              ; preds = %631
-  switch i32 %139, label %773 [
-    i32 13, label %670
-    i32 14, label %722
+667:                                              ; preds = %629
+  switch i32 %139, label %.thread [
+    i32 13, label %668
+    i32 14, label %720
   ]
 
-670:                                              ; preds = %669
-  br i1 %174, label %675, label %671
+668:                                              ; preds = %667
+  br i1 %174, label %673, label %669
 
-671:                                              ; preds = %670
-  %672 = getelementptr inbounds i8, ptr %176, i64 4
-  %673 = load i32, ptr %672, align 4, !tbaa !121
-  %674 = icmp eq i32 %673, 3
-  br i1 %674, label %1266, label %675
+669:                                              ; preds = %668
+  %670 = getelementptr inbounds i8, ptr %176, i64 4
+  %671 = load i32, ptr %670, align 4, !tbaa !121
+  %672 = icmp eq i32 %671, 3
+  br i1 %672, label %1263, label %673
 
-675:                                              ; preds = %671, %670
-  %676 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %677 = fpext float %676 to double
-  %678 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %679 = getelementptr inbounds i8, ptr %678, i64 1448
-  %680 = load double, ptr %679, align 8, !tbaa !105
-  %681 = fmul reassoc nsz arcp contract afn double %677, %131
-  %682 = fmul reassoc nsz arcp contract afn double %681, %680
-  %683 = fptrunc double %682 to float
-  %684 = fpext float %683 to double
-  %685 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %686 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %685) #29
-  %687 = icmp eq i32 %686, 0
-  %688 = select reassoc nsz arcp contract afn i1 %687, double 1.000000e+00, double 5.000000e-01
-  %689 = fmul reassoc nsz arcp contract afn double %688, %684
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %689) #29
-  %690 = extractelement <2 x float> %195, i64 0
+673:                                              ; preds = %669, %668
+  %674 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %675 = fpext float %674 to double
+  %676 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %677 = getelementptr inbounds i8, ptr %676, i64 1448
+  %678 = load double, ptr %677, align 8, !tbaa !105
+  %679 = fmul reassoc nsz arcp contract afn double %675, %131
+  %680 = fmul reassoc nsz arcp contract afn double %679, %678
+  %681 = fptrunc double %680 to float
+  %682 = fpext float %681 to double
+  %683 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %684 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %683) #29
+  %685 = icmp eq i32 %684, 0
+  %686 = select reassoc nsz arcp contract afn i1 %685, double 1.000000e+00, double 5.000000e-01
+  %687 = fmul reassoc nsz arcp contract afn double %686, %682
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %687) #29
+  %688 = extractelement <2 x float> %195, i64 0
+  %689 = fpext float %688 to double
+  %690 = extractelement <2 x float> %195, i64 1
   %691 = fpext float %690 to double
-  %692 = extractelement <2 x float> %195, i64 1
+  %692 = extractelement <2 x float> %196, i64 0
   %693 = fpext float %692 to double
-  %694 = extractelement <2 x float> %196, i64 0
+  %694 = extractelement <2 x float> %196, i64 1
   %695 = fpext float %694 to double
-  %696 = extractelement <2 x float> %196, i64 1
-  %697 = fpext float %696 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %691, double noundef %693, double noundef %695, double noundef %697) #29
-  %698 = getelementptr inbounds i8, ptr %168, i64 60
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %689, double noundef %691, double noundef %693, double noundef %695) #29
+  %696 = getelementptr inbounds i8, ptr %168, i64 60
+  %697 = load float, ptr %696, align 4
+  %698 = getelementptr inbounds i8, ptr %168, i64 64
   %699 = load float, ptr %698, align 4
-  %700 = getelementptr inbounds i8, ptr %168, i64 64
-  %701 = load float, ptr %700, align 4
-  %702 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %703 = fpext float %702 to double
-  %704 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %705 = getelementptr inbounds i8, ptr %704, i64 1448
-  %706 = load double, ptr %705, align 8, !tbaa !105
-  %707 = fmul reassoc nsz arcp contract afn double %703, %131
-  %708 = fmul reassoc nsz arcp contract afn double %707, %706
-  %709 = fptrunc double %708 to float
-  %710 = fpext float %709 to double
-  %711 = fpext float %699 to double
-  %712 = fpext float %701 to double
+  %700 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %701 = fpext float %700 to double
+  %702 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %703 = getelementptr inbounds i8, ptr %702, i64 1448
+  %704 = load double, ptr %703, align 8, !tbaa !105
+  %705 = fmul reassoc nsz arcp contract afn double %701, %131
+  %706 = fmul reassoc nsz arcp contract afn double %705, %704
+  %707 = fptrunc double %706 to float
+  %708 = fpext float %707 to double
+  %709 = fpext float %697 to double
+  %710 = fpext float %699 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  %713 = fmul reassoc nsz arcp contract afn double %710, 5.000000e-01
-  call void @cairo_arc(ptr noundef %1, double noundef %711, double noundef %712, double noundef %713, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  %711 = fmul reassoc nsz arcp contract afn double %708, 5.000000e-01
+  call void @cairo_arc(ptr noundef %1, double noundef %709, double noundef %710, double noundef %711, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %714 = extractelement <2 x float> %206, i64 0
+  %712 = extractelement <2 x float> %206, i64 0
+  %713 = fpext float %712 to double
+  %714 = extractelement <2 x float> %206, i64 1
   %715 = fpext float %714 to double
-  %716 = extractelement <2 x float> %206, i64 1
+  %716 = extractelement <2 x float> %207, i64 0
   %717 = fpext float %716 to double
-  %718 = extractelement <2 x float> %207, i64 0
+  %718 = extractelement <2 x float> %207, i64 1
   %719 = fpext float %718 to double
-  %720 = extractelement <2 x float> %207, i64 1
-  %721 = fpext float %720 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %715, double noundef %717, double noundef %719, double noundef %721) #29
-  br label %1265
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %713, double noundef %715, double noundef %717, double noundef %719) #29
+  br label %1262
 
-722:                                              ; preds = %669
-  %723 = getelementptr inbounds i8, ptr %168, i64 4
-  %724 = load i32, ptr %723, align 4, !tbaa !121
-  %725 = icmp eq i32 %724, 3
-  br i1 %725, label %1266, label %726
+720:                                              ; preds = %667
+  %721 = getelementptr inbounds i8, ptr %168, i64 4
+  %722 = load i32, ptr %721, align 4, !tbaa !121
+  %723 = icmp eq i32 %722, 3
+  br i1 %723, label %1263, label %724
 
-726:                                              ; preds = %722
-  %727 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %728 = fpext float %727 to double
-  %729 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %730 = getelementptr inbounds i8, ptr %729, i64 1448
-  %731 = load double, ptr %730, align 8, !tbaa !105
-  %732 = fmul reassoc nsz arcp contract afn double %728, %131
-  %733 = fmul reassoc nsz arcp contract afn double %732, %731
-  %734 = fptrunc double %733 to float
-  %735 = fpext float %734 to double
-  %736 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %737 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %736) #29
-  %738 = icmp eq i32 %737, 0
-  %739 = select reassoc nsz arcp contract afn i1 %738, double 1.000000e+00, double 5.000000e-01
-  %740 = fmul reassoc nsz arcp contract afn double %739, %735
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %740) #29
-  %741 = extractelement <2 x float> %195, i64 0
+724:                                              ; preds = %720
+  %725 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %726 = fpext float %725 to double
+  %727 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %728 = getelementptr inbounds i8, ptr %727, i64 1448
+  %729 = load double, ptr %728, align 8, !tbaa !105
+  %730 = fmul reassoc nsz arcp contract afn double %726, %131
+  %731 = fmul reassoc nsz arcp contract afn double %730, %729
+  %732 = fptrunc double %731 to float
+  %733 = fpext float %732 to double
+  %734 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %735 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %734) #29
+  %736 = icmp eq i32 %735, 0
+  %737 = select reassoc nsz arcp contract afn i1 %736, double 1.000000e+00, double 5.000000e-01
+  %738 = fmul reassoc nsz arcp contract afn double %737, %733
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %738) #29
+  %739 = extractelement <2 x float> %195, i64 0
+  %740 = fpext float %739 to double
+  %741 = extractelement <2 x float> %195, i64 1
   %742 = fpext float %741 to double
-  %743 = extractelement <2 x float> %195, i64 1
+  %743 = extractelement <2 x float> %196, i64 0
   %744 = fpext float %743 to double
-  %745 = extractelement <2 x float> %196, i64 0
+  %745 = extractelement <2 x float> %196, i64 1
   %746 = fpext float %745 to double
-  %747 = extractelement <2 x float> %196, i64 1
-  %748 = fpext float %747 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %742, double noundef %744, double noundef %746, double noundef %748) #29
-  %749 = getelementptr inbounds i8, ptr %168, i64 68
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %740, double noundef %742, double noundef %744, double noundef %746) #29
+  %747 = getelementptr inbounds i8, ptr %168, i64 68
+  %748 = load float, ptr %747, align 4
+  %749 = getelementptr inbounds i8, ptr %168, i64 72
   %750 = load float, ptr %749, align 4
-  %751 = getelementptr inbounds i8, ptr %168, i64 72
-  %752 = load float, ptr %751, align 4
-  %753 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %754 = fpext float %753 to double
-  %755 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %756 = getelementptr inbounds i8, ptr %755, i64 1448
-  %757 = load double, ptr %756, align 8, !tbaa !105
-  %758 = fmul reassoc nsz arcp contract afn double %754, %131
-  %759 = fmul reassoc nsz arcp contract afn double %758, %757
-  %760 = fptrunc double %759 to float
-  %761 = fpext float %760 to double
-  %762 = fpext float %750 to double
-  %763 = fpext float %752 to double
+  %751 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %752 = fpext float %751 to double
+  %753 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %754 = getelementptr inbounds i8, ptr %753, i64 1448
+  %755 = load double, ptr %754, align 8, !tbaa !105
+  %756 = fmul reassoc nsz arcp contract afn double %752, %131
+  %757 = fmul reassoc nsz arcp contract afn double %756, %755
+  %758 = fptrunc double %757 to float
+  %759 = fpext float %758 to double
+  %760 = fpext float %748 to double
+  %761 = fpext float %750 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  %764 = fmul reassoc nsz arcp contract afn double %761, 5.000000e-01
-  call void @cairo_arc(ptr noundef %1, double noundef %762, double noundef %763, double noundef %764, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  %762 = fmul reassoc nsz arcp contract afn double %759, 5.000000e-01
+  call void @cairo_arc(ptr noundef %1, double noundef %760, double noundef %761, double noundef %762, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %765 = extractelement <2 x float> %206, i64 0
+  %763 = extractelement <2 x float> %206, i64 0
+  %764 = fpext float %763 to double
+  %765 = extractelement <2 x float> %206, i64 1
   %766 = fpext float %765 to double
-  %767 = extractelement <2 x float> %206, i64 1
+  %767 = extractelement <2 x float> %207, i64 0
   %768 = fpext float %767 to double
-  %769 = extractelement <2 x float> %207, i64 0
+  %769 = extractelement <2 x float> %207, i64 1
   %770 = fpext float %769 to double
-  %771 = extractelement <2 x float> %207, i64 1
-  %772 = fpext float %771 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %766, double noundef %768, double noundef %770, double noundef %772) #29
-  br label %1265
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %764, double noundef %766, double noundef %768, double noundef %770) #29
+  br label %1262
 
-773:                                              ; preds = %669, %585, %498
-  br i1 %157, label %774, label %828
+.thread:                                          ; preds = %412, %667, %583, %498
+  br i1 %157, label %771, label %825
 
-774:                                              ; preds = %773
-  %775 = getelementptr inbounds i8, ptr %168, i64 36
-  %776 = load <2 x float>, ptr %775, align 4
-  %777 = fsub reassoc nsz arcp contract afn <2 x float> %776, %210
-  %778 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %777) #30
-  %779 = fpext float %778 to double
-  %780 = extractelement <2 x float> %210, i64 0
-  %781 = fpext float %780 to double
-  %782 = extractelement <2 x float> %210, i64 1
-  %783 = fpext float %782 to double
+771:                                              ; preds = %.thread
+  %772 = getelementptr inbounds i8, ptr %168, i64 36
+  %773 = load <2 x float>, ptr %772, align 4
+  %774 = fsub reassoc nsz arcp contract afn <2 x float> %773, %210
+  %775 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %774) #30
+  %776 = fpext float %775 to double
+  %777 = extractelement <2 x float> %210, i64 0
+  %778 = fpext float %777 to double
+  %779 = extractelement <2 x float> %210, i64 1
+  %780 = fpext float %779 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  call void @cairo_arc(ptr noundef %1, double noundef %781, double noundef %783, double noundef %779, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  call void @cairo_arc(ptr noundef %1, double noundef %778, double noundef %780, double noundef %776, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %784 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
-  %785 = fpext float %784 to double
-  %786 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %787 = getelementptr inbounds i8, ptr %786, i64 1448
-  %788 = load double, ptr %787, align 8, !tbaa !105
-  %789 = fmul reassoc nsz arcp contract afn double %785, %131
-  %790 = fmul reassoc nsz arcp contract afn double %789, %788
-  %791 = fptrunc double %790 to float
-  %792 = fpext float %791 to double
-  %793 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %794 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %793) #29
-  %795 = icmp eq i32 %794, 0
-  %796 = select reassoc nsz arcp contract afn i1 %795, double 1.000000e+00, double 5.000000e-01
-  %797 = fmul reassoc nsz arcp contract afn double %796, %792
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %797) #29
-  %798 = extractelement <2 x float> %206, i64 0
-  %799 = fpext float %798 to double
-  %800 = extractelement <2 x float> %206, i64 1
-  %801 = fpext float %800 to double
-  %802 = extractelement <2 x float> %207, i64 0
-  %803 = fpext float %802 to double
-  %804 = extractelement <2 x float> %207, i64 1
-  %805 = fpext float %804 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %799, double noundef %801, double noundef %803, double noundef %805) #29
+  %781 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
+  %782 = fpext float %781 to double
+  %783 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %784 = getelementptr inbounds i8, ptr %783, i64 1448
+  %785 = load double, ptr %784, align 8, !tbaa !105
+  %786 = fmul reassoc nsz arcp contract afn double %782, %131
+  %787 = fmul reassoc nsz arcp contract afn double %786, %785
+  %788 = fptrunc double %787 to float
+  %789 = fpext float %788 to double
+  %790 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %791 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %790) #29
+  %792 = icmp eq i32 %791, 0
+  %793 = select reassoc nsz arcp contract afn i1 %792, double 1.000000e+00, double 5.000000e-01
+  %794 = fmul reassoc nsz arcp contract afn double %793, %789
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %794) #29
+  %795 = extractelement <2 x float> %206, i64 0
+  %796 = fpext float %795 to double
+  %797 = extractelement <2 x float> %206, i64 1
+  %798 = fpext float %797 to double
+  %799 = extractelement <2 x float> %207, i64 0
+  %800 = fpext float %799 to double
+  %801 = extractelement <2 x float> %207, i64 1
+  %802 = fpext float %801 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %796, double noundef %798, double noundef %800, double noundef %802) #29
   call void @cairo_stroke_preserve(ptr noundef %1) #29
-  %806 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %807 = fpext float %806 to double
-  %808 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %809 = getelementptr inbounds i8, ptr %808, i64 1448
-  %810 = load double, ptr %809, align 8, !tbaa !105
-  %811 = fmul reassoc nsz arcp contract afn double %807, %131
-  %812 = fmul reassoc nsz arcp contract afn double %811, %810
-  %813 = fptrunc double %812 to float
-  %814 = fpext float %813 to double
-  %815 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %816 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %815) #29
-  %817 = icmp eq i32 %816, 0
-  %818 = select reassoc nsz arcp contract afn i1 %817, double 1.000000e+00, double 5.000000e-01
-  %819 = fmul reassoc nsz arcp contract afn double %818, %814
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %819) #29
-  %820 = extractelement <2 x float> %195, i64 0
-  %821 = fpext float %820 to double
-  %822 = extractelement <2 x float> %195, i64 1
-  %823 = fpext float %822 to double
-  %824 = extractelement <2 x float> %196, i64 0
-  %825 = fpext float %824 to double
-  %826 = extractelement <2 x float> %196, i64 1
-  %827 = fpext float %826 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %821, double noundef %823, double noundef %825, double noundef %827) #29
-  br label %1265
+  %803 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %804 = fpext float %803 to double
+  %805 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %806 = getelementptr inbounds i8, ptr %805, i64 1448
+  %807 = load double, ptr %806, align 8, !tbaa !105
+  %808 = fmul reassoc nsz arcp contract afn double %804, %131
+  %809 = fmul reassoc nsz arcp contract afn double %808, %807
+  %810 = fptrunc double %809 to float
+  %811 = fpext float %810 to double
+  %812 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %813 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %812) #29
+  %814 = icmp eq i32 %813, 0
+  %815 = select reassoc nsz arcp contract afn i1 %814, double 1.000000e+00, double 5.000000e-01
+  %816 = fmul reassoc nsz arcp contract afn double %815, %811
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %816) #29
+  %817 = extractelement <2 x float> %195, i64 0
+  %818 = fpext float %817 to double
+  %819 = extractelement <2 x float> %195, i64 1
+  %820 = fpext float %819 to double
+  %821 = extractelement <2 x float> %196, i64 0
+  %822 = fpext float %821 to double
+  %823 = extractelement <2 x float> %196, i64 1
+  %824 = fpext float %823 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %818, double noundef %820, double noundef %822, double noundef %824) #29
+  br label %1262
 
-828:                                              ; preds = %773
-  br i1 %158, label %829, label %876
+825:                                              ; preds = %.thread
+  br i1 %158, label %826, label %873
 
-829:                                              ; preds = %828
-  %830 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %831 = fpext float %830 to double
-  %832 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %833 = getelementptr inbounds i8, ptr %832, i64 1448
-  %834 = load double, ptr %833, align 8, !tbaa !105
-  %835 = fmul reassoc nsz arcp contract afn double %831, %131
-  %836 = fmul reassoc nsz arcp contract afn double %835, %834
-  %837 = fptrunc double %836 to float
-  %838 = fpext float %837 to double
-  %839 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %840 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %839) #29
-  %841 = icmp eq i32 %840, 0
-  %842 = select reassoc nsz arcp contract afn i1 %841, double 1.000000e+00, double 5.000000e-01
-  %843 = fmul reassoc nsz arcp contract afn double %842, %838
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %843) #29
-  %844 = extractelement <2 x float> %195, i64 0
-  %845 = fpext float %844 to double
-  %846 = extractelement <2 x float> %195, i64 1
-  %847 = fpext float %846 to double
-  %848 = extractelement <2 x float> %196, i64 0
-  %849 = fpext float %848 to double
-  %850 = extractelement <2 x float> %196, i64 1
-  %851 = fpext float %850 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %845, double noundef %847, double noundef %849, double noundef %851) #29
-  %852 = getelementptr inbounds i8, ptr %168, i64 36
-  %853 = load float, ptr %852, align 4
-  %854 = getelementptr inbounds i8, ptr %168, i64 40
-  %855 = load float, ptr %854, align 4
-  %856 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %857 = fpext float %856 to double
-  %858 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %859 = getelementptr inbounds i8, ptr %858, i64 1448
-  %860 = load double, ptr %859, align 8, !tbaa !105
-  %861 = fmul reassoc nsz arcp contract afn double %857, %131
-  %862 = fmul reassoc nsz arcp contract afn double %861, %860
-  %863 = fptrunc double %862 to float
-  %864 = fpext float %863 to double
-  %865 = fpext float %853 to double
-  %866 = fpext float %855 to double
+826:                                              ; preds = %825
+  %827 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %828 = fpext float %827 to double
+  %829 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %830 = getelementptr inbounds i8, ptr %829, i64 1448
+  %831 = load double, ptr %830, align 8, !tbaa !105
+  %832 = fmul reassoc nsz arcp contract afn double %828, %131
+  %833 = fmul reassoc nsz arcp contract afn double %832, %831
+  %834 = fptrunc double %833 to float
+  %835 = fpext float %834 to double
+  %836 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %837 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %836) #29
+  %838 = icmp eq i32 %837, 0
+  %839 = select reassoc nsz arcp contract afn i1 %838, double 1.000000e+00, double 5.000000e-01
+  %840 = fmul reassoc nsz arcp contract afn double %839, %835
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %840) #29
+  %841 = extractelement <2 x float> %195, i64 0
+  %842 = fpext float %841 to double
+  %843 = extractelement <2 x float> %195, i64 1
+  %844 = fpext float %843 to double
+  %845 = extractelement <2 x float> %196, i64 0
+  %846 = fpext float %845 to double
+  %847 = extractelement <2 x float> %196, i64 1
+  %848 = fpext float %847 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %842, double noundef %844, double noundef %846, double noundef %848) #29
+  %849 = getelementptr inbounds i8, ptr %168, i64 36
+  %850 = load float, ptr %849, align 4
+  %851 = getelementptr inbounds i8, ptr %168, i64 40
+  %852 = load float, ptr %851, align 4
+  %853 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %854 = fpext float %853 to double
+  %855 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %856 = getelementptr inbounds i8, ptr %855, i64 1448
+  %857 = load double, ptr %856, align 8, !tbaa !105
+  %858 = fmul reassoc nsz arcp contract afn double %854, %131
+  %859 = fmul reassoc nsz arcp contract afn double %858, %857
+  %860 = fptrunc double %859 to float
+  %861 = fpext float %860 to double
+  %862 = fpext float %850 to double
+  %863 = fpext float %852 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  %867 = fmul reassoc nsz arcp contract afn double %864, 5.000000e-01
-  call void @cairo_arc(ptr noundef %1, double noundef %865, double noundef %866, double noundef %867, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  %864 = fmul reassoc nsz arcp contract afn double %861, 5.000000e-01
+  call void @cairo_arc(ptr noundef %1, double noundef %862, double noundef %863, double noundef %864, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %868 = extractelement <2 x float> %206, i64 0
-  %869 = fpext float %868 to double
-  %870 = extractelement <2 x float> %206, i64 1
-  %871 = fpext float %870 to double
-  %872 = extractelement <2 x float> %207, i64 0
-  %873 = fpext float %872 to double
-  %874 = extractelement <2 x float> %207, i64 1
-  %875 = fpext float %874 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %869, double noundef %871, double noundef %873, double noundef %875) #29
-  br label %1265
+  %865 = extractelement <2 x float> %206, i64 0
+  %866 = fpext float %865 to double
+  %867 = extractelement <2 x float> %206, i64 1
+  %868 = fpext float %867 to double
+  %869 = extractelement <2 x float> %207, i64 0
+  %870 = fpext float %869 to double
+  %871 = extractelement <2 x float> %207, i64 1
+  %872 = fpext float %871 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %866, double noundef %868, double noundef %870, double noundef %872) #29
+  br label %1262
 
-876:                                              ; preds = %828
-  br i1 %160, label %877, label %935
+873:                                              ; preds = %825
+  br i1 %160, label %874, label %932
 
-877:                                              ; preds = %876
-  %878 = getelementptr inbounds i8, ptr %168, i64 36
-  %879 = load <2 x float>, ptr %878, align 4
-  %880 = fsub reassoc nsz arcp contract afn <2 x float> %879, %210
-  %881 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %880) #30
+874:                                              ; preds = %873
+  %875 = getelementptr inbounds i8, ptr %168, i64 36
+  %876 = load <2 x float>, ptr %875, align 4
+  %877 = fsub reassoc nsz arcp contract afn <2 x float> %876, %210
+  %878 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %877) #30
+  %879 = fpext float %878 to double
+  %880 = getelementptr inbounds i8, ptr %168, i64 44
+  %881 = load float, ptr %880, align 4, !tbaa !72
   %882 = fpext float %881 to double
-  %883 = getelementptr inbounds i8, ptr %168, i64 44
-  %884 = load float, ptr %883, align 4, !tbaa !72
-  %885 = fpext float %884 to double
-  %886 = extractelement <2 x float> %210, i64 0
-  %887 = fpext float %886 to double
-  %888 = extractelement <2 x float> %210, i64 1
+  %883 = extractelement <2 x float> %210, i64 0
+  %884 = fpext float %883 to double
+  %885 = extractelement <2 x float> %210, i64 1
+  %886 = fpext float %885 to double
+  call void @cairo_save(ptr noundef %1) #29
+  call void @cairo_new_sub_path(ptr noundef %1) #29
+  %887 = fmul reassoc nsz arcp contract afn double %882, %879
+  call void @cairo_arc(ptr noundef %1, double noundef %884, double noundef %886, double noundef %887, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  call void @cairo_restore(ptr noundef %1) #29
+  %888 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
   %889 = fpext float %888 to double
-  call void @cairo_save(ptr noundef %1) #29
-  call void @cairo_new_sub_path(ptr noundef %1) #29
-  %890 = fmul reassoc nsz arcp contract afn double %885, %882
-  call void @cairo_arc(ptr noundef %1, double noundef %887, double noundef %889, double noundef %890, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
-  call void @cairo_restore(ptr noundef %1) #29
-  %891 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
-  %892 = fpext float %891 to double
-  %893 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %894 = getelementptr inbounds i8, ptr %893, i64 1448
-  %895 = load double, ptr %894, align 8, !tbaa !105
-  %896 = fmul reassoc nsz arcp contract afn double %892, %131
-  %897 = fmul reassoc nsz arcp contract afn double %896, %895
-  %898 = fptrunc double %897 to float
-  %899 = fpext float %898 to double
-  %900 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %901 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %900) #29
-  %902 = icmp eq i32 %901, 0
-  %903 = select reassoc nsz arcp contract afn i1 %902, double 1.000000e+00, double 5.000000e-01
-  %904 = fmul reassoc nsz arcp contract afn double %903, %899
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %904) #29
-  %905 = extractelement <2 x float> %206, i64 0
-  %906 = fpext float %905 to double
-  %907 = extractelement <2 x float> %206, i64 1
-  %908 = fpext float %907 to double
-  %909 = extractelement <2 x float> %207, i64 0
-  %910 = fpext float %909 to double
-  %911 = extractelement <2 x float> %207, i64 1
-  %912 = fpext float %911 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %906, double noundef %908, double noundef %910, double noundef %912) #29
+  %890 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %891 = getelementptr inbounds i8, ptr %890, i64 1448
+  %892 = load double, ptr %891, align 8, !tbaa !105
+  %893 = fmul reassoc nsz arcp contract afn double %889, %131
+  %894 = fmul reassoc nsz arcp contract afn double %893, %892
+  %895 = fptrunc double %894 to float
+  %896 = fpext float %895 to double
+  %897 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %898 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %897) #29
+  %899 = icmp eq i32 %898, 0
+  %900 = select reassoc nsz arcp contract afn i1 %899, double 1.000000e+00, double 5.000000e-01
+  %901 = fmul reassoc nsz arcp contract afn double %900, %896
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %901) #29
+  %902 = extractelement <2 x float> %206, i64 0
+  %903 = fpext float %902 to double
+  %904 = extractelement <2 x float> %206, i64 1
+  %905 = fpext float %904 to double
+  %906 = extractelement <2 x float> %207, i64 0
+  %907 = fpext float %906 to double
+  %908 = extractelement <2 x float> %207, i64 1
+  %909 = fpext float %908 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %903, double noundef %905, double noundef %907, double noundef %909) #29
   call void @cairo_stroke_preserve(ptr noundef %1) #29
-  %913 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %914 = fpext float %913 to double
-  %915 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %916 = getelementptr inbounds i8, ptr %915, i64 1448
-  %917 = load double, ptr %916, align 8, !tbaa !105
-  %918 = fmul reassoc nsz arcp contract afn double %914, %131
-  %919 = fmul reassoc nsz arcp contract afn double %918, %917
-  %920 = fptrunc double %919 to float
-  %921 = fpext float %920 to double
-  %922 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %923 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %922) #29
-  %924 = icmp eq i32 %923, 0
-  %925 = select reassoc nsz arcp contract afn i1 %924, double 1.000000e+00, double 5.000000e-01
-  %926 = fmul reassoc nsz arcp contract afn double %925, %921
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %926) #29
-  %927 = extractelement <2 x float> %195, i64 0
-  %928 = fpext float %927 to double
-  %929 = extractelement <2 x float> %195, i64 1
-  %930 = fpext float %929 to double
-  %931 = extractelement <2 x float> %196, i64 0
-  %932 = fpext float %931 to double
-  %933 = extractelement <2 x float> %196, i64 1
-  %934 = fpext float %933 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %928, double noundef %930, double noundef %932, double noundef %934) #29
-  br label %1265
+  %910 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %911 = fpext float %910 to double
+  %912 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %913 = getelementptr inbounds i8, ptr %912, i64 1448
+  %914 = load double, ptr %913, align 8, !tbaa !105
+  %915 = fmul reassoc nsz arcp contract afn double %911, %131
+  %916 = fmul reassoc nsz arcp contract afn double %915, %914
+  %917 = fptrunc double %916 to float
+  %918 = fpext float %917 to double
+  %919 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %920 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %919) #29
+  %921 = icmp eq i32 %920, 0
+  %922 = select reassoc nsz arcp contract afn i1 %921, double 1.000000e+00, double 5.000000e-01
+  %923 = fmul reassoc nsz arcp contract afn double %922, %918
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %923) #29
+  %924 = extractelement <2 x float> %195, i64 0
+  %925 = fpext float %924 to double
+  %926 = extractelement <2 x float> %195, i64 1
+  %927 = fpext float %926 to double
+  %928 = extractelement <2 x float> %196, i64 0
+  %929 = fpext float %928 to double
+  %930 = extractelement <2 x float> %196, i64 1
+  %931 = fpext float %930 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %925, double noundef %927, double noundef %929, double noundef %931) #29
+  br label %1262
 
-935:                                              ; preds = %876
-  br i1 %162, label %936, label %994
+932:                                              ; preds = %873
+  br i1 %162, label %933, label %991
 
-936:                                              ; preds = %935
-  %937 = getelementptr inbounds i8, ptr %168, i64 36
-  %938 = load <2 x float>, ptr %937, align 4
-  %939 = fsub reassoc nsz arcp contract afn <2 x float> %938, %210
-  %940 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %939) #30
+933:                                              ; preds = %932
+  %934 = getelementptr inbounds i8, ptr %168, i64 36
+  %935 = load <2 x float>, ptr %934, align 4
+  %936 = fsub reassoc nsz arcp contract afn <2 x float> %935, %210
+  %937 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %936) #30
+  %938 = fpext float %937 to double
+  %939 = getelementptr inbounds i8, ptr %168, i64 48
+  %940 = load float, ptr %939, align 4, !tbaa !73
   %941 = fpext float %940 to double
-  %942 = getelementptr inbounds i8, ptr %168, i64 48
-  %943 = load float, ptr %942, align 4, !tbaa !73
-  %944 = fpext float %943 to double
-  %945 = extractelement <2 x float> %210, i64 0
-  %946 = fpext float %945 to double
-  %947 = extractelement <2 x float> %210, i64 1
-  %948 = fpext float %947 to double
+  %942 = extractelement <2 x float> %210, i64 0
+  %943 = fpext float %942 to double
+  %944 = extractelement <2 x float> %210, i64 1
+  %945 = fpext float %944 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  %949 = fmul reassoc nsz arcp contract afn double %944, %941
-  call void @cairo_arc(ptr noundef %1, double noundef %946, double noundef %948, double noundef %949, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  %946 = fmul reassoc nsz arcp contract afn double %941, %938
+  call void @cairo_arc(ptr noundef %1, double noundef %943, double noundef %945, double noundef %946, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %950 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
-  %951 = fpext float %950 to double
-  %952 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %953 = getelementptr inbounds i8, ptr %952, i64 1448
-  %954 = load double, ptr %953, align 8, !tbaa !105
-  %955 = fmul reassoc nsz arcp contract afn double %951, %131
-  %956 = fmul reassoc nsz arcp contract afn double %955, %954
-  %957 = fptrunc double %956 to float
-  %958 = fpext float %957 to double
-  %959 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %960 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %959) #29
-  %961 = icmp eq i32 %960, 0
-  %962 = select reassoc nsz arcp contract afn i1 %961, double 1.000000e+00, double 5.000000e-01
-  %963 = fmul reassoc nsz arcp contract afn double %962, %958
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %963) #29
-  %964 = extractelement <2 x float> %206, i64 0
-  %965 = fpext float %964 to double
-  %966 = extractelement <2 x float> %206, i64 1
-  %967 = fpext float %966 to double
-  %968 = extractelement <2 x float> %207, i64 0
-  %969 = fpext float %968 to double
-  %970 = extractelement <2 x float> %207, i64 1
-  %971 = fpext float %970 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %965, double noundef %967, double noundef %969, double noundef %971) #29
+  %947 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
+  %948 = fpext float %947 to double
+  %949 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %950 = getelementptr inbounds i8, ptr %949, i64 1448
+  %951 = load double, ptr %950, align 8, !tbaa !105
+  %952 = fmul reassoc nsz arcp contract afn double %948, %131
+  %953 = fmul reassoc nsz arcp contract afn double %952, %951
+  %954 = fptrunc double %953 to float
+  %955 = fpext float %954 to double
+  %956 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %957 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %956) #29
+  %958 = icmp eq i32 %957, 0
+  %959 = select reassoc nsz arcp contract afn i1 %958, double 1.000000e+00, double 5.000000e-01
+  %960 = fmul reassoc nsz arcp contract afn double %959, %955
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %960) #29
+  %961 = extractelement <2 x float> %206, i64 0
+  %962 = fpext float %961 to double
+  %963 = extractelement <2 x float> %206, i64 1
+  %964 = fpext float %963 to double
+  %965 = extractelement <2 x float> %207, i64 0
+  %966 = fpext float %965 to double
+  %967 = extractelement <2 x float> %207, i64 1
+  %968 = fpext float %967 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %962, double noundef %964, double noundef %966, double noundef %968) #29
   call void @cairo_stroke_preserve(ptr noundef %1) #29
-  %972 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %973 = fpext float %972 to double
-  %974 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %975 = getelementptr inbounds i8, ptr %974, i64 1448
-  %976 = load double, ptr %975, align 8, !tbaa !105
-  %977 = fmul reassoc nsz arcp contract afn double %973, %131
-  %978 = fmul reassoc nsz arcp contract afn double %977, %976
-  %979 = fptrunc double %978 to float
-  %980 = fpext float %979 to double
-  %981 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %982 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %981) #29
-  %983 = icmp eq i32 %982, 0
-  %984 = select reassoc nsz arcp contract afn i1 %983, double 1.000000e+00, double 5.000000e-01
-  %985 = fmul reassoc nsz arcp contract afn double %984, %980
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %985) #29
-  %986 = extractelement <2 x float> %195, i64 0
-  %987 = fpext float %986 to double
-  %988 = extractelement <2 x float> %195, i64 1
-  %989 = fpext float %988 to double
-  %990 = extractelement <2 x float> %196, i64 0
-  %991 = fpext float %990 to double
-  %992 = extractelement <2 x float> %196, i64 1
-  %993 = fpext float %992 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %987, double noundef %989, double noundef %991, double noundef %993) #29
-  br label %1265
+  %969 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %970 = fpext float %969 to double
+  %971 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %972 = getelementptr inbounds i8, ptr %971, i64 1448
+  %973 = load double, ptr %972, align 8, !tbaa !105
+  %974 = fmul reassoc nsz arcp contract afn double %970, %131
+  %975 = fmul reassoc nsz arcp contract afn double %974, %973
+  %976 = fptrunc double %975 to float
+  %977 = fpext float %976 to double
+  %978 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %979 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %978) #29
+  %980 = icmp eq i32 %979, 0
+  %981 = select reassoc nsz arcp contract afn i1 %980, double 1.000000e+00, double 5.000000e-01
+  %982 = fmul reassoc nsz arcp contract afn double %981, %977
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %982) #29
+  %983 = extractelement <2 x float> %195, i64 0
+  %984 = fpext float %983 to double
+  %985 = extractelement <2 x float> %195, i64 1
+  %986 = fpext float %985 to double
+  %987 = extractelement <2 x float> %196, i64 0
+  %988 = fpext float %987 to double
+  %989 = extractelement <2 x float> %196, i64 1
+  %990 = fpext float %989 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %984, double noundef %986, double noundef %988, double noundef %990) #29
+  br label %1262
 
-994:                                              ; preds = %935
-  switch i32 %139, label %1116 [
-    i32 16, label %995
-    i32 17, label %1055
+991:                                              ; preds = %932
+  switch i32 %139, label %1113 [
+    i32 16, label %992
+    i32 17, label %1052
   ]
 
-995:                                              ; preds = %994
-  %996 = getelementptr inbounds i8, ptr %168, i64 36
-  %997 = getelementptr inbounds i8, ptr %168, i64 44
-  %998 = load float, ptr %997, align 4, !tbaa !72
-  %999 = load <2 x float>, ptr %996, align 4
-  %1000 = fsub reassoc nsz arcp contract afn <2 x float> %999, %210
-  %1001 = extractelement <2 x float> %1000, i64 0
-  %1002 = fmul reassoc nsz arcp contract afn float %1001, %998
-  %1003 = extractelement <2 x float> %1000, i64 1
-  %1004 = fmul reassoc nsz arcp contract afn float %1003, %998
-  %1005 = extractelement <2 x float> %210, i64 0
-  %1006 = fadd reassoc nsz arcp contract afn float %1002, %1005
-  %1007 = extractelement <2 x float> %210, i64 1
-  %1008 = fadd reassoc nsz arcp contract afn float %1004, %1007
-  %1009 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1000) #30
-  %1010 = fpext float %1009 to double
-  %1011 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %1012 = fpext float %1011 to double
-  %1013 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1014 = getelementptr inbounds i8, ptr %1013, i64 1448
-  %1015 = load double, ptr %1014, align 8, !tbaa !105
-  %1016 = fmul reassoc nsz arcp contract afn double %1012, %131
-  %1017 = fmul reassoc nsz arcp contract afn double %1016, %1015
-  %1018 = fptrunc double %1017 to float
-  %1019 = fpext float %1018 to double
-  %1020 = fpext float %1006 to double
-  %1021 = fpext float %1008 to double
+992:                                              ; preds = %991
+  %993 = getelementptr inbounds i8, ptr %168, i64 36
+  %994 = getelementptr inbounds i8, ptr %168, i64 44
+  %995 = load float, ptr %994, align 4, !tbaa !72
+  %996 = load <2 x float>, ptr %993, align 4
+  %997 = fsub reassoc nsz arcp contract afn <2 x float> %996, %210
+  %998 = extractelement <2 x float> %997, i64 0
+  %999 = fmul reassoc nsz arcp contract afn float %998, %995
+  %1000 = extractelement <2 x float> %997, i64 1
+  %1001 = fmul reassoc nsz arcp contract afn float %1000, %995
+  %1002 = extractelement <2 x float> %210, i64 0
+  %1003 = fadd reassoc nsz arcp contract afn float %999, %1002
+  %1004 = extractelement <2 x float> %210, i64 1
+  %1005 = fadd reassoc nsz arcp contract afn float %1001, %1004
+  %1006 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %997) #30
+  %1007 = fpext float %1006 to double
+  %1008 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %1009 = fpext float %1008 to double
+  %1010 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1011 = getelementptr inbounds i8, ptr %1010, i64 1448
+  %1012 = load double, ptr %1011, align 8, !tbaa !105
+  %1013 = fmul reassoc nsz arcp contract afn double %1009, %131
+  %1014 = fmul reassoc nsz arcp contract afn double %1013, %1012
+  %1015 = fptrunc double %1014 to float
+  %1016 = fpext float %1015 to double
+  %1017 = fpext float %1003 to double
+  %1018 = fpext float %1005 to double
   call void @cairo_save(ptr noundef %1) #29
-  call void @cairo_translate(ptr noundef %1, double noundef %1020, double noundef %1021) #29
-  call void @cairo_rotate(ptr noundef %1, double noundef %1010) #29
-  %1022 = fneg reassoc nsz arcp contract afn double %1019
-  %1023 = fmul reassoc nsz arcp contract afn double %1019, -5.000000e-01
-  call void @cairo_move_to(ptr noundef %1, double noundef %1022, double noundef %1023) #29
+  call void @cairo_translate(ptr noundef %1, double noundef %1017, double noundef %1018) #29
+  call void @cairo_rotate(ptr noundef %1, double noundef %1007) #29
+  %1019 = fneg reassoc nsz arcp contract afn double %1016
+  %1020 = fmul reassoc nsz arcp contract afn double %1016, -5.000000e-01
+  call void @cairo_move_to(ptr noundef %1, double noundef %1019, double noundef %1020) #29
   call void @cairo_line_to(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00) #29
-  %1024 = fmul reassoc nsz arcp contract afn double %1019, 5.000000e-01
-  call void @cairo_line_to(ptr noundef %1, double noundef %1022, double noundef %1024) #29
+  %1021 = fmul reassoc nsz arcp contract afn double %1016, 5.000000e-01
+  call void @cairo_line_to(ptr noundef %1, double noundef %1019, double noundef %1021) #29
   call void @cairo_close_path(ptr noundef %1) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %1025 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %1026 = fpext float %1025 to double
-  %1027 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1028 = getelementptr inbounds i8, ptr %1027, i64 1448
-  %1029 = load double, ptr %1028, align 8, !tbaa !105
-  %1030 = fmul reassoc nsz arcp contract afn double %1026, %131
-  %1031 = fmul reassoc nsz arcp contract afn double %1030, %1029
-  %1032 = fptrunc double %1031 to float
-  %1033 = fpext float %1032 to double
-  %1034 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %1035 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1034) #29
-  %1036 = icmp eq i32 %1035, 0
-  %1037 = select reassoc nsz arcp contract afn i1 %1036, double 1.000000e+00, double 5.000000e-01
-  %1038 = fmul reassoc nsz arcp contract afn double %1037, %1033
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %1038) #29
-  %1039 = extractelement <2 x float> %195, i64 0
-  %1040 = fpext float %1039 to double
-  %1041 = extractelement <2 x float> %195, i64 1
-  %1042 = fpext float %1041 to double
-  %1043 = extractelement <2 x float> %196, i64 0
-  %1044 = fpext float %1043 to double
-  %1045 = extractelement <2 x float> %196, i64 1
-  %1046 = fpext float %1045 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1040, double noundef %1042, double noundef %1044, double noundef %1046) #29
+  %1022 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %1023 = fpext float %1022 to double
+  %1024 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1025 = getelementptr inbounds i8, ptr %1024, i64 1448
+  %1026 = load double, ptr %1025, align 8, !tbaa !105
+  %1027 = fmul reassoc nsz arcp contract afn double %1023, %131
+  %1028 = fmul reassoc nsz arcp contract afn double %1027, %1026
+  %1029 = fptrunc double %1028 to float
+  %1030 = fpext float %1029 to double
+  %1031 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %1032 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1031) #29
+  %1033 = icmp eq i32 %1032, 0
+  %1034 = select reassoc nsz arcp contract afn i1 %1033, double 1.000000e+00, double 5.000000e-01
+  %1035 = fmul reassoc nsz arcp contract afn double %1034, %1030
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %1035) #29
+  %1036 = extractelement <2 x float> %195, i64 0
+  %1037 = fpext float %1036 to double
+  %1038 = extractelement <2 x float> %195, i64 1
+  %1039 = fpext float %1038 to double
+  %1040 = extractelement <2 x float> %196, i64 0
+  %1041 = fpext float %1040 to double
+  %1042 = extractelement <2 x float> %196, i64 1
+  %1043 = fpext float %1042 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1037, double noundef %1039, double noundef %1041, double noundef %1043) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %1047 = extractelement <2 x float> %206, i64 0
-  %1048 = fpext float %1047 to double
-  %1049 = extractelement <2 x float> %206, i64 1
-  %1050 = fpext float %1049 to double
-  %1051 = extractelement <2 x float> %207, i64 0
-  %1052 = fpext float %1051 to double
-  %1053 = extractelement <2 x float> %207, i64 1
-  %1054 = fpext float %1053 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1048, double noundef %1050, double noundef %1052, double noundef %1054) #29
-  br label %1265
+  %1044 = extractelement <2 x float> %206, i64 0
+  %1045 = fpext float %1044 to double
+  %1046 = extractelement <2 x float> %206, i64 1
+  %1047 = fpext float %1046 to double
+  %1048 = extractelement <2 x float> %207, i64 0
+  %1049 = fpext float %1048 to double
+  %1050 = extractelement <2 x float> %207, i64 1
+  %1051 = fpext float %1050 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1045, double noundef %1047, double noundef %1049, double noundef %1051) #29
+  br label %1262
 
-1055:                                             ; preds = %994
-  %1056 = getelementptr inbounds i8, ptr %168, i64 36
-  %1057 = getelementptr inbounds i8, ptr %168, i64 48
-  %1058 = load float, ptr %1057, align 4, !tbaa !73
-  %1059 = load <2 x float>, ptr %1056, align 4
-  %1060 = extractelement <2 x float> %210, i64 0
-  %1061 = fsub reassoc nsz arcp contract afn <2 x float> %1059, %210
-  %1062 = extractelement <2 x float> %1061, i64 0
-  %1063 = extractelement <2 x float> %210, i64 1
-  %1064 = extractelement <2 x float> %1061, i64 1
-  %1065 = fmul reassoc nsz arcp contract afn float %1062, %1058
-  %1066 = fmul reassoc nsz arcp contract afn float %1064, %1058
-  %1067 = fadd reassoc nsz arcp contract afn float %1065, %1060
-  %1068 = fadd reassoc nsz arcp contract afn float %1066, %1063
-  %1069 = fsub reassoc nsz arcp contract afn <2 x float> %210, %1059
-  %1070 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1069) #30
-  %1071 = fpext float %1070 to double
-  %1072 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %1073 = fpext float %1072 to double
-  %1074 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1075 = getelementptr inbounds i8, ptr %1074, i64 1448
-  %1076 = load double, ptr %1075, align 8, !tbaa !105
-  %1077 = fmul reassoc nsz arcp contract afn double %1073, %131
-  %1078 = fmul reassoc nsz arcp contract afn double %1077, %1076
-  %1079 = fptrunc double %1078 to float
-  %1080 = fpext float %1079 to double
-  %1081 = fpext float %1067 to double
-  %1082 = fpext float %1068 to double
+1052:                                             ; preds = %991
+  %1053 = getelementptr inbounds i8, ptr %168, i64 36
+  %1054 = getelementptr inbounds i8, ptr %168, i64 48
+  %1055 = load float, ptr %1054, align 4, !tbaa !73
+  %1056 = load <2 x float>, ptr %1053, align 4
+  %1057 = extractelement <2 x float> %210, i64 0
+  %1058 = fsub reassoc nsz arcp contract afn <2 x float> %1056, %210
+  %1059 = extractelement <2 x float> %1058, i64 0
+  %1060 = extractelement <2 x float> %210, i64 1
+  %1061 = extractelement <2 x float> %1058, i64 1
+  %1062 = fmul reassoc nsz arcp contract afn float %1059, %1055
+  %1063 = fmul reassoc nsz arcp contract afn float %1061, %1055
+  %1064 = fadd reassoc nsz arcp contract afn float %1062, %1057
+  %1065 = fadd reassoc nsz arcp contract afn float %1063, %1060
+  %1066 = fsub reassoc nsz arcp contract afn <2 x float> %210, %1056
+  %1067 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1066) #30
+  %1068 = fpext float %1067 to double
+  %1069 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %1070 = fpext float %1069 to double
+  %1071 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1072 = getelementptr inbounds i8, ptr %1071, i64 1448
+  %1073 = load double, ptr %1072, align 8, !tbaa !105
+  %1074 = fmul reassoc nsz arcp contract afn double %1070, %131
+  %1075 = fmul reassoc nsz arcp contract afn double %1074, %1073
+  %1076 = fptrunc double %1075 to float
+  %1077 = fpext float %1076 to double
+  %1078 = fpext float %1064 to double
+  %1079 = fpext float %1065 to double
   call void @cairo_save(ptr noundef %1) #29
-  call void @cairo_translate(ptr noundef %1, double noundef %1081, double noundef %1082) #29
-  call void @cairo_rotate(ptr noundef %1, double noundef %1071) #29
-  %1083 = fneg reassoc nsz arcp contract afn double %1080
-  %1084 = fmul reassoc nsz arcp contract afn double %1080, -5.000000e-01
-  call void @cairo_move_to(ptr noundef %1, double noundef %1083, double noundef %1084) #29
+  call void @cairo_translate(ptr noundef %1, double noundef %1078, double noundef %1079) #29
+  call void @cairo_rotate(ptr noundef %1, double noundef %1068) #29
+  %1080 = fneg reassoc nsz arcp contract afn double %1077
+  %1081 = fmul reassoc nsz arcp contract afn double %1077, -5.000000e-01
+  call void @cairo_move_to(ptr noundef %1, double noundef %1080, double noundef %1081) #29
   call void @cairo_line_to(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00) #29
-  %1085 = fmul reassoc nsz arcp contract afn double %1080, 5.000000e-01
-  call void @cairo_line_to(ptr noundef %1, double noundef %1083, double noundef %1085) #29
+  %1082 = fmul reassoc nsz arcp contract afn double %1077, 5.000000e-01
+  call void @cairo_line_to(ptr noundef %1, double noundef %1080, double noundef %1082) #29
   call void @cairo_close_path(ptr noundef %1) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %1086 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %1087 = fpext float %1086 to double
-  %1088 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1089 = getelementptr inbounds i8, ptr %1088, i64 1448
-  %1090 = load double, ptr %1089, align 8, !tbaa !105
-  %1091 = fmul reassoc nsz arcp contract afn double %1087, %131
-  %1092 = fmul reassoc nsz arcp contract afn double %1091, %1090
-  %1093 = fptrunc double %1092 to float
-  %1094 = fpext float %1093 to double
-  %1095 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %1096 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1095) #29
-  %1097 = icmp eq i32 %1096, 0
-  %1098 = select reassoc nsz arcp contract afn i1 %1097, double 1.000000e+00, double 5.000000e-01
-  %1099 = fmul reassoc nsz arcp contract afn double %1098, %1094
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %1099) #29
-  %1100 = extractelement <2 x float> %195, i64 0
-  %1101 = fpext float %1100 to double
-  %1102 = extractelement <2 x float> %195, i64 1
-  %1103 = fpext float %1102 to double
-  %1104 = extractelement <2 x float> %196, i64 0
-  %1105 = fpext float %1104 to double
-  %1106 = extractelement <2 x float> %196, i64 1
-  %1107 = fpext float %1106 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1101, double noundef %1103, double noundef %1105, double noundef %1107) #29
+  %1083 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %1084 = fpext float %1083 to double
+  %1085 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1086 = getelementptr inbounds i8, ptr %1085, i64 1448
+  %1087 = load double, ptr %1086, align 8, !tbaa !105
+  %1088 = fmul reassoc nsz arcp contract afn double %1084, %131
+  %1089 = fmul reassoc nsz arcp contract afn double %1088, %1087
+  %1090 = fptrunc double %1089 to float
+  %1091 = fpext float %1090 to double
+  %1092 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %1093 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1092) #29
+  %1094 = icmp eq i32 %1093, 0
+  %1095 = select reassoc nsz arcp contract afn i1 %1094, double 1.000000e+00, double 5.000000e-01
+  %1096 = fmul reassoc nsz arcp contract afn double %1095, %1091
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %1096) #29
+  %1097 = extractelement <2 x float> %195, i64 0
+  %1098 = fpext float %1097 to double
+  %1099 = extractelement <2 x float> %195, i64 1
+  %1100 = fpext float %1099 to double
+  %1101 = extractelement <2 x float> %196, i64 0
+  %1102 = fpext float %1101 to double
+  %1103 = extractelement <2 x float> %196, i64 1
+  %1104 = fpext float %1103 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1098, double noundef %1100, double noundef %1102, double noundef %1104) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %1108 = extractelement <2 x float> %206, i64 0
-  %1109 = fpext float %1108 to double
-  %1110 = extractelement <2 x float> %206, i64 1
-  %1111 = fpext float %1110 to double
-  %1112 = extractelement <2 x float> %207, i64 0
-  %1113 = fpext float %1112 to double
-  %1114 = extractelement <2 x float> %207, i64 1
-  %1115 = fpext float %1114 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1109, double noundef %1111, double noundef %1113, double noundef %1115) #29
-  br label %1265
+  %1105 = extractelement <2 x float> %206, i64 0
+  %1106 = fpext float %1105 to double
+  %1107 = extractelement <2 x float> %206, i64 1
+  %1108 = fpext float %1107 to double
+  %1109 = extractelement <2 x float> %207, i64 0
+  %1110 = fpext float %1109 to double
+  %1111 = extractelement <2 x float> %207, i64 1
+  %1112 = fpext float %1111 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1106, double noundef %1108, double noundef %1110, double noundef %1112) #29
+  br label %1262
 
-1116:                                             ; preds = %994
-  br i1 %164, label %1117, label %1201
+1113:                                             ; preds = %991
+  br i1 %164, label %1114, label %1198
 
-1117:                                             ; preds = %1116
-  %1118 = extractelement <2 x float> %210, i64 0
-  %1119 = fpext float %1118 to double
-  %1120 = extractelement <2 x float> %210, i64 1
-  %1121 = fpext float %1120 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %1119, double noundef %1121) #29
-  %1122 = getelementptr inbounds i8, ptr %168, i64 52
-  %1123 = load i32, ptr %1122, align 4, !tbaa !71
-  %1124 = icmp eq i32 %1123, 0
-  %1125 = getelementptr inbounds i8, ptr %168, i64 28
-  %1126 = load <2 x float>, ptr %1125, align 4
-  br i1 %1124, label %1127, label %1151
+1114:                                             ; preds = %1113
+  %1115 = extractelement <2 x float> %210, i64 0
+  %1116 = fpext float %1115 to double
+  %1117 = extractelement <2 x float> %210, i64 1
+  %1118 = fpext float %1117 to double
+  call void @cairo_move_to(ptr noundef %1, double noundef %1116, double noundef %1118) #29
+  %1119 = getelementptr inbounds i8, ptr %168, i64 52
+  %1120 = load i32, ptr %1119, align 4, !tbaa !71
+  %1121 = icmp eq i32 %1120, 0
+  %1122 = getelementptr inbounds i8, ptr %168, i64 28
+  %1123 = load <2 x float>, ptr %1122, align 4
+  br i1 %1121, label %1124, label %1148
 
-1127:                                             ; preds = %1117
-  %1128 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %1129 = fpext float %1128 to double
-  %1130 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1131 = getelementptr inbounds i8, ptr %1130, i64 1448
-  %1132 = load double, ptr %1131, align 8, !tbaa !105
-  %1133 = fmul reassoc nsz arcp contract afn double %1129, %131
-  %1134 = fmul reassoc nsz arcp contract afn double %1133, %1132
-  %1135 = fptrunc double %1134 to float
-  %1136 = fsub reassoc nsz arcp contract afn <2 x float> %1126, %210
-  %1137 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %1136) #30
-  %1138 = fdiv reassoc nsz arcp contract afn float %1135, %1137
-  %1139 = fpext float %1138 to double
-  %1140 = fmul reassoc nsz arcp contract afn double %1139, 5.000000e-01
-  %1141 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %1140
-  %1142 = fptrunc double %1141 to float
-  %1143 = extractelement <2 x float> %1136, i64 0
-  %1144 = fmul reassoc nsz arcp contract afn float %1143, %1142
-  %1145 = extractelement <2 x float> %1136, i64 1
-  %1146 = fmul reassoc nsz arcp contract afn float %1145, %1142
-  %1147 = fadd reassoc nsz arcp contract afn float %1144, %1118
-  %1148 = fadd reassoc nsz arcp contract afn float %1146, %1120
-  %1149 = fpext float %1147 to double
-  %1150 = fpext float %1148 to double
-  call void @cairo_line_to(ptr noundef %1, double noundef %1149, double noundef %1150) #29
-  br label %1156
+1124:                                             ; preds = %1114
+  %1125 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %1126 = fpext float %1125 to double
+  %1127 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1128 = getelementptr inbounds i8, ptr %1127, i64 1448
+  %1129 = load double, ptr %1128, align 8, !tbaa !105
+  %1130 = fmul reassoc nsz arcp contract afn double %1126, %131
+  %1131 = fmul reassoc nsz arcp contract afn double %1130, %1129
+  %1132 = fptrunc double %1131 to float
+  %1133 = fsub reassoc nsz arcp contract afn <2 x float> %1123, %210
+  %1134 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %1133) #30
+  %1135 = fdiv reassoc nsz arcp contract afn float %1132, %1134
+  %1136 = fpext float %1135 to double
+  %1137 = fmul reassoc nsz arcp contract afn double %1136, 5.000000e-01
+  %1138 = fsub reassoc nsz arcp contract afn double 1.000000e+00, %1137
+  %1139 = fptrunc double %1138 to float
+  %1140 = extractelement <2 x float> %1133, i64 0
+  %1141 = fmul reassoc nsz arcp contract afn float %1140, %1139
+  %1142 = extractelement <2 x float> %1133, i64 1
+  %1143 = fmul reassoc nsz arcp contract afn float %1142, %1139
+  %1144 = fadd reassoc nsz arcp contract afn float %1141, %1115
+  %1145 = fadd reassoc nsz arcp contract afn float %1143, %1117
+  %1146 = fpext float %1144 to double
+  %1147 = fpext float %1145 to double
+  call void @cairo_line_to(ptr noundef %1, double noundef %1146, double noundef %1147) #29
+  br label %1153
 
-1151:                                             ; preds = %1117
-  %1152 = load <2 x float>, ptr %208, align 4
-  %1153 = fsub reassoc nsz arcp contract afn <2 x float> %1126, %1152
-  %1154 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %1153) #30
-  %1155 = fpext float %1154 to double
+1148:                                             ; preds = %1114
+  %1149 = load <2 x float>, ptr %208, align 4
+  %1150 = fsub reassoc nsz arcp contract afn <2 x float> %1123, %1149
+  %1151 = call reassoc nsz arcp contract afn float @cabsf(<2 x float> noundef %1150) #30
+  %1152 = fpext float %1151 to double
   call void @cairo_save(ptr noundef %1) #29
   call void @cairo_new_sub_path(ptr noundef %1) #29
-  call void @cairo_arc(ptr noundef %1, double noundef %1119, double noundef %1121, double noundef %1155, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
+  call void @cairo_arc(ptr noundef %1, double noundef %1116, double noundef %1118, double noundef %1152, double noundef 0.000000e+00, double noundef 0x401921FB54442D18) #29
   call void @cairo_restore(ptr noundef %1) #29
-  br label %1156
+  br label %1153
 
-1156:                                             ; preds = %1151, %1127
-  %1157 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
-  %1158 = fpext float %1157 to double
-  %1159 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1160 = getelementptr inbounds i8, ptr %1159, i64 1448
-  %1161 = load double, ptr %1160, align 8, !tbaa !105
-  %1162 = fmul reassoc nsz arcp contract afn double %1158, %131
-  %1163 = fmul reassoc nsz arcp contract afn double %1162, %1161
-  %1164 = fptrunc double %1163 to float
-  %1165 = fpext float %1164 to double
-  %1166 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %1167 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1166) #29
-  %1168 = icmp eq i32 %1167, 0
-  %1169 = select reassoc nsz arcp contract afn i1 %1168, double 1.000000e+00, double 5.000000e-01
-  %1170 = fmul reassoc nsz arcp contract afn double %1169, %1165
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %1170) #29
-  %1171 = extractelement <2 x float> %206, i64 0
-  %1172 = fpext float %1171 to double
-  %1173 = extractelement <2 x float> %206, i64 1
-  %1174 = fpext float %1173 to double
-  %1175 = extractelement <2 x float> %207, i64 0
-  %1176 = fpext float %1175 to double
-  %1177 = extractelement <2 x float> %207, i64 1
-  %1178 = fpext float %1177 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1172, double noundef %1174, double noundef %1176, double noundef %1178) #29
+1153:                                             ; preds = %1148, %1124
+  %1154 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 4), align 4, !tbaa !11
+  %1155 = fpext float %1154 to double
+  %1156 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1157 = getelementptr inbounds i8, ptr %1156, i64 1448
+  %1158 = load double, ptr %1157, align 8, !tbaa !105
+  %1159 = fmul reassoc nsz arcp contract afn double %1155, %131
+  %1160 = fmul reassoc nsz arcp contract afn double %1159, %1158
+  %1161 = fptrunc double %1160 to float
+  %1162 = fpext float %1161 to double
+  %1163 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %1164 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1163) #29
+  %1165 = icmp eq i32 %1164, 0
+  %1166 = select reassoc nsz arcp contract afn i1 %1165, double 1.000000e+00, double 5.000000e-01
+  %1167 = fmul reassoc nsz arcp contract afn double %1166, %1162
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %1167) #29
+  %1168 = extractelement <2 x float> %206, i64 0
+  %1169 = fpext float %1168 to double
+  %1170 = extractelement <2 x float> %206, i64 1
+  %1171 = fpext float %1170 to double
+  %1172 = extractelement <2 x float> %207, i64 0
+  %1173 = fpext float %1172 to double
+  %1174 = extractelement <2 x float> %207, i64 1
+  %1175 = fpext float %1174 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1169, double noundef %1171, double noundef %1173, double noundef %1175) #29
   call void @cairo_stroke_preserve(ptr noundef %1) #29
-  %1179 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %1180 = fpext float %1179 to double
-  %1181 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1182 = getelementptr inbounds i8, ptr %1181, i64 1448
-  %1183 = load double, ptr %1182, align 8, !tbaa !105
-  %1184 = fmul reassoc nsz arcp contract afn double %1180, %131
-  %1185 = fmul reassoc nsz arcp contract afn double %1184, %1183
-  %1186 = fptrunc double %1185 to float
-  %1187 = fpext float %1186 to double
-  %1188 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %1189 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1188) #29
-  %1190 = icmp eq i32 %1189, 0
-  %1191 = select reassoc nsz arcp contract afn i1 %1190, double 1.000000e+00, double 5.000000e-01
-  %1192 = fmul reassoc nsz arcp contract afn double %1191, %1187
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %1192) #29
-  %1193 = extractelement <2 x float> %195, i64 0
-  %1194 = fpext float %1193 to double
-  %1195 = extractelement <2 x float> %195, i64 1
-  %1196 = fpext float %1195 to double
-  %1197 = extractelement <2 x float> %196, i64 0
-  %1198 = fpext float %1197 to double
-  %1199 = extractelement <2 x float> %196, i64 1
-  %1200 = fpext float %1199 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1194, double noundef %1196, double noundef %1198, double noundef %1200) #29
-  br label %1265
+  %1176 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %1177 = fpext float %1176 to double
+  %1178 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1179 = getelementptr inbounds i8, ptr %1178, i64 1448
+  %1180 = load double, ptr %1179, align 8, !tbaa !105
+  %1181 = fmul reassoc nsz arcp contract afn double %1177, %131
+  %1182 = fmul reassoc nsz arcp contract afn double %1181, %1180
+  %1183 = fptrunc double %1182 to float
+  %1184 = fpext float %1183 to double
+  %1185 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %1186 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1185) #29
+  %1187 = icmp eq i32 %1186, 0
+  %1188 = select reassoc nsz arcp contract afn i1 %1187, double 1.000000e+00, double 5.000000e-01
+  %1189 = fmul reassoc nsz arcp contract afn double %1188, %1184
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %1189) #29
+  %1190 = extractelement <2 x float> %195, i64 0
+  %1191 = fpext float %1190 to double
+  %1192 = extractelement <2 x float> %195, i64 1
+  %1193 = fpext float %1192 to double
+  %1194 = extractelement <2 x float> %196, i64 0
+  %1195 = fpext float %1194 to double
+  %1196 = extractelement <2 x float> %196, i64 1
+  %1197 = fpext float %1196 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1191, double noundef %1193, double noundef %1195, double noundef %1197) #29
+  br label %1262
 
-1201:                                             ; preds = %1116
-  br i1 %165, label %1202, label %1266
+1198:                                             ; preds = %1113
+  br i1 %165, label %1199, label %1263
 
-1202:                                             ; preds = %1201
-  %1203 = getelementptr inbounds i8, ptr %168, i64 28
-  %1204 = load float, ptr %1203, align 4
-  %1205 = getelementptr inbounds i8, ptr %168, i64 32
-  %1206 = fpext float %1204 to double
-  %1207 = load float, ptr %1205, align 4
-  %1208 = fpext float %1207 to double
-  call void @cairo_move_to(ptr noundef %1, double noundef %1206, double noundef %1208) #29
-  %1209 = getelementptr inbounds i8, ptr %168, i64 52
-  %1210 = load i32, ptr %1209, align 4, !tbaa !71
-  %1211 = icmp eq i32 %1210, 2
-  %1212 = select i1 %1211, float 0x400921FB60000000, float 0.000000e+00
-  %1213 = load <2 x float>, ptr %1203, align 4
-  %1214 = load <2 x float>, ptr %208, align 4
-  %1215 = fsub reassoc nsz arcp contract afn <2 x float> %1213, %1214
-  %1216 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1215) #30
-  %1217 = fadd reassoc nsz arcp contract afn float %1216, %1212
-  %1218 = fpext float %1217 to double
-  %1219 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
-  %1220 = fpext float %1219 to double
-  %1221 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1222 = getelementptr inbounds i8, ptr %1221, i64 1448
-  %1223 = load double, ptr %1222, align 8, !tbaa !105
-  %1224 = fmul reassoc nsz arcp contract afn double %1220, %131
-  %1225 = fmul reassoc nsz arcp contract afn double %1224, %1223
-  %1226 = fptrunc double %1225 to float
-  %1227 = fpext float %1226 to double
-  %1228 = extractelement <2 x float> %1213, i64 0
-  %1229 = fpext float %1228 to double
-  %1230 = extractelement <2 x float> %1213, i64 1
-  %1231 = fpext float %1230 to double
+1199:                                             ; preds = %1198
+  %1200 = getelementptr inbounds i8, ptr %168, i64 28
+  %1201 = load float, ptr %1200, align 4
+  %1202 = getelementptr inbounds i8, ptr %168, i64 32
+  %1203 = fpext float %1201 to double
+  %1204 = load float, ptr %1202, align 4
+  %1205 = fpext float %1204 to double
+  call void @cairo_move_to(ptr noundef %1, double noundef %1203, double noundef %1205) #29
+  %1206 = getelementptr inbounds i8, ptr %168, i64 52
+  %1207 = load i32, ptr %1206, align 4, !tbaa !71
+  %1208 = icmp eq i32 %1207, 2
+  %1209 = select i1 %1208, float 0x400921FB60000000, float 0.000000e+00
+  %1210 = load <2 x float>, ptr %1200, align 4
+  %1211 = load <2 x float>, ptr %208, align 4
+  %1212 = fsub reassoc nsz arcp contract afn <2 x float> %1210, %1211
+  %1213 = call reassoc nsz arcp contract afn float @cargf(<2 x float> noundef %1212) #30
+  %1214 = fadd reassoc nsz arcp contract afn float %1213, %1209
+  %1215 = fpext float %1214 to double
+  %1216 = load float, ptr getelementptr inbounds (i8, ptr @dt_liquify_ui_widths, i64 16), align 16, !tbaa !11
+  %1217 = fpext float %1216 to double
+  %1218 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1219 = getelementptr inbounds i8, ptr %1218, i64 1448
+  %1220 = load double, ptr %1219, align 8, !tbaa !105
+  %1221 = fmul reassoc nsz arcp contract afn double %1217, %131
+  %1222 = fmul reassoc nsz arcp contract afn double %1221, %1220
+  %1223 = fptrunc double %1222 to float
+  %1224 = fpext float %1223 to double
+  %1225 = extractelement <2 x float> %1210, i64 0
+  %1226 = fpext float %1225 to double
+  %1227 = extractelement <2 x float> %1210, i64 1
+  %1228 = fpext float %1227 to double
   call void @cairo_save(ptr noundef %1) #29
-  call void @cairo_translate(ptr noundef %1, double noundef %1229, double noundef %1231) #29
-  call void @cairo_rotate(ptr noundef %1, double noundef %1218) #29
-  %1232 = fneg reassoc nsz arcp contract afn double %1227
-  %1233 = fmul reassoc nsz arcp contract afn double %1227, -5.000000e-01
-  call void @cairo_move_to(ptr noundef %1, double noundef %1232, double noundef %1233) #29
+  call void @cairo_translate(ptr noundef %1, double noundef %1226, double noundef %1228) #29
+  call void @cairo_rotate(ptr noundef %1, double noundef %1215) #29
+  %1229 = fneg reassoc nsz arcp contract afn double %1224
+  %1230 = fmul reassoc nsz arcp contract afn double %1224, -5.000000e-01
+  call void @cairo_move_to(ptr noundef %1, double noundef %1229, double noundef %1230) #29
   call void @cairo_line_to(ptr noundef %1, double noundef 0.000000e+00, double noundef 0.000000e+00) #29
-  %1234 = fmul reassoc nsz arcp contract afn double %1227, 5.000000e-01
-  call void @cairo_line_to(ptr noundef %1, double noundef %1232, double noundef %1234) #29
+  %1231 = fmul reassoc nsz arcp contract afn double %1224, 5.000000e-01
+  call void @cairo_line_to(ptr noundef %1, double noundef %1229, double noundef %1231) #29
   call void @cairo_close_path(ptr noundef %1) #29
   call void @cairo_restore(ptr noundef %1) #29
-  %1235 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
-  %1236 = fpext float %1235 to double
-  %1237 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
-  %1238 = getelementptr inbounds i8, ptr %1237, i64 1448
-  %1239 = load double, ptr %1238, align 8, !tbaa !105
-  %1240 = fmul reassoc nsz arcp contract afn double %1236, %131
-  %1241 = fmul reassoc nsz arcp contract afn double %1240, %1239
-  %1242 = fptrunc double %1241 to float
-  %1243 = fpext float %1242 to double
-  %1244 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
-  %1245 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1244) #29
-  %1246 = icmp eq i32 %1245, 0
-  %1247 = select reassoc nsz arcp contract afn i1 %1246, double 1.000000e+00, double 5.000000e-01
-  %1248 = fmul reassoc nsz arcp contract afn double %1247, %1243
-  call void @cairo_set_line_width(ptr noundef %1, double noundef %1248) #29
-  %1249 = extractelement <2 x float> %195, i64 0
-  %1250 = fpext float %1249 to double
-  %1251 = extractelement <2 x float> %195, i64 1
-  %1252 = fpext float %1251 to double
-  %1253 = extractelement <2 x float> %196, i64 0
-  %1254 = fpext float %1253 to double
-  %1255 = extractelement <2 x float> %196, i64 1
-  %1256 = fpext float %1255 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1250, double noundef %1252, double noundef %1254, double noundef %1256) #29
+  %1232 = load float, ptr @dt_liquify_ui_widths, align 16, !tbaa !11
+  %1233 = fpext float %1232 to double
+  %1234 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 104), align 8, !tbaa !99
+  %1235 = getelementptr inbounds i8, ptr %1234, i64 1448
+  %1236 = load double, ptr %1235, align 8, !tbaa !105
+  %1237 = fmul reassoc nsz arcp contract afn double %1233, %131
+  %1238 = fmul reassoc nsz arcp contract afn double %1237, %1236
+  %1239 = fptrunc double %1238 to float
+  %1240 = fpext float %1239 to double
+  %1241 = load ptr, ptr getelementptr inbounds (i8, ptr @darktable, i64 64), align 8, !tbaa !138
+  %1242 = call i32 @dt_iop_canvas_not_sensitive(ptr noundef %1241) #29
+  %1243 = icmp eq i32 %1242, 0
+  %1244 = select reassoc nsz arcp contract afn i1 %1243, double 1.000000e+00, double 5.000000e-01
+  %1245 = fmul reassoc nsz arcp contract afn double %1244, %1240
+  call void @cairo_set_line_width(ptr noundef %1, double noundef %1245) #29
+  %1246 = extractelement <2 x float> %195, i64 0
+  %1247 = fpext float %1246 to double
+  %1248 = extractelement <2 x float> %195, i64 1
+  %1249 = fpext float %1248 to double
+  %1250 = extractelement <2 x float> %196, i64 0
+  %1251 = fpext float %1250 to double
+  %1252 = extractelement <2 x float> %196, i64 1
+  %1253 = fpext float %1252 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1247, double noundef %1249, double noundef %1251, double noundef %1253) #29
   call void @cairo_fill_preserve(ptr noundef %1) #29
-  %1257 = extractelement <2 x float> %206, i64 0
-  %1258 = fpext float %1257 to double
-  %1259 = extractelement <2 x float> %206, i64 1
-  %1260 = fpext float %1259 to double
-  %1261 = extractelement <2 x float> %207, i64 0
-  %1262 = fpext float %1261 to double
-  %1263 = extractelement <2 x float> %207, i64 1
-  %1264 = fpext float %1263 to double
-  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1258, double noundef %1260, double noundef %1262, double noundef %1264) #29
-  br label %1265
+  %1254 = extractelement <2 x float> %206, i64 0
+  %1255 = fpext float %1254 to double
+  %1256 = extractelement <2 x float> %206, i64 1
+  %1257 = fpext float %1256 to double
+  %1258 = extractelement <2 x float> %207, i64 0
+  %1259 = fpext float %1258 to double
+  %1260 = extractelement <2 x float> %207, i64 1
+  %1261 = fpext float %1260 to double
+  call void @cairo_set_source_rgba(ptr noundef %1, double noundef %1255, double noundef %1257, double noundef %1259, double noundef %1261) #29
+  br label %1262
 
-1265:                                             ; preds = %1202, %1156, %1055, %995, %936, %877, %829, %774, %726, %675, %636, %594
+1262:                                             ; preds = %1199, %1153, %1052, %992, %933, %874, %826, %771, %724, %673, %634, %592
   call void @cairo_stroke(ptr noundef %1) #29
-  br label %1266
+  br label %1263
 
-1266:                                             ; preds = %1265, %1201, %722, %671, %632, %590, %188, %187, %180
-  %1267 = add nuw nsw i64 %167, 1
-  %1268 = icmp eq i64 %1267, 100
-  br i1 %1268, label %1269, label %166
+1263:                                             ; preds = %1262, %1198, %720, %669, %630, %588, %188, %187, %180
+  %1264 = add nuw nsw i64 %167, 1
+  %1265 = icmp eq i64 %1264, 100
+  br i1 %1265, label %1266, label %166
 
-1269:                                             ; preds = %1266, %166
-  %1270 = load float, ptr %146, align 4, !tbaa !141
-  %1271 = fcmp reassoc nsz arcp contract afn olt float %1270, 1.000000e+00
-  br i1 %1271, label %1272, label %1275
+1266:                                             ; preds = %1263, %166
+  %1267 = load float, ptr %146, align 4, !tbaa !141
+  %1268 = fcmp reassoc nsz arcp contract afn olt float %1267, 1.000000e+00
+  br i1 %1268, label %1269, label %1272
 
-1272:                                             ; preds = %1269
+1269:                                             ; preds = %1266
   call void @cairo_pop_group_to_source(ptr noundef %1) #29
-  %1273 = load float, ptr %146, align 4, !tbaa !141
-  %1274 = fpext float %1273 to double
-  call void @cairo_paint_with_alpha(ptr noundef %1, double noundef %1274) #29
-  br label %1275
+  %1270 = load float, ptr %146, align 4, !tbaa !141
+  %1271 = fpext float %1270 to double
+  call void @cairo_paint_with_alpha(ptr noundef %1, double noundef %1271) #29
+  br label %1272
 
-1275:                                             ; preds = %1272, %1269
-  %1276 = getelementptr inbounds i8, ptr %136, i64 8
-  %1277 = load ptr, ptr %1276, align 8, !tbaa !61
-  %1278 = icmp eq ptr %1277, null
-  br i1 %1278, label %.loopexit19, label %135
+1272:                                             ; preds = %1269, %1266
+  %1273 = getelementptr inbounds i8, ptr %136, i64 8
+  %1274 = load ptr, ptr %1273, align 8, !tbaa !61
+  %1275 = icmp eq ptr %1274, null
+  br i1 %1275, label %.loopexit19, label %135
 
-1279:                                             ; preds = %1332, %.loopexit20
-  %1280 = phi i64 [ 0, %.loopexit20 ], [ %1334, %1332 ]
-  %1281 = phi ptr [ null, %.loopexit20 ], [ %1333, %1332 ]
-  %1282 = load ptr, ptr %98, align 8, !tbaa !146
-  %1283 = call i32 @gtk_toggle_button_get_active(ptr noundef %1282) #29
-  %1284 = icmp eq i32 %1283, 0
-  br i1 %1284, label %1293, label %1285
+1276:                                             ; preds = %1329, %.loopexit20
+  %1277 = phi i64 [ 0, %.loopexit20 ], [ %1331, %1329 ]
+  %1278 = phi ptr [ null, %.loopexit20 ], [ %1330, %1329 ]
+  %1279 = load ptr, ptr %98, align 8, !tbaa !146
+  %1280 = call i32 @gtk_toggle_button_get_active(ptr noundef %1279) #29
+  %1281 = icmp eq i32 %1280, 0
+  br i1 %1281, label %1290, label %1282
 
-1285:                                             ; preds = %1279
-  %1286 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1280, i32 4
-  %1287 = load i32, ptr %1286, align 8, !tbaa !109
-  %1288 = and i32 %1287, 8
-  %1289 = icmp eq i32 %1288, 0
-  br i1 %1289, label %1293, label %1290
+1282:                                             ; preds = %1276
+  %1283 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1277, i32 4
+  %1284 = load i32, ptr %1283, align 8, !tbaa !109
+  %1285 = and i32 %1284, 8
+  %1286 = icmp eq i32 %1285, 0
+  br i1 %1286, label %1290, label %1287
 
-1290:                                             ; preds = %1285
-  %1291 = inttoptr i64 %1280 to ptr
-  %1292 = call ptr @g_list_prepend(ptr noundef %1281, ptr noundef %1291) #29
-  br label %1293
+1287:                                             ; preds = %1282
+  %1288 = inttoptr i64 %1277 to ptr
+  %1289 = call ptr @g_list_prepend(ptr noundef %1278, ptr noundef %1288) #29
+  br label %1290
 
-1293:                                             ; preds = %1290, %1285, %1279
-  %1294 = phi ptr [ %1292, %1290 ], [ %1281, %1285 ], [ %1281, %1279 ]
-  %1295 = load ptr, ptr %99, align 8, !tbaa !147
-  %1296 = call i32 @gtk_toggle_button_get_active(ptr noundef %1295) #29
-  %1297 = icmp eq i32 %1296, 0
-  br i1 %1297, label %1306, label %1298
+1290:                                             ; preds = %1287, %1282, %1276
+  %1291 = phi ptr [ %1289, %1287 ], [ %1278, %1282 ], [ %1278, %1276 ]
+  %1292 = load ptr, ptr %99, align 8, !tbaa !147
+  %1293 = call i32 @gtk_toggle_button_get_active(ptr noundef %1292) #29
+  %1294 = icmp eq i32 %1293, 0
+  br i1 %1294, label %1303, label %1295
 
-1298:                                             ; preds = %1293
-  %1299 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1280, i32 4
-  %1300 = load i32, ptr %1299, align 8, !tbaa !109
-  %1301 = and i32 %1300, 16
-  %1302 = icmp eq i32 %1301, 0
-  br i1 %1302, label %1306, label %1303
+1295:                                             ; preds = %1290
+  %1296 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1277, i32 4
+  %1297 = load i32, ptr %1296, align 8, !tbaa !109
+  %1298 = and i32 %1297, 16
+  %1299 = icmp eq i32 %1298, 0
+  br i1 %1299, label %1303, label %1300
 
-1303:                                             ; preds = %1298
-  %1304 = inttoptr i64 %1280 to ptr
-  %1305 = call ptr @g_list_prepend(ptr noundef %1294, ptr noundef %1304) #29
-  br label %1306
+1300:                                             ; preds = %1295
+  %1301 = inttoptr i64 %1277 to ptr
+  %1302 = call ptr @g_list_prepend(ptr noundef %1291, ptr noundef %1301) #29
+  br label %1303
 
-1306:                                             ; preds = %1303, %1298, %1293
-  %1307 = phi ptr [ %1305, %1303 ], [ %1294, %1298 ], [ %1294, %1293 ]
-  %1308 = load ptr, ptr %100, align 8, !tbaa !148
-  %1309 = call i32 @gtk_toggle_button_get_active(ptr noundef %1308) #29
-  %1310 = icmp eq i32 %1309, 0
-  br i1 %1310, label %1319, label %1311
+1303:                                             ; preds = %1300, %1295, %1290
+  %1304 = phi ptr [ %1302, %1300 ], [ %1291, %1295 ], [ %1291, %1290 ]
+  %1305 = load ptr, ptr %100, align 8, !tbaa !148
+  %1306 = call i32 @gtk_toggle_button_get_active(ptr noundef %1305) #29
+  %1307 = icmp eq i32 %1306, 0
+  br i1 %1307, label %1316, label %1308
 
-1311:                                             ; preds = %1306
-  %1312 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1280, i32 4
-  %1313 = load i32, ptr %1312, align 8, !tbaa !109
-  %1314 = and i32 %1313, 32
-  %1315 = icmp eq i32 %1314, 0
-  br i1 %1315, label %1319, label %1316
+1308:                                             ; preds = %1303
+  %1309 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1277, i32 4
+  %1310 = load i32, ptr %1309, align 8, !tbaa !109
+  %1311 = and i32 %1310, 32
+  %1312 = icmp eq i32 %1311, 0
+  br i1 %1312, label %1316, label %1313
 
-1316:                                             ; preds = %1311
-  %1317 = inttoptr i64 %1280 to ptr
-  %1318 = call ptr @g_list_prepend(ptr noundef %1307, ptr noundef %1317) #29
-  br label %1319
+1313:                                             ; preds = %1308
+  %1314 = inttoptr i64 %1277 to ptr
+  %1315 = call ptr @g_list_prepend(ptr noundef %1304, ptr noundef %1314) #29
+  br label %1316
 
-1319:                                             ; preds = %1316, %1311, %1306
-  %1320 = phi ptr [ %1318, %1316 ], [ %1307, %1311 ], [ %1307, %1306 ]
-  %1321 = load ptr, ptr %101, align 8, !tbaa !149
-  %1322 = call i32 @gtk_toggle_button_get_active(ptr noundef %1321) #29
-  %1323 = icmp eq i32 %1322, 0
-  br i1 %1323, label %1332, label %1324
+1316:                                             ; preds = %1313, %1308, %1303
+  %1317 = phi ptr [ %1315, %1313 ], [ %1304, %1308 ], [ %1304, %1303 ]
+  %1318 = load ptr, ptr %101, align 8, !tbaa !149
+  %1319 = call i32 @gtk_toggle_button_get_active(ptr noundef %1318) #29
+  %1320 = icmp eq i32 %1319, 0
+  br i1 %1320, label %1329, label %1321
 
-1324:                                             ; preds = %1319
-  %1325 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1280, i32 4
-  %1326 = load i32, ptr %1325, align 8, !tbaa !109
-  %1327 = and i32 %1326, 64
-  %1328 = icmp eq i32 %1327, 0
-  br i1 %1328, label %1332, label %1329
+1321:                                             ; preds = %1316
+  %1322 = getelementptr inbounds [19 x %struct.dt_liquify_layer_t], ptr @dt_liquify_layers, i64 0, i64 %1277, i32 4
+  %1323 = load i32, ptr %1322, align 8, !tbaa !109
+  %1324 = and i32 %1323, 64
+  %1325 = icmp eq i32 %1324, 0
+  br i1 %1325, label %1329, label %1326
 
-1329:                                             ; preds = %1324
-  %1330 = inttoptr i64 %1280 to ptr
-  %1331 = call ptr @g_list_prepend(ptr noundef %1320, ptr noundef %1330) #29
-  br label %1332
+1326:                                             ; preds = %1321
+  %1327 = inttoptr i64 %1277 to ptr
+  %1328 = call ptr @g_list_prepend(ptr noundef %1317, ptr noundef %1327) #29
+  br label %1329
 
-1332:                                             ; preds = %1329, %1324, %1319
-  %1333 = phi ptr [ %1331, %1329 ], [ %1320, %1324 ], [ %1320, %1319 ]
-  %1334 = add nuw nsw i64 %1280, 1
-  %1335 = icmp eq i64 %1334, 19
-  br i1 %1335, label %102, label %1279
+1329:                                             ; preds = %1326, %1321, %1316
+  %1330 = phi ptr [ %1328, %1326 ], [ %1317, %1321 ], [ %1317, %1316 ]
+  %1331 = add nuw nsw i64 %1277, 1
+  %1332 = icmp eq i64 %1331, 19
+  br i1 %1332, label %102, label %1276
 
-.loopexit19:                                      ; preds = %1275, %127
+.loopexit19:                                      ; preds = %1272, %127
   call void @g_list_free_full(ptr noundef %128, ptr noundef nonnull @free) #29
   call void @g_list_free(ptr noundef %105) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #29
   call void @llvm.lifetime.end.p0(i64 7600, ptr nonnull %9) #29
-  br label %1336
+  br label %1333
 
-1336:                                             ; preds = %.loopexit19, %18, %7
+1333:                                             ; preds = %.loopexit19, %18, %7
   ret void
 }
 
