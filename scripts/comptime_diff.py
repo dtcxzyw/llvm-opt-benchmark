@@ -49,12 +49,12 @@ improvement.sort(key=lambda x: (x[2] - x[1])/x[1])
 regression = regression[:topk]
 improvement = improvement[:topk]
 
-print(f"Top {topk} regressions:")
+print(f"Top {topk} improvements:")
 for k, t1, t2 in improvement:
     diff = "{:+.2f}%".format((t2 - t1)/t1*100.0)
     print(f"  {k} {t1} {t2} {diff}")
 
-print(f"Top {topk} improvements:")
+print(f"Top {topk} regressions:")
 for k, t1, t2 in regression:
     diff = "{:+.2f}%".format((t2 - t1)/t1*100.0)
     print(f"  {k} {t1} {t2} {diff}")
