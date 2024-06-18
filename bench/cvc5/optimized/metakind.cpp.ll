@@ -7375,10 +7375,10 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden noundef i64 @_ZN4cvc58internal4kind8metakind16NodeValueCompare9constHashEPKNS0_4expr9NodeValueE(ptr noundef %nv) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i337 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
-  %ref.tmp.i323 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
-  %ref.tmp.i309 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
-  %ref.tmp.i295 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
+  %ref.tmp.i336 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
+  %ref.tmp.i322 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
+  %ref.tmp.i308 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
+  %ref.tmp.i294 = alloca %"class.cvc5::internal::FloatingPointSize", align 4
   %ref.tmp.i = alloca %"class.cvc5::internal::FloatingPointSize", align 4
   %ref.tmp11 = alloca %"struct.cvc5::internal::AbstractTypeHashFunction", align 1
   %ref.tmp15 = alloca %"struct.cvc5::internal::GenericOpHashFunction", align 1
@@ -8003,11 +8003,11 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit:
   %cond-lvalue.i277 = phi ptr [ %46, %cond.false.i276 ], [ %d_children.i275, %sw.bb114 ]
   %47 = load i32, ptr %cond-lvalue.i277, align 4
   %conv.i278 = zext i32 %47 to i64
-  %or.i.i = shl nuw nsw i64 %conv.i278, 16
+  %shl.i.i = shl nuw nsw i64 %conv.i278, 16
   %d_sig_size.i.i = getelementptr inbounds i8, ptr %cond-lvalue.i277, i64 4
   %48 = load i32, ptr %d_sig_size.i.i, align 4
   %conv4.i = zext i32 %48 to i64
-  %or.i = or i64 %or.i.i, %conv4.i
+  %or.i = or i64 %shl.i.i, %conv4.i
   br label %return
 
 sw.bb118:                                         ; preds = %entry
@@ -8028,486 +8028,486 @@ _ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorE
   call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i285)
   %50 = load i32, ptr %ref.tmp.i, align 4
   %conv.i.i = zext i32 %50 to i64
-  %or.i.i.i = shl nuw nsw i64 %conv.i.i, 16
+  %shl.i.i.i = shl nuw nsw i64 %conv.i.i, 16
   %d_sig_size.i.i.i = getelementptr inbounds i8, ptr %ref.tmp.i, i64 4
   %51 = load i32, ptr %d_sig_size.i.i.i, align 4
   %conv4.i.i = zext i32 %51 to i64
-  %or.i.i286 = or i64 %or.i.i.i, %conv4.i.i
-  %xor.i287 = xor i64 %or.i.i286, 16798464
+  %or.i.i = or i64 %shl.i.i.i, %conv4.i.i
+  %xor.i286 = xor i64 %or.i.i, 16798464
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i)
   br label %return
 
 sw.bb122:                                         ; preds = %entry
-  %d_nchildren.i288 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i289 = load i32, ptr %d_nchildren.i288, align 4
-  %bf.clear.i290 = and i32 %bf.load.i289, 67108863
-  %cmp.i291 = icmp eq i32 %bf.clear.i290, 0
-  %d_children.i292 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i291, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i293
+  %d_nchildren.i287 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i288 = load i32, ptr %d_nchildren.i287, align 4
+  %bf.clear.i289 = and i32 %bf.load.i288, 67108863
+  %cmp.i290 = icmp eq i32 %bf.clear.i289, 0
+  %d_children.i291 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i290, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, label %cond.false.i292
 
-cond.false.i293:                                  ; preds = %sw.bb122
-  %52 = load ptr, ptr %d_children.i292, align 8
+cond.false.i292:                                  ; preds = %sw.bb122
+  %52 = load ptr, ptr %d_children.i291, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit: ; preds = %sw.bb122, %cond.false.i293
-  %cond-lvalue.i294 = phi ptr [ %52, %cond.false.i293 ], [ %d_children.i292, %sw.bb122 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i295)
-  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i295, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i294)
-  %53 = load i32, ptr %ref.tmp.i295, align 4
-  %conv.i.i296 = zext i32 %53 to i64
-  %or.i.i.i297 = shl nuw nsw i64 %conv.i.i296, 16
-  %d_sig_size.i.i.i298 = getelementptr inbounds i8, ptr %ref.tmp.i295, i64 4
-  %54 = load i32, ptr %d_sig_size.i.i.i298, align 4
-  %conv4.i.i299 = zext i32 %54 to i64
-  %or.i.i300 = or i64 %or.i.i.i297, %conv4.i.i299
-  %xor.i301 = xor i64 %or.i.i300, 33575680
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i295)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit: ; preds = %sw.bb122, %cond.false.i292
+  %cond-lvalue.i293 = phi ptr [ %52, %cond.false.i292 ], [ %d_children.i291, %sw.bb122 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i294)
+  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i294, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i293)
+  %53 = load i32, ptr %ref.tmp.i294, align 4
+  %conv.i.i295 = zext i32 %53 to i64
+  %shl.i.i.i296 = shl nuw nsw i64 %conv.i.i295, 16
+  %d_sig_size.i.i.i297 = getelementptr inbounds i8, ptr %ref.tmp.i294, i64 4
+  %54 = load i32, ptr %d_sig_size.i.i.i297, align 4
+  %conv4.i.i298 = zext i32 %54 to i64
+  %or.i.i299 = or i64 %shl.i.i.i296, %conv4.i.i298
+  %xor.i300 = xor i64 %or.i.i299, 33575680
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i294)
   br label %return
 
 sw.bb126:                                         ; preds = %entry
-  %d_nchildren.i302 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i303 = load i32, ptr %d_nchildren.i302, align 4
-  %bf.clear.i304 = and i32 %bf.load.i303, 67108863
-  %cmp.i305 = icmp eq i32 %bf.clear.i304, 0
-  %d_children.i306 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i305, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i307
+  %d_nchildren.i301 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i302 = load i32, ptr %d_nchildren.i301, align 4
+  %bf.clear.i303 = and i32 %bf.load.i302, 67108863
+  %cmp.i304 = icmp eq i32 %bf.clear.i303, 0
+  %d_children.i305 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i304, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, label %cond.false.i306
 
-cond.false.i307:                                  ; preds = %sw.bb126
-  %55 = load ptr, ptr %d_children.i306, align 8
+cond.false.i306:                                  ; preds = %sw.bb126
+  %55 = load ptr, ptr %d_children.i305, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit: ; preds = %sw.bb126, %cond.false.i307
-  %cond-lvalue.i308 = phi ptr [ %55, %cond.false.i307 ], [ %d_children.i306, %sw.bb126 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i309)
-  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i309, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i308)
-  %56 = load i32, ptr %ref.tmp.i309, align 4
-  %conv.i.i310 = zext i32 %56 to i64
-  %or.i.i.i311 = shl nuw nsw i64 %conv.i.i310, 16
-  %d_sig_size.i.i.i312 = getelementptr inbounds i8, ptr %ref.tmp.i309, i64 4
-  %57 = load i32, ptr %d_sig_size.i.i.i312, align 4
-  %conv4.i.i313 = zext i32 %57 to i64
-  %or.i.i314 = or i64 %or.i.i.i311, %conv4.i.i313
-  %xor.i315 = xor i64 %or.i.i314, 67130112
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i309)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit: ; preds = %sw.bb126, %cond.false.i306
+  %cond-lvalue.i307 = phi ptr [ %55, %cond.false.i306 ], [ %d_children.i305, %sw.bb126 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i308)
+  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i308, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i307)
+  %56 = load i32, ptr %ref.tmp.i308, align 4
+  %conv.i.i309 = zext i32 %56 to i64
+  %shl.i.i.i310 = shl nuw nsw i64 %conv.i.i309, 16
+  %d_sig_size.i.i.i311 = getelementptr inbounds i8, ptr %ref.tmp.i308, i64 4
+  %57 = load i32, ptr %d_sig_size.i.i.i311, align 4
+  %conv4.i.i312 = zext i32 %57 to i64
+  %or.i.i313 = or i64 %shl.i.i.i310, %conv4.i.i312
+  %xor.i314 = xor i64 %or.i.i313, 67130112
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i308)
   br label %return
 
 sw.bb130:                                         ; preds = %entry
-  %d_nchildren.i316 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i317 = load i32, ptr %d_nchildren.i316, align 4
-  %bf.clear.i318 = and i32 %bf.load.i317, 67108863
-  %cmp.i319 = icmp eq i32 %bf.clear.i318, 0
-  %d_children.i320 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i319, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i321
+  %d_nchildren.i315 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i316 = load i32, ptr %d_nchildren.i315, align 4
+  %bf.clear.i317 = and i32 %bf.load.i316, 67108863
+  %cmp.i318 = icmp eq i32 %bf.clear.i317, 0
+  %d_children.i319 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i318, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, label %cond.false.i320
 
-cond.false.i321:                                  ; preds = %sw.bb130
-  %58 = load ptr, ptr %d_children.i320, align 8
+cond.false.i320:                                  ; preds = %sw.bb130
+  %58 = load ptr, ptr %d_children.i319, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit: ; preds = %sw.bb130, %cond.false.i321
-  %cond-lvalue.i322 = phi ptr [ %58, %cond.false.i321 ], [ %d_children.i320, %sw.bb130 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i323)
-  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i323, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i322)
-  %59 = load i32, ptr %ref.tmp.i323, align 4
-  %conv.i.i324 = zext i32 %59 to i64
-  %or.i.i.i325 = shl nuw nsw i64 %conv.i.i324, 16
-  %d_sig_size.i.i.i326 = getelementptr inbounds i8, ptr %ref.tmp.i323, i64 4
-  %60 = load i32, ptr %d_sig_size.i.i.i326, align 4
-  %conv4.i.i327 = zext i32 %60 to i64
-  %or.i.i328 = or i64 %or.i.i.i325, %conv4.i.i327
-  %xor.i329 = xor i64 %or.i.i328, 134238976
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i323)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit: ; preds = %sw.bb130, %cond.false.i320
+  %cond-lvalue.i321 = phi ptr [ %58, %cond.false.i320 ], [ %d_children.i319, %sw.bb130 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i322)
+  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i322, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i321)
+  %59 = load i32, ptr %ref.tmp.i322, align 4
+  %conv.i.i323 = zext i32 %59 to i64
+  %shl.i.i.i324 = shl nuw nsw i64 %conv.i.i323, 16
+  %d_sig_size.i.i.i325 = getelementptr inbounds i8, ptr %ref.tmp.i322, i64 4
+  %60 = load i32, ptr %d_sig_size.i.i.i325, align 4
+  %conv4.i.i326 = zext i32 %60 to i64
+  %or.i.i327 = or i64 %shl.i.i.i324, %conv4.i.i326
+  %xor.i328 = xor i64 %or.i.i327, 134238976
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i322)
   br label %return
 
 sw.bb134:                                         ; preds = %entry
-  %d_nchildren.i330 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i331 = load i32, ptr %d_nchildren.i330, align 4
-  %bf.clear.i332 = and i32 %bf.load.i331, 67108863
-  %cmp.i333 = icmp eq i32 %bf.clear.i332, 0
-  %d_children.i334 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i333, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i335
+  %d_nchildren.i329 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i330 = load i32, ptr %d_nchildren.i329, align 4
+  %bf.clear.i331 = and i32 %bf.load.i330, 67108863
+  %cmp.i332 = icmp eq i32 %bf.clear.i331, 0
+  %d_children.i333 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i332, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, label %cond.false.i334
 
-cond.false.i335:                                  ; preds = %sw.bb134
-  %61 = load ptr, ptr %d_children.i334, align 8
+cond.false.i334:                                  ; preds = %sw.bb134
+  %61 = load ptr, ptr %d_children.i333, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit: ; preds = %sw.bb134, %cond.false.i335
-  %cond-lvalue.i336 = phi ptr [ %61, %cond.false.i335 ], [ %d_children.i334, %sw.bb134 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i337)
-  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i337, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i336)
-  %62 = load i32, ptr %ref.tmp.i337, align 4
-  %conv.i.i338 = zext i32 %62 to i64
-  %or.i.i.i339 = shl nuw nsw i64 %conv.i.i338, 16
-  %d_sig_size.i.i.i340 = getelementptr inbounds i8, ptr %ref.tmp.i337, i64 4
-  %63 = load i32, ptr %d_sig_size.i.i.i340, align 4
-  %conv4.i.i341 = zext i32 %63 to i64
-  %or.i.i342 = or i64 %or.i.i.i339, %conv4.i.i341
-  %xor.i343 = xor i64 %or.i.i342, 268456704
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i337)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit: ; preds = %sw.bb134, %cond.false.i334
+  %cond-lvalue.i335 = phi ptr [ %61, %cond.false.i334 ], [ %d_children.i333, %sw.bb134 ]
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i336)
+  call void @_ZN4cvc58internal17FloatingPointSizeC1ERKS1_(ptr noundef nonnull align 4 dereferenceable(8) %ref.tmp.i336, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i335)
+  %62 = load i32, ptr %ref.tmp.i336, align 4
+  %conv.i.i337 = zext i32 %62 to i64
+  %shl.i.i.i338 = shl nuw nsw i64 %conv.i.i337, 16
+  %d_sig_size.i.i.i339 = getelementptr inbounds i8, ptr %ref.tmp.i336, i64 4
+  %63 = load i32, ptr %d_sig_size.i.i.i339, align 4
+  %conv4.i.i340 = zext i32 %63 to i64
+  %or.i.i341 = or i64 %shl.i.i.i338, %conv4.i.i340
+  %xor.i342 = xor i64 %or.i.i341, 268456704
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i336)
   br label %return
 
 sw.bb138:                                         ; preds = %entry
-  %d_nchildren.i344 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i345 = load i32, ptr %d_nchildren.i344, align 4
-  %bf.clear.i346 = and i32 %bf.load.i345, 67108863
-  %cmp.i347 = icmp eq i32 %bf.clear.i346, 0
-  %d_children.i348 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i347, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, label %cond.false.i349
+  %d_nchildren.i343 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i344 = load i32, ptr %d_nchildren.i343, align 4
+  %bf.clear.i345 = and i32 %bf.load.i344, 67108863
+  %cmp.i346 = icmp eq i32 %bf.clear.i345, 0
+  %d_children.i347 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i346, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, label %cond.false.i348
 
-cond.false.i349:                                  ; preds = %sw.bb138
-  %64 = load ptr, ptr %d_children.i348, align 8
+cond.false.i348:                                  ; preds = %sw.bb138
+  %64 = load ptr, ptr %d_children.i347, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit: ; preds = %sw.bb138, %cond.false.i349
-  %cond-lvalue.i350 = phi ptr [ %64, %cond.false.i349 ], [ %d_children.i348, %sw.bb138 ]
-  %65 = load i32, ptr %cond-lvalue.i350, align 4
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit: ; preds = %sw.bb138, %cond.false.i348
+  %cond-lvalue.i349 = phi ptr [ %64, %cond.false.i348 ], [ %d_children.i347, %sw.bb138 ]
+  %65 = load i32, ptr %cond-lvalue.i349, align 4
   %66 = xor i32 %65, 1179664983
-  %xor.i351 = zext i32 %66 to i64
+  %xor.i350 = zext i32 %66 to i64
   br label %return
 
 sw.bb142:                                         ; preds = %entry
-  %d_nchildren.i352 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i353 = load i32, ptr %d_nchildren.i352, align 4
-  %bf.clear.i354 = and i32 %bf.load.i353, 67108863
-  %cmp.i355 = icmp eq i32 %bf.clear.i354, 0
-  %d_children.i356 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i355, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, label %cond.false.i357
+  %d_nchildren.i351 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i352 = load i32, ptr %d_nchildren.i351, align 4
+  %bf.clear.i353 = and i32 %bf.load.i352, 67108863
+  %cmp.i354 = icmp eq i32 %bf.clear.i353, 0
+  %d_children.i355 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i354, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, label %cond.false.i356
 
-cond.false.i357:                                  ; preds = %sw.bb142
-  %67 = load ptr, ptr %d_children.i356, align 8
+cond.false.i356:                                  ; preds = %sw.bb142
+  %67 = load ptr, ptr %d_children.i355, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit: ; preds = %sw.bb142, %cond.false.i357
-  %cond-lvalue.i358 = phi ptr [ %67, %cond.false.i357 ], [ %d_children.i356, %sw.bb142 ]
-  %68 = load i32, ptr %cond-lvalue.i358, align 4
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit: ; preds = %sw.bb142, %cond.false.i356
+  %cond-lvalue.i357 = phi ptr [ %67, %cond.false.i356 ], [ %d_children.i355, %sw.bb142 ]
+  %68 = load i32, ptr %cond-lvalue.i357, align 4
   %69 = xor i32 %68, 1179664978
-  %xor.i359 = zext i32 %69 to i64
+  %xor.i358 = zext i32 %69 to i64
   br label %return
 
 sw.bb146:                                         ; preds = %entry
-  %d_nchildren.i360 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i361 = load i32, ptr %d_nchildren.i360, align 4
-  %bf.clear.i362 = and i32 %bf.load.i361, 67108863
-  %cmp.i363 = icmp eq i32 %bf.clear.i362, 0
-  %d_children.i364 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i363, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, label %cond.false.i365
+  %d_nchildren.i359 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i360 = load i32, ptr %d_nchildren.i359, align 4
+  %bf.clear.i361 = and i32 %bf.load.i360, 67108863
+  %cmp.i362 = icmp eq i32 %bf.clear.i361, 0
+  %d_children.i363 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i362, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, label %cond.false.i364
 
-cond.false.i365:                                  ; preds = %sw.bb146
-  %70 = load ptr, ptr %d_children.i364, align 8
+cond.false.i364:                                  ; preds = %sw.bb146
+  %70 = load ptr, ptr %d_children.i363, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit: ; preds = %sw.bb146, %cond.false.i365
-  %cond-lvalue.i366 = phi ptr [ %70, %cond.false.i365 ], [ %d_children.i364, %sw.bb146 ]
-  %71 = load i32, ptr %cond-lvalue.i366, align 4
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit: ; preds = %sw.bb146, %cond.false.i364
+  %cond-lvalue.i365 = phi ptr [ %70, %cond.false.i364 ], [ %d_children.i363, %sw.bb146 ]
+  %71 = load i32, ptr %cond-lvalue.i365, align 4
   %72 = xor i32 %71, 1179664980
-  %xor.i367 = zext i32 %72 to i64
+  %xor.i366 = zext i32 %72 to i64
   br label %return
 
 sw.bb150:                                         ; preds = %entry
-  %d_nchildren.i368 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i369 = load i32, ptr %d_nchildren.i368, align 4
-  %bf.clear.i370 = and i32 %bf.load.i369, 67108863
-  %cmp.i371 = icmp eq i32 %bf.clear.i370, 0
-  %d_children.i372 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i371, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, label %cond.false.i373
+  %d_nchildren.i367 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i368 = load i32, ptr %d_nchildren.i367, align 4
+  %bf.clear.i369 = and i32 %bf.load.i368, 67108863
+  %cmp.i370 = icmp eq i32 %bf.clear.i369, 0
+  %d_children.i371 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i370, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, label %cond.false.i372
 
-cond.false.i373:                                  ; preds = %sw.bb150
-  %73 = load ptr, ptr %d_children.i372, align 8
+cond.false.i372:                                  ; preds = %sw.bb150
+  %73 = load ptr, ptr %d_children.i371, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit: ; preds = %sw.bb150, %cond.false.i373
-  %cond-lvalue.i374 = phi ptr [ %73, %cond.false.i373 ], [ %d_children.i372, %sw.bb150 ]
-  %74 = load i32, ptr %cond-lvalue.i374, align 4
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit: ; preds = %sw.bb150, %cond.false.i372
+  %cond-lvalue.i373 = phi ptr [ %73, %cond.false.i372 ], [ %d_children.i371, %sw.bb150 ]
+  %74 = load i32, ptr %cond-lvalue.i373, align 4
   %75 = xor i32 %74, 1179664990
-  %xor.i375 = zext i32 %75 to i64
+  %xor.i374 = zext i32 %75 to i64
   br label %return
 
 sw.bb154:                                         ; preds = %entry
-  %d_nchildren.i376 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i377 = load i32, ptr %d_nchildren.i376, align 4
-  %bf.clear.i378 = and i32 %bf.load.i377, 67108863
-  %cmp.i379 = icmp eq i32 %bf.clear.i378, 0
-  %d_children.i380 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i379, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i381
+  %d_nchildren.i375 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i376 = load i32, ptr %d_nchildren.i375, align 4
+  %bf.clear.i377 = and i32 %bf.load.i376, 67108863
+  %cmp.i378 = icmp eq i32 %bf.clear.i377, 0
+  %d_children.i379 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i378, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, label %cond.false.i380
 
-cond.false.i381:                                  ; preds = %sw.bb154
-  %76 = load ptr, ptr %d_children.i380, align 8
+cond.false.i380:                                  ; preds = %sw.bb154
+  %76 = load ptr, ptr %d_children.i379, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; preds = %sw.bb154, %cond.false.i381
-  %cond-lvalue.i382 = phi ptr [ %76, %cond.false.i381 ], [ %d_children.i380, %sw.bb154 ]
-  %call157 = call noundef i64 @_ZNK4cvc58internal25ArrayStoreAllHashFunctionclERKNS0_13ArrayStoreAllE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i382)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit: ; preds = %sw.bb154, %cond.false.i380
+  %cond-lvalue.i381 = phi ptr [ %76, %cond.false.i380 ], [ %d_children.i379, %sw.bb154 ]
+  %call157 = call noundef i64 @_ZNK4cvc58internal25ArrayStoreAllHashFunctionclERKNS0_13ArrayStoreAllE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp155, ptr noundef nonnull align 8 dereferenceable(16) %cond-lvalue.i381)
   br label %return
 
 sw.bb158:                                         ; preds = %entry
-  %d_nchildren.i383 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i384 = load i32, ptr %d_nchildren.i383, align 4
-  %bf.clear.i385 = and i32 %bf.load.i384, 67108863
-  %cmp.i386 = icmp eq i32 %bf.clear.i385, 0
-  %d_children.i387 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i386, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i388
+  %d_nchildren.i382 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i383 = load i32, ptr %d_nchildren.i382, align 4
+  %bf.clear.i384 = and i32 %bf.load.i383, 67108863
+  %cmp.i385 = icmp eq i32 %bf.clear.i384, 0
+  %d_children.i386 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i385, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, label %cond.false.i387
 
-cond.false.i388:                                  ; preds = %sw.bb158
-  %77 = load ptr, ptr %d_children.i387, align 8
+cond.false.i387:                                  ; preds = %sw.bb158
+  %77 = load ptr, ptr %d_children.i386, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; preds = %sw.bb158, %cond.false.i388
-  %cond-lvalue.i389 = phi ptr [ %77, %cond.false.i388 ], [ %d_children.i387, %sw.bb158 ]
-  %call161 = call noundef i64 @_ZNK4cvc58internal26AscriptionTypeHashFunctionclERKNS0_14AscriptionTypeE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i389)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit: ; preds = %sw.bb158, %cond.false.i387
+  %cond-lvalue.i388 = phi ptr [ %77, %cond.false.i387 ], [ %d_children.i386, %sw.bb158 ]
+  %call161 = call noundef i64 @_ZNK4cvc58internal26AscriptionTypeHashFunctionclERKNS0_14AscriptionTypeE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp159, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i388)
   br label %return
 
 sw.bb162:                                         ; preds = %entry
-  %d_nchildren.i390 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i391 = load i32, ptr %d_nchildren.i390, align 4
-  %bf.clear.i392 = and i32 %bf.load.i391, 67108863
-  %cmp.i393 = icmp eq i32 %bf.clear.i392, 0
-  %d_children.i394 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i393, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i395
+  %d_nchildren.i389 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i390 = load i32, ptr %d_nchildren.i389, align 4
+  %bf.clear.i391 = and i32 %bf.load.i390, 67108863
+  %cmp.i392 = icmp eq i32 %bf.clear.i391, 0
+  %d_children.i393 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i392, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, label %cond.false.i394
 
-cond.false.i395:                                  ; preds = %sw.bb162
-  %78 = load ptr, ptr %d_children.i394, align 8
+cond.false.i394:                                  ; preds = %sw.bb162
+  %78 = load ptr, ptr %d_children.i393, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %sw.bb162, %cond.false.i395
-  %cond-lvalue.i396 = phi ptr [ %78, %cond.false.i395 ], [ %d_children.i394, %sw.bb162 ]
-  %call165 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i396)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit: ; preds = %sw.bb162, %cond.false.i394
+  %cond-lvalue.i395 = phi ptr [ %78, %cond.false.i394 ], [ %d_children.i393, %sw.bb162 ]
+  %call165 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp163, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i395)
   br label %return
 
 sw.bb166:                                         ; preds = %entry
-  %d_nchildren.i397 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i398 = load i32, ptr %d_nchildren.i397, align 4
-  %bf.clear.i399 = and i32 %bf.load.i398, 67108863
-  %cmp.i400 = icmp eq i32 %bf.clear.i399, 0
-  %d_children.i401 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i400, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i402
+  %d_nchildren.i396 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i397 = load i32, ptr %d_nchildren.i396, align 4
+  %bf.clear.i398 = and i32 %bf.load.i397, 67108863
+  %cmp.i399 = icmp eq i32 %bf.clear.i398, 0
+  %d_children.i400 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i399, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, label %cond.false.i401
 
-cond.false.i402:                                  ; preds = %sw.bb166
-  %79 = load ptr, ptr %d_children.i401, align 8
+cond.false.i401:                                  ; preds = %sw.bb166
+  %79 = load ptr, ptr %d_children.i400, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit: ; preds = %sw.bb166, %cond.false.i402
-  %cond-lvalue.i403 = phi ptr [ %79, %cond.false.i402 ], [ %d_children.i401, %sw.bb166 ]
-  %call169 = call noundef i64 @_ZNK4cvc58internal35CodatatypeBoundVariableHashFunctionclERKNS0_23CodatatypeBoundVariableE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp167, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i403)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit: ; preds = %sw.bb166, %cond.false.i401
+  %cond-lvalue.i402 = phi ptr [ %79, %cond.false.i401 ], [ %d_children.i400, %sw.bb166 ]
+  %call169 = call noundef i64 @_ZNK4cvc58internal35CodatatypeBoundVariableHashFunctionclERKNS0_23CodatatypeBoundVariableE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp167, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i402)
   br label %return
 
 sw.bb170:                                         ; preds = %entry
-  %d_nchildren.i404 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i405 = load i32, ptr %d_nchildren.i404, align 4
-  %bf.clear.i406 = and i32 %bf.load.i405, 67108863
-  %cmp.i407 = icmp eq i32 %bf.clear.i406, 0
-  %d_children.i408 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i407, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i409
+  %d_nchildren.i403 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i404 = load i32, ptr %d_nchildren.i403, align 4
+  %bf.clear.i405 = and i32 %bf.load.i404, 67108863
+  %cmp.i406 = icmp eq i32 %bf.clear.i405, 0
+  %d_children.i407 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i406, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, label %cond.false.i408
 
-cond.false.i409:                                  ; preds = %sw.bb170
-  %80 = load ptr, ptr %d_children.i408, align 8
+cond.false.i408:                                  ; preds = %sw.bb170
+  %80 = load ptr, ptr %d_children.i407, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds = %sw.bb170, %cond.false.i409
-  %cond-lvalue.i410 = phi ptr [ %80, %cond.false.i409 ], [ %d_children.i408, %sw.bb170 ]
-  %call173 = call noundef i64 @_ZNK4cvc58internal20EmptySetHashFunctionclERKNS0_8EmptySetE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i410)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit: ; preds = %sw.bb170, %cond.false.i408
+  %cond-lvalue.i409 = phi ptr [ %80, %cond.false.i408 ], [ %d_children.i407, %sw.bb170 ]
+  %call173 = call noundef i64 @_ZNK4cvc58internal20EmptySetHashFunctionclERKNS0_8EmptySetE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp171, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i409)
   br label %return
 
 sw.bb174:                                         ; preds = %entry
-  %d_nchildren.i411 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i412 = load i32, ptr %d_nchildren.i411, align 4
-  %bf.clear.i413 = and i32 %bf.load.i412, 67108863
-  %cmp.i414 = icmp eq i32 %bf.clear.i413, 0
-  %d_children.i415 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i414, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit418, label %cond.false.i416
+  %d_nchildren.i410 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i411 = load i32, ptr %d_nchildren.i410, align 4
+  %bf.clear.i412 = and i32 %bf.load.i411, 67108863
+  %cmp.i413 = icmp eq i32 %bf.clear.i412, 0
+  %d_children.i414 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i413, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417, label %cond.false.i415
 
-cond.false.i416:                                  ; preds = %sw.bb174
-  %81 = load ptr, ptr %d_children.i415, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit418
+cond.false.i415:                                  ; preds = %sw.bb174
+  %81 = load ptr, ptr %d_children.i414, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit418: ; preds = %sw.bb174, %cond.false.i416
-  %cond-lvalue.i417 = phi ptr [ %81, %cond.false.i416 ], [ %d_children.i415, %sw.bb174 ]
-  %call177 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i417)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417: ; preds = %sw.bb174, %cond.false.i415
+  %cond-lvalue.i416 = phi ptr [ %81, %cond.false.i415 ], [ %d_children.i414, %sw.bb174 ]
+  %call177 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp175, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i416)
   br label %return
 
 sw.bb178:                                         ; preds = %entry
-  %d_nchildren.i419 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i420 = load i32, ptr %d_nchildren.i419, align 4
-  %bf.clear.i421 = and i32 %bf.load.i420, 67108863
-  %cmp.i422 = icmp eq i32 %bf.clear.i421, 0
-  %d_children.i423 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i422, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit426, label %cond.false.i424
+  %d_nchildren.i418 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i419 = load i32, ptr %d_nchildren.i418, align 4
+  %bf.clear.i420 = and i32 %bf.load.i419, 67108863
+  %cmp.i421 = icmp eq i32 %bf.clear.i420, 0
+  %d_children.i422 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i421, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425, label %cond.false.i423
 
-cond.false.i424:                                  ; preds = %sw.bb178
-  %82 = load ptr, ptr %d_children.i423, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit426
+cond.false.i423:                                  ; preds = %sw.bb178
+  %82 = load ptr, ptr %d_children.i422, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit426: ; preds = %sw.bb178, %cond.false.i424
-  %cond-lvalue.i425 = phi ptr [ %82, %cond.false.i424 ], [ %d_children.i423, %sw.bb178 ]
-  %call181 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp179, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i425)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425: ; preds = %sw.bb178, %cond.false.i423
+  %cond-lvalue.i424 = phi ptr [ %82, %cond.false.i423 ], [ %d_children.i422, %sw.bb178 ]
+  %call181 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp179, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i424)
   br label %return
 
 sw.bb182:                                         ; preds = %entry
-  %d_nchildren.i427 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i428 = load i32, ptr %d_nchildren.i427, align 4
-  %bf.clear.i429 = and i32 %bf.load.i428, 67108863
-  %cmp.i430 = icmp eq i32 %bf.clear.i429, 0
-  %d_children.i431 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i430, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit434, label %cond.false.i432
+  %d_nchildren.i426 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i427 = load i32, ptr %d_nchildren.i426, align 4
+  %bf.clear.i428 = and i32 %bf.load.i427, 67108863
+  %cmp.i429 = icmp eq i32 %bf.clear.i428, 0
+  %d_children.i430 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i429, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433, label %cond.false.i431
 
-cond.false.i432:                                  ; preds = %sw.bb182
-  %83 = load ptr, ptr %d_children.i431, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit434
+cond.false.i431:                                  ; preds = %sw.bb182
+  %83 = load ptr, ptr %d_children.i430, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit434: ; preds = %sw.bb182, %cond.false.i432
-  %cond-lvalue.i433 = phi ptr [ %83, %cond.false.i432 ], [ %d_children.i431, %sw.bb182 ]
-  %call185 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i433)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433: ; preds = %sw.bb182, %cond.false.i431
+  %cond-lvalue.i432 = phi ptr [ %83, %cond.false.i431 ], [ %d_children.i430, %sw.bb182 ]
+  %call185 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp183, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i432)
   br label %return
 
 sw.bb186:                                         ; preds = %entry
-  %d_nchildren.i435 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i436 = load i32, ptr %d_nchildren.i435, align 4
-  %bf.clear.i437 = and i32 %bf.load.i436, 67108863
-  %cmp.i438 = icmp eq i32 %bf.clear.i437, 0
-  %d_children.i439 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i438, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i440
+  %d_nchildren.i434 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i435 = load i32, ptr %d_nchildren.i434, align 4
+  %bf.clear.i436 = and i32 %bf.load.i435, 67108863
+  %cmp.i437 = icmp eq i32 %bf.clear.i436, 0
+  %d_children.i438 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i437, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, label %cond.false.i439
 
-cond.false.i440:                                  ; preds = %sw.bb186
-  %84 = load ptr, ptr %d_children.i439, align 8
+cond.false.i439:                                  ; preds = %sw.bb186
+  %84 = load ptr, ptr %d_children.i438, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds = %sw.bb186, %cond.false.i440
-  %cond-lvalue.i441 = phi ptr [ %84, %cond.false.i440 ], [ %d_children.i439, %sw.bb186 ]
-  %call189 = call noundef i64 @_ZNK4cvc58internal20EmptyBagHashFunctionclERKNS0_8EmptyBagE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i441)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit: ; preds = %sw.bb186, %cond.false.i439
+  %cond-lvalue.i440 = phi ptr [ %84, %cond.false.i439 ], [ %d_children.i438, %sw.bb186 ]
+  %call189 = call noundef i64 @_ZNK4cvc58internal20EmptyBagHashFunctionclERKNS0_8EmptyBagE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp187, ptr noundef nonnull align 8 dereferenceable(8) %cond-lvalue.i440)
   br label %return
 
 sw.bb190:                                         ; preds = %entry
-  %d_nchildren.i442 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i443 = load i32, ptr %d_nchildren.i442, align 4
-  %bf.clear.i444 = and i32 %bf.load.i443, 67108863
-  %cmp.i445 = icmp eq i32 %bf.clear.i444, 0
-  %d_children.i446 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i445, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit449, label %cond.false.i447
+  %d_nchildren.i441 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i442 = load i32, ptr %d_nchildren.i441, align 4
+  %bf.clear.i443 = and i32 %bf.load.i442, 67108863
+  %cmp.i444 = icmp eq i32 %bf.clear.i443, 0
+  %d_children.i445 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i444, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448, label %cond.false.i446
 
-cond.false.i447:                                  ; preds = %sw.bb190
-  %85 = load ptr, ptr %d_children.i446, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit449
+cond.false.i446:                                  ; preds = %sw.bb190
+  %85 = load ptr, ptr %d_children.i445, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit449: ; preds = %sw.bb190, %cond.false.i447
-  %cond-lvalue.i448 = phi ptr [ %85, %cond.false.i447 ], [ %d_children.i446, %sw.bb190 ]
-  %call193 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i448)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448: ; preds = %sw.bb190, %cond.false.i446
+  %cond-lvalue.i447 = phi ptr [ %85, %cond.false.i446 ], [ %d_children.i445, %sw.bb190 ]
+  %call193 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp191, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i447)
   br label %return
 
 sw.bb194:                                         ; preds = %entry
-  %d_nchildren.i450 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i451 = load i32, ptr %d_nchildren.i450, align 4
-  %bf.clear.i452 = and i32 %bf.load.i451, 67108863
-  %cmp.i453 = icmp eq i32 %bf.clear.i452, 0
-  %d_children.i454 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i453, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit457, label %cond.false.i455
+  %d_nchildren.i449 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i450 = load i32, ptr %d_nchildren.i449, align 4
+  %bf.clear.i451 = and i32 %bf.load.i450, 67108863
+  %cmp.i452 = icmp eq i32 %bf.clear.i451, 0
+  %d_children.i453 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i452, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456, label %cond.false.i454
 
-cond.false.i455:                                  ; preds = %sw.bb194
-  %86 = load ptr, ptr %d_children.i454, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit457
+cond.false.i454:                                  ; preds = %sw.bb194
+  %86 = load ptr, ptr %d_children.i453, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit457: ; preds = %sw.bb194, %cond.false.i455
-  %cond-lvalue.i456 = phi ptr [ %86, %cond.false.i455 ], [ %d_children.i454, %sw.bb194 ]
-  %call197 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i456)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456: ; preds = %sw.bb194, %cond.false.i454
+  %cond-lvalue.i455 = phi ptr [ %86, %cond.false.i454 ], [ %d_children.i453, %sw.bb194 ]
+  %call197 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp195, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i455)
   br label %return
 
 sw.bb198:                                         ; preds = %entry
-  %d_nchildren.i458 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i459 = load i32, ptr %d_nchildren.i458, align 4
-  %bf.clear.i460 = and i32 %bf.load.i459, 67108863
-  %cmp.i461 = icmp eq i32 %bf.clear.i460, 0
-  %d_children.i462 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i461, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit465, label %cond.false.i463
+  %d_nchildren.i457 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i458 = load i32, ptr %d_nchildren.i457, align 4
+  %bf.clear.i459 = and i32 %bf.load.i458, 67108863
+  %cmp.i460 = icmp eq i32 %bf.clear.i459, 0
+  %d_children.i461 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i460, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464, label %cond.false.i462
 
-cond.false.i463:                                  ; preds = %sw.bb198
-  %87 = load ptr, ptr %d_children.i462, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit465
+cond.false.i462:                                  ; preds = %sw.bb198
+  %87 = load ptr, ptr %d_children.i461, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit465: ; preds = %sw.bb198, %cond.false.i463
-  %cond-lvalue.i464 = phi ptr [ %87, %cond.false.i463 ], [ %d_children.i462, %sw.bb198 ]
-  %call201 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i464)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464: ; preds = %sw.bb198, %cond.false.i462
+  %cond-lvalue.i463 = phi ptr [ %87, %cond.false.i462 ], [ %d_children.i461, %sw.bb198 ]
+  %call201 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp199, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i463)
   br label %return
 
 sw.bb202:                                         ; preds = %entry
-  %d_nchildren.i466 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i467 = load i32, ptr %d_nchildren.i466, align 4
-  %bf.clear.i468 = and i32 %bf.load.i467, 67108863
-  %cmp.i469 = icmp eq i32 %bf.clear.i468, 0
-  %d_children.i470 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i469, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit473, label %cond.false.i471
+  %d_nchildren.i465 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i466 = load i32, ptr %d_nchildren.i465, align 4
+  %bf.clear.i467 = and i32 %bf.load.i466, 67108863
+  %cmp.i468 = icmp eq i32 %bf.clear.i467, 0
+  %d_children.i469 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i468, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472, label %cond.false.i470
 
-cond.false.i471:                                  ; preds = %sw.bb202
-  %88 = load ptr, ptr %d_children.i470, align 8
-  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit473
+cond.false.i470:                                  ; preds = %sw.bb202
+  %88 = load ptr, ptr %d_children.i469, align 8
+  br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit473: ; preds = %sw.bb202, %cond.false.i471
-  %cond-lvalue.i472 = phi ptr [ %88, %cond.false.i471 ], [ %d_children.i470, %sw.bb202 ]
-  %call205 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp203, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i472)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472: ; preds = %sw.bb202, %cond.false.i470
+  %cond-lvalue.i471 = phi ptr [ %88, %cond.false.i470 ], [ %d_children.i469, %sw.bb202 ]
+  %call205 = call noundef i64 @_ZNK4cvc58internal21ProjectOpHashFunctionclERKNS0_9ProjectOpE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp203, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i471)
   br label %return
 
 sw.bb206:                                         ; preds = %entry
-  %d_nchildren.i474 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i475 = load i32, ptr %d_nchildren.i474, align 4
-  %bf.clear.i476 = and i32 %bf.load.i475, 67108863
-  %cmp.i477 = icmp eq i32 %bf.clear.i476, 0
-  %d_children.i478 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i477, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i479
+  %d_nchildren.i473 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i474 = load i32, ptr %d_nchildren.i473, align 4
+  %bf.clear.i475 = and i32 %bf.load.i474, 67108863
+  %cmp.i476 = icmp eq i32 %bf.clear.i475, 0
+  %d_children.i477 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i476, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, label %cond.false.i478
 
-cond.false.i479:                                  ; preds = %sw.bb206
-  %89 = load ptr, ptr %d_children.i478, align 8
+cond.false.i478:                                  ; preds = %sw.bb206
+  %89 = load ptr, ptr %d_children.i477, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %sw.bb206, %cond.false.i479
-  %cond-lvalue.i480 = phi ptr [ %89, %cond.false.i479 ], [ %d_children.i478, %sw.bb206 ]
-  %call209 = call noundef i64 @_ZNK4cvc58internal7strings18StringHashFunctionclERKNS0_6StringE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i480)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit: ; preds = %sw.bb206, %cond.false.i478
+  %cond-lvalue.i479 = phi ptr [ %89, %cond.false.i478 ], [ %d_children.i477, %sw.bb206 ]
+  %call209 = call noundef i64 @_ZNK4cvc58internal7strings18StringHashFunctionclERKNS0_6StringE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp207, ptr noundef nonnull align 8 dereferenceable(24) %cond-lvalue.i479)
   br label %return
 
 sw.bb210:                                         ; preds = %entry
-  %d_nchildren.i481 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i482 = load i32, ptr %d_nchildren.i481, align 4
-  %bf.clear.i483 = and i32 %bf.load.i482, 67108863
-  %cmp.i484 = icmp eq i32 %bf.clear.i483, 0
-  %d_children.i485 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i484, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i486
+  %d_nchildren.i480 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i481 = load i32, ptr %d_nchildren.i480, align 4
+  %bf.clear.i482 = and i32 %bf.load.i481, 67108863
+  %cmp.i483 = icmp eq i32 %bf.clear.i482, 0
+  %d_children.i484 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i483, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, label %cond.false.i485
 
-cond.false.i486:                                  ; preds = %sw.bb210
-  %90 = load ptr, ptr %d_children.i485, align 8
+cond.false.i485:                                  ; preds = %sw.bb210
+  %90 = load ptr, ptr %d_children.i484, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds = %sw.bb210, %cond.false.i486
-  %cond-lvalue.i487 = phi ptr [ %90, %cond.false.i486 ], [ %d_children.i485, %sw.bb210 ]
-  %call213 = call noundef i64 @_ZNK4cvc58internal20SequenceHashFunctionclERKNS0_8SequenceE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp211, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i487)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit: ; preds = %sw.bb210, %cond.false.i485
+  %cond-lvalue.i486 = phi ptr [ %90, %cond.false.i485 ], [ %d_children.i484, %sw.bb210 ]
+  %call213 = call noundef i64 @_ZNK4cvc58internal20SequenceHashFunctionclERKNS0_8SequenceE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp211, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i486)
   br label %return
 
 sw.bb214:                                         ; preds = %entry
-  %d_nchildren.i488 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i489 = load i32, ptr %d_nchildren.i488, align 4
-  %bf.clear.i490 = and i32 %bf.load.i489, 67108863
-  %cmp.i491 = icmp eq i32 %bf.clear.i490, 0
-  %d_children.i492 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i491, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i493
+  %d_nchildren.i487 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i488 = load i32, ptr %d_nchildren.i487, align 4
+  %bf.clear.i489 = and i32 %bf.load.i488, 67108863
+  %cmp.i490 = icmp eq i32 %bf.clear.i489, 0
+  %d_children.i491 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i490, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, label %cond.false.i492
 
-cond.false.i493:                                  ; preds = %sw.bb214
-  %91 = load ptr, ptr %d_children.i492, align 8
+cond.false.i492:                                  ; preds = %sw.bb214
+  %91 = load ptr, ptr %d_children.i491, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; preds = %sw.bb214, %cond.false.i493
-  %cond-lvalue.i494 = phi ptr [ %91, %cond.false.i493 ], [ %d_children.i492, %sw.bb214 ]
-  %call217 = call noundef i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp215, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i494)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit: ; preds = %sw.bb214, %cond.false.i492
+  %cond-lvalue.i493 = phi ptr [ %91, %cond.false.i492 ], [ %d_children.i491, %sw.bb214 ]
+  %call217 = call noundef i64 @_ZNK4cvc58internal24RegExpRepeatHashFunctionclERKNS0_12RegExpRepeatE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp215, ptr noundef nonnull align 4 dereferenceable(4) %cond-lvalue.i493)
   br label %return
 
 sw.bb218:                                         ; preds = %entry
-  %d_nchildren.i495 = getelementptr inbounds i8, ptr %nv, i64 12
-  %bf.load.i496 = load i32, ptr %d_nchildren.i495, align 4
-  %bf.clear.i497 = and i32 %bf.load.i496, 67108863
-  %cmp.i498 = icmp eq i32 %bf.clear.i497, 0
-  %d_children.i499 = getelementptr inbounds i8, ptr %nv, i64 16
-  br i1 %cmp.i498, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i500
+  %d_nchildren.i494 = getelementptr inbounds i8, ptr %nv, i64 12
+  %bf.load.i495 = load i32, ptr %d_nchildren.i494, align 4
+  %bf.clear.i496 = and i32 %bf.load.i495, 67108863
+  %cmp.i497 = icmp eq i32 %bf.clear.i496, 0
+  %d_children.i498 = getelementptr inbounds i8, ptr %nv, i64 16
+  br i1 %cmp.i497, label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, label %cond.false.i499
 
-cond.false.i500:                                  ; preds = %sw.bb218
-  %92 = load ptr, ptr %d_children.i499, align 8
+cond.false.i499:                                  ; preds = %sw.bb218
+  %92 = load ptr, ptr %d_children.i498, align 8
   br label %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit
 
-_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit: ; preds = %sw.bb218, %cond.false.i500
-  %cond-lvalue.i501 = phi ptr [ %92, %cond.false.i500 ], [ %d_children.i499, %sw.bb218 ]
-  %call221 = call noundef i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i501)
+_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit: ; preds = %sw.bb218, %cond.false.i499
+  %cond-lvalue.i500 = phi ptr [ %92, %cond.false.i499 ], [ %d_children.i498, %sw.bb218 ]
+  %call221 = call noundef i64 @_ZNK4cvc58internal22RegExpLoopHashFunctionclERKNS0_10RegExpLoopE(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp219, ptr noundef nonnull align 4 dereferenceable(8) %cond-lvalue.i500)
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -8523,8 +8523,8 @@ invoke.cont224:                                   ; preds = %invoke.cont
   %bf.load227 = load i16, ptr %d_kind, align 8
   %bf.clear228 = and i16 %bf.load227, 1023
   %bf.cast229 = zext nneg i16 %bf.clear228 to i32
-  %cmp.i502 = icmp eq i16 %bf.clear228, 1023
-  %cond.i = select i1 %cmp.i502, i32 -1, i32 %bf.cast229
+  %cmp.i501 = icmp eq i16 %bf.clear228, 1023
+  %cond.i = select i1 %cmp.i501, i32 -1, i32 %bf.cast229
   %call233 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internal4kindlsERSoNS1_6Kind_tE(ptr noundef nonnull align 8 dereferenceable(8) %call225, i32 noundef %cond.i)
           to label %invoke.cont232 unwind label %lpad
 
@@ -8538,8 +8538,8 @@ lpad:                                             ; preds = %invoke.cont224, %in
   call void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp222) #14
   unreachable
 
-return:                                           ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit473, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit465, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit457, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit449, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit434, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit426, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit418, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit
-  %retval.0 = phi i64 [ %call221, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit ], [ %call217, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit ], [ %call213, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit ], [ %call209, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit ], [ %call205, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit473 ], [ %call201, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit465 ], [ %call197, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit457 ], [ %call193, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit449 ], [ %call189, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit ], [ %call185, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit434 ], [ %call181, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit426 ], [ %call177, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit418 ], [ %call173, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit ], [ %call169, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit ], [ %call165, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %call161, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit ], [ %call157, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit ], [ %xor.i375, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit ], [ %xor.i367, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit ], [ %xor.i359, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit ], [ %xor.i351, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit ], [ %xor.i343, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ], [ %xor.i329, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ], [ %xor.i315, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ], [ %xor.i301, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ], [ %xor.i287, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ], [ %or.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ], [ %conv.i270, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit ], [ %call109, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit ], [ %call.i255, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit ], [ %call.i247, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit ], [ %conv.i239, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit ], [ %conv.i231, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit ], [ %conv.i223, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit ], [ %conv.i215, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit ], [ %conv.i207, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit ], [ %xor.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ], [ %conv.i191, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit ], [ %call.i183, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit ], [ %conv.i175, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit ], [ %conv.i167, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %call53, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit ], [ %call49, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145 ], [ %call45, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ], [ %call.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit ], [ %conv.i123, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit ], [ %call33, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit ], [ %call29, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit ], [ %call25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit ], [ %conv.i94, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit ], [ %call17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit ], [ %call13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit ], [ %conv.i72, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit ], [ %conv.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ %call.i.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit ]
+return:                                           ; preds = %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit
+  %retval.0 = phi i64 [ %call221, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_10RegExpLoopEEERKT_v.exit ], [ %call217, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RegExpRepeatEEERKT_v.exit ], [ %call213, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8SequenceEEERKT_v.exit ], [ %call209, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6StringEEERKT_v.exit ], [ %call205, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit472 ], [ %call201, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit464 ], [ %call197, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit456 ], [ %call193, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit448 ], [ %call189, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptyBagEEERKT_v.exit ], [ %call185, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit433 ], [ %call181, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit425 ], [ %call177, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit417 ], [ %call173, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8EmptySetEEERKT_v.exit ], [ %call169, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23CodatatypeBoundVariableEEERKT_v.exit ], [ %call165, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9ProjectOpEEERKT_v.exit ], [ %call161, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14AscriptionTypeEEERKT_v.exit ], [ %call157, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13ArrayStoreAllEEERKT_v.exit ], [ %xor.i374, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToSBVTotalEEERKT_v.exit ], [ %xor.i366, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToSBVEEERKT_v.exit ], [ %xor.i358, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_23FloatingPointToUBVTotalEEERKT_v.exit ], [ %xor.i350, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FloatingPointToUBVEEERKT_v.exit ], [ %xor.i342, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_34FloatingPointToFPUnsignedBitVectorEEERKT_v.exit ], [ %xor.i328, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_32FloatingPointToFPSignedBitVectorEEERKT_v.exit ], [ %xor.i314, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21FloatingPointToFPRealEEERKT_v.exit ], [ %xor.i300, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPFloatingPointEEERKT_v.exit ], [ %xor.i286, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_30FloatingPointToFPIEEEBitVectorEEERKT_v.exit ], [ %or.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_17FloatingPointSizeEEERKT_v.exit ], [ %conv.i270, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12RoundingModeEEERKT_v.exit ], [ %call109, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13FloatingPointEEERKT_v.exit ], [ %call.i255, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16FiniteFieldValueEEERKT_v.exit ], [ %call.i247, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6FfSizeEEERKT_v.exit ], [ %conv.i239, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorZeroExtendEEERKT_v.exit ], [ %conv.i231, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorSignExtendEEERKT_v.exit ], [ %conv.i223, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20BitVectorRotateRightEEERKT_v.exit ], [ %conv.i215, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19BitVectorRotateLeftEEERKT_v.exit ], [ %conv.i207, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_15BitVectorRepeatEEERKT_v.exit ], [ %xor.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_16BitVectorExtractEEERKT_v.exit ], [ %conv.i191, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14BitVectorBitOfEEERKT_v.exit ], [ %call.i183, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9BitVectorEEERKT_v.exit ], [ %conv.i175, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_13BitVectorSizeEEERKT_v.exit ], [ %conv.i167, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_6IntAndEEERKT_v.exit ], [ %20, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_20IndexedRootPredicateEEERKT_v.exit ], [ %call53, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_19RealAlgebraicNumberEEERKT_v.exit ], [ %call49, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit145 ], [ %call45, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_8RationalEEERKT_v.exit ], [ %call.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9DivisibleEEERKT_v.exit ], [ %conv.i123, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_14IntToBitVectorEEERKT_v.exit ], [ %call33, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_18FunctionArrayConstEEERKT_v.exit ], [ %call29, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_29CombinedCardinalityConstraintEEERKT_v.exit ], [ %call25, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_21CardinalityConstraintEEERKT_v.exit ], [ %conv.i94, %_ZNK4cvc58internal4expr9NodeValue8getConstIbEERKT_v.exit ], [ %call17, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_9GenericOpEEERKT_v.exit ], [ %call13, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12AbstractTypeEEERKT_v.exit ], [ %conv.i72, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_12TypeConstantEEERKT_v.exit ], [ %conv.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_4kind6Kind_tEEERKT_v.exit ], [ %call.i.i, %_ZNK4cvc58internal4expr9NodeValue8getConstINS0_22UninterpretedSortValueEEERKT_v.exit ]
   ret i64 %retval.0
 }
 
@@ -8631,9 +8631,9 @@ terminate.lpad.i.i.i:                             ; preds = %invoke.cont
 
 _ZN4cvc58internal9BitVectorD2Ev.exit:             ; preds = %invoke.cont
   %conv.i = zext i32 %0 to i64
-  %or.i.i = shl nuw nsw i64 %conv.i, 16
+  %shl.i.i = shl nuw nsw i64 %conv.i, 16
   %conv4.i = zext i32 %1 to i64
-  %or.i = or i64 %or.i.i, %conv4.i
+  %or.i = or i64 %shl.i.i, %conv4.i
   %xor = xor i64 %or.i, %call.i2
   ret i64 %xor
 
