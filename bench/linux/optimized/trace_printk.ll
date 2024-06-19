@@ -238,54 +238,55 @@ declare dso_local i32 @seq_open(ptr noundef, ptr noundef) local_unnamed_addr #4
 define internal ptr @t_start(ptr nocapture readnone %0, ptr nocapture noundef readonly %1) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @btrace_mutex) #13
   %3 = load i64, ptr %1, align 8
-  %4 = ashr exact i64 shl (i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), i64 29), 32
-  %5 = icmp slt i64 %3, %4
-  br i1 %5, label %6, label %8
+  %4 = shl i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 29
+  %5 = ashr exact i64 %4, 32
+  %6 = icmp slt i64 %3, %5
+  br i1 %6, label %7, label %9
 
-6:                                                ; preds = %2
-  %7 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %3
+7:                                                ; preds = %2
+  %8 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %3
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %9 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 3
-  %10 = trunc i64 %9 to i32
-  %11 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___tracepoint_str to i64), i64 ptrtoint (ptr @__start___tracepoint_str to i64)), 3
-  %12 = trunc i64 %11 to i32
-  %13 = add i32 %10, %12
-  %14 = sext i32 %13 to i64
-  %15 = icmp slt i64 %3, %14
-  br i1 %15, label %16, label %19
+9:                                                ; preds = %2
+  %10 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 3
+  %11 = trunc i64 %10 to i32
+  %12 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___tracepoint_str to i64), i64 ptrtoint (ptr @__start___tracepoint_str to i64)), 3
+  %13 = trunc i64 %12 to i32
+  %14 = add i32 %11, %13
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %3, %15
+  br i1 %16, label %17, label %20
 
-16:                                               ; preds = %8
-  %17 = sub nsw i64 %3, %4
-  %18 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %17
+17:                                               ; preds = %9
+  %18 = sub nsw i64 %3, %5
+  %19 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %18
   br label %.loopexit
 
-19:                                               ; preds = %8
-  %20 = load volatile ptr, ptr @trace_bprintk_fmt_list, align 8
-  %21 = icmp eq ptr %20, @trace_bprintk_fmt_list
-  br i1 %21, label %.loopexit, label %.preheader
+20:                                               ; preds = %9
+  %21 = load volatile ptr, ptr @trace_bprintk_fmt_list, align 8
+  %22 = icmp eq ptr %21, @trace_bprintk_fmt_list
+  br i1 %22, label %.loopexit, label %.preheader
 
-22:                                               ; preds = %.preheader
-  %23 = add i32 %27, 1
-  %24 = load ptr, ptr %26, align 8
-  %25 = icmp eq ptr %24, @trace_bprintk_fmt_list
-  br i1 %25, label %.loopexit, label %.preheader, !llvm.loop !12
+23:                                               ; preds = %.preheader
+  %24 = add i32 %28, 1
+  %25 = load ptr, ptr %27, align 8
+  %26 = icmp eq ptr %25, @trace_bprintk_fmt_list
+  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.preheader:                                       ; preds = %19, %22
-  %26 = phi ptr [ %24, %22 ], [ %20, %19 ]
-  %27 = phi i32 [ %23, %22 ], [ %13, %19 ]
-  %28 = sext i32 %27 to i64
-  %29 = icmp eq i64 %3, %28
-  br i1 %29, label %30, label %22
+.preheader:                                       ; preds = %20, %23
+  %27 = phi ptr [ %25, %23 ], [ %21, %20 ]
+  %28 = phi i32 [ %24, %23 ], [ %14, %20 ]
+  %29 = sext i32 %28 to i64
+  %30 = icmp eq i64 %3, %29
+  br i1 %30, label %31, label %23
 
-30:                                               ; preds = %.preheader
-  %31 = getelementptr inbounds i8, ptr %26, i64 16
+31:                                               ; preds = %.preheader
+  %32 = getelementptr inbounds i8, ptr %27, i64 16
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %30, %19, %16, %6
-  %32 = phi ptr [ %7, %6 ], [ %18, %16 ], [ null, %19 ], [ %31, %30 ], [ null, %22 ]
-  ret ptr %32
+.loopexit:                                        ; preds = %23, %31, %20, %17, %7
+  %33 = phi ptr [ %8, %7 ], [ %19, %17 ], [ null, %20 ], [ %32, %31 ], [ null, %23 ]
+  ret ptr %33
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -299,68 +300,69 @@ define internal ptr @t_next(ptr nocapture readnone %0, ptr noundef readonly %1, 
   %4 = load i64, ptr %2, align 8
   %5 = add i64 %4, 1
   store i64 %5, ptr %2, align 8
-  %6 = ashr exact i64 shl (i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), i64 29), 32
-  %7 = icmp slt i64 %5, %6
-  br i1 %7, label %8, label %10
+  %6 = shl i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 29
+  %7 = ashr exact i64 %6, 32
+  %8 = icmp slt i64 %5, %7
+  br i1 %8, label %9, label %11
 
-8:                                                ; preds = %3
-  %9 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %5
+9:                                                ; preds = %3
+  %10 = getelementptr ptr, ptr @__start___trace_bprintk_fmt, i64 %5
   br label %.loopexit
 
-10:                                               ; preds = %3
-  %11 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 3
-  %12 = trunc i64 %11 to i32
-  %13 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___tracepoint_str to i64), i64 ptrtoint (ptr @__start___tracepoint_str to i64)), 3
-  %14 = trunc i64 %13 to i32
-  %15 = add i32 %12, %14
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %5, %16
-  br i1 %17, label %18, label %21
+11:                                               ; preds = %3
+  %12 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___trace_bprintk_fmt to i64), i64 ptrtoint (ptr @__start___trace_bprintk_fmt to i64)), 3
+  %13 = trunc i64 %12 to i32
+  %14 = lshr exact i64 sub (i64 ptrtoint (ptr @__stop___tracepoint_str to i64), i64 ptrtoint (ptr @__start___tracepoint_str to i64)), 3
+  %15 = trunc i64 %14 to i32
+  %16 = add i32 %13, %15
+  %17 = sext i32 %16 to i64
+  %18 = icmp slt i64 %5, %17
+  br i1 %18, label %19, label %22
 
-18:                                               ; preds = %10
-  %19 = sub nsw i64 %5, %6
-  %20 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %19
+19:                                               ; preds = %11
+  %20 = sub nsw i64 %5, %7
+  %21 = getelementptr ptr, ptr @__start___tracepoint_str, i64 %20
   br label %.loopexit
 
-21:                                               ; preds = %10
-  %22 = load volatile ptr, ptr @trace_bprintk_fmt_list, align 8
-  %23 = icmp eq ptr %22, @trace_bprintk_fmt_list
-  br i1 %23, label %.loopexit, label %24
+22:                                               ; preds = %11
+  %23 = load volatile ptr, ptr @trace_bprintk_fmt_list, align 8
+  %24 = icmp eq ptr %23, @trace_bprintk_fmt_list
+  br i1 %24, label %.loopexit, label %25
 
-24:                                               ; preds = %21
-  %25 = icmp eq ptr %1, null
-  %26 = icmp eq i64 %5, %16
-  %27 = or i1 %25, %26
-  br i1 %27, label %.preheader, label %38
+25:                                               ; preds = %22
+  %26 = icmp eq ptr %1, null
+  %27 = icmp eq i64 %5, %17
+  %28 = or i1 %26, %27
+  br i1 %28, label %.preheader, label %39
 
-28:                                               ; preds = %.preheader
-  %29 = add i32 %33, 1
-  %30 = load ptr, ptr %32, align 8
-  %31 = icmp eq ptr %30, @trace_bprintk_fmt_list
-  br i1 %31, label %.loopexit, label %.preheader, !llvm.loop !12
+29:                                               ; preds = %.preheader
+  %30 = add i32 %34, 1
+  %31 = load ptr, ptr %33, align 8
+  %32 = icmp eq ptr %31, @trace_bprintk_fmt_list
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !12
 
-.preheader:                                       ; preds = %24, %28
-  %32 = phi ptr [ %30, %28 ], [ %22, %24 ]
-  %33 = phi i32 [ %29, %28 ], [ %15, %24 ]
-  %34 = sext i32 %33 to i64
-  %35 = icmp eq i64 %5, %34
-  br i1 %35, label %36, label %28
+.preheader:                                       ; preds = %25, %29
+  %33 = phi ptr [ %31, %29 ], [ %23, %25 ]
+  %34 = phi i32 [ %30, %29 ], [ %16, %25 ]
+  %35 = sext i32 %34 to i64
+  %36 = icmp eq i64 %5, %35
+  br i1 %36, label %37, label %29
 
-36:                                               ; preds = %.preheader
-  %37 = getelementptr inbounds i8, ptr %32, i64 16
+37:                                               ; preds = %.preheader
+  %38 = getelementptr inbounds i8, ptr %33, i64 16
   br label %.loopexit
 
-38:                                               ; preds = %24
-  %39 = getelementptr i8, ptr %1, i64 -16
-  %40 = load ptr, ptr %39, align 8
-  %41 = icmp eq ptr %40, @trace_bprintk_fmt_list
-  %42 = getelementptr inbounds i8, ptr %40, i64 16
-  %43 = select i1 %41, ptr null, ptr %42
+39:                                               ; preds = %25
+  %40 = getelementptr i8, ptr %1, i64 -16
+  %41 = load ptr, ptr %40, align 8
+  %42 = icmp eq ptr %41, @trace_bprintk_fmt_list
+  %43 = getelementptr inbounds i8, ptr %41, i64 16
+  %44 = select i1 %42, ptr null, ptr %43
   br label %.loopexit
 
-.loopexit:                                        ; preds = %28, %38, %36, %21, %18, %8
-  %44 = phi ptr [ %9, %8 ], [ %20, %18 ], [ null, %21 ], [ %37, %36 ], [ %43, %38 ], [ null, %28 ]
-  ret ptr %44
+.loopexit:                                        ; preds = %29, %39, %37, %22, %19, %9
+  %45 = phi ptr [ %10, %9 ], [ %21, %19 ], [ null, %22 ], [ %38, %37 ], [ %44, %39 ], [ null, %29 ]
+  ret ptr %45
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

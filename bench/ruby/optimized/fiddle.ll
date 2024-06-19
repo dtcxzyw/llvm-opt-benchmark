@@ -324,40 +324,41 @@ rbimpl_intern_const.exit37:                       ; preds = %.lr.ph.i35, %7
   tail call void @rb_define_const(i64 noundef %63, ptr noundef nonnull @.str.81, i64 noundef 3) #4
   %64 = load i64, ptr @mFiddle, align 8
   %or.cond.i = icmp sgt i64 add (i64 ptrtoint (ptr @ruby_xfree to i64), i64 4611686018427387904), -1
-  br i1 %or.cond.i, label %65, label %67
+  br i1 %or.cond.i, label %65, label %68
 
 65:                                               ; preds = %11
-  %66 = or disjoint i64 shl (i64 ptrtoint (ptr @ruby_xfree to i64), i64 1), 1
+  %66 = shl nsw i64 ptrtoint (ptr @ruby_xfree to i64), 1
+  %67 = or disjoint i64 %66, 1
   br label %rb_long2num_inline.exit
 
-67:                                               ; preds = %11
-  %68 = tail call i64 @rb_int2big(i64 noundef ptrtoint (ptr @ruby_xfree to i64)) #4
+68:                                               ; preds = %11
+  %69 = tail call i64 @rb_int2big(i64 noundef ptrtoint (ptr @ruby_xfree to i64)) #4
   br label %rb_long2num_inline.exit
 
-rb_long2num_inline.exit:                          ; preds = %65, %67
-  %.0.i = phi i64 [ %66, %65 ], [ %68, %67 ]
+rb_long2num_inline.exit:                          ; preds = %65, %68
+  %.0.i = phi i64 [ %67, %65 ], [ %69, %68 ]
   tail call void @rb_define_const(i64 noundef %64, ptr noundef nonnull @.str.82, i64 noundef %.0.i) #4
-  %69 = load i64, ptr @mFiddle, align 8
-  %70 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.84, i64 noundef 12) #4
-  tail call void @rb_define_const(i64 noundef %69, ptr noundef nonnull @.str.83, i64 noundef %70) #4
-  %71 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_module_function(i64 noundef %71, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_fiddle_value2ptr, i32 noundef 1) #4
+  %70 = load i64, ptr @mFiddle, align 8
+  %71 = tail call i64 @rb_str_new_static(ptr noundef nonnull @.str.84, i64 noundef 12) #4
+  tail call void @rb_define_const(i64 noundef %70, ptr noundef nonnull @.str.83, i64 noundef %71) #4
   %72 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_module_function(i64 noundef %72, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_fiddle_ptr2value, i32 noundef 1) #4
+  tail call void @rb_define_module_function(i64 noundef %72, ptr noundef nonnull @.str.85, ptr noundef nonnull @rb_fiddle_value2ptr, i32 noundef 1) #4
   %73 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_module_function(i64 noundef %73, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_fiddle_malloc, i32 noundef 1) #4
+  tail call void @rb_define_module_function(i64 noundef %73, ptr noundef nonnull @.str.86, ptr noundef nonnull @rb_fiddle_ptr2value, i32 noundef 1) #4
   %74 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_module_function(i64 noundef %74, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_fiddle_realloc, i32 noundef 2) #4
+  tail call void @rb_define_module_function(i64 noundef %74, ptr noundef nonnull @.str.87, ptr noundef nonnull @rb_fiddle_malloc, i32 noundef 1) #4
   %75 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_module_function(i64 noundef %75, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_fiddle_free, i32 noundef 1) #4
+  tail call void @rb_define_module_function(i64 noundef %75, ptr noundef nonnull @.str.88, ptr noundef nonnull @rb_fiddle_realloc, i32 noundef 2) #4
   %76 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_const(i64 noundef %76, ptr noundef nonnull @.str.90, i64 noundef 41) #4
+  tail call void @rb_define_module_function(i64 noundef %76, ptr noundef nonnull @.str.89, ptr noundef nonnull @rb_fiddle_free, i32 noundef 1) #4
   %77 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.91, i64 noundef 1) #4
+  tail call void @rb_define_const(i64 noundef %77, ptr noundef nonnull @.str.90, i64 noundef 41) #4
   %78 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.92, i64 noundef 9) #4
+  tail call void @rb_define_const(i64 noundef %78, ptr noundef nonnull @.str.91, i64 noundef 1) #4
   %79 = load i64, ptr @mFiddle, align 8
-  tail call void @rb_define_const(i64 noundef %79, ptr noundef nonnull @.str.93, i64 noundef 73) #4
+  tail call void @rb_define_const(i64 noundef %79, ptr noundef nonnull @.str.92, i64 noundef 9) #4
+  %80 = load i64, ptr @mFiddle, align 8
+  tail call void @rb_define_const(i64 noundef %80, ptr noundef nonnull @.str.93, i64 noundef 73) #4
   tail call void @Init_fiddle_function() #4
   tail call void @Init_fiddle_closure() #4
   tail call void @Init_fiddle_handle() #4
