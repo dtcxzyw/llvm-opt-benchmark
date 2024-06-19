@@ -1660,51 +1660,40 @@ define noundef i32 @prte_pack_ctrl_options(ptr noundef %0, ptr noundef %1, i64 n
   store i64 %2, ptr %4, align 8
   call void @PMIx_Data_buffer_construct(ptr noundef nonnull %5) #12
   %6 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 1, i16 noundef zeroext 4) #12
-  switch i32 %6, label %7 [
-    i32 0, label %9
-    i32 -2, label %21
+  switch i32 %6, label %.sink.split [
+    i32 0, label %7
+    i32 -2, label %15
   ]
 
 7:                                                ; preds = %3
-  %8 = call ptr @PMIx_Error_string(i32 noundef %6) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %8, ptr noundef nonnull @.str.2, i32 noundef 467) #12
-  br label %21
+  %8 = load i64, ptr %4, align 8
+  %.not18 = icmp eq i64 %8, 0
+  br i1 %.not18, label %12, label %9
 
-9:                                                ; preds = %3
-  %10 = load i64, ptr %4, align 8
-  %.not18 = icmp eq i64 %10, 0
-  br i1 %.not18, label %16, label %11
-
-11:                                               ; preds = %9
-  %12 = trunc i64 %10 to i32
-  %13 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %12, i16 noundef zeroext 24) #12
-  switch i32 %13, label %14 [
-    i32 0, label %16
-    i32 -2, label %21
+9:                                                ; preds = %7
+  %10 = trunc i64 %8 to i32
+  %11 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef nonnull %5, ptr noundef %1, i32 noundef %10, i16 noundef zeroext 24) #12
+  switch i32 %11, label %.sink.split [
+    i32 0, label %12
+    i32 -2, label %15
   ]
 
-14:                                               ; preds = %11
-  %15 = call ptr @PMIx_Error_string(i32 noundef %13) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %15, ptr noundef nonnull @.str.2, i32 noundef 474) #12
-  br label %21
-
-16:                                               ; preds = %11, %9
-  %17 = call i32 @PMIx_Data_unload(ptr noundef nonnull %5, ptr noundef %0) #12
-  switch i32 %17, label %18 [
-    i32 0, label %20
-    i32 -2, label %21
+12:                                               ; preds = %9, %7
+  %13 = call i32 @PMIx_Data_unload(ptr noundef nonnull %5, ptr noundef %0) #12
+  switch i32 %13, label %.sink.split [
+    i32 0, label %15
+    i32 -2, label %15
   ]
 
-18:                                               ; preds = %16
-  %19 = call ptr @PMIx_Error_string(i32 noundef %17) #12
-  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %19, ptr noundef nonnull @.str.2, i32 noundef 484) #12
-  br label %21
+.sink.split:                                      ; preds = %12, %9, %3
+  %.sink25 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ]
+  %.sink24 = phi i32 [ 467, %3 ], [ 474, %9 ], [ 484, %12 ]
+  %14 = call ptr @PMIx_Error_string(i32 noundef %.sink25) #12
+  call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.6, ptr noundef %14, ptr noundef nonnull @.str.2, i32 noundef %.sink24) #12
+  br label %15
 
-20:                                               ; preds = %16
-  br label %21
-
-21:                                               ; preds = %18, %16, %14, %11, %7, %3, %20
-  %.0 = phi i32 [ 0, %20 ], [ %6, %3 ], [ %6, %7 ], [ %13, %11 ], [ %13, %14 ], [ %17, %16 ], [ %17, %18 ]
+15:                                               ; preds = %.sink.split, %12, %12, %9, %3
+  %.0 = phi i32 [ %6, %3 ], [ %11, %9 ], [ %13, %12 ], [ %13, %12 ], [ %.sink25, %.sink.split ]
   call void @PMIx_Data_buffer_destruct(ptr noundef nonnull %5) #12
   ret i32 %.0
 }

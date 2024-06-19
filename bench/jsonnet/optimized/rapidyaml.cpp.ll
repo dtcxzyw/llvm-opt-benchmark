@@ -38176,7 +38176,7 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit: ; preds = %32, %_ZNK2c415basic
   %66 = load i8, ptr %.sroa.0234.0309, align 1
   switch i8 %66, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread [
     i8 124, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit118
-    i8 62, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split
+    i8 62, label %_ZNK2c415basic_substringIKcE11begins_withEc.exit118
   ]
 
 _ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread: ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit, %_ZNK2c415basic_substringIKcE5trimlEc.exit.thread
@@ -38208,13 +38208,10 @@ _ZNK2c415basic_substringIKcE11begins_withEc.exit118.thread: ; preds = %_ZNK2c415
   store i64 -1, ptr %18, align 8
   br label %.critedge
 
-_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split: ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit
-  br label %_ZNK2c415basic_substringIKcE11begins_withEc.exit118
-
-_ZNK2c415basic_substringIKcE11begins_withEc.exit118: ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge
-  %75 = phi i8 [ %.pre, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %66, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ 62, %_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split ]
-  %.sroa.11.0310 = phi i64 [ %.sroa.11.0311, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %.sroa.11.0312, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ %.sroa.11.0312, %_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split ]
-  %.sroa.0234.0307 = phi ptr [ %.sroa.0234.0308, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %.sroa.0234.0309, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ %.sroa.0234.0309, %_ZNK2c415basic_substringIKcE11begins_withEc.exit118.fold.split ]
+_ZNK2c415basic_substringIKcE11begins_withEc.exit118: ; preds = %_ZNK2c415basic_substringIKcE11begins_withEc.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge
+  %75 = phi i8 [ %.pre, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %66, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ %66, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ]
+  %.sroa.11.0310 = phi i64 [ %.sroa.11.0311, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %.sroa.11.0312, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ %.sroa.11.0312, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ]
+  %.sroa.0234.0307 = phi ptr [ %.sroa.0234.0308, %_ZNK2c415basic_substringIKcE11begins_withEc.exit116.thread._ZNK2c415basic_substringIKcE11begins_withEc.exit118_crit_edge ], [ %.sroa.0234.0309, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ], [ %.sroa.0234.0309, %_ZNK2c415basic_substringIKcE11begins_withEc.exit ]
   %76 = icmp eq i8 %75, 62
   store i64 -1, ptr %18, align 8
   %77 = icmp ugt i64 %.sroa.11.0310, 1

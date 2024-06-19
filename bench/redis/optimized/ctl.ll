@@ -2960,7 +2960,7 @@ cond.false:                                       ; preds = %if.then6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then6, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then6 ]
+  %cond = phi i64 [ %7, %cond.false ], [ 1, %if.then6 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -2993,7 +2993,7 @@ cond.false27:                                     ; preds = %if.then21
   br label %cond.end28
 
 cond.end28:                                       ; preds = %if.then21, %cond.false27
-  %cond29 = phi i64 [ 0, %cond.false27 ], [ 1, %if.then21 ]
+  %cond29 = phi i64 [ %9, %cond.false27 ], [ 1, %if.then21 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond29, i1 false)
   store i64 %cond29, ptr %oldlenp, align 8
   br label %label_return
@@ -3700,7 +3700,7 @@ cond.false:                                       ; preds = %if.then6
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then6, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then6 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then6 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -3854,7 +3854,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -3895,7 +3895,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -3936,7 +3936,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -3977,7 +3977,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4054,7 +4054,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4095,7 +4095,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4136,7 +4136,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4177,7 +4177,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4218,7 +4218,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4259,7 +4259,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4300,7 +4300,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %0, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4343,7 +4343,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4386,7 +4386,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4429,7 +4429,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4472,7 +4472,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4515,7 +4515,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -4558,7 +4558,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -5011,7 +5011,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -5242,7 +5242,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -5396,7 +5396,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -5585,7 +5585,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -5646,7 +5646,7 @@ cond.false:                                       ; preds = %if.then5
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then5, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then5 ]
+  %cond = phi i64 [ %1, %cond.false ], [ 1, %if.then5 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %oldval, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return
@@ -6461,7 +6461,7 @@ cond.false:                                       ; preds = %if.then16
   br label %cond.end
 
 cond.end:                                         ; preds = %if.then16, %cond.false
-  %cond = phi i64 [ 0, %cond.false ], [ 1, %if.then16 ]
+  %cond = phi i64 [ %11, %cond.false ], [ 1, %if.then16 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %oldp, ptr nonnull align 1 %initialized, i64 %cond, i1 false)
   store i64 %cond, ptr %oldlenp, align 8
   br label %label_return

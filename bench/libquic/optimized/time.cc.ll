@@ -186,7 +186,7 @@ define dso_local i64 @_ZN4base4Time9FromTimeTEl(i64 noundef %tt) local_unnamed_a
 entry:
   switch i64 %tt, label %if.end5 [
     i64 0, label %return
-    i64 9223372036854775807, label %return.fold.split
+    i64 9223372036854775807, label %return
   ]
 
 if.end5:                                          ; preds = %entry
@@ -207,11 +207,8 @@ if.end5:                                          ; preds = %entry
   %retval.0.i.i.i = select i1 %tobool.i.i.i.i.inv.i.i, i64 %spec.select.i.i.i, i64 %add.i.i.i.i.i
   br label %return
 
-return.fold.split:                                ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %return.fold.split, %if.end5
-  %retval.sroa.0.0 = phi i64 [ %retval.0.i.i.i, %if.end5 ], [ %tt, %entry ], [ 9223372036854775807, %return.fold.split ]
+return:                                           ; preds = %entry, %entry, %if.end5
+  %retval.sroa.0.0 = phi i64 [ %retval.0.i.i.i, %if.end5 ], [ %tt, %entry ], [ %tt, %entry ]
   ret i64 %retval.sroa.0.0
 }
 
@@ -221,7 +218,7 @@ entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
     i64 0, label %return
-    i64 9223372036854775807, label %return.fold.split
+    i64 9223372036854775807, label %return
   ]
 
 if.end5:                                          ; preds = %entry
@@ -235,11 +232,8 @@ if.end9:                                          ; preds = %if.end5
   %div = sdiv i64 %sub11, 1000000
   br label %return
 
-return.fold.split:                                ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %return.fold.split, %if.end5, %if.end9
-  %retval.0 = phi i64 [ %div, %if.end9 ], [ %0, %entry ], [ 9223372036854775807, %if.end5 ], [ 9223372036854775807, %return.fold.split ]
+return:                                           ; preds = %entry, %entry, %if.end5, %if.end9
+  %retval.0 = phi i64 [ %div, %if.end9 ], [ %0, %entry ], [ 9223372036854775807, %if.end5 ], [ %0, %entry ]
   ret i64 %retval.0
 }
 
@@ -410,7 +404,7 @@ entry:
   %0 = load i64, ptr %this, align 8
   switch i64 %0, label %if.end5 [
     i64 0, label %return
-    i64 9223372036854775807, label %return.fold.split
+    i64 9223372036854775807, label %return
   ]
 
 if.end5:                                          ; preds = %entry
@@ -419,11 +413,8 @@ if.end5:                                          ; preds = %entry
   %div = sdiv i64 %sub, 1000
   br label %return
 
-return.fold.split:                                ; preds = %entry
-  br label %return
-
-return:                                           ; preds = %entry, %return.fold.split, %if.end5
-  %retval.0 = phi i64 [ %div, %if.end5 ], [ %0, %entry ], [ 9223372036854775807, %return.fold.split ]
+return:                                           ; preds = %entry, %entry, %if.end5
+  %retval.0 = phi i64 [ %div, %if.end5 ], [ %0, %entry ], [ %0, %entry ]
   ret i64 %retval.0
 }
 

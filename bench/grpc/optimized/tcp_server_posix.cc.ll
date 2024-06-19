@@ -6923,22 +6923,12 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %if.end22, %12
   %vtable.i = load ptr, ptr %14, align 8
   %15 = load ptr, ptr %vtable.i, align 8
   %call.i = call i64 %15(ptr noundef nonnull align 8 dereferenceable(8) %14)
-  switch i64 %call.i, label %if.end11.i.i [
-    i64 9223372036854775807, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-    i64 -9223372036854775808, label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split
-  ]
-
-if.end11.i.i:                                     ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
+  %call.i.off = add i64 %call.i, -9223372036854775807
+  %switch = icmp ult i64 %call.i.off, 2
   %or.cond = icmp sgt i64 %call.i, 9223372036854774807
   %add.i.i.i = add nsw i64 %call.i, 1000
   %spec.select = select i1 %or.cond, i64 9223372036854775807, i64 %add.i.i.i
-  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split: ; preds = %_ZN9grpc_core9Timestamp3NowEv.exit
-  br label %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
-
-_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit: ; preds = %if.end11.i.i, %_ZN9grpc_core9Timestamp3NowEv.exit, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split
-  %retval.0.i.i = phi i64 [ %call.i, %_ZN9grpc_core9Timestamp3NowEv.exit ], [ -9223372036854775808, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit.fold.split ], [ %spec.select, %if.end11.i.i ]
+  %retval.0.i.i = select i1 %switch, i64 %call.i, i64 %spec.select
   %retry_closure = getelementptr inbounds i8, ptr %arg, i64 256
   call void @_Z15grpc_timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_closure(ptr noundef nonnull %retry_timer, i64 %retval.0.i.i, ptr noundef nonnull %retry_closure)
   br label %if.end158
@@ -7373,7 +7363,7 @@ if.else155:                                       ; preds = %land.lhs.true, %err
   call void @gpr_mu_unlock(ptr noundef nonnull %mu157)
   br label %if.end158
 
-if.end158:                                        ; preds = %do.end, %if.else155, %if.then151, %if.then42, %_ZN9grpc_coreplENS_9TimestampENS_8DurationE.exit
+if.end158:                                        ; preds = %do.end, %if.else155, %if.then151, %if.then42, %_ZN9grpc_core9Timestamp3NowEv.exit
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup, %lpad85, %lpad78, %lpad

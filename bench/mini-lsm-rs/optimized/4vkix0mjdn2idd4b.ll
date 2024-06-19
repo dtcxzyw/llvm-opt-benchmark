@@ -8900,28 +8900,13 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
   %11 = call { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h96339cddee3fd1daE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nonnull readonly align 8 poison, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %.fca.0.extract = extractvalue { i64, i64 } %11, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  switch i64 %.fca.0.extract, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %12
-    i64 2, label %13
-  ]
-
-default.unreachable:                              ; preds = %4
-  unreachable
-
-12:                                               ; preds = %4
-  br label %14
-
-13:                                               ; preds = %4
+  %switch = icmp ult i64 %.fca.0.extract, 2
   %.fca.1.extract = extractvalue { i64, i64 } %11, 1
-  br label %14
-
-14:                                               ; preds = %4, %13, %12
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %13 ], [ undef, %12 ], [ %.fca.0.extract, %4 ]
-  %.sroa.0.0 = phi i64 [ 0, %13 ], [ 1, %12 ], [ %.fca.0.extract, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+  %spec.select = select i1 %switch, i64 %.fca.0.extract, i64 %.fca.1.extract
+  %spec.select5 = select i1 %switch, i64 %.fca.0.extract, i64 0
+  %12 = insertvalue { i64, i64 } poison, i64 %spec.select5, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %spec.select, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -8985,28 +8970,13 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
   %11 = call { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4cbdac4911cbbb91E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nonnull readonly align 8 poison, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %.fca.0.extract = extractvalue { i64, i64 } %11, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  switch i64 %.fca.0.extract, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %12
-    i64 2, label %13
-  ]
-
-default.unreachable:                              ; preds = %4
-  unreachable
-
-12:                                               ; preds = %4
-  br label %14
-
-13:                                               ; preds = %4
+  %switch = icmp ult i64 %.fca.0.extract, 2
   %.fca.1.extract = extractvalue { i64, i64 } %11, 1
-  br label %14
-
-14:                                               ; preds = %4, %13, %12
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %13 ], [ undef, %12 ], [ %.fca.0.extract, %4 ]
-  %.sroa.0.0 = phi i64 [ 0, %13 ], [ 1, %12 ], [ %.fca.0.extract, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+  %spec.select = select i1 %switch, i64 %.fca.0.extract, i64 %.fca.1.extract
+  %spec.select5 = select i1 %switch, i64 %.fca.0.extract, i64 0
+  %12 = insertvalue { i64, i64 } poison, i64 %spec.select5, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %spec.select, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9119,28 +9089,13 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
   %11 = call { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17hd58c3ec1167bcfb1E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nonnull readonly align 8 poison, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %.fca.0.extract = extractvalue { i64, i64 } %11, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  switch i64 %.fca.0.extract, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %12
-    i64 2, label %13
-  ]
-
-default.unreachable:                              ; preds = %4
-  unreachable
-
-12:                                               ; preds = %4
-  br label %14
-
-13:                                               ; preds = %4
+  %switch = icmp ult i64 %.fca.0.extract, 2
   %.fca.1.extract = extractvalue { i64, i64 } %11, 1
-  br label %14
-
-14:                                               ; preds = %4, %13, %12
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %13 ], [ undef, %12 ], [ %.fca.0.extract, %4 ]
-  %.sroa.0.0 = phi i64 [ 0, %13 ], [ 1, %12 ], [ %.fca.0.extract, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+  %spec.select = select i1 %switch, i64 %.fca.0.extract, i64 %.fca.1.extract
+  %spec.select5 = select i1 %switch, i64 %.fca.0.extract, i64 0
+  %12 = insertvalue { i64, i64 } poison, i64 %spec.select5, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %spec.select, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9209,28 +9164,13 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
   %11 = call { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h4d5e001ee8bbfbfdE.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nonnull readonly align 8 poison, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %.fca.0.extract = extractvalue { i64, i64 } %11, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  switch i64 %.fca.0.extract, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %12
-    i64 2, label %13
-  ]
-
-default.unreachable:                              ; preds = %4
-  unreachable
-
-12:                                               ; preds = %4
-  br label %14
-
-13:                                               ; preds = %4
+  %switch = icmp ult i64 %.fca.0.extract, 2
   %.fca.1.extract = extractvalue { i64, i64 } %11, 1
-  br label %14
-
-14:                                               ; preds = %4, %13, %12
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %13 ], [ undef, %12 ], [ %.fca.0.extract, %4 ]
-  %.sroa.0.0 = phi i64 [ 0, %13 ], [ 1, %12 ], [ %.fca.0.extract, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+  %spec.select = select i1 %switch, i64 %.fca.0.extract, i64 %.fca.1.extract
+  %spec.select5 = select i1 %switch, i64 %.fca.0.extract, i64 0
+  %12 = insertvalue { i64, i64 } poison, i64 %spec.select5, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %spec.select, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -9250,28 +9190,13 @@ define hidden { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$9r
   %11 = call { i64, i64 } @"_ZN4moka3cht3map6bucket24BucketArray$LT$K$C$V$GT$10probe_loop17h563e971d3dbbdba4E.llvm.3266194154532769905"(ptr noundef nonnull align 8 %0, ptr noalias nonnull readonly align 8 poison, i64 noundef %2, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %6)
   %.fca.0.extract = extractvalue { i64, i64 } %11, 0
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
-  switch i64 %.fca.0.extract, label %default.unreachable [
-    i64 0, label %14
-    i64 1, label %12
-    i64 2, label %13
-  ]
-
-default.unreachable:                              ; preds = %4
-  unreachable
-
-12:                                               ; preds = %4
-  br label %14
-
-13:                                               ; preds = %4
+  %switch = icmp ult i64 %.fca.0.extract, 2
   %.fca.1.extract = extractvalue { i64, i64 } %11, 1
-  br label %14
-
-14:                                               ; preds = %4, %13, %12
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %13 ], [ undef, %12 ], [ %.fca.0.extract, %4 ]
-  %.sroa.0.0 = phi i64 [ 0, %13 ], [ 1, %12 ], [ %.fca.0.extract, %4 ]
-  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %16
+  %spec.select = select i1 %switch, i64 %.fca.0.extract, i64 %.fca.1.extract
+  %spec.select5 = select i1 %switch, i64 %.fca.0.extract, i64 0
+  %12 = insertvalue { i64, i64 } poison, i64 %spec.select5, 0
+  %13 = insertvalue { i64, i64 } %12, i64 %spec.select, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -951,7 +951,7 @@ x64_merge.exit:                                   ; preds = %55, %60, %61, %62, 
   unreachable
 
 x64_merge.exit63:                                 ; preds = %x64_merge.exit, %68, %69, %70
-  %.0.i62 = phi i32 [ 3, %70 ], [ 2, %69 ], [ %65, %x64_merge.exit ], [ %spec.select15.i61, %68 ]
+  %.0.i62 = phi i32 [ 3, %70 ], [ %spec.select.i60, %69 ], [ %65, %x64_merge.exit ], [ %spec.select15.i61, %68 ]
   store i32 %.0.i62, ptr %4, align 4
   %72 = load i32, ptr %3, align 4
   %73 = icmp eq i32 %72, 1
@@ -1292,7 +1292,7 @@ x64_merge.exit:                                   ; preds = %.lr.ph, %43, %44, %
   unreachable
 
 x64_merge.exit42:                                 ; preds = %x64_merge.exit, %51, %52, %53
-  %.0.i41 = phi i32 [ 3, %53 ], [ 2, %52 ], [ %48, %x64_merge.exit ], [ %spec.select15.i40, %51 ]
+  %.0.i41 = phi i32 [ 3, %53 ], [ %spec.select.i39, %52 ], [ %48, %x64_merge.exit ], [ %spec.select15.i40, %51 ]
   store i32 %.0.i41, ptr %4, align 4
   %55 = load i32, ptr %3, align 4
   %56 = icmp eq i32 %55, 1

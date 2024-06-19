@@ -251,7 +251,7 @@ if.end.i:                                         ; preds = %sw.default.i
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %entry, %sw.bb1.i, %sw.default.i
-  %retval.0.i = phi i32 [ 0, %sw.bb1.i ], [ 2, %entry ], [ -1, %sw.default.i ]
+  %retval.0.i = phi i32 [ %call.i, %sw.bb1.i ], [ 2, %entry ], [ -1, %sw.default.i ]
   ret i32 %retval.0.i
 }
 
@@ -293,7 +293,7 @@ if.end.i.i:                                       ; preds = %sw.default.i.i
   unreachable
 
 return.sink.split:                                ; preds = %if.else, %sw.default.i.i, %sw.bb1.i.i, %if.then5, %if.end
-  %.sink = phi i32 [ 0, %if.end ], [ 0, %sw.bb1.i.i ], [ 2, %if.then5 ], [ -1, %sw.default.i.i ], [ 2, %if.else ]
+  %.sink = phi i32 [ 0, %if.end ], [ %call.i.i, %sw.bb1.i.i ], [ 2, %if.then5 ], [ -1, %sw.default.i.i ], [ 2, %if.else ]
   store i32 %.sink, ptr %0, align 4
   br label %return
 
@@ -319,7 +319,7 @@ if.then.i:                                        ; preds = %entry
   unreachable
 
 parse_update_recurse.exit:                        ; preds = %entry, %sw.bb1.i
-  %retval.0.i = phi i32 [ 0, %sw.bb1.i ], [ 2, %entry ]
+  %retval.0.i = phi i32 [ %call.i, %sw.bb1.i ], [ 2, %entry ]
   ret i32 %retval.0.i
 }
 
@@ -1215,7 +1215,7 @@ if.end.i.i:                                       ; preds = %sw.default.i.i
 
 return.sink.split:                                ; preds = %sw.default.i.i, %sw.bb1.i.i, %if.then9, %if.then2.i, %if.end.i
   %recurse_submodules.sink = phi ptr [ %cb, %if.end.i ], [ %cb, %if.then2.i ], [ %recurse_submodules, %if.then9 ], [ %recurse_submodules, %sw.bb1.i.i ], [ %recurse_submodules, %sw.default.i.i ]
-  %retval.0.i.i.sink = phi i32 [ %call.i, %if.end.i ], [ %call3.i, %if.then2.i ], [ 2, %if.then9 ], [ 0, %sw.bb1.i.i ], [ -1, %sw.default.i.i ]
+  %retval.0.i.i.sink = phi i32 [ %call.i, %if.end.i ], [ %call3.i, %if.then2.i ], [ 2, %if.then9 ], [ %call.i.i, %sw.bb1.i.i ], [ -1, %sw.default.i.i ]
   %3 = load ptr, ptr %recurse_submodules.sink, align 8
   store i32 %retval.0.i.i.sink, ptr %3, align 4
   br label %return
@@ -1812,7 +1812,7 @@ if.then4.i:                                       ; preds = %sw.default.i
   unreachable
 
 parse_fetch_recurse.exit:                         ; preds = %sw.default.i, %if.else44, %sw.bb1.i
-  %retval.0.i104 = phi i32 [ 0, %sw.bb1.i ], [ 2, %if.else44 ], [ %.mux, %sw.default.i ]
+  %retval.0.i104 = phi i32 [ %call.i103, %sw.bb1.i ], [ 2, %if.else44 ], [ %.mux, %sw.default.i ]
   %fetch_recurse46 = getelementptr inbounds i8, ptr %retval.0.i78, i64 24
   store i32 %retval.0.i104, ptr %fetch_recurse46, align 8
   br label %if.end188

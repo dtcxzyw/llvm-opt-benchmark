@@ -3299,10 +3299,8 @@ for.body.i:                                       ; preds = %for.inc.i, %for.bod
   %idxprom.i = sext i32 %i.010.i to i64
   %arrayidx.i = getelementptr [0 x i64], ptr %17, i64 0, i64 %idxprom.i
   store i64 %cluster.addr.09.i, ptr %arrayidx.i, align 8
-  switch i64 %cluster.addr.09.i, label %if.then.i [
-    i64 0, label %for.inc.i
-    i64 1, label %for.inc.fold.split.i
-  ]
+  %switch = icmp ult i64 %cluster.addr.09.i, 2
+  br i1 %switch, label %for.inc.i, label %if.then.i
 
 if.then.i:                                        ; preds = %for.body.i
   %19 = load i32, ptr %cluster_size.i, align 4
@@ -3310,11 +3308,8 @@ if.then.i:                                        ; preds = %for.body.i
   %add2.i = add i64 %cluster.addr.09.i, %conv.i22
   br label %for.inc.i
 
-for.inc.fold.split.i:                             ; preds = %for.body.i
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.inc.fold.split.i, %if.then.i, %for.body.i
-  %cluster.addr.1.i = phi i64 [ %cluster.addr.09.i, %for.body.i ], [ %add2.i, %if.then.i ], [ 1, %for.inc.fold.split.i ]
+for.inc.i:                                        ; preds = %for.body.i, %if.then.i
+  %cluster.addr.1.i = phi i64 [ %add2.i, %if.then.i ], [ %cluster.addr.09.i, %for.body.i ]
   %inc.i = add nuw i32 %i.010.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %add.i
   br i1 %exitcond.not.i, label %qed_update_l2_table.exit, label %for.body.i, !llvm.loop !8
@@ -3528,10 +3523,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %idxprom = sext i32 %i.010 to i64
   %arrayidx = getelementptr [0 x i64], ptr %table, i64 0, i64 %idxprom
   store i64 %cluster.addr.09, ptr %arrayidx, align 8
-  switch i64 %cluster.addr.09, label %if.then [
-    i64 0, label %for.inc
-    i64 1, label %for.inc.fold.split
-  ]
+  %switch = icmp ult i64 %cluster.addr.09, 2
+  br i1 %switch, label %for.inc, label %if.then
 
 if.then:                                          ; preds = %for.body
   %0 = load i32, ptr %cluster_size, align 4
@@ -3539,11 +3532,8 @@ if.then:                                          ; preds = %for.body
   %add2 = add i64 %cluster.addr.09, %conv
   br label %for.inc
 
-for.inc.fold.split:                               ; preds = %for.body
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body, %for.inc.fold.split, %if.then
-  %cluster.addr.1 = phi i64 [ %cluster.addr.09, %for.body ], [ %add2, %if.then ], [ 1, %for.inc.fold.split ]
+for.inc:                                          ; preds = %for.body, %if.then
+  %cluster.addr.1 = phi i64 [ %add2, %if.then ], [ %cluster.addr.09, %for.body ]
   %inc = add nuw i32 %i.010, 1
   %exitcond.not = icmp eq i32 %inc, %add
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !8

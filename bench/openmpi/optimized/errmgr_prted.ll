@@ -2349,7 +2349,7 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %25
 ._crit_edge:                                      ; preds = %25, %.preheader
   %31 = call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i16 noundef zeroext 40) #12
   switch i32 %31, label %32 [
-    i32 0, label %34
+    i32 0, label %.loopexit
     i32 -2, label %.loopexit
   ]
 
@@ -2358,11 +2358,8 @@ pmix_pointer_array_get_item.exit:                 ; preds = %.preheader, %25
   call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %33, ptr noundef nonnull @.str.3, i32 noundef 782) #12
   br label %.loopexit
 
-34:                                               ; preds = %._crit_edge
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %21, %32, %._crit_edge, %23, %10, %2, %34
-  %.0 = phi i32 [ 0, %34 ], [ %5, %2 ], [ %5, %10 ], [ %22, %23 ], [ %31, %._crit_edge ], [ %31, %32 ], [ %22, %21 ]
+.loopexit:                                        ; preds = %21, %._crit_edge, %32, %._crit_edge, %23, %10, %2
+  %.0 = phi i32 [ %5, %2 ], [ %5, %10 ], [ %22, %23 ], [ %31, %._crit_edge ], [ %31, %32 ], [ %31, %._crit_edge ], [ %22, %21 ]
   ret i32 %.0
 }
 
@@ -2480,60 +2477,44 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 define internal fastcc noundef i32 @pack_state_for_proc(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds i8, ptr %1, i64 400
   %4 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %3, i32 noundef 1, i16 noundef zeroext 40) #12
-  switch i32 %4, label %5 [
-    i32 0, label %7
-    i32 -2, label %23
+  switch i32 %4, label %.sink.split [
+    i32 0, label %5
+    i32 -2, label %15
   ]
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PMIx_Error_string(i32 noundef %4) #12
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %6, ptr noundef nonnull @.str.3, i32 noundef 729) #12
-  br label %23
-
-7:                                                ; preds = %2
-  %8 = getelementptr inbounds i8, ptr %1, i64 408
-  %9 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %8, i32 noundef 1, i16 noundef zeroext 5) #12
-  switch i32 %9, label %10 [
-    i32 0, label %12
-    i32 -2, label %23
+  %6 = getelementptr inbounds i8, ptr %1, i64 408
+  %7 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %6, i32 noundef 1, i16 noundef zeroext 5) #12
+  switch i32 %7, label %.sink.split [
+    i32 0, label %8
+    i32 -2, label %15
   ]
 
-10:                                               ; preds = %7
-  %11 = tail call ptr @PMIx_Error_string(i32 noundef %9) #12
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %11, ptr noundef nonnull @.str.3, i32 noundef 735) #12
-  br label %23
-
-12:                                               ; preds = %7
-  %13 = getelementptr inbounds i8, ptr %1, i64 428
-  %14 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %13, i32 noundef 1, i16 noundef zeroext 14) #12
-  switch i32 %14, label %15 [
-    i32 0, label %17
-    i32 -2, label %23
+8:                                                ; preds = %5
+  %9 = getelementptr inbounds i8, ptr %1, i64 428
+  %10 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %9, i32 noundef 1, i16 noundef zeroext 14) #12
+  switch i32 %10, label %.sink.split [
+    i32 0, label %11
+    i32 -2, label %15
   ]
 
-15:                                               ; preds = %12
-  %16 = tail call ptr @PMIx_Error_string(i32 noundef %14) #12
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %16, ptr noundef nonnull @.str.3, i32 noundef 741) #12
-  br label %23
-
-17:                                               ; preds = %12
-  %18 = getelementptr inbounds i8, ptr %1, i64 432
-  %19 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %18, i32 noundef 1, i16 noundef zeroext 9) #12
-  switch i32 %19, label %20 [
-    i32 0, label %22
-    i32 -2, label %23
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds i8, ptr %1, i64 432
+  %13 = tail call i32 @PMIx_Data_pack(ptr noundef null, ptr noundef %0, ptr noundef nonnull %12, i32 noundef 1, i16 noundef zeroext 9) #12
+  switch i32 %13, label %.sink.split [
+    i32 0, label %15
+    i32 -2, label %15
   ]
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @PMIx_Error_string(i32 noundef %19) #12
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %21, ptr noundef nonnull @.str.3, i32 noundef 747) #12
-  br label %23
+.sink.split:                                      ; preds = %11, %8, %5, %2
+  %.sink36 = phi i32 [ %4, %2 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ]
+  %.sink35 = phi i32 [ 729, %2 ], [ 735, %5 ], [ 741, %8 ], [ 747, %11 ]
+  %14 = tail call ptr @PMIx_Error_string(i32 noundef %.sink36) #12
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %14, ptr noundef nonnull @.str.3, i32 noundef %.sink35) #12
+  br label %15
 
-22:                                               ; preds = %17
-  br label %23
-
-23:                                               ; preds = %20, %17, %15, %12, %10, %7, %5, %2, %22
-  %.0 = phi i32 [ 0, %22 ], [ %4, %2 ], [ %4, %5 ], [ %9, %7 ], [ %9, %10 ], [ %14, %12 ], [ %14, %15 ], [ %19, %17 ], [ %19, %20 ]
+15:                                               ; preds = %.sink.split, %11, %11, %8, %5, %2
+  %.0 = phi i32 [ %4, %2 ], [ %7, %5 ], [ %10, %8 ], [ %13, %11 ], [ %13, %11 ], [ %.sink36, %.sink.split ]
   ret i32 %.0
 }
 

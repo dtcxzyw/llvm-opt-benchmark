@@ -105,7 +105,7 @@ while.cond:                                       ; preds = %while.cond.backedge
   ]
 
 while.cond.backedge:                              ; preds = %while.cond, %while.cond, %while.cond, %while.cond, %while.cond, %while.cond, %sw.bb1, %sw.bb
-  %x509.0.be = phi i32 [ %x509.0, %sw.bb1 ], [ 1, %sw.bb ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ]
+  %x509.0.be = phi i32 [ %x509.0, %sw.bb1 ], [ %call, %sw.bb ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ], [ %x509.0, %while.cond ]
   %spki.0.be = phi i32 [ 1, %sw.bb1 ], [ %spki.0, %sw.bb ], [ %spki.0, %while.cond ], [ %spki.0, %while.cond ], [ %spki.0, %while.cond ], [ %spki.0, %while.cond ], [ %spki.0, %while.cond ], [ %spki.0, %while.cond ]
   br label %while.cond, !llvm.loop !5
 
@@ -117,22 +117,24 @@ sw.bb1:                                           ; preds = %while.cond
 
 while.end:                                        ; preds = %while.cond
   %add = add nuw nsw i32 %spki.0, %x509.0
-  switch i32 %add, label %if.then7 [
-    i32 0, label %if.then
-    i32 1, label %if.end12
-  ]
+  %cmp4 = icmp slt i32 %add, 1
+  br i1 %cmp4, label %if.then, label %if.else
 
 if.then:                                          ; preds = %while.end
   %0 = load ptr, ptr @bio_err, align 8
   %call5 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.19) #6
   br label %return
 
-if.then7:                                         ; preds = %while.end
+if.else:                                          ; preds = %while.end
+  %cond = icmp eq i32 %add, 1
+  br i1 %cond, label %if.end12, label %if.then7
+
+if.then7:                                         ; preds = %if.else
   %1 = load ptr, ptr @bio_err, align 8
   %call8 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.20) #6
   br label %return
 
-if.end12:                                         ; preds = %while.end
+if.end12:                                         ; preds = %if.else
   %call13 = tail call i64 @test_get_argument_count() #6
   %conv = trunc i64 %call13 to i32
   %tobool = icmp ne i32 %spki.0, 0

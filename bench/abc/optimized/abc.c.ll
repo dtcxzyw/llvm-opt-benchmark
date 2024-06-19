@@ -18064,7 +18064,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAllExact(ptr nocapture readnone 
   br label %152
 
 .thread98.sink.split:                             ; preds = %90, %92, %91
-  %.sink = phi i32 [ 7, %91 ], [ 10, %92 ], [ 4, %90 ]
+  %.sink = phi i32 [ %26, %91 ], [ 10, %92 ], [ 4, %90 ]
   store i32 %.sink, ptr %14, align 4
   br label %.thread98
 

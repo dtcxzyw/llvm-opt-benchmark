@@ -837,7 +837,7 @@ entry:
   br label %while.cond.outer
 
 while.cond.outer:                                 ; preds = %while.cond, %entry
-  %tobool9.not = phi i1 [ true, %entry ], [ false, %while.cond ]
+  %stochastic.0.ph = phi i32 [ 0, %entry ], [ %call, %while.cond ]
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.backedge, %while.cond.outer
@@ -912,6 +912,7 @@ if.then8:                                         ; preds = %if.end
   tail call void @add_all_tests(ptr noundef nonnull @.str.58, ptr noundef nonnull @test_mod_exp, i32 noundef 16, i32 noundef 1) #7
   tail call void @add_all_tests(ptr noundef nonnull @.str.59, ptr noundef nonnull @test_mod_exp_consttime, i32 noundef 16, i32 noundef 1) #7
   tail call void @add_test(ptr noundef nonnull @.str.60, ptr noundef nonnull @test_mod_exp2_mont) #7
+  %tobool9.not = icmp eq i32 %stochastic.0.ph, 0
   br i1 %tobool9.not, label %return, label %if.then10
 
 if.then10:                                        ; preds = %if.then8

@@ -7832,7 +7832,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h14
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8002,7 +8002,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h24
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8172,7 +8172,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h34
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8342,7 +8342,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h48
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8512,7 +8512,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h5e
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -8681,7 +8681,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h69
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -8848,7 +8848,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9017,7 +9017,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9184,7 +9184,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h87
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9353,7 +9353,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h8a
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9520,7 +9520,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hb3
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -9693,7 +9693,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc1
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -9860,7 +9860,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc4
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10029,7 +10029,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hd3
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10196,7 +10196,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10366,7 +10366,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10536,7 +10536,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hde
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13
@@ -10705,7 +10705,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17he7
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -10871,7 +10871,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hec
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %13, %14, %15, %16
-  %.0.i.i = phi i64 [ 32, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %16 ], [ 20, %15 ], [ 10, %14 ], [ 5, %13 ], [ 0, %4 ]
   %17 = lshr i64 %12, 16
   %18 = trunc i64 %17 to i8
   %19 = and i64 %.0.i.i, %12
@@ -11041,7 +11041,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hf2
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %17, %18, %19, %20
-  %.0.i.i = phi i64 [ 32, %20 ], [ 20, %19 ], [ 10, %18 ], [ 5, %17 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %20 ], [ 20, %19 ], [ 10, %18 ], [ 5, %17 ], [ 0, %4 ]
   %21 = lshr i64 %16, 16
   %22 = trunc i64 %21 to i8
   %23 = and i64 %.0.i.i, %16
@@ -11261,7 +11261,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hff
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 _ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit: ; preds = %4, %14, %15, %16, %17
-  %.0.i.i = phi i64 [ 32, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
+  %.0.i.i = phi i64 [ %2, %17 ], [ 20, %16 ], [ 10, %15 ], [ 5, %14 ], [ 0, %4 ]
   %18 = lshr i64 %13, 16
   %19 = trunc i64 %18 to i8
   %20 = and i64 %.0.i.i, %13

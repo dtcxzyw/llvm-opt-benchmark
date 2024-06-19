@@ -2909,7 +2909,7 @@ if.then:                                          ; preds = %entry
   switch i16 %trunc.i, label %if.end9.i [
     i16 -32768, label %if.then.i
     i16 -24576, label %canon_mode.exit
-    i16 16384, label %if.then8.i
+    i16 16384, label %canon_mode.exit
   ]
 
 if.then.i:                                        ; preds = %if.then
@@ -2918,14 +2918,11 @@ if.then.i:                                        ; preds = %if.then
   %1 = select i1 %tobool.not.i, i16 -32348, i16 -32275
   br label %canon_mode.exit
 
-if.then8.i:                                       ; preds = %if.then
-  br label %canon_mode.exit
-
 if.end9.i:                                        ; preds = %if.then
   br label %canon_mode.exit
 
-canon_mode.exit:                                  ; preds = %if.then, %if.then.i, %if.then8.i, %if.end9.i
-  %retval.0.i = phi i16 [ %1, %if.then.i ], [ 16384, %if.then8.i ], [ -8192, %if.end9.i ], [ %trunc.i, %if.then ]
+canon_mode.exit:                                  ; preds = %if.then, %if.then, %if.then.i, %if.end9.i
+  %retval.0.i = phi i16 [ %1, %if.then.i ], [ -8192, %if.end9.i ], [ %trunc.i, %if.then ], [ %trunc.i, %if.then ]
   %mode2 = getelementptr inbounds i8, ptr %spec, i64 80
   store i16 %retval.0.i, ptr %mode2, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %spec, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
@@ -3368,7 +3365,7 @@ if.then.i55:                                      ; preds = %alloc_filespec.exit
   switch i16 %trunc.i.i, label %if.end9.i.i [
     i16 -32768, label %if.then.i.i58
     i16 -24576, label %canon_mode.exit.i
-    i16 16384, label %if.then8.i.i
+    i16 16384, label %canon_mode.exit.i
   ]
 
 if.then.i.i58:                                    ; preds = %if.then.i55
@@ -3377,14 +3374,11 @@ if.then.i.i58:                                    ; preds = %if.then.i55
   %6 = select i1 %tobool.not.i.i, i16 -32348, i16 -32275
   br label %canon_mode.exit.i
 
-if.then8.i.i:                                     ; preds = %if.then.i55
-  br label %canon_mode.exit.i
-
 if.end9.i.i:                                      ; preds = %if.then.i55
   br label %canon_mode.exit.i
 
-canon_mode.exit.i:                                ; preds = %if.end9.i.i, %if.then8.i.i, %if.then.i.i58, %if.then.i55
-  %retval.0.i.i = phi i16 [ %6, %if.then.i.i58 ], [ 16384, %if.then8.i.i ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i55 ]
+canon_mode.exit.i:                                ; preds = %if.then.i55, %if.end9.i.i, %if.then.i.i58, %if.then.i55
+  %retval.0.i.i = phi i16 [ %6, %if.then.i.i58 ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i55 ], [ %trunc.i.i, %if.then.i55 ]
   %mode2.i = getelementptr inbounds i8, ptr %call3.i, i64 80
   store i16 %retval.0.i.i, ptr %mode2.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3.i, ptr noundef nonnull align 4 dereferenceable(32) %old_oid.addr.0, i64 32, i1 false)
@@ -3410,7 +3404,7 @@ if.then.i60:                                      ; preds = %fill_filespec.exit
   switch i16 %trunc.i.i61, label %if.end9.i.i75 [
     i16 -32768, label %if.then.i.i73
     i16 -24576, label %canon_mode.exit.i63
-    i16 16384, label %if.then8.i.i62
+    i16 16384, label %canon_mode.exit.i63
   ]
 
 if.then.i.i73:                                    ; preds = %if.then.i60
@@ -3419,14 +3413,11 @@ if.then.i.i73:                                    ; preds = %if.then.i60
   %10 = select i1 %tobool.not.i.i74, i16 -32348, i16 -32275
   br label %canon_mode.exit.i63
 
-if.then8.i.i62:                                   ; preds = %if.then.i60
-  br label %canon_mode.exit.i63
-
 if.end9.i.i75:                                    ; preds = %if.then.i60
   br label %canon_mode.exit.i63
 
-canon_mode.exit.i63:                              ; preds = %if.end9.i.i75, %if.then8.i.i62, %if.then.i.i73, %if.then.i60
-  %retval.0.i.i64 = phi i16 [ %10, %if.then.i.i73 ], [ 16384, %if.then8.i.i62 ], [ -8192, %if.end9.i.i75 ], [ %trunc.i.i61, %if.then.i60 ]
+canon_mode.exit.i63:                              ; preds = %if.then.i60, %if.end9.i.i75, %if.then.i.i73, %if.then.i60
+  %retval.0.i.i64 = phi i16 [ %10, %if.then.i.i73 ], [ -8192, %if.end9.i.i75 ], [ %trunc.i.i61, %if.then.i60 ], [ %trunc.i.i61, %if.then.i60 ]
   %mode2.i65 = getelementptr inbounds i8, ptr %call3.i44, i64 80
   store i16 %retval.0.i.i64, ptr %mode2.i65, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3.i44, ptr noundef nonnull align 4 dereferenceable(32) %new_oid.addr.0, i64 32, i1 false)
@@ -3760,7 +3751,7 @@ if.then.i38:                                      ; preds = %if.then21
   switch i16 %trunc.i.i, label %if.end9.i.i [
     i16 -32768, label %if.then.i.i41
     i16 -24576, label %canon_mode.exit.i
-    i16 16384, label %if.then8.i.i
+    i16 16384, label %canon_mode.exit.i
   ]
 
 if.then.i.i41:                                    ; preds = %if.then.i38
@@ -3769,14 +3760,11 @@ if.then.i.i41:                                    ; preds = %if.then.i38
   %6 = select i1 %tobool.not.i.i, i16 -32348, i16 -32275
   br label %canon_mode.exit.i
 
-if.then8.i.i:                                     ; preds = %if.then.i38
-  br label %canon_mode.exit.i
-
 if.end9.i.i:                                      ; preds = %if.then.i38
   br label %canon_mode.exit.i
 
-canon_mode.exit.i:                                ; preds = %if.end9.i.i, %if.then8.i.i, %if.then.i.i41, %if.then.i38
-  %retval.0.i.i = phi i16 [ %6, %if.then.i.i41 ], [ 16384, %if.then8.i.i ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i38 ]
+canon_mode.exit.i:                                ; preds = %if.then.i38, %if.end9.i.i, %if.then.i.i41, %if.then.i38
+  %retval.0.i.i = phi i16 [ %6, %if.then.i.i41 ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i38 ], [ %trunc.i.i, %if.then.i38 ]
   %mode2.i = getelementptr inbounds i8, ptr %call3.i, i64 80
   store i16 %retval.0.i.i, ptr %mode2.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
@@ -3809,7 +3797,7 @@ if.then.i43:                                      ; preds = %if.then26
   switch i16 %trunc.i.i44, label %if.end9.i.i58 [
     i16 -32768, label %if.then.i.i56
     i16 -24576, label %canon_mode.exit.i46
-    i16 16384, label %if.then8.i.i45
+    i16 16384, label %canon_mode.exit.i46
   ]
 
 if.then.i.i56:                                    ; preds = %if.then.i43
@@ -3818,14 +3806,11 @@ if.then.i.i56:                                    ; preds = %if.then.i43
   %10 = select i1 %tobool.not.i.i57, i16 -32348, i16 -32275
   br label %canon_mode.exit.i46
 
-if.then8.i.i45:                                   ; preds = %if.then.i43
-  br label %canon_mode.exit.i46
-
 if.end9.i.i58:                                    ; preds = %if.then.i43
   br label %canon_mode.exit.i46
 
-canon_mode.exit.i46:                              ; preds = %if.end9.i.i58, %if.then8.i.i45, %if.then.i.i56, %if.then.i43
-  %retval.0.i.i47 = phi i16 [ %10, %if.then.i.i56 ], [ 16384, %if.then8.i.i45 ], [ -8192, %if.end9.i.i58 ], [ %trunc.i.i44, %if.then.i43 ]
+canon_mode.exit.i46:                              ; preds = %if.then.i43, %if.end9.i.i58, %if.then.i.i56, %if.then.i43
+  %retval.0.i.i47 = phi i16 [ %10, %if.then.i.i56 ], [ -8192, %if.end9.i.i58 ], [ %trunc.i.i44, %if.then.i43 ], [ %trunc.i.i44, %if.then.i43 ]
   %mode2.i48 = getelementptr inbounds i8, ptr %call3.i27, i64 80
   store i16 %retval.0.i.i47, ptr %mode2.i48, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3.i27, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)
@@ -15264,7 +15249,7 @@ if.then.i:                                        ; preds = %alloc_filespec.exit
   switch i16 %trunc.i.i, label %if.end9.i.i [
     i16 -32768, label %if.then.i.i9
     i16 -24576, label %fill_filespec.exit.thread
-    i16 16384, label %if.then8.i.i
+    i16 16384, label %fill_filespec.exit.thread
   ]
 
 if.then.i.i9:                                     ; preds = %if.then.i
@@ -15273,14 +15258,11 @@ if.then.i.i9:                                     ; preds = %if.then.i
   %1 = select i1 %tobool.not.i.i, i16 -32348, i16 -32275
   br label %fill_filespec.exit.thread
 
-if.then8.i.i:                                     ; preds = %if.then.i
-  br label %fill_filespec.exit.thread
-
 if.end9.i.i:                                      ; preds = %if.then.i
   br label %fill_filespec.exit.thread
 
-fill_filespec.exit.thread:                        ; preds = %if.then.i, %if.then.i.i9, %if.then8.i.i, %if.end9.i.i
-  %retval.0.i.i = phi i16 [ %1, %if.then.i.i9 ], [ 16384, %if.then8.i.i ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i ]
+fill_filespec.exit.thread:                        ; preds = %if.then.i, %if.then.i, %if.then.i.i9, %if.end9.i.i
+  %retval.0.i.i = phi i16 [ %1, %if.then.i.i9 ], [ -8192, %if.end9.i.i ], [ %trunc.i.i, %if.then.i ], [ %trunc.i.i, %if.then.i ]
   %mode2.i = getelementptr inbounds i8, ptr %call3.i, i64 80
   store i16 %retval.0.i.i, ptr %mode2.i, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %call3.i, ptr noundef nonnull align 4 dereferenceable(32) %oid, i64 32, i1 false)

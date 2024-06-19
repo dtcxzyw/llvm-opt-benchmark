@@ -5230,7 +5230,7 @@ define void @_Z31nbnxn_atomdata_copy_x_to_nbat_xRKN5Nbnxm7GridSetEN3gmx12AtomLoc
   br label %14
 
 14:                                               ; preds = %13, %4
-  %.04.i = phi i32 [ 1, %13 ], [ 0, %4 ]
+  %.04.i = phi i32 [ %1, %13 ], [ 0, %4 ]
   %15 = ptrtoint ptr %.val to i64
   %16 = ptrtoint ptr %.val2 to i64
   %17 = sub i64 %16, %15
@@ -5245,7 +5245,7 @@ define void @_Z31nbnxn_atomdata_copy_x_to_nbat_xRKN5Nbnxm7GridSetEN3gmx12AtomLoc
 
 _ZL12getGridRangeRKN5Nbnxm7GridSetEN3gmx12AtomLocalityE.exit: ; preds = %4, %12, %14
   %.09.i = phi i64 [ %.0.in.i, %14 ], [ 1, %12 ], [ 0, %4 ]
-  %.048.i = phi i32 [ %.04.i, %14 ], [ 0, %12 ], [ 0, %4 ]
+  %.048.i = phi i32 [ %.04.i, %14 ], [ %1, %12 ], [ 0, %4 ]
   %.sroa.24.0.insert.ext.i = shl i64 %.09.i, 32
   %.sroa.03.0.insert.ext.i = zext nneg i32 %.048.i to i64
   %.sroa.03.0.insert.insert.i = or disjoint i64 %.sroa.24.0.insert.ext.i, %.sroa.03.0.insert.ext.i
@@ -5449,7 +5449,7 @@ define void @_Z30nbnxn_atomdata_x_to_nbat_x_gpuRKN5Nbnxm7GridSetEN3gmx12AtomLoca
   br label %9
 
 9:                                                ; preds = %8, %5
-  %.04.i = phi i32 [ 1, %8 ], [ 0, %5 ]
+  %.04.i = phi i32 [ %1, %8 ], [ 0, %5 ]
   %10 = ptrtoint ptr %.val to i64
   %11 = ptrtoint ptr %.val14 to i64
   %12 = sub i64 %11, %10
@@ -5783,7 +5783,7 @@ define void @_ZN16nbnxn_atomdata_t12reduceForcesEN3gmx12AtomLocalityERKN5Nbnxm7G
   br label %17
 
 17:                                               ; preds = %16, %15, %4
-  %.06.i = phi i32 [ %.val, %16 ], [ 0, %15 ], [ 0, %4 ]
+  %.06.i = phi i32 [ %.val, %16 ], [ %1, %15 ], [ 0, %4 ]
   %.0.i = phi i32 [ %.val10, %16 ], [ %.val, %15 ], [ %.val10, %4 ]
   %.not.i.i = icmp sgt i32 %.06.i, %.0.i
   br i1 %.not.i.i, label %18, label %_ZL12getAtomRangeN3gmx12AtomLocalityERKN5Nbnxm7GridSetE.exit

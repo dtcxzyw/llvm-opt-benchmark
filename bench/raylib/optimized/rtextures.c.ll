@@ -12488,139 +12488,136 @@ define noundef zeroext i1 @ExportImage(ptr nocapture noundef readonly byval(%str
   %11 = load ptr, ptr %0, align 8
   %12 = icmp eq ptr %11, null
   %or.cond5 = select i1 %or.cond, i1 true, i1 %12
-  br i1 %or.cond5, label %58, label %13
+  br i1 %or.cond5, label %57, label %13
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds i8, ptr %0, i64 20
   %15 = load i32, ptr %14, align 4
-  switch i32 %15, label %19 [
-    i32 1, label %21
-    i32 2, label %16
-    i32 4, label %17
-    i32 7, label %18
+  switch i32 %15, label %18 [
+    i32 1, label %20
+    i32 2, label %20
+    i32 4, label %16
+    i32 7, label %17
   ]
 
 16:                                               ; preds = %13
-  br label %21
+  br label %20
 
 17:                                               ; preds = %13
-  br label %21
+  br label %20
 
 18:                                               ; preds = %13
-  br label %21
+  %19 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
+  br label %20
 
-19:                                               ; preds = %13
-  %20 = tail call ptr @LoadImageColors(ptr noundef nonnull byval(%struct.Image) align 8 %0)
-  br label %21
+20:                                               ; preds = %13, %13, %17, %18, %16
+  %.031 = phi i32 [ 3, %16 ], [ 4, %17 ], [ 4, %18 ], [ %15, %13 ], [ %15, %13 ]
+  %.030 = phi i1 [ false, %16 ], [ false, %17 ], [ true, %18 ], [ false, %13 ], [ false, %13 ]
+  %.029 = phi ptr [ %11, %16 ], [ %11, %17 ], [ %19, %18 ], [ %11, %13 ], [ %11, %13 ]
+  %21 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.10) #49
+  br i1 %21, label %22, label %27
 
-21:                                               ; preds = %13, %16, %18, %19, %17
-  %.031 = phi i32 [ 2, %16 ], [ 3, %17 ], [ 4, %18 ], [ 4, %19 ], [ %15, %13 ]
-  %.030 = phi i1 [ false, %16 ], [ false, %17 ], [ false, %18 ], [ true, %19 ], [ false, %13 ]
-  %.029 = phi ptr [ %11, %16 ], [ %11, %17 ], [ %11, %18 ], [ %20, %19 ], [ %11, %13 ]
-  %22 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.10) #49
-  br i1 %22, label %23, label %28
-
-23:                                               ; preds = %21
+22:                                               ; preds = %20
   store i32 0, ptr %3, align 4
-  %24 = mul nsw i32 %.031, %6
-  %25 = call ptr @stbi_write_png_to_mem(ptr noundef %.029, i32 noundef %24, i32 noundef %6, i32 noundef %9, i32 noundef %.031, ptr noundef nonnull %3)
-  %26 = load i32, ptr %3, align 4
-  %27 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %25, i32 noundef %26) #49
-  tail call void @free(ptr noundef %25) #49
-  br label %53
+  %23 = mul nsw i32 %.031, %6
+  %24 = call ptr @stbi_write_png_to_mem(ptr noundef %.029, i32 noundef %23, i32 noundef %6, i32 noundef %9, i32 noundef %.031, ptr noundef nonnull %3)
+  %25 = load i32, ptr %3, align 4
+  %26 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef %24, i32 noundef %25) #49
+  tail call void @free(ptr noundef %24) #49
+  br label %52
 
-28:                                               ; preds = %21
-  %29 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.12) #49
-  br i1 %29, label %30, label %37
+27:                                               ; preds = %20
+  %28 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.12) #49
+  br i1 %28, label %29, label %36
 
-30:                                               ; preds = %28
-  switch i32 %15, label %31 [
+29:                                               ; preds = %27
+  switch i32 %15, label %30 [
     i32 4, label %.thread
     i32 7, label %.thread.fold.split
   ]
 
-31:                                               ; preds = %30
+30:                                               ; preds = %29
   tail call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.22) #49
-  br label %53
+  br label %52
 
-.thread.fold.split:                               ; preds = %30
+.thread.fold.split:                               ; preds = %29
   br label %.thread
 
-.thread:                                          ; preds = %30, %.thread.fold.split
-  %.138 = phi i8 [ 3, %30 ], [ 4, %.thread.fold.split ]
-  %32 = getelementptr inbounds i8, ptr %4, i64 8
-  store i32 0, ptr %32, align 4
+.thread:                                          ; preds = %29, %.thread.fold.split
+  %.138 = phi i8 [ 3, %29 ], [ 4, %.thread.fold.split ]
+  %31 = getelementptr inbounds i8, ptr %4, i64 8
+  store i32 0, ptr %31, align 4
   store i32 %6, ptr %4, align 4
-  %33 = getelementptr inbounds i8, ptr %4, i64 4
-  store i32 %9, ptr %33, align 4
-  %34 = getelementptr inbounds i8, ptr %4, i64 8
-  store i8 %.138, ptr %34, align 4
-  %35 = call i32 @qoi_write(ptr noundef %1, ptr noundef %.029, ptr noundef nonnull %4)
-  %36 = icmp ne i32 %35, 0
-  br label %53
+  %32 = getelementptr inbounds i8, ptr %4, i64 4
+  store i32 %9, ptr %32, align 4
+  %33 = getelementptr inbounds i8, ptr %4, i64 8
+  store i8 %.138, ptr %33, align 4
+  %34 = call i32 @qoi_write(ptr noundef %1, ptr noundef %.029, ptr noundef nonnull %4)
+  %35 = icmp ne i32 %34, 0
+  br label %52
 
-37:                                               ; preds = %28
-  %38 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.23) #49
-  br i1 %38, label %39, label %53
+36:                                               ; preds = %27
+  %37 = tail call zeroext i1 @IsFileExtension(ptr noundef %1, ptr noundef nonnull @.str.23) #49
+  br i1 %37, label %38, label %52
 
-39:                                               ; preds = %37
+38:                                               ; preds = %36
   %switch.tableidx = add i32 %15, -1
-  %40 = icmp ult i32 %switch.tableidx, 24
-  br i1 %40, label %switch.lookup, label %42
+  %39 = icmp ult i32 %switch.tableidx, 24
+  br i1 %39, label %switch.lookup, label %41
 
-switch.lookup:                                    ; preds = %39
-  %41 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %41
+switch.lookup:                                    ; preds = %38
+  %40 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [24 x i32], ptr @switch.table.ImageDraw.27, i64 0, i64 %40
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %42
+  br label %41
 
-42:                                               ; preds = %switch.lookup, %39
-  %.0.i = phi i32 [ 0, %39 ], [ %switch.load, %switch.lookup ]
-  %43 = mul nsw i32 %9, %6
-  %44 = mul nsw i32 %43, %.0.i
-  %45 = sdiv i32 %44, 8
-  %46 = icmp slt i32 %6, 4
-  %47 = icmp slt i32 %9, 4
-  %or.cond.i = and i1 %46, %47
-  br i1 %or.cond.i, label %48, label %GetPixelDataSize.exit
+41:                                               ; preds = %switch.lookup, %38
+  %.0.i = phi i32 [ 0, %38 ], [ %switch.load, %switch.lookup ]
+  %42 = mul nsw i32 %9, %6
+  %43 = mul nsw i32 %42, %.0.i
+  %44 = sdiv i32 %43, 8
+  %45 = icmp slt i32 %6, 4
+  %46 = icmp slt i32 %9, 4
+  %or.cond.i = and i1 %45, %46
+  br i1 %or.cond.i, label %47, label %GetPixelDataSize.exit
 
-48:                                               ; preds = %42
-  %49 = and i32 %15, -2
-  %or.cond3.i = icmp eq i32 %49, 14
-  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %50
+47:                                               ; preds = %41
+  %48 = and i32 %15, -2
+  %or.cond3.i = icmp eq i32 %48, 14
+  br i1 %or.cond3.i, label %GetPixelDataSize.exit, label %49
 
-50:                                               ; preds = %48
-  %51 = and i32 %15, -8
-  %or.cond5.i = icmp eq i32 %51, 16
-  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %45
+49:                                               ; preds = %47
+  %50 = and i32 %15, -8
+  %or.cond5.i = icmp eq i32 %50, 16
+  %spec.select.i = select i1 %or.cond5.i, i32 16, i32 %44
   br label %GetPixelDataSize.exit
 
-GetPixelDataSize.exit:                            ; preds = %42, %48, %50
-  %.016.i = phi i32 [ %45, %42 ], [ 8, %48 ], [ %spec.select.i, %50 ]
-  %52 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef nonnull %11, i32 noundef %.016.i) #49
-  br label %53
+GetPixelDataSize.exit:                            ; preds = %41, %47, %49
+  %.016.i = phi i32 [ %44, %41 ], [ 8, %47 ], [ %spec.select.i, %49 ]
+  %51 = tail call zeroext i1 @SaveFileData(ptr noundef %1, ptr noundef nonnull %11, i32 noundef %.016.i) #49
+  br label %52
 
-53:                                               ; preds = %31, %.thread, %GetPixelDataSize.exit, %37, %23
-  %.032 = phi i1 [ %27, %23 ], [ %36, %.thread ], [ false, %31 ], [ %52, %GetPixelDataSize.exit ], [ false, %37 ]
-  br i1 %.030, label %54, label %55
+52:                                               ; preds = %30, %.thread, %GetPixelDataSize.exit, %36, %22
+  %.032 = phi i1 [ %26, %22 ], [ %35, %.thread ], [ false, %30 ], [ %51, %GetPixelDataSize.exit ], [ false, %36 ]
+  br i1 %.030, label %53, label %54
 
-54:                                               ; preds = %53
+53:                                               ; preds = %52
   call void @free(ptr noundef %.029) #49
-  br label %55
+  br label %54
 
-55:                                               ; preds = %54, %53
-  br i1 %.032, label %56, label %57
+54:                                               ; preds = %53, %52
+  br i1 %.032, label %55, label %56
 
-56:                                               ; preds = %55
+55:                                               ; preds = %54
   call void (i32, ptr, ...) @TraceLog(i32 noundef 3, ptr noundef nonnull @.str.24, ptr noundef %1) #49
-  br label %58
+  br label %57
 
-57:                                               ; preds = %55
+56:                                               ; preds = %54
   call void (i32, ptr, ...) @TraceLog(i32 noundef 4, ptr noundef nonnull @.str.25, ptr noundef %1) #49
-  br label %58
+  br label %57
 
-58:                                               ; preds = %56, %57, %2
-  %.0 = phi i1 [ false, %2 ], [ false, %57 ], [ true, %56 ]
+57:                                               ; preds = %55, %56, %2
+  %.0 = phi i1 [ false, %2 ], [ false, %56 ], [ true, %55 ]
   ret i1 %.0
 }
 

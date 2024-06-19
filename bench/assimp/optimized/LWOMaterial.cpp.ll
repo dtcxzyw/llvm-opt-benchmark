@@ -306,7 +306,7 @@ sw.epilog:                                        ; preds = %sw.bb12
 if.then18:                                        ; preds = %if.end, %sw.bb10, %sw.bb9, %sw.bb8, %sw.bb7, %sw.bb
   %cmp26.ph = phi i1 [ false, %sw.bb ], [ true, %sw.bb7 ], [ false, %sw.bb8 ], [ false, %sw.bb9 ], [ false, %sw.bb10 ], [ false, %if.end ]
   %cmp28.ph = phi i1 [ false, %sw.bb ], [ false, %sw.bb7 ], [ true, %sw.bb8 ], [ false, %sw.bb9 ], [ false, %sw.bb10 ], [ false, %if.end ]
-  %mapping.0.ph = phi i32 [ 4, %sw.bb ], [ 2, %sw.bb7 ], [ 1, %sw.bb8 ], [ 3, %sw.bb9 ], [ 5, %sw.bb10 ], [ 5, %if.end ]
+  %mapping.0.ph = phi i32 [ 4, %sw.bb ], [ 2, %sw.bb7 ], [ 1, %sw.bb8 ], [ %2, %sw.bb9 ], [ 5, %sw.bb10 ], [ 5, %if.end ]
   %majorAxis = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 116
   %4 = load i32, ptr %majorAxis, align 4
   switch i32 %4, label %sw.default22 [
@@ -540,7 +540,7 @@ sw.bb3.i:                                         ; preds = %sw.bb2.i, %sw.epilo
   br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit
 
 _Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit:    ; preds = %sw.epilog88, %sw.bb1.i, %sw.bb3.i
-  %retval.0.i = phi i32 [ 1, %sw.bb3.i ], [ 2, %sw.bb1.i ], [ 0, %sw.epilog88 ]
+  %retval.0.i = phi i32 [ 1, %sw.bb3.i ], [ %21, %sw.bb1.i ], [ 0, %sw.epilog88 ]
   store i32 %retval.0.i, ptr %temp, align 4
   %call.i78 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %temp, i32 noundef 4, ptr noundef nonnull @.str.15, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %wrapModeHeight = getelementptr inbounds i8, ptr %__begin1.sroa.0.0113, i64 132
@@ -563,7 +563,7 @@ sw.bb3.i81:                                       ; preds = %sw.bb2.i79, %_Z10Ge
   br label %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84
 
 _Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit84:  ; preds = %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit, %sw.bb1.i83, %sw.bb3.i81
-  %retval.0.i82 = phi i32 [ 1, %sw.bb3.i81 ], [ 2, %sw.bb1.i83 ], [ 0, %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit ]
+  %retval.0.i82 = phi i32 [ 1, %sw.bb3.i81 ], [ %22, %sw.bb1.i83 ], [ 0, %_Z10GetMapModeN6Assimp3LWO7Texture4WrapE.exit ]
   store i32 %retval.0.i82, ptr %temp, align 4
   %call.i85 = call noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTypeInfo(ptr noundef nonnull align 8 dereferenceable(16) %pcMat, ptr noundef nonnull %temp, i32 noundef 4, ptr noundef nonnull @.str.16, i32 noundef %type, i32 noundef %cur.0112, i32 noundef 4)
   %inc = add i32 %cur.0112, 1

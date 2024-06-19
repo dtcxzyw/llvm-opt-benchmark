@@ -257,58 +257,47 @@ define noundef i32 @prte_iof_base_setup_parent(ptr noundef %0, ptr nocapture nou
   %3 = getelementptr inbounds i8, ptr %1, i64 4
   %4 = load i8, ptr %3, align 4
   %5 = trunc i8 %4 to i1
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %11
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 16), align 8
   %8 = getelementptr inbounds i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
   %10 = tail call i32 %7(ptr noundef %0, i16 noundef zeroext 1, i32 noundef %9) #5
-  switch i32 %10, label %11 [
-    i32 0, label %13
-    i32 -43, label %28
+  switch i32 %10, label %.sink.split [
+    i32 0, label %11
+    i32 -43, label %22
   ]
 
-11:                                               ; preds = %6
-  %12 = tail call ptr @prte_strerror(i32 noundef %10) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %12, ptr noundef nonnull @.str.1, i32 noundef 239) #5
-  br label %28
-
-13:                                               ; preds = %6, %2
-  %14 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
-  %15 = getelementptr inbounds i8, ptr %1, i64 16
-  %16 = load i32, ptr %15, align 4
-  %17 = tail call i32 %14(ptr noundef %0, i16 noundef zeroext 2, i32 noundef %16) #5
-  switch i32 %17, label %18 [
-    i32 0, label %20
-    i32 -43, label %28
+11:                                               ; preds = %6, %2
+  %12 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
+  %13 = getelementptr inbounds i8, ptr %1, i64 16
+  %14 = load i32, ptr %13, align 4
+  %15 = tail call i32 %12(ptr noundef %0, i16 noundef zeroext 2, i32 noundef %14) #5
+  switch i32 %15, label %.sink.split [
+    i32 0, label %16
+    i32 -43, label %22
   ]
 
-18:                                               ; preds = %13
-  %19 = tail call ptr @prte_strerror(i32 noundef %17) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %19, ptr noundef nonnull @.str.1, i32 noundef 247) #5
-  br label %28
-
-20:                                               ; preds = %13
-  %21 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
-  %22 = getelementptr inbounds i8, ptr %1, i64 24
-  %23 = load i32, ptr %22, align 4
-  %24 = tail call i32 %21(ptr noundef %0, i16 noundef zeroext 4, i32 noundef %23) #5
-  switch i32 %24, label %25 [
-    i32 0, label %27
-    i32 -43, label %28
+16:                                               ; preds = %11
+  %17 = load ptr, ptr getelementptr inbounds (i8, ptr @prte_iof, i64 8), align 8
+  %18 = getelementptr inbounds i8, ptr %1, i64 24
+  %19 = load i32, ptr %18, align 4
+  %20 = tail call i32 %17(ptr noundef %0, i16 noundef zeroext 4, i32 noundef %19) #5
+  switch i32 %20, label %.sink.split [
+    i32 0, label %22
+    i32 -43, label %22
   ]
 
-25:                                               ; preds = %20
-  %26 = tail call ptr @prte_strerror(i32 noundef %24) #5
-  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %26, ptr noundef nonnull @.str.1, i32 noundef 253) #5
-  br label %28
+.sink.split:                                      ; preds = %16, %11, %6
+  %.sink28 = phi i32 [ %10, %6 ], [ %15, %11 ], [ %20, %16 ]
+  %.sink27 = phi i32 [ 239, %6 ], [ 247, %11 ], [ 253, %16 ]
+  %21 = tail call ptr @prte_strerror(i32 noundef %.sink28) #5
+  tail call void (i32, ptr, ...) @pmix_output(i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef %21, ptr noundef nonnull @.str.1, i32 noundef %.sink27) #5
+  br label %22
 
-27:                                               ; preds = %20
-  br label %28
-
-28:                                               ; preds = %25, %20, %18, %13, %11, %6, %27
-  %.0 = phi i32 [ 0, %27 ], [ %10, %6 ], [ %10, %11 ], [ %17, %13 ], [ %17, %18 ], [ %24, %20 ], [ %24, %25 ]
+22:                                               ; preds = %.sink.split, %16, %16, %11, %6
+  %.0 = phi i32 [ %10, %6 ], [ %15, %11 ], [ %20, %16 ], [ %20, %16 ], [ %.sink28, %.sink.split ]
   ret i32 %.0
 }
 
