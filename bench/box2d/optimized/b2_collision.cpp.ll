@@ -1007,7 +1007,7 @@ for.body173:                                      ; preds = %for.cond170
   %neg.i128 = fmul float %e191.sroa.0.0.vec.extract131, %75
   %76 = tail call noundef float @llvm.fmuladd.f32(float %sub.i114, float %e191.sroa.0.4.vec.extract134, float %neg.i128)
   %cmp198 = fcmp ugt float %76, 0x3F847AE140000000
-  %indvars.iv.next262 = add i64 %indvars.iv261, 1
+  %indvars.iv.next262 = add nuw nsw i64 %indvars.iv261, 1
   br i1 %cmp198, label %for.cond170, label %for.cond201.preheader, !llvm.loop !19
 
 for.cond201.preheader:                            ; preds = %for.body173

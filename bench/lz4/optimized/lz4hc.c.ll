@@ -11846,7 +11846,7 @@ while.body.i2080:                                 ; preds = %while.cond.i2077
   br i1 %cmp5.not.i2083, label %while.cond.i2077, label %while.end.i2084.thread, !llvm.loop !9
 
 while.end.i2084.thread:                           ; preds = %while.body.i2080
-  %ip.addr.0.i2078.ptr.le3167 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2078.idx
+  %ip.addr.0.i2078.ptr.le3165 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2078.idx
   br label %while.body16.i2093.preheader
 
 while.end.i2084:                                  ; preds = %while.cond.i2077
@@ -11855,7 +11855,7 @@ while.end.i2084:                                  ; preds = %while.cond.i2077
   br i1 %cmp1010.i2085, label %while.body16.i2093.preheader, label %LZ4HC_reverseCountPattern.exit2101
 
 while.body16.i2093.preheader:                     ; preds = %while.end.i2084.thread, %while.end.i2084
-  %ip.addr.111.i2095.ph = phi ptr [ %ip.addr.0.i2078.ptr.le, %while.end.i2084 ], [ %ip.addr.0.i2078.ptr.le3167, %while.end.i2084.thread ]
+  %ip.addr.111.i2095.ph = phi ptr [ %ip.addr.0.i2078.ptr.le, %while.end.i2084 ], [ %ip.addr.0.i2078.ptr.le3165, %while.end.i2084.thread ]
   br label %while.body16.i2093
 
 while.cond9.i2098:                                ; preds = %while.body16.i2093
@@ -12214,11 +12214,10 @@ for.body.i618.preheader:                          ; preds = %if.then4.i611
   %75 = udiv i64 %74, 255
   %76 = add nuw nsw i64 %75, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i557, i8 -1, i64 %76, i1 false)
-  %77 = udiv i64 %indvars.iv3136, 255
-  %.neg3159 = mul i64 %77, -255
   %scevgep3134 = getelementptr i8, ptr %op.0.ph2942, i64 2
+  %77 = udiv i64 %indvars.iv3136, 255
   %scevgep3139 = getelementptr i8, ptr %scevgep3134, i64 %77
-  %78 = add i64 %.neg3159, %indvars.iv3136
+  %78 = urem i64 %indvars.iv3136, 255
   br label %for.end.i615
 
 for.end.i615:                                     ; preds = %for.body.i618.preheader, %if.then4.i611
@@ -12282,8 +12281,8 @@ for.body35.i601.preheader:                        ; preds = %if.then28.i586
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i571, i8 -1, i64 %84, i1 false)
   %scevgep3140 = getelementptr i8, ptr %op.2, i64 %83
   %scevgep3144 = getelementptr i8, ptr %scevgep3140, i64 %indvars.iv3141
-  %.neg3160 = mul i64 %82, -510
-  %85 = add i64 %.neg3160, %81
+  %.neg3158 = mul i64 %82, -510
+  %85 = add i64 %.neg3158, %81
   br label %for.end40.i593
 
 for.end40.i593:                                   ; preds = %for.body35.i601.preheader, %if.then28.i586
@@ -12373,7 +12372,7 @@ LZ4HC_literalsPrice.exit2891:                     ; preds = %if.then.i2886, %for
 
 for.cond66.preheader:                             ; preds = %LZ4HC_sequencePrice.exit2946, %for.cond44.preheader
   %arrayidx83 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %conv20
-  %invariant.gep3294 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %conv20
+  %invariant.gep3292 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %conv20
   br label %for.body69
 
 for.body47:                                       ; preds = %for.body47.lr.ph, %LZ4HC_sequencePrice.exit2946
@@ -12410,17 +12409,17 @@ for.cond94.preheader:                             ; preds = %for.body69
 
 for.body69:                                       ; preds = %for.cond66.preheader, %for.body69
   %indvars.iv3081 = phi i64 [ 1, %for.cond66.preheader ], [ %indvars.iv.next3082, %for.body69 ]
-  %gep3295 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %invariant.gep3294, i64 %indvars.iv3081
-  %mlen73 = getelementptr inbounds i8, ptr %gep3295, i64 8
+  %gep3293 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %invariant.gep3292, i64 %indvars.iv3081
+  %mlen73 = getelementptr inbounds i8, ptr %gep3293, i64 8
   store i32 1, ptr %mlen73, align 4
-  %off77 = getelementptr inbounds i8, ptr %gep3295, i64 4
+  %off77 = getelementptr inbounds i8, ptr %gep3293, i64 4
   store i32 0, ptr %off77, align 4
-  %litlen81 = getelementptr inbounds i8, ptr %gep3295, i64 12
+  %litlen81 = getelementptr inbounds i8, ptr %gep3293, i64 12
   %97 = trunc nuw nsw i64 %indvars.iv3081 to i32
   store i32 %97, ptr %litlen81, align 4
   %98 = load i32, ptr %arrayidx83, align 4
   %add86 = add nsw i32 %98, %97
-  store i32 %add86, ptr %gep3295, align 4
+  store i32 %add86, ptr %gep3293, align 4
   %indvars.iv.next3082 = add nuw nsw i64 %indvars.iv3081, 1
   %exitcond3085.not = icmp eq i64 %indvars.iv.next3082, 4
   br i1 %exitcond3085.not, label %for.cond94.preheader, label %for.body69, !llvm.loop !21
@@ -13318,7 +13317,7 @@ while.body.i2293:                                 ; preds = %while.cond.i2290
   br i1 %cmp5.not.i2296, label %while.cond.i2290, label %while.end.i2297.thread, !llvm.loop !9
 
 while.end.i2297.thread:                           ; preds = %while.body.i2293
-  %ip.addr.0.i2291.ptr.le3173 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2291.idx
+  %ip.addr.0.i2291.ptr.le3171 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2291.idx
   br label %while.body16.i2306.preheader
 
 while.end.i2297:                                  ; preds = %while.cond.i2290
@@ -13327,7 +13326,7 @@ while.end.i2297:                                  ; preds = %while.cond.i2290
   br i1 %cmp1010.i2298, label %while.body16.i2306.preheader, label %LZ4HC_reverseCountPattern.exit2314
 
 while.body16.i2306.preheader:                     ; preds = %while.end.i2297.thread, %while.end.i2297
-  %ip.addr.111.i2308.ph = phi ptr [ %ip.addr.0.i2291.ptr.le, %while.end.i2297 ], [ %ip.addr.0.i2291.ptr.le3173, %while.end.i2297.thread ]
+  %ip.addr.111.i2308.ph = phi ptr [ %ip.addr.0.i2291.ptr.le, %while.end.i2297 ], [ %ip.addr.0.i2291.ptr.le3171, %while.end.i2297.thread ]
   br label %while.body16.i2306
 
 while.cond9.i2311:                                ; preds = %while.body16.i2306
@@ -14511,7 +14510,7 @@ while.body.i2506:                                 ; preds = %while.cond.i2503
   br i1 %cmp5.not.i2509, label %while.cond.i2503, label %while.end.i2510.thread, !llvm.loop !9
 
 while.end.i2510.thread:                           ; preds = %while.body.i2506
-  %ip.addr.0.i2504.ptr.le3179 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2504.idx
+  %ip.addr.0.i2504.ptr.le3177 = getelementptr inbounds i8, ptr %5, i64 %ip.addr.0.i2504.idx
   br label %while.body16.i2519.preheader
 
 while.end.i2510:                                  ; preds = %while.cond.i2503
@@ -14520,7 +14519,7 @@ while.end.i2510:                                  ; preds = %while.cond.i2503
   br i1 %cmp1010.i2511, label %while.body16.i2519.preheader, label %LZ4HC_reverseCountPattern.exit2527
 
 while.body16.i2519.preheader:                     ; preds = %while.end.i2510.thread, %while.end.i2510
-  %ip.addr.111.i2521.ph = phi ptr [ %ip.addr.0.i2504.ptr.le, %while.end.i2510 ], [ %ip.addr.0.i2504.ptr.le3179, %while.end.i2510.thread ]
+  %ip.addr.111.i2521.ph = phi ptr [ %ip.addr.0.i2504.ptr.le, %while.end.i2510 ], [ %ip.addr.0.i2504.ptr.le3177, %while.end.i2510.thread ]
   br label %while.body16.i2519
 
 while.cond9.i2524:                                ; preds = %while.body16.i2519
@@ -14868,7 +14867,7 @@ if.end162:                                        ; preds = %if.end149
   %.pre3148 = load i32, ptr %arrayidx164, align 4
   %spec.select2963 = select i1 %cmp.i2864, i32 %add1.i2870, i32 %230
   %sub176 = sub nsw i32 %.pre3148, %spec.select2963
-  %invariant.gep3296 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %indvars.iv3113
+  %invariant.gep3294 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %indvars.iv3113
   br label %for.body170
 
 for.cond206.preheader:                            ; preds = %for.inc201
@@ -14886,8 +14885,8 @@ for.body209.lr.ph:                                ; preds = %for.cond206.prehead
   %sub226 = sub nsw i32 %.pre-phi, %230
   %idxprom227 = sext i32 %sub226 to i64
   %arrayidx228 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom227
-  %spec.select3300 = select i1 %cmp.i2864, i32 %add1.i2870, i32 %230
-  %add.i2912 = add nsw i32 %spec.select3300, 3
+  %spec.select3298 = select i1 %cmp.i2864, i32 %add1.i2870, i32 %230
+  %add.i2912 = add nsw i32 %spec.select3298, 3
   br label %for.body209
 
 for.body170:                                      ; preds = %if.end162, %for.inc201
@@ -14909,19 +14908,19 @@ if.then.i2856:                                    ; preds = %for.body170
 LZ4HC_literalsPrice.exit2861:                     ; preds = %if.then.i2856, %for.body170
   %price.i2853.0 = phi i32 [ %add1.i2860, %if.then.i2856 ], [ %235, %for.body170 ]
   %add179 = add nsw i32 %price.i2853.0, %sub176
-  %gep3297 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %invariant.gep3296, i64 %indvars.iv3092
-  %240 = load i32, ptr %gep3297, align 4
+  %gep3295 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %invariant.gep3294, i64 %indvars.iv3092
+  %240 = load i32, ptr %gep3295, align 4
   %cmp184 = icmp slt i32 %add179, %240
   br i1 %cmp184, label %if.then186, label %for.inc201
 
 if.then186:                                       ; preds = %LZ4HC_literalsPrice.exit2861
-  %mlen189 = getelementptr inbounds i8, ptr %gep3297, i64 8
+  %mlen189 = getelementptr inbounds i8, ptr %gep3295, i64 8
   store i32 1, ptr %mlen189, align 4
-  %off192 = getelementptr inbounds i8, ptr %gep3297, i64 4
+  %off192 = getelementptr inbounds i8, ptr %gep3295, i64 4
   store i32 0, ptr %off192, align 4
-  %litlen196 = getelementptr inbounds i8, ptr %gep3297, i64 12
+  %litlen196 = getelementptr inbounds i8, ptr %gep3295, i64 12
   store i32 %235, ptr %litlen196, align 4
-  store i32 %add179, ptr %gep3297, align 4
+  store i32 %add179, ptr %gep3295, align 4
   br label %for.inc201
 
 for.inc201:                                       ; preds = %LZ4HC_literalsPrice.exit2861, %if.then186
@@ -14934,7 +14933,7 @@ for.cond274.preheader:                            ; preds = %for.inc270, %for.co
   %idxprom290 = zext nneg i32 %last_match_pos.1.lcssa to i64
   %arrayidx291 = getelementptr inbounds %struct.LZ4HC_optimal_t, ptr %call, i64 %idxprom290
   %241 = sext i32 %last_match_pos.1.lcssa to i64
-  %invariant.gep3298 = getelementptr %struct.LZ4HC_optimal_t, ptr %call, i64 %241
+  %invariant.gep3296 = getelementptr %struct.LZ4HC_optimal_t, ptr %call, i64 %241
   br label %for.body277
 
 for.body209:                                      ; preds = %for.body209.lr.ph, %for.inc270
@@ -15022,17 +15021,17 @@ for.inc270:                                       ; preds = %lor.lhs.false242, %
 
 for.body277:                                      ; preds = %for.cond274.preheader, %for.body277
   %indvars.iv3108 = phi i64 [ 1, %for.cond274.preheader ], [ %indvars.iv.next3109, %for.body277 ]
-  %gep3299 = getelementptr %struct.LZ4HC_optimal_t, ptr %invariant.gep3298, i64 %indvars.iv3108
-  %mlen281 = getelementptr inbounds i8, ptr %gep3299, i64 8
+  %gep3297 = getelementptr %struct.LZ4HC_optimal_t, ptr %invariant.gep3296, i64 %indvars.iv3108
+  %mlen281 = getelementptr inbounds i8, ptr %gep3297, i64 8
   store i32 1, ptr %mlen281, align 4
-  %off285 = getelementptr inbounds i8, ptr %gep3299, i64 4
+  %off285 = getelementptr inbounds i8, ptr %gep3297, i64 4
   store i32 0, ptr %off285, align 4
-  %litlen289 = getelementptr inbounds i8, ptr %gep3299, i64 12
+  %litlen289 = getelementptr inbounds i8, ptr %gep3297, i64 12
   %252 = trunc nuw nsw i64 %indvars.iv3108 to i32
   store i32 %252, ptr %litlen289, align 4
   %253 = load i32, ptr %arrayidx291, align 4
   %add294 = add nsw i32 %253, %252
-  store i32 %add294, ptr %gep3299, align 4
+  store i32 %add294, ptr %gep3297, align 4
   %indvars.iv.next3109 = add nuw nsw i64 %indvars.iv3108, 1
   %exitcond3112.not = icmp eq i64 %indvars.iv.next3109, 4
   br i1 %exitcond3112.not, label %for.inc302, label %for.body277, !llvm.loop !24
@@ -15143,11 +15142,10 @@ for.body.i535.preheader:                          ; preds = %if.then4.i528
   %264 = udiv i64 %263, 255
   %265 = add nuw nsw i64 %264, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i474, i8 -1, i64 %265, i1 false)
-  %266 = udiv i64 %indvars.iv3122, 255
-  %.neg = mul i64 %266, -255
   %scevgep = getelementptr i8, ptr %op.7.ph2924, i64 2
+  %266 = udiv i64 %indvars.iv3122, 255
   %scevgep3125 = getelementptr i8, ptr %scevgep, i64 %266
-  %267 = add i64 %.neg, %indvars.iv3122
+  %267 = urem i64 %indvars.iv3122, 255
   br label %for.end.i532
 
 for.end.i532:                                     ; preds = %for.body.i535.preheader, %if.then4.i528
@@ -15212,8 +15210,8 @@ for.body35.i518.preheader:                        ; preds = %if.then28.i503
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %add.ptr14.i488, i8 -1, i64 %273, i1 false)
   %274 = add i64 %indvars.iv3126, %272
   %scevgep3129 = getelementptr i8, ptr %op.9, i64 %274
-  %.neg3158 = mul i64 %271, -510
-  %275 = add i64 %.neg3158, %270
+  %.neg = mul i64 %271, -510
+  %275 = add i64 %.neg, %270
   br label %for.end40.i510
 
 for.end40.i510:                                   ; preds = %for.body35.i518.preheader, %if.then28.i503
@@ -15313,9 +15311,9 @@ for.body397.preheader:                            ; preds = %if.then391
   %284 = udiv i64 %283, 255
   %285 = add nuw nsw i64 %284, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %op.152956, i8 -1, i64 %285, i1 false)
-  %.neg3163 = mul i64 %284, -255
+  %.neg3161 = mul i64 %284, -255
   %286 = add nuw nsw i64 %284, 2
-  %287 = add i64 %.neg3163, %283
+  %287 = add i64 %.neg3161, %283
   %scevgep3147 = getelementptr i8, ptr %op.14, i64 %286
   br label %for.end401
 
@@ -15406,9 +15404,9 @@ for.body.i.preheader:                             ; preds = %if.then4.i
   %293 = add nuw nsw i64 %292, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %incdec.ptr.i, i8 -1, i64 %293, i1 false)
   %294 = add nuw nsw i64 %292, 2
-  %.neg3161 = mul i64 %292, -255
+  %.neg3159 = mul i64 %292, -255
   %scevgep3145 = getelementptr i8, ptr %opSaved.0, i64 %294
-  %295 = add i64 %.neg3161, %291
+  %295 = add i64 %.neg3159, %291
   br label %for.end.i
 
 for.end.i:                                        ; preds = %for.body.i.preheader, %if.then4.i
@@ -15466,8 +15464,8 @@ for.body35.i.preheader:                           ; preds = %if.then28.i
   %303 = add i64 %302, 4
   %304 = sub i64 %303, %sub.ptr.rhs.cast422
   %scevgep3146 = getelementptr i8, ptr %op.18, i64 %304
-  %.neg3162 = mul i64 %299, -510
-  %305 = add i64 %.neg3162, %298
+  %.neg3160 = mul i64 %299, -510
+  %305 = add i64 %.neg3160, %298
   br label %for.end40.i
 
 for.end40.i:                                      ; preds = %for.body35.i.preheader, %if.then28.i

@@ -2124,9 +2124,8 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit:   ; preds = %31, %33
   %42 = phi ptr [ %36, %.lr.ph.lr.ph ], [ %226, %225 ]
   %.0182279 = phi ptr [ %1, %.lr.ph.lr.ph ], [ %160, %225 ]
   %.0184278 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.5, %225 ]
-  %.0182279.fr = freeze ptr %.0182279
-  %.0182279314 = ptrtoint ptr %.0182279.fr to i64
-  %.0172280 = getelementptr inbounds i8, ptr %.0182279.fr, i64 1
+  %.0182279314 = ptrtoint ptr %.0182279 to i64
+  %.0172280 = getelementptr inbounds i8, ptr %.0182279, i64 1
   %.pn235274.pn.in = load i64, ptr %.0172280, align 1
   br label %43
 
@@ -2202,7 +2201,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   %indvar = phi i32 [ 0, %.preheader ], [ %indvar.next, %73 ]
   %.0178 = phi ptr [ %.0.i221225, %.preheader ], [ %76, %73 ]
   %.1173 = phi ptr [ %.0176256, %.preheader ], [ %74, %73 ]
-  %71 = icmp ugt ptr %.1173, %.0182279.fr
+  %71 = icmp ugt ptr %.1173, %.0182279
   %72 = icmp ugt ptr %.0178, %1
   %or.cond198 = and i1 %72, %71
   br i1 %or.cond198, label %73, label %.critedge2
@@ -2247,11 +2246,11 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   %narrow = add nuw nsw i32 %96, 1
   %97 = zext nneg i32 %narrow to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %82, i8 -1, i64 %97, i1 false)
+  %scevgep = getelementptr i8, ptr %.0184278, i64 2
   %98 = udiv i32 %indvars.iv, 255
   %99 = zext nneg i32 %98 to i64
-  %100 = urem i32 %indvars.iv, 255
-  %scevgep = getelementptr i8, ptr %.0184278, i64 2
   %scevgep315 = getelementptr i8, ptr %scevgep, i64 %99
+  %100 = urem i32 %indvars.iv, 255
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph262.preheader, %92
@@ -2274,7 +2273,7 @@ _ZL21LZ4_putPositionOnHashPKhjPv11tableType_tS0_.exit: ; preds = %_ZL21LZ4_getPo
   br label %107
 
 107:                                              ; preds = %107, %105
-  %.09.i = phi ptr [ %.0182279.fr, %105 ], [ %109, %107 ]
+  %.09.i = phi ptr [ %.0182279, %105 ], [ %109, %107 ]
   %.0.i208 = phi ptr [ %.2186, %105 ], [ %108, %107 ]
   %.09.val.i = load i64, ptr %.09.i, align 1
   store i64 %.09.val.i, ptr %.0.i208, align 1
@@ -2518,7 +2517,7 @@ _ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit216: ; preds = %202, %206
 
 .loopexit:                                        ; preds = %.critedge2, %225, %.critedge.backedge, %177, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit, %19
   %.6 = phi ptr [ %2, %19 ], [ %2, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit ], [ %.5, %177 ], [ %.0184278, %.critedge.backedge ], [ %.5, %225 ], [ %.0184278, %.critedge2 ]
-  %.1183 = phi ptr [ %1, %19 ], [ %1, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit ], [ %160, %177 ], [ %.0182279.fr, %.critedge.backedge ], [ %160, %225 ], [ %.0182279.fr, %.critedge2 ]
+  %.1183 = phi ptr [ %1, %19 ], [ %1, %_ZL15LZ4_putPositionPKhPv11tableType_tS0_.exit ], [ %160, %177 ], [ %.0182279, %.critedge.backedge ], [ %160, %225 ], [ %.0182279, %.critedge2 ]
   %228 = ptrtoint ptr %.ptr to i64
   %229 = ptrtoint ptr %.1183 to i64
   %230 = sub i64 %228, %229
