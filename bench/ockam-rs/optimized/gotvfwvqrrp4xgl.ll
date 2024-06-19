@@ -158166,7 +158166,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17h156e739f8973ee5aE.llvm.9977487472
   br label %1830
 
 1830:                                             ; preds = %1905, %1829
-  %.sroa.5197.0.i.i.i.i = phi ptr [ %.sroa.0165.0220225.i.i.i.i, %1905 ], [ %1824, %1829 ]
+  %.sroa.5197.0.i.i.i.i = phi ptr [ %.sroa.0165.0220224.i.i.i.i, %1905 ], [ %1824, %1829 ]
   %1831 = getelementptr inbounds i8, ptr %1, i64 744
   call void @llvm.experimental.noalias.scope.decl(metadata !23347)
   call void @llvm.experimental.noalias.scope.decl(metadata !23350)
@@ -158437,7 +158437,7 @@ _ZN5tokio7runtime6handle6Handle11spawn_named17h156e739f8973ee5aE.llvm.9977487472
   br label %.body126.i.i.i.i
 
 1905:                                             ; preds = %1879, %1875
-  %.sroa.0165.0220225.i.i.i.i = phi ptr [ %.sroa.0205.0.copyload.i.i.i.i, %1879 ], [ %1872, %1875 ]
+  %.sroa.0165.0220224.i.i.i.i = phi ptr [ %.sroa.0205.0.copyload.i.i.i.i, %1879 ], [ %1872, %1875 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21), !noalias !23288
   br label %1830
 

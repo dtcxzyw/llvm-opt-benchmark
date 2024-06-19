@@ -12034,7 +12034,7 @@ common.ret:                                       ; preds = %614, %616
   %433 = phi ptr [ %479, %547 ], [ %409, %430 ]
   %434 = phi ptr [ %480, %547 ], [ %410, %430 ]
   %435 = phi ptr [ %481, %547 ], [ %411, %430 ]
-  %.sroa.5215.0.i.i = phi ptr [ %.sroa.0183.0245249.i.i, %547 ], [ %421, %430 ]
+  %.sroa.5215.0.i.i = phi ptr [ %.sroa.0183.0245250.i.i, %547 ], [ %421, %430 ]
   %436 = getelementptr inbounds i8, ptr %1, i64 376
   call void @llvm.experimental.noalias.scope.decl(metadata !2059)
   call void @llvm.experimental.noalias.scope.decl(metadata !2062)
@@ -12386,7 +12386,7 @@ common.ret:                                       ; preds = %614, %616
   br label %.body134.i.i
 
 547:                                              ; preds = %513, %509
-  %.sroa.0183.0245249.i.i = phi ptr [ %.sroa.0223.0.copyload.i.i, %513 ], [ %506, %509 ]
+  %.sroa.0183.0245250.i.i = phi ptr [ %.sroa.0223.0.copyload.i.i, %513 ], [ %506, %509 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %14), !noalias !1949
   br label %431
 

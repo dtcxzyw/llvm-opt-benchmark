@@ -163086,14 +163086,14 @@ define internal void @"_ZN111_$LT$deltalake_core..data_catalog..unity..UnityCata
   %.sroa.15 = alloca [655 x i8], align 1
   %40 = getelementptr inbounds i8, ptr %1, i64 848
   %41 = load i8, ptr %40, align 8, !range !2345, !noundef !4
-  switch i8 %41, label %default.unreachable157 [
+  switch i8 %41, label %default.unreachable156 [
     i8 0, label %42
     i8 1, label %83
     i8 2, label %84
     i8 3, label %85
   ]
 
-default.unreachable157:                           ; preds = %85, %3
+default.unreachable156:                           ; preds = %85, %3
   unreachable
 
 42:                                               ; preds = %3
@@ -163262,7 +163262,7 @@ default.unreachable157:                           ; preds = %85, %3
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %.sroa.5104.sroa.2.i.sroa.7)
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %.sroa.580.i)
   %87 = getelementptr inbounds i8, ptr %1, i64 192
-  switch i8 %.pre, label %default.unreachable157 [
+  switch i8 %.pre, label %default.unreachable156 [
     i8 0, label %91
     i8 1, label %.invoke
     i8 2, label %112
