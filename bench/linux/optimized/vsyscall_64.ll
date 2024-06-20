@@ -280,7 +280,7 @@ define internal noundef range(i32 -22, 1) i32 @vsyscall_setup(ptr noundef readon
 define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = and i64 %0, 6
   %5 = icmp eq i64 %4, 4
-  br i1 %5, label %6, label %257
+  br i1 %5, label %6, label %228
 
 6:                                                ; preds = %3
   %7 = and i64 %0, 16
@@ -293,12 +293,12 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %12 = load i32, ptr @show_unhandled_signals, align 4
   %13 = icmp eq i32 %12, 0
   %14 = select i1 %11, i1 true, i1 %13
-  br i1 %14, label %257, label %15
+  br i1 %14, label %228, label %15
 
 15:                                               ; preds = %9
   %16 = tail call i32 @___ratelimit(ptr noundef nonnull @warn_bad_vsyscall._rs, ptr noundef nonnull @__func__.warn_bad_vsyscall) #15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %257, label %18
+  br i1 %17, label %228, label %18
 
 18:                                               ; preds = %15
   %19 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
@@ -319,7 +319,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %34 = getelementptr inbounds i8, ptr %1, i64 112
   %35 = load i64, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, ptr noundef %21, i32 noundef %23, ptr noundef nonnull @.str.1, i64 noundef %25, i64 noundef %27, i64 noundef %29, i64 noundef %31, i64 noundef %33, i64 noundef %35) #18
-  br label %257
+  br label %228
 
 37:                                               ; preds = %6
   %38 = getelementptr inbounds i8, ptr %1, i64 128
@@ -341,12 +341,12 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
 45:                                               ; preds = %42
   %46 = load i32, ptr @show_unhandled_signals, align 4
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %257, label %48
+  br i1 %47, label %228, label %48
 
 48:                                               ; preds = %45
   %49 = tail call i32 @___ratelimit(ptr noundef nonnull @warn_bad_vsyscall._rs, ptr noundef nonnull @__func__.warn_bad_vsyscall) #15
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %257, label %51
+  br i1 %50, label %228, label %51
 
 51:                                               ; preds = %48
   %52 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
@@ -366,7 +366,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %66 = getelementptr inbounds i8, ptr %1, i64 112
   %67 = load i64, ptr %66, align 8
   %68 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str, ptr noundef %54, i32 noundef %56, ptr noundef nonnull @.str.3, i64 noundef %57, i64 noundef %59, i64 noundef %61, i64 noundef %63, i64 noundef %65, i64 noundef %67) #18
-  br label %257
+  br label %228
 
 69:                                               ; preds = %42
   %70 = and i64 %2, -3073
@@ -422,12 +422,12 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
 99:                                               ; preds = %98
   %100 = load i32, ptr @show_unhandled_signals, align 4
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %256, label %102
+  br i1 %101, label %227, label %102
 
 102:                                              ; preds = %99
   %103 = tail call i32 @___ratelimit(ptr noundef nonnull @warn_bad_vsyscall._rs, ptr noundef nonnull @__func__.warn_bad_vsyscall) #15
   %104 = icmp eq i32 %103, 0
-  br i1 %104, label %256, label %105
+  br i1 %104, label %227, label %105
 
 105:                                              ; preds = %102
   %106 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
@@ -447,7 +447,7 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %120 = getelementptr inbounds i8, ptr %1, i64 112
   %121 = load i64, ptr %120, align 8
   %122 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, ptr noundef %108, i32 noundef %110, ptr noundef nonnull @.str.5, i64 noundef %111, i64 noundef %113, i64 noundef %115, i64 noundef %117, i64 noundef %119, i64 noundef %121) #18
-  br label %256
+  br label %227
 
 123:                                              ; preds = %98
   %124 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -467,12 +467,12 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
 135:                                              ; preds = %123
   %136 = load i32, ptr @show_unhandled_signals, align 4
   %137 = icmp eq i32 %136, 0
-  br i1 %137, label %256, label %138
+  br i1 %137, label %227, label %138
 
 138:                                              ; preds = %135
   %139 = tail call i32 @___ratelimit(ptr noundef nonnull @warn_bad_vsyscall._rs, ptr noundef nonnull @__func__.warn_bad_vsyscall) #15
   %140 = icmp eq i32 %139, 0
-  br i1 %140, label %256, label %141
+  br i1 %140, label %227, label %141
 
 141:                                              ; preds = %138
   %142 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
@@ -491,221 +491,173 @@ define dso_local noundef zeroext i1 @emulate_vsyscall(i64 noundef %0, ptr nounde
   %155 = getelementptr inbounds i8, ptr %1, i64 112
   %156 = load i64, ptr %155, align 8
   %157 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.4, ptr noundef %144, i32 noundef %146, ptr noundef nonnull @.str.6, i64 noundef %147, i64 noundef %149, i64 noundef %150, i64 noundef %152, i64 noundef %154, i64 noundef %156) #18
-  br label %256
+  br label %227
 
 158:                                              ; preds = %123
   %159 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #17, !srcloc !13
   %160 = inttoptr i64 %159 to ptr
+  %161 = getelementptr inbounds i8, ptr %1, i64 112
+  %162 = load i64, ptr %161, align 8
+  %163 = inttoptr i64 %162 to ptr
+  %164 = icmp sgt ptr %163, inttoptr (i64 -1 to ptr)
   switch i32 %74, label %default.unreachable [
-    i32 0, label %161
-    i32 1, label %181
-    i32 2, label %191
+    i32 0, label %165
+    i32 1, label %171
+    i32 2, label %172
   ]
 
-161:                                              ; preds = %158
-  %162 = getelementptr inbounds i8, ptr %1, i64 112
-  %163 = load i64, ptr %162, align 8
-  %164 = inttoptr i64 %163 to ptr
-  %165 = icmp sgt ptr %164, inttoptr (i64 -1 to ptr)
-  br i1 %165, label %171, label %166, !prof !9
+165:                                              ; preds = %158
+  br i1 %164, label %166, label %.thread7.sink.split, !prof !9
 
-166:                                              ; preds = %161
-  %167 = getelementptr inbounds i8, ptr %160, i64 2936
-  store i64 6, ptr %167, align 8
-  %168 = getelementptr inbounds i8, ptr %160, i64 2920
-  store i64 %163, ptr %168, align 8
-  %169 = getelementptr inbounds i8, ptr %160, i64 2928
-  store i64 14, ptr %169, align 16
-  %170 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %164) #15
-  br label %.thread7
+166:                                              ; preds = %165
+  %167 = getelementptr inbounds i8, ptr %1, i64 104
+  %168 = load i64, ptr %167, align 8
+  %169 = inttoptr i64 %168 to ptr
+  %170 = icmp sgt ptr %169, inttoptr (i64 -1 to ptr)
+  br i1 %170, label %178, label %.thread7.sink.split, !prof !9
 
-171:                                              ; preds = %161
-  %172 = getelementptr inbounds i8, ptr %1, i64 104
-  %173 = load i64, ptr %172, align 8
-  %174 = inttoptr i64 %173 to ptr
-  %175 = icmp sgt ptr %174, inttoptr (i64 -1 to ptr)
-  br i1 %175, label %211, label %176, !prof !9
+171:                                              ; preds = %158
+  br i1 %164, label %178, label %.thread7.sink.split, !prof !9
 
-176:                                              ; preds = %171
-  %177 = getelementptr inbounds i8, ptr %160, i64 2936
-  store i64 6, ptr %177, align 8
-  %178 = getelementptr inbounds i8, ptr %160, i64 2920
-  store i64 %173, ptr %178, align 8
-  %179 = getelementptr inbounds i8, ptr %160, i64 2928
-  store i64 14, ptr %179, align 16
-  %180 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %174) #15
-  br label %.thread7
+172:                                              ; preds = %158
+  br i1 %164, label %173, label %.thread7.sink.split, !prof !9
 
-181:                                              ; preds = %158
-  %182 = getelementptr inbounds i8, ptr %1, i64 112
-  %183 = load i64, ptr %182, align 8
-  %184 = inttoptr i64 %183 to ptr
-  %185 = icmp sgt ptr %184, inttoptr (i64 -1 to ptr)
-  br i1 %185, label %211, label %186, !prof !9
+173:                                              ; preds = %172
+  %174 = getelementptr inbounds i8, ptr %1, i64 104
+  %175 = load i64, ptr %174, align 8
+  %176 = inttoptr i64 %175 to ptr
+  %177 = icmp sgt ptr %176, inttoptr (i64 -1 to ptr)
+  br i1 %177, label %178, label %.thread7.sink.split, !prof !9
 
-186:                                              ; preds = %181
-  %187 = getelementptr inbounds i8, ptr %160, i64 2936
-  store i64 6, ptr %187, align 8
-  %188 = getelementptr inbounds i8, ptr %160, i64 2920
-  store i64 %183, ptr %188, align 8
-  %189 = getelementptr inbounds i8, ptr %160, i64 2928
-  store i64 14, ptr %189, align 16
-  %190 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %184) #15
-  br label %.thread7
-
-191:                                              ; preds = %158
-  %192 = getelementptr inbounds i8, ptr %1, i64 112
-  %193 = load i64, ptr %192, align 8
-  %194 = inttoptr i64 %193 to ptr
-  %195 = icmp sgt ptr %194, inttoptr (i64 -1 to ptr)
-  br i1 %195, label %201, label %196, !prof !9
-
-196:                                              ; preds = %191
-  %197 = getelementptr inbounds i8, ptr %160, i64 2936
-  store i64 6, ptr %197, align 8
-  %198 = getelementptr inbounds i8, ptr %160, i64 2920
-  store i64 %193, ptr %198, align 8
-  %199 = getelementptr inbounds i8, ptr %160, i64 2928
-  store i64 14, ptr %199, align 16
-  %200 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %194) #15
-  br label %.thread7
-
-201:                                              ; preds = %191
-  %202 = getelementptr inbounds i8, ptr %1, i64 104
-  %203 = load i64, ptr %202, align 8
-  %204 = inttoptr i64 %203 to ptr
-  %205 = icmp sgt ptr %204, inttoptr (i64 -1 to ptr)
-  br i1 %205, label %211, label %206, !prof !9
-
-206:                                              ; preds = %201
-  %207 = getelementptr inbounds i8, ptr %160, i64 2936
-  store i64 6, ptr %207, align 8
-  %208 = getelementptr inbounds i8, ptr %160, i64 2920
-  store i64 %203, ptr %208, align 8
-  %209 = getelementptr inbounds i8, ptr %160, i64 2928
-  store i64 14, ptr %209, align 16
-  %210 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %204) #15
-  br label %.thread7
-
-default.unreachable:                              ; preds = %228, %158
+default.unreachable:                              ; preds = %158
   unreachable
 
-211:                                              ; preds = %201, %181, %171
-  %212 = phi i64 [ 96, %171 ], [ 201, %181 ], [ 309, %201 ]
-  %213 = getelementptr inbounds i8, ptr %1, i64 120
-  store i64 %212, ptr %213, align 8
-  %214 = getelementptr inbounds i8, ptr %1, i64 80
-  store i64 -38, ptr %214, align 8
-  %215 = getelementptr inbounds i8, ptr %160, i64 8
-  %216 = load volatile i64, ptr %215, align 8
-  %217 = and i64 %216, 1
-  %218 = icmp eq i64 %217, 0
-  br i1 %218, label %.thread.thread, label %219, !prof !9
+178:                                              ; preds = %173, %171, %166
+  %179 = phi i64 [ 96, %166 ], [ 201, %171 ], [ 309, %173 ]
+  %180 = getelementptr inbounds i8, ptr %1, i64 120
+  store i64 %179, ptr %180, align 8
+  %181 = getelementptr inbounds i8, ptr %1, i64 80
+  store i64 -38, ptr %181, align 8
+  %182 = getelementptr inbounds i8, ptr %160, i64 8
+  %183 = load volatile i64, ptr %182, align 8
+  %184 = and i64 %183, 1
+  %185 = icmp eq i64 %184, 0
+  br i1 %185, label %.thread.thread, label %186, !prof !9
 
-219:                                              ; preds = %211
-  %220 = tail call i32 @__secure_computing(ptr noundef null) #15
-  %221 = icmp eq i32 %220, 0
-  br i1 %221, label %.thread, label %.thread10
+186:                                              ; preds = %178
+  %187 = tail call i32 @__secure_computing(ptr noundef null) #15
+  %188 = icmp eq i32 %187, 0
+  br i1 %188, label %.thread, label %.thread10
 
-.thread:                                          ; preds = %219
-  %.pre = load i64, ptr %213, align 8
-  %222 = icmp eq i64 %.pre, %212
-  br i1 %222, label %.thread.thread, label %227
+.thread:                                          ; preds = %186
+  %.pre = load i64, ptr %180, align 8
+  %189 = icmp eq i64 %.pre, %179
+  br i1 %189, label %.thread.thread, label %194
 
-.thread.thread:                                   ; preds = %211, %.thread
-  %223 = load i64, ptr %38, align 8
-  %224 = icmp eq i64 %223, %2
-  br i1 %224, label %228, label %227
+.thread.thread:                                   ; preds = %178, %.thread
+  %190 = load i64, ptr %38, align 8
+  %191 = icmp eq i64 %190, %2
+  br i1 %191, label %195, label %194
 
-.thread10:                                        ; preds = %219
-  %225 = load i64, ptr %38, align 8
-  %226 = icmp eq i64 %225, %2
-  br i1 %226, label %.thread11, label %227
+.thread10:                                        ; preds = %186
+  %192 = load i64, ptr %38, align 8
+  %193 = icmp eq i64 %192, %2
+  br i1 %193, label %.thread11, label %194
 
 .thread11:                                        ; preds = %.thread10
-  store i64 -1, ptr %213, align 8
-  br label %253
+  store i64 -1, ptr %180, align 8
+  br label %224
 
-227:                                              ; preds = %.thread10, %.thread.thread, %.thread
+194:                                              ; preds = %.thread10, %.thread.thread, %.thread
   tail call fastcc void @warn_bad_vsyscall(ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef nonnull @.str.8)
   tail call void @force_exit_sig(i32 noundef 31) #15
-  br label %257
+  br label %228
 
-228:                                              ; preds = %.thread.thread
-  store i64 -1, ptr %213, align 8
-  %229 = getelementptr inbounds i8, ptr %160, i64 2960
-  %230 = load i8, ptr %229, align 16
-  %231 = and i8 %230, 2
-  %232 = or i8 %230, 2
-  store i8 %232, ptr %229, align 16
-  switch i32 %74, label %default.unreachable [
-    i32 0, label %233
-    i32 1, label %235
-    i32 2, label %237
-    i32 3, label %.thread8
+195:                                              ; preds = %.thread.thread
+  store i64 -1, ptr %180, align 8
+  %196 = getelementptr inbounds i8, ptr %160, i64 2960
+  %197 = load i8, ptr %196, align 16
+  %198 = and i8 %197, 2
+  %199 = or i8 %197, 2
+  store i8 %199, ptr %196, align 16
+  switch i32 %74, label %default.unreachable9 [
+    i32 0, label %200
+    i32 1, label %202
+    i32 2, label %204
   ]
 
-.thread8:                                         ; preds = %228
-  store i8 %230, ptr %229, align 16
+default.unreachable9:                             ; preds = %195
+  unreachable
+
+200:                                              ; preds = %195
+  %201 = tail call i64 @__x64_sys_gettimeofday(ptr noundef %1) #15
+  br label %208
+
+202:                                              ; preds = %195
+  %203 = tail call i64 @__x64_sys_time(ptr noundef %1) #15
+  br label %208
+
+204:                                              ; preds = %195
+  %205 = getelementptr inbounds i8, ptr %1, i64 96
+  %206 = load i64, ptr %205, align 8
+  store i64 0, ptr %205, align 8
+  %207 = tail call i64 @__x64_sys_getcpu(ptr noundef %1) #15
+  store i64 %206, ptr %205, align 8
+  br label %208
+
+208:                                              ; preds = %200, %202, %204
+  %209 = phi i64 [ %207, %204 ], [ %203, %202 ], [ %201, %200 ]
+  %210 = load i8, ptr %196, align 16
+  %211 = and i8 %210, -3
+  %212 = or disjoint i8 %211, %198
+  store i8 %212, ptr %196, align 16
+  %213 = icmp eq i64 %209, -14
+  br i1 %213, label %.thread7, label %223
+
+.thread7.sink.split:                              ; preds = %173, %172, %171, %166, %165
+  %.sink13 = phi i64 [ %162, %165 ], [ %168, %166 ], [ %162, %171 ], [ %162, %172 ], [ %175, %173 ]
+  %.sink = phi ptr [ %163, %165 ], [ %169, %166 ], [ %163, %171 ], [ %163, %172 ], [ %176, %173 ]
+  %214 = getelementptr inbounds i8, ptr %160, i64 2936
+  store i64 6, ptr %214, align 8
+  %215 = getelementptr inbounds i8, ptr %160, i64 2920
+  store i64 %.sink13, ptr %215, align 8
+  %216 = getelementptr inbounds i8, ptr %160, i64 2928
+  store i64 14, ptr %216, align 16
+  %217 = tail call i32 @force_sig_fault(i32 noundef 11, i32 noundef 1, ptr noundef %.sink) #15
   br label %.thread7
 
-233:                                              ; preds = %228
-  %234 = tail call i64 @__x64_sys_gettimeofday(ptr noundef %1) #15
-  br label %241
-
-235:                                              ; preds = %228
-  %236 = tail call i64 @__x64_sys_time(ptr noundef %1) #15
-  br label %241
-
-237:                                              ; preds = %228
-  %238 = getelementptr inbounds i8, ptr %1, i64 96
-  %239 = load i64, ptr %238, align 8
-  store i64 0, ptr %238, align 8
-  %240 = tail call i64 @__x64_sys_getcpu(ptr noundef %1) #15
-  store i64 %239, ptr %238, align 8
-  br label %241
-
-241:                                              ; preds = %233, %235, %237
-  %242 = phi i64 [ %240, %237 ], [ %236, %235 ], [ %234, %233 ]
-  %243 = load i8, ptr %229, align 16
-  %244 = and i8 %243, -3
-  %245 = or disjoint i8 %244, %231
-  store i8 %245, ptr %229, align 16
-  %246 = icmp eq i64 %242, -14
-  br i1 %246, label %.thread7, label %252
-
-.thread7:                                         ; preds = %196, %206, %186, %166, %176, %.thread8, %241
+.thread7:                                         ; preds = %.thread7.sink.split, %208
   tail call fastcc void @warn_bad_vsyscall(ptr noundef nonnull @.str, ptr noundef %1, ptr noundef nonnull @.str.9)
-  %247 = getelementptr inbounds i8, ptr %160, i64 1936
-  %248 = load i64, ptr %247, align 8
-  %249 = and i64 %248, 1088
-  %250 = icmp eq i64 %249, 0
-  br i1 %250, label %251, label %257, !prof !26
+  %218 = getelementptr inbounds i8, ptr %160, i64 1936
+  %219 = load i64, ptr %218, align 8
+  %220 = and i64 %219, 1088
+  %221 = icmp eq i64 %220, 0
+  br i1 %221, label %222, label %228, !prof !26
 
-251:                                              ; preds = %.thread7
+222:                                              ; preds = %.thread7
   tail call void asm sideeffect "471: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 471b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 471) #15, !srcloc !27
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 278, i32 2307, i64 12) #15, !srcloc !28
   tail call void asm sideeffect "472: nop\0A\09.pushsection .discard.instr_end\0A\09.long 472b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 472) #15, !srcloc !29
-  br label %256
+  br label %227
 
-252:                                              ; preds = %241
-  store i64 %242, ptr %214, align 8
-  br label %253
+223:                                              ; preds = %208
+  store i64 %209, ptr %181, align 8
+  br label %224
 
-253:                                              ; preds = %.thread11, %252
+224:                                              ; preds = %.thread11, %223
   store i64 %130, ptr %38, align 8
-  %254 = load i64, ptr %125, align 8
-  %255 = add i64 %254, 8
-  store i64 %255, ptr %125, align 8
-  br label %257
+  %225 = load i64, ptr %125, align 8
+  %226 = add i64 %225, 8
+  store i64 %226, ptr %125, align 8
+  br label %228
 
-256:                                              ; preds = %251, %141, %138, %135, %105, %102, %99
+227:                                              ; preds = %222, %141, %138, %135, %105, %102, %99
   tail call void @force_sig(i32 noundef 11) #15
-  br label %257
+  br label %228
 
-257:                                              ; preds = %256, %253, %.thread7, %227, %51, %48, %45, %18, %15, %9, %3
-  %258 = phi i1 [ true, %256 ], [ true, %227 ], [ true, %253 ], [ false, %3 ], [ false, %9 ], [ true, %.thread7 ], [ false, %15 ], [ false, %18 ], [ false, %45 ], [ false, %48 ], [ false, %51 ]
-  ret i1 %258
+228:                                              ; preds = %227, %224, %.thread7, %194, %51, %48, %45, %18, %15, %9, %3
+  %229 = phi i1 [ true, %227 ], [ true, %194 ], [ true, %224 ], [ false, %3 ], [ false, %9 ], [ true, %.thread7 ], [ false, %15 ], [ false, %18 ], [ false, %45 ], [ false, %48 ], [ false, %51 ]
+  ret i1 %229
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

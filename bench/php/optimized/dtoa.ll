@@ -209,7 +209,7 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %.0102.i.i = phi i32 [ %.1103.i.i, %170 ], [ %113, %lexbor_dec_count.exit.i.i.preheader ]
   %.0100.i.i = phi ptr [ %.1101.i.i, %170 ], [ %.021, %lexbor_dec_count.exit.i.i.preheader ]
   %.099.i.i = phi i32 [ %171, %170 ], [ %.099.i.i.ph, %lexbor_dec_count.exit.i.i.preheader ]
-  switch i32 %.099.i.i, label %lexbor_grisu2.exit [
+  switch i32 %.099.i.i, label %default.unreachable.i.i [
     i32 0, label %.preheader.i.i
     i32 10, label %133
     i32 9, label %136
@@ -431,8 +431,11 @@ lexbor_dec_count.exit.i.i:                        ; preds = %lexbor_dec_count.ex
   %or.cond.i128.i.i = or i1 %245, %.not.i127.i.i
   br i1 %or.cond.i128.i.i, label %lexbor_grisu2.exit, label %236
 
-lexbor_grisu2.exit:                               ; preds = %lexbor_dec_count.exit.i.i, %192, %.critedge2.i.i.i, %239, %.critedge2.i126.i.i, %166, %175, %209, %226
-  %.0.i.i = phi i64 [ %169, %166 ], [ %212, %209 ], [ %180, %175 ], [ %230, %226 ], [ %230, %.critedge2.i126.i.i ], [ %230, %239 ], [ %180, %.critedge2.i.i.i ], [ %180, %192 ], [ 0, %lexbor_dec_count.exit.i.i ]
+default.unreachable.i.i:                          ; preds = %lexbor_dec_count.exit.i.i
+  unreachable
+
+lexbor_grisu2.exit:                               ; preds = %192, %.critedge2.i.i.i, %239, %.critedge2.i126.i.i, %166, %175, %209, %226
+  %.0.i.i = phi i64 [ %169, %166 ], [ %212, %209 ], [ %180, %175 ], [ %230, %226 ], [ %230, %.critedge2.i126.i.i ], [ %230, %239 ], [ %180, %.critedge2.i.i.i ], [ %180, %192 ]
   %247 = load i32, ptr %6, align 4
   %248 = trunc i64 %.0.i.i to i32
   %249 = add nsw i32 %247, %248

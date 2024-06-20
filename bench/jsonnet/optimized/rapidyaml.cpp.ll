@@ -2082,7 +2082,7 @@ define dso_local void @_ZN2c43yml5errorEPKcmNS0_8LocationE(ptr noundef %0, i64 n
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml13normalize_tagENS_15basic_substringIKcEE(ptr %0, i64 %1) local_unnamed_addr #24 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr %0, i64 %1)
-  switch i16 %3, label %default.unreachable [
+  switch i16 %3, label %default.unreachable35 [
     i16 0, label %17
     i16 1, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit19
     i16 2, label %4
@@ -2139,7 +2139,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml13normalize_tagENS_15basic_substringIKc
 16:                                               ; preds = %2
   br label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit19
 
-default.unreachable:                              ; preds = %2
+default.unreachable35:                            ; preds = %2
   unreachable
 
 17:                                               ; preds = %2
@@ -2544,7 +2544,7 @@ switch.lookup:                                    ; preds = %1
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local { ptr, i64 } @_ZN2c43yml18normalize_tag_longENS_15basic_substringIKcEE(ptr %0, i64 %1) local_unnamed_addr #24 personality ptr @__gxx_personality_v0 {
   %3 = tail call noundef zeroext i16 @_ZN2c43yml6to_tagENS_15basic_substringIKcEE(ptr %0, i64 %1)
-  switch i16 %3, label %default.unreachable [
+  switch i16 %3, label %default.unreachable35 [
     i16 0, label %17
     i16 1, label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit19
     i16 2, label %4
@@ -2601,7 +2601,7 @@ define dso_local { ptr, i64 } @_ZN2c43yml18normalize_tag_longENS_15basic_substri
 16:                                               ; preds = %2
   br label %_ZNK2c415basic_substringIKcE11begins_withES2_.exit19
 
-default.unreachable:                              ; preds = %2
+default.unreachable35:                            ; preds = %2
   unreachable
 
 17:                                               ; preds = %2

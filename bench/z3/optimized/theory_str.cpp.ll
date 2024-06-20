@@ -64914,10 +64914,10 @@ if.end274.sink.split:                             ; preds = %if.then.i.i956, %if
   br label %if.end274
 
 if.end274:                                        ; preds = %if.end274.sink.split, %lor.lhs.false.i.i948, %lor.lhs.false.i.i895
-  %.sink2338 = phi i32 [ %239, %lor.lhs.false.i.i895 ], [ %254, %lor.lhs.false.i.i948 ], [ %.pre1.i.i959, %if.end274.sink.split ]
+  %.sink2339 = phi i32 [ %239, %lor.lhs.false.i.i895 ], [ %254, %lor.lhs.false.i.i948 ], [ %.pre1.i.i959, %if.end274.sink.split ]
   %.sink = phi ptr [ %238, %lor.lhs.false.i.i895 ], [ %253, %lor.lhs.false.i.i948 ], [ %.pre.i.i957, %if.end274.sink.split ]
   %call271.sink = phi ptr [ %call259, %lor.lhs.false.i.i895 ], [ %call271, %lor.lhs.false.i.i948 ], [ %call271.sink.ph, %if.end274.sink.split ]
-  %idx.ext.i.i952 = zext i32 %.sink2338 to i64
+  %idx.ext.i.i952 = zext i32 %.sink2339 to i64
   %add.ptr.i.i953 = getelementptr inbounds ptr, ptr %.sink, i64 %idx.ext.i.i952
   store ptr %call271.sink, ptr %add.ptr.i.i953, align 8
   %256 = load ptr, ptr %m_nodes.i.i, align 8
@@ -66197,11 +66197,11 @@ if.end501.sink.split:                             ; preds = %if.then.i.i1401, %i
   br label %if.end501
 
 if.end501:                                        ; preds = %if.end501.sink.split, %lor.lhs.false.i.i1393, %lor.lhs.false.i.i1309
-  %.sink2343 = phi i32 [ %408, %lor.lhs.false.i.i1309 ], [ %434, %lor.lhs.false.i.i1393 ], [ %.pre1.i.i1404, %if.end501.sink.split ]
-  %.sink2342 = phi ptr [ %407, %lor.lhs.false.i.i1309 ], [ %433, %lor.lhs.false.i.i1393 ], [ %.pre.i.i1402, %if.end501.sink.split ]
+  %.sink2344 = phi i32 [ %408, %lor.lhs.false.i.i1309 ], [ %434, %lor.lhs.false.i.i1393 ], [ %.pre1.i.i1404, %if.end501.sink.split ]
+  %.sink2343 = phi ptr [ %407, %lor.lhs.false.i.i1309 ], [ %433, %lor.lhs.false.i.i1393 ], [ %.pre.i.i1402, %if.end501.sink.split ]
   %call498.sink = phi ptr [ %call485, %lor.lhs.false.i.i1309 ], [ %call498, %lor.lhs.false.i.i1393 ], [ %call498.sink.ph, %if.end501.sink.split ]
-  %idx.ext.i.i1397 = zext i32 %.sink2343 to i64
-  %add.ptr.i.i1398 = getelementptr inbounds ptr, ptr %.sink2342, i64 %idx.ext.i.i1397
+  %idx.ext.i.i1397 = zext i32 %.sink2344 to i64
+  %add.ptr.i.i1398 = getelementptr inbounds ptr, ptr %.sink2343, i64 %idx.ext.i.i1397
   store ptr %call498.sink, ptr %add.ptr.i.i1398, align 8
   %436 = load ptr, ptr %m_nodes.i.i1172, align 8
   %arrayidx10.i.i1399 = getelementptr inbounds i8, ptr %436, i64 -4

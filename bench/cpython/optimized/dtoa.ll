@@ -4600,7 +4600,7 @@ if.end85:                                         ; preds = %if.else82, %if.then
   %cmp92 = icmp ult i32 %spec.store.select14, 6
   %sub95 = add nsw i32 %spec.store.select14, -4
   %spec.select = select i1 %cmp92, i32 %spec.store.select14, i32 %sub95
-  switch i32 %spec.select, label %sw.epilog [
+  switch i32 %spec.select, label %default.unreachable [
     i32 0, label %land.lhs.true.i.i
     i32 1, label %land.lhs.true.i.i
     i32 2, label %sw.bb97
@@ -4627,13 +4627,16 @@ sw.bb104:                                         ; preds = %sw.bb103, %if.end85
   %spec.store.select2 = tail call i32 @llvm.smax.i32(i32 %add106, i32 1)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %sw.bb104, %sw.bb98, %if.end85
-  %i.1 = phi i32 [ %i.0, %if.end85 ], [ %spec.store.select2, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
-  %ilim.0 = phi i32 [ -1, %if.end85 ], [ %add106, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
-  %ilim1.0 = phi i32 [ -1, %if.end85 ], [ %add105, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
-  %leftright.2 = phi i32 [ 1, %if.end85 ], [ %leftright.1, %sw.bb104 ], [ %leftright.0, %sw.bb98 ]
-  %ndigits.addr.0 = phi i32 [ %ndigits, %if.end85 ], [ %ndigits, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
-  %conv1.i = zext i32 %i.1 to i64
+default.unreachable:                              ; preds = %if.end85
+  unreachable
+
+sw.epilog:                                        ; preds = %sw.bb104, %sw.bb98
+  %i.1 = phi i32 [ %spec.store.select2, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
+  %ilim.0 = phi i32 [ %add106, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
+  %ilim1.0 = phi i32 [ %add105, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
+  %leftright.2 = phi i32 [ %leftright.1, %sw.bb104 ], [ %leftright.0, %sw.bb98 ]
+  %ndigits.addr.0 = phi i32 [ %ndigits, %sw.bb104 ], [ %spec.store.select, %sw.bb98 ]
+  %conv1.i = zext nneg i32 %i.1 to i64
   %cmp.not8.i = icmp ult i32 %i.1, 28
   br i1 %cmp.not8.i, label %land.lhs.true.i.i, label %for.body.i
 

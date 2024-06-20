@@ -52,7 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.28 = private unnamed_addr constant [3 x i8] c", \00", align 1
 @.str.29 = private unnamed_addr constant [36 x i8] c"invalid parameter list format: \22%s\22\00", align 1
 @__func__.deserialize_deflist = private unnamed_addr constant [20 x i8] c"deserialize_deflist\00", align 1
-@.str.30 = private unnamed_addr constant [43 x i8] c"unrecognized deserialize_deflist state: %d\00", align 1
 @__func__.get_ts_parser_func = private unnamed_addr constant [19 x i8] c"get_ts_parser_func\00", align 1
 @.str.32 = private unnamed_addr constant [34 x i8] c"function %s should return type %s\00", align 1
 @IsUnderPostmaster = external local_unnamed_addr global i8, align 1
@@ -1036,13 +1035,13 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %36 = getelementptr i8, ptr %29, i64 1
   br label %37
 
-37:                                               ; preds = %.lr.ph, %179
-  %.0146 = phi i32 [ 0, %.lr.ph ], [ %.1, %179 ]
-  %.0106145 = phi ptr [ null, %.lr.ph ], [ %.1107, %179 ]
-  %.0108144 = phi ptr [ null, %.lr.ph ], [ %.1109, %179 ]
-  %.0110143 = phi ptr [ null, %.lr.ph ], [ %.1111, %179 ]
-  %.0112142 = phi ptr [ %32, %.lr.ph ], [ %180, %179 ]
-  switch i32 %.0146, label %176 [
+37:                                               ; preds = %.lr.ph, %176
+  %.0146 = phi i32 [ 0, %.lr.ph ], [ %.1, %176 ]
+  %.0106145 = phi ptr [ null, %.lr.ph ], [ %.1107, %176 ]
+  %.0108144 = phi ptr [ null, %.lr.ph ], [ %.1109, %176 ]
+  %.0110143 = phi ptr [ null, %.lr.ph ], [ %.1111, %176 ]
+  %.0112142 = phi ptr [ %32, %.lr.ph ], [ %177, %176 ]
+  switch i32 %.0146, label %default.unreachable [
     i32 0, label %38
     i32 1, label %50
     i32 2, label %65
@@ -1064,15 +1063,15 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %.not131 = icmp ne i16 %45, 0
   %46 = icmp eq i8 %41, 44
   %or.cond133 = or i1 %46, %.not131
-  br i1 %or.cond133, label %179, label %47
+  br i1 %or.cond133, label %176, label %47
 
 47:                                               ; preds = %38
   %48 = icmp eq i8 %41, 34
-  br i1 %48, label %179, label %49
+  br i1 %48, label %176, label %49
 
 49:                                               ; preds = %47
   store i8 %41, ptr %29, align 1
-  br label %179
+  br label %176
 
 50:                                               ; preds = %37
   %51 = tail call ptr @__ctype_b_loc() #13
@@ -1088,7 +1087,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 58:                                               ; preds = %50
   %59 = getelementptr i8, ptr %.0108144, i64 1
   store i8 0, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 60:                                               ; preds = %50
   %61 = icmp eq i8 %53, 61
@@ -1097,11 +1096,11 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 
 63:                                               ; preds = %60
   store i8 0, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 64:                                               ; preds = %60
   store i8 %53, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 65:                                               ; preds = %37
   %66 = load i8, ptr %.0112142, align 1
@@ -1121,22 +1120,22 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 74:                                               ; preds = %71
   %75 = getelementptr i8, ptr %.0108144, i64 1
   store i8 34, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 76:                                               ; preds = %71, %68
   %77 = getelementptr i8, ptr %.0108144, i64 1
   store i8 0, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 78:                                               ; preds = %65
   %79 = getelementptr i8, ptr %.0108144, i64 1
   store i8 %66, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 80:                                               ; preds = %37
   %81 = load i8, ptr %.0112142, align 1
   %82 = icmp eq i8 %81, 61
-  br i1 %82, label %179, label %83
+  br i1 %82, label %176, label %83
 
 83:                                               ; preds = %80
   %84 = tail call ptr @__ctype_b_loc() #13
@@ -1146,7 +1145,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %88 = load i16, ptr %87, align 2
   %89 = and i16 %88, 8192
   %.not129 = icmp eq i16 %89, 0
-  br i1 %.not129, label %90, label %179
+  br i1 %.not129, label %90, label %176
 
 90:                                               ; preds = %83
   %91 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
@@ -1160,7 +1159,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 95:                                               ; preds = %37
   %96 = load i8, ptr %.0112142, align 1
   switch i8 %96, label %.thread [
-    i8 39, label %179
+    i8 39, label %176
     i8 69, label %97
     i8 34, label %.fold.split
   ]
@@ -1173,7 +1172,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 100:                                              ; preds = %97
   %101 = load i8, ptr %98, align 1
   %102 = icmp eq i8 %101, 39
-  br i1 %102, label %179, label %.thread
+  br i1 %102, label %176, label %.thread
 
 .thread:                                          ; preds = %95, %97, %100
   %103 = tail call ptr @__ctype_b_loc() #13
@@ -1183,12 +1182,12 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %107 = load i16, ptr %106, align 2
   %108 = and i16 %107, 8192
   %.not128 = icmp eq i16 %108, 0
-  br i1 %.not128, label %109, label %179
+  br i1 %.not128, label %109, label %176
 
 109:                                              ; preds = %.thread
   %110 = getelementptr i8, ptr %.0108144, i64 1
   store i8 %96, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 111:                                              ; preds = %37
   %112 = load i8, ptr %.0112142, align 1
@@ -1210,7 +1209,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 119:                                              ; preds = %116
   %120 = getelementptr i8, ptr %.0108144, i64 1
   store i8 39, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 121:                                              ; preds = %116, %113
   %122 = getelementptr i8, ptr %.0108144, i64 1
@@ -1220,7 +1219,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %125 = tail call ptr @makeString(ptr noundef %124) #10
   %126 = tail call ptr @makeDefElem(ptr noundef %123, ptr noundef %125, i32 noundef -1) #10
   %127 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %126) #10
-  br label %179
+  br label %176
 
 128:                                              ; preds = %111
   %129 = getelementptr i8, ptr %.0112142, i64 1
@@ -1235,17 +1234,17 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 134:                                              ; preds = %131
   %135 = getelementptr i8, ptr %.0108144, i64 1
   store i8 92, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 136:                                              ; preds = %131, %128
   %137 = getelementptr i8, ptr %.0108144, i64 1
   store i8 92, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 138:                                              ; preds = %111
   %139 = getelementptr i8, ptr %.0108144, i64 1
   store i8 %112, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 140:                                              ; preds = %37
   %141 = load i8, ptr %.0112142, align 1
@@ -1265,7 +1264,7 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
 149:                                              ; preds = %146
   %150 = getelementptr i8, ptr %.0108144, i64 1
   store i8 34, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 151:                                              ; preds = %146, %143
   %152 = getelementptr i8, ptr %.0108144, i64 1
@@ -1275,12 +1274,12 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   %155 = tail call ptr @makeString(ptr noundef %154) #10
   %156 = tail call ptr @makeDefElem(ptr noundef %153, ptr noundef %155, i32 noundef -1) #10
   %157 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %156) #10
-  br label %179
+  br label %176
 
 158:                                              ; preds = %140
   %159 = getelementptr i8, ptr %.0108144, i64 1
   store i8 %141, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
 160:                                              ; preds = %37
   %161 = load i8, ptr %.0112142, align 1
@@ -1302,56 +1301,52 @@ define dso_local ptr @deserialize_deflist(i64 noundef %0) local_unnamed_addr #0 
   store i8 0, ptr %.0108144, align 1
   %172 = tail call fastcc ptr @buildDefItem(ptr noundef %29, ptr noundef %.0106145, i1 noundef zeroext false)
   %173 = tail call ptr @lappend(ptr noundef %.0110143, ptr noundef %172) #10
-  br label %179
+  br label %176
 
 174:                                              ; preds = %163
   %175 = getelementptr i8, ptr %.0108144, i64 1
   store i8 %161, ptr %.0108144, align 1
-  br label %179
+  br label %176
 
-176:                                              ; preds = %37
-  %177 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %177)
-  %178 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.30, i32 noundef %.0146) #10
-  tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1807, ptr noundef nonnull @__func__.deserialize_deflist) #10
+default.unreachable:                              ; preds = %37
   unreachable
 
 .fold.split:                                      ; preds = %95
-  br label %179
+  br label %176
 
-179:                                              ; preds = %95, %.fold.split, %100, %80, %47, %49, %63, %64, %58, %74, %76, %78, %83, %.thread, %109, %138, %136, %134, %119, %121, %149, %151, %158, %174, %170, %38
+176:                                              ; preds = %95, %.fold.split, %100, %80, %47, %49, %63, %64, %58, %74, %76, %78, %83, %.thread, %109, %138, %136, %134, %119, %121, %149, %151, %158, %174, %170, %38
   %.1113 = phi ptr [ %.0112142, %170 ], [ %.0112142, %174 ], [ %144, %149 ], [ %.0112142, %151 ], [ %.0112142, %158 ], [ %114, %119 ], [ %.0112142, %121 ], [ %129, %134 ], [ %.0112142, %136 ], [ %.0112142, %138 ], [ %.0112142, %.thread ], [ %.0112142, %109 ], [ %.0112142, %83 ], [ %69, %74 ], [ %.0112142, %76 ], [ %.0112142, %78 ], [ %.0112142, %58 ], [ %.0112142, %63 ], [ %.0112142, %64 ], [ %.0112142, %38 ], [ %.0112142, %49 ], [ %.0112142, %47 ], [ %.0112142, %80 ], [ %.0112142, %95 ], [ %98, %100 ], [ %.0112142, %.fold.split ]
   %.1111 = phi ptr [ %173, %170 ], [ %.0110143, %174 ], [ %.0110143, %149 ], [ %157, %151 ], [ %.0110143, %158 ], [ %.0110143, %119 ], [ %127, %121 ], [ %.0110143, %134 ], [ %.0110143, %136 ], [ %.0110143, %138 ], [ %.0110143, %.thread ], [ %.0110143, %109 ], [ %.0110143, %83 ], [ %.0110143, %74 ], [ %.0110143, %76 ], [ %.0110143, %78 ], [ %.0110143, %58 ], [ %.0110143, %63 ], [ %.0110143, %64 ], [ %.0110143, %38 ], [ %.0110143, %49 ], [ %.0110143, %47 ], [ %.0110143, %80 ], [ %.0110143, %95 ], [ %.0110143, %100 ], [ %.0110143, %.fold.split ]
   %.1109 = phi ptr [ %171, %170 ], [ %175, %174 ], [ %150, %149 ], [ %152, %151 ], [ %159, %158 ], [ %120, %119 ], [ %122, %121 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %.0108144, %.thread ], [ %110, %109 ], [ %.0108144, %83 ], [ %75, %74 ], [ %77, %76 ], [ %79, %78 ], [ %59, %58 ], [ %62, %63 ], [ %62, %64 ], [ %.0108144, %38 ], [ %36, %49 ], [ %29, %47 ], [ %.0108144, %80 ], [ %.0108144, %95 ], [ %.0108144, %100 ], [ %.0108144, %.fold.split ]
   %.1107 = phi ptr [ %.0106145, %170 ], [ %.0106145, %174 ], [ %.0106145, %149 ], [ %.0106145, %151 ], [ %.0106145, %158 ], [ %.0106145, %119 ], [ %.0106145, %121 ], [ %.0106145, %134 ], [ %.0106145, %136 ], [ %.0106145, %138 ], [ %.0106145, %.thread ], [ %.0108144, %109 ], [ %.0106145, %83 ], [ %.0106145, %74 ], [ %.0106145, %76 ], [ %.0106145, %78 ], [ %.0106145, %58 ], [ %.0106145, %63 ], [ %.0106145, %64 ], [ %.0106145, %38 ], [ %.0106145, %49 ], [ %.0106145, %47 ], [ %.0106145, %80 ], [ %.0108144, %95 ], [ %.0108144, %100 ], [ %.0108144, %.fold.split ]
   %.1 = phi i32 [ 0, %170 ], [ 7, %174 ], [ 6, %149 ], [ 0, %151 ], [ 6, %158 ], [ 5, %119 ], [ 0, %121 ], [ 5, %134 ], [ 5, %136 ], [ 5, %138 ], [ 4, %.thread ], [ 7, %109 ], [ 3, %83 ], [ 2, %74 ], [ 3, %76 ], [ 2, %78 ], [ 3, %58 ], [ 4, %63 ], [ 1, %64 ], [ 0, %38 ], [ 1, %49 ], [ 2, %47 ], [ 4, %80 ], [ 5, %95 ], [ 5, %100 ], [ 6, %.fold.split ]
-  %180 = getelementptr i8, ptr %.1113, i64 1
-  %181 = icmp ult ptr %180, %34
-  br i1 %181, label %37, label %._crit_edge, !llvm.loop !8
+  %177 = getelementptr i8, ptr %.1113, i64 1
+  %178 = icmp ult ptr %177, %34
+  br i1 %178, label %37, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %179
-  switch i32 %.1, label %185 [
-    i32 7, label %182
+._crit_edge:                                      ; preds = %176
+  switch i32 %.1, label %182 [
+    i32 7, label %179
     i32 0, label %._crit_edge.thread
   ]
 
-182:                                              ; preds = %._crit_edge
+179:                                              ; preds = %._crit_edge
   store i8 0, ptr %.1109, align 1
-  %183 = tail call fastcc ptr @buildDefItem(ptr noundef %29, ptr noundef %.1107, i1 noundef zeroext false)
-  %184 = tail call ptr @lappend(ptr noundef %.1111, ptr noundef %183) #10
+  %180 = tail call fastcc ptr @buildDefItem(ptr noundef %29, ptr noundef %.1107, i1 noundef zeroext false)
+  %181 = tail call ptr @lappend(ptr noundef %.1111, ptr noundef %180) #10
   br label %._crit_edge.thread
 
-185:                                              ; preds = %._crit_edge
-  %186 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  tail call void @llvm.assume(i1 %186)
-  %187 = tail call i32 @errcode(i32 noundef 16801924) #10
-  %188 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #10
-  %189 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %188) #10
+182:                                              ; preds = %._crit_edge
+  %183 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
+  tail call void @llvm.assume(i1 %183)
+  %184 = tail call i32 @errcode(i32 noundef 16801924) #10
+  %185 = tail call ptr @text_to_cstring(ptr noundef nonnull %3) #10
+  %186 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.29, ptr noundef %185) #10
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1823, ptr noundef nonnull @__func__.deserialize_deflist) #10
   unreachable
 
-._crit_edge.thread:                               ; preds = %25, %._crit_edge, %182
-  %.2 = phi ptr [ %184, %182 ], [ %.1111, %._crit_edge ], [ null, %25 ]
+._crit_edge.thread:                               ; preds = %25, %._crit_edge, %179
+  %.2 = phi ptr [ %181, %179 ], [ %.1111, %._crit_edge ], [ null, %25 ]
   tail call void @pfree(ptr noundef %29) #10
   ret ptr %.2
 }

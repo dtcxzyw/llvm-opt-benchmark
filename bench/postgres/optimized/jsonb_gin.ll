@@ -1799,7 +1799,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
   %43 = phi i32 [ %40, %39 ], [ %37, %36 ]
   %.046 = phi ptr [ %8, %39 ], [ %9, %36 ]
   %.0.sroa.phi61 = phi ptr [ %.0.sroa.gep54, %39 ], [ %.0.sroa.gep53, %36 ]
-  switch i32 %43, label %.unreachabledefault [
+  switch i32 %43, label %default.unreachable [
     i32 0, label %44
     i32 3, label %45
     i32 2, label %51
@@ -1838,7 +1838,7 @@ define internal fastcc ptr @extract_jsp_bool_expr(ptr noundef %0, ptr %1, ptr no
   store i32 %59, ptr %56, align 8
   br label %60
 
-.unreachabledefault:                              ; preds = %42
+default.unreachable:                              ; preds = %42
   unreachable
 
 60:                                               ; preds = %54, %51, %45, %44

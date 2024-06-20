@@ -4942,7 +4942,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24: ; preds = %66
 74:                                               ; preds = %70
   call void @_ZNK20QGraphicsPolygonItem7polygonEv(ptr dead_on_unwind nonnull writable sret(%class.QPolygonF) align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %0)
   invoke void @_ZNK9QPolygonF12boundingRectEv(ptr dead_on_unwind nonnull writable sret(%class.QRectF) align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-          to label %75 unwind label %113
+          to label %75 unwind label %114
 
 75:                                               ; preds = %74
   %76 = load ptr, ptr %6, align 8
@@ -4990,36 +4990,36 @@ _ZN9QPolygonFD2Ev.exit30:                         ; preds = %75, %_ZN17QArrayDat
   %106 = sdiv i32 %105, 3
   %107 = sitofp i32 %106 to double
   %108 = fmul double %107, 5.000000e-01
+  %109 = getelementptr inbounds i8, ptr %5, i64 16
   %.sroa.26.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 8
-  %109 = getelementptr inbounds i8, ptr %7, i64 16
+  %110 = getelementptr inbounds i8, ptr %7, i64 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %7, i64 24
-  %110 = getelementptr inbounds i8, ptr %5, i64 16
   br label %111
 
-111:                                              ; preds = %_ZN9QPolygonFD2Ev.exit30, %169
-  %indvars.iv50 = phi i64 [ 0, %_ZN9QPolygonFD2Ev.exit30 ], [ %indvars.iv.next51, %169 ]
+111:                                              ; preds = %_ZN9QPolygonFD2Ev.exit30, %166
+  %indvars.iv50 = phi i64 [ 0, %_ZN9QPolygonFD2Ev.exit30 ], [ %indvars.iv.next51, %166 ]
   %112 = trunc nuw nsw i64 %indvars.iv50 to i32
-  switch i32 %112, label %169 [
-    i32 0, label %117
+  %113 = load double, ptr %5, align 8
+  switch i32 %112, label %default.unreachable [
+    i32 0, label %118
     i32 1, label %129
-    i32 2, label %141
-    i32 3, label %155
+    i32 2, label %140
+    i32 3, label %153
   ]
 
-113:                                              ; preds = %74
-  %114 = landingpad { ptr, i32 }
+114:                                              ; preds = %74
+  %115 = landingpad { ptr, i32 }
           cleanup
-  %115 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i33 = icmp eq ptr %115, null
+  %116 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i33 = icmp eq ptr %116, null
   br i1 %.not.i.i.i.i33, label %_ZN9QPolygonFD2Ev.exit26, label %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34
 
-_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34: ; preds = %113
-  %116 = atomicrmw sub ptr %115, i32 1 seq_cst, align 4
-  %.not.i.i.i35 = icmp eq i32 %116, 1
+_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34: ; preds = %114
+  %117 = atomicrmw sub ptr %116, i32 1 seq_cst, align 4
+  %.not.i.i.i35 = icmp eq i32 %117, 1
   br i1 %.not.i.i.i35, label %_ZN9QPolygonFD2Ev.exit26.sink.split, label %_ZN9QPolygonFD2Ev.exit26
 
-117:                                              ; preds = %111
-  %118 = load double, ptr %5, align 8
+118:                                              ; preds = %111
   %119 = load ptr, ptr %9, align 8
   %120 = getelementptr inbounds i8, ptr %119, i64 72
   %121 = load i32, ptr %120, align 8
@@ -5030,90 +5030,90 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34: ; preds = %113
   %126 = fptosi double %125 to i32
   %127 = sitofp i32 %126 to double
   %128 = fsub double %101, %127
-  br label %169
+  br label %166
 
 129:                                              ; preds = %111
-  %130 = load double, ptr %5, align 8
-  %131 = load ptr, ptr %9, align 8
-  %132 = getelementptr inbounds i8, ptr %131, i64 72
-  %133 = load i32, ptr %132, align 8
-  %134 = sitofp i32 %133 to double
-  %135 = getelementptr inbounds i8, ptr %131, i64 32
-  %136 = load double, ptr %135, align 8
-  %137 = fmul double %136, %134
-  %138 = fptosi double %137 to i32
-  %139 = sitofp i32 %138 to double
-  %140 = fadd double %101, %139
-  br label %169
+  %130 = load ptr, ptr %9, align 8
+  %131 = getelementptr inbounds i8, ptr %130, i64 72
+  %132 = load i32, ptr %131, align 8
+  %133 = sitofp i32 %132 to double
+  %134 = getelementptr inbounds i8, ptr %130, i64 32
+  %135 = load double, ptr %134, align 8
+  %136 = fmul double %135, %133
+  %137 = fptosi double %136 to i32
+  %138 = sitofp i32 %137 to double
+  %139 = fadd double %101, %138
+  br label %166
 
-141:                                              ; preds = %111
-  %142 = load double, ptr %5, align 8
-  %143 = load double, ptr %110, align 8
-  %144 = fadd double %142, %143
-  %145 = load ptr, ptr %9, align 8
-  %146 = getelementptr inbounds i8, ptr %145, i64 72
-  %147 = load i32, ptr %146, align 8
-  %148 = sitofp i32 %147 to double
-  %149 = getelementptr inbounds i8, ptr %145, i64 32
-  %150 = load double, ptr %149, align 8
-  %151 = fmul double %150, %148
-  %152 = fptosi double %151 to i32
-  %153 = sitofp i32 %152 to double
-  %154 = fsub double %101, %153
-  br label %169
+140:                                              ; preds = %111
+  %141 = load double, ptr %109, align 8
+  %142 = fadd double %113, %141
+  %143 = load ptr, ptr %9, align 8
+  %144 = getelementptr inbounds i8, ptr %143, i64 72
+  %145 = load i32, ptr %144, align 8
+  %146 = sitofp i32 %145 to double
+  %147 = getelementptr inbounds i8, ptr %143, i64 32
+  %148 = load double, ptr %147, align 8
+  %149 = fmul double %148, %146
+  %150 = fptosi double %149 to i32
+  %151 = sitofp i32 %150 to double
+  %152 = fsub double %101, %151
+  br label %166
 
-155:                                              ; preds = %111
-  %156 = load double, ptr %5, align 8
-  %157 = load double, ptr %110, align 8
-  %158 = fadd double %156, %157
-  %159 = load ptr, ptr %9, align 8
-  %160 = getelementptr inbounds i8, ptr %159, i64 72
-  %161 = load i32, ptr %160, align 8
-  %162 = sitofp i32 %161 to double
-  %163 = getelementptr inbounds i8, ptr %159, i64 32
-  %164 = load double, ptr %163, align 8
-  %165 = fmul double %164, %162
-  %166 = fptosi double %165 to i32
-  %167 = sitofp i32 %166 to double
-  %168 = fadd double %101, %167
-  br label %169
+153:                                              ; preds = %111
+  %154 = load double, ptr %109, align 8
+  %155 = fadd double %113, %154
+  %156 = load ptr, ptr %9, align 8
+  %157 = getelementptr inbounds i8, ptr %156, i64 72
+  %158 = load i32, ptr %157, align 8
+  %159 = sitofp i32 %158 to double
+  %160 = getelementptr inbounds i8, ptr %156, i64 32
+  %161 = load double, ptr %160, align 8
+  %162 = fmul double %161, %159
+  %163 = fptosi double %162 to i32
+  %164 = sitofp i32 %163 to double
+  %165 = fadd double %101, %164
+  br label %166
 
-169:                                              ; preds = %155, %141, %129, %117, %111
-  %.sroa.6.1 = phi double [ 0.000000e+00, %111 ], [ %168, %155 ], [ %154, %141 ], [ %140, %129 ], [ %128, %117 ]
-  %.sroa.043.1 = phi double [ 0.000000e+00, %111 ], [ %158, %155 ], [ %144, %141 ], [ %130, %129 ], [ %118, %117 ]
-  %170 = getelementptr [4 x ptr], ptr %62, i64 0, i64 %indvars.iv50
-  %171 = load ptr, ptr %170, align 8
-  %172 = fsub double %.sroa.043.1, %107
-  %173 = fadd double %108, %.sroa.6.1
-  %174 = fadd double %.sroa.043.1, %107
-  %175 = fsub double %.sroa.6.1, %108
-  store double %172, ptr %7, align 8, !alias.scope !55
-  store double %173, ptr %.sroa.26.0..sroa_idx.i, align 8, !alias.scope !55
-  store double %174, ptr %109, align 8, !alias.scope !55
-  store double %175, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !55
-  call void @_ZN17QGraphicsLineItem7setLineERK6QLineF(ptr noundef nonnull align 8 dereferenceable(16) %171, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  %176 = load ptr, ptr %170, align 8
-  %177 = call noundef double @_ZNK13QGraphicsItem6zValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  %178 = fadd double %177, -1.000000e-01
-  call void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %176, double noundef %178)
-  %179 = load ptr, ptr %170, align 8
-  call void @_ZN13QGraphicsItem10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %179, i1 noundef zeroext true)
+default.unreachable:                              ; preds = %111
+  unreachable
+
+166:                                              ; preds = %153, %140, %129, %118
+  %.sroa.6.1 = phi double [ %165, %153 ], [ %152, %140 ], [ %139, %129 ], [ %128, %118 ]
+  %.sroa.043.1 = phi double [ %155, %153 ], [ %142, %140 ], [ %113, %129 ], [ %113, %118 ]
+  %167 = getelementptr [4 x ptr], ptr %62, i64 0, i64 %indvars.iv50
+  %168 = load ptr, ptr %167, align 8
+  %169 = fsub double %.sroa.043.1, %107
+  %170 = fadd double %108, %.sroa.6.1
+  %171 = fadd double %.sroa.043.1, %107
+  %172 = fsub double %.sroa.6.1, %108
+  store double %169, ptr %7, align 8, !alias.scope !55
+  store double %170, ptr %.sroa.26.0..sroa_idx.i, align 8, !alias.scope !55
+  store double %171, ptr %110, align 8, !alias.scope !55
+  store double %172, ptr %.sroa.2.0..sroa_idx.i, align 8, !alias.scope !55
+  call void @_ZN17QGraphicsLineItem7setLineERK6QLineF(ptr noundef nonnull align 8 dereferenceable(16) %168, ptr noundef nonnull align 8 dereferenceable(32) %7)
+  %173 = load ptr, ptr %167, align 8
+  %174 = call noundef double @_ZNK13QGraphicsItem6zValueEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
+  %175 = fadd double %174, -1.000000e-01
+  call void @_ZN13QGraphicsItem9setZValueEd(ptr noundef nonnull align 8 dereferenceable(16) %173, double noundef %175)
+  %176 = load ptr, ptr %167, align 8
+  call void @_ZN13QGraphicsItem10setVisibleEb(ptr noundef nonnull align 8 dereferenceable(16) %176, i1 noundef zeroext true)
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %exitcond53.not = icmp eq i64 %indvars.iv.next51, 4
   br i1 %exitcond53.not, label %.loopexit, label %111, !llvm.loop !58
 
-.loopexit:                                        ; preds = %169, %70
+.loopexit:                                        ; preds = %166, %70
   ret void
 
 _ZN9QPolygonFD2Ev.exit26.sink.split:              ; preds = %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24
   %.sink.in = phi ptr [ %3, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %6, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
-  %.pn.ph = phi { ptr, i32 } [ %67, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %114, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
+  %.pn.ph = phi { ptr, i32 } [ %67, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %115, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ]
   %.sink = load ptr, ptr %.sink.in, align 8
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %.sink, i64 noundef 16, i64 noundef 8) #17
   br label %_ZN9QPolygonFD2Ev.exit26
 
-_ZN9QPolygonFD2Ev.exit26:                         ; preds = %_ZN9QPolygonFD2Ev.exit26.sink.split, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %113, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24, %66
-  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %67, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %114, %113 ], [ %114, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ], [ %.pn.ph, %_ZN9QPolygonFD2Ev.exit26.sink.split ]
+_ZN9QPolygonFD2Ev.exit26:                         ; preds = %_ZN9QPolygonFD2Ev.exit26.sink.split, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34, %114, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24, %66
+  %.pn = phi { ptr, i32 } [ %67, %66 ], [ %67, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i24 ], [ %115, %114 ], [ %115, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i34 ], [ %.pn.ph, %_ZN9QPolygonFD2Ev.exit26.sink.split ]
   resume { ptr, i32 } %.pn
 }
 

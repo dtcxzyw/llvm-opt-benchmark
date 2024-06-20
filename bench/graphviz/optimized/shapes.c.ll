@@ -214,8 +214,6 @@ target triple = "x86_64-pc-linux-gnu"
 @star_gen = internal global %struct.poly_desc_t { ptr @star_size, ptr @star_vertices }, align 8
 @Lib = external local_unnamed_addr global ptr, align 8
 @.str.106 = private unnamed_addr constant [31 x i8] c"using %s for unknown shape %s\0A\00", align 1
-@.str.107 = private unnamed_addr constant [44 x i8] c"%s:%d: claimed unreachable code was reached\00", align 1
-@.str.108 = private unnamed_addr constant [115 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/common/shapes.c\00", align 1
 @side_port = internal unnamed_addr constant [4 x ptr] [ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112], align 16
 @.str.109 = private unnamed_addr constant [2 x i8] c"s\00", align 1
 @.str.110 = private unnamed_addr constant [2 x i8] c"e\00", align 1
@@ -4637,16 +4635,16 @@ cvtPt.exit70.i:                                   ; preds = %47, %37, %26, %cvtP
   %78 = load double, ptr %77, align 8
   %79 = fneg double %78
   %..i = select i1 %.not57.i, double %79, double %76
-  %.97.i = select i1 %.not57.i, double %76, double %79
-  %.98.i = select i1 %.not57.i, double %78, double %75
-  %.99.i = select i1 %.not57.i, double %75, double %78
+  %.98.i = select i1 %.not57.i, double %76, double %79
+  %.99.i = select i1 %.not57.i, double %78, double %75
+  %.100.i = select i1 %.not57.i, double %75, double %78
   br label %80
 
 80:                                               ; preds = %65, %64
   %.sroa.026.0.i = phi double [ %.sroa.026.0.copyload.i, %64 ], [ %..i, %65 ]
-  %.sroa.6.0.i = phi double [ %.sroa.6.0.copyload.i, %64 ], [ %.97.i, %65 ]
-  %.sroa.11.0.i = phi double [ %.sroa.11.0.copyload.i, %64 ], [ %.98.i, %65 ]
-  %.sroa.18.0.i = phi double [ %.sroa.18.0.copyload.i, %64 ], [ %.99.i, %65 ]
+  %.sroa.6.0.i = phi double [ %.sroa.6.0.copyload.i, %64 ], [ %.98.i, %65 ]
+  %.sroa.11.0.i = phi double [ %.sroa.11.0.copyload.i, %64 ], [ %.99.i, %65 ]
+  %.sroa.18.0.i = phi double [ %.sroa.18.0.copyload.i, %64 ], [ %.100.i, %65 ]
   %81 = fadd double %.sroa.6.0.i, %.sroa.18.0.i
   %82 = fmul double %81, 5.000000e-01
   %83 = fadd double %.sroa.026.0.i, %.sroa.11.0.i
@@ -4661,78 +4659,75 @@ cvtPt.exit70.i:                                   ; preds = %47, %37, %26, %cvtP
   %92 = insertelement <2 x double> %91, double %.sroa.18.0.i, i64 1
   br label %93
 
-93:                                               ; preds = %116, %80
-  %indvars.iv.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i, %116 ]
-  %.075.i = phi i32 [ 0, %80 ], [ %.1.i, %116 ]
-  %.05373.i = phi ptr [ null, %80 ], [ %.154.i, %116 ]
+93:                                               ; preds = %113, %80
+  %indvars.iv.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i, %113 ]
+  %.075.i = phi i32 [ 0, %80 ], [ %.1.i, %113 ]
+  %.05373.i = phi ptr [ null, %80 ], [ %.154.i, %113 ]
   %94 = trunc nuw nsw i64 %indvars.iv.i to i32
   %95 = shl nuw nsw i32 1, %94
   %96 = and i32 %95, %60
   %97 = icmp eq i32 %96, 0
-  br i1 %97, label %116, label %98
+  br i1 %97, label %113, label %98
 
 98:                                               ; preds = %93
-  switch i32 %94, label %102 [
-    i32 0, label %105
+  switch i32 %94, label %default.unreachable.i [
+    i32 0, label %102
     i32 1, label %99
     i32 2, label %100
     i32 3, label %101
   ]
 
 99:                                               ; preds = %98
-  br label %105
+  br label %102
 
 100:                                              ; preds = %98
-  br label %105
+  br label %102
 
 101:                                              ; preds = %98
-  br label %105
+  br label %102
 
-102:                                              ; preds = %98
-  %103 = load ptr, ptr @stderr, align 8
-  %104 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %103, ptr noundef nonnull @.str.107, ptr noundef nonnull @.str.108, i32 noundef 4265) #27
-  tail call void @abort() #31
+default.unreachable.i:                            ; preds = %98
   unreachable
 
-105:                                              ; preds = %101, %100, %99, %98
-  %106 = phi <2 x double> [ %87, %101 ], [ %92, %100 ], [ %89, %99 ], [ %91, %98 ]
-  %107 = fptosi <2 x double> %106 to <2 x i32>
-  %108 = add <2 x i32> %85, %107
-  %109 = mul nsw <2 x i32> %108, %108
-  %shift = shufflevector <2 x i32> %109, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
-  %110 = add nuw nsw <2 x i32> %109, %shift
-  %111 = extractelement <2 x i32> %110, i64 0
+102:                                              ; preds = %101, %100, %99, %98
+  %103 = phi <2 x double> [ %87, %101 ], [ %92, %100 ], [ %89, %99 ], [ %91, %98 ]
+  %104 = fptosi <2 x double> %103 to <2 x i32>
+  %105 = add <2 x i32> %85, %104
+  %106 = mul nsw <2 x i32> %105, %105
+  %shift = shufflevector <2 x i32> %106, <2 x i32> poison, <2 x i32> <i32 1, i32 poison>
+  %107 = add nuw nsw <2 x i32> %106, %shift
+  %108 = extractelement <2 x i32> %107, i64 0
   %.not58.i = icmp eq ptr %.05373.i, null
-  %112 = icmp slt i32 %111, %.075.i
-  %or.cond.i = select i1 %.not58.i, i1 true, i1 %112
-  br i1 %or.cond.i, label %113, label %116
+  %109 = icmp slt i32 %108, %.075.i
+  %or.cond.i = select i1 %.not58.i, i1 true, i1 %109
+  br i1 %or.cond.i, label %110, label %113
 
-113:                                              ; preds = %105
-  %114 = getelementptr inbounds [4 x ptr], ptr @side_port, i64 0, i64 %indvars.iv.i
-  %115 = load ptr, ptr %114, align 8
-  br label %116
+110:                                              ; preds = %102
+  %111 = getelementptr inbounds [4 x ptr], ptr @side_port, i64 0, i64 %indvars.iv.i
+  %112 = load ptr, ptr %111, align 8
+  br label %113
 
-116:                                              ; preds = %113, %105, %93
-  %.154.i = phi ptr [ %.05373.i, %93 ], [ %115, %113 ], [ %.05373.i, %105 ]
-  %.1.i = phi i32 [ %.075.i, %93 ], [ %111, %113 ], [ %.075.i, %105 ]
+113:                                              ; preds = %110, %102, %93
+  %.154.i = phi ptr [ %.05373.i, %93 ], [ %112, %110 ], [ %.05373.i, %102 ]
+  %.1.i = phi i32 [ %.075.i, %93 ], [ %108, %110 ], [ %.075.i, %102 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %closestSide.exit.loopexit, label %93
 
-closestSide.exit.loopexit:                        ; preds = %116
+closestSide.exit.loopexit:                        ; preds = %113
   %.pre = load i8, ptr %58, align 1
   br label %closestSide.exit
 
 closestSide.exit:                                 ; preds = %closestSide.exit.loopexit, %cvtPt.exit70.i, %cvtPt.exit70.i
-  %117 = phi i8 [ %59, %cvtPt.exit70.i ], [ %59, %cvtPt.exit70.i ], [ %.pre, %closestSide.exit.loopexit ]
+  %114 = phi i8 [ %59, %cvtPt.exit70.i ], [ %59, %cvtPt.exit70.i ], [ %.pre, %closestSide.exit.loopexit ]
   %.051.i = phi ptr [ null, %cvtPt.exit70.i ], [ null, %cvtPt.exit70.i ], [ %.154.i, %closestSide.exit.loopexit ]
-  %118 = getelementptr inbounds i8, ptr %3, i64 40
+  %115 = getelementptr inbounds i8, ptr %3, i64 40
+  %116 = load ptr, ptr %115, align 8
+  %117 = getelementptr inbounds i8, ptr %0, i64 40
+  store ptr %116, ptr %117, align 8
+  %118 = getelementptr inbounds i8, ptr %3, i64 24
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr %119, ptr %120, align 8
-  %121 = getelementptr inbounds i8, ptr %3, i64 24
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call fastcc i32 @compassPort(ptr noundef %1, ptr noundef %122, ptr noundef %0, ptr noundef %.051.i, i8 noundef zeroext %117, ptr noundef null)
+  %120 = tail call fastcc i32 @compassPort(ptr noundef %1, ptr noundef %119, ptr noundef %0, ptr noundef %.051.i, i8 noundef zeroext %114, ptr noundef null)
   ret void
 }
 
@@ -9128,9 +9123,6 @@ define internal void @star_vertices(ptr nocapture noundef writeonly %0, ptr noca
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare noalias noundef ptr @realloc(ptr allocptr nocapture noundef, i64 noundef) local_unnamed_addr #22
-
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { double, double } @compassPoint(ptr noundef %0, double noundef %1, double noundef %2) unnamed_addr #0 {

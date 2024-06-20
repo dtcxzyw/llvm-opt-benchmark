@@ -1420,7 +1420,7 @@ define internal fastcc noundef ptr @hwloc__memattr_get_initiator_from_location(p
 
 5:                                                ; preds = %2
   %6 = load i32, ptr %1, align 8
-  switch i32 %6, label %19 [
+  switch i32 %6, label %15 [
     i32 1, label %7
     i32 0, label %12
   ]
@@ -1429,67 +1429,74 @@ define internal fastcc noundef ptr @hwloc__memattr_get_initiator_from_location(p
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
   %.not14.i = icmp eq ptr %9, null
-  br i1 %.not14.i, label %19, label %10
+  br i1 %.not14.i, label %15, label %10
 
 10:                                               ; preds = %7
   %11 = tail call i32 @hwloc_bitmap_iszero(ptr noundef nonnull %9) #28
   %.not15.i = icmp eq i32 %11, 0
-  br i1 %.not15.i, label %to_internal_location.exit, label %19
+  br i1 %.not15.i, label %to_internal_location.exit, label %15
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %19, label %15
+  br i1 %.not.i, label %15, label %to_internal_location.exit.thread
 
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds i8, ptr %14, i64 240
-  %17 = load i64, ptr %16, align 8
-  %18 = load i32, ptr %14, align 8
-  br label %to_internal_location.exit
-
-19:                                               ; preds = %5, %12, %7, %10
-  %20 = tail call ptr @__errno_location() #29
-  store i32 22, ptr %20, align 4
+15:                                               ; preds = %5, %12, %7, %10
+  %16 = tail call ptr @__errno_location() #29
+  store i32 22, ptr %16, align 4
   br label %hwloc__memattr_target_get_initiator.exit.sink.split
 
-to_internal_location.exit:                        ; preds = %15, %10
-  %.sroa.4.0 = phi i64 [ %17, %15 ], [ undef, %10 ]
-  %.sroa.2.0 = phi ptr [ undef, %15 ], [ %9, %10 ]
-  %.sroa.6.0 = phi i32 [ %18, %15 ], [ undef, %10 ]
-  %21 = getelementptr inbounds i8, ptr %0, i64 32
-  %22 = load i32, ptr %21, align 8
-  %.not51.i = icmp eq i32 %22, 0
+to_internal_location.exit:                        ; preds = %10
+  %17 = getelementptr inbounds i8, ptr %0, i64 32
+  %18 = load i32, ptr %17, align 8
+  %.not51.i = icmp eq i32 %18, 0
   br i1 %.not51.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %to_internal_location.exit
-  %23 = getelementptr inbounds i8, ptr %0, i64 40
-  %24 = load ptr, ptr %23, align 8
-  switch i32 %6, label %.loopexit [
-    i32 1, label %.lr.ph.split.us.preheader.i
-    i32 0, label %.lr.ph.split.us40.preheader.i
-  ]
+to_internal_location.exit.thread:                 ; preds = %12
+  %19 = getelementptr inbounds i8, ptr %0, i64 32
+  %20 = load i32, ptr %19, align 8
+  %.not51.i20 = icmp eq i32 %20, 0
+  br i1 %.not51.i20, label %.loopexit, label %.lr.ph.i.thread
 
-.lr.ph.split.us40.preheader.i:                    ; preds = %.lr.ph.i
-  %wide.trip.count.i = zext i32 %22 to i64
+.lr.ph.i.thread:                                  ; preds = %to_internal_location.exit.thread
+  %21 = load i32, ptr %14, align 8
+  %22 = getelementptr inbounds i8, ptr %14, i64 240
+  %23 = load i64, ptr %22, align 8
+  %24 = getelementptr inbounds i8, ptr %0, i64 40
+  %25 = load ptr, ptr %24, align 8
+  br label %.lr.ph.split.us40.preheader.i
+
+.lr.ph.i:                                         ; preds = %to_internal_location.exit
+  %26 = getelementptr inbounds i8, ptr %0, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %switch = icmp eq i32 %6, 1
+  br i1 %switch, label %.lr.ph.split.us.preheader.i, label %.lr.ph.split.us40.preheader.i
+
+.lr.ph.split.us40.preheader.i:                    ; preds = %.lr.ph.i.thread, %.lr.ph.i
+  %28 = phi ptr [ %25, %.lr.ph.i.thread ], [ %27, %.lr.ph.i ]
+  %.sroa.4.02129 = phi i64 [ %23, %.lr.ph.i.thread ], [ undef, %.lr.ph.i ]
+  %.sroa.6.02328 = phi i32 [ %21, %.lr.ph.i.thread ], [ undef, %.lr.ph.i ]
+  %29 = phi i32 [ %20, %.lr.ph.i.thread ], [ %18, %.lr.ph.i ]
+  %wide.trip.count.i = zext i32 %29 to i64
   br label %.lr.ph.split.us40.i
 
 .lr.ph.split.us.preheader.i:                      ; preds = %.lr.ph.i
-  %wide.trip.count63.i = zext i32 %22 to i64
+  %wide.trip.count63.i = zext i32 %18 to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %match_internal_location.exit.thread.us.i, %.lr.ph.split.us.preheader.i
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next61.i, %match_internal_location.exit.thread.us.i ]
-  %25 = getelementptr inbounds %struct.hwloc_internal_memattr_initiator_s, ptr %24, i64 %indvars.iv60.i
-  %26 = load i32, ptr %25, align 8
-  %.not.i.us.i = icmp eq i32 %26, 1
+  %30 = getelementptr inbounds %struct.hwloc_internal_memattr_initiator_s, ptr %27, i64 %indvars.iv60.i
+  %31 = load i32, ptr %30, align 8
+  %.not.i.us.i = icmp eq i32 %31, 1
   br i1 %.not.i.us.i, label %match_internal_location.exit.us.i, label %match_internal_location.exit.thread.us.i
 
 match_internal_location.exit.us.i:                ; preds = %.lr.ph.split.us.i
-  %27 = getelementptr inbounds i8, ptr %25, i64 8
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef %.sroa.2.0, ptr noundef %28) #28
-  %.not31.us.i = icmp eq i32 %29, 0
+  %32 = getelementptr inbounds i8, ptr %30, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call i32 @hwloc_bitmap_isincluded(ptr noundef nonnull %9, ptr noundef %33) #28
+  %.not31.us.i = icmp eq i32 %34, 0
   br i1 %.not31.us.i, label %match_internal_location.exit.thread.us.i, label %hwloc__memattr_target_get_initiator.exit
 
 match_internal_location.exit.thread.us.i:         ; preds = %match_internal_location.exit.us.i, %.lr.ph.split.us.i
@@ -1499,39 +1506,39 @@ match_internal_location.exit.thread.us.i:         ; preds = %match_internal_loca
 
 .lr.ph.split.us40.i:                              ; preds = %match_internal_location.exit.thread.us46.i, %.lr.ph.split.us40.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.us40.preheader.i ], [ %indvars.iv.next.i, %match_internal_location.exit.thread.us46.i ]
-  %30 = getelementptr inbounds %struct.hwloc_internal_memattr_initiator_s, ptr %24, i64 %indvars.iv.i
-  %31 = load i32, ptr %30, align 8
-  %.not.i.us42.i = icmp eq i32 %31, 0
-  br i1 %.not.i.us42.i, label %32, label %match_internal_location.exit.thread.us46.i
+  %35 = getelementptr inbounds %struct.hwloc_internal_memattr_initiator_s, ptr %28, i64 %indvars.iv.i
+  %36 = load i32, ptr %35, align 8
+  %.not.i.us42.i = icmp eq i32 %36, 0
+  br i1 %.not.i.us42.i, label %37, label %match_internal_location.exit.thread.us46.i
 
-32:                                               ; preds = %.lr.ph.split.us40.i
-  %33 = getelementptr inbounds i8, ptr %30, i64 24
-  %34 = load i32, ptr %33, align 8
-  %35 = icmp eq i32 %.sroa.6.0, %34
-  br i1 %35, label %match_internal_location.exit.us43.i, label %match_internal_location.exit.thread.us46.i
+37:                                               ; preds = %.lr.ph.split.us40.i
+  %38 = getelementptr inbounds i8, ptr %35, i64 24
+  %39 = load i32, ptr %38, align 8
+  %40 = icmp eq i32 %.sroa.6.02328, %39
+  br i1 %40, label %match_internal_location.exit.us43.i, label %match_internal_location.exit.thread.us46.i
 
-match_internal_location.exit.us43.i:              ; preds = %32
-  %36 = getelementptr inbounds i8, ptr %30, i64 16
-  %37 = load i64, ptr %36, align 8
-  %.not52.i = icmp eq i64 %.sroa.4.0, %37
+match_internal_location.exit.us43.i:              ; preds = %37
+  %41 = getelementptr inbounds i8, ptr %35, i64 16
+  %42 = load i64, ptr %41, align 8
+  %.not52.i = icmp eq i64 %.sroa.4.02129, %42
   br i1 %.not52.i, label %hwloc__memattr_target_get_initiator.exit, label %match_internal_location.exit.thread.us46.i
 
-match_internal_location.exit.thread.us46.i:       ; preds = %match_internal_location.exit.us43.i, %32, %.lr.ph.split.us40.i
+match_internal_location.exit.thread.us46.i:       ; preds = %match_internal_location.exit.us43.i, %37, %.lr.ph.split.us40.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.us40.i, !llvm.loop !20
 
-.loopexit:                                        ; preds = %match_internal_location.exit.thread.us46.i, %match_internal_location.exit.thread.us.i, %.lr.ph.i, %to_internal_location.exit
-  %38 = tail call ptr @__errno_location() #29
+.loopexit:                                        ; preds = %match_internal_location.exit.thread.us46.i, %match_internal_location.exit.thread.us.i, %to_internal_location.exit.thread, %to_internal_location.exit
+  %43 = tail call ptr @__errno_location() #29
   br label %hwloc__memattr_target_get_initiator.exit.sink.split
 
-hwloc__memattr_target_get_initiator.exit.sink.split: ; preds = %3, %19, %.loopexit
-  %.sink = phi ptr [ %38, %.loopexit ], [ %20, %19 ], [ %4, %3 ]
+hwloc__memattr_target_get_initiator.exit.sink.split: ; preds = %3, %15, %.loopexit
+  %.sink = phi ptr [ %43, %.loopexit ], [ %16, %15 ], [ %4, %3 ]
   store i32 22, ptr %.sink, align 4
   br label %hwloc__memattr_target_get_initiator.exit
 
 hwloc__memattr_target_get_initiator.exit:         ; preds = %match_internal_location.exit.us43.i, %match_internal_location.exit.us.i, %hwloc__memattr_target_get_initiator.exit.sink.split
-  %.0 = phi ptr [ null, %hwloc__memattr_target_get_initiator.exit.sink.split ], [ %25, %match_internal_location.exit.us.i ], [ %30, %match_internal_location.exit.us43.i ]
+  %.0 = phi ptr [ null, %hwloc__memattr_target_get_initiator.exit.sink.split ], [ %30, %match_internal_location.exit.us.i ], [ %35, %match_internal_location.exit.us43.i ]
   ret ptr %.0
 }
 

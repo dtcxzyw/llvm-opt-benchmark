@@ -5161,14 +5161,11 @@ define internal zeroext i8 @scsi_queue_rq(ptr nocapture readnone %0, ptr nocaptu
 
 378:                                              ; preds = %369, %369
   %379 = load ptr, ptr %7, align 8
-  switch i32 %344, label %.thread22 [
-    i32 4184, label %385
-    i32 4182, label %380
-    i32 4183, label %380
-  ]
+  %switch = icmp eq i32 %344, 4184
+  br i1 %switch, label %385, label %380
 
-380:                                              ; preds = %.thread27, %378, %378
-  %381 = phi ptr [ %292, %.thread27 ], [ %379, %378 ], [ %379, %378 ]
+380:                                              ; preds = %378, %.thread27
+  %381 = phi ptr [ %292, %.thread27 ], [ %379, %378 ]
   %382 = getelementptr inbounds i8, ptr %381, i64 80
   %383 = getelementptr inbounds i8, ptr %381, i64 416
   %384 = load i32, ptr %383, align 8
@@ -5184,8 +5181,8 @@ define internal zeroext i8 @scsi_queue_rq(ptr nocapture readnone %0, ptr nocaptu
   store volatile i32 %390, ptr %388, align 4
   br label %.thread22
 
-.thread22:                                        ; preds = %225, %242, %385, %380, %.thread26, %378, %245
-  %391 = phi i8 [ %253, %245 ], [ 9, %378 ], [ 9, %.thread26 ], [ 9, %380 ], [ 9, %385 ], [ %226, %225 ], [ %243, %242 ]
+.thread22:                                        ; preds = %225, %242, %385, %380, %.thread26, %245
+  %391 = phi i8 [ %253, %245 ], [ 9, %.thread26 ], [ 9, %380 ], [ 9, %385 ], [ %226, %225 ], [ %243, %242 ]
   tail call fastcc void @scsi_dec_host_busy(ptr noundef %6, ptr noundef %7)
   br label %392
 

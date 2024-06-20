@@ -10116,7 +10116,7 @@ if.then25:                                        ; preds = %land.lhs.true
 
 if.then30.thread:                                 ; preds = %land.lhs.true
   store i8 0, ptr %match, align 1
-  %cmp37345 = icmp eq i32 %8, 13
+  %cmp37346 = icmp eq i32 %8, 13
   br label %if.end53.thread
 
 lor.lhs.false28.critedge:                         ; preds = %if.end16
@@ -10136,13 +10136,13 @@ if.then38:                                        ; preds = %if.then30
   br i1 %tobool.i170, label %return, label %if.then38.if.end53_crit_edge
 
 if.then38.if.end53_crit_edge:                     ; preds = %if.then38
-  %.pre338 = load i8, ptr %match, align 1
+  %.pre339 = load i8, ptr %match, align 1
   br label %if.end53.thread
 
 if.end53.thread:                                  ; preds = %if.then30.thread, %if.then38.if.end53_crit_edge
-  %cmp37347.ph = phi i1 [ %cmp37345, %if.then30.thread ], [ %cmp37, %if.then38.if.end53_crit_edge ]
-  %.ph = phi i8 [ 0, %if.then30.thread ], [ %.pre338, %if.then38.if.end53_crit_edge ]
-  %tobool54349 = trunc i8 %.ph to i1
+  %cmp37348.ph = phi i1 [ %cmp37346, %if.then30.thread ], [ %cmp37, %if.then38.if.end53_crit_edge ]
+  %.ph = phi i8 [ 0, %if.then30.thread ], [ %.pre339, %if.then38.if.end53_crit_edge ]
+  %tobool54350 = trunc i8 %.ph to i1
   %12 = add i32 %8, -1
   %13 = icmp ult i32 %12, 12
   br label %if.end105
@@ -10179,21 +10179,13 @@ lpad.i173:                                        ; preds = %.noexc176
 
 invoke.cont70:                                    ; preds = %.noexc176
   %switch.tableidx = add nsw i32 %8, -1
-  %18 = icmp ult i32 %switch.tableidx, 12
-  br i1 %18, label %switch.lookup, label %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit
-
-switch.lookup:                                    ; preds = %invoke.cont70
-  %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %19
+  %18 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [12 x ptr], ptr @switch.table._ZN11flatbuffers6Parser16ParseSingleValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERNS_5ValueEb, i64 0, i64 %18
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit
-
-_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit:     ; preds = %invoke.cont70, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ null, %invoke.cont70 ]
-  %call.i180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef %retval.0.i)
+  %call.i180 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67, ptr noundef nonnull %switch.load)
           to label %invoke.cont74 unwind label %lpad71
 
-invoke.cont74:                                    ; preds = %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit
+invoke.cont74:                                    ; preds = %invoke.cont70
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull align 8 dereferenceable(32) %call.i180) #29
   %call.i182 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66, ptr noundef nonnull @.str.143)
           to label %invoke.cont76 unwind label %lpad75
@@ -10239,7 +10231,7 @@ invoke.cont90:                                    ; preds = %invoke.cont87
           to label %invoke.cont92 unwind label %lpad.i193, !noalias !179
 
 lpad.i193:                                        ; preds = %.noexc195
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i192) #29, !noalias !179
   br label %lpad91.body
@@ -10268,104 +10260,104 @@ cleanup.done:                                     ; preds = %cleanup.action, %in
   br label %return
 
 lpad69:                                           ; preds = %call.i.noexc174, %if.then61
-  %21 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup104
 
-lpad71:                                           ; preds = %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit
-  %22 = landingpad { ptr, i32 }
+lpad71:                                           ; preds = %invoke.cont70
+  %21 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup103
 
 lpad75:                                           ; preds = %invoke.cont74
-  %23 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup102
 
 lpad79:                                           ; preds = %cond.true
-  %24 = landingpad { ptr, i32 }
+  %23 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup101
 
 ehcleanup97.thread:                               ; preds = %cond.false
-  %25 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           cleanup
   br label %cleanup.action99
 
 lpad84:                                           ; preds = %cond.end
-  %26 = landingpad { ptr, i32 }
+  %25 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup97
 
 lpad86:                                           ; preds = %invoke.cont85
-  %27 = landingpad { ptr, i32 }
+  %26 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup95
 
 lpad89:                                           ; preds = %invoke.cont87
-  %28 = landingpad { ptr, i32 }
+  %27 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup94
 
 lpad91:                                           ; preds = %invoke.cont90
-  %29 = landingpad { ptr, i32 }
+  %28 = landingpad { ptr, i32 }
           cleanup
   br label %lpad91.body
 
 lpad91.body:                                      ; preds = %lpad.i193, %lpad91
-  %eh.lpad-body196 = phi { ptr, i32 } [ %29, %lpad91 ], [ %20, %lpad.i193 ]
+  %eh.lpad-body196 = phi { ptr, i32 } [ %28, %lpad91 ], [ %19, %lpad.i193 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp62) #29
   br label %ehcleanup94
 
 ehcleanup94:                                      ; preds = %lpad91.body, %lpad89
-  %.pn = phi { ptr, i32 } [ %eh.lpad-body196, %lpad91.body ], [ %28, %lpad89 ]
+  %.pn = phi { ptr, i32 } [ %eh.lpad-body196, %lpad91.body ], [ %27, %lpad89 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp63) #29
   br label %ehcleanup95
 
 ehcleanup95:                                      ; preds = %ehcleanup94, %lpad86
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup94 ], [ %27, %lpad86 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup94 ], [ %26, %lpad86 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp64) #29
   br label %ehcleanup97
 
 ehcleanup97:                                      ; preds = %lpad84, %ehcleanup95
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup95 ], [ %26, %lpad84 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %ehcleanup95 ], [ %25, %lpad84 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp77) #29
   br i1 %tobool78.not, label %cleanup.action99, label %ehcleanup101
 
 cleanup.action99:                                 ; preds = %ehcleanup97.thread, %ehcleanup97
-  %.pn.pn.pn.pn315 = phi { ptr, i32 } [ %25, %ehcleanup97.thread ], [ %.pn.pn.pn, %ehcleanup97 ]
+  %.pn.pn.pn.pn315 = phi { ptr, i32 } [ %24, %ehcleanup97.thread ], [ %.pn.pn.pn, %ehcleanup97 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp81) #29
   br label %ehcleanup101
 
 ehcleanup101:                                     ; preds = %ehcleanup97, %cleanup.action99, %lpad79
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn315, %cleanup.action99 ], [ %.pn.pn.pn, %ehcleanup97 ], [ %24, %lpad79 ]
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn315, %cleanup.action99 ], [ %.pn.pn.pn, %ehcleanup97 ], [ %23, %lpad79 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp65) #29
   br label %ehcleanup102
 
 ehcleanup102:                                     ; preds = %ehcleanup101, %lpad75
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup101 ], [ %23, %lpad75 ]
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn, %ehcleanup101 ], [ %22, %lpad75 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp66) #29
   br label %ehcleanup103
 
 ehcleanup103:                                     ; preds = %ehcleanup102, %lpad71
-  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup102 ], [ %22, %lpad71 ]
+  %.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn, %ehcleanup102 ], [ %21, %lpad71 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #29
   br label %ehcleanup104
 
 ehcleanup104:                                     ; preds = %lpad69, %lpad.i173, %ehcleanup103
-  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup103 ], [ %21, %lpad69 ], [ %17, %lpad.i173 ]
+  %.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn, %ehcleanup103 ], [ %20, %lpad69 ], [ %17, %lpad.i173 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #29
   br label %eh.resume
 
 if.end105:                                        ; preds = %if.end53.thread, %if.end53, %land.lhs.true59
-  %30 = phi i1 [ %13, %if.end53.thread ], [ %15, %if.end53 ], [ %15, %land.lhs.true59 ]
-  %31 = phi i32 [ %12, %if.end53.thread ], [ %14, %if.end53 ], [ %14, %land.lhs.true59 ]
-  %tobool54354 = phi i1 [ %tobool54349, %if.end53.thread ], [ false, %if.end53 ], [ false, %land.lhs.true59 ]
-  %32 = phi i8 [ %.ph, %if.end53.thread ], [ 0, %if.end53 ], [ 0, %land.lhs.true59 ]
-  %cmp37347353 = phi i1 [ %cmp37347.ph, %if.end53.thread ], [ false, %if.end53 ], [ false, %land.lhs.true59 ]
+  %29 = phi i1 [ %13, %if.end53.thread ], [ %15, %if.end53 ], [ %15, %land.lhs.true59 ]
+  %30 = phi i32 [ %12, %if.end53.thread ], [ %14, %if.end53 ], [ %14, %land.lhs.true59 ]
+  %tobool54355 = phi i1 [ %tobool54350, %if.end53.thread ], [ false, %if.end53 ], [ false, %land.lhs.true59 ]
+  %31 = phi i8 [ %.ph, %if.end53.thread ], [ 0, %if.end53 ], [ 0, %land.lhs.true59 ]
+  %cmp37348354 = phi i1 [ %cmp37348.ph, %if.end53.thread ], [ false, %if.end53 ], [ false, %land.lhs.true59 ]
   %cmp.i = icmp ne i32 %8, 2
-  %or.cond319.not = select i1 %tobool54354, i1 true, i1 %cmp.i
-  br i1 %or.cond319.not, label %if.end147, label %if.then109
+  %or.cond320.not = select i1 %tobool54355, i1 true, i1 %cmp.i
+  br i1 %or.cond320.not, label %if.end147, label %if.then109
 
 if.then109:                                       ; preds = %if.end105
   %attribute_110 = getelementptr inbounds i8, ptr %this, i64 40
@@ -10381,29 +10373,29 @@ lor.lhs.false114:                                 ; preds = %if.then109
 if.then117:                                       ; preds = %lor.lhs.false114, %if.then109
   %.str.164..str.61 = phi ptr [ @.str.61, %lor.lhs.false114 ], [ @.str.164, %if.then109 ]
   %call123 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %attribute_110, ptr noundef nonnull %.str.164..str.61)
-  %33 = load i32, ptr %token_, align 4
-  %cmp127 = icmp eq i32 %7, %33
+  %32 = load i32, ptr %token_, align 4
+  %cmp127 = icmp eq i32 %7, %32
   br i1 %cmp127, label %if.then130, label %if.end147
 
 if.then130:                                       ; preds = %if.then117
   call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef %7, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 2, ptr noundef nonnull %match)
   %has_been_checked_.i203 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i203, align 1
-  %34 = load i8, ptr %agg.result, align 1
-  %tobool.i204 = trunc i8 %34 to i1
+  %33 = load i8, ptr %agg.result, align 1
+  %tobool.i204 = trunc i8 %33 to i1
   br i1 %tobool.i204, label %return, label %if.then130.if.end147_crit_edge
 
 if.then130.if.end147_crit_edge:                   ; preds = %if.then130
-  %.pre339 = load i8, ptr %match, align 1
+  %.pre340 = load i8, ptr %match, align 1
   br label %if.end147
 
 if.end147:                                        ; preds = %if.then130.if.end147_crit_edge, %lor.lhs.false114, %if.then117, %if.end105
-  %35 = phi i8 [ %.pre339, %if.then130.if.end147_crit_edge ], [ %32, %lor.lhs.false114 ], [ %32, %if.then117 ], [ %32, %if.end105 ]
-  %tobool148 = trunc i8 %35 to i1
-  %36 = add i32 %8, -13
-  %37 = icmp ult i32 %36, -12
-  %or.cond321.not = select i1 %tobool148, i1 true, i1 %37
-  br i1 %or.cond321.not, label %if.end169, label %land.lhs.true151
+  %34 = phi i8 [ %.pre340, %if.then130.if.end147_crit_edge ], [ %31, %lor.lhs.false114 ], [ %31, %if.then117 ], [ %31, %if.end105 ]
+  %tobool148 = trunc i8 %34 to i1
+  %35 = add i32 %8, -13
+  %36 = icmp ult i32 %35, -12
+  %or.cond322.not = select i1 %tobool148, i1 true, i1 %36
+  br i1 %or.cond322.not, label %if.end169, label %land.lhs.true151
 
 land.lhs.true151:                                 ; preds = %if.end147
   %attribute_152 = getelementptr inbounds i8, ptr %this, i64 40
@@ -10417,8 +10409,8 @@ if.then154:                                       ; preds = %land.lhs.true151
   tail call void @_ZN11flatbuffers6Parser4NextEv(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this)
   %has_been_checked_.i207 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i207, align 1
-  %38 = load i8, ptr %agg.result, align 1
-  %tobool.i208 = trunc i8 %38 to i1
+  %37 = load i8, ptr %agg.result, align 1
+  %tobool.i208 = trunc i8 %37 to i1
   br i1 %tobool.i208, label %return, label %if.end169.thread
 
 if.end169.thread:                                 ; preds = %if.then154
@@ -10426,40 +10418,40 @@ if.end169.thread:                                 ; preds = %if.then154
   br label %if.end351
 
 if.end169:                                        ; preds = %land.lhs.true151, %if.end147
-  %tobool170 = trunc i8 %35 to i1
-  %39 = add i32 %8, -11
-  %40 = icmp ult i32 %39, -10
+  %tobool170 = trunc i8 %34 to i1
+  %38 = add i32 %8, -11
+  %39 = icmp ult i32 %38, -10
   %cmp.i209 = icmp eq i32 %8, 2
-  %41 = or i1 %cmp.i209, %40
-  %or.cond324 = select i1 %tobool170, i1 true, i1 %41
-  br i1 %or.cond324, label %if.end208, label %land.lhs.true175
+  %40 = or i1 %cmp.i209, %39
+  %or.cond325 = select i1 %tobool170, i1 true, i1 %40
+  br i1 %or.cond325, label %if.end208, label %land.lhs.true175
 
 land.lhs.true175:                                 ; preds = %if.end169
   %attribute_176 = getelementptr inbounds i8, ptr %this, i64 40
   %call177 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %attribute_176) #29
-  %42 = load i8, ptr %call177, align 1
-  %43 = and i8 %42, -33
-  %conv.i.i.i = sext i8 %43 to i32
+  %41 = load i8, ptr %call177, align 1
+  %42 = and i8 %41, -33
+  %conv.i.i.i = sext i8 %42 to i32
   %sub.i.i.i = add nsw i32 %conv.i.i.i, -65
   %cmp.i.i.i = icmp ult i32 %sub.i.i.i, 26
-  %cmp.i210 = icmp eq i8 %42, 95
-  %44 = or i1 %cmp.i210, %cmp.i.i.i
-  br i1 %44, label %if.then179, label %if.end208
+  %cmp.i210 = icmp eq i8 %41, 95
+  %43 = or i1 %cmp.i210, %cmp.i.i.i
+  br i1 %43, label %if.then179, label %if.end208
 
 if.then179:                                       ; preds = %land.lhs.true175
   %constant182 = getelementptr inbounds i8, ptr %e, i64 32
   tail call void @_ZN11flatbuffers6Parser19ParseEnumFromStringERKNS_4TypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull align 8 dereferenceable(26) %e, ptr noundef nonnull %constant182)
   %has_been_checked_.i211 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i211, align 1
-  %45 = load i8, ptr %agg.result, align 1
-  %tobool.i212 = trunc i8 %45 to i1
+  %44 = load i8, ptr %agg.result, align 1
+  %tobool.i212 = trunc i8 %44 to i1
   br i1 %tobool.i212, label %return, label %cleanup.cont193
 
 cleanup.cont193:                                  ; preds = %if.then179
   tail call void @_ZN11flatbuffers6Parser4NextEv(ptr nonnull sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this)
   store i8 1, ptr %has_been_checked_.i211, align 1
-  %46 = load i8, ptr %agg.result, align 1
-  %tobool.i214 = trunc i8 %46 to i1
+  %45 = load i8, ptr %agg.result, align 1
+  %tobool.i214 = trunc i8 %45 to i1
   br i1 %tobool.i214, label %return, label %cleanup.cont206
 
 cleanup.cont206:                                  ; preds = %cleanup.cont193
@@ -10467,11 +10459,11 @@ cleanup.cont206:                                  ; preds = %cleanup.cont193
   br label %if.end351
 
 if.end208:                                        ; preds = %land.lhs.true175, %if.end169
-  %tobool209 = trunc i8 %35 to i1
+  %tobool209 = trunc i8 %34 to i1
   %tobool209.not = xor i1 %tobool209, true
   %brmerge139.not = and i1 %cmp21, %tobool209.not
-  %or.cond326 = select i1 %brmerge139.not, i1 %30, i1 false
-  br i1 %or.cond326, label %if.then214, label %if.end236
+  %or.cond327 = select i1 %brmerge139.not, i1 %29, i1 false
+  br i1 %or.cond327, label %if.then214, label %if.end236
 
 if.then214:                                       ; preds = %if.end208
   %attribute_215 = getelementptr inbounds i8, ptr %this, i64 40
@@ -10485,10 +10477,10 @@ if.then218:                                       ; preds = %if.then214
   br label %if.end220
 
 if.end220:                                        ; preds = %if.then218, %if.then214
-  %47 = load i32, ptr %e, align 8
-  %48 = add i32 %47, -11
-  %49 = icmp ult i32 %48, 2
-  br i1 %49, label %if.then224, label %if.end236
+  %46 = load i32, ptr %e, align 8
+  %47 = add i32 %46, -11
+  %48 = icmp ult i32 %47, 2
+  br i1 %48, label %if.then224, label %if.end236
 
 if.then224:                                       ; preds = %if.end220
   %call226 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %attribute_215, i8 noundef signext 41, i64 noundef -1) #29
@@ -10505,137 +10497,137 @@ invoke.cont232:                                   ; preds = %if.then228
   br label %return
 
 lpad231:                                          ; preds = %if.then228
-  %50 = landingpad { ptr, i32 }
+  %49 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp229) #29
   br label %eh.resume
 
 if.end236:                                        ; preds = %if.end208, %if.end220, %if.then224
-  %51 = load i32, ptr %token_, align 4
-  %cmp240 = icmp eq i32 %7, %51
+  %50 = load i32, ptr %token_, align 4
+  %cmp240 = icmp eq i32 %7, %50
   %or.cond140 = select i1 %tobool209.not, i1 %cmp240, i1 false
-  %52 = icmp ult i32 %39, 2
-  %or.cond328 = select i1 %or.cond140, i1 %52, i1 false
-  br i1 %or.cond328, label %if.then243, label %if.end258
+  %51 = icmp ult i32 %38, 2
+  %or.cond329 = select i1 %or.cond140, i1 %51, i1 false
+  br i1 %or.cond329, label %if.then243, label %if.end258
 
 if.then243:                                       ; preds = %if.end236
   call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef %7, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 11, ptr noundef nonnull %match)
   %has_been_checked_.i215 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i215, align 1
-  %53 = load i8, ptr %agg.result, align 1
-  %tobool.i216 = trunc i8 %53 to i1
+  %52 = load i8, ptr %agg.result, align 1
+  %tobool.i216 = trunc i8 %52 to i1
   br i1 %tobool.i216, label %return, label %if.then243.if.end258_crit_edge
 
 if.then243.if.end258_crit_edge:                   ; preds = %if.then243
-  %.pre340 = load i8, ptr %match, align 1
-  %.pre341 = load i32, ptr %token_, align 4
-  %.pre344 = trunc i8 %.pre340 to i1
+  %.pre341 = load i8, ptr %match, align 1
+  %.pre342 = load i32, ptr %token_, align 4
+  %.pre345 = trunc i8 %.pre341 to i1
   br label %if.end258
 
 if.end258:                                        ; preds = %if.then243.if.end258_crit_edge, %if.end236
-  %tobool259.pre-phi = phi i1 [ %.pre344, %if.then243.if.end258_crit_edge ], [ %tobool209, %if.end236 ]
-  %54 = phi i8 [ %.pre340, %if.then243.if.end258_crit_edge ], [ %35, %if.end236 ]
-  %55 = phi i32 [ %.pre341, %if.then243.if.end258_crit_edge ], [ %51, %if.end236 ]
+  %tobool259.pre-phi = phi i1 [ %.pre345, %if.then243.if.end258_crit_edge ], [ %tobool209, %if.end236 ]
+  %53 = phi i8 [ %.pre341, %if.then243.if.end258_crit_edge ], [ %34, %if.end236 ]
+  %54 = phi i32 [ %.pre342, %if.then243.if.end258_crit_edge ], [ %50, %if.end236 ]
   %tobool259.not = xor i1 %tobool259.pre-phi, true
-  %cmp262 = icmp eq i32 %7, %55
+  %cmp262 = icmp eq i32 %7, %54
   %or.cond142 = select i1 %tobool259.not, i1 %cmp262, i1 false
-  %56 = icmp ult i32 %31, 10
-  %or.cond330 = select i1 %or.cond142, i1 %56, i1 false
-  br i1 %or.cond330, label %if.then265, label %if.end280
+  %55 = icmp ult i32 %30, 10
+  %or.cond331 = select i1 %or.cond142, i1 %55, i1 false
+  br i1 %or.cond331, label %if.then265, label %if.end280
 
 if.then265:                                       ; preds = %if.end258
   call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef %7, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 7, ptr noundef nonnull %match)
   %has_been_checked_.i217 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i217, align 1
-  %57 = load i8, ptr %agg.result, align 1
-  %tobool.i218 = trunc i8 %57 to i1
+  %56 = load i8, ptr %agg.result, align 1
+  %tobool.i218 = trunc i8 %56 to i1
   br i1 %tobool.i218, label %return, label %if.then265.if.end280_crit_edge
 
 if.then265.if.end280_crit_edge:                   ; preds = %if.then265
-  %.pre342 = load i8, ptr %match, align 1
-  %.pre343 = load i32, ptr %token_, align 4
+  %.pre343 = load i8, ptr %match, align 1
+  %.pre344 = load i32, ptr %token_, align 4
   br label %if.end280
 
 if.end280:                                        ; preds = %if.then265.if.end280_crit_edge, %if.end258
-  %58 = phi i32 [ %.pre343, %if.then265.if.end280_crit_edge ], [ %55, %if.end258 ]
-  %59 = phi i8 [ %.pre342, %if.then265.if.end280_crit_edge ], [ %54, %if.end258 ]
-  %tobool281 = trunc i8 %59 to i1
-  %cmp284 = icmp ne i32 %58, 257
+  %57 = phi i32 [ %.pre344, %if.then265.if.end280_crit_edge ], [ %54, %if.end258 ]
+  %58 = phi i8 [ %.pre343, %if.then265.if.end280_crit_edge ], [ %53, %if.end258 ]
+  %tobool281 = trunc i8 %58 to i1
+  %cmp284 = icmp ne i32 %57, 257
   %or.cond144.not = select i1 %tobool281, i1 true, i1 %cmp284
   br i1 %or.cond144.not, label %if.end351, label %land.lhs.true285
 
 land.lhs.true285:                                 ; preds = %if.end280
-  call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef 257, i1 noundef zeroext %cmp37347353, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 13, ptr noundef nonnull %match)
+  call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef 257, i1 noundef zeroext %cmp37348354, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 13, ptr noundef nonnull %match)
   %has_been_checked_.i219 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i219, align 1
-  %60 = load i8, ptr %agg.result, align 1
-  %tobool.i220 = trunc i8 %60 to i1
+  %59 = load i8, ptr %agg.result, align 1
+  %tobool.i220 = trunc i8 %59 to i1
   br i1 %tobool.i220, label %return, label %if.end351
 
 land.lhs.true306:                                 ; preds = %lor.lhs.false28.critedge
   %cmp308 = icmp eq i32 %7, 259
-  %61 = add i32 %8, -11
-  %62 = icmp ult i32 %61, 2
-  %or.cond332 = select i1 %cmp308, i1 %62, i1 false
-  br i1 %or.cond332, label %if.then311, label %if.end326
+  %60 = add i32 %8, -11
+  %61 = icmp ult i32 %60, 2
+  %or.cond333 = select i1 %cmp308, i1 %61, i1 false
+  br i1 %or.cond333, label %if.then311, label %if.end326
 
 if.then311:                                       ; preds = %land.lhs.true306
   call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef 259, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 11, ptr noundef nonnull %match)
   %has_been_checked_.i221 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i221, align 1
-  %63 = load i8, ptr %agg.result, align 1
-  %tobool.i222 = trunc i8 %63 to i1
+  %62 = load i8, ptr %agg.result, align 1
+  %tobool.i222 = trunc i8 %62 to i1
   br i1 %tobool.i222, label %return, label %if.then311.if.end326_crit_edge
 
 if.then311.if.end326_crit_edge:                   ; preds = %if.then311
   %.pre = load i8, ptr %match, align 1
-  %.pre337 = load i32, ptr %token_, align 4
+  %.pre338 = load i32, ptr %token_, align 4
   br label %if.end326
 
 if.end326:                                        ; preds = %if.then311.if.end326_crit_edge, %land.lhs.true306
-  %64 = phi i32 [ %.pre337, %if.then311.if.end326_crit_edge ], [ %7, %land.lhs.true306 ]
-  %65 = phi i8 [ %.pre, %if.then311.if.end326_crit_edge ], [ 0, %land.lhs.true306 ]
-  %tobool327 = trunc i8 %65 to i1
-  %cmp330 = icmp ne i32 %64, 258
+  %63 = phi i32 [ %.pre338, %if.then311.if.end326_crit_edge ], [ %7, %land.lhs.true306 ]
+  %64 = phi i8 [ %.pre, %if.then311.if.end326_crit_edge ], [ 0, %land.lhs.true306 ]
+  %tobool327 = trunc i8 %64 to i1
+  %cmp330 = icmp ne i32 %63, 258
   %or.cond147.not = select i1 %tobool327, i1 true, i1 %cmp330
   br i1 %or.cond147.not, label %if.end351, label %land.lhs.true331
 
 land.lhs.true331:                                 ; preds = %if.end326
-  %66 = add i32 %8, -1
-  %67 = icmp ult i32 %66, 12
-  call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef 258, i1 noundef zeroext %67, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 7, ptr noundef nonnull %match)
+  %65 = add i32 %8, -1
+  %66 = icmp ult i32 %65, 12
+  call void @_ZN11flatbuffers6Parser13TryTypedValueEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEibRNS_5ValueENS_8BaseTypeEPb(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef %name, i32 noundef 258, i1 noundef zeroext %66, ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef 7, ptr noundef nonnull %match)
   %has_been_checked_.i223 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i223, align 1
-  %68 = load i8, ptr %agg.result, align 1
-  %tobool.i224 = trunc i8 %68 to i1
+  %67 = load i8, ptr %agg.result, align 1
+  %tobool.i224 = trunc i8 %67 to i1
   br i1 %tobool.i224, label %return, label %if.end351
 
 if.end351:                                        ; preds = %cleanup.cont206, %if.end169.thread, %land.lhs.true331, %land.lhs.true285, %if.end326, %if.end280
-  %69 = load i8, ptr %match, align 1
-  %tobool352 = trunc i8 %69 to i1
+  %68 = load i8, ptr %match, align 1
+  %tobool352 = trunc i8 %68 to i1
   br i1 %tobool352, label %if.end400, label %land.lhs.true353
 
 land.lhs.true353:                                 ; preds = %if.end351
-  %70 = load i32, ptr %e, align 8
-  %cmp.i.i = icmp eq i32 %70, 14
-  %cmp1.i.i = icmp eq i32 %70, 18
-  %71 = or i1 %cmp.i.i, %cmp1.i.i
-  %72 = load i32, ptr %token_, align 4
-  %cmp358 = icmp eq i32 %72, 91
-  %or.cond149 = select i1 %71, i1 %cmp358, i1 false
+  %69 = load i32, ptr %e, align 8
+  %cmp.i.i = icmp eq i32 %69, 14
+  %cmp1.i.i = icmp eq i32 %69, 18
+  %70 = or i1 %cmp.i.i, %cmp1.i.i
+  %71 = load i32, ptr %token_, align 4
+  %cmp358 = icmp eq i32 %71, 91
+  %or.cond149 = select i1 %70, i1 %cmp358, i1 false
   br i1 %or.cond149, label %if.then359, label %if.end400
 
 if.then359:                                       ; preds = %land.lhs.true353
   tail call void @_ZN11flatbuffers6Parser4NextEv(ptr sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this)
   %has_been_checked_.i225 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i225, align 1
-  %73 = load i8, ptr %agg.result, align 1
-  %tobool.i226 = trunc i8 %73 to i1
+  %72 = load i8, ptr %agg.result, align 1
+  %tobool.i226 = trunc i8 %72 to i1
   br i1 %tobool.i226, label %return, label %cleanup.cont371
 
 cleanup.cont371:                                  ; preds = %if.then359
-  %74 = load i32, ptr %token_, align 4
-  %cmp374.not = icmp eq i32 %74, 93
+  %73 = load i32, ptr %token_, align 4
+  %cmp374.not = icmp eq i32 %73, 93
   br i1 %cmp374.not, label %if.end384, label %if.then375
 
 if.then375:                                       ; preds = %cleanup.cont371
@@ -10653,26 +10645,26 @@ invoke.cont381:                                   ; preds = %invoke.cont379
   br label %return
 
 lpad378:                                          ; preds = %if.then375
-  %75 = landingpad { ptr, i32 }
+  %74 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup383
 
 lpad380:                                          ; preds = %invoke.cont379
-  %76 = landingpad { ptr, i32 }
+  %75 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp376) #29
   br label %ehcleanup383
 
 ehcleanup383:                                     ; preds = %lpad380, %lpad378
-  %.pn118 = phi { ptr, i32 } [ %76, %lpad380 ], [ %75, %lpad378 ]
+  %.pn118 = phi { ptr, i32 } [ %75, %lpad380 ], [ %74, %lpad378 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp377) #29
   br label %eh.resume
 
 if.end384:                                        ; preds = %cleanup.cont371
   tail call void @_ZN11flatbuffers6Parser4NextEv(ptr nonnull sret(%"class.flatbuffers::CheckedError") align 1 %agg.result, ptr noundef nonnull align 8 dereferenceable(1784) %this)
   store i8 1, ptr %has_been_checked_.i225, align 1
-  %77 = load i8, ptr %agg.result, align 1
-  %tobool.i228 = trunc i8 %77 to i1
+  %76 = load i8, ptr %agg.result, align 1
+  %tobool.i228 = trunc i8 %76 to i1
   br i1 %tobool.i228, label %return, label %if.end400.thread
 
 if.end400.thread:                                 ; preds = %if.end384
@@ -10681,13 +10673,13 @@ if.end400.thread:                                 ; preds = %if.end384
   br label %if.end439
 
 if.end400:                                        ; preds = %land.lhs.true353, %if.end351
-  %tobool401 = trunc i8 %69 to i1
+  %tobool401 = trunc i8 %68 to i1
   br i1 %tobool401, label %if.end439, label %if.then402
 
 if.then402:                                       ; preds = %if.end400
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg) #29
-  %78 = load i32, ptr %token_, align 4
-  %cmp.i229 = icmp eq i32 %78, 260
+  %77 = load i32, ptr %token_, align 4
+  %cmp.i229 = icmp eq i32 %77, 260
   br i1 %cmp.i229, label %cond.true.i, label %cond.false.i
 
 cond.true.i:                                      ; preds = %if.then402
@@ -10696,7 +10688,7 @@ cond.true.i:                                      ; preds = %if.then402
           to label %invoke.cont410 unwind label %lpad409
 
 cond.false.i:                                     ; preds = %if.then402
-  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113TokenToStringB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp407, i32 noundef %78)
+  invoke fastcc void @_ZN11flatbuffers12_GLOBAL__N_113TokenToStringB5cxx11Ei(ptr noalias nonnull align 8 %ref.tmp407, i32 noundef %77)
           to label %invoke.cont410 unwind label %lpad409
 
 invoke.cont410:                                   ; preds = %cond.true.i, %cond.false.i
@@ -10793,7 +10785,7 @@ invoke.cont.i:                                    ; preds = %if.then.i
   unreachable
 
 lpad.i256:                                        ; preds = %if.end.i, %if.then.i
-  %79 = landingpad { ptr, i32 }
+  %78 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp415) #29
   br label %ehcleanup432
@@ -10854,7 +10846,7 @@ invoke.cont427:                                   ; preds = %invoke.cont425
           to label %invoke.cont436 unwind label %lpad.i269, !noalias !185
 
 lpad.i269:                                        ; preds = %.noexc272
-  %80 = landingpad { ptr, i32 }
+  %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i268) #29, !noalias !185
   br label %ehcleanup438
@@ -10869,78 +10861,78 @@ invoke.cont436:                                   ; preds = %.noexc272
   br label %return
 
 lpad409:                                          ; preds = %invoke.cont427, %cond.false.i, %cond.true.i
-  %81 = landingpad { ptr, i32 }
+  %80 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup438
 
 lpad411:                                          ; preds = %invoke.cont410
-  %82 = landingpad { ptr, i32 }
+  %81 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup435
 
 lpad413:                                          ; preds = %invoke.cont412
-  %83 = landingpad { ptr, i32 }
+  %82 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup434
 
 lpad420:                                          ; preds = %call.i252.noexc, %_ZN11flatbuffers8TypeNameENS_8BaseTypeE.exit251
-  %84 = landingpad { ptr, i32 }
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup432
 
 lpad422:                                          ; preds = %if.end7.i, %if.then5.i
-  %85 = landingpad { ptr, i32 }
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup431
 
 lpad424:                                          ; preds = %invoke.cont423
-  %86 = landingpad { ptr, i32 }
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup430
 
 lpad426:                                          ; preds = %invoke.cont425
-  %87 = landingpad { ptr, i32 }
+  %86 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp403) #29
   br label %ehcleanup430
 
 ehcleanup430:                                     ; preds = %lpad426, %lpad424
-  %.pn120 = phi { ptr, i32 } [ %87, %lpad426 ], [ %86, %lpad424 ]
+  %.pn120 = phi { ptr, i32 } [ %86, %lpad426 ], [ %85, %lpad424 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp404) #29
   br label %ehcleanup431
 
 ehcleanup431:                                     ; preds = %ehcleanup430, %lpad422
-  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %ehcleanup430 ], [ %85, %lpad422 ]
+  %.pn120.pn = phi { ptr, i32 } [ %.pn120, %ehcleanup430 ], [ %84, %lpad422 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp415) #29
   br label %ehcleanup432
 
 ehcleanup432:                                     ; preds = %lpad420, %lpad.i256, %ehcleanup431
-  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %ehcleanup431 ], [ %84, %lpad420 ], [ %79, %lpad.i256 ]
+  %.pn120.pn.pn = phi { ptr, i32 } [ %.pn120.pn, %ehcleanup431 ], [ %83, %lpad420 ], [ %78, %lpad.i256 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp419) #29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp405) #29
   br label %ehcleanup434
 
 ehcleanup434:                                     ; preds = %ehcleanup432, %lpad413
-  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn, %ehcleanup432 ], [ %83, %lpad413 ]
+  %.pn120.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn, %ehcleanup432 ], [ %82, %lpad413 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp406) #29
   br label %ehcleanup435
 
 ehcleanup435:                                     ; preds = %ehcleanup434, %lpad411
-  %.pn120.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn.pn, %ehcleanup434 ], [ %82, %lpad411 ]
+  %.pn120.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn120.pn.pn.pn, %ehcleanup434 ], [ %81, %lpad411 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp407) #29
   br label %ehcleanup438
 
 ehcleanup438:                                     ; preds = %lpad409, %lpad.i269, %ehcleanup435
-  %.pn126 = phi { ptr, i32 } [ %.pn120.pn.pn.pn.pn, %ehcleanup435 ], [ %81, %lpad409 ], [ %80, %lpad.i269 ]
+  %.pn126 = phi { ptr, i32 } [ %.pn120.pn.pn.pn.pn, %ehcleanup435 ], [ %80, %lpad409 ], [ %79, %lpad.i269 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg) #29
   br label %eh.resume
 
 if.end439:                                        ; preds = %if.end400.thread, %if.end400
-  %88 = load i32, ptr %e, align 8
-  %89 = add i32 %88, -1
-  %90 = icmp ult i32 %89, 12
-  %or.cond334 = select i1 %check_now, i1 %90, i1 false
-  br i1 %or.cond334, label %land.lhs.true445, label %if.end668
+  %87 = load i32, ptr %e, align 8
+  %88 = add i32 %87, -1
+  %89 = icmp ult i32 %88, 12
+  %or.cond335 = select i1 %check_now, i1 %89, i1 false
+  br i1 %or.cond335, label %land.lhs.true445, label %if.end668
 
 land.lhs.true445:                                 ; preds = %if.end439
   %constant446 = getelementptr inbounds i8, ptr %e, i64 32
@@ -10949,7 +10941,9 @@ land.lhs.true445:                                 ; preds = %if.end439
   br i1 %cmp.i.i276.not, label %if.end668, label %if.then448
 
 if.then448:                                       ; preds = %land.lhs.true445
-  switch i32 %88, label %if.end668 [
+  %call655 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
+  %has_been_checked_.i305 = getelementptr inbounds i8, ptr %agg.result, i64 1
+  switch i32 %87, label %default.unreachable [
     i32 12, label %sw.bb651
     i32 1, label %sw.bb464
     i32 2, label %sw.bb481
@@ -10965,157 +10959,135 @@ if.then448:                                       ; preds = %land.lhs.true445
   ]
 
 sw.bb464:                                         ; preds = %if.then448
-  %call468 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call468, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val465)
-  %has_been_checked_.i279 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i279, align 1
-  %91 = load i8, ptr %agg.result, align 1
-  %tobool.i280 = trunc i8 %91 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val465)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %90 = load i8, ptr %agg.result, align 1
+  %tobool.i280 = trunc i8 %90 to i1
   br i1 %tobool.i280, label %return, label %cleanup.cont479
 
 cleanup.cont479:                                  ; preds = %sw.bb464
-  %92 = load i8, ptr %val465, align 1
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %92)
+  %91 = load i8, ptr %val465, align 1
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %91)
   br label %if.end668
 
 sw.bb481:                                         ; preds = %if.then448
-  %call485 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call485, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val482)
-  %has_been_checked_.i281 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i281, align 1
-  %93 = load i8, ptr %agg.result, align 1
-  %tobool.i282 = trunc i8 %93 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val482)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %92 = load i8, ptr %agg.result, align 1
+  %tobool.i282 = trunc i8 %92 to i1
   br i1 %tobool.i282, label %return, label %cleanup.cont496
 
 cleanup.cont496:                                  ; preds = %sw.bb481
-  %94 = load i8, ptr %val482, align 1
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %94)
+  %93 = load i8, ptr %val482, align 1
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %93)
   br label %if.end668
 
 sw.bb498:                                         ; preds = %if.then448
-  %call502 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call502, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val499)
-  %has_been_checked_.i283 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i283, align 1
-  %95 = load i8, ptr %agg.result, align 1
-  %tobool.i284 = trunc i8 %95 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIaEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val499)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %94 = load i8, ptr %agg.result, align 1
+  %tobool.i284 = trunc i8 %94 to i1
   br i1 %tobool.i284, label %return, label %cleanup.cont513
 
 cleanup.cont513:                                  ; preds = %sw.bb498
-  %96 = load i8, ptr %val499, align 1
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIaEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef signext %96)
+  %95 = load i8, ptr %val499, align 1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIaEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef signext %95)
   br label %if.end668
 
 sw.bb515:                                         ; preds = %if.then448
-  %call519 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call519, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val516)
-  %has_been_checked_.i285 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i285, align 1
-  %97 = load i8, ptr %agg.result, align 1
-  %tobool.i286 = trunc i8 %97 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIhEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val516)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %96 = load i8, ptr %agg.result, align 1
+  %tobool.i286 = trunc i8 %96 to i1
   br i1 %tobool.i286, label %return, label %cleanup.cont530
 
 cleanup.cont530:                                  ; preds = %sw.bb515
-  %98 = load i8, ptr %val516, align 1
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %98)
+  %97 = load i8, ptr %val516, align 1
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIhEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i8 noundef zeroext %97)
   br label %if.end668
 
 sw.bb532:                                         ; preds = %if.then448
-  %call536 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call536, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val533)
-  %has_been_checked_.i287 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i287, align 1
-  %99 = load i8, ptr %agg.result, align 1
-  %tobool.i288 = trunc i8 %99 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIsEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val533)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %98 = load i8, ptr %agg.result, align 1
+  %tobool.i288 = trunc i8 %98 to i1
   br i1 %tobool.i288, label %return, label %cleanup.cont547
 
 cleanup.cont547:                                  ; preds = %sw.bb532
-  %100 = load i16, ptr %val533, align 2
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIsEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i16 noundef signext %100)
+  %99 = load i16, ptr %val533, align 2
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIsEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i16 noundef signext %99)
   br label %if.end668
 
 sw.bb549:                                         ; preds = %if.then448
-  %call553 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call553, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val550)
-  %has_been_checked_.i289 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i289, align 1
-  %101 = load i8, ptr %agg.result, align 1
-  %tobool.i290 = trunc i8 %101 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotItEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val550)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %100 = load i8, ptr %agg.result, align 1
+  %tobool.i290 = trunc i8 %100 to i1
   br i1 %tobool.i290, label %return, label %cleanup.cont564
 
 cleanup.cont564:                                  ; preds = %sw.bb549
-  %102 = load i16, ptr %val550, align 2
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackItEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i16 noundef zeroext %102)
+  %101 = load i16, ptr %val550, align 2
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackItEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i16 noundef zeroext %101)
   br label %if.end668
 
 sw.bb566:                                         ; preds = %if.then448
-  %call570 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call570, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val567)
-  %has_been_checked_.i291 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i291, align 1
-  %103 = load i8, ptr %agg.result, align 1
-  %tobool.i292 = trunc i8 %103 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIiEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val567)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %102 = load i8, ptr %agg.result, align 1
+  %tobool.i292 = trunc i8 %102 to i1
   br i1 %tobool.i292, label %return, label %cleanup.cont581
 
 cleanup.cont581:                                  ; preds = %sw.bb566
-  %104 = load i32, ptr %val567, align 4
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIiEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %104)
+  %103 = load i32, ptr %val567, align 4
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIiEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %103)
   br label %if.end668
 
 sw.bb583:                                         ; preds = %if.then448
-  %call587 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call587, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val584)
-  %has_been_checked_.i293 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i293, align 1
-  %105 = load i8, ptr %agg.result, align 1
-  %tobool.i294 = trunc i8 %105 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIjEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val584)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %104 = load i8, ptr %agg.result, align 1
+  %tobool.i294 = trunc i8 %104 to i1
   br i1 %tobool.i294, label %return, label %cleanup.cont598
 
 cleanup.cont598:                                  ; preds = %sw.bb583
-  %106 = load i32, ptr %val584, align 4
-  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIjEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %106)
+  %105 = load i32, ptr %val584, align 4
+  tail call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIjEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i32 noundef %105)
   br label %if.end668
 
 sw.bb600:                                         ; preds = %if.then448
-  %call604 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call604, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val601)
-  %has_been_checked_.i295 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i295, align 1
-  %107 = load i8, ptr %agg.result, align 1
-  %tobool.i296 = trunc i8 %107 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIlEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val601)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %106 = load i8, ptr %agg.result, align 1
+  %tobool.i296 = trunc i8 %106 to i1
   br i1 %tobool.i296, label %return, label %cleanup.cont615
 
 cleanup.cont615:                                  ; preds = %sw.bb600
-  %108 = load i64, ptr %val601, align 8
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIlEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i64 noundef %108)
+  %107 = load i64, ptr %val601, align 8
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackIlEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i64 noundef %107)
   br label %if.end668
 
 sw.bb617:                                         ; preds = %if.then448
-  %call621 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call621, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val618)
-  %has_been_checked_.i297 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i297, align 1
-  %109 = load i8, ptr %agg.result, align 1
-  %tobool.i298 = trunc i8 %109 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotImEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val618)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %108 = load i8, ptr %agg.result, align 1
+  %tobool.i298 = trunc i8 %108 to i1
   br i1 %tobool.i298, label %return, label %cleanup.cont632
 
 cleanup.cont632:                                  ; preds = %sw.bb617
-  %110 = load i64, ptr %val618, align 8
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackImEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i64 noundef %110)
+  %109 = load i64, ptr %val618, align 8
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_117SingleValueRepackImEEvRNS_5ValueET_(ptr noundef nonnull align 8 dereferenceable(66) %e, i64 noundef %109)
   br label %if.end668
 
 sw.bb634:                                         ; preds = %if.then448
-  %call638 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
-  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call638, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val635)
-  %has_been_checked_.i299 = getelementptr inbounds i8, ptr %agg.result, i64 1
-  store i8 1, ptr %has_been_checked_.i299, align 1
-  %111 = load i8, ptr %agg.result, align 1
-  %tobool.i300 = trunc i8 %111 to i1
+  call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIfEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val635)
+  store i8 1, ptr %has_been_checked_.i305, align 1
+  %110 = load i8, ptr %agg.result, align 1
+  %tobool.i300 = trunc i8 %110 to i1
   br i1 %tobool.i300, label %return, label %cleanup.cont649
 
 cleanup.cont649:                                  ; preds = %sw.bb634
-  %112 = load float, ptr %val635, align 4
-  %cmp.i301 = fcmp uno float %112, 0.000000e+00
+  %111 = load float, ptr %val635, align 4
+  %cmp.i301 = fcmp uno float %111, 0.000000e+00
   br i1 %cmp.i301, label %if.then.i303, label %if.end668
 
 if.then.i303:                                     ; preds = %cleanup.cont649
@@ -11123,24 +11095,25 @@ if.then.i303:                                     ; preds = %cleanup.cont649
   br label %if.end668
 
 sw.bb651:                                         ; preds = %if.then448
-  %call655 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %constant446) #29
   call fastcc void @_ZN11flatbuffers12_GLOBAL__N_14atotIdEENS_12CheckedErrorEPKcRNS_6ParserEPT_(ptr noalias align 1 %agg.result, ptr noundef %call655, ptr noundef nonnull align 8 dereferenceable(1784) %this, ptr noundef nonnull %val652)
-  %has_been_checked_.i305 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 1, ptr %has_been_checked_.i305, align 1
-  %113 = load i8, ptr %agg.result, align 1
-  %tobool.i306 = trunc i8 %113 to i1
+  %112 = load i8, ptr %agg.result, align 1
+  %tobool.i306 = trunc i8 %112 to i1
   br i1 %tobool.i306, label %return, label %cleanup.cont666
 
 cleanup.cont666:                                  ; preds = %sw.bb651
-  %114 = load double, ptr %val652, align 8
-  %cmp.i307 = fcmp uno double %114, 0.000000e+00
+  %113 = load double, ptr %val652, align 8
+  %cmp.i307 = fcmp uno double %113, 0.000000e+00
   br i1 %cmp.i307, label %if.then.i309, label %if.end668
 
 if.then.i309:                                     ; preds = %cleanup.cont666
   %call.i311 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %constant446, ptr noundef nonnull @.str.245)
   br label %if.end668
 
-if.end668:                                        ; preds = %if.then.i309, %cleanup.cont666, %if.then.i303, %cleanup.cont649, %cleanup.cont479, %cleanup.cont496, %cleanup.cont513, %cleanup.cont530, %cleanup.cont547, %cleanup.cont564, %cleanup.cont581, %cleanup.cont598, %cleanup.cont615, %cleanup.cont632, %if.then448, %land.lhs.true445, %if.end439
+default.unreachable:                              ; preds = %if.then448
+  unreachable
+
+if.end668:                                        ; preds = %if.then.i309, %cleanup.cont666, %if.then.i303, %cleanup.cont649, %cleanup.cont479, %cleanup.cont496, %cleanup.cont513, %cleanup.cont530, %cleanup.cont547, %cleanup.cont564, %cleanup.cont581, %cleanup.cont598, %cleanup.cont615, %cleanup.cont632, %land.lhs.true445, %if.end439
   store i8 0, ptr %agg.result, align 1, !alias.scope !188
   %has_been_checked_.i.i312 = getelementptr inbounds i8, ptr %agg.result, i64 1
   store i8 0, ptr %has_been_checked_.i.i312, align 1, !alias.scope !188
@@ -11150,7 +11123,7 @@ return:                                           ; preds = %sw.bb651, %sw.bb634
   ret void
 
 eh.resume:                                        ; preds = %ehcleanup438, %ehcleanup383, %lpad231, %ehcleanup104, %ehcleanup
-  %.pn128.pn = phi { ptr, i32 } [ %.pn128, %ehcleanup ], [ %.pn126, %ehcleanup438 ], [ %.pn118, %ehcleanup383 ], [ %50, %lpad231 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup104 ]
+  %.pn128.pn = phi { ptr, i32 } [ %.pn128, %ehcleanup ], [ %.pn126, %ehcleanup438 ], [ %.pn118, %ehcleanup383 ], [ %49, %lpad231 ], [ %.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup104 ]
   resume { ptr, i32 } %.pn128.pn
 }
 

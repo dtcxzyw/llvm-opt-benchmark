@@ -8489,14 +8489,12 @@ define void @_Z28update_annealing_target_tempRK10t_inputrecfP14gmx_ekindata_tPN3
   %27 = load ptr, ptr %10, align 8
   %28 = getelementptr inbounds i32, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  switch i32 %18, label %48 [
-    i32 2, label %30
-    i32 1, label %47
-  ]
+  %switch65.i = icmp eq i32 %18, 2
+  %30 = load ptr, ptr %11, align 8
+  br i1 %switch65.i, label %31, label %._crit_edge.i
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %11, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = sext i32 %29 to i64
   %35 = getelementptr float, ptr %33, i64 %34
@@ -8510,97 +8508,93 @@ define void @_Z28update_annealing_target_tempRK10t_inputrecfP14gmx_ekindata_tPN3
   %43 = fsub float %42, %37
   %44 = tail call noundef float @llvm.fabs.f32(float %43)
   %45 = fcmp olt float %44, 0x3EE9000000000000
-  br i1 %45, label %46, label %48
+  br i1 %45, label %46, label %._crit_edge.i
 
-46:                                               ; preds = %30
-  br label %48
+46:                                               ; preds = %31
+  br label %._crit_edge.i
 
-47:                                               ; preds = %26
-  br label %48
-
-48:                                               ; preds = %47, %46, %30, %26
-  %.047.i = phi float [ 0.000000e+00, %46 ], [ %42, %30 ], [ %1, %47 ], [ 0.000000e+00, %26 ]
-  %49 = add nsw i32 %29, -1
-  %50 = load ptr, ptr %11, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %indvars.iv
-  %smax.i = tail call i32 @llvm.smax.i32(i32 %49, i32 0)
+._crit_edge.i:                                    ; preds = %46, %31, %26
+  %.047.i = phi float [ 0.000000e+00, %46 ], [ %42, %31 ], [ %1, %26 ]
+  %47 = add nsw i32 %29, -1
+  %48 = getelementptr inbounds ptr, ptr %30, i64 %indvars.iv
+  %smax.i = tail call i32 @llvm.smax.i32(i32 %47, i32 0)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
-  br label %52
+  br label %49
 
-52:                                               ; preds = %53, %48
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %53 ], [ 0, %48 ]
+49:                                               ; preds = %50, %._crit_edge.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %50 ], [ 0, %._crit_edge.i ]
   %exitcond.not.i = icmp eq i64 %indvars.iv.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.critedge55.i, label %53
+  br i1 %exitcond.not.i, label %.critedge55.i, label %50
 
-53:                                               ; preds = %52
-  %54 = load ptr, ptr %51, align 8
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %48, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %55 = getelementptr inbounds float, ptr %54, i64 %indvars.iv.next.i
-  %56 = load float, ptr %55, align 4
-  %57 = fcmp ogt float %.047.i, %56
-  br i1 %57, label %52, label %.critedge.i, !llvm.loop !126
+  %52 = getelementptr inbounds float, ptr %51, i64 %indvars.iv.next.i
+  %53 = load float, ptr %52, align 4
+  %54 = fcmp ogt float %.047.i, %53
+  br i1 %54, label %49, label %.critedge.i, !llvm.loop !126
 
-.critedge.i:                                      ; preds = %53
-  %58 = and i64 %indvars.iv.i, 4294967295
-  %59 = getelementptr inbounds float, ptr %54, i64 %58
-  %60 = load float, ptr %59, align 4
-  %61 = fsub float %56, %60
-  %62 = fcmp olt float %61, 0x3EE9000000000000
-  br i1 %62, label %63, label %69
+.critedge.i:                                      ; preds = %50
+  %55 = and i64 %indvars.iv.i, 4294967295
+  %56 = getelementptr inbounds float, ptr %51, i64 %55
+  %57 = load float, ptr %56, align 4
+  %58 = fsub float %53, %57
+  %59 = fcmp olt float %58, 0x3EE9000000000000
+  br i1 %59, label %60, label %66
 
-63:                                               ; preds = %.critedge.i
-  %64 = load ptr, ptr %12, align 8
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %indvars.iv
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds float, ptr %66, i64 %indvars.iv.next.i
-  %68 = load float, ptr %67, align 4
+60:                                               ; preds = %.critedge.i
+  %61 = load ptr, ptr %12, align 8
+  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds float, ptr %63, i64 %indvars.iv.next.i
+  %65 = load float, ptr %64, align 4
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-69:                                               ; preds = %.critedge.i
-  %70 = fsub float %.047.i, %60
-  %71 = fdiv float %70, %61
-  %72 = load ptr, ptr %12, align 8
-  %73 = getelementptr inbounds ptr, ptr %72, i64 %indvars.iv
-  %74 = load ptr, ptr %73, align 8
-  %75 = getelementptr inbounds float, ptr %74, i64 %indvars.iv.next.i
+66:                                               ; preds = %.critedge.i
+  %67 = fsub float %.047.i, %57
+  %68 = fdiv float %67, %58
+  %69 = load ptr, ptr %12, align 8
+  %70 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv
+  %71 = load ptr, ptr %70, align 8
+  %72 = getelementptr inbounds float, ptr %71, i64 %indvars.iv.next.i
+  %73 = load float, ptr %72, align 4
+  %74 = fsub float 1.000000e+00, %68
+  %75 = getelementptr inbounds float, ptr %71, i64 %55
   %76 = load float, ptr %75, align 4
-  %77 = fsub float 1.000000e+00, %71
-  %78 = getelementptr inbounds float, ptr %74, i64 %58
-  %79 = load float, ptr %78, align 4
-  %80 = fmul float %77, %79
-  %81 = tail call float @llvm.fmuladd.f32(float %71, float %76, float %80)
+  %77 = fmul float %74, %76
+  %78 = tail call float @llvm.fmuladd.f32(float %68, float %73, float %77)
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-.critedge55.i:                                    ; preds = %52
-  %82 = load ptr, ptr %12, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %indvars.iv
-  %84 = load ptr, ptr %83, align 8
-  %85 = sext i32 %49 to i64
-  %86 = getelementptr inbounds float, ptr %84, i64 %85
-  %87 = load float, ptr %86, align 4
+.critedge55.i:                                    ; preds = %49
+  %79 = load ptr, ptr %12, align 8
+  %80 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv
+  %81 = load ptr, ptr %80, align 8
+  %82 = sext i32 %47 to i64
+  %83 = getelementptr inbounds float, ptr %81, i64 %82
+  %84 = load float, ptr %83, align 4
   br label %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
 
-_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit: ; preds = %63, %69, %.critedge55.i
-  %.0.i = phi float [ %68, %63 ], [ %81, %69 ], [ %87, %.critedge55.i ]
-  %88 = load ptr, ptr %2, align 8
-  %89 = getelementptr inbounds float, ptr %88, i64 %indvars.iv
-  store float %.0.i, ptr %89, align 4
-  %90 = load i32, ptr %13, align 8
-  %91 = icmp eq i32 %90, 2
-  %92 = icmp eq i64 %indvars.iv, 0
-  %or.cond.i12 = and i1 %92, %91
-  br i1 %or.cond.i12, label %93, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
+_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit: ; preds = %60, %66, %.critedge55.i
+  %.0.i = phi float [ %65, %60 ], [ %78, %66 ], [ %84, %.critedge55.i ]
+  %85 = load ptr, ptr %2, align 8
+  %86 = getelementptr inbounds float, ptr %85, i64 %indvars.iv
+  store float %.0.i, ptr %86, align 4
+  %87 = load i32, ptr %13, align 8
+  %88 = icmp eq i32 %87, 2
+  %89 = icmp eq i64 %indvars.iv, 0
+  %or.cond.i12 = and i1 %89, %88
+  br i1 %or.cond.i12, label %90, label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-93:                                               ; preds = %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
+90:                                               ; preds = %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit
   store float %.0.i, ptr %14, align 4
   br label %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit
 
-_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %93, %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit, %15
+_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit: ; preds = %90, %_ZL33computeAnnealingTargetTemperatureRK10t_inputrecif.exit, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %94 = load i32, ptr %6, align 8
-  %95 = sext i32 %94 to i64
-  %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %15, label %._crit_edge, !llvm.loop !127
+  %91 = load i32, ptr %6, align 8
+  %92 = sext i32 %91 to i64
+  %93 = icmp slt i64 %indvars.iv.next, %92
+  br i1 %93, label %15, label %._crit_edge, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %_ZN14gmx_ekindata_t30setCurrentReferenceTemperatureEif.exit, %4
   tail call void @_ZN3gmx6Update28update_temperature_constantsERK10t_inputrecRK14gmx_ekindata_t(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(856) %0, ptr noundef nonnull align 8 dereferenceable(212) %2)

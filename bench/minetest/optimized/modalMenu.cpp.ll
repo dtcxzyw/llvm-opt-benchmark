@@ -1121,7 +1121,7 @@ if.then31:                                        ; preds = %do.end
   %8 = getelementptr inbounds i8, ptr %mouse_event.i, i64 8
   %9 = load <2 x i32>, ptr %m_pointer, align 8, !tbaa !4
   store <2 x i32> %9, ptr %8, align 8, !tbaa !48
-  switch i32 %touch_event, label %_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb.exit [
+  switch i32 %touch_event, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 2, label %sw.bb6.i
     i32 1, label %sw.bb9.i
@@ -1174,15 +1174,14 @@ if.end23.i:                                       ; preds = %if.end20.i
 do.end.i:                                         ; preds = %if.end23.i, %if.end20.i, %sw.epilog.i
   %retval15.0.i = phi i1 [ %call26.i, %if.end23.i ], [ true, %sw.epilog.i ], [ false, %if.end20.i ]
   store i8 0, ptr %m_simulated_mouse, align 1, !tbaa !41
-  br label %_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb.exit
-
-_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb.exit: ; preds = %do.end.i, %if.then31
-  %retval.1.i = phi i1 [ false, %if.then31 ], [ %retval15.0.i, %do.end.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %mouse_event.i) #22
   br label %cleanup35
 
-cleanup35:                                        ; preds = %_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb.exit, %do.end, %do.end.thread, %if.end
-  %retval.1 = phi i1 [ false, %if.end ], [ %retval.1.i, %_ZN12GUIModalMenu18simulateMouseEventEN3irr18ETOUCH_INPUT_EVENTEb.exit ], [ %retval15.0, %do.end ], [ true, %do.end.thread ]
+default.unreachable:                              ; preds = %if.then31
+  unreachable
+
+cleanup35:                                        ; preds = %do.end.i, %do.end, %do.end.thread, %if.end
+  %retval.1 = phi i1 [ false, %if.end ], [ %retval15.0.i, %do.end.i ], [ %retval15.0, %do.end ], [ true, %do.end.thread ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %mouse_event) #22
   ret i1 %retval.1
 }

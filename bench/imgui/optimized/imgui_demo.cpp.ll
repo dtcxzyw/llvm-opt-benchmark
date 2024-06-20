@@ -15953,7 +15953,7 @@ if.end813:                                        ; preds = %if.end810
   %137 = fadd <2 x float> %134, %136
   store <2 x float> %137, ptr %text_pos, align 8
   %call820 = call noundef ptr @_ZN5ImGui17GetWindowDrawListEv()
-  switch i32 %n791.0317, label %for.inc829 [
+  switch i32 %n791.0317, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb821
     i32 2, label %for.inc829.thread
@@ -15984,7 +15984,10 @@ for.inc829.thread:                                ; preds = %if.end813
   call void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(196) %call820, ptr noundef %call827, float noundef %call828, ptr noundef nonnull align 4 dereferenceable(8) %text_pos, i32 noundef -1, ptr noundef nonnull @.str.1142, ptr noundef null, float noundef 0.000000e+00, ptr noundef nonnull %clip_rect)
   br label %for.end831
 
-for.inc829:                                       ; preds = %if.end813, %sw.bb, %sw.bb821, %if.end810
+default.unreachable:                              ; preds = %if.end813
+  unreachable
+
+for.inc829:                                       ; preds = %sw.bb, %sw.bb821, %if.end810
   %inc830 = add nuw nsw i32 %n791.0317, 1
   %exitcond340.not = icmp eq i32 %inc830, 3
   br i1 %exitcond340.not, label %for.end831, label %for.body794, !llvm.loop !91

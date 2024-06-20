@@ -333,7 +333,6 @@ $_ZTVN5folly17BadExpectedAccessIvEE = comdat any
 @.str.86 = private unnamed_addr constant [23 x i8] c"Bzip2: invalid level: \00", align 1
 @_ZTSN5folly2io12_GLOBAL__N_116Bzip2StreamCodecE = internal constant [44 x i8] c"N5folly2io12_GLOBAL__N_116Bzip2StreamCodecE\00", align 1
 @_ZTIN5folly2io12_GLOBAL__N_116Bzip2StreamCodecE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5folly2io12_GLOBAL__N_116Bzip2StreamCodecE, ptr @_ZTIN5folly2io11StreamCodecE }, align 8
-@.str.89 = private unnamed_addr constant [34 x i8] c"Bzip2StreamCodec: invalid FlushOp\00", align 1
 @.str.90 = private unnamed_addr constant [14 x i8] c"Bzip2 error: \00", align 1
 @.str.91 = private unnamed_addr constant [47 x i8] c"Bzip2StreamCodec: FlushOp::FLUSH not supported\00", align 1
 @.str.92 = private unnamed_addr constant [32 x i8] c"Bzip2StreamCodec: Invalid flush\00", align 1
@@ -10501,8 +10500,8 @@ sw.default.i:                                     ; preds = %_ZN5folly8OptionalI
   invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception3.i, ptr noundef nonnull @.str.92)
           to label %invoke.cont5.i.invoke unwind label %lpad4.i
 
-invoke.cont5.i.invoke:                            ; preds = %sw.default, %sw.default.i, %sw.bb2.i
-  %12 = phi ptr [ %exception, %sw.default ], [ %exception.i, %sw.bb2.i ], [ %exception3.i, %sw.default.i ]
+invoke.cont5.i.invoke:                            ; preds = %sw.default.i, %sw.bb2.i
+  %12 = phi ptr [ %exception.i, %sw.bb2.i ], [ %exception3.i, %sw.default.i ]
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTISt16invalid_argument, ptr nonnull @_ZNSt16invalid_argumentD1Ev) #31
           to label %invoke.cont5.i.cont unwind label %lpad
 
@@ -10529,7 +10528,7 @@ invoke.cont21:                                    ; preds = %invoke.cont
           to label %invoke.cont23 unwind label %lpad
 
 invoke.cont23:                                    ; preds = %invoke.cont21
-  switch i32 %flushOp, label %sw.default [
+  switch i32 %flushOp, label %default.unreachable [
     i32 0, label %if.then.i135
     i32 1, label %sw.bb25
     i32 2, label %sw.bb92
@@ -10548,21 +10547,13 @@ sw.bb92:                                          ; preds = %invoke.cont23
   %cmp93 = icmp eq i32 %call22, 4
   br label %if.then.i135
 
-sw.default:                                       ; preds = %invoke.cont23
-  %exception = tail call ptr @__cxa_allocate_exception(i64 16) #29
-  invoke void @_ZNSt16invalid_argumentC1EPKc(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull @.str.89)
-          to label %invoke.cont5.i.invoke unwind label %lpad94
-
-lpad94:                                           ; preds = %sw.default
-  %15 = landingpad { ptr, i32 }
-          cleanup
-  tail call void @__cxa_free_exception(ptr %exception) #29
-  br label %ehcleanup97
+default.unreachable:                              ; preds = %invoke.cont23
+  unreachable
 
 if.then.i135:                                     ; preds = %sw.bb92, %sw.bb25, %invoke.cont23
   %retval.0 = phi i1 [ %cmp93, %sw.bb92 ], [ false, %invoke.cont23 ], [ %cmp, %sw.bb25 ]
-  %16 = load i8, ptr %hasValue.i.i.i114, align 8, !tbaa !249, !range !28, !noundef !29
-  %tobool.not.i.i.i.i.i.i = icmp eq i8 %16, 0
+  %15 = load i8, ptr %hasValue.i.i.i114, align 8, !tbaa !249, !range !28, !noundef !29
+  %tobool.not.i.i.i.i.i.i = icmp eq i8 %15, 0
   br i1 %tobool.not.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit"
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.then.i135
@@ -10573,38 +10564,38 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.then.i135
   unreachable
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i.i.i
-  %17 = landingpad { ptr, i32 }
+  %16 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  tail call void @__clang_call_terminate(ptr %18) #28
+  %17 = extractvalue { ptr, i32 } %16, 0
+  tail call void @__clang_call_terminate(ptr %17) #28
   unreachable
 
 "_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev.exit": ; preds = %if.then.i135
-  %19 = load ptr, ptr %e_.i, align 8, !tbaa !49
-  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
-  %20 = load ptr, ptr %input, align 8, !tbaa !48
-  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %20 to i64
-  %21 = load i32, ptr %avail_in, align 8, !tbaa !258
-  %conv.i.i.i = zext i32 %21 to i64
-  %22 = add i64 %sub.ptr.rhs.cast.i.i.i.i, %conv.i.i.i
-  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %22
-  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %20, i64 %sub.i.i.i
+  %18 = load ptr, ptr %e_.i, align 8, !tbaa !49
+  %sub.ptr.lhs.cast.i.i.i.i = ptrtoint ptr %18 to i64
+  %19 = load ptr, ptr %input, align 8, !tbaa !48
+  %sub.ptr.rhs.cast.i.i.i.i = ptrtoint ptr %19 to i64
+  %20 = load i32, ptr %avail_in, align 8, !tbaa !258
+  %conv.i.i.i = zext i32 %20 to i64
+  %21 = add i64 %sub.ptr.rhs.cast.i.i.i.i, %conv.i.i.i
+  %sub.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %21
+  %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %19, i64 %sub.i.i.i
   store ptr %add.ptr.i.i.i.i, ptr %input, align 8, !tbaa !48
-  %23 = load ptr, ptr %e_.i124, align 8, !tbaa !54
-  %24 = load ptr, ptr %output, align 8, !tbaa !52
-  %sub.ptr.lhs.cast.i10.i.i.i = ptrtoint ptr %23 to i64
-  %sub.ptr.rhs.cast.i11.i.i.i = ptrtoint ptr %24 to i64
-  %25 = load i32, ptr %avail_out, align 8, !tbaa !260
-  %conv7.i.i.i = zext i32 %25 to i64
-  %26 = add i64 %sub.ptr.rhs.cast.i11.i.i.i, %conv7.i.i.i
-  %sub8.i.i.i = sub i64 %sub.ptr.lhs.cast.i10.i.i.i, %26
-  %add.ptr.i18.i.i.i = getelementptr inbounds i8, ptr %24, i64 %sub8.i.i.i
+  %22 = load ptr, ptr %e_.i124, align 8, !tbaa !54
+  %23 = load ptr, ptr %output, align 8, !tbaa !52
+  %sub.ptr.lhs.cast.i10.i.i.i = ptrtoint ptr %22 to i64
+  %sub.ptr.rhs.cast.i11.i.i.i = ptrtoint ptr %23 to i64
+  %24 = load i32, ptr %avail_out, align 8, !tbaa !260
+  %conv7.i.i.i = zext i32 %24 to i64
+  %25 = add i64 %sub.ptr.rhs.cast.i11.i.i.i, %conv7.i.i.i
+  %sub8.i.i.i = sub i64 %sub.ptr.lhs.cast.i10.i.i.i, %25
+  %add.ptr.i18.i.i.i = getelementptr inbounds i8, ptr %23, i64 %sub8.i.i.i
   store ptr %add.ptr.i18.i.i.i, ptr %output, align 8, !tbaa !52
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE2) #29
   br label %return
 
-ehcleanup97:                                      ; preds = %lpad94, %lpad, %eh.resume.i
-  %.pn = phi { ptr, i32 } [ %15, %lpad94 ], [ %14, %lpad ], [ %.pn.i, %eh.resume.i ]
+ehcleanup97:                                      ; preds = %lpad, %eh.resume.i
+  %.pn = phi { ptr, i32 } [ %14, %lpad ], [ %.pn.i, %eh.resume.i ]
   call fastcc void @"_ZN5folly6detail14ScopeGuardImplIZNS_2io12_GLOBAL__N_116Bzip2StreamCodec16doCompressStreamERNS_5RangeIPKhEERNS5_IPhEENS2_11StreamCodec7FlushOpEE3$_0Lb1EED2Ev"(ptr noundef nonnull align 8 dereferenceable(32) %SCOPE_EXIT_STATE2) #29
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %SCOPE_EXIT_STATE2) #29
   resume { ptr, i32 } %.pn

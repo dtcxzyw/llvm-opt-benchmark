@@ -172,23 +172,21 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.122 = private unnamed_addr constant [23 x i8] c"Load Uploading Request\00", align 1
 @.str.123 = private unnamed_addr constant [4 x i8] c"LUS\00", align 1
 @.str.124 = private unnamed_addr constant [22 x i8] c"Load Uploading Status\00", align 1
-@.str.125 = private unnamed_addr constant [55 x i8] c"%s:%u: failed assertion \22DISSECTOR_ASSERT_NOT_REACHED\22\00", align 1
-@.str.126 = private unnamed_addr constant [35 x i8] c"epan/dissectors/packet-arinc615a.c\00", align 1
 @.str.127 = private unnamed_addr constant [13 x i8] c", Status: %s\00", align 1
 @.str.129 = private unnamed_addr constant [20 x i8] c", Load Ratio: %s %%\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_register_a615a() local_unnamed_addr #0 {
-  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60) #4
+  %1 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.59, ptr noundef nonnull @.str.60) #3
   store i32 %1, ptr @proto_a615a, align 4
-  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_a615a.hf, i32 noundef 20) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_a615a.ett, i32 noundef 1) #4
-  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #4
+  tail call void @proto_register_field_array(i32 noundef %1, ptr noundef nonnull @proto_register_a615a.hf, i32 noundef 20) #3
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_a615a.ett, i32 noundef 1) #3
+  %2 = tail call i32 @proto_register_protocol(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.82, ptr noundef nonnull @.str.83) #3
   store i32 %2, ptr @proto_find, align 4
-  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_a615a.hf_find, i32 noundef 7) #4
-  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_a615a.etts_find, i32 noundef 1) #4
+  tail call void @proto_register_field_array(i32 noundef %2, ptr noundef nonnull @proto_register_a615a.hf_find, i32 noundef 7) #3
+  tail call void @proto_register_subtree_array(ptr noundef nonnull @proto_register_a615a.etts_find, i32 noundef 1) #3
   %3 = load i32, ptr @proto_find, align 4
-  %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.83, ptr noundef nonnull @dissect_find, i32 noundef %3) #4
+  %4 = tail call ptr @register_dissector(ptr noundef nonnull @.str.83, ptr noundef nonnull @dissect_find, i32 noundef %3) #3
   store ptr %4, ptr @find_handle, align 8
   ret void
 }
@@ -206,55 +204,55 @@ define internal i32 @dissect_find(ptr noundef %0, ptr nocapture noundef readonly
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8
-  tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.82) #4
+  tail call void @col_set_str(ptr noundef %7, i32 noundef 34, ptr noundef nonnull @.str.82) #3
   %8 = load i32, ptr @proto_find, align 4
-  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %8, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %10 = load i32, ptr @ett_find, align 4
-  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #4
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10) #3
   %12 = getelementptr inbounds i8, ptr %1, i64 408
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #4
+  %14 = tail call ptr @ptvcursor_new(ptr noundef %13, ptr noundef %11, ptr noundef %0, i32 noundef 0) #3
   %15 = load i32, ptr @hf_find_opcode, align 4
-  %16 = call ptr @ptvcursor_add_ret_uint(ptr noundef %14, i32 noundef %15, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #4
+  %16 = call ptr @ptvcursor_add_ret_uint(ptr noundef %14, i32 noundef %15, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #3
   %17 = load ptr, ptr %6, align 8
   %18 = load i32, ptr %5, align 4
-  %19 = call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @find_opcode_vals, ptr noundef nonnull @.str.100) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %19) #4
+  %19 = call ptr @val_to_str(i32 noundef %18, ptr noundef nonnull @find_opcode_vals, ptr noundef nonnull @.str.100) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.99, ptr noundef %19) #3
   %20 = load i32, ptr %5, align 4
   %21 = icmp eq i32 %20, 2
   br i1 %21, label %22, label %33
 
 22:                                               ; preds = %4
   %23 = load i32, ptr @hf_find_target_hardware_identifier, align 4
-  %24 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %23, i32 noundef -1, i32 noundef 0) #4
+  %24 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %23, i32 noundef -1, i32 noundef 0) #3
   %25 = load i32, ptr @hf_find_target_type_name, align 4
-  %26 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %25, i32 noundef -1, i32 noundef 0) #4
+  %26 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %25, i32 noundef -1, i32 noundef 0) #3
   %27 = load i32, ptr @hf_find_target_position, align 4
-  %28 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %27, i32 noundef -1, i32 noundef 0) #4
+  %28 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %27, i32 noundef -1, i32 noundef 0) #3
   %29 = load i32, ptr @hf_find_literal_name, align 4
-  %30 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %29, i32 noundef -1, i32 noundef 0) #4
+  %30 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %29, i32 noundef -1, i32 noundef 0) #3
   %31 = load i32, ptr @hf_find_manufacturer_code, align 4
-  %32 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %31, i32 noundef -1, i32 noundef 0) #4
+  %32 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %31, i32 noundef -1, i32 noundef 0) #3
   br label %34
 
 33:                                               ; preds = %4
-  call void @ptvcursor_advance(ptr noundef %14, i32 noundef 1) #4
+  call void @ptvcursor_advance(ptr noundef %14, i32 noundef 1) #3
   br label %34
 
 34:                                               ; preds = %33, %22
   %35 = load i32, ptr @hf_find_packet_terminator, align 4
-  %36 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %35, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_free(ptr noundef %14) #4
-  %37 = call i32 @tvb_captured_length(ptr noundef %0) #4
+  %36 = call ptr @ptvcursor_add(ptr noundef %14, i32 noundef %35, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_free(ptr noundef %14) #3
+  %37 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %37
 }
 
 ; Function Attrs: nounwind uwtable
 define hidden void @proto_reg_handoff_a615a() local_unnamed_addr #0 {
   %1 = load i32, ptr @proto_a615a, align 4
-  tail call void @heur_dissector_add(ptr noundef nonnull @.str.84, ptr noundef nonnull @dissect_a615a_heur, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.60, i32 noundef %1, i32 noundef 1) #4
+  tail call void @heur_dissector_add(ptr noundef nonnull @.str.84, ptr noundef nonnull @dissect_a615a_heur, ptr noundef nonnull @.str.85, ptr noundef nonnull @.str.60, i32 noundef %1, i32 noundef 1) #3
   %2 = load ptr, ptr @find_handle, align 8
-  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.86, i32 noundef 1001, ptr noundef %2) #4
+  tail call void @dissector_add_uint_with_preference(ptr noundef nonnull @.str.86, i32 noundef 1001, ptr noundef %2) #3
   ret void
 }
 
@@ -277,17 +275,17 @@ define internal range(i32 0, 2) i32 @dissect_a615a_heur(ptr noundef %0, ptr noca
   %17 = alloca i32, align 4
   %18 = alloca i32, align 4
   %19 = alloca i32, align 4
-  %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #4
+  %20 = tail call i32 @tvb_captured_length(ptr noundef %0) #3
   %21 = icmp ult i32 %20, 6
   br i1 %21, label %.loopexit, label %22
 
 22:                                               ; preds = %4
-  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #4
+  %23 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0) #3
   %.not = icmp eq i32 %23, %20
   br i1 %.not, label %24, label %.loopexit
 
 24:                                               ; preds = %22
-  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #4
+  %25 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef 4) #3
   %.not22 = icmp eq i8 %25, 65
   br i1 %.not22, label %26, label %.loopexit
 
@@ -296,30 +294,30 @@ define internal range(i32 0, 2) i32 @dissect_a615a_heur(ptr noundef %0, ptr noca
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %26, %259
-  %indvars.iv = phi i64 [ %indvars.iv.next, %259 ], [ 0, %26 ]
+.preheader:                                       ; preds = %26, %258
+  %indvars.iv = phi i64 [ %indvars.iv.next, %258 ], [ 0, %26 ]
   %29 = getelementptr [12 x %struct._string_pair], ptr @a615a_file, i64 0, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 16
-  %31 = tail call i32 @g_str_has_suffix(ptr noundef nonnull %27, ptr noundef %30) #4
+  %31 = tail call i32 @g_str_has_suffix(ptr noundef nonnull %27, ptr noundef %30) #3
   %.not23 = icmp eq i32 %31, 0
-  br i1 %.not23, label %259, label %32
+  br i1 %.not23, label %258, label %32
 
 32:                                               ; preds = %.preheader
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = getelementptr inbounds i8, ptr %1, i64 8
   %35 = load ptr, ptr %34, align 8
-  tail call void @col_set_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.59) #4
+  tail call void @col_set_str(ptr noundef %35, i32 noundef 34, ptr noundef nonnull @.str.59) #3
   %36 = load ptr, ptr %34, align 8
-  tail call void @col_add_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull %27) #4
+  tail call void @col_add_str(ptr noundef %36, i32 noundef 25, ptr noundef nonnull %27) #3
   %37 = load i32, ptr @proto_a615a, align 4
-  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #4
+  %38 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #3
   %39 = load i32, ptr @ett_a615a, align 4
-  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #4
+  %40 = tail call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %39) #3
   %41 = load i32, ptr @hf_a615a_file_type, align 4
   %42 = and i64 %indvars.iv, 4294967295
   %43 = getelementptr [12 x %struct._string_pair], ptr @a615a_file, i64 0, i64 %42, i32 1
   %44 = load ptr, ptr %43, align 8
-  %45 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %44) #4
+  %45 = tail call ptr @proto_tree_add_string(ptr noundef %40, i32 noundef %41, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef %44) #3
   %.not.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i, label %proto_item_set_generated.exit.i, label %46
 
@@ -339,10 +337,10 @@ define internal range(i32 0, 2) i32 @dissect_a615a_heur(ptr noundef %0, ptr noca
 proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   %53 = getelementptr inbounds i8, ptr %1, i64 408
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call ptr @ptvcursor_new(ptr noundef %54, ptr noundef %40, ptr noundef %0, i32 noundef 0) #4
+  %55 = tail call ptr @ptvcursor_new(ptr noundef %54, ptr noundef %40, ptr noundef %0, i32 noundef 0) #3
   %56 = load i32, ptr @hf_a615a_file_length, align 4
-  %57 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %56, i32 noundef 4, i32 noundef 0) #4
-  switch i32 %33, label %258 [
+  %57 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %56, i32 noundef 4, i32 noundef 0) #3
+  switch i32 %33, label %default.unreachable [
     i32 9, label %58
     i32 0, label %58
     i32 4, label %58
@@ -360,15 +358,15 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
 58:                                               ; preds = %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i, %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19)
   %59 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %60 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %59, i32 noundef 2, i32 noundef 0) #4
+  %60 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %59, i32 noundef 2, i32 noundef 0) #3
   %61 = load i32, ptr @hf_a615a_operation_status, align 4
-  %62 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %61, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #4
+  %62 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %61, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %19) #3
   %63 = load ptr, ptr %34, align 8
   %64 = load i32, ptr %19, align 4
-  %65 = call ptr @val_to_str(i32 noundef %64, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %65) #4
+  %65 = call ptr @val_to_str(i32 noundef %64, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %63, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %65) #3
   %66 = load i32, ptr @hf_a615a_status_description, align 4
-  %67 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %66, i32 noundef 1, i32 noundef 0) #4
+  %67 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %66, i32 noundef 1, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   br label %dissect_a615a_protocol_file.exit
 
@@ -376,9 +374,9 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18)
   %69 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %70 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %69, i32 noundef 2, i32 noundef 0) #4
+  %70 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %69, i32 noundef 2, i32 noundef 0) #3
   %71 = load i32, ptr @hf_a615a_number_target_hardware, align 4
-  %72 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %71, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #4
+  %72 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %71, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %17) #3
   %73 = load i32, ptr %17, align 4
   %.not.i30.i = icmp eq i32 %73, 0
   br i1 %.not.i30.i, label %dissect_a615a_LCL.exit.i, label %.lr.ph4.i.i
@@ -386,13 +384,13 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
 .lr.ph4.i.i:                                      ; preds = %68, %._crit_edge.i.i
   %.0172.i.i = phi i32 [ %94, %._crit_edge.i.i ], [ 0, %68 ]
   %74 = load i32, ptr @hf_a615a_literal_name, align 4
-  %75 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %74, i32 noundef 1, i32 noundef 0) #4
+  %75 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %74, i32 noundef 1, i32 noundef 0) #3
   %76 = load i32, ptr @ett_a615a, align 4
-  %77 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %75, i32 noundef %76) #4
+  %77 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %75, i32 noundef %76) #3
   %78 = load i32, ptr @hf_a615a_serial_number, align 4
-  %79 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %78, i32 noundef 1, i32 noundef 0) #4
+  %79 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %78, i32 noundef 1, i32 noundef 0) #3
   %80 = load i32, ptr @hf_a615a_part_number_count, align 4
-  %81 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %80, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18) #4
+  %81 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %80, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %18) #3
   %82 = load i32, ptr %18, align 4
   %.not6.i.i = icmp eq i32 %82, 0
   br i1 %.not6.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -400,21 +398,21 @@ proto_item_set_generated.exit.i:                  ; preds = %49, %46, %32
 .lr.ph.i.i:                                       ; preds = %.lr.ph4.i.i, %.lr.ph.i.i
   %.01.i.i = phi i32 [ %91, %.lr.ph.i.i ], [ 0, %.lr.ph4.i.i ]
   %83 = load i32, ptr @hf_a615a_part_number, align 4
-  %84 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %83, i32 noundef 1, i32 noundef 0) #4
+  %84 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %83, i32 noundef 1, i32 noundef 0) #3
   %85 = load i32, ptr @ett_a615a, align 4
-  %86 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %84, i32 noundef %85) #4
+  %86 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %84, i32 noundef %85) #3
   %87 = load i32, ptr @hf_a615a_amendment, align 4
-  %88 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %87, i32 noundef 1, i32 noundef 0) #4
+  %88 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %87, i32 noundef 1, i32 noundef 0) #3
   %89 = load i32, ptr @hf_a615a_designation, align 4
-  %90 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %89, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  %90 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %89, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %91 = add nuw i32 %.01.i.i, 1
   %92 = load i32, ptr %18, align 4
   %93 = icmp ult i32 %91, %92
   br i1 %93, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !4
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.lr.ph4.i.i
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %94 = add nuw i32 %.0172.i.i, 1
   %95 = load i32, ptr %17, align 4
   %96 = icmp ult i32 %94, %95
@@ -428,30 +426,30 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
 97:                                               ; preds = %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   %98 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %99 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %98, i32 noundef 2, i32 noundef 0) #4
+  %99 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %98, i32 noundef 2, i32 noundef 0) #3
   %100 = load i32, ptr @hf_a615a_counter, align 4
-  %101 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %100, i32 noundef 2, i32 noundef 0) #4
+  %101 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %100, i32 noundef 2, i32 noundef 0) #3
   %102 = load i32, ptr @hf_a615a_operation_status, align 4
-  %103 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %102, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %16) #4
+  %103 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %102, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %16) #3
   %104 = load ptr, ptr %34, align 8
   %105 = load i32, ptr %16, align 4
-  %106 = call ptr @val_to_str(i32 noundef %105, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %106) #4
+  %106 = call ptr @val_to_str(i32 noundef %105, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %104, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %106) #3
   %107 = load i32, ptr @hf_a615a_exception_timer, align 4
-  %108 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %107, i32 noundef 2, i32 noundef 0) #4
+  %108 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %107, i32 noundef 2, i32 noundef 0) #3
   %109 = load i32, ptr @hf_a615a_estimated_time, align 4
-  %110 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %109, i32 noundef 2, i32 noundef 0) #4
+  %110 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %109, i32 noundef 2, i32 noundef 0) #3
   %111 = load i32, ptr @hf_a615a_status_description, align 4
-  %112 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %111, i32 noundef 1, i32 noundef 0) #4
+  %112 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %111, i32 noundef 1, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
   br label %dissect_a615a_protocol_file.exit
 
 113:                                              ; preds = %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15)
   %114 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %115 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %114, i32 noundef 2, i32 noundef 0) #4
+  %115 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %114, i32 noundef 2, i32 noundef 0) #3
   %116 = load i32, ptr @hf_a615a_file_count, align 4
-  %117 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %116, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15) #4
+  %117 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %116, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %15) #3
   %118 = load i32, ptr %15, align 4
   %.not.i31.i = icmp eq i32 %118, 0
   br i1 %.not.i31.i, label %dissect_a615a_LNA.exit.i, label %.lr.ph.i32.i
@@ -459,7 +457,7 @@ dissect_a615a_LCL.exit.i:                         ; preds = %._crit_edge.i.i, %6
 .lr.ph.i32.i:                                     ; preds = %113, %.lr.ph.i32.i
   %.01.i33.i = phi i32 [ %121, %.lr.ph.i32.i ], [ 0, %113 ]
   %119 = load i32, ptr @hf_a615a_file_name, align 4
-  %120 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %119, i32 noundef 1, i32 noundef 0) #4
+  %120 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %119, i32 noundef 1, i32 noundef 0) #3
   %121 = add nuw i32 %.01.i33.i, 1
   %122 = load i32, ptr %15, align 4
   %123 = icmp ult i32 %121, %122
@@ -472,9 +470,9 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
 124:                                              ; preds = %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14)
   %125 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %126 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %125, i32 noundef 2, i32 noundef 0) #4
+  %126 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %125, i32 noundef 2, i32 noundef 0) #3
   %127 = load i32, ptr @hf_a615a_file_count, align 4
-  %128 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %127, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #4
+  %128 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %127, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %14) #3
   %129 = load i32, ptr %14, align 4
   %.not.i35.i = icmp eq i32 %129, 0
   br i1 %.not.i35.i, label %dissect_a615a_LNL.exit.i, label %.lr.ph.i36.i
@@ -482,12 +480,12 @@ dissect_a615a_LNA.exit.i:                         ; preds = %.lr.ph.i32.i, %113
 .lr.ph.i36.i:                                     ; preds = %124, %.lr.ph.i36.i
   %.01.i37.i = phi i32 [ %136, %.lr.ph.i36.i ], [ 0, %124 ]
   %130 = load i32, ptr @hf_a615a_file_name, align 4
-  %131 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %130, i32 noundef 1, i32 noundef 0) #4
+  %131 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %130, i32 noundef 1, i32 noundef 0) #3
   %132 = load i32, ptr @ett_a615a, align 4
-  %133 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %131, i32 noundef %132) #4
+  %133 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %131, i32 noundef %132) #3
   %134 = load i32, ptr @hf_a615a_file_description, align 4
-  %135 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %134, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  %135 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %134, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %136 = add nuw i32 %.01.i37.i, 1
   %137 = load i32, ptr %14, align 4
   %138 = icmp ult i32 %136, %137
@@ -500,9 +498,9 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
 139:                                              ; preds = %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13)
   %140 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %141 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %140, i32 noundef 2, i32 noundef 0) #4
+  %141 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %140, i32 noundef 2, i32 noundef 0) #3
   %142 = load i32, ptr @hf_a615a_file_count, align 4
-  %143 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %142, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #4
+  %143 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %142, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13) #3
   %144 = load i32, ptr %13, align 4
   %.not.i39.i = icmp eq i32 %144, 0
   br i1 %.not.i39.i, label %dissect_a615a_LNR.exit.i, label %.lr.ph.i40.i
@@ -510,7 +508,7 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
 .lr.ph.i40.i:                                     ; preds = %139, %.lr.ph.i40.i
   %.01.i41.i = phi i32 [ %147, %.lr.ph.i40.i ], [ 0, %139 ]
   %145 = load i32, ptr @hf_a615a_file_name, align 4
-  %146 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %145, i32 noundef 1, i32 noundef 0) #4
+  %146 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %145, i32 noundef 1, i32 noundef 0) #3
   %147 = add nuw i32 %.01.i41.i, 1
   %148 = load i32, ptr %13, align 4
   %149 = icmp ult i32 %147, %148
@@ -518,7 +516,7 @@ dissect_a615a_LNL.exit.i:                         ; preds = %.lr.ph.i36.i, %124
 
 dissect_a615a_LNR.exit.i:                         ; preds = %.lr.ph.i40.i, %139
   %150 = load i32, ptr @hf_a615a_user_data, align 4
-  %151 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %150, i32 noundef 1, i32 noundef 0) #4
+  %151 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %150, i32 noundef 1, i32 noundef 0) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13)
   br label %dissect_a615a_protocol_file.exit
 
@@ -529,17 +527,17 @@ dissect_a615a_LNR.exit.i:                         ; preds = %.lr.ph.i40.i, %139
   store ptr null, ptr %12, align 8
   %153 = load i32, ptr @hf_a615a_protocol_version, align 4
   %154 = load ptr, ptr %53, align 8
-  %155 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %153, i32 noundef 2, i32 noundef 0, ptr noundef %154, ptr noundef nonnull %12) #4
+  %155 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %153, i32 noundef 2, i32 noundef 0, ptr noundef %154, ptr noundef nonnull %12) #3
   %156 = load i32, ptr @hf_a615a_operation_status, align 4
-  %157 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %156, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #4
+  %157 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %156, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %10) #3
   %158 = load ptr, ptr %34, align 8
   %159 = load i32, ptr %10, align 4
-  %160 = call ptr @val_to_str(i32 noundef %159, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %160) #4
+  %160 = call ptr @val_to_str(i32 noundef %159, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %158, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %160) #3
   %161 = load i32, ptr @hf_a615a_status_description, align 4
-  %162 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %161, i32 noundef 1, i32 noundef 0) #4
+  %162 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %161, i32 noundef 1, i32 noundef 0) #3
   %163 = load i32, ptr @hf_a615a_counter, align 4
-  %164 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %163, i32 noundef 2, i32 noundef 0) #4
+  %164 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %163, i32 noundef 2, i32 noundef 0) #3
   %165 = load ptr, ptr %12, align 8
   %.not.i43.i = icmp eq ptr %165, null
   br i1 %.not.i43.i, label %174, label %sub_0.i.i
@@ -563,16 +561,16 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
 
 .tail.thread.i.i:                                 ; preds = %.tail.i.i, %sub_1.i.i, %sub_0.i.i
   %172 = load i32, ptr @hf_a615a_exception_timer, align 4
-  %173 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %172, i32 noundef 2, i32 noundef 0) #4
+  %173 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %172, i32 noundef 2, i32 noundef 0) #3
   br label %174
 
 174:                                              ; preds = %.tail.thread.i.i, %.tail.i.i, %152
   %175 = load i32, ptr @hf_a615a_estimated_time, align 4
-  %176 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %175, i32 noundef 2, i32 noundef 0) #4
+  %176 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %175, i32 noundef 2, i32 noundef 0) #3
   %177 = load i32, ptr @hf_a615a_load_ratio, align 4
-  %178 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %177, i32 noundef 3, i32 noundef 0) #4
+  %178 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %177, i32 noundef 3, i32 noundef 0) #3
   %179 = load i32, ptr @hf_a615a_file_count, align 4
-  %180 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %179, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #4
+  %180 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %179, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %11) #3
   %181 = load i32, ptr %11, align 4
   %.not22.i.i = icmp eq i32 %181, 0
   br i1 %.not22.i.i, label %dissect_a615a_LNS.exit.i, label %.lr.ph.i44.i
@@ -580,14 +578,14 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
 .lr.ph.i44.i:                                     ; preds = %174, %.lr.ph.i44.i
   %.019.i.i = phi i32 [ %190, %.lr.ph.i44.i ], [ 0, %174 ]
   %182 = load i32, ptr @hf_a615a_file_name, align 4
-  %183 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %182, i32 noundef 1, i32 noundef 0) #4
+  %183 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %182, i32 noundef 1, i32 noundef 0) #3
   %184 = load i32, ptr @ett_a615a, align 4
-  %185 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %183, i32 noundef %184) #4
+  %185 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %183, i32 noundef %184) #3
   %186 = load i32, ptr @hf_a615a_operation_status, align 4
-  %187 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %186, i32 noundef 2, i32 noundef 0) #4
+  %187 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %186, i32 noundef 2, i32 noundef 0) #3
   %188 = load i32, ptr @hf_a615a_file_description, align 4
-  %189 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %188, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  %189 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %188, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %190 = add nuw i32 %.019.i.i, 1
   %191 = load i32, ptr %11, align 4
   %192 = icmp ult i32 %190, %191
@@ -602,9 +600,9 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
 193:                                              ; preds = %proto_item_set_generated.exit.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   %194 = load i32, ptr @hf_a615a_protocol_version, align 4
-  %195 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %194, i32 noundef 2, i32 noundef 0) #4
+  %195 = tail call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %194, i32 noundef 2, i32 noundef 0) #3
   %196 = load i32, ptr @hf_a615a_file_count, align 4
-  %197 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %196, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #4
+  %197 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %196, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %9) #3
   %198 = load i32, ptr %9, align 4
   %.not.i46.i = icmp eq i32 %198, 0
   br i1 %.not.i46.i, label %dissect_a615a_LUR.exit.i, label %.lr.ph.i47.i
@@ -612,12 +610,12 @@ dissect_a615a_LNS.exit.i:                         ; preds = %.lr.ph.i44.i, %174
 .lr.ph.i47.i:                                     ; preds = %193, %.lr.ph.i47.i
   %.01.i48.i = phi i32 [ %205, %.lr.ph.i47.i ], [ 0, %193 ]
   %199 = load i32, ptr @hf_a615a_file_name, align 4
-  %200 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %199, i32 noundef 1, i32 noundef 0) #4
+  %200 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %199, i32 noundef 1, i32 noundef 0) #3
   %201 = load i32, ptr @ett_a615a, align 4
-  %202 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %200, i32 noundef %201) #4
+  %202 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %200, i32 noundef %201) #3
   %203 = load i32, ptr @hf_a615a_part_number, align 4
-  %204 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %203, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  %204 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %203, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %205 = add nuw i32 %.01.i48.i, 1
   %206 = load i32, ptr %9, align 4
   %207 = icmp ult i32 %205, %206
@@ -635,17 +633,17 @@ dissect_a615a_LUR.exit.i:                         ; preds = %.lr.ph.i47.i, %193
   store ptr null, ptr %8, align 8
   %209 = load i32, ptr @hf_a615a_protocol_version, align 4
   %210 = load ptr, ptr %53, align 8
-  %211 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %209, i32 noundef 2, i32 noundef 0, ptr noundef %210, ptr noundef nonnull %8) #4
+  %211 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %209, i32 noundef 2, i32 noundef 0, ptr noundef %210, ptr noundef nonnull %8) #3
   %212 = load i32, ptr @hf_a615a_operation_status, align 4
-  %213 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %212, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #4
+  %213 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %212, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %5) #3
   %214 = load ptr, ptr %34, align 8
   %215 = load i32, ptr %5, align 4
-  %216 = call ptr @val_to_str(i32 noundef %215, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #4
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %216) #4
+  %216 = call ptr @val_to_str(i32 noundef %215, ptr noundef nonnull @a615a_operation_status_codes, ptr noundef nonnull @.str.100) #3
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %214, i32 noundef 25, ptr noundef nonnull @.str.127, ptr noundef %216) #3
   %217 = load i32, ptr @hf_a615a_status_description, align 4
-  %218 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %217, i32 noundef 1, i32 noundef 0) #4
+  %218 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %217, i32 noundef 1, i32 noundef 0) #3
   %219 = load i32, ptr @hf_a615a_counter, align 4
-  %220 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %219, i32 noundef 2, i32 noundef 0) #4
+  %220 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %219, i32 noundef 2, i32 noundef 0) #3
   %221 = load ptr, ptr %8, align 8
   %.not.i50.i = icmp eq ptr %221, null
   br i1 %.not.i50.i, label %230, label %sub_0.i51.i
@@ -669,22 +667,22 @@ sub_1.i55.i:                                      ; preds = %sub_0.i51.i
 
 .tail.thread.i52.i:                               ; preds = %.tail.i56.i, %sub_1.i55.i, %sub_0.i51.i
   %228 = load i32, ptr @hf_a615a_exception_timer, align 4
-  %229 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %228, i32 noundef 2, i32 noundef 0) #4
+  %229 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %228, i32 noundef 2, i32 noundef 0) #3
   br label %230
 
 230:                                              ; preds = %.tail.thread.i52.i, %.tail.i56.i, %208
   %231 = load i32, ptr @hf_a615a_estimated_time, align 4
-  %232 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %231, i32 noundef 2, i32 noundef 0) #4
+  %232 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %231, i32 noundef 2, i32 noundef 0) #3
   %233 = load i32, ptr @hf_a615a_load_ratio, align 4
   %234 = load ptr, ptr %53, align 8
-  %235 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %233, i32 noundef 3, i32 noundef 0, ptr noundef %234, ptr noundef nonnull %7) #4
+  %235 = call ptr @ptvcursor_add_ret_string(ptr noundef %55, i32 noundef %233, i32 noundef 3, i32 noundef 0, ptr noundef %234, ptr noundef nonnull %7) #3
   %236 = load ptr, ptr %34, align 8
   %237 = load ptr, ptr %7, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %236, i32 noundef 25, ptr noundef nonnull @.str.129, ptr noundef %237) #4
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %236, i32 noundef 25, ptr noundef nonnull @.str.129, ptr noundef %237) #3
   %238 = load i32, ptr @hf_a615a_file_count, align 4
-  %239 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %238, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #4
+  %239 = call ptr @ptvcursor_add_ret_uint(ptr noundef %55, i32 noundef %238, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6) #3
   %240 = load i32, ptr @ett_a615a, align 4
-  %241 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %239, i32 noundef %240) #4
+  %241 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %239, i32 noundef %240) #3
   %242 = load i32, ptr %6, align 4
   %.not29.i.i = icmp eq i32 %242, 0
   br i1 %.not29.i.i, label %dissect_a615a_LUS.exit.i, label %.lr.ph.i53.i
@@ -692,46 +690,45 @@ sub_1.i55.i:                                      ; preds = %sub_0.i51.i
 .lr.ph.i53.i:                                     ; preds = %230, %.lr.ph.i53.i
   %.026.i.i = phi i32 [ %255, %.lr.ph.i53.i ], [ 0, %230 ]
   %243 = load i32, ptr @hf_a615a_file_name, align 4
-  %244 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %243, i32 noundef 1, i32 noundef 0) #4
+  %244 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %243, i32 noundef 1, i32 noundef 0) #3
   %245 = load i32, ptr @ett_a615a, align 4
-  %246 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %244, i32 noundef %245) #4
+  %246 = call ptr @ptvcursor_push_subtree(ptr noundef %55, ptr noundef %244, i32 noundef %245) #3
   %247 = load i32, ptr @hf_a615a_part_number, align 4
-  %248 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %247, i32 noundef 1, i32 noundef 0) #4
+  %248 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %247, i32 noundef 1, i32 noundef 0) #3
   %249 = load i32, ptr @hf_a615a_load_ratio, align 4
-  %250 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %249, i32 noundef 3, i32 noundef 0) #4
+  %250 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %249, i32 noundef 3, i32 noundef 0) #3
   %251 = load i32, ptr @hf_a615a_operation_status, align 4
-  %252 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %251, i32 noundef 2, i32 noundef 0) #4
+  %252 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %251, i32 noundef 2, i32 noundef 0) #3
   %253 = load i32, ptr @hf_a615a_status_description, align 4
-  %254 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %253, i32 noundef 1, i32 noundef 0) #4
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  %254 = call ptr @ptvcursor_add(ptr noundef %55, i32 noundef %253, i32 noundef 1, i32 noundef 0) #3
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   %255 = add nuw i32 %.026.i.i, 1
   %256 = load i32, ptr %6, align 4
   %257 = icmp ult i32 %255, %256
   br i1 %257, label %.lr.ph.i53.i, label %dissect_a615a_LUS.exit.i, !llvm.loop !12
 
 dissect_a615a_LUS.exit.i:                         ; preds = %.lr.ph.i53.i, %230
-  call void @ptvcursor_pop_subtree(ptr noundef %55) #4
+  call void @ptvcursor_pop_subtree(ptr noundef %55) #3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   br label %dissect_a615a_protocol_file.exit
 
-258:                                              ; preds = %proto_item_set_generated.exit.i
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.125, ptr noundef nonnull @.str.126, i32 noundef 333) #5
+default.unreachable:                              ; preds = %proto_item_set_generated.exit.i
   unreachable
 
 dissect_a615a_protocol_file.exit:                 ; preds = %58, %dissect_a615a_LCL.exit.i, %97, %dissect_a615a_LNA.exit.i, %dissect_a615a_LNL.exit.i, %dissect_a615a_LNR.exit.i, %dissect_a615a_LNS.exit.i, %dissect_a615a_LUR.exit.i, %dissect_a615a_LUS.exit.i
-  call void @ptvcursor_free(ptr noundef %55) #4
+  call void @ptvcursor_free(ptr noundef %55) #3
   br label %.loopexit
 
-259:                                              ; preds = %.preheader
+258:                                              ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
   br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !13
 
-.loopexit:                                        ; preds = %259, %26, %22, %24, %4, %dissect_a615a_protocol_file.exit
-  %.018 = phi i32 [ 1, %dissect_a615a_protocol_file.exit ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ], [ 0, %26 ], [ 0, %259 ]
+.loopexit:                                        ; preds = %258, %26, %22, %24, %4, %dissect_a615a_protocol_file.exit
+  %.018 = phi i32 [ 1, %dissect_a615a_protocol_file.exit ], [ 0, %4 ], [ 0, %24 ], [ 0, %22 ], [ 0, %26 ], [ 0, %258 ]
   ret i32 %.018
 }
 
@@ -769,9 +766,6 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 
 declare ptr @proto_tree_add_string(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn
-declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #2
-
 declare ptr @ptvcursor_push_subtree(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
@@ -779,17 +773,15 @@ declare void @ptvcursor_pop_subtree(ptr noundef) local_unnamed_addr #1
 declare ptr @ptvcursor_add_ret_string(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr nocapture) #2
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #3
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #2
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #4 = { nounwind }
-attributes #5 = { noreturn nounwind }
+attributes #2 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #3 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

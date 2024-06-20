@@ -14180,13 +14180,8 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   br i1 %.not13, label %.loopexit, label %70
 
 70:                                               ; preds = %.thread, %67
-  switch i16 %34, label %75 [
-    i16 0, label %76
-    i16 1, label %76
-    i16 3, label %76
-    i16 2, label %76
-    i16 4, label %71
-  ]
+  %switch = icmp ult i16 %34, 4
+  br i1 %switch, label %76, label %71
 
 71:                                               ; preds = %70
   %72 = and i16 %33, 16
@@ -14194,13 +14189,13 @@ define internal fastcc void @ieee80211_ml_reconfiguration(ptr noundef %0, ptr no
   %74 = select i1 %73, i8 0, i8 6
   br label %80
 
-75:                                               ; preds = %32, %70
+75:                                               ; preds = %32
   tail call void asm sideeffect "511: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 511b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 511) #17, !srcloc !282
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.96, i32 4903, i32 2305, i64 12) #17, !srcloc !283
   tail call void asm sideeffect "512: nop\0A\09.pushsection .discard.instr_end\0A\09.long 512b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 512) #17, !srcloc !284
   br label %80
 
-76:                                               ; preds = %70, %70, %70, %70
+76:                                               ; preds = %70
   %77 = getelementptr inbounds i8, ptr %29, i64 2
   %78 = load i8, ptr %77, align 1
   %79 = add i8 %78, 2

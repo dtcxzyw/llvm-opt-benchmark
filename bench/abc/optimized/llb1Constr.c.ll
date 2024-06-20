@@ -275,8 +275,8 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
   %20 = getelementptr inbounds ptr, ptr %.val83, i64 %19
   store ptr %16, ptr %20, align 8
   %21 = getelementptr i8, ptr %0, i64 108
-  %.val8898 = load i32, ptr %21, align 4
-  %22 = icmp sgt i32 %.val8898, 0
+  %.val8897 = load i32, ptr %21, align 4
+  %22 = icmp sgt i32 %.val8897, 0
   br i1 %22, label %.lr.ph, label %.critedge.preheader
 
 .lr.ph:                                           ; preds = %Vec_PtrStart.exit
@@ -286,11 +286,11 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 
 .critedge.preheader:                              ; preds = %30, %Vec_PtrStart.exit
   %25 = getelementptr i8, ptr %0, i64 104
-  %.val90100 = load i32, ptr %25, align 8
-  %26 = icmp sgt i32 %.val90100, 0
-  br i1 %26, label %.lr.ph102, label %.critedge2.preheader
+  %.val9099 = load i32, ptr %25, align 8
+  %26 = icmp sgt i32 %.val9099, 0
+  br i1 %26, label %.lr.ph101, label %.critedge2.preheader
 
-.lr.ph102:                                        ; preds = %.critedge.preheader
+.lr.ph101:                                        ; preds = %.critedge.preheader
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   %28 = getelementptr i8, ptr %0, i64 112
   %29 = getelementptr inbounds i8, ptr %0, i64 16
@@ -321,19 +321,19 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 
 .critedge2.preheader:                             ; preds = %.critedge, %.critedge.preheader
   %43 = getelementptr i8, ptr %2, i64 4
-  %.val103 = load i32, ptr %43, align 4
-  %44 = icmp sgt i32 %.val103, 0
-  br i1 %44, label %.lr.ph105, label %.critedge4.preheader
+  %.val102 = load i32, ptr %43, align 4
+  %44 = icmp sgt i32 %.val102, 0
+  br i1 %44, label %.lr.ph104, label %.critedge4.preheader
 
-.lr.ph105:                                        ; preds = %.critedge2.preheader
+.lr.ph104:                                        ; preds = %.critedge2.preheader
   %45 = getelementptr i8, ptr %2, i64 8
   br label %67
 
-.critedge:                                        ; preds = %.lr.ph102, %.critedge
-  %.1101 = phi i32 [ 0, %.lr.ph102 ], [ %64, %.critedge ]
+.critedge:                                        ; preds = %.lr.ph101, %.critedge
+  %.1100 = phi i32 [ 0, %.lr.ph101 ], [ %64, %.critedge ]
   %46 = load ptr, ptr %27, align 8
   %.val91 = load i32, ptr %28, align 8
-  %47 = add nsw i32 %.val91, %.1101
+  %47 = add nsw i32 %.val91, %.1100
   %48 = getelementptr i8, ptr %46, i64 8
   %.val76 = load ptr, ptr %48, align 8
   %49 = sext i32 %47 to i64
@@ -358,24 +358,24 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
   %62 = sext i32 %.val80 to i64
   %63 = getelementptr inbounds ptr, ptr %.val83, i64 %62
   store ptr %53, ptr %63, align 8
-  %64 = add nuw nsw i32 %.1101, 1
+  %64 = add nuw nsw i32 %.1100, 1
   %.val90 = load i32, ptr %25, align 8
   %65 = icmp slt i32 %64, %.val90
   br i1 %65, label %.critedge, label %.critedge2.preheader, !llvm.loop !9
 
 .critedge4.preheader.loopexit:                    ; preds = %.critedge2
-  %.val79106.pre = load i32, ptr %12, align 4
+  %.val79105.pre = load i32, ptr %12, align 4
   br label %.critedge4.preheader
 
 .critedge4.preheader:                             ; preds = %.critedge4.preheader.loopexit, %.critedge2.preheader
-  %.val79106 = phi i32 [ %.val79106.pre, %.critedge4.preheader.loopexit ], [ %.val86.val, %.critedge2.preheader ]
-  %66 = icmp sgt i32 %.val79106, 0
-  br i1 %66, label %.lr.ph108, label %.critedge7
+  %.val79105 = phi i32 [ %.val79105.pre, %.critedge4.preheader.loopexit ], [ %.val86.val, %.critedge2.preheader ]
+  %66 = icmp sgt i32 %.val79105, 0
+  br i1 %66, label %.lr.ph107, label %.critedge7
 
-67:                                               ; preds = %.lr.ph105, %.critedge2
-  %indvars.iv110 = phi i64 [ 0, %.lr.ph105 ], [ %indvars.iv.next111, %.critedge2 ]
+67:                                               ; preds = %.lr.ph104, %.critedge2
+  %indvars.iv109 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next110, %.critedge2 ]
   %.val74 = load ptr, ptr %45, align 8
-  %68 = getelementptr inbounds i32, ptr %.val74, i64 %indvars.iv110
+  %68 = getelementptr inbounds i32, ptr %.val74, i64 %indvars.iv109
   %69 = load i32, ptr %68, align 4
   %or.cond = icmp ugt i32 %69, 1
   br i1 %or.cond, label %.critedge2, label %70
@@ -388,17 +388,17 @@ Vec_PtrStart.exit:                                ; preds = %3, %8
 71:                                               ; preds = %70
   %72 = getelementptr i8, ptr %.val78, i64 8
   %.val.i95 = load ptr, ptr %72, align 8
-  %73 = getelementptr inbounds ptr, ptr %.val.i95, i64 %indvars.iv110
+  %73 = getelementptr inbounds ptr, ptr %.val.i95, i64 %indvars.iv109
   %74 = load ptr, ptr %73, align 8
   br label %Aig_ManObj.exit
 
 Aig_ManObj.exit:                                  ; preds = %70, %71
   %75 = phi ptr [ %74, %71 ], [ null, %70 ]
   %76 = tail call ptr @Llb_ManComputeIndCase_rec(ptr noundef nonnull %0, ptr noundef %75, ptr noundef %1, ptr noundef nonnull %6)
-  %trunc = trunc nuw i32 %69 to i1
+  %switch = icmp eq i32 %69, 0
   %77 = getelementptr inbounds i8, ptr %75, i64 40
   %78 = load ptr, ptr %77, align 8
-  br i1 %trunc, label %87, label %79
+  br i1 %switch, label %79, label %87
 
 79:                                               ; preds = %Aig_ManObj.exit
   %80 = ptrtoint ptr %78 to i64
@@ -418,37 +418,37 @@ Aig_ManObj.exit:                                  ; preds = %70, %71
 
 .critedge2.sink.split:                            ; preds = %87, %79
   %.val93 = load ptr, ptr %45, align 8
-  %89 = getelementptr inbounds i32, ptr %.val93, i64 %indvars.iv110
+  %89 = getelementptr inbounds i32, ptr %.val93, i64 %indvars.iv109
   store i32 -1, ptr %89, align 4
   br label %.critedge2
 
 .critedge2:                                       ; preds = %.critedge2.sink.split, %79, %87, %67
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, 1
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %.val = load i32, ptr %43, align 4
   %90 = sext i32 %.val to i64
-  %91 = icmp slt i64 %indvars.iv.next111, %90
+  %91 = icmp slt i64 %indvars.iv.next110, %90
   br i1 %91, label %67, label %.critedge4.preheader.loopexit, !llvm.loop !10
 
-.lr.ph108:                                        ; preds = %.critedge4.preheader, %.critedge4
-  %.val79117 = phi i32 [ %.val79, %.critedge4 ], [ %.val79106, %.critedge4.preheader ]
-  %indvars.iv113 = phi i64 [ %indvars.iv.next114, %.critedge4 ], [ 0, %.critedge4.preheader ]
+.lr.ph107:                                        ; preds = %.critedge4.preheader, %.critedge4
+  %.val79116 = phi i32 [ %.val79, %.critedge4 ], [ %.val79105, %.critedge4.preheader ]
+  %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %.val75 = load ptr, ptr %13, align 8
-  %92 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv113
+  %92 = getelementptr inbounds ptr, ptr %.val75, i64 %indvars.iv112
   %93 = load ptr, ptr %92, align 8
   %.not = icmp eq ptr %93, null
   br i1 %.not, label %.critedge4, label %94
 
-94:                                               ; preds = %.lr.ph108
+94:                                               ; preds = %.lr.ph107
   tail call void @Cudd_RecursiveDeref(ptr noundef %1, ptr noundef nonnull %93) #8
   %.val79.pre = load i32, ptr %12, align 4
   br label %.critedge4
 
-.critedge4:                                       ; preds = %.lr.ph108, %94
-  %.val79 = phi i32 [ %.val79117, %.lr.ph108 ], [ %.val79.pre, %94 ]
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
+.critedge4:                                       ; preds = %.lr.ph107, %94
+  %.val79 = phi i32 [ %.val79116, %.lr.ph107 ], [ %.val79.pre, %94 ]
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %95 = sext i32 %.val79 to i64
-  %96 = icmp slt i64 %indvars.iv.next114, %95
-  br i1 %96, label %.lr.ph108, label %.critedge7, !llvm.loop !11
+  %96 = icmp slt i64 %indvars.iv.next113, %95
+  br i1 %96, label %.lr.ph107, label %.critedge7, !llvm.loop !11
 
 .critedge7:                                       ; preds = %.critedge4, %.critedge4.preheader
   %97 = load ptr, ptr %13, align 8

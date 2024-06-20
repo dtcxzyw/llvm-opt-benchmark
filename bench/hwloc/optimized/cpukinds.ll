@@ -359,30 +359,30 @@ define hidden noundef i32 @hwloc_internal_cpukinds_rank(ptr nocapture noundef re
   %42 = getelementptr inbounds i8, ptr %41, i64 12
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, -1
-  br i1 %44, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit, label %.lr.ph284
+  br i1 %44, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit, label %.lr.ph299
 
-45:                                               ; preds = %.lr.ph284
+45:                                               ; preds = %.lr.ph299
   %46 = load ptr, ptr %40, align 8
   %47 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %46, i64 %indvars.iv.next.i
   %48 = getelementptr inbounds i8, ptr %47, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, -1
-  br i1 %50, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit, label %.lr.ph284, !llvm.loop !8
+  br i1 %50, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit, label %.lr.ph299, !llvm.loop !8
 
-.lr.ph284:                                        ; preds = %.lr.ph.i, %45
+.lr.ph299:                                        ; preds = %.lr.ph.i, %45
   %51 = phi i32 [ %49, %45 ], [ %43, %.lr.ph.i ]
   %52 = phi ptr [ %47, %45 ], [ %41, %.lr.ph.i ]
-  %indvars.iv.i283 = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.lr.ph.i ]
+  %indvars.iv.i298 = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.lr.ph.i ]
   %53 = sext i32 %51 to i64
   %54 = getelementptr inbounds i8, ptr %52, i64 16
   store i64 %53, ptr %54, align 8
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i283, 1
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i298, 1
   %55 = load i32, ptr %4, align 8
   %56 = zext i32 %55 to i64
   %57 = icmp ult i64 %indvars.iv.next.i, %56
   br i1 %57, label %45, label %._crit_edge.i, !llvm.loop !8
 
-._crit_edge.i:                                    ; preds = %.lr.ph284
+._crit_edge.i:                                    ; preds = %.lr.ph299
   %.not.i.i = icmp eq i32 %55, 0
   br i1 %.not.i.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread, label %.lr.ph17.i.i
 
@@ -438,7 +438,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
   %76 = load i32, ptr %75, align 4
   %.not95.i = icmp eq i32 %76, 0
   %or.cond180 = select i1 %or.cond, i1 %.not95.i, i1 false
-  %.pre237 = load ptr, ptr %70, align 8
+  %.pre249 = load ptr, ptr %70, align 8
   br i1 %or.cond180, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %77
 
 77:                                               ; preds = %71
@@ -454,7 +454,7 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
 80:                                               ; preds = %80, %.lr.ph117.i
   %indvars.iv142.i = phi i64 [ 0, %.lr.ph117.i ], [ %indvars.iv.next143.i, %80 ]
   %81 = load ptr, ptr %79, align 8
-  %82 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre237, i64 %indvars.iv142.i
+  %82 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre249, i64 %indvars.iv142.i
   %83 = load i32, ptr %82, align 4
   %84 = shl i32 %83, 20
   %85 = getelementptr inbounds i8, ptr %82, i64 %.168.i
@@ -573,23 +573,27 @@ hwloc__cpukinds_try_rank_by_forced_efficiency.exit: ; preds = %45, %63, %.lr.ph.
 
 127:                                              ; preds = %123
   call fastcc void @hwloc__cpukinds_summarize_info(ptr noundef nonnull %0, ptr noundef nonnull %3)
-  switch i32 %.051164.ph, label %default.unreachable [
+  switch i32 %.051164.ph, label %default.unreachable250 [
     i32 4, label %128
-    i32 3, label %151
-    i32 5, label %173
-    i32 6, label %189
-    i32 7, label %205
-    i32 8, label %219
+    i32 3, label %150
+    i32 5, label %171
+    i32 6, label %186
+    i32 7, label %201
+    i32 8, label %214
   ]
 
-default.unreachable:                              ; preds = %127
+default.unreachable250:                           ; preds = %127
   unreachable
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds i8, ptr %3, i64 8
   %130 = load i32, ptr %129, align 8
   %.not97.i = icmp eq i32 %130, 0
-  br i1 %.not97.i, label %hwloc__cpukinds_try_rank_by_info.exit135, label %131
+  br i1 %.not97.i, label %.hwloc__cpukinds_try_rank_by_info.exit135_crit_edge, label %131
+
+.hwloc__cpukinds_try_rank_by_info.exit135_crit_edge: ; preds = %128
+  %.pre242 = load ptr, ptr %126, align 8
+  br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split
 
 131:                                              ; preds = %128
   %132 = load i32, ptr %3, align 8
@@ -598,306 +602,299 @@ default.unreachable:                              ; preds = %127
   %134 = load i32, ptr %133, align 4
   %.not99.i = icmp eq i32 %134, 0
   %or.cond182 = select i1 %.not98.i, i1 %.not99.i, i1 false
-  br i1 %or.cond182, label %hwloc__cpukinds_try_rank_by_info.exit135, label %135
+  %.pre245 = load ptr, ptr %126, align 8
+  br i1 %or.cond182, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %135
 
 135:                                              ; preds = %131
   %136 = load i32, ptr %4, align 8
   %.not125.i = icmp eq i32 %136, 0
-  br i1 %.not125.i, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph119.i
+  br i1 %.not125.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph119.i
 
 .lr.ph119.i:                                      ; preds = %135
   %137 = getelementptr inbounds i8, ptr %0, i64 768
-  %138 = load ptr, ptr %126, align 8
   %..i = select i1 %.not99.i, i64 4, i64 8
-  br label %139
+  br label %138
 
-139:                                              ; preds = %139, %.lr.ph119.i
-  %indvars.iv145.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next146.i, %139 ]
-  %140 = load ptr, ptr %137, align 8
-  %141 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %138, i64 %indvars.iv145.i
-  %142 = load i32, ptr %141, align 4
-  %143 = shl i32 %142, 20
-  %144 = getelementptr inbounds i8, ptr %141, i64 %..i
-  %145 = load i32, ptr %144, align 4
-  %146 = add i32 %143, %145
-  %.sink.i = zext i32 %146 to i64
-  %147 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %140, i64 %indvars.iv145.i, i32 3
-  store i64 %.sink.i, ptr %147, align 8
+138:                                              ; preds = %138, %.lr.ph119.i
+  %indvars.iv145.i = phi i64 [ 0, %.lr.ph119.i ], [ %indvars.iv.next146.i, %138 ]
+  %139 = load ptr, ptr %137, align 8
+  %140 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre245, i64 %indvars.iv145.i
+  %141 = load i32, ptr %140, align 4
+  %142 = shl i32 %141, 20
+  %143 = getelementptr inbounds i8, ptr %140, i64 %..i
+  %144 = load i32, ptr %143, align 4
+  %145 = add i32 %142, %144
+  %.sink.i = zext i32 %145 to i64
+  %146 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %139, i64 %indvars.iv145.i, i32 3
+  store i64 %.sink.i, ptr %146, align 8
   %indvars.iv.next146.i = add nuw nsw i64 %indvars.iv145.i, 1
-  %148 = load i32, ptr %4, align 8
-  %149 = zext i32 %148 to i64
-  %150 = icmp ult i64 %indvars.iv.next146.i, %149
-  br i1 %150, label %139, label %.loopexit.i110, !llvm.loop !12
+  %147 = load i32, ptr %4, align 8
+  %148 = zext i32 %147 to i64
+  %149 = icmp ult i64 %indvars.iv.next146.i, %148
+  br i1 %149, label %138, label %.loopexit.i110, !llvm.loop !12
 
-151:                                              ; preds = %127
-  %152 = getelementptr inbounds i8, ptr %3, i64 8
-  %153 = load i32, ptr %152, align 8
-  %.not93.i125 = icmp eq i32 %153, 0
-  %154 = load i32, ptr %3, align 8
-  %.not94.i133 = icmp eq i32 %154, 0
+150:                                              ; preds = %127
+  %151 = getelementptr inbounds i8, ptr %3, i64 8
+  %152 = load i32, ptr %151, align 8
+  %.not93.i125 = icmp eq i32 %152, 0
+  %153 = load i32, ptr %3, align 8
+  %.not94.i133 = icmp eq i32 %153, 0
   %or.cond183 = select i1 %.not93.i125, i1 %.not94.i133, i1 false
-  %155 = getelementptr inbounds i8, ptr %3, i64 4
-  %156 = load i32, ptr %155, align 4
-  %.not95.i134 = icmp eq i32 %156, 0
+  %154 = getelementptr inbounds i8, ptr %3, i64 4
+  %155 = load i32, ptr %154, align 4
+  %.not95.i134 = icmp eq i32 %155, 0
   %or.cond185 = select i1 %or.cond183, i1 %.not95.i134, i1 false
-  br i1 %or.cond185, label %hwloc__cpukinds_try_rank_by_info.exit135, label %157
+  %.pre244 = load ptr, ptr %126, align 8
+  br i1 %or.cond185, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %156
 
-157:                                              ; preds = %151
-  %158 = load i32, ptr %4, align 8
-  %.not124.i126 = icmp eq i32 %158, 0
-  br i1 %.not124.i126, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph117.i127
+156:                                              ; preds = %150
+  %157 = load i32, ptr %4, align 8
+  %.not124.i126 = icmp eq i32 %157, 0
+  br i1 %.not124.i126, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph117.i127
 
-.lr.ph117.i127:                                   ; preds = %157
-  %159 = getelementptr inbounds i8, ptr %0, i64 768
-  %160 = load ptr, ptr %126, align 8
+.lr.ph117.i127:                                   ; preds = %156
+  %158 = getelementptr inbounds i8, ptr %0, i64 768
   %.168.i130 = select i1 %.not95.i134, i64 4, i64 8
-  br label %161
+  br label %159
 
-161:                                              ; preds = %161, %.lr.ph117.i127
-  %indvars.iv142.i128 = phi i64 [ 0, %.lr.ph117.i127 ], [ %indvars.iv.next143.i132, %161 ]
-  %162 = load ptr, ptr %159, align 8
-  %163 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %160, i64 %indvars.iv142.i128
-  %164 = load i32, ptr %163, align 4
-  %165 = shl i32 %164, 20
-  %166 = getelementptr inbounds i8, ptr %163, i64 %.168.i130
-  %167 = load i32, ptr %166, align 4
-  %168 = add i32 %165, %167
-  %.sink148.i131 = zext i32 %168 to i64
-  %169 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %162, i64 %indvars.iv142.i128, i32 3
-  store i64 %.sink148.i131, ptr %169, align 8
+159:                                              ; preds = %159, %.lr.ph117.i127
+  %indvars.iv142.i128 = phi i64 [ 0, %.lr.ph117.i127 ], [ %indvars.iv.next143.i132, %159 ]
+  %160 = load ptr, ptr %158, align 8
+  %161 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre244, i64 %indvars.iv142.i128
+  %162 = load i32, ptr %161, align 4
+  %163 = shl i32 %162, 20
+  %164 = getelementptr inbounds i8, ptr %161, i64 %.168.i130
+  %165 = load i32, ptr %164, align 4
+  %166 = add i32 %163, %165
+  %.sink148.i131 = zext i32 %166 to i64
+  %167 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %160, i64 %indvars.iv142.i128, i32 3
+  store i64 %.sink148.i131, ptr %167, align 8
   %indvars.iv.next143.i132 = add nuw nsw i64 %indvars.iv142.i128, 1
-  %170 = load i32, ptr %4, align 8
-  %171 = zext i32 %170 to i64
-  %172 = icmp ult i64 %indvars.iv.next143.i132, %171
-  br i1 %172, label %161, label %.loopexit.i110, !llvm.loop !11
+  %168 = load i32, ptr %4, align 8
+  %169 = zext i32 %168 to i64
+  %170 = icmp ult i64 %indvars.iv.next143.i132, %169
+  br i1 %170, label %159, label %.loopexit.i110, !llvm.loop !11
 
-173:                                              ; preds = %127
-  %174 = getelementptr inbounds i8, ptr %3, i64 8
-  %175 = load i32, ptr %174, align 8
-  %.not92.i = icmp eq i32 %175, 0
-  br i1 %.not92.i, label %hwloc__cpukinds_try_rank_by_info.exit135, label %.preheader.i
+171:                                              ; preds = %127
+  %172 = getelementptr inbounds i8, ptr %3, i64 8
+  %173 = load i32, ptr %172, align 8
+  %.not92.i = icmp eq i32 %173, 0
+  %.pre246 = load ptr, ptr %126, align 8
+  br i1 %.not92.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %.preheader.i
 
-.preheader.i:                                     ; preds = %173
-  %176 = load i32, ptr %4, align 8
-  %.not123.i = icmp eq i32 %176, 0
-  br i1 %.not123.i, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph115.i
+.preheader.i:                                     ; preds = %171
+  %174 = load i32, ptr %4, align 8
+  %.not123.i = icmp eq i32 %174, 0
+  br i1 %.not123.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph115.i
 
 .lr.ph115.i:                                      ; preds = %.preheader.i
-  %177 = getelementptr inbounds i8, ptr %0, i64 768
-  %178 = load ptr, ptr %126, align 8
-  br label %179
+  %175 = getelementptr inbounds i8, ptr %0, i64 768
+  br label %176
 
-179:                                              ; preds = %179, %.lr.ph115.i
-  %indvars.iv139.i = phi i64 [ 0, %.lr.ph115.i ], [ %indvars.iv.next140.i, %179 ]
-  %180 = load ptr, ptr %177, align 8
-  %181 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %178, i64 %indvars.iv139.i
-  %182 = load i32, ptr %181, align 4
-  %183 = shl i32 %182, 20
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %180, i64 %indvars.iv139.i, i32 3
-  store i64 %184, ptr %185, align 8
+176:                                              ; preds = %176, %.lr.ph115.i
+  %indvars.iv139.i = phi i64 [ 0, %.lr.ph115.i ], [ %indvars.iv.next140.i, %176 ]
+  %177 = load ptr, ptr %175, align 8
+  %178 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre246, i64 %indvars.iv139.i
+  %179 = load i32, ptr %178, align 4
+  %180 = shl i32 %179, 20
+  %181 = zext i32 %180 to i64
+  %182 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %177, i64 %indvars.iv139.i, i32 3
+  store i64 %181, ptr %182, align 8
   %indvars.iv.next140.i = add nuw nsw i64 %indvars.iv139.i, 1
-  %186 = load i32, ptr %4, align 8
-  %187 = zext i32 %186 to i64
-  %188 = icmp ult i64 %indvars.iv.next140.i, %187
-  br i1 %188, label %179, label %.loopexit.i110, !llvm.loop !13
+  %183 = load i32, ptr %4, align 8
+  %184 = zext i32 %183 to i64
+  %185 = icmp ult i64 %indvars.iv.next140.i, %184
+  br i1 %185, label %176, label %.loopexit.i110, !llvm.loop !13
 
-189:                                              ; preds = %127
-  %190 = load i32, ptr %3, align 8
-  %.not89.i = icmp eq i32 %190, 0
-  %191 = getelementptr inbounds i8, ptr %3, i64 4
-  %192 = load i32, ptr %191, align 4
-  %.not90.i = icmp eq i32 %192, 0
+186:                                              ; preds = %127
+  %187 = load i32, ptr %3, align 8
+  %.not89.i = icmp eq i32 %187, 0
+  %188 = getelementptr inbounds i8, ptr %3, i64 4
+  %189 = load i32, ptr %188, align 4
+  %.not90.i = icmp eq i32 %189, 0
   %or.cond187 = select i1 %.not89.i, i1 %.not90.i, i1 false
-  br i1 %or.cond187, label %hwloc__cpukinds_try_rank_by_info.exit135, label %193
+  %.pre243 = load ptr, ptr %126, align 8
+  br i1 %or.cond187, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %190
 
-193:                                              ; preds = %189
-  %194 = load i32, ptr %4, align 8
-  %.not122.i = icmp eq i32 %194, 0
-  br i1 %.not122.i, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph113.i
+190:                                              ; preds = %186
+  %191 = load i32, ptr %4, align 8
+  %.not122.i = icmp eq i32 %191, 0
+  br i1 %.not122.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph113.i
 
-.lr.ph113.i:                                      ; preds = %193
-  %195 = getelementptr inbounds i8, ptr %0, i64 768
-  %196 = load ptr, ptr %126, align 8
-  br label %197
+.lr.ph113.i:                                      ; preds = %190
+  %192 = getelementptr inbounds i8, ptr %0, i64 768
+  br label %193
 
-197:                                              ; preds = %197, %.lr.ph113.i
-  %indvars.iv136.i = phi i64 [ 0, %.lr.ph113.i ], [ %indvars.iv.next137.i, %197 ]
-  %198 = load ptr, ptr %195, align 8
-  %199 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %196, i64 %indvars.iv136.i, i32 1
-  %200 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %196, i64 %indvars.iv136.i, i32 2
-  %.sink149.in.in.i = select i1 %.not90.i, ptr %199, ptr %200
+193:                                              ; preds = %193, %.lr.ph113.i
+  %indvars.iv136.i = phi i64 [ 0, %.lr.ph113.i ], [ %indvars.iv.next137.i, %193 ]
+  %194 = load ptr, ptr %192, align 8
+  %195 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre243, i64 %indvars.iv136.i, i32 1
+  %196 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre243, i64 %indvars.iv136.i, i32 2
+  %.sink149.in.in.i = select i1 %.not90.i, ptr %195, ptr %196
   %.sink149.in.i = load i32, ptr %.sink149.in.in.i, align 4
   %.sink149.i = zext i32 %.sink149.in.i to i64
-  %201 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %198, i64 %indvars.iv136.i, i32 3
-  store i64 %.sink149.i, ptr %201, align 8
+  %197 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %194, i64 %indvars.iv136.i, i32 3
+  store i64 %.sink149.i, ptr %197, align 8
   %indvars.iv.next137.i = add nuw nsw i64 %indvars.iv136.i, 1
-  %202 = load i32, ptr %4, align 8
-  %203 = zext i32 %202 to i64
-  %204 = icmp ult i64 %indvars.iv.next137.i, %203
-  br i1 %204, label %197, label %.loopexit.i110, !llvm.loop !14
+  %198 = load i32, ptr %4, align 8
+  %199 = zext i32 %198 to i64
+  %200 = icmp ult i64 %indvars.iv.next137.i, %199
+  br i1 %200, label %193, label %.loopexit.i110, !llvm.loop !14
 
-205:                                              ; preds = %127
-  %206 = load i32, ptr %3, align 8
-  %.not88.i = icmp eq i32 %206, 0
-  br i1 %.not88.i, label %hwloc__cpukinds_try_rank_by_info.exit135, label %.preheader105.i
+201:                                              ; preds = %127
+  %202 = load i32, ptr %3, align 8
+  %.not88.i = icmp eq i32 %202, 0
+  %.pre247 = load ptr, ptr %126, align 8
+  br i1 %.not88.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %.preheader105.i
 
-.preheader105.i:                                  ; preds = %205
-  %207 = load i32, ptr %4, align 8
-  %.not121.i = icmp eq i32 %207, 0
-  br i1 %.not121.i, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph111.i
+.preheader105.i:                                  ; preds = %201
+  %203 = load i32, ptr %4, align 8
+  %.not121.i = icmp eq i32 %203, 0
+  br i1 %.not121.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph111.i
 
 .lr.ph111.i:                                      ; preds = %.preheader105.i
-  %208 = getelementptr inbounds i8, ptr %0, i64 768
-  %209 = load ptr, ptr %126, align 8
-  br label %210
+  %204 = getelementptr inbounds i8, ptr %0, i64 768
+  br label %205
 
-210:                                              ; preds = %210, %.lr.ph111.i
-  %indvars.iv133.i = phi i64 [ 0, %.lr.ph111.i ], [ %indvars.iv.next134.i, %210 ]
-  %211 = load ptr, ptr %208, align 8
-  %212 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %209, i64 %indvars.iv133.i, i32 1
-  %213 = load i32, ptr %212, align 4
-  %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %211, i64 %indvars.iv133.i, i32 3
-  store i64 %214, ptr %215, align 8
+205:                                              ; preds = %205, %.lr.ph111.i
+  %indvars.iv133.i = phi i64 [ 0, %.lr.ph111.i ], [ %indvars.iv.next134.i, %205 ]
+  %206 = load ptr, ptr %204, align 8
+  %207 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre247, i64 %indvars.iv133.i, i32 1
+  %208 = load i32, ptr %207, align 4
+  %209 = zext i32 %208 to i64
+  %210 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %206, i64 %indvars.iv133.i, i32 3
+  store i64 %209, ptr %210, align 8
   %indvars.iv.next134.i = add nuw nsw i64 %indvars.iv133.i, 1
-  %216 = load i32, ptr %4, align 8
-  %217 = zext i32 %216 to i64
-  %218 = icmp ult i64 %indvars.iv.next134.i, %217
-  br i1 %218, label %210, label %.loopexit.i110, !llvm.loop !15
+  %211 = load i32, ptr %4, align 8
+  %212 = zext i32 %211 to i64
+  %213 = icmp ult i64 %indvars.iv.next134.i, %212
+  br i1 %213, label %205, label %.loopexit.i110, !llvm.loop !15
 
-219:                                              ; preds = %127
-  %220 = getelementptr inbounds i8, ptr %3, i64 4
-  %221 = load i32, ptr %220, align 4
-  %.not.i106 = icmp eq i32 %221, 0
-  br i1 %.not.i106, label %hwloc__cpukinds_try_rank_by_info.exit135, label %.preheader107.i
+214:                                              ; preds = %127
+  %215 = getelementptr inbounds i8, ptr %3, i64 4
+  %216 = load i32, ptr %215, align 4
+  %.not.i106 = icmp eq i32 %216, 0
+  %.pre248 = load ptr, ptr %126, align 8
+  br i1 %.not.i106, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %.preheader107.i
 
-.preheader107.i:                                  ; preds = %219
-  %222 = load i32, ptr %4, align 8
-  %.not120.i = icmp eq i32 %222, 0
-  br i1 %.not120.i, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph.i107
+.preheader107.i:                                  ; preds = %214
+  %217 = load i32, ptr %4, align 8
+  %.not120.i = icmp eq i32 %217, 0
+  br i1 %.not120.i, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph.i107
 
 .lr.ph.i107:                                      ; preds = %.preheader107.i
-  %223 = getelementptr inbounds i8, ptr %0, i64 768
-  %224 = load ptr, ptr %126, align 8
-  br label %225
+  %218 = getelementptr inbounds i8, ptr %0, i64 768
+  br label %219
 
-225:                                              ; preds = %225, %.lr.ph.i107
-  %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i109, %225 ]
-  %226 = load ptr, ptr %223, align 8
-  %227 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %224, i64 %indvars.iv.i108, i32 2
-  %228 = load i32, ptr %227, align 4
-  %229 = zext i32 %228 to i64
-  %230 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %226, i64 %indvars.iv.i108, i32 3
-  store i64 %229, ptr %230, align 8
+219:                                              ; preds = %219, %.lr.ph.i107
+  %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.i107 ], [ %indvars.iv.next.i109, %219 ]
+  %220 = load ptr, ptr %218, align 8
+  %221 = getelementptr inbounds %struct.hwloc_cpukind_info_summary, ptr %.pre248, i64 %indvars.iv.i108, i32 2
+  %222 = load i32, ptr %221, align 4
+  %223 = zext i32 %222 to i64
+  %224 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %220, i64 %indvars.iv.i108, i32 3
+  store i64 %223, ptr %224, align 8
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
-  %231 = load i32, ptr %4, align 8
-  %232 = zext i32 %231 to i64
-  %233 = icmp ult i64 %indvars.iv.next.i109, %232
-  br i1 %233, label %225, label %.loopexit.i110, !llvm.loop !16
+  %225 = load i32, ptr %4, align 8
+  %226 = zext i32 %225 to i64
+  %227 = icmp ult i64 %indvars.iv.next.i109, %226
+  br i1 %227, label %219, label %.loopexit.i110, !llvm.loop !16
 
-.loopexit.i110:                                   ; preds = %225, %210, %197, %179, %161, %139
-  %234 = phi i32 [ %148, %139 ], [ %170, %161 ], [ %186, %179 ], [ %202, %197 ], [ %216, %210 ], [ %231, %225 ]
-  %.not.i.i111 = icmp eq i32 %234, 0
-  br i1 %.not.i.i111, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %.lr.ph17.i.i112
+.loopexit.i110:                                   ; preds = %219, %205, %193, %176, %159, %138
+  %228 = phi ptr [ %.pre245, %138 ], [ %.pre244, %159 ], [ %.pre246, %176 ], [ %.pre243, %193 ], [ %.pre247, %205 ], [ %.pre248, %219 ]
+  %229 = phi i32 [ %147, %138 ], [ %168, %159 ], [ %183, %176 ], [ %198, %193 ], [ %211, %205 ], [ %225, %219 ]
+  %.not.i.i111 = icmp eq i32 %229, 0
+  br i1 %.not.i.i111, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %.lr.ph17.i.i112
 
 .lr.ph17.i.i112:                                  ; preds = %.loopexit.i110
-  %235 = getelementptr inbounds i8, ptr %0, i64 768
-  %236 = zext i32 %234 to i64
-  br label %237
+  %230 = getelementptr inbounds i8, ptr %0, i64 768
+  %231 = zext i32 %229 to i64
+  br label %232
 
-.loopexit.i.i116:                                 ; preds = %242, %237
+.loopexit.i.i116:                                 ; preds = %237, %232
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i114, 1
-  %exitcond25.not.i.i118 = icmp eq i64 %indvars.iv.next23.i.i115, %236
-  br i1 %exitcond25.not.i.i118, label %hwloc__cpukinds_try_rank_by_info.exit135.thread, label %237, !llvm.loop !9
+  %exitcond25.not.i.i118 = icmp eq i64 %indvars.iv.next23.i.i115, %231
+  br i1 %exitcond25.not.i.i118, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, label %232, !llvm.loop !9
 
-237:                                              ; preds = %.loopexit.i.i116, %.lr.ph17.i.i112
+232:                                              ; preds = %.loopexit.i.i116, %.lr.ph17.i.i112
   %indvars.iv22.i.i113 = phi i64 [ 0, %.lr.ph17.i.i112 ], [ %indvars.iv.next23.i.i115, %.loopexit.i.i116 ]
   %indvars.iv.i.i114 = phi i64 [ 1, %.lr.ph17.i.i112 ], [ %indvars.iv.next.i.i117, %.loopexit.i.i116 ]
   %indvars.iv.next23.i.i115 = add nuw nsw i64 %indvars.iv22.i.i113, 1
-  %238 = icmp ult i64 %indvars.iv.next23.i.i115, %236
-  br i1 %238, label %.lr.ph.i.i120, label %.loopexit.i.i116
+  %233 = icmp ult i64 %indvars.iv.next23.i.i115, %231
+  br i1 %233, label %.lr.ph.i.i120, label %.loopexit.i.i116
 
-.lr.ph.i.i120:                                    ; preds = %237
-  %239 = load ptr, ptr %235, align 8
-  %240 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %239, i64 %indvars.iv22.i.i113, i32 3
-  %241 = load i64, ptr %240, align 8
-  br label %243
+.lr.ph.i.i120:                                    ; preds = %232
+  %234 = load ptr, ptr %230, align 8
+  %235 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %234, i64 %indvars.iv22.i.i113, i32 3
+  %236 = load i64, ptr %235, align 8
+  br label %238
 
-242:                                              ; preds = %243
+237:                                              ; preds = %238
   %indvars.iv.next20.i.i122 = add nuw nsw i64 %indvars.iv19.i.i121, 1
   %lftr.wideiv230 = trunc i64 %indvars.iv.next20.i.i122 to i32
-  %exitcond231 = icmp eq i32 %234, %lftr.wideiv230
-  br i1 %exitcond231, label %.loopexit.i.i116, label %243, !llvm.loop !10
+  %exitcond231 = icmp eq i32 %229, %lftr.wideiv230
+  br i1 %exitcond231, label %.loopexit.i.i116, label %238, !llvm.loop !10
 
-243:                                              ; preds = %242, %.lr.ph.i.i120
-  %indvars.iv19.i.i121 = phi i64 [ %indvars.iv.i.i114, %.lr.ph.i.i120 ], [ %indvars.iv.next20.i.i122, %242 ]
-  %244 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %239, i64 %indvars.iv19.i.i121, i32 3
-  %245 = load i64, ptr %244, align 8
-  %246 = icmp eq i64 %241, %245
-  br i1 %246, label %hwloc__cpukinds_try_rank_by_info.exit135, label %242
+238:                                              ; preds = %237, %.lr.ph.i.i120
+  %indvars.iv19.i.i121 = phi i64 [ %indvars.iv.i.i114, %.lr.ph.i.i120 ], [ %indvars.iv.next20.i.i122, %237 ]
+  %239 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %234, i64 %indvars.iv19.i.i121, i32 3
+  %240 = load i64, ptr %239, align 8
+  %241 = icmp eq i64 %236, %240
+  br i1 %241, label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, label %237
 
-hwloc__cpukinds_try_rank_by_info.exit135.thread:  ; preds = %.loopexit.i.i116, %.loopexit.i110, %.preheader107.i, %.preheader105.i, %193, %.preheader.i, %157, %135
-  %247 = load ptr, ptr %126, align 8
-  br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split
-
-hwloc__cpukinds_try_rank_by_info.exit135:         ; preds = %243, %189, %151, %131, %128, %173, %205, %219
-  %248 = load ptr, ptr %126, align 8
-  br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split
-
-hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split: ; preds = %97, %71, %hwloc__cpukinds_try_rank_by_info.exit135
-  %.sink = phi ptr [ %248, %hwloc__cpukinds_try_rank_by_info.exit135 ], [ %.pre237, %71 ], [ %.pre237, %97 ]
+hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split: ; preds = %238, %97, %214, %201, %171, %131, %150, %186, %.hwloc__cpukinds_try_rank_by_info.exit135_crit_edge, %71
+  %.sink = phi ptr [ %.pre249, %71 ], [ %.pre242, %.hwloc__cpukinds_try_rank_by_info.exit135_crit_edge ], [ %.pre243, %186 ], [ %.pre244, %150 ], [ %.pre245, %131 ], [ %.pre246, %171 ], [ %.pre247, %201 ], [ %.pre248, %214 ], [ %.pre249, %97 ], [ %228, %238 ]
   tail call void @free(ptr noundef %.sink) #19
   br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105
 
 hwloc__cpukinds_try_rank_by_forced_efficiency.exit105: ; preds = %102, %119, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105.sink.split, %14, %123, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit
-  %249 = load i32, ptr %4, align 8
-  %.not = icmp eq i32 %249, 0
+  %242 = load i32, ptr %4, align 8
+  %.not = icmp eq i32 %242, 0
   br i1 %.not, label %hwloc__cpukinds_finalize_ranking.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105
-  %250 = getelementptr inbounds i8, ptr %0, i64 768
-  br label %251
+  %243 = getelementptr inbounds i8, ptr %0, i64 768
+  br label %244
 
-251:                                              ; preds = %.lr.ph, %251
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %251 ]
-  %252 = load ptr, ptr %250, align 8
-  %253 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %252, i64 %indvars.iv, i32 1
-  store i32 -1, ptr %253, align 8
+244:                                              ; preds = %.lr.ph, %244
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %244 ]
+  %245 = load ptr, ptr %243, align 8
+  %246 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %245, i64 %indvars.iv, i32 1
+  store i32 -1, ptr %246, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %254 = load i32, ptr %4, align 8
-  %255 = zext i32 %254 to i64
-  %256 = icmp ult i64 %indvars.iv.next, %255
-  br i1 %256, label %251, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !17
+  %247 = load i32, ptr %4, align 8
+  %248 = zext i32 %247 to i64
+  %249 = icmp ult i64 %indvars.iv.next, %248
+  br i1 %249, label %244, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !17
 
-hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split: ; preds = %.loopexit.i.i78, %77, %.loopexit.i, %hwloc__cpukinds_try_rank_by_info.exit135.thread
-  %.sink260 = phi ptr [ %247, %hwloc__cpukinds_try_rank_by_info.exit135.thread ], [ %.pre237, %.loopexit.i ], [ %.pre237, %77 ], [ %.pre237, %.loopexit.i.i78 ]
-  tail call void @free(ptr noundef %.sink260) #19
+hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split: ; preds = %.loopexit.i.i116, %.loopexit.i.i78, %135, %156, %.preheader.i, %190, %.preheader105.i, %.preheader107.i, %.loopexit.i110, %77, %.loopexit.i
+  %.sink273 = phi ptr [ %.pre249, %.loopexit.i ], [ %.pre249, %77 ], [ %228, %.loopexit.i110 ], [ %.pre248, %.preheader107.i ], [ %.pre247, %.preheader105.i ], [ %.pre243, %190 ], [ %.pre246, %.preheader.i ], [ %.pre244, %156 ], [ %.pre245, %135 ], [ %.pre249, %.loopexit.i.i78 ], [ %228, %.loopexit.i.i116 ]
+  tail call void @free(ptr noundef %.sink273) #19
   br label %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread
 
 hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread: ; preds = %.loopexit.i.i96, %.loopexit.i.i, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread.sink.split, %._crit_edge.i90, %38, %._crit_edge.i
-  %257 = load i32, ptr %4, align 8
-  %258 = getelementptr inbounds i8, ptr %0, i64 768
-  %259 = load ptr, ptr %258, align 8
-  %260 = zext i32 %257 to i64
-  tail call void @qsort(ptr noundef %259, i64 noundef %260, i64 noundef 40, ptr noundef nonnull @hwloc__cpukinds_compare_ranking_values) #19
-  %261 = load i32, ptr %4, align 8
-  %.not.i136 = icmp eq i32 %261, 0
+  %250 = load i32, ptr %4, align 8
+  %251 = getelementptr inbounds i8, ptr %0, i64 768
+  %252 = load ptr, ptr %251, align 8
+  %253 = zext i32 %250 to i64
+  tail call void @qsort(ptr noundef %252, i64 noundef %253, i64 noundef 40, ptr noundef nonnull @hwloc__cpukinds_compare_ranking_values) #19
+  %254 = load i32, ptr %4, align 8
+  %.not.i136 = icmp eq i32 %254, 0
   br i1 %.not.i136, label %hwloc__cpukinds_finalize_ranking.exit, label %.lr.ph.i137
 
 .lr.ph.i137:                                      ; preds = %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread, %.lr.ph.i137
   %indvars.iv.i138 = phi i64 [ %indvars.iv.next.i139, %.lr.ph.i137 ], [ 0, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread ]
-  %262 = load ptr, ptr %258, align 8
-  %263 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %262, i64 %indvars.iv.i138, i32 1
-  %264 = trunc nuw i64 %indvars.iv.i138 to i32
-  store i32 %264, ptr %263, align 8
+  %255 = load ptr, ptr %251, align 8
+  %256 = getelementptr inbounds %struct.hwloc_internal_cpukind_s, ptr %255, i64 %indvars.iv.i138, i32 1
+  %257 = trunc nuw i64 %indvars.iv.i138 to i32
+  store i32 %257, ptr %256, align 8
   %indvars.iv.next.i139 = add nuw nsw i64 %indvars.iv.i138, 1
-  %265 = load i32, ptr %4, align 8
-  %266 = zext i32 %265 to i64
-  %267 = icmp ult i64 %indvars.iv.next.i139, %266
-  br i1 %267, label %.lr.ph.i137, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !18
+  %258 = load i32, ptr %4, align 8
+  %259 = zext i32 %258 to i64
+  %260 = icmp ult i64 %indvars.iv.next.i139, %259
+  br i1 %260, label %.lr.ph.i137, label %hwloc__cpukinds_finalize_ranking.exit, !llvm.loop !18
 
-hwloc__cpukinds_finalize_ranking.exit:            ; preds = %.lr.ph.i137, %251, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread, %1, %6
+hwloc__cpukinds_finalize_ranking.exit:            ; preds = %.lr.ph.i137, %244, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit105, %hwloc__cpukinds_try_rank_by_forced_efficiency.exit.thread, %1, %6
   ret i32 0
 }
 

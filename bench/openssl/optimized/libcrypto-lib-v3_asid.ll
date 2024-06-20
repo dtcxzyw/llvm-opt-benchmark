@@ -961,9 +961,9 @@ entry:
   br i1 %cmp, label %if.then, label %for.cond.preheader
 
 for.cond.preheader:                               ; preds = %entry
-  %call295 = tail call i32 @OPENSSL_sk_num(ptr noundef %values) #5
-  %cmp396 = icmp sgt i32 %call295, 0
-  br i1 %cmp396, label %for.body, label %lor.rhs.i
+  %call294 = tail call i32 @OPENSSL_sk_num(ptr noundef %values) #5
+  %cmp395 = icmp sgt i32 %call294, 0
+  br i1 %cmp395, label %for.body, label %lor.rhs.i
 
 if.then:                                          ; preds = %entry
   tail call void @ERR_new() #5
@@ -972,8 +972,8 @@ if.then:                                          ; preds = %entry
   br label %return
 
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
-  %i.097 = phi i32 [ %inc109, %for.inc ], [ 0, %for.cond.preheader ]
-  %call5 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.097) #5
+  %i.096 = phi i32 [ %inc109, %for.inc ], [ 0, %for.cond.preheader ]
+  %call5 = call ptr @OPENSSL_sk_value(ptr noundef %values, i32 noundef %i.096) #5
   %name = getelementptr inbounds i8, ptr %call5, i64 8
   %0 = load ptr, ptr %name, align 8
   %call6 = call i32 @ossl_v3_name_cmp(ptr noundef %0, ptr noundef nonnull @.str.13) #5
@@ -1043,12 +1043,12 @@ X509v3_asid_add_inherit.exit:                     ; preds = %if.end.i, %if.end10
   br i1 %cmp13.i.not, label %for.inc, label %if.end23
 
 if.end23:                                         ; preds = %if.then3.i, %X509v3_asid_add_inherit.exit, %if.then9.i
-  %value16154 = getelementptr inbounds i8, ptr %call5, i64 16
+  %value16153 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 554, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 165, ptr noundef null) #5
   %10 = load ptr, ptr %name, align 8
-  %11 = load ptr, ptr %value16154, align 8
+  %11 = load ptr, ptr %value16153, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %10, ptr noundef nonnull @.str.16, ptr noundef %11) #5
   br label %err
 
@@ -1072,12 +1072,12 @@ if.else34:                                        ; preds = %if.end26
   br i1 %cmp43.not, label %if.end48, label %if.then45
 
 if.then45:                                        ; preds = %if.else34
-  %value16.le160 = getelementptr inbounds i8, ptr %call5, i64 16
+  %value16.le159 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 569, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 162, ptr noundef null) #5
   %14 = load ptr, ptr %name, align 8
-  %15 = load ptr, ptr %value16.le160, align 8
+  %15 = load ptr, ptr %value16.le159, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %14, ptr noundef nonnull @.str.16, ptr noundef %15) #5
   br label %err
 
@@ -1100,12 +1100,12 @@ if.end48:                                         ; preds = %if.else34
   br i1 %cmp67.not, label %if.else80, label %if.then69
 
 if.then69:                                        ; preds = %if.end48
-  %value16.le158 = getelementptr inbounds i8, ptr %call5, i64 16
+  %value16.le157 = getelementptr inbounds i8, ptr %call5, i64 16
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str.12, i32 noundef 577, ptr noundef nonnull @__func__.v2i_ASIdentifiers) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 163, ptr noundef null) #5
   %17 = load ptr, ptr %name, align 8
-  %18 = load ptr, ptr %value16.le158, align 8
+  %18 = load ptr, ptr %value16.le157, align 8
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.15, ptr noundef %17, ptr noundef nonnull @.str.16, ptr noundef %18) #5
   br label %err
 
@@ -1174,7 +1174,7 @@ if.end108:                                        ; preds = %if.end104
   br label %for.inc
 
 for.inc:                                          ; preds = %X509v3_asid_add_inherit.exit, %if.end108
-  %inc109 = add nuw nsw i32 %i.097, 1
+  %inc109 = add nuw nsw i32 %i.096, 1
   %call2 = call i32 @OPENSSL_sk_num(ptr noundef %values) #5
   %cmp3 = icmp slt i32 %inc109, %call2
   br i1 %cmp3, label %for.body, label %lor.rhs.i, !llvm.loop !7

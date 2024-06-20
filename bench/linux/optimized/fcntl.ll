@@ -1510,10 +1510,8 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   %224 = load ptr, ptr %223, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   store i64 0, ptr %5, align 8, !annotation !19
-  switch i32 %1, label %243 [
-    i32 1035, label %225
-    i32 1036, label %232
-  ]
+  %switch = icmp eq i32 %1, 1035
+  br i1 %switch, label %225, label %232
 
 225:                                              ; preds = %222
   %226 = getelementptr inbounds i8, ptr %224, i64 143
@@ -1545,8 +1543,8 @@ define internal fastcc i64 @do_fcntl(i32 noundef %0, i32 noundef %1, i64 noundef
   call void @up_write(ptr noundef %240) #6
   br label %243
 
-243:                                              ; preds = %239, %235, %232, %225, %222
-  %244 = phi i64 [ 0, %239 ], [ %231, %225 ], [ -14, %232 ], [ -22, %235 ], [ -22, %222 ]
+243:                                              ; preds = %239, %235, %232, %225
+  %244 = phi i64 [ 0, %239 ], [ %231, %225 ], [ -14, %232 ], [ -22, %235 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #6
   br label %245
 

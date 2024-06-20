@@ -954,10 +954,8 @@ dissect_an_apdu_ie.exit:                          ; preds = %241, %244, %247
   br label %256
 
 256:                                              ; preds = %252, %250
-  switch i8 %28, label %dissect_sm_rp_da_ie.exit [
-    i8 96, label %257
-    i8 97, label %265
-  ]
+  %switch = icmp eq i8 %28, 96
+  br i1 %switch, label %257, label %265
 
 257:                                              ; preds = %256
   %258 = load i32, ptr @hf_gsup_source_name, align 4
@@ -1072,7 +1070,7 @@ dissect_an_apdu_ie.exit:                          ; preds = %241, %244, %247
   %316 = call ptr @proto_tree_add_item(ptr noundef %43, i32 noundef %315, ptr noundef %0, i32 noundef %31, i32 noundef %33, i32 noundef 0) #4
   br label %dissect_sm_rp_da_ie.exit
 
-dissect_sm_rp_da_ie.exit:                         ; preds = %.lr.ph, %.preheader, %.sink.split.i, %265, %257, %256, %217, %213, %196, %193, %192, %188, %182, %177, %174, %173, %169, %165, %159, %284, %294, %299, %303, %307, %297, %102, %100, %95, %314, %282, %280, %278, %dissect_an_apdu_ie.exit, %225, %222, %219, %210, %207, %204, %switch.lookup5, %154, %dissect_ss_info_ie.exit, %134, %131, %128, %125, %122, %119, %115, %112, %88, %85, %82, %79, %73, %70, %67, %64, %61, %58, %55, %52, %49, %48
+dissect_sm_rp_da_ie.exit:                         ; preds = %.lr.ph, %.preheader, %.sink.split.i, %265, %257, %217, %213, %196, %193, %192, %188, %182, %177, %174, %173, %169, %165, %159, %284, %294, %299, %303, %307, %297, %102, %100, %95, %314, %282, %280, %278, %dissect_an_apdu_ie.exit, %225, %222, %219, %210, %207, %204, %switch.lookup5, %154, %dissect_ss_info_ie.exit, %134, %131, %128, %125, %122, %119, %115, %112, %88, %85, %82, %79, %73, %70, %67, %64, %61, %58, %55, %52, %49, %48
   %317 = add i32 %31, %33
   %318 = sub i32 %317, %1
   %319 = icmp slt i32 %318, %2

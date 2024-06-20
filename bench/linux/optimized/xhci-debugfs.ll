@@ -954,9 +954,9 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %2, %328
-  %11 = phi ptr [ %329, %328 ], [ %7, %2 ]
-  %12 = phi i32 [ %330, %328 ], [ 0, %2 ]
+.preheader:                                       ; preds = %2, %326
+  %11 = phi ptr [ %327, %326 ], [ %7, %2 ]
+  %12 = phi i32 [ %328, %326 ], [ 0, %2 ]
   %13 = load ptr, ptr %11, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store i64 0, ptr %3, align 8, !annotation !10
@@ -966,8 +966,8 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   br label %16
 
-16:                                               ; preds = %325, %.preheader
-  %17 = phi i64 [ 0, %.preheader ], [ %326, %325 ]
+16:                                               ; preds = %323, %.preheader
+  %17 = phi i64 [ 0, %.preheader ], [ %324, %323 ]
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr %union.xhci_trb, ptr %18, i64 %17
   %20 = load i64, ptr %14, align 8
@@ -984,7 +984,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
   %30 = load i32, ptr %29, align 4
   %31 = lshr i32 %30, 10
   %32 = and i32 %31, 63
-  switch i32 %32, label %321 [
+  switch i32 %32, label %319 [
     i32 6, label %33
     i32 32, label %47
     i32 33, label %47
@@ -994,28 +994,28 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
     i32 37, label %47
     i32 38, label %47
     i32 39, label %47
-    i32 2, label %109
-    i32 3, label %133
-    i32 4, label %159
-    i32 1, label %176
-    i32 5, label %176
-    i32 7, label %176
-    i32 8, label %176
-    i32 23, label %215
-    i32 9, label %215
-    i32 10, label %222
-    i32 19, label %222
-    i32 11, label %230
-    i32 12, label %239
-    i32 13, label %248
-    i32 14, label %254
-    i32 15, label %265
-    i32 16, label %275
-    i32 17, label %284
-    i32 18, label %290
-    i32 20, label %298
-    i32 21, label %305
-    i32 22, label %313
+    i32 2, label %108
+    i32 3, label %132
+    i32 4, label %158
+    i32 1, label %175
+    i32 5, label %175
+    i32 7, label %175
+    i32 8, label %175
+    i32 23, label %213
+    i32 9, label %213
+    i32 10, label %220
+    i32 19, label %220
+    i32 11, label %228
+    i32 12, label %237
+    i32 13, label %246
+    i32 14, label %252
+    i32 15, label %263
+    i32 16, label %273
+    i32 17, label %282
+    i32 18, label %288
+    i32 20, label %296
+    i32 21, label %303
+    i32 22, label %311
   ]
 
 33:                                               ; preds = %16
@@ -1032,7 +1032,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
   %44 = icmp eq i32 %43, 0
   %45 = select i1 %44, i32 99, i32 67
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.23, i32 noundef %26, i32 noundef %24, i32 noundef %34, ptr noundef nonnull @.str.46, i32 noundef %36, i32 noundef %39, i32 noundef %42, i32 noundef %45) #14
-  br label %325
+  br label %323
 
 47:                                               ; preds = %16, %16, %16, %16, %16, %16, %16, %16
   %48 = lshr i32 %28, 24
@@ -1191,7 +1191,7 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
   %90 = lshr i32 %30, 16
   %91 = and i32 %90, 31
   %92 = trunc nuw nsw i32 %32 to i8
-  switch i8 %92, label %100 [
+  switch i8 %92, label %default.unreachable [
     i8 39, label %99
     i8 38, label %98
     i8 37, label %97
@@ -1223,316 +1223,316 @@ define internal noundef i32 @xhci_ring_trb_show(ptr noundef %0, ptr nocapture re
 99:                                               ; preds = %86
   br label %xhci_trb_type_string.exit
 
-100:                                              ; preds = %86
-  br label %xhci_trb_type_string.exit
+default.unreachable:                              ; preds = %86
+  unreachable
 
-xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, %96, %97, %98, %99, %100
-  %101 = phi ptr [ @.str.74, %100 ], [ @.str.71, %99 ], [ @.str.70, %98 ], [ @.str.69, %97 ], [ @.str.68, %96 ], [ @.str.67, %95 ], [ @.str.66, %94 ], [ @.str.65, %93 ], [ @.str.64, %86 ]
-  %102 = and i32 %30, 4
-  %103 = icmp eq i32 %102, 0
-  %104 = select i1 %103, i32 101, i32 69
-  %105 = and i32 %30, 1
-  %106 = icmp eq i32 %105, 0
-  %107 = select i1 %106, i32 99, i32 67
-  %108 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.24, i32 noundef %26, i32 noundef %24, ptr noundef nonnull %87, i32 noundef %88, i32 noundef %89, i32 noundef %91, ptr noundef nonnull %101, i32 noundef %104, i32 noundef %107) #14
-  br label %325
+xhci_trb_type_string.exit:                        ; preds = %86, %93, %94, %95, %96, %97, %98, %99
+  %100 = phi ptr [ @.str.71, %99 ], [ @.str.70, %98 ], [ @.str.69, %97 ], [ @.str.68, %96 ], [ @.str.67, %95 ], [ @.str.66, %94 ], [ @.str.65, %93 ], [ @.str.64, %86 ]
+  %101 = and i32 %30, 4
+  %102 = icmp eq i32 %101, 0
+  %103 = select i1 %102, i32 101, i32 69
+  %104 = and i32 %30, 1
+  %105 = icmp eq i32 %104, 0
+  %106 = select i1 %105, i32 99, i32 67
+  %107 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.24, i32 noundef %26, i32 noundef %24, ptr noundef nonnull %87, i32 noundef %88, i32 noundef %89, i32 noundef %91, ptr noundef nonnull %100, i32 noundef %103, i32 noundef %106) #14
+  br label %323
 
-109:                                              ; preds = %16
-  %110 = and i32 %24, 255
-  %111 = lshr i32 %24, 8
-  %112 = and i32 %111, 255
-  %113 = lshr i32 %24, 24
-  %114 = lshr i32 %24, 16
-  %115 = and i32 %114, 255
-  %116 = lshr i32 %26, 8
-  %117 = and i32 %116, 255
-  %118 = and i32 %26, 255
-  %119 = lshr i32 %26, 16
-  %120 = and i32 %28, 131071
-  %121 = lshr i32 %28, 17
-  %122 = and i32 %121, 31
-  %123 = lshr i32 %28, 22
-  %124 = and i32 %30, 64
-  %125 = icmp eq i32 %124, 0
-  %126 = select i1 %125, i32 105, i32 73
-  %127 = and i32 %30, 32
-  %128 = xor i32 %127, 105
-  %129 = and i32 %30, 1
-  %130 = icmp eq i32 %129, 0
-  %131 = select i1 %130, i32 99, i32 67
-  %132 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.25, i32 noundef %110, i32 noundef %112, i32 noundef %113, i32 noundef %115, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %120, i32 noundef %122, i32 noundef %123, ptr noundef nonnull @.str.42, i32 noundef %126, i32 noundef %128, i32 noundef %131) #14
-  br label %325
+108:                                              ; preds = %16
+  %109 = and i32 %24, 255
+  %110 = lshr i32 %24, 8
+  %111 = and i32 %110, 255
+  %112 = lshr i32 %24, 24
+  %113 = lshr i32 %24, 16
+  %114 = and i32 %113, 255
+  %115 = lshr i32 %26, 8
+  %116 = and i32 %115, 255
+  %117 = and i32 %26, 255
+  %118 = lshr i32 %26, 16
+  %119 = and i32 %28, 131071
+  %120 = lshr i32 %28, 17
+  %121 = and i32 %120, 31
+  %122 = lshr i32 %28, 22
+  %123 = and i32 %30, 64
+  %124 = icmp eq i32 %123, 0
+  %125 = select i1 %124, i32 105, i32 73
+  %126 = and i32 %30, 32
+  %127 = xor i32 %126, 105
+  %128 = and i32 %30, 1
+  %129 = icmp eq i32 %128, 0
+  %130 = select i1 %129, i32 99, i32 67
+  %131 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.25, i32 noundef %109, i32 noundef %111, i32 noundef %112, i32 noundef %114, i32 noundef %116, i32 noundef %117, i32 noundef %118, i32 noundef %119, i32 noundef %121, i32 noundef %122, ptr noundef nonnull @.str.42, i32 noundef %125, i32 noundef %127, i32 noundef %130) #14
+  br label %323
 
-133:                                              ; preds = %16
-  %134 = and i32 %28, 131071
-  %135 = lshr i32 %28, 17
-  %136 = and i32 %135, 31
-  %137 = lshr i32 %28, 22
-  %138 = and i32 %30, 64
-  %139 = icmp eq i32 %138, 0
-  %140 = select i1 %139, i32 105, i32 73
-  %141 = and i32 %30, 32
-  %142 = xor i32 %141, 105
-  %143 = and i32 %30, 16
-  %144 = icmp eq i32 %143, 0
-  %145 = select i1 %144, i32 99, i32 67
-  %146 = and i32 %30, 8
-  %147 = icmp eq i32 %146, 0
-  %148 = select i1 %147, i32 115, i32 83
-  %149 = and i32 %30, 4
-  %150 = icmp eq i32 %149, 0
-  %151 = select i1 %150, i32 105, i32 73
-  %152 = and i32 %30, 2
-  %153 = icmp eq i32 %152, 0
-  %154 = select i1 %153, i32 101, i32 69
-  %155 = and i32 %30, 1
-  %156 = icmp eq i32 %155, 0
-  %157 = select i1 %156, i32 99, i32 67
-  %158 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.26, i32 noundef %26, i32 noundef %24, i32 noundef %134, i32 noundef %136, i32 noundef %137, ptr noundef nonnull @.str.43, i32 noundef %140, i32 noundef %142, i32 noundef %145, i32 noundef %148, i32 noundef %151, i32 noundef %154, i32 noundef %157) #14
-  br label %325
+132:                                              ; preds = %16
+  %133 = and i32 %28, 131071
+  %134 = lshr i32 %28, 17
+  %135 = and i32 %134, 31
+  %136 = lshr i32 %28, 22
+  %137 = and i32 %30, 64
+  %138 = icmp eq i32 %137, 0
+  %139 = select i1 %138, i32 105, i32 73
+  %140 = and i32 %30, 32
+  %141 = xor i32 %140, 105
+  %142 = and i32 %30, 16
+  %143 = icmp eq i32 %142, 0
+  %144 = select i1 %143, i32 99, i32 67
+  %145 = and i32 %30, 8
+  %146 = icmp eq i32 %145, 0
+  %147 = select i1 %146, i32 115, i32 83
+  %148 = and i32 %30, 4
+  %149 = icmp eq i32 %148, 0
+  %150 = select i1 %149, i32 105, i32 73
+  %151 = and i32 %30, 2
+  %152 = icmp eq i32 %151, 0
+  %153 = select i1 %152, i32 101, i32 69
+  %154 = and i32 %30, 1
+  %155 = icmp eq i32 %154, 0
+  %156 = select i1 %155, i32 99, i32 67
+  %157 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.26, i32 noundef %26, i32 noundef %24, i32 noundef %133, i32 noundef %135, i32 noundef %136, ptr noundef nonnull @.str.43, i32 noundef %139, i32 noundef %141, i32 noundef %144, i32 noundef %147, i32 noundef %150, i32 noundef %153, i32 noundef %156) #14
+  br label %323
 
-159:                                              ; preds = %16
-  %160 = and i32 %28, 131071
-  %161 = lshr i32 %28, 17
-  %162 = and i32 %161, 31
-  %163 = lshr i32 %28, 22
-  %164 = and i32 %30, 32
-  %165 = xor i32 %164, 105
-  %166 = and i32 %30, 16
-  %167 = icmp eq i32 %166, 0
-  %168 = select i1 %167, i32 99, i32 67
-  %169 = and i32 %30, 2
-  %170 = icmp eq i32 %169, 0
-  %171 = select i1 %170, i32 101, i32 69
-  %172 = and i32 %30, 1
-  %173 = icmp eq i32 %172, 0
-  %174 = select i1 %173, i32 99, i32 67
-  %175 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.27, i32 noundef %26, i32 noundef %24, i32 noundef %160, i32 noundef %162, i32 noundef %163, ptr noundef nonnull @.str.44, i32 noundef %165, i32 noundef %168, i32 noundef %171, i32 noundef %174) #14
-  br label %325
+158:                                              ; preds = %16
+  %159 = and i32 %28, 131071
+  %160 = lshr i32 %28, 17
+  %161 = and i32 %160, 31
+  %162 = lshr i32 %28, 22
+  %163 = and i32 %30, 32
+  %164 = xor i32 %163, 105
+  %165 = and i32 %30, 16
+  %166 = icmp eq i32 %165, 0
+  %167 = select i1 %166, i32 99, i32 67
+  %168 = and i32 %30, 2
+  %169 = icmp eq i32 %168, 0
+  %170 = select i1 %169, i32 101, i32 69
+  %171 = and i32 %30, 1
+  %172 = icmp eq i32 %171, 0
+  %173 = select i1 %172, i32 99, i32 67
+  %174 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.27, i32 noundef %26, i32 noundef %24, i32 noundef %159, i32 noundef %161, i32 noundef %162, ptr noundef nonnull @.str.44, i32 noundef %164, i32 noundef %167, i32 noundef %170, i32 noundef %173) #14
+  br label %323
 
-176:                                              ; preds = %16, %16, %16, %16
-  %177 = and i32 %28, 131071
-  %178 = lshr i32 %28, 17
-  %179 = and i32 %178, 31
-  %180 = lshr i32 %28, 22
-  %181 = trunc nuw nsw i32 %32 to i8
-  switch i8 %181, label %189 [
+175:                                              ; preds = %16, %16, %16, %16
+  %176 = and i32 %28, 131071
+  %177 = lshr i32 %28, 17
+  %178 = and i32 %177, 31
+  %179 = lshr i32 %28, 22
+  %180 = trunc nuw nsw i32 %32 to i8
+  switch i8 %180, label %default.unreachable3 [
     i8 1, label %xhci_trb_type_string.exit2
-    i8 2, label %182
-    i8 3, label %183
-    i8 4, label %184
-    i8 5, label %185
-    i8 6, label %186
-    i8 7, label %187
-    i8 8, label %188
+    i8 2, label %181
+    i8 3, label %182
+    i8 4, label %183
+    i8 5, label %184
+    i8 6, label %185
+    i8 7, label %186
+    i8 8, label %187
   ]
 
-182:                                              ; preds = %176
+181:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-183:                                              ; preds = %176
+182:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-184:                                              ; preds = %176
+183:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-185:                                              ; preds = %176
+184:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-186:                                              ; preds = %176
+185:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-187:                                              ; preds = %176
+186:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-188:                                              ; preds = %176
+187:                                              ; preds = %175
   br label %xhci_trb_type_string.exit2
 
-189:                                              ; preds = %176
-  br label %xhci_trb_type_string.exit2
+default.unreachable3:                             ; preds = %175
+  unreachable
 
-xhci_trb_type_string.exit2:                       ; preds = %176, %182, %183, %184, %185, %186, %187, %188, %189
-  %190 = phi ptr [ @.str.74, %189 ], [ @.str.48, %188 ], [ @.str.47, %187 ], [ @.str.46, %186 ], [ @.str.45, %185 ], [ @.str.44, %184 ], [ @.str.43, %183 ], [ @.str.42, %182 ], [ @.str.41, %176 ]
-  %191 = and i32 %30, 512
-  %192 = icmp eq i32 %191, 0
-  %193 = select i1 %192, i32 98, i32 66
-  %194 = and i32 %30, 64
-  %195 = icmp eq i32 %194, 0
-  %196 = select i1 %195, i32 105, i32 73
-  %197 = and i32 %30, 32
-  %198 = xor i32 %197, 105
-  %199 = and i32 %30, 16
-  %200 = icmp eq i32 %199, 0
-  %201 = select i1 %200, i32 99, i32 67
-  %202 = and i32 %30, 8
-  %203 = icmp eq i32 %202, 0
-  %204 = select i1 %203, i32 115, i32 83
-  %205 = and i32 %30, 4
-  %206 = icmp eq i32 %205, 0
-  %207 = select i1 %206, i32 105, i32 73
-  %208 = and i32 %30, 2
-  %209 = icmp eq i32 %208, 0
-  %210 = select i1 %209, i32 101, i32 69
-  %211 = and i32 %30, 1
-  %212 = icmp eq i32 %211, 0
-  %213 = select i1 %212, i32 99, i32 67
-  %214 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.28, i32 noundef %26, i32 noundef %24, i32 noundef %177, i32 noundef %179, i32 noundef %180, ptr noundef nonnull %190, i32 noundef %193, i32 noundef %196, i32 noundef %198, i32 noundef %201, i32 noundef %204, i32 noundef %207, i32 noundef %210, i32 noundef %213) #14
-  br label %325
+xhci_trb_type_string.exit2:                       ; preds = %175, %181, %182, %183, %184, %185, %186, %187
+  %188 = phi ptr [ @.str.48, %187 ], [ @.str.47, %186 ], [ @.str.46, %185 ], [ @.str.45, %184 ], [ @.str.44, %183 ], [ @.str.43, %182 ], [ @.str.42, %181 ], [ @.str.41, %175 ]
+  %189 = and i32 %30, 512
+  %190 = icmp eq i32 %189, 0
+  %191 = select i1 %190, i32 98, i32 66
+  %192 = and i32 %30, 64
+  %193 = icmp eq i32 %192, 0
+  %194 = select i1 %193, i32 105, i32 73
+  %195 = and i32 %30, 32
+  %196 = xor i32 %195, 105
+  %197 = and i32 %30, 16
+  %198 = icmp eq i32 %197, 0
+  %199 = select i1 %198, i32 99, i32 67
+  %200 = and i32 %30, 8
+  %201 = icmp eq i32 %200, 0
+  %202 = select i1 %201, i32 115, i32 83
+  %203 = and i32 %30, 4
+  %204 = icmp eq i32 %203, 0
+  %205 = select i1 %204, i32 105, i32 73
+  %206 = and i32 %30, 2
+  %207 = icmp eq i32 %206, 0
+  %208 = select i1 %207, i32 101, i32 69
+  %209 = and i32 %30, 1
+  %210 = icmp eq i32 %209, 0
+  %211 = select i1 %210, i32 99, i32 67
+  %212 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.28, i32 noundef %26, i32 noundef %24, i32 noundef %176, i32 noundef %178, i32 noundef %179, ptr noundef nonnull %188, i32 noundef %191, i32 noundef %194, i32 noundef %196, i32 noundef %199, i32 noundef %202, i32 noundef %205, i32 noundef %208, i32 noundef %211) #14
+  br label %323
 
-215:                                              ; preds = %16, %16
-  %216 = trunc nuw nsw i32 %32 to i8
-  %217 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %216)
-  %218 = and i32 %30, 1
-  %219 = icmp eq i32 %218, 0
-  %220 = select i1 %219, i32 99, i32 67
-  %221 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.29, ptr noundef nonnull %217, i32 noundef %220) #14
-  br label %325
+213:                                              ; preds = %16, %16
+  %214 = trunc nuw nsw i32 %32 to i8
+  %215 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %214)
+  %216 = and i32 %30, 1
+  %217 = icmp eq i32 %216, 0
+  %218 = select i1 %217, i32 99, i32 67
+  %219 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.29, ptr noundef nonnull %215, i32 noundef %218) #14
+  br label %323
 
-222:                                              ; preds = %16, %16
-  %223 = trunc nuw nsw i32 %32 to i8
-  %224 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %223)
-  %225 = lshr i32 %30, 24
-  %226 = and i32 %30, 1
-  %227 = icmp eq i32 %226, 0
-  %228 = select i1 %227, i32 99, i32 67
-  %229 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.30, ptr noundef nonnull %224, i32 noundef %225, i32 noundef %228) #14
-  br label %325
+220:                                              ; preds = %16, %16
+  %221 = trunc nuw nsw i32 %32 to i8
+  %222 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %221)
+  %223 = lshr i32 %30, 24
+  %224 = and i32 %30, 1
+  %225 = icmp eq i32 %224, 0
+  %226 = select i1 %225, i32 99, i32 67
+  %227 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.30, ptr noundef nonnull %222, i32 noundef %223, i32 noundef %226) #14
+  br label %323
 
-230:                                              ; preds = %16
-  %231 = lshr i32 %30, 24
-  %232 = and i32 %30, 512
-  %233 = icmp eq i32 %232, 0
-  %234 = select i1 %233, i32 98, i32 66
-  %235 = and i32 %30, 1
-  %236 = icmp eq i32 %235, 0
-  %237 = select i1 %236, i32 99, i32 67
-  %238 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.51, i32 noundef %26, i32 noundef %24, i32 noundef %231, i32 noundef %234, i32 noundef %237) #14
-  br label %325
+228:                                              ; preds = %16
+  %229 = lshr i32 %30, 24
+  %230 = and i32 %30, 512
+  %231 = icmp eq i32 %230, 0
+  %232 = select i1 %231, i32 98, i32 66
+  %233 = and i32 %30, 1
+  %234 = icmp eq i32 %233, 0
+  %235 = select i1 %234, i32 99, i32 67
+  %236 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.51, i32 noundef %26, i32 noundef %24, i32 noundef %229, i32 noundef %232, i32 noundef %235) #14
+  br label %323
 
-239:                                              ; preds = %16
-  %240 = lshr i32 %30, 24
-  %241 = and i32 %30, 512
-  %242 = icmp eq i32 %241, 0
-  %243 = select i1 %242, i32 100, i32 68
-  %244 = and i32 %30, 1
-  %245 = icmp eq i32 %244, 0
-  %246 = select i1 %245, i32 99, i32 67
-  %247 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.52, i32 noundef %26, i32 noundef %24, i32 noundef %240, i32 noundef %243, i32 noundef %246) #14
-  br label %325
+237:                                              ; preds = %16
+  %238 = lshr i32 %30, 24
+  %239 = and i32 %30, 512
+  %240 = icmp eq i32 %239, 0
+  %241 = select i1 %240, i32 100, i32 68
+  %242 = and i32 %30, 1
+  %243 = icmp eq i32 %242, 0
+  %244 = select i1 %243, i32 99, i32 67
+  %245 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.52, i32 noundef %26, i32 noundef %24, i32 noundef %238, i32 noundef %241, i32 noundef %244) #14
+  br label %323
 
-248:                                              ; preds = %16
-  %249 = lshr i32 %30, 24
-  %250 = and i32 %30, 1
-  %251 = icmp eq i32 %250, 0
-  %252 = select i1 %251, i32 99, i32 67
-  %253 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.53, i32 noundef %26, i32 noundef %24, i32 noundef %249, i32 noundef %252) #14
-  br label %325
+246:                                              ; preds = %16
+  %247 = lshr i32 %30, 24
+  %248 = and i32 %30, 1
+  %249 = icmp eq i32 %248, 0
+  %250 = select i1 %249, i32 99, i32 67
+  %251 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.53, i32 noundef %26, i32 noundef %24, i32 noundef %247, i32 noundef %250) #14
+  br label %323
 
-254:                                              ; preds = %16
-  %255 = lshr i32 %30, 24
-  %256 = lshr i32 %30, 16
-  %257 = and i32 %256, 31
-  %258 = and i32 %30, 512
-  %259 = icmp eq i32 %258, 0
-  %260 = select i1 %259, i32 116, i32 84
-  %261 = and i32 %30, 1
-  %262 = icmp eq i32 %261, 0
-  %263 = select i1 %262, i32 99, i32 67
-  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.54, i32 noundef %26, i32 noundef %24, i32 noundef %255, i32 noundef %257, i32 noundef %260, i32 noundef %263) #14
-  br label %325
+252:                                              ; preds = %16
+  %253 = lshr i32 %30, 24
+  %254 = lshr i32 %30, 16
+  %255 = and i32 %254, 31
+  %256 = and i32 %30, 512
+  %257 = icmp eq i32 %256, 0
+  %258 = select i1 %257, i32 116, i32 84
+  %259 = and i32 %30, 1
+  %260 = icmp eq i32 %259, 0
+  %261 = select i1 %260, i32 99, i32 67
+  %262 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.54, i32 noundef %26, i32 noundef %24, i32 noundef %253, i32 noundef %255, i32 noundef %258, i32 noundef %261) #14
+  br label %323
 
-265:                                              ; preds = %16
-  %266 = lshr i32 %30, 24
-  %267 = lshr i32 %30, 23
-  %268 = and i32 %267, 1
-  %269 = lshr i32 %30, 16
-  %270 = and i32 %269, 31
-  %271 = and i32 %30, 1
-  %272 = icmp eq i32 %271, 0
-  %273 = select i1 %272, i32 99, i32 67
-  %274 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.55, i32 noundef %266, i32 noundef %268, i32 noundef %270, i32 noundef %273) #14
-  br label %325
+263:                                              ; preds = %16
+  %264 = lshr i32 %30, 24
+  %265 = lshr i32 %30, 23
+  %266 = and i32 %265, 1
+  %267 = lshr i32 %30, 16
+  %268 = and i32 %267, 31
+  %269 = and i32 %30, 1
+  %270 = icmp eq i32 %269, 0
+  %271 = select i1 %270, i32 99, i32 67
+  %272 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.55, i32 noundef %264, i32 noundef %266, i32 noundef %268, i32 noundef %271) #14
+  br label %323
 
-275:                                              ; preds = %16
-  %276 = lshr i32 %28, 16
-  %277 = lshr i32 %30, 24
-  %278 = lshr i32 %30, 16
-  %279 = and i32 %278, 31
-  %280 = and i32 %30, 1
-  %281 = icmp eq i32 %280, 0
-  %282 = select i1 %281, i32 99, i32 67
-  %283 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.56, i32 noundef %26, i32 noundef %24, i32 noundef %276, i32 noundef %277, i32 noundef %279, i32 noundef %282) #14
-  br label %325
+273:                                              ; preds = %16
+  %274 = lshr i32 %28, 16
+  %275 = lshr i32 %30, 24
+  %276 = lshr i32 %30, 16
+  %277 = and i32 %276, 31
+  %278 = and i32 %30, 1
+  %279 = icmp eq i32 %278, 0
+  %280 = select i1 %279, i32 99, i32 67
+  %281 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.56, i32 noundef %26, i32 noundef %24, i32 noundef %274, i32 noundef %275, i32 noundef %277, i32 noundef %280) #14
+  br label %323
 
-284:                                              ; preds = %16
-  %285 = lshr i32 %30, 24
-  %286 = and i32 %30, 1
-  %287 = icmp eq i32 %286, 0
-  %288 = select i1 %287, i32 99, i32 67
-  %289 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.57, i32 noundef %285, i32 noundef %288) #14
-  br label %325
+282:                                              ; preds = %16
+  %283 = lshr i32 %30, 24
+  %284 = and i32 %30, 1
+  %285 = icmp eq i32 %284, 0
+  %286 = select i1 %285, i32 99, i32 67
+  %287 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.57, i32 noundef %283, i32 noundef %286) #14
+  br label %323
 
-290:                                              ; preds = %16
-  %291 = lshr i32 %28, 22
-  %292 = lshr i32 %30, 16
-  %293 = and i32 %292, 255
-  %294 = and i32 %30, 1
-  %295 = icmp eq i32 %294, 0
-  %296 = select i1 %295, i32 99, i32 67
-  %297 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.58, i32 noundef %26, i32 noundef %24, i32 noundef %291, i32 noundef %293, i32 noundef %296) #14
-  br label %325
+288:                                              ; preds = %16
+  %289 = lshr i32 %28, 22
+  %290 = lshr i32 %30, 16
+  %291 = and i32 %290, 255
+  %292 = and i32 %30, 1
+  %293 = icmp eq i32 %292, 0
+  %294 = select i1 %293, i32 99, i32 67
+  %295 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.58, i32 noundef %26, i32 noundef %24, i32 noundef %289, i32 noundef %291, i32 noundef %294) #14
+  br label %323
 
-298:                                              ; preds = %16
-  %299 = lshr i32 %30, 16
-  %300 = and i32 %299, 4095
-  %301 = and i32 %30, 1
-  %302 = icmp eq i32 %301, 0
-  %303 = select i1 %302, i32 99, i32 67
-  %304 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.60, i32 noundef %300, i32 noundef %303) #14
-  br label %325
+296:                                              ; preds = %16
+  %297 = lshr i32 %30, 16
+  %298 = and i32 %297, 4095
+  %299 = and i32 %30, 1
+  %300 = icmp eq i32 %299, 0
+  %301 = select i1 %300, i32 99, i32 67
+  %302 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.60, i32 noundef %298, i32 noundef %301) #14
+  br label %323
 
-305:                                              ; preds = %16
-  %306 = lshr i32 %30, 24
-  %307 = lshr i32 %30, 16
-  %308 = and i32 %307, 15
-  %309 = and i32 %30, 1
-  %310 = icmp eq i32 %309, 0
-  %311 = select i1 %310, i32 99, i32 67
-  %312 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.61, i32 noundef %26, i32 noundef %24, i32 noundef %306, i32 noundef %308, i32 noundef %311) #14
-  br label %325
+303:                                              ; preds = %16
+  %304 = lshr i32 %30, 24
+  %305 = lshr i32 %30, 16
+  %306 = and i32 %305, 15
+  %307 = and i32 %30, 1
+  %308 = icmp eq i32 %307, 0
+  %309 = select i1 %308, i32 99, i32 67
+  %310 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.38, ptr noundef nonnull @.str.61, i32 noundef %26, i32 noundef %24, i32 noundef %304, i32 noundef %306, i32 noundef %309) #14
+  br label %323
 
-313:                                              ; preds = %16
-  %314 = and i32 %24, -32
-  %315 = and i32 %24, 31
-  %316 = lshr i32 %30, 24
-  %317 = and i32 %30, 1
-  %318 = icmp eq i32 %317, 0
-  %319 = select i1 %318, i32 99, i32 67
-  %320 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.62, i32 noundef %28, i32 noundef %26, i32 noundef %314, i32 noundef %315, i32 noundef %316, i32 noundef %319) #14
-  br label %325
+311:                                              ; preds = %16
+  %312 = and i32 %24, -32
+  %313 = and i32 %24, 31
+  %314 = lshr i32 %30, 24
+  %315 = and i32 %30, 1
+  %316 = icmp eq i32 %315, 0
+  %317 = select i1 %316, i32 99, i32 67
+  %318 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.39, ptr noundef nonnull @.str.62, i32 noundef %28, i32 noundef %26, i32 noundef %312, i32 noundef %313, i32 noundef %314, i32 noundef %317) #14
+  br label %323
 
-321:                                              ; preds = %16
-  %322 = trunc nuw nsw i32 %32 to i8
-  %323 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %322)
-  %324 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.40, ptr noundef nonnull %323, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30) #14
-  br label %325
+319:                                              ; preds = %16
+  %320 = trunc nuw nsw i32 %32 to i8
+  %321 = call fastcc ptr @xhci_trb_type_string(i8 noundef zeroext %320)
+  %322 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 500, ptr noundef nonnull @.str.40, ptr noundef nonnull %321, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %30) #14
+  br label %323
 
-325:                                              ; preds = %321, %313, %305, %298, %290, %284, %275, %265, %254, %248, %239, %230, %222, %215, %xhci_trb_type_string.exit2, %159, %133, %109, %xhci_trb_type_string.exit, %33
+323:                                              ; preds = %319, %311, %303, %296, %288, %282, %273, %263, %252, %246, %237, %228, %220, %213, %xhci_trb_type_string.exit2, %158, %132, %108, %xhci_trb_type_string.exit, %33
   call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.22, i32 noundef %23, ptr noundef nonnull %3, ptr noundef nonnull %4) #14
-  %326 = add nuw nsw i64 %17, 1
-  %327 = icmp eq i64 %326, 256
-  br i1 %327, label %328, label %16, !llvm.loop !15
+  %324 = add nuw nsw i64 %17, 1
+  %325 = icmp eq i64 %324, 256
+  br i1 %325, label %326, label %16, !llvm.loop !15
 
-328:                                              ; preds = %325
+326:                                              ; preds = %323
   call void @llvm.lifetime.end.p0(i64 500, ptr nonnull %4) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #14
-  %329 = getelementptr inbounds i8, ptr %13, i64 8
-  %330 = add nuw i32 %12, 1
-  %331 = load i32, ptr %8, align 8
-  %332 = icmp ult i32 %330, %331
-  br i1 %332, label %.preheader, label %.loopexit, !llvm.loop !16
+  %327 = getelementptr inbounds i8, ptr %13, i64 8
+  %328 = add nuw i32 %12, 1
+  %329 = load i32, ptr %8, align 8
+  %330 = icmp ult i32 %328, %329
+  br i1 %330, label %.preheader, label %.loopexit, !llvm.loop !16
 
-.loopexit:                                        ; preds = %328, %2
+.loopexit:                                        ; preds = %326, %2
   ret i32 0
 }
 

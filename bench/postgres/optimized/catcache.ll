@@ -2179,7 +2179,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
   %4 = alloca i8, align 1
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  switch i32 %1, label %57 [
+  switch i32 %1, label %54 [
     i32 4, label %16
     i32 3, label %20
     i32 2, label %.thread27
@@ -2218,10 +2218,8 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
   %27 = getelementptr inbounds i8, ptr %0, i64 88
   %28 = load i32, ptr %27, align 4
   %29 = call fastcc i64 @fastgetattr(ptr noundef %2, i32 noundef %28, ptr noundef %6, ptr noundef nonnull %4)
-  switch i32 %1, label %49 [
-    i32 4, label %30
-    i32 3, label %35
-  ]
+  %switch = icmp eq i32 %1, 4
+  br i1 %switch, label %30, label %35
 
 30:                                               ; preds = %20
   %31 = getelementptr i8, ptr %0, i64 48
@@ -2230,7 +2228,7 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
   %34 = tail call i32 @llvm.fshl.i32(i32 %33, i32 %33, i32 24)
   br label %35
 
-35:                                               ; preds = %30, %20
+35:                                               ; preds = %20, %30
   %.0.i = phi i32 [ 0, %20 ], [ %34, %30 ]
   %36 = getelementptr i8, ptr %0, i64 40
   %37 = load ptr, ptr %36, align 8
@@ -2250,26 +2248,19 @@ define internal fastcc i32 @CatalogCacheComputeTupleHashValue(ptr nocapture noun
   %48 = xor i32 %47, %.1.i
   br label %CatalogCacheComputeHashValue.exit
 
-49:                                               ; preds = %20
-  %50 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %50)
-  %51 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %1) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 354, ptr noundef nonnull @__func__.CatalogCacheComputeHashValue) #12
-  unreachable
-
 CatalogCacheComputeHashValue.exit:                ; preds = %.thread, %41
-  %52 = phi i64 [ %42, %41 ], [ %15, %.thread ]
+  %49 = phi i64 [ %42, %41 ], [ %15, %.thread ]
   %.2.i = phi i32 [ %48, %41 ], [ 0, %.thread ]
-  %53 = getelementptr inbounds i8, ptr %0, i64 24
-  %54 = load ptr, ptr %53, align 8
-  %55 = tail call i32 %54(i64 noundef %52) #12
-  %56 = xor i32 %55, %.2.i
-  ret i32 %56
+  %50 = getelementptr inbounds i8, ptr %0, i64 24
+  %51 = load ptr, ptr %50, align 8
+  %52 = tail call i32 %51(i64 noundef %49) #12
+  %53 = xor i32 %52, %.2.i
+  ret i32 %53
 
-57:                                               ; preds = %3
-  %58 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
-  tail call void @llvm.assume(i1 %58)
-  %59 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %1) #12
+54:                                               ; preds = %3
+  %55 = tail call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #13
+  tail call void @llvm.assume(i1 %55)
+  %56 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, i32 noundef %1) #12
   tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 409, ptr noundef nonnull @__func__.CatalogCacheComputeTupleHashValue) #12
   unreachable
 }

@@ -3960,24 +3960,17 @@ if.then18:                                        ; preds = %if.then16
 _ZNK5folly7dynamic5asIntEv.exit:                  ; preds = %if.then18
   %5 = load i64, ptr %u_.i.i.i.i.i, align 8, !tbaa !56
   %conv22 = sitofp i64 %5 to double
-  switch i32 %1, label %sw.default.i.i114 [
-    i32 4, label %sw.bb.i.i112
-    i32 3, label %sw.bb4.i.i110
-  ]
+  %switch = icmp eq i32 %1, 4
+  %u_.i.i.i.i.i113 = getelementptr inbounds i8, ptr %b, i64 8
+  br i1 %switch, label %sw.bb.i.i112, label %sw.bb4.i.i110
 
 sw.bb.i.i112:                                     ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %u_.i.i.i.i.i113 = getelementptr inbounds i8, ptr %b, i64 8
   %call3.i.i = tail call noundef double @_ZN5folly2toIdlEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %u_.i.i.i.i.i113)
   br label %_ZNK5folly7dynamic8asDoubleEv.exit
 
 sw.bb4.i.i110:                                    ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  %u_.i.i.i16.i.i111 = getelementptr inbounds i8, ptr %b, i64 8
-  %6 = load double, ptr %u_.i.i.i16.i.i111, align 8, !tbaa !122
+  %6 = load double, ptr %u_.i.i.i.i.i113, align 8, !tbaa !122
   br label %_ZNK5folly7dynamic8asDoubleEv.exit
-
-sw.default.i.i114:                                ; preds = %_ZNK5folly7dynamic5asIntEv.exit
-  tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef nonnull @.str.40, i32 noundef %1) #32
-  unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %sw.bb4.i.i110, %sw.bb.i.i112
   %retval.0.i.i106 = phi double [ %6, %sw.bb4.i.i110 ], [ %call3.i.i, %sw.bb.i.i112 ]
@@ -3986,24 +3979,17 @@ _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %sw.bb4.i.i110, %sw.
 
 _ZNK5folly7dynamic8asDoubleEv.exit128:            ; preds = %if.then18
   %7 = load double, ptr %u_.i.i.i.i.i, align 8, !tbaa !122
-  switch i32 %1, label %sw.default.i.i141 [
-    i32 4, label %sw.bb.i.i139
-    i32 3, label %sw.bb4.i.i136
-  ]
+  %switch5 = icmp eq i32 %1, 4
+  %u_.i.i.i.i.i140 = getelementptr inbounds i8, ptr %b, i64 8
+  br i1 %switch5, label %sw.bb.i.i139, label %sw.bb4.i.i136
 
 sw.bb.i.i139:                                     ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit128
-  %u_.i.i.i.i.i140 = getelementptr inbounds i8, ptr %b, i64 8
   %8 = load i64, ptr %u_.i.i.i.i.i140, align 8, !tbaa !56
   br label %_ZNK5folly7dynamic5asIntEv.exit142
 
 sw.bb4.i.i136:                                    ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit128
-  %u_.i.i.i16.i.i137 = getelementptr inbounds i8, ptr %b, i64 8
-  %call6.i.i138 = tail call noundef i64 @_ZN5folly2toIldEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %u_.i.i.i16.i.i137)
+  %call6.i.i138 = tail call noundef i64 @_ZN5folly2toIldEENSt9enable_ifIXsr6detail14IsArithToArithIT_T0_EE5valueES2_E4typeERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %u_.i.i.i.i.i140)
   br label %_ZNK5folly7dynamic5asIntEv.exit142
-
-sw.default.i.i141:                                ; preds = %_ZNK5folly7dynamic8asDoubleEv.exit128
-  tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef nonnull @.str.40, i32 noundef %1) #32
-  unreachable
 
 _ZNK5folly7dynamic5asIntEv.exit142:               ; preds = %sw.bb4.i.i136, %sw.bb.i.i139
   %retval.0.i.i132 = phi i64 [ %call6.i.i138, %sw.bb4.i.i136 ], [ %8, %sw.bb.i.i139 ]

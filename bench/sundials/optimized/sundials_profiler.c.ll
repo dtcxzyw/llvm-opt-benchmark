@@ -442,7 +442,7 @@ SUNHashMap_Insert.exit:                           ; preds = %47
   br label %58
 
 .thread:                                          ; preds = %47, %45, %SUNHashMap_Iterate.exit.i, %11
-  %switch = phi i32 [ -9981, %11 ], [ -9981, %SUNHashMap_Iterate.exit.i ], [ -9983, %45 ], [ -9981, %47 ]
+  %.0.i.ph26 = phi i32 [ -9981, %11 ], [ -9981, %SUNHashMap_Iterate.exit.i ], [ -9983, %45 ], [ -9981, %47 ]
   %.not9.i = icmp eq ptr %calloc.i, null
   br i1 %.not9.i, label %56, label %55
 
@@ -473,7 +473,7 @@ sunTimerStructFree.exit:                          ; preds = %56, %57
   br label %.sink.split
 
 .sink.split:                                      ; preds = %58, %sunTimerStructFree.exit
-  %.0.ph = phi i32 [ %switch, %sunTimerStructFree.exit ], [ 0, %58 ]
+  %.0.ph = phi i32 [ %.0.i.ph26, %sunTimerStructFree.exit ], [ 0, %58 ]
   %64 = load ptr, ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8

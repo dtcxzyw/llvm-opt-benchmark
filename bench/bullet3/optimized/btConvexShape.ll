@@ -798,12 +798,12 @@ entry:
   %0 = load i32, ptr %m_shapeType, align 8
   switch i32 %0, label %sw.default [
     i32 8, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit
-    i32 13, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71
-    i32 0, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71
-    i32 1, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit133
-    i32 10, label %sw.bb71
     i32 4, label %sw.bb12.i282
     i32 5, label %sw.bb12.i282
+    i32 1, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit133
+    i32 10, label %sw.bb71
+    i32 0, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71
+    i32 13, label %_ZNK13btConvexShape19getMarginNonVirtualEv.exit71
   ]
 
 _ZNK13btConvexShape19getMarginNonVirtualEv.exit:  ; preds = %entry

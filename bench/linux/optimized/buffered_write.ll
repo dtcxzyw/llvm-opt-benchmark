@@ -522,7 +522,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
 
 302:                                              ; preds = %.thread26
   %303 = trunc nuw nsw i32 %297 to i8
-  switch i32 %297, label %default.unreachable [
+  switch i32 %297, label %default.unreachable106 [
     i32 0, label %304
     i32 1, label %304
     i32 3, label %320
@@ -861,7 +861,7 @@ define dso_local i64 @netfs_perform_write(ptr noundef %0, ptr noundef %1, ptr no
   tail call void @kfree(ptr noundef %456) #11
   br label %483
 
-default.unreachable:                              ; preds = %302
+default.unreachable106:                           ; preds = %302
   unreachable
 
 483:                                              ; preds = %482, %449, %439, %423, %402, %382, %317, %305, %304

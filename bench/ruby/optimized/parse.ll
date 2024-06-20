@@ -52588,25 +52588,15 @@ get_nd_value.exit.i:                              ; preds = %.thread
 get_nd_value.exit12.i:                            ; preds = %get_nd_value.exit.i
   %18 = tail call fastcc i32 @is_static_content(ptr noundef nonnull %.0.i.i)
   %.not8.i = icmp eq i32 %18, 0
-  br i1 %.not8.i, label %assign_in_cond.exit, label %19
+  br i1 %.not8.i, label %assign_in_cond.exit, label %get_nd_value.exit16.i
 
-19:                                               ; preds = %get_nd_value.exit12.i
-  %.off = add nsw i32 %17, -24
-  %switch = icmp ult i32 %.off, 7
-  br i1 %switch, label %get_nd_value.exit16.i, label %parser_node_name.exit.i13.i
-
-parser_node_name.exit.i13.i:                      ; preds = %19
-  %20 = tail call ptr @ruby_node_name(i32 noundef %17) #32
-  tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef null, ptr noundef nonnull @.str.546, ptr noundef %20)
-  unreachable
-
-get_nd_value.exit16.i:                            ; preds = %19
-  %21 = getelementptr inbounds i8, ptr %0, i64 216
-  %22 = load ptr, ptr %21, align 8
-  %23 = load i64, ptr %.0.i.i, align 8
-  %24 = lshr i64 %23, 15
-  %25 = trunc i64 %24 to i32
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %22, i32 noundef %25, ptr noundef nonnull @.str.1037) #32
+get_nd_value.exit16.i:                            ; preds = %get_nd_value.exit12.i
+  %19 = getelementptr inbounds i8, ptr %0, i64 216
+  %20 = load ptr, ptr %19, align 8
+  %21 = load i64, ptr %.0.i.i, align 8
+  %22 = lshr i64 %21, 15
+  %23 = trunc i64 %22 to i32
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %20, i32 noundef %23, ptr noundef nonnull @.str.1037) #32
   %.pre120 = load i64, ptr %14, align 8
   %.pre121 = trunc i64 %.pre120 to i32
   %.pre122 = lshr i32 %.pre121, 8
@@ -52614,327 +52604,327 @@ get_nd_value.exit16.i:                            ; preds = %19
 
 assign_in_cond.exit:                              ; preds = %.thread, %get_nd_value.exit.i, %get_nd_value.exit12.i, %get_nd_value.exit16.i
   %.pre-phi123 = phi i32 [ %16, %.thread ], [ %16, %get_nd_value.exit.i ], [ %16, %get_nd_value.exit12.i ], [ %.pre122, %get_nd_value.exit16.i ]
-  %26 = and i32 %.pre-phi123, 127
-  switch i32 %26, label %common.ret128 [
-    i32 18, label %27
-    i32 65, label %31
-    i32 68, label %31
-    i32 64, label %31
-    i32 111, label %31
-    i32 69, label %42
-    i32 70, label %54
-    i32 1, label %67
-    i32 22, label %74
-    i32 23, label %74
-    i32 91, label %81
-    i32 92, label %81
+  %24 = and i32 %.pre-phi123, 127
+  switch i32 %24, label %common.ret128 [
+    i32 18, label %25
+    i32 65, label %29
+    i32 68, label %29
+    i32 64, label %29
+    i32 111, label %29
+    i32 69, label %40
+    i32 70, label %52
+    i32 1, label %65
+    i32 22, label %72
+    i32 23, label %72
+    i32 91, label %79
+    i32 92, label %79
     i32 102, label %RB_SYMBOL_P.exit.thread
     i32 103, label %RB_SYMBOL_P.exit.thread
-    i32 59, label %106
-    i32 110, label %128
-    i32 112, label %139
-    i32 60, label %150
-    i32 61, label %150
-    i32 62, label %150
-    i32 63, label %150
+    i32 59, label %104
+    i32 110, label %126
+    i32 112, label %137
+    i32 60, label %148
+    i32 61, label %148
+    i32 62, label %148
+    i32 63, label %148
   ]
 
-common.ret128:                                    ; preds = %82, %52, %31, %32, %37, %81, %94, %92, %RB_SYMBOL_P.exit.thread, %96, %101, %RB_SYMBOL_P.exit.thread116, %118, %123, %128, %129, %134, %139, %140, %145, %150, %151, %156, %assign_in_cond.exit, %106, %106, %10, %5, %64, %74, %67, %27
-  %common.ret128.op = phi ptr [ %14, %27 ], [ %14, %67 ], [ %14, %74 ], [ %66, %64 ], [ null, %5 ], [ null, %10 ], [ %14, %106 ], [ %14, %106 ], [ %14, %assign_in_cond.exit ], [ %14, %156 ], [ %14, %151 ], [ %14, %150 ], [ %14, %145 ], [ %14, %140 ], [ %14, %139 ], [ %14, %134 ], [ %14, %129 ], [ %14, %128 ], [ %14, %123 ], [ %14, %118 ], [ %14, %RB_SYMBOL_P.exit.thread116 ], [ %14, %101 ], [ %14, %96 ], [ %14, %RB_SYMBOL_P.exit.thread ], [ %14, %92 ], [ %14, %94 ], [ %14, %81 ], [ %14, %37 ], [ %14, %32 ], [ %14, %31 ], [ %14, %52 ], [ %14, %82 ]
+common.ret128:                                    ; preds = %80, %50, %29, %30, %35, %79, %92, %90, %RB_SYMBOL_P.exit.thread, %94, %99, %RB_SYMBOL_P.exit.thread116, %116, %121, %126, %127, %132, %137, %138, %143, %148, %149, %154, %assign_in_cond.exit, %104, %104, %10, %5, %62, %72, %65, %25
+  %common.ret128.op = phi ptr [ %14, %25 ], [ %14, %65 ], [ %14, %72 ], [ %64, %62 ], [ null, %5 ], [ null, %10 ], [ %14, %104 ], [ %14, %104 ], [ %14, %assign_in_cond.exit ], [ %14, %154 ], [ %14, %149 ], [ %14, %148 ], [ %14, %143 ], [ %14, %138 ], [ %14, %137 ], [ %14, %132 ], [ %14, %127 ], [ %14, %126 ], [ %14, %121 ], [ %14, %116 ], [ %14, %RB_SYMBOL_P.exit.thread116 ], [ %14, %99 ], [ %14, %94 ], [ %14, %RB_SYMBOL_P.exit.thread ], [ %14, %90 ], [ %14, %92 ], [ %14, %79 ], [ %14, %35 ], [ %14, %30 ], [ %14, %29 ], [ %14, %50 ], [ %14, %80 ]
   ret ptr %common.ret128.op
 
-27:                                               ; preds = %assign_in_cond.exit
-  %28 = getelementptr inbounds i8, ptr %14, i64 32
-  %29 = load ptr, ptr %28, align 8
-  %30 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %29, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4)
-  store ptr %30, ptr %28, align 8
+25:                                               ; preds = %assign_in_cond.exit
+  %26 = getelementptr inbounds i8, ptr %14, i64 32
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %27, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4)
+  store ptr %28, ptr %26, align 8
   br label %common.ret128
 
-31:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit
+29:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %37
-    i32 1, label %32
+    i32 2, label %35
+    i32 1, label %30
   ]
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds i8, ptr %0, i64 216
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds i8, ptr %0, i64 212
-  %36 = load i32, ptr %35, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %34, i32 noundef %36, ptr noundef nonnull @.str.1029) #32
+30:                                               ; preds = %29
+  %31 = getelementptr inbounds i8, ptr %0, i64 216
+  %32 = load ptr, ptr %31, align 8
+  %33 = getelementptr inbounds i8, ptr %0, i64 212
+  %34 = load i32, ptr %33, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %32, i32 noundef %34, ptr noundef nonnull @.str.1029) #32
   br label %common.ret128
 
-37:                                               ; preds = %31
-  %38 = getelementptr inbounds i8, ptr %0, i64 216
-  %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds i8, ptr %0, i64 212
-  %41 = load i32, ptr %40, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %39, i32 noundef %41, ptr noundef nonnull @.str.1030) #32
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds i8, ptr %0, i64 216
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds i8, ptr %0, i64 212
+  %39 = load i32, ptr %38, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef %37, i32 noundef %39, ptr noundef nonnull @.str.1030) #32
   br label %common.ret128
 
-42:                                               ; preds = %assign_in_cond.exit
-  %43 = getelementptr i8, ptr %0, i64 216
-  %.val103 = load ptr, ptr %43, align 8
-  %44 = load i8, ptr %.val103, align 1
-  %.not.i107 = icmp eq i8 %44, 45
+40:                                               ; preds = %assign_in_cond.exit
+  %41 = getelementptr i8, ptr %0, i64 216
+  %.val103 = load ptr, ptr %41, align 8
+  %42 = load i8, ptr %.val103, align 1
+  %.not.i107 = icmp eq i8 %42, 45
   br i1 %.not.i107, label %sub_1.i, label %e_option_supplied.exit.thread
 
-sub_1.i:                                          ; preds = %42
-  %45 = getelementptr inbounds i8, ptr %.val103, i64 1
-  %46 = load i8, ptr %45, align 1
-  %.not1.i = icmp eq i8 %46, 101
+sub_1.i:                                          ; preds = %40
+  %43 = getelementptr inbounds i8, ptr %.val103, i64 1
+  %44 = load i8, ptr %43, align 1
+  %.not1.i = icmp eq i8 %44, 101
   br i1 %.not1.i, label %e_option_supplied.exit, label %e_option_supplied.exit.thread
 
 e_option_supplied.exit:                           ; preds = %sub_1.i
-  %47 = getelementptr inbounds i8, ptr %.val103, i64 2
-  %48 = load i8, ptr %47, align 1
-  %.not119 = icmp eq i8 %48, 0
-  br i1 %.not119, label %52, label %e_option_supplied.exit.thread
+  %45 = getelementptr inbounds i8, ptr %.val103, i64 2
+  %46 = load i8, ptr %45, align 1
+  %.not119 = icmp eq i8 %46, 0
+  br i1 %.not119, label %50, label %e_option_supplied.exit.thread
 
-e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %42, %e_option_supplied.exit
-  switch i32 %2, label %52 [
-    i32 2, label %49
+e_option_supplied.exit.thread:                    ; preds = %sub_1.i, %40, %e_option_supplied.exit
+  switch i32 %2, label %50 [
+    i32 2, label %47
     i32 1, label %.sink.split
   ]
 
-49:                                               ; preds = %e_option_supplied.exit.thread
+47:                                               ; preds = %e_option_supplied.exit.thread
   br label %.sink.split
 
-.sink.split:                                      ; preds = %e_option_supplied.exit.thread, %49
-  %.str.1032.sink = phi ptr [ @.str.1032, %49 ], [ @.str.1031, %e_option_supplied.exit.thread ]
-  %50 = getelementptr inbounds i8, ptr %0, i64 212
-  %51 = load i32, ptr %50, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val103, i32 noundef %51, ptr noundef nonnull %.str.1032.sink) #32
-  br label %52
+.sink.split:                                      ; preds = %e_option_supplied.exit.thread, %47
+  %.str.1032.sink = phi ptr [ @.str.1032, %47 ], [ @.str.1031, %e_option_supplied.exit.thread ]
+  %48 = getelementptr inbounds i8, ptr %0, i64 212
+  %49 = load i32, ptr %48, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warn(ptr noundef nonnull %.val103, i32 noundef %49, ptr noundef nonnull %.str.1032.sink) #32
+  br label %50
 
-52:                                               ; preds = %.sink.split, %e_option_supplied.exit.thread, %e_option_supplied.exit
-  %53 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 56) #32
+50:                                               ; preds = %.sink.split, %e_option_supplied.exit.thread, %e_option_supplied.exit
+  %51 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 56) #32
   br label %common.ret128
 
-54:                                               ; preds = %assign_in_cond.exit
-  %55 = getelementptr i8, ptr %0, i64 216
-  %.val = load ptr, ptr %55, align 8
-  %56 = load i8, ptr %.val, align 1
-  %.not.i108 = icmp eq i8 %56, 45
+52:                                               ; preds = %assign_in_cond.exit
+  %53 = getelementptr i8, ptr %0, i64 216
+  %.val = load ptr, ptr %53, align 8
+  %54 = load i8, ptr %.val, align 1
+  %.not.i108 = icmp eq i8 %54, 45
   br i1 %.not.i108, label %sub_1.i109, label %e_option_supplied.exit112.thread
 
-sub_1.i109:                                       ; preds = %54
-  %57 = getelementptr inbounds i8, ptr %.val, i64 1
-  %58 = load i8, ptr %57, align 1
-  %.not1.i110 = icmp eq i8 %58, 101
+sub_1.i109:                                       ; preds = %52
+  %55 = getelementptr inbounds i8, ptr %.val, i64 1
+  %56 = load i8, ptr %55, align 1
+  %.not1.i110 = icmp eq i8 %56, 101
   br i1 %.not1.i110, label %e_option_supplied.exit112, label %e_option_supplied.exit112.thread
 
 e_option_supplied.exit112:                        ; preds = %sub_1.i109
-  %59 = getelementptr inbounds i8, ptr %.val, i64 2
-  %60 = load i8, ptr %59, align 1
-  %.not118 = icmp eq i8 %60, 0
-  br i1 %.not118, label %64, label %e_option_supplied.exit112.thread
+  %57 = getelementptr inbounds i8, ptr %.val, i64 2
+  %58 = load i8, ptr %57, align 1
+  %.not118 = icmp eq i8 %58, 0
+  br i1 %.not118, label %62, label %e_option_supplied.exit112.thread
 
-e_option_supplied.exit112.thread:                 ; preds = %sub_1.i109, %54, %e_option_supplied.exit112
-  switch i32 %2, label %64 [
-    i32 2, label %61
+e_option_supplied.exit112.thread:                 ; preds = %sub_1.i109, %52, %e_option_supplied.exit112
+  switch i32 %2, label %62 [
+    i32 2, label %59
     i32 1, label %.sink.split125
   ]
 
-61:                                               ; preds = %e_option_supplied.exit112.thread
+59:                                               ; preds = %e_option_supplied.exit112.thread
   br label %.sink.split125
 
-.sink.split125:                                   ; preds = %e_option_supplied.exit112.thread, %61
-  %.str.1032.sink126 = phi ptr [ @.str.1032, %61 ], [ @.str.1031, %e_option_supplied.exit112.thread ]
-  %62 = getelementptr inbounds i8, ptr %0, i64 212
-  %63 = load i32, ptr %62, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef nonnull %.val, i32 noundef %63, ptr noundef nonnull %.str.1032.sink126) #32
-  br label %64
+.sink.split125:                                   ; preds = %e_option_supplied.exit112.thread, %59
+  %.str.1032.sink126 = phi ptr [ @.str.1032, %59 ], [ @.str.1031, %e_option_supplied.exit112.thread ]
+  %60 = getelementptr inbounds i8, ptr %0, i64 212
+  %61 = load i32, ptr %60, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef nonnull %.val, i32 noundef %61, ptr noundef nonnull %.str.1032.sink126) #32
+  br label %62
 
-64:                                               ; preds = %.sink.split125, %e_option_supplied.exit112.thread, %e_option_supplied.exit112
-  %65 = tail call fastcc ptr @rb_node_gvar_new(ptr noundef nonnull %0, i64 noundef 3831, ptr noundef %3)
-  %66 = tail call fastcc ptr @rb_node_match2_new(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %65, ptr noundef %3)
+62:                                               ; preds = %.sink.split125, %e_option_supplied.exit112.thread, %e_option_supplied.exit112
+  %63 = tail call fastcc ptr @rb_node_gvar_new(ptr noundef nonnull %0, i64 noundef 3831, ptr noundef %3)
+  %64 = tail call fastcc ptr @rb_node_match2_new(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef %63, ptr noundef %3)
   br label %common.ret128
 
-67:                                               ; preds = %assign_in_cond.exit
-  %68 = getelementptr inbounds i8, ptr %14, i64 40
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds i8, ptr %69, i64 32
-  %71 = icmp eq ptr %14, %69
-  %spec.select = and i1 %71, %4
-  %72 = load ptr, ptr %70, align 8
-  %73 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %72, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %spec.select)
-  store ptr %73, ptr %70, align 8
+65:                                               ; preds = %assign_in_cond.exit
+  %66 = getelementptr inbounds i8, ptr %14, i64 40
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds i8, ptr %67, i64 32
+  %69 = icmp eq ptr %14, %67
+  %spec.select = and i1 %69, %4
+  %70 = load ptr, ptr %68, align 8
+  %71 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %70, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %spec.select)
+  store ptr %71, ptr %68, align 8
   br label %common.ret128
 
-74:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit
-  %75 = getelementptr inbounds i8, ptr %14, i64 32
-  %76 = load ptr, ptr %75, align 8
-  %77 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %76, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
-  store ptr %77, ptr %75, align 8
-  %78 = getelementptr inbounds i8, ptr %14, i64 40
-  %79 = load ptr, ptr %78, align 8
-  %80 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %79, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
-  store ptr %80, ptr %78, align 8
+72:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit
+  %73 = getelementptr inbounds i8, ptr %14, i64 32
+  %74 = load ptr, ptr %73, align 8
+  %75 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %74, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
+  store ptr %75, ptr %73, align 8
+  %76 = getelementptr inbounds i8, ptr %14, i64 40
+  %77 = load ptr, ptr %76, align 8
+  %78 = tail call fastcc ptr @cond0(ptr noundef %0, ptr noundef %77, i32 noundef 1, ptr noundef %3, i1 noundef zeroext true)
+  store ptr %78, ptr %76, align 8
   br label %common.ret128
 
-81:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit
-  br i1 %4, label %82, label %common.ret128
+79:                                               ; preds = %assign_in_cond.exit, %assign_in_cond.exit
+  br i1 %4, label %80, label %common.ret128
 
-82:                                               ; preds = %81
-  %83 = getelementptr inbounds i8, ptr %14, i64 32
-  %84 = load ptr, ptr %83, align 8
-  %85 = tail call fastcc ptr @range_op(ptr noundef %0, ptr noundef %84, ptr noundef %3)
-  store ptr %85, ptr %83, align 8
-  %86 = getelementptr inbounds i8, ptr %14, i64 40
-  %87 = load ptr, ptr %86, align 8
-  %88 = tail call fastcc ptr @range_op(ptr noundef %0, ptr noundef %87, ptr noundef %3)
-  store ptr %88, ptr %86, align 8
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds i8, ptr %14, i64 32
+  %82 = load ptr, ptr %81, align 8
+  %83 = tail call fastcc ptr @range_op(ptr noundef %0, ptr noundef %82, ptr noundef %3)
+  store ptr %83, ptr %81, align 8
+  %84 = getelementptr inbounds i8, ptr %14, i64 40
+  %85 = load ptr, ptr %84, align 8
+  %86 = tail call fastcc ptr @range_op(ptr noundef %0, ptr noundef %85, ptr noundef %3)
+  store ptr %86, ptr %84, align 8
   %.val105 = load i64, ptr %14, align 8
-  %89 = trunc i64 %.val105 to i32
-  %90 = lshr i32 %89, 8
-  %91 = and i32 %90, 127
-  switch i32 %91, label %common.ret128 [
-    i32 91, label %92
-    i32 92, label %94
+  %87 = trunc i64 %.val105 to i32
+  %88 = lshr i32 %87, 8
+  %89 = and i32 %88, 127
+  switch i32 %89, label %common.ret128 [
+    i32 91, label %90
+    i32 92, label %92
   ]
 
-92:                                               ; preds = %82
-  %93 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 93) #32
+90:                                               ; preds = %80
+  %91 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 93) #32
   br label %common.ret128
 
-94:                                               ; preds = %82
-  %95 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 94) #32
+92:                                               ; preds = %80
+  %93 = tail call i64 @rb_node_set_type(ptr noundef nonnull %14, i32 noundef 94) #32
   br label %common.ret128
 
-RB_SYMBOL_P.exit.thread:                          ; preds = %109, %RB_SYMBOL_P.exit, %assign_in_cond.exit, %assign_in_cond.exit
+RB_SYMBOL_P.exit.thread:                          ; preds = %107, %RB_SYMBOL_P.exit, %assign_in_cond.exit, %assign_in_cond.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %101
-    i32 1, label %96
+    i32 2, label %99
+    i32 1, label %94
   ]
 
-96:                                               ; preds = %RB_SYMBOL_P.exit.thread
-  %97 = getelementptr inbounds i8, ptr %0, i64 216
-  %98 = load ptr, ptr %97, align 8
-  %99 = getelementptr inbounds i8, ptr %0, i64 212
-  %100 = load i32, ptr %99, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %98, i32 noundef %100, ptr noundef nonnull @.str.1033) #32
+94:                                               ; preds = %RB_SYMBOL_P.exit.thread
+  %95 = getelementptr inbounds i8, ptr %0, i64 216
+  %96 = load ptr, ptr %95, align 8
+  %97 = getelementptr inbounds i8, ptr %0, i64 212
+  %98 = load i32, ptr %97, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %96, i32 noundef %98, ptr noundef nonnull @.str.1033) #32
   br label %common.ret128
 
-101:                                              ; preds = %RB_SYMBOL_P.exit.thread
-  %102 = getelementptr inbounds i8, ptr %0, i64 216
-  %103 = load ptr, ptr %102, align 8
-  %104 = getelementptr inbounds i8, ptr %0, i64 212
-  %105 = load i32, ptr %104, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %103, i32 noundef %105, ptr noundef nonnull @.str.1034) #32
+99:                                               ; preds = %RB_SYMBOL_P.exit.thread
+  %100 = getelementptr inbounds i8, ptr %0, i64 216
+  %101 = load ptr, ptr %100, align 8
+  %102 = getelementptr inbounds i8, ptr %0, i64 212
+  %103 = load i32, ptr %102, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %101, i32 noundef %103, ptr noundef nonnull @.str.1034) #32
   br label %common.ret128
 
-106:                                              ; preds = %assign_in_cond.exit
-  %107 = getelementptr inbounds i8, ptr %14, i64 32
-  %108 = load i64, ptr %107, align 8
-  switch i64 %108, label %109 [
+104:                                              ; preds = %assign_in_cond.exit
+  %105 = getelementptr inbounds i8, ptr %14, i64 32
+  %106 = load i64, ptr %105, align 8
+  switch i64 %106, label %107 [
     i64 20, label %common.ret128
     i64 0, label %common.ret128
   ]
 
-109:                                              ; preds = %106
-  %110 = and i64 %108, 255
-  %111 = icmp eq i64 %110, 12
-  br i1 %111, label %RB_SYMBOL_P.exit.thread, label %112
+107:                                              ; preds = %104
+  %108 = and i64 %106, 255
+  %109 = icmp eq i64 %108, 12
+  br i1 %109, label %RB_SYMBOL_P.exit.thread, label %110
 
-112:                                              ; preds = %109
-  %113 = and i64 %108, 7
-  %.not117 = icmp eq i64 %113, 0
+110:                                              ; preds = %107
+  %111 = and i64 %106, 7
+  %.not117 = icmp eq i64 %111, 0
   br i1 %.not117, label %RB_SYMBOL_P.exit, label %RB_SYMBOL_P.exit.thread116
 
-RB_SYMBOL_P.exit:                                 ; preds = %112
-  %114 = inttoptr i64 %108 to ptr
-  %115 = load i64, ptr %114, align 8
-  %116 = and i64 %115, 31
-  %117 = icmp eq i64 %116, 20
-  br i1 %117, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread116
+RB_SYMBOL_P.exit:                                 ; preds = %110
+  %112 = inttoptr i64 %106 to ptr
+  %113 = load i64, ptr %112, align 8
+  %114 = and i64 %113, 31
+  %115 = icmp eq i64 %114, 20
+  br i1 %115, label %RB_SYMBOL_P.exit.thread, label %RB_SYMBOL_P.exit.thread116
 
-RB_SYMBOL_P.exit.thread116:                       ; preds = %112, %RB_SYMBOL_P.exit
+RB_SYMBOL_P.exit.thread116:                       ; preds = %110, %RB_SYMBOL_P.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %123
-    i32 1, label %118
+    i32 2, label %121
+    i32 1, label %116
   ]
 
-118:                                              ; preds = %RB_SYMBOL_P.exit.thread116
-  %119 = getelementptr inbounds i8, ptr %0, i64 216
-  %120 = load ptr, ptr %119, align 8
-  %121 = getelementptr inbounds i8, ptr %0, i64 212
-  %122 = load i32, ptr %121, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %120, i32 noundef %122, ptr noundef nonnull @.str.1035) #32
+116:                                              ; preds = %RB_SYMBOL_P.exit.thread116
+  %117 = getelementptr inbounds i8, ptr %0, i64 216
+  %118 = load ptr, ptr %117, align 8
+  %119 = getelementptr inbounds i8, ptr %0, i64 212
+  %120 = load i32, ptr %119, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %118, i32 noundef %120, ptr noundef nonnull @.str.1035) #32
   br label %common.ret128
 
-123:                                              ; preds = %RB_SYMBOL_P.exit.thread116
-  %124 = getelementptr inbounds i8, ptr %0, i64 216
-  %125 = load ptr, ptr %124, align 8
-  %126 = getelementptr inbounds i8, ptr %0, i64 212
-  %127 = load i32, ptr %126, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %125, i32 noundef %127, ptr noundef nonnull @.str.1036) #32
+121:                                              ; preds = %RB_SYMBOL_P.exit.thread116
+  %122 = getelementptr inbounds i8, ptr %0, i64 216
+  %123 = load ptr, ptr %122, align 8
+  %124 = getelementptr inbounds i8, ptr %0, i64 212
+  %125 = load i32, ptr %124, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %123, i32 noundef %125, ptr noundef nonnull @.str.1036) #32
   br label %common.ret128
 
-128:                                              ; preds = %assign_in_cond.exit
+126:                                              ; preds = %assign_in_cond.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %134
-    i32 1, label %129
+    i32 2, label %132
+    i32 1, label %127
   ]
 
-129:                                              ; preds = %128
-  %130 = getelementptr inbounds i8, ptr %0, i64 216
-  %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr inbounds i8, ptr %0, i64 212
-  %133 = load i32, ptr %132, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %131, i32 noundef %133, ptr noundef nonnull @.str.1035) #32
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds i8, ptr %0, i64 216
+  %129 = load ptr, ptr %128, align 8
+  %130 = getelementptr inbounds i8, ptr %0, i64 212
+  %131 = load i32, ptr %130, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %129, i32 noundef %131, ptr noundef nonnull @.str.1035) #32
   br label %common.ret128
 
-134:                                              ; preds = %128
-  %135 = getelementptr inbounds i8, ptr %0, i64 216
-  %136 = load ptr, ptr %135, align 8
-  %137 = getelementptr inbounds i8, ptr %0, i64 212
-  %138 = load i32, ptr %137, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %136, i32 noundef %138, ptr noundef nonnull @.str.1036) #32
+132:                                              ; preds = %126
+  %133 = getelementptr inbounds i8, ptr %0, i64 216
+  %134 = load ptr, ptr %133, align 8
+  %135 = getelementptr inbounds i8, ptr %0, i64 212
+  %136 = load i32, ptr %135, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %134, i32 noundef %136, ptr noundef nonnull @.str.1036) #32
   br label %common.ret128
 
-139:                                              ; preds = %assign_in_cond.exit
+137:                                              ; preds = %assign_in_cond.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %145
-    i32 1, label %140
+    i32 2, label %143
+    i32 1, label %138
   ]
 
-140:                                              ; preds = %139
-  %141 = getelementptr inbounds i8, ptr %0, i64 216
-  %142 = load ptr, ptr %141, align 8
-  %143 = getelementptr inbounds i8, ptr %0, i64 212
-  %144 = load i32, ptr %143, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %142, i32 noundef %144, ptr noundef nonnull @.str.1035) #32
+138:                                              ; preds = %137
+  %139 = getelementptr inbounds i8, ptr %0, i64 216
+  %140 = load ptr, ptr %139, align 8
+  %141 = getelementptr inbounds i8, ptr %0, i64 212
+  %142 = load i32, ptr %141, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %140, i32 noundef %142, ptr noundef nonnull @.str.1035) #32
   br label %common.ret128
 
-145:                                              ; preds = %139
-  %146 = getelementptr inbounds i8, ptr %0, i64 216
-  %147 = load ptr, ptr %146, align 8
-  %148 = getelementptr inbounds i8, ptr %0, i64 212
-  %149 = load i32, ptr %148, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %147, i32 noundef %149, ptr noundef nonnull @.str.1036) #32
+143:                                              ; preds = %137
+  %144 = getelementptr inbounds i8, ptr %0, i64 216
+  %145 = load ptr, ptr %144, align 8
+  %146 = getelementptr inbounds i8, ptr %0, i64 212
+  %147 = load i32, ptr %146, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %145, i32 noundef %147, ptr noundef nonnull @.str.1036) #32
   br label %common.ret128
 
-150:                                              ; preds = %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit
+148:                                              ; preds = %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit, %assign_in_cond.exit
   switch i32 %2, label %common.ret128 [
-    i32 2, label %156
-    i32 1, label %151
+    i32 2, label %154
+    i32 1, label %149
   ]
 
-151:                                              ; preds = %150
-  %152 = getelementptr inbounds i8, ptr %0, i64 216
-  %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds i8, ptr %0, i64 212
-  %155 = load i32, ptr %154, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %153, i32 noundef %155, ptr noundef nonnull @.str.1035) #32
+149:                                              ; preds = %148
+  %150 = getelementptr inbounds i8, ptr %0, i64 216
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds i8, ptr %0, i64 212
+  %153 = load i32, ptr %152, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %151, i32 noundef %153, ptr noundef nonnull @.str.1035) #32
   br label %common.ret128
 
-156:                                              ; preds = %150
-  %157 = getelementptr inbounds i8, ptr %0, i64 216
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds i8, ptr %0, i64 212
-  %160 = load i32, ptr %159, align 4
-  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %158, i32 noundef %160, ptr noundef nonnull @.str.1036) #32
+154:                                              ; preds = %148
+  %155 = getelementptr inbounds i8, ptr %0, i64 216
+  %156 = load ptr, ptr %155, align 8
+  %157 = getelementptr inbounds i8, ptr %0, i64 212
+  %158 = load i32, ptr %157, align 4
+  tail call void (ptr, i32, ptr, ...) @rb_compile_warning(ptr noundef %156, i32 noundef %158, ptr noundef nonnull @.str.1036) #32
   br label %common.ret128
 }
 

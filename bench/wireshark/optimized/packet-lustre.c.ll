@@ -2624,7 +2624,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1768 = private unnamed_addr constant [5 x i8] c": %s\00", align 1
 @.str.1769 = private unnamed_addr constant [39 x i8] c"Buffer Length expected >= 32 length:%u\00", align 1
 @.str.1770 = private unnamed_addr constant [39 x i8] c"Buffer Length expected >= 24 length:%u\00", align 1
-@.str.1771 = private unnamed_addr constant [35 x i8] c"UNKNOWN LDLM OPCODE: %d (type: %d)\00", align 1
 @dissect_struct_ldlm_intent.flags = internal constant [15 x ptr] [ptr @hf_lustre_ldlm_intent_opc_open, ptr @hf_lustre_ldlm_intent_opc_creat, ptr @hf_lustre_ldlm_intent_opc_readdir, ptr @hf_lustre_ldlm_intent_opc_getattr, ptr @hf_lustre_ldlm_intent_opc_lookup, ptr @hf_lustre_ldlm_intent_opc_unlink, ptr @hf_lustre_ldlm_intent_opc_trunc, ptr @hf_lustre_ldlm_intent_opc_getxattr, ptr @hf_lustre_ldlm_intent_opc_exec, ptr @hf_lustre_ldlm_intent_opc_pin, ptr @hf_lustre_ldlm_intent_opc_layout, ptr @hf_lustre_ldlm_intent_opc_q_dqacq, ptr @hf_lustre_ldlm_intent_opc_q_conn, ptr @hf_lustre_ldlm_intent_opc_setxattr, ptr null], align 16
 @.str.1772 = private unnamed_addr constant [10 x i8] c"[ intent:\00", align 1
 @.str.1773 = private unnamed_addr constant [6 x i8] c" open\00", align 1
@@ -2648,7 +2647,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1791 = private unnamed_addr constant [6 x i8] c"NAMES\00", align 1
 @.str.1792 = private unnamed_addr constant [5 x i8] c"DATA\00", align 1
 @.str.1793 = private unnamed_addr constant [5 x i8] c"LENS\00", align 1
-@.str.1794 = private unnamed_addr constant [34 x i8] c"UNKNOWN MGS OPCODE: %d (type: %d)\00", align 1
 @.str.1795 = private unnamed_addr constant [34 x i8] c"UNKNOWN OBD OPCODE: %d (type: %d)\00", align 1
 @.str.1796 = private unnamed_addr constant [35 x i8] c"UNKNOWN LLOG OPCODE: %d (type: %d)\00", align 1
 @dissect_struct_llogd_body.flags = internal constant [6 x ptr] [ptr @hf_lustre_llog_hdr_flag_zap_when_empty, ptr @hf_lustre_llog_hdr_flag_is_cat, ptr @hf_lustre_llog_hdr_flag_is_plain, ptr @hf_lustre_llog_hdr_flag_ext_jobid, ptr @hf_lustre_llog_hdr_flag_is_fixsize, ptr null], align 16
@@ -3809,16 +3807,16 @@ dissect_struct_fid_array.exit.i:                  ; preds = %329, %._crit_edge.i
 340:                                              ; preds = %166
   %341 = add i32 %18, -101
   %or.cond112 = icmp ult i32 %341, 7
-  br i1 %or.cond112, label %342, label %895
+  br i1 %or.cond112, label %342, label %891
 
 342:                                              ; preds = %340
   switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %343
-    i32 4713, label %672
+    i32 4713, label %670
   ]
 
 343:                                              ; preds = %342
-  switch i32 %18, label %670 [
+  switch i32 %18, label %default.unreachable [
     i32 101, label %344
     i32 106, label %520
     i32 102, label %617
@@ -4348,597 +4346,594 @@ dissect_struct_ldlm_gl_barrier_desc.exit.i.i:     ; preds = %550, %544, %537
   %669 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %667, i32 noundef %668, i32 noundef 2)
   br label %process_opcode_ost.exit
 
-670:                                              ; preds = %343
-  %671 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1771, i32 noundef %18, i32 noundef 4711) #8
-  br label %process_opcode_ost.exit
+default.unreachable:                              ; preds = %343
+  unreachable
 
-672:                                              ; preds = %342
-  switch i32 %18, label %893 [
-    i32 101, label %673
-    i32 102, label %864
+670:                                              ; preds = %342
+  switch i32 %18, label %default.unreachable135 [
+    i32 101, label %671
+    i32 102, label %862
     i32 103, label %process_opcode_ost.exit
     i32 104, label %process_opcode_ost.exit
     i32 105, label %process_opcode_ost.exit
-    i32 106, label %866
+    i32 106, label %864
     i32 107, label %process_opcode_ost.exit
   ]
 
-673:                                              ; preds = %672
-  %674 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  %675 = getelementptr inbounds i8, ptr %4, i64 8
-  %676 = load i64, ptr %675, align 8
-  switch i64 %676, label %860 [
-    i64 0, label %677
-    i64 1024, label %677
-    i64 8, label %679
-    i64 2, label %679
-    i64 3, label %766
-    i64 1, label %766
-    i64 2048, label %774
-    i64 4096, label %774
-    i64 128, label %777
+671:                                              ; preds = %670
+  %672 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+  %673 = getelementptr inbounds i8, ptr %4, i64 8
+  %674 = load i64, ptr %673, align 8
+  switch i64 %674, label %858 [
+    i64 0, label %675
+    i64 1024, label %675
+    i64 8, label %677
+    i64 2, label %677
+    i64 3, label %764
+    i64 1, label %764
+    i64 2048, label %772
+    i64 4096, label %772
+    i64 128, label %775
   ]
 
-677:                                              ; preds = %673, %673
-  %678 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %674, ptr noundef %2, ptr noundef %3, i32 noundef 2)
+675:                                              ; preds = %671, %671
+  %676 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %672, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   br label %process_opcode_ost.exit
 
-679:                                              ; preds = %673, %673
-  %680 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %674, ptr noundef %3, i32 noundef 2)
-  %681 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %680, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %682 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %681, ptr noundef %3, i32 noundef 4)
-  %683 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %682, ptr noundef %3, i32 noundef 5)
-  %684 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %683, ptr noundef %3, i32 noundef 6, ptr noundef nonnull @.str.1767)
+677:                                              ; preds = %671, %671
+  %678 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
+  %679 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %678, ptr noundef %2, ptr noundef %3, i32 noundef 3)
+  %680 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %679, ptr noundef %3, i32 noundef 4)
+  %681 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %680, ptr noundef %3, i32 noundef 5)
+  %682 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %681, ptr noundef %3, i32 noundef 6, ptr noundef nonnull @.str.1767)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
-  %685 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %686 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %687 = icmp eq i32 %686, 198183891
-  %688 = select i1 %687, i32 0, i32 60
-  %689 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %688) #8
-  %690 = icmp ult i32 %689, 8
-  br i1 %690, label %dissect_struct_lmv_user_md.exit.i.i, label %691
+  %683 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %684 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %685 = icmp eq i32 %684, 198183891
+  %686 = select i1 %685, i32 0, i32 60
+  %687 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %686) #8
+  %688 = icmp ult i32 %687, 8
+  br i1 %688, label %dissect_struct_lmv_user_md.exit.i.i, label %689
 
-691:                                              ; preds = %679
-  %692 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %693 = icmp eq i32 %692, 198183891
-  %694 = select i1 %693, i32 60, i32 88
-  %695 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %694) #8
-  %696 = icmp eq i32 %695, 0
-  br i1 %696, label %dissect_struct_lmv_user_md.exit.i.i, label %697
+689:                                              ; preds = %677
+  %690 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %691 = icmp eq i32 %690, 198183891
+  %692 = select i1 %691, i32 60, i32 88
+  %693 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %692) #8
+  %694 = icmp eq i32 %693, 0
+  br i1 %694, label %dissect_struct_lmv_user_md.exit.i.i, label %695
 
-697:                                              ; preds = %691
-  %698 = load i32, ptr @hf_lustre_lmv_user_md_v1, align 4
-  %699 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %698, ptr noundef %0, i32 noundef %684, i32 noundef -1, i32 noundef 0) #8
-  %700 = load i32, ptr @ett_lustre_lmv_user_md_v1, align 4
-  %701 = tail call ptr @proto_item_add_subtree(ptr noundef %699, i32 noundef %700) #8
-  %702 = load i32, ptr @hf_lustre_lmv_user_md_v1_magic, align 4
-  %703 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %701, i32 noundef %702, ptr noundef %0, i32 noundef %684, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #8
-  %704 = add i32 %684, 4
-  %705 = load i32, ptr @hf_lustre_lmv_user_md_v1_stripe_count, align 4
-  %706 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %701, i32 noundef %705, ptr noundef %0, i32 noundef %704, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #8
-  %707 = add i32 %684, 8
-  %708 = load i32, ptr @hf_lustre_lmv_user_md_v1_stripe_offset, align 4
-  %709 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %708, ptr noundef %0, i32 noundef %707, i32 noundef 4, i32 noundef -2147483648) #8
-  %710 = add i32 %684, 12
-  %711 = load i32, ptr @hf_lustre_lmv_user_md_v1_hash_type, align 4
-  %712 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %711, ptr noundef %0, i32 noundef %710, i32 noundef 4, i32 noundef -2147483648) #8
-  %713 = add i32 %684, 16
-  %714 = load i32, ptr @hf_lustre_lmv_user_md_v1_type, align 4
-  %715 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %714, ptr noundef %0, i32 noundef %713, i32 noundef 4, i32 noundef -2147483648) #8
-  %716 = add i32 %684, 20
-  %717 = load i32, ptr @hf_lustre_lmv_user_md_v1_max_inherit, align 4
-  %718 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %717, ptr noundef %0, i32 noundef %716, i32 noundef 1, i32 noundef -2147483648) #8
-  %719 = add i32 %684, 21
-  %720 = load i32, ptr @hf_lustre_lmv_user_md_v1_max_inherit_rr, align 4
-  %721 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %720, ptr noundef %0, i32 noundef %719, i32 noundef 1, i32 noundef -2147483648) #8
-  %722 = add i32 %684, 22
-  %723 = load i32, ptr @hf_lustre_lmv_user_md_v1_padding, align 4
-  %724 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %723, ptr noundef %0, i32 noundef %722, i32 noundef 10, i32 noundef 0) #8
-  %725 = add i32 %684, 32
-  %726 = load i32, ptr @hf_lustre_lmv_user_md_v1_pool_name, align 4
-  %727 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %726, ptr noundef %0, i32 noundef %725, i32 noundef 16, i32 noundef 0) #8
-  %728 = add i32 %684, 48
-  %729 = add i32 %695, %684
-  %730 = add i32 %684, 72
-  %.not.i.i68.i = icmp ult i32 %729, %730
-  br i1 %.not.i.i68.i, label %754, label %.preheader.i.i.i
+695:                                              ; preds = %689
+  %696 = load i32, ptr @hf_lustre_lmv_user_md_v1, align 4
+  %697 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %696, ptr noundef %0, i32 noundef %682, i32 noundef -1, i32 noundef 0) #8
+  %698 = load i32, ptr @ett_lustre_lmv_user_md_v1, align 4
+  %699 = tail call ptr @proto_item_add_subtree(ptr noundef %697, i32 noundef %698) #8
+  %700 = load i32, ptr @hf_lustre_lmv_user_md_v1_magic, align 4
+  %701 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %699, i32 noundef %700, ptr noundef %0, i32 noundef %682, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8) #8
+  %702 = add i32 %682, 4
+  %703 = load i32, ptr @hf_lustre_lmv_user_md_v1_stripe_count, align 4
+  %704 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %699, i32 noundef %703, ptr noundef %0, i32 noundef %702, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %9) #8
+  %705 = add i32 %682, 8
+  %706 = load i32, ptr @hf_lustre_lmv_user_md_v1_stripe_offset, align 4
+  %707 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %706, ptr noundef %0, i32 noundef %705, i32 noundef 4, i32 noundef -2147483648) #8
+  %708 = add i32 %682, 12
+  %709 = load i32, ptr @hf_lustre_lmv_user_md_v1_hash_type, align 4
+  %710 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %709, ptr noundef %0, i32 noundef %708, i32 noundef 4, i32 noundef -2147483648) #8
+  %711 = add i32 %682, 16
+  %712 = load i32, ptr @hf_lustre_lmv_user_md_v1_type, align 4
+  %713 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %712, ptr noundef %0, i32 noundef %711, i32 noundef 4, i32 noundef -2147483648) #8
+  %714 = add i32 %682, 20
+  %715 = load i32, ptr @hf_lustre_lmv_user_md_v1_max_inherit, align 4
+  %716 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %715, ptr noundef %0, i32 noundef %714, i32 noundef 1, i32 noundef -2147483648) #8
+  %717 = add i32 %682, 21
+  %718 = load i32, ptr @hf_lustre_lmv_user_md_v1_max_inherit_rr, align 4
+  %719 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %718, ptr noundef %0, i32 noundef %717, i32 noundef 1, i32 noundef -2147483648) #8
+  %720 = add i32 %682, 22
+  %721 = load i32, ptr @hf_lustre_lmv_user_md_v1_padding, align 4
+  %722 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %721, ptr noundef %0, i32 noundef %720, i32 noundef 10, i32 noundef 0) #8
+  %723 = add i32 %682, 32
+  %724 = load i32, ptr @hf_lustre_lmv_user_md_v1_pool_name, align 4
+  %725 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %724, ptr noundef %0, i32 noundef %723, i32 noundef 16, i32 noundef 0) #8
+  %726 = add i32 %682, 48
+  %727 = add i32 %693, %682
+  %728 = add i32 %682, 72
+  %.not.i.i68.i = icmp ult i32 %727, %728
+  br i1 %.not.i.i68.i, label %752, label %.preheader.i.i.i
 
-.preheader.i.i.i:                                 ; preds = %697
-  %731 = load i32, ptr %9, align 4
-  %732 = icmp ne i32 %731, 0
-  %733 = load i32, ptr %8, align 4
-  %734 = icmp eq i32 %733, 215157968
-  %735 = select i1 %732, i1 %734, i1 false
-  br i1 %735, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i
+.preheader.i.i.i:                                 ; preds = %695
+  %729 = load i32, ptr %9, align 4
+  %730 = icmp ne i32 %729, 0
+  %731 = load i32, ptr %8, align 4
+  %732 = icmp eq i32 %731, 215157968
+  %733 = select i1 %730, i1 %732, i1 false
+  br i1 %733, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.079.i.i.i = phi i32 [ %748, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
-  %.07478.i.i.i = phi i32 [ %747, %.lr.ph.i.i.i ], [ %728, %.preheader.i.i.i ]
-  %736 = load i32, ptr @hf_lustre_lmv_user_md_v1_objects, align 4
-  %737 = call ptr @proto_tree_add_item(ptr noundef %701, i32 noundef %736, ptr noundef %0, i32 noundef %.07478.i.i.i, i32 noundef 24, i32 noundef 0) #8
-  %738 = load i32, ptr @ett_lustre_lmv_user_mds_data, align 4
-  %739 = call ptr @proto_item_add_subtree(ptr noundef %737, i32 noundef %738) #8
-  %740 = load i32, ptr @hf_lustre_lmv_user_mds_data_fid, align 4
-  %741 = call fastcc i32 @dissect_struct_lu_fid(ptr noundef %0, i32 noundef %.07478.i.i.i, ptr noundef %739, i32 noundef %740)
-  %742 = load i32, ptr @hf_lustre_lmv_user_mds_data_padding, align 4
-  %743 = call ptr @proto_tree_add_item(ptr noundef %739, i32 noundef %742, ptr noundef %0, i32 noundef %741, i32 noundef 4, i32 noundef 0) #8
-  %744 = add i32 %741, 4
-  %745 = load i32, ptr @hf_lustre_lmv_user_mds_data_mds, align 4
-  %746 = call ptr @proto_tree_add_item(ptr noundef %739, i32 noundef %745, ptr noundef %0, i32 noundef %744, i32 noundef 4, i32 noundef -2147483648) #8
-  %747 = add i32 %741, 8
-  %748 = add nuw i32 %.079.i.i.i, 1
-  %749 = load i32, ptr %9, align 4
-  %750 = icmp ult i32 %748, %749
-  %751 = load i32, ptr %8, align 4
-  %752 = icmp eq i32 %751, 215157968
-  %753 = select i1 %750, i1 %752, i1 false
-  br i1 %753, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i, !llvm.loop !9
+  %.079.i.i.i = phi i32 [ %746, %.lr.ph.i.i.i ], [ 0, %.preheader.i.i.i ]
+  %.07478.i.i.i = phi i32 [ %745, %.lr.ph.i.i.i ], [ %726, %.preheader.i.i.i ]
+  %734 = load i32, ptr @hf_lustre_lmv_user_md_v1_objects, align 4
+  %735 = call ptr @proto_tree_add_item(ptr noundef %699, i32 noundef %734, ptr noundef %0, i32 noundef %.07478.i.i.i, i32 noundef 24, i32 noundef 0) #8
+  %736 = load i32, ptr @ett_lustre_lmv_user_mds_data, align 4
+  %737 = call ptr @proto_item_add_subtree(ptr noundef %735, i32 noundef %736) #8
+  %738 = load i32, ptr @hf_lustre_lmv_user_mds_data_fid, align 4
+  %739 = call fastcc i32 @dissect_struct_lu_fid(ptr noundef %0, i32 noundef %.07478.i.i.i, ptr noundef %737, i32 noundef %738)
+  %740 = load i32, ptr @hf_lustre_lmv_user_mds_data_padding, align 4
+  %741 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %740, ptr noundef %0, i32 noundef %739, i32 noundef 4, i32 noundef 0) #8
+  %742 = add i32 %739, 4
+  %743 = load i32, ptr @hf_lustre_lmv_user_mds_data_mds, align 4
+  %744 = call ptr @proto_tree_add_item(ptr noundef %737, i32 noundef %743, ptr noundef %0, i32 noundef %742, i32 noundef 4, i32 noundef -2147483648) #8
+  %745 = add i32 %739, 8
+  %746 = add nuw i32 %.079.i.i.i, 1
+  %747 = load i32, ptr %9, align 4
+  %748 = icmp ult i32 %746, %747
+  %749 = load i32, ptr %8, align 4
+  %750 = icmp eq i32 %749, 215157968
+  %751 = select i1 %748, i1 %750, i1 false
+  br i1 %751, label %.lr.ph.i.i.i, label %add_extra_padding.exit.i.i.i, !llvm.loop !9
 
-754:                                              ; preds = %697
-  %755 = sub i32 0, %684
-  %756 = and i32 %755, 7
-  %.not.i.i.i.i = icmp eq i32 %756, 0
-  br i1 %.not.i.i.i.i, label %add_extra_padding.exit.i.i.i, label %757
+752:                                              ; preds = %695
+  %753 = sub i32 0, %682
+  %754 = and i32 %753, 7
+  %.not.i.i.i.i = icmp eq i32 %754, 0
+  br i1 %.not.i.i.i.i, label %add_extra_padding.exit.i.i.i, label %755
 
-757:                                              ; preds = %754
-  %758 = load i32, ptr @hf_lustre_extra_padding, align 4
-  %759 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %758, ptr noundef %0, i32 noundef %728, i32 noundef %756, i32 noundef 0) #8
-  %760 = add i32 %756, %728
+755:                                              ; preds = %752
+  %756 = load i32, ptr @hf_lustre_extra_padding, align 4
+  %757 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %756, ptr noundef %0, i32 noundef %726, i32 noundef %754, i32 noundef 0) #8
+  %758 = add i32 %754, %726
   br label %add_extra_padding.exit.i.i.i
 
-add_extra_padding.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i, %757, %754, %.preheader.i.i.i
-  %.1.i.i.i = phi i32 [ %760, %757 ], [ %728, %754 ], [ %728, %.preheader.i.i.i ], [ %747, %.lr.ph.i.i.i ]
-  %761 = sub i32 %.1.i.i.i, %684
-  %.not77.i.i.i = icmp eq i32 %761, %695
-  br i1 %.not77.i.i.i, label %764, label %762
+add_extra_padding.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i, %755, %752, %.preheader.i.i.i
+  %.1.i.i.i = phi i32 [ %758, %755 ], [ %726, %752 ], [ %726, %.preheader.i.i.i ], [ %745, %.lr.ph.i.i.i ]
+  %759 = sub i32 %.1.i.i.i, %682
+  %.not77.i.i.i = icmp eq i32 %759, %693
+  br i1 %.not77.i.i.i, label %762, label %760
 
-762:                                              ; preds = %add_extra_padding.exit.i.i.i
-  %763 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %701, ptr noundef nonnull @ei_lustre_buflen) #8
-  br label %764
+760:                                              ; preds = %add_extra_padding.exit.i.i.i
+  %761 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %699, ptr noundef nonnull @ei_lustre_buflen) #8
+  br label %762
 
-764:                                              ; preds = %762, %add_extra_padding.exit.i.i.i
-  call void @proto_item_set_len(ptr noundef %699, i32 noundef %761) #8
+762:                                              ; preds = %760, %add_extra_padding.exit.i.i.i
+  call void @proto_item_set_len(ptr noundef %697, i32 noundef %759) #8
   br label %dissect_struct_lmv_user_md.exit.i.i
 
-dissect_struct_lmv_user_md.exit.i.i:              ; preds = %764, %691, %679
-  %.073.i.i.i = phi i32 [ %.1.i.i.i, %764 ], [ %684, %691 ], [ %684, %679 ]
+dissect_struct_lmv_user_md.exit.i.i:              ; preds = %762, %689, %677
+  %.073.i.i.i = phi i32 [ %.1.i.i.i, %762 ], [ %682, %689 ], [ %682, %677 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9)
-  %765 = call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %.073.i.i.i, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1790)
+  %763 = call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %.073.i.i.i, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1790)
   br label %process_opcode_ost.exit
 
-766:                                              ; preds = %673, %673
-  %767 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %674, ptr noundef %3, i32 noundef 2)
-  %768 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %767, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %769 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %768, ptr noundef %3, i32 noundef 4)
-  %770 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %769, ptr noundef %3, i32 noundef 5)
-  %771 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %770, ptr noundef %3, i32 noundef 6)
-  %772 = tail call fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %771, ptr noundef %3, i32 noundef 7)
-  %773 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %772, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
+764:                                              ; preds = %671, %671
+  %765 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
+  %766 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %765, ptr noundef %2, ptr noundef %3, i32 noundef 3)
+  %767 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %766, ptr noundef %3, i32 noundef 4)
+  %768 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %767, ptr noundef %3, i32 noundef 5)
+  %769 = tail call fastcc i32 @dissect_struct_capa(ptr noundef %0, i32 noundef %768, ptr noundef %3, i32 noundef 6)
+  %770 = tail call fastcc i32 @dissect_struct_niobuf_remote(ptr noundef %0, i32 noundef %769, ptr noundef %3, i32 noundef 7)
+  %771 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %770, ptr noundef %3, i32 noundef 8, ptr noundef nonnull @.str.1767)
   br label %process_opcode_ost.exit
 
-774:                                              ; preds = %673, %673
-  %775 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %674, ptr noundef %2, ptr noundef %3, i32 noundef 2)
-  %776 = tail call fastcc i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %775, ptr noundef %3, i32 noundef 3)
+772:                                              ; preds = %671, %671
+  %773 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %672, ptr noundef %2, ptr noundef %3, i32 noundef 2)
+  %774 = tail call fastcc i32 @dissect_struct_quota_body(ptr noundef %0, i32 noundef %773, ptr noundef %3, i32 noundef 3)
   br label %process_opcode_ost.exit
 
-777:                                              ; preds = %673
-  %778 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %674, ptr noundef %3, i32 noundef 2)
-  %779 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %778, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %780 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %779, ptr noundef %3, i32 noundef 4)
-  %781 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %782 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %783 = icmp eq i32 %782, 198183891
-  %784 = select i1 %783, i32 0, i32 60
-  %785 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %784) #8
-  %786 = icmp ult i32 %785, 6
-  br i1 %786, label %792, label %787
+775:                                              ; preds = %671
+  %776 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
+  %777 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %776, ptr noundef %2, ptr noundef %3, i32 noundef 3)
+  %778 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %777, ptr noundef %3, i32 noundef 4)
+  %779 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %780 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %781 = icmp eq i32 %780, 198183891
+  %782 = select i1 %781, i32 0, i32 60
+  %783 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %782) #8
+  %784 = icmp ult i32 %783, 6
+  br i1 %784, label %790, label %785
 
-787:                                              ; preds = %777
-  %788 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %789 = icmp eq i32 %788, 198183891
-  %790 = select i1 %789, i32 52, i32 80
-  %791 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %790) #8
-  br label %792
+785:                                              ; preds = %775
+  %786 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %787 = icmp eq i32 %786, 198183891
+  %788 = select i1 %787, i32 52, i32 80
+  %789 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %788) #8
+  br label %790
 
-792:                                              ; preds = %787, %777
-  %793 = phi i32 [ %791, %787 ], [ 0, %777 ]
-  %794 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %795 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %796 = icmp eq i32 %795, 198183891
-  %797 = select i1 %796, i32 0, i32 60
-  %798 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %797) #8
-  %799 = icmp ult i32 %798, 7
-  br i1 %799, label %805, label %800
+790:                                              ; preds = %785, %775
+  %791 = phi i32 [ %789, %785 ], [ 0, %775 ]
+  %792 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %793 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %794 = icmp eq i32 %793, 198183891
+  %795 = select i1 %794, i32 0, i32 60
+  %796 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %795) #8
+  %797 = icmp ult i32 %796, 7
+  br i1 %797, label %803, label %798
 
-800:                                              ; preds = %792
-  %801 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %802 = icmp eq i32 %801, 198183891
-  %803 = select i1 %802, i32 56, i32 84
-  %804 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %803) #8
-  br label %805
+798:                                              ; preds = %790
+  %799 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %800 = icmp eq i32 %799, 198183891
+  %801 = select i1 %800, i32 56, i32 84
+  %802 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %801) #8
+  br label %803
 
-805:                                              ; preds = %800, %792
-  %806 = phi i32 [ %804, %800 ], [ 0, %792 ]
-  %807 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %808 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %809 = icmp eq i32 %808, 198183891
-  %810 = select i1 %809, i32 0, i32 60
-  %811 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %810) #8
-  %812 = icmp ult i32 %811, 8
-  br i1 %812, label %819, label %813
+803:                                              ; preds = %798, %790
+  %804 = phi i32 [ %802, %798 ], [ 0, %790 ]
+  %805 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %806 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %807 = icmp eq i32 %806, 198183891
+  %808 = select i1 %807, i32 0, i32 60
+  %809 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %808) #8
+  %810 = icmp ult i32 %809, 8
+  br i1 %810, label %817, label %811
 
-813:                                              ; preds = %805
-  %814 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %815 = icmp eq i32 %814, 198183891
-  %816 = select i1 %815, i32 60, i32 88
-  %817 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %816) #8
-  %818 = sdiv i32 %817, 4
-  br label %819
+811:                                              ; preds = %803
+  %812 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %813 = icmp eq i32 %812, 198183891
+  %814 = select i1 %813, i32 60, i32 88
+  %815 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %814) #8
+  %816 = sdiv i32 %815, 4
+  br label %817
 
-819:                                              ; preds = %813, %805
-  %820 = phi i32 [ %818, %813 ], [ 0, %805 ]
-  %821 = load i32, ptr @hf_lustre_xattr_list, align 4
-  %822 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %821, ptr noundef %0, i32 noundef %780, i32 noundef -1, i32 noundef 0) #8
-  %823 = load i32, ptr @ett_lustre_xattrs, align 4
-  %824 = tail call ptr @proto_item_add_subtree(ptr noundef %822, i32 noundef %823) #8
-  %825 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %780, ptr noundef %824, i32 noundef 5, ptr noundef nonnull @.str.1791)
-  %826 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %825, ptr noundef %824, i32 noundef 6, ptr noundef nonnull @.str.1792)
-  %827 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %826, ptr noundef %824, i32 noundef 7, ptr noundef nonnull @.str.1793)
-  %828 = icmp sgt i32 %820, 0
-  br i1 %828, label %.lr.ph.i93.i.i, label %dissect_xattr_buffers.exit.i.i
+817:                                              ; preds = %811, %803
+  %818 = phi i32 [ %816, %811 ], [ 0, %803 ]
+  %819 = load i32, ptr @hf_lustre_xattr_list, align 4
+  %820 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %819, ptr noundef %0, i32 noundef %778, i32 noundef -1, i32 noundef 0) #8
+  %821 = load i32, ptr @ett_lustre_xattrs, align 4
+  %822 = tail call ptr @proto_item_add_subtree(ptr noundef %820, i32 noundef %821) #8
+  %823 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %778, ptr noundef %822, i32 noundef 5, ptr noundef nonnull @.str.1791)
+  %824 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %823, ptr noundef %822, i32 noundef 6, ptr noundef nonnull @.str.1792)
+  %825 = tail call fastcc i32 @display_buffer_data(ptr noundef %0, i32 noundef %824, ptr noundef %822, i32 noundef 7, ptr noundef nonnull @.str.1793)
+  %826 = icmp sgt i32 %818, 0
+  br i1 %826, label %.lr.ph.i93.i.i, label %dissect_xattr_buffers.exit.i.i
 
-.lr.ph.i93.i.i:                                   ; preds = %819
-  %829 = add i32 %793, %780
-  %830 = sub i32 0, %829
-  %831 = and i32 %830, 7
-  %832 = add i32 %831, %829
-  %833 = add i32 %806, %832
-  %834 = sub i32 0, %833
-  %835 = and i32 %834, 7
-  %836 = add i32 %835, %833
-  br label %837
+.lr.ph.i93.i.i:                                   ; preds = %817
+  %827 = add i32 %791, %778
+  %828 = sub i32 0, %827
+  %829 = and i32 %828, 7
+  %830 = add i32 %829, %827
+  %831 = add i32 %804, %830
+  %832 = sub i32 0, %831
+  %833 = and i32 %832, 7
+  %834 = add i32 %833, %831
+  br label %835
 
-837:                                              ; preds = %837, %.lr.ph.i93.i.i
-  %.04.i.i.i = phi i32 [ 0, %.lr.ph.i93.i.i ], [ %855, %837 ]
-  %.0963.i.i.i = phi i32 [ %780, %.lr.ph.i93.i.i ], [ %848, %837 ]
-  %.0972.i.i.i = phi i32 [ %832, %.lr.ph.i93.i.i ], [ %851, %837 ]
-  %.0981.i.i.i = phi i32 [ %836, %.lr.ph.i93.i.i ], [ %854, %837 ]
-  %838 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0981.i.i.i) #8
-  %839 = sub i32 %829, %.0963.i.i.i
-  %840 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %839) #8
-  %841 = add i32 %840, 1
-  %842 = load i32, ptr @hf_lustre_xattr, align 4
-  %843 = tail call ptr @proto_tree_add_item(ptr noundef %824, i32 noundef %842, ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %841, i32 noundef 0) #8
-  %844 = load i32, ptr @ett_lustre_xattr_item, align 4
-  %845 = tail call ptr @proto_item_add_subtree(ptr noundef %843, i32 noundef %844) #8
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %843, ptr noundef nonnull @.str.1756, i32 noundef %.04.i.i.i) #8
-  %846 = load i32, ptr @hf_lustre_xattr_name, align 4
-  %847 = tail call ptr @proto_tree_add_item(ptr noundef %845, i32 noundef %846, ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %841, i32 noundef 0) #8
-  %848 = add i32 %841, %.0963.i.i.i
-  %849 = load i32, ptr @hf_lustre_xattr_data, align 4
-  %850 = tail call ptr @proto_tree_add_item(ptr noundef %845, i32 noundef %849, ptr noundef %0, i32 noundef %.0972.i.i.i, i32 noundef %838, i32 noundef 0) #8
-  %851 = add i32 %838, %.0972.i.i.i
-  %852 = load i32, ptr @hf_lustre_xattr_size, align 4
-  %853 = tail call ptr @proto_tree_add_item(ptr noundef %845, i32 noundef %852, ptr noundef %0, i32 noundef %.0981.i.i.i, i32 noundef 4, i32 noundef -2147483648) #8
-  %854 = add i32 %.0981.i.i.i, 4
-  %855 = add nuw nsw i32 %.04.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %855, %820
-  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.exit.i.i, label %837, !llvm.loop !10
+835:                                              ; preds = %835, %.lr.ph.i93.i.i
+  %.04.i.i.i = phi i32 [ 0, %.lr.ph.i93.i.i ], [ %853, %835 ]
+  %.0963.i.i.i = phi i32 [ %778, %.lr.ph.i93.i.i ], [ %846, %835 ]
+  %.0972.i.i.i = phi i32 [ %830, %.lr.ph.i93.i.i ], [ %849, %835 ]
+  %.0981.i.i.i = phi i32 [ %834, %.lr.ph.i93.i.i ], [ %852, %835 ]
+  %836 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %.0981.i.i.i) #8
+  %837 = sub i32 %827, %.0963.i.i.i
+  %838 = tail call i32 @tvb_strnlen(ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %837) #8
+  %839 = add i32 %838, 1
+  %840 = load i32, ptr @hf_lustre_xattr, align 4
+  %841 = tail call ptr @proto_tree_add_item(ptr noundef %822, i32 noundef %840, ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %839, i32 noundef 0) #8
+  %842 = load i32, ptr @ett_lustre_xattr_item, align 4
+  %843 = tail call ptr @proto_item_add_subtree(ptr noundef %841, i32 noundef %842) #8
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %841, ptr noundef nonnull @.str.1756, i32 noundef %.04.i.i.i) #8
+  %844 = load i32, ptr @hf_lustre_xattr_name, align 4
+  %845 = tail call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %844, ptr noundef %0, i32 noundef %.0963.i.i.i, i32 noundef %839, i32 noundef 0) #8
+  %846 = add i32 %839, %.0963.i.i.i
+  %847 = load i32, ptr @hf_lustre_xattr_data, align 4
+  %848 = tail call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %847, ptr noundef %0, i32 noundef %.0972.i.i.i, i32 noundef %836, i32 noundef 0) #8
+  %849 = add i32 %836, %.0972.i.i.i
+  %850 = load i32, ptr @hf_lustre_xattr_size, align 4
+  %851 = tail call ptr @proto_tree_add_item(ptr noundef %843, i32 noundef %850, ptr noundef %0, i32 noundef %.0981.i.i.i, i32 noundef 4, i32 noundef -2147483648) #8
+  %852 = add i32 %.0981.i.i.i, 4
+  %853 = add nuw nsw i32 %.04.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %853, %818
+  br i1 %exitcond.not.i.i.i, label %dissect_xattr_buffers.exit.i.i, label %835, !llvm.loop !10
 
-dissect_xattr_buffers.exit.i.i:                   ; preds = %837, %819
-  %856 = sub i32 0, %827
-  %857 = and i32 %856, 7
-  %858 = add i32 %857, %827
-  %859 = sub i32 %858, %780
-  tail call void @proto_item_set_len(ptr noundef %824, i32 noundef %859) #8
+dissect_xattr_buffers.exit.i.i:                   ; preds = %835, %817
+  %854 = sub i32 0, %825
+  %855 = and i32 %854, 7
+  %856 = add i32 %855, %825
+  %857 = sub i32 %856, %778
+  tail call void @proto_item_set_len(ptr noundef %822, i32 noundef %857) #8
   br label %process_opcode_ost.exit
 
-860:                                              ; preds = %673
-  %861 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %674, ptr noundef %3, i32 noundef 2)
-  %862 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %861, ptr noundef %2, ptr noundef %3, i32 noundef 3)
-  %863 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %862, ptr noundef %3, i32 noundef 4)
+858:                                              ; preds = %671
+  %859 = tail call fastcc i32 @dissect_struct_mdt_body(ptr noundef %0, i32 noundef %672, ptr noundef %3, i32 noundef 2)
+  %860 = tail call fastcc i32 @dissect_struct_lov_mds_md(ptr noundef %0, i32 noundef %859, ptr noundef %2, ptr noundef %3, i32 noundef 3)
+  %861 = tail call fastcc i32 @dissect_struct_acl(ptr noundef %0, i32 noundef %860, ptr noundef %3, i32 noundef 4)
   br label %process_opcode_ost.exit
 
-864:                                              ; preds = %672
-  %865 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
+862:                                              ; preds = %670
+  %863 = tail call fastcc i32 @dissect_struct_ldlm_reply(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
   br label %process_opcode_ost.exit
 
-866:                                              ; preds = %672
-  %867 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %868 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %869 = icmp eq i32 %868, 198183891
-  %870 = select i1 %869, i32 0, i32 60
-  %871 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %870) #8
-  %872 = icmp ult i32 %871, 2
-  br i1 %872, label %process_opcode_ost.exit, label %873
+864:                                              ; preds = %670
+  %865 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %866 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %867 = icmp eq i32 %866, 198183891
+  %868 = select i1 %867, i32 0, i32 60
+  %869 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %868) #8
+  %870 = icmp ult i32 %869, 2
+  br i1 %870, label %process_opcode_ost.exit, label %871
 
-873:                                              ; preds = %866
-  %874 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %875 = icmp eq i32 %874, 198183891
-  %876 = select i1 %875, i32 36, i32 64
-  %877 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %876) #8
-  %878 = icmp eq i32 %877, 0
-  br i1 %878, label %process_opcode_ost.exit, label %879
+871:                                              ; preds = %864
+  %872 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %873 = icmp eq i32 %872, 198183891
+  %874 = select i1 %873, i32 36, i32 64
+  %875 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %874) #8
+  %876 = icmp eq i32 %875, 0
+  br i1 %876, label %process_opcode_ost.exit, label %877
 
-879:                                              ; preds = %873
-  %880 = load i32, ptr @hf_lustre_barrier_lvb, align 4
-  %881 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %880, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef 0) #8
-  %882 = load i32, ptr @ett_lustre_barrier_lvb, align 4
-  %883 = tail call ptr @proto_item_add_subtree(ptr noundef %881, i32 noundef %882) #8
-  %884 = load i32, ptr @hf_lustre_barrier_lvb_status, align 4
-  %885 = tail call ptr @proto_tree_add_item(ptr noundef %883, i32 noundef %884, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
-  %886 = add i32 %1, 4
-  %887 = load i32, ptr @hf_lustre_barrier_lvb_index, align 4
-  %888 = tail call ptr @proto_tree_add_item(ptr noundef %883, i32 noundef %887, ptr noundef %0, i32 noundef %886, i32 noundef 4, i32 noundef -2147483648) #8
-  %889 = add i32 %1, 8
-  %890 = load i32, ptr @hf_lustre_barrier_lvb_padding, align 4
-  %891 = tail call ptr @proto_tree_add_item(ptr noundef %883, i32 noundef %890, ptr noundef %0, i32 noundef %889, i32 noundef 8, i32 noundef 0) #8
-  %892 = add i32 %1, 16
+877:                                              ; preds = %871
+  %878 = load i32, ptr @hf_lustre_barrier_lvb, align 4
+  %879 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %878, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef 0) #8
+  %880 = load i32, ptr @ett_lustre_barrier_lvb, align 4
+  %881 = tail call ptr @proto_item_add_subtree(ptr noundef %879, i32 noundef %880) #8
+  %882 = load i32, ptr @hf_lustre_barrier_lvb_status, align 4
+  %883 = tail call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %882, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
+  %884 = add i32 %1, 4
+  %885 = load i32, ptr @hf_lustre_barrier_lvb_index, align 4
+  %886 = tail call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %885, ptr noundef %0, i32 noundef %884, i32 noundef 4, i32 noundef -2147483648) #8
+  %887 = add i32 %1, 8
+  %888 = load i32, ptr @hf_lustre_barrier_lvb_padding, align 4
+  %889 = tail call ptr @proto_tree_add_item(ptr noundef %881, i32 noundef %888, ptr noundef %0, i32 noundef %887, i32 noundef 8, i32 noundef 0) #8
+  %890 = add i32 %1, 16
   br label %process_opcode_ost.exit
 
-893:                                              ; preds = %672
-  %894 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1771, i32 noundef %18, i32 noundef 4713) #8
-  br label %process_opcode_ost.exit
+default.unreachable135:                           ; preds = %670
+  unreachable
 
-895:                                              ; preds = %340
-  %896 = add i32 %18, -250
-  %or.cond113 = icmp ult i32 %896, 7
-  br i1 %or.cond113, label %897, label %1011
+891:                                              ; preds = %340
+  %892 = add i32 %18, -250
+  %or.cond113 = icmp ult i32 %892, 7
+  br i1 %or.cond113, label %893, label %1005
 
-897:                                              ; preds = %895
-  switch i32 %18, label %1009 [
-    i32 250, label %898
+893:                                              ; preds = %891
+  switch i32 %18, label %default.unreachable136 [
+    i32 250, label %894
     i32 251, label %process_opcode_ost.exit
     i32 252, label %process_opcode_ost.exit
-    i32 253, label %905
+    i32 253, label %901
     i32 254, label %process_opcode_ost.exit
-    i32 255, label %966
-    i32 256, label %969
+    i32 255, label %962
+    i32 256, label %965
   ]
 
-898:                                              ; preds = %897
-  %899 = icmp eq i32 %5, 4711
-  br i1 %899, label %.thread.i134, label %901
+894:                                              ; preds = %893
+  %895 = icmp eq i32 %5, 4711
+  br i1 %895, label %.thread.i134, label %897
 
-.thread.i134:                                     ; preds = %898
-  %900 = tail call fastcc i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+.thread.i134:                                     ; preds = %894
+  %896 = tail call fastcc i32 @dissect_generic_connect(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %process_opcode_ost.exit
 
-901:                                              ; preds = %898
-  %902 = and i32 %5, -2
-  %or.cond.i133 = icmp eq i32 %902, 4712
-  br i1 %or.cond.i133, label %903, label %process_opcode_ost.exit
+897:                                              ; preds = %894
+  %898 = and i32 %5, -2
+  %or.cond.i133 = icmp eq i32 %898, 4712
+  br i1 %or.cond.i133, label %899, label %process_opcode_ost.exit
 
-903:                                              ; preds = %901
-  %904 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
+899:                                              ; preds = %897
+  %900 = tail call fastcc i32 @dissect_struct_obd_connect_data(ptr noundef %0, i32 noundef %1, ptr noundef %3)
   br label %process_opcode_ost.exit
 
-905:                                              ; preds = %897
+901:                                              ; preds = %893
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %906 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %907 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %908 = icmp eq i32 %907, 198183891
-  %909 = select i1 %908, i32 0, i32 60
-  %910 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %909) #8
-  %911 = icmp ult i32 %910, 2
-  br i1 %911, label %dissect_struct_mgs_target_info.exit.i, label %912
+  %902 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %903 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %904 = icmp eq i32 %903, 198183891
+  %905 = select i1 %904, i32 0, i32 60
+  %906 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %905) #8
+  %907 = icmp ult i32 %906, 2
+  br i1 %907, label %dissect_struct_mgs_target_info.exit.i, label %908
 
-912:                                              ; preds = %905
-  %913 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
-  %914 = icmp eq i32 %913, 198183891
-  %915 = select i1 %914, i32 36, i32 64
-  %916 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %915) #8
-  %917 = icmp eq i32 %916, 0
-  br i1 %917, label %dissect_struct_mgs_target_info.exit.i, label %918
+908:                                              ; preds = %901
+  %909 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8) #8
+  %910 = icmp eq i32 %909, 198183891
+  %911 = select i1 %910, i32 36, i32 64
+  %912 = tail call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef %911) #8
+  %913 = icmp eq i32 %912, 0
+  br i1 %913, label %dissect_struct_mgs_target_info.exit.i, label %914
 
-918:                                              ; preds = %912
-  %919 = load i32, ptr @hf_lustre_mgs_target_info, align 4
-  %920 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %919, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #8
-  %921 = load i32, ptr @ett_lustre_mgs_config_res, align 4
-  %922 = tail call ptr @proto_item_add_subtree(ptr noundef %920, i32 noundef %921) #8
-  %923 = load i32, ptr @hf_lustre_mgs_target_info_mti_lustre_ver, align 4
-  %924 = tail call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %923, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
-  %925 = add i32 %1, 4
-  %926 = load i32, ptr @hf_lustre_mgs_target_info_mti_stripe_index, align 4
-  %927 = tail call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %926, ptr noundef %0, i32 noundef %925, i32 noundef 4, i32 noundef -2147483648) #8
-  %928 = add i32 %1, 8
-  %929 = load i32, ptr @hf_lustre_mgs_target_info_mti_config_ver, align 4
-  %930 = tail call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %929, ptr noundef %0, i32 noundef %928, i32 noundef 4, i32 noundef -2147483648) #8
-  %931 = add i32 %1, 12
-  %932 = load i32, ptr @hf_lustre_mgs_target_info_mti_flags, align 4
-  %933 = tail call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %932, ptr noundef %0, i32 noundef %931, i32 noundef 4, i32 noundef -2147483648) #8
-  %934 = add i32 %1, 16
-  %935 = load i32, ptr @hf_lustre_mgs_target_info_mti_nid_count, align 4
-  %936 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %922, i32 noundef %935, ptr noundef %0, i32 noundef %934, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #8
-  %937 = add i32 %1, 20
-  %938 = load i32, ptr @hf_lustre_mgs_target_info_mti_instance, align 4
-  %939 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %938, ptr noundef %0, i32 noundef %937, i32 noundef 4, i32 noundef -2147483648) #8
-  %940 = add i32 %1, 24
-  %941 = load i32, ptr @hf_lustre_mgs_target_info_mti_fsname, align 4
-  %942 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %941, ptr noundef %0, i32 noundef %940, i32 noundef 64, i32 noundef 0) #8
-  %943 = add i32 %1, 88
-  %944 = load i32, ptr @hf_lustre_mgs_target_info_mti_svname, align 4
-  %945 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %944, ptr noundef %0, i32 noundef %943, i32 noundef 64, i32 noundef 0) #8
-  %946 = add i32 %1, 152
-  %947 = load i32, ptr @hf_lustre_mgs_target_info_mti_uuid, align 4
-  %948 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %947, ptr noundef %0, i32 noundef %946, i32 noundef 40, i32 noundef 0) #8
-  %949 = add i32 %1, 192
-  %950 = load i32, ptr %7, align 4
-  %.not.i.i130 = icmp eq i32 %950, 0
+914:                                              ; preds = %908
+  %915 = load i32, ptr @hf_lustre_mgs_target_info, align 4
+  %916 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %915, ptr noundef %0, i32 noundef %1, i32 noundef -1, i32 noundef 0) #8
+  %917 = load i32, ptr @ett_lustre_mgs_config_res, align 4
+  %918 = tail call ptr @proto_item_add_subtree(ptr noundef %916, i32 noundef %917) #8
+  %919 = load i32, ptr @hf_lustre_mgs_target_info_mti_lustre_ver, align 4
+  %920 = tail call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %919, ptr noundef %0, i32 noundef %1, i32 noundef 4, i32 noundef -2147483648) #8
+  %921 = add i32 %1, 4
+  %922 = load i32, ptr @hf_lustre_mgs_target_info_mti_stripe_index, align 4
+  %923 = tail call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %922, ptr noundef %0, i32 noundef %921, i32 noundef 4, i32 noundef -2147483648) #8
+  %924 = add i32 %1, 8
+  %925 = load i32, ptr @hf_lustre_mgs_target_info_mti_config_ver, align 4
+  %926 = tail call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %925, ptr noundef %0, i32 noundef %924, i32 noundef 4, i32 noundef -2147483648) #8
+  %927 = add i32 %1, 12
+  %928 = load i32, ptr @hf_lustre_mgs_target_info_mti_flags, align 4
+  %929 = tail call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %928, ptr noundef %0, i32 noundef %927, i32 noundef 4, i32 noundef -2147483648) #8
+  %930 = add i32 %1, 16
+  %931 = load i32, ptr @hf_lustre_mgs_target_info_mti_nid_count, align 4
+  %932 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %918, i32 noundef %931, ptr noundef %0, i32 noundef %930, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %7) #8
+  %933 = add i32 %1, 20
+  %934 = load i32, ptr @hf_lustre_mgs_target_info_mti_instance, align 4
+  %935 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %934, ptr noundef %0, i32 noundef %933, i32 noundef 4, i32 noundef -2147483648) #8
+  %936 = add i32 %1, 24
+  %937 = load i32, ptr @hf_lustre_mgs_target_info_mti_fsname, align 4
+  %938 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %937, ptr noundef %0, i32 noundef %936, i32 noundef 64, i32 noundef 0) #8
+  %939 = add i32 %1, 88
+  %940 = load i32, ptr @hf_lustre_mgs_target_info_mti_svname, align 4
+  %941 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %940, ptr noundef %0, i32 noundef %939, i32 noundef 64, i32 noundef 0) #8
+  %942 = add i32 %1, 152
+  %943 = load i32, ptr @hf_lustre_mgs_target_info_mti_uuid, align 4
+  %944 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %943, ptr noundef %0, i32 noundef %942, i32 noundef 40, i32 noundef 0) #8
+  %945 = add i32 %1, 192
+  %946 = load i32, ptr %7, align 4
+  %.not.i.i130 = icmp eq i32 %946, 0
   br i1 %.not.i.i130, label %._crit_edge.i.i132, label %.lr.ph.i.i131
 
-.lr.ph.i.i131:                                    ; preds = %918, %.lr.ph.i.i131
-  %.03.i.i = phi i32 [ %953, %.lr.ph.i.i131 ], [ 0, %918 ]
-  %.0802.i.i = phi i32 [ %952, %.lr.ph.i.i131 ], [ %949, %918 ]
-  %951 = load i32, ptr @hf_lustre_mgs_target_info_mti_nids, align 4
-  %952 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %922, i32 noundef %.0802.i.i, i32 noundef %951) #8
-  %953 = add nuw i32 %.03.i.i, 1
-  %954 = load i32, ptr %7, align 4
-  %955 = icmp ult i32 %953, %954
-  br i1 %955, label %.lr.ph.i.i131, label %._crit_edge.loopexit.i.i, !llvm.loop !11
+.lr.ph.i.i131:                                    ; preds = %914, %.lr.ph.i.i131
+  %.03.i.i = phi i32 [ %949, %.lr.ph.i.i131 ], [ 0, %914 ]
+  %.0802.i.i = phi i32 [ %948, %.lr.ph.i.i131 ], [ %945, %914 ]
+  %947 = load i32, ptr @hf_lustre_mgs_target_info_mti_nids, align 4
+  %948 = call i32 @lnet_dissect_struct_nid(ptr noundef %0, ptr noundef %918, i32 noundef %.0802.i.i, i32 noundef %947) #8
+  %949 = add nuw i32 %.03.i.i, 1
+  %950 = load i32, ptr %7, align 4
+  %951 = icmp ult i32 %949, %950
+  br i1 %951, label %.lr.ph.i.i131, label %._crit_edge.loopexit.i.i, !llvm.loop !11
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i131
-  %956 = shl i32 %954, 3
-  %957 = sub i32 256, %956
+  %952 = shl i32 %950, 3
+  %953 = sub i32 256, %952
   br label %._crit_edge.i.i132
 
-._crit_edge.i.i132:                               ; preds = %._crit_edge.loopexit.i.i, %918
-  %.080.lcssa.i.i = phi i32 [ %949, %918 ], [ %952, %._crit_edge.loopexit.i.i ]
-  %.lcssa.i.i = phi i32 [ 256, %918 ], [ %957, %._crit_edge.loopexit.i.i ]
-  %958 = load i32, ptr @hf_lustre_mgs_target_info_padding, align 4
-  %959 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %958, ptr noundef %0, i32 noundef %.080.lcssa.i.i, i32 noundef %.lcssa.i.i, i32 noundef 0) #8
-  %960 = add i32 %.lcssa.i.i, %.080.lcssa.i.i
-  %.neg.i.i = add i32 %916, %1
-  %961 = sub i32 %.neg.i.i, %960
-  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %961, i32 4096)
-  %962 = load i32, ptr @hf_lustre_mgs_target_info_mti_params, align 4
-  %963 = call ptr @proto_tree_add_item(ptr noundef %922, i32 noundef %962, ptr noundef %0, i32 noundef %960, i32 noundef %spec.select.i.i, i32 noundef 0) #8
-  %964 = add i32 %spec.select.i.i, %960
-  %965 = sub i32 %964, %1
-  call void @proto_item_set_len(ptr noundef %920, i32 noundef %965) #8
+._crit_edge.i.i132:                               ; preds = %._crit_edge.loopexit.i.i, %914
+  %.080.lcssa.i.i = phi i32 [ %945, %914 ], [ %948, %._crit_edge.loopexit.i.i ]
+  %.lcssa.i.i = phi i32 [ 256, %914 ], [ %953, %._crit_edge.loopexit.i.i ]
+  %954 = load i32, ptr @hf_lustre_mgs_target_info_padding, align 4
+  %955 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %954, ptr noundef %0, i32 noundef %.080.lcssa.i.i, i32 noundef %.lcssa.i.i, i32 noundef 0) #8
+  %956 = add i32 %.lcssa.i.i, %.080.lcssa.i.i
+  %.neg.i.i = add i32 %912, %1
+  %957 = sub i32 %.neg.i.i, %956
+  %spec.select.i.i = call i32 @llvm.umin.i32(i32 %957, i32 4096)
+  %958 = load i32, ptr @hf_lustre_mgs_target_info_mti_params, align 4
+  %959 = call ptr @proto_tree_add_item(ptr noundef %918, i32 noundef %958, ptr noundef %0, i32 noundef %956, i32 noundef %spec.select.i.i, i32 noundef 0) #8
+  %960 = add i32 %spec.select.i.i, %956
+  %961 = sub i32 %960, %1
+  call void @proto_item_set_len(ptr noundef %916, i32 noundef %961) #8
   br label %dissect_struct_mgs_target_info.exit.i
 
-dissect_struct_mgs_target_info.exit.i:            ; preds = %._crit_edge.i.i132, %912, %905
-  %.079.i.i = phi i32 [ %964, %._crit_edge.i.i132 ], [ %1, %912 ], [ %1, %905 ]
+dissect_struct_mgs_target_info.exit.i:            ; preds = %._crit_edge.i.i132, %908, %901
+  %.079.i.i = phi i32 [ %960, %._crit_edge.i.i132 ], [ %1, %908 ], [ %1, %901 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
   br label %process_opcode_ost.exit
 
-966:                                              ; preds = %897
-  %967 = load i32, ptr @hf_lustre_mgs_send_param, align 4
-  %968 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %967, i32 noundef 1)
+962:                                              ; preds = %893
+  %963 = load i32, ptr @hf_lustre_mgs_send_param, align 4
+  %964 = tail call fastcc i32 @display_buffer_string(ptr noundef %0, ptr noundef %3, i32 noundef %1, i32 noundef %963, i32 noundef 1)
   br label %process_opcode_ost.exit
 
-969:                                              ; preds = %897
+965:                                              ; preds = %893
   switch i32 %5, label %process_opcode_ost.exit [
     i32 4711, label %.thread39.i
-    i32 4713, label %995
+    i32 4713, label %991
   ]
 
-.thread39.i:                                      ; preds = %969
-  %970 = load i32, ptr @hf_lustre_mgs_config_body, align 4
-  %971 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %970, ptr noundef %0, i32 noundef %1, i32 noundef 80, i32 noundef 0) #8
-  %972 = load i32, ptr @ett_lustre_mgs_config_body, align 4
-  %973 = tail call ptr @proto_item_add_subtree(ptr noundef %971, i32 noundef %972) #8
-  %974 = load i32, ptr @hf_lustre_mgs_config_body_name, align 4
-  %975 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %974, ptr noundef %0, i32 noundef %1, i32 noundef 64, i32 noundef 0) #8
-  %976 = add i32 %1, 64
-  %977 = load i32, ptr @hf_lustre_mgs_config_body_offset, align 4
-  %978 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %977, ptr noundef %0, i32 noundef %976, i32 noundef 8, i32 noundef -2147483648) #8
-  %979 = add i32 %1, 72
-  %980 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %979) #8
-  %981 = zext i16 %980 to i64
-  %982 = getelementptr inbounds i8, ptr %4, i64 8
-  store i64 %981, ptr %982, align 8
-  %983 = load i32, ptr @hf_lustre_mgs_config_body_type, align 4
-  %984 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %983, ptr noundef %0, i32 noundef %979, i32 noundef 2, i32 noundef -2147483648) #8
-  %985 = add i32 %1, 74
-  %986 = load i32, ptr @hf_lustre_mgs_config_body_nm_cur_pass, align 4
-  %987 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %986, ptr noundef %0, i32 noundef %985, i32 noundef 1, i32 noundef -2147483648) #8
-  %988 = add i32 %1, 75
-  %989 = load i32, ptr @hf_lustre_mgs_config_body_bits, align 4
-  %990 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %989, ptr noundef %0, i32 noundef %988, i32 noundef 1, i32 noundef -2147483648) #8
-  %991 = add i32 %1, 76
-  %992 = load i32, ptr @hf_lustre_mgs_config_body_units, align 4
-  %993 = tail call ptr @proto_tree_add_item(ptr noundef %973, i32 noundef %992, ptr noundef %0, i32 noundef %991, i32 noundef 4, i32 noundef -2147483648) #8
-  %994 = add i32 %1, 80
+.thread39.i:                                      ; preds = %965
+  %966 = load i32, ptr @hf_lustre_mgs_config_body, align 4
+  %967 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %966, ptr noundef %0, i32 noundef %1, i32 noundef 80, i32 noundef 0) #8
+  %968 = load i32, ptr @ett_lustre_mgs_config_body, align 4
+  %969 = tail call ptr @proto_item_add_subtree(ptr noundef %967, i32 noundef %968) #8
+  %970 = load i32, ptr @hf_lustre_mgs_config_body_name, align 4
+  %971 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %970, ptr noundef %0, i32 noundef %1, i32 noundef 64, i32 noundef 0) #8
+  %972 = add i32 %1, 64
+  %973 = load i32, ptr @hf_lustre_mgs_config_body_offset, align 4
+  %974 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %973, ptr noundef %0, i32 noundef %972, i32 noundef 8, i32 noundef -2147483648) #8
+  %975 = add i32 %1, 72
+  %976 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %975) #8
+  %977 = zext i16 %976 to i64
+  %978 = getelementptr inbounds i8, ptr %4, i64 8
+  store i64 %977, ptr %978, align 8
+  %979 = load i32, ptr @hf_lustre_mgs_config_body_type, align 4
+  %980 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %979, ptr noundef %0, i32 noundef %975, i32 noundef 2, i32 noundef -2147483648) #8
+  %981 = add i32 %1, 74
+  %982 = load i32, ptr @hf_lustre_mgs_config_body_nm_cur_pass, align 4
+  %983 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %982, ptr noundef %0, i32 noundef %981, i32 noundef 1, i32 noundef -2147483648) #8
+  %984 = add i32 %1, 75
+  %985 = load i32, ptr @hf_lustre_mgs_config_body_bits, align 4
+  %986 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %985, ptr noundef %0, i32 noundef %984, i32 noundef 1, i32 noundef -2147483648) #8
+  %987 = add i32 %1, 76
+  %988 = load i32, ptr @hf_lustre_mgs_config_body_units, align 4
+  %989 = tail call ptr @proto_tree_add_item(ptr noundef %969, i32 noundef %988, ptr noundef %0, i32 noundef %987, i32 noundef 4, i32 noundef -2147483648) #8
+  %990 = add i32 %1, 80
   br label %process_opcode_ost.exit
 
-995:                                              ; preds = %969
-  %996 = load i32, ptr @hf_lustre_mgs_config_res, align 4
-  %997 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %996, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef 0) #8
-  %998 = load i32, ptr @ett_lustre_mgs_config_res, align 4
-  %999 = tail call ptr @proto_item_add_subtree(ptr noundef %997, i32 noundef %998) #8
-  %1000 = load i32, ptr @hf_lustre_mgs_config_res_offset, align 4
-  %1001 = tail call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1000, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef -2147483648) #8
-  %1002 = add i32 %1, 8
-  %1003 = getelementptr inbounds i8, ptr %4, i64 8
-  %1004 = load i64, ptr %1003, align 8
-  %1005 = icmp eq i64 %1004, 4
+991:                                              ; preds = %965
+  %992 = load i32, ptr @hf_lustre_mgs_config_res, align 4
+  %993 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %992, ptr noundef %0, i32 noundef %1, i32 noundef 16, i32 noundef 0) #8
+  %994 = load i32, ptr @ett_lustre_mgs_config_res, align 4
+  %995 = tail call ptr @proto_item_add_subtree(ptr noundef %993, i32 noundef %994) #8
+  %996 = load i32, ptr @hf_lustre_mgs_config_res_offset, align 4
+  %997 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %996, ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef -2147483648) #8
+  %998 = add i32 %1, 8
+  %999 = getelementptr inbounds i8, ptr %4, i64 8
+  %1000 = load i64, ptr %999, align 8
+  %1001 = icmp eq i64 %1000, 4
   %hf_lustre_mgs_config_res_nm_cur_pass.val.i.i = load i32, ptr @hf_lustre_mgs_config_res_nm_cur_pass, align 4
   %hf_lustre_mgs_config_res_size.val.i.i = load i32, ptr @hf_lustre_mgs_config_res_size, align 4
-  %1006 = select i1 %1005, i32 %hf_lustre_mgs_config_res_nm_cur_pass.val.i.i, i32 %hf_lustre_mgs_config_res_size.val.i.i
-  %1007 = tail call ptr @proto_tree_add_item(ptr noundef %999, i32 noundef %1006, ptr noundef %0, i32 noundef %1002, i32 noundef 8, i32 noundef -2147483648) #8
-  %1008 = add i32 %1, 16
+  %1002 = select i1 %1001, i32 %hf_lustre_mgs_config_res_nm_cur_pass.val.i.i, i32 %hf_lustre_mgs_config_res_size.val.i.i
+  %1003 = tail call ptr @proto_tree_add_item(ptr noundef %995, i32 noundef %1002, ptr noundef %0, i32 noundef %998, i32 noundef 8, i32 noundef -2147483648) #8
+  %1004 = add i32 %1, 16
   br label %process_opcode_ost.exit
 
-1009:                                             ; preds = %897
-  %1010 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1794, i32 noundef %18, i32 noundef %5) #8
+default.unreachable136:                           ; preds = %893
+  unreachable
+
+1005:                                             ; preds = %891
+  %1006 = and i32 %18, -4
+  %or.cond114 = icmp eq i32 %1006, 400
+  br i1 %or.cond114, label %1007, label %1009
+
+1007:                                             ; preds = %1005
+  %1008 = tail call fastcc i32 @process_opcode_obd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1011:                                             ; preds = %895
-  %1012 = and i32 %18, -4
-  %or.cond114 = icmp eq i32 %1012, 400
-  br i1 %or.cond114, label %1013, label %1015
+1009:                                             ; preds = %1005
+  %1010 = add i32 %18, -501
+  %or.cond115 = icmp ult i32 %1010, 9
+  br i1 %or.cond115, label %1011, label %1013
 
-1013:                                             ; preds = %1011
-  %1014 = tail call fastcc i32 @process_opcode_obd(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+1011:                                             ; preds = %1009
+  %1012 = tail call fastcc i32 @process_opcode_llog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1015:                                             ; preds = %1011
-  %1016 = add i32 %18, -501
-  %or.cond115 = icmp ult i32 %1016, 9
-  br i1 %or.cond115, label %1017, label %1019
+1013:                                             ; preds = %1009
+  %1014 = add i32 %18, -601
+  %or.cond116 = icmp ult i32 %1014, 2
+  br i1 %or.cond116, label %1015, label %1017
 
-1017:                                             ; preds = %1015
-  %1018 = tail call fastcc i32 @process_opcode_llog(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+1015:                                             ; preds = %1013
+  %1016 = tail call fastcc i32 @process_opcode_quota(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1019:                                             ; preds = %1015
-  %1020 = add i32 %18, -601
-  %or.cond116 = icmp ult i32 %1020, 2
-  br i1 %or.cond116, label %1021, label %1023
+1017:                                             ; preds = %1013
+  %1018 = icmp eq i32 %18, 700
+  br i1 %1018, label %1019, label %1021
 
-1021:                                             ; preds = %1019
-  %1022 = tail call fastcc i32 @process_opcode_quota(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+1019:                                             ; preds = %1017
+  %1020 = tail call fastcc i32 @process_opcode_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1023:                                             ; preds = %1019
-  %1024 = icmp eq i32 %18, 700
-  br i1 %1024, label %1025, label %1027
+1021:                                             ; preds = %1017
+  %1022 = add i32 %18, -801
+  %or.cond118 = icmp ult i32 %1022, 3
+  br i1 %or.cond118, label %process_opcode_ost.exit, label %1023
+
+1023:                                             ; preds = %1021
+  %1024 = and i32 %18, -2
+  %or.cond119 = icmp eq i32 %1024, 900
+  br i1 %or.cond119, label %1025, label %1027
 
 1025:                                             ; preds = %1023
-  %1026 = tail call fastcc i32 @process_opcode_seq(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
+  %1026 = tail call fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
   br label %process_opcode_ost.exit
 
 1027:                                             ; preds = %1023
-  %1028 = add i32 %18, -801
-  %or.cond118 = icmp ult i32 %1028, 3
-  br i1 %or.cond118, label %process_opcode_ost.exit, label %1029
+  %1028 = icmp eq i32 %18, 1000
+  br i1 %1028, label %1029, label %1031
 
 1029:                                             ; preds = %1027
-  %1030 = and i32 %18, -2
-  %or.cond119 = icmp eq i32 %1030, 900
-  br i1 %or.cond119, label %1031, label %1033
-
-1031:                                             ; preds = %1029
-  %1032 = tail call fastcc i32 @process_opcode_fld(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef %5)
+  %1030 = tail call fastcc i32 @process_opcode_out_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 1000, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1033:                                             ; preds = %1029
-  %1034 = icmp eq i32 %18, 1000
-  br i1 %1034, label %1035, label %1037
+1031:                                             ; preds = %1027
+  %1032 = add i32 %18, -1101
+  %or.cond121 = icmp ult i32 %1032, 2
+  br i1 %or.cond121, label %1033, label %1035
 
-1035:                                             ; preds = %1033
-  %1036 = tail call fastcc i32 @process_opcode_out_update(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 1000, i32 noundef %5)
+1033:                                             ; preds = %1031
+  %1034 = tail call fastcc i32 @process_opcode_lfsck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
   br label %process_opcode_ost.exit
 
-1037:                                             ; preds = %1033
-  %1038 = add i32 %18, -1101
-  %or.cond121 = icmp ult i32 %1038, 2
-  br i1 %or.cond121, label %1039, label %1041
-
-1039:                                             ; preds = %1037
-  %1040 = tail call fastcc i32 @process_opcode_lfsck(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 %18, i32 noundef %5)
+1035:                                             ; preds = %1031
+  %1036 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1751, i32 noundef %18, i32 noundef %5) #8
   br label %process_opcode_ost.exit
 
-1041:                                             ; preds = %1037
-  %1042 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %3, ptr noundef nonnull @ei_lustre_badopc, ptr noundef nonnull @.str.1751, i32 noundef %18, i32 noundef %5) #8
-  br label %process_opcode_ost.exit
-
-process_opcode_ost.exit:                          ; preds = %1009, %995, %.thread39.i, %969, %966, %dissect_struct_mgs_target_info.exit.i, %903, %901, %.thread.i134, %897, %897, %897, %893, %879, %873, %866, %864, %860, %dissect_xattr_buffers.exit.i.i, %774, %766, %dissect_struct_lmv_user_md.exit.i.i, %677, %672, %672, %672, %672, %670, %665, %633, %627, %619, %617, %615, %581, %575, %568, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i, %529, %520, %518, %516, %513, %dissect_struct_layout_intent.exit.i.i, %474, %469, %458, %448, %344, %342, %338, %336, %333, %dissect_struct_fid_array.exit.i, %298, %296, %294, %292, %289, %287, %282, %280, %277, %275, %273, %.thread293.i, %270, %266, %264, %262, %.thread291.i, %259, %257, %.thread289.i, %252, %250, %248, %245, %243, %.thread287.i, %237, %235, %233, %230, %225, %223, %220, %218, %215, %213, %211, %209, %.thread285.i, %205, %203, %201, %.thread282.i, %196, %.thread280.i, %194, %188, %.thread278.i, %183, %178, %175, %171, %169, %168, %164, %dissect_struct_lu_ladvise_hdr.exit.i, %110, %90, %84, %76, %74, %72, %69, %64, %62, %60, %58, %56, %.thread4.i, %54, %51, %.thread2.i, %48, %45, %42, %40, %38, %.thread.i, %33, %29, %26, %24, %21, %20, %20, %20, %20, %1027, %6, %1041, %1039, %1035, %1031, %1025, %1021, %1017, %1013
-  %.0 = phi i32 [ %1014, %1013 ], [ %1018, %1017 ], [ %1022, %1021 ], [ %1026, %1025 ], [ %1032, %1031 ], [ %1036, %1035 ], [ %1040, %1039 ], [ %1, %1041 ], [ %1, %6 ], [ %1, %1027 ], [ %1, %164 ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %75, %74 ], [ %73, %72 ], [ %1, %69 ], [ %1, %62 ], [ %68, %64 ], [ %1, %58 ], [ %61, %60 ], [ %57, %56 ], [ %53, %51 ], [ %43, %42 ], [ %47, %45 ], [ %41, %40 ], [ %39, %38 ], [ %32, %29 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %55, %.thread4.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %76 ], [ %34, %33 ], [ %1, %48 ], [ %1, %54 ], [ %1, %338 ], [ %335, %333 ], [ %337, %336 ], [ %303, %298 ], [ %1, %296 ], [ %295, %294 ], [ %1, %292 ], [ %291, %289 ], [ %1, %287 ], [ %286, %282 ], [ %1, %280 ], [ %279, %277 ], [ %1, %275 ], [ %274, %273 ], [ %269, %266 ], [ %1, %264 ], [ %263, %262 ], [ %258, %257 ], [ %1, %250 ], [ %249, %248 ], [ %1, %245 ], [ %244, %243 ], [ %236, %235 ], [ %234, %233 ], [ %1, %230 ], [ %229, %225 ], [ %1, %223 ], [ %222, %220 ], [ %219, %218 ], [ %216, %215 ], [ %214, %213 ], [ %1, %211 ], [ %210, %209 ], [ %1, %168 ], [ %204, %203 ], [ %1, %201 ], [ %197, %196 ], [ %193, %188 ], [ %182, %178 ], [ %.0.i.i, %dissect_struct_fid_array.exit.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %272, %.thread293.i ], [ %172, %171 ], [ %177, %175 ], [ %170, %169 ], [ %1, %183 ], [ %1, %194 ], [ %206, %205 ], [ %238, %237 ], [ %1, %252 ], [ %260, %259 ], [ %271, %270 ], [ %1, %893 ], [ %1, %672 ], [ %1, %672 ], [ %1, %672 ], [ %1, %672 ], [ %865, %864 ], [ %863, %860 ], [ %858, %dissect_xattr_buffers.exit.i.i ], [ %776, %774 ], [ %773, %766 ], [ %765, %dissect_struct_lmv_user_md.exit.i.i ], [ %678, %677 ], [ %892, %879 ], [ %1, %873 ], [ %1, %866 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %568 ], [ %522, %575 ], [ %614, %581 ], [ %522, %520 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %529 ], [ %457, %448 ], [ %468, %458 ], [ %473, %469 ], [ %478, %474 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %515, %513 ], [ %517, %516 ], [ %519, %518 ], [ %345, %344 ], [ %618, %617 ], [ %669, %665 ], [ %1, %670 ], [ %1, %342 ], [ %1, %1009 ], [ %1008, %995 ], [ %968, %966 ], [ %.079.i.i, %dissect_struct_mgs_target_info.exit.i ], [ %1, %897 ], [ %1, %897 ], [ %1, %897 ], [ %904, %903 ], [ %1, %901 ], [ %900, %.thread.i134 ], [ %994, %.thread39.i ], [ %1, %969 ]
+process_opcode_ost.exit:                          ; preds = %991, %.thread39.i, %965, %962, %dissect_struct_mgs_target_info.exit.i, %899, %897, %.thread.i134, %893, %893, %893, %877, %871, %864, %862, %858, %dissect_xattr_buffers.exit.i.i, %772, %764, %dissect_struct_lmv_user_md.exit.i.i, %675, %670, %670, %670, %670, %665, %633, %627, %619, %617, %615, %581, %575, %568, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i, %529, %520, %518, %516, %513, %dissect_struct_layout_intent.exit.i.i, %474, %469, %458, %448, %344, %342, %338, %336, %333, %dissect_struct_fid_array.exit.i, %298, %296, %294, %292, %289, %287, %282, %280, %277, %275, %273, %.thread293.i, %270, %266, %264, %262, %.thread291.i, %259, %257, %.thread289.i, %252, %250, %248, %245, %243, %.thread287.i, %237, %235, %233, %230, %225, %223, %220, %218, %215, %213, %211, %209, %.thread285.i, %205, %203, %201, %.thread282.i, %196, %.thread280.i, %194, %188, %.thread278.i, %183, %178, %175, %171, %169, %168, %164, %dissect_struct_lu_ladvise_hdr.exit.i, %110, %90, %84, %76, %74, %72, %69, %64, %62, %60, %58, %56, %.thread4.i, %54, %51, %.thread2.i, %48, %45, %42, %40, %38, %.thread.i, %33, %29, %26, %24, %21, %20, %20, %20, %20, %1021, %6, %1035, %1033, %1029, %1025, %1019, %1015, %1011, %1007
+  %.0 = phi i32 [ %1008, %1007 ], [ %1012, %1011 ], [ %1016, %1015 ], [ %1020, %1019 ], [ %1026, %1025 ], [ %1030, %1029 ], [ %1034, %1033 ], [ %1, %1035 ], [ %1, %6 ], [ %1, %1021 ], [ %1, %164 ], [ %111, %110 ], [ %163, %dissect_struct_lu_ladvise_hdr.exit.i ], [ %75, %74 ], [ %73, %72 ], [ %1, %69 ], [ %1, %62 ], [ %68, %64 ], [ %1, %58 ], [ %61, %60 ], [ %57, %56 ], [ %53, %51 ], [ %43, %42 ], [ %47, %45 ], [ %41, %40 ], [ %39, %38 ], [ %32, %29 ], [ %27, %26 ], [ %25, %24 ], [ %22, %21 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %1, %20 ], [ %37, %.thread.i ], [ %50, %.thread2.i ], [ %55, %.thread4.i ], [ %109, %90 ], [ %1, %84 ], [ %1, %76 ], [ %34, %33 ], [ %1, %48 ], [ %1, %54 ], [ %1, %338 ], [ %335, %333 ], [ %337, %336 ], [ %303, %298 ], [ %1, %296 ], [ %295, %294 ], [ %1, %292 ], [ %291, %289 ], [ %1, %287 ], [ %286, %282 ], [ %1, %280 ], [ %279, %277 ], [ %1, %275 ], [ %274, %273 ], [ %269, %266 ], [ %1, %264 ], [ %263, %262 ], [ %258, %257 ], [ %1, %250 ], [ %249, %248 ], [ %1, %245 ], [ %244, %243 ], [ %236, %235 ], [ %234, %233 ], [ %1, %230 ], [ %229, %225 ], [ %1, %223 ], [ %222, %220 ], [ %219, %218 ], [ %216, %215 ], [ %214, %213 ], [ %1, %211 ], [ %210, %209 ], [ %1, %168 ], [ %204, %203 ], [ %1, %201 ], [ %197, %196 ], [ %193, %188 ], [ %182, %178 ], [ %.0.i.i, %dissect_struct_fid_array.exit.i ], [ %187, %.thread278.i ], [ %195, %.thread280.i ], [ %200, %.thread282.i ], [ %208, %.thread285.i ], [ %242, %.thread287.i ], [ %254, %.thread289.i ], [ %261, %.thread291.i ], [ %272, %.thread293.i ], [ %172, %171 ], [ %177, %175 ], [ %170, %169 ], [ %1, %183 ], [ %1, %194 ], [ %206, %205 ], [ %238, %237 ], [ %1, %252 ], [ %260, %259 ], [ %271, %270 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %1, %670 ], [ %863, %862 ], [ %861, %858 ], [ %856, %dissect_xattr_buffers.exit.i.i ], [ %774, %772 ], [ %771, %764 ], [ %763, %dissect_struct_lmv_user_md.exit.i.i ], [ %676, %675 ], [ %890, %877 ], [ %1, %871 ], [ %1, %864 ], [ %620, %619 ], [ %620, %627 ], [ %664, %633 ], [ %522, %568 ], [ %522, %575 ], [ %614, %581 ], [ %522, %520 ], [ %564, %dissect_struct_ldlm_gl_barrier_desc.exit.i.i ], [ %616, %615 ], [ %522, %529 ], [ %457, %448 ], [ %468, %458 ], [ %473, %469 ], [ %478, %474 ], [ %512, %dissect_struct_layout_intent.exit.i.i ], [ %515, %513 ], [ %517, %516 ], [ %519, %518 ], [ %345, %344 ], [ %618, %617 ], [ %669, %665 ], [ %1, %342 ], [ %1004, %991 ], [ %964, %962 ], [ %.079.i.i, %dissect_struct_mgs_target_info.exit.i ], [ %1, %893 ], [ %1, %893 ], [ %1, %893 ], [ %900, %899 ], [ %1, %897 ], [ %896, %.thread.i134 ], [ %990, %.thread39.i ], [ %1, %965 ]
   ret i32 %.0
 }
 

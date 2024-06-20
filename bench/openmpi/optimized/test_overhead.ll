@@ -52,9 +52,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %20
 
 20:                                               ; preds = %2, %111
-  %.03748 = phi i32 [ 0, %2 ], [ %112, %111 ]
-  %.03947 = phi ptr [ undef, %2 ], [ %.140, %111 ]
-  switch i32 %.03748, label %27 [
+  %.03747 = phi i32 [ 0, %2 ], [ %112, %111 ]
+  switch i32 %.03747, label %default.unreachable [
     i32 0, label %21
     i32 1, label %22
     i32 2, label %23
@@ -87,27 +86,30 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   store i64 32762454514159693, ptr %6, align 16
   br label %27
 
-27:                                               ; preds = %26, %25, %24, %23, %22, %21, %20
-  %.140 = phi ptr [ %.03947, %20 ], [ @op_get, %26 ], [ @op_put, %25 ], [ @op_send_pingpong, %24 ], [ @op_a2a, %23 ], [ @op_coll, %22 ], [ @op_send, %21 ]
-  %28 = load i32, ptr @rank_world, align 4
-  %29 = icmp eq i32 %28, 0
-  br i1 %29, label %30, label %33
+default.unreachable:                              ; preds = %20
+  unreachable
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr @size_world, align 4
-  %32 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %6, i32 noundef %31)
-  br label %33
+27:                                               ; preds = %26, %25, %24, %23, %22, %21
+  %28 = phi i1 [ false, %26 ], [ true, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ]
+  %29 = phi i1 [ true, %26 ], [ false, %25 ], [ false, %24 ], [ false, %23 ], [ false, %22 ], [ false, %21 ]
+  %.140 = phi ptr [ @op_get, %26 ], [ @op_put, %25 ], [ @op_send_pingpong, %24 ], [ @op_a2a, %23 ], [ @op_coll, %22 ], [ @op_send, %21 ]
+  %30 = load i32, ptr @rank_world, align 4
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %32, label %35
 
-33:                                               ; preds = %30, %27
-  %34 = icmp eq ptr %.140, @op_put
-  %35 = icmp eq ptr %.140, @op_get
-  %or.cond.i = or i1 %34, %35
+32:                                               ; preds = %27
+  %33 = load i32, ptr @size_world, align 4
+  %34 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, ptr noundef nonnull %6, i32 noundef %33)
+  br label %35
+
+35:                                               ; preds = %32, %27
+  %or.cond.i = or i1 %28, %29
   br label %36
 
-36:                                               ; preds = %33, %101
-  %37 = phi double [ 0.000000e+00, %33 ], [ %109, %101 ]
-  %.046 = phi i32 [ 0, %33 ], [ %108, %101 ]
-  %.145 = phi ptr [ null, %33 ], [ %.2, %101 ]
+36:                                               ; preds = %35, %101
+  %37 = phi double [ 0.000000e+00, %35 ], [ %109, %101 ]
+  %.046 = phi i32 [ 0, %35 ], [ %108, %101 ]
+  %.145 = phi ptr [ null, %35 ], [ %.2, %101 ]
   %.not = icmp eq i32 %.046, 0
   br i1 %.not, label %44, label %38
 
@@ -234,9 +236,9 @@ do_bench.exit:                                    ; preds = %53, %54
 
 111:                                              ; preds = %101
   call void @free(ptr noundef %.2) #12
-  %112 = add nuw nsw i32 %.03748, 1
-  %exitcond50.not = icmp eq i32 %112, 6
-  br i1 %exitcond50.not, label %113, label %20, !llvm.loop !9
+  %112 = add nuw nsw i32 %.03747, 1
+  %exitcond49.not = icmp eq i32 %112, 6
+  br i1 %exitcond49.not, label %113, label %20, !llvm.loop !9
 
 113:                                              ; preds = %111
   %114 = call i32 @MPI_Finalize() #12
@@ -250,7 +252,7 @@ declare i32 @MPI_Comm_rank(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @MPI_Comm_size(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @op_send(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
@@ -297,7 +299,7 @@ define internal void @op_send(ptr nocapture noundef writeonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_coll(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal void @op_coll(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -321,7 +323,7 @@ define internal void @op_coll(ptr nocapture noundef writeonly %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_a2a(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) #0 {
+define internal void @op_a2a(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -345,7 +347,7 @@ define internal void @op_a2a(ptr nocapture noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_send_pingpong(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define internal void @op_send_pingpong(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = tail call i32 @MPI_Barrier(ptr noundef nonnull @ompi_mpi_comm_world) #12
@@ -401,7 +403,7 @@ define internal void @op_send_pingpong(ptr nocapture noundef writeonly %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_put(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal void @op_put(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4
@@ -432,7 +434,7 @@ define internal void @op_put(ptr nocapture noundef writeonly %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @op_get(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) #0 {
+define internal void @op_get(ptr nocapture noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr nocapture readnone %4) unnamed_addr #0 {
   %6 = alloca %struct.timespec, align 8
   %7 = alloca %struct.timespec, align 8
   %8 = load i32, ptr @to, align 4

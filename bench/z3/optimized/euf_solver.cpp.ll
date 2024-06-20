@@ -6364,12 +6364,10 @@ sw.bb55:                                          ; preds = %if.end34, %if.end34
   store i64 %cnstr.0, ptr %agg.tmp58.sroa.233.0.agg.tmp5830.sroa_idx, align 8
   %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx = getelementptr inbounds i8, ptr %agg.tmp5830, i64 16
   store i32 3, ptr %agg.tmp58.sroa.3.0.agg.tmp5830.sroa_idx, align 8
-  switch i32 %21, label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit [
-    i32 -1, label %sw.bb.i
-    i32 0, label %sw.bb10.i
-  ]
+  %switch = icmp eq i32 %21, -1
+  br i1 %switch, label %sw.bb.i, label %sw.bb10.i
 
-sw.bb.i:                                          ; preds = %sw.bb55.thread, %sw.bb55
+sw.bb.i:                                          ; preds = %sw.bb55, %sw.bb55.thread
   %35 = phi ptr [ %16, %sw.bb55.thread ], [ %22, %sw.bb55 ]
   %xor.i.i = xor i32 %storemerge.in.sroa.speculated, 1
   tail call void @_ZN3sat6solver12set_conflictENS_13justificationENS_7literalE(ptr noundef nonnull align 8 dereferenceable(4408) %35, ptr noundef nonnull byval(%"class.sat::justification") align 8 %agg.tmp5830, i32 %xor.i.i)
@@ -6379,7 +6377,7 @@ sw.bb10.i:                                        ; preds = %sw.bb55
   tail call void @_ZN3sat6solver11assign_coreENS_7literalENS_13justificationE(ptr noundef nonnull align 8 dereferenceable(4408) %22, i32 %storemerge.in.sroa.speculated, ptr noundef nonnull byval(%"class.sat::justification") align 8 %agg.tmp5830)
   br label %_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit
 
-_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit: ; preds = %sw.bb55, %sw.bb.i, %sw.bb10.i
+_ZN3sat6solver6assignENS_7literalENS_13justificationE.exit: ; preds = %sw.bb.i, %sw.bb10.i
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %agg.tmp5830)
   br label %sw.epilog
 

@@ -39,7 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5C__serialize_cache = private unnamed_addr constant [21 x i8] c"H5C__serialize_cache\00", align 1
 @.str.21 = private unnamed_addr constant [21 x i8] c"RD FSM settle failed\00", align 1
 @.str.22 = private unnamed_addr constant [21 x i8] c"MD FSM settle failed\00", align 1
-@.str.23 = private unnamed_addr constant [17 x i8] c"Unknown ring?!?!\00", align 1
 @H5E_CANTSERIALIZE_g = external local_unnamed_addr global i64, align 8
 @.str.24 = private unnamed_addr constant [22 x i8] c"serialize ring failed\00", align 1
 @__func__.H5C__autoadjust__ageout = private unnamed_addr constant [24 x i8] c"H5C__autoadjust__ageout\00", align 1
@@ -2280,24 +2279,24 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   br label %9
 
 9:                                                ; preds = %1, %H5C__serialize_ring.exit
-  %.01820 = phi i32 [ 1, %1 ], [ %112, %H5C__serialize_ring.exit ]
-  switch i32 %.01820, label %30 [
-    i32 1, label %34
+  %.01820 = phi i32 [ 1, %1 ], [ %108, %H5C__serialize_ring.exit ]
+  switch i32 %.01820, label %default.unreachable [
+    i32 1, label %30
     i32 2, label %10
     i32 3, label %20
-    i32 4, label %34
-    i32 5, label %34
+    i32 4, label %30
+    i32 5, label %30
   ]
 
 10:                                               ; preds = %9
   %11 = load i8, ptr %8, align 8
   %12 = trunc i8 %11 to i1
-  br i1 %12, label %34, label %13
+  br i1 %12, label %30, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @H5MF_settle_raw_data_fsm(ptr noundef %0, ptr noundef nonnull %8) #4
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %34
+  br i1 %15, label %16, label %30
 
 16:                                               ; preds = %13
   %17 = load i64, ptr @H5E_CACHE_g, align 8
@@ -2308,12 +2307,12 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
 20:                                               ; preds = %9
   %21 = load i8, ptr %7, align 1
   %22 = trunc i8 %21 to i1
-  br i1 %22, label %34, label %23
+  br i1 %22, label %30, label %23
 
 23:                                               ; preds = %20
   %24 = tail call i32 @H5MF_settle_meta_data_fsm(ptr noundef %0, ptr noundef nonnull %7) #4
   %25 = icmp slt i32 %24, 0
-  br i1 %25, label %26, label %34
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %23
   %27 = load i64, ptr @H5E_CACHE_g, align 8
@@ -2321,182 +2320,179 @@ define range(i32 -1, 1) i32 @H5C__serialize_cache(ptr noundef %0) local_unnamed_
   %29 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2209, i64 noundef %27, i64 noundef %28, ptr noundef nonnull @.str.22) #4
   br label %.loopexit
 
-30:                                               ; preds = %9
-  %31 = load i64, ptr @H5E_CACHE_g, align 8
-  %32 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %33 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2217, i64 noundef %31, i64 noundef %32, ptr noundef nonnull @.str.23) #4
-  br label %.loopexit
+default.unreachable:                              ; preds = %9
+  unreachable
 
-34:                                               ; preds = %9, %9, %20, %23, %10, %13, %9
-  %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr inbounds i8, ptr %35, i64 112
-  %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds i8, ptr %37, i64 527664
-  %39 = getelementptr inbounds i8, ptr %37, i64 527672
-  %40 = getelementptr inbounds i8, ptr %37, i64 527680
-  %41 = getelementptr inbounds i8, ptr %37, i64 524584
-  %42 = load ptr, ptr %41, align 8
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %.split.thread.i, label %.critedge.split.i
+30:                                               ; preds = %9, %9, %20, %23, %10, %13, %9
+  %31 = load ptr, ptr %2, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 112
+  %33 = load ptr, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %33, i64 527664
+  %35 = getelementptr inbounds i8, ptr %33, i64 527672
+  %36 = getelementptr inbounds i8, ptr %33, i64 527680
+  %37 = getelementptr inbounds i8, ptr %33, i64 524584
+  %38 = load ptr, ptr %37, align 8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %.split.thread.i, label %.critedge.split.i
 
-._crit_edge.i:                                    ; preds = %74
-  %.253.pre.pre.i = load ptr, ptr %41, align 8
+._crit_edge.i:                                    ; preds = %70
+  %.253.pre.pre.i = load ptr, ptr %37, align 8
   br i1 %.362.i, label %.split.i, label %.critedge.split.i, !llvm.loop !4
 
-.critedge.split.i:                                ; preds = %34, %._crit_edge.i
-  %.04349.i = phi ptr [ %.253.pre.pre.i, %._crit_edge.i ], [ %42, %34 ]
+.critedge.split.i:                                ; preds = %30, %._crit_edge.i
+  %.04349.i = phi ptr [ %.253.pre.pre.i, %._crit_edge.i ], [ %38, %30 ]
   %.not4750.i = icmp eq ptr %.04349.i, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   br i1 %.not4750.i, label %.split.thread.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.critedge.split.i, %74
-  %.04352.i = phi ptr [ %.043.i, %74 ], [ %.04349.i, %.critedge.split.i ]
-  %.14551.i = phi i1 [ %.362.i, %74 ], [ true, %.critedge.split.i ]
-  %44 = getelementptr inbounds i8, ptr %.04352.i, i64 58
-  %45 = load i8, ptr %44, align 2
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %.thread.i.thread, label %47
+.lr.ph.i:                                         ; preds = %.critedge.split.i, %70
+  %.04352.i = phi ptr [ %.043.i, %70 ], [ %.04349.i, %.critedge.split.i ]
+  %.14551.i = phi i1 [ %.362.i, %70 ], [ true, %.critedge.split.i ]
+  %40 = getelementptr inbounds i8, ptr %.04352.i, i64 58
+  %41 = load i8, ptr %40, align 2
+  %42 = trunc i8 %41 to i1
+  br i1 %42, label %.thread.i.thread, label %43
 
-47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds i8, ptr %.04352.i, i64 64
-  %49 = load i32, ptr %48, align 8
-  %50 = icmp eq i32 %49, %.01820
-  br i1 %50, label %51, label %.thread.i.thread
+43:                                               ; preds = %.lr.ph.i
+  %44 = getelementptr inbounds i8, ptr %.04352.i, i64 64
+  %45 = load i32, ptr %44, align 8
+  %46 = icmp eq i32 %45, %.01820
+  br i1 %46, label %47, label %.thread.i.thread
+
+47:                                               ; preds = %43
+  %48 = getelementptr inbounds i8, ptr %.04352.i, i64 32
+  %49 = load i8, ptr %48, align 8
+  %50 = trunc i8 %49 to i1
+  br i1 %50, label %.thread.i.thread, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds i8, ptr %.04352.i, i64 32
-  %53 = load i8, ptr %52, align 8
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %.thread.i.thread, label %55
+  %52 = getelementptr inbounds i8, ptr %.04352.i, i64 96
+  %53 = load i32, ptr %52, align 8
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %55, label %.thread.i.thread
 
 55:                                               ; preds = %51
-  %56 = getelementptr inbounds i8, ptr %.04352.i, i64 96
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp eq i32 %57, 0
-  br i1 %58, label %59, label %.thread.i.thread
+  %56 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef nonnull %33, ptr noundef nonnull %.04352.i) #4
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %58, label %62
 
-59:                                               ; preds = %55
-  %60 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef nonnull %37, ptr noundef nonnull %.04352.i) #4
-  %61 = icmp slt i32 %60, 0
-  br i1 %61, label %62, label %66
+58:                                               ; preds = %55
+  %59 = load i64, ptr @H5E_CACHE_g, align 8
+  %60 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
+  %61 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2405, i64 noundef %59, i64 noundef %60, ptr noundef nonnull @.str.39) #4
+  br label %104
 
-62:                                               ; preds = %59
-  %63 = load i64, ptr @H5E_CACHE_g, align 8
-  %64 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
-  %65 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2405, i64 noundef %63, i64 noundef %64, ptr noundef nonnull @.str.39) #4
-  br label %108
+62:                                               ; preds = %55
+  %.pre.i = load i64, ptr %34, align 8
+  %63 = icmp sgt i64 %.pre.i, 0
+  br i1 %63, label %67, label %.thread.i
 
-66:                                               ; preds = %59
-  %.pre.i = load i64, ptr %38, align 8
-  %67 = icmp sgt i64 %.pre.i, 0
-  br i1 %67, label %71, label %.thread.i
+.thread.i:                                        ; preds = %62
+  %.pre = load i64, ptr %35, align 8
+  %64 = icmp sgt i64 %.pre, 0
+  br i1 %64, label %67, label %.thread.i.thread
 
-.thread.i:                                        ; preds = %66
-  %.pre = load i64, ptr %39, align 8
-  %68 = icmp sgt i64 %.pre, 0
-  br i1 %68, label %71, label %.thread.i.thread
+.thread.i.thread:                                 ; preds = %.lr.ph.i, %47, %51, %43, %.thread.i
+  %.364.i23 = phi i1 [ false, %.thread.i ], [ %.14551.i, %.lr.ph.i ], [ %.14551.i, %47 ], [ false, %51 ], [ %.14551.i, %43 ]
+  %65 = load i64, ptr %36, align 8
+  %66 = icmp sgt i64 %65, 0
+  br i1 %66, label %67, label %68
 
-.thread.i.thread:                                 ; preds = %.lr.ph.i, %51, %55, %47, %.thread.i
-  %.364.i23 = phi i1 [ false, %.thread.i ], [ %.14551.i, %.lr.ph.i ], [ %.14551.i, %51 ], [ false, %55 ], [ %.14551.i, %47 ]
-  %69 = load i64, ptr %40, align 8
-  %70 = icmp sgt i64 %69, 0
-  br i1 %70, label %71, label %72
+67:                                               ; preds = %.thread.i.thread, %.thread.i, %62
+  %.363.i = phi i1 [ %.364.i23, %.thread.i.thread ], [ false, %.thread.i ], [ false, %62 ]
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
+  br label %70
 
-71:                                               ; preds = %.thread.i.thread, %.thread.i, %66
-  %.363.i = phi i1 [ %.364.i23, %.thread.i.thread ], [ false, %.thread.i ], [ false, %66 ]
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
-  br label %74
+68:                                               ; preds = %.thread.i.thread
+  %69 = getelementptr inbounds i8, ptr %.04352.i, i64 120
+  br label %70
 
-72:                                               ; preds = %.thread.i.thread
-  %73 = getelementptr inbounds i8, ptr %.04352.i, i64 120
-  br label %74
-
-74:                                               ; preds = %72, %71
-  %.362.i = phi i1 [ %.363.i, %71 ], [ %.364.i23, %72 ]
-  %.1.in.i = phi ptr [ %41, %71 ], [ %73, %72 ]
+70:                                               ; preds = %68, %67
+  %.362.i = phi i1 [ %.363.i, %67 ], [ %.364.i23, %68 ]
+  %.1.in.i = phi ptr [ %37, %67 ], [ %69, %68 ]
   %.043.i = load ptr, ptr %.1.in.i, align 8
   %.not47.i = icmp eq ptr %.043.i, null
   br i1 %.not47.i, label %._crit_edge.i, label %.lr.ph.i
 
-.split.thread.i:                                  ; preds = %.critedge.split.i, %34
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+.split.thread.i:                                  ; preds = %.critedge.split.i, %30
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   br label %H5C__serialize_ring.exit
 
 .split.i:                                         ; preds = %._crit_edge.i
   %.not54.i = icmp eq ptr %.253.pre.pre.i, null
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, i8 0, i64 24, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, i8 0, i64 24, i1 false)
   br i1 %.not54.i, label %H5C__serialize_ring.exit, label %.lr.ph57.i
 
-.lr.ph57.i:                                       ; preds = %.split.i, %106
-  %.255.i = phi ptr [ %.2.i, %106 ], [ %.253.pre.pre.i, %.split.i ]
-  %75 = getelementptr inbounds i8, ptr %.255.i, i64 64
-  %76 = load i32, ptr %75, align 8
-  %77 = icmp eq i32 %76, %.01820
-  br i1 %77, label %78, label %106
+.lr.ph57.i:                                       ; preds = %.split.i, %102
+  %.255.i = phi ptr [ %.2.i, %102 ], [ %.253.pre.pre.i, %.split.i ]
+  %71 = getelementptr inbounds i8, ptr %.255.i, i64 64
+  %72 = load i32, ptr %71, align 8
+  %73 = icmp eq i32 %72, %.01820
+  br i1 %73, label %74, label %102
 
-78:                                               ; preds = %.lr.ph57.i
-  %79 = getelementptr inbounds i8, ptr %.255.i, i64 58
-  %80 = load i8, ptr %79, align 2
+74:                                               ; preds = %.lr.ph57.i
+  %75 = getelementptr inbounds i8, ptr %.255.i, i64 58
+  %76 = load i8, ptr %75, align 2
+  %77 = trunc i8 %76 to i1
+  br i1 %77, label %78, label %102
+
+78:                                               ; preds = %74
+  %79 = getelementptr inbounds i8, ptr %.255.i, i64 32
+  %80 = load i8, ptr %79, align 8
   %81 = trunc i8 %80 to i1
-  br i1 %81, label %82, label %106
+  br i1 %81, label %102, label %82
 
 82:                                               ; preds = %78
-  %83 = getelementptr inbounds i8, ptr %.255.i, i64 32
-  %84 = load i8, ptr %83, align 8
-  %85 = trunc i8 %84 to i1
-  br i1 %85, label %106, label %86
+  %83 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %33, ptr noundef nonnull %.255.i) #4
+  %84 = icmp slt i32 %83, 0
+  br i1 %84, label %85, label %89
 
-86:                                               ; preds = %82
-  %87 = tail call i32 @H5C__serialize_single_entry(ptr noundef %0, ptr noundef %37, ptr noundef nonnull %.255.i) #4
-  %88 = icmp slt i32 %87, 0
-  br i1 %88, label %89, label %93
+85:                                               ; preds = %82
+  %86 = load i64, ptr @H5E_CACHE_g, align 8
+  %87 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
+  %88 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2467, i64 noundef %86, i64 noundef %87, ptr noundef nonnull @.str.39) #4
+  br label %104
 
-89:                                               ; preds = %86
-  %90 = load i64, ptr @H5E_CACHE_g, align 8
-  %91 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
-  %92 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2467, i64 noundef %90, i64 noundef %91, ptr noundef nonnull @.str.39) #4
-  br label %108
+89:                                               ; preds = %82
+  %90 = load i64, ptr %34, align 8
+  %91 = icmp sgt i64 %90, 0
+  br i1 %91, label %98, label %92
 
-93:                                               ; preds = %86
-  %94 = load i64, ptr %38, align 8
-  %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %102, label %96
+92:                                               ; preds = %89
+  %93 = load i64, ptr %35, align 8
+  %94 = icmp sgt i64 %93, 0
+  br i1 %94, label %98, label %95
 
-96:                                               ; preds = %93
-  %97 = load i64, ptr %39, align 8
-  %98 = icmp sgt i64 %97, 0
-  br i1 %98, label %102, label %99
+95:                                               ; preds = %92
+  %96 = load i64, ptr %36, align 8
+  %97 = icmp sgt i64 %96, 0
+  br i1 %97, label %98, label %102
 
-99:                                               ; preds = %96
-  %100 = load i64, ptr %40, align 8
-  %101 = icmp sgt i64 %100, 0
-  br i1 %101, label %102, label %106
+98:                                               ; preds = %95, %92, %89
+  %99 = load i64, ptr @H5E_CACHE_g, align 8
+  %100 = load i64, ptr @H5E_SYSTEM_g, align 8
+  %101 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2474, i64 noundef %99, i64 noundef %100, ptr noundef nonnull @.str.40) #4
+  br label %104
 
-102:                                              ; preds = %99, %96, %93
-  %103 = load i64, ptr @H5E_CACHE_g, align 8
-  %104 = load i64, ptr @H5E_SYSTEM_g, align 8
-  %105 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_ring, i32 noundef 2474, i64 noundef %103, i64 noundef %104, ptr noundef nonnull @.str.40) #4
-  br label %108
-
-106:                                              ; preds = %99, %82, %78, %.lr.ph57.i
-  %107 = getelementptr inbounds i8, ptr %.255.i, i64 120
-  %.2.i = load ptr, ptr %107, align 8
+102:                                              ; preds = %95, %78, %74, %.lr.ph57.i
+  %103 = getelementptr inbounds i8, ptr %.255.i, i64 120
+  %.2.i = load ptr, ptr %103, align 8
   %.not.i = icmp eq ptr %.2.i, null
   br i1 %.not.i, label %H5C__serialize_ring.exit, label %.lr.ph57.i
 
-108:                                              ; preds = %62, %89, %102
-  %109 = load i64, ptr @H5E_CACHE_g, align 8
-  %110 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
-  %111 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2222, i64 noundef %109, i64 noundef %110, ptr noundef nonnull @.str.24) #4
+104:                                              ; preds = %58, %85, %98
+  %105 = load i64, ptr @H5E_CACHE_g, align 8
+  %106 = load i64, ptr @H5E_CANTSERIALIZE_g, align 8
+  %107 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5C__serialize_cache, i32 noundef 2222, i64 noundef %105, i64 noundef %106, ptr noundef nonnull @.str.24) #4
   br label %.loopexit
 
-H5C__serialize_ring.exit:                         ; preds = %106, %.split.i, %.split.thread.i
-  %112 = add nuw nsw i32 %.01820, 1
-  %exitcond.not = icmp eq i32 %112, 6
+H5C__serialize_ring.exit:                         ; preds = %102, %.split.i, %.split.thread.i
+  %108 = add nuw nsw i32 %.01820, 1
+  %exitcond.not = icmp eq i32 %108, 6
   br i1 %exitcond.not, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %H5C__serialize_ring.exit, %108, %30, %26, %16
-  %.0 = phi i32 [ -1, %30 ], [ -1, %108 ], [ -1, %26 ], [ -1, %16 ], [ 0, %H5C__serialize_ring.exit ]
+.loopexit:                                        ; preds = %H5C__serialize_ring.exit, %104, %26, %16
+  %.0 = phi i32 [ -1, %104 ], [ -1, %26 ], [ -1, %16 ], [ 0, %H5C__serialize_ring.exit ]
   store i8 0, ptr %6, align 8
   ret i32 %.0
 }

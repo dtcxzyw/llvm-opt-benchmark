@@ -3396,10 +3396,8 @@ if.then11:                                        ; preds = %land.lhs.true
 
 if.then13:                                        ; preds = %if.then11
   %call.i49 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.0, ptr noundef null)
-  switch i32 %17, label %if.else29.i [
-    i32 6, label %if.then.i51
-    i32 7, label %get_delta_base.exit
-  ]
+  %switch = icmp eq i32 %17, 6
+  br i1 %switch, label %if.then.i51, label %get_delta_base.exit
 
 if.then.i51:                                      ; preds = %if.then13
   %19 = load i8, ptr %call.i49, align 1
@@ -3439,10 +3437,6 @@ while.end.i:                                      ; preds = %while.end.loopexit.
   %or.cond19.i = and i1 %cmp18.not.i, %cmp15.i
   br i1 %or.cond19.i, label %if.end17, label %if.then16
 
-if.else29.i:                                      ; preds = %if.then13
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.32) #22
-  unreachable
-
 get_delta_base.exit:                              ; preds = %if.then13
   %call27.i = call i64 @find_pack_entry_one(ptr noundef %call.i49, ptr noundef %p)
   %24 = load ptr, ptr @the_repository, align 8
@@ -3477,7 +3471,7 @@ if.else24:                                        ; preds = %if.then11
   br label %if.end27
 
 if.end27:                                         ; preds = %if.then4, %cache_or_unpack_entry.exit, %if.else24, %if.end17, %land.lhs.true, %if.end6
-  %curpos.1238 = phi i64 [ %curpos.0, %if.else24 ], [ %curpos.0, %if.end17 ], [ %curpos.0, %land.lhs.true ], [ %curpos.0, %if.end6 ], [ %obj_offset, %cache_or_unpack_entry.exit ], [ %obj_offset, %if.then4 ]
+  %curpos.1231 = phi i64 [ %curpos.0, %if.else24 ], [ %curpos.0, %if.end17 ], [ %curpos.0, %land.lhs.true ], [ %curpos.0, %if.end6 ], [ %obj_offset, %cache_or_unpack_entry.exit ], [ %obj_offset, %if.then4 ]
   %disk_sizep = getelementptr inbounds i8, ptr %oi, i64 16
   %30 = load ptr, ptr %disk_sizep, align 8
   %tobool28.not = icmp eq ptr %30, null
@@ -3521,7 +3515,7 @@ if.then42:                                        ; preds = %lor.lhs.false40, %i
 
 while.cond.i:                                     ; preds = %unpack_object_header.exit.i, %if.then42
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %unpack_object_header.exit.i ], [ 0, %if.then42 ]
-  %curpos.addr.0.i = phi i64 [ %add.i48.i, %unpack_object_header.exit.i ], [ %curpos.1238, %if.then42 ]
+  %curpos.addr.0.i = phi i64 [ %add.i48.i, %unpack_object_header.exit.i ], [ %curpos.1231, %if.then42 ]
   %type.addr.0.i = phi i32 [ %conv1.i.i.i61, %unpack_object_header.exit.i ], [ %35, %if.then42 ]
   %poi_stack.0.i = phi ptr [ %poi_stack.1.i, %unpack_object_header.exit.i ], [ %small_poi_stack.i, %if.then42 ]
   %poi_stack_alloc.0.i = phi i32 [ %poi_stack_alloc.2.i, %unpack_object_header.exit.i ], [ 64, %if.then42 ]
@@ -3594,10 +3588,8 @@ if.end28.i:                                       ; preds = %st_mult.exit44.i, %
   %arrayidx.i = getelementptr inbounds i64, ptr %poi_stack.1.i, i64 %indvars.iv.i
   store i64 %obj_offset.addr.0.i, ptr %arrayidx.i, align 8
   %call.i.i58 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.addr.0.i, ptr noundef null)
-  switch i32 %type.addr.0.i, label %if.else29.i.i [
-    i32 6, label %if.then.i45.i
-    i32 7, label %get_delta_base.exit.i
-  ]
+  %switch.i = icmp eq i32 %type.addr.0.i, 6
+  br i1 %switch.i, label %if.then.i45.i, label %get_delta_base.exit.i
 
 if.then.i45.i:                                    ; preds = %if.end28.i
   %45 = load i8, ptr %call.i.i58, align 1
@@ -3632,10 +3624,6 @@ while.end.i.i:                                    ; preds = %if.end.i.i65, %if.t
   %cmp18.not.i.i = icmp sgt i64 %base_offset.0.lcssa.i.i, 0
   %or.cond19.i.i = and i1 %cmp18.not.i.i, %cmp15.i.i
   br i1 %or.cond19.i.i, label %if.end31.i60, label %unwind.i
-
-if.else29.i.i:                                    ; preds = %if.end28.i
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.32) #22
-  unreachable
 
 get_delta_base.exit.i:                            ; preds = %if.end28.i
   %call27.i.i = call i64 @find_pack_entry_one(ptr noundef %call.i.i58, ptr noundef %p)
@@ -3736,13 +3724,13 @@ unwind.i:                                         ; preds = %get_delta_base.exit
   br label %while.cond50.i
 
 while.cond50.i:                                   ; preds = %while.body52.i, %unwind.i
-  %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %while.body52.i ], [ %56, %unwind.i ]
-  %57 = icmp eq i64 %indvars.iv156.i, 0
+  %indvars.iv146.i = phi i64 [ %indvars.iv.next147.i, %while.body52.i ], [ %56, %unwind.i ]
+  %57 = icmp eq i64 %indvars.iv146.i, 0
   br i1 %57, label %out.i, label %while.body52.i
 
 while.body52.i:                                   ; preds = %while.cond50.i
-  %indvars.iv.next157.i = add nsw i64 %indvars.iv156.i, -1
-  %arrayidx54.i = getelementptr inbounds i64, ptr %poi_stack.1.i, i64 %indvars.iv.next157.i
+  %indvars.iv.next147.i = add nsw i64 %indvars.iv146.i, -1
+  %arrayidx54.i = getelementptr inbounds i64, ptr %poi_stack.1.i, i64 %indvars.iv.next147.i
   %58 = load i64, ptr %arrayidx54.i, align 8
   %call55.i = call fastcc i32 @retry_bad_packed_offset(ptr noundef %r, ptr noundef %p, i64 noundef %58)
   %cmp56.i = icmp sgt i32 %call55.i, 0
@@ -3797,13 +3785,11 @@ if.then63:                                        ; preds = %if.end61
 
 if.then67:                                        ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %base_pos.i)
-  switch i32 %63, label %if.then71 [
-    i32 7, label %if.then.i98
-    i32 6, label %if.then2.i
-  ]
+  %switch141 = icmp eq i32 %63, 7
+  %call.i99 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.1231, ptr noundef null)
+  br i1 %switch141, label %if.then.i98, label %if.then2.i
 
 if.then.i98:                                      ; preds = %if.then67
-  %call.i99 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.1238, ptr noundef null)
   %65 = load ptr, ptr @the_repository, align 8
   %hash_algo.i.i = getelementptr inbounds i8, ptr %65, i64 256
   %66 = load ptr, ptr %hash_algo.i.i, align 8
@@ -3813,8 +3799,7 @@ if.then.i98:                                      ; preds = %if.then67
   br label %get_delta_base_oid.exit
 
 if.then2.i:                                       ; preds = %if.then67
-  %call.i.i70 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %curpos.1238, ptr noundef null)
-  %68 = load i8, ptr %call.i.i70, align 1
+  %68 = load i8, ptr %call.i99, align 1
   %69 = and i8 %68, 127
   %conv1.i.i71 = zext nneg i8 %69 to i64
   %tobool.not22.i.i72 = icmp sgt i8 %68, -1
@@ -3829,7 +3814,7 @@ while.body.i.i73:                                 ; preds = %if.then2.i, %if.end
 if.end.i.i78:                                     ; preds = %while.body.i.i73
   %inc8.i.i79 = add i32 %used.024.i.i74, 1
   %idxprom9.i.i80 = zext i32 %used.024.i.i74 to i64
-  %arrayidx10.i.i81 = getelementptr inbounds i8, ptr %call.i.i70, i64 %idxprom9.i.i80
+  %arrayidx10.i.i81 = getelementptr inbounds i8, ptr %call.i99, i64 %idxprom9.i.i80
   %70 = load i8, ptr %arrayidx10.i.i81, align 1
   %add.i.i82 = shl nuw i64 %base_offset.023.i.i75, 7
   %shl.i.i83 = add nuw i64 %add.i.i82, 128
@@ -3926,7 +3911,7 @@ get_delta_base_oid.exit:                          ; preds = %if.then.i98, %retur
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %base_pos.i)
   br label %if.end76
 
-if.then71:                                        ; preds = %while.body.i.i73, %if.end.i93, %if.then67, %if.then.i.i97, %if.end4.i.i, %while.end.i.i87
+if.then71:                                        ; preds = %while.body.i.i73, %if.end.i93, %if.then.i.i97, %if.end4.i.i, %while.end.i.i87
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %base_pos.i)
   store i32 -1, ptr %type, align 4
   br label %out
@@ -4276,11 +4261,9 @@ unpack_object_header.exit:                        ; preds = %st_add.exit.i.i, %i
 
 if.end29:                                         ; preds = %unpack_object_header.exit
   %call.i92 = call ptr @use_pack(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %add.i89, ptr noundef null)
+  %switch = icmp eq i8 %28, 6
   %34 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i8 %28, label %if.else29.i [
-    i8 6, label %if.then.i96
-    i8 7, label %get_delta_base.exit
-  ]
+  br i1 %switch, label %if.then.i96, label %get_delta_base.exit
 
 if.then.i96:                                      ; preds = %if.end29
   %35 = load i8, ptr %call.i92, align 1
@@ -4324,10 +4307,6 @@ while.end.i:                                      ; preds = %while.end.loopexit.
 get_delta_base.exit.thread190:                    ; preds = %while.end.i
   %add28.i193 = add i64 %used.0.lcssa.i, %add.i89
   br label %if.end37
-
-if.else29.i:                                      ; preds = %if.end29
-  call void (ptr, ...) @die(ptr noundef nonnull @.str.32) #22
-  unreachable
 
 get_delta_base.exit:                              ; preds = %if.end29
   %call27.i = call i64 @find_pack_entry_one(ptr noundef %call.i92, ptr noundef %p)
@@ -4418,7 +4397,7 @@ if.end69:                                         ; preds = %st_mult.exit.i, %st
   br label %for.cond
 
 for.endthread-pre-split:                          ; preds = %if.then, %if.then32
-  %delta_stack_nr.0301 = phi i32 [ %3, %if.then ], [ %34, %if.then32 ]
+  %delta_stack_nr.0294 = phi i32 [ %3, %if.then ], [ %34, %if.then32 ]
   %tobool.not181.ph = phi i1 [ false, %if.then ], [ true, %if.then32 ]
   %curpos.3.ph = phi i64 [ %curpos.0, %if.then ], [ %curpos.2189, %if.then32 ]
   %data.0.ph = phi ptr [ %5, %if.then ], [ null, %if.then32 ]
@@ -4430,7 +4409,7 @@ for.end.loopexit:                                 ; preds = %unpack_object_heade
   br label %for.end
 
 for.end:                                          ; preds = %for.end.loopexit, %for.endthread-pre-split
-  %delta_stack_nr.0300 = phi i32 [ %delta_stack_nr.0301, %for.endthread-pre-split ], [ %50, %for.end.loopexit ]
+  %delta_stack_nr.0293 = phi i32 [ %delta_stack_nr.0294, %for.endthread-pre-split ], [ %50, %for.end.loopexit ]
   %51 = phi i32 [ %.pr, %for.endthread-pre-split ], [ %conv1.i.i86, %for.end.loopexit ]
   %tobool.not181 = phi i1 [ %tobool.not181.ph, %for.endthread-pre-split ], [ true, %for.end.loopexit ]
   %curpos.3 = phi i64 [ %curpos.3.ph, %for.endthread-pre-split ], [ %add.i89, %for.end.loopexit ]
@@ -4461,17 +4440,17 @@ if.then82:                                        ; preds = %sw.bb80
   br label %sw.epilog
 
 sw.default:                                       ; preds = %for.end.thread, %for.end
-  %delta_stack_nr.0299 = phi i32 [ %32, %for.end.thread ], [ %delta_stack_nr.0300, %for.end ]
+  %delta_stack_nr.0292 = phi i32 [ %32, %for.end.thread ], [ %delta_stack_nr.0293, %for.end ]
   %53 = phi i32 [ -1, %for.end.thread ], [ %51, %for.end ]
   %pack_name85 = getelementptr inbounds i8, ptr %p, i64 240
   %call87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, i32 noundef %53, i64 noundef %curpos.0, ptr noundef nonnull %pack_name85) #18
   br label %sw.epilog
 
 sw.epilog:                                        ; preds = %sw.bb80, %if.then82, %sw.bb, %sw.default
-  %delta_stack_nr.0298 = phi i32 [ %delta_stack_nr.0299, %sw.default ], [ %delta_stack_nr.0300, %sw.bb80 ], [ %delta_stack_nr.0300, %if.then82 ], [ %delta_stack_nr.0300, %sw.bb ]
+  %delta_stack_nr.0291 = phi i32 [ %delta_stack_nr.0292, %sw.default ], [ %delta_stack_nr.0293, %sw.bb80 ], [ %delta_stack_nr.0293, %if.then82 ], [ %delta_stack_nr.0293, %sw.bb ]
   %data.1 = phi ptr [ null, %sw.default ], [ %data.0, %sw.bb80 ], [ %call83, %if.then82 ], [ null, %sw.bb ]
-  %tobool89.not264 = icmp eq i32 %delta_stack_nr.0298, 0
-  br i1 %tobool89.not264, label %while.end, label %while.body.lr.ph
+  %tobool89.not259 = icmp eq i32 %delta_stack_nr.0291, 0
+  br i1 %tobool89.not259, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %sw.epilog
   %index_data.i113 = getelementptr inbounds i8, ptr %p, i64 56
@@ -4483,32 +4462,32 @@ while.body.lr.ph:                                 ; preds = %sw.epilog
   %contentp = getelementptr inbounds i8, ptr %oi, i64 40
   %hash1.i.i.i.i = getelementptr inbounds i8, ptr %entry1.i.i.i, i64 8
   %base_offset3.i.i.i = getelementptr inbounds i8, ptr %key.i.i.i, i64 8
-  %54 = zext nneg i32 %delta_stack_nr.0298 to i64
+  %54 = zext nneg i32 %delta_stack_nr.0291 to i64
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %while.cond.backedge
-  %indvars.iv332 = phi i64 [ %54, %while.body.lr.ph ], [ %indvars.iv.next333342, %while.cond.backedge ]
-  %obj_offset.addr.1267 = phi i64 [ %curpos.0, %while.body.lr.ph ], [ %93, %while.cond.backedge ]
-  %data.2266 = phi ptr [ %data.1, %while.body.lr.ph ], [ %data.2.be, %while.cond.backedge ]
-  store ptr %data.2266, ptr %base, align 8
+  %indvars.iv322 = phi i64 [ %54, %while.body.lr.ph ], [ %indvars.iv.next323332, %while.cond.backedge ]
+  %obj_offset.addr.1262 = phi i64 [ %curpos.0, %while.body.lr.ph ], [ %93, %while.cond.backedge ]
+  %data.2261 = phi ptr [ %data.1, %while.body.lr.ph ], [ %data.2.be, %while.cond.backedge ]
+  store ptr %data.2261, ptr %base, align 8
   %55 = load i64, ptr %size, align 8
   store i64 %55, ptr %base_size, align 8
-  %tobool91.not = icmp eq ptr %data.2266, null
-  br i1 %tobool91.not, label %if.then92, label %if.end109.thread343
+  %tobool91.not = icmp eq ptr %data.2261, null
+  br i1 %tobool91.not, label %if.then92, label %if.end109.thread333
 
-if.end109.thread343:                              ; preds = %while.body
-  %indvars.iv.next333345 = add nsw i64 %indvars.iv332, -1
-  %arrayidx111346 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next333345
-  %56 = load i64, ptr %arrayidx111346, align 8
+if.end109.thread333:                              ; preds = %while.body
+  %indvars.iv.next323335 = add nsw i64 %indvars.iv322, -1
+  %arrayidx111336 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323335
+  %56 = load i64, ptr %arrayidx111336, align 8
   br label %if.end121
 
 if.then92:                                        ; preds = %while.body
-  %call93 = call i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %obj_offset.addr.1267, ptr noundef nonnull %pos) #18
+  %call93 = call i32 @offset_to_pack_pos(ptr noundef %p, i64 noundef %obj_offset.addr.1262, ptr noundef nonnull %pos) #18
   %tobool94.not = icmp eq i32 %call93, 0
   br i1 %tobool94.not, label %if.then95, label %if.then92.if.end109_crit_edge
 
 if.then92.if.end109_crit_edge:                    ; preds = %if.then92
-  %.pre335 = load ptr, ptr %base, align 8
+  %.pre325 = load ptr, ptr %base, align 8
   br label %if.end109
 
 if.then95:                                        ; preds = %if.then92
@@ -4578,7 +4557,7 @@ return.sink.split.i131:                           ; preds = %if.else.i126, %if.t
 
 nth_packed_object_id.exit150:                     ; preds = %if.then.i146, %if.end4.i117, %return.sink.split.i131
   %call98 = call ptr @oid_to_hex(ptr noundef nonnull %base_oid) #18
-  %call101 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %call98, i64 noundef %obj_offset.addr.1267, ptr noundef nonnull %pack_name99) #18
+  %call101 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.38, ptr noundef %call98, i64 noundef %obj_offset.addr.1262, ptr noundef nonnull %pack_name99) #18
   %call.i152 = call i32 @oidset_insert(ptr noundef nonnull %bad_objects.i151, ptr noundef nonnull %base_oid) #18
   store ptr %type, ptr %oi, align 8
   store ptr %base_size, ptr %sizep, align 8
@@ -4593,27 +4572,27 @@ nth_packed_object_id.exit150.if.end107_crit_edge: ; preds = %nth_packed_object_i
 
 if.end109.thread:                                 ; preds = %nth_packed_object_id.exit150
   store ptr null, ptr %base, align 8
-  %indvars.iv.next333337 = add nsw i64 %indvars.iv332, -1
-  %arrayidx111338 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next333337
-  %70 = load i64, ptr %arrayidx111338, align 8
+  %indvars.iv.next323327 = add nsw i64 %indvars.iv322, -1
+  %arrayidx111328 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323327
+  %70 = load i64, ptr %arrayidx111328, align 8
   br label %while.cond.backedge
 
 if.end109:                                        ; preds = %nth_packed_object_id.exit150.if.end107_crit_edge, %if.then92.if.end109_crit_edge
-  %71 = phi ptr [ %.pre335, %if.then92.if.end109_crit_edge ], [ %.pre, %nth_packed_object_id.exit150.if.end107_crit_edge ]
+  %71 = phi ptr [ %.pre325, %if.then92.if.end109_crit_edge ], [ %.pre, %nth_packed_object_id.exit150.if.end107_crit_edge ]
   %external_base.0 = phi ptr [ null, %if.then92.if.end109_crit_edge ], [ %.pre, %nth_packed_object_id.exit150.if.end107_crit_edge ]
-  %indvars.iv.next333 = add nsw i64 %indvars.iv332, -1
-  %arrayidx111 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next333
+  %indvars.iv.next323 = add nsw i64 %indvars.iv322, -1
+  %arrayidx111 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323
   %72 = load i64, ptr %arrayidx111, align 8
   %tobool119.not = icmp eq ptr %71, null
   br i1 %tobool119.not, label %while.cond.backedge, label %if.end121
 
-if.end121:                                        ; preds = %if.end109.thread343, %if.end109
-  %73 = phi i64 [ %56, %if.end109.thread343 ], [ %72, %if.end109 ]
-  %indvars.iv.next333351 = phi i64 [ %indvars.iv.next333345, %if.end109.thread343 ], [ %indvars.iv.next333, %if.end109 ]
-  %external_base.0350 = phi ptr [ null, %if.end109.thread343 ], [ %external_base.0, %if.end109 ]
-  %.in413 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next333351, i32 1
-  %74 = load i64, ptr %.in413, align 8
-  %.in = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next333351, i32 2
+if.end121:                                        ; preds = %if.end109.thread333, %if.end109
+  %73 = phi i64 [ %56, %if.end109.thread333 ], [ %72, %if.end109 ]
+  %indvars.iv.next323341 = phi i64 [ %indvars.iv.next323335, %if.end109.thread333 ], [ %indvars.iv.next323, %if.end109 ]
+  %external_base.0340 = phi ptr [ null, %if.end109.thread333 ], [ %external_base.0, %if.end109 ]
+  %.in397 = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323341, i32 1
+  %74 = load i64, ptr %.in397, align 8
+  %.in = getelementptr inbounds %struct.unpack_entry_stack_ent, ptr %delta_stack.0, i64 %indvars.iv.next323341, i32 2
   %75 = load i64, ptr %.in, align 8
   %call122 = call fastcc ptr @unpack_compressed_entry(ptr noundef %p, ptr noundef nonnull %w_curs, i64 noundef %74, i64 noundef %75)
   %tobool123.not = icmp eq ptr %call122, null
@@ -4636,7 +4615,7 @@ if.then132:                                       ; preds = %if.else129
 
 if.end136:                                        ; preds = %if.else129, %if.then132, %if.then124
   %data.3 = phi ptr [ %call130, %if.else129 ], [ null, %if.then132 ], [ null, %if.then124 ]
-  %tobool137.not = icmp eq ptr %external_base.0350, null
+  %tobool137.not = icmp eq ptr %external_base.0340, null
   br i1 %tobool137.not, label %if.then138, label %if.end139
 
 if.then138:                                       ; preds = %if.end136
@@ -4655,7 +4634,7 @@ in_delta_base_cache.exit.thread.i:                ; preds = %if.then138
   br label %if.end.i154
 
 in_delta_base_cache.exit.i:                       ; preds = %if.then138
-  %conv1.i.i.i.i = trunc i64 %obj_offset.addr.1267 to i32
+  %conv1.i.i.i.i = trunc i64 %obj_offset.addr.1262 to i32
   %add.i.i.i.i = add i32 %conv1.i.i.i.i, %conv.i.i
   %shr.i.i.i.i = lshr i32 %add.i.i.i.i, 8
   %shr2.i.i.i.i = lshr i32 %add.i.i.i.i, 16
@@ -4664,7 +4643,7 @@ in_delta_base_cache.exit.i:                       ; preds = %if.then138
   store i32 %add4.i.i.i.i, ptr %hash1.i.i.i.i, align 8
   store ptr null, ptr %entry1.i.i.i, align 8
   store ptr %p, ptr %key.i.i.i, align 8
-  store i64 %obj_offset.addr.1267, ptr %base_offset3.i.i.i, align 8
+  store i64 %obj_offset.addr.1262, ptr %base_offset3.i.i.i, align 8
   %call4.i.i.i = call ptr @hashmap_get(ptr noundef nonnull @delta_base_cache, ptr noundef nonnull %entry1.i.i.i, ptr noundef nonnull %key.i.i.i) #18
   %.not.i = icmp eq ptr %call4.i.i.i, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %entry1.i.i.i)
@@ -4718,7 +4697,7 @@ for.end.i:                                        ; preds = %if.end3.i, %for.bod
   %key.i156 = getelementptr inbounds i8, ptr %call5.i, i64 16
   store ptr %p, ptr %key.i156, align 8
   %base_offset8.i = getelementptr inbounds i8, ptr %call5.i, i64 24
-  store i64 %obj_offset.addr.1267, ptr %base_offset8.i, align 8
+  store i64 %obj_offset.addr.1262, ptr %base_offset8.i, align 8
   %type9.i = getelementptr inbounds i8, ptr %call5.i, i64 64
   store i32 %80, ptr %type9.i, align 8
   %data.i = getelementptr inbounds i8, ptr %call5.i, i64 48
@@ -4742,7 +4721,7 @@ if.then12.i:                                      ; preds = %for.end.i
   br label %if.end13.i
 
 if.end13.i:                                       ; preds = %if.then12.i, %for.end.i
-  %conv1.i.i159 = trunc i64 %obj_offset.addr.1267 to i32
+  %conv1.i.i159 = trunc i64 %obj_offset.addr.1262 to i32
   %add.i.i160 = add i32 %conv1.i.i159, %conv.i.i
   %shr.i.i161 = lshr i32 %add.i.i160, 8
   %shr2.i.i162 = lshr i32 %add.i.i160, 16
@@ -4756,14 +4735,14 @@ if.end13.i:                                       ; preds = %if.then12.i, %for.e
 
 if.end139:                                        ; preds = %if.end13.i, %if.then.i153, %if.end136
   call void @free(ptr noundef %call122) #18
-  call void @free(ptr noundef %external_base.0350) #18
+  call void @free(ptr noundef %external_base.0340) #18
   br label %while.cond.backedge
 
 while.cond.backedge:                              ; preds = %if.end109.thread, %if.end139, %if.end109
   %93 = phi i64 [ %73, %if.end139 ], [ %72, %if.end109 ], [ %70, %if.end109.thread ]
-  %indvars.iv.next333342 = phi i64 [ %indvars.iv.next333351, %if.end139 ], [ %indvars.iv.next333, %if.end109 ], [ %indvars.iv.next333337, %if.end109.thread ]
+  %indvars.iv.next323332 = phi i64 [ %indvars.iv.next323341, %if.end139 ], [ %indvars.iv.next323, %if.end109 ], [ %indvars.iv.next323327, %if.end109.thread ]
   %data.2.be = phi ptr [ %data.3, %if.end139 ], [ null, %if.end109 ], [ null, %if.end109.thread ]
-  %94 = icmp eq i64 %indvars.iv.next333342, 0
+  %94 = icmp eq i64 %indvars.iv.next323332, 0
   br i1 %94, label %while.end, label %while.body, !llvm.loop !39
 
 while.end:                                        ; preds = %while.cond.backedge, %sw.epilog

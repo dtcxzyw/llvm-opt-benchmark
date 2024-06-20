@@ -53396,8 +53396,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %1804 = getelementptr inbounds i8, ptr %.val3483, i64 42
   %1805 = load i8, ptr %1804, align 2, !noundef !4
   %1806 = and i8 %1805, 72
-  %or.cond11118 = icmp eq i8 %1806, 72
-  br i1 %or.cond11118, label %1807, label %1800
+  %or.cond11119 = icmp eq i8 %1806, 72
+  br i1 %or.cond11119, label %1807, label %1800
 
 1807:                                             ; preds = %1802
   %.sroa.277.8.extract.trunc7227 = trunc i64 %.sroa.277.0.copyload to i32
@@ -53640,8 +53640,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69151.0.copyload = load i32, ptr %.sroa.69151.0..sroa_idx, align 4
   %1898 = icmp eq i8 %.sroa.09148.0.copyload, 30
   %1899 = icmp eq i8 %.sroa.59149.0.copyload, -97
-  %or.cond11119 = select i1 %1898, i1 %1899, i1 false
-  br i1 %or.cond11119, label %1900, label %1862
+  %or.cond11120 = select i1 %1898, i1 %1899, i1 false
+  br i1 %or.cond11120, label %1900, label %1862
 
 1900:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4459"
   %1901 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1826, i32 noundef %.sroa.69151.0.copyload)
@@ -53752,8 +53752,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69159.0.copyload = load i32, ptr %.sroa.69159.0..sroa_idx, align 4
   %1943 = icmp eq i8 %.sroa.09156.0.copyload, 30
   %1944 = icmp eq i8 %.sroa.59157.0.copyload, -96
-  %or.cond11120 = select i1 %1943, i1 %1944, i1 false
-  br i1 %or.cond11120, label %1945, label %1862
+  %or.cond11121 = select i1 %1943, i1 %1944, i1 false
+  br i1 %or.cond11121, label %1945, label %1862
 
 1945:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4466"
   %1946 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1827, i32 noundef %.sroa.69159.0.copyload)
@@ -53864,8 +53864,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69167.0.copyload = load i32, ptr %.sroa.69167.0..sroa_idx, align 4
   %1988 = icmp eq i8 %.sroa.09164.0.copyload, 30
   %1989 = icmp eq i8 %.sroa.59165.0.copyload, -95
-  %or.cond11121 = select i1 %1988, i1 %1989, i1 false
-  br i1 %or.cond11121, label %1990, label %1862
+  %or.cond11122 = select i1 %1988, i1 %1989, i1 false
+  br i1 %or.cond11122, label %1990, label %1862
 
 1990:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4473"
   %1991 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1828, i32 noundef %.sroa.69167.0.copyload)
@@ -53976,8 +53976,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69175.0.copyload = load i32, ptr %.sroa.69175.0..sroa_idx, align 4
   %2033 = icmp eq i8 %.sroa.09172.0.copyload, 30
   %2034 = icmp eq i8 %.sroa.59173.0.copyload, -94
-  %or.cond11122 = select i1 %2033, i1 %2034, i1 false
-  br i1 %or.cond11122, label %2035, label %1862
+  %or.cond11123 = select i1 %2033, i1 %2034, i1 false
+  br i1 %or.cond11123, label %2035, label %1862
 
 2035:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4480"
   %2036 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1829, i32 noundef %.sroa.69175.0.copyload)
@@ -54290,8 +54290,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69194.0.copyload = load i32, ptr %.sroa.69194.0..sroa_idx, align 4
   %2140 = icmp eq i8 %.sroa.09191.0.copyload, 30
   %2141 = icmp eq i8 %.sroa.59192.0.copyload, -97
-  %or.cond11123 = select i1 %2140, i1 %2141, i1 false
-  br i1 %or.cond11123, label %2142, label %2097
+  %or.cond11124 = select i1 %2140, i1 %2141, i1 false
+  br i1 %or.cond11124, label %2142, label %2097
 
 2142:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4511"
   %2143 = getelementptr inbounds i8, ptr %1, i64 8
@@ -54401,8 +54401,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69202.0.copyload = load i32, ptr %.sroa.69202.0..sroa_idx, align 4
   %2186 = icmp eq i8 %.sroa.09199.0.copyload, 30
   %2187 = icmp eq i8 %.sroa.59200.0.copyload, -96
-  %or.cond11124 = select i1 %2186, i1 %2187, i1 false
-  br i1 %or.cond11124, label %2188, label %2097
+  %or.cond11125 = select i1 %2186, i1 %2187, i1 false
+  br i1 %or.cond11125, label %2188, label %2097
 
 2188:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4516"
   %2189 = getelementptr inbounds i8, ptr %1, i64 8
@@ -54512,8 +54512,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69210.0.copyload = load i32, ptr %.sroa.69210.0..sroa_idx, align 4
   %2232 = icmp eq i8 %.sroa.09207.0.copyload, 30
   %2233 = icmp eq i8 %.sroa.59208.0.copyload, -95
-  %or.cond11125 = select i1 %2232, i1 %2233, i1 false
-  br i1 %or.cond11125, label %2234, label %2097
+  %or.cond11126 = select i1 %2232, i1 %2233, i1 false
+  br i1 %or.cond11126, label %2234, label %2097
 
 2234:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4521"
   %2235 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1833, i32 noundef %.sroa.69210.0.copyload)
@@ -54614,8 +54614,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69218.0.copyload = load i32, ptr %.sroa.69218.0..sroa_idx, align 4
   %2273 = icmp eq i8 %.sroa.09215.0.copyload, 30
   %2274 = icmp eq i8 %.sroa.59216.0.copyload, -94
-  %or.cond11126 = select i1 %2273, i1 %2274, i1 false
-  br i1 %or.cond11126, label %2275, label %2097
+  %or.cond11127 = select i1 %2273, i1 %2274, i1 false
+  br i1 %or.cond11127, label %2275, label %2097
 
 2275:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4526"
   %2276 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1834, i32 noundef %.sroa.69218.0.copyload)
@@ -55320,8 +55320,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69298.0.copyload = load i64, ptr %.sroa.69298.0..sroa_idx, align 8
   %2521 = icmp eq i8 %.sroa.09295.0.copyload, 35
   %2522 = icmp eq i8 %.sroa.59296.0.copyload, 61
-  %or.cond11127 = select i1 %2521, i1 %2522, i1 false
-  br i1 %or.cond11127, label %2528, label %2523
+  %or.cond11128 = select i1 %2521, i1 %2522, i1 false
+  br i1 %or.cond11128, label %2528, label %2523
 
 2523:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4605", %.split1440, %1202
   %.val2030 = phi ptr [ %.val2030.pre11293, %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4605" ], [ %.val2030.pre, %.split1440 ], [ %.val2030.pre11293, %1202 ]
@@ -55792,8 +55792,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %2701 = icmp eq i8 %.sroa.59321.0.copyload, 61
   %or.cond1687 = select i1 %2700, i1 %2701, i1 false
   %2702 = icmp eq i64 %.sroa.69323.0.copyload, 1
-  %or.cond11128 = select i1 %or.cond1687, i1 %2702, i1 false
-  br i1 %or.cond11128, label %2703, label %2661
+  %or.cond11129 = select i1 %or.cond1687, i1 %2702, i1 false
+  br i1 %or.cond11129, label %2703, label %2661
 
 2703:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4615"
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %796)
@@ -57349,14 +57349,14 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %3229 = getelementptr inbounds i8, ptr %.val3482, i64 42
   %3230 = load i8, ptr %3229, align 2, !noundef !4
   %3231 = and i8 %3230, 80
-  %or.cond11130 = icmp eq i8 %3231, 80
+  %or.cond11131 = icmp eq i8 %3231, 80
   %.sroa.277.8.extract.trunc7111 = trunc i64 %.sroa.277.0.copyload to i32
   %.val2679 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %3232 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val2679, i32 noundef %.sroa.277.8.extract.trunc7111)
   %3233 = extractvalue { i32, i32 } %3232, 0
   %3234 = icmp eq i32 %3233, 1
   %.val2352.pre = load ptr, ptr %1, align 8
-  br i1 %or.cond11130, label %3236, label %3235
+  br i1 %or.cond11131, label %3236, label %3235
 
 3235:                                             ; preds = %3227
   br i1 %3234, label %3237, label %3251
@@ -58611,8 +58611,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69635.0.copyload = load i32, ptr %.sroa.69635.0..sroa_idx, align 4
   %3631 = icmp eq i8 %.sroa.09632.0.copyload, 31
   %3632 = icmp eq i8 %.sroa.59633.0.copyload, 64
-  %or.cond11131 = select i1 %3631, i1 %3632, i1 false
-  br i1 %or.cond11131, label %3633, label %1009
+  %or.cond11132 = select i1 %3631, i1 %3632, i1 false
+  br i1 %or.cond11132, label %3633, label %1009
 
 3633:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4926"
   %3634 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val1848, i32 noundef %.sroa.47.0.copyload)
@@ -58874,8 +58874,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69660.0.copyload = load i32, ptr %.sroa.69660.0..sroa_idx, align 4
   %3737 = icmp eq i8 %.sroa.09657.0.copyload, 31
   %3738 = icmp eq i8 %.sroa.59658.0.copyload, 64
-  %or.cond11132 = select i1 %3737, i1 %3738, i1 false
-  br i1 %or.cond11132, label %3739, label %1009
+  %or.cond11133 = select i1 %3737, i1 %3738, i1 false
+  br i1 %or.cond11133, label %3739, label %1009
 
 3739:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4948"
   %3740 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val1850, i32 noundef %.sroa.47.0.copyload)
@@ -58911,8 +58911,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69665.0.copyload = load i32, ptr %.sroa.69665.0..sroa_idx, align 4
   %3755 = icmp eq i8 %.sroa.09662.0.copyload, 30
   %3756 = icmp eq i8 %.sroa.59663.0.copyload, -83
-  %or.cond11133 = select i1 %3755, i1 %3756, i1 false
-  br i1 %or.cond11133, label %3757, label %1009
+  %or.cond11134 = select i1 %3755, i1 %3756, i1 false
+  br i1 %or.cond11134, label %3757, label %1009
 
 3757:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4949"
   %3758 = tail call fastcc noundef i16 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10value_type17hb1a8945d70d38f07E"(ptr nonnull %.val1851, i32 noundef %.sroa.69665.0.copyload)
@@ -59486,8 +59486,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69714.0.copyload = load i32, ptr %.sroa.69714.0..sroa_idx, align 4
   %3965 = icmp eq i8 %.sroa.09711.0.copyload, 30
   %3966 = icmp eq i8 %.sroa.59712.0.copyload, -97
-  %or.cond11134 = select i1 %3965, i1 %3966, i1 false
-  br i1 %or.cond11134, label %3967, label %3921
+  %or.cond11135 = select i1 %3965, i1 %3966, i1 false
+  br i1 %or.cond11135, label %3967, label %3921
 
 3967:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4997"
   %3968 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val1857, i32 noundef %.sroa.79709.0.copyload)
@@ -59523,8 +59523,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.sroa.69719.0.copyload = load i32, ptr %.sroa.69719.0..sroa_idx, align 4
   %3983 = icmp eq i8 %.sroa.09716.0.copyload, 30
   %3984 = icmp eq i8 %.sroa.59717.0.copyload, -97
-  %or.cond11135 = select i1 %3983, i1 %3984, i1 false
-  br i1 %or.cond11135, label %3985, label %3921
+  %or.cond11136 = select i1 %3983, i1 %3984, i1 false
+  br i1 %or.cond11136, label %3985, label %3921
 
 3985:                                             ; preds = %"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$9inst_data17hefe2b43fa409b04cE.exit4998"
   %3986 = tail call fastcc { i32, i32 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$8def_inst17h9c23bec4e91a98abE"(ptr nonnull %.val1858, i32 noundef %.sroa.79704.0.copyload)
@@ -59978,7 +59978,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
 
 4160:                                             ; preds = %4134
   %4161 = and i8 %.sroa.5.0.copyload, 1
-  %switch11136.not.not = icmp eq i8 %4161, 0
+  %switch11137.not.not = icmp eq i8 %4161, 0
   %.val2421 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %4162 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$10put_in_reg17h4b51590b1f6dc19dE"(ptr %.val2421, i32 noundef %.sroa.47.0.copyload)
   %4163 = tail call fastcc noundef i32 @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$7xmm_new17hbdf34719e2fbeb47E"(i32 noundef %4162)
@@ -59986,7 +59986,7 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %.val3947 = load ptr, ptr %1, align 8
   %.val3948 = load ptr, ptr %4135, align 8, !nonnull !4, !align !17, !noundef !4
   %4165 = tail call fastcc noundef i32 @_ZN17cranelift_codegen3isa3x645lower4isle14generated_code22constructor_x64_pextrw17h5590f49a15804f1bE(ptr %.val3947, ptr nonnull %.val3948, i32 noundef %4162, i8 noundef %4164)
-  br i1 %switch11136.not.not, label %4171, label %4173
+  br i1 %switch11137.not.not, label %4171, label %4173
 
 4166:                                             ; preds = %4134
   %.val2420 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4

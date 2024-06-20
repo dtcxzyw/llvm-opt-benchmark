@@ -924,8 +924,8 @@ define internal fastcc void @i9xx_pipe_crc_auto_source(ptr noundef %0, i32 nound
   %20 = load i32, ptr %19, align 8
   switch i32 %20, label %41 [
     i32 5, label %21
-    i32 8, label %22
     i32 7, label %22
+    i32 8, label %22
   ]
 
 21:                                               ; preds = %18
@@ -978,7 +978,7 @@ define internal fastcc void @i9xx_pipe_crc_auto_source(ptr noundef %0, i32 nound
   tail call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #6, !srcloc !22
   br label %41
 
-41:                                               ; preds = %18, %37, %27, %26, %25, %21, %14, %9
+41:                                               ; preds = %37, %27, %26, %25, %21, %18, %14, %9
   %42 = load ptr, ptr %10, align 8
   %43 = icmp eq ptr %42, %4
   br i1 %43, label %.loopexit, label %9, !llvm.loop !23

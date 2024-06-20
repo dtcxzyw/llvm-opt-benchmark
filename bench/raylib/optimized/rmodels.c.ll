@@ -9519,8 +9519,8 @@ cgltf_num_components.exit:                        ; preds = %6, %switch.lookup
   switch i32 %2, label %.preheader.split [
     i32 1, label %cgltf_component_size.exit
     i32 2, label %cgltf_component_size.exit
-    i32 3, label %243
-    i32 4, label %243
+    i32 3, label %187
+    i32 4, label %187
     i32 6, label %cgltf_component_read_float.exit226.us
     i32 5, label %.preheader.split.fold.split
   ]
@@ -9528,722 +9528,597 @@ cgltf_num_components.exit:                        ; preds = %6, %switch.lookup
 cgltf_component_size.exit:                        ; preds = %10, %10
   switch i32 %1, label %.preheader.split [
     i32 5, label %11
-    i32 6, label %82
+    i32 6, label %62
   ]
 
 11:                                               ; preds = %cgltf_component_size.exit
   %.not.i = icmp eq i32 %3, 0
-  br i1 %.not.i, label %17, label %12
+  %switch629 = icmp eq i32 %2, 2
+  %12 = load i8, ptr %0, align 1
+  %13 = getelementptr inbounds i8, ptr %0, i64 1
+  %14 = getelementptr inbounds i8, ptr %4, i64 4
+  %15 = getelementptr inbounds i8, ptr %0, i64 4
+  %16 = getelementptr inbounds i8, ptr %4, i64 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 5
+  br i1 %.not.i, label %31, label %18
 
-12:                                               ; preds = %11
-  switch i32 %2, label %21 [
-    i32 2, label %36
-    i32 1, label %13
-  ]
+18:                                               ; preds = %11
+  br i1 %switch629, label %40, label %19
 
-13:                                               ; preds = %12
-  %14 = load i8, ptr %0, align 1
-  %15 = sitofp i8 %14 to float
-  %16 = fdiv float %15, 1.270000e+02
-  br label %21
-
-17:                                               ; preds = %11
-  switch i32 %2, label %54 [
-    i32 2, label %66
-    i32 1, label %18
-  ]
-
-18:                                               ; preds = %17
-  %19 = load i8, ptr %0, align 1
-  %20 = sitofp i8 %19 to float
-  br label %54
-
-21:                                               ; preds = %13, %12
-  %.0.i116.ph.ph = phi float [ %16, %13 ], [ 0.000000e+00, %12 ]
-  store float %.0.i116.ph.ph, ptr %4, align 4
-  %22 = getelementptr inbounds i8, ptr %0, i64 1
-  %23 = load i8, ptr %22, align 1
-  %24 = sitofp i8 %23 to float
-  %25 = fdiv float %24, 1.270000e+02
-  %26 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %25, ptr %26, align 4
-  %27 = getelementptr inbounds i8, ptr %0, i64 4
-  %28 = load i8, ptr %27, align 1
+19:                                               ; preds = %18
+  %20 = sitofp i8 %12 to float
+  %21 = fdiv float %20, 1.270000e+02
+  store float %21, ptr %4, align 4
+  %22 = load i8, ptr %13, align 1
+  %23 = sitofp i8 %22 to float
+  %24 = fdiv float %23, 1.270000e+02
+  store float %24, ptr %14, align 4
+  %25 = load i8, ptr %15, align 1
+  %26 = sitofp i8 %25 to float
+  %27 = fdiv float %26, 1.270000e+02
+  store float %27, ptr %16, align 4
+  %28 = load i8, ptr %17, align 1
   %29 = sitofp i8 %28 to float
   %30 = fdiv float %29, 1.270000e+02
-  %31 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %30, ptr %31, align 4
-  %32 = getelementptr inbounds i8, ptr %0, i64 5
-  %33 = load i8, ptr %32, align 1
-  %34 = sitofp i8 %33 to float
-  %35 = fdiv float %34, 1.270000e+02
   br label %cgltf_component_read_float.exit131
 
-36:                                               ; preds = %12
-  %37 = load i8, ptr %0, align 1
-  %38 = uitofp i8 %37 to float
-  %39 = fdiv float %38, 2.550000e+02
-  store float %39, ptr %4, align 4
-  %40 = getelementptr inbounds i8, ptr %0, i64 1
-  %41 = load i8, ptr %40, align 1
-  %42 = uitofp i8 %41 to float
-  %43 = fdiv float %42, 2.550000e+02
-  %44 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %43, ptr %44, align 4
-  %45 = getelementptr inbounds i8, ptr %0, i64 4
-  %46 = load i8, ptr %45, align 1
+31:                                               ; preds = %11
+  br i1 %switch629, label %52, label %32
+
+32:                                               ; preds = %31
+  %33 = sitofp i8 %12 to float
+  store float %33, ptr %4, align 4
+  %34 = load i8, ptr %13, align 1
+  %35 = sitofp i8 %34 to float
+  store float %35, ptr %14, align 4
+  %36 = load i8, ptr %15, align 1
+  %37 = sitofp i8 %36 to float
+  store float %37, ptr %16, align 4
+  %38 = load i8, ptr %17, align 1
+  %39 = sext i8 %38 to i64
+  br label %cgltf_component_read_integer.exit.i129
+
+40:                                               ; preds = %18
+  %41 = uitofp i8 %12 to float
+  %42 = fdiv float %41, 2.550000e+02
+  store float %42, ptr %4, align 4
+  %43 = load i8, ptr %13, align 1
+  %44 = uitofp i8 %43 to float
+  %45 = fdiv float %44, 2.550000e+02
+  store float %45, ptr %14, align 4
+  %46 = load i8, ptr %15, align 1
   %47 = uitofp i8 %46 to float
   %48 = fdiv float %47, 2.550000e+02
-  %49 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %48, ptr %49, align 4
-  %50 = getelementptr inbounds i8, ptr %0, i64 5
-  %51 = load i8, ptr %50, align 1
-  %52 = uitofp i8 %51 to float
-  %53 = fdiv float %52, 2.550000e+02
+  store float %48, ptr %16, align 4
+  %49 = load i8, ptr %17, align 1
+  %50 = uitofp i8 %49 to float
+  %51 = fdiv float %50, 2.550000e+02
   br label %cgltf_component_read_float.exit131
 
-54:                                               ; preds = %18, %17
-  %.0.i.i.ph = phi float [ 0.000000e+00, %17 ], [ %20, %18 ]
-  store float %.0.i.i.ph, ptr %4, align 4
-  %55 = getelementptr inbounds i8, ptr %0, i64 1
-  %56 = load i8, ptr %55, align 1
-  %57 = sitofp i8 %56 to float
-  %58 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %57, ptr %58, align 4
-  %59 = getelementptr inbounds i8, ptr %0, i64 4
-  %60 = load i8, ptr %59, align 1
-  %61 = sitofp i8 %60 to float
-  %62 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %61, ptr %62, align 4
-  %63 = getelementptr inbounds i8, ptr %0, i64 5
-  %64 = load i8, ptr %63, align 1
-  %65 = sext i8 %64 to i64
+52:                                               ; preds = %31
+  %53 = uitofp i8 %12 to float
+  store float %53, ptr %4, align 4
+  %54 = load i8, ptr %13, align 1
+  %55 = uitofp i8 %54 to float
+  store float %55, ptr %14, align 4
+  %56 = load i8, ptr %15, align 1
+  %57 = uitofp i8 %56 to float
+  store float %57, ptr %16, align 4
+  %58 = load i8, ptr %17, align 1
+  %59 = zext i8 %58 to i64
   br label %cgltf_component_read_integer.exit.i129
 
-66:                                               ; preds = %17
-  %67 = load i8, ptr %0, align 1
-  %68 = uitofp i8 %67 to float
-  store float %68, ptr %4, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = uitofp i8 %70 to float
-  %72 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %71, ptr %72, align 4
-  %73 = getelementptr inbounds i8, ptr %0, i64 4
-  %74 = load i8, ptr %73, align 1
-  %75 = uitofp i8 %74 to float
-  %76 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %75, ptr %76, align 4
-  %77 = getelementptr inbounds i8, ptr %0, i64 5
-  %78 = load i8, ptr %77, align 1
-  %79 = zext i8 %78 to i64
-  br label %cgltf_component_read_integer.exit.i129
-
-cgltf_component_read_integer.exit.i129:           ; preds = %66, %54
-  %.0.i.i130 = phi i64 [ %79, %66 ], [ %65, %54 ]
-  %80 = sitofp i64 %.0.i.i130 to float
+cgltf_component_read_integer.exit.i129:           ; preds = %52, %32
+  %.0.i.i130 = phi i64 [ %59, %52 ], [ %39, %32 ]
+  %60 = sitofp i64 %.0.i.i130 to float
   br label %cgltf_component_read_float.exit131
 
-cgltf_component_read_float.exit131:               ; preds = %21, %36, %cgltf_component_read_integer.exit.i129
-  %.0.i128 = phi float [ %53, %36 ], [ %35, %21 ], [ %80, %cgltf_component_read_integer.exit.i129 ]
-  %81 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %.0.i128, ptr %81, align 4
+cgltf_component_read_float.exit131:               ; preds = %19, %40, %cgltf_component_read_integer.exit.i129
+  %.0.i128 = phi float [ %51, %40 ], [ %30, %19 ], [ %60, %cgltf_component_read_integer.exit.i129 ]
+  %61 = getelementptr inbounds i8, ptr %4, i64 12
+  store float %.0.i128, ptr %61, align 4
   br label %.loopexit
 
-82:                                               ; preds = %cgltf_component_size.exit
+62:                                               ; preds = %cgltf_component_size.exit
   %.not.i132 = icmp eq i32 %3, 0
-  br i1 %.not.i132, label %88, label %83
+  %switch634 = icmp eq i32 %2, 2
+  %63 = load i8, ptr %0, align 1
+  %64 = getelementptr inbounds i8, ptr %0, i64 1
+  %65 = getelementptr inbounds i8, ptr %4, i64 4
+  %66 = getelementptr inbounds i8, ptr %0, i64 2
+  %67 = getelementptr inbounds i8, ptr %4, i64 8
+  %68 = getelementptr inbounds i8, ptr %0, i64 4
+  %69 = getelementptr inbounds i8, ptr %4, i64 12
+  %70 = getelementptr inbounds i8, ptr %0, i64 5
+  %71 = getelementptr inbounds i8, ptr %4, i64 16
+  %72 = getelementptr inbounds i8, ptr %0, i64 6
+  br i1 %.not.i132, label %107, label %73
 
-83:                                               ; preds = %82
-  switch i32 %2, label %92 [
-    i32 2, label %132
-    i32 1, label %84
-  ]
+73:                                               ; preds = %62
+  br i1 %switch634, label %132, label %74
 
-84:                                               ; preds = %83
-  %85 = load i8, ptr %0, align 1
-  %86 = sitofp i8 %85 to float
-  %87 = fdiv float %86, 1.270000e+02
-  br label %92
-
-88:                                               ; preds = %82
-  switch i32 %2, label %175 [
-    i32 2, label %207
-    i32 1, label %89
-  ]
-
-89:                                               ; preds = %88
-  %90 = load i8, ptr %0, align 1
-  %91 = sitofp i8 %90 to float
-  br label %175
-
-92:                                               ; preds = %83, %84
-  %.0.i133.ph.ph = phi float [ %87, %84 ], [ 0.000000e+00, %83 ]
-  store float %.0.i133.ph.ph, ptr %4, align 4
-  %93 = getelementptr inbounds i8, ptr %0, i64 1
+74:                                               ; preds = %73
+  %75 = sitofp i8 %63 to float
+  %76 = fdiv float %75, 1.270000e+02
+  store float %76, ptr %4, align 4
+  %77 = load i8, ptr %64, align 1
+  %78 = sitofp i8 %77 to float
+  %79 = fdiv float %78, 1.270000e+02
+  store float %79, ptr %65, align 4
+  %80 = load i8, ptr %66, align 1
+  %81 = sitofp i8 %80 to float
+  %82 = fdiv float %81, 1.270000e+02
+  store float %82, ptr %67, align 4
+  %83 = load i8, ptr %68, align 1
+  %84 = sitofp i8 %83 to float
+  %85 = fdiv float %84, 1.270000e+02
+  store float %85, ptr %69, align 4
+  %86 = load i8, ptr %70, align 1
+  %87 = sitofp i8 %86 to float
+  %88 = fdiv float %87, 1.270000e+02
+  store float %88, ptr %71, align 4
+  %89 = load i8, ptr %72, align 1
+  %90 = sitofp i8 %89 to float
+  %91 = fdiv float %90, 1.270000e+02
+  %92 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %91, ptr %92, align 4
+  %93 = getelementptr inbounds i8, ptr %0, i64 8
   %94 = load i8, ptr %93, align 1
   %95 = sitofp i8 %94 to float
   %96 = fdiv float %95, 1.270000e+02
-  %97 = getelementptr inbounds i8, ptr %4, i64 4
+  %97 = getelementptr inbounds i8, ptr %4, i64 24
   store float %96, ptr %97, align 4
-  %98 = getelementptr inbounds i8, ptr %0, i64 2
+  %98 = getelementptr inbounds i8, ptr %0, i64 9
   %99 = load i8, ptr %98, align 1
   %100 = sitofp i8 %99 to float
   %101 = fdiv float %100, 1.270000e+02
-  %102 = getelementptr inbounds i8, ptr %4, i64 8
+  %102 = getelementptr inbounds i8, ptr %4, i64 28
   store float %101, ptr %102, align 4
-  %103 = getelementptr inbounds i8, ptr %0, i64 4
+  %103 = getelementptr inbounds i8, ptr %0, i64 10
   %104 = load i8, ptr %103, align 1
   %105 = sitofp i8 %104 to float
   %106 = fdiv float %105, 1.270000e+02
-  %107 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %106, ptr %107, align 4
-  %108 = getelementptr inbounds i8, ptr %0, i64 5
-  %109 = load i8, ptr %108, align 1
-  %110 = sitofp i8 %109 to float
-  %111 = fdiv float %110, 1.270000e+02
-  %112 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %0, i64 6
-  %114 = load i8, ptr %113, align 1
-  %115 = sitofp i8 %114 to float
-  %116 = fdiv float %115, 1.270000e+02
-  %117 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %116, ptr %117, align 4
-  %118 = getelementptr inbounds i8, ptr %0, i64 8
-  %119 = load i8, ptr %118, align 1
-  %120 = sitofp i8 %119 to float
-  %121 = fdiv float %120, 1.270000e+02
-  %122 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %121, ptr %122, align 4
-  %123 = getelementptr inbounds i8, ptr %0, i64 9
-  %124 = load i8, ptr %123, align 1
-  %125 = sitofp i8 %124 to float
-  %126 = fdiv float %125, 1.270000e+02
-  %127 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %126, ptr %127, align 4
-  %128 = getelementptr inbounds i8, ptr %0, i64 10
-  %129 = load i8, ptr %128, align 1
-  %130 = sitofp i8 %129 to float
-  %131 = fdiv float %130, 1.270000e+02
   br label %cgltf_component_read_float.exit176
 
-132:                                              ; preds = %83
-  %133 = load i8, ptr %0, align 1
-  %134 = uitofp i8 %133 to float
-  %135 = fdiv float %134, 2.550000e+02
-  store float %135, ptr %4, align 4
-  %136 = getelementptr inbounds i8, ptr %0, i64 1
-  %137 = load i8, ptr %136, align 1
-  %138 = uitofp i8 %137 to float
-  %139 = fdiv float %138, 2.550000e+02
-  %140 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %139, ptr %140, align 4
-  %141 = getelementptr inbounds i8, ptr %0, i64 2
-  %142 = load i8, ptr %141, align 1
-  %143 = uitofp i8 %142 to float
-  %144 = fdiv float %143, 2.550000e+02
-  %145 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %144, ptr %145, align 4
-  %146 = getelementptr inbounds i8, ptr %0, i64 4
-  %147 = load i8, ptr %146, align 1
+107:                                              ; preds = %62
+  %108 = getelementptr inbounds i8, ptr %4, i64 20
+  %109 = getelementptr inbounds i8, ptr %0, i64 8
+  %110 = getelementptr inbounds i8, ptr %4, i64 24
+  %111 = getelementptr inbounds i8, ptr %0, i64 9
+  br i1 %switch634, label %165, label %112
+
+112:                                              ; preds = %107
+  %113 = sitofp i8 %63 to float
+  store float %113, ptr %4, align 4
+  %114 = load i8, ptr %64, align 1
+  %115 = sitofp i8 %114 to float
+  store float %115, ptr %65, align 4
+  %116 = load i8, ptr %66, align 1
+  %117 = sitofp i8 %116 to float
+  store float %117, ptr %67, align 4
+  %118 = load i8, ptr %68, align 1
+  %119 = sitofp i8 %118 to float
+  store float %119, ptr %69, align 4
+  %120 = load i8, ptr %70, align 1
+  %121 = sitofp i8 %120 to float
+  store float %121, ptr %71, align 4
+  %122 = load i8, ptr %72, align 1
+  %123 = sitofp i8 %122 to float
+  store float %123, ptr %108, align 4
+  %124 = load i8, ptr %109, align 1
+  %125 = sitofp i8 %124 to float
+  store float %125, ptr %110, align 4
+  %126 = load i8, ptr %111, align 1
+  %127 = sitofp i8 %126 to float
+  %128 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %127, ptr %128, align 4
+  %129 = getelementptr inbounds i8, ptr %0, i64 10
+  %130 = load i8, ptr %129, align 1
+  %131 = sext i8 %130 to i64
+  br label %cgltf_component_read_integer.exit.i174
+
+132:                                              ; preds = %73
+  %133 = uitofp i8 %63 to float
+  %134 = fdiv float %133, 2.550000e+02
+  store float %134, ptr %4, align 4
+  %135 = load i8, ptr %64, align 1
+  %136 = uitofp i8 %135 to float
+  %137 = fdiv float %136, 2.550000e+02
+  store float %137, ptr %65, align 4
+  %138 = load i8, ptr %66, align 1
+  %139 = uitofp i8 %138 to float
+  %140 = fdiv float %139, 2.550000e+02
+  store float %140, ptr %67, align 4
+  %141 = load i8, ptr %68, align 1
+  %142 = uitofp i8 %141 to float
+  %143 = fdiv float %142, 2.550000e+02
+  store float %143, ptr %69, align 4
+  %144 = load i8, ptr %70, align 1
+  %145 = uitofp i8 %144 to float
+  %146 = fdiv float %145, 2.550000e+02
+  store float %146, ptr %71, align 4
+  %147 = load i8, ptr %72, align 1
   %148 = uitofp i8 %147 to float
   %149 = fdiv float %148, 2.550000e+02
-  %150 = getelementptr inbounds i8, ptr %4, i64 12
+  %150 = getelementptr inbounds i8, ptr %4, i64 20
   store float %149, ptr %150, align 4
-  %151 = getelementptr inbounds i8, ptr %0, i64 5
+  %151 = getelementptr inbounds i8, ptr %0, i64 8
   %152 = load i8, ptr %151, align 1
   %153 = uitofp i8 %152 to float
   %154 = fdiv float %153, 2.550000e+02
-  %155 = getelementptr inbounds i8, ptr %4, i64 16
+  %155 = getelementptr inbounds i8, ptr %4, i64 24
   store float %154, ptr %155, align 4
-  %156 = getelementptr inbounds i8, ptr %0, i64 6
+  %156 = getelementptr inbounds i8, ptr %0, i64 9
   %157 = load i8, ptr %156, align 1
   %158 = uitofp i8 %157 to float
   %159 = fdiv float %158, 2.550000e+02
-  %160 = getelementptr inbounds i8, ptr %4, i64 20
+  %160 = getelementptr inbounds i8, ptr %4, i64 28
   store float %159, ptr %160, align 4
-  %161 = getelementptr inbounds i8, ptr %0, i64 8
+  %161 = getelementptr inbounds i8, ptr %0, i64 10
   %162 = load i8, ptr %161, align 1
   %163 = uitofp i8 %162 to float
   %164 = fdiv float %163, 2.550000e+02
-  %165 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %164, ptr %165, align 4
-  %166 = getelementptr inbounds i8, ptr %0, i64 9
-  %167 = load i8, ptr %166, align 1
+  br label %cgltf_component_read_float.exit176
+
+165:                                              ; preds = %107
+  %166 = uitofp i8 %63 to float
+  store float %166, ptr %4, align 4
+  %167 = load i8, ptr %64, align 1
   %168 = uitofp i8 %167 to float
-  %169 = fdiv float %168, 2.550000e+02
-  %170 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %169, ptr %170, align 4
-  %171 = getelementptr inbounds i8, ptr %0, i64 10
-  %172 = load i8, ptr %171, align 1
-  %173 = uitofp i8 %172 to float
-  %174 = fdiv float %173, 2.550000e+02
-  br label %cgltf_component_read_float.exit176
-
-175:                                              ; preds = %88, %89
-  %.0.i.i135.ph = phi float [ 0.000000e+00, %88 ], [ %91, %89 ]
-  store float %.0.i.i135.ph, ptr %4, align 4
-  %176 = getelementptr inbounds i8, ptr %0, i64 1
-  %177 = load i8, ptr %176, align 1
-  %178 = sitofp i8 %177 to float
-  %179 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %178, ptr %179, align 4
-  %180 = getelementptr inbounds i8, ptr %0, i64 2
-  %181 = load i8, ptr %180, align 1
-  %182 = sitofp i8 %181 to float
-  %183 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %182, ptr %183, align 4
-  %184 = getelementptr inbounds i8, ptr %0, i64 4
-  %185 = load i8, ptr %184, align 1
-  %186 = sitofp i8 %185 to float
-  %187 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %186, ptr %187, align 4
-  %188 = getelementptr inbounds i8, ptr %0, i64 5
-  %189 = load i8, ptr %188, align 1
-  %190 = sitofp i8 %189 to float
-  %191 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %190, ptr %191, align 4
-  %192 = getelementptr inbounds i8, ptr %0, i64 6
-  %193 = load i8, ptr %192, align 1
-  %194 = sitofp i8 %193 to float
-  %195 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %194, ptr %195, align 4
-  %196 = getelementptr inbounds i8, ptr %0, i64 8
-  %197 = load i8, ptr %196, align 1
-  %198 = sitofp i8 %197 to float
-  %199 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %198, ptr %199, align 4
-  %200 = getelementptr inbounds i8, ptr %0, i64 9
-  %201 = load i8, ptr %200, align 1
-  %202 = sitofp i8 %201 to float
-  %203 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %202, ptr %203, align 4
-  %204 = getelementptr inbounds i8, ptr %0, i64 10
-  %205 = load i8, ptr %204, align 1
-  %206 = sext i8 %205 to i64
+  store float %168, ptr %65, align 4
+  %169 = load i8, ptr %66, align 1
+  %170 = uitofp i8 %169 to float
+  store float %170, ptr %67, align 4
+  %171 = load i8, ptr %68, align 1
+  %172 = uitofp i8 %171 to float
+  store float %172, ptr %69, align 4
+  %173 = load i8, ptr %70, align 1
+  %174 = uitofp i8 %173 to float
+  store float %174, ptr %71, align 4
+  %175 = load i8, ptr %72, align 1
+  %176 = uitofp i8 %175 to float
+  store float %176, ptr %108, align 4
+  %177 = load i8, ptr %109, align 1
+  %178 = uitofp i8 %177 to float
+  store float %178, ptr %110, align 4
+  %179 = load i8, ptr %111, align 1
+  %180 = uitofp i8 %179 to float
+  %181 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %180, ptr %181, align 4
+  %182 = getelementptr inbounds i8, ptr %0, i64 10
+  %183 = load i8, ptr %182, align 1
+  %184 = zext i8 %183 to i64
   br label %cgltf_component_read_integer.exit.i174
 
-207:                                              ; preds = %88
-  %208 = load i8, ptr %0, align 1
-  %209 = uitofp i8 %208 to float
-  store float %209, ptr %4, align 4
-  %210 = getelementptr inbounds i8, ptr %0, i64 1
-  %211 = load i8, ptr %210, align 1
-  %212 = uitofp i8 %211 to float
-  %213 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %212, ptr %213, align 4
-  %214 = getelementptr inbounds i8, ptr %0, i64 2
-  %215 = load i8, ptr %214, align 1
-  %216 = uitofp i8 %215 to float
-  %217 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %216, ptr %217, align 4
-  %218 = getelementptr inbounds i8, ptr %0, i64 4
-  %219 = load i8, ptr %218, align 1
-  %220 = uitofp i8 %219 to float
-  %221 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %220, ptr %221, align 4
-  %222 = getelementptr inbounds i8, ptr %0, i64 5
-  %223 = load i8, ptr %222, align 1
-  %224 = uitofp i8 %223 to float
-  %225 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %224, ptr %225, align 4
-  %226 = getelementptr inbounds i8, ptr %0, i64 6
-  %227 = load i8, ptr %226, align 1
-  %228 = uitofp i8 %227 to float
-  %229 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %228, ptr %229, align 4
-  %230 = getelementptr inbounds i8, ptr %0, i64 8
-  %231 = load i8, ptr %230, align 1
-  %232 = uitofp i8 %231 to float
-  %233 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %232, ptr %233, align 4
-  %234 = getelementptr inbounds i8, ptr %0, i64 9
-  %235 = load i8, ptr %234, align 1
-  %236 = uitofp i8 %235 to float
-  %237 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %236, ptr %237, align 4
-  %238 = getelementptr inbounds i8, ptr %0, i64 10
-  %239 = load i8, ptr %238, align 1
-  %240 = zext i8 %239 to i64
-  br label %cgltf_component_read_integer.exit.i174
-
-cgltf_component_read_integer.exit.i174:           ; preds = %207, %175
-  %.0.i.i175 = phi i64 [ %240, %207 ], [ %206, %175 ]
-  %241 = sitofp i64 %.0.i.i175 to float
+cgltf_component_read_integer.exit.i174:           ; preds = %165, %112
+  %.0.i.i175 = phi i64 [ %184, %165 ], [ %131, %112 ]
+  %185 = sitofp i64 %.0.i.i175 to float
   br label %cgltf_component_read_float.exit176
 
-cgltf_component_read_float.exit176:               ; preds = %92, %132, %cgltf_component_read_integer.exit.i174
-  %.0.i173 = phi float [ %174, %132 ], [ %131, %92 ], [ %241, %cgltf_component_read_integer.exit.i174 ]
-  %242 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %.0.i173, ptr %242, align 4
+cgltf_component_read_float.exit176:               ; preds = %74, %132, %cgltf_component_read_integer.exit.i174
+  %.0.i173 = phi float [ %164, %132 ], [ %106, %74 ], [ %185, %cgltf_component_read_integer.exit.i174 ]
+  %186 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %.0.i173, ptr %186, align 4
   br label %.loopexit
 
-243:                                              ; preds = %10, %10
-  %244 = icmp eq i32 %1, 6
-  br i1 %244, label %299, label %.preheader.split
+187:                                              ; preds = %10, %10
+  %188 = icmp eq i32 %1, 6
+  br i1 %188, label %243, label %.preheader.split
 
 cgltf_component_read_float.exit226.us:            ; preds = %10, %cgltf_component_read_float.exit226.us
-  %.0625.us = phi i64 [ %249, %cgltf_component_read_float.exit226.us ], [ 0, %10 ]
-  %245 = shl nuw nsw i64 %.0625.us, 2
-  %246 = getelementptr inbounds i8, ptr %0, i64 %245
-  %247 = load float, ptr %246, align 4
-  %248 = getelementptr inbounds float, ptr %4, i64 %.0625.us
-  store float %247, ptr %248, align 4
-  %249 = add nuw nsw i64 %.0625.us, 1
-  %exitcond654.not = icmp eq i64 %249, %.0.i
-  br i1 %exitcond654.not, label %.loopexit, label %cgltf_component_read_float.exit226.us
+  %.0636.us = phi i64 [ %193, %cgltf_component_read_float.exit226.us ], [ 0, %10 ]
+  %189 = shl nuw nsw i64 %.0636.us, 2
+  %190 = getelementptr inbounds i8, ptr %0, i64 %189
+  %191 = load float, ptr %190, align 4
+  %192 = getelementptr inbounds float, ptr %4, i64 %.0636.us
+  store float %191, ptr %192, align 4
+  %193 = add nuw nsw i64 %.0636.us, 1
+  %exitcond665.not = icmp eq i64 %193, %.0.i
+  br i1 %exitcond665.not, label %.loopexit, label %cgltf_component_read_float.exit226.us
 
 .preheader.split.fold.split:                      ; preds = %10
   br label %.preheader.split
 
-.preheader.split:                                 ; preds = %10, %.preheader.split.fold.split, %cgltf_component_size.exit, %243
-  %.0.i115229287657662 = phi i64 [ 0, %10 ], [ 2, %243 ], [ 1, %cgltf_component_size.exit ], [ 4, %.preheader.split.fold.split ]
+.preheader.split:                                 ; preds = %10, %.preheader.split.fold.split, %cgltf_component_size.exit, %187
+  %.0.i115229287668673 = phi i64 [ 0, %10 ], [ 2, %187 ], [ 1, %cgltf_component_size.exit ], [ 4, %.preheader.split.fold.split ]
   %.not.i222 = icmp eq i32 %3, 0
   br i1 %.not.i222, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %cgltf_component_read_integer.exit.i224.us
-  %.0625.us626 = phi i64 [ %269, %cgltf_component_read_integer.exit.i224.us ], [ 0, %.preheader.split ]
-  %250 = mul nuw nsw i64 %.0625.us626, %.0.i115229287657662
-  %251 = getelementptr inbounds i8, ptr %0, i64 %250
+  %.0636.us637 = phi i64 [ %213, %cgltf_component_read_integer.exit.i224.us ], [ 0, %.preheader.split ]
+  %194 = mul nuw nsw i64 %.0636.us637, %.0.i115229287668673
+  %195 = getelementptr inbounds i8, ptr %0, i64 %194
   switch i32 %2, label %cgltf_component_read_integer.exit.i224.us [
-    i32 3, label %264
-    i32 4, label %261
-    i32 5, label %258
-    i32 1, label %255
-    i32 2, label %252
+    i32 3, label %208
+    i32 4, label %205
+    i32 5, label %202
+    i32 1, label %199
+    i32 2, label %196
   ]
 
-252:                                              ; preds = %.preheader.split.split.us
-  %253 = load i8, ptr %251, align 1
-  %254 = zext i8 %253 to i64
+196:                                              ; preds = %.preheader.split.split.us
+  %197 = load i8, ptr %195, align 1
+  %198 = zext i8 %197 to i64
   br label %cgltf_component_read_integer.exit.i224.us
 
-255:                                              ; preds = %.preheader.split.split.us
-  %256 = load i8, ptr %251, align 1
-  %257 = sext i8 %256 to i64
+199:                                              ; preds = %.preheader.split.split.us
+  %200 = load i8, ptr %195, align 1
+  %201 = sext i8 %200 to i64
   br label %cgltf_component_read_integer.exit.i224.us
 
-258:                                              ; preds = %.preheader.split.split.us
-  %259 = load i32, ptr %251, align 4
-  %260 = zext i32 %259 to i64
+202:                                              ; preds = %.preheader.split.split.us
+  %203 = load i32, ptr %195, align 4
+  %204 = zext i32 %203 to i64
   br label %cgltf_component_read_integer.exit.i224.us
 
-261:                                              ; preds = %.preheader.split.split.us
-  %262 = load i16, ptr %251, align 2
-  %263 = zext i16 %262 to i64
+205:                                              ; preds = %.preheader.split.split.us
+  %206 = load i16, ptr %195, align 2
+  %207 = zext i16 %206 to i64
   br label %cgltf_component_read_integer.exit.i224.us
 
-264:                                              ; preds = %.preheader.split.split.us
-  %265 = load i16, ptr %251, align 2
-  %266 = sext i16 %265 to i64
+208:                                              ; preds = %.preheader.split.split.us
+  %209 = load i16, ptr %195, align 2
+  %210 = sext i16 %209 to i64
   br label %cgltf_component_read_integer.exit.i224.us
 
-cgltf_component_read_integer.exit.i224.us:        ; preds = %264, %261, %258, %255, %252, %.preheader.split.split.us
-  %.0.i.i225.us = phi i64 [ %254, %252 ], [ %257, %255 ], [ %260, %258 ], [ %263, %261 ], [ %266, %264 ], [ 0, %.preheader.split.split.us ]
-  %267 = sitofp i64 %.0.i.i225.us to float
-  %268 = getelementptr inbounds float, ptr %4, i64 %.0625.us626
-  store float %267, ptr %268, align 4
-  %269 = add nuw nsw i64 %.0625.us626, 1
-  %exitcond653.not = icmp eq i64 %269, %.0.i
-  br i1 %exitcond653.not, label %.loopexit, label %.preheader.split.split.us
+cgltf_component_read_integer.exit.i224.us:        ; preds = %208, %205, %202, %199, %196, %.preheader.split.split.us
+  %.0.i.i225.us = phi i64 [ %198, %196 ], [ %201, %199 ], [ %204, %202 ], [ %207, %205 ], [ %210, %208 ], [ 0, %.preheader.split.split.us ]
+  %211 = sitofp i64 %.0.i.i225.us to float
+  %212 = getelementptr inbounds float, ptr %4, i64 %.0636.us637
+  store float %211, ptr %212, align 4
+  %213 = add nuw nsw i64 %.0636.us637, 1
+  %exitcond664.not = icmp eq i64 %213, %.0.i
+  br i1 %exitcond664.not, label %.loopexit, label %.preheader.split.split.us
 
 .preheader.split.split:                           ; preds = %.preheader.split
   switch i32 %2, label %cgltf_component_read_float.exit226.preheader [
-    i32 3, label %cgltf_component_read_float.exit226.us630
-    i32 4, label %cgltf_component_read_float.exit226.us634
-    i32 1, label %cgltf_component_read_float.exit226.us638
-    i32 2, label %cgltf_component_read_float.exit226.us642
+    i32 3, label %cgltf_component_read_float.exit226.us641
+    i32 4, label %cgltf_component_read_float.exit226.us645
+    i32 1, label %cgltf_component_read_float.exit226.us649
+    i32 2, label %cgltf_component_read_float.exit226.us653
   ]
 
 cgltf_component_read_float.exit226.preheader:     ; preds = %.preheader.split.split
-  %270 = shl nuw nsw i64 %.0.i, 2
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %270, i1 false)
+  %214 = shl nuw nsw i64 %.0.i, 2
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %4, i8 0, i64 %214, i1 false)
   br label %.loopexit
 
-cgltf_component_read_float.exit226.us630:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us630
-  %.0625.us629 = phi i64 [ %277, %cgltf_component_read_float.exit226.us630 ], [ 0, %.preheader.split.split ]
-  %271 = mul nuw nsw i64 %.0625.us629, %.0.i115229287657662
-  %272 = getelementptr inbounds i8, ptr %0, i64 %271
-  %273 = load i16, ptr %272, align 2
-  %274 = sitofp i16 %273 to float
-  %275 = fdiv float %274, 3.276700e+04
-  %276 = getelementptr inbounds float, ptr %4, i64 %.0625.us629
-  store float %275, ptr %276, align 4
-  %277 = add nuw nsw i64 %.0625.us629, 1
-  %exitcond652.not = icmp eq i64 %277, %.0.i
-  br i1 %exitcond652.not, label %.loopexit, label %cgltf_component_read_float.exit226.us630
+cgltf_component_read_float.exit226.us641:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us641
+  %.0636.us640 = phi i64 [ %221, %cgltf_component_read_float.exit226.us641 ], [ 0, %.preheader.split.split ]
+  %215 = mul nuw nsw i64 %.0636.us640, %.0.i115229287668673
+  %216 = getelementptr inbounds i8, ptr %0, i64 %215
+  %217 = load i16, ptr %216, align 2
+  %218 = sitofp i16 %217 to float
+  %219 = fdiv float %218, 3.276700e+04
+  %220 = getelementptr inbounds float, ptr %4, i64 %.0636.us640
+  store float %219, ptr %220, align 4
+  %221 = add nuw nsw i64 %.0636.us640, 1
+  %exitcond663.not = icmp eq i64 %221, %.0.i
+  br i1 %exitcond663.not, label %.loopexit, label %cgltf_component_read_float.exit226.us641
 
-cgltf_component_read_float.exit226.us634:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us634
-  %.0625.us633 = phi i64 [ %284, %cgltf_component_read_float.exit226.us634 ], [ 0, %.preheader.split.split ]
-  %278 = mul nuw nsw i64 %.0625.us633, %.0.i115229287657662
-  %279 = getelementptr inbounds i8, ptr %0, i64 %278
-  %280 = load i16, ptr %279, align 2
-  %281 = uitofp i16 %280 to float
-  %282 = fdiv float %281, 6.553500e+04
-  %283 = getelementptr inbounds float, ptr %4, i64 %.0625.us633
-  store float %282, ptr %283, align 4
-  %284 = add nuw nsw i64 %.0625.us633, 1
-  %exitcond651.not = icmp eq i64 %284, %.0.i
-  br i1 %exitcond651.not, label %.loopexit, label %cgltf_component_read_float.exit226.us634
+cgltf_component_read_float.exit226.us645:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us645
+  %.0636.us644 = phi i64 [ %228, %cgltf_component_read_float.exit226.us645 ], [ 0, %.preheader.split.split ]
+  %222 = mul nuw nsw i64 %.0636.us644, %.0.i115229287668673
+  %223 = getelementptr inbounds i8, ptr %0, i64 %222
+  %224 = load i16, ptr %223, align 2
+  %225 = uitofp i16 %224 to float
+  %226 = fdiv float %225, 6.553500e+04
+  %227 = getelementptr inbounds float, ptr %4, i64 %.0636.us644
+  store float %226, ptr %227, align 4
+  %228 = add nuw nsw i64 %.0636.us644, 1
+  %exitcond662.not = icmp eq i64 %228, %.0.i
+  br i1 %exitcond662.not, label %.loopexit, label %cgltf_component_read_float.exit226.us645
 
-cgltf_component_read_float.exit226.us638:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us638
-  %.0625.us637 = phi i64 [ %291, %cgltf_component_read_float.exit226.us638 ], [ 0, %.preheader.split.split ]
-  %285 = mul nuw nsw i64 %.0625.us637, %.0.i115229287657662
-  %286 = getelementptr inbounds i8, ptr %0, i64 %285
-  %287 = load i8, ptr %286, align 1
-  %288 = sitofp i8 %287 to float
-  %289 = fdiv float %288, 1.270000e+02
-  %290 = getelementptr inbounds float, ptr %4, i64 %.0625.us637
-  store float %289, ptr %290, align 4
-  %291 = add nuw nsw i64 %.0625.us637, 1
-  %exitcond650.not = icmp eq i64 %291, %.0.i
-  br i1 %exitcond650.not, label %.loopexit, label %cgltf_component_read_float.exit226.us638
+cgltf_component_read_float.exit226.us649:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us649
+  %.0636.us648 = phi i64 [ %235, %cgltf_component_read_float.exit226.us649 ], [ 0, %.preheader.split.split ]
+  %229 = mul nuw nsw i64 %.0636.us648, %.0.i115229287668673
+  %230 = getelementptr inbounds i8, ptr %0, i64 %229
+  %231 = load i8, ptr %230, align 1
+  %232 = sitofp i8 %231 to float
+  %233 = fdiv float %232, 1.270000e+02
+  %234 = getelementptr inbounds float, ptr %4, i64 %.0636.us648
+  store float %233, ptr %234, align 4
+  %235 = add nuw nsw i64 %.0636.us648, 1
+  %exitcond661.not = icmp eq i64 %235, %.0.i
+  br i1 %exitcond661.not, label %.loopexit, label %cgltf_component_read_float.exit226.us649
 
-cgltf_component_read_float.exit226.us642:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us642
-  %.0625.us641 = phi i64 [ %298, %cgltf_component_read_float.exit226.us642 ], [ 0, %.preheader.split.split ]
-  %292 = mul nuw nsw i64 %.0625.us641, %.0.i115229287657662
-  %293 = getelementptr inbounds i8, ptr %0, i64 %292
-  %294 = load i8, ptr %293, align 1
-  %295 = uitofp i8 %294 to float
-  %296 = fdiv float %295, 2.550000e+02
-  %297 = getelementptr inbounds float, ptr %4, i64 %.0625.us641
-  store float %296, ptr %297, align 4
-  %298 = add nuw nsw i64 %.0625.us641, 1
-  %exitcond.not = icmp eq i64 %298, %.0.i
-  br i1 %exitcond.not, label %.loopexit, label %cgltf_component_read_float.exit226.us642
+cgltf_component_read_float.exit226.us653:         ; preds = %.preheader.split.split, %cgltf_component_read_float.exit226.us653
+  %.0636.us652 = phi i64 [ %242, %cgltf_component_read_float.exit226.us653 ], [ 0, %.preheader.split.split ]
+  %236 = mul nuw nsw i64 %.0636.us652, %.0.i115229287668673
+  %237 = getelementptr inbounds i8, ptr %0, i64 %236
+  %238 = load i8, ptr %237, align 1
+  %239 = uitofp i8 %238 to float
+  %240 = fdiv float %239, 2.550000e+02
+  %241 = getelementptr inbounds float, ptr %4, i64 %.0636.us652
+  store float %240, ptr %241, align 4
+  %242 = add nuw nsw i64 %.0636.us652, 1
+  %exitcond.not = icmp eq i64 %242, %.0.i
+  br i1 %exitcond.not, label %.loopexit, label %cgltf_component_read_float.exit226.us653
 
-299:                                              ; preds = %243
+243:                                              ; preds = %187
   %.not.i177 = icmp eq i32 %3, 0
-  br i1 %.not.i177, label %385, label %300
+  %switch683 = icmp eq i32 %2, 3
+  %244 = load i16, ptr %0, align 2
+  %245 = getelementptr inbounds i8, ptr %0, i64 2
+  %246 = getelementptr inbounds i8, ptr %4, i64 4
+  %247 = getelementptr inbounds i8, ptr %0, i64 4
+  %248 = getelementptr inbounds i8, ptr %4, i64 8
+  %249 = getelementptr inbounds i8, ptr %0, i64 8
+  %250 = getelementptr inbounds i8, ptr %4, i64 12
+  %251 = getelementptr inbounds i8, ptr %0, i64 10
+  %252 = getelementptr inbounds i8, ptr %4, i64 16
+  %253 = getelementptr inbounds i8, ptr %0, i64 12
+  br i1 %.not.i177, label %319, label %254
 
-300:                                              ; preds = %299
-  switch i32 %2, label %452 [
-    i32 3, label %.thread439
-    i32 4, label %.thread441
-  ]
+254:                                              ; preds = %243
+  br i1 %switch683, label %.thread439, label %.thread441
 
-.thread439:                                       ; preds = %300
-  %301 = load i16, ptr %0, align 2
-  %302 = sitofp i16 %301 to float
-  %303 = fdiv float %302, 3.276700e+04
-  store float %303, ptr %4, align 4
-  %304 = getelementptr inbounds i8, ptr %0, i64 2
-  %305 = load i16, ptr %304, align 2
-  %306 = sitofp i16 %305 to float
-  %307 = fdiv float %306, 3.276700e+04
-  %308 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %307, ptr %308, align 4
-  %309 = getelementptr inbounds i8, ptr %0, i64 4
-  %310 = load i16, ptr %309, align 2
-  %311 = sitofp i16 %310 to float
-  %312 = fdiv float %311, 3.276700e+04
-  %313 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %312, ptr %313, align 4
-  %314 = getelementptr inbounds i8, ptr %0, i64 8
-  %315 = load i16, ptr %314, align 2
-  %316 = sitofp i16 %315 to float
-  %317 = fdiv float %316, 3.276700e+04
-  %318 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %317, ptr %318, align 4
-  %319 = getelementptr inbounds i8, ptr %0, i64 10
-  %320 = load i16, ptr %319, align 2
-  %321 = sitofp i16 %320 to float
-  %322 = fdiv float %321, 3.276700e+04
-  %323 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %322, ptr %323, align 4
-  %324 = getelementptr inbounds i8, ptr %0, i64 12
-  %325 = load i16, ptr %324, align 2
+.thread439:                                       ; preds = %254
+  %255 = sitofp i16 %244 to float
+  %256 = fdiv float %255, 3.276700e+04
+  store float %256, ptr %4, align 4
+  %257 = load i16, ptr %245, align 2
+  %258 = sitofp i16 %257 to float
+  %259 = fdiv float %258, 3.276700e+04
+  store float %259, ptr %246, align 4
+  %260 = load i16, ptr %247, align 2
+  %261 = sitofp i16 %260 to float
+  %262 = fdiv float %261, 3.276700e+04
+  store float %262, ptr %248, align 4
+  %263 = load i16, ptr %249, align 2
+  %264 = sitofp i16 %263 to float
+  %265 = fdiv float %264, 3.276700e+04
+  store float %265, ptr %250, align 4
+  %266 = load i16, ptr %251, align 2
+  %267 = sitofp i16 %266 to float
+  %268 = fdiv float %267, 3.276700e+04
+  store float %268, ptr %252, align 4
+  %269 = load i16, ptr %253, align 2
+  %270 = sitofp i16 %269 to float
+  %271 = fdiv float %270, 3.276700e+04
+  %272 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %271, ptr %272, align 4
+  %273 = getelementptr inbounds i8, ptr %0, i64 16
+  %274 = load i16, ptr %273, align 2
+  %275 = sitofp i16 %274 to float
+  %276 = fdiv float %275, 3.276700e+04
+  %277 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %276, ptr %277, align 4
+  %278 = getelementptr inbounds i8, ptr %0, i64 18
+  %279 = load i16, ptr %278, align 2
+  %280 = sitofp i16 %279 to float
+  %281 = fdiv float %280, 3.276700e+04
+  %282 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %281, ptr %282, align 4
+  %283 = getelementptr inbounds i8, ptr %0, i64 20
+  %284 = load i16, ptr %283, align 2
+  %285 = sitofp i16 %284 to float
+  %286 = fdiv float %285, 3.276700e+04
+  br label %cgltf_component_read_float.exit221
+
+.thread441:                                       ; preds = %254
+  %287 = uitofp i16 %244 to float
+  %288 = fdiv float %287, 6.553500e+04
+  store float %288, ptr %4, align 4
+  %289 = load i16, ptr %245, align 2
+  %290 = uitofp i16 %289 to float
+  %291 = fdiv float %290, 6.553500e+04
+  store float %291, ptr %246, align 4
+  %292 = load i16, ptr %247, align 2
+  %293 = uitofp i16 %292 to float
+  %294 = fdiv float %293, 6.553500e+04
+  store float %294, ptr %248, align 4
+  %295 = load i16, ptr %249, align 2
+  %296 = uitofp i16 %295 to float
+  %297 = fdiv float %296, 6.553500e+04
+  store float %297, ptr %250, align 4
+  %298 = load i16, ptr %251, align 2
+  %299 = uitofp i16 %298 to float
+  %300 = fdiv float %299, 6.553500e+04
+  store float %300, ptr %252, align 4
+  %301 = load i16, ptr %253, align 2
+  %302 = uitofp i16 %301 to float
+  %303 = fdiv float %302, 6.553500e+04
+  %304 = getelementptr inbounds i8, ptr %4, i64 20
+  store float %303, ptr %304, align 4
+  %305 = getelementptr inbounds i8, ptr %0, i64 16
+  %306 = load i16, ptr %305, align 2
+  %307 = uitofp i16 %306 to float
+  %308 = fdiv float %307, 6.553500e+04
+  %309 = getelementptr inbounds i8, ptr %4, i64 24
+  store float %308, ptr %309, align 4
+  %310 = getelementptr inbounds i8, ptr %0, i64 18
+  %311 = load i16, ptr %310, align 2
+  %312 = uitofp i16 %311 to float
+  %313 = fdiv float %312, 6.553500e+04
+  %314 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %313, ptr %314, align 4
+  %315 = getelementptr inbounds i8, ptr %0, i64 20
+  %316 = load i16, ptr %315, align 2
+  %317 = uitofp i16 %316 to float
+  %318 = fdiv float %317, 6.553500e+04
+  br label %cgltf_component_read_float.exit221
+
+319:                                              ; preds = %243
+  %320 = getelementptr inbounds i8, ptr %4, i64 20
+  %321 = getelementptr inbounds i8, ptr %0, i64 16
+  %322 = getelementptr inbounds i8, ptr %4, i64 24
+  %323 = getelementptr inbounds i8, ptr %0, i64 18
+  br i1 %switch683, label %.thread447, label %.thread449
+
+.thread447:                                       ; preds = %319
+  %324 = sitofp i16 %244 to float
+  store float %324, ptr %4, align 4
+  %325 = load i16, ptr %245, align 2
   %326 = sitofp i16 %325 to float
-  %327 = fdiv float %326, 3.276700e+04
-  %328 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %327, ptr %328, align 4
-  %329 = getelementptr inbounds i8, ptr %0, i64 16
-  %330 = load i16, ptr %329, align 2
-  %331 = sitofp i16 %330 to float
-  %332 = fdiv float %331, 3.276700e+04
-  %333 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %332, ptr %333, align 4
-  %334 = getelementptr inbounds i8, ptr %0, i64 18
-  %335 = load i16, ptr %334, align 2
+  store float %326, ptr %246, align 4
+  %327 = load i16, ptr %247, align 2
+  %328 = sitofp i16 %327 to float
+  store float %328, ptr %248, align 4
+  %329 = load i16, ptr %249, align 2
+  %330 = sitofp i16 %329 to float
+  store float %330, ptr %250, align 4
+  %331 = load i16, ptr %251, align 2
+  %332 = sitofp i16 %331 to float
+  store float %332, ptr %252, align 4
+  %333 = load i16, ptr %253, align 2
+  %334 = sitofp i16 %333 to float
+  store float %334, ptr %320, align 4
+  %335 = load i16, ptr %321, align 2
   %336 = sitofp i16 %335 to float
-  %337 = fdiv float %336, 3.276700e+04
-  %338 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %337, ptr %338, align 4
-  %339 = getelementptr inbounds i8, ptr %0, i64 20
-  %340 = load i16, ptr %339, align 2
-  %341 = sitofp i16 %340 to float
-  %342 = fdiv float %341, 3.276700e+04
-  br label %cgltf_component_read_float.exit221
+  store float %336, ptr %322, align 4
+  %337 = load i16, ptr %323, align 2
+  %338 = sitofp i16 %337 to float
+  %339 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %338, ptr %339, align 4
+  %340 = getelementptr inbounds i8, ptr %0, i64 20
+  %341 = load i16, ptr %340, align 2
+  %342 = sext i16 %341 to i64
+  br label %cgltf_component_read_integer.exit.i219
 
-.thread441:                                       ; preds = %300
-  %343 = load i16, ptr %0, align 2
-  %344 = uitofp i16 %343 to float
-  %345 = fdiv float %344, 6.553500e+04
-  store float %345, ptr %4, align 4
-  %346 = getelementptr inbounds i8, ptr %0, i64 2
-  %347 = load i16, ptr %346, align 2
-  %348 = uitofp i16 %347 to float
-  %349 = fdiv float %348, 6.553500e+04
-  %350 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %349, ptr %350, align 4
-  %351 = getelementptr inbounds i8, ptr %0, i64 4
-  %352 = load i16, ptr %351, align 2
+.thread449:                                       ; preds = %319
+  %343 = uitofp i16 %244 to float
+  store float %343, ptr %4, align 4
+  %344 = load i16, ptr %245, align 2
+  %345 = uitofp i16 %344 to float
+  store float %345, ptr %246, align 4
+  %346 = load i16, ptr %247, align 2
+  %347 = uitofp i16 %346 to float
+  store float %347, ptr %248, align 4
+  %348 = load i16, ptr %249, align 2
+  %349 = uitofp i16 %348 to float
+  store float %349, ptr %250, align 4
+  %350 = load i16, ptr %251, align 2
+  %351 = uitofp i16 %350 to float
+  store float %351, ptr %252, align 4
+  %352 = load i16, ptr %253, align 2
   %353 = uitofp i16 %352 to float
-  %354 = fdiv float %353, 6.553500e+04
-  %355 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %354, ptr %355, align 4
-  %356 = getelementptr inbounds i8, ptr %0, i64 8
-  %357 = load i16, ptr %356, align 2
-  %358 = uitofp i16 %357 to float
-  %359 = fdiv float %358, 6.553500e+04
-  %360 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %359, ptr %360, align 4
-  %361 = getelementptr inbounds i8, ptr %0, i64 10
-  %362 = load i16, ptr %361, align 2
-  %363 = uitofp i16 %362 to float
-  %364 = fdiv float %363, 6.553500e+04
-  %365 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %364, ptr %365, align 4
-  %366 = getelementptr inbounds i8, ptr %0, i64 12
-  %367 = load i16, ptr %366, align 2
-  %368 = uitofp i16 %367 to float
-  %369 = fdiv float %368, 6.553500e+04
-  %370 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %369, ptr %370, align 4
-  %371 = getelementptr inbounds i8, ptr %0, i64 16
-  %372 = load i16, ptr %371, align 2
-  %373 = uitofp i16 %372 to float
-  %374 = fdiv float %373, 6.553500e+04
-  %375 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %374, ptr %375, align 4
-  %376 = getelementptr inbounds i8, ptr %0, i64 18
-  %377 = load i16, ptr %376, align 2
-  %378 = uitofp i16 %377 to float
-  %379 = fdiv float %378, 6.553500e+04
-  %380 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %379, ptr %380, align 4
-  %381 = getelementptr inbounds i8, ptr %0, i64 20
-  %382 = load i16, ptr %381, align 2
-  %383 = uitofp i16 %382 to float
-  %384 = fdiv float %383, 6.553500e+04
-  br label %cgltf_component_read_float.exit221
-
-385:                                              ; preds = %299
-  switch i32 %2, label %453 [
-    i32 3, label %.thread447
-    i32 4, label %.thread449
-  ]
-
-.thread447:                                       ; preds = %385
-  %386 = load i16, ptr %0, align 2
-  %387 = sitofp i16 %386 to float
-  store float %387, ptr %4, align 4
-  %388 = getelementptr inbounds i8, ptr %0, i64 2
-  %389 = load i16, ptr %388, align 2
-  %390 = sitofp i16 %389 to float
-  %391 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %390, ptr %391, align 4
-  %392 = getelementptr inbounds i8, ptr %0, i64 4
-  %393 = load i16, ptr %392, align 2
-  %394 = sitofp i16 %393 to float
-  %395 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %394, ptr %395, align 4
-  %396 = getelementptr inbounds i8, ptr %0, i64 8
-  %397 = load i16, ptr %396, align 2
-  %398 = sitofp i16 %397 to float
-  %399 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %398, ptr %399, align 4
-  %400 = getelementptr inbounds i8, ptr %0, i64 10
-  %401 = load i16, ptr %400, align 2
-  %402 = sitofp i16 %401 to float
-  %403 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %402, ptr %403, align 4
-  %404 = getelementptr inbounds i8, ptr %0, i64 12
-  %405 = load i16, ptr %404, align 2
-  %406 = sitofp i16 %405 to float
-  %407 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %406, ptr %407, align 4
-  %408 = getelementptr inbounds i8, ptr %0, i64 16
-  %409 = load i16, ptr %408, align 2
-  %410 = sitofp i16 %409 to float
-  %411 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %410, ptr %411, align 4
-  %412 = getelementptr inbounds i8, ptr %0, i64 18
-  %413 = load i16, ptr %412, align 2
-  %414 = sitofp i16 %413 to float
-  %415 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %414, ptr %415, align 4
-  %416 = getelementptr inbounds i8, ptr %0, i64 20
-  %417 = load i16, ptr %416, align 2
-  %418 = sext i16 %417 to i64
+  store float %353, ptr %320, align 4
+  %354 = load i16, ptr %321, align 2
+  %355 = uitofp i16 %354 to float
+  store float %355, ptr %322, align 4
+  %356 = load i16, ptr %323, align 2
+  %357 = uitofp i16 %356 to float
+  %358 = getelementptr inbounds i8, ptr %4, i64 28
+  store float %357, ptr %358, align 4
+  %359 = getelementptr inbounds i8, ptr %0, i64 20
+  %360 = load i16, ptr %359, align 2
+  %361 = zext i16 %360 to i64
   br label %cgltf_component_read_integer.exit.i219
 
-.thread449:                                       ; preds = %385
-  %419 = load i16, ptr %0, align 2
-  %420 = uitofp i16 %419 to float
-  store float %420, ptr %4, align 4
-  %421 = getelementptr inbounds i8, ptr %0, i64 2
-  %422 = load i16, ptr %421, align 2
-  %423 = uitofp i16 %422 to float
-  %424 = getelementptr inbounds i8, ptr %4, i64 4
-  store float %423, ptr %424, align 4
-  %425 = getelementptr inbounds i8, ptr %0, i64 4
-  %426 = load i16, ptr %425, align 2
-  %427 = uitofp i16 %426 to float
-  %428 = getelementptr inbounds i8, ptr %4, i64 8
-  store float %427, ptr %428, align 4
-  %429 = getelementptr inbounds i8, ptr %0, i64 8
-  %430 = load i16, ptr %429, align 2
-  %431 = uitofp i16 %430 to float
-  %432 = getelementptr inbounds i8, ptr %4, i64 12
-  store float %431, ptr %432, align 4
-  %433 = getelementptr inbounds i8, ptr %0, i64 10
-  %434 = load i16, ptr %433, align 2
-  %435 = uitofp i16 %434 to float
-  %436 = getelementptr inbounds i8, ptr %4, i64 16
-  store float %435, ptr %436, align 4
-  %437 = getelementptr inbounds i8, ptr %0, i64 12
-  %438 = load i16, ptr %437, align 2
-  %439 = uitofp i16 %438 to float
-  %440 = getelementptr inbounds i8, ptr %4, i64 20
-  store float %439, ptr %440, align 4
-  %441 = getelementptr inbounds i8, ptr %0, i64 16
-  %442 = load i16, ptr %441, align 2
-  %443 = uitofp i16 %442 to float
-  %444 = getelementptr inbounds i8, ptr %4, i64 24
-  store float %443, ptr %444, align 4
-  %445 = getelementptr inbounds i8, ptr %0, i64 18
-  %446 = load i16, ptr %445, align 2
-  %447 = uitofp i16 %446 to float
-  %448 = getelementptr inbounds i8, ptr %4, i64 28
-  store float %447, ptr %448, align 4
-  %449 = getelementptr inbounds i8, ptr %0, i64 20
-  %450 = load i16, ptr %449, align 2
-  %451 = zext i16 %450 to i64
-  br label %cgltf_component_read_integer.exit.i219
-
-452:                                              ; preds = %300
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 0, i64 32, i1 false)
+cgltf_component_read_integer.exit.i219:           ; preds = %.thread449, %.thread447
+  %.0.i.i220 = phi i64 [ %361, %.thread449 ], [ %342, %.thread447 ]
+  %362 = sitofp i64 %.0.i.i220 to float
   br label %cgltf_component_read_float.exit221
 
-453:                                              ; preds = %385
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %4, i8 0, i64 32, i1 false)
-  br label %cgltf_component_read_integer.exit.i219
-
-cgltf_component_read_integer.exit.i219:           ; preds = %453, %.thread449, %.thread447
-  %.0.i.i220 = phi i64 [ %451, %.thread449 ], [ %418, %.thread447 ], [ 0, %453 ]
-  %454 = sitofp i64 %.0.i.i220 to float
-  br label %cgltf_component_read_float.exit221
-
-cgltf_component_read_float.exit221:               ; preds = %452, %.thread439, %.thread441, %cgltf_component_read_integer.exit.i219
-  %.0.i218 = phi float [ %384, %.thread441 ], [ %342, %.thread439 ], [ %454, %cgltf_component_read_integer.exit.i219 ], [ 0.000000e+00, %452 ]
-  %455 = getelementptr inbounds i8, ptr %4, i64 32
-  store float %.0.i218, ptr %455, align 4
+cgltf_component_read_float.exit221:               ; preds = %.thread439, %.thread441, %cgltf_component_read_integer.exit.i219
+  %.0.i218 = phi float [ %318, %.thread441 ], [ %286, %.thread439 ], [ %362, %cgltf_component_read_integer.exit.i219 ]
+  %363 = getelementptr inbounds i8, ptr %4, i64 32
+  store float %.0.i218, ptr %363, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %cgltf_component_read_float.exit226.us, %cgltf_component_read_float.exit226.us642, %cgltf_component_read_float.exit226.us638, %cgltf_component_read_float.exit226.us634, %cgltf_component_read_float.exit226.us630, %cgltf_component_read_integer.exit.i224.us, %cgltf_component_read_float.exit226.preheader, %cgltf_num_components.exit, %cgltf_component_read_float.exit221, %cgltf_component_read_float.exit176, %cgltf_component_read_float.exit131
-  %.0113 = phi i32 [ 1, %cgltf_component_read_float.exit131 ], [ 1, %cgltf_component_read_float.exit176 ], [ 1, %cgltf_component_read_float.exit221 ], [ 0, %cgltf_num_components.exit ], [ 1, %cgltf_component_read_float.exit226.preheader ], [ 1, %cgltf_component_read_integer.exit.i224.us ], [ 1, %cgltf_component_read_float.exit226.us630 ], [ 1, %cgltf_component_read_float.exit226.us634 ], [ 1, %cgltf_component_read_float.exit226.us638 ], [ 1, %cgltf_component_read_float.exit226.us642 ], [ 1, %cgltf_component_read_float.exit226.us ]
+.loopexit:                                        ; preds = %cgltf_component_read_float.exit226.us, %cgltf_component_read_float.exit226.us653, %cgltf_component_read_float.exit226.us649, %cgltf_component_read_float.exit226.us645, %cgltf_component_read_float.exit226.us641, %cgltf_component_read_integer.exit.i224.us, %cgltf_component_read_float.exit226.preheader, %cgltf_num_components.exit, %cgltf_component_read_float.exit221, %cgltf_component_read_float.exit176, %cgltf_component_read_float.exit131
+  %.0113 = phi i32 [ 1, %cgltf_component_read_float.exit131 ], [ 1, %cgltf_component_read_float.exit176 ], [ 1, %cgltf_component_read_float.exit221 ], [ 0, %cgltf_num_components.exit ], [ 1, %cgltf_component_read_float.exit226.preheader ], [ 1, %cgltf_component_read_integer.exit.i224.us ], [ 1, %cgltf_component_read_float.exit226.us641 ], [ 1, %cgltf_component_read_float.exit226.us645 ], [ 1, %cgltf_component_read_float.exit226.us649 ], [ 1, %cgltf_component_read_float.exit226.us653 ], [ 1, %cgltf_component_read_float.exit226.us ]
   ret i32 %.0113
 }
 

@@ -71,8 +71,8 @@ define range(i32 -1, 1) i32 @tm2timestamp(ptr nocapture noundef readonly %0, i32
   %22 = phi i32 [ %.pre, %..thread_crit_edge ], [ %12, %10 ], [ %20, %18 ]
   %23 = getelementptr inbounds i8, ptr %0, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = tail call i32 @date2j(i32 noundef %6, i32 noundef %22, i32 noundef %24) #10
-  %26 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %25 = tail call i32 @date2j(i32 noundef %6, i32 noundef %22, i32 noundef %24) #9
+  %26 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %27 = sub i32 %25, %26
   %28 = getelementptr inbounds i8, ptr %0, i64 8
   %29 = load i32, ptr %28, align 8
@@ -145,20 +145,20 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
   %9 = alloca [25 x i32], align 16
   %10 = alloca [153 x i8], align 16
   %11 = alloca ptr, align 8
-  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #11
+  %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #10
   %13 = icmp ugt i64 %12, 128
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %2
   %.not = icmp eq ptr %1, null
   %15 = select i1 %.not, ptr %11, ptr %1
-  %16 = call i32 @ParseDateTime(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %15) #10
+  %16 = call i32 @ParseDateTime(ptr noundef %0, ptr noundef nonnull %10, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %7, ptr noundef nonnull %15) #9
   %.not11 = icmp eq i32 %16, 0
   br i1 %.not11, label %17, label %._crit_edge
 
 17:                                               ; preds = %14
   %18 = load i32, ptr %7, align 4
-  %19 = call i32 @DecodeDateTime(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext false) #10
+  %19 = call i32 @DecodeDateTime(ptr noundef nonnull %8, ptr noundef nonnull %9, i32 noundef %18, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %4, i1 noundef zeroext false) #9
   %.not12 = icmp eq i32 %19, 0
   br i1 %.not12, label %20, label %._crit_edge
 
@@ -193,7 +193,7 @@ define i64 @PGTYPEStimestamp_from_asc(ptr noundef %0, ptr noundef %1) local_unna
 ._crit_edge:                                      ; preds = %22, %25, %27, %20, %14, %17, %2, %28
   %.sink = phi i32 [ 320, %2 ], [ 320, %17 ], [ 320, %14 ], [ 320, %20 ], [ 0, %27 ], [ 0, %25 ], [ 0, %28 ], [ %spec.select, %22 ]
   %.0 = phi i64 [ 0, %2 ], [ 0, %17 ], [ 0, %14 ], [ 0, %20 ], [ -9223372036854775808, %27 ], [ %26, %25 ], [ 9223372036854775807, %28 ], [ %spec.select15, %22 ]
-  %29 = tail call ptr @__errno_location() #12
+  %29 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %29, align 4
   ret i64 %.0
 }
@@ -211,7 +211,7 @@ declare i32 @DecodeDateTime(ptr noundef, ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
   %1 = alloca %struct.tm, align 8
-  %2 = call i32 @GetEpochTime(ptr noundef nonnull %1) #10
+  %2 = call i32 @GetEpochTime(ptr noundef nonnull %1) #9
   %3 = icmp slt i32 %2, 0
   br i1 %3, label %tm2timestamp.exit, label %4
 
@@ -250,8 +250,8 @@ define internal fastcc i64 @SetEpochTimestamp() unnamed_addr #0 {
   %20 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %11, %8 ], [ %18, %15 ]
   %21 = getelementptr inbounds i8, ptr %1, i64 12
   %22 = load i32, ptr %21, align 4
-  %23 = call i32 @date2j(i32 noundef %6, i32 noundef %20, i32 noundef %22) #10
-  %24 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %23 = call i32 @date2j(i32 noundef %6, i32 noundef %20, i32 noundef %22) #9
+  %24 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %25 = sub i32 %23, %24
   %26 = getelementptr inbounds i8, ptr %1, i64 8
   %27 = load i32, ptr %26, align 8
@@ -281,53 +281,47 @@ define ptr @PGTYPEStimestamp_to_asc(i64 noundef %0) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = add i64 %0, -9223372036854775807
   %or.cond = icmp ult i64 %5, 2
-  br i1 %or.cond, label %6, label %10
+  br i1 %or.cond, label %6, label %9
 
 6:                                                ; preds = %1
-  switch i64 %0, label %9 [
-    i64 -9223372036854775808, label %7
-    i64 9223372036854775807, label %8
-  ]
+  %switch = icmp eq i64 %0, -9223372036854775808
+  br i1 %switch, label %7, label %8
 
 7:                                                ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false) #9
   br label %EncodeSpecialTimestamp.exit
 
 8:                                                ; preds = %6
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #9
   br label %EncodeSpecialTimestamp.exit
 
-9:                                                ; preds = %6
-  tail call void @abort() #13
-  unreachable
+9:                                                ; preds = %1
+  %10 = call fastcc i32 @timestamp2tm(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4)
+  %11 = icmp eq i32 %10, 0
+  br i1 %11, label %12, label %14
 
-10:                                               ; preds = %1
-  %11 = call fastcc i32 @timestamp2tm(i64 noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %4)
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %15
-
-13:                                               ; preds = %10
-  %14 = load i32, ptr %4, align 4
-  call void @EncodeDateTime(ptr noundef nonnull %2, i32 noundef %14, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #10
+12:                                               ; preds = %9
+  %13 = load i32, ptr %4, align 4
+  call void @EncodeDateTime(ptr noundef nonnull %2, i32 noundef %13, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #9
   br label %EncodeSpecialTimestamp.exit
 
-15:                                               ; preds = %10
-  %16 = tail call ptr @__errno_location() #12
-  store i32 320, ptr %16, align 4
-  br label %18
+14:                                               ; preds = %9
+  %15 = tail call ptr @__errno_location() #11
+  store i32 320, ptr %15, align 4
+  br label %17
 
-EncodeSpecialTimestamp.exit:                      ; preds = %8, %7, %13
-  %17 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #10
-  br label %18
+EncodeSpecialTimestamp.exit:                      ; preds = %8, %7, %12
+  %16 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #9
+  br label %17
 
-18:                                               ; preds = %EncodeSpecialTimestamp.exit, %15
-  %.0 = phi ptr [ %17, %EncodeSpecialTimestamp.exit ], [ null, %15 ]
+17:                                               ; preds = %EncodeSpecialTimestamp.exit, %14
+  %.0 = phi ptr [ %16, %EncodeSpecialTimestamp.exit ], [ null, %14 ]
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @timestamp2tm(i64 noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %4 = tail call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %5 = sext i32 %4 to i64
   %6 = sdiv i64 %0, 86400000000
   %.off = add i64 %0, 86399999999
@@ -349,15 +343,15 @@ define internal fastcc range(i32 -1, 1) i32 @timestamp2tm(i64 noundef %0, ptr no
   %13 = getelementptr inbounds i8, ptr %1, i64 20
   %14 = getelementptr inbounds i8, ptr %1, i64 16
   %15 = getelementptr inbounds i8, ptr %1, i64 12
-  tail call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #10
+  tail call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #9
   %16 = sitofp i64 %.1 to double
   %17 = getelementptr inbounds i8, ptr %1, i64 8
   %18 = getelementptr inbounds i8, ptr %1, i64 4
-  tail call void @dt2time(double noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %1, ptr noundef %2) #10
+  tail call void @dt2time(double noundef %16, ptr noundef nonnull %17, ptr noundef nonnull %18, ptr noundef %1, ptr noundef %2) #9
   %19 = getelementptr inbounds i8, ptr %1, i64 32
   store i32 -1, ptr %19, align 8
   %20 = load i32, ptr %13, align 4
-  %21 = tail call i32 @date2j(i32 noundef %20, i32 noundef 1, i32 noundef 1) #10
+  %21 = tail call i32 @date2j(i32 noundef %20, i32 noundef 1, i32 noundef 1) #9
   %22 = add nuw i32 %12, 1
   %23 = sub i32 %22, %21
   %24 = getelementptr inbounds i8, ptr %1, i64 28
@@ -376,8 +370,8 @@ declare ptr @pgtypes_strdup(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.tm, align 8
-  call void @GetCurrentDateTime(ptr noundef nonnull %2) #10
-  %3 = tail call ptr @__errno_location() #12
+  call void @GetCurrentDateTime(ptr noundef nonnull %2) #9
+  %3 = tail call ptr @__errno_location() #11
   %4 = load i32, ptr %3, align 4
   %5 = icmp eq i32 %4, 0
   br i1 %5, label %6, label %tm2timestamp.exit
@@ -417,8 +411,8 @@ define void @PGTYPEStimestamp_current(ptr nocapture noundef writeonly %0) local_
   %22 = phi i32 [ %.pre.i, %..thread_crit_edge.i ], [ %13, %10 ], [ %20, %17 ]
   %23 = getelementptr inbounds i8, ptr %2, i64 12
   %24 = load i32, ptr %23, align 4
-  %25 = call i32 @date2j(i32 noundef %8, i32 noundef %22, i32 noundef %24) #10
-  %26 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %25 = call i32 @date2j(i32 noundef %8, i32 noundef %22, i32 noundef %24) #9
+  %26 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %27 = sub i32 %25, %26
   %28 = getelementptr inbounds i8, ptr %2, i64 8
   %29 = load i32, ptr %28, align 8
@@ -450,8 +444,8 @@ define i32 @PGTYPEStimestamp_fmt_asc(ptr noundef %0, ptr noundef %1, i32 noundef
   %7 = alloca i32, align 4
   store i32 %2, ptr %5, align 4
   %8 = load i64, ptr %0, align 8
-  %9 = tail call i64 @PGTYPESdate_from_timestamp(i64 noundef %8) #10
-  %10 = tail call i32 @PGTYPESdate_dayofweek(i64 noundef %9) #10
+  %9 = tail call i64 @PGTYPESdate_from_timestamp(i64 noundef %8) #9
+  %10 = tail call i32 @PGTYPESdate_dayofweek(i64 noundef %9) #9
   %11 = load i64, ptr %0, align 8
   %12 = call fastcc i32 @timestamp2tm(i64 noundef %11, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %13 = call fastcc i32 @dttofmtasc_replace(ptr noundef nonnull %0, i32 noundef %10, ptr noundef nonnull %6, ptr noundef %1, ptr noundef nonnull %5, ptr noundef %3)
@@ -613,7 +607,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %64 = load ptr, ptr %7, align 8
   %65 = load i32, ptr %4, align 4
   %66 = sext i32 %65 to i64
-  %67 = call i64 @strftime(ptr noundef %64, i64 noundef %66, ptr noundef nonnull %8, ptr noundef %2) #10
+  %67 = call i64 @strftime(ptr noundef %64, i64 noundef %66, ptr noundef nonnull %8, ptr noundef %2) #9
   %68 = and i64 %67, 4294967295
   %69 = icmp eq i64 %68, 0
   br i1 %69, label %.loopexit235, label %.preheader
@@ -652,7 +646,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %82 = load ptr, ptr %7, align 8
   %83 = load i32, ptr %4, align 4
   %84 = sext i32 %83 to i64
-  %85 = call i64 @strftime(ptr noundef %82, i64 noundef %84, ptr noundef nonnull @.str.4, ptr noundef %2) #10
+  %85 = call i64 @strftime(ptr noundef %82, i64 noundef %84, ptr noundef nonnull @.str.4, ptr noundef %2) #9
   %86 = and i64 %85, 4294967295
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %.loopexit235, label %.preheader226
@@ -691,7 +685,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %100 = load ptr, ptr %7, align 8
   %101 = load i32, ptr %4, align 4
   %102 = sext i32 %101 to i64
-  %103 = call i64 @strftime(ptr noundef %100, i64 noundef %102, ptr noundef nonnull @.str.5, ptr noundef %2) #10
+  %103 = call i64 @strftime(ptr noundef %100, i64 noundef %102, ptr noundef nonnull @.str.5, ptr noundef %2) #9
   %104 = and i64 %103, 4294967295
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %.loopexit235, label %.preheader227
@@ -865,7 +859,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %184 = load ptr, ptr %7, align 8
   %185 = load i32, ptr %4, align 4
   %186 = sext i32 %185 to i64
-  %187 = call i64 @strftime(ptr noundef %184, i64 noundef %186, ptr noundef nonnull @.str.13, ptr noundef %2) #10
+  %187 = call i64 @strftime(ptr noundef %184, i64 noundef %186, ptr noundef nonnull @.str.13, ptr noundef %2) #9
   %188 = and i64 %187, 4294967295
   %189 = icmp eq i64 %188, 0
   br i1 %189, label %.loopexit235, label %.preheader228
@@ -901,7 +895,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %200 = load ptr, ptr %7, align 8
   %201 = load i32, ptr %4, align 4
   %202 = sext i32 %201 to i64
-  %203 = call i64 @strftime(ptr noundef %200, i64 noundef %202, ptr noundef nonnull @.str.14, ptr noundef %2) #10
+  %203 = call i64 @strftime(ptr noundef %200, i64 noundef %202, ptr noundef nonnull @.str.14, ptr noundef %2) #9
   %204 = and i64 %203, 4294967295
   %205 = icmp eq i64 %204, 0
   br i1 %205, label %.loopexit235, label %.preheader229
@@ -941,7 +935,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %219 = load ptr, ptr %7, align 8
   %220 = load i32, ptr %4, align 4
   %221 = sext i32 %220 to i64
-  %222 = call i64 @strftime(ptr noundef %219, i64 noundef %221, ptr noundef nonnull @.str.13, ptr noundef %2) #10
+  %222 = call i64 @strftime(ptr noundef %219, i64 noundef %221, ptr noundef nonnull @.str.13, ptr noundef %2) #9
   %223 = and i64 %222, 4294967295
   %224 = icmp eq i64 %223, 0
   br i1 %224, label %.loopexit235, label %.preheader230
@@ -980,7 +974,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %237 = load ptr, ptr %7, align 8
   %238 = load i32, ptr %4, align 4
   %239 = sext i32 %238 to i64
-  %240 = call i64 @strftime(ptr noundef %237, i64 noundef %239, ptr noundef nonnull @.str.15, ptr noundef %2) #10
+  %240 = call i64 @strftime(ptr noundef %237, i64 noundef %239, ptr noundef nonnull @.str.15, ptr noundef %2) #9
   %241 = and i64 %240, 4294967295
   %242 = icmp eq i64 %241, 0
   br i1 %242, label %.loopexit235, label %.preheader231
@@ -1019,7 +1013,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %255 = load ptr, ptr %7, align 8
   %256 = load i32, ptr %4, align 4
   %257 = sext i32 %256 to i64
-  %258 = call i64 @strftime(ptr noundef %255, i64 noundef %257, ptr noundef nonnull @.str.16, ptr noundef %2) #10
+  %258 = call i64 @strftime(ptr noundef %255, i64 noundef %257, ptr noundef nonnull @.str.16, ptr noundef %2) #9
   %259 = and i64 %258, 4294967295
   %260 = icmp eq i64 %259, 0
   br i1 %260, label %.loopexit235, label %.preheader232
@@ -1077,7 +1071,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %282 = load ptr, ptr %7, align 8
   %283 = load i32, ptr %4, align 4
   %284 = sext i32 %283 to i64
-  %285 = call i64 @strftime(ptr noundef %282, i64 noundef %284, ptr noundef nonnull @.str.17, ptr noundef %2) #10
+  %285 = call i64 @strftime(ptr noundef %282, i64 noundef %284, ptr noundef nonnull @.str.17, ptr noundef %2) #9
   %286 = and i64 %285, 4294967295
   %287 = icmp eq i64 %286, 0
   br i1 %287, label %.loopexit235, label %.preheader233
@@ -1116,7 +1110,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %300 = load ptr, ptr %7, align 8
   %301 = load i32, ptr %4, align 4
   %302 = sext i32 %301 to i64
-  %303 = call i64 @strftime(ptr noundef %300, i64 noundef %302, ptr noundef nonnull @.str.18, ptr noundef %2) #10
+  %303 = call i64 @strftime(ptr noundef %300, i64 noundef %302, ptr noundef nonnull @.str.18, ptr noundef %2) #9
   %304 = and i64 %303, 4294967295
   %305 = icmp eq i64 %304, 0
   br i1 %305, label %.loopexit235, label %.preheader234
@@ -1192,7 +1186,7 @@ define internal fastcc i32 @dttofmtasc_replace(ptr noundef %0, i32 noundef %1, p
   %.1 = phi ptr [ %23, %328 ], [ %23, %315 ], [ %23, %._crit_edge ], [ %23, %._crit_edge241 ], [ %23, %275 ], [ %23, %270 ], [ %23, %._crit_edge246 ], [ %23, %._crit_edge251 ], [ %23, %._crit_edge256 ], [ %23, %213 ], [ %23, %._crit_edge265 ], [ %23, %178 ], [ %23, %175 ], [ %23, %172 ], [ %23, %168 ], [ %23, %160 ], [ %23, %157 ], [ %23, %154 ], [ %23, %151 ], [ %23, %148 ], [ %23, %145 ], [ %23, %141 ], [ %23, %137 ], [ %23, %132 ], [ %23, %128 ], [ %23, %124 ], [ %23, %119 ], [ %23, %115 ], [ %23, %._crit_edge270 ], [ %23, %._crit_edge275 ], [ %58, %._crit_edge280 ], [ %23, %53 ], [ %23, %50 ], [ %23, %46 ], [ %23, %41 ], [ %23, %22 ], [ %23, %35 ], [ %23, %29 ], [ %23, %27 ], [ %23, %25 ], [ %23, %.preheader229 ], [ %23, %207 ]
   %.0203 = phi i32 [ 0, %328 ], [ 3, %315 ], [ 0, %._crit_edge ], [ 0, %._crit_edge241 ], [ 6, %275 ], [ 7, %270 ], [ 0, %._crit_edge246 ], [ 0, %._crit_edge251 ], [ 0, %._crit_edge256 ], [ 6, %213 ], [ 0, %._crit_edge265 ], [ 6, %178 ], [ 0, %175 ], [ 3, %172 ], [ 7, %168 ], [ 5, %160 ], [ 0, %157 ], [ 0, %154 ], [ 2, %151 ], [ 2, %148 ], [ 3, %145 ], [ 7, %141 ], [ 7, %137 ], [ 8, %132 ], [ 8, %128 ], [ 9, %124 ], [ 7, %119 ], [ 7, %115 ], [ 0, %._crit_edge270 ], [ 0, %._crit_edge275 ], [ 0, %._crit_edge280 ], [ 8, %53 ], [ 0, %50 ], [ 7, %46 ], [ 7, %41 ], [ 0, %22 ], [ 2, %35 ], [ 2, %29 ], [ 2, %27 ], [ 2, %25 ], [ 0, %.preheader229 ], [ 0, %207 ]
   %.sroa.0.3 = phi ptr [ %.sroa.0.0, %328 ], [ %317, %315 ], [ %.sroa.0.0, %._crit_edge ], [ %.sroa.0.0, %._crit_edge241 ], [ %278, %275 ], [ %274, %270 ], [ %.sroa.0.0, %._crit_edge246 ], [ %.sroa.0.0, %._crit_edge251 ], [ %.sroa.0.0, %._crit_edge256 ], [ %215, %213 ], [ %.sroa.0.0, %._crit_edge265 ], [ %180, %178 ], [ %.sroa.0.0, %175 ], [ %174, %172 ], [ %171, %168 ], [ %167, %160 ], [ %.sroa.0.0, %157 ], [ %.sroa.0.0, %154 ], [ %.str.8..str.9, %151 ], [ %.str.6..str.7, %148 ], [ %147, %145 ], [ %144, %141 ], [ %140, %137 ], [ %136, %132 ], [ %131, %128 ], [ %127, %124 ], [ %123, %119 ], [ %118, %115 ], [ %.sroa.0.0, %._crit_edge270 ], [ %.sroa.0.0, %._crit_edge275 ], [ %.sroa.0.0, %._crit_edge280 ], [ %56, %53 ], [ %.sroa.0.0, %50 ], [ %49, %46 ], [ %45, %41 ], [ %.sroa.0.0, %22 ], [ %40, %35 ], [ %34, %29 ], [ %28, %27 ], [ %26, %25 ], [ %.sroa.0.0, %.preheader229 ], [ %.sroa.0.0, %207 ]
-  %335 = call i32 @pgtypes_fmt_replace(ptr %.sroa.0.3, i32 noundef %.0203, ptr noundef nonnull %7, ptr noundef %4) #10
+  %335 = call i32 @pgtypes_fmt_replace(ptr %.sroa.0.3, i32 noundef %.0203, ptr noundef nonnull %7, ptr noundef %4) #9
   %.not225 = icmp eq i32 %335, 0
   br i1 %.not225, label %345, label %.loopexit235
 
@@ -1266,9 +1260,9 @@ define i32 @PGTYPEStimestamp_defmt_asc(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not8, label %18, label %13
 
 13:                                               ; preds = %3
-  %14 = tail call ptr @pgtypes_strdup(ptr noundef %0) #10
+  %14 = tail call ptr @pgtypes_strdup(ptr noundef %0) #9
   store ptr %14, ptr %11, align 8
-  %15 = tail call ptr @pgtypes_strdup(ptr noundef nonnull %spec.store.select) #10
+  %15 = tail call ptr @pgtypes_strdup(ptr noundef nonnull %spec.store.select) #9
   store i32 -1, ptr %4, align 4
   store i32 -1, ptr %5, align 4
   store i32 -1, ptr %6, align 4
@@ -1276,10 +1270,10 @@ define i32 @PGTYPEStimestamp_defmt_asc(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 -1, ptr %8, align 4
   store i32 -1, ptr %9, align 4
   store i32 0, ptr %10, align 4
-  %16 = call i32 @PGTYPEStimestamp_defmt_scan(ptr noundef nonnull %11, ptr noundef %15, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
+  %16 = call i32 @PGTYPEStimestamp_defmt_scan(ptr noundef nonnull %11, ptr noundef %15, ptr noundef %2, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #9
   %17 = load ptr, ptr %11, align 8
-  call void @free(ptr noundef %17) #10
-  call void @free(ptr noundef %15) #10
+  call void @free(ptr noundef %17) #9
+  call void @free(ptr noundef %15) #9
   br label %18
 
 18:                                               ; preds = %3, %13
@@ -1434,8 +1428,8 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr nocapture noundef
   br i1 %or.cond46, label %.thread.i, label %tm2timestamp.exit.thread
 
 .thread.i:                                        ; preds = %82, %77, %80
-  %85 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %74) #10
-  %86 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
+  %85 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %74) #9
+  %86 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #9
   %87 = sub i32 %85, %86
   %88 = getelementptr inbounds i8, ptr %4, i64 8
   %89 = load i32, ptr %88, align 8
@@ -1502,23 +1496,20 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_sub_interval(ptr nocapture noundef
 
 declare i32 @GetEpochTime(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: noreturn nounwind
-declare void @abort() local_unnamed_addr #6
-
 declare void @j2date(i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 declare void @dt2time(double noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #7
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind
-declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
+declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 declare i32 @pgtypes_fmt_replace(ptr, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #9
+declare { i64, i1 } @llvm.smul.with.overflow.i64(i64, i64) #8
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1526,14 +1517,12 @@ attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { noreturn nounwind }
+attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #7 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(read) }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

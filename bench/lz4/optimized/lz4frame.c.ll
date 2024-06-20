@@ -402,9 +402,9 @@ do.end:                                           ; preds = %entry
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %prefs, ptr noundef nonnull align 8 dereferenceable(56) %spec.store.select, i64 56, i1 false)
   %compressionLevel = getelementptr inbounds i8, ptr %cctxPtr, i64 64
   %0 = load i32, ptr %compressionLevel, align 8
-  %cmp5.inv = icmp sgt i32 %0, 2
-  %conv = select i1 %cmp5.inv, i16 2, i16 1
-  br i1 %cmp5.inv, label %sw.bb1.i, label %sw.bb.i
+  %cmp5.inv = icmp slt i32 %0, 3
+  %conv = select i1 %cmp5.inv, i16 1, i16 2
+  br i1 %cmp5.inv, label %sw.bb.i, label %sw.bb1.i
 
 sw.bb.i:                                          ; preds = %do.end
   %call.i = tail call i32 @LZ4_sizeofState() #12

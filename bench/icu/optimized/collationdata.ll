@@ -90,7 +90,7 @@ if.end:                                           ; preds = %entry
 
 cond.false.i:                                     ; preds = %if.end
   %cmp4.i = icmp ult i32 %c, 65536
-  br i1 %cmp4.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124, label %cond.false17.i
+  br i1 %cmp4.i, label %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125, label %cond.false17.i
 
 cond.false17.i:                                   ; preds = %cond.false.i
   %cmp18.i = icmp ugt i32 %c, 1114111
@@ -135,7 +135,7 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit:        ; preds = %cond.false17.i, %co
   %cmp = icmp eq i32 %10, 192
   br i1 %cmp, label %if.then3, label %if.end6
 
-_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124: ; preds = %cond.false.i
+_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125: ; preds = %cond.false.i
   %11 = load ptr, ptr %1, align 8
   %cmp8.i = icmp ult i32 %c, 56320
   %cond.i = select i1 %cmp8.i, i32 320, i32 0
@@ -148,18 +148,18 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit.thread124: ; preds = %cond.false.i
   %shl14.i = shl nuw nsw i32 %conv13.i, 2
   %and15.i = and i32 %c, 31
   %add16.i = add nuw nsw i32 %shl14.i, %and15.i
-  %idxprom51.i126 = zext nneg i32 %add16.i to i64
-  %arrayidx52.i127 = getelementptr inbounds i32, ptr %2, i64 %idxprom51.i126
-  %13 = load i32, ptr %arrayidx52.i127, align 4
-  %cmp128 = icmp eq i32 %13, 192
-  br i1 %cmp128, label %if.then3.thread129, label %if.end6
+  %idxprom51.i127 = zext nneg i32 %add16.i to i64
+  %arrayidx52.i128 = getelementptr inbounds i32, ptr %2, i64 %idxprom51.i127
+  %13 = load i32, ptr %arrayidx52.i128, align 4
+  %cmp129 = icmp eq i32 %13, 192
+  br i1 %cmp129, label %if.then3.thread130, label %if.end6
 
-if.then3.thread129:                               ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124
-  %base130 = getelementptr inbounds i8, ptr %this, i64 32
-  %14 = load ptr, ptr %base130, align 8
+if.then3.thread130:                               ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125
+  %base131 = getelementptr inbounds i8, ptr %this, i64 32
+  %14 = load ptr, ptr %base131, align 8
   %15 = load ptr, ptr %14, align 8
-  %data32.i25131 = getelementptr inbounds i8, ptr %15, i64 16
-  %16 = load ptr, ptr %data32.i25131, align 8
+  %data32.i25132 = getelementptr inbounds i8, ptr %15, i64 16
+  %16 = load ptr, ptr %data32.i25132, align 8
   br label %cond.true5.i52
 
 _ZNK6icu_7513CollationData7getCE32Ei.exit.thread: ; preds = %if.end
@@ -200,10 +200,10 @@ if.then3:                                         ; preds = %_ZNK6icu_7513Collat
   %27 = load ptr, ptr %data32.i25, align 8
   br i1 %cmp4.i, label %cond.true5.i52, label %cond.false17.i29
 
-cond.true5.i52:                                   ; preds = %if.then3.thread129, %if.then3
-  %28 = phi ptr [ %16, %if.then3.thread129 ], [ %27, %if.then3 ]
-  %29 = phi ptr [ %15, %if.then3.thread129 ], [ %26, %if.then3 ]
-  %30 = phi ptr [ %14, %if.then3.thread129 ], [ %25, %if.then3 ]
+cond.true5.i52:                                   ; preds = %if.then3.thread130, %if.then3
+  %28 = phi ptr [ %16, %if.then3.thread130 ], [ %27, %if.then3 ]
+  %29 = phi ptr [ %15, %if.then3.thread130 ], [ %26, %if.then3 ]
+  %30 = phi ptr [ %14, %if.then3.thread130 ], [ %25, %if.then3 ]
   %31 = load ptr, ptr %29, align 8
   %cmp8.i53 = icmp ult i32 %c, 56320
   %cond.i54 = select i1 %cmp8.i53, i32 320, i32 0
@@ -262,9 +262,9 @@ _ZNK6icu_7513CollationData7getCE32Ei.exit71:      ; preds = %if.then3.thread, %c
   %42 = load i32, ptr %arrayidx52.i38, align 4
   br label %if.end6
 
-if.end6:                                          ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7513CollationData7getCE32Ei.exit, %_ZNK6icu_7513CollationData7getCE32Ei.exit71
-  %d.0 = phi ptr [ %41, %_ZNK6icu_7513CollationData7getCE32Ei.exit71 ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124 ]
-  %ce32.0 = phi i32 [ %42, %_ZNK6icu_7513CollationData7getCE32Ei.exit71 ], [ %10, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %19, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread ], [ %13, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread124 ]
+if.end6:                                          ; preds = %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread, %_ZNK6icu_7513CollationData7getCE32Ei.exit, %_ZNK6icu_7513CollationData7getCE32Ei.exit71
+  %d.0 = phi ptr [ %41, %_ZNK6icu_7513CollationData7getCE32Ei.exit71 ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread ], [ %this, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125 ]
+  %ce32.0 = phi i32 [ %42, %_ZNK6icu_7513CollationData7getCE32Ei.exit71 ], [ %10, %_ZNK6icu_7513CollationData7getCE32Ei.exit ], [ %19, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread ], [ %13, %_ZNK6icu_7513CollationData7getCE32Ei.exit.thread125 ]
   %and.i72112 = and i32 %ce32.0, 192
   %cmp.i73.not113 = icmp eq i32 %and.i72112, 192
   br i1 %cmp.i73.not113, label %while.body.lr.ph, label %while.end
@@ -276,7 +276,7 @@ while.body.lr.ph:                                 ; preds = %if.end6
 while.body:                                       ; preds = %while.body.lr.ph, %sw.epilog
   %ce32.1114 = phi i32 [ %ce32.0, %while.body.lr.ph ], [ %ce32.2, %sw.epilog ]
   %and.i75 = and i32 %ce32.1114, 15
-  switch i32 %and.i75, label %default.unreachable [
+  switch i32 %and.i75, label %default.unreachable124 [
     i32 4, label %sw.bb
     i32 7, label %sw.bb
     i32 8, label %sw.bb
@@ -380,7 +380,7 @@ sw.bb39:                                          ; preds = %while.body
   %or.i.i92 = or disjoint i64 %shl.i.i91, 83887360
   br label %return
 
-default.unreachable:                              ; preds = %while.body
+default.unreachable124:                           ; preds = %while.body
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb34, %sw.bb29, %if.then18

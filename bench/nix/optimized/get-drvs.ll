@@ -6399,10 +6399,10 @@ _ZNK3nix5Value9listItemsEv.exit:                  ; preds = %_ZNK3nix5Value4type
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.sroa.062.0112 = phi ptr [ %43, %.lr.ph.preheader ], [ %46, %.lr.ph ]
-  %44 = load ptr, ptr %.sroa.062.0112, align 8
+  %.sroa.062.0116 = phi ptr [ %43, %.lr.ph.preheader ], [ %46, %.lr.ph ]
+  %44 = load ptr, ptr %.sroa.062.0116, align 8
   %45 = call noundef zeroext i1 @_ZN3nix11PackageInfo9checkMetaERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(24) %44)
-  %46 = getelementptr inbounds i8, ptr %.sroa.062.0112, i64 8
+  %46 = getelementptr inbounds i8, ptr %.sroa.062.0116, i64 8
   %47 = icmp ne ptr %46, %42
   %or.cond.not = select i1 %45, i1 %47, i1 false
   br i1 %or.cond.not, label %.lr.ph, label %_ZNK3nix5Value4typeEb.exit55
@@ -6419,7 +6419,7 @@ _ZNK3nix5Value4typeEb.exit52:                     ; preds = %32
   %54 = zext i32 %53 to i64
   %.idx = shl nuw nsw i64 %54, 4
   %55 = getelementptr inbounds i8, ptr %49, i64 %.idx
-  %.ptr121 = getelementptr inbounds i8, ptr %55, i64 16
+  %.ptr125 = getelementptr inbounds i8, ptr %55, i64 16
   %.not10.i = icmp eq i32 %53, 0
   br i1 %.not10.i, label %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i, label %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i
 
@@ -6440,7 +6440,7 @@ _ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i:    ; preds = %_ZNK3nix5Value4type
 
 _ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i: ; preds = %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i, %_ZNK3nix5Value4typeEb.exit52
   %.0.lcssa.i.i.i = phi ptr [ %.ptr, %_ZNK3nix5Value4typeEb.exit52 ], [ %.1.i.i.i, %_ZSt7advanceIPN3nix4AttrElEvRT_T0_.exit.i.i.i ]
-  %.not.i = icmp eq ptr %.0.lcssa.i.i.i, %.ptr121
+  %.not.i = icmp eq ptr %.0.lcssa.i.i.i, %.ptr125
   br i1 %.not.i, label %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, label %64
 
 64:                                               ; preds = %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i
@@ -6448,29 +6448,29 @@ _ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i: ; preds = %_ZSt7advanceI
   %.not = icmp eq i32 %65, %.sroa.0.0.copyload
   %brmerge = or i1 %.not, %.not10.i
   %not..not = xor i1 %.not, true
-  br i1 %brmerge, label %_ZNK3nix5Value4typeEb.exit55, label %.lr.ph117.preheader
+  br i1 %brmerge, label %_ZNK3nix5Value4typeEb.exit55, label %.lr.ph121.preheader
 
 _ZN3nix8Bindings4findENS_6SymbolE.exit.thread:    ; preds = %_ZSt11lower_boundIPN3nix4AttrES1_ET_S3_S3_RKT0_.exit.i
-  br i1 %.not10.i, label %_ZNK3nix5Value4typeEb.exit55, label %.lr.ph117.preheader
+  br i1 %.not10.i, label %_ZNK3nix5Value4typeEb.exit55, label %.lr.ph121.preheader
 
-.lr.ph117.preheader:                              ; preds = %64, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread
-  br label %.lr.ph117
+.lr.ph121.preheader:                              ; preds = %64, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread
+  br label %.lr.ph121
 
-.lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
-  %.0116 = phi ptr [ %69, %.lr.ph117 ], [ %.ptr, %.lr.ph117.preheader ]
-  %66 = getelementptr inbounds i8, ptr %.0116, i64 8
+.lr.ph121:                                        ; preds = %.lr.ph121.preheader, %.lr.ph121
+  %.0120 = phi ptr [ %69, %.lr.ph121 ], [ %.ptr, %.lr.ph121.preheader ]
+  %66 = getelementptr inbounds i8, ptr %.0120, i64 8
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef zeroext i1 @_ZN3nix11PackageInfo9checkMetaERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(24) %67)
-  %69 = getelementptr inbounds i8, ptr %.0116, i64 16
-  %.not50 = icmp ne ptr %.0116, %55
-  %or.cond133.not = select i1 %68, i1 %.not50, i1 false
-  br i1 %or.cond133.not, label %.lr.ph117, label %_ZNK3nix5Value4typeEb.exit55
+  %69 = getelementptr inbounds i8, ptr %.0120, i64 16
+  %.not50 = icmp ne ptr %.0120, %55
+  %or.cond137.not = select i1 %68, i1 %.not50, i1 false
+  br i1 %or.cond137.not, label %.lr.ph121, label %_ZNK3nix5Value4typeEb.exit55
 
 _ZNK3nix5Value4typeEb.exit61:                     ; preds = %32, %32, %32, %32, %32, %32, %32, %32
   br label %_ZNK3nix5Value4typeEb.exit55
 
-_ZNK3nix5Value4typeEb.exit55:                     ; preds = %.lr.ph, %.lr.ph117, %64, %_ZNK3nix5Value9listItemsEv.exit, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, %32, %32, %32, %32, %_ZNK3nix5Value4typeEb.exit61
-  %.049 = phi i1 [ true, %32 ], [ true, %32 ], [ true, %32 ], [ %not..not, %64 ], [ false, %_ZNK3nix5Value4typeEb.exit61 ], [ true, %32 ], [ true, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread ], [ true, %_ZNK3nix5Value9listItemsEv.exit ], [ %68, %.lr.ph117 ], [ %45, %.lr.ph ]
+_ZNK3nix5Value4typeEb.exit55:                     ; preds = %.lr.ph, %.lr.ph121, %64, %_ZNK3nix5Value9listItemsEv.exit, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread, %32, %32, %32, %32, %_ZNK3nix5Value4typeEb.exit61
+  %.049 = phi i1 [ true, %32 ], [ true, %32 ], [ true, %32 ], [ %not..not, %64 ], [ false, %_ZNK3nix5Value4typeEb.exit61 ], [ true, %32 ], [ true, %_ZN3nix8Bindings4findENS_6SymbolE.exit.thread ], [ true, %_ZNK3nix5Value9listItemsEv.exit ], [ %68, %.lr.ph121 ], [ %45, %.lr.ph ]
   ret i1 %.049
 }
 
@@ -6558,16 +6558,16 @@ define noundef i64 @_ZN3nix11PackageInfo12queryMetaIntERKNSt7__cxx1112basic_stri
     i32 4, label %_ZNK3nix5Value4typeEb.exit11.thread
     i32 5, label %_ZNK3nix5Value4typeEb.exit11.thread
     i32 6, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 16, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 15, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 11, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 10, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 14, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 13, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 12, label %_ZNK3nix5Value4typeEb.exit11.thread
-    i32 9, label %_ZNK3nix5Value4typeEb.exit11.thread
     i32 7, label %_ZNK3nix5Value4typeEb.exit11.thread
     i32 8, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 9, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 12, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 13, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 14, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 15, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 16, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 10, label %_ZNK3nix5Value4typeEb.exit11.thread
+    i32 11, label %_ZNK3nix5Value4typeEb.exit11.thread
   ]
 
 7:                                                ; preds = %5
@@ -6723,16 +6723,16 @@ define noundef double @_ZN3nix11PackageInfo14queryMetaFloatERKNSt7__cxx1112basic
     i32 4, label %_ZNK3nix5Value4typeEb.exit12.thread
     i32 5, label %_ZNK3nix5Value4typeEb.exit12.thread
     i32 6, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 16, label %_ZNK3nix5Value4typeEb.exit
-    i32 15, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 11, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 10, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 14, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 13, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 12, label %_ZNK3nix5Value4typeEb.exit12.thread
-    i32 9, label %_ZNK3nix5Value4typeEb.exit12.thread
     i32 7, label %_ZNK3nix5Value4typeEb.exit12.thread
     i32 8, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 9, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 12, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 13, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 14, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 15, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 16, label %_ZNK3nix5Value4typeEb.exit
+    i32 10, label %_ZNK3nix5Value4typeEb.exit12.thread
+    i32 11, label %_ZNK3nix5Value4typeEb.exit12.thread
   ]
 
 8:                                                ; preds = %6
@@ -6797,16 +6797,16 @@ define noundef zeroext i1 @_ZN3nix11PackageInfo13queryMetaBoolERKNSt7__cxx1112ba
     i32 4, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
     i32 5, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
     i32 6, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 16, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 15, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 11, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 10, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 14, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 13, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 12, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
-    i32 9, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
     i32 7, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
     i32 8, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 9, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 12, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 13, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 14, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 15, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 16, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 10, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
+    i32 11, label %_ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_E4typeE.exit
   ]
 
 7:                                                ; preds = %5

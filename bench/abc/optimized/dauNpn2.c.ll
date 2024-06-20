@@ -4105,156 +4105,140 @@ define range(i32 -1, 2) i32 @Dtt_Check(i32 noundef %0, i32 noundef %1, i32 nound
   switch i32 %12, label %Dtt_ProcessType.exit [
     i32 0, label %13
     i32 5, label %13
-    i32 1, label %24
-    i32 6, label %24
-    i32 2, label %35
-    i32 7, label %35
-    i32 3, label %52
-    i32 8, label %52
-    i32 4, label %63
-    i32 9, label %63
+    i32 1, label %22
+    i32 6, label %22
+    i32 2, label %31
+    i32 7, label %31
+    i32 3, label %48
+    i32 8, label %48
+    i32 4, label %57
+    i32 9, label %57
   ]
 
 13:                                               ; preds = %11, %11
   %14 = xor i32 %2, -1
   %15 = and i32 %14, %0
   %16 = icmp eq i32 %15, %1
-  br i1 %16, label %17, label %20
+  br i1 %16, label %switch.lookup, label %18
 
-17:                                               ; preds = %13
-  %18 = icmp ult i32 %12, 6
-  br i1 %18, label %switch.lookup, label %Dtt_ProcessType.exit
-
-switch.lookup:                                    ; preds = %17
-  %19 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %19
+switch.lookup:                                    ; preds = %13
+  %17 = sext i32 %12 to i64
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check, i64 0, i64 %17
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %3, align 4
   br label %Dtt_ProcessType.exit
 
-20:                                               ; preds = %13
-  %21 = and i32 %2, %0
-  %22 = icmp eq i32 %21, %1
-  %23 = zext i1 %22 to i32
+18:                                               ; preds = %13
+  %19 = and i32 %2, %0
+  %20 = icmp eq i32 %19, %1
+  %21 = zext i1 %20 to i32
   br label %Dtt_ProcessType.exit
 
-24:                                               ; preds = %11, %11
-  %25 = and i32 %2, %0
-  %26 = icmp eq i32 %25, %1
-  br i1 %26, label %27, label %30
+22:                                               ; preds = %11, %11
+  %23 = and i32 %2, %0
+  %24 = icmp eq i32 %23, %1
+  br i1 %24, label %switch.lookup71, label %26
 
-27:                                               ; preds = %24
-  %switch.tableidx = add i32 %12, -1
-  %28 = icmp ult i32 %switch.tableidx, 6
-  br i1 %28, label %switch.lookup68, label %Dtt_ProcessType.exit
-
-switch.lookup68:                                  ; preds = %27
-  %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep69 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %29
-  %switch.load70 = load i32, ptr %switch.gep69, align 4
-  store i32 %switch.load70, ptr %3, align 4
+switch.lookup71:                                  ; preds = %22
+  %switch.tableidx = add nsw i32 %12, -1
+  %25 = sext i32 %switch.tableidx to i64
+  %switch.gep72 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.16, i64 0, i64 %25
+  %switch.load73 = load i32, ptr %switch.gep72, align 4
+  store i32 %switch.load73, ptr %3, align 4
   br label %Dtt_ProcessType.exit
 
-30:                                               ; preds = %24
-  %31 = xor i32 %2, -1
-  %32 = and i32 %31, %0
-  %33 = icmp eq i32 %32, %1
-  %34 = zext i1 %33 to i32
+26:                                               ; preds = %22
+  %27 = xor i32 %2, -1
+  %28 = and i32 %27, %0
+  %29 = icmp eq i32 %28, %1
+  %30 = zext i1 %29 to i32
   br label %Dtt_ProcessType.exit
 
-35:                                               ; preds = %11, %11
-  %36 = xor i32 %2, -1
-  %37 = xor i32 %0, -1
-  %38 = and i32 %36, %37
-  %39 = icmp eq i32 %38, %1
-  br i1 %39, label %40, label %48
+31:                                               ; preds = %11, %11
+  %32 = xor i32 %2, -1
+  %33 = xor i32 %0, -1
+  %34 = and i32 %32, %33
+  %35 = icmp eq i32 %34, %1
+  br i1 %35, label %36, label %44
 
-40:                                               ; preds = %35
+36:                                               ; preds = %31
   %cond54 = icmp eq i32 %12, 5
-  br i1 %cond54, label %.sink.split.i45, label %41
+  br i1 %cond54, label %.sink.split.i45, label %37
 
-41:                                               ; preds = %40
-  %42 = add nuw nsw i32 %12, 1
-  %43 = icmp eq i32 %42, 3
-  br i1 %43, label %.sink.split.i45, label %44
+37:                                               ; preds = %36
+  %38 = add nuw nsw i32 %12, 1
+  %39 = icmp eq i32 %38, 3
+  br i1 %39, label %.sink.split.i45, label %40
 
-44:                                               ; preds = %41
-  switch i32 %12, label %46 [
-    i32 3, label %45
+40:                                               ; preds = %37
+  switch i32 %12, label %42 [
+    i32 3, label %41
     i32 4, label %.sink.split.i45
     i32 6, label %.sink.split.i45.fold.split
   ]
 
-45:                                               ; preds = %44
+41:                                               ; preds = %40
   br label %.sink.split.i45
 
-46:                                               ; preds = %44
-  %47 = icmp eq i32 %42, 8
-  br i1 %47, label %.sink.split.i45, label %Dtt_ProcessType.exit
+42:                                               ; preds = %40
+  %43 = icmp eq i32 %38, 8
+  br i1 %43, label %.sink.split.i45, label %Dtt_ProcessType.exit
 
-.sink.split.i45.fold.split:                       ; preds = %44
+.sink.split.i45.fold.split:                       ; preds = %40
   br label %.sink.split.i45
 
-.sink.split.i45:                                  ; preds = %40, %44, %.sink.split.i45.fold.split, %46, %45, %41
-  %.sink.i46 = phi i32 [ 7, %45 ], [ 8, %41 ], [ 9, %44 ], [ 3, %46 ], [ 5, %.sink.split.i45.fold.split ], [ 6, %40 ]
+.sink.split.i45:                                  ; preds = %36, %40, %.sink.split.i45.fold.split, %42, %41, %37
+  %.sink.i46 = phi i32 [ 7, %41 ], [ 8, %37 ], [ 9, %40 ], [ 3, %42 ], [ 5, %.sink.split.i45.fold.split ], [ 6, %36 ]
   store i32 %.sink.i46, ptr %3, align 4
   br label %Dtt_ProcessType.exit
 
-48:                                               ; preds = %35
-  %49 = and i32 %37, %2
-  %50 = icmp eq i32 %49, %1
-  %51 = zext i1 %50 to i32
+44:                                               ; preds = %31
+  %45 = and i32 %33, %2
+  %46 = icmp eq i32 %45, %1
+  %47 = zext i1 %46 to i32
   br label %Dtt_ProcessType.exit
 
-52:                                               ; preds = %11, %11
-  %53 = xor i32 %2, -1
-  %54 = or i32 %53, %0
+48:                                               ; preds = %11, %11
+  %49 = xor i32 %2, -1
+  %50 = or i32 %49, %0
+  %51 = icmp eq i32 %50, %1
+  br i1 %51, label %switch.lookup74, label %53
+
+switch.lookup74:                                  ; preds = %48
+  %switch.tableidx75 = add nsw i32 %12, -3
+  %52 = sext i32 %switch.tableidx75 to i64
+  %switch.gep76 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %52
+  %switch.load77 = load i32, ptr %switch.gep76, align 4
+  store i32 %switch.load77, ptr %3, align 4
+  br label %Dtt_ProcessType.exit
+
+53:                                               ; preds = %48
+  %54 = or i32 %2, %0
   %55 = icmp eq i32 %54, %1
-  br i1 %55, label %56, label %59
-
-56:                                               ; preds = %52
-  %switch.tableidx72 = add i32 %12, -3
-  %57 = icmp ult i32 %switch.tableidx72, 6
-  br i1 %57, label %switch.lookup71, label %Dtt_ProcessType.exit
-
-switch.lookup71:                                  ; preds = %56
-  %58 = zext nneg i32 %switch.tableidx72 to i64
-  %switch.gep73 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.17, i64 0, i64 %58
-  %switch.load74 = load i32, ptr %switch.gep73, align 4
-  store i32 %switch.load74, ptr %3, align 4
+  %56 = zext i1 %55 to i32
   br label %Dtt_ProcessType.exit
 
-59:                                               ; preds = %52
-  %60 = or i32 %2, %0
-  %61 = icmp eq i32 %60, %1
-  %62 = zext i1 %61 to i32
+57:                                               ; preds = %11, %11
+  %58 = xor i32 %2, %0
+  %59 = xor i32 %58, %1
+  %60 = icmp eq i32 %59, -1
+  br i1 %60, label %switch.lookup78, label %62
+
+switch.lookup78:                                  ; preds = %57
+  %switch.tableidx79 = add nsw i32 %12, -4
+  %61 = sext i32 %switch.tableidx79 to i64
+  %switch.gep80 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %61
+  %switch.load81 = load i32, ptr %switch.gep80, align 4
+  store i32 %switch.load81, ptr %3, align 4
   br label %Dtt_ProcessType.exit
 
-63:                                               ; preds = %11, %11
-  %64 = xor i32 %2, %0
-  %65 = xor i32 %64, %1
-  %66 = icmp eq i32 %65, -1
-  br i1 %66, label %67, label %70
-
-67:                                               ; preds = %63
-  %switch.tableidx76 = add i32 %12, -4
-  %68 = icmp ult i32 %switch.tableidx76, 6
-  br i1 %68, label %switch.lookup75, label %Dtt_ProcessType.exit
-
-switch.lookup75:                                  ; preds = %67
-  %69 = zext nneg i32 %switch.tableidx76 to i64
-  %switch.gep77 = getelementptr inbounds [6 x i32], ptr @switch.table.Dtt_Check.18, i64 0, i64 %69
-  %switch.load78 = load i32, ptr %switch.gep77, align 4
-  store i32 %switch.load78, ptr %3, align 4
+62:                                               ; preds = %57
+  %63 = icmp eq i32 %58, %1
+  %64 = zext i1 %63 to i32
   br label %Dtt_ProcessType.exit
 
-70:                                               ; preds = %63
-  %71 = icmp eq i32 %64, %1
-  %72 = zext i1 %71 to i32
-  br label %Dtt_ProcessType.exit
-
-Dtt_ProcessType.exit:                             ; preds = %67, %56, %27, %17, %46, %switch.lookup75, %switch.lookup71, %.sink.split.i45, %switch.lookup68, %switch.lookup, %11, %70, %59, %48, %30, %20, %5
-  %.0 = phi i32 [ %72, %70 ], [ %62, %59 ], [ %51, %48 ], [ %34, %30 ], [ %23, %20 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup68 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup71 ], [ 1, %switch.lookup75 ], [ 1, %46 ], [ 1, %17 ], [ 1, %27 ], [ 1, %56 ], [ 1, %67 ]
+Dtt_ProcessType.exit:                             ; preds = %42, %switch.lookup78, %switch.lookup74, %.sink.split.i45, %switch.lookup71, %switch.lookup, %11, %62, %53, %44, %26, %18, %5
+  %.0 = phi i32 [ %64, %62 ], [ %56, %53 ], [ %47, %44 ], [ %30, %26 ], [ %21, %18 ], [ %10, %5 ], [ -1, %11 ], [ 1, %switch.lookup ], [ 1, %switch.lookup71 ], [ 1, %.sink.split.i45 ], [ 1, %switch.lookup74 ], [ 1, %switch.lookup78 ], [ 1, %42 ]
   ret i32 %.0
 }
 

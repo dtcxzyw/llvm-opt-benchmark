@@ -221,7 +221,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.145 = private unnamed_addr constant [33 x i8] c": Invalid Authentication Section\00", align 1
 @.str.146 = private unnamed_addr constant [28 x i8] c"Originator specific content\00", align 1
 @.str.147 = private unnamed_addr constant [17 x i8] c"BFD Echo message\00", align 1
-@switch.table.dissect_bfd_control = private unnamed_addr constant [4 x i32] [i32 16, i32 16, i32 20, i32 20], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @dissect_bfd_mep(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
@@ -479,11 +478,11 @@ define internal i32 @dissect_bfd_control(ptr noundef %0, ptr noundef %1, ptr nou
 72:                                               ; preds = %.critedge, %36
   %.090 = phi ptr [ %41, %.critedge ], [ null, %36 ]
   %or.cond = select i1 %cond, i1 %17, i1 false
-  br i1 %or.cond, label %73, label %115
+  br i1 %or.cond, label %73, label %113
 
 73:                                               ; preds = %72
   %74 = icmp ugt i8 %20, 27
-  br i1 %74, label %75, label %112
+  br i1 %74, label %75, label %110
 
 75:                                               ; preds = %73
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
@@ -548,39 +547,30 @@ get_bfd_required_auth_len.exit.i:                 ; preds = %99, %90, %90
   br label %104
 
 104:                                              ; preds = %100, %get_bfd_required_auth_len.exit.i
-  br i1 %.not.i, label %dissect_bfd_authentication.exit, label %105
+  br i1 %.not.i, label %dissect_bfd_authentication.exit, label %get_bfd_checksum_len.exit.i
 
-105:                                              ; preds = %104
-  %106 = load i32, ptr @hf_bfd_auth_seq_num, align 4
-  %107 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %106, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
-  %108 = load i32, ptr @hf_bfd_checksum, align 4
-  %switch.tableidx = add i8 %76, -2
-  %109 = icmp ult i8 %switch.tableidx, 4
-  br i1 %109, label %switch.lookup, label %get_bfd_checksum_len.exit.i
-
-switch.lookup:                                    ; preds = %105
-  %110 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.dissect_bfd_control, i64 0, i64 %110
-  %switch.load = load i32, ptr %switch.gep, align 4
-  br label %get_bfd_checksum_len.exit.i
-
-get_bfd_checksum_len.exit.i:                      ; preds = %switch.lookup, %105
-  %.0.i46.i = phi i32 [ 0, %105 ], [ %switch.load, %switch.lookup ]
-  %111 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %108, ptr noundef %0, i32 noundef 32, i32 noundef %.0.i46.i, i32 noundef 0) #3
+get_bfd_checksum_len.exit.i:                      ; preds = %104
+  %105 = load i32, ptr @hf_bfd_auth_seq_num, align 4
+  %106 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %105, ptr noundef %0, i32 noundef 28, i32 noundef 4, i32 noundef 0) #3
+  %107 = load i32, ptr @hf_bfd_checksum, align 4
+  %108 = and i8 %76, -2
+  %switch.i = icmp eq i8 %108, 2
+  %..i = select i1 %switch.i, i32 16, i32 20
+  %109 = tail call ptr @proto_tree_add_item(ptr noundef %.0.i, i32 noundef %107, ptr noundef %0, i32 noundef 32, i32 noundef %..i, i32 noundef 0) #3
   br label %dissect_bfd_authentication.exit
 
 dissect_bfd_authentication.exit:                  ; preds = %90, %91, %104, %get_bfd_checksum_len.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %115
+  br label %113
 
-112:                                              ; preds = %73
-  %113 = add nsw i32 %21, -24
-  %114 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.090, ptr noundef nonnull %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %113, ptr noundef nonnull @.str.140, i32 noundef %21) #3
-  br label %115
+110:                                              ; preds = %73
+  %111 = add nsw i32 %21, -24
+  %112 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.090, ptr noundef nonnull %1, ptr noundef nonnull @ei_bfd_auth_no_data, ptr noundef %0, i32 noundef 24, i32 noundef %111, ptr noundef nonnull @.str.140, i32 noundef %21) #3
+  br label %113
 
-115:                                              ; preds = %dissect_bfd_authentication.exit, %112, %72
-  %116 = call i32 @tvb_captured_length(ptr noundef %0) #3
-  ret i32 %116
+113:                                              ; preds = %dissect_bfd_authentication.exit, %110, %72
+  %114 = call i32 @tvb_captured_length(ptr noundef %0) #3
+  ret i32 %114
 }
 
 ; Function Attrs: nounwind uwtable

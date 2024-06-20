@@ -1380,7 +1380,7 @@ for.body.i:                                       ; preds = %for.inc.i, %if.then
   %indvars.iv.i = phi i64 [ 0, %if.then9.i ], [ %indvars.iv.next.i, %for.inc.i ]
   %ret.192.i = phi i32 [ 0, %if.then9.i ], [ %ret.5.i, %for.inc.i ]
   %6 = trunc nuw nsw i64 %indvars.iv.i to i32
-  switch i32 %6, label %if.else.i [
+  switch i32 %6, label %default.unreachable.i [
     i32 0, label %sw.bb.i.i
     i32 1, label %sw.bb1.i.i
     i32 2, label %sw.bb2.i.i
@@ -1525,8 +1525,11 @@ for.end14.i.i:                                    ; preds = %for.body7.i.i, %for
   %tobool.not.i.i = icmp eq ptr %22, null
   br i1 %tobool.not.i.i, label %return.sink.split.i, label %return.sink.split.sink.split.i
 
-if.else.i:                                        ; preds = %for.body.i, %if.end79.i, %for.end.i, %if.end7.i, %if.end.i
-  %ret.789.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.5.i, %for.end.i ], [ %call.i, %if.end.i ], [ -302, %for.body.i ]
+default.unreachable.i:                            ; preds = %for.body.i
+  unreachable
+
+if.else.i:                                        ; preds = %if.end79.i, %for.end.i, %if.end7.i, %if.end.i
+  %ret.789.i = phi i32 [ %call77.i, %if.end79.i ], [ %call6.i, %if.end7.i ], [ %ret.5.i, %for.end.i ], [ %call.i, %if.end.i ]
   %23 = load ptr, ptr %arrays.i, align 16
   %preMasterSz.i38.i = getelementptr inbounds i8, ptr %23, i64 16
   %24 = load i32, ptr %preMasterSz.i38.i, align 8

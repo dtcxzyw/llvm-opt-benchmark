@@ -23,10 +23,8 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
-  switch i8 %5, label %.loopexit [
-    i8 2, label %11
-    i8 3, label %17
-  ]
+  %switch = icmp eq i8 %5, 2
+  br i1 %switch, label %11, label %17
 
 11:                                               ; preds = %6
   %12 = icmp eq i32 %2, 0
@@ -68,8 +66,8 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   %36 = icmp eq i64 %35, %25
   br i1 %36, label %.loopexit, label %26, !llvm.loop !5
 
-.loopexit:                                        ; preds = %26, %19, %15, %13, %6
-  %37 = phi i64 [ 0, %6 ], [ %14, %13 ], [ %16, %15 ], [ 0, %19 ], [ %34, %26 ]
+.loopexit:                                        ; preds = %26, %19, %15, %13
+  %37 = phi i64 [ %14, %13 ], [ %16, %15 ], [ 0, %19 ], [ %34, %26 ]
   %38 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %37) #6
   %39 = icmp eq ptr %38, null
   br i1 %39, label %44, label %40
@@ -656,10 +654,8 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
-  switch i8 %20, label %.loopexit.i [
-    i8 2, label %26
-    i8 3, label %28
-  ]
+  %switch.i = icmp eq i8 %20, 2
+  br i1 %switch.i, label %26, label %28
 
 26:                                               ; preds = %21
   %27 = tail call i64 @acpi_ut_implicit_strtoul64(ptr noundef %23) #6
@@ -693,8 +689,8 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %47 = icmp eq i64 %46, %36
   br i1 %47, label %.loopexit.i, label %37, !llvm.loop !5
 
-.loopexit.i:                                      ; preds = %37, %30, %26, %21
-  %48 = phi i64 [ 0, %21 ], [ %27, %26 ], [ 0, %30 ], [ %45, %37 ]
+.loopexit.i:                                      ; preds = %37, %30, %26
+  %48 = phi i64 [ %27, %26 ], [ 0, %30 ], [ %45, %37 ]
   %49 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %48) #6
   %50 = icmp eq ptr %49, null
   br i1 %50, label %acpi_ex_convert_to_integer.exit.thread, label %51

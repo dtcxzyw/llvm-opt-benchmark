@@ -490,7 +490,7 @@ _ZSt6copy_nIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEEmS6_ET1_T_T0_S7_
   store i32 -1, ptr %175, align 4, !noalias !4
   %176 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %176) #16, !noalias !4
-  switch i8 %59, label %494 [
+  switch i8 %59, label %default.unreachable [
     i8 5, label %492
     i8 6, label %.invoke.i
     i8 4, label %.invoke.i
@@ -1391,7 +1391,10 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_S5_.exi
   invoke fastcc void @_ZN5ZXing8MaxiCode22DecodedBitStreamParserL10GetMessageERKNS_9ByteArrayEiiRNS_7ContentERNS_20StructuredAppendInfoE(ptr noundef nonnull align 8 dereferenceable(24) %27, i32 noundef 1, i32 noundef %493, ptr noundef nonnull align 8 dereferenceable(54) %7, ptr noundef nonnull align 8 dereferenceable(40) %8)
           to label %494 unwind label %442, !noalias !4
 
-494:                                              ; preds = %.invoke.i, %489, %.noexc26
+default.unreachable:                              ; preds = %.noexc26
+  unreachable
+
+494:                                              ; preds = %.invoke.i, %489
   %495 = load <2 x ptr>, ptr %7, align 16, !noalias !4
   store <2 x ptr> %495, ptr %22, align 16, !noalias !4
   %496 = getelementptr inbounds i8, ptr %22, i64 16

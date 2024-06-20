@@ -2268,7 +2268,7 @@ if.then15:                                        ; preds = %if.end.i53
 
 if.end16:                                         ; preds = %if.end11, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67
   %retval.0.i5470 = phi ptr [ %call1.i, %_ZN6icu_7512SharedObject11copyOnWriteINS_17CollationSettingsEEEPT_RPKS3_.exit.thread67 ], [ %12, %if.end11 ]
-  switch i32 %attr, label %sw.default [
+  switch i32 %attr, label %default.unreachable [
     i32 0, label %sw.bb
     i32 1, label %sw.bb17
     i32 2, label %sw.bb19
@@ -2332,9 +2332,8 @@ sw.bb34:                                          ; preds = %if.end16
   tail call void @_ZN6icu_7517CollationSettings7setFlagEi18UColAttributeValueiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %retval.0.i5470, i32 noundef 2, i32 noundef %value, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
   br label %sw.epilog
 
-sw.default:                                       ; preds = %if.end16
-  store i32 1, ptr %errorCode, align 4
-  br label %if.end42
+default.unreachable:                              ; preds = %if.end16
+  unreachable
 
 sw.epilog:                                        ; preds = %sw.bb27, %sw.bb27, %sw.bb27, %sw.bb34, %sw.bb25, %sw.bb23, %sw.bb21, %sw.bb19, %sw.bb17, %sw.bb
   %.pr = load i32, ptr %errorCode, align 4
@@ -2366,7 +2365,7 @@ if.else:                                          ; preds = %if.end39
   store i32 %or.i64, ptr %explicitlySetAttributes.i63, align 8
   br label %if.end42
 
-if.end42:                                         ; preds = %sw.default, %if.then32, %sw.default.i, %entry, %sw.epilog, %if.else, %if.then41, %if.then15, %if.then9, %if.then3
+if.end42:                                         ; preds = %if.then32, %sw.default.i, %entry, %sw.epilog, %if.else, %if.then41, %if.then15, %if.then9, %if.then3
   ret void
 }
 

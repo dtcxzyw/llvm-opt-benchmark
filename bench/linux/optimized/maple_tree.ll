@@ -3820,21 +3820,21 @@ mtree_range_walk.exit:                            ; preds = %128, %132
   %315 = ptrtoint ptr %314 to i64
   %316 = and i64 %315, -256
   %317 = inttoptr i64 %316 to ptr
-  %.off144 = add nsw i32 %140, -1
-  %switch145 = icmp ult i32 %.off144, 2
+  %.off142 = add nsw i32 %140, -1
+  %switch143 = icmp ult i32 %.off142, 2
   %318 = getelementptr inbounds i8, ptr %317, i64 128
-  %spec.select146 = select i1 %switch145, ptr %318, ptr null
+  %spec.select144 = select i1 %switch143, ptr %318, ptr null
   %319 = getelementptr inbounds i8, ptr %317, i64 8
-  %spec.select73 = select i1 %switch, ptr %319, ptr null
+  %spec.select74 = select i1 %switch, ptr %319, ptr null
   br label %320
 
 320:                                              ; preds = %311, %.thread48, %.thread46
-  %321 = phi ptr [ %301, %.thread46 ], [ %310, %.thread48 ], [ %spec.select146, %311 ]
+  %321 = phi ptr [ %301, %.thread46 ], [ %310, %.thread48 ], [ %spec.select144, %311 ]
   %322 = phi ptr [ %295, %.thread46 ], [ %305, %.thread48 ], [ %312, %311 ]
   %323 = phi ptr [ %296, %.thread46 ], [ null, %.thread48 ], [ %spec.select, %311 ]
   %324 = phi i64 [ %298, %.thread46 ], [ %307, %.thread48 ], [ %315, %311 ]
   %325 = phi ptr [ %300, %.thread46 ], [ %309, %.thread48 ], [ %317, %311 ]
-  %326 = phi ptr [ %302, %.thread46 ], [ null, %.thread48 ], [ %spec.select73, %311 ]
+  %326 = phi ptr [ %302, %.thread46 ], [ null, %.thread48 ], [ %spec.select74, %311 ]
   %327 = zext nneg i8 %150 to i64
   %328 = getelementptr ptr, ptr %321, i64 %327
   %329 = load ptr, ptr %328, align 8
@@ -3938,15 +3938,15 @@ mtree_range_walk.exit:                            ; preds = %128, %132
   %388 = zext i8 %135 to i64
   %389 = shl nuw nsw i64 %388, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %376, ptr align 8 %387, i64 %389, i1 false)
-  %.off74 = add nsw i32 %140, -1
-  %switch75 = icmp ult i32 %.off74, 2
+  %.off75 = add nsw i32 %140, -1
+  %switch76 = icmp ult i32 %.off75, 2
   %390 = getelementptr inbounds i8, ptr %293, i64 8
-  %spec.select76 = select i1 %switch75, ptr %390, ptr null
+  %spec.select77 = select i1 %switch76, ptr %390, ptr null
   br label %391
 
 391:                                              ; preds = %386, %.thread51, %.thread52
   %392 = phi i64 [ %379, %.thread52 ], [ %385, %.thread51 ], [ %389, %386 ]
-  %393 = phi ptr [ %380, %.thread52 ], [ null, %.thread51 ], [ %spec.select76, %386 ]
+  %393 = phi ptr [ %380, %.thread52 ], [ null, %.thread51 ], [ %spec.select77, %386 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %375, ptr align 8 %393, i64 %392, i1 false)
   %394 = load i64, ptr %372, align 8
   store i64 %394, ptr %158, align 8
@@ -4255,15 +4255,15 @@ mtree_range_walk.exit:                            ; preds = %128, %132
 
 574:                                              ; preds = %571, %561
   %575 = phi ptr [ %572, %571 ], [ null, %561 ]
-  %.off77 = add nsw i32 %568, -1
-  %switch78 = icmp ult i32 %.off77, 2
+  %.off78 = add nsw i32 %568, -1
+  %switch79 = icmp ult i32 %.off78, 2
   %576 = getelementptr inbounds i8, ptr %562, i64 8
-  %spec.select79 = select i1 %switch78, ptr %576, ptr null
+  %spec.select80 = select i1 %switch79, ptr %576, ptr null
   br label %577
 
 577:                                              ; preds = %574, %.thread59, %.thread60
   %578 = phi ptr [ %569, %.thread60 ], [ %573, %.thread59 ], [ %575, %574 ]
-  %579 = phi ptr [ %570, %.thread60 ], [ null, %.thread59 ], [ %spec.select79, %574 ]
+  %579 = phi ptr [ %570, %.thread60 ], [ null, %.thread59 ], [ %spec.select80, %574 ]
   %580 = shl nuw nsw i64 %367, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %578, ptr align 8 %321, i64 %580, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %579, ptr align 8 %326, i64 %580, i1 false)
@@ -4430,7 +4430,7 @@ mtree_range_walk.exit:                            ; preds = %128, %132
 
 679:                                              ; preds = %678, %.thread66
   %680 = phi ptr [ %658, %678 ], [ null, %.thread66 ]
-  switch i32 %629, label %default.unreachable125 [
+  switch i32 %629, label %default.unreachable123 [
     i32 3, label %.thread68
     i32 2, label %684
     i32 1, label %684
@@ -4446,7 +4446,7 @@ mtree_range_walk.exit:                            ; preds = %128, %132
   %683 = getelementptr inbounds i8, ptr %680, i64 8
   br label %687
 
-default.unreachable125:                           ; preds = %679
+default.unreachable123:                           ; preds = %679
   unreachable
 
 684:                                              ; preds = %679, %679
@@ -4454,9 +4454,9 @@ default.unreachable125:                           ; preds = %679
   %686 = getelementptr inbounds i8, ptr %680, i64 8
   br label %687
 
-687:                                              ; preds = %684, %.thread67, %.thread68
-  %688 = phi ptr [ %681, %.thread68 ], [ %683, %.thread67 ], [ %685, %684 ]
-  %689 = phi ptr [ %682, %.thread68 ], [ null, %.thread67 ], [ %686, %684 ]
+687:                                              ; preds = %.thread67, %684, %.thread68
+  %688 = phi ptr [ %685, %684 ], [ %681, %.thread68 ], [ %683, %.thread67 ]
+  %689 = phi ptr [ %686, %684 ], [ %682, %.thread68 ], [ null, %.thread67 ]
   %690 = and i64 %423, -256
   %691 = inttoptr i64 %690 to ptr
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(256) %680, ptr noundef align 256 dereferenceable(256) %691, i64 256, i1 false)
@@ -4616,12 +4616,12 @@ default.unreachable125:                           ; preds = %679
   %802 = getelementptr inbounds i8, ptr %801, i64 4
   %803 = load i32, ptr %802, align 4
   %804 = and i32 %803, 1
-  %switch84.not = icmp eq i32 %804, 0
-  %spec.select85 = select i1 %switch84.not, i64 128, i64 80
+  %switch82.not = icmp eq i32 %804, 0
+  %spec.select83 = select i1 %switch82.not, i64 128, i64 80
   br label %.thread69
 
 .thread69:                                        ; preds = %800, %788
-  %805 = phi i64 [ %spec.select85, %800 ], [ 8, %788 ]
+  %805 = phi i64 [ %spec.select83, %800 ], [ 8, %788 ]
   %806 = getelementptr inbounds i8, ptr %795, i64 %805
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !62
   %807 = getelementptr ptr, ptr %806, i64 %793

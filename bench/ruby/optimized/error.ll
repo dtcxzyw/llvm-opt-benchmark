@@ -3713,8 +3713,8 @@ define internal noundef i64 @exc_exception(i32 noundef %0, ptr nocapture noundef
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %trunc = trunc nuw i32 %0 to i1
-  br i1 %trunc, label %5, label %12
+  %switch = icmp eq i32 %0, 0
+  br i1 %switch, label %12, label %5
 
 5:                                                ; preds = %rb_check_arity.exit
   %6 = load i64, ptr %1, align 8

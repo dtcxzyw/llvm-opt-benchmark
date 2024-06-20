@@ -298,7 +298,7 @@ define internal noundef i32 @dissect_lisp_tcp_message(ptr noundef %0, ptr nounde
   br i1 %or.cond, label %31, label %113
 
 31:                                               ; preds = %20
-  switch i16 %9, label %106 [
+  switch i16 %9, label %default.unreachable [
     i16 16, label %32
     i16 17, label %54
     i16 18, label %61
@@ -417,9 +417,12 @@ define internal noundef i32 @dissect_lisp_tcp_message(ptr noundef %0, ptr nounde
   %105 = sub i16 %.neg146.i, %104
   br label %106
 
-106:                                              ; preds = %98, %94, %92, %65, %61, %54, %31
-  %.0142.i = phi i16 [ %29, %31 ], [ %105, %98 ], [ %93, %92 ], [ %97, %94 ], [ %75, %65 ], [ %64, %61 ], [ %60, %54 ]
-  %.1.i = phi i32 [ 8, %31 ], [ %103, %98 ], [ 11, %92 ], [ %95, %94 ], [ %73, %65 ], [ %62, %61 ], [ %58, %54 ]
+default.unreachable:                              ; preds = %31
+  unreachable
+
+106:                                              ; preds = %98, %94, %92, %65, %61, %54
+  %.0142.i = phi i16 [ %105, %98 ], [ %93, %92 ], [ %97, %94 ], [ %75, %65 ], [ %64, %61 ], [ %60, %54 ]
+  %.1.i = phi i32 [ %103, %98 ], [ 11, %92 ], [ %95, %94 ], [ %73, %65 ], [ %62, %61 ], [ %58, %54 ]
   %.not145.i = icmp eq i16 %.0142.i, 0
   br i1 %.not145.i, label %dissect_lisp_tcp_reliable_transport_message.exit, label %107
 

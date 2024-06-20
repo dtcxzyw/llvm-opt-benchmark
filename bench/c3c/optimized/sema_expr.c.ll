@@ -7494,7 +7494,7 @@ sema_cast_ct_ident_rvalue.exit:                   ; preds = %sema_analyse_expr.e
   br label %sema_cast_ct_ident_rvalue.exit.thread
 
 188:                                              ; preds = %181, %178
-  switch i8 %trunc.i, label %207 [
+  switch i8 %trunc.i, label %default.unreachable [
     i8 0, label %189
     i8 7, label %198
     i8 12, label %199
@@ -7550,7 +7550,10 @@ sema_cast_ct_ident_rvalue.exit:                   ; preds = %sema_analyse_expr.e
   store i16 %206, ptr %9, align 8
   br label %sema_cast_ct_ident_rvalue.exit.thread
 
-207:                                              ; preds = %175, %188
+default.unreachable:                              ; preds = %188
+  unreachable
+
+207:                                              ; preds = %175
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.sema_cast_ident_rvalue, ptr noundef nonnull @.str.35, i32 noundef 789) #14
   unreachable
 
@@ -14136,7 +14139,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
 
 13:                                               ; preds = %8
   %14 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %14, label %304 [
+  switch i32 %14, label %default.unreachable [
     i32 12, label %15
     i32 0, label %17
     i32 1, label %19
@@ -14155,12 +14158,12 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
 15:                                               ; preds = %13
   %16 = tail call ptr @time_get() #13
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %16) #13
-  br label %305
+  br label %304
 
 17:                                               ; preds = %13
   %18 = tail call ptr @date_get() #13
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %18) #13
-  br label %305
+  br label %304
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14176,7 +14179,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %27 = getelementptr inbounds i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %28) #13
-  br label %305
+  br label %304
 
 29:                                               ; preds = %19
   %30 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14186,7 +14189,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %34 = getelementptr inbounds i8, ptr %33, i64 24
   %35 = load ptr, ptr %34, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %35) #13
-  br label %305
+  br label %304
 
 36:                                               ; preds = %13
   %37 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14202,7 +14205,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %44 = getelementptr inbounds i8, ptr %43, i64 40
   %45 = load ptr, ptr %44, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %45) #13
-  br label %305
+  br label %304
 
 46:                                               ; preds = %36
   %47 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14212,7 +14215,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %51 = getelementptr inbounds i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %52) #13
-  br label %305
+  br label %304
 
 53:                                               ; preds = %13
   %54 = getelementptr inbounds i8, ptr %0, i64 136
@@ -14225,7 +14228,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %58 = getelementptr inbounds i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %59) #13
-  br label %305
+  br label %304
 
 60:                                               ; preds = %53
   %61 = getelementptr inbounds i8, ptr %0, i64 16
@@ -14235,7 +14238,7 @@ define internal fastcc noundef zeroext i1 @sema_expr_analyse_compiler_const(ptr 
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %66) #13
-  br label %305
+  br label %304
 
 67:                                               ; preds = %13
   %68 = getelementptr inbounds i8, ptr %0, i64 128
@@ -14382,7 +14385,7 @@ type_flatten.exit182:                             ; preds = %107
   %storemerge.in = and i16 %7, -512
   %storemerge = or disjoint i16 %storemerge.in, 1
   store i16 %storemerge, ptr %4, align 8
-  br label %305
+  br label %304
 
 132:                                              ; preds = %13
   %133 = load ptr, ptr @type_isz, align 8
@@ -14459,7 +14462,7 @@ type_flatten.exit186:                             ; preds = %141
   %166 = and i16 %7, -512
   %167 = or disjoint i16 %166, 1
   store i16 %167, ptr %4, align 8
-  br label %305
+  br label %304
 
 168:                                              ; preds = %13
   %169 = getelementptr inbounds i8, ptr %0, i64 24
@@ -14472,13 +14475,13 @@ type_flatten.exit186:                             ; preds = %141
   ]
 
 171:                                              ; preds = %168, %168
-  br i1 %2, label %172, label %305
+  br i1 %2, label %172, label %304
 
 172:                                              ; preds = %171
   %173 = getelementptr inbounds i8, ptr %1, i64 8
   %174 = load i64, ptr %173, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %174, ptr noundef nonnull @.str.170) #13
-  br label %305
+  br label %304
 
 175:                                              ; preds = %168
   %176 = getelementptr inbounds i8, ptr %1, i64 16
@@ -14497,7 +14500,7 @@ type_flatten.exit186:                             ; preds = %141
   %184 = and i16 %179, -4062
   %185 = or disjoint i16 %184, 512
   store i16 %185, ptr %176, align 8
-  br label %305
+  br label %304
 
 186:                                              ; preds = %168
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.sema_expr_analyse_compiler_const, ptr noundef nonnull @.str.35, i32 noundef 6887) #14
@@ -14515,7 +14518,7 @@ type_flatten.exit186:                             ; preds = %141
 
 190:                                              ; preds = %187
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef nonnull @.str.171) #13
-  br label %305
+  br label %304
 
 191:                                              ; preds = %187
   %192 = getelementptr inbounds i8, ptr %0, i64 40
@@ -14541,16 +14544,16 @@ type_flatten.exit186:                             ; preds = %141
   tail call void @scratch_buffer_append(ptr noundef %203) #13
   %204 = tail call ptr @scratch_buffer_copy() #13
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %204) #13
-  br label %305
+  br label %304
 
 205:                                              ; preds = %191
   %206 = load ptr, ptr %193, align 8
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef %206) #13
-  br label %305
+  br label %304
 
 207:                                              ; preds = %187
   tail call void @expr_rewrite_to_string(ptr noundef %1, ptr noundef nonnull @.str.172) #13
-  br label %305
+  br label %304
 
 208:                                              ; preds = %187
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.sema_expr_analyse_compiler_const, ptr noundef nonnull @.str.35, i32 noundef 6914) #14
@@ -14562,20 +14565,20 @@ type_flatten.exit186:                             ; preds = %141
   br i1 %.not, label %210, label %214
 
 210:                                              ; preds = %.thread
-  br i1 %2, label %211, label %305
+  br i1 %2, label %211, label %304
 
 211:                                              ; preds = %210
   %212 = getelementptr inbounds i8, ptr %1, i64 8
   %213 = load i64, ptr %212, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %213, ptr noundef nonnull @.str.173, ptr noundef %5) #13
-  br label %305
+  br label %304
 
 214:                                              ; preds = %.thread
   %215 = getelementptr inbounds i8, ptr %1, i64 8
   %.sroa.0.0.copyload = load i64, ptr %215, align 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(56) %209, i64 56, i1 false)
   store i64 %.sroa.0.0.copyload, ptr %215, align 8
-  br label %305
+  br label %304
 
 216:                                              ; preds = %13
   %217 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
@@ -14600,7 +14603,7 @@ type_flatten.exit186:                             ; preds = %141
   store ptr %229, ptr %1, align 8
   %230 = getelementptr inbounds i8, ptr %226, i64 8
   store ptr %229, ptr %230, align 8
-  br label %305
+  br label %304
 
 231:                                              ; preds = %216
   %232 = load ptr, ptr @type_string, align 8
@@ -14612,7 +14615,7 @@ type_flatten.exit186:                             ; preds = %141
   %236 = and i16 %235, -256
   %237 = or disjoint i16 %236, 56
   store i16 %237, ptr %234, align 8
-  br label %305
+  br label %304
 
 238:                                              ; preds = %13
   %239 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 165), align 1
@@ -14637,7 +14640,7 @@ type_flatten.exit186:                             ; preds = %141
   store ptr %251, ptr %1, align 8
   %252 = getelementptr inbounds i8, ptr %248, i64 8
   store ptr %251, ptr %252, align 8
-  br label %305
+  br label %304
 
 253:                                              ; preds = %238
   %254 = load ptr, ptr @type_voidptr, align 8
@@ -14649,7 +14652,7 @@ type_flatten.exit186:                             ; preds = %141
   %258 = and i16 %257, -256
   %259 = or disjoint i16 %258, 56
   store i16 %259, ptr %256, align 8
-  br label %305
+  br label %304
 
 260:                                              ; preds = %13
   %261 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
@@ -14674,7 +14677,7 @@ type_flatten.exit186:                             ; preds = %141
   store ptr %273, ptr %1, align 8
   %274 = getelementptr inbounds i8, ptr %270, i64 8
   store ptr %273, ptr %274, align 8
-  br label %305
+  br label %304
 
 275:                                              ; preds = %260
   %276 = load ptr, ptr @type_string, align 8
@@ -14686,7 +14689,7 @@ type_flatten.exit186:                             ; preds = %141
   %280 = and i16 %279, -256
   %281 = or disjoint i16 %280, 57
   store i16 %281, ptr %278, align 8
-  br label %305
+  br label %304
 
 282:                                              ; preds = %13
   %283 = load i8, ptr getelementptr inbounds (i8, ptr @active_target, i64 166), align 2
@@ -14711,7 +14714,7 @@ type_flatten.exit186:                             ; preds = %141
   store ptr %295, ptr %1, align 8
   %296 = getelementptr inbounds i8, ptr %292, i64 8
   store ptr %295, ptr %296, align 8
-  br label %305
+  br label %304
 
 297:                                              ; preds = %282
   %298 = load ptr, ptr @type_voidptr, align 8
@@ -14723,13 +14726,12 @@ type_flatten.exit186:                             ; preds = %141
   %302 = and i16 %301, -256
   %303 = or disjoint i16 %302, 57
   store i16 %303, ptr %300, align 8
-  br label %305
+  br label %304
 
-304:                                              ; preds = %13
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @__func__.sema_expr_analyse_compiler_const, ptr noundef nonnull @.str.35, i32 noundef 6987) #14
+default.unreachable:                              ; preds = %13
   unreachable
 
-305:                                              ; preds = %210, %211, %171, %172, %56, %60, %297, %285, %275, %263, %253, %241, %231, %219, %214, %207, %205, %197, %190, %175, %163, %129, %46, %39, %29, %22, %17, %15
+304:                                              ; preds = %210, %211, %171, %172, %56, %60, %297, %285, %275, %263, %253, %241, %231, %219, %214, %207, %205, %197, %190, %175, %163, %129, %46, %39, %29, %22, %17, %15
   %.0164 = phi i1 [ true, %297 ], [ true, %285 ], [ true, %275 ], [ true, %263 ], [ true, %253 ], [ true, %241 ], [ true, %231 ], [ true, %219 ], [ true, %214 ], [ true, %207 ], [ true, %197 ], [ true, %205 ], [ true, %190 ], [ true, %175 ], [ true, %163 ], [ true, %129 ], [ true, %39 ], [ true, %46 ], [ true, %22 ], [ true, %29 ], [ true, %17 ], [ true, %15 ], [ true, %60 ], [ true, %56 ], [ false, %172 ], [ false, %171 ], [ false, %211 ], [ false, %210 ]
   ret i1 %.0164
 }

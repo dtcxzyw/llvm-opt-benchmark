@@ -3038,7 +3038,7 @@ if.end140:                                        ; preds = %if.end73, %if.end12
 
 if.then149:                                       ; preds = %if.end140
   %cmp147 = icmp eq i32 %0, 3
-  switch i32 %0, label %return [
+  switch i32 %0, label %default.unreachable [
     i32 1, label %sw.bb
     i32 2, label %sw.bb164
     i32 3, label %sw.bb179
@@ -3661,8 +3661,11 @@ if.end447:                                        ; preds = %if.end443
   store i64 %add449, ptr %fm_offset3450, align 8
   br label %return
 
-return:                                           ; preds = %for.body.i, %if.end17.i.i, %for.end.i.i, %if.end.i.i, %if.then.i.i, %if.then42.i, %if.then33.i, %write_sane_extended.exit.i, %if.end18.i, %if.end13.i, %if.end9.i, %if.end6.i, %56, %if.end339, %if.end447, %if.end443, %if.end439, %if.end433, %if.end428, %if.else361, %if.then355, %if.end347, %if.else342, %if.end333, %if.else328, %if.end316, %if.then311, %if.end277, %if.end268, %if.else263, %if.end256, %if.then251, %if.end217, %if.end213, %if.end209, %if.end205, %if.end201, %if.then196, %if.then149, %if.end188, %if.end184, %sw.bb179, %if.end173, %if.end169, %sw.bb164, %if.end158, %if.end153, %sw.bb, %if.then53, %if.then422, %if.then384, %if.then302, %if.then242, %if.then138
-  %retval.0 = phi i32 [ 0, %if.then138 ], [ 0, %if.then242 ], [ 0, %if.then302 ], [ 0, %if.then384 ], [ 0, %if.then422 ], [ 0, %if.then53 ], [ 0, %sw.bb ], [ 0, %if.end153 ], [ 0, %if.end158 ], [ 0, %sw.bb164 ], [ 0, %if.end169 ], [ 0, %if.end173 ], [ 0, %sw.bb179 ], [ 0, %if.end184 ], [ 0, %if.end188 ], [ 0, %if.then149 ], [ 0, %if.then196 ], [ 0, %if.end201 ], [ 0, %if.end205 ], [ 0, %if.end209 ], [ 0, %if.end213 ], [ 0, %if.end217 ], [ 0, %if.then251 ], [ 0, %if.end256 ], [ 0, %if.else263 ], [ 0, %if.end268 ], [ 0, %if.end277 ], [ 0, %if.then311 ], [ 0, %if.end316 ], [ 0, %if.else328 ], [ 0, %if.end333 ], [ 0, %if.else342 ], [ 0, %if.end347 ], [ 0, %if.then355 ], [ 0, %if.else361 ], [ 0, %if.end428 ], [ 0, %if.end433 ], [ 0, %if.end439 ], [ 0, %if.end443 ], [ 1, %if.end447 ], [ 1, %if.end339 ], [ 0, %56 ], [ 0, %if.end6.i ], [ 0, %if.end9.i ], [ 0, %if.end13.i ], [ 0, %if.end18.i ], [ 0, %write_sane_extended.exit.i ], [ 0, %if.then33.i ], [ 0, %if.then42.i ], [ 0, %if.then.i.i ], [ 0, %if.end.i.i ], [ 0, %for.end.i.i ], [ 0, %if.end17.i.i ], [ 0, %for.body.i ]
+default.unreachable:                              ; preds = %if.then149
+  unreachable
+
+return:                                           ; preds = %for.body.i, %if.end17.i.i, %for.end.i.i, %if.end.i.i, %if.then.i.i, %if.then42.i, %if.then33.i, %write_sane_extended.exit.i, %if.end18.i, %if.end13.i, %if.end9.i, %if.end6.i, %56, %if.end339, %if.end447, %if.end443, %if.end439, %if.end433, %if.end428, %if.else361, %if.then355, %if.end347, %if.else342, %if.end333, %if.else328, %if.end316, %if.then311, %if.end277, %if.end268, %if.else263, %if.end256, %if.then251, %if.end217, %if.end213, %if.end209, %if.end205, %if.end201, %if.then196, %if.end188, %if.end184, %sw.bb179, %if.end173, %if.end169, %sw.bb164, %if.end158, %if.end153, %sw.bb, %if.then53, %if.then422, %if.then384, %if.then302, %if.then242, %if.then138
+  %retval.0 = phi i32 [ 0, %if.then138 ], [ 0, %if.then242 ], [ 0, %if.then302 ], [ 0, %if.then384 ], [ 0, %if.then422 ], [ 0, %if.then53 ], [ 0, %sw.bb ], [ 0, %if.end153 ], [ 0, %if.end158 ], [ 0, %sw.bb164 ], [ 0, %if.end169 ], [ 0, %if.end173 ], [ 0, %sw.bb179 ], [ 0, %if.end184 ], [ 0, %if.end188 ], [ 0, %if.then196 ], [ 0, %if.end201 ], [ 0, %if.end205 ], [ 0, %if.end209 ], [ 0, %if.end213 ], [ 0, %if.end217 ], [ 0, %if.then251 ], [ 0, %if.end256 ], [ 0, %if.else263 ], [ 0, %if.end268 ], [ 0, %if.end277 ], [ 0, %if.then311 ], [ 0, %if.end316 ], [ 0, %if.else328 ], [ 0, %if.end333 ], [ 0, %if.else342 ], [ 0, %if.end347 ], [ 0, %if.then355 ], [ 0, %if.else361 ], [ 0, %if.end428 ], [ 0, %if.end433 ], [ 0, %if.end439 ], [ 0, %if.end443 ], [ 1, %if.end447 ], [ 1, %if.end339 ], [ 0, %56 ], [ 0, %if.end6.i ], [ 0, %if.end9.i ], [ 0, %if.end13.i ], [ 0, %if.end18.i ], [ 0, %write_sane_extended.exit.i ], [ 0, %if.then33.i ], [ 0, %if.then42.i ], [ 0, %if.then.i.i ], [ 0, %if.end.i.i ], [ 0, %for.end.i.i ], [ 0, %if.end17.i.i ], [ 0, %for.body.i ]
   ret i32 %retval.0
 }
 

@@ -641,11 +641,9 @@ _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %79
           to label %.noexc27 unwind label %91
 
 .noexc27:                                         ; preds = %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
-  %switch.selectcmp51 = icmp eq i32 %1, 3
-  %switch.selectcmp = icmp eq i32 %1, 2
-  %switch.select = select i1 %switch.selectcmp, i32 8, i32 0
-  %switch.select52 = select i1 %switch.selectcmp51, i32 4, i32 %switch.select
-  invoke void @_ZN3gmx17EnergyAccumulatorILb1ELb1EEC1Eiii(ptr noundef nonnull align 8 dereferenceable(148) %99, i32 noundef %2, i32 noundef 4, i32 noundef %switch.select52)
+  %switch = icmp eq i32 %1, 3
+  %spec.select = select i1 %switch, i32 4, i32 8
+  invoke void @_ZN3gmx17EnergyAccumulatorILb1ELb1EEC1Eiii(ptr noundef nonnull align 8 dereferenceable(148) %99, i32 noundef %2, i32 noundef 4, i32 noundef %spec.select)
           to label %102 unwind label %100, !noalias !15
 
 100:                                              ; preds = %.noexc27
@@ -3201,13 +3199,13 @@ _ZNKSt14default_deleteIN3gmx22EnergyGroupsPerClusterEEclEPS1_.exit.i.i.i.i.i: ; 
   br i1 %spec.select.i.i, label %507, label %519
 
 507:                                              ; preds = %506
-  %.not70 = icmp ult i32 %3, 2
-  br i1 %.not70, label %517, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
+  %.not69 = icmp ult i32 %3, 2
+  br i1 %.not69, label %517, label %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit
 
 _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %507
-  %switch.selectcmp = icmp eq i32 %3, 2
+  %switch = icmp eq i32 %3, 3
   %508 = getelementptr inbounds i8, ptr %0, i64 224
-  br i1 %switch.selectcmp, label %516, label %515
+  br i1 %switch, label %515, label %516
 
 509:                                              ; preds = %27, %10
   %510 = landingpad { ptr, i32 }
@@ -3230,12 +3228,12 @@ _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %507
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %256, %241, %206, %194
-  %lpad.loopexit64 = landingpad { ptr, i32 }
+  %lpad.loopexit63 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %533, %_ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit.i, %485, %401, %369, %85, %66
-  %lpad.loopexit.split-lp65 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp64 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
@@ -3281,9 +3279,9 @@ _ZN5NbnxmL15sc_iClusterSizeENS_10KernelTypeE.exit: ; preds = %507
 ._ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit_crit_edge: ; preds = %533
   %.phi.trans.insert = getelementptr inbounds i8, ptr %0, i64 224
   %.pre = load i32, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert74 = getelementptr inbounds i8, ptr %0, i64 228
-  %.pre75 = load i32, ptr %.phi.trans.insert74, align 4
-  %535 = icmp eq i32 %.pre75, 1
+  %.phi.trans.insert73 = getelementptr inbounds i8, ptr %0, i64 228
+  %.pre74 = load i32, ptr %.phi.trans.insert73, align 4
+  %535 = icmp eq i32 %.pre74, 1
   %536 = select i1 %535, i32 4, i32 3
   br label %_ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyEEEE6resizeEm.exit
 
@@ -3319,7 +3317,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
   br label %551
 
 551:                                              ; preds = %.lr.ph, %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12emplace_backIJRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEERS0_DpOT_.exit
-  %.01869 = phi i32 [ 0, %.lr.ph ], [ %560, %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12emplace_backIJRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEERS0_DpOT_.exit ]
+  %.01868 = phi i32 [ 0, %.lr.ph ], [ %560, %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12emplace_backIJRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEERS0_DpOT_.exit ]
   %.sroa.0.0.copyload.i = load i32, ptr %548, align 8
   store i32 %.sroa.0.0.copyload.i, ptr %23, align 4
   %552 = load ptr, ptr %549, align 8
@@ -3344,7 +3342,7 @@ _ZNSt6vectorIN3gmx11BasicVectorIfEENS0_9AllocatorIS2_NS0_20HostAllocationPolicyE
           to label %_ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12emplace_backIJRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEERS0_DpOT_.exit unwind label %.loopexit
 
 _ZNSt6vectorI23nbnxn_atomdata_output_tSaIS0_EE12emplace_backIJRKN5Nbnxm10KernelTypeERKiRKN3gmx13PinningPolicyEEEERS0_DpOT_.exit: ; preds = %559, %.noexc47
-  %560 = add nuw nsw i32 %.01869, 1
+  %560 = add nuw nsw i32 %.01868, 1
   %exitcond.not = icmp eq i32 %560, %9
   br i1 %exitcond.not, label %._crit_edge, label %551, !llvm.loop !54
 
@@ -3363,7 +3361,7 @@ _ZNSt6vectorISt5arrayImLm2EESaIS1_EE5clearEv.exit: ; preds = %._crit_edge, %564
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %495, %487, %477, %351
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.i.i, %477 ], [ %496, %495 ], [ %488, %487 ], [ %.pn.i, %351 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit64, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp65, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.i.i, %477 ], [ %496, %495 ], [ %488, %487 ], [ %.pn.i, %351 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit63, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp64, %.loopexit.split-lp.loopexit.split-lp ]
   %565 = load ptr, ptr %40, align 8
   %.not.i.i.i50 = icmp eq ptr %565, null
   br i1 %.not.i.i.i50, label %_ZNSt6vectorISt5arrayImLm2EESaIS1_EED2Ev.exit, label %566

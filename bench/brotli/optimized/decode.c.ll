@@ -392,18 +392,18 @@ if.else:                                          ; preds = %if.end8
   br label %if.end15
 
 if.end15:                                         ; preds = %if.else, %if.then13
-  %add.ptr.i522.sink2201 = phi ptr [ %add.ptr.i522, %if.else ], [ %add.ptr.i543, %if.then13 ]
-  %.sink2200 = phi i64 [ %10, %if.else ], [ %12, %if.then13 ]
+  %add.ptr.i522.sink2202 = phi ptr [ %add.ptr.i522, %if.else ], [ %add.ptr.i543, %if.then13 ]
+  %.sink2201 = phi i64 [ %10, %if.else ], [ %12, %if.then13 ]
   %buffer.sink = phi ptr [ %buffer, %if.else ], [ %11, %if.then13 ]
   %result.0 = phi i32 [ 2, %if.else ], [ 1, %if.then13 ]
   %last_in.i525 = getelementptr inbounds i8, ptr %s, i64 40
-  store ptr %add.ptr.i522.sink2201, ptr %last_in.i525, align 8
-  %13 = add i64 %.sink2200, -28
+  store ptr %add.ptr.i522.sink2202, ptr %last_in.i525, align 8
+  %13 = add i64 %.sink2201, -28
   %cmp2.i527 = icmp ult i64 %13, -29
-  %add.ptr4.i533 = getelementptr i8, ptr %add.ptr.i522.sink2201, i64 -27
-  %spec.select2197 = select i1 %cmp2.i527, ptr %add.ptr4.i533, ptr %buffer.sink
+  %add.ptr4.i533 = getelementptr i8, ptr %add.ptr.i522.sink2202, i64 -27
+  %spec.select2198 = select i1 %cmp2.i527, ptr %add.ptr4.i533, ptr %buffer.sink
   %guard_in.i534 = getelementptr inbounds i8, ptr %s, i64 32
-  store ptr %spec.select2197, ptr %guard_in.i534, align 8
+  store ptr %spec.select2198, ptr %guard_in.i534, align 8
   %ringbuffer = getelementptr inbounds i8, ptr %s, i64 136
   %partial_pos_out.i = getelementptr inbounds i8, ptr %s, i64 432
   %ringbuffer_mask.i = getelementptr inbounds i8, ptr %s, i64 104
@@ -611,6 +611,9 @@ if.else.i507:                                     ; preds = %if.then32
   store ptr %30, ptr %guard_in5.i, align 8
   br label %for.cond.backedge
 
+default.unreachable:                              ; preds = %GetCompoundDictionarySize.exit.i834
+  unreachable
+
 if.else34:                                        ; preds = %if.then29
   %33 = load i64, ptr %available_in, align 8
   %cmp35.not = icmp eq i64 %33, 0
@@ -630,8 +633,8 @@ if.then36:                                        ; preds = %if.else34
   %37 = add i64 %36, -27
   %cmp2.i = icmp ult i64 %37, -29
   %gep = getelementptr i8, ptr %invariant.gep, i64 %36
-  %spec.select2190 = select i1 %cmp2.i, ptr %gep, ptr %buffer37
-  store ptr %spec.select2190, ptr %guard_in5.i, align 8
+  %spec.select2191 = select i1 %cmp2.i, ptr %gep, ptr %buffer37
+  store ptr %spec.select2191, ptr %guard_in5.i, align 8
   %38 = load ptr, ptr %next_in, align 8
   %incdec.ptr = getelementptr inbounds i8, ptr %38, i64 1
   store ptr %incdec.ptr, ptr %next_in, align 8
@@ -744,8 +747,8 @@ if.end66:                                         ; preds = %for.cond
     i32 26, label %sw.bb479
   ]
 
-for.cond.backedge:                                ; preds = %sw.bb30.i, %if.then20.i.i, %for.cond.i564, %while.body.i268.lr.ph.i, %while.body.i254.lr.ph.i, %while.body.i240.lr.ph.i, %if.end144.i, %if.end57.i, %if.end66, %if.then76, %if.end78, %if.then156, %if.then164, %if.then175, %if.then196, %if.end243, %if.end252, %if.end259, %if.then464, %if.then148, %if.then145, %if.end177, %sw.bb201, %sw.bb216, %sw.bb290, %if.end324, %if.end364, %if.else429, %if.then427, %if.else448, %if.then446, %if.then436, %if.end451, %sw.bb, %if.end84, %sw.bb103, %BrotliBitReaderNormalize.exit, %BitMask.exit, %sw.bb455, %BrotliBitReaderNormalize.exit719, %SkipMetadataBlock.exit, %ReadContextModes.exit, %HuffmanTreeGroupDecode.exit, %BrotliEnsureRingBuffer.exit, %ProcessCommands.exit.thread1526, %GetCompoundDictionarySize.exit.i834, %if.then238.i.i975, %while.end.i1622.i, %if.else266.i.i1050, %if.end403.i.i1108, %if.end413.i.i1115, %if.end418.i.i1118, %land.lhs.true442.i.i1140, %saveStateAndReturn.i.i909, %sw.bb389, %if.end17.i1442, %if.then483, %BrotliTakeBits.exit.i, %if.then17.i, %if.then142.i, %if.then55.i, %if.end105.i, %while.body.i212.i, %while.body.i198.i, %while.body.i184.lr.ph.i, %if.then9.i, %if.then.i611, %if.then11.i, %if.end21.i, %BitMask.exit.i603, %if.then22.i645, %BrotliEnsureRingBuffer.exit.thread.i, %if.then5.i.i, %if.then238.i.i, %if.end403.i.i, %if.end413.i.i, %land.lhs.true442.i.i, %if.end418.i.i, %if.else266.i.i, %while.end.i1438.i, %if.then20.i1378, %while.body.i613.lr.ph, %while.body.i.lr.ph, %if.then.i509, %if.else.i507, %if.then36, %CopyFromCompoundDictionary.exit
-  %result.1.be = phi i32 [ 1, %if.then36 ], [ 1, %CopyFromCompoundDictionary.exit ], [ 1, %if.else.i507 ], [ 1, %if.then.i509 ], [ 1, %if.end66 ], [ -10, %sw.bb455 ], [ 1, %if.then464 ], [ -15, %BrotliBitReaderNormalize.exit719 ], [ 1, %if.then446 ], [ 1, %if.else448 ], [ 1, %if.end451 ], [ 1, %if.then436 ], [ 1, %if.then427 ], [ 1, %if.else429 ], [ -27, %BrotliEnsureRingBuffer.exit ], [ 1, %if.end364 ], [ %call.i, %HuffmanTreeGroupDecode.exit ], [ %call328, %if.end324 ], [ %call294, %sw.bb290 ], [ 2, %ReadContextModes.exit ], [ -21, %BitMask.exit ], [ 1, %if.end259 ], [ 2, %SkipMetadataBlock.exit ], [ 1, %if.end252 ], [ 1, %if.end243 ], [ %call224, %sw.bb216 ], [ %call210, %sw.bb201 ], [ 1, %if.then175 ], [ 1, %if.then196 ], [ %call180, %if.end177 ], [ 1, %if.then156 ], [ 1, %if.then164 ], [ 1, %if.then145 ], [ 1, %if.then148 ], [ -14, %BrotliBitReaderNormalize.exit ], [ -30, %sw.bb103 ], [ -13, %if.end84 ], [ 2, %sw.bb ], [ 1, %if.end78 ], [ 1, %if.then76 ], [ 1, %ProcessCommands.exit.thread1526 ], [ -31, %GetCompoundDictionarySize.exit.i834 ], [ -16, %if.then238.i.i975 ], [ -18, %while.end.i1622.i ], [ -12, %if.else266.i.i1050 ], [ -12, %if.end403.i.i1108 ], [ -19, %if.end413.i.i1115 ], [ -11, %if.end418.i.i1118 ], [ -11, %land.lhs.true442.i.i1140 ], [ %result.i.0.i912, %saveStateAndReturn.i.i909 ], [ -9, %sw.bb389 ], [ 3, %if.end17.i1442 ], [ -9, %if.then483 ], [ -13, %BrotliTakeBits.exit.i ], [ -13, %if.then17.i ], [ 2, %if.then142.i ], [ 2, %if.then55.i ], [ -2, %if.end105.i ], [ 2, %while.body.i212.i ], [ 2, %while.body.i198.i ], [ 2, %while.body.i184.lr.ph.i ], [ 2, %if.then9.i ], [ 2, %if.then.i611 ], [ 2, %if.then11.i ], [ 2, %if.end21.i ], [ 2, %BitMask.exit.i603 ], [ 2, %if.then22.i645 ], [ -26, %BrotliEnsureRingBuffer.exit.thread.i ], [ -31, %if.then5.i.i ], [ -16, %if.then238.i.i ], [ -12, %if.end403.i.i ], [ -19, %if.end413.i.i ], [ -11, %land.lhs.true442.i.i ], [ -11, %if.end418.i.i ], [ -12, %if.else266.i.i ], [ -18, %while.end.i1438.i ], [ 3, %if.then20.i1378 ], [ 2, %while.body.i613.lr.ph ], [ 2, %while.body.i.lr.ph ], [ -1, %if.end57.i ], [ -3, %if.end144.i ], [ 2, %while.body.i240.lr.ph.i ], [ 2, %while.body.i254.lr.ph.i ], [ 2, %while.body.i268.lr.ph.i ], [ -31, %for.cond.i564 ], [ 3, %if.then20.i.i ], [ -9, %sw.bb30.i ]
+for.cond.backedge:                                ; preds = %sw.bb30.i, %if.then20.i.i, %for.cond.i564, %while.body.i268.lr.ph.i, %while.body.i254.lr.ph.i, %while.body.i240.lr.ph.i, %if.end144.i, %if.end57.i, %if.end66, %if.then76, %if.end78, %if.then156, %if.then164, %if.then175, %if.then196, %if.end243, %if.end252, %if.end259, %if.then464, %if.then148, %if.then145, %if.end177, %sw.bb201, %sw.bb216, %sw.bb290, %if.end324, %if.end364, %if.else429, %if.then427, %if.else448, %if.then446, %if.then436, %if.end451, %sw.bb, %if.end84, %sw.bb103, %BrotliBitReaderNormalize.exit, %BitMask.exit, %sw.bb455, %BrotliBitReaderNormalize.exit719, %SkipMetadataBlock.exit, %ReadContextModes.exit, %HuffmanTreeGroupDecode.exit, %BrotliEnsureRingBuffer.exit, %ProcessCommands.exit.thread1526, %if.then238.i.i975, %while.end.i1622.i, %if.else266.i.i1050, %if.end403.i.i1108, %if.end413.i.i1115, %if.end418.i.i1118, %land.lhs.true442.i.i1140, %saveStateAndReturn.i.i909, %sw.bb389, %if.end17.i1442, %if.then483, %BrotliTakeBits.exit.i, %if.then17.i, %if.then142.i, %if.then55.i, %if.end105.i, %while.body.i212.i, %while.body.i198.i, %while.body.i184.lr.ph.i, %if.then9.i, %if.then.i611, %if.then11.i, %if.end21.i, %BitMask.exit.i603, %if.then22.i645, %BrotliEnsureRingBuffer.exit.thread.i, %if.then5.i.i, %if.then238.i.i, %if.end403.i.i, %if.end413.i.i, %land.lhs.true442.i.i, %if.end418.i.i, %if.else266.i.i, %while.end.i1438.i, %if.then20.i1378, %while.body.i613.lr.ph, %while.body.i.lr.ph, %if.then.i509, %if.else.i507, %if.then36, %CopyFromCompoundDictionary.exit
+  %result.1.be = phi i32 [ 1, %if.then36 ], [ 1, %CopyFromCompoundDictionary.exit ], [ 1, %if.else.i507 ], [ 1, %if.then.i509 ], [ 1, %if.end66 ], [ -10, %sw.bb455 ], [ 1, %if.then464 ], [ -15, %BrotliBitReaderNormalize.exit719 ], [ 1, %if.then446 ], [ 1, %if.else448 ], [ 1, %if.end451 ], [ 1, %if.then436 ], [ 1, %if.then427 ], [ 1, %if.else429 ], [ -27, %BrotliEnsureRingBuffer.exit ], [ 1, %if.end364 ], [ %call.i, %HuffmanTreeGroupDecode.exit ], [ %call328, %if.end324 ], [ %call294, %sw.bb290 ], [ 2, %ReadContextModes.exit ], [ -21, %BitMask.exit ], [ 1, %if.end259 ], [ 2, %SkipMetadataBlock.exit ], [ 1, %if.end252 ], [ 1, %if.end243 ], [ %call224, %sw.bb216 ], [ %call210, %sw.bb201 ], [ 1, %if.then175 ], [ 1, %if.then196 ], [ %call180, %if.end177 ], [ 1, %if.then156 ], [ 1, %if.then164 ], [ 1, %if.then145 ], [ 1, %if.then148 ], [ -14, %BrotliBitReaderNormalize.exit ], [ -30, %sw.bb103 ], [ -13, %if.end84 ], [ 2, %sw.bb ], [ 1, %if.end78 ], [ 1, %if.then76 ], [ 1, %ProcessCommands.exit.thread1526 ], [ -16, %if.then238.i.i975 ], [ -18, %while.end.i1622.i ], [ -12, %if.else266.i.i1050 ], [ -12, %if.end403.i.i1108 ], [ -19, %if.end413.i.i1115 ], [ -11, %if.end418.i.i1118 ], [ -11, %land.lhs.true442.i.i1140 ], [ %result.i.0.i912, %saveStateAndReturn.i.i909 ], [ -9, %sw.bb389 ], [ 3, %if.end17.i1442 ], [ -9, %if.then483 ], [ -13, %BrotliTakeBits.exit.i ], [ -13, %if.then17.i ], [ 2, %if.then142.i ], [ 2, %if.then55.i ], [ -2, %if.end105.i ], [ 2, %while.body.i212.i ], [ 2, %while.body.i198.i ], [ 2, %while.body.i184.lr.ph.i ], [ 2, %if.then9.i ], [ 2, %if.then.i611 ], [ 2, %if.then11.i ], [ 2, %if.end21.i ], [ 2, %BitMask.exit.i603 ], [ 2, %if.then22.i645 ], [ -26, %BrotliEnsureRingBuffer.exit.thread.i ], [ -31, %if.then5.i.i ], [ -16, %if.then238.i.i ], [ -12, %if.end403.i.i ], [ -19, %if.end413.i.i ], [ -11, %land.lhs.true442.i.i ], [ -11, %if.end418.i.i ], [ -12, %if.else266.i.i ], [ -18, %while.end.i1438.i ], [ 3, %if.then20.i1378 ], [ 2, %while.body.i613.lr.ph ], [ 2, %while.body.i.lr.ph ], [ -1, %if.end57.i ], [ -3, %if.end144.i ], [ 2, %while.body.i240.lr.ph.i ], [ 2, %while.body.i254.lr.ph.i ], [ 2, %while.body.i268.lr.ph.i ], [ -31, %for.cond.i564 ], [ 3, %if.then20.i.i ], [ -9, %sw.bb30.i ]
   br label %for.cond
 
 if.end66.sw.bb103_crit_edge:                      ; preds = %if.end66
@@ -1172,8 +1175,8 @@ if.end57.i:                                       ; preds = %if.end.i472.i, %whi
   %cmp63.i = icmp eq i32 %add58.i, %bf.clear50307.i
   %cmp72.i = icmp eq i64 %and.i326.i, 0
   %91 = and i1 %cmp63.i, %cmp69.i
-  %or.cond2191 = select i1 %91, i1 %cmp72.i, i1 false
-  br i1 %or.cond2191, label %for.cond.backedge, label %if.end75.i
+  %or.cond2192 = select i1 %91, i1 %cmp72.i, i1 false
+  br i1 %or.cond2192, label %for.cond.backedge, label %if.end75.i
 
 if.end75.i:                                       ; preds = %if.end57.i
   %mul.i = shl nsw i32 %i.0309.i, 2
@@ -1381,8 +1384,8 @@ if.end144.i:                                      ; preds = %if.end.i536.i, %whi
   %cmp150.i = icmp eq i32 %add145.i, %bf.clear136299.i
   %cmp160.i = icmp eq i64 %and.i378.i, 0
   %113 = and i1 %cmp150.i, %cmp157.i
-  %or.cond2192 = select i1 %113, i1 %cmp160.i, i1 false
-  br i1 %or.cond2192, label %for.cond.backedge, label %if.end163.i
+  %or.cond2193 = select i1 %113, i1 %cmp160.i, i1 false
+  br i1 %or.cond2193, label %for.cond.backedge, label %if.end163.i
 
 if.end163.i:                                      ; preds = %if.end144.i
   %mul164.i = shl nsw i32 %i.1301.i, 3
@@ -1405,8 +1408,8 @@ if.end124.sink.split.sink.split:                  ; preds = %sw.bb130.i, %sw.bb7
   br label %if.end124.sink.split
 
 if.end124.sink.split:                             ; preds = %if.end163.i, %if.end124.sink.split.sink.split
-  %.sink2195 = phi i32 [ %.pre329.i, %if.end124.sink.split.sink.split ], [ %or169.i, %if.end163.i ]
-  %inc174.i = add nsw i32 %.sink2195, 1
+  %.sink2196 = phi i32 [ %.pre329.i, %if.end124.sink.split.sink.split ], [ %or169.i, %if.end163.i ]
+  %inc174.i = add nsw i32 %.sink2196, 1
   store i32 %inc174.i, ptr %meta_block_remaining_len.i, align 4
   br label %if.end124
 
@@ -1897,11 +1900,11 @@ BrotliEnsureRingBuffer.exit.i:                    ; preds = %if.end20.i.i, %sw.b
 
 for.cond.i621.outer:                              ; preds = %if.end45.i, %BrotliEnsureRingBuffer.exit.i
   %.ph = phi i32 [ %219, %if.end45.i ], [ %192, %BrotliEnsureRingBuffer.exit.i ]
-  %.ph2414 = phi i32 [ 0, %if.end45.i ], [ %.pre.i620, %BrotliEnsureRingBuffer.exit.i ]
+  %.ph2416 = phi i32 [ 0, %if.end45.i ], [ %.pre.i620, %BrotliEnsureRingBuffer.exit.i ]
   br label %for.cond.i621
 
 for.cond.i621:                                    ; preds = %for.cond.i621.outer, %for.cond.i621
-  switch i32 %.ph2414, label %for.cond.i621 [
+  switch i32 %.ph2416, label %for.cond.i621 [
     i32 0, label %sw.bb.i
     i32 1, label %for.cond.sw.bb30_crit_edge.i
   ]
@@ -4679,15 +4682,15 @@ ProcessCommands.exit.thread1526:                  ; preds = %if.then263.i.i, %if
 
 if.then386.sink.split:                            ; preds = %DecodeCommandBlockSwitch.exit.i, %CommandBegin.i.preheader.i, %if.then63.i.i, %if.then118.i.i
   %.sink = phi i32 [ 8, %if.then118.i.i ], [ 8, %if.then63.i.i ], [ 7, %CommandBegin.i.preheader.i ], [ 7, %DecodeCommandBlockSwitch.exit.i ]
-  %i.i.11.i.ph2193 = phi i32 [ %i.i.5.i, %if.then118.i.i ], [ %i.i.4.i, %if.then63.i.i ], [ %i.i.0.ph.i, %CommandBegin.i.preheader.i ], [ %i.i.0.ph.i, %DecodeCommandBlockSwitch.exit.i ]
-  %pos.i.10.i.ph2194 = phi i32 [ %452, %if.then118.i.i ], [ %424, %if.then63.i.i ], [ %pos.i.0.ph.i, %CommandBegin.i.preheader.i ], [ %pos.i.0.ph.i, %DecodeCommandBlockSwitch.exit.i ]
+  %i.i.11.i.ph2194 = phi i32 [ %i.i.5.i, %if.then118.i.i ], [ %i.i.4.i, %if.then63.i.i ], [ %i.i.0.ph.i, %CommandBegin.i.preheader.i ], [ %i.i.0.ph.i, %DecodeCommandBlockSwitch.exit.i ]
+  %pos.i.10.i.ph2195 = phi i32 [ %452, %if.then118.i.i ], [ %424, %if.then63.i.i ], [ %pos.i.0.ph.i, %CommandBegin.i.preheader.i ], [ %pos.i.0.ph.i, %DecodeCommandBlockSwitch.exit.i ]
   store i32 %.sink, ptr %s, align 8
   br label %if.then386
 
 if.then386:                                       ; preds = %if.then386.sink.split, %GetCompoundDictionarySize.exit.i
   %674 = phi i32 [ %341, %GetCompoundDictionarySize.exit.i ], [ %.sink, %if.then386.sink.split ]
-  %i.i.11.i = phi i32 [ %343, %GetCompoundDictionarySize.exit.i ], [ %i.i.11.i.ph2193, %if.then386.sink.split ]
-  %pos.i.10.i = phi i32 [ %342, %GetCompoundDictionarySize.exit.i ], [ %pos.i.10.i.ph2194, %if.then386.sink.split ]
+  %i.i.11.i = phi i32 [ %343, %GetCompoundDictionarySize.exit.i ], [ %i.i.11.i.ph2194, %if.then386.sink.split ]
+  %pos.i.10.i = phi i32 [ %342, %GetCompoundDictionarySize.exit.i ], [ %pos.i.10.i.ph2195, %if.then386.sink.split ]
   store i32 %pos.i.10.i, ptr %pos3.phi.trans.insert.i.i, align 8
   store i32 %i.i.11.i, ptr %loop_counter439, align 4
   %s.val.i830 = load ptr, ptr %compound_dictionary, align 8
@@ -4701,7 +4704,7 @@ cond.true.i.i832:                                 ; preds = %if.then386
 
 GetCompoundDictionarySize.exit.i834:              ; preds = %cond.true.i.i832, %if.then386
   %cond.i1402.i835 = phi i32 [ %675, %cond.true.i.i832 ], [ 0, %if.then386 ]
-  switch i32 %674, label %for.cond.backedge [
+  switch i32 %674, label %default.unreachable [
     i32 7, label %CommandBegin.i.preheader.i853
     i32 8, label %CommandInner.i.preheader.i863
     i32 9, label %if.then184.i.i

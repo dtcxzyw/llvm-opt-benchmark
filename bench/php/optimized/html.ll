@@ -6421,8 +6421,8 @@ process_numeric_entity.exit.thread:               ; preds = %332, %323, %341
   switch i32 %83, label %default.unreachable [
     i32 0, label %351
     i32 3, label %353
-    i32 1, label %363
     i32 2, label %363
+    i32 1, label %363
   ]
 
 351:                                              ; preds = %350

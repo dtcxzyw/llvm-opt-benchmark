@@ -20880,7 +20880,7 @@ _ZN5Yosys5RTLIL7SigSpecD2Ev.exit910:              ; preds = %_ZSt8_DestroyIPN5Yo
   %2060 = xor i32 %2059, %2058
   store i32 %2060, ptr @_ZN12_GLOBAL__N_116xorshift32_stateE, align 4
   %2061 = urem i32 %2060, 3
-  switch i32 %2061, label %default.unreachable [
+  switch i32 %2061, label %default.unreachable1418 [
     i32 0, label %2070
     i32 1, label %2072
     i32 2, label %2074
@@ -20977,7 +20977,7 @@ _ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit922: ; preds = %2075
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   br label %2076
 
-default.unreachable:                              ; preds = %2053
+default.unreachable1418:                          ; preds = %2053
   unreachable
 
 2076:                                             ; preds = %_ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit922, %_ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit918, %_ZN5Yosys5RTLIL7SigSpec6appendENS0_5StateE.exit914
@@ -23980,11 +23980,11 @@ _ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1245: ; preds =
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247thread-pre-split
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247thread-pre-split: ; preds = %_ZN5Yosys5RTLIL7SigSpecixEi.exit1218, %3142, %_ZSt8_DestroyIPN5Yosys5RTLIL8SigChunkES2_EvT_S4_RSaIT0_E.exit.i.i1245, %3300
-  %.pr1421 = load ptr, ptr %3132, align 8
+  %.pr1422 = load ptr, ptr %3132, align 8
   br label %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247
 
 _ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247:             ; preds = %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247thread-pre-split, %_ZN5Yosys5RTLIL7SigSpecixEi.exit
-  %3301 = phi ptr [ %.pr1421, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247thread-pre-split ], [ %3151, %_ZN5Yosys5RTLIL7SigSpecixEi.exit ]
+  %3301 = phi ptr [ %.pr1422, %_ZN5Yosys5RTLIL7SigSpecD2Ev.exit1247thread-pre-split ], [ %3151, %_ZN5Yosys5RTLIL7SigSpecixEi.exit ]
   %.not.i.i.i.i1248 = icmp eq ptr %3301, null
   br i1 %.not.i.i.i.i1248, label %_ZNSt6vectorIN5Yosys5RTLIL6SigBitESaIS2_EED2Ev.exit.i1249, label %3302
 

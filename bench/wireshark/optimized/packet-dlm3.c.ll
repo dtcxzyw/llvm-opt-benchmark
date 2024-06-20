@@ -745,10 +745,8 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %33 = load i32, ptr @hf_dlm3_h_pad, align 4
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef -2147483648) #2
   %35 = add i32 %6, 16
-  switch i8 %3, label %dissect_dlm3_msg.exit [
-    i8 1, label %36
-    i8 2, label %106
-  ]
+  %switch2 = icmp eq i8 %3, 1
+  br i1 %switch2, label %36, label %106
 
 36:                                               ; preds = %8
   %37 = icmp ult i32 %5, 88
@@ -998,7 +996,7 @@ define internal fastcc i32 @dissect_dlm3_1(ptr noundef %0, ptr nocapture noundef
   %240 = tail call ptr @proto_tree_add_item(ptr noundef %228, i32 noundef %239, ptr noundef %0, i32 noundef %238, i32 noundef 8, i32 noundef -2147483648) #2
   br label %dissect_dlm3_msg.exit
 
-dissect_dlm3_msg.exit:                            ; preds = %231, %226, %223, %220, %151, %150, %140, %135, %108, %103, %38, %8
+dissect_dlm3_msg.exit:                            ; preds = %231, %226, %223, %220, %151, %150, %140, %135, %108, %103, %38
   %241 = tail call i32 @tvb_captured_length(ptr noundef %0) #2
   br label %242
 

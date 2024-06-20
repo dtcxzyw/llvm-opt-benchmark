@@ -1938,7 +1938,7 @@ define range(i32 0, 9203) i32 @data_get_string_converted(ptr noundef %0, ptr nou
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %5, label %51
+  br i1 %or.cond, label %5, label %49
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds i8, ptr %0, i64 4
@@ -1996,72 +1996,65 @@ data_get_string.exit:                             ; preds = %20, %22, %25
 28:                                               ; preds = %data_get_string.exit, %data_new.exit
   %.024 = phi ptr [ %27, %data_get_string.exit ], [ null, %data_new.exit ]
   tail call void @data_free(ptr noundef nonnull %9)
-  br label %38
+  br label %36
 
 29:                                               ; preds = %5
-  %trunc45 = trunc i32 %7 to i8
-  switch i8 %trunc45, label %data_get_string_const.exit [
-    i8 5, label %30
-    i8 6, label %33
-  ]
+  %switch46 = icmp eq i32 %7, 65285
+  %30 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %switch46, label %31, label %data_get_string_const.exit
 
-30:                                               ; preds = %29
-  %31 = getelementptr inbounds i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8
+31:                                               ; preds = %29
+  %32 = load ptr, ptr %30, align 8
   br label %data_get_string_const.exit
 
-33:                                               ; preds = %29
-  %34 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %data_get_string_const.exit
+data_get_string_const.exit:                       ; preds = %29, %31
+  %.0.i39 = phi ptr [ %32, %31 ], [ %30, %29 ]
+  %33 = tail call ptr @xstrdup(ptr noundef %.0.i39) #16
+  %.not32 = icmp eq ptr %33, null
+  br i1 %.not32, label %34, label %.thread
 
-data_get_string_const.exit:                       ; preds = %29, %30, %33
-  %.0.i39 = phi ptr [ %32, %30 ], [ %34, %33 ], [ null, %29 ]
-  %35 = tail call ptr @xstrdup(ptr noundef %.0.i39) #16
-  %.not32 = icmp eq ptr %35, null
-  br i1 %.not32, label %36, label %.thread
+34:                                               ; preds = %data_get_string_const.exit
+  %35 = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #16
+  br label %36
 
-36:                                               ; preds = %data_get_string_const.exit
-  %37 = tail call ptr @xstrdup(ptr noundef nonnull @.str.16) #16
-  br label %38
-
-38:                                               ; preds = %36, %28
-  %.2 = phi ptr [ %.024, %28 ], [ %37, %36 ]
-  %.0 = phi ptr [ @.str.23, %28 ], [ @.str.16, %36 ]
+36:                                               ; preds = %34, %28
+  %.2 = phi ptr [ %.024, %28 ], [ %35, %34 ]
+  %.0 = phi ptr [ @.str.23, %28 ], [ @.str.16, %34 ]
   %.not34 = icmp eq ptr %.2, null
-  br i1 %.not34, label %44, label %.thread
+  br i1 %.not34, label %42, label %.thread
 
-.thread:                                          ; preds = %data_get_string_const.exit, %38
-  %.044 = phi ptr [ %.0, %38 ], [ @.str.16, %data_get_string_const.exit ]
-  %.243 = phi ptr [ %.2, %38 ], [ %35, %data_get_string_const.exit ]
+.thread:                                          ; preds = %data_get_string_const.exit, %36
+  %.044 = phi ptr [ %.0, %36 ], [ @.str.16, %data_get_string_const.exit ]
+  %.243 = phi ptr [ %.2, %36 ], [ %33, %data_get_string_const.exit ]
   store ptr %.243, ptr %1, align 8
-  %39 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %40 = and i64 %39, 256
-  %.not36 = icmp eq i64 %40, 0
-  br i1 %.not36, label %51, label %41
+  %37 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %38 = and i64 %37, 256
+  %.not36 = icmp eq i64 %38, 0
+  br i1 %.not36, label %49, label %39
 
-41:                                               ; preds = %.thread
-  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.243) #17
-  %43 = ptrtoint ptr %.243 to i64
-  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.243, i64 noundef %42, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.data_get_string_converted, ptr noundef nonnull %.044, ptr noundef nonnull %0, i64 noundef %43, i64 noundef %42) #16
-  br label %51
+39:                                               ; preds = %.thread
+  %40 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.243) #17
+  %41 = ptrtoint ptr %.243 to i64
+  tail call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.243, i64 noundef %40, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.22, ptr noundef nonnull @__func__.data_get_string_converted, ptr noundef nonnull %.044, ptr noundef nonnull %0, i64 noundef %41, i64 noundef %40) #16
+  br label %49
 
-44:                                               ; preds = %38
-  %45 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %46 = and i64 %45, 256
-  %.not35 = icmp eq i64 %46, 0
-  br i1 %.not35, label %51, label %47
+42:                                               ; preds = %36
+  %43 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %44 = and i64 %43, 256
+  %.not35 = icmp eq i64 %44, 0
+  br i1 %.not35, label %49, label %45
 
-47:                                               ; preds = %44
-  %48 = tail call i32 @get_log_level() #16
-  %49 = icmp sgt i32 %48, 3
-  br i1 %49, label %50, label %51
+45:                                               ; preds = %42
+  %46 = tail call i32 @get_log_level() #16
+  %47 = icmp sgt i32 %46, 3
+  br i1 %47, label %48, label %49
 
-50:                                               ; preds = %47
+48:                                               ; preds = %45
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.24, ptr noundef nonnull @__func__.data_get_string_converted, ptr noundef nonnull %0) #16
-  br label %51
+  br label %49
 
-51:                                               ; preds = %50, %47, %44, %41, %.thread, %2
-  %.025 = phi i32 [ 9201, %2 ], [ 0, %.thread ], [ 0, %41 ], [ 9202, %44 ], [ 9202, %47 ], [ 9202, %50 ]
+49:                                               ; preds = %48, %45, %42, %39, %.thread, %2
+  %.025 = phi i32 [ 9201, %2 ], [ 0, %.thread ], [ 0, %39 ], [ 9202, %42 ], [ 9202, %45 ], [ 9202, %48 ]
   ret i32 %.025
 }
 
@@ -3410,7 +3403,7 @@ define internal fastcc range(i32 0, 9203) i32 @_convert_data_float(ptr noundef %
   %3 = alloca double, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4
-  switch i32 %5, label %112 [
+  switch i32 %5, label %110 [
     i32 65286, label %6
     i32 65285, label %6
     i32 65284, label %data_get_int.exit
@@ -3420,274 +3413,268 @@ define internal fastcc range(i32 0, 9203) i32 @_convert_data_float(ptr noundef %
 6:                                                ; preds = %1, %1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  switch i32 %5, label %data_get_string.exit.i [
-    i32 65285, label %7
-    i32 65286, label %10
-  ]
+  %switch = icmp eq i32 %5, 65285
+  %7 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %switch, label %8, label %data_get_string.exit.i
 
-7:                                                ; preds = %6
-  %8 = getelementptr inbounds i8, ptr %0, i64 8
-  %9 = load ptr, ptr %8, align 8
+8:                                                ; preds = %6
+  %9 = load ptr, ptr %7, align 8
   br label %data_get_string.exit.i
 
-10:                                               ; preds = %6
-  %11 = getelementptr inbounds i8, ptr %0, i64 8
-  br label %data_get_string.exit.i
-
-data_get_string.exit.i:                           ; preds = %10, %7, %6
-  %.0.i.i = phi ptr [ %9, %7 ], [ %11, %10 ], [ null, %6 ]
-  %12 = load i8, ptr %.0.i.i, align 1
-  switch i8 %12, label %.fold.split.i [
-    i8 43, label %14
-    i8 45, label %13
+data_get_string.exit.i:                           ; preds = %6, %8
+  %.0.i.i = phi ptr [ %9, %8 ], [ %7, %6 ]
+  %10 = load i8, ptr %.0.i.i, align 1
+  switch i8 %10, label %.fold.split.i [
+    i8 43, label %12
+    i8 45, label %11
   ]
 
-13:                                               ; preds = %data_get_string.exit.i
-  br label %14
+11:                                               ; preds = %data_get_string.exit.i
+  br label %12
 
 .fold.split.i:                                    ; preds = %data_get_string.exit.i
-  br label %14
+  br label %12
 
-14:                                               ; preds = %.fold.split.i, %13, %data_get_string.exit.i
-  %.039.i = phi i64 [ 1, %13 ], [ 1, %data_get_string.exit.i ], [ 0, %.fold.split.i ]
-  %.0.i = phi i1 [ true, %13 ], [ false, %data_get_string.exit.i ], [ false, %.fold.split.i ]
-  %15 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.039.i
-  %16 = load i8, ptr %15, align 1
-  %17 = sext i8 %16 to i32
-  %18 = tail call i32 @tolower(i32 noundef %17) #17
-  switch i32 %18, label %59 [
-    i32 105, label %19
-    i32 110, label %40
+12:                                               ; preds = %.fold.split.i, %11, %data_get_string.exit.i
+  %.039.i = phi i64 [ 1, %11 ], [ 1, %data_get_string.exit.i ], [ 0, %.fold.split.i ]
+  %.0.i = phi i1 [ true, %11 ], [ false, %data_get_string.exit.i ], [ false, %.fold.split.i ]
+  %13 = getelementptr inbounds i8, ptr %.0.i.i, i64 %.039.i
+  %14 = load i8, ptr %13, align 1
+  %15 = sext i8 %14 to i32
+  %16 = tail call i32 @tolower(i32 noundef %15) #17
+  switch i32 %16, label %57 [
+    i32 105, label %17
+    i32 110, label %38
   ]
 
-19:                                               ; preds = %14
-  %20 = getelementptr inbounds i8, ptr %15, i64 1
-  %21 = tail call i32 @xstrcasecmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.91) #16
-  %.not44.i = icmp eq i32 %21, 0
-  br i1 %.not44.i, label %24, label %22
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds i8, ptr %13, i64 1
+  %19 = tail call i32 @xstrcasecmp(ptr noundef nonnull %18, ptr noundef nonnull @.str.91) #16
+  %.not44.i = icmp eq i32 %19, 0
+  br i1 %.not44.i, label %22, label %20
 
-22:                                               ; preds = %19
-  %23 = tail call i32 @xstrcasecmp(ptr noundef nonnull %20, ptr noundef nonnull @.str.92) #16
-  %.not45.i = icmp eq i32 %23, 0
-  br i1 %.not45.i, label %24, label %83
+20:                                               ; preds = %17
+  %21 = tail call i32 @xstrcasecmp(ptr noundef nonnull %18, ptr noundef nonnull @.str.92) #16
+  %.not45.i = icmp eq i32 %21, 0
+  br i1 %.not45.i, label %22, label %81
 
-24:                                               ; preds = %22, %19
+22:                                               ; preds = %20, %17
   store i32 65287, ptr %4, align 4
-  %25 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.0.i, label %26, label %33
+  %23 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.0.i, label %24, label %31
 
-26:                                               ; preds = %24
-  store double 0xFFF0000000000000, ptr %25, align 8
-  %27 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %28 = and i64 %27, 256
-  %.not10.i.i = icmp eq i64 %28, 0
-  br i1 %.not10.i.i, label %data_set_float.exit.i, label %29
+24:                                               ; preds = %22
+  store double 0xFFF0000000000000, ptr %23, align 8
+  %25 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %26 = and i64 %25, 256
+  %.not10.i.i = icmp eq i64 %26, 0
+  br i1 %.not10.i.i, label %data_set_float.exit.i, label %27
 
-29:                                               ; preds = %26
-  %30 = tail call i32 @get_log_level() #16
-  %31 = icmp sgt i32 %30, 3
-  br i1 %31, label %32, label %data_set_float.exit.i
+27:                                               ; preds = %24
+  %28 = tail call i32 @get_log_level() #16
+  %29 = icmp sgt i32 %28, 3
+  br i1 %29, label %30, label %data_set_float.exit.i
 
-32:                                               ; preds = %29
+30:                                               ; preds = %27
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0xFFF0000000000000) #16
   br label %data_set_float.exit.i
 
-33:                                               ; preds = %24
-  store double 0x7FF0000000000000, ptr %25, align 8
-  %34 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %35 = and i64 %34, 256
-  %.not10.i50.i = icmp eq i64 %35, 0
-  br i1 %.not10.i50.i, label %data_set_float.exit.i, label %36
+31:                                               ; preds = %22
+  store double 0x7FF0000000000000, ptr %23, align 8
+  %32 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %33 = and i64 %32, 256
+  %.not10.i50.i = icmp eq i64 %33, 0
+  br i1 %.not10.i50.i, label %data_set_float.exit.i, label %34
 
-36:                                               ; preds = %33
-  %37 = tail call i32 @get_log_level() #16
-  %38 = icmp sgt i32 %37, 3
-  br i1 %38, label %39, label %data_set_float.exit.i
+34:                                               ; preds = %31
+  %35 = tail call i32 @get_log_level() #16
+  %36 = icmp sgt i32 %35, 3
+  br i1 %36, label %37, label %data_set_float.exit.i
 
-39:                                               ; preds = %36
+37:                                               ; preds = %34
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF0000000000000) #16
   br label %data_set_float.exit.i
 
-40:                                               ; preds = %14
-  %41 = getelementptr inbounds i8, ptr %15, i64 1
-  %42 = tail call i32 @xstrcasecmp(ptr noundef nonnull %41, ptr noundef nonnull @.str.93) #16
-  %.not.i = icmp eq i32 %42, 0
-  br i1 %.not.i, label %43, label %83
+38:                                               ; preds = %12
+  %39 = getelementptr inbounds i8, ptr %13, i64 1
+  %40 = tail call i32 @xstrcasecmp(ptr noundef nonnull %39, ptr noundef nonnull @.str.93) #16
+  %.not.i = icmp eq i32 %40, 0
+  br i1 %.not.i, label %41, label %81
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
   store i32 65287, ptr %4, align 4
-  %44 = getelementptr inbounds i8, ptr %0, i64 8
-  br i1 %.0.i, label %45, label %52
+  %42 = getelementptr inbounds i8, ptr %0, i64 8
+  br i1 %.0.i, label %43, label %50
 
-45:                                               ; preds = %43
-  store double 0xFFF8000000000000, ptr %44, align 8
-  %46 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %47 = and i64 %46, 256
-  %.not10.i53.i = icmp eq i64 %47, 0
-  br i1 %.not10.i53.i, label %data_set_float.exit.i, label %48
+43:                                               ; preds = %41
+  store double 0xFFF8000000000000, ptr %42, align 8
+  %44 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %45 = and i64 %44, 256
+  %.not10.i53.i = icmp eq i64 %45, 0
+  br i1 %.not10.i53.i, label %data_set_float.exit.i, label %46
 
-48:                                               ; preds = %45
-  %49 = tail call i32 @get_log_level() #16
-  %50 = icmp sgt i32 %49, 3
-  br i1 %50, label %51, label %data_set_float.exit.i
+46:                                               ; preds = %43
+  %47 = tail call i32 @get_log_level() #16
+  %48 = icmp sgt i32 %47, 3
+  br i1 %48, label %49, label %data_set_float.exit.i
 
-51:                                               ; preds = %48
+49:                                               ; preds = %46
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0xFFF8000000000000) #16
   br label %data_set_float.exit.i
 
-52:                                               ; preds = %43
-  store double 0x7FF8000000000000, ptr %44, align 8
-  %53 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %54 = and i64 %53, 256
-  %.not10.i56.i = icmp eq i64 %54, 0
-  br i1 %.not10.i56.i, label %data_set_float.exit.i, label %55
+50:                                               ; preds = %41
+  store double 0x7FF8000000000000, ptr %42, align 8
+  %51 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %52 = and i64 %51, 256
+  %.not10.i56.i = icmp eq i64 %52, 0
+  br i1 %.not10.i56.i, label %data_set_float.exit.i, label %53
 
-55:                                               ; preds = %52
-  %56 = tail call i32 @get_log_level() #16
-  %57 = icmp sgt i32 %56, 3
-  br i1 %57, label %58, label %data_set_float.exit.i
+53:                                               ; preds = %50
+  %54 = tail call i32 @get_log_level() #16
+  %55 = icmp sgt i32 %54, 3
+  br i1 %55, label %56, label %data_set_float.exit.i
 
-58:                                               ; preds = %55
+56:                                               ; preds = %53
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF8000000000000) #16
   br label %data_set_float.exit.i
 
-59:                                               ; preds = %14
-  %60 = add i8 %16, -48
-  %or.cond.i = icmp ult i8 %60, 10
-  br i1 %or.cond.i, label %61, label %83
+57:                                               ; preds = %12
+  %58 = add i8 %14, -48
+  %or.cond.i = icmp ult i8 %58, 10
+  br i1 %or.cond.i, label %59, label %81
 
-61:                                               ; preds = %59
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %15, ptr noundef nonnull @.str.94, ptr noundef nonnull %3, ptr noundef nonnull %2) #16
-  %63 = icmp eq i32 %62, 1
-  br i1 %63, label %64, label %83
+59:                                               ; preds = %57
+  %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %13, ptr noundef nonnull @.str.94, ptr noundef nonnull %3, ptr noundef nonnull %2) #16
+  %61 = icmp eq i32 %60, 1
+  br i1 %61, label %62, label %81
 
-64:                                               ; preds = %61
+62:                                               ; preds = %59
   %.pre.i = load double, ptr %3, align 8
-  br i1 %.0.i, label %65, label %67
+  br i1 %.0.i, label %63, label %65
 
-65:                                               ; preds = %64
-  %66 = fneg double %.pre.i
-  store double %66, ptr %3, align 8
-  br label %67
+63:                                               ; preds = %62
+  %64 = fneg double %.pre.i
+  store double %64, ptr %3, align 8
+  br label %65
 
-67:                                               ; preds = %64, %65
-  %68 = phi double [ %66, %65 ], [ %.pre.i, %64 ]
+65:                                               ; preds = %62, %63
+  %66 = phi double [ %64, %63 ], [ %.pre.i, %62 ]
   store i32 65287, ptr %4, align 4
-  %69 = getelementptr inbounds i8, ptr %0, i64 8
-  store double %68, ptr %69, align 8
-  %70 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %71 = and i64 %70, 256
-  %.not10.i59.i = icmp eq i64 %71, 0
-  br i1 %.not10.i59.i, label %data_set_float.exit.i, label %72
+  %67 = getelementptr inbounds i8, ptr %0, i64 8
+  store double %66, ptr %67, align 8
+  %68 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %69 = and i64 %68, 256
+  %.not10.i59.i = icmp eq i64 %69, 0
+  br i1 %.not10.i59.i, label %data_set_float.exit.i, label %70
 
-72:                                               ; preds = %67
-  %73 = call i32 @get_log_level() #16
-  %74 = icmp sgt i32 %73, 3
-  br i1 %74, label %75, label %data_set_float.exit.i
+70:                                               ; preds = %65
+  %71 = call i32 @get_log_level() #16
+  %72 = icmp sgt i32 %71, 3
+  br i1 %72, label %73, label %data_set_float.exit.i
 
-75:                                               ; preds = %72
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef %68) #16
+73:                                               ; preds = %70
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef %66) #16
   br label %data_set_float.exit.i
 
-data_set_float.exit.i:                            ; preds = %75, %72, %67, %58, %55, %52, %51, %48, %45, %39, %36, %33, %32, %29, %26
-  %76 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %77 = and i64 %76, 256
-  %.not46.i = icmp eq i64 %77, 0
-  br i1 %.not46.i, label %_convert_data_float_from_string.exit, label %78
+data_set_float.exit.i:                            ; preds = %73, %70, %65, %56, %53, %50, %49, %46, %43, %37, %34, %31, %30, %27, %24
+  %74 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %75 = and i64 %74, 256
+  %.not46.i = icmp eq i64 %75, 0
+  br i1 %.not46.i, label %_convert_data_float_from_string.exit, label %76
 
-78:                                               ; preds = %data_set_float.exit.i
-  %79 = call i32 @get_log_level() #16
-  %80 = icmp sgt i32 %79, 3
-  br i1 %80, label %data_get_float.exit.i, label %_convert_data_float_from_string.exit
+76:                                               ; preds = %data_set_float.exit.i
+  %77 = call i32 @get_log_level() #16
+  %78 = icmp sgt i32 %77, 3
+  br i1 %78, label %data_get_float.exit.i, label %_convert_data_float_from_string.exit
 
-data_get_float.exit.i:                            ; preds = %78
-  %81 = getelementptr inbounds i8, ptr %0, i64 8
-  %82 = load double, ptr %81, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, double noundef %82) #16
+data_get_float.exit.i:                            ; preds = %76
+  %79 = getelementptr inbounds i8, ptr %0, i64 8
+  %80 = load double, ptr %79, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.95, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0, ptr noundef nonnull %.0.i.i, double noundef %80) #16
   br label %_convert_data_float_from_string.exit
 
-83:                                               ; preds = %61, %59, %40, %22
-  %84 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %85 = and i64 %84, 256
-  %.not47.i = icmp eq i64 %85, 0
-  br i1 %.not47.i, label %_convert_data_float_from_string.exit, label %86
+81:                                               ; preds = %59, %57, %38, %20
+  %82 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %83 = and i64 %82, 256
+  %.not47.i = icmp eq i64 %83, 0
+  br i1 %.not47.i, label %_convert_data_float_from_string.exit, label %84
 
-86:                                               ; preds = %83
-  %87 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #17
-  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i.i, i64 noundef %87, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0) #16
+84:                                               ; preds = %81
+  %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #17
+  call void (ptr, i64, i64, i64, ptr, ...) @_log_flag_hex(ptr noundef nonnull %.0.i.i, i64 noundef %85, i64 noundef -1, i64 noundef -1, ptr noundef nonnull @.str.96, ptr noundef nonnull @__func__._convert_data_float_from_string, ptr noundef nonnull %0) #16
   br label %_convert_data_float_from_string.exit
 
-_convert_data_float_from_string.exit:             ; preds = %data_set_float.exit.i, %78, %data_get_float.exit.i, %83, %86
-  %.040.i = phi i32 [ 0, %data_set_float.exit.i ], [ 0, %78 ], [ 0, %data_get_float.exit.i ], [ 9202, %83 ], [ 9202, %86 ]
+_convert_data_float_from_string.exit:             ; preds = %data_set_float.exit.i, %76, %data_get_float.exit.i, %81, %84
+  %.040.i = phi i32 [ 0, %data_set_float.exit.i ], [ 0, %76 ], [ 0, %data_get_float.exit.i ], [ 9202, %81 ], [ 9202, %84 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br label %data_set_float.exit
 
 data_get_int.exit:                                ; preds = %1
-  %88 = getelementptr inbounds i8, ptr %0, i64 8
-  %89 = load i64, ptr %88, align 8
-  switch i64 %89, label %104 [
-    i64 -1, label %90
-    i64 -2, label %97
+  %86 = getelementptr inbounds i8, ptr %0, i64 8
+  %87 = load i64, ptr %86, align 8
+  switch i64 %87, label %102 [
+    i64 -1, label %88
+    i64 -2, label %95
   ]
 
-90:                                               ; preds = %data_get_int.exit
+88:                                               ; preds = %data_get_int.exit
   store i32 65287, ptr %4, align 4
-  store double 0x7FF0000000000000, ptr %88, align 8
-  %91 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %92 = and i64 %91, 256
-  %.not10.i = icmp eq i64 %92, 0
-  br i1 %.not10.i, label %data_set_float.exit, label %93
+  store double 0x7FF0000000000000, ptr %86, align 8
+  %89 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %90 = and i64 %89, 256
+  %.not10.i = icmp eq i64 %90, 0
+  br i1 %.not10.i, label %data_set_float.exit, label %91
 
-93:                                               ; preds = %90
-  %94 = tail call i32 @get_log_level() #16
-  %95 = icmp sgt i32 %94, 3
-  br i1 %95, label %96, label %data_set_float.exit
+91:                                               ; preds = %88
+  %92 = tail call i32 @get_log_level() #16
+  %93 = icmp sgt i32 %92, 3
+  br i1 %93, label %94, label %data_set_float.exit
 
-96:                                               ; preds = %93
+94:                                               ; preds = %91
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF0000000000000) #16
   br label %data_set_float.exit
 
-97:                                               ; preds = %data_get_int.exit
+95:                                               ; preds = %data_get_int.exit
   store i32 65287, ptr %4, align 4
-  store double 0x7FF8000000000000, ptr %88, align 8
-  %98 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %99 = and i64 %98, 256
-  %.not10.i16 = icmp eq i64 %99, 0
-  br i1 %.not10.i16, label %data_set_float.exit, label %100
+  store double 0x7FF8000000000000, ptr %86, align 8
+  %96 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %97 = and i64 %96, 256
+  %.not10.i16 = icmp eq i64 %97, 0
+  br i1 %.not10.i16, label %data_set_float.exit, label %98
 
-100:                                              ; preds = %97
-  %101 = tail call i32 @get_log_level() #16
-  %102 = icmp sgt i32 %101, 3
-  br i1 %102, label %103, label %data_set_float.exit
+98:                                               ; preds = %95
+  %99 = tail call i32 @get_log_level() #16
+  %100 = icmp sgt i32 %99, 3
+  br i1 %100, label %101, label %data_set_float.exit
 
-103:                                              ; preds = %100
+101:                                              ; preds = %98
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef 0x7FF8000000000000) #16
   br label %data_set_float.exit
 
-104:                                              ; preds = %data_get_int.exit
-  %105 = sitofp i64 %89 to double
+102:                                              ; preds = %data_get_int.exit
+  %103 = sitofp i64 %87 to double
   store i32 65287, ptr %4, align 4
-  store double %105, ptr %88, align 8
-  %106 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
-  %107 = and i64 %106, 256
-  %.not10.i22 = icmp eq i64 %107, 0
-  br i1 %.not10.i22, label %data_set_float.exit, label %108
+  store double %103, ptr %86, align 8
+  %104 = load i64, ptr getelementptr inbounds (i8, ptr @slurm_conf, i64 288), align 8
+  %105 = and i64 %104, 256
+  %.not10.i22 = icmp eq i64 %105, 0
+  br i1 %.not10.i22, label %data_set_float.exit, label %106
 
-108:                                              ; preds = %104
-  %109 = tail call i32 @get_log_level() #16
-  %110 = icmp sgt i32 %109, 3
-  br i1 %110, label %111, label %data_set_float.exit
+106:                                              ; preds = %102
+  %107 = tail call i32 @get_log_level() #16
+  %108 = icmp sgt i32 %107, 3
+  br i1 %108, label %109, label %data_set_float.exit
 
-111:                                              ; preds = %108
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef %105) #16
+109:                                              ; preds = %106
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.data_set_float, ptr noundef nonnull %0, double noundef %103) #16
   br label %data_set_float.exit
 
-112:                                              ; preds = %1
+110:                                              ; preds = %1
   br label %data_set_float.exit
 
-data_set_float.exit:                              ; preds = %111, %108, %104, %103, %100, %97, %96, %93, %90, %1, %112, %_convert_data_float_from_string.exit
-  %.0 = phi i32 [ 9202, %112 ], [ %.040.i, %_convert_data_float_from_string.exit ], [ 0, %1 ], [ 0, %90 ], [ 0, %93 ], [ 0, %96 ], [ 0, %97 ], [ 0, %100 ], [ 0, %103 ], [ 0, %104 ], [ 0, %108 ], [ 0, %111 ]
+data_set_float.exit:                              ; preds = %109, %106, %102, %101, %98, %95, %94, %91, %88, %1, %110, %_convert_data_float_from_string.exit
+  %.0 = phi i32 [ 9202, %110 ], [ %.040.i, %_convert_data_float_from_string.exit ], [ 0, %1 ], [ 0, %88 ], [ 0, %91 ], [ 0, %94 ], [ 0, %95 ], [ 0, %98 ], [ 0, %101 ], [ 0, %102 ], [ 0, %106 ], [ 0, %109 ]
   ret i32 %.0
 }
 

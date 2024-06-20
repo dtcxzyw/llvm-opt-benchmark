@@ -2970,7 +2970,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
 
 36:                                               ; preds = %33, %29, %23
   %37 = phi ptr [ %35, %33 ], [ %12, %29 ], [ %12, %23 ]
-  switch i32 %1, label %338 [
+  switch i32 %1, label %337 [
     i32 21539, label %38
     i32 21543, label %38
     i32 21544, label %38
@@ -2990,11 +2990,11 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
     i32 21528, label %242
     i32 21527, label %242
     i32 21526, label %242
-    i32 21597, label %274
-    i32 21515, label %289
-    i32 21535, label %291
-    i32 21534, label %319
-    i32 21569, label %334
+    i32 21597, label %273
+    i32 21515, label %288
+    i32 21535, label %290
+    i32 21534, label %318
+    i32 21569, label %333
   ]
 
 38:                                               ; preds = %36, %36, %36, %36, %36
@@ -3026,18 +3026,18 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @tty_ioctl(ptr noundef %
   br i1 %54, label %55, label %.thread
 
 55:                                               ; preds = %51
-  switch i32 %1, label %338 [
+  switch i32 %1, label %337 [
     i32 21522, label %56
     i32 21523, label %94
     i32 21524, label %101
     i32 21533, label %127
     i32 21516, label %132
     i32 21517, label %134
-    i32 21534, label %319
+    i32 21534, label %318
     i32 21540, label %149
     i32 21539, label %162
-    i32 21535, label %291
-    i32 21515, label %289
+    i32 21535, label %290
+    i32 21515, label %288
     i32 21543, label %194
     i32 21526, label %242
     i32 21513, label %212
@@ -3353,7 +3353,7 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %245 = getelementptr inbounds i8, ptr %244, i64 208
   %246 = load ptr, ptr %245, align 8
   %247 = icmp eq ptr %246, null
-  br i1 %247, label %271, label %248
+  br i1 %247, label %270, label %248
 
 248:                                              ; preds = %242
   %249 = tail call i64 @llvm.read_register.i64(metadata !0)
@@ -3365,222 +3365,222 @@ tiocswinsz.exit:                                  ; preds = %101, %110, %125
   %255 = trunc i64 %254 to i32
   tail call void @llvm.write_register.i64(metadata !0, i64 %253)
   %256 = icmp eq i32 %255, 0
-  br i1 %256, label %257, label %271
+  br i1 %256, label %257, label %270
 
 257:                                              ; preds = %248
-  switch i32 %1, label %262 [
-    i32 21526, label %258
-    i32 21527, label %259
-    i32 21528, label %260
+  switch i32 %1, label %default.unreachable [
+    i32 21526, label %261
+    i32 21527, label %258
+    i32 21528, label %259
   ]
 
 258:                                              ; preds = %257
-  br label %262
+  br label %261
 
 259:                                              ; preds = %257
-  br label %262
+  %260 = xor i32 %252, -1
+  br label %261
 
-260:                                              ; preds = %257
-  %261 = xor i32 %252, -1
-  br label %262
+default.unreachable:                              ; preds = %257
+  unreachable
 
-262:                                              ; preds = %260, %259, %258, %257
-  %263 = phi i32 [ 0, %257 ], [ %261, %260 ], [ %252, %259 ], [ 0, %258 ]
-  %264 = phi i32 [ 0, %257 ], [ %252, %260 ], [ 0, %259 ], [ %252, %258 ]
-  %265 = and i32 %264, 57350
-  %266 = and i32 %263, 57350
-  %267 = load ptr, ptr %243, align 8
-  %268 = getelementptr inbounds i8, ptr %267, i64 208
-  %269 = load ptr, ptr %268, align 8
-  %270 = tail call i32 %269(ptr noundef nonnull %12, i32 noundef %265, i32 noundef %266) #22
-  br label %271
+261:                                              ; preds = %257, %259, %258
+  %262 = phi i32 [ %260, %259 ], [ %252, %258 ], [ 0, %257 ]
+  %263 = phi i32 [ %252, %259 ], [ 0, %258 ], [ %252, %257 ]
+  %264 = and i32 %263, 57350
+  %265 = and i32 %262, 57350
+  %266 = load ptr, ptr %243, align 8
+  %267 = getelementptr inbounds i8, ptr %266, i64 208
+  %268 = load ptr, ptr %267, align 8
+  %269 = tail call i32 %268(ptr noundef nonnull %12, i32 noundef %264, i32 noundef %265) #22
+  br label %270
 
-271:                                              ; preds = %262, %248, %242
-  %272 = phi i32 [ %270, %262 ], [ -25, %242 ], [ %255, %248 ]
-  %273 = sext i32 %272 to i64
+270:                                              ; preds = %261, %248, %242
+  %271 = phi i32 [ %269, %261 ], [ -25, %242 ], [ %255, %248 ]
+  %272 = sext i32 %271 to i64
   br label %.thread
 
-274:                                              ; preds = %36
+273:                                              ; preds = %36
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #22
-  %275 = getelementptr inbounds i8, ptr %12, i64 32
+  %274 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(80) %7, i8 0, i64 80, i1 false)
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds i8, ptr %276, i64 224
-  %278 = load ptr, ptr %277, align 8
-  %279 = icmp eq ptr %278, null
-  br i1 %279, label %tty_tiocgicount.exit, label %280
+  %275 = load ptr, ptr %274, align 8
+  %276 = getelementptr inbounds i8, ptr %275, i64 224
+  %277 = load ptr, ptr %276, align 8
+  %278 = icmp eq ptr %277, null
+  br i1 %278, label %tty_tiocgicount.exit, label %279
 
-280:                                              ; preds = %274
-  %281 = call i32 %278(ptr noundef nonnull %12, ptr noundef nonnull %7) #22
-  %282 = icmp eq i32 %281, 0
-  br i1 %282, label %283, label %tty_tiocgicount.exit
+279:                                              ; preds = %273
+  %280 = call i32 %277(ptr noundef nonnull %12, ptr noundef nonnull %7) #22
+  %281 = icmp eq i32 %280, 0
+  br i1 %281, label %282, label %tty_tiocgicount.exit
 
-283:                                              ; preds = %280
-  %284 = call i64 @_copy_to_user(ptr noundef %13, ptr noundef nonnull %7, i64 noundef 80) #22
-  %285 = icmp eq i64 %284, 0
-  %286 = select i1 %285, i32 0, i32 -14
+282:                                              ; preds = %279
+  %283 = call i64 @_copy_to_user(ptr noundef %13, ptr noundef nonnull %7, i64 noundef 80) #22
+  %284 = icmp eq i64 %283, 0
+  %285 = select i1 %284, i32 0, i32 -14
   br label %tty_tiocgicount.exit
 
-tty_tiocgicount.exit:                             ; preds = %274, %280, %283
-  %287 = phi i32 [ %281, %280 ], [ %286, %283 ], [ -25, %274 ]
+tty_tiocgicount.exit:                             ; preds = %273, %279, %282
+  %286 = phi i32 [ %280, %279 ], [ %285, %282 ], [ -25, %273 ]
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #22
-  %288 = sext i32 %287 to i64
+  %287 = sext i32 %286 to i64
   br label %.thread
 
-289:                                              ; preds = %55, %36
-  switch i64 %2, label %345 [
-    i64 0, label %290
-    i64 2, label %290
+288:                                              ; preds = %55, %36
+  switch i64 %2, label %344 [
+    i64 0, label %289
+    i64 2, label %289
   ]
 
-290:                                              ; preds = %289, %289
+289:                                              ; preds = %288, %288
   tail call void @tty_buffer_flush(ptr noundef nonnull %12, ptr noundef null) #22
-  br label %345
+  br label %344
 
-291:                                              ; preds = %55, %36
+290:                                              ; preds = %55, %36
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %6, i8 0, i64 72, i1 false), !annotation !9
-  %292 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %13, i64 noundef 72) #22
-  %293 = icmp eq i64 %292, 0
-  br i1 %293, label %294, label %tty_tiocsserial.exit
+  %291 = call i64 @_copy_from_user(ptr noundef nonnull %6, ptr noundef %13, i64 noundef 72) #22
+  %292 = icmp eq i64 %291, 0
+  br i1 %292, label %293, label %tty_tiocsserial.exit
 
-294:                                              ; preds = %291
+293:                                              ; preds = %290
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
-  %295 = getelementptr inbounds i8, ptr %6, i64 16
-  %296 = load i32, ptr %295, align 8
-  %297 = and i32 %296, 34568
-  %298 = icmp eq i32 %297, 0
-  br i1 %298, label %307, label %299
+  %294 = getelementptr inbounds i8, ptr %6, i64 16
+  %295 = load i32, ptr %294, align 8
+  %296 = and i32 %295, 34568
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %306, label %298
 
-299:                                              ; preds = %294
-  %300 = call i32 @___ratelimit(ptr noundef nonnull @tty_set_serial._rs, ptr noundef nonnull @__func__.tty_set_serial) #22
-  %301 = icmp eq i32 %300, 0
-  br i1 %301, label %307, label %302
+298:                                              ; preds = %293
+  %299 = call i32 @___ratelimit(ptr noundef nonnull @tty_set_serial._rs, ptr noundef nonnull @__func__.tty_set_serial) #22
+  %300 = icmp eq i32 %299, 0
+  br i1 %300, label %306, label %301
 
-302:                                              ; preds = %299
-  %303 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #25, !srcloc !23
-  %304 = inttoptr i64 %303 to ptr
-  %305 = call ptr @__get_task_comm(ptr noundef nonnull %5, i64 noundef 16, ptr noundef %304) #22
-  %306 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.tty_set_serial, ptr noundef %305, i32 noundef %297) #23
-  br label %307
+301:                                              ; preds = %298
+  %302 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #25, !srcloc !23
+  %303 = inttoptr i64 %302 to ptr
+  %304 = call ptr @__get_task_comm(ptr noundef nonnull %5, i64 noundef 16, ptr noundef %303) #22
+  %305 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.49, ptr noundef nonnull @__func__.tty_set_serial, ptr noundef %304, i32 noundef %296) #23
+  br label %306
 
-307:                                              ; preds = %302, %299, %294
-  %308 = getelementptr inbounds i8, ptr %12, i64 32
-  %309 = load ptr, ptr %308, align 8
-  %310 = getelementptr inbounds i8, ptr %309, i64 240
-  %311 = load ptr, ptr %310, align 8
-  %312 = icmp eq ptr %311, null
-  br i1 %312, label %316, label %313
+306:                                              ; preds = %301, %298, %293
+  %307 = getelementptr inbounds i8, ptr %12, i64 32
+  %308 = load ptr, ptr %307, align 8
+  %309 = getelementptr inbounds i8, ptr %308, i64 240
+  %310 = load ptr, ptr %309, align 8
+  %311 = icmp eq ptr %310, null
+  br i1 %311, label %315, label %312
 
-313:                                              ; preds = %307
-  %314 = call i32 %311(ptr noundef nonnull %12, ptr noundef nonnull %6) #22
-  %315 = sext i32 %314 to i64
-  br label %316
+312:                                              ; preds = %306
+  %313 = call i32 %310(ptr noundef nonnull %12, ptr noundef nonnull %6) #22
+  %314 = sext i32 %313 to i64
+  br label %315
 
-316:                                              ; preds = %313, %307
-  %317 = phi i64 [ %315, %313 ], [ -25, %307 ]
+315:                                              ; preds = %312, %306
+  %316 = phi i64 [ %314, %312 ], [ -25, %306 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #22
   br label %tty_tiocsserial.exit
 
-tty_tiocsserial.exit:                             ; preds = %291, %316
-  %318 = phi i64 [ %317, %316 ], [ -14, %291 ]
+tty_tiocsserial.exit:                             ; preds = %290, %315
+  %317 = phi i64 [ %316, %315 ], [ -14, %290 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #22
   br label %.thread
 
-319:                                              ; preds = %55, %36
+318:                                              ; preds = %55, %36
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #22
-  %320 = getelementptr inbounds i8, ptr %12, i64 32
+  %319 = getelementptr inbounds i8, ptr %12, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %4, i8 0, i64 72, i1 false)
-  %321 = load ptr, ptr %320, align 8
-  %322 = getelementptr inbounds i8, ptr %321, i64 232
-  %323 = load ptr, ptr %322, align 8
-  %324 = icmp eq ptr %323, null
-  br i1 %324, label %tty_tiocgserial.exit, label %325
+  %320 = load ptr, ptr %319, align 8
+  %321 = getelementptr inbounds i8, ptr %320, i64 232
+  %322 = load ptr, ptr %321, align 8
+  %323 = icmp eq ptr %322, null
+  br i1 %323, label %tty_tiocgserial.exit, label %324
 
-325:                                              ; preds = %319
-  %326 = call i32 %323(ptr noundef nonnull %12, ptr noundef nonnull %4) #22
-  %327 = icmp eq i32 %326, 0
-  br i1 %327, label %328, label %tty_tiocgserial.exit
+324:                                              ; preds = %318
+  %325 = call i32 %322(ptr noundef nonnull %12, ptr noundef nonnull %4) #22
+  %326 = icmp eq i32 %325, 0
+  br i1 %326, label %327, label %tty_tiocgserial.exit
 
-328:                                              ; preds = %325
-  %329 = call i64 @_copy_to_user(ptr noundef %13, ptr noundef nonnull %4, i64 noundef 72) #22
-  %330 = icmp eq i64 %329, 0
-  %331 = select i1 %330, i32 0, i32 -14
+327:                                              ; preds = %324
+  %328 = call i64 @_copy_to_user(ptr noundef %13, ptr noundef nonnull %4, i64 noundef 72) #22
+  %329 = icmp eq i64 %328, 0
+  %330 = select i1 %329, i32 0, i32 -14
   br label %tty_tiocgserial.exit
 
-tty_tiocgserial.exit:                             ; preds = %319, %325, %328
-  %332 = phi i32 [ -25, %319 ], [ %326, %325 ], [ %331, %328 ]
+tty_tiocgserial.exit:                             ; preds = %318, %324, %327
+  %331 = phi i32 [ -25, %318 ], [ %325, %324 ], [ %330, %327 ]
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %4) #22
-  %333 = sext i32 %332 to i64
+  %332 = sext i32 %331 to i64
   br label %.thread
 
-334:                                              ; preds = %36
-  %335 = trunc i64 %2 to i32
-  %336 = tail call i32 @ptm_open_peer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %335) #22
-  %337 = sext i32 %336 to i64
+333:                                              ; preds = %36
+  %334 = trunc i64 %2 to i32
+  %335 = tail call i32 @ptm_open_peer(ptr noundef %0, ptr noundef nonnull %12, i32 noundef %334) #22
+  %336 = sext i32 %335 to i64
   br label %.thread
 
-338:                                              ; preds = %55, %36
-  %339 = tail call i64 @tty_jobctrl_ioctl(ptr noundef nonnull %12, ptr noundef %37, ptr noundef %0, i32 noundef %1, i64 noundef %2) #22
-  %340 = and i64 %339, 4294967295
-  %341 = icmp eq i64 %340, 4294966781
-  br i1 %341, label %345, label %342
+337:                                              ; preds = %55, %36
+  %338 = tail call i64 @tty_jobctrl_ioctl(ptr noundef nonnull %12, ptr noundef %37, ptr noundef %0, i32 noundef %1, i64 noundef %2) #22
+  %339 = and i64 %338, 4294967295
+  %340 = icmp eq i64 %339, 4294966781
+  br i1 %340, label %344, label %341
 
-342:                                              ; preds = %338
-  %343 = shl i64 %339, 32
-  %344 = ashr exact i64 %343, 32
+341:                                              ; preds = %337
+  %342 = shl i64 %338, 32
+  %343 = ashr exact i64 %342, 32
   br label %.thread
 
-345:                                              ; preds = %338, %290, %289
-  %346 = getelementptr inbounds i8, ptr %12, i64 32
-  %347 = load ptr, ptr %346, align 8
-  %348 = getelementptr inbounds i8, ptr %347, i64 96
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %356, label %351
+344:                                              ; preds = %337, %289, %288
+  %345 = getelementptr inbounds i8, ptr %12, i64 32
+  %346 = load ptr, ptr %345, align 8
+  %347 = getelementptr inbounds i8, ptr %346, i64 96
+  %348 = load ptr, ptr %347, align 8
+  %349 = icmp eq ptr %348, null
+  br i1 %349, label %355, label %350
 
-351:                                              ; preds = %345
-  %352 = tail call i32 %349(ptr noundef nonnull %12, i32 noundef %1, i64 noundef %2) #22
-  %353 = icmp eq i32 %352, -515
-  br i1 %353, label %356, label %354
+350:                                              ; preds = %344
+  %351 = tail call i32 %348(ptr noundef nonnull %12, i32 noundef %1, i64 noundef %2) #22
+  %352 = icmp eq i32 %351, -515
+  br i1 %352, label %355, label %353
 
-354:                                              ; preds = %351
-  %355 = sext i32 %352 to i64
+353:                                              ; preds = %350
+  %354 = sext i32 %351 to i64
   br label %.thread
 
-356:                                              ; preds = %351, %345
-  %357 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %12) #22
-  %358 = icmp eq ptr %357, null
-  br i1 %358, label %359, label %362
+355:                                              ; preds = %350, %344
+  %356 = tail call ptr @tty_ldisc_ref_wait(ptr noundef nonnull %12) #22
+  %357 = icmp eq ptr %356, null
+  br i1 %357, label %358, label %361
 
-359:                                              ; preds = %356
-  %360 = icmp eq i32 %1, 21520
-  %361 = select i1 %360, i64 -25, i64 -5
+358:                                              ; preds = %355
+  %359 = icmp eq i32 %1, 21520
+  %360 = select i1 %359, i64 -25, i64 -5
   br label %.thread
 
-362:                                              ; preds = %356
-  %363 = load ptr, ptr %357, align 8
-  %364 = getelementptr inbounds i8, ptr %363, i64 56
-  %365 = load ptr, ptr %364, align 8
-  %366 = icmp eq ptr %365, null
-  br i1 %366, label %372, label %367
+361:                                              ; preds = %355
+  %362 = load ptr, ptr %356, align 8
+  %363 = getelementptr inbounds i8, ptr %362, i64 56
+  %364 = load ptr, ptr %363, align 8
+  %365 = icmp eq ptr %364, null
+  br i1 %365, label %371, label %366
 
-367:                                              ; preds = %362
-  %368 = tail call i32 %365(ptr noundef nonnull %12, i32 noundef %1, i64 noundef %2) #22
-  %369 = icmp eq i32 %368, -515
-  %370 = select i1 %369, i32 -25, i32 %368
-  %371 = sext i32 %370 to i64
-  br label %372
+366:                                              ; preds = %361
+  %367 = tail call i32 %364(ptr noundef nonnull %12, i32 noundef %1, i64 noundef %2) #22
+  %368 = icmp eq i32 %367, -515
+  %369 = select i1 %368, i32 -25, i32 %367
+  %370 = sext i32 %369 to i64
+  br label %371
 
-372:                                              ; preds = %367, %362
-  %373 = phi i64 [ %371, %367 ], [ -22, %362 ]
-  tail call void @tty_ldisc_deref(ptr noundef nonnull %357) #22
+371:                                              ; preds = %366, %361
+  %372 = phi i64 [ %370, %366 ], [ -22, %361 ]
+  tail call void @tty_ldisc_deref(ptr noundef nonnull %356) #22
   br label %.thread
 
-.thread:                                          ; preds = %152, %149, %45, %372, %359, %354, %342, %334, %tty_tiocgserial.exit, %tty_tiocsserial.exit, %tty_tiocgicount.exit, %271, %.thread12, %217, %214, %212, %209, %203, %200, %194, %168, %167, %165, %162, %136, %134, %132, %129, %127, %tiocswinsz.exit, %94, %tiocsti.exit, %51, %41, %15
-  %374 = phi i64 [ %344, %342 ], [ %355, %354 ], [ %373, %372 ], [ %361, %359 ], [ %337, %334 ], [ %333, %tty_tiocgserial.exit ], [ %318, %tty_tiocsserial.exit ], [ %288, %tty_tiocgicount.exit ], [ %273, %271 ], [ %241, %.thread12 ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ -4, %45 ], [ %161, %152 ], [ -5, %149 ]
-  ret i64 %374
+.thread:                                          ; preds = %152, %149, %45, %371, %358, %353, %341, %333, %tty_tiocgserial.exit, %tty_tiocsserial.exit, %tty_tiocgicount.exit, %270, %.thread12, %217, %214, %212, %209, %203, %200, %194, %168, %167, %165, %162, %136, %134, %132, %129, %127, %tiocswinsz.exit, %94, %tiocsti.exit, %51, %41, %15
+  %373 = phi i64 [ %343, %341 ], [ %354, %353 ], [ %372, %371 ], [ %360, %358 ], [ %336, %333 ], [ %332, %tty_tiocgserial.exit ], [ %317, %tty_tiocsserial.exit ], [ %287, %tty_tiocgicount.exit ], [ %272, %270 ], [ %241, %.thread12 ], [ %223, %217 ], [ %216, %214 ], [ %211, %209 ], [ %202, %200 ], [ %193, %168 ], [ 0, %167 ], [ %164, %162 ], [ %148, %136 ], [ 0, %134 ], [ 0, %132 ], [ %126, %tiocswinsz.exit ], [ %100, %94 ], [ %93, %tiocsti.exit ], [ %42, %41 ], [ -22, %15 ], [ -4, %51 ], [ %131, %129 ], [ -22, %127 ], [ -1, %165 ], [ 0, %194 ], [ 0, %203 ], [ 0, %212 ], [ -4, %45 ], [ %161, %152 ], [ -5, %149 ]
+  ret i64 %373
 }
 
 ; Function Attrs: null_pointer_is_valid

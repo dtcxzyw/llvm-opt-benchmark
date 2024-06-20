@@ -10035,31 +10035,31 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   br label %2233
 
 2233:                                             ; preds = %2302, %.lr.ph.i1118
-  %.0154.i = phi i32 [ 20, %.lr.ph.i1118 ], [ %.1.i, %2302 ]
-  %.094153.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2.i1120, %2302 ]
-  %.096152.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.298.i, %2302 ]
-  %.099151.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2101.i, %2302 ]
-  %.0102150.i = phi i32 [ %2182, %.lr.ph.i1118 ], [ %.1103.i, %2302 ]
-  %.0104149.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2106.i, %2302 ]
-  %2234 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0154.i) #20
-  %2235 = icmp ne i32 %.096152.i, 0
+  %.0153.i = phi i32 [ 20, %.lr.ph.i1118 ], [ %.1.i, %2302 ]
+  %.094152.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2.i1120, %2302 ]
+  %.096151.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.298.i, %2302 ]
+  %.099150.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2101.i, %2302 ]
+  %.0102149.i = phi i32 [ %2182, %.lr.ph.i1118 ], [ %.1103.i, %2302 ]
+  %.0104148.i = phi i32 [ 0, %.lr.ph.i1118 ], [ %.2106.i, %2302 ]
+  %2234 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %.0153.i) #20
+  %2235 = icmp ne i32 %.096151.i, 0
   %2236 = zext i8 %2234 to i32
   %2237 = icmp ne i8 %2234, 0
   %or.cond.i1119 = select i1 %2235, i1 %2237, i1 false
   br i1 %or.cond.i1119, label %2238, label %2240
 
 2238:                                             ; preds = %2233
-  %2239 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_non_zero_bytes_after_eol, ptr noundef %0, i32 noundef %.0154.i, i32 noundef %.0102150.i, ptr noundef nonnull @.str.937) #20
+  %2239 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_non_zero_bytes_after_eol, ptr noundef %0, i32 noundef %.0153.i, i32 noundef %.0102149.i, ptr noundef nonnull @.str.937) #20
   br label %tcp_dissect_options.exit
 
 2240:                                             ; preds = %2233
-  %2241 = add i32 %.0102150.i, -1
+  %2241 = add i32 %.0102149.i, -1
   %or.cond5.i = icmp ult i8 %2234, 2
   br i1 %or.cond5.i, label %2242, label %2265
 
 2242:                                             ; preds = %2240
-  %trunc.i = trunc nuw i8 %2234 to i1
-  br i1 %trunc.i, label %2245, label %2243
+  %switch.i = icmp eq i8 %2234, 0
+  br i1 %switch.i, label %2243, label %2245
 
 2243:                                             ; preds = %2242
   %2244 = load i32, ptr @proto_tcp_option_eol, align 4
@@ -10070,14 +10070,14 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   br i1 %.not121.i, label %2255, label %2247
 
 2247:                                             ; preds = %2245
-  %2248 = icmp ne i32 %.0104149.i, 0
-  %2249 = and i32 %.0154.i, 3
+  %2248 = icmp ne i32 %.0104148.i, 0
+  %2249 = and i32 %.0153.i, 3
   %.not122.i = icmp eq i32 %2249, 0
   %or.cond123.i = and i1 %.not122.i, %2248
   br i1 %or.cond123.i, label %2255, label %2250
 
 2250:                                             ; preds = %2247
-  %2251 = add i32 %.0104149.i, 1
+  %2251 = add i32 %.0104148.i, 1
   %2252 = icmp eq i32 %2251, 4
   br i1 %2252, label %2253, label %2255
 
@@ -10086,19 +10086,19 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   br label %2255
 
 2255:                                             ; preds = %2253, %2250, %2247, %2245, %2243
-  %.1105.i = phi i32 [ %.0104149.i, %2243 ], [ 4, %2253 ], [ %2251, %2250 ], [ 0, %2247 ], [ 0, %2245 ]
-  %.197.i = phi i32 [ 1, %2243 ], [ %.096152.i, %2253 ], [ %.096152.i, %2250 ], [ %.096152.i, %2247 ], [ %.096152.i, %2245 ]
+  %.1105.i = phi i32 [ %.0104148.i, %2243 ], [ 4, %2253 ], [ %2251, %2250 ], [ 0, %2247 ], [ 0, %2245 ]
+  %.197.i = phi i32 [ 1, %2243 ], [ %.096151.i, %2253 ], [ %.096151.i, %2250 ], [ %.096151.i, %2247 ], [ %.096151.i, %2245 ]
   %.093.i = phi i32 [ %2244, %2243 ], [ %2246, %2253 ], [ %2246, %2250 ], [ %2246, %2247 ], [ %2246, %2245 ]
-  %2256 = call ptr @proto_tree_add_item(ptr noundef %.0862, i32 noundef %.093.i, ptr noundef %0, i32 noundef %.0154.i, i32 noundef 1, i32 noundef 0) #20
+  %2256 = call ptr @proto_tree_add_item(ptr noundef %.0862, i32 noundef %.093.i, ptr noundef %0, i32 noundef %.0153.i, i32 noundef 1, i32 noundef 0) #20
   %2257 = load i32, ptr @ett_tcp_option_other, align 4
   %2258 = call ptr @proto_item_add_subtree(ptr noundef %2256, i32 noundef %2257) #20
   %2259 = load i32, ptr @hf_tcp_option_kind, align 4
-  %2260 = call ptr @proto_tree_add_item(ptr noundef %2258, i32 noundef %2259, ptr noundef %0, i32 noundef %.0154.i, i32 noundef 1, i32 noundef 0) #20
+  %2260 = call ptr @proto_tree_add_item(ptr noundef %2258, i32 noundef %2259, ptr noundef %0, i32 noundef %.0153.i, i32 noundef 1, i32 noundef 0) #20
   %2261 = call ptr @proto_tree_get_parent(ptr noundef %.0862) #20
   %2262 = call ptr @find_protocol_by_id(i32 noundef %.093.i) #20
   %2263 = call ptr @proto_get_protocol_short_name(ptr noundef %2262) #20
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2261, ptr noundef nonnull @.str.938, ptr noundef %2263) #20
-  %2264 = add i32 %.0154.i, 1
+  %2264 = add i32 %.0153.i, 1
   br label %2302
 
 2265:                                             ; preds = %2240
@@ -10124,11 +10124,11 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   br i1 %2276, label %2277, label %2279
 
 2277:                                             ; preds = %2275
-  %2278 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0154.i, i32 noundef 1, ptr noundef nonnull @.str.940, ptr noundef %.0108.i) #20
+  %2278 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0153.i, i32 noundef 1, ptr noundef nonnull @.str.940, ptr noundef %.0108.i) #20
   br label %tcp_dissect_options.exit
 
 2279:                                             ; preds = %2275
-  %2280 = add i32 %.0154.i, 1
+  %2280 = add i32 %.0153.i, 1
   %2281 = call zeroext i8 @tvb_get_guint8(ptr noundef %0, i32 noundef %2280) #20
   %2282 = zext i8 %2281 to i32
   %2283 = icmp ult i8 %2281, 2
@@ -10137,17 +10137,17 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
 2284:                                             ; preds = %2279
   %2285 = icmp eq i8 %2281, 1
   %2286 = select i1 %2285, ptr @.str.2, ptr @.str.9
-  %2287 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0154.i, i32 noundef 2, ptr noundef nonnull @.str.941, ptr noundef %.0108.i, i32 noundef %2282, ptr noundef nonnull %2286) #20
+  %2287 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0153.i, i32 noundef 2, ptr noundef nonnull @.str.941, ptr noundef %.0108.i, i32 noundef %2282, ptr noundef nonnull %2286) #20
   br label %tcp_dissect_options.exit
 
 2288:                                             ; preds = %2279
-  %2289 = add i32 %.0102150.i, -2
+  %2289 = add i32 %.0102149.i, -2
   %2290 = add nsw i32 %2282, -2
   %2291 = icmp ugt i32 %2290, %2289
   br i1 %2291, label %2292, label %2294
 
 2292:                                             ; preds = %2288
-  %2293 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0154.i, i32 noundef %2289, ptr noundef nonnull @.str.942, ptr noundef %.0108.i, i32 noundef %2282, ptr noundef nonnull @.str.9) #20
+  %2293 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0862, ptr noundef %1, ptr noundef nonnull @ei_tcp_opt_len_invalid, ptr noundef %0, i32 noundef %.0153.i, i32 noundef %2289, ptr noundef nonnull @.str.942, ptr noundef %.0108.i, i32 noundef %2282, ptr noundef nonnull @.str.9) #20
   br label %tcp_dissect_options.exit
 
 2294:                                             ; preds = %2288
@@ -10163,22 +10163,22 @@ tcp_print_timestamps.exit:                        ; preds = %2194, %2217, %.thre
   br label %2296
 
 2296:                                             ; preds = %.fold.split.i, %2295, %2294
-  %.1100.i = phi i32 [ %.099151.i, %2295 ], [ 1, %2294 ], [ %.099151.i, %.fold.split.i ]
-  %.195.i = phi i32 [ 1, %2295 ], [ %.094153.i, %2294 ], [ %.094153.i, %.fold.split.i ]
-  %2297 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0154.i, i32 noundef %2282) #20
+  %.1100.i = phi i32 [ %.099150.i, %2295 ], [ 1, %2294 ], [ %.099150.i, %.fold.split.i ]
+  %.195.i = phi i32 [ 1, %2295 ], [ %.094152.i, %2294 ], [ %.094152.i, %.fold.split.i ]
+  %2297 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.0153.i, i32 noundef %2282) #20
   %2298 = call i32 @call_dissector_with_data(ptr noundef %.0107.i, ptr noundef %2297, ptr noundef %1, ptr noundef %.0862, ptr noundef %71) #20
   %2299 = call ptr @proto_tree_get_parent(ptr noundef %.0862) #20
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2299, ptr noundef nonnull @.str.938, ptr noundef %.0108.i) #20
-  %2300 = add i32 %.0154.i, %2282
-  %2301 = sub i32 %.0102150.i, %2282
+  %2300 = add i32 %.0153.i, %2282
+  %2301 = sub i32 %.0102149.i, %2282
   br label %2302
 
 2302:                                             ; preds = %2296, %2255
-  %.2106.i = phi i32 [ %.1105.i, %2255 ], [ %.0104149.i, %2296 ]
+  %.2106.i = phi i32 [ %.1105.i, %2255 ], [ %.0104148.i, %2296 ]
   %.1103.i = phi i32 [ %2241, %2255 ], [ %2301, %2296 ]
-  %.2101.i = phi i32 [ %.099151.i, %2255 ], [ %.1100.i, %2296 ]
-  %.298.i = phi i32 [ %.197.i, %2255 ], [ %.096152.i, %2296 ]
-  %.2.i1120 = phi i32 [ %.094153.i, %2255 ], [ %.195.i, %2296 ]
+  %.2101.i = phi i32 [ %.099150.i, %2255 ], [ %.1100.i, %2296 ]
+  %.298.i = phi i32 [ %.197.i, %2255 ], [ %.096151.i, %2296 ]
+  %.2.i1120 = phi i32 [ %.094152.i, %2255 ], [ %.195.i, %2296 ]
   %.1.i = phi i32 [ %2264, %2255 ], [ %2300, %2296 ]
   %.not.i1121 = icmp eq i32 %.1103.i, 0
   br i1 %.not.i1121, label %._crit_edge.i1122, label %2233, !llvm.loop !21
@@ -14133,10 +14133,8 @@ define internal i32 @dissect_tcpopt_exp(ptr noundef %0, ptr noundef %1, ptr noun
   br label %dissect_tcpopt_tarr_data.exit
 
 28:                                               ; preds = %24
-  switch i32 %5, label %dissect_tcpopt_tarr_data.exit [
-    i32 4, label %29
-    i32 5, label %32
-  ]
+  %switch = icmp eq i32 %5, 4
+  br i1 %switch, label %29, label %32
 
 29:                                               ; preds = %28
   %30 = getelementptr inbounds i8, ptr %1, i64 8
@@ -14214,7 +14212,7 @@ define internal i32 @dissect_tcpopt_exp(ptr noundef %0, ptr noundef %1, ptr noun
   tail call void @col_append_str_uint(ptr noundef %.val, i32 noundef 25, ptr noundef nonnull @.str.1060, i32 noundef %64, ptr noundef nonnull @.str.799) #20
   br label %dissect_tcpopt_tarr_data.exit
 
-dissect_tcpopt_tarr_data.exit:                    ; preds = %32, %29, %28, %57, %42, %44, %26, %55, %48, %59
+dissect_tcpopt_tarr_data.exit:                    ; preds = %32, %29, %57, %42, %44, %26, %55, %48, %59
   %66 = tail call i32 @tvb_captured_length(ptr noundef %0) #20
   ret i32 %66
 }

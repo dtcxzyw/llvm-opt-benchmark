@@ -628,10 +628,8 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   br i1 %189, label %190, label %209
 
 190:                                              ; preds = %187
-  switch i32 %1, label %209 [
-    i32 19303, label %191
-    i32 19302, label %197
-  ]
+  %switch = icmp eq i32 %1, 19303
+  br i1 %switch, label %191, label %197
 
 191:                                              ; preds = %190
   br i1 %23, label %192, label %209
@@ -661,8 +659,8 @@ define dso_local i32 @vt_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) l
   %208 = call i32 @con_get_unimap(ptr noundef %10, i16 noundef zeroext %205, ptr noundef %11, ptr noundef %207) #7
   br label %209
 
-209:                                              ; preds = %204, %198, %192, %191, %190, %187
-  %210 = phi i32 [ %208, %204 ], [ %196, %192 ], [ -14, %187 ], [ -1, %191 ], [ -1, %198 ], [ 0, %190 ]
+209:                                              ; preds = %204, %198, %192, %191, %187
+  %210 = phi i32 [ %208, %204 ], [ %196, %192 ], [ -14, %187 ], [ -1, %191 ], [ -1, %198 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #7
   br label %211
 
@@ -1790,10 +1788,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vt_compat_ioctl(ptr nou
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   %52 = inttoptr i64 %51 to ptr
-  switch i32 %1, label %67 [
-    i32 19303, label %53
-    i32 19302, label %57
-  ]
+  %switch = icmp eq i32 %1, 19303
+  br i1 %switch, label %53, label %57
 
 53:                                               ; preds = %48
   br i1 %21, label %67, label %54
@@ -1819,8 +1815,8 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @vt_compat_ioctl(ptr nou
   %66 = call i32 @con_get_unimap(ptr noundef %7, i16 noundef zeroext %65, ptr noundef %9, ptr noundef %52) #7
   br label %67
 
-67:                                               ; preds = %64, %58, %54, %53, %48, %45
-  %68 = phi i32 [ %66, %64 ], [ %56, %54 ], [ -14, %45 ], [ -1, %53 ], [ -1, %58 ], [ 0, %48 ]
+67:                                               ; preds = %64, %58, %54, %53, %45
+  %68 = phi i32 [ %66, %64 ], [ %56, %54 ], [ -14, %45 ], [ -1, %53 ], [ -1, %58 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   br label %73
 

@@ -12712,17 +12712,17 @@ define dso_local ptr @job_array_split(ptr noundef %0) local_unnamed_addr #0 {
   %6 = load i32, ptr %5, align 8
   %.sink.i = load ptr, ptr @job_hash, align 8
   %cond38.i = icmp eq ptr %.sink.i, null
-  br i1 %cond38.i, label %.loopexit.i, label %.lr.ph.split.us.split.i.preheader
+  br i1 %cond38.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.split.us.split.i.preheader:                ; preds = %1
+.lr.ph.i:                                         ; preds = %1
   %7 = load i32, ptr @hash_table_size, align 4
   %8 = urem i32 %6, %7
   %9 = zext i32 %8 to i64
   %10 = getelementptr inbounds ptr, ptr %.sink.i, i64 %9
   br label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i.preheader, %.lr.ph.split.us.split.i
-  %.139.us.i = phi ptr [ %12, %.lr.ph.split.us.split.i ], [ %10, %.lr.ph.split.us.split.i.preheader ]
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i, %.lr.ph.i
+  %.139.us.i = phi ptr [ %12, %.lr.ph.split.us.split.i ], [ %10, %.lr.ph.i ]
   %11 = load ptr, ptr %.139.us.i, align 8
   %.not33.us.i = icmp eq ptr %11, null
   %.not34.us.i = icmp eq ptr %11, %0
@@ -22717,17 +22717,17 @@ define internal fastcc void @_delete_job_common(ptr noundef %0) unnamed_addr #0 
   %5 = load i32, ptr %2, align 8
   %.sink.i = load ptr, ptr @job_hash, align 8
   %cond38.i = icmp eq ptr %.sink.i, null
-  br i1 %cond38.i, label %.loopexit.i, label %.lr.ph.split.us.split.i.preheader
+  br i1 %cond38.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.split.us.split.i.preheader:                ; preds = %4
+.lr.ph.i:                                         ; preds = %4
   %6 = load i32, ptr @hash_table_size, align 4
   %7 = urem i32 %5, %6
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds ptr, ptr %.sink.i, i64 %8
   br label %.lr.ph.split.us.split.i
 
-.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i.preheader, %.lr.ph.split.us.split.i
-  %.139.us.i = phi ptr [ %11, %.lr.ph.split.us.split.i ], [ %9, %.lr.ph.split.us.split.i.preheader ]
+.lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.split.i, %.lr.ph.i
+  %.139.us.i = phi ptr [ %11, %.lr.ph.split.us.split.i ], [ %9, %.lr.ph.i ]
   %10 = load ptr, ptr %.139.us.i, align 8
   %.not33.us.i = icmp eq ptr %10, null
   %.not34.us.i = icmp eq ptr %10, %0
@@ -22763,18 +22763,18 @@ _remove_job_hash.exit:                            ; preds = %.loopexit.i, %13, %
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = load i32, ptr %21, align 8
   %.sink.i7 = load ptr, ptr @job_array_hash_j, align 8
-  %23 = load i32, ptr @hash_table_size, align 4
   %cond38.i8 = icmp eq ptr %.sink.i7, null
-  br i1 %cond38.i8, label %.loopexit.i11, label %.lr.ph.split.us41.split.i.preheader
+  br i1 %cond38.i8, label %.loopexit.i11, label %.lr.ph.i9
 
-.lr.ph.split.us41.split.i.preheader:              ; preds = %20
+.lr.ph.i9:                                        ; preds = %20
+  %23 = load i32, ptr @hash_table_size, align 4
   %24 = urem i32 %22, %23
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds ptr, ptr %.sink.i7, i64 %25
   br label %.lr.ph.split.us41.split.i
 
-.lr.ph.split.us41.split.i:                        ; preds = %.lr.ph.split.us41.split.i.preheader, %.lr.ph.split.us41.split.i
-  %.139.us42.i = phi ptr [ %28, %.lr.ph.split.us41.split.i ], [ %26, %.lr.ph.split.us41.split.i.preheader ]
+.lr.ph.split.us41.split.i:                        ; preds = %.lr.ph.split.us41.split.i, %.lr.ph.i9
+  %.139.us42.i = phi ptr [ %28, %.lr.ph.split.us41.split.i ], [ %26, %.lr.ph.i9 ]
   %27 = load ptr, ptr %.139.us42.i, align 8
   %.not33.us43.i = icmp eq ptr %27, null
   %.not34.us44.i = icmp eq ptr %27, %0
@@ -22792,7 +22792,6 @@ _remove_job_hash.exit:                            ; preds = %.loopexit.i, %13, %
 
 31:                                               ; preds = %.loopexit.i11
   %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.321, ptr noundef nonnull @__func__._remove_job_hash, i32 noundef %22) #28
-  %.pre = load i32, ptr @hash_table_size, align 4
   br label %_remove_job_hash.exit12
 
 33:                                               ; preds = %.critedge.i10
@@ -22803,22 +22802,22 @@ _remove_job_hash.exit:                            ; preds = %.loopexit.i, %13, %
   br label %_remove_job_hash.exit12
 
 _remove_job_hash.exit12:                          ; preds = %.loopexit.i11, %31, %33
-  %36 = phi i32 [ %23, %.loopexit.i11 ], [ %.pre, %31 ], [ %23, %33 ]
-  %37 = load i32, ptr %21, align 8
-  %38 = load i32, ptr %18, align 4
+  %36 = load i32, ptr %21, align 8
+  %37 = load i32, ptr %18, align 4
   %.sink.i13 = load ptr, ptr @job_array_hash_t, align 8
   %cond38.i14 = icmp eq ptr %.sink.i13, null
-  br i1 %cond38.i14, label %.loopexit.i17, label %.lr.ph.split.us52.split.i.preheader
+  br i1 %cond38.i14, label %.loopexit.i17, label %.lr.ph.i15
 
-.lr.ph.split.us52.split.i.preheader:              ; preds = %_remove_job_hash.exit12
-  %39 = add i32 %38, %37
-  %40 = urem i32 %39, %36
+.lr.ph.i15:                                       ; preds = %_remove_job_hash.exit12
+  %38 = add i32 %37, %36
+  %39 = load i32, ptr @hash_table_size, align 4
+  %40 = urem i32 %38, %39
   %41 = zext i32 %40 to i64
   %42 = getelementptr inbounds ptr, ptr %.sink.i13, i64 %41
   br label %.lr.ph.split.us52.split.i
 
-.lr.ph.split.us52.split.i:                        ; preds = %.lr.ph.split.us52.split.i.preheader, %.lr.ph.split.us52.split.i
-  %.139.us53.i = phi ptr [ %44, %.lr.ph.split.us52.split.i ], [ %42, %.lr.ph.split.us52.split.i.preheader ]
+.lr.ph.split.us52.split.i:                        ; preds = %.lr.ph.split.us52.split.i, %.lr.ph.i15
+  %.139.us53.i = phi ptr [ %44, %.lr.ph.split.us52.split.i ], [ %42, %.lr.ph.i15 ]
   %43 = load ptr, ptr %.139.us53.i, align 8
   %.not33.us54.i = icmp eq ptr %43, null
   %.not34.us55.i = icmp eq ptr %43, %0
@@ -22835,7 +22834,7 @@ _remove_job_hash.exit12:                          ; preds = %.loopexit.i11, %31,
   br i1 %46, label %_remove_job_hash.exit18, label %47
 
 47:                                               ; preds = %.loopexit.i17
-  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.322, ptr noundef nonnull @__func__._remove_job_hash, i32 noundef %37, i32 noundef %38) #28
+  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.322, ptr noundef nonnull @__func__._remove_job_hash, i32 noundef %36, i32 noundef %37) #28
   br label %_remove_job_hash.exit18
 
 49:                                               ; preds = %.critedge.i16

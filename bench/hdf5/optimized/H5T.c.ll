@@ -4308,10 +4308,8 @@ define ptr @H5T__create(i32 noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %41, i64 12
   store i32 %0, ptr %42, align 4
-  switch i32 %0, label %95 [
-    i32 6, label %43
-    i32 5, label %48
-  ]
+  %switch = icmp eq i32 %0, 6
+  br i1 %switch, label %43, label %48
 
 43:                                               ; preds = %39
   %44 = load ptr, ptr %40, align 8
@@ -4407,15 +4405,14 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %94 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5T__create, i32 noundef 3449, i64 noundef %92, i64 noundef %93, ptr noundef nonnull @.str.297) #17
   br label %.thread71
 
-95:                                               ; preds = %39, %18
-  %.0 = phi ptr [ %12, %18 ], [ %33, %39 ]
+95:                                               ; preds = %18
   %96 = icmp ne i32 %0, 3
   %97 = icmp ne i64 %1, -1
   %or.cond = or i1 %96, %97
   br i1 %or.cond, label %.thread, label %101
 
 .thread:                                          ; preds = %48, %43, %74, %95
-  %.069 = phi ptr [ %.0, %95 ], [ %33, %48 ], [ %33, %43 ], [ %58, %74 ]
+  %.069 = phi ptr [ %12, %95 ], [ %33, %48 ], [ %33, %43 ], [ %58, %74 ]
   %98 = getelementptr inbounds i8, ptr %.069, i64 40
   %99 = load ptr, ptr %98, align 8
   %100 = getelementptr inbounds i8, ptr %99, i64 16
@@ -4423,7 +4420,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   br label %101
 
 101:                                              ; preds = %95, %.thread
-  %.068 = phi ptr [ %.0, %95 ], [ %.069, %.thread ]
+  %.068 = phi ptr [ %12, %95 ], [ %.069, %.thread ]
   %102 = getelementptr inbounds i8, ptr %.068, i64 96
   store ptr null, ptr %102, align 8
   br label %.thread71

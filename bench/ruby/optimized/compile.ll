@@ -37974,7 +37974,7 @@ rb_obj_written.exit:                              ; preds = %545, %523, %547
   store ptr %4, ptr %645, align 8
   %646 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %5, ptr %646, align 8
-  switch i32 %15, label %682 [
+  switch i32 %15, label %default.unreachable [
     i32 56, label %647
     i32 57, label %666
     i32 58, label %674
@@ -38035,7 +38035,10 @@ rb_obj_written.exit:                              ; preds = %545, %523, %547
   %.not33.i = icmp eq i32 %681, 0
   br i1 %.not33.i, label %compile_match.exit.thread, label %682
 
-682:                                              ; preds = %678, %670, %647, %644
+default.unreachable:                              ; preds = %644
+  unreachable
+
+682:                                              ; preds = %678, %670, %647
   %683 = getelementptr inbounds i8, ptr %4, i64 8
   %684 = load ptr, ptr %683, align 8
   %.not.i1186 = icmp eq ptr %684, null

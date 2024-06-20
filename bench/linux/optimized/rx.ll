@@ -8057,107 +8057,112 @@ define internal fastcc void @ieee80211_deliver_skb(ptr nocapture noundef readonl
   %51 = getelementptr inbounds i8, ptr %3, i64 1920
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %select.unfold
+  br i1 %53, label %.thread3, label %select.unfold
 
-54:                                               ; preds = %50, %48
+54:                                               ; preds = %48
   %55 = load i32, ptr %9, align 4
   %56 = and i32 %55, 1
   %57 = icmp eq i32 %56, 0
-  br i1 %57, label %77, label %58
+  br i1 %57, label %79, label %61
 
-58:                                               ; preds = %54
-  switch i32 %33, label %68 [
-    i32 3, label %63
-    i32 4, label %59
-  ]
+.thread3:                                         ; preds = %50
+  %58 = load i32, ptr %9, align 4
+  %59 = and i32 %58, 1
+  %60 = icmp eq i32 %59, 0
+  br i1 %60, label %79, label %.thread4
 
-59:                                               ; preds = %58
-  %60 = getelementptr inbounds i8, ptr %3, i64 1920
-  %61 = load ptr, ptr %60, align 8
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %63, label %68
+61:                                               ; preds = %54
+  %switch = icmp eq i32 %33, 3
+  br i1 %switch, label %65, label %.thread4
 
-63:                                               ; preds = %59, %58
-  %64 = phi i64 [ 2216, %58 ], [ 1928, %59 ]
-  %65 = getelementptr inbounds i8, ptr %3, i64 %64
-  %66 = load volatile i32, ptr %65, align 4
-  %67 = icmp eq i32 %66, 0
-  br i1 %67, label %select.unfold, label %68
+.thread4:                                         ; preds = %.thread3, %61
+  %62 = getelementptr inbounds i8, ptr %3, i64 1920
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %70
 
-68:                                               ; preds = %63, %59, %58
-  %69 = tail call ptr @skb_copy(ptr noundef %7, i32 noundef 2080) #18
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %71, label %select.unfold
+65:                                               ; preds = %61, %.thread4
+  %66 = phi i64 [ 2216, %61 ], [ 1928, %.thread4 ]
+  %67 = getelementptr inbounds i8, ptr %3, i64 %66
+  %68 = load volatile i32, ptr %67, align 4
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %select.unfold, label %70
 
-71:                                               ; preds = %68
-  %72 = tail call i32 @net_ratelimit() #18
-  %73 = icmp eq i32 %72, 0
-  br i1 %73, label %select.unfold, label %74
+70:                                               ; preds = %65, %.thread4
+  %71 = tail call ptr @skb_copy(ptr noundef %7, i32 noundef 2080) #18
+  %72 = icmp eq ptr %71, null
+  br i1 %72, label %73, label %select.unfold
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds i8, ptr %5, i64 296
-  %76 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %75) #22
+73:                                               ; preds = %70
+  %74 = tail call i32 @net_ratelimit() #18
+  %75 = icmp eq i32 %74, 0
+  br i1 %75, label %select.unfold, label %76
+
+76:                                               ; preds = %73
+  %77 = getelementptr inbounds i8, ptr %5, i64 296
+  %78 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.12, ptr noundef %77) #22
   br label %select.unfold
 
-77:                                               ; preds = %54
-  %78 = getelementptr inbounds i8, ptr %9, i64 6
-  %79 = load i32, ptr %78, align 4
-  %80 = xor i32 %79, %55
-  %81 = getelementptr i8, ptr %9, i64 4
-  %82 = load i16, ptr %81, align 2
-  %83 = getelementptr i8, ptr %9, i64 10
-  %84 = load i16, ptr %83, align 2
-  %85 = xor i16 %84, %82
-  %86 = zext i16 %85 to i32
-  %87 = or i32 %80, %86
-  %88 = icmp eq i32 %87, 0
-  br i1 %88, label %select.unfold, label %89
+79:                                               ; preds = %.thread3, %54
+  %80 = phi i32 [ %58, %.thread3 ], [ %55, %54 ]
+  %81 = getelementptr inbounds i8, ptr %9, i64 6
+  %82 = load i32, ptr %81, align 4
+  %83 = xor i32 %82, %80
+  %84 = getelementptr i8, ptr %9, i64 4
+  %85 = load i16, ptr %84, align 2
+  %86 = getelementptr i8, ptr %9, i64 10
+  %87 = load i16, ptr %86, align 2
+  %88 = xor i16 %87, %85
+  %89 = zext i16 %88 to i32
+  %90 = or i32 %83, %89
+  %91 = icmp eq i32 %90, 0
+  br i1 %91, label %select.unfold, label %92
 
-89:                                               ; preds = %77
-  %90 = tail call ptr @sta_info_get(ptr noundef %3, ptr noundef %9) #18
-  %91 = icmp eq ptr %90, null
-  br i1 %91, label %select.unfold, label %.thread
+92:                                               ; preds = %79
+  %93 = tail call ptr @sta_info_get(ptr noundef %3, ptr noundef %9) #18
+  %94 = icmp eq ptr %93, null
+  br i1 %94, label %select.unfold, label %.thread
 
-select.unfold:                                    ; preds = %89, %63, %77, %74, %71, %68, %50, %41, %36, %31
-  %92 = phi ptr [ null, %36 ], [ %69, %68 ], [ null, %74 ], [ null, %71 ], [ null, %77 ], [ null, %50 ], [ null, %41 ], [ null, %31 ], [ null, %63 ], [ null, %89 ]
-  %93 = icmp eq ptr %7, null
-  br i1 %93, label %.thread, label %94
+select.unfold:                                    ; preds = %92, %65, %79, %76, %73, %70, %50, %41, %36, %31
+  %95 = phi ptr [ null, %36 ], [ %71, %70 ], [ null, %76 ], [ null, %73 ], [ null, %79 ], [ null, %50 ], [ null, %41 ], [ null, %31 ], [ null, %65 ], [ null, %92 ]
+  %96 = icmp eq ptr %7, null
+  br i1 %96, label %.thread, label %97
 
-94:                                               ; preds = %select.unfold
-  %95 = tail call zeroext i16 @eth_type_trans(ptr noundef nonnull %7, ptr noundef %5) #18
-  %96 = getelementptr inbounds i8, ptr %7, i64 176
-  store i16 %95, ptr %96, align 8
+97:                                               ; preds = %select.unfold
+  %98 = tail call zeroext i16 @eth_type_trans(ptr noundef nonnull %7, ptr noundef %5) #18
+  %99 = getelementptr inbounds i8, ptr %7, i64 176
+  store i16 %98, ptr %99, align 8
   tail call fastcc void @ieee80211_deliver_skb_to_local_stack(ptr noundef nonnull %7, ptr noundef %0)
   br label %.thread
 
-.thread:                                          ; preds = %89, %94, %select.unfold
-  %97 = phi ptr [ %92, %94 ], [ %92, %select.unfold ], [ %7, %89 ]
-  %98 = icmp eq ptr %97, null
-  br i1 %98, label %115, label %99
+.thread:                                          ; preds = %92, %97, %select.unfold
+  %100 = phi ptr [ %95, %97 ], [ %95, %select.unfold ], [ %7, %92 ]
+  %101 = icmp eq ptr %100, null
+  br i1 %101, label %118, label %102
 
-99:                                               ; preds = %.thread
-  %100 = getelementptr inbounds i8, ptr %97, i64 140
-  %101 = load i32, ptr %100, align 4
-  %102 = add i32 %101, 256
-  store i32 %102, ptr %100, align 4
-  %103 = getelementptr inbounds i8, ptr %97, i64 176
-  store i16 256, ptr %103, align 8
-  %104 = getelementptr inbounds i8, ptr %97, i64 200
-  %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr inbounds i8, ptr %97, i64 192
-  %107 = load ptr, ptr %106, align 8
-  %108 = ptrtoint ptr %105 to i64
-  %109 = ptrtoint ptr %107 to i64
-  %110 = sub i64 %108, %109
-  %111 = trunc i64 %110 to i16
-  %112 = getelementptr inbounds i8, ptr %97, i64 180
-  store i16 %111, ptr %112, align 4
-  %113 = getelementptr inbounds i8, ptr %97, i64 182
-  store i16 %111, ptr %113, align 2
-  %114 = tail call i32 @__dev_queue_xmit(ptr noundef nonnull %97, ptr noundef null) #18
-  br label %115
+102:                                              ; preds = %.thread
+  %103 = getelementptr inbounds i8, ptr %100, i64 140
+  %104 = load i32, ptr %103, align 4
+  %105 = add i32 %104, 256
+  store i32 %105, ptr %103, align 4
+  %106 = getelementptr inbounds i8, ptr %100, i64 176
+  store i16 256, ptr %106, align 8
+  %107 = getelementptr inbounds i8, ptr %100, i64 200
+  %108 = load ptr, ptr %107, align 8
+  %109 = getelementptr inbounds i8, ptr %100, i64 192
+  %110 = load ptr, ptr %109, align 8
+  %111 = ptrtoint ptr %108 to i64
+  %112 = ptrtoint ptr %110 to i64
+  %113 = sub i64 %111, %112
+  %114 = trunc i64 %113 to i16
+  %115 = getelementptr inbounds i8, ptr %100, i64 180
+  store i16 %114, ptr %115, align 4
+  %116 = getelementptr inbounds i8, ptr %100, i64 182
+  store i16 %114, ptr %116, align 2
+  %117 = tail call i32 @__dev_queue_xmit(ptr noundef nonnull %100, ptr noundef null) #18
+  br label %118
 
-115:                                              ; preds = %99, %.thread
+118:                                              ; preds = %102, %.thread
   ret void
 }
 

@@ -1142,15 +1142,15 @@ intel_guc_get_log_buffer_size.exit:               ; preds = %.thread, %78
 188:                                              ; preds = %163
   %189 = tail call i64 @relay_switch_subbuf(ptr noundef %179, i64 noundef %174) #11
   %190 = icmp eq i64 %189, 0
-  br i1 %190, label %192, label %._crit_edge13
+  br i1 %190, label %192, label %._crit_edge12
 
-._crit_edge13:                                    ; preds = %188
-  %.pre14 = load i64, ptr %180, align 16
-  %.pre15 = add i64 %.pre14, %189
+._crit_edge12:                                    ; preds = %188
+  %.pre13 = load i64, ptr %180, align 16
+  %.pre14 = add i64 %.pre13, %189
   br label %191
 
-191:                                              ; preds = %._crit_edge13, %163
-  %.pre-phi = phi i64 [ %.pre15, %._crit_edge13 ], [ %182, %163 ]
+191:                                              ; preds = %._crit_edge12, %163
+  %.pre-phi = phi i64 [ %.pre14, %._crit_edge12 ], [ %182, %163 ]
   store i64 %.pre-phi, ptr %180, align 16
   br label %192
 

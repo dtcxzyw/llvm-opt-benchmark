@@ -2931,9 +2931,9 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   br label %46
 
 46:                                               ; preds = %36, %41
-  %.sink102 = phi float [ %45, %41 ], [ %5, %36 ]
+  %.sink101 = phi float [ %45, %41 ], [ %5, %36 ]
   %47 = getelementptr inbounds [3 x float], ptr %24, i64 0, i64 %indvars.iv
-  store float %.sink102, ptr %47, align 4
+  store float %.sink101, ptr %47, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %48, label %27, !llvm.loop !87
@@ -2983,26 +2983,27 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   br label %.preheader
 
 .preheader:                                       ; preds = %48, %104
-  %indvars.iv98 = phi i64 [ 0, %48 ], [ %indvars.iv.next99, %104 ]
-  %64 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 %indvars.iv98
-  %65 = getelementptr inbounds [3 x float], ptr %19, i64 0, i64 %indvars.iv98
-  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
-  %66 = icmp eq i64 %indvars.iv.next99, 3
-  %67 = and i64 %indvars.iv.next99, 4294967295
+  %indvars.iv97 = phi i64 [ 0, %48 ], [ %indvars.iv.next98, %104 ]
+  %64 = getelementptr inbounds [3 x float], ptr %20, i64 0, i64 %indvars.iv97
+  %65 = getelementptr inbounds [3 x float], ptr %19, i64 0, i64 %indvars.iv97
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %66 = icmp eq i64 %indvars.iv.next98, 3
+  %67 = and i64 %indvars.iv.next98, 4294967295
   %68 = select i1 %66, i64 0, i64 %67
   %69 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %68
-  %70 = trunc i64 %indvars.iv98 to i32
+  %70 = trunc i64 %indvars.iv97 to i32
   %71 = add i32 %70, 2
   %72 = urem i32 %71, 3
   %73 = zext nneg i32 %72 to i64
   %74 = getelementptr inbounds [3 x float], ptr %15, i64 0, i64 %73
-  %75 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %indvars.iv98
-  %76 = trunc nuw nsw i64 %indvars.iv98 to i32
+  %75 = getelementptr inbounds [3 x float], ptr %16, i64 0, i64 %indvars.iv97
+  %76 = trunc nuw nsw i64 %indvars.iv97 to i32
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.preheader, %103
+  %switch = phi i1 [ false, %.preheader ], [ true, %103 ]
   %.not.i = phi i1 [ true, %.preheader ], [ false, %103 ]
-  %.08694 = phi i32 [ 0, %.preheader ], [ 1, %103 ]
+  %.08693 = phi i32 [ 0, %.preheader ], [ 1, %103 ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %18)
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %19)
@@ -3015,10 +3016,9 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   store float 0.000000e+00, ptr %51, align 8
   store <2 x float> %62, ptr %20, align 8
   store float %63, ptr %.sroa.24.0..sroa_idx.i, align 8
-  %trunc = trunc nuw i32 %.08694 to i1
-  %.sink46.i = select i1 %trunc, ptr %18, ptr %17
-  %.sink.i = select i1 %trunc, float -1.000000e+00, float 1.000000e+00
-  %77 = getelementptr inbounds [3 x float], ptr %.sink46.i, i64 0, i64 %indvars.iv98
+  %.sink46.i = select i1 %switch, ptr %18, ptr %17
+  %.sink.i = select i1 %switch, float -1.000000e+00, float 1.000000e+00
+  %77 = getelementptr inbounds [3 x float], ptr %.sink46.i, i64 0, i64 %indvars.iv97
   %78 = load float, ptr %77, align 4
   store float %78, ptr %64, align 4
   store float %.sink.i, ptr %65, align 4
@@ -3048,7 +3048,7 @@ define void @_ZN24DecorateBackgroundPlugin15DrawGriddedCubeEP26MLSceneGLSharedDa
   %.sroa.219.0.copyload = load float, ptr %.sroa.219.0..sroa_idx, align 8
   %.sroa.016.0.copyload = load <2 x float>, ptr %24, align 8
   %.sroa.217.0.copyload = load float, ptr %.sroa.217.0..sroa_idx, align 8
-  tail call void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 noundef %76, i32 noundef %.08694, <2 x float> %.sroa.032.0.copyload.pre.pre, float %.sroa.233.0.copyload.pre.pre, <2 x float> %.sroa.030.0.copyload.pre.pre, float %.sroa.231.0.copyload.pre.pre, <2 x float> %.sroa.018.0.copyload, float %.sroa.219.0.copyload, <2 x float> %.sroa.016.0.copyload, float %.sroa.217.0.copyload, float noundef %5, float noundef %6, i32 %.mux, float noundef %11)
+  tail call void @_Z13DrawGridPlaneiiN3vcg6Point3IfEES1_S1_S1_ffNS_6Color4IhEEf(i32 noundef %76, i32 noundef %.08693, <2 x float> %.sroa.032.0.copyload.pre.pre, float %.sroa.233.0.copyload.pre.pre, <2 x float> %.sroa.030.0.copyload.pre.pre, float %.sroa.231.0.copyload.pre.pre, <2 x float> %.sroa.018.0.copyload, float %.sroa.219.0.copyload, <2 x float> %.sroa.016.0.copyload, float %.sroa.217.0.copyload, float noundef %5, float noundef %6, i32 %.mux, float noundef %11)
   br i1 %8, label %93, label %103
 
 93:                                               ; preds = %92
@@ -3103,8 +3103,8 @@ _Z12DrawFlatMeshP26MLSceneGLSharedDataContextP10QGLContextR9MeshModeliiN3vcg6Poi
   br i1 %.not.i, label %.sink.split.i, label %104, !llvm.loop !88
 
 104:                                              ; preds = %103
-  %exitcond101.not = icmp eq i64 %indvars.iv.next99, 3
-  br i1 %exitcond101.not, label %105, label %.preheader, !llvm.loop !89
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 3
+  br i1 %exitcond100.not, label %105, label %.preheader, !llvm.loop !89
 
 105:                                              ; preds = %104
   tail call void @glDisable(i32 noundef 3042)

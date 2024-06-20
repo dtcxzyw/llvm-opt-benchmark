@@ -2389,10 +2389,8 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %.backedge, %ExecHas
 
 66:                                               ; preds = %58, %58
   call void @LWLockRelease(ptr noundef nonnull %62) #16
-  switch i32 %65, label %.backedge.backedge [
-    i32 2, label %67
-    i32 1, label %68
-  ]
+  %switch.i = icmp eq i32 %65, 2
+  br i1 %switch.i, label %67, label %68
 
 67:                                               ; preds = %66
   call fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef nonnull %0)
@@ -2426,7 +2424,7 @@ ExecHashGetBucketAndBatch.exit.thread:            ; preds = %.backedge, %ExecHas
   call void @LWLockRelease(ptr noundef nonnull %62) #16
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %81, %68, %67, %66, %ExecHashGetBucketAndBatch.exit.thread
+.backedge.backedge:                               ; preds = %81, %68, %67, %ExecHashGetBucketAndBatch.exit.thread
   br label %.backedge
 
 ExecParallelHashTuplePrealloc.exit.thread:        ; preds = %69, %73, %._crit_edge.i
@@ -2526,10 +2524,8 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
 34:                                               ; preds = %29
   store ptr null, ptr %10, align 8
   tail call void @LWLockRelease(ptr noundef nonnull %30) #16
-  switch i32 %33, label %117 [
-    i32 2, label %35
-    i32 1, label %36
-  ]
+  %switch89 = icmp eq i32 %33, 2
+  br i1 %switch89, label %35, label %36
 
 35:                                               ; preds = %34
   tail call fastcc void @ExecParallelHashIncreaseNumBatches(ptr noundef nonnull %0)
@@ -2660,8 +2656,8 @@ define internal fastcc ptr @ExecParallelHashTupleAlloc(ptr noundef %0, i64 nound
   %116 = getelementptr i8, ptr %98, i64 32
   br label %117
 
-117:                                              ; preds = %35, %36, %34, %115, %82, %54, %20
-  %.0 = phi ptr [ %27, %20 ], [ null, %54 ], [ null, %82 ], [ %116, %115 ], [ null, %34 ], [ null, %36 ], [ null, %35 ]
+117:                                              ; preds = %35, %36, %115, %82, %54, %20
+  %.0 = phi ptr [ %27, %20 ], [ null, %54 ], [ null, %82 ], [ %116, %115 ], [ null, %36 ], [ null, %35 ]
   ret ptr %.0
 }
 

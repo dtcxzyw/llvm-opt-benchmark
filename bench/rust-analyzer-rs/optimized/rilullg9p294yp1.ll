@@ -32968,8 +32968,8 @@ _ZN6ide_db7imports10insert_use11ImportScope14as_syntax_node17h9ca2e41f20d2b265E.
 1007:                                             ; preds = %1004
   unreachable
 
-"_ZN4core3ptr476drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc3832cdfc1d1750dE.exit363.i": ; preds = %.body.thread.i, %1669, %1664, %.body312.i, %1182, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit.i", %.body.i99, %1129, %.thread11.i.i, %1111, %1103, %1089, %.body.i.i102, %1014
-  %.pn194.i = phi { ptr, i32 } [ %1015, %1014 ], [ %.pn192.i, %.body.i99 ], [ %.pn192704.i, %.body.thread.i ], [ %.pn426.i, %1182 ], [ %.pn426.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit.i" ], [ %eh.lpad-body313.i, %1669 ], [ %eh.lpad-body313.i, %.body312.i ], [ %eh.lpad-body313.i, %1664 ], [ %1104, %1103 ], [ %1104, %1111 ], [ %lpad.phi717.i.i, %.thread11.i.i ], [ %lpad.phi717.i.i, %1129 ], [ %eh.lpad-body.i.i, %.body.i.i102 ], [ %eh.lpad-body.i.i, %1089 ]
+"_ZN4core3ptr476drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc3832cdfc1d1750dE.exit363.i": ; preds = %.body.thread.i, %1669, %1664, %.body312.i, %1182, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit.i", %.body.i99, %1129, %.thread10.i.i, %1111, %1103, %1089, %.body.i.i102, %1014
+  %.pn194.i = phi { ptr, i32 } [ %1015, %1014 ], [ %.pn192.i, %.body.i99 ], [ %.pn192704.i, %.body.thread.i ], [ %.pn426.i, %1182 ], [ %.pn426.i, %"_ZN4core3ptr84drop_in_place$LT$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h2e98b4f4f66c77cdE.exit.i" ], [ %eh.lpad-body313.i, %1669 ], [ %eh.lpad-body313.i, %.body312.i ], [ %eh.lpad-body313.i, %1664 ], [ %1104, %1103 ], [ %1104, %1111 ], [ %lpad.phi716.i.i, %.thread10.i.i ], [ %lpad.phi716.i.i, %1129 ], [ %eh.lpad-body.i.i, %.body.i.i102 ], [ %eh.lpad-body.i.i, %1089 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !7575)
   call void @llvm.experimental.noalias.scope.decl(metadata !7578)
   call void @llvm.experimental.noalias.scope.decl(metadata !7581)
@@ -33088,8 +33088,8 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
   %.merged.i.i = phi { ptr, ptr } [ %1046, %1044 ], [ %1054, %1049 ]
   %1056 = load i64, ptr %1026, align 8, !range !2462, !alias.scope !7591, !noalias !7559, !noundef !4
   %.not26.i.i = icmp eq i64 %1056, 0
-  %brmerge9.i.i = or i1 %.not.i.i96, %.not26.i.i
-  br i1 %brmerge9.i.i, label %"_ZN4core3ptr163drop_in_place$LT$core..option..IntoIter$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h940dbd47b881ab87E.exit.i.i", label %1058
+  %brmerge8.i.i = or i1 %.not.i.i96, %.not26.i.i
+  br i1 %brmerge8.i.i, label %"_ZN4core3ptr163drop_in_place$LT$core..option..IntoIter$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h940dbd47b881ab87E.exit.i.i", label %1058
 
 "_ZN4core3ptr163drop_in_place$LT$core..option..IntoIter$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h940dbd47b881ab87E.exit.i.i": ; preds = %1083, %"_ZN4core3ptr59drop_in_place$LT$syntax..ast..generated..nodes..UseTree$GT$17hbc647cd816a96750E.exit.i.i.i.i.i.i", %1058, %1055
   %1057 = load i64, ptr %1047, align 8, !range !2462, !alias.scope !7591, !noalias !7559, !noundef !4
@@ -33254,30 +33254,30 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.llvm.2856947585988979465.ex
           cleanup
   %1123 = load i64, ptr %1026, align 8, !range !2462, !alias.scope !7591, !noalias !7559, !noundef !4
   %.not24.i.i = icmp eq i64 %1123, 0
-  %brmerge10.i.i = or i1 %.not.i.i96, %.not24.i.i
-  br i1 %brmerge10.i.i, label %.thread11.i.i, label %1127
+  %brmerge9.i.i = or i1 %.not.i.i96, %.not24.i.i
+  br i1 %brmerge9.i.i, label %.thread10.i.i, label %1127
 
 1124:                                             ; preds = %1028
   %lpad.thr_comm.split-lp.i.i = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr365drop_in_place$LT$core..iter..adapters..fuse..Fuse$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h553c33ac96953204E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %23) #41
-          to label %.thread11.i.i unwind label %1091
+          to label %.thread10.i.i unwind label %1091
 
-.thread11.i.i:                                    ; preds = %1127, %1124, %1121
-  %.021518.i.i = phi i1 [ %1122, %1121 ], [ %1122, %1127 ], [ false, %1124 ]
-  %lpad.phi717.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %1121 ], [ %lpad.thr_comm.i.i, %1127 ], [ %lpad.thr_comm.split-lp.i.i, %1124 ]
+.thread10.i.i:                                    ; preds = %1127, %1124, %1121
+  %.021517.i.i = phi i1 [ %1122, %1121 ], [ %1122, %1127 ], [ false, %1124 ]
+  %lpad.phi716.i.i = phi { ptr, i32 } [ %lpad.thr_comm.i.i, %1121 ], [ %lpad.thr_comm.i.i, %1127 ], [ %lpad.thr_comm.split-lp.i.i, %1124 ]
   %1125 = getelementptr inbounds i8, ptr %23, i64 40
   %1126 = load i64, ptr %1125, align 8, !range !2462, !alias.scope !7591, !noalias !7559, !noundef !4
   %.not25.i.i = icmp eq i64 %1126, 0
-  %brmerge32.i.i = or i1 %.021518.i.i, %.not25.i.i
+  %brmerge32.i.i = or i1 %.021517.i.i, %.not25.i.i
   br i1 %brmerge32.i.i, label %"_ZN4core3ptr476drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc3832cdfc1d1750dE.exit363.i", label %1129
 
 1127:                                             ; preds = %1121
   %1128 = getelementptr inbounds i8, ptr %23, i64 24
   invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..IntoIter$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h940dbd47b881ab87E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1128) #41
-          to label %.thread11.i.i unwind label %1091
+          to label %.thread10.i.i unwind label %1091
 
-1129:                                             ; preds = %.thread11.i.i
+1129:                                             ; preds = %.thread10.i.i
   %1130 = getelementptr inbounds i8, ptr %23, i64 48
   invoke void @"_ZN4core3ptr163drop_in_place$LT$core..option..IntoIter$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$GT$17h940dbd47b881ab87E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %1130) #41
           to label %"_ZN4core3ptr476drop_in_place$LT$core..iter..adapters..flatten..FlatMap$LT$core..iter..adapters..filter_map..FilterMap$LT$rowan..api..SyntaxNodeChildren$LT$syntax..syntax_node..RustLanguage$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..Option$LT$$LP$syntax..ast..generated..nodes..UseTree$C$rowan..api..SyntaxNode$LT$syntax..syntax_node..RustLanguage$GT$$RP$$GT$$C$ide_db..imports..insert_use..insert_use_..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hc3832cdfc1d1750dE.exit363.i" unwind label %1091

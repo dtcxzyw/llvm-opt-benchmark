@@ -13,7 +13,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [8 x i8] c"WARNING\00", align 1
 @.str.8 = private unnamed_addr constant [6 x i8] c"ERROR\00", align 1
 @.str.9 = private unnamed_addr constant [6 x i8] c"FATAL\00", align 1
-@.str.10 = private unnamed_addr constant [8 x i8] c"UNKNOWN\00", align 1
 @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE = private unnamed_addr constant [4 x ptr] [ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9], align 8
 
 ; Function Attrs: mustprogress uwtable
@@ -57,26 +56,18 @@ entry:
 
 if.then.i:                                        ; preds = %entry, %entry, %entry, %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.2)
-  %0 = icmp ult i32 %s, 4
-  br i1 %0, label %switch.lookup, label %_ZN4absllsERSoNS_11LogSeverityE.exit
-
-switch.lookup:                                    ; preds = %if.then.i
-  %1 = zext nneg i32 %s to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %1
+  %0 = sext i32 %s to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN4absllsERSoNS_11LogSeverityE.exit
-
-_ZN4absllsERSoNS_11LogSeverityE.exit:             ; preds = %if.then.i, %switch.lookup
-  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.10, %if.then.i ]
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %retval.0.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %switch.load)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.3)
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb2, %_ZN4absllsERSoNS_11LogSeverityE.exit
-  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %call2.i, %_ZN4absllsERSoNS_11LogSeverityE.exit ], [ %os, %entry ]
+return:                                           ; preds = %entry, %sw.bb2, %if.then.i
+  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %call2.i, %if.then.i ], [ %os, %entry ]
   ret ptr %retval.0
 }
 
@@ -93,26 +84,18 @@ entry:
 
 if.then.i:                                        ; preds = %entry, %entry, %entry, %entry
   %call = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.4)
-  %0 = icmp ult i32 %s, 4
-  br i1 %0, label %switch.lookup, label %_ZN4absllsERSoNS_11LogSeverityE.exit
-
-switch.lookup:                                    ; preds = %if.then.i
-  %1 = zext nneg i32 %s to i64
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %1
+  %0 = sext i32 %s to i64
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZN4absllsERSoNS_17LogSeverityAtMostE, i64 0, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN4absllsERSoNS_11LogSeverityE.exit
-
-_ZN4absllsERSoNS_11LogSeverityE.exit:             ; preds = %if.then.i, %switch.lookup
-  %retval.0.i.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.10, %if.then.i ]
-  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %retval.0.i.i)
+  %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef nonnull %switch.load)
   br label %return
 
 sw.bb2:                                           ; preds = %entry
   %call3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %os, ptr noundef nonnull @.str.5)
   br label %return
 
-return:                                           ; preds = %entry, %sw.bb2, %_ZN4absllsERSoNS_11LogSeverityE.exit
-  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %call2.i, %_ZN4absllsERSoNS_11LogSeverityE.exit ], [ %os, %entry ]
+return:                                           ; preds = %entry, %sw.bb2, %if.then.i
+  %retval.0 = phi ptr [ %call3, %sw.bb2 ], [ %call2.i, %if.then.i ], [ %os, %entry ]
   ret ptr %retval.0
 }
 

@@ -1564,17 +1564,17 @@ sw.epilog.thread:                                 ; preds = %if.else41, %if.end5
   %dec.addr.0 = phi ptr [ %dec, %if.else41 ], [ %tmp, %if.end51 ]
   %flags2.2 = phi i32 [ %flags2.1, %if.else41 ], [ %or47, %if.end51 ]
   %or54 = or i32 %flags2.2, 16
-  %prec5588 = getelementptr inbounds i8, ptr %spec, i64 8
-  %10 = load i64, ptr %prec5588, align 8
-  %cmp5689 = icmp sgt i64 %10, -1
-  br i1 %cmp5689, label %if.then58, label %if.then93
+  %prec5589 = getelementptr inbounds i8, ptr %spec, i64 8
+  %10 = load i64, ptr %prec5589, align 8
+  %cmp5690 = icmp sgt i64 %10, -1
+  br i1 %cmp5690, label %if.then58, label %if.then93
 
 if.then58:                                        ; preds = %sw.epilog.thread, %sw.epilog
   %11 = phi i64 [ %10, %sw.epilog.thread ], [ %9, %sw.epilog ]
-  %prec5598 = phi ptr [ %prec5588, %sw.epilog.thread ], [ %prec55, %sw.epilog ]
-  %flags2.397 = phi i32 [ %or54, %sw.epilog.thread ], [ %or45, %sw.epilog ]
-  %type.293 = phi i8 [ 102, %sw.epilog.thread ], [ %type.0, %sw.epilog ]
-  %dec.addr.190 = phi ptr [ %dec.addr.0, %sw.epilog.thread ], [ %dec, %sw.epilog ]
+  %prec5599 = phi ptr [ %prec5589, %sw.epilog.thread ], [ %prec55, %sw.epilog ]
+  %flags2.398 = phi i32 [ %or54, %sw.epilog.thread ], [ %or45, %sw.epilog ]
+  %type.294 = phi i8 [ 102, %sw.epilog.thread ], [ %type.0, %sw.epilog ]
+  %dec.addr.191 = phi ptr [ %dec.addr.0, %sw.epilog.thread ], [ %dec, %sw.epilog ]
   %cmp60 = icmp ugt i64 %11, 999999999999999999
   br i1 %cmp60, label %if.then62, label %if.end64
 
@@ -1585,7 +1585,7 @@ if.then62:                                        ; preds = %if.then58
   br label %error
 
 if.end64:                                         ; preds = %if.then58
-  switch i8 %type.293, label %default.unreachable [
+  switch i8 %type.294, label %default.unreachable84 [
     i8 103, label %sw.bb66
     i8 101, label %sw.bb76
     i8 102, label %if.end89.thread71
@@ -1593,19 +1593,19 @@ if.end64:                                         ; preds = %if.then58
 
 sw.bb66:                                          ; preds = %if.end64
   %spec.select52 = call i64 @llvm.umax.i64(i64 %11, i64 1)
-  %digits71 = getelementptr inbounds i8, ptr %dec.addr.190, i64 16
+  %digits71 = getelementptr inbounds i8, ptr %dec.addr.191, i64 16
   %13 = load i64, ptr %digits71, align 8
   %cmp72 = icmp sgt i64 %13, %spec.select52
   br i1 %cmp72, label %if.then74, label %if.end101
 
 if.then74:                                        ; preds = %sw.bb66
-  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %dec.addr.190, i64 noundef %spec.select52, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef nonnull %dec.addr.191, i64 noundef %spec.select52, ptr noundef %ctx, ptr noundef nonnull %workstatus)
   br label %if.end101
 
 sw.bb76:                                          ; preds = %if.end64
-  %call77 = call i32 @mpd_iszero(ptr noundef %dec.addr.190) #18
+  %call77 = call i32 @mpd_iszero(ptr noundef %dec.addr.191) #18
   %tobool78.not = icmp eq i32 %call77, 0
-  %14 = load i64, ptr %prec5598, align 8
+  %14 = load i64, ptr %prec5599, align 8
   br i1 %tobool78.not, label %if.else81, label %if.then79
 
 if.then79:                                        ; preds = %sw.bb76
@@ -1614,16 +1614,16 @@ if.then79:                                        ; preds = %sw.bb76
 
 if.else81:                                        ; preds = %sw.bb76
   %add83 = add i64 %14, 1
-  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef %dec.addr.190, i64 noundef %add83, ptr noundef %ctx, ptr noundef nonnull %workstatus)
+  call fastcc void @_mpd_round(ptr noundef nonnull %tmp, ptr noundef %dec.addr.191, i64 noundef %add83, ptr noundef %ctx, ptr noundef nonnull %workstatus)
   br label %if.end101
 
 if.end89.thread71:                                ; preds = %if.end64
   %sub87 = sub nsw i64 0, %11
-  call void @mpd_qrescale(ptr noundef nonnull %tmp, ptr noundef %dec.addr.190, i64 noundef %sub87, ptr noundef %ctx, ptr noundef nonnull %workstatus) #18
+  call void @mpd_qrescale(ptr noundef nonnull %tmp, ptr noundef %dec.addr.191, i64 noundef %sub87, ptr noundef %ctx, ptr noundef nonnull %workstatus) #18
   br label %if.then93
 
 if.then93:                                        ; preds = %sw.epilog.thread, %if.end89.thread71
-  %flags2.395 = phi i32 [ %flags2.397, %if.end89.thread71 ], [ %or54, %sw.epilog.thread ]
+  %flags2.396 = phi i32 [ %flags2.398, %if.end89.thread71 ], [ %or54, %sw.epilog.thread ]
   %dec.addr.275 = phi ptr [ %tmp, %if.end89.thread71 ], [ %dec.addr.0, %sw.epilog.thread ]
   %call94 = call i32 @mpd_iszero(ptr noundef %dec.addr.275) #18
   %tobool95.not = icmp eq i32 %call94, 0
@@ -1639,13 +1639,13 @@ if.then99:                                        ; preds = %land.lhs.true
   call void @mpd_qrescale(ptr noundef nonnull %tmp, ptr noundef nonnull %dec.addr.275, i64 noundef 0, ptr noundef %ctx, ptr noundef nonnull %workstatus) #18
   br label %if.end101
 
-default.unreachable:                              ; preds = %if.end64
+default.unreachable84:                            ; preds = %if.end64
   unreachable
 
 if.end101:                                        ; preds = %sw.epilog, %if.then79, %if.else81, %sw.bb66, %if.then74, %if.then93, %land.lhs.true, %if.then99
-  %flags2.394 = phi i32 [ %flags2.395, %if.then99 ], [ %flags2.395, %land.lhs.true ], [ %flags2.395, %if.then93 ], [ %flags2.397, %sw.bb66 ], [ %flags2.397, %if.then74 ], [ %flags2.397, %if.else81 ], [ %flags2.397, %if.then79 ], [ %or45, %sw.epilog ]
+  %flags2.395 = phi i32 [ %flags2.396, %if.then99 ], [ %flags2.396, %land.lhs.true ], [ %flags2.396, %if.then93 ], [ %flags2.398, %sw.bb66 ], [ %flags2.398, %if.then74 ], [ %flags2.398, %if.else81 ], [ %flags2.398, %if.then79 ], [ %or45, %sw.epilog ]
   %dplace.070 = phi i64 [ 1, %if.then99 ], [ 1, %land.lhs.true ], [ 1, %if.then93 ], [ 1, %sw.bb66 ], [ 1, %if.then74 ], [ 1, %if.else81 ], [ %sub, %if.then79 ], [ 1, %sw.epilog ]
-  %dec.addr.3 = phi ptr [ %tmp, %if.then99 ], [ %dec.addr.275, %land.lhs.true ], [ %dec.addr.275, %if.then93 ], [ %dec.addr.190, %sw.bb66 ], [ %tmp, %if.then74 ], [ %tmp, %if.else81 ], [ %dec.addr.190, %if.then79 ], [ %dec, %sw.epilog ]
+  %dec.addr.3 = phi ptr [ %tmp, %if.then99 ], [ %dec.addr.275, %land.lhs.true ], [ %dec.addr.275, %if.then93 ], [ %dec.addr.191, %sw.bb66 ], [ %tmp, %if.then74 ], [ %tmp, %if.else81 ], [ %dec.addr.191, %if.then79 ], [ %dec, %sw.epilog ]
   %16 = load i32, ptr %workstatus, align 4
   %and102 = and i32 %16, 958
   %tobool103.not = icmp eq i32 %and102, 0
@@ -1661,7 +1661,7 @@ if.end108:                                        ; preds = %if.end34, %if.end10
   %spec.addr.1 = phi ptr [ %spec, %if.end101 ], [ %spec.addr.0, %if.end34 ]
   %dec.addr.4 = phi ptr [ %dec.addr.3, %if.end101 ], [ %dec, %if.end34 ]
   %dplace.1 = phi i64 [ %dplace.070, %if.end101 ], [ 1, %if.end34 ]
-  %flags2.4 = phi i32 [ %flags2.394, %if.end101 ], [ %spec.select, %if.end34 ]
+  %flags2.4 = phi i32 [ %flags2.395, %if.end101 ], [ %spec.select, %if.end34 ]
   %data109 = getelementptr inbounds i8, ptr %result, i64 24
   %call110 = call fastcc i64 @_mpd_to_string(ptr noundef nonnull %data109, ptr noundef %dec.addr.4, i32 noundef %flags2.4, i64 noundef %dplace.1)
   store i64 %call110, ptr %result, align 8

@@ -2390,7 +2390,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %tobool.not, label %if.end18, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %sdslen.exit
-  switch i32 %and.i, label %sdslen.exit40 [
+  switch i32 %and.i, label %default.unreachable104 [
     i32 0, label %sw.bb.i37
     i32 1, label %sw.bb3.i34
     i32 2, label %sw.bb5.i31
@@ -2426,8 +2426,11 @@ sw.bb13.i25:                                      ; preds = %land.lhs.true
   %9 = load i64, ptr %add.ptr14.i26, align 1
   br label %sdslen.exit40
 
-sdslen.exit40:                                    ; preds = %land.lhs.true, %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
-  %retval.0.i27 = phi i64 [ %9, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ], [ 0, %land.lhs.true ]
+default.unreachable104:                           ; preds = %land.lhs.true
+  unreachable
+
+sdslen.exit40:                                    ; preds = %sw.bb.i37, %sw.bb3.i34, %sw.bb5.i31, %sw.bb9.i28, %sw.bb13.i25
+  %retval.0.i27 = phi i64 [ %9, %sw.bb13.i25 ], [ %conv12.i30, %sw.bb9.i28 ], [ %conv8.i33, %sw.bb5.i31 ], [ %conv4.i36, %sw.bb3.i34 ], [ %conv2.i39, %sw.bb.i37 ]
   %10 = getelementptr i8, ptr %call9, i64 %retval.0.i27
   %arrayidx12 = getelementptr i8, ptr %10, i64 -1
   %11 = load i8, ptr %arrayidx12, align 1
@@ -2440,14 +2443,14 @@ if.then16:                                        ; preds = %sdslen.exit40
 
 if.end18:                                         ; preds = %if.end7, %if.then16, %sdslen.exit40, %sdslen.exit
   %abspath.0 = phi ptr [ %call17, %if.then16 ], [ %call9, %sdslen.exit40 ], [ %call9, %sdslen.exit ], [ %call9, %if.end7 ]
-  %arrayidx28 = getelementptr inbounds i8, ptr %call1, i64 1
-  %arrayidx32 = getelementptr inbounds i8, ptr %call1, i64 2
   %arrayidx.i41 = getelementptr inbounds i8, ptr %call1, i64 -1
   %invariant.gep = getelementptr i8, ptr %abspath.0, i64 -2
   %add.ptr14.i45 = getelementptr inbounds i8, ptr %call1, i64 -17
   %add.ptr10.i48 = getelementptr inbounds i8, ptr %call1, i64 -9
   %add.ptr6.i51 = getelementptr inbounds i8, ptr %call1, i64 -5
   %add.ptr.i54 = getelementptr inbounds i8, ptr %call1, i64 -3
+  %arrayidx28 = getelementptr inbounds i8, ptr %call1, i64 1
+  %arrayidx32 = getelementptr inbounds i8, ptr %call1, i64 2
   %arrayidx.i60 = getelementptr inbounds i8, ptr %abspath.0, i64 -1
   %add.ptr14.i64 = getelementptr inbounds i8, ptr %abspath.0, i64 -17
   %add.ptr10.i67 = getelementptr inbounds i8, ptr %abspath.0, i64 -9
@@ -2557,7 +2560,7 @@ sdslen.exit78:                                    ; preds = %sw.bb.i75, %sw.bb3.
   br i1 %cmp37, label %if.then39, label %while.cond.backedge
 
 if.then39:                                        ; preds = %sdslen.exit78
-  switch i32 %and.i62, label %sdslen.exit97 [
+  switch i32 %and.i62, label %default.unreachable [
     i32 0, label %sw.bb.i94
     i32 1, label %sw.bb3.i91
     i32 2, label %sw.bb5.i88
@@ -2589,18 +2592,21 @@ sw.bb13.i82:                                      ; preds = %if.then39
   %28 = load i64, ptr %add.ptr14.i64, align 1
   br label %sdslen.exit97
 
-sdslen.exit97:                                    ; preds = %if.then39, %sw.bb.i94, %sw.bb3.i91, %sw.bb5.i88, %sw.bb9.i85, %sw.bb13.i82
-  %retval.0.i84 = phi i64 [ %28, %sw.bb13.i82 ], [ %conv12.i87, %sw.bb9.i85 ], [ %conv8.i90, %sw.bb5.i88 ], [ %conv4.i93, %sw.bb3.i91 ], [ %conv2.i96, %sw.bb.i94 ], [ 0, %if.then39 ]
+default.unreachable:                              ; preds = %if.then39
+  unreachable
+
+sdslen.exit97:                                    ; preds = %sw.bb.i94, %sw.bb3.i91, %sw.bb5.i88, %sw.bb9.i85, %sw.bb13.i82
+  %retval.0.i84 = phi i64 [ %28, %sw.bb13.i82 ], [ %conv12.i87, %sw.bb9.i85 ], [ %conv8.i90, %sw.bb5.i88 ], [ %conv4.i93, %sw.bb3.i91 ], [ %conv2.i96, %sw.bb.i94 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %retval.0.i84
   %29 = load i8, ptr %gep, align 1
-  %cmp44.not104 = icmp eq i8 %29, 47
-  br i1 %cmp44.not104, label %while.end, label %while.body46
+  %cmp44.not105 = icmp eq i8 %29, 47
+  br i1 %cmp44.not105, label %while.end, label %while.body46
 
 while.body46:                                     ; preds = %sdslen.exit97, %while.body46
-  %trimlen.0106 = phi i32 [ %inc, %while.body46 ], [ 1, %sdslen.exit97 ]
-  %p.0105 = phi ptr [ %incdec.ptr, %while.body46 ], [ %gep, %sdslen.exit97 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %p.0105, i64 -1
-  %inc = add nuw nsw i32 %trimlen.0106, 1
+  %trimlen.0107 = phi i32 [ %inc, %while.body46 ], [ 1, %sdslen.exit97 ]
+  %p.0106 = phi ptr [ %incdec.ptr, %while.body46 ], [ %gep, %sdslen.exit97 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %p.0106, i64 -1
+  %inc = add nuw nsw i32 %trimlen.0107, 1
   %30 = load i8, ptr %incdec.ptr, align 1
   %cmp44.not = icmp eq i8 %30, 47
   br i1 %cmp44.not, label %while.end, label %while.body46, !llvm.loop !30

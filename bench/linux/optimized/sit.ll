@@ -1873,17 +1873,14 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   br i1 %124, label %125, label %173
 
 125:                                              ; preds = %122
-  switch i32 %3, label %169 [
-    i32 35318, label %126
-    i32 35317, label %128
-    i32 35319, label %128
-  ]
+  %switch = icmp eq i32 %3, 35318
+  br i1 %switch, label %126, label %128
 
 126:                                              ; preds = %125
   %127 = call fastcc i32 @ipip6_tunnel_del_prl(ptr noundef %105, ptr noundef nonnull %5), !range !33
   br label %169
 
-128:                                              ; preds = %125, %125
+128:                                              ; preds = %125
   %129 = icmp eq i32 %3, 35319
   %130 = load i32, ptr %5, align 4
   %131 = icmp eq i32 %130, 0
@@ -1960,8 +1957,8 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   store volatile ptr %157, ptr %139, align 8
   br label %169
 
-169:                                              ; preds = %159, %155, %154, %150, %149, %128, %126, %125
-  %170 = phi i32 [ 0, %125 ], [ %127, %126 ], [ -22, %128 ], [ 0, %150 ], [ 0, %159 ], [ -17, %149 ], [ -6, %154 ], [ -105, %155 ]
+169:                                              ; preds = %159, %155, %154, %150, %149, %128, %126
+  %170 = phi i32 [ %127, %126 ], [ -22, %128 ], [ 0, %150 ], [ 0, %159 ], [ -17, %149 ], [ -6, %154 ], [ -105, %155 ]
   %171 = load volatile i64, ptr @jiffies, align 64
   %172 = getelementptr i8, ptr %0, i64 2384
   store i64 %171, ptr %172, align 8

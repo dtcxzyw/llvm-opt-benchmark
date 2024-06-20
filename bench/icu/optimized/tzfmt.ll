@@ -922,7 +922,7 @@ lpad14.loopexit:                                  ; preds = %for.body4.i.i
           cleanup
   br label %ehcleanup231
 
-lpad14.loopexit.split-lp.loopexit:                ; preds = %switch.lookup
+lpad14.loopexit.split-lp.loopexit:                ; preds = %for.body.i
   %lpad.loopexit73 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup231
@@ -1243,29 +1243,24 @@ lpad202:                                          ; preds = %invoke.cont195
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %44) #18, !srcloc !4
   br label %ehcleanup231
 
-for.body.i:                                       ; preds = %for.body.i.preheader, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %for.body.i.preheader ]
-  %45 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %45, label %switch.lookup, label %for.inc.i
-
-switch.lookup:                                    ; preds = %for.body.i
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %for.body.i.preheader, %call.i.noexc
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %call.i.noexc ], [ 0, %for.body.i.preheader ]
+  %sext = shl i64 %indvars.iv.i, 32
+  %45 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns.ptr, i64 0, i64 %indvars.iv.i
   %call.i58 = invoke noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %call.i.noexc unwind label %lpad14.loopexit.split-lp.loopexit
 
-call.i.noexc:                                     ; preds = %switch.lookup
+call.i.noexc:                                     ; preds = %for.body.i
   %arrayidx3.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i
   store ptr %call.i58, ptr %arrayidx3.i, align 8
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i, %call.i.noexc
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.end.i:                                        ; preds = %for.inc.i
+for.end.i:                                        ; preds = %call.i.noexc
   %46 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %46, 1
   br i1 %cmp.i.i, label %if.end.i, label %invoke.cont207
@@ -1845,26 +1840,21 @@ entry:
   %fGMTOffsetPatternItems17 = getelementptr inbounds i8, ptr %this, i64 1264
   br label %for.body
 
-for.body:                                         ; preds = %entry, %for.inc
-  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.inc ]
-  %0 = icmp ult i64 %indvars.iv, 6
-  br i1 %0, label %switch.lookup, label %for.inc
-
-switch.lookup:                                    ; preds = %for.body
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %indvars.iv
+for.body:                                         ; preds = %entry, %for.body
+  %indvars.iv = phi i64 [ 0, %entry ], [ %indvars.iv.next, %for.body ]
+  %sext = shl i64 %indvars.iv, 32
+  %0 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %0
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns13, i64 0, i64 %indvars.iv
   %call = tail call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx3 = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems17, i64 0, i64 %indvars.iv
   store ptr %call, ptr %arrayidx3, align 8
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body, %switch.lookup
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !5
 
-for.end:                                          ; preds = %for.inc
+for.end:                                          ; preds = %for.body
   %1 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %1, 1
   br i1 %cmp.i, label %if.end, label %return
@@ -2179,26 +2169,21 @@ delete.end47:                                     ; preds = %delete.notnull44, %
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
   br i1 %exitcond.not, label %for.body.i, label %for.body, !llvm.loop !10
 
-for.body.i:                                       ; preds = %delete.end47, %for.inc.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %delete.end47 ]
-  %13 = icmp ult i64 %indvars.iv.i, 6
-  br i1 %13, label %switch.lookup, label %for.inc.i
-
-switch.lookup:                                    ; preds = %for.body.i
-  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %indvars.iv.i
+for.body.i:                                       ; preds = %delete.end47, %for.body.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.body.i ], [ 0, %delete.end47 ]
+  %sext = shl i64 %indvars.iv.i, 32
+  %13 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [6 x i32], ptr @switch.table._ZN6icu_7514TimeZoneFormat19setGMTOffsetPatternE35UTimeZoneFormatGMTOffsetPatternTypeRKNS_13UnicodeStringER10UErrorCode, i64 0, i64 %13
   %switch.load = load i32, ptr %switch.gep, align 4
   %arrayidx.i = getelementptr inbounds [6 x %"class.icu_75::UnicodeString"], ptr %fGMTOffsetPatterns37, i64 0, i64 %indvars.iv.i
   %call.i = call noundef ptr @_ZN6icu_7514TimeZoneFormat18parseOffsetPatternERKNS_13UnicodeStringENS0_12OffsetFieldsER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx.i, i32 noundef %switch.load, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %arrayidx3.i = getelementptr inbounds [6 x ptr], ptr %fGMTOffsetPatternItems, i64 0, i64 %indvars.iv.i
   store ptr %call.i, ptr %arrayidx3.i, align 8
-  br label %for.inc.i
-
-for.inc.i:                                        ; preds = %for.body.i, %switch.lookup
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
   br i1 %exitcond.not.i, label %for.end.i, label %for.body.i, !llvm.loop !5
 
-for.end.i:                                        ; preds = %for.inc.i
+for.end.i:                                        ; preds = %for.body.i
   %14 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %14, 1
   br i1 %cmp.i.i, label %if.end.i, label %_ZN6icu_7514TimeZoneFormat21initGMTOffsetPatternsER10UErrorCode.exit

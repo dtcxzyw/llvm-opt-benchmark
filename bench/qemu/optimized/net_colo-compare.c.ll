@@ -1745,9 +1745,9 @@ entry:
 sw.bb:                                            ; preds = %entry
   %sack.i = getelementptr inbounds i8, ptr %opaque, i64 60
   %1 = load i32, ptr %sack.i, align 4
-  %call154.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
-  %tobool.not155.i = icmp eq i32 %call154.i, 0
-  br i1 %tobool.not155.i, label %if.end.lr.ph.i, label %sw.epilog
+  %call148.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %opaque) #16
+  %tobool.not149.i = icmp eq i32 %call148.i, 0
+  br i1 %tobool.not149.i, label %if.end.lr.ph.i, label %sw.epilog
 
 if.end.lr.ph.i:                                   ; preds = %sw.bb
   %secondary_list.i = getelementptr inbounds i8, ptr %opaque, i64 24
@@ -1760,9 +1760,9 @@ if.end.lr.ph.i:                                   ; preds = %sw.bb
 
 if.end.i:                                         ; preds = %pri.backedge.i, %if.end.lr.ph.i
   %call4.i = tail call ptr @g_queue_pop_tail(ptr noundef %opaque) #16
-  %call5150.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list.i) #16
-  %tobool6.not151.i = icmp eq i32 %call5150.i, 0
-  br i1 %tobool6.not151.i, label %if.end9.i, label %if.then7.i
+  %call5144.i = tail call i32 @g_queue_is_empty(ptr noundef nonnull %secondary_list.i) #16
+  %tobool6.not145.i = icmp eq i32 %call5144.i, 0
+  br i1 %tobool6.not145.i, label %if.end9.i, label %if.then7.i
 
 if.then7.i:                                       ; preds = %if.end.i, %sec.backedge.i
   %ppkt.0.lcssa.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
@@ -1770,11 +1770,11 @@ if.then7.i:                                       ; preds = %if.end.i, %sec.back
   br label %sw.epilog
 
 if.end9.i:                                        ; preds = %if.end.i, %sec.backedge.i
-  %ppkt.0152.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
+  %ppkt.0146.i = phi ptr [ %ppkt.2.i, %sec.backedge.i ], [ %call4.i, %if.end.i ]
   %call11.i = tail call ptr @g_queue_pop_tail(ptr noundef nonnull %secondary_list.i) #16
-  %tcp_seq.i = getelementptr inbounds i8, ptr %ppkt.0152.i, i64 44
+  %tcp_seq.i = getelementptr inbounds i8, ptr %ppkt.0146.i, i64 44
   %2 = load i32, ptr %tcp_seq.i, align 4
-  %seq_end.i = getelementptr inbounds i8, ptr %ppkt.0152.i, i64 52
+  %seq_end.i = getelementptr inbounds i8, ptr %ppkt.0146.i, i64 52
   %3 = load i32, ptr %seq_end.i, align 4
   %cmp12.i = icmp eq i32 %2, %3
   br i1 %cmp12.i, label %if.end22.sink.split.i, label %land.lhs.true.i
@@ -1784,8 +1784,8 @@ land.lhs.true.i:                                  ; preds = %if.end9.i
   %tobool16.not.i = icmp eq i32 %4, 0
   %sub.i.i = sub i32 %3, %4
   %cmp.i.i = icmp sgt i32 %sub.i.i, 0
-  %or.cond194.i = or i1 %tobool16.not.i, %cmp.i.i
-  br i1 %or.cond194.i, label %if.end22.i, label %if.then21.i
+  %or.cond185.i = or i1 %tobool16.not.i, %cmp.i.i
+  br i1 %or.cond185.i, label %if.end22.i, label %if.then21.i
 
 if.then21.i:                                      ; preds = %land.lhs.true.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %_now.i.i.i)
@@ -1824,11 +1824,11 @@ trace_colo_compare_main.exit.i:                   ; preds = %if.else.i.i.i, %if.
   br label %if.end22.sink.split.i
 
 if.end22.sink.split.i:                            ; preds = %trace_colo_compare_main.exit.i, %if.end9.i
-  tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.0152.i)
+  tail call fastcc void @colo_release_primary_pkt(ptr noundef %user_data, ptr noundef nonnull %ppkt.0146.i)
   br label %if.end22.i
 
 if.end22.i:                                       ; preds = %if.end22.sink.split.i, %land.lhs.true.i
-  %ppkt.2.i = phi ptr [ %ppkt.0152.i, %land.lhs.true.i ], [ null, %if.end22.sink.split.i ]
+  %ppkt.2.i = phi ptr [ %ppkt.0146.i, %land.lhs.true.i ], [ null, %if.end22.sink.split.i ]
   %tcp_seq23.i = getelementptr inbounds i8, ptr %call11.i, i64 44
   %11 = load i32, ptr %tcp_seq23.i, align 4
   %seq_end24.i = getelementptr inbounds i8, ptr %call11.i, i64 52
@@ -1975,14 +1975,14 @@ if.else42.i.i:                                    ; preds = %if.end7.i.i
 if.then47.sink.split.i:                           ; preds = %if.else42.i.i, %if.then29.i.i
   %payload_size55.i.sink.i = phi ptr [ %payload_size22.i.i, %if.then29.i.i ], [ %payload_size55.i.i, %if.else42.i.i ]
   %offset51.i.sink.i = phi ptr [ %offset45.i.i, %if.then29.i.i ], [ %offset51.i.i, %if.else42.i.i ]
-  %offset45.i.sink195.i = phi ptr [ %offset51.i.i, %if.then29.i.i ], [ %offset45.i.i, %if.else42.i.i ]
+  %offset45.i.sink186.i = phi ptr [ %offset51.i.i, %if.then29.i.i ], [ %offset45.i.i, %if.else42.i.i ]
   %mark.0.ph.ph.i = phi i8 [ 1, %if.then29.i.i ], [ 2, %if.else42.i.i ]
   %34 = load i16, ptr %payload_size55.i.sink.i, align 2
   %35 = load i16, ptr %offset51.i.sink.i, align 4
   %sub68.i.i = sub i16 %34, %35
-  %36 = load i16, ptr %offset45.i.sink195.i, align 4
+  %36 = load i16, ptr %offset45.i.sink186.i, align 4
   %add71.i.i = add i16 %sub68.i.i, %36
-  store i16 %add71.i.i, ptr %offset45.i.sink195.i, align 4
+  store i16 %add71.i.i, ptr %offset45.i.sink186.i, align 4
   br label %if.then47.i
 
 if.then47.i:                                      ; preds = %if.then47.sink.split.i, %if.then.i.i

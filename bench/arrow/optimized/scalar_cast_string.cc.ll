@@ -68500,7 +68500,7 @@ if.then73.i.i:                                    ; preds = %if.else71.i.i
 if.end85.i.i:                                     ; preds = %if.then54.i.i, %if.then41.i.i
   %22 = phi i64 [ %20, %if.then54.i.i ], [ %17, %if.then41.i.i ]
   %23 = phi i64 [ %19, %if.then54.i.i ], [ %15, %if.then41.i.i ]
-  switch i64 %size.addr.0.lcssa.i.i, label %if.end [
+  switch i64 %size.addr.0.lcssa.i.i, label %default.unreachable.i.i [
     i64 7, label %sw.bb.i.i
     i64 6, label %sw.bb89.i.i
     i64 5, label %sw.bb93.i.i
@@ -68573,6 +68573,9 @@ sw.bb105.i.i:                                     ; preds = %sw.bb101.i.i, %if.e
   %39 = zext i16 %38 to i64
   br label %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
+default.unreachable.i.i:                          ; preds = %if.end85.i.i
+  unreachable
+
 _ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %if.then73.i.i, %sw.bb105.i.i
   %state86.5.i.i = phi i64 [ %39, %sw.bb105.i.i ], [ 0, %if.then73.i.i ]
   %sub110.i.i = add nsw i64 %size.addr.0.lcssa.i.i, -1
@@ -68589,7 +68592,7 @@ if.then:                                          ; preds = %if.end32.i.i, %_ZN5
   tail call void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCodeEDpOT_(ptr sret(%"class.arrow::Status") align 8 %agg.result, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(21) @.str.43)
   br label %return
 
-if.end:                                           ; preds = %if.end85.i.i, %if.else71.i.i, %if.then73.i.i, %if.then54.i.i, %if.then41.i.i, %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
+if.end:                                           ; preds = %if.else71.i.i, %if.then73.i.i, %if.then54.i.i, %if.then41.i.i, %_ZN5arrow4utilL18ValidateUTF8InlineESt17basic_string_viewIcSt11char_traitsIcEE.exit
   store ptr null, ptr %agg.result, align 8, !alias.scope !2150
   br label %return
 

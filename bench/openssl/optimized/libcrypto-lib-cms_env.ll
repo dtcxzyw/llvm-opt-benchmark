@@ -117,7 +117,7 @@ entry:
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select2.i.i, label %default.unreachable [
+  switch i32 %switch.select2.i.i, label %default.unreachable6 [
     i32 0, label %cms_get_enveloped_type.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb2
@@ -151,7 +151,7 @@ cond.false6:                                      ; preds = %sw.bb2
   %3 = load ptr, ptr %authEncryptedContentInfo, align 8
   br label %return
 
-default.unreachable:                              ; preds = %entry
+default.unreachable6:                             ; preds = %entry
   unreachable
 
 return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %cond.false6, %sw.bb2, %cond.false, %sw.bb
@@ -337,7 +337,7 @@ entry:
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
   %switch.selectcmp1.i.i = icmp eq i32 %call.i.i, 23
   %switch.select2.i.i = select i1 %switch.selectcmp1.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select2.i.i, label %default.unreachable [
+  switch i32 %switch.select2.i.i, label %default.unreachable3 [
     i32 0, label %cms_get_enveloped_type.exit.thread
     i32 1, label %sw.bb
     i32 2, label %sw.bb1
@@ -363,7 +363,7 @@ sw.bb1:                                           ; preds = %entry
   %3 = load ptr, ptr %recipientInfos3, align 8
   br label %return
 
-default.unreachable:                              ; preds = %entry
+default.unreachable3:                             ; preds = %entry
   unreachable
 
 return:                                           ; preds = %cms_get_enveloped_type.exit.thread, %sw.bb1, %sw.bb

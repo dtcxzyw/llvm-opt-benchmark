@@ -353,7 +353,7 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   br i1 %70, label %71, label %78
 
 71:                                               ; preds = %67
-  switch i32 %1, label %78 [
+  switch i32 %1, label %default.unreachable [
     i32 2, label %75
     i32 3, label %72
     i32 1, label %74
@@ -376,7 +376,10 @@ power_supply_hwmon_to_property.exit:              ; preds = %.split, %33
   %77 = icmp eq i32 %76, 2
   br i1 %77, label %power_supply_hwmon_to_property.exit6, label %78
 
-78:                                               ; preds = %72, %75, %74, %71, %67
+default.unreachable:                              ; preds = %71
+  unreachable
+
+78:                                               ; preds = %72, %75, %74, %67
   br label %power_supply_hwmon_to_property.exit6
 
 power_supply_hwmon_to_property.exit6:             ; preds = %52, %55, %47, %43, %72, %42, %78, %75, %74, %74, %74, %74, %60, %.split9.us
@@ -473,35 +476,32 @@ define internal i32 @power_supply_hwmon_read(ptr nocapture noundef readonly %0, 
   br i1 %29, label %30, label %power_supply_hwmon_to_property.exit
 
 30:                                               ; preds = %27
-  switch i32 %1, label %power_supply_hwmon_to_property.exit [
-    i32 3, label %31
-    i32 2, label %31
-    i32 1, label %37
-  ]
-
-31:                                               ; preds = %30, %30
+  %31 = and i32 %1, -2
+  %switch = icmp eq i32 %31, 2
   %32 = load i32, ptr %6, align 8
-  %33 = icmp sgt i32 %32, 0
-  %34 = select i1 %33, i32 500, i32 -500
-  %35 = add i32 %34, %32
-  %36 = sdiv i32 %35, 1000
+  br i1 %switch, label %33, label %38
+
+33:                                               ; preds = %30
+  %34 = icmp sgt i32 %32, 0
+  %35 = select i1 %34, i32 500, i32 -500
+  %36 = add i32 %35, %32
+  %37 = sdiv i32 %36, 1000
   br label %42
 
-37:                                               ; preds = %30
-  %38 = load i32, ptr %6, align 8
-  %39 = call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %38, i32 100)
+38:                                               ; preds = %30
+  %39 = call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %32, i32 100)
   %40 = extractvalue { i32, i1 } %39, 1
   %41 = extractvalue { i32, i1 } %39, 0
   br i1 %40, label %power_supply_hwmon_to_property.exit, label %42
 
-42:                                               ; preds = %37, %31
-  %43 = phi i32 [ %41, %37 ], [ %36, %31 ]
+42:                                               ; preds = %38, %33
+  %43 = phi i32 [ %41, %38 ], [ %37, %33 ]
   %44 = sext i32 %43 to i64
   store i64 %44, ptr %4, align 8
   br label %power_supply_hwmon_to_property.exit
 
-power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %42, %37, %30, %27
-  %45 = phi i32 [ 0, %42 ], [ %28, %27 ], [ -75, %37 ], [ -22, %30 ], [ -22, %5 ], [ -22, %10 ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ]
+power_supply_hwmon_to_property.exit:              ; preds = %19, %22, %14, %10, %5, %42, %38, %27
+  %45 = phi i32 [ 0, %42 ], [ %28, %27 ], [ -75, %38 ], [ -22, %5 ], [ -22, %10 ], [ -22, %14 ], [ -22, %22 ], [ -22, %19 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 %45
 }

@@ -286,10 +286,8 @@ sw.bb:                                            ; preds = %_ZN4node10JSONWrite
   store ptr %buf_st_.i.i, ptr %buf_.i.i, align 8
   store i8 0, ptr %buf_st_.i.i, align 8
   store i64 1024, ptr %size.i, align 8
-  switch i32 %12, label %if.else.i [
-    i32 3, label %sw.bb.i
-    i32 4, label %sw.bb3.i
-  ]
+  %switch = icmp eq i32 %12, 3
+  br i1 %switch, label %sw.bb.i, label %sw.bb3.i
 
 sw.bb.i:                                          ; preds = %sw.bb
   %call2.i = call i32 @uv_fs_event_getpath(ptr noundef nonnull %h, ptr noundef nonnull %buf_st_.i.i, ptr noundef nonnull %size.i) #12
@@ -350,7 +348,7 @@ _ZN4node16MaybeStackBufferIcLm1024EE9SetLengthEm.exit.i: ; preds = %if.then17.i
   call void @_ZN4node10JSONWriter13json_keyvalueIA9_cSt17basic_string_viewIcSt11char_traitsIcEEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(9) @.str.23, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i)
   br label %if.end19.i
 
-if.else.i:                                        ; preds = %if.end.i69, %if.then.i70, %sw.bb
+if.else.i:                                        ; preds = %if.end.i69, %if.then.i70
   call void @_ZN4node10JSONWriter13json_keyvalueIA9_cNS0_4NullEEEvRKT_RKT0_(ptr noundef nonnull align 8 dereferenceable(20) %arg, ptr noundef nonnull align 1 dereferenceable(9) @.str.23, ptr noundef nonnull align 1 dereferenceable(1) @_ZN4node6reportL4nullE)
   br label %if.end19.i
 

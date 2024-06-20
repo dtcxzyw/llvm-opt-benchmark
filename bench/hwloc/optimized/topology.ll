@@ -10292,141 +10292,139 @@ hwloc_append_special_object.exit98:               ; preds = %30, %36
 42:                                               ; preds = %2
   %43 = add i32 %3, -17
   %44 = icmp ult i32 %43, -3
-  br i1 %44, label %70, label %45
+  br i1 %44, label %67, label %45
 
 45:                                               ; preds = %42
   %46 = getelementptr inbounds i8, ptr %1, i64 56
   store ptr null, ptr %46, align 8
-  switch i32 %3, label %65 [
-    i32 14, label %47
+  %47 = getelementptr inbounds i8, ptr %1, i64 48
+  switch i32 %3, label %default.unreachable [
+    i32 14, label %48
     i32 15, label %52
-    i32 16, label %57
+    i32 16, label %56
   ]
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 -4, ptr %48, align 8
+48:                                               ; preds = %45
+  store i32 -4, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 304
   %50 = load ptr, ptr %49, align 8
   %.not.i99 = icmp eq ptr %50, null
   %51 = getelementptr inbounds i8, ptr %0, i64 312
-  br i1 %.not.i99, label %.sink.split, label %.sink.split.sink.split
+  br i1 %.not.i99, label %hwloc_append_special_object.exit102, label %hwloc_append_special_object.exit102.sink.split
 
 52:                                               ; preds = %45
-  %53 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 -5, ptr %53, align 8
-  %54 = getelementptr inbounds i8, ptr %0, i64 336
-  %55 = load ptr, ptr %54, align 8
-  %.not.i103 = icmp eq ptr %55, null
-  %56 = getelementptr inbounds i8, ptr %0, i64 344
-  br i1 %.not.i103, label %.sink.split, label %.sink.split.sink.split
+  store i32 -5, ptr %47, align 8
+  %53 = getelementptr inbounds i8, ptr %0, i64 336
+  %54 = load ptr, ptr %53, align 8
+  %.not.i103 = icmp eq ptr %54, null
+  %55 = getelementptr inbounds i8, ptr %0, i64 344
+  br i1 %.not.i103, label %hwloc_append_special_object.exit102, label %hwloc_append_special_object.exit102.sink.split
 
-57:                                               ; preds = %45
-  %58 = getelementptr inbounds i8, ptr %1, i64 48
-  store i32 -6, ptr %58, align 8
-  %59 = getelementptr inbounds i8, ptr %0, i64 368
-  %60 = load ptr, ptr %59, align 8
-  %.not.i107 = icmp eq ptr %60, null
-  %61 = getelementptr inbounds i8, ptr %0, i64 376
-  br i1 %.not.i107, label %.sink.split, label %.sink.split.sink.split
+56:                                               ; preds = %45
+  store i32 -6, ptr %47, align 8
+  %57 = getelementptr inbounds i8, ptr %0, i64 368
+  %58 = load ptr, ptr %57, align 8
+  %.not.i107 = icmp eq ptr %58, null
+  %59 = getelementptr inbounds i8, ptr %0, i64 376
+  br i1 %.not.i107, label %hwloc_append_special_object.exit102, label %hwloc_append_special_object.exit102.sink.split
 
-.sink.split.sink.split:                           ; preds = %57, %52, %47
-  %.sink180 = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ]
-  %62 = load ptr, ptr %.sink180, align 8
-  %63 = getelementptr inbounds i8, ptr %62, i64 56
-  br label %.sink.split
+default.unreachable:                              ; preds = %45
+  unreachable
 
-.sink.split:                                      ; preds = %.sink.split.sink.split, %57, %52, %47
-  %.sink172.sink = phi ptr [ null, %47 ], [ null, %52 ], [ null, %57 ], [ %62, %.sink.split.sink.split ]
-  %.sink11.i104.sink = phi ptr [ %51, %47 ], [ %56, %52 ], [ %61, %57 ], [ %63, %.sink.split.sink.split ]
-  %.sink.i105.sink = phi ptr [ %49, %47 ], [ %54, %52 ], [ %59, %57 ], [ %.sink180, %.sink.split.sink.split ]
-  %64 = getelementptr inbounds i8, ptr %1, i64 64
-  store ptr %.sink172.sink, ptr %64, align 8
+hwloc_append_special_object.exit102.sink.split:   ; preds = %56, %52, %48
+  %.sink180 = phi ptr [ %51, %48 ], [ %55, %52 ], [ %59, %56 ]
+  %60 = load ptr, ptr %.sink180, align 8
+  %61 = getelementptr inbounds i8, ptr %60, i64 56
+  br label %hwloc_append_special_object.exit102
+
+hwloc_append_special_object.exit102:              ; preds = %hwloc_append_special_object.exit102.sink.split, %56, %52, %48
+  %.sink172.sink = phi ptr [ null, %48 ], [ null, %52 ], [ null, %56 ], [ %60, %hwloc_append_special_object.exit102.sink.split ]
+  %.sink11.i104.sink = phi ptr [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ %61, %hwloc_append_special_object.exit102.sink.split ]
+  %.sink.i105.sink = phi ptr [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %.sink180, %hwloc_append_special_object.exit102.sink.split ]
+  %62 = getelementptr inbounds i8, ptr %1, i64 64
+  store ptr %.sink172.sink, ptr %62, align 8
   store ptr %1, ptr %.sink11.i104.sink, align 8
   store ptr %1, ptr %.sink.i105.sink, align 8
-  br label %65
-
-65:                                               ; preds = %.sink.split, %45
-  %66 = getelementptr inbounds i8, ptr %1, i64 160
-  %.4131 = load ptr, ptr %66, align 8
+  %63 = getelementptr inbounds i8, ptr %1, i64 160
+  %.4131 = load ptr, ptr %63, align 8
   %.not85132 = icmp eq ptr %.4131, null
   br i1 %.not85132, label %._crit_edge136, label %.lr.ph135
 
-.lr.ph135:                                        ; preds = %65, %.lr.ph135
-  %.4133 = phi ptr [ %.4, %.lr.ph135 ], [ %.4131, %65 ]
+.lr.ph135:                                        ; preds = %hwloc_append_special_object.exit102, %.lr.ph135
+  %.4133 = phi ptr [ %.4, %.lr.ph135 ], [ %.4131, %hwloc_append_special_object.exit102 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.4133)
-  %67 = getelementptr inbounds i8, ptr %.4133, i64 88
-  %.4 = load ptr, ptr %67, align 8
+  %64 = getelementptr inbounds i8, ptr %.4133, i64 88
+  %.4 = load ptr, ptr %64, align 8
   %.not85 = icmp eq ptr %.4, null
   br i1 %.not85, label %._crit_edge136, label %.lr.ph135, !llvm.loop !101
 
-._crit_edge136:                                   ; preds = %.lr.ph135, %65
-  %68 = getelementptr inbounds i8, ptr %1, i64 176
-  %.5137 = load ptr, ptr %68, align 8
+._crit_edge136:                                   ; preds = %.lr.ph135, %hwloc_append_special_object.exit102
+  %65 = getelementptr inbounds i8, ptr %1, i64 176
+  %.5137 = load ptr, ptr %65, align 8
   %.not86138 = icmp eq ptr %.5137, null
   br i1 %.not86138, label %.loopexit, label %.lr.ph141
 
 .lr.ph141:                                        ; preds = %._crit_edge136, %.lr.ph141
   %.5139 = phi ptr [ %.5, %.lr.ph141 ], [ %.5137, %._crit_edge136 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.5139)
-  %69 = getelementptr inbounds i8, ptr %.5139, i64 88
-  %.5 = load ptr, ptr %69, align 8
+  %66 = getelementptr inbounds i8, ptr %.5139, i64 88
+  %.5 = load ptr, ptr %66, align 8
   %.not86 = icmp eq ptr %.5, null
   br i1 %.not86, label %.loopexit, label %.lr.ph141, !llvm.loop !102
 
-70:                                               ; preds = %42
-  %71 = getelementptr inbounds i8, ptr %1, i64 120
-  %.6142 = load ptr, ptr %71, align 8
+67:                                               ; preds = %42
+  %68 = getelementptr inbounds i8, ptr %1, i64 120
+  %.6142 = load ptr, ptr %68, align 8
   %.not81143 = icmp eq ptr %.6142, null
   br i1 %.not81143, label %._crit_edge147, label %.lr.ph146
 
-.lr.ph146:                                        ; preds = %70, %.lr.ph146
-  %.6144 = phi ptr [ %.6, %.lr.ph146 ], [ %.6142, %70 ]
+.lr.ph146:                                        ; preds = %67, %.lr.ph146
+  %.6144 = phi ptr [ %.6, %.lr.ph146 ], [ %.6142, %67 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.6144)
-  %72 = getelementptr inbounds i8, ptr %.6144, i64 88
-  %.6 = load ptr, ptr %72, align 8
+  %69 = getelementptr inbounds i8, ptr %.6144, i64 88
+  %.6 = load ptr, ptr %69, align 8
   %.not81 = icmp eq ptr %.6, null
   br i1 %.not81, label %._crit_edge147, label %.lr.ph146, !llvm.loop !103
 
-._crit_edge147:                                   ; preds = %.lr.ph146, %70
-  %73 = getelementptr inbounds i8, ptr %1, i64 144
-  %.7148 = load ptr, ptr %73, align 8
+._crit_edge147:                                   ; preds = %.lr.ph146, %67
+  %70 = getelementptr inbounds i8, ptr %1, i64 144
+  %.7148 = load ptr, ptr %70, align 8
   %.not82149 = icmp eq ptr %.7148, null
   br i1 %.not82149, label %._crit_edge153, label %.lr.ph152
 
 .lr.ph152:                                        ; preds = %._crit_edge147, %.lr.ph152
   %.7150 = phi ptr [ %.7, %.lr.ph152 ], [ %.7148, %._crit_edge147 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.7150)
-  %74 = getelementptr inbounds i8, ptr %.7150, i64 88
-  %.7 = load ptr, ptr %74, align 8
+  %71 = getelementptr inbounds i8, ptr %.7150, i64 88
+  %.7 = load ptr, ptr %71, align 8
   %.not82 = icmp eq ptr %.7, null
   br i1 %.not82, label %._crit_edge153, label %.lr.ph152, !llvm.loop !104
 
 ._crit_edge153:                                   ; preds = %.lr.ph152, %._crit_edge147
-  %75 = getelementptr inbounds i8, ptr %1, i64 160
-  %.8154 = load ptr, ptr %75, align 8
+  %72 = getelementptr inbounds i8, ptr %1, i64 160
+  %.8154 = load ptr, ptr %72, align 8
   %.not83155 = icmp eq ptr %.8154, null
   br i1 %.not83155, label %._crit_edge159, label %.lr.ph158
 
 .lr.ph158:                                        ; preds = %._crit_edge153, %.lr.ph158
   %.8156 = phi ptr [ %.8, %.lr.ph158 ], [ %.8154, %._crit_edge153 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.8156)
-  %76 = getelementptr inbounds i8, ptr %.8156, i64 88
-  %.8 = load ptr, ptr %76, align 8
+  %73 = getelementptr inbounds i8, ptr %.8156, i64 88
+  %.8 = load ptr, ptr %73, align 8
   %.not83 = icmp eq ptr %.8, null
   br i1 %.not83, label %._crit_edge159, label %.lr.ph158, !llvm.loop !105
 
 ._crit_edge159:                                   ; preds = %.lr.ph158, %._crit_edge153
-  %77 = getelementptr inbounds i8, ptr %1, i64 176
-  %.9160 = load ptr, ptr %77, align 8
+  %74 = getelementptr inbounds i8, ptr %1, i64 176
+  %.9160 = load ptr, ptr %74, align 8
   %.not84161 = icmp eq ptr %.9160, null
   br i1 %.not84161, label %.loopexit, label %.lr.ph164
 
 .lr.ph164:                                        ; preds = %._crit_edge159, %.lr.ph164
   %.9162 = phi ptr [ %.9, %.lr.ph164 ], [ %.9160, %._crit_edge159 ]
   tail call fastcc void @hwloc_list_special_objects(ptr noundef %0, ptr noundef nonnull %.9162)
-  %78 = getelementptr inbounds i8, ptr %.9162, i64 88
-  %.9 = load ptr, ptr %78, align 8
+  %75 = getelementptr inbounds i8, ptr %.9162, i64 88
+  %.9 = load ptr, ptr %75, align 8
   %.not84 = icmp eq ptr %.9, null
   br i1 %.not84, label %.loopexit, label %.lr.ph164, !llvm.loop !106
 

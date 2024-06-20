@@ -23,7 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.12 = private unnamed_addr constant [7 x i8] c"select\00", align 1
 @.str.13 = private unnamed_addr constant [4 x i8] c"hit\00", align 1
 @.str.14 = private unnamed_addr constant [49 x i8] c"access size %d is not supported, using SIZE_ANY\0A\00", align 1
-@__func__.tdata1_validate = private unnamed_addr constant [16 x i8] c"tdata1_validate\00", align 1
 @.str.15 = private unnamed_addr constant [40 x i8] c"ignoring type write to tdata1 register\0A\00", align 1
 @.str.16 = private unnamed_addr constant [29 x i8] c"debug mode is not supported\0A\00", align 1
 @.str.17 = private unnamed_addr constant [23 x i8] c"%s bit is always zero\0A\00", align 1
@@ -794,38 +793,22 @@ sw.bb:                                            ; preds = %if.end
 
 sw.bb.i19:                                        ; preds = %sw.bb
   %5 = getelementptr i8, ptr %env, i64 5008
-  switch i32 %env.val17.i.i, label %do.body.i.i.i [
-    i32 1, label %sw.bb.i.i.i
-    i32 2, label %sw.bb5.i.i.i
-    i32 3, label %sw.bb5.i.i.i
-  ]
-
-sw.bb.i.i.i:                                      ; preds = %sw.bb.i19
-  %conv.i.i.i = trunc i64 %val to i32
-  %shr.i.i.i.i = lshr i32 %conv.i.i.i, 28
-  %shr.i6.i.i.i = lshr i32 %conv.i.i.i, 27
-  br label %sw.epilog.i.i.i
-
-sw.bb5.i.i.i:                                     ; preds = %sw.bb.i19, %sw.bb.i19
+  %switch = icmp eq i32 %env.val17.i.i, 1
   %shr.i7.i.i.i = lshr i64 %val, 60
   %conv7.i.i.i = trunc nuw nsw i64 %shr.i7.i.i.i to i32
   %shr.i9.i.i.i = lshr i64 %val, 59
   %6 = trunc nuw nsw i64 %shr.i9.i.i.i to i32
-  br label %sw.epilog.i.i.i
-
-do.body.i.i.i:                                    ; preds = %sw.bb.i19
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__.tdata1_validate, ptr noundef null) #7
-  unreachable
-
-sw.epilog.i.i.i:                                  ; preds = %sw.bb5.i.i.i, %sw.bb.i.i.i
-  %type.0.i.i.i = phi i32 [ %conv7.i.i.i, %sw.bb5.i.i.i ], [ %shr.i.i.i.i, %sw.bb.i.i.i ]
-  %dmode.0.in.i.i.i = phi i32 [ %6, %sw.bb5.i.i.i ], [ %shr.i6.i.i.i, %sw.bb.i.i.i ]
-  %tdata1.0.i.i.i = phi i64 [ 2305843009213693952, %sw.bb5.i.i.i ], [ 536870912, %sw.bb.i.i.i ]
+  %conv.i.i.i = trunc i64 %val to i32
+  %shr.i.i.i.i = lshr i32 %conv.i.i.i, 28
+  %shr.i6.i.i.i = lshr i32 %conv.i.i.i, 27
+  %type.0.i.i.i = select i1 %switch, i32 %shr.i.i.i.i, i32 %conv7.i.i.i
+  %dmode.0.in.i.i.i = select i1 %switch, i32 %shr.i6.i.i.i, i32 %6
+  %tdata1.0.i.i.i = select i1 %switch, i64 536870912, i64 2305843009213693952
   %dmode.0.i.i.i = and i32 %dmode.0.in.i.i.i, 1
   %cmp.not.i.i.i = icmp eq i32 %type.0.i.i.i, 2
   br i1 %cmp.not.i.i.i, label %if.end19.i.i.i, label %do.body13.i.i.i
 
-do.body13.i.i.i:                                  ; preds = %sw.epilog.i.i.i
+do.body13.i.i.i:                                  ; preds = %sw.bb.i19
   %7 = load i32, ptr @qemu_loglevel, align 4
   %and.i11.i.i.i = and i32 %7, 2048
   %cmp.i.not.i.i.i = icmp eq i32 %and.i11.i.i.i, 0
@@ -835,7 +818,7 @@ if.then17.i.i.i:                                  ; preds = %do.body13.i.i.i
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #8
   br label %if.end19.i.i.i
 
-if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %do.body13.i.i.i, %sw.epilog.i.i.i
+if.end19.i.i.i:                                   ; preds = %if.then17.i.i.i, %do.body13.i.i.i, %sw.bb.i19
   %cmp20.not.i.i.i = icmp eq i32 %dmode.0.i.i.i, 0
   br i1 %cmp20.not.i.i.i, label %tdata1_validate.exit.i.i, label %do.body23.i.i.i
 
@@ -1163,38 +1146,22 @@ sw.bb4:                                           ; preds = %if.end
   ]
 
 sw.bb.i31:                                        ; preds = %sw.bb4
-  switch i32 %env.val17.i.i, label %do.body.i.i.i94 [
-    i32 1, label %sw.bb.i.i.i90
-    i32 2, label %sw.bb5.i.i.i33
-    i32 3, label %sw.bb5.i.i.i33
-  ]
-
-sw.bb.i.i.i90:                                    ; preds = %sw.bb.i31
-  %conv.i.i.i91 = trunc i64 %val to i32
-  %shr.i.i.i.i92 = lshr i32 %conv.i.i.i91, 28
-  %shr.i6.i.i.i93 = lshr i32 %conv.i.i.i91, 27
-  br label %sw.epilog.i.i.i37
-
-sw.bb5.i.i.i33:                                   ; preds = %sw.bb.i31, %sw.bb.i31
+  %switch152 = icmp eq i32 %env.val17.i.i, 1
   %shr.i7.i.i.i34 = lshr i64 %val, 60
   %conv7.i.i.i35 = trunc nuw nsw i64 %shr.i7.i.i.i34 to i32
   %shr.i9.i.i.i36 = lshr i64 %val, 59
   %43 = trunc nuw nsw i64 %shr.i9.i.i.i36 to i32
-  br label %sw.epilog.i.i.i37
-
-do.body.i.i.i94:                                  ; preds = %sw.bb.i31
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__.tdata1_validate, ptr noundef null) #7
-  unreachable
-
-sw.epilog.i.i.i37:                                ; preds = %sw.bb5.i.i.i33, %sw.bb.i.i.i90
-  %type.0.i.i.i38 = phi i32 [ %conv7.i.i.i35, %sw.bb5.i.i.i33 ], [ %shr.i.i.i.i92, %sw.bb.i.i.i90 ]
-  %dmode.0.in.i.i.i39 = phi i32 [ %43, %sw.bb5.i.i.i33 ], [ %shr.i6.i.i.i93, %sw.bb.i.i.i90 ]
-  %tdata1.0.i.i.i40 = phi i64 [ 6917529027641081856, %sw.bb5.i.i.i33 ], [ 1610612736, %sw.bb.i.i.i90 ]
+  %conv.i.i.i91 = trunc i64 %val to i32
+  %shr.i.i.i.i92 = lshr i32 %conv.i.i.i91, 28
+  %shr.i6.i.i.i93 = lshr i32 %conv.i.i.i91, 27
+  %type.0.i.i.i38 = select i1 %switch152, i32 %shr.i.i.i.i92, i32 %conv7.i.i.i35
+  %dmode.0.in.i.i.i39 = select i1 %switch152, i32 %shr.i6.i.i.i93, i32 %43
+  %tdata1.0.i.i.i40 = select i1 %switch152, i64 1610612736, i64 6917529027641081856
   %dmode.0.i.i.i41 = and i32 %dmode.0.in.i.i.i39, 1
   %cmp.not.i.i.i42 = icmp eq i32 %type.0.i.i.i38, 6
   br i1 %cmp.not.i.i.i42, label %if.end19.i.i.i47, label %do.body13.i.i.i43
 
-do.body13.i.i.i43:                                ; preds = %sw.epilog.i.i.i37
+do.body13.i.i.i43:                                ; preds = %sw.bb.i31
   %44 = load i32, ptr @qemu_loglevel, align 4
   %and.i11.i.i.i44 = and i32 %44, 2048
   %cmp.i.not.i.i.i45 = icmp eq i32 %and.i11.i.i.i44, 0
@@ -1204,7 +1171,7 @@ if.then17.i.i.i46:                                ; preds = %do.body13.i.i.i43
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #8
   br label %if.end19.i.i.i47
 
-if.end19.i.i.i47:                                 ; preds = %if.then17.i.i.i46, %do.body13.i.i.i43, %sw.epilog.i.i.i37
+if.end19.i.i.i47:                                 ; preds = %if.then17.i.i.i46, %do.body13.i.i.i43, %sw.bb.i31
   %cmp20.not.i.i.i48 = icmp eq i32 %dmode.0.i.i.i41, 0
   br i1 %cmp20.not.i.i.i48, label %tdata1_validate.exit.i.i53, label %do.body23.i.i.i49
 
@@ -1508,38 +1475,22 @@ sw.bb6:                                           ; preds = %if.end
   ]
 
 sw.bb.i98:                                        ; preds = %sw.bb6
-  switch i32 %env.val17.i.i, label %do.body.i.i.i145 [
-    i32 1, label %sw.bb.i.i.i141
-    i32 2, label %sw.bb5.i.i.i100
-    i32 3, label %sw.bb5.i.i.i100
-  ]
-
-sw.bb.i.i.i141:                                   ; preds = %sw.bb.i98
-  %conv.i.i.i142 = trunc i64 %val to i32
-  %shr.i.i.i.i143 = lshr i32 %conv.i.i.i142, 28
-  %shr.i6.i.i.i144 = lshr i32 %conv.i.i.i142, 27
-  br label %sw.epilog.i.i.i104
-
-sw.bb5.i.i.i100:                                  ; preds = %sw.bb.i98, %sw.bb.i98
+  %switch154 = icmp eq i32 %env.val17.i.i, 1
   %shr.i7.i.i.i101 = lshr i64 %val, 60
   %conv7.i.i.i102 = trunc nuw nsw i64 %shr.i7.i.i.i101 to i32
   %shr.i9.i.i.i103 = lshr i64 %val, 59
   %73 = trunc nuw nsw i64 %shr.i9.i.i.i103 to i32
-  br label %sw.epilog.i.i.i104
-
-do.body.i.i.i145:                                 ; preds = %sw.bb.i98
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 197, ptr noundef nonnull @__func__.tdata1_validate, ptr noundef null) #7
-  unreachable
-
-sw.epilog.i.i.i104:                               ; preds = %sw.bb5.i.i.i100, %sw.bb.i.i.i141
-  %type.0.i.i.i105 = phi i32 [ %conv7.i.i.i102, %sw.bb5.i.i.i100 ], [ %shr.i.i.i.i143, %sw.bb.i.i.i141 ]
-  %dmode.0.in.i.i.i106 = phi i32 [ %73, %sw.bb5.i.i.i100 ], [ %shr.i6.i.i.i144, %sw.bb.i.i.i141 ]
-  %tdata1.0.i.i.i107 = phi i64 [ 3458764513820540928, %sw.bb5.i.i.i100 ], [ 805306368, %sw.bb.i.i.i141 ]
+  %conv.i.i.i142 = trunc i64 %val to i32
+  %shr.i.i.i.i143 = lshr i32 %conv.i.i.i142, 28
+  %shr.i6.i.i.i144 = lshr i32 %conv.i.i.i142, 27
+  %type.0.i.i.i105 = select i1 %switch154, i32 %shr.i.i.i.i143, i32 %conv7.i.i.i102
+  %dmode.0.in.i.i.i106 = select i1 %switch154, i32 %shr.i6.i.i.i144, i32 %73
+  %tdata1.0.i.i.i107 = select i1 %switch154, i64 805306368, i64 3458764513820540928
   %dmode.0.i.i.i108 = and i32 %dmode.0.in.i.i.i106, 1
   %cmp.not.i.i.i109 = icmp eq i32 %type.0.i.i.i105, 3
   br i1 %cmp.not.i.i.i109, label %if.end19.i.i.i114, label %do.body13.i.i.i110
 
-do.body13.i.i.i110:                               ; preds = %sw.epilog.i.i.i104
+do.body13.i.i.i110:                               ; preds = %sw.bb.i98
   %74 = load i32, ptr @qemu_loglevel, align 4
   %and.i11.i.i.i111 = and i32 %74, 2048
   %cmp.i.not.i.i.i112 = icmp eq i32 %and.i11.i.i.i111, 0
@@ -1549,7 +1500,7 @@ if.then17.i.i.i113:                               ; preds = %do.body13.i.i.i110
   tail call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.15) #8
   br label %if.end19.i.i.i114
 
-if.end19.i.i.i114:                                ; preds = %if.then17.i.i.i113, %do.body13.i.i.i110, %sw.epilog.i.i.i104
+if.end19.i.i.i114:                                ; preds = %if.then17.i.i.i113, %do.body13.i.i.i110, %sw.bb.i98
   %cmp20.not.i.i.i115 = icmp eq i32 %dmode.0.i.i.i108, 0
   br i1 %cmp20.not.i.i.i115, label %tdata1_validate.exit.i.i120, label %do.body23.i.i.i116
 

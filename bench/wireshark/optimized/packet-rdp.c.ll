@@ -2200,10 +2200,8 @@ define internal range(i32 0, 9) i32 @dissect_rdp_cc(ptr noundef %0, ptr noundef 
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0) #12
   %21 = load i32, ptr @ett_rdp, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21) #12
-  switch i8 %11, label %.thread [
-    i8 2, label %23
-    i8 3, label %53
-  ]
+  %switch = icmp eq i8 %11, 2
+  br i1 %switch, label %23, label %53
 
 23:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
@@ -2299,8 +2297,8 @@ dissect_rdpNegFailure.exit:                       ; preds = %62, %64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %4, %15, %dissect_rdpNegRsp.exit, %dissect_rdpNegFailure.exit, %10
-  %.0 = phi i32 [ 0, %10 ], [ 0, %15 ], [ %.0.i35, %dissect_rdpNegFailure.exit ], [ %.0.i, %dissect_rdpNegRsp.exit ], [ 0, %4 ]
+.thread:                                          ; preds = %4, %dissect_rdpNegRsp.exit, %dissect_rdpNegFailure.exit, %10
+  %.0 = phi i32 [ 0, %10 ], [ %.0.i35, %dissect_rdpNegFailure.exit ], [ %.0.i, %dissect_rdpNegRsp.exit ], [ 0, %4 ]
   ret i32 %.0
 }
 

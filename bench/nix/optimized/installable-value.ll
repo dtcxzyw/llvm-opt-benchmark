@@ -2012,16 +2012,16 @@ define void @_ZN3nix16InstallableValue27trySinglePathToDerivedPathsERNS_5ValueEN
     i32 4, label %_ZNK3nix5Value4typeEb.exit
     i32 5, label %.thread
     i32 6, label %.thread
-    i32 16, label %.thread
-    i32 15, label %.thread
-    i32 11, label %.thread
-    i32 10, label %.thread
-    i32 14, label %.thread
-    i32 13, label %.thread
-    i32 12, label %.thread
-    i32 9, label %.thread
     i32 7, label %.thread
     i32 8, label %.thread
+    i32 9, label %.thread
+    i32 12, label %.thread
+    i32 13, label %.thread
+    i32 14, label %.thread
+    i32 15, label %.thread
+    i32 16, label %.thread
+    i32 10, label %.thread
+    i32 11, label %.thread
   ]
 
 17:                                               ; preds = %6

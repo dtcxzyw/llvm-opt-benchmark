@@ -516,7 +516,7 @@ wg_is_valid_message_length.exit.thread65:         ; preds = %37
 
 72:                                               ; preds = %69, %65
   %.0 = phi ptr [ %71, %69 ], [ %66, %65 ]
-  switch i8 %34, label %797 [
+  switch i8 %34, label %default.unreachable [
     i8 1, label %73
     i8 2, label %296
     i8 3, label %545
@@ -2054,8 +2054,7 @@ wg_dissect_data.exit:                             ; preds = %addresses_equal.exi
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
   br label %wg_is_valid_message_length.exit.thread
 
-797:                                              ; preds = %72
-  tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.103, ptr noundef nonnull @.str.104, i32 noundef 1633) #17
+default.unreachable:                              ; preds = %72
   unreachable
 
 wg_is_valid_message_length.exit.thread:           ; preds = %39, %41, %37, %wg_is_valid_message_length.exit.thread65, %wg_is_valid_message_length.exit, %4, %wg_dissect_data.exit, %wg_dissect_handshake_cookie.exit, %wg_dissect_handshake_response.exit, %wg_dissect_handshake_initiation.exit

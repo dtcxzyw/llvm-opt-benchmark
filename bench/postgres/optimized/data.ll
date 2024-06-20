@@ -244,6 +244,7 @@ define noundef zeroext i1 @ecpg_get_data(ptr noundef %0, i32 noundef %1, i32 nou
   %.not584 = icmp eq i32 %11, 0
   %105 = icmp eq i32 %11, 4
   %106 = icmp eq i32 %11, 3
+  %switch = icmp eq i32 %4, 12
   %brmerge = select i1 %71, i1 true, i1 %.not586
   %brmerge772.not = select i1 %85, i1 %or.cond593.not777.not779, i1 false
   %brmerge773 = select i1 %90, i1 true, i1 %or.cond595
@@ -723,10 +724,7 @@ garbage_left.exit663.thread:                      ; preds = %array_delimiter.exi
 
 garbage_left.exit663.thread709:                   ; preds = %280, %array_delimiter.exit.i653, %288, %287, %garbage_left.exit663
   %296 = phi ptr [ %.pre813, %280 ], [ %.pre.i656, %array_delimiter.exit.i653 ], [ %.pre.i656, %288 ], [ %.pre.i656, %287 ], [ %.pre.i656, %garbage_left.exit663 ]
-  switch i32 %4, label %garbage_left.exit631.thread699 [
-    i32 12, label %297
-    i32 13, label %302
-  ]
+  br i1 %switch, label %297, label %302
 
 297:                                              ; preds = %garbage_left.exit663.thread709
   %298 = fptrunc double %.2691 to float
@@ -1378,8 +1376,8 @@ hex_decode.exit:                                  ; preds = %get_hex.exit.i, %.o
   call void @ecpg_raise(i32 noundef %3, i32 noundef -200, ptr noundef nonnull @.str.8, ptr noundef %556) #11
   br label %.critedge31
 
-garbage_left.exit631.thread699:                   ; preds = %garbage_left.exit647, %garbage_left.exit631, %324, %297, %302, %garbage_left.exit663.thread709, %195, %200, %205, %garbage_left.exit615.thread696, %155, %160, %165, %garbage_left.exit.thread693, %549, %524, %499, %476, %451, %.critedge, %376, %320, %312
-  %.6 = phi ptr [ %550, %549 ], [ %525, %524 ], [ %500, %499 ], [ %468, %476 ], [ %452, %451 ], [ %427, %.critedge ], [ %377, %376 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %296, %garbage_left.exit663.thread709 ], [ %296, %302 ], [ %296, %297 ], [ %194, %garbage_left.exit615.thread696 ], [ %194, %205 ], [ %194, %200 ], [ %194, %195 ], [ %154, %garbage_left.exit.thread693 ], [ %154, %165 ], [ %154, %160 ], [ %154, %155 ], [ %235, %garbage_left.exit631 ], [ %263, %garbage_left.exit647 ]
+garbage_left.exit631.thread699:                   ; preds = %garbage_left.exit647, %garbage_left.exit631, %324, %297, %302, %195, %200, %205, %garbage_left.exit615.thread696, %155, %160, %165, %garbage_left.exit.thread693, %549, %524, %499, %476, %451, %.critedge, %376, %320, %312
+  %.6 = phi ptr [ %550, %549 ], [ %525, %524 ], [ %500, %499 ], [ %468, %476 ], [ %452, %451 ], [ %427, %.critedge ], [ %377, %376 ], [ %309, %312 ], [ %317, %320 ], [ %.1521, %324 ], [ %296, %302 ], [ %296, %297 ], [ %194, %garbage_left.exit615.thread696 ], [ %194, %205 ], [ %194, %200 ], [ %194, %195 ], [ %154, %garbage_left.exit.thread693 ], [ %154, %165 ], [ %154, %160 ], [ %154, %155 ], [ %235, %garbage_left.exit631 ], [ %263, %garbage_left.exit647 ]
   br i1 %31, label %garbage_left.exit631.thread699.thread, label %array_delimiter.exit683.thread720
 
 garbage_left.exit631.thread699.thread:            ; preds = %array_delimiter.exit.i620, %array_delimiter.exit.i636, %garbage_left.exit631.thread699

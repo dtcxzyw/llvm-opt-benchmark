@@ -3170,10 +3170,10 @@ invoke.cont:                                      ; preds = %entry
 
 if.then:                                          ; preds = %invoke.cont
   store i32 %1, ptr %agg.tmp, align 8
-  %trunc = trunc nuw i32 %1 to i1
+  %switch = icmp eq i32 %1, 0
   %2 = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %3 = getelementptr inbounds i8, ptr %this, i64 56
-  br i1 %trunc, label %if.then6.i.i, label %if.then.i.i2
+  br i1 %switch, label %if.then.i.i2, label %if.then6.i.i
 
 if.then.i.i2:                                     ; preds = %if.then
   %4 = load i8, ptr %3, align 8
@@ -3318,11 +3318,11 @@ if.else.i:                                        ; preds = %if.else
           to label %if.else.i.invoke.cont5_crit_edge unwind label %lpad
 
 if.else.i.invoke.cont5_crit_edge:                 ; preds = %if.else.i
-  %.pre37.pre = load ptr, ptr %_M_finish.i, align 8
+  %.pre36.pre = load ptr, ptr %_M_finish.i, align 8
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.else.i.invoke.cont5_crit_edge, %_ZNSt16allocator_traitsISaIN5folly7PromiseIbEEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i
-  %.pre37 = phi ptr [ %.pre37.pre, %if.else.i.invoke.cont5_crit_edge ], [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaIN5folly7PromiseIbEEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ]
+  %.pre36 = phi ptr [ %.pre36.pre, %if.else.i.invoke.cont5_crit_edge ], [ %incdec.ptr.i, %_ZNSt16allocator_traitsISaIN5folly7PromiseIbEEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ]
   %interruptHandler_ = getelementptr inbounds i8, ptr %this, i64 88
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 104
   %27 = load ptr, ptr %_M_manager.i.i, align 8
@@ -3330,7 +3330,7 @@ invoke.cont5:                                     ; preds = %if.else.i.invoke.co
   br i1 %tobool.not.i.i16.not, label %if.end, label %if.then8
 
 if.then8:                                         ; preds = %invoke.cont5
-  %core_.i.i = getelementptr inbounds i8, ptr %.pre37, i64 -8
+  %core_.i.i = getelementptr inbounds i8, ptr %.pre36, i64 -8
   %28 = load ptr, ptr %core_.i.i, align 8
   %tobool.not.i.i.i17 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i17, label %if.then.i.i.i26.invoke, label %_ZN5folly7PromiseIbE7getCoreEv.exit.i
@@ -3344,7 +3344,7 @@ _ZN5folly7PromiseIbE7getCoreEv.exit.i.if.end_crit_edge: ; preds = %_ZN5folly7Pro
   br label %if.end
 
 if.end:                                           ; preds = %_ZN5folly7PromiseIbE7getCoreEv.exit.i.if.end_crit_edge, %invoke.cont5
-  %29 = phi ptr [ %.pre, %_ZN5folly7PromiseIbE7getCoreEv.exit.i.if.end_crit_edge ], [ %.pre37, %invoke.cont5 ]
+  %29 = phi ptr [ %.pre, %_ZN5folly7PromiseIbE7getCoreEv.exit.i.if.end_crit_edge ], [ %.pre36, %invoke.cont5 ]
   %add.ptr.i.i22 = getelementptr inbounds i8, ptr %29, i64 -16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %30 = load i8, ptr %add.ptr.i.i22, align 8, !noalias !59

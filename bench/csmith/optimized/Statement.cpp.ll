@@ -910,7 +910,7 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %46, %53
   %65 = load i32, ptr %64, align 8
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 8
-  switch i32 %.142, label %91 [
+  switch i32 %.142, label %default.unreachable [
     i32 9, label %89
     i32 1, label %73
     i32 2, label %75
@@ -974,8 +974,11 @@ _ZNSt6vectorIPK4FactSaIS2_EEC2ERKS4_.exit:        ; preds = %46, %53
   %90 = invoke noundef ptr @_ZN16StatementArrayOp11make_randomER9CGContext(ptr noundef nonnull align 8 dereferenceable(216) %0)
           to label %91 unwind label %69
 
-91:                                               ; preds = %61, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71, %63
-  %.0 = phi ptr [ null, %63 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ null, %61 ]
+default.unreachable:                              ; preds = %63
+  unreachable
+
+91:                                               ; preds = %61, %89, %87, %85, %83, %81, %79, %77, %75, %73, %71
+  %.0 = phi ptr [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %86, %85 ], [ %88, %87 ], [ %90, %89 ], [ null, %61 ]
   %92 = load i32, ptr @_ZN5Error8r_error_E, align 4
   %.not45 = icmp eq i32 %92, 0
   br i1 %.not45, label %93, label %108

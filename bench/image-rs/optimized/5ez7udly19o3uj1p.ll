@@ -5585,7 +5585,7 @@ define hidden void @_ZN12jpeg_decoder6parser9parse_dqt17h305f7785ab79669aE(ptr n
   %22 = getelementptr inbounds i8, ptr %19, i64 8
   %23 = load <2 x i64>, ptr %22, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19)
-  br i1 %21, label %.preheader356, label %24
+  br i1 %21, label %.preheader355, label %24
 
 24:                                               ; preds = %2
   %25 = getelementptr inbounds i8, ptr %0, i64 8
@@ -5595,15 +5595,15 @@ define hidden void @_ZN12jpeg_decoder6parser9parse_dqt17h305f7785ab79669aE(ptr n
   store i16 2, ptr %0, align 8
   br label %44
 
-.preheader356:                                    ; preds = %2, %.preheader356
-  %26 = phi i64 [ %28, %.preheader356 ], [ 0, %2 ]
+.preheader355:                                    ; preds = %2, %.preheader355
+  %26 = phi i64 [ %28, %.preheader355 ], [ 0, %2 ]
   %27 = getelementptr inbounds [4 x { i16, [64 x i16] }], ptr %11, i64 0, i64 %26
   store i16 0, ptr %27, align 2
   %28 = add nuw nsw i64 %26, 1
   %exitcond.not = icmp eq i64 %28, 4
-  br i1 %exitcond.not, label %29, label %.preheader356
+  br i1 %exitcond.not, label %29, label %.preheader355
 
-29:                                               ; preds = %.preheader356
+29:                                               ; preds = %.preheader355
   %30 = extractelement <2 x i64> %23, i64 0
   %.not230 = icmp eq i64 %30, 0
   br i1 %.not230, label %._crit_edge, label %.lr.ph

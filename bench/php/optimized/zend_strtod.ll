@@ -3880,7 +3880,7 @@ select.unfold:                                    ; preds = %131
   %157 = icmp ult i32 %spec.store.select29, 6
   %158 = add nsw i32 %spec.store.select29, -4
   %spec.select = select i1 %157, i32 %spec.store.select29, i32 %158
-  switch i32 %spec.select, label %165 [
+  switch i32 %spec.select, label %default.unreachable [
     i32 0, label %._crit_edge.thread.i
     i32 1, label %._crit_edge.thread.i
     i32 2, label %159
@@ -3907,13 +3907,16 @@ select.unfold:                                    ; preds = %131
   %spec.store.select4 = tail call i32 @llvm.smax.i32(i32 %164, i32 1)
   br label %165
 
-165:                                              ; preds = %162, %160, %156
-  %.0468 = phi i32 [ -1, %156 ], [ %164, %162 ], [ %spec.store.select, %160 ]
-  %.1459 = phi i32 [ %.0458, %156 ], [ %spec.store.select4, %162 ], [ %spec.store.select, %160 ]
-  %.0457 = phi i32 [ -1, %156 ], [ %163, %162 ], [ %spec.store.select, %160 ]
-  %.2436 = phi i32 [ 1, %156 ], [ %.1435, %162 ], [ %.0434, %160 ]
-  %.0403 = phi i32 [ %2, %156 ], [ %2, %162 ], [ %spec.store.select, %160 ]
-  %166 = sext i32 %.1459 to i64
+default.unreachable:                              ; preds = %156
+  unreachable
+
+165:                                              ; preds = %162, %160
+  %.0468 = phi i32 [ %164, %162 ], [ %spec.store.select, %160 ]
+  %.1459 = phi i32 [ %spec.store.select4, %162 ], [ %spec.store.select, %160 ]
+  %.0457 = phi i32 [ %163, %162 ], [ %spec.store.select, %160 ]
+  %.2436 = phi i32 [ %.1435, %162 ], [ %.0434, %160 ]
+  %.0403 = phi i32 [ %2, %162 ], [ %spec.store.select, %160 ]
+  %166 = zext nneg i32 %.1459 to i64
   %.not8.i = icmp ult i32 %.1459, 28
   br i1 %.not8.i, label %._crit_edge.thread.i, label %.lr.ph.i578
 

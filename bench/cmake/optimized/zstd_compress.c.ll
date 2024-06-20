@@ -1762,11 +1762,6 @@ ZSTD_CCtx_setParameter.exit42:                    ; preds = %26
   store i32 %11, ptr %31, align 4
   %32 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 %15, ptr %32, align 4
-  %.off = add nsw i32 %19, -3
-  %switch = icmp ult i32 %.off, 5
-  br i1 %switch, label %ZSTD_CCtxParams_setParameter.exit62, label %ZSTD_checkCParams.exit.thread
-
-ZSTD_CCtxParams_setParameter.exit62:              ; preds = %ZSTD_CCtx_setParameter.exit42
   %33 = getelementptr inbounds i8, ptr %0, i64 36
   store i32 %19, ptr %33, align 4
   %34 = getelementptr inbounds i8, ptr %0, i64 40
@@ -1775,8 +1770,8 @@ ZSTD_CCtxParams_setParameter.exit62:              ; preds = %ZSTD_CCtx_setParame
   store i32 %24, ptr %35, align 4
   br label %ZSTD_checkCParams.exit.thread
 
-ZSTD_checkCParams.exit.thread:                    ; preds = %ZSTD_CCtx_setParameter.exit42, %26, %17, %13, %9, %5, %2, %ZSTD_CCtxParams_setParameter.exit62, %ZSTD_checkCParams.exit
-  %.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ 0, %ZSTD_CCtxParams_setParameter.exit62 ], [ -42, %2 ], [ -42, %5 ], [ -42, %9 ], [ -42, %13 ], [ -42, %17 ], [ -60, %26 ], [ -42, %ZSTD_CCtx_setParameter.exit42 ]
+ZSTD_checkCParams.exit.thread:                    ; preds = %26, %17, %13, %9, %5, %2, %ZSTD_CCtx_setParameter.exit42, %ZSTD_checkCParams.exit
+  %.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ 0, %ZSTD_CCtx_setParameter.exit42 ], [ -42, %2 ], [ -42, %5 ], [ -42, %9 ], [ -42, %13 ], [ -42, %17 ], [ -60, %26 ]
   ret i64 %.0
 }
 
@@ -1858,9 +1853,9 @@ ZSTD_checkCParams.exit:                           ; preds = %17
   %27 = getelementptr inbounds i8, ptr %0, i64 3584
   %28 = load i32, ptr %27, align 8
   %.not.i.i = icmp eq i32 %28, 0
-  br i1 %.not.i.i, label %ZSTD_CCtxParams_setParameter.exit62.i, label %ZSTD_checkCParams.exit.thread
+  br i1 %.not.i.i, label %ZSTD_CCtx_setParameter.exit42.i, label %ZSTD_checkCParams.exit.thread
 
-ZSTD_CCtxParams_setParameter.exit62.i:            ; preds = %26
+ZSTD_CCtx_setParameter.exit42.i:                  ; preds = %26
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %1, i64 36
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..sroa_idx, align 4
   %29 = getelementptr inbounds i8, ptr %1, i64 28
@@ -1894,8 +1889,8 @@ ZSTD_CCtxParams_setParameter.exit62.i:            ; preds = %26
   store i32 %24, ptr %46, align 4
   br label %ZSTD_checkCParams.exit.thread
 
-ZSTD_checkCParams.exit.thread:                    ; preds = %ZSTD_CCtxParams_setParameter.exit62.i, %26, %17, %13, %9, %5, %2, %ZSTD_checkCParams.exit
-  %.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ -42, %2 ], [ -42, %5 ], [ -42, %9 ], [ -42, %13 ], [ -42, %17 ], [ -60, %26 ], [ 0, %ZSTD_CCtxParams_setParameter.exit62.i ]
+ZSTD_checkCParams.exit.thread:                    ; preds = %ZSTD_CCtx_setParameter.exit42.i, %26, %17, %13, %9, %5, %2, %ZSTD_checkCParams.exit
+  %.0 = phi i64 [ -42, %ZSTD_checkCParams.exit ], [ -42, %2 ], [ -42, %5 ], [ -42, %9 ], [ -42, %13 ], [ -42, %17 ], [ -60, %26 ], [ 0, %ZSTD_CCtx_setParameter.exit42.i ]
   ret i64 %.0
 }
 

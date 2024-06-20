@@ -974,7 +974,7 @@ if.then9:                                         ; preds = %if.end6
   %cond = select i1 %tobool15.not, ptr @.str.49, ptr @.str.48
   %call16 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.47, ptr noundef nonnull %cond)
   %call17 = tail call i32 @checkSingleAof(ptr noundef %4, ptr noundef %call11, i32 noundef %conv13, i32 noundef %fix, i32 noundef %call14)
-  switch i32 %call17, label %default.unreachable [
+  switch i32 %call17, label %default.unreachable41 [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 3, label %if.then6.i
@@ -998,7 +998,7 @@ if.then10.i:                                      ; preds = %if.then9
   %call11.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %4)
   br label %printAofStyle.exit
 
-default.unreachable:                              ; preds = %while.body, %if.then9
+default.unreachable41:                            ; preds = %while.body, %if.then9
   unreachable
 
 printAofStyle.exit:                               ; preds = %if.then.i, %if.then2.i, %if.then6.i, %if.then10.i
@@ -1018,22 +1018,22 @@ if.then22:                                        ; preds = %if.end18
   %puts25 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
   %8 = load ptr, ptr %incr_aof_list, align 8
   call void @listRewind(ptr noundef %8, ptr noundef nonnull %li) #16
-  %call2536 = call ptr @listNext(ptr noundef nonnull %li) #16
-  %cmp26.not37 = icmp eq ptr %call2536, null
-  br i1 %cmp26.not37, label %if.end36, label %while.body
+  %call2537 = call ptr @listNext(ptr noundef nonnull %li) #16
+  %cmp26.not38 = icmp eq ptr %call2537, null
+  br i1 %cmp26.not38, label %if.end36, label %while.body
 
 while.body:                                       ; preds = %if.then22, %printAofStyle.exit35
-  %call2539 = phi ptr [ %call25, %printAofStyle.exit35 ], [ %call2536, %if.then22 ]
-  %aof_num.138 = phi i32 [ %inc32, %printAofStyle.exit35 ], [ %aof_num.0, %if.then22 ]
-  %value = getelementptr inbounds i8, ptr %call2539, i64 16
+  %call2540 = phi ptr [ %call25, %printAofStyle.exit35 ], [ %call2537, %if.then22 ]
+  %aof_num.139 = phi i32 [ %inc32, %printAofStyle.exit35 ], [ %aof_num.0, %if.then22 ]
+  %value = getelementptr inbounds i8, ptr %call2540, i64 16
   %9 = load ptr, ptr %value, align 8
   %10 = load ptr, ptr %9, align 8
   %call31 = call ptr @makePath(ptr noundef %dirpath, ptr noundef %10) #16
-  %inc32 = add nuw nsw i32 %aof_num.138, 1
+  %inc32 = add nuw nsw i32 %aof_num.139, 1
   %cmp33 = icmp eq i32 %inc32, %total_num.1
   %conv34 = zext i1 %cmp33 to i32
   %call35 = call i32 @checkSingleAof(ptr noundef %10, ptr noundef %call31, i32 noundef %conv34, i32 noundef %fix, i32 noundef 0)
-  switch i32 %call35, label %default.unreachable [
+  switch i32 %call35, label %default.unreachable41 [
     i32 0, label %if.then.i33
     i32 1, label %if.then2.i31
     i32 3, label %if.then6.i29
@@ -1086,7 +1086,7 @@ define dso_local void @checkOldStyleAof(ptr noundef %filepath, i32 noundef %fix,
 entry:
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.8)
   %call1 = tail call i32 @checkSingleAof(ptr noundef %filepath, ptr noundef %filepath, i32 noundef 1, i32 noundef %fix, i32 noundef %preamble)
-  switch i32 %call1, label %default.unreachable [
+  switch i32 %call1, label %default.unreachable3 [
     i32 0, label %if.then.i
     i32 1, label %if.then2.i
     i32 3, label %if.then6.i
@@ -1110,7 +1110,7 @@ if.then10.i:                                      ; preds = %entry
   %call11.i = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.45, ptr noundef %filepath)
   br label %printAofStyle.exit
 
-default.unreachable:                              ; preds = %entry
+default.unreachable3:                             ; preds = %entry
   unreachable
 
 printAofStyle.exit:                               ; preds = %if.then.i, %if.then2.i, %if.then6.i, %if.then10.i

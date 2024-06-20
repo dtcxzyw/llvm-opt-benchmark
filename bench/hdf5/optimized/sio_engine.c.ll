@@ -121,7 +121,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
 22:                                               ; preds = %2
   %23 = load ptr, ptr @stderr, align 8
   %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str, i32 noundef %19) #17
-  br label %576
+  br label %573
 
 25:                                               ; preds = %21, %20
   %26 = tail call ptr @io_time_new(i32 noundef 0) #18
@@ -129,7 +129,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
   store ptr %26, ptr %27, align 8
   %28 = tail call noalias dereferenceable_or_null(4096) ptr @calloc(i64 noundef 4096, i64 noundef 1) #19
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %576, label %30
+  br i1 %29, label %573, label %30
 
 30:                                               ; preds = %25
   store i64 1, ptr @linear_buf_size, align 8
@@ -167,7 +167,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
   store i64 %44, ptr @linear_buf_size, align 8
   %50 = load ptr, ptr @stderr, align 8
   %51 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %50, ptr noundef nonnull @.str.1, i32 noundef %49, i64 noundef 0) #17
-  br label %576
+  br label %573
 
 52:                                               ; preds = %37
   %53 = getelementptr inbounds [32 x i64], ptr %36, i64 0, i64 %indvars.iv
@@ -180,7 +180,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
   store i64 %44, ptr @linear_buf_size, align 8
   %57 = load ptr, ptr @stderr, align 8
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %57, ptr noundef nonnull @.str.2, i32 noundef %32, i64 noundef %54, i32 noundef %32, i64 noundef %40) #17
-  br label %576
+  br label %573
 
 59:                                               ; preds = %52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -200,7 +200,7 @@ define dso_local void @do_sio(ptr nocapture noundef readonly byval(%struct.param
 64:                                               ; preds = %60
   %65 = load ptr, ptr @stderr, align 8
   %66 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %65, ptr noundef nonnull @.str.3, i64 noundef %61) #17
-  br label %576
+  br label %573
 
 67:                                               ; preds = %60
   %68 = load i32, ptr @sio_debug_level, align 4
@@ -419,7 +419,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
 156:                                              ; preds = %150
   %157 = load ptr, ptr @stderr, align 8
   %158 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %157, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 209, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 159:                                              ; preds = %150
   %160 = load ptr, ptr %151, align 8
@@ -801,7 +801,7 @@ do_write.exit:                                    ; preds = %317, %326
 330:                                              ; preds = %do_write.exit.thread, %do_write.exit
   %331 = load ptr, ptr @stderr, align 8
   %332 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %331, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, i32 noundef 214, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 333:                                              ; preds = %do_write.exit
   switch i32 %19, label %349 [
@@ -849,7 +849,7 @@ do_write.exit:                                    ; preds = %317, %326
   %354 = call ptr @io_time_set(ptr noundef %353, i32 noundef 10, i32 noundef 1) #18
   %355 = load ptr, ptr @stderr, align 8
   %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %355, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 219, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 357:                                              ; preds = %348, %340
   %358 = load ptr, ptr %151, align 8
@@ -869,7 +869,7 @@ do_write.exit:                                    ; preds = %317, %326
 367:                                              ; preds = %362
   %368 = load ptr, ptr @stderr, align 8
   %369 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %368, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8, i32 noundef 229, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 .preheader81.i:                                   ; preds = %362
   %370 = load ptr, ptr %151, align 8
@@ -1168,7 +1168,7 @@ do_read.exit:                                     ; preds = %493, %490, %485
 497:                                              ; preds = %do_read.exit
   %498 = load ptr, ptr @stderr, align 8
   %499 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %498, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.12, i32 noundef 234, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 500:                                              ; preds = %do_read.exit
   switch i32 %19, label %516 [
@@ -1221,7 +1221,7 @@ do_fclose.exit91:                                 ; preds = %507, %515
   %523 = call ptr @io_time_set(ptr noundef %522, i32 noundef 11, i32 noundef 1) #18
   %524 = load ptr, ptr @stderr, align 8
   %525 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %524, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.11, i32 noundef 240, ptr noundef nonnull @.str.9) #17
-  br label %576
+  br label %573
 
 526:                                              ; preds = %do_fclose.exit91, %357
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3)
@@ -1247,10 +1247,8 @@ do_fclose.exit91:                                 ; preds = %507, %515
   br i1 %.not.i92, label %do_cleanupfile.exit, label %538
 
 538:                                              ; preds = %536
-  switch i32 %19, label %573 [
-    i32 0, label %539
-    i32 1, label %541
-  ]
+  %switch = icmp eq i32 %19, 0
+  br i1 %switch, label %539, label %541
 
 539:                                              ; preds = %538
   %540 = call i32 @remove(ptr noundef %28) #18
@@ -1315,56 +1313,51 @@ do_fclose.exit91:                                 ; preds = %507, %515
   %572 = call i32 @H5Pclose(i64 noundef %571) #18
   br label %do_cleanupfile.exit
 
-573:                                              ; preds = %538
-  %574 = load ptr, ptr @stderr, align 8
-  %575 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %574, ptr noundef nonnull @.str, i32 noundef %19) #17
-  br label %do_cleanupfile.exit
-
-do_cleanupfile.exit:                              ; preds = %526, %536, %539, %.loopexit.i93, %573
+do_cleanupfile.exit:                              ; preds = %526, %536, %539, %.loopexit.i93
   call void @free(ptr noundef %527) #18
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3)
-  br label %576
+  br label %573
 
-576:                                              ; preds = %25, %do_cleanupfile.exit, %521, %497, %367, %352, %330, %156, %64, %56, %48, %22
+573:                                              ; preds = %25, %do_cleanupfile.exit, %521, %497, %367, %352, %330, %156, %64, %56, %48, %22
   %.055 = phi ptr [ null, %22 ], [ null, %48 ], [ null, %56 ], [ null, %64 ], [ %62, %do_cleanupfile.exit ], [ %62, %521 ], [ %62, %497 ], [ %62, %367 ], [ %62, %352 ], [ %62, %330 ], [ %62, %156 ], [ null, %25 ]
   %.054 = phi i32 [ -1, %22 ], [ -1, %48 ], [ -1, %56 ], [ -1, %64 ], [ 0, %do_cleanupfile.exit ], [ -1, %521 ], [ -1, %497 ], [ -1, %367 ], [ -1, %352 ], [ -1, %330 ], [ -1, %156 ], [ -1, %25 ]
   %.053 = phi ptr [ null, %22 ], [ %28, %48 ], [ %28, %56 ], [ %28, %64 ], [ %28, %do_cleanupfile.exit ], [ %28, %521 ], [ %28, %497 ], [ %28, %367 ], [ %28, %352 ], [ %28, %330 ], [ %28, %156 ], [ null, %25 ]
   switch i32 %19, label %do_fclose.exit101 [
-    i32 0, label %577
-    i32 1, label %584
+    i32 0, label %574
+    i32 1, label %581
   ]
 
-577:                                              ; preds = %576
-  %578 = load i32, ptr %17, align 8
-  %.not64 = icmp eq i32 %578, -1
-  br i1 %.not64, label %do_fclose.exit101, label %579
+574:                                              ; preds = %573
+  %575 = load i32, ptr %17, align 8
+  %.not64 = icmp eq i32 %575, -1
+  br i1 %.not64, label %do_fclose.exit101, label %576
 
-579:                                              ; preds = %577
-  %580 = call i32 @close(i32 noundef %578) #18
-  %.not.i99 = icmp eq i32 %580, 0
-  br i1 %.not.i99, label %do_fclose.exit101, label %581
+576:                                              ; preds = %574
+  %577 = call i32 @close(i32 noundef %575) #18
+  %.not.i99 = icmp eq i32 %577, 0
+  br i1 %.not.i99, label %do_fclose.exit101, label %578
 
-581:                                              ; preds = %579
-  %582 = load ptr, ptr @stderr, align 8
-  %583 = call i64 @fwrite(ptr nonnull @.str.51, i64 24, i64 1, ptr %582) #23
+578:                                              ; preds = %576
+  %579 = load ptr, ptr @stderr, align 8
+  %580 = call i64 @fwrite(ptr nonnull @.str.51, i64 24, i64 1, ptr %579) #23
   br label %do_fclose.exit101
 
-584:                                              ; preds = %576
-  %585 = load i64, ptr %17, align 8
-  %.not63 = icmp eq i64 %585, -1
-  br i1 %.not63, label %do_fclose.exit101, label %586
+581:                                              ; preds = %573
+  %582 = load i64, ptr %17, align 8
+  %.not63 = icmp eq i64 %582, -1
+  br i1 %.not63, label %do_fclose.exit101, label %583
 
-586:                                              ; preds = %584
-  %587 = call i32 @H5Fclose(i64 noundef %585) #18
-  %588 = icmp slt i32 %587, 0
-  br i1 %588, label %589, label %do_fclose.exit101
+583:                                              ; preds = %581
+  %584 = call i32 @H5Fclose(i64 noundef %582) #18
+  %585 = icmp slt i32 %584, 0
+  br i1 %585, label %586, label %do_fclose.exit101
 
-589:                                              ; preds = %586
-  %590 = load ptr, ptr @stderr, align 8
-  %591 = call i64 @fwrite(ptr nonnull @.str.52, i64 23, i64 1, ptr %590) #23
+586:                                              ; preds = %583
+  %587 = load ptr, ptr @stderr, align 8
+  %588 = call i64 @fwrite(ptr nonnull @.str.52, i64 23, i64 1, ptr %587) #23
   br label %do_fclose.exit101
 
-do_fclose.exit101:                                ; preds = %586, %579, %589, %581, %576, %584, %577
+do_fclose.exit101:                                ; preds = %583, %576, %586, %578, %573, %581, %574
   call void @free(ptr noundef %.055) #18
   call void @free(ptr noundef %.053) #18
   store i32 %.054, ptr %1, align 8

@@ -384,7 +384,7 @@ if.then73:                                        ; preds = %if.else71
 if.end85:                                         ; preds = %if.then54, %if.then41
   %22 = phi i64 [ %20, %if.then54 ], [ %17, %if.then41 ]
   %23 = phi i64 [ %19, %if.then54 ], [ %15, %if.then41 ]
-  switch i64 %size.addr.0.lcssa, label %return [
+  switch i64 %size.addr.0.lcssa, label %default.unreachable [
     i64 7, label %sw.bb
     i64 6, label %sw.bb89
     i64 5, label %sw.bb93
@@ -469,8 +469,11 @@ sw.bb109:                                         ; preds = %if.then73, %sw.bb10
   %42 = icmp eq i16 %41, 0
   br label %return
 
-return:                                           ; preds = %if.end32, %sw.bb109, %if.end85, %if.else71, %if.then73, %if.then54, %if.then41
-  %retval.0 = phi i1 [ true, %if.then41 ], [ true, %if.then54 ], [ true, %if.then73 ], [ true, %if.else71 ], [ true, %if.end85 ], [ %42, %sw.bb109 ], [ false, %if.end32 ]
+default.unreachable:                              ; preds = %if.end85
+  unreachable
+
+return:                                           ; preds = %if.end32, %sw.bb109, %if.else71, %if.then73, %if.then54, %if.then41
+  %retval.0 = phi i1 [ true, %if.then41 ], [ true, %if.then54 ], [ true, %if.then73 ], [ true, %if.else71 ], [ %42, %sw.bb109 ], [ false, %if.end32 ]
   ret i1 %retval.0
 }
 

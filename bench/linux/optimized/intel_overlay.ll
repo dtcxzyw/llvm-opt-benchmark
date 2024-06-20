@@ -880,10 +880,8 @@ define internal fastcc noundef range(i32 -22, 5) i32 @check_overlay_src(ptr noca
   br i1 %85, label %132, label %86
 
 86:                                               ; preds = %79
-  switch i8 %40, label %131 [
-    i8 1, label %103
-    i8 2, label %87
-  ]
+  %switch = icmp eq i8 %40, 1
+  br i1 %switch, label %103, label %87
 
 87:                                               ; preds = %86
   %88 = icmp eq i32 %5, 256
@@ -942,7 +940,7 @@ define internal fastcc noundef range(i32 -22, 5) i32 @check_overlay_src(ptr noca
   %130 = icmp ult i64 %115, %129
   br i1 %130, label %132, label %131
 
-131:                                              ; preds = %125, %93, %86
+131:                                              ; preds = %125, %93
   br label %132
 
 132:                                              ; preds = %131, %125, %117, %107, %103, %93, %87, %79, %73, %67, %57, %53, %51, %43, %41, %39, %36, %31, %29, %25, %23

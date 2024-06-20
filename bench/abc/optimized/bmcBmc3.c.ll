@@ -3680,7 +3680,7 @@ Aig_ManObj.exit:                                  ; preds = %74, %77
 
 127:                                              ; preds = %123
   %128 = trunc nuw nsw i64 %indvars.iv31.i to i32
-  switch i32 %128, label %Saig_ManBmcCofEqual.exit.thread.i [
+  switch i32 %128, label %default.unreachable.i [
     i32 0, label %Saig_ManBmcCofEqual.exit.i
     i32 1, label %129
     i32 2, label %130
@@ -3701,7 +3701,10 @@ Saig_ManBmcCofEqual.exit.i:                       ; preds = %131, %130, %129, %1
   %.0.i.in.not.i = icmp eq i32 %.0.i.in.in.i, 0
   br i1 %.0.i.in.not.i, label %Saig_ManBmcCofEqual.exit.thread.i, label %132
 
-Saig_ManBmcCofEqual.exit.thread.i:                ; preds = %Saig_ManBmcCofEqual.exit.i, %127
+default.unreachable.i:                            ; preds = %127
+  unreachable
+
+Saig_ManBmcCofEqual.exit.thread.i:                ; preds = %Saig_ManBmcCofEqual.exit.i
   store i32 -1, ptr %124, align 4
   br label %132
 

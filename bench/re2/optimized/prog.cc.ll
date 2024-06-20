@@ -210,7 +210,7 @@ entry:
   %ref.tmp.i6 = alloca [2 x %"class.absl::debian2::str_format_internal::FormatArgImpl"], align 8
   %0 = load i32, ptr %this, align 4
   %and.i = and i32 %0, 7
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %default.unreachable112 [
     i32 0, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
     i32 1, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit17
     i32 2, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE262148ELS3_131067ELS3_131067ELS3_131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_262148ELS3_131067ELS3_131067ELS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
@@ -221,7 +221,7 @@ entry:
     i32 7, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplITpTnNS0_23FormatConversionCharSetEJEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
   ]
 
-default.unreachable:                              ; preds = %entry
+default.unreachable112:                           ; preds = %entry
   unreachable
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067ELS3_131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067ELS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit: ; preds = %entry
@@ -4004,7 +4004,7 @@ _ZN3re210SparseSetTIvE10insert_newEi.exit:        ; preds = %Loop, %if.end.i.i11
   %arrayidx.i.i.i127 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %52, i64 %conv.i.i104
   %53 = load i32, ptr %arrayidx.i.i.i127, align 4
   %and.i = and i32 %53, 7
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %default.unreachable311 [
     i32 1, label %sw.bb
     i32 0, label %sw.bb
     i32 2, label %sw.bb55
@@ -4015,7 +4015,7 @@ _ZN3re210SparseSetTIvE10insert_newEi.exit:        ; preds = %Loop, %if.end.i.i11
     i32 7, label %while.cond.backedge
   ]
 
-default.unreachable:                              ; preds = %_ZN3re210SparseSetTIvE10insert_newEi.exit
+default.unreachable311:                           ; preds = %_ZN3re210SparseSetTIvE10insert_newEi.exit
   unreachable
 
 sw.bb:                                            ; preds = %_ZN3re210SparseSetTIvE10insert_newEi.exit, %_ZN3re210SparseSetTIvE10insert_newEi.exit
@@ -4060,8 +4060,8 @@ _ZNK3re211SparseArrayIiE9has_indexEi.exit145:     ; preds = %if.end.i136
 
 if.end.i.i153:                                    ; preds = %_ZNK3re211SparseArrayIiE9has_indexEi.exit145, %if.then42.thread292
   %.sink = phi ptr [ %62, %if.then42.thread292 ], [ %.pre309, %_ZNK3re211SparseArrayIiE9has_indexEi.exit145 ]
-  %.sink311 = load ptr, ptr %_M_finish.i146, align 8
-  %sub.ptr.lhs.cast.i294 = ptrtoint ptr %.sink311 to i64
+  %.sink312 = load ptr, ptr %_M_finish.i146, align 8
+  %sub.ptr.lhs.cast.i294 = ptrtoint ptr %.sink312 to i64
   %sub.ptr.rhs.cast.i295 = ptrtoint ptr %.sink to i64
   %sub.ptr.sub.i296 = sub i64 %sub.ptr.lhs.cast.i294, %sub.ptr.rhs.cast.i295
   %conv291.in = sdiv exact i64 %sub.ptr.sub.i296, 24
@@ -4567,7 +4567,7 @@ if.end7:                                          ; preds = %if.end.i44, %land.l
   %arrayidx.i.i.i55 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %24, i64 %conv.i.i53
   %25 = load i32, ptr %arrayidx.i.i.i55, align 4
   %and.i = and i32 %25, 7
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %default.unreachable151 [
     i32 1, label %sw.bb
     i32 0, label %sw.bb
     i32 2, label %while.cond.backedge
@@ -4578,7 +4578,7 @@ if.end7:                                          ; preds = %if.end.i44, %land.l
     i32 7, label %while.cond.backedge
   ]
 
-default.unreachable:                              ; preds = %if.end7
+default.unreachable151:                           ; preds = %if.end7
   unreachable
 
 sw.bb:                                            ; preds = %if.end7, %if.end7
@@ -5088,7 +5088,7 @@ if.end11:                                         ; preds = %if.end.i50, %land.l
   %arrayidx.i.i.i99 = getelementptr inbounds %"class.re2::Prog::Inst", ptr %40, i64 %conv.i.i97
   %41 = load i32, ptr %arrayidx.i.i.i99, align 4
   %and.i = and i32 %41, 7
-  switch i32 %and.i, label %default.unreachable [
+  switch i32 %and.i, label %default.unreachable269 [
     i32 1, label %sw.bb
     i32 0, label %sw.bb28
     i32 2, label %sw.bb32
@@ -5099,7 +5099,7 @@ if.end11:                                         ; preds = %if.end.i50, %land.l
     i32 7, label %sw.bb40
   ]
 
-default.unreachable:                              ; preds = %if.end11
+default.unreachable269:                           ; preds = %if.end11
   unreachable
 
 sw.bb:                                            ; preds = %if.end11

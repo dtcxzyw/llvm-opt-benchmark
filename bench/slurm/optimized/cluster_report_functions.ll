@@ -69,8 +69,8 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   br label %.thread154
 
 27:                                               ; preds = %20, %12
-  %.sink181 = phi ptr [ %2, %20 ], [ %17, %12 ]
-  %28 = load ptr, ptr %.sink181, align 8
+  %.sink180 = phi ptr [ %2, %20 ], [ %17, %12 ]
+  %28 = load ptr, ptr %.sink180, align 8
   %29 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %28, ptr %29, align 8
   %30 = call i32 @slurmdb_report_set_start_end_time(ptr noundef nonnull %6, ptr noundef nonnull %7) #4
@@ -123,12 +123,12 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
   %51 = call ptr @list_iterator_create(ptr noundef nonnull %35) #4
   %52 = call ptr @list_iterator_create(ptr noundef %.195) #4
   %53 = call ptr @list_next(ptr noundef %51) #4
-  %.not104167 = icmp eq ptr %53, null
-  br i1 %.not104167, label %._crit_edge, label %.lr.ph
+  %.not104166 = icmp eq ptr %53, null
+  br i1 %.not104166, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread134
   %54 = and i32 %3, -3
-  %trunc = trunc nuw i32 %3 to i1
+  %switch = icmp eq i32 %3, 0
   %55 = and i32 %3, -2
   %or.cond17 = icmp eq i32 %55, 2
   %56 = icmp eq i32 %3, 2
@@ -163,9 +163,9 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
 
 66:                                               ; preds = %63, %65
   %slurmdb_destroy_report_assoc_rec.sink = phi ptr [ @slurmdb_destroy_report_assoc_rec, %65 ], [ @slurmdb_destroy_report_user_rec, %63 ]
-  %.sink183 = phi i64 [ 8, %65 ], [ 32, %63 ]
+  %.sink182 = phi i64 [ 8, %65 ], [ 32, %63 ]
   %67 = call ptr @list_create(ptr noundef nonnull %slurmdb_destroy_report_assoc_rec.sink) #4
-  %68 = getelementptr inbounds i8, ptr %64, i64 %.sink183
+  %68 = getelementptr inbounds i8, ptr %64, i64 %.sink182
   store ptr %67, ptr %68, align 8
   br i1 %or.cond, label %69, label %.thread136
 
@@ -179,7 +179,7 @@ define internal fastcc ptr @_process_util_by_report(ptr noundef %0, ptr noundef 
 .lr.ph.i:                                         ; preds = %69
   %73 = getelementptr inbounds i8, ptr %64, i64 8
   %74 = getelementptr inbounds i8, ptr %64, i64 32
-  br i1 %trunc, label %.lr.ph.split.split.us.i, label %.lr.ph.split.us.i
+  br i1 %switch, label %.lr.ph.split.us.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.backedge.us.i
   %75 = phi ptr [ %121, %.backedge.us.i ], [ %72, %.lr.ph.i ]
@@ -510,7 +510,7 @@ _process_wu.exit.i:                               ; preds = %._crit_edge.i.i, %2
   call void @slurmdb_transfer_acct_list_2_tres(ptr noundef %225, ptr noundef nonnull %226) #4
   br label %.backedge.sink.split.i117
 
-_process_assoc_type.exit:                         ; preds = %.backedge.us.i, %.backedge.us26.i, %.backedge.i115, %.backedge.us.i123, %150, %69, %.thread136
+_process_assoc_type.exit:                         ; preds = %.backedge.us26.i, %.backedge.us.i, %.backedge.i115, %.backedge.us.i123, %150, %69, %.thread136
   call void @list_iterator_reset(ptr noundef %52) #4
   br label %.backedge
 

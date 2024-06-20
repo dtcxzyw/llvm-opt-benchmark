@@ -72,8 +72,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.54 = private unnamed_addr constant [6 x i8] c"subid\00", align 1
 @.str.55 = private unnamed_addr constant [18 x i8] c"apply_error_count\00", align 1
 @.str.56 = private unnamed_addr constant [17 x i8] c"sync_error_count\00", align 1
-@.str.57 = private unnamed_addr constant [28 x i8] c"unrecognized IOOp value: %d\00", align 1
-@__func__.pgstat_get_io_op_index = private unnamed_addr constant [23 x i8] c"pgstat_get_io_op_index\00", align 1
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @pg_stat_get_analyze_count(ptr nocapture noundef readonly %0) local_unnamed_addr #0 {
@@ -2905,42 +2903,42 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   %13 = getelementptr inbounds i8, ptr %5, i64 40
   %14 = getelementptr inbounds i8, ptr %5, i64 48
   %.0.i53.sroa.gep = getelementptr inbounds i8, ptr %3, i64 7
-  %.0.i53.sroa.gep84 = getelementptr inbounds i8, ptr %3, i64 5
-  %.0.i53.sroa.gep85 = getelementptr inbounds i8, ptr %3, i64 3
-  %.0.i53.sroa.gep86 = getelementptr inbounds i8, ptr %3, i64 9
-  %.0.i53.sroa.gep87 = getelementptr inbounds i8, ptr %3, i64 15
-  %.0.i53.sroa.gep88 = getelementptr inbounds i8, ptr %3, i64 12
-  %.0.i53.sroa.gep89 = getelementptr inbounds i8, ptr %3, i64 14
-  %.0.i53.sroa.gep90 = getelementptr inbounds i8, ptr %3, i64 13
+  %.0.i53.sroa.gep82 = getelementptr inbounds i8, ptr %3, i64 5
+  %.0.i53.sroa.gep83 = getelementptr inbounds i8, ptr %3, i64 3
+  %.0.i53.sroa.gep84 = getelementptr inbounds i8, ptr %3, i64 9
+  %.0.i53.sroa.gep85 = getelementptr inbounds i8, ptr %3, i64 15
+  %.0.i53.sroa.gep86 = getelementptr inbounds i8, ptr %3, i64 12
+  %.0.i53.sroa.gep87 = getelementptr inbounds i8, ptr %3, i64 14
+  %.0.i53.sroa.gep88 = getelementptr inbounds i8, ptr %3, i64 13
   %.0.i51.sroa.gep = getelementptr inbounds i8, ptr %3, i64 8
-  %.0.i51.sroa.gep100 = getelementptr inbounds i8, ptr %3, i64 6
-  %.0.i51.sroa.gep101 = getelementptr inbounds i8, ptr %3, i64 4
-  %.0.i51.sroa.gep102 = getelementptr inbounds i8, ptr %3, i64 10
-  %.0.i51.sroa.gep103 = getelementptr inbounds i8, ptr %3, i64 16
-  %.0.i51.sroa.gep104 = getelementptr i8, ptr %3, i64 4294967295
-  %.0.i53.sroa.gep108 = getelementptr inbounds i8, ptr %2, i64 56
-  %.0.i53.sroa.gep109 = getelementptr inbounds i8, ptr %2, i64 40
-  %.0.i53.sroa.gep110 = getelementptr inbounds i8, ptr %2, i64 24
-  %.0.i53.sroa.gep111 = getelementptr inbounds i8, ptr %2, i64 72
-  %.0.i53.sroa.gep112 = getelementptr inbounds i8, ptr %2, i64 120
-  %.0.i53.sroa.gep113 = getelementptr inbounds i8, ptr %2, i64 96
-  %.0.i53.sroa.gep114 = getelementptr inbounds i8, ptr %2, i64 112
-  %.0.i53.sroa.gep115 = getelementptr inbounds i8, ptr %2, i64 104
-  %.0.i51.sroa.gep117 = getelementptr inbounds i8, ptr %2, i64 64
-  %.0.i51.sroa.gep118 = getelementptr inbounds i8, ptr %2, i64 48
-  %.0.i51.sroa.gep119 = getelementptr inbounds i8, ptr %2, i64 32
-  %.0.i51.sroa.gep120 = getelementptr inbounds i8, ptr %2, i64 80
-  %.0.i51.sroa.gep121 = getelementptr inbounds i8, ptr %2, i64 128
-  %.0.i51.sroa.gep122 = getelementptr i8, ptr %2, i64 34359738360
+  %.0.i51.sroa.gep98 = getelementptr inbounds i8, ptr %3, i64 6
+  %.0.i51.sroa.gep99 = getelementptr inbounds i8, ptr %3, i64 4
+  %.0.i51.sroa.gep100 = getelementptr inbounds i8, ptr %3, i64 10
+  %.0.i51.sroa.gep101 = getelementptr inbounds i8, ptr %3, i64 16
+  %.0.i51.sroa.gep102 = getelementptr i8, ptr %3, i64 4294967295
+  %.0.i53.sroa.gep106 = getelementptr inbounds i8, ptr %2, i64 56
+  %.0.i53.sroa.gep107 = getelementptr inbounds i8, ptr %2, i64 40
+  %.0.i53.sroa.gep108 = getelementptr inbounds i8, ptr %2, i64 24
+  %.0.i53.sroa.gep109 = getelementptr inbounds i8, ptr %2, i64 72
+  %.0.i53.sroa.gep110 = getelementptr inbounds i8, ptr %2, i64 120
+  %.0.i53.sroa.gep111 = getelementptr inbounds i8, ptr %2, i64 96
+  %.0.i53.sroa.gep112 = getelementptr inbounds i8, ptr %2, i64 112
+  %.0.i53.sroa.gep113 = getelementptr inbounds i8, ptr %2, i64 104
+  %.0.i51.sroa.gep115 = getelementptr inbounds i8, ptr %2, i64 64
+  %.0.i51.sroa.gep116 = getelementptr inbounds i8, ptr %2, i64 48
+  %.0.i51.sroa.gep117 = getelementptr inbounds i8, ptr %2, i64 32
+  %.0.i51.sroa.gep118 = getelementptr inbounds i8, ptr %2, i64 80
+  %.0.i51.sroa.gep119 = getelementptr inbounds i8, ptr %2, i64 128
+  %.0.i51.sroa.gep120 = getelementptr i8, ptr %2, i64 34359738360
   br label %15
 
 15:                                               ; preds = %1, %.loopexit
-  %indvars.iv80 = phi i64 [ 0, %1 ], [ %indvars.iv.next81, %.loopexit ]
-  %16 = trunc nuw nsw i64 %indvars.iv80 to i32
+  %indvars.iv78 = phi i64 [ 0, %1 ], [ %indvars.iv.next79, %.loopexit ]
+  %16 = trunc nuw nsw i64 %indvars.iv78 to i32
   %17 = call ptr @GetBackendTypeDesc(i32 noundef %16) #10
   %18 = call ptr @cstring_to_text(ptr noundef %17) #10
   %19 = ptrtoint ptr %18 to i64
-  %20 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %8, i64 0, i64 %indvars.iv80
+  %20 = getelementptr [16 x %struct.PgStat_BktypeIO], ptr %8, i64 0, i64 %indvars.iv78
   %21 = call zeroext i1 @pgstat_tracks_io_bktype(i32 noundef %16) #10
   br i1 %21, label %.preheader, label %.loopexit
 
@@ -2948,21 +2946,21 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   %22 = getelementptr inbounds i8, ptr %20, i64 512
   br label %23
 
-23:                                               ; preds = %.preheader, %66
-  %24 = phi i1 [ true, %.preheader ], [ false, %66 ]
-  %indvars.iv77 = phi i64 [ 0, %.preheader ], [ 1, %66 ]
-  %25 = trunc nuw nsw i64 %indvars.iv77 to i32
+23:                                               ; preds = %.preheader, %63
+  %24 = phi i1 [ true, %.preheader ], [ false, %63 ]
+  %indvars.iv75 = phi i64 [ 0, %.preheader ], [ 1, %63 ]
+  %25 = trunc nuw nsw i64 %indvars.iv75 to i32
   %26 = call ptr @pgstat_get_io_object_name(i32 noundef %25) #10
   br label %27
 
-27:                                               ; preds = %23, %65
-  %indvars.iv73 = phi i64 [ 0, %23 ], [ %indvars.iv.next74, %65 ]
-  %28 = trunc nuw nsw i64 %indvars.iv73 to i32
+27:                                               ; preds = %23, %62
+  %indvars.iv71 = phi i64 [ 0, %23 ], [ %indvars.iv.next72, %62 ]
+  %28 = trunc nuw nsw i64 %indvars.iv71 to i32
   %29 = call ptr @pgstat_get_io_context_name(i32 noundef %28) #10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(144) %2, i8 0, i64 144, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(18) %3, i8 0, i64 18, i1 false)
   %30 = call zeroext i1 @pgstat_tracks_io_object(i32 noundef %16, i32 noundef %25, i32 noundef %28) #10
-  br i1 %30, label %31, label %65
+  br i1 %30, label %31, label %62
 
 31:                                               ; preds = %27
   store i64 %19, ptr %2, align 16
@@ -2976,18 +2974,18 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
   store i64 8192, ptr %12, align 8
   br label %36
 
-36:                                               ; preds = %31, %61
-  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %61 ]
+36:                                               ; preds = %31, %58
+  %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %58 ]
   %37 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %37, label %40 [
+  switch i32 %37, label %default.unreachable [
     i32 0, label %pgstat_get_io_op_index.exit.thread
     i32 1, label %pgstat_get_io_op_index.exit.i
     i32 2, label %pgstat_get_io_time_index.exit
     i32 3, label %38
-    i32 4, label %43
+    i32 4, label %40
     i32 5, label %39
     i32 6, label %pgstat_get_io_op_index.exit
-    i32 7, label %44
+    i32 7, label %41
   ]
 
 38:                                               ; preds = %36
@@ -2996,92 +2994,88 @@ define dso_local noundef i64 @pg_stat_get_io(ptr noundef %0) local_unnamed_addr 
 39:                                               ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
-40:                                               ; preds = %36
-  %41 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
-  call void @llvm.assume(i1 %41)
-  %42 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.57, i32 noundef %37) #10
-  call void @errfinish(ptr noundef nonnull @.str.7, i32 noundef 1321, ptr noundef nonnull @__func__.pgstat_get_io_op_index) #10
+default.unreachable:                              ; preds = %36
   unreachable
 
 pgstat_get_io_op_index.exit.thread:               ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
-43:                                               ; preds = %36
+40:                                               ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
 pgstat_get_io_op_index.exit:                      ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
-44:                                               ; preds = %36
+41:                                               ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
 pgstat_get_io_op_index.exit.i:                    ; preds = %36
   br label %pgstat_get_io_time_index.exit
 
-pgstat_get_io_time_index.exit:                    ; preds = %39, %38, %36, %pgstat_get_io_op_index.exit.thread, %43, %pgstat_get_io_op_index.exit, %44, %pgstat_get_io_op_index.exit.i
-  %.0.i53.sroa.phi = phi ptr [ %.0.i53.sroa.gep, %44 ], [ %.0.i53.sroa.gep84, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep85, %43 ], [ %.0.i53.sroa.gep86, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep87, %36 ], [ %.0.i53.sroa.gep88, %38 ], [ %.0.i53.sroa.gep89, %39 ], [ %.0.i53.sroa.gep90, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i53.sroa.phi107 = phi ptr [ %.0.i53.sroa.gep108, %44 ], [ %.0.i53.sroa.gep109, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep110, %43 ], [ %.0.i53.sroa.gep111, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep112, %36 ], [ %.0.i53.sroa.gep113, %38 ], [ %.0.i53.sroa.gep114, %39 ], [ %.0.i53.sroa.gep115, %pgstat_get_io_op_index.exit.thread ]
-  %45 = phi i1 [ false, %44 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %43 ], [ false, %pgstat_get_io_op_index.exit.i ], [ false, %36 ], [ true, %38 ], [ true, %39 ], [ true, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i51.sroa.phi = phi ptr [ %.0.i51.sroa.gep, %44 ], [ %.0.i51.sroa.gep100, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep101, %43 ], [ %.0.i51.sroa.gep102, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep103, %36 ], [ %.0.i51.sroa.gep104, %38 ], [ %.0.i51.sroa.gep104, %39 ], [ %.0.i51.sroa.gep104, %pgstat_get_io_op_index.exit.thread ]
-  %.0.i51.sroa.phi116 = phi ptr [ %.0.i51.sroa.gep117, %44 ], [ %.0.i51.sroa.gep118, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep119, %43 ], [ %.0.i51.sroa.gep120, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep121, %36 ], [ %.0.i51.sroa.gep122, %38 ], [ %.0.i51.sroa.gep122, %39 ], [ %.0.i51.sroa.gep122, %pgstat_get_io_op_index.exit.thread ]
-  %46 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %16, i32 noundef %25, i32 noundef %28, i32 noundef %37) #10
-  br i1 %46, label %47, label %50
+pgstat_get_io_time_index.exit:                    ; preds = %39, %38, %36, %pgstat_get_io_op_index.exit.thread, %40, %pgstat_get_io_op_index.exit, %41, %pgstat_get_io_op_index.exit.i
+  %.0.i53.sroa.phi = phi ptr [ %.0.i53.sroa.gep, %41 ], [ %.0.i53.sroa.gep82, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep83, %40 ], [ %.0.i53.sroa.gep84, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep85, %36 ], [ %.0.i53.sroa.gep86, %38 ], [ %.0.i53.sroa.gep87, %39 ], [ %.0.i53.sroa.gep88, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i53.sroa.phi105 = phi ptr [ %.0.i53.sroa.gep106, %41 ], [ %.0.i53.sroa.gep107, %pgstat_get_io_op_index.exit ], [ %.0.i53.sroa.gep108, %40 ], [ %.0.i53.sroa.gep109, %pgstat_get_io_op_index.exit.i ], [ %.0.i53.sroa.gep110, %36 ], [ %.0.i53.sroa.gep111, %38 ], [ %.0.i53.sroa.gep112, %39 ], [ %.0.i53.sroa.gep113, %pgstat_get_io_op_index.exit.thread ]
+  %42 = phi i1 [ false, %41 ], [ false, %pgstat_get_io_op_index.exit ], [ false, %40 ], [ false, %pgstat_get_io_op_index.exit.i ], [ false, %36 ], [ true, %38 ], [ true, %39 ], [ true, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi = phi ptr [ %.0.i51.sroa.gep, %41 ], [ %.0.i51.sroa.gep98, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep99, %40 ], [ %.0.i51.sroa.gep100, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep101, %36 ], [ %.0.i51.sroa.gep102, %38 ], [ %.0.i51.sroa.gep102, %39 ], [ %.0.i51.sroa.gep102, %pgstat_get_io_op_index.exit.thread ]
+  %.0.i51.sroa.phi114 = phi ptr [ %.0.i51.sroa.gep115, %41 ], [ %.0.i51.sroa.gep116, %pgstat_get_io_op_index.exit ], [ %.0.i51.sroa.gep117, %40 ], [ %.0.i51.sroa.gep118, %pgstat_get_io_op_index.exit.i ], [ %.0.i51.sroa.gep119, %36 ], [ %.0.i51.sroa.gep120, %38 ], [ %.0.i51.sroa.gep120, %39 ], [ %.0.i51.sroa.gep120, %pgstat_get_io_op_index.exit.thread ]
+  %43 = call zeroext i1 @pgstat_tracks_io_op(i32 noundef %16, i32 noundef %25, i32 noundef %28, i32 noundef %37) #10
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %pgstat_get_io_time_index.exit
+  %45 = getelementptr [2 x [4 x [8 x i64]]], ptr %20, i64 0, i64 %indvars.iv75, i64 %indvars.iv71, i64 %indvars.iv
+  %46 = load i64, ptr %45, align 8
+  store i64 %46, ptr %.0.i53.sroa.phi105, align 8
+  br label %48
 
 47:                                               ; preds = %pgstat_get_io_time_index.exit
-  %48 = getelementptr [2 x [4 x [8 x i64]]], ptr %20, i64 0, i64 %indvars.iv77, i64 %indvars.iv73, i64 %indvars.iv
-  %49 = load i64, ptr %48, align 8
-  store i64 %49, ptr %.0.i53.sroa.phi107, align 8
-  br label %51
-
-50:                                               ; preds = %pgstat_get_io_time_index.exit
   store i8 1, ptr %.0.i53.sroa.phi, align 1
-  br label %51
+  br label %48
 
-51:                                               ; preds = %50, %47
-  br i1 %45, label %61, label %52
+48:                                               ; preds = %47, %44
+  br i1 %42, label %58, label %49
 
-52:                                               ; preds = %51
-  %53 = load i8, ptr %.0.i53.sroa.phi, align 1
-  %54 = trunc i8 %53 to i1
-  br i1 %54, label %60, label %55
+49:                                               ; preds = %48
+  %50 = load i8, ptr %.0.i53.sroa.phi, align 1
+  %51 = trunc i8 %50 to i1
+  br i1 %51, label %57, label %52
 
-55:                                               ; preds = %52
-  %56 = getelementptr [2 x [4 x [8 x i64]]], ptr %22, i64 0, i64 %indvars.iv77, i64 %indvars.iv73, i64 %indvars.iv
-  %57 = load i64, ptr %56, align 8
-  %58 = sitofp i64 %57 to double
-  %59 = fmul double %58, 1.000000e-03
-  store double %59, ptr %.0.i51.sroa.phi116, align 8
-  br label %61
+52:                                               ; preds = %49
+  %53 = getelementptr [2 x [4 x [8 x i64]]], ptr %22, i64 0, i64 %indvars.iv75, i64 %indvars.iv71, i64 %indvars.iv
+  %54 = load i64, ptr %53, align 8
+  %55 = sitofp i64 %54 to double
+  %56 = fmul double %55, 1.000000e-03
+  store double %56, ptr %.0.i51.sroa.phi114, align 8
+  br label %58
 
-60:                                               ; preds = %52
+57:                                               ; preds = %49
   store i8 1, ptr %.0.i51.sroa.phi, align 1
-  br label %61
+  br label %58
 
-61:                                               ; preds = %55, %60, %51
+58:                                               ; preds = %52, %57, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %62, label %36, !llvm.loop !10
+  br i1 %exitcond.not, label %59, label %36, !llvm.loop !10
 
-62:                                               ; preds = %61
-  %63 = load ptr, ptr %13, align 8
-  %64 = load ptr, ptr %14, align 8
-  call void @tuplestore_putvalues(ptr noundef %63, ptr noundef %64, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
-  br label %65
+59:                                               ; preds = %58
+  %60 = load ptr, ptr %13, align 8
+  %61 = load ptr, ptr %14, align 8
+  call void @tuplestore_putvalues(ptr noundef %60, ptr noundef %61, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
+  br label %62
 
-65:                                               ; preds = %27, %62
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next74, 4
-  br i1 %exitcond76.not, label %66, label %27, !llvm.loop !11
+62:                                               ; preds = %27, %59
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
+  br i1 %exitcond74.not, label %63, label %27, !llvm.loop !11
 
-66:                                               ; preds = %65
+63:                                               ; preds = %62
   br i1 %24, label %23, label %.loopexit, !llvm.loop !12
 
-.loopexit:                                        ; preds = %66, %15
-  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
-  %exitcond83.not = icmp eq i64 %indvars.iv.next81, 16
-  br i1 %exitcond83.not, label %67, label %15, !llvm.loop !13
+.loopexit:                                        ; preds = %63, %15
+  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %exitcond81.not = icmp eq i64 %indvars.iv.next79, 16
+  br i1 %exitcond81.not, label %64, label %15, !llvm.loop !13
 
-67:                                               ; preds = %.loopexit
+64:                                               ; preds = %.loopexit
   ret i64 0
 }
 
@@ -4063,8 +4057,6 @@ declare i32 @pgstat_get_kind_from_str(ptr noundef) local_unnamed_addr #1
 declare zeroext i1 @pgstat_have_entry(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i64 @HeapTupleHeaderGetDatum(ptr noundef) local_unnamed_addr #1
-
-declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7

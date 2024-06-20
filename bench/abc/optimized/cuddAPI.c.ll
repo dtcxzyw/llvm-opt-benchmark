@@ -2670,15 +2670,15 @@ switch.lookup:                                    ; preds = %3
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = ptrtoint ptr %2 to i64
-  %5 = trunc i64 %4 to i32
-  %6 = getelementptr inbounds i8, ptr %0, i64 608
-  %7 = load ptr, ptr %6, align 8
-  %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.49, ptr noundef %1) #20
-  %9 = icmp eq i32 %8, -1
-  br i1 %9, label %87, label %10
+  %5 = getelementptr inbounds i8, ptr %0, i64 608
+  %6 = load ptr, ptr %5, align 8
+  %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %6, ptr noundef nonnull @.str.49, ptr noundef %1) #20
+  %8 = icmp eq i32 %7, -1
+  br i1 %8, label %85, label %9
 
-10:                                               ; preds = %3
-  switch i32 %5, label %87 [
+9:                                                ; preds = %3
+  %10 = trunc i64 %4 to i32
+  switch i32 %10, label %85 [
     i32 5, label %11
     i32 7, label %11
     i32 15, label %11
@@ -2686,159 +2686,156 @@ define range(i32 0, 2) i32 @Cudd_StdPreReordHook(ptr noundef %0, ptr noundef %1,
     i32 12, label %11
     i32 13, label %11
     i32 19, label %11
-    i32 2, label %27
-    i32 3, label %27
-    i32 4, label %17
-    i32 6, label %18
-    i32 20, label %19
-    i32 14, label %20
-    i32 8, label %21
-    i32 9, label %21
-    i32 10, label %21
-    i32 16, label %22
-    i32 17, label %23
-    i32 18, label %24
-    i32 21, label %25
+    i32 2, label %25
+    i32 3, label %25
+    i32 4, label %16
+    i32 6, label %17
+    i32 20, label %18
+    i32 14, label %19
+    i32 8, label %20
+    i32 9, label %20
+    i32 10, label %20
+    i32 16, label %21
+    i32 17, label %22
+    i32 18, label %23
+    i32 21, label %24
   ]
 
-11:                                               ; preds = %10, %10, %10, %10, %10, %10, %10
-  %12 = load ptr, ptr %6, align 8
+11:                                               ; preds = %9, %9, %9, %9, %9, %9, %9
+  %12 = load ptr, ptr %5, align 8
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %12, ptr noundef nonnull @.str.50) #20
   %14 = icmp eq i32 %13, -1
-  br i1 %14, label %87, label %15
+  br i1 %14, label %85, label %switch.lookup
 
-15:                                               ; preds = %11
-  %switch.tableidx = add i32 %5, -5
-  %16 = icmp ult i32 %switch.tableidx, 15
-  br i1 %16, label %switch.lookup, label %87
-
-17:                                               ; preds = %10
-  br label %27
-
-18:                                               ; preds = %10
-  br label %27
-
-19:                                               ; preds = %10
-  br label %27
-
-20:                                               ; preds = %10
-  br label %27
-
-21:                                               ; preds = %10, %10, %10
-  br label %27
-
-22:                                               ; preds = %10
-  br label %27
-
-23:                                               ; preds = %10
-  br label %27
-
-24:                                               ; preds = %10
-  br label %27
-
-25:                                               ; preds = %10
-  br label %27
-
-switch.lookup:                                    ; preds = %15
-  %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %26
+switch.lookup:                                    ; preds = %11
+  %switch.tableidx = shl i64 %4, 32
+  %sext = add i64 %switch.tableidx, -21474836480
+  %15 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [15 x ptr], ptr @switch.table.Cudd_StdPreReordHook, i64 0, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %27
+  br label %25
 
-27:                                               ; preds = %switch.lookup, %10, %10, %25, %24, %23, %22, %21, %20, %19, %18, %17
-  %.str.60.sink = phi ptr [ @.str.60, %25 ], [ @.str.59, %24 ], [ @.str.58, %23 ], [ @.str.57, %22 ], [ @.str.56, %21 ], [ @.str.55, %20 ], [ @.str.54, %19 ], [ @.str.53, %18 ], [ @.str.52, %17 ], [ @.str.51, %10 ], [ @.str.51, %10 ], [ %switch.load, %switch.lookup ]
-  %28 = load ptr, ptr %6, align 8
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull %.str.60.sink) #20
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %87, label %31
+16:                                               ; preds = %9
+  br label %25
 
-31:                                               ; preds = %27
-  %32 = load ptr, ptr %6, align 8
-  %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #23
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %72
+17:                                               ; preds = %9
+  br label %25
 
-35:                                               ; preds = %31
+18:                                               ; preds = %9
+  br label %25
+
+19:                                               ; preds = %9
+  br label %25
+
+20:                                               ; preds = %9, %9, %9
+  br label %25
+
+21:                                               ; preds = %9
+  br label %25
+
+22:                                               ; preds = %9
+  br label %25
+
+23:                                               ; preds = %9
+  br label %25
+
+24:                                               ; preds = %9
+  br label %25
+
+25:                                               ; preds = %switch.lookup, %9, %9, %24, %23, %22, %21, %20, %19, %18, %17, %16
+  %.str.60.sink = phi ptr [ @.str.60, %24 ], [ @.str.59, %23 ], [ @.str.58, %22 ], [ @.str.57, %21 ], [ @.str.56, %20 ], [ @.str.55, %19 ], [ @.str.54, %18 ], [ @.str.53, %17 ], [ @.str.52, %16 ], [ @.str.51, %9 ], [ @.str.51, %9 ], [ %switch.load, %switch.lookup ]
+  %26 = load ptr, ptr %5, align 8
+  %27 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %26, ptr noundef nonnull %.str.60.sink) #20
+  %28 = icmp eq i32 %27, -1
+  br i1 %28, label %85, label %29
+
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %5, align 8
+  %31 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(4) @.str.62) #23
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %70
+
+33:                                               ; preds = %29
   tail call void @cuddClearDeathRow(ptr noundef nonnull %0) #20
-  %36 = getelementptr inbounds i8, ptr %0, i64 228
+  %34 = getelementptr inbounds i8, ptr %0, i64 228
+  %35 = load i32, ptr %34, align 4
+  %36 = getelementptr inbounds i8, ptr %0, i64 236
   %37 = load i32, ptr %36, align 4
-  %38 = getelementptr inbounds i8, ptr %0, i64 236
-  %39 = load i32, ptr %38, align 4
-  %40 = sub i32 %37, %39
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds i8, ptr %0, i64 136
-  %43 = load i32, ptr %42, align 8
-  %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph.i, label %Cudd_ReadNodeCount.exit
+  %38 = sub i32 %35, %37
+  %39 = zext i32 %38 to i64
+  %40 = getelementptr inbounds i8, ptr %0, i64 136
+  %41 = load i32, ptr %40, align 8
+  %42 = icmp sgt i32 %41, 0
+  br i1 %42, label %.lr.ph.i, label %Cudd_ReadNodeCount.exit
 
-.lr.ph.i:                                         ; preds = %35
-  %45 = getelementptr inbounds i8, ptr %0, i64 344
-  %46 = load ptr, ptr %45, align 8
-  %wide.trip.count.i = zext nneg i32 %43 to i64
-  br label %47
+.lr.ph.i:                                         ; preds = %33
+  %43 = getelementptr inbounds i8, ptr %0, i64 344
+  %44 = load ptr, ptr %43, align 8
+  %wide.trip.count.i = zext nneg i32 %41 to i64
+  br label %45
 
-47:                                               ; preds = %47, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %47 ]
-  %.01517.i = phi i64 [ %41, %.lr.ph.i ], [ %spec.select.i, %47 ]
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv.i
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds i8, ptr %49, i64 4
-  %51 = load i32, ptr %50, align 4
-  %52 = icmp eq i32 %51, 1
-  %53 = sext i1 %52 to i64
-  %spec.select.i = add nsw i64 %.01517.i, %53
+45:                                               ; preds = %45, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
+  %.01517.i = phi i64 [ %39, %.lr.ph.i ], [ %spec.select.i, %45 ]
+  %46 = getelementptr inbounds ptr, ptr %44, i64 %indvars.iv.i
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds i8, ptr %47, i64 4
+  %49 = load i32, ptr %48, align 4
+  %50 = icmp eq i32 %49, 1
+  %51 = sext i1 %50 to i64
+  %spec.select.i = add nsw i64 %.01517.i, %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %47, !llvm.loop !29
+  br i1 %exitcond.not.i, label %Cudd_ReadNodeCount.exit, label %45, !llvm.loop !29
 
-Cudd_ReadNodeCount.exit:                          ; preds = %47, %35
-  %.015.lcssa.i = phi i64 [ %41, %35 ], [ %spec.select.i, %47 ]
-  %54 = getelementptr inbounds i8, ptr %0, i64 48
-  %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %55, i64 4
-  %57 = load i32, ptr %56, align 4
-  %58 = icmp eq i32 %57, 1
-  %59 = sext i1 %58 to i64
-  %spec.select16.i = add nsw i64 %.015.lcssa.i, %59
-  %60 = getelementptr inbounds i8, ptr %0, i64 56
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds i8, ptr %61, i64 4
-  %63 = load i32, ptr %62, align 4
-  %64 = icmp eq i32 %63, 1
-  %65 = sext i1 %64 to i64
-  %.3.i = add nsw i64 %spec.select16.i, %65
-  %66 = getelementptr inbounds i8, ptr %0, i64 64
-  %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds i8, ptr %67, i64 4
-  %69 = load i32, ptr %68, align 4
-  %70 = icmp eq i32 %69, 1
-  %71 = sext i1 %70 to i64
-  %.4.i = add nsw i64 %.3.i, %71
-  br label %80
+Cudd_ReadNodeCount.exit:                          ; preds = %45, %33
+  %.015.lcssa.i = phi i64 [ %39, %33 ], [ %spec.select.i, %45 ]
+  %52 = getelementptr inbounds i8, ptr %0, i64 48
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds i8, ptr %53, i64 4
+  %55 = load i32, ptr %54, align 4
+  %56 = icmp eq i32 %55, 1
+  %57 = sext i1 %56 to i64
+  %spec.select16.i = add nsw i64 %.015.lcssa.i, %57
+  %58 = getelementptr inbounds i8, ptr %0, i64 56
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds i8, ptr %59, i64 4
+  %61 = load i32, ptr %60, align 4
+  %62 = icmp eq i32 %61, 1
+  %63 = sext i1 %62 to i64
+  %.3.i = add nsw i64 %spec.select16.i, %63
+  %64 = getelementptr inbounds i8, ptr %0, i64 64
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 4
+  %67 = load i32, ptr %66, align 4
+  %68 = icmp eq i32 %67, 1
+  %69 = sext i1 %68 to i64
+  %.4.i = add nsw i64 %.3.i, %69
+  br label %78
 
-72:                                               ; preds = %31
-  %73 = getelementptr inbounds i8, ptr %0, i64 232
+70:                                               ; preds = %29
+  %71 = getelementptr inbounds i8, ptr %0, i64 232
+  %72 = load i32, ptr %71, align 8
+  %73 = getelementptr inbounds i8, ptr %0, i64 240
   %74 = load i32, ptr %73, align 8
-  %75 = getelementptr inbounds i8, ptr %0, i64 240
-  %76 = load i32, ptr %75, align 8
-  %77 = add i32 %74, 2
-  %78 = sub i32 %77, %76
-  %79 = zext i32 %78 to i64
-  br label %80
+  %75 = add i32 %72, 2
+  %76 = sub i32 %75, %74
+  %77 = zext i32 %76 to i64
+  br label %78
 
-80:                                               ; preds = %72, %Cudd_ReadNodeCount.exit
-  %81 = phi i64 [ %.4.i, %Cudd_ReadNodeCount.exit ], [ %79, %72 ]
-  %82 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.61, i64 noundef %81) #20
-  %83 = icmp eq i32 %82, -1
-  br i1 %83, label %87, label %84
+78:                                               ; preds = %70, %Cudd_ReadNodeCount.exit
+  %79 = phi i64 [ %.4.i, %Cudd_ReadNodeCount.exit ], [ %77, %70 ]
+  %80 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.61, i64 noundef %79) #20
+  %81 = icmp eq i32 %80, -1
+  br i1 %81, label %85, label %82
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %6, align 8
-  %86 = tail call i32 @fflush(ptr noundef %85)
-  br label %87
+82:                                               ; preds = %78
+  %83 = load ptr, ptr %5, align 8
+  %84 = tail call i32 @fflush(ptr noundef %83)
+  br label %85
 
-87:                                               ; preds = %15, %80, %27, %10, %11, %3, %84
-  %.025 = phi i32 [ 1, %84 ], [ 0, %3 ], [ 0, %11 ], [ 0, %10 ], [ 0, %15 ], [ 0, %27 ], [ 0, %80 ]
+85:                                               ; preds = %78, %25, %9, %11, %3, %82
+  %.025 = phi i32 [ 1, %82 ], [ 0, %3 ], [ 0, %11 ], [ 0, %9 ], [ 0, %25 ], [ 0, %78 ]
   ret i32 %.025
 }
 

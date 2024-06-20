@@ -22572,8 +22572,8 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   call void @"_ZN4core3ptr58drop_in_place$LT$wasm_encoder..core..code..Instruction$GT$17h53ac91936064419cE.llvm.725258463910346102"(ptr noalias noundef nonnull align 16 dereferenceable(48) %9)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
   %60 = and i8 %.16.val, 1
-  %trunc = trunc i8 %.16.val to i1
-  br i1 %trunc, label %118, label %113
+  %switch.not.not = icmp eq i8 %60, 0
+  br i1 %switch.not.not, label %113, label %118
 
 61:                                               ; preds = %43
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %38)
@@ -23152,8 +23152,7 @@ _ZN16wasmtime_environ4fact10trampoline8Compiler11instruction17hce93999fec98af35E
   unreachable
 
 203:                                              ; preds = %200
-  %.not = icmp eq i8 %60, 0
-  br i1 %.not, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit", label %212
+  br i1 %switch.not.not, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit", label %212
 
 "_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.exit": ; preds = %203
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)

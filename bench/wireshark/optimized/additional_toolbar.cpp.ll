@@ -2997,7 +2997,7 @@ _ZN7QStringD2Ev.exit153:                          ; preds = %162, %_ZN17QArrayDa
 169:                                              ; preds = %.thread
   %170 = getelementptr inbounds i8, ptr %2, i64 8
   %171 = load ptr, ptr %170, align 8
-  switch i32 %166, label %.critedge [
+  switch i32 %166, label %default.unreachable [
     i32 2, label %.preheader
     i32 3, label %218
     i32 4, label %270
@@ -3525,7 +3525,10 @@ _ZN17QArrayDataPointerIP13QStandardItemE5derefEv.exit.i.i222: ; preds = %_ZN7QSt
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %354, i64 noundef 8, i64 noundef 8) #16
   br label %common.resume
 
-.critedge:                                        ; preds = %211, %116, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit, %.preheader, %111, %330, %_ZN17QArrayDataPointerIP13QStandardItemE5derefEv.exit.i.i214, %_ZN9QtPrivate17QForeachContainerI5QListIP13QStandardItemEED2Ev.exit, %199, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i156, %196, %99, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i133, %.loopexit256, %169, %52, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit179
+default.unreachable:                              ; preds = %169
+  unreachable
+
+.critedge:                                        ; preds = %211, %116, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit, %.preheader, %111, %330, %_ZN17QArrayDataPointerIP13QStandardItemE5derefEv.exit.i.i214, %_ZN9QtPrivate17QForeachContainerI5QListIP13QStandardItemEED2Ev.exit, %199, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i156, %196, %99, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i133, %.loopexit256, %52, %_ZN18QStandardItemModel9appendRowEP13QStandardItem.exit179
   %355 = load i32, ptr %36, align 4
   %.not126 = icmp eq i32 %355, 0
   br i1 %.not126, label %358, label %356

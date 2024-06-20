@@ -200,9 +200,9 @@ switch.lookup:                                    ; preds = %if.end
   %switch.gep = getelementptr inbounds [6 x double], ptr @switch.table._ZN8facebook5velox4core10toCapacityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_12CapacityUnitE.1, i64 0, i64 %8
   %switch.load = load double, ptr %switch.gep, align 8
   %9 = zext nneg i32 %to to i64
-  %switch.gep11 = getelementptr inbounds [6 x double], ptr @switch.table._ZN8facebook5velox4core10toCapacityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_12CapacityUnitE.1, i64 0, i64 %9
-  %switch.load12 = load double, ptr %switch.gep11, align 8
-  %div = fdiv double %switch.load, %switch.load12
+  %switch.gep12 = getelementptr inbounds [6 x double], ptr @switch.table._ZN8facebook5velox4core10toCapacityERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_12CapacityUnitE.1, i64 0, i64 %9
+  %switch.load13 = load double, ptr %switch.gep12, align 8
+  %div = fdiv double %switch.load, %switch.load13
   %mul = fmul double %6, %div
   %conv = fptoui double %mul to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %unit) #14

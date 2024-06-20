@@ -653,7 +653,10 @@ dissect_dbus_header.exit.thread:                  ; preds = %35, %53, %100, %126
 
 171:                                              ; preds = %169
   %172 = icmp ult i32 %154, 10
-  br i1 %172, label %switch.lookup, label %.preheader.i.preheader
+  br i1 %172, label %switch.lookup, label %.preheader.i
+
+default.unreachable.i:                            ; preds = %186
+  unreachable
 
 switch.lookup:                                    ; preds = %171
   %switch.tableidx = add nsw i32 %154, -1
@@ -687,7 +690,7 @@ switch.lookup:                                    ; preds = %171
   br i1 %.not.i183.i, label %dissect_dbus_header_fields.exit.thread, label %.lr.ph.i181.i, !llvm.loop !4
 
 186:                                              ; preds = %switch.lookup
-  switch i32 %154, label %.preheader.i.preheader [
+  switch i32 %154, label %default.unreachable.i [
     i32 1, label %187
     i32 2, label %192
     i32 3, label %224
@@ -698,9 +701,6 @@ switch.lookup:                                    ; preds = %171
     i32 5, label %333
     i32 9, label %341
   ]
-
-.preheader.i.preheader:                           ; preds = %171, %186
-  br label %.preheader.i
 
 187:                                              ; preds = %186
   %188 = load i32, ptr @hf_dbus_path, align 4
@@ -1039,8 +1039,8 @@ is_dbus_interface_valid.exit196.thread.i:         ; preds = %is_dbus_interface_v
   store i32 %345, ptr %136, align 8
   br label %.loopexit.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %347
-  %.1.i = phi ptr [ %346, %347 ], [ %170, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %171, %347
+  %.1.i = phi ptr [ %346, %347 ], [ %170, %171 ]
   %346 = call fastcc ptr @reader_next(ptr noundef nonnull %.1.i, i32 noundef -1, i32 noundef -1, ptr noundef nonnull %10)
   %.not163.i = icmp eq ptr %346, null
   br i1 %.not163.i, label %dissect_dbus_header_fields.exit.thread, label %347

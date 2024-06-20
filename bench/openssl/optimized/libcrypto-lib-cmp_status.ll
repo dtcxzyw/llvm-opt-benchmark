@@ -287,55 +287,53 @@ if.end25:                                         ; preds = %lor.lhs.false20
   br label %for.body
 
 for.body:                                         ; preds = %if.end25, %for.inc
-  %write_ptr.096 = phi ptr [ %add.ptr27, %if.end25 ], [ %write_ptr.1, %for.inc ]
-  %failinfo_found.095 = phi i32 [ 0, %if.end25 ], [ %failinfo_found.1, %for.inc ]
-  %bufsize.addr.094 = phi i64 [ %sub29, %if.end25 ], [ %bufsize.addr.1, %for.inc ]
-  %failure.093 = phi i32 [ 0, %if.end25 ], [ %inc, %for.inc ]
-  %shl = shl nuw nsw i32 1, %failure.093
+  %write_ptr.099 = phi ptr [ %add.ptr27, %if.end25 ], [ %write_ptr.1, %for.inc ]
+  %failinfo_found.098 = phi i32 [ 0, %if.end25 ], [ %failinfo_found.1, %for.inc ]
+  %bufsize.addr.097 = phi i64 [ %sub29, %if.end25 ], [ %bufsize.addr.1, %for.inc ]
+  %failure.096 = phi i32 [ 0, %if.end25 ], [ %inc, %for.inc ]
+  %shl = shl nuw nsw i32 1, %failure.096
   %and = and i32 %shl, %fail_info
-  %cmp32.not = icmp ne i32 %and, 0
-  %3 = icmp ult i32 %failure.093, 27
-  %or.cond110 = and i1 %cmp32.not, %3
-  br i1 %or.cond110, label %switch.lookup107, label %for.inc
+  %cmp32.not = icmp eq i32 %and, 0
+  br i1 %cmp32.not, label %for.inc, label %switch.lookup110
 
-switch.lookup107:                                 ; preds = %for.body
-  %4 = zext nneg i32 %failure.093 to i64
-  %switch.gep108 = getelementptr inbounds [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %4
-  %switch.load109 = load ptr, ptr %switch.gep108, align 8
-  %tobool.not = icmp eq i32 %failinfo_found.095, 0
+switch.lookup110:                                 ; preds = %for.body
+  %3 = zext nneg i32 %failure.096 to i64
+  %switch.gep111 = getelementptr inbounds [27 x ptr], ptr @switch.table.snprint_PKIStatusInfo_parts.1, i64 0, i64 %3
+  %switch.load112 = load ptr, ptr %switch.gep111, align 8
+  %tobool.not = icmp eq i32 %failinfo_found.098, 0
   %cond = select i1 %tobool.not, ptr @.str.13, ptr @.str.12
-  %call39 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %write_ptr.096, i64 noundef %bufsize.addr.094, ptr noundef nonnull @.str.11, ptr noundef nonnull %cond, ptr noundef nonnull %switch.load109) #3
+  %call39 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %write_ptr.099, i64 noundef %bufsize.addr.097, ptr noundef nonnull @.str.11, ptr noundef nonnull %cond, ptr noundef nonnull %switch.load112) #3
   %cmp40 = icmp slt i32 %call39, 0
   br i1 %cmp40, label %return, label %lor.lhs.false42
 
-lor.lhs.false42:                                  ; preds = %switch.lookup107
+lor.lhs.false42:                                  ; preds = %switch.lookup110
   %conv43 = zext nneg i32 %call39 to i64
-  %cmp44.not = icmp ugt i64 %bufsize.addr.094, %conv43
+  %cmp44.not = icmp ugt i64 %bufsize.addr.097, %conv43
   br i1 %cmp44.not, label %if.end47, label %return
 
 if.end47:                                         ; preds = %lor.lhs.false42
-  %add.ptr49 = getelementptr inbounds i8, ptr %write_ptr.096, i64 %conv43
-  %sub51 = sub i64 %bufsize.addr.094, %conv43
+  %add.ptr49 = getelementptr inbounds i8, ptr %write_ptr.099, i64 %conv43
+  %sub51 = sub i64 %bufsize.addr.097, %conv43
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body, %if.end47
-  %bufsize.addr.1 = phi i64 [ %sub51, %if.end47 ], [ %bufsize.addr.094, %for.body ]
-  %failinfo_found.1 = phi i32 [ 1, %if.end47 ], [ %failinfo_found.095, %for.body ]
-  %write_ptr.1 = phi ptr [ %add.ptr49, %if.end47 ], [ %write_ptr.096, %for.body ]
-  %inc = add nuw nsw i32 %failure.093, 1
+  %bufsize.addr.1 = phi i64 [ %sub51, %if.end47 ], [ %bufsize.addr.097, %for.body ]
+  %failinfo_found.1 = phi i32 [ 1, %if.end47 ], [ %failinfo_found.098, %for.body ]
+  %write_ptr.1 = phi ptr [ %add.ptr49, %if.end47 ], [ %write_ptr.099, %for.body ]
+  %inc = add nuw nsw i32 %failure.096, 1
   %exitcond.not = icmp eq i32 %inc, 27
   br i1 %exitcond.not, label %if.end54.loopexit, label %for.body, !llvm.loop !6
 
 if.end54.loopexit:                                ; preds = %for.inc
-  %5 = icmp eq i32 %failinfo_found.1, 0
+  %4 = icmp eq i32 %failinfo_found.1, 0
   br label %if.end54
 
 if.end54:                                         ; preds = %if.end54.loopexit, %if.end10
   %bufsize.addr.2 = phi i64 [ %sub, %if.end10 ], [ %bufsize.addr.1, %if.end54.loopexit ]
-  %failinfo_found.2 = phi i1 [ true, %if.end10 ], [ %5, %if.end54.loopexit ]
+  %failinfo_found.2 = phi i1 [ true, %if.end10 ], [ %4, %if.end54.loopexit ]
   %write_ptr.2 = phi ptr [ %add.ptr, %if.end10 ], [ %write_ptr.1, %if.end54.loopexit ]
-  %6 = icmp ugt i32 %status, 1
-  %or.cond3 = and i1 %6, %failinfo_found.2
+  %5 = icmp ugt i32 %status, 1
+  %or.cond3 = and i1 %5, %failinfo_found.2
   br i1 %or.cond3, label %if.then62, label %if.end76
 
 if.then62:                                        ; preds = %if.end54
@@ -379,32 +377,32 @@ for.body101.lr.ph:                                ; preds = %lor.lhs.false88
   br label %for.body101
 
 for.body101:                                      ; preds = %for.body101.lr.ph, %if.end118
-  %write_ptr.4100 = phi ptr [ %add.ptr95, %for.body101.lr.ph ], [ %add.ptr120, %if.end118 ]
-  %i.099 = phi i32 [ 0, %for.body101.lr.ph ], [ %inc124, %if.end118 ]
-  %bufsize.addr.498 = phi i64 [ %sub97, %for.body101.lr.ph ], [ %sub122, %if.end118 ]
-  %call103 = tail call ptr @OPENSSL_sk_value(ptr noundef %status_strings, i32 noundef %i.099) #3
+  %write_ptr.4103 = phi ptr [ %add.ptr95, %for.body101.lr.ph ], [ %add.ptr120, %if.end118 ]
+  %i.0102 = phi i32 [ 0, %for.body101.lr.ph ], [ %inc124, %if.end118 ]
+  %bufsize.addr.4101 = phi i64 [ %sub97, %for.body101.lr.ph ], [ %sub122, %if.end118 ]
+  %call103 = tail call ptr @OPENSSL_sk_value(ptr noundef %status_strings, i32 noundef %i.0102) #3
   %call104 = tail call i32 @ASN1_STRING_length(ptr noundef %call103) #3
   %call105 = tail call ptr @ASN1_STRING_get0_data(ptr noundef %call103) #3
-  %cmp107 = icmp slt i32 %i.099, %sub106
+  %cmp107 = icmp slt i32 %i.0102, %sub106
   %cond109 = select i1 %cmp107, ptr @.str.12, ptr @.str.13
-  %call110 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %write_ptr.4100, i64 noundef %bufsize.addr.498, ptr noundef nonnull @.str.17, i32 noundef %call104, ptr noundef %call105, ptr noundef nonnull %cond109) #3
+  %call110 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %write_ptr.4103, i64 noundef %bufsize.addr.4101, ptr noundef nonnull @.str.17, i32 noundef %call104, ptr noundef %call105, ptr noundef nonnull %cond109) #3
   %cmp111 = icmp slt i32 %call110, 0
   br i1 %cmp111, label %return, label %lor.lhs.false113
 
 lor.lhs.false113:                                 ; preds = %for.body101
   %conv114 = zext nneg i32 %call110 to i64
-  %cmp115.not = icmp ugt i64 %bufsize.addr.498, %conv114
+  %cmp115.not = icmp ugt i64 %bufsize.addr.4101, %conv114
   br i1 %cmp115.not, label %if.end118, label %return
 
 if.end118:                                        ; preds = %lor.lhs.false113
-  %add.ptr120 = getelementptr inbounds i8, ptr %write_ptr.4100, i64 %conv114
-  %sub122 = sub i64 %bufsize.addr.498, %conv114
-  %inc124 = add nuw nsw i32 %i.099, 1
-  %exitcond104.not = icmp eq i32 %inc124, %call78
-  br i1 %exitcond104.not, label %return, label %for.body101, !llvm.loop !7
+  %add.ptr120 = getelementptr inbounds i8, ptr %write_ptr.4103, i64 %conv114
+  %sub122 = sub i64 %bufsize.addr.4101, %conv114
+  %inc124 = add nuw nsw i32 %i.0102, 1
+  %exitcond107.not = icmp eq i32 %inc124, %call78
+  br i1 %exitcond107.not, label %return, label %for.body101, !llvm.loop !7
 
-return:                                           ; preds = %switch.lookup107, %lor.lhs.false42, %lor.lhs.false113, %for.body101, %if.end118, %ossl_cmp_PKIStatus_to_string.exit, %if.end76, %if.then81, %lor.lhs.false88, %if.then62, %lor.lhs.false66, %if.then16, %lor.lhs.false20, %switch.lookup, %lor.lhs.false6, %entry
-  %retval.0 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %entry ], [ null, %lor.lhs.false6 ], [ null, %switch.lookup ], [ null, %lor.lhs.false20 ], [ null, %if.then16 ], [ null, %lor.lhs.false66 ], [ null, %if.then62 ], [ null, %lor.lhs.false88 ], [ null, %if.then81 ], [ %buf, %if.end76 ], [ null, %lor.lhs.false113 ], [ null, %for.body101 ], [ %buf, %if.end118 ], [ null, %lor.lhs.false42 ], [ null, %switch.lookup107 ]
+return:                                           ; preds = %switch.lookup110, %lor.lhs.false42, %lor.lhs.false113, %for.body101, %if.end118, %ossl_cmp_PKIStatus_to_string.exit, %if.end76, %if.then81, %lor.lhs.false88, %if.then62, %lor.lhs.false66, %if.then16, %lor.lhs.false20, %switch.lookup, %lor.lhs.false6, %entry
+  %retval.0 = phi ptr [ null, %ossl_cmp_PKIStatus_to_string.exit ], [ null, %entry ], [ null, %lor.lhs.false6 ], [ null, %switch.lookup ], [ null, %lor.lhs.false20 ], [ null, %if.then16 ], [ null, %lor.lhs.false66 ], [ null, %if.then62 ], [ null, %lor.lhs.false88 ], [ null, %if.then81 ], [ %buf, %if.end76 ], [ null, %lor.lhs.false113 ], [ null, %for.body101 ], [ %buf, %if.end118 ], [ null, %lor.lhs.false42 ], [ null, %switch.lookup110 ]
   ret ptr %retval.0
 }
 

@@ -30,7 +30,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %17 = getelementptr inbounds i8, ptr %16, i64 1
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 0
-  br i1 %19, label %230, label %20
+  br i1 %19, label %216, label %20
 
 20:                                               ; preds = %1
   %21 = load i8, ptr %8, align 1
@@ -49,19 +49,19 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
     i16 21, label %28
     i16 23, label %30
     i16 22, label %30
-    i16 19, label %230
+    i16 19, label %216
   ]
 
 28:                                               ; preds = %27, %27
   %29 = icmp ult i8 %18, %26
-  br i1 %29, label %230, label %32
+  br i1 %29, label %216, label %32
 
 30:                                               ; preds = %27, %27
   %31 = icmp ugt i8 %18, %26
-  br i1 %31, label %230, label %32
+  br i1 %31, label %216, label %32
 
 32:                                               ; preds = %30, %28, %27
-  br label %230
+  br label %216
 
 33:                                               ; preds = %20
   switch i16 %11, label %._crit_edge [
@@ -98,7 +98,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %47 = getelementptr inbounds i8, ptr %25, i64 1
   %48 = load i8, ptr %47, align 1
   %.not122 = icmp ugt i8 %46, %48
-  br i1 %.not122, label %.thread, label %230
+  br i1 %.not122, label %.thread, label %216
 
 49:                                               ; preds = %33
   %50 = getelementptr inbounds i8, ptr %4, i64 16
@@ -119,7 +119,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %62 = getelementptr inbounds i8, ptr %25, i64 1
   %63 = load i8, ptr %62, align 1
   %64 = icmp ult i8 %61, %63
-  br i1 %64, label %230, label %.thread
+  br i1 %64, label %216, label %.thread
 
 65:                                               ; preds = %33, %33
   %66 = getelementptr inbounds i8, ptr %16, i64 2
@@ -127,7 +127,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %68 = getelementptr inbounds i8, ptr %25, i64 1
   %69 = load i8, ptr %68, align 1
   %70 = icmp ugt i8 %67, %69
-  br i1 %70, label %230, label %86
+  br i1 %70, label %216, label %86
 
 71:                                               ; preds = %33
   %72 = getelementptr inbounds i8, ptr %16, i64 2
@@ -135,7 +135,7 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %74 = getelementptr inbounds i8, ptr %25, i64 1
   %75 = load i8, ptr %74, align 1
   %.not116 = icmp ult i8 %73, %75
-  br i1 %.not116, label %.thread, label %230
+  br i1 %.not116, label %.thread, label %216
 
 .thread:                                          ; preds = %71, %49, %59, %34, %44
   %76 = getelementptr inbounds i8, ptr %16, i64 3
@@ -181,21 +181,21 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
 ._crit_edge154:                                   ; preds = %86
   %.pre155 = load i8, ptr %8, align 1
   %.pre156 = and i8 %.pre155, 1
-  br label %200
+  br label %187
 
 96:                                               ; preds = %.thread, %86, %86, %86, %86, %86
   %97 = phi i32 [ %85, %.thread ], [ %95, %86 ], [ %95, %86 ], [ %95, %86 ], [ %95, %86 ], [ %95, %86 ]
   %98 = icmp eq i32 %97, 0
   %99 = zext i1 %98 to i64
-  br label %230
+  br label %216
 
 100:                                              ; preds = %86, %86
   %101 = icmp sgt i32 %95, 0
-  br i1 %101, label %230, label %102
+  br i1 %101, label %216, label %102
 
 102:                                              ; preds = %100
   %103 = icmp slt i32 %95, 0
-  br i1 %103, label %230, label %104
+  br i1 %103, label %216, label %104
 
 104:                                              ; preds = %102
   %105 = getelementptr inbounds i8, ptr %4, i64 16
@@ -208,11 +208,11 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %112 = load i16, ptr %111, align 4
   %113 = and i16 %112, 1
   %.not132 = icmp eq i16 %113, 0
-  br i1 %.not132, label %230, label %149
+  br i1 %.not132, label %216, label %149
 
 114:                                              ; preds = %86
   %.not130 = icmp eq i32 %95, 0
-  br i1 %.not130, label %115, label %230
+  br i1 %.not130, label %115, label %216
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds i8, ptr %4, i64 16
@@ -225,15 +225,15 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %123 = load i16, ptr %122, align 4
   %124 = and i16 %123, 1
   %.not131 = icmp eq i16 %124, 0
-  br i1 %.not131, label %230, label %.thread144
+  br i1 %.not131, label %216, label %.thread144
 
 125:                                              ; preds = %86, %86
   %126 = icmp slt i32 %95, 0
-  br i1 %126, label %230, label %127
+  br i1 %126, label %216, label %127
 
 127:                                              ; preds = %125
   %.not128 = icmp eq i32 %95, 0
-  br i1 %.not128, label %128, label %230
+  br i1 %.not128, label %128, label %216
 
 128:                                              ; preds = %127
   %129 = getelementptr inbounds i8, ptr %4, i64 16
@@ -246,11 +246,11 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %136 = load i16, ptr %135, align 4
   %137 = and i16 %136, 1
   %.not129 = icmp eq i16 %137, 0
-  br i1 %.not129, label %230, label %149
+  br i1 %.not129, label %216, label %149
 
 138:                                              ; preds = %86
   %.not126 = icmp eq i32 %95, 0
-  br i1 %.not126, label %139, label %230
+  br i1 %.not126, label %139, label %216
 
 139:                                              ; preds = %138
   %140 = getelementptr inbounds i8, ptr %4, i64 16
@@ -263,156 +263,133 @@ define dso_local range(i64 0, 2) i64 @inet_gist_consistent(ptr nocapture noundef
   %147 = load i16, ptr %146, align 4
   %148 = and i16 %147, 1
   %.not127 = icmp eq i16 %148, 0
-  br i1 %.not127, label %230, label %.thread145
+  br i1 %.not127, label %216, label %.thread145
 
 149:                                              ; preds = %128, %104
-  switch i16 %11, label %.thread148 [
-    i16 20, label %158
-    i16 21, label %158
-    i16 22, label %179
-    i16 23, label %179
-  ]
+  %150 = and i16 %11, -2
+  %switch = icmp eq i16 %150, 20
+  %151 = load i8, ptr %91, align 1
+  %152 = load i8, ptr %8, align 1
+  %153 = and i8 %152, 1
+  %.not138 = icmp eq i8 %153, 0
+  %154 = select i1 %.not138, ptr %24, ptr %23
+  %155 = getelementptr inbounds i8, ptr %154, i64 1
+  %156 = load i8, ptr %155, align 1
+  br i1 %switch, label %157, label %172
 
-.thread148:                                       ; preds = %149
-  %150 = load i8, ptr %8, align 1
-  %151 = and i8 %150, 1
-  %.not139149 = icmp eq i8 %151, 0
-  %152 = select i1 %.not139149, ptr %24, ptr %23
-  %153 = getelementptr inbounds i8, ptr %152, i64 2
-  %154 = load i8, ptr %17, align 1
-  %155 = icmp eq i8 %154, 3
-  %156 = select i1 %155, i32 128, i32 32
-  %157 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %153, i32 noundef %156) #8
-  br label %216
+157:                                              ; preds = %149
+  %158 = icmp ult i8 %151, %156
+  br i1 %158, label %216, label %159
 
-158:                                              ; preds = %149, %149
-  %159 = load i8, ptr %91, align 1
-  %160 = load i8, ptr %8, align 1
-  %161 = and i8 %160, 1
-  %.not138 = icmp eq i8 %161, 0
-  %162 = select i1 %.not138, ptr %24, ptr %23
-  %163 = getelementptr inbounds i8, ptr %162, i64 1
-  %164 = load i8, ptr %163, align 1
-  %165 = icmp ult i8 %159, %164
-  br i1 %165, label %230, label %166
-
-166:                                              ; preds = %158
-  %167 = icmp ugt i8 %159, %164
-  br i1 %167, label %230, label %200
+159:                                              ; preds = %157
+  %160 = icmp ugt i8 %151, %156
+  br i1 %160, label %216, label %187
 
 .thread144:                                       ; preds = %115
-  %168 = load i8, ptr %91, align 1
-  %169 = load i8, ptr %8, align 1
-  %170 = and i8 %169, 1
-  %.not136 = icmp eq i8 %170, 0
-  %171 = select i1 %.not136, ptr %24, ptr %23
-  %172 = getelementptr inbounds i8, ptr %171, i64 1
-  %173 = load i8, ptr %172, align 1
-  %.not137 = icmp eq i8 %168, %173
-  br i1 %.not137, label %.thread146, label %230
+  %161 = load i8, ptr %91, align 1
+  %162 = load i8, ptr %8, align 1
+  %163 = and i8 %162, 1
+  %.not136 = icmp eq i8 %163, 0
+  %164 = select i1 %.not136, ptr %24, ptr %23
+  %165 = getelementptr inbounds i8, ptr %164, i64 1
+  %166 = load i8, ptr %165, align 1
+  %.not137 = icmp eq i8 %161, %166
+  br i1 %.not137, label %.thread146, label %216
 
 .thread146:                                       ; preds = %.thread144
-  %174 = getelementptr inbounds i8, ptr %171, i64 2
-  %175 = load i8, ptr %17, align 1
-  %176 = icmp eq i8 %175, 3
-  %177 = select i1 %176, i32 128, i32 32
-  %178 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %174, i32 noundef %177) #8
-  br label %212
+  %167 = getelementptr inbounds i8, ptr %164, i64 2
+  %168 = load i8, ptr %17, align 1
+  %169 = icmp eq i8 %168, 3
+  %170 = select i1 %169, i32 128, i32 32
+  %171 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %167, i32 noundef %170) #8
+  br label %199
 
-179:                                              ; preds = %149, %149
-  %180 = load i8, ptr %91, align 1
-  %181 = load i8, ptr %8, align 1
-  %182 = and i8 %181, 1
-  %.not135 = icmp eq i8 %182, 0
-  %183 = select i1 %.not135, ptr %24, ptr %23
-  %184 = getelementptr inbounds i8, ptr %183, i64 1
-  %185 = load i8, ptr %184, align 1
-  %186 = icmp ugt i8 %180, %185
-  br i1 %186, label %230, label %187
+172:                                              ; preds = %149
+  %173 = icmp ugt i8 %151, %156
+  br i1 %173, label %216, label %174
 
-187:                                              ; preds = %179
-  %188 = icmp ult i8 %180, %185
-  br i1 %188, label %230, label %200
+174:                                              ; preds = %172
+  %175 = icmp ult i8 %151, %156
+  br i1 %175, label %216, label %187
 
 .thread145:                                       ; preds = %139
-  %189 = load i8, ptr %91, align 1
-  %190 = load i8, ptr %8, align 1
-  %191 = and i8 %190, 1
-  %.not133 = icmp eq i8 %191, 0
-  %192 = select i1 %.not133, ptr %24, ptr %23
-  %193 = getelementptr inbounds i8, ptr %192, i64 1
-  %194 = load i8, ptr %193, align 1
-  %.not134 = icmp eq i8 %189, %194
-  br i1 %.not134, label %.thread150, label %230
+  %176 = load i8, ptr %91, align 1
+  %177 = load i8, ptr %8, align 1
+  %178 = and i8 %177, 1
+  %.not133 = icmp eq i8 %178, 0
+  %179 = select i1 %.not133, ptr %24, ptr %23
+  %180 = getelementptr inbounds i8, ptr %179, i64 1
+  %181 = load i8, ptr %180, align 1
+  %.not134 = icmp eq i8 %176, %181
+  br i1 %.not134, label %.thread150, label %216
 
 .thread150:                                       ; preds = %.thread145
-  %195 = getelementptr inbounds i8, ptr %192, i64 2
-  %196 = load i8, ptr %17, align 1
-  %197 = icmp eq i8 %196, 3
-  %198 = select i1 %197, i32 128, i32 32
-  %199 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %195, i32 noundef %198) #8
-  br label %223
+  %182 = getelementptr inbounds i8, ptr %179, i64 2
+  %183 = load i8, ptr %17, align 1
+  %184 = icmp eq i8 %183, 3
+  %185 = select i1 %184, i32 128, i32 32
+  %186 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %182, i32 noundef %185) #8
+  br label %209
 
-200:                                              ; preds = %._crit_edge154, %187, %166
-  %.pre-phi = phi i8 [ %.pre156, %._crit_edge154 ], [ %182, %187 ], [ %161, %166 ]
+187:                                              ; preds = %._crit_edge154, %174, %159
+  %.pre-phi = phi i8 [ %.pre156, %._crit_edge154 ], [ %153, %174 ], [ %153, %159 ]
   %.not139 = icmp eq i8 %.pre-phi, 0
-  %201 = select i1 %.not139, ptr %24, ptr %23
-  %202 = getelementptr inbounds i8, ptr %201, i64 2
-  %203 = load i8, ptr %17, align 1
-  %204 = icmp eq i8 %203, 3
-  %205 = select i1 %204, i32 128, i32 32
-  %206 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %202, i32 noundef %205) #8
-  switch i16 %11, label %227 [
-    i16 20, label %207
-    i16 21, label %209
-    i16 18, label %212
-    i16 23, label %216
-    i16 22, label %220
-    i16 19, label %223
+  %188 = select i1 %.not139, ptr %24, ptr %23
+  %189 = getelementptr inbounds i8, ptr %188, i64 2
+  %190 = load i8, ptr %17, align 1
+  %191 = icmp eq i8 %190, 3
+  %192 = select i1 %191, i32 128, i32 32
+  %193 = tail call i32 @bitncmp(ptr noundef nonnull %93, ptr noundef nonnull %189, i32 noundef %192) #8
+  switch i16 %11, label %213 [
+    i16 20, label %194
+    i16 21, label %196
+    i16 18, label %199
+    i16 23, label %203
+    i16 22, label %206
+    i16 19, label %209
   ]
 
-207:                                              ; preds = %200
-  %.lobit = lshr i32 %206, 31
-  %208 = zext nneg i32 %.lobit to i64
-  br label %230
+194:                                              ; preds = %187
+  %.lobit = lshr i32 %193, 31
+  %195 = zext nneg i32 %.lobit to i64
+  br label %216
 
-209:                                              ; preds = %200
-  %210 = icmp slt i32 %206, 1
-  %211 = zext i1 %210 to i64
-  br label %230
+196:                                              ; preds = %187
+  %197 = icmp slt i32 %193, 1
+  %198 = zext i1 %197 to i64
+  br label %216
 
-212:                                              ; preds = %.thread146, %200
-  %213 = phi i32 [ %178, %.thread146 ], [ %206, %200 ]
-  %214 = icmp eq i32 %213, 0
-  %215 = zext i1 %214 to i64
-  br label %230
+199:                                              ; preds = %.thread146, %187
+  %200 = phi i32 [ %171, %.thread146 ], [ %193, %187 ]
+  %201 = icmp eq i32 %200, 0
+  %202 = zext i1 %201 to i64
+  br label %216
 
-216:                                              ; preds = %.thread148, %200
-  %217 = phi i32 [ %157, %.thread148 ], [ %206, %200 ]
-  %218 = icmp sgt i32 %217, -1
-  %219 = zext i1 %218 to i64
-  br label %230
+203:                                              ; preds = %187
+  %204 = icmp sgt i32 %193, -1
+  %205 = zext i1 %204 to i64
+  br label %216
 
-220:                                              ; preds = %200
-  %221 = icmp sgt i32 %206, 0
-  %222 = zext i1 %221 to i64
-  br label %230
+206:                                              ; preds = %187
+  %207 = icmp sgt i32 %193, 0
+  %208 = zext i1 %207 to i64
+  br label %216
 
-223:                                              ; preds = %.thread150, %200
-  %224 = phi i32 [ %199, %.thread150 ], [ %206, %200 ]
-  %225 = icmp ne i32 %224, 0
-  %226 = zext i1 %225 to i64
-  br label %230
+209:                                              ; preds = %.thread150, %187
+  %210 = phi i32 [ %186, %.thread150 ], [ %193, %187 ]
+  %211 = icmp ne i32 %210, 0
+  %212 = zext i1 %211 to i64
+  br label %216
 
-227:                                              ; preds = %200
-  %228 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
-  tail call void @llvm.assume(i1 %228)
-  %229 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
+213:                                              ; preds = %187
+  %214 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
+  tail call void @llvm.assume(i1 %214)
+  %215 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str) #8
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 327, ptr noundef nonnull @__func__.inet_gist_consistent) #8
   unreachable
 
-230:                                              ; preds = %.thread145, %187, %179, %.thread144, %166, %158, %138, %139, %127, %128, %125, %115, %114, %102, %104, %100, %71, %65, %59, %44, %27, %30, %28, %1, %223, %220, %216, %212, %209, %207, %96, %32
-  %.0 = phi i64 [ 0, %32 ], [ %226, %223 ], [ %222, %220 ], [ %219, %216 ], [ %215, %212 ], [ %211, %209 ], [ %208, %207 ], [ %99, %96 ], [ 1, %1 ], [ 1, %28 ], [ 1, %30 ], [ 1, %27 ], [ 0, %44 ], [ 0, %59 ], [ 0, %65 ], [ 0, %71 ], [ 0, %100 ], [ 1, %104 ], [ 1, %102 ], [ 0, %114 ], [ 1, %115 ], [ 0, %125 ], [ 1, %128 ], [ 1, %127 ], [ 1, %139 ], [ 1, %138 ], [ 1, %158 ], [ 0, %166 ], [ 0, %.thread144 ], [ 1, %179 ], [ 0, %187 ], [ 1, %.thread145 ]
+216:                                              ; preds = %.thread145, %174, %172, %.thread144, %159, %157, %138, %139, %127, %128, %125, %115, %114, %102, %104, %100, %71, %65, %59, %44, %27, %30, %28, %1, %209, %206, %203, %199, %196, %194, %96, %32
+  %.0 = phi i64 [ 0, %32 ], [ %212, %209 ], [ %208, %206 ], [ %205, %203 ], [ %202, %199 ], [ %198, %196 ], [ %195, %194 ], [ %99, %96 ], [ 1, %1 ], [ 1, %28 ], [ 1, %30 ], [ 1, %27 ], [ 0, %44 ], [ 0, %59 ], [ 0, %65 ], [ 0, %71 ], [ 0, %100 ], [ 1, %104 ], [ 1, %102 ], [ 0, %114 ], [ 1, %115 ], [ 0, %125 ], [ 1, %128 ], [ 1, %127 ], [ 1, %139 ], [ 1, %138 ], [ 1, %157 ], [ 0, %159 ], [ 0, %.thread144 ], [ 1, %172 ], [ 0, %174 ], [ 1, %.thread145 ]
   ret i64 %.0
 }
 

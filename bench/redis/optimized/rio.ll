@@ -705,7 +705,7 @@ sdsavail.exit181:                                 ; preds = %sw.bb1.i171, %sw.bb
   br i1 %cmp61, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %sdsavail.exit181
-  switch i8 %45, label %if.end66 [
+  switch i8 %45, label %default.unreachable [
     i8 4, label %sw.bb21.i201
     i8 1, label %sw.bb1.i195
     i8 2, label %sw.bb5.i189
@@ -745,8 +745,11 @@ sw.bb21.i201:                                     ; preds = %if.then62
   %sub26.i204 = sub i64 %71, %72
   br label %if.end66
 
-if.end66:                                         ; preds = %sdslen.exit157, %sw.bb21.i201, %sw.bb14.i183, %sw.bb5.i189, %sw.bb1.i195, %if.then62, %sdsavail.exit181
-  %toread.0 = phi i64 [ %cond, %sdsavail.exit181 ], [ %sub26.i204, %sw.bb21.i201 ], [ %conv20.i187, %sw.bb14.i183 ], [ %sub12.i194, %sw.bb5.i189 ], [ %sub.i200, %sw.bb1.i195 ], [ 0, %if.then62 ], [ 0, %sdslen.exit157 ]
+default.unreachable:                              ; preds = %if.then62
+  unreachable
+
+if.end66:                                         ; preds = %sdslen.exit157, %sw.bb21.i201, %sw.bb14.i183, %sw.bb5.i189, %sw.bb1.i195, %sdsavail.exit181
+  %toread.0 = phi i64 [ %cond, %sdsavail.exit181 ], [ %sub26.i204, %sw.bb21.i201 ], [ %conv20.i187, %sw.bb14.i183 ], [ %sub12.i194, %sw.bb5.i189 ], [ %sub.i200, %sw.bb1.i195 ], [ 0, %sdslen.exit157 ]
   %73 = load i64, ptr %read_limit, align 8
   %cmp69.not = icmp eq i64 %73, 0
   br i1 %cmp69.not, label %if.end85, label %land.lhs.true70
@@ -1413,7 +1416,7 @@ sdslen.exit:                                      ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %tobool.not, label %while.cond.outer.split.preheader, label %if.then5
 
 if.then5:                                         ; preds = %sdslen.exit
-  switch i32 %and.i, label %rioFdWrite.exit [
+  switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb.i79
     i32 1, label %sw.bb3.i76
     i32 2, label %sw.bb5.i73
@@ -1448,6 +1451,9 @@ sw.bb13.i67:                                      ; preds = %if.then5
   %add.ptr14.i68 = getelementptr inbounds i8, ptr %1, i64 -17
   %10 = load i64, ptr %add.ptr14.i68, align 1
   br label %sdslen.exit82
+
+default.unreachable:                              ; preds = %if.then5
+  unreachable
 
 sdslen.exit82:                                    ; preds = %sw.bb.i79, %sw.bb3.i76, %sw.bb5.i73, %sw.bb9.i70, %sw.bb13.i67
   %retval.0.i69 = phi i64 [ %10, %sw.bb13.i67 ], [ %conv12.i72, %sw.bb9.i70 ], [ %conv8.i75, %sw.bb5.i73 ], [ %conv4.i78, %sw.bb3.i76 ], [ %conv2.i81, %sw.bb.i79 ]
@@ -1493,12 +1499,11 @@ rioFdWrite.exit.loopexit:                         ; preds = %if.end50.i
   %.pre110 = load ptr, ptr %buf4, align 8
   br label %rioFdWrite.exit
 
-rioFdWrite.exit:                                  ; preds = %if.then5, %rioFdWrite.exit.loopexit, %sdslen.exit82
-  %retval.0.i69114 = phi i64 [ %retval.0.i69, %rioFdWrite.exit.loopexit ], [ 0, %sdslen.exit82 ], [ 0, %if.then5 ]
-  %13 = phi ptr [ %.pre110, %rioFdWrite.exit.loopexit ], [ %1, %sdslen.exit82 ], [ %1, %if.then5 ]
+rioFdWrite.exit:                                  ; preds = %rioFdWrite.exit.loopexit, %sdslen.exit82
+  %13 = phi ptr [ %.pre110, %rioFdWrite.exit.loopexit ], [ %1, %sdslen.exit82 ]
   %pos.i = getelementptr inbounds i8, ptr %r, i64 80
   %14 = load i64, ptr %pos.i, align 8
-  %add52.i = add i64 %14, %retval.0.i69114
+  %add52.i = add i64 %14, %retval.0.i69
   store i64 %add52.i, ptr %pos.i, align 8
   tail call void @sdsclear(ptr noundef %13) #15
   br label %if.end32
@@ -1595,19 +1600,19 @@ if.end32:                                         ; preds = %sw.bb13.i48, %sw.bb
   br i1 %cmp33.not100, label %while.end, label %while.cond.outer.split.preheader
 
 while.cond.outer.split.preheader:                 ; preds = %if.then, %sdslen.exit, %if.end32
-  %p.0121 = phi ptr [ %p.0, %if.end32 ], [ %buf, %sdslen.exit ], [ %buf, %if.then ]
-  %len.addr.0119 = phi i64 [ %len.addr.0, %if.end32 ], [ %len, %sdslen.exit ], [ %len, %if.then ]
-  %io34122 = getelementptr inbounds i8, ptr %r, i64 72
+  %p.0117 = phi ptr [ %p.0, %if.end32 ], [ %buf, %sdslen.exit ], [ %buf, %if.then ]
+  %len.addr.0115 = phi i64 [ %len.addr.0, %if.end32 ], [ %len, %sdslen.exit ], [ %len, %if.then ]
+  %io34118 = getelementptr inbounds i8, ptr %r, i64 72
   br label %while.cond.outer.split
 
 while.cond.outer.split:                           ; preds = %while.cond.outer.split.preheader, %if.end50
-  %sub103 = phi i64 [ %sub, %if.end50 ], [ %len.addr.0119, %while.cond.outer.split.preheader ]
+  %sub103 = phi i64 [ %sub, %if.end50 ], [ %len.addr.0115, %while.cond.outer.split.preheader ]
   %nwritten.0.ph101 = phi i64 [ %add, %if.end50 ], [ 0, %while.cond.outer.split.preheader ]
-  %add.ptr102 = getelementptr inbounds i8, ptr %p.0121, i64 %nwritten.0.ph101
+  %add.ptr102 = getelementptr inbounds i8, ptr %p.0117, i64 %nwritten.0.ph101
   br label %while.cond
 
 while.cond:                                       ; preds = %while.cond.outer.split, %land.lhs.true
-  %26 = load i32, ptr %io34122, align 8
+  %26 = load i32, ptr %io34118, align 8
   %call35 = tail call i64 @write(i32 noundef %26, ptr noundef %add.ptr102, i64 noundef %sub103) #15
   %cmp36 = icmp slt i64 %call35, 1
   br i1 %cmp36, label %if.then37, label %if.end50
@@ -1630,15 +1635,15 @@ if.then47:                                        ; preds = %land.lhs.true
 
 if.end50:                                         ; preds = %while.cond
   %add = add i64 %call35, %nwritten.0.ph101
-  %cmp33.not = icmp eq i64 %add, %len.addr.0119
-  %sub = sub i64 %len.addr.0119, %add
+  %cmp33.not = icmp eq i64 %add, %len.addr.0115
+  %sub = sub i64 %len.addr.0115, %add
   br i1 %cmp33.not, label %while.end, label %while.cond.outer.split, !llvm.loop !9
 
 while.end:                                        ; preds = %if.end50, %if.end26, %if.end32
-  %len.addr.0120 = phi i64 [ 0, %if.end32 ], [ 0, %if.end26 ], [ %len.addr.0119, %if.end50 ]
+  %len.addr.0116 = phi i64 [ 0, %if.end32 ], [ 0, %if.end26 ], [ %len.addr.0115, %if.end50 ]
   %pos = getelementptr inbounds i8, ptr %r, i64 80
   %28 = load i64, ptr %pos, align 8
-  %add52 = add i64 %28, %len.addr.0120
+  %add52 = add i64 %28, %len.addr.0116
   store i64 %add52, ptr %pos, align 8
   %buf54 = getelementptr inbounds i8, ptr %r, i64 88
   %29 = load ptr, ptr %buf54, align 8

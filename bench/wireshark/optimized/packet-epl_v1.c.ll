@@ -245,7 +245,7 @@ define internal i32 @dissect_epl_v1(ptr noundef %0, ptr nocapture noundef readon
   %55 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %54, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648) #2
   %56 = load i32, ptr @hf_epl_v1_src, align 4
   %57 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %56, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648) #2
-  switch i8 %12, label %dissect_epl_v1_preq.exit [
+  switch i8 %12, label %default.unreachable [
     i8 1, label %58
     i8 2, label %71
     i8 3, label %76
@@ -357,8 +357,11 @@ define internal i32 @dissect_epl_v1(ptr noundef %0, ptr nocapture noundef readon
   %138 = add nuw nsw i32 %136, 6
   br label %dissect_epl_v1_preq.exit
 
-dissect_epl_v1_preq.exit:                         ; preds = %134, %121, %105, %89, %84, %76, %58, %71, %110, %51, %7, %4
-  %.066 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 0, %51 ], [ 4, %110 ], [ 44, %71 ], [ 46, %58 ], [ %88, %84 ], [ 10, %76 ], [ %109, %105 ], [ 10, %89 ], [ 30, %121 ], [ %138, %134 ]
+default.unreachable:                              ; preds = %51
+  unreachable
+
+dissect_epl_v1_preq.exit:                         ; preds = %134, %121, %105, %89, %84, %76, %58, %71, %110, %7, %4
+  %.066 = phi i32 [ 0, %4 ], [ 0, %7 ], [ 4, %110 ], [ 44, %71 ], [ 46, %58 ], [ %88, %84 ], [ 10, %76 ], [ %109, %105 ], [ 10, %89 ], [ 30, %121 ], [ %138, %134 ]
   ret i32 %.066
 }
 

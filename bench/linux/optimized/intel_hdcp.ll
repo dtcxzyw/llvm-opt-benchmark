@@ -6065,7 +6065,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   br i1 %694, label %695, label %624, !llvm.loop !99
 
 695:                                              ; preds = %.thread54
-  switch i32 %.ph59, label %.unreachabledefault [
+  switch i32 %.ph59, label %default.unreachable [
     i32 0, label %696
     i32 1, label %734
     i32 2, label %776
@@ -6374,7 +6374,7 @@ intel_hdcp_get_repeater_ctl.exit:                 ; preds = %279, %280, %281, %2
   %858 = icmp slt i32 %857, 0
   br i1 %858, label %.loopexit91, label %.thread64
 
-.unreachabledefault:                              ; preds = %695
+default.unreachable:                              ; preds = %695
   unreachable
 
 .thread64:                                        ; preds = %807, %765, %724, %854

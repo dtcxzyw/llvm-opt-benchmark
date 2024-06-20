@@ -14076,10 +14076,8 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr nocapture no
   %117 = tail call i32 @llvm.bswap.i32(i32 %116)
   %118 = getelementptr inbounds i8, ptr %1, i64 272
   store i32 %117, ptr %118, align 8
-  switch i32 %105, label %143 [
-    i32 1, label %119
-    i32 2, label %120
-  ]
+  %switch = icmp eq i32 %104, 16777216
+  br i1 %switch, label %119, label %120
 
 119:                                              ; preds = %115
   store i32 1, ptr %106, align 8
@@ -14123,7 +14121,7 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr nocapture no
   store i64 %142, ptr %121, align 8
   br label %143
 
-143:                                              ; preds = %140, %119, %115
+143:                                              ; preds = %140, %119
   %144 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 12) #12
   %145 = icmp eq ptr %144, null
   br i1 %145, label %.thread24, label %146, !prof !6

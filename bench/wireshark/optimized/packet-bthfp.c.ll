@@ -3558,105 +3558,109 @@ define internal range(i32 0, 2) i32 @dissect_ccwa_parameter(ptr noundef %0, ptr 
 check_ccwa.exit:                                  ; preds = %10
   %13 = icmp eq i32 %4, 1
   %14 = icmp eq i16 %5, 58
-  %or.cond8.i.not.not104 = and i1 %13, %14
+  %or.cond8.i.not.not105 = and i1 %13, %14
   %15 = icmp ult i32 %7, 8
-  %or.cond = and i1 %or.cond8.i.not.not104, %15
-  br i1 %or.cond, label %31, label %check_ccwa.exit.thread89
+  %or.cond = and i1 %or.cond8.i.not.not105, %15
+  br i1 %or.cond, label %29, label %check_ccwa.exit.thread89
 
 16:                                               ; preds = %12, %12, %12
   %17 = icmp ugt i32 %7, 2
   br i1 %17, label %check_ccwa.exit.thread89, label %18
 
 18:                                               ; preds = %16
-  switch i32 %7, label %check_ccwa.exit.thread89 [
-    i32 0, label %19
+  %19 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  switch i32 %7, label %default.unreachable [
+    i32 0, label %20
     i32 1, label %23
-    i32 2, label %27
+    i32 2, label %26
   ]
 
-19:                                               ; preds = %18
-  %20 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+20:                                               ; preds = %18
   %21 = load i32, ptr @hf_ccwa_show_result_code, align 4
-  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %20) #7
+  %22 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %21, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %19) #7
   br label %check_ccwa.exit.thread89
 
 23:                                               ; preds = %18
-  %24 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %25 = load i32, ptr @hf_ccwa_mode, align 4
-  %26 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %24) #7
+  %24 = load i32, ptr @hf_ccwa_mode, align 4
+  %25 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %19) #7
   br label %check_ccwa.exit.thread89
 
-27:                                               ; preds = %18
-  %28 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %29 = load i32, ptr @hf_ccwa_class, align 4
-  %30 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %29, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %28) #7
+26:                                               ; preds = %18
+  %27 = load i32, ptr @hf_ccwa_class, align 4
+  %28 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %27, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %19) #7
   br label %check_ccwa.exit.thread89
 
-31:                                               ; preds = %check_ccwa.exit
-  switch i32 %7, label %check_ccwa.exit.thread89 [
-    i32 0, label %32
-    i32 1, label %35
-    i32 2, label %42
-    i32 3, label %46
-    i32 4, label %49
-    i32 5, label %53
-    i32 6, label %56
-    i32 7, label %60
+29:                                               ; preds = %check_ccwa.exit
+  switch i32 %7, label %default.unreachable103 [
+    i32 0, label %30
+    i32 1, label %33
+    i32 2, label %40
+    i32 3, label %44
+    i32 4, label %47
+    i32 5, label %51
+    i32 6, label %54
+    i32 7, label %58
   ]
 
-32:                                               ; preds = %31
-  %33 = load i32, ptr @hf_at_number, align 4
-  %34 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %33, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
+30:                                               ; preds = %29
+  %31 = load i32, ptr @hf_at_number, align 4
+  %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
   br label %check_ccwa.exit.thread89
 
-35:                                               ; preds = %31
-  %36 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %37 = load i32, ptr @hf_at_type, align 4
-  %38 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %37, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %36) #7
-  %39 = add i32 %36, -176
-  %or.cond5 = icmp ult i32 %39, -48
-  br i1 %or.cond5, label %40, label %check_ccwa.exit.thread89
+33:                                               ; preds = %29
+  %34 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  %35 = load i32, ptr @hf_at_type, align 4
+  %36 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %35, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %34) #7
+  %37 = add i32 %34, -176
+  %or.cond5 = icmp ult i32 %37, -48
+  br i1 %or.cond5, label %38, label %check_ccwa.exit.thread89
 
-40:                                               ; preds = %35
-  %41 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %38, ptr noundef nonnull @ei_at_type) #7
+38:                                               ; preds = %33
+  %39 = tail call ptr @expert_add_info(ptr noundef %1, ptr noundef %36, ptr noundef nonnull @ei_at_type) #7
   br label %check_ccwa.exit.thread89
 
-42:                                               ; preds = %31
-  %43 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %44 = load i32, ptr @hf_ccwa_class, align 4
-  %45 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %44, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %43) #7
+40:                                               ; preds = %29
+  %41 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  %42 = load i32, ptr @hf_ccwa_class, align 4
+  %43 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %42, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %41) #7
   br label %check_ccwa.exit.thread89
 
-46:                                               ; preds = %31
-  %47 = load i32, ptr @hf_at_alpha, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %47, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
+44:                                               ; preds = %29
+  %45 = load i32, ptr @hf_at_alpha, align 4
+  %46 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %45, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
   br label %check_ccwa.exit.thread89
 
-49:                                               ; preds = %31
-  %50 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %51 = load i32, ptr @hf_at_cli_validity, align 4
-  %52 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %51, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %50) #7
+47:                                               ; preds = %29
+  %48 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  %49 = load i32, ptr @hf_at_cli_validity, align 4
+  %50 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %49, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %48) #7
   br label %check_ccwa.exit.thread89
 
-53:                                               ; preds = %31
-  %54 = load i32, ptr @hf_at_subaddress, align 4
-  %55 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %54, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
+51:                                               ; preds = %29
+  %52 = load i32, ptr @hf_at_subaddress, align 4
+  %53 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %52, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef 0) #7
   br label %check_ccwa.exit.thread89
 
-56:                                               ; preds = %31
-  %57 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %58 = load i32, ptr @hf_at_subaddress_type, align 4
-  %59 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %58, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %57) #7
+54:                                               ; preds = %29
+  %55 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  %56 = load i32, ptr @hf_at_subaddress_type, align 4
+  %57 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %56, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %55) #7
   br label %check_ccwa.exit.thread89
 
-60:                                               ; preds = %31
-  %61 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
-  %62 = load i32, ptr @hf_at_priority, align 4
-  %63 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %62, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %61) #7
+58:                                               ; preds = %29
+  %59 = tail call fastcc i32 @get_uint_parameter(ptr noundef %6, i32 noundef %8)
+  %60 = load i32, ptr @hf_at_priority, align 4
+  %61 = tail call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %60, ptr noundef %0, i32 noundef %3, i32 noundef %8, i32 noundef %59) #7
   br label %check_ccwa.exit.thread89
 
-check_ccwa.exit.thread89:                         ; preds = %18, %27, %23, %19, %12, %40, %35, %60, %56, %53, %49, %46, %42, %32, %31, %16, %check_ccwa.exit
-  %.0 = phi i32 [ 0, %check_ccwa.exit ], [ 0, %16 ], [ 1, %31 ], [ 1, %32 ], [ 1, %42 ], [ 1, %46 ], [ 1, %49 ], [ 1, %53 ], [ 1, %56 ], [ 1, %60 ], [ 1, %35 ], [ 1, %40 ], [ 1, %19 ], [ 1, %23 ], [ 1, %27 ], [ 0, %12 ], [ 1, %18 ]
+default.unreachable:                              ; preds = %18
+  unreachable
+
+default.unreachable103:                           ; preds = %29
+  unreachable
+
+check_ccwa.exit.thread89:                         ; preds = %26, %23, %20, %12, %38, %33, %58, %54, %51, %47, %44, %40, %30, %16, %check_ccwa.exit
+  %.0 = phi i32 [ 0, %check_ccwa.exit ], [ 0, %16 ], [ 1, %30 ], [ 1, %40 ], [ 1, %44 ], [ 1, %47 ], [ 1, %51 ], [ 1, %54 ], [ 1, %58 ], [ 1, %33 ], [ 1, %38 ], [ 1, %20 ], [ 1, %23 ], [ 1, %26 ], [ 0, %12 ]
   ret i32 %.0
 }
 

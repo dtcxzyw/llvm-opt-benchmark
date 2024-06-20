@@ -4775,7 +4775,7 @@ sdslen.exit:                                      ; preds = %sw.bb3.i, %sw.bb5.i
   br i1 %cmp, label %invalid, label %if.end
 
 if.end:                                           ; preds = %sdslen.exit
-  switch i32 %and.i, label %sdslen.exit39 [
+  switch i32 %and.i, label %default.unreachable [
     i32 4, label %sw.bb13.i24
     i32 1, label %sw.bb3.i33
     i32 2, label %sw.bb5.i30
@@ -4810,8 +4810,11 @@ sw.bb13.i24:                                      ; preds = %if.end
   %9 = load i64, ptr %add.ptr14.i25, align 1
   br label %sdslen.exit39
 
-sdslen.exit39:                                    ; preds = %entry, %if.end, %sw.bb.i36, %sw.bb3.i33, %sw.bb5.i30, %sw.bb9.i27, %sw.bb13.i24
-  %retval.0.i26 = phi i64 [ %9, %sw.bb13.i24 ], [ %conv12.i29, %sw.bb9.i27 ], [ %conv8.i32, %sw.bb5.i30 ], [ %conv4.i35, %sw.bb3.i33 ], [ %conv2.i38, %sw.bb.i36 ], [ 0, %if.end ], [ 0, %entry ]
+default.unreachable:                              ; preds = %if.end
+  unreachable
+
+sdslen.exit39:                                    ; preds = %entry, %sw.bb.i36, %sw.bb3.i33, %sw.bb5.i30, %sw.bb9.i27, %sw.bb13.i24
+  %retval.0.i26 = phi i64 [ %9, %sw.bb13.i24 ], [ %conv12.i29, %sw.bb9.i27 ], [ %conv8.i32, %sw.bb5.i30 ], [ %conv4.i35, %sw.bb3.i33 ], [ %conv2.i38, %sw.bb.i36 ], [ 0, %entry ]
   %add = add i64 %retval.0.i26, 1
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %buf, ptr nonnull align 1 %0, i64 %add, i1 false)
   %tobool.not = icmp eq i32 %strict, 0

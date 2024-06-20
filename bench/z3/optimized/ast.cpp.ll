@@ -5719,7 +5719,7 @@ _ZNK4expr8get_sortEv.exit24:                      ; preds = %sw.bb.i20, %sw.bb5.
   br i1 %cmp13, label %return, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %_ZNK4expr8get_sortEv.exit24
-  switch i16 %trunc.i13, label %sw.default.i37 [
+  switch i16 %trunc.i13, label %default.unreachable [
     i16 0, label %sw.bb.i34
     i16 1, label %sw.bb5.i32
     i16 2, label %sw.bb8.i28
@@ -5739,9 +5739,7 @@ sw.bb8.i28:                                       ; preds = %lor.lhs.false
   %m_sort.i1.i29 = getelementptr inbounds i8, ptr %3, i64 32
   br label %_ZNK4expr8get_sortEv.exit38
 
-sw.default.i37:                                   ; preds = %lor.lhs.false
-  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #32
+default.unreachable:                              ; preds = %lor.lhs.false
   unreachable
 
 _ZNK4expr8get_sortEv.exit38:                      ; preds = %sw.bb.i34, %sw.bb5.i32, %sw.bb8.i28
@@ -24863,7 +24861,7 @@ _ZN11ast_manager6mk_appEiijPK9parameterjPKP4exprP4sort.exit61: ; preds = %if.els
   br label %return
 
 land.lhs.true16:                                  ; preds = %_ZNK4decl13get_family_idEv.exit18, %land.lhs.true4
-  switch i16 %trunc.i, label %sw.default.i.i [
+  switch i16 %trunc.i, label %default.unreachable [
     i16 0, label %sw.bb.i.i
     i16 1, label %sw.bb5.i.i
     i16 2, label %sw.bb8.i.i
@@ -24883,9 +24881,7 @@ sw.bb8.i.i:                                       ; preds = %land.lhs.true16
   %m_sort.i1.i.i = getelementptr inbounds i8, ptr %e, i64 32
   br label %_ZNK11ast_manager7is_boolEPK4expr.exit
 
-sw.default.i.i:                                   ; preds = %land.lhs.true16
-  tail call void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str, i32 noundef 416, ptr noundef nonnull @.str.1)
-  tail call void @exit(i32 noundef 114) #32
+default.unreachable:                              ; preds = %land.lhs.true16
   unreachable
 
 _ZNK11ast_manager7is_boolEPK4expr.exit:           ; preds = %sw.bb.i.i, %sw.bb5.i.i, %sw.bb8.i.i

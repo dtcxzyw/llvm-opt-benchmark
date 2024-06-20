@@ -3855,7 +3855,7 @@ if.end5:                                          ; preds = %if.end.preheader, %
   br i1 %or.cond1, label %cond.false37, label %if.end52
 
 cond.false37:                                     ; preds = %if.end5
-  switch i32 %vece.tr239363, label %do.body.i [
+  switch i32 %vece.tr239363, label %default.unreachable [
     i32 0, label %sw.bb.i
     i32 1, label %sw.bb2.i
     i32 2, label %sw.bb6.i
@@ -3877,8 +3877,7 @@ sw.bb6.i:                                         ; preds = %cond.false37
   %mul9.i = mul nuw i64 %conv8.i, 4294967297
   br label %cond.end38
 
-do.body.i:                                        ; preds = %cond.false37
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str, i32 noundef 384, ptr noundef nonnull @__func__.dup_const, ptr noundef null) #8
+default.unreachable:                              ; preds = %cond.false37
   unreachable
 
 cond.end38:                                       ; preds = %sw.bb6.i, %sw.bb2.i, %sw.bb.i, %cond.false37

@@ -1579,233 +1579,225 @@ define i32 @hwloc_obj_type_snprintf(ptr noalias nocapture noundef writeonly %0, 
   %5 = trunc i64 %3 to i32
   %6 = and i32 %5, 3
   %7 = load i32, ptr %2, align 8
-  switch i32 %7, label %95 [
-    i32 17, label %8
-    i32 0, label %8
-    i32 13, label %8
-    i32 18, label %8
-    i32 1, label %8
-    i32 19, label %8
-    i32 2, label %8
-    i32 3, label %8
-    i32 4, label %12
-    i32 5, label %12
-    i32 6, label %12
-    i32 7, label %12
-    i32 8, label %12
-    i32 9, label %12
-    i32 10, label %12
-    i32 11, label %12
-    i32 12, label %23
-    i32 14, label %31
-    i32 15, label %39
-    i32 16, label %41
+  switch i32 %7, label %93 [
+    i32 17, label %switch.lookup
+    i32 0, label %switch.lookup
+    i32 13, label %switch.lookup
+    i32 18, label %switch.lookup
+    i32 1, label %switch.lookup
+    i32 19, label %switch.lookup
+    i32 2, label %switch.lookup
+    i32 3, label %switch.lookup
+    i32 4, label %10
+    i32 5, label %10
+    i32 6, label %10
+    i32 7, label %10
+    i32 8, label %10
+    i32 9, label %10
+    i32 10, label %10
+    i32 11, label %10
+    i32 12, label %21
+    i32 14, label %29
+    i32 15, label %37
+    i32 16, label %39
   ]
 
-8:                                                ; preds = %4, %4, %4, %4, %4, %4, %4, %4
-  %9 = icmp ult i32 %7, 20
-  br i1 %9, label %switch.lookup, label %hwloc_obj_type_string.exit
-
-switch.lookup:                                    ; preds = %8
-  %10 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %10
+switch.lookup:                                    ; preds = %4, %4, %4, %4, %4, %4, %4, %4
+  %8 = sext i32 %7 to i64
+  %switch.gep = getelementptr inbounds [20 x ptr], ptr @switch.table.hwloc_obj_type_snprintf, i64 0, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %hwloc_obj_type_string.exit
-
-hwloc_obj_type_string.exit:                       ; preds = %8, %switch.lookup
-  %.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.20, %8 ]
-  %11 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %.0.i) #18
+  %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull %switch.load) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-12:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
-  %13 = getelementptr inbounds i8, ptr %2, i64 40
-  %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds i8, ptr %14, i64 8
-  %16 = load i32, ptr %15, align 8
-  %17 = getelementptr inbounds i8, ptr %14, i64 20
-  %18 = load i32, ptr %17, align 4
-  %19 = icmp ult i32 %18, 3
-  br i1 %19, label %switch.lookup54, label %hwloc_obj_cache_type_letter.exit
+10:                                               ; preds = %4, %4, %4, %4, %4, %4, %4, %4
+  %11 = getelementptr inbounds i8, ptr %2, i64 40
+  %12 = load ptr, ptr %11, align 8
+  %13 = getelementptr inbounds i8, ptr %12, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = getelementptr inbounds i8, ptr %12, i64 20
+  %16 = load i32, ptr %15, align 4
+  %17 = icmp ult i32 %16, 3
+  br i1 %17, label %switch.lookup54, label %hwloc_obj_cache_type_letter.exit
 
-switch.lookup54:                                  ; preds = %12
-  %20 = zext nneg i32 %18 to i64
-  %switch.gep55 = getelementptr inbounds [3 x ptr], ptr @switch.table.hwloc_obj_type_snprintf.1, i64 0, i64 %20
+switch.lookup54:                                  ; preds = %10
+  %18 = zext nneg i32 %16 to i64
+  %switch.gep55 = getelementptr inbounds [3 x ptr], ptr @switch.table.hwloc_obj_type_snprintf.1, i64 0, i64 %18
   %switch.load56 = load ptr, ptr %switch.gep55, align 8
   br label %hwloc_obj_cache_type_letter.exit
 
-hwloc_obj_cache_type_letter.exit:                 ; preds = %12, %switch.lookup54
-  %.0.i41 = phi ptr [ %switch.load56, %switch.lookup54 ], [ @.str.84, %12 ]
+hwloc_obj_cache_type_letter.exit:                 ; preds = %10, %switch.lookup54
+  %.0.i41 = phi ptr [ %switch.load56, %switch.lookup54 ], [ @.str.84, %10 ]
   %.not39 = icmp eq i32 %6, 0
-  %21 = select i1 %.not39, ptr @.str.55, ptr @.str.54
-  %22 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.53, i32 noundef %16, ptr noundef nonnull %.0.i41, ptr noundef nonnull %21) #18
+  %19 = select i1 %.not39, ptr @.str.55, ptr @.str.54
+  %20 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.53, i32 noundef %14, ptr noundef nonnull %.0.i41, ptr noundef nonnull %19) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-23:                                               ; preds = %4
-  %24 = getelementptr inbounds i8, ptr %2, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = load i32, ptr %25, align 8
-  %.not38 = icmp eq i32 %26, -1
-  br i1 %.not38, label %29, label %27
+21:                                               ; preds = %4
+  %22 = getelementptr inbounds i8, ptr %2, i64 40
+  %23 = load ptr, ptr %22, align 8
+  %24 = load i32, ptr %23, align 8
+  %.not38 = icmp eq i32 %24, -1
+  br i1 %.not38, label %27, label %25
 
-27:                                               ; preds = %23
-  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.2, i32 noundef %26) #18
+25:                                               ; preds = %21
+  %26 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.56, ptr noundef nonnull @.str.2, i32 noundef %24) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-29:                                               ; preds = %23
-  %30 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.2) #18
+27:                                               ; preds = %21
+  %28 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef nonnull @.str.2) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-31:                                               ; preds = %4
-  %32 = getelementptr inbounds i8, ptr %2, i64 40
-  %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds i8, ptr %33, i64 24
-  %35 = load i32, ptr %34, align 8
-  %36 = icmp eq i32 %35, 1
-  %37 = select i1 %36, ptr @.str.57, ptr @.str.58
-  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %37) #18
+29:                                               ; preds = %4
+  %30 = getelementptr inbounds i8, ptr %2, i64 40
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds i8, ptr %31, i64 24
+  %33 = load i32, ptr %32, align 8
+  %34 = icmp eq i32 %33, 1
+  %35 = select i1 %34, ptr @.str.57, ptr @.str.58
+  %36 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %35) #18
+  br label %hwloc__osdev_type_snprintf_short.exit
+
+37:                                               ; preds = %4
+  %38 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.59) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
 39:                                               ; preds = %4
-  %40 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.59) #18
-  br label %hwloc__osdev_type_snprintf_short.exit
+  %40 = and i64 %3, 4
+  %.not = icmp eq i64 %40, 0
+  %41 = getelementptr inbounds i8, ptr %2, i64 40
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i64, ptr %42, align 8
+  br i1 %.not, label %54, label %.preheader
 
-41:                                               ; preds = %4
-  %42 = and i64 %3, 4
-  %.not = icmp eq i64 %42, 0
-  %43 = getelementptr inbounds i8, ptr %2, i64 40
-  %44 = load ptr, ptr %43, align 8
-  %45 = load i64, ptr %44, align 8
-  br i1 %.not, label %56, label %.preheader
-
-46:                                               ; preds = %.preheader
+44:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.not.i, label %53, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i, label %51, label %.preheader, !llvm.loop !12
 
-.preheader:                                       ; preds = %41, %46
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %41 ]
-  %47 = getelementptr inbounds [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i
-  %48 = load i64, ptr %47, align 8, !noalias !13
-  %49 = and i64 %48, %45
-  %.not13.i = icmp eq i64 %49, 0
-  br i1 %.not13.i, label %46, label %50
+.preheader:                                       ; preds = %39, %44
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %44 ], [ 0, %39 ]
+  %45 = getelementptr inbounds [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i
+  %46 = load i64, ptr %45, align 8, !noalias !13
+  %47 = and i64 %46, %43
+  %.not13.i = icmp eq i64 %47, 0
+  br i1 %.not13.i, label %44, label %48
 
-50:                                               ; preds = %.preheader
+48:                                               ; preds = %.preheader
   %.not14.i = icmp eq i32 %6, 0
   %.in.v.i = select i1 %.not14.i, i64 8, i64 16
-  %.in.i = getelementptr inbounds i8, ptr %47, i64 %.in.v.i
-  %51 = load ptr, ptr %.in.i, align 8, !noalias !13
-  %52 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef %51) #18
+  %.in.i = getelementptr inbounds i8, ptr %45, i64 %.in.v.i
+  %49 = load ptr, ptr %.in.i, align 8, !noalias !13
+  %50 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull @.str.52, ptr noundef %49) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-53:                                               ; preds = %46
+51:                                               ; preds = %44
   %.not.i = icmp eq i32 %6, 0
-  %54 = select i1 %.not.i, ptr @.str.85, ptr @.str.18
-  %55 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %54) #18
+  %52 = select i1 %.not.i, ptr @.str.85, ptr @.str.18
+  %53 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %52) #18
   br label %hwloc__osdev_type_snprintf_short.exit
 
-56:                                               ; preds = %41
+54:                                               ; preds = %39
   %.not.i44 = icmp eq i32 %6, 0
-  %57 = select i1 %.not.i44, ptr @.str.85, ptr @.str.18
-  %58 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %57) #18
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %hwloc__osdev_type_snprintf_short.exit, label %60
+  %55 = select i1 %.not.i44, ptr @.str.85, ptr @.str.18
+  %56 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %0, i64 noundef %1, ptr noundef nonnull %55) #18
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %hwloc__osdev_type_snprintf_short.exit, label %58
 
-60:                                               ; preds = %56
-  %.not7797.i = icmp eq i64 %45, 0
+58:                                               ; preds = %54
+  %.not7797.i = icmp eq i64 %43, 0
   br i1 %.not7797.i, label %hwloc__osdev_type_snprintf_short.exit, label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %60
-  %61 = zext nneg i32 %58 to i64
-  %.not76.i = icmp slt i64 %61, %1
-  %62 = icmp sgt i64 %1, 0
-  %63 = trunc i64 %1 to i32
-  %64 = add nsw i32 %63, -1
-  %65 = select i1 %62, i32 %64, i32 0
-  %.055.i = select i1 %.not76.i, i32 %58, i32 %65
-  %66 = sext i32 %.055.i to i64
-  %67 = sub nsw i64 %1, %66
-  %68 = getelementptr inbounds i8, ptr %0, i64 %66
+.preheader.lr.ph.i:                               ; preds = %58
+  %59 = zext nneg i32 %56 to i64
+  %.not76.i = icmp slt i64 %59, %1
+  %60 = icmp sgt i64 %1, 0
+  %61 = trunc i64 %1 to i32
+  %62 = add nsw i32 %61, -1
+  %63 = select i1 %60, i32 %62, i32 0
+  %.055.i = select i1 %.not76.i, i32 %56, i32 %63
+  %64 = sext i32 %.055.i to i64
+  %65 = sub nsw i64 %1, %64
+  %66 = getelementptr inbounds i8, ptr %0, i64 %64
   %.in.v.i45 = select i1 %.not.i44, i64 8, i64 16
   br label %.preheader.i
 
-.loopexit.i:                                      ; preds = %90
+.loopexit.i:                                      ; preds = %88
   %.not77.i = icmp eq i64 %.271.i, 0
   br i1 %.not77.i, label %._crit_edge.i, label %.preheader.i.backedge
 
 .preheader.i:                                     ; preds = %.preheader.i.backedge, %.preheader.lr.ph.i
   %indvars.iv.i46 = phi i64 [ 0, %.preheader.lr.ph.i ], [ %indvars.iv.i46.be, %.preheader.i.backedge ]
-  %.15795.i = phi i32 [ %58, %.preheader.lr.ph.i ], [ %.258.i, %.preheader.i.backedge ]
-  %.16094.i = phi i64 [ %67, %.preheader.lr.ph.i ], [ %.261.i, %.preheader.i.backedge ]
-  %.16393.i = phi ptr [ %68, %.preheader.lr.ph.i ], [ %.264.i, %.preheader.i.backedge ]
+  %.15795.i = phi i32 [ %56, %.preheader.lr.ph.i ], [ %.258.i, %.preheader.i.backedge ]
+  %.16094.i = phi i64 [ %65, %.preheader.lr.ph.i ], [ %.261.i, %.preheader.i.backedge ]
+  %.16393.i = phi ptr [ %66, %.preheader.lr.ph.i ], [ %.264.i, %.preheader.i.backedge ]
   %.16692.i = phi i8 [ 91, %.preheader.lr.ph.i ], [ %.267.i, %.preheader.i.backedge ]
-  %.17091.i = phi i64 [ %45, %.preheader.lr.ph.i ], [ %.271.i, %.preheader.i.backedge ]
-  %69 = getelementptr inbounds [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i46
-  %70 = load i64, ptr %69, align 8, !noalias !16
-  %71 = and i64 %70, %.17091.i
-  %.not79.i = icmp eq i64 %71, 0
-  br i1 %.not79.i, label %90, label %72
+  %.17091.i = phi i64 [ %43, %.preheader.lr.ph.i ], [ %.271.i, %.preheader.i.backedge ]
+  %67 = getelementptr inbounds [7 x %struct._hwloc_osdev_type_names], ptr @names, i64 0, i64 %indvars.iv.i46
+  %68 = load i64, ptr %67, align 8, !noalias !16
+  %69 = and i64 %68, %.17091.i
+  %.not79.i = icmp eq i64 %69, 0
+  br i1 %.not79.i, label %88, label %70
 
-72:                                               ; preds = %.preheader.i
-  %73 = zext nneg i8 %.16692.i to i32
-  %.in.i47 = getelementptr inbounds i8, ptr %69, i64 %.in.v.i45
-  %74 = load ptr, ptr %.in.i47, align 8, !noalias !16
-  %75 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.16393.i, i64 noundef %.16094.i, ptr noundef nonnull @.str.86, i32 noundef %73, ptr noundef %74) #18
-  %76 = icmp slt i32 %75, 0
-  br i1 %76, label %hwloc__osdev_type_snprintf_short.exit, label %77
+70:                                               ; preds = %.preheader.i
+  %71 = zext nneg i8 %.16692.i to i32
+  %.in.i47 = getelementptr inbounds i8, ptr %67, i64 %.in.v.i45
+  %72 = load ptr, ptr %.in.i47, align 8, !noalias !16
+  %73 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.16393.i, i64 noundef %.16094.i, ptr noundef nonnull @.str.86, i32 noundef %71, ptr noundef %72) #18
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %hwloc__osdev_type_snprintf_short.exit, label %75
 
-77:                                               ; preds = %72
-  %78 = add nuw nsw i32 %75, %.15795.i
-  %79 = zext nneg i32 %75 to i64
-  %.not80.i = icmp sgt i64 %.16094.i, %79
-  %80 = icmp sgt i64 %.16094.i, 0
-  %81 = trunc i64 %.16094.i to i32
-  %82 = add nsw i32 %81, -1
-  %83 = select i1 %80, i32 %82, i32 0
-  %.1.i = select i1 %.not80.i, i32 %75, i32 %83
-  %84 = sext i32 %.1.i to i64
-  %85 = getelementptr inbounds i8, ptr %.16393.i, i64 %84
-  %86 = sub nsw i64 %.16094.i, %84
-  %87 = load i64, ptr %69, align 8, !noalias !16
-  %88 = xor i64 %87, -1
-  %89 = and i64 %.17091.i, %88
-  br label %90
+75:                                               ; preds = %70
+  %76 = add nuw nsw i32 %73, %.15795.i
+  %77 = zext nneg i32 %73 to i64
+  %.not80.i = icmp sgt i64 %.16094.i, %77
+  %78 = icmp sgt i64 %.16094.i, 0
+  %79 = trunc i64 %.16094.i to i32
+  %80 = add nsw i32 %79, -1
+  %81 = select i1 %78, i32 %80, i32 0
+  %.1.i = select i1 %.not80.i, i32 %73, i32 %81
+  %82 = sext i32 %.1.i to i64
+  %83 = getelementptr inbounds i8, ptr %.16393.i, i64 %82
+  %84 = sub nsw i64 %.16094.i, %82
+  %85 = load i64, ptr %67, align 8, !noalias !16
+  %86 = xor i64 %85, -1
+  %87 = and i64 %.17091.i, %86
+  br label %88
 
-90:                                               ; preds = %77, %.preheader.i
-  %.271.i = phi i64 [ %89, %77 ], [ %.17091.i, %.preheader.i ]
-  %.267.i = phi i8 [ 44, %77 ], [ %.16692.i, %.preheader.i ]
-  %.264.i = phi ptr [ %85, %77 ], [ %.16393.i, %.preheader.i ]
-  %.261.i = phi i64 [ %86, %77 ], [ %.16094.i, %.preheader.i ]
-  %.258.i = phi i32 [ %78, %77 ], [ %.15795.i, %.preheader.i ]
+88:                                               ; preds = %75, %.preheader.i
+  %.271.i = phi i64 [ %87, %75 ], [ %.17091.i, %.preheader.i ]
+  %.267.i = phi i8 [ 44, %75 ], [ %.16692.i, %.preheader.i ]
+  %.264.i = phi ptr [ %83, %75 ], [ %.16393.i, %.preheader.i ]
+  %.261.i = phi i64 [ %84, %75 ], [ %.16094.i, %.preheader.i ]
+  %.258.i = phi i32 [ %76, %75 ], [ %.15795.i, %.preheader.i ]
   %indvars.iv.next.i48 = add nuw nsw i64 %indvars.iv.i46, 1
   %exitcond.not.i49 = icmp eq i64 %indvars.iv.next.i48, 7
   br i1 %exitcond.not.i49, label %.loopexit.i, label %.preheader.i.backedge
 
-.preheader.i.backedge:                            ; preds = %90, %.loopexit.i
-  %indvars.iv.i46.be = phi i64 [ %indvars.iv.next.i48, %90 ], [ 0, %.loopexit.i ]
+.preheader.i.backedge:                            ; preds = %88, %.loopexit.i
+  %indvars.iv.i46.be = phi i64 [ %indvars.iv.next.i48, %88 ], [ 0, %.loopexit.i ]
   br label %.preheader.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.loopexit.i
-  %91 = icmp eq i8 %.267.i, 44
-  br i1 %91, label %92, label %hwloc__osdev_type_snprintf_short.exit
+  %89 = icmp eq i8 %.267.i, 44
+  br i1 %89, label %90, label %hwloc__osdev_type_snprintf_short.exit
 
-92:                                               ; preds = %._crit_edge.i
-  %93 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.264.i, i64 noundef %.261.i, ptr noundef nonnull @.str.87) #18
-  %94 = add nuw nsw i32 %93, %.258.i
-  %.inv.i = icmp sgt i32 %93, -1
-  %spec.select.i = select i1 %.inv.i, i32 %94, i32 -1
+90:                                               ; preds = %._crit_edge.i
+  %91 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %.264.i, i64 noundef %.261.i, ptr noundef nonnull @.str.87) #18
+  %92 = add nuw nsw i32 %91, %.258.i
+  %.inv.i = icmp sgt i32 %91, -1
+  %spec.select.i = select i1 %.inv.i, i32 %92, i32 -1
   br label %hwloc__osdev_type_snprintf_short.exit
 
-95:                                               ; preds = %4
+93:                                               ; preds = %4
   %.not40 = icmp eq i64 %1, 0
-  br i1 %.not40, label %hwloc__osdev_type_snprintf_short.exit, label %96
+  br i1 %.not40, label %hwloc__osdev_type_snprintf_short.exit, label %94
 
-96:                                               ; preds = %95
+94:                                               ; preds = %93
   store i8 0, ptr %0, align 1
   br label %hwloc__osdev_type_snprintf_short.exit
 
-hwloc__osdev_type_snprintf_short.exit:            ; preds = %72, %92, %._crit_edge.i, %60, %56, %53, %50, %95, %96, %39, %31, %29, %27, %hwloc_obj_cache_type_letter.exit, %hwloc_obj_type_string.exit
-  %.0 = phi i32 [ %40, %39 ], [ %38, %31 ], [ %28, %27 ], [ %30, %29 ], [ %22, %hwloc_obj_cache_type_letter.exit ], [ %11, %hwloc_obj_type_string.exit ], [ 0, %96 ], [ 0, %95 ], [ %52, %50 ], [ %55, %53 ], [ -1, %56 ], [ %.258.i, %._crit_edge.i ], [ %spec.select.i, %92 ], [ %58, %60 ], [ -1, %72 ]
+hwloc__osdev_type_snprintf_short.exit:            ; preds = %70, %90, %._crit_edge.i, %58, %54, %51, %48, %93, %94, %37, %29, %27, %25, %hwloc_obj_cache_type_letter.exit, %switch.lookup
+  %.0 = phi i32 [ %38, %37 ], [ %36, %29 ], [ %26, %25 ], [ %28, %27 ], [ %20, %hwloc_obj_cache_type_letter.exit ], [ %9, %switch.lookup ], [ 0, %94 ], [ 0, %93 ], [ %50, %48 ], [ %53, %51 ], [ -1, %54 ], [ %.258.i, %._crit_edge.i ], [ %spec.select.i, %90 ], [ %56, %58 ], [ -1, %70 ]
   ret i32 %.0
 }
 

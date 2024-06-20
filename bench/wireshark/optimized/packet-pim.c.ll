@@ -1815,506 +1815,460 @@ define internal fastcc range(i32 0, 2) i32 @dissect_pim_addr(ptr nocapture nound
   %13 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
   %14 = add i8 %13, -3
   %or.cond = icmp ult i8 %14, -2
-  br i1 %or.cond, label %282, label %15
+  br i1 %or.cond, label %273, label %15
 
 15:                                               ; preds = %10
   %16 = add i32 %3, 1
   %17 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %16) #4
   %or.cond5 = icmp ugt i8 %17, 1
-  br i1 %or.cond5, label %282, label %18
+  br i1 %or.cond5, label %273, label %18
 
 18:                                               ; preds = %15
   switch i32 %4, label %default.unreachable [
     i32 0, label %19
-    i32 1, label %114
-    i32 2, label %157
+    i32 1, label %111
+    i32 2, label %152
   ]
 
 19:                                               ; preds = %18
-  switch i8 %13, label %39 [
-    i8 1, label %20
-    i8 2, label %30
-  ]
-
-20:                                               ; preds = %19
-  %21 = add i32 %3, 2
-  %22 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %21) #4
+  %switch = icmp eq i8 %13, 1
+  %20 = add i32 %3, 2
   %.not398 = icmp eq ptr %5, null
+  br i1 %switch, label %21, label %30
+
+21:                                               ; preds = %19
+  %22 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %20) #4
   br i1 %.not398, label %28, label %23
 
-23:                                               ; preds = %20
+23:                                               ; preds = %21
   %24 = getelementptr inbounds i8, ptr %0, i64 408
   %25 = load ptr, ptr %24, align 8
-  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %2, i32 noundef 2, i32 noundef %21) #4
+  %26 = tail call ptr @tvb_address_to_str(ptr noundef %25, ptr noundef %2, i32 noundef 2, i32 noundef %20) #4
   %27 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 6, i32 noundef %22, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %26) #4
-  br label %39
+  br label %38
 
-28:                                               ; preds = %20
+28:                                               ; preds = %21
   %29 = tail call ptr @proto_tree_add_ipv4(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 6, i32 noundef %22) #4
-  br label %39
+  br label %38
 
 30:                                               ; preds = %19
-  %31 = add i32 %3, 2
-  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %31, ptr noundef nonnull %11) #4
-  %.not397 = icmp eq ptr %5, null
-  br i1 %.not397, label %37, label %32
+  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %20, ptr noundef nonnull %11) #4
+  br i1 %.not398, label %36, label %31
 
-32:                                               ; preds = %30
-  %33 = getelementptr inbounds i8, ptr %0, i64 408
-  %34 = load ptr, ptr %33, align 8
-  %35 = call ptr @tvb_address_to_str(ptr noundef %34, ptr noundef %2, i32 noundef 3, i32 noundef %31) #4
-  %36 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 18, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %35) #4
-  br label %39
+31:                                               ; preds = %30
+  %32 = getelementptr inbounds i8, ptr %0, i64 408
+  %33 = load ptr, ptr %32, align 8
+  %34 = call ptr @tvb_address_to_str(ptr noundef %33, ptr noundef %2, i32 noundef 3, i32 noundef %20) #4
+  %35 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 18, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %34) #4
+  br label %38
 
-37:                                               ; preds = %30
-  %38 = call ptr @proto_tree_add_ipv6(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 18, ptr noundef nonnull %11) #4
-  br label %39
+36:                                               ; preds = %30
+  %37 = call ptr @proto_tree_add_ipv6(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 18, ptr noundef nonnull %11) #4
+  br label %38
 
-39:                                               ; preds = %32, %37, %23, %28, %19
-  %.0377 = phi i32 [ 0, %19 ], [ 0, %32 ], [ 0, %37 ], [ %22, %23 ], [ %22, %28 ]
-  %.0374 = phi ptr [ null, %19 ], [ %36, %32 ], [ %38, %37 ], [ %27, %23 ], [ %29, %28 ]
-  %.0371 = phi i32 [ 0, %19 ], [ 16, %32 ], [ 16, %37 ], [ 4, %23 ], [ 4, %28 ]
-  %40 = load i32, ptr @ett_pim, align 4
-  %41 = call ptr @proto_item_add_subtree(ptr noundef %.0374, i32 noundef %40) #4
-  %42 = load i32, ptr @hf_pim_addr_af, align 4
-  %43 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %42, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %44 = load i32, ptr @hf_pim_addr_et, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %44, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
-  switch i8 %13, label %50 [
-    i8 1, label %.sink.split
-    i8 2, label %46
+38:                                               ; preds = %31, %36, %23, %28
+  %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6 = phi ptr [ @hf_pim_unicast_addr_ipv6, %31 ], [ @hf_pim_unicast_addr_ipv6, %36 ], [ @hf_pim_unicast_addr_ipv4, %23 ], [ @hf_pim_unicast_addr_ipv4, %28 ]
+  %.0377 = phi i32 [ 0, %31 ], [ 0, %36 ], [ %22, %23 ], [ %22, %28 ]
+  %.0374 = phi ptr [ %35, %31 ], [ %37, %36 ], [ %27, %23 ], [ %29, %28 ]
+  %.0371 = phi i32 [ 16, %31 ], [ 16, %36 ], [ 4, %23 ], [ 4, %28 ]
+  %39 = load i32, ptr @ett_pim, align 4
+  %40 = call ptr @proto_item_add_subtree(ptr noundef %.0374, i32 noundef %39) #4
+  %41 = load i32, ptr @hf_pim_addr_af, align 4
+  %42 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %41, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %43 = load i32, ptr @hf_pim_addr_et, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %43, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
+  %45 = add i32 %3, 2
+  %46 = load i32, ptr %hf_pim_unicast_addr_ipv4.hf_pim_unicast_addr_ipv6, align 4
+  %47 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %46, ptr noundef %2, i32 noundef %45, i32 noundef %.0371, i32 noundef 0) #4
+  %48 = icmp eq i8 %17, 1
+  br i1 %48, label %49, label %109
+
+49:                                               ; preds = %38
+  %50 = add i32 %3, 2
+  %51 = add i32 %50, %.0371
+  %52 = getelementptr inbounds i8, ptr %0, i64 408
+  %53 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %51) #4
+  %54 = icmp sgt i32 %53, 1
+  br i1 %54, label %.lr.ph436, label %.critedge
+
+55:                                               ; preds = %104
+  %56 = add i32 %76, %62
+  %57 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %56) #4
+  %58 = icmp sgt i32 %57, 1
+  br i1 %58, label %.lr.ph436, label %.critedge, !llvm.loop !18
+
+.lr.ph436:                                        ; preds = %49, %55
+  %.0369421435 = phi i32 [ %56, %55 ], [ %51, %49 ]
+  %.0422434 = phi i32 [ %105, %55 ], [ 0, %49 ]
+  %59 = add i32 %.0369421435, 1
+  %60 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %59) #4
+  %61 = load i32, ptr @hf_pim_source_join_attribute, align 4
+  %62 = zext i8 %60 to i32
+  %63 = add nuw nsw i32 %62, 2
+  %64 = call ptr @proto_tree_add_item(ptr noundef %40, i32 noundef %61, ptr noundef %2, i32 noundef %.0369421435, i32 noundef %63, i32 noundef 0) #4
+  %65 = load i32, ptr @ett_pim, align 4
+  %66 = call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65) #4
+  %67 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.0369421435) #4
+  %68 = load i32, ptr @hf_pim_source_ja_flags, align 4
+  %69 = load i32, ptr @ett_pim_addr_flags, align 4
+  %70 = call ptr @proto_tree_add_bitmask(ptr noundef %66, ptr noundef %2, i32 noundef %.0369421435, i32 noundef %68, i32 noundef %69, ptr noundef nonnull @pim_source_ja_flags, i32 noundef 0) #4
+  %71 = and i8 %67, 63
+  %72 = zext nneg i8 %71 to i32
+  %73 = call ptr @val_to_str_const(i32 noundef %72, ptr noundef nonnull @pim_join_attribute_type_vals, ptr noundef nonnull @.str.22) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %64, ptr noundef nonnull @.str.290, ptr noundef %73) #4
+  %74 = load i32, ptr @hf_pim_source_ja_length, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %74, ptr noundef %2, i32 noundef %59, i32 noundef 1, i32 noundef 0) #4
+  %76 = add i32 %.0369421435, 2
+  switch i8 %71, label %104 [
+    i8 5, label %77
+    i8 6, label %80
   ]
 
-46:                                               ; preds = %39
-  br label %.sink.split
+77:                                               ; preds = %.lr.ph436
+  %78 = load i32, ptr @hf_pim_attribute_transport_mode, align 4
+  %79 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %78, ptr noundef %2, i32 noundef %76, i32 noundef 1, i32 noundef 0) #4
+  br label %104
 
-.sink.split:                                      ; preds = %39, %46
-  %hf_pim_unicast_addr_ipv6.sink = phi ptr [ @hf_pim_unicast_addr_ipv6, %46 ], [ @hf_pim_unicast_addr_ipv4, %39 ]
-  %.sink408 = phi i32 [ 16, %46 ], [ 4, %39 ]
-  %47 = load i32, ptr %hf_pim_unicast_addr_ipv6.sink, align 4
-  %48 = add i32 %3, 2
-  %49 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %47, ptr noundef %2, i32 noundef %48, i32 noundef %.sink408, i32 noundef 0) #4
-  br label %50
-
-50:                                               ; preds = %.sink.split, %39
-  %51 = icmp eq i8 %17, 1
-  br i1 %51, label %52, label %112
-
-52:                                               ; preds = %50
-  %53 = add i32 %3, 2
-  %54 = add i32 %53, %.0371
-  %55 = getelementptr inbounds i8, ptr %0, i64 408
-  %56 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %54) #4
-  %57 = icmp sgt i32 %56, 1
-  br i1 %57, label %.lr.ph423, label %.critedge
-
-58:                                               ; preds = %107
-  %59 = add i32 %79, %65
-  %60 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %59) #4
-  %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %.lr.ph423, label %.critedge, !llvm.loop !18
-
-.lr.ph423:                                        ; preds = %52, %58
-  %.0369405422 = phi i32 [ %59, %58 ], [ %54, %52 ]
-  %.0406421 = phi i32 [ %108, %58 ], [ 0, %52 ]
-  %62 = add i32 %.0369405422, 1
-  %63 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %62) #4
-  %64 = load i32, ptr @hf_pim_source_join_attribute, align 4
-  %65 = zext i8 %63 to i32
-  %66 = add nuw nsw i32 %65, 2
-  %67 = call ptr @proto_tree_add_item(ptr noundef %41, i32 noundef %64, ptr noundef %2, i32 noundef %.0369405422, i32 noundef %66, i32 noundef 0) #4
-  %68 = load i32, ptr @ett_pim, align 4
-  %69 = call ptr @proto_item_add_subtree(ptr noundef %67, i32 noundef %68) #4
-  %70 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.0369405422) #4
-  %71 = load i32, ptr @hf_pim_source_ja_flags, align 4
-  %72 = load i32, ptr @ett_pim_addr_flags, align 4
-  %73 = call ptr @proto_tree_add_bitmask(ptr noundef %69, ptr noundef %2, i32 noundef %.0369405422, i32 noundef %71, i32 noundef %72, ptr noundef nonnull @pim_source_ja_flags, i32 noundef 0) #4
-  %74 = and i8 %70, 63
-  %75 = zext nneg i8 %74 to i32
-  %76 = call ptr @val_to_str_const(i32 noundef %75, ptr noundef nonnull @pim_join_attribute_type_vals, ptr noundef nonnull @.str.22) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull @.str.290, ptr noundef %76) #4
-  %77 = load i32, ptr @hf_pim_source_ja_length, align 4
-  %78 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %77, ptr noundef %2, i32 noundef %62, i32 noundef 1, i32 noundef 0) #4
-  %79 = add i32 %.0369405422, 2
-  switch i8 %74, label %107 [
-    i8 5, label %80
-    i8 6, label %83
+80:                                               ; preds = %.lr.ph436
+  %81 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
+  switch i8 %81, label %104 [
+    i8 1, label %82
+    i8 2, label %93
   ]
 
-80:                                               ; preds = %.lr.ph423
-  %81 = load i32, ptr @hf_pim_attribute_transport_mode, align 4
-  %82 = call ptr @proto_tree_add_item(ptr noundef %69, i32 noundef %81, ptr noundef %2, i32 noundef %79, i32 noundef 1, i32 noundef 0) #4
-  br label %107
+82:                                               ; preds = %80
+  %83 = load ptr, ptr %52, align 8
+  %84 = add i32 %.0369421435, 3
+  %85 = call ptr @tvb_address_to_str(ptr noundef %83, ptr noundef %2, i32 noundef 2, i32 noundef %84) #4
+  %86 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %66, i32 noundef %7, ptr noundef %2, i32 noundef %76, i32 noundef %62, i32 noundef %.0377, ptr noundef nonnull @.str.291, ptr noundef %85) #4
+  %87 = load i32, ptr @ett_pim, align 4
+  %88 = call ptr @proto_item_add_subtree(ptr noundef %86, i32 noundef %87) #4
+  %89 = load i32, ptr @hf_pim_addr_af, align 4
+  %90 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %89, ptr noundef %2, i32 noundef %76, i32 noundef 1, i32 noundef 0) #4
+  %91 = load i32, ptr @hf_pim_rloc_addr_ipv4, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %88, i32 noundef %91, ptr noundef %2, i32 noundef %84, i32 noundef 4, i32 noundef 0) #4
+  br label %104
 
-83:                                               ; preds = %.lr.ph423
-  %84 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
-  switch i8 %84, label %107 [
-    i8 1, label %85
-    i8 2, label %96
-  ]
+93:                                               ; preds = %80
+  %94 = load ptr, ptr %52, align 8
+  %95 = add i32 %.0369421435, 3
+  %96 = call ptr @tvb_address_to_str(ptr noundef %94, ptr noundef %2, i32 noundef 2, i32 noundef %95) #4
+  %97 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %66, i32 noundef %8, ptr noundef %2, i32 noundef %76, i32 noundef %62, ptr noundef nonnull %11, ptr noundef nonnull @.str.291, ptr noundef %96) #4
+  %98 = load i32, ptr @ett_pim, align 4
+  %99 = call ptr @proto_item_add_subtree(ptr noundef %97, i32 noundef %98) #4
+  %100 = load i32, ptr @hf_pim_addr_af, align 4
+  %101 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %2, i32 noundef %76, i32 noundef 1, i32 noundef 0) #4
+  %102 = load i32, ptr @hf_pim_rloc_addr_ipv6, align 4
+  %103 = call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %102, ptr noundef %2, i32 noundef %95, i32 noundef 16, i32 noundef 0) #4
+  br label %104
 
-85:                                               ; preds = %83
-  %86 = load ptr, ptr %55, align 8
-  %87 = add i32 %.0369405422, 3
-  %88 = call ptr @tvb_address_to_str(ptr noundef %86, ptr noundef %2, i32 noundef 2, i32 noundef %87) #4
-  %89 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %69, i32 noundef %7, ptr noundef %2, i32 noundef %79, i32 noundef %65, i32 noundef %.0377, ptr noundef nonnull @.str.291, ptr noundef %88) #4
-  %90 = load i32, ptr @ett_pim, align 4
-  %91 = call ptr @proto_item_add_subtree(ptr noundef %89, i32 noundef %90) #4
-  %92 = load i32, ptr @hf_pim_addr_af, align 4
-  %93 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %92, ptr noundef %2, i32 noundef %79, i32 noundef 1, i32 noundef 0) #4
-  %94 = load i32, ptr @hf_pim_rloc_addr_ipv4, align 4
-  %95 = call ptr @proto_tree_add_item(ptr noundef %91, i32 noundef %94, ptr noundef %2, i32 noundef %87, i32 noundef 4, i32 noundef 0) #4
-  br label %107
+104:                                              ; preds = %.lr.ph436, %80, %82, %93, %77
+  %105 = add i32 %63, %.0422434
+  %106 = and i8 %67, 64
+  %.not399.not = icmp eq i8 %106, 0
+  br i1 %.not399.not, label %55, label %.critedge, !llvm.loop !18
 
-96:                                               ; preds = %83
-  %97 = load ptr, ptr %55, align 8
-  %98 = add i32 %.0369405422, 3
-  %99 = call ptr @tvb_address_to_str(ptr noundef %97, ptr noundef %2, i32 noundef 2, i32 noundef %98) #4
-  %100 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %69, i32 noundef %8, ptr noundef %2, i32 noundef %79, i32 noundef %65, ptr noundef nonnull %11, ptr noundef nonnull @.str.291, ptr noundef %99) #4
-  %101 = load i32, ptr @ett_pim, align 4
-  %102 = call ptr @proto_item_add_subtree(ptr noundef %100, i32 noundef %101) #4
-  %103 = load i32, ptr @hf_pim_addr_af, align 4
-  %104 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %103, ptr noundef %2, i32 noundef %79, i32 noundef 1, i32 noundef 0) #4
-  %105 = load i32, ptr @hf_pim_rloc_addr_ipv6, align 4
-  %106 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %105, ptr noundef %2, i32 noundef %98, i32 noundef 16, i32 noundef 0) #4
-  br label %107
+.critedge:                                        ; preds = %55, %104, %49
+  %.1375.lcssa = phi ptr [ %.0374, %49 ], [ %64, %104 ], [ %64, %55 ]
+  %.0.lcssa = phi i32 [ 0, %49 ], [ %105, %104 ], [ %105, %55 ]
+  %107 = or disjoint i32 %.0371, 2
+  %108 = add i32 %107, %.0.lcssa
+  br label %271
 
-107:                                              ; preds = %.lr.ph423, %83, %85, %96, %80
-  %108 = add i32 %66, %.0406421
-  %109 = and i8 %70, 64
-  %.not399.not = icmp eq i8 %109, 0
-  br i1 %.not399.not, label %58, label %.critedge, !llvm.loop !18
-
-.critedge:                                        ; preds = %58, %107, %52
-  %.1375.lcssa = phi ptr [ %.0374, %52 ], [ %67, %107 ], [ %67, %58 ]
-  %.0.lcssa = phi i32 [ 0, %52 ], [ %108, %107 ], [ %108, %58 ]
+109:                                              ; preds = %38
   %110 = or disjoint i32 %.0371, 2
-  %111 = add i32 %110, %.0.lcssa
-  br label %280
+  br label %271
 
-112:                                              ; preds = %50
-  %113 = or disjoint i32 %.0371, 2
-  br label %280
-
-114:                                              ; preds = %18
-  %115 = add i32 %3, 3
-  %116 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %115) #4
-  switch i8 %13, label %140 [
-    i8 1, label %117
-    i8 2, label %129
-  ]
-
-117:                                              ; preds = %114
-  %118 = add i32 %3, 4
-  %119 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %118) #4
+111:                                              ; preds = %18
+  %112 = add i32 %3, 3
+  %113 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %112) #4
+  %switch410 = icmp eq i8 %13, 1
+  %114 = add i32 %3, 4
   %.not396 = icmp eq ptr %5, null
-  br i1 %.not396, label %125, label %120
+  br i1 %switch410, label %115, label %126
 
-120:                                              ; preds = %117
-  %121 = getelementptr inbounds i8, ptr %0, i64 408
-  %122 = load ptr, ptr %121, align 8
-  %123 = tail call ptr @tvb_address_to_str(ptr noundef %122, ptr noundef %2, i32 noundef 2, i32 noundef %118) #4
-  %124 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %119, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %123) #4
-  br label %127
+115:                                              ; preds = %111
+  %116 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %114) #4
+  br i1 %.not396, label %122, label %117
 
-125:                                              ; preds = %117
-  %126 = tail call ptr @proto_tree_add_ipv4(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %119) #4
-  br label %127
+117:                                              ; preds = %115
+  %118 = getelementptr inbounds i8, ptr %0, i64 408
+  %119 = load ptr, ptr %118, align 8
+  %120 = tail call ptr @tvb_address_to_str(ptr noundef %119, ptr noundef %2, i32 noundef 2, i32 noundef %114) #4
+  %121 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %116, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %120) #4
+  br label %124
 
-127:                                              ; preds = %125, %120
-  %.2376 = phi ptr [ %124, %120 ], [ %126, %125 ]
-  %128 = zext i8 %116 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2376, ptr noundef nonnull @.str.292, i32 noundef %128) #4
-  br label %140
+122:                                              ; preds = %115
+  %123 = tail call ptr @proto_tree_add_ipv4(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %116) #4
+  br label %124
 
-129:                                              ; preds = %114
-  %130 = add i32 %3, 4
-  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %130, ptr noundef nonnull %11) #4
-  %.not395 = icmp eq ptr %5, null
-  br i1 %.not395, label %136, label %131
+124:                                              ; preds = %122, %117
+  %.2376 = phi ptr [ %121, %117 ], [ %123, %122 ]
+  %125 = zext i8 %113 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.2376, ptr noundef nonnull @.str.292, i32 noundef %125) #4
+  br label %136
 
-131:                                              ; preds = %129
-  %132 = getelementptr inbounds i8, ptr %0, i64 408
-  %133 = load ptr, ptr %132, align 8
-  %134 = call ptr @tvb_address_to_str(ptr noundef %133, ptr noundef %2, i32 noundef 3, i32 noundef %130) #4
-  %135 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %134) #4
-  br label %138
+126:                                              ; preds = %111
+  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %114, ptr noundef nonnull %11) #4
+  br i1 %.not396, label %132, label %127
 
-136:                                              ; preds = %129
-  %137 = call ptr @proto_tree_add_ipv6(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11) #4
-  br label %138
+127:                                              ; preds = %126
+  %128 = getelementptr inbounds i8, ptr %0, i64 408
+  %129 = load ptr, ptr %128, align 8
+  %130 = call ptr @tvb_address_to_str(ptr noundef %129, ptr noundef %2, i32 noundef 3, i32 noundef %114) #4
+  %131 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %130) #4
+  br label %134
 
-138:                                              ; preds = %136, %131
-  %.3 = phi ptr [ %135, %131 ], [ %137, %136 ]
-  %139 = zext i8 %116 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.3, ptr noundef nonnull @.str.292, i32 noundef %139) #4
-  br label %140
+132:                                              ; preds = %126
+  %133 = call ptr @proto_tree_add_ipv6(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11) #4
+  br label %134
 
-140:                                              ; preds = %138, %127, %114
-  %.4 = phi ptr [ null, %114 ], [ %.3, %138 ], [ %.2376, %127 ]
-  %.1372 = phi i32 [ 4, %114 ], [ 20, %138 ], [ 8, %127 ]
-  %141 = load i32, ptr @ett_pim, align 4
-  %142 = call ptr @proto_item_add_subtree(ptr noundef %.4, i32 noundef %141) #4
-  %143 = load i32, ptr @hf_pim_addr_af, align 4
-  %144 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %143, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %145 = load i32, ptr @hf_pim_addr_et, align 4
-  %146 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %145, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
-  %147 = add i32 %3, 2
-  %148 = load i32, ptr @hf_pim_group_addr_flags, align 4
-  %149 = load i32, ptr @ett_pim_addr_flags, align 4
-  %150 = call ptr @proto_tree_add_bitmask(ptr noundef %142, ptr noundef %2, i32 noundef %147, i32 noundef %148, i32 noundef %149, ptr noundef nonnull @pim_group_addr_flags, i32 noundef 0) #4
-  %151 = load i32, ptr @hf_pim_mask_len, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %151, ptr noundef %2, i32 noundef %115, i32 noundef 1, i32 noundef 0) #4
-  switch i8 %13, label %280 [
-    i8 1, label %.sink.split409
-    i8 2, label %153
-  ]
+134:                                              ; preds = %132, %127
+  %.3 = phi ptr [ %131, %127 ], [ %133, %132 ]
+  %135 = zext i8 %113 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.3, ptr noundef nonnull @.str.292, i32 noundef %135) #4
+  br label %136
 
-153:                                              ; preds = %140
-  br label %.sink.split409
+136:                                              ; preds = %134, %124
+  %.426 = phi i32 [ 16, %134 ], [ 4, %124 ]
+  %hf_pim_group_ip4.hf_pim_group_ip6 = phi ptr [ @hf_pim_group_ip6, %134 ], [ @hf_pim_group_ip4, %124 ]
+  %.4 = phi ptr [ %.3, %134 ], [ %.2376, %124 ]
+  %.1372 = phi i32 [ 20, %134 ], [ 8, %124 ]
+  %137 = load i32, ptr @ett_pim, align 4
+  %138 = call ptr @proto_item_add_subtree(ptr noundef %.4, i32 noundef %137) #4
+  %139 = load i32, ptr @hf_pim_addr_af, align 4
+  %140 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %139, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %141 = load i32, ptr @hf_pim_addr_et, align 4
+  %142 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %141, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
+  %143 = add i32 %3, 2
+  %144 = load i32, ptr @hf_pim_group_addr_flags, align 4
+  %145 = load i32, ptr @ett_pim_addr_flags, align 4
+  %146 = call ptr @proto_tree_add_bitmask(ptr noundef %138, ptr noundef %2, i32 noundef %143, i32 noundef %144, i32 noundef %145, ptr noundef nonnull @pim_group_addr_flags, i32 noundef 0) #4
+  %147 = load i32, ptr @hf_pim_mask_len, align 4
+  %148 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %147, ptr noundef %2, i32 noundef %112, i32 noundef 1, i32 noundef 0) #4
+  %149 = add i32 %3, 4
+  %150 = load i32, ptr %hf_pim_group_ip4.hf_pim_group_ip6, align 4
+  %151 = call ptr @proto_tree_add_item(ptr noundef %138, i32 noundef %150, ptr noundef %2, i32 noundef %149, i32 noundef %.426, i32 noundef 0) #4
+  br label %271
 
-.sink.split409:                                   ; preds = %140, %153
-  %hf_pim_group_ip6.sink = phi ptr [ @hf_pim_group_ip6, %153 ], [ @hf_pim_group_ip4, %140 ]
-  %.sink411 = phi i32 [ 16, %153 ], [ 4, %140 ]
-  %154 = load i32, ptr %hf_pim_group_ip6.sink, align 4
-  %155 = add i32 %3, 4
-  %156 = call ptr @proto_tree_add_item(ptr noundef %142, i32 noundef %154, ptr noundef %2, i32 noundef %155, i32 noundef %.sink411, i32 noundef 0) #4
-  br label %280
-
-157:                                              ; preds = %18
-  %158 = add i32 %3, 2
-  %159 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %158) #4
-  %160 = add i32 %3, 3
-  %161 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %160) #4
-  switch i8 %13, label %185 [
-    i8 1, label %162
-    i8 2, label %174
-  ]
-
-162:                                              ; preds = %157
-  %163 = add i32 %3, 4
-  %164 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %163) #4
+152:                                              ; preds = %18
+  %153 = add i32 %3, 2
+  %154 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %153) #4
+  %155 = add i32 %3, 3
+  %156 = tail call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %155) #4
+  %switch414 = icmp eq i8 %13, 1
+  %157 = add i32 %3, 4
   %.not389 = icmp eq ptr %5, null
-  %165 = getelementptr inbounds i8, ptr %0, i64 408
-  %166 = load ptr, ptr %165, align 8
-  %167 = tail call ptr @tvb_address_to_str(ptr noundef %166, ptr noundef %2, i32 noundef 2, i32 noundef %163) #4
-  br i1 %.not389, label %170, label %168
+  %158 = getelementptr inbounds i8, ptr %0, i64 408
+  br i1 %switch414, label %159, label %169
 
-168:                                              ; preds = %162
-  %169 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %164, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %167) #4
-  br label %172
+159:                                              ; preds = %152
+  %160 = tail call i32 @tvb_get_ipv4(ptr noundef %2, i32 noundef %157) #4
+  %161 = load ptr, ptr %158, align 8
+  %162 = tail call ptr @tvb_address_to_str(ptr noundef %161, ptr noundef %2, i32 noundef 2, i32 noundef %157) #4
+  br i1 %.not389, label %165, label %163
 
-170:                                              ; preds = %162
-  %171 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %164, ptr noundef nonnull @.str.293, ptr noundef %167) #4
-  br label %172
+163:                                              ; preds = %159
+  %164 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %160, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %162) #4
+  br label %167
 
-172:                                              ; preds = %170, %168
-  %.5 = phi ptr [ %169, %168 ], [ %171, %170 ]
-  %173 = zext i8 %161 to i32
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.5, ptr noundef nonnull @.str.292, i32 noundef %173) #4
-  br label %185
+165:                                              ; preds = %159
+  %166 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format_value(ptr noundef %1, i32 noundef %7, ptr noundef %2, i32 noundef %3, i32 noundef 8, i32 noundef %160, ptr noundef nonnull @.str.293, ptr noundef %162) #4
+  br label %167
 
-174:                                              ; preds = %157
-  %175 = add i32 %3, 4
-  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %175, ptr noundef nonnull %11) #4
-  %.not = icmp eq ptr %5, null
-  %176 = getelementptr inbounds i8, ptr %0, i64 408
-  %177 = load ptr, ptr %176, align 8
-  %178 = call ptr @tvb_address_to_str(ptr noundef %177, ptr noundef %2, i32 noundef 3, i32 noundef %175) #4
-  br i1 %.not, label %181, label %179
+167:                                              ; preds = %165, %163
+  %.5 = phi ptr [ %164, %163 ], [ %166, %165 ]
+  %168 = zext i8 %156 to i32
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.5, ptr noundef nonnull @.str.292, i32 noundef %168) #4
+  br label %178
 
-179:                                              ; preds = %174
-  %180 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %178) #4
-  br label %183
+169:                                              ; preds = %152
+  call void @tvb_get_ipv6(ptr noundef %2, i32 noundef %157, ptr noundef nonnull %11) #4
+  %170 = load ptr, ptr %158, align 8
+  %171 = call ptr @tvb_address_to_str(ptr noundef %170, ptr noundef %2, i32 noundef 3, i32 noundef %157) #4
+  br i1 %.not389, label %174, label %172
 
-181:                                              ; preds = %174
-  %182 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format_value(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.293, ptr noundef %178) #4
-  br label %183
+172:                                              ; preds = %169
+  %173 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.289, ptr noundef nonnull %5, ptr noundef %171) #4
+  br label %176
 
-183:                                              ; preds = %181, %179
-  %.6 = phi ptr [ %180, %179 ], [ %182, %181 ]
-  %184 = zext i8 %161 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.6, ptr noundef nonnull @.str.292, i32 noundef %184) #4
-  br label %185
+174:                                              ; preds = %169
+  %175 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format_value(ptr noundef %1, i32 noundef %8, ptr noundef %2, i32 noundef %3, i32 noundef 20, ptr noundef nonnull %11, ptr noundef nonnull @.str.293, ptr noundef %171) #4
+  br label %176
 
-185:                                              ; preds = %183, %172, %157
-  %.1378 = phi i32 [ 0, %157 ], [ 0, %183 ], [ %164, %172 ]
-  %.7 = phi ptr [ null, %157 ], [ %.6, %183 ], [ %.5, %172 ]
-  %.2373 = phi i32 [ 0, %157 ], [ 16, %183 ], [ 4, %172 ]
-  %.not390 = icmp eq i8 %159, 0
-  br i1 %.not390, label %194, label %186
+176:                                              ; preds = %174, %172
+  %.6 = phi ptr [ %173, %172 ], [ %175, %174 ]
+  %177 = zext i8 %156 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.6, ptr noundef nonnull @.str.292, i32 noundef %177) #4
+  br label %178
 
-186:                                              ; preds = %185
-  %187 = zext i8 %159 to i32
-  %188 = and i32 %187, 4
-  %.not391 = icmp eq i32 %188, 0
-  %189 = select i1 %.not391, ptr @.str.266, ptr @.str.295
-  %190 = and i32 %187, 2
-  %.not392 = icmp eq i32 %190, 0
-  %191 = select i1 %.not392, ptr @.str.266, ptr @.str.296
-  %192 = and i32 %187, 1
-  %.not393 = icmp eq i32 %192, 0
-  %193 = select i1 %.not393, ptr @.str.266, ptr @.str.297
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.7, ptr noundef nonnull @.str.294, ptr noundef nonnull %189, ptr noundef nonnull %191, ptr noundef nonnull %193) #4
-  br label %194
+178:                                              ; preds = %176, %167
+  %.1378 = phi i32 [ 0, %176 ], [ %160, %167 ]
+  %.7 = phi ptr [ %.6, %176 ], [ %.5, %167 ]
+  %.2373 = phi i32 [ 16, %176 ], [ 4, %167 ]
+  %.not390 = icmp eq i8 %154, 0
+  br i1 %.not390, label %187, label %179
 
-194:                                              ; preds = %186, %185
-  %195 = load i32, ptr @ett_pim, align 4
-  %196 = call ptr @proto_item_add_subtree(ptr noundef %.7, i32 noundef %195) #4
-  %197 = load i32, ptr @hf_pim_addr_af, align 4
-  %198 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %197, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
-  %199 = load i32, ptr @hf_pim_addr_et, align 4
-  %200 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %199, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
-  %201 = load i32, ptr @hf_pim_source_addr_flags, align 4
-  %202 = load i32, ptr @ett_pim_addr_flags, align 4
-  %203 = call ptr @proto_tree_add_bitmask(ptr noundef %196, ptr noundef %2, i32 noundef %158, i32 noundef %201, i32 noundef %202, ptr noundef nonnull @pim_source_addr_flags, i32 noundef 0) #4
-  %204 = load i32, ptr @hf_pim_mask_len, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %204, ptr noundef %2, i32 noundef %160, i32 noundef 1, i32 noundef 0) #4
-  switch i8 %13, label %210 [
-    i8 1, label %.sink.split412
-    i8 2, label %206
+179:                                              ; preds = %178
+  %180 = zext i8 %154 to i32
+  %181 = and i32 %180, 4
+  %.not391 = icmp eq i32 %181, 0
+  %182 = select i1 %.not391, ptr @.str.266, ptr @.str.295
+  %183 = and i32 %180, 2
+  %.not392 = icmp eq i32 %183, 0
+  %184 = select i1 %.not392, ptr @.str.266, ptr @.str.296
+  %185 = and i32 %180, 1
+  %.not393 = icmp eq i32 %185, 0
+  %186 = select i1 %.not393, ptr @.str.266, ptr @.str.297
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.7, ptr noundef nonnull @.str.294, ptr noundef nonnull %182, ptr noundef nonnull %184, ptr noundef nonnull %186) #4
+  br label %187
+
+187:                                              ; preds = %179, %178
+  %188 = load i32, ptr @ett_pim, align 4
+  %189 = call ptr @proto_item_add_subtree(ptr noundef %.7, i32 noundef %188) #4
+  %190 = load i32, ptr @hf_pim_addr_af, align 4
+  %191 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %190, ptr noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef 0) #4
+  %192 = load i32, ptr @hf_pim_addr_et, align 4
+  %193 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %192, ptr noundef %2, i32 noundef %16, i32 noundef 1, i32 noundef 0) #4
+  %194 = load i32, ptr @hf_pim_source_addr_flags, align 4
+  %195 = load i32, ptr @ett_pim_addr_flags, align 4
+  %196 = call ptr @proto_tree_add_bitmask(ptr noundef %189, ptr noundef %2, i32 noundef %153, i32 noundef %194, i32 noundef %195, ptr noundef nonnull @pim_source_addr_flags, i32 noundef 0) #4
+  %197 = load i32, ptr @hf_pim_mask_len, align 4
+  %198 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %197, ptr noundef %2, i32 noundef %155, i32 noundef 1, i32 noundef 0) #4
+  %199 = add i32 %3, 4
+  %.427 = select i1 %switch414, i32 4, i32 16
+  %hf_pim_source_ip4.val = load i32, ptr @hf_pim_source_ip4, align 4
+  %hf_pim_source_ip6.val = load i32, ptr @hf_pim_source_ip6, align 4
+  %200 = select i1 %switch414, i32 %hf_pim_source_ip4.val, i32 %hf_pim_source_ip6.val
+  %201 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %200, ptr noundef %2, i32 noundef %199, i32 noundef %.427, i32 noundef 0) #4
+  %202 = icmp eq i8 %17, 1
+  br i1 %202, label %203, label %.critedge7
+
+203:                                              ; preds = %187
+  %204 = add i32 %3, 4
+  %205 = add i32 %204, %.2373
+  %206 = getelementptr inbounds i8, ptr %0, i64 408
+  %207 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %205) #4
+  %208 = icmp sgt i32 %207, 1
+  br i1 %208, label %.lr.ph, label %.critedge7
+
+209:                                              ; preds = %266
+  %210 = add i32 %230, %216
+  %211 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %210) #4
+  %212 = icmp sgt i32 %211, 1
+  br i1 %212, label %.lr.ph, label %.critedge7, !llvm.loop !19
+
+.lr.ph:                                           ; preds = %203, %209
+  %.1370418429 = phi i32 [ %210, %209 ], [ %205, %203 ]
+  %.1419428 = phi i32 [ %267, %209 ], [ 0, %203 ]
+  %213 = add i32 %.1370418429, 1
+  %214 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %213) #4
+  %215 = load i32, ptr @hf_pim_source_join_attribute, align 4
+  %216 = zext i8 %214 to i32
+  %217 = add nuw nsw i32 %216, 2
+  %218 = call ptr @proto_tree_add_item(ptr noundef %189, i32 noundef %215, ptr noundef %2, i32 noundef %.1370418429, i32 noundef %217, i32 noundef 0) #4
+  %219 = load i32, ptr @ett_pim, align 4
+  %220 = call ptr @proto_item_add_subtree(ptr noundef %218, i32 noundef %219) #4
+  %221 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1370418429) #4
+  %222 = load i32, ptr @hf_pim_source_ja_flags, align 4
+  %223 = load i32, ptr @ett_pim_addr_flags, align 4
+  %224 = call ptr @proto_tree_add_bitmask(ptr noundef %220, ptr noundef %2, i32 noundef %.1370418429, i32 noundef %222, i32 noundef %223, ptr noundef nonnull @pim_source_ja_flags, i32 noundef 0) #4
+  %225 = and i8 %221, 63
+  %226 = zext nneg i8 %225 to i32
+  %227 = call ptr @val_to_str_const(i32 noundef %226, ptr noundef nonnull @pim_join_attribute_type_vals, ptr noundef nonnull @.str.22) #4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %218, ptr noundef nonnull @.str.290, ptr noundef %227) #4
+  %228 = load i32, ptr @hf_pim_source_ja_length, align 4
+  %229 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %228, ptr noundef %2, i32 noundef %213, i32 noundef 1, i32 noundef 0) #4
+  %230 = add i32 %.1370418429, 2
+  switch i8 %225, label %263 [
+    i8 0, label %231
+    i8 6, label %239
   ]
 
-206:                                              ; preds = %194
-  br label %.sink.split412
-
-.sink.split412:                                   ; preds = %194, %206
-  %hf_pim_source_ip6.sink = phi ptr [ @hf_pim_source_ip6, %206 ], [ @hf_pim_source_ip4, %194 ]
-  %.sink414 = phi i32 [ 16, %206 ], [ 4, %194 ]
-  %207 = load i32, ptr %hf_pim_source_ip6.sink, align 4
-  %208 = add i32 %3, 4
-  %209 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %207, ptr noundef %2, i32 noundef %208, i32 noundef %.sink414, i32 noundef 0) #4
-  br label %210
-
-210:                                              ; preds = %.sink.split412, %194
-  %211 = icmp eq i8 %17, 1
-  br i1 %211, label %212, label %.critedge7
-
-212:                                              ; preds = %210
-  %213 = add i32 %3, 4
-  %214 = add i32 %213, %.2373
-  %215 = getelementptr inbounds i8, ptr %0, i64 408
-  %216 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %214) #4
-  %217 = icmp sgt i32 %216, 1
-  br i1 %217, label %.lr.ph, label %.critedge7
-
-218:                                              ; preds = %275
-  %219 = add i32 %239, %225
-  %220 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %219) #4
-  %221 = icmp sgt i32 %220, 1
-  br i1 %221, label %.lr.ph, label %.critedge7, !llvm.loop !19
-
-.lr.ph:                                           ; preds = %212, %218
-  %.1370402416 = phi i32 [ %219, %218 ], [ %214, %212 ]
-  %.1403415 = phi i32 [ %276, %218 ], [ 0, %212 ]
-  %222 = add i32 %.1370402416, 1
-  %223 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %222) #4
-  %224 = load i32, ptr @hf_pim_source_join_attribute, align 4
-  %225 = zext i8 %223 to i32
-  %226 = add nuw nsw i32 %225, 2
-  %227 = call ptr @proto_tree_add_item(ptr noundef %196, i32 noundef %224, ptr noundef %2, i32 noundef %.1370402416, i32 noundef %226, i32 noundef 0) #4
-  %228 = load i32, ptr @ett_pim, align 4
-  %229 = call ptr @proto_item_add_subtree(ptr noundef %227, i32 noundef %228) #4
-  %230 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %.1370402416) #4
-  %231 = load i32, ptr @hf_pim_source_ja_flags, align 4
-  %232 = load i32, ptr @ett_pim_addr_flags, align 4
-  %233 = call ptr @proto_tree_add_bitmask(ptr noundef %229, ptr noundef %2, i32 noundef %.1370402416, i32 noundef %231, i32 noundef %232, ptr noundef nonnull @pim_source_ja_flags, i32 noundef 0) #4
-  %234 = and i8 %230, 63
-  %235 = zext nneg i8 %234 to i32
-  %236 = call ptr @val_to_str_const(i32 noundef %235, ptr noundef nonnull @pim_join_attribute_type_vals, ptr noundef nonnull @.str.22) #4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %227, ptr noundef nonnull @.str.290, ptr noundef %236) #4
-  %237 = load i32, ptr @hf_pim_source_ja_length, align 4
-  %238 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %237, ptr noundef %2, i32 noundef %222, i32 noundef 1, i32 noundef 0) #4
-  %239 = add i32 %.1370402416, 2
-  switch i8 %234, label %272 [
-    i8 0, label %240
-    i8 6, label %248
+231:                                              ; preds = %.lr.ph
+  switch i8 %214, label %236 [
+    i8 18, label %232
+    i8 6, label %232
   ]
 
-240:                                              ; preds = %.lr.ph
-  switch i8 %223, label %245 [
-    i8 18, label %241
-    i8 6, label %241
+232:                                              ; preds = %231, %231
+  %233 = load i32, ptr @hf_pim_unicast_addr_ipv4, align 4
+  %234 = load i32, ptr @hf_pim_unicast_addr_ipv6, align 4
+  %235 = call fastcc i32 @dissect_pim_addr(ptr noundef %0, ptr noundef %220, ptr noundef %2, i32 noundef %230, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %233, i32 noundef %234, ptr noundef nonnull %12)
+  br label %266
+
+236:                                              ; preds = %231
+  %237 = load i32, ptr @hf_pim_source_ja_value, align 4
+  %238 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %237, ptr noundef %2, i32 noundef %230, i32 noundef %216, i32 noundef 0) #4
+  br label %266
+
+239:                                              ; preds = %.lr.ph
+  %240 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
+  switch i8 %240, label %266 [
+    i8 1, label %241
+    i8 2, label %252
   ]
 
-241:                                              ; preds = %240, %240
-  %242 = load i32, ptr @hf_pim_unicast_addr_ipv4, align 4
-  %243 = load i32, ptr @hf_pim_unicast_addr_ipv6, align 4
-  %244 = call fastcc i32 @dissect_pim_addr(ptr noundef %0, ptr noundef %229, ptr noundef %2, i32 noundef %239, i32 noundef 0, ptr noundef null, ptr noundef null, i32 noundef %242, i32 noundef %243, ptr noundef nonnull %12)
-  br label %275
+241:                                              ; preds = %239
+  %242 = load ptr, ptr %206, align 8
+  %243 = add i32 %.1370418429, 3
+  %244 = call ptr @tvb_address_to_str(ptr noundef %242, ptr noundef %2, i32 noundef 2, i32 noundef %243) #4
+  %245 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %220, i32 noundef %7, ptr noundef %2, i32 noundef %230, i32 noundef %216, i32 noundef %.1378, ptr noundef nonnull @.str.291, ptr noundef %244) #4
+  %246 = load i32, ptr @ett_pim, align 4
+  %247 = call ptr @proto_item_add_subtree(ptr noundef %245, i32 noundef %246) #4
+  %248 = load i32, ptr @hf_pim_addr_af, align 4
+  %249 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %248, ptr noundef %2, i32 noundef %230, i32 noundef 1, i32 noundef 0) #4
+  %250 = load i32, ptr @hf_pim_rloc_addr_ipv4, align 4
+  %251 = call ptr @proto_tree_add_item(ptr noundef %247, i32 noundef %250, ptr noundef %2, i32 noundef %243, i32 noundef 4, i32 noundef 0) #4
+  br label %266
 
-245:                                              ; preds = %240
-  %246 = load i32, ptr @hf_pim_source_ja_value, align 4
-  %247 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %246, ptr noundef %2, i32 noundef %239, i32 noundef %225, i32 noundef 0) #4
-  br label %275
+252:                                              ; preds = %239
+  %253 = load ptr, ptr %206, align 8
+  %254 = add i32 %.1370418429, 3
+  %255 = call ptr @tvb_address_to_str(ptr noundef %253, ptr noundef %2, i32 noundef 2, i32 noundef %254) #4
+  %256 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %220, i32 noundef %8, ptr noundef %2, i32 noundef %230, i32 noundef %216, ptr noundef nonnull %11, ptr noundef nonnull @.str.291, ptr noundef %255) #4
+  %257 = load i32, ptr @ett_pim, align 4
+  %258 = call ptr @proto_item_add_subtree(ptr noundef %256, i32 noundef %257) #4
+  %259 = load i32, ptr @hf_pim_addr_af, align 4
+  %260 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %259, ptr noundef %2, i32 noundef %230, i32 noundef 1, i32 noundef 0) #4
+  %261 = load i32, ptr @hf_pim_rloc_addr_ipv6, align 4
+  %262 = call ptr @proto_tree_add_item(ptr noundef %258, i32 noundef %261, ptr noundef %2, i32 noundef %254, i32 noundef 16, i32 noundef 0) #4
+  br label %266
 
-248:                                              ; preds = %.lr.ph
-  %249 = call zeroext i8 @tvb_get_guint8(ptr noundef %2, i32 noundef %3) #4
-  switch i8 %249, label %275 [
-    i8 1, label %250
-    i8 2, label %261
-  ]
+263:                                              ; preds = %.lr.ph
+  %264 = load i32, ptr @hf_pim_source_ja_value, align 4
+  %265 = call ptr @proto_tree_add_item(ptr noundef %220, i32 noundef %264, ptr noundef %2, i32 noundef %230, i32 noundef %216, i32 noundef 0) #4
+  br label %266
 
-250:                                              ; preds = %248
-  %251 = load ptr, ptr %215, align 8
-  %252 = add i32 %.1370402416, 3
-  %253 = call ptr @tvb_address_to_str(ptr noundef %251, ptr noundef %2, i32 noundef 2, i32 noundef %252) #4
-  %254 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_ipv4_format(ptr noundef %229, i32 noundef %7, ptr noundef %2, i32 noundef %239, i32 noundef %225, i32 noundef %.1378, ptr noundef nonnull @.str.291, ptr noundef %253) #4
-  %255 = load i32, ptr @ett_pim, align 4
-  %256 = call ptr @proto_item_add_subtree(ptr noundef %254, i32 noundef %255) #4
-  %257 = load i32, ptr @hf_pim_addr_af, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %256, i32 noundef %257, ptr noundef %2, i32 noundef %239, i32 noundef 1, i32 noundef 0) #4
-  %259 = load i32, ptr @hf_pim_rloc_addr_ipv4, align 4
-  %260 = call ptr @proto_tree_add_item(ptr noundef %256, i32 noundef %259, ptr noundef %2, i32 noundef %252, i32 noundef 4, i32 noundef 0) #4
-  br label %275
+266:                                              ; preds = %232, %239, %241, %252, %236, %263
+  %267 = add i32 %217, %.1419428
+  %268 = and i8 %221, 64
+  %.not394.not = icmp eq i8 %268, 0
+  br i1 %.not394.not, label %209, label %.critedge7, !llvm.loop !19
 
-261:                                              ; preds = %248
-  %262 = load ptr, ptr %215, align 8
-  %263 = add i32 %.1370402416, 3
-  %264 = call ptr @tvb_address_to_str(ptr noundef %262, ptr noundef %2, i32 noundef 2, i32 noundef %263) #4
-  %265 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_ipv6_format(ptr noundef %229, i32 noundef %8, ptr noundef %2, i32 noundef %239, i32 noundef %225, ptr noundef nonnull %11, ptr noundef nonnull @.str.291, ptr noundef %264) #4
-  %266 = load i32, ptr @ett_pim, align 4
-  %267 = call ptr @proto_item_add_subtree(ptr noundef %265, i32 noundef %266) #4
-  %268 = load i32, ptr @hf_pim_addr_af, align 4
-  %269 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %268, ptr noundef %2, i32 noundef %239, i32 noundef 1, i32 noundef 0) #4
-  %270 = load i32, ptr @hf_pim_rloc_addr_ipv6, align 4
-  %271 = call ptr @proto_tree_add_item(ptr noundef %267, i32 noundef %270, ptr noundef %2, i32 noundef %263, i32 noundef 16, i32 noundef 0) #4
-  br label %275
-
-272:                                              ; preds = %.lr.ph
-  %273 = load i32, ptr @hf_pim_source_ja_value, align 4
-  %274 = call ptr @proto_tree_add_item(ptr noundef %229, i32 noundef %273, ptr noundef %2, i32 noundef %239, i32 noundef %225, i32 noundef 0) #4
-  br label %275
-
-275:                                              ; preds = %241, %248, %250, %261, %245, %272
-  %276 = add i32 %226, %.1403415
-  %277 = and i8 %230, 64
-  %.not394.not = icmp eq i8 %277, 0
-  br i1 %.not394.not, label %218, label %.critedge7, !llvm.loop !19
-
-.critedge7:                                       ; preds = %275, %218, %212, %210
-  %.9 = phi ptr [ %.7, %210 ], [ %.7, %212 ], [ %227, %218 ], [ %227, %275 ]
-  %.2 = phi i32 [ 0, %210 ], [ 0, %212 ], [ %276, %218 ], [ %276, %275 ]
-  %278 = add nuw nsw i32 %.2373, 4
-  %279 = add i32 %278, %.2
-  br label %280
+.critedge7:                                       ; preds = %266, %209, %203, %187
+  %.9 = phi ptr [ %.7, %187 ], [ %.7, %203 ], [ %218, %209 ], [ %218, %266 ]
+  %.2 = phi i32 [ 0, %187 ], [ 0, %203 ], [ %267, %209 ], [ %267, %266 ]
+  %269 = add nuw nsw i32 %.2373, 4
+  %270 = add i32 %269, %.2
+  br label %271
 
 default.unreachable:                              ; preds = %18
   unreachable
 
-280:                                              ; preds = %140, %.sink.split409, %.critedge7, %112, %.critedge
-  %.sink = phi i32 [ %279, %.critedge7 ], [ %113, %112 ], [ %111, %.critedge ], [ %.1372, %.sink.split409 ], [ %.1372, %140 ]
-  %.10 = phi ptr [ %.9, %.critedge7 ], [ %.0374, %112 ], [ %.1375.lcssa, %.critedge ], [ %.4, %.sink.split409 ], [ %.4, %140 ]
+271:                                              ; preds = %.critedge7, %136, %109, %.critedge
+  %.sink = phi i32 [ %270, %.critedge7 ], [ %.1372, %136 ], [ %110, %109 ], [ %108, %.critedge ]
+  %.10 = phi ptr [ %.9, %.critedge7 ], [ %.4, %136 ], [ %.0374, %109 ], [ %.1375.lcssa, %.critedge ]
   store i32 %.sink, ptr %9, align 4
   %.not400 = icmp eq ptr %6, null
-  br i1 %.not400, label %282, label %281
+  br i1 %.not400, label %273, label %272
 
-281:                                              ; preds = %280
+272:                                              ; preds = %271
   store ptr %.10, ptr %6, align 8
-  br label %282
+  br label %273
 
-282:                                              ; preds = %280, %281, %15, %10
-  %.0379 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 1, %281 ], [ 1, %280 ]
+273:                                              ; preds = %271, %272, %15, %10
+  %.0379 = phi i32 [ 0, %10 ], [ 0, %15 ], [ 1, %272 ], [ 1, %271 ]
   ret i32 %.0379
 }
 

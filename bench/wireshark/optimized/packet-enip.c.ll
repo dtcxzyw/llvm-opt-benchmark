@@ -3860,8 +3860,8 @@ enip_get_explicit_connid.exit.thread.i.thread:    ; preds = %83
   br i1 %104, label %105, label %.thread.i.i
 
 105:                                              ; preds = %100, %98
-  %.sink40.i.i = phi ptr [ %99, %98 ], [ %92, %100 ]
-  %106 = load ptr, ptr %.sink40.i.i, align 8
+  %.sink39.i.i = phi ptr [ %99, %98 ], [ %92, %100 ]
+  %106 = load ptr, ptr %.sink39.i.i, align 8
   %107 = call ptr @wmem_tree_lookup32(ptr noundef %106, i32 noundef %82) #11
   %108 = icmp eq ptr %107, null
   br i1 %108, label %enip_get_explicit_connid.exit.i, label %.thread.i.i

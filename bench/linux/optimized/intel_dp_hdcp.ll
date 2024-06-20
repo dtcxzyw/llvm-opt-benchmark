@@ -486,10 +486,10 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   %36 = phi ptr [ %34, %32 ], [ null, %30 ]
   %37 = select i1 %1, ptr @.str.12, ptr @.str.13
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %36, ptr noundef nonnull @.str.11, ptr noundef nonnull %37, i32 noundef %28) #8
-  br label %73
+  br label %72
 
 38:                                               ; preds = %23
-  switch i32 %24, label %73 [
+  switch i32 %24, label %72 [
     i32 0, label %42
     i32 1, label %39
     i32 2, label %40
@@ -530,7 +530,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
   %57 = getelementptr inbounds i8, ptr %26, i64 7368
   %58 = tail call i32 @__intel_wait_for_register(ptr noundef %57, i32 %55, i32 noundef %.ph, i32 noundef %56, i32 noundef 2, i32 noundef 50, ptr noundef null) #7
   %59 = icmp eq i32 %58, 0
-  br i1 %59, label %73, label %60
+  br i1 %59, label %72, label %60
 
 60:                                               ; preds = %54
   %61 = icmp eq ptr %26, null
@@ -543,7 +543,7 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
 
 65:                                               ; preds = %62, %60
   %66 = phi ptr [ %64, %62 ], [ null, %60 ]
-  switch i32 %24, label %70 [
+  switch i32 %24, label %default.unreachable [
     i32 0, label %transcoder_name.exit
     i32 1, label %67
     i32 2, label %68
@@ -559,18 +559,18 @@ define internal i32 @intel_dp_mst_hdcp_stream_encryption(ptr nocapture noundef r
 69:                                               ; preds = %65
   br label %transcoder_name.exit
 
-70:                                               ; preds = %65
-  br label %transcoder_name.exit
+default.unreachable:                              ; preds = %65
+  unreachable
 
-transcoder_name.exit:                             ; preds = %65, %67, %68, %69, %70
-  %71 = phi ptr [ @.str.21, %70 ], [ @.str.17, %69 ], [ @.str.16, %68 ], [ @.str.15, %67 ], [ @.str.14, %65 ]
-  %72 = select i1 %1, ptr @.str.9, ptr @.str.10
-  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.8, ptr noundef nonnull %71, ptr noundef nonnull %72) #8
-  br label %73
+transcoder_name.exit:                             ; preds = %65, %67, %68, %69
+  %70 = phi ptr [ @.str.17, %69 ], [ @.str.16, %68 ], [ @.str.15, %67 ], [ @.str.14, %65 ]
+  %71 = select i1 %1, ptr @.str.9, ptr @.str.10
+  tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %66, ptr noundef nonnull @.str.8, ptr noundef nonnull %70, ptr noundef nonnull %71) #8
+  br label %72
 
-73:                                               ; preds = %38, %35, %transcoder_name.exit, %54
-  %74 = phi i32 [ -110, %transcoder_name.exit ], [ %28, %35 ], [ 0, %54 ], [ -22, %38 ]
-  ret i32 %74
+72:                                               ; preds = %38, %35, %transcoder_name.exit, %54
+  %73 = phi i32 [ -110, %transcoder_name.exit ], [ %28, %35 ], [ 0, %54 ], [ -22, %38 ]
+  ret i32 %73
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

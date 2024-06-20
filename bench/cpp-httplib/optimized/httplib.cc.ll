@@ -25088,14 +25088,8 @@ if.end188:                                        ; preds = %if.end188.sink.spli
 
 if.then190:                                       ; preds = %if.end188
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content_encoding) #37
-  switch i32 %call33, label %if.end234.thread [
-    i32 1, label %if.then192
-    i32 2, label %if.then201
-  ]
-
-if.end234.thread:                                 ; preds = %if.then190
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %content_encoding) #37
-  br label %if.end237
+  %switch = icmp eq i32 %call33, 1
+  br i1 %switch, label %if.then192, label %if.then201
 
 if.then192:                                       ; preds = %if.then190
   %call.i183 = invoke noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #43
@@ -25275,7 +25269,7 @@ _ZNKSt14default_deleteIN7httplib6detail10compressorEEclEPS2_.exit.i224: ; preds 
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %compressor.sroa.0.4263) #37
   br label %eh.resume
 
-if.end237:                                        ; preds = %_ZNKSt14default_deleteIN7httplib6detail10compressorEEclEPS2_.exit.i, %if.end234.thread, %if.end188
+if.end237:                                        ; preds = %_ZNKSt14default_deleteIN7httplib6detail10compressorEEclEPS2_.exit.i, %if.end188
   %call240 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %body) #37
   call void @_ZNSt7__cxx119to_stringEm(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %length238, i64 noundef %call240)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp242) #37

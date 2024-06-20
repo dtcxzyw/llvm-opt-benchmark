@@ -490,7 +490,7 @@ _parse_plane_dist.exit:                           ; preds = %27, %29
   br i1 %.not28.i, label %42, label %46
 
 42:                                               ; preds = %40
-  switch i32 %.01930.i, label %48 [
+  switch i32 %.01930.i, label %default.unreachable.i [
     i32 0, label %43
     i32 1, label %44
     i32 2, label %45
@@ -514,8 +514,11 @@ _parse_plane_dist.exit:                           ; preds = %27, %29
   %spec.select.i = select i1 %47, ptr %.01731.i, ptr %.032.i
   br label %48
 
-48:                                               ; preds = %46, %45, %44, %43, %42
-  %.1.i = phi ptr [ %.032.i, %42 ], [ %.032.i, %45 ], [ @.str.11, %44 ], [ %.032.i, %43 ], [ %spec.select.i, %46 ]
+default.unreachable.i:                            ; preds = %42
+  unreachable
+
+48:                                               ; preds = %46, %45, %44, %43
+  %.1.i = phi ptr [ %.032.i, %45 ], [ @.str.11, %44 ], [ %.032.i, %43 ], [ %spec.select.i, %46 ]
   %49 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.86, ptr noundef nonnull %7) #20
   %50 = add nuw nsw i32 %.01930.i, 1
   %.not25.i = icmp eq ptr %49, null

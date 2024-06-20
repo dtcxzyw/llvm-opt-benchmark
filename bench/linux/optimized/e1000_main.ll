@@ -7586,7 +7586,7 @@ define internal noundef i32 @e1000_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 
 13:                                               ; preds = %6
   %14 = trunc nuw i32 %2 to i16
-  switch i16 %14, label %96 [
+  switch i16 %14, label %default.unreachable [
     i16 -30393, label %15
     i16 -30392, label %19
     i16 -30391, label %29
@@ -7724,8 +7724,11 @@ define internal noundef i32 @e1000_ioctl(ptr noundef %0, ptr noundef %1, i32 nou
 95:                                               ; preds = %94, %93, %81, %78, %77, %76, %47, %46, %19, %15
   br label %96
 
-96:                                               ; preds = %95, %78, %57, %33, %29, %19, %13, %6, %3
-  %97 = phi i32 [ -95, %3 ], [ 0, %95 ], [ %67, %57 ], [ -95, %6 ], [ -14, %29 ], [ -5, %78 ], [ -95, %13 ], [ -5, %19 ], [ -5, %33 ]
+default.unreachable:                              ; preds = %13
+  unreachable
+
+96:                                               ; preds = %95, %78, %57, %33, %29, %19, %6, %3
+  %97 = phi i32 [ -95, %3 ], [ 0, %95 ], [ %67, %57 ], [ -95, %6 ], [ -14, %29 ], [ -5, %78 ], [ -5, %19 ], [ -5, %33 ]
   ret i32 %97
 }
 

@@ -43,12 +43,12 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx(ptr noundef %0, ptr nound
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %58
-  %.2115 = phi i32 [ %59, %58 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %62, %58 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %61, %58 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %55
+  %.2115 = phi i32 [ %58, %55 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %61, %55 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %60, %55 ], [ %.176, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %19, label %58 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %25
     i32 6, label %30
@@ -127,17 +127,17 @@ define internal void @ompi_op_avx_2buff_max_int8_t_avx(ptr noundef %0, ptr nound
   %57 = load i8, ptr %.274114, align 1
   %.107 = tail call i8 @llvm.smax.i8(i8 %56, i8 %57)
   store i8 %.107, ptr %.277113, align 1
-  br label %58
+  %58 = sub nsw i32 %.2115, %19
+  %59 = zext nneg i32 %19 to i64
+  %60 = getelementptr inbounds i8, ptr %.277113, i64 %59
+  %61 = getelementptr inbounds i8, ptr %.274114, i64 %59
+  %62 = icmp sgt i32 %58, 0
+  br i1 %62, label %.lr.ph116, label %._crit_edge, !llvm.loop !6
 
-58:                                               ; preds = %55, %.lr.ph116
-  %59 = sub nsw i32 %.2115, %19
-  %60 = zext nneg i32 %19 to i64
-  %61 = getelementptr inbounds i8, ptr %.277113, i64 %60
-  %62 = getelementptr inbounds i8, ptr %.274114, i64 %60
-  %63 = icmp sgt i32 %59, 0
-  br i1 %63, label %.lr.ph116, label %._crit_edge, !llvm.loop !6
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %58, %.loopexit
+._crit_edge:                                      ; preds = %55, %.loopexit
   ret void
 }
 
@@ -172,12 +172,12 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx(ptr noundef %0, ptr noun
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %58
-  %.2115 = phi i32 [ %59, %58 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %62, %58 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %61, %58 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %55
+  %.2115 = phi i32 [ %58, %55 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %61, %55 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %60, %55 ], [ %.176, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %19, label %58 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %25
     i32 6, label %30
@@ -256,17 +256,17 @@ define internal void @ompi_op_avx_2buff_max_uint8_t_avx(ptr noundef %0, ptr noun
   %57 = load i8, ptr %.274114, align 1
   %.107 = tail call i8 @llvm.umax.i8(i8 %56, i8 %57)
   store i8 %.107, ptr %.277113, align 1
-  br label %58
+  %58 = sub nsw i32 %.2115, %19
+  %59 = zext nneg i32 %19 to i64
+  %60 = getelementptr inbounds i8, ptr %.277113, i64 %59
+  %61 = getelementptr inbounds i8, ptr %.274114, i64 %59
+  %62 = icmp sgt i32 %58, 0
+  br i1 %62, label %.lr.ph116, label %._crit_edge, !llvm.loop !8
 
-58:                                               ; preds = %55, %.lr.ph116
-  %59 = sub nsw i32 %.2115, %19
-  %60 = zext nneg i32 %19 to i64
-  %61 = getelementptr inbounds i8, ptr %.277113, i64 %60
-  %62 = getelementptr inbounds i8, ptr %.274114, i64 %60
-  %63 = icmp sgt i32 %59, 0
-  br i1 %63, label %.lr.ph116, label %._crit_edge, !llvm.loop !8
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %58, %.loopexit
+._crit_edge:                                      ; preds = %55, %.loopexit
   ret void
 }
 
@@ -303,12 +303,12 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %60
-  %.2115 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %57
+  %.2115 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -387,17 +387,17 @@ define internal void @ompi_op_avx_2buff_max_int16_t_avx(ptr noundef %0, ptr noun
   %59 = load i16, ptr %.274114, align 2
   %.107 = tail call i16 @llvm.smax.i16(i16 %58, i16 %59)
   store i16 %.107, ptr %.277113, align 2
-  br label %60
+  %60 = sub nsw i32 %.2115, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i16, ptr %.277113, i64 %61
+  %63 = getelementptr inbounds i16, ptr %.274114, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph116, label %._crit_edge, !llvm.loop !10
 
-60:                                               ; preds = %57, %.lr.ph116
-  %61 = sub nsw i32 %.2115, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i16, ptr %.277113, i64 %62
-  %64 = getelementptr inbounds i16, ptr %.274114, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph116, label %._crit_edge, !llvm.loop !10
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -434,12 +434,12 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %60
-  %.2115 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %57
+  %.2115 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -518,17 +518,17 @@ define internal void @ompi_op_avx_2buff_max_uint16_t_avx(ptr noundef %0, ptr nou
   %59 = load i16, ptr %.274114, align 2
   %.107 = tail call i16 @llvm.umax.i16(i16 %58, i16 %59)
   store i16 %.107, ptr %.277113, align 2
-  br label %60
+  %60 = sub nsw i32 %.2115, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i16, ptr %.277113, i64 %61
+  %63 = getelementptr inbounds i16, ptr %.274114, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph116, label %._crit_edge, !llvm.loop !12
 
-60:                                               ; preds = %57, %.lr.ph116
-  %61 = sub nsw i32 %.2115, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i16, ptr %.277113, i64 %62
-  %64 = getelementptr inbounds i16, ptr %.274114, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph116, label %._crit_edge, !llvm.loop !12
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -565,12 +565,12 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %60
-  %.2108 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %57
+  %.2108 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -649,17 +649,17 @@ define internal void @ompi_op_avx_2buff_max_int32_t_avx(ptr noundef %0, ptr noun
   %59 = load i32, ptr %.274107, align 4
   %.100 = tail call i32 @llvm.smax.i32(i32 %58, i32 %59)
   store i32 %.100, ptr %.277106, align 4
-  br label %60
+  %60 = sub nsw i32 %.2108, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i32, ptr %.277106, i64 %61
+  %63 = getelementptr inbounds i32, ptr %.274107, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph109, label %._crit_edge, !llvm.loop !14
 
-60:                                               ; preds = %57, %.lr.ph109
-  %61 = sub nsw i32 %.2108, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i32, ptr %.277106, i64 %62
-  %64 = getelementptr inbounds i32, ptr %.274107, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph109, label %._crit_edge, !llvm.loop !14
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -696,12 +696,12 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %60
-  %.2108 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %57
+  %.2108 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -780,17 +780,17 @@ define internal void @ompi_op_avx_2buff_max_uint32_t_avx(ptr noundef %0, ptr nou
   %59 = load i32, ptr %.274107, align 4
   %.100 = tail call i32 @llvm.umax.i32(i32 %58, i32 %59)
   store i32 %.100, ptr %.277106, align 4
-  br label %60
+  %60 = sub nsw i32 %.2108, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i32, ptr %.277106, i64 %61
+  %63 = getelementptr inbounds i32, ptr %.274107, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph109, label %._crit_edge, !llvm.loop !16
 
-60:                                               ; preds = %57, %.lr.ph109
-  %61 = sub nsw i32 %.2108, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i32, ptr %.277106, i64 %62
-  %64 = getelementptr inbounds i32, ptr %.274107, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph109, label %._crit_edge, !llvm.loop !16
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -825,12 +825,12 @@ define internal void @ompi_op_avx_2buff_max_float_avx(ptr nocapture noundef read
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %65
-  %.2108 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %69, %65 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %68, %65 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %61
+  %.2108 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %68, %61 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %67, %61 ], [ %.176, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -917,17 +917,17 @@ define internal void @ompi_op_avx_2buff_max_float_avx(ptr nocapture noundef read
   %64 = fcmp ogt float %62, %63
   %.100 = select i1 %64, float %62, float %63
   store float %.100, ptr %.277106, align 4
-  br label %65
+  %65 = sub nsw i32 %.2108, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds float, ptr %.277106, i64 %66
+  %68 = getelementptr inbounds float, ptr %.274107, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph109, label %._crit_edge, !llvm.loop !18
 
-65:                                               ; preds = %61, %.lr.ph109
-  %66 = sub nsw i32 %.2108, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds float, ptr %.277106, i64 %67
-  %69 = getelementptr inbounds float, ptr %.274107, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph109, label %._crit_edge, !llvm.loop !18
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -962,12 +962,12 @@ define internal void @ompi_op_avx_2buff_max_double_avx(ptr nocapture noundef rea
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %65
-  %.2108 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %69, %65 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %68, %65 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %61
+  %.2108 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %68, %61 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %67, %61 ], [ %.176, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -1054,17 +1054,17 @@ define internal void @ompi_op_avx_2buff_max_double_avx(ptr nocapture noundef rea
   %64 = fcmp ogt double %62, %63
   %.100 = select i1 %64, double %62, double %63
   store double %.100, ptr %.277106, align 8
-  br label %65
+  %65 = sub nsw i32 %.2108, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds double, ptr %.277106, i64 %66
+  %68 = getelementptr inbounds double, ptr %.274107, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph109, label %._crit_edge, !llvm.loop !20
 
-65:                                               ; preds = %61, %.lr.ph109
-  %66 = sub nsw i32 %.2108, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds double, ptr %.277106, i64 %67
-  %69 = getelementptr inbounds double, ptr %.274107, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph109, label %._crit_edge, !llvm.loop !20
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -1099,12 +1099,12 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx(ptr noundef %0, ptr nound
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %58
-  %.2115 = phi i32 [ %59, %58 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %62, %58 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %61, %58 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %55
+  %.2115 = phi i32 [ %58, %55 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %61, %55 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %60, %55 ], [ %.176, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %19, label %58 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %25
     i32 6, label %30
@@ -1183,17 +1183,17 @@ define internal void @ompi_op_avx_2buff_min_int8_t_avx(ptr noundef %0, ptr nound
   %57 = load i8, ptr %.274114, align 1
   %.107 = tail call i8 @llvm.smin.i8(i8 %56, i8 %57)
   store i8 %.107, ptr %.277113, align 1
-  br label %58
+  %58 = sub nsw i32 %.2115, %19
+  %59 = zext nneg i32 %19 to i64
+  %60 = getelementptr inbounds i8, ptr %.277113, i64 %59
+  %61 = getelementptr inbounds i8, ptr %.274114, i64 %59
+  %62 = icmp sgt i32 %58, 0
+  br i1 %62, label %.lr.ph116, label %._crit_edge, !llvm.loop !22
 
-58:                                               ; preds = %55, %.lr.ph116
-  %59 = sub nsw i32 %.2115, %19
-  %60 = zext nneg i32 %19 to i64
-  %61 = getelementptr inbounds i8, ptr %.277113, i64 %60
-  %62 = getelementptr inbounds i8, ptr %.274114, i64 %60
-  %63 = icmp sgt i32 %59, 0
-  br i1 %63, label %.lr.ph116, label %._crit_edge, !llvm.loop !22
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %58, %.loopexit
+._crit_edge:                                      ; preds = %55, %.loopexit
   ret void
 }
 
@@ -1228,12 +1228,12 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx(ptr noundef %0, ptr noun
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %58
-  %.2115 = phi i32 [ %59, %58 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %62, %58 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %61, %58 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %55
+  %.2115 = phi i32 [ %58, %55 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %61, %55 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %60, %55 ], [ %.176, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %19, label %58 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %25
     i32 6, label %30
@@ -1312,17 +1312,17 @@ define internal void @ompi_op_avx_2buff_min_uint8_t_avx(ptr noundef %0, ptr noun
   %57 = load i8, ptr %.274114, align 1
   %.107 = tail call i8 @llvm.umin.i8(i8 %56, i8 %57)
   store i8 %.107, ptr %.277113, align 1
-  br label %58
+  %58 = sub nsw i32 %.2115, %19
+  %59 = zext nneg i32 %19 to i64
+  %60 = getelementptr inbounds i8, ptr %.277113, i64 %59
+  %61 = getelementptr inbounds i8, ptr %.274114, i64 %59
+  %62 = icmp sgt i32 %58, 0
+  br i1 %62, label %.lr.ph116, label %._crit_edge, !llvm.loop !24
 
-58:                                               ; preds = %55, %.lr.ph116
-  %59 = sub nsw i32 %.2115, %19
-  %60 = zext nneg i32 %19 to i64
-  %61 = getelementptr inbounds i8, ptr %.277113, i64 %60
-  %62 = getelementptr inbounds i8, ptr %.274114, i64 %60
-  %63 = icmp sgt i32 %59, 0
-  br i1 %63, label %.lr.ph116, label %._crit_edge, !llvm.loop !24
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %58, %.loopexit
+._crit_edge:                                      ; preds = %55, %.loopexit
   ret void
 }
 
@@ -1359,12 +1359,12 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %60
-  %.2115 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %57
+  %.2115 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -1443,17 +1443,17 @@ define internal void @ompi_op_avx_2buff_min_int16_t_avx(ptr noundef %0, ptr noun
   %59 = load i16, ptr %.274114, align 2
   %.107 = tail call i16 @llvm.smin.i16(i16 %58, i16 %59)
   store i16 %.107, ptr %.277113, align 2
-  br label %60
+  %60 = sub nsw i32 %.2115, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i16, ptr %.277113, i64 %61
+  %63 = getelementptr inbounds i16, ptr %.274114, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph116, label %._crit_edge, !llvm.loop !26
 
-60:                                               ; preds = %57, %.lr.ph116
-  %61 = sub nsw i32 %.2115, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i16, ptr %.277113, i64 %62
-  %64 = getelementptr inbounds i16, ptr %.274114, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph116, label %._crit_edge, !llvm.loop !26
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -1490,12 +1490,12 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph116, label %._crit_edge
 
-.lr.ph116:                                        ; preds = %.loopexit, %60
-  %.2115 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274114 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277113 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph116:                                        ; preds = %.loopexit, %57
+  %.2115 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274114 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277113 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2115, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -1574,17 +1574,17 @@ define internal void @ompi_op_avx_2buff_min_uint16_t_avx(ptr noundef %0, ptr nou
   %59 = load i16, ptr %.274114, align 2
   %.107 = tail call i16 @llvm.umin.i16(i16 %58, i16 %59)
   store i16 %.107, ptr %.277113, align 2
-  br label %60
+  %60 = sub nsw i32 %.2115, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i16, ptr %.277113, i64 %61
+  %63 = getelementptr inbounds i16, ptr %.274114, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph116, label %._crit_edge, !llvm.loop !28
 
-60:                                               ; preds = %57, %.lr.ph116
-  %61 = sub nsw i32 %.2115, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i16, ptr %.277113, i64 %62
-  %64 = getelementptr inbounds i16, ptr %.274114, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph116, label %._crit_edge, !llvm.loop !28
+default.unreachable:                              ; preds = %.lr.ph116
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -1621,12 +1621,12 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %60
-  %.2108 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %57
+  %.2108 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -1705,17 +1705,17 @@ define internal void @ompi_op_avx_2buff_min_int32_t_avx(ptr noundef %0, ptr noun
   %59 = load i32, ptr %.274107, align 4
   %.100 = tail call i32 @llvm.smin.i32(i32 %58, i32 %59)
   store i32 %.100, ptr %.277106, align 4
-  br label %60
+  %60 = sub nsw i32 %.2108, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i32, ptr %.277106, i64 %61
+  %63 = getelementptr inbounds i32, ptr %.274107, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph109, label %._crit_edge, !llvm.loop !30
 
-60:                                               ; preds = %57, %.lr.ph109
-  %61 = sub nsw i32 %.2108, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i32, ptr %.277106, i64 %62
-  %64 = getelementptr inbounds i32, ptr %.274107, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph109, label %._crit_edge, !llvm.loop !30
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -1752,12 +1752,12 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %60
-  %.2108 = phi i32 [ %61, %60 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %64, %60 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %63, %60 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %57
+  %.2108 = phi i32 [ %60, %57 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %63, %57 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %62, %57 ], [ %.176, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %21, label %60 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %27
     i32 6, label %32
@@ -1836,17 +1836,17 @@ define internal void @ompi_op_avx_2buff_min_uint32_t_avx(ptr noundef %0, ptr nou
   %59 = load i32, ptr %.274107, align 4
   %.100 = tail call i32 @llvm.umin.i32(i32 %58, i32 %59)
   store i32 %.100, ptr %.277106, align 4
-  br label %60
+  %60 = sub nsw i32 %.2108, %21
+  %61 = zext nneg i32 %21 to i64
+  %62 = getelementptr inbounds i32, ptr %.277106, i64 %61
+  %63 = getelementptr inbounds i32, ptr %.274107, i64 %61
+  %64 = icmp sgt i32 %60, 0
+  br i1 %64, label %.lr.ph109, label %._crit_edge, !llvm.loop !32
 
-60:                                               ; preds = %57, %.lr.ph109
-  %61 = sub nsw i32 %.2108, %21
-  %62 = zext nneg i32 %21 to i64
-  %63 = getelementptr inbounds i32, ptr %.277106, i64 %62
-  %64 = getelementptr inbounds i32, ptr %.274107, i64 %62
-  %65 = icmp sgt i32 %61, 0
-  br i1 %65, label %.lr.ph109, label %._crit_edge, !llvm.loop !32
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %60, %.loopexit
+._crit_edge:                                      ; preds = %57, %.loopexit
   ret void
 }
 
@@ -1881,12 +1881,12 @@ define internal void @ompi_op_avx_2buff_min_float_avx(ptr nocapture noundef read
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %65
-  %.2108 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %69, %65 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %68, %65 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %61
+  %.2108 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %68, %61 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %67, %61 ], [ %.176, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -1973,17 +1973,17 @@ define internal void @ompi_op_avx_2buff_min_float_avx(ptr nocapture noundef read
   %64 = fcmp olt float %62, %63
   %.100 = select i1 %64, float %62, float %63
   store float %.100, ptr %.277106, align 4
-  br label %65
+  %65 = sub nsw i32 %.2108, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds float, ptr %.277106, i64 %66
+  %68 = getelementptr inbounds float, ptr %.274107, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph109, label %._crit_edge, !llvm.loop !34
 
-65:                                               ; preds = %61, %.lr.ph109
-  %66 = sub nsw i32 %.2108, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds float, ptr %.277106, i64 %67
-  %69 = getelementptr inbounds float, ptr %.274107, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph109, label %._crit_edge, !llvm.loop !34
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -2018,12 +2018,12 @@ define internal void @ompi_op_avx_2buff_min_double_avx(ptr nocapture noundef rea
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph109, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.loopexit, %65
-  %.2108 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.274107 = phi ptr [ %69, %65 ], [ %.173, %.loopexit ]
-  %.277106 = phi ptr [ %68, %65 ], [ %.176, %.loopexit ]
+.lr.ph109:                                        ; preds = %.loopexit, %61
+  %.2108 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.274107 = phi ptr [ %68, %61 ], [ %.173, %.loopexit ]
+  %.277106 = phi ptr [ %67, %61 ], [ %.176, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.2108, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -2110,17 +2110,17 @@ define internal void @ompi_op_avx_2buff_min_double_avx(ptr nocapture noundef rea
   %64 = fcmp olt double %62, %63
   %.100 = select i1 %64, double %62, double %63
   store double %.100, ptr %.277106, align 8
-  br label %65
+  %65 = sub nsw i32 %.2108, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds double, ptr %.277106, i64 %66
+  %68 = getelementptr inbounds double, ptr %.274107, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph109, label %._crit_edge, !llvm.loop !36
 
-65:                                               ; preds = %61, %.lr.ph109
-  %66 = sub nsw i32 %.2108, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds double, ptr %.277106, i64 %67
-  %69 = getelementptr inbounds double, ptr %.274107, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph109, label %._crit_edge, !llvm.loop !36
+default.unreachable:                              ; preds = %.lr.ph109
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -2155,12 +2155,12 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx(ptr noundef %0, ptr nound
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %66
-  %.269 = phi i32 [ %67, %66 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %70, %66 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %69, %66 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %62
+  %.269 = phi i32 [ %66, %62 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %69, %62 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %68, %62 ], [ %.160, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %19, label %66 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %26
     i32 6, label %32
@@ -2239,17 +2239,17 @@ define internal void @ompi_op_avx_2buff_sum_int8_t_avx(ptr noundef %0, ptr nound
   %64 = load i8, ptr %.25868, align 1
   %65 = add i8 %64, %63
   store i8 %65, ptr %.26167, align 1
-  br label %66
+  %66 = sub nsw i32 %.269, %19
+  %67 = zext nneg i32 %19 to i64
+  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
+  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
+  %70 = icmp sgt i32 %66, 0
+  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !38
 
-66:                                               ; preds = %62, %.lr.ph70
-  %67 = sub nsw i32 %.269, %19
-  %68 = zext nneg i32 %19 to i64
-  %69 = getelementptr inbounds i8, ptr %.26167, i64 %68
-  %70 = getelementptr inbounds i8, ptr %.25868, i64 %68
-  %71 = icmp sgt i32 %67, 0
-  br i1 %71, label %.lr.ph70, label %._crit_edge, !llvm.loop !38
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %66, %.loopexit
+._crit_edge:                                      ; preds = %62, %.loopexit
   ret void
 }
 
@@ -2284,12 +2284,12 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx(ptr noundef %0, ptr noun
   %18 = icmp sgt i32 %.1, 0
   br i1 %18, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %66
-  %.269 = phi i32 [ %67, %66 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %70, %66 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %69, %66 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %62
+  %.269 = phi i32 [ %66, %62 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %69, %62 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %68, %62 ], [ %.160, %.loopexit ]
   %19 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %19, label %66 [
+  switch i32 %19, label %default.unreachable [
     i32 8, label %20
     i32 7, label %26
     i32 6, label %32
@@ -2368,17 +2368,17 @@ define internal void @ompi_op_avx_2buff_sum_uint8_t_avx(ptr noundef %0, ptr noun
   %64 = load i8, ptr %.25868, align 1
   %65 = add i8 %64, %63
   store i8 %65, ptr %.26167, align 1
-  br label %66
+  %66 = sub nsw i32 %.269, %19
+  %67 = zext nneg i32 %19 to i64
+  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
+  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
+  %70 = icmp sgt i32 %66, 0
+  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !40
 
-66:                                               ; preds = %62, %.lr.ph70
-  %67 = sub nsw i32 %.269, %19
-  %68 = zext nneg i32 %19 to i64
-  %69 = getelementptr inbounds i8, ptr %.26167, i64 %68
-  %70 = getelementptr inbounds i8, ptr %.25868, i64 %68
-  %71 = icmp sgt i32 %67, 0
-  br i1 %71, label %.lr.ph70, label %._crit_edge, !llvm.loop !40
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %66, %.loopexit
+._crit_edge:                                      ; preds = %62, %.loopexit
   ret void
 }
 
@@ -2415,12 +2415,12 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -2499,17 +2499,17 @@ define internal void @ompi_op_avx_2buff_sum_int16_t_avx(ptr noundef %0, ptr noun
   %66 = load i16, ptr %.25868, align 2
   %67 = add i16 %66, %65
   store i16 %67, ptr %.26167, align 2
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i16, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i16, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !42
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i16, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i16, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !42
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -2546,12 +2546,12 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -2630,17 +2630,17 @@ define internal void @ompi_op_avx_2buff_sum_uint16_t_avx(ptr noundef %0, ptr nou
   %66 = load i16, ptr %.25868, align 2
   %67 = add i16 %66, %65
   store i16 %67, ptr %.26167, align 2
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i16, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i16, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !44
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i16, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i16, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !44
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -2677,12 +2677,12 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -2761,17 +2761,17 @@ define internal void @ompi_op_avx_2buff_sum_int32_t_avx(ptr noundef %0, ptr noun
   %66 = load i32, ptr %.25868, align 4
   %67 = add nsw i32 %66, %65
   store i32 %67, ptr %.26167, align 4
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i32, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i32, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !46
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i32, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i32, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !46
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -2808,12 +2808,12 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -2892,17 +2892,17 @@ define internal void @ompi_op_avx_2buff_sum_uint32_t_avx(ptr noundef %0, ptr nou
   %66 = load i32, ptr %.25868, align 4
   %67 = add i32 %66, %65
   store i32 %67, ptr %.26167, align 4
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i32, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i32, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !48
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i32, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i32, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !48
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -2939,12 +2939,12 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx(ptr noundef %0, ptr noun
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -3023,17 +3023,17 @@ define internal void @ompi_op_avx_2buff_sum_int64_t_avx(ptr noundef %0, ptr noun
   %66 = load i64, ptr %.25868, align 8
   %67 = add nsw i64 %66, %65
   store i64 %67, ptr %.26167, align 8
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i64, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i64, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !50
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i64, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i64, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !50
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -3070,12 +3070,12 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -3154,17 +3154,17 @@ define internal void @ompi_op_avx_2buff_sum_uint64_t_avx(ptr noundef %0, ptr nou
   %66 = load i64, ptr %.25868, align 8
   %67 = add i64 %66, %65
   store i64 %67, ptr %.26167, align 8
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i64, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i64, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !52
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i64, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i64, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !52
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -3199,12 +3199,12 @@ define internal void @ompi_op_avx_2buff_add_float_avx(ptr nocapture noundef read
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -3283,17 +3283,17 @@ define internal void @ompi_op_avx_2buff_add_float_avx(ptr nocapture noundef read
   %63 = load float, ptr %.25868, align 4
   %64 = fadd float %62, %63
   store float %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds float, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds float, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !54
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds float, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds float, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !54
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -3328,12 +3328,12 @@ define internal void @ompi_op_avx_2buff_add_double_avx(ptr nocapture noundef rea
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -3412,17 +3412,17 @@ define internal void @ompi_op_avx_2buff_add_double_avx(ptr nocapture noundef rea
   %63 = load double, ptr %.25868, align 8
   %64 = fadd double %62, %63
   store double %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds double, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds double, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !56
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds double, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds double, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !56
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -3432,12 +3432,12 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx(ptr nocapture noundef re
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %55
-  %.040 = phi i32 [ %56, %55 ], [ %6, %5 ]
-  %.03639 = phi ptr [ %58, %55 ], [ %1, %5 ]
-  %.03738 = phi ptr [ %59, %55 ], [ %0, %5 ]
+.lr.ph:                                           ; preds = %5, %51
+  %.040 = phi i32 [ %55, %51 ], [ %6, %5 ]
+  %.03639 = phi ptr [ %57, %51 ], [ %1, %5 ]
+  %.03738 = phi ptr [ %58, %51 ], [ %0, %5 ]
   %8 = tail call i32 @llvm.umin.i32(i32 %.040, i32 8)
-  switch i32 %8, label %55 [
+  switch i32 %8, label %default.unreachable [
     i32 8, label %9
     i32 7, label %15
     i32 6, label %21
@@ -3516,17 +3516,17 @@ define internal void @ompi_op_avx_2buff_prod_int8_t_avx(ptr nocapture noundef re
   %53 = load i8, ptr %.03738, align 1
   %54 = mul i8 %53, %52
   store i8 %54, ptr %.03639, align 1
-  br label %55
+  %55 = sub nsw i32 %.040, %8
+  %56 = zext nneg i32 %8 to i64
+  %57 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.03738, i64 %56
+  %59 = icmp sgt i32 %55, 0
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !57
 
-55:                                               ; preds = %51, %.lr.ph
-  %56 = sub nsw i32 %.040, %8
-  %57 = zext nneg i32 %8 to i64
-  %58 = getelementptr inbounds i8, ptr %.03639, i64 %57
-  %59 = getelementptr inbounds i8, ptr %.03738, i64 %57
-  %60 = icmp sgt i32 %56, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !57
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
-._crit_edge:                                      ; preds = %55, %5
+._crit_edge:                                      ; preds = %51, %5
   ret void
 }
 
@@ -3536,12 +3536,12 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx(ptr nocapture noundef r
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %5, %55
-  %.040 = phi i32 [ %56, %55 ], [ %6, %5 ]
-  %.03639 = phi ptr [ %58, %55 ], [ %1, %5 ]
-  %.03738 = phi ptr [ %59, %55 ], [ %0, %5 ]
+.lr.ph:                                           ; preds = %5, %51
+  %.040 = phi i32 [ %55, %51 ], [ %6, %5 ]
+  %.03639 = phi ptr [ %57, %51 ], [ %1, %5 ]
+  %.03738 = phi ptr [ %58, %51 ], [ %0, %5 ]
   %8 = tail call i32 @llvm.umin.i32(i32 %.040, i32 8)
-  switch i32 %8, label %55 [
+  switch i32 %8, label %default.unreachable [
     i32 8, label %9
     i32 7, label %15
     i32 6, label %21
@@ -3620,17 +3620,17 @@ define internal void @ompi_op_avx_2buff_prod_uint8_t_avx(ptr nocapture noundef r
   %53 = load i8, ptr %.03738, align 1
   %54 = mul i8 %53, %52
   store i8 %54, ptr %.03639, align 1
-  br label %55
+  %55 = sub nsw i32 %.040, %8
+  %56 = zext nneg i32 %8 to i64
+  %57 = getelementptr inbounds i8, ptr %.03639, i64 %56
+  %58 = getelementptr inbounds i8, ptr %.03738, i64 %56
+  %59 = icmp sgt i32 %55, 0
+  br i1 %59, label %.lr.ph, label %._crit_edge, !llvm.loop !58
 
-55:                                               ; preds = %51, %.lr.ph
-  %56 = sub nsw i32 %.040, %8
-  %57 = zext nneg i32 %8 to i64
-  %58 = getelementptr inbounds i8, ptr %.03639, i64 %57
-  %59 = getelementptr inbounds i8, ptr %.03738, i64 %57
-  %60 = icmp sgt i32 %56, 0
-  br i1 %60, label %.lr.ph, label %._crit_edge, !llvm.loop !58
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
-._crit_edge:                                      ; preds = %55, %5
+._crit_edge:                                      ; preds = %51, %5
   ret void
 }
 
@@ -3667,12 +3667,12 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -3751,17 +3751,17 @@ define internal void @ompi_op_avx_2buff_prod_int16_t_avx(ptr noundef %0, ptr nou
   %66 = load i16, ptr %.25868, align 2
   %67 = mul i16 %66, %65
   store i16 %67, ptr %.26167, align 2
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i16, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i16, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !60
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i16, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i16, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !60
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -3798,12 +3798,12 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx(ptr noundef %0, ptr no
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -3882,17 +3882,17 @@ define internal void @ompi_op_avx_2buff_prod_uint16_t_avx(ptr noundef %0, ptr no
   %66 = load i16, ptr %.25868, align 2
   %67 = mul i16 %66, %65
   store i16 %67, ptr %.26167, align 2
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i16, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i16, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !62
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i16, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i16, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !62
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -3929,12 +3929,12 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx(ptr noundef %0, ptr nou
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -4013,17 +4013,17 @@ define internal void @ompi_op_avx_2buff_prod_int32_t_avx(ptr noundef %0, ptr nou
   %66 = load i32, ptr %.25868, align 4
   %67 = mul nsw i32 %66, %65
   store i32 %67, ptr %.26167, align 4
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i32, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i32, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !64
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i32, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i32, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !64
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -4060,12 +4060,12 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx(ptr noundef %0, ptr no
   %20 = icmp sgt i32 %.1, 0
   br i1 %20, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %68
-  %.269 = phi i32 [ %69, %68 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %72, %68 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %71, %68 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %64
+  %.269 = phi i32 [ %68, %64 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %71, %64 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %70, %64 ], [ %.160, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %21, label %68 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -4144,17 +4144,17 @@ define internal void @ompi_op_avx_2buff_prod_uint32_t_avx(ptr noundef %0, ptr no
   %66 = load i32, ptr %.25868, align 4
   %67 = mul i32 %66, %65
   store i32 %67, ptr %.26167, align 4
-  br label %68
+  %68 = sub nsw i32 %.269, %21
+  %69 = zext nneg i32 %21 to i64
+  %70 = getelementptr inbounds i32, ptr %.26167, i64 %69
+  %71 = getelementptr inbounds i32, ptr %.25868, i64 %69
+  %72 = icmp sgt i32 %68, 0
+  br i1 %72, label %.lr.ph70, label %._crit_edge, !llvm.loop !66
 
-68:                                               ; preds = %64, %.lr.ph70
-  %69 = sub nsw i32 %.269, %21
-  %70 = zext nneg i32 %21 to i64
-  %71 = getelementptr inbounds i32, ptr %.26167, i64 %70
-  %72 = getelementptr inbounds i32, ptr %.25868, i64 %70
-  %73 = icmp sgt i32 %69, 0
-  br i1 %73, label %.lr.ph70, label %._crit_edge, !llvm.loop !66
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %68, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -4189,12 +4189,12 @@ define internal void @ompi_op_avx_2buff_mul_float_avx(ptr nocapture noundef read
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4273,17 +4273,17 @@ define internal void @ompi_op_avx_2buff_mul_float_avx(ptr nocapture noundef read
   %63 = load float, ptr %.25868, align 4
   %64 = fmul float %62, %63
   store float %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds float, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds float, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !68
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds float, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds float, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !68
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4318,12 +4318,12 @@ define internal void @ompi_op_avx_2buff_mul_double_avx(ptr nocapture noundef rea
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4402,17 +4402,17 @@ define internal void @ompi_op_avx_2buff_mul_double_avx(ptr nocapture noundef rea
   %63 = load double, ptr %.25868, align 8
   %64 = fmul double %62, %63
   store double %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds double, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds double, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !70
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds double, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds double, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !70
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4447,12 +4447,12 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4531,17 +4531,17 @@ define internal void @ompi_op_avx_2buff_band_int8_t_avx(ptr noundef %0, ptr noun
   %63 = load i8, ptr %.25868, align 1
   %64 = and i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !72
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !72
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4576,12 +4576,12 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4660,17 +4660,17 @@ define internal void @ompi_op_avx_2buff_band_uint8_t_avx(ptr noundef %0, ptr nou
   %63 = load i8, ptr %.25868, align 1
   %64 = and i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !74
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !74
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4705,12 +4705,12 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4789,17 +4789,17 @@ define internal void @ompi_op_avx_2buff_band_int16_t_avx(ptr noundef %0, ptr nou
   %63 = load i16, ptr %.25868, align 2
   %64 = and i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !76
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !76
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4834,12 +4834,12 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -4918,17 +4918,17 @@ define internal void @ompi_op_avx_2buff_band_uint16_t_avx(ptr noundef %0, ptr no
   %63 = load i16, ptr %.25868, align 2
   %64 = and i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !78
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !78
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -4963,12 +4963,12 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5047,17 +5047,17 @@ define internal void @ompi_op_avx_2buff_band_int32_t_avx(ptr noundef %0, ptr nou
   %63 = load i32, ptr %.25868, align 4
   %64 = and i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !80
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !80
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5092,12 +5092,12 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5176,17 +5176,17 @@ define internal void @ompi_op_avx_2buff_band_uint32_t_avx(ptr noundef %0, ptr no
   %63 = load i32, ptr %.25868, align 4
   %64 = and i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !82
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !82
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5221,12 +5221,12 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5305,17 +5305,17 @@ define internal void @ompi_op_avx_2buff_band_int64_t_avx(ptr noundef %0, ptr nou
   %63 = load i64, ptr %.25868, align 8
   %64 = and i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !84
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !84
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5350,12 +5350,12 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5434,17 +5434,17 @@ define internal void @ompi_op_avx_2buff_band_uint64_t_avx(ptr noundef %0, ptr no
   %63 = load i64, ptr %.25868, align 8
   %64 = and i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !86
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !86
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5479,12 +5479,12 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx(ptr noundef %0, ptr nound
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5563,17 +5563,17 @@ define internal void @ompi_op_avx_2buff_bor_int8_t_avx(ptr noundef %0, ptr nound
   %63 = load i8, ptr %.25868, align 1
   %64 = or i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !88
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !88
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5608,12 +5608,12 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5692,17 +5692,17 @@ define internal void @ompi_op_avx_2buff_bor_uint8_t_avx(ptr noundef %0, ptr noun
   %63 = load i8, ptr %.25868, align 1
   %64 = or i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !90
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !90
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5737,12 +5737,12 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5821,17 +5821,17 @@ define internal void @ompi_op_avx_2buff_bor_int16_t_avx(ptr noundef %0, ptr noun
   %63 = load i16, ptr %.25868, align 2
   %64 = or i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !92
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !92
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5866,12 +5866,12 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -5950,17 +5950,17 @@ define internal void @ompi_op_avx_2buff_bor_uint16_t_avx(ptr noundef %0, ptr nou
   %63 = load i16, ptr %.25868, align 2
   %64 = or i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !94
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !94
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -5995,12 +5995,12 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6079,17 +6079,17 @@ define internal void @ompi_op_avx_2buff_bor_int32_t_avx(ptr noundef %0, ptr noun
   %63 = load i32, ptr %.25868, align 4
   %64 = or i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !96
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !96
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6124,12 +6124,12 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6208,17 +6208,17 @@ define internal void @ompi_op_avx_2buff_bor_uint32_t_avx(ptr noundef %0, ptr nou
   %63 = load i32, ptr %.25868, align 4
   %64 = or i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !98
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !98
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6253,12 +6253,12 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6337,17 +6337,17 @@ define internal void @ompi_op_avx_2buff_bor_int64_t_avx(ptr noundef %0, ptr noun
   %63 = load i64, ptr %.25868, align 8
   %64 = or i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !100
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !100
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6382,12 +6382,12 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6466,17 +6466,17 @@ define internal void @ompi_op_avx_2buff_bor_uint64_t_avx(ptr noundef %0, ptr nou
   %63 = load i64, ptr %.25868, align 8
   %64 = or i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !102
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !102
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6511,12 +6511,12 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx(ptr noundef %0, ptr noun
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6595,17 +6595,17 @@ define internal void @ompi_op_avx_2buff_bxor_int8_t_avx(ptr noundef %0, ptr noun
   %63 = load i8, ptr %.25868, align 1
   %64 = xor i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !104
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !104
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6640,12 +6640,12 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6724,17 +6724,17 @@ define internal void @ompi_op_avx_2buff_bxor_uint8_t_avx(ptr noundef %0, ptr nou
   %63 = load i8, ptr %.25868, align 1
   %64 = xor i8 %63, %62
   store i8 %64, ptr %.26167, align 1
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i8, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i8, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !106
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i8, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i8, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !106
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6769,12 +6769,12 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6853,17 +6853,17 @@ define internal void @ompi_op_avx_2buff_bxor_int16_t_avx(ptr noundef %0, ptr nou
   %63 = load i16, ptr %.25868, align 2
   %64 = xor i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !108
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !108
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -6898,12 +6898,12 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -6982,17 +6982,17 @@ define internal void @ompi_op_avx_2buff_bxor_uint16_t_avx(ptr noundef %0, ptr no
   %63 = load i16, ptr %.25868, align 2
   %64 = xor i16 %63, %62
   store i16 %64, ptr %.26167, align 2
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i16, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i16, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !110
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i16, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i16, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !110
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -7027,12 +7027,12 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -7111,17 +7111,17 @@ define internal void @ompi_op_avx_2buff_bxor_int32_t_avx(ptr noundef %0, ptr nou
   %63 = load i32, ptr %.25868, align 4
   %64 = xor i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !112
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !112
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -7156,12 +7156,12 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -7240,17 +7240,17 @@ define internal void @ompi_op_avx_2buff_bxor_uint32_t_avx(ptr noundef %0, ptr no
   %63 = load i32, ptr %.25868, align 4
   %64 = xor i32 %63, %62
   store i32 %64, ptr %.26167, align 4
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i32, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i32, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !114
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i32, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i32, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !114
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -7285,12 +7285,12 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx(ptr noundef %0, ptr nou
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -7369,17 +7369,17 @@ define internal void @ompi_op_avx_2buff_bxor_int64_t_avx(ptr noundef %0, ptr nou
   %63 = load i64, ptr %.25868, align 8
   %64 = xor i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !116
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !116
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -7414,12 +7414,12 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx(ptr noundef %0, ptr no
   %17 = icmp sgt i32 %.1, 0
   br i1 %17, label %.lr.ph70, label %._crit_edge
 
-.lr.ph70:                                         ; preds = %.loopexit, %65
-  %.269 = phi i32 [ %66, %65 ], [ %.1, %.loopexit ]
-  %.25868 = phi ptr [ %69, %65 ], [ %.157, %.loopexit ]
-  %.26167 = phi ptr [ %68, %65 ], [ %.160, %.loopexit ]
+.lr.ph70:                                         ; preds = %.loopexit, %61
+  %.269 = phi i32 [ %65, %61 ], [ %.1, %.loopexit ]
+  %.25868 = phi ptr [ %68, %61 ], [ %.157, %.loopexit ]
+  %.26167 = phi ptr [ %67, %61 ], [ %.160, %.loopexit ]
   %18 = tail call i32 @llvm.umin.i32(i32 %.269, i32 8)
-  switch i32 %18, label %65 [
+  switch i32 %18, label %default.unreachable [
     i32 8, label %19
     i32 7, label %25
     i32 6, label %31
@@ -7498,17 +7498,17 @@ define internal void @ompi_op_avx_2buff_bxor_uint64_t_avx(ptr noundef %0, ptr no
   %63 = load i64, ptr %.25868, align 8
   %64 = xor i64 %63, %62
   store i64 %64, ptr %.26167, align 8
-  br label %65
+  %65 = sub nsw i32 %.269, %18
+  %66 = zext nneg i32 %18 to i64
+  %67 = getelementptr inbounds i64, ptr %.26167, i64 %66
+  %68 = getelementptr inbounds i64, ptr %.25868, i64 %66
+  %69 = icmp sgt i32 %65, 0
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !118
 
-65:                                               ; preds = %61, %.lr.ph70
-  %66 = sub nsw i32 %.269, %18
-  %67 = zext nneg i32 %18 to i64
-  %68 = getelementptr inbounds i64, ptr %.26167, i64 %67
-  %69 = getelementptr inbounds i64, ptr %.25868, i64 %67
-  %70 = icmp sgt i32 %66, 0
-  br i1 %70, label %.lr.ph70, label %._crit_edge, !llvm.loop !118
+default.unreachable:                              ; preds = %.lr.ph70
+  unreachable
 
-._crit_edge:                                      ; preds = %65, %.loopexit
+._crit_edge:                                      ; preds = %61, %.loopexit
   ret void
 }
 
@@ -7546,13 +7546,13 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx(ptr noalias noundef %0, p
   %20 = icmp sgt i32 %.184, 0
   br i1 %20, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %67
-  %.2126 = phi ptr [ %71, %67 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %72, %67 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %70, %67 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %68, %67 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %64
+  %.2126 = phi ptr [ %70, %64 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %71, %64 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %69, %64 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %67, %64 ], [ %.184, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %21, label %67 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -7638,18 +7638,18 @@ define internal void @ompi_op_avx_3buff_max_int8_t_avx(ptr noalias noundef %0, p
   %66 = load i8, ptr %.279125, align 1
   %.115 = tail call i8 @llvm.smax.i8(i8 %65, i8 %66)
   store i8 %.115, ptr %.282124, align 1
-  br label %67
+  %67 = sub nsw i32 %.285123, %21
+  %68 = zext nneg i32 %21 to i64
+  %69 = getelementptr inbounds i8, ptr %.282124, i64 %68
+  %70 = getelementptr inbounds i8, ptr %.2126, i64 %68
+  %71 = getelementptr inbounds i8, ptr %.279125, i64 %68
+  %72 = icmp sgt i32 %67, 0
+  br i1 %72, label %.lr.ph127, label %._crit_edge, !llvm.loop !120
 
-67:                                               ; preds = %64, %.lr.ph127
-  %68 = sub nsw i32 %.285123, %21
-  %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.282124, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.2126, i64 %69
-  %72 = getelementptr inbounds i8, ptr %.279125, i64 %69
-  %73 = icmp sgt i32 %68, 0
-  br i1 %73, label %.lr.ph127, label %._crit_edge, !llvm.loop !120
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %67, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -7687,13 +7687,13 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx(ptr noalias noundef %0, 
   %20 = icmp sgt i32 %.184, 0
   br i1 %20, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %67
-  %.2126 = phi ptr [ %71, %67 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %72, %67 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %70, %67 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %68, %67 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %64
+  %.2126 = phi ptr [ %70, %64 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %71, %64 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %69, %64 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %67, %64 ], [ %.184, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %21, label %67 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -7779,18 +7779,18 @@ define internal void @ompi_op_avx_3buff_max_uint8_t_avx(ptr noalias noundef %0, 
   %66 = load i8, ptr %.279125, align 1
   %.115 = tail call i8 @llvm.umax.i8(i8 %65, i8 %66)
   store i8 %.115, ptr %.282124, align 1
-  br label %67
+  %67 = sub nsw i32 %.285123, %21
+  %68 = zext nneg i32 %21 to i64
+  %69 = getelementptr inbounds i8, ptr %.282124, i64 %68
+  %70 = getelementptr inbounds i8, ptr %.2126, i64 %68
+  %71 = getelementptr inbounds i8, ptr %.279125, i64 %68
+  %72 = icmp sgt i32 %67, 0
+  br i1 %72, label %.lr.ph127, label %._crit_edge, !llvm.loop !122
 
-67:                                               ; preds = %64, %.lr.ph127
-  %68 = sub nsw i32 %.285123, %21
-  %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.282124, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.2126, i64 %69
-  %72 = getelementptr inbounds i8, ptr %.279125, i64 %69
-  %73 = icmp sgt i32 %68, 0
-  br i1 %73, label %.lr.ph127, label %._crit_edge, !llvm.loop !122
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %67, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -7830,13 +7830,13 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %69
-  %.2126 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %66
+  %.2126 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -7922,18 +7922,18 @@ define internal void @ompi_op_avx_3buff_max_int16_t_avx(ptr noalias noundef %0, 
   %68 = load i16, ptr %.279125, align 2
   %.115 = tail call i16 @llvm.smax.i16(i16 %67, i16 %68)
   store i16 %.115, ptr %.282124, align 2
-  br label %69
+  %69 = sub nsw i32 %.285123, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i16, ptr %.282124, i64 %70
+  %72 = getelementptr inbounds i16, ptr %.2126, i64 %70
+  %73 = getelementptr inbounds i16, ptr %.279125, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph127, label %._crit_edge, !llvm.loop !124
 
-69:                                               ; preds = %66, %.lr.ph127
-  %70 = sub nsw i32 %.285123, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i16, ptr %.282124, i64 %71
-  %73 = getelementptr inbounds i16, ptr %.2126, i64 %71
-  %74 = getelementptr inbounds i16, ptr %.279125, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph127, label %._crit_edge, !llvm.loop !124
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -7973,13 +7973,13 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %69
-  %.2126 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %66
+  %.2126 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -8065,18 +8065,18 @@ define internal void @ompi_op_avx_3buff_max_uint16_t_avx(ptr noalias noundef %0,
   %68 = load i16, ptr %.279125, align 2
   %.115 = tail call i16 @llvm.umax.i16(i16 %67, i16 %68)
   store i16 %.115, ptr %.282124, align 2
-  br label %69
+  %69 = sub nsw i32 %.285123, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i16, ptr %.282124, i64 %70
+  %72 = getelementptr inbounds i16, ptr %.2126, i64 %70
+  %73 = getelementptr inbounds i16, ptr %.279125, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph127, label %._crit_edge, !llvm.loop !126
 
-69:                                               ; preds = %66, %.lr.ph127
-  %70 = sub nsw i32 %.285123, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i16, ptr %.282124, i64 %71
-  %73 = getelementptr inbounds i16, ptr %.2126, i64 %71
-  %74 = getelementptr inbounds i16, ptr %.279125, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph127, label %._crit_edge, !llvm.loop !126
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -8116,13 +8116,13 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %69
-  %.2119 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285116 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %66
+  %.2119 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285116 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285116, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -8208,18 +8208,18 @@ define internal void @ompi_op_avx_3buff_max_int32_t_avx(ptr noalias noundef %0, 
   %68 = load i32, ptr %.279118, align 4
   %.108 = tail call i32 @llvm.smax.i32(i32 %67, i32 %68)
   store i32 %.108, ptr %.282117, align 4
-  br label %69
+  %69 = sub nsw i32 %.285116, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i32, ptr %.282117, i64 %70
+  %72 = getelementptr inbounds i32, ptr %.2119, i64 %70
+  %73 = getelementptr inbounds i32, ptr %.279118, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph120, label %._crit_edge, !llvm.loop !128
 
-69:                                               ; preds = %66, %.lr.ph120
-  %70 = sub nsw i32 %.285116, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i32, ptr %.282117, i64 %71
-  %73 = getelementptr inbounds i32, ptr %.2119, i64 %71
-  %74 = getelementptr inbounds i32, ptr %.279118, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph120, label %._crit_edge, !llvm.loop !128
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -8259,13 +8259,13 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %69
-  %.2119 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285116 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %66
+  %.2119 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285116 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285116, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -8351,18 +8351,18 @@ define internal void @ompi_op_avx_3buff_max_uint32_t_avx(ptr noalias noundef %0,
   %68 = load i32, ptr %.279118, align 4
   %.108 = tail call i32 @llvm.umax.i32(i32 %67, i32 %68)
   store i32 %.108, ptr %.282117, align 4
-  br label %69
+  %69 = sub nsw i32 %.285116, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i32, ptr %.282117, i64 %70
+  %72 = getelementptr inbounds i32, ptr %.2119, i64 %70
+  %73 = getelementptr inbounds i32, ptr %.279118, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph120, label %._crit_edge, !llvm.loop !130
 
-69:                                               ; preds = %66, %.lr.ph120
-  %70 = sub nsw i32 %.285116, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i32, ptr %.282117, i64 %71
-  %73 = getelementptr inbounds i32, ptr %.2119, i64 %71
-  %74 = getelementptr inbounds i32, ptr %.279118, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph120, label %._crit_edge, !llvm.loop !130
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -8400,13 +8400,13 @@ define internal void @ompi_op_avx_3buff_max_float_avx(ptr nocapture noundef read
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %74
-  %.2119 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %78, %74 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %79, %74 ], [ %.181, %.loopexit ]
-  %.285116 = phi ptr [ %77, %74 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %70
+  %.2119 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %77, %70 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %78, %70 ], [ %.181, %.loopexit ]
+  %.285116 = phi ptr [ %76, %70 ], [ %.184, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.2119, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -8500,18 +8500,18 @@ define internal void @ompi_op_avx_3buff_max_float_avx(ptr nocapture noundef read
   %73 = fcmp ogt float %71, %72
   %.108 = select i1 %73, float %71, float %72
   store float %.108, ptr %.285116, align 4
-  br label %74
+  %74 = sub nsw i32 %.2119, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds float, ptr %.285116, i64 %75
+  %77 = getelementptr inbounds float, ptr %.279118, i64 %75
+  %78 = getelementptr inbounds float, ptr %.282117, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph120, label %._crit_edge, !llvm.loop !132
 
-74:                                               ; preds = %70, %.lr.ph120
-  %75 = sub nsw i32 %.2119, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds float, ptr %.285116, i64 %76
-  %78 = getelementptr inbounds float, ptr %.279118, i64 %76
-  %79 = getelementptr inbounds float, ptr %.282117, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph120, label %._crit_edge, !llvm.loop !132
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -8549,13 +8549,13 @@ define internal void @ompi_op_avx_3buff_max_double_avx(ptr nocapture noundef rea
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %74
-  %.2119 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %78, %74 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %79, %74 ], [ %.181, %.loopexit ]
-  %.285116 = phi ptr [ %77, %74 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %70
+  %.2119 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %77, %70 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %78, %70 ], [ %.181, %.loopexit ]
+  %.285116 = phi ptr [ %76, %70 ], [ %.184, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.2119, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -8649,18 +8649,18 @@ define internal void @ompi_op_avx_3buff_max_double_avx(ptr nocapture noundef rea
   %73 = fcmp ogt double %71, %72
   %.108 = select i1 %73, double %71, double %72
   store double %.108, ptr %.285116, align 8
-  br label %74
+  %74 = sub nsw i32 %.2119, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds double, ptr %.285116, i64 %75
+  %77 = getelementptr inbounds double, ptr %.279118, i64 %75
+  %78 = getelementptr inbounds double, ptr %.282117, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph120, label %._crit_edge, !llvm.loop !134
 
-74:                                               ; preds = %70, %.lr.ph120
-  %75 = sub nsw i32 %.2119, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds double, ptr %.285116, i64 %76
-  %78 = getelementptr inbounds double, ptr %.279118, i64 %76
-  %79 = getelementptr inbounds double, ptr %.282117, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph120, label %._crit_edge, !llvm.loop !134
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -8698,13 +8698,13 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx(ptr noalias noundef %0, p
   %20 = icmp sgt i32 %.184, 0
   br i1 %20, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %67
-  %.2126 = phi ptr [ %71, %67 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %72, %67 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %70, %67 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %68, %67 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %64
+  %.2126 = phi ptr [ %70, %64 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %71, %64 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %69, %64 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %67, %64 ], [ %.184, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %21, label %67 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -8790,18 +8790,18 @@ define internal void @ompi_op_avx_3buff_min_int8_t_avx(ptr noalias noundef %0, p
   %66 = load i8, ptr %.279125, align 1
   %.115 = tail call i8 @llvm.smin.i8(i8 %65, i8 %66)
   store i8 %.115, ptr %.282124, align 1
-  br label %67
+  %67 = sub nsw i32 %.285123, %21
+  %68 = zext nneg i32 %21 to i64
+  %69 = getelementptr inbounds i8, ptr %.282124, i64 %68
+  %70 = getelementptr inbounds i8, ptr %.2126, i64 %68
+  %71 = getelementptr inbounds i8, ptr %.279125, i64 %68
+  %72 = icmp sgt i32 %67, 0
+  br i1 %72, label %.lr.ph127, label %._crit_edge, !llvm.loop !136
 
-67:                                               ; preds = %64, %.lr.ph127
-  %68 = sub nsw i32 %.285123, %21
-  %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.282124, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.2126, i64 %69
-  %72 = getelementptr inbounds i8, ptr %.279125, i64 %69
-  %73 = icmp sgt i32 %68, 0
-  br i1 %73, label %.lr.ph127, label %._crit_edge, !llvm.loop !136
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %67, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -8839,13 +8839,13 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx(ptr noalias noundef %0, 
   %20 = icmp sgt i32 %.184, 0
   br i1 %20, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %67
-  %.2126 = phi ptr [ %71, %67 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %72, %67 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %70, %67 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %68, %67 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %64
+  %.2126 = phi ptr [ %70, %64 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %71, %64 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %69, %64 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %67, %64 ], [ %.184, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %21, label %67 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %28
     i32 6, label %34
@@ -8931,18 +8931,18 @@ define internal void @ompi_op_avx_3buff_min_uint8_t_avx(ptr noalias noundef %0, 
   %66 = load i8, ptr %.279125, align 1
   %.115 = tail call i8 @llvm.umin.i8(i8 %65, i8 %66)
   store i8 %.115, ptr %.282124, align 1
-  br label %67
+  %67 = sub nsw i32 %.285123, %21
+  %68 = zext nneg i32 %21 to i64
+  %69 = getelementptr inbounds i8, ptr %.282124, i64 %68
+  %70 = getelementptr inbounds i8, ptr %.2126, i64 %68
+  %71 = getelementptr inbounds i8, ptr %.279125, i64 %68
+  %72 = icmp sgt i32 %67, 0
+  br i1 %72, label %.lr.ph127, label %._crit_edge, !llvm.loop !138
 
-67:                                               ; preds = %64, %.lr.ph127
-  %68 = sub nsw i32 %.285123, %21
-  %69 = zext nneg i32 %21 to i64
-  %70 = getelementptr inbounds i8, ptr %.282124, i64 %69
-  %71 = getelementptr inbounds i8, ptr %.2126, i64 %69
-  %72 = getelementptr inbounds i8, ptr %.279125, i64 %69
-  %73 = icmp sgt i32 %68, 0
-  br i1 %73, label %.lr.ph127, label %._crit_edge, !llvm.loop !138
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %67, %.loopexit
+._crit_edge:                                      ; preds = %64, %.loopexit
   ret void
 }
 
@@ -8982,13 +8982,13 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %69
-  %.2126 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %66
+  %.2126 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -9074,18 +9074,18 @@ define internal void @ompi_op_avx_3buff_min_int16_t_avx(ptr noalias noundef %0, 
   %68 = load i16, ptr %.279125, align 2
   %.115 = tail call i16 @llvm.smin.i16(i16 %67, i16 %68)
   store i16 %.115, ptr %.282124, align 2
-  br label %69
+  %69 = sub nsw i32 %.285123, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i16, ptr %.282124, i64 %70
+  %72 = getelementptr inbounds i16, ptr %.2126, i64 %70
+  %73 = getelementptr inbounds i16, ptr %.279125, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph127, label %._crit_edge, !llvm.loop !140
 
-69:                                               ; preds = %66, %.lr.ph127
-  %70 = sub nsw i32 %.285123, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i16, ptr %.282124, i64 %71
-  %73 = getelementptr inbounds i16, ptr %.2126, i64 %71
-  %74 = getelementptr inbounds i16, ptr %.279125, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph127, label %._crit_edge, !llvm.loop !140
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -9125,13 +9125,13 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph127, label %._crit_edge
 
-.lr.ph127:                                        ; preds = %.loopexit, %69
-  %.2126 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279125 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282124 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285123 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph127:                                        ; preds = %.loopexit, %66
+  %.2126 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279125 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282124 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285123 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285123, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -9217,18 +9217,18 @@ define internal void @ompi_op_avx_3buff_min_uint16_t_avx(ptr noalias noundef %0,
   %68 = load i16, ptr %.279125, align 2
   %.115 = tail call i16 @llvm.umin.i16(i16 %67, i16 %68)
   store i16 %.115, ptr %.282124, align 2
-  br label %69
+  %69 = sub nsw i32 %.285123, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i16, ptr %.282124, i64 %70
+  %72 = getelementptr inbounds i16, ptr %.2126, i64 %70
+  %73 = getelementptr inbounds i16, ptr %.279125, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph127, label %._crit_edge, !llvm.loop !142
 
-69:                                               ; preds = %66, %.lr.ph127
-  %70 = sub nsw i32 %.285123, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i16, ptr %.282124, i64 %71
-  %73 = getelementptr inbounds i16, ptr %.2126, i64 %71
-  %74 = getelementptr inbounds i16, ptr %.279125, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph127, label %._crit_edge, !llvm.loop !142
+default.unreachable:                              ; preds = %.lr.ph127
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -9268,13 +9268,13 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %69
-  %.2119 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285116 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %66
+  %.2119 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285116 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285116, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -9360,18 +9360,18 @@ define internal void @ompi_op_avx_3buff_min_int32_t_avx(ptr noalias noundef %0, 
   %68 = load i32, ptr %.279118, align 4
   %.108 = tail call i32 @llvm.smin.i32(i32 %67, i32 %68)
   store i32 %.108, ptr %.282117, align 4
-  br label %69
+  %69 = sub nsw i32 %.285116, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i32, ptr %.282117, i64 %70
+  %72 = getelementptr inbounds i32, ptr %.2119, i64 %70
+  %73 = getelementptr inbounds i32, ptr %.279118, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph120, label %._crit_edge, !llvm.loop !144
 
-69:                                               ; preds = %66, %.lr.ph120
-  %70 = sub nsw i32 %.285116, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i32, ptr %.282117, i64 %71
-  %73 = getelementptr inbounds i32, ptr %.2119, i64 %71
-  %74 = getelementptr inbounds i32, ptr %.279118, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph120, label %._crit_edge, !llvm.loop !144
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -9411,13 +9411,13 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.184, 0
   br i1 %22, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %69
-  %.2119 = phi ptr [ %73, %69 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %74, %69 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %72, %69 ], [ %.181, %.loopexit ]
-  %.285116 = phi i32 [ %70, %69 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %66
+  %.2119 = phi ptr [ %72, %66 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %73, %66 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %71, %66 ], [ %.181, %.loopexit ]
+  %.285116 = phi i32 [ %69, %66 ], [ %.184, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.285116, i32 8)
-  switch i32 %23, label %69 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %30
     i32 6, label %36
@@ -9503,18 +9503,18 @@ define internal void @ompi_op_avx_3buff_min_uint32_t_avx(ptr noalias noundef %0,
   %68 = load i32, ptr %.279118, align 4
   %.108 = tail call i32 @llvm.umin.i32(i32 %67, i32 %68)
   store i32 %.108, ptr %.282117, align 4
-  br label %69
+  %69 = sub nsw i32 %.285116, %23
+  %70 = zext nneg i32 %23 to i64
+  %71 = getelementptr inbounds i32, ptr %.282117, i64 %70
+  %72 = getelementptr inbounds i32, ptr %.2119, i64 %70
+  %73 = getelementptr inbounds i32, ptr %.279118, i64 %70
+  %74 = icmp sgt i32 %69, 0
+  br i1 %74, label %.lr.ph120, label %._crit_edge, !llvm.loop !146
 
-69:                                               ; preds = %66, %.lr.ph120
-  %70 = sub nsw i32 %.285116, %23
-  %71 = zext nneg i32 %23 to i64
-  %72 = getelementptr inbounds i32, ptr %.282117, i64 %71
-  %73 = getelementptr inbounds i32, ptr %.2119, i64 %71
-  %74 = getelementptr inbounds i32, ptr %.279118, i64 %71
-  %75 = icmp sgt i32 %70, 0
-  br i1 %75, label %.lr.ph120, label %._crit_edge, !llvm.loop !146
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %69, %.loopexit
+._crit_edge:                                      ; preds = %66, %.loopexit
   ret void
 }
 
@@ -9552,13 +9552,13 @@ define internal void @ompi_op_avx_3buff_min_float_avx(ptr nocapture noundef read
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %74
-  %.2119 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %78, %74 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %79, %74 ], [ %.181, %.loopexit ]
-  %.285116 = phi ptr [ %77, %74 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %70
+  %.2119 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %77, %70 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %78, %70 ], [ %.181, %.loopexit ]
+  %.285116 = phi ptr [ %76, %70 ], [ %.184, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.2119, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -9652,18 +9652,18 @@ define internal void @ompi_op_avx_3buff_min_float_avx(ptr nocapture noundef read
   %73 = fcmp olt float %71, %72
   %.108 = select i1 %73, float %71, float %72
   store float %.108, ptr %.285116, align 4
-  br label %74
+  %74 = sub nsw i32 %.2119, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds float, ptr %.285116, i64 %75
+  %77 = getelementptr inbounds float, ptr %.279118, i64 %75
+  %78 = getelementptr inbounds float, ptr %.282117, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph120, label %._crit_edge, !llvm.loop !148
 
-74:                                               ; preds = %70, %.lr.ph120
-  %75 = sub nsw i32 %.2119, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds float, ptr %.285116, i64 %76
-  %78 = getelementptr inbounds float, ptr %.279118, i64 %76
-  %79 = getelementptr inbounds float, ptr %.282117, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph120, label %._crit_edge, !llvm.loop !148
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -9701,13 +9701,13 @@ define internal void @ompi_op_avx_3buff_min_double_avx(ptr nocapture noundef rea
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph120, label %._crit_edge
 
-.lr.ph120:                                        ; preds = %.loopexit, %74
-  %.2119 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.279118 = phi ptr [ %78, %74 ], [ %.178, %.loopexit ]
-  %.282117 = phi ptr [ %79, %74 ], [ %.181, %.loopexit ]
-  %.285116 = phi ptr [ %77, %74 ], [ %.184, %.loopexit ]
+.lr.ph120:                                        ; preds = %.loopexit, %70
+  %.2119 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.279118 = phi ptr [ %77, %70 ], [ %.178, %.loopexit ]
+  %.282117 = phi ptr [ %78, %70 ], [ %.181, %.loopexit ]
+  %.285116 = phi ptr [ %76, %70 ], [ %.184, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.2119, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -9801,18 +9801,18 @@ define internal void @ompi_op_avx_3buff_min_double_avx(ptr nocapture noundef rea
   %73 = fcmp olt double %71, %72
   %.108 = select i1 %73, double %71, double %72
   store double %.108, ptr %.285116, align 8
-  br label %74
+  %74 = sub nsw i32 %.2119, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds double, ptr %.285116, i64 %75
+  %77 = getelementptr inbounds double, ptr %.279118, i64 %75
+  %78 = getelementptr inbounds double, ptr %.282117, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph120, label %._crit_edge, !llvm.loop !150
 
-74:                                               ; preds = %70, %.lr.ph120
-  %75 = sub nsw i32 %.2119, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds double, ptr %.285116, i64 %76
-  %78 = getelementptr inbounds double, ptr %.279118, i64 %76
-  %79 = getelementptr inbounds double, ptr %.282117, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph120, label %._crit_edge, !llvm.loop !150
+default.unreachable:                              ; preds = %.lr.ph120
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -9850,13 +9850,13 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx(ptr noalias noundef %0, p
   %20 = icmp sgt i32 %.168, 0
   br i1 %20, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %75
-  %.280 = phi ptr [ %79, %75 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %80, %75 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %78, %75 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %76, %75 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %71
+  %.280 = phi ptr [ %78, %71 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %79, %71 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %77, %71 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %75, %71 ], [ %.168, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %21, label %75 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %29
     i32 6, label %36
@@ -9942,18 +9942,18 @@ define internal void @ompi_op_avx_3buff_sum_int8_t_avx(ptr noalias noundef %0, p
   %73 = load i8, ptr %.26379, align 1
   %74 = add i8 %73, %72
   store i8 %74, ptr %.26678, align 1
-  br label %75
+  %75 = sub nsw i32 %.26977, %21
+  %76 = zext nneg i32 %21 to i64
+  %77 = getelementptr inbounds i8, ptr %.26678, i64 %76
+  %78 = getelementptr inbounds i8, ptr %.280, i64 %76
+  %79 = getelementptr inbounds i8, ptr %.26379, i64 %76
+  %80 = icmp sgt i32 %75, 0
+  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !152
 
-75:                                               ; preds = %71, %.lr.ph81
-  %76 = sub nsw i32 %.26977, %21
-  %77 = zext nneg i32 %21 to i64
-  %78 = getelementptr inbounds i8, ptr %.26678, i64 %77
-  %79 = getelementptr inbounds i8, ptr %.280, i64 %77
-  %80 = getelementptr inbounds i8, ptr %.26379, i64 %77
-  %81 = icmp sgt i32 %76, 0
-  br i1 %81, label %.lr.ph81, label %._crit_edge, !llvm.loop !152
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %75, %.loopexit
+._crit_edge:                                      ; preds = %71, %.loopexit
   ret void
 }
 
@@ -9991,13 +9991,13 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx(ptr noalias noundef %0, 
   %20 = icmp sgt i32 %.168, 0
   br i1 %20, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %75
-  %.280 = phi ptr [ %79, %75 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %80, %75 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %78, %75 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %76, %75 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %71
+  %.280 = phi ptr [ %78, %71 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %79, %71 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %77, %71 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %75, %71 ], [ %.168, %.loopexit ]
   %21 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %21, label %75 [
+  switch i32 %21, label %default.unreachable [
     i32 8, label %22
     i32 7, label %29
     i32 6, label %36
@@ -10083,18 +10083,18 @@ define internal void @ompi_op_avx_3buff_sum_uint8_t_avx(ptr noalias noundef %0, 
   %73 = load i8, ptr %.26379, align 1
   %74 = add i8 %73, %72
   store i8 %74, ptr %.26678, align 1
-  br label %75
+  %75 = sub nsw i32 %.26977, %21
+  %76 = zext nneg i32 %21 to i64
+  %77 = getelementptr inbounds i8, ptr %.26678, i64 %76
+  %78 = getelementptr inbounds i8, ptr %.280, i64 %76
+  %79 = getelementptr inbounds i8, ptr %.26379, i64 %76
+  %80 = icmp sgt i32 %75, 0
+  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !154
 
-75:                                               ; preds = %71, %.lr.ph81
-  %76 = sub nsw i32 %.26977, %21
-  %77 = zext nneg i32 %21 to i64
-  %78 = getelementptr inbounds i8, ptr %.26678, i64 %77
-  %79 = getelementptr inbounds i8, ptr %.280, i64 %77
-  %80 = getelementptr inbounds i8, ptr %.26379, i64 %77
-  %81 = icmp sgt i32 %76, 0
-  br i1 %81, label %.lr.ph81, label %._crit_edge, !llvm.loop !154
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %75, %.loopexit
+._crit_edge:                                      ; preds = %71, %.loopexit
   ret void
 }
 
@@ -10134,13 +10134,13 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10226,18 +10226,18 @@ define internal void @ompi_op_avx_3buff_sum_int16_t_avx(ptr noalias noundef %0, 
   %75 = load i16, ptr %.26379, align 2
   %76 = add i16 %75, %74
   store i16 %76, ptr %.26678, align 2
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i16, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i16, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i16, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !156
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i16, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i16, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i16, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !156
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10277,13 +10277,13 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10369,18 +10369,18 @@ define internal void @ompi_op_avx_3buff_sum_uint16_t_avx(ptr noalias noundef %0,
   %75 = load i16, ptr %.26379, align 2
   %76 = add i16 %75, %74
   store i16 %76, ptr %.26678, align 2
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i16, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i16, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i16, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !158
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i16, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i16, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i16, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !158
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10420,13 +10420,13 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10512,18 +10512,18 @@ define internal void @ompi_op_avx_3buff_sum_int32_t_avx(ptr noalias noundef %0, 
   %75 = load i32, ptr %.26379, align 4
   %76 = add nsw i32 %75, %74
   store i32 %76, ptr %.26678, align 4
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i32, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i32, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i32, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !160
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i32, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i32, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i32, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !160
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10563,13 +10563,13 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10655,18 +10655,18 @@ define internal void @ompi_op_avx_3buff_sum_uint32_t_avx(ptr noalias noundef %0,
   %75 = load i32, ptr %.26379, align 4
   %76 = add i32 %75, %74
   store i32 %76, ptr %.26678, align 4
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i32, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i32, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i32, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !162
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i32, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i32, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i32, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !162
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10706,13 +10706,13 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx(ptr noalias noundef %0, 
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10798,18 +10798,18 @@ define internal void @ompi_op_avx_3buff_sum_int64_t_avx(ptr noalias noundef %0, 
   %75 = load i64, ptr %.26379, align 8
   %76 = add nsw i64 %75, %74
   store i64 %76, ptr %.26678, align 8
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i64, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i64, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i64, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !164
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i64, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i64, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i64, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !164
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10849,13 +10849,13 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -10941,18 +10941,18 @@ define internal void @ompi_op_avx_3buff_sum_uint64_t_avx(ptr noalias noundef %0,
   %75 = load i64, ptr %.26379, align 8
   %76 = add i64 %75, %74
   store i64 %76, ptr %.26678, align 8
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i64, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i64, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i64, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !166
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i64, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i64, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i64, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !166
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -10990,13 +10990,13 @@ define internal void @ompi_op_avx_3buff_add_float_avx(ptr nocapture noundef read
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -11082,18 +11082,18 @@ define internal void @ompi_op_avx_3buff_add_float_avx(ptr nocapture noundef read
   %72 = load float, ptr %.26678, align 4
   %73 = fadd float %71, %72
   store float %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds float, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds float, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds float, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !168
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds float, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds float, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds float, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !168
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -11131,13 +11131,13 @@ define internal void @ompi_op_avx_3buff_add_double_avx(ptr nocapture noundef rea
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -11223,18 +11223,18 @@ define internal void @ompi_op_avx_3buff_add_double_avx(ptr nocapture noundef rea
   %72 = load double, ptr %.26678, align 8
   %73 = fadd double %71, %72
   store double %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds double, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds double, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds double, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !170
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds double, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds double, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds double, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !170
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -11244,13 +11244,13 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx(ptr noalias nocapture no
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %63
-  %.045 = phi ptr [ %67, %63 ], [ %0, %6 ]
-  %.03944 = phi i32 [ %64, %63 ], [ %7, %6 ]
-  %.04043 = phi ptr [ %66, %63 ], [ %2, %6 ]
-  %.04142 = phi ptr [ %68, %63 ], [ %1, %6 ]
+.lr.ph:                                           ; preds = %6, %59
+  %.045 = phi ptr [ %66, %59 ], [ %0, %6 ]
+  %.03944 = phi i32 [ %63, %59 ], [ %7, %6 ]
+  %.04043 = phi ptr [ %65, %59 ], [ %2, %6 ]
+  %.04142 = phi ptr [ %67, %59 ], [ %1, %6 ]
   %9 = tail call i32 @llvm.umin.i32(i32 %.03944, i32 8)
-  switch i32 %9, label %63 [
+  switch i32 %9, label %default.unreachable [
     i32 8, label %10
     i32 7, label %17
     i32 6, label %24
@@ -11336,18 +11336,18 @@ define internal void @ompi_op_avx_3buff_prod_int8_t_avx(ptr noalias nocapture no
   %61 = load i8, ptr %.04142, align 1
   %62 = mul i8 %61, %60
   store i8 %62, ptr %.04043, align 1
-  br label %63
+  %63 = sub nsw i32 %.03944, %9
+  %64 = zext nneg i32 %9 to i64
+  %65 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %66 = getelementptr inbounds i8, ptr %.045, i64 %64
+  %67 = getelementptr inbounds i8, ptr %.04142, i64 %64
+  %68 = icmp sgt i32 %63, 0
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
-63:                                               ; preds = %59, %.lr.ph
-  %64 = sub nsw i32 %.03944, %9
-  %65 = zext nneg i32 %9 to i64
-  %66 = getelementptr inbounds i8, ptr %.04043, i64 %65
-  %67 = getelementptr inbounds i8, ptr %.045, i64 %65
-  %68 = getelementptr inbounds i8, ptr %.04142, i64 %65
-  %69 = icmp sgt i32 %64, 0
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !171
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
-._crit_edge:                                      ; preds = %63, %6
+._crit_edge:                                      ; preds = %59, %6
   ret void
 }
 
@@ -11357,13 +11357,13 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx(ptr noalias nocapture n
   %8 = icmp sgt i32 %7, 0
   br i1 %8, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %6, %63
-  %.045 = phi ptr [ %67, %63 ], [ %0, %6 ]
-  %.03944 = phi i32 [ %64, %63 ], [ %7, %6 ]
-  %.04043 = phi ptr [ %66, %63 ], [ %2, %6 ]
-  %.04142 = phi ptr [ %68, %63 ], [ %1, %6 ]
+.lr.ph:                                           ; preds = %6, %59
+  %.045 = phi ptr [ %66, %59 ], [ %0, %6 ]
+  %.03944 = phi i32 [ %63, %59 ], [ %7, %6 ]
+  %.04043 = phi ptr [ %65, %59 ], [ %2, %6 ]
+  %.04142 = phi ptr [ %67, %59 ], [ %1, %6 ]
   %9 = tail call i32 @llvm.umin.i32(i32 %.03944, i32 8)
-  switch i32 %9, label %63 [
+  switch i32 %9, label %default.unreachable [
     i32 8, label %10
     i32 7, label %17
     i32 6, label %24
@@ -11449,18 +11449,18 @@ define internal void @ompi_op_avx_3buff_prod_uint8_t_avx(ptr noalias nocapture n
   %61 = load i8, ptr %.04142, align 1
   %62 = mul i8 %61, %60
   store i8 %62, ptr %.04043, align 1
-  br label %63
+  %63 = sub nsw i32 %.03944, %9
+  %64 = zext nneg i32 %9 to i64
+  %65 = getelementptr inbounds i8, ptr %.04043, i64 %64
+  %66 = getelementptr inbounds i8, ptr %.045, i64 %64
+  %67 = getelementptr inbounds i8, ptr %.04142, i64 %64
+  %68 = icmp sgt i32 %63, 0
+  br i1 %68, label %.lr.ph, label %._crit_edge, !llvm.loop !172
 
-63:                                               ; preds = %59, %.lr.ph
-  %64 = sub nsw i32 %.03944, %9
-  %65 = zext nneg i32 %9 to i64
-  %66 = getelementptr inbounds i8, ptr %.04043, i64 %65
-  %67 = getelementptr inbounds i8, ptr %.045, i64 %65
-  %68 = getelementptr inbounds i8, ptr %.04142, i64 %65
-  %69 = icmp sgt i32 %64, 0
-  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !172
+default.unreachable:                              ; preds = %.lr.ph
+  unreachable
 
-._crit_edge:                                      ; preds = %63, %6
+._crit_edge:                                      ; preds = %59, %6
   ret void
 }
 
@@ -11500,13 +11500,13 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -11592,18 +11592,18 @@ define internal void @ompi_op_avx_3buff_prod_int16_t_avx(ptr noalias noundef %0,
   %75 = load i16, ptr %.26379, align 2
   %76 = mul i16 %75, %74
   store i16 %76, ptr %.26678, align 2
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i16, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i16, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i16, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !174
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i16, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i16, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i16, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !174
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -11643,13 +11643,13 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx(ptr noalias noundef %0
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -11735,18 +11735,18 @@ define internal void @ompi_op_avx_3buff_prod_uint16_t_avx(ptr noalias noundef %0
   %75 = load i16, ptr %.26379, align 2
   %76 = mul i16 %75, %74
   store i16 %76, ptr %.26678, align 2
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i16, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i16, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i16, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !176
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i16, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i16, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i16, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !176
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -11786,13 +11786,13 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx(ptr noalias noundef %0,
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -11878,18 +11878,18 @@ define internal void @ompi_op_avx_3buff_prod_int32_t_avx(ptr noalias noundef %0,
   %75 = load i32, ptr %.26379, align 4
   %76 = mul nsw i32 %75, %74
   store i32 %76, ptr %.26678, align 4
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i32, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i32, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i32, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !178
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i32, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i32, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i32, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !178
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -11929,13 +11929,13 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx(ptr noalias noundef %0
   %22 = icmp sgt i32 %.168, 0
   br i1 %22, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %77
-  %.280 = phi ptr [ %81, %77 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %82, %77 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %80, %77 ], [ %.165, %.loopexit ]
-  %.26977 = phi i32 [ %78, %77 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %73
+  %.280 = phi ptr [ %80, %73 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %81, %73 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %79, %73 ], [ %.165, %.loopexit ]
+  %.26977 = phi i32 [ %77, %73 ], [ %.168, %.loopexit ]
   %23 = tail call i32 @llvm.umin.i32(i32 %.26977, i32 8)
-  switch i32 %23, label %77 [
+  switch i32 %23, label %default.unreachable [
     i32 8, label %24
     i32 7, label %31
     i32 6, label %38
@@ -12021,18 +12021,18 @@ define internal void @ompi_op_avx_3buff_prod_uint32_t_avx(ptr noalias noundef %0
   %75 = load i32, ptr %.26379, align 4
   %76 = mul i32 %75, %74
   store i32 %76, ptr %.26678, align 4
-  br label %77
+  %77 = sub nsw i32 %.26977, %23
+  %78 = zext nneg i32 %23 to i64
+  %79 = getelementptr inbounds i32, ptr %.26678, i64 %78
+  %80 = getelementptr inbounds i32, ptr %.280, i64 %78
+  %81 = getelementptr inbounds i32, ptr %.26379, i64 %78
+  %82 = icmp sgt i32 %77, 0
+  br i1 %82, label %.lr.ph81, label %._crit_edge, !llvm.loop !180
 
-77:                                               ; preds = %73, %.lr.ph81
-  %78 = sub nsw i32 %.26977, %23
-  %79 = zext nneg i32 %23 to i64
-  %80 = getelementptr inbounds i32, ptr %.26678, i64 %79
-  %81 = getelementptr inbounds i32, ptr %.280, i64 %79
-  %82 = getelementptr inbounds i32, ptr %.26379, i64 %79
-  %83 = icmp sgt i32 %78, 0
-  br i1 %83, label %.lr.ph81, label %._crit_edge, !llvm.loop !180
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %77, %.loopexit
+._crit_edge:                                      ; preds = %73, %.loopexit
   ret void
 }
 
@@ -12070,13 +12070,13 @@ define internal void @ompi_op_avx_3buff_mul_float_avx(ptr nocapture noundef read
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12162,18 +12162,18 @@ define internal void @ompi_op_avx_3buff_mul_float_avx(ptr nocapture noundef read
   %72 = load float, ptr %.26678, align 4
   %73 = fmul float %71, %72
   store float %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds float, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds float, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds float, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !182
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds float, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds float, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds float, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !182
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12211,13 +12211,13 @@ define internal void @ompi_op_avx_3buff_mul_double_avx(ptr nocapture noundef rea
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12303,18 +12303,18 @@ define internal void @ompi_op_avx_3buff_mul_double_avx(ptr nocapture noundef rea
   %72 = load double, ptr %.26678, align 8
   %73 = fmul double %71, %72
   store double %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds double, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds double, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds double, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !184
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds double, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds double, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds double, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !184
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12352,13 +12352,13 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12444,18 +12444,18 @@ define internal void @ompi_op_avx_3buff_and_int8_t_avx(ptr noundef %0, ptr nound
   %72 = load i8, ptr %.26678, align 1
   %73 = and i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !186
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !186
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12493,13 +12493,13 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12585,18 +12585,18 @@ define internal void @ompi_op_avx_3buff_and_uint8_t_avx(ptr noundef %0, ptr noun
   %72 = load i8, ptr %.26678, align 1
   %73 = and i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !188
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !188
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12634,13 +12634,13 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12726,18 +12726,18 @@ define internal void @ompi_op_avx_3buff_and_int16_t_avx(ptr noundef %0, ptr noun
   %72 = load i16, ptr %.26678, align 2
   %73 = and i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !190
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !190
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12775,13 +12775,13 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -12867,18 +12867,18 @@ define internal void @ompi_op_avx_3buff_and_uint16_t_avx(ptr noundef %0, ptr nou
   %72 = load i16, ptr %.26678, align 2
   %73 = and i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !192
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !192
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -12916,13 +12916,13 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13008,18 +13008,18 @@ define internal void @ompi_op_avx_3buff_and_int32_t_avx(ptr noundef %0, ptr noun
   %72 = load i32, ptr %.26678, align 4
   %73 = and i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !194
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !194
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13057,13 +13057,13 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13149,18 +13149,18 @@ define internal void @ompi_op_avx_3buff_and_uint32_t_avx(ptr noundef %0, ptr nou
   %72 = load i32, ptr %.26678, align 4
   %73 = and i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !196
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !196
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13198,13 +13198,13 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13290,18 +13290,18 @@ define internal void @ompi_op_avx_3buff_and_int64_t_avx(ptr noundef %0, ptr noun
   %72 = load i64, ptr %.26678, align 8
   %73 = and i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !198
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !198
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13339,13 +13339,13 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13431,18 +13431,18 @@ define internal void @ompi_op_avx_3buff_and_uint64_t_avx(ptr noundef %0, ptr nou
   %72 = load i64, ptr %.26678, align 8
   %73 = and i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !200
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !200
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13480,13 +13480,13 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx(ptr noundef %0, ptr nounde
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13572,18 +13572,18 @@ define internal void @ompi_op_avx_3buff_or_int8_t_avx(ptr noundef %0, ptr nounde
   %72 = load i8, ptr %.26678, align 1
   %73 = or i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !202
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !202
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13621,13 +13621,13 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13713,18 +13713,18 @@ define internal void @ompi_op_avx_3buff_or_uint8_t_avx(ptr noundef %0, ptr nound
   %72 = load i8, ptr %.26678, align 1
   %73 = or i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !204
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !204
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13762,13 +13762,13 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13854,18 +13854,18 @@ define internal void @ompi_op_avx_3buff_or_int16_t_avx(ptr noundef %0, ptr nound
   %72 = load i16, ptr %.26678, align 2
   %73 = or i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !206
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !206
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -13903,13 +13903,13 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -13995,18 +13995,18 @@ define internal void @ompi_op_avx_3buff_or_uint16_t_avx(ptr noundef %0, ptr noun
   %72 = load i16, ptr %.26678, align 2
   %73 = or i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !208
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !208
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14044,13 +14044,13 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14136,18 +14136,18 @@ define internal void @ompi_op_avx_3buff_or_int32_t_avx(ptr noundef %0, ptr nound
   %72 = load i32, ptr %.26678, align 4
   %73 = or i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !210
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !210
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14185,13 +14185,13 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14277,18 +14277,18 @@ define internal void @ompi_op_avx_3buff_or_uint32_t_avx(ptr noundef %0, ptr noun
   %72 = load i32, ptr %.26678, align 4
   %73 = or i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !212
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !212
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14326,13 +14326,13 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14418,18 +14418,18 @@ define internal void @ompi_op_avx_3buff_or_int64_t_avx(ptr noundef %0, ptr nound
   %72 = load i64, ptr %.26678, align 8
   %73 = or i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !214
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !214
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14467,13 +14467,13 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14559,18 +14559,18 @@ define internal void @ompi_op_avx_3buff_or_uint64_t_avx(ptr noundef %0, ptr noun
   %72 = load i64, ptr %.26678, align 8
   %73 = or i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !216
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !216
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14608,13 +14608,13 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx(ptr noundef %0, ptr nound
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14700,18 +14700,18 @@ define internal void @ompi_op_avx_3buff_xor_int8_t_avx(ptr noundef %0, ptr nound
   %72 = load i8, ptr %.26678, align 1
   %73 = xor i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !218
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !218
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14749,13 +14749,13 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14841,18 +14841,18 @@ define internal void @ompi_op_avx_3buff_xor_uint8_t_avx(ptr noundef %0, ptr noun
   %72 = load i8, ptr %.26678, align 1
   %73 = xor i8 %72, %71
   store i8 %73, ptr %.26977, align 1
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i8, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i8, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i8, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !220
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i8, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i8, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i8, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !220
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -14890,13 +14890,13 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -14982,18 +14982,18 @@ define internal void @ompi_op_avx_3buff_xor_int16_t_avx(ptr noundef %0, ptr noun
   %72 = load i16, ptr %.26678, align 2
   %73 = xor i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !222
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !222
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -15031,13 +15031,13 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -15123,18 +15123,18 @@ define internal void @ompi_op_avx_3buff_xor_uint16_t_avx(ptr noundef %0, ptr nou
   %72 = load i16, ptr %.26678, align 2
   %73 = xor i16 %72, %71
   store i16 %73, ptr %.26977, align 2
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i16, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i16, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i16, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !224
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i16, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i16, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i16, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !224
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -15172,13 +15172,13 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -15264,18 +15264,18 @@ define internal void @ompi_op_avx_3buff_xor_int32_t_avx(ptr noundef %0, ptr noun
   %72 = load i32, ptr %.26678, align 4
   %73 = xor i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !226
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !226
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -15313,13 +15313,13 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -15405,18 +15405,18 @@ define internal void @ompi_op_avx_3buff_xor_uint32_t_avx(ptr noundef %0, ptr nou
   %72 = load i32, ptr %.26678, align 4
   %73 = xor i32 %72, %71
   store i32 %73, ptr %.26977, align 4
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i32, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i32, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i32, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !228
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i32, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i32, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i32, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !228
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -15454,13 +15454,13 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx(ptr noundef %0, ptr noun
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -15546,18 +15546,18 @@ define internal void @ompi_op_avx_3buff_xor_int64_t_avx(ptr noundef %0, ptr noun
   %72 = load i64, ptr %.26678, align 8
   %73 = xor i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !230
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !230
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 
@@ -15595,13 +15595,13 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx(ptr noundef %0, ptr nou
   %19 = icmp sgt i32 %.1, 0
   br i1 %19, label %.lr.ph81, label %._crit_edge
 
-.lr.ph81:                                         ; preds = %.loopexit, %74
-  %.280 = phi i32 [ %75, %74 ], [ %.1, %.loopexit ]
-  %.26379 = phi ptr [ %78, %74 ], [ %.162, %.loopexit ]
-  %.26678 = phi ptr [ %79, %74 ], [ %.165, %.loopexit ]
-  %.26977 = phi ptr [ %77, %74 ], [ %.168, %.loopexit ]
+.lr.ph81:                                         ; preds = %.loopexit, %70
+  %.280 = phi i32 [ %74, %70 ], [ %.1, %.loopexit ]
+  %.26379 = phi ptr [ %77, %70 ], [ %.162, %.loopexit ]
+  %.26678 = phi ptr [ %78, %70 ], [ %.165, %.loopexit ]
+  %.26977 = phi ptr [ %76, %70 ], [ %.168, %.loopexit ]
   %20 = tail call i32 @llvm.umin.i32(i32 %.280, i32 8)
-  switch i32 %20, label %74 [
+  switch i32 %20, label %default.unreachable [
     i32 8, label %21
     i32 7, label %28
     i32 6, label %35
@@ -15687,18 +15687,18 @@ define internal void @ompi_op_avx_3buff_xor_uint64_t_avx(ptr noundef %0, ptr nou
   %72 = load i64, ptr %.26678, align 8
   %73 = xor i64 %72, %71
   store i64 %73, ptr %.26977, align 8
-  br label %74
+  %74 = sub nsw i32 %.280, %20
+  %75 = zext nneg i32 %20 to i64
+  %76 = getelementptr inbounds i64, ptr %.26977, i64 %75
+  %77 = getelementptr inbounds i64, ptr %.26379, i64 %75
+  %78 = getelementptr inbounds i64, ptr %.26678, i64 %75
+  %79 = icmp sgt i32 %74, 0
+  br i1 %79, label %.lr.ph81, label %._crit_edge, !llvm.loop !232
 
-74:                                               ; preds = %70, %.lr.ph81
-  %75 = sub nsw i32 %.280, %20
-  %76 = zext nneg i32 %20 to i64
-  %77 = getelementptr inbounds i64, ptr %.26977, i64 %76
-  %78 = getelementptr inbounds i64, ptr %.26379, i64 %76
-  %79 = getelementptr inbounds i64, ptr %.26678, i64 %76
-  %80 = icmp sgt i32 %75, 0
-  br i1 %80, label %.lr.ph81, label %._crit_edge, !llvm.loop !232
+default.unreachable:                              ; preds = %.lr.ph81
+  unreachable
 
-._crit_edge:                                      ; preds = %74, %.loopexit
+._crit_edge:                                      ; preds = %70, %.loopexit
   ret void
 }
 

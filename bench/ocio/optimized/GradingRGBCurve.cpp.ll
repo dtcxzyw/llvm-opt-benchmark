@@ -104,7 +104,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.9 = private unnamed_addr constant [6 x i8] c"green\00", align 1
 @.str.10 = private unnamed_addr constant [5 x i8] c"blue\00", align 1
 @.str.11 = private unnamed_addr constant [7 x i8] c"master\00", align 1
-@.str.12 = private unnamed_addr constant [8 x i8] c"invalid\00", align 1
 @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @_ZNSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info] }, comdat, align 8
 @_ZTSSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr hidden constant [108 x i8] c"St23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19GradingRGBCurveImplESaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [52 x i8] c"St16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
@@ -1979,23 +1978,17 @@ catch:                                            ; preds = %lpad
 
 invoke.cont3:                                     ; preds = %catch
   %call6 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %oss, ptr noundef nonnull @.str.4)
-          to label %invoke.cont5 unwind label %lpad4
+          to label %switch.lookup unwind label %lpad4
 
-invoke.cont5:                                     ; preds = %invoke.cont3
-  %7 = icmp ult i64 %indvars.iv, 4
-  br i1 %7, label %switch.lookup, label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
-
-switch.lookup:                                    ; preds = %invoke.cont5
-  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %indvars.iv
+switch.lookup:                                    ; preds = %invoke.cont3
+  %sext = shl i64 %indvars.iv, 32
+  %7 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [4 x ptr], ptr @switch.table._ZNK19OpenColorIO_v2_4dev19GradingRGBCurveImpl8validateEv, i64 0, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
-  br label %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
-
-_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit: ; preds = %invoke.cont5, %switch.lookup
-  %retval.0.i = phi ptr [ %switch.load, %switch.lookup ], [ @.str.12, %invoke.cont5 ]
-  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %retval.0.i)
+  %call10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call6, ptr noundef nonnull %switch.load)
           to label %invoke.cont9 unwind label %lpad4
 
-invoke.cont9:                                     ; preds = %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit
+invoke.cont9:                                     ; preds = %switch.lookup
   %call12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %call10, ptr noundef nonnull @.str.5)
           to label %invoke.cont11 unwind label %lpad4
 
@@ -2036,7 +2029,7 @@ lpad2:                                            ; preds = %catch
           cleanup
   br label %ehcleanup26
 
-lpad4:                                            ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9, %_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_19CurveTypeEi.exit, %invoke.cont3
+lpad4:                                            ; preds = %invoke.cont13, %invoke.cont11, %invoke.cont9, %switch.lookup, %invoke.cont3
   %11 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup25

@@ -3358,8 +3358,8 @@ entry:
   %bufend = getelementptr inbounds i8, ptr %part, i64 168
   %0 = load i64, ptr %bufbeg, align 8
   %1 = load i64, ptr %bufend, align 8
-  %cmp104 = icmp ult i64 %0, %1
-  br i1 %cmp104, label %while.body.lr.ph, label %return
+  %cmp103 = icmp ult i64 %0, %1
+  br i1 %cmp103, label %while.body.lr.ph, label %return
 
 while.body.lr.ph:                                 ; preds = %entry
   %buf1 = getelementptr inbounds i8, ptr %part, i64 176
@@ -3370,19 +3370,19 @@ while.body.lr.ph:                                 ; preds = %entry
 while.body:                                       ; preds = %while.body.lr.ph, %if.end66
   %2 = phi i64 [ %1, %while.body.lr.ph ], [ %23, %if.end66 ]
   %3 = phi i64 [ %0, %while.body.lr.ph ], [ %add81, %if.end66 ]
-  %cursize.0107 = phi i64 [ 0, %while.body.lr.ph ], [ %add68, %if.end66 ]
-  %ptr.0106 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %if.end66 ]
-  %size.addr.0105 = phi i64 [ %size, %while.body.lr.ph ], [ %sub69, %if.end66 ]
+  %cursize.0106 = phi i64 [ 0, %while.body.lr.ph ], [ %add68, %if.end66 ]
+  %ptr.0105 = phi ptr [ %buffer, %while.body.lr.ph ], [ %add.ptr, %if.end66 ]
+  %size.addr.0104 = phi i64 [ %size, %while.body.lr.ph ], [ %sub69, %if.end66 ]
   %arrayidx = getelementptr inbounds [256 x i8], ptr %buf1, i64 0, i64 %3
   %4 = load i8, ptr %arrayidx, align 1
-  %conv109 = zext i8 %4 to i32
+  %conv108 = zext i8 %4 to i32
   store i8 %4, ptr %buf, align 4
-  %shr = lshr i32 %conv109, 4
+  %shr = lshr i32 %conv108, 4
   %idxprom = zext nneg i32 %shr to i64
   %arrayidx5 = getelementptr inbounds [17 x i8], ptr @aschex, i64 0, i64 %idxprom
   %5 = load i8, ptr %arrayidx5, align 1
   store i8 %5, ptr %arrayidx6, align 1
-  %and7 = and i32 %conv109, 15
+  %and7 = and i32 %conv108, 15
   %idxprom8 = zext nneg i32 %and7 to i64
   %arrayidx9 = getelementptr inbounds [17 x i8], ptr @aschex, i64 0, i64 %idxprom8
   %6 = load i8, ptr %arrayidx9, align 1
@@ -3527,19 +3527,19 @@ if.then56:                                        ; preds = %qp_lookahead_eol.ex
 if.end59:                                         ; preds = %land.lhs.true11.i79, %if.then48, %if.end, %if.then56, %sw.epilog36
   %len.1 = phi i64 [ 3, %if.then56 ], [ %len.0, %if.end ], [ %len.0, %sw.epilog36 ], [ %len.0, %if.then48 ], [ %len.0, %land.lhs.true11.i79 ]
   %consumed.1 = phi i64 [ 0, %if.then56 ], [ %consumed.0, %if.end ], [ %consumed.0, %sw.epilog36 ], [ %consumed.0, %if.then48 ], [ %consumed.0, %land.lhs.true11.i79 ]
-  %cmp60 = icmp ugt i64 %len.1, %size.addr.0105
+  %cmp60 = icmp ugt i64 %len.1, %size.addr.0104
   br i1 %cmp60, label %if.then62, label %if.end66
 
 if.then62:                                        ; preds = %if.end59
-  %tobool63.not = icmp eq i64 %cursize.0107, 0
-  %spec.select = select i1 %tobool63.not, i64 -2, i64 %cursize.0107
+  %tobool63.not = icmp eq i64 %cursize.0106, 0
+  %spec.select = select i1 %tobool63.not, i64 -2, i64 %cursize.0106
   br label %return
 
 if.end66:                                         ; preds = %if.end59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ptr.0106, ptr noundef nonnull align 4 dereferenceable(1) %buf, i64 %len.1, i1 false)
-  %add68 = add i64 %len.1, %cursize.0107
-  %add.ptr = getelementptr inbounds i8, ptr %ptr.0106, i64 %len.1
-  %sub69 = sub i64 %size.addr.0105, %len.1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %ptr.0105, ptr noundef nonnull align 4 dereferenceable(1) %buf, i64 %len.1, i1 false)
+  %add68 = add i64 %len.1, %cursize.0106
+  %add.ptr = getelementptr inbounds i8, ptr %ptr.0105, i64 %len.1
+  %sub69 = sub i64 %size.addr.0104, %len.1
   %20 = load i64, ptr %encstate, align 8
   %add71 = add i64 %20, %len.1
   %sub72 = add nsw i64 %len.1, -1
@@ -3556,7 +3556,7 @@ if.end66:                                         ; preds = %if.end59
   br i1 %cmp, label %while.body, label %return, !llvm.loop !23
 
 return:                                           ; preds = %qp_lookahead_eol.exit88, %qp_lookahead_eol.exit, %qp_lookahead_eol.exit62, %if.end66, %if.then62, %entry
-  %retval.0 = phi i64 [ 0, %entry ], [ %spec.select, %if.then62 ], [ %add68, %if.end66 ], [ %cursize.0107, %qp_lookahead_eol.exit62 ], [ %cursize.0107, %qp_lookahead_eol.exit ], [ %cursize.0107, %qp_lookahead_eol.exit88 ]
+  %retval.0 = phi i64 [ 0, %entry ], [ %spec.select, %if.then62 ], [ %add68, %if.end66 ], [ %cursize.0106, %qp_lookahead_eol.exit62 ], [ %cursize.0106, %qp_lookahead_eol.exit ], [ %cursize.0106, %qp_lookahead_eol.exit88 ]
   ret i64 %retval.0
 }
 

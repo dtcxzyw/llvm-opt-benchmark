@@ -51855,7 +51855,7 @@ define linkonce_odr void @_ZNK4CGAL11AABB_traitsINS_13Alpha_wraps_38internal27Al
   %25 = icmp eq ptr %1, %2
   %26 = icmp eq ptr %10, %2
   %or.cond.i = select i1 %25, i1 true, i1 %26
-  switch i32 %.0.i, label %default.unreachable [
+  switch i32 %.0.i, label %default.unreachable18 [
     i32 0, label %27
     i32 1, label %32
     i32 2, label %37
@@ -51891,7 +51891,7 @@ define linkonce_odr void @_ZNK4CGAL11AABB_traitsINS_13Alpha_wraps_38internal27Al
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_11AABB_traitsINSA_27Alpha_wrap_AABB_geom_traitsISH_EESS_NS6_IS8_NSB_INS2_6Bbox_3EEESE_EEE16Split_primitivesclISX_EEvT_S19_RKS13_EUlRKSS_S1D_E1_EEEvS19_S19_S19_T0_T1_(ptr %1, ptr %10, ptr %2, i64 noundef %41, ptr nonnull %0)
   br label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEEZNKS2_11AABB_traitsINSA_27Alpha_wrap_AABB_geom_traitsISH_EESS_NS6_IS8_NSB_INS2_6Bbox_3EEESE_EEE16Split_primitivesclISX_EEvT_S17_RKS11_EUlRKSS_S1B_E_EvS17_S17_S17_T0_.exit
 
-default.unreachable:                              ; preds = %4
+default.unreachable18:                            ; preds = %4
   unreachable
 
 _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4CGAL14AABB_primitiveISt4pairImmENS2_20Compose_property_mapINS6_INS2_26First_of_pair_property_mapIS5_EENS2_13Alpha_wraps_38internal19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSB_INS2_10Triangle_3INS2_5EpickEEEEESE_EENS6_IS8_NSB_INS2_7Point_3ISH_EEEESE_EENS2_11Boolean_tagILb1EEENSP_ILb0EEEEESt6vectorISS_SaISS_EEEEZNKS2_11AABB_traitsINSA_27Alpha_wrap_AABB_geom_traitsISH_EESS_NS6_IS8_NSB_INS2_6Bbox_3EEESE_EEE16Split_primitivesclISX_EEvT_S17_RKS11_EUlRKSS_S1B_E_EvS17_S17_S17_T0_.exit: ; preds = %38, %37, %33, %32, %28, %27
@@ -192427,7 +192427,7 @@ define linkonce_odr void @_ZNK4CGAL11AABB_traitsINS_5EpickENS_34AABB_face_graph_
   %25 = icmp eq ptr %1, %2
   %26 = icmp eq ptr %10, %2
   %or.cond.i = select i1 %25, i1 true, i1 %26
-  switch i32 %.0.i, label %default.unreachable [
+  switch i32 %.0.i, label %default.unreachable18 [
     i32 0, label %27
     i32 1, label %32
     i32 2, label %37
@@ -192463,7 +192463,7 @@ define linkonce_odr void @_ZNK4CGAL11AABB_traitsINS_5EpickENS_34AABB_face_graph_
   tail call void @_ZSt13__introselectIN9__gnu_cxx17__normal_iteratorIPN4CGAL34AABB_face_graph_triangle_primitiveINS2_12Surface_meshINS2_7Point_3INS2_5EpickEEEEENS8_12Property_mapINS2_15SM_Vertex_indexES7_EENS2_11Boolean_tagILb1EEENSC_ILb0EEEEESt6vectorISF_SaISF_EEEElNS0_5__ops15_Iter_comp_iterIZNKS2_11AABB_traitsIS6_SF_NS2_7DefaultEE16Split_primitivesclISK_EEvT_SS_RKNS2_6Bbox_3EEUlRKSF_SX_E1_EEEvSS_SS_SS_T0_T1_(ptr %1, ptr %10, ptr %2, i64 noundef %41, ptr nonnull %0)
   br label %_ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4CGAL34AABB_face_graph_triangle_primitiveINS2_12Surface_meshINS2_7Point_3INS2_5EpickEEEEENS8_12Property_mapINS2_15SM_Vertex_indexES7_EENS2_11Boolean_tagILb1EEENSC_ILb0EEEEESt6vectorISF_SaISF_EEEEZNKS2_11AABB_traitsIS6_SF_NS2_7DefaultEE16Split_primitivesclISK_EEvT_SQ_RKNS2_6Bbox_3EEUlRKSF_SV_E_EvSQ_SQ_SQ_T0_.exit
 
-default.unreachable:                              ; preds = %4
+default.unreachable18:                            ; preds = %4
   unreachable
 
 _ZSt11nth_elementIN9__gnu_cxx17__normal_iteratorIPN4CGAL34AABB_face_graph_triangle_primitiveINS2_12Surface_meshINS2_7Point_3INS2_5EpickEEEEENS8_12Property_mapINS2_15SM_Vertex_indexES7_EENS2_11Boolean_tagILb1EEENSC_ILb0EEEEESt6vectorISF_SaISF_EEEEZNKS2_11AABB_traitsIS6_SF_NS2_7DefaultEE16Split_primitivesclISK_EEvT_SQ_RKNS2_6Bbox_3EEUlRKSF_SV_E_EvSQ_SQ_SQ_T0_.exit: ; preds = %38, %37, %33, %32, %28, %27

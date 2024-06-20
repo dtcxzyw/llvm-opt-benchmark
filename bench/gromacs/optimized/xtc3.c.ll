@@ -3159,12 +3159,12 @@ positive_int.exit90:                              ; preds = %112, %115, %117
   %121 = uitofp i32 %.1.i92 to double
   %122 = fmul double %121, 1.500000e+00
   %123 = fcmp olt double %122, %.0
-  %.pre118 = load i32, ptr %9, align 8
+  %.pre117 = load i32, ptr %9, align 8
   br i1 %123, label %.thread, label %135
 
 .thread:                                          ; preds = %positive_int.exit90
   %124 = getelementptr inbounds i8, ptr %0, i64 12412
-  %125 = sext i32 %.pre118 to i64
+  %125 = sext i32 %.pre117 to i64
   %126 = getelementptr inbounds [1024 x i32], ptr %124, i64 0, i64 %125
   store i32 2, ptr %126, align 4
   %127 = getelementptr inbounds i8, ptr %0, i64 124
@@ -3180,7 +3180,7 @@ positive_int.exit90:                              ; preds = %112, %115, %117
   br label %150
 
 135:                                              ; preds = %._crit_edge, %positive_int.exit90
-  %136 = phi i32 [ %.pre, %._crit_edge ], [ %.pre118, %positive_int.exit90 ]
+  %136 = phi i32 [ %.pre, %._crit_edge ], [ %.pre117, %positive_int.exit90 ]
   %137 = getelementptr inbounds i8, ptr %0, i64 12412
   %138 = sext i32 %136 to i64
   %139 = getelementptr inbounds [1024 x i32], ptr %137, i64 0, i64 %138

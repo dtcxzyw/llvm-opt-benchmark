@@ -3336,7 +3336,7 @@ if.end30:                                         ; preds = %if.then28, %if.then
   br label %for.inc217
 
 if.else33:                                        ; preds = %sdslen.exit
-  switch i8 %11, label %sdslen.exit97 [
+  switch i8 %11, label %default.unreachable [
     i8 4, label %sw.bb13.i82
     i8 3, label %sw.bb9.i85
     i8 2, label %sw.bb5.i88
@@ -3359,8 +3359,11 @@ sw.bb13.i82:                                      ; preds = %if.else33
   %18 = load i64, ptr %add.ptr14.i83, align 1
   br label %sdslen.exit97
 
-sdslen.exit97:                                    ; preds = %if.else33, %sw.bb5.i88, %sw.bb9.i85, %sw.bb13.i82
-  %retval.0.i84 = phi i64 [ %18, %sw.bb13.i82 ], [ %conv12.i87, %sw.bb9.i85 ], [ %conv8.i90, %sw.bb5.i88 ], [ 0, %if.else33 ]
+default.unreachable:                              ; preds = %if.else33
+  unreachable
+
+sdslen.exit97:                                    ; preds = %sw.bb5.i88, %sw.bb9.i85, %sw.bb13.i82
+  %retval.0.i84 = phi i64 [ %18, %sw.bb13.i82 ], [ %conv12.i87, %sw.bb9.i85 ], [ %conv8.i90, %sw.bb5.i88 ]
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef nonnull %c, ptr noundef nonnull @.str.69, i64 noundef %retval.0.i84) #21
   br label %return
 

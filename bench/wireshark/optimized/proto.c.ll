@@ -26259,7 +26259,7 @@ define internal fastcc void @fill_label_number(ptr nocapture noundef readonly %0
 22:                                               ; preds = %20
   call void %19(ptr noundef nonnull %5, i32 noundef %.0) #32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %5)
-  br label %57
+  br label %55
 
 23:                                               ; preds = %14
   br i1 %.not55, label %47, label %24
@@ -26305,11 +26305,11 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %27
 
 40:                                               ; preds = %39
   call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %28, ptr noundef %.0.i61)
-  br label %57
+  br label %55
 
 41:                                               ; preds = %39
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %.0.i61)
-  br label %57
+  br label %55
 
 42:                                               ; preds = %hfinfo_number_vals_format.exit
   %43 = icmp eq ptr %28, null
@@ -26320,44 +26320,36 @@ hfinfo_number_vals_format.exit.thread:            ; preds = %27
 45:                                               ; preds = %.thread, %42
   %spec.store.select64 = phi ptr [ %spec.store.select63, %.thread ], [ %spec.store.select, %42 ]
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select64)
-  br label %57
+  br label %55
 
 46:                                               ; preds = %42
   call fastcc void @label_fill_descr(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %34)
-  br label %57
+  br label %55
 
 47:                                               ; preds = %24, %23
   %.off = add i32 %16, -13
   %switch = icmp ult i32 %.off, 4
-  br i1 %switch, label %48, label %52
+  br i1 %switch, label %switch.lookup, label %50
 
-48:                                               ; preds = %47
+switch.lookup:                                    ; preds = %47
   %switch.tableidx = add nsw i32 %16, -13
-  %49 = icmp ult i32 %switch.tableidx, 4
-  br i1 %49, label %switch.lookup, label %display_to_port_type.exit
-
-switch.lookup:                                    ; preds = %48
-  %50 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %50
+  %48 = sext i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.fill_label_number, i64 0, i64 %48
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %display_to_port_type.exit
-
-display_to_port_type.exit:                        ; preds = %48, %switch.lookup
-  %.0.i56 = phi i32 [ %switch.load, %switch.lookup ], [ 0, %48 ]
-  %51 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %6, i64 noundef 240, i32 noundef %.0.i56, i32 noundef %.0) #32
+  %49 = call i32 @port_with_resolution_to_str_buf(ptr noundef nonnull %6, i64 noundef 240, i32 noundef %switch.load, i32 noundef %.0) #32
   call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef nonnull %6)
-  br label %57
+  br label %55
 
-52:                                               ; preds = %47
-  %53 = getelementptr inbounds i8, ptr %7, i64 16
-  %54 = load i32, ptr %53, align 8
-  %55 = icmp eq i32 %54, 35
-  %spec.store.select.i57 = select i1 %55, i32 1, i32 %16
-  %56 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
-  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %56)
-  br label %57
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds i8, ptr %7, i64 16
+  %52 = load i32, ptr %51, align 8
+  %53 = icmp eq i32 %52, 35
+  %spec.store.select.i57 = select i1 %53, i32 1, i32 %16
+  %54 = call fastcc ptr @hfinfo_number_value_format_display(ptr noundef nonnull %7, i32 noundef %spec.store.select.i57, ptr noundef nonnull %4, i32 noundef %.0)
+  call fastcc void @label_fill(ptr noundef %1, i64 noundef 0, ptr noundef nonnull %7, ptr noundef %54)
+  br label %55
 
-57:                                               ; preds = %45, %46, %40, %41, %52, %display_to_port_type.exit, %22
+55:                                               ; preds = %45, %46, %40, %41, %50, %switch.lookup, %22
   ret void
 }
 

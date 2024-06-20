@@ -73573,9 +73573,10 @@ land.lhs.true.i:                                  ; preds = %reduction_widen_che
   br i1 %cmp.i3.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  switch i8 %5, label %return [
-    i8 2, label %sw.bb4.i.i
+  switch i8 %5, label %default.unreachable.i [
+    i8 0, label %return
     i8 1, label %sw.bb1.i.i
+    i8 2, label %sw.bb4.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
@@ -73589,6 +73590,9 @@ sw.bb4.i.i:                                       ; preds = %if.end.i.i
   %12 = load i8, ptr %ext_zve64d.i.i, align 2
   %tobool6.i.i = trunc i8 %12 to i1
   br i1 %tobool6.i.i, label %if.then, label %return
+
+default.unreachable.i:                            ; preds = %if.end.i.i
+  unreachable
 
 if.then:                                          ; preds = %sw.bb1.i.i, %sw.bb4.i.i
   %call1 = tail call ptr @gen_new_label() #13
@@ -73907,9 +73911,10 @@ land.lhs.true.i:                                  ; preds = %reduction_widen_che
   br i1 %cmp.i3.i, label %return, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %land.lhs.true.i
-  switch i8 %5, label %return [
-    i8 2, label %sw.bb4.i.i
+  switch i8 %5, label %default.unreachable.i [
+    i8 0, label %return
     i8 1, label %sw.bb1.i.i
+    i8 2, label %sw.bb4.i.i
   ]
 
 sw.bb1.i.i:                                       ; preds = %if.end.i.i
@@ -73923,6 +73928,9 @@ sw.bb4.i.i:                                       ; preds = %if.end.i.i
   %12 = load i8, ptr %ext_zve64d.i.i, align 2
   %tobool6.i.i = trunc i8 %12 to i1
   br i1 %tobool6.i.i, label %if.then, label %return
+
+default.unreachable.i:                            ; preds = %if.end.i.i
+  unreachable
 
 if.then:                                          ; preds = %sw.bb1.i.i, %sw.bb4.i.i
   %call1 = tail call ptr @gen_new_label() #13
@@ -120445,83 +120453,73 @@ if.end2:                                          ; preds = %do.end
   %4 = load i32, ptr %ol.i, align 8
   %.off = add i32 %4, -1
   %switch = icmp ult i32 %.off, 3
-  br i1 %switch, label %get_gpr.exit11, label %do.body9.i
+  br i1 %switch, label %get_gpr.exit, label %do.body9.i
 
 do.body9.i:                                       ; preds = %if.end2
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1169, i32 noundef 350, ptr noundef nonnull @__func__.get_gpr, ptr noundef null) #14
   unreachable
 
-get_gpr.exit11:                                   ; preds = %if.end2
+get_gpr.exit:                                     ; preds = %if.end2
   %5 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 80), align 16
   %6 = load ptr, ptr getelementptr inbounds (i8, ptr @cpu_gpr, i64 88), align 8
   %cmp.not.i = icmp eq i32 %2, 0
   br i1 %cmp.not.i, label %gen_set_gpr.exit, label %if.then.i
 
-if.then.i:                                        ; preds = %get_gpr.exit11
-  switch i32 %4, label %do.body.i [
-    i32 1, label %sw.bb.i13
-    i32 2, label %sw.bb1.i
-    i32 3, label %sw.bb1.i
-  ]
-
-sw.bb.i13:                                        ; preds = %if.then.i
+if.then.i:                                        ; preds = %get_gpr.exit
+  %switch34 = icmp eq i32 %4, 1
   %idxprom.i = sext i32 %2 to i64
   %arrayidx.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom.i
   %7 = load ptr, ptr %arrayidx.i, align 8
+  br i1 %switch34, label %sw.bb.i13, label %sw.bb1.i
+
+sw.bb.i13:                                        ; preds = %if.then.i
   tail call void @tcg_gen_ext32s_i64(ptr noundef %7, ptr noundef %5) #13
   br label %sw.epilog.i
 
-sw.bb1.i:                                         ; preds = %if.then.i, %if.then.i
-  %idxprom2.i = sext i32 %2 to i64
-  %arrayidx3.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom2.i
-  %8 = load ptr, ptr %arrayidx3.i, align 8
-  tail call void @tcg_gen_mov_i64(ptr noundef %8, ptr noundef %5) #13
+sw.bb1.i:                                         ; preds = %if.then.i
+  tail call void @tcg_gen_mov_i64(ptr noundef %7, ptr noundef %5) #13
   br label %sw.epilog.i
-
-do.body.i:                                        ; preds = %if.then.i
-  tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.1169, i32 noundef 392, ptr noundef nonnull @__func__.gen_set_gpr, ptr noundef null) #14
-  unreachable
 
 sw.epilog.i:                                      ; preds = %sw.bb1.i, %sw.bb.i13
   %misa_mxl_max.i = getelementptr inbounds i8, ptr %ctx, i64 80
-  %9 = load i32, ptr %misa_mxl_max.i, align 8
-  %cmp4.i = icmp eq i32 %9, 3
+  %8 = load i32, ptr %misa_mxl_max.i, align 8
+  %cmp4.i = icmp eq i32 %8, 3
   br i1 %cmp4.i, label %if.then5.i, label %gen_set_gpr.exit
 
 if.then5.i:                                       ; preds = %sw.epilog.i
   %idxprom6.i = sext i32 %2 to i64
   %arrayidx7.i = getelementptr [32 x ptr], ptr @cpu_gprh, i64 0, i64 %idxprom6.i
-  %10 = load ptr, ptr %arrayidx7.i, align 8
+  %9 = load ptr, ptr %arrayidx7.i, align 8
   %arrayidx9.i = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom6.i
-  %11 = load ptr, ptr %arrayidx9.i, align 8
-  tail call void @tcg_gen_sari_i64(ptr noundef %10, ptr noundef %11, i64 noundef 63) #13
+  %10 = load ptr, ptr %arrayidx9.i, align 8
+  tail call void @tcg_gen_sari_i64(ptr noundef %9, ptr noundef %10, i64 noundef 63) #13
   br label %gen_set_gpr.exit
 
-gen_set_gpr.exit:                                 ; preds = %get_gpr.exit11, %sw.epilog.i, %if.then5.i
-  %12 = load i32, ptr %rs2, align 4
-  %cmp.not.i14 = icmp eq i32 %12, 0
+gen_set_gpr.exit:                                 ; preds = %get_gpr.exit, %sw.epilog.i, %if.then5.i
+  %11 = load i32, ptr %rs2, align 4
+  %cmp.not.i14 = icmp eq i32 %11, 0
   br i1 %cmp.not.i14, label %return, label %if.then.i15
 
 if.then.i15:                                      ; preds = %gen_set_gpr.exit
-  %13 = load i32, ptr %ol.i, align 8
-  switch i32 %13, label %do.body.i30 [
+  %12 = load i32, ptr %ol.i, align 8
+  switch i32 %12, label %do.body.i30 [
     i32 1, label %sw.bb.i27
     i32 2, label %sw.bb1.i17
     i32 3, label %sw.bb1.i17
   ]
 
 sw.bb.i27:                                        ; preds = %if.then.i15
-  %idxprom.i28 = sext i32 %12 to i64
+  %idxprom.i28 = sext i32 %11 to i64
   %arrayidx.i29 = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom.i28
-  %14 = load ptr, ptr %arrayidx.i29, align 8
-  tail call void @tcg_gen_ext32s_i64(ptr noundef %14, ptr noundef %6) #13
+  %13 = load ptr, ptr %arrayidx.i29, align 8
+  tail call void @tcg_gen_ext32s_i64(ptr noundef %13, ptr noundef %6) #13
   br label %sw.epilog.i20
 
 sw.bb1.i17:                                       ; preds = %if.then.i15, %if.then.i15
-  %idxprom2.i18 = sext i32 %12 to i64
+  %idxprom2.i18 = sext i32 %11 to i64
   %arrayidx3.i19 = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom2.i18
-  %15 = load ptr, ptr %arrayidx3.i19, align 8
-  tail call void @tcg_gen_mov_i64(ptr noundef %15, ptr noundef %6) #13
+  %14 = load ptr, ptr %arrayidx3.i19, align 8
+  tail call void @tcg_gen_mov_i64(ptr noundef %14, ptr noundef %6) #13
   br label %sw.epilog.i20
 
 do.body.i30:                                      ; preds = %if.then.i15
@@ -120530,17 +120528,17 @@ do.body.i30:                                      ; preds = %if.then.i15
 
 sw.epilog.i20:                                    ; preds = %sw.bb1.i17, %sw.bb.i27
   %misa_mxl_max.i21 = getelementptr inbounds i8, ptr %ctx, i64 80
-  %16 = load i32, ptr %misa_mxl_max.i21, align 8
-  %cmp4.i22 = icmp eq i32 %16, 3
+  %15 = load i32, ptr %misa_mxl_max.i21, align 8
+  %cmp4.i22 = icmp eq i32 %15, 3
   br i1 %cmp4.i22, label %if.then5.i23, label %return
 
 if.then5.i23:                                     ; preds = %sw.epilog.i20
-  %idxprom6.i24 = sext i32 %12 to i64
+  %idxprom6.i24 = sext i32 %11 to i64
   %arrayidx7.i25 = getelementptr [32 x ptr], ptr @cpu_gprh, i64 0, i64 %idxprom6.i24
-  %17 = load ptr, ptr %arrayidx7.i25, align 8
+  %16 = load ptr, ptr %arrayidx7.i25, align 8
   %arrayidx9.i26 = getelementptr [32 x ptr], ptr @cpu_gpr, i64 0, i64 %idxprom6.i24
-  %18 = load ptr, ptr %arrayidx9.i26, align 8
-  tail call void @tcg_gen_sari_i64(ptr noundef %17, ptr noundef %18, i64 noundef 63) #13
+  %17 = load ptr, ptr %arrayidx9.i26, align 8
+  tail call void @tcg_gen_sari_i64(ptr noundef %16, ptr noundef %17, i64 noundef 63) #13
   br label %return
 
 return:                                           ; preds = %if.then5.i23, %sw.epilog.i20, %gen_set_gpr.exit, %do.end, %entry

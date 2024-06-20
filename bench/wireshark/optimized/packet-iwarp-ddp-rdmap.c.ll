@@ -531,10 +531,8 @@ thread-pre-split:                                 ; preds = %85, %73
   br i1 %or.cond39, label %111, label %dissect_iwarp_atomic.exit
 
 111:                                              ; preds = %108
-  switch i8 %109, label %dissect_iwarp_atomic.exit [
-    i8 10, label %112
-    i8 11, label %139
-  ]
+  %switch = icmp eq i8 %109, 10
+  br i1 %switch, label %112, label %139
 
 112:                                              ; preds = %111
   %113 = load i32, ptr @hf_iwarp_rdma_atomic_reserved, align 4
@@ -591,7 +589,7 @@ dissect_iwarp_atomic.exit.sink.split:             ; preds = %135, %139
   %144 = call ptr @proto_tree_add_item(ptr noundef %52, i32 noundef %143, ptr noundef %0, i32 noundef %.sink164, i32 noundef 8, i32 noundef 0) #3
   br label %dissect_iwarp_atomic.exit
 
-dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %111, %108
+dissect_iwarp_atomic.exit:                        ; preds = %dissect_iwarp_atomic.exit.sink.split, %108
   %145 = call i32 @tvb_captured_length(ptr noundef %0) #3
   ret i32 %145
 }

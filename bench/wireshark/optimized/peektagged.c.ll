@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.25 = private unnamed_addr constant [4 x i8] c"pkt\00", align 1
 @.str.26 = private unnamed_addr constant [12 x i8] c"tpc;apc;wpz\00", align 1
 @peektagged_blocks_supported = internal constant [1 x %struct.supported_block_type] [%struct.supported_block_type { i32 5, i32 2, i64 0, ptr null }], align 16
-@switch.table.peektagged_open = private unnamed_addr constant [4 x i32] [i32 0, i32 0, i32 0, i32 1], align 4
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 -1, 2) i32 @peektagged_open(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
@@ -55,12 +54,12 @@ define hidden range(i32 -1, 2) i32 @peektagged_open(ptr noundef %0, ptr noundef 
   %12 = load i32, ptr %1, align 4
   %.not75 = icmp ne i32 %12, -12
   %. = sext i1 %.not75 to i32
-  br label %89
+  br label %88
 
 13:                                               ; preds = %3
   %lhsv = load i32, ptr %6, align 4
   %.not76 = icmp eq i32 %lhsv, 1919252095
-  br i1 %.not76, label %.lr.ph.i, label %89
+  br i1 %.not76, label %.lr.ph.i, label %88
 
 .lr.ph.i:                                         ; preds = %13, %17
   %.024.i = phi ptr [ %.1.i, %17 ], [ @.str.1, %13 ]
@@ -90,7 +89,7 @@ wtap_file_read_pattern.exit:                      ; preds = %.lr.ph.i
   %switch.selectcmp.case2.i = icmp ne i32 %25, -12
   %switch.selectcmp.not.i.not.not = and i1 %switch.selectcmp.case1.i, %switch.selectcmp.case2.i
   %spec.select = sext i1 %switch.selectcmp.not.i.not.not to i32
-  br label %89
+  br label %88
 
 wtap_file_read_pattern.exit.thread:               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4)
@@ -145,120 +144,112 @@ wtap_file_read_till_separator.exit.thread.i:      ; preds = %37, %wtap_file_read
   %43 = icmp eq ptr %42, %4
   %44 = icmp ugt i64 %41, 4294967295
   %or.cond3.i = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond3.i, label %wtap_file_read_number.exit.thread85, label %46
-
-wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br label %45
+  br i1 %or.cond3.i, label %wtap_file_read_number.exit.thread85, label %45
 
 wtap_file_read_number.exit:                       ; preds = %wtap_file_read_till_separator.exit.i
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  switch i32 %.019.i.i, label %.thread [
-    i32 -1, label %89
-    i32 0, label %45
-  ]
+  %switch93 = icmp eq i32 %.019.i.i, -1
+  br i1 %switch93, label %88, label %wtap_file_read_number.exit.thread85
 
-45:                                               ; preds = %wtap_file_read_number.exit.thread85, %wtap_file_read_number.exit
-  br label %89
+wtap_file_read_number.exit.thread85:              ; preds = %wtap_file_read_till_separator.exit.thread.i, %wtap_file_read_number.exit
+  br label %88
 
-46:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
-  %47 = trunc nuw i64 %41 to i32
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
+45:                                               ; preds = %wtap_file_read_till_separator.exit.thread.i
   %.not77 = icmp eq i64 %41, 9
-  br i1 %.not77, label %49, label %.thread
+  br i1 %.not77, label %48, label %.thread
 
-.thread:                                          ; preds = %wtap_file_read_number.exit, %46
-  %.0808490 = phi i32 [ %47, %46 ], [ 0, %wtap_file_read_number.exit ]
+.thread:                                          ; preds = %45
+  %46 = trunc nuw i64 %41 to i32
   store i32 -4, ptr %1, align 4
-  %48 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %.0808490) #7
-  store ptr %48, ptr %2, align 8
-  br label %89
+  %47 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.2, i32 noundef %46) #7
+  store ptr %47, ptr %2, align 8
+  br label %88
 
-49:                                               ; preds = %46
-  %50 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2)
-  switch i32 %50, label %53 [
-    i32 -1, label %89
-    i32 0, label %51
+48:                                               ; preds = %45
+  %49 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.3, ptr noundef %1, ptr noundef %2)
+  switch i32 %49, label %52 [
+    i32 -1, label %88
+    i32 0, label %50
   ]
 
-51:                                               ; preds = %49
+50:                                               ; preds = %48
   store i32 -13, ptr %1, align 4
-  %52 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #7
-  store ptr %52, ptr %2, align 8
-  br label %89
+  %51 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.4) #7
+  store ptr %51, ptr %2, align 8
+  br label %88
 
-53:                                               ; preds = %49
-  %54 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
-  switch i32 %54, label %57 [
-    i32 -1, label %89
-    i32 0, label %55
+52:                                               ; preds = %48
+  %53 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2)
+  switch i32 %53, label %56 [
+    i32 -1, label %88
+    i32 0, label %54
   ]
 
-55:                                               ; preds = %53
+54:                                               ; preds = %52
   store i32 -13, ptr %1, align 4
-  %56 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.5) #7
-  store ptr %56, ptr %2, align 8
-  br label %89
+  %55 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.5) #7
+  store ptr %55, ptr %2, align 8
+  br label %88
 
-57:                                               ; preds = %53
-  %58 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2)
-  switch i32 %58, label %61 [
-    i32 -1, label %89
-    i32 0, label %59
+56:                                               ; preds = %52
+  %57 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %2)
+  switch i32 %57, label %60 [
+    i32 -1, label %88
+    i32 0, label %58
   ]
 
-59:                                               ; preds = %57
+58:                                               ; preds = %56
   store i32 -13, ptr %1, align 4
-  %60 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #7
-  store ptr %60, ptr %2, align 8
-  br label %89
+  %59 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.7) #7
+  store ptr %59, ptr %2, align 8
+  br label %88
 
-61:                                               ; preds = %57
-  %62 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2)
-  switch i32 %62, label %65 [
-    i32 -1, label %89
-    i32 0, label %63
+60:                                               ; preds = %56
+  %61 = call fastcc i32 @wtap_file_read_number(ptr noundef nonnull %0, ptr noundef nonnull %8, ptr noundef %1, ptr noundef %2)
+  switch i32 %61, label %64 [
+    i32 -1, label %88
+    i32 0, label %62
   ]
 
-63:                                               ; preds = %61
+62:                                               ; preds = %60
   store i32 -13, ptr %1, align 4
-  %64 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #7
-  store ptr %64, ptr %2, align 8
-  br label %89
+  %63 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.8) #7
+  store ptr %63, ptr %2, align 8
+  br label %88
 
-65:                                               ; preds = %61
-  %66 = load i32, ptr %8, align 4
-  %67 = icmp ugt i32 %66, 3
-  br i1 %67, label %68, label %70
+64:                                               ; preds = %60
+  %65 = load i32, ptr %8, align 4
+  %66 = icmp ugt i32 %65, 3
+  br i1 %66, label %67, label %69
 
-68:                                               ; preds = %65
+67:                                               ; preds = %64
   store i32 -4, ptr %1, align 4
-  %69 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %66) #7
-  store ptr %69, ptr %2, align 8
-  br label %89
+  %68 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.9, i32 noundef %65) #7
+  store ptr %68, ptr %2, align 8
+  br label %88
 
-70:                                               ; preds = %65
-  %71 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %1, ptr noundef %2)
-  switch i32 %71, label %73 [
-    i32 -1, label %89
-    i32 0, label %72
+69:                                               ; preds = %64
+  %70 = call fastcc i32 @wtap_file_read_pattern(ptr noundef nonnull %0, ptr noundef nonnull @.str.10, ptr noundef %1, ptr noundef %2)
+  switch i32 %70, label %72 [
+    i32 -1, label %88
+    i32 0, label %71
   ]
 
-72:                                               ; preds = %70
+71:                                               ; preds = %69
   store i32 -12, ptr %1, align 4
-  br label %89
+  br label %88
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %0, align 8
-  %75 = call i32 @wtap_read_bytes(ptr noundef %74, ptr noundef null, i32 noundef 8, ptr noundef %1, ptr noundef %2) #7
-  %.not78 = icmp eq i32 %75, 0
-  br i1 %.not78, label %89, label %switch.lookup
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %0, align 8
+  %74 = call i32 @wtap_read_bytes(ptr noundef %73, ptr noundef null, i32 noundef 8, ptr noundef %1, ptr noundef %2) #7
+  %.not78 = icmp eq i32 %74, 0
+  br i1 %.not78, label %88, label %75
 
-switch.lookup:                                    ; preds = %73
-  %76 = zext nneg i32 %66 to i64
+75:                                               ; preds = %72
+  %76 = zext nneg i32 %65 to i64
   %77 = getelementptr [4 x i32], ptr @peektagged_open.peektagged_encap, i64 0, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = load i32, ptr @peektagged_file_type_subtype, align 4
@@ -275,17 +266,16 @@ switch.lookup:                                    ; preds = %73
   %85 = call noalias dereferenceable_or_null(4) ptr @g_malloc_n(i64 noundef 1, i64 noundef 4) #8
   %86 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %85, ptr %86, align 8
-  %87 = zext nneg i32 %66 to i64
-  %switch.gep = getelementptr inbounds [4 x i32], ptr @switch.table.peektagged_open, i64 0, i64 %87
-  %switch.load = load i32, ptr %switch.gep, align 4
-  store i32 %switch.load, ptr %85, align 4
-  %88 = getelementptr inbounds i8, ptr %0, i64 24
-  store i32 0, ptr %88, align 8
+  %switch94.not = icmp eq i32 %65, 3
+  %.95 = zext i1 %switch94.not to i32
+  store i32 %.95, ptr %85, align 4
+  %87 = getelementptr inbounds i8, ptr %0, i64 24
+  store i32 0, ptr %87, align 8
   call void @wtap_add_generated_idb(ptr noundef nonnull %0) #7
-  br label %89
+  br label %88
 
-89:                                               ; preds = %wtap_file_read_pattern.exit, %73, %70, %61, %57, %53, %49, %wtap_file_read_number.exit, %13, %11, %switch.lookup, %72, %68, %63, %59, %55, %51, %.thread, %45
-  %.0 = phi i32 [ 0, %45 ], [ -1, %.thread ], [ -1, %51 ], [ -1, %55 ], [ -1, %59 ], [ -1, %63 ], [ -1, %68 ], [ -1, %72 ], [ 1, %switch.lookup ], [ %., %11 ], [ 0, %13 ], [ %.019.i.i, %wtap_file_read_number.exit ], [ %50, %49 ], [ %54, %53 ], [ %58, %57 ], [ %62, %61 ], [ %71, %70 ], [ -1, %73 ], [ %spec.select, %wtap_file_read_pattern.exit ]
+88:                                               ; preds = %wtap_file_read_pattern.exit, %wtap_file_read_number.exit, %72, %69, %60, %56, %52, %48, %13, %11, %75, %71, %67, %62, %58, %54, %50, %.thread, %wtap_file_read_number.exit.thread85
+  %.0 = phi i32 [ 0, %wtap_file_read_number.exit.thread85 ], [ -1, %.thread ], [ -1, %50 ], [ -1, %54 ], [ -1, %58 ], [ -1, %62 ], [ -1, %67 ], [ -1, %71 ], [ 1, %75 ], [ %., %11 ], [ 0, %13 ], [ -1, %wtap_file_read_number.exit ], [ %49, %48 ], [ %53, %52 ], [ %57, %56 ], [ %61, %60 ], [ %70, %69 ], [ -1, %72 ], [ %spec.select, %wtap_file_read_pattern.exit ]
   ret i32 %.0
 }
 

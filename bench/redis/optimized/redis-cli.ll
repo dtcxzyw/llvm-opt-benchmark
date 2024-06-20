@@ -7978,7 +7978,7 @@ hi_sdslen.exit:                                   ; preds = %sw.bb.i, %sw.bb3.i,
   br i1 %cmp25.not, label %lor.lhs.false, label %land.rhs
 
 land.rhs:                                         ; preds = %hi_sdslen.exit
-  switch i32 %and.i, label %hi_sdslen.exit51 [
+  switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb.i48
     i32 1, label %sw.bb3.i45
     i32 2, label %sw.bb5.i42
@@ -8010,15 +8010,18 @@ sw.bb13.i36:                                      ; preds = %land.rhs
   %17 = load i64, ptr %add.ptr14.i, align 1
   br label %hi_sdslen.exit51
 
-hi_sdslen.exit51:                                 ; preds = %land.rhs, %sw.bb.i48, %sw.bb3.i45, %sw.bb5.i42, %sw.bb9.i39, %sw.bb13.i36
-  %retval.0.i38 = phi i64 [ %17, %sw.bb13.i36 ], [ %conv12.i41, %sw.bb9.i39 ], [ %conv8.i44, %sw.bb5.i42 ], [ %conv4.i47, %sw.bb3.i45 ], [ %conv2.i50, %sw.bb.i48 ], [ 0, %land.rhs ]
+default.unreachable:                              ; preds = %land.rhs
+  unreachable
+
+hi_sdslen.exit51:                                 ; preds = %sw.bb.i48, %sw.bb3.i45, %sw.bb5.i42, %sw.bb9.i39, %sw.bb13.i36
+  %retval.0.i38 = phi i64 [ %17, %sw.bb13.i36 ], [ %conv12.i41, %sw.bb9.i39 ], [ %conv8.i44, %sw.bb5.i42 ], [ %conv4.i47, %sw.bb3.i45 ], [ %conv2.i50, %sw.bb.i48 ]
   %gep = getelementptr i8, ptr %invariant.gep, i64 %retval.0.i38
   %18 = load i8, ptr %gep, align 1
   %cmp28 = icmp eq i8 %18, 32
   br i1 %cmp28, label %while.body30, label %lor.lhs.false
 
 while.body30:                                     ; preds = %hi_sdslen.exit51
-  switch i32 %and.i, label %hi_sdslen.exit70 [
+  switch i32 %and.i, label %default.unreachable101 [
     i32 0, label %sw.bb.i67
     i32 1, label %sw.bb3.i64
     i32 2, label %sw.bb5.i61
@@ -8050,8 +8053,11 @@ sw.bb13.i55:                                      ; preds = %while.body30
   %22 = load i64, ptr %add.ptr14.i, align 1
   br label %hi_sdslen.exit70
 
-hi_sdslen.exit70:                                 ; preds = %while.body30, %sw.bb.i67, %sw.bb3.i64, %sw.bb5.i61, %sw.bb9.i58, %sw.bb13.i55
-  %retval.0.i57 = phi i64 [ %22, %sw.bb13.i55 ], [ %conv12.i60, %sw.bb9.i58 ], [ %conv8.i63, %sw.bb5.i61 ], [ %conv4.i66, %sw.bb3.i64 ], [ %conv2.i69, %sw.bb.i67 ], [ 0, %while.body30 ]
+default.unreachable101:                           ; preds = %while.body30
+  unreachable
+
+hi_sdslen.exit70:                                 ; preds = %sw.bb.i67, %sw.bb3.i64, %sw.bb5.i61, %sw.bb9.i58, %sw.bb13.i55
+  %retval.0.i57 = phi i64 [ %22, %sw.bb13.i55 ], [ %conv12.i60, %sw.bb9.i58 ], [ %conv8.i63, %sw.bb5.i61 ], [ %conv4.i66, %sw.bb3.i64 ], [ %conv2.i69, %sw.bb.i67 ]
   %sub32 = add i64 %retval.0.i57, -1
   %23 = and i8 %9, 7
   switch i8 %23, label %hi_sdssetlen.exit [

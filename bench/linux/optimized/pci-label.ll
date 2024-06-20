@@ -346,47 +346,43 @@ define internal fastcc noundef i32 @dsm_get_label(ptr %.632.val, ptr noundef %0,
   %34 = getelementptr inbounds i8, ptr %16, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef %35) #3
-  br label %51
+  br label %49
 
 37:                                               ; preds = %31
-  switch i32 %28, label %.thread1 [
-    i32 2, label %38
-    i32 3, label %42
-  ]
+  %switch = icmp eq i32 %28, 2
+  %38 = getelementptr i8, ptr %16, i64 32
+  %39 = load ptr, ptr %38, align 8
+  br i1 %switch, label %40, label %42
 
-38:                                               ; preds = %37
-  %39 = getelementptr i8, ptr %16, i64 32
-  %40 = load ptr, ptr %39, align 8
-  %41 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %40) #3
-  br label %51
+40:                                               ; preds = %37
+  %41 = tail call i32 (ptr, ptr, ...) @sysfs_emit(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %39) #3
+  br label %49
 
 42:                                               ; preds = %37
-  %43 = getelementptr i8, ptr %16, i64 32
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr i8, ptr %16, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = tail call i32 @utf16s_to_utf8s(ptr noundef %44, i32 noundef %46, i32 noundef 1, ptr noundef %0, i32 noundef 4095) #3
-  %48 = add i32 %47, 1
-  %49 = sext i32 %47 to i64
-  %50 = getelementptr i8, ptr %0, i64 %49
-  store i8 10, ptr %50, align 1
-  br label %51
+  %43 = getelementptr i8, ptr %16, i64 28
+  %44 = load i32, ptr %43, align 4
+  %45 = tail call i32 @utf16s_to_utf8s(ptr noundef %39, i32 noundef %44, i32 noundef 1, ptr noundef %0, i32 noundef 4095) #3
+  %46 = add i32 %45, 1
+  %47 = sext i32 %45 to i64
+  %48 = getelementptr i8, ptr %0, i64 %47
+  store i8 10, ptr %48, align 1
+  br label %49
 
-.thread1:                                         ; preds = %23, %19, %14, %26, %37
+.thread1:                                         ; preds = %23, %19, %14, %26
   tail call void @kfree(ptr noundef nonnull %12) #3
   br label %.thread
 
-51:                                               ; preds = %42, %38, %33
-  %52 = phi i32 [ %36, %33 ], [ %41, %38 ], [ %48, %42 ]
-  %.fr = freeze i32 %52
+49:                                               ; preds = %42, %40, %33
+  %50 = phi i32 [ %36, %33 ], [ %41, %40 ], [ %46, %42 ]
+  %.fr = freeze i32 %50
   tail call void @kfree(ptr noundef nonnull %12) #3
-  %53 = icmp sgt i32 %.fr, 0
-  %spec.select = select i1 %53, i32 %.fr, i32 -1
+  %51 = icmp sgt i32 %.fr, 0
+  %spec.select = select i1 %51, i32 %.fr, i32 -1
   br label %.thread
 
-.thread:                                          ; preds = %51, %2, %.thread1, %11, %7
-  %54 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %51 ]
-  ret i32 %54
+.thread:                                          ; preds = %49, %2, %.thread1, %11, %7
+  %52 = phi i32 [ -1, %7 ], [ -1, %11 ], [ -1, %.thread1 ], [ -1, %2 ], [ %spec.select, %49 ]
+  ret i32 %52
 }
 
 ; Function Attrs: null_pointer_is_valid

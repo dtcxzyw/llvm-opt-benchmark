@@ -5184,8 +5184,8 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocaptur
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i32
   %8 = and i32 %7, 65
-  %or.cond6 = icmp eq i32 %8, 0
-  br i1 %or.cond6, label %9, label %21
+  %or.cond5 = icmp eq i32 %8, 0
+  br i1 %or.cond5, label %9, label %21
 
 9:                                                ; preds = %3
   %10 = load i8, ptr %1, align 1
@@ -5280,7 +5280,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocaptur
   %82 = select i1 %80, i1 %81, i1 false
   %spec.store.select = select i1 %82, i16 0, i16 %67
   store i16 %spec.store.select, ptr %57, align 2
-  %spec.select4 = select i1 %82, i16 0, i16 %67
+  %spec.select6 = select i1 %82, i16 0, i16 %67
   %83 = xor i16 %51, 2047
   store i16 %83, ptr %52, align 2
   %84 = xor i16 %78, 2032
@@ -5333,7 +5333,7 @@ define internal noundef range(i32 -1, 2) i32 @alps_decode_packet_v7(ptr nocaptur
   br i1 %113, label %.loopexit, label %98, !llvm.loop !24
 
 .loopexit:                                        ; preds = %110, %.thread3
-  %114 = phi i16 [ %85, %.thread3 ], [ %spec.select4, %110 ]
+  %114 = phi i16 [ %85, %.thread3 ], [ %spec.select6, %110 ]
   %115 = phi i16 [ %93, %.thread3 ], [ %84, %110 ]
   %116 = phi i16 [ %91, %.thread3 ], [ %83, %110 ]
   %117 = phi i32 [ %97, %.thread3 ], [ %111, %110 ]

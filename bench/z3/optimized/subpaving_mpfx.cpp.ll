@@ -23611,7 +23611,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %23 = load ptr, ptr %arrayidx.i18, align 8
   %bf.load.i19 = load i32, ptr %23, align 8
   %bf.lshr.i20 = lshr i32 %bf.load.i19, 30
-  switch i32 %bf.lshr.i20, label %default.unreachable [
+  switch i32 %bf.lshr.i20, label %default.unreachable52 [
     i32 0, label %sw.bb
     i32 2, label %sw.bb8
     i32 1, label %sw.bb9
@@ -23710,7 +23710,7 @@ sw.bb11:                                          ; preds = %for.body
   tail call void @exit(i32 noundef 114) #22
   unreachable
 
-default.unreachable:                              ; preds = %for.body
+default.unreachable52:                            ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %_ZN14parray_managerIN9subpaving9context_tINS0_11config_mpfxEE18bound_array_configEE10rpush_backERPPNS3_5boundERjRKS7_.exit, %sw.bb8, %sw.bb

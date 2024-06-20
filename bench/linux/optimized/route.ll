@@ -8148,13 +8148,13 @@ define dso_local i32 @ipv6_route_ioctl(ptr noundef %0, i32 noundef %1, ptr nocap
   %5 = getelementptr inbounds i8, ptr %4, i64 96
   %6 = add i32 %1, -35085
   %7 = icmp ult i32 %6, -2
-  br i1 %7, label %62, label %8
+  br i1 %7, label %61, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 16
   %11 = tail call zeroext i1 @ns_capable(ptr noundef %10, i32 noundef 12) #22
-  br i1 %11, label %12, label %62
+  br i1 %11, label %12, label %61
 
 12:                                               ; preds = %8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %5, i8 0, i64 80, i1 false), !annotation !11
@@ -8223,29 +8223,26 @@ define dso_local i32 @ipv6_route_ioctl(ptr noundef %0, i32 noundef %1, ptr nocap
   %54 = getelementptr inbounds i8, ptr %4, i64 170
   store i8 0, ptr %54, align 2
   tail call void @rtnl_lock() #22
-  %55 = trunc nuw i32 %1 to i16
-  switch i16 %55, label %60 [
-    i16 -30453, label %56
-    i16 -30452, label %58
-  ]
+  %switch = icmp eq i32 %1, 35083
+  br i1 %switch, label %55, label %57
 
-56:                                               ; preds = %12
-  %57 = call i32 @ip6_route_add(ptr noundef nonnull %4, i32 noundef 3264, ptr noundef null)
-  br label %60
+55:                                               ; preds = %12
+  %56 = call i32 @ip6_route_add(ptr noundef nonnull %4, i32 noundef 3264, ptr noundef null)
+  br label %59
 
-58:                                               ; preds = %12
-  %59 = call fastcc i32 @ip6_route_del(ptr noundef nonnull %4, ptr noundef null)
-  br label %60
+57:                                               ; preds = %12
+  %58 = call fastcc i32 @ip6_route_del(ptr noundef nonnull %4, ptr noundef null)
+  br label %59
 
-60:                                               ; preds = %58, %56, %12
-  %61 = phi i32 [ 0, %12 ], [ %59, %58 ], [ %57, %56 ]
+59:                                               ; preds = %57, %55
+  %60 = phi i32 [ %58, %57 ], [ %56, %55 ]
   call void @rtnl_unlock() #22
-  br label %62
+  br label %61
 
-62:                                               ; preds = %60, %8, %3
-  %63 = phi i32 [ %61, %60 ], [ -22, %3 ], [ -1, %8 ]
+61:                                               ; preds = %59, %8, %3
+  %62 = phi i32 [ %60, %59 ], [ -22, %3 ], [ -1, %8 ]
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %4) #22
-  ret i32 %63
+  ret i32 %62
 }
 
 ; Function Attrs: null_pointer_is_valid

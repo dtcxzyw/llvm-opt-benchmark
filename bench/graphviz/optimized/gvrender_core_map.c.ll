@@ -436,110 +436,91 @@ switch.lookup:                                    ; preds = %94
 128:                                              ; preds = %124, %122, %121
   %129 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #4
   %130 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.31) #4
-  switch i32 %1, label %.loopexit [
-    i32 1, label %131
-    i32 0, label %148
-    i32 2, label %164
+  %131 = load double, ptr %2, align 8
+  %132 = fcmp ult double %131, 0.000000e+00
+  %.in260.v = select i1 %132, double -5.000000e-01, double 5.000000e-01
+  %.in260 = fadd double %131, %.in260.v
+  %133 = fptosi double %.in260 to i32
+  %134 = getelementptr inbounds i8, ptr %2, i64 8
+  %135 = load double, ptr %134, align 8
+  %136 = fcmp ult double %135, 0.000000e+00
+  %.in261.v = select i1 %136, double -5.000000e-01, double 5.000000e-01
+  %.in261 = fadd double %135, %.in261.v
+  %137 = fptosi double %.in261 to i32
+  switch i32 %1, label %default.unreachable [
+    i32 1, label %138
+    i32 0, label %144
+    i32 2, label %153
   ]
 
-131:                                              ; preds = %128
-  %132 = load double, ptr %2, align 8
-  %133 = getelementptr inbounds i8, ptr %2, i64 8
-  %134 = load double, ptr %133, align 8
-  %135 = fcmp ult double %134, 0.000000e+00
-  %.in261.v = select i1 %135, double -5.000000e-01, double 5.000000e-01
-  %.in261 = fadd double %134, %.in261.v
-  %136 = fptosi double %.in261 to i32
-  %137 = getelementptr inbounds i8, ptr %2, i64 16
-  %138 = load double, ptr %137, align 8
-  %139 = insertelement <2 x double> poison, double %138, i64 0
-  %140 = insertelement <2 x double> %139, double %132, i64 1
-  %141 = fcmp ult <2 x double> %140, zeroinitializer
-  %142 = select <2 x i1> %141, <2 x double> <double -5.000000e-01, double -5.000000e-01>, <2 x double> <double 5.000000e-01, double 5.000000e-01>
-  %143 = fadd <2 x double> %140, %142
-  %144 = fptosi <2 x double> %143 to <2 x i32>
-  %145 = extractelement <2 x i32> %144, i64 0
-  %146 = extractelement <2 x i32> %144, i64 1
-  %147 = sub nsw i32 %145, %146
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %146, i32 noundef %136, i32 noundef %147) #4
+138:                                              ; preds = %128
+  %139 = getelementptr inbounds i8, ptr %2, i64 16
+  %140 = load double, ptr %139, align 8
+  %141 = fcmp ult double %140, 0.000000e+00
+  %.in262.v = select i1 %141, double -5.000000e-01, double 5.000000e-01
+  %.in262 = fadd double %140, %.in262.v
+  %142 = fptosi double %.in262 to i32
+  %143 = sub nsw i32 %142, %133
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.32, i32 noundef %133, i32 noundef %137, i32 noundef %143) #4
   br label %.loopexit
 
-148:                                              ; preds = %128
-  %149 = load double, ptr %2, align 8
-  %150 = fcmp ult double %149, 0.000000e+00
-  %.in256.v = select i1 %150, double -5.000000e-01, double 5.000000e-01
-  %.in256 = fadd double %149, %.in256.v
-  %151 = fptosi double %.in256 to i32
-  %152 = getelementptr inbounds i8, ptr %2, i64 8
-  %153 = load double, ptr %152, align 8
-  %154 = fcmp ult double %153, 0.000000e+00
-  %.in257.v = select i1 %154, double -5.000000e-01, double 5.000000e-01
-  %.in257 = fadd double %153, %.in257.v
-  %155 = fptosi double %.in257 to i32
-  %156 = getelementptr inbounds i8, ptr %2, i64 16
-  %157 = load double, ptr %156, align 8
-  %158 = fcmp ult double %157, 0.000000e+00
-  %.in258.v = select i1 %158, double -5.000000e-01, double 5.000000e-01
-  %.in258 = fadd double %157, %.in258.v
-  %159 = fptosi double %.in258 to i32
-  %160 = getelementptr inbounds i8, ptr %2, i64 24
-  %161 = load double, ptr %160, align 8
-  %162 = fcmp ult double %161, 0.000000e+00
-  %.in259.v = select i1 %162, double -5.000000e-01, double 5.000000e-01
-  %.in259 = fadd double %161, %.in259.v
-  %163 = fptosi double %.in259 to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i32 noundef %151, i32 noundef %163, i32 noundef %159, i32 noundef %155) #4
+144:                                              ; preds = %128
+  %145 = getelementptr inbounds i8, ptr %2, i64 16
+  %146 = load double, ptr %145, align 8
+  %147 = fcmp ult double %146, 0.000000e+00
+  %.in258.v = select i1 %147, double -5.000000e-01, double 5.000000e-01
+  %.in258 = fadd double %146, %.in258.v
+  %148 = fptosi double %.in258 to i32
+  %149 = getelementptr inbounds i8, ptr %2, i64 24
+  %150 = load double, ptr %149, align 8
+  %151 = fcmp ult double %150, 0.000000e+00
+  %.in259.v = select i1 %151, double -5.000000e-01, double 5.000000e-01
+  %.in259 = fadd double %150, %.in259.v
+  %152 = fptosi double %.in259 to i32
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.33, i32 noundef %133, i32 noundef %152, i32 noundef %148, i32 noundef %137) #4
   br label %.loopexit
 
-164:                                              ; preds = %128
-  %165 = load double, ptr %2, align 8
-  %166 = fcmp ult double %165, 0.000000e+00
-  %.in.v = select i1 %166, double -5.000000e-01, double 5.000000e-01
-  %.in = fadd double %165, %.in.v
-  %167 = fptosi double %.in to i32
-  %168 = getelementptr inbounds i8, ptr %2, i64 8
-  %169 = load double, ptr %168, align 8
-  %170 = fcmp ult double %169, 0.000000e+00
-  %.in253.v = select i1 %170, double -5.000000e-01, double 5.000000e-01
-  %.in253 = fadd double %169, %.in253.v
-  %171 = fptosi double %.in253 to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, i32 noundef %167, i32 noundef %171) #4
-  %172 = icmp ugt i64 %3, 1
-  br i1 %172, label %.lr.ph, label %.loopexit
+153:                                              ; preds = %128
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.34, i32 noundef %133, i32 noundef %137) #4
+  %154 = icmp ugt i64 %3, 1
+  br i1 %154, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %164, %.lr.ph
-  %.0280 = phi i64 [ %181, %.lr.ph ], [ 1, %164 ]
-  %173 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %.0280
-  %174 = load double, ptr %173, align 8
-  %175 = fcmp ult double %174, 0.000000e+00
-  %.in254.v = select i1 %175, double -5.000000e-01, double 5.000000e-01
-  %.in254 = fadd double %174, %.in254.v
-  %176 = fptosi double %.in254 to i32
-  %177 = getelementptr inbounds i8, ptr %173, i64 8
-  %178 = load double, ptr %177, align 8
-  %179 = fcmp ult double %178, 0.000000e+00
-  %.in255.v = select i1 %179, double -5.000000e-01, double 5.000000e-01
-  %.in255 = fadd double %178, %.in255.v
-  %180 = fptosi double %.in255 to i32
-  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %176, i32 noundef %180) #4
-  %181 = add nuw i64 %.0280, 1
-  %exitcond.not = icmp eq i64 %181, %3
+.lr.ph:                                           ; preds = %153, %.lr.ph
+  %.0280 = phi i64 [ %163, %.lr.ph ], [ 1, %153 ]
+  %155 = getelementptr inbounds %struct.pointf_s, ptr %2, i64 %.0280
+  %156 = load double, ptr %155, align 8
+  %157 = fcmp ult double %156, 0.000000e+00
+  %.in254.v = select i1 %157, double -5.000000e-01, double 5.000000e-01
+  %.in254 = fadd double %156, %.in254.v
+  %158 = fptosi double %.in254 to i32
+  %159 = getelementptr inbounds i8, ptr %155, i64 8
+  %160 = load double, ptr %159, align 8
+  %161 = fcmp ult double %160, 0.000000e+00
+  %.in255.v = select i1 %161, double -5.000000e-01, double 5.000000e-01
+  %.in255 = fadd double %160, %.in255.v
+  %162 = fptosi double %.in255 to i32
+  tail call void (ptr, ptr, ...) @gvprintf(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %158, i32 noundef %162) #4
+  %163 = add nuw i64 %.0280, 1
+  %exitcond.not = icmp eq i64 %163, %3
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %.lr.ph, %164, %128, %148, %131
-  %182 = load i32, ptr %12, align 8
-  %183 = icmp eq i32 %182, 3
-  br i1 %183, label %184, label %186
+default.unreachable:                              ; preds = %128
+  unreachable
 
-184:                                              ; preds = %.loopexit
-  %185 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #4
+.loopexit:                                        ; preds = %.lr.ph, %153, %144, %138
+  %164 = load i32, ptr %12, align 8
+  %165 = icmp eq i32 %164, 3
+  br i1 %165, label %166, label %168
+
+166:                                              ; preds = %.loopexit
+  %167 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.36) #4
   br label %.thread277
 
-186:                                              ; preds = %.loopexit
-  %187 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #4
+168:                                              ; preds = %.loopexit
+  %169 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #4
   br label %.thread277
 
-.thread277:                                       ; preds = %16, %70, %92, %73, %184, %186, %19, %35, %63, %8
+.thread277:                                       ; preds = %16, %70, %92, %73, %166, %168, %19, %35, %63, %8
   ret void
 }
 

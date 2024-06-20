@@ -37593,14 +37593,14 @@ UpdateGestures.exit:                              ; preds = %8, %12
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 4
   br i1 %exitcond100.not, label %.preheader77, label %30
 
-34:                                               ; preds = %.preheader77, %68
-  %indvar = phi i64 [ 0, %.preheader77 ], [ %indvar.next, %68 ]
+34:                                               ; preds = %.preheader77, %67
+  %indvar = phi i64 [ 0, %.preheader77 ], [ %indvar.next, %67 ]
   %35 = shl nuw nsw i64 %indvar, 5
   %gep = getelementptr i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 %35
   %36 = getelementptr inbounds [4 x i8], ptr getelementptr inbounds (i8, ptr @CORE, i64 2076), i64 0, i64 %indvar
   %37 = load i8, ptr %36, align 1
   %38 = trunc i8 %37 to i1
-  br i1 %38, label %.preheader, label %68
+  br i1 %38, label %.preheader, label %67
 
 .preheader:                                       ; preds = %34, %.preheader
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.preheader ], [ 0, %34 ]
@@ -37616,97 +37616,95 @@ UpdateGestures.exit:                              ; preds = %8, %12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %1, i8 0, i64 40, i1 false)
   %43 = trunc nuw nsw i64 %indvar to i32
   %44 = call i32 @glfwGetGamepadState(i32 noundef %43, ptr noundef nonnull %1) #55
-  br label %45
+  br label %switch.lookup
 
-45:                                               ; preds = %42, %54
-  %indvars.iv106 = phi i64 [ 0, %42 ], [ %indvars.iv.next107, %54 ]
-  %46 = icmp ult i64 %indvars.iv106, 15
-  br i1 %46, label %switch.lookup, label %54
-
-switch.lookup:                                    ; preds = %45
-  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.PollInputEvents, i64 0, i64 %indvars.iv106
+switch.lookup:                                    ; preds = %42, %53
+  %indvars.iv106 = phi i64 [ 0, %42 ], [ %indvars.iv.next107, %53 ]
+  %sext = shl i64 %indvars.iv106, 32
+  %45 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [15 x i32], ptr @switch.table.PollInputEvents, i64 0, i64 %45
   %switch.load = load i32, ptr %switch.gep, align 4
-  %47 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv106
-  %48 = load i8, ptr %47, align 1
-  %49 = icmp eq i8 %48, 1
-  %50 = zext nneg i32 %switch.load to i64
-  %51 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %50
-  br i1 %49, label %52, label %53
+  %46 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv106
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp eq i8 %47, 1
+  %49 = zext nneg i32 %switch.load to i64
+  %50 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar, i64 %49
+  br i1 %48, label %51, label %52
+
+51:                                               ; preds = %switch.lookup
+  store i8 1, ptr %50, align 1
+  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
+  br label %53
 
 52:                                               ; preds = %switch.lookup
-  store i8 1, ptr %51, align 1
-  store i32 %switch.load, ptr getelementptr inbounds (i8, ptr @CORE, i64 2056), align 8
-  br label %54
+  store i8 0, ptr %50, align 1
+  br label %53
 
-53:                                               ; preds = %switch.lookup
-  store i8 0, ptr %51, align 1
-  br label %54
-
-54:                                               ; preds = %45, %53, %52
+53:                                               ; preds = %52, %51
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next107, 15
-  br i1 %exitcond109.not, label %.critedge.preheader, label %45
+  br i1 %exitcond109.not, label %.critedge.preheader, label %switch.lookup
 
-.critedge.preheader:                              ; preds = %54
+.critedge.preheader:                              ; preds = %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %gep, ptr noundef nonnull align 4 dereferenceable(24) %29, i64 24, i1 false)
-  %55 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvar
-  %56 = getelementptr inbounds i8, ptr %55, i64 16
-  %57 = load float, ptr %56, align 8
-  %58 = fcmp ogt float %57, 0x3FB99999A0000000
-  %59 = zext i1 %58 to i8
-  %60 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar
-  %61 = getelementptr inbounds i8, ptr %60, i64 10
-  store i8 %59, ptr %61, align 2
-  %62 = getelementptr inbounds i8, ptr %55, i64 20
-  %63 = load float, ptr %62, align 4
-  %64 = fcmp ogt float %63, 0x3FB99999A0000000
-  %65 = zext i1 %64 to i8
-  %66 = getelementptr inbounds i8, ptr %60, i64 12
-  store i8 %65, ptr %66, align 4
-  %67 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %indvar
-  store i32 6, ptr %67, align 4
-  br label %68
+  %54 = getelementptr inbounds [4 x [8 x float]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2592), i64 0, i64 %indvar
+  %55 = getelementptr inbounds i8, ptr %54, i64 16
+  %56 = load float, ptr %55, align 8
+  %57 = fcmp ogt float %56, 0x3FB99999A0000000
+  %58 = zext i1 %57 to i8
+  %59 = getelementptr inbounds [4 x [32 x i8]], ptr getelementptr inbounds (i8, ptr @CORE, i64 2336), i64 0, i64 %indvar
+  %60 = getelementptr inbounds i8, ptr %59, i64 10
+  store i8 %58, ptr %60, align 2
+  %61 = getelementptr inbounds i8, ptr %54, i64 20
+  %62 = load float, ptr %61, align 4
+  %63 = fcmp ogt float %62, 0x3FB99999A0000000
+  %64 = zext i1 %63 to i8
+  %65 = getelementptr inbounds i8, ptr %59, i64 12
+  store i8 %64, ptr %65, align 4
+  %66 = getelementptr inbounds [4 x i32], ptr getelementptr inbounds (i8, ptr @CORE, i64 2060), i64 0, i64 %indvar
+  store i32 6, ptr %66, align 4
+  br label %67
 
-68:                                               ; preds = %34, %.critedge.preheader
+67:                                               ; preds = %34, %.critedge.preheader
   %indvar.next = add nuw nsw i64 %indvar, 1
   %exitcond114.not = icmp eq i64 %indvar.next, 4
-  br i1 %exitcond114.not, label %69, label %34
+  br i1 %exitcond114.not, label %68, label %34
 
-69:                                               ; preds = %68
+68:                                               ; preds = %67
   store i8 0, ptr getelementptr inbounds (i8, ptr @CORE, i64 15), align 1
-  %70 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
-  %71 = trunc i8 %70 to i1
-  br i1 %71, label %72, label %73
+  %69 = load i8, ptr getelementptr inbounds (i8, ptr @CORE, i64 16), align 8
+  %70 = trunc i8 %69 to i1
+  br i1 %70, label %71, label %72
 
-72:                                               ; preds = %69
+71:                                               ; preds = %68
   call void @glfwWaitEvents() #55
-  br label %74
+  br label %73
 
-73:                                               ; preds = %69
+72:                                               ; preds = %68
   call void @glfwPollEvents() #55
-  br label %74
+  br label %73
 
-74:                                               ; preds = %73, %72
-  %75 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %76 = and i32 %75, 768
-  %or.cond.not87 = icmp eq i32 %76, 512
+73:                                               ; preds = %72, %71
+  %74 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %75 = and i32 %74, 768
+  %or.cond.not87 = icmp eq i32 %75, 512
   br i1 %or.cond.not87, label %.lr.ph, label %.critedge7
 
-.lr.ph:                                           ; preds = %74, %.lr.ph
+.lr.ph:                                           ; preds = %73, %.lr.ph
   call void @glfwWaitEvents() #55
-  %77 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
-  %78 = and i32 %77, 768
-  %or.cond.not = icmp eq i32 %78, 512
+  %76 = load i32, ptr getelementptr inbounds (i8, ptr @CORE, i64 8), align 8
+  %77 = and i32 %76, 768
+  %or.cond.not = icmp eq i32 %77, 512
   br i1 %or.cond.not, label %.lr.ph, label %.critedge7
 
-.critedge7:                                       ; preds = %.lr.ph, %74
-  %79 = load ptr, ptr @platform.0, align 8
-  %80 = call i32 @glfwWindowShouldClose(ptr noundef %79) #55
-  %81 = icmp ne i32 %80, 0
-  %82 = zext i1 %81 to i8
-  store i8 %82, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
-  %83 = load ptr, ptr @platform.0, align 8
-  call void @glfwSetWindowShouldClose(ptr noundef %83, i32 noundef 0) #55
+.critedge7:                                       ; preds = %.lr.ph, %73
+  %78 = load ptr, ptr @platform.0, align 8
+  %79 = call i32 @glfwWindowShouldClose(ptr noundef %78) #55
+  %80 = icmp ne i32 %79, 0
+  %81 = zext i1 %80 to i8
+  store i8 %81, ptr getelementptr inbounds (i8, ptr @CORE, i64 14), align 2
+  %82 = load ptr, ptr @platform.0, align 8
+  call void @glfwSetWindowShouldClose(ptr noundef %82, i32 noundef 0) #55
   ret void
 }
 

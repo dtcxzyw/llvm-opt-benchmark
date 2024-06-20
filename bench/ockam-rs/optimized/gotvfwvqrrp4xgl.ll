@@ -119,8 +119,6 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.854733f247b1faa87fceaacb6c7ba5f2.141 = private unnamed_addr constant <{ [38 x i8] }> <{ [38 x i8] c"Record batch was too large to encode (" }>, align 1
 @anon.854733f247b1faa87fceaacb6c7ba5f2.142 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c" bytes)" }>, align 1
 @anon.854733f247b1faa87fceaacb6c7ba5f2.143 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.141, [8 x i8] c"&\00\00\00\00\00\00\00", ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.142, [8 x i8] c"\07\00\00\00\00\00\00\00" }>, align 8
-@anon.854733f247b1faa87fceaacb6c7ba5f2.144 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"not implemented" }>, align 1
-@anon.854733f247b1faa87fceaacb6c7ba5f2.145 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.124.llvm.12634899616595775615, [16 x i8] c"g\00\00\00\00\00\00\00\E8\00\00\00\1A\00\00\00" }>, align 8
 @anon.854733f247b1faa87fceaacb6c7ba5f2.146 = private unnamed_addr constant <{ [35 x i8] }> <{ [35 x i8] c"Batch contains at least one element" }>, align 1
 @anon.854733f247b1faa87fceaacb6c7ba5f2.147 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.124.llvm.12634899616595775615, [16 x i8] c"g\00\00\00\00\00\00\001\01\00\00\0E\00\00\00" }>, align 8
 @anon.854733f247b1faa87fceaacb6c7ba5f2.151 = private unnamed_addr constant <{ [41 x i8] }> <{ [41 x i8] c"Too many records to encode in one batch (" }>, align 1
@@ -15401,7 +15399,7 @@ define hidden noundef ptr @_ZN14kafka_protocol7records18RecordBatchEncoder13enco
   %30 = alloca { i8, i8 }, align 1
   %31 = load i8, ptr %3, align 1, !range !908, !noundef !4
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %142, label %33
+  br i1 %32, label %141, label %33
 
 33:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %30)
@@ -15461,7 +15459,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit:    ; preds = %33
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6), !noalias !2761
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %28), !noalias !2746
   %50 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %29), !noalias !2774
-  br label %166
+  br label %165
 
 51:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21), !noalias !2775
@@ -15506,251 +15504,250 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i: ; pr
   call void @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$4seek17hf7acf2f717a88f16E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %65), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5), !noalias !2800
   %66 = call noundef i64 @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$6offset17h7bb9715912e98a25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !2799
-  switch i8 %31, label %67 [
-    i8 1, label %68
-    i8 2, label %73
-    i8 3, label %78
-    i8 4, label %83
+  switch i8 %31, label %default.unreachable [
+    i8 1, label %67
+    i8 2, label %72
+    i8 3, label %77
+    i8 4, label %82
   ]
 
-67:                                               ; preds = %62
-  call void @_ZN4core9panicking5panic17h440670b29ba8362fE(ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.144, i64 noundef 15, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854733f247b1faa87fceaacb6c7ba5f2.145) #48, !noalias !2799
+default.unreachable:                              ; preds = %62
   unreachable
 
-68:                                               ; preds = %62
+67:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %19), !noalias !2800
   store ptr %1, ptr %19, align 8, !noalias !2800
-  %69 = getelementptr inbounds i8, ptr %19, i64 8
-  store ptr %2, ptr %69, align 8, !noalias !2800
-  %70 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr %30, ptr %70, align 8, !noalias !2800
-  %71 = call noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17ha3de44509bd28857E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19), !noalias !2799
+  %68 = getelementptr inbounds i8, ptr %19, i64 8
+  store ptr %2, ptr %68, align 8, !noalias !2800
+  %69 = getelementptr inbounds i8, ptr %19, i64 16
+  store ptr %30, ptr %69, align 8, !noalias !2800
+  %70 = call noundef ptr @"_ZN108_$LT$kafka_protocol..compression..gzip..Gzip$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17ha3de44509bd28857E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %19), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !2800
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %114, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %113, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
 
-73:                                               ; preds = %62
+72:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20), !noalias !2800
   store ptr %1, ptr %20, align 8, !noalias !2800
-  %74 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr %2, ptr %74, align 8, !noalias !2800
-  %75 = getelementptr inbounds i8, ptr %20, i64 16
-  store ptr %30, ptr %75, align 8, !noalias !2800
-  %76 = call noundef ptr @"_ZN112_$LT$kafka_protocol..compression..snappy..Snappy$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17hf34741e9c758f1ebE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20), !noalias !2799
+  %73 = getelementptr inbounds i8, ptr %20, i64 8
+  store ptr %2, ptr %73, align 8, !noalias !2800
+  %74 = getelementptr inbounds i8, ptr %20, i64 16
+  store ptr %30, ptr %74, align 8, !noalias !2800
+  %75 = call noundef ptr @"_ZN112_$LT$kafka_protocol..compression..snappy..Snappy$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17hf34741e9c758f1ebE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %20), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20), !noalias !2800
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %114, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %113, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
 
-78:                                               ; preds = %62
+77:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %18), !noalias !2800
   store ptr %1, ptr %18, align 8, !noalias !2800
-  %79 = getelementptr inbounds i8, ptr %18, i64 8
-  store ptr %2, ptr %79, align 8, !noalias !2800
-  %80 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr %30, ptr %80, align 8, !noalias !2800
-  %81 = call noundef ptr @"_ZN106_$LT$kafka_protocol..compression..lz4..Lz4$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h4a1278bd0117de5aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18), !noalias !2799
+  %78 = getelementptr inbounds i8, ptr %18, i64 8
+  store ptr %2, ptr %78, align 8, !noalias !2800
+  %79 = getelementptr inbounds i8, ptr %18, i64 16
+  store ptr %30, ptr %79, align 8, !noalias !2800
+  %80 = call noundef ptr @"_ZN106_$LT$kafka_protocol..compression..lz4..Lz4$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h4a1278bd0117de5aE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %18), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18), !noalias !2800
-  %82 = icmp eq ptr %81, null
-  br i1 %82, label %114, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
+  %81 = icmp eq ptr %80, null
+  br i1 %81, label %113, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
 
-83:                                               ; preds = %62
+82:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11), !noalias !2804
-  %84 = call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef 0, i1 noundef zeroext false), !noalias !2808
-  %85 = extractvalue { ptr, i64 } %84, 0
-  %86 = extractvalue { ptr, i64 } %84, 1
-  %87 = icmp ne ptr %85, null
-  call void @llvm.assume(i1 %87)
-  %88 = lshr i64 %86, 10
-  %89 = call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %88, i1 false)
-  %90 = sub nuw nsw i64 64, %89
-  %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %90, i64 7)
-  %91 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i.i, 2
-  %92 = or disjoint i64 %91, 1
-  %93 = getelementptr i8, ptr null, i64 %92
-  store ptr %85, ptr %11, align 8, !alias.scope !2809, !noalias !2812
-  %94 = getelementptr inbounds i8, ptr %11, i64 8
-  store i64 0, ptr %94, align 8, !alias.scope !2809, !noalias !2812
-  %95 = getelementptr inbounds i8, ptr %11, i64 16
-  store i64 %86, ptr %95, align 8, !alias.scope !2809, !noalias !2812
-  %96 = getelementptr inbounds i8, ptr %11, i64 24
-  store ptr %93, ptr %96, align 8, !alias.scope !2809, !noalias !2812
-  %97 = icmp ne ptr %2, null
-  call void @llvm.assume(i1 %97)
-  br label %98
+  %83 = call { ptr, i64 } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17had280107bd1d13adE"(i64 noundef 0, i1 noundef zeroext false), !noalias !2808
+  %84 = extractvalue { ptr, i64 } %83, 0
+  %85 = extractvalue { ptr, i64 } %83, 1
+  %86 = icmp ne ptr %84, null
+  call void @llvm.assume(i1 %86)
+  %87 = lshr i64 %85, 10
+  %88 = call range(i64 10, 65) i64 @llvm.ctlz.i64(i64 %87, i1 false)
+  %89 = sub nuw nsw i64 64, %88
+  %.0.sroa.speculated.i.i.i.i.i = call noundef i64 @llvm.umin.i64(i64 %89, i64 7)
+  %90 = shl nuw nsw i64 %.0.sroa.speculated.i.i.i.i.i, 2
+  %91 = or disjoint i64 %90, 1
+  %92 = getelementptr i8, ptr null, i64 %91
+  store ptr %84, ptr %11, align 8, !alias.scope !2809, !noalias !2812
+  %93 = getelementptr inbounds i8, ptr %11, i64 8
+  store i64 0, ptr %93, align 8, !alias.scope !2809, !noalias !2812
+  %94 = getelementptr inbounds i8, ptr %11, i64 16
+  store i64 %85, ptr %94, align 8, !alias.scope !2809, !noalias !2812
+  %95 = getelementptr inbounds i8, ptr %11, i64 24
+  store ptr %92, ptr %95, align 8, !alias.scope !2809, !noalias !2812
+  %96 = icmp ne ptr %2, null
+  call void @llvm.assume(i1 %96)
+  br label %97
 
-98:                                               ; preds = %.noexc.i.i.i, %83
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %1, %83 ], [ %102, %.noexc.i.i.i ]
-  %99 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %2
-  br i1 %99, label %104, label %100
+97:                                               ; preds = %.noexc.i.i.i, %82
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %1, %82 ], [ %101, %.noexc.i.i.i ]
+  %98 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %2
+  br i1 %98, label %103, label %99
 
-100:                                              ; preds = %98
-  %101 = invoke noundef ptr @_ZN14kafka_protocol7records6Record13encode_legacy17h09013bdab039718fE.llvm.12634899616595775615(ptr noundef nonnull align 8 %.sroa.0.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %30)
-          to label %.noexc.i.i.i unwind label %109, !noalias !2808
+99:                                               ; preds = %97
+  %100 = invoke noundef ptr @_ZN14kafka_protocol7records6Record13encode_legacy17h09013bdab039718fE.llvm.12634899616595775615(ptr noundef nonnull align 8 %.sroa.0.0.i.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %30)
+          to label %.noexc.i.i.i unwind label %108, !noalias !2808
 
-.noexc.i.i.i:                                     ; preds = %100
-  %102 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 176
-  %103 = icmp eq ptr %101, null
-  br i1 %103, label %98, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i"
+.noexc.i.i.i:                                     ; preds = %99
+  %101 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i.i.i, i64 176
+  %102 = icmp eq ptr %100, null
+  br i1 %102, label %97, label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i"
 
-104:                                              ; preds = %98
+103:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10), !noalias !2804
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11, i64 32, i1 false), !noalias !2804
-  %105 = call noundef ptr @_ZN4zstd6stream9functions11copy_encode17h21a0b11160dd1eaaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3), !noalias !2814
+  %104 = call noundef ptr @_ZN4zstd6stream9functions11copy_encode17h21a0b11160dd1eaaE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3), !noalias !2814
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10), !noalias !2804
-  %106 = icmp eq ptr %105, null
-  br i1 %106, label %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i", label %107
+  %105 = icmp eq ptr %104, null
+  br i1 %105, label %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i", label %106
 
-107:                                              ; preds = %104
-  %108 = call noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h270e40d6c2e99897E"(ptr noundef nonnull %105, ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.0, i64 noundef 23), !noalias !2814
+106:                                              ; preds = %103
+  %107 = call noundef nonnull ptr @"_ZN52_$LT$E$u20$as$u20$anyhow..context..ext..StdError$GT$11ext_context17h270e40d6c2e99897E"(ptr noundef nonnull %104, ptr noalias noundef nonnull readonly align 1 @anon.854733f247b1faa87fceaacb6c7ba5f2.0, i64 noundef 23), !noalias !2814
   br label %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i"
 
-"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i": ; preds = %104
+"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i": ; preds = %103
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !2804
-  br label %114
+  br label %113
 
 "_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i": ; preds = %.noexc.i.i.i
   call void @"_ZN68_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd201adc395a5a501E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11), !noalias !2808
   br label %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i"
 
-109:                                              ; preds = %100
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %99
+  %109 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr47drop_in_place$LT$bytes..bytes_mut..BytesMut$GT$17h3b08365425f52345E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %11) #46
-          to label %113 unwind label %111, !noalias !2808
+          to label %112 unwind label %110, !noalias !2808
 
-111:                                              ; preds = %109
-  %112 = landingpad { ptr, i32 }
+110:                                              ; preds = %108
+  %111 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #47, !noalias !2808
   unreachable
 
-113:                                              ; preds = %109
-  resume { ptr, i32 } %110
+112:                                              ; preds = %108
+  resume { ptr, i32 } %109
 
-"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i": ; preds = %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i", %107
-  %.135.i.i.i = phi ptr [ %101, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i" ], [ %108, %107 ]
+"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i": ; preds = %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i", %106
+  %.135.i.i.i = phi ptr [ %100, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h9828bdd3af5e2d2cE.exit.i.i.i" ], [ %107, %106 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11), !noalias !2804
   br label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
 
-114:                                              ; preds = %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i", %78, %73, %68
-  %115 = call noundef i64 @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$6offset17h7bb9715912e98a25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !2799
+113:                                              ; preds = %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.thread.i.i", %77, %72, %67
+  %114 = call noundef i64 @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$6offset17h7bb9715912e98a25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !2799
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17), !noalias !2800
-  %116 = sub i64 %115, %66
-  store i64 %116, ptr %17, align 8, !noalias !2800
-  %117 = icmp ugt i64 %116, 2147483647
-  br i1 %117, label %118, label %125
+  %115 = sub i64 %114, %66
+  store i64 %115, ptr %17, align 8, !noalias !2800
+  %116 = icmp ugt i64 %115, 2147483647
+  br i1 %116, label %117, label %124
 
-118:                                              ; preds = %114
+117:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %15), !noalias !2800
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14), !noalias !2800
   store ptr %17, ptr %14, align 8, !noalias !2800
-  %119 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %119, align 8, !noalias !2800
+  %118 = getelementptr inbounds i8, ptr %14, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %118, align 8, !noalias !2800
   store ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.143, ptr %15, align 8, !alias.scope !2815, !noalias !2818
-  %120 = getelementptr inbounds i8, ptr %15, i64 8
-  store i64 2, ptr %120, align 8, !alias.scope !2815, !noalias !2818
-  %121 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr null, ptr %121, align 8, !alias.scope !2815, !noalias !2818
-  %122 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr %14, ptr %122, align 8, !alias.scope !2815, !noalias !2818
-  %123 = getelementptr inbounds i8, ptr %15, i64 24
-  store i64 1, ptr %123, align 8, !alias.scope !2815, !noalias !2818
+  %119 = getelementptr inbounds i8, ptr %15, i64 8
+  store i64 2, ptr %119, align 8, !alias.scope !2815, !noalias !2818
+  %120 = getelementptr inbounds i8, ptr %15, i64 32
+  store ptr null, ptr %120, align 8, !alias.scope !2815, !noalias !2818
+  %121 = getelementptr inbounds i8, ptr %15, i64 16
+  store ptr %14, ptr %121, align 8, !alias.scope !2815, !noalias !2818
+  %122 = getelementptr inbounds i8, ptr %15, i64 24
+  store i64 1, ptr %122, align 8, !alias.scope !2815, !noalias !2818
   call fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %15), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %15), !noalias !2800
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14), !noalias !2800
-  %124 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16), !noalias !2799
+  %123 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %16), !noalias !2799
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !2800
   br label %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
 
-"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i": ; preds = %118, %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i", %78, %73, %68
-  %.045.i.ph.i = phi ptr [ %.135.i.i.i, %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i" ], [ %81, %78 ], [ %76, %73 ], [ %71, %68 ], [ %124, %118 ]
+"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i": ; preds = %117, %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i", %77, %72, %67
+  %.045.i.ph.i = phi ptr [ %.135.i.i.i, %"_ZN108_$LT$kafka_protocol..compression..zstd..Zstd$u20$as$u20$kafka_protocol..compression..Compressor$LT$B$GT$$GT$8compress17h7bc02a1ce854cbe0E.exit.i.i" ], [ %80, %77 ], [ %75, %72 ], [ %70, %67 ], [ %123, %117 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !2746
-  br label %166
+  br label %165
 
-125:                                              ; preds = %114
-  %126 = trunc nuw nsw i64 %116 to i32
+124:                                              ; preds = %113
+  %125 = trunc nuw nsw i64 %115 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !2800
   store i64 %64, ptr %9, align 8, !noalias !2821
-  %127 = getelementptr inbounds i8, ptr %9, i64 8
-  store i64 %63, ptr %127, align 8, !noalias !2821
-  %128 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %64, i64 noundef %65), !noalias !2799
-  %129 = getelementptr inbounds i8, ptr %9, i64 16
-  %130 = extractvalue { ptr, i64 } %128, 0
-  %131 = extractvalue { ptr, i64 } %128, 1
-  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..I32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17hb7f6b0b15d744e4aE"(ptr noalias noundef nonnull readonly align 1 %129, ptr noalias noundef nonnull align 1 %130, i64 noundef %131, i32 noundef %126)
+  %126 = getelementptr inbounds i8, ptr %9, i64 8
+  store i64 %63, ptr %126, align 8, !noalias !2821
+  %127 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %64, i64 noundef %65), !noalias !2799
+  %128 = getelementptr inbounds i8, ptr %9, i64 16
+  %129 = extractvalue { ptr, i64 } %127, 0
+  %130 = extractvalue { ptr, i64 } %127, 1
+  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..I32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17hb7f6b0b15d744e4aE"(ptr noalias noundef nonnull readonly align 1 %128, ptr noalias noundef nonnull align 1 %129, i64 noundef %130, i32 noundef %125)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9), !noalias !2800
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17), !noalias !2800
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %16), !noalias !2746
-  %132 = call noundef i64 @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$6offset17h7bb9715912e98a25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !2750
+  %131 = call noundef i64 @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$6offset17h7bb9715912e98a25E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0), !noalias !2750
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27), !noalias !2746
-  %133 = sub i64 %132, %40
-  store i64 %133, ptr %27, align 8, !noalias !2746
-  %134 = icmp ugt i64 %40, 2147483647
-  br i1 %134, label %135, label %150
+  %132 = sub i64 %131, %40
+  store i64 %132, ptr %27, align 8, !noalias !2746
+  %133 = icmp ugt i64 %40, 2147483647
+  br i1 %133, label %134, label %149
 
-135:                                              ; preds = %125
+134:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25), !noalias !2746
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24), !noalias !2746
   store ptr %27, ptr %24, align 8, !noalias !2746
-  %136 = getelementptr inbounds i8, ptr %24, i64 8
-  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %136, align 8, !noalias !2746
+  %135 = getelementptr inbounds i8, ptr %24, i64 8
+  store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17hea7a5554d3cba60aE", ptr %135, align 8, !noalias !2746
   store ptr @anon.854733f247b1faa87fceaacb6c7ba5f2.188, ptr %25, align 8, !alias.scope !2824, !noalias !2827
-  %137 = getelementptr inbounds i8, ptr %25, i64 8
-  store i64 2, ptr %137, align 8, !alias.scope !2824, !noalias !2827
-  %138 = getelementptr inbounds i8, ptr %25, i64 32
-  store ptr null, ptr %138, align 8, !alias.scope !2824, !noalias !2827
-  %139 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr %24, ptr %139, align 8, !alias.scope !2824, !noalias !2827
-  %140 = getelementptr inbounds i8, ptr %25, i64 24
-  store i64 1, ptr %140, align 8, !alias.scope !2824, !noalias !2827
+  %136 = getelementptr inbounds i8, ptr %25, i64 8
+  store i64 2, ptr %136, align 8, !alias.scope !2824, !noalias !2827
+  %137 = getelementptr inbounds i8, ptr %25, i64 32
+  store ptr null, ptr %137, align 8, !alias.scope !2824, !noalias !2827
+  %138 = getelementptr inbounds i8, ptr %25, i64 16
+  store ptr %24, ptr %138, align 8, !alias.scope !2824, !noalias !2827
+  %139 = getelementptr inbounds i8, ptr %25, i64 24
+  store i64 1, ptr %139, align 8, !alias.scope !2824, !noalias !2827
   call fastcc void @_ZN5alloc3fmt6format17h31a4ee338d1d039bE(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %26, ptr noalias nocapture noundef nonnull align 8 dereferenceable(48) %25), !noalias !2750
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %25), !noalias !2746
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %24), !noalias !2746
-  %141 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %26), !noalias !2750
+  %140 = call noundef nonnull ptr @"_ZN6anyhow5error31_$LT$impl$u20$anyhow..Error$GT$3msg17h3c24caf70f1ceb63E"(ptr noalias nocapture noundef nonnull align 8 dereferenceable(24) %26), !noalias !2750
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !2746
-  br label %166
+  br label %165
 
-142:                                              ; preds = %4
-  %143 = icmp ne ptr %2, null
-  tail call void @llvm.assume(i1 %143)
-  br label %144
+141:                                              ; preds = %4
+  %142 = icmp ne ptr %2, null
+  tail call void @llvm.assume(i1 %142)
+  br label %143
 
-144:                                              ; preds = %146, %142
-  %.sroa.0.0.i = phi ptr [ %1, %142 ], [ %147, %146 ]
-  %145 = icmp eq ptr %.sroa.0.0.i, %2
-  br i1 %145, label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit, label %146
+143:                                              ; preds = %145, %141
+  %.sroa.0.0.i = phi ptr [ %1, %141 ], [ %146, %145 ]
+  %144 = icmp eq ptr %.sroa.0.0.i, %2
+  br i1 %144, label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit, label %145
 
-146:                                              ; preds = %144
-  %147 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 176
-  %148 = tail call noundef ptr @_ZN14kafka_protocol7records6Record13encode_legacy17h09013bdab039718fE.llvm.12634899616595775615(ptr noundef nonnull align 8 %.sroa.0.0.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %3)
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %144, label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit
+145:                                              ; preds = %143
+  %146 = getelementptr inbounds i8, ptr %.sroa.0.0.i, i64 176
+  %147 = tail call noundef ptr @_ZN14kafka_protocol7records6Record13encode_legacy17h09013bdab039718fE.llvm.12634899616595775615(ptr noundef nonnull align 8 %.sroa.0.0.i, ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 dereferenceable(2) %3)
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %143, label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit
 
-150:                                              ; preds = %125
-  %151 = trunc i64 %133 to i32
+149:                                              ; preds = %124
+  %150 = trunc i64 %132 to i32
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   store i64 %38, ptr %7, align 8, !noalias !2830
-  %152 = getelementptr inbounds i8, ptr %7, i64 8
-  store i64 %37, ptr %152, align 8, !noalias !2830
-  %153 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %38, i64 noundef %39), !noalias !2750
-  %154 = getelementptr inbounds i8, ptr %7, i64 16
-  %155 = extractvalue { ptr, i64 } %153, 0
-  %156 = extractvalue { ptr, i64 } %153, 1
-  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..I32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17hb7f6b0b15d744e4aE"(ptr noalias noundef nonnull readonly align 1 %154, ptr noalias noundef nonnull align 1 %155, i64 noundef %156, i32 noundef %151), !noalias !2750
+  %151 = getelementptr inbounds i8, ptr %7, i64 8
+  store i64 %37, ptr %151, align 8, !noalias !2830
+  %152 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %38, i64 noundef %39), !noalias !2750
+  %153 = getelementptr inbounds i8, ptr %7, i64 16
+  %154 = extractvalue { ptr, i64 } %152, 0
+  %155 = extractvalue { ptr, i64 } %152, 1
+  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..I32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17hb7f6b0b15d744e4aE"(ptr noalias noundef nonnull readonly align 1 %153, ptr noalias noundef nonnull align 1 %154, i64 noundef %155, i32 noundef %150), !noalias !2750
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  %157 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %44, i64 noundef %132), !noalias !2750
-  %158 = extractvalue { ptr, i64 } %157, 0
-  %159 = extractvalue { ptr, i64 } %157, 1
-  %160 = call noundef i32 @"_ZN3crc5crc3237_$LT$impl$u20$crc..Crc$LT$u32$GT$$GT$8checksum17h219a4616feb9565eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1032) @anon.854733f247b1faa87fceaacb6c7ba5f2.190, ptr noalias noundef nonnull readonly align 1 %158, i64 noundef %159)
+  %156 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %44, i64 noundef %131), !noalias !2750
+  %157 = extractvalue { ptr, i64 } %156, 0
+  %158 = extractvalue { ptr, i64 } %156, 1
+  %159 = call noundef i32 @"_ZN3crc5crc3237_$LT$impl$u20$crc..Crc$LT$u32$GT$$GT$8checksum17h219a4616feb9565eE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(1032) @anon.854733f247b1faa87fceaacb6c7ba5f2.190, ptr noalias noundef nonnull readonly align 1 %157, i64 noundef %158)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store i64 %42, ptr %8, align 8, !noalias !2833
-  %161 = getelementptr inbounds i8, ptr %8, i64 8
-  store i64 %41, ptr %161, align 8, !noalias !2833
-  %162 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %42, i64 noundef %43), !noalias !2750
-  %163 = getelementptr inbounds i8, ptr %8, i64 16
-  %164 = extractvalue { ptr, i64 } %162, 0
-  %165 = extractvalue { ptr, i64 } %162, 1
-  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..U32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17h6b91b60e161ff111E"(ptr noalias noundef nonnull readonly align 1 %163, ptr noalias noundef nonnull align 1 %164, i64 noundef %165, i32 noundef %160), !noalias !2750
+  %160 = getelementptr inbounds i8, ptr %8, i64 8
+  store i64 %41, ptr %160, align 8, !noalias !2833
+  %161 = call { ptr, i64 } @"_ZN88_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$kafka_protocol..protocol..buf..ByteBufMut$GT$5range17h2bc57dccf9f1e990E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %42, i64 noundef %43), !noalias !2750
+  %162 = getelementptr inbounds i8, ptr %8, i64 16
+  %163 = extractvalue { ptr, i64 } %161, 0
+  %164 = extractvalue { ptr, i64 } %161, 1
+  call void @"_ZN98_$LT$kafka_protocol..protocol..buf..gap..U32$u20$as$u20$kafka_protocol..protocol..buf..GapType$GT$3put17h6b91b60e161ff111E"(ptr noalias noundef nonnull readonly align 1 %162, ptr noalias noundef nonnull align 1 %163, i64 noundef %164, i32 noundef %159), !noalias !2750
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27), !noalias !2746
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
@@ -15758,15 +15755,15 @@ _ZN4core4iter6traits8iterator8Iterator6min_by17hfbdf82fc98e60d22E.exit.i.i: ; pr
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %30)
   br label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit
 
-166:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit, %135, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
-  %.0.i.ph = phi ptr [ %.045.i.ph.i, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i" ], [ %141, %135 ], [ %50, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit ]
+165:                                              ; preds = %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit, %134, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i"
+  %.0.i.ph = phi ptr [ %.045.i.ph.i, %"_ZN14kafka_protocol7records18RecordBatchEncoder13encode_legacy28_$u7b$$u7b$closure$u7d$$u7d$17h10bb3bc1dc750af6E.exit.thread.i" ], [ %140, %134 ], [ %50, %_ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %30)
   br label %_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit
 
-_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit: ; preds = %146, %144, %150, %166
-  %.0 = phi ptr [ %.0.i.ph, %166 ], [ null, %150 ], [ %148, %146 ], [ null, %144 ]
+_ZN14kafka_protocol7records18RecordBatchEncoder21encode_legacy_records17h539208804cdd248fE.exit: ; preds = %145, %143, %149, %165
+  %.0 = phi ptr [ %.0.i.ph, %165 ], [ null, %149 ], [ %147, %145 ], [ null, %143 ]
   ret ptr %.0
 }
 

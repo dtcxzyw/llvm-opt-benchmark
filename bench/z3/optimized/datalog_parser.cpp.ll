@@ -407,7 +407,6 @@ $_ZGVZN15wpa_parser_impl14parse_map_lineEPcRmR6symbolE7no_name = comdat any
 @.str.59 = private unnamed_addr constant [25 x i8] c"expected comma or period\00", align 1
 @.str.60 = private unnamed_addr constant [24 x i8] c"built-in infix operator\00", align 1
 @.str.61 = private unnamed_addr constant [43 x i8] c"at least one argument should be a variable\00", align 1
-@.str.62 = private unnamed_addr constant [113 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/z3/z3/src/muz/fp/datalog_parser.cpp\00", align 1
 @_ZTV15wpa_parser_impl = linkonce_odr hidden unnamed_addr constant { [5 x ptr], [6 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI15wpa_parser_impl, ptr @_ZN15wpa_parser_implD2Ev, ptr @_ZN15wpa_parser_implD0Ev, ptr @_ZN15wpa_parser_impl15parse_directoryEPKc], [6 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTI15wpa_parser_impl, ptr @_ZThn8_N15wpa_parser_implD1Ev, ptr @_ZThn8_N15wpa_parser_implD0Ev, ptr @_ZN7dparser10parse_fileEPKc, ptr @_ZN7dparser12parse_stringEPKc] }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTS15wpa_parser_impl = linkonce_odr hidden constant [18 x i8] c"15wpa_parser_impl\00", comdat, align 1
@@ -10461,7 +10460,7 @@ lpad2:                                            ; preds = %invoke.cont
           cleanup
   br label %ehcleanup213
 
-lpad8:                                            ; preds = %if.then117.invoke, %if.else.invoke, %if.then2.i.i.i304, %if.then2.i.i.i290, %if.then2.i.i.i276, %invoke.cont179, %sw.bb172, %if.then2.i.i.i259, %sw.bb, %if.then2.i.i.i214, %if.then2.i.i.i200, %if.then90, %invoke.cont70, %if.end.i.i.i.i97, %if.then.i.i91, %if.end.i.i.i.i59, %if.then.i.i53, %invoke.cont9, %if.end.i.i.i.i, %if.then.i.i, %sw.epilog, %sw.default, %sw.bb194, %sw.bb185, %if.then157, %if.then149, %if.then141, %if.then134, %if.end87, %if.end32, %if.end19
+lpad8:                                            ; preds = %if.then117.invoke, %if.else.invoke, %if.then2.i.i.i304, %if.then2.i.i.i290, %if.then2.i.i.i276, %invoke.cont179, %sw.bb172, %if.then2.i.i.i259, %sw.bb, %if.then2.i.i.i214, %if.then2.i.i.i200, %if.then90, %invoke.cont70, %if.end.i.i.i.i97, %if.then.i.i91, %if.end.i.i.i.i59, %if.then.i.i53, %invoke.cont9, %if.end.i.i.i.i, %if.then.i.i, %sw.epilog, %sw.bb194, %sw.bb185, %if.then157, %if.then149, %if.then141, %if.then134, %if.end87, %if.end32, %if.end19
   %17 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup209
@@ -11078,7 +11077,7 @@ _ZN7obj_refI4expr11ast_managerEaSEPS0_.exit246:   ; preds = %invoke.cont158, %_Z
 
 if.end162:                                        ; preds = %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit246, %if.end154
   %87 = phi ptr [ %call159, %_ZN7obj_refI4expr11ast_managerEaSEPS0_.exit246 ], [ %85, %if.end154 ]
-  switch i32 %call22, label %sw.default [
+  switch i32 %call22, label %default.unreachable [
     i32 17, label %sw.bb
     i32 14, label %sw.bb172
     i32 15, label %sw.bb185
@@ -11231,12 +11230,7 @@ if.then2.i.i.i304:                                ; preds = %if.then.i.i.i299
   invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %106, ptr noundef nonnull %105)
           to label %sw.epilog unwind label %lpad8
 
-sw.default:                                       ; preds = %if.end162
-  invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.62, i32 noundef 851, ptr noundef nonnull @.str.16)
-          to label %invoke.cont204 unwind label %lpad8
-
-invoke.cont204:                                   ; preds = %sw.default
-  call void @exit(i32 noundef 114) #22
+default.unreachable:                              ; preds = %if.end162
   unreachable
 
 sw.epilog:                                        ; preds = %if.then.i.i.i299, %if.end.i297, %if.then2.i.i.i304, %if.then.i.i.i285, %if.end.i283, %if.then2.i.i.i290, %if.then.i.i.i271, %if.end.i269, %if.then2.i.i.i276, %if.then.i.i.i254, %if.end.i252, %if.then2.i.i.i259

@@ -1472,7 +1472,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %c.addr.0683 = phi i32 [ %c, %while.body.lr.ph ], [ %c.addr.1, %sw.epilog ]
   %ce32.addr.0682 = phi i32 [ %ce32, %while.body.lr.ph ], [ %ce32.addr.1, %sw.epilog ]
   %and.i105 = and i32 %ce32.addr.0682, 15
-  switch i32 %and.i105, label %default.unreachable [
+  switch i32 %and.i105, label %default.unreachable732 [
     i32 0, label %sw.bb
     i32 3, label %sw.bb
     i32 1, label %sw.bb5
@@ -2932,7 +2932,7 @@ if.then.i567:                                     ; preds = %_ZN6icu_7515MaybeSt
   store i64 %or.i.i534, ptr %arrayidx.i.i571, align 8
   br label %return
 
-default.unreachable:                              ; preds = %while.body
+default.unreachable732:                           ; preds = %while.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.end.i280, %if.then6.i, %if.end.i311, %if.end74.thread, %sw.bb195, %if.then201, %_ZN6icu_7517CollationIterator20nextSkippedCodePointER10UErrorCode.exit, %if.then91, %sw.bb81, %_ZNK6icu_7513CollationData24getCE32FromSupplementaryEi.exit, %_ZNK6icu_7513CollationData24getCE32FromSupplementaryEi.exit491, %if.end119, %if.then77, %if.end64, %_ZNK6icu_7513CollationData7getCE32Ei.exit, %if.end191, %if.else140, %if.else128, %if.then101

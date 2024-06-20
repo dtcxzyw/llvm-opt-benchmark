@@ -902,7 +902,7 @@ declare dso_local void @_raw_write_unlock_bh(ptr noundef) local_unnamed_addr #5 
 define dso_local i32 @arp_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #1 align 16 {
   %4 = alloca %struct.arpreq, align 4
   call void @llvm.lifetime.start.p0(i64 68, ptr nonnull %4) #14
-  switch i32 %1, label %72 [
+  switch i32 %1, label %71 [
     i32 35155, label %5
     i32 35157, label %5
     i32 35156, label %9
@@ -912,19 +912,19 @@ define dso_local i32 @arp_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %6 = getelementptr inbounds i8, ptr %0, i64 80
   %7 = load ptr, ptr %6, align 16
   %8 = tail call zeroext i1 @ns_capable(ptr noundef %7, i32 noundef 12) #14
-  br i1 %8, label %9, label %72
+  br i1 %8, label %9, label %71
 
 9:                                                ; preds = %5, %3
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %4, i8 0, i64 68, i1 false), !annotation !15
   %10 = call i64 @_copy_from_user(ptr noundef nonnull %4, ptr noundef %2, i64 noundef 68) #14
   %11 = and i64 %10, 4294967295
   %12 = icmp eq i64 %11, 0
-  br i1 %12, label %13, label %72
+  br i1 %12, label %13, label %71
 
 13:                                               ; preds = %9
   %14 = load i16, ptr %4, align 4
   %15 = icmp eq i16 %14, 2
-  br i1 %15, label %16, label %72
+  br i1 %15, label %16, label %71
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds i8, ptr %4, i64 32
@@ -934,7 +934,7 @@ define dso_local i32 @arp_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %21 = and i32 %18, 96
   %22 = icmp eq i32 %21, 0
   %23 = or i1 %20, %22
-  br i1 %23, label %24, label %72
+  br i1 %23, label %24, label %71
 
 24:                                               ; preds = %16
   %25 = and i32 %18, 32
@@ -956,7 +956,7 @@ define dso_local i32 @arp_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 33:                                               ; preds = %29
   %34 = call ptr @__dev_get_by_name(ptr noundef %0, ptr noundef %30) #14
   %35 = icmp eq ptr %34, null
-  br i1 %35, label %63, label %36
+  br i1 %35, label %62, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds i8, ptr %4, i64 16
@@ -981,51 +981,53 @@ define dso_local i32 @arp_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
   %49 = getelementptr inbounds i8, ptr %34, i64 552
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %44, %50
-  br i1 %51, label %54, label %63
+  br i1 %51, label %54, label %62
 
 52:                                               ; preds = %29
   %53 = icmp eq i32 %1, 35156
-  br i1 %53, label %63, label %54
+  br i1 %53, label %62, label %54
 
 54:                                               ; preds = %52, %48, %43
-  %55 = phi i32 [ -22, %48 ], [ -22, %43 ], [ 0, %52 ]
-  %56 = phi ptr [ %34, %48 ], [ %34, %43 ], [ null, %52 ]
-  switch i32 %1, label %63 [
-    i32 35155, label %57
-    i32 35157, label %59
-    i32 35156, label %61
+  %55 = phi ptr [ %34, %48 ], [ %34, %43 ], [ null, %52 ]
+  switch i32 %1, label %default.unreachable [
+    i32 35155, label %56
+    i32 35157, label %58
+    i32 35156, label %60
   ]
 
-57:                                               ; preds = %54
-  %58 = call fastcc i32 @arp_req_delete(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %56)
-  br label %63
+56:                                               ; preds = %54
+  %57 = call fastcc i32 @arp_req_delete(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %55)
+  br label %62
 
-59:                                               ; preds = %54
-  %60 = call fastcc i32 @arp_req_set(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %56)
-  br label %63
+58:                                               ; preds = %54
+  %59 = call fastcc i32 @arp_req_set(ptr noundef %0, ptr noundef nonnull %4, ptr noundef %55)
+  br label %62
 
-61:                                               ; preds = %54
-  %62 = call fastcc i32 @arp_req_get(ptr noundef nonnull %4, ptr noundef %56), !range !16
-  br label %63
+60:                                               ; preds = %54
+  %61 = call fastcc i32 @arp_req_get(ptr noundef nonnull %4, ptr noundef %55), !range !16
+  br label %62
 
-63:                                               ; preds = %61, %59, %57, %54, %52, %48, %33
-  %64 = phi i32 [ -22, %48 ], [ %55, %54 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ -19, %33 ], [ -19, %52 ]
+default.unreachable:                              ; preds = %54
+  unreachable
+
+62:                                               ; preds = %60, %58, %56, %52, %48, %33
+  %63 = phi i32 [ -22, %48 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ -19, %33 ], [ -19, %52 ]
   call void @rtnl_unlock() #14
-  %65 = icmp ne i32 %1, 35156
-  %66 = icmp ne i32 %64, 0
-  %67 = select i1 %65, i1 true, i1 %66
-  br i1 %67, label %72, label %68
+  %64 = icmp ne i32 %1, 35156
+  %65 = icmp ne i32 %63, 0
+  %66 = select i1 %64, i1 true, i1 %65
+  br i1 %66, label %71, label %67
 
-68:                                               ; preds = %63
-  %69 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %4, i64 noundef 68) #14
-  %70 = icmp eq i64 %69, 0
-  %71 = select i1 %70, i32 0, i32 -14
-  br label %72
+67:                                               ; preds = %62
+  %68 = call i64 @_copy_to_user(ptr noundef %2, ptr noundef nonnull %4, i64 noundef 68) #14
+  %69 = icmp eq i64 %68, 0
+  %70 = select i1 %69, i32 0, i32 -14
+  br label %71
 
-72:                                               ; preds = %68, %63, %16, %13, %9, %5, %3
-  %73 = phi i32 [ -1, %5 ], [ -14, %9 ], [ -22, %3 ], [ -96, %13 ], [ -22, %16 ], [ %64, %63 ], [ %71, %68 ]
+71:                                               ; preds = %67, %62, %16, %13, %9, %5, %3
+  %72 = phi i32 [ -1, %5 ], [ -14, %9 ], [ -22, %3 ], [ -96, %13 ], [ -22, %16 ], [ %63, %62 ], [ %70, %67 ]
   call void @llvm.lifetime.end.p0(i64 68, ptr nonnull %4) #14
-  ret i32 %73
+  ret i32 %72
 }
 
 ; Function Attrs: null_pointer_is_valid

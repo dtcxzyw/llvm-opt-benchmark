@@ -1320,7 +1320,7 @@ if.then13:                                        ; preds = %if.then10, %sdslen.
 
 if.end14:                                         ; preds = %sdslen.exit
   %14 = load i64, ptr %offset, align 8
-  switch i32 %and.i, label %sdslen.exit55 [
+  switch i32 %and.i, label %default.unreachable [
     i32 0, label %sw.bb.i52
     i32 1, label %sw.bb3.i49
     i32 2, label %sw.bb5.i46
@@ -1356,8 +1356,11 @@ sw.bb13.i40:                                      ; preds = %if.end14
   %18 = load i64, ptr %add.ptr14.i41, align 1
   br label %sdslen.exit55
 
-sdslen.exit55:                                    ; preds = %if.end14, %sw.bb.i52, %sw.bb3.i49, %sw.bb5.i46, %sw.bb9.i43, %sw.bb13.i40
-  %retval.0.i42 = phi i64 [ %18, %sw.bb13.i40 ], [ %conv12.i45, %sw.bb9.i43 ], [ %conv8.i48, %sw.bb5.i46 ], [ %conv4.i51, %sw.bb3.i49 ], [ %conv2.i54, %sw.bb.i52 ], [ 0, %if.end14 ]
+default.unreachable:                              ; preds = %if.end14
+  unreachable
+
+sdslen.exit55:                                    ; preds = %sw.bb.i52, %sw.bb3.i49, %sw.bb5.i46, %sw.bb9.i43, %sw.bb13.i40
+  %retval.0.i42 = phi i64 [ %18, %sw.bb13.i40 ], [ %conv12.i45, %sw.bb9.i43 ], [ %conv8.i48, %sw.bb5.i46 ], [ %conv4.i51, %sw.bb3.i49 ], [ %conv2.i54, %sw.bb.i52 ]
   %call.i = call i32 @mustObeyClient(ptr noundef nonnull %c) #10
   %tobool.not.i = icmp eq i32 %call.i, 0
   br i1 %tobool.not.i, label %if.end.i, label %if.end19
@@ -1487,7 +1490,7 @@ if.then32:                                        ; preds = %if.end28, %sdslen.e
 
 if.end33:                                         ; preds = %sdslen.exit94
   %34 = load i64, ptr %offset, align 8
-  switch i32 %and.i78, label %sdslen.exit113 [
+  switch i32 %and.i78, label %default.unreachable213 [
     i32 0, label %sw.bb.i110
     i32 1, label %sw.bb3.i107
     i32 2, label %sw.bb5.i104
@@ -1523,8 +1526,11 @@ sw.bb13.i98:                                      ; preds = %if.end33
   %38 = load i64, ptr %add.ptr14.i99, align 1
   br label %sdslen.exit113
 
-sdslen.exit113:                                   ; preds = %if.end33, %sw.bb.i110, %sw.bb3.i107, %sw.bb5.i104, %sw.bb9.i101, %sw.bb13.i98
-  %retval.0.i100 = phi i64 [ %38, %sw.bb13.i98 ], [ %conv12.i103, %sw.bb9.i101 ], [ %conv8.i106, %sw.bb5.i104 ], [ %conv4.i109, %sw.bb3.i107 ], [ %conv2.i112, %sw.bb.i110 ], [ 0, %if.end33 ]
+default.unreachable213:                           ; preds = %if.end33
+  unreachable
+
+sdslen.exit113:                                   ; preds = %sw.bb.i110, %sw.bb3.i107, %sw.bb5.i104, %sw.bb9.i101, %sw.bb13.i98
+  %retval.0.i100 = phi i64 [ %38, %sw.bb13.i98 ], [ %conv12.i103, %sw.bb9.i101 ], [ %conv8.i106, %sw.bb5.i104 ], [ %conv4.i109, %sw.bb3.i107 ], [ %conv2.i112, %sw.bb.i110 ]
   %call.i114 = call i32 @mustObeyClient(ptr noundef nonnull %c) #10
   %tobool.not.i115 = icmp eq i32 %call.i114, 0
   br i1 %tobool.not.i115, label %if.end.i117, label %if.end38
@@ -1602,7 +1608,7 @@ if.then46:                                        ; preds = %sdslen.exit144
   %ptr47 = getelementptr inbounds i8, ptr %o.0, i64 8
   %48 = load ptr, ptr %ptr47, align 8
   %49 = load i64, ptr %offset, align 8
-  switch i32 %and.i128, label %sdslen.exit163 [
+  switch i32 %and.i128, label %default.unreachable212 [
     i32 0, label %sw.bb.i160
     i32 1, label %sw.bb3.i157
     i32 2, label %sw.bb5.i154
@@ -1638,8 +1644,11 @@ sw.bb13.i148:                                     ; preds = %if.then46
   %53 = load i64, ptr %add.ptr14.i149, align 1
   br label %sdslen.exit163
 
-sdslen.exit163:                                   ; preds = %if.then46, %sw.bb.i160, %sw.bb3.i157, %sw.bb5.i154, %sw.bb9.i151, %sw.bb13.i148
-  %retval.0.i150 = phi i64 [ %53, %sw.bb13.i148 ], [ %conv12.i153, %sw.bb9.i151 ], [ %conv8.i156, %sw.bb5.i154 ], [ %conv4.i159, %sw.bb3.i157 ], [ %conv2.i162, %sw.bb.i160 ], [ 0, %if.then46 ]
+default.unreachable212:                           ; preds = %if.then46
+  unreachable
+
+sdslen.exit163:                                   ; preds = %sw.bb.i160, %sw.bb3.i157, %sw.bb5.i154, %sw.bb9.i151, %sw.bb13.i148
+  %retval.0.i150 = phi i64 [ %53, %sw.bb13.i148 ], [ %conv12.i153, %sw.bb9.i151 ], [ %conv8.i156, %sw.bb5.i154 ], [ %conv4.i159, %sw.bb3.i157 ], [ %conv2.i162, %sw.bb.i160 ]
   %add49 = add i64 %retval.0.i150, %49
   %call50 = call ptr @sdsgrowzero(ptr noundef %48, i64 noundef %add49) #10
   store ptr %call50, ptr %ptr47, align 8

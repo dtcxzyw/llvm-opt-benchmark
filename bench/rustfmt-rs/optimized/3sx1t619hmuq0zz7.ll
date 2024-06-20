@@ -41245,7 +41245,7 @@ _ZN15rustfmt_nightly6config6Config10file_lines17h14e12306ca3a0a44E.exit21: ; pre
 
 76:                                               ; preds = %"_ZN4core3ptr67drop_in_place$LT$rustfmt_nightly..config..file_lines..FileLines$GT$17h34f470fff9bf5f93E.exit31", %"_ZN4core3ptr67drop_in_place$LT$rustfmt_nightly..config..file_lines..FileLines$GT$17h34f470fff9bf5f93E.exit23"
   %77 = load i64, ptr %3, align 8, !range !4742, !noundef !10
-  switch i64 %77, label %default.unreachable91 [
+  switch i64 %77, label %default.unreachable92 [
     i64 0, label %80
     i64 1, label %.thread48
     i64 2, label %85
@@ -41264,7 +41264,7 @@ common.resume:                                    ; preds = %133, %120, %"_ZN4co
   %common.resume.op = phi { ptr, i32 } [ %.pn, %"_ZN4core3ptr67drop_in_place$LT$rustfmt_nightly..config..file_lines..LineRange$GT$17hc12f61c1f36e327fE.exit" ], [ %121, %120 ], [ %134, %133 ]
   resume { ptr, i32 } %common.resume.op
 
-default.unreachable91:                            ; preds = %76
+default.unreachable92:                            ; preds = %76
   unreachable
 
 80:                                               ; preds = %76
@@ -41284,10 +41284,8 @@ default.unreachable91:                            ; preds = %76
 85:                                               ; preds = %76, %76
   %.0 = getelementptr inbounds i8, ptr %3, i64 8
   %.val11 = load ptr, ptr %.0, align 8
-  switch i64 %77, label %.thread58 [
-    i64 2, label %.thread65
-    i64 3, label %86
-  ]
+  %switch = icmp eq i64 %77, 2
+  br i1 %switch, label %.thread65, label %86
 
 86:                                               ; preds = %85
   %87 = icmp ne ptr %.val11, null
@@ -41317,12 +41315,12 @@ _ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit: ; preds
   %96 = xor i1 %5, true
   %spec.select.i = or i1 %96, %95
   %spec.select = zext i1 %spec.select.i to i64
-  %spec.select90 = select i1 %spec.select.i, ptr @anon.21b0228450bcd23381d410927297c89c.613, ptr @anon.21b0228450bcd23381d410927297c89c.416.llvm.9097680112167513710
+  %spec.select91 = select i1 %spec.select.i, ptr @anon.21b0228450bcd23381d410927297c89c.613, ptr @anon.21b0228450bcd23381d410927297c89c.416.llvm.9097680112167513710
   br label %.thread58
 
-.thread58:                                        ; preds = %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit, %86, %85
-  %97 = phi i64 [ 1, %86 ], [ 1, %85 ], [ %spec.select, %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit ]
-  %98 = phi ptr [ @anon.21b0228450bcd23381d410927297c89c.613, %86 ], [ @anon.21b0228450bcd23381d410927297c89c.613, %85 ], [ %spec.select90, %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit ]
+.thread58:                                        ; preds = %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit, %86
+  %97 = phi i64 [ 1, %86 ], [ %spec.select, %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit ]
+  %98 = phi ptr [ @anon.21b0228450bcd23381d410927297c89c.613, %86 ], [ %spec.select91, %_ZN15rustfmt_nightly5utils18semicolon_for_stmt17hcd660d52c7d36dedE.exit ]
   %99 = getelementptr inbounds i8, ptr %2, i64 16
   %100 = load i64, ptr %99, align 8, !alias.scope !6376, !noalias !6378, !noundef !10
   %.not.i32 = icmp ult i64 %100, %97

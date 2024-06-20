@@ -349,8 +349,8 @@ define range(i32 -22, 1) i32 @arkSetInterpolantType(ptr noundef %0, i32 noundef 
   br label %15
 
 15:                                               ; preds = %14, %11
-  %trunc = trunc nuw i32 %1 to i1
-  br i1 %trunc, label %18, label %16
+  %switch = icmp eq i32 %1, 0
+  br i1 %switch, label %16, label %18
 
 16:                                               ; preds = %15
   %17 = tail call ptr @arkInterpCreate_Hermite(ptr noundef nonnull %0, i32 noundef 5) #8
@@ -361,12 +361,12 @@ define range(i32 -22, 1) i32 @arkSetInterpolantType(ptr noundef %0, i32 noundef 
   br label %20
 
 20:                                               ; preds = %18, %16
-  %.sink29 = phi ptr [ %19, %18 ], [ %17, %16 ]
-  %.sink = phi i32 [ 1, %18 ], [ 0, %16 ]
-  store ptr %.sink29, ptr %12, align 8
+  %.sink28 = phi ptr [ %17, %16 ], [ %19, %18 ]
+  %.sink = phi i32 [ 0, %16 ], [ 1, %18 ]
+  store ptr %.sink28, ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 344
   store i32 %.sink, ptr %21, align 8
-  %22 = icmp eq ptr %.sink29, null
+  %22 = icmp eq ptr %.sink28, null
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20

@@ -8552,7 +8552,7 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   br i1 %626, label %627, label %667
 
 627:                                              ; preds = %625
-  switch i8 %.tr100, label %s7comm_decode_ud_tis_istack.exit [
+  switch i8 %.tr100, label %default.unreachable [
     i8 15, label %628
     i8 14, label %.loopexit
     i8 13, label %.loopexit
@@ -8624,8 +8624,8 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   ]
 
 .preheader:                                       ; preds = %667
-  %.not210 = icmp ult i16 %.tr101, 4
-  br i1 %.not210, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.preheader
+  %.not216 = icmp ult i16 %.tr101, 4
+  br i1 %.not216, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.preheader
   %668 = lshr i16 %.tr101, 2
@@ -8634,22 +8634,22 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i32 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.2.i73209 = phi i32 [ %.tr102, %.lr.ph.preheader ], [ %681, %.lr.ph ]
+  %.2.i73215 = phi i32 [ %.tr102, %.lr.ph.preheader ], [ %681, %.lr.ph ]
   %669 = load i32, ptr @hf_s7comm_data_item, align 4
-  %670 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %669, ptr noundef %0, i32 noundef %.2.i73209, i32 noundef 4, i32 noundef 0) #7
+  %670 = tail call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %669, ptr noundef %0, i32 noundef %.2.i73215, i32 noundef 4, i32 noundef 0) #7
   %671 = load i32, ptr @ett_s7comm_data_item, align 4
   %672 = tail call ptr @proto_item_add_subtree(ptr noundef %670, i32 noundef %671) #7
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %670, ptr noundef nonnull @.str.2349, i32 noundef %indvars.iv.next) #7
   %673 = load i32, ptr @hf_s7comm_tis_job_function, align 4
-  %674 = tail call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %0, i32 noundef %.2.i73209, i32 noundef 1, i32 noundef 0) #7
-  %675 = add i32 %.2.i73209, 1
+  %674 = tail call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %673, ptr noundef %0, i32 noundef %.2.i73215, i32 noundef 1, i32 noundef 0) #7
+  %675 = add i32 %.2.i73215, 1
   %676 = load i32, ptr @hf_s7comm_tis_job_seqnr, align 4
   %677 = tail call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %676, ptr noundef %0, i32 noundef %675, i32 noundef 1, i32 noundef 0) #7
-  %678 = add i32 %.2.i73209, 2
+  %678 = add i32 %.2.i73215, 2
   %679 = load i32, ptr @hf_s7comm_tis_job_reserved, align 4
   %680 = tail call ptr @proto_tree_add_item(ptr noundef %672, i32 noundef %679, ptr noundef %0, i32 noundef %678, i32 noundef 2, i32 noundef 0) #7
-  %681 = add i32 %.2.i73209, 4
+  %681 = add i32 %.2.i73215, 4
   %exitcond.not = icmp eq i32 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %s7comm_decode_ud_tis_istack.exit, label %.lr.ph, !llvm.loop !26
 
@@ -8829,8 +8829,11 @@ s7comm_decode_ud_tis_blockstat.exit:              ; preds = %make_registerflag_s
   %772 = add i32 %.tr102, %9
   br label %s7comm_decode_ud_tis_istack.exit
 
-s7comm_decode_ud_tis_istack.exit:                 ; preds = %666, %627, %tailrecurse, %.lr.ph68.i94, %.lr.ph68.i, %.lr.ph, %.lr.ph.i68, %.lr.ph36.i, %425, %.preheader, %765, %._crit_edge.i86, %747, %737, %736, %732, %._crit_edge.i, %714, %704, %703, %694, %693, %667, %638, %.loopexit, %617, %609, %608, %515, %514, %.sink.split.i, %464, %436, %429, %420, %364, %360, %358, %343, %15, %14, %s7comm_decode_ud_tis_blockstat.exit, %769
-  %.0 = phi i32 [ %772, %769 ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %14 ], [ %357, %343 ], [ %18, %15 ], [ %.tr102, %358 ], [ %424, %420 ], [ %363, %360 ], [ %.tr102, %364 ], [ %435, %429 ], [ %463, %436 ], [ %.tr102, %464 ], [ %513, %.sink.split.i ], [ %521, %515 ], [ %.tr102, %514 ], [ %.tr102, %608 ], [ %614, %609 ], [ %622, %617 ], [ %644, %638 ], [ %637, %.loopexit ], [ %.tr102, %667 ], [ %702, %694 ], [ %.3.i72, %693 ], [ %.tr102, %703 ], [ %735, %732 ], [ %730, %._crit_edge.i ], [ %709, %704 ], [ %719, %714 ], [ %.tr102, %736 ], [ %768, %765 ], [ %763, %._crit_edge.i86 ], [ %742, %737 ], [ %752, %747 ], [ %.tr102, %.preheader ], [ %.184.i, %425 ], [ %615, %.lr.ph36.i ], [ %623, %.lr.ph.i68 ], [ %681, %.lr.ph ], [ %712, %.lr.ph68.i ], [ %745, %.lr.ph68.i94 ], [ %.1.i74, %666 ], [ %.tr102, %627 ], [ %.tr102, %tailrecurse ]
+default.unreachable:                              ; preds = %627
+  unreachable
+
+s7comm_decode_ud_tis_istack.exit:                 ; preds = %666, %tailrecurse, %.lr.ph68.i94, %.lr.ph68.i, %.lr.ph, %.lr.ph.i68, %.lr.ph36.i, %425, %.preheader, %765, %._crit_edge.i86, %747, %737, %736, %732, %._crit_edge.i, %714, %704, %703, %694, %693, %667, %638, %.loopexit, %617, %609, %608, %515, %514, %.sink.split.i, %464, %436, %429, %420, %364, %360, %358, %343, %15, %14, %s7comm_decode_ud_tis_blockstat.exit, %769
+  %.0 = phi i32 [ %772, %769 ], [ %.3.i, %s7comm_decode_ud_tis_blockstat.exit ], [ %.tr102, %14 ], [ %357, %343 ], [ %18, %15 ], [ %.tr102, %358 ], [ %424, %420 ], [ %363, %360 ], [ %.tr102, %364 ], [ %435, %429 ], [ %463, %436 ], [ %.tr102, %464 ], [ %513, %.sink.split.i ], [ %521, %515 ], [ %.tr102, %514 ], [ %.tr102, %608 ], [ %614, %609 ], [ %622, %617 ], [ %644, %638 ], [ %637, %.loopexit ], [ %.tr102, %667 ], [ %702, %694 ], [ %.3.i72, %693 ], [ %.tr102, %703 ], [ %735, %732 ], [ %730, %._crit_edge.i ], [ %709, %704 ], [ %719, %714 ], [ %.tr102, %736 ], [ %768, %765 ], [ %763, %._crit_edge.i86 ], [ %742, %737 ], [ %752, %747 ], [ %.tr102, %.preheader ], [ %.184.i, %425 ], [ %615, %.lr.ph36.i ], [ %623, %.lr.ph.i68 ], [ %681, %.lr.ph ], [ %712, %.lr.ph68.i ], [ %745, %.lr.ph68.i94 ], [ %.1.i74, %666 ], [ %.tr102, %tailrecurse ]
   ret i32 %.0
 }
 

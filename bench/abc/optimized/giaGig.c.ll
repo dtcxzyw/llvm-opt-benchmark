@@ -1208,7 +1208,7 @@ Gls_ManParseOne.exit141:                          ; preds = %.critedge2.i138
   br i1 %or.cond5, label %101, label %263
 
 101:                                              ; preds = %Gls_ManParseOne.exit141
-  switch i8 %26, label %259 [
+  switch i8 %26, label %default.unreachable [
     i8 3, label %102
     i8 4, label %130
     i8 5, label %158
@@ -1536,6 +1536,9 @@ Vec_IntGrow.exit.i175:                            ; preds = %240, %238
   store i32 %244, ptr %228, align 8
   br label %.sink.split
 
+default.unreachable:                              ; preds = %101
+  unreachable
+
 .sink.split:                                      ; preds = %253, %Vec_IntGrow.exit.i175, %.Vec_IntGrow.exit10_crit_edge.i170, %225, %Vec_IntGrow.exit.i168, %.Vec_IntGrow.exit10_crit_edge.i163, %184, %Vec_IntGrow.exit.i161, %.Vec_IntGrow.exit10_crit_edge.i156, %156, %Vec_IntGrow.exit.i154, %.Vec_IntGrow.exit10_crit_edge.i149, %128, %Vec_IntGrow.exit.i147, %.Vec_IntGrow.exit10_crit_edge.i142
   %.sink490 = phi ptr [ %104, %.Vec_IntGrow.exit10_crit_edge.i142 ], [ %104, %Vec_IntGrow.exit.i147 ], [ %104, %128 ], [ %132, %.Vec_IntGrow.exit10_crit_edge.i149 ], [ %132, %Vec_IntGrow.exit.i154 ], [ %132, %156 ], [ %160, %.Vec_IntGrow.exit10_crit_edge.i156 ], [ %160, %Vec_IntGrow.exit.i161 ], [ %160, %184 ], [ %201, %.Vec_IntGrow.exit10_crit_edge.i163 ], [ %201, %Vec_IntGrow.exit.i168 ], [ %201, %225 ], [ %229, %.Vec_IntGrow.exit10_crit_edge.i170 ], [ %229, %Vec_IntGrow.exit.i175 ], [ %229, %253 ]
   %.sink485 = phi ptr [ %.pre.i144, %.Vec_IntGrow.exit10_crit_edge.i142 ], [ %117, %Vec_IntGrow.exit.i147 ], [ %129, %128 ], [ %.pre.i151, %.Vec_IntGrow.exit10_crit_edge.i149 ], [ %145, %Vec_IntGrow.exit.i154 ], [ %157, %156 ], [ %.pre.i158, %.Vec_IntGrow.exit10_crit_edge.i156 ], [ %173, %Vec_IntGrow.exit.i161 ], [ %185, %184 ], [ %.pre.i165, %.Vec_IntGrow.exit10_crit_edge.i163 ], [ %214, %Vec_IntGrow.exit.i168 ], [ %226, %225 ], [ %.pre.i172, %.Vec_IntGrow.exit10_crit_edge.i170 ], [ %242, %Vec_IntGrow.exit.i175 ], [ %254, %253 ]
@@ -1547,7 +1550,7 @@ Vec_IntGrow.exit.i175:                            ; preds = %240, %238
   store i32 %.018.i, ptr %258, align 4
   br label %259
 
-259:                                              ; preds = %.sink.split, %186, %101
+259:                                              ; preds = %.sink.split, %186
   %260 = load ptr, ptr %9, align 8
   %261 = getelementptr i8, ptr %260, i64 8
   %.val118 = load ptr, ptr %261, align 8

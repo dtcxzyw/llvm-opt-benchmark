@@ -3767,7 +3767,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit634:       ; preds = %1560, %1562
 
 1565:                                             ; preds = %1553, %_ZNSt10filesystem7__cxx114pathD2Ev.exit634
   %.2 = phi ptr [ %1559, %_ZNSt10filesystem7__cxx114pathD2Ev.exit634 ], [ %.1416, %1553 ]
-  switch i32 %426, label %1603 [
+  switch i32 %426, label %default.unreachable [
     i32 11, label %1566
     i32 13, label %1573
     i32 12, label %1590
@@ -3853,8 +3853,11 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit634:       ; preds = %1560, %1562
   invoke void @_Z14write_g96_confP8_IO_FILEPKcPK10t_trxframeiPKi(ptr noundef %.2, ptr noundef %.1, ptr noundef nonnull %47, i32 noundef -1, ptr noundef null)
           to label %1603 unwind label %.loopexit800
 
-1603:                                             ; preds = %1602, %1586, %1566, %1565
-  %.2486 = phi i32 [ %.0484, %1565 ], [ %.0484, %1602 ], [ %.1485, %1586 ], [ %.0484, %1566 ]
+default.unreachable:                              ; preds = %1565
+  unreachable
+
+1603:                                             ; preds = %1602, %1586, %1566
+  %.2486 = phi i32 [ %.0484, %1602 ], [ %.1485, %1586 ], [ %.0484, %1566 ]
   %1604 = load i8, ptr %23, align 1
   %1605 = trunc i8 %1604 to i1
   %brmerge584 = or i1 %.0450.in, %1605

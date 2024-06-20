@@ -111,7 +111,7 @@ define i32 @Dar_CutSortVars(i32 noundef %0, ptr nocapture noundef %1) local_unna
 
 3:                                                ; preds = %2, %Dar_CutTruthSwapPolarity.exit
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %Dar_CutTruthSwapPolarity.exit ]
-  %.04155 = phi i32 [ %0, %2 ], [ %.142, %Dar_CutTruthSwapPolarity.exit ]
+  %.04160 = phi i32 [ %0, %2 ], [ %.142, %Dar_CutTruthSwapPolarity.exit ]
   %4 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, -1
@@ -130,7 +130,7 @@ define i32 @Dar_CutSortVars(i32 noundef %0, ptr nocapture noundef %1) local_unna
   %11 = and i32 %5, -2
   store i32 %11, ptr %4, align 4
   %12 = trunc nuw nsw i64 %indvars.iv to i32
-  switch i32 %12, label %Dar_CutTruthSwapPolarity.exit [
+  switch i32 %12, label %default.unreachable [
     i32 0, label %13
     i32 1, label %19
     i32 2, label %25
@@ -138,112 +138,118 @@ define i32 @Dar_CutSortVars(i32 noundef %0, ptr nocapture noundef %1) local_unna
   ]
 
 13:                                               ; preds = %10
-  %14 = lshr i32 %.04155, 1
+  %14 = lshr i32 %.04160, 1
   %15 = and i32 %14, 21845
-  %16 = shl i32 %.04155, 1
+  %16 = shl i32 %.04160, 1
   %17 = and i32 %16, 43690
   %18 = or disjoint i32 %15, %17
   br label %Dar_CutTruthSwapPolarity.exit
 
 19:                                               ; preds = %10
-  %20 = lshr i32 %.04155, 2
+  %20 = lshr i32 %.04160, 2
   %21 = and i32 %20, 13107
-  %22 = shl i32 %.04155, 2
+  %22 = shl i32 %.04160, 2
   %23 = and i32 %22, 52428
   %24 = or disjoint i32 %21, %23
   br label %Dar_CutTruthSwapPolarity.exit
 
 25:                                               ; preds = %10
-  %26 = lshr i32 %.04155, 4
+  %26 = lshr i32 %.04160, 4
   %27 = and i32 %26, 3855
-  %28 = shl i32 %.04155, 4
+  %28 = shl i32 %.04160, 4
   %29 = and i32 %28, 61680
   %30 = or disjoint i32 %27, %29
   br label %Dar_CutTruthSwapPolarity.exit
 
 31:                                               ; preds = %10
-  %trunc.i = trunc i32 %.04155 to i16
+  %trunc.i = trunc i32 %.04160 to i16
   %rev.i = tail call i16 @llvm.bswap.i16(i16 %trunc.i)
   %32 = zext i16 %rev.i to i32
   br label %Dar_CutTruthSwapPolarity.exit
 
-Dar_CutTruthSwapPolarity.exit:                    ; preds = %31, %25, %19, %13, %10, %7, %8
-  %.142 = phi i32 [ %.04155, %7 ], [ %.04155, %8 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %32, %31 ], [ 0, %10 ]
+default.unreachable:                              ; preds = %10
+  unreachable
+
+Dar_CutTruthSwapPolarity.exit:                    ; preds = %31, %25, %19, %13, %7, %8
+  %.142 = phi i32 [ %.04160, %7 ], [ %.04160, %8 ], [ %18, %13 ], [ %24, %19 ], [ %30, %25 ], [ %32, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %.preheader53, label %3, !llvm.loop !7
+  br i1 %exitcond.not, label %.preheader54, label %3, !llvm.loop !7
 
-.preheader53:                                     ; preds = %Dar_CutTruthSwapPolarity.exit, %65
+.preheader54:                                     ; preds = %Dar_CutTruthSwapPolarity.exit, %65
   %.243 = phi i32 [ %.4, %65 ], [ %.142, %Dar_CutTruthSwapPolarity.exit ]
   %.pre = load i32, ptr %1, align 4
   br label %33
 
-33:                                               ; preds = %.preheader53, %Dar_CutTruthSwapAdjacentVars.exit
-  %34 = phi i32 [ %.pre, %.preheader53 ], [ %64, %Dar_CutTruthSwapAdjacentVars.exit ]
-  %indvars.iv62 = phi i64 [ 0, %.preheader53 ], [ %indvars.iv.next63, %Dar_CutTruthSwapAdjacentVars.exit ]
-  %.03958 = phi i32 [ 0, %.preheader53 ], [ %.140, %Dar_CutTruthSwapAdjacentVars.exit ]
-  %.357 = phi i32 [ %.243, %.preheader53 ], [ %.4, %Dar_CutTruthSwapAdjacentVars.exit ]
-  %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
-  %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next63
+33:                                               ; preds = %.preheader54, %Dar_CutTruthSwapAdjacentVars.exit
+  %34 = phi i32 [ %.pre, %.preheader54 ], [ %64, %Dar_CutTruthSwapAdjacentVars.exit ]
+  %indvars.iv67 = phi i64 [ 0, %.preheader54 ], [ %indvars.iv.next68, %Dar_CutTruthSwapAdjacentVars.exit ]
+  %.03963 = phi i32 [ 0, %.preheader54 ], [ %.140, %Dar_CutTruthSwapAdjacentVars.exit ]
+  %.362 = phi i32 [ %.243, %.preheader54 ], [ %.4, %Dar_CutTruthSwapAdjacentVars.exit ]
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %35 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next68
   %36 = load i32, ptr %35, align 4
   %.not50 = icmp sgt i32 %34, %36
   br i1 %.not50, label %37, label %Dar_CutTruthSwapAdjacentVars.exit
 
 37:                                               ; preds = %33
-  %38 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv62
+  %38 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv67
   store i32 %36, ptr %38, align 4
   store i32 %34, ptr %35, align 4
-  %39 = trunc nuw nsw i64 %indvars.iv62 to i32
-  switch i32 %39, label %Dar_CutTruthSwapAdjacentVars.exit [
+  %39 = trunc nuw nsw i64 %indvars.iv67 to i32
+  switch i32 %39, label %default.unreachable53 [
     i32 0, label %40
     i32 1, label %48
     i32 2, label %56
   ]
 
 40:                                               ; preds = %37
-  %41 = and i32 %.357, -1717986919
-  %42 = shl i32 %.357, 1
+  %41 = and i32 %.362, -1717986919
+  %42 = shl i32 %.362, 1
   %43 = and i32 %42, 1145324612
   %44 = or disjoint i32 %43, %41
-  %45 = lshr i32 %.357, 1
+  %45 = lshr i32 %.362, 1
   %46 = and i32 %45, 572662306
   %47 = or disjoint i32 %44, %46
   br label %Dar_CutTruthSwapAdjacentVars.exit
 
 48:                                               ; preds = %37
-  %49 = and i32 %.357, -1010580541
-  %50 = shl i32 %.357, 2
+  %49 = and i32 %.362, -1010580541
+  %50 = shl i32 %.362, 2
   %51 = and i32 %50, 808464432
   %52 = or disjoint i32 %51, %49
-  %53 = lshr i32 %.357, 2
+  %53 = lshr i32 %.362, 2
   %54 = and i32 %53, 202116108
   %55 = or disjoint i32 %52, %54
   br label %Dar_CutTruthSwapAdjacentVars.exit
 
 56:                                               ; preds = %37
-  %57 = and i32 %.357, -267390961
-  %58 = shl i32 %.357, 4
+  %57 = and i32 %.362, -267390961
+  %58 = shl i32 %.362, 4
   %59 = and i32 %58, 251662080
   %60 = or disjoint i32 %59, %57
-  %61 = lshr i32 %.357, 4
+  %61 = lshr i32 %.362, 4
   %62 = and i32 %61, 15728880
   %63 = or disjoint i32 %60, %62
   br label %Dar_CutTruthSwapAdjacentVars.exit
 
-Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %37, %33
-  %64 = phi i32 [ %36, %33 ], [ %34, %40 ], [ %34, %48 ], [ %34, %56 ], [ %34, %37 ]
-  %.4 = phi i32 [ %.357, %33 ], [ %47, %40 ], [ %55, %48 ], [ %63, %56 ], [ 0, %37 ]
-  %.140 = phi i32 [ %.03958, %33 ], [ 1, %40 ], [ 1, %48 ], [ 1, %56 ], [ 1, %37 ]
-  %exitcond65.not = icmp eq i64 %indvars.iv.next63, 3
-  br i1 %exitcond65.not, label %65, label %33, !llvm.loop !8
+default.unreachable53:                            ; preds = %37
+  unreachable
+
+Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %33
+  %64 = phi i32 [ %36, %33 ], [ %34, %40 ], [ %34, %48 ], [ %34, %56 ]
+  %.4 = phi i32 [ %.362, %33 ], [ %47, %40 ], [ %55, %48 ], [ %63, %56 ]
+  %.140 = phi i32 [ %.03963, %33 ], [ 1, %40 ], [ 1, %48 ], [ 1, %56 ]
+  %exitcond70.not = icmp eq i64 %indvars.iv.next68, 3
+  br i1 %exitcond70.not, label %65, label %33, !llvm.loop !8
 
 65:                                               ; preds = %Dar_CutTruthSwapAdjacentVars.exit
   %.not = icmp eq i32 %.140, 0
-  br i1 %.not, label %.preheader, label %.preheader53, !llvm.loop !9
+  br i1 %.not, label %.preheader, label %.preheader54, !llvm.loop !9
 
 .preheader:                                       ; preds = %65, %70
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %70 ], [ 0, %65 ]
-  %66 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv66
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %70 ], [ 0, %65 ]
+  %66 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv71
   %67 = load i32, ptr %66, align 4
   %68 = icmp eq i32 %67, 1073741823
   br i1 %68, label %69, label %70
@@ -253,9 +259,9 @@ Dar_CutTruthSwapAdjacentVars.exit:                ; preds = %56, %48, %40, %37, 
   br label %70
 
 70:                                               ; preds = %.preheader, %69
-  %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
-  %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
-  br i1 %exitcond69.not, label %71, label %.preheader, !llvm.loop !10
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond74.not = icmp eq i64 %indvars.iv.next72, 4
+  br i1 %exitcond74.not, label %71, label %.preheader, !llvm.loop !10
 
 71:                                               ; preds = %70
   ret i32 %.4

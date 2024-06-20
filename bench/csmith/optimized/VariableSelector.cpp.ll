@@ -5660,12 +5660,12 @@ _ZL27VariableCreationProbabilityv.exit:           ; preds = %6
   br i1 %.not3.i, label %10, label %61
 
 _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
-  %.not3.in.i31 = load i32, ptr @_ZN5Error8r_error_E, align 4
-  %.not3.i32 = icmp eq i32 %.not3.in.i31, 0
-  br i1 %.not3.i32, label %.thread34, label %61
+  %.not3.in.i30 = load i32, ptr @_ZN5Error8r_error_E, align 4
+  %.not3.i31 = icmp eq i32 %.not3.in.i30, 0
+  br i1 %.not3.i31, label %.thread33, label %61
 
 10:                                               ; preds = %_ZL27VariableCreationProbabilityv.exit
-  br i1 %9, label %11, label %.thread34
+  br i1 %9, label %11, label %.thread33
 
 11:                                               ; preds = %10
   %12 = tail call noundef i32 @_ZN9DepthSpec19depth_guard_by_typeE5dTypei(i32 noundef 34, i32 noundef 0)
@@ -5696,12 +5696,12 @@ _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
   %24 = tail call noundef ptr @_ZN16VariableSelector17GenerateNewGlobalEN6Effect6AccessERK9CGContextPK4TypePK12CVQualifiers(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(216) %1, ptr noundef %21, ptr noundef %3)
   br label %60
 
-.thread34:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %10
+.thread33:                                        ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %10
   %25 = tail call noundef i32 @_ZN9DepthSpec20depth_guard_by_depthEi(i32 noundef 36)
   %.not20 = icmp eq i32 %25, 0
   br i1 %.not20, label %26, label %61
 
-26:                                               ; preds = %.thread34
+26:                                               ; preds = %.thread33
   %27 = getelementptr inbounds i8, ptr %7, i64 144
   %28 = getelementptr inbounds i8, ptr %7, i64 152
   %29 = load ptr, ptr %28, align 8
@@ -5760,8 +5760,8 @@ _ZL27VariableCreationProbabilityv.exit.thread:    ; preds = %6
   store i8 1, ptr @_ZN16VariableSelector11var_createdE, align 1
   br label %61
 
-61:                                               ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %60, %51, %26, %.thread34, %20, %11, %_ZL27VariableCreationProbabilityv.exit, %4, %.thread, %50, %19
-  %.0 = phi ptr [ %.018.ph, %.thread ], [ null, %50 ], [ null, %19 ], [ null, %4 ], [ null, %_ZL27VariableCreationProbabilityv.exit ], [ null, %11 ], [ null, %20 ], [ null, %.thread34 ], [ null, %26 ], [ null, %51 ], [ null, %60 ], [ null, %_ZL27VariableCreationProbabilityv.exit.thread ]
+61:                                               ; preds = %_ZL27VariableCreationProbabilityv.exit.thread, %60, %51, %26, %.thread33, %20, %11, %_ZL27VariableCreationProbabilityv.exit, %4, %.thread, %50, %19
+  %.0 = phi ptr [ %.018.ph, %.thread ], [ null, %50 ], [ null, %19 ], [ null, %4 ], [ null, %_ZL27VariableCreationProbabilityv.exit ], [ null, %11 ], [ null, %20 ], [ null, %.thread33 ], [ null, %26 ], [ null, %51 ], [ null, %60 ], [ null, %_ZL27VariableCreationProbabilityv.exit.thread ]
   ret ptr %.0
 }
 

@@ -150,8 +150,8 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %2, %2
   br i1 %brmerge, label %_ZN6Square9EdgeIndexEii.exit, label %.thread16
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
-  %.not23 = icmp eq i32 %3, 1
-  br i1 %.not23, label %4, label %_ZN6Square9EdgeIndexEii.exit
+  %.not22 = icmp eq i32 %3, 1
+  br i1 %.not22, label %4, label %_ZN6Square9EdgeIndexEii.exit
 
 .thread16:                                        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %2
   br label %_ZN6Square9EdgeIndexEii.exit
@@ -1632,11 +1632,10 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   %45 = and i32 %43, 1
   %46 = lshr i32 %43, 1
   %47 = and i32 %46, 1
-  switch i32 %44, label %.unreachabledefault [
+  switch i32 %44, label %default.unreachable [
     i32 0, label %48
     i32 1, label %67
     i32 2, label %85
-    i32 3, label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
   ]
 
 48:                                               ; preds = %42
@@ -1710,10 +1709,10 @@ define noundef i32 @_ZN13MarchingCubes12AddTrianglesEPKddP8Triangle(ptr nocaptur
   store double %.sink.i, ptr %100, align 8
   br label %_ZN13MarchingCubes9SetVertexEiPKdd.exit
 
-.unreachabledefault:                              ; preds = %42
+default.unreachable:                              ; preds = %42
   unreachable
 
-_ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %42, %.sink.split.i, %40
+_ZN13MarchingCubes9SetVertexEiPKdd.exit:          ; preds = %.sink.split.i, %40
   %101 = shl i32 %.041, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12

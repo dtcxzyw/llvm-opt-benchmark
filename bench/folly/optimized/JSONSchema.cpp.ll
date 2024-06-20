@@ -27606,10 +27606,8 @@ lor.lhs.false5:                                   ; preds = %if.end
   br i1 %cmp.not.i.i.i32, label %sw.bb4.i.i, label %_ZNKR5folly7dynamic6getIntEv.exit51
 
 if.then7:                                         ; preds = %if.end
-  switch i32 %3, label %sw.default.i.i [
-    i32 4, label %sw.bb.i.i
-    i32 3, label %sw.bb4.i.i
-  ]
+  %switch = icmp eq i32 %3, 4
+  br i1 %switch, label %sw.bb.i.i, label %sw.bb4.i.i
 
 sw.bb.i.i:                                        ; preds = %if.then7
   %u_.i.i.i.i.i = getelementptr inbounds i8, ptr %value, i64 8
@@ -27621,10 +27619,6 @@ sw.bb4.i.i:                                       ; preds = %if.then7, %lor.lhs.
   %u_.i.i.i16.i.i = getelementptr inbounds i8, ptr %value, i64 8
   %5 = load double, ptr %u_.i.i.i16.i.i, align 8, !tbaa !1416
   br label %_ZNK5folly7dynamic8asDoubleEv.exit
-
-sw.default.i.i:                                   ; preds = %if.then7
-  tail call void @_ZN5folly6detail16throw_exception_INS_9TypeErrorEJPKcNS_7dynamic4TypeEEEEvDpT0_(ptr noundef nonnull @.str.63, i32 noundef %3) #43
-  unreachable
 
 _ZNK5folly7dynamic8asDoubleEv.exit:               ; preds = %sw.bb4.i.i, %sw.bb.i.i
   %6 = phi i32 [ %1, %sw.bb4.i.i ], [ %.pre, %sw.bb.i.i ]

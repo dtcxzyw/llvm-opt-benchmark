@@ -4107,67 +4107,56 @@ ossl_strerror.exit.i:                             ; preds = %104, %101, %99
   %122 = and i8 %121, 4
   %.not189.i = icmp eq i8 %122, 0
   %spec.select.i = select i1 %.not189.i, i64 2181185616, i64 2181187664
-  switch i8 %51, label %140 [
-    i8 2, label %ossl_connect_step1.exit.thread
-    i8 3, label %ossl_connect_step1.exit.thread
-    i8 0, label %123
-    i8 1, label %123
-    i8 4, label %123
-    i8 5, label %123
-    i8 6, label %123
-    i8 7, label %123
-  ]
+  %123 = and i8 %51, -2
+  %switch.i = icmp eq i8 %123, 2
+  br i1 %switch.i, label %ossl_connect_step1.exit.thread, label %124
 
-123:                                              ; preds = %119, %119, %119, %119, %119, %119
-  %124 = load ptr, ptr %62, align 8
-  %125 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %0) #13
-  %126 = getelementptr inbounds i8, ptr %125, i64 104
-  %127 = load i8, ptr %126, align 8
-  switch i8 %127, label %.thread.fold.split.i.i [
+124:                                              ; preds = %119
+  %125 = load ptr, ptr %62, align 8
+  %126 = tail call ptr @Curl_ssl_cf_get_primary_config(ptr noundef nonnull %0) #13
+  %127 = getelementptr inbounds i8, ptr %126, i64 104
+  %128 = load i8, ptr %127, align 8
+  switch i8 %128, label %.thread.fold.split.i.i [
     i8 1, label %.thread.i.i
     i8 4, label %.thread.i.i
-    i8 5, label %128
-    i8 6, label %129
-    i8 7, label %130
-    i8 0, label %132
+    i8 5, label %129
+    i8 6, label %130
+    i8 7, label %131
+    i8 0, label %133
   ]
 
-128:                                              ; preds = %123
+129:                                              ; preds = %124
   br label %.thread.i.i
 
-129:                                              ; preds = %123
+130:                                              ; preds = %124
   br label %.thread.i.i
 
-130:                                              ; preds = %123
+131:                                              ; preds = %124
   br label %.thread.i.i
 
-.thread.fold.split.i.i:                           ; preds = %123
+.thread.fold.split.i.i:                           ; preds = %124
   br label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %.thread.fold.split.i.i, %130, %129, %128, %123, %123
-  %.01016.i.i = phi i64 [ 770, %128 ], [ 771, %129 ], [ 772, %130 ], [ 769, %123 ], [ 769, %123 ], [ 0, %.thread.fold.split.i.i ]
-  %131 = tail call i64 @SSL_CTX_ctrl(ptr noundef %124, i32 noundef 123, i64 noundef %.01016.i.i, ptr noundef null) #13
-  %.not12.i.i = icmp eq i64 %131, 0
-  br i1 %.not12.i.i, label %ossl_connect_step1.exit.thread, label %132
+.thread.i.i:                                      ; preds = %.thread.fold.split.i.i, %131, %130, %129, %124, %124
+  %.01016.i.i = phi i64 [ 770, %129 ], [ 771, %130 ], [ 772, %131 ], [ 769, %124 ], [ 769, %124 ], [ 0, %.thread.fold.split.i.i ]
+  %132 = tail call i64 @SSL_CTX_ctrl(ptr noundef %125, i32 noundef 123, i64 noundef %.01016.i.i, ptr noundef null) #13
+  %.not12.i.i = icmp eq i64 %132, 0
+  br i1 %.not12.i.i, label %ossl_connect_step1.exit.thread, label %133
 
-132:                                              ; preds = %.thread.i.i, %123
-  %133 = getelementptr inbounds i8, ptr %125, i64 100
-  %134 = load i32, ptr %133, align 4
-  %135 = zext i32 %134 to i64
-  %136 = tail call i64 @llvm.fshl.i64(i64 %135, i64 %135, i64 48)
-  %137 = and i64 %136, -281474976645124
-  %138 = icmp eq i64 %137, 4
-  %switch.offset = add nuw nsw i64 %136, 765
-  %.0.i224.i = select i1 %138, i64 %switch.offset, i64 0
-  %139 = tail call i64 @SSL_CTX_ctrl(ptr noundef %124, i32 noundef 124, i64 noundef %.0.i224.i, ptr noundef null) #13
-  %.not13.i.i = icmp eq i64 %139, 0
+133:                                              ; preds = %.thread.i.i, %124
+  %134 = getelementptr inbounds i8, ptr %126, i64 100
+  %135 = load i32, ptr %134, align 4
+  %136 = zext i32 %135 to i64
+  %137 = tail call i64 @llvm.fshl.i64(i64 %136, i64 %136, i64 48)
+  %138 = and i64 %137, -281474976645124
+  %139 = icmp eq i64 %138, 4
+  %switch.offset = add nuw nsw i64 %137, 765
+  %.0.i224.i = select i1 %139, i64 %switch.offset, i64 0
+  %140 = tail call i64 @SSL_CTX_ctrl(ptr noundef %125, i32 noundef 124, i64 noundef %.0.i224.i, ptr noundef null) #13
+  %.not13.i.i = icmp eq i64 %140, 0
   br i1 %.not13.i.i, label %ossl_connect_step1.exit.thread, label %ossl_set_ssl_version_min_max.exit.i
 
-140:                                              ; preds = %119
-  tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %1, ptr noundef nonnull @.str.114) #13
-  br label %ossl_connect_step1.exit.thread
-
-ossl_set_ssl_version_min_max.exit.i:              ; preds = %132
+ossl_set_ssl_version_min_max.exit.i:              ; preds = %133
   %141 = load ptr, ptr %62, align 8
   %142 = tail call i64 @SSL_CTX_set_options(ptr noundef %141, i64 noundef %spec.select.i) #13
   %143 = getelementptr inbounds i8, ptr %47, i64 40
@@ -4470,8 +4459,8 @@ ossl_set_ssl_version_min_max.exit.i:              ; preds = %132
   %.not220.i = icmp eq ptr %289, null
   br i1 %.not220.i, label %ossl_connect_step1.exit.thread, label %ossl_connect_step1.exit
 
-ossl_connect_step1.exit.thread:                   ; preds = %84, %83, %82, %140, %152, %233, %273, %257, %241, %206, %193, %181, %ossl_strerror.exit.i, %ossl_seed.exit.i, %119, %119, %164, %223, %285, %288, %.thread.i.i, %132
-  %.0.i.ph = phi i32 [ 35, %132 ], [ 35, %.thread.i.i ], [ 27, %288 ], [ 27, %285 ], [ %225, %223 ], [ 58, %164 ], [ 4, %119 ], [ 4, %119 ], [ 35, %ossl_seed.exit.i ], [ 27, %ossl_strerror.exit.i ], [ 59, %181 ], [ 59, %193 ], [ 59, %206 ], [ 27, %241 ], [ 35, %257 ], [ 35, %273 ], [ %232, %233 ], [ 35, %152 ], [ 35, %140 ], [ 4, %82 ], [ 4, %83 ], [ 35, %84 ]
+ossl_connect_step1.exit.thread:                   ; preds = %84, %83, %82, %152, %233, %273, %257, %241, %206, %193, %181, %ossl_strerror.exit.i, %ossl_seed.exit.i, %119, %164, %223, %285, %288, %.thread.i.i, %133
+  %.0.i.ph = phi i32 [ 35, %133 ], [ 35, %.thread.i.i ], [ 27, %288 ], [ 27, %285 ], [ %225, %223 ], [ 58, %164 ], [ 4, %119 ], [ 35, %ossl_seed.exit.i ], [ 27, %ossl_strerror.exit.i ], [ 59, %181 ], [ 59, %193 ], [ 59, %206 ], [ 27, %241 ], [ 35, %257 ], [ 35, %273 ], [ %232, %233 ], [ 35, %152 ], [ 4, %82 ], [ 4, %83 ], [ 35, %84 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %30)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %31)

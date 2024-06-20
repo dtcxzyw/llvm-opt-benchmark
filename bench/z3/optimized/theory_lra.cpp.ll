@@ -4270,13 +4270,13 @@ _ZN6vectorIP4exprLb0EjE3endEv.exit:               ; preds = %if.end42
   %15 = load i32, ptr %arrayidx.i.i, align 4
   %16 = zext i32 %15 to i64
   %add.ptr.i = getelementptr inbounds ptr, ptr %14, i64 %16
-  %cmp45.not38 = icmp eq i32 %15, 0
-  br i1 %cmp45.not38, label %return, label %for.body
+  %cmp45.not37 = icmp eq i32 %15, 0
+  br i1 %cmp45.not37, label %return, label %for.body
 
 for.body:                                         ; preds = %_ZN6vectorIP4exprLb0EjE3endEv.exit, %for.inc
-  %__begin3.040 = phi ptr [ %incdec.ptr, %for.inc ], [ %14, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
-  %st.239 = phi i32 [ %st.4, %for.inc ], [ %st.1, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
-  %17 = load ptr, ptr %__begin3.040, align 8
+  %__begin3.039 = phi ptr [ %incdec.ptr, %for.inc ], [ %14, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
+  %st.238 = phi i32 [ %st.4, %for.inc ], [ %st.1, %_ZN6vectorIP4exprLb0EjE3endEv.exit ]
+  %17 = load ptr, ptr %__begin3.039, align 8
   %18 = load ptr, ptr %this, align 8
   %ctx.i.i14 = getelementptr inbounds i8, ptr %18, i64 16
   %19 = load ptr, ptr %ctx.i.i14, align 8
@@ -4331,16 +4331,16 @@ _ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit: ; preds = %_ZNK17arith_re
   ]
 
 sw.bb52:                                          ; preds = %land.rhs.i.i.i, %_ZNK17arith_recognizers9is_power0EPK4expr.exit.i, %if.end49, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit
-  %cmp53.not = icmp eq i32 %st.239, 1
+  %cmp53.not = icmp eq i32 %st.238, 1
   br i1 %cmp53.not, label %return, label %for.inc
 
 sw.epilog56:                                      ; preds = %_ZNK17arith_recognizers9is_power0EPK4expr.exit.i, %_ZN3smt10theory_lra3imp16eval_unsupportedEP4expr.exit
-  %cmp57 = icmp eq i32 %st.239, 1
+  %cmp57 = icmp eq i32 %st.238, 1
   br i1 %cmp57, label %return, label %for.inc
 
 for.inc:                                          ; preds = %sw.bb52, %sw.epilog56, %_ZNK3smt7context11is_relevantEP4expr.exit
-  %st.4 = phi i32 [ %st.239, %sw.epilog56 ], [ %st.239, %_ZNK3smt7context11is_relevantEP4expr.exit ], [ 2, %sw.bb52 ]
-  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.040, i64 8
+  %st.4 = phi i32 [ %st.238, %sw.epilog56 ], [ %st.238, %_ZNK3smt7context11is_relevantEP4expr.exit ], [ 2, %sw.bb52 ]
+  %incdec.ptr = getelementptr inbounds i8, ptr %__begin3.039, i64 8
   %cmp45.not = icmp eq ptr %incdec.ptr, %add.ptr.i
   br i1 %cmp45.not, label %return, label %for.body
 
@@ -37033,13 +37033,13 @@ _ZN3smt10theory_lra3imp18can_propagate_coreEv.exit: ; preds = %if.end
 _ZN3smt10theory_lra3imp18can_propagate_coreEv.exit.thread: ; preds = %if.end
   %arrayidx.i.i = getelementptr inbounds i8, ptr %7, i64 -4
   %9 = load i32, ptr %arrayidx.i.i, align 4
-  %m_asserted_qhead.i41 = getelementptr inbounds i8, ptr %this, i64 256
-  %10 = load i32, ptr %m_asserted_qhead.i41, align 8
-  %cmp.i42 = icmp ugt i32 %9, %10
-  %m_new_def.i43 = getelementptr inbounds i8, ptr %this, i64 768
-  %11 = load i8, ptr %m_new_def.i43, align 8
-  %tobool.i44 = trunc i8 %11 to i1
-  %12 = select i1 %cmp.i42, i1 true, i1 %tobool.i44
+  %m_asserted_qhead.i42 = getelementptr inbounds i8, ptr %this, i64 256
+  %10 = load i32, ptr %m_asserted_qhead.i42, align 8
+  %cmp.i43 = icmp ugt i32 %9, %10
+  %m_new_def.i44 = getelementptr inbounds i8, ptr %this, i64 768
+  %11 = load i8, ptr %m_new_def.i44, align 8
+  %tobool.i45 = trunc i8 %11 to i1
+  %12 = select i1 %cmp.i43, i1 true, i1 %tobool.i45
   br i1 %12, label %_ZNK6vectorIN3smt10theory_lra3imp12delayed_atomELb0EjE4sizeEv.exit.lr.ph, label %return
 
 if.end5:                                          ; preds = %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit
@@ -37047,7 +37047,7 @@ if.end5:                                          ; preds = %_ZN3smt10theory_lra
   br label %while.end
 
 _ZNK6vectorIN3smt10theory_lra3imp12delayed_atomELb0EjE4sizeEv.exit.lr.ph: ; preds = %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit.thread
-  store i8 0, ptr %m_new_def.i43, align 8
+  store i8 0, ptr %m_new_def.i44, align 8
   %m = getelementptr inbounds i8, ptr %this, i64 8
   %m_bool_var2bound = getelementptr inbounds i8, ptr %this, i64 208
   %m_capacity.i.i.i = getelementptr inbounds i8, ptr %this, i64 216
@@ -37080,7 +37080,7 @@ land.rhs:                                         ; preds = %land.lhs.true
   br i1 %call2.i, label %while.body, label %while.end.loopexit
 
 while.body:                                       ; preds = %land.rhs
-  %22 = load i32, ptr %m_asserted_qhead.i41, align 8
+  %22 = load i32, ptr %m_asserted_qhead.i42, align 8
   %23 = load ptr, ptr %m_asserted_atoms.i, align 8
   %idxprom.i = zext i32 %22 to i64
   %arrayidx.i7 = getelementptr inbounds %"struct.smt::theory_lra::imp::delayed_atom", ptr %23, i64 %idxprom.i
@@ -37161,7 +37161,7 @@ land.lhs.true14:                                  ; preds = %land.lhs.true.i.i.i
   br i1 %call16, label %land.lhs.true14.if.end18_crit_edge, label %if.then17
 
 land.lhs.true14.if.end18_crit_edge:               ; preds = %land.lhs.true14
-  %.pre = load i32, ptr %m_asserted_qhead.i41, align 8
+  %.pre = load i32, ptr %m_asserted_qhead.i42, align 8
   %.pre37 = load ptr, ptr %m_asserted_atoms.i, align 8
   br label %if.end18
 
@@ -37207,7 +37207,7 @@ if.end18:                                         ; preds = %for.body.i.i.i, %fo
   %40 = phi ptr [ %.pre37, %land.lhs.true14.if.end18_crit_edge ], [ %23, %for.cond18.preheader.i.i.i ], [ %23, %for.body20.i.i.i ], [ %23, %for.inc36.i.i.i ], [ %23, %for.body.i.i.i ]
   %41 = phi i32 [ %.pre, %land.lhs.true14.if.end18_crit_edge ], [ %22, %for.cond18.preheader.i.i.i ], [ %22, %for.body20.i.i.i ], [ %22, %for.inc36.i.i.i ], [ %22, %for.body.i.i.i ]
   %inc = add i32 %41, 1
-  store i32 %inc, ptr %m_asserted_qhead.i41, align 8
+  store i32 %inc, ptr %m_asserted_qhead.i42, align 8
   %cmp.i1 = icmp eq ptr %40, null
   br i1 %cmp.i1, label %while.end.loopexit, label %_ZNK6vectorIN3smt10theory_lra3imp12delayed_atomELb0EjE4sizeEv.exit, !llvm.loop !121
 
@@ -37244,7 +37244,7 @@ if.end28:                                         ; preds = %if.end23
   %cmp.i18 = icmp eq i32 %call2.i17, 1
   %..i = sext i1 %cmp.i18 to i32
   %retval.0.i19 = select i1 %call4.i, i32 1, i32 %..i
-  switch i32 %retval.0.i19, label %default.unreachable [
+  switch i32 %retval.0.i19, label %default.unreachable40 [
     i32 -1, label %sw.bb
     i32 1, label %sw.bb29
     i32 0, label %sw.bb30
@@ -37263,7 +37263,7 @@ sw.bb30:                                          ; preds = %if.end28
   tail call void @exit(i32 noundef 114) #24
   unreachable
 
-default.unreachable:                              ; preds = %if.end28
+default.unreachable40:                            ; preds = %if.end28
   unreachable
 
 return:                                           ; preds = %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit.thread, %sw.bb, %sw.bb29, %if.end23, %while.end, %_ZN3smt10theory_lra3imp18can_propagate_coreEv.exit, %_ZN3smt10theory_lra3imp13propagate_nlaEv.exit, %_ZN3smt10theory_lra3imp46get_infeasibility_explanation_and_set_conflictEv.exit

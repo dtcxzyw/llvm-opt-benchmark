@@ -1874,7 +1874,7 @@ if.then3:                                         ; preds = %if.then
 if.end5:                                          ; preds = %if.end5.lr.ph, %sw.epilog
   %ce32.addr.0135 = phi i32 [ %ce32, %if.end5.lr.ph ], [ %ce32.addr.1, %sw.epilog ]
   %and.i33 = and i32 %ce32.addr.0135, 15
-  switch i32 %and.i33, label %default.unreachable [
+  switch i32 %and.i33, label %default.unreachable154 [
     i32 0, label %return
     i32 3, label %sw.bb7
     i32 7, label %sw.bb7
@@ -2269,7 +2269,7 @@ if.else.i115:                                     ; preds = %if.then137
   call void @_ZN6icu_7525ContractionsAndExpansions10addStringsEiiPNS_10UnicodeSetE(ptr noundef nonnull align 8 dereferenceable(764) %this, i32 noundef %start, i32 noundef %end, ptr noundef %37)
   br label %return
 
-default.unreachable:                              ; preds = %if.end5
+default.unreachable154:                           ; preds = %if.end5
   unreachable
 
 sw.epilog:                                        ; preds = %sw.bb98, %sw.bb92

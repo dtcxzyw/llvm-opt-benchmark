@@ -5939,8 +5939,8 @@ _ZN3nix9EvalState12callFunctionERNS_5ValueES2_S2_NS_6PosIdxE.exit: ; preds = %11
   %159 = load ptr, ptr %94, align 8
   %160 = getelementptr inbounds i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
-  %.not196 = icmp eq ptr %161, null
-  br i1 %.not196, label %174, label %162
+  %.not199 = icmp eq ptr %161, null
+  br i1 %.not199, label %174, label %162
 
 162:                                              ; preds = %158
   %163 = invoke { i64, i32 } @_ZN3nix10eval_cache10AttrCursor6getKeyEv(ptr noundef nonnull align 8 dereferenceable(184) %0)
@@ -5979,8 +5979,8 @@ _ZN3nix9EvalState12callFunctionERNS_5ValueES2_S2_NS_6PosIdxE.exit: ; preds = %11
   %177 = load ptr, ptr %94, align 8
   %178 = getelementptr inbounds i8, ptr %177, i64 16
   %179 = load ptr, ptr %178, align 8
-  %.not197 = icmp eq ptr %179, null
-  br i1 %.not197, label %_ZNK3nix5Value4typeEb.exit153, label %180
+  %.not200 = icmp eq ptr %179, null
+  br i1 %.not200, label %_ZNK3nix5Value4typeEb.exit153, label %180
 
 180:                                              ; preds = %176
   %181 = getelementptr inbounds i8, ptr %0, i64 80
@@ -6002,16 +6002,16 @@ _ZN3nix9EvalState12callFunctionERNS_5ValueES2_S2_NS_6PosIdxE.exit: ; preds = %11
     i32 4, label %_ZNK3nix5Value4typeEb.exit103
     i32 5, label %.thread188
     i32 6, label %_ZNK3nix5Value4typeEb.exit153
-    i32 16, label %.thread188
-    i32 15, label %.thread188
-    i32 11, label %.thread188
-    i32 10, label %.thread188
-    i32 14, label %.thread188
-    i32 13, label %.thread188
-    i32 12, label %.thread188
-    i32 9, label %.thread188
     i32 7, label %.thread188
     i32 8, label %.thread188
+    i32 9, label %.thread188
+    i32 12, label %.thread188
+    i32 13, label %.thread188
+    i32 14, label %.thread188
+    i32 15, label %.thread188
+    i32 16, label %.thread188
+    i32 10, label %.thread188
+    i32 11, label %.thread188
   ]
 
 189:                                              ; preds = %187
@@ -6124,12 +6124,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %226, ptr %224, align 8
   %234 = load i64, ptr %227, align 8
   store i64 %234, ptr %225, align 8
-  %.phi.trans.insert202 = getelementptr inbounds i8, ptr %32, i64 8
-  %.pre203 = load i64, ptr %.phi.trans.insert202, align 8
+  %.phi.trans.insert205 = getelementptr inbounds i8, ptr %32, i64 8
+  %.pre206 = load i64, ptr %.phi.trans.insert205, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %229
-  %235 = phi i64 [ %.pre203, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %231, %229 ]
+  %235 = phi i64 [ %.pre206, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %231, %229 ]
   %236 = getelementptr inbounds i8, ptr %32, i64 8
   %237 = getelementptr inbounds i8, ptr %31, i64 16
   store i64 %235, ptr %237, align 8
@@ -6543,12 +6543,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %382, ptr %380, align 8
   %390 = load i64, ptr %383, align 8
   store i64 %390, ptr %381, align 8
-  %.phi.trans.insert200 = getelementptr inbounds i8, ptr %39, i64 8
-  %.pre201 = load i64, ptr %.phi.trans.insert200, align 8
+  %.phi.trans.insert203 = getelementptr inbounds i8, ptr %39, i64 8
+  %.pre204 = load i64, ptr %.phi.trans.insert203, align 8
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i119
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i119: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i118, %385
-  %391 = phi i64 [ %.pre201, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i118 ], [ %387, %385 ]
+  %391 = phi i64 [ %.pre204, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i118 ], [ %387, %385 ]
   %392 = getelementptr inbounds i8, ptr %39, i64 8
   %393 = getelementptr inbounds i8, ptr %38, i64 16
   store i64 %391, ptr %393, align 8
@@ -12180,16 +12180,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
     i32 4, label %.thread51
     i32 5, label %.thread
     i32 6, label %.thread
-    i32 16, label %.thread
-    i32 15, label %.thread
-    i32 11, label %.thread
-    i32 10, label %.thread
-    i32 14, label %.thread
-    i32 13, label %.thread
-    i32 12, label %.thread
-    i32 9, label %.thread
     i32 7, label %.thread
     i32 8, label %.thread
+    i32 9, label %.thread
+    i32 12, label %.thread
+    i32 13, label %.thread
+    i32 14, label %.thread
+    i32 15, label %.thread
+    i32 16, label %.thread
+    i32 10, label %.thread
+    i32 11, label %.thread
   ]
 
 108:                                              ; preds = %105
@@ -12759,16 +12759,16 @@ common.resume:                                    ; preds = %121, %150, %.body41
     i32 4, label %_ZNK3nix5Value4typeEb.exit44
     i32 5, label %.thread
     i32 6, label %.thread
-    i32 16, label %.thread
-    i32 15, label %.thread
-    i32 11, label %.thread
-    i32 10, label %.thread
-    i32 14, label %.thread
-    i32 13, label %.thread
-    i32 12, label %.thread
-    i32 9, label %.thread
     i32 7, label %.thread
     i32 8, label %.thread
+    i32 9, label %.thread
+    i32 12, label %.thread
+    i32 13, label %.thread
+    i32 14, label %.thread
+    i32 15, label %.thread
+    i32 16, label %.thread
+    i32 10, label %.thread
+    i32 11, label %.thread
   ]
 
 154:                                              ; preds = %.loopexit

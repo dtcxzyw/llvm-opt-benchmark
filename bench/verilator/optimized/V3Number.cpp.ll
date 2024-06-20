@@ -22894,8 +22894,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   %19 = tail call noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number7setZeroEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   call void @_ZNK8V3Number8toStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(56) %1)
   %20 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #29
-  %.not30 = icmp eq i64 %20, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not29 = icmp eq i64 %20, 0
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %18
   %21 = getelementptr inbounds i8, ptr %0, i64 32
@@ -22903,22 +22903,22 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number6o
   br label %23
 
 23:                                               ; preds = %.lr.ph, %66
-  %.029 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
+  %.028 = phi i64 [ 0, %.lr.ph ], [ %67, %66 ]
   %24 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #29
-  %25 = xor i64 %.029, -1
+  %25 = xor i64 %.028, -1
   %26 = add i64 %24, %25
   %27 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef %26) #29
   %28 = load i8, ptr %27, align 1
   %29 = zext i8 %28 to i64
-  %30 = shl i64 %.029, 3
+  %30 = shl i64 %.028, 3
   br label %31
 
 31:                                               ; preds = %23, %_ZN8V3Number6setBitEic.exit
-  %.01828 = phi i64 [ 0, %23 ], [ %63, %_ZN8V3Number6setBitEic.exit ]
-  %32 = shl nuw nsw i64 1, %.01828
+  %.01827 = phi i64 [ 0, %23 ], [ %63, %_ZN8V3Number6setBitEic.exit ]
+  %32 = shl nuw nsw i64 1, %.01827
   %33 = and i64 %32, %29
-  %.not27.not = icmp eq i64 %33, 0
-  %34 = add nuw nsw i64 %.01828, %30
+  %.not26.not = icmp eq i64 %33, 0
+  %34 = add nuw nsw i64 %.01827, %30
   %35 = trunc i64 %34 to i32
   %36 = load i32, ptr %21, align 8
   %.not.i = icmp sgt i32 %36, %35
@@ -22963,7 +22963,7 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %37
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds %"struct.V3NumberData::ValueAndX", ptr %spec.select.i.i, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 4
-  br i1 %.not27.not, label %53, label %57
+  br i1 %.not26.not, label %53, label %57
 
 53:                                               ; preds = %_ZN12V3NumberData3numEv.exit.i
   %54 = xor i32 %39, -1
@@ -22980,14 +22980,14 @@ _ZN12V3NumberData3numEv.exit.i:                   ; preds = %37
   br label %_ZN8V3Number6setBitEic.exit.sink.split
 
 _ZN8V3Number6setBitEic.exit.sink.split:           ; preds = %53, %57
-  %.sink32 = phi i32 [ %60, %57 ], [ %54, %53 ]
+  %.sink31 = phi i32 [ %60, %57 ], [ %54, %53 ]
   %61 = load i32, ptr %52, align 4
-  %62 = and i32 %61, %.sink32
+  %62 = and i32 %61, %.sink31
   store i32 %62, ptr %52, align 4
   br label %_ZN8V3Number6setBitEic.exit
 
 _ZN8V3Number6setBitEic.exit:                      ; preds = %_ZN8V3Number6setBitEic.exit.sink.split, %31
-  %63 = add nuw nsw i64 %.01828, 1
+  %63 = add nuw nsw i64 %.01827, 1
   %exitcond.not = icmp eq i64 %63, 8
   br i1 %exitcond.not, label %66, label %31, !llvm.loop !158
 
@@ -22998,7 +22998,7 @@ _ZN8V3Number6setBitEic.exit:                      ; preds = %_ZN8V3Number6setBit
   resume { ptr, i32 } %65
 
 66:                                               ; preds = %_ZN8V3Number6setBitEic.exit
-  %67 = add nuw i64 %.029, 1
+  %67 = add nuw i64 %.028, 1
   %68 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %3) #29
   %69 = icmp ult i64 %67, %68
   br i1 %69, label %23, label %._crit_edge, !llvm.loop !159

@@ -4294,17 +4294,11 @@ if.end11.i.i:                                     ; preds = %if.then7.i.i
   store ptr %4, ptr %mzID12.i.i, align 8
   %tzID13.i.i = getelementptr inbounds i8, ptr %call8.i.i, i64 8
   store ptr null, ptr %tzID13.i.i, align 8
-  %8 = icmp ult i64 %indvars.iv.i, 7
-  br i1 %8, label %switch.lookup, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
-
-switch.lookup:                                    ; preds = %if.end11.i.i
-  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %indvars.iv.i
+  %sext = shl i64 %indvars.iv.i, 32
+  %8 = ashr exact i64 %sext, 32
+  %switch.gep = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
-
-_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i: ; preds = %if.end11.i.i, %switch.lookup
-  %retval.0.i.i.i = phi i32 [ %switch.load, %switch.lookup ], [ 0, %if.end11.i.i ]
-  store i32 %retval.0.i.i.i, ptr %call8.i.i, align 8
+  store i32 %switch.load, ptr %call8.i.i, align 8
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie, ptr noundef nonnull %7, ptr noundef nonnull %call8.i.i, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %9 = load i32, ptr %status, align 4
   %cmp.i12.i.i = icmp slt i32 %9, 1
@@ -4320,12 +4314,12 @@ for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UE
   %.pre.pre = load i32, ptr %status, align 4
   br label %_ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit
 
-for.body.backedge.i.i:                            ; preds = %for.inc.i.i, %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i
+for.body.backedge.i.i:                            ; preds = %for.inc.i.i, %if.end11.i.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   br label %for.body.i.i, !llvm.loop !22
 
-_ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
-  %10 = phi i32 [ %.pre.pre, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %9, %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i ]
+_ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %if.end11.i.i, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
+  %10 = phi i32 [ %.pre.pre, %for.inc.i.i._ZN6icu_756ZNames21addAsMetaZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %9, %if.end11.i.i ]
   %cmp.i11 = icmp slt i32 %10, 1
   br i1 %cmp.i11, label %while.cond.backedge, label %while.end27
 
@@ -4388,17 +4382,11 @@ if.end11.i.i25:                                   ; preds = %if.then7.i.i22
   store ptr null, ptr %mzID12.i.i26, align 8
   %tzID13.i.i27 = getelementptr inbounds i8, ptr %call8.i.i23, i64 8
   store ptr %14, ptr %tzID13.i.i27, align 8
-  %18 = icmp ult i64 %indvars.iv.i19, 7
-  br i1 %18, label %switch.lookup69, label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29
-
-switch.lookup69:                                  ; preds = %if.end11.i.i25
-  %switch.gep70 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %indvars.iv.i19
-  %switch.load71 = load i32, ptr %switch.gep70, align 4
-  br label %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29
-
-_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29: ; preds = %if.end11.i.i25, %switch.lookup69
-  %retval.0.i.i.i30 = phi i32 [ %switch.load71, %switch.lookup69 ], [ 0, %if.end11.i.i25 ]
-  store i32 %retval.0.i.i.i30, ptr %call8.i.i23, align 8
+  %sext71 = shl i64 %indvars.iv.i19, 32
+  %18 = ashr exact i64 %sext71, 32
+  %switch.gep69 = getelementptr inbounds [7 x i32], ptr @switch.table._ZN6icu_7517TimeZoneNamesImpl19addAllNamesIntoTrieER10UErrorCode.1, i64 0, i64 %18
+  %switch.load70 = load i32, ptr %switch.gep69, align 4
+  store i32 %switch.load70, ptr %call8.i.i23, align 8
   call void @_ZN6icu_7511TextTrieMap3putEPKDsPvR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %fNamesTrie22, ptr noundef nonnull %17, ptr noundef nonnull %call8.i.i23, ptr noundef nonnull align 4 dereferenceable(4) %status)
   %19 = load i32, ptr %status, align 4
   %cmp.i12.i.i31 = icmp slt i32 %19, 1
@@ -4414,12 +4402,12 @@ for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10
   %.pre55.pre = load i32, ptr %status, align 4
   br label %_ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit
 
-for.body.backedge.i.i34:                          ; preds = %for.inc.i.i43, %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29
+for.body.backedge.i.i34:                          ; preds = %for.inc.i.i43, %if.end11.i.i25
   %indvars.iv.next.i35 = add nuw nsw i64 %indvars.iv.i19, 1
   br label %for.body.i.i18, !llvm.loop !22
 
-_ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
-  %20 = phi i32 [ %.pre55.pre, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %19, %_ZN6icu_756ZNames13getTZNameTypeENS_22UTimeZoneNameTypeIndexE.exit.i.i29 ]
+_ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit: ; preds = %if.end11.i.i25, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge
+  %20 = phi i32 [ %.pre55.pre, %for.inc.i.i43._ZN6icu_756ZNames21addAsTimeZoneIntoTrieEPKDsRNS_11TextTrieMapER10UErrorCode.exit.loopexit_crit_edge ], [ %19, %if.end11.i.i25 ]
   %cmp.i45 = icmp slt i32 %20, 1
   br i1 %cmp.i45, label %while.cond11.backedge, label %while.end27
 

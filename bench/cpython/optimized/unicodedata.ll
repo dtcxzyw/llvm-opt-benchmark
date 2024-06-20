@@ -3466,13 +3466,13 @@ while.end:                                        ; preds = %if.end56
   br i1 %op.rdx133, label %return.sink.split, label %return
 
 if.end61:                                         ; preds = %if.end17
-  %cmp112.not.i = icmp eq i32 %namelen, 0
-  br i1 %cmp112.not.i, label %for.cond.i.i41.preheader.i, label %for.cond.i.i.preheader.i
+  %cmp111.not.i = icmp eq i32 %namelen, 0
+  br i1 %cmp111.not.i, label %for.cond.i.i41.preheader.i, label %for.cond.i.i.preheader.i
 
 for.cond.i.i.preheader.i:                         ; preds = %if.end61, %if.then8.i
-  %stringpos.0115.i = phi i32 [ %add.i238092.i, %if.then8.i ], [ 0, %if.end61 ]
-  %result.0114.i = phi i32 [ %spec.select.i, %if.then8.i ], [ 0, %if.end61 ]
-  %node_offset.0113.i = phi i32 [ %add.i.i, %if.then8.i ], [ 0, %if.end61 ]
+  %stringpos.0114.i = phi i32 [ %add.i238092.i, %if.then8.i ], [ 0, %if.end61 ]
+  %result.0113.i = phi i32 [ %spec.select.i, %if.then8.i ], [ 0, %if.end61 ]
+  %node_offset.0112.i = phi i32 [ %add.i.i, %if.then8.i ], [ 0, %if.end61 ]
   br label %for.cond.i.i.i
 
 for.cond.i.i41.preheader.i:                       ; preds = %if.then8.i, %if.end61
@@ -3483,7 +3483,7 @@ for.cond.i.i41.preheader.i:                       ; preds = %if.then8.i, %if.end
 for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %for.cond.i.i.preheader.i
   %res.0.i.i.i = phi i32 [ %or.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.i.i.preheader.i ]
   %shift.0.i.i.i = phi i32 [ %add.i.i.i, %for.cond.i.i.i ], [ 0, %for.cond.i.i.preheader.i ]
-  %index.addr.0.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ %node_offset.0113.i, %for.cond.i.i.preheader.i ]
+  %index.addr.0.i.i.i = phi i32 [ %inc.i.i.i, %for.cond.i.i.i ], [ %node_offset.0112.i, %for.cond.i.i.preheader.i ]
   %idxprom.i.i.i = zext i32 %index.addr.0.i.i.i to i64
   %arrayidx.i.i.i = getelementptr [162032 x i8], ptr @packed_name_dawg, i64 0, i64 %idxprom.i.i.i
   %23 = load i8, ptr %arrayidx.i.i.i, align 1
@@ -3497,11 +3497,11 @@ for.cond.i.i.i:                                   ; preds = %for.cond.i.i.i, %fo
   br i1 %tobool.not.i.i.i, label %for.cond.preheader.i, label %for.cond.i.i.i
 
 for.cond.preheader.i:                             ; preds = %for.cond.i.i.i
-  %add.i2372.i = add i32 %stringpos.0115.i, 1
+  %add.i2372.i = add i32 %stringpos.0114.i, 1
   br label %for.cond.i
 
 for.cond.i:                                       ; preds = %_dawg_node_descendant_count.exit.i, %for.cond.preheader.i
-  %result.1.i = phi i32 [ %add18.i, %_dawg_node_descendant_count.exit.i ], [ %result.0114.i, %for.cond.preheader.i ]
+  %result.1.i = phi i32 [ %add18.i, %_dawg_node_descendant_count.exit.i ], [ %result.0113.i, %for.cond.preheader.i ]
   %edge_offset.0.i = phi i32 [ %add19.i, %_dawg_node_descendant_count.exit.i ], [ %inc.i.i.i, %for.cond.preheader.i ]
   %prev_target_node_offset.0.i = phi i32 [ %add.i.i, %_dawg_node_descendant_count.exit.i ], [ %inc.i.i.i, %for.cond.preheader.i ]
   %is_first_edge.0.i = phi i1 [ false, %_dawg_node_descendant_count.exit.i ], [ true, %for.cond.preheader.i ]
@@ -3543,7 +3543,7 @@ if.end.i75:                                       ; preds = %if.end.i.i
   %28 = load i8, ptr %arrayidx.i.i, align 1
   %conv.i.i = zext i8 %28 to i32
   %cmp.i22.i = icmp ugt i8 %28, 1
-  %add.i23.i = add i32 %stringpos.0115.i, %conv.i.i
+  %add.i23.i = add i32 %stringpos.0114.i, %conv.i.i
   %cmp1.i.i = icmp ugt i32 %add.i23.i, %namelen
   %or.cond.i.i = and i1 %cmp.i22.i, %cmp1.i.i
   br i1 %or.cond.i.i, label %if.end13.i, label %for.cond.preheader.i.i
@@ -3566,7 +3566,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %idxprom.i24.i = zext i32 %add3.i.i to i64
   %arrayidx.i25.i = getelementptr [162032 x i8], ptr @packed_name_dawg, i64 0, i64 %idxprom.i24.i
   %30 = load i8, ptr %arrayidx.i25.i, align 1
-  %add4.i.i = add i32 %stringpos.0115.i, %29
+  %add4.i.i = add i32 %stringpos.0114.i, %29
   %idxprom5.i.i = zext i32 %add4.i.i to i64
   %arrayidx6.i.i = getelementptr i8, ptr %name, i64 %idxprom5.i.i
   %31 = load i8, ptr %arrayidx6.i.i, align 1
@@ -3582,8 +3582,8 @@ for.inc.i.i:                                      ; preds = %for.body.i.i
   br i1 %exitcond.not.i.i, label %if.then8.i, label %for.body.i.i, !llvm.loop !11
 
 _dawg_match_edge.exit.i:                          ; preds = %for.body.i.i
-  %cmp15.not.i.not.not.i = icmp eq i64 %indvars.iv.i.i, 0
-  br i1 %cmp15.not.i.not.not.i, label %if.end13.i, label %return
+  %cmp15.not.i.not.i = icmp eq i64 %indvars.iv.i.i, 0
+  br i1 %cmp15.not.i.not.i, label %if.end13.i, label %return
 
 if.then8.i:                                       ; preds = %for.cond.preheader.i.i, %for.inc.i.i
   %add.i238092.i = phi i32 [ %add.i237985.i, %for.inc.i.i ], [ %add.i23.i, %for.cond.preheader.i.i ]

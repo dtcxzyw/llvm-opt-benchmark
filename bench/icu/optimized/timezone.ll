@@ -2249,9 +2249,9 @@ cleanup:                                          ; preds = %if.then
   br i1 %isnull.i58, label %return, label %_ZN6icu_7512LocalPointerINS_14TimeZoneFormatEED2Ev.exit62
 
 _ZN6icu_7512LocalPointerINS_14TimeZoneFormatEED2Ev.exit62.thread: ; preds = %if.then49, %if.else, %lor.lhs.false30
-  %vtable.i60133 = load ptr, ptr %call5, align 8
-  %vfn.i61134 = getelementptr inbounds i8, ptr %vtable.i60133, i64 8
-  %12 = load ptr, ptr %vfn.i61134, align 8
+  %vtable.i60134 = load ptr, ptr %call5, align 8
+  %vfn.i61135 = getelementptr inbounds i8, ptr %vtable.i60134, i64 8
+  %12 = load ptr, ptr %vfn.i61135, align 8
   call void %12(ptr noundef nonnull align 8 dereferenceable(1328) %call5) #18
   br label %if.end193
 
@@ -2338,10 +2338,8 @@ cond.false92:                                     ; preds = %invoke.cont79, %if.
 
 cond.end97:                                       ; preds = %cond.false92, %invoke.cont89
   %cond98 = phi i32 [ %add91, %invoke.cont89 ], [ %call96, %cond.false92 ]
-  switch i32 %style, label %sw.default109 [
-    i32 6, label %sw.bb99
-    i32 5, label %sw.bb104
-  ]
+  %switch133 = icmp eq i32 %style, 6
+  br i1 %switch133, label %sw.bb99, label %sw.bb104
 
 sw.bb99:                                          ; preds = %cond.end97
   %call103 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetLocalizedGMTEiRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %call66, i32 noundef %cond98, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -2350,10 +2348,6 @@ sw.bb99:                                          ; preds = %cond.end97
 sw.bb104:                                         ; preds = %cond.end97
   %call108 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7514TimeZoneFormat24formatOffsetISO8601BasicEiaaaRNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(1328) %call66, i32 noundef %cond98, i8 noundef signext 0, i8 noundef signext 0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %result, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %cleanup111 unwind label %lpad67
-
-sw.default109:                                    ; preds = %cond.end97
-  call void @abort() #19
-  unreachable
 
 cleanup111:                                       ; preds = %if.then71, %sw.bb99, %sw.bb104
   %isnull.i74 = icmp eq ptr %call66, null
@@ -2509,9 +2503,9 @@ delete.notnull.i92:                               ; preds = %if.end186
 
 _ZN6icu_7512LocalPointerINS_13TimeZoneNamesEED2Ev.exit.thread: ; preds = %delete.notnull.i92, %if.end186, %invoke.cont140
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %canonicalID) #18
-  %vtable.i98135 = load ptr, ptr %call123, align 8
-  %vfn.i99136 = getelementptr inbounds i8, ptr %vtable.i98135, i64 8
-  %37 = load ptr, ptr %vfn.i99136, align 8
+  %vtable.i98136 = load ptr, ptr %call123, align 8
+  %vfn.i99137 = getelementptr inbounds i8, ptr %vtable.i98136, i64 8
+  %37 = load ptr, ptr %vfn.i99137, align 8
   call void %37(ptr noundef nonnull align 8 dereferenceable(8) %call123) #18
   br label %if.end193
 

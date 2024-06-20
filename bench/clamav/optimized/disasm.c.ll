@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [112 x i8] c"(x86ops[table][s->table_op].ssize == SIZE_BYTE || x86ops[table][s->table_op].ssize == SIZE_WD) && s->adsize < 2\00", align 1
 @.str.20 = private unnamed_addr constant [23 x i8] c"s->args[1].size != 255\00", align 1
 @.str.21 = private unnamed_addr constant [22 x i8] c"\22BAD SRC METHOD\22 == 0\00", align 1
-@.str.22 = private unnamed_addr constant [21 x i8] c"\22INVALID STATE\22 == 0\00", align 1
 @x87_st = internal unnamed_addr constant <{ [64 x %struct.anon.0], [64 x %struct.anon.0], <{ [42 x %struct.anon.0], [22 x %struct.anon.0] }>, <{ [56 x %struct.anon.0], [8 x %struct.anon.0] }>, [64 x %struct.anon.0], <{ [48 x %struct.anon.0], [16 x %struct.anon.0] }>, [64 x %struct.anon.0], <{ [56 x %struct.anon.0], [8 x %struct.anon.0] }> }> <{ [64 x %struct.anon.0] [%struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 203, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 253, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 217, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 220, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 272, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 274, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 224, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }, %struct.anon.0 { i32 226, i32 2 }], [64 x %struct.anon.0] [%struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 243, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 283, i32 2 }, %struct.anon.0 { i32 255, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 207, i32 0 }, %struct.anon.0 { i32 202, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 276, i32 0 }, %struct.anon.0 { i32 282, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 244, i32 0 }, %struct.anon.0 { i32 248, i32 0 }, %struct.anon.0 { i32 247, i32 0 }, %struct.anon.0 { i32 251, i32 0 }, %struct.anon.0 { i32 249, i32 0 }, %struct.anon.0 { i32 250, i32 0 }, %struct.anon.0 { i32 252, i32 2 }, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 201, i32 0 }, %struct.anon.0 { i32 285, i32 0 }, %struct.anon.0 { i32 259, i32 0 }, %struct.anon.0 { i32 256, i32 0 }, %struct.anon.0 { i32 284, i32 0 }, %struct.anon.0 { i32 258, i32 0 }, %struct.anon.0 { i32 223, i32 0 }, %struct.anon.0 { i32 236, i32 0 }, %struct.anon.0 { i32 257, i32 0 }, %struct.anon.0 { i32 286, i32 0 }, %struct.anon.0 { i32 265, i32 0 }, %struct.anon.0 { i32 264, i32 0 }, %struct.anon.0 { i32 260, i32 0 }, %struct.anon.0 { i32 262, i32 0 }, %struct.anon.0 { i32 263, i32 0 }, %struct.anon.0 { i32 222, i32 0 }], <{ [42 x %struct.anon.0], [22 x %struct.anon.0] }> <{ [42 x %struct.anon.0] [%struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 209, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 211, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 210, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 { i32 216, i32 2 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 281, i32 0 }], [22 x %struct.anon.0] zeroinitializer }>, <{ [56 x %struct.anon.0], [8 x %struct.anon.0] }> <{ [56 x %struct.anon.0] [%struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 212, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 214, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 213, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 { i32 215, i32 2 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 208, i32 0 }, %struct.anon.0 { i32 237, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 278, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }, %struct.anon.0 { i32 218, i32 2 }], [8 x %struct.anon.0] zeroinitializer }>, [64 x %struct.anon.0] [%struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 203, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 { i32 253, i32 3 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 274, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 272, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 226, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }, %struct.anon.0 { i32 224, i32 3 }], <{ [48 x %struct.anon.0], [16 x %struct.anon.0] }> <{ [48 x %struct.anon.0] [%struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 { i32 228, i32 1 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 267, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 270, i32 1 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 277, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }, %struct.anon.0 { i32 280, i32 3 }], [16 x %struct.anon.0] zeroinitializer }>, [64 x %struct.anon.0] [%struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 204, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 { i32 254, i32 3 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 221, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 275, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 273, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 227, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }, %struct.anon.0 { i32 225, i32 3 }], <{ [56 x %struct.anon.0], [8 x %struct.anon.0] }> <{ [56 x %struct.anon.0] [%struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 271, i32 0 }, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 zeroinitializer, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 279, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }, %struct.anon.0 { i32 219, i32 2 }], [8 x %struct.anon.0] zeroinitializer }> }>, align 16
 @mnemonic = internal unnamed_addr constant [287 x ptr] [ptr @.str.36, ptr @.str.37, ptr @.str.38, ptr @.str.39, ptr @.str.40, ptr @.str.41, ptr @.str.42, ptr @.str.43, ptr @.str.44, ptr @.str.45, ptr @.str.46, ptr @.str.47, ptr @.str.48, ptr @.str.49, ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55, ptr @.str.56, ptr @.str.57, ptr @.str.58, ptr @.str.59, ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65, ptr @.str.66, ptr @.str.67, ptr @.str.68, ptr @.str.69, ptr @.str.70, ptr @.str.71, ptr @.str.72, ptr @.str.73, ptr @.str.74, ptr @.str.75, ptr @.str.76, ptr @.str.77, ptr @.str.78, ptr @.str.79, ptr @.str.80, ptr @.str.81, ptr @.str.82, ptr @.str.83, ptr @.str.84, ptr @.str.85, ptr @.str.86, ptr @.str.87, ptr @.str.88, ptr @.str.89, ptr @.str.90, ptr @.str.91, ptr @.str.92, ptr @.str.93, ptr @.str.94, ptr @.str.95, ptr @.str.96, ptr @.str.97, ptr @.str.98, ptr @.str.99, ptr @.str.100, ptr @.str.101, ptr @.str.102, ptr @.str.103, ptr @.str.104, ptr @.str.105, ptr @.str.106, ptr @.str.107, ptr @.str.108, ptr @.str.109, ptr @.str.110, ptr @.str.111, ptr @.str.112, ptr @.str.113, ptr @.str.114, ptr @.str.115, ptr @.str.116, ptr @.str.117, ptr @.str.118, ptr @.str.119, ptr @.str.120, ptr @.str.121, ptr @.str.122, ptr @.str.123, ptr @.str.124, ptr @.str.125, ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137, ptr @.str.138, ptr @.str.139, ptr @.str.140, ptr @.str.141, ptr @.str.142, ptr @.str.143, ptr @.str.144, ptr @.str.145, ptr @.str.146, ptr @.str.147, ptr @.str.148, ptr @.str.149, ptr @.str.150, ptr @.str.151, ptr @.str.152, ptr @.str.153, ptr @.str.154, ptr @.str.155, ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169, ptr @.str.170, ptr @.str.171, ptr @.str.172, ptr @.str.173, ptr @.str.174, ptr @.str.175, ptr @.str.176, ptr @.str.177, ptr @.str.178, ptr @.str.179, ptr @.str.180, ptr @.str.181, ptr @.str.182, ptr @.str.183, ptr @.str.184, ptr @.str.185, ptr @.str.186, ptr @.str.187, ptr @.str.188, ptr @.str.189, ptr @.str.190, ptr @.str.191, ptr @.str.192, ptr @.str.193, ptr @.str.194, ptr @.str.195, ptr @.str.196, ptr @.str.197, ptr @.str.198, ptr @.str.199, ptr @.str.200, ptr @.str.201, ptr @.str.202, ptr @.str.203, ptr @.str.204, ptr @.str.205, ptr @.str.206, ptr @.str.207, ptr @.str.208, ptr @.str.209, ptr @.str.210, ptr @.str.211, ptr @.str.212, ptr @.str.213, ptr @.str.214, ptr @.str.215, ptr @.str.216, ptr @.str.217, ptr @.str.218, ptr @.str.219, ptr @.str.220, ptr @.str.221, ptr @.str.222, ptr @.str.223, ptr @.str.224, ptr @.str.225, ptr @.str.226, ptr @.str.227, ptr @.str.228, ptr @.str.229, ptr @.str.230, ptr @.str.231, ptr @.str.232, ptr @.str.233, ptr @.str.234, ptr @.str.235, ptr @.str.236, ptr @.str.237, ptr @.str.238, ptr @.str.239, ptr @.str.240, ptr @.str.241, ptr @.str.242, ptr @.str.243, ptr @.str.244, ptr @.str.245, ptr @.str.246, ptr @.str.247, ptr @.str.248, ptr @.str.249, ptr @.str.250, ptr @.str.251, ptr @.str.252, ptr @.str.253, ptr @.str.254, ptr @.str.255, ptr @.str.256, ptr @.str.257, ptr @.str.258, ptr @.str.259, ptr @.str.260, ptr @.str.261, ptr @.str.262, ptr @.str.263, ptr @.str.264, ptr @.str.265, ptr @.str.266, ptr @.str.267, ptr @.str.268, ptr @.str.269, ptr @.str.270, ptr @.str.271, ptr @.str.272, ptr @.str.273, ptr @.str.274, ptr @.str.275, ptr @.str.276, ptr @.str.277, ptr @.str.278, ptr @.str.279, ptr @.str.280, ptr @.str.281, ptr @.str.282, ptr @.str.283, ptr @.str.284, ptr @.str.285, ptr @.str.286, ptr @.str.287, ptr @.str.288, ptr @.str.289, ptr @.str.290, ptr @.str.291, ptr @.str.292, ptr @.str.293, ptr @.str.294, ptr @.str.295, ptr @.str.296, ptr @.str.297, ptr @.str.298, ptr @.str.299, ptr @.str.300, ptr @.str.301, ptr @.str.302, ptr @.str.303, ptr @.str.304, ptr @.str.305, ptr @.str.306, ptr @.str.307, ptr @.str.308, ptr @.str.309, ptr @.str.310, ptr @.str.311, ptr @.str.312, ptr @.str.313, ptr @.str.314, ptr @.str.315, ptr @.str.316, ptr @.str.317, ptr @.str.318, ptr @.str.319, ptr @.str.320, ptr @.str.321, ptr @.str.322], align 16
 @.str.24 = private unnamed_addr constant [7 x i8] c"%s %lx\00", align 1
@@ -465,7 +464,7 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %.0523.i = phi i32 [ 0, %4 ], [ %.0523.i.be, %.backedge.i.backedge ]
   %.0510.i = phi i32 [ %1, %4 ], [ %.0510.i.be, %.backedge.i.backedge ]
   %.0509.i = phi ptr [ %0, %4 ], [ %.0509.i.be, %.backedge.i.backedge ]
-  switch i32 %.pr843.i, label %599 [
+  switch i32 %.pr843.i, label %default.unreachable.i [
     i32 0, label %47
     i32 3, label %72
     i32 1, label %189
@@ -1740,284 +1739,283 @@ define ptr @cli_disasm_one(ptr noundef readonly %0, i32 noundef %1, ptr nocaptur
   %598 = icmp eq i16 %46, 0
   %.not = icmp eq ptr %.0509.i, null
   %or.cond = select i1 %598, i1 true, i1 %.not
-  br i1 %or.cond, label %.loopexit, label %600
+  br i1 %or.cond, label %.loopexit, label %599
 
-599:                                              ; preds = %.backedge.i
-  tail call void @__assert_fail(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.2, i32 noundef 1715, ptr noundef nonnull @__PRETTY_FUNCTION__.disasm_x86) #9
+default.unreachable.i:                            ; preds = %.backedge.i
   unreachable
 
-600:                                              ; preds = %597
+599:                                              ; preds = %597
   %.not44 = icmp eq i32 %3, 0
-  br i1 %.not44, label %704, label %601
+  br i1 %.not44, label %703, label %600
 
-601:                                              ; preds = %600
+600:                                              ; preds = %599
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
   store i16 0, ptr %5, align 2
-  %602 = zext i16 %28 to i64
-  %603 = getelementptr inbounds [287 x ptr], ptr @mnemonic, i64 0, i64 %602
-  %604 = load ptr, ptr %603, align 8
-  %605 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %604) #10
-  %606 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
-  %607 = getelementptr inbounds i8, ptr %7, i64 %606
-  br label %608
+  %601 = zext i16 %28 to i64
+  %602 = getelementptr inbounds [287 x ptr], ptr @mnemonic, i64 0, i64 %601
+  %603 = load ptr, ptr %602, align 8
+  %604 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %603) #10
+  %605 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #11
+  %606 = getelementptr inbounds i8, ptr %7, i64 %605
+  br label %607
 
-608:                                              ; preds = %703, %601
-  %indvars.iv.i45 = phi i64 [ 0, %601 ], [ %indvars.iv.next.i46, %703 ]
-  %.06980.i = phi ptr [ %607, %601 ], [ %.5.i, %703 ]
-  %609 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv.i45
-  %610 = load i32, ptr %609, align 8
-  switch i32 %610, label %703 [
-    i32 4, label %634
-    i32 1, label %611
-    i32 2, label %611
-    i32 3, label %625
+607:                                              ; preds = %702, %600
+  %indvars.iv.i45 = phi i64 [ 0, %600 ], [ %indvars.iv.next.i46, %702 ]
+  %.06980.i = phi ptr [ %606, %600 ], [ %.5.i, %702 ]
+  %608 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv.i45
+  %609 = load i32, ptr %608, align 8
+  switch i32 %609, label %702 [
+    i32 4, label %633
+    i32 1, label %610
+    i32 2, label %610
+    i32 3, label %624
   ]
 
-611:                                              ; preds = %608, %608
-  %612 = getelementptr inbounds i8, ptr %609, i64 16
-  %613 = load i64, ptr %612, align 8
-  %614 = icmp sgt i64 %613, -1
-  br i1 %614, label %615, label %619
+610:                                              ; preds = %607, %607
+  %611 = getelementptr inbounds i8, ptr %608, i64 16
+  %612 = load i64, ptr %611, align 8
+  %613 = icmp sgt i64 %612, -1
+  br i1 %613, label %614, label %618
 
-615:                                              ; preds = %611
-  %616 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %5, i64 noundef %613) #10
-  %617 = sext i32 %616 to i64
-  %618 = getelementptr inbounds i8, ptr %.06980.i, i64 %617
-  br label %703
+614:                                              ; preds = %610
+  %615 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.24, ptr noundef nonnull %5, i64 noundef %612) #10
+  %616 = sext i32 %615 to i64
+  %617 = getelementptr inbounds i8, ptr %.06980.i, i64 %616
+  br label %702
 
-619:                                              ; preds = %611
-  %620 = trunc i64 %613 to i32
-  %621 = sub nsw i32 0, %620
-  %622 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %5, i32 noundef %621) #10
-  %623 = sext i32 %622 to i64
-  %624 = getelementptr inbounds i8, ptr %.06980.i, i64 %623
-  br label %703
+618:                                              ; preds = %610
+  %619 = trunc i64 %612 to i32
+  %620 = sub nsw i32 0, %619
+  %621 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %5, i32 noundef %620) #10
+  %622 = sext i32 %621 to i64
+  %623 = getelementptr inbounds i8, ptr %.06980.i, i64 %622
+  br label %702
 
-625:                                              ; preds = %608
-  %626 = getelementptr inbounds i8, ptr %609, i64 8
-  %627 = load i32, ptr %626, align 8
-  %628 = zext i32 %627 to i64
-  %629 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %628
-  %630 = load ptr, ptr %629, align 8
-  %631 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %630) #10
-  %632 = sext i32 %631 to i64
-  %633 = getelementptr inbounds i8, ptr %.06980.i, i64 %632
-  br label %703
+624:                                              ; preds = %607
+  %625 = getelementptr inbounds i8, ptr %608, i64 8
+  %626 = load i32, ptr %625, align 8
+  %627 = zext i32 %626 to i64
+  %628 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %627
+  %629 = load ptr, ptr %628, align 8
+  %630 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.26, ptr noundef nonnull %5, ptr noundef %629) #10
+  %631 = sext i32 %630 to i64
+  %632 = getelementptr inbounds i8, ptr %.06980.i, i64 %631
+  br label %702
 
-634:                                              ; preds = %608
-  %635 = getelementptr inbounds i8, ptr %609, i64 4
-  %636 = load i32, ptr %635, align 4
-  %637 = zext i32 %636 to i64
-  %638 = getelementptr inbounds [7 x ptr], ptr @dis_size, i64 0, i64 %637
-  %639 = load ptr, ptr %638, align 8
-  %640 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %639) #10
-  %641 = sext i32 %640 to i64
-  %642 = getelementptr inbounds i8, ptr %.06980.i, i64 %641
-  %643 = load i32, ptr %26, align 8
-  %.not.i48 = icmp eq i32 %643, 0
-  br i1 %.not.i48, label %651, label %644
+633:                                              ; preds = %607
+  %634 = getelementptr inbounds i8, ptr %608, i64 4
+  %635 = load i32, ptr %634, align 4
+  %636 = zext i32 %635 to i64
+  %637 = getelementptr inbounds [7 x ptr], ptr @dis_size, i64 0, i64 %636
+  %638 = load ptr, ptr %637, align 8
+  %639 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.06980.i, ptr noundef nonnull dereferenceable(1) @.str.28, ptr noundef nonnull %5, ptr noundef %638) #10
+  %640 = sext i32 %639 to i64
+  %641 = getelementptr inbounds i8, ptr %.06980.i, i64 %640
+  %642 = load i32, ptr %26, align 8
+  %.not.i48 = icmp eq i32 %642, 0
+  br i1 %.not.i48, label %650, label %643
 
-644:                                              ; preds = %634
-  %645 = zext i32 %643 to i64
-  %646 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %645
-  %647 = load ptr, ptr %646, align 8
-  %648 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %642, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %647) #10
-  %649 = sext i32 %648 to i64
-  %650 = getelementptr inbounds i8, ptr %642, i64 %649
-  br label %651
+643:                                              ; preds = %633
+  %644 = zext i32 %642 to i64
+  %645 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %644
+  %646 = load ptr, ptr %645, align 8
+  %647 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %641, ptr noundef nonnull dereferenceable(1) @.str.29, ptr noundef %646) #10
+  %648 = sext i32 %647 to i64
+  %649 = getelementptr inbounds i8, ptr %641, i64 %648
+  br label %650
 
-651:                                              ; preds = %644, %634
-  %.170.i = phi ptr [ %650, %644 ], [ %642, %634 ]
-  %652 = getelementptr inbounds i8, ptr %.170.i, i64 1
+650:                                              ; preds = %643, %633
+  %.170.i = phi ptr [ %649, %643 ], [ %641, %633 ]
+  %651 = getelementptr inbounds i8, ptr %.170.i, i64 1
   store i8 91, ptr %.170.i, align 1
-  store i8 0, ptr %652, align 1
-  %653 = getelementptr inbounds i8, ptr %609, i64 16
-  %654 = load i32, ptr %653, align 8
-  %.not77.i = icmp eq i32 %654, 54
-  br i1 %.not77.i, label %675, label %655
+  store i8 0, ptr %651, align 1
+  %652 = getelementptr inbounds i8, ptr %608, i64 16
+  %653 = load i32, ptr %652, align 8
+  %.not77.i = icmp eq i32 %653, 54
+  br i1 %.not77.i, label %674, label %654
 
-655:                                              ; preds = %651
-  %656 = getelementptr inbounds i8, ptr %609, i64 24
-  %657 = load i8, ptr %656, align 8
-  switch i8 %657, label %667 [
-    i8 1, label %658
-    i8 0, label %675
+654:                                              ; preds = %650
+  %655 = getelementptr inbounds i8, ptr %608, i64 24
+  %656 = load i8, ptr %655, align 8
+  switch i8 %656, label %666 [
+    i8 1, label %657
+    i8 0, label %674
   ]
 
-658:                                              ; preds = %655
-  %659 = zext i32 %654 to i64
-  %660 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %659
-  %661 = load ptr, ptr %660, align 8
-  %stpcpy.i = call ptr @stpcpy(ptr nonnull %652, ptr %661)
-  %662 = ptrtoint ptr %stpcpy.i to i64
-  %663 = ptrtoint ptr %652 to i64
-  %664 = sub i64 %662, %663
-  %sext.i = shl i64 %664, 32
-  %665 = ashr exact i64 %sext.i, 32
-  %666 = getelementptr inbounds i8, ptr %652, i64 %665
-  br label %675
+657:                                              ; preds = %654
+  %658 = zext i32 %653 to i64
+  %659 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %658
+  %660 = load ptr, ptr %659, align 8
+  %stpcpy.i = call ptr @stpcpy(ptr nonnull %651, ptr %660)
+  %661 = ptrtoint ptr %stpcpy.i to i64
+  %662 = ptrtoint ptr %651 to i64
+  %663 = sub i64 %661, %662
+  %sext.i = shl i64 %663, 32
+  %664 = ashr exact i64 %sext.i, 32
+  %665 = getelementptr inbounds i8, ptr %651, i64 %664
+  br label %674
 
-667:                                              ; preds = %655
-  %668 = zext i8 %657 to i32
-  %669 = zext i32 %654 to i64
-  %670 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %669
-  %671 = load ptr, ptr %670, align 8
-  %672 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %652, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %671, i32 noundef %668) #10
-  %673 = sext i32 %672 to i64
-  %674 = getelementptr inbounds i8, ptr %652, i64 %673
-  br label %675
+666:                                              ; preds = %654
+  %667 = zext i8 %656 to i32
+  %668 = zext i32 %653 to i64
+  %669 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %668
+  %670 = load ptr, ptr %669, align 8
+  %671 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %651, ptr noundef nonnull dereferenceable(1) @.str.32, ptr noundef %670, i32 noundef %667) #10
+  %672 = sext i32 %671 to i64
+  %673 = getelementptr inbounds i8, ptr %651, i64 %672
+  br label %674
 
-675:                                              ; preds = %667, %658, %655, %651
-  %.2.i = phi ptr [ %674, %667 ], [ %652, %655 ], [ %666, %658 ], [ %652, %651 ]
-  %.0.i49 = phi ptr [ @.str.31, %667 ], [ @.str.27, %655 ], [ @.str.31, %658 ], [ @.str.27, %651 ]
-  %676 = getelementptr inbounds i8, ptr %609, i64 20
-  %677 = load i32, ptr %676, align 4
-  %.not78.i = icmp eq i32 %677, 54
-  br i1 %.not78.i, label %685, label %678
+674:                                              ; preds = %666, %657, %654, %650
+  %.2.i = phi ptr [ %673, %666 ], [ %651, %654 ], [ %665, %657 ], [ %651, %650 ]
+  %.0.i49 = phi ptr [ @.str.31, %666 ], [ @.str.27, %654 ], [ @.str.31, %657 ], [ @.str.27, %650 ]
+  %675 = getelementptr inbounds i8, ptr %608, i64 20
+  %676 = load i32, ptr %675, align 4
+  %.not78.i = icmp eq i32 %676, 54
+  br i1 %.not78.i, label %684, label %677
 
-678:                                              ; preds = %675
-  %679 = zext i32 %677 to i64
-  %680 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %679
-  %681 = load ptr, ptr %680, align 8
-  %682 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.2.i, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i49, ptr noundef %681) #10
-  %683 = sext i32 %682 to i64
-  %684 = getelementptr inbounds i8, ptr %.2.i, i64 %683
-  br label %685
+677:                                              ; preds = %674
+  %678 = zext i32 %676 to i64
+  %679 = getelementptr inbounds [55 x ptr], ptr @x86regs, i64 0, i64 %678
+  %680 = load ptr, ptr %679, align 8
+  %681 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.2.i, ptr noundef nonnull dereferenceable(1) @.str.33, ptr noundef nonnull %.0.i49, ptr noundef %680) #10
+  %682 = sext i32 %681 to i64
+  %683 = getelementptr inbounds i8, ptr %.2.i, i64 %682
+  br label %684
 
-685:                                              ; preds = %678, %675
-  %.3.i = phi ptr [ %684, %678 ], [ %.2.i, %675 ]
-  %.1.i50 = phi ptr [ @.str.31, %678 ], [ %.0.i49, %675 ]
-  %686 = getelementptr inbounds i8, ptr %609, i64 28
-  %687 = load i32, ptr %686, align 4
-  %.not79.i = icmp eq i32 %687, 0
-  br i1 %.not79.i, label %701, label %688
+684:                                              ; preds = %677, %674
+  %.3.i = phi ptr [ %683, %677 ], [ %.2.i, %674 ]
+  %.1.i50 = phi ptr [ @.str.31, %677 ], [ %.0.i49, %674 ]
+  %685 = getelementptr inbounds i8, ptr %608, i64 28
+  %686 = load i32, ptr %685, align 4
+  %.not79.i = icmp eq i32 %686, 0
+  br i1 %.not79.i, label %700, label %687
 
-688:                                              ; preds = %685
-  %689 = load i8, ptr %.1.i50, align 1
-  %690 = icmp eq i8 %689, 43
-  %691 = icmp slt i32 %687, 0
-  %or.cond.i51 = and i1 %691, %690
-  br i1 %or.cond.i51, label %692, label %697
+687:                                              ; preds = %684
+  %688 = load i8, ptr %.1.i50, align 1
+  %689 = icmp eq i8 %688, 43
+  %690 = icmp slt i32 %686, 0
+  %or.cond.i51 = and i1 %690, %689
+  br i1 %or.cond.i51, label %691, label %696
 
-692:                                              ; preds = %688
-  %693 = sub nsw i32 0, %687
-  %694 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %693) #10
-  %695 = sext i32 %694 to i64
-  %696 = getelementptr inbounds i8, ptr %.3.i, i64 %695
-  br label %701
+691:                                              ; preds = %687
+  %692 = sub nsw i32 0, %686
+  %693 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.34, i32 noundef %692) #10
+  %694 = sext i32 %693 to i64
+  %695 = getelementptr inbounds i8, ptr %.3.i, i64 %694
+  br label %700
 
-697:                                              ; preds = %688
-  %698 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %.1.i50, i32 noundef %687) #10
-  %699 = sext i32 %698 to i64
-  %700 = getelementptr inbounds i8, ptr %.3.i, i64 %699
-  br label %701
+696:                                              ; preds = %687
+  %697 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.3.i, ptr noundef nonnull dereferenceable(1) @.str.35, ptr noundef nonnull %.1.i50, i32 noundef %686) #10
+  %698 = sext i32 %697 to i64
+  %699 = getelementptr inbounds i8, ptr %.3.i, i64 %698
+  br label %700
 
-701:                                              ; preds = %697, %692, %685
-  %.4.i52 = phi ptr [ %696, %692 ], [ %700, %697 ], [ %.3.i, %685 ]
-  %702 = getelementptr inbounds i8, ptr %.4.i52, i64 1
+700:                                              ; preds = %696, %691, %684
+  %.4.i52 = phi ptr [ %695, %691 ], [ %699, %696 ], [ %.3.i, %684 ]
+  %701 = getelementptr inbounds i8, ptr %.4.i52, i64 1
   store i8 93, ptr %.4.i52, align 1
-  store i8 0, ptr %702, align 1
-  br label %703
+  store i8 0, ptr %701, align 1
+  br label %702
 
-703:                                              ; preds = %701, %625, %619, %615, %608
-  %.5.i = phi ptr [ %.06980.i, %608 ], [ %633, %625 ], [ %618, %615 ], [ %624, %619 ], [ %702, %701 ]
+702:                                              ; preds = %700, %624, %618, %614, %607
+  %.5.i = phi ptr [ %.06980.i, %607 ], [ %632, %624 ], [ %617, %614 ], [ %623, %618 ], [ %701, %700 ]
   store i8 44, ptr %5, align 2
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
   %exitcond.not.i47 = icmp eq i64 %indvars.iv.next.i46, 3
-  br i1 %exitcond.not.i47, label %spam_x86.exit, label %608
+  br i1 %exitcond.not.i47, label %spam_x86.exit, label %607
 
-spam_x86.exit:                                    ; preds = %703
+spam_x86.exit:                                    ; preds = %702
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str, ptr noundef nonnull %7) #10
   %.pre = load i16, ptr %23, align 2
   %.pre227 = load i32, ptr %13, align 8
   %.pre228 = load i32, ptr %12, align 4
   %.pre229 = load i32, ptr %26, align 8
-  br label %704
+  br label %703
 
-704:                                              ; preds = %spam_x86.exit, %600
-  %705 = phi i32 [ %.pre229, %spam_x86.exit ], [ %27, %600 ]
-  %706 = phi i32 [ %.pre228, %spam_x86.exit ], [ %29, %600 ]
-  %707 = phi i32 [ %.pre227, %spam_x86.exit ], [ %31, %600 ]
-  %708 = phi i16 [ %.pre, %spam_x86.exit ], [ %28, %600 ]
-  store i16 %708, ptr %2, align 2
-  %709 = trunc i32 %707 to i8
-  %710 = getelementptr inbounds i8, ptr %2, i64 2
-  store i8 %709, ptr %710, align 2
-  %711 = trunc i32 %706 to i8
-  %712 = getelementptr inbounds i8, ptr %2, i64 3
-  store i8 %711, ptr %712, align 1
-  %713 = trunc i32 %705 to i8
-  %714 = getelementptr inbounds i8, ptr %2, i64 4
-  store i8 %713, ptr %714, align 2
-  %715 = getelementptr inbounds i8, ptr %2, i64 5
-  br label %716
+703:                                              ; preds = %spam_x86.exit, %599
+  %704 = phi i32 [ %.pre229, %spam_x86.exit ], [ %27, %599 ]
+  %705 = phi i32 [ %.pre228, %spam_x86.exit ], [ %29, %599 ]
+  %706 = phi i32 [ %.pre227, %spam_x86.exit ], [ %31, %599 ]
+  %707 = phi i16 [ %.pre, %spam_x86.exit ], [ %28, %599 ]
+  store i16 %707, ptr %2, align 2
+  %708 = trunc i32 %706 to i8
+  %709 = getelementptr inbounds i8, ptr %2, i64 2
+  store i8 %708, ptr %709, align 2
+  %710 = trunc i32 %705 to i8
+  %711 = getelementptr inbounds i8, ptr %2, i64 3
+  store i8 %710, ptr %711, align 1
+  %712 = trunc i32 %704 to i8
+  %713 = getelementptr inbounds i8, ptr %2, i64 4
+  store i8 %712, ptr %713, align 2
+  %714 = getelementptr inbounds i8, ptr %2, i64 5
+  br label %715
 
-716:                                              ; preds = %704, %751
-  %indvars.iv = phi i64 [ 0, %704 ], [ %indvars.iv.next, %751 ]
-  %717 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv
-  %718 = load i32, ptr %717, align 8
-  %719 = trunc i32 %718 to i8
-  %720 = getelementptr inbounds [3 x [10 x i8]], ptr %715, i64 0, i64 %indvars.iv
-  store i8 %719, ptr %720, align 1
-  %721 = getelementptr inbounds i8, ptr %717, i64 4
-  %722 = load i32, ptr %721, align 4
-  %723 = trunc i32 %722 to i8
-  %724 = getelementptr inbounds i8, ptr %720, i64 1
-  store i8 %723, ptr %724, align 1
-  switch i32 %718, label %744 [
-    i32 4, label %725
-    i32 3, label %740
+715:                                              ; preds = %703, %750
+  %indvars.iv = phi i64 [ 0, %703 ], [ %indvars.iv.next, %750 ]
+  %716 = getelementptr inbounds [3 x %struct.DIS_ARGS], ptr %18, i64 0, i64 %indvars.iv
+  %717 = load i32, ptr %716, align 8
+  %718 = trunc i32 %717 to i8
+  %719 = getelementptr inbounds [3 x [10 x i8]], ptr %714, i64 0, i64 %indvars.iv
+  store i8 %718, ptr %719, align 1
+  %720 = getelementptr inbounds i8, ptr %716, i64 4
+  %721 = load i32, ptr %720, align 4
+  %722 = trunc i32 %721 to i8
+  %723 = getelementptr inbounds i8, ptr %719, i64 1
+  store i8 %722, ptr %723, align 1
+  switch i32 %717, label %743 [
+    i32 4, label %724
+    i32 3, label %739
   ]
 
-725:                                              ; preds = %716
-  %726 = getelementptr inbounds i8, ptr %717, i64 16
-  %727 = load i32, ptr %726, align 8
-  %728 = trunc i32 %727 to i8
-  %729 = getelementptr inbounds i8, ptr %720, i64 2
-  store i8 %728, ptr %729, align 1
-  %730 = getelementptr inbounds i8, ptr %717, i64 20
-  %731 = load i32, ptr %730, align 4
-  %732 = trunc i32 %731 to i8
-  %733 = getelementptr inbounds i8, ptr %720, i64 3
-  store i8 %732, ptr %733, align 1
-  %734 = getelementptr inbounds i8, ptr %717, i64 24
-  %735 = load i8, ptr %734, align 8
-  %736 = getelementptr inbounds i8, ptr %720, i64 4
-  store i8 %735, ptr %736, align 1
-  %737 = getelementptr inbounds i8, ptr %720, i64 5
-  store i8 0, ptr %737, align 1
-  %738 = getelementptr inbounds i8, ptr %717, i64 28
-  %739 = load i32, ptr %738, align 4
-  br label %751
+724:                                              ; preds = %715
+  %725 = getelementptr inbounds i8, ptr %716, i64 16
+  %726 = load i32, ptr %725, align 8
+  %727 = trunc i32 %726 to i8
+  %728 = getelementptr inbounds i8, ptr %719, i64 2
+  store i8 %727, ptr %728, align 1
+  %729 = getelementptr inbounds i8, ptr %716, i64 20
+  %730 = load i32, ptr %729, align 4
+  %731 = trunc i32 %730 to i8
+  %732 = getelementptr inbounds i8, ptr %719, i64 3
+  store i8 %731, ptr %732, align 1
+  %733 = getelementptr inbounds i8, ptr %716, i64 24
+  %734 = load i8, ptr %733, align 8
+  %735 = getelementptr inbounds i8, ptr %719, i64 4
+  store i8 %734, ptr %735, align 1
+  %736 = getelementptr inbounds i8, ptr %719, i64 5
+  store i8 0, ptr %736, align 1
+  %737 = getelementptr inbounds i8, ptr %716, i64 28
+  %738 = load i32, ptr %737, align 4
+  br label %750
 
-740:                                              ; preds = %716
-  %741 = getelementptr inbounds i8, ptr %717, i64 8
-  %742 = load i32, ptr %741, align 8
-  %743 = trunc i32 %742 to i8
-  store i8 %743, ptr %724, align 1
-  br label %744
+739:                                              ; preds = %715
+  %740 = getelementptr inbounds i8, ptr %716, i64 8
+  %741 = load i32, ptr %740, align 8
+  %742 = trunc i32 %741 to i8
+  store i8 %742, ptr %723, align 1
+  br label %743
 
-744:                                              ; preds = %740, %716
-  %745 = getelementptr inbounds i8, ptr %717, i64 16
-  %746 = load i64, ptr %745, align 8
-  %747 = trunc i64 %746 to i32
-  %748 = getelementptr inbounds i8, ptr %720, i64 2
-  store i32 %747, ptr %748, align 1
-  %749 = lshr i64 %746, 32
-  %750 = trunc nuw i64 %749 to i32
-  br label %751
+743:                                              ; preds = %739, %715
+  %744 = getelementptr inbounds i8, ptr %716, i64 16
+  %745 = load i64, ptr %744, align 8
+  %746 = trunc i64 %745 to i32
+  %747 = getelementptr inbounds i8, ptr %719, i64 2
+  store i32 %746, ptr %747, align 1
+  %748 = lshr i64 %745, 32
+  %749 = trunc nuw i64 %748 to i32
+  br label %750
 
-751:                                              ; preds = %725, %744
-  %.sink = phi i32 [ %739, %725 ], [ %750, %744 ]
-  %752 = getelementptr inbounds i8, ptr %720, i64 6
-  store i32 %.sink, ptr %752, align 1
+750:                                              ; preds = %724, %743
+  %.sink = phi i32 [ %738, %724 ], [ %749, %743 ]
+  %751 = getelementptr inbounds i8, ptr %719, i64 6
+  store i32 %.sink, ptr %751, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %.loopexit, label %716
+  br i1 %exitcond.not, label %.loopexit, label %715
 
-.loopexit:                                        ; preds = %456, %.lr.ph719.preheader.i, %.lr.ph730.preheader.i, %362, %338, %326, %326, %303, %274, %126, %109, %83, %77, %47, %.lr.ph.i, %.lr.ph702.i, %.lr.ph710.i, %.lr.ph740.i, %.lr.ph748.i, %.lr.ph755.i, %751, %597
-  %.042 = phi ptr [ null, %597 ], [ %.0509.i, %751 ], [ null, %.lr.ph755.i ], [ null, %.lr.ph748.i ], [ null, %.lr.ph740.i ], [ null, %.lr.ph710.i ], [ null, %.lr.ph702.i ], [ null, %.lr.ph.i ], [ null, %47 ], [ null, %77 ], [ null, %83 ], [ null, %109 ], [ null, %126 ], [ null, %274 ], [ null, %303 ], [ null, %326 ], [ null, %326 ], [ null, %338 ], [ null, %362 ], [ null, %.lr.ph730.preheader.i ], [ null, %.lr.ph719.preheader.i ], [ null, %456 ]
+.loopexit:                                        ; preds = %456, %.lr.ph719.preheader.i, %.lr.ph730.preheader.i, %362, %338, %326, %326, %303, %274, %126, %109, %83, %77, %47, %.lr.ph.i, %.lr.ph702.i, %.lr.ph710.i, %.lr.ph740.i, %.lr.ph748.i, %.lr.ph755.i, %750, %597
+  %.042 = phi ptr [ null, %597 ], [ %.0509.i, %750 ], [ null, %.lr.ph755.i ], [ null, %.lr.ph748.i ], [ null, %.lr.ph740.i ], [ null, %.lr.ph710.i ], [ null, %.lr.ph702.i ], [ null, %.lr.ph.i ], [ null, %47 ], [ null, %77 ], [ null, %83 ], [ null, %109 ], [ null, %126 ], [ null, %274 ], [ null, %303 ], [ null, %326 ], [ null, %326 ], [ null, %338 ], [ null, %362 ], [ null, %.lr.ph730.preheader.i ], [ null, %.lr.ph719.preheader.i ], [ null, %456 ]
   ret ptr %.042
 }
 

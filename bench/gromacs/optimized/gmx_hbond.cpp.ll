@@ -12042,10 +12042,10 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   br label %.body315
 
 .lr.ph1207:                                       ; preds = %_ZL13grid_loop_endiibb.exit._crit_edge, %.lr.ph1216
-  %626 = phi i32 [ %600, %.lr.ph1216 ], [ %.lcssa2290, %_ZL13grid_loop_endiibb.exit._crit_edge ]
+  %626 = phi i32 [ %600, %.lr.ph1216 ], [ %.lcssa2289, %_ZL13grid_loop_endiibb.exit._crit_edge ]
   %627 = phi ptr [ %618, %.lr.ph1216 ], [ %.pre1650, %_ZL13grid_loop_endiibb.exit._crit_edge ]
-  %628 = phi i32 [ %603, %.lr.ph1216 ], [ %.lcssa2275, %_ZL13grid_loop_endiibb.exit._crit_edge ]
-  %629 = phi i32 [ %604, %.lr.ph1216 ], [ %.lcssa2275, %_ZL13grid_loop_endiibb.exit._crit_edge ]
+  %628 = phi i32 [ %603, %.lr.ph1216 ], [ %.lcssa2274, %_ZL13grid_loop_endiibb.exit._crit_edge ]
+  %629 = phi i32 [ %604, %.lr.ph1216 ], [ %.lcssa2274, %_ZL13grid_loop_endiibb.exit._crit_edge ]
   %630 = phi i32 [ %605, %.lr.ph1216 ], [ %.pr, %_ZL13grid_loop_endiibb.exit._crit_edge ]
   %indvars.iv1615 = phi i64 [ 0, %.lr.ph1216 ], [ %indvars.iv.next1616, %_ZL13grid_loop_endiibb.exit._crit_edge ]
   %.sroa.0.61213 = phi i32 [ %.sroa.0.51223, %.lr.ph1216 ], [ %.sroa.0.8.lcssa, %_ZL13grid_loop_endiibb.exit._crit_edge ]
@@ -12060,9 +12060,9 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   br label %637
 
 637:                                              ; preds = %.lr.ph1207, %_ZL13grid_loop_endiibb.exit
-  %638 = phi i32 [ %626, %.lr.ph1207 ], [ %.lcssa2290, %_ZL13grid_loop_endiibb.exit ]
-  %639 = phi i32 [ %628, %.lr.ph1207 ], [ %.lcssa2275, %_ZL13grid_loop_endiibb.exit ]
-  %640 = phi i32 [ %629, %.lr.ph1207 ], [ %.lcssa2275, %_ZL13grid_loop_endiibb.exit ]
+  %638 = phi i32 [ %626, %.lr.ph1207 ], [ %.lcssa2289, %_ZL13grid_loop_endiibb.exit ]
+  %639 = phi i32 [ %628, %.lr.ph1207 ], [ %.lcssa2274, %_ZL13grid_loop_endiibb.exit ]
+  %640 = phi i32 [ %629, %.lr.ph1207 ], [ %.lcssa2274, %_ZL13grid_loop_endiibb.exit ]
   %.02081205 = phi i32 [ %635, %.lr.ph1207 ], [ %1424, %_ZL13grid_loop_endiibb.exit ]
   %.sroa.0.71204 = phi i32 [ %.sroa.0.61213, %.lr.ph1207 ], [ %.sroa.0.8.lcssa, %_ZL13grid_loop_endiibb.exit ]
   %.sroa.0346.71203 = phi float [ %.sroa.0346.61212, %.lr.ph1207 ], [ %.sroa.0346.8.lcssa, %_ZL13grid_loop_endiibb.exit ]
@@ -12081,19 +12081,19 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %650 = sext i32 %643 to i64
   %651 = icmp eq i32 %639, 1
   %652 = add nsw i32 %639, -1
-  %spec.select12712401 = select i1 %brmerge.demorgan.i, i32 %652, i32 %591
-  %653 = select i1 %651, i32 %590, i32 %spec.select12712401
-  %.not2332402 = icmp sgt i32 %649, %653
-  br i1 %.not2332402, label %_ZL13grid_loop_endiibb.exit, label %.lr.ph2408
+  %spec.select12712400 = select i1 %brmerge.demorgan.i, i32 %652, i32 %591
+  %653 = select i1 %651, i32 %590, i32 %spec.select12712400
+  %.not2332401 = icmp sgt i32 %649, %653
+  br i1 %.not2332401, label %_ZL13grid_loop_endiibb.exit, label %.lr.ph2407
 
-.lr.ph2408:                                       ; preds = %637, %_ZL13grid_loop_endiibb.exit258
+.lr.ph2407:                                       ; preds = %637, %_ZL13grid_loop_endiibb.exit258
   %654 = phi i32 [ %1422, %_ZL13grid_loop_endiibb.exit258 ], [ %652, %637 ]
-  %.02072406 = phi i32 [ %1420, %_ZL13grid_loop_endiibb.exit258 ], [ %649, %637 ]
-  %.sroa.0.82405 = phi i32 [ %.sroa.0.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0.71204, %637 ]
-  %.sroa.0346.82404 = phi float [ %.sroa.0346.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0346.71203, %637 ]
-  %.sroa.0344.82403 = phi float [ %.sroa.0344.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0344.71202, %637 ]
+  %.02072405 = phi i32 [ %1420, %_ZL13grid_loop_endiibb.exit258 ], [ %649, %637 ]
+  %.sroa.0.82404 = phi i32 [ %.sroa.0.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0.71204, %637 ]
+  %.sroa.0346.82403 = phi float [ %.sroa.0346.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0346.71203, %637 ]
+  %.sroa.0344.82402 = phi float [ %.sroa.0344.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ], [ %.sroa.0344.71202, %637 ]
   %655 = phi i32 [ %.pre1645, %_ZL13grid_loop_endiibb.exit258 ], [ %639, %637 ]
-  %656 = add nsw i32 %655, %.02072406
+  %656 = add nsw i32 %655, %.02072405
   %657 = srem i32 %656, %655
   %658 = icmp eq i32 %657, 0
   %659 = icmp eq i32 %657, %654
@@ -12101,14 +12101,14 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %or.cond2038 = select i1 %658, i1 true, i1 %or.cond
   br i1 %or.cond2038, label %664, label %660
 
-660:                                              ; preds = %.lr.ph2408
+660:                                              ; preds = %.lr.ph2407
   %661 = load i32, ptr %80, align 4, !llvm.access.group !123
   %662 = add nsw i32 %661, -1
   %663 = icmp eq i32 %643, %662
   br label %664
 
-664:                                              ; preds = %660, %.lr.ph2408
-  %665 = phi i1 [ true, %.lr.ph2408 ], [ %663, %660 ]
+664:                                              ; preds = %660, %.lr.ph2407
+  %665 = phi i1 [ true, %.lr.ph2407 ], [ %663, %660 ]
   %666 = load i32, ptr %10, align 4, !llvm.access.group !123
   %667 = icmp eq i32 %666, 1
   %brmerge.demorgan.i259 = and i1 %123, %665
@@ -12117,19 +12117,19 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %669 = sext i32 %657 to i64
   %670 = icmp eq i32 %666, 1
   %671 = add nsw i32 %666, -1
-  %spec.select12722390 = select i1 %brmerge.demorgan.i259, i32 %671, i32 %581
-  %672 = select i1 %670, i32 %580, i32 %spec.select12722390
-  %.not2342391 = icmp sgt i32 %668, %672
-  br i1 %.not2342391, label %_ZL13grid_loop_endiibb.exit258, label %.lr.ph2398
+  %spec.select12722389 = select i1 %brmerge.demorgan.i259, i32 %671, i32 %581
+  %672 = select i1 %670, i32 %580, i32 %spec.select12722389
+  %.not2342390 = icmp sgt i32 %668, %672
+  br i1 %.not2342390, label %_ZL13grid_loop_endiibb.exit258, label %.lr.ph2397
 
-.lr.ph2398:                                       ; preds = %664, %._crit_edge
-  %.02052396 = phi i32 [ %1416, %._crit_edge ], [ %668, %664 ]
-  %.sroa.0.92395 = phi i32 [ %.sroa.0.10.lcssa, %._crit_edge ], [ %.sroa.0.82405, %664 ]
-  %.sroa.0346.92394 = phi float [ %.sroa.0346.10.lcssa, %._crit_edge ], [ %.sroa.0346.82404, %664 ]
-  %.sroa.0344.92393 = phi float [ %.sroa.0344.10.lcssa, %._crit_edge ], [ %.sroa.0344.82403, %664 ]
-  %.pre164616472392 = phi i32 [ %.pre1646, %._crit_edge ], [ %666, %664 ]
-  %673 = add nsw i32 %.pre164616472392, %.02052396
-  %674 = srem i32 %673, %.pre164616472392
+.lr.ph2397:                                       ; preds = %664, %._crit_edge
+  %.02052395 = phi i32 [ %1416, %._crit_edge ], [ %668, %664 ]
+  %.sroa.0.92394 = phi i32 [ %.sroa.0.10.lcssa, %._crit_edge ], [ %.sroa.0.82404, %664 ]
+  %.sroa.0346.92393 = phi float [ %.sroa.0346.10.lcssa, %._crit_edge ], [ %.sroa.0346.82403, %664 ]
+  %.sroa.0344.92392 = phi float [ %.sroa.0344.10.lcssa, %._crit_edge ], [ %.sroa.0344.82402, %664 ]
+  %.pre164616472391 = phi i32 [ %.pre1646, %._crit_edge ], [ %666, %664 ]
+  %673 = add nsw i32 %.pre164616472391, %.02052395
+  %674 = srem i32 %673, %.pre164616472391
   %675 = load ptr, ptr %11, align 8, !llvm.access.group !123
   %676 = getelementptr inbounds %"class.std::vector.111", ptr %675, i64 %650
   %677 = load ptr, ptr %676, align 8, !llvm.access.group !123
@@ -12147,12 +12147,12 @@ _ZL13count_da_gridPKiRKSt6vectorIS1_IS1_I16HydrogenGridCellSaIS2_EESaIS4_EESaIS6
   %689 = icmp sgt i64 %688, 0
   br i1 %689, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.lr.ph2398, %1408
-  %indvars.iv = phi i64 [ %indvars.iv.next, %1408 ], [ 0, %.lr.ph2398 ]
-  %690 = phi ptr [ %1410, %1408 ], [ %685, %.lr.ph2398 ]
-  %.sroa.0.101196 = phi i32 [ %.sroa.0.11360, %1408 ], [ %.sroa.0.92395, %.lr.ph2398 ]
-  %.sroa.0346.101195 = phi float [ %.sroa.0346.11359, %1408 ], [ %.sroa.0346.92394, %.lr.ph2398 ]
-  %.sroa.0344.101194 = phi float [ %.sroa.0344.12, %1408 ], [ %.sroa.0344.92393, %.lr.ph2398 ]
+.lr.ph:                                           ; preds = %.lr.ph2397, %1408
+  %indvars.iv = phi i64 [ %indvars.iv.next, %1408 ], [ 0, %.lr.ph2397 ]
+  %690 = phi ptr [ %1410, %1408 ], [ %685, %.lr.ph2397 ]
+  %.sroa.0.101196 = phi i32 [ %.sroa.0.11360, %1408 ], [ %.sroa.0.92394, %.lr.ph2397 ]
+  %.sroa.0346.101195 = phi float [ %.sroa.0346.11359, %1408 ], [ %.sroa.0346.92393, %.lr.ph2397 ]
+  %.sroa.0344.101194 = phi float [ %.sroa.0344.12, %1408 ], [ %.sroa.0344.92392, %.lr.ph2397 ]
   %691 = getelementptr inbounds i32, ptr %690, i64 %indvars.iv
   %692 = load i32, ptr %691, align 4, !llvm.access.group !123
   %693 = load ptr, ptr %4, align 8, !llvm.access.group !123
@@ -12265,10 +12265,10 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
   br label %.backedge.i.i280.outer
 
 .backedge.i.i280.outer:                           ; preds = %794, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i
-  %.ph2421 = phi float [ %795, %794 ], [ %742, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
+  %.ph2420 = phi float [ %795, %794 ], [ %742, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   %.016.i.i.ph = phi i32 [ %797, %794 ], [ 2, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   %.1.i.i279.ph = phi i1 [ %.3.i.i283, %794 ], [ true, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
-  %.ph2422 = phi <2 x float> [ %796, %794 ], [ %737, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
+  %.ph2421 = phi <2 x float> [ %796, %794 ], [ %737, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i ]
   br label %.backedge.i.i280
 
 765:                                              ; preds = %.backedge.i.i280
@@ -12293,20 +12293,20 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
 775:                                              ; preds = %767
   %776 = getelementptr inbounds [3 x float], ptr %3, i64 %768
   %777 = load <2 x float>, ptr %776, align 4
-  %778 = fadd <2 x float> %.ph2422, %777
+  %778 = fadd <2 x float> %.ph2421, %777
   %779 = getelementptr inbounds i8, ptr %776, i64 8
   %780 = load float, ptr %779, align 4, !llvm.access.group !123
-  %781 = fadd float %.ph2421, %780
+  %781 = fadd float %.ph2420, %780
   store <2 x float> %778, ptr %40, align 8
   store float %781, ptr %98, align 8, !llvm.access.group !123
   %.pre.i.i284 = load float, ptr %769, align 4, !llvm.access.group !123
   br label %782
 
 782:                                              ; preds = %775, %767
-  %783 = phi float [ %781, %775 ], [ %.ph2421, %767 ]
+  %783 = phi float [ %781, %775 ], [ %.ph2420, %767 ]
   %784 = phi float [ %.pre.i.i284, %775 ], [ %770, %767 ]
   %.2.i.i282 = phi i1 [ false, %775 ], [ %.1.i.i279, %767 ]
-  %785 = phi <2 x float> [ %778, %775 ], [ %.ph2422, %767 ]
+  %785 = phi <2 x float> [ %778, %775 ], [ %.ph2421, %767 ]
   %786 = fcmp ult float %784, %772
   br i1 %786, label %794, label %787
 
@@ -12329,12 +12329,12 @@ _ZL16isInterchangableP16HydrogenBondDataiiii.exit115.i: ; preds = %_ZL20donor_in
   br label %.backedge.i.i280.outer, !llvm.loop !124
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit:   ; preds = %765
-  %798 = extractelement <2 x float> %.ph2422, i64 1
-  %799 = extractelement <2 x float> %.ph2422, i64 0
+  %798 = extractelement <2 x float> %.ph2421, i64 1
+  %799 = extractelement <2 x float> %.ph2421, i64 0
   br label %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i
-  %800 = phi float [ %742, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.ph2421, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
+  %800 = phi float [ %742, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.ph2420, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %801 = phi float [ %744, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %798, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %802 = phi float [ %743, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %799, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
   %.1.i264 = phi i1 [ false, %_ZL16isInterchangableP16HydrogenBondDataiiii.exit.i ], [ %.0.i, %_ZL15pbc_correct_gemPfPA3_fPKf.exit.i.loopexit ]
@@ -12411,10 +12411,10 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
   br i1 %700, label %.preheader143.i.outer, label %.loopexit.i271
 
 .preheader143.i.outer:                            ; preds = %825, %867
-  %.ph2418 = phi float [ %868, %867 ], [ %835, %825 ]
+  %.ph2417 = phi float [ %868, %867 ], [ %835, %825 ]
   %.016.i116.i.ph = phi i32 [ %870, %867 ], [ 2, %825 ]
   %.1.i117.i.ph = phi i1 [ %.3.i122.i, %867 ], [ true, %825 ]
-  %.ph2419 = phi <2 x float> [ %869, %867 ], [ %831, %825 ]
+  %.ph2418 = phi <2 x float> [ %869, %867 ], [ %831, %825 ]
   br label %.preheader143.i
 
 838:                                              ; preds = %.preheader143.i
@@ -12439,20 +12439,20 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
 848:                                              ; preds = %840
   %849 = getelementptr inbounds [3 x float], ptr %3, i64 %841
   %850 = load <2 x float>, ptr %849, align 4
-  %851 = fadd <2 x float> %.ph2419, %850
+  %851 = fadd <2 x float> %.ph2418, %850
   %852 = getelementptr inbounds i8, ptr %849, i64 8
   %853 = load float, ptr %852, align 4, !llvm.access.group !123
-  %854 = fadd float %.ph2418, %853
+  %854 = fadd float %.ph2417, %853
   store <2 x float> %851, ptr %41, align 8
   store float %854, ptr %99, align 8, !llvm.access.group !123
   %.pre.i123.i = load float, ptr %842, align 4, !llvm.access.group !123
   br label %855
 
 855:                                              ; preds = %848, %840
-  %856 = phi float [ %854, %848 ], [ %.ph2418, %840 ]
+  %856 = phi float [ %854, %848 ], [ %.ph2417, %840 ]
   %857 = phi float [ %.pre.i123.i, %848 ], [ %843, %840 ]
   %.2.i121.i = phi i1 [ false, %848 ], [ %.1.i117.i, %840 ]
-  %858 = phi <2 x float> [ %851, %848 ], [ %.ph2419, %840 ]
+  %858 = phi <2 x float> [ %851, %848 ], [ %.ph2418, %840 ]
   %859 = fcmp ult float %857, %845
   br i1 %859, label %867, label %860
 
@@ -12475,12 +12475,12 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit.i:            ; preds = %_ZL15pbc_correct_ge
   br label %.preheader143.i.outer, !llvm.loop !124
 
 .loopexit.i271.loopexit:                          ; preds = %838
-  %871 = extractelement <2 x float> %.ph2419, i64 1
-  %872 = extractelement <2 x float> %.ph2419, i64 0
+  %871 = extractelement <2 x float> %.ph2418, i64 1
+  %872 = extractelement <2 x float> %.ph2418, i64 0
   br label %.loopexit.i271
 
 .loopexit.i271:                                   ; preds = %.loopexit.i271.loopexit, %825
-  %.promoted154167.i = phi float [ %835, %825 ], [ %.ph2418, %.loopexit.i271.loopexit ]
+  %.promoted154167.i = phi float [ %835, %825 ], [ %.ph2417, %.loopexit.i271.loopexit ]
   %.promoted153165.i = phi float [ %837, %825 ], [ %871, %.loopexit.i271.loopexit ]
   %.promoted152159.i = phi float [ %836, %825 ], [ %872, %.loopexit.i271.loopexit ]
   %873 = fmul float %.promoted153165.i, %.promoted153165.i
@@ -12528,7 +12528,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %886, %.thread.i27
 896:                                              ; preds = %888
   %897 = getelementptr inbounds [3 x float], ptr %3, i64 %889
   %898 = load <2 x float>, ptr %897, align 4
-  %899 = fadd <2 x float> %.ph2417, %898
+  %899 = fadd <2 x float> %.ph2416, %898
   %900 = getelementptr inbounds i8, ptr %897, i64 8
   %901 = load float, ptr %900, align 4, !llvm.access.group !123
   %902 = fadd float %.ph, %901
@@ -12541,7 +12541,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %886, %.thread.i27
   %904 = phi float [ %902, %896 ], [ %.ph, %888 ]
   %905 = phi float [ %.pre.i133.i, %896 ], [ %891, %888 ]
   %.2.i131.i = phi i1 [ false, %896 ], [ %.1.i127.i, %888 ]
-  %906 = phi <2 x float> [ %899, %896 ], [ %.ph2417, %888 ]
+  %906 = phi <2 x float> [ %899, %896 ], [ %.ph2416, %888 ]
   %907 = fcmp ult float %905, %893
   br i1 %907, label %915, label %908
 
@@ -12567,7 +12567,7 @@ _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader: ; preds = %886, %.thread.i27
   %.ph = phi float [ %916, %915 ], [ %885, %.thread.i272 ]
   %.016.i126.i.ph = phi i32 [ %918, %915 ], [ 2, %.thread.i272 ]
   %.1.i127.i.ph = phi i1 [ %.3.i132.i, %915 ], [ true, %.thread.i272 ]
-  %.ph2417 = phi <2 x float> [ %917, %915 ], [ %883, %.thread.i272 ]
+  %.ph2416 = phi <2 x float> [ %917, %915 ], [ %883, %.thread.i272 ]
   br label %.preheader.i276
 
 _ZL15pbc_correct_gemPfPA3_fPKf.exit135.i:         ; preds = %_ZL15pbc_correct_gemPfPA3_fPKf.exit135.i.preheader, %_ZL15pbc_correct_gemPfPA3_fPKf.exit135.i
@@ -13160,14 +13160,14 @@ _ZL13gmx_snew_implIPjEvPKcS2_iRPT_m.exit173.i:    ; preds = %1082
   br i1 %1179, label %_ZL6set_hbP16HydrogenBondDataiiiii.exit.i.i, label %_ZL6add_ffP16HydrogenBondDataiiiii.exit.i
 
 _ZL6set_hbP16HydrogenBondDataiiiii.exit.i.i:      ; preds = %.loopexit.i.i
-  %switch = icmp eq i32 %.088.i372, 2
-  %spec.select2039 = select i1 %switch, i64 32, i64 40
+  %switch2039 = icmp eq i32 %.088.i372, 2
+  %spec.select2040 = select i1 %switch2039, i64 32, i64 40
   %1180 = load ptr, ptr %1032, align 8, !llvm.access.group !123
   %1181 = getelementptr inbounds ptr, ptr %1180, i64 %1063
   %1182 = load ptr, ptr %1181, align 8, !llvm.access.group !123
   %1183 = getelementptr inbounds ptr, ptr %1182, i64 %1066
   %1184 = load ptr, ptr %1183, align 8, !llvm.access.group !123
-  %1185 = getelementptr inbounds i8, ptr %1184, i64 %spec.select2039
+  %1185 = getelementptr inbounds i8, ptr %1184, i64 %spec.select2040
   %1186 = load ptr, ptr %1185, align 8, !llvm.access.group !123
   %1187 = zext nneg i32 %.1.i292 to i64
   %1188 = getelementptr inbounds ptr, ptr %1186, i64 %1187
@@ -13269,9 +13269,9 @@ _ZL6add_ffP16HydrogenBondDataiiiii.exit.i:        ; preds = %_ZL6set_hbP16Hydrog
   br i1 %1253, label %1254, label %1268
 
 1254:                                             ; preds = %1252
-  %switch2041 = icmp eq i32 %.088.i372, 2
+  %switch = icmp eq i32 %.088.i372, 2
   %1255 = zext nneg i32 %954 to i64
-  br i1 %switch2041, label %1256, label %1262
+  br i1 %switch, label %1256, label %1262
 
 1256:                                             ; preds = %1254
   %1257 = getelementptr inbounds i8, ptr %953, i64 16
@@ -13605,35 +13605,35 @@ _ZL20donor_index_functionP8t_donorsiiPKci.exit:   ; preds = %1365
   %.pre1646.pre = load i32, ptr %10, align 4, !llvm.access.group !123
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph2398
-  %.pre1646 = phi i32 [ %.pre164616472392, %.lr.ph2398 ], [ %.pre1646.pre, %._crit_edge.loopexit ]
-  %.sroa.0344.10.lcssa = phi float [ %.sroa.0344.92393, %.lr.ph2398 ], [ %.sroa.0344.12, %._crit_edge.loopexit ]
-  %.sroa.0346.10.lcssa = phi float [ %.sroa.0346.92394, %.lr.ph2398 ], [ %.sroa.0346.11359, %._crit_edge.loopexit ]
-  %.sroa.0.10.lcssa = phi i32 [ %.sroa.0.92395, %.lr.ph2398 ], [ %.sroa.0.11360, %._crit_edge.loopexit ]
-  %1416 = add nsw i32 %.02052396, 1
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph2397
+  %.pre1646 = phi i32 [ %.pre164616472391, %.lr.ph2397 ], [ %.pre1646.pre, %._crit_edge.loopexit ]
+  %.sroa.0344.10.lcssa = phi float [ %.sroa.0344.92392, %.lr.ph2397 ], [ %.sroa.0344.12, %._crit_edge.loopexit ]
+  %.sroa.0346.10.lcssa = phi float [ %.sroa.0346.92393, %.lr.ph2397 ], [ %.sroa.0346.11359, %._crit_edge.loopexit ]
+  %.sroa.0.10.lcssa = phi i32 [ %.sroa.0.92394, %.lr.ph2397 ], [ %.sroa.0.11360, %._crit_edge.loopexit ]
+  %1416 = add nsw i32 %.02052395, 1
   %1417 = icmp eq i32 %.pre1646, 1
   %1418 = add nsw i32 %.pre1646, -1
   %spec.select1272 = select i1 %brmerge.demorgan.i259, i32 %1418, i32 %581
   %1419 = select i1 %1417, i32 %580, i32 %spec.select1272
-  %.not234.not = icmp slt i32 %.02052396, %1419
-  br i1 %.not234.not, label %.lr.ph2398, label %_ZL13grid_loop_endiibb.exit258, !llvm.loop !135
+  %.not234.not = icmp slt i32 %.02052395, %1419
+  br i1 %.not234.not, label %.lr.ph2397, label %_ZL13grid_loop_endiibb.exit258, !llvm.loop !135
 
 _ZL13grid_loop_endiibb.exit258:                   ; preds = %._crit_edge, %664
-  %.sroa.0344.9.lcssa = phi float [ %.sroa.0344.82403, %664 ], [ %.sroa.0344.10.lcssa, %._crit_edge ]
-  %.sroa.0346.9.lcssa = phi float [ %.sroa.0346.82404, %664 ], [ %.sroa.0346.10.lcssa, %._crit_edge ]
-  %.sroa.0.9.lcssa = phi i32 [ %.sroa.0.82405, %664 ], [ %.sroa.0.10.lcssa, %._crit_edge ]
-  %1420 = add nsw i32 %.02072406, 1
+  %.sroa.0344.9.lcssa = phi float [ %.sroa.0344.82402, %664 ], [ %.sroa.0344.10.lcssa, %._crit_edge ]
+  %.sroa.0346.9.lcssa = phi float [ %.sroa.0346.82403, %664 ], [ %.sroa.0346.10.lcssa, %._crit_edge ]
+  %.sroa.0.9.lcssa = phi i32 [ %.sroa.0.82404, %664 ], [ %.sroa.0.10.lcssa, %._crit_edge ]
+  %1420 = add nsw i32 %.02072405, 1
   %.pre1645 = load i32, ptr %84, align 4, !llvm.access.group !123
   %1421 = icmp eq i32 %.pre1645, 1
   %1422 = add nsw i32 %.pre1645, -1
   %spec.select1271 = select i1 %brmerge.demorgan.i, i32 %1422, i32 %591
   %1423 = select i1 %1421, i32 %590, i32 %spec.select1271
-  %.not233.not = icmp slt i32 %.02072406, %1423
-  br i1 %.not233.not, label %.lr.ph2408, label %_ZL13grid_loop_endiibb.exit, !llvm.loop !136
+  %.not233.not = icmp slt i32 %.02072405, %1423
+  br i1 %.not233.not, label %.lr.ph2407, label %_ZL13grid_loop_endiibb.exit, !llvm.loop !136
 
 _ZL13grid_loop_endiibb.exit:                      ; preds = %_ZL13grid_loop_endiibb.exit258, %637
-  %.lcssa2290 = phi i32 [ %638, %637 ], [ %.pre1645, %_ZL13grid_loop_endiibb.exit258 ]
-  %.lcssa2275 = phi i32 [ %639, %637 ], [ %.pre1645, %_ZL13grid_loop_endiibb.exit258 ]
+  %.lcssa2289 = phi i32 [ %638, %637 ], [ %.pre1645, %_ZL13grid_loop_endiibb.exit258 ]
+  %.lcssa2274 = phi i32 [ %639, %637 ], [ %.pre1645, %_ZL13grid_loop_endiibb.exit258 ]
   %.sroa.0344.8.lcssa = phi float [ %.sroa.0344.71202, %637 ], [ %.sroa.0344.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ]
   %.sroa.0346.8.lcssa = phi float [ %.sroa.0346.71203, %637 ], [ %.sroa.0346.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ]
   %.sroa.0.8.lcssa = phi i32 [ %.sroa.0.71204, %637 ], [ %.sroa.0.9.lcssa, %_ZL13grid_loop_endiibb.exit258 ]
@@ -13661,11 +13661,11 @@ _ZL13grid_loop_endiibb.exit._crit_edge:           ; preds = %_ZL13grid_loop_endi
   br label %._crit_edge1217
 
 ._crit_edge1217:                                  ; preds = %._crit_edge1217.loopexit, %599
-  %1432 = phi i32 [ %600, %599 ], [ %.lcssa2290, %._crit_edge1217.loopexit ]
+  %1432 = phi i32 [ %600, %599 ], [ %.lcssa2289, %._crit_edge1217.loopexit ]
   %1433 = phi i32 [ %601, %599 ], [ %.pr, %._crit_edge1217.loopexit ]
   %1434 = phi i8 [ %602, %599 ], [ %.pre1651, %._crit_edge1217.loopexit ]
-  %1435 = phi i32 [ %603, %599 ], [ %.lcssa2275, %._crit_edge1217.loopexit ]
-  %1436 = phi i32 [ %604, %599 ], [ %.lcssa2275, %._crit_edge1217.loopexit ]
+  %1435 = phi i32 [ %603, %599 ], [ %.lcssa2274, %._crit_edge1217.loopexit ]
+  %1436 = phi i32 [ %604, %599 ], [ %.lcssa2274, %._crit_edge1217.loopexit ]
   %1437 = phi i32 [ %605, %599 ], [ %.pr, %._crit_edge1217.loopexit ]
   %.sroa.0344.6.lcssa = phi float [ %.sroa.0344.51221, %599 ], [ %.sroa.0344.8.lcssa, %._crit_edge1217.loopexit ]
   %.sroa.0346.6.lcssa = phi float [ %.sroa.0346.51222, %599 ], [ %.sroa.0346.8.lcssa, %._crit_edge1217.loopexit ]
@@ -14110,8 +14110,8 @@ _ZL11do_nhb_distP8_IO_FILEP16HydrogenBondDataf.exit: ; preds = %1564
   %.not2291268 = icmp ule i32 %1640, %1639
   %1641 = load i32, ptr %28, align 4
   %1642 = icmp sgt i32 %1641, 0
-  %or.cond2415 = select i1 %.not2291268, i1 %1642, i1 false
-  br i1 %or.cond2415, label %.preheader, label %._crit_edge1270
+  %or.cond2414 = select i1 %.not2291268, i1 %1642, i1 false
+  br i1 %or.cond2414, label %.preheader, label %._crit_edge1270
 
 .preheader:                                       ; preds = %1637, %._crit_edge1267
   %1643 = phi i32 [ %1660, %._crit_edge1267 ], [ %1639, %1637 ]

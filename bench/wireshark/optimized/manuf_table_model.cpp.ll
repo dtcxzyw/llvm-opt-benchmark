@@ -688,7 +688,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %13 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %13, align 8
-  br label %48
+  br label %44
 
 14:                                               ; preds = %4
   %15 = zext nneg i32 %5 to i64
@@ -701,7 +701,7 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %19 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %19, align 8
-  br label %48
+  br label %44
 
 20:                                               ; preds = %14
   %21 = getelementptr inbounds i8, ptr %1, i64 24
@@ -715,16 +715,16 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 2, ptr %27, align 8
-  br label %48
+  br label %44
 
 28:                                               ; preds = %20
-  switch i32 %3, label %46 [
+  switch i32 %3, label %42 [
     i32 0, label %29
-    i32 256, label %38
+    i32 256, label %36
   ]
 
 29:                                               ; preds = %28
-  switch i32 %8, label %36 [
+  switch i32 %8, label %default.unreachable [
     i32 0, label %30
     i32 1, label %32
     i32 2, label %34
@@ -733,58 +733,52 @@ _ZNK11QModelIndex7isValidEv.exit.thread:          ; preds = %4
 30:                                               ; preds = %29
   %31 = getelementptr inbounds i8, ptr %24, i64 24
   tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %31)
-  br label %48
+  br label %44
 
 32:                                               ; preds = %29
   %33 = getelementptr inbounds i8, ptr %24, i64 48
   tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %33)
-  br label %48
+  br label %44
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds i8, ptr %24, i64 72
   tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %35)
-  br label %48
+  br label %44
 
-36:                                               ; preds = %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %37 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %37, align 8
-  br label %48
+default.unreachable:                              ; preds = %29
+  unreachable
 
-38:                                               ; preds = %28
-  switch i32 %8, label %44 [
-    i32 0, label %39
-    i32 1, label %40
-    i32 2, label %42
+36:                                               ; preds = %28
+  switch i32 %8, label %default.unreachable14 [
+    i32 0, label %37
+    i32 1, label %38
+    i32 2, label %40
   ]
 
-39:                                               ; preds = %38
+37:                                               ; preds = %36
   tail call void @_ZN8QVariantC1ERK10QByteArray(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %24)
-  br label %48
+  br label %44
 
-40:                                               ; preds = %38
-  %41 = getelementptr inbounds i8, ptr %24, i64 48
+38:                                               ; preds = %36
+  %39 = getelementptr inbounds i8, ptr %24, i64 48
+  tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %39)
+  br label %44
+
+40:                                               ; preds = %36
+  %41 = getelementptr inbounds i8, ptr %24, i64 72
   tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %41)
-  br label %48
+  br label %44
 
-42:                                               ; preds = %38
-  %43 = getelementptr inbounds i8, ptr %24, i64 72
-  tail call void @_ZN8QVariantC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %43)
-  br label %48
+default.unreachable14:                            ; preds = %36
+  unreachable
 
-44:                                               ; preds = %38
+42:                                               ; preds = %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %45 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %45, align 8
-  br label %48
+  %43 = getelementptr inbounds i8, ptr %0, i64 24
+  store i64 2, ptr %43, align 8
+  br label %44
 
-46:                                               ; preds = %28
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %47 = getelementptr inbounds i8, ptr %0, i64 24
-  store i64 2, ptr %47, align 8
-  br label %48
-
-48:                                               ; preds = %46, %44, %42, %40, %39, %36, %34, %32, %30, %26, %18, %_ZNK11QModelIndex7isValidEv.exit.thread
+44:                                               ; preds = %42, %40, %38, %37, %34, %32, %30, %26, %18, %_ZNK11QModelIndex7isValidEv.exit.thread
   ret void
 }
 

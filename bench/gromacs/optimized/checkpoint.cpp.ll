@@ -588,8 +588,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.103 = private unnamed_addr constant [30 x i8] c"XDR data type not implemented\00", align 1
 @__PRETTY_FUNCTION__._ZZL13sizeOfXdrType11XdrDataTypeENKUlvE_clEv = private unnamed_addr constant [71 x i8] c"auto sizeOfXdrType(XdrDataType)::(anonymous class)::operator()() const\00", align 1
 @.str.104 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
-@.str.105 = private unnamed_addr constant [38 x i8] c"Data type not implemented for listing\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI10StateEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [119 x i8] c"auto listXdrVector(XDR *, StateEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE10StateEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [172 x i8] c"auto doVectorLow(XDR *, StateEntry, int, const int64_t, double **, std::vector<double, allocator<double>> *, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @__PRETTY_FUNCTION__._ZZL12doRvecVectorIN3gmx12PaddedVectorINS0_11BasicVectorIfEENS0_9AllocatorIS3_NS0_20HostAllocationPolicyEEEEE10StateEntryEiP3XDRT0_iPT_iP8_IO_FILEENKUlvE_clEv = private unnamed_addr constant [208 x i8] c"auto doRvecVector(XDR *, StateEntry, int, gmx::PaddedVector<gmx::BasicVector<float>, gmx::Allocator<gmx::BasicVector<float>, gmx::HostAllocationPolicy>> *, int, FILE *)::(anonymous class)::operator()() const\00", align 1
 @.str.106 = private unnamed_addr constant [22 x i8] c"v->size() == numAtoms\00", align 1
@@ -607,7 +605,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.117 = private unnamed_addr constant [15 x i8] c"EkinScaleH_NHC\00", align 1
 @.str.118 = private unnamed_addr constant [11 x i8] c"Vscale_NHC\00", align 1
 @.str.119 = private unnamed_addr constant [11 x i8] c"Ekin_Total\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI17StateKineticEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [126 x i8] c"auto listXdrVector(XDR *, StateKineticEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @.str.120 = private unnamed_addr constant [71 x i8] c"Count mismatch for state entry %s, code count is %d, file count is %d\0A\00", align 1
 @.str.121 = private unnamed_addr constant [3 x i8] c"va\00", align 1
 @.str.122 = private unnamed_addr constant [3 x i8] c"vr\00", align 1
@@ -617,7 +614,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.124 = private unnamed_addr constant [20 x i8] c"enerhist != nullptr\00", align 1
 @.str.125 = private unnamed_addr constant [54 x i8] c"With energy history, we need a valid enerhist pointer\00", align 1
 @"__PRETTY_FUNCTION__._ZZL15do_cpt_enerhistP3XDRbiP15energyhistory_tP8_IO_FILEENK3$_0clEv" = private unnamed_addr constant [109 x i8] c"auto do_cpt_enerhist(XDR *, gmx_bool, int, energyhistory_t *, FILE *)::(anonymous class)::operator()() const\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI16StateEnergyEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [125 x i8] c"auto listXdrVector(XDR *, StateEnergyEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @__PRETTY_FUNCTION__._ZZL11doVectorLowIdSaIdE16StateEnergyEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [178 x i8] c"auto doVectorLow(XDR *, StateEnergyEntry, int, const int64_t, double **, std::vector<double, allocator<double>> *, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames = internal unnamed_addr constant %"struct.gmx::EnumerationArray.439" { [12 x ptr] [ptr @.str.126, ptr @.str.127, ptr @.str.128, ptr @.str.129, ptr @.str.130, ptr @.str.131, ptr @.str.132, ptr @.str.133, ptr @.str.134, ptr @.str.135, ptr @.str.136, ptr @.str.137] }, align 8
 @.str.126 = private unnamed_addr constant [9 x i8] c"energy_n\00", align 1
@@ -652,9 +648,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.150 = private unnamed_addr constant [9 x i8] c"dr45-sum\00", align 1
 @.str.151 = private unnamed_addr constant [10 x i8] c"fscal-sum\00", align 1
 @.str.152 = private unnamed_addr constant [10 x i8] c"dynax-sum\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [128 x i8] c"auto listXdrVector(XDR *, StatePullCoordEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @.str.154 = private unnamed_addr constant [15 x i8] c"coordinate-sum\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI19StatePullGroupEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [128 x i8] c"auto listXdrVector(XDR *, StatePullGroupEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @.str.155 = private unnamed_addr constant [89 x i8] c"Unknown df history entry %d\0AYou are probably reading a new checkpoint file with old code\00", align 1
 @__PRETTY_FUNCTION__._ZZL11doVectorLowIiSaIiE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [166 x i8] c"auto doVectorLow(XDR *, StateFepEntry, int, const int64_t, int **, std::vector<int, allocator<int>> *, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @_ZZL17enumValueToString13StateFepEntryE18stateFepEntryNames = internal unnamed_addr constant %"struct.gmx::EnumerationArray.524" { [14 x ptr] [ptr @.str.156, ptr @.str.157, ptr @.str.158, ptr @.str.159, ptr @.str.160, ptr @.str.161, ptr @.str.162, ptr @.str.163, ptr @.str.164, ptr @.str.165, ptr @.str.166, ptr @.str.167, ptr @.str.168, ptr @.str.169] }, align 8
@@ -672,7 +666,6 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @.str.167 = private unnamed_addr constant [20 x i8] c"accumulated_minus_2\00", align 1
 @.str.168 = private unnamed_addr constant [4 x i8] c"Tij\00", align 1
 @.str.169 = private unnamed_addr constant [14 x i8] c"Tij_empirical\00", align 1
-@__PRETTY_FUNCTION__._ZZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [122 x i8] c"auto listXdrVector(XDR *, StateFepEntry, int, XdrDataType, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @__PRETTY_FUNCTION__._ZZL11doVectorLowIfSaIfE13StateFepEntryEiP3XDRT1_ilPPT_PSt6vectorIS5_T0_EP8_IO_FILE14CptElementTypeENKUlvE_clEv = private unnamed_addr constant [172 x i8] c"auto doVectorLow(XDR *, StateFepEntry, int, const int64_t, float **, std::vector<float, allocator<float>> *, FILE *, CptElementType)::(anonymous class)::operator()() const\00", align 1
 @.str.170 = private unnamed_addr constant [7 x i8] c"%s[%d]\00", align 1
 @.str.171 = private unnamed_addr constant [14 x i8] c"EDstate->nref\00", align 1
@@ -5528,8 +5521,8 @@ _ZL10do_cpt_intP3XDRPKcPiP8_IO_FILE.exit.i54:     ; preds = %77
 87:                                               ; preds = %86
   unreachable
 
-common.resume:                                    ; preds = %235, %238, %.body.i, %254, %209, %88
-  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %210, %209 ], [ %lpad.phi.i, %254 ], [ %245, %.body.i ], [ %236, %235 ], [ %239, %238 ]
+common.resume:                                    ; preds = %235, %238, %.body.i, %255, %209, %88
+  %common.resume.op = phi { ptr, i32 } [ %89, %88 ], [ %210, %209 ], [ %256, %255 ], [ %245, %.body.i ], [ %236, %235 ], [ %239, %238 ]
   resume { ptr, i32 } %common.resume.op
 
 88:                                               ; preds = %86
@@ -5572,8 +5565,8 @@ _ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit:     ; preds = %83, %82, %74, %73, 
   %106 = getelementptr inbounds i8, ptr %3, i64 16
   %107 = load ptr, ptr %106, align 8
   %108 = load ptr, ptr %105, align 8
-  %.not94 = icmp eq ptr %107, %108
-  br i1 %.not94, label %.preheader, label %.lr.ph
+  %.not95 = icmp eq ptr %107, %108
+  br i1 %.not95, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit, %104
   %.044.lcssa = phi i32 [ 0, %104 ], [ %.5.i, %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit ]
@@ -5584,17 +5577,17 @@ _ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit:     ; preds = %83, %82, %74, %73, 
   %113 = icmp ne ptr %111, %112
   %114 = icmp eq i32 %.044.lcssa, 0
   %115 = and i1 %114, %113
-  br i1 %115, label %.lr.ph92, label %.loopexit
+  br i1 %115, label %.lr.ph93, label %.loopexit
 
-.lr.ph92:                                         ; preds = %.preheader
+.lr.ph93:                                         ; preds = %.preheader
   %116 = getelementptr inbounds i8, ptr %7, i64 8
   %117 = getelementptr inbounds i8, ptr %7, i64 16
   br i1 %.not.i.i53, label %.preheader.us.i.preheader.us, label %.preheader.i56.preheader
 
-.preheader.us.i.preheader.us:                     ; preds = %.lr.ph92, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us
-  %118 = phi ptr [ %163, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ %112, %.lr.ph92 ]
-  %.091.us = phi i64 [ %161, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ 0, %.lr.ph92 ]
-  %119 = getelementptr inbounds %class.PullGroupHistory, ptr %118, i64 %.091.us
+.preheader.us.i.preheader.us:                     ; preds = %.lr.ph93, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us
+  %118 = phi ptr [ %163, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ %112, %.lr.ph93 ]
+  %.092.us = phi i64 [ %161, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ 0, %.lr.ph93 ]
+  %119 = getelementptr inbounds %class.PullGroupHistory, ptr %118, i64 %.092.us
   %120 = icmp eq ptr %118, null
   br label %.preheader.us.i.us
 
@@ -5632,7 +5625,7 @@ _ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit:     ; preds = %83, %82, %74, %73, 
   %134 = call noundef ptr @_Z17enumValueToString11XdrDataType(i32 noundef %126)
   %135 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) @.str.86, ptr noundef nonnull @.str.154, ptr noundef %133, ptr noundef %134) #20
   %136 = icmp eq i32 %126, 0
-  br i1 %136, label %.split37.us.i, label %137
+  br i1 %136, label %.split38.us.i, label %137
 
 137:                                              ; preds = %132, %130
   br i1 %120, label %138, label %142
@@ -5649,15 +5642,15 @@ _ZL14do_cpt_int_errP3XDRPKcPiP8_IO_FILE.exit:     ; preds = %83, %82, %74, %73, 
 
 .split61.i.i.i.us.us.i.us:                        ; preds = %142
   %switch.i.i.i.us.us.i.us = icmp ult i32 %126, 2
-  br i1 %switch.i.i.i.us.us.i.us, label %_ZL13sizeOfXdrType11XdrDataType.exit.i.i.i.us.us.i.us, label %.split39.us.i
+  br i1 %switch.i.i.i.us.us.i.us, label %_ZL13sizeOfXdrType11XdrDataType.exit.i.i.i.us.us.i.us, label %.split40.us.i
 
 _ZL13sizeOfXdrType11XdrDataType.exit.i.i.i.us.us.i.us: ; preds = %.split61.i.i.i.us.us.i.us
   %144 = load i32, ptr %9, align 4
   %145 = shl i32 %144, 2
   %146 = zext i32 %145 to i64
   %147 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %146, i64 noundef 1)
-  %trunc.i.i.i.us.us.i.us = trunc nuw i32 %126 to i1
-  %spec.select.i.i.i.us.us.i.us = select i1 %trunc.i.i.i.us.us.i.us, ptr @_Z9xdr_floatP3XDRPf, ptr @_Z7xdr_intP3XDRPi
+  %switch11.i.i.i.us.us.i.us = icmp eq i32 %126, 0
+  %spec.select.i.i.i.us.us.i.us = select i1 %switch11.i.i.i.us.us.i.us, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit.i.i.i.us.us.i.us
 
 _ZL7xdrProc11XdrDataType.exit.i.i.i.us.us.i.us:   ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit.i.i.i.us.us.i.us, %142
@@ -5717,8 +5710,8 @@ _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.threa
   br label %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us
 
 _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.thread.i.us
-  %.us-phi46.i.us = phi i32 [ -1, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.thread.i.us ], [ %.057.i.i.i.us.us.i.us, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us ]
-  %161 = add nuw i64 %.091.us, 1
+  %.us-phi47.i.us = phi i32 [ -1, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.thread.i.us ], [ %.057.i.i.i.us.us.i.us, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.us.us.i.us ]
+  %161 = add nuw i64 %.092.us, 1
   %162 = load ptr, ptr %110, align 8
   %163 = load ptr, ptr %109, align 8
   %164 = ptrtoint ptr %162 to i64
@@ -5726,14 +5719,14 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
   %166 = sub i64 %164, %165
   %167 = sdiv exact i64 %166, 24
   %168 = icmp ult i64 %161, %167
-  %169 = icmp eq i32 %.us-phi46.i.us, 0
+  %169 = icmp eq i32 %.us-phi47.i.us, 0
   %170 = and i1 %169, %168
   br i1 %170, label %.preheader.us.i.preheader.us, label %.loopexit, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %104, %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit
   %171 = phi ptr [ %217, %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit ], [ %108, %104 ]
-  %.04390 = phi i64 [ %215, %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit ], [ 0, %104 ]
-  %172 = getelementptr inbounds %class.PullCoordinateHistory, ptr %171, i64 %.04390
+  %.04391 = phi i64 [ %215, %_ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit ], [ 0, %104 ]
+  %172 = getelementptr inbounds %class.PullCoordinateHistory, ptr %171, i64 %.04391
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %14)
   %173 = getelementptr inbounds i8, ptr %172, i64 96
   %174 = getelementptr inbounds i8, ptr %172, i64 16
@@ -5832,7 +5825,7 @@ _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us: ; preds = %_Z
 
 _ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit: ; preds = %.loopexit.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %14)
-  %215 = add nuw i64 %.04390, 1
+  %215 = add nuw i64 %.04391, 1
   %216 = load ptr, ptr %106, align 8
   %217 = load ptr, ptr %105, align 8
   %218 = ptrtoint ptr %216 to i64
@@ -5843,12 +5836,12 @@ _ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit: ; preds = %
   %223 = and i1 %213, %222
   br i1 %223, label %.lr.ph, label %.preheader, !llvm.loop !62
 
-.preheader.i56.preheader:                         ; preds = %.lr.ph92, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit
-  %.091 = phi i64 [ %266, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit ], [ 0, %.lr.ph92 ]
+.preheader.i56.preheader:                         ; preds = %.lr.ph93, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit
+  %.092 = phi i64 [ %265, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit ], [ 0, %.lr.ph93 ]
   br label %.preheader.i56
 
 .preheader.i56:                                   ; preds = %.preheader.i56.preheader, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i
-  %.01435.i = phi i32 [ %264, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ], [ 0, %.preheader.i56.preheader ]
+  %.01436.i = phi i32 [ %263, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ], [ 0, %.preheader.i56.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %11)
@@ -5887,21 +5880,21 @@ _ZL18doCptPullCoordHistP3XDRP21PullCoordinateHistoryP8_IO_FILE.exit: ; preds = %
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %11) #20
   br label %common.resume
 
-.split37.us.i:                                    ; preds = %132
+.split38.us.i:                                    ; preds = %132
   call void @_ZNSt10filesystem7__cxx114pathC2IA127_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 1 dereferenceable(127) @.str.3, i8 noundef zeroext 2)
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %13, i32 noundef 806, ptr noundef nonnull @.str.87, ptr noundef nonnull %12) #22
           to label %237 unwind label %238
 
-237:                                              ; preds = %.split37.us.i
+237:                                              ; preds = %.split38.us.i
   unreachable
 
-238:                                              ; preds = %.split37.us.i
+238:                                              ; preds = %.split38.us.i
   %239 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #20
   br label %common.resume
 
-.split39.us.i:                                    ; preds = %.split61.i.i.i.us.us.i.us
+.split40.us.i:                                    ; preds = %.split61.i.i.i.us.us.i.us
   call void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13sizeOfXdrType11XdrDataTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 597) #22
   unreachable
 
@@ -5952,62 +5945,47 @@ _ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i.i: ; preds = %246, %switch.lo
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   %250 = load ptr, ptr %7, align 8
   %251 = zext nneg i32 %228 to i64
-  %switch.gep141 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.118, i64 0, i64 %251
-  %switch.load142 = load ptr, ptr %switch.gep141, align 8
-  %252 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %250, i32 noundef %231, i32 noundef %switch.load, ptr noundef nonnull %switch.load142)
-          to label %253 unwind label %.loopexit19.i
+  %switch.gep142 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.118, i64 0, i64 %251
+  %switch.load143 = load ptr, ptr %switch.gep142, align 8
+  %252 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %250, i32 noundef %231, i32 noundef %switch.load, ptr noundef nonnull %switch.load143)
+          to label %253 unwind label %255
 
 253:                                              ; preds = %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i.i
-  switch i32 %228, label %.invoke.i.i.i.i.i [
-    i32 0, label %255
-    i32 1, label %257
+  %254 = load ptr, ptr %7, align 8
+  switch i32 %228, label %default.unreachable29.i.i.i.i.i [
+    i32 0, label %257
+    i32 1, label %258
     i32 2, label %259
   ]
 
-.loopexit19.i:                                    ; preds = %259, %257, %255, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i.i
-  %lpad.loopexit.i = landingpad { ptr, i32 }
+255:                                              ; preds = %259, %258, %257, %_ZNSt12_Vector_baseIcSaIcEEC2EmRKS0_.exit.thread.i.i
+  %256 = landingpad { ptr, i32 }
           cleanup
-  br label %254
-
-.loopexit.split-lp.i:                             ; preds = %.invoke.i.i.i.i.i
-  %lpad.loopexit.split-lp.i = landingpad { ptr, i32 }
-          cleanup
-  br label %254
-
-254:                                              ; preds = %.loopexit.split-lp.i, %.loopexit19.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit19.i ], [ %lpad.loopexit.split-lp.i, %.loopexit.split-lp.i ]
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
   br label %common.resume
 
-255:                                              ; preds = %253
-  %256 = load ptr, ptr %7, align 8
-  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %256, i32 noundef %231, i1 noundef zeroext true)
-          to label %261 unwind label %.loopexit19.i
-
 257:                                              ; preds = %253
-  %258 = load ptr, ptr %7, align 8
-  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %258, i32 noundef %231, i1 noundef zeroext true)
-          to label %261 unwind label %.loopexit19.i
+  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %254, i32 noundef %231, i1 noundef zeroext true)
+          to label %260 unwind label %255
+
+258:                                              ; preds = %253
+  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %254, i32 noundef %231, i1 noundef zeroext true)
+          to label %260 unwind label %255
 
 259:                                              ; preds = %253
-  %260 = load ptr, ptr %7, align 8
-  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %260, i32 noundef %231, i1 noundef zeroext true)
-          to label %261 unwind label %.loopexit19.i
+  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull @.str.154, ptr noundef %254, i32 noundef %231, i1 noundef zeroext true)
+          to label %260 unwind label %255
 
-.invoke.i.i.i.i.i:                                ; preds = %253
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI19StatePullGroupEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont.i.i.i.i.i unwind label %.loopexit.split-lp.i
-
-.cont.i.i.i.i.i:                                  ; preds = %.invoke.i.i.i.i.i
+default.unreachable29.i.i.i.i.i:                  ; preds = %253
   unreachable
 
-261:                                              ; preds = %259, %257, %255
-  %262 = load ptr, ptr %7, align 8
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %262, null
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i, label %263
+260:                                              ; preds = %259, %258, %257
+  %261 = load ptr, ptr %7, align 8
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %261, null
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i, label %262
 
-263:                                              ; preds = %261
-  call void @_ZdlPv(ptr noundef nonnull %262) #24
+262:                                              ; preds = %260
+  call void @_ZdlPv(ptr noundef nonnull %261) #24
   br label %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i
 
 _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i: ; preds = %226, %.preheader.i56
@@ -6018,7 +5996,7 @@ _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i: ;
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
   br label %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit
 
-_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i: ; preds = %263, %261
+_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i: ; preds = %262, %260
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8)
@@ -6027,26 +6005,26 @@ _ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i: ; preds 
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %13)
-  %264 = add nuw nsw i32 %.01435.i, 1
-  %exitcond.not = icmp eq i32 %264, 3
+  %263 = add nuw nsw i32 %.01436.i, 1
+  %exitcond.not = icmp eq i32 %263, 3
   br i1 %exitcond.not, label %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit, label %.preheader.i56, !llvm.loop !55
 
 _ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit: ; preds = %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i
-  %265 = phi i1 [ false, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i ], [ true, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ]
-  %.us-phi46.i = phi i32 [ -1, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i ], [ 0, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ]
-  %266 = add nuw i64 %.091, 1
-  %267 = load ptr, ptr %110, align 8
-  %268 = load ptr, ptr %109, align 8
+  %264 = phi i1 [ false, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i ], [ true, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ]
+  %.us-phi47.i = phi i32 [ -1, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.thread.i ], [ 0, %_ZL14do_cpte_doubleI19StatePullGroupEntryEiP3XDRT_iPdP8_IO_FILE.exit.i ]
+  %265 = add nuw i64 %.092, 1
+  %266 = load ptr, ptr %110, align 8
+  %267 = load ptr, ptr %109, align 8
+  %268 = ptrtoint ptr %266 to i64
   %269 = ptrtoint ptr %267 to i64
-  %270 = ptrtoint ptr %268 to i64
-  %271 = sub i64 %269, %270
-  %272 = sdiv exact i64 %271, 24
-  %273 = icmp ult i64 %266, %272
-  %274 = and i1 %265, %273
-  br i1 %274, label %.preheader.i56.preheader, label %.loopexit, !llvm.loop !56
+  %270 = sub i64 %268, %269
+  %271 = sdiv exact i64 %270, 24
+  %272 = icmp ult i64 %265, %271
+  %273 = and i1 %264, %272
+  br i1 %273, label %.preheader.i56.preheader, label %.loopexit, !llvm.loop !56
 
 .loopexit:                                        ; preds = %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us, %.preheader, %101
-  %.2 = phi i32 [ 0, %101 ], [ %.044.lcssa, %.preheader ], [ %.us-phi46.i.us, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ %.us-phi46.i, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit ]
+  %.2 = phi i32 [ 0, %101 ], [ %.044.lcssa, %.preheader ], [ %.us-phi47.i.us, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit.us ], [ %.us-phi47.i, %_ZL18doCptPullGroupHistP3XDRP16PullGroupHistoryP8_IO_FILE.exit ]
   ret i32 %.2
 }
 
@@ -9611,7 +9589,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
           to label %17 unwind label %20
 
 17:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %.invoke [
+  switch i32 %3, label %default.unreachable29 [
     i32 0, label %22
     i32 1, label %27
     i32 2, label %36
@@ -9623,7 +9601,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   br label %44
 
-20:                                               ; preds = %.invoke, %36, %35, %33, %22, %switch.lookup1
+20:                                               ; preds = %36, %35, %33, %22, %switch.lookup1
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
@@ -9662,11 +9640,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
           to label %41 unwind label %20
 
-.invoke:                                          ; preds = %17
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI10StateEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont unwind label %20
-
-.cont:                                            ; preds = %.invoke
+default.unreachable29:                            ; preds = %17
   unreachable
 
 41:                                               ; preds = %22, %35, %33, %36
@@ -10093,8 +10067,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split61
   %100 = shl i32 %99, 2
   %101 = zext i32 %100 to i64
   %102 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %101, i64 noundef 1)
-  %trunc = trunc nuw i32 %42 to i1
-  %spec.select = select i1 %trunc, ptr @_Z9xdr_floatP3XDRPf, ptr @_Z7xdr_intP3XDRPi
+  %switch94 = icmp eq i32 %42, 0
+  %spec.select = select i1 %switch94, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit
 
 _ZL7xdrProc11XdrDataType.exit:                    ; preds = %97, %_ZL13sizeOfXdrType11XdrDataType.exit
@@ -10575,8 +10549,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit.i:           ; preds = %.split61.i
   %67 = shl i32 %66, 2
   %68 = zext i32 %67 to i64
   %69 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %68, i64 noundef 1)
-  %trunc.i = trunc nuw i32 %28 to i1
-  %spec.select.i = select i1 %trunc.i, ptr @_Z9xdr_floatP3XDRPf, ptr @_Z7xdr_intP3XDRPi
+  %switch10.i = icmp eq i32 %28, 0
+  %spec.select.i = select i1 %switch10.i, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit.i
 
 _ZL7xdrProc11XdrDataType.exit.i:                  ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit.i, %63
@@ -10659,7 +10633,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
           to label %17 unwind label %20
 
 17:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %.invoke [
+  switch i32 %3, label %default.unreachable29 [
     i32 0, label %22
     i32 1, label %27
     i32 2, label %36
@@ -10671,7 +10645,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   br label %44
 
-20:                                               ; preds = %.invoke, %36, %35, %33, %22, %switch.lookup1
+20:                                               ; preds = %36, %35, %33, %22, %switch.lookup1
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
@@ -10710,11 +10684,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
           to label %41 unwind label %20
 
-.invoke:                                          ; preds = %17
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI17StateKineticEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont unwind label %20
-
-.cont:                                            ; preds = %.invoke
+default.unreachable29:                            ; preds = %17
   unreachable
 
 41:                                               ; preds = %22, %35, %33, %36
@@ -11072,7 +11042,7 @@ switch.lookup:                                    ; preds = %5
   %12 = zext i32 %11 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %12, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %switch.lookup1 unwind label %17
+          to label %switch.lookup1 unwind label %21
 
 switch.lookup1:                                   ; preds = %switch.lookup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
@@ -11081,73 +11051,61 @@ switch.lookup1:                                   ; preds = %switch.lookup
   %switch.gep2 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.118, i64 0, i64 %14
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %15 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %13, i32 noundef %2, i32 noundef %switch.load, ptr noundef nonnull %switch.load3)
-          to label %16 unwind label %19
+          to label %16 unwind label %23
 
 16:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %.invoke [
-    i32 0, label %21
+  %17 = sext i32 %1 to i64
+  %18 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = load ptr, ptr %6, align 8
+  switch i32 %3, label %default.unreachable29 [
+    i32 0, label %25
     i32 1, label %26
-    i32 2, label %31
+    i32 2, label %27
   ]
 
-17:                                               ; preds = %switch.lookup
-  %18 = landingpad { ptr, i32 }
+21:                                               ; preds = %switch.lookup
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
-  br label %39
+  br label %31
 
-19:                                               ; preds = %.invoke, %31, %26, %21, %switch.lookup1
-  %20 = landingpad { ptr, i32 }
+23:                                               ; preds = %27, %26, %25, %switch.lookup1
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
-  br label %39
+  br label %31
 
-21:                                               ; preds = %16
-  %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %22
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef %4, i32 noundef 0, ptr noundef %24, ptr noundef %25, i32 noundef %2, i1 noundef zeroext true)
-          to label %36 unwind label %19
+25:                                               ; preds = %16
+  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef %4, i32 noundef 0, ptr noundef %19, ptr noundef %20, i32 noundef %2, i1 noundef zeroext true)
+          to label %28 unwind label %23
 
 26:                                               ; preds = %16
-  %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %27
-  %29 = load ptr, ptr %28, align 8
-  %30 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef %4, i32 noundef 0, ptr noundef %29, ptr noundef %30, i32 noundef %2, i1 noundef zeroext true)
-          to label %36 unwind label %19
+  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef %4, i32 noundef 0, ptr noundef %19, ptr noundef %20, i32 noundef %2, i1 noundef zeroext true)
+          to label %28 unwind label %23
 
-31:                                               ; preds = %16
-  %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds [12 x ptr], ptr @_ZZL17enumValueToString16StateEnergyEntryE21stateEnergyEntryNames, i64 0, i64 %32
-  %34 = load ptr, ptr %33, align 8
-  %35 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef %4, i32 noundef 0, ptr noundef %34, ptr noundef %35, i32 noundef %2, i1 noundef zeroext true)
-          to label %36 unwind label %19
+27:                                               ; preds = %16
+  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef %4, i32 noundef 0, ptr noundef %19, ptr noundef %20, i32 noundef %2, i1 noundef zeroext true)
+          to label %28 unwind label %23
 
-.invoke:                                          ; preds = %16
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI16StateEnergyEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont unwind label %19
-
-.cont:                                            ; preds = %.invoke
+default.unreachable29:                            ; preds = %16
   unreachable
 
-36:                                               ; preds = %21, %26, %31
-  %37 = load ptr, ptr %6, align 8
-  %.not.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %38
+28:                                               ; preds = %25, %26, %27
+  %29 = load ptr, ptr %6, align 8
+  %.not.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIcSaIcEED2Ev.exit, label %30
 
-38:                                               ; preds = %36
-  call void @_ZdlPv(ptr noundef nonnull %37) #24
+30:                                               ; preds = %28
+  call void @_ZdlPv(ptr noundef nonnull %29) #24
   br label %_ZNSt6vectorIcSaIcEED2Ev.exit
 
-_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %36, %38
+_ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %28, %30
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   ret void
 
-39:                                               ; preds = %19, %17
-  %.pn = phi { ptr, i32 } [ %20, %19 ], [ %18, %17 ]
+31:                                               ; preds = %23, %21
+  %.pn = phi { ptr, i32 } [ %24, %23 ], [ %22, %21 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -11359,8 +11317,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit:             ; preds = %.split61
   %100 = shl i32 %99, 2
   %101 = zext i32 %100 to i64
   %102 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %101, i64 noundef 1)
-  %trunc = trunc nuw i32 %42 to i1
-  %spec.select = select i1 %trunc, ptr @_Z9xdr_floatP3XDRPf, ptr @_Z7xdr_intP3XDRPi
+  %switch94 = icmp eq i32 %42, 0
+  %spec.select = select i1 %switch94, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit
 
 _ZL7xdrProc11XdrDataType.exit:                    ; preds = %97, %_ZL13sizeOfXdrType11XdrDataType.exit
@@ -11820,8 +11778,8 @@ _ZL13sizeOfXdrType11XdrDataType.exit.i.i:         ; preds = %.split61.i.i
   %60 = shl i32 %59, 2
   %61 = zext i32 %60 to i64
   %62 = call noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.89, ptr noundef nonnull @.str.3, i32 noundef 843, i64 noundef %61, i64 noundef 1)
-  %trunc.i.i = trunc nuw i32 %19 to i1
-  %spec.select.i.i = select i1 %trunc.i.i, ptr @_Z9xdr_floatP3XDRPf, ptr @_Z7xdr_intP3XDRPi
+  %switch11.i.i = icmp eq i32 %19, 0
+  %spec.select.i.i = select i1 %switch11.i.i, ptr @_Z7xdr_intP3XDRPi, ptr @_Z9xdr_floatP3XDRPf
   br label %_ZL7xdrProc11XdrDataType.exit.i.i
 
 _ZL7xdrProc11XdrDataType.exit.i.i:                ; preds = %_ZL13sizeOfXdrType11XdrDataType.exit.i.i, %56
@@ -11878,7 +11836,7 @@ switch.lookup:                                    ; preds = %73
   %79 = zext i32 %78 to i64
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   invoke void @_ZNSt6vectorIcSaIcEEC2EmRKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, i64 noundef %79, ptr noundef nonnull align 1 dereferenceable(1) %7)
-          to label %switch.lookup3 unwind label %84
+          to label %switch.lookup3 unwind label %88
 
 switch.lookup3:                                   ; preds = %switch.lookup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
@@ -11887,72 +11845,60 @@ switch.lookup3:                                   ; preds = %switch.lookup
   %switch.gep4 = getelementptr inbounds [3 x ptr], ptr @switch.table._ZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.118, i64 0, i64 %81
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   %82 = invoke noundef i32 @_Z10xdr_vectorP3XDRPcjjPFiS0_PvzE(ptr noundef %0, ptr noundef %80, i32 noundef %74, i32 noundef %switch.load, ptr noundef nonnull %switch.load5)
-          to label %83 unwind label %86
+          to label %83 unwind label %90
 
 83:                                               ; preds = %switch.lookup3
-  switch i32 %19, label %.invoke.i.i.i [
-    i32 0, label %88
+  %84 = sext i32 %1 to i64
+  %85 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %84
+  %86 = load ptr, ptr %85, align 8
+  %87 = load ptr, ptr %6, align 8
+  switch i32 %19, label %default.unreachable29.i.i.i [
+    i32 0, label %92
     i32 1, label %93
-    i32 2, label %98
+    i32 2, label %94
   ]
 
-84:                                               ; preds = %switch.lookup
-  %85 = landingpad { ptr, i32 }
+88:                                               ; preds = %switch.lookup
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #20
   br label %common.resume.i.i
 
-86:                                               ; preds = %.invoke.i.i.i, %98, %93, %88, %switch.lookup3
-  %87 = landingpad { ptr, i32 }
+90:                                               ; preds = %94, %93, %92, %switch.lookup3
+  %91 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #20
   br label %common.resume.i.i
 
-88:                                               ; preds = %83
-  %89 = sext i32 %1 to i64
-  %90 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %89
-  %91 = load ptr, ptr %90, align 8
-  %92 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %91, ptr noundef %92, i32 noundef %74, i1 noundef zeroext true)
-          to label %103 unwind label %86
+92:                                               ; preds = %83
+  invoke void @_Z7pr_ivecP8_IO_FILEiPKcPKiib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %86, ptr noundef %87, i32 noundef %74, i1 noundef zeroext true)
+          to label %95 unwind label %90
 
 93:                                               ; preds = %83
-  %94 = sext i32 %1 to i64
-  %95 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %94
-  %96 = load ptr, ptr %95, align 8
-  %97 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %96, ptr noundef %97, i32 noundef %74, i1 noundef zeroext true)
-          to label %103 unwind label %86
+  invoke void @_Z7pr_fvecP8_IO_FILEiPKcPKfib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %86, ptr noundef %87, i32 noundef %74, i1 noundef zeroext true)
+          to label %95 unwind label %90
 
-98:                                               ; preds = %83
-  %99 = sext i32 %1 to i64
-  %100 = getelementptr inbounds [7 x ptr], ptr @_ZZL17enumValueToString19StatePullCoordEntryE24statePullCoordEntryNames, i64 0, i64 %99
-  %101 = load ptr, ptr %100, align 8
-  %102 = load ptr, ptr %6, align 8
-  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %101, ptr noundef %102, i32 noundef %74, i1 noundef zeroext true)
-          to label %103 unwind label %86
+94:                                               ; preds = %83
+  invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef nonnull %4, i32 noundef 0, ptr noundef %86, ptr noundef %87, i32 noundef %74, i1 noundef zeroext true)
+          to label %95 unwind label %90
 
-.invoke.i.i.i:                                    ; preds = %83
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont.i.i.i unwind label %86
-
-.cont.i.i.i:                                      ; preds = %.invoke.i.i.i
+default.unreachable29.i.i.i:                      ; preds = %83
   unreachable
 
-103:                                              ; preds = %98, %93, %88
-  %104 = load ptr, ptr %6, align 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.exit.i.i, label %105
+95:                                               ; preds = %94, %93, %92
+  %96 = load ptr, ptr %6, align 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %96, null
+  br i1 %.not.i.i.i.i.i.i, label %_ZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.exit.i.i, label %97
 
-105:                                              ; preds = %103
-  call void @_ZdlPv(ptr noundef nonnull %104) #24
+97:                                               ; preds = %95
+  call void @_ZdlPv(ptr noundef nonnull %96) #24
   br label %_ZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.exit.i.i
 
-common.resume.i.i:                                ; preds = %86, %84, %48, %34
-  %common.resume.op.i.i = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %35, %34 ], [ %49, %48 ]
+common.resume.i.i:                                ; preds = %90, %88, %48, %34
+  %common.resume.op.i.i = phi { ptr, i32 } [ %91, %90 ], [ %89, %88 ], [ %35, %34 ], [ %49, %48 ]
   resume { ptr, i32 } %common.resume.op.i.i
 
-_ZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.exit.i.i: ; preds = %105, %103
+_ZL13listXdrVectorI19StatePullCoordEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementType.exit.i.i: ; preds = %97, %95
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
@@ -12223,7 +12169,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
           to label %17 unwind label %20
 
 17:                                               ; preds = %switch.lookup1
-  switch i32 %3, label %.invoke [
+  switch i32 %3, label %default.unreachable29 [
     i32 0, label %22
     i32 1, label %27
     i32 2, label %36
@@ -12235,7 +12181,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #20
   br label %44
 
-20:                                               ; preds = %.invoke, %36, %35, %33, %22, %switch.lookup1
+20:                                               ; preds = %36, %35, %33, %22, %switch.lookup1
   %21 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #20
@@ -12274,11 +12220,7 @@ switch.lookup1:                                   ; preds = %switch.lookup
   invoke void @_Z7pr_dvecP8_IO_FILEiPKcPKdib(ptr noundef %4, i32 noundef 0, ptr noundef %39, ptr noundef %40, i32 noundef %2, i1 noundef zeroext true)
           to label %41 unwind label %20
 
-.invoke:                                          ; preds = %17
-  invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef nonnull @__PRETTY_FUNCTION__._ZZL13listXdrVectorI13StateFepEntryEiP3XDRT_i11XdrDataTypeP8_IO_FILE14CptElementTypeENKUlvE_clEv, ptr noundef nonnull @.str.3, i32 noundef 666) #22
-          to label %.cont unwind label %20
-
-.cont:                                            ; preds = %.invoke
+default.unreachable29:                            ; preds = %17
   unreachable
 
 41:                                               ; preds = %22, %35, %33, %36

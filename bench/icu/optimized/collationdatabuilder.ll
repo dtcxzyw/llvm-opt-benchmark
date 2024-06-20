@@ -2119,16 +2119,16 @@ if.end5:                                          ; preds = %cond.false25.i, %co
   br i1 %cmp.i27.not87, label %while.body.lr.ph, label %while.end
 
 if.end5.thread:                                   ; preds = %if.end
-  %and.i2686118 = and i32 %call2, 192
-  %cmp.i27.not87119 = icmp eq i32 %and.i2686118, 192
-  br i1 %cmp.i27.not87119, label %while.body.lr.ph.thread, label %while.end
+  %and.i2686117 = and i32 %call2, 192
+  %cmp.i27.not87118 = icmp eq i32 %and.i2686117, 192
+  br i1 %cmp.i27.not87118, label %while.body.lr.ph.thread, label %while.end
 
 while.body.lr.ph.thread:                          ; preds = %if.end5.thread
-  %count.i.i122 = getelementptr inbounds i8, ptr %this, i64 80
-  %elements.i.i123 = getelementptr inbounds i8, ptr %this, i64 96
-  %base.i124 = getelementptr inbounds i8, ptr %this, i64 16
-  %count.i63125 = getelementptr inbounds i8, ptr %this, i64 48
-  %elements.i67126 = getelementptr inbounds i8, ptr %this, i64 64
+  %count.i.i121 = getelementptr inbounds i8, ptr %this, i64 80
+  %elements.i.i122 = getelementptr inbounds i8, ptr %this, i64 96
+  %base.i123 = getelementptr inbounds i8, ptr %this, i64 16
+  %count.i63124 = getelementptr inbounds i8, ptr %this, i64 48
+  %elements.i67125 = getelementptr inbounds i8, ptr %this, i64 64
   br label %while.body.preheader
 
 while.body.lr.ph:                                 ; preds = %if.end5
@@ -2140,12 +2140,12 @@ while.body.lr.ph:                                 ; preds = %if.end5
   br i1 %cmp.not.not.not.not, label %while.body.us, label %while.body.preheader
 
 while.body.preheader:                             ; preds = %while.body.lr.ph.thread, %while.body.lr.ph
-  %elements.i67135 = phi ptr [ %elements.i67126, %while.body.lr.ph.thread ], [ %elements.i67, %while.body.lr.ph ]
-  %count.i63134 = phi ptr [ %count.i63125, %while.body.lr.ph.thread ], [ %count.i63, %while.body.lr.ph ]
-  %base.i133 = phi ptr [ %base.i124, %while.body.lr.ph.thread ], [ %base.i, %while.body.lr.ph ]
-  %elements.i.i130 = phi ptr [ %elements.i.i123, %while.body.lr.ph.thread ], [ %elements.i.i, %while.body.lr.ph ]
-  %count.i.i128 = phi ptr [ %count.i.i122, %while.body.lr.ph.thread ], [ %count.i.i, %while.body.lr.ph ]
-  %ce32.0120127 = phi i32 [ %call2, %while.body.lr.ph.thread ], [ %16, %while.body.lr.ph ]
+  %elements.i67134 = phi ptr [ %elements.i67125, %while.body.lr.ph.thread ], [ %elements.i67, %while.body.lr.ph ]
+  %count.i63133 = phi ptr [ %count.i63124, %while.body.lr.ph.thread ], [ %count.i63, %while.body.lr.ph ]
+  %base.i132 = phi ptr [ %base.i123, %while.body.lr.ph.thread ], [ %base.i, %while.body.lr.ph ]
+  %elements.i.i129 = phi ptr [ %elements.i.i122, %while.body.lr.ph.thread ], [ %elements.i.i, %while.body.lr.ph ]
+  %count.i.i127 = phi ptr [ %count.i.i121, %while.body.lr.ph.thread ], [ %count.i.i, %while.body.lr.ph ]
+  %ce32.0119126 = phi i32 [ %call2, %while.body.lr.ph.thread ], [ %16, %while.body.lr.ph ]
   br label %while.body
 
 while.body.us:                                    ; preds = %while.body.lr.ph, %sw.epilog.us
@@ -2230,7 +2230,7 @@ default.unreachable:                              ; preds = %while.body
   unreachable
 
 while.body:                                       ; preds = %while.body.preheader, %sw.epilog
-  %ce32.188 = phi i32 [ %ce32.2, %sw.epilog ], [ %ce32.0120127, %while.body.preheader ]
+  %ce32.188 = phi i32 [ %ce32.2, %sw.epilog ], [ %ce32.0119126, %while.body.preheader ]
   %and.i29 = and i32 %ce32.188, 15
   switch i32 %and.i29, label %default.unreachable [
     i32 4, label %sw.bb
@@ -2280,12 +2280,12 @@ sw.bb14:                                          ; preds = %while.body
 
 if.then17:                                        ; preds = %sw.bb14
   %shr.i37 = lshr i32 %ce32.188, 13
-  %31 = load i32, ptr %count.i63134, align 8
+  %31 = load i32, ptr %count.i63133, align 8
   %cmp5.i = icmp sgt i32 %31, %shr.i37
   br i1 %cmp5.i, label %cond.true.i40, label %while.end
 
 cond.true.i40:                                    ; preds = %if.then17
-  %32 = load ptr, ptr %elements.i67135, align 8
+  %32 = load ptr, ptr %elements.i67134, align 8
   %idxprom.i41 = zext nneg i32 %shr.i37 to i64
   %arrayidx.i42 = getelementptr inbounds i32, ptr %32, i64 %idxprom.i41
   %33 = load i32, ptr %arrayidx.i42, align 4
@@ -2296,9 +2296,9 @@ if.else:                                          ; preds = %sw.bb14, %sw.bb14.u
   br label %return
 
 sw.bb23:                                          ; preds = %while.body, %while.body.us
-  %base.i132 = phi ptr [ %base.i, %while.body.us ], [ %base.i133, %while.body ]
-  %elements.i.i131 = phi ptr [ %elements.i.i, %while.body.us ], [ %elements.i.i130, %while.body ]
-  %count.i.i129 = phi ptr [ %count.i.i, %while.body.us ], [ %count.i.i128, %while.body ]
+  %base.i131 = phi ptr [ %base.i, %while.body.us ], [ %base.i132, %while.body ]
+  %elements.i.i130 = phi ptr [ %elements.i.i, %while.body.us ], [ %elements.i.i129, %while.body ]
+  %count.i.i128 = phi ptr [ %count.i.i, %while.body.us ], [ %count.i.i127, %while.body ]
   %.us-phi90 = phi i32 [ %ce32.188.us, %while.body.us ], [ %ce32.188, %while.body ]
   %34 = and i32 %.us-phi90, 7936
   %cmp25 = icmp eq i32 %34, 256
@@ -2309,7 +2309,7 @@ if.then26:                                        ; preds = %sw.bb23
   br i1 %cmp.not.not.not.not, label %cond.true30, label %cond.false34
 
 cond.true30:                                      ; preds = %if.then26
-  %35 = load ptr, ptr %base.i132, align 8
+  %35 = load ptr, ptr %base.i131, align 8
   %ces = getelementptr inbounds i8, ptr %35, i64 16
   %36 = load ptr, ptr %ces, align 8
   %idxprom32 = zext nneg i32 %shr.i45 to i64
@@ -2318,12 +2318,12 @@ cond.true30:                                      ; preds = %if.then26
   br label %return
 
 cond.false34:                                     ; preds = %if.then26
-  %38 = load i32, ptr %count.i.i129, align 8
+  %38 = load i32, ptr %count.i.i128, align 8
   %cmp2.i = icmp sgt i32 %38, %shr.i45
   br i1 %cmp2.i, label %cond.true.i49, label %return
 
 cond.true.i49:                                    ; preds = %cond.false34
-  %39 = load ptr, ptr %elements.i.i131, align 8
+  %39 = load ptr, ptr %elements.i.i130, align 8
   %idxprom.i51 = zext nneg i32 %shr.i45 to i64
   %arrayidx.i52 = getelementptr inbounds i64, ptr %39, i64 %idxprom.i51
   %40 = load i64, ptr %arrayidx.i52, align 8
@@ -2335,35 +2335,35 @@ if.else38:                                        ; preds = %sw.bb23
 
 sw.bb39:                                          ; preds = %while.body
   %shr.i53 = lshr i32 %ce32.188, 13
-  %41 = load i32, ptr %count.i63134, align 8
+  %41 = load i32, ptr %count.i63133, align 8
   %cmp5.i56 = icmp sgt i32 %41, %shr.i53
   br i1 %cmp5.i56, label %cond.true.i58, label %while.end
 
 cond.true.i58:                                    ; preds = %sw.bb39
-  %42 = load ptr, ptr %elements.i67135, align 8
+  %42 = load ptr, ptr %elements.i67134, align 8
   %idxprom.i60 = zext nneg i32 %shr.i53 to i64
   %arrayidx.i61 = getelementptr inbounds i32, ptr %42, i64 %idxprom.i60
   %43 = load i32, ptr %arrayidx.i61, align 4
   br label %sw.epilog
 
 sw.bb43:                                          ; preds = %while.body
-  %44 = load i32, ptr %count.i63134, align 8
+  %44 = load i32, ptr %count.i63133, align 8
   %cmp5.i64 = icmp sgt i32 %44, 0
   br i1 %cmp5.i64, label %cond.true.i66, label %while.end
 
 cond.true.i66:                                    ; preds = %sw.bb43
-  %45 = load ptr, ptr %elements.i67135, align 8
+  %45 = load ptr, ptr %elements.i67134, align 8
   %46 = load i32, ptr %45, align 4
   br label %sw.epilog
 
 sw.bb54:                                          ; preds = %while.body
   %shr.i.i = lshr i32 %ce32.188, 13
-  %47 = load i32, ptr %count.i.i128, align 8
+  %47 = load i32, ptr %count.i.i127, align 8
   %cmp2.i.i = icmp sgt i32 %47, %shr.i.i
   br i1 %cmp2.i.i, label %cond.true.i.i, label %_ZNK6icu_7520CollationDataBuilder21getCE32FromOffsetCE32Eaij.exit
 
 cond.true.i.i:                                    ; preds = %sw.bb54
-  %48 = load ptr, ptr %elements.i.i130, align 8
+  %48 = load ptr, ptr %elements.i.i129, align 8
   %idxprom.i.i = zext nneg i32 %shr.i.i to i64
   %arrayidx.i.i = getelementptr inbounds i64, ptr %48, i64 %idxprom.i.i
   %49 = load i64, ptr %arrayidx.i.i, align 8

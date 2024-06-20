@@ -821,11 +821,14 @@ switch.lookup:                                    ; preds = %4
   br i1 %.not23, label %cmsysProcess_SetPipeShared.exit, label %.thread
 
 .thread:                                          ; preds = %13
-  switch i32 %1, label %cmsysProcess_SetPipeShared.exit [
+  switch i32 %1, label %default.unreachable [
     i32 1, label %15
     i32 2, label %19
     i32 3, label %23
   ]
+
+default.unreachable:                              ; preds = %.thread
+  unreachable
 
 15:                                               ; preds = %.thread
   %16 = getelementptr inbounds i8, ptr %0, i64 2380
@@ -854,8 +857,8 @@ switch.lookup:                                    ; preds = %4
   store i32 0, ptr %26, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
-cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %12, %.thread, %23, %19, %15, %13, %3
-  %.017 = phi i32 [ 0, %3 ], [ 0, %4 ], [ 0, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %23 ], [ 1, %.thread ], [ 1, %12 ]
+cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %12, %23, %19, %15, %13, %3
+  %.017 = phi i32 [ 0, %3 ], [ 0, %4 ], [ 0, %13 ], [ 1, %15 ], [ 1, %19 ], [ 1, %23 ], [ 1, %12 ]
   ret i32 %.017
 }
 
@@ -1080,7 +1083,7 @@ switch.lookup:                                    ; preds = %4
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 2380
   %.not18 = icmp eq ptr %2, null
-  br i1 %.not18, label %.thread, label %11
+  br i1 %.not18, label %.thread, label %switch.lookup21
 
 .thread:                                          ; preds = %switch.lookup
   store i32 -1, ptr %9, align 4
@@ -1088,54 +1091,53 @@ switch.lookup:                                    ; preds = %4
   store i32 -1, ptr %10, align 4
   br label %cmsysProcess_SetPipeShared.exit
 
-11:                                               ; preds = %switch.lookup
-  %12 = load i32, ptr %2, align 4
-  store i32 %12, ptr %9, align 4
-  %13 = getelementptr inbounds i8, ptr %2, i64 4
-  %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds i8, ptr %8, i64 2384
-  store i32 %14, ptr %15, align 4
-  %switch.tableidx21 = add nsw i32 %1, -1
-  %16 = icmp ult i32 %switch.tableidx21, 3
-  br i1 %16, label %switch.lookup20, label %cmsysProcess_SetPipeShared.exit
+switch.lookup21:                                  ; preds = %switch.lookup
+  %11 = load i32, ptr %2, align 4
+  store i32 %11, ptr %9, align 4
+  %12 = getelementptr inbounds i8, ptr %2, i64 4
+  %13 = load i32, ptr %12, align 4
+  %14 = getelementptr inbounds i8, ptr %8, i64 2384
+  store i32 %13, ptr %14, align 4
+  %switch.tableidx22 = add nsw i32 %1, -1
+  %switch.idx.cast23 = zext i32 %switch.tableidx22 to i64
+  %switch.idx.mult24 = shl nuw nsw i64 %switch.idx.cast23, 3
+  %15 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult24
+  %16 = getelementptr inbounds i8, ptr %15, i64 2344
+  %17 = load ptr, ptr %16, align 8
+  %.not21.i = icmp eq ptr %17, null
+  br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %18
 
-switch.lookup20:                                  ; preds = %11
-  %17 = shl nuw nsw i32 %switch.tableidx21, 3
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 2344
-  %21 = load ptr, ptr %20, align 8
-  %.not21.i = icmp eq ptr %21, null
-  br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %22
-
-22:                                               ; preds = %switch.lookup20
-  tail call void @free(ptr noundef nonnull %21) #25
-  store ptr null, ptr %20, align 8
+18:                                               ; preds = %switch.lookup21
+  tail call void @free(ptr noundef nonnull %17) #25
+  store ptr null, ptr %16, align 8
   br label %cmsysProcess_SetPipeFile.exit
 
-cmsysProcess_SetPipeFile.exit:                    ; preds = %22, %switch.lookup20
-  switch i32 %1, label %cmsysProcess_SetPipeShared.exit [
-    i32 1, label %23
-    i32 2, label %25
-    i32 3, label %27
+cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup21
+  switch i32 %1, label %default.unreachable20 [
+    i32 1, label %19
+    i32 2, label %21
+    i32 3, label %23
   ]
 
+19:                                               ; preds = %cmsysProcess_SetPipeFile.exit
+  %20 = getelementptr inbounds i8, ptr %0, i64 2368
+  store i32 0, ptr %20, align 8
+  br label %cmsysProcess_SetPipeShared.exit
+
+21:                                               ; preds = %cmsysProcess_SetPipeFile.exit
+  %22 = getelementptr inbounds i8, ptr %0, i64 2372
+  store i32 0, ptr %22, align 4
+  br label %cmsysProcess_SetPipeShared.exit
+
 23:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %24 = getelementptr inbounds i8, ptr %0, i64 2368
+  %24 = getelementptr inbounds i8, ptr %0, i64 2376
   store i32 0, ptr %24, align 8
   br label %cmsysProcess_SetPipeShared.exit
 
-25:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %26 = getelementptr inbounds i8, ptr %0, i64 2372
-  store i32 0, ptr %26, align 4
-  br label %cmsysProcess_SetPipeShared.exit
+default.unreachable20:                            ; preds = %cmsysProcess_SetPipeFile.exit
+  unreachable
 
-27:                                               ; preds = %cmsysProcess_SetPipeFile.exit
-  %28 = getelementptr inbounds i8, ptr %0, i64 2376
-  store i32 0, ptr %28, align 8
-  br label %cmsysProcess_SetPipeShared.exit
-
-cmsysProcess_SetPipeShared.exit:                  ; preds = %11, %4, %cmsysProcess_SetPipeFile.exit, %27, %25, %23, %.thread, %3
+cmsysProcess_SetPipeShared.exit:                  ; preds = %4, %23, %21, %19, %.thread, %3
   ret void
 }
 
@@ -1174,43 +1176,35 @@ define dso_local void @cmsysProcess_SetPipeShared(ptr noundef %0, i32 noundef %1
 
 14:                                               ; preds = %11, %8, %5
   %.not15 = icmp eq i32 %2, 0
-  br i1 %.not15, label %cmsysProcess_SetPipeNative.exit, label %15
+  br i1 %.not15, label %cmsysProcess_SetPipeNative.exit, label %switch.lookup
 
-15:                                               ; preds = %14
-  %switch.tableidx = add i32 %1, -1
-  %16 = icmp ult i32 %switch.tableidx, 3
-  br i1 %16, label %switch.lookup, label %cmsysProcess_SetPipeNative.exit
+switch.lookup:                                    ; preds = %14
+  %switch.tableidx = add nsw i32 %1, -1
+  %switch.idx.cast = zext i32 %switch.tableidx to i64
+  %switch.idx.mult = shl nuw nsw i64 %switch.idx.cast, 3
+  %15 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult
+  %16 = getelementptr inbounds i8, ptr %15, i64 2344
+  %17 = load ptr, ptr %16, align 8
+  %.not21.i = icmp eq ptr %17, null
+  br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %18
 
-switch.lookup:                                    ; preds = %15
-  %17 = shl nuw nsw i32 %switch.tableidx, 3
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = getelementptr inbounds i8, ptr %19, i64 2344
-  %21 = load ptr, ptr %20, align 8
-  %.not21.i = icmp eq ptr %21, null
-  br i1 %.not21.i, label %cmsysProcess_SetPipeFile.exit, label %22
-
-22:                                               ; preds = %switch.lookup
-  tail call void @free(ptr noundef nonnull %21) #25
-  store ptr null, ptr %20, align 8
+18:                                               ; preds = %switch.lookup
+  tail call void @free(ptr noundef nonnull %17) #25
+  store ptr null, ptr %16, align 8
   br label %cmsysProcess_SetPipeFile.exit
 
-cmsysProcess_SetPipeFile.exit:                    ; preds = %22, %switch.lookup
-  %switch.tableidx18 = add nsw i32 %1, -1
-  %23 = icmp ult i32 %switch.tableidx18, 3
-  br i1 %23, label %switch.lookup17, label %cmsysProcess_SetPipeNative.exit
-
-switch.lookup17:                                  ; preds = %cmsysProcess_SetPipeFile.exit
-  %24 = shl nuw nsw i32 %switch.tableidx18, 3
-  %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds i8, ptr %0, i64 %25
-  %27 = getelementptr inbounds i8, ptr %26, i64 2380
-  store i32 -1, ptr %27, align 4
-  %28 = getelementptr inbounds i8, ptr %26, i64 2384
-  store i32 -1, ptr %28, align 4
+cmsysProcess_SetPipeFile.exit:                    ; preds = %18, %switch.lookup
+  %switch.tableidx19 = add nsw i32 %1, -1
+  %switch.idx.cast20 = zext i32 %switch.tableidx19 to i64
+  %switch.idx.mult21 = shl nuw nsw i64 %switch.idx.cast20, 3
+  %19 = getelementptr inbounds i8, ptr %0, i64 %switch.idx.mult21
+  %20 = getelementptr inbounds i8, ptr %19, i64 2380
+  store i32 -1, ptr %20, align 4
+  %21 = getelementptr inbounds i8, ptr %19, i64 2384
+  store i32 -1, ptr %21, align 4
   br label %cmsysProcess_SetPipeNative.exit
 
-cmsysProcess_SetPipeNative.exit:                  ; preds = %cmsysProcess_SetPipeFile.exit, %15, %switch.lookup17, %4, %3, %14
+cmsysProcess_SetPipeNative.exit:                  ; preds = %cmsysProcess_SetPipeFile.exit, %4, %3, %14
   ret void
 }
 

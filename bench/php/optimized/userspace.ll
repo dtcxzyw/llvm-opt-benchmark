@@ -1125,7 +1125,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
 35:                                               ; preds = %28, %25
   %.0 = phi i32 [ %27, %25 ], [ -1, %28 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
-  br label %.sink.split307
+  br label %.sink.split
 
 36:                                               ; preds = %4
   store i64 0, ptr %7, align 16
@@ -1217,7 +1217,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   %.1 = phi i32 [ %65, %63 ], [ -1, %68 ], [ -2, %49 ], [ 0, %66 ], [ -2, %59 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %5) #11
-  br label %.sink.split307
+  br label %.sink.split
 
 76:                                               ; preds = %4
   %77 = tail call noalias ptr @_emalloc_40() #11
@@ -1235,7 +1235,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   store ptr %77, ptr %5, align 8
   %83 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 262, ptr %83, align 8
-  switch i32 %2, label %.sink.split307 [
+  switch i32 %2, label %.sink.split [
     i32 0, label %84
     i32 1, label %88
   ]
@@ -1246,12 +1246,12 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   %87 = call zeroext i1 @zend_is_callable_ex(ptr noundef nonnull %5, ptr noundef %86, i32 noundef 2, ptr noundef null, ptr noundef null, ptr noundef null) #11
   %not. = xor i1 %87, true
   %. = sext i1 %not. to i32
-  br label %.sink.split307
+  br label %.sink.split
 
 88:                                               ; preds = %76
   %89 = load i64, ptr %3, align 8
   %90 = icmp sgt i64 %89, -1
-  br i1 %90, label %91, label %.sink.split307
+  br i1 %90, label %91, label %.sink.split
 
 91:                                               ; preds = %88
   store i64 %89, ptr %7, align 16
@@ -1301,7 +1301,7 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   %.2 = phi i32 [ %101, %99 ], [ -2, %102 ], [ -2, %109 ]
   call void @zval_ptr_dtor(ptr noundef nonnull %6) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
-  br label %.sink.split307
+  br label %.sink.split
 
 117:                                              ; preds = %4, %4, %4, %4
   %118 = tail call noalias ptr @_emalloc_48() #11
@@ -1325,11 +1325,10 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   store i32 4, ptr %126, align 8
   %127 = getelementptr inbounds i8, ptr %7, i64 16
   %128 = getelementptr inbounds i8, ptr %7, i64 24
-  store i32 1, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %7, i64 32
   %130 = getelementptr inbounds i8, ptr %7, i64 40
   store i32 1, ptr %130, align 8
-  switch i32 %1, label %139 [
+  switch i32 %1, label %default.unreachable [
     i32 2, label %131
     i32 3, label %131
     i32 4, label %136
@@ -1346,11 +1345,11 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
 133:                                              ; preds = %131
   %134 = load i64, ptr %3, align 8
   store i64 %134, ptr %129, align 16
-  br label %.sink.split
+  br label %139
 
 135:                                              ; preds = %131
   store i64 8192, ptr %129, align 16
-  br label %.sink.split
+  br label %139
 
 136:                                              ; preds = %117
   %.sroa.0.0.copyload = load i64, ptr %3, align 8
@@ -1359,19 +1358,19 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   store i64 %.sroa.0.0.copyload, ptr %127, align 16
   store i32 4, ptr %128, align 8
   store i64 %.sroa.2.0.copyload, ptr %129, align 16
-  br label %.sink.split
+  br label %139
 
 137:                                              ; preds = %117
   %138 = sext i32 %2 to i64
   store i64 %138, ptr %127, align 16
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %136, %137, %135, %133
-  %.sink = phi ptr [ %130, %133 ], [ %130, %135 ], [ %128, %137 ], [ %130, %136 ]
-  store i32 4, ptr %.sink, align 8
   br label %139
 
-139:                                              ; preds = %.sink.split, %117
+default.unreachable:                              ; preds = %117
+  unreachable
+
+139:                                              ; preds = %133, %135, %137, %136
+  %.sink = phi ptr [ %130, %133 ], [ %130, %135 ], [ %128, %137 ], [ %130, %136 ]
+  store i32 4, ptr %.sink, align 8
   %140 = getelementptr inbounds i8, ptr %9, i64 8
   %.val305 = load ptr, ptr %140, align 8
   %141 = call i32 @zend_call_method_if_exists(ptr noundef %.val305, ptr noundef nonnull %118, ptr noundef nonnull %6, i32 noundef 3, ptr noundef nonnull %7) #11
@@ -1400,16 +1399,16 @@ define internal range(i32 -2, 2) i32 @php_userstreamop_set_option(ptr nocapture 
   call void @zval_ptr_dtor(ptr noundef nonnull %129) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %127) #11
   call void @zval_ptr_dtor(ptr noundef nonnull %7) #11
-  br label %.sink.split307
+  br label %.sink.split
 
-.sink.split307:                                   ; preds = %76, %116, %84, %88, %35, %75, %152
-  %.sink308 = phi ptr [ %5, %152 ], [ %7, %75 ], [ %5, %35 ], [ %5, %88 ], [ %5, %84 ], [ %5, %116 ], [ %5, %76 ]
+.sink.split:                                      ; preds = %76, %116, %84, %88, %35, %75, %152
+  %.sink307 = phi ptr [ %5, %152 ], [ %7, %75 ], [ %5, %35 ], [ %5, %88 ], [ %5, %84 ], [ %5, %116 ], [ %5, %76 ]
   %.5.ph = phi i32 [ %.4, %152 ], [ %.1, %75 ], [ %.0, %35 ], [ -1, %88 ], [ %., %84 ], [ %.2, %116 ], [ -2, %76 ]
-  call void @zval_ptr_dtor(ptr noundef nonnull %.sink308) #11
+  call void @zval_ptr_dtor(ptr noundef nonnull %.sink307) #11
   br label %153
 
-153:                                              ; preds = %.sink.split307, %4
-  %.5 = phi i32 [ -2, %4 ], [ %.5.ph, %.sink.split307 ]
+153:                                              ; preds = %.sink.split, %4
+  %.5 = phi i32 [ -2, %4 ], [ %.5.ph, %.sink.split ]
   ret i32 %.5
 }
 

@@ -320,24 +320,15 @@ define dso_local noundef i32 @cgroup_p_initialize(i32 noundef %0) local_unnamed_
   br label %_cgroup_init.exit.thread
 
 _cgroup_init.exit:                                ; preds = %21
-  switch i32 %0, label %29 [
-    i32 0, label %_cgroup_init.exit.thread
-    i32 1, label %_cgroup_init.exit.thread
-    i32 2, label %27
-    i32 3, label %_cgroup_init.exit.thread
-    i32 4, label %_cgroup_init.exit.thread
-  ]
+  %switch = icmp eq i32 %0, 2
+  br i1 %switch, label %27, label %_cgroup_init.exit.thread
 
 27:                                               ; preds = %_cgroup_init.exit
   %28 = tail call i32 @common_cgroup_set_param(ptr noundef nonnull %16, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.8) #11
   br label %_cgroup_init.exit.thread
 
-29:                                               ; preds = %_cgroup_init.exit
-  %30 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9, i32 noundef %0) #11
-  br label %_cgroup_init.exit.thread
-
-_cgroup_init.exit.thread:                         ; preds = %5, %24, %18, %12, %27, %29, %_cgroup_init.exit, %_cgroup_init.exit, %_cgroup_init.exit, %_cgroup_init.exit, %1
-  %.09 = phi i32 [ 0, %1 ], [ -1, %29 ], [ 0, %27 ], [ 0, %_cgroup_init.exit ], [ 0, %_cgroup_init.exit ], [ 0, %_cgroup_init.exit ], [ 0, %_cgroup_init.exit ], [ -1, %12 ], [ -1, %18 ], [ -1, %24 ], [ -1, %5 ]
+_cgroup_init.exit.thread:                         ; preds = %_cgroup_init.exit, %5, %24, %18, %12, %27, %1
+  %.09 = phi i32 [ 0, %1 ], [ 0, %27 ], [ 0, %_cgroup_init.exit ], [ -1, %12 ], [ -1, %18 ], [ -1, %24 ], [ -1, %5 ]
   ret i32 %.09
 }
 

@@ -3533,7 +3533,7 @@ sw.bb7.i.i.i:                                     ; preds = %while.body.i.i.i
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
   unreachable
 
-default.unreachable:                              ; preds = %if.end.i.i.i
+default.unreachable27:                            ; preds = %if.end.i.i.i
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
@@ -3577,7 +3577,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   %c.017.i.i.i = load ptr, ptr %c.017.in.i.i.i, align 8
   %bf.load.i.i.i.i7 = load i32, ptr %c.017.i.i.i, align 8
   %bf.lshr.i.i.i.i8 = lshr i32 %bf.load.i.i.i.i7, 30
-  switch i32 %bf.lshr.i.i.i.i8, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i8, label %default.unreachable27 [
     i32 0, label %sw.bb.i.i.i9
     i32 1, label %sw.bb.i.i.i9
     i32 2, label %sw.epilog.i.i.i
@@ -3706,7 +3706,7 @@ sw.bb7.i.i.i:                                     ; preds = %while.body.i.i.i
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
   unreachable
 
-default.unreachable:                              ; preds = %if.end.i.i.i, %if.end.i.i.i38
+default.unreachable160:                           ; preds = %if.end.i.i.i, %if.end.i.i.i38
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
@@ -3764,7 +3764,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   %c.017.i.i.i = load ptr, ptr %c.017.in.i.i.i, align 8
   %bf.load.i.i.i.i24 = load i32, ptr %c.017.i.i.i, align 8
   %bf.lshr.i.i.i.i25 = lshr i32 %bf.load.i.i.i.i24, 30
-  switch i32 %bf.lshr.i.i.i.i25, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i25, label %default.unreachable160 [
     i32 0, label %sw.bb.i.i.i27
     i32 1, label %sw.bb.i.i.i27
     i32 2, label %sw.epilog.i.i.i
@@ -4180,7 +4180,7 @@ if.end.i.i.i38:                                   ; preds = %sw.epilog.i.i.i47, 
   %c.017.i.i.i41 = load ptr, ptr %c.017.in.i.i.i39, align 8
   %bf.load.i.i.i.i42 = load i32, ptr %c.017.i.i.i41, align 8
   %bf.lshr.i.i.i.i43 = lshr i32 %bf.load.i.i.i.i42, 30
-  switch i32 %bf.lshr.i.i.i.i43, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i43, label %default.unreachable160 [
     i32 0, label %sw.bb.i.i.i54
     i32 1, label %sw.bb.i.i.i54
     i32 2, label %sw.epilog.i.i.i47
@@ -4492,7 +4492,7 @@ sw.bb7.i.i.i:                                     ; preds = %while.body.i.i.i
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
   unreachable
 
-default.unreachable:                              ; preds = %if.end.i.i.i, %if.end.i.i.i28
+default.unreachable84:                            ; preds = %if.end.i.i.i, %if.end.i.i.i28
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
@@ -4551,7 +4551,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   %c.017.i.i.i = load ptr, ptr %c.017.in.i.i.i, align 8
   %bf.load.i.i.i.i15 = load i32, ptr %c.017.i.i.i, align 8
   %bf.lshr.i.i.i.i16 = lshr i32 %bf.load.i.i.i.i15, 30
-  switch i32 %bf.lshr.i.i.i.i16, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i16, label %default.unreachable84 [
     i32 0, label %sw.bb.i.i.i18
     i32 1, label %sw.bb.i.i.i18
     i32 2, label %sw.epilog.i.i.i
@@ -4721,7 +4721,7 @@ if.end.i.i.i28:                                   ; preds = %sw.epilog.i.i.i37, 
   %c.017.i.i.i31 = load ptr, ptr %c.017.in.i.i.i29, align 8
   %bf.load.i.i.i.i32 = load i32, ptr %c.017.i.i.i31, align 8
   %bf.lshr.i.i.i.i33 = lshr i32 %bf.load.i.i.i.i32, 30
-  switch i32 %bf.lshr.i.i.i.i33, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i33, label %default.unreachable84 [
     i32 0, label %sw.bb.i.i.i44
     i32 1, label %sw.bb.i.i.i44
     i32 2, label %sw.epilog.i.i.i37
@@ -4879,7 +4879,7 @@ sw.bb7.i.i.i:                                     ; preds = %while.body.i.i.i
 while.body.i.i.i.unreachabledefault:              ; preds = %while.body.i.i.i
   unreachable
 
-default.unreachable:                              ; preds = %while.body.i.i.i11, %if.end.i.i.i, %while.body.i.i.i25, %if.end.i.i.i36, %if.end.i.i.i71
+default.unreachable136:                           ; preds = %while.body.i.i.i11, %if.end.i.i.i, %while.body.i.i.i25, %if.end.i.i.i36, %if.end.i.i.i71
   unreachable
 
 _ZNK4goal4sizeEv.exit:                            ; preds = %sw.bb3.i.i.i, %sw.bb5.i.i.i, %sw.bb7.i.i.i
@@ -4906,7 +4906,7 @@ while.body.i.i.i11:                               ; preds = %for.body, %sw.bb.i.
   %c.0.i.i.i12 = phi ptr [ %11, %sw.bb.i.i.i22 ], [ %9, %for.body ]
   %bf.load.i.i.i.i13 = load i32, ptr %c.0.i.i.i12, align 8
   %bf.lshr.i.i.i.i14 = lshr i32 %bf.load.i.i.i.i13, 30
-  switch i32 %bf.lshr.i.i.i.i14, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i14, label %default.unreachable136 [
     i32 0, label %sw.bb.i.i.i22
     i32 1, label %sw.bb3.i.i.i20
     i32 2, label %sw.bb5.i.i.i18
@@ -4960,7 +4960,7 @@ if.end.i.i.i:                                     ; preds = %sw.epilog.i.i.i, %c
   %c.017.i.i.i = load ptr, ptr %c.017.in.i.i.i, align 8
   %bf.load.i.i.i2.i = load i32, ptr %c.017.i.i.i, align 8
   %bf.lshr.i.i.i3.i = lshr i32 %bf.load.i.i.i2.i, 30
-  switch i32 %bf.lshr.i.i.i3.i, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i3.i, label %default.unreachable136 [
     i32 0, label %sw.bb.i.i5.i
     i32 1, label %sw.bb.i.i5.i
     i32 2, label %sw.epilog.i.i.i
@@ -5005,7 +5005,7 @@ while.body.i.i.i25:                               ; preds = %if.then, %sw.bb.i.i
   %c.0.i.i.i26 = phi ptr [ %31, %sw.bb.i.i.i63 ], [ %28, %if.then ]
   %bf.load.i.i.i.i27 = load i32, ptr %c.0.i.i.i26, align 8
   %bf.lshr.i.i.i.i28 = lshr i32 %bf.load.i.i.i.i27, 30
-  switch i32 %bf.lshr.i.i.i.i28, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i28, label %default.unreachable136 [
     i32 0, label %sw.bb.i.i.i63
     i32 1, label %sw.bb3.i.i.i61
     i32 2, label %sw.bb5.i.i.i59
@@ -5059,7 +5059,7 @@ if.end.i.i.i36:                                   ; preds = %sw.epilog.i.i.i47, 
   %c.017.i.i.i39 = load ptr, ptr %c.017.in.i.i.i37, align 8
   %bf.load.i.i.i2.i40 = load i32, ptr %c.017.i.i.i39, align 8
   %bf.lshr.i.i.i3.i41 = lshr i32 %bf.load.i.i.i2.i40, 30
-  switch i32 %bf.lshr.i.i.i3.i41, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i3.i41, label %default.unreachable136 [
     i32 0, label %sw.bb.i.i5.i54
     i32 1, label %sw.bb.i.i5.i54
     i32 2, label %sw.epilog.i.i.i47
@@ -5141,7 +5141,7 @@ if.end.i.i.i71:                                   ; preds = %sw.epilog.i.i.i80, 
   %c.017.i.i.i74 = load ptr, ptr %c.017.in.i.i.i72, align 8
   %bf.load.i.i.i.i75 = load i32, ptr %c.017.i.i.i74, align 8
   %bf.lshr.i.i.i.i76 = lshr i32 %bf.load.i.i.i.i75, 30
-  switch i32 %bf.lshr.i.i.i.i76, label %default.unreachable [
+  switch i32 %bf.lshr.i.i.i.i76, label %default.unreachable136 [
     i32 0, label %sw.bb.i.i.i87
     i32 1, label %sw.bb.i.i.i87
     i32 2, label %sw.epilog.i.i.i80
@@ -10734,7 +10734,7 @@ while.body:                                       ; preds = %if.end, %entry
   %bf.load.i = phi i32 [ %bf.load.i.pre, %entry ], [ %bf.set, %if.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %next.0, %if.end ]
   %bf.lshr.i = lshr i32 %bf.load.i, 30
-  switch i32 %bf.lshr.i, label %default.unreachable [
+  switch i32 %bf.lshr.i, label %default.unreachable25 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.epilog
@@ -10815,7 +10815,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %12, i64 noundef %add.i, ptr noundef nonnull %arrayidx.i.i)
   br label %sw.epilog.thread
 
-default.unreachable:                              ; preds = %while.body
+default.unreachable25:                            ; preds = %while.body
   unreachable
 
 sw.epilog.thread:                                 ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -10860,7 +10860,7 @@ while.body:                                       ; preds = %if.end, %entry
   %bf.load.i = phi i32 [ %bf.load.i.pre, %entry ], [ %bf.set, %if.end ]
   %c.addr.0 = phi ptr [ %c, %entry ], [ %next.0, %if.end ]
   %bf.lshr.i = lshr i32 %bf.load.i, 30
-  switch i32 %bf.lshr.i, label %default.unreachable [
+  switch i32 %bf.lshr.i, label %default.unreachable29 [
     i32 0, label %sw.bb
     i32 1, label %sw.bb
     i32 2, label %sw.epilog
@@ -10947,7 +10947,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %10, i64 noundef %add.i, ptr noundef nonnull %arrayidx.i.i)
   br label %sw.epilog.thread
 
-default.unreachable:                              ; preds = %while.body
+default.unreachable29:                            ; preds = %while.body
   unreachable
 
 sw.epilog.thread:                                 ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refEjPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i
@@ -11895,7 +11895,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %26 = load ptr, ptr %arrayidx.i18, align 8
   %bf.load.i19 = load i32, ptr %26, align 8
   %bf.lshr.i20 = lshr i32 %bf.load.i19, 30
-  switch i32 %bf.lshr.i20, label %default.unreachable [
+  switch i32 %bf.lshr.i20, label %default.unreachable70 [
     i32 0, label %sw.bb
     i32 2, label %sw.bb8
     i32 1, label %sw.bb9
@@ -12055,7 +12055,7 @@ sw.bb11:                                          ; preds = %for.body
   tail call void @exit(i32 noundef 114) #18
   unreachable
 
-default.unreachable:                              ; preds = %for.body
+default.unreachable70:                            ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.then2.i.i.i35, %if.then.i.i.i31, %sw.bb8, %_ZN14parray_managerIN11ast_manager17expr_array_configEE10rpush_backERPP4exprRjRKS4_.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE4rsetEPP4exprjRKS4_.exit
@@ -12624,7 +12624,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %25 = load ptr, ptr %arrayidx.i18, align 8
   %bf.load.i19 = load i32, ptr %25, align 8
   %bf.lshr.i20 = lshr i32 %bf.load.i19, 30
-  switch i32 %bf.lshr.i20, label %default.unreachable [
+  switch i32 %bf.lshr.i20, label %default.unreachable53 [
     i32 0, label %sw.bb
     i32 2, label %sw.bb8
     i32 1, label %sw.bb9
@@ -12714,7 +12714,7 @@ sw.bb11:                                          ; preds = %for.body
   call void @exit(i32 noundef 114) #18
   unreachable
 
-default.unreachable:                              ; preds = %for.body
+default.unreachable53:                            ; preds = %for.body
   unreachable
 
 sw.epilog:                                        ; preds = %if.then6.i.i.i.i41, %if.then.i.i.i.i34, %sw.bb8, %sw.bb9, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE4rsetEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyEjRKS7_.exit
