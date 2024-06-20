@@ -6482,8 +6482,8 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
   %16 = icmp slt i64 %15, 0
   br i1 %trunc.i, label %20, label %18
 
-17:                                               ; preds = %.thread63
-  br i1 %.11531, label %45, label %46
+17:                                               ; preds = %45
+  br i1 %.11531, label %46, label %47
 
 18:                                               ; preds = %4
   br i1 %16, label %19, label %23
@@ -6502,7 +6502,7 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
 .thread:                                          ; preds = %23
   %22 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread63
+  br label %45
 
 23:                                               ; preds = %18, %20
   %24 = phi i64 [ 0, %18 ], [ 1, %20 ]
@@ -6569,7 +6569,7 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
   invoke fastcc void @"_ZN4core3ptr236drop_in_place$LT$alloc..sync..Arc$LT$std..sync..rwlock..RwLock$LT$hashbrown..map..HashMap$LT$ockam_core..routing..transport_type..TransportType$C$alloc..sync..Arc$LT$dyn$u20$ockam_transport_core..transport..Transport$GT$$GT$$GT$$GT$$GT$17h734be5b8b2457b22E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #30
           to label %.thread58 unwind label %42
 
-42:                                               ; preds = %.thread54, %45, %.thread63, %.thread49, %44, %.thread58, %40
+42:                                               ; preds = %.thread54, %46, %45, %44, %.thread42, %.thread58, %40
   %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #31
@@ -6577,32 +6577,32 @@ define void @"_ZN10ockam_node7context17context_lifecycle55_$LT$impl$u20$ockam_no
 
 .thread58:                                        ; preds = %40
   invoke fastcc void @"_ZN4core3ptr122drop_in_place$LT$core..option..Option$LT$tokio..sync..oneshot..Sender$LT$ockam_core..routing..address..Address$GT$$GT$$GT$17hd886998ce4024bf5E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7) #30
+          to label %.thread42 unwind label %42
+
+.thread42:                                        ; preds = %.thread58
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes$GT$17h11526744c07459c4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #30
           to label %44 unwind label %42
 
-44:                                               ; preds = %.thread58
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes$GT$17h11526744c07459c4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %8) #30
-          to label %.thread49 unwind label %42
-
-.thread49:                                        ; preds = %44
+44:                                               ; preds = %.thread42
   invoke void @"_ZN4core3ptr96drop_in_place$LT$tokio..sync..mpsc..bounded..Sender$LT$ockam_node..messages..NodeMessage$GT$$GT$17h72b478b1e99a6a9bE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9) #30
-          to label %.thread63 unwind label %42
+          to label %45 unwind label %42
 
-.thread63:                                        ; preds = %.thread49, %.thread
-  %.11531 = phi i1 [ true, %.thread ], [ false, %.thread49 ]
-  %.pn.pn30 = phi { ptr, i32 } [ %22, %.thread ], [ %41, %.thread49 ]
+45:                                               ; preds = %44, %.thread
+  %.11531 = phi i1 [ true, %.thread ], [ false, %44 ]
+  %.pn.pn30 = phi { ptr, i32 } [ %22, %.thread ], [ %41, %44 ]
   invoke void @"_ZN4core3ptr51drop_in_place$LT$tokio..runtime..handle..Handle$GT$17h67b9598334a6afaeE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10) #30
           to label %17 unwind label %42
 
-45:                                               ; preds = %17
+46:                                               ; preds = %17
   invoke void @"_ZN4core3ptr94drop_in_place$LT$tokio..sync..oneshot..Sender$LT$ockam_core..routing..address..Address$GT$$GT$17hc6b9b4d9fd91ec5cE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %11) #30
           to label %.thread54 unwind label %42
 
-46:                                               ; preds = %17, %.thread54
+47:                                               ; preds = %17, %.thread54
   resume { ptr, i32 } %.pn.pn30
 
-.thread54:                                        ; preds = %45
+.thread54:                                        ; preds = %46
   invoke void @"_ZN4core3ptr60drop_in_place$LT$ockam_core..routing..mailbox..Mailboxes$GT$17h11526744c07459c4E"(ptr noalias noundef nonnull align 8 dereferenceable(88) %2) #30
-          to label %46 unwind label %42
+          to label %47 unwind label %42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
